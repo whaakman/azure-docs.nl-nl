@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: b211ede7ef90fb1aef3a6d6e9a82e0d52397afd3
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: cb02c9067e4d672b0aace4caf13e4c8f0d718afb
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465908"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220192"
 ---
 # <a name="what-is-project-answer-search"></a>Wat is Project Answer Search?
 De Project Answer Search-API maakt gebruik van het eindpunt van Bing versie 7 om antwoorden te zoeken voor query's in de vorm van vragen. Een vraag zoals 'What is the circumference of the earth?' (Wat is de omtrek van de aarde?) levert een antwoord op met feitelijke gegevens.  Een query naar een persoon, plaats of ding retourneert informatie over de entiteit die is geïdentificeerd door de query. Deze scenario's kunnen handig zijn in toepassingen zoals gespreks-bots, berichten-apps, schermlezers, enzovoort.  
@@ -25,13 +25,13 @@ Query's retourneren antwoorden die afhankelijk zijn van het queryscenario: webpa
 ## <a name="endpoint"></a>Eindpunt
 Om antwoord te krijgen op een vraag of informatie over een persoon, plaats of ding, verstuurt u een aanvraag naar het eindpunt van de Antwoord zoeken-API. Gebruik de headers en URL-parameters voor verschillende specificaties.  Voeg de header *Ocp-Apim-Subscription-Key* toe met een geldig token.  De parameter 'market' is vereist. Op dit moment wordt alleen de markt `en-us` ondersteund.
 
-Met de volgende query haalt u antwoorden op voor de vraag: 'What is the circumference of the earth?'
+De volgende query haalt antwoorden op voor de vraag: 'What is the circumference of the earth?' (Wat is de omtrek van de aarde?)
 
 GET:
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=what+is+circumference+of+the=earth?&mkt=en-us
 
-````
+```
 
 De URL-parameter `q=` is vereist om het object voor de zoekopdracht op te geven.
 
@@ -39,7 +39,7 @@ De URL-parameter `q=` is vereist om het object voor de zoekopdracht op te geven.
 
 Het antwoord of de respons bevat HTTP-headers, webpagina's, feiten en/of entiteiten.
 
-````
+```
 BingAPIs-TraceId: AB2E75C998614ADB8EBF5110DF648298
 X-MSEdge-ClientID: 1E48FC4F7B8768C80B14F7997A106906
 BingAPIs-SessionId: 0504DDD6DAE84861A4842306F8DA7A58
@@ -236,7 +236,7 @@ JSON Response:
   }
 }
 
-````
+```
 
 ## <a name="terms-of-use"></a>Gebruiksvoorwaarden
 Project Answer Search en Project Video Trends zijn onderhevig aan de [gebruiks- en weergavevereisten van Bing Zoeken](use-display-requirements.md).

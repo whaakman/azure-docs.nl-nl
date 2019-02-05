@@ -8,7 +8,7 @@ manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
-ms.component: devices
+ms.subservice: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: e7cc11fd35049bf55c848293fa5aaafbdd7b7370
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 704f854d7be9930923cb6e1955c3670f296035ed
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452765"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299823"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>Wat is apparaatbeheer in Azure Active Directory?
 
@@ -45,7 +45,7 @@ Om een apparaat onder het beheer van Azure AD te krijgen, hebt u twee opties:
 
 **Registratie** van een apparaat bij Azure AD stelt u in staat de identiteit van een apparaat te beheren. Wanneer een apparaat is geregistreerd, geeft Azure AD-apparaatregistratie het apparaat een identiteit die wordt gebruikt om het apparaat te verifiëren wanneer een gebruiker zich aanmeldt bij Azure AD. U kunt de identiteit gebruiken om een apparaat in of uit te schakelen.
 
-In combinatie met een MDM-oplossing (Mobile Device Management), zoals Microsoft Intune, worden de apparaatkenmerken in Azure AD bijgewerkt met extra informatie over het apparaat. Hiermee kunt u extra regels voor voorwaardelijke toegang maken die toegang afdwingen van apparaten, zodat ze voldoen aan uw standaarden voor beveiliging en compliance Zie [Apparaten inschrijven voor beheer in Intune](https://docs.microsoft.com/intune/device-enrollment#supported-device-platforms) voor meer informatie over het inschrijven van apparaten in Microsoft Intune.
+In combinatie met een MDM-oplossing (Mobile Device Management), zoals Microsoft Intune, worden de apparaatkenmerken in Azure AD bijgewerkt met extra informatie over het apparaat. Hiermee kunt u extra regels voor voorwaardelijke toegang maken die toegang afdwingen van apparaten, zodat ze voldoen aan uw standaarden voor beveiliging en compliance Zie [Wat is apparaatinschrijving?](https://docs.microsoft.com/intune/device-enrollment) voor meer informatie over het inschrijven van apparaten in Microsoft Intune.
 
 **Koppeling** van een apparaat is een uitbreiding van registratie van een apparaat. Dit betekent dat u niet alleen alle voordelen van registratie krijgt, maar ook dat de lokale status van een apparaat wordt gewijzigd. Wijziging van de lokale status stelt uw gebruikers in staat zich bij een apparaat aan te melden met behulp van een werk- of schoolaccount in plaats van een persoonlijk account.
 

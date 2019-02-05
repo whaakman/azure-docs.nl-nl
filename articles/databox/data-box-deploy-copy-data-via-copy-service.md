@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/10/2019
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: a71635abd036bb89546dd3421af97cd9b88f4327
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9d271642a432d8a149fbe468087a0598c91e7c36
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439947"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902376"
 ---
 # <a name="tutorial-use-data-copy-service-to-directly-ingest-data-into-azure-data-box-preview"></a>Zelfstudie: De gegevenskopieerservice gebruiken om gegevens direct op te nemen in Azure Data Box (preview)
 
@@ -24,11 +24,12 @@ Gegevenskopieerservice gebruiken:
 - In de NAS-omgevingen (network-attached storage) waarin tussenliggende hosts mogelijk niet beschikbaar zijn.
 - Met kleine bestanden waarvoor soms weken nodig zijn om gegevens op te nemen en te uploaden. Met deze service wordt de opname- en uploadtijd aanzienlijk verbeterd.
 
-In deze zelfstudie leert u het volgende:
+In deze zelfstudie komen deze onderwerpen aan bod:
 
 > [!div class="checklist"]
+> * Vereisten
 > * Gegevens kopiëren naar Data Box
-> * Data Box voorbereiden voor verzending.
+
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -60,13 +61,13 @@ U moet een taak maken als u gegevens wilt kopiëren met behulp van de gegevensko
     |-------------------------------|---------|
     |Taaknaam                       |Een unieke naam van maximaal 230 tekens voor de taak. De volgende tekens zijn niet toegestaan in de naam van de taak: \<, \>, \|, \?, \*, \\, \:, \/ en \\\.         |
     |Bronlocatie                |Geef het SMB-pad naar de gegevensbron op in de indeling: `\\<ServerIPAddress>\<ShareName>` of `\\<ServerName>\<ShareName>`.        |
-    |Gebruikersnaam                       |Gebruikersnaam voor toegang tot de gegevensbron.        |
+    |Gebruikersnaam                       |Gebruikersnaam in de notatie `\\<DomainName><UserName>` voor toegang tot de gegevensbron.        |
     |Wachtwoord                       |Wachtwoord voor toegang tot de gegevensbron.           |
     |Doelopslagaccount    |Selecteer in de vervolgkeuzelijst het doelopslagaccount waarnaar u de gegevens wilt uploaden.         |
     |Doelopslagtype       |Selecteer het type van de doelopslag: blok-blob, pagina-blob of Azure Files.        |
     |Doelcontainer/-share    |Voer de naam in van de container of share waarnaar u gegevens wilt uploaden in uw doelopslagaccount. De naam kan een sharenaam of een containernaam zijn. Bijvoorbeeld `myshare` of `mycontainer`. U kunt deze ook invoeren in de indeling `sharename\directory_name` of `containername\virtual_directory_name` in de cloud.        |
     |Bestanden kopiëren die overeenkomen met het patroon    | U kunt het bestandsnaampatroon invoeren op de volgende twee manieren.<ul><li>**Wildcard-expressies gebruiken** Alleen `*` en `?` worden ondersteund in expressies met jokertekens. De expressie `*.vhd` bijvoorbeeld komt overeen met alle bestanden die de extensie .vhd hebben. En zo komt `*.dl?` overeen met alle bestanden die de extensie `.dl` of `.dll` hebben. En `*foo` komt overeen met alle bestanden waarvan de bestandsnaam eindigt op `foo`.<br>U kunt een expressie met jokertekens rechtstreeks invoeren in het veld. Standaard wordt een waarde die in het veld wordt ingevoerd, beschouwd als een expressie met jokertekens.</li><li>**Reguliere expressies gebruiken** - Op POSIX gebaseerde reguliere expressies worden ondersteund. De reguliere expressie `.*\.vhd` bijvoorbeeld komt overeen met alle bestanden die de extensie `.vhd` hebben. Voor de reguliere expressie geeft u het `<pattern>` rechtstreeks op als `regex(<pattern>)`. <li>Voor meer informatie over reguliere expressies gaat u naar [Regular expression language - a quick reference](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) (Reguliere expressies - een snelzoekgids).</li><ul>|
-    |Bestandsoptimalisatie              |Als deze optie is ingeschakeld, worden de bestanden bij opname ingepakt. Dit versnelt het kopiëren van gegevens voor kleine bestanden.        |
+    |Bestandsoptimalisatie              |Als deze optie is ingeschakeld, worden bestanden van minder dan 1 MB bij opname ingepakt. Dit versnelt het kopiëren van gegevens voor kleine bestanden. Het levert aanzienlijke tijdsbesparing op wanneer het aantal bestanden veel groter is dan het aantal directory’s.        |
  
 4. Klik op **Start**. De invoer wordt gevalideerd en als de validatie is geslaagd, wordt een taak gestart. Het kan enkele minuten duren voordat de taak start.
 
@@ -106,9 +107,7 @@ U moet een taak maken als u gegevens wilt kopiëren met behulp van de gegevensko
     - In deze release kunt u een taak niet verwijderen.
     
     - U kunt een onbeperkt aantal taken maken, maar maximaal 10 parallelle taken tegelijkertijd uitvoeren.
-    - Als bestandsoptimalisatie is ingeschakeld, worden de kleine bestanden ingepakt bij opname om de kopieerprestaties te verbeteren. In deze exemplaren ziet u een ingepakt bestand (GUID als naam) zoals in de volgende schermafbeelding wordt weergegeven.
-
-        ![Voorbeeld van een ingepakt bestand](media/data-box-deploy-copy-data-via-copy-service/packed-file-on-ingest.png)
+    - Als bestandsoptimalisatie is ingeschakeld, worden de kleine bestanden ingepakt bij opname om de kopieerprestaties te verbeteren. In deze gevallen ziet u een ingepakt bestand (GUID als naam). Verwijder dit bestand niet, want het wordt uitgepakt tijdens het uploaden.
 
 6. Terwijl de taak wordt uitgevoerd, ziet u het volgende op de pagina **Gegevens kopiëren**:
 
@@ -139,18 +138,14 @@ Wanneer de kopieertaak is voltooid, kunt u naar **Voorbereiding voor verzending*
 >[!NOTE]
 > Voorbereiding voor verzending kan niet worden uitgevoerd terwijl de kopieertaken worden uitgevoerd.
 
-## <a name="prepare-to-ship"></a>Voorbereiding voor verzending
-
-[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
-
-
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie bent u meer te weten gekomen over verschillende onderwerpen met betrekking tot Azure Data Box, zoals:
 
 > [!div class="checklist"]
+> * Vereisten
 > * Gegevens kopiëren naar Data Box
-> * Data Box voorbereiden voor verzending
+
 
 Ga naar de volgende zelfstudie om te lezen hoe u uw Data Box naar Microsoft verzendt.
 

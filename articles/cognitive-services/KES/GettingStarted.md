@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 6cee339793269af0e8060cce56f94fa81db6a6c5
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 14dc1ca90ecd342330425db840776fa67caa80b0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124011"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208139"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Aan de slag met de Knowledge Exploration Service
 
@@ -41,7 +41,7 @@ Het schema beschrijft de kenmerk-structuur van de objecten in het domein. Het ge
 }
 ```
 
-Hier kunt u *titel*, *jaar*, en *sleutelwoord* definiëren als een tekenreeks, geheel getal en een tekenreeks van het kenmerk, respectievelijk. Omdat auteurs worden vertegenwoordigd door de ID, de naam en de relatie, definieert u *Auteur* als een samengesteld kenmerk met drie onderliggende kenmerken: *Author.Id*, *Author.Name*, en *Author.Affiliation*.
+Hier kunt u *titel*, *jaar*, en *sleutelwoord* definiëren als een tekenreeks, geheel getal en een tekenreeks van het kenmerk, respectievelijk. Omdat auteurs worden vertegenwoordigd door id, naam en relatie, definieert u *Auteur* als een samengesteld kenmerk met drie onderliggende kenmerken: *Author.Id*, *Author.Name* en *Author.Affiliation*.
 
 Standaard ondersteunen kenmerken alle bewerkingen voor het gegevenstype, met inbegrip van *is gelijk aan*, *starts_with*, en *is_between*. Omdat Auteur-ID alleen intern als id gebruikt wordt, de standaardwaarde overschrijven en geef *is gelijk aan* als de enige geïndexeerde bewerking.
 
@@ -110,7 +110,7 @@ De grammatica geeft de set van query's in natuurlijke taal die de service interp
 <grammar root="GetPapers">
 
   <!-- Import academic data schema-->
-  <import schema="Academic.schema" name="academic"/>
+  <import schema="Academic.schema" name="academic"/>
 
   <!-- Define root rule-->
   <rule id="GetPapers">

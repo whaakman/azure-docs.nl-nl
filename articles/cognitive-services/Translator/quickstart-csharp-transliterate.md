@@ -1,27 +1,27 @@
 ---
-title: 'Snelstart: Tekstscript converteren, C# - Translator Text'
+title: 'Quickstart: Tekstscript converteren, C# - Translator Text'
 titleSuffix: Azure Cognitive Services
 description: In deze quickstart leert u hoe u tekst omzet van het ene script naar een ander met behulp van .NET Core en de REST API van Translator Text. In dit voorbeeld is sprake van transliteratie van Japans voor gebruik van het Latijnse alfabet.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 11/21/2018
 ms.author: erhopf
-ms.openlocfilehash: d67fbdad32612f23b1de31f7d2a1d7b4dee3b68e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 7beddd7f7f21466ee404303b2727370d0cfc86f6
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889137"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220150"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-c"></a>Quickstart: De Translator Text-API gebruiken voor transliteratie van tekst met C#
 
 In deze quickstart leert u hoe u tekst omzet van het ene script naar een ander met behulp van .NET Core (C#) en de REST API van Translator Text. In het gegeven voorbeeld is sprake van transliteratie van Japans voor gebruik van het Latijnse alfabet.
 
-Voor deze snelstart is een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met een Translator Text-resource vereist. Als u geen account hebt, kunt u de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/) gebruiken om een abonnementssleutel op te halen.
+Voor deze quickstart is een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met een Translator Text-resource vereist. Als u geen account hebt, kunt u de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/) gebruiken om een abonnementssleutel op te halen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -170,7 +170,7 @@ Denk eraan dat u eventuele vertrouwelijke informatie, zoals abonnementssleutels,
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de voorbeeldcode voor deze snelstartgids en andere resources, met inbegrip van vertaling en taalidentificatie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
+Bekijk de voorbeeldcode voor deze quickstart en andere resources, met inbegrip van vertaling en taalidentificatie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
 
 > [!div class="nextstepaction"]
 > [C#-voorbeelden in GitHub bekijken](https://aka.ms/TranslatorGitHub?type=&language=c%23)
@@ -181,4 +181,4 @@ Bekijk de voorbeeldcode voor deze snelstartgids en andere resources, met inbegri
 * [Een taal identificeren op basis van de invoer](quickstart-csharp-detect.md)
 * [Alternatieve vertalingen verkrijgen](quickstart-csharp-dictionary.md)
 * [Een lijst ophalen van ondersteunde talen](quickstart-csharp-languages.md)
-* [De zinlengte in invoer bepalen](quickstart-csharp-sentences.md)
+* [De zinslengte in invoer bepalen](quickstart-csharp-sentences.md)

@@ -6,22 +6,22 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 537132a5d77927f130f2737e0ba597b9e74ace6e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: a757b766537cc4f1105d77478f4a1d7543c27e40
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890242"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227910"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-java"></a>Quickstart: De Translator Text-API gebruiken om een tekenreeks te vertalen met Java
 
 In deze quickstart leert u hoe u een tekenreeks van het Engels naar het Italiaans en Duits vertaalt met Python en de Translator Text REST API.
 
-Voor deze snelstart is een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met een Translator Text-resource vereist. Als u geen account hebt, kunt u de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/) gebruiken om een abonnementssleutel op te halen.
+Voor deze quickstart is een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met een Translator Text-resource vereist. Als u geen account hebt, kunt u de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/) gebruiken om een abonnementssleutel op te halen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -197,7 +197,7 @@ gradle build
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de voorbeeldcode voor deze snelstartgids en andere resources, met inbegrip van transcriptie en taalidentificatie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
+Bekijk de voorbeeldcode voor deze quickstart en andere resources, met inbegrip van transcriptie en taalidentificatie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
 
 > [!div class="nextstepaction"]
 > [Bekijk Java-voorbeelden op GitHub](https://aka.ms/TranslatorGitHub?type=&language=java)
@@ -208,4 +208,4 @@ Bekijk de voorbeeldcode voor deze snelstartgids en andere resources, met inbegri
 * [Een taal identificeren op basis van de invoer](quickstart-java-detect.md)
 * [Alternatieve vertalingen verkrijgen](quickstart-java-dictionary.md)
 * [Een lijst ophalen van ondersteunde talen](quickstart-java-languages.md)
-* [De zinlengte in invoer bepalen](quickstart-java-sentences.md)
+* [De zinslengte in invoer bepalen](quickstart-java-sentences.md)

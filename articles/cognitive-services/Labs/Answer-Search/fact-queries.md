@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
-ms.openlocfilehash: 7e8a793362e51a05a73c0b42346e2e8fafb3f44d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: b8358890658a38133452ba2092ac9b8b78114ff7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469398"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210944"
 ---
 # <a name="quickstart-query-for-facts"></a>Quickstart: Query naar feiten
 
@@ -26,14 +26,14 @@ Query's, zoals valentijn+2016 en wanneer+ is+ramadan worden beschouwd als datumg
 Het volgende voorbeeld wordt een datumgerelateerd `facts`-antwoord. 
 
 **Query:**
-````
+```
 https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
 
-````
+```
 
-**Antwoord:** het veld `subjectName` bevat een weergaveversie van de query van de gebruiker die u als label kunt gebruiken bij het weergeven van het feit. Als de queryreeks valentijn+2016 is, kan Bing dit wijzigen in Valentijnsdag 2016. Het beschrijvingsveld bevat het feit.
+**Antwoord:** Het veld `subjectName` bevat een weergaveversie van de query van de gebruiker die u als label kunt gebruiken bij het weergeven van het feit. Als de queryreeks valentijn+2016 is, kan Bing dit wijzigen in Valentijnsdag 2016. Het beschrijvingsveld bevat het feit.
 
-````
+```
 {   
     "_type" : "SearchResponse",   
     "queryContext" : {   
@@ -57,20 +57,20 @@ https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
     }   
 }   
 
-````
+```
 
 De query 'Waarom is de lucht blauw?' retourneert een voorbeeld van een kennisgerelateerd antwoord.
 
 **Query:**
 
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+sky+blue
 
-````
+```
 
-**Antwoord:** het veld `value/description` bevat de kennis of informatie aangevraagd door de query.
+**Antwoord:** het veld `value/description` bevat de door de query aangevraagde kennis of informatie.
 
-````
+```
   "facts": {
     "id": "https://www.bingapis.com/api/v7/#Facts",
     "contractualRules": [
@@ -112,17 +112,17 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+s
     ]
   },
 
-````
+```
 
 ## <a name="tabular-data"></a>Gegevens in tabelvorm
 In sommige gevallen kunnen feiten worden geretourneerd als `_type: StructuredValue/TabularData`. De volgende query haalt gegevens in tabelvorm met tegengestelde informatie over koffie en thee op.
 
-````
+```
 https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt=en-us 
 
-````
+```
 De `facts`-resultaten bevatten de volgende rijen en cellen:
-````
+```
     "value": [
       {
         "subjectName": "Coffee vs. Tea",
@@ -196,10 +196,10 @@ De `facts`-resultaten bevatten de volgende rijen en cellen:
     ]
   },
 
-````
+```
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Snelstart voor C#](c-sharp-quickstart.md)
-- [Snelstart voor Java](java-quickstart.md)
-- [Snelstart voor Node](node-quickstart.md)
-- [Snelstartgids voor Python](python-quickstart.md)
+- [Quickstart voor C#](c-sharp-quickstart.md)
+- [Quickstart voor Java](java-quickstart.md)
+- [Quickstart voor Node](node-quickstart.md)
+- [Quickstart voor Python](python-quickstart.md)

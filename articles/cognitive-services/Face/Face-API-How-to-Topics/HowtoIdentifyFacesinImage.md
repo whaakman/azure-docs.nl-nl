@@ -6,18 +6,18 @@ services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: a26f7d6057f92fd3ab92405ecca6965dbd6e37ad
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: c61852763353189321b8f98711928e0e8b3a389d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129068"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208088"
 ---
-# <a name="example-how-to-identify-faces-in-images"></a>Voorbeeld: gezichten in afbeeldingen identificeren
+# <a name="example-how-to-identify-faces-in-images"></a>Voorbeeld: Gezichten in een afbeelding identificeren
 
 Deze handleiding laat zien hoe u onbekende gezichten identificeert met PersonGroups (persoonsgroepen), die vooraf worden gemaakt op basis van bekende personen. De voorbeelden zijn geschreven in C# met de Face-API-clientbibliotheek.
 
@@ -49,7 +49,7 @@ https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&retu
 &subscription-key=<Subscription key>
 ```
 
-Als alternatief, kan de abonnementssleutel ook worden opgegeven in de HTTP-aanvraagheader: **ocp-apim-subscription-key: &lt;Abonnementssleutel&gt;** Wanneer u een clientbibliotheek gebruikt, wordt de abonnementssleutel doorgegeven via de constructor van de klasse FaceServiceClient. Bijvoorbeeld:
+Als alternatief kan de abonnementssleutel ook worden opgegeven in de HTTP-aanvraagheader: **ocp-apim-subscription-key: &lt;Abonnementssleutel&gt;** Als u gebruikmaakt van een clientbibliotheek wordt de abonnementssleutel doorgegeven via de constructor van de klasse FaceServiceClient. Bijvoorbeeld:
  
 ```CSharp 
 faceServiceClient = new FaceServiceClient("<Subscription Key>");

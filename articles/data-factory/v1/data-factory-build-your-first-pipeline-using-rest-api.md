@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 517d3da0e8e126a1982dafe8fcea0bbf391cfa5a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 2465dd6c22567a3d8b50a7cfad4e26491bbe773e
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019687"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885197"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Zelfstudie: Uw eerste Azure-gegevensfactory bouwen met de Data Factory-REST API
 > [!div class="op_single_selector"]
@@ -218,8 +218,8 @@ Met de JSON wordt een gegevensset gedefinieerd met de naam **AzureBlobOutput**. 
                 "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
                 "scriptLinkedService": "AzureStorageLinkedService",
                 "defines": {
-                    "inputtable": "wasb://adfgetstarted@<stroageaccountname>.blob.core.windows.net/inputdata",
-                    "partitionedtable": "wasb://adfgetstarted@<stroageaccountname>t.blob.core.windows.net/partitioneddata"
+                    "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
+                    "partitionedtable": "wasb://adfgetstarted@<storageaccountname>t.blob.core.windows.net/partitioneddata"
                 }
             },
             "inputs": [{
@@ -314,13 +314,13 @@ In deze stap maakt u een Azure-gegevensfactory met de naam **FirstDataFactoryRES
 
 Houd rekening met de volgende punten:
 
-* De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn.  Als u de fout **Data factory name “FirstDataFactoryREST” is not available** in de resultaten ziet, voert u de volgende stappen uit:
+* De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u de volgende fout in de resultaten ziet: **Data factory name “FirstDataFactoryREST” is not available** in de resultaten ziet, voert u de volgende stappen uit:
   1. Wijzig de naam (bijvoorbeeld uwnaamFirstDataFactoryREST) in het bestand **datafactory.json**. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
   2. In de eerste opdracht waar aan de **$cmd**-variabele een waarde is toegewezen, vervangt u FirstDataFactoryREST door de nieuwe naam en voert u de opdracht uit.
   3. Voer de volgende twee opdrachten uit voor het aanroepen van de REST API om de gegevensfactory te maken en de resultaten van de bewerking af te drukken.
 * Als u Data Factory-exemplaren wilt maken, moet u bijdrager/beheerder zijn van het Azure-abonnement
 * De naam van de gegevensfactory wordt in de toekomst mogelijk geregistreerd als DNS-naam en wordt daarmee ook voor iedereen zichtbaar.
-* Als u de fout '**This subscription is not registered to use namespace Microsoft.DataFactory**' ontvangt, voert u een van de volgende stappen uit en probeert u opnieuw te publiceren:
+* Als de volgende foutmelding wordt weergegeven: '**Dit abonnement is niet geregistreerd voor gebruik van de naamruimte Microsoft.DataFactory**', voert u een van de volgende stappen uit en probeert u opnieuw te publiceren:
 
   * Voer in Azure PowerShell de volgende opdracht uit om de Data Factory-provider te registreren:
 
@@ -419,7 +419,7 @@ In deze stap maakt u de uitvoergegevensset die staat voor uitvoergegevens die wo
     ```
 
 ## <a name="create-pipeline"></a>Pijplijn maken
-In deze stap maakt u uw eerste pijplijn met een **HDInsightHive**-activiteit.   Het invoersegment wordt elke maand beschikbaar gesteld (frequentie: maand, interval: 1), evenals het uitvoersegment. Ook de plannereigenschap van de activiteit wordt op maandelijks ingesteld. De instellingen voor de uitvoergegevensset en de activiteitenplanner moeten overeenkomen. Op dit moment wordt de planning gebaseerd op de uitvoergegevensset. Daarom moet u ook een uitvoergegevensset maken als er tijdens de activiteit geen uitvoer wordt geproduceerd. Als er voor de activiteit geen invoer nodig is, kunt u het maken van de invoergegevensset overslaan.
+In deze stap maakt u uw eerste pijplijn met een **HDInsightHive**-activiteit. Het invoersegment is maandelijks beschikbaar (frequentie: Maand, interval: 1), evenals het uitvoersegment. Ook de plannereigenschap van de activiteit wordt op maandelijks ingesteld. De instellingen voor de uitvoergegevensset en de activiteitenplanner moeten overeenkomen. Op dit moment wordt de planning gebaseerd op de uitvoergegevensset. Daarom moet u ook een uitvoergegevensset maken als er tijdens de activiteit geen uitvoer wordt geproduceerd. Als er voor de activiteit geen invoer nodig is, kunt u het maken van de invoergegevensset overslaan.
 
 Controleer of u het bestand **input.log** ziet in de map **adfgetstarted/inputdata** in de Azure-blobopslag en voer de volgende opdracht uit om de pijplijn te implementeren. Aangezien de tijden voor **start** en **end** in het verleden vallen en **isPaused** is ingesteld op false, wordt de pijplijn (activiteit in de pijplijn) direct na het implementeren uitgevoerd.
 
@@ -484,7 +484,7 @@ In deze zelfstudie hebt u een Azure-gegevensfactory gemaakt voor het verwerken v
 4. U hebt een **pijplijn** gemaakt met een **HDInsight Hive**-activiteit.
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u een pijplijn gemaakt met een transformatieactiviteit (HDInsight-activiteit) waarvoor een Hive-script wordt uitgevoerd op een on-demand Azure HDInsight-cluster. Zie [Zelfstudie: gegevens van een Azure-blob kopiëren naar Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor meer informatie over het gebruiken van een kopieeractiviteit om gegevens van een Azure-blob te kopiëren naar Azure SQL. 
+In dit artikel hebt u een pijplijn gemaakt met een transformatieactiviteit (HDInsight-activiteit) waarvoor een Hive-script wordt uitgevoerd op een on-demand Azure HDInsight-cluster. Meer informatie over het gebruiken van een kopieeractiviteit om gegevens van een Azure-blob te kopiëren naar Azure SQL vindt u in [Zelfstudie: gegevens van een Azure-blob kopiëren naar Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="see-also"></a>Zie ook
 | Onderwerp | Beschrijving |

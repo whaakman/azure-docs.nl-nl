@@ -6,16 +6,16 @@ services: cognitive-services
 author: dwlin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speaker-recognition
+ms.subservice: speaker-recognition
 ms.topic: overview
 ms.date: 10/01/2018
 ms.author: dwlin
-ms.openlocfilehash: c9193a51c677b327e7d799412e389467ac5cc1c0
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 7267663bae71b793923bc10a3b52ab54c12168af
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48016853"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216758"
 ---
 # <a name="speaker-recognition-api"></a>Sprekerherkenning-API
 
@@ -38,7 +38,7 @@ Bij de registratie wordt de stem vastgelegd door de spreker een specifieke woord
 
 Tijdens verificatie worden een ingevoerde stem en woordgroep vergeleken met de stemhandtekening en woordgroep van de registratie om te controleren of ze al dan niet afkomstig zijn van dezelfde persoon en of de juiste woordgroep wordt uitgesproken.
 
-Raadpleeg de API [Spreker - Verificatie](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652) voor meer informatie over sprekercontrole.
+Raadpleeg de API  [Spreker - Verificatie](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652) voor meer informatie over sprekercontrole.
 
 ## <a name="speaker-identification"></a>Sprekeridentificatie
 
@@ -56,4 +56,4 @@ Registratie voor sprekeridentificatie is tekstonafhankelijk, wat betekent dat er
 
 De audio van de onbekende spreker wordt samen met de potentiële groep sprekers tijdens de herkenning opgegeven. De invoerstem wordt met alle sprekers vergeleken om te bepalen wiens stem het is en als er een overeenkomst gevonden, wordt de identiteit van de spreker geretourneerd.
 
-Raadpleeg de API [Spreker - Identificatie](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c068e597ed22ec38f42e) voor meer informatie over sprekeridentificatie.
+Raadpleeg de API  [Spreker - Identificatie](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c068e597ed22ec38f42e) voor meer informatie over sprekeridentificatie.

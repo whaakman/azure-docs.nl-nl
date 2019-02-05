@@ -1,220 +1,199 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met Autotask back-ups | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Autotask back-ups.
+title: 'Zelfstudie: Azure Active Directory-integratie met Autotask Endpoint Backup | Microsoft Docs'
+description: Leer hoe u eenmalige aanmelding tussen Azure Active Directory en Autotask Endpoint Backup configureert.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 9f55319e-895b-4130-8460-71713f25ed04
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/11/2018
+ms.topic: tutorial
+ms.date: 1/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 7173c5d772168f6ca0c117eba56e709935146c47
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: da0627b51b52c1ab5c83d518edcfda2ff98dff5d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428890"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55151297"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-autotask-endpoint-backup"></a>Zelfstudie: Azure Active Directory-integratie met Autotask back-ups
+# <a name="tutorial-azure-active-directory-integration-with-autotask-endpoint-backup"></a>Zelfstudie: Azure Active Directory-integratie met Autotask Endpoint Backup
 
-In deze zelfstudie leert u hoe u back-ups Autotask integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Autotask Endpoint Backup integreert met Azure Active Directory (Azure AD).
+De integratie van Autotask Endpoint Backup met Azure AD heeft de volgende voordelen:
 
-Back-ups Autotask integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD bepalen wie er toegang heeft tot Autotask Endpoint Backup.
+* U kunt uw gebruikers zich automatisch laten aanmelden bij Autotask Endpoint Backup (eenmalige aanmelding) met hun Azure AD-account.
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot Autotask back-ups heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Autotask back-ups (Single Sign-On) inschakelen met hun Azure AD-accounts.
-- U kunt uw accounts in één centrale locatie - Azure portal beheren.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Autotask back-ups, moet u de volgende items:
+U hebt het volgende nodig om Azure AD-integratie te configureren met Autotask Endpoint Backup:
 
-- Een Azure AD-abonnement
-- Een back-ups Autotask eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Abonnement op Autotask Endpoint Backup met eenmalige aanmelding ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving.
-Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Autotask back-ups uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-autotask-endpoint-backup-from-the-gallery"></a>Autotask back-ups uit de galerie toe te voegen
-Voor het configureren van de integratie van Autotask back-ups in Azure AD, moet u Autotask back-ups uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* Autotask Endpoint Backup biedt ondersteuning voor door **IDP** geïnitieerde SSO
 
-**Als u wilt toevoegen Autotask back-ups uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-autotask-endpoint-backup-from-the-gallery"></a>Autotask Endpoint Backup toevoegen vanuit de galerie
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Om de integratie van Autotask Endpoint Backup in Azure AD te configureren, moet u Autotask Endpoint Backup vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-    ![De Azure Active Directory-knop][1]
+**Ga als volgt te werk om Autotask Endpoint Backup vanuit de galerie toe te voegen:**
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![De blade Enterprise-toepassingen][2]
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-    ![De knop nieuwe toepassing][3]
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Typ in het zoekvak **Autotask back-ups**, selecteer **Autotask back-ups** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![Autotask back-ups in de lijst met resultaten](./media/autotaskendpointbackup-tutorial/tutorial_autotaskendpointbackup_addfromgallery.png)
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+4. Typ **Autotask Endpoint Backup** in het zoekvak, selecteer **Autotask Endpoint Backup** in de lijst met resultaten en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Autotask back-ups op basis van een testgebruiker 'Julia steen' genoemd.
+     ![Autotask Endpoint Backup in de lijst met resultaten](common/search-new-app.png)
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Autotask back-ups is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Autotask back-ups tot stand worden gebracht.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met Autotask back-ups, moet u de volgende bouwstenen voltooien:
+In dit gedeelte gaat u eenmalige aanmelding van Azure AD met Autotask Endpoint Backup configureren en testen op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Autotask Endpoint Backup tot stand is gebracht.
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Maak een testgebruiker Autotask back-ups](#create-a-autotask-endpoint-backup-test-user)**  : als u wilt een equivalent van Britta Simon in Autotask eindpunt back-up die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+Als u Azure AD-eenmalige aanmelding met Autotask Endpoint Backup wilt configureren en testen, moet u de volgende stappen uitvoeren:
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding voor Autotask Endpoint Backup configureren](#configure-autotask-endpoint-backup-single-sign-on)**: de instellingen voor eenmalige aanmelding aan de clientzijde configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker voor Autotask Endpoint Backup maken](#create-autotask-endpoint-backup-test-user)**: een tegenhanger voor Britta Simon maken in Autotask Endpoint Backup die wordt gekoppeld aan de Azure AD-voorstelling van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Autotask back-ups.
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Autotask back-ups, moet u de volgende stappen uitvoeren:**
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-1. In de Azure-portal op de **Autotask back-ups** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configureren met Autotask Endpoint Backup:
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+1. Ga in de [Azure-portal](https://portal.azure.com/) naar de pagina met de integratie van de toepassing **Autotask Endpoint Backup** en selecteer **Eenmalige aanmelding**.
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/autotaskendpointbackup-tutorial/tutorial_autotaskendpointbackup_samlbase.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-1. Op de **Autotask-Eindpuntdomein van back-up en URL's** sectie, voert u de volgende stappen uit:
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![Autotask-Eindpuntdomein van back-up en URL's eenmalige aanmelding informatie](./media/autotaskendpointbackup-tutorial/tutorial_autotaskendpointbackup_url.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    a. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://<subdomain>.backup.autotask.net/singlesignon/saml/metadata`
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<subdomain>.backup.autotask.net/singlesignon/saml/SSO`
+4. Op de pagina **Eenmalige aanmelding instellen met SAML** voert u de volgende stappen uit:
+
+    ![Domein- en URL-informatie voor eenmalige aanmelding bij Autotask Endpoint Backup](common/idp-intiated.png)
+
+    a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://<subdomain>.backup.autotask.net/singlesignon/saml/metadata`
+
+    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://<subdomain>.backup.autotask.net/singlesignon/saml/SSO`
 
     > [!NOTE]
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke id en de antwoord-URL. Neem contact op met [Autotask back-ups ondersteuningsteam](https://backup.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) om deze waarden te verkrijgen.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke id en antwoord-URL. Neem voor deze waarden contact op met het [clientondersteuningsteam van Autotask Endpoint Backup](https://backup.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm). U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
-    ![De downloadkoppeling certificaat](./media/autotaskendpointbackup-tutorial/tutorial_autotaskendpointbackup_certificate.png) 
+    ![De link om het certificaat te downloaden](common/metadataxml.png)
 
-1. Klik op **opslaan** knop.
+6. In het gedeelte **Set up Autotask Endpoint Backup** (Autotask Endpoint Backup instellen) kopieert u de juiste URL('s) op basis van uw behoeften.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/autotaskendpointbackup-tutorial/tutorial_general_400.png)
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-1. Het configureren van eenmalige aanmelding op **Autotask back-ups** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [Autotask back-ups ondersteuningsteam](https://backup.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+    a. Aanmeldings-URL
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+    b. Azure AD-id
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+    c. Afmeldings-URL
 
-   ![Maak een testgebruiker Azure AD][100]
+### <a name="configure-autotask-endpoint-backup-single-sign-on"></a>Autotask Endpoint Backup met eenmalige aanmelding configureren
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+Als u eenmalige aanmelding aan de **Autotask Endpoint Backup**-zijde wilt configureren, moet u het gedownloade **XML-bestand met federatieve metagegevens** en de correcte uit de Azure-portal gekopieerde URL's verzenden naar het [Autotask Endpoint Backup-ondersteuningsteam](https://backup.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-    ![De Azure Active Directory-knop](./media/autotaskendpointbackup-tutorial/create_aaduser_01.png)
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/autotaskendpointbackup-tutorial/create_aaduser_02.png)
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![De knop toevoegen](./media/autotaskendpointbackup-tutorial/create_aaduser_03.png)
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-    ![Het dialoogvenster gebruiker](./media/autotaskendpointbackup-tutorial/create_aaduser_04.png)
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    a. In de **naam** in het vak **BrittaSimon**.
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
-  
-### <a name="create-a-autotask-endpoint-backup-test-user"></a>Maak een testgebruiker Autotask back-ups
-
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in Autotask back-ups. Werken met [Autotask back-ups ondersteuningsteam](https://backup.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) om toe te voegen de gebruikers in het platform Autotask back-ups. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Autotask back-ups.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Autotask Endpoint Backup.
 
-![De de gebruikersrol toewijzen][200]
+1. Selecteer in de Azure-portal achtereenvolgens **Bedrijfstoepassingen**, **Alle toepassingen** en **Autotask Endpoint Backup**.
 
-**Als u wilt toewijzen Britta Simon Autotask eindpunt back-up maken, moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Selecteer in de lijst met toepassingen **Autotask Endpoint Backup**.
 
-    ![Gebruiker toewijzen][201]
+    ![De koppeling Autotask Endpoint Backup in de lijst met toepassingen](common/all-applications.png)
 
-1. Selecteer in de lijst met toepassingen, **Autotask back-ups**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De koppeling Autotask back-ups in de lijst met toepassingen](./media/autotaskendpointbackup-tutorial/tutorial_autotaskendpointbackup_app.png)  
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="create-autotask-endpoint-backup-test-user"></a>Testgebruiker voor Autotask Endpoint Backup maken
 
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
+In deze sectie gaat u een gebruiker met de naam Britta Simon maken in Autotask Endpoint Backup. Werk samen met het  [Autotask Endpoint Backup-ondersteuningsteam](https://backup.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) om de gebruikers toe te voegen in het Autotask Endpoint Backup-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-Wanneer u op de tegel Autotask back-ups in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Autotask back-ups.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
+Wanneer u in het toegangsvenster op de tegel Autotask Endpoint Backup klikt, zou u automatisch moeten worden aangemeld bij het exemplaar van Autotask Endpoint Backup in het toegangsvenster waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-[1]: ./media/autotaskendpointbackup-tutorial/tutorial_general_01.png
-[2]: ./media/autotaskendpointbackup-tutorial/tutorial_general_02.png
-[3]: ./media/autotaskendpointbackup-tutorial/tutorial_general_03.png
-[4]: ./media/autotaskendpointbackup-tutorial/tutorial_general_04.png
-
-[100]: ./media/autotaskendpointbackup-tutorial/tutorial_general_100.png
-
-[200]: ./media/autotaskendpointbackup-tutorial/tutorial_general_200.png
-[201]: ./media/autotaskendpointbackup-tutorial/tutorial_general_201.png
-[202]: ./media/autotaskendpointbackup-tutorial/tutorial_general_202.png
-[203]: ./media/autotaskendpointbackup-tutorial/tutorial_general_203.png
-
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

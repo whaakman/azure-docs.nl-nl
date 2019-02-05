@@ -6,18 +6,18 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: de5088a012a7f5fd210a5aa66805fe865cc09bbe
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 33c192009088aff3313bb970a319fa49bfca6e0e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889256"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220294"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-c"></a>Quickstart: de Translator Text-API gebruiken om teksttaal te detecteren met C#
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-c"></a>Quickstart: De Translator Text-API gebruiken om de teksttaal te detecteren met C#
 
 In deze quickstart leert u hoe u de taal van opgegeven tekst kunt detecteren met behulp van .NET Core en de REST API van Translator Text.
 

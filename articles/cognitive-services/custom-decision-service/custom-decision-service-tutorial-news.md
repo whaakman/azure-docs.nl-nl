@@ -1,25 +1,25 @@
 ---
 title: 'Zelfstudie: Persoonlijke aanpassingen van artikel - Custom Decision Service'
 titlesuffix: Azure Cognitive Services
-description: Een zelfstudie voor persoonlijke aanpassingen van het artikel voor contextuele besluitvorming.
+description: Een zelfstudie om artikelen aan persoonlijke voorkeuren aan te passen voor contextuele besluitvorming.
 services: cognitive-services
 author: slivkins
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: b142fe2051c017d0c0ec3c4cac6aaedd563f6cd7
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 1589ef94946a6396ee51b8fecfe2ed3e80db08e5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366332"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212219"
 ---
 # <a name="tutorial-article-personalization-for-contextual-decision-making"></a>Zelfstudie: Persoonlijke aanpassingen van het artikel voor contextuele besluitvorming
 
-Deze zelfstudie richt zich op het aanpassen van de selectie artikelen op de eerste pagina van een website. Custom Decision Service is bijvoorbeeld van invloed op *meerdere* lijsten met artikelen op de eerste pagina. De pagina is misschien een nieuwswebsite die alleen over politiek en sport gaat. Er worden drie gerangschikte lijsten met artikelen weergegeven: politiek, sport en recent.
+Deze zelfstudie richt zich op het aanpassen van de selectie artikelen op de eerste pagina van een website. Custom Decision Service is bijvoorbeeld van invloed op *meerdere* lijsten met artikelen op een eerste pagina. Die pagina kan bijvoorbeeld een nieuwswebsite zijn die alleen over politiek en sport gaat. Er worden drie gerangschikte lijsten met artikelen weergegeven: politiek, sport en recent.
 
 ## <a name="applications-and-action-sets"></a>Toepassingen en actiesets
 
@@ -44,9 +44,9 @@ Met elke feed wordt een lijst met artikelen geleverd. In RSS wordt elk artikel a
 </channel></rss>
 ```
 
-De volgorde van de artikelen is belangrijk. De standaardvolgorde wordt ingesteld. Dit de beste inschatting van hoe de artikelen moeten worden gerangschikt. De standaardrangschikking wordt vervolgens gebruikt voor een vergelijking van de prestaties op het [dashboard](#performance-dashboard).
+De volgorde van de artikelen is belangrijk. Die bepaalt namelijk de standaardvolgorde. Dit is de beste inschatting van hoe de artikelen moeten worden gerangschikt. De standaardrangvolgorde wordt vervolgens gebruikt voor een vergelijking van de prestaties op het [dashboard](#performance-dashboard).
 
-Zie [API-naslag](custom-decision-service-api-reference.md#action-set-api-customer-provided) voor meer informatie over de feedindeling.
+Zie de [API-verwijzing](custom-decision-service-api-reference.md#action-set-api-customer-provided) voor meer informatie over de feedindeling.
 
 ## <a name="register-a-new-app"></a>Een nieuwe app registreren
 

@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 67e74774-1748-43ea-8130-55275a18320f
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 239c0d0adbe89dd3d1d7bc7244a52ab079a36ad4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f44955e13cb5774119dc083f4a3220b432d9cd9e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952542"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098061"
 ---
-# <a name="quickstart-build-a-net-web-api-that-integrates-with-azure-ad-for-authentication-and-authorization"></a>Snelstart: bouw een .NET web-API die is geïntegreerd met Azure Active Directory voor verificatie en autorisatie
+# <a name="quickstart-build-a-net-web-api-that-integrates-with-azure-ad-for-authentication-and-authorization"></a>Snelstart: Bouw een .NET web-API die is geïntegreerd met Azure Active Directory voor verificatie en autorisatie
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
@@ -48,7 +48,7 @@ Voordat u begint, zorgt u dat u aan deze vereisten voldoet:
 * [Download het raamwerk van de app](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip) of [download het voltooide voorbeeld](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Elk is een Visual Studio 2013 oplossing.
 * Heb een Azure Active Directory tenant waarin u uw toepassing kunt registreren. Als u die nog niet hebt, raadpleegt u [zie hoe u er een krijgt](quickstart-create-new-tenant.md).
 
-## <a name="step-1-register-an-application-with-azure-ad"></a>Stap 1: U registreert een toepassing met Azure Active Directory
+## <a name="step-1-register-an-application-with-azure-ad"></a>Stap 1: Een toepassing met Azure AD registreren
 
 Om uw toepassing zeker te stellen, dient u eerst een toepassing in uw tenant aan te maken en Azure Active Directory kerngegevens te verstrekken.
 
@@ -135,7 +135,7 @@ Om binnenkomende verzoeken en tokens te valideren, dient u uw toepassing in te s
     * `ida:Tenant` is de naam van uw Azure Active Directory-tenant, bijvoorbeeld contoso.onmicrosoft.com.
     * `ida:Audience` is de App ID URI van de toepassing die u in de Azure Portal hebt ingevoerd.
 
-## <a name="step-3-configure-a-client-application-and-run-the-service"></a>Stap 3: Configureer een clienttoepassing en voer de service uit
+## <a name="step-3-configure-a-client-application-and-run-the-service"></a>Stap 3: Een clienttoepassing configureren en de service uitvoeren
 
 Voordat u de service Takenlijst in actie kunt zien, dient u de Takenlijst-client te configureren zodat deze tokens kan ophalen van Azure Active Directory en aanroepen naar de service kan uitvoeren.
 

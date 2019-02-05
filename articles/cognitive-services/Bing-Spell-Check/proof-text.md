@@ -6,16 +6,16 @@ services: cognitive-services
 author: noellelacharite
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: overview
 ms.date: 05/03/2018
 ms.author: nolachar
-ms.openlocfilehash: 3a277b10561b2756fab0af6455d17557a8d93a53
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: c15af0dcebdfcbe984d47b5c06f213e516ae3914
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345705"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55149768"
 ---
 # <a name="what-is-bing-spell-check-api"></a>Wat is de Bing Spellingcontrole-API?
 
@@ -39,7 +39,7 @@ Deze spellingcontrole is geschikt voor elk tekstverwerkingsscenario:
 De API ondersteunt twee controlemodi, `Proof` en `Spell`.  Probeer [hier](https://azure.microsoft.com/services/cognitive-services/spell-check/) voorbeelden uit.
 ### <a name="proof---for-documents-scenario"></a>Controleren - voor documenten
 De standaardmodus is `Proof`. De spellingmodus `Proof` bevat de meest uitgebreide controles, inclusief hoofdlettergebruik, basisinterpunctie en andere functies om te helpen bij het maken van het document. Deze is echter alleen beschikbaar in en-US (Engels-Verenigde Staten), es-ES (Spaans), pt-BR (Portugees). (Opmerking: alleen in de bètaversie voor Spaans en Portugees). Voor alle andere markten stelt u de queryparameter mode in op Spelling. 
-<br /><br/>**Opmerking:** als de querytekst langer is dan 4096, wordt deze afgekapt tot 4096 tekens, waarna deze wordt verwerkt. 
+<br /><br/>**OPMERKING:**   Als de querytekst langer is dan 4096, wordt deze afgekapt tot 4096 tekens, waarna de tekst wordt verwerkt. 
 ### <a name="spell----for-web-searchesqueries-scenario"></a>Spelling - voor webzoekopdrachten/query's
 `Spell` is een krachtigere functie waarmee betere zoekresultaten worden geretourneerd. In de modus `Spell` worden de meeste spelfouten gevonden, maar worden bepaalde grammaticafouten over het hoofd gezien die wel worden ontdekt door `Proof`, bijvoorbeeld hoofdlettergebruik en herhaalde woorden.
 

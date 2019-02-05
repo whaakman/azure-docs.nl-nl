@@ -1,23 +1,23 @@
 ---
-title: 'Snelstartgids: Voorbeeld van project-URL, JavaScript'
+title: 'Quickstart: Project URL Preview, JavaScript'
 titlesuffix: Azure Cognitive Services
 description: Voorbeeldscript om snel aan de slag te gaan met de Bing URL-voorbeeld-API met JavaScript.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: f36609448819ed197cb92c0bc4d9cc0237fe6df8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 941cdd25eb6f16b580900fed6e41aa4bf8df15f7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466933"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224878"
 ---
-# <a name="quickstart-url-preview-in-javascript"></a>Snelstartgids: URL-voorbeeld in JavaScript 
+# <a name="quickstart-url-preview-in-javascript"></a>Quickstart: URL Preview in JavaScript 
 
 De volgende toepassing met één pagina gebruikt JavaScript om een URL-voorbeeld te maken voor de site SwiftKey: https://swiftkey.com/en. 
 
@@ -34,7 +34,7 @@ Als de respons goed wordt geretourneerd, wijst de handler de JSON-tekst van de r
 
 **Onbewerkte JSON-respons**
 
-````
+```
 {
   "_type": "WebPage",
   "name": "SwiftKey - Smart prediction technology for easier mobile typing",
@@ -46,7 +46,7 @@ Als de respons goed wordt geretourneerd, wijst de handler de JSON-tekst van de r
   }
 }
 
-````
+```
 
 **De actieve demo**
 
@@ -129,7 +129,7 @@ De toepassing uitvoeren:
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Snelstart voor C#](csharp.md)
-- [Snelstart voor Java](java-quickstart.md)
-- [Snelstart voor Node](node-quickstart.md)
-- [Snelstartgids voor Python](python-quickstart.md)
+- [Quickstart voor C#](csharp.md)
+- [Quickstart voor Java](java-quickstart.md)
+- [Quickstart voor Node](node-quickstart.md)
+- [Quickstart voor Python](python-quickstart.md)

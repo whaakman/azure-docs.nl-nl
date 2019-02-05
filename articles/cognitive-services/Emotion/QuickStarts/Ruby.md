@@ -1,24 +1,24 @@
 ---
-title: 'Snelstartgids: Emoties op gezichten in een afbeelding herkennen - Emotion-API, Ruby'
+title: 'Quickstart: Emoties herkennen op gezichten in een afbeelding - Emotion-API, Ruby'
 titlesuffix: Azure Cognitive Services
 description: Bekijk informatie en codevoorbeelden om snel aan de slag te gaan met de Emotion-API en Ruby.
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: bcab24334c1ee4e47061ce6ea28bd60039e17b3f
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 9ab0f4128e163ca887cf8f03425e33f3fbb6f01a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239026"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221977"
 ---
-# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Snelstart: een app bouwen voor het herkennen van emoties op gezichten in een afbeelding.
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Quickstart: Een app bouwen voor het herkennen van emoties op een gezicht in een afbeelding.
 
 > [!IMPORTANT]
 > De Emotion-API wordt op 15 februari 2019 afgeschaft. De mogelijkheid voor de herkenning van emoties is nu algemeen beschikbaar als onderdeel van de [Face-API](https://docs.microsoft.com/azure/cognitive-services/face/). 

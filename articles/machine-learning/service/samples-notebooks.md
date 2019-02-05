@@ -4,93 +4,56 @@ titleSuffix: Azure Machine Learning service
 description: Jupyter-voorbeeldnotebooks vinden en gebruiken om Azure Machine Learning Service in Python te ontdekken.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: sample
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6befe3a3fee80dd65fd3ac5be241c558707224e6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 5ba555ad31545e1ae1aa822ec58b0bd22ef486ac
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811091"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295148"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Jupyter-notebooks gebruiken om Azure Machine Learning Service te verkennen
-
 
 We hebben een reeks Jupyter Python-notebooks ontwikkeld zodat u Azure Machine Learning Service gemakkelijk kunt verkennen. 
 
 Ontdek hoe u de service gebruikt met de documentatie op deze site en hoe u de notebooks aan uw situatie aanpast. 
 
-## <a name="prerequisite"></a>Vereiste
+Gebruik een van de onderstaande paden om een notebookserver met deze voorbeeldnotebooks uit te voeren.  Zodra de server wordt uitgevoerd, vindt u notebooks voor zelfstudie in de map **tutorials**. U kunt ook de verschillende functies bekijken in de map **how-to-use-azureml**.
 
-Voltooi de [Python-quickstart voor Azure Machine Learning](quickstart-get-started.md) om een werkruimte te maken en Azure Notebooks te starten.
 
 ## <a name="try-azure-notebooks-free-jupyter-notebooks-in-the-cloud"></a>Azure Notebooks proberen: Gratis Jupyter-notebooks in de cloud
 
 U kunt eenvoudig aan de slag met Azure Notebooks. De [Azure Machine Learning SDK voor Python](https://aka.ms/aml-sdk) is al voor u geïnstalleerd en geconfigureerd in [Azure Notebooks](https://notebooks.azure.com/). De installatie en toekomstige updates worden automatisch beheerd via Azure-services.
   
-+ De **belangrijkste zelfstudie voor Notebooks** uitvoeren:
-  1. Ga naar [Azure Notebooks](https://notebooks.azure.com/).
-    
-  1. Zoek de map **zelfstudies** in de bibliotheek **Aan de slag** die u tijdens de vereiste quickstart hebt gemaakt.
-    
-  1. Open de notebook die u wilt uitvoeren.
-    
-+ Als u **andere notebooks** wilt uitvoeren:
-
-  1. [Importeer de voorbeeld-notebooks](https://aka.ms/aml-clone-azure-notebooks) in Azure Notebooks.
-
-  1. Voeg een configuratiebestand voor de werkruimte toe aan de bibliotheek met een van deze methoden:
-     + Kopieer het **config.json**-bestand uit de bibliotheek **Aan de slag** naar de nieuwe gekloonde bibliotheek.
-
-     + Maak een nieuwe werkruimte met behulp van code in [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb).
-    
-  1. Open de notebook die u wilt uitvoeren.     
+[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
 
 ## <a name="use-a-data-science-virtual-machine-dsvm"></a>Een Data Science Virtual Machine (DSVM) gebruiken
 
-De [Azure Machine Learning SDK voor Python](https://aka.ms/aml-sdk) en de notebookserver zijn al voor u geïnstalleerd en geconfigureerd in een DSVM. Volg deze stappen om de notebooks uit te voeren.
+De [Azure Machine Learning SDK voor Python](https://aka.ms/aml-sdk) en de notebookserver zijn al voor u geïnstalleerd en geconfigureerd in een DSVM. 
 
-1. [Maak een DSVM](how-to-configure-environment.md#dsvm).
+Nadat u [een DSVM hebt gemaakt](how-to-configure-environment.md#dsvm), volgt u deze stappen op de DSVM om de notebooks uit te voeren.
 
-1. Kloon [de GitHub-opslagplaats](https://aka.ms/aml-notebooks).
+[!INCLUDE [aml-dsvm-server](../../../includes/aml-dsvm-server.md)]
 
-1. Voeg een configuratiebestand voor de werkruimte toe aan de bibliotheek met een van deze methoden:
-    * Kopieer het **aml_config\config.json**-bestand dat u met behulp van de vereiste quickstart hebt gemaakt naar de gekloonde map.
-
-    * Maak een nieuwe werkruimte met behulp van code in [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb).
-
-1. Start de notebookserver vanuit de gekloonde map.
 
 ## <a name="use-your-own-jupyter-notebook-server"></a>Uw eigen Jupyter Notebook-server gebruiken
 
 Volg deze stappen om een lokale Jupyter Notebook-server te maken op uw computer.
 
-1. Zorg ervoor dat u de vereiste quickstart hebt voltooid waarin u de Azure Machine Learning SDK's hebt geïnstalleerd.
+[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
-1. Kloon [de GitHub-opslagplaats](https://aka.ms/aml-notebooks).
+<a name="automated-ml-setup"></a>
 
-1. Voeg een configuratiebestand voor de werkruimte toe aan de bibliotheek met een van deze methoden:
-    * Kopieer het **aml_config\config.json**-bestand dat u met behulp van de vereiste quickstart hebt gemaakt naar de gekloonde map.
-    
-    * Maak een nieuwe werkruimte met behulp van code in [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb).
+## <a name="automated-machine-learning-setup"></a>Setup van Gautomatiseerde Machine Learning 
 
-1. Start de notebookserver vanuit de gekloonde map.
-
-1. Ga naar de map met de notebook.
-
-1. Open het notebook.
-
-<a name="auto"></a>
-
-## <a name="automated-ml-setup"></a>Geautomatiseerde ML-installatie 
-
-**Deze stappen gelden alleen voor de notebooks in de map `automated-machine-learning`.**
+_Deze stappen gelden alleen voor de notebooks in de map **how-to-use-azureml/automated-machine-learning**._
 
 U kunt een van de bovenstaande opties gebruiken, maar u kunt ook de omgeving installeren en tegelijk een werkruimte maken met de volgende instructies. 
 
@@ -106,7 +69,7 @@ U kunt een van de bovenstaande opties gebruiken, maar u kunt ook de omgeving ins
    
    1. Navigeer naar de bestanden die u hebt uitgepakt naar uw lokale computer.
    
-   1. Open de map `automated-machine-learning`.
+   1. Open de map **automated-machine-learning**.
    
    1. Voer `automl_setup.cmd` uit in de conda-prompt voor Windows, of het `.sh`-bestand voor uw besturingssysteem. Het uitvoeren kan ongeveer tien minuten duren.
 
@@ -123,7 +86,7 @@ U kunt een van de bovenstaande opties gebruiken, maar u kunt ook de omgeving ins
 
 1. Ga naar het pad waar u de notebooks hebt opgeslagen. 
 
-1. Open de map automated-machine-learning en open vervolgens de notebook `configuration.ipynb`. 
+1. Open de map automated-machine-learning en open vervolgens de notebook **configuration.ipynb**. 
 
 1. Voer de cellen in de notebook uit om Machine Learning Services Resource Provider te registreren en een werkruimte te maken.
 

@@ -1,21 +1,21 @@
 ---
-title: 'Snelstart: Tekstscript converteren, Java- Translator Text-API'
+title: 'Quickstart: Tekstscript converteren, Java - Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: In deze quickstart leert u hoe u tekst van het ene script translitereert (converteert) naar een ander met behulp van Java en de Translator Text REST API. In dit voorbeeld is sprake van transliteratie van Japans voor gebruik van het Latijnse alfabet.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 1679445f73cd6b90423e05f985b83b818e32997e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: e42aa7ec796b3be912614ced5f3a4db47f67c124
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888865"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210052"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-java"></a>Quickstart: De Translator Text-API gebruiken voor transliteratie van tekst met Java
 
@@ -31,14 +31,14 @@ Voor deze snelstart is een [Azure Cognitive Services-account](https://docs.micro
 
 ## <a name="initialize-a-project-with-gradle"></a>Een project initialiseren met Gradle
 
-Laten we beginnen met het maken van een werkmap voor dit project. Voer de volgende opdracht uit vanaf de opdrachtregel (of terminal):
+We beginnen met het maken van een werkmap voor dit project. Voer de volgende opdracht uit vanaf de opdrachtregel (of terminal):
 
 ```console
 mkdir transliterate-sample
 cd transliterate-sample
 ```
 
-Vervolgens gaat u een Gradle-project initialiseren. Met deze opdracht maakt u essentiële buildbestanden voor Gradle, maar nog belangrijker is dat ook `build.gradle.kts` wordt gemaakt, die tijdens runtime wordt gebruikt om u toepassing te maken en configureren. Voer de volgende opdracht uit vanuit uw werkmap:
+Vervolgens gaat u een Gradle-project initialiseren. Met deze opdracht maakt u essentiële buildbestanden voor Gradle, maar nog belangrijker is dat ook `build.gradle.kts` wordt gemaakt, dat tijdens runtime wordt gebruikt om de toepassing te maken en te configureren. Voer de volgende opdracht uit vanuit uw werkmap:
 
 ```console
 gradle init --type basic
@@ -67,11 +67,11 @@ dependencies {
 }
 ```
 
-Vergeet niet dat dit voorbeeld afhankelijkheden heeft op OkHttp voor HTTP-aanvragen, en Gson voor het verwerken en parseren van JSON. Zie [Creating New Gradle Builds](https://guides.gradle.org/creating-new-gradle-builds/) (Nieuwe Gradle-builds maken) als u meer wilt weten over buildconfiguraties.
+Opmerking: dit voorbeeld heeft afhankelijkheden op OkHttp voor HTTP-aanvragen, en Gson voor het verwerken en parseren van JSON. Zie [Nieuwe Gradle-builds maken](https://guides.gradle.org/creating-new-gradle-builds/) voor meer informatie over buildconfiguraties.
 
 ## <a name="create-a-java-file"></a>Een Java-bestand maken
 
-Laten we een map maken voor uw voorbeeld-app. Voer vanuit uw werkmap de volgende opdracht uit:
+We gaan een map maken voor de voorbeeld-app. Voer vanuit uw werkmap de volgende opdracht uit:
 
 ```console
 mkdir -p src/main/java
@@ -94,7 +94,7 @@ import com.squareup.okhttp.*;
 
 ## <a name="define-variables"></a>Variabelen definiëren
 
-U moet eerst een openbare klasse voor uw project maken:
+U moet eerst een openbare klasse maken voor het project:
 
 ```java
 public class Transliterate {
@@ -111,7 +111,7 @@ String url = "https://api.cognitive.microsofttranslator.com/transliterate?api-ve
 
 ## <a name="create-a-client-and-build-a-request"></a>Een client maken en een aanvraag samenstellen
 
-Voeg deze regel toe aan de klasse `Transliterate` om `OkHttpClient` te instantiëren:
+Voeg deze regel toe aan de klasse `Transliterate` om de `OkHttpClient` te instantiëren:
 
 ```java
 // Instantiates the OkHttpClient.
@@ -151,7 +151,7 @@ public static String prettify(String json_text) {
 
 ## <a name="put-it-all-together"></a>Alles samenvoegen
 
-De laatste stap bestaat eruit om een aanvraag te maken en een antwoord te ontvangen. Voeg deze regels toe aan het project:
+De laatste stap bestaat uit het maken van een aanvraag en het ontvangen van een antwoord. Voeg deze regels toe aan het project:
 
 ```java
 public static void main(String[] args) {

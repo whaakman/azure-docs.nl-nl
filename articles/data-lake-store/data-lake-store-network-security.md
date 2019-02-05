@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: a363b5688e5fe915bd96393c35b3f39c69052d7c
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: ed2d1256508e588000970879dae7ac653797fbf9
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359303"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883310"
 ---
-# <a name="virtual-network-integration-for-azure-data-lake-storage-gen1---preview"></a>Integratie van virtuele netwerken voor Azure Data Lake Storage Gen1 - Preview
+# <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Integratie van virtuele netwerken voor Azure Data Lake Storage Gen1
 
 In dit artikel komt u meer te weten over de integratie van virtuele netwerken in Azure Data Lake Storage Gen1. Bij het integreren van virtuele netwerken kunt u uw accounts zodanig configureren dat alleen verkeer van specifieke virtuele netwerken en subnetten wordt geaccepteerd. 
 

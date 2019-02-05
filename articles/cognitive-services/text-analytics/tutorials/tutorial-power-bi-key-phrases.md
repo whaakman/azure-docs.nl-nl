@@ -1,23 +1,23 @@
 ---
-title: 'Zelfstudie: Text Analytics gebruiken met Power BI'
+title: 'Zelfstudie: Text Analytics met Power BI'
 titleSuffix: Azure Cognitive Services
 description: Leer hoe u Text Analytics gebruikt om belangrijke woordgroepen te extraheren uit tekst die in Power BI is opgeslagen.
 services: cognitive-services
 author: luiscabrer
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 09/12/2018
 ms.author: luisca
-ms.openlocfilehash: fe6bc384e4190cd17df00ddf285701db8c4199a6
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 0bda38db089218e0d5f6f8ff15c9eac888900e95
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733326"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209091"
 ---
-# <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Zelfstudie Integreer Power BI Desktop met de Text Analytics Cognitive service
+# <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Zelfstudie: Power BI Desktop integreren met de Text Analytics Cognitive service
 
 Microsoft Power BI Desktop is een gratis toepassing waarmee u verbinding kunt maken met uw gegevens en deze kunt transformeren en visualiseren. De Text Analytics-service is onderdeel van Microsoft Azure Cognitive Services, en biedt verwerking van natuurlijke taal. Bij onbewerkte ongestructureerde tekst, kan het de belangrijkste woordgroepen extraheren, sentiment analyseren en belangrijke entiteiten identificeren zoals merken. Samen kunnen deze hulpmiddelen u helpen snel te zien waar uw klanten het over hebben en wat ze ervan vinden.
 

@@ -1,23 +1,23 @@
 ---
-title: 'Snelstartgids: voorbeeld van project-URL, Node.js'
+title: 'Quickstart: Project URL Preview, Node.js'
 titlesuffix: Azure Cognitive Services
 description: Ga aan de slag met URL Preview in Microsoft Cognitive Services in Azure.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 3367b39333c9d7334bc56b3acdf00453cc9705c0
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 33bc6cd74dc0dd61f727a7ebcbbfc1d0bb85506f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465046"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209074"
 ---
-# <a name="quickstart-url-preview-with-nodejs"></a>Snelstartgids: URL Preview met Node.js 
+# <a name="quickstart-url-preview-with-nodejs"></a>Quickstart: URL Preview met Node.js 
 
 In het volgende voorbeeld van Node wordt er een URL-voorbeeld gemaakt voor de SwiftKey-website: https://swiftkey.com/en.
 
@@ -37,7 +37,7 @@ De code wordt in de volgende stappen geïmplementeerd:
 
 Dit is de volledige code voor deze demo:
 
-````
+```
 'use strict';
 
 let https = require('https');
@@ -83,10 +83,10 @@ let Search = function () {
 
 Search();
 
-````
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Voorbeeldcode van C#](csharp.md)
-- [Snelstart voor Java](java-quickstart.md)
-- [Snelstart voor JavaScript](javascript.md)
-- [Snelstart voor Python](python-quickstart.md)
+- [Quickstart voor Java](java-quickstart.md)
+- [Quickstart voor JavaScript](javascript.md)
+- [Quickstart voor Python](python-quickstart.md)

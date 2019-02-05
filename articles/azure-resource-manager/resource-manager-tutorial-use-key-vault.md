@@ -10,27 +10,27 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 01/25/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 3a84f9ed35bac7f56d4a6aa2af94d1c28e335b74
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4b8e7f429cbe9ff8e71432ac8038c8ad15114711
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093196"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080903"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Zelfstudie: Azure Key Vault integreren in de Resource Manager-sjabloonimplementatie
 
-Ontdek hoe u geheime waarden uit Azure Key Vault ophaalt en hoe u geheime waarden als parameters opgeeft tijdens Resource Manager-implementatie. De waarde zelf wordt nooit getoond, omdat u alleen verwijst naar de Key Vault-id. Zie [Azure Key Vault gebruiken om veilig parameterwaarden door te geven tijdens de implementatie](./resource-manager-keyvault-parameter.md) voor meer informatie
+Ontdek hoe u geheime waarden uit Azure Key Vault ophaalt en deze als parameters doorgeeft tijdens de implementatie van Resource Manager. De waarde zelf wordt nooit getoond, omdat u alleen verwijst naar de sleutelkluis-id. Zie [Azure Key Vault gebruiken om veilig parameterwaarden door te geven tijdens de implementatie](./resource-manager-keyvault-parameter.md) voor meer informatie
 
-In de zelfstudie [Resource-implementatievolgorde instellen](./resource-manager-tutorial-create-templates-with-dependent-resources.md) maakt u een virtuele machine, een virtueel netwerk en enkele andere afhankelijke resources. In deze zelfstudie past u de sjabloon zodanig aan dat het beheerderswachtwoord van de virtuele machine uit Azure Key Vault wordt opgehaald.
+In de zelfstudie [Resource-implementatievolgorde instellen](./resource-manager-tutorial-create-templates-with-dependent-resources.md) maakt u een virtuele machine, een virtueel netwerk en enkele andere afhankelijke resources. In deze zelfstudie past u de sjabloon zodanig aan dat het beheerderswachtwoord van de virtuele machine wordt opgehaald uit eens sleutelkluis.
 
 Deze zelfstudie bestaat uit de volgende taken:
 
 > [!div class="checklist"]
-> * Key Vault voorbereiden
+> * Een sleutelkluis voorbereiden
 > * Een quickstartsjabloon openen
 > * Het parameterbestand bewerken
 > * De sjabloon implementeren
@@ -49,18 +49,18 @@ Als u dit artikel wilt voltooien, hebt u het volgende nodig:
     ```azurecli-interactive
     openssl rand -base64 32
     ```
-    Azure Key Vault is ontworpen om cryptografische sleutels en andere geheimen te beveiligen. Zie [Zelfstudie:  Azure Key Vault integreren in de Resource Manager-sjabloonimplementatie](./resource-manager-tutorial-use-key-vault.md) voor meer informatie. We raden u ook aan om uw wachtwoord elke drie maanden te wijzigen.
+    Controleer of het gegenereerde wachtwoord voldoet aan de wachtwoordvereisten voor virtuele machines. Elke Azure-service heeft eigen wachtwoordvereisten. Zie [Wat zijn de wachtwoordvereisten bij het maken van een virtuele machine?](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm) voor meer informatie over VM-wachtwoordvereisten.
 
-## <a name="prepare-the-key-vault"></a>Key Vault voorbereiden
+## <a name="prepare-a-key-vault"></a>Een sleutelkluis voorbereiden
 
-In dit gedeelte gebruikt u een Resource Manager-sjabloon om een sleutelkluis en een geheim te maken. Dit sjabloon doet het volgende:
+In deze sectie gebruikt u een Resource Manager-sjabloon om een sleutelkluis en een geheim te maken. Dit sjabloon doet het volgende:
 
-* Een Key Vault maken die de eigenschap `enabledForTemplateDeployment` inschakelt. Deze eigenschap moet de waarde 'true' hebben, anders kan tijdens het sjabloonimplementatieproces geen toegang worden verkregen tot de geheimen in deze sleutelkluis.
+* Een sleutelkluis maken waarvoor de eigenschap `enabledForTemplateDeployment` is ingeschakeld. Deze eigenschap moet de waarde 'true' hebben, anders kan tijdens het sjabloonimplementatieproces geen toegang worden verkregen tot de geheimen die in deze sleutelkluis zijn gedefinieerd.
 * Voeg een geheim toe aan de sleutelkluis.  In het geheim wordt het beheerderswachtwoord van de virtuele machine opgeslagen.
 
-Als u (als de gebruiker die het virtuele-machinesjabloon gaat implementeren) niet de eigenaar of inzender bent van de sleutelkluis, moet de eigenaar of inzender van de sleutelkluis u toegang verlenen tot de machtiging Microsoft.KeyVault/vaults/deploy/action voor de sleutelkluis. Zie [Azure Key Vault gebruiken om veilig parameterwaarden door te geven tijdens de implementatie](./resource-manager-keyvault-parameter.md) voor meer informatie
+Als u (als de gebruiker die de virtuele-machinesjabloon gaat implementeren) niet de eigenaar of inzender bent van de sleutelkluis, moet de eigenaar of inzender van de sleutelkluis u toegang verlenen tot de machtiging Microsoft.KeyVault/vaults/deploy/action voor de sleutelkluis. Zie [Azure Key Vault gebruiken om veilig parameterwaarden door te geven tijdens de implementatie](./resource-manager-keyvault-parameter.md) voor meer informatie
 
-Uw Azure AD-gebruikersobject-id is in de sjabloon nodig om machtigingen te kunnen configureren. Met de volgende procedure wordt de object-id (GUID) opgehaald en wordt er een beheerderswachtwoord gegenereerd. Om een spraying-aanval op wachtwoorden te voorkomen, wordt het aanbevolen om gegenereerde wachtwoorden te gebruiken.
+Uw Azure AD-gebruikersobject-id is in de sjabloon nodig om machtigingen te kunnen configureren. Met de volgende procedure wordt de object-id (GUID) opgehaald.
 
 1. Voer de volgende Azure PowerShell- of Azure CLI-opdracht uit.  
 
@@ -68,19 +68,16 @@ Uw Azure AD-gebruikersobject-id is in de sjabloon nodig om machtigingen te kunne
     echo "Enter your email address that is associated with your Azure subscription):" &&
     read upn &&
     az ad user show --upn-or-object-id $upn --query "objectId" &&
-    openssl rand -base64 32
     ```
     ```azurepowershell-interactive
     $upn = Read-Host -Prompt "Input your user principal name (email address) used to sign in to Azure"
-    (Get-AzureADUser -ObjectId $upn).ObjectId
-    openssl rand -base64 32
+    (Get-AzADUser -UserPrincipalName $upn).Id
     ```
-2. Schrijf zowel de object-id als het gegenereerde wachtwoord op. U hebt deze later nog nodig.
-3. Controleer of het gegenereerde wachtwoord voldoet aan de wachtwoordvereisten voor virtuele machines. Elke Azure-service heeft eigen wachtwoordvereisten. Zie [Wat zijn de wachtwoordvereisten bij het maken van een virtuele machine?](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm) voor meer informatie over VM-wachtwoordvereisten.
+2. Noteer de object-id. U hebt deze verderop in de zelfstudie nodig.
 
-Een sleutelkluis maken:
+U maakt als volgt een sleutelkluis:
 
-1. Selecteer de volgende afbeelding om u aan te melden bij Azure en een sjabloon te openen. Met de sjabloon worden een sleutelkluis en een sluitelkluisgeheim gemaakt.
+1. Selecteer de volgende afbeelding om u aan te melden bij Azure en een sjabloon te openen. Met de sjabloon worden een sleutelkluis en een geheim gemaakt.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Farmtutorials.blob.core.windows.net%2Fcreatekeyvault%2FCreateKeyVault.json"><img src="./media/resource-manager-tutorial-use-key-vault/deploy-to-azure.png" alt="deploy to azure"/></a>
 
@@ -98,7 +95,7 @@ Een sleutelkluis maken:
     * **Geheime waarde**: voer het geheim in.  Het geheim is het wachtwoord dat u gebruikt om zich aan te melden bij de virtuele machine. Het wordt aanbevolen om het wachtwoord dat tijdens de afgelopen procedure is gemaakt, te gebruiken.
     * **Ik ga akkoord met de bovenstaande voorwaarden**: Selecteren.
 3. Selecteer **Parameters bewerken** bovenin om de sjabloon te bekijken.
-4. Blader naar regel 28 van het JSON-sjabloonbestand. Dit is de Key Vault-resourcedefinitie.
+4. Blader naar regel 28 van het JSON-sjabloonbestand. Dit is de resourcedefinitie van de sleutelkluis.
 5. Blader naar regel 35:
 
     ```json
@@ -110,13 +107,14 @@ Een sleutelkluis maken:
 8. Controleer of u alle waarden hebt opgegeven, zoals in de vorige schermafbeelding te zien is. Klik dan onder aan de pagina op **Kopen**.
 9. Selecteer het belpictogram (voor meldingen) bovenaan op de pagina om het deelvenster **Meldingen** te openen. Wacht tot de resource is geïmplementeerd.
 10. Selecteer **Ga naar de resourcegroep** in het deelvenster **Meldingen**. 
-11. Selecteer de naam van de sleutelkluis om die te openen.
-12. Selecteer **Toegangsbeleid** in het linkerdeelvenster. Uw naam (Active Directory) wordt vermeld, want anders hebt u het recht niet om de sleutelkluis te openen.
-13. Selecteer **Klik hierop om geavanceerde beleidsregels weer te geven**. U ziet dat **Toegang tot Azure Resource Manager inschakelen voor sjabloonimplementatie** is geselecteerd. Dit is nog een voorwaarde om er zeker van te zijn dat de Key Vault-integratie werkt.
+11. Selecteer de naam van de sleutelkluis om deze te openen.
+12. Selecteer **Geheimen** in het linkerdeelvenster. Daar wordt **vmAdminPassword** vermeld.
+13. Selecteer **Toegangsbeleid** in het linkerdeelvenster. Uw naam (Active Directory) wordt vermeld, want anders hebt u het recht niet om de sleutelkluis te openen.
+14. Selecteer **Klik hierop om geavanceerde beleidsregels weer te geven**. U ziet dat **Toegang tot Azure Resource Manager inschakelen voor sjabloonimplementatie** is geselecteerd. Deze instelling is nog een voorwaarde voor een goede werking van de Key Vault-integratie.
 
     ![Resource Manager-sjabloon - sleutelkluisintegratie - toegangsbeleid](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-key-vault-access-policies.png)
-14. Selecteer **Eigenschappen** in het linkerdeelvenster.
-15. Kopieer de **resource-id**. U hebt deze id nodig bij het implementeren van de virtuele machine.  De indeling van de resource-id is:
+15. Selecteer **Eigenschappen** in het linkerdeelvenster.
+16. Kopieer de **resource-id**. U hebt deze id nodig bij het implementeren van de virtuele machine.  De indeling van de resource-id is:
 
     ```json
     /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
@@ -180,19 +178,24 @@ U hoeft het sjabloonbestand niet te wijzigen.
 Volg de instructies in [De sjabloon implementeren](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) om de sjabloon te implementeren. U moet zowel **azuredeploy.json** als **azuredeploy.parameters.json** uploaden naar de cloudshell. Gebruik dan het volgende PowerShell-script om de sjabloon te implementeren:
 
 ```azurepowershell
-$resourceGroupName = Read-Host -Prompt "Enter the resource group name of the Key Vault"
 $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
-New-AzureRmResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resourceGroupName `
-    -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+
+New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+New-AzureRmResourceGroupDeployment -Name $deploymentName `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile azuredeploy.json `
+    -TemplateParameterFile azuredeploy.parameters.json
 ```
 
-Wanneer u de sjabloon implementeert, gebruikt u dezelfde resourcegroep als bij de sleutelkluis. Dit is handiger bij het opschonen van de resources. U hoeft dan slechts één resourcegroep te verwijderen in plaats van twee.
+Wanneer u de sjabloon implementeert, gebruikt u dezelfde resourcegroep als die van de sleutelkluis. Dit is handiger bij het opschonen van de resources. U hoeft dan slechts één resourcegroep te verwijderen in plaats van twee.
 
 ## <a name="valid-the-deployment"></a>De implementatie controleren
 
 Wanneer u de virtuele machine hebt geïmplementeerd, test u of u zich kunt aanmelden met het wachtwoord dat in de sleutelkluis is opgeslagen.
 
-1. Open de [Azure-portal](https://portal.azure.com).
+1. Open de [Azure Portal](https://portal.azure.com).
 2. Selecteer **Resourcegroepen**/**Naam van uw resourcegroep>**/**simpleWinVM**
 3. Selecteer bovenaan de optie **Verbinding maken**.
 4. Selecteer **RDP-bestand downloaden** en volg de instructies voor het aanmelden bij de virtuele machine, met het wachtwoord dat is opgeslagen in de sleutelkluis.
@@ -201,7 +204,7 @@ Wanneer u de virtuele machine hebt geïmplementeerd, test u of u zich kunt aanme
 
 Schoon de geïmplementeerd Azure-resources, wanneer u deze niet meer nodig hebt, op door de resourcegroep te verwijderen.
 
-1. Selecteer **Resourcegroep** in het linkermenu van de Azure-portal.
+1. Selecteer **Resourcegroep** in het linkermenu van Azure Portal.
 2. Voer de naam van de resourcegroep in het veld **Filter by name** in.
 3. Selecteer de naam van de resourcegroep.  U ziet in totaal zes resources in de resourcegroep.
 4. Selecteer **Resourcegroep verwijderen** in het bovenste menu.

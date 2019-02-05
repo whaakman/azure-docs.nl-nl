@@ -6,18 +6,18 @@ services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: fb5d03e2cb3c11daf7a94966fda46345ee910ded
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: f443eb13650483bc3ee63dad59cc40b8042bc35b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125099"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222811"
 ---
-# <a name="example-how-to-add-faces"></a>Voorbeeld: Hoe gezichten toevoegen
+# <a name="example-how-to-add-faces"></a>Voorbeeld: Gezichten toevoegen
 
 Deze handleiding toont u de best practice om een groot aantal personen en gezichten aan een PersonGroup toe te voegen.
 De dezelfde strategie geldt ook voor FaceList en LargePersonGroup.
@@ -60,7 +60,7 @@ static async Task WaitCallLimitPerSecondAsync()
 }
 ```
 
-## <a name="step-2-authorize-the-api-call"></a>Stap 2: de API-aanroep autoriseren
+## <a name="step-2-authorize-the-api-call"></a>Stap 2: De API-aanroep autoriseren
 
 Als u gebruikmaakt van een clientbibliotheek wordt de abonnementssleutel doorgegeven via de constructor van de klasse FaceServiceClient. Bijvoorbeeld:
 

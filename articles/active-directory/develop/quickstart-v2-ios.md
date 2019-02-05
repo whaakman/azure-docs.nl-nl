@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 09/23/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 49ced3277a659ddacef239c7a1394cbe5ce06ac9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2f91cfc6c391bb22ca5f75a7a72123b695380aff
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973606"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094305"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>Snelstart: Gebruikers aanmelden en de Microsoft Graph API aanroepen vanuit een systeemeigen iOS-app
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>Quickstart: Gebruikers aanmelden en de Microsoft Graph API aanroepen vanuit een systeemeigen iOS-app
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
@@ -35,9 +35,9 @@ Deze snelstart bevat een codevoorbeeld die u laat zien hoe een systeemeigen iOS-
 > ## <a name="register-and-download"></a>Registreren en downloaden
 > ### <a name="register-and-configure-your-application-and-code-sample"></a>Uw toepassing en codevoorbeeld registreren en configureren
 > #### <a name="step-1-register-your-application"></a>Stap 1: Uw toepassing registreren
-> Ga als volgt te werk om uw toepassing te registreren en de registratiegegevens van uw toepassing aan uw oplossing toe te voegen:
-> 1. Ga naar de [Microsoft-portal voor toepassingsregistratie](https://apps.dev.microsoft.com/portal/register-app) om een toepassing te registreren.
-> 1. Typ een naam voor de toepassing in het vak **Toepassingsnaam**.
+> Ga als volgt te werk om de toepassing te registreren en de registratiegegevens van de toepassing toe te voegen aan uw oplossing:
+> 1. Ga naar de [Microsoft-portal voor app-registratie](https://apps.dev.microsoft.com/portal/register-app) om een toepassing te registreren.
+> 1. Typ in het vak **Toepassingsnaam** een naam voor de toepassing.
 > 1. Zorg ervoor dat het selectievakje **Stapsgewijze instelling** is uitgeschakeld en selecteer vervolgens **Maken**.
 > 1. Selecteer **Platform toevoegen**, selecteer **Systeemeigen toepassing** en selecteer vervolgens **Opslaan**.
 
@@ -54,7 +54,7 @@ Deze snelstart bevat een codevoorbeeld die u laat zien hoe een systeemeigen iOS-
 
 - [Het XCode-project downloaden](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
 
-#### <a name="step-3-configure-your-project"></a>Stap 3: Uw project configureren
+#### <a name="step-3-configure-your-project"></a>Stap 3: Het project configureren
 
 1. Pak het zip-bestand uit en open het project in XCode.
 1. Bewerk **ViewController.swift** en vervang de regel die begint met 'let kClientID' door het volgende codefragment:
@@ -158,8 +158,8 @@ In sommige situaties moeten gebruikers worden gedwongen te communiceren met het 
 
 * De eerste keer dat gebruikers zich aanmelden bij de toepassing
 * Wanneer gebruikers mogelijk hun referenties opnieuw moeten opgeven omdat het wachtwoord is verlopen
-* Wanneer uw toepassing toegang aanvraagt tot een resource waarbij de gebruiker toestemming moet geven
-* Wanneer tweeledige verificatie vereist is
+* Wanneer via de toepassing toegang wordt aangevraagd tot een resource waarvoor de gebruiker toestemming moet geven
+* Wanneer tweeledige verificatie is vereist
 
 ```swift
 applicationContext.acquireToken(forScopes: self.kScopes) { (result, error) in /* Add your handling logic */}

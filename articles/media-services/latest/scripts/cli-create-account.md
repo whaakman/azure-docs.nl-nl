@@ -12,24 +12,22 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/15/2019
+ms.date: 01/25/2019
 ms.author: juliako
-ms.openlocfilehash: 2eeb47c2e0f96eca1ca9b852a2be6ca3102ba71e
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 41d9548aa33ee29c40179506ae824ab79b000859
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353342"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55213171"
 ---
 # <a name="cli-example-create-an-azure-media-services-account"></a>CLI-voorbeeld: Een Azure Media Services-account maken
 
-In het Azure CLI-script in dit onderwerp ziet u hoe u een Azure Media Services-account kunt maken. Het Media Services-account en het opslagaccount die er aan zijn gekoppeld, moeten deel uitmaken van hetzelfde datacenter en dezelfde resourcegroep.
+In het Azure CLI-script in dit onderwerp ziet u hoe u een Azure Media Services-account kunt maken. 
 
-## <a name="prerequisites"></a>Vereisten 
+Het Media Services-account en alle gekoppelde opslagaccounts moeten zich in hetzelfde Azure-abonnement bevinden. Het is raadzaam om opslagaccounts te gebruiken die zich op dezelfde locatie bevinden als het Media Services-account.
 
-Installeer en gebruik de CLI lokaal. Voor dit artikel dient u gebruik te maken van Azure CLI, versie 2.0 of hoger. Voer `az --version` uit om te zien welke versie u hebt. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](/cli/azure/install-azure-cli). 
-
-Momenteel werken niet alle [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref)-opdrachten in Azure Cloud Shell. U wordt aangeraden de CLI lokaal te gebruiken.
+[!INCLUDE [media-services-cli-instructions.md](../../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="example-script"></a>Voorbeeldscript
 

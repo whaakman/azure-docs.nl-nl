@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 1e27fb26b00502b63d6023b41b6a26b179b453be
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: a1d4af695807a6e2c5ef4ee74527083002bc6015
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094039"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900763"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Een functie-app maken vanuit Azure Portal
 
@@ -35,7 +35,7 @@ Nadat de functie-app is gemaakt, kunt u afzonderlijke functies in een of meer ve
 
 ## <a name="service-plans"></a>Service-abonnementen
 
-Azure Functions heeft twee verschillende serviceabonnementen: het abonnement Consumption en App Service. In het abonnement Consumption wordt automatisch rekencapaciteit toegewezen op het moment dat uw code wordt uitgevoerd, wordt de schaal naar boven aangepast als dat nodig is om de werkbelasting aan te kunnen, en naar beneden als de code niet wordt uitgevoerd. Met het App Service-abonnement heeft uw functie-app toegang tot de faciliteiten van App Service. Als uw functie-app wordt gemaakt, moet u een serviceabonnement kiezen. Dit kan momenteel niet worden gewijzigd. Zie [Een Azure Functions-hostingabonnement kiezen](functions-scale.md) voor meer informatie.
+Azure Functions biedt twee verschillende serviceabonnementen: Het verbruiksabonnement en het App Service-abonnement. In het abonnement Consumption wordt automatisch rekencapaciteit toegewezen op het moment dat uw code wordt uitgevoerd, wordt de schaal naar boven aangepast als dat nodig is om de werkbelasting aan te kunnen, en naar beneden als de code niet wordt uitgevoerd. Met het App Service-abonnement heeft uw functie-app toegang tot de faciliteiten van App Service. Als uw functie-app wordt gemaakt, moet u een serviceabonnement kiezen. Dit kan momenteel niet worden gewijzigd. Zie [Een Azure Functions-hostingabonnement kiezen](functions-scale.md) voor meer informatie.
 
 Als u van plan bent JavaScript-functies op een App Service-abonnement uit te voeren, moet u een abonnement met minder cores kiezen. Zie de [JavaScript-naslaginformatie voor Functions](functions-reference-node.md#choose-single-vcpu-app-service-plans) voor meer informatie.
 
@@ -53,6 +53,3 @@ Zie [Introductie van de Azure Storage-services](../storage/common/storage-introd
 ## <a name="next-steps"></a>Volgende stappen
 
 [!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
-
-
-

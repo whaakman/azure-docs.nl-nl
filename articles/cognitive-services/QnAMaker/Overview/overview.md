@@ -6,16 +6,16 @@ services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 10/09/2018
+ms.date: 01/24/2019
 ms.author: tulasim
-ms.openlocfilehash: bd859183a13e0f8a21cdd2eabb464b718e949464
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1295d071fa3ad99aabd2649f7b7e0b7fe1f86584
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212213"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226856"
 ---
 # <a name="what-is-qna-maker"></a>Wat is QnA Maker?
 
@@ -57,9 +57,9 @@ QnA Maker biedt twee belangrijke services voor uw gegevens:
 
 De architectuur van QnA Maker bestaat uit de volgende twee onderdelen:
 
-1. **QnA Maker-beheerservices**: de beheerervaring voor een QnA Maker-knowledge base die alle fasen omvat, van het maken tot en met het bijwerken, trainen en publiceren. Deze activiteiten kunnen worden uitgevoerd via de [portal](https://qnamaker.ai) of de [beheer-API's](https://aka.ms/qnamaker-v4-apis). 
+1. **QnA Maker-beheerservices**: het beheer voor een QnA Maker-knowledge base dat alle fasen omvat, van het maken tot en met het bijwerken, trainen en publiceren. Deze activiteiten kunnen worden uitgevoerd via de [portal](https://qnamaker.ai) of de [beheer-API's](https://aka.ms/qnamaker-v4-apis). 
 
-2. De **QnA Maker-gegevens en -runtime**: deze is geïmplementeerd in uw Azure-abonnement in de door u opgegeven regio. Uw KB-inhoud wordt opgeslagen in [Azure Search](https://azure.microsoft.com/services/search/) en het eindpunt wordt geïmplementeerd als een [app-service](https://azure.microsoft.com/services/app-service/). U kunt er ook voor kiezen om een ​​[Application Insights](https://azure.microsoft.com/services/application-insights/)-bron te implementeren voor analyse.
+2. **QnA Maker-gegevens en -runtime**: dit wordt geïmplementeerd in uw Azure-abonnement in de door u opgegeven regio. Uw KB-inhoud wordt opgeslagen in [Azure Search](https://azure.microsoft.com/services/search/) en het eindpunt wordt geïmplementeerd als een [app-service](https://azure.microsoft.com/services/app-service/). U kunt er ook voor kiezen om een ​​[Application Insights](https://azure.microsoft.com/services/application-insights/)-bron te implementeren voor analyse.
 
 ![Architectuur](../media/qnamaker-overview-learnabout/architecture.png)
 

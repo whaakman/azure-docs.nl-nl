@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: d82e80530d375a9d0f0a6d3f491d3070942ca02f
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: a6b1e4e1571e6ce3cee1658907efd35e9c73ca1a
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331908"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903390"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Maak een functie in Azure die wordt geactiveerd door een timer
 
@@ -84,8 +84,6 @@ U hebt nu een functie die één keer per uur wordt uitgevoerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt een functie gemaakt die wordt uitgevoerd op basis van een schema.
+U hebt een functie gemaakt die wordt uitgevoerd op basis van een schema. Zie [Schedule code execution with Azure Functions](functions-bindings-timer.md) (Code-uitvoering plannen met Azure Functions) voor meer informatie over timeractiveringen.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-
-Zie voor meer informatie over timeractiveringen [Schedule code execution with Azure Functions](functions-bindings-timer.md) (Code-uitvoering plannen met Azure Functions).

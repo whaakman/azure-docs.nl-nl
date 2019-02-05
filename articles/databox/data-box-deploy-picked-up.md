@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/16/2019
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: b948616aa21d390cedc877b0a09e272815abc82a
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 158c2a8919bccea03f5c7b67aef23cd07022c259
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358555"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900507"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Zelfstudie: Azure Data Box terugsturen en de gegevens controleren die u naar Azure hebt geüpload
 
@@ -22,18 +22,27 @@ In deze zelfstudie wordt beschreven hoe u de Azure Data Box terugstuurt en hoe u
 In deze zelfstudie vindt u informatie over onderwerpen als:
 
 > [!div class="checklist"]
+> * Vereisten
+> * Voorbereiding voor verzending
 > * De Data Box naar Microsoft verzenden
 > * De gegevensupload naar Azure controleren
 > * Gegevens verwijderen uit de Data Box
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voltooi voordat u begint de [Zelfstudie: Gegevens kopiëren naar Azure Data Box en deze gegevens controleren](data-box-deploy-copy-data.md).
+Zorg voordat u begint voor het volgende:
+
+- U hebt de [Zelfstudie: Gegevens kopiëren naar Azure Data Box en deze gegevens controleren](data-box-deploy-copy-data.md) voltooid. 
+- Kopieertaken zijn voltooid. Voorbereiding voor verzending kan niet worden uitgevoerd als er nog kopieertaken worden uitgevoerd.
+
+## <a name="prepare-to-ship"></a>Voorbereiding voor verzending
+
+[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
 
 ## <a name="ship-data-box-back"></a>De Data Box terugsturen
 
 1. Zorg ervoor dat het apparaat uit staat en de kabels zijn verwijderd. Rol het netsnoer op en plaats het veilig aan de achterzijde van het apparaat.
-2. Als het apparaat wordt verzonden in de VS, zorgt u ervoor dat het verzendlabel wordt weergegeven op het E-ink-scherm en spreekt u met de vervoerder een tijdstip af waarop het kan worden opgehaald. Als het label is beschadigd of ontbreekt of niet wordt weergegeven op het E-ink-scherm, dient u het verzendlabel te downloaden van de Azure-portal en dit op het apparaat te bevestigen. Ga naar **Overzicht > Verzendlabel downloaden**. 
+2. Als het apparaat wordt verzonden in de VS, zorgt u ervoor dat het verzendlabel wordt weergegeven op het E-ink-scherm en spreekt u met de vervoerder een tijdstip af waarop het kan worden opgehaald. Als het label is beschadigd of ontbreekt of niet wordt weergegeven op het E-ink-scherm, gaat u naar **Overzicht > Verzendlabel downloaden** in de Azure-portal. Download het verzendlabel en bevestig dat op het apparaat.
 
     Als het apparaat wordt geleverd in Europa, wordt er geen verzendlabel weergegeven op het E-ink-scherm. In dat geval vindt u het retourlabel in het doorzichtige hoesje onder het verzendlabel aan de voorkant. Verwijder het oude verzendlabel en zorg ervoor dat het verzendlabel duidelijk zichtbaar is.
     
@@ -43,7 +52,7 @@ Voltooi voordat u begint de [Zelfstudie: Gegevens kopiëren naar Azure Data Box 
 
 ## <a name="verify-data-upload-to-azure"></a>De gegevensupload naar Azure controleren
 
-Wanneer Microsoft het apparaat heeft ontvangen en gescand, wordt de orderstatus bijgewerkt naar **Ontvangen**. Het apparaat wordt vervolgens fysiek gecontroleerd op schade of op tekenen dat ermee is geknoeid. 
+Wanneer Microsoft het apparaat heeft ontvangen en gescand, wordt de orderstatus bijgewerkt naar **Ontvangen**. Het apparaat wordt vervolgens fysiek gecontroleerd op schade of op tekenen dat ermee is geknoeid.
 
 Nadat de controle is uitgevoerd, wordt de Data Box met het netwerk in het Azure-datacenter verbonden. Het kopiëren van de gegevens start automatisch. Afhankelijk van de gegevensgrootte kan de kopieerbewerking enkele uren tot enkele dagen duren. U kunt de voortgang van de kopieertaak bewaken via de portal.
 
@@ -65,6 +74,8 @@ Nadat de gegevens naar Azure zijn geüpload, worden de gegevens door de Data Box
 In deze zelfstudie bent u meer te weten gekomen over verschillende onderwerpen met betrekking tot Azure Data Box, zoals:
 
 > [!div class="checklist"]
+> * Vereisten
+> * Voorbereiding voor verzending
 > * De Data Box naar Microsoft verzenden
 > * De gegevensupload naar Azure controleren
 > * Gegevens verwijderen uit de Data Box

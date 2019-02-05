@@ -5,18 +5,18 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ms.openlocfilehash: 53e93a08782ba66e69b903c32c4c3c7417e5a801
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 0e4c21a064cdb0a60aef49482eee4b768112b899
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344571"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216418"
 ---
-# <a name="tutorial-create-a-custom-acoustic-model"></a>Zelfstudie: een aangepast akoestisch model maken
+# <a name="tutorial-create-a-custom-acoustic-model"></a>Zelfstudie: Een aangepast akoestisch model maken
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
@@ -48,7 +48,7 @@ Bijvoorbeeld:
 <a name="Preparing data to customize the acoustic model"></a>
 *   Als u bijvoorbeeld de prestaties van een enkele luidspreker wilt optimaliseren, bijvoorbeeld als u alle Fireside-chats van president Roosevelt wilt transcriberen, moeten de audiobestanden alleen uit veel voorbeelden van die spreker bestaan.
 
-Een akoestische-gegevensset voor het aanpassen van het akoestische model bestaat uit twee delen: (1) een set audiobestanden die de spraakgegevens bevatten en (2) een bestand dat de transcripties van alle audiobestanden bevat.
+Een set akoestische gegevens voor het aanpassen van het akoestisch model bestaat uit twee onderdelen: (1) een set met audiobestanden met de spraakgegevens en (2) een bestand met de transcripties van alle audiobestanden.
 
 ### <a name="audio-data-recommendations"></a>Aanbevelingen voor audiogegevens
 

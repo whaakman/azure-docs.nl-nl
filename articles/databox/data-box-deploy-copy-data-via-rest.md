@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: fa0883c18e0d586e6e9b35fb19dbe304388045b5
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 85c9eeb60027ba44fd5e65d056864aa76a6e720a
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215283"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900881"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Zelfstudie: Gegevens kopiëren naar Azure Data Box-blobopslag via REST API's  
 
@@ -22,9 +22,9 @@ In deze zelfstudie worden procedures beschreven voor het maken van een *http*- o
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
+> * Vereisten
 > * Verbinding maken met Data Box-blobopslag via *http* of *https*
 > * Gegevens kopiëren naar Data Box
-> * Voorbereiding voor verzending
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -201,18 +201,17 @@ Als u alleen resources wilt kopiëren die niet in het doel bestaan, geeft u zowe
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
 
 
-## <a name="prepare-to-ship"></a>Voorbereiding voor verzending
-
-[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
+In de laatste stap gaat u het apparaat voorbereiden voor verzending.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie bent u meer te weten gekomen over verschillende onderwerpen met betrekking tot Azure Data Box, zoals:
 
 > [!div class="checklist"]
+> * Vereisten
 > * Verbinding maken met Data Box-blobopslag via *http* of *https*
 > * Gegevens kopiëren naar Data Box
-> * Voorbereiding voor verzending
+
 
 Ga naar de volgende zelfstudie om te lezen hoe u uw Data Box naar Microsoft verzendt.
 

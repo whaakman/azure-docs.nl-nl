@@ -1,21 +1,21 @@
 ---
-title: 'Snelstart: Gezichten in een afbeelding detecteren met de Azure REST API en C#'
+title: 'Quickstart: Gezichten in een afbeelding detecteren met de Azure REST API en C#'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart gebruikt u de Azure Face REST API met C# om gezichten in een afbeelding te detecteren.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: 24b506b0dd22b388a57f88f1105742660b02269c
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 6dce69b06d00ef41f4ffee46f644fb0dc3560ecc
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854003"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220600"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Snelstart: Gezichten in een afbeelding detecteren met de Face REST API en C#
 

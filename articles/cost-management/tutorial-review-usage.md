@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: e96119abd4fc77c576fb65281c3f48b8263e020d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: e240cbadbee87938107c4a9bf034c47db42acf92
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849971"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098643"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -104,7 +104,7 @@ In dit voorbeeld wordt het rapport **Actual Cost Over Time** (Werkelijke kosten 
 5. Selecteer het tabblad **Threshold** en selecteer **Actual Cost vs. Threshold**. 
    1. In het vak voor de drempelwaarde **Red alert** voert u 10000 in. 
    2. In het vak voor de drempelwaarde **Yellow alert** voert u 9000 in. 
-   3. In het vak **Number of consecutive alerts** voert u het aantal opeenvolgende te ontvangen waarschuwingen in. Wanneer u het door u opgegeven totaal aantal waarschuwingen hebt ontvangen, worden er geen extra waarschuwingen meer verzonden. 
+   3. In het vak **Number of consecutive alerts** voert u het aantal opeenvolgende te ontvangen waarschuwingen in. Wanneer u het totaal aantal waarschuwingen hebt ontvangen dat u hebt opgegeven, worden er geen extra waarschuwingen meer verzonden. 
 6. Selecteer **Opslaan**.
 
 ![Voorbeeld met rode en gele waarschuwingen op basis van uitgavedrempelwaarden](./media/tutorial-review-usage/schedule-alert01.png)

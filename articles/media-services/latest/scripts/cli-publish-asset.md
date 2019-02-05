@@ -12,14 +12,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/11/2018
+ms.date: 01/25/2019
 ms.author: juliako
-ms.openlocfilehash: 1ce85c18b93f22e9078e551deda74c6e6ff0b28b
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: d841c0b62092cb58142a52eed52dc0c32d04c500
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614919"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095485"
 ---
 # <a name="cli-example-publish-an-asset"></a>CLI-voorbeeld: Een asset publiceren
 
@@ -27,11 +27,9 @@ In het Azure CLI-script in dit artikel ziet u hoe u een streaming-locator kunt m
 
 ## <a name="prerequisites"></a>Vereisten 
 
-- Installeer en gebruik de CLI lokaal. Voor dit artikel dient u gebruik te maken van Azure CLI, versie 2.0 of hoger. Voer `az --version` uit om te zien welke versie u hebt. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](/cli/azure/install-azure-cli). 
+[Een Azure Media Services-account maken](../create-account-cli-how-to.md).
 
-    Momenteel werken niet alle [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref)-opdrachten in Azure Cloud Shell. U wordt aangeraden de CLI lokaal te gebruiken.
-
-- [Een Azure Media Services-account maken](../create-account-cli-how-to.md).
+[!INCLUDE [media-services-cli-instructions.md](../../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="example-script"></a>Voorbeeldscript
 

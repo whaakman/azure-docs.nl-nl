@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 08/16/2018
+ms.date: 01/23/2019
 ms.author: shvija
-ms.openlocfilehash: 3a1054b0c753b3e5dca4cd66ac42e6bc8bdd16ae
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 073d1b54b1c6da2b1178f482d17b4de7abcc8a51
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960699"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888920"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Snelstartgids: Een event hub maken met behulp van Azure Portal
 Azure Event Hubs is een big data-platform voor het streamen van gegevens en een gebeurtenisopneemservice die miljoenen gebeurtenissen per seconde kan opnemen en verwerken. Event Hubs kan gebeurtenissen, gegevens of telemetrie die wordt geproduceerd door gedistribueerde software en apparaten verwerken en opslaan. Gegevens die naar een Event Hub worden verzonden, kunnen worden omgezet en opgeslagen via een provider voor realtime analytische gegevens of batchverwerking/opslagadapters. Zie [Overzicht van Event Hubs](event-hubs-about.md) en [Functies van Event Hubs](event-hubs-features.md) voor een gedetailleerd overzicht van Event Hubs.
@@ -32,63 +32,61 @@ Zorg ervoor dat u over het volgende beschikt om deze snelstart te voltooien:
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep is een logische verzameling Azure-resources. Alle resources worden geïmplementeerd en beheerd in een resourcegroep. Ga als volgt te werk om een resourcegroep te maken:
+Een resourcegroep is een logische verzameling Azure-resources. Alle resources worden geïmplementeerd en beheerd in een resourcegroep. Een resourcegroep maken:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Kik in het linkernavigatievenster op **Resourcegroepen**. Klik vervolgens op **Toevoegen**.
 
    ![Resourcegroepen - Knop Toevoegen](./media/event-hubs-quickstart-portal/resource-groups1.png)
 
-2. Typ een unieke naam voor de resourcegroep. Het systeem controleert onmiddellijk of de naam beschikbaar is in het momenteel geselecteerde Azure-abonnement.
-
-3. Klik in **Abonnement** op de naam van het Azure-abonnement waarin u de resourcegroep wilt maken.
-
-4. Selecteer een geografische locatie voor de resourcegroep.
-
-5. Klik op **Create**.
+2. Klik bij **Abonnement** op de naam van het Azure-abonnement waarin u de resourcegroep wilt maken.
+3. Typ een unieke **naam voor de resourcegroep**. Het systeem controleert onmiddellijk of de naam beschikbaar is in het momenteel geselecteerde Azure-abonnement.
+4. Selecteer een **regio** voor de resourcegroep.
+5. Selecteer **Controleren + maken**.
 
    ![Resourcegroep - Maken](./media/event-hubs-quickstart-portal/resource-groups2.png)
+6. Selecteer op de pagina **Controleren + maken** de optie **Maken**. 
 
 ## <a name="create-an-event-hubs-namespace"></a>Een Event Hubs-naamruimte maken
 
 Een Event Hubs-naamruimte biedt een unieke scopingcontainer, waarnaar wordt verwezen met de volledig gekwalificeerde domeinnaam (FQDN), waarin u een of meer Event Hubs maakt. Ga als volgt te werk om een ​​naamruimte in uw resourcegroep te maken met behulp van de portal:
 
 1. Open de Azure-portal en klik op **Een resource maken** linksboven in het scherm.
-
-2. Klik op **Internet of Things** en vervolgens op **Event Hubs**.
-
-3. Voer in **Naamruimte maken** een naam in voor de naamruimte. In het systeem wordt onmiddellijk gecontroleerd of de naam beschikbaar is.
-
-   ![Een Event Hub-naamruimte maken](./media/event-hubs-create/create-event-hub1.png)
-
-4. Nadat u hebt gecontroleerd of de naam van de naamruimte beschikbaar is, kiest u de prijscategorie (Basic of Standard). Kies ook een Azure-abonnement, resourcegroep en locatie voor het maken van de resource.
- 
-5. Klik op **Maken** om de naamruimte te maken. U moet een paar minuten wachten voordat het systeem de resources volledig heeft ingericht.
-6. Selecteer **Waarschuwingen** en selecteer dan de **implementatie** met dezelfde naam als de Event Hub-naamruimte. 
-
-   ![Resourcegroep - Waarschuwing over maken](./media/event-hubs-quickstart-portal/create-alert.png)
-6. Selecteer de Event Hub-naamruimte uit de lijst resources die u tijdens het implementeren hebt gemaakt. 
-
-   ![Naamruimte uit de implementatie selecteren](./media/event-hubs-quickstart-portal/deployment-namespace.png)
-7. Op de pagina **Event Hubs-naamruimte** selecteert u **Beleid voor gedeelde toegang** en vervolgens klikt u op **RootManageSharedAccessKey**.
+2. Selecteer **Alle services** in het menu aan de linkerkant en selecteer de **ster (`*`)** naast **Event Hubs** in de categorie **Analyse**. Controleer of **Event Hubs** is toegevoegd aan **FAVORIETEN** in het navigatiemenu aan de linkerkant. 
     
-8. Klik op de knop voor kopiëren om de verbindingsreeks **RootManageSharedAccessKey** naar het Klembord te kopiëren. Bewaar deze verbindingsreeks op een tijdelijke locatie, zoals Kladblok, om later te gebruiken.
+   ![Zoeken naar Event Hubs](./media/event-hubs-quickstart-portal/select-event-hubs-menu.png)
+3. Selecteer **Event Hubs** onder **FAVORIETEN** in het navigatiemenu links en selecteer **Toevoegen** op de werkbalk.
+
+   ![Werkbalkknop Toevoegen](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
+4. Voer op de pagina **Naamruimte maken** de volgende stappen uit:
+    1. Voer een naam in voor de naamruimte. In het systeem wordt onmiddellijk gecontroleerd of de naam beschikbaar is.
+    2. Kies de prijscategorie (Basic of Standard).
+    3. Selecteer het **abonnement** waarin u de naamruimte wilt maken.
+    4. Selecteer een **locatie** voor de naamruimte.
+    5. Selecteer **Maken**. U moet een paar minuten wachten voordat het systeem de resources volledig heeft ingericht.
+
+       ![Een Event Hub-naamruimte maken](./media/event-hubs-quickstart-portal/create-event-hub1.png)
+5. Vernieuw de **Event Hubs**-pagina. De Event Hub-naamruimte wordt dan weergegeven. U kunt de status van het Event Hub-creatieproces bekijken in de waarschuwingen. 
+
+    ![Een Event Hub-naamruimte maken](./media/event-hubs-quickstart-portal/event-hubs-refresh.png)
+6. Selecteer de naamruimte. U ziet in de portal de startpagina van uw **Event Hubs-naamruimte**. 
+
+   ![Startpagina voor de naamruimte](./media/event-hubs-quickstart-portal/namespace-home-page.png)
     
 ## <a name="create-an-event-hub"></a>Een Event Hub maken
 
 Ga als volgt te werk om een Event Hub in de naamruimte te maken:
 
-1. Op de pagina Event Hubs-naamruimten selecteert u **Event Hubs**.
-   
-    ![Event Hubs selecteren in het menu links](./media/event-hubs-quickstart-portal/create-event-hub3.png)
-
+1. Op de pagina Event Hubs-naamruimte selecteert u **Event Hubs** in het menu links.
 1. Klik op **+ Event Hub** bovenaan in het venster.
    
     ![Event Hub toevoegen - Knop](./media/event-hubs-quickstart-portal/create-event-hub4.png)
 1. Typ een naam voor uw Event Hub en klik vervolgens op **Maken**.
    
     ![Event hub maken](./media/event-hubs-quickstart-portal/create-event-hub5.png)
+4. U kunt de status van het Event Hub-creatieproces bekijken in de waarschuwingen. Wanneer de Event Hub is gemaakt, wordt deze weergegeven in de lijst Event Hubs, zoals in de volgende afbeelding is te zien:
 
+    ![Event Hub gemaakt](./media/event-hubs-quickstart-portal/event-hub-created.png)
 
 Gefeliciteerd! U hebt de portal gebruikt om een ​​Event Hubs-naamruimte en een Event Hub binnen die naamruimte te maken. 
 

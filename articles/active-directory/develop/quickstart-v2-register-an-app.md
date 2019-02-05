@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: bb2f701f-3bc3-4759-94a5-8b9d53a8a0b6
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,14 +17,14 @@ ms.date: 11/02/2018
 ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: c0bf5bbdf496a23a5ed66a149933f25a059984a9
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 20e19664963f66954f9d46a1b596a34b7d744f48
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913275"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093220"
 ---
-# <a name="quickstart-register-an-app-with-the-azure-active-directory-v20-endpoint"></a>Snelstart: Een app registreren bij het Azure Active Directory v2.0-eindpunt
+# <a name="quickstart-register-an-app-with-the-azure-active-directory-v20-endpoint"></a>Quickstart: Een app registreren met het Azure Active Directory v2.0-eindpunt
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
@@ -44,7 +44,7 @@ Niet alle Azure Active Directory-scenario's en -functies worden ondersteund door
 ## <a name="step-2-register-an-app"></a>Stap 2: Een app registreren
 
 1. Selecteer **Een app toevoegen** en geef de app een naam.
-    Door de portal wordt aan uw app een wereldwijd unieke toepassings-id toegewezen die u later in uw code gaat gebruiken. Als uw app een serveronderdeel bevat dat toegangstokens nodig heeft voor het aanroepen van API's (denk aan: Office, Azure of uw eigen web-API) moet u hier ook een **Toepassingsgeheim** maken.
+    Door de portal wordt aan uw app een wereldwijd unieke toepassings-id toegewezen die u later in uw code gaat gebruiken. Als uw app een server-side-onderdeel bevat dat toegangstokens nodig heeft voor het aanroepen van API's (denk aan Office, Azure of uw eigen web-API), moet u hier ook een **Toepassingsgeheim**maken.
 1. Voeg vervolgens de **Platforms** toe die door uw app worden gebruikt.
     * Geef voor web-apps een **Omleidings-URI** op waarnaar aanmeldingberichten kunnen worden verzonden.
     * Noteer voor mobiele apps de standaardomleidings-URI die automatisch wordt gemaakt.
@@ -58,6 +58,6 @@ Niet alle Azure Active Directory-scenario's en -functies worden ondersteund door
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu u een Microsoft-app hebt, kunt u een van de snelstarts over v2.0 volgen. Hier volgen enkele aanbevelingen:
+Nu u een Microsoft-app hebt, kunt u een van de quickstarts over v2.0 volgen. Hier volgen enkele aanbevelingen:
 
 [!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]

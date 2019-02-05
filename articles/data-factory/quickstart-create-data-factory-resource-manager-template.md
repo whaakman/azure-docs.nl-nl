@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 11/28/2018
 ms.author: douglasl
-ms.openlocfilehash: 90f9ffeba2871aaa96a4da4cdbdf949a8e7db1bf
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 279588e63000883d60b159f56e8c0b4686dee5b4
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436430"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888767"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Zelfstudie: een Azure Data Factory maken op basis van een Azure Resource Manager-sjabloon
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -285,7 +285,7 @@ Maak een JSON-bestand met de naam **ADFTutorialARM-Parameters.json** dat paramet
       "value": "East US"
     },
     "storageAccountName": {
-      "value": "<yourstroageaccountname>"
+      "value": "<yourstorageaccountname>"
     },
     "storageAccountKey": {
       "value": "<yourstorageaccountkey>"
@@ -492,7 +492,7 @@ De AzureStorageLinkedService koppelt uw Azure-opslagaccount aan de gegevensfacto
 }
 ```
 
-De tekenreeks connectionString maakt gebruik van de parameters storageAccountName en storageAccountKey. De waarden voor deze parameters worden doorgegeven met behulp van een configuratiebestand. De definitie maakt ook gebruik van variabelen: azureStorageLinkedService en dataFactoryName die zijn gedefinieerd in de sjabloon.
+De tekenreeks connectionString maakt gebruik van de parameters storageAccountName en storageAccountKey. De waarden voor deze parameters worden doorgegeven met behulp van een configuratiebestand. De definitie maakt ook gebruik van de variabelen azureStorageLinkedService en dataFactoryName die zijn gedefinieerd in de sjabloon.
 
 #### <a name="azure-blob-input-dataset"></a>Azure Blob-invoergegevensset
 De gekoppelde Azure Storage-service geeft de verbindingsreeks op die de Data Factory-service tijdens runtime gebruikt om verbinding te maken met uw Azure-opslagaccount. In de gegevenssetdefinitie van de Azure-blob geeft u de namen op van de blobcontainer, map en het bestand met de invoergegevens op. Zie [Eigenschappen van de Azure Blob-gegevensset](connector-azure-blob-storage.md#dataset-properties) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een Azure Blob-gegevensset.

@@ -1,22 +1,22 @@
 ---
-title: 'Snelstartgids: Bing Entiteiten zoeken-API'
+title: 'Snelstart: Bing Entiteiten zoeken-API'
 description: Lees hoe u aan de slag gaat met de Bing Entiteiten zoeken-API.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 07/06/2017
 ms.author: scottwhi
-ms.openlocfilehash: ffc9ebb21c6646b1a39af4659053adf4157d204b
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 1bb2c4b73b29d832a289c7a5c1c86b958302086a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48813954"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153450"
 ---
-# <a name="quickstart-making-your-first-bing-entity-search-request"></a>Snelstartgids: Uw eerste aanvraag voor Bing Entiteiten zoeken maken
+# <a name="quickstart-making-your-first-bing-entity-search-request"></a>Snelstart: Uw eerste aanvraag voor Bing Entiteiten zoeken maken
 
 De Bing Entiteiten zoeken-API verzendt een zoekquery naar Bing en haalt resultaten op die zowel entiteiten als plaatsen bevatten. Plaatsresultaten kunnen restaurants, hotels of andere lokale bedrijven zijn. In het geval van plaatsen kan de query de naam van het lokale bedrijf opgeven of vragen om een lijst (bijvoorbeeld 'restaurants near me'). Entiteitsresultaten zijn personen, plaatsen of dingen. Voorbeelden van plaatsen in deze context zijns toeristische bezienswaardigheden, staten, landen, enzovoort. 
 

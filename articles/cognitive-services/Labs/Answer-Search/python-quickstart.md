@@ -1,23 +1,23 @@
 ---
-title: 'Snelstart: Project Answer Search, Python'
+title: 'Quickstart: Project Answer Search, Python'
 titlesuffix: Azure Cognitive Services
 description: Python-voorbeeld om aan de slag te gaan met Project Answer Search.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 69c5edfef65af2ed1b27f9a512ad13c21468df7a
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 8d0ddf1d532c77f23a930c46bb261e03bc5822e7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465505"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218289"
 ---
-# <a name="quickstart-project-answer-search-with-python"></a>Snelstart Project Answer Search met Python
+# <a name="quickstart-project-answer-search-with-python"></a>Quickstart Project Answer Search met Python
 
 Met het volgende Python-voorbeeld wordt een aanvraag voor informatie over 'Rock of Gibraltar' gemaakt en verzonden.
 
@@ -41,7 +41,7 @@ De code wordt in de volgende stappen geïmplementeerd:
 
 Dit is de volledige code voor deze demo:
 
-````
+```
 import http.client, urllib.parse
 import json
 
@@ -65,8 +65,8 @@ def get_local():
 result = get_local()
 print (json.dumps(json.loads(result), indent=4))
 
-````
+```
 ## <a name="next-steps"></a>Volgende stappen
-- [Snelstart voor C#](c-sharp-quickstart.md)
-- [Snelstart voor Java](java-quickstart.md)
-- [Snelstart voor Node](node-quickstart.md)
+- [Quickstart voor C#](c-sharp-quickstart.md)
+- [Quickstart voor Java](java-quickstart.md)
+- [Quickstart voor Node](node-quickstart.md)

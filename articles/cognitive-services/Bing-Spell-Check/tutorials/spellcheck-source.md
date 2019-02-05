@@ -1,23 +1,23 @@
 ---
-title: 'Zelfstudie: resultaten voor spellingcontrole ophalen met behulp van de Spellingcontrole-API voor Bing'
+title: 'Zelfstudie: Resultaten voor spellingcontrole ophalen met behulp van de Spellingcontrole-API voor Bing'
 titlesuffix: Azure Cognitive Services
 description: Broncode voor een zelfstudie waarin wordt uitgelegd hoe u de Spellingcontrole-API voor Bing kunt gebruiken in een web-app met één pagina.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: aahi
-ms.openlocfilehash: 0180c6f2924f921e358ea152c887c5c2e16c34dc
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 8c3e520179d93632c1b69d2109d83197f76c549a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165574"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55186515"
 ---
-# <a name="tutorial-single-page-web-app"></a>Zelfstudie: web-app van één pagina
+# <a name="tutorial-single-page-web-app"></a>Zelfstudie: Web-app van één pagina
 
 Dit is de volledige broncode die is besproken in de [zelfstudie App van één pagina](spellcheck.md) voor de Spellingcontrole-API voor Bing. Als u de app wilt uitvoeren, kopieert u de broncode naar een teksteditor en slaat u het bestand op als `spellcheck.html`. Open het opgeslagen bestand vervolgens in uw webbrowser.
 

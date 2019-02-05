@@ -6,18 +6,18 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: aahi
-ms.openlocfilehash: 774c61f3a089b2ee54f60d654bb1ef7c251cbdb7
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 6165bca1eff248f15cfce4638a6f9817db550c04
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165030"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156255"
 ---
-# <a name="tutorial-single-page-web-app-source"></a>Zelfstudie: Broncode voor web-app van één pagina
+# <a name="tutorial-single-page-web-app-source"></a>Zelfstudie: Web-app van één pagina (broncode)
 
 Dit is de volledige broncode die is besproken in de [zelfstudie App van één pagina](tutorial-bing-entities-search-single-page-app.md) voor Bing Entity Search. Als u de app wilt uitvoeren, kopieert u de broncode in Kladblok of een andere teksteditor en slaat u het bestand op als `bing.html`. Open het opgeslagen bestand vervolgens in Microsoft Edge of een andere veel gebruikte browser.
 

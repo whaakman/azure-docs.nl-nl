@@ -12,14 +12,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/11/2018
+ms.date: 01/25/2019
 ms.author: juliako
-ms.openlocfilehash: 32dcbce86153034048627692dddc14a2f5b3d129
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 028aceac240afd62619e2d7be4f6ced9522fc4de
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615196"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094815"
 ---
 # <a name="cli-example-create-a-transform"></a>CLI-voorbeeld: Een transformatie maken
 
@@ -27,11 +27,9 @@ In het Azure CLI-script in dit artikel ziet u hoe u een transformatie kunt maken
 
 ## <a name="prerequisites"></a>Vereisten 
 
-- Installeer en gebruik de CLI lokaal. Voor dit artikel dient u gebruik te maken van Azure CLI, versie 2.0 of hoger. Voer `az --version` uit om te zien welke versie u hebt. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](/cli/azure/install-azure-cli). 
+[Een Azure Media Services-account maken](../create-account-cli-how-to.md).
 
-    Momenteel werken niet alle [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref)-opdrachten in Azure Cloud Shell. U wordt aangeraden de CLI lokaal te gebruiken.
-
-- [Een Azure Media Services-account maken](../create-account-cli-how-to.md).
+[!INCLUDE [media-services-cli-instructions.md](../../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="example-script"></a>Voorbeeldscript
 

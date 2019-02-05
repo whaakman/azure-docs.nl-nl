@@ -6,25 +6,26 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/16/2019
+ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 2b6db4977b585b50168c2fa523db9210ca031ff3
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 2af94deaedbafdfa638f5deb3150f1e7f711a238
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359286"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093514"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Zelfstudie: Gegevens naar Azure Data Box Disk kopiëren via SMB
 
-Deze zelfstudie beschrijft hoe u verbinding kunt maken en gegevens kunt kopiëren vanaf uw hostcomputer via de lokale gebruikersinterface, waarna u de Data Box gereed kunt maken voor verzending.
+Deze zelfstudie beschrijft hoe u verbinding kunt maken en gegevens kunt kopiëren vanaf uw hostcomputer via de lokale gebruikersinterface.
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
+> * Vereisten
 > * Verbinding maken met Data Box
 > * Gegevens kopiëren naar Data Box
-> * Data Box voorbereiden voor verzending.
+
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -34,7 +35,7 @@ Zorg voordat u begint voor het volgende:
 2. U hebt uw Data Box ontvangen en de bestelstatus in de portal is **Geleverd**.
 3. U hebt een hostcomputer waarop de gegevens staan die u naar de Data Box wilt kopiëren. Op uw hostcomputer moet
     - Een [ondersteund besturingssysteem](data-box-system-requirements.md) worden uitgevoerd.
-    - Verbonden zijn met een netwerk met hoge snelheid. Het wordt aangeraden dat u beschikt over minstens één 10-GbE-verbinding. Als er geen 10 GbE-verbinding beschikbaar is, kan een 1 GbE-gegevenskoppeling worden gebruikt, maar dit heeft wel gevolgen voor de kopieersnelheid. 
+    - Verbonden zijn met een netwerk met hoge snelheid. Het wordt aangeraden dat u beschikt over minstens één 10-GbE-verbinding. Als er geen 10 GbE-verbinding beschikbaar is, kan een 1 GbE-gegevenskoppeling worden gebruikt, maar dit heeft wel gevolgen voor de kopieersnelheid.
 
 ## <a name="connect-to-data-box"></a>Verbinding maken met Data Box
 
@@ -87,7 +88,7 @@ Als u een hostcomputer met Windows Server gebruikt, voert u deze stappen uit om 
     
     ![Verbinding met de share maken via Verkenner 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)    
 
-    **Maak altijd een map voor de bestanden die u van plan bent te kopiëren in de bestandsshare en kopieer de bestanden vervolgens naar die map**. De map gemaakt onder shares met blok-blobs en pagina-blobs vertegenwoordigt een container waarnaar gegevens als blobs worden geüpload. Het is niet mogelijk om bestanden rechtstreeks te kopiëren naar de map *$root* in het opslagaccount.
+    **Maak altijd een map voor de bestanden die u van plan bent te kopiëren in de bestandsshare en kopieer de bestanden vervolgens naar die map**. De map gemaakt onder shares met blok-blobs en pagina-blobs vertegenwoordigt een container waarnaar gegevens als blobs worden geüpload. Het is niet mogelijk om bestanden rechtstreeks te kopiëren naar de *root*-map in het opslagaccount.
     
      
 
@@ -95,7 +96,7 @@ Als u een hostcomputer met Windows Server gebruikt, voert u deze stappen uit om 
 
 Nadat u verbinding met de Data Box-shares hebt gemaakt, moet u de gegevens kopiëren. Neem de volgende punten door voordat u gegevens gaat kopiëren:
 
-- Zorg dat u de gegevens kopieert naar shares die overeenkomen met de juiste gegevensindeling. U moet bijvoorbeeld de blok-blobgegevens naar de share voor blok-blobs kopiëren. Als de gegevensindeling niet overeenkomt met het betreffende sharetype, zal het uploaden van gegevens naar Azure op een later tijdstip mislukken.
+- Zorg dat u de gegevens kopieert naar shares die overeenkomen met de juiste gegevensindeling. U moet bijvoorbeeld de blok-blobgegevens naar de share voor blok-blobs kopiëren. Kopieer de VHD's naar pagina-blob. Als de gegevensindeling niet overeenkomt met het betreffende sharetype, zal het uploaden van gegevens naar Azure op een later tijdstip mislukken.
 -  Zorg er tijdens het kopiëren van gegevens voor dat de gegevensgrootte voldoet aan de limieten die worden vermeld in de [limieten voor Azure-opslag en Data Box](data-box-limits.md).
 - Als de gegevens die door Data Box worden geüpload gelijktijdig door andere toepassingen buiten Data Box worden geüpload, kan dit tot fouten voor de uploadtaak en beschadigde gegevens leiden.
 - We raden aan dat:
@@ -103,7 +104,7 @@ Nadat u verbinding met de Data Box-shares hebt gemaakt, moet u de gegevens kopi�
     - Dezelfde gegevens naar dezelfde eindbestemming kopieert in Azure. 
      
   In dergelijke gevallen kan de definitieve uitkomst namelijk niet worden vastgesteld.
-- Maak altijd een map voor de bestanden die u van plan bent te kopiëren in de bestandsshare en kopieer de bestanden vervolgens naar die map. De map gemaakt onder shares met blok-blobs en pagina-blobs vertegenwoordigt een container waarnaar gegevens als blobs worden geüpload. Het is niet mogelijk om bestanden rechtstreeks te kopiëren naar de map *$root* in het opslagaccount.
+- Maak altijd een map voor de bestanden die u van plan bent te kopiëren in de bestandsshare en kopieer de bestanden vervolgens naar die map. De map gemaakt onder shares met blok-blobs en pagina-blobs vertegenwoordigt een container waarnaar gegevens als blobs worden geüpload. Het is niet mogelijk om bestanden rechtstreeks te kopiëren naar de *root*-map in het opslagaccount.
 
 Begin met het kopiëren van gegevens nadat u verbinding met de SMB-share hebt gemaakt. U kunt elk programma voor het kopiëren van bestanden dat compatibel is met SMB, zoals Robocopy, gebruiken om de gegevens te kopiëren. Er kunnen meerdere kopieertaken worden gestart met Robocopy. Gebruik de volgende opdracht:
     
@@ -203,19 +204,16 @@ Om de gegevensintegriteit te garanderen wordt de controlesom inline berekend ter
    ![Vrije en ongebruikte ruimte verifiëren op het dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
 
-## <a name="prepare-to-ship"></a>Voorbereiding voor verzending
-
-[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
-
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie bent u meer te weten gekomen over verschillende onderwerpen met betrekking tot Azure Data Box, zoals:
 
 > [!div class="checklist"]
+> * Vereisten
 > * Verbinding maken met Data Box
 > * Gegevens kopiëren naar Data Box
-> * Data Box voorbereiden voor verzending
+
 
 Ga naar de volgende zelfstudie om te lezen hoe u uw Data Box naar Microsoft verzendt.
 

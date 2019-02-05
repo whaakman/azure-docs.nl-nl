@@ -3,18 +3,18 @@ title: Azure Service Fabric Mesh-toepassingsgeheimen beheren | Microsoft Docs
 description: Beheer toepassingsgeheimen zodat u veilig een Service Fabric Mesh-toepassing kunt maken en implementeren.
 services: service-fabric-mesh
 keywords: geheimen
-author: aljo
+author: aljo-microsoft
 ms.author: aljo
 ms.date: 11/28/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: chackdan
-ms.openlocfilehash: d92726ebc2cd4c6c44afdb2d2a9f53ab5441ac32
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 06d8519836129a557ec69d59d15eb12129e8099b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52891871"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236748"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Service Fabric Mesh-toepassingsgeheimen beheren
 Service Fabric Mesh biedt ondersteuning voor geheimen als Azure-resources. Een Service Fabric Mesh-geheim kan bestaan uit gevoelige informatie in tekstvorm, zoals opslagverbindingsreeksen, wachtwoorden of andere waarden die veilig moeten worden opgeslagen en verzonden. In dit artikel ziet u hoe de Service Fabric Secure Store-service wordt gebruikt om geheimen te implementeren en onderhouden.
@@ -183,7 +183,7 @@ Hier volgt een voorbeeld van hoe Mesh Geheimen/waarden-resources in een YAML-bes
 
 ## <a name="modify-mesh-application-to-reference-mesh-secret-values"></a>Mesh-toepassing wijzigen om te verwijzen naar Mesh Geheimen-waarden
 Service Fabric Mesh-toepassingen moeten rekening houden met de volgende twee tekenreeksen om Geheimen-waarden voor de Secure Store-service te kunnen gebruiken:
-1. Micrsoft.ServiceFabricMesh/Secrets.name bevat de naam van het bestand en bevat tevens de Geheimen-waarde als tekst zonder opmaak.
+1. Microsoft.ServiceFabricMesh/Secrets.name bevat de naam van het bestand en bevat tevens de Geheimen-waarde als tekst zonder opmaak.
 2. De Windows- of Linux-omgevingsvariabele 'Fabric_SettingPath' bevat het pad naar de map waar bestanden met Geheimen-waarden voor de Secure Store-service toegankelijk zijn. Dat pad is 'C:\Settings' voor Mesh-toepassingen op Windows en '/var/settings' voor Mesh-toepassingen op Linux.
 
 ## <a name="deploy-or-use-a-rolling-upgrade-for-mesh-application-to-consume-secret-values"></a>Implementeer of gebruik een rolling upgrade voor de Mesh-toepassing om Geheimen-waarden te gebruiken

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 460a05ac25ca4af56b81fb2025e0886c7bda3070
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 79e2d33d1452eda35141b6ae80b46ab4eecd0909
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391161"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902157"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Zelfstudie: De Azure Data Box bekabelen en aansluiten
 
@@ -50,7 +50,7 @@ Voer de volgende stappen uit om uw apparaat te bekabelen.
 
 1. Controleer of er met het apparaat is geknoeid en of het is beschadigd. Als er met het apparaat is geknoeid of het ernstig is beschadigd, gaat u niet verder. Neem direct contact op met Microsoft Ondersteuning om te bepalen of het apparaat in een goede staat is of dat er een vervangend apparaat moet worden verzonden.
 2. Verplaats het apparaat naar de locatie waar u het wilt inschakelen. Plaats het apparaat op een plat oppervlak. Het apparaat kan ook op een plank van een standaardrek worden geplaatst.
-3. Sluit het netsnoer en de netwerkkabels aan. Hieronder ziet u de achterzijde van een aangesloten apparaat in een algemene configuratie. 
+3. Sluit het netsnoer en de netwerkkabels aan. Hieronder ziet u de achterzijde van een aangesloten apparaat in een algemene configuratie. Afhankelijk van uw omgeving kunt u kiezen uit andere [bekabelingsopties](data-box-cable-options.md).
     
     ![Bekabelde achterzijde van Data Box-apparaat](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)
 

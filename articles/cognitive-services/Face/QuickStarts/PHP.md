@@ -1,21 +1,21 @@
 ---
-title: 'Snelstart: Gezichten in een afbeelding detecteren met de REST API en PHP'
+title: 'Quickstart: Gezichten in een afbeelding detecteren met de REST API en PHP'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart detecteert u gezichten in een afbeelding met behulp van de Face-API met PHP.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: pafarley
-ms.openlocfilehash: be322cafc381dbc6e8b7cf03cd65e1dd5f9c9ad4
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 63484f4dcb47aeecbb33c84b7924b2a7e471d3cd
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954895"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223393"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Snelstart: Gezichten in een afbeelding detecteren met de REST API en PHP
 
@@ -29,9 +29,9 @@ U hebt een abonnementssleutel nodig om het voorbeeld uit te voeren. U kunt abonn
 
 Gebruik de methode [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) om gezichten in een afbeelding te detecteren en gezichtskenmerken te retourneren, waaronder:
 
-* Face ID: de unieke ID die wordt gebruikt in verschillende Face-API-scenario's.
-* Gezichtsrechthoek: de coördinaten die de locatie van het gezicht in de afbeelding aangeven (links, boven, breedte en hoogte).
-* Oriëntatiepunten: een matrix van 27 gezichtsoriëntatiepunten die verwijzen naar de belangrijkste posities van de gezichtsonderdelen.
+* Face ID: De unieke id die wordt gebruikt in verschillende Face-API-scenario's.
+* Gezichtsrechthoek: De coördinaten die de locatie van het gezicht in de afbeelding aangeven (links, boven, breedte en hoogte).
+* Oriëntatiepunten: Een matrix van 27 gezichtsoriëntatiepunten die verwijzen naar de belangrijkste posities van de gezichtsonderdelen.
 * Gezichtskenmerken zoals leeftijd, geslacht, glimlachintensiteit, hoofdhouding en gezichtshaar.
 
 U kunt het voorbeeld uitvoeren aan de hand van de volgende stappen:

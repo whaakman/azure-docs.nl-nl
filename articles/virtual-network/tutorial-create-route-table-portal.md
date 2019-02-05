@@ -18,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 3422219e33c04d7cb130e064790896f5da28649a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 855adccf036f731de12810fe0f5287186048ddb0
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025042"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095954"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Zelfstudie: Netwerkverkeer routeren met een routetabel met behulp van de Azure-portal
 
@@ -281,7 +281,7 @@ U kunt de VM *myVmPrivate* maken terwijl Azure de VM *myVmPublic* maakt. Ga pas 
 
 1. Selecteer **Ja** om verbinding te maken met de VM.
 
-### <a name="enable-icpm-through-the-windows-firewall"></a>ICPM via Windows Firewall inschakelen
+### <a name="enable-icmp-through-the-windows-firewall"></a>ICMP via Windows Firewall inschakelen
 
 In een latere stap gebruikt u het hulpprogramma Route traceren om de routering te testen. Route traceren maakt gebruik van ICMP (Internet Control Message Protocol), wat in Windows Firewall standaard wordt geweigerd. Schakel ICMP via Windows Firewall in.
 

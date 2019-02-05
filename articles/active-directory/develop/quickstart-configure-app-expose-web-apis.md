@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 589ad189a3a157d0116e3991f8df3d6b43afc167
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 3f38162fd4d95127ddf7797638bc9af21e6aaf20
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988709"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095691"
 ---
-# <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Snelstart: Een toepassing configureren voor het beschikbaar maken van web-API's (preview)
+# <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Quickstart: Een toepassing configureren voor het beschikbaar maken van web-API's (preview)
 
 U kunt een web-API ontwikkelen en deze beschikbaar maken voor clienttoepassingen door [machtigingen/bereiken](developer-glossary.md#scopes) en [rollen](developer-glossary.md#roles) beschikbaar te maken. Een correct geconfigureerde web-API wordt net als de andere Microsoft web-API's beschikbaar gesteld, met inbegrip van de Graph API en de Office 365-API's.
 

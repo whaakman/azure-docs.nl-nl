@@ -3,7 +3,7 @@ title: Zelfstudie - Schijven voor schaalsets maken en gebruiken met Azure CLI | 
 description: Leer hoe u met Azure CLI beheerde schijven kunt maken en gebruiken met schaalsets voor virtuele machines, waaronder het toevoegen, voorbereiden, opvragen en loskoppelen van schijven.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 35256a22265ca544975b2fead40b1a2be0d73ff1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: da7848fe561d061470e8921f1f76ac30bed4c809
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469381"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163055"
 ---
-# <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Zelfstudie - Schijven maken en gebruiken met schaalset voor virtuele machines met Azure CLI
+# <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Zelfstudie: Schijven maken en gebruiken met schaalset voor virtuele machines met Azure CLI
 Schaalsets voor virtuele machines maken gebruik van schijven voor het opslaan van het besturingssysteem, toepassingen en gegevens van het VM-exemplaar. Bij het maken en beheren van een schaalset is het belangrijk dat u een schijfgrootte en configuratie kiest die geschikt zijn voor de verwachte werkbelasting. Deze zelfstudie bevat informatie over het maken en beheren van VM-schijven. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
@@ -132,7 +132,7 @@ De schijven die worden gemaakt en die worden gekoppeld aan de VM-exemplaren in u
 
 Als u dit proces wilt automatiseren voor meerdere VM-exemplaren in een schaalset, kunt u de aangepaste scriptextensie van Azure gebruiken. Met deze extensie kunt u scripts lokaal uitvoeren op elk VM-exemplaar, bijvoorbeeld om gekoppelde gegevensschijven voor te bereiden. Zie voor meer informatie het [overzicht van de aangepaste scriptextensie](../virtual-machines/linux/extensions-customscript.md).
 
-In het volgende voorbeeld wordt met [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) op elk VM-exemplaar een voorbeeldscript uit een GitHub-repository uitgevoerd waarmee alle gekoppelde RAW-gegevensschijven worden voorbereid:
+In het volgende voorbeeld wordt met [az vmss extension set](/cli/azure/vmss/extension) op elk VM-exemplaar een voorbeeldscript uit een GitHub-repository uitgevoerd waarmee alle gekoppelde RAW-gegevensschijven worden voorbereid:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -279,7 +279,7 @@ U ziet vervolgens gegevens van de grootte van de schijf, de opslaglaag en het LU
 
 
 ## <a name="detach-a-disk"></a>Een schijf loskoppelen
-Wanneer u een bepaalde schijf niet meer nodig hebt, kunt u deze loskoppelen van de schaalset. De schijf wordt dan verwijderd uit alle VM-exemplaren in de schaalset. Als u een schijf wilt loskoppelen van een schaalset, gebruikt u [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach) en geeft u het LUN van de schijf op. De LUN's worden weergegeven in de uitvoer van [az vmss show](/cli/azure/vmss#az_vmss_show) in de vorige sectie. In het volgende voorbeeld wordt het LUN *2* losgekoppeld van de schaalset:
+Wanneer u een bepaalde schijf niet meer nodig hebt, kunt u deze loskoppelen van de schaalset. De schijf wordt dan verwijderd uit alle VM-exemplaren in de schaalset. Als u een schijf wilt loskoppelen van een schaalset, gebruikt u [az vmss disk detach](/cli/azure/vmss/disk) en geeft u het LUN van de schijf op. De LUN's worden weergegeven in de uitvoer van [az vmss show](/cli/azure/vmss#az_vmss_show) in de vorige sectie. In het volgende voorbeeld wordt het LUN *2* losgekoppeld van de schaalset:
 
 ```azurecli-interactive
 az vmss disk detach \

@@ -1,23 +1,23 @@
 ---
-title: 'Snelstart: Tekst vertalen, Node.js - Translator Text-API'
+title: 'Quickstart: Tekst vertalen, Node.js - Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart vertaalt u tekst vanuit één taal naar een andere taal met de Translator Text-API.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: erhopf
-ms.openlocfilehash: 68c38d289e4095bd602e681171d8409b21920142
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 40b38fdf2773bd58cf1635d089aec7340b04ce07
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50246538"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214012"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-with-nodejs"></a>Snelstart: de Translator Text-API gebruiken om een tekenreeks te vertalen met Node.js
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-with-nodejs"></a>Quickstart: De Translator Text-API gebruiken om een tekenreeks te vertalen met Node.js
 
 In deze snelstart leert u hoe u een tekenreeks van het Engels naar het Italiaans en Duits vertaalt met Node.js en de Translator Text REST API.
 
@@ -47,7 +47,7 @@ Deze modules zijn vereist om de HTTP-aanvraag te maken en om een unieke id voor 
 
 ## <a name="set-the-subscription-key"></a>Abonnementssleutel instellen
 
-Deze code probeert de Translator Text-abonnementssleutel te lezen uit de omgevingsvariabele `TRANSLATOR_TEXT_KEY`. Als u niet bekend bent met omgevingsvariabelen, kunt u `subscriptionKey` als tekenreeks instellen en een opmerking plaatsen in de voorwaardelijke instructie.
+Deze code wordt gebruikt om te proberen de Translator Text-abonnementssleutel te lezen uit de omgevingsvariabele `TRANSLATOR_TEXT_KEY`. Als u niet bekend bent met omgevingsvariabelen, kunt u `subscriptionKey` als tekenreeks instellen en een opmerking plaatsen in de voorwaardelijke instructie.
 
 Kopieer deze code naar uw project:
 
@@ -69,7 +69,7 @@ if (!subscriptionKey) {
 Met de methode `request()`, beschikbaar gesteld via de aanvraagmodule, kunt u de HTTP-methode, URL, aanvraagparameters, headers en de JSON-hoofdtekst doorgeven als een `options`-object. In dit codefragment configureert u de aanvraag:
 
 >[!NOTE]
-> Zie [Translator Text-API 3.0: vertalen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) voor meer informatie over eindpunten, routes en aanvraagparameters.
+> Meer informatie over eindpunten, routes en aanvraagparameters vindt u in [Translator Text-API 3.0: vertalen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
 
 ```javascript
 let options = {

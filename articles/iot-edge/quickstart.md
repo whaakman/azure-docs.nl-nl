@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: e0ad51bd2370cd8b7569d76e5d91b606928eea6d
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: a48a2ebc64d156d2755a2bef32672bc58b57ad00
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189351"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911250"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Snelstartgids: Uw eerste IoT Edge-module van Azure Portal naar een Windows-apparaat implementeren - preview
 
@@ -104,7 +104,7 @@ Omdat IoT Edge-apparaten zich anders gedragen en anders kunnen worden beheerd da
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. Kopieer de verbindingsreeks van de JSON-uitvoer en sla deze op. U gebruikt deze waarde voor het configureren van de IoT Edge-runtime in de volgende sectie.
+3. Kopieer de waarde van de sleutel `cs` uit de JSON-uitvoer en sla deze op. Deze waarde is de verbindingsreeks van het apparaat. U gebruikt deze verbindingsreeks in de volgende sectie om de IoT Edge-runtime te configureren.
 
    ![Verbindingsreeks ophalen uit de CLI-uitvoer](./media/quickstart/retrieve-connection-string.png)
 
@@ -170,6 +170,8 @@ Controleer of de runtime goed is geïnstalleerd en geconfigureerd.
    ```
 
    ![Eén module op uw apparaat bekijken](./media/quickstart/iotedge-list-1.png)
+
+Het kan enkele minuten duren voordat de installatie is voltooid en de IoT Edge-agentmodule start, met name als u een apparaat gebruikt met beperkte capaciteit of internettoegang. 
 
 Uw IoT Edge-apparaat is nu geconfigureerd. Het is gereed voor de uitvoering van modules die in de cloud zijn geïmplementeerd.
 

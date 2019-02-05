@@ -1,6 +1,6 @@
 ---
-title: Uploaden, coderen en streamen met Azure Media Services | Microsoft Docs
-description: Volg de stappen van deze zelfstudie om een bestand te uploaden, een video te coderen en inhoud te streamen met Azure Media Services.
+title: Uploaden, coderen en streamen met Azure Media Services v3 met .NET | Microsoft Docs
+description: Volg de stappen van deze zelfstudie om een bestand te uploaden, een video te coderen en inhoud te streamen met Azure Media Services v3 via .NET.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/11/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: a8d2cf577a6b637e910c283ba8c70d9ea4eedfbb
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: c3671df61eea5c826227706106cbb48dc70ad55f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334122"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157752"
 ---
-# <a name="tutorial-upload-encode-and-stream-videos-using-apis"></a>Zelfstudie: Bestanden uploaden, coderen en streamen met API’s
+# <a name="tutorial-upload-encode-and-stream-videos-using-net"></a>Zelfstudie: Video’s uploaden, coderen en streamen met behulp van .NET
 
 Met Azure Media Services kunt u mediabestanden coderen in indelingen die kunnen worden afgespeeld met een groot aantal verschillende browsers en apparaten. Zo kunt u bijvoorbeeld inhoud streamen in de indelingen Apple HLS of MPEG DASH. Voordat u gaat streamen, moet u uw digitale mediabestand van hoge kwaliteit coderen. Zie [Coderen](encoding-concept.md) voor richtlijnen voor codering. In deze zelfstudie wordt een lokaal videobestand geüpload en wordt het geüploade bestand gecodeerd. U kunt ook inhoud coderen die u toegankelijk maakt via een HTTPS-URL. Zie [Taakinvoer maken via een HTTP(s)-URL](job-input-from-http-how-to.md) voor meer informatie.
 
@@ -28,8 +28,7 @@ Met Azure Media Services kunt u mediabestanden coderen in indelingen die kunnen 
 In deze zelfstudie ontdekt u hoe u:    
 
 > [!div class="checklist"]
-> * Toegang kunt krijgen tot de Media Services API
-> * De voorbeeld-app kunt configureren
+> * Downloaden van de voorbeeld-app zoals beschreven in het onderwerp
 > * De code controleren die wordt geüpload, gecodeerd en gestreamd
 > * De app uitvoeren
 > * De streaming-URL testen
@@ -40,15 +39,10 @@ In deze zelfstudie ontdekt u hoe u:
 ## <a name="prerequisites"></a>Vereisten
 
 - Als u niet beschikt over Visual Studio, kunt u [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15) downloaden.
-- Installeer en gebruik de CLI lokaal. Voor dit artikel dient u gebruik te maken van Azure CLI, versie 2.0 of hoger. Voer `az --version` uit om te zien welke versie u hebt. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](/cli/azure/install-azure-cli). 
+- [Een Azure Media Services-account maken](create-account-cli-how-to.md).<br/>Vergeet niet de waarden die u hebt gebruikt voor de namen van de resourcegroep en het Media Services-account.
+- Volg de stappen in [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) (Toegang tot de Azure Media Services-API met de Azure CLI) en sla de referenties op. U hebt deze nodig voor toegang tot de API.
 
-    Momenteel werken niet alle [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref)-opdrachten in Azure Cloud Shell. U wordt aangeraden de CLI lokaal te gebruiken.
-
-- [Een Azure Media Services-account maken](create-account-cli-how-to.md).
-
-    Vergeet niet welke waarden u hebt gebruikt voor de namen van de resourcegroep en het Media Services-account
-
-## <a name="download-the-sample"></a>Het voorbeeld downloaden
+## <a name="download-and-configure-the-sample"></a>Het voorbeeld downloaden en configureren
 
 Gebruik de volgende opdracht om een GitHub-opslagplaats te klonen op uw computer die het .NET-voorbeeld voor het streamen van video bevat:  
 
@@ -58,7 +52,7 @@ Gebruik de volgende opdracht om een GitHub-opslagplaats te klonen op uw computer
 
 Het voorbeeld bevindt zich de map [UploadEncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/UploadEncodeAndStreamFiles).
 
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
+Open [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/appsettings.json) in het project dat u hebt gedownload. Vervang de waarden door referenties die u hebt verkregen via [toegang tot API's](access-api-cli-how-to.md).
 
 ## <a name="examine-the-code-that-uploads-encodes-and-streams"></a>De code controleren die wordt geüpload, gecodeerd en gestreamd
 
@@ -66,12 +60,12 @@ In dit gedeelte worden de functies bekeken die zijn gedefinieerd in het bestand 
 
 In het voorbeeld worden de volgende acties uitgevoerd:
 
-1. Er wordt een nieuwe transformatie gemaakt (eerst wordt gecontroleerd of de opgegeven transformatie bestaat). 
-2. Er wordt een uitvoerasset gemaakt die wordt gebruikt als de uitvoer van de coderingstaak.
-3. Er wordt een invoerasset gemaakt en het opgegeven lokale videobestand wordt erin geladen. De asset wordt als invoer voor de taak gebruikt. 
+1. Er wordt een nieuwe **transformatie** gemaakt (eerst wordt gecontroleerd of de opgegeven transformatie bestaat). 
+2. Er wordt een uitvoer**asset** gemaakt die wordt gebruikt als uitvoer van de coderings**taak**.
+3. Er wordt een invoer**asset** gemaakt en het opgegeven lokale videobestand wordt erin geladen. De asset wordt gebruikt als de invoer voor de taak. 
 4. De coderingstaak wordt met behulp van de gemaakte invoer en uitvoer verzonden.
 5. De status van de taak wordt gecontroleerd.
-6. Er wordt een StreamingLocator gemaakt.
+6. Er wordt een **streaming-locator** gemaakt.
 7. Er worden streaming-URL's samengesteld.
 
 ### <a name="a-idstartusingdotnet-start-using-media-services-apis-with-net-sdk"></a><a id="start_using_dotnet" />Starten met het gebruik van Media Services API's met .NET SDK
@@ -82,14 +76,14 @@ Als u wilt starten met Media Services API's met .NET, moet u een **AzureMediaSer
 
 ### <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Een invoerasset maken en er een lokaal bestand in uploaden 
 
-Met de functie **CreateInputAsset** wordt een nieuwe [invoerasset](https://docs.microsoft.com/rest/api/media/assets) gemaakt en het opgegeven lokale videobestand wordt hierin geladen. Deze asset wordt gebruikt als invoer voor uw coderingstaak. In Media Services-v3 kan de invoer voor een taak een asset zijn of inhoud die u beschikbaar maakt voor uw Media Services-account via HTTPS-URL's. Ga naar [dit artikel ](job-input-from-http-how-to.md) als u meer informatie wilt over het coderen van een HTTPS-URL.  
+Met de functie **CreateInputAsset** wordt een nieuwe [invoerasset](https://docs.microsoft.com/rest/api/media/assets) gemaakt en het opgegeven lokale videobestand wordt hierin geladen. Deze **asset** wordt gebruikt als invoer voor uw coderingstaak. In Media Services-v3 kan de invoer voor een **taak** een **asset** zijn of het kan de inhoud zijn die u beschikbaar stelt voor uw Media Services-account via HTTPS-URL's. Ga naar [dit artikel ](job-input-from-http-how-to.md) als u meer informatie wilt over het coderen van een HTTPS-URL.  
 
 In Media Services v3 kunt u Azure Storage-API's gebruiken om bestanden te uploaden. Het volgende .NET-fragment laat zien hoe.
 
 De volgende functie voert deze acties uit:
 
-* Maakt een asset 
-* Haalt een beschrijfbare [SAS-URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) voor de [container in opslag](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container) van de asset
+* Maakt een **asset** 
+* Haalt een beschrijfbare [SAS-URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) op voor de [container in opslag](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container) van de asset
 * Uploadt het bestand naar de container in opslag met de SAS-URL
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
@@ -101,7 +95,8 @@ In de [uitvoerasset](https://docs.microsoft.com/rest/api/media/assets) wordt het
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
 ### <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>Een transformatie en een taak maken die het geüploade bestand codeert
-Bij het coderen of verwerken van inhoud in Media Services is het een gangbaar patroon om de coderingsinstellingen als recept in te stellen. U dient vervolgens een **taak** in te dienen om het recept toe te passen op een video. Door het indienen van nieuwe taken voor elke nieuwe video past u het recept toe op alle video's in de bibliotheek. Een recept in Media Services wordt aangeroepen als een **transformatie**. Zie voor meer informatie [transformaties en taken](transform-concept.md). Het voorbeeld dat wordt beschreven in deze zelfstudie definieert een recept dat de video codeert om het te streamen naar tal van iOS- en Android-apparaten. 
+
+Bij het coderen of verwerken van inhoud in Media Services is het een gangbaar patroon om de coderingsinstellingen als recept in te stellen. U dient vervolgens een **taak** in te dienen om het recept toe te passen op een video. Door voor elke nieuwe video nieuwe taken in te dienen, past u dat recept toe op alle video's in de bibliotheek. Een recept in Media Services wordt aangeroepen als een **transformatie**. Zie [Transformaties en taken](transform-concept.md) voor meer informatie. Het voorbeeld dat wordt beschreven in deze zelfstudie definieert een recept dat de video codeert om het te streamen naar tal van iOS- en Android-apparaten. 
 
 #### <a name="transform"></a>Transformeren
 
@@ -127,33 +122,33 @@ De taak neemt enige tijd in beslag en wanneer deze is voltooid, wordt u hiervan 
 
 Event Grid is ontworpen voor hoge beschikbaarheid, consistente prestaties en dynamisch schalen. Met Event Grid kunnen uw apps luisteren naar en reageren op gebeurtenissen uit vrijwel alle Azure-services, evenals aangepaste bronnen. Eenvoudige, op HTTP gebaseerde reactieve gebeurtenisafhandeling maakt het mogelijk om efficiënte oplossingen te bouwen met intelligente filtering en routering van gebeurtenissen.  Zie [Gebeurtenissen routeren naar een aangepast eindpunt](job-state-events-cli-how-to.md).
 
-De **taak** doorloopt meestal de volgende statussen: **gepland**, **in wachtrij**, **wordt verwerkt**, **voltooid** (definitieve status). Als bij de taak een fout is opgetreden is, krijgt u de status **Fout**. Als de taak momenteel wordt geannuleerd, krijgt u de melding **wordt geannuleerd** en **geannuleerd** wanneer het annuleren is voltooid.
+De **taak** doorloopt meestal de volgende statussen: **Gepland**, **In de wachtrij geplaatst**, **Verwerken**, **Voltooid** (de eindstatus). Als bij de taak een fout is opgetreden is, krijgt u de status **Fout**. Als de taak momenteel wordt geannuleerd, krijgt u de melding **Wordt geannuleerd** en **Geannuleerd** wanneer het annuleren is voltooid.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#WaitForJobToFinish)]
 
-### <a name="get-a-streaminglocator"></a>Een StreamingLocator ophalen
+### <a name="get-a-streaming-locator"></a>Een streaming-locator ophalen
 
-Nadat de codering is voltooid, bestaat de volgende stap eruit om de video in de uitvoerasset beschikbaar te maken voor weergave door clients. U kunt dit doen in twee stappen: maak eerst een [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) en bouw vervolgens de streaming-URL's die clients kunnen gebruiken. 
+Nadat de codering is voltooid, bestaat de volgende stap eruit om de video in de uitvoerasset beschikbaar te maken voor weergave door clients. U kunt dit doen in twee stappen: maak eerst een [streaming-locator](https://docs.microsoft.com/rest/api/media/streaminglocators) en bouw vervolgens de streaming-URL's die clients kunnen gebruiken. 
 
-Het proces van het maken van een **StreamingLocator** wordt publiceren genoemd. Standaard is de **StreamingLocator** onmiddellijk geldig nadat u de API-aanroepen hebt gemaakt en totdat deze wordt verwijderd, tenzij u de optionele start- en eindtijden configureert. 
+Het proces van het maken van een **streaming-locator** wordt publiceren genoemd. De **streaming-locator** is standaard onmiddellijk geldig nadat u de API-aanroepen hebt gemaakt en totdat deze wordt verwijderd, tenzij u de optionele start- en eindtijden configureert. 
 
 Bij het maken van een [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) moet u de gewenste **StreamingPolicyName** opgeven. In dit voorbeeld zult u in-the-clear (of niet-versleutelde) inhoud streamen, zodat het vooraf gedefinieerde duidelijke streamingbeleid, **PredefinedStreamingPolicy.ClearStreamingOnly** wordt gebruikt.
 
 > [!IMPORTANT]
-> Wanneer u een aangepast [streamingbeleid](https://docs.microsoft.com/rest/api/media/streamingpolicies) gebruikt, moet u een beperkte set met dergelijke beleidsregels ontwerpen voor uw Media Service-account, en deze opnieuw gebruiken voor de StreamingLocators wanneer dezelfde versleutelingsopties en protocollen nodig zijn. Uw Media Service-account heeft een quotum voor het aantal StreamingPolicy-vermeldingen. U dient geen nieuw StreamingPolicy voor elke StreamingLocator te maken.
+> Wanneer u een aangepast [streamingbeleid](https://docs.microsoft.com/rest/api/media/streamingpolicies) gebruikt, moet u een beperkte set met dergelijke beleidsregels ontwerpen voor uw Media Service-account, en deze opnieuw gebruiken voor de StreamingLocators wanneer dezelfde versleutelingsopties en protocollen nodig zijn. Uw Media Service-account heeft een quotum voor het aantal streaming-beleidsvermeldingen. U hoeft geen nieuw streaming-beleid te maken voor elke streaming-locator.
 
 Bij de volgende code wordt ervan uitgegaan dat u de functie met een unieke locatorName aanroept.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateStreamingLocator)]
 
-Terwijl in het voorbeeld in dit onderwerp streaming wordt besproken, kunt u dezelfde aanroep gebruiken om een StreamingLocator te maken voor het leveren van video via progressief downloaden.
+Terwijl in het voorbeeld in dit onderwerp streaming wordt behandeld, kunt u dezelfde aanroep gebruiken om een streaming-locator te maken voor het leveren van video via progressief downloaden.
 
 ### <a name="get-streaming-urls"></a>Streaming-URL's ophalen
 
-Nu de **StreamingLocator** is gemaakt, kunt u de streaming-URL's ophalen, zoals weergegeven in [GetStreamingURLs](https://docs.microsoft.com/rest/api/media/streaminglocators). Als u de URL wilt samenstellen, moet u de hostnaam van het [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) en het pad van de **StreamingLocator** samenvoegen. In dit voorbeeld wordt het *standaard* **StreamingEndpoint** gebruikt. Wanneer u een Media Service-account voor het eerst maakt, wordt dit *standaard* **StreamingEndpoint** gestopt. Daarom moet u **Start** aanroepen.
+Nu de [streaming-locator](https://docs.microsoft.com/rest/api/media/streaminglocators) is gemaakt, kunt u de streaming-URL's ophalen, zoals weergegeven in **GetStreamingURLs**. Als u een URL wilt samenstellen, moet u de hostnaam van het [streaming-eindpunt](https://docs.microsoft.com/rest/api/media/streamingendpoints) en het pad van de **streaming-locator** samenvoegen. In dit voorbeeld wordt het *standaard* **streaming-eindpunt** gebruikt. Wanneer u voor het eerst een Media Service-account maakt, wordt dit *standaard* **streaming-eindpunt** gestopt. Daarom moet u **Start** aanroepen.
 
 > [!NOTE]
-> In deze methode hebt u de locatorName nodig die is gebruikt bij het maken van de **StreamingLocator** voor de uitvoerasset.
+> In deze methode hebt u de locatorName nodig die is gebruikt bij het maken van de **streaming-locator** voor de uitvoerasset.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#GetStreamingURLs)]
 

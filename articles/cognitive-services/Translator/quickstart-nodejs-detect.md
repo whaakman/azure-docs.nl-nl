@@ -6,18 +6,18 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: d70a420f01c7bf3486093951e89c9f48db148d88
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: ecf762d47a5e8aa9762b67d5b6419bede91c142c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248758"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222045"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-with-nodejs"></a>Quickstart: de Translator Text-API gebruiken om teksttaal te detecteren met Node.js
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-with-nodejs"></a>Quickstart: De Translator Text-API gebruiken om teksttaal te detecteren met Node.js
 
 In deze quickstart leert u hoe u de taal van opgegeven tekst kunt detecteren met behulp van Node.js en de Translator Text-API.
 
@@ -63,12 +63,12 @@ if (!subscriptionKey) {
 };
 ```
 
-## <a name="configure-the-request"></a>De aanvraag configureren
+## <a name="configure-the-request"></a>Aanvraag configureren
 
 Met de methode `request()`, beschikbaar gesteld via de aanvraagmodule, kunt u de HTTP-methode, URL, aanvraagparameters, headers en de JSON-hoofdtekst doorgeven als een `options`-object. In dit codefragment configureert u de aanvraag:
 
 >[!NOTE]
-> Zie [Translator Text-API 3.0: detecteren](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) voor meer informatie over eindpunten, routes en aanvraagparameters.
+> Meer informatie over eindpunten, routes en aanvraagparameters vindt u in [Translator Text-API 3.0: detecteren](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
 
 ```javascript
 let options = {
@@ -96,7 +96,7 @@ U kunt aanvragen het eenvoudigst verifiëren door uw abonnementssleutel op te ge
 
 ## <a name="make-the-request-and-print-the-response"></a>De aanvraag maken en het antwoord afdrukken
 
-Vervolgens maakt u de aanvraag via de methode `request()`. Deze gebruikt het `options`-object dat in de vorige sectie is gemaakt, als het eerste argument, waarna het opgemaakte JSON-antwoord wordt afgedrukt.
+Vervolgens maakt u de aanvraag via de methode `request()`. Deze gebruikt het `options`-object dat in de vorige sectie als eerste argument is gemaakt, waarna het opgemaakte JSON-antwoord wordt afgedrukt.
 
 ```javascript
 request(options, function(err, res, body){

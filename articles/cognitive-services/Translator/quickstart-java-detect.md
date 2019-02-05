@@ -1,23 +1,23 @@
 ---
-title: 'Quickstart: Teksttaal detecteren, Java - Translator Text-API'
+title: 'Snelstart: Teksttaal detecteren, Java - Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: In deze quickstart leert u hoe u de taal van opgegeven tekst kunt detecteren met behulp van Java en de Translator Text REST API.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: d810b282936db1a31cdeb0133ce3c5bf0059850b
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 00ffb0eef5b7452894b27a00328dae4546d45c6f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890774"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208434"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-java"></a>Quickstart: de Translator Text-API gebruiken om teksttaal te detecteren met Java
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-java"></a>Snelstart: De Translator Text-API gebruiken om de teksttaal te detecteren met Java
 
 In deze quickstart leert u hoe u de taal van opgegeven tekst kunt detecteren met behulp van Java en de Translator Text REST API.
 
@@ -31,14 +31,14 @@ Voor deze snelstart is een [Azure Cognitive Services-account](https://docs.micro
 
 ## <a name="initialize-a-project-with-gradle"></a>Een project initialiseren met Gradle
 
-Laten we beginnen met het maken van een werkmap voor dit project. Voer de volgende opdracht uit vanaf de opdrachtregel (of terminal):
+We beginnen met het maken van een werkmap voor dit project. Voer de volgende opdracht uit vanaf de opdrachtregel (of terminal):
 
 ```console
 mkdir detect-sample
 cd detect-sample
 ```
 
-Vervolgens gaat u een Gradle-project initialiseren. Met deze opdracht maakt u essentiële buildbestanden voor Gradle, maar nog belangrijker is dat ook `build.gradle.kts` wordt gemaakt, die tijdens runtime wordt gebruikt om u toepassing te maken en configureren. Voer de volgende opdracht uit vanuit uw werkmap:
+Vervolgens gaat u een Gradle-project initialiseren. Met deze opdracht maakt u essentiële buildbestanden voor Gradle, maar nog belangrijker is dat ook `build.gradle.kts` wordt gemaakt, dat tijdens runtime wordt gebruikt om de toepassing te maken en te configureren. Voer de volgende opdracht uit vanuit uw werkmap:
 
 ```console
 gradle init --type basic
@@ -67,11 +67,11 @@ dependencies {
 }
 ```
 
-Vergeet niet dat dit voorbeeld afhankelijkheden heeft op OkHttp voor HTTP-aanvragen, en Gson voor het verwerken en parseren van JSON. Zie [Creating New Gradle Builds](https://guides.gradle.org/creating-new-gradle-builds/) (Nieuwe Gradle-builds maken) als u meer wilt weten over buildconfiguraties.
+Opmerking: dit voorbeeld heeft afhankelijkheden op OkHttp voor HTTP-aanvragen, en Gson voor het verwerken en parseren van JSON. Zie [Nieuwe Gradle-builds maken](https://guides.gradle.org/creating-new-gradle-builds/) voor meer informatie over buildconfiguraties.
 
 ## <a name="create-a-java-file"></a>Een Java-bestand maken
 
-We gaan nu een map maken voor uw voorbeeld-app. Voer vanuit uw werkmap de volgende opdracht uit:
+We gaan een map maken voor de voorbeeld-app. Voer vanuit uw werkmap de volgende opdracht uit:
 
 ```console
 mkdir -p src/main/java
@@ -111,7 +111,7 @@ String url = "https://api.cognitive.microsofttranslator.com/detect?api-version=3
 
 ## <a name="create-a-client-and-build-a-request"></a>Een client maken en een aanvraag samenstellen
 
-Voeg deze regel toe aan de klasse `Detect` om een instantie te maken van de `OkHttpClient`:
+Voeg deze regel toe aan de klasse `Detect` om de `OkHttpClient` te instantiëren:
 
 ```java
 // Instantiates the OkHttpClient.
@@ -151,7 +151,7 @@ public static String prettify(String json_text) {
 
 ## <a name="put-it-all-together"></a>Alles samenvoegen
 
-De laatste stap bestaat eruit om een aanvraag te maken en een antwoord te ontvangen. Voeg deze regels toe aan uw project:
+De laatste stap bestaat uit het maken van een aanvraag en het ontvangen van een antwoord. Voeg deze regels toe aan het project:
 
 ```java
 public static void main(String[] args) {

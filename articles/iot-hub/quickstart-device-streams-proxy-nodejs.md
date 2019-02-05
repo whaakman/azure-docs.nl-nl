@@ -10,22 +10,21 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 012fdfa4faf10cacaf85819517f358c1af1ab39d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 0231b67ee56de5e1729c02ed3d87b2461f025b84
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830705"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887424"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-nodejs-proxy-application-preview"></a>Quickstart: SSH/RDP via IoT Hub-apparaatstreams met behulp van Node.js-proxytoepassingen (preview)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 
-[IoT Hub-apparaatstreams](./iot-hub-device-streams-overview.md) zorgen ervoor dat service- en apparaattoepassingen kunnen communiceren op een beveiligde manier die de firewall toestaat. In deze quickstart wordt beschreven hoe een Node.js-proxytoepassing aan de servicezijde wordt uitgevoerd zodat SSH/RDP-verkeer naar het apparaat kan worden verzonden via een apparaatstream. Bekijk [deze pagina](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp) voor een overzicht van de instellingen. Gedurende de openbare preview biedt de Node.js SDK alleen ondersteuning voor apparaatstreams aan de servicezijde. Daarom bevat deze quickstart alleen instructies voor het uitvoeren van de proxy aan de servicezijde. Voer een bijbehorende proxy aan de apparaatzijde uit Deze is beschikbaar in de handleidingen [Quickstart voor C](./quickstart-device-streams-proxy-c.md) of [Quickstart voor C#](./quickstart-device-streams-proxy-csharp.md).
+[IoT Hub-apparaatstreams](./iot-hub-device-streams-overview.md) zorgen ervoor dat service- en apparaattoepassingen kunnen communiceren op een beveiligde manier die de firewall toestaat. In deze quickstarthandleiding wordt beschreven hoe een Node.js-proxytoepassing aan de servicezijde wordt uitgevoerd zodat SSH/RDP-verkeer naar het apparaat kan worden verzonden via een apparaatstream. Kijk [hier](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp) voor een overzicht van de instellingen. Gedurende de openbare preview biedt de Node.js SDK alleen ondersteuning voor apparaatstreams aan de servicezijde. Daarom bevat deze quickstarthandleiding alleen instructies voor het uitvoeren van de proxy in de service. U moet ook een bijbehorende proxy in het apparaat uitvoeren. Deze is beschikbaar in de handleidingen [Quickstart voor C](./quickstart-device-streams-proxy-c.md) of [Quickstart voor C#](./quickstart-device-streams-proxy-csharp.md).
 
-We beschrijven eerst de instellingen voor SSH (met poort `22`). Vervolgens beschrijven we hoe u de instellingen voor RDP (poort 3389) bewerkt. Omdat apparaatstreams toepassings- en protocolneutraal zijn, kan hetzelfde voorbeeld zo worden bewerkt (doorgaans door de communicatiepoorten te wijzigen) dat er andere soorten toepassingsverkeer mogelijk zijn.
+We beschrijven eerst de instellingen voor SSH (met poort 22). Vervolgens beschrijven we hoe u de instellingen voor RDP (poort 3389) bewerkt. Omdat apparaatstreams toepassings- en protocolneutraal zijn, kan hetzelfde voorbeeld worden bewerkt om andere soorten toepassingsverkeer mogelijk te maken (doorgaans door de communicatiepoort te wijzigen).
 
-De code illustreert de initiëring en het gebruik van een apparaatstream en kan ook worden aangepast om ander toepassingsverkeer (dan RDP en SSH) mogelijk te maken.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -34,7 +33,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het uitvoeren van de toepassing aan de serverzijde in deze quickstart moet Node.js versie 4.x.x of hoger op uw ontwikkelcomputer zijn geïnstalleerd.
+Voor het uitvoeren van de toepassing in de service in deze quickstart moet Node.js versie 4.x.x of hoger op uw ontwikkelcomputer zijn geïnstalleerd.
 
 U kunt Node.js voor meerdere platforms downloaden van [nodejs.org](https://nodejs.org).
 
@@ -49,16 +48,16 @@ Als u dit nog niet hebt gedaan, downloadt u het voorbeeldproject met Node.js van
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
-Als u [Snelstart: Als u telemetrie vanaf een apparaat wilt verzenden naar een IoT-hub](quickstart-send-telemetry-node.md), kunt u deze stap overslaan.
+Als u [Quickstart: Als u telemetrie vanaf een apparaat wilt verzenden naar een IoT-hub](quickstart-send-telemetry-node.md), kunt u deze stap overslaan.
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub-device-streams.md)]
 
 
 ## <a name="register-a-device"></a>Een apparaat registreren
 
-Als u [Snelstart: Als u telemetrie vanaf een apparaat wilt verzenden naar een IoT-hub](quickstart-send-telemetry-node.md), kunt u deze stap overslaan.
+Als u [Quickstart: Als u telemetrie vanaf een apparaat wilt verzenden naar een IoT-hub](quickstart-send-telemetry-node.md), kunt u deze stap overslaan.
 
-Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan maken. In deze snelstart gebruikt u Azure Cloud Shell om een gesimuleerd apparaat te registreren.
+Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan maken. In deze quickstart gebruikt u Azure Cloud Shell om een gesimuleerd apparaat te registreren.
 
 1. Voer de volgende opdrachten uit in Azure Cloud Shell om de IoT Hub CLI-extensie toe te voegen en de apparaat-id te maken. 
 
@@ -86,14 +85,14 @@ Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan m
 
 ## <a name="ssh-to-a-device-via-device-streams"></a>SSH naar een apparaat via apparaatstreams
 
-### <a name="run-the-device-side-proxy"></a>De proxy aan de apparaatzijde uitvoeren
+### <a name="run-the-device-local-proxy"></a>Voer de proxy in het apparaat uit
 
-Zoals eerder vermeld, biedt de IoT Hub Node.js SDK alleen ondersteuning voor apparaatstreams aan de servicezijde. Voor de toepassing aan de apparaatzijde gebruikt u de bijbehorende proxyprogramma's voor het apparaat die beschikbaar zijn in de handleidingen [Quickstart voor C](./quickstart-device-streams-proxy-c.md) of [Quickstart voor C#](./quickstart-device-streams-proxy-csharp.md). Controleer of de proxy aan de apparaatzijde wordt uitgevoerd voordat u naar de volgende stap gaat.
+Zoals eerder vermeld, biedt de IoT Hub Node.js SDK alleen ondersteuning voor apparaatstreams aan de servicezijde. Voor de toepassing in het apparaat gebruikt u de bijbehorende proxyprogramma's voor het apparaat die beschikbaar zijn in de handleidingen [Quickstart voor C](./quickstart-device-streams-proxy-c.md) of [Quickstart voor C#](./quickstart-device-streams-proxy-csharp.md). Controleer of de proxy in het apparaat wordt uitgevoerd voordat u naar de volgende stap gaat.
 
 
-### <a name="run-the-service-side-proxy"></a>De proxy aan de servicezijde uitvoeren
+### <a name="run-the-service-local-proxy"></a>Voer de proxy in de service uit
 
-Ervan uitgaande dat de proxy aan de apparaatzijde wordt uitgevoerd, volgt u de volgende stappen voor het uitvoeren van de proxy aan de serverzijde in Node.js:
+Ervan uitgaande dat de [proxy in het apparaat](#run-the-device-local-proxy) wordt uitgevoerd, volgt u de volgende stappen voor het uitvoeren van de proxy in de service in Node.js.
 
 - Geef uw servicereferenties, de apparaat-id van het doel waarop de SSH-daemon wordt uitgevoerd en het poortnummer voor de proxy die op het apparaat wordt uitgevoerd op als omgevingsvariabelen.
 ```
@@ -107,7 +106,7 @@ Ervan uitgaande dat de proxy aan de apparaatzijde wordt uitgevoerd, volgt u de v
   SET STREAMING_TARGET_DEVICE=MyDevice
   SET PROXY_PORT=2222
 ```
-Wijzig `MyDevice` in de apparaat-id die u voor uw apparaat hebt gekozen.
+Wijzig de waarden hierboven met uw apparaat-id en verbindingsreeks.
 
 - Navigeer naar `Quickstarts/device-streams-service` in de uitgepakte projectmap en voer de proxy in de service uit.
 ```
@@ -124,10 +123,10 @@ Wijzig `MyDevice` in de apparaat-id die u voor uw apparaat hebt gekozen.
 ### <a name="ssh-to-your-device-via-device-streams"></a>SSH naar uw apparaat via apparaatstreams
 In Linux voert u SSH uit met behulp van `ssh $USER@localhost -p 2222` op een terminal. In Windows gebruikt u uw favoriete SSH-client (bijvoorbeeld PuTTY).
 
-Console-uitvoer aan de servicezijde nadat SSH-sessie tot stand is gebracht (de proxy in de service luistert naar poort 2222): ![Alternatieve tekst](./media/quickstart-device-streams-proxy-nodejs/service-console-output.PNG "uitvoer van SSH-terminal")
+Console-uitvoer in de service nadat SSH-sessie tot stand is gebracht (de proxy in de service luistert naar poort 2222): ![Alternatieve tekst](./media/quickstart-device-streams-proxy-nodejs/service-console-output.PNG "uitvoer van SSH-terminal")
 
 
-Console-uitvoer van het SSH-clientprogramma (SSH-client communiceert met SSH-daemon door verbinding te maken met poort <code>22</code>, waar de proxy in de service naar luistert): ![Alternatieve tekst](./media/quickstart-device-streams-proxy-nodejs/ssh-console-output.PNG "uitvoer van SSH-client")
+Console-uitvoer van het SSH-clientprogramma (SSH-client communiceert met SSH-daemon door verbinding te maken met poort 22, waar de proxy in de service naar luistert): ![Alternatieve tekst](./media/quickstart-device-streams-proxy-nodejs/ssh-console-output.PNG "uitvoer van SSH-client")
 
 
 ### <a name="rdp-to-your-device-via-device-streams"></a>RDP naar uw apparaat via apparaatstreams

@@ -1,21 +1,21 @@
 ---
-title: 'Quickstart: Antwoord uit knowledge base ophalen - REST, Go - QnA Maker'
+title: 'Snelstart: Antwoord uit knowledge base ophalen - REST, Go - QnA Maker'
 titlesuffix: Azure Cognitive Services
 description: Deze Go REST-quickstart begeleidt u bij het programmatisch ophalen van een antwoord uit een knowledge base.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: 54c2133e35de09cae411f3bcec9f4421e4586f18
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: a9c3a689aed2a94d51d590bbf7b396b8a1095e99
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977763"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209873"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-go"></a>Antwoorden vinden op vragen met behulp van een knowledge base met Go
 
@@ -25,7 +25,7 @@ In deze quickstart wordt beschreven hoe u programmatisch een antwoord uit een ge
 
 * [Go 1.10.1](https://golang.org/dl/)
 * [Visual Studio Code](https://code.visualstudio.com/)
-* U moet een [QnA Maker-service ](../How-To/set-up-qnamaker-service-azure.md) hebben. Om uw sleutel op te halen, selecteert u in het Azure-dashboard voor uw QnA Maker-resource de optie **Sleutels** onder **Resourcebeheer**. 
+* U moet een [QnA Maker-service ](../How-To/set-up-qnamaker-service-azure.md) hebben. Selecteer **Sleutels** onder **Resourcebeheer** in het Azure-dashboard voor de QnA Maker-resource om uw sleutel op te halen. 
 * Pagina Instellingen voor **Publiceren**. Als u nog geen knowledge base hebt gepubliceerd, moet u een lege knowledge base maken, een knowledge base importeren op de pagina **Instellingen** en de knowledge base publiceren. U kunt [deze eenvoudige knowledge base](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/basic-kb.tsv) downloaden en gebruiken. 
 
     De pagina Instellingen voor Publiceren bevat de waarde voor POST-route, Host en EndpointKey. 

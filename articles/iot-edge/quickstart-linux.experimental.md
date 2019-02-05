@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 181addbcf4d0cfd51e74a24677de63f66e6fec1d
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: f49d61204bbaff58aecafbc933efd214897ea45f
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190510"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913186"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Quickstart: Uw eerste IoT Edge-module implementeren op een Linux x64-apparaat
 
@@ -27,7 +27,7 @@ In deze quickstart leert u de volgende zaken:
 3. De IoT Edge-runtime op uw apparaat installeren en starten.
 4. Op afstand een module implementeren op een IoT Edge-apparaat.
 
-![Diagram - Quickstart-architectuur voor apparaat en cloud](./media/quickstart-linux/install-edge-full.png)
+![Diagram - Quickstartarchitectuur voor apparaat en cloud](./media/quickstart-linux/install-edge-full.png)
 
 In deze quickstart verandert u uw Linux-computer of virtuele machine in een IoT Edge-apparaat. Vervolgens implementeert u een module vanuit Azure Portal op uw apparaat. De module die u in deze quickstart implementeert, is een gesimuleerde sensor waarmee temperatuur-, luchtvochtigheids- en drukgegevens worden gegenereerd. De andere Azure IoT Edge-zelfstudies bouwen voort op het werk dat u hier doet door modules te implementeren waarmee de gesimuleerde gegevens worden geanalyseerd voor zakelijke inzichten.
 
@@ -109,7 +109,7 @@ Omdat IoT Edge-apparaten zich anders gedragen en anders kunnen worden beheerd da
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. Kopieer de verbindingsreeks van de JSON-uitvoer en sla deze op. U gebruikt deze waarde voor het configureren van de IoT Edge-runtime in de volgende sectie.
+3. Kopieer de waarde van de sleutel `cs` uit de JSON-uitvoer en sla deze op. Deze waarde is de verbindingsreeks van het apparaat. U gebruikt deze verbindingsreeks in de volgende sectie om de IoT Edge-runtime te configureren.
 
    ![Verbindingsreeks ophalen uit de CLI-uitvoer](./media/quickstart/retrieve-connection-string.png)
 

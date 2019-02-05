@@ -4,23 +4,23 @@ titleSuffix: Azure Machine Learning service
 description: In het eerste deel van deze zelfstudie leert u hoe u in Python gegevens voorbereidt voor regressiemodellering met de Azure Machine Learning-SDK.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: tutorial
 author: cforbe
 ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: eb4d94d93a72844cfa869bd74aef6eeb34b0f8e9
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c199a403e65bd084428fd45e8dc67cca214f5f9f
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817500"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251279"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Zelfstudie: Gegevens voorbereiden voor regressiemodellering
 
-In deze zelfstudie leert u hoe u gegevens voorbereidt voor regressiemodellering met de Azure Machine Learning Data Prep SDK. U gaat verschillende transformaties uitvoeren om twee verschillende gegevenssets van NYC Taxi te filteren en combineren.  
+In deze zelfstudie leert u hoe u gegevens voorbereidt voor regressiemodellering met de Azure Machine Learning Data Prep SDK. U gaat verschillende transformaties uitvoeren om twee verschillende gegevenssets van NYC Taxi te filteren en combineren.
 
 Deze zelfstudie is **deel één van een serie van twee**. Nadat u deze serie met zelfstudies hebt voltooid, kunt u de kosten van een taxirit voorspellen door een model te trainen op gegevenskenmerken. Deze kenmerken zijn onder andere de dag en het tijdstip van ophalen, het aantal passagiers en de vertreklocatie.
 
@@ -45,9 +45,14 @@ Voor uw gemak is deze zelfstudie beschikbaar gemaakt als een [Jupyter-notebook](
 
 U begint met het importeren van de SDK.
 
-
 ```python
 import azureml.dataprep as dprep
+```
+
+Als u de zelfstudie in uw eigen Python-omgeving volgt, gebruikt u het volgende om de benodigde pakketten te installeren.
+
+```shell
+pip install azureml-dataprep
 ```
 
 ## <a name="load-data"></a>Gegevens laden
@@ -61,13 +66,15 @@ dataset_root = "https://dprepdata.blob.core.windows.net/demo"
 green_path = "/".join([dataset_root, "green-small/*"])
 yellow_path = "/".join([dataset_root, "yellow-small/*"])
 
-green_df = dprep.read_csv(path=green_path, header=dprep.PromoteHeadersMode.GROUPED)
+green_df_raw = dprep.read_csv(path=green_path, header=dprep.PromoteHeadersMode.GROUPED)
 # auto_read_file automatically identifies and parses the file type, which is useful when you don't know the file type.
-yellow_df = dprep.auto_read_file(path=yellow_path)
+yellow_df_raw = dprep.auto_read_file(path=yellow_path)
 
-display(green_df.head(5))
-display(yellow_df.head(5))
+display(green_df_raw.head(5))
+display(yellow_df_raw.head(5))
 ```
+
+`Dataflow`-objecten zijn vergelijkbaar met gegevensframes en vertegenwoordigen een reeks traag geëvalueerde, onveranderbare bewerkingen voor gegevens. Bewerkingen kunnen worden toegevoegd door het aanroepen van de verschillende transformatie- en filtermethoden die beschikbaar zijn. Wanneer een bewerking wordt toegevoegd aan een `Dataflow`, is het resultaat altijd een nieuw `Dataflow`-object.
 
 ## <a name="cleanse-data"></a>Gegevens opschonen
 
@@ -82,11 +89,11 @@ useful_columns = [
 ]
 ```
 
-U gebruikt eerst de gegevens van de groene taxi’s en geeft deze een geldige vorm die kan worden gecombineerd met de gegevens van de gele taxi’s. Maak een tijdelijke gegevensstroom met de naam `tmp_df`. Roep de functies `replace_na()`, `drop_nulls()` en `keep_columns()` aan met de variabelen voor snelkoppelingstransformaties die u eerder hebt gemaakt. Geef verder alle kolommen in het gegevensframe een andere naam, zodat deze overeenkomen met de namen in de variabele `useful_columns`.
+U gebruikt eerst de gegevens van de groene taxi’s en geeft deze een geldige vorm die kan worden gecombineerd met de gegevens van de gele taxi’s. Roep de functies `replace_na()`, `drop_nulls()` en `keep_columns()` aan met de variabelen voor snelkoppelingstransformaties die u eerder hebt gemaakt. Geef verder alle kolommen in het gegevensframe een andere naam, zodat deze overeenkomen met de namen in de variabele `useful_columns`.
 
 
 ```python
-tmp_df = (green_df
+green_df = (green_df_raw
     .replace_na(columns=all_columns)
     .drop_nulls(*drop_if_all_null)
     .rename_columns(column_pairs={
@@ -105,7 +112,7 @@ tmp_df = (green_df
         "Trip_distance": "distance"
      })
     .keep_columns(columns=useful_columns))
-tmp_df.head(5)
+green_df.head(5)
 ```
 
 <div>
@@ -211,17 +218,10 @@ tmp_df.head(5)
 </table>
 </div>
 
-Overschrijf de variabele `green_df` met de transformaties die in de vorige stap op de gegevensstroom `tmp_df` zijn uitgevoerd.
+Voer dezelfde transformatiestappen uit op de gegevens van de gele taxi’s. Met deze functies wordt ervoor gezorgd dat lege gegevens uit de gegevensset worden verwijderd; dit vergroot de nauwkeurigheid van het Machine Learning-model.
 
 ```python
-green_df = tmp_df
-```
-
-Voer dezelfde transformatiestappen uit op de gegevens van de gele taxi’s.
-
-
-```python
-tmp_df = (yellow_df
+yellow_df = (yellow_df_raw
     .replace_na(columns=all_columns)
     .drop_nulls(*drop_if_all_null)
     .rename_columns(column_pairs={
@@ -246,20 +246,18 @@ tmp_df = (yellow_df
         "trip_distance": "distance"
     })
     .keep_columns(columns=useful_columns))
-tmp_df.head(5)
+yellow_df.head(5)
 ```
 
-Overschrijf ook nu weer de gegevensstroom `yellow_df` met de gegevensstroom `tmp_df`. Roep vervolgens de functie `append_rows()` aan voor de groene taxi's om de gegevens van de gele taxi's toe te voegen. Er wordt een nieuw, gecombineerd dataframe gemaakt.
-
+Roep de functie `append_rows()` aan voor de groene taxi's om de gegevens van de gele taxi's toe te voegen. Er wordt een nieuw, gecombineerd dataframe gemaakt.
 
 ```python
-yellow_df = tmp_df
 combined_df = green_df.append_rows([yellow_df])
 ```
 
-### <a name="convert-types-and-filter"></a>Typen en filters converteren 
+### <a name="convert-types-and-filter"></a>Typen en filters converteren
 
-Bekijk de overzichtsstatistieken met de coördinaten voor het afhalen en afzetten om te zien hoe de gegevens zijn verdeeld. Definieer eerst een `TypeConverter`-object om de velden voor de lengte- en de breedtegraad te wijzigen in het type decimaal. Roep vervolgens de functie `keep_columns()` aan om de uitvoer te beperken tot de velden voor de lengte- en breedtegraad. Roep vervolgens `get_profile()` aan.
+Bekijk de overzichtsstatistieken met de coördinaten voor het afhalen en afzetten om te zien hoe de gegevens zijn verdeeld. Definieer eerst een `TypeConverter`-object om de velden voor de lengte- en de breedtegraad te wijzigen in het type decimaal. Roep vervolgens de functie `keep_columns()` aan om de uitvoer te beperken tot de velden voor de lengte- en breedtegraad. Roep vervolgens `get_profile()` aan. Met deze functieaanroepen wordt een beknopte weergave van de gegevensstroom gemaakt waarbij alleen de velden voor de lengte- en breedtegraad worden weergegeven. Dit maakt het eenvoudiger om te controleren op ontbrekende coördinaten en coördinaten die buiten het bereik liggen.
 
 
 ```python
@@ -271,7 +269,7 @@ combined_df = combined_df.set_column_types(type_conversions={
     "dropoff_latitude": decimal_type
 })
 combined_df.keep_columns(columns=[
-    "pickup_longitude", "pickup_latitude", 
+    "pickup_longitude", "pickup_latitude",
     "dropoff_longitude", "dropoff_latitude"
 ]).get_profile()
 ```
@@ -403,15 +401,15 @@ combined_df.keep_columns(columns=[
 
 
 
-In de uitvoer van de overzichtsstatistieken ziet u dat er ontbrekende coördinaten zijn en coördinaten die niet in New York City zijn. Filter de coördinaten uit voor locaties die zich buiten de stadsgrens bevinden. Schakel de kolomfilteropdrachten aaneen binnen de functie `filter()` en definieer de minimum- en maximumgrenzen voor elk veld. Roep vervolgens opnieuw de functie `get_profile()` aan om de transformatie te verifiëren.
+In de uitvoer van de overzichtsstatistieken ziet u dat er ontbrekende coördinaten zijn en coördinaten die zich niet in New York City bevinden (dit wordt bepaald op basis van een subjectieve analyse). Filter de coördinaten uit voor locaties die zich buiten de stadsgrens bevinden. Schakel de kolomfilteropdrachten aaneen binnen de functie `filter()` en definieer de minimum- en maximumgrenzen voor elk veld. Roep vervolgens opnieuw de functie `get_profile()` aan om de transformatie te verifiëren.
 
 
 ```python
-tmp_df = (combined_df
+latlong_filtered_df = (combined_df
     .drop_nulls(
         columns=["pickup_longitude", "pickup_latitude", "dropoff_longitude", "dropoff_latitude"],
         column_relationship=dprep.ColumnRelationship(dprep.ColumnRelationship.ANY)
-    ) 
+    )
     .filter(dprep.f_and(
         dprep.col("pickup_longitude") <= -73.72,
         dprep.col("pickup_longitude") >= -74.09,
@@ -422,8 +420,8 @@ tmp_df = (combined_df
         dprep.col("dropoff_latitude") <= 40.88,
         dprep.col("dropoff_latitude") >= 40.53
     )))
-tmp_df.keep_columns(columns=[
-    "pickup_longitude", "pickup_latitude", 
+latlong_filtered_df.keep_columns(columns=[
+    "pickup_longitude", "pickup_latitude",
     "dropoff_longitude", "dropoff_latitude"
 ]).get_profile()
 ```
@@ -553,22 +551,13 @@ tmp_df.keep_columns(columns=[
   </tbody>
 </table>
 
-
-
-Overschrijf de gegevensstroom `combined_df` met de transformaties die u hebt toegepast op de gegevensstroom `tmp_df`.
-
-
-```python
-combined_df = tmp_df
-```
-
 ### <a name="split-and-rename-columns"></a>Kolommen splitsen en een andere naam geven
 
-Kijk naar het gegevensprofiel voor kolom `store_forward`.
+Kijk naar het gegevensprofiel voor kolom `store_forward`. Dit veld is een Booleaanse vlag. De vlag is `Y` als de taxi na een rit geen verbinding heeft met de server en de rit dus heeft moeten opslaan in het geheugen. Wanneer er weer verbinding is, wordt de rit doorgestuurd naar de server.
 
 
 ```python
-combined_df.keep_columns(columns='store_forward').get_profile()
+latlong_filtered_df.keep_columns(columns='store_forward').get_profile()
 ```
 
 
@@ -633,25 +622,25 @@ Aan de uitvoer van het gegevensprofiel in de kolom `store_forward` ziet u dat de
 
 
 ```python
-combined_df = combined_df.replace(columns="store_forward", find="0", replace_with="N").fill_nulls("store_forward", "N")
+replaced_stfor_vals_df = latlong_filtered_df.replace(columns="store_forward", find="0", replace_with="N").fill_nulls("store_forward", "N")
 ```
 
-Voer de functie `replace` uit op het veld `distance`. Hiermee worden de afstandswaarden die onjuist zijn gelabeld als `.00` opnieuw ingedeeld, en worden null-waarden met nullen ingevuld. Converteer het veld `distance` naar een numerieke indeling.
+Voer de functie `replace` uit op het veld `distance`. Hiermee worden de afstandswaarden die onjuist zijn gelabeld als `.00` opnieuw ingedeeld, en worden null-waarden met nullen ingevuld. Converteer het veld `distance` naar een numerieke indeling. Deze onjuiste gegevenspunten zijn waarschijnlijk het resultaat van afwijkingen in het gegevensverzamelingssysteem in taxi's.
 
 
 ```python
-combined_df = combined_df.replace(columns="distance", find=".00", replace_with=0).fill_nulls("distance", 0)
-combined_df = combined_df.to_number(["distance"])
+replaced_distance_vals_df = replaced_stfor_vals_df.replace(columns="distance", find=".00", replace_with=0).fill_nulls("distance", 0)
+replaced_distance_vals_df = replaced_distance_vals_df.to_number(["distance"])
 ```
 
 Splits de datum/tijd-waarden voor afhalen en afzetten in kolommen voor datum respectievelijk tijdstip. Gebruik de functie `split_column_by_example()` voor het maken van de splitsing. In dit geval wordt de optionele parameter `example` van de functie `split_column_by_example()` weggelaten. De functie zal daarom aan de hand van de gegevens automatisch bepalen waar moet worden gesplitst.
 
 
 ```python
-tmp_df = (combined_df
+time_split_df = (replaced_distance_vals_df
     .split_column_by_example(source_column="pickup_datetime")
     .split_column_by_example(source_column="dropoff_datetime"))
-tmp_df.head(5)
+time_split_df.head(5)
 ```
 
 <div>
@@ -781,27 +770,23 @@ tmp_df.head(5)
 </table>
 </div>
 
-
 Geef de kolommen die door de functie `split_column_by_example()` zijn gegenereerd een nieuwe, zinvolle naam.
 
-
 ```python
-tmp_df_renamed = (tmp_df
+renamed_col_df = (time_split_df
     .rename_columns(column_pairs={
         "pickup_datetime_1": "pickup_date",
         "pickup_datetime_2": "pickup_time",
         "dropoff_datetime_1": "dropoff_date",
         "dropoff_datetime_2": "dropoff_time"
     }))
-tmp_df_renamed.head(5)
+renamed_col_df.head(5)
 ```
 
-Overschrijf de gegevensstroom `combined_df` met de uitgevoerde transformaties. Roep vervolgens de functie `get_profile()` aan om de volledige overzichtsstatistieken te zien na alle transformaties.
-
+Roep de functie `get_profile()` aan om de volledige overzichtsstatistieken te zien na alle opschoningsstappen.
 
 ```python
-combined_df = tmp_df_renamed
-combined_df.get_profile()
+renamed_col_df.get_profile()
 ```
 
 ## <a name="transform-data"></a>Gegevens transformeren
@@ -810,12 +795,14 @@ Splits de afhaal- en afzetgegevens verder op in dag van de week, dag van de maan
 
 Na het genereren van de nieuwe functies, gebruikt u de functie `drop_columns()` voor het verwijderen van de oorspronkelijke velden aangezien de zojuist gegenereerde functies de voorkeur hebben. Wijzig de naam van de rest van de velden om deze beter herkenbaar te maken.
 
+Door gegevens op deze manier te transformeren om nieuwe, tijdgebaseerde functies te maken, kan de nauwkeurigheid van het Machine Learning-model worden verbeterd. Als u bijvoorbeeld een nieuwe functie maakt voor weekdagen, kan er een relatie worden gemaakt tussen dagen van de week en de taxiritprijs. Vaak is de ritprijs duurder op bepaalde weekdagen omdat de vraag dan groter is.
+
 
 ```python
-tmp_df = (combined_df
+transformed_features_df = (renamed_col_df
     .derive_column_by_example(
-        source_columns="pickup_date", 
-        new_column_name="pickup_weekday", 
+        source_columns="pickup_date",
+        new_column_name="pickup_weekday",
         example_data=[("2009-01-04", "Sunday"), ("2013-08-22", "Thursday")]
     )
     .derive_column_by_example(
@@ -823,17 +810,17 @@ tmp_df = (combined_df
         new_column_name="dropoff_weekday",
         example_data=[("2013-08-22", "Thursday"), ("2013-11-03", "Sunday")]
     )
-          
+
     .split_column_by_example(source_column="pickup_time")
     .split_column_by_example(source_column="dropoff_time")
     # The following two calls to split_column_by_example reference the column names generated from the previous two calls.
     .split_column_by_example(source_column="pickup_time_1")
     .split_column_by_example(source_column="dropoff_time_1")
     .drop_columns(columns=[
-        "pickup_date", "pickup_time", "dropoff_date", "dropoff_time", 
+        "pickup_date", "pickup_time", "dropoff_date", "dropoff_time",
         "pickup_date_1", "dropoff_date_1", "pickup_time_1", "dropoff_time_1"
     ])
-          
+
     .rename_columns(column_pairs={
         "pickup_date_2": "pickup_month",
         "pickup_date_3": "pickup_monthday",
@@ -847,7 +834,7 @@ tmp_df = (combined_df
         "dropoff_time_2": "dropoff_second"
     }))
 
-tmp_df.head(5)
+transformed_features_df.head(5)
 ```
 
 <div>
@@ -1001,21 +988,23 @@ tmp_df.head(5)
 </table>
 </div>
 
-Uit de gegevens kunt u afleiden dat de componenten van de datums en de tijdstippen voor afhalen en afzetten die uit de afgeleide transformaties afkomstig zijn, juist zijn. De kolommen `pickup_datetime` en `dropoff_datetime` kunt u verwijderen. Deze zijn namelijk niet meer nodig.
+Uit de gegevens kunt u afleiden dat de componenten van de datums en de tijdstippen voor afhalen en afzetten die uit de afgeleide transformaties afkomstig zijn, juist zijn. Verwijder de kolommen `pickup_datetime` en `dropoff_datetime` omdat deze niet meer nodig zijn (nauwkeurige tijdelementen, zoals uren, minuten en seconden zijn juist handiger voor modeltraining).
 
 
 ```python
-tmp_df = tmp_df.drop_columns(columns=["pickup_datetime", "dropoff_datetime"])
+processed_df = transformed_features_df.drop_columns(columns=["pickup_datetime", "dropoff_datetime"])
 ```
 
 Gebruik de functionaliteit type-inferentie om automatisch het gegevenstype van elk veld te controleren. Geef vervolgens de resultaten van de inferentie weer.
 
 
 ```python
-type_infer = tmp_df.builders.set_column_types()
+type_infer = processed_df.builders.set_column_types()
 type_infer.learn()
 type_infer
 ```
+
+De resulterende uitvoer van `type_infer` is als volgt.
 
     Column types conversion candidates:
     'pickup_weekday': [FieldType.STRING],
@@ -1040,25 +1029,24 @@ De inferentieresultaten lijken juist op basis van de gegevens. Pas nu de typecon
 
 
 ```python
-tmp_df = type_infer.to_dataflow()
-tmp_df.get_profile()
+type_converted_df = type_infer.to_dataflow()
+type_converted_df.get_profile()
 ```
 
-Voer voordat u de gegevensstroom verpakt nog twee filters uit op de gegevensset. Om onjuiste gegevenspunten te voorkomen, filtert u de gegevensstroom op records waarin zowel de waarde voor de variabele `cost` als voor `distance` groter is dan nul.
+Voer voordat u de gegevensstroom verpakt nog twee filters uit op de gegevensset. Om onjuist vastgelegde gegevenspunten te voorkomen, filtert u de gegevensstroom op records waarin zowel de waarde voor de variabele `cost` als voor `distance` groter is dan nul. Met deze stap wordt de nauwkeurigheid van het Machine Learning-model enorm verbeterd omdat gegevenspunten zonder kosten of afstand de voorspellingsnauwkeurigheid in grote mate kunnen beïnvloeden.
 
 ```python
-tmp_df = tmp_df.filter(dprep.col("distance") > 0)
-tmp_df = tmp_df.filter(dprep.col("cost") > 0)
+final_df = type_converted_df.filter(dprep.col("distance") > 0)
+final_df = final_df.filter(dprep.col("cost") > 0)
 ```
 
-U beschikt nu over een volledig getransformeerd en voorbereid gegevensstroomobject dat in een machine learning-model kan worden gebruikt. De SDK bevat ook functionaliteit voor objectserialisatie, zoals u kunt zien in het volgende fragment.
+U beschikt nu over een volledig getransformeerd en voorbereid gegevensstroomobject dat in een machine learning-model kan worden gebruikt. De SDK bevat ook functionaliteit voor objectserialisatie, zoals u kunt zien in de volgende code.
 
 ```python
 import os
 file_path = os.path.join(os.getcwd(), "dflows.dprep")
 
-dflow_prepared = tmp_df
-package = dprep.Package([dflow_prepared])
+package = dprep.Package([final_df])
 package.save(file_path)
 ```
 

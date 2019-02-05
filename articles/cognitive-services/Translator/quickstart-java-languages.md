@@ -6,18 +6,18 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 9a5985adb92799726951ad37c1dbd0b72c6c9709
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 937fd58b28a3e64f7f4f9fc4bf52e8280af81136
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889001"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226967"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>Quickstart: De Translator Text-API gebruiken om een lijst met ondersteunde talen op te halen met Java
+# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>Snelstart: De Translator Text-API gebruiken om een lijst met ondersteunde talen op te halen met Java
 
 In deze quickstart haalt u een lijst met ondersteunde talen op voor vertaling, transcriptie en het opzoeken in woordenlijsten met behulp van de Translator Text-API.
 
@@ -31,14 +31,14 @@ Voor deze snelstart is een [Azure Cognitive Services-account](https://docs.micro
 
 ## <a name="initialize-a-project-with-gradle"></a>Een project initialiseren met Gradle
 
-Laten we beginnen met het maken van een werkmap voor dit project. Voer de volgende opdracht uit vanaf de opdrachtregel (of terminal):
+We beginnen met het maken van een werkmap voor dit project. Voer de volgende opdracht uit vanaf de opdrachtregel (of terminal):
 
 ```console
 mkdir get-languages-sample
 cd get-languages-sample
 ```
 
-Vervolgens gaat u een Gradle-project initialiseren. Met deze opdracht maakt u essentiële buildbestanden voor Gradle, maar nog belangrijker is dat ook `build.gradle.kts` wordt gemaakt, die tijdens runtime wordt gebruikt om u toepassing te maken en configureren. Voer de volgende opdracht uit vanuit uw werkmap:
+Vervolgens gaat u een Gradle-project initialiseren. Met deze opdracht maakt u essentiële buildbestanden voor Gradle, maar nog belangrijker is dat ook `build.gradle.kts` wordt gemaakt, dat tijdens runtime wordt gebruikt om de toepassing te maken en te configureren. Voer de volgende opdracht uit vanuit uw werkmap:
 
 ```console
 gradle init --type basic
@@ -67,11 +67,11 @@ dependencies {
 }
 ```
 
-Vergeet niet dat dit voorbeeld afhankelijkheden heeft op OkHttp voor HTTP-aanvragen, en Gson voor het verwerken en parseren van JSON. Zie [Creating New Gradle Builds](https://guides.gradle.org/creating-new-gradle-builds/) (Nieuwe Gradle-builds maken) als u meer wilt weten over buildconfiguraties.
+Opmerking: dit voorbeeld heeft afhankelijkheden op OkHttp voor HTTP-aanvragen, en Gson voor het verwerken en parseren van JSON. Zie [Nieuwe Gradle-builds maken](https://guides.gradle.org/creating-new-gradle-builds/) voor meer informatie over buildconfiguraties.
 
 ## <a name="create-a-java-file"></a>Een Java-bestand maken
 
-Laten we een map maken voor uw voorbeeld-app. Voer vanuit uw werkmap de volgende opdracht uit:
+We gaan een map maken voor de voorbeeld-app. Voer vanuit uw werkmap de volgende opdracht uit:
 
 ```console
 mkdir -p src/main/java
@@ -147,7 +147,7 @@ public static String prettify(String json_text) {
 
 ## <a name="put-it-all-together"></a>Alles samenvoegen
 
-De laatste stap bestaat eruit om een aanvraag te maken en een antwoord te ontvangen. Voeg deze regels toe aan het project:
+De laatste stap bestaat uit het maken van een aanvraag en het ontvangen van een antwoord. Voeg deze regels toe aan het project:
 
 ```java
 public static void main(String[] args) {

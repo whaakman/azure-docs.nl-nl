@@ -6,16 +6,16 @@ services: cognitive-services
 author: areddish
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 05/17/2018
 ms.author: areddish
-ms.openlocfilehash: 26427406b045b96f2f3f612e4444b7dc2afcefc6
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 8b86214513d12655958038037abf486a6a1a4d88
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247309"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209601"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>Zelfstudie: TensorFlow-model uitvoeren in Python
 
@@ -27,7 +27,7 @@ Nadat u [uw TensorFlow-model](https://docs.microsoft.com/azure/cognitive-service
 
 Als u de zelfstudie wilt gebruiken, moet u het volgende doen:
 
-- Python 2.7of hoger of Python 3.5 of hoger installeren.
+- Python 2.7 of hoger of Python 3.5 of hoger installeren.
 - Pip installeren.
 
 U moet ook de volgende pakketten installeren:

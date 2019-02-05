@@ -1,24 +1,24 @@
 ---
-title: 'Snelstart: Emoties op gezichten in een afbeelding herkennen - Emotion-API, C#'
+title: 'Quickstart: Emoties herkennen op gezichten in een afbeelding - Emotion-API, C#'
 titlesuffix: Azure Cognitive Services
 description: Hier vindt u informatie en een codevoorbeeld om snel aan de slag te gaan met de Emotion-API en C#.
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: quickstart
 ms.date: 11/02/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: 530d05887e585884b184635e01031c1332fad3fb
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 45282c4ad534930fa72a8d8fb71105dca4af23de
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239367"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218237"
 ---
-# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Snelstart: een app bouwen voor het herkennen van emoties op gezichten in een afbeelding.
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Quickstart: Een app bouwen voor het herkennen van emoties op een gezicht in een afbeelding.
 
 > [!IMPORTANT]
 > De Emotion-API wordt op 15 februari 2019 afgeschaft. De mogelijkheid voor de herkenning van emoties is nu algemeen beschikbaar als onderdeel van de [Face-API](https://docs.microsoft.com/azure/cognitive-services/face/).
@@ -125,8 +125,8 @@ namespace CSHttpClientSample
 ## <a name="recognize-emotions-sample-response"></a>Voorbeeldantwoord voor herkennen van emoties
 Een geslaagde aanroep retourneert een matrix van gezichtsvermeldingen en de bijbehorende emotiescores. Deze worden gerangschikt op basis van de rechthoekgrootte van het gezicht (aflopende volgorde). Een leeg antwoord geeft aan dat er geen gezichten zijn gedetecteerd. Een emotievermelding bevat de volgende velden:
 
-* faceRectangle: locatie van de rechthoek met het gezicht in de afbeelding
-* scores: emotiescores voor elk gezicht in de afbeelding
+* faceRectangle: Locatie van de rechthoek met het gezicht in de afbeelding
+* scores: Emotiescores voor elk gezicht in de afbeelding
 
 ```json
 application/json

@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,18 +16,18 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 916d34a0af1490404cb9f7851b3117f1967c54d0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 61da59fd570b9acc58dce89907eb5a1726a28de9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240899"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104384"
 ---
-# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>Snelstart: een toepassing verwijderen die bij het Microsoft Identity Platform is geregistreerd (preview)
+# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>Quickstart: Een toepassing verwijderen die bij het Microsoft Identity Platform (Preview) is geregistreerd
 
 Bedrijfsontwikkelaars en SaaS-providers (software als een dienst) die toepassingen hebben geregistreerd bij het Microsoft Identity Platform moeten mogelijk de registratie van een toepassing verwijderen.
 
-In deze snelstart leert u het volgende:
+In deze quickstart leert u het volgende:
 
 * [Een toepassing verwijderen die is geschreven door u of uw organisatie](#remove-an-application-authored-by-your-organization)
 * [Een toepassing verwijderen die is geschreven door een andere organisatie](#remove-an-application-authoried-by-another-organization)
@@ -37,7 +37,7 @@ In deze snelstart leert u het volgende:
 Zorg ervoor dat u, voordat u aan de slag gaat, aan deze vereisten voldoet:
 
 * U beschikt over een tenant waarvoor toepassingen zijn geregistreerd. Zie [Een toepassing registreren met het Microsoft Identity Platform](quickstart-register-app.md) voor informatie over het toevoegen en registeren van apps.
-* U hebben aangemeld voor de preview-versie voor app-registraties in de Azure-portal. De stappen in deze snelstart komen overeen met de nieuwe gebruikersinterface en werken alleen als zich hebt aangemeld voor de Preview-versie.
+* U hebben aangemeld voor de preview-versie voor app-registraties in de Azure-portal. De stappen in deze quickstart komen overeen met de nieuwe gebruikersinterface en werken alleen als zich hebt aangemeld voor de Preview-versie.
 
 ## <a name="remove-an-application-authored-by-you-or-your-organization"></a>Een toepassing verwijderen die is geschreven door u of uw organisatie
 
@@ -62,7 +62,7 @@ Als u de toegang van een toepassing tot uw directory wilt verwijderen (nadat u t
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Lees meer over andere gerelateerde snelstarts voor app-beheer:
+Lees meer over andere gerelateerde quickstarts voor app-beheer:
 
 * [Een toepassing registreren bij het Microsoft Identity Platform](quickstart-register-app.md)
 * [Een clienttoepassing configureren voor toegang tot web-API's](quickstart-configure-app-access-web-apis.md)

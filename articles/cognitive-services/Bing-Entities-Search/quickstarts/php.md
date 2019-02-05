@@ -1,23 +1,23 @@
 ---
-title: 'Snelstart: Bing Entiteiten zoeken-API, PHP'
+title: 'Quickstart: Bing Entiteiten zoeken-API, PHP'
 titlesuffix: Azure Cognitive Services
 description: Bekijk informatie en codevoorbeelden om snel aan de slag te gaan met de Bing Entiteiten zoeken-API.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: aahi
-ms.openlocfilehash: 36f2ee71714e8f1d156d1092bd099a2748573617
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5915346deeea76da8b37ddfbb618fed8392fe725
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311684"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195483"
 ---
-# <a name="quickstart-for-bing-entity-search-api-with-php"></a>Snelstart voor Bing Entiteiten zoeken-API met PHP
+# <a name="quickstart-for-bing-entity-search-api-with-php"></a>Quickstart voor Bing Entiteiten zoeken-API met PHP
 
 In dit artikel leest u hoe u de [Bing Entiteiten zoeken](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) -API gebruikt met PHP.
 
@@ -25,7 +25,7 @@ In dit artikel leest u hoe u de [Bing Entiteiten zoeken](https://docs.microsoft.
 
 U hebt [PHP 5.6.x](http://php.net/downloads.php) nodig om deze code uit te voeren.
 
-U moet beschikken over een [account voor de Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met de **Bing Entiteiten zoeken-API**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) is voldoende voor deze snelstartgids. U hebt de toegangssleutel nodig die wordt verstrekt bij het activeren van uw gratis proefversie of u gebruikt de sleutel van een betaald abonnement vanuit uw Azure-dashboard.   Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+U moet beschikken over een [account voor de Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met de **Bing Entiteiten zoeken-API**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) is voldoende voor deze quickstart. U hebt de toegangssleutel nodig die wordt verstrekt bij het activeren van uw gratis proefversie of u gebruikt de sleutel van een betaald abonnement vanuit uw Azure-dashboard.   Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="search-entities"></a>Entiteiten zoeken
 

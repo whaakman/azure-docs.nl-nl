@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 23912f9d004d051c422f93e8b10f1aa6cb8b2626
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a39fc2d0e1a57322f3cce63fa298657c1f938e55
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959492"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100730"
 ---
-# <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Snelstart: een AngularJS-app met één pagina compileren voor aanmelden en afmelden met Azure Active Directory
+# <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Quickstart: Een AngularJS-app met één pagina compileren voor aanmelden en afmelden met Azure Active Directory
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -50,9 +50,9 @@ Om de volledige, werkende toepassing te compileren, moet u het volgende doen:
 Voordat u begint, zorgt u dat u aan deze vereisten voldoet:
 
 * [Download het raamwerk van de app](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/skeleton.zip) of [download het voltooide voorbeeld](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip).
-* Zorg voor een Azure AD-tenant waarin u gebruikers kunt maken en een toepassing kunt registreren. Als u nog geen tenant hebt, vindt u [hier informatie over het verkrijgen van een tenant](quickstart-create-new-tenant.md).
+* Zorg voor een Azure AD-tenant waarin u gebruikers kunt maken en een toepassing kunt registreren. [Lees hier hoe u een tenant kunt verkrijgen](quickstart-create-new-tenant.md) als u er nog geen hebt.
 
-## <a name="step-1-register-the-directorysearcher-application"></a>Stap 1: de toepassing DirectorySearcher registreren
+## <a name="step-1-register-the-directorysearcher-application"></a>Stap 1: De toepassing DirectorySearcher registreren
 
 Als u wilt inschakelen voor de app om gebruikers te verifiëren en tokens te verkrijgen, moet u deze eerst registreren in uw Azure AD-tenant:
 
@@ -101,7 +101,7 @@ De back-end heeft configuratie-informatie nodig over de app-registratie zodat de
    * `ida:Tenant` is het domein van uw Azure AD-tenant, bijvoorbeeld contoso.onmicrosoft.com.
    * `ida:Audience` is de client-id van uw toepassing die u hebt gekopieerd uit de portal.
 
-## <a name="step-3-use-adal-to-help-secure-pages-in-the-single-page-app"></a>Stap 3: ADAL gebruiken om pagina's in de app met één pagina te helpen beveiligen
+## <a name="step-3-use-adal-to-help-secure-pages-in-the-single-page-app"></a>Stap 3: ADAL gebruiken voor het beveiligen van pagina's in de app met één pagina
 
 Adal.js integreert met de AngularJS route en HTTP-providers, zodat u afzonderlijke weergaven in uw app met één pagina kunt helpen beveiligen.
 
@@ -180,7 +180,7 @@ Als naslaginformatie is het volledige voorbeeld (zonder uw configuratiewaarden) 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu kunt u verder met aanvullende scenario's.
+Nu kunt u verdergaan met aanvullende scenario's.
 
 > [!div class="nextstepaction"]
 > [Een CORS-web-API aanroepen vanuit een app met één pagina](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet).

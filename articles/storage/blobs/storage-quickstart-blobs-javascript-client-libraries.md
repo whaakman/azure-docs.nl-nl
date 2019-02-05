@@ -1,5 +1,5 @@
 ---
-title: 'Azure-snelstart: een blob maken in objectopslag met JavaScript en HTML in de browser'
+title: 'Azure-quickstart: een blob maken in objectopslag met JavaScript en HTML in de browser'
 description: Leer hoe u een exemplaar van BlobService gebruikt voor het uploaden, vermelden en verwijderen van blobs met behulp van JavaScript op een HTML-pagina.
 services: storage
 keywords: opslag, javascript, html
@@ -9,19 +9,19 @@ ms.service: storage
 ms.author: tamram
 ms.date: 11/14/2018
 ms.topic: quickstart
-ms.component: blobs
-ms.openlocfilehash: c72cd83af2b06b19b285d3c939c0d45b995464d9
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.subservice: blobs
+ms.openlocfilehash: a5433284d9722ce907b962be7ba437ef32ad819c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711479"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245369"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>Snelstart: Blobs uploaden, vermelden en verwijderen met behulp van JavaScript/HTML in de browser
+# <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>Quickstart: Blobs uploaden, vermelden en verwijderen met behulp van JavaScript/HTML in de browser
 
-In deze snelstart wordt gedemonstreerd hoe u blobs kunt beheren door middel van code die volledig in de browser wordt uitgevoerd. De hier gebruikte aanpak toont hoe u de vereiste beveiligingsmaatregelen dient te gebruiken om verzekerd te zijn van beveiligde toegang tot uw blobopslagaccount. U hebt een [Azure-abonnement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) nodig om deze quickstart te voltooien.
+In deze quickstart wordt gedemonstreerd hoe u blobs kunt beheren door middel van code die volledig in de browser wordt uitgevoerd. De hier gebruikte aanpak toont hoe u de vereiste beveiligingsmaatregelen dient te gebruiken om verzekerd te zijn van beveiligde toegang tot uw blobopslagaccount. U hebt een [Azure-abonnement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) nodig om deze quickstart te voltooien.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -30,7 +30,7 @@ In deze snelstart wordt gedemonstreerd hoe u blobs kunt beheren door middel van 
 ## <a name="setting-up-storage-account-cors-rules"></a>CORS-regels voor het opslagaccount instellen 
 Voordat uw webtoepassing vanuit de client toegang kan krijgen tot een blob-opslag, moet het account worden geconfigureerd om [cross-origin-resource delen](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) in te schakelen. 
 
-Ga terug naar Azure Portal en selecteer uw opslagaccount. Als u een nieuwe CORS-regel wilt definiëren, gaat u terug naar de sectie **Instellingen** en klikt u op de koppeling **CORS**. Klik vervolgens op de knop **Toevoegen** om het venster **CORS-regel toevoegen** te openen. Voor deze snelstart maakt u een open CORS-regel:
+Ga terug naar Azure Portal en selecteer uw opslagaccount. Als u een nieuwe CORS-regel wilt definiëren, gaat u terug naar de sectie **Instellingen** en klikt u op de koppeling **CORS**. Klik vervolgens op de knop **Toevoegen** om het venster **CORS-regel toevoegen** te openen. Voor deze quickstart maakt u een open CORS-regel:
 
 ![CORS-instellingen in Azure Blob Storage-account](media/storage-quickstart-blobs-javascript-client-libraries/azure-blob-storage-cors-settings.png)
 
@@ -39,13 +39,13 @@ In de volgende tabel worden alle CORS-instellingen beschreven en de waarden voor
 |Instelling  |Waarde  | Beschrijving |
 |---------|---------|---------|
 | Toegestane oorsprongen | * | Accepteert een door komma's gescheiden lijst met domeinen die als acceptabele oorsprongen zijn ingesteld. Als de waarde wordt ingesteld op `*`, hebben alle domeinen toegang tot het opslagaccount. |
-| Toegestane bewerkingen     | delete, get, head, merge, post, options en put | Vermeldt de HTTP-bewerkingen die zijn toegestaan om voor het opslagaccount te worden uitgevoerd. Voor deze snelstart selecteert u alle beschikbare opties. |
+| Toegestane bewerkingen     | delete, get, head, merge, post, options en put | Vermeldt de HTTP-bewerkingen die zijn toegestaan om voor het opslagaccount te worden uitgevoerd. Voor deze quickstart selecteert u alle beschikbare opties. |
 | Toegestane headers | * | Definieert een lijst met aanvraagheaders (inclusief headers met een voorvoegsel) die door het opslagaccount zijn toegestaan. Als de waarde wordt ingesteld op `*`, hebben alle headers toegang. |
 | Weergegeven headers | * | Vermeldt de door het account toegestane antwoordheaders. Als de waarde wordt ingesteld op `*`, kan het account elke header verzenden.  |
 | Maximumleeftijd (seconden) | 86400 | De maximale periode dat de browser de voorbereidende aanvraag OPTIONS in de cache opslaat. De waarde *86400* betekent dat de cache een hele dag in stand blijft. |
 
 > [!IMPORTANT]
-> Zorg ervoor dat instellingen die u in productie gebruikt, de minimum mate van toegang tot het opslagaccount weergeven zodat beveiligde toegang gehandhaafd blijft. De hier beschreven CORS-instellingen zijn geschikt voor een snelstart, omdat ze een minder streng beveiligingsbeleid definiëren. Deze instellingen worden echter niet aangeraden in reële situaties.
+> Zorg ervoor dat instellingen die u in productie gebruikt, de minimum mate van toegang tot het opslagaccount weergeven zodat beveiligde toegang gehandhaafd blijft. De hier beschreven CORS-instellingen zijn geschikt voor een quickstart, omdat ze een minder streng beveiligingsbeleid definiëren. Deze instellingen worden echter niet aangeraden in reële situaties.
 
 Vervolgens gebruikt u Azure Cloud Shell om een beveiligingstoken te maken.
 
@@ -58,7 +58,7 @@ U kunt een SAS maken met behulp van de CLI via de Azure-cloudshell of met Azure 
 
 | Parameter      |Beschrijving  | Tijdelijke aanduiding |
 |----------------|-------------|-------------|
-| *expiry*       | De vervaldatum van het toegangstoken in de notatie JJJJ-MM-DD. Voer voor deze snelstart de datum van morgen in. | *FUTURE_DATE* |
+| *expiry*       | De vervaldatum van het toegangstoken in de notatie JJJJ-MM-DD. Voer voor deze quickstart de datum van morgen in. | *FUTURE_DATE* |
 | *account-name* | De naam van het opslagaccount. Gebruik de naam die in een vorige stap is bewaard. | *YOUR_STORAGE_ACCOUNT_NAME* |
 | *account-key*  | De opslagaccountsleutel. Gebruik de sleutel die in een vorige stap is bewaard. | *YOUR_STORAGE_ACCOUNT_KEY* |
 
@@ -251,7 +251,7 @@ document.getElementById('delete-button').addEventListener('click', () => {
 > Om dit codevoorbeeld goed te laten werken, dient u een tekenreekswaarde voor *blobName* op te geven.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Als u de resources die in deze snelstart zijn gemaakt, wilt opschonen, gaat u terug naar [Azure Portal](https://portal.azure.com) en selecteert u uw opslagaccount. Vervolgens verwijdert u het opslagaccount via **Overzicht > Opslagaccount verwijderen**.
+Als u de resources die in deze quickstart zijn gemaakt, wilt opschonen, gaat u terug naar [Azure Portal](https://portal.azure.com) en selecteert u uw opslagaccount. Vervolgens verwijdert u het opslagaccount via: **Overzicht > Opslagaccount verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
 Bekijk de voorbeelden om te leren hoe u tijdens het uploaden van bestanden blobs kunt downloaden en de voortgang rapporteren.

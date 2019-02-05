@@ -1,27 +1,27 @@
 ---
-title: 'Snelstart: Tekst vertalen, C# - Translator Text'
+title: 'Quickstart: Tekst vertalen, C# - Translator Text'
 titleSuffix: Azure Cognitive Services
-description: In deze snelstart vertaalt u tekst vanuit één taal naar een andere taal met de Translator Text-API met C#.
+description: In deze quickstart vertaalt u tekst vanuit één taal naar een andere taal met de Translator Text-API met C#.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 11/20/2018
 ms.author: erhopf
-ms.openlocfilehash: 9d9a893a1e62ae35ed3c2f1630c92d4f23cdb2dc
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: fbe89d938157cebd7fa605f07cee8b198de062d2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887675"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214514"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-c"></a>Quickstart: De Translator Text-API gebruiken om een tekenreeks te vertalen met C#
 
 In deze quickstart leert u hoe u een tekenreeks van het Engels naar het Italiaans en Duits vertaalt met .NET Core en de Translator Text REST API.
 
-Voor deze snelstart is een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met een Translator Text-resource vereist. Als u geen account hebt, kunt u de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/) gebruiken om een abonnementssleutel op te halen.
+Voor deze quickstart is een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met een Translator Text-resource vereist. Als u geen account hebt, kunt u de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/) gebruiken om een abonnementssleutel op te halen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -182,7 +182,7 @@ Denk eraan dat u eventuele vertrouwelijke informatie, zoals abonnementssleutels,
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de voorbeeldcode voor deze snelstartgids en andere resources, met inbegrip van transcriptie en taalidentificatie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
+Bekijk de voorbeeldcode voor deze quickstart en andere resources, met inbegrip van transcriptie en taalidentificatie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
 
 > [!div class="nextstepaction"]
 > [C#-voorbeelden in GitHub bekijken](https://aka.ms/TranslatorGitHub?type=&language=c%23)
@@ -193,4 +193,4 @@ Bekijk de voorbeeldcode voor deze snelstartgids en andere resources, met inbegri
 * [Een taal identificeren op basis van de invoer](quickstart-csharp-detect.md)
 * [Alternatieve vertalingen verkrijgen](quickstart-csharp-dictionary.md)
 * [Een lijst ophalen van ondersteunde talen](quickstart-csharp-languages.md)
-* [De zinlengte in invoer bepalen](quickstart-csharp-sentences.md)
+* [De zinslengte in invoer bepalen](quickstart-csharp-sentences.md)
