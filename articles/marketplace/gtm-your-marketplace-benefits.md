@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: bf73c3226af5b2480d52d5010058f24d912bdab5
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 0e324ae82a0223cf48f00b186f46e26840d4d655
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355558"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747523"
 ---
 # <a name="your-marketplace-benefits"></a>Uw Marketplace-voordelen
 
@@ -61,7 +61,7 @@ De GTM-ondersteuning omvat sjablonen, webinhoud, training en hulpprogramma's voo
 Voor toegang tot deze voordelen, moet u naar:
 
 1. Een aanbieding publiceren in Azure Marketplace of AppSource.
-2. Zorg ervoor dat u hebt een marketing contactpersoon in de **contactgegevens** gedeelte van uw aanbieding. Dit moet een toegewezen marketing resource, in plaats van een catch-all-alias. (Internet Explorer, Vermijd het gebruik van ' ondersteunen @ ', ' info @"," marketing @", enzovoort.)
+2. Zorg ervoor dat u hebt een marketing contactpersoon in de **contactgegevens** gedeelte van uw aanbieding. Dit moet een toegewezen marketing resource, in plaats van een catch-all-alias. (Internet Explorer, Vermijd het gebruik van ' ondersteunen\@', ' info\@"," marketing\@', enzovoort.)
 
 Op basis van de oplossingsstatus van uw, ontvangt u een e-mail met bronnen voor zelfhulp of een uitnodiging voor een aanroep van overleg met een toegewezen Engagement Manager. U hoeft niet verder niets voor het starten van de aanroep te doen, het Marketplace-Voorbereidingsteam neemt contact met u op basis van de informatie die u opgeeft in de [Cloud Partner-Portal](https://cloudpartner.azure.com/).
 

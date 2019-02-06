@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: bbe29f112d752be432c0f922b1cd07b8afe2d45e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: d0e549f0da5eb30dd11992518789d76c0892bca3
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232466"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747472"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens
 
@@ -1002,7 +1002,7 @@ U kunt de code voor het verwerken van uw telemetrie voordat deze wordt verzonden
 
 [Voeg eigenschappen toe](../../azure-monitor/app/api-filtering-sampling.md#add-properties) tot telemetrie door het implementeren van `ITelemetryInitializer`. U kunt bijvoorbeeld waarden die worden berekend of versienummers toevoegen van andere eigenschappen.
 
-[Filteren](../../azure-monitor/app/api-filtering-sampling.md#filtering) kunt wijzigen of verwijderen van telemetrie voordat het wordt verzonden door de SDK door het implementeren van `ITelemetryProcesor`. U bepalen wat wordt verzonden of verwijderd, maar u moet rekening voor de gevolgen zijn voor uw metrische gegevens. Afhankelijk van hoe u items negeren, verliest u mogelijk de mogelijkheid om te navigeren tussen verwante items.
+[Filteren](../../azure-monitor/app/api-filtering-sampling.md#filtering) kunt wijzigen of verwijderen van telemetrie voordat het wordt verzonden door de SDK door het implementeren van `ITelemetryProcessor`. U bepalen wat wordt verzonden of verwijderd, maar u moet rekening voor de gevolgen zijn voor uw metrische gegevens. Afhankelijk van hoe u items negeren, verliest u mogelijk de mogelijkheid om te navigeren tussen verwante items.
 
 [Sampling](../../azure-monitor/app/api-filtering-sampling.md) is een oplossing voor verpakte te verminderen de hoeveelheid gegevens die vanuit uw app wordt verzonden naar de portal. Dit gebeurt zonder gevolgen voor de weergegeven metrische gegevens. En dit gebeurt zonder de mogelijkheid om problemen te diagnosticeren door te navigeren tussen verwante items zoals uitzonderingen, aanvragen en paginaweergaven.
 

@@ -10,12 +10,12 @@ ms.custom: REST
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: routlaw
-ms.openlocfilehash: bbbaa4c44a7c0d6da189f0c49d73adfa6142cdee
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 6e4bd5977eb1761a065d5583675e6fd405b4610a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095788"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750355"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>Ophalen Resource Health met behulp van de REST-API 
 
@@ -23,7 +23,7 @@ In dit artikel voorbeeld laat zien hoe ophalen van een lijst van health-gebeurte
 
 Volledige documentatie en meer voorbeelden voor de REST-API zijn beschikbaar in de [naslaginformatie over de Azure Monitor REST](/rest/api/monitor). 
 
-## <a name="build-the-request"></a>De aanvraag voor het samenstellen
+## <a name="build-the-request"></a>De aanvraag maken
 
 Gebruik de volgende `GET` HTTP-aanvraag om de health-gebeurtenissen voor uw abonnement voor het bereik van de tijd tussen `2018-05-16` en `2018-06-20`.
 
@@ -35,21 +35,21 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/microsoft
 
 De volgende headers zijn vereist: 
 
-|Aanvraagheader|Beschrijving|  
+|Aanvraagheader|Description|  
 |--------------------|-----------------|  
 |*Content-Type:*|Vereist. Ingesteld op `application/json`.|  
 |*Autorisatie:*|Vereist. Ingesteld op een geldige `Bearer` [toegangstoken](/rest/api/azure/#authorization-code-grant-interactive-clients). |  
 
 ### <a name="uri-parameters"></a>URI-parameters
 
-| Naam | Beschrijving |
+| Name | Description |
 | :--- | :---------- |
-| subscriptionId | De abonnements-ID waarmee een Azure-abonnement. Als u meerdere abonnementen hebt, raadpleegt u [werken met meerdere abonnementen](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions). |
+| subscriptionId | De abonnements-ID waarmee een Azure-abonnement. Als u meerdere abonnementen hebt, raadpleegt u [werken met meerdere abonnementen](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | API-versie | De API-versie moet worden gebruikt voor de aanvraag.<br /><br /> In dit document bevat informatie over api-versie `2015-04-01`opgenomen in de bovenstaande URL.  |
 | $filter | De filteroptie te verminderen van het aantal geretourneerde resultaten. De toegestane patronen voor deze parameter zijn beschikbaar [in de referentie voor de bewerking activiteitenlogboeken](/rest/api/monitor/activitylogs/list#uri-parameters). Het voorbeeld bevat alle gebeurtenissen in een periode tussen 2018-05-16 en 2018-06-20 |
 | &nbsp; | &nbsp; |
 
-### <a name="request-body"></a>Aanvraagtekst
+### <a name="request-body"></a>Aanvraagbody
 
 Er is geen aanvraagtekst is nodig voor deze bewerking.
 

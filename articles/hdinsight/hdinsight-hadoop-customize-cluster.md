@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ad59decab7233c74e13468b0cf0b11fdb5485d07
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: e11ef458fad11f04ce159d5e79c4152d2bd7e4c6
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722348"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746777"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>HDInsight op basis van Windows clusters aanpassen met Script Action
 **Actie script** kan worden gebruikt om aan te roepen [aangepaste scripts](hdinsight-hadoop-script-actions.md) tijdens het maken van het cluster voor het installeren van extra software op een cluster.
@@ -63,10 +63,10 @@ HDInsight biedt verschillende scripts voor het installeren van de volgende onder
     ![Scriptactie gebruiken voor het aanpassen van een cluster](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "scriptactie gebruiken voor het aanpassen van een cluster")
 
     <table border='1'>
-        <tr><th>Eigenschap</th><th>Waarde</th></tr>
+        <tr><th>Eigenschap</th><th>Value</th></tr>
         <tr><td>Name</td>
             <td>Geef een naam voor de scriptactie.</td></tr>
-        <tr><td>Script-URI</td>
+        <tr><td>Script URI</td>
             <td>Hiermee geeft u de URI naar het script dat wordt aangeroepen voor het aanpassen van het cluster. s</td></tr>
         <tr><td>HEAD/Worker</td>
             <td>Geef de knooppunten (**Head** of **Worker**) op waarmee het script aanpassing wordt uitgevoerd.</b>.
@@ -80,8 +80,9 @@ HDInsight biedt verschillende scripts voor het installeren van de volgende onder
 ## <a name="call-scripts-using-azure-powershell"></a>Aanroepen van scripts met Azure PowerShell
 Deze volgende PowerShell-script laat zien hoe u Spark installeren op Windows gebaseerde HDInsight-cluster.  
 
+    ```powershell
     # Provide values for these variables
-    $subscriptionID = "<Azure Suscription ID>" # After "Connect-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
+    $subscriptionID = "<Azure Subscription ID>" # After "Connect-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
 
     $nameToken = "<Enter A Name Token>"  # The token is use to create Azure service names.
     $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
@@ -158,7 +159,7 @@ Deze volgende PowerShell-script laat zien hoe u Spark installeren op Windows geb
             -OSType Windows `
             -DefaultStorageContainer $defaultBlobContainerName `
             -Config $config
-
+    ```
 
 Andere om software te installeren, moet u het scriptbestand in het script vervangen:
 
@@ -171,12 +172,14 @@ Het volgende voorbeeld ziet u hoe u Apache Spark op basis van HDInsight-cluster 
 
 1. Maak een C#-consoletoepassing in Visual Studio.
 2. Voer de volgende opdracht vanuit de Nuget Package Manager-Console.
-
+    ```powershell
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
         Install-Package Microsoft.Azure.Management.ResourceManager -Pre
         Install-Package Microsoft.Azure.Management.HDInsight
+    ```
 3. Gebruik de volgende using-instructies in het bestand Program.cs:
 
+    ```csharp
         using System;
         using System.Security;
         using Microsoft.Azure;
@@ -186,8 +189,10 @@ Het volgende voorbeeld ziet u hoe u Apache Spark op basis van HDInsight-cluster 
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
         using Microsoft.Rest;
         using Microsoft.Rest.Azure.Authentication;
+    ```
 4. Plaats de code in de klasse met de volgende:
 
+    ```csharp
         private static HDInsightManagementClient _hdiManagementClient;
 
         // Replace with your AAD tenant ID if necessary
@@ -276,6 +281,8 @@ Het volgende voorbeeld ziet u hoe u Apache Spark op basis van HDInsight-cluster 
             // Register the HDInsight provider
             var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
         }
+    ```
+
 5. Druk op **F5** om de toepassing uit te voeren.
 
 ## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>Ondersteuning voor open source-software die wordt gebruikt op HDInsight-clusters

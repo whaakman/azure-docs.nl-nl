@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 09/10/2018
-ms.openlocfilehash: 363e0868542f56df8c37639b2af7ac295be97da2
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 20c96d1e25e0aef86d09c37ed919e61ec6058c6d
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249902"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747438"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>De Azure Stack Development Kit (ASDK) installeren
 Na [voorbereiden van de hostcomputer ASDK](asdk-prepare-host.md), de ASDK kan worden geïmplementeerd in de installatiekopie van het CloudBuilder.vhdx met behulp van de volgende stappen in dit artikel.
@@ -59,7 +59,7 @@ De stappen in dit artikel ziet u over het implementeren van de ASDK met behulp v
     - Voer een geldige **IP-adres van tijd** adres. Dit vereiste veld Hiermee stelt u de time-server moet worden gebruikt door de development kit. Deze parameter moet worden opgegeven als het IP-adres van een geldige tijd-server. De namen worden niet ondersteund.
 
       > [!TIP]
-      > Als u een tijdserver IP-adres zoekt, gaat u naar [pool.ntp.org](http://pool.ntp.org) of time.windows.com pingen. 
+      > Als u een tijdserver IP-adres zoekt, gaat u naar [ntppool.org](https://www.ntppool.org/) of time.windows.com pingen. 
 
     - **U kunt desgewenst**, instellen van de volgende waarden:
         - **VLAN-ID**: Hiermee stelt u de VLAN-ID. Gebruik deze optie alleen als de host en AzS-BGPNAT01 VLAN-ID voor toegang tot het fysieke netwerk (en internet) moet configureren. 

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: c0304e290d18e6569e3fcc2efbab8af15727b80c
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: a097110bac7dad630f9a85dd8b20678db0c739cf
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508152"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744653"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Uw Avere vFXT-systeem plannen
 
@@ -37,6 +37,9 @@ Volg deze richtlijnen bij het plannen van de netwerkinfrastructuur van uw Avere 
 * Ga naar uw compute-clientsystemen dicht bij het cluster vFXT. Back-end-opslag kan meer externe zijn.  
 
 * Zoek het cluster vFXT en het cluster netwerkcontroller-VM in hetzelfde virtuele netwerk (vnet) en in dezelfde resourcegroep voor het gemak. Ze moeten ook hetzelfde opslagaccount gebruiken. (De clustercontroller maakt het cluster, en kan ook worden gebruikt voor het Clusterbeheer van de opdrachtregel-.)  
+
+  > [!NOTE] 
+  > De sjabloon voor het maken van cluster kunt maken, een nieuwe resourcegroep en een nieuw opslagaccount voor het cluster. U kunt een bestaande resourcegroep opgeven, maar deze moet leeg zijn.
 
 * Het cluster moet zich in een eigen subnet om te voorkomen van IP-adres conflicteert met clients of bronnen berekenen. 
 

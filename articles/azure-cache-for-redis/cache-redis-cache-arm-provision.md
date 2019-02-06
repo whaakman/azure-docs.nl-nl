@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: wesmc
-ms.openlocfilehash: c8aadcf7b37e28035e936a9f722ee832127e928d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 8e0b0572f0d728474c17b41a0f92948451f4ef3f
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038582"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746945"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-template"></a>Een Azure-Cache voor Redis met behulp van een sjabloon maken
 In dit onderwerp leert u over het maken van een Azure Resource Manager-sjabloon die een Azure-Cache voor Redis implementeert. De cache kan worden gebruikt met een bestaand opslagaccount voor diagnostische gegevens. U leert ook hoe om te definiëren welke resources worden geïmplementeerd en over het definiëren van parameters die zijn opgegeven wanneer de implementatie wordt uitgevoerd. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen.
@@ -33,7 +33,7 @@ Zie voor de volledige sjabloon, [Azure Cache voor Redis-sjabloon](https://github
 > [!NOTE]
 > Resource Manager-sjablonen voor de nieuwe [Premium-laag](cache-premium-tier-intro.md) beschikbaar zijn. 
 > 
-> * [Maken van een Premium Azure Cache voor Redis met clustering](https://azure.microsoft.com/documentation/templates/201-redis-premium-cluster-diagnostics/)
+> * [Maken van een Premium Azure Cache voor Redis met clustering](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
 > * [Premium Azure-Cache maken voor Redis met persistentie van gegevens](https://azure.microsoft.com/documentation/templates/201-redis-premium-persistence/)
 > * [Premium Azure Cache voor Redis met VNet en optionele clusters maken](https://azure.microsoft.com/documentation/templates/201-redis-premium-vnet-cluster-diagnostics/)
 > 

@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviwer: ''
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: de8bb0adf45a7cdaf9cc0d9a451af203e01e87da
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: a54fa92e248cb75be315327f7389e62904c7c777
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564868"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754864"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Altijd versleuteld: Bescherming van gevoelige gegevens en opslag van versleutelingssleutels in het Windows-certificaatarchief
 
@@ -47,7 +47,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 ## <a name="create-a-blank-sql-database"></a>Een lege SQL-database maken
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Klik op **een resource maken** > **gegevens en opslag** > **SQL-Database**.
-3. Maak een **leeg** database met de naam **Clinic** op een nieuwe of bestaande server. Zie voor gedetailleerde instructies over het maken van een database in Azure portal [uw eerste Azure SQL-database](sql-database-get-started-portal.md).
+3. Maak een **leeg** database met de naam **Clinic** op een nieuwe of bestaande server. Zie voor gedetailleerde instructies over het maken van een database in Azure portal [uw eerste Azure SQL-database](sql-database-single-database-get-started.md).
    
     ![Een lege database maken](./media/sql-database-always-encrypted/create-database.png)
 

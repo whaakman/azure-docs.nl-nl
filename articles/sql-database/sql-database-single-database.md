@@ -11,17 +11,17 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/30/2019
-ms.openlocfilehash: f1a580b5c51ec589ef9a52b07d62e091ae712964
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/04/2019
+ms.openlocfilehash: a2500988b174e49870f4da7087b3fa4c81f3c77a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513524"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754979"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Wat is een individuele database in Azure SQL Database
 
-Een individuele database is een zelfstandige database in Azure SQL Database met een eigen set resources en wordt beheerd via een SQL Database-server. Met een individuele database, elke database is geïsoleerd van elkaar en draagbaar, elk met een eigen service tier binnen de [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) of [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) en een gegarandeerde COMPUTE-grootte.
+De Implementatieoptie voor één database een individuele database in Azure SQL Database maakt met een eigen set resources en wordt beheerd via een SQL Database-server. Met een individuele database, elke database is geïsoleerd van elkaar en draagbaar, elk met een eigen service tier binnen de [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) of [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) en een gegarandeerde COMPUTE-grootte.
 
 > [!IMPORTANT]
 > Een individuele database is een van drie implementatieopties voor Azure SQL Database. De andere twee [elastische pools](sql-database-elastic-pool.md) en [beheerd exemplaar](sql-database-managed-instance.md).
@@ -57,6 +57,6 @@ SQL Database biedt een scala aan [ingebouwde beveiliging en naleving](sql-databa
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Als u wilt snel aan de slag met een individuele database, beginnen met de [Single database snelstartgids guide.md](sql-database-quickstart-guide.md).
+- Als u wilt snel aan de slag met een individuele database, beginnen met de [Single database snelstartgids guide.md](sql-database-single-database-quickstart-guide.md).
 - Zie voor meer informatie over het migreren van een SQL Server-database naar Azure, [migreren naar Azure SQL Database](sql-database-cloud-migrate.md).
 - Zie [Functies](sql-database-features.md) voor meer informatie over ondersteunde functies.

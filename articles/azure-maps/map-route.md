@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: 8c337ba1770b9b618567e7a3ee5fdbadba63181b
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 183194d172b9ac11d4f1c5cb1324f7a09f4a157b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231849"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756305"
 ---
 # <a name="show-directions-from-a-to-b"></a>Routebeschrijving van A naar B
 
@@ -41,7 +41,7 @@ Het zesde codeblok maakt begin- en [punten](https://docs.microsoft.com/javascrip
 
 Het zevende codeblok Hiermee stelt u de grenzen van de kaart met behulp van de kaart [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) eigenschap.
 
-Het laatste blok van code query naar de service voor gebeurtenisroutering op Azure-kaarten, die deel uitmaakt van de [servicemodule](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1). De [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) methode wordt gebruikt om op te halen van een route tussen de begin- en eindpunten. Het antwoord wordt vervolgens geparseerd in de GeoJSON-notatie gebruiken de [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes) methode. Deze wordt vervolgens het antwoord weergegeven als een route op de kaart. Zie voor meer informatie over het toevoegen van een regel op de kaart [toevoegen van een regel op de kaart](./map-add-shape.md#addALine).
+Het laatste blok van code query naar de service voor gebeurtenisroutering op Azure-kaarten, die deel uitmaakt van de [servicemodule](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1). De [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest) methode wordt gebruikt om op te halen van een route tussen de begin- en eindpunten. Het antwoord wordt vervolgens geparseerd in de GeoJSON-notatie gebruiken de [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest) methode. Deze wordt vervolgens het antwoord weergegeven als een route op de kaart. Zie voor meer informatie over het toevoegen van een regel op de kaart [toevoegen van een regel op de kaart](./map-add-shape.md#addALine).
 
 De route-query, gegevensbron, symbool en lagen van de regel en de camera-grenzen worden gemaakt en het instellen van de kaart [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) om ervoor te zorgen dat de resultaten worden weergegeven nadat de kaart volledig is geladen.
 
@@ -54,7 +54,7 @@ Het eerste vereiste blok van code wordt een kaartobject. U kunt zien [maken van 
 
 Het tweede codeblok maakt en voegt een [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) object aan de kaart.
 
-Het derde codeblok wordt gemaakt van de begin- en de herstelpunten voor de route en voegt deze toe aan de gegevensbron. U kunt zien [toevoegen van een pincode op de kaart](map-add-pin.md) voor instructies over het gebruik van [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpins).
+Het derde codeblok wordt gemaakt van de begin- en de herstelpunten voor de route en voegt deze toe aan de gegevensbron. U kunt zien [toevoegen van een pincode op de kaart](map-add-pin.md) voor instructies over het gebruik van [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest).
 
  Een [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) renders regel objecten die zijn ingepakt in de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) als regels op de kaart. Het vierde codeblok wordt gemaakt en wordt de laag van een regel toegevoegd aan de kaart. Controleer de eigenschappen van de laag van een regel op [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest).
 

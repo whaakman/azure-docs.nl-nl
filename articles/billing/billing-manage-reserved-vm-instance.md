@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: 257e9f72f21d523dfa2390814b786d1963dd671c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 36800071d5e0080ef5d1d791eed12587b114df78
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904001"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55743630"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Reserveringen voor Azure-resources beheren
 
@@ -36,11 +36,11 @@ Het bereik van een reservering bijwerken:
 2. Selecteer **alle services** > **reserveringen**.
 3. Selecteer de reservering.
 4. Selecteer **Instellingen** > **Configuratie**.
-5. Het bereik wijzigen. 
+5. Het bereik wijzigen.
 
 Als u wijzigt van gedeeld op één scope, kunt u alleen abonnementen waar u de eigenaar bent. Alleen abonnementen binnen de context van de dezelfde facturering als de reservering kan worden geselecteerd.
 
-Het bereik is alleen van toepassing op betalen per gebruik-aanbieding MS-AZR - 0003P, MS-AZR - 0017P van de Enterprise-aanbieding of typen voor CSP-abonnementen. Dev/test-abonnementen zijn niet in aanmerking voor het ophalen van de reserveringskorting voor enterprise-overeenkomsten.
+Het bereik is alleen van toepassing op de betalen naar gebruik-aanbieding MS-AZR - 0003P of MS-AZR - 0023P, Enterprise bieden MS-AZR - 0017P of MS-AZR - 0148P of typen voor CSP-abonnementen.
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Toevoegen of wijzigen van gebruikers die een reservering kunnen beheren
 

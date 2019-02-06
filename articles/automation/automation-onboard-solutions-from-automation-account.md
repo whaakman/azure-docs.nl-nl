@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 7d79e7aca0e8aa506abba174668c60fcd2fd4bc2
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: d274642c8e35374dee2d584e6285165a15cd3128
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065440"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747030"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Onboarding updatebeheer, wijzigingen bijhouden en inventaris oplossingen
 
@@ -36,12 +36,12 @@ Bij het inschakelen van oplossingen, worden alleen bepaalde regio's worden onder
 
 De volgende tabel bevat de ondersteunde toewijzingen:
 
-|**Log Analytics-werkruimte regio**|**Azure Automation-regio**|
+|**Log Analytics-werkruimte regio**|**Azure Automation Region**|
 |---|---|
 |AustraliaSoutheast|AustraliaSoutheast|
 |CanadaCentral|CanadaCentral|
 |CentralIndia|CentralIndia|
-|VS-Oost|EastUS2|
+|EastUS|EastUS2|
 |JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
 |WestCentralUS|WestCentralUS|
@@ -49,6 +49,7 @@ De volgende tabel bevat de ondersteunde toewijzingen:
 |UKSouth|UKSouth|
 |USGovVirginia|USGovVirginia|
 |EastUS2EUAP|CentralUSEUAP|
+|US - west 2|US - west 2|
 
 De oplossing Wijzigingen bijhouden en Inventaris biedt de mogelijkheid om [Wijzigingen bijhouden](automation-vm-change-tracking.md) en [Inventaris](automation-vm-inventory.md) uit te voeren op uw virtuele machines. In deze stap schakelt u de oplossing in op een virtuele machine.
 
@@ -66,7 +67,7 @@ Elke oplossing maakt gebruik van de configuratie van een bereik in de werkruimte
 
 Als de geselecteerde werkruimte niet de Update Management of bijhouden oplossingen nog niet hebt, worden de volgende scopeconfiguraties gemaakt:
 
-* **MicrosoftDefaultScopeConfig-voor wijzigingen bijhouden**
+* **MicrosoftDefaultScopeConfig-ChangeTracking**
 
 * **MicrosoftDefaultScopeConfig-Updates**
 

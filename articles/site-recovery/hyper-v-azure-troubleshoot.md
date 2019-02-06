@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 94b2ab0263ccb7b6835a7bbe76ed8776aadb1a65
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e79ffba90f0812d79bcb7ab808e2b6ba80e1c61b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228199"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756662"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Hyper-V naar Azure-replicatie en failover oplossen
 
@@ -115,7 +115,7 @@ Een app-consistente momentopname is een point-in-time-momentopname van de toepas
         - Item: "Geschreven Bytes per seconde"</br>
         - Het verloop van deze gegevens toe- of blijven op een hoog niveau, afhankelijk van hoeveel de virtuele machine of de apps zijn.
         - Het gemiddelde gegevensverloop van schijf is 2 MB/s voor standard-opslag voor Site Recovery. [Meer informatie](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
-    - Daarnaast kunt u [schaalbaarheidsdoelen opslag controleren](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#scalability-targets-for-a-storage-account).
+    - Daarnaast kunt u [schaalbaarheidsdoelen opslag controleren](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets).
 8. Voer de [Deployment Planner](hyper-v-deployment-planner-run.md).
 9. Bekijk de aanbevelingen voor [netwerk](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) en [opslag](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input).
 

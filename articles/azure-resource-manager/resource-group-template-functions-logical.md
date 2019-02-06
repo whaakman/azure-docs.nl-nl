@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8850ef68c665efcf9e66315af20b7d1e8492fc5f
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 109bd1c987c86721c6064fc0294913c85fa3a901
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493759"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745568"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Logische functies voor Azure Resource Manager-sjablonen
 
@@ -34,9 +34,9 @@ Resource Manager biedt verschillende functies voor het maken van vergelijkingen 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="and"></a>en
-`and(arg1, arg2)`
+`and(arg1, arg2, ...)`
 
-Controleert of de waarden van beide parameters waar zijn.
+Controleert of alle parameterwaarden ' True zijn '.
 
 ### <a name="parameters"></a>Parameters
 
@@ -44,10 +44,11 @@ Controleert of de waarden van beide parameters waar zijn.
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |booleaans |De eerste waarde om te controleren of de waarde true is. |
 | arg2 |Ja |booleaans |De tweede waarde om te controleren of de waarde true is. |
+| aanvullende argumenten |Nee |booleaans |Extra argumenten om te controleren of wordt voldaan. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Retourneert **waar** als beide waarden ' True ', anders wordt zijn **False**.
+Retourneert **waar** als alle waarden ' True ', anders wordt zijn **False**.
 
 ### <a name="examples"></a>Voorbeelden
 
@@ -366,9 +367,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ```
 
 ## <a name="or"></a>of
-`or(arg1, arg2)`
+`or(arg1, arg2, ...)`
 
-Controleert of de waarde voor de parameter ' True '.
+Controleert of een waarde voor parameter ' True '.
 
 ### <a name="parameters"></a>Parameters
 
@@ -376,10 +377,11 @@ Controleert of de waarde voor de parameter ' True '.
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |booleaans |De eerste waarde om te controleren of de waarde true is. |
 | arg2 |Ja |booleaans |De tweede waarde om te controleren of de waarde true is. |
+| aanvullende argumenten |Nee |booleaans |Extra argumenten om te controleren of wordt voldaan. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Retourneert **waar** als beide waarden waar zijn; anders heeft **False**.
+Retourneert **waar** als een willekeurige waarde waar zijn; anders heeft **False**.
 
 ### <a name="examples"></a>Voorbeelden
 

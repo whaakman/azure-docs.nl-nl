@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 409d1bb30dc956bb19e9a37212d93990d1401e7b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6d190e4c5d283b9f803cf7287445d7591b5465db
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240111"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753109"
 ---
 # <a name="use-visual-studio-code-to-train-and-deploy-machine-learning-models"></a>Visual Studio Code gebruiken om te trainen en machine learning-modellen implementeren
 
@@ -108,9 +108,9 @@ Voor het gebruik van een externe compute-doel bij het trainen, moet u een bestan
 
 #### <a name="the-conda-dependencies-file"></a>Het conda-afhankelijkheidsbestand
 
-Standaard wordt een nieuwe conda-omgeving voor u gemaakt en de afhankelijkheden van uw installatie worden beheerd. Echter, moet u de afhankelijkheden in de `aml_config/conda_dependencies.yml` bestand.
+Standaard wordt een nieuwe conda-omgeving voor u gemaakt en de afhankelijkheden van uw installatie worden beheerd. U moet echter opgeven de afhankelijkheden en hun versies in de `aml_config/conda_dependencies.yml` bestand. 
 
-Dit is een fragment van het standaard aml_config/conda_dependencies.yml.
+Dit is een fragment van het standaard aml_config/conda_dependencies.yml. Bijvoorbeeld, kunt u ' tensorflow = 1.12.0' zoals hieronder wordt weergegeven. Als u de versie van de afhankelijkheid niet opgeeft, wordt de meest recente versie worden gebruikt.  
 U kunt extra afhankelijkheden toevoegen in het configuratiebestand.
 
 ```yaml
@@ -123,7 +123,7 @@ dependencies:
   # Currently Azure Machine Learning service only supports 3.5.2 and later.
 
 - python=3.6.2
-- tensorflow
+- tensorflow=1.12.0
 
 - pip:
     # Required packages for Azure Machine Learning service execution, history, and data preparation.

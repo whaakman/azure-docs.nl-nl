@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: 6b2302e69c9412170b55df4bfd8c1df5a9f75ef3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bfdea1d5380750ec23964cd8564db9b3a9539f15
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55479290"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754638"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Automatisch schalen van een cluster om te voldoen aan de eisen van de toepassing in Azure Kubernetes Service (AKS)
 
@@ -63,6 +63,9 @@ De twee autoscalers kunnen samenwerken, en worden vaak beide geïmplementeerd in
 ## <a name="create-an-aks-cluster-and-enable-the-cluster-autoscaler"></a>Een AKS-cluster maken en inschakelen van het cluster automatisch schalen
 
 Als u maken van een AKS-cluster wilt, gebruikt u de [az aks maken] [ az-aks-create] opdracht. Geef een *--kubernetes-versie* die voldoet aan of groter is dan de minimale versienummer dat is vereist, zoals wordt beschreven in de voorgaande [voordat u begint met](#before-you-begin) sectie. Als u wilt inschakelen en configureren van het cluster automatisch schalen, gebruikt u de *--inschakelen-cluster-automatisch schalen* parameter, en geeft u een knooppunt *--min-count* en *--maximum aantal*.
+
+> [!IMPORTANT]
+> Het cluster automatisch schalen is een Kubernetes-onderdeel. Hoewel het AKS-cluster maakt gebruik van een virtuele-machineschaalset voor de knooppunten, niet handmatig inschakelen of bewerken van instellingen voor scale set automatisch schalen in Azure portal of met de Azure CLI. Laat het Kubernetes-cluster automatisch schalen de schaalinstellingen van de vereiste beheren. Zie voor meer informatie, [kan ik de AKS-resources in de resourcegroep MC_ wijzigen?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group)
 
 Het volgende voorbeeld maakt u een AKS-cluster met virtuele-machineschaalset en het cluster automatisch schalen ingeschakeld en maakt gebruik van een minimum van *1* en maximaal *3* knooppunten:
 

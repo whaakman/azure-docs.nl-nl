@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: d59bc20ea745412f8f2549e0359483d1dd3e608d
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 494665e530104cd4711e8112f3a999e68c3485b8
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912779"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746377"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limieten en configuratie-informatie voor Azure Logic Apps
 
@@ -85,13 +85,13 @@ Hier zijn de limieten voor een enkele logische app:
 
 | Name | Limiet | Opmerkingen | 
 | ---- | ----- | ----- | 
-| Trigger gelijktijdigheid | 50 gelijktijdige beperken | Wanneer u gelijktijdigheidsbeheer voor een trigger inschakelt, is de standaardlimiet 25. Deze limiet wordt het maximum aantal logic app-exemplaren die kunnen worden uitgevoerd op hetzelfde moment of parallel beschreven. <p><p>De standaardlimiet op een waarde tussen 1 en 50 liggen, Zie [limiet voor gelijktijdigheid van wijziging trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) of [exemplaren sequentieel activeren](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
-| Maximale wachttijd wordt uitgevoerd | 100 gelijktijdige beperken | Wanneer u gelijktijdigheidsbeheer voor een trigger inschakelt, is de standaardlimiet 10. Deze limiet wordt het maximum aantal logic app-exemplaren die worden uitgevoerd wanneer u uw logische app wordt al uitgevoerd voor het maximum aantal gelijktijdige instanties kunt wachten beschreven. <p><p>De standaardlimiet op een waarde tussen 0 en 100 liggen, Zie [wijziging wachten uitvoeringen beperken](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
-| Foreach-matrix-items | 100.000 | Deze limiet wordt het maximum aantal matrixitems die kan worden verwerkt door een lus 'voor elke' beschreven. <p><p>Voor grotere matrices filteren, kunt u de [queryactie](../connectors/connectors-native-query.md). | 
-| Foreach-gelijktijdigheid | 50 gelijktijdige beperken | Wanneer u gelijktijdigheidsbeheer voor deze lus inschakelt, is de standaardlimiet is 20. Deze limiet wordt beschreven voor het maximum aantal 'voor elke' iteraties die kunnen worden uitgevoerd op hetzelfde moment of parallel in een lus. <p><p>De standaardlimiet op een waarde tussen 1 en 50 liggen, Zie [wijzigen 'voor elke' gelijktijdigheid limiet](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) of [uitvoeren 'voor elke' wordt uitgevoerd na elkaar](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
-| SplitOn-items | 100.000 | | 
-| UNTIL-iteraties | 5.000 | | 
-|||| 
+| Trigger gelijktijdigheid | * Onbeperkt wanneer gelijktijdigheidsbeheer is uitgeschakeld <p><p>* 25 is de standaardlimiet wanneer gelijktijdigheidsbeheer is ingeschakeld, die kan niet ongedaan worden gemaakt nadat u op het besturingselement. U kunt de standaardinstelling wijzigen op een waarde tussen 1 en 50 liggen. | Deze limiet beschrijving van het hoogste aantal logic app-exemplaren die op hetzelfde moment of parallel kunnen worden uitgevoerd. <p><p>De standaardlimiet op een waarde tussen 1 en 50 liggen, Zie [limiet voor gelijktijdigheid van wijziging trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) of [exemplaren sequentieel activeren](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
+| Maximale wachttijd wordt uitgevoerd | Wanneer de gelijktijdigheidsbeheer is ingeschakeld, wordt het minimum aantal uitvoeringen van de wachtrij is 10 plus het aantal gelijktijdige uitvoeringen (trigger gelijktijdigheid). Kunt u het maximum aantal maximaal 100 liggen. | Deze limiet beschrijving van het hoogste aantal logic app-exemplaren die worden uitgevoerd wanneer u uw logische app wordt al uitgevoerd voor het maximum aantal gelijktijdige exemplaren kan wachten. <p><p>De standaardlimiet Zie [wijziging wachten uitvoeringen beperken](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
+| Foreach-matrix-items | 100.000 | Deze limiet beschrijving van het hoogste aantal matrixitems waarmee een lus 'voor elke' kan worden verwerkt. <p><p>Voor grotere matrices filteren, kunt u de [queryactie](../connectors/connectors-native-query.md). | 
+| Foreach-gelijktijdigheid | 20 is de standaardlimiet wanneer gelijktijdigheidsbeheer is uitgeschakeld. U kunt de standaardinstelling wijzigen op een waarde tussen 1 en 50 liggen. | Deze limiet is hoogste aantal 'voor elke' iteraties die kunnen worden uitgevoerd op hetzelfde moment of parallel in een lus. <p><p>De standaardlimiet op een waarde tussen 1 en 50 liggen, Zie [wijzigen 'voor elke' gelijktijdigheid limiet](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) of [uitvoeren 'voor elke' wordt uitgevoerd na elkaar](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
+| SplitOn-items | 100.000 | Voor triggers die een matrix retourneert, kunt u een expressie die gebruikmaakt van een 'SplitOn'-eigenschap die [splitst of matrixitems in meerdere werkstroomexemplaren debatches](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) voor verwerking, in plaats van gebruik in een 'Foreach"een lus. Deze expressie verwijst naar de matrix moet worden gebruikt voor het maken en uitvoeren van een werkstroomexemplaar dat voor elk matrixitem. |
+| UNTIL-iteraties | 5.000 | |
+||||
 
 <a name="throughput-limits"></a>
 

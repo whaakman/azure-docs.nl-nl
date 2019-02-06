@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 82f7d69120cf3d6f44c981f985ae29f467ee0655
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7afa64ebedb38b4514bbd155bf8f29268d420d18
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55199085"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745755"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Maak een zelftest-client voor het vooraf valideren van een installatiekopie van een virtuele machine van Azure
 
@@ -54,7 +54,7 @@ Het volgende diagram toont de werking van autorisatie voor service-to-service aa
 De API testen bevat één eindpunt die ondersteuning biedt voor alleen de POST-methode.  De volgende structuur heeft.
 
 ```
-Uri:             https://isvapp.azurewebsites.net/selftest
+Uri:             https://isvapp.azurewebsites.net/selftest-vm
 Method:          Post
 Request Header:  Content-Type: “application/json”
 Authorization:   “Bearer xxxx-xxxx-xxxx-xxxxx”
@@ -73,7 +73,7 @@ Request body:    The Request body parameters should use the following JSON forma
 De volgende tabel beschrijft de API-velden.
 
 
-|      Veld         |    Beschrijving    |
+|      Veld         |    Description    |
 |  ---------------   |  ---------------  |
 |  Autorisatie     |  De tekenreeks 'Bearer xxxx-xxxx-xxxx-xxxxx' bevat het clienttoken van Azure Active Directory (AD), die kan worden gemaakt met behulp van PowerShell.          |
 |  DSN-naam           |  DNS-naam van de virtuele machine om te testen    |
@@ -215,7 +215,7 @@ Volg deze stappen voor het aanroepen van de API met cURL:
 ```
 CURL POST -H "Content-Type:application/json" 
 -H "Authorization: Bearer XXXXXX-Token-XXXXXXXX”
-https://isvapp.azurewebsites.net/selftest 
+https://isvapp.azurewebsites.net/selftest-vm 
 -d '{ "DNSName":"XXXX.westus.cloudapp.azure.com", "User":"XXX", "Password":"XXXX@123456", "OS":"Linux", "PortNo":"22", "CompanyName":"ABCD"}'
 
 ```
@@ -260,7 +260,7 @@ Gebruik de volgende stappen uit om de clientapp te registreren.
 
    - **Naam** – Geef een beschrijvende naam voor de app. Bijvoorbeeld: 'SelfTestClient'.
    - **Toepassingstype** – Selecteer **Web-App/API**
-   - **Aanmeldings-URL** – Type "https://isvapp.azurewebsites.net/selftest"
+   - **Aanmeldings-URL** – Type "https://isvapp.azurewebsites.net/selftest-vm"
 
 4. Selecteer **Maken**.
 5. Onder **App-registraties** of **geregistreerde app**, Kopieer de **toepassings-ID**.
@@ -410,7 +410,7 @@ $token.AccessToken
 Het token doorgeven aan de API testen met behulp van de volgende code in de autorisatie-header:
 
 ```
-$redirectUri = ‘https://isvapp.azurewebsites.net/selftest’
+$redirectUri = ‘https://isvapp.azurewebsites.net/selftest-vm’
 $accesstoken = ‘place your token here’
 
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 706d8986eb25d2d67e3099ae5b0bfc6e55f94ad3
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: b10e434aece0ac214a0fd397ea94cbeccca4e44a
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507365"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746487"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Bekende problemen en oplossen van problemen met Azure Machine Learning-service
 
@@ -42,7 +42,7 @@ De installatiekopie van het bouwen van fout bij het implementeren van web-servic
 
 ## <a name="deployment-failure"></a>Fout bij de implementatie
 
-Als u merkt `'DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`, het wijzigen van de SKU voor virtuele machines die worden gebruikt in uw implementatie die meer geheugen heeft.
+Als u merkt `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`, het wijzigen van de SKU voor virtuele machines die worden gebruikt in uw implementatie die meer geheugen heeft.
 
 ## <a name="fpgas"></a>FPGAs
 Niet mogelijk om te implementeren van modellen op FPGA's totdat u hebt aangevraagd en goedgekeurd voor FPGA quotum. Vul het aanvraagformulier voor de quota voor het aanvragen van toegang: https://aka.ms/aml-real-time-ai

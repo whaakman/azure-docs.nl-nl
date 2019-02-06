@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 08/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: b2daba1e20431edae5aacc8295fdc542d1e73d33
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 3e20aeb0e21eca5e4ac25206d638036f94a58202
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460502"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749692"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Een groot aantal taken aan een Batch-taak verzenden
 
@@ -37,8 +37,8 @@ De maximale grootte van de taak-verzameling die u in één aanroep kunt toevoege
 * De volgende Batch-API's de verzameling te beperken **100 taken**. De limiet kan niet kleiner zijn, afhankelijk van de grootte van de taken - bijvoorbeeld: als de taken een groot aantal bestanden of omgevingsvariabelen hebben.
 
     * [REST API](/rest/api/batchservice/task/addcollection)
-    * [Python-API](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python#azure_batch_operations_TaskOperations_add_collection)
-    * [Node.js-API](/javascript/api/azure-batch/task?view=azure-node-latest#addcollection)
+    * [Python-API](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python)
+    * [Node.js-API](/javascript/api/azure-batch/task?view=azure-node-latest)
 
   Wanneer u deze API's gebruikt, moet u opgeven van logica voor het aantal taken om te voldoen aan de limiet voor de verzameling, en voor het afhandelen van fouten en nieuwe pogingen als mislukt het toevoegen van taken te verdelen. Als een verzameling van de taak te groot om toe te voegen is, wordt de aanvraag een fout gegeneerd en weer opnieuw moet worden uitgevoerd met minder taken.
 
@@ -55,7 +55,7 @@ Het kan enige tijd een groot aantal taken bijvoorbeeld toevoegen aan een job - d
 
 * **Grootte van de taak** -toe te voegen omvangrijke taken langer duurt dan kleinere toe te voegen. Verklein de grootte van elke taak in een verzameling, kunt u vereenvoudigen van de opdrachtregel van de taak, het verminderen van het aantal omgevingsvariabelen of efficiënter afhandelen van de vereisten voor de uitvoering van de taak. Bijvoorbeeld, in plaats van een groot aantal bestanden, installeert afhankelijkheden van de taak met behulp van een [begintaak](batch-api-basics.md#start-task) op de groep van toepassingen of gebruik een [toepassingspakket](batch-application-packages.md) of [Docker-container](batch-docker-container-workloads.md).
 
-* **Het aantal parallelle bewerkingen** - afhankelijk van de Batch-API, toename van de doorvoer door het maximum aantal gelijktijdige bewerkingen door de Batch-client. Configureer deze instellen met behulp van de [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) eigenschap in de .NET-API of de `threads` parameter van methoden, zoals [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python#add-collection)in de Batch Python SDK-extensie. (Deze eigenschap is niet beschikbaar in de systeemeigen Batch Python-SDK.) Standaard is deze eigenschap ingesteld op 1, maar stelt hogere voor het verbeteren van doorvoer van bewerkingen. U wisselwerking tussen verhoogde doorvoer netwerkbandbreedte in beslag nemen en sommige CPU-prestaties. Doorvoer van de taak wordt verhoogd met tot 100 keer de `MaxDegreeOfParallelism` of `threads`. In de praktijk moet u het aantal gelijktijdige bewerkingen lager dan 100 ingesteld. 
+* **Het aantal parallelle bewerkingen** - afhankelijk van de Batch-API, toename van de doorvoer door het maximum aantal gelijktijdige bewerkingen door de Batch-client. Configureer deze instellen met behulp van de [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) eigenschap in de .NET-API of de `threads` parameter van methoden, zoals [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python)in de Batch Python SDK-extensie. (Deze eigenschap is niet beschikbaar in de systeemeigen Batch Python-SDK.) Standaard is deze eigenschap ingesteld op 1, maar stelt hogere voor het verbeteren van doorvoer van bewerkingen. U wisselwerking tussen verhoogde doorvoer netwerkbandbreedte in beslag nemen en sommige CPU-prestaties. Doorvoer van de taak wordt verhoogd met tot 100 keer de `MaxDegreeOfParallelism` of `threads`. In de praktijk moet u het aantal gelijktijdige bewerkingen lager dan 100 ingesteld. 
  
   De Azure Batch CLI-extensie met de Batch-sjablonen verhoogt het aantal gelijktijdige bewerkingen automatisch op basis van het aantal beschikbare cores, maar deze eigenschap kan niet worden geconfigureerd in de CLI. 
 
@@ -155,7 +155,7 @@ tasks=list()
 
 ```
 
-Toevoegen van de taak verzameling met [task.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python#add-collection). Stel de `threads` parameter voor het verhogen van het aantal gelijktijdige bewerkingen:
+Toevoegen van de taak verzameling met [task.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python). Stel de `threads` parameter voor het verhogen van het aantal gelijktijdige bewerkingen:
 
 ```python
 try:

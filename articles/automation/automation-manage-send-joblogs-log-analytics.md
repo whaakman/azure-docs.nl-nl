@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/12/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0125c64a96929db9c8846ca7ad731fa3dc795f98
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 34a695daa077e882e911d3fb59f8a30e39c3a9d2
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432962"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756628"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Taakstatus en taakstromen van Automation doorsturen naar Log Analytics
 
@@ -64,11 +64,12 @@ Als u wilt zoeken de *naam* van uw Automation-account, selecteert u in Azure por
    Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled $true
    ```
 
-Na dit script is uitgevoerd, ziet u records in Log Analytics binnen 10 minuten van nieuwe JobLogs of JobStreams wordt geschreven.
+Na dit script is uitgevoerd, duurt het een uur voordat u begint met de records worden weergegeven in Log Analytics van nieuwe JobLogs of JobStreams wordt geschreven.
 
 Als u wilt zien van de logboeken, moet u de volgende query uitvoeren in Log Analytics zoeken in Logboeken: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Configuratie controleren
+
 Om te bevestigen dat uw Automation-account logboeken naar uw Log Analytics-werkruimte verzendt, controleert u of diagnostische gegevens correct zijn geconfigureerd op het Automation-account met behulp van de volgende PowerShell:
 
 ```powershell-interactive
@@ -76,14 +77,16 @@ Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 ```
 
 Zorg ervoor dat in de uitvoer:
-+ Onder *logboeken*, de waarde voor *ingeschakeld* is *waar*.
-+ De waarde van *WorkspaceId* is ingesteld op de ResourceId van uw Log Analytics-werkruimte.
+
+* Onder *logboeken*, de waarde voor *ingeschakeld* is *waar*.
+* De waarde van *WorkspaceId* is ingesteld op de ResourceId van uw Log Analytics-werkruimte.
 
 ## <a name="log-analytics-records"></a>Log Analytics-records
 
 Diagnostische gegevens van Azure Automation worden twee typen records gemaakt in Log Analytics en zijn gelabeld als **AzureDiagnostics**. De volgende query's gebruikt u de bijgewerkte querytaal Log Analytics. Bezoek voor meer informatie over algemene query's tussen de verouderde query-taal en de nieuwe Azure Log Analytics-querytaal [verouderde naar de nieuwe querytaal van Azure Log Analytics-referentiemateriaal](https://docs.loganalytics.io/docs/Learn/References/Legacy-to-new-to-Azure-Log-Analytics-Language)
 
 ### <a name="job-logs"></a>Taaklogboeken
+
 | Eigenschap | Description |
 | --- | --- |
 | TimeGenerated |Datum en tijd van uitvoering van de runbooktaak. |
@@ -128,6 +131,7 @@ Diagnostische gegevens van Azure Automation worden twee typen records gemaakt in
 | ResourceType | AUTOMATIONACCOUNTS |
 
 ## <a name="viewing-automation-logs-in-log-analytics"></a>Weergeven van Automation-Logboeken in Log Analytics
+
 Nu dat u begint met het verzenden van uw Automation-taaklogboeken met Log Analytics, laten we zien wat u kunt doen met deze logboeken in Log Analytics.
 
 Als u wilt zien van de logboeken, voer de volgende query uit: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
@@ -141,7 +145,7 @@ Voor het maken van een waarschuwingsregel, begint u met het maken van een zoeken
 2. Maak een zoekquery logboek voor de waarschuwing door te zoeken in de volgende typen in het queryveld: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`  U kunt ook de RunbookName groeperen met behulp van: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    Als u logboeken van meer dan één Automation-account of abonnement aan uw werkruimte, kunt u uw waarschuwingen op basis van abonnement en de Automation-account kunt groeperen. Naam van het Automation-account kan worden gevonden in het veld Resource in het zoekvak van JobLogs.
-1. Om te openen de **maken regel** scherm, klikt u op **+ nieuwe waarschuwingsregel** aan de bovenkant van de pagina. Zie voor meer informatie over de opties voor het configureren van de waarschuwing [waarschuwingen voor activiteitenlogboeken in Azure](../azure-monitor/platform/alerts-unified-log.md).
+3. Om te openen de **maken regel** scherm, klikt u op **+ nieuwe waarschuwingsregel** aan de bovenkant van de pagina. Zie voor meer informatie over de opties voor het configureren van de waarschuwing [waarschuwingen voor activiteitenlogboeken in Azure](../azure-monitor/platform/alerts-unified-log.md).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Alle taken hebt voltooid met fouten zoeken
 U kunt naast de waarschuwingen op fouten, wanneer een runbook-taak een niet-afsluitfout heeft vinden. In dergelijke gevallen PowerShell een foutstroom produceert, maar de niet-afsluitfouten niet tot gevolg dat de taak onderbreken of als mislukt.    

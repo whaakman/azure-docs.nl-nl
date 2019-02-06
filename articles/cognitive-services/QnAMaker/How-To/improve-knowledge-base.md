@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: 7f519729f3ad94324b847ca6b15b254ea7c6abbb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 639b665926f54387dfdc6e837c15c8d6d28df925
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463732"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755761"
 ---
 # <a name="use-active-learning-to-improve-knowledge-base"></a>Actief leren gebruiken om uw knowledge base te verbeteren
 
@@ -58,7 +58,7 @@ De algoritme om te bepalen van de service is niet een eenvoudige berekening. De 
 
 Actief leren is standaard uitgeschakeld. Ingeschakeld om te zien van de voorgestelde vragen. 
 
-1. Als u actieve learning in, gaat u naar uw **Service-instellingen** in de rechterbovenhoek van de portal QnA Maker.  
+1. Als u actieve learning in, klikt u op uw **naam**, gaat u naar [ **Service-instellingen** ](https://www.qnamaker.ai/UserSettings) in de rechterbovenhoek van de portal QnA Maker.  
 
     ![Schakel op de servicepagina-instellingen actief leren](../media/improve-knowledge-base/Endpoint-Keys.png)
 

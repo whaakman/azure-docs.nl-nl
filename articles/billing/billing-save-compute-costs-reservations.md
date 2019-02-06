@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: 4133d78ccff1fa4eb712d8928cefa604ca2f52ca
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 14b6125bd1467efcd6120bc367a7042ad29552bb
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902054"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744497"
 ---
 # <a name="what-are-azure-reservations"></a>Wat zijn Azure-reserveringen?
 
@@ -38,7 +38,7 @@ Hebt u virtuele machines, Azure Cosmos DB of SQL-databases die langdurig worden 
 
 - Gereserveerde VM-instantie: Een reservering heeft alleen betrekking op de kosten voor rekenuren van de virtuele machine. Het bedekt geen extra kosten voor software, netwerken en opslag.
 - SQL Database vCore gereserveerd: Alleen de kosten voor de rekenuren zijn opgenomen in een reservering. De licentie wordt apart in rekening gebracht.
-- Azure Cosmos DB gereserveerde capaciteit: Een reservering geldt voor ingerichte doorvoer voor uw resources, het heeft geen betrekking op de kosten voor opslag en netwerken. 
+- Azure Cosmos DB gereserveerde capaciteit: Een reservering geldt voor ingerichte doorvoer voor uw resources, het heeft geen betrekking op de kosten voor opslag en netwerken.
 
 Voor virtuele machines van Windows en SQL Database, kunt u de licentiekosten met dekt [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
@@ -46,11 +46,16 @@ Voor virtuele machines van Windows en SQL Database, kunt u de licentiekosten met
 
 Deze abonnementen typen Azure-klanten kunnen een reservering kopen:
 
-- Abonnementtype Enterprise-overeenkomst (MS-AZR - 0017P).
-- Abonnementtype [Betalen per gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/) (MS-AZR-003P). U moet de 'Eigenaar'-rol hebben op het abonnement op een reservering kopen.
+- Enterprise agreement-abonnement aanbiedingstype (MS-AZR - 0017P of MS-AZR - 0148P).
+- Betalen per gebruik-abonnementstype aanbieding (MS-AZR - 003P of MS-AZR - 0023P).
 - Cloud Solution Provider (CSP) partners kunnen Azure-portal gebruiken of [Partner Center](https://docs.microsoft.com/partner-center/azure-reservations) Azure reserveringen kopen.
 
 Een reserveringskorting is alleen van toepassing op resources die zijn gekoppeld aan Enterprise, betalen per gebruik of CSP-abonnementstypen.
+
+ Een abonnement aanschaffen:
+
+- U moet zich in een rol van eigenaar voor ten minste één Enterprise of abonnement op gebruiksbasis.
+- Voor Enterprise-abonnementen, **gereserveerde instanties toevoegen** moet zijn ingeschakeld in de [EA-portal](https://ea.azure.com). Of, als deze instelling is uitgeschakeld, moet u een EA-beheerder voor het abonnement zijn.
 
 ## <a name="how-is-a-reservation-billed"></a>Hoe wordt een reservering gefactureerd?
 
@@ -60,7 +65,7 @@ De reservering wordt verrekend met de betalingswijze die is gekoppeld aan het ab
 
 De reserveringskorting is van toepassing op het gebruik van bronnen die overeenkomt met de kenmerken die u selecteert wanneer u de reservering kopen. De kenmerken omvatten het bereik waarin de overeenkomende virtuele machines, SQL databases, Azure Cosmos DB of andere bronnen wordt uitgevoerd. Bijvoorbeeld, als u een reserveringskorting voor vier standaard D2 virtuele machines in de regio VS-West wilt, selecteer het abonnement waarin de virtuele machines worden uitgevoerd. Als de virtuele machines worden uitgevoerd in verschillende abonnementen binnen uw inschrijvingsaccount, selecteert u het bereik als een gedeeld. Gedeeld bereik kunt de reserveringskorting moet worden toegepast voor abonnementen. U kunt het bereik wijzigen nadat u een reservering kopen. Zie voor meer informatie, [Azure-reserveringen beheren](billing-manage-reserved-vm-instance.md).
 
-Een reserveringskorting is alleen van toepassing op resources die zijn gekoppeld aan Enterprise, betalen per gebruik of CSP-abonnementstypen. Resources die worden uitgevoerd in een abonnement met andere typen ontvangen niet de reserveringskorting. Enterprise Dev/Test-abonnementen zijn niet voor enterprise-inschrijvingen, in aanmerking komen voor de voordelen van de reservering.
+Een reserveringskorting is alleen van toepassing op resources die zijn gekoppeld aan Enterprise, betalen per gebruik of CSP-abonnementstypen. Resources die worden uitgevoerd in een abonnement met andere typen ontvangen niet de reserveringskorting.
 
 Zie voor meer informatie over de invloed van reserveringen op uw facturering, de volgende onderwerpen:
 

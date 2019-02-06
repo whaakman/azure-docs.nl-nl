@@ -11,21 +11,21 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: d0da7e19934123534bf063deecb5bff584dbc317
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 9dc1246f8035dbe35ecc35f91f47aeb6caaa9ab8
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699276"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750253"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Aanmelden bij uw accounts met behulp van de Microsoft Authenticator-app
-De Microsoft Authenticator-app kunt u aanmelden bij uw accounts als u tweeledige verificatie. Tweeledige verificatie helpt u bij de toegang tot uw account veiliger, met name tijdens het bekijken van gevoelige informatie. Omdat wachtwoorden kunnen worden vergeten, gestolen of waarmee is geknoeid, tweeledige verificatie een extra beveiligingsstap waarmee de beveiliging van uw account is door waardoor het moeilijker is voor anderen in breken.
+Met de Microsoft Authenticator-app kunt u zich aanmelden bij uw accounts als u gebruikmaakt van verificatie in twee stappen. Verificatie in twee stappen helpt u veiliger toegang te krijgen tot uw accounts, vooral als u gevoelige informatie bekijkt. Omdat wachtwoorden kunnen worden vergeten, gestolen of gewijzigd, is verificatie in twee stappen een extra beveiligingsstap waarmee u uw account beschermt door het voor anderen lastiger te maken om in te breken.
 
-U kunt de Microsoft Authenticator-app gebruiken op verschillende manieren, met inbegrip van:
+U kunt de Microsoft Authenticator-app op meerdere manieren gebruiken, bijvoorbeeld:
 
-- Biedt een prompt voor een tweede verificatiemethode nadat u zich aanmelden met uw gebruikersnaam en wachtwoord.
+- Door een prompt voor een tweede verificatiemethode nadat u zich aanmeldt met u gebruikersnaam en wachtwoord.
 
-- Het leveren van aanmelden zonder een wachtwoord vereisen, het gebruik van uw gebruikersnaam en het mobiele apparaat met uw vingerafdruk, vlak of PINCODE.
+- Door aanmelden zonder wachtwoord te bieden met gebruik van uw gebruikersnaam en uw mobiele apparaat met uw vingerafdruk, gezicht of pincode.
 
  >[!Important]
  >Deze telefoon aanmelden methode werkt alleen met uw werk of school en persoonlijke Microsoft-accounts. Uw niet-Microsoft-accounts moeten u het proces voor de standard tweeledige verificatie gebruiken.
@@ -35,7 +35,7 @@ Voordat u de Microsoft Authenticator-app gebruiken kunt, moet u het volgende doe
 
  1. Download en installeer de Microsoft Authenticator-app. Als u dit nog niet hebt gedaan, Zie [downloaden en installeren van de app](microsoft-authenticator-app-how-to.md).
 
- 2. Uw werk/school, persoonlijke en externe accounts toevoegen aan de Microsoft Authenticator-app. Zie voor gedetailleerde stappen, [uw werk- of schoolaccount toevoegen](microsoft-authenticator-app-add-work-account.md), [toevoegen van uw persoonlijke accounts](microsoft-authenticator-app-add-personal-account.md), en [uw persoonlijke niet-Microsoft-accounts toevoegen](microsoft-authenticator-app-add-non-microsoft-account.md).
+ 2. Uw werk/school, persoonlijke en externe accounts toevoegen aan de Microsoft Authenticator-app. Zie voor gedetailleerde stappen, [uw werk- of schoolaccount toevoegen](microsoft-authenticator-app-add-work-account.md), [toevoegen van uw persoonlijke accounts](microsoft-authenticator-app-add-personal-account.md), en [uw niet-Microsoft-accounts toevoegen](microsoft-authenticator-app-add-non-microsoft-account.md).
 
 ## <a name="turn-on-and-use-phone-sign-in-for-your-work-or-school-account"></a>Inschakelen en aanmelding via telefoon gebruiken voor uw werk of school-account
 Aanmelding via telefoon is een type verificatie in twee stappen. U moet nog steeds uw identiteit verifiëren door een ding die u kent en een ding hebben, maar telefoon aanmelden kunt u doorgaan met het wachtwoord van uw account invoeren en voert al uw identiteit te verifiëren op uw mobiele apparaat te geven.
@@ -67,7 +67,7 @@ Nadat u op aanmelden via telefoon inschakelen, kunt u met behulp van de Microsof
 
     ![-In-vak op apparaat goedkeuren](media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in-numbers.png)
 
-3. Kies **goedkeuren** als je de aanmeldingspoging herkent. Kies anders **weigeren**.
+3. Kies **Goedkeuren** als u de aanmeldingspoging herkent. Kies anders **Weigeren**.
 
 4. De PINCODE van uw telefoon of uw biometrische sleutel gebruiken om de verificatie te voltooien.
 
@@ -113,7 +113,6 @@ Voor de stappen die nodig zijn om aan te melden bij uw werk of school of je pers
 |**Hoe kan ik stoppen met het gebruik van deze functie en gaat u terug naar mijn wachtwoord gebruiken?**|Voor persoonlijke accounts, selecteert u de **in plaats daarvan gebruik van een wachtwoord** koppeling tijdens het aanmelden. Uw meest recente keuze is onthouden en aangeboden standaard de volgende keer dat u zich aanmeldt. Als u ooit terugkeren wilt naar de met behulp van aanmelden via telefoon, selecteer de **gebruik van een app in plaats daarvan** koppeling tijdens het aanmelden.<br><br>Voor werk of school-accounts, moet u naar de pagina extra beveiliging met verificatie (zoals https://aka.ms/MFASetup) en verwijderen van de Microsoft Authenticator-app.|
 |**Waarom kan ik meer dan één account voor werk of school niet gebruiken voor aanmelding via telefoon?**| Een telefoon moet worden geregistreerd in één werk- of schoolaccount. Als u wilt inschakelen op aanmelden via telefoon voor een ander werk- of schoolaccount, moet u eerst het oude apparaat via registratie de **instellingen** pagina.|
 |**Kan ik me aanmelden met mijn PC met behulp van mijn telefoon?**| Voor uw PC, is het beste aanmelden met Windows Hello op Windows 10. Windows Hello kunt u uw face, vingerafdruk of PINCODE gebruikt om te melden.|
-|**Kan ik gebruiken aanmelden via telefoon met mijn Windows Phone?**| Nee. Deze functie wordt niet ondersteund door de Microsoft Authenticator-app voor Windows Phone.|
 
 ## <a name="next-steps"></a>Volgende stappen
 - Als u meer algemene vragen over de app hebt, raadpleegt u de [Veelgestelde vragen over de Microsoft Authenticator](microsoft-authenticator-app-faq.md)

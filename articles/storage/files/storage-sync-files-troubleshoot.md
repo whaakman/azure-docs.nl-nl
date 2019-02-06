@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: c1ac1a0fccc2ac9a428a04a1b15030c489968a3f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 376ebcbc17cc9f5c797c2985fe3c0784f5036600
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563691"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752089"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Problemen met Azure Files Sync oplossen
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -538,7 +538,7 @@ Deze fout treedt op omdat er wijzigingen in de Azure-bestandsshare rechtstreeks 
 | **Fouttekenreeks** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
 | **Herstel is vereist** | Ja |
 
-In gevallen waarbij er veel per bestand synchronisatiefouten, synchronisatiesessies mislukken kunnen beginnen. Zie voor het oplossen van deze status [per bestand/map synchronisatiefouten oplossen](#troubleshooting-per-file-directory-sync-errors).
+In gevallen waarbij er veel per bestand synchronisatiefouten, synchronisatiesessies mislukken kunnen beginnen. Zie voor het oplossen van deze status [per bestand/map synchronisatiefouten oplossen]().
 
 > [!NOTE]
 > Azure File Sync maakt een tijdelijke VSS-momentopname eenmaal per dag op de server om bestanden te synchroniseren met open ingangen.

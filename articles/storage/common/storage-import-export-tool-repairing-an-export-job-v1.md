@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 395ff654bcacf1a4f70a9032492deb2a9d5202f3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 915cf1e66ec400e0d2461873d9fb3d66be9883fb
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454756"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756747"
 ---
 # <a name="repairing-an-export-job"></a>Een exporttaak herstellen
 Nadat een taak voor het exporteren is voltooid, kunt u de Microsoft Azure Import/Export-hulpprogramma on-premises naar kunt uitvoeren:  
@@ -81,7 +81,7 @@ Het logboekbestand kopiëren geeft aan dat is een fout opgetreden tijdens de Win
 ## <a name="using-repairexport-to-validate-drive-contents"></a>Met behulp van RepairExport schijfinhoud valideren  
 U kunt ook Azure Import/Export met de **RepairExport** optie voor het valideren van de inhoud op het station juist zijn. Het manifestbestand op elke schijf export bevat MD5s voor de inhoud van het station.  
   
-De Azure Import/Export-service kan de manifest-bestanden ook opslaan naar een opslagaccount tijdens het exportproces. De locatie van de manifest-bestanden is beschikbaar via de [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) bewerking wanneer de taak is voltooid. Zie [Import/Export-service Manifest van de bestandsindeling](storage-import-export-file-format-metadata-and-properties.md) voor meer informatie over de indeling van het manifestbestand van een station.  
+De Azure Import/Export-service kan de manifest-bestanden ook opslaan naar een opslagaccount tijdens het exportproces. De locatie van de manifest-bestanden is beschikbaar via de [Get Job](/rest/api/storageimportexport/jobs) bewerking wanneer de taak is voltooid. Zie [Import/Export-service Manifest van de bestandsindeling](storage-import-export-file-format-metadata-and-properties.md) voor meer informatie over de indeling van het manifestbestand van een station.  
   
 Het volgende voorbeeld laat zien hoe de Azure Import/Export-hulpprogramma met uit te voeren de **/ManifestFile** en **/CopyLogFile** parameters:  
   

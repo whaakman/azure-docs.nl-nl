@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 66712b97807135b1e9e8321e441ac21368f86fc5
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 7df785d1493ad2df698ff197d72824ceb15d39ad
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633024"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752889"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Verbinding maken met en inhoud met behulp van Azure Search-indexeerfuncties van Azure SQL Database indexeren
 
@@ -210,6 +210,9 @@ Voor het gebruik van dit beleid niet maken of bijwerken van uw gegevensbron als 
 
 Wanneer SQL geïntegreerde wijzigingen bijhouden-beleid gebruiken een afzonderlijke detectie verwijderingsbeleid niet opgeeft: dit beleid heeft ingebouwde ondersteuning voor het identificeren van de rijen verwijderd. Voor het verwijderen moet gedetecteerde 'automagically', moet de documentsleutel in uw search-index wel gelijk zijn aan de primaire sleutel in de SQL-tabel. 
 
+> [!NOTE]  
+> Bij het gebruik van [TRUNCATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/truncate-table-transact-sql) als een groot aantal rijen uit een SQL-tabel verwijderen, de indexeerfunctie moet worden [opnieuw](https://docs.microsoft.com/rest/api/searchservice/reset-indexer) opnieuw instellen van het bijhouden van de status om op te halen rij verwijderingen.
+
 <a name="HighWaterMarkPolicy"></a>
 
 ### <a name="high-water-mark-change-detection-policy"></a>Beleid voor detectie van high-Water Mark wijzigen
@@ -315,27 +318,27 @@ Deze instellingen worden gebruikt de `parameters.configuration` object in de def
 
 ## <a name="faq"></a>Veelgestelde vragen
 
-**VRAAG: Kan ik Azure SQL-indexer gebruiken met SQL-databases die worden uitgevoerd op virtuele IaaS-machines in Azure?**
+**V: Kan ik Azure SQL-indexer gebruiken met SQL-databases die worden uitgevoerd op virtuele IaaS-machines in Azure?**
 
 Ja. U moet echter om toe te staan uw search-service verbinding maakt met uw database. Zie voor meer informatie, [configureren van een verbinding tussen een Azure Search-indexeerfunctie en SQL Server op een Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md).
 
-**VRAAG: Kan ik Azure SQL-indexer gebruiken met SQL-databases die on-premises uitgevoerd?**
+**V: Kan ik Azure SQL-indexer gebruiken met SQL-databases die on-premises uitgevoerd?**
 
 Niet rechtstreeks. We raden aan of niet een rechtstreekse verbinding ondersteuning als dit dus moet u uw databases om internetverkeer te openen. Klanten zijn met dit scenario met bridge-technologieën, zoals Azure Data Factory geslaagd. Zie voor meer informatie, [gegevens pushen naar een Azure Search-index met behulp van Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-azure-search-connector).
 
-**VRAAG: Kan ik indexeerfunctie voor Azure SQL-databases dan SQL Server uitvoeren in IaaS op Azure gebruiken?**
+**V: Kan ik indexeerfunctie voor Azure SQL-databases dan SQL Server uitvoeren in IaaS op Azure gebruiken?**
 
 Nee. Dit scenario wordt ondersteund niet omdat de indexeerfunctie met databases dan SQL Server niet getest.  
 
-**VRAAG: Kan ik meerdere indexeerfuncties uitgevoerd volgens een planning maken?**
+**V: Kan ik meerdere indexeerfuncties uitgevoerd volgens een planning maken?**
 
 Ja. Echter kan alleen een indexeerfunctie worden uitgevoerd op één knooppunt tegelijk. Als u meerdere indexeerfuncties gelijktijdig worden uitgevoerd, kunt u omhoog schalen van uw zoekservice op meer dan één zoekeenheid.
 
-**VRAAG: Heeft een indexeerfunctie uitvoeren van mijn werkbelasting query gevolgen?**
+**V: Heeft een indexeerfunctie uitvoeren van mijn werkbelasting query gevolgen?**
 
 Ja. Indexeerfunctie wordt uitgevoerd op een van de knooppunten in uw zoekservice en de resources van het knooppunt worden gedeeld tussen indexeren ten behoeve van query's en andere API-aanvragen. Als u intensieve werkbelastingen voor indexeren en query uitvoeren en een groot aantal 503-fouten of toenemende reactietijden optreden, kunt u overwegen [omhoog schalen van uw zoekservice](search-capacity-planning.md).
 
-**VRAAG: Kan ik gebruiken een secundaire replica in een [failovercluster](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) als een gegevensbron?**
+**V: Kan ik gebruiken een secundaire replica in een [failovercluster](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) als een gegevensbron?**
 
 Dat hangt ervan af. Voor volledige indexering van een tabel of weergave, kunt u een secundaire replica. 
 
@@ -349,7 +352,7 @@ Als u probeert te rowversion gebruiken op een alleen-lezen replica, ziet u de vo
 
     "Using a rowversion column for change tracking is not supported on secondary (read-only) availability replicas. Please update the datasource and specify a connection to the primary availability replica.Current database 'Updateability' property is 'READ_ONLY'".
 
-**VRAAG: Kan ik een alternatieve, niet-tijdstempelkolom gebruiken voor het bijhouden van high-water mark?**
+**V: Kan ik een alternatieve, niet-tijdstempelkolom gebruiken voor het bijhouden van high-water mark?**
 
 Het wordt niet aanbevolen. Alleen **rowversion** kunt voor het synchroniseren van betrouwbare gegevens. Echter, afhankelijk van uw toepassingslogica kan het zijn veilig als:
 

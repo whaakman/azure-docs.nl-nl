@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: 2b60d4aed1b16db433439e69f9d6813f36f2faac
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 4fc30deb68039130850f87cb70dbb606be463600
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732546"
+ms.locfileid: "55747387"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Documentatie over de trigger en actie typen voor Definitietaal van werkstroom in Azure Logic Apps
 
@@ -147,7 +147,7 @@ Deze trigger wordt gecontroleerd of *polls* een eindpunt met behulp van [Microso
 | <*query-parameters*> | JSON-Object | Alle queryparameters moeten worden opgenomen met de API-aanroepen. Bijvoorbeeld, de `"queries": { "api-version": "2018-01-01" }` object toevoegen `?api-version=2018-01-01` bij de aanroep. |
 | <*max-runs*> | Geheel getal | Standaard logic app workflow-exemplaren worden uitgevoerd op hetzelfde moment of parallel tot de [standaardlimiet](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Deze limiet wijzigen door in te stellen een nieuwe <*aantal*> waarde, Zie [wijziging trigger gelijktijdigheid](#change-trigger-concurrency). |
 | <*max-runs-queue*> | Geheel getal | Als uw logische app al het maximum aantal exemplaren wordt uitgevoerd, die u kunt wijzigen op basis van de `runtimeConfiguration.concurrency.runs` eigenschap, een nieuwe uitvoeringen worden aangeboden in deze wachtrij wordt geplaatst op de [standaardlimiet](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). De standaardlimiet Zie [wijziging wachten uitvoeringen beperken](#change-waiting-runs). |
-| <*splitOn-expression*> | String | Voor triggers die matrices retourneren, is deze expressie verwijst naar de matrix te gebruiken zodat u kunt maken en een werkstroomexemplaar voor elk matrixitem wordt uitgevoerd, in plaats van een lus 'voor elke' gebruiken. <p>Deze expressie vertegenwoordigt bijvoorbeeld een item in de matrix die in de hoofdtekst van de trigger: `@triggerbody()?['value']` |
+| <*splitOn-expression*> | String | Voor triggers die matrices retourneren, is deze expressie verwijst naar de matrix te gebruiken zodat u kunt maken en een werkstroomexemplaar voor elk matrixitem wordt uitgevoerd, in plaats van een lus 'Foreach' gebruiken. Wanneer u gebruikt de `SplitOn` eigenschap, krijgt u gelijktijdige exemplaren voor de limiet die de trigger en de service kunnen retourneren. <p>Deze expressie vertegenwoordigt bijvoorbeeld een item in de matrix die in de hoofdtekst van de trigger: `@triggerbody()?['value']` |
 | <*operation-option*> | String | U kunt het standaardgedrag wijzigen door in te stellen de `operationOptions` eigenschap. Zie voor meer informatie, [bewerkingsopties](#operation-options). |
 ||||
 
@@ -237,7 +237,7 @@ Deze trigger een aanvraag verzendt naar een eindpunt met behulp van een [Microso
 | <*query-parameters*> | JSON-Object | Alle queryparameters moeten worden opgenomen met de API-aanroep <p>Bijvoorbeeld, de `"queries": { "api-version": "2018-01-01" }` object toevoegen `?api-version=2018-01-01` bij de aanroep. |
 | <*max-runs*> | Geheel getal | Standaard logic app workflow-exemplaren worden uitgevoerd op hetzelfde moment of parallel tot de [standaardlimiet](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Deze limiet wijzigen door in te stellen een nieuwe <*aantal*> waarde, Zie [wijziging trigger gelijktijdigheid](#change-trigger-concurrency). |
 | <*max-runs-queue*> | Geheel getal | Als uw logische app al het maximum aantal exemplaren wordt uitgevoerd, die u kunt wijzigen op basis van de `runtimeConfiguration.concurrency.runs` eigenschap, een nieuwe uitvoeringen worden aangeboden in deze wachtrij wordt geplaatst op de [standaardlimiet](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). De standaardlimiet Zie [wijziging wachten uitvoeringen beperken](#change-waiting-runs). |
-| <*splitOn-expression*> | String | Voor triggers die matrices retourneren, is deze expressie verwijst naar de matrix te gebruiken zodat u kunt maken en een werkstroomexemplaar voor elk matrixitem wordt uitgevoerd, in plaats van een lus 'voor elke' gebruiken. <p>Deze expressie vertegenwoordigt bijvoorbeeld een item in de matrix die in de hoofdtekst van de trigger: `@triggerbody()?['value']` |
+| <*splitOn-expression*> | String | Voor triggers die matrices retourneren, is deze expressie verwijst naar de matrix te gebruiken zodat u kunt maken en een werkstroomexemplaar voor elk matrixitem wordt uitgevoerd, in plaats van een lus 'Foreach' gebruiken. Wanneer u gebruikt de `SplitOn` eigenschap, krijgt u gelijktijdige exemplaren voor de limiet die de trigger en de service kunnen retourneren. <p>Deze expressie vertegenwoordigt bijvoorbeeld een item in de matrix die in de hoofdtekst van de trigger: `@triggerbody()?['value']` |
 | <*operation-option*> | String | U kunt het standaardgedrag wijzigen door in te stellen de `operationOptions` eigenschap. Zie voor meer informatie, [bewerkingsopties](#operation-options). |
 ||||
 
@@ -682,8 +682,9 @@ Standaard een trigger wordt geactiveerd alleen nadat ze een ' 200 OK ' antwoord.
 
 ## <a name="trigger-multiple-runs"></a>Verschillende runs activeren
 
-Als de trigger een matrix voor uw logische app retourneert te verwerken, soms een lus 'voor elke' te lang zou duren voor het verwerken van elk matrixitem. In plaats daarvan kunt u de **SplitOn** eigenschap in de trigger op *debatch* de matrix. Debatching splitst de matrixitems en start een nieuwe logische app-exemplaar, die wordt uitgevoerd voor elk matrixitem. Deze aanpak is bijvoorbeeld handig als u wilt pollen van een eindpunt dat meerdere nieuwe items tussen de pollingintervallen kan retourneren.
-Voor het maximum aantal matrix-items die **SplitOn** kan verwerken in een enkele logische app uitvoeren, Zie [limieten en configuratie](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+Als de trigger een matrix voor uw logische app retourneert te verwerken, soms een lus 'voor elke' te lang zou duren voor het verwerken van elk matrixitem. In plaats daarvan kunt u de **SplitOn** eigenschap in de trigger op *debatch* de matrix. Debatching splitst de matrixitems en start een nieuwe logische app-exemplaar, die wordt uitgevoerd voor elk matrixitem. Deze aanpak is bijvoorbeeld handig als u wilt pollen van een eindpunt dat meerdere nieuwe items tussen de pollingintervallen kan retourneren. 
+
+Wanneer u gebruikt de `SplitOn` eigenschap, krijgt u gelijktijdige exemplaren voor de limiet die de trigger en de service kunnen retourneren. Voor het maximum aantal matrix-items die **SplitOn** kan verwerken in een enkele logische app uitvoeren, Zie [limieten en configuratie](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
 
 > [!NOTE]
 > U kunt geen gebruiken **SplitOn** met een synchrone reactie-patroon. Elke werkstroom die gebruikmaakt van **SplitOn** en een antwoord bevat actie wordt asynchroon uitgevoerd en onmiddellijk een `202 ACCEPTED` antwoord.
@@ -1425,9 +1426,9 @@ In tegenstelling tot andere acties, de **antwoord** actie bevat speciale beperki
 
   Echter, als een andere logische app als een geneste werkstroom wordt aangeroepen door de werkstroom, de bovenliggende werkstroom moet wachten totdat de geneste werkstroom is voltooid, ongeacht hoeveel tijd verstrijkt voordat de geneste werkstroom is voltooid.
 
-* Wanneer de werkstroom gebruikt de **antwoord** actie en een synchrone reactie-patroon, de werkstroom ook niet gebruiken de **splitOn** opdracht in de Triggerdefinitie omdat deze opdracht maakt u meerdere wordt uitgevoerd. Controleer in dit geval als de PUT-methode wordt gebruikt, en als de waarde true, "Ongeldige aanvraag" reactie retourneren.
+* Wanneer de werkstroom gebruikt de **antwoord** actie en een synchrone reactie-patroon, de werkstroom ook niet gebruiken de **SplitOn** eigenschap in de Triggerdefinitie omdat deze opdracht maakt u meerdere wordt uitgevoerd. Controleer in dit geval als de PUT-methode wordt gebruikt, en als de waarde true, "Ongeldige aanvraag" reactie retourneren.
 
-  Als uw werkstroom maakt gebruik van de **splitOn** opdracht en een **antwoord** actie, de werkstroom wordt asynchroon uitgevoerd en retourneert onmiddellijk een respons '202 geaccepteerd'.
+  Als uw werkstroom maakt gebruik van de **SplitOn** eigenschap en een **antwoord** actie, de werkstroom wordt asynchroon uitgevoerd en retourneert onmiddellijk een respons '202 geaccepteerd'.
 
 * Wanneer de uitvoering van uw werkstroom bereikt de **antwoord** actie, maar de binnenkomende aanvraag heeft al een antwoord ontvangen de **antwoord** actie is gemarkeerd als 'Mislukt' vanwege het conflict. En als gevolg hiervan uw logische app ook met de status 'Mislukt' is gemarkeerd.
 

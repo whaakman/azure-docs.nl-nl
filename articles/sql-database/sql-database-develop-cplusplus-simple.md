@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/12/2018
-ms.openlocfilehash: 6ebef74cee6f919fe6b8cf666db06e0ab22cec73
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 5a6f8328f6809a20b821f5b72106fa48fabf0e91
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566921"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755149"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Verbinding maken met SQL Database met behulp van C en C++
 
@@ -40,7 +40,7 @@ Azure heeft momenteel twee opties voor het hosten van SQL server-workloads: Azur
 Verbinding maken met Azure SQL-database is niet anders en er zijn momenteel twee manieren verbinding maken met databases: ODBC (Open Database connectivity) en OLE DB (Object koppelen en Embedding-database). Microsoft heeft in de afgelopen jaren uitgelijnd met [ODBC voor toegang tot systeemeigen relationele gegevens](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC is relatief eenvoudig en ook veel sneller dan OLE DB. Hier het enige nadeel is dat een oude C-style-API maakt gebruik van ODBC.
 
 ## <a id="Create"></a>Stap 1:  Het maken van uw Azure SQL-Database
-Zie de [aan de slag pagina](sql-database-get-started-portal.md) voor informatie over het maken van een voorbeelddatabase.  U kunt ook kunt u volgen dit [korte video van twee minuten](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) te maken van een Azure SQL-database met behulp van de Azure-portal.
+Zie de [aan de slag pagina](sql-database-single-database-get-started.md) voor informatie over het maken van een voorbeelddatabase.  U kunt ook kunt u volgen dit [korte video van twee minuten](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) te maken van een Azure SQL-database met behulp van de Azure-portal.
 
 ## <a id="ConnectionString"></a>Stap 2:  Verbindingsreeks ophalen
 Nadat u uw Azure SQL database is ingericht, moet u bij het uitvoeren van de volgende stappen uit om te bepalen van de verbindingsgegevens en uw client-IP-adres voor firewalltoegang toevoegen.

@@ -1,23 +1,26 @@
 ---
-title: Over het maken van een blob in Azure Storage met behulp van de Storage-SDK voor Java-v7 | Microsoft Docs
+title: Over het maken van een blob in Azure Storage met behulp van de clientbibliotheek voor Java-versie 7 | Microsoft Docs
 description: Maak een opslagaccount en een container in object(Blob)-opslag. Vervolgens gebruiken de Azure Storage-clientbibliotheek voor Java-versie 7 voor een blob uploaden naar Azure Storage, een blob downloaden en de blobs in een container te vermelden.
 services: storage
 author: roygara
 ms.custom: mvc
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 02/04/2019
 ms.author: rogarana
-ms.openlocfilehash: 18ba3d70951cd59f59b566c8bfff2403a32e4874
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 3bf82f37752009a488512d720093bc9c595dff8e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730456"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753211"
 ---
-# <a name="how-to-upload-download-and-list-blobs-using-java-sdk-v7"></a>Het uploaden, downloaden en blobs weergeven met behulp van Java-SDK voor Bing versie 7
+# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Het uploaden, downloaden en blobs weergeven met behulp van de clientbibliotheek voor Java-versie 7
 
-In deze handleiding leert u hoe u Java gebruikt om te uploaden, downloaden en vermelden van blok-blobs in een container in Azure Blob-opslag.
+In deze handleiding leert u hoe u met de clientbibliotheek voor Java-versie 7 om te uploaden, downloaden en lijst met blok-blobs in een container in Azure Blob-opslag.
+
+> [!TIP]
+> De meest recente versie van de Azure Storage-clientbibliotheek voor Java is v10. Microsoft raadt aan dat u de meest recente versie van de clientbibliotheek indien mogelijk. Om te beginnen met behulp van v10, Zie [Quick Start: Blobs uploaden, downloaden, en lijst met behulp van de Java-opslag-SDK V10](storage-quickstart-blobs-java-v10.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -206,8 +209,6 @@ sourceFile.deleteOnExit();
 In dit artikel hebt u geleerd hoe u bestanden overbrengt tussen een lokale schijf en Azure Blob-opslag met behulp van Java. Voor meer informatie over het werken met Java gaat u verder naar onze opslagplaats van GitHub-broncode.
 
 > [!div class="nextstepaction"]
-> [Azure Storage-SDK voor Java](https://github.com/azure/azure-storage-java) 
-> [API-verwijzing](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
-> [Codevoorbeelden voor Java](../common/storage-samples-java.md)
-
-* Zie [Azure Blob-opslagresources beheren met Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) voor meer informatie over Storage Explorer en blobs.
+> [Microsoft Azure Storage-SDK v10 voor Java](https://github.com/azure/azure-storage-java) 
+> [Java API-naslaginformatie](https://docs.microsoft.com/java/azure/)
+> [voorbeelden voor Java-Code](../common/storage-samples-java.md)

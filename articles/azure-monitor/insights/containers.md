@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 6fd614a632945dbcc89c530df54b8416809029d1
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9cf64f98e0a06fc063340f39326fdc1c12645db8
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194025"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756441"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Container Monitoring solution in Log Analytics
 
@@ -105,8 +105,8 @@ Gebruik de volgende informatie om de oplossing te installeren en configureren.
   - Voor het indelen van Docker-meerdere host:
     - Als u een Red Hat OpenShift-omgeving hebt, raadpleegt u [configureren van een Log Analytics-agent voor Red Hat OpenShift](#configure-an-oms-agent-for-red-hat-openshift).
     - Als u een Kubernetes-cluster met behulp van de Azure Container Service:
-       - Beoordeling [configureren een Log Analytics Linux-agent voor Kubernetes](#configure-an-oms-linux-agent-for-kubernetes).
-       - Beoordeling [configureren van een Log Analytics-Windows-agent voor Kubernetes](#configure-an-oms-windows-agent-for-kubernetes).
+       - Beoordeling [configureren een Log Analytics Linux-agent voor Kubernetes](#configure-a-log-analytics-linux-agent-for-kubernetes).
+       - Beoordeling [configureren van een Log Analytics-Windows-agent voor Kubernetes](#configure-a-log-analytics-windows-agent-for-kubernetes).
        - Beoordeling [gebruik Helm om te implementeren van Log Analytics-agent op Linux Kubernetes](#use-helm-to-deploy-oms-agent-on-linux-kubernetes).
     - Als u een Azure Container Service DC/OS-cluster hebt, voor meer informatie naar [een Azure Container Service DC/OS-cluster bewaken met Log Analytics](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
     - Hebt u een omgeving met Docker Swarm-modus, voor meer informatie naar [configureren van een Log Analytics-agent voor Docker Swarm](#configure-an-oms-agent-for-docker-swarm).

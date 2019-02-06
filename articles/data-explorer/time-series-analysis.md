@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 63182657e7c5793a2102efecabeb7d51fa1086a9
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: dd9314b8c61a98e6bc080503bcdd6b5c6257bd49
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729486"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750559"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Tijdseries analyseren in Azure Data Explorer
 
@@ -103,8 +103,7 @@ Voorbeeld van `series_fit_line()` en `series_fit_2lines()` functies in een time 
 ```kusto
 demo_series2
 | extend series_fit_2lines(y), series_fit_line(y)
-| project x, y, series_fit_2lines_y_line_fit, series_fit_line_y_line_fit 
-| render linechart
+| render linechart with(xcolumn=x)
 ```
 
 ![Time series regressie](media/time-series-analysis/time-series-regression.png)
@@ -207,7 +206,7 @@ let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));
 let max_t = toscalar(demo_many_series1 | summarize max(TIMESTAMP));  
 demo_many_series1
 | make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h)
-| render timechart 
+| render timechart with(ymin=0) 
 ```
 
 ![Tijdreeks op schaal](media/time-series-analysis/time-series-at-scale.png)
@@ -218,7 +217,7 @@ Hoeveel tijdreeksen kunnen we maken?
 
 ```kusto
 demo_many_series1
-| summarize by Loc, anonOp, DB
+| summarize by Loc, Op, DB
 | count
 ```
 
@@ -233,7 +232,7 @@ We gaan nu een reeks 23115 tijdreeksen van de gelezen aantal metrische gegevens.
 let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));  
 let max_t = toscalar(demo_many_series1 | summarize max(TIMESTAMP));  
 demo_many_series1
-| make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h) by Loc, anonOp, DB
+| make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h) by Loc, Op, DB
 | extend (rsquare, slope) = series_fit_line(reads)
 | top 2 by slope asc 
 | render timechart with(title='Service Traffic Outage for 2 instances (out of 23115)')
@@ -247,17 +246,17 @@ De exemplaren worden weergegeven:
 let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));  
 let max_t = toscalar(demo_many_series1 | summarize max(TIMESTAMP));  
 demo_many_series1
-| make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h) by Loc, anonOp, DB
+| make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h) by Loc, Op, DB
 | extend (rsquare, slope) = series_fit_line(reads)
 | top 2 by slope asc
-| project Loc, anonOp, DB, slope 
+| project Loc, Op, DB, slope 
 ```
 
 |   |   |   |   |   |
 | --- | --- | --- | --- | --- |
-|   | Loc | anonOp | DB | helling |
-|   | Loc 15 | -3207352159611332166 | 1151 | -102743.910227889 |
-|   | Loc 13 | -3207352159611332166 | 1249 | -86303.2334644601 |
+|   | Loc | Op | DB | helling |
+|   | Loc 15 | 37 | 1151 | -102743.910227889 |
+|   | Loc 13 | 37 | 1249 | -86303.2334644601 |
 
 In minder dan twee minuten ADX geanalyseerd van meer dan 20.000 tijdreeksen en twee abnormaal tijdreeks waarin het aantal gelezen plotseling verwijderd gedetecteerd.
 

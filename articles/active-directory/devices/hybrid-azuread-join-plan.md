@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 4c5742f8133b5915b7c838888f9887482ac5627e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: be66f24ec6532b93c4554568b0a58d467a09c600
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695352"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746418"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedure: Uw hybride Azure Active Directory join-implementatie plannen
 
@@ -111,7 +111,7 @@ Als uw organisatie internettoegang via een geverifieerde uitgaande proxy vereist
 
 Hybride Azure AD join is een proces naar uw on-premises domein apparaten automatisch wordt geregistreerd bij Azure AD. Er zijn gevallen waarin u niet wilt dat al uw apparaten automatisch te registreren. Als dit het geval is, raadpleegt u [over het beheren van de hybride Azure AD join van uw apparaten](hybrid-azuread-join-control.md).
 
-Als uw Windows 10 domein apparaten al zijn [geregistreerd bij Azure AD](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) uw tenant, kunt u overwegen deze status verwijderen voordat u Hybrid Azure AD join inschakelt. De dubbele status van een apparaat om zowel, hybride Azure AD join en geregistreerd bij Azure AD wordt niet ondersteund. Van Windows 10 1809 release, zijn de volgende wijzigingen aangebracht om te voorkomen dat deze twee status: 
+Als uw Windows 10 domein apparaten al zijn [geregistreerd bij Azure AD](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) uw tenant, is het raadzaam deze status verwijderen voordat u Hybrid Azure AD join inschakelt. Van Windows 10 1809 release, zijn de volgende wijzigingen aangebracht om te voorkomen dat deze twee status: 
  - Eventuele bestaande geregistreerd bij Azure AD-status zou worden automatisch verwijderd nadat het apparaat is toegevoegd aan Hybrid Azure AD. 
  - U kunt voorkomen dat uw apparaat dat lid is domein wordt Azure AD geregistreerd door toe te voegen deze registersleutel - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" = dword: 00000001
 
@@ -148,17 +148,17 @@ Vanaf versie 1.1.819.0 bevat Azure AD Connect een wizard om hybride Azure AD-kop
  Als het installeren van de vereiste versie van Azure AD Connect kan niet worden gebruikt voor u, raadpleegt u [het handmatig configureren van device Registration service](https://docs.microsoft.com/en-us/azure/active-directory/devices/hybrid-azuread-join-manual). 
 
 
-## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Ondersteuning voor alternatieve aanmeldings-ID in hybride Azure AD join
+## <a name="on-premises-ad-upn-support-in-hybrid-azure-ad-join"></a>Ondersteuning voor on-premises AD UPN in hybride Azure AD join
 
-Windows 10 hybride Azure AD join biedt beperkte ondersteuning voor [alternatieve aanmeldings-id's](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) op basis van het type van de alternatieve aanmeldings-ID, [verificatiemethode](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), domeintype en Windows 10-versie. Er zijn twee typen van alternatieve aanmeldings-id's die kunnen bestaan in uw omgeving:
+Soms, uw on-premises AD UPN's kunnen afwijken van uw Azure AD UPN's. In dergelijke gevallen, Windows 10 Hybrid Azure AD join geeft beperkte ondersteuning voor on-premises AD UPN's op basis van de [verificatiemethode](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), domeintype en Windows 10-versie. Er zijn twee typen van on-premises AD UPN's die in uw omgeving optreden kunnen:
 
- - Routeerbaar alternatieve aanmeldings-ID: Een routeerbaar alternatieve aanmeldings-ID heeft een ongeldig geverifieerd domein, die is geregistreerd bij een domeinregistrar. Bijvoorbeeld, als het primaire domein contoso.com is contoso.org en contoso.co.uk zijn geldige domeinen die eigendom zijn van Contoso en [geverifieerd in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
+ - Routeerbaar UPN: Een routeerbaar UPN is een geldige geverifieerd domein, die is geregistreerd bij een domeinregistrar. Bijvoorbeeld, als het primaire domein contoso.com in Azure AD is, contoso.org is het primaire domein in de on-premises AD die eigendom zijn van Contoso en [geverifieerd in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
  
- - Niet-routeerbare alternatieve aanmeldings-ID: Een niet-routeerbare alternatieve aanmeldings-ID beschikt niet over een geverifieerd domein. Het is van toepassing alleen binnen het particuliere netwerk van uw organisatie. Bijvoorbeeld, als het primaire domein contoso.com is contoso.local is niet een geverifieerd domein in het internet, maar binnen Contoso netwerk wordt gebruikt.
+ - Niet-routeerbare UPN: Een niet-routeerbare UPN beschikt niet over een geverifieerd domein. Het is van toepassing alleen binnen het particuliere netwerk van uw organisatie. Bijvoorbeeld, als het primaire domein contoso.com in Azure AD is, contoso.local is het primaire domein in on-premises AD, maar is niet een geverifieerd domein in de internet- en alleen binnen Contoso gebruikt het netwerk.
  
-De onderstaande tabel bevat informatie over ondersteuning voor een van deze alternatieve aanmeldings-id's in Windows 10 Hybrid Azure AD join
+De volgende tabel biedt details over ondersteuning voor deze on-premises AD UPN's in Windows 10 Hybrid Azure AD join
 
-|Type van de alternatieve aanmeldings-ID|Domeintype|Windows 10-versie|Description|
+|Type van de on-premises AD UPN|Domeintype|Windows 10-versie|Description|
 |-----|-----|-----|-----|
 |Routeerbaar|Federatief |Vanaf versie 1703|Algemeen beschikbaar|
 |Routeerbaar|Managed|Vanaf versie 1709|Momenteel in private preview. Azure AD SSPR wordt niet ondersteund. |

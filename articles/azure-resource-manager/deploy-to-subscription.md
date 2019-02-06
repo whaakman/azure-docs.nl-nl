@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 064cef04ac609b0e6db5f55d9973e3974af8e0cc
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: ce95406cbcb6d9514159d84d653a9ff361713aec
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494881"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744395"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Maken van resourcegroepen en resources op het abonnementsniveau
 
 Normaal gesproken implementeren u Azure-resources in een resourcegroep in uw Azure-abonnement. Echter, u kunt ook Azure-resourcegroepen maken en Azure-resources maken op het abonnementsniveau. Voor het implementeren van sjablonen op abonnementsniveau, gebruikt u Azure CLI en Azure PowerShell. De Azure-portal biedt geen ondersteuning voor implementatie op het abonnementsniveau.
 
-Voor het maken van een resourcegroep in een Azure Resource Manager-sjabloon, definieert een [ **Microsoft.Resources/resourceGroups** ](/azure/templates/microsoft.resources/allversions.md) resource met een naam en locatie voor de resourcegroep. U kunt een resourcegroep maken en implementeren van resources in die resourcegroep in dezelfde sjabloon. De resources die u op het abonnementsniveau van het implementeren kunt zijn onder andere: [Beleid](../azure-policy/azure-policy-introduction.md), en [Role-based access control van](../role-based-access-control/overview.md).
+Voor het maken van een resourcegroep in een Azure Resource Manager-sjabloon, definieert een [ **Microsoft.Resources/resourceGroups** ](/azure/templates/microsoft.resources/allversions) resource met een naam en locatie voor de resourcegroep. U kunt een resourcegroep maken en implementeren van resources in die resourcegroep in dezelfde sjabloon. De resources die u op het abonnementsniveau van het implementeren kunt zijn onder andere: [Beleid](../azure-policy/azure-policy-introduction.md), en [Role-based access control van](../role-based-access-control/overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -101,7 +101,7 @@ De volgende sjabloon maakt een lege resourcegroep.
 }
 ```
 
-Het sjabloonschema kan worden gevonden op [hier](/azure/templates/microsoft.resources/allversions.md). Vergelijkbare sjablonen kunnen u vinden op [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
+Het sjabloonschema kan worden gevonden op [hier](/azure/templates/microsoft.resources/allversions). Vergelijkbare sjablonen kunnen u vinden op [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
 
 ## <a name="create-multiple-resource-groups"></a>Maken van meerdere resourcegroepen
 

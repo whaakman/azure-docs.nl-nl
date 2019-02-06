@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: wesmc
-ms.openlocfilehash: 0dd32ae2b8f0fb91ca8d6391d5c3f3979d13b90f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7bcdd999a4954766398800e6e6a0ddb8c9727a99
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085260"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749156"
 ---
 # <a name="get-details-of-an-azure-cache-for-redis"></a>Details van een Azure-Cache ophalen voor Redis
 
@@ -38,7 +38,7 @@ Dit script worden de volgende opdrachten gebruikt om op te halen van de details 
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [AZ redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show) | Gegevens van een Azure-Cache voor Redis-exemplaar niet ophalen. |
+| [AZ redis show](https://docs.microsoft.com/cli/azure/redis) | Gegevens van een Azure-Cache voor Redis-exemplaar niet ophalen. |
 
 
 ## <a name="next-steps"></a>Volgende stappen

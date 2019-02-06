@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 02/05/2019
 ms.author: alkohli
-ms.openlocfilehash: e7c2cc0c0ffaae11bd7bf5113c942cdb98397201
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: b36926365b85c576cbe2927c690a30cc64df23d8
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53551352"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752769"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Vereisten voor Azure Data Box-Blob-opslag
 
@@ -30,7 +30,7 @@ Het is raadzaam dat u lees de informatie zorgvuldig door voordat u verbinding me
 |    Service-versleuteling voor data-at-Rest                  |    256-bits AES-versleuteling                             |    256-bits AES-versleuteling |
 |    Type opslagaccount                                 |    Voor algemene doeleinden en Azure blob storage-accounts    |    Alleen voor algemeen gebruik v1|
 |    Blobnaam                                            |    1024 tekens (2048 bytes)                     |    880 tekens (1,760 bytes)|
-|    Maximale grootte voor blok-blob                              |    4.75 TB (100 MB X 50.000 blokken)                   |    4.75 TB (100 MB x 50.000 blokken) voor Azure Data Box v 1.7 of hoger.|
+|    Maximale grootte voor blok-blob                              |    4.75 TB (100 MB X 50.000 blokken)                   |    4.75 TB (100 MB x 50.000 blokken) voor Azure Data Box v 1.8 en hoger.|
 |    Maximale grootte voor pagina-blob                               |    8 TB                                               |    1 TB                   |
 |    Paginaformaat voor pagina-blob                                  |    512 bytes                                          |    4 KB                   |
 
@@ -38,12 +38,14 @@ Het is raadzaam dat u lees de informatie zorgvuldig door voordat u verbinding me
 
 De volgende versies van Azure Storage service-API's worden ondersteund met gegevens in Blob-opslag:
 
-Openbare preview-versie (Azure Data Box 1.7 en hoger)
+Openbare preview-versie (Azure Data Box 1.8 en hoger)
 
+- [2017-11-09](/rest/api/storageservices/version-2017-11-09)
+- [2017-07-29](/rest/api/storageservices/version-2017-07-29)
 - [2017-04-17](/rest/api/storageservices/version-2017-04-17)
 - [2016-05-31](/rest/api/storageservices/version-2016-05-31)
 - [2015-12-11](/rest/api/storageservices/version-2015-12-11)
-- [07-2015-08](/rest/api/storageservices/version-2015-07-08)
+- [2015-07-08](/rest/api/storageservices/version-2015-07-08)
 - [2015-04-05](/rest/api/storageservices/version-2015-04-05)
 
 ## <a name="supported-sdk-versions"></a>Ondersteunde versies van de SDK
@@ -56,15 +58,13 @@ Openbare preview-versie (Azure Data Box 1.7 en hoger)
 |    C++                 |    Van 2.4.0 naar 3.1.0                          |    Nuget-pakket:   https://www.nuget.org/packages/wastorage.v140/   <br>Release van GitHub:   https://github.com/Azure/azure-storage-cpp/releases                                                                            |    Verbindingsinstellingen voor tekenreeks         |
 |    PHP                 |    Van 0.15.0 naar 1.0.0                         |    Release van GitHub:   https://github.com/Azure/azure-storage-php/releases   <br>Via Composer installeren (Zie hieronder voor meer informatie)                                                                                                   |    Verbindingsinstellingen voor tekenreeks         |
 |    Python              |    Van 0.30.0 naar 1.0.0                         |    Release van GitHub:   https://github.com/Azure/azure-storage-python/releases                                                                                                                                              |    De declaratie van de service-exemplaar    |
-|    Ruby                |    Van 0.12.1 naar 1.0.1                         |    Pakket van RubyGems:<br>Algemene:   https://rubygems.org/gems/azure-storage-common/   <br>BLOB: https://rubygems.org/gems/azure-storage-blob/      <br>Release van GitHub:   https://github.com/Azure/azure-storage-ruby/releases    |                                   |
+|    Ruby                |    Van 0.12.1 naar 1.0.1                         |    Pakket van RubyGems:<br>Algemene:   https://rubygems.org/gems/azure-storage-common/   <br>Blob: https://rubygems.org/gems/azure-storage-blob/      <br>Release van GitHub:   https://github.com/Azure/azure-storage-ruby/releases    |                                   |
 
 ## <a name="supported-azure-client-libraries"></a>Ondersteunde Azure-clientbibliotheken
 
-Voor gegevens in Blob-opslag zijn er specifieke-clientbibliotheken en vereisten voor specifieke eindpunt-achtervoegsel.
+Voor gegevens in Blob-opslag zijn er specifieke-clientbibliotheken en vereisten voor specifieke eindpunt-achtervoegsel. De gegevens in Blob storage-eindpunten zijn geen volledige pariteit met de nieuwste versie van de REST-API van Azure Blob Storage, Zie de [ondersteunde versies van Azure Data Box 1.8 en hoger](#supported-api-versions). Voor de opslagclientbibliotheken moet u rekening houden met de versie die compatibel is met de REST-API.
 
-De ondersteunde versies van de REST-API voor gegevens in Blob-opslag zijn 2017-04-17, 2016-05-31 invoert, 2015-12-11, 2015-07-08 en 2015-04-05 voor de Azure Data Box-versie 1.7 of hoger. De gegevens in Blob storage-eindpunten beschikt niet over volledige pariteit met de nieuwste versie van de REST-API van Azure Blob Storage. Voor de opslagclientbibliotheken moet u rekening houden met de versie die compatibel is met de REST-API.
-
-### <a name="azure-data-box-17-onwards"></a>Azure Data Box 1.7 of hoger
+### <a name="azure-data-box-18-onwards"></a>Azure Data Box 1.8 en hoger
 
 | Clientbibliotheek     |Gegevens in Blob storage een ondersteunde versie     | Koppeling   |     Eindpunt-specificatie      |
 |--------------------|--------------------------------------------|--------|---------------------------------|
@@ -72,9 +72,9 @@ De ondersteunde versies van de REST-API voor gegevens in Blob-opslag zijn 2017-0
 |    Java                |    6.1.0                                           |    Maven-pakket:   http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>Release van GitHub:   https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0                                                                                                                                                                              |    Verbindingsinstellingen voor tekenreeks         |
 |    Node.js             |    2.7.0                                           |    Koppeling van NPM:   https://www.npmjs.com/package/azure-storage   (Voer: npm installeren azure-storage@2.7.0)   <br>Release van GitHub:   https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0                                                                                                                                                                        |    De declaratie van de service-exemplaar    |
 |    C++                 |    3.1.0                                           |    Nuget-pakket:   https://www.nuget.org/packages/wastorage.v140/3.1.0   <br>Release van GitHub:   https://github.com/Azure/azure-storage-cpp/releases/tag/v3.1.0                                                                                                                                                                                                     |    Verbindingsinstellingen voor tekenreeks         |
-|    PHP                 |    1.0.0                                           |    Release van GitHub:<br>Algemene: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common   <br>BLOB: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob      <br>Installeren via de Composer (voor meer informatie, Zie de onderstaande details.)                                                                                                             |    Verbindingsinstellingen voor tekenreeks         |
-|    Python              |    1.0.0                                           |    Release van GitHub:<br>Algemene:   https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common <br>BLOB:   https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-blob                                                                                                                                                                          |    De declaratie van de service-exemplaar    |
-|    Ruby                |    1.0.1                                           |    Pakket van RubyGems:<br>Algemene:   https://rubygems.org/gems/azure-storage-common/versions/1.0.1   <br>BLOB: https://rubygems.org/gems/azure-storage-blob/versions/1.0.1         <br>Release van GitHub:<br>Algemene: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common   <br>BLOB: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob          |    Verbindingsinstellingen voor tekenreeks         |
+|    PHP                 |    1.0.0                                           |    Release van GitHub:<br>Algemene: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common   <br>Blob: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob      <br>Installeren via de Composer (voor meer informatie, Zie de onderstaande details.)                                                                                                             |    Verbindingsinstellingen voor tekenreeks         |
+|    Python              |    1.0.0                                           |    Release van GitHub:<br>Algemene:   https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common <br>Blob:   https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-blob                                                                                                                                                                          |    De declaratie van de service-exemplaar    |
+|    Ruby                |    1.0.1                                           |    Pakket van RubyGems:<br>Algemene:   https://rubygems.org/gems/azure-storage-common/versions/1.0.1   <br>Blob: https://rubygems.org/gems/azure-storage-blob/versions/1.0.1         <br>Release van GitHub:<br>Algemene: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common   <br>Blob: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob          |    Verbindingsinstellingen voor tekenreeks         |
 
 
 

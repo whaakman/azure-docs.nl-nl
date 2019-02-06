@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/06/2018
+ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 587303e8be4155b1b01228ad4606829ad8921560
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f336f6fdb5cde638fe62d1410a9f993492be21ed
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436583"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747557"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuele Machines, planning en implementatie van SAP NetWeaver
 
@@ -184,7 +184,6 @@ ms.locfileid: "54436583"
 [planning-guide-11]:planning-guide.md#7cf991a1-badd-40a9-944e-7baae842a058
 [planning-guide-11.4.1]:planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77
 [planning-guide-11.5]:planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f
-[planning-guide-2.1]:planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803
 [planning-guide-2.2]:planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10
 [planning-guide-3.1]:planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a
 [planning-guide-3.2.1]:planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358
@@ -339,35 +338,31 @@ In het hele document gebruiken we de volgende voorwaarden:
 * IaaS: Infrastructure as a Service
 * PaaS: Platform als een Service
 * SaaS: Software as a Service
-* SAP-onderdeel: een afzonderlijke SAP-toepassing, zoals ECC, BW, Manager van de oplossing of EP  SAP-onderdelen kunnen worden gebaseerd op de traditionele ABAP- of Java-technologieën of een toepassing NetWeaver op basis van zoals zakelijke objecten.
+* SAP-onderdeel: een afzonderlijke SAP-toepassing, zoals ECC, BW, Manager van de oplossing of S/4HANA.  SAP-onderdelen kunnen worden gebaseerd op de traditionele ABAP- of Java-technologieën of een toepassing NetWeaver op basis van zoals zakelijke objecten.
 * SAP-omgeving: een of meer onderdelen van SAP logisch zijn gegroepeerd om uit te voeren van een zakelijke-functie, zoals ontwikkeling, QAS, Training, herstel na Noodgevallen of productie.
 * SAP-landschap: Deze term heeft betrekking op de gehele SAP-elementen in een klant IT landschap. De SAP-landschap bevat alle productie- en niet-productieomgevingen.
 * SAP-systeem: De combinatie van DBMS-laag en niveau van de toepassing van bijvoorbeeld een ontwikkelsysteem SAP ERP, SAP BW-testsysteem, SAP CRM productiesysteem, enzovoort. In de Azure-implementaties, is het niet ondersteund voor het delen van deze twee lagen tussen on-premises en Azure. On-premises betekent dat die een SAP-systeem is geïmplementeerd of deze is geïmplementeerd in Azure. U kunt echter de verschillende systemen van SAP-landschap dat in Azure of on-premises implementeren. U kunt bijvoorbeeld implementeert de SAP CRM-ontwikkeling en testen van systemen in Azure, maar de SAP CRM productie system on-premises.
-* Alleen-cloud-implementatie: Een implementatie waarbij het Azure-abonnement niet is verbonden via een site-naar-site of een ExpressRoute-verbinding met de on-premises netwerkinfrastructuur. In algemene Azure-documentatie en dit soort implementaties worden ook beschreven als 'Cloud-Only'-implementaties. Virtuele Machines die worden geïmplementeerd met deze methode zijn toegankelijk via internet en een openbaar IP-adres en/of een openbare DNS-naam toegewezen aan de virtuele machines in Azure. Voor Microsoft Windows, de on-premises Active Directory (AD) en DNS is niet uitgebreid naar Azure in deze typen implementaties. De virtuele machines zijn daarom geen onderdeel van de on-premises Active Directory. Hetzelfde geldt voor Linux-implementaties met behulp van bijvoorbeeld OpenLDAP + Kerberos.
+* Cross-premises of in een hybride: Beschrijft een scenario waarbij virtuele machines worden geïmplementeerd naar een Azure-abonnement dat site-naar-site, meerdere locaties of ExpressRoute-connectiviteit tussen de on-premises clientresources en Azure. In algemene Azure-documentatie en dit soort implementaties worden ook beschreven als cross-premises of in een hybride scenario's. De reden voor de verbinding is om de on-premises domeinen, on-premises Active Directory/OpenLDAP en on-premises DNS uitbreiden naar Azure. Het on-premises-landschap is uitgebreid naar de Azure-assets van het abonnement. Met deze extensie, kunnen de virtuele machines deel uitmaken van de on-premises domein. Gebruikers van een domein van de on-premises domein toegang tot de servers en services kunnen worden uitgevoerd op deze VM's (zoals DBMS-services). Communicatie en naamomzetting tussen de geïmplementeerde virtuele machines on-premises en Azure geïmplementeerde VM's is het mogelijk. Dit is de meest voorkomende en bijna exclusief case activa SAP implementeren in Azure. Zie voor meer informatie, [dit] [ vpn-gateway-cross-premises-options] artikel en [dit][vpn-gateway-site-to-site-create].
 
 > [!NOTE]
-> Alleen-cloud-implementatie in dit document wordt gedefinieerd als complete SAP-landschappen worden uitgevoerd in Azure zonder de extensie van Active Directory uitsluitend / OpenLDAP of naamomzetting van on-premises naar openbare cloud. Alleen-cloud-configuraties worden niet ondersteund voor productie SAP-systemen of configuraties waarbij SAP stm of andere on-premises bronnen worden gebruikt tussen die worden gehost op Azure en bronnen die zich moeten on-premises SAP-systemen.
+> Cross-premises of hybride implementaties van SAP-systemen waarbij Azure Virtual Machines met SAP-systemen lid van een on-premises domein zijn worden ondersteund voor productie SAP-systemen. Cross-premises en hybride configuraties worden ondersteund voor het implementeren van onderdelen of uitvoeren van SAP-landschappen in Azure. De volledige SAP-landschap dat zelfs uitvoeren in Azure vereist dat deze virtuele machines die deel uit van de on-premises domein en ADVERTENTIES/OpenLDAP. 
 >
 >
 
-* Cross-premises: Beschrijft een scenario waarbij virtuele machines worden geïmplementeerd naar een Azure-abonnement dat site-naar-site, meerdere locaties of ExpressRoute-connectiviteit tussen de on-premises clientresources en Azure. In algemene Azure-documentatie en dit soort implementaties worden ook beschreven als cross-premises scenario's. De reden voor de verbinding is om de on-premises domeinen, on-premises Active Directory/OpenLDAP en on-premises DNS uitbreiden naar Azure. Het on-premises-landschap is uitgebreid naar de Azure-assets van het abonnement. Met deze extensie, kunnen de virtuele machines deel uitmaken van de on-premises domein. Gebruikers van een domein van de on-premises domein toegang tot de servers en services kunnen worden uitgevoerd op deze VM's (zoals DBMS-services). Communicatie en naamomzetting tussen de geïmplementeerde virtuele machines on-premises en Azure geïmplementeerde VM's is het mogelijk. Dit is de meest voorkomende en bijna exclusief case activa SAP implementeren in Azure. Zie voor meer informatie, [dit] [ vpn-gateway-cross-premises-options] artikel en [dit][vpn-gateway-site-to-site-create].
 
-> [!NOTE]
-> Cross-premises implementaties van SAP-systemen waarbij Azure Virtual Machines met SAP-systemen lid van een on-premises domein zijn worden ondersteund voor productie SAP-systemen. Cross-premises configuraties worden ondersteund voor het implementeren van onderdelen of uitvoeren van SAP-landschappen in Azure. De volledige SAP-landschap dat zelfs uitvoeren in Azure vereist dat deze virtuele machines die deel uit van de on-premises domein en ADVERTENTIES/OpenLDAP. In vorige versies van de documentatie, we hebben het gehad over hybride IT-scenario's waarin de term *hybride* verankerd ligt in het feit dat er een cross-premises-connectiviteit tussen on-premises en Azure. Bovendien is het feit dat de virtuele machines in Azure deel uit van de on-premises Active Directory maken / OpenLDAP.
->
->
-
-Sommige Microsoft-documentatie worden cross-premises scenario's iets anders, met name voor DBMS HA configuraties beschreven. In het geval van de SAP-gerelateerde documenten, het cross-premises scenario alleen komt meestal neer op een site-naar-site of privé (ExpressRoute)-connectiviteit en het feit dat de SAP-landschap dat wordt gedistribueerd tussen on-premises en Azure in te stellen.  
 
 ### <a name="e55d1e22-c2c8-460b-9897-64622a34fdff"></a>Resources
-De volgende aanvullende handleidingen zijn beschikbaar voor het onderwerp van de SAP-oplossingen op Azure:
+Het toegangspunt voor de werkbelasting van SAP op Azure-documentatie is gevonden [hier](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). Beginnen met dit toegangspunt vindt u veel artikelen die betrekking hebben op de onderwerpen van:
 
-* [Azure virtuele Machines, planning en implementatie van SAP NetWeaver (in dit document)][planning-guide]
-* [Azure Virtual Machines-implementatie voor SAP NetWeaver][deployment-guide]
-* [Azure virtuele Machines DBMS-implementatie voor SAP NetWeaver][dbms-guide]
+- SAP NetWeaver en uw bedrijf een op Azure
+- SAP DBMS-handleidingen voor verschillende DBMS-systemen in Azure
+- Hoge beschikbaarheid en herstel na noodgevallen voor de werkbelasting van SAP op Azure
+- Specifieke richtlijnen voor het uitvoeren van SAP HANA op Azure
+- Richtlijnen die specifiek zijn voor grote Azure HANA-instanties voor de SAP HANA DBMS 
+
 
 > [!IMPORTANT]
-> Waar mogelijk een koppeling naar de verwijzende SAP-installatiehandleiding wordt gebruikt (verwijzing InstGuide-01, Zie <http://service.sap.com/instguides>). Als het gaat om de vereisten en installatie, moet de SAP NetWeaver-installatiehandleidingen altijd worden gelezen zorgvuldig, zoals in dit document heeft alleen betrekking op specifieke taken voor SAP NetWeaver-systemen die zijn geïnstalleerd in een Microsoft Azure-Machine.
+> Waar mogelijk een koppeling naar de verwijst SAP-installatiehandleidingen of andere SAP-documentatie wordt gebruikt (verwijzing InstGuide-01, Zie <http://service.sap.com/instguides>). Als het gaat om de vereisten, het installatieproces of de details van specifieke SAP-functionaliteit de SAP-documentatie en handleidingen moeten altijd worden gelezen zorgvuldig, als de Microsoft documenten heeft alleen betrekking op specifieke taken voor SAP-software geïnstalleerd en worden beheerd een Microsoft Azure virtuele Machine.
 >
 >
 
@@ -431,22 +426,7 @@ Een laatste stap is het evalueren van de vereisten voor beschikbaarheid. Dit kan
 
 Als u wilt implementeren naar Azure een SAP-systeem, de on-premises SAP-systemen besturingssysteem, Database, en SAP-toepassingen moeten worden weergegeven op de ondersteuningsmatrix voor Azure voor SAP, past binnen de Azure-resources infrastructuur kunt bieden en die kunnen werken met de beschikbaarheid van SLA's Microsoft Azure-aanbiedingen. Als deze systemen worden geïdentificeerd, moet u besluiten op een van de volgende twee implementatiescenario's.
 
-### <a name="1625df66-4cc6-4d60-9202-de8a0b77f803"></a>Cloud-Only - implementaties van virtuele machines in Azure zonder afhankelijkheden van de klant on-premises netwerk
-![Één virtuele machine met SAP-demo's of trainingen scenario geïmplementeerd in Azure][planning-guide-figure-100]
 
-In dit scenario is normaal voor trainingen of demo-systemen, waarop alle onderdelen van SAP en niet-SAP-software in een enkele virtuele machine zijn geïnstalleerd. Productie SAP-systemen worden niet ondersteund in dit implementatiescenario. In dit scenario wordt in het algemeen de volgende vereisten voldoet:
-
-* De VM's zelf zijn toegankelijk via het openbare netwerk. Rechtstreekse netwerkverbinding voor de toepassingen die binnen de virtuele machines worden uitgevoerd op de on-premises netwerk van een van beide het bedrijf die eigenaar is van de demo's of trainingen inhoud of de klant is niet nodig.
-* In het geval van meerdere virtuele machines die de trainingen of een demo-scenario, moet netwerk communicatie en naamomzetting werkt tussen de virtuele machines. Maar communicatie tussen de set van virtuele machines moeten worden geïsoleerd, zodat verschillende sets virtuele machines kunnen naast elkaar worden geïmplementeerd zonder tussenkomst.  
-* Verbinding met Internet is vereist voor de eindgebruiker moet externe Meld u aan bij de VM's die worden gehost in Azure. Afhankelijk van de Gast wordt OS, Terminal Services/extern bureaublad-services of VNC/ssh gebruikt voor toegang tot de virtuele machine om te voldoen aan de training-taken of uitvoeren van de demo's. Als SAP zoals 3200, 3300 & 3600 kan poorten ook worden blootgesteld exemplaar van de SAP-toepassing kan worden benaderd vanaf elke Internet verbonden desktop.
-* De SAP-systemen (en VM(s)) vertegenwoordigen een scenario voor zelfstandige in Azure, die alleen openbare internetverbinding vereist voor toegang van eindgebruikers en vereist geen een verbinding met andere virtuele machines in Azure.
-* SAPGUI en een browser worden geïnstalleerd en uitgevoerd rechtstreeks op de virtuele machine.
-* Snel opnieuw instellen van een virtuele machine naar de oorspronkelijke status en de nieuwe implementatie van deze oorspronkelijke status opnieuw is vereist.
-* In het geval van demo's en scenario's voor training, dat zijn gerealiseerde in meerdere virtuele machines, een Active Directory / OpenLDAP en/of de DNS-service is vereist voor elke set van virtuele machines.
-
-![Groep van de virtuele machine voor een demonstratie of scenario training in een Azure Cloud Service][planning-guide-figure-200]
-
-Het is belangrijk dat u er rekening mee dat de VM (s) in elk van de sets worden geïmplementeerd in parallelle moeten, waar de namen van de virtuele machine in elk van de set hetzelfde zijn.
 
 ### <a name="f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10"></a>Cross-Premises - implementatie van één of meerdere SAP-virtuele machines naar Azure met de vereiste van volledig geïntegreerd in de on-premises netwerk
 ![VPN met Site-naar-Site-connectiviteit (cross-premises)][planning-guide-figure-300]
@@ -648,9 +628,9 @@ Microsoft Azure biedt een netwerkinfrastructuur voor, waardoor de toewijzing van
 
 Meer informatie vindt u hier: <https://azure.microsoft.com/documentation/services/virtual-network/>
 
-Er zijn veel verschillende mogelijkheden voor het configureren van de naam en IP-oplossing in Azure. In dit document, is alleen-Cloud-scenario's zijn afhankelijk van de standaardwaarde van het gebruik van Azure DNS (in tegenstelling tot het definiëren van een eigen DNS-service). Er is ook een nieuwe Azure DNS-service, die kan worden gebruikt in plaats van het instellen van uw eigen DNS-server. Meer informatie vindt u [in dit artikel] [ virtual-networks-manage-dns-in-vnet] en klik op [deze pagina](https://azure.microsoft.com/services/dns/).
+Er zijn veel verschillende mogelijkheden voor het configureren van de naam en IP-oplossing in Azure. Er is ook een Azure DNS-service, die kan worden gebruikt in plaats van het instellen van uw eigen DNS-server. Meer informatie vindt u [in dit artikel] [ virtual-networks-manage-dns-in-vnet] en klik op [deze pagina](https://azure.microsoft.com/services/dns/).
 
-Voor cross-premises scenario's, zijn we vertrouwen op het feit dat de on-premises naar Azure AD/OpenLDAP/DNS is uitgebreid via VPN of particuliere verbinding. Voor bepaalde scenario's zoals hier wordt beschreven, kan het nodig zijn om de replica van een AD/OpenLDAP geïnstalleerd in Azure.
+Voor cross-premises of in een hybride scenario's, we, vertrouwen al op het feit dat de on-premises naar Azure AD/OpenLDAP/DNS is uitgebreid via VPN of particuliere verbinding. Voor bepaalde scenario's zoals hier wordt beschreven, kan het nodig zijn om de replica van een AD/OpenLDAP geïnstalleerd in Azure.
 
 Omdat de toegang en naamomzetting is een essentieel onderdeel van de implementatie van de database voor een SAP-systeem, dit concept wordt besproken in meer detail in de [DBMS-Implementatiehandleiding][dbms-guide].
 
@@ -892,8 +872,6 @@ Vereisten bij het voorbereiden van uw eigen Azure-VM-schijf zijn:
 * Het moet zich in de vaste VHD-indeling. Dynamische virtuele harde schijven of VHD's in de VHDx-indeling zijn nog niet ondersteund op Azure. Dynamische VHD's worden geconverteerd naar vaste VHD's tijdens het uploaden van de VHD met de PowerShell-commandlets of CLI
 * VHD's, die zijn gekoppeld aan de virtuele machine en moeten worden gekoppeld opnieuw in Azure worden in een vaste VHD-indeling ook aan de virtuele machine. Lezen [in dit artikel (Linux)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-linux) en [in dit artikel (Windows)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-windows) voor de maximale grootte van gegevensschijven. Dynamische VHD's worden geconverteerd naar vaste VHD's tijdens het uploaden van de VHD met de PowerShell-commandlets of CLI
 * Voeg een andere lokale account met beheerdersbevoegdheden, die kan worden gebruikt door Microsoft ondersteuning of die kunnen worden toegewezen als context voor services en toepassingen worden uitgevoerd in totdat de virtuele machine is geïmplementeerd en meer gebruikers kan worden gebruikt.
-* Voor het geval van het gebruik van een Cloud-Only implementatiescenario (Zie hoofdstuk [Cloud-Only - implementaties van virtuele machines in Azure zonder afhankelijkheden van de klant on-premises netwerk] [ planning-guide-2.1] van dit document) in de combinatie met deze implementatiemethode, domeinaccounts werkt mogelijk niet wanneer de Azure-schijf is geïmplementeerd in Azure. Dit geldt met name voor accounts die worden gebruikt om uit te voeren, zoals de DBMS-systemen of SAP-toepassingen. Daarom moet u dergelijke domeinaccounts vervangen door de lokale accounts VM en de on-premises domein-accounts in de virtuele machine verwijderen. On-premises domeingebruikers blijven in de VM-installatiekopie is niet een probleem wanneer de virtuele machine is geïmplementeerd in het scenario voor cross-premises, zoals beschreven in het hoofdstuk [Cross-Premises - implementatie van één of meerdere SAP-virtuele machines naar Azure met de vereiste worden volledig geïntegreerd in de on-premises netwerk] [ planning-guide-2.2] in dit document.
-* Als u domeinaccounts gebruikt als DBMS aanmeldingen of gebruikers bij het uitvoeren van het systeem on-premises en deze virtuele machines moeten worden geïmplementeerd in scenario's alleen in de Cloud, moeten de gebruikers van een domein worden verwijderd. U moet ervoor zorgen dat de lokale beheerder plus een andere virtuele machine lokale gebruiker is toegevoegd als een aanmelding/gebruiker die in het DBMS-Administrators.
 * Andere lokale accounts toevoegen als die welke nodig zijn voor het specifieke scenario.
 
 - - -
@@ -920,9 +898,6 @@ Vereisten bij het voorbereiden van uw eigen Azure-VM-installatiekopie zijn:
 * De VHD met het besturingssysteem kan oorspronkelijk alleen een maximale grootte van 127GB zijn. Deze beperking is aan het einde van maart 2015 verwijderd. Nu de VHD met het besturingssysteem maximaal 1TB groot zijn kan als een andere Azure-opslag VHD ook gehoste.
 * Het moet zich in de vaste VHD-indeling. Dynamische virtuele harde schijven of VHD's in de VHDx-indeling zijn nog niet ondersteund op Azure. Dynamische VHD's worden geconverteerd naar vaste VHD's tijdens het uploaden van de VHD met de PowerShell-commandlets of CLI
 * VHD's, die zijn gekoppeld aan de virtuele machine en moeten worden gekoppeld opnieuw in Azure worden in een vaste VHD-indeling ook aan de virtuele machine. Lees [in dit artikel (Linux)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-linux) en [in dit artikel (Windows)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-windows) voor de maximale grootte van gegevensschijven. Dynamische VHD's worden geconverteerd naar vaste VHD's tijdens het uploaden van de VHD met de PowerShell-commandlets of CLI
-* Omdat alle domeingebruikers geregistreerd als gebruikers in de virtuele machine niet in een Cloud-Only-scenario bestaat (Zie hoofdstuk [Cloud-Only - implementaties van virtuele machines in Azure zonder afhankelijkheden van de klant on-premises netwerk] [ planning-guide-2.1] van dit document), met behulp van dergelijke domain accounts niet werken mogelijk wanneer de installatiekopie is geïmplementeerd in Azure-services. Dit geldt met name voor accounts die worden gebruikt voor services zoals DBMS-systemen of SAP-toepassingen worden uitgevoerd. Daarom moet u dergelijke domeinaccounts vervangen door de lokale accounts VM en de on-premises domein-accounts in de virtuele machine verwijderen. On-premises domeingebruikers blijven in de VM-installatiekopie niet mogelijk een probleem wanneer de virtuele machine wordt geïmplementeerd in het scenario voor cross-premises, zoals beschreven in het hoofdstuk [Cross-Premises - implementatie van één of meerdere SAP-virtuele machines naar Azure met de vereiste van wordt volledig geïntegreerd in de on-premises netwerk] [ planning-guide-2.2] in dit document.
-* Voeg een andere lokale account met beheerdersbevoegdheden, die kan worden gebruikt door Microsoft-ondersteuning in het probleem onderzoeken of die kunnen worden toegewezen als context voor services en toepassingen worden uitgevoerd in totdat de virtuele machine is geïmplementeerd en geschikter gebruikers kan worden gebruikt.
-* In de alleen-implementaties en waar domeinaccounts als DBMS aanmeldingen of gebruikers zijn gebruikt bij het uitvoeren van de system on-premises, moeten de gebruikers van een domein worden verwijderd. U moet ervoor zorgen dat de lokale beheerder plus een andere virtuele machine lokale gebruiker is toegevoegd als een aanmelding/gebruiker van de DBMS-Administrators.
 * Andere lokale accounts toevoegen als die welke nodig zijn voor het specifieke scenario.
 * Als de afbeelding bevat een installatie van SAP NetWeaver en wijzigen van de naam van de hostnaam van de oorspronkelijke naam op het moment van de Azure-implementatie is waarschijnlijk dat het beste de nieuwste versies van de SAP-Software wordt ingericht Manager DVD kopiëren naar de sjabloon. Hierdoor kunt u eenvoudig de functionaliteit voor het wijzigen van SAP opgegeven om te gebruiken om aan te passen de hostnaam van de gewijzigde en/of de SID van de SAP-systeem in de geïmplementeerde VM-installatiekopie wijzigen zodra een nieuw exemplaar wordt gestart.
 
@@ -1336,7 +1311,7 @@ Voor de laatste implementatie en de exacte stappen, met name met betrekking tot 
 
 ## <a name="accessing-sap-systems-running-within-azure-vms"></a>Toegang tot de SAP-systemen binnen Azure-VM 's
 
-Voor scenario's alleen in de Cloud, kunt u verbinding maken met de SAP-systemen via het openbare internet met SAP-gebruikersinterface. Voor deze gevallen moeten de volgende procedures worden toegepast.
+Voor scenario's waar u verbinding maken met de SAP-systemen via het openbare internet met SAP-gebruikersinterface, moeten de volgende procedures worden toegepast.
 
 Verderop in dit document bespreken we de andere belangrijke scenario's, verbinding maken met SAP-systemen in cross-premises implementaties waarvoor een site-naar-site-verbinding (VPN-tunnel) of Azure ExpressRoute-verbinding tussen de on-premises systemen en Azure-systemen.
 
@@ -1349,7 +1324,7 @@ Met Azure Resource Manager, zijn er geen Standaardeindpunten meer, zoals in het 
 
 Zie de architectuur verschil tussen het klassieke model en ARM, zoals beschreven in [in dit artikel][virtual-machines-azure-resource-manager-architecture].
 
-#### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-for-cloud-only-scenario"></a>Configuratie van de SAP-systeem- en SAP-GUI-connectiviteit voor Cloud-Only-scenario
+#### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-over-the-internet"></a>Configuratie van de SAP-systeem- en SAP-GUI-connectiviteit via internet
 
 Raadpleeg dit artikel voor meer informatie in dit onderwerp wordt beschreven: <http://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
 
@@ -1392,13 +1367,12 @@ De SAP-gebruikersinterface verbinding geen direct met een van de SAP-instanties 
 
 zoals beschreven in [beveiligingsinstellingen voor de SAP-berichtenserver ](https://help.sap.com/saphelp_nwpi71/helpdata/en/47/c56a6938fb2d65e10000000a42189c/content.htm)
 
-## <a name="96a77628-a05e-475d-9df3-fb82217e8f14"></a>Concepten van Cloud-Only-implementatie van SAP-instanties
 
 ### <a name="3e9c3690-da67-421a-bc3f-12c520d99a30"></a>Één virtuele machine met SAP NetWeaver demo/training scenario
 
 ![Met één VM-SAP-demo-systemen met dezelfde namen van virtuele machine, geïsoleerd in Azure Cloud Services][planning-guide-figure-1700]
 
-In dit scenario (Zie hoofdstuk [alleen in de Cloud] [ planning-guide-2.1] van dit document) we bij het implementeren van een typische training/demo system-scenario waarbij het volledige training/demo-scenario is opgenomen in een enkele virtuele machine. Gaan we ervan uit dat de implementatie vindt plaats via VM image-sjablonen. We ook wordt ervan uitgegaan dat meerdere van deze demo/u kunt virtuele machines moeten worden geïmplementeerd met de virtuele machines met dezelfde naam.
+In dit scenario zijn we een typische training/demo system-scenario waarbij het volledige training/demo-scenario is opgenomen in een enkele virtuele machine implementeren. Gaan we ervan uit dat de implementatie vindt plaats via VM image-sjablonen. We ook wordt ervan uitgegaan dat meerdere van deze demo/u kunt virtuele machines moeten worden geïmplementeerd met de virtuele machines met dezelfde naam. De hele training-systemen niet zijn verbonden met uw on-premises assets en een tegenovergestelde naar een hybride implementatie zijn.
 
 De veronderstelling is dat u een VM-installatiekopie gemaakt zoals beschreven in bepaalde secties van hoofdstuk [virtuele machines met SAP voor Azure voorbereiden] [ planning-guide-5.2] in dit document.
 
@@ -1445,7 +1419,7 @@ $pip = New-AzureRmPublicIpAddress -Name SAPERPDemoPIP -ResourceGroupName $rgName
 $nic = New-AzureRmNetworkInterface -Name SAPERPDemoNIC -ResourceGroupName $rgName -Location "North Europe" -Subnet $vnet.Subnets[0] -PublicIpAddress $pip
 ```
 
-* Hiermee maakt u een virtuele machine. Elke virtuele machine hebben dezelfde naam voor het scenario met alleen-Cloud. De SAP-SID van de SAP NetWeaver-exemplaren in deze virtuele machines zijn hetzelfde als goed. De naam van de virtuele machine moet uniek zijn binnen de Azure-resourcegroep, maar in verschillende Azure-resourcegroepen kunt u virtuele machines uitvoeren met dezelfde naam. Het standaardaccount voor 'Administrator' van het Windows- of 'root' voor Linux zijn niet geldig. Een nieuwe gebruikersnaam van beheerder moet daarom, samen met een wachtwoord worden gedefinieerd. De grootte van de virtuele machine moet ook worden gedefinieerd.
+* Hiermee maakt u een virtuele machine. Voor dit scenario wordt elke virtuele machine dezelfde naam hebben. De SAP-SID van de SAP NetWeaver-exemplaren in deze virtuele machines zijn hetzelfde als goed. De naam van de virtuele machine moet uniek zijn binnen de Azure-resourcegroep, maar in verschillende Azure-resourcegroepen kunt u virtuele machines uitvoeren met dezelfde naam. Het standaardaccount voor 'Administrator' van het Windows- of 'root' voor Linux zijn niet geldig. Een nieuwe gebruikersnaam van beheerder moet daarom, samen met een wachtwoord worden gedefinieerd. De grootte van de virtuele machine moet ook worden gedefinieerd.
 
 ```powershell
 #####
@@ -1560,7 +1534,7 @@ az network public-ip create --resource-group $rgName --name SAPERPDemoPIP --loca
 az network nic create --resource-group $rgName --location "North Europe" --name SAPERPDemoNIC --public-ip-address SAPERPDemoPIP --subnet Subnet1 --vnet-name SAPERPDemoVNet
 ```
 
-* Hiermee maakt u een virtuele machine. Elke virtuele machine hebben dezelfde naam voor het scenario met alleen-Cloud. De SAP-SID van de SAP NetWeaver-exemplaren in deze virtuele machines zijn hetzelfde als goed. De naam van de virtuele machine moet uniek zijn binnen de Azure-resourcegroep, maar in verschillende Azure-resourcegroepen kunt u virtuele machines uitvoeren met dezelfde naam. Het standaardaccount voor 'Administrator' van het Windows- of 'root' voor Linux zijn niet geldig. Een nieuwe gebruikersnaam van beheerder moet daarom, samen met een wachtwoord worden gedefinieerd. De grootte van de virtuele machine moet ook worden gedefinieerd.
+* Hiermee maakt u een virtuele machine. Voor dit scenario wordt elke virtuele machine dezelfde naam hebben. De SAP-SID van de SAP NetWeaver-exemplaren in deze virtuele machines zijn hetzelfde als goed. De naam van de virtuele machine moet uniek zijn binnen de Azure-resourcegroep, maar in verschillende Azure-resourcegroepen kunt u virtuele machines uitvoeren met dezelfde naam. Het standaardaccount voor 'Administrator' van het Windows- of 'root' voor Linux zijn niet geldig. Een nieuwe gebruikersnaam van beheerder moet daarom, samen met een wachtwoord worden gedefinieerd. De grootte van de virtuele machine moet ook worden gedefinieerd.
 
 ```
 #####
@@ -1614,7 +1588,7 @@ U kunt de voorbeeldsjablonen gebruiken in de azure-quickstart-templates opslagpl
 
 ### <a name="implement-a-set-of-vms-that-communicate-within-azure"></a>Een set van virtuele machines die in Azure communiceren implementeren
 
-In dit scenario alleen in de Cloud een typisch scenario voor training en demo is bedoeld waar de software voor de demo/training scenario is verspreid over meerdere virtuele machines. De verschillende onderdelen geïnstalleerd in de verschillende VM's nodig hebt om te communiceren met elkaar. Nogmaals, in dit scenario geen on-premises netwerkcommunicatie of cross-premises scenario nodig is.
+In dit scenario niet hybride een typisch scenario voor training en demo is bedoeld waar de software voor de demo/training scenario is verspreid over meerdere virtuele machines. De verschillende onderdelen geïnstalleerd in de verschillende VM's nodig hebt om te communiceren met elkaar. Nogmaals, in dit scenario geen on-premises netwerkcommunicatie of cross-premises scenario nodig is.
 
 In dit scenario is een uitbreiding van de installatie wordt beschreven in het hoofdstuk [één virtuele machine met SAP NetWeaver demo/training scenario] [ planning-guide-7.1] van dit document. In dit geval wordt meer virtuele machines worden toegevoegd aan een bestaande resourcegroep. In het volgende voorbeeld wordt het landschap van training bestaat uit een SAP ASCS/SCS-VM, een virtuele machine met een DBMS-systemen, en een exemplaar van SAP-toepassingsserver VM.
 
@@ -1643,11 +1617,11 @@ Meer informatie over Azure Virtual Networks en hoe u ze definiëren in vindt [in
 
 U uitvoeren van een SAP-landschap en wilt verdelen van de implementatie tussen bare-metal voor geavanceerde DBMS-servers, on-premises gevirtualiseerde omgevingen voor toepassingslagen en kleinere Tier-2 geconfigureerd SAP-systemen en Azure IaaS. De base veronderstelling is dat SAP-systemen binnen één SAP-landschap nodig om te communiceren met elkaar en met veel andere softwareonderdelen geïmplementeerd in het bedrijf, onafhankelijk van de vorm van hun implementatie. Ook moet er worden geen geïntroduceerd door het formulier implementatie voor de eindgebruiker verbinding te maken met SAP-GUI of andere interfaces verschillen. Deze voorwaarden kunnen alleen worden voldaan wanneer we de on-premises Active Directory/OpenLDAP en DNS-services uitgebreid naar de Azure-systemen via site-naar-site/meerdere-on-site verbindings- of particuliere verbindingen, zoals Azure ExpressRoute.
 
-Om meer achtergrondinformatie over de implementatiedetails van SAP op Azure, raden we u aan het lezen van hoofdstuk [concepten van Cloud-Only implementatie van SAP instanties] [ planning-guide-7] van dit document, waarin wordt uitgelegd dat sommige van de concepten van de basisbeginselen van Azure en hoe deze moeten worden gebruikt met SAP-toepassingen in Azure.
+
 
 ### <a name="scenario-of-an-sap-landscape"></a>Scenario van een SAP-landschap
 
-De cross-premises scenario kan grofweg worden beschreven, zoals in de onderstaande afbeeldingen:
+De cross-premises of in een hybride scenario kan worden ongeveer beschreven, zoals in de onderstaande afbeeldingen:
 
 ![Site-naar-Site-connectiviteit tussen on-premises en Azure-assets][planning-guide-figure-2100]
 
@@ -1851,7 +1825,7 @@ De installatie van een SAP-Portal in een Azure Virtual machines verschilt niet v
 
 ![Beschikbaar gemaakte SAP-Portal][planning-guide-figure-2700]
 
-Een speciale implementatiescenario door sommige klanten is de rechtstreekse blootstelling van de SAP-Enterprise-Portal met het Internet, terwijl de virtuele-machinehost is verbonden met het bedrijfsnetwerk via site-naar-site VPN-tunnel of ExpressRoute. U hebt voor een scenario om ervoor te zorgen dat bepaalde poorten geopend en niet wordt geblokkeerd door firewall of netwerk beveiligingsgroep zijn. De dezelfde mechanics zou moeten worden toegepast wanneer u verbinding maken met een SAP-Java-exemplaar van wilt on-premises in een scenario alleen in de Cloud.
+Een speciale implementatiescenario door sommige klanten is de rechtstreekse blootstelling van de SAP-Enterprise-Portal met het Internet, terwijl de virtuele-machinehost is verbonden met het bedrijfsnetwerk via site-naar-site VPN-tunnel of ExpressRoute. U hebt voor een scenario om ervoor te zorgen dat bepaalde poorten geopend en niet wordt geblokkeerd door firewall of netwerk beveiligingsgroep zijn. 
 
 De eerste portal URI is http (s):`<Portalserver`>: 5XX00/irj waar de poort wordt gevormd door 50000 plus (Systemnumber? 100). Standaard portal URI van de SAP-systeem 00 is `<dns name`>.`<azure region` >.Cloudapp.azure.com:PublicPort/irj. Voor meer informatie, hebt u een overzicht van <http://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>.
 

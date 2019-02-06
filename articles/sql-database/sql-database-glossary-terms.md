@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/31/2019
-ms.openlocfilehash: da0f26b8a9a986230381669063f5d9c767a996a3
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/05/2019
+ms.openlocfilehash: 0ae6dea86019b84e8d086a595995f8bd5b2a55ed
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513580"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753296"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL-Database verklarende woordenlijst
 
@@ -36,9 +36,9 @@ Databaseobjecten|Azure SQL Database|Elke database in Azure SQL Database|
 ||Basic-database|Een database gemaakt binnen of verplaatst naar de laag basic-service van het op DTU gebaseerde aankoopmodel|
 ||Standard-database|Een database gemaakt binnen of naar standard-servicelaag of het op DTU gebaseerde aankoopmodel verplaatst|
 ||Premium-database|Een database gemaakt binnen of verplaatst naar de premium-servicelaag van de op DTU gebaseerde aankoopmodel|
-||Algemeen gebruik-database|Een database gemaakt binnen of verplaatst naar de categorie Algemeen gebruik-service van het op DTU gebaseerde aankoopmodel|
-||Zeer grootschalige database|Een database gemaakt binnen of verplaatst naar de servicelaag grootschalige van het op DTU gebaseerde aankoopmodel|
-||Essentiële Business-database|Een database gemaakt binnen of verplaatst naar de bedrijfslaag kritieke-van het op DTU gebaseerde aankoopmodel|
+||Algemeen gebruik-database|Een database gemaakt binnen of verplaatst naar de categorie Algemeen gebruik-service van het op vCore gebaseerde aankoopmodel|
+||Zeer grootschalige database|Een database gemaakt binnen of verplaatst naar de grootschalige servicelaag van de vCore-aanschafmodel|
+||Essentiële Business-database|Een database gemaakt binnen of verplaatst naar de kritieke zakelijke-servicelaag van de vCore-aanschafmodel|
 |[Aanschafmodellen en resources](sql-database-service-tiers.md)|DTU gebaseerde aankoopmodel|[DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md)|
 ||Op vCore gebaseerd aanschafmodel|[op vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md)|
 ||vCore|Een kern die het gastbesturingssysteem van de hypervisor.|
@@ -46,7 +46,7 @@ Databaseobjecten|Azure SQL Database|Elke database in Azure SQL Database|
 ||COMPUTE-grootte|De hoeveelheid rekenresources voor een individuele database, elastische pool of beheerd exemplaar binnen een servicelaag|
 ||Hoeveelheid opslagruimte|De hoeveelheid beschikbare opslagruimte voor een individuele database, een elastische pool of een beheerd exemplaar|
 ||Bewerking voor COMPUTE|De generatie van de processor in een servicelaag|
-|Database-firewallregels voor server|IP-firewallregels|[IP-firewallregels](sql-database-firewall-configure.md)|
+|IP-firewallregels voor databaseserver|IP-firewallregels|[IP-firewallregels](sql-database-firewall-configure.md)|
+||IP-firewallregels op serverniveau|[IP-firewallregels op serverniveau](sql-database-firewall-configure.md#overview)|
+|| IP-firewallregels op databaseniveau|[IP-firewallregels op databaseniveau](sql-database-firewall-configure.md#overview)|
 ||Virtual network-eindpunten en regels|[Eindpunten en regels van virtueel netwerk](sql-database-vnet-service-endpoint-rule-overview.md)|
-||Firewallregels op serverniveau|[Firewallregels op serverniveau server-database](sql-database-firewall-configure.md#server-level-firewall-rule-versus-a-database-level-firewall-rule)|
-|| Firewallregels op databaseniveau|[Firewallregels op serverniveau server-database](sql-database-firewall-configure.md#server-level-firewall-rule-versus-a-database-level-firewall-rule)|

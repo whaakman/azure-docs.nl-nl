@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2018
+ms.date: 01/18/2019
 ms.author: yashar
-ms.openlocfilehash: 44d23cf38eb1dca9ade94c5a8fd0ae495300be44
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 4f70a34febcf0b39d051053a6ddd9abe5c9a6726
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582187"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745976"
 ---
 # <a name="prepay-for-suse-software-plans-from-azure-reservations"></a>Betaal vooruit voor SUSE-software plannen uit de Azure-reserveringen
 
@@ -27,7 +27,7 @@ Betaal vooruit voor uw gebruik van SUSE en bespaart geld ten opzichte van de kos
 U kunt plannen voor SUSE-software in Azure portal kunt kopen. Een abonnement aanschaffen:
 
 - U moet zich in een rol van eigenaar voor ten minste één Enterprise of abonnement op gebruiksbasis.
-- Voor Enterprise-abonnementen, aankopen in de reservering moeten zijn ingeschakeld in de [EA-portal](https://ea.azure.com).
+- Voor Enterprise-abonnementen, **gereserveerde instanties toevoegen** moet zijn ingeschakeld in de [EA-portal](https://ea.azure.com). Of, als deze instelling is uitgeschakeld, moet u een EA-beheerder voor het abonnement zijn.
 - Voor het programma Cloud Solution Provider (CSP) kopen de beheerder agents of sales-agents de SUSE-abonnementen.
 
 ## <a name="buy-a-suse-software-plan"></a>Koop een abonnement SUSE-software
@@ -36,11 +36,11 @@ U kunt plannen voor SUSE-software in Azure portal kunt kopen. Een abonnement aan
 1. Selecteer **toevoegen** en selecteer SUSE Linux.
 1. Vul de vereiste velden in. Alle SUSE Linux VM die overeenkomt met de kenmerken van wat u koopt de korting opgehaald. Het werkelijke aantal implementaties die aan de korting is afhankelijk van het bereik en de hoeveelheid die is geselecteerd.
 
-    | Veld      | Beschrijving|
+    | Veld      | Description|
     |:------------|:--------------|
-    |Naam        |De naam van deze aankoop.|
-    |Abonnement|Het abonnement dat wordt gebruikt om te betalen voor dit plan. De betalingswijze voor het abonnement wordt in rekening gebracht de kosten vooraf voor de reservering. Het abonnement moet een Enterprise-overeenkomst (aanbieding: MS-AZR-0017P) of een Betalen-per-gebruik-abonnement (aanbieding: MS-AZR-0003P) zijn. Voor een Enterprise-abonnement worden de kosten in mindering gebracht op het toezeggingsbedrag of ze worden in rekening gebracht als overschrijding. Voor een Betalen per gebruik-abonnement worden de kosten in rekening gebracht op de creditcard of de factuurbetalingswijze van het abonnement.|
-    |Bereik       |Het bereik kan betrekking hebben op één abonnement of meerdere abonnementen (gedeeld bereik). Als u selecteert: <ul><li>Eén abonnement - korting van het abonnement wordt toegepast op SUSE Linux-gebruik in dit abonnement. </li><li>Gedeeld - wordt korting van het abonnement toegepast op SUSE Linux-gebruik in alle abonnementen in de context van de facturering. Voor zakelijke klanten, gedeeld bereik is van de inschrijving en bevat alle abonnementen (met uitzondering van dev/test-abonnementen) binnen de inschrijving. Voor klanten van betalen per gebruik is het gedeelde bereik alle betalen per gebruik-abonnementen die zijn gemaakt door de accountbeheerder.</li></ul>|
+    |Name        |De naam van deze aankoop.|
+    |Abonnement|Het abonnement dat wordt gebruikt om te betalen voor dit plan. De betalingswijze voor het abonnement wordt in rekening gebracht de kosten vooraf voor de reservering. Het abonnementstype moet een enterprise agreement (getallen bieden: MS-AZR-0017P of MS-AZR - 0148 P) en betalen per gebruik (getallen bieden: MS-AZR-0003P of MS-AZR - 0023 P). Voor een Enterprise-abonnement worden de kosten in mindering gebracht op het toezeggingsbedrag of ze worden in rekening gebracht als overschrijding. Voor een Betalen per gebruik-abonnement worden de kosten in rekening gebracht op de creditcard of de factuurbetalingswijze van het abonnement.|
+    |Bereik       |Het bereik kan betrekking hebben op één abonnement of meerdere abonnementen (gedeeld bereik). Als u selecteert: <ul><li>Eén abonnement - korting van het abonnement wordt toegepast op SUSE Linux-gebruik in dit abonnement. </li><li>Gedeeld - wordt korting van het abonnement toegepast op SUSE Linux-gebruik in alle abonnementen in de context van de facturering. Voor zakelijke klanten, gedeeld bereik is van de inschrijving en bevat alle abonnementen binnen de inschrijving. Voor klanten van betalen per gebruik is het gedeelde bereik alle betalen per gebruik-abonnementen die zijn gemaakt door de accountbeheerder.</li></ul>|
     |Softwareabonnement     |Selecteer de SUSE Linux-plan. Zie [Begrijpen hoe de korting voor reservering van SUSE Linux Enterprise-software wordt toegepast](../../billing/billing-understand-suse-reservation-charges.md) voor meer informatie.|
     |VM-grootte     |Prijsinformatie voor SUSE Linux, is afhankelijk van het aantal vcpu's op de virtuele machine. Selecteer de optie die het aantal vcpu's op uw SUSE Linux VM's vertegenwoordigt.|
     |Termijn        |Één of drie jaar.|

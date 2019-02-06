@@ -1,5 +1,5 @@
 ---
-title: Zelfstudie - gebruikersstromen maken in Azure Active Directory B2C | Microsoft Docs
+title: 'Zelfstudie: Maak gebruikersstromen - Azure Active Directory B2C | Microsoft Docs'
 description: Informatie over het maken van de gebruikersstromen voor uw toepassingen in Azure Active Directory B2C met behulp van de Azure portal.
 services: active-directory-b2c
 author: davidmu1
@@ -7,14 +7,14 @@ manager: daveba
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/01/2019
 ms.author: davidmu
-ms.openlocfilehash: 6e651d23e3b5cced78088d59979507eb09723165
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 7f017583a6eeb61b11df86a908d573dba9bd5929
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845591"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750287"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Zelfstudie: Gebruikersstromen maken in Azure Active Directory B2C
 
@@ -39,29 +39,30 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 De gebruikersstroom zich kunnen registreren en aanmelden verwerkt zowel registratie en aanmelding bij ervaringen met een configuratie voor één. Gebruikers van uw toepassing worden op het juiste pad zijn afhankelijk van de context geleid.
 
-1. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
 
     ![Schakel over naar de abonnementsmap](./media/tutorial-create-user-flows/switch-directories.png)
 
-2. Kies **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **Azure AD B2C**.
-3. Selecteer in het menu links **gebruikersstromen**, en selecteer vervolgens **nieuwe gebruikersstroom**.
+3. Kies **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **Azure AD B2C**.
+4. Selecteer in het menu links **gebruikersstromen**, en selecteer vervolgens **nieuwe gebruikersstroom**.
 
     ![Nieuwe gebruikersstroom selecteren](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
-4. Selecteer de **zich kunnen registreren en aanmelden** gebruikersstroom op het tabblad aanbevolen.
+5. Selecteer de **zich kunnen registreren en aanmelden** gebruikersstroom op het tabblad aanbevolen.
 
     ![Selecteer de gebruikersstroom die zich kunnen registreren en aanmelden](./media/tutorial-create-user-flows/signup-signin-type.png)
 
-5. Voer een **Naam** in voor de gebruikersstroom. Bijvoorbeeld, *signupsignin1*.
-6. Voor **id-providers**, selecteer **e-mailregistratie**.
+6. Voer een **Naam** in voor de gebruikersstroom. Bijvoorbeeld, *signupsignin1*.
+7. Voor **id-providers**, selecteer **e-mailregistratie**.
 
     ![De flow-eigenschappen instellen](./media/tutorial-create-user-flows/signup-signin-properties.png)
 
-7. Voor **gebruikerskenmerken en claims**, kies de claims en de kenmerken die u wilt verzamelen en verzenden van de gebruiker tijdens de registratie. Selecteer bijvoorbeeld **meer weergeven**, en kies vervolgens **land/regio**, **weergavenaam**, en **postcode**. Klik op **OK**.
+8. Voor **gebruikerskenmerken en claims**, kies de claims en de kenmerken die u wilt verzamelen en verzenden van de gebruiker tijdens de registratie. Selecteer bijvoorbeeld **meer weergeven**, en kies vervolgens **land/regio**, **weergavenaam**, en **postcode**. Klik op **OK**.
 
     ![Selecteer kenmerken en claims](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 
-8. Klik op **maken** om toe te voegen van de gebruikersstroom. Het voorvoegsel *B2C_1* wordt automatisch toegevoegd aan de naam.
+9. Klik op **maken** om toe te voegen van de gebruikersstroom. Het voorvoegsel *B2C_1* wordt automatisch toegevoegd aan de naam.
 
 ### <a name="test-the-user-flow"></a>De gebruikersstroom testen
 
@@ -123,4 +124,4 @@ In dit artikel hebt u geleerd hoe u:
 > * Een gebruikersstroom voor het opnieuw instellen van het wachtwoord maken
 
 > [!div class="nextstepaction"]
-> [De gebruikersinterface van uw toepassingen in Azure Active Directory B2C aanpassen](tutorial-customize-ui.md)
+> [Id-providers toevoegen aan uw toepassingen in Azure Active Directory B2C](tutorial-add-identity-providers.md)

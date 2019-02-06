@@ -13,12 +13,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
-ms.openlocfilehash: d53221a8bed6995231385cae21a8994fce132a30
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6a5a2fee11d785c7513b6c1d1e66bd8b80d80292
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175907"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749709"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Mijn account voor verificatie in twee stappen instellen
 Verificatie in twee stappen is een extra beveiligingsstap waarmee de beveiliging van uw account door waardoor het moeilijker is voor anderen in breken. Als u dit artikel leest, hebt u waarschijnlijk een e-mailbericht van uw werk- of schoolaccount-beheerder over multi-factor Authentication. Of misschien heeft geprobeerd aan te melden bij en krijg een bericht waarin u wordt gevraagd voor het instellen van aanvullende beveiligingsverificatie. Als dat het geval is, **u niet aanmelden totdat het proces van automatische inschrijving is voltooid**.
@@ -41,12 +41,12 @@ De eerste vraag in het inschrijvingsproces is hoe u moet er contact met u wilt. 
 
 | Contactmethode | Description |
 | --- | --- |
-| [Mobiele app](#use-a-mobile-app-as-the-contact-method) |- **Meldingen ontvangen voor verificatie.** Deze optie wordt een melding naar de authenticator-app op uw smartphone of tablet gepusht. Bekijk de melding en, als deze geldig is, selecteert u **verifiëren** in de app. Uw werk of school mogelijk dat u een PINCODE invoeren voordat u gaat verifiëren.<br>- **Verificatiecode gebruiken.** In deze modus genereert de authenticator-app een verificatiecode waarmee elke 30 seconden wordt bijgewerkt. Voer de meest recente verificatiecode in de interface voor aanmelden.<br>De Microsoft Authenticator-app is beschikbaar voor [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) en [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071). |
+| [Mobiele app](#use-a-mobile-app-as-the-contact-method) |- **Meldingen ontvangen voor verificatie.** Deze optie wordt een melding naar de authenticator-app op uw smartphone of tablet gepusht. Bekijk de melding en, als deze geldig is, selecteert u **verifiëren** in de app. Uw werk of school mogelijk dat u een PINCODE invoeren voordat u gaat verifiëren.<br>- **Verificatiecode gebruiken.** In deze modus genereert de authenticator-app een verificatiecode waarmee elke 30 seconden wordt bijgewerkt. Voer de meest recente verificatiecode in de interface voor aanmelden.<br>De Microsoft Authenticator-app is beschikbaar voor [Android](https://go.microsoft.com/fwlink/?linkid=866594) en [iOS](https://go.microsoft.com/fwlink/?linkid=866594).|
 | [Mobiele telefoon telefoongesprek of tekstbericht](#use-your-mobile-phone-as-the-contact-method) |- **Telefonische oproep** plaatst een geautomatiseerd telefoongesprek naar het telefoonnummer dat u opgeeft. Beantwoord de oproep en druk op # in het toetsenblok van de telefoon om te verifiëren.<br>- **SMS-bericht** een SMS-bericht met een verificatiecode wordt beëindigd. Na de prompt in de tekst, beantwoord het SMS-bericht of Voer de verificatiecode die is opgegeven in de interface van aanmelding. |
 | [Office-telefoongesprek](#use-your-office-phone-as-the-contact-method) |Plaatst een geautomatiseerd telefoongesprek naar het telefoonnummer dat u opgeeft. Beantwoord het gesprek en drukt # in het toetsenblok van de telefoon om te verifiëren. |
 
 ## <a name="use-a-mobile-app-as-the-contact-method"></a>Een mobiele app gebruiken als de primaire contactmethode
-Met deze methode is vereist dat u een verificator-app op uw telefoon of tablet installeren. De stappen in dit artikel zijn gebaseerd op de Microsoft Authenticator-app die beschikbaar is voor [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), en [iOS](https://go.microsoft.com/fwlink/?Linkid=825073).
+Met deze methode is vereist dat u een verificator-app op uw telefoon of tablet installeren. De stappen in dit artikel zijn gebaseerd op de Microsoft Authenticator-app die beschikbaar is voor [Android](https://go.microsoft.com/fwlink/?Linkid=825072) en [iOS](https://go.microsoft.com/fwlink/?Linkid=825073).
 
 >[!NOTE]
 >U hebt geen gebruik van de Microsoft Authenticator-app. Als u al een andere verificator-app gebruikt, kunt u blijven gebruiken.

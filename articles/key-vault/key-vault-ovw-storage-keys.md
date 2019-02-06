@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: pryerram
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: 0392d84efa3a82a6323d6d09db792df7d6c42256
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b6dc0a63340fee03b34f4c5b6eca8ff011d6b178
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210672"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744166"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault beheerd opslagaccount - CLI
 
@@ -52,8 +52,9 @@ In de onderstaande instructies volgen, zijn we Key Vault toewijzen als een servi
 1. Na het maken van een storage-account de volgende opdracht om op te halen van de resource-ID van het opslagaccount dat wilt u beheren
 
     ```
-    az storage account show -n storageaccountname (Copy ID field out of the result of this command)
+    az storage account show -n storageaccountname 
     ```
+    ID-veld van de resultaten van de bovenstaande opdracht kopiëren
     
 2. Aanvraag-ID van Azure Key Vault de service principal ophalen 
 
@@ -74,13 +75,16 @@ In de onderstaande instructies volgen, zijn we Key Vault toewijzen als een servi
     az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key2 --auto-regenerate-key --regeneration-period P90D --resource-id <Resource-id-of-storage-account>
     ```
     In het geval de gebruiker het storage-account hebt gemaakt en heeft geen machtigingen voor de storage-account, stel de volgende stappen uit de machtigingen voor uw account om ervoor te zorgen dat u alle opslagmachtigingen voor de in de Key Vault kunt beheren.
+    
  > [!NOTE] 
-    In het geval de gebruiker beschikt niet over machtigingen voor het opslagaccount, krijgen we eerst de Object-Id van de gebruiker
+ > In het geval de gebruiker beschikt niet over machtigingen voor het opslagaccount, krijgen we eerst de Object-Id van de gebruiker
+
 
     ```
     az ad user show --upn-or-object-id "developer@contoso.com"
 
     az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
+    
     ```
     
 ## <a name="how-to-access-your-storage-account-with-sas-tokens"></a>Toegang tot uw storage-account met SAS-tokens
@@ -91,9 +95,9 @@ In de onderstaande sectie we laten zien hoe u uw storage-accountsleutel die zijn
 
 > [!NOTE] 
   Er zijn 3 manieren om te verifiëren naar Key Vault, omdat u kunt lezen de [basisconcepten](key-vault-whatis.md#basic-concepts)
-- Met behulp van de beheerde Service-identiteit (ten zeerste aanbevolen)
-- Met behulp van Service-Principal en certificaat 
-- Met Service-Principal en het wachtwoord (niet aanbevolen)
+> - Met behulp van de beheerde Service-identiteit (ten zeerste aanbevolen)
+> - Met behulp van Service-Principal en certificaat 
+> - Met Service-Principal en het wachtwoord (niet aanbevolen)
 
 ```cs
 // Once you have a security token from one of the above methods, then create KeyVaultClient with vault credentials

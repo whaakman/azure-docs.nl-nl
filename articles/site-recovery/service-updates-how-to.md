@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/8/2019
+ms.date: 02/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: 3e5f84a6f05e451b1eafa98c373f9d838421016e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a497784a665c62d23a017b71acf709120e34c369
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55229327"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746962"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Service-updates in de Azure Site Recovery
 Als een organisatie, moet u bepalen hoe u van plan bent voor uw gegevens veilig en apps/workloads kunt uitvoeren wanneer geplande en ongeplande uitval optreedt. Azure Site Recovery draagt bij aan uw BCDR-strategie door uw apps uitgevoerd op virtuele machines en fysieke servers beschikbaar als een site uitvalt. Met Site Recovery repliceert u workloads die worden uitgevoerd op virtuele machines en fysieke servers, zodat deze beschikbaar blijven op een secundaire locatie als de primaire site niet beschikbaar is. Hiermee herstelt u werkbelastingen op de primaire site wanneer deze weer actief is.
@@ -97,10 +97,13 @@ U hebt gekozen voor het beheren van updates handmatig, als volgt te werk:
 
 ## <a name="between-an-on-premises-vmware-or-physical-site-to-azure"></a>Tussen een on-premises VMware of fysieke-site naar Azure
 
-1. Eerst de update installeren op uw on-premises-beheerserver. Dit is de server waarop de configuratieserver en de proces-serverfuncties. 
-2. Als u scale-out processervers hebt, moet u deze vervolgens bijwerken.
-3. Ga naar de Azure portal en ga vervolgens naar de **beveiligde Items** > **gerepliceerde Items** pagina.
-Selecteer een virtuele machine op deze pagina. Selecteer de **Update-Agent** knop die wordt weergegeven aan de onderkant van de pagina voor elke virtuele machine. Hiermee wordt de Mobility-Service-Agent op alle beveiligde virtuele machines.
+Raadpleeg voordat u doorgaat met updates [Site Recovery-ondersteuningsverklaring](#support-statement-for-azure-site-recovery) om te begrijpen van de upgrade-pad.
+
+1. Op basis van uw huidige versie en ondersteuning instructie hierboven, installeert u de update eerst op uw on-premises beheerserver door de richtlijnen gegeven [hier](vmware-azure-deploy-configuration-server.md#upgrade-the-configuration-server). Dit is de server waarop de configuratieserver en de proces-serverfuncties.
+2. Als u scale-out verwerken van servers, naast bijwerken door de volgende richtlijnen gegeven [hier](vmware-azure-manage-process-server.md#upgrade-a-process-server).
+3. Vervolgens voor het bijwerken van mobility-agent op elk beveiligd item, gaat u naar Azure portal en ga vervolgens naar de **beveiligde Items** > **gerepliceerde Items** pagina. Selecteer een virtuele machine op deze pagina. Selecteer de **Update-Agent** knop die wordt weergegeven aan de onderkant van de pagina voor elke virtuele machine. Hiermee wordt de Mobility-Service-Agent op alle beveiligde virtuele machines.
+
+### <a name="reboot-of-source-machine-after-mobility-agent-upgrade"></a>Opnieuw opstarten van de bronmachine nadat de upgrade van de mobility-agent
 
 Opnieuw opstarten wordt aanbevolen na elke upgrade van de Mobility-agent om ervoor te zorgen dat alle laatste wijzigingen op de bronmachine zijn geladen. Het is echter wel **niet verplicht**. Als het verschil tussen de agentversie tijdens de laatste keer opnieuw opstarten en de huidige versie is groter dan 4, klikt u vervolgens is een opnieuw opstarten verplicht. Raadpleeg de volgende tabel voor gedetailleerde uitleg.
 
@@ -111,14 +114,12 @@ Opnieuw opstarten wordt aanbevolen na elke upgrade van de Mobility-agent om ervo
 | 9.16 | 9.20 | Niet verplicht
  | 9.16 | 9.21 | Ja, eerst een upgrade naar 9.20 en vervolgens opnieuw opstarten voordat u bijwerkt naar 9.21 als het verschil tussen de versies (9.16 waar de laatste keer opnieuw opstarten is uitgevoerd en de doelversie 9.21) is > 4
 
-
-
 ## <a name="links-to-currently-supported-update-rollups"></a>Koppelingen naar de momenteel ondersteunde updatepakketten
-
 
 |Updatepakket  |Provider  |Geïntegreerde Setup| OVF  |MARS.|
 |---------|---------|---------|---------|--------|
-|[Update Rollup 32](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
+|[Update Rollup 33](https://support.microsoft.com/en-us/help/4489582/update-rollup-33-for-azure-site-recovery)     |   5.1.3900.0  |  9.22.5109.1   |  5.1.3900.0  | 2.0.9155.0
+|[Update Rollup 32](https://support.microsoft.com/en-us/help/4485985/update-rollup-32-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
 |[Update Rollup 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
 |[Update Rollup 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)     |    5.1.3650.0   |   9.19.5007.1    |     5.1.3650.0    |2.0.9139.0
 |[Update Rollup 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)     |   5.1.3650.0      |   9.19.4973.1     |     5.1.3700.0    |2.0.9131.0

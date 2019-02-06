@@ -16,12 +16,12 @@ ms.date: 01/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 444c67e942fad732c959f834e2c50f0b2a35562c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c398e615e943caad40040ff1b87713304fd9f015
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246531"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746707"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 update
 
@@ -153,6 +153,9 @@ Deze update bevat de volgende nieuwe functies en verbeteringen voor Azure Stack:
 
 <!-- 3190553 - IS ASDK -->
 - Een probleem dat ruis waarschuwingen die aangeven dat een Rolinstantie van de infrastructuur niet beschikbaar is of schaal eenheid knooppunt offline was gegenereerd is opgelost.
+
+<!-- 2724961 - IS ASDK -->
+- Fiexed een probleem waarbij de overzichtspagina van de virtuele machine kan niet correct worden weergegeven de grafiek met metrische gegevens van de virtuele machine. 
 
 ## <a name="changes"></a>Wijzigingen
 
@@ -297,11 +300,6 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 
 <!-- 1662991 IS ASDK --> 
 - Diagnostische gegevens over Linux-VM wordt niet ondersteund in Azure Stack. Wanneer u een Linux-VM met VM diagnostics is ingeschakeld implementeren, wordt de implementatie mislukt. De implementatie mislukt ook als u de Linux-VM eenvoudige metrische gegevens via diagnostische instellingen inschakelen.  
-
-<!-- 2724961- IS ASDK --> 
-- Wanneer u registreert de **Microsoft.Insight** resourceprovider op de instellingen van het abonnement en een Windows-VM maken met gast OS diagnostische ingeschakeld, wordt de grafiek CPU-Percentage in de overzichtspagina van virtuele machine heeft geen metrische gegevens van show.
-
-   Als u wilt zoeken metrische gegevens, zoals de CPU-Percentage voor de virtuele machine, gaat u naar de **metrische gegevens** venster en het weergeven van alle ondersteunde Windows-VM-Gast metrische gegevens.
 
 <!-- 3507629 - IS, ASDK --> 
 - Beheerde schijven maakt twee nieuwe [quotatypen compute](azure-stack-quota-types.md#compute-quota-types) om te beperken van de maximale capaciteit van beheerde schijven die kunnen worden ingericht. Standaard is 2048 GiB toegewezen voor elke quotumtype beheerde schijven. U kunt echter de volgende problemen optreden:

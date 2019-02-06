@@ -1,6 +1,6 @@
 ---
 title: Batchverwerking gebruiken voor het verbeteren van de prestaties van toepassingen voor Azure SQL Database
-description: Het onderwerp bevat bewijs dat batchverwerkingsindeling databasebewerkingen aanzienlijk imroves de snelheid en schaalbaarheid van uw Azure SQL Database-toepassingen. Hoewel deze batchverwerkingsindeling technieken voor een SQL Server-database werken, wordt de focus van het artikel op Azure.
+description: Het onderwerp biedt bewijs dat batchverwerking databasebewerkingen aanzienlijk de snelheid en schaalbaarheid van uw Azure SQL Database-toepassingen verbetert. Hoewel deze batchverwerkingsindeling technieken voor een SQL Server-database werken, wordt de focus van het artikel op Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: f347543bbea11329cf4bb7c03dac6ccf7f04ac77
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b94c5f712469183d64704307316f8bbdaa3d5a11
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455385"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751630"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Batchverwerking gebruiken voor het verbeteren van de prestaties van toepassingen voor SQL-Database
 
@@ -50,42 +50,47 @@ Om te beginnen met een overzicht van door het bespreken van transacties batchver
 
 Houd rekening met de volgende C#-code met een reeks invoegen en bijwerken van bewerkingen op een eenvoudige tabel.
 
-    List<string> dbOperations = new List<string>();
-    dbOperations.Add("update MyTable set mytext = 'updated text' where id = 1");
-    dbOperations.Add("update MyTable set mytext = 'updated text' where id = 2");
-    dbOperations.Add("update MyTable set mytext = 'updated text' where id = 3");
-    dbOperations.Add("insert MyTable values ('new value',1)");
-    dbOperations.Add("insert MyTable values ('new value',2)");
-    dbOperations.Add("insert MyTable values ('new value',3)");
-
+```csharp
+List<string> dbOperations = new List<string>();
+dbOperations.Add("update MyTable set mytext = 'updated text' where id = 1");
+dbOperations.Add("update MyTable set mytext = 'updated text' where id = 2");
+dbOperations.Add("update MyTable set mytext = 'updated text' where id = 3");
+dbOperations.Add("insert MyTable values ('new value',1)");
+dbOperations.Add("insert MyTable values ('new value',2)");
+dbOperations.Add("insert MyTable values ('new value',3)");
+```
 De volgende code in de ADO.NET uitvoert sequentieel deze bewerkingen.
 
-    using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
-    {
-        conn.Open();
+```csharp
+using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+{
+    conn.Open();
 
-        foreach(string commandString in dbOperations)
-        {
-            SqlCommand cmd = new SqlCommand(commandString, conn);
-            cmd.ExecuteNonQuery();                   
-        }
+    foreach(string commandString in dbOperations)
+    {
+        SqlCommand cmd = new SqlCommand(commandString, conn);
+        cmd.ExecuteNonQuery();
     }
+}
+```
 
 De beste manier om het optimaliseren van deze code is het implementeren van een vorm van de client-side batchverwerking van deze aanroepen. Maar er is een eenvoudige manier om de prestaties van deze code verhogen door gewoon de volgorde van de aanroepen in een transactie. Dit is dezelfde code die gebruikmaakt van een transactie.
 
-    using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+```csharp
+using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+{
+    conn.Open();
+    SqlTransaction transaction = conn.BeginTransaction();
+
+    foreach (string commandString in dbOperations)
     {
-        conn.Open();
-        SqlTransaction transaction = conn.BeginTransaction();
-
-        foreach (string commandString in dbOperations)
-        {
-            SqlCommand cmd = new SqlCommand(commandString, conn, transaction);
-            cmd.ExecuteNonQuery();
-        }
-
-        transaction.Commit();
+        SqlCommand cmd = new SqlCommand(commandString, conn, transaction);
+        cmd.ExecuteNonQuery();
     }
+
+    transaction.Commit();
+}
+```
 
 Transacties worden daadwerkelijk in deze voorbeelden gebruikt. In het eerste voorbeeld is elke afzonderlijke aanroep een impliciete transactie. In het tweede voorbeeld wordt verpakt een expliciete transactie alle van de aanroepen. Per de documentatie voor de [write-ahead transactielogboek](https://msdn.microsoft.com/library/ms186259.aspx), logboekrecords worden weggeschreven naar de schijf als de transactie wordt doorgevoerd. Door op te nemen meer aanroepen in een transactie, kan het schrijven naar het transactielogboek dus uitstellen totdat de transactie doorgevoerd wordt. U stelt in feite batchverwerking voor het schrijven naar het transactielogboek van de server.
 
@@ -124,59 +129,66 @@ Zie voor meer informatie over transacties in ADO.NET [lokale transacties in ADO.
 
 Tabelwaardeparameters ondersteunen de gebruiker gedefinieerde tabeltypen als parameters in de Transact-SQL-instructies en opgeslagen procedures en functies. Deze client-side batchverwerkingsindeling techniek kunt u meerdere rijen met gegevens in de tabelwaardeparameter verzenden. Voor het gebruik van tabelwaardeparameters, moet u eerst een tabeltype definiëren. De volgende Transact-SQL-instructie maakt een tabeltype met de naam **MyTableType**.
 
+```sql
     CREATE TYPE MyTableType AS TABLE 
     ( mytext TEXT,
       num INT );
-
+```
 
 In code, maakt u een **DataTable** met exact dezelfde namen en typen van het tabeltype. Deze wordt doorgegeven **DataTable** aanroepen in een parameter in een tekstquery of een opgeslagen procedure. Het volgende voorbeeld ziet u deze techniek:
 
-    using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+```csharp
+using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+{
+    connection.Open();
+
+    DataTable table = new DataTable();
+    // Add columns and rows. The following is a simple example.
+    table.Columns.Add("mytext", typeof(string));
+    table.Columns.Add("num", typeof(int));
+    for (var i = 0; i < 10; i++)
     {
-        connection.Open();
-
-        DataTable table = new DataTable();
-        // Add columns and rows. The following is a simple example.
-        table.Columns.Add("mytext", typeof(string));
-        table.Columns.Add("num", typeof(int));    
-        for (var i = 0; i < 10; i++)
-        {
-            table.Rows.Add(DateTime.Now.ToString(), DateTime.Now.Millisecond);
-        }
-
-        SqlCommand cmd = new SqlCommand(
-            "INSERT INTO MyTable(mytext, num) SELECT mytext, num FROM @TestTvp",
-            connection);
-
-        cmd.Parameters.Add(
-            new SqlParameter()
-            {
-                ParameterName = "@TestTvp",
-                SqlDbType = SqlDbType.Structured,
-                TypeName = "MyTableType",
-                Value = table,
-            });
-
-        cmd.ExecuteNonQuery();
+        table.Rows.Add(DateTime.Now.ToString(), DateTime.Now.Millisecond);
     }
+
+    SqlCommand cmd = new SqlCommand(
+        "INSERT INTO MyTable(mytext, num) SELECT mytext, num FROM @TestTvp",
+        connection);
+
+    cmd.Parameters.Add(
+        new SqlParameter()
+        {
+            ParameterName = "@TestTvp",
+            SqlDbType = SqlDbType.Structured,
+            TypeName = "MyTableType",
+            Value = table,
+        });
+
+    cmd.ExecuteNonQuery();
+}
+```
 
 In het vorige voorbeeld de **SqlCommand** object voegt rijen uit een tabelwaardeparameter **@TestTvp**. De eerder gemaakte **DataTable** object is toegewezen aan deze parameter met de **SqlCommand.Parameters.Add** methode. De invoegingen in één aanroep aanzienlijk batchverwerking, verhoogt de prestaties via opeenvolgende ingevoegd.
 
 Ter verbetering van het vorige voorbeeld meer, een opgeslagen procedure te gebruiken in plaats van een opdracht op basis van tekst. De volgende Transact-SQL-opdracht maakt u een opgeslagen procedure waarmee de **SimpleTestTableType** tabelwaardeparameter.
 
-    CREATE PROCEDURE [dbo].[sp_InsertRows] 
-    @TestTvp as MyTableType READONLY
-    AS
-    BEGIN
-    INSERT INTO MyTable(mytext, num) 
-    SELECT mytext, num FROM @TestTvp
-    END
-    GO
+```sql
+CREATE PROCEDURE [dbo].[sp_InsertRows] 
+@TestTvp as MyTableType READONLY
+AS
+BEGIN
+INSERT INTO MyTable(mytext, num) 
+SELECT mytext, num FROM @TestTvp
+END
+GO
+```
 
 Wijzig de **SqlCommand** declaratie in het vorige codevoorbeeld in de volgende object.
 
-    SqlCommand cmd = new SqlCommand("sp_InsertRows", connection);
-    cmd.CommandType = CommandType.StoredProcedure;
+```csharp
+SqlCommand cmd = new SqlCommand("sp_InsertRows", connection);
+cmd.CommandType = CommandType.StoredProcedure;
+```
 
 In de meeste gevallen hebben tabelwaardeparameters equivalent of betere prestaties dan andere batchverwerkingsindeling technieken. Tabelwaardeparameters zijn vaak beter, omdat ze meer flexibiliteit dan andere opties zijn. Andere methoden, zoals bulkgewijs kopiëren voor SQL, kunnen bijvoorbeeld alleen het invoegen van nieuwe rijen. Maar met tabelwaardeparameters, kunt u logische gebruiken in de opgeslagen procedure om te bepalen welke rijen zijn updates en die zijn ingevoegd. Het tabeltype kan ook worden gewijzigd als u wilt een 'Bewerking' kolom bevatten die wordt aangegeven of de opgegeven rij moet worden ingevoegd, bijgewerkt of verwijderd.
 
@@ -203,18 +215,20 @@ Zie voor meer informatie over tabelwaardeparameters [Table-Valued Parameters](ht
 
 Bulkgewijs kopiëren voor SQL is een andere manier om grote hoeveelheden gegevens invoegen in een doeldatabase. .NET-toepassingen kunnen gebruikmaken van de **SqlBulkCopy uitvoert** bewerkingen klasse om uit te voeren bulksgewijs invoegen. **SqlBulkCopy uitvoert** lijkt in de functie op de opdrachtregel-hulpprogramma **Bcp.exe**, of de Transact-SQL-instructie **BULK INSERT**. Het volgende codevoorbeeld toont het bulksgewijs kopiëren de rijen in de bron **DataTable**, tabel, naar de doeltabel in SQL Server, MyTable.
 
-    using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
-    {
-        connection.Open();
+```csharp
+using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+{
+    connection.Open();
 
-        using (SqlBulkCopy bulkCopy = new SqlBulkCopy(connection))
-        {
-            bulkCopy.DestinationTableName = "MyTable";
-            bulkCopy.ColumnMappings.Add("mytext", "mytext");
-            bulkCopy.ColumnMappings.Add("num", "num");
-            bulkCopy.WriteToServer(table);
-        }
+    using (SqlBulkCopy bulkCopy = new SqlBulkCopy(connection))
+    {
+        bulkCopy.DestinationTableName = "MyTable";
+        bulkCopy.ColumnMappings.Add("mytext", "mytext");
+        bulkCopy.ColumnMappings.Add("num", "num");
+        bulkCopy.WriteToServer(table);
     }
+}
+```
 
 Er zijn enkele gevallen waarbij bulksgewijs kopiëren heeft de voorkeur boven tabelwaardeparameters. Zie de vergelijkingstabel met tabelwaardeparameters versus BULK INSERT-bewerkingen in het artikel [Table-Valued Parameters](https://msdn.microsoft.com/library/bb510489.aspx).
 
@@ -241,24 +255,25 @@ Zie voor meer informatie over het bulksgewijs kopiëren in ADO.NET, [Bulksgewijz
 
 Er is een alternatief voor kleine batches te maken van een grote, geparameteriseerde INSERT-instructie is die op meerdere rijen worden ingevoegd. Het volgende codevoorbeeld ziet u deze techniek.
 
-    using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+```csharp
+using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+{
+    connection.Open();
+
+    string insertCommand = "INSERT INTO [MyTable] ( mytext, num ) " +
+        "VALUES (@p1, @p2), (@p3, @p4), (@p5, @p6), (@p7, @p8), (@p9, @p10)";
+
+    SqlCommand cmd = new SqlCommand(insertCommand, connection);
+
+    for (int i = 1; i <= 10; i += 2)
     {
-        connection.Open();
-
-        string insertCommand = "INSERT INTO [MyTable] ( mytext, num ) " +
-            "VALUES (@p1, @p2), (@p3, @p4), (@p5, @p6), (@p7, @p8), (@p9, @p10)";
-
-        SqlCommand cmd = new SqlCommand(insertCommand, connection);
-
-        for (int i = 1; i <= 10; i += 2)
-        {
-            cmd.Parameters.Add(new SqlParameter("@p" + i.ToString(), "test"));
-            cmd.Parameters.Add(new SqlParameter("@p" + (i+1).ToString(), i));
-        }
-
-        cmd.ExecuteNonQuery();
+        cmd.Parameters.Add(new SqlParameter("@p" + i.ToString(), "test"));
+        cmd.Parameters.Add(new SqlParameter("@p" + (i+1).ToString(), i));
     }
 
+    cmd.ExecuteNonQuery();
+}
+```
 
 In dit voorbeeld is bedoeld om het basisconcept weer te geven. Een realistischer scenario zou de vereiste entiteiten te maken van de query-tekenreeks en de opdrachtparameters tegelijkertijd doorlopen. U bent beperkt tot een totaal van 2100 queryparameters, zodat dit beperkt het totale aantal rijen dat op deze manier kan worden verwerkt.
 
@@ -378,88 +393,92 @@ Het volgende codevoorbeeld wordt [Reactive Extensions - Rx](https://msdn.microso
 
 De volgende NavHistoryData-klasse Gebruikersdetails voor de navigatie-modellen. Het bevat algemene informatie zoals de gebruikers-id, de URL geopend en de tijd van toegang.
 
-```c#
-    public class NavHistoryData
-    {
-        public NavHistoryData(int userId, string url, DateTime accessTime)
-        { UserId = userId; URL = url; AccessTime = accessTime; }
-        public int UserId { get; set; }
-        public string URL { get; set; }
-        public DateTime AccessTime { get; set; }
-    }
+```csharp
+public class NavHistoryData
+{
+    public NavHistoryData(int userId, string url, DateTime accessTime)
+    { UserId = userId; URL = url; AccessTime = accessTime; }
+    public int UserId { get; set; }
+    public string URL { get; set; }
+    public DateTime AccessTime { get; set; }
+}
 ```
 
 De klasse NavHistoryDataMonitor is verantwoordelijk voor het bufferen van gegevens van de navigatie in de database. Deze bevat een methode, RecordUserNavigationEntry deze door in te dienen reageert een **OnAdded** gebeurtenis. De volgende code toont de constructor logica die gebruikmaakt van Rx om een waarneembare verzameling op basis van de gebeurtenis te maken. Deze zich abonneert op deze waarneembare verzameling met de methode Buffer. De overbelasting geeft aan dat de buffer elke 20 seconden of 1000 vermeldingen moet worden verzonden.
 
-```c#
+```csharp
+public NavHistoryDataMonitor()
+{
+    var observableData =
+        Observable.FromEventPattern<NavHistoryDataEventArgs>(this, "OnAdded");
+
+    observableData.Buffer(TimeSpan.FromSeconds(20), 1000).Subscribe(Handler);
+}
+```
+
+De handler alle gebufferde items converteert naar een type tabelwaarden en dit type wordt doorgegeven aan een opgeslagen procedure waarmee de batch wordt verwerkt. De volgende code toont de definitie van de volledige voor zowel de NavHistoryDataEventArgs en de klassen NavHistoryDataMonitor.
+
+```csharp
+public class NavHistoryDataEventArgs : System.EventArgs
+{
+    public NavHistoryDataEventArgs(NavHistoryData data) { Data = data; }
+    public NavHistoryData Data { get; set; }
+}
+
+public class NavHistoryDataMonitor
+{
+    public event EventHandler<NavHistoryDataEventArgs> OnAdded;
+
     public NavHistoryDataMonitor()
     {
         var observableData =
             Observable.FromEventPattern<NavHistoryDataEventArgs>(this, "OnAdded");
 
-        observableData.Buffer(TimeSpan.FromSeconds(20), 1000).Subscribe(Handler);           
+        observableData.Buffer(TimeSpan.FromSeconds(20), 1000).Subscribe(Handler);
     }
 ```
 
 De handler alle gebufferde items converteert naar een type tabelwaarden en dit type wordt doorgegeven aan een opgeslagen procedure waarmee de batch wordt verwerkt. De volgende code toont de definitie van de volledige voor zowel de NavHistoryDataEventArgs en de klassen NavHistoryDataMonitor.
 
-```c#
+```csharp
     public class NavHistoryDataEventArgs : System.EventArgs
     {
-        public NavHistoryDataEventArgs(NavHistoryData data) { Data = data; }
-        public NavHistoryData Data { get; set; }
+        if (OnAdded != null)
+            OnAdded(this, new NavHistoryDataEventArgs(data));
     }
 
-    public class NavHistoryDataMonitor
+    protected void Handler(IList<EventPattern<NavHistoryDataEventArgs>> items)
     {
-        public event EventHandler<NavHistoryDataEventArgs> OnAdded;
-
-        public NavHistoryDataMonitor()
+        DataTable navHistoryBatch = new DataTable("NavigationHistoryBatch");
+        navHistoryBatch.Columns.Add("UserId", typeof(int));
+        navHistoryBatch.Columns.Add("URL", typeof(string));
+        navHistoryBatch.Columns.Add("AccessTime", typeof(DateTime));
+        foreach (EventPattern<NavHistoryDataEventArgs> item in items)
         {
-            var observableData =
-                Observable.FromEventPattern<NavHistoryDataEventArgs>(this, "OnAdded");
-
-            observableData.Buffer(TimeSpan.FromSeconds(20), 1000).Subscribe(Handler);           
+            NavHistoryData data = item.EventArgs.Data;
+            navHistoryBatch.Rows.Add(data.UserId, data.URL, data.AccessTime);
         }
 
-        public void RecordUserNavigationEntry(NavHistoryData data)
-        {    
-            if (OnAdded != null)
-                OnAdded(this, new NavHistoryDataEventArgs(data));
-        }
-
-        protected void Handler(IList<EventPattern<NavHistoryDataEventArgs>> items)
+        using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
         {
-            DataTable navHistoryBatch = new DataTable("NavigationHistoryBatch");
-            navHistoryBatch.Columns.Add("UserId", typeof(int));
-            navHistoryBatch.Columns.Add("URL", typeof(string));
-            navHistoryBatch.Columns.Add("AccessTime", typeof(DateTime));
-            foreach (EventPattern<NavHistoryDataEventArgs> item in items)
-            {
-                NavHistoryData data = item.EventArgs.Data;
-                navHistoryBatch.Rows.Add(data.UserId, data.URL, data.AccessTime);
-            }
+            connection.Open();
 
-            using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
-            {
-                connection.Open();
+            SqlCommand cmd = new SqlCommand("sp_RecordUserNavigation", connection);
+            cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlCommand cmd = new SqlCommand("sp_RecordUserNavigation", connection);
-                cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(
+                new SqlParameter()
+                {
+                    ParameterName = "@NavHistoryBatch",
+                    SqlDbType = SqlDbType.Structured,
+                    TypeName = "NavigationHistoryTableType",
+                    Value = navHistoryBatch,
+                });
 
-                cmd.Parameters.Add(
-                    new SqlParameter()
-                    {
-                        ParameterName = "@NavHistoryBatch",
-                        SqlDbType = SqlDbType.Structured,
-                        TypeName = "NavigationHistoryTableType",
-                        Value = navHistoryBatch,
-                    });
-
-                cmd.ExecuteNonQuery();
-            }
+            cmd.ExecuteNonQuery();
         }
     }
+}
 ```
 
 De toepassing maakt voor het gebruik van deze buffer klasse, een statisch NavHistoryDataMonitor-object. Telkens wanneer die een gebruiker toegang heeft tot een pagina, aanroept de toepassing de NavHistoryDataMonitor.RecordUserNavigationEntry-methode. De buffer logica wordt voortgezet om te zorgen voor deze vermeldingen te verzenden naar de database in batches.
@@ -469,97 +488,97 @@ De toepassing maakt voor het gebruik van deze buffer klasse, een statisch NavHis
 Tabelwaardeparameters zijn handig voor eenvoudige INSERT-scenario's. Het kan echter zijn moeilijker te batch voegt die betrekking hebben op meer dan één tabel. Het scenario ' master/Details' is een goed voorbeeld. De hoofdtabel identificeert de primaire entiteit. Een of meer detailtabellen opslaan meer gegevens over de entiteit. Refererende-sleutelrelaties afdwingen in dit scenario wordt de relatie van details aan een unieke master-entiteit. Houd rekening met een vereenvoudigde versie van een tabel PurchaseOrder en de bijbehorende OrderDetail-tabel. De volgende Transact-SQL maakt de tabel PurchaseOrder met vier kolommen: Order-id, OrderDate, CustomerID en Status.
 
 ```sql
-    CREATE TABLE [dbo].[PurchaseOrder](
-    [OrderID] [int] IDENTITY(1,1) NOT NULL,
-    [OrderDate] [datetime] NOT NULL,
-    [CustomerID] [int] NOT NULL,
-    [Status] [nvarchar](50) NOT NULL,
-     CONSTRAINT [PrimaryKey_PurchaseOrder] 
-    PRIMARY KEY CLUSTERED ( [OrderID] ASC ))
+CREATE TABLE [dbo].[PurchaseOrder](
+[OrderID] [int] IDENTITY(1,1) NOT NULL,
+[OrderDate] [datetime] NOT NULL,
+[CustomerID] [int] NOT NULL,
+[Status] [nvarchar](50) NOT NULL,
+CONSTRAINT [PrimaryKey_PurchaseOrder] 
+PRIMARY KEY CLUSTERED ( [OrderID] ASC ))
 ```
 
 Elke bestelling bevat een of meer kopen van een product. Deze informatie wordt vastgelegd in de tabel PurchaseOrderDetail. De volgende Transact-SQL maakt de PurchaseOrderDetail-tabel met vijf kolommen: Order-id, OrderDetailID, product-id, PrijsPerEenheid en Bestelhoev.
 
 ```sql
-    CREATE TABLE [dbo].[PurchaseOrderDetail](
-    [OrderID] [int] NOT NULL,
-    [OrderDetailID] [int] IDENTITY(1,1) NOT NULL,
-    [ProductID] [int] NOT NULL,
-    [UnitPrice] [money] NULL,
-    [OrderQty] [smallint] NULL,
-     CONSTRAINT [PrimaryKey_PurchaseOrderDetail] PRIMARY KEY CLUSTERED 
-    ( [OrderID] ASC, [OrderDetailID] ASC ))
+CREATE TABLE [dbo].[PurchaseOrderDetail](
+[OrderID] [int] NOT NULL,
+[OrderDetailID] [int] IDENTITY(1,1) NOT NULL,
+[ProductID] [int] NOT NULL,
+[UnitPrice] [money] NULL,
+[OrderQty] [smallint] NULL,
+CONSTRAINT [PrimaryKey_PurchaseOrderDetail] PRIMARY KEY CLUSTERED 
+( [OrderID] ASC, [OrderDetailID] ASC ))
 ```
 
 De kolom OrderID in de tabel PurchaseOrderDetail moet verwijzen naar een order uit de tabel PurchaseOrder. De volgende definitie van een refererende sleutel worden afgedwongen voor deze beperking.
 
 ```sql
-    ALTER TABLE [dbo].[PurchaseOrderDetail]  WITH CHECK ADD 
-    CONSTRAINT [FK_OrderID_PurchaseOrder] FOREIGN KEY([OrderID])
-    REFERENCES [dbo].[PurchaseOrder] ([OrderID])
+ALTER TABLE [dbo].[PurchaseOrderDetail]  WITH CHECK ADD 
+CONSTRAINT [FK_OrderID_PurchaseOrder] FOREIGN KEY([OrderID])
+REFERENCES [dbo].[PurchaseOrder] ([OrderID])
 ```
 
 Als u wilt gebruiken tabelwaardeparameters, moet u één gebruiker gedefinieerd tabeltype voor elke doeltabel hebben.
 
 ```sql
-    CREATE TYPE PurchaseOrderTableType AS TABLE 
-    ( OrderID INT,
-      OrderDate DATETIME,
-      CustomerID INT,
-      Status NVARCHAR(50) );
-    GO
+CREATE TYPE PurchaseOrderTableType AS TABLE 
+( OrderID INT,
+    OrderDate DATETIME,
+    CustomerID INT,
+    Status NVARCHAR(50) );
+GO
 
-    CREATE TYPE PurchaseOrderDetailTableType AS TABLE 
-    ( OrderID INT,
-      ProductID INT,
-      UnitPrice MONEY,
-      OrderQty SMALLINT );
-    GO
+CREATE TYPE PurchaseOrderDetailTableType AS TABLE 
+( OrderID INT,
+    ProductID INT,
+    UnitPrice MONEY,
+    OrderQty SMALLINT );
+GO
 ```
 
 Vervolgens definieert u een opgeslagen procedure die tabellen van de volgende typen accepteert. Deze procedure kunt batch-lokaal een reeks orders en ordergegevens in één aanroep van een toepassing. De volgende Transact-SQL biedt de declaratie voltooid opgeslagen procedure in dit voorbeeld van de volgorde van aankoop.
 
 ```sql
-    CREATE PROCEDURE sp_InsertOrdersBatch (
-    @orders as PurchaseOrderTableType READONLY,
-    @details as PurchaseOrderDetailTableType READONLY )
-    AS
-    SET NOCOUNT ON;
+CREATE PROCEDURE sp_InsertOrdersBatch (
+@orders as PurchaseOrderTableType READONLY,
+@details as PurchaseOrderDetailTableType READONLY )
+AS
+SET NOCOUNT ON;
 
-    -- Table that connects the order identifiers in the @orders
-    -- table with the actual order identifiers in the PurchaseOrder table
-    DECLARE @IdentityLink AS TABLE ( 
-    SubmittedKey int, 
-    ActualKey int, 
-    RowNumber int identity(1,1)
-    );
+-- Table that connects the order identifiers in the @orders
+-- table with the actual order identifiers in the PurchaseOrder table
+DECLARE @IdentityLink AS TABLE ( 
+SubmittedKey int, 
+ActualKey int, 
+RowNumber int identity(1,1)
+);
 
-          -- Add new orders to the PurchaseOrder table, storing the actual
-    -- order identifiers in the @IdentityLink table   
-    INSERT INTO PurchaseOrder ([OrderDate], [CustomerID], [Status])
-    OUTPUT inserted.OrderID INTO @IdentityLink (ActualKey)
-    SELECT [OrderDate], [CustomerID], [Status] FROM @orders ORDER BY OrderID;
+-- Add new orders to the PurchaseOrder table, storing the actual
+-- order identifiers in the @IdentityLink table   
+INSERT INTO PurchaseOrder ([OrderDate], [CustomerID], [Status])
+OUTPUT inserted.OrderID INTO @IdentityLink (ActualKey)
+SELECT [OrderDate], [CustomerID], [Status] FROM @orders ORDER BY OrderID;
 
-    -- Match the passed-in order identifiers with the actual identifiers
-    -- and complete the @IdentityLink table for use with inserting the details
-    WITH OrderedRows As (
-    SELECT OrderID, ROW_NUMBER () OVER (ORDER BY OrderID) As RowNumber 
-    FROM @orders
-    )
-    UPDATE @IdentityLink SET SubmittedKey = M.OrderID
-    FROM @IdentityLink L JOIN OrderedRows M ON L.RowNumber = M.RowNumber;
+-- Match the passed-in order identifiers with the actual identifiers
+-- and complete the @IdentityLink table for use with inserting the details
+WITH OrderedRows As (
+SELECT OrderID, ROW_NUMBER () OVER (ORDER BY OrderID) As RowNumber 
+FROM @orders
+)
+UPDATE @IdentityLink SET SubmittedKey = M.OrderID
+FROM @IdentityLink L JOIN OrderedRows M ON L.RowNumber = M.RowNumber;
 
-    -- Insert the order details into the PurchaseOrderDetail table, 
-          -- using the actual order identifiers of the master table, PurchaseOrder
-    INSERT INTO PurchaseOrderDetail (
-    [OrderID],
-    [ProductID],
-    [UnitPrice],
-    [OrderQty] )
-    SELECT L.ActualKey, D.ProductID, D.UnitPrice, D.OrderQty
-    FROM @details D
-    JOIN @IdentityLink L ON L.SubmittedKey = D.OrderID;
-    GO
+-- Insert the order details into the PurchaseOrderDetail table, 
+-- using the actual order identifiers of the master table, PurchaseOrder
+INSERT INTO PurchaseOrderDetail (
+[OrderID],
+[ProductID],
+[UnitPrice],
+[OrderQty] )
+SELECT L.ActualKey, D.ProductID, D.UnitPrice, D.OrderQty
+FROM @details D
+JOIN @IdentityLink L ON L.SubmittedKey = D.OrderID;
+GO
 ```
 
 In dit voorbeeld wordt de lokaal gedefinieerde @IdentityLink tabel bevat de werkelijke waarden van de order-id van de ingevoegde rijen. Deze volgorde-id's wijken af van de tijdelijke waarden in de order-id in de @orders en @details tabelwaardeparameters. Om deze reden de @IdentityLink tabel maakt vervolgens verbinding met de order-id-waarden uit de @orders parameter voor de echte order-id-waarden voor de nieuwe rijen in de tabel PurchaseOrder. Na deze stap wordt de @IdentityLink tabel invoegen van de details van de order met de werkelijke OrderID die voldoet aan de foreign key-beperking kunt vereenvoudigen.
@@ -567,23 +586,23 @@ In dit voorbeeld wordt de lokaal gedefinieerde @IdentityLink tabel bevat de werk
 Deze opgeslagen procedure kan worden gebruikt vanuit code of uit andere Transact-SQL-aanroepen. Zie de sectie tabelwaardeparameters van dit document voor een codevoorbeeld van. De volgende Transact-SQL laat zien hoe de sp_InsertOrdersBatch aanroepen.
 
 ```sql
-    declare @orders as PurchaseOrderTableType
-    declare @details as PurchaseOrderDetailTableType
+declare @orders as PurchaseOrderTableType
+declare @details as PurchaseOrderDetailTableType
 
-    INSERT @orders 
-    ([OrderID], [OrderDate], [CustomerID], [Status])
-    VALUES(1, '1/1/2013', 1125, 'Complete'),
-    (2, '1/13/2013', 348, 'Processing'),
-    (3, '1/12/2013', 2504, 'Shipped')
+INSERT @orders 
+([OrderID], [OrderDate], [CustomerID], [Status])
+VALUES(1, '1/1/2013', 1125, 'Complete'),
+(2, '1/13/2013', 348, 'Processing'),
+(3, '1/12/2013', 2504, 'Shipped')
 
-    INSERT @details
-    ([OrderID], [ProductID], [UnitPrice], [OrderQty])
-    VALUES(1, 10, $11.50, 1),
-    (1, 12, $1.58, 1),
-    (2, 23, $2.57, 2),
-    (3, 4, $10.00, 1)
+INSERT @details
+([OrderID], [ProductID], [UnitPrice], [OrderQty])
+VALUES(1, 10, $11.50, 1),
+(1, 12, $1.58, 1),
+(2, 23, $2.57, 2),
+(3, 4, $10.00, 1)
 
-    exec sp_InsertOrdersBatch @orders, @details
+exec sp_InsertOrdersBatch @orders, @details
 ```
 
 Deze oplossing kunt elke batch voor gebruik van een set van order-id-waarden die bij 1 beginnen. Deze tijdelijke OrderID waarden beschrijven de relaties in de batch, maar de werkelijke waarden van de order-id op het moment van de bewerking insert worden bepaald. U kunt dezelfde instructies herhaaldelijk uitvoeren in het vorige voorbeeld en genereren van unieke orders in de database. Overweeg meer code of database logica waarmee wordt voorkomen dubbele orders dat wanneer u deze techniek batchverwerking om deze reden.
@@ -597,40 +616,40 @@ Een ander batchverwerkingsindeling scenario omvat het tegelijkertijd bijwerken v
 Tabelwaardeparameters kunnen worden gebruikt met de instructie MERGE om uit te voeren van updates en toevoegingen. Neem bijvoorbeeld een vereenvoudigde werknemerstabel met de volgende kolommen: EmployeeID, FirstName, LastName, SocialSecurityNumber:
 
 ```sql
-    CREATE TABLE [dbo].[Employee](
-    [EmployeeID] [int] IDENTITY(1,1) NOT NULL,
-    [FirstName] [nvarchar](50) NOT NULL,
-    [LastName] [nvarchar](50) NOT NULL,
-    [SocialSecurityNumber] [nvarchar](50) NOT NULL,
-     CONSTRAINT [PrimaryKey_Employee] PRIMARY KEY CLUSTERED 
-    ([EmployeeID] ASC ))
+CREATE TABLE [dbo].[Employee](
+[EmployeeID] [int] IDENTITY(1,1) NOT NULL,
+[FirstName] [nvarchar](50) NOT NULL,
+[LastName] [nvarchar](50) NOT NULL,
+[SocialSecurityNumber] [nvarchar](50) NOT NULL,
+CONSTRAINT [PrimaryKey_Employee] PRIMARY KEY CLUSTERED 
+([EmployeeID] ASC ))
 ```
 
 In dit voorbeeld kunt u het feit dat de SocialSecurityNumber uniek is voor het uitvoeren van een SAMENVOEGING van meerdere werknemers. Maak eerst de gebruiker gedefinieerde tabeltype:
 
 ```sql
-    CREATE TYPE EmployeeTableType AS TABLE 
-    ( Employee_ID INT,
-      FirstName NVARCHAR(50),
-      LastName NVARCHAR(50),
-      SocialSecurityNumber NVARCHAR(50) );
-    GO
+CREATE TYPE EmployeeTableType AS TABLE 
+( Employee_ID INT,
+    FirstName NVARCHAR(50),
+    LastName NVARCHAR(50),
+    SocialSecurityNumber NVARCHAR(50) );
+GO
 ```
 
 Vervolgens maakt u een opgeslagen procedure of code schrijven die gebruikmaakt van de instructie MERGE voor het uitvoeren van de update en invoegen. Het volgende voorbeeld wordt de instructie MERGE op een tabelwaardeparameter @employees, van het type EmployeeTableType. De inhoud van de @employees tabel niet hier worden weergegeven.
 
 ```sql
-    MERGE Employee AS target
-    USING (SELECT [FirstName], [LastName], [SocialSecurityNumber] FROM @employees) 
-    AS source ([FirstName], [LastName], [SocialSecurityNumber])
-    ON (target.[SocialSecurityNumber] = source.[SocialSecurityNumber])
-    WHEN MATCHED THEN 
-    UPDATE SET
-    target.FirstName = source.FirstName, 
-    target.LastName = source.LastName
-    WHEN NOT MATCHED THEN
-       INSERT ([FirstName], [LastName], [SocialSecurityNumber])
-       VALUES (source.[FirstName], source.[LastName], source.[SocialSecurityNumber]);
+MERGE Employee AS target
+USING (SELECT [FirstName], [LastName], [SocialSecurityNumber] FROM @employees) 
+AS source ([FirstName], [LastName], [SocialSecurityNumber])
+ON (target.[SocialSecurityNumber] = source.[SocialSecurityNumber])
+WHEN MATCHED THEN 
+UPDATE SET
+target.FirstName = source.FirstName, 
+target.LastName = source.LastName
+WHEN NOT MATCHED THEN
+    INSERT ([FirstName], [LastName], [SocialSecurityNumber])
+    VALUES (source.[FirstName], source.[LastName], source.[SocialSecurityNumber]);
 ```
 
 Zie voor meer informatie de documentatie en voorbeelden voor de instructie MERGE. Hoewel hetzelfde werk kan worden uitgevoerd in een opgeslagen meerdere stappen procedureaanroep met afzonderlijke INSERT en UPDATE-bewerkingen, de instructie MERGE is efficiënter. Databasecode kan ook bouwen voor Transact-SQL-aanroepen die gebruikmaken van de instructie MERGE rechtstreeks zonder dat twee databaseaanroepen voor INSERT en UPDATE.

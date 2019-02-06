@@ -1,23 +1,26 @@
 ---
-title: Over het maken van een blob in Azure Storage met behulp van de v2-SDK voor Node.js
+title: Over het maken van een blob in Azure Storage met behulp van de clientbibliotheek voor Node.js v2
 description: Maak een opslagaccount en een container in object(Blob)-opslag. Vervolgens gebruiken de Azure Storage-clientbibliotheek voor Node.js v2 voor een blob uploaden naar Azure Storage, een blob downloaden en de blobs in een container te vermelden.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 02/04/2019
 ms.author: tamram
-ms.openlocfilehash: 6af1a7c1cf140ba8ff4710c0cc90559e3df55135
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 182315c705360d254c3bf342cd9c64ffafa0c021
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734161"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750071"
 ---
-# <a name="how-to-upload-download-and-list-blobs-using-nodejs-sdk-v2"></a>Het uploaden, downloaden en met behulp van Node.js-SDK v2 blobs te vermelden
+# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-nodejs-v2"></a>Het uploaden, downloaden en met behulp van de clientbibliotheek voor Node.js v2 blobs te vermelden
 
-In deze handleiding leert u hoe u Node.js gebruiken om te uploaden, downloaden en blobs weergeven en beheren van containers met Azure Blob storage.
+In deze handleiding leert u hoe u met de clientbibliotheek voor Node.js-v2 te uploaden, downloaden en lijst met blobs met Azure Blob storage.
+
+> [!TIP]
+> De meest recente versie van de Azure Storage-clientbibliotheek voor Node.js is v10. Microsoft raadt aan dat u de meest recente versie van de clientbibliotheek indien mogelijk. Om te beginnen met behulp van v10, Zie [Quick Start: Uploaden, downloaden, vermelden en verwijderen van blobs met behulp van Azure Storage-clientbibliotheek voor JavaScript v10 (preview)](storage-quickstart-blobs-nodejs-v10.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -96,7 +99,7 @@ Dit is het doel van de modules:
 
 bestand met naam *.env* naar de huidige uitvoeringscontext
 - *path* is vereist om het absolute pad van het bestand te bepalen voor uploaden naar blob-opslag
-- *azure-storage* is de [Azure Storage SDK](https://docs.microsoft.com/javascript/api/azure-storage)-module voor Node.js
+- *Azure-opslag* is de [Azure Storage-clientbibliotheek](https://docs.microsoft.com/javascript/api/azure-storage) -module voor Node.js
 
 Vervolgens wordt de variabele **blobService** geïnitialiseerd als nieuw exemplaar van de Azure Blobservice.
 
@@ -358,4 +361,4 @@ Zie de volgende aanvullende bronnen voor Node.js-ontwikkeling met Blob-opslag:
 In dit artikel ziet u hoe u een bestand uploadt tussen een lokale schijf en Azure Blob-opslag met behulp van Node.js. Voor meer informatie over het werken met Blobopslag, gaat u naar de GitHub-opslagplaats.
 
 > [!div class="nextstepaction"]
-> [Azure Storage SDK voor JavaScript-opslag](https://github.com/Azure/azure-storage-node)
+> [Microsoft Azure Storage SDK voor Node.js en JavaScript voor Browsers](https://github.com/Azure/azure-storage-node)

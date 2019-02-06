@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: e96c637e3c01ccfc27afa967d830c7d0254d11e7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 0869786b2aa6c604ee59deb0f5a5fbc27b9ce3bf
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104232"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751562"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup oplossen: Problemen met de agent of de extensie
 
@@ -64,7 +64,7 @@ U lost dit probleem, verwijder de vergrendeling van de resourcegroep van de virt
 **Foutcode**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Foutbericht**: Back-up beschikt niet over voldoende machtigingen tot de key vault voor back-ups van versleutelde virtuele machines. <br>
 
-Back-bewerking te voltooien voor versleutelde virtuele machines, moet machtigingen voor toegang tot de key vault hebben. Dit kan worden gedaan met behulp van de [Azure-portal](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption#provide-permissions-to-backup) of via de [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)
+Back-bewerking te voltooien voor versleutelde virtuele machines, moet machtigingen voor toegang tot de key vault hebben. Dit kan worden gedaan met behulp van de [Azure-portal](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) of via de [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - momentopname is mislukt omdat er geen netwerkverbinding beschikbaar is op de virtuele machine
 
@@ -121,7 +121,7 @@ Azure Backup ondersteunt momenteel Standard-SSD-schijven alleen voor kluizen die
 
 Uw recente back-uptaak is mislukt omdat er een bestaande back-uptaak uitgevoerd wordt. U kunt een nieuwe back-uptaak niet starten, totdat de huidige taak is voltooid. Zorg ervoor dat de back-upbewerking die momenteel bezig is voltooid voordat u activeert of een andere back-upbewerkingen plannen. Om te controleren of de status van de back-uptaken, voer de onderstaande stappen te volgen:
 
-1. Aanmelden bij Azure portal, klikt u op **alle services**. Typ de Recovery Services en klik op **Recovery Services-kluizen**. De lijst met Recovery Services-kluizen wordt weergegeven.
+1. Meld u aan bij de Azure-portal en klik op **Alle services**. Typ Recovery Services en klik op **Recovery Services-kluizen**. De lijst met Recovery Services-kluizen wordt weergegeven.
 2. Selecteer in de lijst met recovery services-kluizen een kluis waarin de back-up is geconfigureerd.
 3. Klik op het menu kluis dashboard **back-uptaken** de back-uptaken wordt weergegeven.
 

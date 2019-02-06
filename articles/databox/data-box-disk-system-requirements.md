@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 02/05/2019
 ms.author: alkohli
-ms.openlocfilehash: b2f8a299dfc52bcc1f2eaa17e658b841d27bf62c
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 0effc6af1ddc3273f0c6e2bf9cbfd0f2ecadf0a2
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54154926"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747319"
 ---
 # <a name="azure-data-box-disk-system-requirements"></a>Azure Data Box-schijf-systeemvereisten
 
@@ -30,7 +30,7 @@ Hier volgt een lijst van de ondersteunde besturingssystemen voor het ontgrendele
 | --- | --- |
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
 | Windows |7, 8, 10 |
-|Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04, 16.04, 18.04 <br> 8.11, 9 <br> 7.0 <br> 6.5, 6,9, 7.0, 7.5 |  
+|Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04, 16.04, 18.04 <br> 8.11, 9 <br> 7.0 <br> 6.5, 6.9, 7.0, 7.5 |  
 
 ## <a name="other-required-software-for-windows-clients"></a>Andere vereiste software voor Windows-clients
 
@@ -38,7 +38,7 @@ Volgende moeten ook worden geïnstalleerd voor Windows-client.
 
 | **Software**| **Versie** |
 | --- | --- |
-| Windows PowerShell |5.0 |
+| Windows Powershell |5.0 |
 | .NET Framework |4.5.1 |
 | Windows Management Framework |5.0|
 | BitLocker| - |
@@ -50,6 +50,10 @@ Voor Linux-client installeert de Data Box-schijf-toolset van de volgende vereist
 - dislocker
 - OpenSSL
 
+## <a name="supported-connection"></a>Ondersteunde verbinding
+
+De clientcomputer met de gegevens moet hebben een USB-3.0 of hoger poort. De schijven verbinding worden gemaakt met deze met behulp van de opgegeven kabel. 
+
 ## <a name="supported-storage-accounts"></a>Ondersteunde opslagaccounts
 
 Hier volgt een lijst van de typen ondersteunde opslag voor de Data Box-schijf.
@@ -57,7 +61,7 @@ Hier volgt een lijst van de typen ondersteunde opslag voor de Data Box-schijf.
 | **Opslagaccount** | **Opmerkingen** |
 | --- | --- |
 | Klassiek | Standard |
-| Algemeen gebruik  |Standaard; zowel V1 als V2 worden ondersteund. Warme en koude lagen worden ondersteund. |
+| Algemeen doel  |Standaard; zowel V1 als V2 worden ondersteund. Warme en koude lagen worden ondersteund. |
 
 >[!NOTE]
 > Azure Data Lake Storage Gen 2-accounts worden niet ondersteund.

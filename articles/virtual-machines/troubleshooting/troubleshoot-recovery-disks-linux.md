@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
-ms.openlocfilehash: 9e3177b9df41a1612435dddadafd5c7e291e0e35
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 76a29ce05aab39d9460dcf068ec8a7f60d1e8fac
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663584"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753279"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Een Linux-VM oplossen door de besturingssysteemschijf koppelen aan een virtuele machine met de Azure CLI voor herstel
 Als uw Linux-machine (VM) een fout opstart- of schijffout optreedt, moet u mogelijk de stappen voor probleemoplossing uitvoeren op de virtuele harde schijf zelf. Een veelvoorkomend voorbeeld is een ongeldige waarde in `/etc/fstab` dat voorkomt dat de virtuele machine wordt het opstarten. Dit artikel wordt uitgelegd hoe u verbinding maken met de virtuele harde schijf met een andere Linux-VM op eventuele fouten te corrigeren en vervolgens de oorspronkelijke virtuele machine opnieuw te maken met de Azure CLI. 
@@ -55,7 +55,7 @@ Controleer de seriële uitvoer om te bepalen waarom de virtuele machine is mislu
 ## <a name="view-existing-virtual-hard-disk-details"></a>Bestaande virtuele harde schijfdetails weergeven
 Voordat u de virtuele harde schijf (VHD) aan een andere virtuele machine koppelen kunt, moet u voor het identificeren van de URI van de besturingssysteemschijf. 
 
-Informatie weergeven over uw virtuele machine met [az vm show](/cli/azure/vm#az_vm_show). Gebruik de `--query` vlag om op te halen van de URI voor de besturingssysteemschijf. Het volgende voorbeeld wordt informatie over de schijf voor de virtuele machine met de naam `myVM` in de resourcegroep met de naam `myResourceGroup`:
+Informatie weergeven over uw virtuele machine met [az vm show](/cli/azure/vm). Gebruik de `--query` vlag om op te halen van de URI voor de besturingssysteemschijf. Het volgende voorbeeld wordt informatie over de schijf voor de virtuele machine met de naam `myVM` in de resourcegroep met de naam `myResourceGroup`:
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM \
@@ -81,7 +81,7 @@ Wacht totdat de virtuele machine verwijderd is voordat u de virtuele harde schij
 ## <a name="attach-existing-virtual-hard-disk-to-another-vm"></a>Bestaande virtuele harde schijf koppelen aan een andere virtuele machine
 Voor de volgende stappen gebruikt u een andere virtuele machine voor het oplossen van problemen. U kunt de bestaande virtuele harde schijf koppelen aan deze VM voor probleemoplossing om te bladeren en de inhoud van de schijf bewerken. Dit proces kunt u Corrigeer eventuele fouten in de configuratie of extra toepassing of Systeemlogboekbestanden, bijvoorbeeld kunnen beoordelen. Kies of maak een andere virtuele machine moet worden gebruikt voor het oplossen van problemen.
 
-Koppel de bestaande virtuele harde schijf met [az vm unmanaged-disk attach](/cli/azure/vm/unmanaged-disk#az_vm_unmanaged_disk_attach). Wanneer u de bestaande virtuele harde schijf koppelt, geeft u de URI naar de schijf hebt verkregen in de voorgaande `az vm show` opdracht. Het volgende voorbeeld wordt een bestaande virtuele harde schijf gekoppeld aan de VM voor probleemoplossing met de naam `myVMRecovery` in de resourcegroep met de naam `myResourceGroup`:
+Koppel de bestaande virtuele harde schijf met [az vm unmanaged-disk attach](/cli/azure/vm/unmanaged-disk). Wanneer u de bestaande virtuele harde schijf koppelt, geeft u de URI naar de schijf hebt verkregen in de voorgaande `az vm show` opdracht. Het volgende voorbeeld wordt een bestaande virtuele harde schijf gekoppeld aan de VM voor probleemoplossing met de naam `myVMRecovery` in de resourcegroep met de naam `myResourceGroup`:
 
 ```azurecli
 az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecovery \
@@ -147,7 +147,7 @@ Zodra de fouten opgelost zijn, kunt u ontkoppelen en de bestaande virtuele harde
     sudo umount /dev/sdc1
     ```
 
-2. Nu de virtuele harde schijf van de virtuele machine loskoppelen. Sluit de SSH-sessie af op uw virtuele machine voor probleemoplossing. Lijst van de gekoppelde gegevensschijven aan uw VM voor probleemoplossing met [az vm unmanaged-disk list](/cli/azure/vm/unmanaged-disk#az_vm_unmanaged_disk_list). Het volgende voorbeeld worden de gegevensschijven die zijn gekoppeld aan de virtuele machine met de naam `myVMRecovery` in de resourcegroep met de naam `myResourceGroup`:
+2. Nu de virtuele harde schijf van de virtuele machine loskoppelen. Sluit de SSH-sessie af op uw virtuele machine voor probleemoplossing. Lijst van de gekoppelde gegevensschijven aan uw VM voor probleemoplossing met [az vm unmanaged-disk list](/cli/azure/vm/unmanaged-disk). Het volgende voorbeeld worden de gegevensschijven die zijn gekoppeld aan de virtuele machine met de naam `myVMRecovery` in de resourcegroep met de naam `myResourceGroup`:
 
     ```azurecli
     azure vm unmanaged-disk list --resource-group myResourceGroup --vm-name myVMRecovery \
@@ -156,7 +156,7 @@ Zodra de fouten opgelost zijn, kunt u ontkoppelen en de bestaande virtuele harde
 
     Noteer de naam voor uw bestaande virtuele harde schijf. Bijvoorbeeld, de naam van een schijf met de URI van **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd** is **myVHD**. 
 
-    De gegevensschijf van uw virtuele machine loskoppelen [az vm unmanaged-disk detach](/cli/azure/vm/unmanaged-disk#az_vm_unmanaged_disk_detach). Het volgende voorbeeld wordt losgekoppeld van de schijf met de naam `myVHD` van de virtuele machine met de naam `myVMRecovery` in de `myResourceGroup` resourcegroep:
+    De gegevensschijf van uw virtuele machine loskoppelen [az vm unmanaged-disk detach](/cli/azure/vm/unmanaged-disk). Het volgende voorbeeld wordt losgekoppeld van de schijf met de naam `myVHD` van de virtuele machine met de naam `myVMRecovery` in de `myResourceGroup` resourcegroep:
 
     ```azurecli
     az vm unmanaged-disk detach --resource-group myResourceGroup --vm-name myVMRecovery \
@@ -169,7 +169,7 @@ Gebruik voor het maken van een virtuele machine van de oorspronkelijke virtuele 
 
 - https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json
 
-De sjabloon implementeert een virtuele machine met behulp van de VHD-URI van de vorige opdracht. Implementeer de sjabloon met [az group deployment maken](/cli/azure/group/deployment#az_group_deployment_create). Hiermee geeft u de URI naar de oorspronkelijke VHD en geef vervolgens het type besturingssysteem, VM-grootte en de naam van de virtuele machine als volgt:
+De sjabloon implementeert een virtuele machine met behulp van de VHD-URI van de vorige opdracht. Implementeer de sjabloon met [az group deployment maken](/cli/azure/group/deployment). Hiermee geeft u de URI naar de oorspronkelijke VHD en geef vervolgens het type besturingssysteem, VM-grootte en de naam van de virtuele machine als volgt:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeployment \
@@ -181,7 +181,7 @@ az group deployment create --resource-group myResourceGroup --name myDeployment 
 ```
 
 ## <a name="re-enable-boot-diagnostics"></a>Diagnostische gegevens over opstarten opnieuw inschakelen
-Wanneer u uw virtuele machine van de bestaande virtuele harde schijf maakt, diagnostische gegevens over opstarten mogelijk niet automatisch ingeschakeld. Inschakelen van diagnostische gegevens over opstarten met [az vm boot-diagnostics inschakelen](/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_enable). Het volgende voorbeeld wordt de diagnostische extensie op de virtuele machine met de naam `myDeployedVM` in de resourcegroep met de naam `myResourceGroup`:
+Wanneer u uw virtuele machine van de bestaande virtuele harde schijf maakt, diagnostische gegevens over opstarten mogelijk niet automatisch ingeschakeld. Inschakelen van diagnostische gegevens over opstarten met [az vm boot-diagnostics inschakelen](/cli/azure/vm/boot-diagnostics). Het volgende voorbeeld wordt de diagnostische extensie op de virtuele machine met de naam `myDeployedVM` in de resourcegroep met de naam `myResourceGroup`:
 
 ```azurecli
 az vm boot-diagnostics enable --resource-group myResourceGroup --name myDeployedVM

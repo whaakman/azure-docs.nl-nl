@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 84e952514b88620af565cf7e9775c055476fb530
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2530f6f59ef458d5a7c2de5850d8fab322798ba3
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247558"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752656"
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Zelfstudie: hybride cloud-connectiviteit configureren met Azure en Azure Stack
 
@@ -61,7 +61,7 @@ In deze zelfstudie wordt ervan uitgegaan dat u enige basiskennis van Azure en Az
 ### <a name="azure"></a>Azure
 
  - Als u nog geen Azure-abonnement hebt, maakt u een  [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
- - Maak een [Web-App](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts#create-an-azure-web-app-using-the-portal) in Azure. Noteer de URL van de Web-App, omdat u hebt deze nodig in de zelfstudie.
+ - Maak een [Web-App](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts) in Azure. Noteer de URL van de Web-App, omdat u hebt deze nodig in de zelfstudie.
 
 ### <a name="azure-stack"></a>Azure Stack
 

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 04c89742ac09d1581b978e3612539acb7eab2195
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: ea7f32a08a6a183bac21436e7d58afe10c4d7b20
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511051"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756645"
 ---
 # <a name="azure-sql-database-servers-and-their-management"></a>Azure SQL Database-servers en hun beheer
 
@@ -78,7 +78,7 @@ Voor het beheren van een bestaande database, gaat u naar de **SQL-databases** pa
 > [!IMPORTANT]
 > Zie configureren van eigenschappen van de prestaties voor een database [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md).
 > [!TIP]
-> Zie voor een Azure portal-quickstart, [maken van een Azure SQL database in Azure portal](sql-database-get-started-portal.md).
+> Zie voor een Azure portal-quickstart, [maken van een Azure SQL database in Azure portal](sql-database-single-database-get-started.md).
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-powershell"></a>Azure SQL-servers, databases, en firewalls beheren met behulp van PowerShell
 
@@ -102,7 +102,7 @@ Als u wilt maken en beheren van Azure SQL-server, databases en firewalls met Azu
 | New-AzureRmSqlServerVirtualNetworkRule | Hiermee maakt u een [ *regel voor virtuele netwerken*](sql-database-vnet-service-endpoint-rule-overview.md), op basis van een subnet plaatsen dat is een service-eindpunt voor Virtueelnetwerk. |
 
 > [!TIP]
-> Zie voor een PowerShell-snelstartgids [maken van een individuele Azure SQL-database met behulp van PowerShell](sql-database-get-started-portal.md). Zie voor PowerShell-voorbeeldscripts, [PowerShell gebruiken om te maken van een individuele Azure SQL-database en een firewallregel configureren](scripts/sql-database-create-and-configure-database-powershell.md) en [bewaken en schalen van een Azure SQL database met behulp van PowerShell enkel](scripts/sql-database-monitor-and-scale-database-powershell.md).
+> Zie voor een PowerShell-snelstartgids [maken van een individuele Azure SQL-database met behulp van PowerShell](sql-database-single-database-get-started.md). Zie voor PowerShell-voorbeeldscripts, [PowerShell gebruiken om te maken van een individuele Azure SQL-database en een firewallregel configureren](scripts/sql-database-create-and-configure-database-powershell.md) en [bewaken en schalen van een Azure SQL database met behulp van PowerShell enkel](scripts/sql-database-monitor-and-scale-database-powershell.md).
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-cli"></a>Azure SQL-servers, databases, en firewalls beheren met behulp van de Azure CLI

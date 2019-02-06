@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: da95bd3832ee647c371c7beabb55b974dcb97740
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 94d3599fe919cf648be7115be68002d2aa458ee3
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496564"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744838"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT Hub-berichtroutering query-syntaxis
 
@@ -55,7 +55,7 @@ Systeemeigenschappen te identificeren van de inhoud en de bron van de berichten.
 | -------- | ---- | ----------- |
 | contentType | string | De gebruiker geeft het type inhoud van het bericht. Als u wilt toestaan dat query op de berichttekst, moet deze waarde application/JSON worden ingesteld. |
 | contentEncoding | string | De gebruiker Hiermee geeft u het coderingstype van het bericht. Toegestane waarden zijn UTF-8, UTF-16, UTF-32 als de contentType is ingesteld op application/JSON. |
-| connectionDeviceId | string | Deze waarde is ingesteld door de IoT Hub en geeft de bron van de berichten. Dit wordt mogelijk telemetrieberichten van apparaten, device twin wijzigingsmeldingen of levenscyclusgebeurtenissen voor het apparaat. Dit kan niet worden opgevraagd. |
+| iothub-verbinding-apparaat-id | string | Deze waarde is ingesteld door de IoT Hub en de ID van het apparaat identificeert. Gebruiken om te vragen, `$connectionDeviceId`. |
 | iothub-enqueuedtime | string | Deze waarde is ingesteld door de IoT Hub en de werkelijke tijd van het bericht in UTC enqueuing vertegenwoordigt. Gebruiken om te vragen, `enqueuedTime`. |
 
 Zoals beschreven in de [IoT Hub-berichten](iot-hub-devguide-messages-construct.md), er zijn aanvullende eigenschappen in een bericht. Naast **contentType**, **contentEncoding**, en **enqueuedTime**, wordt de **connectionDeviceId** en  **connectionModuleId** kunnen ook worden opgevraagd.

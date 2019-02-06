@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: lahugh
-ms.openlocfilehash: b296dce0a83971626c8e66ddc314c4d1e07d8602
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0bc43b82a987ab065677bdbb56de73ef341c249d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840364"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752123"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Een aangepaste installatiekopie gebruiken om een pool van virtuele machines te maken 
 
@@ -69,7 +69,7 @@ Een momentopname is een volledige, alleen-lezen kopie van een VHD. U kunt de Azu
 
 ### <a name="create-an-image-from-one-or-more-snapshots"></a>Een installatiekopie maken van een of meer momentopnamen
 
-Gebruik voor het maken van een beheerde installatiekopie van een momentopname van een Azure-opdrachtregelprogramma's zoals de [az afbeelding maken](/cli/azure/image#az_image_create) opdracht. U kunt een installatiekopie maken door de momentopname van een OS-schijf en optioneel een of meer momentopnamen van gegevens de schijf op te geven.
+Gebruik voor het maken van een beheerde installatiekopie van een momentopname van een Azure-opdrachtregelprogramma's zoals de [az afbeelding maken](/cli/azure/image) opdracht. U kunt een installatiekopie maken door de momentopname van een OS-schijf en optioneel een of meer momentopnamen van gegevens de schijf op te geven.
 
 ## <a name="create-a-pool-from-a-custom-image-in-the-portal"></a>Een groep maken van een aangepaste installatiekopie in de portal
 

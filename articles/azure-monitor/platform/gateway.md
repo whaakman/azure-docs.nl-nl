@@ -11,16 +11,21 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 551e7c0ca3b4b5e0e94aca39e19d9a35d08e4e05
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: e4ea964600c03ce3f3b5b276ed02d12f573814bf
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353036"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756492"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Verbinding maken met computers zonder toegang tot het Internet met behulp van de Log Analytics-gateway
+
+>[!NOTE]
+>De OMS-gateway als onderdeel van de lopende overgang van Microsoft Operations Management Suite (OMS) naar Azure Monitor, zal worden aangeduid als de Log Analytics-gateway. 
+>
+
 Dit document wordt beschreven hoe u communicatie configureren met Azure Automation en Log Analytics met behulp van de Log Analytics-gateway als direct verbonden of Operations Manager bewaakt computers geen toegang tot Internet hebben.  De Log Analytics-gateway, die een forward HTTP-proxy die ondersteuning biedt voor HTTP-tunneling met de opdracht HTTP-verbinding maken, kan gegevens verzamelen en te verzenden naar Azure Automation en Log Analytics namens hen.  
 
 De Log Analytics-gateway ondersteunt:
@@ -146,7 +151,7 @@ Zie voor meer informatie over vereisten en stappen voor het installeren van de L
 
 Na de installatie van de agent op de gatewayserver, kunt u deze om te rapporteren aan de werkruimte of werkruimten stoffen communicatie met de gateway configureren. Als de Log Analytics-Windows-agent is niet geïnstalleerd op de gateway, wordt de gebeurtenis 300 geschreven naar de **OMS-Gateway Log** gebeurtenislogboek die wijzen op de agent moet worden geïnstalleerd. Als de agent is geïnstalleerd, maar niet is geconfigureerd om te rapporteren aan dezelfde werkruimte als de agents die communiceren via het, wordt de gebeurtenis 105 geschreven naar het gebeurtenislogboek hetzelfde, met vermelding van dat de agent op de gateway moet worden geconfigureerd om te rapporteren aan dezelfde werkruimte als de communicatie met t-agents hij-gateway.
 
-Na de configuratie is voltooid, moet u opnieuw de **OMS-Gateway** service zodat de wijzigingen worden doorgevoerd. Anders wordt de gateway probeert te communiceren met Log Analytics en het rapport gebeurtenis-id 105 in agents weigert de **OMS-Gateway Log** gebeurtenislogboek. Dit geldt ook wanneer u toevoegen of verwijderen van een werkruimte van de configuratie van de agent op de gatewayserver.   
+Na de configuratie is voltooid, moet u opnieuw de **OMS-Gateway** service zodat de wijzigingen worden doorgevoerd. Anders wordt de gateway probeert te communiceren met Log Analytics en het rapport gebeurtenis-ID 105 in agents weigert de **OMS-Gateway Log** gebeurtenislogboek. Dit geldt ook wanneer u toevoegen of verwijderen van een werkruimte van de configuratie van de agent op de gatewayserver.   
 
 Zie voor informatie met betrekking tot Automation Hybrid Runbook Worker [Hybrid Runbook Worker implementeren](../../automation/automation-hybrid-runbook-worker.md).
 

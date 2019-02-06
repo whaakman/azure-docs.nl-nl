@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 7d79e81f8670492d025727ed76d7d529dbd4719d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 177a9cbf9235bb3d2deb0d5f8e4e31a0e1472b48
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188317"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756469"
 ---
 # <a name="get-trending-images-from-the-web"></a>Ophalen van afbeeldingen-trending van het web
 
@@ -90,7 +90,7 @@ Het antwoord bevat een [TrendingImages](https://docs.microsoft.com/rest/api/cogn
 
 Elke tegel bevat een afbeelding en opties voor het ophalen van gerelateerde afbeeldingen. Als u de gerelateerde afbeeldingen, kunt u de query `text` om aan te roepen de [afbeeldingen zoeken-API](./search-the-web.md) en de gerelateerde afbeeldingen zelf weer te geven. Of u kunt de URL in `webSearchUrl` te nemen van de gebruiker van de Bing afbeeldingen pagina met zoekresultaten, waarin de gerelateerde afbeeldingen.
 
-Als u de afbeeldingen zoeken-API om op te halen van de gerelateerde afbeeldingen aanroepen, stelt u de [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#id) queryparameter met de ID in de `id` veld. De ID op te geven, zorgt u ervoor dat het antwoord bevat de installatiekopie (dit is de eerste afbeelding in het antwoord) en de bijbehorende gerelateerde afbeeldingen. Stel ook de [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#q) queryparameter op de tekst in de `query` van het object `text` veld.
+Als u de afbeeldingen zoeken-API om op te halen van de gerelateerde afbeeldingen aanroepen, stelt u de [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#id) queryparameter met de ID in de `id` veld. De ID op te geven, zorgt u ervoor dat het antwoord bevat de installatiekopie (dit is de eerste afbeelding in het antwoord) en de bijbehorende gerelateerde afbeeldingen. Stel ook de [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) queryparameter op de tekst in de `query` van het object `text` veld.
 
 Het volgende voorbeeld ziet hoe u de afbeeldings-ID gebruikt om op te halen van gerelateerde afbeeldingen van Mr. Smith in de voorgaande Trending afbeeldingen-API-reactie.
 

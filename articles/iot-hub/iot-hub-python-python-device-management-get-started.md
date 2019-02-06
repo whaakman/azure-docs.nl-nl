@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: kgremban
-ms.openlocfilehash: dbe2ba6ce4e001f6e49fbbee9189fa5b4d99ec33
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 36514fe321fa352c2526db5a18ac8618d7af713e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514380"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756764"
 ---
 # <a name="get-started-with-device-management-python"></a>Aan de slag met Apparaatbeheer (Python)
 
@@ -44,7 +44,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Voor IoT hub-verbindingsreeks ophalen
+### <a name="retrieve-connection-string-for-iot-hub"></a>Verbindingsreeks voor IoT-hub ophalen
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
@@ -68,7 +68,7 @@ In deze sectie maakt u het volgende doen:
     from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult, IoTHubError, DeviceMethodReturnValue
     ```
 
-1. Variabelen met inbegrip van een **CONNECTION_STRING** variabele en de initialisatie van de client.  Vervang de verbindingsreeks door de verbindingsreeks van uw apparaat.  
+1. Variabelen met inbegrip van een **CONNECTION_STRING** variabele en de clientinitialisatie van de.  Vervang de verbindingsreeks door de verbindingsreeks van uw apparaat.  
    
     ```python
     CONNECTION_STRING = "{deviceConnectionString}"

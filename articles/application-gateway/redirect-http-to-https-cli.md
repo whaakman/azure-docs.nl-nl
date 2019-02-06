@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 52a93fdd3105b091f688c297fe1e78e55ce0c96e
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 1a5479cb54e15c0e740d800c8ee248a67e5ec5fc
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730302"
+ms.locfileid: "55746758"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Een toepassingsgateway maken met HTTP naar HTTPS-omleiding met de Azure CLI
 
@@ -86,7 +86,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>De toepassingsgateway maken
 
-U kunt [az network application-gateway create](/cli/azure/network/application-gatewaywork_application_gateway_create) gebruiken om de toepassingsgateway *myAppGateway* te maken. Als u met de Azure CLI een toepassingsgateway maakt, geeft u configuratiegegevens op, zoals capaciteit, SKU en HTTP-instellingen. 
+U kunt [az network application-gateway create](/cli/azure/network/application-gateway#az-network-application-gateway-create) gebruiken om de toepassingsgateway *myAppGateway* te maken. Als u met de Azure CLI een toepassingsgateway maakt, geeft u configuratiegegevens op, zoals capaciteit, SKU en HTTP-instellingen. 
 
 De toepassingsgateway wordt toegewezen aan *myAGSubnet* en *myAGPublicIPAddress*, die u eerder hebt gemaakt. In dit voorbeeld koppelt u het certificaat dat u hebt gemaakt aan het wachtwoord als u de toepassingsgateway maakt. 
 
@@ -121,7 +121,7 @@ az network application-gateway create \
 
 ### <a name="add-the-http-port"></a>De HTTP-poort toevoegen
 
-U kunt [az network application-gateway frontend-port maken](/cli/azure/network/application-gateway/frontend-portwork_application_gateway_frontend_port_create) de HTTP-poort toevoegen aan de toepassingsgateway.
+U kunt [az network application-gateway frontend-port maken](/cli/azure/network/application-gateway/frontend-port#az-network-application-gateway-frontend-port-create) de HTTP-poort toevoegen aan de toepassingsgateway.
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \
@@ -133,7 +133,7 @@ az network application-gateway frontend-port create \
 
 ### <a name="add-the-http-listener"></a>De HTTP-listener toevoegen
 
-U kunt [az network application-gateway http-listener maken](/cli/azure/network/application-gateway/http-listenerwork_application_gateway_http_listener_create) om toe te voegen van de listener met de naam *myListener* aan de toepassingsgateway.
+U kunt [az network application-gateway http-listener maken](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create) om toe te voegen van de listener met de naam *myListener* aan de toepassingsgateway.
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -146,7 +146,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>De configuratie van omleiding toevoegen
 
-De HTTP toevoegen aan HTTPS-omleiding configuratie aan de application gateway met [az network application-gateway redirect-config maken](/cli/azure/network/application-gateway/redirect-configwork_application_gateway_redirect_config_create).
+De HTTP toevoegen aan HTTPS-omleiding configuratie aan de application gateway met [az network application-gateway redirect-config maken](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -161,7 +161,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-the-routing-rule"></a>Toevoegen van de regel voor doorsturen
 
-Toevoegen van de routeringsregel met de naam *regel 2* met de application gateway met behulp van de configuratie van de omleiding [az network application-gateway-regel maken](/cli/azure/network/application-gateway/rulework_application_gateway_rule_create).
+Toevoegen van de routeringsregel met de naam *regel 2* met de application gateway met behulp van de configuratie van de omleiding [az network application-gateway-regel maken](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
 
 ```azurecli-interactive
 az network application-gateway rule create \

@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 7cb2e4214e868bdf9f585d6b0f4468a6c8375191
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 81ec99c5de94736d68392cc7cf0bc3e305e0ce7d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459228"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754010"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Beheren en het verlenen van toegang tot de database met SQL Database en SQL Data Warehouse
 
@@ -49,13 +49,13 @@ De accounts van de **serverbeheerder** en de **Azure AD-beheerder** hebben de vo
 - Deze accounts worden in gebruikersdatabases beschouwd als de `dbo`-gebruiker en beschikken over alle machtigingen. (De eigenaar van een gebruikersdatabase wordt in de database ook als `dbo`-gebruiker beschouwd.) 
 - Voer niet de `master` database als de `dbo` gebruiker, en hebben beperkte machtigingen in master. 
 - Zijn **niet** leden van de standaard SQL Server `sysadmin` vaste serverrol die niet beschikbaar in SQL-database.  
-- Kan maken, wijzigen en verwijderen van databases, aanmeldingen en gebruikers in de hoofddatabase, en op serverniveau firewall-regels.
+- Kan maken, wijzigen en verwijderen van databases, aanmeldingen en gebruikers in de hoofddatabase, en op serverniveau IP-firewallregels.
 - Kunnen toevoegen en verwijderen van leden aan de `dbmanager` en `loginmanager` rollen.
 - Vindt de `sys.sql_logins` systeemtabel voorkomt.
 
 ### <a name="configuring-the-firewall"></a>De firewall configureren
 
-Als de firewall op serverniveau is geconfigureerd voor een afzonderlijk IP-adres of -bereik, kunnen de **SQL-serverbeheerder** en de **Azure Active Directory-beheerder** verbinding maken met de hoofddatabase en alle gebruikersdatabases. De eerste firewall op serverniveau kan worden geconfigureerd via [Azure Portal](sql-database-get-started-portal.md) met behulp van [PowerShell](sql-database-powershell-samples.md) of de [REST-API](https://msdn.microsoft.com/library/azure/dn505712.aspx). Nadat er een verbinding tot stand is gebracht, kunnen er ook aanvullende firewallregels op serverniveau worden geconfigureerd met behulp van de [Transact-SQL](sql-database-configure-firewall-settings.md).
+Als de firewall op serverniveau is geconfigureerd voor een afzonderlijk IP-adres of -bereik, kunnen de **SQL-serverbeheerder** en de **Azure Active Directory-beheerder** verbinding maken met de hoofddatabase en alle gebruikersdatabases. De eerste firewall op serverniveau kan worden geconfigureerd via [Azure Portal](sql-database-single-database-get-started.md) met behulp van [PowerShell](sql-database-powershell-samples.md) of de [REST-API](https://msdn.microsoft.com/library/azure/dn505712.aspx). Zodra een verbinding wordt gemaakt, extra op serverniveau IP-firewall-regels kunnen worden geconfigureerd met behulp [Transact-SQL](sql-database-configure-firewall-settings.md).
 
 ### <a name="administrator-access-path"></a>Toegangspad beheerder
 
@@ -67,7 +67,7 @@ Wanneer u een open poort in de firewall op serverniveau gebruikt, kunnen beheerd
 
 ### <a name="connecting-to-a-database-by-using-sql-server-management-studio"></a>Verbinding maken met een database via SQL Server Management Studio
 
-Zie [Aan de slag met Azure SQL Database-servers, databases en firewallregels met behulp van Azure Portal en SQL Management Studio](sql-database-get-started-portal.md) voor stapsgewijze instructies voor het maken van een server, een database of firewallregels op serverniveau, en het gebruik van SQL Management Studio om een query uit te voeren voor een database.
+Zie voor stapsgewijze instructies voor het maken van een server, een database, de IP-firewallregels op serverniveau en het gebruik van SQL Server Management Studio om op te vragen van een database, [aan de slag met Azure SQL Database-servers, databases en firewallregels met behulp van Azure portal en SQL Server Management Studio](sql-database-single-database-get-started.md).
 
 > [!IMPORTANT]
 > Het wordt aanbevolen om altijd de nieuwste versie van Management Studio te gebruiken, zodat uw versie gesynchroniseerd blijft met updates voor Microsoft Azure en SQL Database. [SQL Server Management Studio bijwerken](https://msdn.microsoft.com/library/mt238290.aspx).

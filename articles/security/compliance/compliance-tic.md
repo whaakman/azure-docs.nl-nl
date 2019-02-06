@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: b1a406c15377cb6931f92594f5ce1526a2f2ab99
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f5efeabf3cf6d52f74aa2d064dc4c67c877d34e5
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017096"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751919"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Richtlijnen voor vertrouwde verbindingen via Internet
 
@@ -40,16 +40,16 @@ Het initiatief omvat ook beleidsregels voor veiligheid, richtlijnen en framework
 
 Er zijn drie manieren verbinding maken met Azure-services:
 
-- Directe verbinding met internet: verbinding maken met Azure-services rechtstreeks via een open internetverbinding. Het medium en de verbinding zijn openbaar. Toepassings- en versleuteling op blokniveau transport zijn leveranciers vertrouwen privacy te waarborgen. Bandbreedte wordt beperkt door van een site-verbinding met internet. Meer dan één actieve provider gebruiken om ervoor te zorgen tolerantie.
-- Virtueel particulier netwerk (VPN): verbinding maken met uw Azure-netwerk privé via een VPN-gateway.
+- Directe verbinding met internet: Verbinding maken met Azure-services rechtstreeks via een open internetverbinding. Het medium en de verbinding zijn openbaar. Toepassings- en versleuteling op blokniveau transport zijn leveranciers vertrouwen privacy te waarborgen. Bandbreedte wordt beperkt door van een site-verbinding met internet. Meer dan één actieve provider gebruiken om ervoor te zorgen tolerantie.
+- Virtueel particulier netwerk (VPN): Verbinding maken met uw Azure-netwerk privé met behulp van een VPN-gateway.
 Het medium is openbaar, omdat deze over van een site internet-verbinding wordt verzonden, maar de verbinding is versleuteld in een tunnel privacy te waarborgen. Bandbreedte is beperkt, afhankelijk van de VPN-apparaten en de gekozen configuratie. Azure point-to-site-verbindingen zijn meestal beperkt tot 100 Mbps en site-naar-site-verbindingen zijn beperkt tot 1,25 Gbps.
-- Met Azure ExpressRoute: ExpressRoute is een directe verbinding met Microsoft-services. Omdat de verbinding is via een geïsoleerde Fibre channel, kan de verbinding zijn openbaar of privé zijn afhankelijk van de configuratie die wordt gebruikt. De bandbreedte is meestal beperkt tot maximaal 10 Gbps.
+- Azure ExpressRoute: ExpressRoute is een directe verbinding met Microsoft-services. Omdat de verbinding is via een geïsoleerde Fibre channel, kan de verbinding zijn openbaar of privé zijn afhankelijk van de configuratie die wordt gebruikt. De bandbreedte is meestal beperkt tot maximaal 10 Gbps.
 
 Er zijn verschillende manieren om te voldoen aan de vereisten boter bijlage H (overwegingen voor Cloud) zoals opgegeven in het Ministerie van binnenlandse beveiliging van "Vertrouwde Internet-verbindingen (TIC) referentiedocument architectuur, versie 2.0." In dit artikel richtlijnen DHS boter wordt aangeduid als **TIC 2.0**.
 
 Om in te schakelen van de verbinding van de **afdeling of Agency (D/A)** naar Azure of Office 365, zonder het routeren van verkeer via de TIC D/A de D/A moet gebruiken een gecodeerde tunnel of een specifieke verbinding met de cloudserviceprovider (CSP). De CSP-services kunnen controleren of de verbinding met de activa D/A cloud wordt niet aangeboden aan het openbare internet voor directe Bureau personeel toegang.
 
-Office 365 is compatibel met TIC 2.0 bijlage H met behulp van een van beide ExpressRoute met [Microsoft-Peering](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains) ingeschakeld of een internetverbinding waarmee alle verkeer wordt versleuteld met behulp van TLS 1.2. D/A eindgebruikers helpen bij het netwerk D/een kunt maken verbinding via hun bureau Netwerk- en boter-infrastructuur via internet. Alle externe internettoegang tot Office 365 is geblokkeerd en wordt doorgestuurd via de instantie. De D/A kan ook verbinding maken met Office 365 via een ExpressRoute-verbinding met Microsoft-Peering (een type van de openbare peering) ingeschakeld.  
+Office 365 is compatibel met TIC 2.0 bijlage H met behulp van een van beide ExpressRoute met [Microsoft-Peering](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings) ingeschakeld of een internetverbinding waarmee alle verkeer wordt versleuteld met behulp van TLS 1.2. D/A eindgebruikers helpen bij het netwerk D/een kunt maken verbinding via hun bureau Netwerk- en boter-infrastructuur via internet. Alle externe internettoegang tot Office 365 is geblokkeerd en wordt doorgestuurd via de instantie. De D/A kan ook verbinding maken met Office 365 via een ExpressRoute-verbinding met Microsoft-Peering (een type van de openbare peering) ingeschakeld.  
 
 Voor Azure, de tweede optie (VPN) en de derde optie (ExpressRoute) kunnen voldoen aan deze vereisten wanneer ze worden gebruikt in combinatie met services die de toegang tot internet beperken.
 
@@ -63,10 +63,10 @@ De belangrijkste vereiste om te garanderen van naleving van de referentiearchite
 
 Azure IaaS boter-naleving is onderverdeeld in twee belangrijke stappen:
 
-- Stap 1: configuratie.
-- Stap 2: controleren.
+- Stap 1: De configuratie.
+- Stap 2: Controle.
 
-### <a name="azure-iaas-tic-compliance-configuration"></a>Azure IaaS boter-naleving: configuratie
+### <a name="azure-iaas-tic-compliance-configuration"></a>Azure IaaS boter-naleving: Configuratie
 
 Als u wilt configureren een boter-compatibele architectuur met Azure, moet u eerst te voorkomen dat directe toegang tot het internet met uw virtuele netwerk en vervolgens internetverkeer via de on-premises netwerk.
 
@@ -85,7 +85,7 @@ Azure maakt automatisch systeemroutes en wijst de routes toe aan elk subnet in e
 
 ![TIC geforceerde tunneling](media/tic-diagram-c.png)
 
-Al het verkeer dat het virtuele netwerk moet routeren via de on-premises-verbinding, om ervoor te zorgen dat alle verkeer de TIC D/A passeert. U maakt aangepaste routes door gebruiker gedefinieerde routes maken of door het uitwisselen van routes tussen de gateway van uw on-premises netwerk en een Azure VPN-gateway Border Gateway Protocol (BGP). Zie voor meer informatie over de gebruiker gedefinieerde routes, [routering van verkeer van virtuele netwerken: gebruiker gedefinieerde routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined). Zie voor meer informatie over het BGP [routering van verkeer van virtuele netwerken: Border Gateway Protocol](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#border-gateway-protocol).
+Al het verkeer dat het virtuele netwerk moet routeren via de on-premises-verbinding, om ervoor te zorgen dat alle verkeer de TIC D/A passeert. U maakt aangepaste routes door gebruiker gedefinieerde routes maken of door het uitwisselen van routes tussen de gateway van uw on-premises netwerk en een Azure VPN-gateway Border Gateway Protocol (BGP). Zie voor meer informatie over de gebruiker gedefinieerde routes, [routering van verkeer van virtuele netwerken: Gebruiker gedefinieerde routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined). Zie voor meer informatie over het BGP [routering van verkeer van virtuele netwerken: Border Gateway Protocol](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#border-gateway-protocol).
 
 #### <a name="add-user-defined-routes"></a>Toevoegen van de gebruiker gedefinieerde routes
 
@@ -97,7 +97,7 @@ Als u een op route gebaseerde virtuele netwerkgateway gebruikt, kunt u geforceer
 
 Als u ExpressRoute of de gateway van een virtueel netwerk BGP is ingeschakeld, is BGP de beste manier om routes te adverteren. Voor een BGP aangekondigd route 0.0.0.0/0, ExpressRoute- en BGP-compatibele virtuele netwerkgateways Zorg ervoor dat de standaard-route van toepassing op alle subnetten in uw virtuele netwerken.
 
-### <a name="azure-iaas-tic-compliance-auditing"></a>Azure IaaS boter-naleving: controle
+### <a name="azure-iaas-tic-compliance-auditing"></a>Azure IaaS boter-naleving: Controleren
 
 Azure biedt verschillende manieren boter naleving controleren.
 
@@ -124,8 +124,8 @@ Azure PaaS-services, zoals Azure Storage zijn toegankelijk via een via internet 
 
 Wanneer Azure PaaS-services zijn geïntegreerd met een virtueel netwerk, is de service is privé toegankelijk is vanaf dit virtuele netwerk. U kunt toepassen om aangepaste routering voor 0.0.0.0/0 via de gebruiker gedefinieerde routes of BGP. Aangepaste routering, zorgt u ervoor dat alle voor internet bestemde verkeer routeert on-premises naar de boter passeren. Azure-services integreren met virtuele netwerken met behulp van de volgende patronen:
 
-- **Een toegewezen exemplaar van een service implementeren**: een toenemend aantal PaaS-services kan worden geïmplementeerd als toegewezen instanties met virtuele NAS-eindpunten zijn. U kunt een App Service Environment voor PowerApps implementeren in de modus 'Geïsoleerd' om toe te staan de netwerkeindpunt om te worden beperkt tot een virtueel netwerk. De App Service-omgeving kunnen veel Azure PaaS-services, zoals Azure Web Apps, Azure API Management en Azure Functions kunt hosten.
-- **Gebruik virtual network-service-eindpunten**: een toenemend aantal PaaS-services toestaan hun eindpunt overstappen naar een virtueel netwerk privé IP-adres in plaats van een openbaar adres.
+- **Een toegewezen exemplaar van een service implementeren**: Er zijn een toenemend aantal PaaS-services kan worden geïmplementeerd als toegewezen instanties met virtuele NAS-eindpunten. U kunt een App Service Environment voor PowerApps implementeren in de modus 'Geïsoleerd' om toe te staan de netwerkeindpunt om te worden beperkt tot een virtueel netwerk. De App Service-omgeving kunnen veel Azure PaaS-services, zoals Azure Web Apps, Azure API Management en Azure Functions kunt hosten.
+- **Gebruik virtual network-service-eindpunten**: Een toenemend aantal PaaS-services kunt de optie voor het verplaatsen van hun eindpunt naar een virtueel netwerk privé IP-adres in plaats van een openbaar adres.
 
 Services die ondersteuning bieden voor implementatie van toegewezen instanties in een virtueel netwerk of het gebruik van service-eindpunten vanaf mei 2018, worden vermeld in de volgende tabellen.
 
@@ -165,7 +165,7 @@ Services die ondersteuning bieden voor implementatie van toegewezen instanties i
 
 ### <a name="virtual-network-integration-details"></a>Details van de integratie van virtueel netwerk
 
-Het volgende diagram toont de algemene netwerkstroom voor toegang tot PaaS-services. Toegang wordt van virtueel netwerk-injectie en virtueel netwerk-servicetunneling weergegeven. Zie voor meer informatie over service-netwerkgateways, virtuele netwerken en servicetags, [netwerk en beveiligingsgroepen voor toepassing: servicetags](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Het volgende diagram toont de algemene netwerkstroom voor toegang tot PaaS-services. Toegang wordt van virtueel netwerk-injectie en virtueel netwerk-servicetunneling weergegeven. Zie voor meer informatie over service-netwerkgateways, virtuele netwerken en servicetags, [netwerk en beveiligingsgroepen voor toepassing: Servicetags](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 ![PaaS-connectiviteitsopties voor ticket m.](media/tic-diagram-e.png)
 
@@ -178,13 +178,13 @@ Het volgende diagram toont de algemene netwerkstroom voor toegang tot PaaS-servi
    - Rechtstreeks geïmplementeerd in het virtuele netwerk.
    - Selectief toegestaan, op basis van de richtlijnen van de betreffende Azure-service.
 
-#### <a name="option-a-deploy-a-dedicated-instance-of-a-service-virtual-network-injection"></a>Optie A: implementeren een toegewezen exemplaar van een service (virtueel netwerk injectie)
+#### <a name="option-a-deploy-a-dedicated-instance-of-a-service-virtual-network-injection"></a>Optie A: Een toegewezen exemplaar van een service (virtueel netwerk injectie) implementeren
 
 Virtueel netwerk injectie kan klanten selectief toegewezen instanties van een bepaald Azure-service, zoals HDInsight, in hun eigen virtuele netwerk te implementeren. Service-exemplaren zijn geïmplementeerd in een toegewezen subnet in het virtuele netwerk van een klant. Virtueel netwerk injectie biedt toegang tot serviceresources via de niet-routeerbare internetadressen. On-premises instanties gebruik ExpressRoute of een site-naar-site-VPN rechtstreeks toegang krijgen tot exemplaren van de service via de adresruimte van virtueel netwerk, in plaats van een firewall op openbare internet-adresruimte te openen. Wanneer een toegewezen exemplaar wordt gekoppeld aan een eindpunt, kunt u de dezelfde strategieën voor IaaS boter-naleving. Standaardroutering zorgt ervoor dat internetverkeer wordt omgeleid naar een virtuele netwerkgateway die gekoppeld voor on-premises. U kunt verder binnenkomende en uitgaande toegang tot en met nsg's voor het opgegeven subnet beheren.
 
 ![Overzicht van Virtual network-injectie](media/tic-diagram-f.png)
 
-#### <a name="option-b-use-virtual-network-service-endpoints-service-tunnel"></a>Optie B: gebruik virtual network-service-eindpunten (servicetunnel)
+#### <a name="option-b-use-virtual-network-service-endpoints-service-tunnel"></a>Optie B: Gebruik virtual network-service-eindpunten (servicetunnel)
 
 Een toenemend aantal multitenant Azure-services bieden "service-eindpunten." Service-eindpunten zijn een alternatieve methode voor het integreren van Azure-netwerk. Virtual network-service-eindpunten Breid uw IP-adresruimte van virtueel netwerk en de identiteit van het virtuele netwerk naar de service via een directe verbinding. Verkeer van het virtuele netwerk naar de Azure-service blijft altijd in de Azure-backbone-netwerk. 
 

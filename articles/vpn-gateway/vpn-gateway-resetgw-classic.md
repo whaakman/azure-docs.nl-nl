@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: cherylmc
-ms.openlocfilehash: 72e990516ce6ae3276c6db6f12d1a5dda4d0386f
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 8db17b92208bd956bd5f9b855249f03ecd5e2c59
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509436"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756696"
 ---
 # <a name="reset-a-vpn-gateway"></a>Een VPN-gateway opnieuw instellen
 
@@ -94,7 +94,7 @@ StatusCode     : OK
 
 ## <a name="cli"></a>Azure CLI
 
-Als u wilt de gateway opnieuw instellen, gebruikt u de [az network vnet-gateway opnieuw instellen](https://docs.microsoft.com/cli/azure/network/vnet-gateway#az_network_vnet_gateway_reset) opdracht. Het volgende voorbeeld wordt een virtuele netwerkgateway VNet5GW met de naam in de resourcegroep TestRG5:
+Als u wilt de gateway opnieuw instellen, gebruikt u de [az network vnet-gateway opnieuw instellen](https://docs.microsoft.com/cli/azure/network/vnet-gateway) opdracht. Het volgende voorbeeld wordt een virtuele netwerkgateway VNet5GW met de naam in de resourcegroep TestRG5:
 
 ```azurecli
 az network vnet-gateway reset -n VNet5GW -g TestRG5

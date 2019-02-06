@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: a04c4d41d9682389347009446c590fc4e27400b1
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 01d3a20022972b0e18de02bd2730ca31e57cd77a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659538"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755019"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Uploaden en een Linux-VM maken van een aangepaste schijf met de Azure CLI
 
@@ -31,11 +31,11 @@ In dit onderwerp wordt gebruikgemaakt van storage-accounts voor de laatste virtu
 ## <a name="quick-commands"></a>Snelle opdrachten
 Als u nodig hebt voor de taak, de volgende sectie gegevens snel de base-opdrachten voor een VHD uploaden naar Azure. Meer gedetailleerde informatie en -context voor elke stap u de rest van het document vindt, [Hier beginnen](#requirements).
 
-Zorg ervoor dat u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
+Zorg ervoor dat u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index).
 
 In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld van de parameternamen opgenomen `myResourceGroup`, `mystorageaccount`, en `mydisks`.
 
-Maak eerst een resourcegroep met [az group create](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt op de locatie `WestUs`:
+Maak eerst een resourcegroep met [az group create](/cli/azure/group). In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt op de locatie `WestUs`:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -48,7 +48,7 @@ az storage account create --resource-group myResourceGroup --location westus \
   --name mystorageaccount --kind Storage --sku Standard_LRS
 ```
 
-Lijst van de toegangssleutels voor uw opslagaccount met [az storage account sleutels lijst](/cli/azure/storage/account/keys#az_storage_account_keys_list). Maak een notitie van `key1`:
+Lijst van de toegangssleutels voor uw opslagaccount met [az storage account sleutels lijst](/cli/azure/storage/account/keys). Maak een notitie van `key1`:
 
 ```azurecli
 az storage account keys list --resource-group myResourceGroup --account-name mystorageaccount
@@ -61,7 +61,7 @@ az storage container create --account-name mystorageaccount \
     --account-key key1 --name mydisks
 ```
 
-Ten slotte uw VHD uploaden naar de container die u hebt gemaakt met [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload). Geef het lokale pad naar uw VHD onder `/path/to/disk/mydisk.vhd`:
+Ten slotte uw VHD uploaden naar de container die u hebt gemaakt met [az storage blob upload](/cli/azure/storage/blob). Geef het lokale pad naar uw VHD onder `/path/to/disk/mydisk.vhd`:
 
 ```azurecli
 az storage blob upload --account-name mystorageaccount \
@@ -97,7 +97,7 @@ Als u wilt de volgende stappen hebt voltooid, hebt u het volgende nodig:
   * Een storage-account en een container voor het opslaan van uw aangepaste schijf en de gemaakte virtuele machines maken
   * Nadat u alle virtuele machines hebt gemaakt, kunt u veilig de schijf verwijderen
 
-Zorg ervoor dat u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
+Zorg ervoor dat u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index).
 
 In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld van de parameternamen opgenomen `myResourceGroup`, `mystorageaccount`, en `mydisks`.
 
@@ -122,7 +122,7 @@ Zie ook de **[opmerkingen bij de installatie van Linux](create-upload-generic.md
 > 
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
-Resourcegroepen samenbrengen logisch alle Azure-resources ter ondersteuning van uw virtuele machines, zoals de virtuele netwerken en opslag. Zie voor meer informatie resourcegroepen, [resourcegroepen overzicht](../../azure-resource-manager/resource-group-overview.md). Voordat u uw aangepaste schijf uploaden en het maken van virtuele machines, moet u eerst een resourcegroep maken met [az-groep maken](/cli/azure/group#az_group_create).
+Resourcegroepen samenbrengen logisch alle Azure-resources ter ondersteuning van uw virtuele machines, zoals de virtuele netwerken en opslag. Zie voor meer informatie resourcegroepen, [resourcegroepen overzicht](../../azure-resource-manager/resource-group-overview.md). Voordat u uw aangepaste schijf uploaden en het maken van virtuele machines, moet u eerst een resourcegroep maken met [az-groep maken](/cli/azure/group).
 
 In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt op de locatie `westus`:
 
@@ -142,7 +142,7 @@ az storage account create --resource-group myResourceGroup --location westus \
 ```
 
 ## <a name="list-storage-account-keys"></a>Een lijst met storage accountsleutels
-Azure twee 512-bits toegangssleutels voor elk opslagaccount genereert. Deze toegangssleutels worden gebruikt bij het verifiëren van de storage-account, zoals bij het uitvoeren van bewerkingen voor schrijven. Meer informatie over [beheren van toegang tot opslag hier](../../storage/common/storage-account-manage.md#access-keys). Weergeven van de toegangssleutel met [az storage account sleutels lijst](/cli/azure/storage/account/keys#az_storage_account_keys_list).
+Azure twee 512-bits toegangssleutels voor elk opslagaccount genereert. Deze toegangssleutels worden gebruikt bij het verifiëren van de storage-account, zoals bij het uitvoeren van bewerkingen voor schrijven. Meer informatie over [beheren van toegang tot opslag hier](../../storage/common/storage-account-manage.md#access-keys). Weergeven van de toegangssleutel met [az storage account sleutels lijst](/cli/azure/storage/account/keys).
 
 De toegangssleutel voor het opslagaccount dat u hebt gemaakt bekijken:
 
@@ -175,7 +175,7 @@ az storage container create \
 ```
 
 ## <a name="upload-vhd"></a>VHD uploaden
-Nu de aangepaste schijf met uploaden [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload). U uploaden en uw aangepaste schijf opslaan als een pagina-blob.
+Nu de aangepaste schijf met uploaden [az storage blob upload](/cli/azure/storage/blob). U uploaden en uw aangepaste schijf opslaan als een pagina-blob.
 
 Geef uw toegangssleutel, de container die u hebt gemaakt in de vorige stap en het pad naar de aangepaste schijf op de lokale computer:
 
@@ -226,7 +226,7 @@ Binnen de `Microsoft.Compute/virtualMachines` provider van de sjabloon die u heb
 
 U kunt [deze bestaande sjabloon voor het maken van een virtuele machine van een aangepaste installatiekopie](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) of lezen over [het maken van uw eigen Azure Resource Manager-sjablonen](../../azure-resource-manager/resource-group-authoring-templates.md). 
 
-Zodra u een sjabloon die is geconfigureerd hebt, gebruikt u [az group deployment maken](/cli/azure/group/deployment#az_group_deployment_create) uw virtuele machines maken. Geef de URI van de JSON-sjabloon met de `--template-uri` parameter:
+Zodra u een sjabloon die is geconfigureerd hebt, gebruikt u [az group deployment maken](/cli/azure/group/deployment) uw virtuele machines maken. Geef de URI van de JSON-sjabloon met de `--template-uri` parameter:
 
 ```azurecli
 az group deployment create --resource-group myNewResourceGroup \

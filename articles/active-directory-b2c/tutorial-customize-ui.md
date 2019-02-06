@@ -1,5 +1,5 @@
 ---
-title: Zelfstudie - de gebruikersinterface van uw toepassingen in Azure Active Directory B2C aanpassen | Microsoft Docs
+title: 'Zelfstudie: aanpassen van de interface van gebruikerservaringen - Azure Active Directory B2C | Microsoft Docs'
 description: Informatie over het aanpassen van de gebruikersinterface van uw toepassingen in Azure Active Directory B2C met behulp van de Azure portal.
 services: B2C
 author: davidmu1
@@ -7,17 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/01/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 1c95772eeb6057b4ff7b12a79897fda73e1e017c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f3bc1789d0b521b0d91ca42ebe472fed0225d87b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156651"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752378"
 ---
-# <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>Zelfstudie: De gebruikersinterface van uw toepassingen in Azure Active Directory B2C aanpassen
+# <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Zelfstudie: De interface van de gebruikerservaring in Azure Active Directory B2C aanpassen
 
 Voor meer algemene gebruikerservaringen, zoals registratie, aanmelding en profielbewerking, kunt u [gebruikersstromen](active-directory-b2c-reference-policies.md) in Azure Active Directory (Azure AD) B2C. De informatie in deze zelfstudie helpt u om te leren hoe u [aanpassen van de gebruikersinterface (UI)](customize-ui-overview.md) van deze ervaringen met behulp van uw eigen HTML en CSS-bestanden.
 
@@ -25,14 +25,14 @@ In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
 > * UI-aanpassing-bestanden maken
-> * Een zich kunnen registreren en aanmelden gebruikersstroom die gebruikmaakt van de bestanden maken
+> * De gebruikersstroom voor het gebruik van de bestanden bijwerken
 > * De aangepaste gebruikersinterface testen
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u dit nog niet hebt gemaakt uw eigen [Azure AD B2C-Tenant](tutorial-create-tenant.md), Maak nu een. U kunt een bestaande tenant gebruiken als u een in een vorige zelfstudie hebt gemaakt.
+[Een gebruikersstroom maken](tutorial-create-user-flows.md) zodat gebruikers kunnen zich registreren en aanmelden bij uw toepassing.
 
 ## <a name="create-customization-files"></a>Van aanpassingsbestanden maken
 
@@ -42,17 +42,15 @@ U maakt een Azure storage-account en een container en plaatst vervolgens eenvoud
 
 Hoewel u kunt uw bestanden opslaan op veel manieren voor deze zelfstudie, u ze in opslaat [Azure Blob-opslag](../storage/blobs/storage-blobs-introduction.md).
 
-1. Zorg ervoor dat u de map met uw Azure-abonnement. Selecteer de **map- en abonnementsfilter** in het bovenste menu en kiest u de map waarin u uw abonnement. Deze map is anders dan de database met uw Azure B2C-tenant.
-
-    ![Schakel over naar de abonnementsmap](./media/tutorial-customize-ui/switch-directories.png)
-
-2. Kies alle services in de linkerbovenhoek van Azure portal, zoek en selecteer **opslagaccounts**. 
-3. Selecteer **Toevoegen**.
-4. Onder **resourcegroep**, selecteer **nieuw**, voer een naam voor de nieuwe resourcegroep en klik vervolgens op **OK**.
-5. Voer een naam in voor het opslagaccount. De naam die u kiest, moet uniek zijn in Azure, moet tussen de 3 en 24 tekens lang zijn en mag alleen cijfers en kleine letters bevatten.
-6. Selecteer de locatie van het storage-account of accepteer de standaardlocatie. 
-7. Accepteer alle overige standaardwaarden, selecteert u **revisie + maken**, en klik vervolgens op **maken**.
-8. Nadat het opslagaccount is gemaakt, selecteert u **naar de resource gaan**.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Zorg ervoor dat u de map met uw Azure-abonnement. Selecteer de **map- en abonnementsfilter** in het bovenste menu en kiest u de map waarin u uw abonnement. Deze map is anders dan de database met uw Azure B2C-tenant.
+3. Kies alle services in de linkerbovenhoek van Azure portal, zoek en selecteer **opslagaccounts**. 
+4. Selecteer **Toevoegen**.
+5. Onder **resourcegroep**, selecteer **nieuw**, voer een naam voor de nieuwe resourcegroep en klik vervolgens op **OK**.
+6. Voer een naam in voor het opslagaccount. De naam die u kiest, moet uniek zijn in Azure, moet tussen de 3 en 24 tekens lang zijn en mag alleen cijfers en kleine letters bevatten.
+7. Selecteer de locatie van het storage-account of accepteer de standaardlocatie. 
+8. Accepteer alle overige standaardwaarden, selecteert u **revisie + maken**, en klik vervolgens op **maken**.
+9. Nadat het opslagaccount is gemaakt, selecteert u **naar de resource gaan**.
 
 ### <a name="create-a-container"></a>Een container maken
 
@@ -137,42 +135,17 @@ In deze zelfstudie slaat u de bestanden die u in de storage-account hebt gemaakt
 4. Kopieer de URL voor het bestand dat u hebt geüpload voor het gebruik van later in de zelfstudie.
 5. Herhaal stap 3 en 4 voor de *style.css* bestand.
 
-## <a name="create-a-sign-up-and-sign-in-user-flow"></a>Een zich kunnen registreren en aanmelden gebruikersstroom maken
+## <a name="update-the-user-flow"></a>De gebruikersstroom bijwerken
 
-Als u wilt de stappen in deze zelfstudie hebt voltooid, moet u een stroom van de toepassing en meld u aan of aanmelden gebruiker test maken in Azure AD B2C. U kunt de beginselen beschreven in deze zelfstudie aan de andere gebruikerservaringen, zoals het bewerken van profielen toepassen.
-
-### <a name="create-an-azure-ad-b2c-application"></a>Een Azure AD B2C-toepassing maken
-
-Communicatie met Azure AD B2C vindt plaats via een toepassing die u in uw tenant maakt. De volgende stappen maakt u een toepassing waarmee het verificatietoken dat wordt geretourneerd naar [ https://jwt.ms ](https://jwt.ms).
-
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
-3. Kies **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **Azure AD B2C**.
-4. Selecteer **toepassingen**, en selecteer vervolgens **toevoegen**.
-5. Voer een naam voor de toepassing, bijvoorbeeld *testapp1*.
-6. Voor **Web-App / Web-API**, selecteer `Yes`, en voer vervolgens `https://jwt.ms` voor de **antwoord-URL**.
-7. Klik op **Create**.
-
-### <a name="create-the-user-flow"></a>De gebruikersstroom maken
-
-Als u wilt testen van uw aanpassingsbestanden, maakt u een ingebouwde registreren of aanmelden gebruiker-stroom die gebruikmaakt van de toepassing die u eerder hebt gemaakt.
-
-1. Selecteer in uw Azure AD B2C-tenant, **gebruikersstromen**, en klik vervolgens op **nieuwe gebruikersstroom**.
-2. Klik op het tabblad **Aanbevolen** op **Registreren en aanmelden**.
-3. Voer een naam voor de gebruikersstroom. Bijvoorbeeld, *signup_signin*. Het voorvoegsel *B2C_1* wordt automatisch toegevoegd aan de naam van de wanneer de gebruikersstroom wordt gemaakt.
-4. Onder **id-providers**, selecteer **registratie via E-mail**.
-5. Onder **gebruikerskenmerken en claims**, klikt u op **meer weergeven**.
-6. In de **verzamelen kenmerk** kolom, kiest u de kenmerken die u wenst te verzamelen van de klant tijdens de registratie. Bijvoorbeeld, stel **land/regio**, **weergavenaam**, en **postcode**.
-7. In de **geretourneerde claim** kolom, kies de claims die u laten retourneren in de autorisatietokens die is verzonden naar de toepassing na een geslaagde registratie- of aanmelden wilt. Selecteer bijvoorbeeld **Weergavenaam**, **Id-provider**, **Postcode**, **Gebruiker is nieuw** en **Object-id van gebruiker**.
-8. Klik op **OK**.
-9. Klik op **Create**.
-10. Onder **aanpassen**, selecteer **pagina-indelingen**. Selecteer **Unified registreren of aanmelden pagina**, en klik op **Ja** voor **aangepaste pagina-inhoud gebruiken**.
-11. In **aangepaste pagina URI**, voert u de URL voor de *aangepaste ui.html* -bestand dat u eerder hebt genoteerd.
-12. Aan de bovenkant van de pagina, klikt u op **opslaan**.
+1. Kies **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **Azure AD B2C**.
+2. Selecteer **gebruikersstromen (beleid)**, en selecteer vervolgens de *B2C_1_signupsignin1* gebruikersstroom.
+3. Selecteer **pagina-indelingen**, en klik vervolgens onder **Unified registreren of aanmelden pagina**, klikt u op **Ja** voor **aangepaste pagina-inhoud gebruiken**.
+4. In **aangepaste pagina URI**, voer de URI voor de *aangepaste ui.html* -bestand dat u eerder hebt genoteerd.
+5. Aan de bovenkant van de pagina, selecteer **opslaan**.
 
 ## <a name="test-the-user-flow"></a>De gebruikersstroom testen
 
-1. Selecteer in uw Azure AD B2C-tenant, **gebruikersstromen** en selecteert u de gebruikersstroom die u hebt gemaakt. Bijvoorbeeld, *B2C_1_signup_signin*.
+1. Selecteer in uw Azure AD B2C-tenant, **gebruikersstromen** en selecteer de *B2C_1_signupsignin1* gebruikersstroom.
 2. Aan de bovenkant van de pagina, klikt u op **gebruikersstroom uitvoeren**.
 3. Klik op de **gebruikersstroom uitvoeren** knop.
 
@@ -188,7 +161,7 @@ In dit artikel hebt u geleerd hoe u:
 
 > [!div class="checklist"]
 > * UI-aanpassing-bestanden maken
-> * Een zich kunnen registreren en aanmelden gebruikersstroom die gebruikmaakt van de bestanden maken
+> * De gebruikersstroom voor het gebruik van de bestanden bijwerken
 > * De aangepaste gebruikersinterface testen
 
 > [!div class="nextstepaction"]

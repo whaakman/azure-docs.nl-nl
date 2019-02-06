@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/31/2019
+ms.date: 2/5/2019
 ms.author: victorh
-ms.openlocfilehash: d680634231b90e5d1cc036f43b96e05d66899e34
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 880a6fc9d5636ff0ac67d24d0ef66c8f48ae22fb
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487044"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55743647"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Automatisch schalen en zoneredundante toepassingsgateway (openbare Preview)
 
@@ -34,7 +34,7 @@ Application Gateway en Web Application Firewall (WAF) zijn nu beschikbaar in ope
 
 ## <a name="supported-regions"></a>Ondersteunde regio’s
 
-De automatische schaalaanpassing SKU is beschikbaar in de volgende regio's: eastus2, westus2, Europa-West, southeastasia, centralus, francecentral, VS-Oost, japaneast, northeurope, southcentralus, ukwest, northcentralus, VS West, VS-Oost, centralus, japanwest.
+De automatische schaalaanpassing SKU is beschikbaar in de volgende regio's: Noord-centraal VS, Zuid-centraal VS, VS-West, VS-West 2, VS-Oost, VS-Oost 2, VS-midden, Noord-Europa, West-Europa, Zuidoost-Azië, Frankrijk-centraal, VK West, Japan-Oost, Japan-West.
 
 ## <a name="pricing"></a>Prijzen
 

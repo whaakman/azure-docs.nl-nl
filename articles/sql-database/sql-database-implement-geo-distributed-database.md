@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/10/2019
-ms.openlocfilehash: 086e1957c68c5864997c9df9213a0c82cbf4c852
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 11c1f34176e7852806464781e80d6dc0fd5345a4
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55560750"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750338"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>Zelfstudie: Een geografisch gedistribueerde database implementeren
 
@@ -36,7 +36,7 @@ Als u wilt de zelfstudie hebt voltooid, moet dat u de volgende items hebt geïns
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 - Een Azure SQL-database. Voor het maken een gebruiken
-  - [Portal](sql-database-get-started-portal.md)
+  - [Portal](sql-database-single-database-get-started.md)
   - [CLI](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)
 
@@ -48,7 +48,7 @@ Als u wilt de zelfstudie hebt voltooid, moet dat u de volgende items hebt geïns
 > [!IMPORTANT]
 > Zorg ervoor dat firewall-regels ingesteld voor het gebruik van het openbare IP-adres van de computer waarop het uitvoeren van de stappen in deze zelfstudie. Database-level firewall-regels worden automatisch gerepliceerd naar de secundaire server.
 >
-> Zie voor meer informatie [een firewallregel op databaseniveau maken](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) of om te bepalen het IP-adres dat is gebruikt voor de firewallregel op serverniveau voor uw computer naar [maken van een firewall op serverniveau](sql-database-get-started-portal-firewall.md).  
+> Zie voor meer informatie [een firewallregel op databaseniveau maken](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) of om te bepalen het IP-adres dat is gebruikt voor de firewallregel op serverniveau voor uw computer naar [maken van een firewall op serverniveau](sql-database-server-level-firewall-rule.md).  
 
 ## <a name="create-a-failover-group"></a>Maak een failovergroep
 

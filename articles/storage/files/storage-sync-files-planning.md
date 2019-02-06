@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 246b7ae21ceca80c2d1af74330691e527c73cf51
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5bff36f17b407c95858924a2a88b133500c350b6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452733"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751409"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planning voor de implementatie van Azure Files Sync
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -251,7 +251,10 @@ Azure File Sync is alleen beschikbaar in de volgende regio's:
 Azure File Sync ondersteunt alleen met een Azure-bestandsshare die zich in dezelfde regio als de Opslagsynchronisatieservice worden gesynchroniseerd.
 
 ### <a name="azure-disaster-recovery"></a>Azure-noodherstel
-Als u wilt beveiligen tegen het verlies van een Azure-regio, Azure File Sync kan worden geïntegreerd met de [geografisch redundante opslag met redundantie](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) optie. GRS-opslag werkt met behulp van asynchrone blokreplicatie tussen opslag in de primaire regio, waarmee u normaal gesproken werken, en opslag in de gekoppelde secundaire regio. In het geval van een ramp die ervoor zorgt dat een Azure-regio offline te gaan tijdelijk of permanent, mislukken Microsoft over opslag voor de gekoppelde regio. 
+Als u wilt beveiligen tegen het verlies van een Azure-regio, Azure File Sync kan worden geïntegreerd met de [geografisch redundante opslag met redundantie](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) optie. GRS-opslag werkt met behulp van asynchrone blokreplicatie tussen opslag in de primaire regio, waarmee u normaal gesproken werken, en opslag in de gekoppelde secundaire regio. In het geval van een ramp die ervoor zorgt dat een Azure-regio offline te gaan tijdelijk of permanent, zal Microsoft failover-opslag naar de gekoppelde regio. 
+
+> [!Warning]  
+> Als u uw Azure-bestandsshare als een cloudeindpunt in een GRS-opslagaccount gebruikt, kunt u failover voor storage-account mag niet starten. In dat geval wordt oorzaak synchroniseren niet meer werkt en kan ook leiden tot onverwachte gegevensverlies in het geval van nieuwe gelaagde bestanden. In het geval van verlies van een Azure-regio, wordt de failover van de storage-account op een manier die compatibel is met Azure File Sync worden geactiveerd door Microsoft.
 
 Ter ondersteuning van de failover-integratie tussen geografisch redundante opslag en Azure File Sync, worden alle regio's voor Azure File Sync gekoppeld aan een secundaire regio die overeenkomt met de secundaire regio die wordt gebruikt door opslag. Deze paren zijn als volgt:
 

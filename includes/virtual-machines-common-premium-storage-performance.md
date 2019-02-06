@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b98261601f352668fa3cc8d18dc3b1d0d7fe2654
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 40e0230e6a8e03aa53a24f2497fcd016909c0ada
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53553379"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55757518"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: Ontwerp voor hoge prestaties
 
@@ -85,7 +85,7 @@ Meet vervolgens de maximale prestatie-eisen van uw toepassing gedurende hun leve
 
 ### <a name="application-performance-requirements-checklist"></a>Controlelijst voor de vereisten van de toepassing prestaties
 
-| **Prestatie-eisen** | **50 percentiel** | **90 percentiel** | **99 percentiel** |
+| **Prestatie-eisen** | **50 Percentile** | **90 percentiel** | **99 percentiel** |
 | --- | --- | --- | --- |
 | Met maximaal Transacties per seconde | | | |
 | % Leesbewerkingen | | | |
@@ -122,8 +122,8 @@ De prestatiemeteritems zijn beschikbaar voor processor, geheugen, en elke logisc
 | **Schijf lees- en schrijfbewerkingen** |% van leesbewerkingen en bewerkingen die worden uitgevoerd op de schijf te schrijven. |Percentage schijftijd voor lezen <br> Percentage schijftijd voor schrijven |r/s <br> w/s |
 | **Doorvoer** |Hoeveelheid gegevens lezen uit of schrijven naar de schijf per seconde. |Bytes gelezen op schijf/sec <br> Bytes geschreven naar schijf/sec |kB_read/s <br> kB_wrtn/s |
 | **Latentie** |Totale tijd om een schijf-i/o-aanvraag te voltooien. |Gemiddelde leestijd voor schijf <br> Gemiddelde aantal schrijfbewerkingen per seconde |await <br> svctm |
-| **I/o-grootte** |De grootte van i/o-aanvragen problemen aan de storage-schijven. |Gemiddeld aantal gelezen Bytes <br> Gemiddelde aantal Bytes/schrijven |avgrq sz |
-| **Wachtrijdiepte** |Aantal openstaande i/o-aanvragen wachten om te lezen uit of geschreven naar de schijf voor opslag. |Huidige wachtrijlengte voor schijf |avgqu sz |
+| **I/o-grootte** |De grootte van i/o-aanvragen problemen aan de storage-schijven. |Gemiddeld aantal gelezen Bytes <br> Gemiddelde aantal Bytes/schrijven |avgrq-sz |
+| **Wachtrijdiepte** |Aantal openstaande i/o-aanvragen wachten om te lezen uit of geschreven naar de schijf voor opslag. |Huidige wachtrijlengte voor schijf |avgqu-sz |
 | **Max. Geheugen** |Hoeveelheid geheugen die nodig is voor het uitvoeren van toepassing probleemloos |% Toegewezen Bytes in gebruik |Vmstat gebruiken |
 | **Max. CPU** |Hoeveelheid CPU vereist voor het uitvoeren van toepassing probleemloos |% Processortijd |% gebr. |
 
@@ -198,8 +198,8 @@ Hoge schaal VM's zijn beschikbaar in verschillende grootten met een ander aantal
 
 | VM-grootte | CPU-kernen | Geheugen | Schijf-VM-grootten | Met maximaal Gegevensschijven | Cachegrootte | IOPS | Bandbreedte Cache i/o-limieten |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS14 |16 |112 GB |OS 1023 GB = <br> Lokale SSD 224 GB = |32 |576 GB |MAAR LIEFST 50.000 IOPS <br> 512 MB per seconde |4000 IOPS en 33 MB per seconde |
-| Standard_GS5 |32 |448 GB |OS 1023 GB = <br> Lokale SSD 896 GB = |64 |4224 GB |80.000 IOP 'S <br> 2.000 MB per seconde |5000 IOP's en 50 MB per seconde |
+| Standard_DS14 |16 |112 GB |OS = 1023 GB <br> Lokale SSD 224 GB = |32 |576 GB |MAAR LIEFST 50.000 IOPS <br> 512 MB per seconde |4000 IOPS en 33 MB per seconde |
+| Standard_GS5 |32 |448 GB |OS = 1023 GB <br> Lokale SSD 896 GB = |64 |4224 GB |80.000 IOP 'S <br> 2.000 MB per seconde |5000 IOP's en 50 MB per seconde |
 
 Als u wilt weergeven van een volledige lijst van alle beschikbare Azure-VM-grootten, verwijzen naar [Windows VM-grootten](../articles/virtual-machines/windows/sizes.md) of [Linux VM-grootten](../articles/virtual-machines/linux/sizes.md). Kies een VM-grootte die kan voldoen en aanpassen aan uw prestatievereisten van de gewenste toepassing. Daarnaast rekening mee dat volgende belangrijke overwegingen bij het kiezen van VM-grootten.
 
@@ -223,7 +223,7 @@ De volgende tabel geeft een overzicht van de verdeling van de kosten van dit sce
 | **Kosten van de schijven per maand** |$1,638.40 (32 x 1 TB schijven) |$544.34 (4 x P30 schijven) |
 | **Totale kosten per maand** |$3,208.98 |$1,544.34 |
 
-*Linux-distributies*  
+*Linux Distros*  
 
 Met Azure Premium Storage krijgt u hetzelfde niveau van de prestaties voor virtuele machines met Windows en Linux. We bieden ondersteuning voor vele versies van Linux-distributies en ziet u de volledige lijst [hier](../articles/virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Het is belangrijk te weten dat verschillende distributies beter voor verschillende soorten workloads geschikt zijn. Hier ziet u verschillende prestatieniveaus, afhankelijk van de distro die uw workload wordt uitgevoerd op. De Linux-distributies met uw toepassing testen en kiest de optie die het beste werkt.
 
@@ -235,7 +235,7 @@ Azure Premium Storage biedt acht schijfgrootten voor algemene beschikbaarheid en
 
 | Schijftype voor Premium-schijven  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Schijfgrootte           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1.024 GiB (1 TiB)    | 2.048 GiB (2 TiB)    | 4.095 GiB (4 TiB)    | 8.192 GiB (8 TiB)    | 16.384 giB (16 TiB)    | 32.767 giB (32 GiB)    |
+| Schijfgrootte           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1.024 GiB (1 TiB)    | 2.048 GiB (2 TiB)    | 4.095 GiB (4 TiB)    | 8.192 GiB (8 TiB)    | 16,384 GiB (16 TiB)    | 32,767 GiB (32 GiB)    |
 | IOP's per schijf       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12.500              | 15.000              | 20,000              |
 | Doorvoer per schijf | 25 MiB per seconde  | 50 MiB per seconde  | 100 MiB per seconde |125 MiB per seconde | 150 MiB per seconde | 200 MiB per seconde | 250 MiB per seconde | 250 MiB per seconde | 480 MiB per seconde | 750 MiB per seconde | 750 MiB per seconde |
 
@@ -281,7 +281,7 @@ Hieronder vindt u de aanbevolen schijf cache-instellingen voor gegevensschijven,
 | ReadOnly |Host-cache configureren als alleen-lezen voor alleen-lezen en lezen / schrijven-schijven. |
 | ReadWrite |Host-cache configureren als ReadWrite alleen als uw toepassing correct worden verwerkt in de cache opgeslagen gegevens schrijven naar een permanente schijven wanneer dat nodig is. |
 
-*Alleen-lezen*  
+*ReadOnly*  
 Door het configureren van alleen-lezentoegang opslaan in cache op Premium Storage-gegevens op schijven, kunt u bereiken met lage latentie voor lezen en ophalen van zeer hoge IOPS voor lezen en doorvoer voor uw toepassing. Dit is vanwege twee redenen
 
 1. Leesbewerkingen uitgevoerd vanuit de cache, dit op de virtuele machine geheugen en lokale SSD is, zijn veel sneller dan leesbewerkingen van de gegevensschijf die zich in de Azure blob-opslag.  
@@ -434,8 +434,8 @@ Nadat de cacheschijf is opgewarmd, gaat u verder met de test-scenario's die hier
 | Met maximaal IOPS-schrijfbewerkingen |NoCacheWrites |RandomReads\_8 kB |MAAR LIEFST 64.000 IOPS |
 | Met maximaal Gecombineerde IOPS |CacheReads |RandomWrites\_8 kB |100.000 IOPS |
 | NoCacheWrites |RandomReads\_8 kB | &nbsp; | &nbsp; |
-| Met maximaal MB per seconde gelezen |CacheReads |RandomWrites\_64 kB |524 MB per seconde |
-| Met maximaal MB per seconde schrijven |NoCacheWrites |RandomReads\_64 kB |524 MB per seconde |
+| Met maximaal Read MB/sec |CacheReads |RandomWrites\_64 kB |524 MB/sec |
+| Met maximaal MB per seconde schrijven |NoCacheWrites |RandomReads\_64 kB |524 MB/sec |
 | Gecombineerde MB per seconde |CacheReads |RandomWrites\_64 kB |1000 MB per seconde |
 | NoCacheWrites |RandomReads\_64 kB | &nbsp; | &nbsp; |
 
@@ -464,7 +464,7 @@ We vier werkthreads voor het aansturen van schrijfbewerkingen en vier werkthread
 *Maximale IOPS voor schrijven*  
 De taakbestand maken met de volgende specificaties om op te halen van de maximale IOPS voor schrijven. Geef het de naam 'fiowrite.ini'.
 
-```
+```ini
 [global]
 size=30g
 direct=1
@@ -504,7 +504,7 @@ Tijdens de test wordt uitgevoerd, zich kunt u kan het aantal schrijven IOP's van
 *Maximale gelezen IOP 's*  
 De taakbestand maken met de volgende specificaties om op te halen van de maximale IOPS voor lezen. Geef het de naam 'fioread.ini'.
 
-```
+```ini
 [global]
 size=30g
 direct=1
@@ -544,7 +544,7 @@ Tijdens de test wordt uitgevoerd, zich kunt u kan het aantal gelezen IOP's van d
 *Maximale lezen en schrijven IOP 's*  
 De taakbestand maken met de volgende specificaties om op te halen maximale gecombineerde lezen en schrijven IOP's. Geef het de naam 'fioreadwrite.ini'.
 
-```
+```ini
 [global]
 size=30g
 direct=1
@@ -605,7 +605,7 @@ Als u de maximale gecombineerde lezen en schrijven doorvoer, gebruikt u een grot
 
 Meer informatie over Azure Premium Storage:
 
-* [Premium-opslag: Opslag met hoge prestaties voor werkbelastingen van de virtuele Machine van Azure](../articles/virtual-machines/windows/premium-storage.md)  
+* [Premium Storage: Opslag met hoge prestaties voor workload in Azure Virtual Machine](../articles/virtual-machines/windows/premium-storage.md)  
 
 Lees de artikelen over aanbevolen procedures voor prestaties voor SQL Server voor SQL Server-gebruikers:
 

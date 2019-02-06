@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: 4bee57abe6de8e80ddf6f788fb17bb8b7d82849d
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 357b22e4d4a6bf42ba165e49fc3cc01762268297
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913094"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756509"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Het back-up en herstellen van een server in Azure Database for PostgreSQL via de Azure CLI
 
@@ -57,7 +57,7 @@ De bewaarperiode voor back-up bepaalt hoe ver terug in de tijd die een point-in-
 ## <a name="server-point-in-time-restore"></a>Herstellen van de server point-in-time
 De server kunt u herstellen naar een eerder tijdstip. De herstelde gegevens worden gekopieerd naar een nieuwe server en de bestaande server is, blijven ongewijzigd. Bijvoorbeeld, als een tabel per ongeluk is verwijderd op twaalf uur 's middags vandaag, kunt u herstellen tot het moment waarop net vóór twaalf uur 's middags. U kunt vervolgens de ontbrekende tabel en de gegevens ophalen uit de herstelde kopie van de server. 
 
-De Azure CLI gebruiken voor het herstellen van de server, [az postgres server restore](/cli/azure/postgres/server#az_postgres_server_restore) opdracht.
+De Azure CLI gebruiken voor het herstellen van de server, [az postgres server restore](/cli/azure/postgres/server) opdracht.
 
 ### <a name="run-the-restore-command"></a>Voer de opdracht herstellen
 

@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b3b48c923b10fc201c5ac06b2dd805ee8638a18c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 998d4f45a2d4956e0e230bcf00636a965c35dd97
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473422"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755166"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Overzicht van bedrijfscontinuïteit met Azure SQL Database
 
@@ -107,7 +107,7 @@ De volgende secties bevatten een overzicht van de stappen voor het herstellen me
 
 Ongeacht de functie voor bedrijfscontinuïteit die u gebruikt, moet u:
 
-- De doelserver identificeren en voorbereiden, waaronder firewallregels op serverniveau, aanmeldingen en machtigingen op het niveau van de hoofddatabase.
+- Identificeren en voorbereiden van de doelserver, met inbegrip van de IP-firewallregels op serverniveau, aanmeldingen en machtigingen op.
 - Bepalen hoe clients en clienttoepassingen naar de nieuwe server worden omgeleid.
 - Andere afhankelijkheden documenteren, zoals controle-instellingen en waarschuwingen.
 
@@ -132,7 +132,7 @@ Als u gebruikmaakt van de automatische back-ups met geografisch redundante opsla
 Na herstel via een van beide herstelmechanismen moet u de volgende aanvullende taken uitvoeren voordat uw gebruikers en toepassingen opnieuw actief zijn:
 
 - Clients en clienttoepassingen omleiden naar de nieuwe server en herstelde database
-- Ervoor zorgen dat er geschikte firewallregels op serverniveau aanwezig zijn, zodat gebruikers verbinding kunnen maken (of [firewalls op databaseniveau](sql-database-firewall-configure.md#creating-and-managing-firewall-rules) gebruiken)
+- Zorg ervoor dat het juiste niveau van de server IP-firewall-regels is voldaan voor gebruikers verbinding maken of gebruiken [firewalls op databaseniveau](sql-database-firewall-configure.md#manage-ip-firewall-rules-using-the-azure-portal) zodat de juiste regels.
 - Ervoor zorgen dat er geschikte aanmeldingen en machtigingen op hoofddatabaseniveau aanwezig zijn (of [ingesloten gebruikers](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) gebruiken)
 - Controles configureren, indien van toepassing
 - Waarschuwingen configureren, indien van toepassing

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 87fcfd98065bcf1f0fea3a06029853f69d67842d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 31d583456f2ca0a2804c2215906965c2241af52d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663805"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751494"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Netwerktoegang tot PaaS-resources beperken met service-eindpunten van een virtueel netwerk met de Azure CLI
 
@@ -51,7 +51,7 @@ az group create \
   --location eastus
 ```
 
-Een virtueel netwerk maken met één subnet met [az network vnet maken](/cli/azure/network/vnet#az_network_vnet_create).
+Een virtueel netwerk maken met één subnet met [az network vnet maken](/cli/azure/network/vnet).
 
 ```azurecli-interactive
 az network vnet create \
@@ -64,7 +64,7 @@ az network vnet create \
 
 ## <a name="enable-a-service-endpoint"></a>Een service-eindpunt inschakelen 
 
-U kunt de service-eindpunten alleen voor services die ondersteuning bieden voor service-eindpunten inschakelen. Service-eindpunt ingeschakeld services beschikbaar weergeven in een Azure-locatie met [az network vnet--eindpuntservices](/cli/azure/network/vnet#az_network_vnet_list_endpoint_services). Het volgende voorbeeld retourneert een lijst van service-eindpunt ingeschakeld services beschikbaar in de *eastus* regio. De lijst met services die zijn geretourneerd zal na verloop van tijd toenemen naarmate er meer Azure-services worden service-eindpunt ingeschakeld.
+U kunt de service-eindpunten alleen voor services die ondersteuning bieden voor service-eindpunten inschakelen. Service-eindpunt ingeschakeld services beschikbaar weergeven in een Azure-locatie met [az network vnet--eindpuntservices](/cli/azure/network/vnet). Het volgende voorbeeld retourneert een lijst van service-eindpunt ingeschakeld services beschikbaar in de *eastus* regio. De lijst met services die zijn geretourneerd zal na verloop van tijd toenemen naarmate er meer Azure-services worden service-eindpunt ingeschakeld.
 
 ```azurecli-interactive
 az network vnet list-endpoint-services \
@@ -103,7 +103,7 @@ az network vnet subnet update \
   --network-security-group myNsgPrivate
 ```
 
-Maken van de beveiligingsregels voor verbindingen met [az network nsg-regel maken](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). De regel die volgt toestaat uitgaande toegang tot het openbare IP-adressen toegewezen aan de Azure Storage-service: 
+Maken van de beveiligingsregels voor verbindingen met [az network nsg-regel maken](/cli/azure/network/nsg/rule). De regel die volgt toestaat uitgaande toegang tot het openbare IP-adressen toegewezen aan de Azure Storage-service: 
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -168,7 +168,7 @@ az storage account create \
   --kind StorageV2
 ```
 
-Nadat het opslagaccount is gemaakt, de verbindingsreeks voor het opslagaccount ophalen in een variabele met [az storage account show-connection-string](/cli/azure/storage/account#az_storage_account_show_connection_string). De verbindingsreeks wordt gebruikt om een bestandsshare maken in een latere stap.
+Nadat het opslagaccount is gemaakt, de verbindingsreeks voor het opslagaccount ophalen in een variabele met [az storage account show-connection-string](/cli/azure/storage/account). De verbindingsreeks wordt gebruikt om een bestandsshare maken in een latere stap.
 
 ```azurecli-interactive
 saConnectionString=$(az storage account show-connection-string \
@@ -223,7 +223,7 @@ Implementeer een VM in elk subnet om de netwerktoegang tot een opslagaccount te 
 
 ### <a name="create-the-first-virtual-machine"></a>De eerste virtuele machine maken
 
-Maken van een virtuele machine in de *openbare* subnet met de [az vm maken](/cli/azure/vm#az_vm_create). Als SSH-sleutels niet al bestaan op de standaardlocatie van de sleutel, worden ze met deze opdracht gemaakt. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.
+Maken van een virtuele machine in de *openbare* subnet met de [az vm maken](/cli/azure/vm). Als SSH-sleutels niet al bestaan op de standaardlocatie van de sleutel, worden ze met deze opdracht gemaakt. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.
 
 ```azurecli-interactive
 az vm create \

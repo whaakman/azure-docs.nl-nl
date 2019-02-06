@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 71f226d2ba471a2ccbba3123015697da43d2cf80
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d96ef2fd318d6164e1b7dfc5c4b72d6957af0f3e
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55667064"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744431"
 ---
 # <a name="power-bi-apps-technical-info-tab"></a>Power BI-Apps technische Info tabblad
 
@@ -36,7 +36,7 @@ In de **technische Info** tabblad, moet u de volgende velden bevatten.  Een toeg
 |    ---------------    |  ----------------------------------------------------------------------------|
 | **URL van installatieprogramma**     | Het adres is gegenereerd door Power BI wanneer u de app publiceren en het niveau naar productie verhogen.  Zie voor meer informatie over het maken van de URL [service-apps publiceren in Power BI](https://docs.microsoft.com/power-bi/service-create-distribute-apps).  |
 |  **Validatie-instructies**  |  Optionele tekst instructies (max 3000 tekens) voor de validatie-team van Microsoft om u te helpen bij het configureren, verbinding te maken en testen van uw app, met inbegrip van: standaardconfiguratie-instellingen, testaccounts of parameters die kunnen worden gebruikt voor het testen van de optie 'Verbinding maken met gegevens' enzovoort. Deze informatie is alleen zichtbaar voor de validatieteam en wordt alleen gebruikt voor validatie.  |
-| **Deze app gemaakt als een Power BI-inhoudspakket?** | Op dit moment is dit een intern gebruikte veld. De waarde is ingesteld op de standaardwaarde en laat `No`, anders wordt dit veld wijzigen `No` publicatie kan belemmeren.  |  
+| **Deze app gemaakt als een Power BI-inhoudspakket?** | Op dit moment is dit een intern gebruikte veld. De waarde is ingesteld op de standaardwaarde en laat `No`, anders wordt dit veld wijzigen `Yes` publicatie kan belemmeren.  |  
 |  |  |
 
 

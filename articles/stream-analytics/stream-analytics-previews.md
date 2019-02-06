@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/10/2019
-ms.openlocfilehash: 70cc6210a0c047867980de67ac24701df29ce8bf
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.date: 02/05/2019
+ms.openlocfilehash: 29997b2ff7d3834a91389790256cd0d075ce1ece
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55485174"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744905"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics preview-functies
 
@@ -23,13 +23,21 @@ In dit artikel bevat een overzicht van alle functies die momenteel in Preview-ve
 
 De volgende functies zijn in openbare preview. U kunt profiteren van deze functies vandaag, maar niet gebruiken in uw productieomgeving.
 
+### <a name="sql-database-reference-data"></a>Referentiegegevens voor SQL-Database
+
+Azure Stream Analytics biedt ondersteuning voor Azure SQL Database als een bron van de invoer voor referentiegegevens. U kunt SQL-Database gebruiken als referentiegegevens voor uw Stream Analytics-taak in de Azure-portal en Visual Studio met Stream Analytics-hulpprogramma's. Voor meer informatie gaat u naar, [gebruik referentiegegevens uit een SQL-Database voor een Azure Stream Analytics-taak](sql-reference-data.md).
+
 ### <a name="integration-with-azure-machine-learning"></a>Integratie met Azure Machine Learning
 
 Stream Analytics-taken met Machine Learning (ML)-functies, kunt u schalen. Voor meer informatie over hoe u ML-functies in uw Stream Analytics-taak gebruiken kunt, gaat u naar [schalen van uw Stream Analytics-taak met Azure Machine Learning-functies](stream-analytics-scale-with-machine-learning-functions.md). Bekijk een Praktijkscenario met [uitvoeren van sentimentanalyses met behulp van Azure Stream Analytics en Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
 
 ### <a name="blob-output-partitioning-by-custom-time"></a>BLOB-uitvoer partitionering met aangepaste tijd
 
-Azure Stream Analytics kunnen worden uitgevoerd naar Blob-opslag op basis van aangepaste kenmerken. Ga voor meer informatie naar [aangepaste datum/tijd-padpatronen voor Azure Stream Analytics blob storage-uitvoer](stream-analytics-custom-path-patterns-blob-storage-output.md).
+Azure Stream Analytics kunnen worden uitgevoerd naar blob-opslag op basis van aangepaste kenmerken. Ga voor meer informatie naar [blob partitioneren van uitvoer-Azure Stream Analytics aangepaste](stream-analytics-custom-path-patterns-blob-storage-output.md).
+
+### <a name="blob-output-partitioning-by-field-or-attribute"></a>BLOB-uitvoer partitionering met veld of kenmerk
+
+Azure Stream Analytics kunnen worden uitgevoerd naar blob-opslag op basis van aangepaste velden of kenmerken. Ga voor meer informatie naar [blob partitioneren van uitvoer-Azure Stream Analytics aangepaste](stream-analytics-custom-path-patterns-blob-storage-output.md).
 
 ### <a name="javascript-user-defined-aggregate"></a>De gebruiker gedefinieerde aggregatie JavaScript
 
@@ -55,13 +63,13 @@ Azure Stream Analytics introduceert nieuwe machine learning-modellen met onderst
 
 Ontwikkelaars kunnen nu aangepaste deserializers in C# voor het deserialiseren van gebeurtenissen die worden ontvangen door Azure Stream Analytics implementeren. Voorbeelden van indelingen die kunnen worden gedeserialiseerd zijn Parquet, Protobuf, XML of een binaire indeling.
 
-### <a name="blob-output-partitioning-by-custom-attribute"></a>BLOB-uitvoer partitioneren door aangepast kenmerk
-
-Het is nu mogelijk voor het partitioneren van de uitvoer van uw Azure Stream Analytics naar Blob-opslag op basis van een andere kolom in de query.
-
 ### <a name="managed-identities-for-azure-resource-authentication-to-azure-data-lake-storage"></a>Beheerde identiteiten voor Azure-resource-verificatie met Azure Data Lake Storage
 
 U kunt nu uw realtime pijplijnen met beheerde identiteiten voor Azure-resources op basis van verificatie tijdens het schrijven naar Azure Data Lake Storage Gen1 uitvoeren zodat u kunt taken via een programma te maken. Ga voor meer informatie naar [identiteiten beheerde gebruiken voor Azure-resources te verifiëren Azure Stream Analytics-taken naar Azure Data Lake Storage-Gen1 uitvoer](stream-analytics-managed-identities-adls.md).
+
+### <a name="visual-studio-code-for-azure-stream-analytics"></a>Visual Studio Code for Azure Stream Analytics
+
+De functies van Azure Stream Analytics-taken kunnen worden geschreven in Visual Studio Code.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -16,12 +16,12 @@ ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 0281186be4fae71c56b65327e0c67da3f252a33c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 614f8a3e3738e1c99f5a089410814765d278d3fe
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239516"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55743835"
 ---
 # <a name="validate-azure-registration"></a>Valideren van de registratie van Azure
  
@@ -67,6 +67,8 @@ De volgende vereisten moeten worden voldaan:
    ```powershell
    $registrationCredential = Get-Credential subscriptionowner@contoso.onmicrosoft.com -Message "Enter Credentials for Subscription Owner"
    ```
+> [!NOTE]
+  > Als een CSP, bij het gebruik van een gedeelde Services of IUR-abonnement, moet u voor de referenties van een gebruiker van die respectieve AAD. Meestal dit is vergelijkbaar met `subscriptionowner@iurcontoso.onmicrosoft.com`. Deze gebruiker moet worden de juiste referenties hebt zoals hierboven is beschreven.
 
 3. Voer de volgende om in te stellen van de PowerShell-prompt `$subscriptionID` als de Azure-abonnement u wilt gebruiken. Vervang `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` met uw eigen abonnement-ID:
    ```powershell

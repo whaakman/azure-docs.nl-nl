@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 4fd9f76223adba20028288b46037586f8f54fd1a
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 99c4f838c3c4e4708c3e21ff9c7e63b69a507dbe
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686378"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746911"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Virtuele machines met een Azure Resource Manager-sjabloon maken 
 
@@ -47,7 +47,7 @@ De rest van dit artikel wordt beschreven Resource Manager-sjablonen die gebruikm
 [Aanbevolen procedures voor het maken van Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices) biedt veel richtlijnen en suggesties voor het maken van Azure Resource Manager-sjablonen die zijn betrouwbare en eenvoudig te gebruiken.
 
 ## <a name="view-and-save-a-virtual-machines-resource-manager-template"></a>Weergeven en opslaan van een virtuele machine van Resource Manager-sjabloon
-1. Volg de stappen in [uw eerste virtuele machine maken in een testomgeving](devtest-lab-create-first-vm.md) om te beginnen met het maken van een virtuele machine.
+1. Volg de stappen in [uw eerste virtuele machine maken in een testomgeving](tutorial-create-custom-lab.md#add-a-vm-to-the-lab) om te beginnen met het maken van een virtuele machine.
 1. Voer de vereiste gegevens voor uw virtuele machine en alle artefacten die u wilt gebruiken voor deze virtuele machine toevoegen.
 1. Aan de onderkant van het venster van de instellingen configureren kiezen **weergave ARM-sjabloon**.
 

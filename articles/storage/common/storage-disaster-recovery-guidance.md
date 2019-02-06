@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/01/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: bc79379d1b893beffc085e79b7643fcb6e1dc26f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: fbd4782d7fde089f9770e148564ec5941da3dc8e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657311"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753585"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Disaster recovery en storage-account failover (preview) in Azure Storage
 
@@ -158,15 +158,11 @@ Niet-beheerde schijven worden opgeslagen als pagina-blobs in Azure Storage. Wann
 
 Houd er rekening mee dat alle gegevens die zijn opgeslagen in een tijdelijke schijf verloren wanneer de virtuele machine wordt afgesloten.
 
-#### <a name="azure-file-sync"></a>Azure File Sync
-
-Account-failover biedt ondersteuning voor Azure File Sync. U moet echter alle Azure File Sync-instellingen opnieuw configureren nadat de failover voltooid is.
-
 ### <a name="unsupported-features-or-services"></a>Niet-ondersteunde functies of services
-
 De volgende functies of services worden niet ondersteund voor failover-account voor de preview-versie:
 
-- Azure Data Lake Storage Gen2 hiërarchische-bestandsshares kunnen geen failover mogelijk is.
+- Azure File Sync biedt geen ondersteuning voor failover van storage-account. Storage-accounts met Azure-bestandsshares wordt gebruikt als cloudeindpunten in Azure File Sync moeten failover niet mogelijk is. In dat geval wordt oorzaak synchroniseren niet meer werkt en kan ook leiden tot onverwachte gegevensverlies in het geval van nieuwe gelaagde bestanden.  
+- Opslagaccounts met behulp van Azure Data Lake Storage Gen2 hiërarchische naamruimte kunnen geen failover mogelijk is.
 - Een opslagaccount met gearchiveerde blobs kan geen failover mogelijk is. Gearchiveerde blobs in een afzonderlijk opslagaccount die u niet van plan bent failover onderhouden.
 - Een met blok-blobs voor premium storage-account kan geen failover mogelijk is. Storage-accounts die ondersteuning bieden voor blok-blobs voor premium bieden momenteel geen ondersteuning voor geo-redundantie.
 

@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 79a7aad8cd747c3fdadcd0f7eec12d861f31fcc0
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 2c0d32c5e95504ac99c739af89795ac22a768c63
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730506"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751936"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nieuwe DBA in de cloud, beheer van uw database in Azure SQL Database
 
@@ -108,7 +108,7 @@ Er zijn meerdere technieken beschikken die u gebruiken kunt voor het bereiken va
 
 Een firewall voorkomt dat toegang tot uw server een externe entiteit door toe te staan alleen specifieke entiteiten toegang tot uw SQL-Database-server. Standaard alle verbindingen en databases op de SQL-Database-server zijn niet toegestaan, behalve de verbindingen die afkomstig is van andere Azure-Services in. U kunt de toegang met uw server alleen op entiteiten (bijvoorbeeld een developer-machine) die u goedkeuren, doordat het IP-adres van die computer via de firewall openen met een firewall-regel. Ook kunt u een bereik van IP-adressen die u wilt toegang krijgt tot de SQL-Database-server opgeven. Bijvoorbeeld, kunnen ontwikkelaars machine IP-adressen in uw organisatie in één keer worden toegevoegd door een adresbereik in de pagina van de Firewall-instellingen op te geven.
 
-U kunt firewallregels op serverniveau of op het databaseniveau van de maken. Server-level firewall-regels kunnen ofwel worden gemaakt met behulp van Azure portal of met SSMS. Voor meer informatie over het instellen van een server en database-level firewall-regel, Zie: [Firewall-regels maken in SQL-Database](sql-database-security-tutorial.md#create-firewall-rules).
+U kunt firewallregels op serverniveau of op het databaseniveau van de maken. Server niveau IP-firewallregels kunnen ofwel worden gemaakt met behulp van Azure portal of met SSMS. Voor meer informatie over het instellen van een firewallregel op serverniveau en databaseniveau, Zie: [IP-firewallregels in SQL Database maken](sql-database-security-tutorial.md#create-firewall-rules).
 
 #### <a name="service-endpoints"></a>Service-eindpunten
 
@@ -146,7 +146,7 @@ Versleuteling biedt een krachtig mechanisme om te beschermen en uw gevoelige geg
 In SQL-Database, standaard, worden uw gegevens in rust in de gegevens en logboekbestanden bestanden op het opslagsubsysteem volledig en altijd versleuteld [Transparent Data Encryption [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). Uw back-ups zijn eveneens versleuteld. Met TDE er zijn geen wijzigingen aan de kant van de toepassing die toegang heeft tot deze gegevens vereist. De versleuteling en ontsleuteling gebeuren transparant; daarom de naam.
 Voor het beveiligen van uw gevoelige gegevens die onderweg zijn en at-rest, SQL Database biedt een functie, genaamd [altijd versleuteld (AE)](/sql/relational-databases/security/encryption/always-encrypted-database-engine). AE is een vorm van clientversleuteling waarmee gevoelige kolommen in uw database worden gecodeerd (zodat ze zich in de gecodeerde tekst voor databasebeheerders en niet-geautoriseerde gebruikers). De server ontvangt begint met de versleutelde gegevens. De sleutel voor Always Encrypted worden ook opgeslagen op de client, zodat alleen geautoriseerde clients kunnen de gevoelige kolommen ontsleutelen. De server en de gegevensbeheerders zien niet de gevoelige gegevens omdat de versleutelingssleutels worden opgeslagen op de client. AE versleutelt gevoelige kolommen in de tabel end-to-end van niet-geautoriseerde clients naar de fysieke schijf. AE ondersteunt gelijkheid vergelijkingen vandaag, zodat de DBA kunnen blijven opvragen versleutelde kolommen als onderdeel van de SQL-opdrachten. Altijd versleutelde kan worden gebruikt met een verscheidenheid aan sleutelarchief opties, zoals [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md), Windows-certificaatarchief en lokale hardware security modules.
 
-|**Kenmerken**|**Always Encrypted**|**Transparent Data Encryption**|
+|**Kenmerken**|**Altijd versleuteld**|**Transparent Data Encryption**|
 |---|---|---|
 |**Versleuteling span**|End-to-end|Inactieve gegevens|
 |**Database-server kunt krijgen tot gevoelige gegevens**|Nee|Ja, omdat versleuteling voor de data-at-rest|

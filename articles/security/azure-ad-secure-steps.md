@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 3e2fa822698f3888e1168ab7773d87e41db9eb5c
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: f0b76e54da60396e01b5893b143bcee9048e2184
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165642"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750321"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Vijf stappen voor het beveiligen van uw infrastructuur voor identiteiten
 
@@ -38,7 +38,7 @@ De aanbevelingen in dit document zijn uitgelijnd met de [identiteit Secure Score
 
 ![Identiteit beveiligde Score](media/azure-ad/azure-ad-sec-steps0.png)
 
-## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Voordat u begint: beveiligen van bevoegde accounts met MFA
+## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Voordat u begint: Beveiligen van bevoegde accounts met MFA
 
 Voordat u deze controlelijst, zorg er dan voor dat u geen verkeren terwijl u deze controlelijst leest. U moet eerst uw beschermde accounts beschermen.
 
@@ -99,7 +99,7 @@ Apps met behulp van hun eigen verouderde methoden voor verificatie met Azure AD 
 
 1. Blok [verouderde verificatie als u AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
 2. Setup [SharePoint Online en Exchange Online gebruik van moderne verificatie](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
-3. Gebruik [beleid voor voorwaardelijke toegang moet worden geblokkeerd dat verouderde](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication).
+3. Gebruik [beleid voor voorwaardelijke toegang moet worden geblokkeerd dat verouderde](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions).
 
 ### <a name="block-invalid-authentication-entry-points"></a>Ongeldige verificatie-toegangspunten blokkeren
 

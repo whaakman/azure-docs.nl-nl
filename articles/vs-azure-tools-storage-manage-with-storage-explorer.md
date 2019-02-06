@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: cdfb1e11a2eb468e390546d69617ff4cadd17a7e
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 77763765e75500d994235bba0a5c0c3bb3e3be70
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658873"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756815"
 ---
 # <a name="get-started-with-storage-explorer"></a>Aan de slag met Storage Explorer
 
@@ -87,8 +87,8 @@ Bovendien kunt u wereldwijd en nationaal werken met opslagaccounts in Azure:
 * [Verbinding maken met een Azure-abonnement](#connect-to-an-azure-subscription): Beheer de opslagresources die deel uitmaken van uw Azure-abonnement.
 * [Werken met lokale opslag](#work-with-local-development-storage): Lokale opslag beheren met behulp van de Azure-Opslagemulator.
 * [Koppelen aan externe opslag](#attach-or-detach-an-external-storage-account): Beheer de opslagresources die deel uitmaken van een ander Azure-abonnement of die zijn landelijke Azure-Clouds met behulp van de naam, sleutel en eindpunten van het storage-account.
-* [Een opslagaccount koppelen met behulp van een SAS](): Beheer de opslagresources die deel uitmaken van een andere Azure-abonnement met behulp van een shared access signature (SAS).
-* [Een service koppelen via SAS](#attach-service-using-sas): Beheer een specifieke opslagservice (blobcontainer, wachtrij of tabel) die deel uitmaakt van een andere Azure-abonnement met behulp van een SAS.
+* [Een opslagaccount koppelen met behulp van een SAS](#attach-a-storage-account-by-using-a-shared-access-signature-sas): Beheer de opslagresources die deel uitmaken van een andere Azure-abonnement met behulp van een shared access signature (SAS).
+* [Een service koppelen via SAS](#attach-a-service-by-using-a-shared-access-signature-sas): Beheer een specifieke opslagservice (blobcontainer, wachtrij of tabel) die deel uitmaakt van een andere Azure-abonnement met behulp van een SAS.
 * [Verbinding maken met een Azure Cosmos DB-account met behulp van een verbindingsreeks](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): Cosmos DB-account beheren met behulp van een verbindingsreeks.
 
 ## <a name="connect-to-an-azure-subscription"></a>Verbinding maken met een Azure-abonnement
@@ -295,7 +295,7 @@ Naast Azure Cosmos DB-accounts via Azure-abonnement te beheren, een andere manie
 
     ![verbinding maken met Azure Cosmos DB met een verbindingsreeks][21]
 
-2. Kies Azure Cosmos DB API, plak uw **Connection String**, en klik vervolgens op **OK** om Azure Cosmos DB-account verbinding te maken. Zie [De verbindingsreeks ophalen](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string) voor informatie over het ophalen van de verbindingsreeks.
+2. Kies Azure Cosmos DB API, plak uw **Connection String**, en klik vervolgens op **OK** om Azure Cosmos DB-account verbinding te maken. Zie [De verbindingsreeks ophalen](https://docs.microsoft.com/azure/cosmos-db/manage-account) voor informatie over het ophalen van de verbindingsreeks.
 
     ![connection-string][22]
 

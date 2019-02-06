@@ -1,6 +1,6 @@
 ---
-title: Uw persoonlijke niet-Microsoft-accounts toevoegen aan de Microsoft Authenticator-app - Azure Active Directory | Microsoft Docs
-description: Hoe u uw persoonlijke niet-Microsoft-accounts, zoals voor Google, Facebook of GitHub toevoegen aan de Microsoft Authenticator-app voor tweeledige verificatie.
+title: Uw niet-Microsoft-accounts toevoegen aan de Microsoft Authenticator-app - Azure Active Directory | Microsoft Docs
+description: Hoe u uw niet-Microsoft-accounts, zoals voor Google, Facebook of GitHub toevoegen aan de Microsoft Authenticator-app voor tweeledige verificatie.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: db59d3d2795b8cfa3fc7682f4486d968f39ab6ab
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0103aa7fb9142f38e0f34cd70fbdb198137bc2a0
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459142"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753823"
 ---
-# <a name="add-your-personal-non-microsoft-accounts"></a>Uw persoonlijke niet-Microsoft-accounts toevoegen.
-Uw persoonlijke niet-Microsoft-accounts, zoals toevoegen voor Google, Facebook of GitHub naar de Microsoft Authenticator-app voor tweeledige verificatie.
+# <a name="add-your-non-microsoft-accounts"></a>Uw niet-Microsoft-accounts toevoegen
+Uw niet-Microsoft-accounts, zoals voor Google, Facebook of GitHub toevoegen aan de Microsoft Authenticator-app voor tweeledige verificatie. De Microsoft Authenticator-app werkt met elke app die gebruikmaakt van tweeledige verificatie en alle accounts die ondersteuning biedt voor de standaarden op basis van tijd eenmalig wachtwoord (mobiele TOTP).
 
 >[!Important]
 >Voordat u uw account toevoegen kunt, moet u download en installeer de Microsoft Authenticator-app. Als u dat nog niet hebt gedaan, volgt u de stappen in de [downloaden en installeren van de app](microsoft-authenticator-app-how-to.md) artikel.
@@ -29,7 +29,7 @@ Voor al uw persoonlijke accounts moet u over het algemeen:
 
 1. Aanmelden bij uw account en schakelt u tweeledige verificatie met behulp van uw apparaat of uw PC.
 
-2. Het account toevoegt aan de Microsoft Authenticator-app.
+2. Het account toevoegt aan de Microsoft Authenticator-app. U mogelijk gevraagd een QR-code scannen als onderdeel van dit proces.
 
 Bieden we u hier het proces voor uw accounts Facebook, Google, GitHub en Amazon, maar dit proces is hetzelfde voor alle andere Apps, zoals Instagram, Netflix of Adobe.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 441821ae422fb4cbddbca5b4c30d68484ce6bc1f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 55632acf516198b5ad0b6430480836dcc62fd5a5
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186974"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755375"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Onverwachte toepassing in de lijst met mijn toepassingen
 
@@ -63,15 +63,15 @@ Wanneer gefilterd op **alle toepassingen**, wordt de **alle toepassingen** **lij
 
 4.  Wanneer u de registratie van een nieuwe toepassing toevoegen door het maken van een aangepaste toepassing met de [toepassingsregister](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration)
 
-5.  Wanneer u de registratie van een nieuwe toepassing toevoegen door het maken van een aangepaste toepassing met de [V2.0-registratieportal voor toepassing](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration#visit-the-microsoft-app-registration-portal)
+5.  Wanneer u de registratie van een nieuwe toepassing toevoegen door het maken van een aangepaste toepassing met de [V2.0-registratieportal voor toepassing](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration)
 
 6.  Wanneer u een toepassing toevoegen ontwikkelt u met behulp van Visual Studio [ASP.net-verificatiemethoden](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) of [Connected Services](https://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
 
 7.  Wanneer u een service-principal-object met maakt de [Azure AD PowerShell-Module](/powershell/azure/install-adv2?view=azureadps-2.0)
 
-8.  Wanneer u [instemmen met een toepassing](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) als beheerder om gegevens te gebruiken in uw tenant
+8.  Wanneer u [instemmen met een toepassing](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) als beheerder om gegevens te gebruiken in uw tenant
 
-9.  Wanneer een [gebruiker toestemming heeft voor een toepassing](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) om gegevens te gebruiken in uw tenant
+9.  Wanneer een [gebruiker toestemming heeft voor een toepassing](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) om gegevens te gebruiken in uw tenant
 
 10. Wanneer u bepaalde services waarbij de gegevens opslaan in uw tenant inschakelt. Een voorbeeld hiervan is voor wachtwoordherstel, die is gemodelleerd als een service-principal voor het opslaan van uw wachtwoord opnieuw instellen van beleid veilig.
 
@@ -107,7 +107,7 @@ Naar **verwijderen van een toepassing**, als volgt te werk:
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Ik wil alle bewerkingen van toekomstige gebruikers toestemming voor elke toepassing uitschakelen
 
-Toestemming van de gebruiker wordt uitgeschakeld voor uw hele directory te voorkomen dat eindgebruikers ermee akkoord dat voor elke toepassing. Beheerders kunnen nog steeds op van de gebruiker behalves instemmen. Voor meer informatie over de toestemming van de toepassing en waarom u niet wilt mogelijk accepteren, of Lees [inzicht in gebruikers- en toestemming van een beheerder](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
+Toestemming van de gebruiker wordt uitgeschakeld voor uw hele directory te voorkomen dat eindgebruikers ermee akkoord dat voor elke toepassing. Beheerders kunnen nog steeds op van de gebruiker behalves instemmen. Voor meer informatie over de toestemming van de toepassing en waarom u niet wilt mogelijk accepteren, of Lees [inzicht in gebruikers- en toestemming van een beheerder](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
 
 Naar **uitschakelen van alle toekomstige gebruikers toestemming bewerkingen in uw hele directory**, als volgt te werk:
 

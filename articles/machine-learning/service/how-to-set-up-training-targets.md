@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: article
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 75caad2c183ba2d3c5442a3620705c6af8070755
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 14a6bdfff486f13f18d42b1bd20880347d3ebbc8
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659589"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756526"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Compute-doelen voor modeltraining instellen
 
@@ -38,18 +38,14 @@ In dit artikel leert u hoe u met verschillende compute-doelen voor modeltraining
 Azure Machine Learning-service heeft verschillende ondersteuning voor verschillende compute-doelen. Een typische model ontwikkelingscyclus begint met dev/experimenten op een kleine hoeveelheid gegevens. In deze fase, wordt u aangeraden een lokale omgeving. Bijvoorbeeld, de lokale computer of een cloud-gebaseerde VM. Als u uw training voor grotere gegevenssets opschalen of gedistribueerde training doen, wordt u aangeraden een één of meerdere node cluster maken dat automatisch wordt geschaald telkens wanneer die u een uitvoering verzenden met Azure Machine Learning-Computing. U kunt ook uw eigen compute-resource koppelen, hoewel ondersteuning voor verschillende scenario's als variëren kunnen hieronder uitgelegd:
 
 
-|COMPUTE-doel voor training| GPU-versnelling | Geautomatiseerd<br/> hyperparameter afstemmen | Geautomatiseerd</br> machine learning | Geschikt voor pijplijn|
+|COMPUTE-doel voor training| GPU-versnelling | Geautomatiseerd<br/> hyperparameter afstemmen | Geautomatiseerd</br> machine learning | Azure Machine Learning-pijplijnen |
 |----|:----:|:----:|:----:|:----:|
 |[Lokale computer](#local)| Misschien | &nbsp; | ✓ | &nbsp; |
 |[Azure Machine Learning-Computing](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
 |[Externe virtuele machine](#vm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓[*](#pipeline-only) |
-|[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
+|[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
+|[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-
-<a id="pipeline-only"></a>__*__ Azure Databricks en Azure Data Lake Analytics kunt __alleen__ worden gebruikt in een pijplijn. 
-
->Maken van compute-doelen voor machine learning-pijplijnen zoals beschreven in dit artikel, maar u deze berekeningen in stappen van de pijplijn in plaats van de methoden die hier worden vermeld.  Slechts enkele stappen van de pijplijn gebruiken ook de uitvoeringsconfiguratie die in dit artikel wordt beschreven.  Zie voor meer informatie over het gebruik van compute-doelen in een pijplijn [maken en uitvoeren op een machine learning-pijplijn](how-to-create-your-first-pipeline.md).
 
 ## <a name="whats-a-run-configuration"></a>Wat is een configuratie uitvoeren?
 

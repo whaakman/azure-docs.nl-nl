@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: c070858354bb8bf5628a17e24e6830f133414d32
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 2e2bf4f0f7ba4546c2f8609ee3ec7efc072024ae
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734399"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751545"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Geavanceerde beveiliging van gegevens met virtuele netwerken en in de buurt van 100% compatibiliteit van SQL-Database gebruiken
 
@@ -47,7 +47,7 @@ Beheerd exemplaar combineert het beste functies die beschikbaar zijn in Azure SQ
 | --- | --- |
 |Er is geen aanschaffen van hardware en het beheer <br>Er is geen management overhead voor het beheren van de onderliggende infrastructuur <br>Snel inrichten en schalen van service <br>Automatische patching en versie-upgrade <br>Integratie met andere PaaS-services voor gegevens |uptime van 99,99% SLA  <br>Ingebouwde [hoge beschikbaarheid](sql-database-high-availability.md) <br>Gegevens die worden beveiligd met [geautomatiseerde back-ups](sql-database-automated-backups.md) <br>Klanten kunnen worden geconfigureerd back-up bewaarperiode <br>De gebruiker geïnitieerde [back-ups](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Punt in tijd database terugzetten](sql-database-recovery-using-backups.md#point-in-time-restore) mogelijkheid |
 |**Beveiliging en naleving** | **Beheer**|
-|Geïsoleerde omgeving ([VNet-integratie](sql-database-managed-instance-connectivity-architecture.md), één service, speciale berekenings- en tenant) <br>[Transparante gegevensversleuteling (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD-verificatie](sql-database-aad-authentication.md), eenmalige aanmelding <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD-aanmeldingen</a> (**preview-versie**) <br>Voldoet aan de standaarden voor compliance hetzelfde als Azure SQL-database <br>[SQL-controle](sql-database-managed-instance-auditing.md) <br>[Detectie van bedreigingen](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager-API voor het automatiseren van service inrichten en schalen <br>Functionaliteit voor handmatige service inrichten en schalen van Azure portal <br>Data migratieservice
+|Geïsoleerde omgeving ([VNet-integratie](sql-database-managed-instance-connectivity-architecture.md), één service, speciale berekenings- en tenant) <br>[TDE (Transparent Data Encryption)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD-verificatie](sql-database-aad-authentication.md), eenmalige aanmelding <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD-aanmeldingen</a> (**preview-versie**) <br>Voldoet aan de standaarden voor compliance hetzelfde als Azure SQL-database <br>[SQL-controle](sql-database-managed-instance-auditing.md) <br>[Detectie van bedreigingen](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager-API voor het automatiseren van service inrichten en schalen <br>Functionaliteit voor handmatige service inrichten en schalen van Azure portal <br>Data migratieservice
 
 De belangrijkste functies van beheerde exemplaren worden weergegeven in de volgende tabel:
 
@@ -74,8 +74,8 @@ De [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) voor beh
 
 In het vCore-model, kunt u kiezen tussen verschillende hardwaregeneraties.
 
-- **Gen 4** logische CPU's zijn gebaseerd op Intel E5-2673 v3 (Haswell)-processors van 2,4 GHz, gekoppelde SSD, fysieke kernen, 7 GB RAM-geheugen per kern en compute-grootten tussen 8 en maximaal 24 vCores.
-- **Gen 5** logische CPU's zijn gebaseerd op Intel E5-2673 v4-processors 2,3 GHz (Broadwell) NVMe SSD, hyper-threaded logische core, een snelle en compute-grootten tussen 8 en 80 kernen.
+- **Gen4** logische CPU's zijn gebaseerd op Intel E5-2673 v3 (Haswell)-processors van 2,4 GHz, gekoppelde SSD, fysieke kernen, 7 GB RAM-geheugen per kern en compute-grootten tussen 8 en maximaal 24 vCores.
+- **Gen5** logische CPU's zijn gebaseerd op Intel E5-2673 v4-processors 2,3 GHz (Broadwell) NVMe SSD, hyper-threaded logische core, een snelle en compute-grootten tussen 8 en 80 kernen.
 
 Meer informatie over het verschil tussen hardwaregeneraties in [beheerd exemplaar resourcelimieten](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 

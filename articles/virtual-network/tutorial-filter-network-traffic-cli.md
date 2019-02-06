@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 6a79c75f96c351a470a7ab4f788f79b0e1b6a8a6
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 630eddc8494b32d93035913bcb2b55f00153b1be
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656289"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755506"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Netwerkverkeer filteren met een netwerkbeveiligingsgroep met de Azure CLI
 
@@ -46,7 +46,7 @@ Een netwerkbeveiligingsgroep bevat beveiligingsregels. Beveiligingsregels geven 
 
 ### <a name="create-application-security-groups"></a>Toepassingsbeveiligingsgroepen maken
 
-Maakt u eerst een resourcegroep voor alle resources die zijn gemaakt in dit artikel met [az-groep maken](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam gemaakt op de locatie *eastus*: 
+Maakt u eerst een resourcegroep voor alle resources die zijn gemaakt in dit artikel met [az-groep maken](/cli/azure/group). In het volgende voorbeeld wordt een resourcegroep met de naam gemaakt op de locatie *eastus*: 
 
 ```azurecli-interactive
 az group create \
@@ -54,7 +54,7 @@ az group create \
   --location eastus
 ```
 
-Maak een toepassingsbeveiligingsgroep met [az netwerk asg maken](/cli/azure/network/asg#az_network_asg_create). Met een toepassingsbeveiligingsgroep kunt u servers met vergelijkbare poortfiltervereisten groeperen. In het volgende voorbeeld worden twee toepassingsbeveiligingsgroepen gemaakt.
+Maak een toepassingsbeveiligingsgroep met [az netwerk asg maken](/cli/azure/network/asg). Met een toepassingsbeveiligingsgroep kunt u servers met vergelijkbare poortfiltervereisten groeperen. In het volgende voorbeeld worden twee toepassingsbeveiligingsgroepen gemaakt.
 
 ```azurecli-interactive
 az network asg create \
@@ -81,7 +81,7 @@ az network nsg create \
 
 ### <a name="create-security-rules"></a>Beveiligingsregels maken
 
-Maak een beveiligingsregel met [az network nsg-regel maken](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). In het volgende voorbeeld wordt een regel gemaakt die inkomend verkeer van internet naar de toepassingsbeveiligingsgroep *myWebServers* toestaat via de poorten 80 en 443:
+Maak een beveiligingsregel met [az network nsg-regel maken](/cli/azure/network/nsg/rule). In het volgende voorbeeld wordt een regel gemaakt die inkomend verkeer van internet naar de toepassingsbeveiligingsgroep *myWebServers* toestaat via de poorten 80 en 443:
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -119,7 +119,7 @@ In dit artikel SSH (poort 22) wordt blootgesteld aan internet voor de *myAsgMgmt
 
 ## <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
 
-Maak een virtueel netwerk met [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). In het volgende voorbeeld wordt een virtueel netwerk met de naam *myVirtualNetwork* gemaakt:
+Maak een virtueel netwerk met [az network vnet create](/cli/azure/network/vnet). In het volgende voorbeeld wordt een virtueel netwerk met de naam *myVirtualNetwork* gemaakt:
 
 ```azurecli-interactive 
 az network vnet create \
@@ -143,7 +143,7 @@ az network vnet subnet create \
 
 Maak twee virtuele machines in het virtuele netwerk, zodat u het filteren van verkeer in een latere stap kunt controleren. 
 
-Maak een VM met [az vm create](/cli/azure/vm#az_vm_create). In het volgende voorbeeld wordt een virtuele machine gemaakt die als een webserver fungeert. De `--asgs myAsgWebServers` optie zorgt ervoor dat Azure om de netwerkinterface die is gemaakt voor de virtuele machine lid is van de *myAsgWebServers* toepassingsbeveiligingsgroep.
+Maak een VM met [az vm create](/cli/azure/vm). In het volgende voorbeeld wordt een virtuele machine gemaakt die als een webserver fungeert. De `--asgs myAsgWebServers` optie zorgt ervoor dat Azure om de netwerkinterface die is gemaakt voor de virtuele machine lid is van de *myAsgWebServers* toepassingsbeveiligingsgroep.
 
 De `--nsg ""` optie is opgegeven om te voorkomen dat Azure het maken van een standaard voor de netwerkbeveiligingsgroep voor de netwerkinterface die Azure maakt bij het maken van de virtuele machine. Een wachtwoord wordt gebruikt voor het stroomlijnen van dit artikel. Sleutels worden doorgaans gebruikt in productie-implementaties. Als u sleutels gebruikt, moet u ook doorsturen voor de resterende stappen van SSH-agent configureren. Zie voor meer informatie de documentatie van uw SSH-client. Vervang `<replace-with-your-password>` in de volgende opdracht uit met een wachtwoord van uw keuze.
 
@@ -234,7 +234,7 @@ Meld u af bij de *myVmMgmt* VM. Om te bevestigen of u toegang hebt tot de *myVmW
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u niet meer nodig hebt, gebruikt u [az group delete](/cli/azure/group#az_group_delete) om de resourcegroep en alle resources die deze bevat te verwijderen.
+Wanneer u niet meer nodig hebt, gebruikt u [az group delete](/cli/azure/group) om de resourcegroep en alle resources die deze bevat te verwijderen.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes

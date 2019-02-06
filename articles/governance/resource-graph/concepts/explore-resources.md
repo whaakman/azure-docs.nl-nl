@@ -4,17 +4,17 @@ description: Informatie over het gebruik van de querytaal van Resource-grafiek a
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 090ea6fa38f07dda2f3769398c082e302edebe94
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: aa4a4ef1c1ee7281a737db7c7f91e4f330c52246
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095478"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749624"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Azure-resources verkennen met Resource Graph
 
@@ -40,8 +40,11 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1"
+Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1" | ConvertTo-Json
 ```
+
+> [!NOTE]
+> Azure PowerShell `Search-AzGraph` cmdlet retourneert een **PSCustomObject** standaard. De uitvoer zien er hetzelfde uit als u wat wordt geretourneerd door de Azure CLI, hebben de `ConvertTo-Json` cmdlet wordt gebruikt.
 
 De structuur van de JSON-resultaten die vergelijkbaar is met het volgende voorbeeld:
 

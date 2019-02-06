@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: abshamsft
-ms.openlocfilehash: 50819e1378187dda126f25298d8a2ac0a1b815c5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 2dcbe170a69c0c285cb6425427f94b5efced8712
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188772"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747455"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute-bewaking
 
@@ -118,23 +118,12 @@ U kunt het overzicht van de melding en waarschuwingen instellen voor deze via **
 
 | Melding Code (Logboeken) | Description |
 | --- | --- |
-| 5101 | Microsoft Edge subinterfaces toont hoge latentie |
-| 5102 | Subinterfaces van Microsoft Edge wordt het pakket verwijderen | 
-| 5103 | ExpressRoute-gateway is niet in orde | 
-| 5201 | Koppeling van de serviceprovider vertoont een hoge latentie |
-| 5202 | Pakketten stromen niet vanuit het bedoelde ExpressRoute-circuit |
-| 5301 | Klantenrandrouter vertoont een hoge latentie | 
-| 5302 | De latentie wordt veroorzaakt door een apparaat of de koppeling in de omgeving van de klant. Het probleem lijkt niet te worden in ExpressRoute-circuit | 
 | 5501 | Kan niet door secundaire verbinding van het ExpressRoute-circuit stromen |
 | 5502 | Kan niet door primaire verbinding van het ExpressRoute-circuit stromen |
 | 5503 | Er is geen circuit gevonden voor het abonnement is gekoppeld aan de werkruimte | 
-| 5506 | Het gebruik bereikt de maximale capaciteit | 
-| 5507 | Het gebruik is laag |
 | 5508 | Kan niet bepalen of verkeer wordt doorgegeven via een circuit voor het pad |
 | 5510 | Het verkeer wordt niet doorgegeven via het beoogde circuit | 
 | 5511 | Het verkeer wordt niet doorgegeven via het beoogde virtuele netwerk | 
-| 5512 | Kan niet bepalen of het verkeer wordt doorgegeven via het beoogde circuit |
-
 
 **Circuit is niet beschikbaar.** Network Performance Monitor ontvangt u een melding zodra de verbinding tussen uw on-premises bronnen en virtuele netwerken van Azure verbroken is. Deze melding kunt u proactieve maatregelen voordat u escalaties van de gebruiker ontvangt en minder uitvaltijd.
 

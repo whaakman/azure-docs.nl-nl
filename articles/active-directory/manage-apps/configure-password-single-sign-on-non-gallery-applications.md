@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: barbkess
-ms.openlocfilehash: f0f4d160b9e9d5e556813115aa39c60ea8f4edb2
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: f549c748c87405b47868c75cc01af81efd202af2
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733328"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755353"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Het configureren van wachtwoord eenmalige aanmelding voor een toepassing buiten de galerie
 
-Naast de opties in de Azure AD-Toepassingsgalerie gevonden, hebt u ook de mogelijkheid om toe te voegen een **toepassing buiten de galerie** wanneer de toepassing die u wilt dat er niet wordt vermeld. Met deze mogelijkheid kunt u een toepassing die al in uw organisatie of een toepassing van derden die u mogelijk toevoegen van een leverancier die niet al deel uitmaakt van de [Azure AD-Toepassingsgalerie](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery).
+Naast de opties in de Azure AD-Toepassingsgalerie gevonden, hebt u ook de mogelijkheid om toe te voegen een **toepassing buiten de galerie** wanneer de toepassing die u wilt dat er niet wordt vermeld. Met deze mogelijkheid kunt u een toepassing die al in uw organisatie of een toepassing van derden die u mogelijk toevoegen van een leverancier die niet al deel uitmaakt van de [Azure AD-Toepassingsgalerie](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 Als u een toepassing buiten de galerie toevoegt, kunt u configureren de methode voor eenmalige aanmelding in deze toepassing worden gebruikt door het selecteren van de **Single Sign-on** navigatie-item op een Enterprise-toepassing in de [vanAzureportal](https://portal.azure.com/).
 

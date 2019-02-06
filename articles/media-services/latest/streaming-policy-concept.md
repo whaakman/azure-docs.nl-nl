@@ -9,99 +9,66 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 02/03/2019
 ms.author: juliako
-ms.openlocfilehash: d74ce913a2189dd1062b30f9def919cbbabe7b64
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 10600d8f3ff4e08b8d90f28ec15d3cb0c56bcae0
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742521"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746741"
 ---
 # <a name="streaming-policies"></a>Beleid voor streaming
 
-In Azure Media Services v3 kunt beleid voor Streaming u protocollen voor streaming- en versleutelingsopties voor uw StreamingLocators definiëren. U kunt de naam opgeven van Streaming-beleid dat u hebt gemaakt of gebruik een van de vooraf gedefinieerde beleidsregels voor Streaming. De vooraf gedefinieerde Streaming beleidsregels die momenteel beschikbaar zijn: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' en 'Predefined_MultiDrmStreaming'.
+In Azure Media Services v3, [beleid Streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies) kunt u voor het definiëren van protocollen voor streaming- en versleutelingsopties voor uw [Streaming-Locators](streaming-locators-concept.md). U kunt een van de vooraf gedefinieerde Streaming beleidsregels gebruiken of een aangepast beleid gemaakt. De vooraf gedefinieerde Streaming beleidsregels die momenteel beschikbaar zijn: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'.
 
 > [!IMPORTANT]
-> Wanneer u een aangepaste [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies), moet u een beperkte set van dergelijk beleid ontwerpen voor uw Media Service-account en opnieuw gebruiken voor uw Streaming-Locators wanneer de dezelfde versleutelingsopties en protocollen die nodig zijn. Uw Media Service-account heeft een quotum voor het aantal vermeldingen van het toegangsbeleid voor Streaming. U moet niet worden het maken van een nieuw beleid voor Streaming voor elke Streaming-Locator gemaakt.
+> * Eigenschappen van **beleid Streaming** die van de datum/tijd zijn altijd in UTC-notatie zijn.
+> * U moet een beperkte set beleidsregels ontwerpen voor uw Media Service-account en opnieuw gebruiken voor uw Streaming-Locators wanneer dezelfde opties nodig zijn. 
 
-## <a name="streamingpolicy-definition"></a>StreamingPolicy definitie
+## <a name="examples"></a>Voorbeelden
 
-De volgende tabel ziet u de eigenschappen van de StreamingPolicy en biedt de definities.
+### <a name="not-encrypted"></a>Niet-versleuteld
 
-|Name|Description|
-|---|---|
-|id|Volledig gekwalificeerde resource-ID voor de resource.|
-|naam|De naam van de resource.|
-|properties.commonEncryptionCbcs|Configuratie van CommonEncryptionCbcs|
-|properties.commonEncryptionCenc|Configuratie van CommonEncryptionCenc|
-|Properties.created |Tijd voor het maken van beleid voor Streaming|
-|properties.defaultContentKeyPolicyName |Standaard ContentKey gebruikt door het huidige beleid voor Streaming|
-|properties.envelopeEncryption  |Configuratie van EnvelopeEncryption|
-|properties.noEncryption|Configuraties van NoEncryption|
-|type|Het type van de resource.|
+Als u wilt het streamen van uw bestand in-the-wissen (niet-versleutelde), stelt u de vooraf gedefinieerde duidelijk streaming beleid: naar 'Predefined_ClearStreamingOnly' (in .NET, kunt u PredefinedStreamingPolicy.ClearStreamingOnly).
 
-Zie voor de definitie van de volledige [Streaming beleid](https://docs.microsoft.com/rest/api/media/streamingpolicies).
+```csharp
+StreamingLocator locator = await client.StreamingLocators.CreateAsync(
+    resourceGroup,
+    accountName,
+    locatorName,
+    new StreamingLocator
+    {
+        AssetName = assetName,
+        StreamingPolicyName = PredefinedStreamingPolicy.ClearStreamingOnly
+    });
+```
+
+### <a name="encrypted"></a>Versleuteld 
+
+Als u nodig hebt voor het versleutelen van uw inhoud met envelop en cenc versleuteling, moet u het beleid aan 'Predefined_MultiDrmCencStreaming' instellen. Dit beleid geeft aan dat u wilt dat er twee inhoudssleutels (envelop en CENC) worden gegenereerd en ingesteld voor de locator. Er worden dan de envelop-, PlayReady- en Widevine-coderingen toegepast (de sleutel wordt aan de afspeelclient geleverd op basis van de geconfigureerde DRM-licenties).
+
+```csharp
+StreamingLocator locator = await client.StreamingLocators.CreateAsync(
+    resourceGroup,
+    accountName,
+    locatorName,
+    new StreamingLocator
+    {
+        AssetName = assetName,
+        StreamingPolicyName = "Predefined_MultiDrmCencStreaming",
+        DefaultContentKeyPolicyName = contentPolicyName
+    });
+```
+
+Als u wilt dat ook voor het versleutelen van uw stream met CBCS (FairPlay), gebruikt u 'Predefined_MultiDrmStreaming'.
 
 ## <a name="filtering-ordering-paging"></a>Filters, bestellen, wisselbestand
 
-Media Services ondersteunt de volgende OData-queryopties voor Streaming-beleid: 
-
-* $filter 
-* $orderby 
-* $top 
-* $skiptoken 
-
-Beschrijving van de operator:
-
-* EQ = gelijk zijn aan
-* Ne = niet gelijk zijn aan
-* Ge = groter dan of gelijk aan
-* Le = kleiner dan of gelijk aan
-* Gt = groter dan
-* Lt = minder dan
-
-### <a name="filteringordering"></a>Filteren/bestellen
-
-De volgende tabel ziet u hoe deze opties kunnen worden toegepast op de StreamingPolicy-eigenschappen: 
-
-|Name|Filteren|Bestellen|
-|---|---|---|
-|id|||
-|naam|Eq, ne, ge, le, gt, lt|Oplopend of aflopend|
-|properties.commonEncryptionCbcs|||
-|properties.commonEncryptionCenc|||
-|Properties.created |Eq, ne, ge, le, gt, lt|Oplopend of aflopend|
-|properties.defaultContentKeyPolicyName |||
-|properties.envelopeEncryption|||
-|properties.noEncryption|||
-|type|||
-
-### <a name="pagination"></a>Paginering
-
-Paginering wordt voor elk van de vier ingeschakelde sorteervolgorde ondersteund. Op dit moment is de grootte van 10.
-
-> [!TIP]
-> U moet de volgende koppeling altijd gebruiken om inventariseren van de verzameling en niet afhankelijk van het formaat van een bepaalde pagina.
-
-Als een query-antwoord veel items bevat, retourneert de service een "\@odata.nextLink" eigenschap om de volgende pagina van de resultaten. Dit kan worden gebruikt door de volledige resultatenset. U kunt het formaat van de pagina niet configureren. 
-
-Als StreamingPolicy worden gemaakt of verwijderd, wanneer de verzameling worden er pagina's, worden de wijzigingen doorgevoerd in de geretourneerde resultaten (als deze wijzigingen zijn in het gedeelte van de verzameling die niet zijn gedownload.) 
-
-De volgende C#-voorbeeld laat zien hoe om te inventariseren alle StreamingPolicies in het account.
-
-```csharp
-var firstPage = await MediaServicesArmClient.StreamingPolicies.ListAsync(CustomerResourceGroup, CustomerAccountName);
-
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.StreamingPolicies.ListNextAsync(currentPage.NextPageLink);
-}
-```
-
-Zie voor voorbeelden van REST [Streaming beleid - lijst](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
+Zie [filteren, bestellen, voor het wisselbestand van Media Services-entiteiten](entities-overview.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Een bestand streamen](stream-files-dotnet-quickstart.md)
+* [Een bestand streamen](stream-files-dotnet-quickstart.md)
+* [Gebruik dynamische AES-128-versleuteling en de sleutelleveringsservice](protect-with-aes128.md)
+* [Gebruik DRM dynamische versleuteling en licentie leveringsservice voor](protect-with-drm.md)

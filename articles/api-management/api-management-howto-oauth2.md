@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 87e5b6098ff9ee74ef8a4314362c30c436d5ad20
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b195271edeea6cd5ea527454ad1615ac85a32138
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967926"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746724"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Hoe ontwikkelaarsaccounts authoriseren met OAuth 2.0 in Azure API Management
 
@@ -51,9 +51,9 @@ Deze handleiding laat zien hoe het configureren van uw API Management service-ex
 
     ![Nieuwe OAuth 2.0-server](./media/api-management-howto-oauth2/oauth-02.png)
 
-4. De volgende sectie van het formulier bevat de **autorisatiecode toezeggingstypen**, **autorisatie-eindpunt-URL**, en **aanvraagmethode voor autorisatie** instellingen.
+4. De volgende sectie van het formulier bevat de **toekenningstypen**, **autorisatie-eindpunt-URL**, en **aanvraagmethode voor autorisatie** instellingen.
 
-    Geef de **autorisatiecode toezeggingstypen** door het controleren van de gewenste typen. **Autorisatiecode** standaard is opgegeven.
+    Geef de **toekenningstypen** door het controleren van de gewenste typen. **Autorisatiecode** standaard is opgegeven.
 
     Voer de **autorisatie-eindpunt-URL**. Voor Azure Active Directory, wordt deze URL zijn die vergelijkbaar is met de volgende URL, waarbij `<client_id>` wordt vervangen door de client-id die uw toepassing met de OAuth 2.0-server identificeert.
 
@@ -75,7 +75,7 @@ Deze handleiding laat zien hoe het configureren van uw API Management service-ex
 
     ![Nieuwe OAuth 2.0-server](./media/api-management-howto-oauth2/oauth-04.png)
 
-    Als **autorisatiecode toezeggingstypen** is ingesteld op **wachtwoord van Resource-eigenaar**, wordt de **wachtwoordreferenties van Resource-eigenaar** sectie wordt gebruikt om op te geven deze referenties; anders kunt u het leeg laten.
+    Als **toekenningstypen** is ingesteld op **wachtwoord van Resource-eigenaar**, wordt de **wachtwoordreferenties van Resource-eigenaar** sectie is gebruikt om op te geven deze referenties, anders u kunt deze leeg laten.
 
     Nadat het formulier voltooid is, klikt u op **maken** om op te slaan van de configuratie van de API Management OAuth 2.0-autorisatie-server. Wanneer de serverconfiguratie is opgeslagen, kunt u API's voor het gebruik van deze configuratie kunt configureren, zoals wordt weergegeven in de volgende sectie.
 

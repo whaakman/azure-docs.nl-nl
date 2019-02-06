@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: fe575a79fe2f47729e7c7fe039989b2c08af1282
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: e4fe511228f6e80a17af8325ee74ae0927a760bd
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657821"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754724"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Een aangepaste vaardigheden toevoegen aan een pijplijn cognitief zoeken
 
-Een [cognitief zoeken indexering pijplijn](cognitive-search-concept-intro.md) in Azure Search kan worden samengesteld uit [vooraf gedefinieerde vaardigheden](cognitive-search-predefined-skills.md) en aangepaste vaardigheden die u zelf maakt en toevoegt aan de pijplijn. In dit artikel leert u over het maken van een aangepaste vaardigheden die een interface zodat het kan worden opgenomen in een pijplijn cognitief zoeken. 
+Een [cognitief zoeken indexering pijplijn](cognitive-search-concept-intro.md) in Azure Search kan worden samengesteld uit [vooraf gedefinieerde vaardigheden](cognitive-search-predefined-skills.md) , evenals [aangepaste vaardigheden](cognitive-search-custom-skill-web-api.md) die u zelf maakt en toevoegt aan de pijplijn. In dit artikel leert u over het maken van een aangepaste vaardigheden die een interface zodat het kan worden opgenomen in een pijplijn cognitief zoeken. 
 
 Het bouwen van een aangepaste vaardigheden kunt u een manier om in te voegen transformaties die uniek is voor uw inhoud. Een aangepaste vaardigheden voert onafhankelijk van elkaar, ongeacht verrijking stap die u nodig hebt. U kan bijvoorbeeld definiëren veld-specifieke aangepaste entiteiten, bouw aangepaste classificatie modellen om te onderscheiden van zakelijke en financiële contracten en documenten of een spraakherkenning vaardigheid om te bereiken diepere audio-bestanden voor de relevante inhoud toevoegen. Zie voor een stapsgewijze bijvoorbeeld [voorbeeld: het maken van een aangepaste vaardigheden](cognitive-search-create-custom-skill-example.md).
 

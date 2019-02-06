@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 1/15/2019
+ms.date: 2/4/2019
 ms.author: moderakh
-ms.openlocfilehash: 760a54a09dd612cef93de0de1e8ac2fd59b04b26
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 15bab6af4054085d00ec5c2edb7afb993a620b55
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329375"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756254"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK voor SQL-API: Opmerkingen bij de release en resources
 > [!div class="op_single_selector"]
@@ -50,6 +50,13 @@ De SQL-SDK voor Java-API asynchrone wijkt af van de Java-SDK van de SQL-API door
 </table></br>
 
 ## <a name="release-notes"></a>Releaseopmerkingen
+
+### <a name="a-name240-beta-1240-beta-1"></a><a name="2.4.0-beta-1"/>2.4.0-beta-1
+* Ondersteuning toegevoegd voor Direct.
+* De API's accepteren java.util.Collection waarvoor volgorde is belangrijk om te accepteren java.util.List in plaats daarvan gewijzigd.
+  Now ConnectionPolicy#getPreferredLocations(), JsonSerialization, and PartitionKey(.) accept List.
+* Probleem opgelost een sessie voor document-query in de modus van de gateway.
+* Afhankelijkheden bijgewerkt (netty 0.4.20 [github #79](https://github.com/Azure/azure-cosmosdb-java/issues/79), RxJava 1.3.8).
 
 ### <a name="a-name231231"></a><a name="2.3.1"/>2.3.1
 * Oplossingen afhandeling van reacties op zeer grote query's.
@@ -130,6 +137,7 @@ Een aanvraag voor het Cosmos DB met behulp van een buiten gebruik gestelde SDK w
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [2.4.0-beta-1](#2.4.0-beta-1) |4 februari 2019|--- |
 | [2.3.1](#2.3.1) |15 januari 2019|--- |
 | [2.3.0](#2.3.0) |29 november 2018|--- |
 | [2.2.2](#2.2.2) |8 november 2018|--- |

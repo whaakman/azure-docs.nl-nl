@@ -3,7 +3,7 @@ title: Configuraties van SAP-werkbelasting met Azure-Beschikbaarheidszones | Mic
 description: Architectuur voor hoge beschikbaarheid en scenario's voor SAP NetWeaver met behulp van Azure availability zones
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: juergent
+author: msjuergent
 manager: patfilot
 editor: ''
 tags: azure-resource-manager
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/03/2019
-ms.author: msjuergent
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 56c1ffd314a9a8e9440832b9fd92a51cdaf9f228
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 409a304296d3fdff897a203177e2c150162755c6
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735653"
+ms.locfileid: "55746214"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configuraties van SAP-werkbelasting met Azure-Beschikbaarheidszones
 
@@ -74,7 +74,7 @@ Om te bepalen in hoe u kunt gebruikmaken van beschikbaarheidszones, moet u een o
 ### <a name="network-latency-between-zones-and-within-zone"></a>De netwerklatentie tussen zones en binnen een zone
 Als u wilt weten wat de latentie tussen de verschillende zones is, moet u naar:
 
-- Implementeer de VM-SKU u wilt gebruiken voor uw exemplaar DBMS in alle drie zones. Zorg ervoor dat die [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) bij het uitvoeren van deze meting is ingeschakeld
+- Implementeer de VM-SKU u wilt gebruiken voor uw exemplaar DBMS in alle drie zones. Zorg ervoor dat [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) bij het uitvoeren van deze meting is ingeschakeld
 - Als u de twee zones met de minimale netwerklatentie kunt vinden, implementeert u de andere drie virtuele machines van de VM-SKU die u wilt gebruiken als toepassingslaag VM in de drie beschikbaarheidszones. De netwerklatentie meten op basis van de twee DBMS VMs in de twee verschillende 'DBMS-zones van uw keuze. 
 - Als een hulpprogramma voor het meten van gebruik **niping**. Een hulpprogramma van SAP, die werkt zoals beschreven in de opmerkingen bij de SAP-ondersteuning [#500235](https://launchpad.support.sap.com/#/notes/500235) en [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Richt u op de opdrachten voor replicatielatentie gedocumenteerd SAP. Met behulp van **ping** is niet een aanbevolen hulpprogramma sinds **ping** werkt niet via de Azure code netwerkpaden versneld.
 

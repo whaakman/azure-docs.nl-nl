@@ -8,12 +8,12 @@ ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: 6c2a642c30be79c907286e4ffac6bcea40d86fcd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4bc683908646a5c05fee14f721e2c26482518947
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247745"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751392"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reageren op gebeurtenissen van Blob storage
 
@@ -33,7 +33,7 @@ Blob-opslaggebeurtenissen zijn beschikbaar in v2-opslagaccounts en Blob-opslagac
 ## <a name="available-blob-storage-events"></a>Beschikbare gebeurtenissen van Blob storage
 Maakt gebruik van Event grid [gebeurtenisabonnementen](../../event-grid/concepts.md#event-subscriptions) gebeurtenis om berichten te routeren voor abonnees.  Gebeurtenisabonnementen voor BLOB-opslag kunnen twee soorten gebeurtenissen omvatten:  
 
-> |Naam van de gebeurtenis|Beschrijving|
+> |Naam van de gebeurtenis|Description|
 > |----------|-----------|
 > |`Microsoft.Storage.BlobCreated`|Geactiveerd wanneer een blob wordt gemaakt of vervangen door de `PutBlob`, `PutBlockList`, of `CopyBlob` bewerkingen|
 > |`Microsoft.Storage.BlobDeleted`|Geactiveerd wanneer een blob wordt verwijderd via een `DeleteBlob` bewerking|
@@ -41,7 +41,7 @@ Maakt gebruik van Event grid [gebeurtenisabonnementen](../../event-grid/concepts
 ## <a name="event-schema"></a>Gebeurtenisschema
 Gebeurtenissen van BLOB storage bevatten alle informatie die u nodig hebt om te reageren op wijzigingen in uw gegevens.  Omdat de eigenschap type gebeurtenis met "Microsoft.Storage begint", kunt u een Blob storage-gebeurtenis identificeren. Meer informatie over het gebruik van de eigenschappen van Event Grid-gebeurtenis wordt gedocumenteerd in [Event Grid-gebeurtenisschema](../../event-grid/event-schema.md).  
 
-> |Eigenschap|Type|Beschrijving|
+> |Eigenschap|Type|Description|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |onderwerp|string|Volledige Azure Resource Manager-id van het opslagaccount dat u de gebeurtenis verzendt.|
 > |onderwerp|string|De relatieve resourcepad naar het object dat het onderwerp van de gebeurtenis is met behulp van dezelfde uitgebreid Azure Resource Manager-indeling die we gebruiken om te beschrijven van storage-accounts, services en containers voor Azure RBAC.  Deze indeling bevat een blobnaam letters behouden blijven.|
@@ -90,7 +90,7 @@ Hier volgt een voorbeeld van een gebeurtenis BlobCreated:
 Zie voor meer informatie, [gebeurtenissenschema van Blob storage](../../event-grid/event-schema-blob-storage.md).
 
 ## <a name="filtering-events"></a>Gebeurtenissen filteren
-Gebeurtenisabonnementen voor BLOB kunnen worden gefilterd op basis van het gebeurtenistype en door de containernaam en blobnaam van het object dat is gemaakt of verwijderd.  Filters kunnen worden toegepast op gebeurtenisabonnementen ofwel tijdens de [maken](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create) van het gebeurtenisabonnement of [op een later tijdstip](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update). Filters in Event Grid werken op basis van onderwerp 'begint met' en 'eindigt op"overeenkomsten zijn, zodat gebeurtenissen met een overeenkomende onderwerp worden geleverd op de abonnee. 
+Gebeurtenisabonnementen voor BLOB kunnen worden gefilterd op basis van het gebeurtenistype en door de containernaam en blobnaam van het object dat is gemaakt of verwijderd.  Filters kunnen worden toegepast op gebeurtenisabonnementen ofwel tijdens de [maken](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) van het gebeurtenisabonnement of [op een later tijdstip](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest). Filters in Event Grid werken op basis van onderwerp 'begint met' en 'eindigt op"overeenkomsten zijn, zodat gebeurtenissen met een overeenkomende onderwerp worden geleverd op de abonnee. 
 
 Het onderwerp van gebeurtenissen van Blob storage maakt gebruik van de indeling:
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 091a165dacbf0e98532f343745e56c4acf765b84
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 9369e076517e295a7d17011e024353614ec8ad46
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320792"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751970"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Over het maken van een set vaardigheden in een pijplijn verrijking
 
@@ -38,9 +38,9 @@ Een eerste aanbevolen stap met het bepalen van de gegevens die u wilt extraheren
 
 Stel dat u geïnteresseerd bent in het verwerken van een set financieel analistenopmerkingen. Voor elk bestand dat u wilt ophalen van de bedrijfsnamen van het en het algemene sentiment van de opmerkingen. U kunt ook het schrijven van een aangepaste enricher die gebruikmaakt van de Bing Entity Search-service voor meer informatie over het bedrijf, zoals wat voor soort bedrijven die het bedrijf is bezig. In wezen, u wilt ophalen van gegevens, zoals de volgende geïndexeerd voor elk document:
 
-| record-tekst | Bedrijven | sentiment | Bedrijfsbeschrijvingen |
+| record-text | Bedrijven | sentiment | Bedrijfsbeschrijvingen |
 |--------|-----|-----|-----|
-|voorbeeld-record| ["Microsoft", "LinkedIn"] | 0,99 | ["Microsoft Corporation is een Amerikaanse multinationale technologisch bedrijf...", "LinkedIn is een bedrijf en werk-gebaseerde sociale netwerken..."]
+|sample-record| ["Microsoft", "LinkedIn"] | 0,99 | ["Microsoft Corporation is een Amerikaanse multinationale technologisch bedrijf...", "LinkedIn is een bedrijf en werk-gebaseerde sociale netwerken..."]
 
 Het volgende diagram illustreert een hypothetische verrijking pijplijn:
 
@@ -142,11 +142,11 @@ Het volgende gedeelte in de vaardigheden is een matrix van vaardigheden. U kunt 
 
 ## <a name="add-predefined-skills"></a>Vooraf gedefinieerde vaardigheden toevoegen
 
-Bekijk de eerste kwalificatie, dit de vooraf gedefinieerde is [met de naam van entiteit erkenning vaardigheid](cognitive-search-skill-named-entity-recognition.md):
+Bekijk de eerste kwalificatie, dit de vooraf gedefinieerde is [entiteit erkenning vaardigheid](cognitive-search-skill-entity-recognition.md):
 
 ```json
     {
-      "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
       "context": "/document",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
@@ -155,7 +155,8 @@ Bekijk de eerste kwalificatie, dit de vooraf gedefinieerde is [met de naam van e
           "name": "text",
           "source": "/document/content"
         }
-      ],      "outputs": [
+      ],
+      "outputs": [
         {
           "name": "organizations",
           "targetName": "organizations"
@@ -228,7 +229,7 @@ De structuur van de aangepaste Bing entity search enricher intrekken:
     }
 ```
 
-Deze definitie wordt een aangepaste vaardigheden die een web-API-als onderdeel van het proces verrijking aanroepen. Voor elke organisatie aangeduid met herkenning van benoemde entiteiten, roept deze kwalificatie een web-API om te zoeken, de beschrijving van die organisatie. De indeling van wanneer de web-API-aanroep en hoe de ontvangen gegevens stromen wordt intern verwerkt door de engine verrijking. De initialisatie van die nodig zijn voor deze aangepaste API oproept moet echter worden opgegeven in de JSON (zoals uri, httpHeaders en de invoer verwacht). Zie voor richtlijnen bij het maken van een aangepaste web-API voor de pijplijn verrijking [over het definiëren van een aangepaste interface](cognitive-search-custom-skill-interface.md).
+Deze definitie wordt een [aangepaste vaardigheden](cognitive-search-custom-skill-web-api.md) die een web-API-aanroepen als onderdeel van het proces verrijking. Voor elke organisatie aangeduid met herkenning van benoemde entiteiten, roept deze kwalificatie een web-API om te zoeken, de beschrijving van die organisatie. De indeling van wanneer de web-API-aanroep en hoe de ontvangen gegevens stromen wordt intern verwerkt door de engine verrijking. De initialisatie van die nodig zijn voor deze aangepaste API oproept moet echter worden opgegeven in de JSON (zoals uri, httpHeaders en de invoer verwacht). Zie voor richtlijnen bij het maken van een aangepaste web-API voor de pijplijn verrijking [over het definiëren van een aangepaste interface](cognitive-search-custom-skill-interface.md).
 
 U ziet dat het veld 'context' is ingesteld op ```"/document/organizations/*"``` met een sterretje, wat betekent dat de stap verrijking heet *voor elk* organisatie onder ```"/document/organizations"```. 
 
@@ -236,7 +237,7 @@ De uitvoer, wordt in dit geval een beschrijving van bedrijf gegenereerd voor elk
 
 ## <a name="enrichments-create-structure-out-of-unstructured-information"></a>Enrichments maken structuur buiten niet-gestructureerde gegevens
 
-De vaardigheden genereert gestructureerde informatie uit de niet-gestructureerde gegevens. Houd rekening met het volgende voorbeeld:
+De vaardigheden genereert gestructureerde informatie uit de niet-gestructureerde gegevens. Kijk een naar het volgende voorbeeld:
 
 *"In de vierde kwartaal Microsoft geregistreerd 1.1 miljard dollar in opbrengst van LinkedIn, het sociale netwerken bedrijf het afgelopen jaar hebt gekocht. De aanschaf kan Microsoft combineren LinkedIn-mogelijkheden met de CRM en Office. Aandeelhouders zijn blij met de voortgang van de tot nu toe."*
 

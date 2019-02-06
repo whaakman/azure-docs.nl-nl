@@ -9,27 +9,36 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 02/03/2019
 ms.author: juliako
-ms.openlocfilehash: 95079813cf3ade41d17393168116e4767ca26e99
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: e84f74fe4678a65a33c9cc728f290e7c905b2261
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742776"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55743732"
 ---
 # <a name="transforms-and-jobs"></a>Transformaties en taken
  
-Gebruik [transformeert](https://docs.microsoft.com/rest/api/media/transforms) het configureren van algemene taken voor het coderen of video's analyseren. Elke **transformeren** beschrijft een recept of een workflow van taken voor het verwerken van uw video- of audio-bestanden. 
+Gebruik [transformeert](https://docs.microsoft.com/rest/api/media/transforms) het configureren van algemene taken voor het coderen of video's analyseren. Elke **transformeren** beschrijft een recept of een workflow van taken voor het verwerken van uw video- of audio-bestanden. Een enkele transformatie kunt meer dan één regel toepassen. Een transformatie kan bijvoorbeeld opgeven dat elke video worden gecodeerd naar een MP4-bestand op een bepaalde bitrate en dat een miniatuurafbeelding van het eerste frame van de video worden gegenereerd. U zou een TransformOutput-vermelding voor elke regel die u wilt opnemen in uw transformatie toevoegen. In Media Services-account met behulp van de Media Services v3-API, of een van de gepubliceerde SDK's kunt u transformaties maken. De Media Services v3 die API van Azure Resource Manager wordt gestuurd, zodat u ook Resource Manager-sjablonen kunt maken en implementeren voor gegevensstromen in Media Services-account. Op rollen gebaseerd toegangsbeheer kan worden gebruikt om toegang tot transformaties vergrendelen.
 
-Een [taak](https://docs.microsoft.com/rest/api/media/jobs) is van de werkelijke aanvraag voor Azure Media Services om toe te passen de **transformeren** aan een bepaalde invoer video of audio-inhoud. De **taak** bevat informatie zoals de locatie van de video-invoer en de locatie voor de uitvoer. U kunt de locatie van uw video met invoer opgeven: HTTPS-URL's, SAS-URL's of [Media Services-activa](https://docs.microsoft.com/rest/api/media/assets).  
+De Update-bewerking op de [transformeren](https://docs.microsoft.com/rest/api/media/transforms) entiteit bestemd is voor aanbrengen in de beschrijving of de prioriteiten van de onderliggende TransformOutputs wijzigingen. Het verdient aanbeveling dat dergelijke updates worden uitgevoerd wanneer alle lopende taken zijn voltooid. Als u van plan bent te herschrijven het recept, moet u een nieuwe transformatie te maken.
+
+Een [taak](https://docs.microsoft.com/rest/api/media/jobs) is van de werkelijke aanvraag voor Azure Media Services om toe te passen de **transformeren** aan een bepaalde invoer video of audio-inhoud. Zodra de transformatie is gemaakt, kunt u taken met behulp van Media Services-API's of een van de gepubliceerde SDK's kunt indienen. De **taak** bevat informatie zoals de locatie van de video-invoer en de locatie voor de uitvoer. U kunt de locatie van uw video met invoer opgeven: HTTPS-URL's, SAS-URL's of [activa](https://docs.microsoft.com/rest/api/media/assets). De voortgang en status van taken kunnen worden verkregen door de bewaking van gebeurtenissen met Event Grid. Zie voor meer informatie, [bewaken van gebeurtenissen via EventGrid](job-state-events-cli-how-to.md).
+
+De Update-bewerking op de [taak](https://docs.microsoft.com/rest/api/media/jobs) entiteit kan worden gebruikt om te wijzigen de *beschrijving*, en de *prioriteit* eigenschappen nadat de taak is verzonden. Een wijziging in de *prioriteit* eigenschap werkt alleen als de taak nog steeds in een in de wachtrij staat is. Als de taak verwerking is gestart of is voltooid, heeft prioriteit wijzigen geen effect.
+
+> [!NOTE]
+> Eigenschappen van **transformeren** en **taak** die van de datum/tijd zijn altijd in UTC-notatie zijn.
 
 ## <a name="typical-workflow"></a>Standaardwerkstroom
 
-1. Maak een transformatie 
+1. Een transformatie maken 
 2. Verzenden van taken onder deze transformatie 
 3. Lijst met transformaties 
 4. Een transformatie te verwijderen als u niet van plan bent om deze te gebruiken in de toekomst. 
+
+### <a name="example"></a>Voorbeeld
 
 Stel dat u wilt extraheren van het eerste beeld van al uw video's als een miniatuurafbeelding: zijn de stappen die u moet uitvoeren: 
 
@@ -40,100 +49,10 @@ Stel dat u wilt extraheren van het eerste beeld van al uw video's als een miniat
 
 Een **transformeren** helpt u bij het maken van één keer het recept (stap 1) en het verzenden van taken met behulp van deze recept (stap 2).
 
-## <a name="transforms"></a>Transformaties
+## <a name="paging"></a>Zoekresultaten oproepen
 
-In Media Services-account met behulp van de API v3 rechtstreeks of via een van de gepubliceerde SDK's kunt u transformaties maken. De Media Services v3 die API van Azure Resource Manager wordt gestuurd, zodat u ook Resource Manager-sjablonen kunt maken en implementeren voor gegevensstromen in Media Services-account. Op rollen gebaseerd toegangsbeheer kan worden gebruikt om toegang tot transformaties vergrendelen.
-
-### <a name="transform-definition"></a>Definitie van transformatie
-
-De volgende tabel ziet u de eigenschappen van de transformatie en biedt de definities.
-
-|Name|Description|
-|---|---|
-|Id|Volledig gekwalificeerde resource-ID voor de resource.|
-|naam|De naam van de resource.|
-|Properties.created |De UTC-datum en tijd waarop de transformatie is gemaakt, in ' jjjj-MM-ddTHH ' indeling.|
-|Properties.Description |Een uitgebreide beschrijving van de transformatie.|
-|properties.lastModified |De UTC-datum en tijd wanneer de transformatie het laatst is bijgewerkt, in ' jjjj-MM-ddTHH ' indeling.|
-|Properties.outputs |Een matrix met een of meer TransformOutputs die de transformatie te genereren.|
-|type|Het type van de resource.|
-
-Zie voor de definitie van de volledige [transformeert](https://docs.microsoft.com/rest/api/media/transforms).
-
-Zoals hierboven is uitgelegd, wordt er een transformatie helpt u bij het maken van een recept of de regel voor het verwerken van uw video's. Een enkele transformatie kunt meer dan één regel toepassen. Een transformatie kan bijvoorbeeld opgeven dat elke video worden gecodeerd naar een MP4-bestand op een bepaalde bitrate en dat een miniatuurafbeelding van het eerste frame van de video worden gegenereerd. U zou een TransformOutput-vermelding voor elke regel die u wilt opnemen in uw transformatie toevoegen.
-
-> [!NOTE]
-> Terwijl de definitie van de transformaties ondersteuning biedt voor een bewerking voor bijwerken, moet u ervoor zorgen dat Zorg ervoor dat alle lopende taken zijn voltooid voordat u een wijziging aanbrengt. U zou normaal gesproken een bestaande Transform als u wilt wijzigen van de beschrijving van de update, of wijzig de prioriteiten van de onderliggende TransformOutputs. Als u het recept herschrijven wilt, zou u een nieuwe transformatie maken.
-
-## <a name="jobs"></a>Taken
-
-Zodra een transformatie is gemaakt, kunt u taken met behulp van Media Services-API's of een van de gepubliceerde SDK's kunt indienen. De voortgang en status van taken kunnen worden verkregen door de bewaking van gebeurtenissen met Event Grid. Zie voor meer informatie, [bewaken van gebeurtenissen via EventGrid](job-state-events-cli-how-to.md ).
-
-### <a name="jobs-definition"></a>De definitie van taken
-
-De volgende tabel ziet u de eigenschappen van de taken en geeft de definities.
-
-|Name|Description|
-|---|---|
-|id|Volledig gekwalificeerde resource-ID voor de resource.|
-|naam   |De naam van de resource.|
-|properties.correlationData |De klant opgegeven wijzigingsmeldingen data korelace (onveranderbare) dat wordt geretourneerd als onderdeel van de taak en JobOutput staat. Zie voor meer informatie, [gebeurtenisschema's](media-services-event-schemas.md)<br/><br/>De eigenschap kan ook worden gebruikt voor multitenant-gebruik van Media Services. U kunt de tenant-id's plaatsen in de taken. |
-|Properties.created |De UTC-datum en tijd waarop de taak is gemaakt, in ' jjjj-MM-ddTHH ' indeling.|
-|Properties.Description |Optionele klant verstrekte beschrijving van de taak.|
-|Properties.Input|De invoer voor de taak.|
-|properties.lastModified    |De UTC-datum en tijd wanneer de taak het laatst is bijgewerkt, in ' jjjj-MM-ddTHH ' indeling.|
-|Properties.outputs|De uitvoer voor de taak.|
-|Properties.Priority    |De prioriteit die de taak moet worden verwerkt. Taken met een hogere prioriteit worden verwerkt voordat jobs met lagere prioriteit. Als dat niet is ingesteld, de standaardwaarde is normaal.|
-|Properties.state   |De huidige status van de taak.|
-|type   |Het type van de resource.|
-
-Zie voor de definitie van de volledige [taken](https://docs.microsoft.com/rest/api/media/jobs).
-
-> [!NOTE]
-> Tijdens een updatebewerking ondersteuning biedt voor de definitie van de taken, zijn de enige eigenschappen die kunnen worden gewijzigd nadat de taak is verzonden de beschrijving en de prioriteit. Een wijziging in de prioriteit is bovendien werkt alleen als de taak nog steeds in een in de wachtrij staat is. Als de taak verwerking is gestart of is voltooid, heeft de prioriteit wijzigen geen effect.
-
-### <a name="pagination"></a>Paginering
-
-Taken paginering wordt ondersteund in Media Services v3.
-
-> [!TIP]
-> U moet de volgende koppeling altijd gebruiken om inventariseren van de verzameling en niet afhankelijk van het formaat van een bepaalde pagina.
-
-Als een query-antwoord veel items bevat, retourneert de service een "\@odata.nextLink" eigenschap om de volgende pagina van de resultaten. Dit kan worden gebruikt door de volledige resultatenset. U kunt het formaat van de pagina niet configureren. 
-
-Als er taken worden gemaakt of verwijderd, wanneer de verzameling worden er pagina's, worden de wijzigingen doorgevoerd in de geretourneerde resultaten (als deze wijzigingen zijn in het gedeelte van de verzameling die niet zijn gedownload.) 
-
-De volgende C# voorbeeld laat zien hoe om te inventariseren door de taken in het account.
-
-```csharp            
-List<string> jobsToDelete = new List<string>();
-var pageOfJobs = client.Jobs.List(config.ResourceGroup, config.AccountName, "Encode");
-
-bool exit;
-do
-{
-    foreach (Job j in pageOfJobs)
-    {
-        jobsToDelete.Add(j.Name);
-    }
-
-    if (pageOfJobs.NextPageLink != null)
-    {
-        pageOfJobs = client.Jobs.ListNext(pageOfJobs.NextPageLink);
-        exit = false;
-    }
-    else
-    {
-        exit = true;
-    }
-}
-while (!exit);
-
-```
-
-Zie voor voorbeelden van REST [taken - lijst](https://docs.microsoft.com/rest/api/media/jobs/list)
-
+Zie [filteren, bestellen, voor het wisselbestand van Media Services-entiteiten](entities-overview.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Stream-video 's](stream-files-dotnet-quickstart.md)
+[Uploaden, coderen en streamen van video 's](stream-files-tutorial-with-api.md)

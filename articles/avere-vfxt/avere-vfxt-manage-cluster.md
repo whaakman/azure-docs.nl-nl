@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: 0eb5941bfecc023429556434a45460c8727056ec
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: bc91b052d3d69924af9afeb012c0ebb5be01dfbf
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300180"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745551"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Het Avere vFXT-cluster beheren
 
@@ -202,7 +202,7 @@ Naast het verwijderen van de clusterknooppunten, houd rekening met het verwijder
 
 ### <a name="delete-a-clusters-resource-group-from-the-azure-portal"></a>Resourcegroep van een cluster verwijderen uit de Azure portal
 
-Als u een resourcegroep specifiek voor het cluster hebt gemaakt, kunt u alle gerelateerde resources voor het cluster vernietigen door het vernietigen van de resourcegroep. 
+Als u een resourcegroep specifiek voor het bevatten van het cluster hebt gemaakt, kunt u alle gerelateerde resources voor het cluster vernietigen door het vernietigen van de resourcegroep. 
 
 > [!Caution] 
 > De resourcegroep alleen verwijderen als u er zeker van zijn dat er niets van waarde bevindt zich in de groep. Bijvoorbeeld, moet u ervoor dat u hebt alle benodigde gegevens verplaatst van een storage-containers binnen de resourcegroep.  

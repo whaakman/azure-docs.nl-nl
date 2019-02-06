@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/05/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 41383a31955b8f9507ec681650cf73df23b2a895
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 551958317249cbfa25e3af9922f9ded6850c2521
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663411"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752293"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Problemen met uw Kubernetes-implementatie naar Azure Stack oplossen
 
@@ -53,7 +53,7 @@ Het volgende diagram ziet u het algemene proces voor het implementeren van het c
 
 2. De implementatie van virtuele machine maken en de extensie voor aangepaste scripts.
     -  De implementatie van Linux-VM maken met behulp van de Linux-installatiekopie marketplace **Ubuntu Server 16.04-LTS**.
-    -  Downloaden en uitvoeren van de klant-script-extensie uit de marketplace. Het script is **aangepast Script voor Linux 2.0**.
+    -  Downloaden en uitvoeren van de aangepaste scriptextensie vanuit de marketplace. Het script is **aangepast Script voor Linux 2.0**.
     -  Voer het aangepaste script DVM. Het script heeft de volgende taken:
         1. Hiermee haalt u het eindpunt van de galerie van het eindpunt van de Azure Resource Manager-metagegevens.
         2. Hiermee haalt u de active directory-resource-ID van het eindpunt van de Azure Resource Manager-metagegevens.
@@ -61,7 +61,7 @@ Het volgende diagram ziet u het algemene proces voor het implementeren van het c
         4. De ACS-Engine implementeert op het Kubernetes-cluster en het Azure Stack-cloud-profiel moet worden opgeslagen `/etc/kubernetes/azurestackcloud.json`.
 3. De master-VM's maken.
 
-4. Downloaden en uitvoeren van de klant script-extensies.
+4. Downloaden en uitvoeren van aangepaste scriptextensies.
 
 5. Voer het script master.
 
@@ -75,7 +75,7 @@ Het volgende diagram ziet u het algemene proces voor het implementeren van het c
         3. De scheduler-service wordt gestart.
 6. Agent-VM's maken.
 
-7. Downloaden en uitvoeren van de klant-script-extensie.
+7. Downloaden en uitvoeren van de extensie voor aangepaste scripts.
 
 7. Voer het script van de agent. Het aangepaste script van de agent heeft de volgende taken:
     - Etcd installeert

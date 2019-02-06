@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/17/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 238b75681ec525187ea27f60ac8b21b05b13954d
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: f2bd1d863a7900b50712eb23c1088c6b271befa3
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063111"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755886"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Overzicht van de toepassing: Sorteren van gedistribueerde toepassingen
 
@@ -191,7 +191,7 @@ Zie voor meer informatie over het onderdrukken van de eigenschap cloud_RoleName 
 
 Als u problemen bij het ophalen van Toepassingsoverzicht ondervindt naar behoren werkt, probeert u deze stappen:
 
-1. Zorg ervoor dat u een officieel ondersteunde SDK. Niet-ondersteunde/community SDK's bieden mogelijk geen ondersteuning voor correlatie.
+1. Zorg ervoor dat u een officieel ondersteunde SDK gebruikt. Niet-ondersteunde SDK's of community-SDK's bieden mogelijk geen ondersteuning voor correlatie.
 
     Verwijzen naar dit [artikel](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) voor een lijst met ondersteunde SDK's.
 
@@ -199,14 +199,14 @@ Als u problemen bij het ophalen van Toepassingsoverzicht ondervindt naar behoren
 
 3. Als u Azure Functions met C#, een upgrade uitvoeren naar [functies V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
 
-4. Controleer of [cloud_RoleName](app-map.md#Set-cloud-RoleName) correct is geconfigureerd.
+4. Controleer of [cloud_RoleName](app-map.md#set-cloudrolename) correct is geconfigureerd.
 
-5. Als u een afhankelijkheid ontbreekt, zorgt ervoor dat deze in de lijst met [automatisch verzamelde afhankelijkheden](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). Als niet zo is, kunt u nog steeds volgen deze handmatig aan een [afhankelijkheidsaanroep bijhouden](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+5. Als er een afhankelijkheid ontbreekt, zorgt u ervoor dat deze in de lijst met [automatisch verzamelde afhankelijkheden](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies) staat. Als dat niet zo is, kunt u de afhankelijkheid nog steeds handmatig traceren met een [aanroep voor het traceren van de afhankelijkheid](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 
 ## <a name="portal-feedback"></a>Portal feedback
 Als u feedback wilt, gebruikt u de feedbackoptie.
 
-![Installatiekopie van het MapLink-1](./media/app-map/14-updated.png)
+![MapLink-1 image](./media/app-map/14-updated.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

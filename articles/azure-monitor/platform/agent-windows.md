@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 8ccd2bfe78ca7b0fabac2b8c9bfd6ba002782a41
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: d4204d4937b8eca2dcb3f656659f185f30c8bddf
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352802"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755018"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Windows-computers verbinden met de service Log Analytics in Azure
 
-Als u wilt bewaken en beheren van virtuele machines of fysieke computers in uw lokale datacenter of andere cloudomgeving met Log Analytics, moet u de Microsoft Monitoring Agent (MMA) implementeren en configureren zodat deze rapporteert aan een of meer Log Analytics-werkruimten.  De agent biedt ook ondersteuning voor de functie Hybrid Runbook Worker voor Azure Automation.  
+Als u wilt bewaken en beheren van virtuele machines of fysieke computers in uw lokale datacenter of andere cloudomgeving met Log Analytics, moet u de Log Analytics-agent (ook aangeduid als de Microsoft Monitoring Agent (MMA)) implementeren en deze configureren rapporteren aan een of meer Log Analytics-werkruimten. De agent biedt ook ondersteuning voor de functie Hybrid Runbook Worker voor Azure Automation.  
 
 De agent wordt op een bewaakte Windows-computer wordt vermeld als de service Microsoft Monitoring Agent. De service Microsoft Monitoring Agent verzamelt gebeurtenissen van logboekbestanden en Windows-gebeurtenislogboek, prestatiegegevens en andere telemetrie. Zelfs als de agent kan niet communiceren met de Log Analytics-service rapporteert, wordt de agent blijft om uit te voeren en de verzamelde gegevens op de schijf van de bewaakte computer in de wachtrij geplaatst. Wanneer de verbinding wordt hersteld, verzendt de Microsoft Monitoring Agent-service de verzamelde gegevens naar de service.
 
@@ -36,7 +36,7 @@ De agent kan worden geïnstalleerd met behulp van een van de volgende methoden. 
 Als u meer wilt weten over de ondersteunde configuratie, kunt u de informatie over [ondersteunde Windows-besturingssystemen](log-analytics-agent.md#supported-windows-operating-systems) en de [ netwerkconfiguratie voor de firewall](log-analytics-agent.md#network-firewall-requirements) raadplegen.
 
 ## <a name="obtain-workspace-id-and-key"></a>Werkruimte-ID en -sleutel ophalen
-Voordat u de MMA (Microsoft Monitoring Agent) voor Windows installeert, hebt u eerst de werkruimte-id en -sleutel voor uw Log Analytics-werkruimte nodig.  Deze informatie is vereist tijdens de installatie van elke installatiemethode correct configureren van de agent en ervoor zorgen dat deze kan communiceren met Log Analytics in Azure commerciële en US Government-cloud.  
+Voordat u de Log Analytics-agent voor Windows installeert, moet u de werkruimte-ID en sleutel voor uw Log Analytics-werkruimte.  Deze informatie is vereist tijdens de installatie van elke installatiemethode correct configureren van de agent en ervoor zorgen dat deze kan communiceren met Log Analytics in Azure commerciële en US Government-cloud.  
 
 1. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
 2. In de lijst met Log Analytics-werkruimten, selecteer de werkruimte die u van plan bent over het configureren van de agent om te rapporteren aan.
@@ -64,7 +64,7 @@ Configureren van .NET Framework 4.6 of later cryptografie, als door het standaar
 5. Het systeem om de instellingen van kracht opnieuw opstarten. 
 
 ## <a name="install-the-agent-using-setup-wizard"></a>De agent installeren met de wizard setup
-De volgende stappen uit installeren en configureren van de agent voor Log Analytics in Azure en Azure Government-cloud met behulp van de wizard setup voor de Microsoft Monitoring Agent op uw computer. Als u wilt meer informatie over het configureren van de agent ook een rapport met een beheergroep van System Center Operations Manager, Zie [Operations Manager-agent met de Wizard Setup van Agent implementeren](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard).
+De volgende stappen uit installeren en configureren van de agent voor Log Analytics in Azure en Azure Government-cloud met behulp van de wizard setup voor de agent op uw computer. Als u wilt meer informatie over het configureren van de agent ook een rapport met een beheergroep van System Center Operations Manager, Zie [Operations Manager-agent met de Wizard Setup van Agent implementeren](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard).
 
 1. In uw Log Analytics-werkruimte van de **Windows Servers** pagina die u eerder hebt, selecteert u de juiste navigeren **Windows-Agent downloaden** versie te downloaden, afhankelijk van de processorarchitectuur van het Windows-besturingssysteem.   
 2. Voer Setup uit om de agent op de computer te installeren.
@@ -87,7 +87,7 @@ Het gedownloade bestand voor de agent is een op zichzelf staand installatiepakke
 >[!NOTE]
 >Als u een agent bijwerkt wilt, moet u de Log Analytics scripting API gebruiken. Zie het onderwerp [beheren en onderhouden van de Log Analytics-agent voor Windows en Linux](agent-manage.md) voor meer informatie.
 
-De volgende tabel ziet u de specifieke Log Analytics-parameters die door setup wordt ondersteund voor de agent, inclusief wanneer geïmplementeerd met behulp van Automation DSC.
+De volgende tabel ziet u de specifieke parameters die worden ondersteund door het installatieprogramma voor de agent, inclusief wanneer geïmplementeerd met behulp van Automation DSC.
 
 |MMA-specifieke opties                   |Opmerkingen         |
 |---------------------------------------|--------------|

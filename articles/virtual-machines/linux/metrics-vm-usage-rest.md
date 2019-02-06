@@ -10,12 +10,12 @@ ms.custom: REST
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: routlaw
-ms.openlocfilehash: 2b888d1ac9b5ebffc95d35ecda4ab8d9d260fa6d
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 924154a64673b4ff646f3b6ece373b278ee37181
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669858"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754843"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>Virtuele Machine gebruik metrische gegevens met behulp van de REST-API ophalen
 
@@ -23,7 +23,7 @@ In dit voorbeeld laat zien hoe om op te halen van het CPU-gebruik voor een [virt
 
 Volledige documentatie en meer voorbeelden voor de REST-API zijn beschikbaar in de [naslaginformatie over de Azure Monitor REST](/rest/api/monitor). 
 
-## <a name="build-the-request"></a>De aanvraag voor het samenstellen
+## <a name="build-the-request"></a>De aanvraag maken
 
 Gebruik de volgende GET-aanvraag voor het verzamelen van de [Percentage CPU-metriek](/azure/monitoring-and-diagnostics/monitoring-supported-metrics#microsoftcomputevirtualmachines) van een virtuele Machine
 
@@ -35,28 +35,28 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 De volgende headers zijn vereist: 
 
-|Aanvraagheader|Beschrijving|  
+|Aanvraagheader|Description|  
 |--------------------|-----------------|  
 |*Content-Type:*|Vereist. Ingesteld op `application/json`.|  
 |*Autorisatie:*|Vereist. Ingesteld op een geldige `Bearer` [toegangstoken](/rest/api/azure/#authorization-code-grant-interactive-clients). |  
 
 ### <a name="uri-parameters"></a>URI-parameters
 
-| Naam | Beschrijving |
+| Name | Description |
 | :--- | :---------- |
-| subscriptionId | De abonnements-ID waarmee een Azure-abonnement. Als u meerdere abonnementen hebt, raadpleegt u [werken met meerdere abonnementen](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions). |
+| subscriptionId | De abonnements-ID waarmee een Azure-abonnement. Als u meerdere abonnementen hebt, raadpleegt u [werken met meerdere abonnementen](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | resourceGroupName | De naam van de Azure-resourcegroep die is gekoppeld aan de resource. U kunt deze waarde ophalen vanuit de Azure Resource Manager-API, CLI of de portal. |
 | vmname | De naam van de Azure-Machine. |
 | metricnames | Door komma's gescheiden lijst van geldige [metrische gegevens over Load Balancer](/azure/load-balancer/load-balancer-standard-diagnostics). |
 | API-versie | De API-versie moet worden gebruikt voor de aanvraag.<br /><br /> In dit document bevat informatie over api-versie `2018-01-01`opgenomen in de bovenstaande URL.  |
-| TimeSpan | De tekenreeks met de volgende indeling `startDateTime_ISO/endDateTime_ISO` waarmee het tijdsbereik van de geretourneerde metrische gegevens worden gedefinieerd. Dit is een optionele parameter is ingesteld om te retourneren van een dag aan gegevens in het voorbeeld. |
+| timespan | De tekenreeks met de volgende indeling `startDateTime_ISO/endDateTime_ISO` waarmee het tijdsbereik van de geretourneerde metrische gegevens worden gedefinieerd. Dit is een optionele parameter is ingesteld om te retourneren van een dag aan gegevens in het voorbeeld. |
 | &nbsp; | &nbsp; |
 
-### <a name="request-body"></a>Aanvraagtekst
+### <a name="request-body"></a>Aanvraagbody
 
 Er is geen aanvraagtekst is nodig voor deze bewerking.
 
-## <a name="handle-the-response"></a>Het antwoord verwerkt
+## <a name="handle-the-response"></a>Het antwoord verwerken
 
 Statuscode 200 wordt geretourneerd wanneer de lijst met metrische waarden wordt geretourneerd. Een volledige lijst met foutcodes is beschikbaar in de [referentiedocumentatie](/rest/api/monitor/metrics/list#errorresponse).
 
