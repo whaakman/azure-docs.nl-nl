@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
-ms.openlocfilehash: 0f9f300f589a4818afb0c0de5ede94e5c4fab15e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8cde3402ef52747e61333c56903309259e07599a
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248725"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747591"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple als back-updoel met Backup Exec
 
@@ -79,7 +79,7 @@ StorSimple biedt deze voordelen:
 
 Hoewel StorSimple geeft fundamenteel twee belangrijkste implementatiescenario's (back-updoel primaire en secundaire back-updoel), is het een gewone, blokopslagapparaat. StorSimple biedt alle compressie en Ontdubbeling. Naadloos wordt verzonden en opgehaald van gegevens tussen de cloud en de toepassing en het bestandssysteem.
 
-Zie voor meer informatie over StorSimple [StorSimple 8000-serie: hybride cloudopslagoplossing](storsimple-overview.md). U kunt ook controleren de [technische specificaties van de StorSimple 8000-serie](storsimple-technical-specifications-and-compliance.md).
+Zie voor meer informatie over StorSimple [StorSimple 8000-serie: Oplossing voor hybride cloudopslag](storsimple-overview.md). U kunt ook controleren de [technische specificaties van de StorSimple 8000-serie](storsimple-technical-specifications-and-compliance.md).
 
 > [!IMPORTANT]
 > Met behulp van een storsimple-oplossing wordt apparaat als een back-updoel alleen ondersteund voor StorSimple 8000-Update 3 en latere versies.
@@ -310,7 +310,7 @@ Hier volgt een voorbeeld van een algemene rotatieschema vier weken, maandelijkse
 
 | Frequentie/back-up-type | Volledig | Incrementele (dagen 1-5)  |   
 |---|---|---|
-| Wekelijks (weken 1-4) | zaterdag | Maandag tot vrijdag |
+| Wekelijks (weken 1-4) | zaterdag | Monday-Friday |
 | Maandelijks  | zaterdag  |   |
 | Per jaar | zaterdag  |   |   |
 
@@ -376,13 +376,13 @@ De volgende tabel laat zien hoe het instellen van back-ups uit te voeren op de l
 \* Totale capaciteit omvat 17 TiB van StorSimple-schijven en 1 TiB aan lokale RAID-volume.
 
 
-### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Algemene voorbeeldschema: algemene rotatie wekelijkse, maandelijkse en jaarlijkse planning
+### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Algemene voorbeeldschema: Algemene rotatie wekelijkse, maandelijkse en jaarlijkse planning
 
 | Wekelijks | Volledig | Incrementele dag 1 | Incrementele dag 2 | Incrementele dag 3 | Incrementele dag 4 | Incrementele dag 5 |
 |---|---|---|---|---|---|---|
-| 1 week | Lokale RAID-volume  | Lokale RAID-volume | Lokale RAID-volume | Lokale RAID-volume | Lokale RAID-volume | Lokale RAID-volume |
-| Week van 2 | StorSimple weken 2-4 |   |   |   |   |   |
-| Week van 3 | StorSimple weken 2-4 |   |   |   |   |   |
+| Week 1 | Lokale RAID-volume  | Lokale RAID-volume | Lokale RAID-volume | Lokale RAID-volume | Lokale RAID-volume | Lokale RAID-volume |
+| Week 2 | StorSimple weken 2-4 |   |   |   |   |   |
+| Week 3 | StorSimple weken 2-4 |   |   |   |   |   |
 | Week 4 | StorSimple weken 2-4 |   |   |   |   |   |
 | Maandelijks | Maandelijks StorSimple |   |   |   |   |   |
 | Per jaar | StorSimple jaarlijks  |   |   |   |   |   |   |
@@ -430,7 +430,7 @@ De volgende sectie wordt beschreven hoe u een korte script om te starten en verw
 ### <a name="start-and-delete-cloud-snapshots-by-using-a-script"></a>Start en cloudmomentopnamen verwijderen met behulp van een script
 
 > [!NOTE]
-> Evalueer zorgvuldig de naleving en de gegevens bewaren gevolgen voordat u een StorSimple-momentopname verwijderen. Zie voor meer informatie over het uitvoeren van een script dat na de [Backup Exec documentatie](https://www.veritas.com/support/en_US/15047.html).
+> Evalueer zorgvuldig de naleving en de gegevens bewaren gevolgen voordat u een StorSimple-momentopname verwijderen. Zie voor meer informatie over het uitvoeren van een script dat na de [Backup Exec documentatie](https://www.veritas.com/support/en_US/article.100032497.html).
 
 ### <a name="backup-lifecycle"></a>Back-levenscyclus
 

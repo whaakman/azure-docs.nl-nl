@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: e8b318626947c1d1147e43ca6c183ae724080a59
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a32cb694a18f8fff937f647804659efb71be415e
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251602"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745714"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementeer modellen met de Azure Machine Learning-service
 
@@ -101,7 +101,7 @@ image_config = ContainerImage.image_configuration(execution_script = "score.py",
 
 De belangrijke parameters in dit voorbeeld wordt beschreven in de volgende tabel:
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | ----- | ----- |
 | `execution_script` | Hiermee geeft u een Python-script dat wordt gebruikt om aanvragen verzonden naar de service te ontvangen. In dit voorbeeld wordt het script is opgenomen in de `score.py` bestand. Zie voor meer informatie de [tot uitvoering van script](#script) sectie. |
 | `runtime` | Geeft aan dat de installatiekopie van het maakt gebruik van Python. De andere mogelijkheid is `spark-py`, die Python gebruikt met Apache Spark. |
@@ -511,3 +511,5 @@ Zie voor meer informatie de documentatie bij [WebService.delete()](https://docs.
 * [Verzamelen van gegevens voor modellen in productie](how-to-enable-data-collection.md)
 * [Azure Machine Learning-service SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 * [Azure Machine Learning-service gebruiken met Azure Virtual Networks](how-to-enable-virtual-network.md)
+* [Aanbevolen procedures voor het bouwen van aanbevelingssystemen](https://github.com/Microsoft/Recommenders)
+* [Een realtime aanbeveling API bouwen op Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

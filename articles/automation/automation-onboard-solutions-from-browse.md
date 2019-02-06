@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: f1607a7d795e3934881429feb18c711a75995e31
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: f83c05f4d1dcb93bd424a733866f85edf04bbd05
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062941"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745263"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Inschakelen van updatebeheer, wijzigingen bijhouden en inventaris-oplossingen op meerdere virtuele machines
 
@@ -63,12 +63,12 @@ Bij het inschakelen van oplossingen, worden alleen bepaalde regio's worden onder
 
 De volgende tabel bevat de ondersteunde toewijzingen:
 
-|**Log Analytics-werkruimte regio**|**Azure Automation-regio**|
+|**Log Analytics-werkruimte regio**|**Azure Automation Region**|
 |---|---|
 |AustraliaSoutheast|AustraliaSoutheast|
 |CanadaCentral|CanadaCentral|
 |CentralIndia|CentralIndia|
-|VS-Oost|EastUS2|
+|EastUS|EastUS2|
 |JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
 |WestCentralUS|WestCentralUS|
@@ -76,6 +76,7 @@ De volgende tabel bevat de ondersteunde toewijzingen:
 |UKSouth|UKSouth|
 |USGovVirginia|USGovVirginia|
 |EastUS2EUAP|CentralUSEUAP|
+|US - west 2|US - west 2|
 
 Schakel het selectievakje naast een virtuele machine die u niet wilt inschakelen. Virtuele machines die kan niet worden ingeschakeld, zijn al uitgeschakeld.
 

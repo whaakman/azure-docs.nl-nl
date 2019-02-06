@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: orspod
-ms.openlocfilehash: f492878ffcb888560d2aed269608950927cebd43
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8f2a7a953ce2964645c281d9454a73b0cf1a8ff6
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55570011"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747185"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Data Explorer met behulp van Azure Data Factory
 
@@ -50,7 +50,7 @@ De volgende eigenschappen worden ondersteund voor Azure Data Explorer gekoppelde
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** eigenschap moet worden ingesteld op **AzureDataExplorer** | Ja |
-| endpoint | Eindpunt-URL van het cluster Azure Data Explorer, klikt u met de indeling als `https://<clusterName>.kusto.windows.net`. | Ja |
+| endpoint | Eindpunt-URL van het cluster Azure Data Explorer, klikt u met de indeling als `https://<clusterName>.<regionName>.kusto.windows.net `. | Ja |
 | database | De naam van de database. | Ja |
 | tenant | De tenantgegevens (domain name of tenant-ID) opgeven in uw toepassing zich bevindt. Deze ophalen door de muiswijzer met de muis in de rechterbovenhoek van de Azure-portal. | Ja |
 | servicePrincipalId | Opgeven van de toepassing client-ID. | Ja |
@@ -64,7 +64,7 @@ De volgende eigenschappen worden ondersteund voor Azure Data Explorer gekoppelde
     "properties": {
         "type": "AzureDataExplorer",
         "typeProperties": {
-            "endpoint": "https://<clusterName>.kusto.windows.net",
+            "endpoint": "https://<clusterName>.<regionName>.kusto.windows.net ",
             "database": "<database name>",
             "tenant": "<tenant name/id e.g. microsoft.onmicrosoft.com>",
             "servicePrincipalId": "<service principal id>",
@@ -119,8 +119,8 @@ Instellen om gegevens te kopiëren van Azure Data Explorer, de **type** eigensch
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** eigenschap van de bron voor kopiëren-activiteit moet worden ingesteld op: **AzureDataExplorerSource** | Ja |
-| query | Gebruik de aangepaste KQL-query om gegevens te lezen. | Ja |
-| queryTimeout | Geef de wachttijd voordat de queryaanvraag een time-out optreedt. Standaardwaarde is 10 minuten (00: 10:00); toegestane maximale waarde is 1 uur (01: 00:00). | Nee |
+| query | Een alleen-lezen-aanvraag die in een [KQL indeling](/azure/kusto/query/). Gebruik de aangepaste KQL query als uitgangspunt. | Ja |
+| queryTimeout | Er is een time-out opgetreden voor de wachttijd voordat de queryaanvraag. Standaardwaarde is 10 minuten (00: 10:00); toegestane maximale waarde is 1 uur (01: 00:00). | Nee |
 
 **Voorbeeld:**
 
@@ -162,7 +162,7 @@ Om gegevens te kopiëren naar Azure Data Explorer, stelt u de eigenschap type in
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** eigenschap van de kopie-activiteit-sink moet zijn ingesteld op: **AzureDataExplorerSink** | Ja |
-| ingestionMappingName | Naam van [csv toewijzing](/azure/kusto/management/mappings#csv-mapping) voor de tabel. Als u wilt toewijzen van de kolommen van bron naar het Azure-gegevens verkennen, kunt u ook de Copy-activiteit gebruiken [kolomtoewijzing](copy-activity-schema-and-type-mapping.md). | Nee |
+| ingestionMappingName | Naam van een vooraf gemaakte [csv toewijzing](/azure/kusto/management/mappings#csv-mapping) op een Kusto-tabel. Als u wilt toewijzen van de kolommen van bron naar het Azure-gegevens verkennen, kunt u ook de Copy-activiteit gebruiken [kolomtoewijzing](copy-activity-schema-and-type-mapping.md). | Nee |
 
 **Voorbeeld:**
 

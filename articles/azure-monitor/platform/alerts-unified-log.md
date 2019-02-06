@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: e568f2adb3ff9310ed92ed19c9543f249cca7658
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 18c05f2a9dd9f7e4a6d5ec62806870311c5eb130
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098694"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745705"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Waarschuwingen in Azure Monitor
 Dit artikel vindt u details van waarschuwingen zijn een van de typen waarschuwingen die worden ondersteund in de [Azure-waarschuwingen](../../azure-monitor/platform/alerts-overview.md) en gebruikers van Azure-platform voor streaminganalyse gebruiken als basis voor waarschuwingen.
@@ -74,8 +74,10 @@ Vervolgens waarschuwing zou de query uitvoeren om de 5 minuten, 30 minuten van g
 
 ### <a name="metric-measurement-alert-rules"></a>Waarschuwingsregels meting van metrische gegevens
 
-- **Meting van metrische gegevens** waarschuwingsregels een waarschuwing maken voor elk object in een query met een waarde die groter is dan een opgegeven drempelwaarde.  Ze hebben de volgende toch duidelijke verschillen van **aantal resultaten** waarschuwingsregels.
+**Meting van metrische gegevens** waarschuwingsregels een waarschuwing maken voor elk object in een query met een waarde die groter is dan een opgegeven drempelwaarde.  Ze hebben de volgende toch duidelijke verschillen van **aantal resultaten** waarschuwingsregels.
+
 - **Statistische functie**: Hiermee bepaalt u de berekening die wordt uitgevoerd en mogelijk een numeriek veld om samen te voegen.  Bijvoorbeeld, **count()** retourneert het aantal records in de query **avg(CounterValue)** retourneert het gemiddelde van het veld CounterValue over het interval. Statistische functie in de query moet zijn met de naam/met de naam: AggregatedValue en geef een numerieke waarde. 
+
 - **Veld groep**: Een record met een geaggregeerde waarde voor elk exemplaar van dit veld is gemaakt en een waarschuwing worden gegenereerd voor elke.  Bijvoorbeeld, als u wilt dat er waarschuwingen gegenereerd voor elke computer, gebruikt u **per Computer**. In het geval er meerdere groepsveld dat is opgegeven in Waarschuwingsquery zijn, kunt u opgeven welk veld moet worden gebruikt om te sorteren resultaten met behulp van de **cumulatieve op** (metricColumn)-parameter
 
     > [!NOTE]

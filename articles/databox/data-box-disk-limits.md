@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 02/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 412727d79c194172f2855d014d1eaf18f44167f6
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 6a7f7943e9d567a953c0e21697dfe4fdedd6e8f0
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159346"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744786"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limieten voor Azure Data Box-schijf
 
@@ -66,8 +66,8 @@ Hier vindt u de grootte van de Azure-objecten die kunnen worden geschreven. Zorg
 
 | Azure-objecttype | Standaardlimiet                                             |
 |-------------------|-----------------------------------------------------------|
-| Blok-blob        | ~ 8 TB                                                 |
-| Pagina-blob         | 1 TB <br> (Elk bestand dat is geüpload in de indeling van de pagina-Blob moet zijn uitgelijnd 512 bytes (een integraal meerdere), anders het uploaden is mislukt. <br> De VHD en VHDX zijn 512 bytes uitgelijnd.) |
+| Blok-blob        | ~ 4.75 TiB                                                 |
+| Pagina-blob         | 8 TiB <br> (Elk bestand dat is geüpload in de indeling van de pagina-Blob moet zijn uitgelijnd 512 bytes (een integraal meerdere), anders het uploaden is mislukt. <br> De VHD en VHDX zijn 512 bytes uitgelijnd.) |
 
 
 ## <a name="azure-block-blob-and-page-blob-naming-conventions"></a>Azure blok-blobs en pagina-blob naamconventies

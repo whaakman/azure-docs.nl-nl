@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2b7a90f948f0176285f1e56bc3c84a2cda2f2577
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d22318f4d9e233a57d521fe36f0827b9fc3af3e0
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023517"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746333"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Gegevens verplaatsen van Teradata met Azure Data Factory
-> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](data-factory-onprem-teradata-connector.md)
 > * [Versie 2 (huidige versie)](../connector-teradata.md)
 
@@ -30,7 +30,7 @@ ms.locfileid: "54023517"
 
 In dit artikel wordt uitgelegd hoe u van de Kopieeractiviteit in Azure Data Factory om gegevens te verplaatsen van een on-premises Teradata-database. Dit is gebaseerd op de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel een algemeen overzicht van de verplaatsing van gegevens met de kopieeractiviteit geeft.
 
-U kunt gegevens uit een on-premises Teradata-gegevensarchief kopiëren naar een ondersteunde sink-gegevensopslag. Zie voor een lijst met gegevensarchieven die worden ondersteund als sink voor de kopieeractiviteit, de [ondersteunde gegevensarchieven](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabel. Data factory ondersteunt momenteel alleen gegevens te verplaatsen van een gegevensarchief Teradata naar andere gegevensarchieven, maar niet voor het verplaatsen van gegevens uit andere gegevensarchieven met een Teradata-gegevensarchief. 
+U kunt gegevens uit een on-premises Teradata-gegevensarchief kopiëren naar een ondersteunde sink-gegevensopslag. Zie voor een lijst met gegevensarchieven die worden ondersteund als sink voor de kopieeractiviteit, de [ondersteunde gegevensarchieven](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabel. Data factory ondersteunt momenteel alleen gegevens te verplaatsen van een gegevensarchief Teradata naar andere gegevensarchieven, maar niet voor het verplaatsen van gegevens uit andere gegevensarchieven met een Teradata-gegevensarchief.
 
 ## <a name="prerequisites"></a>Vereisten
 Data factory ondersteunt verbinding te maken met on-premises Teradata bronnen via Data Management Gateway. Zie [om gegevens te verplaatsen tussen on-premises locaties en cloud](data-factory-move-data-between-onprem-and-cloud.md) artikel voor meer informatie over Data Management Gateway en stapsgewijze instructies over het instellen van de gateway.
@@ -44,18 +44,18 @@ Gateway is vereist, zelfs als de Teradata wordt gehost in een Azure IaaS-VM. U k
 Voor Data Management Gateway verbinding maken met de Teradata-Database, moet u voor het installeren van de [.NET Data Provider voor Teradata](https://go.microsoft.com/fwlink/?LinkId=278886) versie 14 of hoger op hetzelfde systeem als Data Management Gateway. Teradata versie 12 en hoger wordt ondersteund.
 
 ## <a name="getting-started"></a>Aan de slag
-U kunt een pijplijn maken met een kopieeractiviteit die gegevens uit een on-premises Cassandra-gegevensarchief verplaatst met behulp van verschillende hulpprogramma's / API's. 
+U kunt een pijplijn maken met een kopieeractiviteit die gegevens uit een on-premises Cassandra-gegevensarchief verplaatst met behulp van verschillende hulpprogramma's / API's.
 
-- De eenvoudigste manier om een pijplijn te maken is met de **Kopieerwizard**. Zie [zelfstudie: Een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht van het maken van een pijplijn met behulp van de wizard kopiëren. 
-- U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en  **REST-API**. Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit. 
+- De eenvoudigste manier om een pijplijn te maken is met de **Kopieerwizard**. Zie [zelfstudie: Een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht van het maken van een pijplijn met behulp van de wizard kopiëren.
+- U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en  **REST-API**. Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit.
 
 Of u de hulpprogramma's of API's gebruikt, kunt u de volgende stappen uit voor het maken van een pijplijn die gegevens van een brongegevensarchief naar een sink-gegevensopslag verplaatst uitvoeren:
 
 1. Maak **gekoppelde services** opgeslagen om invoer- en gegevens te koppelen aan uw data factory.
-2. Maak **gegevenssets** te vertegenwoordigen invoer- en uitvoergegevens voor de kopieerbewerking. 
-3. Maak een **pijplijn** met een kopieeractiviteit waarmee een gegevensset als invoer en een gegevensset als uitvoer. 
+2. Maak **gegevenssets** te vertegenwoordigen invoer- en uitvoergegevens voor de kopieerbewerking.
+3. Maak een **pijplijn** met een kopieeractiviteit waarmee een gegevensset als invoer en een gegevensset als uitvoer.
 
-Wanneer u de wizard gebruikt, worden de JSON-definities voor deze Data Factory-entiteiten (gekoppelde services, gegevenssets en de pijplijn) automatisch voor u gemaakt. Wanneer u hulpprogramma's / API's (met uitzondering van de .NET API), kunt u deze Data Factory-entiteiten definiëren met behulp van de JSON-indeling.  Zie voor een voorbeeld met JSON-definities voor Data Factory-entiteiten die worden gebruikt om gegevens te kopiëren uit een on-premises Teradata-gegevensarchief, [JSON-voorbeeld: Gegevens kopiëren van Teradata naar Azure Blob](#json-example-copy-data-from-teradata-to-azure-blob) sectie van dit artikel. 
+Wanneer u de wizard gebruikt, worden de JSON-definities voor deze Data Factory-entiteiten (gekoppelde services, gegevenssets en de pijplijn) automatisch voor u gemaakt. Wanneer u hulpprogramma's / API's (met uitzondering van de .NET API), kunt u deze Data Factory-entiteiten definiëren met behulp van de JSON-indeling.  Zie voor een voorbeeld met JSON-definities voor Data Factory-entiteiten die worden gebruikt om gegevens te kopiëren uit een on-premises Teradata-gegevensarchief, [JSON-voorbeeld: Gegevens kopiëren van Teradata naar Azure Blob](#json-example-copy-data-from-teradata-to-azure-blob) sectie van dit artikel.
 
 De volgende secties bevatten meer informatie over JSON-eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke met een Teradata-gegevensarchief:
 
@@ -88,7 +88,7 @@ Wanneer de bron is van het type **RelationalSource** (waaronder Teradata), de vo
 | query |De aangepaste query gebruiken om gegevens te lezen. |SQL-query-tekenreeks. Bijvoorbeeld: Selecteer * uit MyTable. |Ja |
 
 ### <a name="json-example-copy-data-from-teradata-to-azure-blob"></a>JSON-voorbeeld: Gegevens kopiëren van Teradata naar Azure Blob
-Het volgende voorbeeld biedt een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van [Azure-portal](data-factory-copy-activity-tutorial-using-azure-portal.md) of [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ze laten zien hoe gegevens kopiëren van Teradata naar Azure Blob Storage. Echter gegevens kunnen worden gekopieerd naar een van de vermelde sinks [hier](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.   
+Het volgende voorbeeld biedt een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van [Azure-portal](data-factory-copy-activity-tutorial-using-azure-portal.md) of [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ze laten zien hoe gegevens kopiëren van Teradata naar Azure Blob Storage. Echter gegevens kunnen worden gekopieerd naar een van de vermelde sinks [hier](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.
 
 Het voorbeeld heeft de volgende data factory-entiteiten:
 
@@ -257,7 +257,7 @@ De pijplijn bevat een Kopieeractiviteit die is geconfigureerd voor het gebruik v
                     {
                         "name": "AzureBlobTeradataDataSet"
                     }
-                ],                    
+                ],
                 "policy": {
                     "timeout": "01:00:00",
                     "concurrency": 1
@@ -285,27 +285,27 @@ Wanneer u gegevens naar Teradata verplaatst, worden de volgende toewijzingen van
 
 | Type van de Teradata-Database | .NET framework-type |
 | --- | --- |
-| CHAR |Reeks |
-| CLOB |Reeks |
-| Afbeelding |Reeks |
-| VarChar |Reeks |
-| VarGraphic |Reeks |
+| CHAR |String |
+| CLOB |String |
+| Afbeelding |String |
+| VarChar |String |
+| VarGraphic |String |
 | Blob |Byte[] |
 | Byte |Byte[] |
 | VarByte |Byte[] |
 | BigInt |Int64 |
 | ByteInt |Int16 |
-| Decimaal |Decimaal |
-| Double-waarde |Double-waarde |
+| Decimal |Decimal |
+| Double |Double |
 | Geheel getal |Int32 |
-| Aantal |Double-waarde |
+| Aantal |Double |
 | SmallInt |Int16 |
 | Date |DateTime |
 | Time |TimeSpan |
-| Tijd met de tijdzone |Reeks |
+| Tijd met de tijdzone |String |
 | Tijdstempel |DateTime |
 | Tijdstempel met tijdzone |DateTimeOffset |
-| Interval dag |TimeSpan |
+| Interval Day |TimeSpan |
 | Interval voor dag uur |TimeSpan |
 | Interval voor dag minuut |TimeSpan |
 | Tweede interval dag |TimeSpan |
@@ -315,15 +315,15 @@ Wanneer u gegevens naar Teradata verplaatst, worden de volgende toewijzingen van
 | Interval minuut |TimeSpan |
 | Tweede interval minuut |TimeSpan |
 | Interval voor tweede |TimeSpan |
-| Interval van jaar |Reeks |
-| Interval voor jaar tot maand |Reeks |
-| Interval van maand |Reeks |
-| Period(date) |Reeks |
-| Period(Time) |Reeks |
-| Periode (tijd met tijdzone) |Reeks |
-| Period(timestamp) |Reeks |
-| Periode (Timestamp met tijdzone) |Reeks |
-| Xml |Reeks |
+| Interval van jaar |String |
+| Interval voor jaar tot maand |String |
+| Interval van maand |String |
+| Period(date) |String |
+| Period(Time) |String |
+| Periode (tijd met tijdzone) |String |
+| Period(timestamp) |String |
+| Periode (Timestamp met tijdzone) |String |
+| Xml |String |
 
 ## <a name="map-source-to-sink-columns"></a>Kaartbron met sink-kolommen
 Zie voor meer informatie over het toewijzen van kolommen in de brongegevensset naar kolommen in de sink-gegevensset, [toewijzing van kolommen in Azure Data Factory](data-factory-map-columns.md).
