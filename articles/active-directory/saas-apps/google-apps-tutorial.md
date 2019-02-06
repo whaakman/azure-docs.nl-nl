@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: f37873fdbc26e1c82b6c1d9e6be8132641d94773
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 4705bb8c93381a2487ba94f9dfe3a7e8820f2fd9
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809170"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902462"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Zelfstudie: Azure Active Directory-integratie met G Suite
 
@@ -77,9 +77,9 @@ Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
     Het e-mailkenmerk wordt automatisch ingevuld voor elke gebruiker met een geldige Exchange-licentie. Als e-mail niet is ingeschakeld voor een gebruiker, wordt dit foutbericht ontvangen omdat de toepassing dit kenmerk moet ophalen om toegang te kunnen verlenen.
 
-    U kunt met een beheerdersaccount naar portal.office.com gaan, in het beheercentrum klikken op Facturering > Abonnementen, uw Office 365-abonnement selecteren en vervolgens klikken op Toewijzen aan gebruikers. Selecteer de gebruikers van wie u het abonnement wilt controleren, en klik in het rechterdeelvenster op Licenties bewerken.
+    Als u een Exchange-licentie wilt toewijzen, gaat u met een beheerdersaccount naar portal.office.com, en klikt u in het beheercentrum op Facturering > Abonnementen. Selecteer vervolgens uw Office 365-abonnement en klik op Toewijzen aan gebruikers. Selecteer de gebruikers van wie u het abonnement wilt controleren, en klik in het rechterdeelvenster op Licenties bewerken.
 
-    Nadat de O365-licentie is toegewezen, kan het enkele minuten duren voordat deze is toegepast. Hierna wordt het kenmerk user.mail automatisch ingevuld en is het probleem zeer waarschijnlijk opgelost.
+    Nadat de Exchange-licentie is toegewezen, kan het enkele minuten duren voordat deze is toegepast. Hierna wordt het kenmerk user.mail automatisch ingevuld en is het probleem zeer waarschijnlijk opgelost.
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
@@ -118,7 +118,7 @@ Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tot stand is gebr
 Als u Azure AD-eenmalige aanmelding met G Suite wilt configureren en testen, voltooit u de volgende bouwstenen:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[G Suite-eenmalige aanmelding configureren](#configure-g-suite-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wil configureren.
+2. **[G Suite-eenmalige aanmelding configureren](#configure-g-suite-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wilt configureren.
 3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 5. **[G Suite-testgebruiker maken](#create-g-suite-test-user)**: als u een tegenhanger van Britta Simon wilt in G Suite die is gekoppeld aan de Azure AD-weergave van de gebruiker.
@@ -128,7 +128,7 @@ Als u Azure AD-eenmalige aanmelding met G Suite wilt configureren en testen, vol
 
 In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-Als u Azure AD-eenmalige aanmelding met G Suite wilt configureren en testen, voert u de volgende stappen uit:
+Als u Azure AD-eenmalige aanmelding met G Suite wilt configureren, voert u de volgende stappen uit:
 
 1. Selecteer in de [Azure-portal](https://portal.azure.com/), op de integratiepagina van de **G Suite**-toepassing, de optie **Eenmalige aanmelding**.
 
@@ -247,7 +247,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    a. Voer in het veld **Naam****Britta Simon** in.
+    a. Voer in het veld **Naam** **Britta Simon**in.
   
     b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
     Bijvoorbeeld: BrittaSimon@contoso.com

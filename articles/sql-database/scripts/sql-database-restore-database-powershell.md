@@ -1,6 +1,6 @@
 ---
 title: 'PowerShell-voorbeeld: back-up herstellen van een Azure SQL-database | Microsoft Docs'
-description: Azure PowerShell-voorbeeldscript om een Azure SQL-database te herstellen vanuit geografisch redundante back-ups
+description: Azure PowerShell-voorbeeldscript om een enkele Azure SQL-database te herstellen vanuit geografisch redundante back-ups
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -11,15 +11,15 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: dc1697d24b936a22bacced96bb29cc590ccec88c
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: 5bf7d8717fd6b10fab454c6f11d459c6a620b42c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390594"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458734"
 ---
-# <a name="use-powershell-to-restore-an-azure-sql-database-from-backups"></a>PowerShell gebruiken voor het herstellen van een Azure SQL-database vanuit back-ups
+# <a name="use-powershell-to-restore-an-azure-sql-single-database-from-backups"></a>PowerShell gebruiken voor het herstellen van een enkele Azure SQL-database vanuit back-ups
 
 Met dit PowerShell-script wordt een Azure SQL-database teruggezet vanuit een geografisch redundante back-up, wordt een verwijderde Azure SQL-database naar de laatste back-up hersteld en wordt een Azure SQL-database hersteld naar een specifiek tijdstip.  
 
@@ -46,12 +46,12 @@ In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel 
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. | [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Hiermee wordt een logische server gemaakt die als host fungeert voor een database of elastische pool. |
-| [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | Hiermee maakt u een database op een logische server als een afzonderlijke of een gegroepeerde database. |
-[Get-AzureRmSqlDatabaseGeoBackup](/powershell/module/azurerm.sql/get-azurermsqldatabasegeobackup) | Hiermee haalt u een geografisch redundante back-up van een database op. |
-| [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) | Hiermee herstelt u een SQL-database. |
-|[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase) | Hiermee selecteert u een Azure SQL-database. |
-| [Get-AzureRmSqlDeletedDatabaseBackup](/powershell/module/azurerm.sql/get-azurermsqldeleteddatabasebackup) | Hiermee haalt u een verwijderde database die u kunt herstellen op. |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. | [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Hiermee maakt u een SQL Database-server die één database of elastische pool host. |
+| [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | Hiermee maakt u een database op een SQL Database-server als een zelfstandige of een gegroepeerde database. |
+[Get-AzureRmSqlDatabaseGeoBackup](/powershell/module/azurerm.sql/get-azurermsqldatabasegeobackup) | Hiermee wordt een geografisch redundante back-up van een zelfstandige of gegroepeerde database opgehaald. |
+| [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) | Hiermee wordt een zelfstandige of gegroepeerde database hersteld. |
+|[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase) | Hiermee wordt een zelfstandige of gegroepeerde Azure SQL-database verwijderd. |
+| [Get-AzureRmSqlDeletedDatabaseBackup](/powershell/module/azurerm.sql/get-azurermsqldeleteddatabasebackup) | Hiermee haalt u een verwijderde zelfstandige of gegroepeerde database op die u kunt herstellen. |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 7434407c7d1afe197a560d9ed9c4f1e7e94b6c2b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 183f596c213f833a2ca633398d1102e86f328912
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033533"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468849"
 ---
-# <a name="create-a-container-in-azure-cosmos-db"></a>Een container maken in Azure Cosmos DB
+# <a name="create-an-azure-cosmos-container"></a>Een Azure Cosmos-container maken
 
 In dit artikel worden de verschillende manieren uitgelegd waarop u een container (verzameling, tabel, grafiek) kunt maken. Een container kan worden gemaakt met behulp van de Azure-portal, Azure CLI of ondersteunde SDK's. In dit artikel ziet u hoe u een container maakt, de partitiesleutel opgeeft en doorvoer inricht.
 

@@ -1,248 +1,227 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Amplitude | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Amplitude.
+description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en Amplitude.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 496c9ffa-c833-41fa-8d17-2dc3044954d1
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/16/2018
+ms.topic: tutorial
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 5a83dc0b7d40291cd38c276b4e6c0437e38a0e15
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: 7a716df2445ed652313e0853ac3378409951b597
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192312"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476541"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amplitude"></a>Zelfstudie: Azure Active Directory-integratie met Amplitude
 
-In deze zelfstudie leert u hoe u Amplitude integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Amplitude integreert met Azure Active Directory (Azure AD).
+De integratie van Amplitude met Azure AD heeft de volgende voordelen:
 
-Amplitude integreren met Azure AD biedt u de volgende voordelen:
+* U beheert in Azure AD wie toegang heeft tot Amplitude.
+* U kunt ervoor zorgen dat gebruikers zich automatisch met hun Azure AD-account aanmelden bij Amplitude (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot Amplitude heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Amplitude (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Amplitude, moet u de volgende items:
+Als u Azure AD-integratie met Amplitude wilt configureren, hebt u de volgende items nodig:
 
-- Een Azure AD-abonnement
-- Een Amplitude eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op Amplitude waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Amplitude uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-amplitude-from-the-gallery"></a>Amplitude uit de galerie toe te voegen
-Voor het configureren van de integratie van Amplitude in Azure AD, moet u Amplitude uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* Amplitude ondersteunt door **SP en IDP** geïnitieerde eenmalige aanmelding
+* Amplitude ondersteunt het **Just-In-Time** inrichten van gebruikers
 
-**Als u wilt toevoegen Amplitude uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-amplitude-from-the-gallery"></a>Amplitude toevoegen vanuit de galerie
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Als u de integratie van Amplitude met Azure AD wilt configureren, moet u Amplitude toevoegen vanuit de galerie aan uw lijst van beheerde SaaS-apps.
 
-    ![De Azure Active Directory-knop][1]
+**Voer de volgende stappen uit om Amplitude vanuit de galerie toe te voegen:**
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![De blade Enterprise-toepassingen][2]
-    
+    ![De knop Azure Active Directory](common/select-azuread.png)
+
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
+
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+
 3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![De knop Nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-4. Typ in het zoekvak **Amplitude**, selecteer **Amplitude** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+4. Typ in het zoekvak **Amplitude** in, selecteer **Amplitude** in het resultaatvenster en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-    ![Waarde tijdens de lijst met resultaten](./media/amplitude-tutorial/tutorial_amplitude_addfromgallery.png)
+    ![Amplitude in de resultatenlijst](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Amplitude op basis van een testgebruiker 'Julia steen' genoemd.
+In dit gedeelte configureert en test u eenmalige aanmelding van Azure AD met Amplitude op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Amplitude tot stand is gebracht.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Amplitude is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Amplitude tot stand worden gebracht.
-
-Als u wilt configureren en testen van Azure AD eenmalige aanmelding met Amplitude, u nodig hebt voor de volgende bouwstenen:
+Als u eenmalige aanmelding met Azure AD bij Amplitude wilt configureren en testen, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-3. **[Maak een testgebruiker Amplitude](#create-an-amplitude-test-user)**  : als u wilt een equivalent van Britta Simon in Amplitude die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+2. **[Eenmalige aanmelding bij Amplitude configureren](#configure-amplitude-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wilt configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+5. **[Testgebruiker voor Amplitude maken](#create-amplitude-test-user)**: als u een tegenhanger van Britta Simon in Amplitude wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Amplitude.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Amplitude, moet u de volgende stappen uitvoeren:**
+Voer de volgende stappen uit om eenmalige aanmelding met Azure AD bij Amplitude te configureren:
 
-1. In de Azure-portal op de **Amplitude** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. In de [Azure-portal](https://portal.azure.com/) selecteert u **Eenmalige aanmelding** op de integratiepagina van de toepassing **Amplitude**.
 
-    ![Koppeling Eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/amplitude-tutorial/tutorial_amplitude_samlbase.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-3. Op de **Amplitude domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IDP** modus gestart:
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![Amplitude domein en URL's, eenmalige aanmelding informatie](./media/amplitude-tutorial/tutorial_amplitude_url.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    a. In de **id** tekstvak typt u de URL: `https://amplitude.com/saml/sso/metadata`
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://analytics.amplitude.com/saml/sso/<uniqueid>`
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit als u de toepassing in de door **IDP** geïnitieerde modus wilt configureren:
+
+    ![Domein- en URL-gegevens voor eenmalige aanmelding bij Amplitude](common/idp-intiated.png)
+
+    a. In het tekstvak **Id** typt u deze URL: `https://amplitude.com/saml/sso/metadata`
+
+    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://analytics.amplitude.com/saml/sso/<uniqueid>`
 
     > [!NOTE]
-    > De waarde van de antwoord-URL is niet de echte waarde. Verderop in deze zelfstudie krijgt u de antwoord-URL-waarde.
+    > De waarde van de antwoord-URL is niet de echte waarde. Verderop in deze zelfstudie krijgt u de waarde voor de Antwoord-URL.
 
-4. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
+5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
-    ![Amplitude domein en URL's, eenmalige aanmelding informatie](./media/amplitude-tutorial/tutorial_amplitude_url1.png)
+    ![Domein- en URL-gegevens voor eenmalige aanmelding bij Amplitude](common/metadata-upload-additional-signon.png)
 
-    In de **aanmeldings-URL** tekstvak typt u de URL: `https://analytics.amplitude.com/sso`
+    In het tekstvak **Aanmeldings-URL** typt u de URL: `https://analytics.amplitude.com/sso`
 
-5. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+6. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
-    ![De downloadkoppeling certificaat](./media/amplitude-tutorial/tutorial_amplitude_certificate.png) 
+    ![De link om het certificaat te downloaden](common/metadataxml.png)
 
-6. Klik op **opslaan** knop.
+7. Kopieer in het gedeelte **Amplitude instellen** de juiste URL('s) op basis van uw behoeften.
 
-    ![De knop voor enkelvoudige aanmelding configureren](./media/amplitude-tutorial/tutorial_general_400.png)
-    
-7. Aanmelding bij uw bedrijf Amplitude site als administrator.
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-8. Klik op de **plannen Admin** uit de linker navigatiebalk.
+    a. Aanmeldings-URL
+
+    b. Azure AD-id
+
+    c. Afmeldings-URL
+
+### <a name="configure-amplitude-single-sign-on"></a>Eenmalige aanmelding bij Amplitude configureren
+
+1. Meld u als beheerder aan bij uw Amplitude-bedrijfssite.
+
+2. Klik op **Abonnementsbeheerder** in de linkernavigatiebalk.
 
     ![Eenmalige aanmelding configureren](./media/amplitude-tutorial/configure1.png)
 
-9. Selecteer **Microsoft Azure Active Directory-metagegevens** uit de **SSO-integratie**.
+3. Selecteer **Microsoft Azure Active Directory-metagegevens** uit **SSO-integratie**.
 
     ![Eenmalige aanmelding configureren](./media/amplitude-tutorial/configure2.png)
 
-10. Op de **instellen van Single Sign-On** sectie, voert u de volgende stappen uit:
+4. Voer de volgende stappen uit in het gedeelte **Eenmalige aanmelding instellen**:
 
     ![Eenmalige aanmelding configureren](./media/amplitude-tutorial/configure3.png)
 
-    a. Open het gedownloade **Metadata Xml** vanuit Azure portal in Kladblok, plak de inhoud in de **Microsoft Azure Active Directory Metadata** tekstvak.
+    a. Open de gedownloade **XML met metagegevens** uit de Azure-portal in Kladblok en plak de inhoud in het tekstvak **Microsoft Azure Active Directory-metagegevens**.
 
-    b. Kopieer de **antwoord-URL (ACS)** waarde en plak deze in de **antwoord-URL** tekstvak van sectie Amplitude domein en URL's in Azure portal.
+    b. Kopieer de waarde **Antwoord-URL (ACS)** en plak deze in het tekstvak **Antwoord-URL** van **Standaard SAML-configuratie** in de Azure-portal.
 
     c. Klik op **Opslaan**.
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-   ![Maak een testgebruiker Azure AD][100]
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![De Azure Active Directory-knop](./media/amplitude-tutorial/create_aaduser_01.png)
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/amplitude-tutorial/create_aaduser_02.png)
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    ![De knop toevoegen](./media/amplitude-tutorial/create_aaduser_03.png)
-
-4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
-
-    ![Het dialoogvenster gebruiker](./media/amplitude-tutorial/create_aaduser_04.png)
-
-    a. In de **naam** in het vak **BrittaSimon**.
-
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="create-an-amplitude-test-user"></a>Maak een testgebruiker Amplitude
-
-Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in Amplitude. Amplitude biedt ondersteuning voor just-in-time inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot Amplitude als deze nog niet bestaat.
->[!Note]
->Als u maken van een gebruiker handmatig wilt, neem dan contact op met [Amplitude ondersteuningsteam](https://amplitude.zendesk.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Amplitude.
+In dit gedeelte geeft u Britta Simon toestemming voor het gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Amplitude.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer **Bedrijfstoepassingen** in de Azure-portal, selecteer **Alle toepassingen** en selecteer vervolgens **Amplitude**.
 
-**Als u wilt Britta Simon aan Amplitude toewijst, moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Selecteer **Amplitude** in de lijst toepassingen.
 
-    ![Gebruiker toewijzen][201] 
+    ![De koppeling naar Amplitude in de lijst toepassingen](common/all-applications.png)
 
-2. Selecteer in de lijst met toepassingen, **Amplitude**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De koppeling Amplitude in de lijst met toepassingen](./media/amplitude-tutorial/tutorial_amplitude_app.png)  
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="create-amplitude-test-user"></a>Testgebruiker voor Amplitude maken
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
+In dit gedeelte wordt een gebruiker met de naam Britta Simon gemaakt in Amplitude. Amplitude ondersteunt Just-In-Time-inrichting van gebruikers. Deze functie is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Als er nog geen gebruiker in Amplitude bestaat, wordt er een nieuwe gemaakt na verificatie.
+
+> [!Note]
+> Als u handmatig een gebruiker moet maken, neemt u contact op met het  [Amplitude-ondersteuningsteam](https://amplitude.zendesk.com).
+
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-Wanneer u op de tegel Amplitude in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Amplitude.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
+Wanneer u in het toegangsvenster op de tegel Amplitude klikt, wordt u automatisch aangemeld bij het exemplaar van Amplitude waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-[1]: ./media/amplitude-tutorial/tutorial_general_01.png
-[2]: ./media/amplitude-tutorial/tutorial_general_02.png
-[3]: ./media/amplitude-tutorial/tutorial_general_03.png
-[4]: ./media/amplitude-tutorial/tutorial_general_04.png
-
-[100]: ./media/amplitude-tutorial/tutorial_general_100.png
-
-[200]: ./media/amplitude-tutorial/tutorial_general_200.png
-[201]: ./media/amplitude-tutorial/tutorial_general_201.png
-[202]: ./media/amplitude-tutorial/tutorial_general_202.png
-[203]: ./media/amplitude-tutorial/tutorial_general_203.png
-
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

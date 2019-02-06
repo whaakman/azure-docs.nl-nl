@@ -3,19 +3,19 @@ title: B2B-samenwerking vergelijken met B2C in Azure Active Directory | Microsof
 description: Wat is het verschil tussen Azure Active Directory B2B-samenwerking en Azure AD B2C?
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: overview
-ms.date: 03/15/2017
+ms.date: 01/30/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 69c8e293186f955e86962a325fce2f54a2eefdc7
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4ec9a891777cc8d33b1256a8eb68ea814563b8cc
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432163"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471093"
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>B2B-samenwerking vergelijken met B2C in Azure Active Directory
 
@@ -32,7 +32,7 @@ B2B-samenwerkingsfunctionaliteiten |     Azure AD B2C zelfstandige aanbieding
 -------- | --------
 Bedoeld voor: Organisaties die gebruikers van een partnerorganisatie willen kunnen verifiëren, ongeacht de id-provider. | Bedoeld voor: uitnodigen van klanten van uw mobiele apps en web-apps, zoals personen, institutionele of organisatie-klanten in uw Azure AD.
 Ondersteunde identiteiten: werknemers met werk- of schoolaccounts, partners met werk- of schoolaccounts of een e-mailadres. Binnenkort wordt directe federatie ondersteund.  | Ondersteunde identiteiten: consumentgebruikers met lokale toepassingen onder accounts (een e-adres of gebruikersnaam) of een ondersteund sociale id met directe federatie.
-In welke map de partnergebruikers zich bevinden: partnergebruikers van de externe organisatie worden beheerd in dezelfde map als werknemers, maar met een speciale aantekening. Ze kunnen op dezelfde manier als werknemers worden beheerd, kunnen worden toegevoegd aan dezelfde groepen, enzovoort  | In welke map de klantgebruikers zich bevinden: in de toepassingsmap. Afzonderlijk beheerd vanaf de werknemers- en partnermap van de organisatie (indien van toepassing.
+Externe gebruikers worden beheerd in dezelfde map als werknemers, maar met een speciale aantekening. Ze kunnen op dezelfde manier als werknemers worden beheerd, kunnen worden toegevoegd aan dezelfde groepen, enzovoort  | Externe gebruikers worden beheerd in de toepassingsmap. Ze worden afzonderlijk beheerd vanaf de werknemers- en partnermap van de organisatie (indien van toepassing).
 Eenmalige aanmelding (SSO) voor alle Azure AD verbonden apps wordt ondersteund. U kunt bijvoorbeeld toegang bieden voor Office 365 of on-premises apps en andere SaaS-apps, zoals Salesforce of Workday.  |  SSO voor apps van klanten in de Azure AD B2C-tenants wordt ondersteund. SSO bij Office 365 of andere Microsoft- en niet-Microsoft SaaS-apps wordt niet ondersteund.
 Levenscyclus van de partner: beheerd door de host/uitnodigende organisatie.  | Levenscyclus van de klant: self-service of beheerd door de toepassing.
 Beveiligingsbeleid en naleving: beheerd door de host/uitnodigende organisatie (bijvoorbeeld met [beleid voor voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)).  | Beveiligingsbeleid en naleving: beheerd door de toepassing.

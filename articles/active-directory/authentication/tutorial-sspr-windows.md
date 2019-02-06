@@ -3,19 +3,19 @@ title: Azure AD SSPR vanuit het aanmeldingsscherm van Windows 10
 description: In deze zelfstudie gaat u in het aanmeldingsscherm van Windows 10 het opnieuw instellen van wachtwoorden inschakelen om zo het aantal telefonische hulpaanvragen naar de helpdesk te verminderen.
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 640f03cd35ac74df9c7b25352ab294c35c4ec0ea
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a36f9bf3ade623a6b623116c504c2b6a04fcdf2b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430668"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474867"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Zelfstudie: Azure AD-wachtwoord opnieuw instellen vanuit het aanmeldingsscherm
 
@@ -28,11 +28,11 @@ In deze zelfstudie gaat u gebruikers in staat stellen om hun wachtwoorden op het
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Windows-update van 10 april 2018 of nieuwere client die:
-   * [Azure AD heeft computer toegevoegd](../device-management-azure-portal.md) of
-   * [hybride Azure AD heeft computer toegevoegd](../device-management-hybrid-azuread-joined-devices-setup.md) met netwerkconnectiviteit aan een domeincontroller.
-* Self-service voor wachtwoordherstel voor Azure AD moet zijn ingeschakeld.
-* Als uw Windows 10-computers zich achter een proxyserver of firewall bevinden, is HTTPS-verkeer (443) naar `passwordreset.microsoftonline.com` en `ajax.aspnetcdn.com` toegestaan.
+* U moet ten minste de Windows 10-versie van de update van april 2018 gebruiken. Daarnaast moeten de apparaten:
+   * [aan Azure AD zijn gekoppeld](../device-management-azure-portal.md) of
+   * [aan een hybride Azure AD zijn gekoppeld](../device-management-hybrid-azuread-joined-devices-setup.md), met netwerkconnectiviteit aan een domeincontroller.
+* U moet self-service voor wachtwoordherstel voor Azure AD inschakelen.
+* Als uw Windows 10-apparaten zich achter een proxyserver of firewall bevinden, moet u de URL's `passwordreset.microsoftonline.com` en `ajax.aspnetcdn.com` aan uw lijst met toegestane URL’s voor HTTPS-verkeer (poort 443) toevoegen.
 
 ## <a name="configure-reset-password-link-using-intune"></a>De koppeling Wachtwoord opnieuw instellen configureren met Intune
 

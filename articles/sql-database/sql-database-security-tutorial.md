@@ -1,6 +1,6 @@
 ---
-title: Eén enkele database beveiligen in Azure SQL Database | Microsoft Docs
-description: Informatie over technieken en functies voor het beveiligen van één enkele database in Azure SQL-database.
+title: Een zelfstandige of gepoolde database beveiligen in Azure SQL Database | Microsoft Docs
+description: Informatie over technieken en functies voor het beveiligen van een zelfstandige of gepoolde database in Azure SQL-database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,17 +9,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/18/2018
-ms.openlocfilehash: e0311174303fc91767d3f99e6db05927b25aea05
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.date: 01/30/2019
+ms.openlocfilehash: 1fe92f5632544f21506bd19a52a59ed75cabe3b3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051659"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461199"
 ---
-# <a name="tutorial-secure-a-single-database"></a>Zelfstudie: één database beveiligen
+# <a name="tutorial-secure-a-standalone-or-pooled-database"></a>Zelfstudie: Een zelfstandige of gepoolde database beveiligen
 
-Azure SQL Database beveiligt gegevens in één SQL-database door:
+Azure SQL Database beveiligt gegevens in een zelfstandige of gepoolde database door:
 
 - Toegang te beperken met behulp van firewallregels
 - Verificatiemechanismen die identiteit vereisen
@@ -35,7 +35,7 @@ U kunt de beveiliging van uw database met een paar eenvoudige stappen verbeteren
 > - Firewallregels op server- en databaseniveau maken
 > - Een Azure Active Directory-beheerder configureren
 > - Gebruikerstoegang beheren met SQL-verificatie, Azure AD-verificatie en beveiligde verbindingsreeksen
-> - Beveiligingsfuncties inschakelen, zoals beveiliging tegen bedreigingen, controle, gegevensmaskering en versleuteling
+> - Beveiligingsfuncties inschakelen, zoals Advanced Data Security, controle, gegevensmaskering en versleuteling
 
 Zie voor meer informatie de artikelen [Overzicht van Azure SQL Database-beveiliging](/azure/sql-database/sql-database-security-index) en [-mogelijkheden](sql-database-security-overview.md).
 
@@ -45,7 +45,7 @@ Zorg dat u over het volgende beschikt als u de zelfstudie wilt uitvoeren:
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - Een Azure SQL-server en -database
-    - Maak deze met [Azure-portal](sql-database-get-started-portal.md), [CLI](sql-database-cli-samples.md) of [PowerShell](sql-database-powershell-samples.md)
+  - Maak deze met [Azure-portal](sql-database-get-started-portal.md), [CLI](sql-database-cli-samples.md) of [PowerShell](sql-database-powershell-samples.md)
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -62,9 +62,9 @@ Stel **Toegang tot Azure services toestaan** in op **UIT** voor de veiligste con
 > [!NOTE]
 > SQL Database communiceert via poort 1433. Als u verbinding probeert te maken vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 1433 mogelijk niet toegestaan door de firewall van uw netwerk. In dat geval kunt u geen verbinding maken met de Azure SQL Database-server, tenzij de beheerder poort 1433 openstelt.
 
-### <a name="set-up-server-level-firewall-rules"></a>Firewallregels op serverniveau instellen
+### <a name="set-up-sql-database-server-firewall-rules"></a>SQL Database-firewallregels instellen
 
-Firewallregels op serverniveau zijn van toepassing op alle databases binnen dezelfde logische server.
+Firewallregels op serverniveau zijn van toepassing op alle databases binnen dezelfde SQL Database-server.
 
 Stel als volgt een serverfirewallregel in:
 
@@ -88,7 +88,7 @@ U kunt nu verbinding maken met elke database op de server met het opgegeven IP-a
 > [!IMPORTANT]
 > Standaard is toegang door de SQL Database-firewall ingeschakeld voor alle Azure-services, onder **Toegang tot Azure-services verlenen**. Kies **UIT** om toegang voor alle Azure-services uit te schakelen.
 
-### <a name="setup-database-level-firewall-rules"></a>Firewallregels op databaseniveau instellen
+### <a name="setup-database-firewall-rules"></a>Database-firewallregels instellen
 
 Firewallregels op databaseniveau zijn alleen van toepassing op afzonderlijke databases. Deze regels zijn draagbaar en volgen de database tijdens een serverfailover. Firewallregels op databaseniveau kunnen alleen worden geconfigureerd met behulp van T-SQL-instructies (Transact-SQL) en alleen nadat u een firewallregel op serverniveau hebt geconfigureerd.
 
@@ -231,30 +231,30 @@ Ga als volgt te werk om een beveiligde verbindingsreeks te kopiëren:
 
 ## <a name="enable-security-features"></a>Beveiligingsfuncties inschakelen
 
-Azure SQL Database biedt beveiligingsfuncties die toegankelijk zijn met behulp van de Azure-portal. Deze functies zijn beschikbaar voor zowel de database als de server, behalve gegevensmaskering, wat alleen beschikbaar is op de database. Zie voor meer informatie deze artikelen over [geavanceerde detectie van bedreigingen](sql-advanced-threat-protection.md), [controle](sql-database-auditing.md), [dynamische gegevensmaskering](sql-database-dynamic-data-masking-get-started.md), en [transparante gegevensversleuteling](transparent-data-encryption-azure-sql.md).
+Azure SQL Database biedt beveiligingsfuncties die toegankelijk zijn met behulp van de Azure-portal. Deze functies zijn beschikbaar voor zowel de database als de server, behalve gegevensmaskering, wat alleen beschikbaar is op de database. Zie voor meer informatie deze artikelen over [Advanced Data Security](sql-advanced-threat-protection.md), [controle](sql-database-auditing.md), [dynamische gegevensmaskering](sql-database-dynamic-data-masking-get-started.md) en [transparante gegevensversleuteling](transparent-data-encryption-azure-sql.md).
 
-### <a name="advanced-threat-protection"></a>Geavanceerde beveiliging tegen bedreigingen
+### <a name="advanced-data-security"></a>Advanced Data Security
 
-De functie voor geavanceerde bescherming tegen bedreigingen detecteert bedreigingen terwijl ze zich voordoen en biedt beveiligingswaarschuwingen over afwijkende activiteiten. Gebruikers kunnen de controlefunctie gebruiken om deze verdachte gebeurtenissen te onderzoeken en te bepalen of die het gevolg zijn van pogingen om toegang te krijgen tot, of misbruik te maken van, gegevens in de database. Gebruikers krijgen ook een beveiligingsoverzicht met een evaluatie van beveiligingsproblemen en het hulpprogramma voor gegevensdetectie en -classificatie.
+De functie Advanced Data Security detecteert bedreigingen terwijl ze zich voordoen en biedt beveiligingswaarschuwingen over afwijkende activiteiten. Gebruikers kunnen de controlefunctie gebruiken om deze verdachte gebeurtenissen te onderzoeken en te bepalen of die het gevolg zijn van pogingen om toegang te krijgen tot, of misbruik te maken van, gegevens in de database. Gebruikers krijgen ook een beveiligingsoverzicht met een evaluatie van beveiligingsproblemen en het hulpprogramma voor gegevensdetectie en -classificatie.
 
 > [!NOTE]
 > Een voorbeeld van een bedreiging is SQL-injectie, een proces waarbij aanvallers schadelijke SQL in de invoer van de toepassing injecteren. Een toepassing kan dan onbewust de schadelijke SQL uitvoeren en aanvallers toegang geven om in te breken in de database of gegevens erin te wijzigen.
 
-Bedreigingsbeveiliging inschakelen:
+U schakelt Advanced Data Security als volgt in:
 
 1. Selecteer in de Azure-portal **SQL-databases** in het menu links en selecteer uw database op de pagina **SQL-databases**.
 
 1. Selecteer op de pagina **Overzicht** de koppeling **Servernaam**. De databaseserverpagina wordt geopend.
 
-1. Ga op de pagina **SQL-server** naar de sectie **Beveiliging** en selecteer **Advanced Threat Protection**.
+1. Ga op de pagina **SQL-server** naar de sectie **Beveiliging** en selecteer **Advanced Data Security**.
 
-    1. Selecteer **AAN** onder **Advanced Threat Protection** om de functie in te schakelen. Selecteer vervolgens **Opslaan**.
+    1. Selecteer **AAN** onder **Advanced Data Security** om de functie in te schakelen. Kies een opslagaccount om de evaluaties van beveiligingsproblemen in op te slaan. Selecteer vervolgens **Opslaan**.
 
     ![Navigatievenster](./media/sql-database-security-tutorial/threat-settings.png)
 
     U kunt ook e-mailberichten configureren voor het ontvangen van beveiligingswaarschuwingen, opslaggegevens en detectie van typen bedreigingen.
 
-1. Ga terug naar de pagina**SQL-databases** van uw database en selecteer **Advanced Threat Protection** in de sectie **Beveiliging**. Hier vindt u verschillende beveiligingsindicatoren die beschikbaar zijn voor de database.
+1. Ga terug naar de pagina**SQL-databases** van uw database en selecteer **Advanced Data Security** in de sectie **Beveiliging**. Hier vindt u verschillende beveiligingsindicatoren die beschikbaar zijn voor de database.
 
     ![Bedreigingsstatus](./media/sql-database-security-tutorial/threat-status.png)
 
@@ -344,7 +344,7 @@ In deze zelfstudie hebt u geleerd de beveiliging van uw database met een paar ee
 > - Firewallregels op server- en databaseniveau maken
 > - Een Azure Active Directory-beheerder configureren
 > - Gebruikerstoegang beheren met SQL-verificatie, Azure AD-verificatie en beveiligde verbindingsreeksen
-> - Beveiligingsfuncties inschakelen, zoals beveiliging tegen bedreigingen, controle, gegevensmaskering en versleuteling
+> - Beveiligingsfuncties inschakelen, zoals Advanced Data Security, controle, gegevensmaskering en versleuteling
 
 Ga door naar de volgende zelfstudie om te leren hoe u geo-replicatie kunt implementeren.
 

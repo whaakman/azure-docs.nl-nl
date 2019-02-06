@@ -1,6 +1,6 @@
 ---
-title: PowerShell-voorbeeld van failovergroep met geo-replicatie voor één Azure SQL Database | Microsoft Docs
-description: Azure PowerShell-voorbeeldscript voor het instellen van een failovergroep met actieve geo-replicatie voor één Azure SQL Database en het uitvoeren van een failover.
+title: PowerShell-voorbeeld van failovergroep met geo-replicatie voor een zelfstandige Azure SQL Database | Microsoft Docs
+description: Azure PowerShell-voorbeeldscript voor het instellen van een failovergroep met actieve geo-replicatie voor een enkele database in Azure SQL Database en het uitvoeren van een failover.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,17 +11,17 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: d8ec80f417883874796d25c2c1a427d03073080b
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: 31027e266f29ae0308ed70abfea5dbec3736f824
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390769"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469291"
 ---
-# <a name="use-powershell-to-configure-an-active-geo-replication-failover-group-for-a-single-azure-sql-database"></a>PowerShell gebruiken voor het configureren van een failovergroep met actieve geo-replicatie voor één Azure SQL Database
+# <a name="use-powershell-to-configure-an-active-geo-replication-failover-group-for-a-single-database-in-azure-sql-database"></a>PowerShell gebruiken voor het configureren van een failovergroep met actieve geo-replicatie voor een enkele database in Azure SQL Database
 
-In dit voorbeeld van een PowerShell-script configureert u een failovergroep met actieve geo-replicatie voor één Azure SQL Database en voert u de failover uit naar een secundaire replica van de Azure SQL Database.
+In dit voorbeeld van een PowerShell-script configureert u een failovergroep met actieve geo-replicatie voor één database en voert u de failover uit naar een secundaire replica van de database.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
@@ -48,8 +48,8 @@ In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel 
 | Opdracht | Opmerkingen |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
-| [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Hiermee wordt een logische server gemaakt die als host fungeert voor een database of elastische pool. |
-| [New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool) | Hiermee wordt een elastische pool op een logische server gemaakt. |
+| [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Hiermee maakt u een SQL Database-server die individuele databases en elastische pools host. |
+| [New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool) | Hiermee maakt u een elastische pool. |
 | [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) | Hiermee worden database-eigenschappen bijgewerkt of worden databasegegevens verplaatst naar, uit of tussen elastische pools. |
 | [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary)| Hiermee maakt u een secundaire database voor een bestaande database en wordt gegevensreplicatie gestart. |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)| Hiermee haalt u een of meer databases op. |

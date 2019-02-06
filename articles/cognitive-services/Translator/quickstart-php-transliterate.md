@@ -1,23 +1,23 @@
 ---
-title: 'Snelstart: Tekstscript converteren, PHP - Translator Text-API'
+title: 'Quickstart: Tekstscript converteren, PHP - Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart converteert u tekst van een script in de ene taal naar een andere met behulp van de Translator Text-API met PHP.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: e858e33864ddec211f2424c7380b5b421a3db0f5
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: becc73438762efb4b8cdda2be32e59feebc7dd20
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649470"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208191"
 ---
-# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-php"></a>Snelstart: Transliteratie gebruiken voor tekst met de Translator Text REST API (PHP)
+# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-php"></a>Quickstart: Transliteratie gebruiken voor tekst met de Translator Text REST API (PHP)
 
 In deze snelstartgids converteert u tekst in één taal van het ene schrift naar het andere met de Translator Text-API.
 

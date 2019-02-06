@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 23f2d32b2323821155467bd1ad12e9baf8c33074
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 01/25/2019
+ms.openlocfilehash: 2b510accb2a30250a2855cfa22dbf45546a77569
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150747"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461743"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Snelstartgids: SQL Server Management Studio gebruiken om verbinding te maken en query's uit te voeren op een Azure SQL database
 
@@ -30,7 +30,9 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-#### <a name="install-the-latest-ssms"></a>De nieuwste SSMS installeren
+* Een geconfigureerde serverfirewallregel. Zie [Een serverfirewallregel maken](sql-database-get-started-portal-firewall.md) voor meer informatie.
+
+## <a name="install-the-latest-ssms"></a>De nieuwste SSMS installeren
 
 Voordat u begint, controleert u of u de meest recente [SSMS][ssms-install-latest-84g] hebt geïnstalleerd. 
 
@@ -43,7 +45,7 @@ Voordat u begint, controleert u of u de meest recente [SSMS][ssms-install-latest
 In SMSS maakt u verbinding met uw Azure SQL Database-server. 
 
 > [!IMPORTANT]
-> Een logische Azure SQL Database-server luistert naar poort 1433. Om verbinding te maken met een logische server achter een firewall van het bedrijf, moet de firewall voor deze poort zijn geopend.
+> Een Azure SQL Database-server luistert naar poort 1433. Om verbinding te maken met een SQL Database-server achter een firewall van het bedrijf, moet de firewall voor deze poort zijn geopend.
 >
 
 1. Open SQL Server Management Studio. Het dialoogvenster **Verbinding maken met server** wordt geopend.

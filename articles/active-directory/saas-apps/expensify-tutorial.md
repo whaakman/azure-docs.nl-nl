@@ -1,148 +1,140 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Expensify | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Expensify.
+description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en Expensify.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 1e761484-7a2f-4321-91f4-6d5d0b69344e
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/02/2018
+ms.topic: tutorial
+ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: 1f69ad3045693e1ca826b6e04443f97ac30bc377
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: c8d86cbcf4f5c5029f215cd6c327e05fb93f7144
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156935"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453890"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expensify"></a>Zelfstudie: Azure Active Directory-integratie met Expensify
 
-In deze zelfstudie leert u hoe u Expensify integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Expensify integreert met Azure Active Directory (Azure AD).
+De integratie van Expensify met Azure AD heeft de volgende voordelen:
 
-Expensify integreren met Azure AD biedt u de volgende voordelen:
+* U beheert in Azure AD wie toegang heeft tot Expensify.
+* U kunt ervoor zorgen dat gebruikers zich automatisch met hun Azure AD-account aanmelden bij Expensify (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot Expensify heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Expensify (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Expensify, moet u de volgende items:
+Als u Azure AD-integratie met Expensify wilt configureren, hebt u de volgende items nodig:
 
-- Een Azure AD-abonnement
-- Een Expensify eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op Expensify waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Expensify uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-expensify-from-the-gallery"></a>Expensify uit de galerie toe te voegen
+* Expensify ondersteunt door **SP** geïnitieerde eenmalige aanmelding
 
-Voor het configureren van de integratie van Expensify in Azure AD, moet u Expensify uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+## <a name="adding-expensify-from-the-gallery"></a>Expensify toevoegen vanuit de galerie
 
-**Als u wilt toevoegen Expensify uit de galerie, moet u de volgende stappen uitvoeren:**
+Als u de integratie van Expensify met Azure AD wilt configureren, moet u Expensify toevoegen vanuit de galerie aan uw lijst met beheerde SaaS-apps.
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+**Voer de volgende stappen uit om Expensify vanuit de galerie toe te voegen:**
 
-    ![image](./media/expensify-tutorial/selectazuread.png)
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![image](./media/expensify-tutorial/a_select_app.png)
-    
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
+
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+
 3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![image](./media/expensify-tutorial/a_new_app.png)
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-4. Typ in het zoekvak **Expensify**, selecteer **Expensify** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+4. Typ in het zoekvak **Expensify** in, selecteer **Expensify** in het resultaatvenster en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-     ![image](./media/expensify-tutorial/a_add_app.png)
+     ![Expensify in de resultatenlijst](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Expensify op basis van een testgebruiker 'Julia steen' genoemd.
+In dit gedeelte configureert en test u eenmalige aanmelding van Azure AD met Expensify op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Expensify tot stand is gebracht.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Expensify is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Expensify tot stand worden gebracht.
-
-In Expensify, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
-
-Om te configureren en testen van Azure AD eenmalige aanmelding met Expensify, moet u de volgende bouwstenen voltooien:
+Als u eenmalige aanmelding met Azure AD bij Expensify wilt configureren en testen, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-1. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-1. **[Maak een testgebruiker Expensify](#create-an-expensify-test-user)**  : als u wilt een equivalent van Britta Simon in Expensify die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+2. **[Eenmalige aanmelding bij Expensify configureren](#configure-expensify-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wilt configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker voor Expensify maken](#create-expensify-test-user)**: als u een tegenhanger van Britta Simon in Expensify wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Expensify.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Expensify, moet u de volgende stappen uitvoeren:**
+Voer de volgende stappen uit om eenmalige aanmelding met Azure AD bij Expensify te configureren:
 
-1. In de [Azure-portal](https://portal.azure.com/)op de **Expensify** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
+1. In de [Azure-portal](https://portal.azure.com/) selecteert u **Eenmalige aanmelding** op de integratiepagina van de toepassing **Expensify**.
 
-    ![image](./media/expensify-tutorial/b1_b2_select_sso.png)
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-2. Klik op **modus voor één wijziging aanmelding** boven op het scherm selecteren de **SAML** modus.
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-      ![image](./media/expensify-tutorial/b1_b2_saml_ssso.png)
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-3. Op de **selecteert u een methode voor eenmalige aanmelding** dialoogvenster, klikt u op **Selecteer** voor **SAML** modus voor eenmalige aanmelding inschakelen.
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    ![image](./media/expensify-tutorial/b1_b2_saml_sso.png)
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-4. Klik op de pagina **Eenmalige aanmelding met SAML instellen** u de knop **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-    ![image](./media/expensify-tutorial/b1-domains_and_urlsedit.png)
+    ![Domein- en URL-gegevens voor eenmalige aanmelding bij Expensify](common/sp-identifier.png)
 
-5. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL: `https://www.expensify.com/authentication/saml/login`
 
-    a. In de **aanmeldings-URL** in het tekstvak, een URL als: `https://www.expensify.com/authentication/saml/login`
+    b. Typ een URL in het vak **Id (Entiteits-id)**: `https://www.expensify.com`
 
-    b. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://www.<companyname>.expensify.com`
+5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
-    ![image](./media/expensify-tutorial/b1-domains_and_urls.png)
+    ![De link om het certificaat te downloaden](common/metadataxml.png)
 
-    > [!NOTE] 
-    > Vervang de <companyname> sectie van de identificatie-URL met het domein van uw bedrijf. Zie het voorbeeld van `https://contoso.expensify.com` hierboven. In Expensify, dit is de naam van uw domein zoals is gedaan in **instellingen > domein besturingselement**.
+6. Kopieer in het gedeelte **Expensify instellen** de juiste URL('s) op basis van uw behoeften.
 
-    ![Expensify domeingegevens](./media/expensify-tutorial/tutorial_expensify_domain.png)
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-6. Op de **instellen van eenmalige aanmelding met SAML** pagina, in de **SAML-handtekeningcertificaat** sectie, klikt u op **downloaden** voor het downloaden van het juiste certificaat volgens uw vereiste en sla deze op uw computer.
+    a. Aanmeldings-URL
 
-    ![image](./media/expensify-tutorial/certificatebase64.png)
+    b. Azure AD-id
 
-7. Als u wilt inschakelen van eenmalige aanmelding in Expensify, moet u eerst om in te schakelen **domein besturingselement** in de toepassing. U kunt het domein inschakelen in de toepassing via de hier vermelde stappen [hier](https://help.expensify.com/domain-control). Voor aanvullende ondersteuning, werken met [Expensify Client ondersteuningsteam](mailto:help@expensify.com). Zodra u hebt de domein-beheer is ingeschakeld, als volgt te werk:
+    c. Afmeldings-URL
+
+### <a name="configure-expensify-single-sign-on"></a>Eenmalige aanmelding bij Expensify configureren
+
+Als u SSO bij Expensify wilt inschakelen, moet u in de toepassing eerst **Domeincontrole** inschakelen. In de stappen die [hier](https://help.expensify.com/domain-control) worden vermeld, schakelt u Domeincontrole in. Voor extra ondersteuning richt u zich tot het [ondersteuningsteam van Expensify](mailto:help@expensify.com). Nadat u Domeincontrole hebt ingeschakeld, volgt u deze stappen:
    
-    ![Eenmalige aanmelding configureren](./media/expensify-tutorial/tutorial_expensify_51.png)
+![Eenmalige aanmelding configureren](./media/expensify-tutorial/tutorial_expensify_51.png)
     
-    a. Meld u aan bij uw toepassing Expensify.
+1. Meld u aan bij uw Expensify-toepassing.
     
-    b. Klik in het linkerdeelvenster op **instellingen** en navigeer naar **SAML**.
+2. Klik in het linkerdeelvenster op **Instellingen** en navigeer naar **SAML**.
     
-    c. Schakelen tussen de **SAML-aanmelding** als de optie **ingeschakeld**.
+3. Schakel de optie **SAML-aanmelding** in op **Ingeschakeld**.
     
-    d. Open het gedownloade Federatiemetagegevens van Azure AD in Kladblok, Kopieer de inhoud en plak deze in de **Identity Provider metagegevens** tekstvak.
+4. Open de gedownloade federatiemetagegevens uit Azure AD in Kladblok, kopieer de inhoud en plak deze vervolgens in het tekstvak **Metagegevens identiteitsprovider**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
@@ -150,65 +142,66 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
 1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-    ![image](./media/expensify-tutorial/d_users_and_groups.png)
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
 2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![image](./media/expensify-tutorial/d_adduser.png)
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
 3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-    ![image](./media/expensify-tutorial/d_userproperties.png)
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    a. Voer in het veld **Naam****Britta Simon** in.
+    a. Voer in het veld **Naam** **Britta Simon**in.
   
     b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
-    c. Selecteer **eigenschappen**, selecteer de **Show wachtwoord** selectievakje en noteer de waarde die wordt weergegeven in het wachtwoord.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
-    d. Selecteer **Maken**.
- 
-### <a name="create-an-expensify-test-user"></a>Maak een testgebruiker Expensify
-
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in Expensify. Werken met [Expensify Client ondersteuningsteam](mailto:help@expensify.com) om toe te voegen de gebruikers in het Expensify-platform.
+    d. Klik op **Create**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Expensify.
+In dit gedeelte geeft u Britta Simon toestemming voor het gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Expensify.
 
-1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**.
+1. Selecteer **Bedrijfstoepassingen** in de Azure-portal, selecteer **Alle toepassingen** en selecteer vervolgens **Expensify**.
 
-    ![image](./media/expensify-tutorial/d_all_applications.png)
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-2. Selecteer in de lijst met toepassingen, **Expensify**.
+2. Selecteer **Expensify** in de lijst toepassingen.
 
-    ![image](./media/expensify-tutorial/d_all_proapplications.png)
+    ![De koppeling naar Expensify in de lijst toepassingen](common/all-applications.png)
 
 3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![image](./media/expensify-tutorial/d_leftpaneusers.png)
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-4. Selecteer de **toevoegen** knop en selecteer vervolgens **gebruikers en groepen** in de **toevoegen toewijzing** dialoogvenster.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![image](./media/expensify-tutorial/d_assign_user.png)
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-4. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-5. In de **toevoegen toewijzing** dialoogvenster Selecteer de **toewijzen** knop.
-    
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-Wanneer u op de tegel Expensify in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Expensify.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
+### <a name="create-expensify-test-user"></a>Testgebruiker voor Expensify maken
+
+In deze sectie maakt u in Expensify een gebruiker met de naam Britta Simon. Werk met het [Expensify-klantenondersteuningsteam](mailto:help@expensify.com) om de gebruikers toe te voegen in het Expensify-platform.
+
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
+
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+
+Wanneer u in het toegangsvenster op de tegel Expensify klikt, wordt u automatisch aangemeld bij het exemplaar van Expensify waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

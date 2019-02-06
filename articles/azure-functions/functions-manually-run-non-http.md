@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 12/12/2018
 ms.author: cshoe
-ms.openlocfilehash: 6c77e58e626ba370a6278a0f01b09578930cba09
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 61bece83697a4907a7bf3c881003f4da9b0e8a84
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247109"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466878"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Handmatig een niet door HTTP geactiveerde functie uitvoeren
 
@@ -35,6 +35,9 @@ Als u een niet door HTTP geactiveerde functie wilt uitvoeren, moet u een manier 
 - **Functienaam:** De naam van de functie die u wilt uitvoeren.
 
 Gebruik de aanvraaglocatie in Postman in combinatie met de hoofdsleutel van de functie in de aanvraag voor Azure om de functie uit te voeren.
+
+> [!NOTE]
+> Als de functie lokaal wordt uitgevoerd, is de hoofdsleutel van de functie niet vereist. U kunt de [functie rechtstreeks aanroepen](#call-the-function) en de `x-functions-key`-header weglaten.
 
 ## <a name="get-the-functions-master-key"></a>De hoofdsleutel van de functie ophalen
 

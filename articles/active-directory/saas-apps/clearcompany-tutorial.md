@@ -1,232 +1,204 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met ClearCompany | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en ClearCompany.
+description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en ClearCompany.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 2819da18-c7eb-43cf-aac3-1403a540bf6e
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/28/2017
+ms.topic: tutorial
+ms.date: 01/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 57f02dd910a6f865eede2bd15e008cbf8033ccc1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: 3aa911bd0a13c3d58b792091260b7c5e52c1caae
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152889"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474884"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clearcompany"></a>Zelfstudie: Azure Active Directory-integratie met ClearCompany
 
-In deze zelfstudie leert u hoe u ClearCompany integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u ClearCompany integreert met Azure Active Directory (Azure AD).
+De integratie van ClearCompany met Azure AD heeft de volgende voordelen:
 
-ClearCompany integreren met Azure AD biedt u de volgende voordelen:
+* U beheert in Azure AD wie toegang heeft tot ClearCompany.
+* U kunt ervoor zorgen dat gebruikers zich automatisch met hun Azure AD-account aanmelden bij ClearCompany (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot ClearCompany heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij ClearCompany (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met ClearCompany, moet u de volgende items:
+Als u Azure AD-integratie met ClearCompany wilt configureren, hebt u de volgende items nodig:
 
-- Een Azure AD-abonnement
-- Een ClearCompany eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op ClearCompany waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. ClearCompany uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-clearcompany-from-the-gallery"></a>ClearCompany uit de galerie toe te voegen
-Voor het configureren van de integratie van ClearCompany in Azure AD, moet u ClearCompany uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* ClearCompany ondersteunt door **SP en IDP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt toevoegen ClearCompany uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-clearcompany-from-the-gallery"></a>ClearCompany toevoegen vanuit de galerie
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Als u de integratie van ClearCompany met Azure AD wilt configureren, moet u ClearCompany toevoegen vanuit de galerie aan uw lijst van beheerde SaaS-apps.
 
-    ![De Azure Active Directory-knop][1]
+**Voer de volgende stappen uit om ClearCompany vanuit de galerie toe te voegen:**
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![De blade Enterprise-toepassingen][2]
-    
+    ![De knop Azure Active Directory](common/select-azuread.png)
+
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
+
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+
 3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![De knop Nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-4. Typ in het zoekvak **ClearCompany**, selecteer **ClearCompany** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+4. Typ in het zoekvak **ClearCompany** in, selecteer **ClearCompany** in het resultaatvenster en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-    ![ClearCompany in de lijst met resultaten](./media/clearcompany-tutorial/tutorial_clearcompany_addfromgallery.png)
+     ![ClearCompany in de resultatenlijst](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met ClearCompany op basis van een testgebruiker 'Julia steen' genoemd.
+In dit gedeelte configureert en test u eenmalige aanmelding van Azure AD met ClearCompany op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in ClearCompany tot stand is gebracht.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in ClearCompany is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in ClearCompany tot stand worden gebracht.
-
-In ClearCompany, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
-
-Om te configureren en testen van Azure AD eenmalige aanmelding met ClearCompany, moet u de volgende bouwstenen voltooien:
+Als u eenmalige aanmelding met Azure AD bij ClearCompany wilt configureren en testen, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-3. **[Maak een testgebruiker ClearCompany](#create-a-clearcompany-test-user)**  : als u wilt een equivalent van Britta Simon in ClearCompany die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+2. **[Eenmalige aanmelding bij ClearCompany configureren](#configure-clearcompany-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wilt configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+5. **[Testgebruiker voor ClearCompany maken](#create-clearcompany-test-user)**: als u een tegenhanger van Britta Simon in ClearCompany wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing ClearCompany.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met ClearCompany, moet u de volgende stappen uitvoeren:**
+Voer de volgende stappen uit om eenmalige aanmelding met Azure AD bij ClearCompany te configureren:
 
-1. In de Azure-portal op de **ClearCompany** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. In de [Azure-portal](https://portal.azure.com/) selecteert u **Eenmalige aanmelding** op de integratiepagina van de toepassing **ClearCompany**.
 
-    ![Koppeling Eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/clearcompany-tutorial/tutorial_clearcompany_samlbase.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-3. Op de **ClearCompany domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in de modus voor IDP gestart:
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![ClearCompany domein en URL's, eenmalige aanmelding informatie](./media/clearcompany-tutorial/tutorial_clearcompany_url1.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    In de **id** tekstvak typt u de URL: `https://api.clearcompany.com`
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-4. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit als u de toepassing in de door **IDP** geïnitieerde modus wilt configureren:
 
-    ![ClearCompany domein en URL's, eenmalige aanmelding informatie](./media/clearcompany-tutorial/tutorial_clearcompany_url2.png)
+    ![Domein- en URL-gegevens voor eenmalige aanmelding bij ClearCompany](common/idp-identifier.png)
 
-    Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<companyname>.clearcompany.com`
-    
-    > [!NOTE] 
-    > Aanmeldings-URL-waarde is niet een werkelijke waarde. Deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [ClearCompany Client ondersteuningsteam](https://www.clearcompany.com/support) deze waarde op te halen. 
+    In het tekstvak **Id** typt u een URL met het volgende patroon: `https://api.clearcompany.com`
 
-5. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
+5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
-    ![De link om het certificaat te downloaden](./media/clearcompany-tutorial/tutorial_clearcompany_certificate.png) 
+    ![image](common/both-preintegrated-signon.png)
 
-6. Klik op **opslaan** knop.
+    In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<companyname>.clearcompany.com`
 
-    ![De knop voor enkelvoudige aanmelding configureren](./media/clearcompany-tutorial/tutorial_general_400.png)
-    
-7. Op de **ClearCompany configuratie** sectie, klikt u op **configureren ClearCompany** openen **aanmelding configureren** venster. Kopiëren de **Single Sign-On Service URL voor SAML** uit de **Naslaggids sectie.**
+    > [!NOTE]
+    > De waarde voor de aanmeldings-URL is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met het [ClearCompany Client-ondersteuningsteam](https://www.clearcompany.com/support) om de waarde op te halen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-    ![ClearCompany configuratie](./media/clearcompany-tutorial/tutorial_clearcompany_configure.png) 
+4. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
-8. Het configureren van eenmalige aanmelding op **ClearCompany** zijde, moet u voor het verzenden van de gedownloade **Certificate(Base64)** en **Single Sign-On Service URL voor SAML** naar [ Het ondersteuningsteam ClearCompany](https://www.clearcompany.com/support). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+    ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+6. Kopieer in het gedeelte **ClearCompany instellen** de juiste URL('s) op basis van uw behoeften.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+    a. Aanmeldings-URL
 
-   ![Maak een testgebruiker Azure AD][100]
+    b. Azure AD-id
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    c. Afmeldings-URL
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+### <a name="configure-clearcompany-single-sign-on"></a>Eenmalige aanmelding bij ClearCompany configureren
 
-    ![De Azure Active Directory-knop](./media/clearcompany-tutorial/create_aaduser_01.png)
+Als u eenmalige aanmelding aan de zijde van **ClearCompany** wilt configureren, moet u het gedownloade **Certificaat (Base64)** en de juiste uit de Azure-portal gekopieerde URL's verzenden naar het [ondersteuningsteam van ClearCompany](https://www.clearcompany.com/support). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/clearcompany-tutorial/create_aaduser_02.png)
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-    ![De knop toevoegen](./media/clearcompany-tutorial/create_aaduser_03.png)
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![Het dialoogvenster gebruiker](./media/clearcompany-tutorial/create_aaduser_04.png)
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-    a. In de **naam** in het vak **BrittaSimon**.
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
+
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="create-a-clearcompany-test-user"></a>Maak een testgebruiker ClearCompany
-
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in ClearCompany. Werken met [ClearCompany ondersteuningsteam](https://www.clearcompany.com/support) om toe te voegen de gebruikers in het ClearCompany-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan ClearCompany.
+In dit gedeelte geeft u Britta Simon toestemming voor het gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot ClearCompany.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer **Bedrijfstoepassingen** in de Azure-portal, selecteer **Alle toepassingen** en selecteer vervolgens **ClearCompany**.
 
-**Als u wilt Britta Simon aan ClearCompany toewijst, moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Selecteer **ClearCompany** in de lijst toepassingen.
 
-    ![Gebruiker toewijzen][201] 
+    ![De koppeling naar ClearCompany in de lijst toepassingen](common/all-applications.png)
 
-2. Selecteer in de lijst met toepassingen, **ClearCompany**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De koppeling ClearCompany in de lijst met toepassingen](./media/clearcompany-tutorial/tutorial_clearcompany_app.png)  
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="create-clearcompany-test-user"></a>Testgebruiker voor ClearCompany maken
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+In deze sectie maakt u in ClearCompany een gebruiker met de naam Britta Simon. Werk met het  [ClearCompany-klantenondersteuningsteam](https://www.clearcompany.com/support) om de gebruikers toe te voegen in het ClearCompany-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-Wanneer u op de tegel ClearCompany in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing ClearCompany.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+
+Wanneer u in het toegangsvenster op de tegel ClearCompany klikt, wordt u automatisch aangemeld bij het exemplaar van ClearCompany waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-[1]: ./media/clearcompany-tutorial/tutorial_general_01.png
-[2]: ./media/clearcompany-tutorial/tutorial_general_02.png
-[3]: ./media/clearcompany-tutorial/tutorial_general_03.png
-[4]: ./media/clearcompany-tutorial/tutorial_general_04.png
-
-[100]: ./media/clearcompany-tutorial/tutorial_general_100.png
-
-[200]: ./media/clearcompany-tutorial/tutorial_general_200.png
-[201]: ./media/clearcompany-tutorial/tutorial_general_201.png
-[202]: ./media/clearcompany-tutorial/tutorial_general_202.png
-[203]: ./media/clearcompany-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

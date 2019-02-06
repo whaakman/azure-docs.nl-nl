@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 33b95c1b0e3d654ce8bb6eda3e96b7b3e9c9bc13
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: b494da1c87feafd1b9db8485d16a9dcf5b999e3d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831480"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101802"
 ---
 # <a name="tutorial-deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Zelfstudie: Een Linux Service Fabric-cluster implementeren in een virtueel Azure-netwerk
 
@@ -88,14 +88,14 @@ Met deze sjabloon wordt een veilig cluster van vijf virtuele machines geïmpleme
 In de resource **Microsoft.ServiceFabric/clusters** wordt een Linux-cluster geïmplementeerd met de volgende kenmerken:
 
 * één knooppunttype
-* vijf knooppunten in het primaire knooppunttype (configureerbaar in de sjabloonparameters)
-* een besturingssysteem: Ubuntu 16.04 LTS (configureerbaar in de sjabloonparameters)
-* een beveiligd certificaat (configureerbaar in de sjabloonparameters)
+* vijf knooppunten van het primaire knooppunttype (te configureren in de sjabloonparameters)
+* Besturingssysteem: Ubuntu 16.04 LTS (configureerbaar in de sjabloonparameters)
+* beveiligd met een certificaat (configureerbaar in de sjabloonparameters)
 * een ingeschakelde [DNS-service](service-fabric-dnsservice.md)
 * een bronzen [duurzaamheidsniveau](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) (configureerbaar in de sjabloonparameters)
 * een zilveren [betrouwbaarheidsniveau](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) (configureerbaar in de sjabloonparameters)
-* eindpunt van de clientverbinding: 19000 (configureerbaar in de sjabloonparameters)
-* eindpunt van de HTTP-gateway: 19080 (configureerbaar in de sjabloonparameters)
+* het eindpunt van de clientverbinding: 19000 (configureerbaar in de sjabloonparameters)
+* het eindpunt van de HTTP-gateway: 19080 (configureerbaar in de sjabloonparameters)
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 
@@ -110,7 +110,7 @@ In de resource **Microsoft.Network/loadBalancers** wordt een load balancer gecon
 
 De namen van het virtuele netwerk en het subnet worden gedeclareerd in de sjabloonparameters.  Adresruimten van het virtuele netwerk en subnet worden ook gedeclareerd in de sjabloonparameters en geconfigureerd in de resource **Microsoft.Network/virtualNetworks**:
 
-* virtuele netwerkadresruimte: 10.0.0.0/16
+* adresruimte van virtueel netwerk: 10.0.0.0/16
 * Service Fabric-subnetadresruimte: 10.0.2.0/24
 
 Als er andere toepassingspoorten nodig zijn, moet u de resource Microsoft.Network/loadBalancers zo wijzigen dat verkeer kan binnenkomen.
@@ -163,7 +163,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
 
 ### <a name="create-a-cluster-using-a-new-self-signed-certificate"></a>Een cluster met een nieuw, zelfondertekend certificaat maken
 
-Het volgende script maakt gebruik van de opdracht [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) en een sjabloon om een nieuw cluster te implementeren in Azure. De opdracht cm maakt ook een nieuwe sleutelkluis in Azure, voegt een nieuw zelfondertekend certificaat toe aan de sleutelkluis en downloadt het certificaatbestand lokaal.
+Het volgende script maakt gebruik van de opdracht [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) en een sjabloon om een nieuw cluster te implementeren in Azure. Met de opdracht wordt ook een nieuwe sleutelkluis in Azure gemaakt, een nieuw zelfondertekend certificaat toegevoegd aan de sleutelkluis en het certificaatbestand lokaal gedownload.
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"

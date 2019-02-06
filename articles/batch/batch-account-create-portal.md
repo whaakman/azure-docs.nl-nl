@@ -3,7 +3,7 @@ title: Een Batch-account maken in Azure Portal | Microsoft Docs
 description: Informatie over het maken van een Azure Batch-account in Azure Portal voor het uitvoeren van grootschalige parallelle workloads in de cloud
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/18/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e526c5f2f446a1ae8134a3e2ca72fcc42024d904
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 89e41dc8e27cf39d9d0e6168dc7352267c321623
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724091"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460519"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Een Batch-account maken met behulp van Azure Portal
 
@@ -42,19 +42,19 @@ Zie [Overzicht van de functies](batch-api-basics.md) voor achtergrondinformatie 
 
     ![Batch-account maken][account_portal]
 
-    a. **Accountnaam**: de naam die u kiest, moet uniek zijn in de Azure-regio waarin het account wordt gemaakt (zie **Locatie** hieronder). De accountnaam mag alleen kleine letters of cijfers bevatten en moet 3 tot 24 tekens lang zijn.
+    a. **Accountnaam**: De naam die u kiest, moet uniek zijn in de Azure-regio waarin het account wordt gemaakt (zie **Locatie** hieronder). De accountnaam mag alleen kleine letters of cijfers bevatten en moet 3 tot 24 tekens lang zijn.
 
-    b. **Abonnement**: het abonnement waarin het Batch-account moet worden gemaakt. Als u slechts één abonnement hebt, is het standaard geselecteerd.
+    b. **Abonnement**: Het abonnement waarin het Batch-account moet worden gemaakt. Als u slechts één abonnement hebt, is het standaard geselecteerd.
 
-    c. **Resourcegroep**: Selecteer een bestaande resourcegroep voor het nieuwe Batch-account. U kunt er ook voor kiezen om een nieuwe resourcegroep te maken.
+    c. **Resourcegroep**: Een bestaande resourcegroep voor het nieuwe Batch-account. U kunt ook optioneel een nieuwe resourcegroep maken.
 
-    d. **Locatie**: de Azure-regio om het Batch-account in te maken. Alleen de regio's die door uw abonnement en resourcegroep worden ondersteund, worden als opties weergegeven.
+    d. **Locatie**: De Azure-regio om het Batch-account in te maken. Alleen de regio's die door uw abonnement en resourcegroep worden ondersteund, worden als opties weergegeven.
 
-    e. **Opslagaccount** (optioneel): een Azure Storage-account voor algemeen gebruik dat u koppelt aan het Batch-account. Dit wordt aanbevolen voor de meeste Batch-accounts. Zie voor opslagaccountopties in Batch het [Overzicht van Batch-functies](batch-api-basics.md#azure-storage-account). Selecteer in de portal een bestaand opslagaccount of maak desgewenst een nieuw opslagaccount.
+    e. **Opslagaccount** (optioneel): Een Azure Storage-account voor algemeen gebruik dat u koppelt aan het Batch-account. Dit wordt aanbevolen voor de meeste Batch-accounts. Zie voor opslagaccountopties in Batch het [Overzicht van Batch-functies](batch-api-basics.md#azure-storage-account). Selecteer in de portal een bestaand opslagaccount of maak desgewenst een nieuw opslagaccount.
 
       ![Create a storage account][storage_account]
 
-    f. **Groeptoewijzingsmodus**: voor de meeste scenario's kunt u de standaardinstelling **Batch-service** accepteren.
+    f. **Pooltoewijzingsmodus**: Voor de meeste scenario's kunt u de standaardinstelling **Batch-service** accepteren.
 
 1. Selecteer **Maken** om het account te maken.
 
@@ -65,7 +65,7 @@ Zodra het account is gemaakt, selecteert u het account om naar de instellingen e
 
 ![Pagina Batch-account in Azure Portal][account_blade]
 
-* **Batch-account, URL en sleutels**: wanneer u een toepassing ontwikkelt met de [Batch-API‘s](batch-apis-tools.md#azure-accounts-for-batch-development), hebt u een account-URL en sleutel nodig voor toegang tot de Batch-resources. (Batch ondersteunt ook Azure Active Directory-verificatie.)
+* **Naam, URL en sleutels voor het Batch-account**: Wanneer u een toepassing ontwikkelt met de [Batch-API's](batch-apis-tools.md#azure-accounts-for-batch-development), hebt u een account-URL en -sleutel nodig voor toegang tot de Batch-resources. (Batch ondersteunt ook Azure Active Directory-verificatie.)
 
     Selecteer **Sleutels** om de toegangsgegevens voor het Batch-account te bekijken.
 

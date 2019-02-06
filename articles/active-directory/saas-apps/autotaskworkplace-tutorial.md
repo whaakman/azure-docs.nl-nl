@@ -1,255 +1,229 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met Autotask werkplek | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Autotask werkplek.
+title: 'Zelfstudie: Azure Active Directory-integratie met Autotask Workplace | Microsoft Docs'
+description: Leer hoe u eenmalige aanmelding tussen Azure Active Directory en Autotask Workplace configureert.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: a9a7ff71-c389-4169-aafd-d7a505244797
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/19/2017
+ms.topic: tutorial
+ms.date: 01/20/2019
 ms.author: jeedes
-ms.openlocfilehash: c95310043415dc689149521716f37099bfa084c0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: bd84187d22b9c335a80a243c38a9a08054eab0f4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168937"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458266"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-autotask-workplace"></a>Zelfstudie: Azure Active Directory-integratie met Autotask werkplek
+# <a name="tutorial-azure-active-directory-integration-with-autotask-workplace"></a>Zelfstudie: Azure Active Directory-integratie met Autotask Workplace
 
-In deze zelfstudie leert u hoe werkplek Autotask integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Autotask Workplace integreert met Azure Active Directory (Azure AD).
+De integratie van Autotask Workplace met Azure AD heeft de volgende voordelen:
 
-Autotask werkplek integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD bepalen wie er toegang heeft tot Autotask Workplace.
+* U kunt uw gebruikers zich automatisch laten aanmelden bij Autotask Workplace (eenmalige aanmelding) met hun Azure AD-account.
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot Autotask werkplek heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Autotask werkplek (Single Sign-On) inschakelen met hun Azure AD-accounts
-- U kunt uw accounts in één centrale locatie - Azure portal beheren
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Autotask werkplek, moet u de volgende items:
+U hebt het volgende nodig om Azure AD-integratie te configureren met Autotask Workplace:
 
-- Een Azure AD-abonnement
-- Een Autotask werkplek eenmalige aanmelding ingeschakeld abonnement
-- U moet een beheerder of super-beheerder in de werkplek.
-- U moet een administrator-account hebben in de Azure AD.
-- De gebruikers die gebruikmaken van deze functie wordt accounts binnen werkplek en de Azure AD moeten hebben en moeten overeenkomen met hun e-mailadressen voor beide.
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Abonnement op Autotask Workplace met eenmalige aanmelding ingeschakeld
+* Een abonnement op Autotask Workplace met eenmalige aanmelding ingeschakeld
+* U moet een beheerder of superbeheerder in Workplace zijn.
+* U moet een beheerdersaccount hebben in de Azure AD.
+* De gebruikers die deze functie gebruiken moeten accounts hebben in Workplace en de Azure AD. Daarnaast moeten hun e-mailadressen voor beide programma's overeenkomen.
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Autotask werkplek toevoegen vanuit de galerie
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-autotask-workplace-from-the-gallery"></a>Autotask werkplek toevoegen vanuit de galerie
-Voor het configureren van de integratie van Autotask werkplek in Azure AD, moet u Autotask werkplek toevoegen uit de galerie aan de lijst met beheerde SaaS-apps.
+* Autotask Workplace biedt ondersteuning voor door **SP en IDP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt Autotask werkplek toevoegen vanuit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-autotask-workplace-from-the-gallery"></a>Autotask Workplace uit de galerie toevoegen
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Om de integratie van Autotask Workplace in Azure AD te configureren, moet u Autotask Workplace vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-    ![De Azure Active Directory-knop][1]
+**Ga als volgt te werk om Autotask Workplace vanuit de galerie toe te voegen:**
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![De blade Enterprise-toepassingen][2]
-    
-1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![De knop Nieuwe toepassing][3]
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-1. Typ in het zoekvak **Autotask werkplek**, selecteer **Autotask werkplek** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![Autotask werkplek in de lijst met resultaten](./media/autotaskworkplace-tutorial/tutorial_autotaskworkplace_addfromgallery.png)
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
+
+4. Typ **Autotask Workplace** in het zoekvak, selecteer **Autotask Workplace** in de lijst met resultaten en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
+
+     ![Autotask Workplace in de lijst met resultaten](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Autotask werkplek op basis van een testgebruiker met de naam "Britta Simon."
+In deze sectie gaat u Azure AD-eenmalige aanmelding met Autotask Workplace configureren en testen met behulp van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Autotask Workplace tot stand is gebracht.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Autotask werkplek is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Autotask werkplek tot stand worden gebracht.
-
-In de Autotask werkplek, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
-
-Als u wilt configureren en testen van Azure AD eenmalige aanmelding met Autotask werkplek, u nodig hebt voor de volgende bouwstenen:
+Als u Azure AD-eenmalige aanmelding met Autotask Workplace wilt configureren en testen, moet u de volgende stappen uitvoeren:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-1. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-1. **[Maak een testgebruiker Autotask werkplek](#create-an-autotask-workplace-test-user)**  : als u wilt een equivalent van Britta Simon in Autotask werkplek die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+2. **[Eenmalige aanmelding voor Autotask Workplace configureren](#configure-autotask-workplace-single-sign-on)**: de instellingen voor eenmalige aanmelding aan de clientzijde configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker voor Autotask Workplace maken](#create-autotask-workplace-test-user)**: een tegenhanger voor Britta Simon maken in Autotask Workplace die wordt gekoppeld aan de Azure AD-voorstelling van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Autotask werkplek.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Autotask werkplek, moet u de volgende stappen uitvoeren:**
+Voor het configureren van Azure AD-eenmalige aanmelding met Autotask Workplace, moet u de volgende stappen uitvoeren:
 
-1. In de Azure-portal op de **Autotask werkplek** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. Ga in de [Azure-portal](https://portal.azure.com/) naar de pagina voor de integratie van de toepassing **Autotask Workplace** en selecteer **Eenmalige aanmelding**.
 
-    ![Koppeling Eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/autotaskworkplace-tutorial/tutorial_autotaskworkplace_samlbase.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-1. Als u wilt configureren van de toepassing in **IDP** gestart modus, voert u de volgende stappen uit op de **Autotask werkplek domein en URL's** sectie:
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![Autotask werkplek domein en URL's eenmalige aanmelding-informatie voor id-provider](./media/autotaskworkplace-tutorial/tutorial_autotaskworkplace_url.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    a. Typ in het tekstvak **Id** een URL met het volgende patroon: `https://<subdomain>.awp.autotask.net/singlesignon/saml/metadata`
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://<subdomain>.awp.autotask.net/singlesignon/saml/SSO`
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit als u de toepassing in de door **IDP** geïnitieerde modus wilt configureren:
 
-1. Als u wilt configureren van de toepassing in **SP** gestart modus selectievakje **geavanceerde URL-instellingen weergeven** en voer de volgende stappen uit:
+    ![Domein- en URL-informatie voor eenmalige aanmelding bij Autotask Workplace](common/idp-intiated.png)
 
-    ![Autotask werkplek domein en URL's één aanmeldings-informatie voor SP](./media/autotaskworkplace-tutorial/tutorial_autotaskworkplace_url1.png)
+    a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://<subdomain>.awp.autotask.net/singlesignon/saml/metadata`
 
-    Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<subdomain>.awp.autotask.net/loginsso`
-     
-    > [!NOTE] 
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke id, antwoord-URL en aanmeldings-URL. Neem contact op met [Autotask werkplek Client ondersteuningsteam](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) om deze waarden te verkrijgen. 
+    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://<subdomain>.awp.autotask.net/singlesignon/saml/SSO`
 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
-    ![De downloadkoppeling certificaat](./media/autotaskworkplace-tutorial/tutorial_autotaskworkplace_certificate.png) 
+    ![Domein- en URL-informatie voor eenmalige aanmelding bij Autotask Workplace](common/metadata-upload-additional-signon.png)
 
-1. Klik op **opslaan** knop.
+    In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<subdomain>.awp.autotask.net/loginsso`
 
-    ![De knop voor enkelvoudige aanmelding configureren](./media/autotaskworkplace-tutorial/tutorial_general_400.png)
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke-id, de antwoord-URL en de aanmeldings-URL. Neem voor deze waarden contact op met het [clientondersteuningsteam van Autotask Workplace](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm). U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-1. In een ander browservenster, moet u zich aanmelden bij werkplek Online met behulp van de administratorreferenties.
+6. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
-    >[!Note]
-    >Bij het configureren van de id-provider, moet een subdomein worden opgegeven. Om te bevestigen van het juiste subdomein, meld u aan bij de Online werkplek. Wanneer u bent aangemeld, maak notitie naar het subdomein in de URL.
-    >Het subdomein is het gedeelte tussen de 'https://' en '.awp.autotask.net/' en moet VS, eu, ca of Australië.
+    ![De link om het certificaat te downloaden](common/metadataxml.png)
 
-1. Ga naar **configuratie** > **Single Sign-On** en voer de volgende stappen uit:
+7. In het gedeelte **Set up Autotask Workplace** (Autotask Workplace instellen) kopieert u de juiste URL('s) op basis van uw behoeften.
 
-    ![Autotask Single Sign-on-configuratie](./media/autotaskworkplace-tutorial/tutorial_autotaskssoconfig1.png)
- 
-    a. Selecteer de **XML-bestand met metagegevens** optie en upload het **Metadata XML** gedownload vanuit Azure portal.
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-    b. Klik op **SSO inschakelen**.
-    
-    ![Configuratie goedkeuren Autotask voor eenmalige aanmelding](./media/autotaskworkplace-tutorial/tutorial_autotaskssoconfig2.png)
+    a. Aanmeldings-URL
 
-    c. Selecteer de **ik bevestig deze informatie juist is en ik vertrouw deze IdP** selectievakje.
+    b. Azure AD-id
 
-    d. Klik op **goedkeuren**.
-     
->[!Note]
->Als u hulp bij het configureren van Autotask werkplek nodig hebt, raadpleegt u [deze pagina](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) hulp met uw werkplek te krijgen.
+    c. Afmeldings-URL
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+### <a name="configure-autotask-workplace-single-sign-on"></a>Eenmalige aanmelding voor Autotask Workplace configureren
+
+1. Meld u in een ander browservenster met de administratorreferenties aan bij Workplace Online.
+
+    > [!Note]
+    > Bij het configureren van de id-provider moet een subdomein worden opgegeven. Om het juiste subdomein te bevestigen, meldt u zich aan bij Workplace Online. Noteer nadat u bent aangemeld het subdomein in de URL. Het subdomein is het gedeelte tussen 'https://' en '.awp.autotask.net/' en moet us, eu, ca, of au zijn.
+
+2. Ga naar **Configuratie** > **Eenmalige aanmelding** en voer de volgende stappen uit:
+
+    ![Configuratie voor eenmalige aanmelding bij Autotask](./media/autotaskworkplace-tutorial/tutorial_autotaskssoconfig1.png)
+
+    a. Selecteer de optie **XML-bestand met metagegevens** en upload het gedownloade **XML-bestand met federatieve metagegevens** vanuit de Azure-portal.
+
+    b. Klik op **SSO INSCHAKELEN**.
+
+    ![Configuratie voor de goedkeuring van een eenmalige aanmelding bij Autotask](./media/autotaskworkplace-tutorial/tutorial_autotaskssoconfig2.png)
+
+    c. Selecteer het selectievakje **I confirm this information is correct and I trust this IdP** (Ik bevestig dat deze informatie juist is en dat ik deze id-provider vertrouw).
+
+    d. Klik op **GOEDKEUREN**.
+
+> [!Note]
+> Hebt u hulp nodig bij het configureren van Autotask Workplace? Raadpleeg [deze pagina](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) voor hulp bij uw Workplace-account.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-   ![Maak een testgebruiker Azure AD][100]
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![De Azure Active Directory-knop](./media/autotaskworkplace-tutorial/create_aaduser_01.png)
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/autotaskworkplace-tutorial/create_aaduser_02.png)
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-1. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    ![De knop toevoegen](./media/autotaskworkplace-tutorial/create_aaduser_03.png)
-
-1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
-
-    ![Het dialoogvenster gebruiker](./media/autotaskworkplace-tutorial/create_aaduser_04.png)
-
-    a. In de **naam** in het vak **BrittaSimon**.
-
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
 
-### <a name="create-an-autotask-workplace-test-user"></a>Maak een testgebruiker Autotask werkplek
-
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in Autotask. Neem contact op met [Autotask werkplek ondersteuningsteam](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) om toe te voegen de gebruikers in het platform Autotask werkplek.
-
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan de werkplek Autotask.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Autotask Workplace.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer in de Azure-portal achtereenvolgens **Bedrijfstoepassingen**, **Alle toepassingen** en **Autotask Workplace**.
 
-**Als u wilt toewijzen Britta Simon Autotask werkplek koppelen, moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Selecteer in de lijst met toepassingen **Autotask Workplace**.
 
-    ![Gebruiker toewijzen][201] 
+    ![De koppeling Autotask Workplace in de lijst met toepassingen](common/all-applications.png)
 
-1. Selecteer in de lijst met toepassingen, **Autotask werkplek**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De koppeling Autotask werkplek in de lijst met toepassingen](./media/autotaskworkplace-tutorial/tutorial_autotaskworkplace_app.png) 
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="create-autotask-workplace-test-user"></a>Testgebruiker voor Autotask Workplace maken
 
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
+In deze sectie gaat u een gebruiker met de naam Britta Simon maken in Autotask Workplace. Werk samen met het [ondersteuningsteam van Autotask Workplace](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) om de gebruikers aan het Autotask Workplace-platform toe te voegen.
+
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-Wanneer u op de tegel Autotask werkplek in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Autotask werkplek.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
+Wanneer u in het toegangsvenster op de tegel Autotask Workplace klikt, zou u automatisch moeten worden aangemeld bij het exemplaar van Autotask Workplace in het toegangsvenster waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-<!--Image references-->
-
-[1]: ./media/autotaskworkplace-tutorial/tutorial_general_01.png
-[2]: ./media/autotaskworkplace-tutorial/tutorial_general_02.png
-[3]: ./media/autotaskworkplace-tutorial/tutorial_general_03.png
-[4]: ./media/autotaskworkplace-tutorial/tutorial_general_04.png
-
-[100]: ./media/autotaskworkplace-tutorial/tutorial_general_100.png
-
-[200]: ./media/autotaskworkplace-tutorial/tutorial_general_200.png
-[201]: ./media/autotaskworkplace-tutorial/tutorial_general_201.png
-[202]: ./media/autotaskworkplace-tutorial/tutorial_general_202.png
-[203]: ./media/autotaskworkplace-tutorial/tutorial_general_203.png
-
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

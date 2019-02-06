@@ -1,23 +1,23 @@
 ---
-title: 'Snelstart: Tekst vertalen, Ruby - Translator Text-API'
+title: 'Quickstart: Tekst vertalen, Ruby - Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstartgids vertaalt u tekst vanuit één taal naar een andere taal met de Translator Text-API met Ruby.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: a36f873c08fee57ddb73f94b4a77dc4514422cb1
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: ae177e2e139fea87cd5d7b4ff92a60357f07bb62
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645606"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461250"
 ---
-# <a name="quickstart-translate-text-with-the-translator-text-rest-api-ruby"></a>Snelstart: Tekst vertalen met de Translator Text REST-API (Ruby)
+# <a name="quickstart-translate-text-with-the-translator-text-rest-api-ruby"></a>Snelstart: Tekst vertalen met de Translator Text REST API (Ruby)
 
 In deze snelstartgids vertaalt u tekst vanuit één taal naar een andere taal met de Translator Text-API.
 

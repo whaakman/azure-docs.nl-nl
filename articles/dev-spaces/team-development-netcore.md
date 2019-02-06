@@ -3,19 +3,19 @@ title: Teamontwikkeling met Azure Dev Spaces met behulp van .NET Core en VS Code
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 4357c3a2e13e0eda2eb1d8c0071a21ed21aa36ef
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: c411a227c9cb277f6bf16df5085b1e674bd37176
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705732"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463902"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Teamontwikkeling met Azure Dev Spaces
 
@@ -34,7 +34,7 @@ Omwille van de tijd downloaden we voorbeeldcode uit een GitHub-opslagplaats. Ga 
 1. Open de map `mywebapi` in een *afzonderlijk VS Code-venster*.
 1. Open het **Opdrachtenpalet** (via het menu **Beeld | Opdrachtenpalet**), en gebruik automatisch aanvullen om te typen en deze opdracht te selecteren: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`. Deze opdracht moet niet worden verward met de opdracht `azds prep`, waarmee u het project configureert voor implementatie.
 1. Druk op F5 en wacht tot de service is gebouwd en geïmplementeerd. Dit proces is voltooid, zodra de VS Code-balk voor foutopsporing wordt weergegeven.
-1. De eindpunt-URL ziet er ongeveer uit als http://localhost:\<portnumber\>. **Tip: op de VS Code-statusbalk wordt een klikbare URL weergegeven.** Het lijkt misschien alsof de container lokaal wordt uitgevoerd, maar dat is niet zo. De container wordt uitgevoerd in onze ontwikkelomgeving in Azure. Het localhost-adres is te zien omdat er nog geen openbare eindpunten zijn gedefinieerd in `mywebapi` en toegang daarom alleen mogelijk is binnen het Kubernetes-exemplaar. Voor uw gemak en om interactie met de privésessie mogelijk te maken vanaf de lokale computer wordt in Azure Dev Spaces een tijdelijke SSH-tunnel gemaakt naar de container die wordt uitgevoerd in Azure.
+1. De eindpunt-URL ziet er ongeveer uit als http://localhost:\<portnumber\>. **Tip: In de statusbalk van VS Code wordt een klikbare URL weergegeven.** Het lijkt misschien alsof de container lokaal wordt uitgevoerd, maar dat is niet zo. De container wordt uitgevoerd in onze ontwikkelomgeving in Azure. Het localhost-adres is te zien omdat er nog geen openbare eindpunten zijn gedefinieerd in `mywebapi` en toegang daarom alleen mogelijk is binnen het Kubernetes-exemplaar. Voor uw gemak en om interactie met de privésessie mogelijk te maken vanaf de lokale computer wordt in Azure Dev Spaces een tijdelijke SSH-tunnel gemaakt naar de container die wordt uitgevoerd in Azure.
 1. Wanneer `mywebapi` klaar is, opent u de browser naar het localhost-adres. Voeg `/api/values` toe aan de URL om de standaard GET-API voor de `ValuesController` aan te roepen. 
 1. Als alle stappen zijn voltooid, moet er een reactie van de `mywebapi`-service te zien zijn.
 
@@ -74,7 +74,7 @@ In het vorige codevoorbeeld wordt de `azds-route-as`-header van de binnenkomende
 1. Stel in het `webfrontend`-project een onderbrekingspunt in vlak voordat een GET-aanvraag wordt verzonden naar `mywebapi/api/values`.
 1. Druk op F5 in het `webfrontend`-project.
 1. Roep de web-app aan en analyseer de code in beide services.
-1. In de web-app wordt nu op de pagina About een bericht weergegeven dat is samengesteld uit de twee services: Hello from webfrontend and Hello from mywebapi.
+1. In de web-app wordt nu op de pagina About een bericht weergegeven dat is samengevoegd door de twee services: "Hello from webfrontend and Hello from mywebapi."
 
 
 Dat is dus gelukt. U hebt nu een toepassing met meerdere containers waarin elke container afzonderlijk kan worden ontwikkeld en geïmplementeerd.

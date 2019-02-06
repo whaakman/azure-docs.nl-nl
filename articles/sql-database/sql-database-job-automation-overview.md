@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 01/22/2019
-ms.openlocfilehash: 63a6daa7c409aeb77b07e98cc0108b727f263d4c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.date: 01/25/2019
+ms.openlocfilehash: 1fd524e858b20c75aef4101ad98ac54c4f485d1e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453272"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457204"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Beheertaken automatiseren met behulp van databasetaken
 
@@ -26,6 +26,7 @@ U kunt een doeldatabase of groepen Azure SQL-databases definiëren waarin de taa
 Een taak handelt het aanmelden bij de doeldatabase af. Ook definieert, onderhoudt en handhaaft u Transact-SQL-scripts die in een groep van Azure SQL-databases moeten worden uitgevoerd.
 
 Er zijn verschillende scenario's waarin u taakautomatisering kunt gebruiken:
+
 - Beheertaken automatiseren en deze vervolgens plannen voor uitvoering op elke weekdag, na kantooruren, enzovoort.
   - Implementeer schemawijzigingen, referentiebeheer, het verzamelen van prestatiegegevens of telemetrie van tenant (klant).
   - Referentiegegevens (algemene informatie voor alle databases) bijwerken, gegevens laden uit Azure-blobopslag.
@@ -39,14 +40,15 @@ Er zijn verschillende scenario's waarin u taakautomatisering kunt gebruiken:
  - Taken maken waarmee gegevens vanuit of naar uw databases worden geladen met behulp van SQL Server Integration Services (SSIS).
 
 De volgende technologieën voor het plannen van taken zijn beschikbaar in Azure SQL Database:
-- **SQL Agent-taken** zijn een klassiek en bewezen SQL Server-onderdeel voor taakplanning dat beschikbaar is in het beheerde exemplaar. SQL Agent-taken zijn niet beschikbaar in Singleton-databases.
+
+- **SQL Agent-taken** zijn een klassiek en bewezen SQL Server-onderdeel voor taakplanning dat beschikbaar is in het beheerde exemplaar. SQL Agent-taken zijn niet beschikbaar in individuele databases.
 - **Elastic Database-taken** zijn een taakplanningsservice die aangepaste taken uitvoert op een of meer Azure SQL Databases.
 
-Hier volgen enkele noemenswaardige verschillen tussen SQL Agent (on-premises beschikbaar en als onderdeel van SQL Database Managed Instance) en de taakagent van Elastic Database (beschikbaar voor Singleton SQL Database en SQL Data Warehouse).
+Hier volgen enkele noemenswaardige verschillen tussen SQL Agent (on-premises beschikbaar en als onderdeel van SQL Database Managed Instance) en de taakagent van Elastic Database (beschikbaar voor individuele databases in Azure SQL-database en databases in SQL Data Warehouse).
 
 |  |Elastische taken  |SQL Agent |
 |---------|---------|---------|
-|Bereik     |  Elk gewenst aantal Azure SQL Databases en/of datawarehouses in dezelfde Azure-cloud als de taakagent. Doelen kunnen zich op verschillende logische servers en in verschillende abonnementen en/of regio's bevinden. <br><br>Doelgroepen kunnen bestaan uit afzonderlijke databases of datawarehouses of alle databases in een server, pool of shardkaart (dynamisch opgesomd tijdens het uitvoeren van een taak). | Een individuele database in hetzelfde SQL Server-exemplaar als de SQL agent. |
+|Bereik     |  Elk gewenst aantal Azure SQL Databases en/of datawarehouses in dezelfde Azure-cloud als de taakagent. Doelen kunnen zich op verschillende SQL Database-servers en in verschillende abonnementen en/of regio's bevinden. <br><br>Doelgroepen kunnen bestaan uit afzonderlijke databases of datawarehouses of alle databases in een server, pool of shardkaart (dynamisch opgesomd tijdens het uitvoeren van een taak). | Een afzonderlijke database in hetzelfde SQL Server-exemplaar als de SQL agent. |
 |Ondersteunde API's en hulpprogramma's     |  Portal, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL, SQL Server Management Studio (SSMS)     |
 
 ## <a name="sql-agent-jobs"></a>SQL Agent-taken
@@ -54,6 +56,7 @@ Hier volgen enkele noemenswaardige verschillen tussen SQL Agent (on-premises bes
 SQL Agent-taken zijn een reeks T-SQL-scripts die voor uw database zijn opgegeven. Gebruik taken om een administratieve taak te definiëren die een keer of vaker kan worden uitgevoerd en kan worden gecontroleerd op slagen of mislukken.
 Een taak kan op één lokale server of op meerdere externe servers worden uitgevoerd. Een SQL Agent-taak is een intern Database-Engine-onderdeel dat wordt uitgevoerd in de service voor het beheerde exemplaar.
 Er zijn enkele belangrijke concepten in SQL Agent-taken:
+
 - **Taakstappen** zijn een of meer stappen die in de taak moet worden uitgevoerd. U kunt voor elke stap een strategie voor opnieuw proberen definiëren en de actie die moet plaatsvinden moet als de taakstap is geslaagd of mislukt.
 - **Schema's** definiëren wanneer de taak moet worden uitgevoerd.
 - Met **meldingen** kunt u regels definiëren die worden gebruikt om operators een melding te verzenden via een e-mailbericht wanneer de taak is voltooid.
@@ -64,11 +67,13 @@ SQL Agent-taakstappen zijn reeksen met acties die door SQL Agent moeten worden u
 Met SQL Agent kunt u verschillende soorten taakstappen, zoals de Transact-SQL-taakstap waarmee één Transact-SQL-batch op de database wordt uitgevoerd of OS-opdracht-/PowerShell stappen die een aangepast OS-script kunnen uitvoeren. Met SSIS-taakstappen kunt u gegevens laden met behulp van SSIS-runtime of [replicatie](sql-database-managed-instance-transactional-replication.md)stappen uitvoeren die wijzigingen uit uw database naar andere databases kunnen publiceren.
 
 [Transactionele replicatie](sql-database-managed-instance-transactional-replication.md) is een Database-Engine-functie waarmee u de wijzigingen die zijn aangebracht in een of meer tabellen in de ene database kunt publiceren en naar een set abonneedatabases kunt publiceren/distribueren. Publicatie van de wijzigingen wordt geïmplementeerd met behulp van de volgende staptypen voor de SQL Agent-taak:
+
 - Transactielogboeklezer.
 - Momentopname.
 - Distributor.
 
 Andere typen taakstappen worden momenteel niet ondersteund, waaronder:
+
 - Het samenvoegen van replicatietaakstappen wordt niet ondersteund.
 - De wachtrijlezer wordt niet ondersteund.
 - Analysis Services worden niet ondersteund
@@ -77,6 +82,7 @@ Andere typen taakstappen worden momenteel niet ondersteund, waaronder:
 
 Een schema geeft aan wanneer een taak wordt uitgevoerd. Er kan meer dan één taak worden uitgevoerd in hetzelfde schema en er kan meer dan één schema worden toegepast op dezelfde taak.
 Een schema kan de volgende voorwaarden definiëren voor het moment waarop een taak wordt uitgevoerd:
+
 - Wanneer het exemplaar opnieuw wordt opgestart (of wanneer SQL Server Agent wordt gestart). De taak wordt geactiveerd na elke failover.
 - Eén keer op een specifieke datum en tijd, wat handig is voor uitgestelde uitvoering van een taak.
 - Met een terugkerend schema.
@@ -215,7 +221,7 @@ Tijdens het maken van een taakagent worden er een schema, tabellen en een rol me
 
 Een *doelgroep* definieert de verzameling databases waarvoor een taakstap wordt uitgevoerd. Een doelgroep kan een willekeurig aantal en een willekeurige combinatie van de volgende elementen bevatten:
 
-- **Azure SQL-server**: als een server is opgegeven, maken alle databases die op het moment waarop de taak wordt uitgevoerd aanwezig zijn in de server deel uit van de groep. De referenties van de hoofddatabase moeten worden opgegeven zodat de groep kan worden opgesomd en worden bijgewerkt voordat de taak wordt uitgevoerd.
+- **SQL Database-server**: als een server is opgegeven, maken alle databases die op het moment waarop de taak wordt uitgevoerd aanwezig zijn in de server, deel uit van de groep. De referenties van de hoofddatabase moeten worden opgegeven zodat de groep kan worden opgesomd en worden bijgewerkt voordat de taak wordt uitgevoerd.
 - **Elastische pool**: als een elastische pool is opgegeven, maken alle databases die zich in de elastische pool bevinden op het moment dat de taak wordt uitgevoerd, deel uit van de groep. Wat de server betreft, moeten de referenties van de hoofddatabase worden opgegeven zodat de groep kan worden bijgewerkt voordat de taak wordt uitgevoerd.
 - **Individuele database**: geef een of meer afzonderlijke databases op als onderdeel van de groep.
 - **Shardkaart**: databases van een shardkaart.
@@ -258,6 +264,7 @@ Het resultaat van de stappen van een taak op elke doeldatabase wordt gedetaillee
 #### <a name="job-history"></a>Jobgeschiedenis
 
 De taakgeschiedenis wordt opgeslagen in de *taakdatabase*. Met een systeemopschoontaak wordt uitvoergeschiedenis verwijderd die ouder is dan 45 dagen. Als u geschiedenis wilt verwijderen die nog geen 45 dagen oud is, roept u de procedure **sp_purge_history** in de *taakdatabase* aan.
+
 ### <a name="agent-performance-capacity-and-limitations"></a>Agentprestaties, - capaciteit en -beperkingen
 
 Elastische taken gebruiken minimale rekenresources tijdens het wachten tot langlopende taken zijn voltooid.

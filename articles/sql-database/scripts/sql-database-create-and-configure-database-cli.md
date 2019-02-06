@@ -3,7 +3,7 @@ title: CLI-voorbeeld - Een Azure SQL-database maken | Microsoft Docs
 description: Gebruik dit Azure CLI-voorbeeldscript voor het maken van een SQL-database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: standalone-database
 ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
@@ -11,13 +11,13 @@ author: CarlRabeler
 manager: craigg
 ms.author: carlrab
 ms.reviewer: ''
-ms.date: 09/20/2018
-ms.openlocfilehash: d239236e9e6f7133aa57eb617c3cc9e8626fc178
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 01/25/2019
+ms.openlocfilehash: 24f45ea22a50e471a2947b926b817f06aefa9aa8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055472"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55451781"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>CLI gebruiken om één Azure SQL-database te maken en een firewallregel te configureren
 
@@ -48,9 +48,9 @@ In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel 
 | Opdracht | Opmerkingen |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
-| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Hiermee wordt een logische server gemaakt waar de SQL Database wordt gehost. |
-| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | Hiermee wordt een firewall-regel gemaakt om toegang te verlenen tot alle SQL Databases op de server vanuit het ingevoerde IP-adresbereik. |
-| [az sql db create](/cli/azure/sql/db#az-sql-db-create) | Hiermee wordt de SQL Database gemaakt op de logische server. |
+| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Hiermee maakt u een SQL Database-server die één database of elastische pool host. |
+| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | Hiermee wordt een firewall-regel gemaakt om toegang te verlenen tot alle individuele databases en elastische pools op de SQL Database-server vanuit het ingevoerde IP-adresbereik. |
+| [az sql db create](/cli/azure/sql/db#az-sql-db-create) | Maakt één database of elastische pool. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -1,19 +1,19 @@
 ---
 title: 'Zelfstudie: Azure Firewall implementeren en configureren in een hybride netwerk met Azure PowerShell'
-description: In deze zelfstudie leert u hoe u Azure Firewall kunt implementeren en configureren via de Azure-portal.
+description: In deze zelfstudie leert u hoe u Azure Firewall kunt implementeren en configureren via Azure PowerShell.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 12/14/2018
+ms.date: 1/30/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 511fb425c6b31d204c88094ec5b1a49316495a0a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 29af70988cf77b9fad47e5c2478e5c86529fe9cf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431517"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458214"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Zelfstudie: Azure Firewall implementeren en configureren in een hybride netwerk met Azure PowerShell
 
@@ -61,6 +61,8 @@ Zie het gedeelte [Routes maken](#create-routes) in deze zelfstudie voor informat
 
 >[!NOTE]
 >Verkeer tussen rechtstreeks gepeerde VNets wordt rechtstreeks gerouteerd, zelfs als de UDR naar Azure Firewall als standaardgateway wijst. Als u in dit scenario subnet-naar-subnet-verkeer wilt verzenden, moet een UDR het voorvoegsel van het doelsubnetwerk expliciet op beide subnetten bevatten.
+
+Zie [Naslagdocumentatie voor Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall) om de gerelateerde naslaginformatie voor Azure PowerShell te bekijken.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 

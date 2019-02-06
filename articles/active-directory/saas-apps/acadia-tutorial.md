@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
-ms.openlocfilehash: a43db3eba5bec9bef0aacc51d246414d54d222bf
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: dc36e66e9dae62fdfede3a82146cd218ca5eb489
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813437"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458173"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-acadia"></a>Zelfstudie: Azure Active Directory-integratie met Acadia
 
@@ -71,10 +71,10 @@ Voor het configureren van de integratie van Acadia met Azure AD, moet u Acadia u
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie gaat u Azure AD-eenmalige aanmelding met [toepassingsnaam] configureren en testen met behulp van een testgebruiker met de naam **Britta Simon**.
-Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerd gebruiker in [toepassingsnaam] tot stand is gebracht.
+In deze sectie gaat u Azure AD-eenmalige aanmelding met Acadia configureren en testen met behulp van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Acadia tot stand is gebracht.
 
-Als u Azure AD-eenmalige aanmelding met [toepassingsnaam] wilt configureren en testen, moet u de volgende stappen uitvoeren:
+Als u Azure AD-eenmalige aanmelding met Acadia wilt configureren en testen, moet u de volgende stappen uitvoeren:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
 2. **[Acadia-eenmalige aanmelding configureren](#configure-acadia-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wilt configureren.
@@ -87,7 +87,7 @@ Als u Azure AD-eenmalige aanmelding met [toepassingsnaam] wilt configureren en t
 
 In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-Voor het configureren van Azure AD-eenmalige aanmelding met [toepassingsnaam], moet u de volgende stappen uitvoeren:
+Voor het configureren van Azure AD-eenmalige aanmelding met Acadia, moet u de volgende stappen uitvoeren:
 
 1. Selecteer in [Azure Portal](https://portal.azure.com/), op de pagina voor de integratie van de toepassing **Acadia**, **Eenmalige aanmelding**.
 
@@ -116,7 +116,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met [toepassingsnaam], m
     In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<CUSTOMER>.acadia.sysalli.com/Shibboleth.sso/Login`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke-id, de antwoord-URL en de aanmeldings-URL. Neem contact op met het [ondersteuningsteam van Acadia](https://www.systemsalliance.com/contact-us/) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > De waarden voor stap 4 en 5 zijn beschikbaar in een bestand met metagegevens van het Acadia-team dat kan worden geïmporteerd door te klikken op **Metagegevensbestand uploaden** in het gedeelte **Standaard SAML-configuratie**. Werk deze waarden bij met de werkelijke-id, de antwoord-URL en de aanmeldings-URL. U kunt ook verwijzen naar de patronen die worden weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal om te bevestigen dat de waarden van de metagegevens kloppen. Neem contact op met het [clientondersteuningsteam van Acadia ](mailto:support@systemsalliance.com) als de opgegeven waarden onjuist zijn.
 
 6. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
@@ -134,7 +134,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met [toepassingsnaam], m
 
 ### <a name="configure-acadia-single-sign-on"></a>Eenmalige aanmelding voor Acadia configureren
 
-Als u eenmalige aanmelding aan de **Acadia**-zijde wilt configureren, moet u het gedownloade **XML-bestand met metagegevens**en de correct uit de Azure-portal gekopieerde URL's naar het [ondersteuningsteam van Acadia](https://www.systemsalliance.com/contact-us/) sturen. Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+Als u eenmalige aanmelding aan de **Acadia**-zijde wilt configureren, moet u het gedownloade **XML-bestand met metagegevens**, de **app-URL voor federatieve metagegevens** en de correcte uit de Azure-portal gekopieerde URL's naar het [ondersteuningsteam van Acadia](mailto:support@systemsalliance.com) sturen. Het team configureert deze instelling dusdanig dat de SAML SSO-verbinding goed is ingesteld aan beide zijden.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
@@ -152,7 +152,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    a. Voer in het veld **Naam****Britta Simon** in.
+    a. Voer in het veld **Naam** **Britta Simon**in.
   
     b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
     Bijvoorbeeld: BrittaSimon@contoso.com

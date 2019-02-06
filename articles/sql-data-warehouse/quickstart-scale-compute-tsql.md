@@ -1,21 +1,21 @@
 ---
-title: 'Quickstart: De schaal van Compute vergroten in Azure SQL Data Warehouse - T-SQL | Microsoft Docs'
-description: Schaal Compute in Azure SQL Data Warehouse met behulp van T-SQL en SSMS (SQL Server Management Studio). Vergroot de schaal van Compute voor betere prestaties, of verklein de schaal juist om kosten te besparen.
+title: 'Snelstart: De schaal van Compute vergroten in Azure SQL Data Warehouse - T-SQL | Microsoft Docs'
+description: Schaal Compute in Azure SQL Data Warehouse met behulp van T-SQL en SSMS (SQL Server Management Studio). De schaal van rekenkracht vergroten voor betere prestaties of de schaal juist verkleinen om kosten te besparen.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e499a2a2201e81d40354069c007790e4bcdff671
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: a734e0173a3432e03c5876d30cf54ea3fd23d4dc
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43245777"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460342"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Quickstart: Compute schalen in Azure SQL Data Warehouse met behulp van T-SQL
 

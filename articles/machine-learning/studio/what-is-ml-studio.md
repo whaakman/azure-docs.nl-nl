@@ -10,18 +10,18 @@ ms.custom: seodec18
 ms.author: garye
 ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: 04c9803909fb5dfd1072840a0c1d7e33814ad1a3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: bb01db14cec73b8c5668915a9eaab5e7728724df
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264357"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469110"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Wat is Azure Machine Learning Studio?
 Microsoft Azure Machine Learning Studio is een hulpprogramma met functionaliteit op basis van slepen en neerzetten, waarmee u in samenwerkingsverband predictive analytics-oplossingen voor uw gegevens kunt ontwikkelen, testen en implementeren. Machine Learning Studio publiceert modellen als webservices die eenvoudig kunnen worden gebruikt door aangepaste apps of BI-hulpprogramma's zoals Excel.
@@ -39,10 +39,10 @@ U hoeft niets te programmeren. U hoeft alleen gegevenssets en modules visueel me
 
 > [!TIP]
 > Zie [Overzichtsdiagram van de mogelijkheden van Azure Machine Learning Studio](studio-overview-diagram.md) als u een diagram wilt downloaden en afdrukken met een overzicht van de mogelijkheden van Machine Learning Studio.
-> 
-> 
+>
+>
 
-![Azure ML Studio-diagram: Zet experimenten op, lees gegevens uit verschillende bronnen, schrijf beoordeelde gegevens weg, maak modellen.][ml-studio-overview]
+![Azure Machine Learning Studio-diagram: Zet experimenten op, lees gegevens uit verschillende bronnen, schrijf beoordeelde gegevens weg, maak modellen.][ml-studio-overview]
 
 ## <a name="get-started-with-machine-learning-studio"></a>Aan de slag met Machine Learning Studio
 Wanneer u [Machine Learning Studio](https://studio.azureml.net) voor de eerste keer opent, wordt de pagina **Start** weergegeven. Vanaf deze pagina kunt u documentatie, video's en webinars bekijken en andere waardevolle informatie zoeken.
@@ -104,7 +104,7 @@ Een module is een algoritme dat u met uw gegevens kunt uitvoeren. Machine Learni
 * [Linear Regression][linear-regression]: maakt een online lineair regressiemodel met daalgradiënt.
 * [Score Model][score-model]: beoordeelt een getraind classificatie- of regressiemodel.
 
-Terwijl u een experiment maakt, kunt u links in het canvas kiezen uit de lijst met beschikbare modules.  
+Terwijl u een experiment maakt, kunt u links in het canvas kiezen uit de lijst met beschikbare modules.
 
 Een module kan een reeks parameters hebben waarmee u de interne algoritmen van de module kunt configureren. Wanneer u een module op het canvas selecteert, worden de parameters van de module weergegeven in het deelvenster **Properties**, rechts van het canvas. U kunt de parameters in dit deelvenster wijzigen om het model af te stemmen.
 
@@ -162,7 +162,7 @@ Nadat uw model is getraind, kunt u het met de resterende testgegevens evalueren.
 * **voorbeeld**: Een representatief gedeelte van een gegevensset. Steekproeven kunnen willekeurig worden geselecteerd, maar ook op basis van specifieke functies van de gegevensset.
 
 ## <a name="next-steps"></a>Volgende stappen
-U kunt zich de basiskennis van predictive analytics en machine learning eigen maken aan de hand van een [Stapsgewijze zelfstudie](create-experiment.md) en [door voorbeelden verder uit te werken](sample-experiments.md).  
+U kunt zich de basiskennis van predictive analytics en machine learning eigen maken aan de hand van een [Stapsgewijze zelfstudie](create-experiment.md) en [door voorbeelden verder uit te werken](sample-experiments.md).
 
 
 <!-- Module References -->

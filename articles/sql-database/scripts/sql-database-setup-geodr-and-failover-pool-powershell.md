@@ -1,6 +1,6 @@
 ---
 title: PowerShell-voorbeeld van actieve geo-replicatie voor een gegroepeerde Azure SQL-database | Microsoft Docs
-description: Azure PowerShell-voorbeeldscript voor het instellen van actieve geo-replicatie voor een gegroepeerde Azure SQL-database en het uitvoeren van een failover.
+description: Azure PowerShell-voorbeeldscript voor het instellen van actieve geo-replicatie voor een gegroepeerde database in Azure SQL Database en het uitvoeren van een failover.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,17 +11,17 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: c108cf57f5db87a7dc6144e5b202a5c6215164a6
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: 15949ce7263ee3817c9ff0265b21c6b8d6578230
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388257"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478301"
 ---
-# <a name="use-powershell-to-configure-active-geo-replication-for-a-pooled-azure-sql-database"></a>PowerShell gebruiken voor het configureren van actieve geo-replicatie voor een gegroepeerde Azure SQL-database
+# <a name="use-powershell-to-configure-active-geo-replication-for-a-pooled-database-in-azure-sql-database"></a>PowerShell gebruiken voor het configureren van actieve geo-replicatie voor een gegroepeerde database in Azure SQL Database
 
-In dit PowerShell-voorbeeldscript configureert u actieve geo-replicatie voor een Azure SQL-database in een elastische pool en voert u de failover uit naar een secundaire replica van de Azure SQL-database.
+In dit voorbeeld van een PowerShell-script configureert u actieve geo-replicatie voor een gegroepeerde Azure SQL-database en voert u een failover uit naar een secundaire replica van de database.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
@@ -48,9 +48,9 @@ In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel 
 | Opdracht | Opmerkingen |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
-| [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Hiermee wordt een logische server gemaakt die als host fungeert voor een database of elastische pool. |
-| [New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool) | Hiermee wordt een elastische pool op een logische server gemaakt. |
-| [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | Hiermee maakt u een database op een logische server als een afzonderlijke of een gegroepeerde database. |
+| [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Hiermee maakt u een SQL Database-server die individuele databases en elastische pools host. |
+| [New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool) | Hiermee maakt u een elastische pool. |
+| [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | Hiermee wordt een enkele database of een gegroepeerde database gemaakt. |
 | [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) | Hiermee worden database-eigenschappen bijgewerkt of worden databasegegevens verplaatst naar, uit of tussen elastische pools. |
 | [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary)| Hiermee maakt u een secundaire database voor een bestaande database en wordt gegevensreplicatie gestart. |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)| Hiermee haalt u een of meer databases op. |

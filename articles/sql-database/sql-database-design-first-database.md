@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Uw eerste Azure SQL database ontwerpen met SSMS | Microsoft Docs'
+title: 'Zelfstudie: Uw eerste individuele database in Azure SQL Database ontwerpen met SSMS | Microsoft Docs'
 description: Lees hier alles over het ontwerpen van uw eerste Azure SQL database met SQL Server Management Studio.
 services: sql-database
 ms.service: sql-database
@@ -9,21 +9,21 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 9fa36b9b87a8e9591b0c863826cd2278a29ba28e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 01/25/2019
+ms.openlocfilehash: e7229a0816cf74fed08397a68dd34e305bf8c0ea
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956054"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459533"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Zelfstudie: Uw eerste Azure SQL-database ontwerpen met SSMS
 
-Azure SQL Database is een relationele DBaaS (database-as-a-service) in Microsoft Cloud (Azure). In deze zelfstudie leert u hoe u met de Azure-portal en [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) de volgende taken uitvoert:
+Azure SQL Database is een relationele DBaaS (database-as-a-service) in Microsoft Cloud (Azure). In deze zelfstudie leert u hoe u met Azure Portal en [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) de volgende taken uitvoert:
 
 > [!div class="checklist"]
-> * Een database maken in de Azure-portal*
-> * Een serverfirewallregel instellen in de Azure-portal
+> * Een database maken in Azure Portal*
+> * Een serverfirewallregel instellen in Azure Portal
 > * Verbinding maken met de database via SSMS
 > * Tabellen maken met SSMS
 > * Gegevens bulksgewijs laden met BCP
@@ -41,17 +41,17 @@ Het volgende moet zijn geïnstalleerd om deze zelfstudie te voltooien:
 - [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (nieuwste versie)
 - [BCP en SQLCMD](https://www.microsoft.com/download/details.aspx?id=36433) (nieuwste versie)
 
-## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij de Azure-portal
+## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
-Meld u aan bij de [Azure-portal](https://portal.azure.com/).
+Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-blank-database"></a>Een lege database maken
 
-Een Azure SQL-database wordt gemaakt met een gedefinieerde set [reken- en opslagresources](sql-database-service-tiers-dtu.md). De database is gemaakt in een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) en in een [logische Azure SQL Database-server](sql-database-features.md).
+Een Azure SQL-database wordt gemaakt met een gedefinieerde set [reken- en opslagresources](sql-database-service-tiers-dtu.md). De database is gemaakt in een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) en in een [Azure SQL Database-server](sql-database-features.md).
 
 Volg deze stappen om een lege SQL-database te maken.
 
-1. Klik in de linkerbovenhoek van de Azure-portal op **Een resource maken**.
+1. Klik in de linkerbovenhoek van Azure Portal op **Een resource maken**.
 
 1. Selecteer op de pagina **Nieuw** **Databases** in de sectie Azure Marketplace en klik vervolgens op **SQL Database** in de sectie **Aanbevolen**.
 
@@ -113,18 +113,18 @@ De service SQL Database maakt een firewall op serverniveau. De firewall voorkomt
 
    1. Klik op **IP van client toevoegen** op de werkbalk om uw huidige IP-adres aan een nieuwe firewallregel toe te voegen. Een firewallregel kan poort 1433 openen voor een afzonderlijk IP-adres of voor een aantal IP-adressen.
 
-   1. Klik op **Opslaan**. Er wordt een firewallregel op serverniveau gemaakt voor uw huidige IP-adres waarbij poort 1433 op de logische server wordt geopend.
+   1. Klik op **Opslaan**. Er wordt een firewallregel op serverniveau gemaakt voor uw huidige IP-adres waarbij poort 1433 op de SQL Database-server wordt geopend.
 
    1. Klik op **OK** en sluit de pagina **Firewallinstellingen**.
 
-Uw IP-adres wordt niet meer door de firewall geblokkeerd. U kunt nu verbinding maken met de SQL-databaseserver en de bijbehorende databases met behulp van SQL Server Management Studio of een ander hulpprogramma naar keuze. Gebruik het beheerdersaccount voor de server dat u eerder hebt gemaakt.
+Uw IP-adres wordt niet meer door de firewall geblokkeerd. U kunt nu verbinding maken met de SQL Database-server en de bijbehorende databases met behulp van SQL Server Management Studio of een ander hulpprogramma naar keuze. Gebruik het beheerdersaccount voor de server dat u eerder hebt gemaakt.
 
 > [!IMPORTANT]
 > Voor alle Azure-services is toegang via de SQL-databasefirewall standaard ingeschakeld. Klik op **UIT** op deze pagina om dit voor alle Azure-services uit te schakelen.
 
 ## <a name="connect-to-the-database"></a>Verbinding maken met de database
 
-Gebruik [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) om verbinding te maken met uw Azure SQL-databaseserver.
+Gebruik [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) om verbinding te maken met uw Azure SQL Database-server.
 
 1. Open SQL Server Management Studio.
 

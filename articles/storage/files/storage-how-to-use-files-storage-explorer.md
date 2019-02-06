@@ -7,15 +7,15 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: f86a86fd9858fcc6f0b78256da1e96effbcbe68c
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.subservice: files
+ms.openlocfilehash: 931098d688e39490aa0aadaa8ade8405e5ba8a12
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944215"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452240"
 ---
-# <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Snelstart: Azure-bestandsshares maken en beheren met Azure Storage Explorer
+# <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Quickstart: Azure-bestandsshares maken en beheren met Azure Storage Explorer
 In deze handleiding worden de basisbeginselen besproken van het werken met [Azure-bestandsshares](storage-files-introduction.md) met behulp van Azure Storage Explorer. Azure-bestandsshares zijn net als andere bestandsshares, maar worden in de cloud opgeslagen en ondersteund op het Azure-platform. Azure-bestandsshares ondersteunen het SMB-protocol volgens de industriestandaard en bieden de mogelijkheid bestanden te delen tussen meerdere computers, toepassingen en exemplaren. 
 
 Azure Storage Explorer is een populair clienthulpprogramma dat beschikbaar is voor Windows, macOS en Linux. Met Azure Storage Explorer kunt u Azure-bestandsshares en andere opslagresources beheren.
@@ -33,9 +33,9 @@ U kunt Azure Storage Explorer niet gebruiken voor het maken van nieuwe resources
 ## <a name="connect-storage-explorer-to-azure-resources"></a>Azure Storage Explorer verbinden met Azure-resources
 Wanneer u Azure Storage Explorer de eerste keer start, wordt het venster **Microsoft Azure Storage Explorer - Verbinding maken** weergegeven. Azure Storage Explorer biedt verschillende manieren om verbinding te maken met opslagaccounts: 
 
-- **Aanmelden met uw Azure-account**: u kunt u aanmelden met behulp van uw gebruikersreferenties voor uw organisatie of uw Microsoft-account. 
-- **Verbinding maken met een specifiek opslagaccount met behulp van een verbindingsreeks of SAS-token**: een verbindingsreeks is een speciale tekenreeks die een opslagaccountnaam en -sleutel/SAS-token bevat. Het token geeft Azure Storage Explorer rechtstreeks toegang tot het opslagaccount (in plaats van dat gewoon alle opslagaccounts in een Azure-account worden weergegeven). Zie [Azure Storage-verbindingsreeksen configureren](../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) voor meer informatie over verbindingsreeksen.
-- **Verbinding maken met een specifiek opslagaccount met behulp van de naam en sleutel van het opslagaccount**: gebruik de naam en de sleutel van het opslagaccount om verbinding te maken met Azure-opslag.
+- **Aanmelden bij uw Azure-account**: U kunt u aanmelden met behulp van uw gebruikersreferenties voor uw organisatie of uw Microsoft-account. 
+- **Verbinding maken met een specifiek opslagaccount met behulp van een verbindingsreeks of SAS-token**: Een verbindingsreeks is een speciale tekenreeks die een opslagaccountnaam en opslagaccountsleutel/SAS-token bevat. Het token geeft Azure Storage Explorer rechtstreeks toegang tot het opslagaccount (in plaats van dat gewoon alle opslagaccounts in een Azure-account worden weergegeven). Zie [Azure Storage-verbindingsreeksen configureren](../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) voor meer informatie over verbindingsreeksen.
+- **Verbinding maken met een specifiek opslagaccount met behulp van een opslagaccount en -sleutel**: Gebruik de naam en sleutel van uw opslagaccount om verbinding te maken met Azure Storage.
 
 Voor deze snelstartgids meldt u zich aan met uw Azure-account. Selecteer **Een Azure-account toevoegen** en selecteer **Aanmelden**. Volg de aanwijzingen om u aan te melden bij uw Azure-account.
 
@@ -54,7 +54,7 @@ De namen van shares mogen alleen kleine letters, cijfers en afbreekstreepjes bev
 
 Nadat de bestandsshare is gemaakt, wordt er in het rechterdeelvenster een tabblad voor de bestandsshare geopend. 
 
-## <a name="use-your-azure-file-share"></a>Uw Azure-bestandsshare gebruiken
+## <a name="use-your-azure-file-share"></a>Azure-bestandsshare gebruiken
 U beschikt nu over een Azure-bestandsshare. De volgende stap is het koppelen van de bestandsshare met SMB op [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) of [macOS](storage-how-to-use-files-mac.md). U kunt ook Azure Storage Explorer gebruiken om met de Azure-bestandsshare te werken. Het voordeel van het gebruik van Azure Storage Explorer ten opzichte van het koppelen van de bestandsshare met behulp van SMB is dat alle aanvragen die zijn ingediend via Azure Storage Explorer, worden gedaan met behulp van de REST API van het bestand. U kunt de REST API van het bestand gebruiken om bestanden en mappen te maken, te wijzigen en te verwijderen op clients die niet over SMB beschikken.
 
 ### <a name="create-a-directory"></a>Een map maken

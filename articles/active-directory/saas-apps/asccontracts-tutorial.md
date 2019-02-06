@@ -1,225 +1,199 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met ASC contracten | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en ASC-opdrachten.
+title: 'Zelfstudie: Azure Active Directory-integratie met ASC Contracts | Microsoft Docs'
+description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en ASC Contracts.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: f7f54202-1581-4e55-a97e-02633ff9382d
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/21/2017
+ms.topic: tutorial
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 6b8634e633cb643463c8c1768df2961bb646d343
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: d3478e647114749647c18b75d624e0d73482b82a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179052"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460128"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-asc-contracts"></a>Zelfstudie: Azure Active Directory-integratie met ASC-opdrachten
+# <a name="tutorial-azure-active-directory-integration-with-asc-contracts"></a>Zelfstudie: Azure Active Directory-integratie met ASC Contracts
 
-In deze zelfstudie leert u hoe u contracten ASC integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u ASC Contracts integreert met Azure Active Directory (Azure AD).
+De integratie van ASC Contracts met Azure AD heeft de volgende voordelen:
 
-ASC contracten integreren met Azure AD biedt u de volgende voordelen:
+* U beheert in Azure AD wie toegang heeft tot ASC Contracts.
+* U kunt ervoor zorgen dat gebruikers zich automatisch met hun Azure AD-account aanmelden bij ASC Contracts (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot de ASC-opdrachten heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij ASC-contracten (Single Sign-On) inschakelen met hun Azure AD-accounts
-- U kunt uw accounts in één centrale locatie - Azure portal beheren
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met ASC contracten, moet u de volgende items:
+Als u Azure AD-integratie met ASC Contracts wilt configureren, hebt u de volgende items nodig:
 
-- Een Azure AD-abonnement
-- Een ASC contracten eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op ASC Contracts waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. ASC-opdrachten uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-asc-contracts-from-the-gallery"></a>ASC-opdrachten uit de galerie toe te voegen
-Voor het configureren van de integratie van de ASC-opdrachten in Azure AD, moet u ASC-opdrachten uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* ASC Contracts ondersteunt door **IDP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt toevoegen ASC-opdrachten uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-asc-contracts-from-the-gallery"></a>ASC Contracts toevoegen vanuit de galerie
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Als u de integratie van ASC Contracts met Azure AD wilt configureren, moet u ASC Contracts toevoegen vanuit de galerie aan uw lijst van beheerde SaaS-apps.
 
-    ![Active Directory][1]
+**Voer de volgende stappen uit om ASC Contracts vanuit de galerie toe te voegen:**
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![Applicaties][2]
-    
-1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![Applicaties][3]
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-1. Typ in het zoekvak **ASC contracten**.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/asccontracts-tutorial/tutorial_asccontracts_search.png)
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-1. Selecteer in het deelvenster resultaten **ASC contracten**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/asccontracts-tutorial/tutorial_asccontracts_addfromgallery.png)
+4. Typ in het zoekvak **ASC Contracts** in, selecteer **ASC Contracts** in het resultaatvenster en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met ASC-opdrachten op basis van een testgebruiker met de naam "Britta Simon."
+     ![ASC Contracts in de resultatenlijst](common/search-new-app.png)
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in de ASC-contracten is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in de ASC-contracten tot stand worden gebracht.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-Deze relatie koppeling tot stand is gebracht door toe te wijzen de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** ASC-opdrachten.
+In dit gedeelte configureert en test u eenmalige aanmelding van Azure AD met ASC Contracts op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in ASC Contracts tot stand is gebracht.
 
-Als u wilt configureren en testen van Azure AD eenmalige aanmelding met ASC contracten, u nodig hebt voor de volgende bouwstenen:
+Als u eenmalige aanmelding met Azure AD bij ASC Contracts wilt configureren en testen, moet u de volgende bouwstenen voltooien:
 
-1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Het maken van een testgebruiker ASC contracten](#creating-an-asc-contracts-test-user)**  : als u wilt een equivalent van Britta Simon in ASC-opdrachten die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding bij ASC Contracts configureren](#configure-asc-contracts-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wilt configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker voor ASC Contracts maken](#create-asc-contracts-test-user)**: als u een tegenhanger van Britta Simon in ASC Contracts wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing ASC-opdrachten.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met ASC contracten, moet u de volgende stappen uitvoeren:**
+Voer de volgende stappen uit om eenmalige aanmelding met Azure AD bij ASC Contracts te configureren:
 
-1. In de Azure-portal op de **ASC contracten** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. In de [Azure-portal](https://portal.azure.com/) selecteert u **Eenmalige aanmelding** op de integratiepagina van de toepassing **ASC Contracts**.
 
-    ![Eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![Eenmalige aanmelding configureren](./media/asccontracts-tutorial/tutorial_asccontracts_samlbase.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-1. Op de **ASC contracten domein en URL's** sectie, voert u de volgende stappen uit:
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![Eenmalige aanmelding configureren](./media/asccontracts-tutorial/tutorial_asccontracts_url.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    a. Typ in het tekstvak **Id** een URL met het volgende patroon: `https://<subdomain>.asccontracts.com/shibboleth`
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://<subdomain>.asccontracts.com/shibboleth.sso/login`
+4. Op de pagina **Eenmalige aanmelding instellen met SAML** voert u de volgende stappen uit:
 
-    > [!NOTE] 
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke id en antwoord-URL. Neem contact op met ASC netwerken Inc. (ASC)-team via **613.599.6178** om deze waarden te verkrijgen.
+    ![Domein- en URL-gegevens voor eenmalige aanmelding bij ASC Contracts](common/idp-intiated.png)
 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+    a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://<subdomain>.asccontracts.com/shibboleth`
 
-    ![Eenmalige aanmelding configureren](./media/asccontracts-tutorial/tutorial_asccontracts_certificate.png) 
+    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://<subdomain>.asccontracts.com/shibboleth.sso/login`
 
-1. Klik op de knop **Save**.
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke id en antwoord-URL. Neem contact op met het team van ASC Networks Inc. via **613.599.6178** om deze waarden op te halen.
 
-    ![Eenmalige aanmelding configureren](./media/asccontracts-tutorial/tutorial_general_400.png)
+5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
-1. Het configureren van eenmalige aanmelding op **ASC contracten** zijde, aanroepen van ASC netwerken Inc. (ASC) ondersteuning op **613.599.6178** en geef ze de gedownloade **Metadata XML**. Ze instellen hebben de SAML SSO-verbinding juist ingesteld voor beide zijden van deze toepassing.
+    ![De link om het certificaat te downloaden](common/metadataxml.png)
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+6. Kopieer in het gedeelte **ASC Contracts instellen** de juiste URL('s) op basis van uw behoeften.
 
-### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
+
+    a. Aanmeldings-URL
+
+    b. Azure AD-id
+
+    c. Afmeldings-URL
+
+### <a name="configure-asc-contracts-single-sign-on"></a>Eenmalige aanmelding bij ASC Contracts configureren
+
+Als u eenmalige aanmelding wilt configureren aan de zijde van **ASC Contracts**, belt u naar de ondersteuning van ASC Networks Inc. via **613.599.6178** en geeft u ze de gedownloade **XML met federatieve metagegevens**. Zij stellen deze toepassing zo in dat de SAML SSO-verbinding aan beide zijden juist wordt ingesteld.
+
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-![Azure AD-gebruiker maken][100]
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/asccontracts-tutorial/create_aaduser_01.png) 
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
-    
-    ![Het maken van een Azure AD-testgebruiker](./media/asccontracts-tutorial/create_aaduser_02.png) 
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/asccontracts-tutorial/create_aaduser_03.png) 
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/asccontracts-tutorial/create_aaduser_04.png) 
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    a. In de **naam** tekstvak, type **BrittaSimon**.
-
-    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
-
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="creating-an-asc-contracts-test-user"></a>Het maken van een testgebruiker ASC-opdrachten
 
-Werken met ASC netwerken Inc. Het ondersteuningsteam (ASC) op **613.599.6178** zodat gebruikers toegevoegd aan de ASC-contracten-platform.
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
+In dit gedeelte geeft u Britta Simon toestemming voor het gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot ASC Contracts.
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan de ASC-opdrachten.
+1. Selecteer **Bedrijfstoepassingen** in de Azure-portal, selecteer **Alle toepassingen** en selecteer vervolgens **ASC Contracts**.
 
-![Gebruiker toewijzen][200] 
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-**Als u wilt toewijzen Britta Simon ASC contracten, moet u de volgende stappen uitvoeren:**
+2. Selecteer **ASC Contracts** in de lijst met toepassingen.
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+    ![De koppeling naar ASC Contracts in de lijst met toepassingen](common/all-applications.png)
 
-    ![Gebruiker toewijzen][201] 
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-1. Selecteer in de lijst met toepassingen, **ASC contracten**.
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-    ![Eenmalige aanmelding configureren](./media/asccontracts-tutorial/tutorial_asccontracts_app.png) 
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-    ![Gebruiker toewijzen][202] 
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-    ![Gebruiker toewijzen][203]
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+### <a name="create-asc-contracts-test-user"></a>Testgebruiker voor ASC Contracts maken
 
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+Werk samen met het ondersteuningsteam van ASC Networks Inc. via **613.599.6178** om de gebruikers toe te voegen in het ASC Contracts-platform.
 
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-Wanneer u op de tegel ASC-opdrachten in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing ASC-opdrachten. Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
+Wanneer u in het toegangsvenster op de tegel ASC Contracts klikt, wordt u automatisch aangemeld bij het exemplaar van ASC Contracts waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/asccontracts-tutorial/tutorial_general_01.png
-[2]: ./media/asccontracts-tutorial/tutorial_general_02.png
-[3]: ./media/asccontracts-tutorial/tutorial_general_03.png
-[4]: ./media/asccontracts-tutorial/tutorial_general_04.png
-
-[100]: ./media/asccontracts-tutorial/tutorial_general_100.png
-
-[200]: ./media/asccontracts-tutorial/tutorial_general_200.png
-[201]: ./media/asccontracts-tutorial/tutorial_general_201.png
-[202]: ./media/asccontracts-tutorial/tutorial_general_202.png
-[203]: ./media/asccontracts-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

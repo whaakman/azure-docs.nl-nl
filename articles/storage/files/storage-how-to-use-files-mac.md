@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.component: files
-ms.openlocfilehash: ace77b8a15ace71b5b372564bc10c6f4845e1482
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: files
+ms.openlocfilehash: c393942112f42dc0d56388b8beac44b4287bca23
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527215"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475701"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Een Azure-bestandsshare koppelen via SMB met macOS
 [Azure Files ](storage-files-introduction.md) is het eenvoudig te gebruiken cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen aan het SMB 3-protocol (industrienorm) worden gekoppeld met macOS El Capitan 10.11+. Dit artikel behandelt twee verschillende manieren om een Azure-bestandsshare te koppelen op macOS: met de Finder-gebruikersinterface en met Terminal.
@@ -28,32 +28,32 @@ ms.locfileid: "39527215"
 >    ```
 
 ## <a name="prerequisites-for-mounting-an-azure-file-share-on-macos"></a>Vereisten voor het koppelen van een Azure-bestandsshare op macOS
-* **Naam van het opslagaccount**: voor het koppelen van een Azure-bestandsshare hebt u de naam van het opslagaccount nodig.
+* **Naam van opslagaccount**: Voor het koppelen van een Azure-bestandsshare hebt u de naam van het opslagaccount nodig.
 
-* **Sleutel van het opslagaccount**: voor het koppelen van een Azure-bestandsshare hebt u de primaire (of secundaire) opslagsleutel nodig. SAS-sleutels worden momenteel niet ondersteund voor koppelen.
+* **Sleutel van het opslagaccount**: Voor het koppelen van een Azure-bestandsshare hebt u de primaire (of secundaire) opslagsleutel nodig. SAS-sleutels worden momenteel niet ondersteund voor koppelen.
 
-* **Zorg ervoor dat poort 445 is geopend**: SMB communiceert via TCP-poort 445. Controleer op de clientcomputer (Mac) of uw firewall TCP-poort 445 niet blokkeert.
+* **Zorg ervoor dat poort 445 open is**: SMB communiceert via TCP-poort 445. Controleer op de clientcomputer (Mac) of uw firewall TCP-poort 445 niet blokkeert.
 
 ## <a name="mount-an-azure-file-share-via-finder"></a>Een Azure-bestandsshare koppelen via Finder
-1. **Open Finder**: Finder is standaard geopend op Mac OS, maar u kunt controleren of het de geselecteerde toepassing is door te klikken op het 'gezichtspictogram van Mac OS' op de dock:  
+1. **Open Finder**: Finder is standaard geopend op MacOS, maar u kunt controleren of het de geselecteerde toepassing is door te klikken op het 'gezichtspictogram van MacOS' op de dock:  
     ![Het gezichtspictogram van Mac OS](./media/storage-how-to-use-files-mac/mount-via-finder-1.png)
 
-2. **Selecteer 'Verbinden met server' in het menu 'Ga'**: Gebruik het UNC-pad in de [vereisten](#preq) en converteer de eerste twee backslashes (`\\`) naar `smb://` en alle andere backslashes (`\`) naar slashes (`/`). De link moet er als volgt uitzien: ![het dialoogvenster 'Verbinden met server'](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
+2. **Selecteer 'Verbinding maken met Server' in het Menu 'Ga'**: Gebruik het UNC-pad in de [vereisten](#preq) en converteer de eerste twee backslashes (`\\`) naar `smb://` en alle andere backslashes (`\`) naar slashes (`/`). Uw link moet er als volgt uitzien: Het dialoogvenster !['Verbinding maken met server'](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
 
-3. **Gebruik de naam en sleutel van het opslagaccount wanneer u wordt gevraagd om een gebruikersnaam en wachtwoord**: wanneer u klikt op 'Verbinden' in het dialoogvenster 'Verbinden met server', wordt u gevraagd om de gebruikersnaam en het wachtwoord (hier wordt uw macOS-gebruikersnaam automatisch ingevuld). U hebt de mogelijkheid om de naam/sleutel van het opslagaccount in uw macOS-sleutelhanger op te slaan.
+3. **Gebruik de naam en sleutel van het opslagaccount wanneer u wordt gevraagd om een gebruikersnaam en wachtwoord**: Wanneer u klikt op 'Verbinden' in het dialoogvenster 'Verbinden met server', wordt u gevraagd om de gebruikersnaam en het wachtwoord (hier wordt uw MacOS-gebruikersnaam automatisch ingevuld). U hebt de mogelijkheid om de naam/sleutel van het opslagaccount in uw macOS-sleutelhanger op te slaan.
 
-4. **Gebruik de Azure-bestandsshare naar wens**: nadat u de sharenaam en de sleutel van het opslagaccount hebt gebruikt in plaats van de gebruikersnaam en het wachtwoord, wordt de share gekoppeld. U kunt deze gebruiken zoals u een lokale map/bestandsshare zou gebruiken. Zo kunt u bestanden naar de bestandsshare slepen en neerzetten:
+4. **Gebruik de Azure-bestandsshare naar wens**: Nadat u de sharenaam en de sleutel van het opslagaccount hebt gebruikt in plaats van de gebruikersnaam en het wachtwoord, wordt de share gekoppeld. U kunt deze gebruiken zoals u een lokale map/bestandsshare zou gebruiken. Zo kunt u bestanden naar de bestandsshare slepen en neerzetten:
 
     ![Een momentopname van een gekoppelde Azure-bestandsshare](./media/storage-how-to-use-files-mac/mount-via-finder-3.png)
 
 ## <a name="mount-an-azure-file-share-via-terminal"></a>Een Azure-bestandsshare koppelen via Terminal
-1. Vervang `<storage-account-name>` door de naam van uw opslagaccount. Geef de sleutel van het opslagaccount als wachtwoord wanneer hierom wordt gevraagd. 
+1. Vervang `<storage-account-name>` door de naam van uw opslagaccount. Geef de sleutel van het opslagaccount als wachtwoord wanneer hierom wordt gevraagd. 
 
     ```
     mount_smbfs //<storage-account-name>@<storage-account-name>.file.core.windows.net/<share-name> <desired-mount-point>
     ```
 
-2. **Gebruik de Azure-bestandsshare naar wens**: de Azure-bestandsshare wordt aan het koppelpunt dat is opgegeven door de vorige opdracht gekoppeld.  
+2. **Gebruik de Azure-bestandsshare naar wens**: De Azure-bestandsshare wordt gekoppeld aan het koppelpunt dat is opgegeven door de vorige opdracht.  
 
     ![Een momentopname van de gekoppelde Azure-bestandsshare](./media/storage-how-to-use-files-mac/mount-via-terminal-1.png)
 

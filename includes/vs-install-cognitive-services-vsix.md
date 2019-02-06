@@ -4,36 +4,36 @@ description: bestand opnemen
 author: ghogen
 services: cognitive-services
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: include
 ms.date: 03/01/2018
 ms.author: ghogen
 ms.custom: include file
 manager: douge
-ms.openlocfilehash: d4be9cf6b72fb828a55a0304013c0077e1ba8089
-ms.sourcegitcommit: 170d2a3b8b6ee9376c0716783ce9768e1b33ddbb
-ms.translationtype: MT
+ms.openlocfilehash: 892db95a3d8ebaf4d9d3339d4965ce96b1084537
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35550366"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252350"
 ---
-## <a name="install-the-cognitive-services-vsix-extension"></a>De uitbreiding van de VSIX cognitieve Services installeren
+## <a name="install-the-cognitive-services-vsix-extension"></a>De VSIX-extensie voor Cognitive Services installeren
 
-1. Met uw webproject openen in Visual Studio kiest de **verbonden Services** tabblad. Het tabblad is beschikbaar op de pagina die wordt weergegeven wanneer u een nieuw project openen. Als u het tabblad niet ziet, selecteert u **verbonden Services** in uw project in Solution Explorer.
+1. Kies met uw webproject geopend in Visual Studio het tabblad **Connected Services**. Het tabblad is beschikbaar op de startpagina die verschijnt wanneer u een nieuw project opent. Als u het tabblad niet ziet, selecteert u **Connected Services** in uw project in Solution Explorer.
 
-   ![Schermafbeelding van de verbonden Services tabblad](./media/vs-install-cognitive-services-vsix/Connected-Services-Tab.PNG)
+   ![Schermafbeelding van het Connected Services-tabblad](./media/vs-install-cognitive-services-vsix/Connected-Services-Tab.PNG)
 
-1. Blader naar de onderkant van de lijst met services en selecteer **meer services zoeken**.
+1. Schuif omlaag naar de onderkant van de lijst met services en selecteer **Find more services**.
 
-    ![Schermopname van zoeken services koppeling meer](./media/vs-install-cognitive-services-vsix/Find-More-Services.PNG)
+    ![Schermafbeelding van koppeling Meer services zoeken](./media/vs-install-cognitive-services-vsix/Find-More-Services.PNG)
  
-    De **uitbreidingen en Updates** dialoogvenster wordt weergegeven.
+    Het dialoogvenster **Extensions and Updates** wordt weergegeven.
 
-1. In de **uitbreidingen en Updates** in het dialoogvenster, zoekt u **cognitieve Services**, en vervolgens downloaden en installeren van het pakket cognitieve Services VSIX.
+1. Zoek in het dialoogvenster **Extensions and Updates** naar **Cognitive Services** en download en installeer vervolgens het pakket VSIX van Cognitive Services.
 
-   ![Schermopname van uitbreidingen en Updates in het dialoogvenster](./media/vs-install-cognitive-services-vsix/install-cognitive-services-vsix.PNG)
+   ![Schermafbeelding van het dialoogvenster Extensies en updates](./media/vs-install-cognitive-services-vsix/install-cognitive-services-vsix.PNG)
 
-   Installeren van een extensie vereist een herstart van de integrated development environment (IDE).
+   Om een extensie te kunnen installeren, moet de integrated development environment (IDE) opnieuw worden opgestart.
 
-2. Start Visual Studio opnieuw. De uitbreiding wordt geïnstalleerd wanneer u Visual Studio sluit, en is beschikbaar zodra die u de IDE starten.
+2. Start Visual Studio opnieuw. De extensie wordt geïnstalleerd wanneer u Visual Studio sluit en is de volgende keer dat u de IDE start, beschikbaar.
 

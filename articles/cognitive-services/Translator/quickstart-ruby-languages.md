@@ -1,23 +1,23 @@
 ---
-title: 'Snelstart: Ondersteunde talen ophalen, Ruby - Translator Text-API'
+title: 'Quickstart: Ondersteunde talen ophalen, Ruby - Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstarts haalt u een lijst met ondersteunde talen op voor vertaling, transliteratie en opzoeken in woordenlijsten en voorbeelden met behulp van de Translator Text-API met Ruby.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: 02ebeae83464aa9770854fd06468b3731d6b8549
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 67f1a7b4a064aa46ef7d258dd72b1d686a797349
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645266"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458105"
 ---
-# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-ruby"></a>Snelstart: Ondersteunde talen ophalen met de Translator Text REST API (Ruby)
+# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-ruby"></a>Quickstart: Ondersteunde talen ophalen met de Translator Text REST API (Ruby)
 
 In deze snelstartgids haalt u een lijst met ondersteunde talen op voor vertaling, transliteratie en opzoeken in woordenlijsten en voorbeelden met behulp van de Translator Text-API.
 

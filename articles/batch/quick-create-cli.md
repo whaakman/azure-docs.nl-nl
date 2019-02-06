@@ -2,22 +2,22 @@
 title: Azure-snelstartgids - Batch-taak uitvoeren - CLI
 description: Leer snel hoe u een Batch-taak kunt uitvoeren met behulp van Azure CLI.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/03/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 75703b4b10bbf3864076952990df2e6c2a9ab28d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 10f84a758bdb2e01793aee06cba59a29b5639775
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969645"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470957"
 ---
-# <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Snelstartgids: Uw eerste Batch-taak uitvoeren met Azure CLI
+# <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Snelstart: Uw eerste Batch-taak uitvoeren met Azure CLI
 
 De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. In deze snelstartgids leert u hoe u Azure CLI gebruikt voor het maken van een Batch-account, een *pool* met computerknooppunten (virtuele machines), en een *Batch-taak* waarmee *taken* worden uitgevoerd in de groep. Met elke voorbeeldtaak wordt een basisopdracht uitgevoerd op een van de knooppunten in de pool. Nadat u deze snelstartgids hebt voltooid, begrijpt u de belangrijkste principes van de Batch-service en bent u er klaar voor om Batch op grotere schaal te gebruiken voor meer realistische workloads.
 
