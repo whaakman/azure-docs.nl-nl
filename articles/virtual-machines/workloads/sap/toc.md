@@ -74,6 +74,7 @@
 ### Architectuur voor hoge beschikbaarheid
 #### [HA-architectuur en -scenario's](sap-high-availability-architecture-scenarios.md)
 #### [Architectuur en scenario's voor hogere beschikbaarheid](sap-higher-availability-architecture-scenarios.md)
+#### [SAP-werkbelastingconfiguraties met Azure-beschikbaarheidszones](sap-ha-availability-zones.md)
 #### [Hoge beschikbaarheid in Windows met gedeelde schijven voor een (A)SCS-exemplaar](sap-high-availability-guide-wsfc-shared-disk.md)
 #### [Hoge beschikbaarheid in Windows met SOFS File Share voor een (A)SCS-exemplaar](sap-high-availability-guide-wsfc-file-share.md)
 #### [Hoge beschikbaarheid in SUSE Linux voor een (A)SCS-exemplaar](high-availability-guide-suse.md)
