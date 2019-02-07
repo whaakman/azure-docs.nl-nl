@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 507927934c442c8b217ed8fea371f505bb517d35
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 4bfe4f9f97587b6791e73c2f04055b2dcf5d0f0d
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198708"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766211"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Werken met Azure Functions-proxy 's
 
@@ -221,7 +221,7 @@ Het object requestOverrides definieert wijzigingen die worden aangebracht in de 
 
 * **response.statusCode**: De HTTP-statuscode die wordt geretourneerd naar de client.
 * **response.statusReason**: De HTTP-reden wordt geretourneerd naar de client.
-* **Response.BODY**: De tekenreeksweergave van de instantie moet worden geretourneerd naar de client.
+* **response.body**: De tekenreeksweergave van de instantie moet worden geretourneerd naar de client.
 * **Response.headers. \<Headernaam\>**: Een header die kan worden ingesteld voor het antwoord op de client. Vervang *\<headernaam\>* met de naam van de header die u wilt instellen. Als u een lege tekenreeks opgeeft, wordt de header is niet opgenomen in het antwoord.
 
 Waarden kunnen verwijzen naar toepassingsinstellingen, de parameters van de aanvraag van de oorspronkelijke client en de parameters uit het antwoord van de back-end.
@@ -249,7 +249,7 @@ Een voorbeeldconfiguratie kan er als volgt uitzien:
 > In dit voorbeeld wordt de antwoordtekst is rechtstreeks instellen, dus geen `backendUri` eigenschap nodig is. Het voorbeeld ziet hoe u Azure Functions-proxy's kunt gebruiken voor het simuleren van API's.
 
 [Azure Portal]: https://portal.azure.com
-[HTTP-triggers]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger
+[HTTP-triggers]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response
 [Een object requestOverrides definiëren]: #requestOverrides

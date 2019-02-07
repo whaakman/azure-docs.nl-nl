@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 62711ac094a10a9e4a0350319a316c5a293fd522
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: fb9725e18c53e9d42ae51418a1eb614aaa10fd12
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157325"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816778"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>De beheerde client gebruiken voor Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -103,7 +103,7 @@ De volgende sectie wordt uitgelegd hoe om te zoeken en records ophalen en de geg
 * [Een record door-Id opzoeken](#lookingup)
 * [Omgaan met niet-getypeerde query 's](#untypedqueries)
 * [Gegevens invoegen](#inserting)
-* [Het bijwerken van gegevens](#updating)
+* Het bijwerken van gegevens
 * [Het verwijderen van gegevens](#deleting)
 * [Conflictoplossing en functionaliteit voor optimistische gelijktijdigheid](#optimisticconcurrency)
 * [Binding met een Windows-gebruikersinterface](#binding)
@@ -203,7 +203,7 @@ De `Where` component biedt ondersteuning voor bewerkingen die worden vertaald na
 Wanneer u overweegt wat de SDK-Server ondersteunt, kunt u overwegen de [OData v3-documentatie].
 
 ### <a name="sorting"></a>Procedures: Geretourneerde gegevens sorteren
-De volgende code laat zien hoe u gegevens sorteren door op te nemen een [Sorteren op] of [OrderByDescending] functie in de query. Het resultaat van items uit `todoTable` door oplopend gesorteerd de `Text` veld.
+De volgende code laat zien hoe u gegevens sorteren door op te nemen een [OrderBy] of [OrderByDescending] functie in de query. Het resultaat van items uit `todoTable` door oplopend gesorteerd de `Text` veld.
 
 ```csharp
 // Sort items in ascending order by Text field
@@ -218,7 +218,7 @@ List<TodoItem> items = await query.ToListAsync();
 ```
 
 ### <a name="paging"></a>Procedures: Als resultaat de gegevens op pagina 's
-De back-end retourneert standaard alleen de eerste 50 rijen. U kunt het aantal geretourneerde rijen verhogen door het aanroepen van de [nemen] methode. Gebruik `Take` samen met de [overslaan] methode om aan te vragen van een specifieke "page" van de totale gegevensset die wordt geretourneerd door de query. De volgende query, wanneer uitgevoerd, retourneert de bovenste drie items in de tabel.
+De back-end retourneert standaard alleen de eerste 50 rijen. U kunt het aantal geretourneerde rijen verhogen door het aanroepen van de [nemen] methode. Gebruik `Take` samen met de [Skip] methode om aan te vragen van een specifieke "page" van de totale gegevensset die wordt geretourneerd door de query. De volgende query, wanneer uitgevoerd, retourneert de bovenste drie items in de tabel.
 
 ```csharp
 // Define a filtered query that returns the top 3 items.
@@ -902,7 +902,7 @@ private async void InitNotificationsAsync()
 Als u voor WNS pusht, dan u moet [verkrijgen van een pakket-SID van de Microsoft Store](#package-sid).  Zie voor meer informatie over Windows-apps, inclusief het registreren voor de sjabloon-registraties [Pushmeldingen toevoegen aan uw app].
 
 Aanvragen van tags van de client wordt niet ondersteund.  Tag-aanvragen zijn op de achtergrond verwijderd uit de inschrijving.
-Als u wilt dat uw apparaat te registreren bij tags, maakt u een aangepaste API die gebruikmaakt van de Notification Hubs-API om uit te voeren van de registratie namens.  [De aangepaste API aanroepen](#customapi) in plaats van de `RegisterNativeAsync()` methode.
+Als u wilt dat uw apparaat te registreren bij tags, maakt u een aangepaste API die gebruikmaakt van de Notification Hubs-API om uit te voeren van de registratie namens.  Aanroepen van de aangepaste API in plaats van de `RegisterNativeAsync()` methode.
 
 ### <a name="package-sid"></a>Procedures: Verkrijgen van een pakket-SID van de Microsoft Store
 Een pakket-SID is vereist voor het inschakelen van pushmeldingen in Microsoft Store-apps.  Voor het ontvangen van een pakket-SID, moet u uw toepassing registreren met de Microsoft Store.
@@ -912,7 +912,7 @@ Als u deze waarde:
 1. In Visual Studio Solution Explorer met de rechtermuisknop op de Microsoft Store-app-project, klikt u op **Store** > **App aan de Store koppelen...** .
 2. In de wizard, klikt u op **volgende**, meld u aan met uw Microsoft-account, typ een naam voor uw app in **een nieuwe appnaam reserveren**, klikt u vervolgens op **Reserve**.
 3. Nadat de app-registratie is gemaakt, selecteert u de appnaam, klikt u op **volgende**, en klik vervolgens op **koppelen**.
-4. Meld u aan bij de [Windows-ontwikkelaarscentrum] met uw Microsoft-Account. Onder **mijn apps**, klikt u op de appregistratie van de die u hebt gemaakt.
+4. Meld u aan bij de [Windows Dev Center] met uw Microsoft-Account. Onder **mijn apps**, klikt u op de appregistratie van de die u hebt gemaakt.
 5. Klik op **appbeheer** > **identiteit App**, en schuif vervolgens omlaag naar zoeken naar uw **pakket-SID**.
 
 Vele toepassingen van de pakket-SID behandelen als een URI, in welk geval u wilt gebruiken *ms-app: / /* als het schema. Noteer de versie van uw pakket-SID gevormd door het samenvoegen van deze waarde als een voorvoegsel.
@@ -1059,12 +1059,12 @@ public class MyHandler : DelegatingHandler
 [InvokeApiAsync]: https://msdn.microsoft.com/library/azure/dn268343(v=azure.10).aspx
 [LoginAsync]: https://msdn.microsoft.com/library/azure/dn296411(v=azure.10).aspx
 [LookupAsync]: https://msdn.microsoft.com/library/azure/jj871654(v=azure.10).aspx
-[Sorteren op]: https://msdn.microsoft.com/library/azure/dn250572(v=azure.10).aspx
+[OrderBy]: https://msdn.microsoft.com/library/azure/dn250572(v=azure.10).aspx
 [OrderByDescending]: https://msdn.microsoft.com/library/azure/dn250568(v=azure.10).aspx
 [ReadAsync]: https://msdn.microsoft.com/library/azure/mt691741(v=azure.10).aspx
 [nemen]: https://msdn.microsoft.com/library/azure/dn250574(v=azure.10).aspx
 [Selecteren]: https://msdn.microsoft.com/library/azure/dn250569(v=azure.10).aspx
-[Overslaan]: https://msdn.microsoft.com/library/azure/dn250573(v=azure.10).aspx
+[Skip]: https://msdn.microsoft.com/library/azure/dn250573(v=azure.10).aspx
 [UpdateAsync]: https://msdn.microsoft.com/library/azure/dn250536.(v=azure.10)aspx
 [UserID]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [waar]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
@@ -1072,7 +1072,7 @@ public class MyHandler : DelegatingHandler
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: https://msdn.microsoft.com/library/windows/apps/Hh701916.aspx
-[Windows-ontwikkelaarscentrum]: https://dev.windows.com/overview
+[Windows Dev Center]: https://dev.windows.com/overview
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 [PasswordVault]: https://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: https://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx

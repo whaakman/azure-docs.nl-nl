@@ -19,11 +19,13 @@ items:
   items:
   - name: 1 - B2C-tenant maken
     href: tutorial-create-tenant.md
-  - name: 2 - Toepassingen registreren
+  - name: 2 - Een toepassing registreren
     href: tutorial-register-applications.md
   - name: 3 - Gebruikersstromen maken
     href: tutorial-create-user-flows.md
-  - name: 4 - De gebruikersinterface aanpassen
+  - name: Id-providers toevoegen
+    href: tutorial-add-identity-providers.md
+  - name: De gebruikersinterface aanpassen
     href: tutorial-customize-ui.md
   - name: Accounts verifiëren
     items:
@@ -75,7 +77,11 @@ items:
   items:
   - name: Auditlogboeken inzien
     href: active-directory-b2c-reference-audit-logs.md
-  - name: Leeftijdsbeperking
+  - name: Een web-API-toepassing toevoegen
+    href: add-web-application.md
+  - name: Een systeemeigen clienttoepassing toevoegen
+    href: add-native-application.md
+  - name: Leeftijdsbeperking configureren
     href: basic-age-gating.md
   - name: Tokens configureren
     href: active-directory-b2c-token-session-sso.md
@@ -318,9 +324,9 @@ items:
     href: active-directory-b2c-support.md
   - name: Video's
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: c7f7036e52c5c9d0f9d7c51a882474028ba63aef
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 8aa1d5bf118330f6f04cfd35a59f2b60ce6e1ee8
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240842"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751783"
