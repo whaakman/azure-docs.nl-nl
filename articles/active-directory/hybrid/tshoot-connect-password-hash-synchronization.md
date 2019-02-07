@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: c87b6791ea2d90ed302d796f17727a0338104beb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5339b0c77a69a915e58118888f8b82d095a43e38
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55174989"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817781"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Problemen met wachtwoord-hashsynchronisatie met Azure AD Connect-synchronisatie oplossen
 Dit onderwerp bevat stappen voor het oplossen van problemen met wachtwoord-hashsynchronisatie. Als de wachtwoorden zijn niet gesynchroniseerd zoals verwacht, kan het zijn voor een subset van gebruikers of voor alle gebruikers.
@@ -237,7 +237,7 @@ Volg deze stappen om te bepalen waarom er zijn geen wachtwoorden worden gesynchr
 
 5. Als er geen heartbeat of als er niets anders heeft gewerkt, [activeren van een volledige synchronisatie van alle wachtwoorden](#trigger-a-full-sync-of-all-passwords). Voer het script slechts één keer.
 
-6. Zie de [oplossen van een object dat wachtwoorden niet kan worden gesynchroniseerd](#one-object-is-not-synchronizing-passwords) sectie.
+6. Zie de problemen met een object dat sectie wachtwoorden niet kan worden gesynchroniseerd.
 
 ### <a name="connectivity-problems"></a>Problemen met de netwerkverbinding
 
@@ -303,7 +303,7 @@ U kunt eenvoudig problemen met wachtwoord-hash-synchronisatie oplossen aan de ha
 
     ![Logboek objectdetails](./media/tshoot-connect-password-hash-synchronization/csobjectlog.png)  
 
-    Als het logboek object leeg is, is Azure AD Connect kan niet lezen van de wachtwoord-hash uit Active Directory. Doorgaan met het oplossen van problemen met [Connectiviteitsfouten](#connectivity-errors). Als er een andere waarde dan **succes**, Zie de tabel in [wachtwoord synchronisatielogboek](#password-sync-log).
+    Als het logboek object leeg is, is Azure AD Connect kan niet lezen van de wachtwoord-hash uit Active Directory. Doorgaan met het oplossen van problemen met fouten in de basisnetwerkverbinding. Als er een andere waarde dan **succes**, Zie de tabel in [wachtwoord synchronisatielogboek](#password-sync-log).
 
     h. Selecteer de **afkomst** tabblad en zorg ervoor dat ten minste één synchronisatieregel in de **PasswordSync** kolom **waar**. In de standaardconfiguratie, de naam van de synchronisatieregel is **In uit Active Directory - gebruiker AccountEnabled**.  
 
@@ -326,7 +326,7 @@ U kunt eenvoudig problemen met wachtwoord-hash-synchronisatie oplossen aan de ha
 ### <a name="password-sync-log"></a>Synchronisatielogboek wachtwoord
 De statuskolom kan de volgende waarden hebben:
 
-| Status | Beschrijving |
+| Status | Description |
 | --- | --- |
 | Geslaagd |Wachtwoord is gesynchroniseerd. |
 | FilteredByTarget |Wachtwoord is ingesteld op **gebruiker moet wachtwoord bij volgende aanmelding wijzigen**. Wachtwoord is niet gesynchroniseerd. |
@@ -417,5 +417,5 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Implementatie van wachtwoord-hashsynchronisatie met Azure AD Connect-synchronisatie](how-to-connect-password-hash-synchronization.md)
-* [Azure AD Connect-synchronisatie: Synchronisatieopties aanpassen](how-to-connect-sync-whatis.md)
+* [Azure AD Connect Sync: Synchronisatieopties aanpassen](how-to-connect-sync-whatis.md)
 * [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: cdc55491e827ab949d471c9b66c7caaa86f5055d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4ba91bec752b16be0c172c65ff58241c852a61b9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043325"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811644"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Registratie in diagnoselogboek in Azure Cosmos DB 
 
@@ -79,7 +79,7 @@ Als u wilt inschakelen voor diagnostische gegevens vastleggen in Azure portal, m
 
     * **Archiveren naar een opslagaccount**: Als u wilt deze optie gebruikt, moet u een bestaand opslagaccount verbinden. Zie voor informatie over het maken van een nieuw opslagaccount in de portal [een opslagaccount maken](../storage/common/storage-create-storage-account.md) en volg de instructies voor het maken van een Azure Resource Manager, account voor algemeen gebruik. Keer vervolgens terug naar deze pagina in de portal voor uw storage-account selecteren. Het duurt enkele minuten duren voordat de zojuist gemaakte storage-accounts worden weergegeven in de vervolgkeuzelijst.
     * **Stream naar een event hub**: Als u wilt deze optie gebruikt, moet u een bestaande Event Hubs-naamruimte en event hub te verbinden. Zie voor het maken van een Event Hubs-naamruimte, [een Event Hubs-naamruimte en een event hub maken met behulp van de Azure-portal](../event-hubs/event-hubs-create.md). Keer vervolgens terug naar deze pagina in de portal voor het selecteren van de naam van de Event Hubs-naamruimte en het beleid.
-    * **Verzenden naar Log Analytics**: Als u wilt deze optie gebruikt, gebruik een bestaande werkruimte of maak een nieuwe Log Analytics-werkruimte met de volgende stappen om te [Maak een nieuwe werkruimte](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) in de portal. Zie voor meer informatie over het weergeven van uw logboeken in Log Analytics [weergave-logboeken in Log Analytics](#view-in-loganalytics).
+    * **Verzenden naar Log Analytics**: Als u wilt deze optie gebruikt, gebruik een bestaande werkruimte of maak een nieuwe Log Analytics-werkruimte met de volgende stappen om te [Maak een nieuwe werkruimte](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) in de portal. Zie de dat weergave-logboeken in Log Analytics voor meer informatie over het weergeven van uw logboeken in Log Analytics.
     * **Meld u DataPlaneRequests**: Selecteer deze optie om aan te melden van aanvragen van de back-end van de onderliggende Azure Cosmos DB gedistribueerd platform voor SQL, grafiek, MongoDB, Cassandra en Table-API-accounts. Als u naar een opslagaccount archiveren bent, kunt u de bewaarperiode voor de diagnostische logboeken. Logboeken worden automatisch verwijderd nadat de bewaarperiode is verlopen.
     * **Meld u MongoRequests**: Selecteer deze optie om aan te melden gebruiker geïnitieerde aanvragen van de Azure Cosmos DB-front-end voor het uitvoeren van Cosmos-accounts die zijn geconfigureerd met Azure Cosmos DB-API voor MongoDB. Als u naar een opslagaccount archiveren bent, kunt u de bewaarperiode voor de diagnostische logboeken. Logboeken worden automatisch verwijderd nadat de bewaarperiode is verlopen.
     * **Metrische aanvragen**: Selecteer deze optie voor het opslaan van uitgebreide gegevens in [metrische gegevens van Azure](../azure-monitor/platform/metrics-supported.md). Als u naar een opslagaccount archiveren bent, kunt u de bewaarperiode voor de diagnostische logboeken. Logboeken worden automatisch verwijderd nadat de bewaarperiode is verlopen.

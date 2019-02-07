@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aa6f891cc68d19e638bb2b7281f4b332de26bd26
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 6b97968540914bf1edf5624d04e8f47956de7f0d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332639"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822252"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Naar of van Oracle on-premises gegevens kopiëren met behulp van Azure Data Factory
 
@@ -92,7 +92,7 @@ Of u de hulpprogramma's of API's gebruikt, voert u de volgende stappen uit voor 
 3. Maak **gegevenssets** te vertegenwoordigen invoer- en uitvoergegevens voor de kopieerbewerking. In het voorbeeld in de vorige stap maakt u een gegevensset om op te geven van de tabel in uw Oracle-database die de invoergegevens bevat. U maakt een andere gegevensset om op te geven van de blob-container en de map waarin de gegevens van de Oracle-database gekopieerd. Zie voor de gegevensseteigenschappen die specifiek voor Oracle zijn, [gegevensseteigenschappen](#dataset-properties).
 4. Maak een **pijplijn** waarvoor een kopieeractiviteit waarmee een gegevensset als invoer en een gegevensset als uitvoer. In het vorige voorbeeld gebruikt u **OracleSource** als een bron en **BlobSink** als een sink voor de kopieeractiviteit. Op dezelfde manier als u van Azure Blob-opslag met een Oracle-database kopiëren wilt, u **BlobSource** en **OracleSink** in de kopieeractiviteit. Zie voor de Kopieeractiviteit-eigenschappen die specifiek voor een Oracle-database zijn, [Kopieeractiviteit eigenschappen](#copy-activity-properties). Selecteer de koppeling voor de gegevensopslag in de voorgaande sectie voor meer informatie over het gebruik van een gegevensarchief als een bron of de sink.
 
-Wanneer u de wizard, JSON-definities voor deze Data Factory-entiteiten worden automatisch voor u gemaakt: gekoppelde services, gegevenssets en de pijplijn. Wanneer u hulpprogramma's of API's (met uitzondering van de .NET API), kunt u deze Data Factory-entiteiten definiëren met behulp van de JSON-indeling. Zie voor voorbeelden van JSON-definities voor Data Factory-entiteiten die u gebruikt om gegevens te kopiëren naar of van een on-premises Oracle-database hebt, [JSON voorbeelden](#json-examples-for-copying-data-to-and-from-oracle-database).
+Wanneer u de wizard, JSON-definities voor deze Data Factory-entiteiten worden automatisch voor u gemaakt: gekoppelde services, gegevenssets en de pijplijn. Wanneer u hulpprogramma's of API's (met uitzondering van de .NET API), kunt u deze Data Factory-entiteiten definiëren met behulp van de JSON-indeling. Zie voor voorbeelden van JSON-definities voor Data Factory-entiteiten die u gebruikt om gegevens te kopiëren naar of van een on-premises Oracle-database hebt, JSON-voorbeelden.
 
 De volgende secties bevatten meer informatie over JSON-eigenschappen die u gebruikt voor het definiëren van Data Factory-entiteiten.
 
@@ -599,27 +599,27 @@ Wanneer u gegevens van Oracle hebt verplaatst, worden de volgende toewijzingen v
 | --- | --- |
 | BBESTAND |Byte[] |
 | BLOB |Byte[]<br/>(alleen ondersteund op Oracle 10g en latere versies wanneer u een stuurprogramma van Microsoft) |
-| CHAR |Reeks |
-| CLOB |Reeks |
+| CHAR |String |
+| CLOB |String |
 | DATE |DateTime |
 | FLOAT |Decimaal getal, tekenreeks (als precisie > 28) |
 | GEHEEL GETAL ZIJN |Decimaal getal, tekenreeks (als precisie > 28) |
 | INTERVAL VOOR JAAR TOT MAAND |Int32 |
 | TWEEDE INTERVAL DAG |TimeSpan |
-| LONG |Reeks |
+| LONG |String |
 | LANGE ONBEWERKTE |Byte[] |
-| NCHAR |Reeks |
-| NCLOB |Reeks |
+| NCHAR |String |
+| NCLOB |String |
 | AANTAL |Decimaal getal, tekenreeks (als precisie > 28) |
-| NVARCHAR2 |Reeks |
+| NVARCHAR2 |String |
 | RAW |Byte[] |
-| ROWID |Reeks |
+| ROWID |String |
 | TIMESTAMP |DateTime |
 | TIJDSTEMPEL MET DE LOKALE TIJDZONE |DateTime |
 | TIJDSTEMPEL MET TIJDZONE |DateTime |
 | GEHEEL GETAL ZONDER TEKEN |Aantal |
-| VARCHAR2 |Reeks |
-| XML |Reeks |
+| VARCHAR2 |String |
+| XML |String |
 
 > [!NOTE]
 > Gegevenstypen **INTERVAL jaar aan maand** en **INTERVAL dag aan tweede** worden niet ondersteund wanneer u een stuurprogramma van Microsoft.

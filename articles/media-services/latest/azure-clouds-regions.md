@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: juliako
-ms.openlocfilehash: 8eb49010d89c3039f46e5c84cd305b7d0b5ca025
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: d176152429ecac1ed4e570533f1bc0426cc7655f
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54307000"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767449"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Clouds en regio's in welke Azure Media Services v3 bestaat
 
@@ -33,9 +33,16 @@ Azure Media Services v3 is beschikbaar via Azure Resource Manager-manifest in gl
 | [LiveEvents](live-streaming-overview.md) | Beschikbaar | Beschikbaar | Beschikbaar | Beschikbaar |
 | [StreamingEndpoints](streaming-endpoint-concept.md) | Beschikbaar | Beschikbaar | Beschikbaar | Beschikbaar |
 
-## <a name="regions"></a>Regio's 
+## <a name="regionsgeographieslocations"></a>Landen/regio's / locaties
 
-Wanneer moet u opgeven de **locatie** parameter, moet u opgeven de naam van de regio-code als de **locatie** waarde. Als u de naam van de code van de regio waar uw account in en dat de aanroep moet worden doorgestuurd naar, kunt u de volgende regel uitvoeren in [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
+* [Azure-regio's](https://azure.microsoft.com/global-infrastructure/regions/)
+* [Producten per regio](https://azure.microsoft.com/global-infrastructure/services/)
+* [Azure-geografieën](https://azure.microsoft.com/global-infrastructure/geographies/)
+* [Azure-locaties](https://azure.microsoft.com/global-infrastructure/locations/)
+
+## <a name="region-code-name"></a>Regionaam 
+
+Wanneer moet u opgeven de **locatie** parameter, moet u opgeven de naam van de regio-code als de **locatie** waarde. Als u de naam van de code van de regio waar uw account in en dat de aanroep moet worden doorgestuurd naar, kunt u de volgende regel uitvoeren in [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
 ```bash
 az account list-locations

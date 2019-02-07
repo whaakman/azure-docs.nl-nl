@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3d0a3014fa224d6b5c85142e492afb0679f9f0b1
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c188c23f87715b6ba5b90f6015b59f2a347ec0cf
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014678"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821317"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Gegevens verplaatsen met behulp van Kopieeractiviteit
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -209,7 +209,7 @@ Andere gegevensarchieven hebben verschillende systeemeigen type systemen. Kopiee
 1. Converteren van systeemeigen bronquery typen naar een .NET-type.
 2. Converteren van een .NET-type naar een systeemeigen sink-type.
 
-De toewijzing van een systeemeigen typesysteem met een .NET-type voor een gegevensopslag is in de respectieve data store artikel. (Klik op de specifieke koppeling in de [ondersteunde gegevensarchieven](#supported-data-stores) tabel). U kunt deze toewijzingen gebruiken om te bepalen juiste typen tijdens het maken van tabellen, zodat de Kopieeractiviteit wordt de juiste conversies uitgevoerd.
+De toewijzing van een systeemeigen typesysteem met een .NET-type voor een gegevensopslag is in de respectieve data store artikel. (Klik op de specifieke koppeling in de tabel stores ondersteund). U kunt deze toewijzingen gebruiken om te bepalen juiste typen tijdens het maken van tabellen, zodat de Kopieeractiviteit wordt de juiste conversies uitgevoerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie voor meer informatie over de Kopieeractiviteit, [gegevens kopiëren van Azure Blob-opslag naar Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

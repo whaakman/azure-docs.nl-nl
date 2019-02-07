@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: b507e6630e5b0b0e73edad1815825e70ed90ec4d
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 58cff9be154e693a378f55941e8662563c366b27
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097296"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820212"
 ---
 # <a name="web-api"></a>Web-API
 
@@ -47,7 +47,7 @@ De toepassings-id en de gemachtigde gebruiker-ID-typen worden beschreven in de o
 
 ### <a name="delegated-user-identity-with-openid-connect"></a>Gedelegeerde gebruikersidentiteit met OpenID Connect
 
-1. Een gebruiker is aangemeld bij een web-App met behulp van Azure AD (Zie de [Web Browser webtoepassing](#web-browser-to-web-application) hierboven). Als de gebruiker van de web-App heeft nog niet toegestaan dat zodat de webtoepassing naar de web-API aanroepen namens, wordt de gebruiker moet toestemming geven. De machtigingen die vereist is door de toepassing wordt weergegeven, en als een van deze machtigingen op administrator-niveau, een normale gebruiker in de map niet mogelijk om in te stemmen. Dit proces toestemming geldt alleen voor toepassingen met meerdere tenants, niet één tenant-toepassingen, zoals de toepassing beschikt al over de vereiste machtigingen. Wanneer de gebruiker is aangemeld, heeft een ID-token met informatie over de gebruiker, evenals een autorisatiecode ontvangen in de web-App.
+1. Een gebruiker is aangemeld bij een web-App met behulp van Azure AD (Zie de webbrowser toe Web-App hierboven). Als de gebruiker van de web-App heeft nog niet toegestaan dat zodat de webtoepassing naar de web-API aanroepen namens, wordt de gebruiker moet toestemming geven. De machtigingen die vereist is door de toepassing wordt weergegeven, en als een van deze machtigingen op administrator-niveau, een normale gebruiker in de map niet mogelijk om in te stemmen. Dit proces toestemming geldt alleen voor toepassingen met meerdere tenants, niet één tenant-toepassingen, zoals de toepassing beschikt al over de vereiste machtigingen. Wanneer de gebruiker is aangemeld, heeft een ID-token met informatie over de gebruiker, evenals een autorisatiecode ontvangen in de web-App.
 1. Met behulp van de autorisatiecode dat is uitgegeven door Azure AD, verzendt de web-App een aanvraag naar Azure AD-token-eindpunt met de autorisatiecode, informatie over de clienttoepassing (toepassings-ID en omleidings-URI) en de gewenste resource (toepassings-ID De URI voor de web-API).
 1. De autorisatiecode en informatie over de web-App en web-API worden gevalideerd door Azure AD. Na de validatie is geslaagd, Azure AD twee tokens retourneert: een JWT-toegangstoken en een JWT-vernieuwingstoken.
 1. Via HTTPS gebruikt de web-App het geretourneerde JWT-toegangstoken om toe te voegen van de JWT-tekenreeks met een aanduiding 'Bearer' in de autorisatie-header van de aanvraag naar de web-API. De web-API valideert de JWT-token, en als validatie gelukt is, geeft de gewenste resource.

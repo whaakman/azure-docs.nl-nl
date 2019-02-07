@@ -15,12 +15,12 @@ ms.date: 01/11/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: f3129c27d123aa448f8293f7e1827dc3ebc5c82e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f38d27c6f82533265705ff5483bfe835c81c9ce6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239074"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817288"
 ---
 # <a name="update-the-mysql-resource-provider"></a>Bijwerken van de MySQL-resourceprovider 
 
@@ -30,7 +30,7 @@ Een nieuwe MySQL resource provider-adapter kan worden vrijgegeven wanneer Azure 
 
 Beginnen met de MySQL-resource provider 1.1.33.0 versie, updates zijn cumulatief en hoeft niet te worden geïnstalleerd in de volgorde waarin ze zijn vrijgegeven; Als u vanaf versie 1.1.24.0 of hoger. Bijvoorbeeld als u versie 1.1.24.0 van de MySQL-resourceprovider uitvoert, kunt klikt u vervolgens u upgraden naar versie 1.1.33.0 of later zonder dat eerst versie 1.1.30.0 installeren. Als u wilt controleren op beschikbare resource provider versies en de versie van Azure Stack op worden ondersteund, verwijzen naar de lijst met versies in [implementeert de vereisten van de provider resource](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
-Het bijwerken van de resource-provider die u gebruikt de **UpdateMySQLProvider.ps1** script. Het proces is vergelijkbaar met het proces dat wordt gebruikt voor het installeren van een resourceprovider, zoals beschreven in de [implementeren van de resourceprovider](#deploy-the-resource-provider) sectie van dit artikel. Het script is inbegrepen bij het downloaden van de resourceprovider. 
+Het bijwerken van de resource-provider die u gebruikt de **UpdateMySQLProvider.ps1** script. Het proces is vergelijkbaar met het proces dat wordt gebruikt voor het installeren van een resourceprovider, zoals beschreven in het implementeren van de resource provider-sectie van dit artikel. Het script is inbegrepen bij het downloaden van de resourceprovider. 
 
  > [!IMPORTANT]
  > Vóór de upgrade van de resourceprovider, neem de releaseopmerkingen voor meer informatie over nieuwe functionaliteit, correcties en bekende problemen die invloed kunnen zijn op uw implementatie.
@@ -48,7 +48,7 @@ Het gebruik van dezelfde argumenten die worden beschreven door het script is ver
 ## <a name="update-script-parameters"></a>Scriptparameters bijwerken 
 U kunt de volgende parameters vanaf de opdrachtregel opgeven tijdens het uitvoeren van de **UpdateMySQLProvider.ps1** PowerShell-script. Als u dit niet doet, of als een parametervalidatie mislukt, wordt u gevraagd de vereiste parameters opgeven. 
 
-| Parameternaam | Beschrijving | Opmerking of de standaardwaarde | 
+| Parameternaam | Description | Opmerking of de standaardwaarde | 
 | --- | --- | --- | 
 | **CloudAdminCredential** | De referentie voor de beheerder van de cloud, die nodig zijn voor toegang tot het eindpunt van de bevoegdheden. | _Vereist_ | 
 | **AzCredential** | De referenties voor de beheerdersaccount van de Azure Stack-service. Gebruik de dezelfde referenties als u hebt gebruikt voor het implementeren van Azure Stack. | _Vereist_ | 

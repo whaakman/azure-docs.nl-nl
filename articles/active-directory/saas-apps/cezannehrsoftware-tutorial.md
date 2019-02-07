@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 7515d1d88e3652ba609286b1805e58853763434d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 28a699f62a97120a27ba4d6f555182f090249dcf
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183221"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812294"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Zelfstudie: Azure Active Directory-integratie met Cezanne HR-Software
 
@@ -88,7 +88,7 @@ Om te configureren en testen van Azure AD eenmalige aanmelding met Cezanne HR-So
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
 1. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-1. **[Maak een testgebruiker Cezanne HR Software](#create-a-cezannehrsoftware-test-user)**  : als u wilt een equivalent van Britta Simon in Cezanne HR-Software die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **Maak een testgebruiker Cezanne HR Software** : als u wilt een equivalent van Britta Simon in Cezanne HR-Software die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
 1. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 1. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 

@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: 6cdfa7492a9916cc3e2300ad71e21acfb68e3d30
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 26eccfd2a144d5bfcb285e6b52af246c3eefde75
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352237"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822031"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Verbinding maken met een Node.js Mongoose-toepassing met Azure Cosmos DB
 
@@ -32,7 +32,7 @@ Cosmos DB is wereldwijd gedistribueerde multi-modeldatabase-service van Microsof
 
 ## <a name="create-a-cosmos-account"></a>Een Cosmos-account maken
 
-Laten we een Cosmos-account maken. Als u al een account hebt dat u wilt gebruiken, kunt u verder naar de stap [Uw Node.js-toepassing instellen](#SetupNode). Als u de Azure Cosmos DB-emulator gebruikt, volgt u de stappen in [Azure Cosmos DB-emulator](local-emulator.md) om de emulator in te stellen en meteen naar [Uw Node.js-toepassing instellen](#SetupNode) te gaan.
+Laten we een Cosmos-account maken. Als u al een account dat u wilt gebruiken, kunt u verder naar Set up uw Node.js-toepassing. Als u de Azure Cosmos DB-Emulator gebruikt, volgt u de stappen in [Azure Cosmos DB-Emulator](local-emulator.md) instellen van de emulator en verdergaan met het instellen van uw Node.js-toepassing.
 
 [!INCLUDE [cosmos-db-create-dbaccount-mongodb](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 

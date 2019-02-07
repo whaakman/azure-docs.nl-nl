@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
-ms.openlocfilehash: 97b33ed76776ae00c109e891b3d91638080ed778
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: b48382c8f429576a3d15c624c9c9028cffec3872
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508399"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813021"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Het configureren van BGP op Azure VPN-Gateways met behulp van PowerShell
 In dit artikel leidt u door de stappen u BGP wilt inschakelen op een cross-premises Site-naar-Site (S2S) VPN-verbinding en een VNet-naar-VNet-verbinding met het Resource Manager-implementatiemodel en PowerShell.
@@ -35,7 +35,7 @@ Zie [overzicht van BGP met Azure VPN-Gateways](vpn-gateway-bgp-overview.md) voor
 In dit artikel leidt u door de stappen voor het uitvoeren van de volgende taken:
 
 * [Deel 1: BGP op uw Azure VPN-gateway inschakelen](#enablebgp)
-* [Deel 2: een cross-premises verbinding maken met BGP](#crossprembgp)
+* Deel 2: een cross-premises verbinding maken met BGP
 * [Deel 3: een VNet-naar-VNet verbinding maken met BGP](#v2vbgp)
 
 Elk onderdeel van de instructies vormt een eenvoudige bouwsteen voor het inschakelen van BGP in uw netwerkverbinding. Als u alle drie delen hebt voltooid, wordt de topologie bouwen zoals wordt weergegeven in het volgende diagram:

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 7fbbcefde583d7e464633d9011e591b4c9bf6f65
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2787353230408d6374db36eb5621f98285245364
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460315"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766517"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Azure PowerShell gebruiken met Azure Storage
 
@@ -201,7 +201,7 @@ U kunt controleren met behulp van de [Azure-portal](https://portal.azure.com), P
 
 * Zie voor meer informatie over het inschakelen en weergeven van metrische gegevens van Storage-gegevens met behulp van PowerShell, [Azure Storage inschakelen metrische gegevens en weergave metrische gegevens](storage-enable-and-view-metrics.md#how-to-enable-metrics-using-powershell).
 
-* Zie voor meer informatie over het inschakelen en ophalen van logboekregistratie voor opslag gegevens met behulp van PowerShell, [het inschakelen van logboekregistratie van opslag met behulp van PowerShell](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data#how-to-enable-storage-logging-using-powershell) en [vinden van uw logboekgegevens Storage Logging](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data#finding-your-storage-logging-log-data).
+* Zie voor meer informatie over het inschakelen en ophalen van logboekregistratie voor opslag gegevens met behulp van PowerShell, [het inschakelen van logboekregistratie van opslag met behulp van PowerShell](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data) en [vinden van uw logboekgegevens Storage Logging](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data).
 
 * Zie voor gedetailleerde informatie over het gebruik van metrische opslaggegevens en logboekregistratie van opslag aan het oplossen van opslagproblemen [bewaking, diagnose en het oplossen van Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 

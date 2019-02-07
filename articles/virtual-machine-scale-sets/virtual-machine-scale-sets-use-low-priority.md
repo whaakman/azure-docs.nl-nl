@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: memccror
-ms.openlocfilehash: c0b4e3e0a924c1353f7732737670dee7ed45a62a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 85b974e954fd99f6f10426f1961ea9f4a5343c59
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953868"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811100"
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>Virtuele machines met lage prioriteit op schaalsets (preview)
 
@@ -43,13 +43,13 @@ Als u uw VM's in uw schaalset met lage prioriteit worden verwijderd wilt als ze 
 
 Als u wilt implementeren met lage prioriteit VM's op schaalsets, kunt u instellen de nieuwe *prioriteit* markering *laag*. Alle virtuele machines in uw schaalset worden ingesteld op prioriteit laag. Voor het maken van een schaalset met virtuele machines met lage prioriteit, moet u een van de volgende methoden gebruiken:
 - [Azure Portal](#use-the-azure-portal)
-- [Azure-CLI](#use-the-azure-cli-20)
+- Azure-CLI
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure Resource Manager-sjablonen](#use-azure-resource-manager-templates)
 
 ## <a name="use-the-azure-portal"></a>Azure Portal gebruiken
 
-Het proces voor het maken van een schaalset die gebruikmaakt van virtuele machines met lage prioriteit is hetzelfde als beschreven in de [aan de slag artikel](quick-create-portal.md). Wanneer u een schaalset implementeert, kunt u kiezen om in te stellen de vlag met lage prioriteit en het verwijderingsbeleid: ![maken van een schaalset met virtuele machines met lage prioriteit](media/virtual-machine-scale-sets-use-low-priority/vmss-low-priority-portal.png)
+Het proces voor het maken van een schaalset die gebruikmaakt van virtuele machines met lage prioriteit is hetzelfde als beschreven in de [aan de slag artikel](quick-create-portal.md). Wanneer u een schaalset implementeert, kunt u kiezen of u de vlag met lage prioriteit en het verwijderingsbeleid instellen: ![Maak een schaalset met virtuele machines met lage prioriteit](media/virtual-machine-scale-sets-use-low-priority/vmss-low-priority-portal.png)
 
 ## <a name="use-the-azure-cli"></a>Azure CLI gebruiken
 

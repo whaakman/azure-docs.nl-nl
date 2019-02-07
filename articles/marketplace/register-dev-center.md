@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 66daa71ffbe97e9f5374eedd7f51e5afe02f0b94
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 479278400aa056a7cebcefaa2eedee3d98bc9a15
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755523"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815232"
 ---
 # <a name="register-in-dev-center"></a>Registreren in Dev Center  
 Om te controleren of u bent niet aangemeld bij een account persoonlijke browser, open een nieuw InPrivate van Internet Explorer of Chrome Incognito browsersessie.  
@@ -98,7 +98,7 @@ Als u problemen met de registratie van het Dev Center hebt, voert u deze stappen
     
     Klik op de knop Start e-mailbericht.  
 1.  Op de aanmeldingspagina, meld u aan met een Microsoft-ID. Als u een Microsoft-ID hebt, maakt u een.  
-    *   Voor meer informatie over het maken van een Microsoft-ID, gaat u naar de [richtlijnen voor het maken van een Microsoft-ID voor het beheren van een Azure Marketplace-account](#guidelines-for-creating-a-microsoft-id-to-manage-an-azure-marketplace-account) sectie.  
+    *   Ga naar de richtlijnen voor het maken van een Microsoft-ID voor het beheren van een sectie van het account voor Azure Marketplace voor meer informatie over het maken van een Microsoft-ID.  
 2.  Vul de details van het probleem.  
 3.  Klik op de knop verzenden als u wilt het ticket verzendt. 
 

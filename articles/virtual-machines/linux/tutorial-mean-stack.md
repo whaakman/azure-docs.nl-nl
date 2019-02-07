@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 223b32d3947ca0f663565a90b15e9c24e5ddeb96
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 84860b5098e141bdfbd924d86836bc7b48b0ce8f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883208"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754214"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Zelfstudie: Een MongoDB-, Express-, AngularJS- en Node.js- (MEAN-)stack maken op een virtuele Linux-machine in Azure
 
@@ -42,7 +42,7 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u Azure
 
 ## <a name="create-a-linux-vm"></a>Een Linux-VM maken
 
-Maak een resourcegroep met de opdracht [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) en maak een virtuele Linux-machine met de opdracht [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
+Maak een resourcegroep met de opdracht [az group create](https://docs.microsoft.com/cli/azure/group) en maak een virtuele Linux-machine met de opdracht [az vm create](https://docs.microsoft.com/cli/azure/vm). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
 
 In het volgende voorbeeld wordt gebruikgemaakt van Azure CLI om in locatie *VS Oost*een resourcegroep te maken met de naam *myResourceGroupMEAN*. Er wordt een VM gemaakt met de naam *myVM* met SSH-sleutels (indien deze niet al op een standaardsleutellocatie aanwezig zijn). Als u een bepaalde set sleutels wilt gebruiken, gebruikt u de optie --ssh-key-value.
 

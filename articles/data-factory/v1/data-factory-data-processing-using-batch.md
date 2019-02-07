@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e053fa52b7b7cea1c35b68a0f2079eb5a590a76a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: adb9fb649d934d08ea546759bcf4733a1c6d9080
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021574"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822745"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Grootschalige gegevenssets verwerken met behulp van Data Factory en Batch
 > [!NOTE]
@@ -26,7 +26,7 @@ ms.locfileid: "54021574"
 
 In dit artikel beschrijft een architectuur van een Voorbeeldoplossing die wordt verplaatst en grootschalige gegevenssets in een automatische en geplande wijze verwerkt. Het biedt ook een end-to-end-scenario voor het implementeren van de oplossing met behulp van Data Factory en Azure Batch.
 
-In dit artikel is langer dan een typische artikel omdat deze een overzicht van een volledige oplossing bevat. Als u geen ervaring met Batch en Data Factory, vindt u informatie over deze services en hoe ze samenwerken. Als u over de services weet en zijn ontwerpen/architectuur met een oplossing, kunt u zich richten op de [architectuur sectie](#architecture-of-sample-solution) van het artikel. Als u een prototype of een oplossing ontwikkelt, kunt u voor het uitproberen van de stapsgewijze instructies in de [scenario](#implementation-of-sample-solution). Wij willen graag uw opmerkingen over deze inhoud en hoe u deze gebruikt.
+In dit artikel is langer dan een typische artikel omdat deze een overzicht van een volledige oplossing bevat. Als u geen ervaring met Batch en Data Factory, vindt u informatie over deze services en hoe ze samenwerken. Als u over de services weet en zijn ontwerpen/architectuur met een oplossing, kunt u zich richten op de architectuur-sectie van het artikel. Als u een prototype of een oplossing ontwikkelt, is het raadzaam om te proberen de stapsgewijze instructies in deze stapsgewijze kennismaking. Wij willen graag uw opmerkingen over deze inhoud en hoe u deze gebruikt.
 
 Eerst laten we kijken hoe Data Factory en Batch-services u kunt grote gegevenssets proces in de cloud.     
 
@@ -664,7 +664,7 @@ In deze stap maakt u gegevenssets voor invoer-en uitvoergegevens.
 
     De begintijd voor elk segment wordt vertegenwoordigd door de **SliceStart** systeemvariabele in de vorige JSON-codefragment. Hier volgen de begintijden voor elk segment.
 
-    | **Segment** | **Begintijd**          |
+    | **Slice** | **Begintijd**          |
     |-----------|-------------------------|
     | 1         | 2015-11-16T**00**:00:00 |
     | 2         | 2015-11-16T**01**:00:00 |
@@ -674,7 +674,7 @@ In deze stap maakt u gegevenssets voor invoer-en uitvoergegevens.
 
     De **folderPath** wordt berekend met behulp van het jaar, maand, dag en uur deel van de starttijd van segment (**SliceStart**). Hier ziet u hoe een invoermap is toegewezen aan een segment.
 
-    | **Segment** | **Begintijd**          | **Invoermap**  |
+    | **Slice** | **Begintijd**          | **Invoermap**  |
     |-----------|-------------------------|-------------------|
     | 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00** |
     | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01** |
@@ -721,7 +721,7 @@ In deze stap maakt u een andere gegevensset van het type AzureBlob om weer te ge
 
     Een uitvoer-blob/bestand is gegenereerd voor elke invoersegment. Hier ziet u hoe een uitvoerbestand voor elk segment wordt genoemd. De uitvoerbestanden worden gegenereerd in een map voor uitvoer, `mycontainer\\outputfolder`.
 
-    | **Segment** | **Begintijd**          | **Uitvoerbestand**       |
+    | **Slice** | **Begintijd**          | **Uitvoerbestand**       |
     |-----------|-------------------------|-----------------------|
     | 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00.txt** |
     | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01.txt** |

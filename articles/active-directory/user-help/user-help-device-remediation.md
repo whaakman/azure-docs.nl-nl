@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: 97d35eb3442b63736b40d51dda57b872813293ad
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 668d69921fd2001cd52bc864e5ee272d179a7bbc
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164058"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770466"
 ---
 # <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>Mogelijke redenen voor het foutbericht 'U kunt daar niet komen vanaf hier'
 Tijdens het openen van de interne web-apps of services van uw organisatie, krijgt u mogelijk een foutbericht dat aangeeft dat deze, **u daar niet komen vanaf hier**. Dit bericht betekent dat uw organisatie een beleid in plaats dat voorkomt dat uw apparaat toegang tot resources van uw organisatie heeft gezet. Hoewel u ontstaat mogelijk contact opnemen met de Helpdesk als dit probleem wilt oplossen, vindt hier u enkele dingen die u kunt eerst proberen.
@@ -68,4 +68,4 @@ Als uw apparaat niet is gekoppeld aan het netwerk van uw organisatie, kunt u een
 ## <a name="next-steps"></a>Volgende stappen
 - [Wat is de MyApps-portal?](active-directory-saas-access-panel-introduction.md)
 
-- [Aanmelden met uw telefoon, niet met uw wachtwoord](microsoft-authenticator-app-phone-signin-faq.md)
+- [Aanmelden met uw telefoon, niet met uw wachtwoord](user-help-auth-app-sign-in.md)

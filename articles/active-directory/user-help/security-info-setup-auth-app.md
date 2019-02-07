@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 191afec8733258519370d11942c0f6d18da6b603
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6ee75b0ee465e330d78b166b0da12232b7915ae7
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180395"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766058"
 ---
 # <a name="set-up-security-info-to-use-an-authenticator-app-preview"></a>Beveiligingsgegevens ingesteld voor het gebruik van een verificator-app (preview)
 
@@ -28,7 +28,7 @@ Instellen van je beveiligingsgegevens, moet u zich aanmelden bij uw werk of scho
 
 Afhankelijk van instellingen van uw organisatie, u mogelijk gevraagd om in te stellen van de Microsoft Authenticator-app wanneer u zich aanmeldt. Anders wordt om te beginnen met het instellen van de Microsoft Authenticator-app in de beveiligingsgegevens, volg de stappen in [je beveiligingsgegevens beheren](security-info-manage-settings.md).
 
-Om te downloaden en meer informatie over de Microsoft Authenticator-app, Zie [aan de slag met de Microsoft Authenticator-app](microsoft-authenticator-app-how-to.md).
+Om te downloaden en meer informatie over de Microsoft Authenticator-app, Zie [aan de slag met de Microsoft Authenticator-app](user-help-auth-app-download-install.md).
 
 >[!Note]
 >Als u niet wilt dat de Microsoft Authenticator-app te gebruiken, kunt u een andere app tijdens het instellen van. In dit artikel wordt de Microsoft Authenticator-app. Als u de authenticator-app-optie niet ziet, is het mogelijk dat uw organisatie niet kunt u een verificatie-app voor verificatie te gebruiken. Als dit het geval is, moet u een andere methode kiezen of neem contact op met uw beheerder voor meer informatie.

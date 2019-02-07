@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: jeedes
-ms.openlocfilehash: bf3302f4f7323307163ec540accb4cc652512463
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2bd47c7955625eb43de40e61515bf7814a8c8355
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178797"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815826"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Zelfstudie: Azure Active Directory-integratie met HubSpot
 
@@ -87,7 +87,7 @@ Om te configureren en testen van Azure AD eenmalige aanmelding met HubSpot, moet
 
 1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
 2. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Het maken van een testgebruiker HubSpot](#creating-a-hubspot-saml-test-user)**  : als u wilt een equivalent van Britta Simon in HubSpot die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+3. **Het maken van een testgebruiker HubSpot** : als u wilt een equivalent van Britta Simon in HubSpot die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
 4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
 5. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
@@ -184,7 +184,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     ![Het maken van een Azure AD-testgebruiker](./media/hubspot-tutorial/create_aaduser_02.png)
 
-    a. Voer in het veld **Naam****Britta Simon** in.
+    a. Voer in het veld **Naam** **Britta Simon**in.
   
     b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
     Bijvoorbeeld: BrittaSimon@contoso.com

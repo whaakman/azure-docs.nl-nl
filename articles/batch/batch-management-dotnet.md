@@ -16,12 +16,12 @@ ms.workload: big-compute
 ms.date: 04/24/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: c65a71d9e64a1ea3f60abbe2e420652c12ba030e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 301a3f9a500c41cf13dfa071d3526d2128b5e131
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549510"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813616"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Beheren van Batch-accounts en -quota met de Batch Management-clientbibliotheek voor .NET
 
@@ -64,7 +64,7 @@ await batchManagementClient.Account.DeleteAsync("MyResourceGroup", account.Name)
 ```
 
 > [!NOTE]
-> Toepassingen die gebruikmaken van de Batch Management .NET-bibliotheek en de klasse BatchManagementClient vereisen **servicebeheerder** of **CO-beheerder** toegang tot het abonnement dat eigenaar is van de Batch account moeten worden beheerd. Zie voor meer informatie de [Azure Active Directory](#azure-active-directory) sectie en de [AccountManagement] [ acct_mgmt_sample] codevoorbeeld.
+> Toepassingen die gebruikmaken van de Batch Management .NET-bibliotheek en de klasse BatchManagementClient vereisen **servicebeheerder** of **CO-beheerder** toegang tot het abonnement dat eigenaar is van de Batch account moeten worden beheerd. Zie voor meer informatie de sectie Azure Active Directory en de [AccountManagement] [ acct_mgmt_sample] codevoorbeeld.
 > 
 > 
 

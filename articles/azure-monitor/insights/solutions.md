@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: 0103225803ca98cb9d8e27eb57f150e0660cd7ab
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 8a6a679aaf43e4a92eb380368f3d68704853d3a3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299119"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816812"
 ---
 # <a name="management-solutions-in-azure-monitor"></a>De beheeroplossingen in Azure Monitor
 Beheeroplossingen gebruikmaken van services in Azure om meer inzicht in de werking van een bepaalde toepassing of service. In dit artikel geeft een kort overzicht van oplossingen in Azure en meer informatie over het gebruiken en ze te installeren.
@@ -101,7 +101,7 @@ U kunt controleren of de koppeling tussen een Log Analytics-werkruimte en een Au
 1. Als de **werkruimte** instelling is ingeschakeld, wordt deze account is gekoppeld aan een Log Analytics-werkruimte. U kunt klikken op **werkruimte** om de details van de werkruimte weer te geven.
 
 ## <a name="remove-a-management-solution"></a>Verwijderen van een oplossing voor beheer
-Als u wilt verwijderen van een oplossing voor is geïnstalleerd, zoekt u deze in de [lijst met geïnstalleerde oplossingen](#list-installed-monitoring-solutions). Klik op de naam van de oplossing voor het openen van de pagina Samenvatting en klik vervolgens op **verwijderen**.
+Als u wilt verwijderen van een geïnstalleerde oplossing, kunt u het zoeken in de lijst met geïnstalleerde oplossingen. Klik op de naam van de oplossing voor het openen van de pagina Samenvatting en klik vervolgens op **verwijderen**.
 
 
 

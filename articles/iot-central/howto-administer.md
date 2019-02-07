@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4dba6aff2002c1f17055cd647be94c4d8f644ad7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: feaedff2cb9f8eae30fd17c497b4a2f6de490b07
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992211"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822592"
 ---
 # <a name="administer-your-iot-central-application"></a>Uw IoT Central-toepassing beheren
 
@@ -70,7 +70,7 @@ Gebruik de **verwijderen** knop om uw IoT Central-toepassing permanent te verwij
 
 Elke gebruiker moet een gebruikersaccount hebben voordat ze kunnen zich aanmelden en toegang een Azure IoT Central-toepassing tot. Microsoft-Accounts (MSA's) en Azure Active Directory (Azure AD)-accounts worden ondersteund in Azure IoT Central. Azure Active Directory-groepen worden momenteel niet ondersteund in Azure IoT Central.
 
-Zie voor meer informatie, [help voor Microsoft-account](https://support.microsoft.com/products/microsoft-account?category=manage-account) en [Quick Start: nieuwe gebruikers toevoegen aan Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
+Zie voor meer informatie, [help voor Microsoft-account](https://support.microsoft.com/products/microsoft-account?category=manage-account) en [Quick Start: Nieuwe gebruikers toevoegen aan Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory) als een testgebruiker zonder beheerdersbevoegdheden een wachtwoord heeft dat u kent, en u een gebruiker moet maken.
 
 1. Als u wilt een gebruiker toevoegen aan een IoT Central-toepassing, gaat u naar de **gebruikers** pagina in de **beheer** sectie.
 
@@ -107,7 +107,7 @@ De gebruiker die een toepassing maakt, wordt automatisch toegewezen aan de **beh
 
 Gebruikers in de **toepassing Builder** rol kunt doen alles in een toepassing, behalve de toepassing beheren. Dit betekent dat builders kunnen maken, bewerken, en verwijderen van apparaatsjablonen en apparaten, Apparaatsets beheren en analyses en taken worden uitgevoerd. Builders geen toegang heeft tot de **beheer** sectie van de toepassing.
 
-### <a name="application-operator"></a>Toepassing Operator
+### <a name="application-operator"></a>Toepassingsoperator
 
 Gebruikers in de **toepassing Operator** rol geen wijzigingen aanbrengen in apparaatsjablonen en de toepassing niet kan beheren. Dit betekent operators kunnen toevoegen en verwijderen van apparaten, Apparaatsets beheren en uitvoeren van analyses en taken. Operators geen toegang heeft tot de **toepassing Builder** en **beheer** pagina's.
 
@@ -141,15 +141,15 @@ Volg deze stappen voor het voltooien van deze Self-serviceproces:
 
 ## <a name="export-data"></a>Gegevens exporteren
 
-U kunt inschakelen **voortdurende gegevensexport** metingen, apparaten en apparaatgegevens sjablonen exporteren naar uw Azure Blob storage-account. Meer informatie over [hoe u uw gegevens te exporteren](#howto-export-data).
+U kunt inschakelen **voortdurende gegevensexport** metingen, apparaten en apparaatgegevens sjablonen exporteren naar uw Azure Blob storage-account. Meer informatie over het exporteren van uw gegevens.
 
 ## <a name="manage-device-connection"></a>Apparaatverbinding beheren
 
-Verbind apparaten op schaal in uw toepassing met behulp van de sleutels en certificaten hier. Meer informatie over [apparaten verbinden met](#concepts-connectivity).
+Verbind apparaten op schaal in uw toepassing met behulp van de sleutels en certificaten hier. Meer informatie over het verbinden van apparaten.
 
 ## <a name="use-access-tokens"></a>Toegangstokens gebruiken
 
-Toegangstokens voor het gebruik ervan in hulpprogramma's voor ontwikkelaars genereren. Er is momenteel een developer-programma beschikbaar waarmee de explorer IoT Central is voor het bewaken van apparaat-berichten en wijzigingen in propreties en instellingen. Meer informatie over de [IoT Central explorer](#howto-use-iotc-explorer). 
+Toegangstokens voor het gebruik ervan in hulpprogramma's voor ontwikkelaars genereren. Er is momenteel een developer-programma beschikbaar waarmee de explorer IoT Central is voor het bewaken van apparaat-berichten en wijzigingen in propreties en instellingen. Meer informatie over de explorer IoT Central. 
 
 ## <a name="use-the-azure-sdks-for-control-plane-operations"></a>Gebruik de Azure SDK's voor bewerkingen voor de controlelaag
 

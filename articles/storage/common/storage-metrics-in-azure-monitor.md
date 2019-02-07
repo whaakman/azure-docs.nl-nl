@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 4b71c5818ee6eade526134ab1b2508ed55f0c400
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: aabd0ab55c061c9d2cdc27b4ab5a241ad9e9793c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699938"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811764"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Metrische gegevens van Azure Storage in Azure Monitor
 
@@ -39,7 +39,7 @@ Voor metrische gegevens voor ondersteuning van dimensies, kunt u de metrische wa
 
 ### <a name="access-metrics-with-the-rest-api"></a>Toegang tot metrische gegevens met de REST-API
 
-Azure Monitor biedt [REST-API's](/rest/api/monitor/) metrische definitie en waarden worden gelezen. Deze sectie leest u over het lezen van de metrische gegevens van storage. Resource-ID wordt gebruikt in alle REST-API's. Lees voor meer informatie, [inzicht krijgen in de resource-ID voor services in de opslag](#understanding-resource-id-for-services-in-storage).
+Azure Monitor biedt [REST-API's](/rest/api/monitor/) metrische definitie en waarden worden gelezen. Deze sectie leest u over het lezen van de metrische gegevens van storage. Resource-ID wordt gebruikt in alle REST-API's. Lees de informatie over resource-ID voor services in de opslag voor meer informatie.
 
 Het volgende voorbeeld ziet u hoe u [ArmClient](https://github.com/projectkudu/ARMClient) op de opdrachtregel voor het vereenvoudigen van testen met de REST-API.
 
@@ -136,7 +136,7 @@ Het volgende antwoord bevat metrische waarden in de JSON-indeling:
 
 ### <a name="access-metrics-with-the-net-sdk"></a>Toegang tot metrische gegevens met de .net SDK
 
-Azure Monitor biedt [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) metrische definitie en waarden worden gelezen. De [voorbeeldcode](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) ziet u hoe u de SDK en de verschillende parameters. U moet gebruiken `0.18.0-preview` of hoger voor metrische gegevens van storage. Resource-ID wordt gebruikt in de .net SDK. Lees voor meer informatie, [inzicht krijgen in de resource-ID voor services in de opslag](#understanding-resource-id-for-services-in-storage).
+Azure Monitor biedt [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) metrische definitie en waarden worden gelezen. De [voorbeeldcode](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) ziet u hoe u de SDK en de verschillende parameters. U moet gebruiken `0.18.0-preview` of hoger voor metrische gegevens van storage. Resource-ID wordt gebruikt in de .net SDK. Lees de informatie over resource-ID voor services in de opslag voor meer informatie.
 
 Het volgende voorbeeld laat zien hoe Azure Monitor .net SDK gebruiken om te lezen van metrische opslaggegevens.
 

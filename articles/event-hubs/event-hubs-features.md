@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 917a551b8a187db6645e523d0189533e333d5371
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a1b60bdf27e1a5f5cb6b9cfba72d78f8afa068eb
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075163"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768593"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Functies en de belangrijkste termen in de Azure Event Hubs
 
@@ -169,7 +169,7 @@ Doorvoereenheden zijn vooraf aangeschafte en worden gefactureerd per uur. Nadat 
 
 U kunt meer doorvoereenheden in blokken van 20 tot 100 extra doorvoereenheden, neem contact op met ondersteuning voor Azure kopen. U kunt deze limiet overschrijdt, blokken van 100 doorvoereenheden aanschaffen.
 
-Het is raadzaam dat u in balans brengen aantal doorvoereenheden en partities die voor het bereiken van optimale schaal. Per partitie is maximaal één doorvoereenheid mogelijk. Het aantal doorvoereenheden moet daarom kleiner zijn dan of gelijk zijn aan het aantal partities in een Event Hub.
+Het is raadzaam dat u in balans brengen aantal doorvoereenheden en partities die voor het bereiken van optimale schaal. Een enkele partitie is ten minste één doorvoereenheid mogelijk. Het aantal doorvoereenheden moet daarom kleiner zijn dan of gelijk zijn aan het aantal partities in een Event Hub.
 
 Zie [Prijzen van Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/) voor gedetailleerde informatie over prijzen van Event Hubs.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0d915592053c256d3640d0f0de7bb94bf109f2c8
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 8fc2c487a374a34cd9a7642a45fd59c04061b398
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700159"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817815"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Maken en VPN-clientconfiguratiebestanden voor P2S-RADIUS-verificatie installeren
 
@@ -260,7 +260,7 @@ Gebruik de volgende stappen uit om te configureren van de systeemeigen VPN-clien
 
 Gebruik een ander verificatietype (bijvoorbeeld voor eenmalig gebruik), of een andere verificatieprotocol (zoals PEAP-MSCHAPv2 in plaats van EAP-MSCHAPv2) te gebruiken, moet u uw eigen VPN-client-configuratieprofiel maken. Als u wilt het profiel maakt, moet u informatie zoals het IP-adres voor gateway van virtueel netwerk, tunneltype en routes voor split-tunnel. U kunt deze informatie krijgen door de volgende stappen uit:
 
-1. Gebruik de `Get-AzureRmVpnClientConfiguration` cmdlet voor het genereren van de configuratie van de VPN-client voor EapMSChapv2. Zie voor instructies [in deze sectie](#ccradius) van het artikel.
+1. Gebruik de `Get-AzureRmVpnClientConfiguration` cmdlet voor het genereren van de configuratie van de VPN-client voor EapMSChapv2. Zie voor instructies in dit gedeelte van het artikel.
 
 2. Pak het bestand VpnClientConfiguration.zip uit en zoek naar de **GenericDevice** map. De mappen met de Windows-installatieprogramma's voor 64-bits en 32-bits architectuur negeren.
  

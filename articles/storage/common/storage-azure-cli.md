@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: d815bae2478d8853c63cd773cbfeaf5d3e90458c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: f485f38d4c580937b027bb76d0c34c98f699ed93
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659760"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816846"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>De Azure CLI gebruiken met Azure Storage
 
@@ -98,7 +98,7 @@ Als u wilt werken met de resources in uw Azure-abonnement, u moet eerst aanmelde
 
 ## <a name="azure-cli-sample-script"></a>Azure CLI-voorbeeldscript
 
-Vervolgens gaat we een kleine shellscript in dat problemen met een paar eenvoudige Azure CLI-opdrachten voor interactie met Azure Storage-resources gebruiken. Het script eerst maakt u een nieuwe container in uw opslagaccount, vervolgens wordt een bestaand bestand (als een blob) op die container geüpload. Deze worden vervolgens alle blobs in de container en ten slotte wordt het bestand gedownload naar een bestemming op uw lokale computer die u opgeeft.
+Vervolgens gaat we een kleine shellscript in dat problemen met een paar eenvoudige Azure CLI-opdrachten voor interactie met Azure Storage-resources gebruiken. Het script maakt eerst een nieuwe container in uw opslagaccount en uploadt vervolgens een bestaand bestand (als blob) naar die container. Deze worden vervolgens alle blobs in de container en ten slotte wordt het bestand gedownload naar een bestemming op uw lokale computer die u opgeeft.
 
 ```bash
 #!/bin/bash
@@ -173,7 +173,7 @@ Done
 ## <a name="manage-storage-accounts"></a>Opslagaccounts beheren
 
 ### <a name="create-a-new-storage-account"></a>Een nieuw opslagaccount maken
-U hebt een opslagaccount nodig om Azure Storage te gebruiken. U kunt een nieuw Azure-opslagaccount maken nadat u uw computer hebt geconfigureerd [verbinding maken met uw abonnement](#connect-to-your-azure-subscription).
+U hebt een opslagaccount nodig om Azure Storage te gebruiken. Nadat u uw computer verbinding maken met uw abonnement hebt geconfigureerd, kunt u een nieuw Azure Storage-account maken.
 
 ```azurecli
 az storage account create \
@@ -277,7 +277,7 @@ az storage blob download \
 
 ### <a name="list-the-blobs-in-a-container"></a>De blobs in een container in een lijst weergeven
 
-Lijst van de blobs in een container met de [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list) opdracht.
+Lijst van de blobs in een container met de [az storage blob list](/cli/azure/storage/blob) opdracht.
 
 ```azurecli
 az storage blob list \

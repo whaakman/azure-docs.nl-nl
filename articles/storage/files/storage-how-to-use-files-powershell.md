@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: e81fac700e76ae9a26a6d01828441d0b2dc350b5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 53f2b59032e7e9725b067ef472b2b6dcf94bcb72
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465024"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662450"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Snelstartgids: Een Azure-bestandsshare maken en beheren met Azure PowerShell 
 In deze handleiding worden de basisbeginselen besproken van het werken met [Azure-bestandsshares](storage-files-introduction.md) met PowerShell. Azure-bestandsshares zijn net als andere bestandsshares, maar worden in de cloud opgeslagen en ondersteund door het Azure-platform. Azure-bestandsshares ondersteunen het SMB-protocol volgens de industriestandaard en bieden de mogelijkheid bestanden te delen tussen meerdere computers, toepassingen en exemplaren. 
@@ -120,8 +120,8 @@ U kunt de cmdlet [Get-AzStorageFileContent](/powershell/module/az.storage/Get-Az
 
 ```azurepowershell-interactive
 # Delete an existing file by the same name as SampleDownload.txt, if it exists because you've run this example before.
-Remove-Item 
-    `-Path "C:\Users\ContainerAdministrator\CloudDrive\SampleDownload.txt" `
+Remove-Item `
+     -Path "C:\Users\ContainerAdministrator\CloudDrive\SampleDownload.txt" `
      -Force `
      -ErrorAction SilentlyContinue
 

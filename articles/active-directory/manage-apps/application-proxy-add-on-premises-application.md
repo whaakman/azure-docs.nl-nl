@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 2847cf4abdfdea7eb38bd965cb54a223f014fb68
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1f6962f0313b6b0ca187512185c990606789da6e
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176910"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661952"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Zelfstudie: Een on-premises toepassing voor externe toegang toevoegen via Application Proxy in Azure Active Directory
 
@@ -181,7 +181,7 @@ Nu u uw omgeving hebt voorbereid en een connector hebt geïnstalleerd, kunt u on
     | **Toepassingstime-out voor de back-end** | Stel deze waarde alleen in op **Lang** als uw toepassing traag is met verifiëren en verbinding maken. |
     | **Alleen-HTTP-cookies gebruiken** | Stel deze waarde in op **Ja** om ervoor te zorgen dat Application Proxy-cookies de HTTPOnly-vlag in de HTTP-antwoordheader bevatten. Als u Extern bureaublad-services gebruikt, stelt u deze waarde in op **Nee**.|
     | **Beveiligde cookies gebruiken**| Stel deze waarde in op **Ja** om cookies te verzenden via een beveiligd kanaal, zoals een versleutelde HTTPS-aanvraag.
-    | **Permanente cookies gebruiken**| Houd deze waarde ingesteld op **Nee**. Deze instelling mag alleen worden gebruikt voor toepassingen die cookies niet kunnen delen tussen processen. Zie [Cookie-instellingen voor toegang tot on-premises toepassingen in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings) voor meer informatie over cookie-instellingen
+    | **Permanente cookies gebruiken**| Houd deze waarde ingesteld op **Nee**. Deze instelling mag alleen worden gebruikt voor toepassingen die cookies niet kunnen delen tussen processen. Zie [Cookie-instellingen voor toegang tot on-premises toepassingen in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings) voor meer informatie over cookie-instellingen
     | **URL's in headers vertalen** | Laat deze waarde op **Ja** staan, tenzij voor uw toepassing de oorspronkelijke host-header in de verificatieaanvraag moet zijn opgenomen. |
     | **URL's vertalen in de hoofdtekst van de toepassing** | Laat deze waarde op **Nee** staan, tenzij u hardcoded HTML-koppelingen naar andere on-premises toepassingen hebt en geen aangepaste domeinen gebruikt. Zie [Vertaling koppelen aan Application Proxy](application-proxy-configure-hard-coded-link-translation.md) voor meer informatie.<br><br>Stel deze waarde in op **Ja** als u van plan bent om deze toepassing te bewaken met Microsoft Cloud App Security (MCAS). Meer informatie vindt u in [Configuratie van realtime bewaking van toegang tot toepassingen met Microsoft Cloud App Security en Azure Active Directory](application-proxy-integrate-with-microsoft-cloud-application-security.md). |
    

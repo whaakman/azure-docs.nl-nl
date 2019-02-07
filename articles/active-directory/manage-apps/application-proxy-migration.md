@@ -15,12 +15,12 @@ ms.date: 07/27/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: d0a28dc1eee1536a0cabe454cd899d9111edff88
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0d38fa458ae87ce29110b2423e832ff5c6262a01
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197735"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817577"
 ---
 # <a name="compare-remote-access-solutions"></a>Oplossingen voor externe toegang vergelijken
 
@@ -56,7 +56,7 @@ Azure AD Application Proxy biedt unieke voordelen in vergelijking met vergelijkb
 - Uitbreiding van Azure AD met on-premises bronnen
    - Schaalbare beveiliging en bescherming
    - Functies zoals voorwaardelijke toegang en multi-Factor Authentication zijn gemakkelijk in te schakelen
-- Er is geen component in de gedemilitariseerde zone
+- Er zijn geen onderdelen in de gedemilitariseerde zone
 - Er is geen binnenkomende verbindingen die vereist zijn
 - Een Toegangsvenster dat uw gebruikers voor al hun toepassingen raadplegen kunnen, met inbegrip van Office 365, Azure AD SaaS-apps geïntegreerde en uw on-premises web-apps. 
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren
-ms.openlocfilehash: 19e842fc3674536972327c3bc6d31641560e38db
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 73e27044fc8cc79b2c95471e30bca558bd14d473
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659181"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818750"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Serviceoverzicht integratie met System Center Operations Manager
 
@@ -51,7 +51,7 @@ Serviceoverzicht om integratie te configureren, het volgende doen:
 
     ![Overzicht van service-kaart deelvenster](media/service-map-scom/scom-configuration.png)
 
-2. In de **verbindingsconfiguratie** venster, geef de naam van tenant of -ID, toepassings-ID (ook wel bekend als de gebruikersnaam of clientID) en het wachtwoord van de service-principal, en klik vervolgens op **volgende**. Ga voor meer informatie naar [maken van een service-principal](#creating-a-service-principal).
+2. In de **verbindingsconfiguratie** venster, geef de naam van tenant of -ID, toepassings-ID (ook wel bekend als de gebruikersnaam of clientID) en het wachtwoord van de service-principal, en klik vervolgens op **volgende**. Voor meer informatie gaat u naar een service-principal maken.
 
     ![Het venster verbindingsconfiguratie](media/service-map-scom/scom-config-spn.png)
 

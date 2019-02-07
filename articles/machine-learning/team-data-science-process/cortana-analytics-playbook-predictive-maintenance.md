@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 860d24bf9de02d1b2ca46f05f1e09843a826aaf9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ebf376f0bdba8c41f88d6f97cef2c17ecd259022
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466826"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816642"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-handleiding voor oplossingen voor Voorspellend onderhoud
 
@@ -325,7 +325,7 @@ Wanneer tijdreeksen zijn stilstaande en gemakkelijk te voorspellen, genereert wi
 ### <a name="time-dependent-split"></a>Tijdafhankelijke splitsen
 Deze sectie wordt beschreven aanbevolen procedures voor het implementeren van afhankelijk zijn van tijd splitsen. Een wederzijdse splitsing tijdsafhankelijke tussen trainings- en testsets wordt hieronder beschreven.
 
-Wordt ervan uitgegaan dat u een stroom gebeurtenissen, zoals de metingen van diverse sensoren voorzien van een tijdstempel. Functies en labels van training en test voorbeelden via meteen met meerdere gebeurtenissen gedefinieerd. Bijvoorbeeld voor binaire classificatie op basis van gebeurtenissen in het verleden functies maken en op basis van toekomstige gebeurtenissen in "eenheden van de tijd in de toekomst X"-labels maken (Zie de secties over [functie-engineering](#Feature-engineering) en [modelleren technieken](#Modeling-techniques-applied-to-PdM-use-cases)). Het labelen tijdsbestek van een voorbeeld komt dus hoger is dan de periode van de functies ervan.
+Wordt ervan uitgegaan dat u een stroom gebeurtenissen, zoals de metingen van diverse sensoren voorzien van een tijdstempel. Functies en labels van training en test voorbeelden via meteen met meerdere gebeurtenissen gedefinieerd. Bijvoorbeeld voor binaire classificatie op basis van gebeurtenissen in het verleden functies maken en op basis van toekomstige gebeurtenissen in "eenheden van de tijd in de toekomst X"-labels maken (Zie de secties over [functie-engineering](#Feature-engineering) en technieken modellering). Het labelen tijdsbestek van een voorbeeld komt dus hoger is dan de periode van de functies ervan.
 
 Voor tijdsafhankelijke splitsing, kies een _training breekpunt tijd T<sub>c</sub>_  op waarop u wilt een model te trainen met hyperparameters afgestemd op met behulp van historische gegevens maximaal T<sub>c</sub>. Om te voorkomen dat lekken van toekomstige labels die buiten T<sub>c</sub> in de trainingsgegevens, kiest u de meest recente tijd voor het label training voorbeelden moet X eenheden voordat T<sub>c</sub>. Elke vierkant vertegenwoordigt in het voorbeeld in afbeelding 7 wordt weergegeven, een record in de gegevensset waarop functies en labels worden berekend, zoals hierboven beschreven. De afbeelding ziet u de records die moeten worden geplaatst in trainings- en testsets voor X = 2 en W = 3:
 

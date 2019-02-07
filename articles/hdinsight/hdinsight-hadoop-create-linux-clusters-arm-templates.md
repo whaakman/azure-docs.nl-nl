@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1b145b1162dcba5653c962f0af1969c1aa017f57
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: d40d3b32f3af8e50079de0a5988584427ea6777c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054636"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819804"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Apache Hadoop-clusters in HDInsight maken met behulp van Resource Manager-sjablonen
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -38,11 +38,12 @@ In de sjabloon definieert u de resources die nodig zijn voor de toepassing. U ge
 
 U vindt de voorbeeldsjablonen HDInsight op [Azure-Snelstartsjablonen](https://azure.microsoft.com/resources/templates/?term=hdinsight). Cross-platform gebruiken [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) met de [Resource Manager-extensie](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) of een teksteditor voor het opslaan van de sjabloon in een bestand op uw werkstation. 
 
-Zie de volgende artikelen voor meer informatie over het Resource Manager-sjablonen:
+Zie de volgende artikelen en voorbeelden voor meer informatie over het Resource Manager-sjablonen:
 
 * [Azure Resource Manager-sjablonen maken](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Een toepassing implementeren met Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-template-deploy.md)
-* [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/clusters) sjabloonverwijzing
+* [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/allversions) sjabloonverwijzing
+* [Azure-snelstartsjablonen](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)
 
 ## <a name="generate-templates"></a>Genereren van sjablonen
 
@@ -51,7 +52,6 @@ Resource Manager kunt u een Resource Manager-sjabloon exporteren uit bestaande r
 - Azure Portal: Zie [een Azure Resource Manager-sjabloon exporteren uit bestaande resources](../azure-resource-manager/resource-manager-export-template.md).
 - Azure PowerShell: Zie [exporteren van Azure Resource Manager-sjablonen met PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md).
 - Klassieke Azure-CLI: Zie [exporteren van Azure Resource Manager-sjablonen met klassieke Azure-CLI](../azure-resource-manager/resource-manager-export-template-cli.md).
-
 
 ## <a name="deploy-using-the-portal"></a>Implementeren met behulp van de portal
 

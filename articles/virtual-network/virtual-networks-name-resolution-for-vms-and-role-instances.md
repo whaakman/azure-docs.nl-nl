@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: subsarma
-ms.openlocfilehash: e63db9dd5dcd48e19c75608c39c4c0b62db24527
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 89984335d40d7f58d39e77736c06a9ff137d7a51
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221195"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811254"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Naamomzetting voor resources in Azure-netwerken
 
@@ -40,7 +40,7 @@ Het type van de naamomzetting die u gebruikt, is afhankelijk van hoe uw resource
 | Naamomzetting tussen virtuele machines in verschillende virtuele netwerken of rolinstanties in verschillende cloudservices. |[Azure DNS Private Zones](../dns/private-dns-overview.md) of door de klant beheerde DNS-servers doorsturen van query's tussen virtuele netwerken voor het omzetten van door Azure (DNS-proxy). Zie [naamomzetting met uw eigen DNS-server](#name-resolution-that-uses-your-own-dns-server). |Alleen FQDN-naam |
 | Naamomzetting van een Azure App Service (Web-App, functie of Bot) met behulp van de integratie van virtuele netwerken op rolinstanties of virtuele machines in hetzelfde virtuele netwerk. |Door de klant beheerde DNS-servers doorsturen van query's tussen virtuele netwerken voor het omzetten van door Azure (DNS-proxy). Zie [naamomzetting met uw eigen DNS-server](#name-resolution-that-uses-your-own-dns-server). |Alleen FQDN-naam |
 | Naam resolutie van App Service Web Apps naar virtuele machines in hetzelfde virtuele netwerk. |Door de klant beheerde DNS-servers doorsturen van query's tussen virtuele netwerken voor het omzetten van door Azure (DNS-proxy). Zie [naamomzetting met uw eigen DNS-server](#name-resolution-that-uses-your-own-dns-server). |Alleen FQDN-naam |
-| Naam resolutie van App Service Web Apps in één virtueel netwerk met VM's in een ander virtueel netwerk. |Door de klant beheerde DNS-servers doorsturen van query's tussen virtuele netwerken voor het omzetten van door Azure (DNS-proxy). Zie [naamomzetting met uw eigen DNS-server](#name-resolution-that-uses-your-own-dns-server-for-web-apps). |Alleen FQDN-naam |
+| Naam resolutie van App Service Web Apps in één virtueel netwerk met VM's in een ander virtueel netwerk. |Door de klant beheerde DNS-servers doorsturen van query's tussen virtuele netwerken voor het omzetten van door Azure (DNS-proxy). Raadpleeg de naamomzetting met uw eigen DNS-server. |Alleen FQDN-naam |
 | Resolutie van on-premises computer- en servicenamen van VM's of rolexemplaren in Azure. |Door de klant beheerde DNS-servers (on-premises domeincontroller, lokale alleen-lezen domeincontroller of een secundaire DNS gesynchroniseerd met behulp van zoneoverdrachten, bijvoorbeeld). Zie [naamomzetting met uw eigen DNS-server](#name-resolution-that-uses-your-own-dns-server). |Alleen FQDN-naam |
 | Resolutie van Azure hostnamen van on-premises computers. |Doorsturen van aanvragen naar een door de klant beheerde DNS-proxyserver in de bijbehorende virtuele netwerk, de proxy-server stuurt query's naar Azure voor het omzetten van. Zie [naamomzetting met uw eigen DNS-server](#name-resolution-that-uses-your-own-dns-server). |Alleen FQDN-naam |
 | Reverse-DNS voor interne IP-adressen. |[Naamomzetting met uw eigen DNS-server](#name-resolution-that-uses-your-own-dns-server). |Niet van toepassing |

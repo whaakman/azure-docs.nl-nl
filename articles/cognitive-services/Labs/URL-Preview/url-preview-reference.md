@@ -10,12 +10,12 @@ ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: f7925c3eb14915c2b811ccfcd3a3803b9bd7c806
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: cd99f8bce8eca622412b834b5a7b75fda3ceb1f7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222912"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812052"
 ---
 # <a name="project-url-preview-v7-reference"></a>Naslaggids voor project URL-voorbeeld voor Bing versie 7
 
@@ -62,7 +62,7 @@ Zie voor meer informatie over het toegestane gebruik en weergave van resultaten 
 ## <a name="headers"></a>Headers
 Hier volgen de headers die bijvoorbeeld een aanvraag en antwoord bevatten.
 
-|Header|Beschrijving|
+|Header|Description|
 |------------|-----------------|
 |<a name="market" />BingAPIs-Market|Antwoordheader.<br /><br /> De markt die wordt gebruikt door de aanvraag. De notatie is \<languageCode\>-\<countryCode\>. Bijvoorbeeld: nl-NL.|
 |<a name="traceid" />BingAPIs-TraceId|Antwoordheader.<br /><br /> De id van de logboekvermelding die de details van de aanvraag bevat. Registreer deze id wanneer er een fout optreedt. Als u het probleem niet kunt vaststellen en oplossen, neemt u deze id op bij de andere informatie die u aan het ondersteuningsteam verstrekt.|
@@ -75,36 +75,36 @@ De aanvraag kan de volgende queryparameters bevatten. Zie de vereiste kolom voor
 
 |Name|Value|Type|Vereist|
 |----------|-----------|----------|--------------|
-|<a name="mkt" />mkt|De markt waaruit de resultaten afkomstig zijn. <br /><br />Zie voor een lijst van mogelijke waarden van de markt, [markt Codes](#market-codes).<br /><br /> **OPMERKING:** De URL van Preview-API ondersteunt momenteel alleen Amerikaanse Geografie en Engelse taal.<br /><br />|Reeks|Ja|
-|<a name="query" />q|De URL om een voorbeeld van|Reeks|Ja|
-|<a name="responseformat" />responseFormat|Het mediatype dat als u wilt gebruiken voor het antwoord. De volgende zijn waarden mogelijk niet hoofdlettergevoelig.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> De standaardwaarde is JSON. Zie voor meer informatie over de JSON-objecten dat het antwoord bevat, [Antwoordobjecten](#response-objects).<br /><br />Als u JsonLd opgeeft, bevat de antwoordtekst JSON-LD objecten met de lijst met zoekresultaten. Zie voor meer informatie over de JSON-LD [JSON-LD](http://json-ld.org/).|Reeks|Nee|
-|<a name="safesearch"/>safeSearch|Ongeldige inhoud voor volwassenen, of illegale inhoud, is geblokkeerd met foutcode 400, en de *isFamilyFriendly* vlag wordt niet geretourneerd. <p>Voor juridische inhoud voor volwassenen, ziet hieronder u het gedrag. Statuscode 200 wordt geretourneerd en de *isFamilyFriendly* vlag is ingesteld op false.<ul><li>safeSearch=strict: Titel, beschrijving, URL en afbeelding wordt niet geretourneerd.</li><li>veilig zoeken = gemiddeld; Titel, URL en beschrijving, maar niet de beschrijvende afbeelding ophalen</li><li>veilig zoeken = uit; Krijg alle antwoord objecten/elementen: titel, URL, beschrijving en afbeelding.</li></ul> |Reeks|Niet vereist. </br> Standaard ingesteld op safeSearch = strikte.|
+|<a name="mkt" />mkt|De markt waaruit de resultaten afkomstig zijn. <br /><br />Zie voor een lijst van mogelijke waarden van de markt, markt-Codes.<br /><br /> **OPMERKING:** De URL van Preview-API ondersteunt momenteel alleen Amerikaanse Geografie en Engelse taal.<br /><br />|String|Ja|
+|<a name="query" />q|De URL om een voorbeeld van|String|Ja|
+|<a name="responseformat" />responseFormat|Het mediatype dat als u wilt gebruiken voor het antwoord. De volgende zijn waarden mogelijk niet hoofdlettergevoelig.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> De standaardwaarde is JSON. Zie voor meer informatie over de JSON-objecten dat het antwoord bevat, [Antwoordobjecten](#response-objects).<br /><br />Als u JsonLd opgeeft, bevat de antwoordtekst JSON-LD objecten met de lijst met zoekresultaten. Zie voor meer informatie over de JSON-LD [JSON-LD](http://json-ld.org/).|String|Nee|
+|<a name="safesearch"/>safeSearch|Ongeldige inhoud voor volwassenen, of illegale inhoud, is geblokkeerd met foutcode 400, en de *isFamilyFriendly* vlag wordt niet geretourneerd. <p>Voor juridische inhoud voor volwassenen, ziet hieronder u het gedrag. Statuscode 200 wordt geretourneerd en de *isFamilyFriendly* vlag is ingesteld op false.<ul><li>safeSearch=strict: Titel, beschrijving, URL en afbeelding wordt niet geretourneerd.</li><li>veilig zoeken = gemiddeld; Titel, URL en beschrijving, maar niet de beschrijvende afbeelding ophalen</li><li>veilig zoeken = uit; Krijg alle antwoord objecten/elementen: titel, URL, beschrijving en afbeelding.</li></ul> |String|Niet vereist. </br> Standaard ingesteld op safeSearch = strikte.|
 
 ## <a name="response-objects"></a>Antwoordobjecten
 Het antwoordschema is ofwel een [webpagina] of ErrorResponse, zoals in de webzoekopdrachten-API. Als de aanvraag mislukt, wordt het object op het hoogste niveau is het [ErrorResponse](#errorresponse) object.
 
-|Object|Beschrijving|
+|Object|Description|
 |------------|-----------------|
 |[WebPage](#webpage)|Bovenste niveau JSON-object met de kenmerken van de Preview-versie.|
 
 ### <a name="error"></a>Fout
 Hiermee definieert u de fout is opgetreden.
 
-|Element|Beschrijving|Type|
+|Element|Description|Type|
 |-------------|-----------------|----------|
-|<a name="error-code" />code|De foutcode die aangeeft van de categorie van de fout. Zie voor een lijst van mogelijke codes, [foutcodes](#error-codes).|Reeks|
-|<a name="error-message" />Bericht|Een beschrijving van de fout.|Reeks|
-|<a name="error-moredetails" />moreDetails|Een beschrijving met aanvullende informatie over de fout.|Reeks|
-|<a name="error-parameter" />parameter|De queryparameter in de aanvraag die de fout heeft veroorzaakt.|Reeks|
-|<a name="error-subcode" />subCode|De foutcode die aangeeft van de fout. Bijvoorbeeld, als `code` InvalidRequest, is `subCode` mogelijk ParameterInvalid of ParameterInvalidValue. |Reeks|
-|<a name="error-value" />Waarde|De queryparameter-waarde die niet geldig is.|Reeks|
+|<a name="error-code" />code|De foutcode die aangeeft van de categorie van de fout. Zie voor een lijst van mogelijke codes, [foutcodes](#error-codes).|String|
+|<a name="error-message" />Bericht|Een beschrijving van de fout.|String|
+|<a name="error-moredetails" />moreDetails|Een beschrijving met aanvullende informatie over de fout.|String|
+|<a name="error-parameter" />parameter|De queryparameter in de aanvraag die de fout heeft veroorzaakt.|String|
+|<a name="error-subcode" />subCode|De foutcode die aangeeft van de fout. Bijvoorbeeld, als `code` InvalidRequest, is `subCode` mogelijk ParameterInvalid of ParameterInvalidValue. |String|
+|<a name="error-value" />Waarde|De queryparameter-waarde die niet geldig is.|String|
 
 ### <a name="errorresponse"></a>ErrorResponse
 Het object van het type op het hoogste niveau dat het antwoord bevat als de aanvraag is mislukt.
 
 |Name|Value|Type|
 |----------|-----------|----------|
-|_type|Type hint.|Reeks|
+|_type|Type hint.|String|
 |<a name="errors" />Fouten|Een lijst van fouten die worden beschreven van de redenen waarom de aanvraag is mislukt.|[Fout](#error)]|
 
 ### <a name="webpage"></a>WebPage
@@ -112,22 +112,22 @@ Informatie over definieert een de webpagina wordt weergegeven in de Preview-vers
 
 |Name|Value|Type|
 |----------|-----------|----------|
-|naam|De titel van de pagina, niet per se de HTML-titel|Reeks|
-|url|De URL die daadwerkelijk is verkend (aanvraag kan hebt gevolgd omleidingen)|Reeks|
-|description|Korte beschrijving van de pagina en de inhoud|Reeks|
+|naam|De titel van de pagina, niet per se de HTML-titel|String|
+|url|De URL die daadwerkelijk is verkend (aanvraag kan hebt gevolgd omleidingen)|String|
+|description|Korte beschrijving van de pagina en de inhoud|String|
 |isFamilyFriendly|Meest nauwkeurige voor items in de web-index; realtime haalt doen deze detectie die uitsluitend zijn gebaseerd op de URL en niet op de pagina-inhoud|booleaans|
-|primaryImageOfPage/contentUrl|De URL naar een representatieve afbeelding wilt opnemen in de Preview-versie|Reeks|
+|primaryImageOfPage/contentUrl|De URL naar een representatieve afbeelding wilt opnemen in de Preview-versie|String|
 
 ### <a name="identifiable"></a>Identificeerbare
 |Name|Value|Type|
 |-------------|-----------------|----------|
-|id|Een resource-id|Reeks|
+|id|Een resource-id|String|
 
 ## <a name="error-codes"></a>Foutcodes
 
 Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.
 
-|Statuscode|Beschrijving|
+|Statuscode|Description|
 |-----------------|-----------------|
 |200|Geslaagd.|
 |400|Een van de queryparameters is ontbreekt of is ongeldig.|
@@ -170,7 +170,7 @@ Als de aanvraag mislukt, wordt het antwoord bevat een [ErrorResponse](#errorresp
 
 Hier volgen de mogelijke fout code en de onderliggende fout code-waarden.
 
-|Code|SubCode|Beschrijving
+|Code|SubCode|Description
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>Niet geïmplementeerd|HTTP-statuscode is 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Geblokkeerd|Bing retourneert InvalidRequest wanneer er een deel van de aanvraag niet geldig is. Bijvoorbeeld, een vereiste parameter ontbreekt of een parameterwaarde is niet geldig.<br/><br/>Als de fout ParameterMissing of ParameterInvalidValue is, is de HTTP-statuscode 400.<br/><br/>Als u het HTTP-protocol in plaats van HTTPS, Bing retourneert HttpNotAllowed en de HTTP-statuscode 410.

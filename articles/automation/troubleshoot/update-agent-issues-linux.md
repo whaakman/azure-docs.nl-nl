@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: e1dca8655c6bf609bee255f183bcd2fe9b56bc55
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: aafed492e83066be20b4728a2617527351291a5b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437486"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813106"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Inzicht in de resultaten van Linux-agent in beheer van updates
 
@@ -28,7 +28,7 @@ De volgende lijst worden de gereedheid van de drie statussen, kan een virtuele m
 
 ## <a name="start-the-troubleshooter"></a>De probleemoplosser voor starten
 
-Voor machines in Azure, te klikken op de **oplossen** koppeling onder de **gereedheid voor Update-Agent** kolom in de portal wordt gestart de **Update-Agent oplossen** pagina. Voor niet-Azure-machines, de koppeling keert u terug naar dit artikel. Zie de [offline instructies](#offline) oplossen met een niet-Azure-machine.
+Voor machines in Azure, te klikken op de **oplossen** koppeling onder de **gereedheid voor Update-Agent** kolom in de portal wordt gestart de **Update-Agent oplossen** pagina. Voor niet-Azure-machines, de koppeling keert u terug naar dit artikel. Zie de offline instructies voor het oplossen van een niet-Azure-machine.
 
 ![de pagina van de VM-lijst](../media/update-agent-issues-linux/vm-list.png)
 
@@ -39,7 +39,7 @@ Op de **Update-Agent oplossen** pagina, klikt u op **uitvoeren controleert**, de
 
 ![Pagina oplossen](../media/update-agent-issues-linux/troubleshoot-page.png)
 
-Als u klaar bent, worden de resultaten worden geretourneerd in het venster. De [Controleer gedeelte](#pre-requisistes-checks) bevatten informatie over wat elke controle zoekt.
+Als u klaar bent, worden de resultaten worden geretourneerd in het venster. De controle-secties bevatten informatie over wat elke controle zoekt.
 
 ![Update-agent controleert op pagina](../media/update-agent-issues-linux/update-agent-checks.png)
 

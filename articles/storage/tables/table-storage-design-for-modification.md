@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 5e9ade0f6076a34a5662330bab64e9dd71275ba8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e993d169025f9b76c5e813bae31ca6cb2a39ba71
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470532"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809514"
 ---
 # <a name="design-for-data-modification"></a>Ontwerp voor gegevenswijziging
-In dit artikel is gericht op de ontwerpoverwegingen voor het optimaliseren van toevoegingen, updates, en worden verwijderd. In sommige gevallen moet u evalueren de verhouding tussen de ontwerpen die geoptimaliseerd voor het uitvoeren van query's op basis van modellen die voor wijziging van gegevens, optimaliseren net zoals u kunt in ontwerpen voor relationele databases doen (Hoewel de technieken voor het beheren van de ontwerp-en nadelen andere in een relationele database). De sectie [tabel ontwerppatronen](#table-design-patterns) beschrijft enkele gedetailleerde ontwerppatronen voor de Table-service en worden enkele deze wisselwerking. U ziet in de praktijk veel modellen die zijn geoptimaliseerd voor het uitvoeren van query's entiteiten ook geschikt voor entiteiten wijzigen.  
+In dit artikel is gericht op de ontwerpoverwegingen voor het optimaliseren van toevoegingen, updates, en worden verwijderd. In sommige gevallen moet u evalueren de verhouding tussen de ontwerpen die geoptimaliseerd voor het uitvoeren van query's op basis van modellen die voor wijziging van gegevens, optimaliseren net zoals u kunt in ontwerpen voor relationele databases doen (Hoewel de technieken voor het beheren van de ontwerp-en nadelen andere in een relationele database). De ontwerppatronen voor sectie tabel beschrijft enkele gedetailleerde ontwerppatronen voor de Table-service en worden enkele deze wisselwerking. U ziet in de praktijk veel modellen die zijn geoptimaliseerd voor het uitvoeren van query's entiteiten ook geschikt voor entiteiten wijzigen.  
 
 ## <a name="optimize-the-performance-of-insert-update-and-delete-operations"></a>De prestaties van insert, update en delete-bewerkingen optimaliseren
 Als u wilt bijwerken of verwijderen van een entiteit, u moet kunnen worden geïdentificeerd met behulp van de **PartitionKey** en **RowKey** waarden. In dit opzicht van uw keuze **PartitionKey** en **RowKey** voor wijzigen van entiteiten dezelfde criteria naar keuze volgen moet voor de ondersteuning van point-query's omdat u wilt dat voor het identificeren van entiteiten als efficiënt mogelijk. U niet wilt gebruiken een inefficiënte partitie of tabel scan om te vinden een entiteit detecteren de **PartitionKey** en **RowKey** waarden die u wilt bijwerken of verwijderen.  
 
-De volgende patronen in de sectie [tabel ontwerppatronen](#table-design-patterns) adres optimaliseert de prestaties of het invoegen, bijwerken en verwijderen van bewerkingen:  
+De volgende patronen in de sectie tabel ontwerp patronen adres optimalisatie van de prestaties of het invoegen, bijwerken en verwijderen van bewerkingen:  
 
 * [Hoog volume patroon verwijderen](table-storage-design-patterns.md#high-volume-delete-pattern) -inschakelen van de verwijdering van een groot aantal entiteiten door op te slaan van de entiteiten voor gelijktijdige verwijdering in hun eigen afzonderlijke tabel; u de entiteiten verwijderen door het verwijderen van de tabel.  
 * [Patroon voor gegevens uit de serie](table-storage-design-patterns.md#data-series-pattern) -Store volledige gegevensreeks in één enkele entiteit te minimaliseren van het aantal aanvragen die u aanbrengt.  

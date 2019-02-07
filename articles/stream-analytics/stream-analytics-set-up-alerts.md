@@ -7,14 +7,14 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/19/2019
+ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4c0d32a201da5befbc8b68148f0b051e283ec289
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 52db8217cc1e1f84d25ab896be9b42db3bf6bd81
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412384"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769481"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Waarschuwingen instellen voor Azure Stream Analytics-taken
 
@@ -46,17 +46,17 @@ Het volgende voorbeeld ziet u hoe u waarschuwingen instellen voor wanneer de taa
 
    ![Instellen van een waarschuwing voor een Azure stream Analytics-taak](./media/stream-analytics-set-up-alerts/stream-analytics-add-group-email-action.png)
 
-7. De **RESOURCE**, **voorwaarde**, en **ACTIEGROEPEN** krijgen een vermelding.
+7. De **RESOURCE**, **voorwaarde**, en **ACTIEGROEPEN** krijgen een vermelding. Houd er rekening mee dat in de volgorde voor de waarschuwingen die moeten worden geactiveerd, de gedefinieerde voorwaarden moeten worden voldaan. U kunt bijvoorbeeld de gemiddelde waarde van een metrische waarde van meten in de afgelopen 15 minuten om de 5 minuten.
 
    ![Maken van waarschuwingsregel voor Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
 
    Toevoegen een **naam waarschuwingsregel**, **beschrijving**, en uw **resourcegroep** naar de **WAARSCHUWINGSDETAILS** en klikt u op **waarschuwing maken regel** om de regel voor uw Stream Analytics-taak te maken.
 
    ![Maken van waarschuwingsregel voor Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
-
+   
 ## <a name="scenarios-to-monitor"></a>Scenario's om te controleren
 
-De volgende waarschuwingen worden aanbevolen voor het bewaken van de prestaties van uw Stream Analytics-taak. Deze metrische gegevens moet elke minuut worden geëvalueerd ten opzichte van de afgelopen periode van 5 minuten. Als uw taak te lijden heeft prestatieproblemen kunnen voordoen, kunt u query-parallellisatie maken meer optimale en verhoog het aantal streaming-eenheden.
+De volgende waarschuwingen worden aanbevolen voor het bewaken van de prestaties van uw Stream Analytics-taak. Deze metrische gegevens moet elke minuut worden geëvalueerd ten opzichte van de afgelopen periode van 5 minuten.
 
 |Gegevens|Voorwaarde|Tijdverzameling|Drempelwaarde|Corrigerende maatregelen|
 |-|-|-|-|-|

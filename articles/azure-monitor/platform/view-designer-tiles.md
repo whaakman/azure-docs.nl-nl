@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 034c82c2f52f0a4dbc19b49308d1ba4308716d45
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 5b01b55c8b2367861459069cc255840e883b9fc5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186800"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817381"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Naslaggids voor tegels in Log Analytics-ontwerper
 Met behulp van Designer bekijken in Azure Log Analytics, kunt u aangepaste weergaven maken in Azure portal die tal van gegevensvisualisaties in uw Log Analytics-werkruimte. In dit artikel is een referentie-handleiding voor de instellingen voor de tegels die beschikbaar in uw aangepaste weergaven zijn.
@@ -36,7 +36,7 @@ De beschikbare Weergaveontwerper-tegels worden in de volgende tabel beschreven:
 | [Number](#number-tile) |Het aantal records uit een query. |
 | [Twee getallen](#two-numbers-tile) |Het aantal records uit twee verschillende query's. |
 | [ringdiagram](#donut-tile) | Een grafiek die gebaseerd op een query, met een totale waarde in het midden. |
-| [Lijndiagram en bijschrift](#line-chart-amp-callout-tile) | Een lijndiagram dat gebaseerd op een query en een toelichting bij een totale waarde. |
+| Lijndiagram en bijschrift | Een lijndiagram dat gebaseerd op een query en een toelichting bij een totale waarde. |
 | [Lijndiagram](#line-chart-tile) |Een lijndiagram dat gebaseerd op een query. |
 | [Twee tijdlijnen](#two-timelines-tile) | Een kolomdiagram met twee reeksen, elk op basis van een afzonderlijke query te maken. |
 
@@ -140,7 +140,7 @@ Deze tegel is zowel een regel die meerdere reeksen uit een logbestand query's ui
 | **Lijndiagram** |**> Bijschrift** |
 | Titel van bijschrift | De tekst die wordt weergegeven boven de waarde van bijschrift. |
 | Reeksnaam |De eigenschapswaarde voor de reeks moet worden gebruikt als de waarde van bijschrift. Als er geen reeks is opgegeven, worden alle records van de query worden gebruikt. |
-| Bewerking |De bewerking die wordt uitgevoerd op de eigenschap value om samen te vatten het als één waarde voor de toelichting.<ul><li>Gemiddelde: Het gemiddelde van de waarden van alle records.</li><li>Aantal: De telling van alle records die worden geretourneerd door de query.</li><li>Laatste voorbeeld: De waarde van het afgelopen interval dat opgenomen in de grafiek.</li><li>Max.: De maximale waarde van de tijden die zijn opgenomen in de grafiek.</li><li>Min.: De minimumwaarde van de tijden die zijn opgenomen in de grafiek.</li><li>Som: De som van de waarden van alle records.</li></ul> |
+| Bewerking |De bewerking die wordt uitgevoerd op de eigenschap value om samen te vatten het als één waarde voor de toelichting.<ul><li>Gemiddelde: Het gemiddelde van de waarden van alle records.</li><li>Aantal: De telling van alle records die worden geretourneerd door de query.</li><li>Laatste voorbeeld: De waarde van het afgelopen interval dat opgenomen in de grafiek.</li><li>Max.: De maximale waarde van de tijden die zijn opgenomen in de grafiek.</li><li>Min: De minimumwaarde van de tijden die zijn opgenomen in de grafiek.</li><li>Som: De som van de waarden van alle records.</li></ul> |
 | **Lijndiagram** |**> Y-as** |
 | Logaritmische schaal gebruiken |Selecteer deze koppeling naar een logaritmische schaal gebruiken voor de y-as. |
 | Eenheden |Geef de eenheden voor de waarden moeten worden geretourneerd door de query. Deze informatie wordt gebruikt op gegevenslabels weergegeven die wijzen op de typen en, optioneel, om te converteren van de waarden. De *eenheid* type Hiermee geeft u de categorie van de eenheid en definieert de beschikbare *huidige eenheid* waarden. Als u een waarde in *converteren naar*, de numerieke waarden worden geconverteerd van de *huidige eenheid* type de *converteren naar* type. |

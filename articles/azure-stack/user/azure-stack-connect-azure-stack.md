@@ -15,19 +15,19 @@ ms.topic: get-started-article
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: b7f9bda37d63956ea672528c28b81eaaac9891a6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4bc4387dd56de96edd17fcd8e5672cfda96cf67b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243763"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816404"
 ---
 # <a name="connect-to-azure-stack"></a>Verbinding maken met Azure Stack
 
 Voor het beheren van resources, moet u verbinding maken met de Azure Stack Development Kit. Dit artikel vindt u de stappen die worden vereist om verbinding maken met de development kit. U kunt een van de volgende verbindingsopties gebruiken:
 
-* [Extern bureaublad](#connect-with-remote-desktop): Hiermee kunt u meerdere gelijktijdige gebruikers snel verbinding vanaf de development kit.
-* [Virtuele particuliere netwerk (VPN)](#connect-with-vpn): kunnen meerdere gelijktijdige gebruikers verbinding van clients buiten de Azure Stack-infrastructuur maken (configuratie vereist).
+* Extern bureaublad: kunt meerdere gelijktijdige gebruikers snel verbinding vanaf de development kit.
+* Virtueel particulier netwerk (VPN): Hiermee kunnen meerdere gelijktijdige gebruikers verbinding maken vanaf clients buiten de Azure Stack-infrastructuur (configuratie vereist).
 
 ## <a name="connect-to-azure-stack-with-remote-desktop"></a>Verbinding maken met Azure Stack met extern bureaublad
 Met een extern bureaublad-verbinding, kan meerdere gelijktijdige gebruikers werken met de portal om resources te beheren.

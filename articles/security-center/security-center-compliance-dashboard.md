@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: dbff728c888e9e2f83d9a82ca9819bf9dd0b89e9
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 252337c0d2bc162d418d20ca4641673d1564daa6
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54268131"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660423"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Zelfstudie: Uw regelnaleving verbeteren
 ---
@@ -37,7 +37,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 ## <a name="prerequisites"></a>Vereisten
 
 Om de functies in deze zelfstudie te doorlopen, moet u beschikken over de Standard-prijscategorie van Security Center. U kunt Security Center Standard kosteloos proberen.
-Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie. In de snelstartgids [Onboard your Azure subscription to Security Center Standard](https://docs.microsoft.com/en-us/azure/security-center/security-center-get-started) (Uw Azure-abonnement registreren voor Security Center Standard) wordt u begeleid bij het upgraden naar Standard.
+Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie. In de snelstartgids [Onboard your Azure subscription to Security Center Standard](https://docs.microsoft.com/azure/security-center/security-center-get-started) (Uw Azure-abonnement registreren voor Security Center Standard) wordt u begeleid bij het upgraden naar Standard.
 
 ##  <a name="assess-your-regulatory-compliance"></a>Naleving van uw regelgeving beoordelen
 

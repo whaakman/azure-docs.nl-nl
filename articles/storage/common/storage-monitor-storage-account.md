@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d437c6e2327fc9771f9567a37bfbf8ad82713b2b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 79440cf69f921e5933ed410e276cdf304e94fa4f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452640"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817271"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Een opslagaccount in Azure portal controleren
 
@@ -46,7 +46,7 @@ ms.locfileid: "55452640"
 
 1. Wanneer u klaar bent met de configuratie van de bewaking, selecteert u **opslaan**.
 
-Een standaardset van metrische gegevens wordt weergegeven in de grafieken op de blade opslagaccount, evenals de blades van afzonderlijke service (blob, wachtrij, tabel en bestand). Nadat u de metrische gegevens voor een service hebt ingeschakeld, het kan een uur duren voor de gegevens worden weergegeven in de grafieken. U kunt selecteren **bewerken** op een grafiek met metrische gegevens voor [configureren welke metrische gegevens](#how-to-customize-metrics-charts) worden weergegeven in de grafiek.
+Een standaardset van metrische gegevens wordt weergegeven in de grafieken op de blade opslagaccount, evenals de blades van afzonderlijke service (blob, wachtrij, tabel en bestand). Nadat u de metrische gegevens voor een service hebt ingeschakeld, het kan een uur duren voor de gegevens worden weergegeven in de grafieken. U kunt selecteren **bewerken** op een grafiek met metrische gegevens om te configureren welke metrische gegevens worden weergegeven in de grafiek.
 
 U kunt metrische gegevens verzamelen en logboekregistratie uitschakelen door in te stellen **Status** naar **uit**.
 
@@ -116,7 +116,7 @@ U kunt Azure Storage grafieken met metrische gegevens voor het gebruik van uw st
    ![Tegelgalerie in Azure portal](./media/storage-monitor-storage-account/storage-customize-dashboard.png)
 1. Selecteer **aanpassen voltooid** in de buurt van de bovenkant van het dashboard wanneer u klaar bent met grafieken toe te voegen.
 
-Als u grafieken hebt toegevoegd aan uw dashboard, kunt u verder deze aanpassen zoals beschreven in [grafieken met metrische gegevens aanpassen](#how-to-customize-metrics-charts).
+Als u grafieken hebt toegevoegd aan uw dashboard, kunt u deze verder aanpassen zoals beschreven in de grafieken met metrische gegevens aanpassen.
 
 ## <a name="configure-logging"></a>Logboekregistratie configureren
 

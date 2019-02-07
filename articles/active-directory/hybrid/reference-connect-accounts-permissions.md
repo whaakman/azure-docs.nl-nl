@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 01/24/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: b05f10068cb747f19266683779352f21ec01bff9
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: abfdf75c6460efe50dcc9959ffb297f77a72f8c4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491685"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813208"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Accounts en machtigingen
 
@@ -67,10 +67,10 @@ De AD DS-ondernemingsadministrator-account wordt gebruikt voor het configureren 
 Als u een van DirSync upgrade, wordt de Ondernemingsadministrators van AD DS-referenties worden gebruikt om het opnieuw instellen van het wachtwoord voor het account wordt gebruikt door DirSync. Ook moet u Azure AD-hoofdbeheerder referenties.
 
 ### <a name="azure-ad-global-admin-credentials"></a>Azure AD-hoofdbeheerder referenties
-Deze referenties worden alleen gebruikt tijdens de installatie en niet worden gebruikt nadat de installatie is voltooid. Wordt gebruikt voor het maken van de [Azure AD Connector-account](#azure-ad-service-account) gebruikt voor het synchroniseren van wijzigingen in Azure AD. Het account kunt synchronisatie ook als een functie in Azure AD.
+Deze referenties worden alleen gebruikt tijdens de installatie en niet worden gebruikt nadat de installatie is voltooid. Wordt gebruikt om de Azure AD-Connector-account gebruikt voor het synchroniseren van wijzigingen naar Azure AD te maken. Het account kunt synchronisatie ook als een functie in Azure AD.
 
 ### <a name="ad-ds-connector-account-required-permissions-for-express-settings"></a>AD DS-Connector-account vereist machtigingen voor de express-instellingen
-De [Connector voor AD DS-account](#active-directory-account) is gemaakt voor het lezen en schrijven naar Windows Server AD en heeft de volgende machtigingen als die zijn gemaakt door de express-instellingen:
+De AD DS-Connector-account is gemaakt voor het lezen en schrijven naar Windows Server AD en heeft de volgende machtigingen als die zijn gemaakt door de express-instellingen:
 
 | Machtiging | Gebruikt voor |
 | --- | --- |
@@ -89,9 +89,9 @@ Hier volgt een samenvatting van de snelle installatie wizardpagina's, de referen
 
 | Wizardpagina | Referenties die worden verzameld | Machtigingen die vereist zijn | Gebruikt voor |
 | --- | --- | --- | --- |
-| N/A |Gebruiker met de installatiewizard |Beheerder van de lokale server |<li>Hiermee maakt u de [ADSync-serviceaccount](#azure-ad-connect-sync-service-account) account dat over het uitvoeren van de synchronisatieservice wordt gebruikt. |
-| Verbinding maken met Azure AD |Azure AD-directory-referenties |De rol globale beheerder in Azure AD |<li>Inschakelen van synchronisatie in de Azure AD-directory.</li>  <li>Het maken van de [Azure AD Connector-account](#azure-ad-service-account) die wordt gebruikt voor continue synchronisatiebewerkingen in Azure AD.</li> |
-| Verbinding maken met AD DS |On-premises Active Directory-referenties |Lid van de groep Ondernemingsadministrators (EA) in Active Directory |<li>Hiermee maakt u de [Connector voor AD DS-account](#active-directory-account) in Active Directory en machtigingen verlenen aan deze. Dit account hebt gemaakt wordt om te lezen en schrijven van directory-informatie tijdens de synchronisatie gebruikt.</li> |
+| N/A |Gebruiker met de installatiewizard |Beheerder van de lokale server |<li>Hiermee maakt u de rekening voor ADSync-service die over het uitvoeren van de synchronisatieservice wordt gebruikt. |
+| Verbinding maken met Azure AD |Azure AD-directory-referenties |De rol globale beheerder in Azure AD |<li>Inschakelen van synchronisatie in de Azure AD-directory.</li>  <li>Het maken van het Azure AD-Connector-account dat wordt gebruikt voor continue synchronisatiebewerkingen in Azure AD.</li> |
+| Verbinding maken met AD DS |On-premises Active Directory-referenties |Lid van de groep Ondernemingsadministrators (EA) in Active Directory |<li>Het AD DS-Connector-account wordt gemaakt in Active Directory en machtigingen verleend voor deze. Dit account hebt gemaakt wordt om te lezen en schrijven van directory-informatie tijdens de synchronisatie gebruikt.</li> |
 
 
 ## <a name="custom-installation-settings"></a>Aangepaste installatie-instellingen
@@ -106,10 +106,10 @@ Hier volgt een samenvatting van de aangepaste installatie wizardpagina's, de ref
 
 | Wizardpagina | Referenties die worden verzameld | Machtigingen die vereist zijn | Gebruikt voor |
 | --- | --- | --- | --- |
-| N/A |Gebruiker met de installatiewizard |<li>Beheerder van de lokale server</li><li>Als u een volledige SQL Server gebruikt, moet de gebruiker System Administrator (SA) in SQL</li> |Maakt standaard het lokale account dat wordt gebruikt als de [synchronisatie-engine-serviceaccount](#azure-ad-connect-sync-service-account). Het account wordt alleen gemaakt wanneer de beheerder geen een bepaald account geeft. |
+| N/A |Gebruiker met de installatiewizard |<li>Beheerder van de lokale server</li><li>Als u een volledige SQL Server gebruikt, moet de gebruiker System Administrator (SA) in SQL</li> |Maakt standaard het lokale account dat wordt gebruikt als het serviceaccount voor synchronisatie-engine. Het account wordt alleen gemaakt wanneer de beheerder geen een bepaald account geeft. |
 | Synchronisatieservices, Service-account-optie installeren |AD of lokale gebruikersaccountreferenties |Gebruiker machtigingen zijn verleend door de installatiewizard |Als de beheerder een account is opgegeven, wordt dit account gebruikt als het serviceaccount voor de synchronisatieservice. |
-| Verbinding maken met Azure AD |Azure AD-directory-referenties |De rol globale beheerder in Azure AD |<li>Inschakelen van synchronisatie in de Azure AD-directory.</li>  <li>Het maken van de [Azure AD Connector-account](#azure-ad-service-account) die wordt gebruikt voor continue synchronisatiebewerkingen in Azure AD.</li> |
-| Verbinding maken met uw directory’s |On-premises Active Directory-referenties voor elk forest dat is verbonden met Azure AD |De machtigingen zijn afhankelijk van welke functies u inschakelen en kunt u vinden in [het AD DS-Connector-account maken](#create-the-ad-dso-connector-account) |Dit account wordt gebruikt om te lezen en schrijven van directory-informatie tijdens de synchronisatie. |
+| Verbinding maken met Azure AD |Azure AD-directory-referenties |De rol globale beheerder in Azure AD |<li>Inschakelen van synchronisatie in de Azure AD-directory.</li>  <li>Het maken van het Azure AD-Connector-account dat wordt gebruikt voor continue synchronisatiebewerkingen in Azure AD.</li> |
+| Verbinding maken met uw directory’s |On-premises Active Directory-referenties voor elk forest dat is verbonden met Azure AD |De machtigingen zijn afhankelijk van welke functies u inschakelen en kunt u vinden in maken het AD DS-Connector-account |Dit account wordt gebruikt om te lezen en schrijven van directory-informatie tijdens de synchronisatie. |
 | AD FS-Servers |Voor elke server in de lijst verzamelt met de wizard referenties wanneer de aanmeldingsreferenties van de gebruiker die de wizard zijn niet voldoende om verbinding te maken |Domeinbeheerder |Installatie en configuratie van de AD FS-serverfunctie. |
 | WAP-servers |Voor elke server in de lijst verzamelt met de wizard referenties wanneer de aanmeldingsreferenties van de gebruiker die de wizard zijn niet voldoende om verbinding te maken |Lokale beheerder op de doel-VM |Installatie en configuratie van WAP-server-rol. |
 | Vertrouwde proxyreferenties |Federation-service vertrouwen referenties (de referenties van de proxy wordt gebruikt om in te schrijven voor een vertrouwensrelatie certificaat van de FS |Domeinaccount dat een lokale beheerder van de AD FS-server |Initiële inschrijving van FS WAP-vertrouwensrelatie certificaat. |
@@ -157,7 +157,7 @@ Als u express-instellingen, wordt klikt u vervolgens een account gemaakt in Acti
 
 ![AD-account](./media/reference-connect-accounts-permissions/adsyncserviceaccount.png)
 
-Als u aangepaste instellingen, klikt bent u verantwoordelijk voor het account te maken voordat u begint met de installatie.  Zie [het AD DS-Connector-account maken](#create-the-ad-dso-connector-account).
+Als u aangepaste instellingen, klikt bent u verantwoordelijk voor het account te maken voordat u begint met de installatie.  Zie de AD DS-Connector-account maken.
 
 ### <a name="adsync-service-account"></a>ADSync-serviceaccount
 De synchronisatieservice kan uitvoeren onder verschillende accounts. Het kan worden uitgevoerd onder een **Virtual Service Account** (leverancierspecifiek Kenmerk), een **groep beheerd serviceaccount** (gMSA/sMSA), of een normaal gebruikersaccount. De ondersteunde opties zijn gewijzigd met de 2017 April versie van Connect wanneer u een nieuwe installatie uitvoeren. Als u een upgrade vanaf een eerdere versie van Azure AD Connect uitvoert, zijn deze extra opties niet beschikbaar.
@@ -198,7 +198,7 @@ Een virtueel serviceaccount is een speciaal type account dat geen een wachtwoord
 
 ![VSA](./media/reference-connect-accounts-permissions/aadsyncvsa.png)
 
-De leverancierspecifiek Kenmerk is bedoeld om te worden gebruikt met scenario's waarbij de synchronisatie-engine en SQL zijn op dezelfde server. Als u externe SQL, wordt aangeraden om te gebruiken een [groep beheerd serviceaccount](#managed-service-account) in plaats daarvan.
+De leverancierspecifiek Kenmerk is bedoeld om te worden gebruikt met scenario's waarbij de synchronisatie-engine en SQL zijn op dezelfde server. Als u externe SQL gebruikt, klikt u vervolgens het beste in plaats daarvan een op groep beheerd serviceaccount gebruiken.
 
 Deze functie moet Windows Server 2008 R2 of hoger. Als u Azure AD Connect op Windows Server 2008 installeren, wordt de installatie van de terugvalt op het met behulp van een [gebruikersaccount](#user-account) in plaats daarvan.
 

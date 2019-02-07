@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 970cab2c782e71defbda828a42273f317dee80e4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ede0b7cbeee9227a7023e5c0550a951897cc43e4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472980"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821181"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Behoud van de taak en gegevens naar Azure Storage met de Batch File Conventions-bibliotheek voor .NET
 
@@ -112,7 +112,7 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg
 
 De `kind` parameter van de [TaskOutputStorage](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.aspx).[ SaveAsync](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync.aspx) methode de persistente bestanden worden gecategoriseerd. Er zijn vier vooraf gedefinieerde [TaskOutputKind] [ net_taskoutputkind] typen: `TaskOutput`, `TaskPreview`, `TaskLog`, en `TaskIntermediate.` ook kunt u aangepaste categorieën van uitvoer.
 
-Deze uitvoertypen kunnen u opgeven welk type uitvoer om wanneer u later Batch een query voor de persistente uitvoer van een bepaalde taak weer te geven. Wanneer u de uitvoer voor een taak, kunt u met andere woorden, de lijst op een van de uitvoertypen filteren. Bijvoorbeeld, "Ik wil de *preview* uitvoer voor de taak *109*." Meer informatie over de aanbieding en het ophalen van de uitvoer wordt weergegeven in [uitvoer ophalen](#retrieve-output) verderop in het artikel.
+Deze uitvoertypen kunnen u opgeven welk type uitvoer om wanneer u later Batch een query voor de persistente uitvoer van een bepaalde taak weer te geven. Wanneer u de uitvoer voor een taak, kunt u met andere woorden, de lijst op een van de uitvoertypen filteren. Bijvoorbeeld, "Ik wil de *preview* uitvoer voor de taak *109*." Meer informatie over de aanbieding en het ophalen van de uitvoer wordt weergegeven in de uitvoer ophalen later in dit artikel.
 
 > [!TIP]
 > Het type uitvoer bepaalt ook waar in de Azure-portal een bepaald bestand wordt weergegeven: *TaskOutput*-gecategoriseerde bestanden worden weergegeven onder **taak uitvoerbestanden**, en *TaskLog* bestanden worden weergegeven onder **taak logboeken**.
@@ -197,7 +197,7 @@ De Azure-portal geeft uitvoerbestanden van de taak en logboeken die zijn opgesla
 
 Om in te schakelen in de weergave van de uitvoerbestanden in de portal, moet u de volgende vereisten voldoen:
 
-1. [Een Azure Storage-account koppelt](#requirement-linked-storage-account) aan uw Batch-account.
+1. Een Azure Storage-account koppelt aan uw Batch-account.
 1. Voldoen aan de vooraf gedefinieerde naamgevingsconventies voor Storage-containers en uitvoerbare bestanden bij het opslaan van de uitvoer. U kunt de definitie van deze overeenkomsten vinden in de File Conventions-bibliotheek [Leesmij-bestand][github_file_conventions_readme]. Als u de [Azure Batch File Conventions] [ nuget_package] bibliotheek om vast te leggen van de uitvoer van uw bestanden blijven aanwezig op basis van de File Conventions-standaard.
 
 Als u wilt weergeven en logboeken van de uitvoerbestanden taak in Azure portal, gaat u naar de taak waarvan uitvoer die u geïnteresseerd bent in, klik dan ofwel **opgeslagen uitvoerbestanden** of **opgeslagen logboeken**. Deze afbeelding ziet u de **opgeslagen uitvoerbestanden** voor de taak met ID '007':

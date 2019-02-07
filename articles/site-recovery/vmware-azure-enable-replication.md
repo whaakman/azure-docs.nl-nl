@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 1/29/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 51086b894de7a02ec78302323512c7766dc9f4fb
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 85c5947fa32751bd8381d6a1d59e91ba2026f5f0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226330"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822779"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Schakel replicatie naar Azure voor VMware-VM 's
 
@@ -56,7 +56,7 @@ Bij het repliceren van virtuele VMware-machines:
     >   * U kunt een premium- of standard-opslagaccount selecteren. Als u een premium-account selecteert, moet u om op te geven van een extra standard storage-account voor lopende replicatielogboeken. Accounts moeten zich in dezelfde regio als de Recovery Services-kluis.
     >   * Als u gebruiken een ander opslagaccount wilt, kunt u [maakt u er een](../storage/common/storage-create-storage-account.md). Voor het maken van een storage-account met behulp van Resource Manager, klikt u op **nieuw**. 
 
-8. Selecteer het Azure-netwerk en -subnet waarmee virtuele Azure-machines verbinding maken wanneer ze na een failover worden geactiveerd. Het netwerk moet zich in dezelfde regio bevinden als de Recovery Services-kluis. Selecteer **Nu configureren voor geselecteerde machines** om de netwerkinstelling toe te passen op alle machines die u voor beveiliging selecteert. Selecteer **Later configureren** om per machine een Azure-netwerk te selecteren. Als u een netwerk hebt, moet u [maakt u er een](#set-up-an-azure-network). Voor het maken van een netwerk met behulp van Resource Manager, klikt u op **nieuw**. Selecteer een subnet, indien van toepassing, en klik vervolgens op **OK**.
+8. Selecteer het Azure-netwerk en -subnet waarmee virtuele Azure-machines verbinding maken wanneer ze na een failover worden geactiveerd. Het netwerk moet zich in dezelfde regio bevinden als de Recovery Services-kluis. Selecteer **Nu configureren voor geselecteerde machines** om de netwerkinstelling toe te passen op alle machines die u voor beveiliging selecteert. Selecteer **Later configureren** om per machine een Azure-netwerk te selecteren. Als u een netwerk hebt, moet u er een maken. Voor het maken van een netwerk met behulp van Resource Manager, klikt u op **nieuw**. Selecteer een subnet, indien van toepassing, en klik vervolgens op **OK**.
 
     ![Instelling voor het doel van replicatie inschakelen](./media/vmware-azure-enable-replication/enable-rep3.png)
 9. Selecteer in **Virtuele machines** > **Virtuele machines selecteren** alle machines die u wilt repliceren. U kunt alleen machines selecteren waarvoor replicatie kan worden ingeschakeld. Klik vervolgens op **OK**. Als u een bepaalde virtuele machine niet kunt weergeven of selecteren, klikt u [hier](https://aka.ms/doc-plugin-VM-not-showing) om het probleem te verhelpen.

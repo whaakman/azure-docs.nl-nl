@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: rclaus
-ms.openlocfilehash: c958e4e11ba5eb88a8357c8ab373b6501e3eac6a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d5f4dc7f4abc13f253a206a63e65faf1106f9c7c
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189915"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766177"
 ---
 # <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>Cloud-init gebruiken om te werken en te installeren pakketten in een Linux-VM in Azure
 In dit artikel leest u hoe u [cloud-init](https://cloudinit.readthedocs.io) om bij te werken van pakketten op een Linux virtuele machine (VM) of virtuele-machineschaalset ingesteld (VMSS) bij het inrichten van de tijd in Azure. Deze cloud-init-scripts uitvoeren op de eerste keer opstarten nadat de resources zijn ingericht met Azure. Zie voor meer informatie over hoe cloud-init systeemeigen in Azure en de ondersteunde Linux-distributies werkt [cloud-init-overzicht](using-cloud-init.md)
@@ -42,7 +42,7 @@ Voordat u deze installatiekopie implementeert, moet u een resourcegroep maken me
 az group create --name myResourceGroup --location eastus
 ```
 
-Maak nu een virtuele machine met [az vm maken](/cli/azure/vm#az_vm_create) en geef het cloud-init-bestand met `--custom-data cloud_init_upgrade.txt` als volgt:
+Maak nu een virtuele machine met [az vm maken](/cli/azure/vm) en geef het cloud-init-bestand met `--custom-data cloud_init_upgrade.txt` als volgt:
 
 ```azurecli-interactive 
 az vm create \

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
-ms.openlocfilehash: 36e87550c90c1a5d4b05aa62f2fbe79b04b25445
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 9958f5f0f1435af231c1426a249c745f4a2352c5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382438"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816608"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor zakelijke continuïteit en herstel na noodgevallen in Azure Kubernetes Service (AKS)
 
@@ -21,11 +21,11 @@ Wanneer u clusters in Azure Kubernetes Service (AKS) beheert, wordt het belangri
 Deze aanbevolen procedures voor artikel richt zich op overwegingen waarmee u van plan bent voor zakelijke continuïteit en herstel na noodgevallen in AKS. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
-* [Plan voor AKS-clusters in meerdere regio 's](#region-planning)
-* [Verkeer doorverbinden tussen meerdere clusters met Azure Traffic Manager](#ingress-traffic)
-* [Gebruik van geo-replicatie voor uw installatiekopie-containerregisters](#container-registry)
-* [Plan voor de status van de toepassing in meerdere clusters](#managing-application-state)
-* [Opslag in meerdere regio's repliceren](#storage)
+* Plan voor AKS-clusters in meerdere regio 's
+* Verkeer doorverbinden tussen meerdere clusters met Azure Traffic Manager
+* Gebruik van geo-replicatie voor uw installatiekopie-containerregisters
+* Plan voor de status van de toepassing in meerdere clusters
+* Opslag in meerdere regio's repliceren
 
 ## <a name="plan-for-multi-region-deployment"></a>Plan voor implementatie in meerdere regio 's
 

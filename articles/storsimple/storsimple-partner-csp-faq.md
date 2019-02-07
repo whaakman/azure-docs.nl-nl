@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 76b89c15a12810f98e6324ca93cf581f9b852c88
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f2c726fd4159bcb47088e814fd60e054e50a1315
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259935"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814279"
 ---
-# <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple voor Cloud Solutions Provider-programma: veelgestelde vragen
+# <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple voor Cloud Solutions Provider-programma: Veelgestelde vragen
 
 
 ## <a name="overview"></a>Overzicht
@@ -31,7 +31,7 @@ Vragen en antwoorden zijn gerangschikt in de volgende categorieën:
 
  - [StorSimple en Cloud Solutions Provider-programma (CSP)-model](#storsimple-and-csp-model)
  - [Implementeren en beheren van de virtuele matrix als partner](#deploy-and-manage-storsimple-as-a-partner)
- - [Ondersteuning voor partners StorSimple voor CSP](#support-for-storsimple-partners)
+ - Ondersteuning voor partners StorSimple voor CSP
 
 ## <a name="storsimple-and-csp-model"></a>StorSimple en CSP-model
 

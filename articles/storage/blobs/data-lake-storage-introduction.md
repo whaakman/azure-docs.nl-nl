@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Storage Gen2 Preview Inleiding
-description: Biedt een overzicht van Azure Data Lake Storage Gen2 Preview
+title: Azure Data Lake Storage Gen2 Inleiding
+description: Biedt een overzicht van Azure Data Lake Storage Gen2
 services: storage
 author: jamesbak
 ms.service: storage
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 17b6d0ecf56ec07d3a46949b6ae3b63a6c4b94d7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 018171d4b2253c2cf7942f9f10424a9c695438b9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250109"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809433"
 ---
-# <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Inleiding tot Azure Data Lake Storage Gen2 Preview
+# <a name="introduction-to-azure-data-lake-storage-gen2"></a>Inleiding tot Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 Preview is een verscheidenheid aan functies die zijn toegewezen aan de analyse van big data, gebouwd op [Azure Blob-opslag](storage-blobs-introduction.md). Data Lake Storage Gen2 is het resultaat van de mogelijkheden van onze twee bestaande storage-services, Azure-blobopslag en Azure Data Lake Storage Gen1 geconvergeerd. Functies van [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index), zoals de semantiek van het bestandssysteem, map en Bestandsbeveiliging en schaal worden gecombineerd met lage kosten, gelaagde opslag, hoge beschikbaarheid/noodherstel herstelfuncties van [Azure Blob-opslag](storage-blobs-introduction.md).
+Azure Data Lake Storage Gen2 is een verscheidenheid aan functies die zijn toegewezen aan de analyse van big data, gebouwd op [Azure Blob-opslag](storage-blobs-introduction.md). Data Lake Storage Gen2 is het resultaat van de mogelijkheden van onze twee bestaande storage-services, Azure-blobopslag en Azure Data Lake Storage Gen1 geconvergeerd. Functies van [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index), zoals de semantiek van het bestandssysteem, map en Bestandsbeveiliging en schaal worden gecombineerd met lage kosten, gelaagde opslag, hoge beschikbaarheid/noodherstel herstelfuncties van [Azure Blob-opslag](storage-blobs-introduction.md).
 
 ## <a name="designed-for-enterprise-big-data-analytics"></a>Ontworpen voor analyse van big data voor ondernemingen
 

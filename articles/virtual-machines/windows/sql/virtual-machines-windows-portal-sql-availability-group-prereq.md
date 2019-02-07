@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 11e255c8cc32f17efa9fc9e8f39e869fba032d75
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: ff2031bd4c4fdc3d3ed8447a08ef29f0f89ea1d8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359830"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818019"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Voldoen aan de vereisten voor het maken van AlwaysOn-beschikbaarheidsgroepen op Azure virtual machines
 
@@ -81,7 +81,7 @@ Het virtuele netwerk maken:
 
     De volgende tabel ziet u de instellingen voor het virtuele netwerk:
 
-   | **Veld** | Waarde |
+   | **Veld** | Value |
    | --- | --- |
    | **Naam** |autoHAVNET |
    | **Adresruimte** |10.33.0.0/24 |
@@ -121,7 +121,7 @@ Het nieuwe virtuele netwerk heeft een subnet, met de naam **Admin**. Dit subnet 
 
 De volgende tabel geeft een overzicht van de configuratie-instellingen van het netwerk:
 
-| **Veld** | Waarde |
+| **Veld** | Value |
 | --- | --- |
 | **Naam** |**autoHAVNET** |
 | **Adresruimte** |Deze waarde is afhankelijk van de beschikbare adresruimten in uw abonnement. Een typische waarde is 10.0.0.0/16. |
@@ -174,7 +174,7 @@ Herhaal de voorgaande stappen voor het maken van twee virtuele machines. Naam va
 
 De volgende tabel ziet u de instellingen voor deze twee machines:
 
-| **Veld** | Waarde |
+| **Veld** | Value |
 | --- | --- |
 | **Naam** |Eerste domeincontroller: *ad-primaire-dc*.</br>Tweede domeincontroller *ad-secundaire-dc*. |
 | **Type VM-schijf** |SSD |
@@ -413,7 +413,7 @@ Nadat elke virtuele machine opnieuw wordt opgestart als een lid van het domein, 
 
 ### <a name="setServiceAccount"></a>De SQL Server-service-accounts instellen
 
-Stel de SQL Server-serviceaccount op elke virtuele machine van SQL Server. Gebruik van de accounts die u hebt gemaakt wanneer u [geconfigureerd de domeinaccounts](#DomainAccounts).
+Stel de SQL Server-serviceaccount op elke virtuele machine van SQL Server. Gebruik van de accounts die u hebt gemaakt tijdens het configureren van de domeinaccounts.
 
 1. Open **SQL Server Configuration Manager**.
 2. Met de rechtermuisknop op de SQL Server-service, en klik vervolgens op **eigenschappen**.

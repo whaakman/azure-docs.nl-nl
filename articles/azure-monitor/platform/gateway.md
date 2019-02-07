@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/05/2019
+ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: e4ea964600c03ce3f3b5b276ed02d12f573814bf
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: e1c225eb77a76015520690916db0399487ffe9e7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756492"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822609"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Verbinding maken met computers zonder toegang tot het Internet met behulp van de Log Analytics-gateway
 
@@ -34,7 +34,7 @@ De Log Analytics-gateway ondersteunt:
 * Azure Automation Hybrid Runbook Workers  
 * Windows-computers met de Microsoft Monitoring Agent rechtstreeks verbonden met een Log Analytics-werkruimte
 * Linux-computers met de Log Analytics-agent voor Linux rechtstreeks verbonden met een Log Analytics-werkruimte  
-* System Center Operations Manager 2012 SP1 met UR7 en Operations Manager 2012 R2 UR3, Operations Manager 2016 en beheergroep van Operations Manager-versie 1801 geïntegreerd met Log Analytics.  
+* System Center Operations Manager 2012 SP1 met UR7 en Operations Manager 2012 R2 met UR3, Operations Manager 2016 of hoger van de beheergroep is geïntegreerd met Log Analytics.  
 
 Als uw IT-beveiligingsbeleid doen niet toestaat dat computers in uw netwerk verbinding maken met Internet, zoals punt van apparaten verkooppunten (POS) of de servers die ondersteuning bieden IT-services, maar u moet ze verbinden met Azure Automation of Log Analytics om te beheren en ze te controleren , ze kunnen worden geconfigureerd om te communiceren rechtstreeks met de Log Analytics-gateway voor het ontvangen van configuratie- en doorsturen van gegevens in hun naam.  Als deze computers zijn geconfigureerd met de Log Analytics-agent rechtstreeks verbinding maken met een Log Analytics-werkruimte, worden alle computers in plaats daarvan communiceert met de Log Analytics-gateway.  De gateway gegevens worden overgebracht van de agents met de service rechtstreeks, worden niet geanalyseerd van de gegevens die onderweg zijn.
 

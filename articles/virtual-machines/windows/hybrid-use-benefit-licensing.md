@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing-ms
-ms.openlocfilehash: 757891a6968313c1a31ce67b399d6aa052abfa21
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 7bd228a01cd3841772750882d13c33459385cc21
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999948"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817713"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid Benefit voor Windows Server
 Voor klanten met Software Assurance kunt Azure Hybrid Benefit voor Windows Server u uw on-premises Windows Server-licenties en het uitvoeren van Windows virtuele machines op Azure tegen lagere kosten. U kunt Azure Hybrid Benefit voor Windows Server gebruiken voor het implementeren van nieuwe virtuele machines met Windows-besturingssysteem. In dit artikel gaat over de stappen voor het implementeren van nieuwe virtuele machines met Azure Hybrid Benefit voor Windows Server en hoe u kunt bijwerken bestaande virtuele machines uitvoeren. Zie voor meer informatie over Azure Hybrid Benefit voor Windows Server licentie- en kosten besparen, de [Azure Hybrid Benefit voor Windows Server-licenties pagina](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -40,7 +40,7 @@ Voor klanten met Software Assurance kunt Azure Hybrid Benefit voor Windows Serve
 ## <a name="ways-to-use-azure-hybrid-benefit-for-windows-server"></a>Manieren waarop u met Azure Hybrid Benefit voor Windows Server
 Er zijn verschillende manieren Windows virtual machines met Azure Hybrid Benefit gebruiken:
 
-1. U kunt VM's implementeren vanaf een van de opgegeven [Windows Server-installatiekopieën op Azure Marketplace](# https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview)
+1. U kunt VM's implementeren vanaf een van de opgegeven Windows Server-installatiekopieën op Azure Marketplace
 2. U kunt een aangepaste VM uploaden en implementeren met behulp van een Resource Manager-sjabloon of Azure PowerShell
 3. U kunt in-/ uitschakelen en converteren van bestaande virtuele machine tussen actieve met Azure Hybrid Benefit of op aanvraag kosten te betalen voor Windows Server
 4. U kunt ook Azure Hybrid Benefit voor Windows Server op virtuele-machineschaalset ook toepassen

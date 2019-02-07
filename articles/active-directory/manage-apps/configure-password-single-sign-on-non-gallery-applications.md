@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: barbkess
-ms.openlocfilehash: f549c748c87405b47868c75cc01af81efd202af2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 934996f1573520a6fba92ce09f8a14fc4795de6c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755353"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812458"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Het configureren van wachtwoord eenmalige aanmelding voor een toepassing buiten de galerie
 
@@ -43,7 +43,7 @@ Dit is een uitstekende manier om aan de slag voor het integreren van welke aard 
 
 -   Toestaan dat een **lid van de groep business** om op te geven van de gebruikersnamen en wachtwoorden toewijzen aan een gebruiker met behulp van de [Self-Service toegang tot toepassingen](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) functie
 
--   Toestaan dat een **beheerder** om op te geven de gebruikersnamen en wachtwoorden toewijzen aan een gebruiker met behulp van de referenties van de Update als functie [een gebruiker toewijzen aan een toepassing](#_How_to_configure_1)
+-   Toestaan dat een **beheerder** om op te geven van de gebruikersnamen en wachtwoorden toewijzen aan een gebruiker met behulp van de referenties voor Update-functie wanneer een gebruiker toewijzen aan een toepassing
 
 -   Toestaan dat een **beheerder** om op te geven de gedeelde gebruikersnaam of het wachtwoord dat wordt gebruikt door een groep personen met de referenties van de Update als functie [een groep toewijzen aan een toepassing](#assign-an-application-to-a-group-directly)
 
@@ -57,7 +57,7 @@ Een toepassing uit de Azure AD-galerie die u wilt configureren:
 
 -   [De toepassing configureren voor eenmalige aanmelding wachtwoord](#configure-the-application-for-password-single-sign-on)
 
--   [De toepassing toewijzen aan een gebruiker of een groep](#assign-the-application-to-a-user-or-a-group)
+-   De toepassing toewijzen aan een gebruiker of een groep
 
     -   [Een gebruiker toewijzen aan een toepassing rechtstreeks](#assign-a-user-to-an-application-directly)
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 0480a8d4079a39c8e365dde893a9a1af2d7341aa
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 99e3abb1bedffdb5a7d49c033ebc8b4c46df1c03
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453107"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769271"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>De Azure Import/Export-service gebruiken voor het exporteren van gegevens uit Azure Blob storage
 In dit artikel bevat stapsgewijze instructies over het gebruik van de Azure Import/Export-service veilig grote hoeveelheden gegevens exporteren uit Azure Blob-opslag. De service vereist dat u voor het verzenden van lege stations in de Azure-datacenter. De service exporteert gegevens van uw opslagaccount naar de stations en wordt vervolgens geleverd de schijven terug.
@@ -145,7 +145,7 @@ Dit *optionele* stap helpt u het aantal stations die vereist zijn voor de taak v
     |**/sn:**|Vereist. De naam van het opslagaccount voor de taak voor het exporteren.|  
     |**/sk:**|Alleen vereist als een container SAS niet is opgegeven. De accountsleutel voor het opslagaccount voor de taak voor het exporteren.|  
     |**/csas:**|Alleen vereist als een sleutel van het opslagaccount niet is opgegeven. De container SAS voor het weergeven van de blobs in de taak voor het exporteren worden geëxporteerd.|  
-    |**/ ExportBlobListFile:**|Vereist. Pad naar het XML-bestand opslaan met lijst met blob-paden of blob-voorvoegsels voor pad voor de blobs worden geëxporteerd. De bestandsindeling die wordt gebruikt de `BlobListBlobPath` -element in de [plaatsen taak](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) werking van de Import/Export-service REST-API.|  
+    |**/ ExportBlobListFile:**|Vereist. Pad naar het XML-bestand opslaan met lijst met blob-paden of blob-voorvoegsels voor pad voor de blobs worden geëxporteerd. De bestandsindeling die wordt gebruikt de `BlobListBlobPath` -element in de [plaatsen taak](/rest/api/storageimportexport/jobs) werking van de Import/Export-service REST-API.|  
     |**/ DriveSize:**|Vereist. De grootte van schijven te gebruiken voor een exporttaak *bijvoorbeeld*, 500 GB, 1,5 TB.|  
 
     Zie een [voorbeeld van de opdracht PreviewExport](#example-of-previewexport-command).

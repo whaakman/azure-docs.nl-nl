@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7b43b0e0676cc31938bf64cf84f9e6799c2dd3dd
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 4336cabd256e492981e1bbff8d1b3b9e4ef07df1
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296593"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820518"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Een object dat niet kan worden gesynchroniseerd naar Azure AD oplossen
 
@@ -143,7 +143,7 @@ U kunt het object en welke regel wordt toegepast voor een bepaalde kenmerkstroom
 De pagina wordt gebruikt om te zien van de synchronisatiestatus van wachtwoord en de geschiedenis. Zie voor meer informatie, [wachtwoord-hashsynchronisatie oplossen](tshoot-connect-password-hash-synchronization.md).
 
 ## <a name="metaverse-object-properties"></a>Eigenschappen van het Metaverseobject
-Is het doorgaans beter om te beginnen met zoeken van de bron van Active Directory [connectorgebied](#connector-space). Maar u kunt ook beginnen met zoeken in de metaverse.
+Is het doorgaans beter om te beginnen met zoeken van de bron van Active Directory-connectorgebied. Maar u kunt ook beginnen met zoeken in de metaverse.
 
 ### <a name="search-for-an-object-in-the-mv"></a>Zoeken naar een object in de MV
 In **Synchronization Service Manager**, klikt u op **Metaverse zoeken**. Maak een query die u weet dat de gebruiker is gevonden. U kunt zoeken naar algemene kenmerken, zoals accountName (sAMAccountName) en userPrincipalName. Zie voor meer informatie, [Metaverse zoeken](how-to-connect-sync-service-manager-ui-mvsearch.md).
@@ -195,6 +195,5 @@ Als u de Azure AD-connector ontbreekt, lees vervolgens [MV kenmerken](#mv-attrib
 Op dit tabblad kunt u om te navigeren naar de [ruimte connectorobject](#connector-space-object-properties). Selecteer een rij en klikt u op **eigenschappen**.
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over de [Azure AD Connect-synchronisatie](how-to-connect-sync-whatis.md) configuratie.
-
-Lees meer over het [integreren van uw on-premises identiteiten met Azure Active Directory ](whatis-hybrid-identity.md).
+- [Azure AD Connect-synchronisatie](how-to-connect-sync-whatis.md).
+- [Wat is hybride identiteit? ](whatis-hybrid-identity.md).

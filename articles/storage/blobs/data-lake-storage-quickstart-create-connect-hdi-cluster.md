@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: jamesbak
-ms.openlocfilehash: a3c6474c6b1c27c3b413d98d86cdadbcb61e2040
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d49c8a8434dfa7202707731f46ea31c77d32541d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247286"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812256"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Quickstart: Clusters instellen in HDInsight
 
@@ -189,11 +189,11 @@ Zie voor meer informatie, [grootten voor virtuele machines](../../virtual-machin
 
 Aangepaste cluster setup bouwt voort op de snelle instellingen maken en voegt de volgende opties:
 
-- [HDInsight-toepassingen](#hdinsight-applications)
-- [Grootte van cluster](#cluster-size)
+- HDInsight-toepassingen
+- Grootte van cluster
 - Geavanceerde instellingen
-  - [Scriptacties](#customize-clusters-using-script-action)
-  - [Virtueel netwerk](#use-virtual-network)
+  - Scriptacties
+  - Virtueel netwerk
 
 ## <a name="install-hdinsight-applications-on-clusters"></a>HDInsight-toepassingen installeren op clusters
 

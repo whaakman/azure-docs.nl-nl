@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 5637d409233abc68983bd7cf1e55f406f15e3b59
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ff3492a0f523e32be8f6ffdabf9d15e4faa70cb4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432985"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812630"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Inzicht in de resultaten van Windows-agent in beheer van updates
 
@@ -39,7 +39,7 @@ Op de **Update-Agent oplossen** weergeeft, schakelt **controles uitvoeren** de p
 
 ![Pagina van de Update-Agent oplossen](../media/update-agent-issues/troubleshoot-page.png)
 
-Resultaten worden weergegeven op de pagina wanneer ze klaar voor bent. De [controleert secties](#prerequisiste-checks) wat opgenomen in elke controle weergeven.
+Resultaten worden weergegeven op de pagina wanneer ze klaar voor bent. De controles secties laten zien wat opgenomen in elke controle.
 
 ![Controles van de Update-Agent oplossen](../media/update-agent-issues/update-agent-checks.png)
 

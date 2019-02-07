@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: 15393f8e10fcda99820d0279d46edf88c7781ff8
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f0290a5f04a396c1d66e2dd1873eb313dcb3f66d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811961"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818393"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Geavanceerde zelfstudies voor Media Encoder Premium Workflow
 ## <a name="overview"></a>Overzicht
@@ -44,12 +44,12 @@ De volgende onderwerpen komen aan bod:
   * [Toevoegen van een afzonderlijke audiospoor](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_audio_tracks)
   * [De 'Console' SMIL-bestand toe te voegen](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_ism_file)
 * [MXF coderen in multi-bitrate MP4 - verbeterde blauwdruk](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4)
-  * [Overzicht van de werkstroom te verbeteren](#workflow-overview-to-enhance)
+  * Overzicht van de werkstroom te verbeteren
   * [Naamgevingsregels voor bestanden](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_file_naming)
   * [Eigenschappen van onderdeel naar de hoofdmap van de werkstroom publiceren](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_publishing)
   * [Uitvoerbestand namen zijn afhankelijk van de gepubliceerde eigenschapswaarden zijn gegenereerd](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_output_files)
 * [Miniaturen toe te voegen aan multi-bitrate MP4-uitvoer](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)
-  * [Overzicht van de werkstroom om toe te voegen miniatuurweergaven](#workflow-overview-to-add-thumbnails-to)
+  * Overzicht van de werkstroom om toe te voegen miniatuurweergaven
   * [Toe te voegen JPG-codering](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4__with_jpg)
   * [Omgaan met de conversie van de werkruimte](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_color_space)
   * [De miniaturen schrijven](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_writing_thumbnails)

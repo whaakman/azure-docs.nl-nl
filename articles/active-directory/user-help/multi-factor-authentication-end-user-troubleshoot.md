@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: lizross
 ms.reviewer: kexia
-ms.openlocfilehash: 2b8a0db21ab4beb2128ae0a1cebbf9fb42691f3c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2ede7a172eda1122b0668984cc8e11937b3ae852
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177404"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768180"
 ---
 # <a name="get-help-with-two-step-verification"></a>Help-informatie weergeven bij verificatie in twee stappen
 
@@ -36,7 +36,7 @@ Er zijn diverse redenen waarom u moet mogelijk een andere verificatiemethode geb
 
 - **U uw telefoon verliest of hebt u een nieuw telefoonnummer.** Als u uw telefoon verloren bent of een nieuw getal verkregen, kunt u zich aanmeldt met een andere methode of vraag uw beheerder om uw instellingen te wissen. Het is raadzaam dat uw beheerder weten als uw telefoon is zoekgeraakt of gestolen, zodat de juiste updates kunnen worden gesteld aan uw account. Nadat u uw instellingen zijn uitgeschakeld, wordt u gevraagd naar [registreren voor verificatie in twee stappen](multi-factor-authentication-end-user-first-time.md) de volgende keer dat u zich aanmeldt.
 
-- **Niet ophalen van de tekst van de verificatie of automatische oproep.** Er zijn diverse redenen waarom u mogelijk niet aan de tekst of automatische oproep. Als u teksten of telefoongesprekken worden gevoerd met succes in het verleden geworden hebt, maar dit is waarschijnlijk een probleem met de provider van de telefoon, niet op uw account. Als u vaak vertragingen vanwege een ongeldige signaal hebt, raden wij aan u de [Microsoft Authenticator-app](microsoft-authenticator-app-how-to.md) op uw mobiele apparaat. Deze app kunt willekeurige beveiligingscodes genereren voor aanmelden, zonder eventuele cel signaal of de verbinding met Internet.<br><br>Als u een SMS-bericht ontvangen probeert, vraagt u een vriend naar tekst u als een test om te controleren of u kunt een, en als u akkoord bent gegaan met verschillende berichten, zorg ervoor dat u de code van de meest recente versie gebruikt.
+- **Niet ophalen van de tekst van de verificatie of automatische oproep.** Er zijn diverse redenen waarom u mogelijk niet aan de tekst of automatische oproep. Als u teksten of telefoongesprekken worden gevoerd met succes in het verleden geworden hebt, maar dit is waarschijnlijk een probleem met de provider van de telefoon, niet op uw account. Als u vaak vertragingen vanwege een ongeldige signaal hebt, raden wij aan u de [Microsoft Authenticator-app](user-help-auth-app-download-install.md) op uw mobiele apparaat. Deze app kunt willekeurige beveiligingscodes genereren voor aanmelden, zonder eventuele cel signaal of de verbinding met Internet.<br><br>Als u een SMS-bericht ontvangen probeert, vraagt u een vriend naar tekst u als een test om te controleren of u kunt een, en als u akkoord bent gegaan met verschillende berichten, zorg ervoor dat u de code van de meest recente versie gebruikt.
 
 - **Uw app-wachtwoorden werken niet.** App-wachtwoorden vervangen door uw normale wachtwoord voor oudere bureaubladtoepassingen die verificatie in twee stappen niet ondersteunen. Controleer eerst of dat u het wachtwoord correct hebt ingevoerd. Als dat het niet oplossen, probeert u aan te melden bij [maken van een nieuw app-wachtwoord](multi-factor-authentication-end-user-app-passwords.md) of contact opnemen met uw beheerder om [je bestaande app-wachtwoorden verwijderen](../authentication/howto-mfa-userdevicesettings.md) zodat u kunt een nieuwe maken.
 
@@ -61,4 +61,4 @@ Als u deze stappen hebt geprobeerd maar nog steeds actief in problemen met, neem
 
 * [Uw instellingen beheren voor verificatie in twee stappen](multi-factor-authentication-end-user-manage-settings.md)
 
-* [Veelgestelde vragen over Microsoft Authenticator-toepassing](microsoft-authenticator-app-faq.md)
+* [Veelgestelde vragen over Microsoft Authenticator-toepassing](user-help-auth-app-faq.md)

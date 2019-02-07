@@ -13,12 +13,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: lizross
-ms.openlocfilehash: ab3de9b010c0356dea17520b497235e0bf7c818e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2129b1f70ea19bdb2144f0f2a9ca4a6dbac0acbd
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181313"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766810"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>Uw instellingen beheren voor verificatie in twee stappen
 In dit artikel vindt u antwoorden op vragen over het bijwerken van instellingen voor verificatie in twee stappen verificatie of multi-factor authentication. Als u problemen met aanmelden bij uw account hebt, raadpleegt u [problemen hebt met verificatie in twee stappen](multi-factor-authentication-end-user-troubleshoot.md) voor oplossingen voor problemen.
@@ -74,7 +74,7 @@ Afhankelijk van de instellingen van uw organisatie, moet u wellicht een selectie
 2. De volgende keer dat u zich aanmeldt op elk apparaat, wordt u gevraagd om uit te voeren van verificatie in twee stappen.
 
 ## <a name="how-do-i-clean-up-microsoft-authenticator-from-my-old-device-and-move-to-a-new-one"></a>Hoe kan ik Microsoft Authenticator opschonen vanuit het oude apparaat en verplaatsen naar een nieuwe?
-Wanneer u de app van uw apparaat verwijderen of het apparaat opnieuw instelt, wordt de activering op de back-end niet verwijderd. Zie voor meer informatie, [Microsoft Authenticator](microsoft-authenticator-app-how-to.md).
+Wanneer u de app van uw apparaat verwijderen of het apparaat opnieuw instelt, wordt de activering op de back-end niet verwijderd. Zie voor meer informatie, [Microsoft Authenticator](user-help-auth-app-download-install.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 * Problemen oplossen met tips en help op [problemen hebt met verificatie in twee stappen](multi-factor-authentication-end-user-troubleshoot.md)

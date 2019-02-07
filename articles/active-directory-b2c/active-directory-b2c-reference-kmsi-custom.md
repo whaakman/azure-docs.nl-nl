@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9002ab7396cd9beda767b4a9f81d9983ec74923d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e2aa52e8ad19274d45f648978e7b2f021139fe4a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163412"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812295"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Aangemeld blijven (KMSI) in Azure Active Directory B2C inschakelen
 
@@ -150,7 +150,7 @@ Bijwerken van de relying party (RP)-bestand dat initieert de gebruikersbeleving 
 2. Open het nieuwe bestand en update de **PolicyId** kenmerk voor de **TrustFrameworkPolicy** met een unieke waarde. Dit is de naam van uw beleid. Bijvoorbeeld `SignUpOrSignInWithKmsi`.
 3. Wijzig de **ReferenceId** kenmerk voor de **DefaultUserJourney** element zodat deze overeenkomen met de id van de nieuwe gebruikersbeleving die u hebt gemaakt. Bijvoorbeeld `SignUpOrSignInWithKmsi`.
 
-    KMSI is geconfigureerd met behulp van de **UserJourneyBehaviors** element. De **KeepAliveInDays** kenmerk wordt bepaald hoe lang de gebruiker blijft aangemeld. In het volgende voorbeeld wordt de sessie KMSI automatisch verloopt na `7` dagen, ongeacht hoe vaak de gebruiker de verificatie op de achtergrond uitvoert. Instellen van de **KeepAliveInDays** waarde die moet worden `0` KMSI functionaliteit uitgeschakeld. Deze waarde is standaard `0`. Als de waarde van **SessionExpiryType** is `Rolling`, de sessie KMSI wordt uitgebreid door `7` dagen telkens wanneer de gebruiker op de achtergrond-verificatie wordt uitgevoerd.  Als `Rolling` is geselecteerd, moet u het aantal dagen tot minimum te houden. 
+    KMSI is geconfigureerd met behulp van de **UserJourneyBehaviors** element met **SingleSignOn**, **SessionExpiryType**, en **SessionExpiryInSeconds** als de eerste onderliggende elementen. De **KeepAliveInDays** kenmerk wordt bepaald hoe lang de gebruiker blijft aangemeld. In het volgende voorbeeld wordt de sessie KMSI automatisch verloopt na `7` dagen, ongeacht hoe vaak de gebruiker de verificatie op de achtergrond uitvoert. Instellen van de **KeepAliveInDays** waarde die moet worden `0` KMSI functionaliteit uitgeschakeld. Deze waarde is standaard `0`. Als de waarde van **SessionExpiryType** is `Rolling`, de sessie KMSI wordt uitgebreid door `7` dagen telkens wanneer de gebruiker op de achtergrond-verificatie wordt uitgevoerd.  Als `Rolling` is geselecteerd, moet u het aantal dagen tot minimum te houden. 
 
     De waarde van **SessionExpiryInSeconds** vertegenwoordigt de verlooptijd van een sessie voor eenmalige aanmelding. Dit wordt intern gebruikt door Azure AD B2C om te controleren of de sessie voor KMSI is verlopen of niet. De waarde van **KeepAliveInDays** bepaalt de verloopt/Max-Age-waarde van de cookie voor eenmalige aanmelding in de webbrowser. In tegenstelling tot **SessionExpiryInSeconds**, **KeepAliveInDays** wordt gebruikt om te voorkomen dat de browser de cookie te wissen wanneer dit gesloten. Een gebruiker kan op de achtergrond aanmelden alleen als de SSO-sessiecookie bestaat, die wordt beheerd door **KeepAliveInDays**, en niet verlopen, wordt dit bepaald door **SessionExpiryInSeconds**. 
     

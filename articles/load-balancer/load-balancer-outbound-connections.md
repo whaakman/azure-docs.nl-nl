@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/01/2018
+ms.date: 02/05/2019
 ms.author: kumud
-ms.openlocfilehash: d8ca70efd3b1ba77b1b1bb0e11a9234e5fd440c4
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: f0ebb5cc913dda99d7e927ccf45c0f1478fa86c5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201377"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814823"
 ---
 # <a name="outbound-connections-in-azure"></a>Uitgaande verbindingen in Azure
 
@@ -34,17 +34,17 @@ Azure maakt gebruik van bron-NAT (SNAT) om uit te voeren van deze functie. Wanne
 Er zijn meerdere [scenario's voor uitgaande](#scenarios). U kunt deze scenario's kunt combineren, indien nodig. Bekijk deze zorgvuldig voor meer informatie over de mogelijkheden, beperkingen en patronen als ze van toepassing op uw implementatiemodel zijn en het toepassingsscenario. Bekijk de richtlijnen voor [beheren van deze scenario's](#snatexhaust).
 
 >[!IMPORTANT] 
->Standard Load Balancer introduceert nieuwe mogelijkheden en ander gedrag aan uitgaande connectiviteit.   Bijvoorbeeld, [scenario 3](#defaultsnat) bestaat niet als een interne Standard Load Balancer aanwezig is en de verschillende stappen dienen te worden genomen.   Zorgvuldig door dit hele document voor meer informatie over de algemene concepten en verschillen tussen SKU's.
+>Standard Load Balancer en Standard openbaar IP-adres introductie van nieuwe mogelijkheden en ander gedrag aan uitgaande connectiviteit.  Ze zijn niet gelijk zijn aan de basis-SKU's.  Als u uitgaande connectiviteit wilt bij het werken met standaard-SKU's, moet u deze met standaard openbare IP-adressen of standaard openbare Load Balancer expliciet definiëren.  Dit omvat het maken van uitgaande connectiviteit bij het gebruik en intern Standard Load Balancer.  U wordt aangeraden u regels voor uitgaand verkeer altijd op een standaard openbare Load Balancer.  [Scenario 3](#defaultsnat) is niet beschikbaar in standaard-SKU.  Dat betekent dat als een interne Standard Load Balancer wordt gebruikt, u moet nemen stappen voor het maken van uitgaande connectiviteit voor de virtuele machines in de back-endpool als uitgaande connectiviteit vereist is.  In de context van de uitgaande connectiviteit, één zelfstandige VM, alle van de virtuele machine in een Beschikbaarheidsset, worden alle exemplaren in een VMSS functioneren als een groep. Dit betekent dat, als een enkele virtuele machine in een Beschikbaarheidsset gekoppeld aan een standaard-SKU is, alle VM-exemplaren in deze Beschikbaarheidsset nu gedragen zich door dezelfde regels als wanneer ze gekoppeld aan de standaard-SKU zijn, zelfs als een afzonderlijk exemplaar niet rechtstreeks gekoppeld aan het is.  Zorgvuldig door dit hele document om de algemene concepten, controleert u [Standard Load Balancer](load-balancer-standard-overview.md) voor verschillen tussen SKU's en bekijk [regels voor uitgaand verkeer](load-balancer-outbound-rules-overview.md).  Met behulp van regels voor uitgaand verkeer, kunt u fijnmazige controle over alle aspecten van de uitgaande connectiviteit.
 
 ## <a name="scenarios"></a>Scenario-overzicht
 
 Azure Load Balancer en verwante resources expliciet worden gedefinieerd als u [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  Azure biedt momenteel drie verschillende methoden voor het bereiken van uitgaande connectiviteit voor Azure Resource Manager-resources. 
 
-| Scenario | Methode | IP-protocollen | Description |
-| --- | --- | --- | --- |
-| [1. VM met een Instance Level Public IP-adres (met of zonder Load Balancer)](#ilpip) | SNAT, poort zich niet gebruikt. | TCP, UDP, ICMP, ESP | Azure maakt gebruik van het openbare IP-adres toegewezen aan de IP-configuratie van het exemplaar van de NIC. Het exemplaar heeft alle kortstondige poorten die beschikbaar zijn. |
-| [2. Een openbare Load Balancer die zijn gekoppeld aan een virtuele machine (geen Instance Level Public IP-adres op het exemplaar)](#lb) | SNAT met poort onechte (PAT) met behulp van de Load Balancer-front-ends | TCP, UDP |Azure deelt het openbare IP-adres van de openbare Load Balancer-front-ends met meerdere privé IP-adressen. Kortstondige poorten van de front-ends voor PAT maakt gebruik van Azure. |
-| [3. Standalone VM (Er is geen Load Balancer, geen Instance Level Public IP-adres)](#defaultsnat) | SNAT met poort onechte (PAT) | TCP, UDP | Azure automatisch een openbaar IP-adres voor SNAT aanwijst, deelt dit openbare IP-adres met meerdere privé IP-adressen van de beschikbaarheidsset en maakt gebruik van kortstondige poorten van dit openbare IP-adres. Dit scenario is een opvang voor de bovenstaande scenario's. Wordt niet aanbevolen als u nodig, zichtbaarheid en controle hebt. |
+| Voorraadeenheden | Scenario | Methode | IP-protocollen | Description |
+| --- | --- | --- | --- | --- |
+| Standard, Basic | [1. VM met een Instance Level Public IP-adres (met of zonder Load Balancer)](#ilpip) | SNAT, poort zich niet gebruikt. | TCP, UDP, ICMP, ESP | Azure maakt gebruik van het openbare IP-adres toegewezen aan de IP-configuratie van het exemplaar van de NIC. Het exemplaar heeft alle kortstondige poorten die beschikbaar zijn. Wanneer u Standard Load Balancer gebruikt, moet u [regels voor uitgaand verkeer](load-balancer-outbound-rules-overview.md) expliciet definiëren uitgaande connectiviteit |
+| Standard, Basic | [2. Een openbare Load Balancer die zijn gekoppeld aan een virtuele machine (geen Instance Level Public IP-adres op het exemplaar)](#lb) | SNAT met poort onechte (PAT) met behulp van de Load Balancer-front-ends | TCP, UDP |Azure deelt het openbare IP-adres van de openbare Load Balancer-front-ends met meerdere privé IP-adressen. Kortstondige poorten van de front-ends voor PAT maakt gebruik van Azure. |
+| geen of Basic | [3. Standalone VM (Er is geen Load Balancer, geen Instance Level Public IP-adres)](#defaultsnat) | SNAT met poort onechte (PAT) | TCP, UDP | Azure automatisch een openbaar IP-adres voor SNAT aanwijst, deelt dit openbare IP-adres met meerdere privé IP-adressen van de beschikbaarheidsset en maakt gebruik van kortstondige poorten van dit openbare IP-adres. Dit scenario is een opvang voor de bovenstaande scenario's. Wordt niet aanbevolen als u nodig, zichtbaarheid en controle hebt. |
 
 Als u niet dat een virtuele machine om te communiceren met eindpunten buiten Azure in openbare IP-adresruimte wilt, kunt u netwerkbeveiligingsgroepen (nsg's) gebruiken om de toegang zo nodig te blokkeren. De sectie [uitgaande connectiviteit te voorkomen dat](#preventoutbound) nsg's vindt u meer details. Hulp bij het ontwerpen, implementeren en beheren van een virtueel netwerk zonder een uitgaande toegang is buiten het bereik van dit artikel.
 
@@ -68,7 +68,7 @@ Kortstondige poorten van de load balancer openbare IP-adres frontend worden gebr
 
 SNAT poorten worden vooraf toegewezen zoals beschreven in de [Understanding SNAT en PAT](#snat) sectie. Zijn in feite een eindige resource die kan worden verbruikt. Het is belangrijk om te weten hoe ze zijn [verbruikt](#pat). Als u wilt weten hoe u voor dit verbruik ontwerpen en te beperken indien nodig, Bekijk [SNAT beheren uitputting](#snatexhaust).
 
-Wanneer [meerdere openbare IP-adressen zijn gekoppeld aan de Load Balancer Basic](load-balancer-multivip-overview.md), of een van deze openbare IP-adressen zijn een [kandidaat voor uitgaande stromen](#multivipsnat), en een willekeurig is geselecteerd.  
+Wanneer [meerdere openbare IP-adressen zijn gekoppeld aan de Load Balancer Basic](load-balancer-multivip-overview.md), een van deze openbare IP-adressen zijn een kandidaat voor uitgaande stromen en een willekeurig is geselecteerd.  
 
 Voor het controleren van de status van uitgaande verbindingen met Load Balancer Basic, kunt u [Log Analytics voor Load Balancer](load-balancer-monitor-log.md) en [waarschuwen gebeurtenislogboeken](load-balancer-monitor-log.md#alert-event-log) om te controleren op SNAT poort uitputting van berichten.
 
@@ -161,10 +161,10 @@ De volgende tabel toont de preallocations SNAT poort voor de lagen van de back-e
 | 101-200 | 256 |
 | 201-400 | 128 |
 | 401-800 | 64 |
-| 801-1000 | 32 |
+| 801-1,000 | 32 |
 
 >[!NOTE]
-> Bij het gebruik van Standard Load Balancer met [meerdere front-ends](load-balancer-multivip-overview.md), [elke front-end-IP-adres wordt het aantal beschikbare poorten van SNAT vermenigvuldigd](#multivipsnat) in de vorige tabel. Bijvoorbeeld, een back endpool van 50 VM's met 2 regels voor taakverdeling, elk met een afzonderlijke frontend-IP-adres, (2 x 1024) 2048 SNAT poorten per IP-configuratie gebruikt. Zie de details voor [meerdere front-ends](#multife).
+> Bij het gebruik van Standard Load Balancer met [meerdere front-ends](load-balancer-multivip-overview.md), elke front-end-IP-adres wordt het aantal beschikbare SNAT poorten in de vorige tabel vermenigvuldigd. Bijvoorbeeld, een back endpool van 50 VM's met 2 regels voor taakverdeling, elk met een afzonderlijke frontend-IP-adres, (2 x 1024) 2048 SNAT poorten per IP-configuratie gebruikt. Zie de details voor [meerdere front-ends](#multife).
 
 Houd er rekening mee dat het aantal beschikbare poorten op de SNAT geen rechtstreeks naar het aantal stromen vertaalt. Één poort zijn SNAT kan worden hergebruikt voor meerdere unieke doelen. Poorten die worden verbruikt alleen indien nodig stromen om uniek te maken. Voor richtlijnen voor ontwerp en risicobeperking, raadpleegt u de sectie over [over het beheren van deze resource onuitputtelijk](#snatexhaust) en de sectie waarin wordt beschreven [PAT](#pat).
 
@@ -257,7 +257,8 @@ Als een NSG health test aanvragen van de code van de standaard AZURE_LOADBALANCE
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [Load Balancer](load-balancer-overview.md).
 - Meer informatie over [Standard Load Balancer](load-balancer-standard-overview.md).
+- Meer informatie over [regels voor uitgaand verkeer](load-balancer-outbound-rules-overview.md) voor Standard openbare Load Balancer.
+- Meer informatie over [Load Balancer](load-balancer-overview.md).
 - Meer informatie over [netwerkbeveiligingsgroepen](../virtual-network/security-overview.md).
 - Informatie over een aantal van de andere sleutel [netwerkmogelijkheden die](../networking/networking-overview.md) in Azure.

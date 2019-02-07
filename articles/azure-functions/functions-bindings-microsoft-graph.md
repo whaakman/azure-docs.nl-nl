@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: e979930ed504dafe330b774725f4193f1c15ed17
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: db1bdeed75264e32d5a96800096b6b433c62c44a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793985"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822626"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Microsoft Graph-bindingen voor Azure Functions
 
@@ -214,8 +214,8 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**De naam**||Vereist: de naam van de variabele in functiecode gebruikt voor het verificatietoken. Zie [met behulp van een verificatietoken Invoerbinding vanuit code](#token-input-code).|
 |**type**||Vereist: moet worden ingesteld op `token`.|
 |**direction**||Vereist: moet worden ingesteld op `in`.|
-|**Identiteit**|**Identity**|Vereist: de identiteit die wordt gebruikt de actie uit te voeren. Een van de volgende waarden kan zijn:<ul><li><code>userFromRequest</code> -Alleen geldig voor [HTTP-trigger]. Maakt gebruik van de identiteit van de aanroepende gebruiker.</li><li><code>userFromId</code> -Maakt gebruik van de identiteit van een eerder aangemelde gebruiker met de opgegeven ID. Zie de <code>userId</code> eigenschap.</li><li><code>userFromToken</code> -Maakt gebruik van de identiteit die wordt vertegenwoordigd door het opgegeven token. Zie de <code>userToken</code> eigenschap.</li><li><code>clientCredentials</code> -Maakt gebruik van de identiteit van de functie-app.</li></ul>|
-|**Gebruikers-id**|**Gebruikers-id**  |Vereist als en alleen als _identiteit_ is ingesteld op `userFromId`. Een gebruiker principal-ID die is gekoppeld aan een eerder aangemelde gebruiker.|
+|**identity**|**Identity**|Vereist: de identiteit die wordt gebruikt de actie uit te voeren. Een van de volgende waarden kan zijn:<ul><li><code>userFromRequest</code> -Alleen geldig voor [HTTP-trigger]. Maakt gebruik van de identiteit van de aanroepende gebruiker.</li><li><code>userFromId</code> -Maakt gebruik van de identiteit van een eerder aangemelde gebruiker met de opgegeven ID. Zie de <code>userId</code> eigenschap.</li><li><code>userFromToken</code> -Maakt gebruik van de identiteit die wordt vertegenwoordigd door het opgegeven token. Zie de <code>userToken</code> eigenschap.</li><li><code>clientCredentials</code> -Maakt gebruik van de identiteit van de functie-app.</li></ul>|
+|**userId**|**UserId**  |Vereist als en alleen als _identiteit_ is ingesteld op `userFromId`. Een gebruiker principal-ID die is gekoppeld aan een eerder aangemelde gebruiker.|
 |**userToken**|**UserToken**|Vereist als en alleen als _identiteit_ is ingesteld op `userFromToken`. Een token geldig is voor de functie-app. |
 |**Resource**|**resource**|Vereist: de URL van een Azure AD-resource waarvoor het token wordt aangevraagd.|
 
@@ -349,12 +349,12 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**De naam**||Vereist: de naam van de variabele die wordt gebruikt in de functiecode voor de Excel-tabel. Zie [Invoerbinding met behulp van een Excel-tabel vanuit code](#excel-input-code).|
 |**type**||Vereist: moet worden ingesteld op `excel`.|
 |**direction**||Vereist: moet worden ingesteld op `in`.|
-|**Identiteit**|**Identity**|Vereist: de identiteit die wordt gebruikt de actie uit te voeren. Een van de volgende waarden kan zijn:<ul><li><code>userFromRequest</code> -Alleen geldig voor [HTTP-trigger]. Maakt gebruik van de identiteit van de aanroepende gebruiker.</li><li><code>userFromId</code> -Maakt gebruik van de identiteit van een eerder aangemelde gebruiker met de opgegeven ID. Zie de <code>userId</code> eigenschap.</li><li><code>userFromToken</code> -Maakt gebruik van de identiteit die wordt vertegenwoordigd door het opgegeven token. Zie de <code>userToken</code> eigenschap.</li><li><code>clientCredentials</code> -Maakt gebruik van de identiteit van de functie-app.</li></ul>|
-|**Gebruikers-id**|**Gebruikers-id**  |Vereist als en alleen als _identiteit_ is ingesteld op `userFromId`. Een gebruiker principal-ID die is gekoppeld aan een eerder aangemelde gebruiker.|
+|**identity**|**Identity**|Vereist: de identiteit die wordt gebruikt de actie uit te voeren. Een van de volgende waarden kan zijn:<ul><li><code>userFromRequest</code> -Alleen geldig voor [HTTP-trigger]. Maakt gebruik van de identiteit van de aanroepende gebruiker.</li><li><code>userFromId</code> -Maakt gebruik van de identiteit van een eerder aangemelde gebruiker met de opgegeven ID. Zie de <code>userId</code> eigenschap.</li><li><code>userFromToken</code> -Maakt gebruik van de identiteit die wordt vertegenwoordigd door het opgegeven token. Zie de <code>userToken</code> eigenschap.</li><li><code>clientCredentials</code> -Maakt gebruik van de identiteit van de functie-app.</li></ul>|
+|**userId**|**UserId**  |Vereist als en alleen als _identiteit_ is ingesteld op `userFromId`. Een gebruiker principal-ID die is gekoppeld aan een eerder aangemelde gebruiker.|
 |**userToken**|**UserToken**|Vereist als en alleen als _identiteit_ is ingesteld op `userFromToken`. Een token geldig is voor de functie-app. |
-|**Pad**|**Pad**|Vereist: het pad naar de Excel-werkmap in OneDrive.|
+|**path**|**Pad**|Vereist: het pad naar de Excel-werkmap in OneDrive.|
 |**worksheetName**|**WorksheetName**|Het werkblad waarin de tabel is gevonden.|
-|**Tabelnaam**|**Tabelnaam**|De naam van de tabel. Indien niet opgegeven, wordt de inhoud van het werkblad worden gebruikt.|
+|**tableName**|**TableName**|De naam van de tabel. Indien niet opgegeven, wordt de inhoud van het werkblad worden gebruikt.|
 
 <a name="excel-input-code"></a>
 ### <a name="excel-input---usage"></a>Excel invoer - gebruik
@@ -365,7 +365,7 @@ Deze binding hoort vereist de volgende Azure AD-machtigingen:
 |Microsoft Graph|Gebruikersbestanden lezen|
 
 De binding wordt aangegeven dat de volgende typen .NET-functies:
-- String []]
+- string[][]
 - Microsoft.Graph.WorkbookTable
 - Aangepaste objecttypen (met behulp van de binding van de structurele model)
 
@@ -510,13 +510,13 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**De naam**||Vereist: de naam van de variabele in functiecode gebruikt voor het verificatietoken. Zie [met behulp van een Excel-tabel-Uitvoerbinding vanuit code](#excel-output-code).|
 |**type**||Vereist: moet worden ingesteld op `excel`.|
 |**direction**||Vereist: moet worden ingesteld op `out`.|
-|**Identiteit**|**Identity**|Vereist: de identiteit die wordt gebruikt de actie uit te voeren. Een van de volgende waarden kan zijn:<ul><li><code>userFromRequest</code> -Alleen geldig voor [HTTP-trigger]. Maakt gebruik van de identiteit van de aanroepende gebruiker.</li><li><code>userFromId</code> -Maakt gebruik van de identiteit van een eerder aangemelde gebruiker met de opgegeven ID. Zie de <code>userId</code> eigenschap.</li><li><code>userFromToken</code> -Maakt gebruik van de identiteit die wordt vertegenwoordigd door het opgegeven token. Zie de <code>userToken</code> eigenschap.</li><li><code>clientCredentials</code> -Maakt gebruik van de identiteit van de functie-app.</li></ul>|
-|**Gebruikers-id** |**Gebruikers-id** |Vereist als en alleen als _identiteit_ is ingesteld op `userFromId`. Een gebruiker principal-ID die is gekoppeld aan een eerder aangemelde gebruiker.|
+|**identity**|**Identity**|Vereist: de identiteit die wordt gebruikt de actie uit te voeren. Een van de volgende waarden kan zijn:<ul><li><code>userFromRequest</code> -Alleen geldig voor [HTTP-trigger]. Maakt gebruik van de identiteit van de aanroepende gebruiker.</li><li><code>userFromId</code> -Maakt gebruik van de identiteit van een eerder aangemelde gebruiker met de opgegeven ID. Zie de <code>userId</code> eigenschap.</li><li><code>userFromToken</code> -Maakt gebruik van de identiteit die wordt vertegenwoordigd door het opgegeven token. Zie de <code>userToken</code> eigenschap.</li><li><code>clientCredentials</code> -Maakt gebruik van de identiteit van de functie-app.</li></ul>|
+|**UserId** |**userId** |Vereist als en alleen als _identiteit_ is ingesteld op `userFromId`. Een gebruiker principal-ID die is gekoppeld aan een eerder aangemelde gebruiker.|
 |**userToken**|**UserToken**|Vereist als en alleen als _identiteit_ is ingesteld op `userFromToken`. Een token geldig is voor de functie-app. |
-|**Pad**|**Pad**|Vereist: het pad naar de Excel-werkmap in OneDrive.|
+|**path**|**Pad**|Vereist: het pad naar de Excel-werkmap in OneDrive.|
 |**worksheetName**|**WorksheetName**|Het werkblad waarin de tabel is gevonden.|
-|**Tabelnaam**|**Tabelnaam**|De naam van de tabel. Indien niet opgegeven, wordt de inhoud van het werkblad worden gebruikt.|
-|**updateType**|**updateType**|Vereist: het type wijziging aanbrengen in de tabel. Een van de volgende waarden kan zijn:<ul><li><code>update</code> -Vervangt de inhoud van de tabel in OneDrive.</li><li><code>append</code> -De nettolading van de toegevoegd aan het einde van de tabel in OneDrive door het maken van nieuwe rijen.</li></ul>|
+|**tableName**|**TableName**|De naam van de tabel. Indien niet opgegeven, wordt de inhoud van het werkblad worden gebruikt.|
+|**updateType**|**UpdateType**|Vereist: het type wijziging aanbrengen in de tabel. Een van de volgende waarden kan zijn:<ul><li><code>update</code> -Vervangt de inhoud van de tabel in OneDrive.</li><li><code>append</code> -De nettolading van de toegevoegd aan het einde van de tabel in OneDrive door het maken van nieuwe rijen.</li></ul>|
 
 <a name="excel-output-code"></a>
 ### <a name="excel-output---usage"></a>Excel uitvoer - gebruik
@@ -527,7 +527,7 @@ Deze binding hoort vereist de volgende Azure AD-machtigingen:
 |Microsoft Graph|Volledige toegang tot gebruikersbestanden|
 
 De binding wordt aangegeven dat de volgende typen .NET-functies:
-- String []]
+- string[][]
 - Newtonsoft.Json.Linq.JObject
 - Microsoft.Graph.WorkbookTable
 - Aangepaste objecttypen (met behulp van de binding van de structurele model)
@@ -655,10 +655,10 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**De naam**||Vereist: de naam van de variabele in functiecode gebruikt voor het bestand. Zie [Invoerbinding met behulp van een OneDrive-bestand vanuit code](#onedrive-input-code).|
 |**type**||Vereist: moet worden ingesteld op `onedrive`.|
 |**direction**||Vereist: moet worden ingesteld op `in`.|
-|**Identiteit**|**Identity**|Vereist: de identiteit die wordt gebruikt de actie uit te voeren. Een van de volgende waarden kan zijn:<ul><li><code>userFromRequest</code> -Alleen geldig voor [HTTP-trigger]. Maakt gebruik van de identiteit van de aanroepende gebruiker.</li><li><code>userFromId</code> -Maakt gebruik van de identiteit van een eerder aangemelde gebruiker met de opgegeven ID. Zie de <code>userId</code> eigenschap.</li><li><code>userFromToken</code> -Maakt gebruik van de identiteit die wordt vertegenwoordigd door het opgegeven token. Zie de <code>userToken</code> eigenschap.</li><li><code>clientCredentials</code> -Maakt gebruik van de identiteit van de functie-app.</li></ul>|
-|**Gebruikers-id**|**Gebruikers-id**  |Vereist als en alleen als _identiteit_ is ingesteld op `userFromId`. Een gebruiker principal-ID die is gekoppeld aan een eerder aangemelde gebruiker.|
+|**identity**|**Identity**|Vereist: de identiteit die wordt gebruikt de actie uit te voeren. Een van de volgende waarden kan zijn:<ul><li><code>userFromRequest</code> -Alleen geldig voor [HTTP-trigger]. Maakt gebruik van de identiteit van de aanroepende gebruiker.</li><li><code>userFromId</code> -Maakt gebruik van de identiteit van een eerder aangemelde gebruiker met de opgegeven ID. Zie de <code>userId</code> eigenschap.</li><li><code>userFromToken</code> -Maakt gebruik van de identiteit die wordt vertegenwoordigd door het opgegeven token. Zie de <code>userToken</code> eigenschap.</li><li><code>clientCredentials</code> -Maakt gebruik van de identiteit van de functie-app.</li></ul>|
+|**userId**|**UserId**  |Vereist als en alleen als _identiteit_ is ingesteld op `userFromId`. Een gebruiker principal-ID die is gekoppeld aan een eerder aangemelde gebruiker.|
 |**userToken**|**UserToken**|Vereist als en alleen als _identiteit_ is ingesteld op `userFromToken`. Een token geldig is voor de functie-app. |
-|**Pad**|**Pad**|Vereist: het pad naar het bestand in OneDrive.|
+|**path**|**Pad**|Vereist: het pad naar het bestand in OneDrive.|
 
 <a name="onedrive-input-code"></a>
 ### <a name="file-input---usage"></a>Bestandsinvoer - gebruik
@@ -802,10 +802,10 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**De naam**||Vereist: de naam van de variabele die wordt gebruikt in de functiecode voor bestand. Zie [met behulp van een OneDrive-bestand-Uitvoerbinding vanuit code](#onedrive-output-code).|
 |**type**||Vereist: moet worden ingesteld op `onedrive`.|
 |**direction**||Vereist: moet worden ingesteld op `out`.|
-|**Identiteit**|**Identity**|Vereist: de identiteit die wordt gebruikt de actie uit te voeren. Een van de volgende waarden kan zijn:<ul><li><code>userFromRequest</code> -Alleen geldig voor [HTTP-trigger]. Maakt gebruik van de identiteit van de aanroepende gebruiker.</li><li><code>userFromId</code> -Maakt gebruik van de identiteit van een eerder aangemelde gebruiker met de opgegeven ID. Zie de <code>userId</code> eigenschap.</li><li><code>userFromToken</code> -Maakt gebruik van de identiteit die wordt vertegenwoordigd door het opgegeven token. Zie de <code>userToken</code> eigenschap.</li><li><code>clientCredentials</code> -Maakt gebruik van de identiteit van de functie-app.</li></ul>|
-|**Gebruikers-id** |**Gebruikers-id** |Vereist als en alleen als _identiteit_ is ingesteld op `userFromId`. Een gebruiker principal-ID die is gekoppeld aan een eerder aangemelde gebruiker.|
+|**identity**|**Identity**|Vereist: de identiteit die wordt gebruikt de actie uit te voeren. Een van de volgende waarden kan zijn:<ul><li><code>userFromRequest</code> -Alleen geldig voor [HTTP-trigger]. Maakt gebruik van de identiteit van de aanroepende gebruiker.</li><li><code>userFromId</code> -Maakt gebruik van de identiteit van een eerder aangemelde gebruiker met de opgegeven ID. Zie de <code>userId</code> eigenschap.</li><li><code>userFromToken</code> -Maakt gebruik van de identiteit die wordt vertegenwoordigd door het opgegeven token. Zie de <code>userToken</code> eigenschap.</li><li><code>clientCredentials</code> -Maakt gebruik van de identiteit van de functie-app.</li></ul>|
+|**UserId** |**userId** |Vereist als en alleen als _identiteit_ is ingesteld op `userFromId`. Een gebruiker principal-ID die is gekoppeld aan een eerder aangemelde gebruiker.|
 |**userToken**|**UserToken**|Vereist als en alleen als _identiteit_ is ingesteld op `userFromToken`. Een token geldig is voor de functie-app. |
-|**Pad**|**Pad**|Vereist: het pad naar het bestand in OneDrive.|
+|**path**|**Pad**|Vereist: het pad naar het bestand in OneDrive.|
 
 <a name="onedrive-output-code"></a>
 #### <a name="file-output---usage"></a>Bestand uitvoer - gebruik
@@ -952,8 +952,8 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**De naam**||Vereist: de naam van de variabele in functiecode gebruikt voor het e-mailbericht. Zie [met behulp van een Outlook-bericht-Uitvoerbinding vanuit code](#outlook-output-code).|
 |**type**||Vereist: moet worden ingesteld op `outlook`.|
 |**direction**||Vereist: moet worden ingesteld op `out`.|
-|**Identiteit**|**Identity**|Vereist: de identiteit die wordt gebruikt de actie uit te voeren. Een van de volgende waarden kan zijn:<ul><li><code>userFromRequest</code> -Alleen geldig voor [HTTP-trigger]. Maakt gebruik van de identiteit van de aanroepende gebruiker.</li><li><code>userFromId</code> -Maakt gebruik van de identiteit van een eerder aangemelde gebruiker met de opgegeven ID. Zie de <code>userId</code> eigenschap.</li><li><code>userFromToken</code> -Maakt gebruik van de identiteit die wordt vertegenwoordigd door het opgegeven token. Zie de <code>userToken</code> eigenschap.</li><li><code>clientCredentials</code> -Maakt gebruik van de identiteit van de functie-app.</li></ul>|
-|**Gebruikers-id**|**Gebruikers-id**  |Vereist als en alleen als _identiteit_ is ingesteld op `userFromId`. Een gebruiker principal-ID die is gekoppeld aan een eerder aangemelde gebruiker.|
+|**identity**|**Identity**|Vereist: de identiteit die wordt gebruikt de actie uit te voeren. Een van de volgende waarden kan zijn:<ul><li><code>userFromRequest</code> -Alleen geldig voor [HTTP-trigger]. Maakt gebruik van de identiteit van de aanroepende gebruiker.</li><li><code>userFromId</code> -Maakt gebruik van de identiteit van een eerder aangemelde gebruiker met de opgegeven ID. Zie de <code>userId</code> eigenschap.</li><li><code>userFromToken</code> -Maakt gebruik van de identiteit die wordt vertegenwoordigd door het opgegeven token. Zie de <code>userToken</code> eigenschap.</li><li><code>clientCredentials</code> -Maakt gebruik van de identiteit van de functie-app.</li></ul>|
+|**userId**|**UserId**  |Vereist als en alleen als _identiteit_ is ingesteld op `userFromId`. Een gebruiker principal-ID die is gekoppeld aan een eerder aangemelde gebruiker.|
 |**userToken**|**UserToken**|Vereist als en alleen als _identiteit_ is ingesteld op `userFromToken`. Een token geldig is voor de functie-app. |
 
 <a name="outlook-output-code"></a>
@@ -1251,7 +1251,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 ### <a name="webhook-input---usage"></a>Webhook invoer - gebruik
 
 De binding wordt aangegeven dat de volgende typen .NET-functies:
-- String]
+- string[]
 - Aangepaste object type matrices
 - Newtonsoft.Json.Linq.JObject[]
 - Microsoft.Graph.Subscription[]
@@ -1387,8 +1387,8 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**De naam**||Vereist: de naam van de variabele in functiecode gebruikt voor het e-mailbericht. Zie [met behulp van een Outlook-bericht-Uitvoerbinding vanuit code](#outlook-output-code).|
 |**type**||Vereist: moet worden ingesteld op `graphWebhookSubscription`.|
 |**direction**||Vereist: moet worden ingesteld op `out`.|
-|**Identiteit**|**Identity**|Vereist: de identiteit die wordt gebruikt de actie uit te voeren. Een van de volgende waarden kan zijn:<ul><li><code>userFromRequest</code> -Alleen geldig voor [HTTP-trigger]. Maakt gebruik van de identiteit van de aanroepende gebruiker.</li><li><code>userFromId</code> -Maakt gebruik van de identiteit van een eerder aangemelde gebruiker met de opgegeven ID. Zie de <code>userId</code> eigenschap.</li><li><code>userFromToken</code> -Maakt gebruik van de identiteit die wordt vertegenwoordigd door het opgegeven token. Zie de <code>userToken</code> eigenschap.</li><li><code>clientCredentials</code> -Maakt gebruik van de identiteit van de functie-app.</li></ul>|
-|**Gebruikers-id**|**Gebruikers-id**  |Vereist als en alleen als _identiteit_ is ingesteld op `userFromId`. Een gebruiker principal-ID die is gekoppeld aan een eerder aangemelde gebruiker.|
+|**identity**|**Identity**|Vereist: de identiteit die wordt gebruikt de actie uit te voeren. Een van de volgende waarden kan zijn:<ul><li><code>userFromRequest</code> -Alleen geldig voor [HTTP-trigger]. Maakt gebruik van de identiteit van de aanroepende gebruiker.</li><li><code>userFromId</code> -Maakt gebruik van de identiteit van een eerder aangemelde gebruiker met de opgegeven ID. Zie de <code>userId</code> eigenschap.</li><li><code>userFromToken</code> -Maakt gebruik van de identiteit die wordt vertegenwoordigd door het opgegeven token. Zie de <code>userToken</code> eigenschap.</li><li><code>clientCredentials</code> -Maakt gebruik van de identiteit van de functie-app.</li></ul>|
+|**userId**|**UserId**  |Vereist als en alleen als _identiteit_ is ingesteld op `userFromId`. Een gebruiker principal-ID die is gekoppeld aan een eerder aangemelde gebruiker.|
 |**userToken**|**UserToken**|Vereist als en alleen als _identiteit_ is ingesteld op `userFromToken`. Een token geldig is voor de functie-app. |
 |**Actie**|**Actie**|Vereist: Hiermee geeft u de binding van de actie moet worden uitgevoerd. Een van de volgende waarden kan zijn:<ul><li><code>create</code> -Een nieuw abonnement registreert.</li><li><code>delete</code> -Verwijdert een opgegeven abonnement.</li><li><code>refresh</code> -Hiermee vernieuwt u een opgegeven abonnement om te voorkomen dat deze verloopt.</li></ul>|
 |**subscriptionResource**|**subscriptionResource**|Vereist als en alleen als de _actie_ is ingesteld op `create`. Hiermee geeft u de Microsoft Graph-resource die wordt gecontroleerd op wijzigingen. Zie [werken met webhooks in Microsoft Graph]. |
@@ -1421,7 +1421,7 @@ Deze sectie bevat een voorbeeld voor elk van deze methoden:
 Zie het voorbeeld taalspecifieke:
 
 * [C# script (.csx)](#app-identity-refresh---c-script-example)
-* [JavaScript](#app-identity-refresh---javascript-example)
+* Javascript
 
 ### <a name="app-identity-refresh---c-script-example"></a>App-id vernieuwen - voorbeeld van C#-script
 

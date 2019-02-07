@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/18/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 5b8277c0688d0fd08dfa81cb7d5f7155840843c0
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: f75b14ce2ca860ee894fe0a2ef501066b91f8e8a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413580"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755642"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Zelfstudie: HTTPS op een aangepast domein van Azure CDN configureren
 
@@ -172,7 +172,7 @@ Uw CNAME-record moet de volgende indeling hebben, waarbij *Naam* de naam van het
 |-----------------|-------|-----------------------|
 | www.contoso.com | CNAME | contoso.azureedge.net |
 
-Zie [Create the CNAME DNS record](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain#create-the-cname-dns-records) (De CNAME DNS-record maken) voor meer informatie over CNAME-records.
+Zie [Create the CNAME DNS record](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain) (De CNAME DNS-record maken) voor meer informatie over CNAME-records.
 
 Als de CNAME-record de juiste indeling heeft, wordt de naam van het aangepaste domein automatisch geverifieerd met DigiCert en wordt er een toegewezen certificaat voor uw domeinnaam gemaakt. U ontvangt via DigiCert geen verificatie-e-mail en u hoeft uw aanvraag niet goed te keuren. Het certificaat is één jaar geldig en wordt, vóórdat het verloopt, automatisch vernieuwd. Ga verder met [Wachten op doorgifte](#wait-for-propagation). 
 

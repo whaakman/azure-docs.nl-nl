@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: danlep
-ms.openlocfilehash: e22acc6e698d9b14a55145d8f23f5f773e6c39fd
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 2cf64c7c4f99a57c4a4a6cf03e68e8af803ceca9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857700"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810759"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Aanbevolen procedures voor Azure Container Registry
 
@@ -46,11 +46,11 @@ contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
 
 ## <a name="dedicated-resource-group"></a>Toegewezen resourcegroep
 
-Omdat containerregisters resources zijn die op meerdere containerhosts worden gebruikt, moet een resourcegroep een eigen register bevatten.
+Omdat containerregisters resources die op meerdere containerhosts worden gebruikt zijn, moet een register zich in een eigen resourcegroep bevinden.
 
 Hoewel u mogelijk aan het experimenteren bent met een specifiek type host, zoals Azure Container Instances, wilt u de containerinstantie waarschijnlijk verwijderen wanneer u klaar bent. Maar misschien wilt u de verzameling installatiekopieën die u naar Azure Container Registry hebt gepusht, wel houden. Door uw register in een eigen resourcegroep te plaatsen, verkleint u het risico dat u de verzameling installatiekopieën in het register per ongeluk verwijdert als u de resourcegroep van de containerinstantie verwijdert.
 
-## <a name="authentication"></a>Verificatie
+## <a name="authentication"></a>Authentication
 
 Voor de verificatie van een Azure-containerregister bestaan er twee primaire scenario's: afzonderlijke verificatie en serviceverificatie (ook wel een 'headless'-verificatie genoemd). De volgende tabel bevat een kort overzicht van deze scenario's en de verificatiemethode die voor elk ervan wordt aanbevolen.
 
@@ -63,7 +63,7 @@ Zie [Verifiëren met een Azure containerregister](container-registry-authenticat
 
 ## <a name="manage-registry-size"></a>Registergrootte beheren
 
-De opslagbeperkingen van elke [containerregister-SKU] [ container-registry-skus] zijn bedoeld om te worden uitgelijnd met een typisch scenario: **Basic** om te beginnen, **Standard**  voor het merendeel van de productietoepassingen en **Premium** voor hyperschaalprestaties en [geo-replicatie][container-registry-geo-replication]. Tijdens de levensduur van het register moet u de grootte ervan beheren door regelmatig ongebruikte inhoud te verwijderen.
+De opslagbeperkingen van elke [containerregister-SKU] [ container-registry-skus] zijn bedoeld om uit te lijnen met een typisch scenario: **Basic** aan de slag gaat, **Standard** voor het merendeel van de productietoepassingen en **Premium** voor hyperschaalprestaties en [geo-replicatie][container-registry-geo-replication]. Tijdens de levensduur van het register moet u de grootte ervan beheren door regelmatig ongebruikte inhoud te verwijderen.
 
 Gebruik de Azure CLI-opdracht [az acr show-gebruik] [ az-acr-show-usage] om weer te geven van de huidige grootte van het register:
 

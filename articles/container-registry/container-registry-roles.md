@@ -7,18 +7,18 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: danlep
-ms.openlocfilehash: 5dabab02758b4ade0f668adddf7644a654e1804b
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: e2ec1b7ad6d1489836937d30b89d0f0f681a9bfa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53756514"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819583"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry-rollen en machtigingen
 
 De Azure Container Registry-service ondersteunt een aantal Azure-rollen die verschillende niveaus van machtigingen aan een Azure container registry bieden. Gebruik Azure [op rollen gebaseerd toegangsbeheer](../role-based-access-control/index.yml) (RBAC) voor specifieke machtigingen toewijzen aan gebruikers of service-principals die moeten communiceren met een register.
 
-| Rolmachtiging /       | [Toegang tot Resource Manager](#access-resource-manage)| [Register maken/verwijderen](#create/delete-registry) | [Installatiekopie pushen](#push-image) | [Pull-afbeelding](#pull-image) | [Beleid wijzigen](#change-polices) |   [Meld u afbeeldingen](#sign-images)  |
+| Rolmachtiging /       | Access Resource Manager| Register maken/verwijderen | [Installatiekopie pushen](#push-image) | [Pull-afbeelding](#pull-image) | Beleid wijzigen |   [Meld u afbeeldingen](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- |
 | Eigenaar | X | X | X | X | X |  |  
 | Inzender | X | X | X | X | X |  |  
@@ -43,7 +43,7 @@ Knooppunten die uw containers worden uitgevoerd, moet ook, de **AcrPull** rol, m
 
 Voor hulpprogramma's zoals de Visual Studio Code [Docker-extensie](https://code.visualstudio.com/docs/azure/docker), aanvullende resource provider toegang is vereist om de beschikbare Azure-containerregisters weer te geven. In dit geval uw gebruikers toegang bieden tot de **lezer** of **Inzender** rol. Deze rollen toestaan `docker pull`, `docker push`, `az acr list`, `az acr build`, en andere functies. 
 
-## <a name="access-resource-manager"></a>Toegang tot Resource Manager
+## <a name="access-resource-manager"></a>Access Resource Manager
 
 Azure Resource Manager-toegang is vereist voor de Azure-portal en [Azure CLI](/cli/azure/). Bijvoorbeeld, voor een lijst van registers met behulp van de `az acr list` opdracht, moet u deze machtiging instellen. 
 

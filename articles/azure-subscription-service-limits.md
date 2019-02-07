@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: byvinyal
-ms.openlocfilehash: eb93dfae91ee84400c32af7b662c69aefda979d2
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 00930fd99fd4c0078623aa11f3e2cd5b1c549034
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409170"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812664"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-abonnement en servicelimieten, quota's en beperkingen
 In dit document vindt u enkele van de meest algemene Microsoft Azure-limieten, die soms ook wel quotums genoemd. Dit document niet op dit moment betrekking hebben op alle Azure-services. Na verloop van tijd, wordt de lijst worden uitgebreid en bijgewerkt in verband met betrekking hebben op meer van het platform.
@@ -54,7 +54,7 @@ In de onderstaande grenzen, is een nieuwe tabel toegevoegd om weer te geven van 
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#monitor-limits)
 * [Azure Policy](#azure-policy-limits)
-* [Azure Cache voor Redis](#azure-redis-cache-limits)
+* Azure Cache voor Redis
 * [Een back-up maken](#backup-limits)
 * [Batch](#batch-limits)
 * [BizTalk Services](#biztalk-services-limits)
@@ -62,14 +62,14 @@ In de onderstaande grenzen, is een nieuwe tabel toegevoegd om weer te geven van 
 * [Cloud Services](#cloud-services-limits)
 * [Container Instances](#container-instances-limits)
 * [Container Registry](#container-registry-limits)
-* [Kubernetes-Service](#kubernetes-service-limits)
+* [Kubernetes Service](#kubernetes-service-limits)
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
 * [Database migratieservice](#database-migration-service-limits)
 * [DNS](#dns-limits)
 * [Event Hubs](#event-hubs-limits)
-* [Firewall van Azure](#azure-firewall-limits)
+* [Azure Firewall](#azure-firewall-limits)
 * [Voordeur](#azure-front-door-service-limits)
 * [IoT Hub](#iot-hub-limits)
 * [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
@@ -92,7 +92,7 @@ In de onderstaande grenzen, is een nieuwe tabel toegevoegd om weer te geven van 
 * [SQL Database](#sql-database-limits)
 * [SQL Data Warehouse](#sql-data-warehouse-limits)
 * [Storage](#storage-limits)
-* [StorSimple-systeem](#storsimple-system-limits)
+* [StorSimple System](#storsimple-system-limits)
 * [Stream Analytics](#stream-analytics-limits)
 * [Abonnement](#subscription-limits)
 * [Traffic Manager](#traffic-manager-limits)

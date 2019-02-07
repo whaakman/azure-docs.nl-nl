@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: kasinh
-ms.openlocfilehash: b75c9093a983ba3e4ac4050379efbb091b363ff7
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 7669d713f9a96ef893f7ec2ac895c28f654385c8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491960"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810964"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Een back-up maken in Azure van een SharePoint-farm
 U back-up van een SharePoint-farm naar Microsoft Azure met behulp van Microsoft Azure Backup-Server (MABS) op ongeveer dezelfde manier dat u back-up van gegevens van andere bronnen. Azure Backup biedt flexibiliteit in de back-upschema maken het dagelijkse, wekelijkse, maandelijkse of jaarlijkse back-up verwijst en biedt u de bewaarperiode beleidsopties voor verschillende back-uppunten. Het biedt ook mogelijkheden voor het opslaan van kopieën van de lokale schijf voor snelle doelstellingen voor hersteltijd (RTO) en voor het opslaan van kopieën naar Azure voor het bewaren van voordelige, op de lange termijn.
@@ -222,7 +222,7 @@ In het volgende voorbeeld wordt de *herstellen van SharePoint-item* per ongeluk 
 4. Klik op de SharePoint-object wordt weergegeven in de MABS **Recovery** tabblad om op te halen van de structuur van de inhoud van de database. Met de rechtermuisknop op het item en klik vervolgens op **herstellen**.
 
     ![MABS SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
-5. Op dit moment, volgt u de [recovery stappen eerder in dit artikel](#restore-a-sharepoint-item-from-disk-using-dpm) een SharePoint-inhoudsdatabase om schijf te herstellen.
+5. Op dit moment, volg de procedure eerder in dit artikel om te herstellen van een SharePoint-inhoudsdatabase van schijf.
 
 ## <a name="faqs"></a>Veelgestelde vragen
 VRAAG: Kan ik een SharePoint-item naar de oorspronkelijke locatie herstellen als SharePoint is geconfigureerd met behulp van SQL AlwaysOn (met beveiliging op schijf)?<br>

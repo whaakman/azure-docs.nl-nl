@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 2a5a878b7c8c3b6126d90b978241fbcb237d8db7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 626fd4739daf2506854c42f16ac986a361ebab38
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946303"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769909"
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Cloud-init gebruiken voor een wisselbestand configureren op een Linux VM
 In dit artikel leest u hoe u [cloud-init](https://cloudinit.readthedocs.io) voor het configureren van het wisselbestand op verschillende Linux-distributies. Het wisselbestand is door de Linux Agent (WALA) op basis van welke distributies een vereist traditioneel geconfigureerd.  Dit document wordt een overzicht van het proces voor het bouwen van het wisselbestand op de vraag tijdens inrichtingstijd cloud-init gebruiken.  Zie voor meer informatie over hoe cloud-init systeemeigen in Azure en de ondersteunde Linux-distributies werkt [cloud-init-overzicht](using-cloud-init.md)
@@ -48,13 +48,13 @@ mounts:
   - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
 ```
 
-Voordat u deze installatiekopie implementeert, moet u een resourcegroep maken met de [az-groep maken](/cli/azure/group#az_group_create) opdracht. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS - oost*.
+Voordat u deze installatiekopie implementeert, moet u een resourcegroep maken met de [az-groep maken](/cli/azure/group) opdracht. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS - oost*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Maak nu een virtuele machine met [az vm maken](/cli/azure/vm#az_vm_create) en geef het cloud-init-bestand met `--custom-data cloud_init_swapfile.txt` als volgt:
+Maak nu een virtuele machine met [az vm maken](/cli/azure/vm) en geef het cloud-init-bestand met `--custom-data cloud_init_swapfile.txt` als volgt:
 
 ```azurecli-interactive 
 az vm create \

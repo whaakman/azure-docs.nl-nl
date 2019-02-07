@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: michaelhauss
 ms.subservice: blobs
-ms.openlocfilehash: 9e4c717b3b205d6c8fdd309dada918eb6df35181
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 65ecaaea09c28c31d76f31dc447108273b379f9e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244756"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811661"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Het Blob storage gebruiken met iOS
 
@@ -162,7 +162,7 @@ Het volgende voorbeeld ziet u hoe u het maken van een container met **Container*
 ```
 
 ## <a name="upload-a-blob-into-a-container"></a>Een blob uploaden naar een container
-Zoals vermeld in de [Blob serviceconcepten](#blob-service-concepts) gedeelte, Blob Storage biedt drie typen blobs: blok-blobs, toevoeg-blobs en pagina-blobs. De Azure Storage-bibliotheek voor iOS ondersteunt drie typen blobs. In de meeste gevallen is een blok-blob het aangewezen type om te gebruiken.
+Zoals vermeld in de sectie concepten van Blob service, Blob Storage biedt drie typen blobs: blok-blobs, toevoeg-blobs en pagina-blobs. De Azure Storage-bibliotheek voor iOS ondersteunt drie typen blobs. In de meeste gevallen is een blok-blob het aangewezen type om te gebruiken.
 
 Het volgende voorbeeld ziet u hoe u een blok-blob uit een NSString uploadt. Als een blob met dezelfde naam al in deze container bestaat, kunt u de inhoud van deze blob wordt overschreven.
 

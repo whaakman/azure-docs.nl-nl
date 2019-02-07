@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 0869786b2aa6c604ee59deb0f5a5fbc27b9ce3bf
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 5eecd750642610737d346c5c270349e285106e95
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751562"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820433"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup oplossen: Problemen met de agent of de extensie
 
@@ -97,7 +97,7 @@ Nadat u hebt geregistreerd en plannen van een virtuele machine voor de Azure Bac
 **2 oorzaak: [De agent is geïnstalleerd in de virtuele machine is verouderd (voor Linux-VM's)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **3 oorzaak: [De status van de momentopname kan niet worden opgehaald, of een momentopname kan niet worden uitgevoerd](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **4 oorzaak: [De back-upextensie om te werken of te laden is mislukt](#the-backup-extension-fails-to-update-or-load)**  
-**5 oorzaak: [Backup-service heeft geen toegangsmachtiging voor de oude herstelpunten verwijderd vanwege een vergrendeling van de groep resource](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)** <br>
+**5 oorzaak: Backup-service heeft geen toegangsmachtiging voor de oude herstelpunten verwijderd vanwege een vergrendeling van de groep resource** <br>
 **Oorzaak 6: [De virtuele machine heeft geen internettoegang](#the-vm-has-no-internet-access)**
 
 ## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-1023gb"></a>UserErrorUnsupportedDiskSize - momenteel Azure Backup biedt geen ondersteuning voor schijven groter dan 1023GB

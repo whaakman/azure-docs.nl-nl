@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: lahugh
-ms.openlocfilehash: 574a9ae1e283a3918e316d2daa84df727d729471
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5f6e0d2dece791ac4ece73acdf2e15e3c9be412f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477591"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812838"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Verificatie van oplossingen van Batch-service met Active Directory
 
@@ -91,7 +91,7 @@ De tenant-ID geeft de Azure AD-tenant waarmee verificatieservices aan uw toepass
 
 Als u wilt verifiëren met geïntegreerde verificatie, moet u uw toepassing machtigen voor het verbinding maken met de Batch-service-API. Deze stap kan uw toepassing aanroepen naar de Batch-service-API met Azure AD verifiëren.
 
-Nadat u hebt [uw toepassing geregistreerd](#register-your-application-with-an-azure-ad-tenant), als volgt te werk in de Azure portal om het toegang geven tot de Batch-service:
+Nadat u uw toepassing hebt geregistreerd, volg deze stappen in de Azure portal om het toegang geven tot de Batch-service:
 
 1. Kies in het linker navigatiedeelvenster van de Azure-portal **alle services**. Klik op **App-registraties**.
 2. Zoeken naar de naam van uw toepassing in de lijst van app-registraties:

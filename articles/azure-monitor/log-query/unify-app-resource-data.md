@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: magoedte
-ms.openlocfilehash: e0f305d8200a6b78eb138d5a3c6d9cd99a095dbe
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: f9138ec06900f4a7f856cc90362d16496b7b4fed
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486518"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766009"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Lever een geïntegreerde ervaring meerdere Azure Monitor Application Insights-resources 
-In dit artikel wordt beschreven hoe u query's uitvoeren en Bekijk alle uw Application Insights toepassing logboekgegevens op één plek, zelfs wanneer ze zich in verschillende Azure-abonnementen, als vervanging voor de afschaffing van de Application Insights-Connector.  
+In dit artikel wordt beschreven hoe u query's uitvoeren en Bekijk alle uw Application Insights toepassing logboekgegevens op één plek, zelfs wanneer ze zich in verschillende Azure-abonnementen, als vervanging voor de afschaffing van de Application Insights-Connector. Het aantal resources Application Insights-resources die u in één query opnemen kunt is beperkt tot 100.  
 
 ## <a name="recommended-approach-to-query-multiple-application-insights-resources"></a>Aanbevolen benadering query uitvoeren op meerdere Application Insights-resources 
 Aanbieding meerdere Application Insights-resources in een query kan worden omslachtig en moeilijk te onderhouden. U kunt in plaats daarvan gebruikmaken van functie zodat deze de querylogica scheiden van de toepassingen scopes.  

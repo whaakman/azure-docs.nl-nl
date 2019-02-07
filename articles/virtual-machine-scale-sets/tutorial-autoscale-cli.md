@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fdc1cb7c4b95a72aa55ccce57b2fa331f7c9615d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4064816ae932a0f26fd3478420c69f3e8fba8732
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170705"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751273"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Zelfstudie: Een virtuele-machineschaalset automatisch schalen met Azure CLI
 
@@ -62,7 +62,7 @@ az vmss create \
 
 ## <a name="define-an-autoscale-profile"></a>Een profiel voor automatisch schalen definiëren
 
-Als u automatisch schalen wilt inschakelen voor een schaalset, moet u eerst een profiel voor automatisch schalen definiëren. In dit profiel worden de minimum-, maximum- en standaardcapaciteit ingesteld voor de schaalset. Met behulp van deze limieten kunt u de kosten in de hand houden doordat er niet steeds VM-exemplaren hoeven te worden gemaakt en aanvaardbare prestaties realiseren met een minimum aantal exemplaren die altijd kunnen worden ingeschaald. U maakt een profiel voor automatisch schalen met [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). In het volgende voorbeeld worden de minimum- en standaardcapaciteit ingesteld op *2* VM-exemplaren en het maximum op *10*:
+Als u automatisch schalen wilt inschakelen voor een schaalset, moet u eerst een profiel voor automatisch schalen definiëren. In dit profiel worden de minimum-, maximum- en standaardcapaciteit ingesteld voor de schaalset. Met behulp van deze limieten kunt u de kosten in de hand houden doordat er niet steeds VM-exemplaren hoeven te worden gemaakt, en kunt u aanvaardbare prestaties realiseren met een minimum aantal exemplaren die altijd kunnen worden ingeschaald. U maakt een profiel voor automatisch schalen met [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). In het volgende voorbeeld worden de minimum- en standaardcapaciteit ingesteld op *2* VM-exemplaren en het maximum op *10*:
 
 ```azurecli-interactive
 az monitor autoscale create \
@@ -107,7 +107,7 @@ az monitor autoscale rule create \
 
 Voor het testen van de regels voor automatisch schalen gaan we wat CPU-belasting genereren voor de VM-exemplaren in de schaalset. Deze gesimuleerde CPU-belasting zorgt ervoor dat de schaalset automatisch wordt uitgeschaald en het aantal VM-exemplaren dus wordt verhoogd. Als de gesimuleerde CPU-belasting vervolgens weer afneemt, wordt de schaalset ingeschaald en zakt het aantal VM-exemplaren.
 
-Gebruik eerst [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info) om de adressen en poorten op te vragen waarmee VM-exemplaren in een schaalset moeten worden verbonden:
+Gebruik eerst [az vmss list-instance-connection-info](/cli/azure/vmss) om de adressen en poorten op te vragen waarmee VM-exemplaren in een schaalset moeten worden verbonden:
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -141,7 +141,7 @@ Wanneer **stress** uitvoer toont die lijkt op *stress: info: [2688] dispatching 
 
 Om te controleren of **stress** CPU-belasting genereert, onderzoekt u de actieve systeembelasting met het hulpprogramma **top**:
 
-```azuecli-interactive
+```azurecli-interactive
 top
 ```
 
@@ -152,7 +152,7 @@ Ctrl-c
 exit
 ```
 
-Maak verbinding met het tweede VM-exemplaar met het poortnummer dat u hebt opgevraagd met de eerdere opdracht [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info):
+Maak verbinding met het tweede VM-exemplaar met het poortnummer dat u hebt opgevraagd met de eerdere opdracht [az vmss list-instance-connection-info](/cli/azure/vmss):
 
 ```azurecli-interactive
 ssh azureuser@13.92.224.66 -p 50003
@@ -208,7 +208,7 @@ Sluit *watch* af met `Ctrl-c`. De capaciteit van de schaalset wordt nog steeds o
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u de schaalset en aanvullende resources wilt verwijderen, verwijdert u de resourcegroep en alle bijbehorende resources met [az group delete](/cli/azure/group#az_group_delete). De parameter `--no-wait` retourneert het besturingselement naar de prompt zonder te wachten totdat de bewerking is voltooid. De parameter `--yes` bevestigt dat u de resources wilt verwijderen, zonder een extra prompt om dit te doen.
+Als u de schaalset en aanvullende resources wilt verwijderen, verwijdert u de resourcegroep en alle bijbehorende resources met [az group delete](/cli/azure/group). De parameter `--no-wait` retourneert het besturingselement naar de prompt zonder te wachten totdat de bewerking is voltooid. De parameter `--yes` bevestigt dat u de resources wilt verwijderen, zonder een extra prompt om dit te doen.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

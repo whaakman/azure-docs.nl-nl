@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: barclayn
-ms.openlocfilehash: 9ebfb01071257c8879531c1879b6f8b3ba4493ef
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 11ace1b5cce742579256d08ecfe9d9a7412d3d7c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198895"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822490"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Key Vault met de Azure CLI beheren 
 
@@ -247,7 +247,7 @@ Key Vault inschakelen voor sjabloonimplementatie: Kan Resource Manager geheimen 
 
 ## <a name="working-with-hardware-security-modules-hsms"></a>Werken met Hardware security modules (HSM's)
 
-Voor extra zekerheid kunt u importeren of genereren van sleutels in hardware security modules (HSM's) die de HSM-grens nooit verlaten. De HSM's zijn FIPS 140-2 Level 2-gevalideerde modules. Als deze vereiste niet van toepassing is op u, kunt u deze sectie overslaan om naar [De sleutelkluis en de bijbehorende sleutels en geheimen verwijderen](#delete-the-key-vault-and-associated-keys-and-secrets) te gaan.
+Voor extra zekerheid kunt u importeren of genereren van sleutels in hardware security modules (HSM's) die de HSM-grens nooit verlaten. De HSM's zijn FIPS 140-2 Level 2-gevalideerde modules. Als deze vereiste niet voor u geldt, kunt u deze sectie overslaan en gaat u naar de sleutelkluis en de bijbehorende sleutels en geheimen verwijderen.
 
 Deze HSM beveiligde sleutels wilt maken, moet u een kluisabonnement dat ondersteuning biedt voor met HSM beveiligde sleutels hebben.
 

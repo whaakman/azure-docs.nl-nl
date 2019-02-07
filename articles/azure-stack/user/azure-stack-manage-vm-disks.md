@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 022dd937ae0557ca848a329039703f3b94ad0885
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b5254b45fcd71901876d9e77d1f29c0a0d40ce3f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245351"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813871"
 ---
 # <a name="create-virtual-machine-disk-storage-in-azure-stack"></a>Schijfopslag voor virtuele machine maken in Azure Stack
 
@@ -50,7 +50,7 @@ De volgende tabel geeft een overzicht van hoe u schijven toevoegt met behulp van
 
 | Methode | Opties
 |-|-|
-|[Gebruikersportal](#use-the-portal-to-add-additional-disks-to-a-vm)|-Nieuwe gegevensschijven toevoegen aan een bestaande virtuele machine. Nieuwe schijven worden gemaakt door Azure Stack. </br> </br>-Een bestaande schijf (VHD)-bestand toevoegen aan een eerder gemaakte virtuele machine. Om dit te doen, moet u de VHD voorbereiden en vervolgens het bestand uploaden naar Azure Stack. |
+|Gebruikersportal|-Nieuwe gegevensschijven toevoegen aan een bestaande virtuele machine. Nieuwe schijven worden gemaakt door Azure Stack. </br> </br>-Een bestaande schijf (VHD)-bestand toevoegen aan een eerder gemaakte virtuele machine. Om dit te doen, moet u de VHD voorbereiden en vervolgens het bestand uploaden naar Azure Stack. |
 |[PowerShell](#use-powershell-to-add-multiple-unmanaged-disks-to-a-vm) | -Een nieuwe virtuele machine maken met een besturingssysteemschijf en op hetzelfde moment een of meer gegevensschijven aan die virtuele machine toevoegen. |
 
 ## <a name="use-the-portal-to-add-disks-to-a-vm"></a>Gebruik de portal schijven toevoegen aan een virtuele machine

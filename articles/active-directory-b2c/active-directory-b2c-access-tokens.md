@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 86c62c021c6668783b3f843a908f4b17845f8c72
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0ea781188e40d6389da8188379d792c922d3bdca
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172983"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768339"
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: Toegangstokens aanvragen
 
@@ -78,8 +78,15 @@ Bij het aanvragen van een toegangstoken de clienttoepassing nodig heeft om op te
 > [!NOTE]
 > Aangepaste domeinen worden op dit moment niet ondersteund, samen met toegangstokens. U moet uw domein tenantName.onmicrosoft.com in de aanvraag-URL.
 
+In het volgende voorbeeld vervangt u deze waarden:
+
+- `<tenant-name>` -De naam van uw Azure AD B2C-tenant.
+- `<policy-name>` -De naam van uw aangepaste beleid of een gebruiker-stroom.
+- `<application-ID>` -De toepassings-id van de clienttoepassing die u hebt geregistreerd.
+- `<redirect-uri>` -De **omleidings-URI** dat u hebt ingevoerd toen u de clienttoepassing geregistreerd.
+
 ```
-https://<tenantName>.b2clogin.com/tfp/<tenantName>.onmicrosoft.com/<yourPolicyId>/oauth2/v2.0/authorize?client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
+https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?client_id=<application-ID>&nonce=anyRandomValue&redirect_uri=<redirect_uri>&scope=https%3A%2F%2F<tenant-name>.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
 ```
 
 Als u wilt meerdere machtigingen in dezelfde aanvraag aanschaft, kunt u meerdere vermeldingen toevoegen in de ene **bereik** parameter, gescheiden door spaties. Bijvoorbeeld:
@@ -114,7 +121,7 @@ Als de `response_type` parameter in een `/authorize` verzoek bevat `token`, word
 
 In een is geslagen **toegang\_token** (vanuit de `/authorize` of `/token` eindpunt), de volgende claims aanwezig zijn:
 
-| Name | Claim | Beschrijving |
+| Name | Claim | Description |
 | --- | --- | --- |
 |Doelgroep |`aud` |De **toepassings-ID** van de afzonderlijke resource die de token verleent toegang tot. |
 |Bereik |`scp` |De machtigingen verleend aan de resource. Meerdere toegekende machtigingen worden gescheiden door een spatie. |

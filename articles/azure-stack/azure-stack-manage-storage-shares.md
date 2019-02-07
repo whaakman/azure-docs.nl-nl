@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 96145906d40e465d2427a8100b3ad9333eec3f29
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7536913817e10fbc2b46eadd1cebdfb98079c759
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249092"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819515"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Opslagcapaciteit voor Azure Stack beheren 
 
@@ -51,7 +51,7 @@ Omdat de storage-service-shares voor exclusief gebruik van storage-services zijn
 
 Shares op volumes bevatten gegevens van de tenant. Gegevens van de tenant bevat pagina-blobs, blok-blobs, toevoeg-blobs, tabellen, wachtrijen, -databases en gerelateerde metagegevensopslag. Omdat de storage-objecten (blobs, enzovoort) afzonderlijk in één share opgenomen worden, kan de maximale grootte van elk object kan niet groter zijn dan de grootte van een share. De maximale grootte van nieuwe objecten zijn afhankelijk van de capaciteit die nog in een share als niet-gebruikte ruimte wanneer dat nieuwe object wordt gemaakt.
 
-Wanneer een share is onvoldoende vrije ruimte en acties voor [vrijmaken](#reclaim-capacity) ruimte niet geslaagd, of beschikbaar zijn, kan de Azure Stack-cloud-operator [migreren](#migrate-a-container-between) de blob-containers uit één share naar een andere.
+Wanneer een share is onvoldoende vrije ruimte en acties voor [vrijmaken](#reclaim-capacity) ruimte niet geslaagd, of beschikbaar zijn, de Azure Stack-cloud-operator de blob-containers kunt migreren van een share naar een andere.
 
 - Zie voor meer informatie over containers en blobs [Blob storage](azure-stack-key-features.md#blob-storage) in sleutel-functies en concepten in Azure Stack.
 - Zie voor meer informatie over de werking van tenantgebruikers met blob storage in Azure Stack [Azure Stack-opslagservices](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).

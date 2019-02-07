@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: b8abf7a0dc85d20e9075b51b8d42a068cf56846f
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 4110b8f1b336a604c89180ac44ad470132765830
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620520"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820671"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Service voor externe toegang in C# met Reliable Services
 
@@ -239,7 +239,7 @@ Deze stap zorgt ervoor dat de service alleen op de V2-listener luistert.
 
 ## <a name="use-the-remoting-v2-interface-compatible-stack"></a>De remoting V2 (compatibel interface)-stack gebruiken
 
- De remoting V2 (interface compatibel zijn, ook wel V2_1) stack heeft alle functies van de externe toegang-stack V2. De interface-stack is compatibel met de externe communicatie van V1-stack, maar het is niet compatibel met V2 en V1. Volg de stappen in het artikel om te upgraden van V1 naar V2_1 zonder die betrekking hebben op beschikbaarheid van de service, [upgraden van V1 in V2 (compatibel-interface)](#upgrade-from-remoting-v1-to-remoting-v2interfacecompatible).
+ De remoting V2 (interface compatibel zijn, ook wel V2_1) stack heeft alle functies van de externe toegang-stack V2. De interface-stack is compatibel met de externe communicatie van V1-stack, maar het is niet compatibel met V2 en V1. Om te upgraden van V1 naar V2_1 zonder die betrekking hebben op beschikbaarheid van de service, volgt u de stappen in het artikel Upgrade van V1 in V2 (compatibel-interface).
 
 
 ### <a name="use-an-assembly-attribute-to-use-the-remoting-v2-interface-compatible-stack"></a>Een assembly-kenmerk gebruiken om te gebruiken van de remoting V2-stack (interface-compatibel)

@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 10/11/2017
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 8115ffd943750d88a1aa9f94ba53ff972a636373
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4ae9c0c1fb6cd341e812f9e8b35eaff789637561
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157309"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765643"
 ---
 # <a name="what-is-the-bing-image-search-api"></a>Wat is de Bing Afbeeldingen zoeken-API?
 
@@ -33,9 +33,9 @@ Hoewel met Bing Afbeeldingen zoeken vooral relevante afbeeldingen worden gezocht
 | Functie                                                                                                                                                                                 | Beschrijving                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Zoektermen in realtime voorstellen](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) | Verbeter uw app-ervaring met de [Bing Automatische suggestie-API](../bing-autosuggest/get-suggested-search-terms.md) om voorgestelde zoektermen weer te geven wanneer deze worden getypt. |
-| [Afbeeldingsresultaten filteren en beperken](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#filtering-images)                       | Filter de afbeeldingen die via Bing worden geretourneerd door queryparameters te bewerken.                                                                                                       |
+| [Afbeeldingsresultaten filteren en beperken](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images)                       | Filter de afbeeldingen die via Bing worden geretourneerd door queryparameters te bewerken.                                                                                                       |
 | [Miniaturen bijsnijden en weergeven en het formaat hiervan wijzigen](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/resize-and-crop-thumbnails)                                                | Bewerk miniatuurweergaven voor de afbeeldingen die zijn geretourneerd door Bing Afbeeldingen zoeken en geef deze weer.                                                                                      |
-| [Gebruikerszoekquery's draaien en uitvouwen](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries#pivoting-the-query)               | Breid uw zoekmogelijkheden uit door voorgestelde zoektermen door Bing op te nemen en weer te geven in query's.                                                                    |
+| [Gebruikerszoekquery's draaien en uitvouwen](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries)               | Breid uw zoekmogelijkheden uit door voorgestelde zoektermen door Bing op te nemen en weer te geven in query's.                                                                    |
 | [Trending afbeeldingen ophalen](https://review.docs.microsoft.com/azure/cognitive-services/bing-image-search/trending-images)                                                                     | Pas een zoekopdracht voor trending afbeeldingen van over de hele wereld aan.                                                                                                          |
 
 ## <a name="workflow"></a>Werkstroom

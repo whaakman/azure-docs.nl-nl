@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 331a8d07004a8915d27b28ca0fba940b1aa3ab72
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: bcbb3d5d25fdc3de71045cedfd4634e47b3947bf
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164806"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811951"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>Zelfstudie: Azure Active Directory-integratie met aanwezigheid
 
@@ -86,7 +86,7 @@ Om te configureren en testen van Azure AD eenmalige aanmelding met aanwezigheid 
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
 1. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-1. **[Maak een testgebruiker aanwezigheid beheerservices](#create-an-attendance-management-service-test-user)**  : als u wilt een equivalent van Britta Simon in aanwezigheid-beheerservices die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **Maak een testgebruiker aanwezigheid beheerservices** : als u wilt een equivalent van Britta Simon in aanwezigheid-beheerservices die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
 1. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 1. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 

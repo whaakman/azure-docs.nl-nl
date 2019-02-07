@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 5054fdc08c7a0a1b3833ed95784f6018ac5c697e
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 536239a9ff98c76badfc042a2d59d19b8fb6f04a
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659249"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770581"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Azure Policy gebruiken voor het beperken van de installatie van de extensies op virtuele Linux-machines
 
@@ -98,7 +98,7 @@ Wanneer u klaar bent, bereikt de **Esc** sleutel en typ vervolgens **: wq** opsl
 
 ## <a name="create-the-policy"></a>Het beleid maken
 
-Een beleidsdefinitie is een object dat wordt gebruikt voor het opslaan van de configuratie die u wilt gebruiken. De beleidsdefinitie maakt gebruik van de regels en de parameters-bestanden voor het definiëren van het beleid. Maakt de beleid definitie via [az beleidsdefinitie maken](/cli/azure/role/assignment?view=azure-cli-latest#az_role_assignment_create).
+Een beleidsdefinitie is een object dat wordt gebruikt voor het opslaan van de configuratie die u wilt gebruiken. De beleidsdefinitie maakt gebruik van de regels en de parameters-bestanden voor het definiëren van het beleid. Maakt de beleid definitie via [az beleidsdefinitie maken](/cli/azure/role/assignment?view=azure-cli-latest).
 
 In dit voorbeeld worden de regels en de parameters de bestanden die u hebt gemaakt en opgeslagen als JSON-bestanden in uw cloudshell.
 
@@ -117,7 +117,7 @@ az policy definition create \
 
 In dit voorbeeld wordt het beleid voor toegewezen aan een resource-groep met [az beleidstoewijzing te maken](/cli/azure/policy/assignment). Een virtuele machine hebt gemaakt in de **myResourceGroup** resourcegroep niet mogelijk de Linux-VM-toegang of de Custom Script-extensies voor Linux installeren. De resourcegroep moet bestaan voordat u het beleid kunt toewijzen.
 
-Gebruik [az account list](/cli/azure/account?view=azure-cli-latest#az_account_list) om op te halen van uw abonnements-ID in plaats van het certificaat in het voorbeeld.
+Gebruik [az account list](/cli/azure/account?view=azure-cli-latest) om op te halen van uw abonnements-ID in plaats van het certificaat in het voorbeeld.
 
 
 ```azurecli-interactive

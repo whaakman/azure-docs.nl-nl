@@ -13,14 +13,14 @@ caps.latest.revision: 17
 author: jpconnock
 ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 71c791c9ac6f679f0f67b014c8fb5dd915d1a3e3
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 8925943b0a5d151d55adedcfe3f01b5a14c63c1b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004401"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821677"
 ---
-# <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Azure Cloud Services-definitie NetworkTrafficRules Schema
+# <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Azure Cloud Services Definition NetworkTrafficRules Schema
 De `NetworkTrafficRules` knooppunt is een optioneel element in het servicedefinitiebestand waarmee wordt aangegeven hoe de functies met elkaar communiceren. Hiermee beperkt u welke rollen hebben toegang tot de interne eindpunten van de specifieke rol. De `NetworkTrafficRules` is geen zelfstandige element; deze wordt gecombineerd met twee of meer rollen in een service-definitiebestand.
 
 De standaardextensie voor het servicedefinitiebestand is .csdef.
@@ -50,15 +50,15 @@ De basisindeling van een service-definitiebestand met verkeer netwerkdefinities 
 ## <a name="schema-elements"></a>Schema-elementen
 De `NetworkTrafficRules` knooppunt van het servicedefinitiebestand bevat deze elementen in detail in de volgende secties in dit onderwerp beschreven:
 
-[NetworkTrafficRules-Element](#NetworkTrafficRules)
+[NetworkTrafficRules Element](#NetworkTrafficRules)
 
-[OnlyAllowTrafficTo-Element](#OnlyAllowTrafficTo)
+[OnlyAllowTrafficTo Element](#OnlyAllowTrafficTo)
 
 [Element bestemmingen](#Destinations)
 
-[RoleEndpoint-Element](#RoleEndpoint)
+[RoleEndpoint Element](#RoleEndpoint)
 
-[AllowAllTraffic-Element](#AllowAllTraffic)
+AllowAllTraffic Element
 
 [WhenSource-Element](#WhenSource)
 
@@ -67,7 +67,7 @@ De `NetworkTrafficRules` knooppunt van het servicedefinitiebestand bevat deze el
 ##  <a name="NetworkTrafficRules"></a> NetworkTrafficRules-Element
 De `NetworkTrafficRules` element geeft aan welke functies kunnen communiceren met welk eindpunt op een andere rol. Een service mag een `NetworkTrafficRules` definitie.
 
-##  <a name="OnlyAllowTrafficTo"></a> OnlyAllowTrafficTo-Element
+##  <a name="OnlyAllowTrafficTo"></a> OnlyAllowTrafficTo Element
 De `OnlyAllowTrafficTo` element beschrijft een aantal eindpunten van de bestemming en de functies die ermee kunnen communiceren. Kunt u meerdere `OnlyAllowTrafficTo` knooppunten.
 
 ##  <a name="Destinations"></a> Element bestemmingen
@@ -76,25 +76,25 @@ De `Destinations` -element worden dan kan worden gecommuniceerd met een verzamel
 ##  <a name="RoleEndpoint"></a> RoleEndpoint-Element
 De `RoleEndpoint` element een eindpunt op een rol om communicatie met beschrijft. Kunt u meerdere `RoleEndpoint` elementen als er meer dan één eindpunt op de rol.
 
-| Kenmerk      | Type     | Beschrijving |
+| Kenmerk      | Type     | Description |
 | -------------- | -------- | ----------- |
 | `endpointName` | `string` | Vereist. De naam van het eindpunt op het verkeer toestaan.|
 | `roleName`     | `string` | Vereist. De naam van de Webrol voor de communicatie op.|
 
-## <a name="allowalltraffic-element"></a>AllowAllTraffic-Element
+## <a name="allowalltraffic-element"></a>AllowAllTraffic Element
 De `AllowAllTraffic` -element is een regel waarmee alle rollen om te communiceren met de eindpunten zijn gedefinieerd de `Destinations` knooppunt.
 
 ##  <a name="WhenSource"></a> WhenSource-Element
 De `WhenSource` element beschrijft een reeks functies dan kan communiceren met de eindpunten zijn gedefinieerd de `Destinations` knooppunt.
 
-| Kenmerk | Type     | Beschrijving |
+| Kenmerk | Type     | Description |
 | --------- | -------- | ----------- |
 | `matches` | `string` | Vereist. Hiermee geeft u de regel wilt toepassen wanneer communicatie toestaan. De enige geldige waarde is momenteel `AnyRule`.|
   
 ##  <a name="FromRole"></a> FromRole-Element
 De `FromRole` element Hiermee geeft u de rollen die met de eindpunten zijn gedefinieerd communiceren kunnen de `Destinations` knooppunt. Kunt u meerdere `FromRole` elementen als er meer dan één rol die met de eindpunten communiceren kan.
 
-| Kenmerk  | Type     | Beschrijving |
+| Kenmerk  | Type     | Description |
 | ---------- | -------- | ----------- |
 | `roleName` | `string` | Vereist. De naam voor de rol van waaruit u wilt toestaan.|
 

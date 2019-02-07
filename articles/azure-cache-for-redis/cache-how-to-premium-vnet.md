@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: wesmc
-ms.openlocfilehash: 6c92b71a8f2b9fbeae9afc5f06b6d5412f6421a6
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e71d92b2cf7888fd9e3c560beb6e0e7f18e7add0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019526"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822643"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Over het configureren van Virtual Network-ondersteuning voor een Premium Azure Cache voor Redis
 Azure Redis-Cache heeft een ander cache-aanbiedingen, waardoor u flexibiliteit bij de keuze van de grootte van de cache en -onderdelen, met inbegrip van Premium-functies zoals clustering, persistentie en virtual network-ondersteuning. Een VNet is een particulier netwerk in de cloud. Wanneer een Azure-Cache voor Redis-exemplaar is geconfigureerd met een VNet, is niet openbaar toegankelijk en kunnen alleen worden geopend van virtuele machines en toepassingen binnen het VNet. In dit artikel wordt beschreven hoe het configureren van virtual network-ondersteuning voor een premium Azure Cache voor Redis-exemplaar.
@@ -83,11 +83,11 @@ Voor verbinding met uw Azure-Cache voor Redis-exemplaar bij het gebruik van een 
 ## <a name="azure-cache-for-redis-vnet-faq"></a>Azure Cache voor Redis VNet Veelgestelde vragen
 De volgende lijst bevat antwoorden op veelgestelde vragen over Azure Cache voor het schalen van Redis.
 
-* [Wat zijn enkele veelvoorkomende configuratiefouten bij de Azure-Cache voor Redis en VNets?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
+* Wat zijn enkele veelvoorkomende configuratiefouten bij de Azure-Cache voor Redis en VNets?
 * [Hoe kan ik controleren of mijn cache in een VNET werkt?](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
 * [Tijdens het verbinden met mijn Azure-Cache voor Redis in een VNET, waarom krijg ik een foutmelding als dat het externe certificaat is ongeldig?](#when-trying-to-connect-to-my-redis-cache-in-a-vnet-why-am-i-getting-an-error-stating-the-remote-certificate-is-invalid)
 * [Kan ik vnet's gebruiken met een standard- of basic-cache?](#can-i-use-vnets-with-a-standard-or-basic-cache)
-* [Waarom het maken van een Azure-Cache voor Redis mislukken in sommige subnetten, maar niet voor andere?](#why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others)
+* Waarom het maken van een Azure-Cache voor Redis mislukken in sommige subnetten, maar niet voor andere?
 * [Wat zijn de vereisten voor de subnet-adres?](#what-are-the-subnet-address-space-requirements)
 * [Werken alle functies van de cache bij het hosten van een cache in een VNET?](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 
@@ -128,12 +128,12 @@ Er zijn acht vereisten voor het bereik van binnenkomende poort. Inkomende aanvra
 
 | Poort(en) | Richting | Transportprotocol | Doel | Lokaal IP | Extern IP |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |Inkomend |TCP |Communicatie van clients met Redis, Azure load balancing | (Redis subnet) | (Redis subnet), Virtueelnetwerk, Azure Load Balancer |
+| 6379, 6380 |Inkomend |TCP |Communicatie van clients met Redis, Azure load balancing | (Redis subnet) | (Redis subnet), Virtual Network, Azure Load Balancer |
 | 8443 |Inkomend |TCP |Interne communicatie voor Redis | (Redis subnet) |(Redis subnet) |
 | 8500 |Inkomend |TCP/UDP |Azure load balancer | (Redis subnet) |Azure Load Balancer |
 | 10221-10231 |Inkomend |TCP |Interne communicatie voor Redis | (Redis subnet) |(Redis subnet), Azure Load Balancer |
-| 13000-13999 |Inkomend |TCP |Communicatie van clients met Redis-Clusters, Azure load balancing | (Redis subnet) |Virtueel netwerk, Load Balancer van Azure |
-| 15000-15999 |Inkomend |TCP |Clientcommunicatie met Redis-Clusters, Azure load Balancing | (Redis subnet) |Virtueel netwerk, Load Balancer van Azure |
+| 13000-13999 |Inkomend |TCP |Communicatie van clients met Redis-Clusters, Azure load balancing | (Redis subnet) |Virtual Network, Azure Load Balancer |
+| 15000-15999 |Inkomend |TCP |Clientcommunicatie met Redis-Clusters, Azure load Balancing | (Redis subnet) |Virtual Network, Azure Load Balancer |
 | 16001 |Inkomend |TCP/UDP |Azure load balancer | (Redis subnet) |Azure Load Balancer |
 | 20226 |Inkomend |TCP |Interne communicatie voor Redis | (Redis subnet) |(Redis subnet) |
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 57fa04c5737a22e9427210175f9e34e10d7031e4
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: fb7d84264b8de8833d7dec2a8b22dc23995c17bb
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733940"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767152"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Een toepassingsgateway maken met HTTP naar HTTPS-omleiding met de Azure CLI
 
@@ -64,7 +64,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Netwerkbronnen maken
 
-Maak het virtuele netwerk *myVNet* en het subnet *myAGSubnet* met [az network vnet create](/cli/azure/network/vnet). Vervolgens kunt u het subnet *myBackendSubnet*, dat voor de back-endservers vereist is, toevoegen met [az network vnet subnet create](/cli/azure/network/vnet/subnet). Maak het openbare IP-adres*myAGPublicIPAddress* met [az network public-ip create](/cli/azure/network/public-ipwork_public_ip_create).
+Maak het virtuele netwerk *myVNet* en het subnet *myAGSubnet* met [az network vnet create](/cli/azure/network/vnet). Vervolgens kunt u het subnet *myBackendSubnet*, dat voor de back-endservers vereist is, toevoegen met [az network vnet subnet create](/cli/azure/network/vnet/subnet). Maak het openbare IP-adres*myAGPublicIPAddress* met [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -133,7 +133,7 @@ az network application-gateway frontend-port create \
 
 ### <a name="add-the-http-listener"></a>De HTTP-listener toevoegen
 
-U kunt [az network application-gateway http-listener maken](/cli/azure/network/application-gateway/http-listenerwork_application_gateway_http_listener_create) om toe te voegen van de listener met de naam *myListener* aan de toepassingsgateway.
+U kunt [az network application-gateway http-listener maken](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create) om toe te voegen van de listener met de naam *myListener* aan de toepassingsgateway.
 
 ```azurecli-interactive
 az network application-gateway http-listener create \

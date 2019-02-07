@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 78a073ec7ee8432ba7804daef150afcbbca23ef6
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: a2af7ffde336016ae89a1ab03d753ed11b901e05
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095566"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818699"
 ---
 # <a name="sizes-for-cloud-services"></a>Groottes voor Cloudservices
 Dit onderwerp beschrijft de beschikbare grootten en opties voor rolinstanties van Cloud Services (webrollen en werkrollen). Het biedt ook overwegingen voor de implementatie moet letten bij het plannen van deze resources te gebruiken. Is een ID die u in plaats van elke grootte uw [servicedefinitiebestand](cloud-services-model-and-package.md#csdef). Prijzen voor elke grootte zijn beschikbaar op de [prijzen voor Cloud Services](https://azure.microsoft.com/pricing/details/cloud-services/) pagina.
@@ -44,7 +44,7 @@ De volgende overwegingen kunnen u helpen bij het kiezen van een grootte:
 
 * Grootten uit de A8-A11- en H-serie worden ook wel *rekenintensieve exemplaren* genoemd. De hardware waarop deze grootten worden uitgevoerd, is ontworpen en geoptimaliseerd voor rekenintensieve en netwerkintensieve toepassingen, waaronder HPC-clustertoepassingen (high-performance computing), modellerings- en simulatietoepassingen. De A8-A11-serie gebruikt Intel Xeon E5-2670 @ 2,6 GHZ en de H-serie gebruikt Intel Xeon E5-2667 v3 @ 3,2 GHz. Zie voor gedetailleerde informatie en overwegingen over het gebruik van deze grootten, [High performance computing-VM-grootten](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Dv3-serie, uit de Dv2-serie, D-serie, G-serie zijn ideaal voor toepassingen die snellere CPU's, betere prestaties van lokale schijven of hoger geheugen vraag hebt. Ze bieden een krachtige combinatie voor vele toepassingen op bedrijfsniveau.
-* Sommige fysieke hosts in Azure-datacenters bieden mogelijk geen ondersteuning voor grotere VM-formaten, zoals A5 – A11. Als gevolg hiervan, ziet u mogelijk het foutbericht **configureren van virtuele machine {machine name} is mislukt** of **kan virtuele machine {machine name} niet maken** wanneer het formaat van een bestaande virtuele machine naar een nieuwe grootte. het maken van een nieuwe virtuele machine in een virtueel netwerk die zijn gemaakt vóór 16 April 2013; of een nieuwe virtuele machine toe te voegen aan een bestaande cloudservice. Zie [fout: 'Is mislukt op de virtuele machine configureren'](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) op het ondersteuningsforum voor tijdelijke oplossingen voor elk implementatiescenario.
+* Sommige fysieke hosts in Azure-datacenters bieden mogelijk geen ondersteuning voor grotere VM-formaten, zoals A5 – A11. Als gevolg hiervan, ziet u mogelijk het foutbericht **configureren van virtuele machine {machine name} is mislukt** of **kan virtuele machine {machine name} niet maken** wanneer het formaat van een bestaande virtuele machine naar een nieuwe grootte. het maken van een nieuwe virtuele machine in een virtueel netwerk die zijn gemaakt vóór 16 April 2013; of een nieuwe virtuele machine toe te voegen aan een bestaande cloudservice. Zie [fout: "Het configureren van de virtuele machine is mislukt"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) op het ondersteuningsforum voor tijdelijke oplossingen voor elk implementatiescenario.
 * Het is ook mogelijk dat uw abonnement het aantal kernen beperkt dat u in een bepaalde groottefamilie mag implementeren. Neem contact op met ondersteuning van Azure als u een quotum wilt verhogen.
 
 ## <a name="performance-considerations"></a>Prestatieoverwegingen
@@ -88,7 +88,7 @@ In de volgende tabellen ziet u de grootten en de capaciteiten die ze bieden.
 | Klein           | 1         | 1,75         | 225                  | 1/gemiddeld |
 | Middelgroot          | 2         | 3,5          | 490                  | 1/gemiddeld |
 | Groot           | 4         | 7            | 1000                 | 2/hoog |
-| Zijn      | 8         | 14           | 2040                 | 4/hoog |
+| ExtraLarge      | 8         | 14           | 2040                 | 4/hoog |
 | A5              | 2         | 14           | 490                  | 1/gemiddeld |
 | A6              | 4         | 28           | 1000                 | 2/hoog |
 | A7              | 8         | 56           | 2040                 | 4/hoog |
@@ -195,7 +195,7 @@ Naast een zeer hoge CPU-kracht biedt de H-serie ook verschillende opties voor RD
 ## <a name="configure-sizes-for-cloud-services"></a>Groottes voor Cloud Services configureren
 U kunt de grootte van de virtuele Machine van een rolinstantie opgeven als onderdeel van het servicemodel dat wordt beschreven door de [servicedefinitiebestand](cloud-services-model-and-package.md#csdef). De grootte van de rol bepaalt het aantal CPU-kernen, de geheugencapaciteit en de lokale system-grootte die is toegewezen aan een actief exemplaar. Kies de grootte van de rol op basis van de vereisten van uw toepassing.
 
-Hier volgt een voorbeeld voor het instellen van de grootte van de rol moet [Standard_D2](#general-purpose-d) voor een Webrol-exemplaar:
+Hier volgt een voorbeeld voor het instellen van de grootte van de rol moet Standard_D2 voor een Webrol-exemplaar:
 
 ```xml
 <WorkerRole name="Worker1" vmsize="Standard_D2">

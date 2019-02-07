@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: f36ee3ce6a8d678cdd846474576fc049df0b4f88
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 14b3d62235cfcc8bbc8a929757a16cf99b860753
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472300"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815758"
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Uw SQL-code migreren naar SQL Data Warehouse
 In dit artikel wordt uitgelegd codewijzigingen u waarschijnlijk moet bij het migreren van uw code van een andere database met SQL Data Warehouse. Sommige functies van SQL Data Warehouse kunnen de prestaties aanzienlijk verbeteren als ze zijn ontworpen om te werken in een gedistribueerde manier. Echter, als u wilt behouden prestaties en schaalbaarheid, sommige functies zijn ook niet beschikbaar.
@@ -32,7 +32,7 @@ De volgende lijst bevat een overzicht van de meest voorkomende functies die geen
 * OUTPUT-component
 * inline gebruiker gedefinieerde functies
 * meerdere instructies functies
-* [algemene tabelexpressies](#Common-table-expressions)
+* algemene tabelexpressies
 * [recursieve algemene tabelexpressies (CTE)] (#Recursive-common-table-expressions-(CTE)
 * CLR-functies en procedures
 * de functie $partition

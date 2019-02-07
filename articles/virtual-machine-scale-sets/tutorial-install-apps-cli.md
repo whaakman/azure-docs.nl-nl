@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9f979922b2abd2ce1a707a8b91656bbe64119938
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 38dec49083e84d105f4eed9cbc149bbc025c5e40
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157258"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755710"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>Zelfstudie: Toepassingen installeren in schaalsets voor virtuele machines met Azure CLI
 Als u toepassingen wilt uitvoeren op de exemplaren van een virtuele machine (VM) in een schaalset, moet u eerst de toepassingsonderdelen en de vereiste bestanden installeren. In een vorige zelfstudie hebt u geleerd om een aangepaste VM-installatiekopie te maken en te gebruiken voor het implementeren van uw VM-exemplaren. Deze aangepaste installatiekopie bevat handmatige installaties van toepassingen en configuraties. U kunt de installatie van toepassingen op een schaalset ook automatiseren nadat elk VM-exemplaar is geïmplementeerd. Bovendien kunt u toepassingen bijwerken die al worden uitgevoerd in een schaalset. In deze zelfstudie leert u het volgende:
@@ -82,7 +82,7 @@ Het duurt enkele minuten om alle schaalsetresources en VM's te maken en te confi
 
 
 ## <a name="apply-the-custom-script-extension"></a>Aangepaste scriptextensie toepassen
-Pas de configuratie van de aangepaste scriptextensie toe op de VM-exemplaren in uw schaalset met [az vmss extension set](/cli/azure/vmss/extension#set). In het volgende voorbeeld wordt de configuratie *customConfig.json* toegepast op de VM-exemplaren *myScaleSet* in de resourcegroep met de naam *myResourceGroup*:
+Pas de configuratie van de aangepaste scriptextensie toe op de VM-exemplaren in uw schaalset met [az vmss extension set](/cli/azure/vmss/extension). In het volgende voorbeeld wordt de configuratie *customConfig.json* toegepast op de VM-exemplaren *myScaleSet* in de resourcegroep met de naam *myResourceGroup*:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -112,7 +112,7 @@ az network lb rule create \
   --protocol tcp
 ```
 
-Als u de webserver in actie wilt zien, achterhaalt u het openbare IP-adres van de load balancer met [az network public-ip show](/cli/azure/network/public-ip#show). In het volgende voorbeeld wordt het IP-adres voor *myScaleSetLBPublicIP* opgehaald, dat is gemaakt als onderdeel van de schaalset:
+Als u de webserver in actie wilt zien, achterhaalt u het openbare IP-adres van de load balancer met [az network public-ip show](/cli/azure/network/public-ip). In het volgende voorbeeld wordt het IP-adres voor *myScaleSetLBPublicIP* opgehaald, dat is gemaakt als onderdeel van de schaalset:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -141,7 +141,7 @@ Maak in uw huidige shell een bestand met de naam *customConfigv2.json* en plak d
 }
 ```
 
-Pas de configuratie van de aangepaste scriptextensie opnieuw toe op de VM-exemplaren in uw schaalset met [az vmss extension set](/cli/azure/vmss/extension#set). *customConfigv2.json* wordt gebruikt voor het toepassen van de bijgewerkte versie van de toepassing:
+Pas de configuratie van de aangepaste scriptextensie opnieuw toe op de VM-exemplaren in uw schaalset met [az vmss extension set](/cli/azure/vmss/extension). *customConfigv2.json* wordt gebruikt voor het toepassen van de bijgewerkte versie van de toepassing:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -159,7 +159,7 @@ Alle VM-exemplaren in de schaalset worden automatisch bijgewerkt met de meest re
 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Als u de schaalset en aanvullende resources wilt verwijderen, verwijdert u de resourcegroep en alle bijbehorende resources met [az group delete](/cli/azure/group#az_group_delete). De parameter `--no-wait` retourneert het besturingselement naar de prompt zonder te wachten totdat de bewerking is voltooid. De parameter `--yes` bevestigt dat u de resources wilt verwijderen, zonder een extra prompt om dit te doen.
+Als u de schaalset en aanvullende resources wilt verwijderen, verwijdert u de resourcegroep en alle bijbehorende resources met [az group delete](/cli/azure/group). De parameter `--no-wait` retourneert het besturingselement naar de prompt zonder te wachten totdat de bewerking is voltooid. De parameter `--yes` bevestigt dat u de resources wilt verwijderen, zonder een extra prompt om dit te doen.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.custom: mvc
 ms.topic: sample
 ms.date: 04/05/2018
-ms.openlocfilehash: 37b7364d48508ad557e6118487c0cb88f9df8e4f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 65958eb1e2d7cc4492e0437b24db77f00ebc7eba
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548748"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728330"
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Eén PostgreSQL-server bewaken en de schaal ervan aanpassen met Azure CLI
 Met dit CLI-voorbeeldscript wordt de schaal van één Azure Database for PostgreSQL-server aangepast naar een ander prestatieniveau na het uitvoeren van query's op de metrische gegevens. 
@@ -35,10 +35,10 @@ Dit script maakt gebruik van de opdrachten die in de volgende tabel worden weerg
 
 | **Opdracht** | **Opmerkingen** |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
-| [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) | Hiermee wordt een PostgreSQL-server gemaakt waar de SQL-database wordt gehost. |
-| [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) | Geeft de metrische waarde weer voor de resources. |
-| [az group delete](/cli/azure/group#az_group_delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
+| [az group create](/cli/azure/group) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
+| [az postgres server create](/cli/azure/postgres/server) | Hiermee wordt een PostgreSQL-server gemaakt waar de SQL-database wordt gehost. |
+| [az monitor metrics list](/cli/azure/monitor/metrics) | Geeft de metrische waarde weer voor de resources. |
+| [az group delete](/cli/azure/group) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over Azure CLI: [Azure CLI-documentatie](/cli/azure)

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: geetha
-ms.openlocfilehash: a5b0e6d700ce64a25c20b23738508d2796fc6caa
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 676c6a45f4a3930d350bbcbdcbb1a0fb47880407
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487554"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809994"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Back-up en herstel van versleutelde virtuele machines met Azure Backup
 In dit artikel vertelt de stappen voor het back-up en herstellen van virtuele machines (VM's) met behulp van Azure Backup. Het bevat ook informatie over ondersteunde scenario's, vereisten en stappen voor probleemoplossing voor foutgevallen.
@@ -36,7 +36,7 @@ In dit artikel vertelt de stappen voor het back-up en herstellen van virtuele ma
 
 * Een Recovery Services-kluis is gemaakt en storage-replicatie is ingesteld door de stappen in [uw omgeving voorbereidt voor back-up](backup-azure-arm-vms-prepare.md).
 
-* Back-up is opgegeven [machtigingen voor toegang tot een key vault](#provide-permissions-to-backup) met sleutels en geheimen voor versleutelde virtuele machines.
+* Back-up is opgegeven machtigingen voor toegang tot een key vault sleutels en geheimen met voor versleutelde virtuele machines.
 
 ## <a name="backup-encrypted-vm"></a>Back-up-versleutelde VM
 Gebruik de volgende stappen uit op een back-doel ingesteld, een beleid definiëren, items configureren en activeren van een back-up.
@@ -76,7 +76,7 @@ Als u een **gebruiker lid**, back-up inschakelen proces wordt naadloos toegang t
 
    ![Versleutelde virtuele machines-bericht](./media/backup-azure-vms-encryption/member-user-encrypted-vm-warning-message.png)
 
-   Voor een **gastgebruiker**, moet u machtigingen voor de Backup-service toegang heeft tot de sleutelkluis voor back-ups om te werken. U kunt deze machtigingen opgeven door de [stappen in de volgende sectie](#provide-permissions-to-backup)
+   Voor een **gastgebruiker**, moet u machtigingen voor de Backup-service toegang heeft tot de sleutelkluis voor back-ups om te werken. U kunt deze machtigingen opgeven met de volgende stappen die worden vermeld in de volgende sectie
 
    ![Versleutelde virtuele machines-bericht](./media/backup-azure-vms-encryption/guest-user-encrypted-vm-warning-message.png)
 

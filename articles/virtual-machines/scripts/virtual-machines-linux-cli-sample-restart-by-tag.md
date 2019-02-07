@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: a5837a922f14a779260ad6719b01a9c882eb5768
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 94845573461d99fda9318f303d822abb6ca3f257
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622938"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751137"
 ---
 # <a name="restart-vms"></a>Virtuele machines opnieuw opstarten
 
@@ -87,12 +87,12 @@ Dit script gebruikt de volgende opdrachten voor het maken van een resourcegroep,
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#az_vm_availability_set_create) | Hiermee maakt u de virtuele machines.  |
-| [az vm list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Gebruik deze opdracht met `--query` om te controleren of de virtuele machines zijn ingericht voordat ze opnieuw worden opgestart en om vervolgens de id's op te vragen van de virtuele machines die opnieuw moeten worden opgestart. |
-| [az resource list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Gebruik deze opdracht met `--query` om de id's op te vragen van de virtuele machines met het label. |
-| [az vm restart](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Hiermee start u de virtuele machines opnieuw op. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | Hiermee maakt u de virtuele machines.  |
+| [az vm list](https://docs.microsoft.com/cli/azure/vm) | Gebruik deze opdracht met `--query` om te controleren of de virtuele machines zijn ingericht voordat ze opnieuw worden opgestart en om vervolgens de id's op te vragen van de virtuele machines die opnieuw moeten worden opgestart. |
+| [az resource list](https://docs.microsoft.com/cli/azure/vm) | Gebruik deze opdracht met `--query` om de id's op te vragen van de virtuele machines met het label. |
+| [az vm restart](https://docs.microsoft.com/cli/azure/vm) | Hiermee start u de virtuele machines opnieuw op. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

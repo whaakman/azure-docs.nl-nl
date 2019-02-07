@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: hrasheed
-ms.openlocfilehash: ce30b752ecf1d5413ae534fa03907cbf11b1c694
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: a0da4339586982f5210834bcec5acfe463bc1a9a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794478"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816438"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Apache Hadoop-clusters in HDInsight beheren met behulp van de Azure-portal
 
@@ -52,14 +52,14 @@ Selecteer de clusternaam van uw vanaf het [ **HDInsight-clusters** pagina](#show
     - **Toegangsbeheer (IAM)**: Roltoewijzingen gebruiken.  Zie [roltoewijzingen gebruiken voor het beheren van toegang tot de resources van uw Azure-abonnement](../role-based-access-control/role-assignments-portal.md).
     - **Tags**: Hiermee kunt u instellen van sleutel/waarde-paren voor het definiëren van een aangepaste taxonomie van uw cloud-services. Bijvoorbeeld, u kunt maken met een sleutel met de naam **project**, en vervolgens een overeenkomende waarde gebruiken voor alle services die zijn gekoppeld aan een bepaald project.
     - **Problemen vaststellen en oplossen**: Probleemoplossingsinformatie weergeven.
-    - **Snel aan de slag**:  Geeft informatie weer die u helpt aan de slag met HDInsight.
+    - **Snel starten**:  Geeft informatie weer die u helpt aan de slag met HDInsight.
     - **Hulpprogramma's**: Help-informatie voor HDInsight gerelateerde hulpprogramma's.
 
 - **Instellingenmenu**  
   - **Clustergrootte**: Controleren, verhogen en verlagen van het aantal worker-clusterknooppunten. Zie [schalen van clusters](hdinsight-administer-use-management-portal.md#scale-clusters).
   - **De quotalimieten**: De gebruikte en beschikbare cores voor uw abonnement worden weergegeven.
   - **SSH en clusteraanmelding**: Ziet u de instructies voor het verbinden met het cluster via Secure Shell (SSH)-verbinding. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
-  - **Data Lake Storage Gen1**: Toegang tot Data Lake Storage Gen1 configureren.  Zie [Quick Start: Clusters instellen in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+  - **Data Lake Storage Gen1**: Toegang tot Data Lake Storage Gen1 configureren.  Zie [Quickstart: clusters instellen in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
   - **Storage-accounts**: De storage-accounts en de sleutels weergeven. De storage-accounts zijn geconfigureerd tijdens het maken van het cluster.
   - **Toepassingen**: HDInsight-toepassingen toevoegen/verwijderen.  Zie [aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md).
   - **Scriptacties**: Bash-scripts uitvoeren op het cluster. Zie [aanpassen Linux gebaseerde HDInsight-clusters met Script Action](hdinsight-hadoop-customize-cluster-linux.md).
@@ -124,7 +124,7 @@ U kunt aanvullende Azure Storage-accounts en Azure Data Lake Storage-accounts to
 Het cluster schalen functie kunt u het aantal worker-knooppunten die worden gebruikt door een Azure HDInsight-cluster, zonder te hoeven maken van het cluster opnieuw wijzigen.
 
 > [!NOTE]  
-> Alleen clusters met HDInsight versie 3.1.3 of hoger worden ondersteund. Als u de versie van het cluster niet zeker weet, kunt u de eigenschappenpagina controleren.  Zie [clusters tonen en vermelden](#list-and-show-clusters).
+> Alleen clusters met HDInsight versie 3.1.3 of hoger worden ondersteund. Als u de versie van het cluster niet zeker weet, kunt u de eigenschappenpagina controleren.  Overzicht en weergeven van clusters.
 
 Uit de [cluster startpagina](#homePage):
 
@@ -247,7 +247,7 @@ Het wachtwoord is gewijzigd op alle knooppunten in het cluster.
 4. Uit de **scriptacties** Selecteer **nieuwe verzenden**. 
 5. Uit de **scriptactie verzenden** blade, voer de volgende informatie:
 
-   | Veld | Waarde |
+   | Veld | Value |
    | --- | --- |
    | Scripttype | Selecteer **: aangepaste** uit de vervolgkeuzelijst.|
    | Name |'Ssh wachtwoord wijzigen' |
@@ -283,7 +283,7 @@ Zie [beheren HDInsight-clusters met behulp van de Apache Ambari-Webgebruikersint
 
 
 ## <a name="monitor-cluster-usage"></a>Cluster-gebruik bewaken
-De **gebruik** sectie van de HDInsight-cluster-blade vindt u informatie over het aantal kernen beschikbaar voor uw abonnement voor gebruik met HDInsight, evenals het aantal kernen dat is toegewezen aan dit cluster en hoe ze worden toegewezen voor de knooppunten in dit cluster. Zie [clusters tonen en vermelden](#list-and-show-clusters).
+De **gebruik** sectie van de HDInsight-cluster-blade vindt u informatie over het aantal kernen beschikbaar voor uw abonnement voor gebruik met HDInsight, evenals het aantal kernen dat is toegewezen aan dit cluster en hoe ze worden toegewezen voor de knooppunten in dit cluster. Overzicht en weergeven van clusters.
 
 > [!IMPORTANT]  
 > Voor het controleren van de services die worden geleverd door het HDInsight-cluster, moet u de Ambari Web- of de Ambari REST-API gebruiken. Zie voor meer informatie over het gebruik van Ambari [beheren HDInsight-clusters met behulp van Apache Ambari](hdinsight-hadoop-manage-ambari.md)

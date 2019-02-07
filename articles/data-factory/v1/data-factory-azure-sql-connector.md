@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 13e00acaf287a9e153aaa8e5ce7d630f8d198f02
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: a7789f9a3f3da46305a9d8cd7cda24019658f2ad
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330412"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811475"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Gegevens kopiëren naar en van Azure SQL Database met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -199,7 +199,7 @@ Het voorbeeld time series worden gegevens gekopieerd (elk uur, dagelijks, enzovo
   }
 }
 ```
-Zie de [gekoppelde Azure SQL-Service](#linked-service) sectie voor een lijst van eigenschappen die worden ondersteund door deze gekoppelde service.
+Zie de sectie gekoppelde Azure SQL-Service voor de lijst van eigenschappen die worden ondersteund door deze gekoppelde service.
 
 **Gekoppelde Azure Blob storage-service:**
 
@@ -248,7 +248,7 @@ Instellen van "extern": "true" informeert de Azure Data Factory-service dat de d
 }
 ```
 
-Zie de [typeproperties voor Azure SQL-gegevensset](#dataset) sectie voor een lijst van eigenschappen die worden ondersteund door dit gegevenssettype.
+Zie de Azure SQL-gegevensset type sectie eigenschappen voor de lijst van eigenschappen die worden ondersteund door dit gegevenssettype.
 
 **Azure Blob-uitvoergegevensset:**
 
@@ -391,7 +391,7 @@ De voorbeeld-kopieën time series-gegevens (elk uur, dagelijks, enzovoort) van A
   }
 }
 ```
-Zie de [gekoppelde Azure SQL-Service](#linked-service) sectie voor een lijst van eigenschappen die worden ondersteund door deze gekoppelde service.
+Zie de sectie gekoppelde Azure SQL-Service voor de lijst van eigenschappen die worden ondersteund door deze gekoppelde service.
 
 **Gekoppelde Azure Blob storage-service:**
 
@@ -499,7 +499,7 @@ Het voorbeeld worden gegevens gekopieerd naar een tabel met de naam 'MyTable' in
   }
 }
 ```
-Zie de [typeproperties voor Azure SQL-gegevensset](#dataset) sectie voor een lijst van eigenschappen die worden ondersteund door dit gegevenssettype.
+Zie de Azure SQL-gegevensset type sectie eigenschappen voor de lijst van eigenschappen die worden ondersteund door dit gegevenssettype.
 
 **Een kopieeractiviteit in een pijplijn met Blob-bron en sink voor SQL:**
 

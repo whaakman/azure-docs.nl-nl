@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: 91e6c2d400fa7add33a6c8e8856a3b9f8cfef4a3
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 53f81a06a0a10d4526816b5117eb12f01d75e25a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912830"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819158"
 ---
 # <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>Schrijven naar Apache Hadoop HDFS van Apache Storm op HDInsight
 
@@ -45,7 +45,7 @@ U kunt de volgende omgevingsvariabelen instellen wanneer u Java en de JDK instal
 ## <a name="how-to-use-the-hdfsbolt-with-hdinsight"></a>De HdfsBolt gebruiken met HDInsight
 
 > [!IMPORTANT]  
-> Voordat u de HdfsBolt met Storm op HDInsight, moet u eerst een scriptactie gebruiken om te kopiëren van de vereiste jar-bestanden in de `extpath` voor Storm. Zie voor meer informatie de [configureren van het cluster](#configure) sectie.
+> Voordat u de HdfsBolt met Storm op HDInsight, moet u eerst een scriptactie gebruiken om te kopiëren van de vereiste jar-bestanden in de `extpath` voor Storm. Zie voor meer informatie de sectie cluster configureren.
 
 De HdfsBolt maakt gebruik van het bestand-schema dat u opgeeft als u wilt weten over het schrijven van HDFS. Met HDInsight, een van de volgende schema's te gebruiken:
 

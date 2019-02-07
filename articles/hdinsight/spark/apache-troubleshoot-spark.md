@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2108de8988e973644e0622a4b76a04408949298e
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f6e9641d106c40c061752b57744eda09aac157a5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635139"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821963"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Apache Spark oplossen met behulp van Azure HDInsight
 
@@ -23,7 +23,7 @@ Meer informatie over de meest voorkomende problemen en hun oplossingen als u wer
 
 ### <a name="resolution-steps"></a>Oplossingen
 
-De configuratiewaarden voor deze procedure zijn eerder ingesteld in HDInsight. Om te bepalen welke Spark configuraties moeten worden ingesteld en naar welke waarden, Zie [wat ervoor zorgt dat een uitzondering van Apache Spark-toepassing OutofMemoryError](#what-causes-a-spark-application-outofmemoryerror-exception). 
+De configuratiewaarden voor deze procedure zijn eerder ingesteld in HDInsight. Om te bepalen welke Spark moeten configuraties worden ingesteld en naar welke waarden, zien wat een Apache Spark-toepassing OutofMemoryError uitzondering veroorzaakt. 
 
 1. Selecteer in de lijst met clusters, **Spark2**.
 
@@ -92,7 +92,7 @@ Deze wijzigingen zijn brede, door het cluster, maar kunnen worden overschreven w
 
 ### <a name="resolution-steps"></a>Oplossingen
 
-1. Om te bepalen welke Spark configuraties moeten worden ingesteld en naar welke waarden, Zie [wat ervoor zorgt dat een uitzondering van Apache Spark-toepassing OutofMemoryError](#what-causes-a-spark-application-outofmemoryerror-exception).
+1. Om te bepalen welke Spark moeten configuraties worden ingesteld en naar welke waarden, zien wat een Apache Spark-toepassing OutofMemoryError uitzondering veroorzaakt.
 
 2. In de eerste cel van de Jupyter-notebook nadat de **%% configureren** richtlijn, geeft u de Spark-configuraties in geldige JSON-indeling. De werkelijke waarden zo nodig wijzigen:
 
@@ -107,7 +107,7 @@ Deze wijzigingen zijn brede, door het cluster, maar kunnen worden overschreven w
 
 ### <a name="resolution-steps"></a>Oplossingen
 
-1. Om te bepalen welke Spark configuraties moeten worden ingesteld en naar welke waarden, Zie [wat ervoor zorgt dat een uitzondering van Apache Spark-toepassing OutofMemoryError](#what-causes-a-spark-application-outofmemoryerror-exception). 
+1. Om te bepalen welke Spark moeten configuraties worden ingesteld en naar welke waarden, zien wat een Apache Spark-toepassing OutofMemoryError uitzondering veroorzaakt. 
 
 2. De Spark-toepassing naar Livy indienen met behulp van een REST-client, zoals cURL. Een vergelijkbaar met de volgende opdracht gebruiken. De werkelijke waarden zo nodig wijzigen:
 
@@ -124,7 +124,7 @@ Deze wijzigingen zijn brede, door het cluster, maar kunnen worden overschreven w
 
 ### <a name="resolution-steps"></a>Oplossingen
 
-1. Om te bepalen welke Spark configuraties moeten worden ingesteld en naar welke waarden, Zie [wat ervoor zorgt dat een uitzondering van Apache Spark-toepassing OutofMemoryError](#what-causes-a-spark-application-outofmemoryerror-exception).
+1. Om te bepalen welke Spark moeten configuraties worden ingesteld en naar welke waarden, zien wat een Apache Spark-toepassing OutofMemoryError uitzondering veroorzaakt.
 
 2. Spark-shell met behulp van een vergelijkbaar met de volgende opdracht start. De werkelijke waarde van de configuraties zo nodig wijzigen: 
 

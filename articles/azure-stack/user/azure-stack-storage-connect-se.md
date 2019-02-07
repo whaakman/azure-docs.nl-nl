@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/24/2019
+ms.date: 02/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: d1bddc8331fc1a9ded37949a8065636947074852
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9debcd121cbbde626758abccfe838abda12ad840
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246726"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822830"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Storage explorer verbinden met een Azure Stack-abonnement of een storage-account
 
@@ -45,20 +45,15 @@ Voor de Azure Stack Development Kit (ASDK), moet u de Azure Stack-instantie-basi
 
 ### <a name="export-and-then-import-the-azure-stack-certificate"></a>Exporteren en vervolgens het Azure Stack-certificaat importeren
 
+Exporteren en vervolgens Azure Stack-certificaat voor de ASDK importeren. Het certificaat wordt openbaar ondertekend voor geïntegreerd systeem. Deze stap is dus niet nodig zijn tijdens het instellen van Storage Explorer verbinding met Azure Stack-geïntegreerd systeem.
+
 1. Open `mmc.exe` op een Azure Stack-hostmachine of een lokale computer met een VPN-verbinding met Azure Stack. 
 
 2. In **bestand**, selecteer **module toevoegen/verwijderen**, en voeg deze **certificaten** voor het beheren van **Mijn gebruikersaccount**.
 
-3.  Onder **Console Root\Certificated (Local Computer) \Trusted Root Certification Authorities\Certificates**.
+3.  Onder **Console Root\Certificated (Local Computer) \Trusted Root Certification Authorities\Certificates**. Zoek **AzureStackSelfSignedRootCert**.
 
-    - Vinden voor de ASDK **AzureStackSelfSignedRootCert**.
-
-        ![Laad het Azure Stack-basiscertificaat via mmc.exe](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
-
-    - Voor een geïntegreerd systeem, zoek het basiscertificaat van uw externe certificaten. 
-    
-        ![Laad het Azure Stack-basiscertificaat via mmc.exe](./media/azure-stack-storage-connect-se/azure-stack-storage-cert-location-is.png)
-        
+    ![Laad het Azure Stack-basiscertificaat via mmc.exe](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
 
 4. Met de rechtermuisknop op het certificaat, selecteert u **alle taken** > **exporteren**, en volg de instructies voor het exporteren van het certificaat met **Base-64 gecodeerde X.509 (. CER)**.
 

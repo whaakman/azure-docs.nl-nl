@@ -12,16 +12,16 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 548bc9afb37f8c4a1c6c208a8741d1e3da0a784c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1c542c1e906b078b76b78ed30af8bdf67110199c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469393"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814109"
 ---
 # <a name="transactional-replication-with-standalone-pooled-and-instance-databases-in-azure-sql-database"></a>Transactionele replicatie met zelfstandige, gegroepeerd en databases in Azure SQL Database-exemplaar
 
-Transactionele replicatie is een functie van Azure SQL Database Managed Instance en SQL-Server waarmee u voor het repliceren van gegevens uit een tabel in Azure SQL Database of SQL Server voor de tabellen die voor externe databases wordt geplaatst. Deze functie kunt u meerdere tabellen in verschillende databases synchroniseren.
+Transactionele replicatie is een functie van Azure SQL Database en SQL-Server waarmee u voor het repliceren van gegevens uit een tabel in Azure SQL Database of SQL Server voor de tabellen die voor externe databases wordt geplaatst. Deze functie kunt u meerdere tabellen in verschillende databases synchroniseren.
 
 ## <a name="when-to-use-transactional-replication"></a>Wanneer u transactionele replicatie
 
@@ -38,15 +38,15 @@ De belangrijkste onderdelen van transactionele replicatie worden weergegeven in 
 ![replicatie met SQL Database](media/replication-to-sql-database/replication-to-sql-database.png)
 
 
-De **Publisher** is een exemplaar of een server die wordt gepubliceerd op bepaalde tabellen (artikelen) wijzigingen door te sturen van de updates op de Distributor. Publiceren naar een Azure SQL Database van een on-premises SQL Server wordt ondersteund op de volgende versies van SQL Server:
+De **Publisher** is een exemplaar of een server die wordt gepubliceerd op bepaalde tabellen (artikelen) wijzigingen door te sturen van de updates op de Distributor. Publiceren naar een Azure SQL wordt database van een on-premises SQL Server ondersteund door de volgende versies van SQL Server:
 
-    - SQL Server 2019 (preview)
-    - SQL Server 2016 SQL-2017
-    - SQL Server 2014 SP1 CU3 of hoger (12.00.4427)
-    - SQL Server 2014 RTM CU10 (12.00.2556)
-    - SQL Server 2012 SP3 of hoger (11.0.6020)
-    - SQL Server 2012 SP2 CU8 (11.0.5634.0)
-    - Voor andere versies van SQL Server die geen ondersteuning voor publicatie naar objecten in Azure, is het mogelijk gebruikmaken van de [gegevens opnieuw te publiceren](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) methode om gegevens te verplaatsen naar nieuwere versies van SQL Server. 
+   - SQL Server 2019 (preview)
+   - SQL Server 2016 SQL-2017
+   - SQL Server 2014 SP1 CU3 of hoger (12.00.4427)
+   - SQL Server 2014 RTM CU10 (12.00.2556)
+   - SQL Server 2012 SP3 of hoger (11.0.6020)
+   - SQL Server 2012 SP2 CU8 (11.0.5634.0)
+   - Voor andere versies van SQL Server die geen ondersteuning voor publicatie naar objecten in Azure, is het mogelijk gebruikmaken van de [gegevens opnieuw te publiceren](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) methode om gegevens te verplaatsen naar nieuwere versies van SQL Server. 
 
 De **Distributor** is een exemplaar of een server die wijzigingen in de artikelen van een uitgever verzamelt en verdeeld voor de abonnees. De Distributor kan Azure SQL Database Managed Instance of SQL Server (een willekeurige versie als het te lang is gelijk aan of hoger is dan de versie van de uitgever) zijn. 
 

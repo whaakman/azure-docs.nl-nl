@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: spelluru
-ms.openlocfilehash: 9576854fbad88724f3d229d239b9d3e263fb7492
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 7d311a3fa1b00a6324c9bb81a14c1a575319472f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912398"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819991"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Leslokaallabs in Azure Lab Services beheren 
 In dit artikel wordt beschreven hoe u maken en verwijderen van een leslokaallab. Deze leest u ook alle leslokaallabs weergeven in een lab-account. 
 
 ## <a name="prerequisites"></a>Vereisten
-Als u een leslokaallab in een labaccount instelt, moet u lid zijn van de rol **Labmaker** in het labaccount. Het account dat u hebt gebruikt voor het maken van een labaccount wordt automatisch toegevoegd aan deze rol. Een lab-eigenaar kan andere gebruikers toevoegen aan de rol Labmaker met behulp van de stappen in het volgende artikel: [Een gebruiker toevoegen aan de rol Labmaker](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
+Als u een leslokaallab in een labaccount instelt, moet u lid zijn van de rol **Labmaker** in het labaccount. Het account dat u hebt gebruikt voor het maken van een labaccount wordt automatisch toegevoegd aan deze rol. Een labeigenaar kan andere gebruikers toevoegen aan de rol Labmaker met behulp van de stappen in het volgende artikel: [Een gebruiker toevoegen aan de rol Labmaker](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
 ## <a name="create-a-classroom-lab"></a>Een leslokaallab maken
 
@@ -72,7 +72,7 @@ Als u een leslokaallab in een labaccount instelt, moet u lid zijn van de rol **L
 
         > [!WARNING]
         > Zodra u de sjabloon hebt gepubliceerd, kan dit niet ongedaan worden gemaakt. 
-    2. Als u later wilt publiceren, selecteert u **Opslaan voor later**. Nadat de wizard is voltooid, kunt u de VM-sjabloon publiceren. Zie voor meer informatie over het configureren en publiceren nadat de wizard is voltooid, Zie voor meer informatie over het configureren en publiceren nadat de wizard is voltooid, [publiceren van de sjabloon](#publish-the-template) sectie de [leslokaallabs beheren ](how-to-manage-classroom-labs.md) artikel.
+    2. Als u later wilt publiceren, selecteert u **Opslaan voor later**. Nadat de wizard is voltooid, kunt u de VM-sjabloon publiceren. Zie voor meer informatie over het configureren en publiceren nadat de wizard is voltooid, voor meer informatie over het configureren en publiceren nadat de wizard is voltooid, ziet u de sjabloon in sectie publiceren de [leslokaallabs beheren](how-to-manage-classroom-labs.md) artikel.
 
         ![Sjabloon publiceren](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. U kunt de **voortgang van het publiceren** van de sjabloon bekijken. Dit proces duurt maximaal een uur. 

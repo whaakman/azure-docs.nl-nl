@@ -11,12 +11,12 @@ ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
-ms.openlocfilehash: e96e271fbb50a2485a22fab061ea160dc00cf3d6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: bb89c76fb19bff74d39d919c8d2e65d430cb0566
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123169"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817747"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Aanroepen van REST-eindpunten met HTTP + Swagger-connector in Azure Logic Apps
 
@@ -40,7 +40,7 @@ Hier volgt een voorbeeld van hoe u moet gebruiken de HTTP + Swagger-bewerkings-a
 4. Typ de URL voor een Swagger-document:
    
    * Als u wilt werken uit de ontwerper van logische App, moet de URL een HTTPS-eindpunt en CORS hebt ingeschakeld.
-   * Als het Swagger-document niet aan deze vereiste voldoen, kunt u [Azure Storage met CORS ingeschakeld](#hosting-swagger-from-storage) voor het opslaan van het document.
+   * Als het Swagger-document niet aan deze vereiste voldoen, kunt u Azure Storage gebruiken met CORS ingeschakeld voor het opslaan van het document.
 5. Klik op **volgende** worden gelezen en weergegeven in de Swagger-document.
 6. Voeg parameters die vereist voor de HTTP-aanroep zijn.
    
@@ -74,14 +74,14 @@ Hieronder vindt u de details voor de triggers en acties die deze HTTP + Swagger 
 ## <a name="http--swagger-triggers"></a>HTTP + Swagger-triggers
 Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom die gedefinieerd in een logische app te starten. [Meer informatie over triggers.](connectors-overview.md) HTTP + Swagger-connector heeft een trigger.
 
-| Trigger | Beschrijving |
+| Trigger | Description |
 | --- | --- |
 | HTTP + Swagger |Voert u een HTTP-aanroep en keert de inhoud van de reactie |
 
 ## <a name="http--swagger-actions"></a>HTTP + Swagger-acties
 Een actie is een bewerking die wordt uitgevoerd door de werkstroom die gedefinieerd in een logische app. [Meer informatie over acties.](connectors-overview.md) HTTP + Swagger-connector heeft een mogelijke actie.
 
-| Bewerking | Beschrijving |
+| Bewerking | Description |
 | --- | --- |
 | HTTP + Swagger |Voert u een HTTP-aanroep en keert de inhoud van de reactie |
 
@@ -92,28 +92,28 @@ HTTP + Swagger connector wordt geleverd met een mogelijke actie. Hieronder vindt
 Maakt een uitgaande HTTP-aanvraag met hulp van Swagger-metagegevens.
 Een sterretje (*) betekent dat een vereist veld.
 
-| Weergavenaam | Naam van eigenschap | Beschrijving |
+| Weergavenaam | Naam van eigenschap | Description |
 | --- | --- | --- |
 | Methode * |method |HTTP-woord te gebruiken. |
 | URI * |uri |URI voor de HTTP-aanvraag. |
-| Headers |headers |Een JSON-object van HTTP-headers om op te nemen. |
+| Headers |Headers |Een JSON-object van HTTP-headers om op te nemen. |
 | Hoofdtekst |hoofdtekst |De hoofdtekst van de HTTP-aanvraag. |
-| Verificatie |verificatie |Verificatietype moet worden gebruikt voor de aanvraag. Zie voor meer informatie de [HTTP-connector](connectors-native-http.md#authentication). |
+| Authentication |verificatie |Verificatietype moet worden gebruikt voor de aanvraag. Zie voor meer informatie de [HTTP-connector](connectors-native-http.md#authentication). |
 
 **Uitvoergegevens**
 
 HTTP-antwoord
 
-| De naam van eigenschap | Gegevenstype | Beschrijving |
+| Naam van eigenschap | Gegevenstype | Description |
 | --- | --- | --- |
 | Headers |object |Antwoordheaders |
-| Hoofdtekst |object |Antwoordobject |
+| Hoofdtekst |object |Responsobject |
 | Statuscode |int |HTTP-statuscode |
 
 ### <a name="http-responses"></a>HTTP-antwoorden
 U kunt bepaalde antwoorden krijgen bij het maken van aanroepen naar verschillende acties. Hieronder volgt een tabel waarin de bijbehorende antwoorden en beschrijvingen.
 
-| Naam | Beschrijving |
+| Name | Description |
 | --- | --- |
 | 200 |OK |
 | 202 |Geaccepteerd |

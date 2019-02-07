@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: alkohli
-ms.openlocfilehash: f01fb88bf0ea726b421111a262bdfdd68cd3d38c
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: acf455bff739666712917008dc8090c6a95c6dc4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388426"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815640"
 ---
 # <a name="azure-data-box-gateway-limits-preview"></a>Azure Data Box-Gateway-limieten (Preview)
 
@@ -26,14 +26,14 @@ Houd rekening met deze limieten bij het implementeren en uw Microsoft Azure Data
 
 ## <a name="data-box-gateway-service-limits"></a>Gegevens in het Gateway-service-limieten
 
-- In deze release is service alleen beschikbaar in bepaalde regio's in de VS, EU en Azië en Stille Oceaan. Ga naar [Beschikbaarheid in de regio](#data-box-gateway-overview#region-availability) voor meer informatie. Het opslagaccount moet zich fysiek die het dichtst bij de regio waar het apparaat is geïmplementeerd (kan afwijken van de service geografische regio).
+- In deze release is service alleen beschikbaar in bepaalde regio's in de VS, EU en Azië en Stille Oceaan. Ga voor meer informatie naar beschikbaarheid in regio's. Het opslagaccount moet zich fysiek die het dichtst bij de regio waar het apparaat is geïmplementeerd (kan afwijken van de service geografische regio).
 - Een Data Box-Gateway-resource verplaatsen naar een ander abonnement of de resource-groep wordt niet ondersteund. Voor meer informatie gaat u naar [resources verplaatsen naar een nieuwe resourcegroep of abonnement](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 ## <a name="data-box-gateway-device-limits"></a>Gegevens in het Gateway-apparaat-limieten
 
 De volgende tabel beschrijft de limieten voor de gegevens in het Gateway-apparaat.
 
-| Description | Waarde |
+| Description | Value |
 |---|---|
 |Nee. van bestanden per apparaat |100 miljoen <br> Limiet is ongeveer 25 miljoen bestanden voor elke 2 TB aan schijfruimte met maximale limiet op 100 miljoen |
 |Nee. van shares per apparaat |24 |

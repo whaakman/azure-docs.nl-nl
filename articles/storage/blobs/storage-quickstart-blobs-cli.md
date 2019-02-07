@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: b2d3d5bb0081c51d3f89bc4cb8d2c0f23d40f4a7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1819d1dba777d97590c0b02a89cde3b46af78fff
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473993"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749232"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Quickstart: blobs uploaden, downloaden en vermelden met behulp van de Azure CLI
 
@@ -46,7 +46,7 @@ Blob-opslag ondersteunt blok-blobs, toevoeg-blobs en pagina-blobs. De meeste bes
 Maak eerst een bestand om dat naar een blob te uploaden.
 Als u met de Azure Cloud Shell werkt, gebruik dan de volgende procedure om een bestand te maken: `vi helloworld` wanneer het bestand wordt geopend, drukt u op **Insert**, typt u 'Hallo wereld', drukt u op **Esc**, typt u `:x` en drukt u op **Enter**.
 
-In dit voorbeeld wordt met de opdracht [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) een blob geüpload naar de container die u in de laatste stap hebt gemaakt.
+In dit voorbeeld wordt met de opdracht [az storage blob upload](/cli/azure/storage/blob) een blob geüpload naar de container die u in de laatste stap hebt gemaakt.
 
 ```azurecli-interactive
 az storage blob upload \
@@ -66,11 +66,11 @@ az storage blob upload \
 
 Met deze bewerking wordt de blob gemaakt als deze nog niet bestaat, of overschreven als dat wel het geval is. Upload zoveel bestanden als u nodig hebt, voordat u doorgaat.
 
-Als u meerdere bestanden tegelijk wilt uploaden, kunt u de opdracht [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch) gebruiken.
+Als u meerdere bestanden tegelijk wilt uploaden, kunt u de opdracht [az storage blob upload-batch](/cli/azure/storage/blob) gebruiken.
 
 ## <a name="list-the-blobs-in-a-container"></a>De blobs in een container in een lijst weergeven
 
-Gebruik de opdracht [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list) om de blobs in de container weer te geven.
+Gebruik de opdracht [az storage blob list](/cli/azure/storage/blob) om de blobs in de container weer te geven.
 
 ```azurecli-interactive
 az storage blob list \
@@ -80,7 +80,7 @@ az storage blob list \
 
 ## <a name="download-a-blob"></a>Een blob downloaden
 
-Gebruik de opdracht [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download) om de blob te downloaden die u eerder hebt geüpload.
+Gebruik de opdracht [az storage blob download](/cli/azure/storage/blob) om de blob te downloaden die u eerder hebt geüpload.
 
 ```azurecli-interactive
 az storage blob download \
@@ -105,7 +105,7 @@ azcopy \
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u de resources van de resourcegroep niet meer nodig hebt, met inbegrip van het opslagaccount dat u hebt gemaakt in deze Quick Start, verwijdert u de resourcegroep met de opdracht [az group delete](/cli/azure/group#az_group_delete).
+Als u de resources van de resourcegroep niet meer nodig hebt, met inbegrip van het opslagaccount dat u hebt gemaakt in deze Quick Start, verwijdert u de resourcegroep met de opdracht [az group delete](/cli/azure/group).
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3b5425bd9f86bce289cc1f60c088febfd8f05ee3
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 8731857d133e60cad4ecdca21874916949e05ff3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332622"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813514"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Gegevens kopiëren van en naar Data Lake Storage Gen1 met behulp van Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -240,8 +240,8 @@ De **typeProperties** sectie voor een gegevensset van het type **AzureDataLakeSt
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | **folderPath** |Pad naar de container en map in Data Lake Store. |Ja |
-| **fileName** |De naam van het bestand in Azure Data Lake Store. De **fileName** eigenschap is optioneel en is hoofdlettergevoelig. <br/><br/>Als u opgeeft **fileName**, de activiteit (inclusief kopie) werkt op het specifieke bestand.<br/><br/>Wanneer **fileName** niet is opgegeven, kopie bevat alle bestanden in **folderPath** in de invoergegevensset.<br/><br/>Wanneer **fileName** is niet opgegeven voor een uitvoergegevensset en **preserveHierarchy** niet is opgegeven in de activiteit-sink, de naam van het gegenereerde bestand is in de indeling van gegevens. _GUID_.txt'. Bijvoorbeeld: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |Nee |
-| **partitionedBy** |De **partitionedBy** eigenschap is optioneel. U kunt deze gebruiken om op te geven van een dynamische pad en bestandsnaam op voor time series-gegevens. Bijvoorbeeld, **folderPath** kunnen als parameters worden gebruikt voor elk uur gegevens. Zie voor meer informatie en voorbeelden, [de eigenschap partitionedBy](#using-partitionedby-property). |Nee |
+| **fileName** |De naam van het bestand in Azure Data Lake Store. De **fileName** eigenschap is optioneel en is hoofdlettergevoelig. <br/><br/>Als u opgeeft **fileName**, de activiteit (inclusief kopie) werkt op het specifieke bestand.<br/><br/>Wanneer **fileName** niet is opgegeven, kopie bevat alle bestanden in **folderPath** in de invoergegevensset.<br/><br/>Wanneer **fileName** is niet opgegeven voor een uitvoergegevensset en **preserveHierarchy** niet is opgegeven in de activiteit-sink, de naam van het gegenereerde bestand is in de indeling van gegevens. _GUID_.txt'. Bijvoorbeeld: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. | Nee |
+| **partitionedBy** |De **partitionedBy** eigenschap is optioneel. U kunt deze gebruiken om op te geven van een dynamische pad en bestandsnaam op voor time series-gegevens. Bijvoorbeeld, **folderPath** kunnen als parameters worden gebruikt voor elk uur gegevens. Zie voor meer informatie en voorbeelden, de eigenschap partitionedBy. |Nee |
 | **Indeling** | De volgende bestandsindelingen worden ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, en **ParquetFormat**. Stel de **type** eigenschap onder **indeling** op een van deze waarden. Zie voor meer informatie de [tekstindeling](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-indeling](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-indeling](data-factory-supported-file-and-compression-formats.md#avro-format), [ORC-indeling](data-factory-supported-file-and-compression-formats.md#orc-format), en [Parquet-indeling ](data-factory-supported-file-and-compression-formats.md#parquet-format) secties in het [bestands- en compressie indelingen die worden ondersteund door Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artikel. <br><br> Als u wilt kopiëren van bestanden ' als-is "tussen op basis van bestanden (binaire kopie), gaat de `format` sectie in beide definities van de gegevensset voor invoer en uitvoer. |Nee |
 | **Compressie** | Geef het type en het niveau van compressie voor de gegevens. Ondersteunde typen zijn **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**. Ondersteunde niveaus zijn **optimale** en **snelst**. Zie voor meer informatie, [bestands- en compressie indelingen die worden ondersteund door Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nee |
 

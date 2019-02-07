@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 66c6a565fff81e1c0e39075502a6a7d3d8ffa7a6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1fce6292ffd7307ff0a294c6fa25412962acd1cc
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162290"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752837"
 ---
 # <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Zelfstudie: Taakverdelingen maken voor virtuele Linux-machines in Azure om een maximaal beschikbare toepassing te maken met Azure CLI
 
@@ -60,7 +60,7 @@ az group create --name myResourceGroupLoadBalancer --location eastus
 ```
 
 ### <a name="create-a-public-ip-address"></a>Een openbaar IP-adres maken
-Om toegang te krijgen tot uw app op internet, hebt u een openbaar IP-adres nodig voor de load balancer. Maak een openbaar IP-adres met [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create). In het volgende voorbeeld wordt een openbaar IP-adres met de naam *myPublicIP* gemaakt in de resourcegroep *myResourceGroupLoadBalancer*:
+Om toegang te krijgen tot uw app op internet, hebt u een openbaar IP-adres nodig voor de load balancer. Maak een openbaar IP-adres met [az network public-ip create](/cli/azure/network/public-ip). In het volgende voorbeeld wordt een openbaar IP-adres met de naam *myPublicIP* gemaakt in de resourcegroep *myResourceGroupLoadBalancer*:
 
 ```azurecli-interactive 
 az network public-ip create \
@@ -69,7 +69,7 @@ az network public-ip create \
 ```
 
 ### <a name="create-a-load-balancer"></a>Een load balancer maken
-Maak een load balancer met [az network lb create](/cli/azure/network/lb#az_network_lb_create). In het volgende voorbeeld wordt een load balancer met de naam *myLoadBalancer* gemaakt en wordt het adres *myPublicIP* aan de front-end-IP-configuratie toegewezen:
+Maak een load balancer met [az network lb create](/cli/azure/network/lb). In het volgende voorbeeld wordt een load balancer met de naam *myLoadBalancer* gemaakt en wordt het adres *myPublicIP* aan de front-end-IP-configuratie toegewezen:
 
 ```azurecli-interactive 
 az network lb create \
@@ -85,7 +85,7 @@ U gebruikt een statustest om de load balancer de status van uw app te laten bewa
 
 In het volgende voorbeeld wordt een TCP-test gemaakt. U kunt ook aangepaste HTTP-tests maken voor meer fijnmazige statuscontroles. Wanneer u een aangepaste HTTP-test maakt, moet u de statuscontrolepagina maken, zoals *healthcheck.js*. De test moet het antwoord **HTTP 200 OK** voor de load balancer retourneren om de host in rotatie te houden.
 
-U gebruikt [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create) om een TCP-statustest te maken. In het volgende voorbeeld wordt een statustest gemaakt met de naam *myHealthProbe*:
+U gebruikt [az network lb probe create](/cli/azure/network/lb/probe) om een TCP-statustest te maken. In het volgende voorbeeld wordt een statustest gemaakt met de naam *myHealthProbe*:
 
 ```azurecli-interactive 
 az network lb probe create \
@@ -99,7 +99,7 @@ az network lb probe create \
 ### <a name="create-a-load-balancer-rule"></a>Een load balancer-regel maken
 Een load balancer-regel wordt gebruikt om de verdeling van het verkeer over de VM's te definiëren. U definieert de front-end-IP-configuratie voor het inkomende verkeer en de back-end-IP-groep om het verkeer te ontvangen, samen met de gewenste bron- en doelpoort. Om ervoor te zorgen dat alleen VM's met een goede status verkeer ontvangen, moet u ook de te gebruiken statustest definiëren.
 
-Gebruik [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create) om een load balancer-regel te maken. In het volgende voorbeeld wordt een regel met de naam *myLoadBalancerRule* gemaakt, de statustest *myHealthProbe* gebruikt en het verkeer verdeeld op poort *80*:
+Gebruik [az network lb rule create](/cli/azure/network/lb/rule) om een load balancer-regel te maken. In het volgende voorbeeld wordt een regel met de naam *myLoadBalancerRule* gemaakt, de statustest *myHealthProbe* gebruikt en het verkeer verdeeld op poort *80*:
 
 ```azurecli-interactive 
 az network lb rule create \
@@ -119,7 +119,7 @@ az network lb rule create \
 Voordat u enkele VM's implementeert en uw balancer test, maakt u de ondersteunende virtuele-netwerkbronnen. Zie de zelfstudie [Manage Azure Virtual Networks](tutorial-virtual-network.md) (Virtuele Azure-netwerken beheren) voor meer informatie over virtuele netwerken.
 
 ### <a name="create-network-resources"></a>Netwerkbronnen maken
-Maak een virtueel netwerk met [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). In het volgende voorbeeld wordt een virtueel netwerk gemaakt met de naam *myVnet* met het subnet *mySubnet*:
+Maak een virtueel netwerk met [az network vnet create](/cli/azure/network/vnet). In het volgende voorbeeld wordt een virtueel netwerk gemaakt met de naam *myVnet* met het subnet *mySubnet*:
 
 ```azurecli-interactive 
 az network vnet create \
@@ -128,7 +128,7 @@ az network vnet create \
     --subnet-name mySubnet
 ```
 
-Als u een netwerkbeveiligingsgroep wilt toevoegen, gebruikt u [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). In het volgende voorbeeld wordt een netwerkbeveiligingsgroep met de naam *myNetworkSecurityGroup* gemaakt:
+Als u een netwerkbeveiligingsgroep wilt toevoegen, gebruikt u [az network nsg create](/cli/azure/network/nsg). In het volgende voorbeeld wordt een netwerkbeveiligingsgroep met de naam *myNetworkSecurityGroup* gemaakt:
 
 ```azurecli-interactive 
 az network nsg create \
@@ -136,7 +136,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Maak een netwerkbeveiligingsgroepregel met [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). In het volgende voorbeeld wordt een netwerkbeveiligingsgroepregel met de naam *myNetworkSecurityGroupRule* gemaakt:
+Maak een netwerkbeveiligingsgroepregel met [az network nsg rule create](/cli/azure/network/nsg/rule). In het volgende voorbeeld wordt een netwerkbeveiligingsgroepregel met de naam *myNetworkSecurityGroupRule* gemaakt:
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -218,7 +218,7 @@ runcmd:
 ### <a name="create-virtual-machines"></a>Virtuele machines maken
 Verbeter de hoge beschikbaarheid van uw app door uw VM's in een beschikbaarheidsset te plaatsen. Zie de vorige zelfstudie [How to create highly available virtual machines](tutorial-availability-sets.md) (Maximaal beschikbare virtuele machines maken) voor meer informatie over beschikbaarheidssets.
 
-Maak een beschikbaarheidsset met behulp van [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create). In het volgende voorbeeld wordt een beschikbaarheidsset met de naam *myAvailabilitySet* gemaakt:
+Maak een beschikbaarheidsset met behulp van [az vm availability-set create](/cli/azure/vm/availability-set). In het volgende voorbeeld wordt een beschikbaarheidsset met de naam *myAvailabilitySet* gemaakt:
 
 ```azurecli-interactive 
 az vm availability-set create \
@@ -247,7 +247,7 @@ Er zijn achtergrondtaken die nog worden uitgevoerd nadat u door de Azure CLI ben
 
 
 ## <a name="test-load-balancer"></a>Load balancer testen
-Achterhaal het openbare IP-adres van de load balancer met [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). In het volgende voorbeeld wordt het IP-adres opgehaald voor het eerder gemaakte *myPublicIP*:
+Achterhaal het openbare IP-adres van de load balancer met [az network public-ip show](/cli/azure/network/public-ip). In het volgende voorbeeld wordt het IP-adres opgehaald voor het eerder gemaakte *myPublicIP*:
 
 ```azurecli-interactive 
 az network public-ip show \
@@ -268,7 +268,7 @@ Als u wilt zien hoe de load balancer verkeer distribueert naar alle drie de VM's
 Het is mogelijk dat u onderhoud moet uitvoeren op de VM's waarop uw app wordt uitgevoerd, zoals het installeren van besturingssysteemupdates. U moet mogelijk extra VM's toevoegen vanwege toegenomen verkeer naar uw app. In dit gedeelte wordt beschreven hoe u een VM aan de load balancer toevoegt of ervan verwijdert.
 
 ### <a name="remove-a-vm-from-the-load-balancer"></a>Een VM van de load balancer verwijderen
-U kunt een VM verwijderen uit de back-end-adresgroep met [az network nic ip-config address-pool remove](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_remove). In het volgende voorbeeld wordt de virtuele NIC voor **myVM2** van *myLoadBalancer* verwijderd:
+U kunt een VM verwijderen uit de back-end-adresgroep met [az network nic ip-config address-pool remove](/cli/azure/network/nic/ip-config/address-pool). In het volgende voorbeeld wordt de virtuele NIC voor **myVM2** van *myLoadBalancer* verwijderd:
 
 ```azurecli-interactive 
 az network nic ip-config address-pool remove \
@@ -281,7 +281,7 @@ az network nic ip-config address-pool remove \
 
 Als u wilt zien hoe de load balancer verkeer distribueert naar de resterende twee VM's waarop uw app wordt uitgevoerd, kunt u vernieuwing van uw webbrowser afdwingen. U kunt nu onderhoud uitvoeren op de VM, zoals het installeren van updates voor het besturingssysteem of het opnieuw opstarten van de VM.
 
-Gebruik [az network lb address-pool show](/cli/azure/network/lb/address-pool#az_network_lb_address_pool_show) om een overzicht van VM's met virtuele NIC's die zijn verbonden met de load balancer weer te geven. Voer als volgt query's uit en filter op de id van de virtuele NIC:
+Gebruik [az network lb address-pool show](/cli/azure/network/lb/address-pool) om een overzicht van VM's met virtuele NIC's die zijn verbonden met de load balancer weer te geven. Voer als volgt query's uit en filter op de id van de virtuele NIC:
 
 ```azurecli-interactive
 az network lb address-pool show \
@@ -300,7 +300,7 @@ De uitvoer is vergelijkbaar met het volgende voorbeeld, waaruit blijkt dat de vi
 ```
 
 ### <a name="add-a-vm-to-the-load-balancer"></a>Een VM toevoegen aan de load balancer
-Na het uitvoeren van VM-onderhoud, of als u de capaciteit wilt uitbreiden, kunt u een VM toevoegen aan de back-end-adresgroep met [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add). In het volgende voorbeeld wordt de virtuele NIC voor **myVM2** aan *myLoadBalancer* toegevoegd:
+Na het uitvoeren van VM-onderhoud, of als u de capaciteit wilt uitbreiden, kunt u een VM toevoegen aan de back-end-adresgroep met [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool). In het volgende voorbeeld wordt de virtuele NIC voor **myVM2** aan *myLoadBalancer* toegevoegd:
 
 ```azurecli-interactive 
 az network nic ip-config address-pool add \
@@ -311,7 +311,7 @@ az network nic ip-config address-pool add \
     --address-pool myBackEndPool
 ```
 
-Gebruik opnieuw [az network lb address-pool show](/cli/azure/network/lb/address-pool#az_network_lb_address_pool_show) uit de vorige stap om te controleren of de virtuele NIC is verbonden met de back-end-adresgroep.
+Gebruik opnieuw [az network lb address-pool show](/cli/azure/network/lb/address-pool) uit de vorige stap om te controleren of de virtuele NIC is verbonden met de back-end-adresgroep.
 
 
 ## <a name="next-steps"></a>Volgende stappen

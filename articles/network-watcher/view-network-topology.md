@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: 501659a93306342c7a212d135b4fdd89be096451
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 842c0d5e3dff0c21545405624f0f536c80359b19
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428156"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809892"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>De topologie van een Azure-netwerk weergeven
 
@@ -56,7 +56,7 @@ U kunt de opdrachten in de volgende stappen uitvoeren:
 
 Het account dat u gebruikt ze beschikken over de benodigde [machtigingen](required-rbac-permissions.md).
 
-1. Als u al een network watcher in dezelfde regio als het virtuele netwerk dat u wilt maken van een topologie voor hebt, gaat u naar stap 3. Maak een resourcegroep om een network watcher met [az-groep maken](/cli/azure/group#az_group_create). Het volgende voorbeeld wordt de resourcegroep in de *eastus* regio:
+1. Als u al een network watcher in dezelfde regio als het virtuele netwerk dat u wilt maken van een topologie voor hebt, gaat u naar stap 3. Maak een resourcegroep om een network watcher met [az-groep maken](/cli/azure/group). Het volgende voorbeeld wordt de resourcegroep in de *eastus* regio:
 
     ```azurecli-interactive
     az group create --name NetworkWatcherRG --location eastus
@@ -79,7 +79,7 @@ Het account dat u gebruikt ze beschikken over de benodigde [machtigingen](requir
 
     Informatie over de topologie wordt alleen geretourneerd voor resources die zich in dezelfde resourcegroep bevinden als de *MyResourceGroup* resourcegroep en dezelfde regio als de netwerk-watcher. Bijvoorbeeld, een netwerkbeveiligingsgroep die deel uitmaakt van een resourcegroep dan *MyResourceGroup*, niet wordt weergegeven, zelfs als de netwerkbeveiligingsgroep is gekoppeld aan een subnet in de *MyVnet* virtueel netwerk .
 
-  Meer informatie over de [relaties](#relationhips) en [eigenschappen](#properties) in de resulterende uitvoer. Als u een bestaand virtueel netwerk om weer te geven van een topologie voor geen hebt, kunt u maken met behulp van één de [verkeer routeren via een virtueel netwerkapparaat](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) voorbeeldscript. Een diagram van de topologie weergeven en downloaden in een bestand bewerkt, gebruikt u de [portal](#azure-portal).
+  Meer informatie over de relaties en [eigenschappen](#properties) in de resulterende uitvoer. Als u een bestaand virtueel netwerk om weer te geven van een topologie voor geen hebt, kunt u maken met behulp van één de [verkeer routeren via een virtueel netwerkapparaat](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) voorbeeldscript. Een diagram van de topologie weergeven en downloaden in een bestand bewerkt, gebruikt u de [portal](#azure-portal).
 
 ## <a name = "powershell"></a>Topologie weergeven - PowerShell
 
@@ -123,7 +123,7 @@ Het account dat u gebruikt ze beschikken over de benodigde [machtigingen](requir
 
    Informatie over de topologie wordt alleen geretourneerd voor resources die zich in dezelfde resourcegroep bevinden als de *MyResourceGroup* resourcegroep en dezelfde regio als de netwerk-watcher. Bijvoorbeeld, een netwerkbeveiligingsgroep die deel uitmaakt van een resourcegroep dan *MyResourceGroup*, niet wordt weergegeven, zelfs als de netwerkbeveiligingsgroep is gekoppeld aan een subnet in de *MyVnet* virtueel netwerk .
 
-  Meer informatie over de [relaties](#relationhips) en [eigenschappen](#properties) in de resulterende uitvoer. Als u een bestaand virtueel netwerk om weer te geven van een topologie voor geen hebt, kunt u maken met behulp van één de [verkeer routeren via een virtueel netwerkapparaat](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) voorbeeldscript. Een diagram van de topologie weergeven en downloaden in een bestand bewerkt, gebruikt u de [portal](#azure-portal).
+  Meer informatie over de relaties en [eigenschappen](#properties) in de resulterende uitvoer. Als u een bestaand virtueel netwerk om weer te geven van een topologie voor geen hebt, kunt u maken met behulp van één de [verkeer routeren via een virtueel netwerkapparaat](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) voorbeeldscript. Een diagram van de topologie weergeven en downloaden in een bestand bewerkt, gebruikt u de [portal](#azure-portal).
 
 ## <a name="relationships"></a>Relaties
 

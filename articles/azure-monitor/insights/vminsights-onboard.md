@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2019
 ms.author: magoedte
-ms.openlocfilehash: be068904d7aa935d722c59b08c36a1cf4904e933
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 37e2da00ecbecdddcc8757e64c57b03774092e14
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664128"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814986"
 ---
 # <a name="deploy-azure-monitor-for-vms-preview"></a>Azure Monitor implementeren voor virtuele machines (preview)
 In dit artikel wordt beschreven hoe u Azure Monitor instellen voor VM's. De service controleert de status van het besturingssysteem van uw Azure virtual machines (VM's) en virtuele-machineschaalsets en de virtuele machines in uw omgeving. Deze bewaking bevat de detectie en toewijzing van afhankelijkheden voor toepassingen die op deze kan worden gehost. 
@@ -62,7 +62,7 @@ Om in te schakelen van de oplossing voor het scenario op schaal, moet u eerst he
 * Installeer de ServiceMap en InfrastructureInsights oplossingen. U kunt deze installatie voltooien alleen met behulp van een Azure Resource Manager-sjabloon die opgegeven in dit artikel.
 * Configureer de werkruimte voor logboekanalyse voor het verzamelen van prestatiemeteritems.
 
-Zie configureren van uw werkruimte voor het scenario op schaal [instellen van Log Analytics-werkruimte voor een implementatie op schaal](#setup-log-analytics-workspace).
+Zie voor het configureren van uw werkruimte voor het scenario op schaal, instellen van Log Analytics-werkruimte voor een implementatie op schaal.
 
 ### <a name="supported-operating-systems"></a>Ondersteunde besturingssystemen
 

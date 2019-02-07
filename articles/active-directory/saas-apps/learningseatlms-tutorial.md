@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: jeedes
-ms.openlocfilehash: b41f01254e081b6ac3a9b8265bd459cf00af1838
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: edc3bedaa005bb52ddbf46d9f70ddc16bf8790e2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197990"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815065"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>Zelfstudie: Azure Active Directory-integratie met Learning Seat LMS
 
@@ -89,7 +89,7 @@ Als u wilt configureren en testen van Azure AD eenmalige aanmelding met Learning
 
 1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
 1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Het maken van een testgebruiker Learning Seat LMS](#creating-a-learnconnect-test-user)**  - Learning-Seat LMS die is gekoppeld aan de Azure AD-weergave van de gebruiker een equivalent van Britta Simon hebben.
+1. **Het maken van een testgebruiker Learning Seat LMS** - Learning-Seat LMS die is gekoppeld aan de Azure AD-weergave van de gebruiker een equivalent van Britta Simon hebben.
 1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
 1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 

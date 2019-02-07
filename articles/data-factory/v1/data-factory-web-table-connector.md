@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1ba8db3ebe2caf4c37d147f744326b6e631cb556
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 81b7bf7c230c66087bf286ebd9369d992e93be90
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022050"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814347"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Gegevens verplaatsen van een Web-tabelbron met Azure Data Factory
-> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](data-factory-web-table-connector.md)
 > * [Versie 2 (huidige versie)](../connector-web-table.md)
 
@@ -236,7 +236,7 @@ Gegevens worden geschreven naar een nieuwe blob elk uur (frequentie: uur en inte
 
 De pijplijn bevat een Kopieeractiviteit die is geconfigureerd voor het gebruik van de invoer- en uitvoergegevenssets en is gepland voor elk uur uitgevoerd. In de pijplijn-JSON-definitie heeft de **bron** type is ingesteld op **WebSource** en **sink** type is ingesteld op **BlobSink**.
 
-Zie [WebSource typeproperties](#copy-activity-type-properties) voor de lijst met eigenschappen die worden ondersteund door de WebSource.
+Zie WebSource type-eigenschappen voor de lijst met eigenschappen die worden ondersteund door de WebSource.
 
 ```json
 {  

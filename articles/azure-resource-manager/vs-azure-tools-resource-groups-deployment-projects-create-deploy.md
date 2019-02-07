@@ -13,19 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6ff49b3a08977b28ae6fa0971e5c7d72af158a46
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 0b00bff2b32ac9dd16d4d38ee35be006c0247bb8
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081208"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493425"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Azure-resourcegroepen maken en implementeren met Visual Studio
+
 Met Visual Studio kunt u een project maken waarmee uw infrastructuur en code in Azure worden geïmplementeerd. U kunt bijvoorbeeld de webhost, website en database voor uw app opgeven en die infrastructuur samen met de code implementeren. Visual Studio biedt veel verschillende startsjablonen om te implementeren in algemene scenario's. In dit artikel gaat u een web-app en SQL Database implementeren.  
 
 In dit artikel leest u hoe u [Visual Studio 2017 gebruikt met de workloads voor ontwikkeling en ASP.NET van Azure geïnstalleerd](/dotnet/azure/dotnet-tools). Als u Visual Studio 2015 Update 2 en Microsoft Azure SDK voor .NET 2.9 gebruikt, of Visual Studio 2013 met Azure SDK 2.9, is de ervaring in grote lijnen hetzelfde.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="create-azure-resource-group-project"></a>Een Azure-resourcegroepproject maken
+
 In dit gedeelte maakt u een Azure Resource Group-project met de sjabloon **Web app + SQL**.
 
 1. Kies in Visual Studio **File** en vervolgens **New Project**. Kies **C#** of **Visual Basic** (welke taal u kiest heeft geen invloed op de latere fasen, omdat deze projecten alleen JSON- en PowerShell-inhoud bevatten). Kies vervolgens **Cloud** en het project **Azure-resourcegroep**.

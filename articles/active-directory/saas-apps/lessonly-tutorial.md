@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: c911a53f16e07b67a1ec22a9e0592df06c192325
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1e5b23269c8c9d5aecd7ef8ba58100f17cc7973c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188181"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809416"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonlycom"></a>Zelfstudie: Azure Active Directory-integratie met Lessonly.com
 
@@ -90,7 +90,7 @@ Om te configureren en testen van Azure AD eenmalige aanmelding met Lessonly.com,
 
 1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
 1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Het maken van een testgebruiker Lessonly.com](#creating-a-lessonly-test-user)**  : als u wilt een equivalent van Britta Simon in Lessonly.com die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **Het maken van een testgebruiker Lessonly.com** : als u wilt een equivalent van Britta Simon in Lessonly.com die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
 1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
 1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 

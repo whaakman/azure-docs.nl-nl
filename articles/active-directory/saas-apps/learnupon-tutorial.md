@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: a548f11b1f423fb738108d9314f2fc887ef02c52
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 66953eaa4c42b419a5146ccc396fddda15a31c35
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176842"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811355"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Zelfstudie: Azure Active Directory-integratie met LearnUpon
 
@@ -208,7 +208,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
 Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in LearnUpon. LearnUpon biedt ondersteuning voor just-in-time inrichting, dit is standaard ingeschakeld.
 
-Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker wordt gemaakt tijdens een poging tot toegang tot LearnUpon als deze nog niet bestaat. [Configureren van Azure AD voor eenmalige aanmelding](#configuring-azure-ad-single-single-sign-on).
+Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker wordt gemaakt tijdens een poging tot toegang tot LearnUpon als deze nog niet bestaat. Configureren van Azure AD voor eenmalige aanmelding.
 
 >[!NOTE]
 >Als u een gebruiker handmatig hebt gemaakt wilt, moet u contact opnemen met [LearnUpon ondersteuningsteam](https://www.learnupon.com/features/support/). 

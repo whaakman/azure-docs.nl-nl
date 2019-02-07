@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: 721e385d7c8e6b401ce1fe6d3518006f3a96e4fe
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 1f772f710f0146048fcde04d884fbe3458722743
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541095"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754520"
 ---
 # <a name="restore-an-azure-database-for-postgresql-server-using-azure-cli"></a>Een Azure Database voor PostgreSQL-server herstellen met behulp van Azure CLI
 Met dit CLI-voorbeeldscript wordt één Azure Database for PostgreSQL-server hersteld naar een eerder tijdstip.
@@ -35,10 +35,10 @@ Dit script maakt gebruik van de opdrachten die in de volgende tabel worden weerg
 
 | **Opdracht** | **Opmerkingen** |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
+| [az group create](/cli/azure/group) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
 | [az postgresql server create](/cli/azure/postgres/server#az-postgres-server-create) | Hiermee wordt een PostgreSQL-server gemaakt waar de SQL-database wordt gehost. |
 | [az postgresql server restore](/cli/azure/postgres/server#az-postgres-server-restore) | Een server herstellen uit een back-up. |
-| [az group delete](/cli/azure/group#az_group_delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
+| [az group delete](/cli/azure/group) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over Azure CLI: [Azure CLI-documentatie](/cli/azure).

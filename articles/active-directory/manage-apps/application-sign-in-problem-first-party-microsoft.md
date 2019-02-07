@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 4d75ab2328cbc18142742c3111ef1f5e7d8eb8f2
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: f67633ec62b28f54a97cccd0f27b43bdb626ee58
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731475"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822762"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemen met aanmelden bij een Microsoft-toepassing
 
@@ -34,11 +34,11 @@ Er zijn drie manieren dat een gebruiker toegang tot een Microsoft gepubliceerde 
 
 -   Voor toepassingen die Microsoft of een 3e partij publiceert naar eigen inzicht voor iedereen, gebruikers kunnen ook toegang worden verleend via **administrator toestemming**. Dit betekent dat een beheerder de toepassing kan worden gebruikt door iedereen in de organisatie, zodat ze zich aanmelden bij de toepassing met een account voor globale beheerders en toegang aan iedereen in de organisatie verlenen heeft bepaald.
 
-Voor het oplossen van uw probleem, beginnen met de [algemene probleemgebieden met toegang tot de toepassing om te overwegen](#general-problem-areas-with-application-access-to-consider) en lees vervolgens de [scenario: Stappen voor het oplossen van Microsoft Application access](#walkthrough-steps-to-troubleshoot-microsoft-application-access) toegang te krijgen tot de gegevens.
+Voor het oplossen van uw probleem, beginnen met de [algemene probleemgebieden met toegang tot de toepassing om te overwegen](#general-problem-areas-with-application-access-to-consider) en lees vervolgens de stapsgewijze instructies: Stappen voor het oplossen van Microsoft Application toegang tot de details.
 
 ## <a name="general-problem-areas-with-application-access-to-consider"></a>Algemene probleemgebieden met toegang tot de toepassing om te overwegen
 
-Hieronder volgt een lijst van de algemene probleemgebieden die u inzoomen kunt op als u een idee van waar u hebben wilt beginnen, maar wij raden dat u deze stapsgewijze Kennismaking voor snel aan de slag te lezen: [Walkthrough: Stappen voor het oplossen van Microsoft Application access](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
+Hieronder volgt een lijst van de algemene probleemgebieden die u inzoomen kunt op als u een idee van waar u hebben wilt beginnen, maar wij raden dat u deze stapsgewijze Kennismaking voor snel aan de slag te lezen: Walkthrough: Stappen voor het oplossen van Microsoft Application access.
 
 -   [Problemen met het account van de gebruiker](#problems-with-the-users-account)
 

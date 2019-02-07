@@ -7,19 +7,19 @@ ms.subservice: change-inventory-management
 keywords: inventaris, automation, wijziging, bijhouden
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 03/30/2018
+ms.date: 02/06/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9fabaa2be850e5b15f10fc78adb14dfd5c112906
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2d6cc55ec2e3be3510b9547025db17bcbee97e10
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426043"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765378"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Een virtuele Azure-machine met inventarisverzameling beheren
 
-U kunt Inventaris bijhouden voor een virtuele Azure-machine inschakelen vanaf de resourcepagina van de computer. Deze methode biedt een gebruikersinterface op basis van een browser voor het instellen en configureren van een inventarisverzameling.
+U kunt Inventaris bijhouden voor een virtuele Azure-machine inschakelen vanaf de resourcepagina van de computer. U kunt inventarisgegevens verzamelen en weergeven voor software, bestanden, Linux-daemons, Windows-services en Windows-registersleutels op uw computers. Deze methode biedt een gebruikersinterface op basis van een browser voor het instellen en configureren van een inventarisverzameling.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 

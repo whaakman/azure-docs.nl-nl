@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: magattus
-ms.openlocfilehash: 563c073e781e2a2bee88b4ecdcdc82541c21ec4f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f82675f1e93a5471f98c1778e9394f9eaec1a07b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092385"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813038"
 ---
 # <a name="how-caching-works"></a>Hoe caching werkt
 
@@ -35,10 +35,10 @@ Dynamische resources die regelmatig wordt gewijzigd of die uniek zijn voor een a
 
 Caching kan zich voordoen op meerdere niveaus tussen de oorspronkelijke server en de eindgebruiker:
 
-- Webserver: maakt gebruik van een gedeelde cache (voor meerdere gebruikers).
-- Netwerk voor contentlevering: maakt gebruik van een gedeelde cache (voor meerdere gebruikers).
-- Internet-serviceprovider (ISP): maakt gebruik van een gedeelde cache (voor meerdere gebruikers).
-- Webbrowser: een privécache gebruikt (voor één gebruiker).
+- Webserver: Maakt gebruik van een gedeelde cache (voor meerdere gebruikers).
+- Netwerk voor contentlevering: Maakt gebruik van een gedeelde cache (voor meerdere gebruikers).
+- Internet-serviceprovider (ISP): Maakt gebruik van een gedeelde cache (voor meerdere gebruikers).
+- Webbrowser: Maakt gebruik van een privécache (voor één gebruiker).
 
 Elke cache doorgaans een eigen webdocumenten resource beheert en validatie wordt uitgevoerd wanneer een bestand verlopen is. Dit gedrag is gedefinieerd in de HTTP-specificatie caching [RFC 7234](https://tools.ietf.org/html/rfc7234).
 
@@ -77,8 +77,8 @@ Azure CDN biedt ondersteuning voor de volgende HTTP-cache-instructies kopteksten
      - **Azure CDN Standard/Premium van Verizon** en **Azure CDN Standard van Microsoft** ondersteunen alle `Cache-Control` richtlijnen.
      - **Azure CDN Standard van Akamai** ondersteunt alleen de volgende `Cache-Control` richtlijnen; alle andere worden genegeerd:
          - `max-age`: Een cache kunt opslaan van de inhoud voor het aantal seconden dat is opgegeven. Bijvoorbeeld `Cache-Control: max-age=5`. Deze instructie geeft de maximale hoeveelheid tijd die de inhoud wordt beschouwd als nieuwe.
-         - `no-cache`: De inhoud in cache, maar de inhoud te valideren elke keer dat u deze voordat levert uit de cache. Gelijk aan `Cache-Control: max-age=0`.
-         - `no-store`: Nooit cache de inhoud. Inhoud verwijderen als deze eerder is opgeslagen.
+         - `no-cache`: De inhoud in de cache, maar de inhoud te valideren elke keer dat u deze voordat levert uit de cache. Gelijk aan `Cache-Control: max-age=0`.
+         - `no-store`: Nooit de inhoud in de cache. Inhoud verwijderen als deze eerder is opgeslagen.
 
 **Verloopt:**
 - Verouderde header die is geïntroduceerd in de HTTP 1.0; ondersteund voor achterwaartse compatibiliteit.
@@ -116,7 +116,7 @@ Kunnen niet alle resources in cache worden opgeslagen. De volgende tabel ziet u 
 |-------------------|-----------------------------------|------------------------|------------------------------|
 | HTTP-statuscodes | 200, 203, 206, 300, 301, 410, 416 | 200                    | 200, 203, 300, 301, 302, 401 |
 | HTTP-methoden      | GET, HEAD                         | GET                    | GET                          |
-| Maximale bestandsgrootte  | 300 GB                            | 300 GB                 | -Algemene web delivery optimization: 1.8 GB<br />-Streaming van Media optimalisaties: 1.8 GB<br />-Optimalisatie van grote bestanden: 150 GB |
+| Maximale bestandsgrootte  | 300 GB                            | 300 GB                 | -Algemene web delivery optimization: 1.8 GB<br />-Streaming Media-optimalisatie: 1.8 GB<br />-Optimalisatie van grote bestanden: 150 GB |
 
 Voor **Azure CDN Standard van Microsoft** caching om te werken op een resource, de oorspronkelijke server moet een HEAD ondersteunen en u HTTP-aanvragen en de lengte van inhoud-waarden moeten hetzelfde zijn voor een hoofd- en GET HTTP-antwoorden voor de asset. Voor een HEAD-aanvraag, de oorspronkelijke server moet ondersteuning bieden voor de HEAD-aanvraag, en moet reageren met de dezelfde headers alsof deze had een GET-aanvraag ontvangen.
 
@@ -124,12 +124,12 @@ Voor **Azure CDN Standard van Microsoft** caching om te werken op een resource, 
 
 De volgende tabel beschrijft de standaardcache-gedrag voor de Azure CDN-producten en hun optimalisatie.
 
-|    | Microsoft: Algemene webweergave | Verizon: Algemene webweergave | Verizon: DSA | Akamai: De algemene webweergave | Akamai: DSA | Akamai: Grote bestanden downloaden | Akamai: Algemeen of VOD-mediastreaming |
+|    | Microsoft: Algemene webweergave | Verizon: Algemene webweergave | Verizon: DSA | Akamai: Algemene webweergave | Akamai: DSA | Akamai: Grote bestanden downloaden | Akamai: Algemeen of VOD-mediastreaming |
 |------------------------|--------|-------|------|--------|------|-------|--------|
 | **Oorsprong inwilligen**       | Ja    | Ja   | Nee   | Ja    | Nee   | Ja   | Ja    |
 | **Cacheduur voor CDN** | 2 dagen |7 dagen | Geen | 7 dagen | Geen | 1 dag | 1 jaar |
 
-**Oorsprong inwilligen**: Hiermee kunt u in acht neemt de [headers van de cache-instructies ondersteund](#http-cache-directive-headers) als deze bestaan in het HTTP-antwoord van de oorspronkelijke server.
+**Oorsprong inwilligen**: Geeft aan of de ondersteunde instructie cache-headers worden gehandhaafd, indien ze bestaan in het HTTP-antwoord van de oorspronkelijke server.
 
 **CDN-Cacheduur**: Hiermee geeft u de hoeveelheid tijd die een resource in de cache is opgeslagen op het Azure CDN. Echter, als **oorsprong inwilligen** is ingesteld op Ja en het HTTP-antwoord van de oorspronkelijke server bevat de instructie cache-header `Expires` of `Cache-Control: max-age`, Azure CDN maakt gebruik van de waarde van duur in plaats daarvan wordt opgegeven door de header. 
 

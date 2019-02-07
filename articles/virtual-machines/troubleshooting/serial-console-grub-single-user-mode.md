@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 5029365e665ce3ee9ba65886a3d6d5bbced0ed9a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 135741a8bf385388fa1b3ac75a45e4c4678bf196
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103306"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814466"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Seriële Console gebruiken voor toegang tot WORMGATEN en de modus voor één gebruiker
 WORMGATEN is het eindtotaal Unified Bootloader, dit waarschijnlijk het eerste wat dat u ziet is wanneer u een virtuele machine wordt opgestart. Omdat deze wordt weergegeven voordat het besturingssysteem is gestart, is het niet toegankelijk via SSH. Vanaf WORMGATEN, u kunt wijzigen van de opstartconfiguratie om op te starten in de modus voor één gebruiker, onder andere.
@@ -44,7 +44,7 @@ Opnieuw opstarten van uw virtuele machine kan ook worden uitgevoerd met een SysR
 ![Linux-seriële Console opnieuw opstarten](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-ubuntu.gif)
 
 ## <a name="general-single-user-mode-access"></a>Algemene modus voor één gebruiker toegang
-Handmatige toegang tot de modus voor één gebruiker is mogelijk in situaties waar u niet een account hebt geconfigureerd met wachtwoordverificatie nodig. U moet de WORMGATEN configuratie handmatig invoeren modus voor één gebruiker. Nadat u dit hebt gedaan, gaat u naar [gebruikersmodus voor één gebruiker opnieuw instellen of het toevoegen van een wachtwoord](#-Use-Single-User-Mode-to-reset-or-add-a-password) voor verdere instructies.
+Handmatige toegang tot de modus voor één gebruiker is mogelijk in situaties waar u niet een account hebt geconfigureerd met wachtwoordverificatie nodig. U moet de WORMGATEN configuratie handmatig invoeren modus voor één gebruiker. Nadat u dit hebt gedaan, kunt u gebruikersmodus voor één gebruiker opnieuw instellen of het toevoegen van een wachtwoord op voor verdere instructies.
 
 In gevallen waarin de virtuele machine kan niet op te starten, worden distributies vaak automatisch verwijderen u in de modus voor één gebruiker of noodherstelmodus bevindt. Andere, nodig aanvullende instellingen echter voordat ze u in de modus voor één gebruiker of noodgevallen automatisch (zoals het instellen van een hoofdwachtwoord) kunnen verwijderen.
 

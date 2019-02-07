@@ -7,19 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: b5f0a2a418c53a5049ebff9bba9188219a9aeb13
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 16c37f5ccaed7c161ecaae65a07c5da7400aad3c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321174"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815066"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>De Azure Site Recovery deployment planner voor noodherstel van Hyper-V naar Azure uitvoeren
 
 Kunt u uitvoeren van de Site Recovery deployment planner opdrachtregelprogramma (ASRDeploymentPlanner.exe in een van deze vier modi): 
--   [De lijst met VM’s (virtuele machines) ophalen](#get-vm-list-for-profiling-hyper-v-vms)
+-   De virtuele machine (VM)-lijst ophalen
 -   [Profiel](#profile-hyper-v-vms)
--   [Een rapport genereren](#generate-report)
+-   Een rapport genereren
 -   [Doorvoer bepalen](#get-throughput)
 
 Voer eerst het hulpprogramma uit voor het ophalen van de lijst met virtuele machines van een of meer Hyper-V-hosts. Voer daarna het hulpprogramma uit in de profileringsmodus om gegevensverloop en IOPS te verzamelen voor de virtuele machine. Voer het hulpprogramma daarna uit om het rapport te genereren en de netwerkbandbreedte en opslagvereisten te bepalen.
@@ -74,7 +74,7 @@ Er wordt elke 15 seconden een query uitgevoerd voor de Hyper-V-host om te zorgen
 Het hulpprogramma handelt naadloos de VM-migratie af van het ene knooppunt naar een ander in het cluster, en de opslagmigratie binnen een host.
 
 ### <a name="getting-the-vm-list-to-profile"></a>Lijst met te profileren VM’s ophalen
-Raadpleeg de [GetVMList](#get-vm-list-for-profiling-hyper-v-vms)-bewerking om een lijst met te profileren VM’s te maken.
+Een lijst van virtuele machines naar profiel wilt maken, raadpleegt u de bewerking GetVMList.
 
 Als u de lijst met te profileren virtuele machines hebt opgesteld, kunt u het hulpprogramma uitvoeren in de profileringsmodus. 
 

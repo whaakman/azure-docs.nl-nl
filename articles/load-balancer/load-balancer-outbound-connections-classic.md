@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: 006d8e28413e0893cafe351577f8a018d13fd268
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: ec3fcc0301083e6cd5eff34c111586ef6463f8fd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189996"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821504"
 ---
 # <a name="outbound-connections-classic"></a>Uitgaande verbindingen (klassiek)
 
@@ -54,7 +54,7 @@ Verschillende implementaties in de klassieke versie hebben verschillende functio
 
 [Strategieën voor risicobeperking](#snatexhaust) hebben ook de dezelfde verschillen.
 
-De [algoritme dat wordt gebruikt voor het vooraf toewijzen van kortstondige poorten](#ephemeralports) voor PAT voor klassieke implementaties dezelfde als die voor implementaties van Azure Resource Manager-resource is.
+De algoritme die wordt gebruikt voor het vooraf toewijzen van kortstondige poorten voor PAT voor klassieke implementaties is dezelfde als die voor implementaties van Azure Resource Manager-resource.
 
 ### <a name="ilpip"></a>Scenario 1: VM met een Instance Level Public IP-adres
 
@@ -74,13 +74,13 @@ Kortstondige poorten van de load balancer openbare IP-adres frontend worden gebr
 
 SNAT poorten zijn vooraf toegewezen zoals beschreven in de [Understanding SNAT en PAT](#snat) sectie. Zijn in feite een eindige resource die kan worden verbruikt. Het is belangrijk om te weten hoe ze zijn [verbruikt](#pat). Als u wilt weten hoe u voor dit verbruik ontwerpen en te beperken indien nodig, Bekijk [SNAT beheren uitputting](#snatexhaust).
 
-Wanneer [meerdere openbare taakverdeling eindpunten](load-balancer-multivip.md) bestaat, een van deze openbare IP-adressen, een [kandidaat voor uitgaande stromen](#multivipsnat), en een willekeurig is geselecteerd.  
+Wanneer [meerdere openbare taakverdeling eindpunten](load-balancer-multivip.md) bestaan, een van deze openbare IP-adressen zijn een kandidaat voor uitgaande stromen en een willekeurig is geselecteerd.  
 
 ### <a name="defaultsnat"></a>Scenario 3: Er is geen openbaar IP-adres dat is gekoppeld
 
 In dit scenario wordt maakt de virtuele machine of Worker-Webrol geen deel uit van een openbare load balancing-eindpunt.  En in het geval van een virtuele machine, het heeft geen een ILPIP-adres is toegewezen. Wanneer de virtuele machine een uitgaande stroom maakt, zet Azure privé IP-bronadres van de uitgaande stroom aan een openbare IP-adres. Het openbare IP-adres gebruikt voor deze uitgaande stroom kan niet worden geconfigureerd en worden niet meegeteld in openbare IP-resource-limiet van het abonnement.  Dit adres wordt automatisch toegewezen door Azure.
 
-Azure maakt gebruik van SNAT met poort onechte ([PAT](#pat)) om uit te voeren van deze functie. In dit scenario is vergelijkbaar met [scenario 2](#lb), maar er geen controle over het IP-adres gebruikt is. Dit is een alternatief scenario voor wanneer scenario 1 en 2 niet bestaan. In dit scenario wordt niet aanbevolen als u wilt dat de controle over het uitgaande adres. Als u uitgaande verbindingen zijn een belangrijk onderdeel van uw toepassing, moet u een ander scenario hebt gekozen.
+Azure maakt gebruik van SNAT met poort onechte ([PAT](#pat)) om uit te voeren van deze functie. In dit scenario is vergelijkbaar met scenario 2, maar er geen controle over het IP-adres gebruikt is. Dit is een alternatief scenario voor wanneer scenario 1 en 2 niet bestaan. In dit scenario wordt niet aanbevolen als u wilt dat de controle over het uitgaande adres. Als u uitgaande verbindingen zijn een belangrijk onderdeel van uw toepassing, moet u een ander scenario hebt gekozen.
 
 SNAT poorten zijn vooraf toegewezen zoals beschreven in de [Understanding SNAT en PAT](#snat) sectie.  Het aantal virtuele machines of Webwerkrollen delen van het openbare IP-adres bepaalt het aantal kortstondige poorten genoemd vooraf toegewezen.   Het is belangrijk om te weten hoe ze zijn [verbruikt](#pat). Als u wilt weten hoe u voor dit verbruik ontwerpen en te beperken indien nodig, Bekijk [SNAT beheren uitputting](#snatexhaust).
 
@@ -104,7 +104,7 @@ Voor patronen om te beperken van voorwaarden die vaak tot uitputting van SNAT po
 
 Azure maakt gebruik van een algoritme om te bepalen het aantal vooraf toegewezen SNAT poorten die beschikbaar zijn op basis van de grootte van de back-endpool bij het gebruik van poort onechte SNAT ([PAT](#pat)). SNAT poorten zijn kortstondige poorten die beschikbaar zijn voor een bepaalde openbare IP-bronadres.
 
-Azure preallocates SNAT poorten wanneer een exemplaar is geïmplementeerd op basis van hoeveel exemplaren van virtuele machine of Werkrol Web een opgegeven openbare IP-adres delen.  Wanneer uitgaande stromen worden gemaakt, [PAT](#pat) dynamisch verbruikt (tot de vooraf toegewezen limiet) en deze poorten worden vrijgegeven wanneer de stroom wordt gesloten of [inactief time-outs](#ideltimeout) gebeuren.
+Azure preallocates SNAT poorten wanneer een exemplaar is geïmplementeerd op basis van hoeveel exemplaren van virtuele machine of Werkrol Web een opgegeven openbare IP-adres delen.  Wanneer uitgaande stromen worden gemaakt, [PAT](#pat) dynamisch verbruikt (tot de vooraf toegewezen limiet) en deze poorten worden vrijgegeven wanneer de stroom wordt gesloten of niet-actieve time-outs optreden.
 
 De volgende tabel toont de preallocations SNAT poort voor de lagen van de back-end poolgrootten:
 

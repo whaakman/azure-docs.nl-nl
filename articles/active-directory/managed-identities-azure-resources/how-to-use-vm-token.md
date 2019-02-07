@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: priyamo
-ms.openlocfilehash: b7ccdcf1cb1e75ab9a8113adc05b02196a0a2023
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: eebc19f5bd14e835b8174695b2d0d87fe8ddc4bc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166574"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822048"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Over het gebruik van beheerde identiteiten voor Azure-resources op een Azure-VM aan een toegangstoken verkrijgen 
 
@@ -55,7 +55,7 @@ Een clienttoepassing kan aanvragen beheerde identiteiten voor Azure-resources [a
 | [Een token met behulp van Go ophalen](#get-a-token-using-go) | Voorbeeld van het gebruik van beheerde identiteiten voor Azure-resources REST-eindpunt van een Go-client |
 | [Een token met Azure PowerShell ophalen](#get-a-token-using-azure-powershell) | Voorbeeld van het gebruik van beheerde identiteiten voor Azure-resources REST-eindpunt van een PowerShell-client |
 | [Ophalen van een token met CURL](#get-a-token-using-curl) | Voorbeeld van het gebruik van beheerde identiteiten voor Azure-resources REST-eindpunt van een client Bash/CURL |
-| [Afhandeling van token in cache opslaan](#handling-token-caching) | Richtlijnen voor het verwerken van verlopen toegangstokens |
+| Afhandeling van token in cache opslaan | Richtlijnen voor het verwerken van verlopen toegangstokens |
 | [Foutafhandeling](#error-handling) | Richtlijnen voor het verwerken van HTTP-fouten geretourneerd door de beheerde identiteit voor token-eindpunt van Azure-resources |
 | [Resource-id's voor Azure-services](#resource-ids-for-azure-services) | Waar u de resource-id's ophalen voor ondersteunde Azure-services |
 
@@ -373,14 +373,14 @@ In deze sectie worden de mogelijke foutberichten. Een "200 OK ' status is een ge
 | Statuscode | Fout | Foutbeschrijving | Oplossing |
 | ----------- | ----- | ----------------- | -------- |
 | 400-Ongeldige aanvraag | invalid_resource | AADSTS50001: De toepassing met de naam *\<URI\>* is niet gevonden in de tenant met de naam  *\<TENANT-ID\>*. Dit kan gebeuren als de toepassing niet is geïnstalleerd door de beheerder van de tenant of toegestaan door een gebruiker in de tenant. Misschien hebt u verzonden de verificatieaanvraag naar de verkeerde tenant. \ | (Alleen Linux) |
-| 400-Ongeldige aanvraag | bad_request_102 | Vereiste metagegevens-header is niet opgegeven | Een van beide de `Metadata` koptekst van het veld van uw aanvraag, ontbreekt of heeft een onjuiste indeling. De waarde moet worden opgegeven als `true`, volledig in kleine letters. Zie de aanvraag"voorbeeld" in de [voorgaande sectie REST](#rest) voor een voorbeeld.|
-| 401-niet toegestaan | unknown_source | Onbekende bron  *\<URI\>* | Controleer of uw aanvraag HTTP GET-URI is ingedeeld. De `scheme:host/resource-path` deel moet worden opgegeven als `http://localhost:50342/oauth2/token`. Zie de aanvraag"voorbeeld" in de [voorgaande sectie REST](#rest) voor een voorbeeld.|
+| 400-Ongeldige aanvraag | bad_request_102 | Vereiste metagegevens-header is niet opgegeven | Een van beide de `Metadata` koptekst van het veld van uw aanvraag, ontbreekt of heeft een onjuiste indeling. De waarde moet worden opgegeven als `true`, volledig in kleine letters. De aanvraag"voorbeeld" in de voorgaande sectie REST voor een voorbeeld zien.|
+| 401-niet toegestaan | unknown_source | Onbekende bron  *\<URI\>* | Controleer of uw aanvraag HTTP GET-URI is ingedeeld. De `scheme:host/resource-path` deel moet worden opgegeven als `http://localhost:50342/oauth2/token`. De aanvraag"voorbeeld" in de voorgaande sectie REST voor een voorbeeld zien.|
 |           | invalid_request | De aanvraag ontbreekt een vereiste parameter, bevat een ongeldige parameter-waarde, bevat een parameter meer dan één keer of anders is onjuist gevormd. |  |
 |           | unauthorized_client | De client is niet gemachtigd om aan te vragen van een toegangstoken met deze methode. | Veroorzaakt door een aanvraag die lokale loopback hebt gebruikt voor het aanroepen van de extensie, of op een virtuele machine die geen beheerde identiteiten voor Azure-resources juist geconfigureerd. Zie [configureren beheerde identiteiten voor een Azure-resources op een virtuele machine met behulp van de Azure-portal](qs-configure-portal-windows-vm.md) als u hulp nodig met VM-configuratie. |
 |           | access_denied | De resource-eigenaar of autorisatieserver server heeft de aanvraag geweigerd. |  |
 |           | unsupported_response_type | De autorisatie-server biedt geen ondersteuning voor het verkrijgen van een toegangstoken met deze methode. |  |
 |           | invalid_scope | Het aangevraagde bereik is ongeldig, onbekend of onjuist gevormd. |  |
-| 500 Interne serverfout | onbekend | Kan geen token ophalen uit de Active directory. Zie voor meer informatie de logboeken in  *\<bestandspad\>* | Controleer of dat beheerde identiteiten voor Azure-resources op de virtuele machine is ingeschakeld. Zie [configureren beheerde identiteiten voor een Azure-resources op een virtuele machine met behulp van de Azure-portal](qs-configure-portal-windows-vm.md) als u hulp nodig met VM-configuratie.<br><br>Controleer ook of dat uw aanvraag HTTP GET-URI is juist opgemaakt, met name de URI die is opgegeven in de querytekenreeks resource. Zie de aanvraag"voorbeeld" in de [voorgaande sectie REST](#rest) voor een voorbeeld of [Azure-services die ondersteuning voor Azure AD-verificatie](services-support-msi.md) voor een lijst met services en hun respectieve resource-id's.
+| 500 Interne serverfout | onbekend | Kan geen token ophalen uit de Active directory. Zie voor meer informatie de logboeken in  *\<bestandspad\>* | Controleer of dat beheerde identiteiten voor Azure-resources op de virtuele machine is ingeschakeld. Zie [configureren beheerde identiteiten voor een Azure-resources op een virtuele machine met behulp van de Azure-portal](qs-configure-portal-windows-vm.md) als u hulp nodig met VM-configuratie.<br><br>Controleer ook of dat uw aanvraag HTTP GET-URI is juist opgemaakt, met name de URI die is opgegeven in de querytekenreeks resource. Zie de aanvraag"voorbeeld" in de voorgaande sectie REST voor een voorbeeld of [Azure-services die ondersteuning voor Azure AD-verificatie](services-support-msi.md) voor een lijst met services en hun respectieve resource-id's.
 
 ## <a name="retry-guidance"></a>Richtlijnen voor opnieuw proberen 
 

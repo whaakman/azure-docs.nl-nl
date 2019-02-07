@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: bd2efce831fa98b3a4543d67d247d04dc8fc9d04
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 1c3a98e6c1aebb497514c074eb66f8cf30e91228
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853180"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819566"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Maak een virtueel-netwerkpeering - verschillende implementatiemodellen, hetzelfde abonnement
 
@@ -38,7 +38,7 @@ Peering op virtueel netwerk kan niet worden gemaakt tussen twee virtuele netwerk
 
 Virtuele netwerken in dezelfde regio van deze zelfstudie collega's. U kunt ook virtuele netwerken in verschillende koppelen [ondersteunde regio's](virtual-network-manage-peering.md#cross-region). Het wordt aanbevolen dat u bekend zijn met de [peering vereisten en beperkingen](virtual-network-manage-peering.md#requirements-and-constraints) voor peering van virtuele netwerken.
 
-U kunt de [Azure-portal](#portal), de Azure [opdrachtregelinterface](#cli) (CLI), Azure [PowerShell](#powershell), of een [Azure Resource Manager-sjabloon](#template)peering op virtueel netwerk maken. Klik op een van de vorige hulpprogramma koppelingen en Ga rechtstreeks naar de stappen voor het maken van een virtueel-netwerkpeering met behulp van het hulpprogramma naar keuze.
+U kunt de Azure-portal, Azure [opdrachtregelinterface](#cli) (CLI), Azure [PowerShell](#powershell), of een Azure Resource Manager-sjabloon voor het maken van een peering op virtueel netwerk. Klik op een van de vorige hulpprogramma koppelingen en Ga rechtstreeks naar de stappen voor het maken van een virtueel-netwerkpeering met behulp van het hulpprogramma naar keuze.
 
 ## <a name="create-peering---azure-portal"></a>Maken van de peering - Azure portal
 
@@ -68,16 +68,16 @@ U kunt de [Azure-portal](#portal), de Azure [opdrachtregelinterface](#cli) (CLI)
 10. In de **myVnet1 - Peerings** blade die wordt weergegeven, klikt u op **+ toevoegen**
 11. In de **Add peering** blade die wordt weergegeven, invoeren, of Selecteer de volgende opties en klik vervolgens op **OK**:
      - **Name**: *myVnet1ToMyVnet2*
-     - **Virtueel netwerk implementatiemodel**: Selecteer **klassieke**.
+     - **Virtueel netwerk implementatiemodel**:  Selecteer **klassieke**.
      - **Abonnement**: Selecteer uw abonnement
-     - **Virtueel netwerk**: klik op **een virtueel netwerk kiezen**, klikt u vervolgens op **myVnet2**.
-     - **Toestaan van toegang tot het virtuele netwerk:** ervoor te zorgen dat **ingeschakeld** is geselecteerd.
+     - **Virtueel netwerk**:  Klik op **een virtueel netwerk kiezen**, klikt u vervolgens op **myVnet2**.
+     - **Toegang tot het virtuele netwerk toestaan:** Zorg ervoor dat **ingeschakeld** is geselecteerd.
     Er zijn geen andere instellingen worden gebruikt in deze zelfstudie. Lees voor meer informatie over alle instellingen van peering, [virtueel-netwerkpeerings beheren](virtual-network-manage-peering.md#create-a-peering).
 12. Nadat u hebt geklikt **OK** in de vorige stap, de **Add peering** blade wordt gesloten en u ziet de **myVnet1 - Peerings** blade opnieuw. Na enkele seconden weergegeven de peering die u hebt gemaakt in de blade. **Verbonden** wordt vermeld in de **PEERINGSTATUS** kolom voor de **myVnet1ToMyVnet2** u peering gemaakt.
 
     De peering wordt nu ingesteld. Alle Azure-resources die u in beide virtuele netwerken maakt zijn nu kan communiceren met elkaar via hun IP-adressen. Als u standaard Azure-naamomzetting voor virtuele netwerken, zijn de resources in de virtuele netwerken niet kunnen omzetten van namen voor de virtuele netwerken. Als u omzetten van namen tussen virtuele netwerken wilt in een peering, moet u uw eigen DNS-server maken. Meer informatie over het instellen van [naamomzetting met uw eigen DNS-server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
-13. **Optionele**: hoewel het maken van virtuele machines wordt niet in deze zelfstudie gedekt, kunt u een virtuele machine maken in elk virtueel netwerk en verbinding maken van een virtuele machine met de andere, te valideren.
-14. **Optionele**: voor het verwijderen van de resources die u in deze zelfstudie maakt, voert u de stappen in de [resources verwijderen](#delete-portal) sectie van dit artikel.
+13. **Optioneel**: Hoewel het maken van virtuele machines wordt niet in deze zelfstudie gedekt, kunt u een virtuele machine maken in elk virtueel netwerk en verbinding maken van een virtuele machine met de andere, te valideren.
+14. **Optioneel**: Als u wilt verwijderen van de resources die u in deze zelfstudie maakt, u de stappen in de [resources verwijderen](#delete-portal) sectie van dit artikel.
 
 ## <a name="cli"></a>Maken van de peering - Azure CLI
 
@@ -139,8 +139,8 @@ De volgende stappen met behulp van de klassieke Azure CLI en Azure CLI. U kunt d
    De uitvoer bevat **verbonden** in de **PeeringState** kolom.
 
    Alle Azure-resources die u in beide virtuele netwerken maakt zijn nu kan communiceren met elkaar via hun IP-adressen. Als u standaard Azure-naamomzetting voor virtuele netwerken, zijn de resources in de virtuele netwerken niet kunnen omzetten van namen voor de virtuele netwerken. Als u omzetten van namen tussen virtuele netwerken wilt in een peering, moet u uw eigen DNS-server maken. Meer informatie over het instellen van [naamomzetting met uw eigen DNS-server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
-7. **Optionele**: hoewel het maken van virtuele machines wordt niet in deze zelfstudie gedekt, kunt u een virtuele machine maken in elk virtueel netwerk en verbinding maken van een virtuele machine met de andere, te valideren.
-8. **Optionele**: voor het verwijderen van de resources die u in deze zelfstudie maakt, voert u de stappen in [resources verwijderen](#delete-cli) in dit artikel.
+7. **Optioneel**: Hoewel het maken van virtuele machines wordt niet in deze zelfstudie gedekt, kunt u een virtuele machine maken in elk virtueel netwerk en verbinding maken van een virtuele machine met de andere, te valideren.
+8. **Optioneel**: Als u wilt verwijderen van de resources die u in deze zelfstudie maakt, u de stappen in [resources verwijderen](#delete-cli) in dit artikel.
 
 ## <a name="powershell"></a>Maken van de peering - PowerShell
 
@@ -202,8 +202,8 @@ De volgende stappen met behulp van de klassieke Azure CLI en Azure CLI. U kunt d
 
     Alle Azure-resources die u in beide virtuele netwerken maakt zijn nu kan communiceren met elkaar via hun IP-adressen. Als u standaard Azure-naamomzetting voor virtuele netwerken, zijn de resources in de virtuele netwerken niet kunnen omzetten van namen voor de virtuele netwerken. Als u omzetten van namen tussen virtuele netwerken wilt in een peering, moet u uw eigen DNS-server maken. Meer informatie over het instellen van [naamomzetting met uw eigen DNS-server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
-9. **Optionele**: hoewel het maken van virtuele machines wordt niet in deze zelfstudie gedekt, kunt u een virtuele machine maken in elk virtueel netwerk en verbinding maken van een virtuele machine met de andere, te valideren.
-10. **Optionele**: voor het verwijderen van de resources die u in deze zelfstudie maakt, voert u de stappen in [resources verwijderen](#delete-powershell) in dit artikel.
+9. **Optioneel**: Hoewel het maken van virtuele machines wordt niet in deze zelfstudie gedekt, kunt u een virtuele machine maken in elk virtueel netwerk en verbinding maken van een virtuele machine met de andere, te valideren.
+10. **Optioneel**: Als u wilt verwijderen van de resources die u in deze zelfstudie maakt, u de stappen in [resources verwijderen](#delete-powershell) in dit artikel.
 
 ## <a name="delete"></a>Resources verwijderen
 

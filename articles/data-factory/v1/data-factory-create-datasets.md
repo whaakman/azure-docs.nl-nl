@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 690c2769e129d5661e7d66cb3f9f968643c0dbdb
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: af90a946f12e11602d45300a2796787f839dcf02
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746998"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811083"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Gegevenssets in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -86,7 +86,7 @@ De volgende tabel beschrijft de eigenschappen in de bovenstaande JSON:
 | structuur |Het schema van de gegevensset.<br/><br/>Zie voor meer informatie, [gegevenssetstructuur](#Structure). |Nee |N.v.t. |
 | typeProperties | De type-eigenschappen zijn verschillend voor elk type (bijvoorbeeld: Azure Blob-, Azure SQL-tabel). Zie voor meer informatie over de ondersteunde typen en de bijbehorende eigenschappen, [gegevenssettype](#Type). |Ja |N.v.t. |
 | external | Booleaanse vlag om op te geven of een gegevensset expliciet wordt geproduceerd door een data factory-pijplijn of niet. Als de invoergegevensset voor een activiteit wordt niet door de huidige pijplijn geproduceerd, moet u deze markering instellen op true. Deze markering instellen op true voor de invoergegevensset van de eerste activiteit in de pijplijn.  |Nee |false |
-| availability | Definieert het segmenteringsmodel (bijvoorbeeld elk uur of dagelijks) of het segmenteringshulplijnen model voor de gegevensset voor productie. Elke eenheid van de gegevens verwerkt en geproduceerd door het uitvoeren van een activiteit wordt een gegevenssegment genoemd. Als de beschikbaarheid van een uitvoergegevensset is ingesteld op dagelijks (frequentie: dag, interval: 1), wordt een segment dagelijks geproduceerd. <br/><br/>Zie voor meer informatie, [beschikbaarheid van gegevenssets](#Availability). <br/><br/>Zie voor meer informatie over de gegevensset voor het verwerkingsvenster, de [planning en uitvoering](data-factory-scheduling-and-execution.md) artikel. |Ja |N.v.t. |
+| availability | Definieert het segmenteringsmodel (bijvoorbeeld elk uur of dagelijks) of het segmenteringshulplijnen model voor de gegevensset voor productie. Elke eenheid van de gegevens verwerkt en geproduceerd door het uitvoeren van een activiteit wordt een gegevenssegment genoemd. Als de beschikbaarheid van een uitvoergegevensset is ingesteld op dagelijks (frequentie: dag, interval: 1), wordt een segment dagelijks geproduceerd. <br/><br/>Zie voor meer informatie, beschikbaarheid van gegevenssets. <br/><br/>Zie voor meer informatie over de gegevensset voor het verwerkingsvenster, de [planning en uitvoering](data-factory-scheduling-and-execution.md) artikel. |Ja |N.v.t. |
 | policy |Definieert de criteria of de voorwaarde die moeten voldoen aan de gegevensset segmenten. <br/><br/>Zie voor meer informatie, de [gegevensset beleid](#Policy) sectie. |Nee |N.v.t. |
 
 ## <a name="dataset-example"></a>Voorbeeld van de gegevensset

@@ -15,12 +15,12 @@ ms.date: 12/11/2018
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 331a71d4f807e1e596a91c1463064e3f6dcbd1e1
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7d719ee6bdb8ce1f4131b474fe7602b492e69cd3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247031"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810667"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack"></a>Azure Cognitive Services implementeren in Azure Stack
 
@@ -144,7 +144,7 @@ Als u meer informatie over de velden voor sleutels:
 | ImageLocation | Geeft de locatie van de installatiekopie van de specifieke cognitive service-container in de ACR. Bijvoorbeeld, de face-service: `aicpppe.azurecr.io/microsoft/cognitive-services-face` |
 | BillingURL |De eindpunt-URL die u hebt genoteerd in stap van [Azure-Resource maken](#create-azure-resources) |
 | ApiKey | De abonnementssleutel die u hebt genoteerd in stap van [Azure-Resource maken](#create-azure-resources) |
-| SecretName | De geheime naam die u zojuist hebt genoteerd in stap van [maken voor toegang tot de privécontainerregister secrete](#create-secrete-to-access-the-private-container-registry) |
+| SecretName | De geheime naam die u zojuist hebt genoteerd in stap van maken voor toegang tot de privécontainerregister secrete |
 
 ## <a name="deploy-the-cognitive-service"></a>De cognitive service implementeren
 

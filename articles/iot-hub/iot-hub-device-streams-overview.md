@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 426c8995e5c3d98e42d0ad334b8ae52171556dce
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: ea50902a557e8bd7aa18fbc03fca8fc4a99ac2e2
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884959"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770785"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT Hub apparaat-Streams (preview)
 
@@ -82,8 +82,22 @@ Het apparaat en de service-zijde van de stroom van een apparaat moet kunnen tot 
 U kunt ook de informatie van de eindpunten kan gebruik worden opgehaald met behulp van Azure CLI onder de sectie met eigenschappen van de hub, met name `property.hostname` en `property.deviceStreams` sleutels.
 
 ```azurecli-interactive
-az iot hub show --name <YourIoTHubName>
+az iot hub devicestream show --name <YourIoTHubName>
 ```
+
+De uitvoer is een JSON-object van alle eindpunten die wellicht verbinden om te kunnen maken van een apparaat-stream van uw hub apparaat- en service.
+
+```json
+{
+  "streamingEndpoints": [
+    "https://<YourIoTHubName>.<region-stamp>.streams.azure-devices.net"
+  ]
+}
+```
+
+> [!NOTE]
+> Zorg ervoor dat u Azure CLI versie 2.0.57 hebt geïnstalleerd of hoger. U kunt de nieuwste versie [hier](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) downloaden.
+> 
 
 ## <a name="whitelist-device-streaming-endpoints"></a>Lijst met toegestane adressen apparaat Streaming-eindpunten
 
@@ -92,9 +106,14 @@ Zoals vermeld [eerdere](#Overview), het apparaat maakt een uitgaande verbinding 
 De hostnaam van apparaat-streaming-eindpunt kan worden gevonden op de Azure IoT Hub-portal onder het tabblad Overzicht. ![Alternatieve tekst](./media/iot-hub-device-streams-overview/device-stream-portal.PNG "apparaat stream eindpunten")
 
 U vindt hier ook deze informatie met behulp van Azure CLI:
-```cmd/sh
-az iot hub show --name <YourIoTHubName>
+
+```azurecli-interactive
+az iot hub devicestream show --name <YourIoTHubName>
 ```
+
+> [!NOTE]
+> Zorg ervoor dat u Azure CLI versie 2.0.57 hebt geïnstalleerd of hoger. U kunt de nieuwste versie [hier](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) downloaden.
+> 
 
 ## <a name="troubleshoot-via-device-streams-activity-logs"></a>Problemen oplossen via apparaat Streams activiteitenlogboeken
 
@@ -184,7 +203,7 @@ Gebruik de onderstaande koppelingen voor instructies over het uitvoeren van de l
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Gebruik de onderstaande koppelingen voor meer informatie over apparaat stromen:
+Gebruik de onderstaande koppelingen voor meer informatie over apparaatstreams:
 
 > [!div class="nextstepaction"]
 > [Apparaat-streams op IoT weergeven (Channel 9)](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fchannel9.msdn.com%2FShows%2FInternet-of-Things-Show%2FAzure-IoT-Hub-Device-Streams&data=02%7C01%7Crezas%40microsoft.com%7Cc3486254a89a43edea7c08d67a88bcea%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636831125031268909&sdata=S6u9qiehBN4tmgII637uJeVubUll0IZ4p2ddtG5pDBc%3D&reserved=0)

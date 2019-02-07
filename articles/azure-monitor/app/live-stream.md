@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: f369eb6241a8eb3d44a0a38e243c533da47103e1
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: b741528b2770314be7e851f38817611d6908352b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104607"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814942"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Bewaking en Diagnose met een latentie van 1 seconde
 
@@ -64,7 +64,7 @@ Controleer de [uitgaande poorten voor Live Metrics Stream](../../azure-monitor/a
 |Op aanvraag|Gegevens worden gestreamd terwijl u Live metrische gegevens openen|Gegevens worden verzonden wanneer de SDK is geïnstalleerd en ingeschakeld|
 |Gratis|Er zijn geen kosten voor Live Stream-gegevens|Onderhevig aan [prijzen](../../azure-monitor/app/pricing.md)
 |Steekproeven|Alle geselecteerde metrische gegevens en prestatiemeteritems worden verzonden. Fouten en stack-traces steekproeven worden genomen. TelemetryProcessors worden niet toegepast.|Mogelijk zijn gebeurtenissen [steekproef](../../azure-monitor/app/api-filtering-sampling.md)|
-|Besturingskanaal|Filter beheer locatiesignalen worden verzonden naar de SDK. We raden u [beveiligd dit kanaal](#secure-channel).|Communicatie kan niet worden teruggedraaid naar de portal|
+|Besturingskanaal|Filter beheer locatiesignalen worden verzonden naar de SDK. Het is raadzaam dat dit kanaal kunt u beveiligen.|Communicatie kan niet worden teruggedraaid naar de portal|
 
 
 ## <a name="select-and-filter-your-metrics"></a>Selecteren en filteren van uw metrische gegevens

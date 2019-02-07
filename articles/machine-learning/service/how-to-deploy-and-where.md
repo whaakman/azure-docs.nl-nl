@@ -11,16 +11,16 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: a32cb694a18f8fff937f647804659efb71be415e
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: caafd5ac43ca94f8b01298b4e18e48065b7001b9
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745714"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766619"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementeer modellen met de Azure Machine Learning-service
 
-De Azure Machine Learning-service biedt verschillende manieren waarop die u het getrainde model met behulp van de SDK kunt implementeren. In dit document leert u hoe u uw model als een webservice in de Azure-cloud, of op IoT edge-apparaten implementeren.
+De Azure Machine Learning-service biedt verschillende manieren waarop die u het getrainde model met behulp van de SDK kunt implementeren. In dit document leert u hoe u uw model als een webservice in de Azure-cloud, of op IoT Edge-apparaten implementeren.
 
 > [!IMPORTANT]
 > Cross-origin resource sharing (CORS) wordt momenteel niet ondersteund bij het implementeren van een model als een webservice.
@@ -119,7 +119,7 @@ De uitvoering van script ontvangt gegevens verzonden naar een geïmplementeerde 
 
 #### <a name="working-with-json-data"></a>Werken met JSON-gegevens
 
-Hier volgt een voorbeeldscript dat wordt geaccepteerd en JSON-gegevens geretourneerd. De `run` functie transformeert de gegevens uit JSON naar een indeling die wordt verwacht dat het model en vervolgens het antwoord naar JSON worden getransformeerd alvorens deze:
+Het volgende voorbeeldscript accepteert en retourneert JSON-gegevens. De `run` functie transformeert de gegevens uit JSON naar een indeling die wordt verwacht dat het model en vervolgens het antwoord naar JSON worden getransformeerd alvorens deze:
 
 ```python
 # import things required by this script
@@ -149,7 +149,7 @@ def run(raw_data):
 
 #### <a name="working-with-binary-data"></a>Werken met binaire gegevens
 
-Als uw model accepteert __binaire gegevens__, gebruikt u `AMLRequest`, `AMLResponse`, en `rawhttp`. Hier volgt een voorbeeld van een script dat binaire gegevens accepteert en retourneert de omgekeerde bytes voor POST-aanvragen. Voor GET-aanvragen retourneert deze de volledige URL in de hoofdtekst van antwoord:
+Als uw model accepteert __binaire gegevens__, gebruikt u `AMLRequest`, `AMLResponse`, en `rawhttp`. Het volgende voorbeeldscript binaire gegevens accepteert en retourneert de omgekeerde bytes voor POST-aanvragen. Voor GET-aanvragen retourneert deze de volledige URL in de hoofdtekst van antwoord:
 
 ```python
 from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
@@ -244,9 +244,6 @@ Als u wilt implementeren in Azure Container Instances, gebruikt u de volgende st
 
     **Geschatte tijd**: Ongeveer 3 minuten.
 
-    > [!TIP]
-    > Als er fouten tijdens de implementatie zijn, gebruikt u `service.get_logs()` om de servicelogboeken weer te geven. De vastgelegde gegevens mogelijk de oorzaak van de fout.
-
 Zie voor meer informatie de documentatie bij de [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) en [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) klassen.
 
 ### <a id="aks"></a> Implementeren in Azure Kubernetes Service
@@ -334,9 +331,6 @@ print(service.state)
 
 **Geschatte tijd**: Ongeveer 3 minuten.
 
-> [!TIP]
-> Als er fouten tijdens de implementatie zijn, gebruikt u `service.get_logs()` om de servicelogboeken weer te geven. De vastgelegde gegevens mogelijk de oorzaak van de fout.
-
 Zie voor meer informatie de documentatie bij de [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) en [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) klassen.
 
 ### <a id="fpga"></a> Implementeren naar het veld-programmable gate arrays (FPGA)
@@ -371,7 +365,7 @@ sudo ./createNregister <The Azure subscriptionID you want to use> <Resourcegroup
 
 Opslaan van de resulterende verbindingsreeks na "cs": '{deze tekenreeks kopiëren}'.
 
-Initialiseren van uw apparaat door het downloaden van [met dit script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge) in een UbuntuX64 IoT edge-knooppunt of DSVM om uit te voeren van de volgende opdrachten:
+Initialiseren van uw apparaat door het downloaden van [met dit script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge) in een UbuntuX64 IoT Edge-knooppunt of DSVM om uit te voeren van de volgende opdrachten:
 
 ```bash
 ssh <yourusername>@<yourdeviceip>
@@ -382,7 +376,7 @@ sudo ./installIoTEdge
 
 Het IoT Edge-knooppunt is gereed voor het ontvangen van de verbindingsreeks voor uw IoT-Hub. Zoek de regel ```device_connection_string:``` en plak de verbindingsreeks van bovenstaande tussen de aanhalingstekens.
 
-U kunt ook meer informatie over het registreren van uw apparaat en installeer de IoT-runtime stap voor stap door het [Quick Start: Uw eerste IoT Edge-module implementeren op een apparaat met Linux x64](../../iot-edge/quickstart-linux.md) document.
+U kunt ook meer informatie over het registreren van uw apparaat en de IoT-runtime installeren door de [Quick Start: Uw eerste IoT Edge-module implementeren op een apparaat met Linux x64](../../iot-edge/quickstart-linux.md) document.
 
 
 #### <a name="get-the-container-registry-credentials"></a>De container registerreferenties ophalen
@@ -390,7 +384,7 @@ Als u wilt een IoT Edge-module implementeert op uw apparaat, moet Azure IoT de r
 
 U kunt gemakkelijk de vereiste container registerreferenties op twee manieren ophalen:
 
-+ **In de Azure-Portal**:
++ **In de Azure-portal**:
 
   1. Meld u aan bij [Azure Portal](https://portal.azure.com/signin/index).
 
@@ -469,7 +463,7 @@ De webservice is een REST-API, zodat u toepassingen in diverse programmeertalen 
 
 ## <a id="update"></a> Bijwerken van de webservice
 
-Voor het bijwerken van de webservice, gebruikt u de `update` methode. De volgende code ziet u hoe u de webservice voor het gebruik van een nieuwe installatiekopie bijwerken:
+Wanneer u een nieuwe installatiekopie maakt, moet u moet handmatig bijwerken elke service die u wilt gebruiken van de nieuwe installatiekopie. Voor het bijwerken van de webservice, gebruikt u de `update` methode. De volgende code ziet u hoe u de webservice voor het gebruik van een nieuwe installatiekopie bijwerken:
 
 ```python
 from azureml.core.webservice import Webservice
@@ -487,9 +481,6 @@ service.update(image = new_image)
 print(service.state)
 ```
 
-> [!NOTE]
-> Wanneer u een installatiekopie van een bijwerkt, wordt de webservice niet automatisch bijgewerkt. Elke service die u wilt gebruiken van de nieuwe installatiekopie moet u handmatig bijwerken.
-
 Zie voor meer informatie de documentatie bij de [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) klasse.
 
 ## <a name="clean-up"></a>Opruimen
@@ -501,6 +492,19 @@ Als u wilt verwijderen van een installatiekopie, gebruikt u `image.delete()`.
 Als u wilt een geregistreerde model verwijderen, gebruikt u `model.delete()`.
 
 Zie voor meer informatie de documentatie bij [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), [Image.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#delete--), en [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
+
+## <a name="troubleshooting"></a>Problemen oplossen
+
+* __Als er fouten optreden tijdens de implementatie van__, gebruikt u `service.get_logs()` om de servicelogboeken weer te geven. De vastgelegde gegevens mogelijk de oorzaak van de fout.
+
+* De logboeken bevatten mogelijk een foutbericht weergegeven dat u __niveau van logboekregistratie voor FOUTOPSPORING ingesteld__. Om in te stellen op het niveau van logboekregistratie, voegt u de volgende regels voor uw scoring-script maken van de installatiekopie en maakt u een service met behulp van de:
+
+    ```python
+    import logging
+    logging.basicConfig(level=logging.DEBUG)
+    ```
+
+    Deze wijziging kunt aanvullende logboekregistratie en meer informatie over waarom de fout zich voordoet opleveren.
 
 ## <a name="next-steps"></a>Volgende stappen
 

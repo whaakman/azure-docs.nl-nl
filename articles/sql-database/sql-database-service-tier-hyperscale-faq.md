@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 5982fcee41dd8c99aaa781a8ff3cd55ff2489929
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/06/2019
+ms.openlocfilehash: 3ee952f10cebe374767e0db4a592695eeb1b4417
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511298"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810062"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Veelgestelde vragen over zeer grootschalige Azure-SQL-databases
 
@@ -222,7 +222,7 @@ Ja. Sommige functies van Azure SQL Database worden niet ondersteund in grootscha
 
 Ja. U kunt alle bestaande technologieën voor migratie gebruiken om te migreren naar grootschalige, met inbegrip van BACPAC, transactionele replicatie, logische het laden van gegevens. Zie ook de [Azure Database migratieservice](../dms/dms-overview.md).
 
-### <a name="what-is-my-downtown-during-migration-from-an-on-premises-or-virtual-machine-environment-to-hyperscale-and-how-can-i-minimize-it"></a>Wat is mijn centrum tijdens de migratie van een on-premises of virtuele-machineomgeving op Hyperschaal en hoe kan ik het te minimaliseren
+### <a name="what-is-my-downtime-during-migration-from-an-on-premises-or-virtual-machine-environment-to-hyperscale-and-how-can-i-minimize-it"></a>Wat is mijn uitvaltijd tijdens de migratie van een on-premises of virtuele-machineomgeving op Hyperschaal en hoe kan ik het te minimaliseren
 
 Uitvaltijd is hetzelfde als de downtime wanneer u uw databases naar een individuele database in Azure SQL Database migreert. U kunt [transactionele replicatie](replication-to-sql-database.md#data-migration-scenario
 ) migratie voor databases tot enkele TB in grootte downtime minimaliseren. Voor zeer grote database (10 + TB), kunt u overwegen om gegevens met ADF, Spark of met andere technologieën voor het verplaatsen van gegevens te migreren.

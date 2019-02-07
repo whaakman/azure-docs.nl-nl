@@ -10,12 +10,12 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 4f96302f1035500a10cebaa24efd4b8db329fdff
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b5e6853653bab96cd11196ba03fbeadbdc6b337f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219767"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816206"
 ---
 # <a name="basic-concepts"></a>Basisbegrippen
 
@@ -92,7 +92,7 @@ De spraakherkenningsservice Microsoft biedt twee manieren voor ontwikkelaars voo
 Er zijn drie modi van erkenning: `interactive`, `conversation`, en `dictation`. De opname-modus wordt aangepast op basis van hoe de gebruikers zijn waarschijnlijk zullen spreek spraakherkenning. Kies de juiste opname-modus voor uw toepassing.
 
 > [!NOTE]
-> Opname-modi mogelijk verschillend gedrag de [REST-protocol](#rest-speech-recognition-api) dan in de [WebSocket-protocol](#webSocket-speech-recognition-api). De REST-API biedt bijvoorbeeld geen ondersteuning voor doorlopende spraakherkenning, zelfs in de conversatie of dictation-modus.
+> Opname-modi mogelijk verschillend gedrag in de REST-protocol dan in de WebSocket-protocol. De REST-API biedt bijvoorbeeld geen ondersteuning voor doorlopende spraakherkenning, zelfs in de conversatie of dictation-modus.
 > [!NOTE]
 > Deze modi zijn van toepassing wanneer u rechtstreeks de REST- of WebSocket-protocol. De [clientbibliotheken](GetStarted/GetStartedClientLibraries.md) verschillende parameters gebruiken om op te geven van opname-modus. Zie voor meer informatie de clientbibliotheek van uw keuze.
 
@@ -159,7 +159,7 @@ De antwoorden transcriptie retourneert de geconverteerde tekst van audio naar cl
 
 - `RecognitionStatus` Hiermee geeft u de status van de opname. De mogelijke waarden zijn opgegeven in de onderstaande tabel.
 
-| Status | Beschrijving |
+| Status | Description |
 | ------------- | ---------------- |
 | Geslaagd | De opname is voltooid en het veld weergavetekst aanwezig is |
 | NoMatch | Spraak is gedetecteerd in de audiostream, maar er zijn geen woorden uit de doeltaal zijn afgestemd. Zie [NoMatch erkenning Status(#nomatch-recognition-status) voor meer informatie  |
@@ -189,7 +189,7 @@ Microsoft Speech Service kunt tal van nettolading-indelingen in transcriptie ant
 
 U kunt de woordgroep resultaatindeling beheren door op te geven de `format` URL-queryparameter. Standaard stuurt de service `simple` resultaten.
 
-| Indeling | Beschrijving |
+| Indeling | Description |
 |-----|-----|
 | `simple` | Een vereenvoudigde woordgroep resultaat met de status van de spraakherkenning en de herkende tekst in formulier weergeven. |
 | `detailed` | Een opname-status en een lijst van de N-beste woordgroep resultaten waarbij elk resultaat woordgroep alle vier herkenning van formulieren en een betrouwbaarheidsscore bevat. |
@@ -306,7 +306,7 @@ De indeling van de nettolading van de `detailed` meer woorden resultaat:
 
 De Service Microsoft Speech herkent alle vormen van menselijke spraak, met inbegrip van woorden en zinnen die veel mensen zouden classificeren als "grof taalgebruik." U kunt bepalen hoe grof taalgebruik in de service worden verwerkt met behulp van de *grof taalgebruik* queryparameter. Standaard maskeert de service grof taalgebruik in *speech.phrase* resulteert en retourneert geen *speech.hypothesis* berichten met grof taalgebruik.
 
-| *Grof taalgebruik* waarde | Beschrijving |
+| *Grof taalgebruik* waarde | Description |
 | - | - |
 | `masked` | Maskeert grof taalgebruik met een sterretje. Dit gedrag is de standaardinstelling. | 
 | `removed` | Hiermee verwijdert u grof taalgebruik uit alle resultaten. |

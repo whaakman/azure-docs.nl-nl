@@ -11,12 +11,12 @@ ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: f0f3396852720bbbb31e46f7a9913d9d1bdc4a6c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8798ecd15c673c26c5b1be0920887ff493cc6a85
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157238"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818682"
 ---
 # <a name="get-image-insights-with-the-bing-image-search-api"></a>Verkrijg inzichten van de installatiekopie met de Bing afbeeldingen zoeken-API
 
@@ -221,7 +221,7 @@ De waarden van de rechthoek zijn ten opzichte van de breedte en hoogte van de oo
 -   Rechts: 290 / 300 = 0.9667...  
 -   Onder: 150 / 200 = 0.75  
 
-U kunt de regio die Bing in latere insights aanroepen retourneert. Als u bijvoorbeeld visueel vergelijkbare afbeeldingen van de herkende entiteit ophalen. Zie voor meer informatie, [te gebruiken met visueel vergelijkbare en entiteit erkenning Modules installatiekopieën bijsnijden](#croppingimages). Hieronder ziet u de toewijzing tussen de velden van de regio en de queryparameters die u gebruiken wilt om te bijsnijden afbeeldingen.  
+U kunt de regio die Bing in latere insights aanroepen retourneert. Als u bijvoorbeeld visueel vergelijkbare afbeeldingen van de herkende entiteit ophalen. Zie voor meer informatie te gebruiken met visueel vergelijkbare en entiteit erkenning Modules bijsnijden installatiekopieën. Hieronder ziet u de toewijzing tussen de velden van de regio en de queryparameters die u gebruiken wilt om te bijsnijden afbeeldingen.  
 
 -   Links wordt toegewezen aan [cal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cal)  
 -   Top is toegewezen aan [cat](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cat)  

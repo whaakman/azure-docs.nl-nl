@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: aafc960c0c26a94a8be672d0d72a46dfcb559013
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 13b82aa4f256bf0ec2d0805e85241d72e115d737
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157003"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810198"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>De ervaring van aanmelding met Azure multi-factor Authentication
 > [!NOTE]
@@ -31,8 +31,8 @@ Uw aanmeldingsprocedure is afhankelijk van wat u wilt gebruiken als de tweede fa
 | --- |
 | [Met een telefonische oproep naar mijn telefoon mobile- of office](#signing-in-with-a-phone-call) |
 | [Met een tekst naar mijn mobiele telefoon](#signing-in-with-a-text-message)
-| [Dankzij de meldingen van de Microsoft Authenticator-app](#signing-in-with-the-microsoft-authenticator-app-using-notification) |
-| [Met verificatiecodes uit de Microsoft Authenticator-app](#signing-in-with-the-microsoft-authenticator-app-using-verification-code) |
+| Dankzij de meldingen van de Microsoft Authenticator-app |
+| Met verificatiecodes uit de Microsoft Authenticator-app |
 | [Met een alternatieve methode, omdat ik mijn voorkeursmethode nu niet kan gebruiken](#signing-in-with-an-alternate-method) |
 
 ## <a name="signing-in-with-a-phone-call"></a>Aanmelden met een telefonische oproep
@@ -87,4 +87,4 @@ Als u problemen met aanmelden met verificatie in twee stappen hebt, u meer infor
 
 Meer informatie over het [beheren van de verificatie-instellingen voor verificatie in twee stappen](multi-factor-authentication-end-user-manage-settings.md).
 
-Meer informatie over het [aan de slag met de Microsoft Authenticator-app](microsoft-authenticator-app-how-to.md) zodat u meldingen kunt aan te melden bij, in plaats van teksten en telefoongesprekken.
+Meer informatie over het [aan de slag met de Microsoft Authenticator-app](user-help-auth-app-download-install.md) zodat u meldingen kunt aan te melden bij, in plaats van teksten en telefoongesprekken.

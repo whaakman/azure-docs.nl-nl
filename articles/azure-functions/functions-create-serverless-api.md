@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 9f96b4cbe95d918a94ea0d02f9b8fdd8f663eeec
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: f6a678e03818f1e1f2182b3b0dfab221d415dc72
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001461"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698225"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Een serverloze API maken met behulp van Azure Functions
 
@@ -53,7 +53,7 @@ Standaard is uw functie die wordt geactiveerd via HTTP geconfigureerd voor het a
 
 1. Klik op **Opslaan**.
 
-Meer informatie over het aanpassen van HTTP-functies vindt u in [HTTP-bindingen in Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#customizing-the-http-endpoint).
+Meer informatie over het aanpassen van HTTP-functies vindt u in [HTTP-bindingen in Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook).
 
 ### <a name="test-your-api"></a>Uw API testen
 
@@ -176,7 +176,7 @@ U gaat nu uw mock-API toevoegen. Vervang het proxies.json-bestand door het volge
 }
 ```
 
-Hiermee wordt een nieuwe proxy 'GetUserByName' toegevoegd, zonder de eigenschap backendUri. In plaats van een andere resource aan te roepen, wordt de standaardreactie van Azure Functions-proxy's gewijzigd via het negeren van een antwoord. Het negeren van aanvragen en antwoorden kan ook worden gebruikt in combinatie met een back-end-URL. Dit is met name handig wanneer u een proxy uitvoert met een ouder systeem, waar u mogelijk headers, queryparameters, enzovoort moet wijzigen. Zie [Aanvragen en antwoorden negeren in proxy's](https://docs.microsoft.com/azure/azure-functions/functions-proxies#a-namemodify-requests-responsesamodifying-requests-and-responses) voor meer informatie over het negeren van aanvragen en antwoorden.
+Hiermee wordt een nieuwe proxy 'GetUserByName' toegevoegd, zonder de eigenschap backendUri. In plaats van een andere resource aan te roepen, wordt de standaardreactie van Azure Functions-proxy's gewijzigd via het negeren van een antwoord. Het negeren van aanvragen en antwoorden kan ook worden gebruikt in combinatie met een back-end-URL. Dit is met name handig wanneer u een proxy uitvoert met een ouder systeem, waar u mogelijk headers, queryparameters, enzovoort moet wijzigen. Zie [Aanvragen en antwoorden negeren in proxy's](https://docs.microsoft.com/azure/azure-functions/functions-proxies) voor meer informatie over het negeren van aanvragen en antwoorden.
 
 Test uw mock-API door het `<YourProxyApp>.azurewebsites.net/api/users/{username}`-eindpunt aan te roepen met behulp van een browser of de REST-client van uw voorkeur. Vervang _{username}_ door een tekenreekswaarde die een gebruikersnaam vertegenwoordigt.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
-ms.openlocfilehash: d5ff6b05df74cd73fb374bbd7cf27b8fc7d69493
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: ef752d2f9d57ee8674d91fd14b56b804ccf50d22
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697968"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814182"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Het toepassingstype kiezen bij het toevoegen van een toepassing in Azure Active Directory
 Meer informatie over de vier typen toepassingen die u aan Azure Active Directory (Azure AD toevoegen kunt). Wanneer u een toepassing in Azure Active Directory toevoegt, wordt u gevraagd om een van de vier toepassingstype. 
@@ -95,7 +95,7 @@ Hieronder vindt u de ondersteunde **eenmalige aanmelding** modi voor Azure AD-to
 
 ## <a name="single-sign-on-modes-for-custom-developed-applications"></a>Modi voor eenmalige aanmelding voor aangepaste toepassingen
 
-Toepassingen hebt aangepast ontwikkeld op basis van de [aangepaste toepassing](#_Custom-Developed_Applications) ervaring bieden ook ondersteuning voor extra eenmalige aanmelding niet eerder weergegeven modi, waaronder:
+Toepassingen die u aangepaste ontwikkeld op basis van de aangepaste toepassing hebt zich ook ondersteuning voor extra eenmalige aanmelding modi niet eerder is vermeld, waaronder:
 
 -   [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) op basis van aanmelding
 

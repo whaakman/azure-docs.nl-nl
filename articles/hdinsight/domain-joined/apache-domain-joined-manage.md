@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: 4df96d0c3d1ec9cb64f2394fb97d46178906d916
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: b1fc52ac46a6cdb73b9210833e437765398781ef
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434814"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819124"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>HDInsight-clusters met Enterprise-beveiligingspakket beheren
 Meer informatie over de gebruikers en de rollen in HDInsight Enterprise Security Package (ESP) en het beheren van ESP-clusters.
@@ -94,10 +94,10 @@ Beveiligings- en isolatie zijn belangrijk voor een HDInsight-cluster met Enterpr
 
 |Workload|Scenario|Toegangsmethode|
 |--------|--------|-------------|
-|Apache Hadoop|Hive-interactieve taken/query 's  |<ul><li>[Beeline](#beeline)</li><li>[Hive-weergave](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC-/ JDBC-Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio-hulpprogramma 's](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
-|Apache Spark|Interactieve taken/query's, interactieve PySpark|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin met Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Hive-weergave](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC-/ JDBC-Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio-hulpprogramma 's](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Apache Hadoop|Hive-interactieve taken/query 's  |<ul><li>[Beeline](#beeline)</li><li>[Hive-weergave](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Apache Spark|Interactieve taken/query's, interactieve PySpark|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin met Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Hive-weergave](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |Apache Spark|Batch-scenario's, Spark-submit, PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
-|Interactive Query (LLAP)|Interactief|<ul><li>[Beeline](#beeline)</li><li>[Hive-weergave](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC-/ JDBC-Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio-hulpprogramma 's](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Interactive Query (LLAP)|Interactief|<ul><li>[Beeline](#beeline)</li><li>[Hive-weergave](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |Alle|Aangepaste toepassing installeren|<ul><li>[Scriptacties](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
 
    > [!NOTE]  
@@ -215,7 +215,7 @@ HDInsight Enterprise-beveiligingspakket heeft de volgende rollen:
 6. Klik op **gebruiker toevoegen** of **groep toevoegen**, en geef vervolgens de gebruikers of groepen die Hive-weergaven kunnen gebruiken.
 
 ## <a name="configure-users-for-the-roles"></a>Gebruikers voor de functies configureren
- Zie voor een lijst met functies en hun machtigingen [rollen van HDInsight-clusters met ESP](#roles-of-domain---joined-hdinsight-clusters).
+ Zie voor een overzicht van functies en hun machtigingen, rollen van HDInsight-clusters met ESP.
 
 1. Open de Ambari-gebruikersinterface voor beheer.  Zie [opent u de gebruikersinterface voor het beheer van de Ambari](#open-the-ambari-management-ui).
 2. Klik in het menu links op **rollen**.

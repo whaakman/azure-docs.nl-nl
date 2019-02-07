@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2be11f97882a7c6353b214886ce6c5a3a66add89
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 81e9ad5affda7b5e246bd7eb3406a40fd7f24dbb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339107"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814015"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Veelgestelde vragen over Azure Security Center
 Deze Veelgestelde vragen vindt u antwoorden op vragen over Azure Security Center, een service die u bij het voorkomen helpt, detecteren en direct reageren op bedreigingen met verbeterde zichtbaarheid en controle over de beveiliging van uw Microsoft Azure-resources.
@@ -176,7 +176,7 @@ Security Center kunnen de juiste oplossing is in de werkruimte op basis van de g
 U kunt de Microsoft Monitoring Agent handmatig verwijderen. Dit wordt niet aanbevolen omdat deze wordt beperkt door Security Center aanbevelingen en waarschuwingen.
 
 > [!NOTE]
-> Als gegevensverzameling is ingeschakeld, kan Security Center de agent wordt opnieuw nadat u deze verwijderen.  U moet verzamelen van gegevens voordat u de agent handmatig verwijdert uitschakelen. Zie [hoe stop ik het automatische agent-installatie en werkruimte maken?](#how-do-i-stop-the-automatic-agent-installation-and-workspace-creation?) voor instructies over het verzamelen van gegevens uitschakelen.
+> Als gegevensverzameling is ingeschakeld, kan Security Center de agent wordt opnieuw nadat u deze verwijderen.  U moet verzamelen van gegevens voordat u de agent handmatig verwijdert uitschakelen. Zie hoe stop ik het automatische agent-installatie en werkruimte maken? voor instructies over het verzamelen van gegevens uitschakelen.
 >
 >
 

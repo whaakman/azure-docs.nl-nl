@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7e53b50df88c592386d3f2fb140373a0c5aaab13
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 16b4031c0242d79b6d866d612a4d4f594dc608fa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228284"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821946"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integratie van Azure ExpressRoute met herstel na noodgevallen voor Azure VM 's
 
@@ -190,7 +190,7 @@ Voor een eenvoudige topologie die gebruikmaakt van een enkel ExpressRoute-circui
 ### <a name="example-steps"></a>Voorbeelden van stappen
 Voor het automatiseren van herstel in deze hier volgt een voorbeeld van wat u moet doen:
 
-1. Volg de stappen voor het [instellen van replicatie](#azure-vm-replication-steps).
+1. Volg de stappen voor het instellen van replicatie.
 2. [Failover van de Azure VM's](azure-to-azure-tutorial-failover-failback.md), met deze extra stappen tijdens of na de failover.
 
     a. De Azure ExpressRoute-Gateway maken in de doel-regio hub VNet. U moet dit het doel hub vNet verbinden met het ExpressRoute-circuit.

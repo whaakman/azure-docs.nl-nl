@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 12/06/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 249356644772ae75b12f5c940ff5f9ed49b2c795
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 877fb6807cb8a2aafe634b53630eaa30c6d7697a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994996"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495527"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>Zelfstudie: SQL BACPAC-bestanden importeren met Azure Resource Manager-sjablonen
 
@@ -34,6 +34,8 @@ Deze zelfstudie bestaat uit de volgende taken:
 > * De implementatie controleren
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -144,8 +146,8 @@ $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 $adminUsername = Read-Host -Prompt "Enter the SQL admin username"
 $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
 
-New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-New-AzureRmResourceGroupDeployment -Name $deploymentName `
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzResourceGroupDeployment -Name $deploymentName `
     -ResourceGroupName $resourceGroupName `
     -adminUser $adminUsername `
     -adminPassword $adminPassword `
@@ -164,7 +166,7 @@ Selecteer in de portal de SQL-database in de geïmplementeerde resourcegroep. Se
 
 Schoon de geïmplementeerd Azure-resources, wanneer u deze niet meer nodig hebt, op door de resourcegroep te verwijderen.
 
-1. Selecteer **Resourcegroep** in het linkermenu van de Azure-portal.
+1. Selecteer **Resourcegroep** in het linkermenu van Azure Portal.
 2. Voer de naam van de resourcegroep in het veld **Filter by name** in.
 3. Selecteer de naam van de resourcegroep.  U ziet in totaal zes resources in de resourcegroep.
 4. Selecteer **Resourcegroep verwijderen** in het bovenste menu.

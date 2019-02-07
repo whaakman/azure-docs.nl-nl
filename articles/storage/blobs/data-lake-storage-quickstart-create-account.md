@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 906f1a85000a2be175a204e9e6e561a75cecfde3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b49c69a488402e593573e7f9e4fda81057519149
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248432"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732444"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Snelstart: Een Azure Data Lake Storage Gen2-opslagaccount maken
 
@@ -125,11 +125,8 @@ Begin door een PowerShell-sessie met verhoogde bevoegdheden te openen.
 De module Az.Storage installeren
 
 ```powershell
-Install-Module Az.Storage -Repository PSGallery -RequiredVersion 0.7.0 -AllowPrerelease -AllowClobber -Force
+Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
 ```
-
-> [!NOTE]
-> Azure Powershell Az-modules zijn de gewenste modules voor het werken met Azure-services in Powershell. Zie voor meer informatie [Introductie van de nieuwe Az-module van Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
 
 ### <a name="log-in-to-your-azure-subscription"></a>Aanmelden bij uw Azure-abonnement
 
@@ -195,7 +192,7 @@ Dit doet u als volgt: voer met behulp van Cloud Shell of een lokale shell de vol
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Gebruik de opdracht [az group create](/cli/azure/group#az_group_create) om een nieuwe resourcegroep te maken met Azure CLI.
+Gebruik de opdracht [az group create](/cli/azure/group) om een nieuwe resourcegroep te maken met Azure CLI.
 
 ```azurecli-interactive
 az group create `

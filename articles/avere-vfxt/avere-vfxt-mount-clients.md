@@ -6,19 +6,19 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 5d55879a5a8487636e2252abd359accf07e60ce6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 41065b4ac6bc486e204c2bfd72b78ba8722270c4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50633927"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809159"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>Het Avere vFXT-cluster koppelen  
 
 Volg deze stappen voor het client-computers verbinden met uw cluster vFXT.
 
 1. Bepalen hoe u taakverdeling clientverkeer tussen de clusterknooppunten. Lezen [saldo clientbelasting](#balance-client-load)hieronder voor meer informatie. 
-1. Identificeer de [IP-adres en koppelingspunten pad](#identify-ip-addresses-and-paths-to-mount) te koppelen.
+1. Geef het IP-adres en koppelingspunten pad om te koppelen.
 1. Probleem de [koppelingsopdracht](#mount-command-arguments), met de juiste argumenten.
 
 ## <a name="balance-client-load"></a>De clientbelasting saldo
@@ -28,7 +28,7 @@ Om te helpen de clientaanvragen balans tussen alle knooppunten in het cluster, m
 > [!TIP] 
 > Andere methoden voor taakverdeling mogelijk geschikt voor grote of complexe systemen; [open een ondersteuningsticket](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) voor meer informatie over.)
 > 
-> Als u liever met een DNS-server voor automatische serverzijde taakverdeling, moet u instellen en beheren van uw eigen DNS-server in Azure. In dat geval kunt u DNS round robin voor het cluster vFXT op basis van dit document: [Avere cluster DNS-configuratie](avere-vfxt-configure-dns.md).
+> Als u liever met een DNS-server voor automatische serverzijde taakverdeling, moet u instellen en beheren van uw eigen DNS-server in Azure. In dat geval kunt u DNS round robin voor het cluster vFXT op basis van dit document: [De DNS-clusterconfiguratie Avere](avere-vfxt-configure-dns.md).
 
 ### <a name="sample-balanced-client-mounting-script"></a>Voorbeeld met gelijke taakverdeling client script koppelen
 
@@ -68,7 +68,7 @@ Van de client de ``mount`` opdracht wordt de virtuele server (vserver) toegeweze
 
 Er zijn drie elementen met de koppelopdracht: 
 
-* vFXT pad - (een combinatie van IP-adres en naamruimte koppelingspunten pad beschreven [hieronder](#junction-and-ip-address))
+* vFXT pad - (een combinatie van IP-adres en naamruimte koppelingspunten pad die hieronder worden beschreven)
 * lokale pad - het pad op de client 
 * Opties voor de opdracht - koppelen (die worden vermeld in [koppelen opdrachtargumenten](#mount-command-arguments))
 

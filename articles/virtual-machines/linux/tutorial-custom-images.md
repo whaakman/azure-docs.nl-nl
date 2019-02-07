@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9c6729abefc62aeae232fff5ea48619377630635
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1c2be140e4d7156a1e23e1064436dda959c9cd14
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197616"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749998"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Zelfstudie: Een aangepaste installatiekopie van een Azure-VM maken met Azure CLI
 
@@ -79,7 +79,7 @@ Voor het maken van een installatiekopie moet de toewijzing van de VM ongedaan wo
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Tot slot stelt u de status van de virtuele machine in als gegeneraliseerd met [az vm generalize](/cli//azure/vm#generalize) zodat het Azure-platform weet de VM is gegeneraliseerd. U kunt een installatiekopie alleen maken van een gegeneraliseerde virtuele machine.
+Tot slot stelt u de status van de virtuele machine in als gegeneraliseerd met [az vm generalize](/cli//azure/vm) zodat het Azure-platform weet de VM is gegeneraliseerd. U kunt een installatiekopie alleen maken van een gegeneraliseerde virtuele machine.
    
 ```azurecli-interactive 
 az vm generalize --resource-group myResourceGroup --name myVM
@@ -87,7 +87,7 @@ az vm generalize --resource-group myResourceGroup --name myVM
 
 ### <a name="create-the-image"></a>De installatiekopie maken
 
-U kunt nu een installatiekopie van de virtuele machine maken met behulp van [az image create](/cli//azure/image#create). In het volgende voorbeeld wordt een installatiekopie met de naam *myImage* gemaakt van een virtuele machine met de naam *myVM*.
+U kunt nu een installatiekopie van de virtuele machine maken met behulp van [az image create](/cli//azure/image). In het volgende voorbeeld wordt een installatiekopie met de naam *myImage* gemaakt van een virtuele machine met de naam *myVM*.
    
 ```azurecli-interactive 
 az image create \
@@ -98,7 +98,7 @@ az image create \
  
 ## <a name="create-vms-from-the-image"></a>VM's maken van de installatiekopie
 
-Nu u een installatiekopie hebt gemaakt, kunt u een of meer nieuwe virtuele machines maken van de installatiekopie met behulp van [az vm create](/cli/azure/vm#az_vm_create). In het volgende voorbeeld wordt een virtuele machine met de naam *myVMfromImage* gemaakt van een installatiekopie met de naam *myImage*.
+Nu u een installatiekopie hebt gemaakt, kunt u een of meer nieuwe virtuele machines maken van de installatiekopie met behulp van [az vm create](/cli/azure/vm). In het volgende voorbeeld wordt een virtuele machine met de naam *myVMfromImage* gemaakt van een installatiekopie met de naam *myImage*.
 
 ```azurecli-interactive 
 az vm create \

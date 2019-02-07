@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 6ac5a44f941f8ebcecc3a1d7e6b5e9dccf5704de
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: da75d829ccb74f7be675501b601ad3e6375bfb70
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242201"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813157"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Toepassingen toegang geven tot Azure Stack-bronnen met het maken van service-principals
 
@@ -73,7 +73,7 @@ Wanneer u zich programmatisch aanmeldt, gebruikt u de ID voor uw toepassing en e
 
 1. Van **App-registraties** in Active Directory, selecteer uw toepassing.
 
-2. Kopieer de **Toepassings-id** en sla deze op in uw toepassingscode. De toepassingen in de [voorbeeldtoepassingen](#sample-applications) gebruiken **client-id** met betrekking tot de **toepassings-ID**.
+2. Kopieer de **Toepassings-id** en sla deze op in uw toepassingscode. De toepassingen in de voorbeeldtoepassingen **client-id** met betrekking tot de **toepassings-ID**.
 
      ![Toepassings-ID voor de toepassing](./media/azure-stack-create-service-principal/image12.png)
 3. Selecteer **Sleutels** om een verificatiesleutel te genereren.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 7f629ceb9fe5bd19c0558d1fde45d0bddcee744e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5d83e61282d2f21a3016997e324d0f58eff15e78
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458870"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813004"
 ---
 # <a name="modeling-relationships"></a>Relaties modelleren
 Dit artikel wordt het modelleringsproces om te helpen bij het ontwerpen van uw Azure Table storage-oplossingen.
@@ -101,7 +101,7 @@ Domeinmodellen kunnen-op-een-relaties tussen entiteiten bevatten. Als u nodig he
 Er zijn ook overwegingen bij de implementatie die kunnen leiden bij de implementatie-op-een-relaties in de Table-service:  
 
 * Verwerken van grote entiteiten (Zie voor meer informatie, [grote entiteiten patroon](table-storage-design-patterns.md#large-entities-pattern)).  
-* Besturingselementen voor toegang implementeren (Zie voor meer informatie, [beheren van toegang met handtekeningen voor gedeelde toegang](#controlling-access-with-shared-access-signatures)).  
+* Besturingselementen voor toegang implementeren (Zie voor meer informatie, beheren van toegang met handtekeningen voor gedeelde toegang).  
 
 ## <a name="join-in-the-client"></a>Deelnemen aan de client
 Hoewel er manieren grafiekverwerking om relaties in de tabelservice zijn, moet u niet vergeet dat de twee belangrijkste redenen voor het gebruik van de Table-service schaalbaarheid en prestaties zijn. Als u dat u veel relaties die een bedreiging vormen van de prestaties en schaalbaarheid van uw oplossing modelleert vindt, vraagt u uzelf als is het nodig zijn om te maken van alle de relaties tussen de gegevens in het tabelontwerp van de. U mogelijk het ontwerp vereenvoudigen en verbeteren van de schaalbaarheid en prestaties van uw oplossing als u toestaat dat uw clienttoepassing uitvoeren die nodig zijn joins.  
@@ -117,7 +117,7 @@ U kunt zich blijven voordoen exemplaren van de twee concrete klassen in de tabel
 
 ![Personentabel](media/storage-table-design-guide/storage-table-design-IMAGE04.png)
 
-Zie de sectie voor meer informatie over het werken met meerdere Entiteitstypen in dezelfde tabel in clientcode [werken met heterogene Entiteitstypen](#working-with-heterogeneous-entity-types) verderop in deze handleiding. Dit bevat voorbeelden van het entiteitstype in clientcode herkennen.  
+Zie de sectie voor meer informatie over het werken met meerdere Entiteitstypen in dezelfde tabel in clientcode werken met heterogene Entiteitstypen verderop in deze handleiding. Dit bevat voorbeelden van het entiteitstype in clientcode herkennen.  
 
 
 ## <a name="next-steps"></a>Volgende stappen

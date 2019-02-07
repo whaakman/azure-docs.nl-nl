@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/04/2019
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 7ffceaf761d459667e4118e3e10b733898ea2710
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: b41d086c092f3b18715d8fb70cd1a487a97c6869
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053973"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814041"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Zelfstudie: Maken en beheren van Azure budgetten
 
@@ -35,7 +35,9 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Budgetten zijn beschikbaar voor alle Azure EA-klanten. U moet leestoegang hebben tot een budgetten Azure EA-abonnement weergeven. Als u wilt maken en beheren van budgetten, moet u de machtiging Inzender hebt. U kunt afzonderlijke budgetten voor EA-abonnementen en resourcegroepen. U kan echter budgetten maken voor facturering van accounts EA.
+Budgetten worden ondersteund voor verschillende typen Azure-account. De volledige lijst met ondersteunde accounttypen Zie [gegevens van kostenbeheer begrijpen](understand-cost-mgt-data.md). Als u wilt weergeven van budgetten, moet u minimaal leestoegang voor uw Azure-account.
+
+ Voor Azure EA-abonnementen, moet u leestoegang tot het weergeven van budgetten hebben. Als u wilt maken en beheren van budgetten, moet u de machtiging Inzender hebt. U kunt afzonderlijke budgetten voor EA-abonnementen en resourcegroepen. U kan echter budgetten maken voor facturering van accounts EA.
 
 De volgende Azure-machtigingen worden per abonnement voor budgetten door gebruikers en groepen ondersteund:
 
@@ -59,7 +61,7 @@ Klik op **Add**.
 
 ![Cost Management budgetten wordt weergegeven in de Azure-portal](./media/tutorial-acm-create-budgets/budgets01.png)
 
-In de **maken budget** venster, voer een naam van het budget en het budgetbedrag. Kies vervolgens een maandelijks, elk kwartaal, of de jaarlijkse duur. Selecteer vervolgens een einddatum. Budgetten moeten ten minste één kosten drempel (% van budget) en een bijbehorende e-mailadres. Eventueel kunt u maximaal vijf drempelwaarden en vijf e-mailadressen in één budget opnemen. Wanneer een budgetdrempelwaarde is bereikt, worden normaal gesproken e-mailmeldingen ontvangen in minder dan acht uur.
+In de **maken budget** venster, voer een naam van het budget en het budgetbedrag. Kies vervolgens een maandelijks, elk kwartaal, of de jaarlijkse duur. Selecteer vervolgens een einddatum. Budgetten moeten ten minste één kosten drempel (% van budget) en een bijbehorende e-mailadres. Eventueel kunt u maximaal vijf drempelwaarden en vijf e-mailadressen in één budget opnemen. Wanneer een budgetdrempelwaarde is bereikt, worden normaal gesproken e-mailmeldingen ontvangen in minder dan acht uur. Zie voor meer informatie over meldingen [gebruik kosten waarschuwingen](cost-mgt-alerts-monitor-usage-spending.md).
 
 Hier volgt een voorbeeld van het maken van een maandelijks budget voor $4500. Een e-mailmelding wordt gegenereerd na het verstrijken van 90% van het budget.
 

@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: juliako
-ms.openlocfilehash: 139f6283c2b59aee53afa3f0dd52e06e2b0eff4c
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 9c463740acf6ef464880a43e0e68de683b97f64f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695216"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813415"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filters en dynamische manifesten
 
@@ -34,13 +34,13 @@ Filters zijn serverzijde regels waarmee uw klanten voor handelingen zoals:
 - Lever alleen de opgegeven voorinstelling en/of opgegeven taal nummers die worden ondersteund door het apparaat dat wordt gebruikt voor het afspelen van de inhoud ("weergavefiltering"). 
 - Presentatie venster (DVR) aanpassen om te voorzien van een beperkt de lengte van de DVR-venster in de speler ("aanpassen presentatievenster").
 
-Dit onderwerp wordt beschreven [concepten](#concepts) en [bevat definities filters](#definitions). Vervolgens krijgt informatie over algemene scenario's. Aan het einde van het artikel vindt u koppelingen die laten zien hoe u filters maken via een programma.  
+Dit onderwerp wordt beschreven [concepten](#concepts) en bevat definities van filters. Vervolgens krijgt informatie over algemene scenario's. Aan het einde van het artikel vindt u koppelingen die laten zien hoe u filters maken via een programma.  
 
 ## <a name="concepts"></a>Concepten
 
 ### <a name="dynamic-manifests"></a>Dynamische manifesten
 
-Media Services biedt **dynamische manifesten** gebaseerd op vooraf gedefinieerde [filters](#filters). Zodra u filters definiëren, kunnen uw clients deze gebruiken om een specifieke weergave of subquery korte clips van uw video te streamen. Ze zou filter (s) in de streaming-URL opgeven. Filters kunnen worden toegepast op adaptieve bitrate streamingprotocollen: Apple HTTP Live Streaming (HLS), MPEG-DASH en Smooth Streaming. 
+Media Services biedt **dynamische manifesten** op basis van vooraf gedefinieerde filters. Zodra u filters definiëren, kunnen uw clients deze gebruiken om een specifieke weergave of subquery korte clips van uw video te streamen. Ze zou filter (s) in de streaming-URL opgeven. Filters kunnen worden toegepast op adaptieve bitrate streamingprotocollen: Apple HTTP Live Streaming (HLS), MPEG-DASH en Smooth Streaming. 
 
 De volgende tabel ziet u enkele voorbeelden van URL's met filters:
 

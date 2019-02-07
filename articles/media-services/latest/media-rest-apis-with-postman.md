@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 06ecdf31c2627eda5bf651667703ddcf39c9d307
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 24ee0083ec79265f0ac4dfc0a2e235bc72522831
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604096"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813888"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Postman configureren voor Media Services REST API-aanroepen
 
@@ -30,7 +30,7 @@ Dit artikel leest u hoe het configureren van **Postman** zodat deze kan worden g
 - Informatie die nodig zijn voor [toegang tot API's](access-api-cli-how-to.md)
 - Installeer de [Postman](https://www.getpostman.com/) REST-client als u de REST-API's wilt uitvoeren die in een aantal AMS REST-zelfstudies worden weergegeven. 
 
-    We gebruiken **Postman** maar elk ander REST-hulpprogramma is hiervoor geschikt. Er zijn andere alternatieven: **Visual Studio Code** met de REST-invoegtoepassing of **Telerik Fiddler**. 
+    We gebruiken **Postman** maar elk ander REST-hulpprogramma is hiervoor geschikt. Enkele andere alternatieven: **Visual Studio Code** met de REST-invoegtoepassing of **Telerik Fiddler**. 
 
 ## <a name="download-postman-files"></a>Postman-bestanden downloaden
 
@@ -57,7 +57,7 @@ In deze sectie ziet u hoe u de Postman configureert.
     > [!Note]
     > Werk de toegangsvariabelen bij met waarden die u hebt gekregen in de sectie **Toegang krijgen tot de Media Services API** hierboven.
 
-7. Dubbelklik op het geselecteerde bestand en voer de waarden in die u hebt verkregen door de stappen voor het verkrijgen van [toegang tot API's](#access-the-media-services-api) te volgen.
+7. Dubbelklik op het geselecteerde bestand en voer waarden in die u hebt verkregen door de toegang tot API-stappen te volgen.
 8. Sluit het dialoogvenster.
 9. Selecteer de omgeving **Azure Media Service v3 Environment** in de vervolgkeuzelijst.
 
@@ -75,7 +75,7 @@ In deze sectie ziet u hoe u de Postman configureert.
 
 Voordat u begint met het bewerken van AMS v3 resources die u wilt ophalen en instellen van Azure AD-Token voor verificatie van Service-Principal.
 
-1. Selecteer in het linkerdeelvenster van de Postman, ' stap 1: AAD-verificatie-token ophalen'.
+1. Selecteer in het linkervenster van Postman 'Step 1: Get AAD Auth token'.
 2. Selecteer vervolgens Get Azure AD Token for Service Principal Authentication.
 3. Druk op **Verzenden**.
 

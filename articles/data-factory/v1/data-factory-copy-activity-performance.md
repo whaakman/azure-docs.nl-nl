@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 572f4535044e077ed245b0a231ccc9fa973a8a9b
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ec8c58e4ced0d8df958e242b9c1671aeed8c2ee6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331637"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812086"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Kopiëren en afstemmingshandleiding van activiteit
 
@@ -176,7 +176,7 @@ Die u moet weten:
 >
 >
 
-Zie voor een beter gebruik van deze twee eigenschappen, en voor het verbeteren van uw doorvoercapaciteit voor gegevens, de [voorbeeld gebruiksvoorbeelden](#case-study-use-parallel-copy). U hoeft te configureren **parallelCopies** om te profiteren van het standaardgedrag. Als u configureert en **parallelCopies** is te klein, meerdere cloud DMUs mogelijk niet volledig worden gebruikt.
+Zie het voorbeeld gebruiksvoorbeelden beter gebruikmaken van deze twee eigenschappen en voor het verbeteren van uw doorvoercapaciteit voor gegevens. U hoeft te configureren **parallelCopies** om te profiteren van het standaardgedrag. Als u configureert en **parallelCopies** is te klein, meerdere cloud DMUs mogelijk niet volledig worden gebruikt.
 
 ### <a name="billing-impact"></a>Facturering-impact
 Er **belangrijk** te onthouden dat de kosten worden berekend op basis van de totale tijd van de kopieerbewerking. Als een kopieertaak voorheen een uur duren voordat met een cloudeenheid en nu 15 minuten met vier cloudeenheden duurt, blijft de totale factuur bijna hetzelfde. Bijvoorbeeld, u vier cloudeenheden. De eerste cloudeenheid 10 minuten, de tweede waarde 10 minuten, de derde versie, 5 minuten, en de vierde versie, 5 minuten, allemaal in één Kopieeractiviteit uitvoeren. De tijd van totale kopieertaak (verplaatsing van gegevens), dat 10 + 10 + 5 + 5 = 30 minuten in rekening worden gebracht. Met behulp van **parallelCopies** heeft geen invloed op de facturering.
@@ -297,7 +297,7 @@ Als u gegevens van Blob storage naar SQL Data Warehouse kopiëren, kunt u overwe
 
 * **Een gegevenspatroon**: Uw tabelschema is van invloed op de doorvoer van de kopie. Een grote rijgrootte biedt u een betere prestaties dan kleine rijgrootte, om te kopiëren van de dezelfde hoeveelheid gegevens. De reden is dat de database minder batches van gegevens die minder rijen bevatten efficiënter kunt ophalen.
 * **Query of een opgeslagen procedure**: Optimaliseer de logica van de query of een opgeslagen procedure die u in de bron van Kopieeractiviteit opgeeft voor het ophalen van gegevens efficiënter.
-* Voor **lokale relationele databases**, zoals SQL Server en Oracle, waarvoor het gebruik van **Data Management Gateway**, Zie de [overwegingen voor Data Management Gateway](#considerations-on-data-management-gateway) sectie.
+* Voor **lokale relationele databases**, zoals SQL Server en Oracle, waarvoor het gebruik van **Data Management Gateway**, Zie de overwegingen voor Data Management Gateway-sectie.
 
 ## <a name="considerations-for-the-sink"></a>Overwegingen voor de sink
 ### <a name="general"></a>Algemeen

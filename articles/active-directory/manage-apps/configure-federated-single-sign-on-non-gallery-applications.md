@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: d88f44a202ee8def017698dfa8ac40d32bcae4d1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d79076a0669f725c3f1864a979812ede1020cd75
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168580"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812120"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Het configureren van eenmalige aanmelding in voor een toepassing buiten de galerie
 
@@ -36,7 +36,7 @@ Hieronder vindt u een overzicht van de vereiste stappen voor het configureren va
 
 -   [Waarden voor metagegevens van Azure AD configureren in de toepassing (aanmelding URL, uitgever, afmeldings-URL en certificaat)](#_Configuring_single_sign-on)
 
--   [Gebruikers toewijzen aan de toepassing](#_Assign_users_to_the_application)
+-   Gebruikers toewijzen aan een toepassing
 
 ## <a name="configuring-single-sign-on-to-non-gallery-applications"></a>Single sign-on bij niet-galerietoepassingen configureren
 

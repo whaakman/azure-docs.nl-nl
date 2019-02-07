@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 9877698c8c6af68c5ffd88dab37150274ce87b37
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 8a0300eeda49d85ffc08db8f285550e217613dcf
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077331"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821611"
 ---
 # <a name="secure-your-key-vault"></a>Uw Key Vault beveiligen
 
@@ -34,7 +34,7 @@ Voor verificatie gebruiken zowel de beheerlaag als de gegevenslaag Azure Active 
 
 Hier volgt een kort overzicht van de onderwerpen die aan bod komen:
 
-[Verificatie met behulp van Azure Active Directory](#authentication-using-azure-active-directory): in deze sectie wordt uitgelegd hoe een aanroeper verificatie uitvoert met Azure Active Directory voor toegang tot een Key Vault via de beheerlaag en de gegevenslaag. 
+Verificatie met behulp van Azure Active Directory - in deze sectie wordt uitgelegd hoe een aanroeper verificatie uitvoert met Azure Active Directory voor toegang tot een key vault via de beheerlaag en gegevenslaag. 
 
 Beide lagen gebruiken voor verificatie, Azure Active Directory (Azure AD). Voor autorisatie gebruikt het beheervlak op rollen gebaseerd toegangsbeheer (RBAC), terwijl de gegevenslaag met toegangsbeleid van Key Vault.
 
@@ -67,7 +67,7 @@ Toegang tot de beheerlaag en gegevenslaag beheerinterfaces via de verschillende 
 
 | Toegangslaag | Eindpunten voor toegang | Bewerkingen | Mechanisme voor toegangsbeheer |
 | --- | --- | --- | --- |
-| Beheerlaag |**Wereldwijd:**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure van de Amerikaanse overheid:**<br> management.usgovcloudapi.net:443<br><br> **Azure Duitsland:**<br> management.microsoftazure.de:443 |Key Vault maken/lezen/bijwerken/verwijderen <br> Toegangsbeleid voor Key Vault instellen<br>Tags instellen voor Key Vault |RBAC met Azure Resource Manager |
+| Beheerlaag |**Wereldwijd:**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure van de Amerikaanse overheid:**<br> management.usgovcloudapi.net:443<br><br> **Azure Duitsland:**<br> management.microsoftazure.de:443 |Key Vault maken/lezen/bijwerken/verwijderen <br> Toegangsbeleid voor Key Vault instellen<br>Tags instellen voor Key Vault |Azure Resource Manager RBAC |
 | Gegevenslaag |**Wereldwijd:**<br> &lt;kluisnaam&gt;.vault.azure.net:443<br><br> **Azure China 21Vianet:**<br> &lt;kluisnaam&gt;.vault.azure.cn:443<br><br> **Azure van de Amerikaanse overheid:**<br> &lt;kluisnaam&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Duitsland:**<br> &lt;kluisnaam&gt;.vault.microsoftazure.de:443 |Voor sleutels: Ontsleutelen, versleutelen, sleutel uitpakken, sleutel inpakken, controleren, ondertekenen, ophalen, weergeven, bijwerken, maken, importeren, verwijderen, back-up terugzetten<br><br> Voor geheimen: Ophalen, weergeven, instellen en verwijderen |Toegangsbeleid voor Key Vault |
 
 Beheerlaag en gegevenslaag toegang besturingselementen voor beheer van werken onafhankelijk van elkaar. Bijvoorbeeld, als u de toegang tot een toepassing wilt voor het gebruik van sleutels in een key vault te verlenen, moet alleen u voor het verlenen van toegang tot de gegevenslaag. U verleent toegang tot en met toegangsbeleid van Key Vault. Een gebruiker die moet worden gelezen Key Vault-eigenschappen en tags, maar geen toegang tot gegevens (sleutels, geheimen of certificaten), moet echter alleen toegang tot de beheerlaag. U kunt toegang verlenen door leestoegang toe te wijzen aan de gebruiker met RBAC.

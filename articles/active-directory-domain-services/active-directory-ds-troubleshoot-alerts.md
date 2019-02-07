@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: 494acc55001bd3180d345801ef8d62800dd5e837
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 492b15bddad598d65c15c48f04d3148c41cd3c7e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55174026"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817526"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - waarschuwingen oplossen
 Dit artikel bevat de handleidingen voor probleemoplossing voor alle waarschuwingen die op uw beheerde domein optreden kunnen.
@@ -42,7 +42,7 @@ Kies de stappen voor probleemoplossing die overeenkomen met de ID of het bericht
 | AADDS108 | *Het abonnement dat is gebruikt door Azure AD Domain Services is verplaatst naar een andere map. Azure AD Domain Services moet een actief abonnement hebt in dezelfde map te laten functioneren.* | [Abonnement verplaatst mappen](#aadds108-subscription-moved-directories) |
 | AADDS109 | *Een resource die wordt gebruikt voor uw beheerde domein is verwijderd. Deze resource is nodig voor Azure AD Domain Services te laten functioneren.* | [Een resource is verwijderd](#aadds109-resources-for-your-managed-domain-cannot-be-found) |
 | AADDS110 | *Het subnet dat is geselecteerd voor de implementatie van Azure AD Domain Services is vol en heeft geen ruimte voor de extra domeincontroller die moet worden gemaakt.* | [Subnet is vol.](#aadds110-the-subnet-associated-with-your-managed-domain-is-full) |
-| AADDS111 | * Er is een service-principal die gebruikmaakt van Azure AD Domain Services voor uw domein is niet gemachtigd om resources op het Azure-abonnement te beheren. De service-principal moet machtigingen voor het afhandelen van uw beheerde domein te krijgen. * | [Service-principal niet toegestaan](#aadds111-service-principal-unauthorized) |
+| AADDS111 | * Er is een service-principal die gebruikmaakt van Azure AD Domain Services voor uw domein is niet gemachtigd om resources op het Azure-abonnement te beheren. De service-principal moet machtigingen voor het afhandelen van uw beheerde domein te krijgen. * | Service-principal niet toegestaan |
 | AADDS112 | *We hebben geïdentificeerd dat het subnet van het virtuele netwerk in dit domein mogelijk niet voldoende IP-adressen. Azure AD Domain Services moet ten minste twee beschikbare IP-adressen binnen het subnet is ingeschakeld in. We raden u aan ten minste 3 tot 5 extra IP-adressen binnen het subnet. Dit wordt mogelijk veroorzaakt als andere virtuele machines binnen het subnet, dus het toewijzen van het aantal beschikbare IP-adressen of als er een beperking voor het aantal beschikbare IP-adressen in het subnet is worden geïmplementeerd.* | [Er is onvoldoende IP-adressen](#aadds112-not-enough-ip-address-in-the-managed-domain) |
 | AADDS113 | *De resources die worden gebruikt door Azure AD Domain Services zijn gedetecteerd in een onverwachte status en kunnen niet worden hersteld.* | [Resources zijn niet kan worden hersteld](#aadds113-resources-are-unrecoverable) |
 | AADDS114 | * Het subnet dat is geselecteerd voor de implementatie van Azure AD Domain Services is ongeldig en kan niet worden gebruikt. * | [Ongeldig subnet](#aadds114-subnet-invalid) |
@@ -201,7 +201,7 @@ Onze service-principals moeten toegang hebben om te kunnen beheren en maken van 
 
 **Oplossing:**
 
-1. [Verwijderen van uw beheerde domein](#active-directory-ds-disable-aadds.md) uit uw tenant.
+1. Uw beheerde domein verwijderen uit uw tenant.
 2. Het IP-adresbereik voor het subnet oplossen
   1. Navigeer naar de [pagina met virtuele netwerken in Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
   2. Selecteer het virtuele netwerk dat u wilt gebruiken voor Azure AD Domain Services.

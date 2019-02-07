@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 81ab41518fea81b577738d30970d83f6d6d6f2bc
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 262d7a6a4399a72e762c4ad3c87a878c54e22af4
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883990"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750389"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Zelfstudie: Toepassingen installeren in een schaalset met een Azure-sjabloon
 Als u toepassingen wilt uitvoeren op de exemplaren van een virtuele machine (VM) in een schaalset, moet u eerst de toepassingsonderdelen en de vereiste bestanden installeren. In een vorige zelfstudie hebt u geleerd om een aangepaste VM-installatiekopie te maken en te gebruiken voor het implementeren van uw VM-exemplaren. Deze aangepaste installatiekopie bevat handmatige installaties van toepassingen en configuraties. U kunt de installatie van toepassingen op een schaalset ook automatiseren nadat elk VM-exemplaar is geïmplementeerd. Bovendien kunt u toepassingen bijwerken die al worden uitgevoerd in een schaalset. In deze zelfstudie leert u het volgende:
@@ -77,13 +77,13 @@ Zie [https://github.com/Azure-Samples/compute-automation-configurations/blob/mas
 
 
 ## <a name="create-a-scale-set"></a>Een schaalset maken
-We gaan de voorbeeldsjabloon gebruiken om een schaalset te maken en de aangepaste scriptextensie toe te passen. Maak eerst een resourcegroep met [az group create](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
+We gaan de voorbeeldsjabloon gebruiken om een schaalset te maken en de aangepaste scriptextensie toe te passen. Maak eerst een resourcegroep met [az group create](/cli/azure/group). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Maak nu een schaalset voor virtuele machines met [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). Geef desgevraagd uw eigen gebruikersnaam en wachtwoord op voor gebruik als de referenties voor elk VM-exemplaar:
+Maak nu een schaalset voor virtuele machines met [az group deployment create](/cli/azure/group/deployment). Geef desgevraagd uw eigen gebruikersnaam en wachtwoord op voor gebruik als de referenties voor elk VM-exemplaar:
 
 ```azurecli-interactive
 az group deployment create \
@@ -97,7 +97,7 @@ Elk VM-exemplaar in de schaalset downloadt het script vanuit GitHub en voert het
 
 
 ## <a name="test-your-scale-set"></a>Uw schaalset testen
-Als u de webserver in actie wilt zien, achterhaalt u het openbare IP-adres van de load balancer met [az network public-ip show](/cli/azure/network/public-ip#show). In het volgende voorbeeld wordt het IP-adres voor *myScaleSetPublicIP* opgehaald, dat is gemaakt als onderdeel van de schaalset:
+Als u de webserver in actie wilt zien, achterhaalt u het openbare IP-adres van de load balancer met [az network public-ip show](/cli/azure/network/public-ip). In het volgende voorbeeld wordt het IP-adres voor *myScaleSetPublicIP* opgehaald, dat is gemaakt als onderdeel van de schaalset:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -141,7 +141,7 @@ Als u de aangepaste scriptextensie wilt bijwerken, wijzigt u de sjabloon om deze
 }
 ```
 
-Gebruik [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) om de configuratie van de aangepaste scriptextensie opnieuw toe te passen op de VM-exemplaren in uw schaalset. De sjabloon *azuredeployv2.json* wordt gebruikt voor het toepassen van de bijgewerkte versie van de toepassing. In de praktijk bewerkt u de bestaande sjabloon *azuredeploy.json* om deze te laten verwijzen naar het bijgewerkte installatiescript, zoals u kunt zien in de vorige sectie. Wanneer u daarom wordt gevraagd, voert u de gebruikersnaam en het wachtwoord in die u hebt gebruikt bij het maken van de schaalset:
+Gebruik [az group deployment create](/cli/azure/group/deployment) om de configuratie van de aangepaste scriptextensie opnieuw toe te passen op de VM-exemplaren in uw schaalset. De sjabloon *azuredeployv2.json* wordt gebruikt voor het toepassen van de bijgewerkte versie van de toepassing. In de praktijk bewerkt u de bestaande sjabloon *azuredeploy.json* om deze te laten verwijzen naar het bijgewerkte installatiescript, zoals u kunt zien in de vorige sectie. Wanneer u daarom wordt gevraagd, voert u de gebruikersnaam en het wachtwoord in die u hebt gebruikt bij het maken van de schaalset:
 
 ```azurecli-interactive
 az group deployment create \
@@ -155,7 +155,7 @@ Alle VM-exemplaren in de schaalset worden automatisch bijgewerkt met de meest re
 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Als u de schaalset en aanvullende resources wilt verwijderen, verwijdert u de resourcegroep en alle bijbehorende resources met [az group delete](/cli/azure/group#az_group_delete). De parameter `--no-wait` retourneert het besturingselement naar de prompt zonder te wachten totdat de bewerking is voltooid. De parameter `--yes` bevestigt dat u de resources wilt verwijderen, zonder een extra prompt om dit te doen.
+Als u de schaalset en aanvullende resources wilt verwijderen, verwijdert u de resourcegroep en alle bijbehorende resources met [az group delete](/cli/azure/group). De parameter `--no-wait` retourneert het besturingselement naar de prompt zonder te wachten totdat de bewerking is voltooid. De parameter `--yes` bevestigt dat u de resources wilt verwijderen, zonder een extra prompt om dit te doen.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

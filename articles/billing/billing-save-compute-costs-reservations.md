@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2019
+ms.date: 02/06/2019
 ms.author: banders
-ms.openlocfilehash: 14b6125bd1467efcd6120bc367a7042ad29552bb
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: a93bfd8f71c515bdd5112170f27336a0df62c6e5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744497"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818852"
 ---
 # <a name="what-are-azure-reservations"></a>Wat zijn Azure-reserveringen?
 
-Azure-reserveringen helpt u geld besparen door vooraf betalen voor een eenjarige of driejarige van de virtuele machine, SQL Database-rekencapaciteit, doorvoer van Azure Cosmos DB of andere Azure-resources. Vooraf betaalt, kunt u krijg een korting op de resources die u gebruikt. Uw virtuele machine, compute-SQL-database, Azure Cosmos DB kunnen aanzienlijk verkorten door reserveringen of andere bron kosten tot 72% bij betalen per gebruik. Reserveringen bieden een korting van facturering en hebben geen invloed op de runtimestatus van uw resources.
+Azure reserveringen kunnen u geld besparen door vooraf betalen voor een eenjarige of driejarige van virtuele machines, SQL-Database compute-capaciteit, doorvoer van Azure Cosmos DB of andere Azure-resources. Vooraf betaalt, kunt u krijg een korting op de resources die u gebruikt. Uw virtuele machine, compute-SQL-database, Azure Cosmos DB kunnen aanzienlijk verkorten door reserveringen of andere bron kosten tot 72% bij betalen per gebruik. Reserveringen bieden een korting van facturering en hebben geen invloed op de runtimestatus van uw resources.
 
 U kunt een reservering kopen de [Azure-portal](https://aka.ms/reservations). Zie de volgende onderwerpen voor meer informatie:
 
@@ -38,24 +38,23 @@ Hebt u virtuele machines, Azure Cosmos DB of SQL-databases die langdurig worden 
 
 - Gereserveerde VM-instantie: Een reservering heeft alleen betrekking op de kosten voor rekenuren van de virtuele machine. Het bedekt geen extra kosten voor software, netwerken en opslag.
 - SQL Database vCore gereserveerd: Alleen de kosten voor de rekenuren zijn opgenomen in een reservering. De licentie wordt apart in rekening gebracht.
-- Azure Cosmos DB gereserveerde capaciteit: Een reservering geldt voor ingerichte doorvoer voor uw resources, het heeft geen betrekking op de kosten voor opslag en netwerken.
+- Azure Cosmos DB gereserveerde capaciteit: Een reservering geldt voor ingerichte doorvoer voor uw resources, het dekt de kosten voor opslag en netwerken niet.
 
 Voor virtuele machines van Windows en SQL Database, kunt u de licentiekosten met dekt [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 ## <a name="whos-eligible-to-purchase-a-reservation"></a>Wie komt in aanmerking voor een reservering kopen?
 
-Deze abonnementen typen Azure-klanten kunnen een reservering kopen:
+Azure-klanten met de volgende abonnementstypen kunnen een reservering kopen:
 
 - Enterprise agreement-abonnement aanbiedingstype (MS-AZR - 0017P of MS-AZR - 0148P).
 - Betalen per gebruik-abonnementstype aanbieding (MS-AZR - 003P of MS-AZR - 0023P).
-- Cloud Solution Provider (CSP) partners kunnen Azure-portal gebruiken of [Partner Center](https://docs.microsoft.com/partner-center/azure-reservations) Azure reserveringen kopen.
+- Cloud Solution Provider (CSP) partners de Azure-portal kunnen gebruiken of [Partner Center](https://docs.microsoft.com/partner-center/azure-reservations) Azure reserveringen kopen.
 
 Een reserveringskorting is alleen van toepassing op resources die zijn gekoppeld aan Enterprise, betalen per gebruik of CSP-abonnementstypen.
 
  Een abonnement aanschaffen:
 
 - U moet zich in een rol van eigenaar voor ten minste één Enterprise of abonnement op gebruiksbasis.
-- Voor Enterprise-abonnementen, **gereserveerde instanties toevoegen** moet zijn ingeschakeld in de [EA-portal](https://ea.azure.com). Of, als deze instelling is uitgeschakeld, moet u een EA-beheerder voor het abonnement zijn.
 
 ## <a name="how-is-a-reservation-billed"></a>Hoe wordt een reservering gefactureerd?
 
@@ -69,7 +68,7 @@ Een reserveringskorting is alleen van toepassing op resources die zijn gekoppeld
 
 Zie voor meer informatie over de invloed van reserveringen op uw facturering, de volgende onderwerpen:
 
--  [Korting op Azure Reserved VM Instances begrijpen](billing-understand-vm-reservation-charges.md)
+- [Korting op Azure Reserved VM Instances begrijpen](billing-understand-vm-reservation-charges.md)
 - [Azure reserveringskorting begrijpen](billing-understand-vm-reservation-charges.md)
 - [Azure Cosmos DB-reserveringskorting begrijpen](billing-understand-cosmosdb-reservation-charges.md)
 - [Meer informatie over Azure reserveringskorting en het gebruik voor SUSE](billing-understand-suse-reservation-charges.md)
@@ -87,18 +86,16 @@ Wanneer u een reservering koopt, wordt de korting kunt toepassen op andere exemp
 - SQL-Database gereserveerde capaciteit: De dekking van de korting is afhankelijk van de prestatielaag die u kiest. Zie voor meer informatie, [te begrijpen hoe een Azure reserveringskorting wordt toegepast](billing-understand-reservation-charges.md).
 - Azure Cosmos DB gereserveerde capaciteit: De dekking van de korting is afhankelijk van de ingerichte doorvoer. Zie voor meer informatie, [te begrijpen hoe een Azure Cosmos DB-reserveringskorting wordt toegepast](billing-understand-cosmosdb-reservation-charges.md).
 
-## <a name="next-steps"></a>Volgende stappen
-
-Start op uw virtuele machines opslaan door aan te schaffen een [gereserveerde VM-instantie](../virtual-machines/windows/prepay-reserved-vm-instances.md), [SQL-Database gereserveerde capaciteit](../sql-database/sql-database-reserved-capacity.md), of [Azure Cosmos DB gereserveerde capaciteit](../cosmos-db/cosmos-db-reserved-capacity.md).
-
-Zie voor meer informatie over Azure-reserveringen, de volgende artikelen:
-
-- [Azure-reserveringen beheren](billing-manage-reserved-vm-instance.md)
-- [Gebruik van de reservering voor uw abonnement op gebruiksbasis begrijpen](billing-understand-reserved-instance-usage.md)
-- [Inzicht in gebruik van de reservering voor uw Enterprise-inschrijving](billing-understand-reserved-instance-usage-ea.md)
-- [Kosten van de Windows-software is niet opgenomen in de reserveringen](billing-reserved-instance-windows-software-costs.md)
-- [Azure-reserveringen in programma Partner Center Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-reservations)
-
 ## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 
 Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+## <a name="next-steps"></a>Volgende stappen
+
+- Start op uw virtuele machines opslaan door aan te schaffen een [gereserveerde VM-instantie](../virtual-machines/windows/prepay-reserved-vm-instances.md), [SQL-Database gereserveerde capaciteit](../sql-database/sql-database-reserved-capacity.md), of [Azure Cosmos DB gereserveerde capaciteit](../cosmos-db/cosmos-db-reserved-capacity.md).
+- Meer informatie over Azure-reserveringen met de volgende artikelen:
+    - [Azure-reserveringen beheren](billing-manage-reserved-vm-instance.md)
+    - [Gebruik van de reservering voor uw abonnement op gebruiksbasis begrijpen](billing-understand-reserved-instance-usage.md)
+    - [Inzicht in gebruik van de reservering voor uw Enterprise-inschrijving](billing-understand-reserved-instance-usage-ea.md)
+    - [Kosten van de Windows-software is niet opgenomen in de reserveringen](billing-reserved-instance-windows-software-costs.md)
+    - [Azure-reserveringen in programma Partner Center Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-reservations)

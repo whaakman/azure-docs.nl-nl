@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: eb6f1624a3fefbad829600d2280d4eaeedd188bc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 107c844051ab396fe467a1a629883746b2903125
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179970"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731815"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>Langzame-serverquerylogboeken van een Azure Database voor PostgreSQL-server activeren en downloaden met behulp van Azure CLI
 Met dit CLI-voorbeeldscript worden de langzame-querylogboeken van één Azure Database for PostgreSQL server geactiveerd en gedownload.
@@ -35,13 +35,13 @@ Dit script maakt gebruik van de opdrachten die in de volgende tabel worden weerg
 
 | **Opdracht** | **Opmerkingen** |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
-| [az postgres server create](/cli/azure/postgres/server#az_msql_server_create) | Hiermee wordt een PostgreSQL-server gemaakt waar de SQL-database wordt gehost. |
+| [az group create](/cli/azure/group) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
+| [az postgres server create](/cli/azure/postgres/server) | Hiermee wordt een PostgreSQL-server gemaakt waar de SQL-database wordt gehost. |
 | [az postgres server configuration list](/cli/azure/postgres/server/configuration) | Hiermee maakt u een lijst van de configuratiewaarden voor een server. |
-| [az postgres server configuration set](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_set) | Hiermee werkt u de configuratie van een server bij. |
-| [az postgres server-logs list](/cli/azure/postgres/server-logs#az_postgres_server_logs_list) | Hiermee maakt u een lijst met de logboekbestanden van een server. |
-| [az postgres server-logs download](/cli/azure/postgres/server-logs#az_postgres_server_logs_download) | Hiermee kunt u logboekgegevens downloaden. |
-| [az group delete](/cli/azure/group#az_group_delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
+| [az postgres server configuration set](/cli/azure/postgres/server/configuration) | Hiermee werkt u de configuratie van een server bij. |
+| [az postgres server-logs list](/cli/azure/postgres/server-logs) | Hiermee maakt u een lijst met de logboekbestanden van een server. |
+| [az postgres server-logs download](/cli/azure/postgres/server-logs) | Hiermee kunt u logboekgegevens downloaden. |
+| [az group delete](/cli/azure/group) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over Azure CLI: [Azure CLI-documentatie](/cli/azure).

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: f51ce90d9349d345bb1e77ca5e254315c20c1b1d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 95811459ff51b71153fb5ceef804a64c8b6a9be6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034469"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816625"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Verbinding maken met Azure Cosmos DB met behulp van analysehulpprogramma's voor BI met het ODBC-stuurprogramma
 
@@ -71,8 +71,8 @@ Aan de slag met het ODBC-stuurprogramma.
     - **Aantal nieuwe pogingen**: Voer het aantal keren dat een bewerking opnieuw als de eerste aanvraag niet wordt voltooid vanwege de frequentielimiet service.
     - **Schemabestand**: Hebt u een aantal opties hier.
         - Standaard, waardoor deze vermelding is (lege), scant het stuurprogramma voor de eerste pagina van de gegevens voor alle verzamelingen om te bepalen van het schema van elke verzameling. Dit staat bekend als de toewijzing van de verzameling. Zonder een schemabestand dat is gedefinieerd, wordt het stuurprogramma is voor het uitvoeren van de scan voor elke sessie stuurprogramma en kan leiden tot een hogere opstarttijd van een toepassing met behulp van de DSN. Het is raadzaam dat u altijd een schemabestand voor een DSN koppelen.
-        - Als u al een schemabestand hebt (mogelijk een App die u hebt gemaakt met de [Schema-Editor](#schema-editor)), klikt u op **Bladeren**, gaat u naar het bestand, klikt u op **opslaan**, en klik vervolgens op **OK**.
-        - Als u een nieuw schema maken wilt, klikt u op **OK**, en klik vervolgens op **Schema-Editor** in het hoofdvenster. Vervolgens gaat u verder met de [Schema-Editor](#schema-editor) informatie. Nadat het nieuwe schemabestand is gemaakt, moet u gaat u terug naar de **geavanceerde opties** venster om op te nemen van de zojuist gemaakte schemabestand.
+        - Als u al een schemabestand (mogelijk één die u hebt gemaakt met behulp van de Schema-Editor) hebt, kunt u klikken op **Bladeren**, gaat u naar het bestand, klikt u op **opslaan**, en klik vervolgens op **OK**.
+        - Als u een nieuw schema maken wilt, klikt u op **OK**, en klik vervolgens op **Schema-Editor** in het hoofdvenster. Vervolgens gaat u verder met de informatie van de Schema-Editor. Nadat het nieuwe schemabestand is gemaakt, moet u gaat u terug naar de **geavanceerde opties** venster om op te nemen van de zojuist gemaakte schemabestand.
 
 1. Zodra u op Voltooien en sluit de **Setup van Azure Cosmos DB ODBC-stuurprogramma DSN** venster, de nieuwe gebruiker DSN-naam wordt toegevoegd aan de gebruikers-DSN-tabblad.
 

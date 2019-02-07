@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2d1a449511ce944783c8d93b79d59be263b20fa3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 38075c9216eab955a023fee53aad74f3768d783c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163940"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822269"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Probleem bij het inrichten van gebruikers naar een Azure AD-galerie-toepassing configureren
 
@@ -41,7 +41,7 @@ Nadat de service is geconfigureerd, kunnen de meeste inzicht in de werking van d
 Hieronder volgt een lijst van de algemene probleemgebieden die u inzoomen kunt op als u een idee van waar u hebben wilt beginnen.
 
 * [Inrichting van de service niet wordt weergegeven om te starten](#provisioning-service-does-not-appear-to-start)
-* [Kan de configuratie vanwege app-referenties niet werkt niet opslaan](#can’t-save-configuration-due-to-app-credentials-not-working)
+* Kan de configuratie vanwege app-referenties niet werkt niet opslaan
 * [Auditlogboeken zegt gebruikers zijn 'overgeslagen' en niet is ingericht, zelfs als ze zijn toegewezen](#audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
 
 ## <a name="provisioning-service-does-not-appear-to-start"></a>Inrichting van de service niet wordt weergegeven om te starten

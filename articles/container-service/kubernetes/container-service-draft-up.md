@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: bd1e4da67ef3f2ffce94c62e1dbc151aa4680e54
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 36e765d439d616ec165a2b53d2044586e73cde76
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854566"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809211"
 ---
 # <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>(AFGESCHAFT) Draft gebruiken met Azure Container Service en Azure Container Registry te bouwen en implementeren van een toepassing naar Kubernetes
 
@@ -191,7 +191,7 @@ stable/traefik  1.3.0   A Traefik based Kubernetes ingress controller w...
 
 $ helm install stable/traefik --name ingress
 ```
-Stel nu een controle in voor de `ingress`-controller om de externe IP-waarde vast te leggen bij de implementatie. Dit IP-adres wordt [toegewezen aan het implementatiedomein](#wire-up-deployment-domain) in de volgende sectie.
+Stel nu een controle in voor de `ingress`-controller om de externe IP-waarde vast te leggen bij de implementatie. Dit IP-adres wordt zijn toegewezen aan uw domein voor implementatie in de volgende sectie.
 
 ```bash
 $ kubectl get svc -w

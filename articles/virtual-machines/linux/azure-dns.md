@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: 93614d4889c9c884f25c5e05cd620e8303226323
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: ae8315b2a484cddc500b5c2dd02a019cb4f46d8e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39357763"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819141"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opties voor DNS-naamomzetting voor virtuele Linux-machines in Azure
 Azure biedt DNS-naamomzetting standaard voor alle virtuele machines die zich in één virtueel netwerk. U kunt uw eigen DNS-naam resolutie-oplossing implementeren met het configureren van uw eigen DNS-services op uw virtuele machines waarop Azure wordt gehost. De volgende scenario's kunt u kiezen die geschikt is voor uw situatie.
@@ -33,7 +33,7 @@ De volgende tabel ziet u scenario's en bijbehorende naam resolutie-oplossingen:
 
 | **Scenario** | **Oplossing** | **Suffix** |
 | --- | --- | --- |
-| Naamomzetting tussen rolexemplaren of virtuele machines in hetzelfde virtuele netwerk |[Naamomzetting die Azure biedt](#azure-provided-name-resolution) |hostnaam of het volledig gekwalificeerde domeinnaam (FQDN) |
+| Naamomzetting tussen rolexemplaren of virtuele machines in hetzelfde virtuele netwerk |Naamomzetting die Azure biedt |hostnaam of het volledig gekwalificeerde domeinnaam (FQDN) |
 | Naamomzetting tussen rolexemplaren of virtuele machines in verschillende virtuele netwerken |Door de klant beheerde DNS-servers die doorsturen van query's tussen virtuele netwerken voor het omzetten van door Azure (DNS-proxy). Zie [naamomzetting met uw eigen DNS-server](#name-resolution-using-your-own-dns-server). |Alleen FQDN-naam |
 | De resolutie van on-premises computers en de servicenamen van de van rolinstanties of virtuele machines in Azure |Door de klant beheerde DNS-servers (bijvoorbeeld on-premises domeincontroller, lokale alleen-lezen domeincontroller of een secundaire DNS met behulp van zoneoverdrachten gesynchroniseerd). Zie [naamomzetting met uw eigen DNS-server](#name-resolution-using-your-own-dns-server). |Alleen FQDN-naam |
 | De resolutie van Azure hostnamen van on-premises computers |Doorsturen van aanvragen naar een door de klant beheerde DNS-proxyserver in de bijbehorende virtuele netwerk. De proxyserver stuurt query's naar Azure voor het omzetten van. Zie [naamomzetting met uw eigen DNS-server](#name-resolution-using-your-own-dns-server). |Alleen FQDN-naam |
@@ -113,7 +113,7 @@ Het bestand resolv.conf wordt automatisch gegenereerd en mag niet worden bewerkt
 2. Voer 'netconfig update' uit om bij te werken.
 
 **CentOS door Rogue Wave Software (voorheen OpenLogic)** (maakt gebruik van NetworkManager)
-1. Toevoegen ' RES_OPTIONS 'timeout:1 pogingen: 5' =' naar '/ etc/sysconfig/netwerk'.
+1. Add 'RES_OPTIONS="timeout:1 attempts:5"' to '/etc/sysconfig/network'.
 2. Voer 'service netwerk opnieuw opstarten' om bij te werken.
 
 ## <a name="name-resolution-using-your-own-dns-server"></a>Naamomzetting met uw eigen DNS-server

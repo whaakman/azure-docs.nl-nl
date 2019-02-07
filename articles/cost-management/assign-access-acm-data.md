@@ -5,27 +5,31 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/01/2019
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: a64a1e35811b8bcdf721425580fe66641cb8ebe2
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 267919900fe68271365a73c3cbea7b1f0befc8a7
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661000"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766811"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Toegang tot gegevens van kostenbeheer toewijzen
 
-Voor de meeste gebruikers definiëren een combinatie van machtigingen in de Azure portal en de Enterprise (EA)-portal het toegangsniveau van een gebruiker tot gegevens van Azure Cost Management. Dit artikel begeleidt u bij het toewijzen van toegang tot gegevens van Cost Management. Nadat de combinatie van machtigingen is toegewezen, is de gegevens van de weergaven in Cost Management op basis van het bereik dat ze toegang tot en op het bereik hebben dat ze in Azure portal selecteert.
+Voor gebruikers met een Azure Enterprise-overeenkomsten definieert een combinatie van machtigingen in de Azure portal en de Enterprise (EA)-portal het toegangsniveau van een gebruiker tot gegevens van Azure Cost Management. Gegevens van Cost Management is het eenvoudiger voor gebruikers met andere typen Azure-account, het toegangsniveau van een gebruiker. Dit artikel begeleidt u bij het toewijzen van toegang tot gegevens van Cost Management. Nadat de combinatie van machtigingen is toegewezen, is de gegevens van de weergaven in Cost Management op basis van het bereik dat ze toegang tot en op het bereik hebben dat ze in Azure portal selecteert.
 
 Het adresbereik op dat een gebruiker selecteert wordt gebruikt in de gehele kostenbeheer voor gegevensconsolidatie en voor het beheren van toegang tot gegevens over de kosten. Bij het gebruik van bereiken, gebruikers geen meervoudige selectie ze. Ze selecteren in plaats daarvan een groter bereik die onderliggende bereiken tot draaien en vervolgens deze filter omlaag wat ze zoeken om weer te geven. Gegevensconsolidatie is belangrijk om te begrijpen omdat sommige mensen toegang tot een bovenliggend bereik die onderliggende bereiken tot mag niet hebt.
 
 ## <a name="cost-management-scopes"></a>Cost Management bereiken
 
-Als u wilt weergeven van gegevens van cost, een gebruiker moet ten minste lezen hebben toegang tot een of meer van de volgende bereiken.
+Kostenbeheer biedt ondersteuning voor verschillende typen Azure-account. De volledige lijst met ondersteunde accounttypen Zie [gegevens van kostenbeheer begrijpen](understand-cost-mgt-data.md). Het type account bepaalt de beschikbare bereiken.
+
+### <a name="azure-ea-subscription-scopes"></a>Bereiken voor Azure EA-abonnement
+
+Als u wilt weergeven van kostengegevens voor Azure EA-abonnementen, een gebruiker moet ten minste lezen hebben toegang tot een of meer van de volgende bereiken.
 
 | **Bereik** | **Gedefinieerd op** | **Vereist toegang tot gegevens weergeven** | **Vereiste EA-instelling** | **Gegevens om te worden samengevoegd** |
 | --- | --- | --- | --- | --- |
@@ -47,6 +51,14 @@ Het volgende diagram illustreert de relatie tussen bereiken met behulp van Cost 
 Wanneer **DA weergave kosten** zijn uitgeschakeld in de EA-portal, ziet u een bericht weergegeven dat *kosten uitgeschakeld voor uw organisatie* wanneer u probeert om de kosten voor afdelingen en accounts weer te geven.
 
 Op dezelfde manier als **kosten weergeven die door de AO** zijn uitgeschakeld in de EA-portal, ziet u een bericht weergegeven dat *kosten uitgeschakeld voor uw organisatie* wanneer u probeert om kosten voor inschrijvingsaccounts,-beheergroepen, weer te geven abonnementen en resourcegroepen.
+
+## <a name="other-azure-account-scopes"></a>De bereiken van andere Azure-account
+
+Als u wilt weergeven van kostengegevens voor andere Azure-abonnementen, een gebruiker moet ten minste lezen hebben toegang tot een of meer van de volgende bereiken:
+
+- Azure-account
+- Beheergroep
+- Resourcegroep
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>Toegang tot de kosten van de EA-portal inschakelen
 
@@ -113,7 +125,7 @@ Na het voltooien van de bovenstaande stappen het gebruikersaccount dat wordt een
 
 ## <a name="assign-management-group-scope-access"></a>Bereik toegang tot de groep toewijzen
 
-Toegang tot een beheerbereik van de groep moet ten minste de machtiging Cost Management Reader (of lezer). U kunt machtigingen voor een beheergroep configureren in Azure portal. U hebt ten minste de machtiging Administrator voor gebruikerstoegang (of eigenaar) voor de beheergroep die u wilt toegang inschakelen voor anderen. En u moet ook zijn ingeschakeld de **kosten weergeven die door de AO** instellen in de EA-portal.
+Toegang tot een beheerbereik van de groep moet ten minste de machtiging Cost Management Reader (of lezer). U kunt machtigingen voor een beheergroep configureren in Azure portal. U hebt ten minste de machtiging Administrator voor gebruikerstoegang (of eigenaar) voor de beheergroep die u wilt toegang inschakelen voor anderen. En voor Azure EA-accounts, u moet ook zijn ingeschakeld de **kosten weergeven die door de AO** instellen in de EA-portal.
 
 1. Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
 2. Selecteer **alle Services** Zoek in de zijbalk _beheergroepen_en selecteer vervolgens **beheergroepen**.
@@ -129,7 +141,7 @@ Toegang tot een beheerbereik van de groep moet ten minste de machtiging Cost Man
 
 ## <a name="assign-subscription-scope-access"></a>Abonnement bereik toegang toewijzen
 
-Toegang tot een abonnement vereist ten minste de machtiging Cost Management Reader (of lezer). U kunt machtigingen voor een abonnement configureren in Azure portal. U hebt ten minste de machtiging Administrator voor gebruikerstoegang (of eigenaar) voor het abonnement om toegang te voor anderen. En u moet ook zijn ingeschakeld de **kosten weergeven die door de AO** instellen in de EA-portal.
+Toegang tot een abonnement vereist ten minste de machtiging Cost Management Reader (of lezer). U kunt machtigingen voor een abonnement configureren in Azure portal. U hebt ten minste de machtiging Administrator voor gebruikerstoegang (of eigenaar) voor het abonnement om toegang te voor anderen. En voor Azure EA-accounts, u moet ook zijn ingeschakeld de **kosten weergeven die door de AO** instellen in de EA-portal.
 
 1. Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
 2. Selecteer **alle Services** Zoek in de zijbalk _abonnementen_en selecteer vervolgens **abonnementen**.
@@ -143,7 +155,7 @@ Toegang tot een abonnement vereist ten minste de machtiging Cost Management Read
 
 ## <a name="assign-resource-group-scope-access"></a>Resource group bereik toegang toewijzen
 
-Toegang tot een resourcegroep is vereist ten minste de machtiging Cost Management Reader (of lezer). U kunt machtigingen om een resourcegroep te configureren in Azure portal. U hebt ten minste de machtiging Administrator voor gebruikerstoegang (of eigenaar) voor de resourcegroep voor het inschakelen van toegang voor anderen. En u moet ook zijn ingeschakeld de **kosten weergeven die door de AO** instellen in de EA-portal.
+Toegang tot een resourcegroep is vereist ten minste de machtiging Cost Management Reader (of lezer). U kunt machtigingen om een resourcegroep te configureren in Azure portal. U hebt ten minste de machtiging Administrator voor gebruikerstoegang (of eigenaar) voor de resourcegroep voor het inschakelen van toegang voor anderen. En voor Azure EA-accounts, u moet ook zijn ingeschakeld de **kosten weergeven die door de AO** instellen in de EA-portal.
 
 1. Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
 2. Selecteer **alle Services** Zoek in de zijbalk _resourcegroepen_en selecteer vervolgens **resourcegroepen**.

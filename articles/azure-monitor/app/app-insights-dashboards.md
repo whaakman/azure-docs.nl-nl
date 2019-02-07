@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1b0c991c09d1235215dc9b930c529a219d492a8c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: afbf2bc32aa737eb5f6dde41035b206d6e260252
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117074"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813756"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navigatie en Dashboards in de Application Insights-portal
 Nadat u hebt [Application Insights instellen voor uw project](../../azure-monitor/app/app-insights-overview.md), telemetrische gegevens over de prestaties en het gebruik van uw app wordt weergegeven in Application Insights-resource van uw project in de [Azure-portal](https://portal.azure.com).
@@ -62,7 +62,7 @@ De grafiek worden automatisch vernieuwd met een frequentie die afhankelijk zijn 
 * Tijdsbereik hierboven 24 uur: (Tijdsbereik) / 60.
 
 ### <a name="pin-any-query-in-analytics"></a>Elke query vastmaken in Analytics
-U kunt ook [vastmaken Analytics](../../azure-monitor/log-query/get-started-portal.md) grafieken aan een [gedeelde](#share-dashboards-with-your-team) dashboard. Hiermee kunt u diagrammen van elke willekeurige query naast de standaard metrische gegevens toevoegen. 
+U kunt ook [vastmaken Analytics](../../azure-monitor/log-query/get-started-portal.md) grafieken aan een gedeeld dashboard. Hiermee kunt u diagrammen van elke willekeurige query naast de standaard metrische gegevens toevoegen. 
 
 Resultaten worden elk uur automatisch herberekend. Klik op het pictogram Vernieuwen op de grafiek om te berekenen onmiddellijk. (Browser vernieuwen niet berekenen.)
 

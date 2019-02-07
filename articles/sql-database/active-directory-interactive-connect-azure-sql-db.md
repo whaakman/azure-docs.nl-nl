@@ -12,16 +12,16 @@ ms.author: MirekS
 ms.reviewer: GeneMi
 ms.date: 01/25/2019
 manager: craigg
-ms.openlocfilehash: def50aecbcf9186af9d0b9c781c3141ad2dcee59
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: a7f2dbdb089df8035d18db25b3968d63a3c97c0f
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753670"
+ms.locfileid: "55767496"
 ---
 # <a name="connect-to-azure-sql-database-with-active-directory-mfa"></a>Verbinding maken met Azure SQL Database met Active Directory-MFA
 
-Dit artikel bevat een C# programma dat is verbonden met uw Microsoft Azure SQL-Database. Het programma wordt gebruikt voor verificatie in de interactieve modus, die ondersteuning biedt voor [Azure Active Directory (AD) Multi-factor authentication (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
+Dit artikel bevat een C# programma dat is verbonden met uw Microsoft Azure SQL-Database. Het programma wordt gebruikt voor verificatie in de interactieve modus, die ondersteuning biedt voor [Azure Active Directory (Azure AD) Multi-factor authentication (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
 
 Zie voor meer informatie over MFA-ondersteuning voor SQL-hulpprogramma's, [ondersteuning van Azure Active Directory in SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory).
 
@@ -29,15 +29,15 @@ Zie voor meer informatie over MFA-ondersteuning voor SQL-hulpprogramma's, [onder
 
 .NET Framework versie 4.7.2, de enum-waarde vanaf [ `SqlAuthenticationMethod` ](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) heeft een nieuwe waarde - `ActiveDirectoryInteractive`. In een client C# -programma, de enum-waarde zorgt ervoor dat de interactieve modus MFA ondersteuning van Azure AD gebruiken voor verbinding met een Azure SQL Database. De gebruiker die het programma uitvoert, ziet het volgende dialoogvenster:
 
-1. Een dialoogvenster waarin wordt weergegeven de naam van een Azure AD-gebruiker en wachtwoord van de gebruiker wordt gevraagd.
+* Een dialoogvenster waarin wordt weergegeven de naam van een Azure AD-gebruiker en wachtwoord van de gebruiker wordt gevraagd.
 
    Als het domein van de gebruiker is gefedereerd met Azure AD, klikt u vervolgens dit dialoogvenster niet wordt weergegeven als er geen wachtwoord nodig is.
 
    Als het beleid voor Azure AD MFA opgelegd, de gebruiker, worden klikt u vervolgens de volgende twee dialoogvensters weergegeven.
 
-2. De eerste keer dat een gebruiker via MFA verloopt, geeft het systeem een dialoogvenster waarin wordt gevraagd voor een mobiel telefoonnummer SMS-berichten te verzenden. Elk bericht bevat de *verificatiecode* die de gebruiker moet invoeren in het volgende dialoogvenster.
+* De eerste keer dat een gebruiker via MFA verloopt, geeft het systeem een dialoogvenster waarin wordt gevraagd voor een mobiel telefoonnummer SMS-berichten te verzenden. Elk bericht bevat de *verificatiecode* die de gebruiker moet invoeren in het volgende dialoogvenster.
 
-3. Een dialoogvenster waarin wordt gevraagd voor een MFA-verificatiecode, die het systeem naar een mobiele telefoon is verzonden.
+* Een dialoogvenster waarin wordt gevraagd voor een MFA-verificatiecode, die het systeem naar een mobiele telefoon is verzonden.
 
 Zie voor meer informatie over het configureren van Azure AD om MFA te vereisen [aan de slag met Azure multi-factor Authentication in de cloud](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-cloud).
 
@@ -59,7 +59,7 @@ Voordat u begint, moet u een [Azure SQL Database-server](sql-database-get-starte
 ### <a name="register-your-app-and-set-permissions"></a>Uw app registreren en machtigingen instellen
 
 
-Gebruik van Azure AD-verificatie, uw C# programma heeft als een AD-toepassing wilt registreren. Voor het registreren van een app, moet u een AD-beheerder of een gebruiker toegewezen de AD *toepassingsontwikkelaar* rol. Zie voor meer informatie over het toewijzen van rollen [beheerder en niet-beheerder rollen toewijzen aan gebruikers met Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)
+Gebruik van Azure AD-verificatie, uw C# programma heeft als een Azure AD-toepassing wilt registreren. Voor het registreren van een app, moet u een Azure AD-beheerder of de Azure AD aan een gebruiker toegewezen *toepassingsontwikkelaar* rol. Zie voor meer informatie over het toewijzen van rollen [beheerder en niet-beheerder rollen toewijzen aan gebruikers met Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)
 
  Voltooien van de registratie van een app genereert en toont een **toepassings-ID**. Uw programma heeft om op te nemen van deze ID om verbinding te maken.
 
@@ -147,7 +147,7 @@ SSMS opnieuw uitvoert, dit keer met **verificatie** ingesteld op **Active Direct
 Zie voor meer informatie, [configureren multi-factor authentication voor SSMS en Azure AD](sql-database-ssms-mfa-authentication-configure.md).
 
 > [!NOTE]
-> Als u een gastgebruiker in de database, moet u ook opgeven de naam van de AD-domein voor de database - **opties** > **AD-domein of tenant-ID**. Als u zoekt de domeinnaam in Azure portal, selecteert u **Azure Active Directory** > **aangepaste-domeinnamen**. In de C# voorbeeldprogramma biedt een domeinnaam is niet nodig.
+> Als u een gastgebruiker in de database, moet u ook opgeven de naam van de Azure AD-domein voor de database - **opties** > **AD-domein of tenant-ID**. Als u zoekt de domeinnaam in Azure portal, selecteert u **Azure Active Directory** > **aangepaste-domeinnamen**. In de C# voorbeeldprogramma biedt een domeinnaam is niet nodig.
 
 ## <a name="c-code-example"></a>Voorbeeld van C#-code
 
@@ -161,7 +161,7 @@ Als u wilt dit pakket installeren in Visual Studio, selecteer **Project** > **Nu
 
 using System;
 
-// Reference to AD authentication assembly
+// Reference to Azure AD authentication assembly
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 using DA = System.Data;

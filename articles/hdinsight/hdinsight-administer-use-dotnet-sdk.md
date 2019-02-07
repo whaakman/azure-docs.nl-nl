@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8d7b18dfd88a1a136e8b6e11f9f712e9212d6dd5
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 7c07a1b19bd651eadf7c7b27d5216dd446cd7abb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788800"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810899"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Apache Hadoop-clusters in HDInsight beheren met behulp van .NET SDK
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -224,7 +224,7 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 Dit kan ook worden gedaan via de Portal. Zie [HDInsight beheren met behulp van de Azure-portal][hdinsight-admin-portal].
 
 ## <a name="update-http-user-credentials"></a>HTTP-gebruikersreferenties bijwerken
-Dit is dezelfde procedure als [Grant/revoke HTTP toegang](#grant/revoke-access).  Als het cluster heeft de HTTP-toegang is verleend, moet u eerst het intrekken.  En hen vervolgens machtigen de toegang met nieuwe HTTP-gebruikersreferenties.
+Dit is dezelfde procedure als Grant/revoke HTTP-toegang.  Als het cluster heeft de HTTP-toegang is verleend, moet u eerst het intrekken.  En hen vervolgens machtigen de toegang met nieuwe HTTP-gebruikersreferenties.
 
 ## <a name="find-the-default-storage-account"></a>Het standaardopslagaccount vinden
 Het volgende codefragment laat zien hoe u de standaardnaam van de storage-account en de standaard-toegangssleutel voor een cluster.

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 0e1a0919975253e24318bb8029249958cbc50d62
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 36b9e6c97a10f7608a4faaef005ca4eeb1fc09c6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473160"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811525"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Het Schema van Azure Diagnostics 1.0
 > [!NOTE]
@@ -109,7 +109,7 @@ Kenmerken:
 ## <a name="diagnosticinfrastructurelogs-element"></a>DiagnosticInfrastructureLogs-Element  
 Definieert de configuratie van de buffer voor de logboeken die worden gegenereerd door de onderliggende infrastructuur van diagnostische gegevens.
 
-Bovenliggend Element: [DiagnosticMonitorConfiguration Element](#DiagnosticMonitorConfiguration).  
+Bovenliggend Element: DiagnosticMonitorConfiguration-Element.  
 
 Kenmerken:
 
@@ -122,7 +122,7 @@ Kenmerken:
 ## <a name="logs-element"></a>Logboeken-Element  
  Definieert de configuratie van de buffer voor basic Logboeken in Azure.
 
- Bovenliggend element: [DiagnosticMonitorConfiguration Element](#DiagnosticMonitorConfiguration).  
+ Bovenliggend element: DiagnosticMonitorConfiguration-Element.  
 
 Kenmerken:  
 
@@ -135,7 +135,7 @@ Kenmerken:
 ## <a name="directories-element"></a>Mappen-Element  
 Definieert de configuratie van de buffer voor logboeken op basis van bestanden die u kunt definiëren.
 
-Bovenliggend element: [DiagnosticMonitorConfiguration Element](#DiagnosticMonitorConfiguration).  
+Bovenliggend element: DiagnosticMonitorConfiguration-Element.  
 
 
 Kenmerken:  
@@ -148,7 +148,7 @@ Kenmerken:
 ## <a name="crashdumps-element"></a>CrashDumps-Element  
  Hiermee definieert u de map van crashes dumpbestanden voor foutopsporing.
 
- Bovenliggend Element: [Mappen Element](#Directories).  
+ Bovenliggend Element: Mappen van Element.  
 
 Kenmerken:  
 
@@ -160,7 +160,7 @@ Kenmerken:
 ## <a name="failedrequestlogs-element"></a>FailedRequestLogs Element  
  Hiermee definieert u de map voor mislukte aanvragen.
 
- Bovenliggend Element [mappen Element](#Directories).  
+ Parent Element Directories Element.  
 
 Kenmerken:  
 
@@ -172,7 +172,7 @@ Kenmerken:
 ##  <a name="iislogs-element"></a>IISLogs-Element  
  Hiermee definieert u de logboekmap voor IIS.
 
- Bovenliggend Element [mappen Element](#Directories).  
+ Parent Element Directories Element.  
 
 Kenmerken:  
 
@@ -184,12 +184,12 @@ Kenmerken:
 ## <a name="datasources-element"></a>Gegevensbronnen-Element  
  Nul of meer extra logboekmappen definieert.
 
- Bovenliggend Element: [Mappen Element](#Directories).
+ Bovenliggend Element: Mappen van Element.
 
 ## <a name="directoryconfiguration-element"></a>DirectoryConfiguration Element  
  Hiermee definieert u de map van logboekbestanden om te controleren.
 
- Bovenliggend Element: [Gegevensbronnen Element](#DataSources).
+ Bovenliggend Element: Gegevensbronnen van Element.
 
 Kenmerken:
 
@@ -201,19 +201,19 @@ Kenmerken:
 ## <a name="absolute-element"></a>Absolute-Element  
  Hiermee definieert u een absoluut pad van de map om te controleren met de optionele uitbreiding.
 
- Bovenliggend Element: [DirectoryConfiguration Element](#DirectoryConfiguration).  
+ Bovenliggend Element: DirectoryConfiguration Element.  
 
 Kenmerken:  
 
 |Kenmerk|Type|Description|  
 |---------------|----------|-----------------|  
-|**Pad**|string|Vereist. Het absolute pad naar de map om te controleren.|  
+|**path**|string|Vereist. Het absolute pad naar de map om te controleren.|  
 |**expandEnvironment**|booleaans|Vereist. Indien ingesteld op **waar**, omgevingsvariabelen in het pad worden uitgevouwen.|  
 
 ## <a name="localresource-element"></a>LocalResource Element  
  Hiermee definieert u een pad relatief ten opzichte van een lokale bron die is gedefinieerd in het servicedefinitie van de.
 
- Bovenliggend Element: [DirectoryConfiguration Element](#DirectoryConfiguration).  
+ Bovenliggend Element: DirectoryConfiguration Element.  
 
 Kenmerken:  
 
@@ -225,7 +225,7 @@ Kenmerken:
 ## <a name="performancecounters-element"></a>PerformanceCounters-Element  
  Definieert het pad voor het prestatiemeteritem voor het verzamelen van.
 
- Bovenliggend Element: [DiagnosticMonitorConfiguration Element](#DiagnosticMonitorConfiguration).
+ Bovenliggend Element: DiagnosticMonitorConfiguration-Element.
 
 
  Kenmerken:  
@@ -238,7 +238,7 @@ Kenmerken:
 ## <a name="performancecounterconfiguration-element"></a>PerformanceCounterConfiguration-Element  
  Het prestatiemeteritem voor het verzamelen van definieert.
 
- Bovenliggend Element: [PerformanceCounters Element](#PerformanceCounters).  
+ Bovenliggend Element: PerformanceCounters-Element.  
 
  Kenmerken:  
 
@@ -250,7 +250,7 @@ Kenmerken:
 ## <a name="windowseventlog-element"></a>WindowsEventLog Element  
  Hiermee definieert u de gebeurtenislogboeken om te controleren.
 
- Bovenliggend Element: [DiagnosticMonitorConfiguration Element](#DiagnosticMonitorConfiguration).
+ Bovenliggend Element: DiagnosticMonitorConfiguration-Element.
 
   Kenmerken:
 
@@ -263,7 +263,7 @@ Kenmerken:
 ## <a name="datasource-element"></a>DataSource-Element  
  Hiermee definieert u het gebeurtenislogboek om te controleren.
 
- Bovenliggend Element: [WindowsEventLog Element](#windowsEventLog).  
+ Bovenliggend Element: WindowsEventLog-Element.  
 
  Kenmerken:
 

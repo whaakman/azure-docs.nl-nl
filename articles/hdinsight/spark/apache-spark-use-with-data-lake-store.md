@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 29fef9177e40bd89dd0f179b028d2f044af8addb
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: e33ec52a2546100a043a78f66c2232c3c1ad264e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913086"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821356"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage"></a>HDInsight Spark-cluster gebruiken voor het analyseren van gegevens in Data Lake-opslag
 
@@ -30,7 +30,7 @@ In deze zelfstudie gebruikt u [Jupyter-Notebook](https://jupyter.org/) beschikba
 ## <a name="prepare-the-data"></a>De gegevens voorbereiden
 
 > [!NOTE]  
-> U hoeft niet in deze stap uitvoeren als u het HDInsight-cluster hebt gemaakt met Data Lake Storage als standaardopslag. Het proces voor het cluster maken wordt enkele voorbeeldgegevens in de Data Lake Storage-account dat u opgeeft tijdens het maken van het cluster toegevoegd. Ga naar de sectie [gebruik HDInsight Spark-cluster met Data Lake Storage](#use-an-hdinsight-spark-cluster-with-data-lake-store).
+> U hoeft niet in deze stap uitvoeren als u het HDInsight-cluster hebt gemaakt met Data Lake Storage als standaardopslag. Het proces voor het cluster maken wordt enkele voorbeeldgegevens in de Data Lake Storage-account dat u opgeeft tijdens het maken van het cluster toegevoegd. Ga naar de sectie met HDInsight Spark-cluster met Data Lake-opslag.
 
 Als u een HDInsight-cluster met Data Lake-opslag als extra opslag en Azure Storage-Blob als standaardopslag gemaakt, moet u eerst via enkele voorbeeldgegevens kopiëren naar het Data Lake Storage-account. U kunt het voorbeeld van gegevens uit de Azure Storage-Blob die is gekoppeld aan het HDInsight-cluster gebruiken. U kunt de [ADLCopy hulpprogramma](https://aka.ms/downloadadlcopy) om dit te doen. Download en installeer het hulpprogramma via de koppeling.
 

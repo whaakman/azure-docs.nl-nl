@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.openlocfilehash: fc625192464dce174b4c2a6d8a2a98343519699f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7ae87763d280e129bab96c604f9118ecf088ea2f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186120"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819855"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimalisatie van uw omgeving met de oplossing System Center Operations Manager Health Check (Preview)
 
@@ -55,7 +55,7 @@ Gebruik de volgende informatie om de oplossing te installeren en configureren.
 
  Voor het configureren van de evaluatie via Operations Manager Operations-console, moet u de stappen hieronder uitvoeren in de volgende volgorde:
 1. [Uitvoeren als-account instellen voor System Center Operations Manager Health Check](#operations-manager-run-as-accounts-for-log-analytics)  
-2. [De System Center Operations Manager Health Check regel configureren](#configure-the-assessment-rule)
+2. De System Center Operations Manager Health Check regel configureren
 
 ## <a name="system-center-operations-manager-assessment-data-collection-details"></a>Details van System Center Operations Manager-evaluatie gegevens verzameling
 
@@ -159,8 +159,8 @@ De Microsoft System Center Advisor SCOM beoordeling uitvoeren evaluatie van de r
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>De regel voor een specifieke beheerserver inschakelen
 
 1. In de **ontwerpen** werkruimte van de Operations Manager Operations-console, zoekt u de regel *Microsoft System Center Advisor SCOM-evaluatie evaluatie van de regel uitvoeren* in de **regels** deelvenster.
-2. In de lijst met zoekresultaten de optie met de tekst *Type: Beheerserver*.
-3. Met de rechtermuisknop op de regel en klik vervolgens op **onderdrukkingen** > **voor een specifiek object van klasse: Beheerserver**.
+2. In de lijst met zoekresultaten de optie met de tekst *Type: Management Server*.
+3. Met de rechtermuisknop op de regel en klik vervolgens op **onderdrukkingen** > **voor een specifiek object van klasse: Management Server**.
 4.  Selecteer in de beschikbare lijst met beheerservers, de beheerserver waar de regel moet worden uitgevoerd.  Dit moet u eerder hebt geconfigureerd om te koppelen van de uitvoeren als-account met dezelfde beheerserver.
 5.  Zorg ervoor dat u de waarde voor overschrijven om te wijzigen **waar** voor de **ingeschakeld** parameterwaarde.<br><br> ![parameter overschrijven](./media/scom-assessment/rule.png)
 
@@ -171,8 +171,8 @@ De Microsoft System Center Advisor SCOM beoordeling uitvoeren evaluatie van de r
 De evaluatie is standaard geconfigureerd voor het uitvoeren van elke 10.080 minuten (of zeven dagen). De waarde moet een minimumwaarde van 1440 minuten (of één dag), kunt u negeren. De waarde vertegenwoordigt de minimumtijd kloof tussen opeenvolgende evaluatie wordt uitgevoerd. Als u wilt overschrijven het interval, gebruik de volgende stappen.
 
 1. In de **ontwerpen** werkruimte van de Operations Manager-console, zoekt u de regel *Microsoft System Center Advisor SCOM-evaluatie evaluatie van de regel uitvoeren* in de **regels** de sectie.
-2. In de lijst met zoekresultaten de optie met de tekst *Type: Beheerserver*.
-3. Met de rechtermuisknop op de regel en klik vervolgens op **de regel onderdrukken** > **voor alle objecten van klasse: Beheerserver**.
+2. In de lijst met zoekresultaten de optie met de tekst *Type: Management Server*.
+3. Met de rechtermuisknop op de regel en klik vervolgens op **de regel onderdrukken** > **voor alle objecten van klasse: Management Server**.
 4. Wijzig de **Interval** parameterwaarde uw gewenste intervalwaarde. In het onderstaande voorbeeld is de waarde ingesteld op 1440 minuten (één dag).<br><br> ![interval voor parameter](./media/scom-assessment/interval.png)<br>  
 
     Als de waarde is ingesteld op minder dan 1440 minuten, klikt u vervolgens de regel wordt uitgevoerd in een interval van één dag. In dit voorbeeld de regel de intervalwaarde wordt genegeerd en wordt uitgevoerd met een frequentie van één dag.

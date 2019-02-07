@@ -9,14 +9,14 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 51e9d12d9f8801102997266cfd6699a367b11126
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 8effa84c9d7adc14060fb00fae9915a04c1d04cc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435512"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821215"
 ---
-# <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Apache Hive-beleid configureren in HDInsight met Enterprise-beveiligingspakket
+# <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Apache Hive-beleidsregels configureren in HDInsight met Enterprise Security Package
 Informatie over het configureren van Apache Ranger-beleidsregels voor Apache Hive. In dit artikel maakt u twee Ranger-beleidsregels om toegang tot de hivesampletable te beperken. De hivesampletable wordt geleverd met HDInsight-clusters. Nadat u de beleidsregels hebt geconfigureerd, gebruikt u Excel en het ODBC-stuurprogramma om verbinding te maken met Hive-tabellen in HDInsight.
 
 ## <a name="prerequisites"></a>Vereisten
@@ -45,7 +45,7 @@ In deze sectie maakt u twee Ranger-beleidsregels voor toegang tot de hivesamplet
 
 **Ranger-beleidsregels maken**
 
-1. Open de beheerinterface van Ranger. Zie [Verbinding maken met de beheerinterface van Apache Ranger](#connect-to-apache-ranager-admin-ui).
+1. Open de beheerinterface van Ranger. Zie verbinding maken met Apache Ranger beheerders-UI.
 2. Klik op **&lt;ClusterName>_hive** onder **Hive**. Er worden twee vooraf geconfigureerde beleidsregels weergegeven.
 3. Klik op **Nieuw beleid toevoegen** en voer de volgende waarden in:
 

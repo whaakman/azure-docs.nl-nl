@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 07/26/2018
 ms.author: danlep
 ROBOTS: NOINDEX
-ms.openlocfilehash: 643d2a5a600d018912f09d01f2e018100767f147
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 8ca2def6aa6ab463e5b2be0203791da671a41745
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410122"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697799"
 ---
 # <a name="cli-example-create-and-manage-a-batch-ai-cluster-of-dedicated-nodes"></a>CLI-voorbeeld: Een Batch AI-cluster met toegewezen knooppunten maken en beheren
 
@@ -57,8 +57,8 @@ In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel 
 | [az group create](/cli/azure/group#az-group-create) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
 | [az batchai workspace create](/cli/azure/batchai/workspace#az-batchai-workspace-create) | Hiermee maakt u een Batch AI-werkruimte. |
 | [az batchai cluster create](/cli/azure/batchai/cluster#az-batchai-cluster-create) | Hiermee maakt u een Batch AI-cluster. |
-| [az batchai cluster show](/cli/azure/batchai/cluster#az-batchai-cluster-show) | Hiermee geeft u informatie over een Batch AI-cluster weer. |
-| [az batchai cluster node list](/cli/azure/batchai/cluster/node#az-batchai-cluster-show) | Hiermee geeft u een lijst met de knooppunten in een Batch AI-cluster weer. |
+| [az batchai cluster show](/cli/azure/batchai/cluster) | Hiermee geeft u informatie over een Batch AI-cluster weer. |
+| [az batchai cluster node list](/cli/azure/batchai/cluster/node) | Hiermee geeft u een lijst met de knooppunten in een Batch AI-cluster weer. |
 | [az batchai cluster resize](/cli/azure/batchai/cluster#az-batchai-cluster-resize) | Hiermee wijzigt u de grootte van een Batch AI-cluster.  |
 | [az group delete](/cli/azure/group#az-group-delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 

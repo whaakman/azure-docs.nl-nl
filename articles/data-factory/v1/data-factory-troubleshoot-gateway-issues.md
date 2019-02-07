@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b39fb3ed6dbcf8fde2dadf0de59d154285eb8587
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: dcbf011d6e5f035a1934b69f94cf95b2318491f0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022535"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813837"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Problemen oplossen met behulp van Data Management Gateway
 In dit artikel bevat informatie over het oplossen van problemen bij het gebruik van Data Management Gateway.
@@ -138,7 +138,7 @@ U ziet het volgende foutbericht weergegeven.
 Deze fout treedt op wanneer uw gateway zich in een omgeving waarvoor een HTTP-proxy voor toegang tot resources op Internet, of van uw proxyserver Verificatiewachtwoord is gewijzigd, maar deze wordt niet bijgewerkt in uw gateway.
 
 #### <a name="resolution"></a>Oplossing
-Volg de instructies in de [proxyserveroverwegingen](#proxy-server-considerations) sectie van dit artikel en proxy-instellingen configureren met Data Management Gateway Configuration Manager.
+Volg de instructies in de sectie Proxy server overwegingen van dit artikel en proxy-instellingen configureren met Data Management Gateway Configuration Manager.
 
 ## <a name="gateway-is-online-with-limited-functionality"></a>Gateway is online met beperkte functionaliteit
 ### <a name="1-problem"></a>1. Probleem
@@ -169,8 +169,8 @@ Gateway kan geen verbinding maken met de cloudservice via Service Bus.
 Volg deze stappen voor het ophalen van de gateway weer online te zetten:
 
 1. IP-adres van regels voor uitgaand verkeer op de gatewaycomputer en de firewall van het bedrijf toestaan. U kunt IP-adressen vinden van het Windows-gebeurtenislogboek (ID == 401): Er is geprobeerd toegang tot een socket op een manier die is niet toegestaan volgens de toegangsmachtigingen XX. XX. XX. XX:9350.
-* Proxy-instellingen configureren op de gateway. Zie de [proxyserveroverwegingen](#proxy-server-considerations) sectie voor meer informatie.
-* Schakel uitgaande poort 5671 en 9350-9354 op zowel de Windows Firewall op de gatewaycomputer en de firewall van het bedrijf. Zie de [poorten en firewall](#ports-and-firewall) sectie voor meer informatie. Deze stap is optioneel, maar we raden aan ter overweging voor prestaties.
+* Proxy-instellingen configureren op de gateway. Zie de sectie Proxy server overwegingen voor meer informatie.
+* Schakel uitgaande poort 5671 en 9350-9354 op zowel de Windows Firewall op de gatewaycomputer en de firewall van het bedrijf. Zie de poorten en firewall-gedeelte voor meer informatie. Deze stap is optioneel, maar we raden aan ter overweging voor prestaties.
 
 ### <a name="3-problem"></a>3. Probleem
 Ziet u de volgende fout.

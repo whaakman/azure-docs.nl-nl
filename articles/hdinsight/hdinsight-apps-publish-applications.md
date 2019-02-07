@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 90ba4f2197dc1b00ad2a3d234f3e81e529ae7e4f
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: fd6d47d8300872f5bcdf36aec492289f93858504
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653914"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814183"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Een HDInsight-toepassing publiceren in de Azure Marketplace
 U kunt een Azure HDInsight-toepassing installeren op een Linux gebaseerde HDInsight-cluster. In dit artikel leert u hoe u een HDInsight-toepassing publiceren in de Azure Marketplace. Raadpleeg voor algemene informatie over het publiceren op Azure Marketplace [een aanbieding publiceren in de Azure Marketplace](../marketplace/marketplace-publishers-guide.md).
@@ -75,9 +75,9 @@ Het script voor installatie moet de volgende kenmerken:
 * Als uw script start de services op de knooppunten, worden services bewaakt en geconfigureerd om automatisch te starten als er een opnieuw opstarten van het knooppunt optreedt.
 
 ## <a name="package-the-application"></a>De toepassing verpakken
-Maak een ZIP-bestand met de bestanden die nodig zijn om uw HDInsight-toepassing te installeren. Gebruik van het ZIP-bestand naar [Publiceer de toepassing](#publish-application). Het ZIP-bestand bevat de volgende bestanden:
+Maak een ZIP-bestand met de bestanden die nodig zijn om uw HDInsight-toepassing te installeren. Het ZIP-bestand kunt u de toepassing te publiceren. Het ZIP-bestand bevat de volgende bestanden:
 
-* [createUiDefinition.json](#define-application)
+* createUiDefinition.json
 * mainTemplate.json (Zie voor een voorbeeld [aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md).)
 * Alle vereiste scripts
 
@@ -94,7 +94,7 @@ Een HDInsight-toepassing publiceren:
 5. Selecteer **topologieën aan de slag definiëren**. Een oplossingssjabloon is een "ouder" voor alle bijbehorende topologieën. U kunt meerdere topologieën definiëren in één aanbieding of oplossing sjabloon. Wanneer een aanbieding wordt doorgestuurd voor fasering, wordt deze doorgestuurd met alle bijbehorende topologieën. 
 6. Voer een topologienaam in en selecteer vervolgens **+**.
 7. Voer een nieuwe versie, en selecteer vervolgens **+**.
-8. Upload het ZIP-bestand dat u hebt gemaakt wanneer u [verpakt van de toepassing](#package-application).  
+8. Upload het ZIP-bestand dat u hebt gemaakt toen u de toepassing.  
 9. Selecteer **certificering aanvragen**. Het team van Microsoft-certificering controleert de bestanden en certificeert de topologie.
 
 ## <a name="next-steps"></a>Volgende stappen

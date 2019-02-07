@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 10/02/2018
+ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2c82c39de9b403e2e35f40c0290c8642c702790f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2f21c54100a46d2f6ba28d2063bea91b84ea06d4
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248058"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769318"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>SSL gebruiken voor het beveiligen van webservices met Azure Machine Learning-service
 
@@ -103,5 +103,6 @@ Vervolgens moet u uw DNS om te verwijzen naar de webservice bijwerken.
 Gebruik van SSL met services die zijn geïmplementeerd op FPGA wordt momenteel niet ondersteund.
 
 ## <a name="next-steps"></a>Volgende stappen
-
-Meer informatie over het [verbruiken een ML-Model is geïmplementeerd als een webservice](how-to-consume-web-service.md).
+Leer hoe u het volgende doet:
++ [Een machine learning-model is geïmplementeerd als een webservice gebruiken](how-to-consume-web-service.md)
++ [Experimenten en inferentietaken in een Azure-netwerk veilig uitvoeren](how-to-enable-virtual-network.md)

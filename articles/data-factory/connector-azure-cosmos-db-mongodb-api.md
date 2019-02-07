@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 5d45e4cc8781f4c235c641c4c99f1720871d57fb
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 82418c03039219adedf45828d769d278a14499ff
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358997"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816166"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Cosmos DB-API voor MongoDB met behulp van Azure Data Factory
 
@@ -34,7 +34,7 @@ U kunt de Azure Cosmos DB-API gebruiken voor MongoDB-connector:
 
 - Gegevens kopiëren van en naar de [Azure Cosmos DB-API voor MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction).
 - Schrijven naar Azure Cosmos DB als **invoegen** of **upsert**.
-- Importeren en exporteren van JSON-documenten als-is, of gegevens te kopiëren van of naar een gegevensset in tabelvorm. Voorbeelden zijn een SQL-database en een CSV-bestand. Documenten om te kopiëren als- of naar JSON-bestanden of naar of van een andere Azure Cosmos DB-verzameling, Zie [importeren of exporteren van JSON-documenten](#importexport-json-documents).
+- Importeren en exporteren van JSON-documenten als-is, of gegevens te kopiëren van of naar een gegevensset in tabelvorm. Voorbeelden zijn een SQL-database en een CSV-bestand. Documenten om te kopiëren als- of uit JSON-bestanden of van of naar een andere Azure Cosmos DB-verzameling, Zie importeren of exporteren van JSON-documenten.
 
 ## <a name="get-started"></a>Aan de slag
 

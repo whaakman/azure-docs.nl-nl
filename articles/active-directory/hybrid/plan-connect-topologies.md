@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 15ecd594dea9251b64cdfcba3bf620bc101504ec
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 988e72a20fdd80e41ce8fc1ef568d90d4283a848
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486092"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813497"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologieën voor Azure AD Connect
 Dit artikel beschrijft de verschillende on-premises en Azure Active Directory (Azure AD)-topologieën die gebruikmaken van Azure AD Connect-synchronisatie als de integratieoplossing key. Dit artikel bevat de ondersteunde en niet-ondersteunde configuraties.
@@ -63,7 +63,7 @@ Wanneer u hebt meerdere forests, alle forests bereikbaar is via een enkel moet A
 
 De Azure AD Connect-installatiewizard biedt verschillende opties om te consolideren van gebruikers die worden weergegeven in meerdere forests. Het doel is dat een gebruiker slechts één keer in Azure AD wordt gerepresenteerd. Er zijn enkele algemene topologieën die u in het pad aangepaste installatie in de installatiewizard configureren kunt. Op de **uw gebruikers identificeren** pagina, selecteert u de bijbehorende optie waarmee uw topologie. De samenvoeging wordt alleen voor gebruikers geconfigureerd. Dubbele groepen worden niet samengevoegd met de standaardconfiguratie.
 
-Algemene topologieën worden beschreven in de secties over [afzonderlijke topologieën](#multiple-forests-separate-topologies), [volledige mesh](#multiple-forests-full-mesh-with-optional-galsync), en [de account-resource-topologie](#multiple-forests-account-resource-forest).
+Algemene topologieën worden beschreven in de secties over afzonderlijke topologieën [volledige mesh](#multiple-forests-full-mesh-with-optional-galsync), en [de account-resource-topologie](#multiple-forests-account-resource-forest).
 
 De standaardconfiguratie in Azure AD Connect-synchronisatie wordt ervan uitgegaan dat:
 

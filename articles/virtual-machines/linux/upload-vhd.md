@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 47227b1f9ceb4ba9e35180aa0cb171d1edd5bb9a
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: edebd2efda7d8217c9b554f2d1f54135203502cb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696843"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821555"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Een Linux-VM maken van een aangepaste schijf met de Azure CLI
 
@@ -31,8 +31,8 @@ In dit artikel leest u over het uploaden van een aangepaste virtuele harde schij
 Voor het maken van meerdere virtuele machines van de aangepaste schijf, moet u eerst een installatiekopie maken van uw virtuele machine of VHD. Zie voor meer informatie, [een aangepaste installatiekopie van een Azure-VM maken met behulp van de CLI](tutorial-custom-images.md).
 
 U hebt twee opties om een aangepaste schijf te maken:
-* [Een VHD uploaden](#option-1-upload-a-specialized-vhd)
-* [Kopiëren van een bestaande VM in Azure](#option-2-copy-an-existing-azure-vm)
+* Een VHD uploaden
+* Kopiëren van een bestaande VM in Azure
 
 ## <a name="quick-commands"></a>Snelle opdrachten
 

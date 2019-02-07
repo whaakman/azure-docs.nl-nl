@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 2f34b6c71c448f7273ba7477f18f5abb8f89cdec
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: d0942d3465811687937ce113e664fbf3f91277d0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391190"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815241"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Maken en beheren van een sjabloon leslokaal in Azure Lab Services
 Een sjabloon in een lab is een basiskopie van de virtuele machine waarvan de virtuele machines van alle gebruikers worden gemaakt. Stel de sjabloon voor de virtuele machine zo in dat deze is geconfigureerd met precies wat u de labgebruikers wilt bieden. U kunt een naam en een beschrijving opgeven voor de sjabloon die de gebruikers van het lab kunnen zien. Vervolgens publiceert u de sjabloon voor exemplaren van de VM-sjabloon beschikbaar maken voor uw labgebruikers. Wanneer u een sjabloon publiceert, maakt Azure Lab Services virtuele machines in het lab met behulp van de sjabloon. Het aantal virtuele machines dat in dit proces wordt gemaakt, is hetzelfde als het maximum aantal gebruikers dat in het lab is toegestaan. Dit kunt u instellen in het gebruiksbeleid van het lab. Alle virtuele machines hebben dezelfde configuratie als de sjabloon.
@@ -72,7 +72,7 @@ U kunt eerst instellen en publiceren van een sjabloon tijdens het maken van een 
 
         > [!WARNING]
         > Zodra u de sjabloon hebt gepubliceerd, kan dit niet ongedaan worden gemaakt. 
-    2. Als u later wilt publiceren, selecteert u **Opslaan voor later**. Nadat de wizard is voltooid, kunt u de VM-sjabloon publiceren. Zie voor meer informatie over het configureren en publiceren nadat de wizard is voltooid, Zie voor meer informatie over het configureren en publiceren nadat de wizard is voltooid, [publiceren van de sjabloon](#publish-the-template) sectie de [leslokaallabs beheren ](how-to-manage-classroom-labs.md) artikel.
+    2. Als u later wilt publiceren, selecteert u **Opslaan voor later**. Nadat de wizard is voltooid, kunt u de VM-sjabloon publiceren. Zie voor meer informatie over het configureren en publiceren nadat de wizard is voltooid, voor meer informatie over het configureren en publiceren nadat de wizard is voltooid, ziet u de sjabloon in sectie publiceren de [leslokaallabs beheren](how-to-manage-classroom-labs.md) artikel.
 
         ![Sjabloon publiceren](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. U kunt de **voortgang van het publiceren** van de sjabloon bekijken. Dit proces duurt maximaal een uur. 

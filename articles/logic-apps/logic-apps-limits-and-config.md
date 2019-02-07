@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: 494665e530104cd4711e8112f3a999e68c3485b8
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: d77cdd7781f3a371d6089573a16ba642fb1c774c
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746377"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769865"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limieten en configuratie-informatie voor Azure Logic Apps
 
@@ -195,53 +195,58 @@ Gebruik de gratis laag alleen voor experimentele scenario's, niet-productie scen
 
 | Artefact | Limiet | Opmerkingen | 
 |----------|-------|-------| 
-| EDI-handelspartners | 25 | | 
-| EDI-handelspartners overeenkomsten | 10 | | 
-| Kaarten | 25 | | 
-| Schema 's | 25 | 
 | Assembly's | 10 | | 
 | Batchconfiguraties | 5 | 
 | Certificaten | 25 | | 
+| EDI-handelspartners overeenkomsten | 10 | | 
+| EDI-handelspartners | 25 | | 
+| Kaarten | 25 | | 
+| Schema 's | 25 | 
 |||| 
 
 *Basic-laag*
 
 | Artefact | Limiet | Opmerkingen | 
 |----------|-------|-------| 
-| EDI-handelspartners | 2 | | 
-| EDI-handelspartners overeenkomsten | 1 | | 
-| Kaarten | 500 | | 
-| Schema 's | 500 | 
 | Assembly's | 25 | | 
 | Batchconfiguraties | 1 | | 
 | Certificaten | 2 | | 
+| EDI-handelspartners overeenkomsten | 1 | | 
+| EDI-handelspartners | 2 | | 
+| Kaarten | 500 | | 
+| Schema 's | 500 | 
 |||| 
 
 *Standaardlaag*
 
 | Artefact | Limiet | Opmerkingen | 
 |----------|-------|-------| 
-| EDI-handelspartners | 500 | | 
-| EDI-handelspartners overeenkomsten | 500 | | 
-| Kaarten | 500 | | 
-| Schema 's | 500 | 
 | Assembly's | 50 | | 
 | Batchconfiguraties | 5 |  
 | Certificaten | 50 | | 
+| EDI-handelspartners overeenkomsten | 500 | | 
+| EDI-handelspartners | 500 | | 
+| Kaarten | 500 | | 
+| Schema 's | 500 | 
 |||| 
 
 <a name="artifact-capacity-limits"></a>
 
 ### <a name="artifact-capacity-limits"></a>Capaciteitslimieten artefact
 
-| Name | Limiet | Opmerkingen | 
-| ---- | ----- | ----- | 
-| Schema | 8 MB | Als u wilt uploaden van bestanden die groter zijn dan 2 MB, gebruikt u de [blob-URI](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
-| Kaart (XSLT-bestand) | 2 MB | | 
-| Runtime-eindpunt: Aanroepen per vijf minuten lezen | 60,000 | U kunt de workload gedistribueerd over meer dan één account indien nodig. | 
-| Runtime-eindpunt: Aanroepen per vijf minuten aanroepen | 45,000 | U kunt de workload gedistribueerd over meer dan één account indien nodig. | 
-| Runtime-eindpunt: Aanroepen per vijf minuten voor het bijhouden | 45,000 | U kunt de workload gedistribueerd over meer dan één account indien nodig. | 
-| Runtime-eindpunt: Gelijktijdige aanroepen blokkeren | ~1,000 | U kunt Verminder het aantal gelijktijdige aanvragen of Beperk de duur indien nodig. | 
+| Artefact | Limiet | Opmerkingen | 
+| -------- | ----- | ----- | 
+| Assembly | 8 MB | Als u wilt uploaden van bestanden die groter zijn dan 2 MB, gebruikt u een [Azure storage-account en blob-container](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
+| Kaart (XSLT-bestand) | 8 MB | Als u wilt uploaden van bestanden die groter zijn dan 2 MB, gebruikt u de [REST API van Azure Logic Apps - kaarten](https://docs.microsoft.com/rest/api/logic/maps/createorupdate). | 
+| Schema | 8 MB | Als u wilt uploaden van bestanden die groter zijn dan 2 MB, gebruikt u een [Azure storage-account en blob-container](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
+||||
+
+| Runtime-eindpunt | Limiet | Opmerkingen |
+|------------------|-------|-------|
+| Aanroepen per vijf minuten lezen | 60,000 | U kunt de workload gedistribueerd over meer dan één account indien nodig. | 
+| Aanroepen per vijf minuten aanroepen | 45,000 | U kunt de workload gedistribueerd over meer dan één account indien nodig. | 
+| Aanroepen per vijf minuten voor het bijhouden | 45,000 | U kunt de workload gedistribueerd over meer dan één account indien nodig. | 
+| Gelijktijdige aanroepen blokkeren | ~1,000 | U kunt Verminder het aantal gelijktijdige aanvragen of Beperk de duur indien nodig. | 
 ||||  
 
 <a name="b2b-protocol-limits"></a>

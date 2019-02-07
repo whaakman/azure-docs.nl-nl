@@ -15,12 +15,12 @@ ms.date: 12/21/2018
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 12/21/2018
-ms.openlocfilehash: d3d776def9e031ca2bcc76d1b60a19f67a74b35a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c60ba4f4106ddd0c3fc643288894fb55d3d27f8c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240341"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816455"
 ---
 # <a name="asdk-release-notes"></a>Opmerkingen bij de release van ASDK 
  
@@ -60,7 +60,7 @@ Deze versie bevat de volgende verbeteringen en oplossingen voor Azure Stack:
 - Er is een probleem waardoor RBAC-beleidsregels toepassen op een gebruikersgroep bij het gebruik van ADFS opgelost.
 
 <!--3463840 - IS, ASDK --> 
-- Er is een probleem opgelost met infrastructuur voor back-ups mislukken vanwege een niet-toegankelijke bestandsserver van de openbare VIP-netwerk. Deze oplossing wordt de back-upservice infrastructuur weer met de infrastructuur voor openbare-netwerk verplaatst. Als u de meest recente toegepast [Azure Stack-hotfix voor 1809](#azure-stack-hotfixes) die dit probleem wordt opgelost, de update 1811 gaat alle verdere wijzigingen kunt aanbrengen. 
+- Er is een probleem opgelost met infrastructuur voor back-ups mislukken vanwege een niet-toegankelijke bestandsserver van de openbare VIP-netwerk. Deze oplossing wordt de back-upservice infrastructuur weer met de infrastructuur voor openbare-netwerk verplaatst. Als u de meest recente Azure Stack-hotfix voor 1809 die dit probleem lost hebt toegepast, wordt de update 1811 niet geen verdere wijzigingen aanbrengen. 
 
 <!-- 2967387 – IS, ASDK --> 
 - Er is een probleem waarin het account waarmee u zich aanmeldt bij de portal voor Azure Stack-beheerder of gebruiker als weergegeven opgelost **onbekende gebruiker**. Dit bericht wordt weergegeven wanneer het account geen ofwel heeft een *eerste* of *laatste* naam die is opgegeven.   

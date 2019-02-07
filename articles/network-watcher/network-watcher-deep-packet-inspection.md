@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 7af14143e8ce4924c17a41c6bb1ff33954f4b583
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 1c30e679b250c2d6c6b03a1fe5d70dbd06acf052
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568723"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818359"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Pakketinspecties uitvoeren met Azure Network Watcher
 
@@ -61,7 +61,7 @@ Als u wilt weergeven eenvoudiger de eerste twee pakketten in de TCP-handshake dr
 
 Als u wilt toepassen op het filter in WireShark, vouw het Segment 'Transmission Control Protocol' van een [SYN]-pakket in uw vastleggen en bekijk de vlaggen instellen in de TCP-header.
 
-Omdat we op zoek bent om te filteren op alle [SYN] en [SYN, ACK] pakketten onder vlaggen cofirm dat de Syn-bit is ingesteld op 1 en rechts klikt u op de bit Syn -> toepassen als Filter -> geselecteerd.
+Omdat we op zoek bent om te filteren op alle [SYN] en [SYN, ACK] pakketten onder vlaggen bevestigen dat de Syn-bit is ingesteld op 1 en rechts klikt u op de bit Syn -> toepassen als Filter -> geselecteerd.
 
 ![afbeelding 7][7]
 

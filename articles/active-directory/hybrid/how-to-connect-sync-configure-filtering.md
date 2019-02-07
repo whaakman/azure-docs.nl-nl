@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: c9e3a26f1ca8a577b883baacaf672cf73c8c5656
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 6198d16b25330fb02cf5642addba0093ec437cab
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488652"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811482"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect-synchronisatie: Filtering configureren
 Met behulp van filteren, kunt u bepalen welke objecten worden weergegeven in Azure Active Directory (Azure AD) vanuit uw on-premises directory. De standaardconfiguratie wordt van alle objecten in alle domeinen in de geconfigureerde forests. Dit is in het algemeen is de aanbevolen configuratie. Gebruikers met behulp van Office 365-werkbelastingen, zoals Exchange Online en Skype voor bedrijven, profiteren van een volledige lijst met algemene adres zodat ze kunnen e-mailbericht verzenden en iedereen. Met de standaardconfiguratie, zouden ze hebben dezelfde ervaring die ze met een on-premises implementatie van Exchange- of Lync hebben zouden.
@@ -93,8 +93,8 @@ Volg deze stappen alleen als u niet om uit te voeren van de installatiewizard om
 
 Filters gebruiken om configuratie op basis van een domein bestaat uit de volgende stappen uit:
 
-1. [Selecteer de domeinen](#select-domains-to-be-synchronized) die u wilt opnemen in de synchronisatie.
-2. Voor elke toegevoegd en verwijderd domein, passen de [uitvoeringsprofielen](#update-run-profiles).
+1. Selecteer de domeinen die u wilt opnemen in de synchronisatie.
+2. Pas de uitvoerprofielen voor elk domein toegevoegd en verwijderd.
 3. [Toepassen en wijzigingen controleren](#apply-and-verify-changes).
 
 ### <a name="select-the-domains-to-be-synchronized"></a>Selecteer de domeinen moeten worden gesynchroniseerd
@@ -110,7 +110,7 @@ Als u wilt de domein-filter kunt instellen, moet u de volgende stappen uitvoeren
    Als u hebt gewijzigd van uw on-premises Active Directory-infrastructuur en toegevoegd of verwijderd van domeinen van het forest, klikt u op de **vernieuwen** knop waarmee een bijgewerkte lijst. Wanneer u vernieuwt, wordt u gevraagd om referenties. Geef referenties met leestoegang naar Windows Server Active Directory. Dit hoeft niet te worden van de gebruiker die vooraf is ingevuld in het dialoogvenster.  
    ![Er moet worden vernieuwd](./media/how-to-connect-sync-configure-filtering/refreshneeded.png)  
 6. Wanneer u klaar bent, sluit u de **eigenschappen** dialoogvenster door te klikken op **OK**. Als u domeinen van het forest verwijderd, wordt een pop-bericht zegt dat een domein is verwijderd en dat de configuratie worden opgeschoond.
-7. Doorgaan om aan te passen de [uitvoeringsprofielen](#update-run-profiles).
+7. Blijven de uitvoerprofielen aanpassen.
 
 ### <a name="update-the-run-profiles"></a>De uitvoerprofielen bijwerken
 Als u uw filter domein hebt bijgewerkt, moet u ook de uitvoerprofielen bijwerken.

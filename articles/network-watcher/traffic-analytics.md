@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 3b0db93d44827e3f5d0543f28a6f4b5fb0c4818e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4f1ce84dba4e9f35e7884ebd9058781eb30c3ec4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429086"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815843"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -164,7 +164,7 @@ Selecteer de volgende opties, zoals wordt weergegeven in de afbeelding:
 2. Selecteer een bestaand opslagaccount voor het opslaan van de logboeken van de stroom in. Als u wilt voor het opslaan van de gegevens altijd, stel de waarde op *0*. Worden er kosten voor Azure Storage voor het opslagaccount.
 3. Stel **retentie** aan het aantal dagen dat u wilt voor het opslaan van gegevens voor.
 4. Selecteer *op* voor **Traffic Analytics Status**.
-5. Selecteer een bestaande Log Analytics-werkruimte of selecteer **nieuwe werkruimte maken** naar een nieuwe maken. Een Log Analytics-werkruimte wordt gebruikt door Traffic Analytics voor het opslaan van de geaggregeerde en geïndexeerde gegevens die vervolgens gebruikt wordt voor het genereren van de analyse. Als u een bestaande werkruimte selecteert, moet bestaan in een van de [ondersteunde regio's](#traffic-analytics-supported-regions) en bijgewerkt naar de nieuwe querytaal. Als u niet wilt upgraden van een bestaande werkruimte of geen een werkruimte in een ondersteunde regio, kunt u een nieuwe maken. Zie voor meer informatie over querytalen [Azure Log Analytics upgraden voor nieuwe zoekopdrachten](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+5. Selecteer een bestaande Log Analytics-werkruimte of selecteer **nieuwe werkruimte maken** naar een nieuwe maken. Een Log Analytics-werkruimte wordt gebruikt door Traffic Analytics voor het opslaan van de geaggregeerde en geïndexeerde gegevens die vervolgens gebruikt wordt voor het genereren van de analyse. Als u een bestaande werkruimte selecteert, moet aanwezig zijn in een van de ondersteunde regio's en zijn bijgewerkt naar de nieuwe querytaal. Als u niet wilt upgraden van een bestaande werkruimte of geen een werkruimte in een ondersteunde regio, kunt u een nieuwe maken. Zie voor meer informatie over querytalen [Azure Log Analytics upgraden voor nieuwe zoekopdrachten](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
     De log analytics-werkruimte die als host fungeert voor de oplossing voor traffic analytics en de nsg's hoeven niet te zijn in dezelfde regio. Bijvoorbeeld, u mogelijk traffic analytics in een werkruimte in de regio West-Europa, terwijl er nsg's in VS-Oost en VS-West. Meerdere nsg's kunnen worden geconfigureerd in dezelfde werkruimte.
 6. Selecteer **Opslaan**.

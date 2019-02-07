@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: fe647f96d8b992d8d5c1682d588bbdbba0ddf43b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 921788d1cd3ff24140bdff0c9b6a181e4ab7f0a8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055129"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816203"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Met behulp van PowerShell voor het beheren van Traffic Manager
 
@@ -66,7 +66,7 @@ De volgende tabel beschrijft de parameters:
 | MonitorPort |Hiermee geeft u de TCP-poort gebruikt voor het bewaken van de gezondheid van het eindpunt. |
 | MonitorPath |Hiermee geeft u het pad relatief ten opzichte van de eindpunt-domeinnaam die is gebruikt voor het eindpunt status-test. |
 
-De cmdlet een Traffic Manager-profiel maakt in Azure en een bijbehorende profiel-object geretourneerd naar PowerShell. Op dit moment het vervangingsprofiel bevat geen eindpunten. Zie voor meer informatie over het toevoegen van eindpunten aan een Traffic Manager-profiel [Traffic Manager-eindpunten toe te voegen](#adding-traffic-manager-endpoints).
+De cmdlet een Traffic Manager-profiel maakt in Azure en een bijbehorende profiel-object geretourneerd naar PowerShell. Op dit moment het vervangingsprofiel bevat geen eindpunten. Zie voor meer informatie over het toevoegen van eindpunten aan een Traffic Manager-profiel, Traffic Manager-eindpunten toe te voegen.
 
 ## <a name="get-a-traffic-manager-profile"></a>Een Traffic Manager-profiel ophalen
 

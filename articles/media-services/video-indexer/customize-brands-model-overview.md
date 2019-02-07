@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: anzaman
-ms.openlocfilehash: 7df709adbd8e45712c112b52fc76920f8b67fe91
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 59a865cf6e822ecd1918d0c04b98f0edc0355223
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284827"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815469"
 ---
 # <a name="customize-a-brands-model-in-video-indexer"></a>Een model merken in Video Indexer aanpassen
 
@@ -30,7 +30,7 @@ In de [Microsoft Build 2017 dag 2](https://www.videoindexer.ai/media/ed6ede78ad/
 
 Praten over windows in de context van de bouw, wordt het woord 'Windows' als een onderdeel, en dezelfde voor Box, Apple, Fox, enz., op basis van geavanceerde Machine Learning-algoritmen die weet hoe dubbelzinnigheid van context niet detecteren. Merk detectie werkt voor onze ondersteunde talen. Klik hier voor [volledige Microsoft Build 2017 dag 2 inleidende video en index](http://www.videoindexer.ai/media/ed6ede78ad/).
 
-Bekijk om uw eigen merken, [Vervolgstappen](#next-stpes).
+Bekijk de volgende stappen om uw eigen merken.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 905d701437b1b580c019c800d13b18f725580fdd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 51de92eb64e9879b769baf7e574ee1dca9355040
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972943"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767006"
 ---
 # <a name="use-cloud-init-to-add-a-user-to-a-linux-vm-in-azure"></a>Cloud-init gebruiken voor een gebruiker toevoegen aan een Linux-VM in Azure
 In dit artikel leest u hoe u [cloud-init](https://cloudinit.readthedocs.io) toevoegen van een gebruiker op een virtuele machine (VM) of de virtuele machine-schaalsets (VMSS) inrichtingstijd in Azure. Deze cloud-init-script wordt uitgevoerd bij de eerste keer opstarten nadat de resources zijn ingericht met Azure. Zie voor meer informatie over hoe cloud-init systeemeigen in Azure en de ondersteunde Linux-distributies werkt [overzicht van cloud-init](using-cloud-init.md).
@@ -43,13 +43,13 @@ users:
 > [!NOTE] 
 > Het #cloud-config-bestand bevat de `- default` parameter opgenomen. Hiermee worden de gebruiker toegevoegd aan de bestaande gebruiker met beheerdersrechten gemaakt tijdens het inrichten. Als u een gebruiker zonder de `- default` parameter - de automatisch gegenereerde admin-gebruiker die zijn gemaakt door het Azure-platform zou worden overschreven. 
 
-Voordat u deze installatiekopie implementeert, moet u een resourcegroep maken met de [az-groep maken](/cli/azure/group#az_group_create) opdracht. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS - oost*.
+Voordat u deze installatiekopie implementeert, moet u een resourcegroep maken met de [az-groep maken](/cli/azure/group) opdracht. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS - oost*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Maak nu een virtuele machine met [az vm maken](/cli/azure/vm#az_vm_create) en geef het cloud-init-bestand met `--custom-data cloud_init_add_user.txt` als volgt:
+Maak nu een virtuele machine met [az vm maken](/cli/azure/vm) en geef het cloud-init-bestand met `--custom-data cloud_init_add_user.txt` als volgt:
 
 ```azurecli-interactive 
 az vm create \

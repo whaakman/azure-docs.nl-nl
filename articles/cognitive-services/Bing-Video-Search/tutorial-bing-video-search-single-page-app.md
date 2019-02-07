@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: tutorial
-ms.date: 11/01/2017
+ms.date: 01/31/2019
 ms.author: rosh
-ms.openlocfilehash: 5661cab24d3c5ada401f416a3d39b1a787094b5c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f3a13bf15ed1ef1629cd17af43a0f71df80b1349
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175108"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567533"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Zelfstudie: Video's zoeken-app met één pagina
 Met de Bing Video Search-API kunt u op internet zoeken en videoresultaten ophalen die relevant zijn voor een zoekquery. In deze zelfstudie bouwen we een webtoepassing met één pagina die gebruikmaakt van de Bing Search-API om resultaten op de pagina weer te geven. De toepassing omvat HTML-, CSS- en JavaScript-onderdelen.

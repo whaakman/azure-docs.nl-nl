@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 8a54ab9e45838a81a2ea4e2e425114e19a65ba76
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: f640ea2e8af8c8ae2bc8a6a1224adca17e897b81
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563844"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811321"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Meld u aan bij een virtuele Linux-machine in Azure met behulp van Azure Active Directory-verificatie (Preview)
 
@@ -171,7 +171,7 @@ Een aantal veelvoorkomende fouten wanneer u SSH met Azure AD-referenties wilt zi
 
 ### <a name="access-denied-rbac-role-not-assigned"></a>Toegang geweigerd: RBAC-rol is niet toegewezen
 
-Als u de volgende fout op de SSH-opdrachtprompt ziet, controleert u of dat u hebt [RBAC-beleidsregels geconfigureerd](#configure-rbac-policy-for-the-virtual-machine) voor de virtuele machine die de gebruiker hetzij verleent de *beheerdersaanmelding bij virtuele Machine* of *virtuele Meld u aan de computer* rol:
+Als u de volgende fout op de opdrachtprompt SSH ziet, moet u controleren of u RBAC-beleidsregels hebt geconfigureerd voor de virtuele machine die de gebruiker hetzij verleent de *beheerdersaanmelding bij virtuele Machine* of *gebruikersaanmelding bij virtuele Machine*rol:
 
 ```bash
 login as: azureuser@contoso.onmicrosoft.com

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;mingfeiy
-ms.openlocfilehash: 0c16369cca4fae89733ad281aa3332c393be2aff
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 4fdfbb17670cd30438a8906a6b00bb4db354aedb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828414"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820251"
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Dynamische versleuteling: Een autorisatiebeleid voor inhoudssleutels configureren
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -279,7 +279,7 @@ Het volgende voorbeeld maakt u een open autorisatiebeleid en voegt deze toe aan 
 ```
 
 ### <a name="token-restriction"></a>Beperking van token
-Voor het configureren van de tokenbeperking-optie, moet u een XML gebruiken om te beschrijven van autorisatievereisten van het token. De configuratie van de tokenbeperking XML aan de XML-schema wordt weergegeven voldoen moet in de '[Token beperking schema](#token-restriction-schema)"sectie.
+Voor het configureren van de tokenbeperking-optie, moet u een XML gebruiken om te beschrijven van autorisatievereisten van het token. De configuratie-XML voor de tokenbeperking moet voldoen aan de XML-schema in de sectie 'Token beperking schema' weergegeven.
 
 ```csharp
     public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)

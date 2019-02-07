@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 6748998e87de7f0d5ea41a10ba16600aa7b31505
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 269ea0162f85c7bd632e0528680fc8b0e2885aa9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972036"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818121"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Cosmos DB-bindingen voor Azure Functions 2.x
 
-> [!div class="op_single_selector" title1="Selecteer de versie van de Azure Functions runtime die u gebruikt: "]
+> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [Versie 1:](functions-bindings-cosmosdb.md)
 > * [Versie 2](functions-bindings-cosmosdb-v2.md)
 
@@ -57,7 +57,7 @@ Zie het voorbeeld taalspecifieke:
 * [JavaScript](#trigger---javascript-example)
 * [Python](#trigger---python-example)
 
-[Voorbeelden van de trigger overslaan](#trigger---attributes)
+Voorbeelden van de trigger overslaan
 
 ### <a name="trigger---c-example"></a>Trigger - voorbeeld met C#
 
@@ -93,7 +93,7 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[Voorbeelden van de trigger overslaan](#trigger---attributes)
+Voorbeelden van de trigger overslaan
 
 ### <a name="trigger---c-script-example"></a>Trigger - voorbeeld van C#-script
 
@@ -131,7 +131,7 @@ Dit is de C#-scriptcode:
     }
 ```
 
-[Voorbeelden van de trigger overslaan](#trigger---attributes)
+Voorbeelden van de trigger overslaan
 
 ### <a name="trigger---javascript-example"></a>Trigger - JavaScript-voorbeeld
 
@@ -199,7 +199,7 @@ Dit is de Java-code:
 In de [Java functions runtime library](/java/api/overview/azure/functions/runtime), gebruikt u de `@CosmosDBTrigger` aantekening op parameters waarvan de waarde afkomstig van Cosmos DB zijn kan.  Deze aantekening kan worden gebruikt met systeemeigen Java-typen, pojo's of null-waarden met behulp van optioneel<T>.
 
 
-[Voorbeelden van de trigger overslaan](#trigger---attributes)
+Voorbeelden van de trigger overslaan
 
 ### <a name="trigger---python-example"></a>Trigger - Python-voorbeeld
 
@@ -232,7 +232,7 @@ Hier volgt de Python-code:
             logging.info('First document Id modified: %s', documents[0]['id'])
 ```
 
-## <a name="trigger---c-attributes"></a>Trigger - C#-kenmerken
+## <a name="trigger---c-attributes"></a>Trigger - C# attributes
 
 In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruikt u de [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) kenmerk.
 
@@ -1727,7 +1727,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 
 In C# en F# functioneert, wanneer de functie wordt afgesloten, alle wijzigingen aan het ingevoerde document via invoer van de benoemde parameters worden automatisch doorgevoerd.
 
-In JavaScript-functies worden niet automatisch updates aangebracht bij afsluiten van de functie. In plaats daarvan gebruik `context.bindings.<documentName>In` en `context.bindings.<documentName>Out` om updates te maken. Zie de [JavaScript voorbeeld](#input---javascript-example).
+In JavaScript-functies worden niet automatisch updates aangebracht bij afsluiten van de functie. In plaats daarvan gebruik `context.bindings.<documentName>In` en `context.bindings.<documentName>Out` om updates te maken. Zie het voorbeeld JavaScript.
 
 ## <a name="output"></a>Uitvoer
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 1de70b3ddea84fc0067a0e20ec613f01024f0ed4
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 5ab0a9a92297c46a4090583d41f22f2035bd310c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748031"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816183"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Oplossen van fouten bij het verwijderen van het storage-resource
 
@@ -33,13 +33,13 @@ De VHD's in virtuele machines van Azure zijn .vhd-bestanden die zijn opgeslagen 
 Azure wordt voorkomen dat het verwijderen van een schijf die is gekoppeld aan een virtuele machine om beschadiging te voorkomen. Dit voorkomt ook dat het verwijderen van containers en storage-accounts waarvoor een pagina-blob die is gekoppeld aan een virtuele machine. 
 
 Het proces voor het verwijderen van een opslagaccount, container of blob bij de ontvangst van een van deze fouten is: 
-1. [Blobs die zijn gekoppeld aan een virtuele machine identificeren](#step-1-identify-blobs-attached-to-a-vm)
+1. Blobs die zijn gekoppeld aan een virtuele machine identificeren
 2. [VM's verwijderen met gekoppeld **besturingssysteemschijf**](#step-2-delete-vm-to-detach-os-disk)
 3. [Los alle **gegevensschijven** van resterende of meer virtuele machines](#step-3-detach-data-disk-from-the-vm)
 
 Opnieuw proberen te verwijderen van de storage-account, container of blob nadat deze stappen zijn voltooid.
 
-## <a name="step-1-identify-blob-attached-to-a-vm"></a>Stap 1: Blob die is gekoppeld aan een virtuele machine identificeren
+## <a name="step-1-identify-blob-attached-to-a-vm"></a>Stap 1: Identificeren van de blob die is gekoppeld aan een virtuele machine
 
 ### <a name="scenario-1-deleting-a-blob--identify-attached-vm"></a>Scenario 1: Verwijderen van een blob-gekoppelde virtuele machine identificeren
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
@@ -53,7 +53,7 @@ Opnieuw proberen te verwijderen van de storage-account, container of blob nadat 
 
      ![Schermafbeelding van de portal, met het deelvenster van de "Blob-metagegevens" opslag openen](./media/troubleshoot-vhds/utd-blob-metadata-sm.png)
 
-6. Als de blob-schijftype **OSDisk** Volg [stap 2: virtuele machine loskoppelen van de schijf met besturingssysteem verwijderen](#step-2-delete-vm-to-detach-os-disk). Als het schijftype blob **DataDisk** Volg de stappen in [stap 3: gegevensschijf loskoppelen van de virtuele machine](#step-3-detach-data-disk-from-the-vm). 
+6. Als de blob-schijftype **OSDisk** Volg [stap 2: Virtuele machine als u wilt loskoppelen van de schijf met besturingssysteem verwijdert](#step-2-delete-vm-to-detach-os-disk). Als het schijftype blob **DataDisk** Volg de stappen in [stap 3: Een gegevensschijf van de virtuele machine ontkoppelen](#step-3-detach-data-disk-from-the-vm). 
 
 > [!IMPORTANT]
 > Als **MicrosoftAzureCompute_VMName** en **MicrosoftAzureCompute_DiskType** worden niet weergegeven in de metagegevens van de blob, betekent dit dat de blob-lease expliciet en is niet gekoppeld aan een virtuele machine. Lease blobs kunnen niet worden verwijderd zonder het verbreken van de lease eerste. Lease verbreken, met de rechtermuisknop op de blob en selecteert u **lease Break**. Lease blobs die niet zijn gekoppeld aan een virtuele machine voorkomen dat de blob wordt verwijderd, maar nog steeds verwijderen van de container of storage-account.
@@ -61,19 +61,19 @@ Opnieuw proberen te verwijderen van de storage-account, container of blob nadat 
 ### <a name="scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms"></a>Scenario 2: Verwijderen van een container - alle blobs in de container die zijn gekoppeld aan VM's identificeren
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Selecteer in het menu Hub **alle resources**. Ga naar het opslagaccount onder **Blob-Service** Selecteer **Containers**, en zoek de container moet worden verwijderd.
-3. Klik om te openen van de container en wordt de lijst met blobs erin weergegeven. Identificeren van de blobs met Blob-Type = **pagina-blob** en leasestatus = **geleased** uit deze lijst. Ga als volgt [Scenario 1](#step-1-identify-blobs-attached-to-a-vm) voor het identificeren van de virtuele machine die is gekoppeld aan elk van deze blobs.
+3. Klik om te openen van de container en wordt de lijst met blobs erin weergegeven. Identificeren van de blobs met Blob-Type = **pagina-blob** en leasestatus = **geleased** uit deze lijst. Ga als volgt Scenario 1 voor het identificeren van de virtuele machine die is gekoppeld aan elk van deze blobs.
 
     ![Schermafbeelding van de portal, met de opslagaccountblobs en de 'leasestatus"met 'Geleased' is gemarkeerd](./media/troubleshoot-vhds/utd-disks-sm.png)
 
 4. Ga als volgt [stap 2](#step-2-delete-vm-to-detach-os-disk) en [stap 3](#step-3-detach-data-disk-from-the-vm) te verwijderen of meer virtuele machines met **OSDisk** en loskoppelen **DataDisk**. 
 
-### <a name="scenario-3-deleting-storage-account---identify-all-blobs-within-storage-account-that-are-attached-to-vms"></a>Scenario 3: Verwijderen van storage-account: alle blobs in de storage-account die zijn gekoppeld aan VM's identificeren
+### <a name="scenario-3-deleting-storage-account---identify-all-blobs-within-storage-account-that-are-attached-to-vms"></a>Scenario 3: Verwijderen van storage-account - alle blobs in de storage-account die zijn gekoppeld aan VM's identificeren
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Selecteer in het menu Hub **alle resources**. Ga naar het opslagaccount onder **Blob-Service** Selecteer **Blobs**.
 3. In **Containers** deelvenster identificeren van alle containers waar **leasestatus** is **geleased** en volg [Scenario 2](#scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms) voor elk  **Lease** container.
 4. Ga als volgt [stap 2](#step-2-delete-vm-to-detach-os-disk) en [stap 3](#step-3-detach-data-disk-from-the-vm) te verwijderen of meer virtuele machines met **OSDisk** en loskoppelen **DataDisk**. 
 
-## <a name="step-2-delete-vm-to-detach-os-disk"></a>Stap 2: Virtuele machine loskoppelen van de schijf met besturingssysteem verwijderen
+## <a name="step-2-delete-vm-to-detach-os-disk"></a>Stap 2: Virtuele machine als u wilt loskoppelen van de schijf met besturingssysteem verwijderen
 Als de VHD een besturingssysteemschijf is, moet u de virtuele machine verwijderen voordat de gekoppelde VHD kan worden verwijderd. Er is geen verdere actie is vereist voor gegevensschijven gekoppeld aan dezelfde virtuele machine nadat deze stappen zijn uitgevoerd:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
@@ -83,7 +83,7 @@ Als de VHD een besturingssysteemschijf is, moet u de virtuele machine verwijdere
 5. Aan de bovenkant van de **details van de virtuele Machine** venster **verwijderen**, en klik vervolgens op **Ja** om te bevestigen.
 6. De virtuele machine moet worden verwijderd, maar de VHD kan worden bewaard. De VHD wordt echter langer moet worden gekoppeld aan een virtuele machine of een lease daarop hebben. Het duurt een paar minuten voor de lease worden vrijgegeven. Om te controleren dat de lease wordt vrijgegeven, blader naar de blob-locatie en in de **Blob-eigenschappen** in het deelvenster de **Lease-Status** moet **beschikbaar**.
 
-## <a name="step-3-detach-data-disk-from-the-vm"></a>Stap 3: Gegevensschijf loskoppelen van de virtuele machine
+## <a name="step-3-detach-data-disk-from-the-vm"></a>Stap 3: Van de virtuele machine een gegevensschijf ontkoppelen
 Als de VHD een gegevensschijf wordt loskoppelen van de VHD van de virtuele machine te verwijderen van de lease:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).

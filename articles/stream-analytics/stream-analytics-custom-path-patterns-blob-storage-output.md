@@ -1,5 +1,5 @@
 ---
-title: Azure Stream Analytics aangepaste blob uitvoer partitionering (Preview)
+title: Azure Stream Analytics aangepaste blob partitioneren van uitvoer
 description: Dit artikel beschrijft de aangepaste patronen voor datum/tijd-pad en de aangepaste veld of de kenmerken van de functies voor blob storage-uitvoer van Azure Stream Analytics-taken.
 services: stream-analytics
 author: mamccrea
@@ -7,16 +7,16 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/05/2019
+ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 23f632ea2ca66f973192fdc01cd84c4d0be3a668
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: fc28ddd006e8a117dddd67a6d6668b9639dddec5
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746520"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765192"
 ---
-# <a name="azure-stream-analytics-custom-blob-output-partitioning-preview"></a>Azure Stream Analytics aangepaste blob uitvoer partitionering (Preview)
+# <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics aangepaste blob partitioneren van uitvoer
 
 Azure Stream Analytics biedt ondersteuning voor aangepaste blob uitvoer partitioneren met aangepaste velden of kenmerken en aangepaste datum-/ padpatronen. 
 

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 419b7c436e79b00d8f49d9e3801886f4e37e2c32
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/06/2019
+ms.openlocfilehash: ff28fbb52b33308967051a37fdaa3c6c273fc282
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241641"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816087"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Oplossing voor externe controle integreren met Azure Stack
 
@@ -38,6 +38,9 @@ Elke Azure Stack-oplossing wordt geleverd met een host van de levenscyclus van h
 Het volgende diagram toont de verkeersstroom tussen een geïntegreerde Azure Stack-systeem, de host van de levenscyclus van hardware, een oplossing voor externe controle en een externe ticketing/gegevens verzameling-systeem.
 
 ![Diagram met verkeer tussen Azure Stack, bewaking en ticketing oplossing.](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
+
+> [!NOTE]
+> Externe bewaking integratie rechtstreeks met fysieke servers en netwerkapparaten is niet toegestaan en actief worden geblokkeerd door toegangsbeheerlijsten (ACL's). 
 
 In dit artikel wordt uitgelegd hoe u Azure Stack integreren met externe bewakingsoplossingen, zoals System Center Operations Manager en Nagios. Dit omvat ook het werken met waarschuwingen programmatisch met behulp van PowerShell of via REST API-aanroepen.
 
@@ -76,7 +79,7 @@ De invoegtoepassing kan worden gebruikt met Nagios Enterprise en Nagios Core. U 
 
 De invoegtoepassingbestand "Azurestack_plugin.py" configureren met de volgende parameters:
 
-| Parameter | Beschrijving | Voorbeeld |
+| Parameter | Description | Voorbeeld |
 |---------|---------|---------|
 | *arm_endpoint* | Azure Resource Manager (beheerder)-eindpunt |https://adminmanagement.local.azurestack.external |
 | *api_endpoint* | Azure Resource Manager (beheerder)-eindpunt  | https://adminmanagement.local.azurestack.external |

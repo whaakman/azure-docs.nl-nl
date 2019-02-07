@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 3e460df8c4841a23c76ef8d7b254938ce46a2b45
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: f464b6411e1375fa005980454a9b61d2d6c05b0b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380973"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819107"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Schaalopties voor toepassingen in Azure Kubernetes Service (AKS)
 
@@ -23,7 +23,7 @@ Dit artikel bevat de belangrijkste concepten waarmee u kunt toepassingen schalen
 - [Handmatig schalen](#manually-scale-pods-or-nodes)
 - [Horizontale schillen automatisch schalen (HPA)](#horizontal-pod-autoscaler)
 - [Automatisch schalen van cluster](#cluster-autoscaler)
-- [Integratie van Azure Container exemplaar (ACI) met AKS](#burst-to-azure-container-instance)
+- Integratie van Azure Container exemplaar (ACI) met AKS
 
 ## <a name="manually-scale-pods-or-nodes"></a>Handmatig schalen van schillen of knooppunten
 
@@ -65,7 +65,7 @@ Als een knooppunt niet voldoende rekenresources om uit te voeren van een aangevr
 
 Wanneer het cluster automatisch schalen schillen die door resourcebeperkingen voor knooppunt groep kunnen niet worden gepland kennisgevingen, wordt het aantal knooppunten in het knooppunt pool verhoogd voor de extra rekenresources. Wanneer deze extra knooppunten is geïmplementeerd en beschikbaar zijn voor gebruik binnen de pool knooppunt zijn, worden vervolgens de schillen gepland om uit te voeren op deze.
 
-Als uw toepassing moet schalen, blijven sommige schillen in een status die moet worden gepland totdat de extra knooppunten geïmplementeerd door het cluster automatisch schalen kunnen de geplande schillen accepteren. Voor toepassingen die hoge burst vraag hebt, kunt u [schaal met virtuele knooppunten en Azure Container Instances](#burst-to-azure-container-instance).
+Als uw toepassing moet schalen, blijven sommige schillen in een status die moet worden gepland totdat de extra knooppunten geïmplementeerd door het cluster automatisch schalen kunnen de geplande schillen accepteren. Voor toepassingen die hoge burst vraag hebt, kunt u schalen met virtuele knooppunten en Azure Container Instances.
 
 ### <a name="scale-down-events"></a>Gebeurtenissen verkleinen
 

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 1/23/2019
 ms.author: victorh
-ms.openlocfilehash: 4b5b98b5695901ca6d136682e454f059f157b743
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f88cc44890277604411f482779a83ee266820ac8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826476"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816319"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>Azure DNS gebruiken voor persoonlijke domeinen
 
@@ -32,7 +32,7 @@ Azure DNS biedt de volgende voordelen:
 
 * **Hiermee verwijdert u de noodzaak van aangepaste DNS-oplossingen**. Veel klanten gemaakt eerder, aangepaste DNS-oplossingen voor het beheren van DNS-zones in het virtuele netwerk. Nu kunt u DNS-zone-beheer uitvoeren met behulp van de systeemeigen Azure-infrastructuur, waardoor de werkbelasting van het maken en beheren van aangepaste DNS-oplossingen worden verwijderd.
 
-* **Gebruik van alle algemene DNS-records typen**. Azure DNS ondersteunt A, AAAA, CNAME, MX, NS, PTR, SOA, SRV en TXT-records.
+* **Gebruik van alle algemene DNS-records typen**. Azure DNS ondersteunt A, AAAA, CNAME, MX, PTR, SOA, SRV en TXT-records.
 
 * **Automatische hostnaam recordbeheer**. Samen met uw aangepaste DNS-records hosten, bewaart Azure automatisch hostnaamrecords voor de virtuele machines in de opgegeven virtuele netwerken. In dit scenario kunt u de domeinnamen die u gebruikt zonder dat u hoeft te maken van aangepaste DNS-oplossingen of wijzig de toepassingen optimaliseren.
 

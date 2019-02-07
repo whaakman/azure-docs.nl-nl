@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: d0e549f0da5eb30dd11992518789d76c0892bca3
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: d67085d2e90e318a8f134103f0798554b8967d6d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747472"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814415"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens
 
@@ -774,7 +774,7 @@ U kunt eigenschappen en metingen toevoegen aan uw gebeurtenissen (en ook tot met
 
 *Eigenschappen* tekenreekswaarden die u gebruiken kunt voor het filteren van uw telemetrie in de rapporten over gebruik zijn. Bijvoorbeeld, als uw app verschillende games biedt, kunt u koppelen de naam van het spel aan elke gebeurtenis zodat u kunt zien welke games meer populair zijn.
 
-Er is een limiet van 8192 liggen op de lengte van de tekenreeks. (Als u wilt voor het verzenden van grote hoeveelheden gegevens, gebruikt u de parameter bericht van [TrackTrace](#track-trace).)
+Er is een limiet van 8192 liggen op de lengte van de tekenreeks. (Als u wilt voor het verzenden van grote hoeveelheden gegevens, gebruikt u de parameter bericht van TrackTrace.)
 
 *Metrische gegevens* zijn numerieke waarden grafisch kunnen worden weergegeven. Bijvoorbeeld, als u wilt zien of er een geleidelijke toename van de scores die uw gamers behalen. De grafieken kunnen worden gesegmenteerd op de eigenschappen die worden verzonden met de gebeurtenis, zodat u kunt afzonderlijke ophalen of gestapelde diagrammen voor verschillende games.
 
@@ -992,7 +992,7 @@ gameTelemetry.TrackEvent({name: "WinGame"});
 
 Aanroepen van afzonderlijke telemetrie kunnen de standaardwaarden in de eigenschap woordenlijsten overschrijven.
 
-*Voor JavaScript-clients*, [gebruik JavaScript telemetrie initializers](#js-initializer).
+*Voor JavaScript-clients*, JavaScript telemetrie initializers gebruiken.
 
 *Eigenschappen toevoegen aan alle telemetrie*, met inbegrip van de gegevens uit de verzameling modules, [implementeren `ITelemetryInitializer` ](../../azure-monitor/app/api-filtering-sampling.md#add-properties).
 

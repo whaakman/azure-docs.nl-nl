@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
-ms.openlocfilehash: 655159185a6011d79b927fd16d2957e2a59c8376
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a58ebe14749add30deb229f1b7e30fbb6e9921d7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437789"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814884"
 ---
 # <a name="test-your-app-in-azure"></a>Uw app in Azure testen 
 Dit artikel bevat stappen voor het testen van uw toepassing in Azure met DevTest Labs. Eerst een bestandsshare in een lab instellen en deze koppelen als een station op uw lokale ontwikkelcomputer en een virtuele machine in een testomgeving. Daarna gebruikt u Visual Studio 2017 aan uw app implementeren in de bestandsshare, zodat u de app op de virtuele machine in het lab uitvoeren kunt.  
@@ -57,7 +57,7 @@ Dit artikel bevat stappen voor het testen van uw toepassing in Azure met DevTest
     ![Selecteer in het lab VM](media/test-app-in-azure/select-lab-vm.png)
 2. Selecteer **Connect** op de werkbalk om verbinding maken met de virtuele machine. 
 3. [Installeer Azure PowerShell](https://azure.microsoft.com/downloads/) met behulp van de **Windows installeren** herstelkoppeling in de **opdrachtregelprogramma's** sectie. Zie voor andere manieren van Azure PowerShell, [in dit artikel](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.8.1).
-4. Volg de instructies in de [de bestandsshare koppelen](#mount-the-file-share) sectie. 
+4. Volg de instructies in het koppelpunt de sectie van de bestandsshare. 
 
 ## <a name="publish-your-app-from-visual-studio"></a>Publiceer uw app vanuit Visual Studio
 In deze sectie maakt publiceren u uw app vanuit Visual Studio om een test-VM in de cloud te.

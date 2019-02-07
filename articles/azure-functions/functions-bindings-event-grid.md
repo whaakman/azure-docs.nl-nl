@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: 78290f6d1b31788c3f2de99996739cc8e7b20419
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: d865028a2ddc7315192030b704a77a332dab14aa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810931"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822699"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Trigger Gebeurtenisraster voor Azure Functions
 
@@ -79,7 +79,7 @@ namespace Company.Function
 }
 ```
 
-### <a name="c-2x"></a>C#(2.x)
+### <a name="c-2x"></a>C# (2.x)
 
 Het volgende voorbeeld ziet u een functies 2.x [C#-functie](functions-dotnet-class-library.md) die wordt gebonden aan `EventGridEvent`:
 
@@ -103,7 +103,7 @@ namespace Company.Function
 }
 ```
 
-Zie voor meer informatie, [pakketten](#packages), [kenmerken](#attributes), [configuratie](#configuration), en [gebruik](#usage).
+Zie voor meer informatie, pakketten, [kenmerken](#attributes), [configuratie](#configuration), en [gebruik](#usage).
 
 ### <a name="c-script-example"></a>Voorbeeld van C#-script
 
@@ -155,7 +155,7 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 }
 ```
 
-Zie voor meer informatie, [pakketten](#packages), [kenmerken](#attributes), [configuratie](#configuration), en [gebruik](#usage).
+Zie voor meer informatie, pakketten, [kenmerken](#attributes), [configuratie](#configuration), en [gebruik](#usage).
 
 ### <a name="javascript-example"></a>JavaScript-voorbeeld
 
@@ -226,7 +226,7 @@ def main(event: func.EventGridEvent):
 Deze sectie bevat de volgende voorbeelden:
 
 * [Trigger Gebeurtenisraster, queryreeks-parameter](#event-grid-trigger-string-parameter-java)
-* [Trigger Gebeurtenisraster, POJO parameter](#event-grid-trigger-pojo-parameter-java)
+* [Event Grid trigger, POJO parameter](#event-grid-trigger-pojo-parameter-java)
 
 De volgende voorbeelden ziet u de binding van de trigger in een *function.json* bestand en [Java-functies](functions-reference-java.md) die de binding kunt gebruiken en afdrukken van een gebeurtenis, ontvangt eerst de gebeurtenis als ```String``` en het tweede als een POJO.
 
@@ -242,7 +242,7 @@ De volgende voorbeelden ziet u de binding van de trigger in een *function.json* 
 }
 ```
 
-#### <a name="event-grid-trigger-string-parameter-java"></a>Trigger Gebeurtenisraster, queryreeks-parameter (Java)
+#### <a name="event-grid-trigger-string-parameter-java"></a>Event Grid trigger, String parameter (Java)
 
 ```java
   @FunctionName("eventGridMonitorString")
@@ -257,7 +257,7 @@ De volgende voorbeelden ziet u de binding van de trigger in een *function.json* 
   }
 ```
 
-#### <a name="event-grid-trigger-pojo-parameter-java"></a>Trigger Gebeurtenisraster, POJO parameter (Java)
+#### <a name="event-grid-trigger-pojo-parameter-java"></a>Event Grid trigger, POJO parameter (Java)
 
 In dit voorbeeld wordt de volgende POJO, dat de eigenschappen op het hoogste niveau van een Event Grid-gebeurtenis:
 

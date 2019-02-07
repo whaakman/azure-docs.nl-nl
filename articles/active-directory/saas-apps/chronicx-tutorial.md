@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 982a639fe7a57c2db484acc6b272e5314637d1c4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2b033cae63668c1b2af968d5c5b9df4e7b42dc35
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167662"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812919"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-chronicx"></a>Zelfstudie: Azure Active Directory-integratie met ChronicX®
 
@@ -86,7 +86,7 @@ Om te configureren en testen van Azure AD eenmalige aanmelding met ChronicX®, m
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
 1. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-1. **[Maak een testgebruiker ChronicX®](#create-a-chronicx®-test-user)**  : als u wilt een equivalent van Britta Simon in ChronicX® die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **Maak een testgebruiker ChronicX®** : als u wilt een equivalent van Britta Simon in ChronicX® die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
 1. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 1. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 

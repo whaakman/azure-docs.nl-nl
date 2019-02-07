@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 7152582a73dbaf07eca4aae066c9ac3ab82c3135
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: e520c5dc2ae086305692c4bec1e1786d335c97e5
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319049"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765990"
 ---
 # <a name="log-analytics-data-security"></a>Meld u Analytics-gegevensbeveiliging
 Dit document is bedoeld voor specifieke informatie voor Log Analytics, dat een functie van Azure Monitor om te voorzien in de gegevens is op [Azure Trust Center](../../security/security-microsoft-trust-center.md).  
@@ -52,7 +52,6 @@ We raden niet expliciet instelling uw agent alleen gebruik van TLS 1.2, tenzij d
 | Windows 8.0-10 | Ondersteund en standaard ingeschakeld. | Om te bevestigen dat u nog steeds gebruikt de [standaardinstellingen](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
 | WindowsServer 2012-2016 | Ondersteund en standaard ingeschakeld. | Om te bevestigen dat u nog steeds gebruikt de [standaardinstellingen](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
 | Windows 7 SP1 en Windows Server 2008 R2 SP1 | Ondersteund, maar niet standaard ingeschakeld. | Zie de [registerinstellingen voor Transport Layer Security (TLS)](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) pagina voor meer informatie over het inschakelen.  |
-| Windows Server 2008 SP2 | Ondersteuning voor TLS 1.2 is een update vereist. | Zie [Update voor het toevoegen van ondersteuning voor TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) in Windows Server 2008 SP2. |
 
 ## <a name="data-segregation"></a>scheiding van gegevens
 Nadat uw gegevens worden opgenomen door de Log Analytics-service, worden de gegevens bewaard logische manier apart op elk onderdeel van de service. Alle gegevens worden gemarkeerd per werkruimte. Deze markering blijft aanwezig gedurende de levenscyclus van de gegevens en deze wordt afgedwongen op elke laag van de service. Uw gegevens worden opgeslagen in een specifieke database in het opslagcluster in de regio die u hebt geselecteerd.

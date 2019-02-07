@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: yushwang
-ms.openlocfilehash: f51a97e1493803998cfbdd81523e4e479b50346d
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: e575fac61a1c5d9351391d39d200b87e34ff26cd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697102"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817237"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Voorbeeldconfiguratie: Cisco ASA-apparaat (IKEv2/geen BGP)
 Dit artikel bevat voorbeelden van configuraties voor netwerkapparaten Cisco Adaptive Security toestel (ASA) met Azure VPN-gateways. Het voorbeeld geldt voor Cisco ASA-apparaten die worden uitgevoerd zonder de Border Gateway Protocol (BGP) IKEv2. 
@@ -44,7 +44,7 @@ Azure VPN-gateways gebruiken de standaard IPsec/IKE-protocol-pakketten naar de S
 > U kunt optioneel een exact dezelfde combinatie van cryptografische algoritmen en belangrijkste sterke punten voor een specifieke verbinding opgeven zoals beschreven in [over cryptografische vereisten](vpn-gateway-about-compliance-crypto.md). Als u een exacte combinatie van algoritmen en belangrijkste sterke punten opgeeft, zorg er dan voor dat de bijbehorende specificaties gebruiken op uw VPN-apparaten.
 
 ## <a name="single-vpn-tunnel"></a>Één VPN-tunnel
-Deze configuratie bestaat uit één S2S-VPN-tunnel tussen een Azure VPN-gateway en een on-premises VPN-apparaat. U kunt eventueel de [BGP via de VPN-tunnel](#bgp).
+Deze configuratie bestaat uit één S2S-VPN-tunnel tussen een Azure VPN-gateway en een on-premises VPN-apparaat. U kunt eventueel het BGP configureren via de VPN-tunnel.
 
 ![Één S2S-VPN-tunnel](./media/vpn-gateway-3rdparty-device-config-cisco-asa/singletunnel.png)
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2017
 ms.author: wesmc
-ms.openlocfilehash: 60f9baf7fb54706dc9d31c6920c0df24173d7b35
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 903fd465ce2a88e94b821c9a1b4c6c531083180a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105833"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819056"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Het configureren van persistentie van de gegevens voor een Premium Azure Cache voor Redis
 Azure Redis-Cache heeft een ander cache-aanbiedingen die over de benodigde flexibiliteit bij de keuze van de grootte van de cache en -onderdelen, met inbegrip van Premium-functies zoals clustering, persistentie en virtual network-ondersteuning. In dit artikel wordt beschreven hoe u persistentie configureren in een premium Azure Cache voor Redis-exemplaar.
@@ -133,7 +133,7 @@ Voor zowel RDB en AOF-persistentie:
 * Als u op een kleinere grootte hebt geschaald, en er niet genoeg ruimte is in de kleinere grootte voor alle van de gegevens van de laatste back-up, sleutels wordt onbeschikbaar gemaakt tijdens het herstelproces, meestal met behulp van de [allkeys lru](https://redis.io/topics/lru-cache) verwijderingsbeleid.
 
 ### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>Kan ik de RDB-back-upfrequentie wijzigen nadat ik de cache maken?
-Ja, kunt u de back-upfrequentie voor RDB persistentie wijzigen op de **Redis-gegevenspersistentie** blade. Zie voor instructies [configureren van Redis-persistentie](#configure-redis-persistence).
+Ja, kunt u de back-upfrequentie voor RDB persistentie wijzigen op de **Redis-gegevenspersistentie** blade. Zie configureren van Redis-persistentie voor instructies.
 
 ### <a name="why-if-i-have-an-rdb-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups"></a>Waarom als ik een back-upfrequentie RDB van 60 minuten er meer dan 60 minuten tussen back-ups is?
 De RDB-persistentie back-upfrequentie interval start niet totdat de vorige back-upproces is voltooid. Als de back-upfrequentie 60 minuten is en wordt een back-upproces 15 minuten te voltooien, start de volgende back-up niet tot 75 minuten na de starttijd van de vorige back-up.

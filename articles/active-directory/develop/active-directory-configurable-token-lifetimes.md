@@ -16,12 +16,12 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 5dd5920eae97399bae03c6917bb610103bd556c2
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: ecdeca5e6dae5fa60afdce499dc4eea022c4564c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912711"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817628"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Configureerbare levensduur van tokens in Azure Active Directory (Preview)
 
@@ -48,7 +48,8 @@ U kunt de levensduur van vernieuwingstoken-beleid voor het vernieuwen van tokens
 Clients gebruiken de toegangstokens voor toegang tot een beveiligde bron. Een toegangstoken kan alleen worden gebruikt voor een specifieke combinatie van gebruikers-, client- en. Toegangstokens kunnen niet worden ingetrokken en zijn geldig tot de vervaldatum. Een kwaadwillende actor die is verkregen van een toegangstoken kunt gebruiken voor de omvang van hun levensduur. Aanpassen van de levensduur van een toegangstoken is een compromis tussen de systeemprestaties verbeteren en het vergroten van de hoeveelheid tijd dat de client toegang behouden nadat het gebruikersaccount is uitgeschakeld. Verbeterde prestaties wordt bereikt door het beperken van het aantal keren dat die een client moet een nieuwe toegangstoken verkrijgen.  De standaardwaarde is 1 uur - na 1 uur, de client het vernieuwingstoken (meestal op de achtergrond) een nieuwe vernieuwingstoken ophalen en toegangstoken moet gebruiken. 
 
 ### <a name="refresh-tokens"></a>Vernieuwen van tokens
-Wanneer een client een toegangstoken verkrijgt voor toegang tot een beveiligde bron, ontvangt de client ook een vernieuwingstoken. Het vernieuwingstoken dat wordt gebruikt voor het verkrijgen van toegang/vernieuwen van nieuwe token paren wanneer het huidige toegangstoken is verlopen. Een vernieuwingstoken is gebonden aan een combinatie van gebruiker en de client. Een vernieuwingstoken kan worden [ingetrokken op elk gewenst moment](access-tokens.md#token-revocation), en de geldigheid van het token is ingeschakeld telkens wanneer het token wordt gebruikt.  
+
+Wanneer een client een toegangstoken verkrijgt voor toegang tot een beveiligde bron, ontvangt de client ook een vernieuwingstoken. Het vernieuwingstoken dat wordt gebruikt voor het verkrijgen van toegang/vernieuwen van nieuwe token paren wanneer het huidige toegangstoken is verlopen. Een vernieuwingstoken is gebonden aan een combinatie van gebruiker en de client. Een vernieuwingstoken kan worden [ingetrokken op elk gewenst moment](access-tokens.md#token-revocation), en de geldigheid van het token is ingeschakeld telkens wanneer het token wordt gebruikt.  Vernieuwen van tokens worden niet ingetrokken wanneer gebruikt voor het nieuwe toegangstokens ophalen: het wordt aanbevolen om echter veilig verwijderen van het oude token bij het ophalen van een nieuwe. 
 
 Het is belangrijk dat u onderscheid maken tussen vertrouwelijke clients en openbare clients, als dit van invloed op hoe lang vernieuwingstokens kunnen worden gebruikt. Zie voor meer informatie over de verschillende soorten clients [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 

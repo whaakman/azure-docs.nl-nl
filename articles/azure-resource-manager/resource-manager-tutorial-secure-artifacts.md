@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 12/07/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c17d4d51327862872d240e07cb69d4ddf1f8672b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c83865835dfff4013072757c8f40a8d8fc83deaa
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082138"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493236"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Zelfstudie: Artefacten in Azure Resource Manager-sjabloonimplementaties beveiligen
 
@@ -36,6 +36,8 @@ Deze zelfstudie bestaat uit de volgende taken:
 > * De implementatie controleren
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -205,8 +207,8 @@ $artifactsLocation = Read-Host -Prompt "Enter the artifacts location"
 $artifactsLocationSasToken = Read-Host -Prompt "Enter the artifacts location SAS token" -AsSecureString
 $bacpacFileName = Read-Host -Prompt "Enter the BACPAC file name"
 
-New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-New-AzureRmResourceGroupDeployment -Name $deploymentName `
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzResourceGroupDeployment -Name $deploymentName `
     -ResourceGroupName $resourceGroupName `
     -adminUser $adminUsername `
     -adminPassword $adminPassword `

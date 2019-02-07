@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: e47334a20072f4b9f4d1401b5dd1f848fa99df5a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 84f8d8ecbeacc5acb6b19462096e6fbd1aa45816
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497312"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810283"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -239,7 +239,7 @@ Bij het verplaatsen van resources van een resourcegroep naar een andere resource
 * Slechts één opslagaccount (klassiek) kan tegelijk worden verplaatst.
 * Opslagaccount (klassiek) kan niet worden verplaatst in dezelfde bewerking met een virtuele machine of een service in de cloud.
 
-Voor klassieke resources verplaatsen naar een nieuwe resourcegroep binnen hetzelfde abonnement, gebruikt u de verplaatsingsbewerkingen voor standard via de [portal](#use-portal), [Azure PowerShell](#use-powershell), [Azure CLI](#use-azure-cli), of [REST-API](#use-rest-api). U dezelfde bewerkingen als die u gebruikt voor het verplaatsen van Resource Manager-resources.
+Voor klassieke resources verplaatsen naar een nieuwe resourcegroep binnen hetzelfde abonnement, gebruikt u de verplaatsingsbewerkingen voor standard via de [portal](#use-portal), Azure PowerShell, Azure CLI of REST-API. U dezelfde bewerkingen als die u gebruikt voor het verplaatsen van Resource Manager-resources.
 
 #### <a name="new-subscription"></a>Nieuw abonnement
 
@@ -310,7 +310,7 @@ De bewerking kan enkele minuten uitgevoerd.
 
 ### <a name="recovery-services-limitations"></a>Recovery Services-beperkingen
 
- Voor het verplaatsen van een Recovery Services-kluis, moet u zich inschrijven voor een beperkte preview. Probeer het uit, schrijven naar AskAzureBackupTeam@microsoft.com.
+ Voor het verplaatsen van een Recovery Services-kluis, moet u zich inschrijven voor een beperkte preview. Schrijf naar AskAzureBackupTeam@microsoft.com als u dit wilt uitproberen.
 
 Op dit moment kunt u een Recovery Services-kluis verplaatsen per regio, op een tijdstip. U kunt kluizen dat voor back-up Azure Files of Azure File Sync SQL IaaS virtuele machines niet verplaatsen.
 

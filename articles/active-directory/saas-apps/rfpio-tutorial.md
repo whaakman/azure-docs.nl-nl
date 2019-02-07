@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 0b216d8a8a2c6e1ab7c7b71eedfca9cbd6dbd5cf
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 23d745e084bf3439d8400b0cd6ac43bac75c7751
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197344"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815690"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Zelfstudie: Azure Active Directory-integratie met RFPIO
 
@@ -88,11 +88,11 @@ In RFPIO, wijs de waarde van **gebruikersnaam** in Azure AD als de waarde van **
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met RFPIO, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD eenmalige aanmelding configureren](#configuring-azure-ad-single-sign-on)**--zodat uw gebruikers deze functie wilt gebruiken.
-1. **[Maak een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**--voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Maak een testgebruiker RFPIO](#creating-a-rfpio-test-user)**  --een equivalent van Britta Simon in RFPIO die is gekoppeld aan de Azure AD-weergave van de gebruiker kan hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**--Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  --om te controleren of de configuratie werkt.
+1. **Azure AD eenmalige aanmelding configureren**--zodat uw gebruikers deze functie wilt gebruiken.
+1. **Maak een Azure AD-testgebruiker**--voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **Maak een testgebruiker RFPIO** --een equivalent van Britta Simon in RFPIO die is gekoppeld aan de Azure AD-weergave van de gebruiker kan hebben.
+1. **Toewijzen van de Azure AD-testgebruiker**--Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **Eenmalige aanmelding testen** --om te controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 

@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 8e8950cbd7927cb6b0543866ab976b550c9ec043
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4f65ebfd2e1ce508c5cf9b224871102a35b55fe0
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959543"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770314"
 ---
 # <a name="use-cloud-init-to-run-a-bash-script-in-a-linux-vm-in-azure"></a>Cloud-init gebruiken voor het uitvoeren van een bash-script in een Linux-VM in Azure
 In dit artikel leest u hoe u [cloud-init](https://cloudinit.readthedocs.io) om uit te voeren een bestaand bash-script op een Linux-machine (VM) of virtuele-machineschaalsets (VMSS) bij het inrichten van de tijd in Azure. Deze cloud-init-scripts uitvoeren op de eerste keer opstarten nadat de resources zijn ingericht met Azure. Zie voor meer informatie over hoe cloud-init systeemeigen in Azure en de ondersteunde Linux-distributies werkt [cloud-init-overzicht](using-cloud-init.md)
@@ -36,13 +36,13 @@ Als u wilt deze functionaliteit in actie zien, maakt u een eenvoudige bash-scrip
 echo "this has been written via cloud-init" + $(date) >> /tmp/myScript.txt
 ```
 
-Voordat u deze installatiekopie implementeert, moet u een resourcegroep maken met de [az-groep maken](/cli/azure/group#az_group_create) opdracht. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS - oost*.
+Voordat u deze installatiekopie implementeert, moet u een resourcegroep maken met de [az-groep maken](/cli/azure/group) opdracht. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS - oost*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Maak nu een virtuele machine met [az vm maken](/cli/azure/vm#az_vm_create) en geef de bash-script-bestand met `--custom-data simple_bash.sh` als volgt:
+Maak nu een virtuele machine met [az vm maken](/cli/azure/vm) en geef de bash-script-bestand met `--custom-data simple_bash.sh` als volgt:
 
 ```azurecli-interactive 
 az vm create \

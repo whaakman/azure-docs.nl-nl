@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 04/24/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3036c53fa95b40ac0bfc7dbe5bed69581236918d
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 8ce1383717b59cc7b7a43ca707fbe5ebba897f20
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411880"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730319"
 ---
-# <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Quickstart: Een virtuele Windows-machine maken met de Azure CLI
+# <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Snelstart: Een virtuele Windows-machine maken met de Azure CLI
 
 De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. In deze snelstart wordt beschreven hoe u de Azure CLI gebruikt voor het implementeren van een virtuele machine (VM) in Azure waarop Windows Server 2016 wordt uitgevoerd. Om uw VM in actie te zien, voert u een externe bureaubladsessie voor de virtuele machine uit en installeert u de IIS-webserver.
 
@@ -35,7 +35,7 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az_group_create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
+Een resourcegroep maken met de opdracht [az group create](/cli/azure/group). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -43,7 +43,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-virtual-machine"></a>Virtuele machine maken
 
-Maak een VM met [az vm create](/cli/azure/vm#az_vm_create). In het volgende voorbeeld wordt een VM met de naam *myVM* gemaakt. In dit voorbeeld wordt *azureuser* voor de naam van een gebruiker met beheerdersrechten en *myPassword12* als het wachtwoord gebruikt. Werk deze waarden bij met waarden die geschikt zijn voor uw omgeving. Deze waarden zijn nodig wanneer u verbinding maakt met de virtuele machine.
+Maak een VM met [az vm create](/cli/azure/vm). In het volgende voorbeeld wordt een VM met de naam *myVM* gemaakt. In dit voorbeeld wordt *azureuser* voor de naam van een gebruiker met beheerdersrechten en *myPassword12* als het wachtwoord gebruikt. Werk deze waarden bij met waarden die geschikt zijn voor uw omgeving. Deze waarden zijn nodig wanneer u verbinding maakt met de virtuele machine.
 
 ```azurecli-interactive
 az vm create \
@@ -73,7 +73,7 @@ Noteer uw eigen `publicIpAddress` in de uitvoer van uw virtuele machine. Dit adr
 
 ## <a name="open-port-80-for-web-traffic"></a>Poort 80 openen voor webverkeer
 
-Standaard worden alleen verbindingen met een extern bureaublad geopend wanneer u een virtuele Windows-machine in Azure maakt. Gebruik [az vm open-port](/cli/azure/vm#az_vm_open_port) om TCP-poort 80 te openen voor gebruik met de IIS-webserver:
+Standaard worden alleen verbindingen met een extern bureaublad geopend wanneer u een virtuele Windows-machine in Azure maakt. Gebruik [az vm open-port](/cli/azure/vm) om TCP-poort 80 te openen voor gebruik met de IIS-webserver:
 
 ```azurecli-interactive
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 5ae7643123552eaa17d51e6cd1ed9c0293292ed0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 734169a0bce546ee2492d100b2abcb2ba8b6ffc9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184968"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822524"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problemen met aanmelden bij een Azure AD-galerie-toepassing die is geconfigureerd voor eenmalige aanmelding wachtwoord
 
@@ -88,7 +88,7 @@ Ga als volgt de [oplossen met de extensie van het Configuratiescherm toegang voo
 
 Een toepassing uit de Azure AD-galerie die u wilt configureren:
 
--   [Een toepassing toevoegen via de Azure AD-galerie](#_Add_an_application)
+-   Een toepassing toevoegen via de Azure AD-galerie
 
 -   [De toepassing configureren voor eenmalige aanmelding wachtwoord](#configure-the-application-for-password-single-sign-on)
 
@@ -140,7 +140,7 @@ Voor het configureren van eenmalige aanmelding voor een toepassing, de volgende 
 
 8.  Selecteer de modus **wachtwoord gebaseerde aanmelding.**
 
-9.  [Gebruikers toewijzen aan de toepassing](#_How_to_assign).
+9.  Gebruikers toewijzen aan de toepassing.
 
 10. Bovendien kunt u ook referenties opgeven namens de gebruiker door de rijen van de gebruikers selecteren en te klikken op **updatereferenties** en de gebruikersnaam en het wachtwoord namens de gebruikers in te voeren. Anders wordt gebruikers gevraagd om in te voeren van de referenties zich bij het starten.
 

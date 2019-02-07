@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 2/6/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
-ms.openlocfilehash: 43cceeb9b65bcee97855f96c781c5d157b32346a
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 001eb1946ff0fdc073baaa6da76f4bfa63fc3652
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080920"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810624"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Gebruikers van Azure Active Directory B2B-samenwerking toevoegen in Azure portal
 
@@ -45,7 +45,7 @@ Gebruikers van B2B-samenwerking toevoegen aan de directory, de volgende stappen 
    ![Laat zien waar nieuwe gastgebruiker zich bevindt in de gebruikersinterface](./media/add-users-administrator/InviteGuest.png) 
 
     > [!NOTE]
-    > Sommige e-mailproviders toestaan dat gebruikers om toe te voegen een plusteken (+)-symbool en aanvullende tekst naar hun e-mailadressen met een zaken zoals het filteren van postvak in. Echter, Azure AD ondersteunt momenteel geen plus-teken in e-mailadressen. Levering om problemen te voorkomen, laat u het plusteken en alle tekens tot na het @-teken.
+    > Groep e-mailadressen worden niet ondersteund; Voer het e-mailadres voor een persoon. Ook bepaalde e-mailproviders toestaan dat gebruikers om toe te voegen een plusteken (+)-symbool en aanvullende tekst naar hun e-mailadressen met een zaken zoals het filteren van postvak in. Echter, Azure AD ondersteunt momenteel geen plus-teken in e-mailadressen. Levering om problemen te voorkomen, laat u het plusteken en alle tekens tot na het @-teken.
 
 6. Selecteer **Uitnodigen** voor het automatisch verzenden van de uitnodiging voor de gastgebruiker. 
  
@@ -82,7 +82,7 @@ Gebruikers van B2B-samenwerking toevoegen aan een toepassing als een Azure AD-be
 
     ![Totaal aantal gebruikers om toe te voegen open gebruikers en groepen](./media/add-users-administrator/AppUsersAndGroups.png)
 
-6. Selecteer **gebruiker toevoegen**.
+6. Selecteer **Gebruiker toevoegen**.
 7. Onder **toevoegen toewijzing**, selecteer **gebruikers en groepen**.
 8. Voer een van de volgende handelingen uit:
    - Als de gastgebruiker al in de directory bestaat, kunt u zoeken naar de B2B-gebruiker. Selecteer de gebruiker, klikt u op **Selecteer**, en klik vervolgens op **toewijzen** om toe te voegen van de gebruiker naar de app.

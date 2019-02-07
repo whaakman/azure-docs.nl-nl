@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: df3f4dc163f94ddab08ecdad7f8d4cc625b8917d
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: cbb15ff084c3639be801458d071f3966873c2509
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300265"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815648"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Azure Premium Storage gebruiken met SQL Server op Virtual Machines
 ## <a name="overview"></a>Overzicht
@@ -1191,7 +1191,7 @@ Als u slechts twee SQL-Servers hebt en wilt migreren naar een nieuwe cloudservic
 
 Wanneer u naar de gemigreerde secundaire gebracht en in de nieuwe bron-IP-adres voor de nieuwe cloudservice voordat de failover de bestaande primaire wordt toegevoegd, kunt u deze stappen in het failover-Clusterbeheer moet nemen:
 
-Als u wilt toevoegen in IP-adres, Zie de [bijlage](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage), stap 14.
+Als u wilt toevoegen in IP-adres, Zie de bijlage, stap 14.
 
 1. Voor de resource van het huidige IP-adres, de mogelijke eigenaar aan 'Bestaande primaire SQL Server', in het voorbeeld 'dansqlams4' te wijzigen:
 

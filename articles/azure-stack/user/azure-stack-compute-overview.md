@@ -10,12 +10,12 @@ ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 13454e7dfb18e4d0e87b9b041b53dbef155153a8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: cd42a347de236de2e3374d7ac854779f4c222a00
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251636"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768143"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Kennismaking met virtuele machines in Azure Stack
 
@@ -69,7 +69,7 @@ Virtuele machines maken gebruik van virtuele harde schijven (VHD's) voor de opsl
 
 De volgende tabel laat zien hoe de gegevens voor een installatiekopie vinden:
 
-|Methode|Beschrijving|
+|Methode|Description|
 |---------|---------|
 |Azure Stack-portal|De waarden worden automatisch opgegeven wanneer u een installatiekopie selecteert om te gebruiken.|
 |PowerShell voor Azure Stack|`Get-AzureRMVMImagePublisher -Location "location"`<br>`Get-AzureRMVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzureRMVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
@@ -95,7 +95,7 @@ Deze algemene taken kunnen worden uitgevoerd met extensies:
 
 De resources in de volgende tabel worden gebruikt door de virtuele machine en moeten bestaan of worden gemaakt wanneer de virtuele machine wordt gemaakt:
 
-|Resource|Vereist|Beschrijving|
+|Resource|Vereist|Description|
 |---------|---------|---------|
 |Resourcegroep|Ja|De VM moet zijn opgenomen in een resourcegroep.|
 |Storage-account|Nee|De virtuele machine hoeft niet de storage-account voor het opslaan van de virtuele harde schijven als schijven beheerd. <br>De virtuele machine hoeft het opslagaccount voor het opslaan van de virtuele harde schijven als niet-beheerde schijven.|
@@ -128,7 +128,7 @@ U kunt virtuele machines via een browser gebaseerde portal, opdrachtregelprogram
 
 De volgende tabel ziet u enkele van de manieren waarop die u informatie over een VM kunt ophalen.
 
-|Methode|Beschrijving|
+|Methode|Description|
 |---------|---------|
 |Azure Stack-portal|In het hubmenu op virtuele Machines en selecteer vervolgens de virtuele machine in de lijst. Op de pagina voor de virtuele machine hebt u toegang tot informatie inzien, waarden instellen en metrische gegevens controleren.|
 |Azure PowerShell|Beheren van virtuele machines is in Azure en Azure Stack vergelijkbaar. Zie de volgende Azure onderwerp voor meer informatie over het gebruik van PowerShell:<br>[Maken en beheren van Windows VM's met de Azure PowerShell-module](../../virtual-machines/windows/tutorial-manage-vm.md#understand-vm-sizes)|

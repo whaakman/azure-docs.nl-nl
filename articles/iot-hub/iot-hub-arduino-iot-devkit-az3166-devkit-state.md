@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
-ms.openlocfilehash: 6bc1255c5bbb9cf74c97b88600f34e7fcd90ae4f
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e955d21132dda6caa137ad3b5de9d00ccf7ed1b4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343144"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811049"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
@@ -55,13 +55,13 @@ U kunt in dit voorbeeld gebruiken voor het bewaken van de MXChip IoT DevKit Wi-F
 
 6. Ongeveer als in *functie-app: functie-appnaam: xxx*, wordt weergegeven. Noteer de naam van de functie-app; Deze wordt gebruikt in een latere stap.
 
-7. Wacht tot de Azure Resource Manager sjabloonimplementatie is voltooid, die wordt aangegeven wanneer het bericht *sjabloonimplementatie van Resource Manager-: gedaan* wordt weergegeven.
+7. Wacht tot de Azure Resource Manager sjabloonimplementatie is voltooid, die wordt aangegeven wanneer het bericht *sjabloonimplementatie van Resource Manager-: Gedaan* wordt weergegeven.
 
 ## <a name="deploy-function-app"></a>Functie-App implementeren
 
 1. Klik op de **taken** vervolgkeuzelijst in Visual Studio Code en selecteer **taak uitvoeren...**   -  **cloud implementeren**.
 
-2. Wachten op functie-app-code proces is voltooid; uploaden het bericht *functie-app wordt geïmplementeerd: gedaan* wordt weergegeven.
+2. Wachten op functie-app-code proces is voltooid; uploaden het bericht *functie-app wordt geïmplementeerd: Gedaan* wordt weergegeven.
 
 ## <a name="configure-iot-hub-device-connection-string-in-devkit"></a>IoT Hub apparaat-verbindingsreeks in DevKit configureren
 
@@ -83,7 +83,7 @@ Verbonden met uw MXChip IoT DevKit met uw computer:
 
 ## <a name="monitor-devkit-state-in-browser"></a>DevKit Monitorstatus in Browser
 
-1. Open in een webbrowser, de `DevKitState\web\index.html` -bestand dat is gemaakt tijdens de [wat u nodig hebt](#whatyouneed) stap.
+1. Open in een webbrowser, de `DevKitState\web\index.html` -bestand dat is gemaakt tijdens de wat moet u de stap.
 
 2. De volgende webpagina wordt weergegeven:![Geef de naam van de functie-app.](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state-function-app-name.png)
 
@@ -106,7 +106,7 @@ Verbonden met uw MXChip IoT DevKit met uw computer:
 ![Procedure voor het testen van voorbeeld](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
 
 > [!NOTE]
-> U kunt zien onbewerkte gegevens van het dubbele apparaat in Azure portal: IoT Hub -\> IoT-apparaten -\> *\<uw apparaat\>*  - \> Apparaatdubbel.
+> Onbewerkte gegevens van het dubbele apparaat in Azure portal, kunt u zien: IoT Hub -\> IoT-apparaten -\> *\<uw apparaat\>*  - \> Apparaatdubbel.
 
 ## <a name="next-steps"></a>Volgende stappen
 

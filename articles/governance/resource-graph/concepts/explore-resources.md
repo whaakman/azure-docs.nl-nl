@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: aa4a4ef1c1ee7281a737db7c7f91e4f330c52246
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: d6ce615e23ce71f22eff3c2c70b387267792fef9
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749624"
+ms.locfileid: "55768418"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Azure-resources verkennen met Resource Graph
 
@@ -40,11 +40,11 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1" | ConvertTo-Json
+Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1" | ConvertTo-Json -Depth 100
 ```
 
 > [!NOTE]
-> Azure PowerShell `Search-AzGraph` cmdlet retourneert een **PSCustomObject** standaard. De uitvoer zien er hetzelfde uit als u wat wordt geretourneerd door de Azure CLI, hebben de `ConvertTo-Json` cmdlet wordt gebruikt.
+> Azure PowerShell `Search-AzGraph` cmdlet retourneert een **PSCustomObject** standaard. De uitvoer zien er hetzelfde uit als u wat wordt geretourneerd door de Azure CLI, hebben de `ConvertTo-Json` cmdlet wordt gebruikt. De standaardwaarde voor **diepte** is _2_. Instellen op _100_ moet alle geretourneerde niveaus converteren.
 
 De structuur van de JSON-resultaten die vergelijkbaar is met het volgende voorbeeld:
 

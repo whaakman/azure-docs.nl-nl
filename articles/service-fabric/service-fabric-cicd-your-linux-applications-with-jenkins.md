@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/31/2018
 ms.author: saysa
-ms.openlocfilehash: f381285d29d70d6f5da6a6cd319c682cd0c6a235
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7abc15264a44c969f57071e84ffcedca30d326fb
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444535"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766313"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Jenkins gebruiken om te bouwen en implementeren van uw Linux-toepassingen
 Jenkins is een populair hulpprogramma voor doorlopende integratie en implementatie van uw apps. Hier leest u hoe u een Azure Service Fabric-toepassing maakt en implementeert met behulp van Jenkins.
@@ -229,11 +229,11 @@ De stappen in deze sectie laten zien hoe u een Jenkins-taak om te reageren op wi
 1. Op de **Triggers bouwen** tabblad in Jenkins, selecteert u welke optie u wilt. In dit voorbeeld die u wilt een build activeren wanneer er een push naar de opslagplaats, dus selecteer **GitHub-hookactivatie voor GITScm-polling**. (Voorheen heette deze optie **Build when a change is pushed to GitHub**.)
 1. Op de **bouwen** tabblad, doe het volgende, afhankelijk van of u een Java-toepassing of een .NET Core-App bouwt:
 
-   * **Voor Java-toepassingen:** uit de **build-stap toevoegen** Vervolgkeuzelijst, selecteer **Invoke Gradle Script**. Klik op **geavanceerde**. Geef het pad naar in het menu Geavanceerd **hoofdscript** voor uw toepassing. Het haalt build.gradle op uit het opgegeven pad en werkt dienovereenkomstig. Voor de [ActorCounter toepassing](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/reliable-services-actor-sample/Actors/ActorCounter), dit is: `${WORKSPACE}/reliable-services-actor-sample/Actors/ActorCounter`.
+   * **Voor Java-toepassingen:** Uit de **build-stap toevoegen** vervolgkeuzelijst, selecteer **Invoke Gradle Script**. Klik op **Advanced**. Geef het pad naar in het menu Geavanceerd **hoofdscript** voor uw toepassing. Het haalt build.gradle op uit het opgegeven pad en werkt dienovereenkomstig. Voor de [ActorCounter toepassing](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/reliable-services-actor-sample/Actors/ActorCounter), dit is: `${WORKSPACE}/reliable-services-actor-sample/Actors/ActorCounter`.
 
      ![Service Fabric Jenkins Build-actie][build-step]
 
-   * **Voor .NET Core-toepassingen:** uit de **build-stap toevoegen** Vervolgkeuzelijst, selecteer **Shell uitvoeren**. In het vak in de opdracht die wordt weergegeven, moet de map eerst moet worden gewijzigd in het pad waar het bestand build.sh zich bevindt. Zodra de map is gewijzigd, wordt het script build.sh kan worden uitgevoerd en wordt de toepassing gebouwd.
+   * **Voor .NET Core-toepassingen:** Uit de **build-stap toevoegen** vervolgkeuzelijst, selecteer **Shell uitvoeren**. In het vak in de opdracht die wordt weergegeven, moet de map eerst moet worden gewijzigd in het pad waar het bestand build.sh zich bevindt. Zodra de map is gewijzigd, wordt het script build.sh kan worden uitgevoerd en wordt de toepassing gebouwd.
 
       ```sh
       cd /var/jenkins_home/workspace/[Job Name]/[Path to build.sh]  # change directory to location of build.sh file
@@ -246,13 +246,13 @@ De stappen in deze sectie laten zien hoe u een Jenkins-taak om te reageren op wi
 
 1. Voor het configureren van Jenkins voor het implementeren van uw app in een Service Fabric-cluster in de acties na bouwen, moet u de locatie van het certificaat van het cluster in uw Jenkins-container. Kies een van de volgende, afhankelijk van of uw Jenkins-container wordt uitgevoerd binnen of buiten uw cluster en noteer de locatie van het clustercertificaat:
 
-   * **Voor Jenkins uitgevoerd binnen het cluster:** het pad naar het certificaat kan worden gevonden door de waarde van deze echo de *Certificates_JenkinsOnSF_Code_MyCert_PEM* omgevingsvariabele uit in de container.
+   * **Voor Jenkins die binnen het cluster wordt uitgevoerd:** Het pad naar het certificaat kan worden gevonden door de waarde van deze echo de *Certificates_JenkinsOnSF_Code_MyCert_PEM* omgevingsvariabele uit in de container.
 
       ```sh
       echo $Certificates_JenkinsOnSF_Code_MyCert_PEM
       ```
    
-   * **Voor Jenkins uitgevoerd buiten het cluster:** als volgt te werk als u wilt kopiëren van het clustercertificaat dat naar de container:
+   * **Voor Jenkins uitgevoerd buiten het cluster:** Volg deze stappen voor het clustercertificaat kopiëren naar de container:
       1. Het certificaat moet zich in de PEM-indeling. Als u geen een PEM-bestand hebt, kunt u een van de certificaat-PFX-bestand kunt maken. Als uw PFX-bestand niet beveiligd met een wachtwoord is, voert u de volgende opdracht uit vanaf uw host:
 
          ```sh
@@ -298,10 +298,10 @@ Voor ontwikkel- en testomgevingen, kunt u Azure-referenties of het eindpunt voor
 
 1. Volg de stappen in een Azure Active Directory service-principal maken en toewijzen van machtigingen in uw Azure-abonnement, [gebruikt de portal voor het maken van een Azure Active Directory-toepassing en service-principal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Let op het volgende:
 
-   * Tijdens de stappen in het onderwerp te volgen, moet u kopiëren en opslaan van de volgende waarden: *toepassings-ID*, *Toepassingssleutel*, *map-ID (Tenant-ID)*, en *Abonnements-ID*. U moet de Azure-referenties in Jenkins worden geconfigureerd.
+   * Tijdens de stappen in het onderwerp te volgen, moet kopiëren en opslaan van de volgende waarden: *Toepassings-ID*, *Toepassingssleutel*, *map-ID (Tenant-ID)*, en *abonnements-ID*. U moet de Azure-referenties in Jenkins worden geconfigureerd.
    * Als u geen de [vereiste machtigingen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) op uw directory gebruikt, moet u vraag een beheerder maken van de service-principal voor u of u de machtigingen te verlenen, of moet u het configureren van het eindpunt voor uw -cluster in de **acties na bouwen** voor uw Jenkins-taak.
    * In de [maken van een Azure Active Directory-toepassing](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application) sectie, kunt u een goed ingedeelde URL voor de **aanmeldings-URL**.
-   * In de [toepassing toewijzen aan een rol](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) sectie, kunt u uw toepassing de *lezer* -rol op de resourcegroep voor uw cluster.
+   * In de [toepassing toewijzen aan een rol](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) sectie, kunt u uw toepassing de *lezer* -rol op de resourcegroep voor uw cluster.
 
 1. Klik in de Jenkins-taak op de **acties na bouwen** tabblad.
 1. Selecteer in de vervolgkeuzelijst **Post-Build Actions** de optie **Post-Build Actions**. 
@@ -309,10 +309,10 @@ Voor ontwikkel- en testomgevingen, kunt u Azure-referenties of het eindpunt voor
 1. Selecteer in de Provider van de Jenkins-referenties, **Microsoft Azure Service-Principal** uit de **soort** vervolgkeuzelijst.
 1. Gebruik de waarden die u hebt opgeslagen bij het instellen van uw service-principal in stap 1 om het instellen van de volgende velden:
 
-   * **Client-ID**: *toepassings-ID*
+   * **Client-ID**: *Toepassings-ID*
    * **Clientgeheim**: *Toepassingssleutel*
-   * **Tenant-ID**: *map-ID*
-   * **Abonnements-ID**: *abonnements-ID*
+   * **Tenant-ID**: *Map-ID*
+   * **Abonnements-ID**: *Subscription ID*
 1. Voer een beschrijvende **ID** dat u gebruikt om te selecteren van de referentie in Jenkins en een korte **beschrijving**. Klik vervolgens op **Service-Principal verifiëren**. Als de verificatie slaagt, klikt u op **toevoegen**.
 
    ![Service Fabric Jenkins opgeven Azure-referenties](./media/service-fabric-cicd-your-linux-application-with-jenkins/enter-azure-credentials.png)
@@ -324,9 +324,9 @@ Voor ontwikkel- en testomgevingen, kunt u Azure-referenties of het eindpunt voor
     ![Service Fabric Jenkins na Build-actie configureren Azure-referenties](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-credentials.png)
 1. Klik op **configuratie controleren**. Klik op een geslaagde verificatie **opslaan**. De pijplijn van uw Jenkins-taak is nu volledig geconfigureerd. Gaat u naar [Vervolgstappen](#next-steps) om uw implementatie te testen.
 
-## <a name="troubleshooting-the-jenkins-plugin"></a>De Jenkins-invoegtoepassing oplossen
+## <a name="troubleshooting-the-jenkins-plugin"></a>Problemen met de Jenkins-invoegtoepassing oplossen
 
-Als u er fouten met de Jenkins-invoegtoepassingen optreden, dient u een probleem in de [Jenkins JIRA](https://issues.jenkins-ci.org/) voor het specifieke onderdeel.
+Als u problemen ondervindt met de Jenkins-invoegtoepassingen, kunt u in [Jenkins JIRA](https://issues.jenkins-ci.org/) een ticket openen voor het specifieke onderdeel.
 
 ## <a name="next-steps"></a>Volgende stappen
 GitHub en Jenkins zijn nu geconfigureerd. U kunt een aantal voorbeelden wijzigen de `reliable-services-actor-sample/Actors/ActorCounter` project in de fork van de opslagplaats https://github.com/Azure-Samples/service-fabric-java-getting-started. Push uw wijzigingen naar de externe `master` vertakking (of een vertakking die u hebt geconfigureerd om te werken met). Op die manier wordt de geconfigureerde Jenkins-taak `MyJob` geactiveerd. Het haalt de wijzigingen vanuit GitHub, ze maakt en implementeert de toepassing op het cluster dat u hebt opgegeven in de acties na bouwen.  

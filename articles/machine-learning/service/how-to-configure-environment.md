@@ -12,12 +12,12 @@ manager: cgronlun
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 02d0afd18ad966baf8954ae5add180c970fe302e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b322ca0c3a19f0a832fe50b6cfbaaad287205d5e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247405"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812902"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Een ontwikkelomgeving configureren voor Azure Machine Learning
 
@@ -27,7 +27,7 @@ De enige vereisten voor uw ontwikkelomgeving zijn Python 3, Conda (voor geïsole
 
 In dit artikel is gericht op de volgende omgevingen en hulpprogramma's:
 
-* [Azure-notitieblokken](#aznotebooks): Een Jupyter-Notebooks-service die wordt gehost in de Azure-cloud. Dit is de eenvoudigste manier om aan de slag, omdat de SDK van Azure Machine Learning al is geïnstalleerd.
+* Azure-notitieblokken: Een Jupyter-Notebooks-service die wordt gehost in de Azure-cloud. Dit is de eenvoudigste manier om aan de slag, omdat de SDK van Azure Machine Learning al is geïnstalleerd.
 
 * [De Data Science Virtual Machine (DSVM)](#dsvm): Een vooraf geconfigureerde ontwikkeling of experimenten omgeving in de Azure-cloud die ontworpen voor data science werk en kan worden geïmplementeerd op CPU alleen VM-exemplaren of op basis van GPU-exemplaren. Python 3, Conda, Jupyter-Notebooks en de SDK van Azure Machine Learning zijn al geïnstalleerd. De virtuele machine wordt geleverd met populaire machine learning- en deep learning-frameworks, hulpprogramma's en editors voor het ontwikkelen van machine learning-oplossingen. Het is waarschijnlijk het meest complete ontwikkelomgeving voor machine learning op het Azure-platform.
 

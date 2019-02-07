@@ -7,14 +7,14 @@ manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 02/06/2019
 ms.author: aschhab
-ms.openlocfilehash: 48b7d7450503b27b5515e655be3f048f57c2238d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: aaa8615c0358b89c02aad8241262320771e426a8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856584"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818070"
 ---
 # <a name="partitioned-queues-and-topics"></a>Gepartitioneerde wachtrijen en onderwerpen
 
@@ -39,7 +39,7 @@ Voor het gebruik van gepartitioneerde wachtrijen en onderwerpen met Azure Servic
 
 ### <a name="standard"></a>Standard
 
-In de standaardlaag voor berichten, kunt u Service Bus-wachtrijen en onderwerpen in 1, 2, 3, 4 of 5 GB-grootten (de standaardwaarde is 1 GB) kunt maken. Partitionering ingeschakeld, maakt Service Bus 4 exemplaren (4-partities) van de entiteit voor elke GB die u opgeeft. Als zodanig, als u een wachtrij die is 5 GB groot maakt, met 4 partities de maximale wachtrijgrootte wordt (5 \* 4) = 20 GB. U kunt de maximale grootte van de gepartitioneerde wachtrij of onderwerp zien door te kijken op de vermelding ervan op de [Azure-portal][Azure portal], in de **overzicht** blade voor die entiteit.
+In de standaardlaag voor berichten, kunt u Service Bus-wachtrijen en onderwerpen in 1, 2, 3, 4 of 5 GB-grootten (de standaardwaarde is 1 GB) kunt maken. Partitionering ingeschakeld, maakt Service Bus 16 exemplaren (16 partities) van de entiteit voor elke GB die u opgeeft. Als zodanig, als u een wachtrij die is 5 GB groot maakt, met 16 partities de maximale wachtrijgrootte wordt (5 \* 16) = 80 GB. U kunt de maximale grootte van de gepartitioneerde wachtrij of onderwerp zien door te kijken op de vermelding ervan op de [Azure-portal][Azure portal], in de **overzicht** blade voor die entiteit.
 
 ### <a name="premium"></a>Premium
 

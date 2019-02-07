@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5459ba31d30a86efbe40239f9531298c10cf9d98
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 6f2d4c9a7871e0917b33407605abe1389eb4420e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413597"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753602"
 ---
 # <a name="troubleshoot-a-vms-operating-system-disk"></a>Problemen met de besturingssysteemschijf van een virtuele machine oplossen
 
@@ -41,11 +41,11 @@ In dit script worden de volgende opdrachten gebruikt voor het maken van een reso
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [az vm show](https://docs.microsoft.com/cli/azure/vm#az_vm_show) | Hiermee wordt een lijst met virtuele machines weergegeven. In dit geval wordt de query-optie gebruikt om de schijf met het besturingssysteem van de virtuele machine op te vragen. Deze waarde wordt vervolgens toegevoegd aan de naam van de variabele 'uri'. |
-| [az vm delete](https://docs.microsoft.com/cli/azure/vm#az_vm_delete) | Hiermee verwijdert u een virtuele machine. |
+| [az vm show](https://docs.microsoft.com/cli/azure/vm) | Hiermee wordt een lijst met virtuele machines weergegeven. In dit geval wordt de query-optie gebruikt om de schijf met het besturingssysteem van de virtuele machine op te vragen. Deze waarde wordt vervolgens toegevoegd aan de naam van de variabele 'uri'. |
+| [az vm delete](https://docs.microsoft.com/cli/azure/vm) | Hiermee verwijdert u een virtuele machine. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm) | Hiermee maakt u een virtuele machine.  |
 | [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk) | Hiermee wordt een schijf gekoppeld aan een virtuele machine. |
-| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az_vm_list_ip_addresses) | Hiermee retourneert u de IP-adressen van een virtuele machine. |
+| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm) | Hiermee retourneert u de IP-adressen van een virtuele machine. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

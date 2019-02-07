@@ -16,14 +16,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/18
 ms.author: cynthn
-ms.openlocfilehash: 04c59cac8cd55acad0504337c57767c938835021
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: b42c32936d6973468ace58572ee61eaad66053c2
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884891"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733175"
 ---
-# <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Snelstart: Een virtuele-machineschaalset maken met Azure CLI
+# <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Quickstart: Een virtuele-machineschaalset maken met Azure CLI
 Met een virtuele-machineschaalset kunt u een reeks identieke virtuele machines met automatisch schalen implementeren en beheren. U kunt het aantal VM’s in de schaalset handmatig schalen of regels voor automatisch schalen definiëren op basis van resourcegebruik zoals CPU, vraag naar geheugen, of netwerkverkeer. Een Azure load balancer verdeelt het verkeer vervolgens naar de VM-exemplaren in de schaalset. In deze snelstart gebruikt u de Azure CLI om een schaalset voor virtuele machines te maken en een voorbeeldtoepassing te implementeren.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
@@ -40,7 +40,7 @@ Voordat u een schaalset kunt maken, moet u eerst een resourcegroep maken met [az
 az group create --name myResourceGroup --location eastus
 ```
 
-Maak nu een virtuele-machineschaalset met [az vmss create](/cli/azure/vmss#az_vmss_create). In het volgende voorbeeld wordt een schaalset met de naam *myScaleSet* gemaakt die automatisch wordt bijgewerkt als er wijzigingen zijn. Daarnaast worden er SSH-sleutels gegenereerd als deze niet bestaan in *~/.ssh/id_rsa*. Deze SSH-sleutels worden gebruikt als u zich wilt aanmelden bij de VM-exemplaren. Als u een bestaande set SSH-sleutels wilt gebruiken, gebruikt u de parameter `--ssh-key-value` en geeft u de locatie van uw sleutels op.
+Maak nu een virtuele-machineschaalset met [az vmss create](/cli/azure/vmss). In het volgende voorbeeld wordt een schaalset met de naam *myScaleSet* gemaakt die automatisch wordt bijgewerkt als er wijzigingen zijn. Daarnaast worden er SSH-sleutels gegenereerd als deze niet bestaan in *~/.ssh/id_rsa*. Deze SSH-sleutels worden gebruikt als u zich wilt aanmelden bij de VM-exemplaren. Als u een bestaande set SSH-sleutels wilt gebruiken, gebruikt u de parameter `--ssh-key-value` en geeft u de locatie van uw sleutels op.
 
 ```azurecli-interactive
 az vmss create \
@@ -58,7 +58,7 @@ Het duurt enkele minuten om alle schaalsetresources en VM's te maken en te confi
 ## <a name="deploy-sample-application"></a>Voorbeeldtoepassing implementeren
 Als u de schaalset wilt testen, installeert u een eenvoudige webtoepassing. U kunt de aangepaste scriptextensie van Azure downloaden en een script uitvoeren waarmee een toepassing wordt geïnstalleerd in de VM-exemplaren. Deze uitbreiding is handig voor post-implementatieconfiguraties, software-installaties of andere configuratie-/beheertaken. Zie voor meer informatie het [overzicht van de aangepaste scriptextensie](../virtual-machines/linux/extensions-customscript.md).
 
-Gebruik de aangepaste scriptextensie om een eenvoudige NGINX-webserver te installeren. Pas de aangepaste scriptextensie waarmee NGINX wordt geïnstalleerd als volgt toe met [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set):
+Gebruik de aangepaste scriptextensie om een eenvoudige NGINX-webserver te installeren. Pas de aangepaste scriptextensie waarmee NGINX wordt geïnstalleerd als volgt toe met [az vmss extension set](/cli/azure/vmss/extension):
 
 ```azurecli-interactive
 az vmss extension set \
@@ -72,7 +72,7 @@ az vmss extension set \
 
 
 ## <a name="allow-traffic-to-application"></a>Verkeer toestaan naar de toepassing
-Op het moment dat de schaalset wordt gemaakt, wordt er ook automatisch een Azure load balancer geïmplementeerd. De load balancer verdeelt het verkeer naar de VM-exemplaren in de schaalset. Als u wilt dat verkeer de voorbeeldwebtoepassing kan bereiken, maakt u een load balancer-regel met behulp van [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create). In het volgende voorbeeld wordt een regel met de naam *myLoadBalancerRuleWeb* gemaakt:
+Op het moment dat de schaalset wordt gemaakt, wordt er ook automatisch een Azure load balancer geïmplementeerd. De load balancer verdeelt het verkeer naar de VM-exemplaren in de schaalset. Als u wilt dat verkeer de voorbeeldwebtoepassing kan bereiken, maakt u een load balancer-regel met behulp van [az network lb rule create](/cli/azure/network/lb/rule). In het volgende voorbeeld wordt een regel met de naam *myLoadBalancerRuleWeb* gemaakt:
 
 ```azurecli-interactive
 az network lb rule create \
@@ -104,7 +104,7 @@ Voer in een webbrowser het openbare IP-adres van de load balancer in. Via de loa
 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Gebruik [az group delete](/cli/azure/group#az_group_delete) als volgt om de resourcegroep, schaalset en alle gerelateerde resources te verwijderen wanneer u deze niet meer nodig hebt. De parameter `--no-wait` retourneert het besturingselement naar de prompt zonder te wachten totdat de bewerking is voltooid. De parameter `--yes` bevestigt dat u de resources wilt verwijderen, zonder een extra prompt om dit te doen.
+Gebruik [az group delete](/cli/azure/group) als volgt om de resourcegroep, schaalset en alle gerelateerde resources te verwijderen wanneer u deze niet meer nodig hebt. De parameter `--no-wait` retourneert het besturingselement naar de prompt zonder te wachten totdat de bewerking is voltooid. De parameter `--yes` bevestigt dat u de resources wilt verwijderen, zonder een extra prompt om dit te doen.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

@@ -14,18 +14,18 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: b89b7885989a5e93d3d292e5cdcff733fed657af
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c60dded96df091b1a715fb7b972e9d7a23608d44
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990175"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818818"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>DNS-records en recordsets in Azure DNS met behulp van Azure PowerShell beheren
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-operations-recordsets-portal.md)
-> * [CLI van Azure classic](dns-operations-recordsets-cli-nodejs.md)
+> * [Klassieke versie van Azure CLI](dns-operations-recordsets-cli-nodejs.md)
 > * [Azure-CLI](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
@@ -50,7 +50,7 @@ Als de nieuwe record dezelfde naam en hetzelfde type als een bestaand record hee
 
 U kunt recordsets maken met behulp van de cmdlet `New-AzureRmDnsRecordSet`. Wanneer u een Recordset maakt, moet u opgeven de record de naam, de zone, de tijd ingesteld op live (TTL), het recordtype en de records die moeten worden gemaakt.
 
-De parameters voor het toevoegen van records aan een recordset variëren afhankelijk van het type recordset. Bijvoorbeeld, wanneer u een recordset van het type 'A', moet u om op te geven van het IP-adres met de parameter `-IPv4Address`. Andere parameters worden gebruikt voor andere recordtypen. Zie [voorbeelden van aanvullende recordtypen](#additional-record-type-examples) voor meer informatie.
+De parameters voor het toevoegen van records aan een recordset variëren afhankelijk van het type recordset. Bijvoorbeeld, wanneer u een recordset van het type 'A', moet u om op te geven van het IP-adres met de parameter `-IPv4Address`. Andere parameters worden gebruikt voor andere recordtypen. Zie de aanvullende recordtype voorbeelden voor meer informatie.
 
 Het volgende voorbeeld wordt een record met de relatieve naam 'www' in de DNS-Zone 'contoso.com'. De volledig gekwalificeerde naam van de recordset is 'www.contoso.com'. Het recordtype is 'A', en de TTL is 3600 seconden. De recordset bevat één record met IP-adres '1.2.3.4'.
 
@@ -236,7 +236,7 @@ Deze reeks bewerkingen kan ook worden *doorgesluisd*, wat betekent dat u de Reco
 Get-AzureRmDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Add-AzureRmDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzureRmDnsRecordSet
 ```
 
-De bovenstaande voorbeelden laten zien hoe u een A-record toevoegt aan een bestaande recordset van het type 'A'. Een vergelijkbare reeks bewerkingen wordt gebruikt voor het toevoegen van records aan de recordsets van andere typen, waarbij de `-Ipv4Address` parameter van `Add-AzureRmDnsRecordConfig` met andere parameters die specifiek zijn voor elk recordtype. De parameters van elk recordtype zijn hetzelfde als voor de `New-AzureRmDnsRecordConfig` cmdlet, zoals wordt weergegeven in [voorbeelden van aanvullende recordtypen](#additional-record-type-examples) hierboven.
+De bovenstaande voorbeelden laten zien hoe u een A-record toevoegt aan een bestaande recordset van het type 'A'. Een vergelijkbare reeks bewerkingen wordt gebruikt voor het toevoegen van records aan de recordsets van andere typen, waarbij de `-Ipv4Address` parameter van `Add-AzureRmDnsRecordConfig` met andere parameters die specifiek zijn voor elk recordtype. De parameters van elk recordtype zijn hetzelfde als voor de `New-AzureRmDnsRecordConfig` cmdlet, zoals wordt weergegeven in de bovenstaande voorbeelden van aanvullende recordtype.
 
 Recordsets van het type 'CNAME' of 'SOA' mag niet meer dan één record bevatten. Deze beperking voortvloeit uit de DNS-standaarden. Het is niet een beperking van Azure DNS.
 
@@ -270,7 +270,7 @@ Aan de records toe te voegen aan een recordset, kan de volgorde van bewerkingen 
 Get-AzureRmDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Remove-AzureRmDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzureRmDnsRecordSet
 ```
 
-Verschillende recordtypen worden ondersteund door de juiste typespecifieke parameters doorgeven `Remove-AzureRmDnsRecordSet`. De parameters van elk recordtype zijn hetzelfde als voor de `New-AzureRmDnsRecordConfig` cmdlet, zoals wordt weergegeven in [voorbeelden van aanvullende recordtypen](#additional-record-type-examples) hierboven.
+Verschillende recordtypen worden ondersteund door de juiste typespecifieke parameters doorgeven `Remove-AzureRmDnsRecordSet`. De parameters van elk recordtype zijn hetzelfde als voor de `New-AzureRmDnsRecordConfig` cmdlet, zoals wordt weergegeven in de bovenstaande voorbeelden van aanvullende recordtype.
 
 
 ## <a name="modify-an-existing-record-set"></a>Een bestaande recordset wijzigen

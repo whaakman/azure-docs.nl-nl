@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: eafc5dbd89d5727fac0040816785dbfcdf123b62
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: b7a785cc506f12360edc14555b7241a557dc400c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563612"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817332"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Gegevens verplaatsen van Amazon Redshift, met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,7 @@ Of u de hulpprogramma's of API's gebruikt, kunt u de volgende stappen uit voor h
 2. Gegevenssets vertegenwoordigen invoer- en uitvoergegevens voor de kopieerbewerking maken.
 3. Een pijplijn maken met een kopieeractiviteit waarmee een gegevensset als invoer en een gegevensset als uitvoer.
 
-Wanneer u de Wizard kopiëren hebt gebruikt, worden automatisch JSON-definities voor deze Data Factory-entiteiten gemaakt. Wanneer u hulpprogramma's of API's (met uitzondering van de .NET API), kunt u de Data Factory-entiteiten definiëren met behulp van de JSON-indeling. De [JSON-voorbeeld: Gegevens kopiëren van Amazon Redshift naar Azure Blob-opslag](#json-example-copy-data-from-amazon-redshift-to-azure-blob) toont de JSON-definities voor de Data Factory-entiteiten die worden gebruikt om gegevens te kopiëren naar een Amazon Redshift-gegevensarchief.
+Wanneer u de Wizard kopiëren hebt gebruikt, worden automatisch JSON-definities voor deze Data Factory-entiteiten gemaakt. Wanneer u hulpprogramma's of API's (met uitzondering van de .NET API), kunt u de Data Factory-entiteiten definiëren met behulp van de JSON-indeling. De JSON-voorbeeld: Gegevens kopiëren van Amazon Redshift naar Azure Blob-opslag ziet u de JSON-definities voor de Data Factory-entiteiten die worden gebruikt om gegevens te kopiëren naar een Amazon Redshift-gegevensarchief.
 
 De volgende secties beschrijven de JSON-eigenschappen die worden gebruikt voor het definiëren van de Data Factory-entiteiten voor Amazon Redshift.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 9cf64f98e0a06fc063340f39326fdc1c12645db8
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 7d538695fe7c920bbd22fcfb0e097220aa249f07
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756441"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811814"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Container Monitoring solution in Log Analytics
 
@@ -100,16 +100,16 @@ Gebruik de volgende informatie om de oplossing te installeren en configureren.
 2. Installeer en Docker gebruiken met een Log Analytics-agent. Op basis van uw besturingssysteem en de Docker-orchestrator, kunt u de volgende methoden gebruiken om de agent te configureren.
   - Voor zelfstandige hosts:
     - Installeren op ondersteunde Linux-besturingssystemen, en het uitvoeren van Docker en het vervolgens installeert en configureert de [Log Analytics-agent voor Linux](../../azure-monitor/learn/quick-collect-linux-computer.md).  
-    - In CoreOS, kunt u de Log Analytics-agent voor Linux niet uitvoeren. In plaats daarvan kunt u een beperkte versie van de Log Analytics-agent voor Linux uitvoeren. Beoordeling [Linux containerhosts met inbegrip van CoreOS](#for-all-linux-container-hosts-including-coreos) of [Azure Government Linux containerhosts met inbegrip van CoreOS](#for-all-azure-government-linux-container-hosts-including-coreos) als u met containers in Azure Government-Cloud werkt.
+    - In CoreOS, kunt u de Log Analytics-agent voor Linux niet uitvoeren. In plaats daarvan kunt u een beperkte versie van de Log Analytics-agent voor Linux uitvoeren. Bekijk Linux containerhosts met inbegrip van CoreOS of Azure Government Linux containerhosts met inbegrip van CoreOS als u met containers in Azure Government-Cloud werkt.
     - De Docker-Engine en -client installeren op Windows Server 2016 en Windows 10, en verbinding maken met een agent om te verzamelen en te verzenden naar Log Analytics. Beoordeling [installeren en configureren van Windows-containerhosts](#install-and-configure-windows-container-hosts) hebt u een Windows-omgeving.
   - Voor het indelen van Docker-meerdere host:
-    - Als u een Red Hat OpenShift-omgeving hebt, raadpleegt u [configureren van een Log Analytics-agent voor Red Hat OpenShift](#configure-an-oms-agent-for-red-hat-openshift).
+    - Als u een Red Hat OpenShift-omgeving hebt, raadpleegt u een Log Analytics-agent voor Red Hat OpenShift configureren.
     - Als u een Kubernetes-cluster met behulp van de Azure Container Service:
        - Beoordeling [configureren een Log Analytics Linux-agent voor Kubernetes](#configure-a-log-analytics-linux-agent-for-kubernetes).
        - Beoordeling [configureren van een Log Analytics-Windows-agent voor Kubernetes](#configure-a-log-analytics-windows-agent-for-kubernetes).
-       - Beoordeling [gebruik Helm om te implementeren van Log Analytics-agent op Linux Kubernetes](#use-helm-to-deploy-oms-agent-on-linux-kubernetes).
+       - Bekijk Helm gebruiken voor het implementeren van Log Analytics-agent op Linux Kubernetes.
     - Als u een Azure Container Service DC/OS-cluster hebt, voor meer informatie naar [een Azure Container Service DC/OS-cluster bewaken met Log Analytics](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
-    - Hebt u een omgeving met Docker Swarm-modus, voor meer informatie naar [configureren van een Log Analytics-agent voor Docker Swarm](#configure-an-oms-agent-for-docker-swarm).
+    - Als u een Docker Swarm mode-omgeving hebt, te weten op configureren een Log Analytics-agent voor Docker Swarm.
     - Als u een Service Fabric-cluster hebt, voor meer informatie naar [bewaken van containers met Log Analytics Log Analytics](../../service-fabric/service-fabric-diagnostics-oms-containers.md).
 
 Controleer de [Docker-Engine op Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) artikel voor meer informatie over het installeren en configureren uw Docker-Engines op computers waarop Windows wordt uitgevoerd.

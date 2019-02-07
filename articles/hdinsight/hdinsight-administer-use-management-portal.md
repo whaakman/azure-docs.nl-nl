@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4210528003cdb1f584bec3dea80c1aa1db2f86df
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: dd94330835c52b27c61c484d44991152d092fbe7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632013"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811695"
 ---
 # <a name="manage-windows-based-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Windows-gebaseerde Apache Hadoop-clusters in HDInsight beheren met behulp van de Azure-portal
 
@@ -85,7 +85,7 @@ De installatie van aangepaste software op het cluster met behulp van de verbindi
      > Dit *alleen* is van invloed op toegang en machtigingen voor dit cluster in Azure portal en heeft geen invloed op wie kan verbinding maken met of verzenden van taken naar het HDInsight-cluster.
 
    * **Tags**: Tags kunnen u om in te stellen van sleutel/waarde-paren voor het definiëren van een aangepaste taxonomie van uw cloud-services. Bijvoorbeeld, u kunt maken met een sleutel met de naam **project**, en vervolgens een overeenkomende waarde gebruiken voor alle services die zijn gekoppeld aan een bepaald project.
-   * **Ambari-weergaven**: Koppelingen naar Ambari Web.
+   * **Ambari-weergaven**: Links to Ambari Web.
 
      > [!IMPORTANT]  
      > Voor het beheren van de services die worden geleverd door het HDInsight-cluster, moet u de Ambari Web- of de Ambari REST-API gebruiken. Zie voor meer informatie over het gebruik van Ambari [beheren HDInsight-clusters met behulp van Apache Ambari](hdinsight-hadoop-manage-ambari.md).
@@ -203,7 +203,7 @@ Er zijn veel manieren waarop u het proces kunt programmeren:
 Zie voor informatie over de prijzen, [HDInsight prijzen](https://azure.microsoft.com/pricing/details/hdinsight/). Als een cluster verwijderen uit de Portal, Zie [clusters verwijderen](#delete-clusters)
 
 ## <a name="change-cluster-username"></a>Gebruikersnaam van de cluster wijzigen
-Een HDInsight-cluster kan twee gebruikersaccounts hebben. Het gebruikersaccount van de HDInsight-cluster is gemaakt tijdens het proces voor het maken. U kunt ook een RDP-gebruikersaccount voor toegang tot het cluster via RDP maken. Zie [extern bureaublad inschakelen](#connect-to-hdinsight-clusters-by-using-rdp).
+Een HDInsight-cluster kan twee gebruikersaccounts hebben. Het gebruikersaccount van de HDInsight-cluster is gemaakt tijdens het proces voor het maken. U kunt ook een RDP-gebruikersaccount voor toegang tot het cluster via RDP maken. Zie de extern bureaublad inschakelen.
 
 **De gebruikersnaam van HDInsight-cluster en het wachtwoord wijzigen**
 
@@ -267,7 +267,7 @@ De queryconsole van HDInsight omvat de volgende functies:
     ![HDInsight portal bestand browser bladeren](./media/hdinsight-administer-use-management-portal/hdinsight-file-browser.png)
 
     Op de schermopname is de **<Account>** type geeft aan dat het item is een Azure storage-account.  Klik op de accountnaam op door de bestanden bladeren.
-* **Hadoop-gebruikersinterface**.
+* **Hadoop UI**.
 
     ![Portal voor HDInsight Hadoop UI](./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-ui.png)
 
@@ -293,7 +293,7 @@ De **gebruik** sectie van de HDInsight-cluster-blade vindt u informatie over het
 > [!IMPORTANT]  
 > Voor het controleren van de services die worden geleverd door het HDInsight-cluster, moet u de Ambari Web- of de Ambari REST-API gebruiken. Zie voor meer informatie over het gebruik van Ambari [beheren HDInsight-clusters met behulp van Apache Ambari](hdinsight-hadoop-manage-ambari.md).
 
-## <a name="open-hadoop-ui"></a>Open Hadoop-UI
+## <a name="open-hadoop-ui"></a>Open Hadoop UI
 Voor het controleren van het cluster, het bestandssysteem, bladeren en controleert u Logboeken, klikt u op **Hadoop UI** aan de queryconsole van HDInsight. Zie [Open HDInsight queryconsole](#open-hdinsight-query-console).
 
 ## <a name="open-yarn-ui"></a>Open Yarn-gebruikersinterface

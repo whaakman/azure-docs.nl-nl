@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e795c275b832fcd59799a4d4d1107b76f6e489b6
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: eb1aa90cf7a1fafaa066e5a1109d1031b53034e2
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856839"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756424"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Zelfstudie: Een toepassing bijwerken in Azure Kubernetes Service (AKS)
 
@@ -73,7 +73,7 @@ De bijgewerkte waarden die zijn opgegeven in het bestand *config_file.cfg* worde
 
 ## <a name="tag-and-push-the-image"></a>De installatiekopie taggen en pushen
 
-Om de bijgewerkte installatiekopie correct te gebruiken, tagt u de installatiekopie *azure-vote-front* met de naam van de aanmeldingsserver van het ACR-register. Haal de naam van de aanmeldingsserver op met de opdracht [az acr list](/cli/azure/acr#az_acr_list):
+Om de bijgewerkte installatiekopie correct te gebruiken, tagt u de installatiekopie *azure-vote-front* met de naam van de aanmeldingsserver van het ACR-register. Haal de naam van de aanmeldingsserver op met de opdracht [az acr list](/cli/azure/acr):
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table

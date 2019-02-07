@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: cf7ef6f8e5dc157d3c3e89c9dfe3735c255694fa
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 0a174c3de33b01f936eec599c1de68e2cebbf9c5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53745054"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820416"
 ---
 # <a name="run-mapreduce-samples-in-windows-based-hdinsight"></a>Voorbeelden van MapReduce in HDInsight op basis van Windows worden uitgevoerd
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
@@ -51,10 +51,10 @@ Veel mensen kiezen tegenwoordig, Apache Hive en Apache Pig via MapReduce.  Zie v
     >
     > Volg de stappen in [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) voor het installeren van de meest recente versie van Azure PowerShell. Als u scripts hebt die worden gewijzigd moeten voor het gebruik van de nieuwe cmdlets die met werken Azure Resource Manager, Zie [migreren naar Azure Resource Manager gebaseerde ontwikkelingsprogramma's voor HDInsight-clusters](hdinsight-hadoop-development-using-azure-resource-manager.md).
 
-## <a name="hdinsight-sample-wordcount"></a>Word-count - Java
+## <a name="hdinsight-sample-wordcount"></a>Word count - Java
 Als u wilt een MapReduce-project verzenden, moet u eerst de definitie van een MapReduce-taak maken. In de taakdefinitie, geeft u het jar-bestand van de MapReduce-programma en de locatie van de jar-bestand is **wasb:///example/jars/hadoop-mapreduce-examples.jar**, naam van de klasse en de argumenten.  Het wordcount MapReduce-programma neemt twee argumenten: de bronbestand dat wordt gebruikt voor het tellen van woorden en de locatie voor de uitvoer.
 
-De broncode kan worden gevonden in de [bijlage A](#apendix-a---the-word-count-MapReduce-program-in-java).
+De broncode kan worden gevonden in de bijlage A.
 
 Voor de procedure van het ontwikkelen van een Java MapReduce-programma, Zie - [ontwikkel Java MapReduce-programma's voor Apache Hadoop in HDInsight](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
@@ -117,7 +117,7 @@ Voor de procedure van het ontwikkelen van een Java MapReduce-programma, Zie - [o
     De MapReduce-taak produceert een bestand met de naam *onderdeel-r-00000*, die het aantal fouten en woorden bevat. Het script gebruikt de **findstr** opdracht om een lijst van alle woorden met *"er"*.
 3. De eerste drie variabelen worden ingesteld en voer het script.
 
-## <a name="hdinsight-sample-csharp-streaming"></a>Word-count - C#-streaming
+## <a name="hdinsight-sample-csharp-streaming"></a>Word count - C# streaming
 Hadoop biedt een streaming-API voor MapReduce, waarmee u kaart schrijven en functies in een andere taal dan Java verlagen.
 
 > [!NOTE]  
@@ -135,7 +135,7 @@ In de tussentijd de reducer verzameld voor de regel-georiënteerde uitvoer van d
 
 **Om in te dienen een word-count streamingtaak C#**
 
-* Volg de procedure in [Word-count - Java](#word-count-java), en de taakdefinitie vervangen door de volgende regel:
+* Volg de procedure in Word-count - Java, en de taakdefinitie vervangen door de volgende regel:
 
     ```powershell
     $mrJobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
@@ -157,7 +157,7 @@ Het script dat is opgegeven voor dit voorbeeld verzendt een Hadoop-jar-taak en i
 
 **Een pi estimator-taak verzenden**
 
-* Volg de procedure in [Word-count - Java](#word-count-java), en de taakdefinitie vervangen door de volgende regel:
+* Volg de procedure in Word-count - Java, en de taakdefinitie vervangen door de volgende regel:
 
     ```powershell
     $mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -185,7 +185,7 @@ Drie taken die vereist zijn voor het voorbeeld, elke overeenkomt met een van de 
 
 **De taken indienen**
 
-* Volg de procedure in [Word-count - Java](#word-count-java), en gebruik de volgende definities:
+* Volg de procedure in Word-count - Java, en gebruik de volgende taakdefinities:
 
     ```powershell
     $teragen = New-AzureRmHDInsightMapReduceJobDefinition `

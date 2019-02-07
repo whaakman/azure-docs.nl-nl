@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 515b21c6854620a6bd1af53af8b1778d70613622
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1dd1cf143d66fec2ab8c12ee28a61bb3b8a83ade
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203943"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821820"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Zelfstudie: G Suite configureren voor het automatisch inrichten van gebruikers
 
@@ -127,7 +127,7 @@ Deze sectie helpt u bij het proces van het verbinden van uw Azure AD voor het ge
     e. Herhaal de voorgaande stappen voor elke extra domeinen die u wilt toevoegen aan Google Apps.
      
      > [!WARNING]
-     > Als u het primaire domein te voor uw G Suite-tenant wijzigen, en als u al hebt geconfigureerd eenmalige aanmelding met Azure AD, wordt er herhaalt u stap #3 onder [stap 2: Eenmalige aanmelding inschakelen](#step-two-enable-single-sign-on).
+     > Als u het primaire domein wijzigt voor de tenant van uw G Suite, en als u al eenmalige aanmelding hebt geconfigureerd met Azure AD, hebt u herhaalt u stap #3 in stap 2: Eenmalige aanmelding inschakelen.
        
 1. In de [Google Apps-beheerconsole](https://admin.google.com/), selecteer **-beheerdersrollen**.
    

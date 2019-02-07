@@ -8,16 +8,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/3/2018
 ms.author: victorh
-ms.openlocfilehash: a93a3db3010fb9e9d2270414cadeae86b70bb8d0
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 5f5b389c66821282668f0b4fce9e0b67af028e9a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157459"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816948"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Versies van SSL-beleid configureren en cipher suites in Application Gateway
 
-Informatie over het configureren van SSL-beleid versies en cipher suites in Application Gateway. U kunt kiezen uit een [lijst met vooraf gedefinieerde beleidsregels](#predefined-ssl-policies) die verschillende configuraties van SSL-beleid versies bevatten en coderingssuites ingeschakeld. U hebt ook de mogelijkheid voor het definiëren van een [aangepaste SSL-beleid](#configure-a-custom-ssl-policy) op basis van uw vereisten.
+Informatie over het configureren van SSL-beleid versies en cipher suites in Application Gateway. U kunt selecteren uit een lijst met vooraf gedefinieerde beleidsinstellingen die verschillende configuraties van SSL-beleid versies bevatten en coderingssuites ingeschakeld. U hebt ook de mogelijkheid voor het definiëren van een [aangepaste SSL-beleid](#configure-a-custom-ssl-policy) op basis van uw vereisten.
 
 ## <a name="get-available-ssl-options"></a>Ophalen van de beschikbare opties voor SSL
 
@@ -106,7 +106,7 @@ CipherSuites:
 
 ## <a name="configure-a-custom-ssl-policy"></a>Een aangepast SSL-beleid configureren
 
-Wanneer u een aangepast SSL-beleid configureert, kunt u de volgende parameters doorgeven: PolicyType, MinProtocolVersion, CipherSuite en Application Gateway. Als u probeert om andere parameters te geven, krijgt u een fout bij het maken of bijwerken van de toepassingsgateway. 
+Wanneer u een aangepast SSL-beleid configureert, kunt u de volgende parameters doorgeven: PolicyType, MinProtocolVersion, CipherSuite, and ApplicationGateway. Als u probeert om andere parameters te geven, krijgt u een fout bij het maken of bijwerken van de toepassingsgateway. 
 
 Het volgende voorbeeld wordt een aangepast SSL-beleid in een toepassingsgateway. De minimale protocolversie wordt ingesteld op `TLSv1_1` en kunnen de volgende cipher suites:
 
@@ -196,7 +196,7 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName $rg.Re
 
 ## <a name="update-an-existing-application-gateway-with-a-pre-defined-ssl-policy"></a>Een bestaande toepassingsgateway met een vooraf gedefinieerde SSL-beleid bijwerken
 
-Om een aangepast SSL-beleid, moet u de volgende parameters doorgeven: **PolicyType**, **MinProtocolVersion**, **CipherSuite**, en **ApplicationGateway**. Om in te stellen van een vooraf gedefinieerde SSL-beleid, moet u de volgende parameters doorgeven: **PolicyType**, **PolicyName**, en **ApplicationGateway**. Als u probeert om andere parameters te geven, krijgt u een fout bij het maken of bijwerken van de toepassingsgateway.
+Om een aangepast SSL-beleid, moet u de volgende parameters doorgeven: **PolicyType**, **MinProtocolVersion**, **CipherSuite**, and **ApplicationGateway**. Om in te stellen van een vooraf gedefinieerde SSL-beleid, moet u de volgende parameters doorgeven: **PolicyType**, **PolicyName**, en **ApplicationGateway**. Als u probeert om andere parameters te geven, krijgt u een fout bij het maken of bijwerken van de toepassingsgateway.
 
 Er zijn codevoorbeelden voor zowel vooraf gedefinieerd beleid als aangepast beleid in het volgende voorbeeld. Verwijder de opmerkingen in het beleid dat u wilt gebruiken.
 

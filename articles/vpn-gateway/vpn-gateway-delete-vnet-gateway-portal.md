@@ -1,5 +1,5 @@
 ---
-title: 'Een virtuele netwerkgateway verwijderen: Azure portal: Resource Manager | Microsoft Docs'
+title: 'Een virtuele netwerkgateway verwijderen: Azure Portal: Resource Manager | Microsoft Docs'
 description: De gateway van een virtueel netwerk met behulp van de Azure-portal in het Resource Manager-implementatiemodel verwijderen.
 services: vpn-gateway
 documentationcenter: na
@@ -7,12 +7,12 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 78af43510e5fc2bed38e109a546944d4a649241c
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: d0c54a00afd723b68bedc0a305cfb0f16edf4ac9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984108"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816251"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>De gateway van een virtueel netwerk met behulp van de portal verwijderen
 
@@ -60,5 +60,5 @@ Op dit moment wordt de virtuele netwerkgateway verwijderd. De volgende stappen t
 Als u zich geen zorgen over een van uw resources in de resourcegroep te blijven en u alleen wilt beginnen, kunt u een hele resourcegroep verwijderen. Dit is een snelle manier om alles te verwijderen. De volgende stappen gelden alleen voor de Resource Manager-implementatiemodel.
 
 1. In **alle resources**, zoek de resourcegroep en klik op om de blade te openen.
-2. Klik op **Verwijderen**. Bekijk de betrokken resources op de blade verwijderen. Zorg ervoor dat u wilt verwijderen van al deze resources. Als dit niet het geval is, gebruikt u de stappen in [verwijderen van een VPN-gateway](#deletegw) boven aan dit artikel.
+2. Klik op **Verwijderen**. Bekijk de betrokken resources op de blade verwijderen. Zorg ervoor dat u wilt verwijderen van al deze resources. Als dit niet het geval is, gebruik dan de stappen in verwijderen een VPN-gateway aan de bovenkant van dit artikel.
 3. Als u wilt doorgaan, typ de naam van de resourcegroep die u wilt verwijderen en klik vervolgens op **verwijderen**.

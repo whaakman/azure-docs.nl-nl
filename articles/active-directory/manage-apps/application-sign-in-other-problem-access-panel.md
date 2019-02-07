@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 529191cf867b6003b0c2eab5ed919087277c7095
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6dfc0f80285dfd7da6e78d7cbf9c993fed388a2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178032"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813531"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Problemen met aanmelden bij een toepassing vanuit het toegangsvenster
 
@@ -104,7 +104,7 @@ Alle toepassingen in de Azure AD-galerie ingeschakeld met Enterprise Single Sign
 
 Een toepassing uit de Azure AD-galerie die u wilt configureren:
 
--   [Een toepassing toevoegen via de Azure AD-galerie](#add-an-application)
+-   Een toepassing toevoegen via de Azure AD-galerie
 
 -   [Waarden van de metagegevens van de toepassing in Azure AD (aanmeldings-URL-id en antwoord-URL) configureren](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
@@ -114,7 +114,7 @@ Een toepassing uit de Azure AD-galerie die u wilt configureren:
 
 -   [Waarden voor metagegevens van Azure AD configureren in de toepassing (aanmelding URL, uitgever, afmeldings-URL en certificaat)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
--   [Gebruikers toewijzen aan de toepassing](#assign-users-to-the-application)
+-   Gebruikers toewijzen aan een toepassing
 
 ### <a name="add-an-application-from-the-azure-ad-gallery"></a>Een toepassing toevoegen via de Azure AD-galerie
 
@@ -362,9 +362,9 @@ De metagegevens van de toepassing of het certificaat downloaden van Azure AD, de
 
 Een toepassing uit de Azure AD-galerie die u wilt configureren:
 
--   [Een toepassing toevoegen via de Azure AD-galerie](#add-an-application)
+-   Een toepassing toevoegen via de Azure AD-galerie
 
--   [De toepassing configureren voor eenmalige aanmelding wachtwoord](#configure-the-application)
+-   De toepassing configureren voor eenmalige aanmelding wachtwoord
 
 ### <a name="add-an-application-from-the-azure-ad-gallery"></a>Een toepassing toevoegen via de Azure AD-galerie
 

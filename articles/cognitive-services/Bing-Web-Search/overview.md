@@ -11,18 +11,18 @@ ms.topic: overview
 ms.date: 08/14/2018
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 5c2a31e10d53c8088afd3c3910b1b2f9d2b2d247
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 46d79b1ac6c56ba953eb0908e46338387b69ff1f
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159228"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768230"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>Wat is de Bing Webzoekopdrachten-API?
 
 De Bing Webzoekopdrachten-API is een RESTful-service die directe antwoorden op gebruikersquery's biedt. Zoekresultaten kunnen eenvoudig zo worden geconfigureerd dat deze webpagina's, afbeeldingen, video's, nieuws, vertalingen en meer bevatten. Resultaten worden gegeven als JSON en zijn gebaseerd op zoekrelevantie en uw Bing Webzoekopdrachten-abonnementen.
 
-Deze API werkt optimaal voor toepassingen die toegang moeten hebben tot alle inhoud die relevant is voor de zoekquery van een gebruiker. Als u een toepassing maakt waarvoor alleen een specifiek type resultaat nodig is, kunt u ook de [Bing Afbeeldingen zoeken-API](../Bing-Image-Search/overview.md), [Bing Video's zoeken-API](../Bing-Video-Search/search-the-web.md) of [Bing Nieuws zoeken-API](../Bing-News-Search/search-the-web.md) gebruiken. Zie [Cognitive Services-API's](https://docs.microsoft.com/azure/cognitive-services#cognitive-services-apis) voor een volledige lijst met de Bing Zoeken-API's.
+Deze API werkt optimaal voor toepassingen die toegang moeten hebben tot alle inhoud die relevant is voor de zoekquery van een gebruiker. Als u een toepassing maakt waarvoor alleen een specifiek type resultaat nodig is, kunt u ook de [Bing Afbeeldingen zoeken-API](../Bing-Image-Search/overview.md), [Bing Video's zoeken-API](../Bing-Video-Search/search-the-web.md) of [Bing Nieuws zoeken-API](../Bing-News-Search/search-the-web.md) gebruiken. Zie [Cognitive Services-API's](https://docs.microsoft.com/azure/cognitive-services) voor een volledige lijst met de Bing Zoeken-API's.
 
 Wilt u zien hoe dit werkt? Probeer onze [Demo voor de Bing Webzoekopdrachten-API](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/).
 

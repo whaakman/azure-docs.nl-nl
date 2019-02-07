@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 64f74981b4c1909f4660273fbbfa0e5828eaa6a6
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 5aa682af11744389739a539e900924ed93a3bbd6
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54882902"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691147"
 ---
 # <a name="create-a-vm-with-nginx"></a>Een virtuele machine met NGINX maken
 
@@ -63,11 +63,11 @@ In dit script worden de volgende opdrachten gebruikt voor het maken van een reso
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Hiermee maakt u de virtuele machine. Met deze opdracht geeft u ook de installatiekopie van de virtuele machine op die moet worden gebruikt, samen met beheerdersreferenties.  |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Hiermee maakt u de virtuele machine. Met deze opdracht geeft u ook de installatiekopie van de virtuele machine op die moet worden gebruikt, samen met beheerdersreferenties.  |
 | [az vm open-port](https://docs.microsoft.com/cli/azure/network/nsg/rule) | Hiermee maakt u een regel voor de netwerkbeveiligingsgroep om binnenkomend verkeer toe te staan. In dit voorbeeld is poort 80 geopend voor HTTP-verkeer. |
-| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Hiermee wordt de extensie van een virtuele machine toegevoegd aan een virtuele machine en wordt deze extensie vervolgens uitgevoerd. In dit voorbeeld wordt de aangepaste scriptextensie gebruikt om NGINX te installeren.|
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
+| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension) | Hiermee wordt de extensie van een virtuele machine toegevoegd aan een virtuele machine en wordt deze extensie vervolgens uitgevoerd. In dit voorbeeld wordt de aangepaste scriptextensie gebruikt om NGINX te installeren.|
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

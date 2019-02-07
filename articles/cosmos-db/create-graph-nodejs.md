@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 11eec492501f7ead639aa928fe0ddaafb2f1d1bc
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 400784fbc34a877b91ad0bdc2203b1992a537555
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033669"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509963"
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-gremlin-api"></a>Azure Cosmos DB: Een Node.js-toepassing ontwikkelen met de Gremlin-API
 
@@ -78,7 +78,7 @@ De volgende codefragmenten zijn allemaal afkomstig uit het bestand app.js.
 
 * De Gremlin-client wordt gemaakt.
 
-    ```nodejs
+    ```javascript
     const client = Gremlin.createClient(
         443, 
         config.endpoint, 
@@ -94,7 +94,7 @@ De volgende codefragmenten zijn allemaal afkomstig uit het bestand app.js.
 
 * Een reeks functies wordt gedefinieerd voor het uitvoeren van verschillende Gremlin-bewerkingen. Dit is er een van:
 
-    ```nodejs
+    ```javascript
     function addVertex1(callback)
     {
         console.log('Running Add Vertex1'); 
@@ -108,7 +108,7 @@ De volgende codefragmenten zijn allemaal afkomstig uit het bestand app.js.
 
 * Elke functie voert een `client.execute`-methode uit met behulp van een Gremlin-querytekenreeksparameter. Hier volgt een voorbeeld van hoe `g.V().count()` wordt uitgevoerd:
 
-    ```nodejs
+    ```javascript
     console.log('Running Count'); 
     client.execute("g.V().count()", { }, (err, results) => {
         if (err) return console.error(err);
@@ -119,7 +119,7 @@ De volgende codefragmenten zijn allemaal afkomstig uit het bestand app.js.
 
 * Aan het einde van het bestand worden alle methoden aangeroepen met behulp van de `async.waterfall()`-methode. Hiermee worden ze achter elkaar uitgevoerd:
 
-    ```nodejs
+    ```javascript
     try{
         async.waterfall([
             dropGraph,
@@ -158,7 +158,7 @@ De volgende codefragmenten zijn allemaal afkomstig uit het bestand app.js.
 
 Hier volgt een voorbeeld van hoe het voltooide bestand config.js eruit moet zien:
 
-```nodejs
+```javascript
 var config = {}
 
 // Note that this must not have HTTPS or the port number

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: 32be473ab93231805cdae097e3e984a2e74da973
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8c12190e3c34c3294d2735fdd228aafbf6073f12
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233079"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820110"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>PowerShell gebruiken om een Azure VM te maken met een rapportserver in systeemeigen modus
 > [!IMPORTANT] 
@@ -38,7 +38,7 @@ In dit onderwerp wordt beschreven en begeleidt u bij de implementatie en configu
   
   * Om te controleren of de core-limiet van uw abonnement, in de Azure-portal, klik op instellingen op te geven in het linkerdeelvenster en vervolgens klikt u op gebruik in het bovenste menu.
   * Als u wilt vergroten het quotum voor kerngeheugens, neem contact op met [ondersteuning voor Azure](https://azure.microsoft.com/support/options/). Zie voor informatie over de grootte van virtuele machine [Virtual Machine Sizes for Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* **Windows PowerShell-scripts**: het artikel wordt ervan uitgegaan dat u een basic praktische kennis van Windows PowerShell hebt. Zie de volgende onderwerpen voor meer informatie over het gebruik van Windows PowerShell:
+* **Windows PowerShell-scripts**: Het onderwerp wordt ervan uitgegaan dat u een basic praktische kennis van Windows PowerShell hebt. Zie de volgende onderwerpen voor meer informatie over het gebruik van Windows PowerShell:
   
   * [Windows PowerShell op WindowsServer starten](https://docs.microsoft.com/powershell/scripting/setup/starting-windows-powershell)
   * [Aan de slag met Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx)
@@ -62,23 +62,23 @@ In dit onderwerp wordt beschreven en begeleidt u bij de implementatie en configu
 6. Op de **Virtuele-machineconfiguratie** pagina, bewerkt u de volgende velden:
    
    * Als er meer dan één **versie RELEASEDATUM**, selecteert u de meest recente versie.
-   * **Naam van virtuele Machine**: naam van de machine wordt ook gebruikt op de pagina van de volgende configuratie als de naam van de standaard-DNS voor Cloud-Service. De DNS-naam moet uniek zijn in de Azure-service. Overweeg de configuratie van de virtuele machine met de naam van een computer die wordt beschreven wat de virtuele machine wordt gebruikt. Bijvoorbeeld ssrsnativecloud.
+   * **Naam van virtuele Machine**: Naam van de machine wordt ook op de pagina van de volgende configuratie gebruikt als de naam van de standaard-DNS voor Cloud-Service. De DNS-naam moet uniek zijn in de Azure-service. Overweeg de configuratie van de virtuele machine met de naam van een computer die wordt beschreven wat de virtuele machine wordt gebruikt. Bijvoorbeeld ssrsnativecloud.
    * **Laag**: Standard
    * **Grootte: A3** is de aanbevolen VM-grootte voor SQL Server-workloads. Als een virtuele machine alleen als een rapportserver gebruikt wordt, is de grootte van een virtuele machine van A2 voldoende, tenzij de report server optreedt in een grote workload. Zie voor informatie over de prijzen VM [prijzen van virtuele Machines](https://azure.microsoft.com/pricing/details/virtual-machines/).
    * **Nieuwe gebruikersnaam**: de naam die u opgeeft als beheerder op de virtuele machine wordt gemaakt.
    * **Nieuw wachtwoord** en **bevestigen**. Dit wachtwoord wordt gebruikt voor het nieuwe administrator-account en het wordt aanbevolen dat een sterk wachtwoord te gebruiken.
-   * Klik op **Volgende**. ![Volgende](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
+   * Klik op **volgende**. ![Volgende](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 7. Bewerk de volgende velden op de volgende pagina:
    
    * **Cloudservice**: Selecteer **maken van een nieuwe Cloudservice**.
-   * **Naam van de DNS-Service in de cloud**: dit is de openbare DNS-naam van de Cloudservice die is gekoppeld aan de virtuele machine. De naam die standaard is de naam die u hebt ingevoerd voor de VM-naam. Als in latere stappen van het onderwerp dat u een vertrouwd SSL-certificaat maken en vervolgens de DNS-naam wordt gebruikt voor de waarde van de '**verleend aan**' van het certificaat.
-   * **Regio/affiniteit groep/virtueel netwerk**: Kies de regio het dichtst bij uw eindgebruikers.
-   * **Storage-Account**: een automatisch gegenereerde opslagaccount gebruiken.
-   * **Beschikbaarheidsset**: geen.
+   * **Naam van de DNS-Service in de cloud**: Dit is de openbare DNS-naam van de Cloudservice die is gekoppeld aan de virtuele machine. De naam die standaard is de naam die u hebt ingevoerd voor de VM-naam. Als in latere stappen van het onderwerp dat u een vertrouwd SSL-certificaat maken en vervolgens de DNS-naam wordt gebruikt voor de waarde van de '**verleend aan**' van het certificaat.
+   * **Regio/Affiniteitsgroep/virtueel netwerk**: Kies de regio het dichtst bij uw eindgebruikers.
+   * **Storage-Account**: Gebruik een automatisch gegenereerde storage-account.
+   * **Beschikbaarheidsset**: Geen.
    * **EINDPUNTEN** houden de **extern bureaublad** en **PowerShell** eindpunten en voeg deze een HTTP- of HTTPS-eindpunt, afhankelijk van uw omgeving.
      
-     * **HTTP**: de standaard openbare en particuliere poorten zijn **80**. Houd er rekening mee dat als u een particuliere poort dan 80, wijzigt u **$HTTPport = 80** in het http-script.
-     * **HTTPS**: de standaard openbare en particuliere poorten zijn **443**. Een aanbevolen beveiligingsprocedure is het wijzigen van de particuliere poort en het configureren van uw firewall en de rapportserver de particuliere poort gebruiken. Zie voor meer informatie over eindpunten [over het instellen van communicatie met een virtuele Machine](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Houd er rekening mee dat als u een andere poort dan 443, wijzigt u de parameter **$HTTPsport = 443** in het HTTPS-script.
+     * **HTTP**: De standaard openbare en particuliere poorten zijn **80**. Houd er rekening mee dat als u een particuliere poort dan 80, wijzigt u **$HTTPport = 80** in het http-script.
+     * **HTTPS**: De standaard openbare en particuliere poorten zijn **443**. Een aanbevolen beveiligingsprocedure is het wijzigen van de particuliere poort en het configureren van uw firewall en de rapportserver de particuliere poort gebruiken. Zie voor meer informatie over eindpunten [over het instellen van communicatie met een virtuele Machine](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Houd er rekening mee dat als u een andere poort dan 443, wijzigt u de parameter **$HTTPsport = 443** in het HTTPS-script.
    * Klik op volgende. ![Volgende](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 8. Behoud de standaardwaarde op de laatste pagina van de wizard **installeren van de VM-agent** geselecteerde. De stappen in dit onderwerp niet de VM-agent gebruikt, maar als u van plan bent om te houden van deze virtuele machine, de VM-agent en -extensies kunt u voor het verbeteren van hij CM.  Zie voor meer informatie over de VM-agent [VM-Agent en -extensies – deel 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). Een van de standaard-extensies geïnstalleerd ad dat wordt uitgevoerd is de 'BGINFO'-extensie die wordt weergegeven op de VM-bureaublad, de systeeminformatie, zoals interne IP-adres en de vrije ruimte op schijf.
 9. Klik op voltooien. ![OK](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
@@ -125,7 +125,7 @@ Een zelfondertekend certificaat is gemaakt op de virtuele machine wanneer de vir
        Bijvoorbeeld, in de volgende afbeelding, de naam van de virtuele machine is **ssrsnativecloud** en de gebruikersnaam van de is **testuser**.
       
        ![aanmeldingsnaam is inclusief vm](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
-   2. Mmc.exe worden uitgevoerd. Zie voor meer informatie, [hoe: certificaten weergeven met de MMC-module](https://msdn.microsoft.com/library/ms788967.aspx).
+   2. Mmc.exe worden uitgevoerd. Zie voor meer informatie, [het: Certificaten met de MMC-module weergeven](https://msdn.microsoft.com/library/ms788967.aspx).
    3. In de consoletoepassing **bestand** in het menu toevoegen de **certificaten** -module, selecteer **computeraccount** wanneer u hierom wordt gevraagd en klik vervolgens op **volgende**.
    4. Selecteer **lokale Computer** beheren en klik vervolgens op **voltooien**.
    5. Klik op **Ok** en vouw vervolgens de **certificaten - persoonlijke** knooppunten en klik vervolgens op **certificaten**. Het certificaat is de naam van de DNS-naam van de virtuele machine en eindigt met **cloudapp.net**. Met de rechtermuisknop op de naam van het certificaat en klik op **kopie**.
@@ -133,7 +133,7 @@ Een zelfondertekend certificaat is gemaakt op de virtuele machine wanneer de vir
    7. Als u wilt valideren, dubbelklikt u op de naam van het certificaat onder **Trusted Root Certification Authorities** en controleer of dat er geen fouten zijn en u uw certificaat ziet. Als u wilt dat het HTTPS-script dat is opgenomen in dit onderwerp gebruiken om te configureren van de rapportserver, de waarde van de certificaten **vingerafdruk** is vereist als een parameter van het script. **Om de vingerafdrukwaarde**, voltooi de volgende stappen. Er is ook een PowerShell-voorbeeld om op te halen van de vingerafdruk in sectie [script gebruiken voor het configureren van de report server- en HTTPS](#use-script-to-configure-the-report-server-and-HTTPS).
       
       1. Dubbelklik op de naam van het certificaat, bijvoorbeeld ssrsnativecloud.cloudapp.net.
-      2. Klik op de **Details** tabblad.
+      2. Klik op het tabblad **Details** .
       3. Klik op **vingerafdruk**. De waarde van de vingerafdruk wordt weergegeven in het veld details, bijvoorbeeld a6 08 3c df f9 0b f7 e3 7c 25 ed a4 ed 7e ac 91 9c 2c fb 2f.
       4. Kopieer de vingerafdruk en opslaan van de waarde voor later of het script nu bewerken.
       5. (*) Voordat u het script uitvoert, verwijdert u de spaties tussen de paren met waarden. De vingerafdruk genoteerde zou bijvoorbeeld nu a6083cdff90bf7e37c25eda4ed7eac919c2cfb2f.
@@ -149,7 +149,7 @@ In deze sectie helpt u bij het configureren van de virtuele machine als een rapp
 
 Voor meer stappen gedetailleerde, Zie de sectie [verbinding maken met de virtuele Machine en de Reporting Services Configuration Manager starten](virtual-machines-windows-classic-ps-sql-bi.md#connect-to-the-virtual-machine-and-start-the-reporting-services-configuration-manager).
 
-**Verificatie-Opmerking:** Windows-verificatie is de aanbevolen verificatiemethode en is de standaard Reporting Services-verificatie. Alleen gebruikers die zijn geconfigureerd op de virtuele machine toegang heeft tot Reporting Services en Reporting Services-rollen zijn toegewezen.
+**Opmerking van verificatie:** Windows-verificatie is de aanbevolen verificatiemethode en is de standaard Reporting Services-verificatie. Alleen gebruikers die zijn geconfigureerd op de virtuele machine toegang heeft tot Reporting Services en Reporting Services-rollen zijn toegewezen.
 
 ### <a name="use-script-to-configure-the-report-server-and-http"></a>Script gebruiken voor het configureren van de report server- en HTTP
 Voor het gebruik van de Windows PowerShell-script voor het configureren van de report server, moet u de volgende stappen uitvoeren. De configuratie omvat HTTP, niet HTTPS:
@@ -283,7 +283,7 @@ Voor het gebruik van de Windows PowerShell-script voor het configureren van de r
 6. Het script is momenteel geconfigureerd voor Reporting Services. Als u wilt om uit te voeren van het script voor Reporting Services, wijzigt u het gedeelte van de versie van het pad naar de naamruimte 'v11' op de Get-WmiObject-instructie.
 7. Voer het script uit.
 
-**Validatie**: om te controleren of de functionaliteit eenvoudig rapport server werkt, Zie de [Controleer de configuratie](#verify-the-configuration) verderop in dit onderwerp.
+**Validatie**: Om te controleren of de functionaliteit eenvoudig rapport server werkt, Zie de [Controleer de configuratie](#verify-the-configuration) verderop in dit onderwerp.
 
 ### <a name="use-script-to-configure-the-report-server-and-https"></a>Script gebruiken voor het configureren van de report server- en HTTPS
 Als u Windows PowerShell wilt configureren van de report server, moet u de volgende stappen uitvoeren. De configuratie omvat HTTPS, niet op HTTP.
@@ -469,7 +469,7 @@ Als u Windows PowerShell wilt configureren van de report server, moet u de volge
      OF
    * Voer op de virtuele machine mmc.exe en voeg deze de **certificaten** -module.
    * Onder de **vertrouwde basiscertificeringsinstanties** knooppunt dubbelklikt u op de certificaatnaam van uw. Als u van de zelf-ondertekend certificaat van de virtuele machine gebruikmaakt, het certificaat is de naam van de DNS-naam van de virtuele machine en eindigt met **cloudapp.net**.
-   * Klik op de **Details** tabblad.
+   * Klik op het tabblad **Details** .
    * Klik op **vingerafdruk**. De waarde van de vingerafdruk wordt weergegeven in het veld details, bijvoorbeeld af 11 60 b6 4b 28 8 d 89 0a 82 12 ff 6 ter a9 c3 66 4f 31 90 48
    * **Voordat u het script uitvoert**, verwijder de spaties tussen de paren met waarden. Bijvoorbeeld af1160b64b288d890a8212ff6ba9c3664f319048
 7. Wijzig de **$httpsport** parameter: 
@@ -483,7 +483,7 @@ Als u Windows PowerShell wilt configureren van de report server, moet u de volge
 9. Het script is momenteel geconfigureerd voor Reporting Services. Als u wilt om uit te voeren van het script voor Reporting Services, wijzigt u het gedeelte van de versie van het pad naar de naamruimte 'v11' op de Get-WmiObject-instructie.
 10. Voer het script uit.
 
-**Validatie**: om te controleren of de functionaliteit eenvoudig rapport server werkt, Zie de [Controleer de configuratie](#verify-the-connection) verderop in dit onderwerp. Om te controleren of het certificaat binding open een opdrachtprompt met beheerdersbevoegdheden en voer de volgende opdracht uit:
+**Validatie**: Om te controleren of de functionaliteit eenvoudig rapport server werkt, Zie de Controleer of de configuratiesectie verderop in dit onderwerp. Om te controleren of het certificaat binding open een opdrachtprompt met beheerdersbevoegdheden en voer de volgende opdracht uit:
 
     netsh http show sslcert
 
@@ -512,7 +512,7 @@ Als u niet uitvoeren van de PowerShell-script wilt voor het configureren van de 
    
    1. Klik op **database wijzigen**e.
    2. Klik op **maken van een nieuwe rapportserverdatabase** en klik vervolgens op **volgende**.
-   3. Laat de standaardwaarde **servernaam**: als de virtuele machine een naam geven en laat de standaardwaarde **verificatietype** als **huidige gebruiker** – **geïntegreerde beveiliging**. Klik op **Volgende**.
+   3. Laat de standaardwaarde **servernaam**: als de virtuele machine een naam geven en laat de standaardwaarde **verificatietype** als **huidige gebruiker** – **geïntegreerde beveiliging**. Klik op **volgende**.
    4. Laat de standaardwaarde **databasenaam** als **ReportServer** en klikt u op **volgende**.
    5. Laat de standaardwaarde **verificatietype** als **Servicereferenties** en klikt u op **volgende**.
    6. Klik op **volgende** op de **samenvatting** pagina.
@@ -573,24 +573,24 @@ Na het configureren en controleren van de rapportserver, is een algemene beheert
 ## <a name="to-create-and-publish-reports-to-the-azure-virtual-machine"></a>Maken en publiceren van rapporten met de Azure-Machine
 De volgende tabel geeft een overzicht van enkele van de opties die beschikbaar zijn voor het publiceren van bestaande rapporten van een on-premises computer naar de rapportserver die wordt gehost op Microsoft Azure-Machine:
 
-* **RS.exe script**: gebruik RS.exe script rapportitems uit en bestaande rapportserver kopiëren naar uw Microsoft Azure virtuele Machine. Zie voor meer informatie de sectie 'Native modus naar Native-modus – Microsoft Azure virtuele Machine' in [voorbeeld Reporting Services-rs.exe Script voor het migreren van inhoud tussen rapportservers](https://msdn.microsoft.com/library/dn531017.aspx).
-* **Report Builder**: de virtuele machine bevat de Klik-eenmaal versie van Microsoft SQL Server Report Builder. Report builder de eerste keer starten op de virtuele machine:
+* **RS.exe script**: RS.exe script gebruiken om te kopiëren rapportitems uit en bestaande report server met uw Microsoft Azure-VM. Zie voor meer informatie de sectie 'Native modus naar Native-modus – Microsoft Azure virtuele Machine' in [voorbeeld Reporting Services-rs.exe Script voor het migreren van inhoud tussen rapportservers](https://msdn.microsoft.com/library/dn531017.aspx).
+* **Report Builder**: De virtuele machine bevat de Klik-eenmaal versie van Microsoft SQL Server Report Builder. Report builder de eerste keer starten op de virtuele machine:
   
   1. Start uw browser met beheerdersbevoegdheden.
   2. Blader naar Rapportbeheer op de virtuele machine en klikt u op **Report Builder** in het lint.
      
      Zie voor meer informatie, [installeren, verwijderen en ondersteunen van Report Builder](https://technet.microsoft.com/library/dd207038.aspx).
-* **SQL Server Data Tools: VM**: als u de virtuele machine met SQL Server 2012 hebt gemaakt, wordt SQL Server Data Tools is geïnstalleerd op de virtuele machine en kan worden gebruikt voor het maken van **Report Server-projecten** en rapporten op de virtuele machine. SQL Server Data Tools kunt u de rapporten publiceren naar de rapportserver op de virtuele machine.
+* **SQL Server Data Tools: VIRTUELE MACHINE**:  Als u de virtuele machine met SQL Server 2012 hebt gemaakt, wordt SQL Server Data Tools is geïnstalleerd op de virtuele machine en kan worden gebruikt voor het maken van **Report Server-projecten** en rapporten op de virtuele machine. SQL Server Data Tools kunt u de rapporten publiceren naar de rapportserver op de virtuele machine.
   
     Als u de virtuele machine met SQL server 2014 gemaakt, kunt u SQL Server Data Tools - BI voor visual Studio installeren. Zie de volgende onderwerpen voor meer informatie:
   
   * [Microsoft SQL Server Data Tools - Business Intelligence voor Visual Studio 2013](https://www.microsoft.com/download/details.aspx?id=42313)
   * [Microsoft SQL Server Data Tools - Business Intelligence voor Visual Studio 2012](https://www.microsoft.com/download/details.aspx?id=36843)
   * [SQL Server Data Tools en SQL Server Business Intelligence (BI SSDT)](https://docs.microsoft.com/sql/ssdt/previous-releases-of-sql-server-data-tools-ssdt-and-ssdt-bi)
-* **SQL Server Data Tools: Externe**: op de lokale computer, kunt u een Reporting Services-project maken in SQL Server Data Tools met Reporting Services-rapporten. Het project verbinding maken met de URL van de webservice configureren.
+* **SQL Server Data Tools: Externe**:  Op uw lokale computer door een Reporting Services-project te maken in SQL Server Data Tools met Reporting Services-rapporten. Het project verbinding maken met de URL van de webservice configureren.
   
     ![Eigenschappen van SSDT voor SQL Server Reporting Services-project](./media/virtual-machines-windows-classic-ps-sql-report/IC650114.gif)
-* **Gebruik van script**: script gebruiken om te kopiëren van inhoud van de rapportserver. Zie voor meer informatie, [voorbeeld Reporting Services-rs.exe Script voor het migreren van inhoud tussen rapportservers](https://msdn.microsoft.com/library/dn531017.aspx).
+* **Gebruik van script**: Script gebruiken om te kopiëren van inhoud van de rapportserver. Zie voor meer informatie, [voorbeeld Reporting Services-rs.exe Script voor het migreren van inhoud tussen rapportservers](https://msdn.microsoft.com/library/dn531017.aspx).
 
 ## <a name="minimize-cost-if-you-are-not-using-the-vm"></a>Als u niet met behulp van de virtuele machine kosten minimaliseren
 > [!NOTE]

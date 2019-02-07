@@ -13,12 +13,12 @@ ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9c7560dc6c3c5237a056a9468d3ab4f440e8e6dc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: bc726f63ea5c8473601623024e18c1402cbebb51
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190782"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820314"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Activiteitenrapporten vinden in Azure portal
 
@@ -49,8 +49,6 @@ Het Audittrailrapport zijn gerapporteerd consolideert de volgende rapporten:
 
 U kunt geavanceerde filters in het controlerapport gebruiken voor toegang tot een specifieke categorie audit-gegevens door op te geven in de **activiteitscategorie** filter. Bijvoorbeeld, als u wilt weergeven van alle activiteiten met betrekking tot de self-service voor wachtwoord opnieuw instellen, selecteert u de **selfservice wachtwoordbeheer** categorie. 
 
-    ![Category options on the Filter Audit Logs page](./media/howto-find-activity-reports/06.png "Category options on the Filter Audit Logs page")
-
 Activiteitscategorieën zijn onder andere:
 
 - Hoofddirectory
@@ -62,8 +60,6 @@ Activiteitscategorieën zijn onder andere:
 ## <a name="sign-ins-report"></a>Aanmeldingenrapport 
 
 De **aanmeldingen** weergave bevat alle gebruikersaanmeldingen, evenals de **toepassingsgebruik** rapport. Ook vindt u informatie over het gebruik van toepassing in de **beheren** sectie van de **bedrijfstoepassingen** overzicht.
-
-    ![Enterprise applications](./media/howto-find-activity-reports/484.png "Enterprise applications")
 
 Voor toegang tot het rapport aanmeldingen:
 

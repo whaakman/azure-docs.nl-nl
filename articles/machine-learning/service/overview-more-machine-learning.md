@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 1/30/2019
-ms.openlocfilehash: 4d4d7c587dcc34b12ed757b7da54f5ad0b04e8cc
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: cd156a10faf396778b76687b3666887a6a60876c
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451866"
+ms.locfileid: "55505696"
 ---
 # <a name="what-are-the-machine-learning-products-at-microsoft"></a>Wat zijn de machine learning-producten van Microsoft?
 
@@ -27,7 +27,7 @@ De volgende opties zijn beschikbaar voor machine learning in de Azure-cloud.
 
 | Cloud&nbsp;-opties | Wat is het? | Wat u ermee kunt doen |
 |-|-|-|
-| [Azure Machine Learning-service](#azure-machine-learning-services) | Beheerde cloudservice voor ML  | Modellen trainen, implementeren en beheren in Azure met behulp van Python en CLI |
+| [Azure Machine Learning-service](#azure-machine-learning-service) | Beheerde cloudservice voor ML  | Modellen trainen, implementeren en beheren in Azure met behulp van Python en CLI |
 | [Azure Machine Learning Studio](#azure-machine-learning-studio) | Visuele interface voor ML met slepen&ndash;en&ndash;neerzetten | Modellen bouwen en implementeren en ermee experimenteren met behulp van vooraf geconfigureerde algoritmen (Python en R)|
 | [Azure Databricks](#azure-databricks) | Op Spark gebaseerd analyseplatform | Modellen en gegevenswerkstromen bouwen en implementeren |
 | [Azure Cognitive Services](#azure-cognitive-services) | Azure-services met geïntegreerde AI- en ML-modellen | Eenvoudig intelligente functies aan uw apps toevoegen |

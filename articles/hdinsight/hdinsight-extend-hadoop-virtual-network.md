@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: a2731397ece833adcedc4ebab640fa1b3ab2fc05
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 2e986e26f22e41e1cbf7b8d1c1af694522a01d06
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076823"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821572"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight met behulp van een Azure-netwerk uitbreiden
 
@@ -70,7 +70,7 @@ Gebruik de stappen in deze sectie om te ontdekken hoe u een nieuw HDInsight toev
 
     Als een beheerde service vereist HDInsight onbeperkte toegang tot verschillende IP-adressen in het Azure-datacentrum. Als u wilt toestaan dat communicatie met deze IP-adressen, werken alle bestaande netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes.
 
-    HDInsight als host fungeert voor meerdere services, die verschillende poorten gebruiken. Verkeer naar deze poorten niet blokkeren. Zie voor een lijst met poorten om toe te staan via de firewalls virtueel apparaat, de [Security](#security) sectie.
+    HDInsight als host fungeert voor meerdere services, die verschillende poorten gebruiken. Verkeer naar deze poorten niet blokkeren. Zie de sectie beveiliging voor een lijst met poorten om toe te staan via de firewalls virtueel apparaat.
 
     Als u uw bestaande beveiligingsconfiguratie zoekt, gebruikt u de volgende Azure PowerShell of de klassieke Azure-CLI-opdrachten:
 

@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: dc93d0b44d6d99e8418d4333ca8698bc9ebf3a96
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: a23a2f536f765c62919960f3c582d04543b1f49a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629676"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820824"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Data Lake Tools voor Visual Studio gebruiken om te verbinden met Azure HDInsight en Apache Hive-query's uitvoeren
 
@@ -250,11 +250,11 @@ U kunt de taakuitvoeringsweergave voor Hive op Tez-taken gebruiken om gestructur
 ![Schermafbeelding van het venster Taakuitvoeringsweergave van Data Lake Visual Studio Tools ](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.task.execution.view.png "Taakuitvoeringsweergave")
 
 ## <a name="run-hive-batch-jobs"></a>Hive-batchtaken uitvoeren
-Het kan veel tijd kosten om een Hive-script te testen in een HDInsight-cluster (met uitzondering van het Interactive Query-cluster). Dit proces kan enkele minuten of meer duren. Data Lake Tools voor Visual Studio kan Hive-scripts lokaal valideren zonder dat er verbinding hoeft te worden gemaakt met een live cluster. Zie [Interactieve Hive-query's uitvoeren](#run-interactive-hive-queries) voor meer informatie over het uitvoeren van interactieve query's.
+Het kan veel tijd kosten om een Hive-script te testen in een HDInsight-cluster (met uitzondering van het Interactive Query-cluster). Dit proces kan enkele minuten of meer duren. Data Lake Tools voor Visual Studio kan Hive-scripts lokaal valideren zonder dat er verbinding hoeft te worden gemaakt met een live cluster. Zie voor meer informatie over het uitvoeren van interactieve query's uitvoeren interactieve Hive-query's.
 
 U kunt Data Lake Tools voor Visual Studio gebruiken om in de Hive-taak te kijken door de Yarn-logboeken van bepaalde Hive-taken te verzamelen en zichtbaar te maken.
 
-Zie [Interactieve Hive-query's uitvoeren](#run-interactive-hive-queries) voor meer informatie over het uitvoeren van Hive-batchtaken. De informatie in die sectie is van toepassing op het uitvoeren Hive-batchtaken die langere verwerkingstijden hebben.
+Zie voor meer informatie over het uitvoeren van Hive-batchtaken uitvoeren interactieve Hive-query's. De informatie in die sectie is van toepassing op het uitvoeren Hive-batchtaken die langere verwerkingstijden hebben.
 
 ## <a name="run-apache-pig-scripts"></a>Apache Pig-scripts uitvoeren
 U kunt Data Lake Tools voor Visual Studio gebruiken om Pig-scripts te maken en naar HDInsight-clusters te verzenden. Maak eerst een Pig-project op basis van een sjabloon. Verzend het script vervolgens naar HDInsight-clusters.

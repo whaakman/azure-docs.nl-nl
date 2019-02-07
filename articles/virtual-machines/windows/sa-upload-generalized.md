@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 199343fce4774ea643bc22c879efc6717aa0a510
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 658cee95d695a310291d5b7180815c89bc2f0401
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244726"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818104"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Een gegeneraliseerde VHD uploaden naar Azure te maken van een nieuwe virtuele machine
 
@@ -41,7 +41,7 @@ Een gegeneraliseerde VHD heeft al uw persoonlijke accountinformatie verwijderd m
   * Generaliseren met Sysprep de virtuele machine
 
 ### <a name="generalize-a-windows-virtual-machine-using-sysprep"></a>Een Windows virtuele machine met behulp van Sysprep generaliseren
-Deze sectie leest u hoe u uw Windows virtuele machine voor gebruik als een installatiekopie te generaliseren. Sysprep verwijdert onder meer al uw persoonlijke accountinformatie en de machine wordt voorbereid om als een installatiekopie te worden gebruikt. Raadpleeg [Sysprep gebruiken: een inleiding](https://technet.microsoft.com/library/bb457073.aspx) voor meer informatie over Sysprep.
+Deze sectie leest u hoe u uw Windows virtuele machine voor gebruik als een installatiekopie te generaliseren. Sysprep verwijdert onder meer al uw persoonlijke accountinformatie en de machine wordt voorbereid om als een installatiekopie te worden gebruikt. Zie voor meer informatie over [Sysprep gebruiken: een inleiding](https://technet.microsoft.com/library/bb457073.aspx).
 
 Zorg ervoor dat de server-functies die worden uitgevoerd op de machine worden ondersteund door Sysprep. Zie voor meer informatie, [Sysprep-ondersteuning voor Server-rollen](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
@@ -97,7 +97,7 @@ Als u wilt de beschikbare opslag-accounts weergeven, typt u:
 Get-AzureRmStorageAccount
 ```
 
-Als u een bestaand opslagaccount gebruiken wilt, gaat u verder met de [de VM-installatiekopie uploaden](#upload-the-vm-vhd-to-your-storage-account) sectie.
+Als u een bestaand opslagaccount gebruiken wilt, gaat u verder met het uploaden van de sectie VM-installatiekopie.
 
 Als u nodig hebt voor het maken van een storage-account, als volgt te werk:
 

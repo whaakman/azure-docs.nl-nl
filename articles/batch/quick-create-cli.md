@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 10f84a758bdb2e01793aee06cba59a29b5639775
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: df56fd00d5a5ff2f9e9000b39939d0f33b3737d5
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470957"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752344"
 ---
-# <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Snelstart: Uw eerste Batch-taak uitvoeren met Azure CLI
+# <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Quickstart: Uw eerste Batch-taak uitvoeren met Azure CLI
 
 De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. In deze snelstartgids leert u hoe u Azure CLI gebruikt voor het maken van een Batch-account, een *pool* met computerknooppunten (virtuele machines), en een *Batch-taak* waarmee *taken* worden uitgevoerd in de groep. Met elke voorbeeldtaak wordt een basisopdracht uitgevoerd op een van de knooppunten in de pool. Nadat u deze snelstartgids hebt voltooid, begrijpt u de belangrijkste principes van de Batch-service en bent u er klaar voor om Batch op grotere schaal te gebruiken voor meer realistische workloads.
 
@@ -139,7 +139,7 @@ De opdrachtuitvoer bevat veel details, maar let vooral op de `exitCode` van de o
 
 ## <a name="view-task-output"></a>Taakuitvoer weergeven
 
-Als u de bestanden wilt weergeven die met een taak op een rekenknooppunt zijn gemaakt, gebruikt u de opdracht [az batch task file list](/cli/azure/batch/task#az-batch-task-file-list). Met de volgende opdracht worden de bestanden weergegeven die zijn gemaakt met *mytask1*: 
+Als u de bestanden wilt weergeven die met een taak op een rekenknooppunt zijn gemaakt, gebruikt u de opdracht [az batch task file list](/cli/azure/batch/task). Met de volgende opdracht worden de bestanden weergegeven die zijn gemaakt met *mytask1*: 
 
 ```azurecli-interactive 
 az batch task file list \
@@ -160,7 +160,7 @@ stderr.txt  https://mybatchaccount.eastus2.batch.azure.com/jobs/myjob/tasks/myta
 
 ```
 
-Gebruik de opdracht [az batch task file download](/cli/azure/batch/task#az-batch-task-file-download) om een van de uitvoerbestanden te downloaden naar een lokale map. In dit voorbeeld bevindt de taakuitvoer zich in `stdout.txt`. 
+Gebruik de opdracht [az batch task file download](/cli/azure/batch/task) om een van de uitvoerbestanden te downloaden naar een lokale map. In dit voorbeeld bevindt de taakuitvoer zich in `stdout.txt`. 
 
 ```azurecli-interactive
 az batch task file download \

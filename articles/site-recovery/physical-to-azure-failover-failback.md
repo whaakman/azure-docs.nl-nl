@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: d105968d13960409a60e2fde9c811a042f444d8f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4e787ab134caee1a7f9a26e46f698f2fe9807d83
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848626"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813673"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Failover en failback van fysieke servers gerepliceerd naar Azure
 
@@ -24,10 +24,10 @@ Fysieke servers gerepliceerd naar Azure met Site Recovery kunnen alleen een fail
 
 Failover en failback bestaat uit vier fasen:
 
-1. **Failover naar Azure**: failover-overschakeling uitvoeren van computers van de on-premises site naar Azure.
-2. **Azure VM's opnieuw beveiligen**: de Azure-VM's opnieuw beveiligen zodat ze gaan repliceren naar on-premises VMware-VM's.
-3. **Failover naar on-premises**: voer een failover-overschakeling uit om een failback uit te voeren van Azure.
-4. **Opnieuw beveiligen on-premises machines**: nadat de gegevens terug is mislukt, de on-premises VMware-machines die u niet terug naar beveiligen zodat ze gaan repliceren naar Azure.
+1. **Failover naar Azure**: Failover van computers van de on-premises site naar Azure.
+2. **Azure-VM’s opnieuw beveiligen**: De Azure-VM's beveiligen zodat ze gaan repliceren naar on-premises VMware-VM's.
+3. **Failover naar on-premises**: Een failover uitvoeren voor failback vanuit Azure.
+4. **On-premises VM's opnieuw beveiligen**: Nadat de gegevens terug is mislukt, opnieuw beveiligen de on-premises VMware-machines die u niet terug naar, zodat ze gaan repliceren naar Azure.
 
 ## <a name="verify-server-properties"></a>Controleer de servereigenschappen van
 
@@ -36,7 +36,7 @@ Controleer de servereigenschappen van de en zorg ervoor dat het voldoet aan [Azu
 1. In **beveiligde Items**, klikt u op **gerepliceerde Items**, en selecteer de machine.
 
 2. In de **gerepliceerd item** deelvenster bevindt zich een overzicht van machine-informatie, status, en de laatste beschikbare herstelpunten. Klik op **Eigenschappen** om meer details te bekijken.
-3. In **Berekening en netwerk** kunt u de Azure-naam, de resourcegroep, de doelgrootte, [beschikbaarheidsset](../virtual-machines/windows/tutorial-availability-sets.md), en [beheerde-schijfinstellingen](#managed-disk-considerations) wijzigen
+3. In **berekening en netwerk**, kunt u de naam van Azure, de resourcegroep, de doelgrootte, [beschikbaarheidsset](../virtual-machines/windows/tutorial-availability-sets.md), en beheerde-Schijfinstellingen
 4. U kunt de netwerkinstellingen bekijken en wijzigen, inclusief het netwerk-/subnet waarin de Azure VM zich na failover bevindt en het IP-adres dat eraan wordt toegewezen.
 5. In **schijven**, ziet u informatie over de computer, besturingssysteem en gegevensschijven.
 
@@ -44,10 +44,10 @@ Controleer de servereigenschappen van de en zorg ervoor dat het voldoet aan [Azu
 
 1. Klik in **Instellingen** > **Gerepliceerde items** op de machine > **Failover**.
 2. Selecteer in **Failover** een **Herstelpunt** waarnaar u de failover wilt uitvoeren. U kunt een van de volgende opties gebruiken:
-   - **Laatste**: met deze optie worden eerst alle gegevens naar Site Recovery verzonden gegevens verwerkt. Dit biedt het laagste RPO (Recovery Point Objective), omdat de na de failover gemaakte Azure-VM alle gegevens heeft die naar Site Recovery is gerepliceerd toen de failover werd geactiveerd.
-   - **Laatst verwerkte**: deze optie wordt er via de machine naar de meest recente herstelpunt dat is verwerkt door Site Recovery. Deze optie heeft een lage RTO (Recovery Time Objective), omdat er geen tijd wordt besteed aan het verwerken van niet-verwerkte gegevens.
-   - **Laatste toepassingsconsistente**: deze optie wordt er via de machine naar de meest recente app-consistente herstelpunt verwerkt door Site Recovery.
-   - **Aangepast**: geef een herstelpunt op.
+   - **Laatste**: Met deze optie worden eerst alle gegevens verwerkt die naar Site Recovery zijn verzonden. Dit biedt het laagste RPO (Recovery Point Objective), omdat de na de failover gemaakte Azure-VM alle gegevens heeft die naar Site Recovery is gerepliceerd toen de failover werd geactiveerd.
+   - **Laatst verwerkt**: Deze optie wordt er via de machine naar de meest recente herstelpunt dat is verwerkt door Site Recovery. Deze optie heeft een lage RTO (Recovery Time Objective), omdat er geen tijd wordt besteed aan het verwerken van niet-verwerkte gegevens.
+   - **Laatste toepassingsconsistente punt**: Deze optie wordt er via de machine naar de meest recente app-consistente herstelpunt verwerkt door Site Recovery.
+   - **Aangepast**: Geef een herstelpunt op.
 
 3. Selecteer **sluit de computer voordat u begint met failover** als u wilt dat Site Recovery op de bronmachine afsluiten voordat de failover wordt geactiveerd. De failover wordt voortgezet zelfs als het afsluiten is mislukt. U kunt de voortgang van de failover volgen op de pagina **Taken**.
 4. Als u de verbinding met de Azure VM hebt voorbereid, maakt u na de failover verbinding om deze te valideren.

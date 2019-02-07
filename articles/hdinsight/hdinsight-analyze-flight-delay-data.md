@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: fada29145334a45872aa64b3cc0fe2e859b52568
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 311e2ee65b2c24eb1c288a2161bf371732aea452
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632888"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817659"
 ---
 # <a name="analyze-flight-delay-data-by-using-apache-hive-in-hdinsight"></a>Gegevens over vertraagde vluchten analyseren met behulp van Apache Hive in HDInsight
 [Apache Hive](https://hive.apache.org/) biedt een methode die wordt uitgevoerd [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) taken via een SQL-achtige taal met de naam *[HiveQL] [ hadoop-hiveql]*, die kunnen worden gebruikt voor het samenvatten, uitvoeren van query's en analyseren van grote hoeveelheden gegevens.
@@ -30,7 +30,7 @@ Een van de grootste voordelen van Azure HDInsight is het scheiden van de opslag 
 
 Het volgende diagram illustreert het scenario en de structuur van deze zelfstudie:
 
-![HDI. FlightDelays.flow][img-hdi-flightdelays-flow]
+![HDI.FlightDelays.flow][img-hdi-flightdelays-flow]
 
 Houd er rekening mee dat de getallen in het diagram overeenkomen met de Sectietitels. **M** staat voor de belangrijkste proces. **Een** staat voor de inhoud in de bijlage.
 
@@ -232,7 +232,7 @@ Zie voor meer informatie over het maken van een HDInsight-cluster en het uitvoer
     ```
 3. Verbinding maken met uw SQL-database en gemiddelde vertragingen per plaats in de tabel AvgDelays zien:
 
-    ![HDI. FlightDelays.AvgDelays.Dataset][image-hdi-flightdelays-avgdelays-dataset]
+    ![HDI.FlightDelays.AvgDelays.Dataset][image-hdi-flightdelays-avgdelays-dataset]
 
 - - -
 
@@ -240,7 +240,7 @@ Zie voor meer informatie over het maken van een HDInsight-cluster en het uitvoer
 Uploaden van het gegevensbestand en de [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) scriptbestanden (Zie [bijlage B](#appendix-b)) vereist een planning. Het idee is voor het opslaan van de gegevensbestanden en het bestand HiveQL voor het maken van een HDInsight-cluster en de Hive-taak uitvoeren. U hebt hiervoor twee opties:
 
 * **Gebruik hetzelfde Azure Storage-account dat wordt gebruikt door het HDInsight-cluster als het standaardbestandssysteem.** Omdat het HDInsight-cluster de toegangssleutel voor Opslagaccount hebt wordt, moet u geen eventuele aanvullende wijzigingen aanbrengen.
-* **Gebruik een ander Azure Storage-account van het standaardbestandssysteem van HDInsight-cluster.** Als dit het geval is, moet u het onderdeel voor het maken van de Windows PowerShell-script uit wijzigen [maken van HDInsight-cluster en voer Apache Hive/Sqoop taken](#runjob) om het opslagaccount als een extra opslagaccount te koppelen. Zie voor instructies [Apache Hadoop-clusters maken in HDInsight][hdinsight-provision]. Het HDInsight-cluster kent de toegangssleutel voor het opslagaccount.
+* **Gebruik een ander Azure Storage-account van het standaardbestandssysteem van HDInsight-cluster.** Als dit het geval is, moet u het onderdeel voor het maken van de Windows PowerShell-script gevonden in het maken van HDInsight-cluster en voert u Apache Hive/Sqoop taken om te koppelen van de Storage-account als een extra opslagaccount wijzigen. Zie voor instructies [Apache Hadoop-clusters maken in HDInsight][hdinsight-provision]. Het HDInsight-cluster kent de toegangssleutel voor het opslagaccount.
 
 > [!NOTE]  
 > Het pad van de Blob-opslag voor het gegevensbestand is hard gecodeerd in het bestand HiveQL-script. U moet deze dienovereenkomstig bijwerken.

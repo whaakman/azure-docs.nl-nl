@@ -4,17 +4,17 @@ description: Azure Policy-evaluaties en effecten bepaalt de naleving. Leer hoe u
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/31/2019
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 7925bc8a9f7cb65d0e92c943aa0a54d48611e286
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 9fc22e35b2e435b6452f0f36c34687a15bee39c2
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508983"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766405"
 ---
 # <a name="getting-compliance-data"></a>Nalevingsgegevens ophalen
 
@@ -141,6 +141,26 @@ Gebeurtenissen (toevoegen, controleren, weigeren, implementeren) geactiveerd doo
 Met de rechtermuisknop op de rij van de gebeurtenis die u wilt meer informatie verzamelen over en selecteer **activiteitlogboeken weergeven**. De pagina activiteitenlogboek wordt geopend en wordt vooraf gefilterd voor de zoekopdracht met de details voor de toewijzing en de gebeurtenissen. Het activiteitenlogboek bevat aanvullende context en informatie over deze gebeurtenissen.
 
 ![Beleid voor naleving-activiteitenlogboek](../media/getting-compliance-data/compliance-activitylog.png)
+
+### <a name="change-history-preview"></a>Wijzigingsoverzicht (Preview)
+
+Als onderdeel van een nieuwe **preview-versie**, de laatste veertien dagen van de wijzigingsgeschiedenis zijn beschikbaar voor een niet-compatibele resource. Wijzigingsoverzicht biedt meer informatie over wanneer een wijziging is gedetecteerd en een _visual diff_ voor elke wijziging. De detectie van een wijziging wordt geactiveerd wanneer de Resource Manager-eigenschappen van een niet-compatibele resource worden toegevoegd, verwijderd of gewijzigd.
+
+1. Start de Azure Policy-service in Azure Portal door **Alle services** te selecteren en dan **Beleid** te zoeken en te selecteren.
+
+1. Op de **overzicht** of **naleving** pagina, selecteert u een beleid dat is _niet-compatibele_.
+
+1. Onder de **resourcenaleving** tabblad van de **beleidsnaleving** pagina, selecteert u een resource dit is _niet-compatibele_.
+
+1. Selecteer de **wijzigingsoverzicht (preview)** tabblad op de **Resourcenaleving** pagina. Een lijst met gedetecteerd wijzigingen, als alle bestaan, worden weergegeven.
+
+   ![Beleid wijzigingsoverzicht - tabblad](../media/getting-compliance-data/change-history-tab.png)
+
+1. Selecteer een van de gedetecteerde wijzigingen. De _visual diff_ voor de niet-compatibele resource wordt weergegeven op de **wijzigingsoverzicht** pagina.
+
+   ![Beleid wijzigingsoverzicht - Visual Diff](../media/getting-compliance-data/change-history-visual-diff.png)
+
+De _visual diff_ aides bij het identificeren van wijzigingen aan een resource. De wijzigingen gedetecteerd kunnen niet worden gerelateerd aan wat de oorzaak van de resource niet-compatibel is op het geselecteerde beleid.
 
 ## <a name="command-line"></a>Opdrachtregel
 

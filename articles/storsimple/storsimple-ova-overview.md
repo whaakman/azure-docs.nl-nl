@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/02/2018
 ms.author: alkohli
-ms.openlocfilehash: 78ed53e5e2f5d04943e6c32ddfedf037cb9e1f73
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: a7aace89ad4323d6fad6942fe03c4240fb53c8fd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480951"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811194"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Inleiding tot StorSimple Virtual Array
 
@@ -52,7 +52,7 @@ De volgende tabel geeft een overzicht van de belangrijke functies van de StorSim
 | Gegevensmobiliteit |Op hetzelfde apparaat kunt terugzetten of herstel op itemniveau (bestandsserver) |
 | Opslaglagen |Lokale hypervisor opslag- en cloud |
 | Grootte van de bestandsshare |Lagen: tot 20 TB; lokaal vastgemaakt: tot 2 TB |
-| Volumegrootte |Gelaagde: 500 GB tot 5 TB; lokaal vastgemaakt: 50 GB tot 200 GB <br> Maximale lokale ruimte gereserveerd voor gelaagde volumes is 200 GB. |
+| Volumegrootte |Lagen: 500 GB tot 5 TB; lokaal vastgemaakt: 50 GB tot 200 GB <br> Maximale lokale ruimte gereserveerd voor gelaagde volumes is 200 GB. |
 | Momentopnamen |Crash-consistent |
 | Herstel op itemniveau |Ja. gebruikers kunnen herstellen van shares |
 
@@ -87,7 +87,7 @@ Als meerdere gelijktijdige gebruikers toegang hebben tot de virtuele matrix, del
 
 StorSimple Virtual Array is niet geschikt voor workloads waarvoor hoge beschikbaarheid. De virtuele matrix is een enkel knooppunt-apparaat dat uitvaltijd optreedt wanneer software-updates zijn geïnstalleerd. Beheerders moeten plannen voor een periode van 30 minuten 3 - 4 keer per jaar.
 
-## <a name="workflows"></a>Werkstromen
+## <a name="workflows"></a>Workflows
 
 De StorSimple Virtual Array is met name geschikt voor de volgende werkstromen:
 
@@ -98,7 +98,7 @@ De StorSimple Virtual Array is met name geschikt voor de volgende werkstromen:
 ### <a name="cloud-based-storage-management"></a>Cloud-gebaseerd opslagbeheer
 U kunt de StorSimple Device Manager-service die wordt uitgevoerd in Azure portal gebruiken voor het beheren van gegevens die zijn opgeslagen op meerdere apparaten en op meerdere locaties. Dit is vooral handig in scenario's voor gedistribueerde vertakking. Houd er rekening mee dat u afzonderlijke exemplaren van de service StorSimple Device Manager voor het beheer van virtuele matrices en fysieke StorSimple-apparaten moet maken. Houd er ook rekening mee dat de virtuele matrix nu de nieuwe Azure portal in plaats van de klassieke Azure portal gebruikt.
 
-![cloud-gebaseerd opslagbeheer](./media/storsimple-ova-overview/cloud-based-storage-management.png)
+![Cloud-gebaseerd opslagbeheer](./media/storsimple-ova-overview/cloud-based-storage-management.png)
 
 ### <a name="location-independent-backup"></a>Locatie-onafhankelijke back-up
 De virtuele matrix biedt cloudmomentopnamen een locatie-onafhankelijke, punt-in-time-kopie van een volume of share. Cloudmomentopnamen zijn standaard ingeschakeld en kunnen niet worden uitgeschakeld. Alle volumes en shares zijn back-up op hetzelfde moment via een enkele dagelijkse back-upbeleid en u aanvullende ad-hoc back-ups zo nodig kunt uitvoeren.
@@ -169,7 +169,7 @@ Naast de virtuele matrix en andere onderdelen, de StorSimple-oplossing gebruikma
 
 * [Automatische opslaglagen](#automatic-storage-tiering) 
 * [Lokaal vastgemaakt shares en volumes](#locally-pinned-shares-and-volumes)
-* [Compressie van gegevens voor Ontdubbeling en lagen of een back-up naar de cloud](#deduplication-and-compression-for-data-tiered/backed-up-to-the-cloud) 
+* Compressie van gegevens voor Ontdubbeling en lagen of een back-up naar de cloud 
 * [Geplande en on-demand back-ups](#scheduled-and-on-demand-backups)
 
 ### <a name="automatic-storage-tiering"></a>Automatische opslaglagen

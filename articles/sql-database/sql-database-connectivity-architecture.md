@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: de31ab4e617b872239c1b83324e5b8d52b0b4094
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/06/2019
+ms.openlocfilehash: 5ce8464de552fb228b961af199e4b03e645478a2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469107"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809977"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architectuur van Azure SQL-connectiviteit
 
@@ -25,8 +25,7 @@ In dit artikel wordt de Azure SQL Database en SQL Data Warehouse connectiviteits
 
 > [!IMPORTANT]
 > **[Toekomstige wijzigingen] Voor service-eindpunt-verbindingen met Azure SQL-servers, een `Default` connectiviteit gedrag wordt gewijzigd in `Redirect`.**
->
-> Wijziging geldt voor alle regio's op of vóór 2 januari 2019.
+> Klanten wordt aangeraden om nieuwe servers en set aandeel bestaande klanten met verbindingstype expliciet zijn ingesteld op omleiding (voorkeur) of Proxy, afhankelijk van hun architectuur, verbinding te maken.
 >
 > Om te voorkomen dat connectiviteit via een service-eindpunt belangrijke in bestaande omgevingen als gevolg van deze wijziging, gebruiken we telemetrie Doe het volgende:
 > - Voor servers die worden gedetecteerd die zijn toegankelijk via service-eindpunten voor de wijziging, schakelen we het verbindingstype voor `Proxy`.
@@ -38,7 +37,7 @@ In dit artikel wordt de Azure SQL Database en SQL Data Warehouse connectiviteits
 >
 > Als verbindingen met de service-eindpunt kunnen niet worden gemaakt met Azure SQL-server, en u een vermoeden bestaat dat u worden beïnvloed door deze wijziging, Controleer of dat de verbindingstype expliciet is ingesteld op `Redirect`. Als dit het geval is, hebt u het openen van VM-firewallregels en Netwerkbeveiligingsgroep groepen (NSG) voor alle Azure-IP-adressen in de regio die deel uitmaken van Sql [servicetag](../virtual-network/security-overview.md#service-tags) voor poorten 11000 12000. Als dit niet een optie voor u is, schakelt u over server expliciet aan `Proxy`.
 > [!NOTE]
-> Dit onderwerp is van toepassing op Azure SQL-servers en op SQL Database- en SQL Data Warehouse-databases die op deze Azure SQL-servers worden gemaakt. Voor het gemak wordt de term 'SQL Database' gebruikt wanneer er wordt verwezen naar zowel SQL Database als SQL Data Warehouse.
+> In dit onderwerp is van toepassing op Azure SQL Database-servers die als host fungeert voor individuele databases en elastische pools en databases van SQL Data Warehouse. Voor het gemak wordt de term 'SQL Database' gebruikt wanneer er wordt verwezen naar zowel SQL Database als SQL Data Warehouse.
 
 ## <a name="connectivity-architecture"></a>Connectiviteitsarchitectuur
 

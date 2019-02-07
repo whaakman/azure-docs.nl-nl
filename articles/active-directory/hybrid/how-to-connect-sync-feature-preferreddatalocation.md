@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: f03fc201c1bce3187fdbd25c1de3567170478d30
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 38bb0840269d4b7bacbb0101590b389c8542a9b1
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488428"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814228"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect-synchronisatie: Gewenste gegevenslocatie voor Office 365-resources configureren
 Het doel van dit onderwerp wordt u stapsgewijs door het kenmerk voor de gewenste gegevenslocatie configureren in Azure Active Directory (Azure AD) Connect-synchronisatie. Wanneer iemand maakt gebruik van meerdere geografische gebieden mogelijkheden in Office 365, gebruikt u dit kenmerk om de geo-locatie van Office 365-gegevens van de gebruiker toe te wijzen. (De voorwaarden *regio* en *geo* door elkaar worden gebruikt.)
@@ -238,7 +238,7 @@ De ingebouwde Synchronisatieplanning opnieuw inschakelen:
 ## <a name="step-8-verify-the-result"></a>Stap 8: Controleer of het resultaat
 Het is nu tijd om te controleren of de configuratie en inschakelen voor uw gebruikers.
 
-1. Het geografische gebied aan de geselecteerde kenmerken van een gebruiker toevoegen. De lijst met beschikbare geo's vindt u [deze tabel](#enable-synchronization-of-preferreddatalocation).  
+1. Het geografische gebied aan de geselecteerde kenmerken van een gebruiker toevoegen. De lijst met beschikbare geo's vindt u in deze tabel.  
 ![Schermopname van het AD-kenmerk toegevoegd aan een gebruiker](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-adattribute.png)
 2. Wachten op het kenmerk worden gesynchroniseerd met Azure AD.
 3. Met behulp van Exchange Online PowerShell, Controleer of de regio van het Postvak correct is ingesteld.  

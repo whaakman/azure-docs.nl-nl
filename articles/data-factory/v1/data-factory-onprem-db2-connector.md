@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c7a3893c35031d05ea8aade0ad5d30b5a56176fd
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0e190faca778f4a65a3bd4a29d05c01a89ee7e11
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015131"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816727"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Gegevens verplaatsen van DB2 met behulp van Azure Data Factory Copy-activiteit
-> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](data-factory-onprem-db2-connector.md)
 > * [Versie 2 (huidige versie)](../connector-db2.md)
 
@@ -57,7 +57,7 @@ De Data Factory DB2-connector ondersteunt de volgende IBM DB2-platformen en vers
 
 > [!TIP]
 > Als u het foutbericht ontvangt 'het pakket overeenkomt met de aanvraag voor een SQL-instructie uitvoeren is niet gevonden. SQLSTATE = 805-51002 SQLCODE =, ' de reden is het benodigde pakket is niet gemaakt voor de normale gebruiker op het besturingssysteem. U lost dit probleem, volgt u deze instructies voor het type van de DB2:
-> - DB2 voor i (AS400): Laat een hoofdgebruiker de verzameling voor de normale gebruiker voor het uitvoeren van Kopieeractiviteit maken. Gebruik de opdracht voor het maken van de verzameling: `create collection <username>`
+> - DB2 for i (AS400): Laat een hoofdgebruiker de verzameling voor de normale gebruiker voor het uitvoeren van Kopieeractiviteit maken. Gebruik de opdracht voor het maken van de verzameling: `create collection <username>`
 > - DB2 voor z/OS of LUW: Gebruik een account van hoge bevoegdheid--een ervaren gebruiker of beheerder met pakket-instanties en VERBINDT, BINDADD, verlenen uitvoeren naar openbare machtigingen--de kopie eenmaal wordt uitgevoerd. Het benodigde pakket wordt automatisch gemaakt tijdens het kopiëren. U kunt daarna Ga terug naar de normale gebruiker voor uw volgende kopiëren worden uitgevoerd.
 
 ## <a name="getting-started"></a>Aan de slag
@@ -72,7 +72,7 @@ Of u de hulpprogramma's of API's gebruikt, kunt u de volgende stappen uit voor h
 2. Gegevenssets vertegenwoordigen invoer- en uitvoergegevens voor de kopieerbewerking maken. 
 3. Een pijplijn maken met een kopieeractiviteit waarmee een gegevensset als invoer en een gegevensset als uitvoer. 
 
-Wanneer u de Wizard kopiëren, JSON-definities voor de gekoppelde Data Factory-worden services, gegevenssets en pijplijn entiteiten automatisch voor u gemaakt. Wanneer u hulpprogramma's of API's (met uitzondering van de .NET API), kunt u de Data Factory-entiteiten definiëren met behulp van de JSON-indeling. De [JSON-voorbeeld: Gegevens kopiëren van DB2 naar Azure Blob-opslag](#json-example-copy-data-from-db2-to-azure-blob) toont de JSON-definities voor de Data Factory-entiteiten die worden gebruikt om gegevens te kopiëren uit een on-premises DB2-gegevensarchief.
+Wanneer u de Wizard kopiëren, JSON-definities voor de gekoppelde Data Factory-worden services, gegevenssets en pijplijn entiteiten automatisch voor u gemaakt. Wanneer u hulpprogramma's of API's (met uitzondering van de .NET API), kunt u de Data Factory-entiteiten definiëren met behulp van de JSON-indeling. De JSON-voorbeeld: Gegevens kopiëren van DB2 naar Azure Blob-opslag ziet u de JSON-definities voor de Data Factory-entiteiten die worden gebruikt om gegevens te kopiëren uit een on-premises DB2-gegevensarchief.
 
 De volgende secties bevatten meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van de Data Factory-entiteiten die specifiek voor een DB2-gegevensarchief zijn.
 
@@ -97,7 +97,7 @@ De **typeProperties** sectie verschilt voor elk type gegevensset en bevat inform
 
 | Eigenschap | Description | Vereist |
 | --- | --- | --- |
-| **Tabelnaam** |De naam van de tabel in de DB2-database-instantie waarnaar de gekoppelde service naar verwijst. Deze eigenschap is hoofdlettergevoelig. |Nee (als de **query** eigenschap van de kopieeractiviteit van een van het type **RelationalSource** is opgegeven) |
+| **tableName** |De naam van de tabel in de DB2-database-instantie waarnaar de gekoppelde service naar verwijst. Deze eigenschap is hoofdlettergevoelig. |Nee (als de **query** eigenschap van de kopieeractiviteit van een van het type **RelationalSource** is opgegeven) |
 
 ## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 Zie voor een lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van kopieeractiviteiten zijn, de [pijplijnen maken](data-factory-create-pipelines.md) artikel. Eigenschappen van de activiteit, zoals kopiëren **naam**, **beschrijving**, **invoer** tabel **levert** tabel, en **beleid**, zijn beschikbaar voor alle soorten activiteiten. De eigenschappen die beschikbaar zijn in de **typeProperties** sectie van de activiteit verschillen voor elk activiteitstype. Voor de Kopieeractiviteit, wordt de eigenschappen variëren afhankelijk van de typen gegevensbronnen en sinks.
@@ -106,7 +106,7 @@ Voor de Kopieeractiviteit, wanneer de bron van het type **RelationalSource** (wa
 
 | Eigenschap | Description | Toegestane waarden | Vereist |
 | --- | --- | --- | --- |
-| **Query** |De aangepaste query gebruiken om de gegevens te lezen. |SQL-query-tekenreeks. Bijvoorbeeld: `"query": "select * from "MySchema"."MyTable""` |Nee (als de **tableName** eigenschap van een gegevensset is opgegeven) |
+| **query** |De aangepaste query gebruiken om de gegevens te lezen. |SQL-query-tekenreeks. Bijvoorbeeld: `"query": "select * from "MySchema"."MyTable""` |Nee (als de **tableName** eigenschap van een gegevensset is opgegeven) |
 
 > [!NOTE]
 > Schema- en tabelnamen zijn hoofdlettergevoelig. In de query-instructie, plaatst u de namen van eigenschappen met behulp van "" (dubbele aanhalingstekens).
@@ -311,43 +311,43 @@ De volgende toewijzingen worden gebruikt wanneer de Kopieeractiviteit converteer
 | SmallInt |Int16 |
 | Geheel getal |Int32 |
 | BigInt |Int64 |
-| Real |Enkelvoudig |
-| Double-waarde |Double-waarde |
-| Float |Double-waarde |
-| decimaal |Decimaal |
-| DecimalFloat |Decimaal |
-| Numeriek |Decimaal |
+| Real |Single |
+| Double |Double |
+| Float |Double |
+| decimaal |Decimal |
+| DecimalFloat |Decimal |
+| Numeriek |Decimal |
 | Date |DateTime |
 | Time |TimeSpan |
 | Tijdstempel |DateTime |
 | Xml |Byte[] |
-| CHAR |Reeks |
-| VarChar |Reeks |
-| LongVarChar |Reeks |
-| DB2DynArray |Reeks |
+| CHAR |String |
+| VarChar |String |
+| LongVarChar |String |
+| DB2DynArray |String |
 | Binair bestand |Byte[] |
 | VarBinary |Byte[] |
 | LongVarBinary |Byte[] |
-| Afbeelding |Reeks |
-| VarGraphic |Reeks |
-| LongVarGraphic |Reeks |
-| CLOB |Reeks |
+| Afbeelding |String |
+| VarGraphic |String |
+| LongVarGraphic |String |
+| CLOB |String |
 | Blob |Byte[] |
-| DbClob |Reeks |
+| DbClob |String |
 | SmallInt |Int16 |
 | Geheel getal |Int32 |
 | BigInt |Int64 |
-| Real |Enkelvoudig |
-| Double-waarde |Double-waarde |
-| Float |Double-waarde |
-| decimaal |Decimaal |
-| DecimalFloat |Decimaal |
-| Numeriek |Decimaal |
+| Real |Single |
+| Double |Double |
+| Float |Double |
+| decimaal |Decimal |
+| DecimalFloat |Decimal |
+| Numeriek |Decimal |
 | Date |DateTime |
 | Time |TimeSpan |
 | Tijdstempel |DateTime |
 | Xml |Byte[] |
-| CHAR |Reeks |
+| CHAR |String |
 
 ## <a name="map-source-to-sink-columns"></a>Kaartbron met sink-kolommen
 Zie voor informatie over het toewijzen van kolommen in de brongegevensset naar kolommen in de sink-gegevensset, [toewijzing van kolommen in Azure Data Factory](data-factory-map-columns.md).

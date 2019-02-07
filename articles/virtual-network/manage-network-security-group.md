@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 28b73a70ef9ffd4e73117d599448434823747eca
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 21a3efb67f837a05f3c070d0805aa033f86efbd5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567397"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822439"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Maken, wijzigen of verwijderen van een netwerkbeveiligingsgroep
 
@@ -92,7 +92,7 @@ Als u een netwerkbeveiligingsgroep te koppelen of ontkoppelen van een netwerkbev
 
 ### <a name="delete-a-network-security-group"></a>Een netwerkbeveiligingsgroep verwijderen
 
-Als een netwerkbeveiligingsgroep gekoppeld aan subnetten of netwerkinterfaces is, kan niet worden verwijderd. [Ontkoppelen](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource) een netwerkbeveiligingsgroep van alle subnetten en netwerkinterfaces voordat u probeert te verwijderen.
+Als een netwerkbeveiligingsgroep gekoppeld aan subnetten of netwerkinterfaces is, kan niet worden verwijderd. U kunt een netwerkbeveiligingsgroep van alle subnetten en netwerkinterfaces loskoppelen voordat u probeert te verwijderen.
 
 1. Voer in het zoekvak boven aan de portal, *netwerkbeveiligingsgroepen* in het zoekvak in. Wanneer **netwerkbeveiligingsgroepen** worden weergegeven in de lijst met zoekresultaten, selecteert u deze.
 2. Selecteer de netwerkbeveiligingsgroep die u wilt verwijderen uit de lijst.

@@ -9,15 +9,15 @@ ms.reviewer: jasonwhowell
 ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: conceptual
 ms.date: 08/02/2017
-ms.openlocfilehash: 474478c8049dd97558b49b1df4b00655268fc0b3
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 905100f8a1444f6f6ee18d3bf9e9eab2ede8c805
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044095"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815197"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Gebruik Job Browser en Job View voor Azure Data Lake Analytics
-De service Azure Data Lake Analytics-archieven verzonden taken in een [query store](#query-store). In dit artikel leert u hoe u Job Browser en Job View gebruiken in Azure Data Lake Tools voor Visual Studio om de historische taakinformatie te vinden. 
+De Azure Data Lake Analytics-service verzonden taken in een query store-archieven. In dit artikel leert u hoe u Job Browser en Job View gebruiken in Azure Data Lake Tools voor Visual Studio om de historische taakinformatie te vinden. 
 
 Standaard archiveert de Data Lake Analytics-service de taken voor 30 dagen. De verloopperiode kan worden geconfigureerd via de Azure-portal door het configureren van het aangepaste beleid. U pas weer toegang tot de informatie over de taak na de verloopdatum. 
 
@@ -45,9 +45,9 @@ Project-weergave bevat:
       ![Status van Azure Data Lake Analytics-taak fasen](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
     
     * Voorbereiding: Uw script uploaden naar de cloud, compileren en optimaliseren van het script met behulp van de compile-service.
-    * In de wachtrij: Taken in de wachtrij geplaatst wanneer ze op onvoldoende bronnen wachten of de taken langer zijn dan de maximale gelijktijdige taken per accountbeperking. De prioriteitsinstelling van de bepaalt de volgorde van de taken in de wachtrij - hoe lager het nummer, hoe hoger de prioriteit.
-    * Uitvoeren: De taak daadwerkelijk wordt uitgevoerd in uw Data Lake Analytics-account.
-    * Wordt voltooid: De taak wordt voltooid (bijvoorbeeld, wordt het bestand voltooid).
+    * In wachtrij geplaatst: Taken in de wachtrij geplaatst wanneer ze op onvoldoende bronnen wachten of de taken langer zijn dan de maximale gelijktijdige taken per accountbeperking. De prioriteitsinstelling van de bepaalt de volgorde van de taken in de wachtrij - hoe lager het nummer, hoe hoger de prioriteit.
+    * Wordt uitgevoerd: De taak daadwerkelijk wordt uitgevoerd in uw Data Lake Analytics-account.
+    * Voltooien: De taak wordt voltooid (bijvoorbeeld, wordt het bestand voltooid).
       
       De taak kan mislukken in elke fase. Bijvoorbeeld, compilatiefouten in de fase voorbereiden, de time-outfouten optreden in de fase in de wachtrij geplaatst en de uitvoeringsfouten in de fase wordt uitgevoerd, enzovoort.
   * Algemene informatie
@@ -56,18 +56,18 @@ Project-weergave bevat:
     
       ![Status van Azure Data Lake Analytics-taak fasen](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-info.png)
     
-    * Taak resultaat: Geslaagd of mislukt. De taak kan mislukken in elke fase.
-    * Totale duur: Wand clock-tijd (duur) tussen de tijd verzenden- en eindtijd.
+    * Resultaat van taak: Geslaagd of mislukt. De taak kan mislukken in elke fase.
+    * Totale duur: Kloktijd (duur) tussen de tijd verzenden- en eindtijd.
     * Totale tijd: De som van de uitvoeringstijd voor elk hoekpunt, u kunt overwegen deze als de tijd die de taak wordt uitgevoerd in slechts één hoekpunt. Raadpleeg de totale hoekpunten voor meer informatie over het hoekpunt.
     * Tijd van verzenden/begin/einde: De tijd wanneer de Data Lake Analytics-service taak indienen/begint ontvangt met het uitvoeren van de taak/eindigt de taak is of niet.
-    * In de wachtrij geplaatst-compilatie/uitvoeren: Kloktijd besteed aan het tijdens de fase voorbereiden/in de wachtrij geplaatst/uitvoeren.
-    * Account: De Data Lake Analytics-account gebruikt voor het uitvoeren van de taak.
+    * Compilatie/wachtrij/uitvoeren: Kloktijd besteed aan het tijdens de fase voorbereiden/in de wachtrij geplaatst/uitvoeren.
+    * Account: Het Data Lake Analytics-account gebruikt voor het uitvoeren van de taak.
     * Auteur: De gebruiker die eigenaar van de taak kan zijn van een echte persoon account of een systeemaccount.
     * Prioriteit: De prioriteit van de taak. Des te lager het nummer, hoe hoger de prioriteit. Dit geldt alleen voor de volgorde van de taken in de wachtrij. Instellen van een hogere prioriteit komt niet hebben voorrang op taken die worden uitgevoerd.
     * Parallelle uitvoering: De aangevraagde maximum aantal gelijktijdige Azure Data Lake Analytics Units (ADLAUs), ook wel hoekpunten. Op dit moment één hoekpunt is gelijk aan één virtuele machine met twee virtuele kern en zes GB RAM-geheugen, maar dit kan worden bijgewerkt in de toekomst Data Lake Analytics-updates.
-    * Bytes links: Bytes die worden verwerkt moeten totdat de taak is voltooid.
-    * Bytes lezen/geschreven: Bytes die zijn gelezen of weggeschreven sinds de taak is gestart.
-    * Totaal aantal hoekpunten: de taak wordt opgedeeld in veel werk delen, elke stuk werk een hoekpunt wordt genoemd. Deze waarde wordt beschreven hoeveel werk met onderdelen van de taak bestaat uit. U kunt een hoekpunt beschouwen als een eenheid basisproces, ook wel Azure Data Lake Analytics Unit (ADLAU), en hoekpunten in de parallelle uitvoering kunnen worden uitgevoerd. 
+    * Links bytes: Bytes die worden verwerkt moeten totdat de taak is voltooid.
+    * Bytes lezen/geschreven: Aantal bytes dat is gelezen of weggeschreven sinds de taak is gestart.
+    * Totaal aantal hoekpunten: De taak wordt opgedeeld in veel werk delen, elke stuk werk een hoekpunt wordt genoemd. Deze waarde wordt beschreven hoeveel werk met onderdelen van de taak bestaat uit. U kunt een hoekpunt beschouwen als een eenheid basisproces, ook wel Azure Data Lake Analytics Unit (ADLAU), en hoekpunten in de parallelle uitvoering kunnen worden uitgevoerd. 
     * Voltooid/actief/is mislukt: Het aantal hoekpunten voltooid/actief/is mislukt. Hoekpunten kunnen mislukken als beide gebruikersfouten code en het systeem, maar het systeem nieuwe pogingen niet hoekpunten automatisch een paar keer. Als het hoekpunt is nog steeds is mislukt na het opnieuw proberen, wordt de hele taak mislukt.
 * Taakgrafiek
   
@@ -85,12 +85,12 @@ Project-weergave bevat:
     
       ![Azure Data Lake Analytics-taak graph fase](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-stage.png)
     
-    * SV1 Extraheren: de naam van een fase, met de naam van een getal en de bewerkingsmethode.
-    * 84 hoekpunten: het totale aantal hoekpunten in deze fase. De afbeelding geeft aan hoeveel onderdelen werk is onderverdeeld in deze fase.
-    * 12.90 s/hoekpunt: de gemiddelde hoekpunt uitvoeringstijd voor deze fase. In deze afbeelding wordt berekend door SUM (elke hoekpunt uitvoeringstijd) / (totaal aantal hoekpunt). Dit betekent dat als u de hoekpunten die zijn uitgevoerd in de parallelle uitvoering toewijst kan, de hele fase is voltooid in 12,90 s. Het betekent ook dat als al het werk in deze fase van de serie wordt uitgevoerd, de kosten zijn #vertices * Gem. tijd.
-    * 850,895 geschreven rijen: totaal aantal rijen in deze fase is geschreven.
-    * R/W: hoeveelheid gegevens lezen/schriftelijke in deze fase in bytes.
-    * Kleuren: De kleuren worden gebruikt in de fase voor verschillende hoekpunt status aan te geven.
+    * SV1 extraheren: De naam van een fase, met de naam van een getal en de bewerkingsmethode.
+    * 84 hoekpunten: Het totale aantal hoekpunten in deze fase. De afbeelding geeft aan hoeveel onderdelen werk is onderverdeeld in deze fase.
+    * 12.90 s/hoekpunt: De gemiddelde hoekpunt uitvoeringstijd voor deze fase. In deze afbeelding wordt berekend door SUM (elke hoekpunt uitvoeringstijd) / (totaal aantal hoekpunt). Dit betekent dat als u de hoekpunten die zijn uitgevoerd in de parallelle uitvoering toewijst kan, de hele fase is voltooid in 12,90 s. Het betekent ook dat als al het werk in deze fase van de serie wordt uitgevoerd, de kosten zijn #vertices * Gem. tijd.
+    * 850,895 geschreven rijen: Totale aantal rijen in deze fase is geschreven.
+    * R/W: Hoeveelheid gegevens lezen/schriftelijke in deze fase in bytes.
+    * Kleuren: Kleuren worden gebruikt in de fase voor verschillende hoekpunt status aan te geven.
       
       * Groen geeft aan dat het hoekpunt is voltooid.
       * Oranje geeft aan dat het hoekpunt wordt opnieuw uitgevoerd. Het opnieuw geprobeerd hoekpunt is mislukt, maar wordt opnieuw geprobeerd automatisch en is door het systeem en de algehele fase is voltooid. Als het hoekpunt opnieuw geprobeerd maar nog steeds mislukt, wordt de kleur rood en de hele taak is mislukt.
@@ -101,15 +101,15 @@ Project-weergave bevat:
       U vindt meer informatie voor de fase door de muisaanwijzer op een status wordt bewogen over:
       
       ![Azure Data Lake Analytics-taak graph fase details](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-stage-details.png)
-  * Hoekpunten: Beschrijving van de details van hoekpunten, bijvoorbeeld het aantal hoekpunten in totaal, het aantal hoekpunten zijn voltooid, zijn ze is mislukt of nog actief/wachten, enzovoort.
-  * Het lezen van gegevens tussen/intra-schil: bestanden en gegevens worden opgeslagen in meerdere schillen in een gedistribueerd bestandssysteem. De waarde hier wordt beschreven hoeveel gegevens in de dezelfde schil of cross-schil is gelezen.
-  * Totale tijd: de som van de uitvoeringstijd van elke hoekpunt in de fase, kunt u overwegen deze als de lang het duren zou als alle in de fase werkt wordt uitgevoerd in slechts één hoekpunt.
-  * Gegevens en rijen geschreven/gelezen: Hiermee wordt aangegeven hoeveel gegevens of rijen zijn gelezen of weggeschreven of moeten worden gelezen.
+  * Hoekpunten: Hierin wordt beschreven in de details van hoekpunten, bijvoorbeeld het aantal hoekpunten in totaal, het aantal hoekpunten zijn voltooid, zijn ze is mislukt of nog actief/wachten, enzovoort.
+  * Gegevens gelezen cross/intra-schil: Bestanden en gegevens worden opgeslagen in meerdere schillen in een gedistribueerd bestandssysteem. De waarde hier wordt beschreven hoeveel gegevens in de dezelfde schil of cross-schil is gelezen.
+  * Totale tijd: De som van de uitvoeringstijd van elke hoekpunt in de fase, u kunt overwegen deze als de lang die het duren zou als alle in de fase werkt wordt uitgevoerd in slechts één hoekpunt.
+  * Gegevens en rijen geschreven/gelezen: Geeft aan hoeveel gegevens of rijen zijn lezen/geschreven of moeten worden gelezen.
   * Hoekpunt lezen fouten: Beschrijving van het aantal hoekpunten zijn mislukt tijdens het lezen van gegevens.
-  * Dubbele hoekpunt wordt genegeerd: als een hoekpunt te langzaam wordt uitgevoerd, het systeem meerdere hoekpunten om uit te voeren van de dezelfde stuk werk kan plannen. Reductant hoekpunten gaan verloren zodra een van de hoekpunten met succes voltooid. Dubbele verwijderingen hoekpunt legt het aantal hoekpunten die worden verwijderd als dubbele in de fase.
-  * Hoekpunt intrekkingen: het hoekpunt is geslaagd, maar enkele redenen later ophalen opnieuw. Bijvoorbeeld, als downstream hoekpunt tussenliggende invoergegevens verliest, wordt u gevraagd het upstream hoekpunt opnieuw uit te voeren.
-  * Hoekpunt planning uitvoeringen: de totale tijd die de hoekpunten zijn gepland.
-  * Gemiddelde-min/Max hoekpunt gegevens gelezen: het minimum/gemiddelde/maximum van elk hoekpunt lezen van gegevens.
+  * Dubbele hoekpunt worden verwijderd: Als een hoekpunt te langzaam wordt uitgevoerd, kan het systeem meerdere hoekpunten om uit te voeren van de dezelfde stuk werk plannen. Reductant hoekpunten gaan verloren zodra een van de hoekpunten met succes voltooid. Dubbele verwijderingen hoekpunt legt het aantal hoekpunten die worden verwijderd als dubbele in de fase.
+  * Hoekpunt intrekkingen: Het hoekpunt is geslaagd, maar enkele redenen later ophalen opnieuw. Bijvoorbeeld, als downstream hoekpunt tussenliggende invoergegevens verliest, wordt u gevraagd het upstream hoekpunt opnieuw uit te voeren.
+  * Hoekpunt planning uitvoeringen: De totale tijd die de hoekpunten zijn gepland.
+  * Gemiddelde-min/Max hoekpunt gegevens gelezen: Het minimum/gemiddelde/maximum van elk hoekpunt lezen van gegevens.
   * Duur: De kloktijd een fase nodig, moet u laden profiel als deze waarde wilt weergeven.
   * Taak afspelen
     
@@ -126,19 +126,19 @@ Project-weergave bevat:
     
       ![Voorbeeld van Azure Data Lake Analytics-taak graph heap kaart](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-heat-map-example.png)
     
-    * Voortgang: De taakuitvoering voortgang, Zie de informatie in [stadium informatie](#stage-information).
-    * Gelezen of weggeschreven gegevens: de heatmap van de totale gegevens lezen/geschreven in elke fase.
-    * COMPUTE tijd: de heatmap van SUM (elke hoekpunt uitvoeringstijd), kunt u overwegen deze hoe lang het duren zou als er al het werk in de fase wordt uitgevoerd met slechts 1 hoekpunt.
-    * Gemiddelde uitvoeringstijd per knooppunt: de heatmap van SUM (elke hoekpunt uitvoeringstijd) / (hoekpunt getal). Dit betekent dat als u de hoekpunten die zijn uitgevoerd in de parallelle uitvoering toewijst kan, kunt u de hele fase wordt uitgevoerd in dit tijdsbestek.
-    * I/o-doorvoer: de heatmap van i/o-doorvoer van elke fase, kunt u controleren als de taak een i/o-gebonden taak via deze is.
+    * Voortgang: Het uitvoeren van taak voortgang, gegevens bekijken in de fase informatie.
+    * Gelezen of weggeschreven gegevens: De heatmap van de totale gegevens lezen/geschreven in elke fase.
+    * COMPUTE tijd: De heatmap van SUM (elke hoekpunt uitvoeringstijd), kunt u overwegen deze hoe lang het duren zou als er al het werk in de fase wordt uitgevoerd met slechts 1 hoekpunt.
+    * Gemiddelde uitvoeringstijd per knooppunt: De heatmap van SUM (elke hoekpunt uitvoeringstijd) / (hoekpunt getal). Dit betekent dat als u de hoekpunten die zijn uitgevoerd in de parallelle uitvoering toewijst kan, kunt u de hele fase wordt uitgevoerd in dit tijdsbestek.
+    * I/o-doorvoer: De heatmap van i/o-doorvoer van elke fase, kunt u controleren of uw taak is dat een i/o-gebonden taak via deze.
 * Bewerkingen voor metagegevens
   
     U kunt enkele bewerkingen van metagegevens in uw U-SQL-script uitvoeren, zoals een database te maken, verwijderen van een tabel, enzovoort. Deze bewerkingen worden weergegeven in de metagegevens is na de compilatie. U kunt vinden van asserties, entiteiten maken, entiteiten hier neerzetten.
   
     ![Azure Data Lake Analytics-taak weergeven voor de bewerkingen van metagegevens](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-metadata-operations.png)
-* Geschiedenis van status
+* Statusgeschiedenis
   
-    De geschiedenis van Knooppuntstatus tevens worden gevisualiseerd in taaksamenvatting, maar krijgt u hier meer informatie. U kunt de gedetailleerde informatie kunt vinden, zoals wanneer de taak is voorbereid, in de wachtrij de slag te gaan die wordt uitgevoerd, is beëindigd. U kunt ook het aantal keren dat de taak is gecompileerd vinden (de CcsAttempts: 1), wanneer de taak verzonden naar het cluster feitelijk (details: verzonden met codepad-taak voor het cluster), enzovoort.
+    De geschiedenis van Knooppuntstatus tevens worden gevisualiseerd in taaksamenvatting, maar krijgt u hier meer informatie. U kunt de gedetailleerde informatie kunt vinden, zoals wanneer de taak is voorbereid, in de wachtrij de slag te gaan die wordt uitgevoerd, is beëindigd. U kunt ook het aantal keren dat de taak is gecompileerd vinden (de CcsAttempts: 1), wanneer de taak verzonden naar het cluster feitelijk (details: Verzending van taak voor het cluster), enzovoort.
   
     ![Statusgeschiedenis van Azure Data Lake Analytics-taak weergeven](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-state-history.png)
 * Diagnostiek
@@ -148,9 +148,9 @@ Project-weergave bevat:
     ![Diagnostische gegevens van Azure Data Lake Analytics-taak weergeven](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-diagnostics.png)
   
   * Waarschuwingen: Een waarschuwing wordt weergegeven hier met waarschuwing van compiler. U kunt klikken op 'x oorzaak van deze' koppeling om meer informatie wanneer de waarschuwing wordt weergegeven.
-  * Hoekpunt uitvoeren te lang: als een hoekpunt onvoldoende tijd (bijvoorbeeld 5 uur), problemen hier worden gevonden.
-  * Gebruik: als u meer of onvoldoende parallelle uitvoering toegewezen dan nodig hebt, problemen hier worden gevonden. Ook kunt u gebruik van bronnen voor meer informatie en what-if-scenario's voor een betere resourcetoewijzing uitvoert (Zie voor meer informatie in deze handleiding).
-  * Geheugencontrole: als een hoekpunt maakt gebruik van meer dan 5 GB aan geheugen, problemen hier worden gevonden. Uitvoeren van taak kan ophalen beëindigd door een systeem als deze meer geheugen dan systeembeperking gebruikt.
+  * Hoekpunt is te lang worden uitgevoerd: Als een hoekpunt onvoldoende tijd (bijvoorbeeld 5 uur), wordt hier problemen worden gevonden.
+  * Gebruik van bronnen: Als u meer of onvoldoende parallelle uitvoering toegewezen dan nodig hebt, wordt hier problemen worden gevonden. Ook kunt u gebruik van bronnen voor meer informatie en what-if-scenario's voor een betere resourcetoewijzing uitvoert (Zie voor meer informatie in deze handleiding).
+  * Geheugencontrole: Als een hoekpunt wordt meer dan 5 GB aan geheugen gebruikt, wordt hier problemen worden gevonden. Uitvoeren van taak kan ophalen beëindigd door een systeem als deze meer geheugen dan systeembeperking gebruikt.
 
 ## <a name="job-detail"></a>Taakdetails
 Job details ziet u de gedetailleerde informatie van de taak, waaronder Script, Resources en Vertex Execution View.

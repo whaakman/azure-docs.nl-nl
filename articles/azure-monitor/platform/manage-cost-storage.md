@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 290f0426befa322b20882682bf4555f80af016d1
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 95dc004e1a4b34f1f3a3c547da4ea7cd35e8c753
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660388"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821470"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Gebruik en kosten voor Log Analytics beheren
 
@@ -128,7 +128,7 @@ Wanneer het verzamelen van gegevens stopt, wordt de OperationStatus waarschuwing
 |Reden verzameling stopt| Oplossing| 
 |-----------------------|---------|
 |Dagelijkse limiet van verouderde gratis-laag is bereikt |Wachten tot de volgende dag voor de verzameling automatisch opnieuw opstarten of wijzigen in een betaalde prijscategorie.|
-|Dagelijkse limiet van uw werkruimte is bereikt|Wachten op de verzameling automatisch opnieuw wordt gestart of vergroot de dagelijkse gegevenslimiet volume dat wordt beschreven in [beheren van de maximale dagelijkse gegevensvolume](#manage-the-maximum-daily-volume). De tijd voor opnieuw instellen van dagelijkse limiet is wordt weergegeven op de **gegevensvolumebeheer** pagina. |
+|Dagelijkse limiet van uw werkruimte is bereikt|Wachten op de verzameling automatisch opnieuw wordt gestart of toename van de dagelijkse limiet voor volume dat wordt beschreven in het maximale dagelijkse gegevensvolume beheren. De tijd voor opnieuw instellen van dagelijkse limiet is wordt weergegeven op de **gegevensvolumebeheer** pagina. |
 |Azure-abonnement is de status onderbroken vanwege:<br> Gratis proefversie is beëindigd<br> Azure geslaagd is verlopen<br> Maandelijkse bestedingslimiet bereikt (bijvoorbeeld op een MSDN of Visual Studio-abonnement)|Converteren naar een betaald abonnement<br> Limiet verwijderen of wacht u totdat de limiet wordt opnieuw ingesteld|
 
 Als u wilt worden gewaarschuwd wanneer het verzamelen van gegevens wordt gestopt, gebruikt u de stappen beschreven in *maken dagelijkse gegevenslimiet* waarschuwing wilt worden gewaarschuwd als het verzamelen van gegevens gestopt en volg de stappen gebruikt u de stappen de acties om u te waarschuwen regels configureren van een e-mailbericht, toevoegen webhook- of runbook-actie voor de waarschuwingsregel. 

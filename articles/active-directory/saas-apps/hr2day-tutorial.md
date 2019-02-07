@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
-ms.openlocfilehash: bb03506bac22c8c82e856f403710a4908af6f9de
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7d77d72264580e4cde83f6cbb9f83bf7030d941e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149251"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820042"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Zelfstudie: Azure Active Directory-integratie met HR2day door Merces
 
@@ -88,11 +88,11 @@ In HR2day door Merces toewijzen de **gebruikersnaam** in Azure AD **gebruikersna
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met HR2day door Merces, moet u de volgende bouwstenen voltooien:
 
-1. [Azure AD eenmalige aanmelding configureren](#configuring-azure-ad-single-sign-on): Zodat uw gebruikers kunnen deze functie wilt gebruiken.
-1. [Maak een Azure AD-testgebruiker](#creating-an-azure-ad-test-user): Azure AD eenmalige aanmelding met Britta Simon testen.
-1. [Maken van een HR2day door Merces testgebruiker](#creating-an-hr2day-by-merces-test-user): Maak een equivalent van Britta Simon in HR2day door Merces die is gekoppeld aan de Azure AD-weergave van de gebruiker.
-1. [Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user): Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. [Eenmalige aanmelding testen](#testing-single-sign-on): Controleer of de configuratie werkt.
+1. Azure AD eenmalige aanmelding configureren: Zodat uw gebruikers kunnen deze functie wilt gebruiken.
+1. Maak een Azure AD-TestGebruiker: Azure AD eenmalige aanmelding met Britta Simon testen.
+1. Maak een HR2day door Merces TestGebruiker: Maak een equivalent van Britta Simon in HR2day door Merces die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+1. De Azure AD-testgebruiker toewijzen: Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. Test eenmalige aanmelding: Controleer of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 

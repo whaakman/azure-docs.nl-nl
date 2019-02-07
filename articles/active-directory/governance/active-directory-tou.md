@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 01/10/2019
 ms.author: rolyon
-ms.openlocfilehash: be8a6ba83de81c5a82797ecf3d30c7a7fcaa65fa
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2b8836525e085b41cc8d011087c4fc71afe453cb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162766"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822507"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Functie Azure Active Directory Gebruiksrechtovereenkomst
 Azure AD Gebruiksrechtovereenkomst is een eenvoudige methode waarmee organisaties informatie kunnen presenteren aan eindgebruikers. Deze presentatie zorgt ervoor dat gebruikers relevante disclaimers voor juridische vereisten of nalevingsvereisten te zien krijgen. In dit artikel wordt beschreven hoe u aan de slag met de gebruiksvoorwaarden.
@@ -337,7 +337,7 @@ U kunt een beleid voor voorwaardelijke toegang voor de app Microsoft Intune-insc
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
 **V: Hoe kan ik zien wanneer / of een gebruiker een gebruiksrechtovereenkomst heeft geaccepteerd?**<br />
-A: Klik op de voorwaarden van de blade gebruik, het aantal onder **geaccepteerde**. U kunt ook weergeven of zoeken naar de accept-activiteit in de Azure AD auditlogboeken. Zie voor meer informatie, [rapport weergeven van wie heeft geaccepteerd en afgewezen](#view-who-has-accepted-and-declined) en [weergave Azure AD-auditlogboeken](#view-azure-ad-audit-logs).
+A: Klik op de voorwaarden van de blade gebruik, het aantal onder **geaccepteerde**. U kunt ook weergeven of zoeken naar de accept-activiteit in de Azure AD auditlogboeken. Zie voor meer informatie weergeven rapport wie heeft geaccepteerd en geweigerd en [weergave Azure AD-auditlogboeken](#view-azure-ad-audit-logs).
 
 **V: Hoe lang wordt informatie opgeslagen?**<br />
 A: De gebruiker wordt geteld in de voorwaarden van het rapport gebruiken en die voor de levensduur van de gebruiksrechtovereenkomst geaccepteerd/afgewezen worden opgeslagen. De Azure AD-audit logboeken worden opgeslagen voor 30 dagen.

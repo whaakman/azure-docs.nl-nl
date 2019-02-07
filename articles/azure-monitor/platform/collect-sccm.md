@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
-ms.openlocfilehash: b13e92369168a43f529ed0b83c10bc65893da83d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 79539e05e1623b153a8fad817918cfb56a521db1
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193311"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814160"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Configuration Manager koppelen aan Log Analytics
 U kunt uw System Center Configuration Manager-omgeving koppelen aan Azure Log Analytics apparaat verzameling om gegevens te synchroniseren en verwijzen naar deze verzamelingen in Log Analytics en Azure Automation.  
@@ -32,8 +32,8 @@ De volgende stappen geven een overzicht van de stappen voor het configureren van
 
 1. Configuration Manager registreert als een webtoepassing en/of Web-API-app in Azure portal, en zorg ervoor dat u de client-ID en de geheime sleutel van de client van de registratie van Azure Active Directory hebt. Zie [portal gebruiken voor het maken van Active Directory toepassing en service-principal die toegang hebben tot resources](../../active-directory/develop/howto-create-service-principal-portal.md) voor gedetailleerde informatie over het uitvoeren van deze stap.
 2. In de Azure-portal [verlenen van Configuration Manager (de geregistreerde web-app) met een machtiging voor toegang tot Log Analytics](#grant-configuration-manager-with-permissions-to-log-analytics).
-3. In Configuration Manager [toevoegen van een verbinding met de Wizard OMS-verbinding toevoegen](#add-an-oms-connection-to-configuration-manager).
-4. In Configuration Manager [bijwerken van de verbindingseigenschappen](#update-oms-connection-properties) als de geheime sleutel van het wachtwoord of de client ooit is verlopen of verloren gegaan is.
+3. Een verbinding met de Wizard OMS-verbinding toevoegen in Configuration Manager toevoegen
+4. In Configuration Manager bijwerken de eigenschappen van de verbinding als de geheime sleutel van het wachtwoord of de client ooit is verlopen of verloren gegaan is.
 5. [Download en installeer de Microsoft Monitoring Agent](#download-and-install-the-agent) op de computer waarop de Configuration Manager service connection point sitesysteemrol. De agent verzendt de Configuration Manager-gegevens naar de Log Analytics-werkruimte.
 6. In Log Analytics, [verzamelingen importeren uit Configuration Manager](#import-collections) als computergroepen.
 7. Weergeven in Log Analytics, gegevens uit Configuration Manager als [computergroepen](../../azure-monitor/platform/computer-groups.md).

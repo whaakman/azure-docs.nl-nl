@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 93534cf80a007dbb848a515ec4ec165c67e3b456
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: deca97b0749ceab9f2dfaf3c3940ac6b02b9c104
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730693"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822184"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Maken, wijzigen of verwijderen van een netwerkinterface
 
@@ -52,7 +52,7 @@ Bij het maken van een virtuele machine met behulp van de Azure portal, wordt de 
     |Privé-IP-adrestoewijzing|Ja| In deze instelling is kiest u de toewijzingsmethode voor het IPv4-adres. Kies in de volgende toewijzingsmethoden: **Dynamische:** Wanneer u deze optie selecteert, wijst Azure automatisch de eerstvolgende beschikbare adres van de adresruimte van het subnet dat u hebt geselecteerd. **Statische:** Wanneer u deze optie selecteert, moet u handmatig een beschikbaar IP-adres in de adresruimte van het geselecteerde subnet toewijzen. Statische en dynamische adressen veranderen niet totdat u deze wijzigen of de netwerkinterface wordt verwijderd. U kunt de toewijzingsmethode wijzigen nadat de netwerkinterface is gemaakt. De Azure DHCP-server wijst dit adres toe aan de netwerkinterface binnen het besturingssysteem van de virtuele machine.|
     |Netwerkbeveiligingsgroep|Nee| Laat de eigenschap ingesteld op **geen**, selecteer een bestaande [netwerkbeveiligingsgroep](security-overview.md), of [maken van een netwerkbeveiligingsgroep](tutorial-filter-network-traffic.md). Netwerkbeveiligingsgroepen kunnen u filteren van netwerkverkeer naar en uit een netwerkinterface. U kunt nul of één netwerkbeveiligingsgroep toepassen op een netwerkinterface. Nul of één netwerkbeveiligingsgroep kan ook worden toegepast op het subnet dat de netwerkinterface wordt toegewezen aan. Wanneer een netwerkbeveiligingsgroep is toegepast op een netwerkinterface en het subnet dat aan de netwerkinterface is toegewezen, wordt soms onverwachte resultaten optreden. Zie voor het oplossen van netwerkbeveiligingsgroepen die zijn toegepast op netwerkinterfaces en subnetten, [problemen met netwerkbeveiligingsgroepen oplossen](diagnose-network-traffic-filter-problem.md).|
     |Abonnement|Ja|Selecteer een van uw Azure [abonnementen](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). De virtuele machine die u koppelt een netwerkinterface en het virtuele netwerk dat u deze met verbindt moeten zich in hetzelfde abonnement.|
-    |Privé-IP-adres (IPv6)|Nee| Als u dit selectievakje inschakelt, wordt een IPv6-adres toegewezen aan de netwerkinterface, naast het IPv4-adres toegewezen aan de netwerkinterface. Zie de [IPv6](#IPv6) sectie van dit artikel voor belangrijke informatie over het gebruik van IPv6 met netwerkinterfaces. U kunt een methode voor het toewijzen van het IPv6-adres niet selecteren. Als u ervoor kiest om toe te wijzen een IPv6-adres, wordt deze toegewezen met de dynamische methode.
+    |Privé-IP-adres (IPv6)|Nee| Als u dit selectievakje inschakelt, wordt een IPv6-adres toegewezen aan de netwerkinterface, naast het IPv4-adres toegewezen aan de netwerkinterface. Zie de IPv6-sectie van dit artikel voor belangrijke informatie over het gebruik van IPv6 met netwerkinterfaces. U kunt een methode voor het toewijzen van het IPv6-adres niet selecteren. Als u ervoor kiest om toe te wijzen een IPv6-adres, wordt deze toegewezen met de dynamische methode.
     |IPv6-naam (alleen weergegeven wanneer de **privé-IP-adres (IPv6)** selectievakje is ingeschakeld) |Ja, als de **privé-IP-adres (IPv6)** selectievakje is ingeschakeld.| Deze naam wordt toegewezen aan een secundaire IP-configuratie voor de netwerkinterface. Zie voor meer informatie over IP-configuraties, [netwerkinterface-instellingen weergeven](#view-network-interface-settings).|
     |Resourcegroep|Ja|Selecteer een bestaande [resourcegroep](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) of er een maken. Een netwerkinterface kan bestaan in de dezelfde of een andere resourcegroep dan de virtuele machine die u het koppelt, of het virtuele netwerk dat u deze verbinding.|
     |Locatie|Ja|De virtuele machine als u een netwerkinterface om te koppelen en het virtuele netwerk dat u deze met verbindt moet bestaan in dezelfde [locatie](https://azure.microsoft.com/regions), ook wel een regio.|

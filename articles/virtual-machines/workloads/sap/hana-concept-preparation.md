@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff214460d919eff5c3c1a2e608958673867ddc55
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 73643cd6954932f933e200baad09e4301300aac2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44392235"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822541"
 ---
 # <a name="disaster-recovery-principles"></a>Principes van herstel na noodgevallen
 
@@ -31,7 +31,7 @@ In de scenario's tot nu toe is geïmplementeerd, wordt met klanten de eenheid in
 
 Zoals u in deze afbeelding overzicht, moet u vervolgens een tweede set schijfvolumes rangschikken. De doel-schijfvolumes zijn even groot is als de productievolumes voor de productie-instantie in de disaster recovery-eenheden. Deze volumes op schijven zijn gekoppeld aan de eenheid van de server HANA grote instantie in de site voor noodherstel. De volgende volumes worden gerepliceerd van de productieregio naar de DR-site:
 
-- / hana/gegevens
+- /hana/data
 - / hana/logbackups 
 - /Hana/Shared (inclusief/usr/sap)
 
@@ -48,7 +48,7 @@ In gevallen waar u HANA System Replication in uw productiesite gebruiken in plaa
 
 
 >[!NOTE]
->De replicatie van HANA grote instantie opslagfunctionaliteit is spiegelen en storage-momentopnamen te repliceren. Als u geen opslagmomentopnamen uitvoeren, zoals geïntroduceerd in de [back-up en herstel](#backup-and-restore) sectie van dit artikel kan niet worden elk replicatie naar de site voor noodherstel. Uitvoering van de momentopname Storage is een vereiste voor storage-replicatie naar de site voor noodherstel.
+>De replicatie van HANA grote instantie opslagfunctionaliteit is spiegelen en storage-momentopnamen te repliceren. Als u geen opslagmomentopnamen uitvoert, zoals geïntroduceerd in de sectie back-up en terugzetten van dit artikel, kan dit niet een-replicatie naar de site voor noodherstel. Uitvoering van de momentopname Storage is een vereiste voor storage-replicatie naar de site voor noodherstel.
 
 
 
@@ -81,7 +81,7 @@ Vervolgens instellen of aanpassen van de back-upschema van opslag momentopname t
 - Voor de back-up logboekvolume van de transactie (type momentopname **logboeken**), ingesteld om te repliceren naar de doelen van het volume gelijk opslag in de site voor noodherstel om de 3 minuten.
 
 Om te beperken het beoogde herstelpunt, instellen van het volgende:
-- Uitvoeren een **hana** type storage-momentopname (Zie ' stap 7: momentopnamen uitvoeren ') om de 30 minuten naar één uur.
+- Voer een **hana** type opslag momentopname (Zie ' stap 7: Uitvoeren van momentopnamen') om de 30 minuten naar één uur.
 - Voer SAP HANA transactielogboekback-ups om de 5 minuten.
 - Voer een **logboeken** typt u een momentopname van elke 5 tot 15 minuten opslag. Met deze Intervalperiode, moet u een RPO van ongeveer 15-25 minuten bereiken.
 

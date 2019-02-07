@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 7a17bed165a5a8ff15a122a1376d1a3a5e17d45f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 0568df92db2114c57a0aa027ade369e4b256af84
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700924"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813327"
 ---
 # <a name="about-the-collector-appliance"></a>Over het Collector-apparaat
 
@@ -65,7 +65,7 @@ De Collector moet slagen voor een aantal controles om ervoor te zorgen deze verb
 - **Controleer de internetverbinding**: De Collector verbinding kan maken met internet rechtstreeks of via een proxyserver.
     - Het controleren van de vereisten controleert of de verbinding met [URL's voor vereiste en optionele](#urls-for-connectivity).
     - Als u een directe verbinding met internet hebt, is geen specifieke actie vereist is, dan ervoor te zorgen dat de Collector de vereiste URL's kan bereiken.
-    - Als u verbinding via een proxy maakt, let dan op de [onderstaande vereisten](#connect-via-a-proxy).
+    - Als u verbinding via een proxy maakt, noteert u de onderstaande vereisten.
 - **Tijdsynchronisatie controleren**: De Collector moeten worden gesynchroniseerd met de tijdserver op internet om te controleren of de aanvragen voor de service worden geverifieerd.
     - De portal.azure.com url moet bereikbaar is vanaf de Collector zodat de tijd kan worden gevalideerd.
     - Als de machine is niet gesynchroniseerd, moet u de klok op de Collector-VM zodat deze overeenkomen met de huidige tijd verandert. Doen dit open een beheerder op de virtuele machine, voer **w32tm /tz** om te controleren of de tijdzone. Voer **w32tm/resync** de tijd te synchroniseren.
@@ -75,7 +75,7 @@ De Collector moet slagen voor een aantal controles om ervoor te zorgen deze verb
     - De Collector-service maakt verbinding met vCenter-Server, de VM-metagegevens en de prestaties gegevens verzamelt en verzendt dit naar de service Azure Migrate.
 - **Controleren van VMware PowerCLI 6.5 is geïnstalleerd**: De VMware PowerCLI 6.5 PowerShell-module moet worden geïnstalleerd op de Collector-VM, zodat deze met de vCenter-Server communiceren kan.
     - Als de Collector toegang heeft tot de URL's die nodig zijn om de module te installeren, wordt deze installatie automatisch tijdens de implementatie van de Collector.
-    - Als de Collector u de module tijdens de implementatie installeren kunt, moet u [handmatig installeren](#install-vwware-powercli-module-manually).
+    - Als de Collector u de module tijdens de implementatie installeren kunt, moet u deze handmatig installeren.
 - **Controleer de verbinding met vCenter-Server**: De Collector moeten kunnen vCenter-Server en query's uitvoeren voor virtuele machines, de metagegevens en prestatiemeteritems. [Vereisten controleren](#connect-to-vcenter-server) om verbinding te maken.
 
 

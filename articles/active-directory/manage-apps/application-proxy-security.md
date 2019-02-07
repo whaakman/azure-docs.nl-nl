@@ -15,12 +15,12 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: f74dc441016a0064aca388ce4881eeae9e7bc6d0
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 3e8d9cc44e4e83dac963b3d85f7dd4d058323bf6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657855"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813820"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Beveiligingsoverwegingen voor het openen van apps op afstand met Azure AD-toepassingsproxy
 
@@ -128,11 +128,11 @@ Wanneer de Application Proxy-service-updates de configuratie-instellingen, worde
 
 Wanneer gebruikers toegang krijgen een gepubliceerde toepassing tot, plaatsvinden de volgende gebeurtenissen tussen de Application Proxy-service en de Application Proxy-connector:
 
-1. [De service verifieert de gebruiker voor de app.](#the-service-checks-the-configuration-settings-for-the-app)
-2. [De service plaatst een aanvraag in de wachtrij van de connector](#The-service-places-a-request-in-the-connector-queue)
-3. [Een connector verwerkt de aanvraag uit de wachtrij](#the-connector-receives-the-request-from-the-queue)
-4. [De connector wachten op antwoord](#the-connector-waits-for-a-response)
-5. [De service streams gegevens naar de gebruiker](#the-service-streams-data-to-the-user)
+1. De service verifieert de gebruiker voor de app.
+2. De service plaatst een aanvraag in de wachtrij van de connector
+3. Een connector verwerkt de aanvraag uit de wachtrij
+4. De connector wachten op antwoord
+5. De service streams gegevens naar de gebruiker
 
 Blijf lezen voor meer informatie over wat in elk van deze stappen plaatsvindt.
 

@@ -1,6 +1,6 @@
 ---
-title: Fouten in Azure microservices simuleren | Microsoft Docs
-description: In dit artikel wordt gesproken over de acties testbaarheid is gevonden in Microsoft Azure Service Fabric.
+title: Fouten in Azure-microservices simuleren | Microsoft Docs
+description: In dit artikel vertelt de testbaarheidsacties gevonden in de Microsoft Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: motanv
@@ -14,62 +14,62 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
-ms.openlocfilehash: 27c6671c170f4c03c63270772651051830d8e4ec
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 70ed1561af6dc06b4d1db89e6449540dd76b67be
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757618"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815878"
 ---
-# <a name="testability-actions"></a>Testbaarheid acties
-Om te simuleren een onbetrouwbare infrastructuur, biedt u de ontwikkelaar, manieren om te simuleren verschillende echte fouten en statusovergangen van Azure Service Fabric. Deze zijn beschikbaar als testbaarheid acties. De acties zijn de op laag niveau API's die ertoe leiden een specifieke fout injectie, statusovergang of validatie dat. U kunt uitgebreide Testscenario's voor uw services schrijven door een combinatie van deze acties.
+# <a name="testability-actions"></a>Testbaarheidsacties
+Om te simuleren een onbetrouwbare infrastructuur, biedt Azure Service Fabric u, de ontwikkelaar is, manieren om verschillende echte storingen en statusovergangen te simuleren. Deze worden weergegeven als testbaarheidsacties. De acties zijn de laag niveau API's die ertoe leiden een specifieke foutinjectie, statusovergang of validatie dat. U kunt uitgebreide Testscenario's voor uw services schrijven door een combinatie van deze acties.
 
-Service Fabric bevat dat enkele algemene scenario's voor test bestaan uit deze acties. Het is raadzaam dat u gebruikmaken van deze ingebouwde scenario's, zorgvuldig worden gekozen voor het testen van algemene statusovergangen en mislukte aanvragen. Acties kunnen echter worden gebruikt voor het maken van aangepaste Testscenario's wanneer u wilt toevoegen voor scenario's die zijn niet wordt gedekt door de ingebouwde scenario's nog of die aangepaste speciaal afgestemd op uw toepassing.
+Service Fabric biedt dat enkele algemene test-scenario's bestaan uit deze acties. Het is raadzaam dat u gebruikmaken van deze ingebouwde scenario's die zorgvuldig gekozen zijn voor het testen van algemene statusovergangen en mislukte aanvragen. Acties kunnen echter worden gebruikt om te maken van aangepaste Testscenario's wanneer u wilt toevoegen, dekking voor scenario's die zijn niet wordt gedekt door de ingebouwde scenario's nog of die zijn aangepast die is ontworpen voor uw toepassing.
 
-C#-implementaties van de acties die zijn gevonden in de assembly System.Fabric.dll. De System Fabric PowerShell-module is gevonden in de assembly Microsoft.ServiceFabric.Powershell.dll. Als onderdeel van de runtime-installatie, wordt de ServiceFabric PowerShell-module geïnstalleerd zodat voor eenvoudig te gebruiken.
+C#implementaties van de acties die zijn gevonden in de assembly System.Fabric.dll. Het systeem Fabric PowerShell-module is gevonden in de assembly Microsoft.ServiceFabric.Powershell.dll. Als onderdeel van de runtime-installatie, wordt de ServiceFabric-PowerShell-module geïnstalleerd om toe te staan voor gebruiksgemak.
 
-## <a name="graceful-vs-ungraceful-fault-actions"></a>Correcte versus geforceerde afsluiting veroorzaakt acties
-Testbaarheid acties worden ingedeeld in twee belangrijke buckets:
+## <a name="graceful-vs-ungraceful-fault-actions"></a>Correcte versus geforceerde afsluiting fault-acties
+Testbaarheidsacties worden onderverdeeld in twee belangrijke buckets:
 
-* Geforceerde afsluiting fouten: deze fouten simuleren fouten zoals machine opnieuw is opgestart en crashes verwerken. In dergelijke gevallen van fouten uitvoeringscontext van proces abrupt. Dit betekent dat er geen opschoning van de status kunt uitvoeren voordat de toepassing opnieuw wordt opgestart.
-* Correcte fouten: deze fouten simuleren correcte acties zoals replica wordt verplaatst en verwijdert geactiveerd door de taakverdeling. In dergelijke gevallen de service opgehaald van een melding van het sluiten en de status van de op te ruimen voordat u afsluit.
+* Geforceerde afsluiting fouten: Deze fouten simuleren fouten, zoals de machine opnieuw is opgestart en crashes verwerken. In dergelijke gevallen van fouten, uitvoeringscontext van proces abrupt. Dit betekent dat er geen opschoning van de status kan worden uitgevoerd voordat de toepassing opnieuw wordt opgestart.
+* Correcte fouten: Deze fouten simuleren vensters acties, zoals replica verplaatst en val geactiveerd door de taakverdeling. In dergelijke gevallen kan de service wordt een melding van het sluiten en de status kunt opschonen voordat u afsluit.
 
-Voor betere quality-validatie uitvoeren, de service en zakelijke werkbelasting terwijl verschillende systemen op correct wijze en geforceerde afsluiting fouten veroorzaken. Geforceerde afsluiting fouten oefenen scenario's waar het serviceproces onverwacht wordt afgesloten in het midden van een werkstroom. Deze test het herstelpad zodra de service-replica is hersteld door de Service Fabric. Dit helpt testen gegevensconsistentie en of de blijft de servicestatus goed na fouten. De andere set van fouten (de correcte fouten) testen dat de service juist reageert op de replica's door de Service Fabric wordt verplaatst. Dit verwerking van de annulering wordt getest in de RunAsync-methode. De service moet controleren voor de annulering-token wordt ingesteld, wordt de status goed opslaan en sluiten van de RunAsync-methode.
+Voor betere kwaliteit validatie, moet u de workload van de service en zakelijke uitgevoerd tijdens verschillende vensters en geforceerde afsluiting fouten veroorzaken. Geforceerde afsluiting fouten oefenen scenario's waar het serviceproces onverwacht wordt afgesloten in het midden van een werkstroom. Dit wordt het herstelpad gecontroleerd zodra de service-replica is hersteld door Service Fabric. Hiermee kunt u testen van de consistentie van gegevens en of de status van de service op een correct na fouten wordt bijgehouden. De andere set met fouten (de correcte fouten)-test of de service goed reageert op replica's door Service Fabric wordt verplaatst. Deze test verwerking van de annulering in de methode RunAsync. De service nodig heeft om te controleren voor de annulering token wordt ingesteld, wordt de status goed opslaan en sluiten van de methode RunAsync.
 
-## <a name="testability-actions-list"></a>Lijst van acties testbaarheid
-| Bewerking | Beschrijving | Beheerde API | PowerShell-cmdlet | Correcte/geforceerde afsluiting fouten |
+## <a name="testability-actions-list"></a>Lijst met acties van testbaarheid
+| Bewerking | Description | Beheerde API | PowerShell-cmdlet | Correcte/geforceerde afsluiting fouten |
 | --- | --- | --- | --- | --- |
-| CleanTestState |Hiermee verwijdert u alle statussen van de test uit het cluster in geval van een onjuist afsluiten van het stuurprogramma voor de test. |CleanTestStateAsync |Remove-ServiceFabricTestState |Niet van toepassing |
-| InvokeDataLoss |Induceert verlies van gegevens in een service-partitie. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |Correcte |
-| InvokeQuorumLoss |De partitie van een bepaalde stateful service plaatst in quorumverlies. |InvokeQuorumLossAsync |Invoke-ServiceFabricQuorumLoss |Correcte |
-| MovePrimary |De opgegeven primaire replica van een stateful service verplaatst naar het gespecificeerde clusterknooppunt. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |Correcte |
-| MoveSecondary |De huidige secundaire replica van een stateful service verplaatst naar een ander clusterknooppunt. |MoveSecondaryAsync |Move-ServiceFabricSecondaryReplica |Correcte |
-| RemoveReplica |Een replica-fout simuleert door het verwijderen van een replica van een cluster. Dit de replica wordt gesloten en verandert deze in rol 'None', verwijderen van alle van de status van het cluster. |RemoveReplicaAsync |Remove-ServiceFabricReplica |Correcte |
-| RestartDeployedCodePackage |Simuleert een fout in het pakket code door een codepakket geïmplementeerd op een knooppunt in een cluster opnieuw te starten. Hiermee annuleert het proces voor het pakket van code, die wordt alle gebruiker service replica's die worden gehost in het proces opnieuw opgestart. |RestartDeployedCodePackageAsync |Restart-ServiceFabricDeployedCodePackage |Geforceerde afsluiting |
-| Restartnode uitgevoerd |Simuleert een knooppuntfout voor Service Fabric-cluster door een knooppunt opnieuw te starten. |RestartNodeAsync |Restart-ServiceFabricNode |Geforceerde afsluiting |
-| RestartPartition |Simuleert een datacenter onleesbaar of cluster onleesbaar scenario door enkele of alle replica's van een partitie opnieuw te starten. |RestartPartitionAsync |Restart-ServiceFabricPartition |Correcte |
-| RestartReplica |Simuleert een replica mislukt door een persistente replica opnieuw te starten in een cluster, het sluiten van de replica en het vervolgens opnieuw te openen. |RestartReplicaAsync |Restart-ServiceFabricReplica |Correcte |
+| CleanTestState |Hiermee verwijdert u alle statussen van de test uit het cluster in het geval van een onjuist afsluiten van de test-stuurprogramma. |CleanTestStateAsync |Remove-ServiceFabricTestState |Niet van toepassing |
+| InvokeDataLoss |Induceert verlies van gegevens in een servicepartitie. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |Verwijdering |
+| InvokeQuorumLoss |De partitie van een bepaalde stateful service in quorumverlies wordt geplaatst. |InvokeQuorumLossAsync |Invoke-ServiceFabricQuorumLoss |Verwijdering |
+| MovePrimary |De opgegeven primaire replica van een stateful service verplaatst naar het gespecificeerde clusterknooppunt. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |Verwijdering |
+| MoveSecondary |De huidige secundaire replica van een stateful service verplaatst naar een ander clusterknooppunt. |MoveSecondaryAsync |Move-ServiceFabricSecondaryReplica |Verwijdering |
+| RemoveReplica |Een replica-fout simuleert door het verwijderen van een replica uit een cluster. Deze de replica wordt gesloten en verandert deze in rol 'None', verwijderen van alle van de status van het cluster. |RemoveReplicaAsync |Remove-ServiceFabricReplica |Verwijdering |
+| RestartDeployedCodePackage |Simuleert een code-pakket mislukt door een codepakket geïmplementeerd op een knooppunt in een cluster opnieuw te starten. Dit Hiermee het proces voor het pakket van code, die opnieuw alle gebruiker service replica's die worden gehost in het proces opgestart wordt wordt afgebroken. |RestartDeployedCodePackageAsync |Restart-ServiceFabricDeployedCodePackage |Geforceerde afsluiting |
+| RestartNode |Simuleert een knooppuntfout voor Service Fabric-cluster door een knooppunt opnieuw te starten. |RestartNodeAsync |Restart-ServiceFabricNode |Geforceerde afsluiting |
+| RestartPartition |Simuleert een datacenter onleesbaar of het cluster onleesbaar scenario door sommige of alle replica's van een partitie opnieuw te starten. |RestartPartitionAsync |Restart-ServiceFabricPartition |Verwijdering |
+| RestartReplica |Simuleert een replica mislukt door een persistente replica opnieuw te starten in een cluster, de replica wordt gesloten en opent u deze opnieuw. |RestartReplicaAsync |Restart-ServiceFabricReplica |Verwijdering |
 | StartNode |Start een knooppunt in een cluster dat is al gestopt. |StartNodeAsync |Start-ServiceFabricNode |Niet van toepassing |
-| StopNode |Simuleert een storing op een knooppunt door het stoppen van een knooppunt in een cluster. Het knooppunt blijft omlaag totdat beginknooppunt wordt aangeroepen. |StopNodeAsync |Stop-ServiceFabricNode |Geforceerde afsluiting |
-| ValidateApplication |Valideert de beschikbaarheid en de status van alle Service Fabric-services in een toepassing, meestal na een bepaalde fout veroorzaken in het systeem. |ValidateApplicationAsync |Test-ServiceFabricApplication |Niet van toepassing |
-| ValidateService |Valideert de beschikbaarheid en de status van een Service Fabric-service, meestal na een bepaalde fout veroorzaken in het systeem. |ValidateServiceAsync |Test-ServiceFabricService |Niet van toepassing |
+| StopNode |Simuleert een knooppuntfout door het stoppen van een knooppunt in een cluster. Het knooppunt wordt naar beneden blijven totdat beginknooppunt wordt genoemd. |StopNodeAsync |Stop-ServiceFabricNode |Geforceerde afsluiting |
+| ValidateApplication |Valideert de beschikbaarheid en de status van alle Service Fabric-services binnen een toepassing, meestal na enkele fouten in het systeem veroorzaken. |ValidateApplicationAsync |Test-ServiceFabricApplication |Niet van toepassing |
+| ValidateService |Valideert de beschikbaarheid en de status van een Service Fabric-service, meestal na enkele fouten in het systeem veroorzaken. |ValidateServiceAsync |Test-ServiceFabricService |Niet van toepassing |
 
-## <a name="running-a-testability-action-using-powershell"></a>Uitvoeren van een testbaarheid actie met behulp van PowerShell
-Deze zelfstudie laat zien hoe u een actie testbaarheid uitvoert met behulp van PowerShell. U leert hoe u een actie testbaarheid uitvoert op basis van een lokaal (1-box)-cluster of een Azure-cluster. Microsoft.Fabric.Powershell.dll--de Service Fabric PowerShell-module wordt automatisch geïnstalleerd tijdens de installatie van het Microsoft-Service Fabric-MSI-bestand. De module wordt automatisch geladen bij het openen van een PowerShell-prompt.
+## <a name="running-a-testability-action-using-powershell"></a>Uitvoeren van een testbaarheidsactie met behulp van PowerShell
+Deze zelfstudie leert u hoe u een testbaarheidsactie uitvoert met behulp van PowerShell. U leert hoe u een testbaarheidsactie uitvoeren op een lokale (1-box)-cluster of een Azure-cluster. Microsoft.Fabric.Powershell.dll--de Service Fabric PowerShell-module wordt automatisch geïnstalleerd tijdens de installatie van het Microsoft-Service Fabric-MSI-bestand. De module wordt automatisch geladen bij het openen van een PowerShell-prompt.
 
 Zelfstudie segmenten:
 
-* [Een actie uitvoeren op een cluster met één verpakking](#run-an-action-against-a-one-box-cluster)
-* [Een actie uitvoeren op een Azure-cluster](#run-an-action-against-an-azure-cluster)
+* [Een actie uitvoeren in een cluster in-één](#run-an-action-against-a-one-box-cluster)
+* [Een actie uitvoeren in een Azure-cluster](#run-an-action-against-an-azure-cluster)
 
-### <a name="run-an-action-against-a-one-box-cluster"></a>Een actie uitvoeren op een cluster met één verpakking
-Als u wilt een testbaarheid actie uitvoeren op een lokaal cluster, eerst verbinding met het cluster en open de PowerShell-prompt in de beheerdersmodus. Laat het ons Bekijk de **herstart ServiceFabricNode** in te grijpen.
+### <a name="run-an-action-against-a-one-box-cluster"></a>Een actie uitvoeren in een cluster in-één
+Als u wilt een testbaarheidsactie uitvoeren in een lokaal cluster, eerst verbinding met het cluster en open de PowerShell-prompt in de beheerdersmodus. We bekijken de **opnieuw opstarten-ServiceFabricNode** actie.
 
 ```powershell
 Restart-ServiceFabricNode -NodeName Node1 -CompletionMode DoNotVerify
 ```
 
-Hier de actie **herstart ServiceFabricNode** wordt uitgevoerd op een knooppunt met de naam 'Knooppunt1'. De voltooiing van modus geeft aan dat deze niet controleren moet of het knooppunt opnieuw opstarten actie daadwerkelijk is geslaagd. De voltooiing modus op te geven als 'Verifiëren' gaan om te controleren of de actie opnieuw opstarten daadwerkelijk verwijderd. In plaats van het knooppunt direct met de naam op te geven, kunt u deze via een partitiesleutel en het soort replica, als volgt:
+Hier de actie **opnieuw opstarten-ServiceFabricNode** wordt uitgevoerd op een knooppunt met de naam 'Knooppunt1'. De voltooiing-modus geeft aan dat deze niet controleren moet of de actie van het knooppunt opnieuw starten daadwerkelijk verwijderd. De voltooiing-modus opgeven als 'Verifiëren' gaan om te controleren of de actie opnieuw opstarten daadwerkelijk verwijderd. In plaats van rechtstreeks op te geven het knooppunt door de naam, kunt u deze via een partitiesleutel en het soort replica, als volgt:
 
 ```powershell
 Restart-ServiceFabricNode -ReplicaKindPrimary  -PartitionKindNamed -PartitionKey Partition3 -CompletionMode Verify
@@ -84,20 +84,20 @@ Connect-ServiceFabricCluster $connection
 Restart-ServiceFabricNode -NodeName $nodeName -CompletionMode DoNotVerify
 ```
 
-**Opnieuw opstarten ServiceFabricNode** moet worden gebruikt om een Service Fabric-knooppunt in een cluster opnieuw opstarten. Hiermee stopt u het proces Fabric.exe, die alle van de systeem-service en de gebruiker service replica's die worden gehost op dat knooppunt wordt opnieuw opgestart. Deze API voor het testen van uw service kunt beter onthullen bugs langs de paden voor de failover-herstel. Zo kunt u simuleren knooppuntfouten in het cluster.
+**Opnieuw opstarten-ServiceFabricNode** moet worden gebruikt om een Service Fabric-knooppunt in een cluster opnieuw opstarten. Hiermee stopt u de Fabric.exe-proces, dat alle van de service en gebruiker service systeemreplica's die worden gehost op dat knooppunt opnieuw wordt gestart. Met behulp van deze API om uw service te testen, kunt verwerven op basis bugs langs de failover-recovery-paden. Het helpt simuleren knooppuntfouten in het cluster.
 
-De volgende schermafbeelding ziet u de **herstart ServiceFabricNode** testbaarheid opdracht in te grijpen.
+De volgende schermafbeelding ziet u de **opnieuw opstarten-ServiceFabricNode** testbaarheid opdracht in actie.
 
 ![](media/service-fabric-testability-actions/Restart-ServiceFabricNode.png)
 
-De uitvoer van de eerste **Get-ServiceFabricNode** (een cmdlet uit de Service Fabric PowerShell-module) wordt aangegeven dat het lokale cluster vijf knooppunten bevat: Node.1 naar Node.5. Nadat de actie testbaarheid (cmdlet) **herstart ServiceFabricNode** wordt uitgevoerd op het knooppunt met de naam Node.4, zien we dat de beschikbaarheid van het knooppunt is teruggezet.
+De uitvoer van de eerste **Get-ServiceFabricNode** (een cmdlet uit de Service Fabric PowerShell-module) wordt aangegeven dat het lokale cluster vijf knooppunten bevat: Node.1 naar Node.5. Na de testbaarheidsactie (cmdlet) **opnieuw opstarten-ServiceFabricNode** wordt uitgevoerd op het knooppunt met de naam Node.4, zien we dat de uptime van het knooppunt is opnieuw ingesteld.
 
-### <a name="run-an-action-against-an-azure-cluster"></a>Een actie uitvoeren op een Azure-cluster
-Met het uitvoeren van een actie testbaarheid (via PowerShell) in een Azure-cluster is vergelijkbaar met het uitvoeren van de actie tegen een lokaal cluster. Het enige verschil is voordat u de actie, in plaats van de verbinding met het lokale cluster kunt uitvoeren moet u eerst verbinding met de Azure-cluster.
+### <a name="run-an-action-against-an-azure-cluster"></a>Een actie uitvoeren in een Azure-cluster
+Met het uitvoeren van een testbaarheidsactie (met behulp van PowerShell) in een Azure-cluster is vergelijkbaar met het uitvoeren van de actie op basis van een lokaal cluster. Het enige verschil is voordat u de actie, in plaats van de verbinding te maken met het lokale cluster kunt uitvoeren moet u eerst verbinding met het Azure-cluster.
 
-## <a name="running-a-testability-action-using-c35"></a>Uitvoeren van een testbaarheid actie met C&#35;
-Een testbaarheid als actie wilt uitvoeren met behulp van C#, moet u eerst verbinding met het cluster via FabricClient. Moet u de parameters die nodig zijn voor de actie uitvoert. Andere parameters kunnen worden gebruikt om uit te voeren dezelfde actie.
-De actie RestartServiceFabricNode bekijkt, is een manier uit te voeren met behulp van de knooppuntgegevens (naam van het knooppunt en knooppunt exemplaar-ID) in het cluster.
+## <a name="running-a-testability-action-using-c35"></a>Uitvoeren van een testbaarheidsactie met c#&#35;
+Een testbaarheidsactie uitvoeren met behulp van C#, moet u eerst verbinding met het cluster met behulp van FabricClient. Download daarna de parameters die nodig zijn voor de actie uitvoeren. Andere parameters kunnen worden gebruikt om uit te voeren dezelfde actie.
+De actie RestartServiceFabricNode bekijkt, is één manier uit te voeren met behulp van de knooppuntgegevens (naam van het knooppunt en exemplaar-ID van knooppunt) in het cluster.
 
 ```csharp
 RestartNodeAsync(nodeName, nodeInstanceId, completeMode, operationTimeout, CancellationToken.None)
@@ -105,13 +105,13 @@ RestartNodeAsync(nodeName, nodeInstanceId, completeMode, operationTimeout, Cance
 
 Uitleg van de parameter:
 
-* **CompleteMode** geeft aan dat de modus niet controleren moet of de herstart actie daadwerkelijk is geslaagd. De voltooiing modus op te geven als 'Verifiëren' gaan om te controleren of de actie opnieuw opstarten daadwerkelijk verwijderd.  
+* **CompleteMode** geeft aan dat de modus niet controleren moet of de actie opnieuw opstarten daadwerkelijk verwijderd. De voltooiing-modus opgeven als 'Verifiëren' gaan om te controleren of de actie opnieuw opstarten daadwerkelijk verwijderd.  
 * **OperationTimeout** stelt u de hoeveelheid tijd voor de bewerking is voltooid voordat een TimeoutException-uitzondering is opgetreden.
-* **CancellationToken** kunt u een aanroep van in behandeling worden geannuleerd.
+* **CancellationToken** kunt u een aanroep van in behandeling zijn geannuleerd.
 
-In plaats van het knooppunt direct met de naam op te geven, kunt u deze via een partitiesleutel en de aard van de replica.
+In plaats van rechtstreeks op te geven het knooppunt door de naam, kunt u deze opgeven via een partitiesleutel en het type van de replica.
 
-Zie voor meer informatie [PartitionSelector en ReplicaSelector](#partition_replica_selector).
+Zie voor meer informatie, PartitionSelector en ReplicaSelector.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll
@@ -181,9 +181,9 @@ class Test
 
 ## <a name="partitionselector-and-replicaselector"></a>PartitionSelector en ReplicaSelector
 ### <a name="partitionselector"></a>PartitionSelector
-PartitionSelector is een helper worden weergegeven in testbaarheid en wordt gebruikt om een specifieke partitie waarop moet worden uitgevoerd op een van de acties testbaarheid te selecteren. Het kan worden gebruikt om te selecteren van een specifieke partitie als de partitie-ID vooraf bekend. Of u kunt de partitiesleutel bieden en de bewerking wordt de partitie-ID intern opgelost. U hebt ook de optie van het selecteren van een willekeurige partitie.
+PartitionSelector is een helper die beschikbaar zijn in testbaarheid en wordt gebruikt voor het selecteren van een specifieke partitie waarop een van de testbaarheidsacties uitvoeren. Het kan worden gebruikt voor het selecteren van een specifieke partitie als de partitie-ID vooraf bekend is. Of u kunt de partitiesleutel opgeven en de bewerking wordt de partitie-ID intern opgelost. U hebt ook de mogelijkheid van het selecteren van een willekeurige partitie.
 
-Het object PartitionSelector niet maken voor het gebruik van deze helper en selecteren van de partitie met behulp van een van de methoden Select *. Vervolgens worden in het PartitionSelector-object doorgegeven aan de API dat vereist is. Als er geen optie is geselecteerd, wordt standaard een willekeurige partitie.
+Maken van het object PartitionSelector en selecteren van de partitie met behulp van een van de Select *-methoden voor het gebruik van het hulpprogramma. Vervolgens geeft u het object PartitionSelector met de API die vereist is. Als er geen optie is geselecteerd, wordt standaard een willekeurige partitie.
 
 ```csharp
 Uri serviceName = new Uri("fabric:/samples/InMemoryToDoListApp/InMemoryToDoListService");
@@ -205,9 +205,9 @@ PartitionSelector uniformIntPartitionSelector = PartitionSelector.PartitionKeyOf
 ```
 
 ### <a name="replicaselector"></a>ReplicaSelector
-ReplicaSelector is een helper worden weergegeven in testbaarheid en wordt gebruikt om te selecteren van een replica waarop een van de testbaarheid acties uitvoert. Het kan worden gebruikt om te selecteren van een specifieke replica als de replica-ID vooraf bekend. Bovendien hebt u de mogelijkheid van het selecteren van een primaire replica of een willekeurige secundaire site. ReplicaSelector is afgeleid van PartitionSelector, dus moet u de replica en de partitie waarop u wilt uitvoeren van de bewerking testbaarheid selecteren.
+ReplicaSelector is een helper in testbaarheid weergegeven en wordt gebruikt om u te helpen bij het selecteren van een replica waarop een van de testbaarheidsacties uitvoeren. Het kan worden gebruikt voor het selecteren van een specifieke replica als de replica-ID vooraf bekend is. Bovendien hebt u de mogelijkheid van het selecteren van een primaire replica of een willekeurige secundaire site. ReplicaSelector is afgeleid van PartitionSelector, dus u moet zowel de replica en de partitie waarop u wilt uitvoeren van de bewerking testbaarheid selecteren.
 
-Voor het gebruik van het hulpprogramma een ReplicaSelector-object maken en de manier waarop u wilt selecteren, de replica en de partitie ingesteld. U kunt deze vervolgens doorgeven in de API die dit vereist is. Als er geen optie is geselecteerd, wordt standaard een willekeurige replica en willekeurige partitie.
+Voor het gebruik van het hulpprogramma een ReplicaSelector-object maken en instellen van de manier waarop u wilt dat de replica en de partitie te selecteren. U kunt deze vervolgens doorgeven aan de API die vereist is. Als er geen optie is geselecteerd, wordt standaard een willekeurige replica en een willekeurige partitie.
 
 ```csharp
 Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829");
@@ -228,8 +228,8 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Testbaarheid scenario 's](service-fabric-testability-scenarios.md)
-* Het testen van uw service
-  * [Fouten tijdens de service werkbelastingen simuleren](service-fabric-testability-workload-tests.md)
-  * [Fouten in de service-naar-service](service-fabric-testability-scenarios-service-communication.md)
+* [Testbaarheidsscenario 's](service-fabric-testability-scenarios.md)
+* Uw service testen
+  * [Storingen simuleren tijdens servicewerkbelastingen](service-fabric-testability-workload-tests.md)
+  * [Service-naar-servicecommunicatie fouten](service-fabric-testability-scenarios-service-communication.md)
 

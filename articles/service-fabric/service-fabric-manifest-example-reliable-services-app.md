@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: ryanwi
-ms.openlocfilehash: 9cb41bfde38d9b47f5db994c0ca39c64b453ef1d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 548c05963b0b99ba3434d600b19f80cef6a09d6a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171453"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813344"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Voorbeelden van toepassings- en servicemanifesten voor betrouwbare services
 Hier volgen enkele voorbeelden van de toepassing en service manifesten voor een Service Fabric-toepassing met een ASP.NET Core web-front-end en een stateful back-end. Het doel van deze voorbeelden is om weer te geven welke instellingen zijn beschikbaar en het gebruik ervan. Deze toepassing en service manifesten zijn gebaseerd op de [Snelstartgids voor Service Fabric .NET](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) manifesten.
@@ -28,8 +28,8 @@ De volgende functies worden weergegeven:
 |Manifest|Functies|
 |---|---|
 |[Toepassingsmanifest](#application-manifest)| [resourcebeheer](service-fabric-resource-governance.md), [een service uitvoeren als een lokaal Administrator-account](service-fabric-application-runas-security.md), [een standaardbeleid toepassen op alle code servicepakketten](service-fabric-application-runas-security.md#apply-a-default-policy-to-all-service-code-packages), [maken van gebruiker en groep-principals](service-fabric-application-runas-security.md), een gegevenspakket tussen service-exemplaren delen [overschrijven van de service-eindpunten](service-fabric-service-manifest-resources.md#overriding-endpoints-in-servicemanifestxml)| 
-|[FrontEndService service manifest](#frontendservice-service-manifest)| [Een script uitvoeren bij het opstarten van de service](service-fabric-run-script-at-service-startup.md), [een HTTPS-eindpunt definiëren](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest) | 
-|[BackEndService service manifest](#backendservice-service-manifest)| [Declareer een configuratiepakket](service-fabric-application-and-service-manifests.md), [declareert een gegevenspakket](service-fabric-application-and-service-manifests.md), [een eindpunt configureren](service-fabric-service-manifest-resources.md)| 
+|FrontEndService service manifest| [Een script uitvoeren bij het opstarten van de service](service-fabric-run-script-at-service-startup.md), [een HTTPS-eindpunt definiëren](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest) | 
+|BackEndService service manifest| [Declareer een configuratiepakket](service-fabric-application-and-service-manifests.md), [declareert een gegevenspakket](service-fabric-application-and-service-manifests.md), [een eindpunt configureren](service-fabric-service-manifest-resources.md)| 
 
 Zie [manifest elementen van de toepassing](#application-manifest-elements), [VotingWeb-service-manifest elementen](#votingweb-service-manifest-elements), en [VotingData service manifest elementen](#votingdata-service-manifest-elements) voor meer informatie over specifieke XML elementen.
 

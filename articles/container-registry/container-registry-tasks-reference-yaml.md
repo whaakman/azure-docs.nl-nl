@@ -7,14 +7,14 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: danlep
-ms.openlocfilehash: e91b4e881c0f39304e3042d556f111db2089f7de
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: c9b4a27ff1b5467eb752e8cfc09f697ca1a966ba
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334479"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820382"
 ---
-# <a name="acr-tasks-reference-yaml"></a>Taken van de ACR-verwijzing: YAML
+# <a name="acr-tasks-reference-yaml"></a>ACR-taken naar te verwijzen: YAML
 
 WebTest met meerdere stappen taakdefinitie in ACR taken biedt een container-georiënteerde compute primitieve nemen die is gericht op te bouwen, testen en patchen van containers. In dit artikel bevat informatie over de opdrachten, parameters, eigenschappen en syntaxis voor de YAML-bestanden die uw taken meerdere stappen definiëren.
 
@@ -83,17 +83,17 @@ az configure --defaults acr=myregistry
 
 Taakeigenschappen is doorgaans worden weergegeven aan de bovenkant van een `acr-task.yaml` -bestand en algemene eigenschappen die van toepassing gedurende de volledige uitvoering van de taak zijn zijn. Sommige van deze algemene eigenschappen kunnen worden overschreven in een afzonderlijke stap.
 
-| Eigenschap | Type | Optioneel | Beschrijving | Onderdrukking ondersteund | Standaardwaarde |
+| Eigenschap | Type | Optioneel | Description | Onderdrukking ondersteund | Standaardwaarde |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
-| `version` | tekenreeks | Nee | De versie van de `acr-task.yaml` bestand zoals geparseerd door de taken van de ACR-service. Terwijl ACR taken streeft ernaar om te behouden voor achterwaartse compatibiliteit, kunt deze waarde ACR-taken voor compatibiliteit binnen een opgegeven versie. | Nee | Geen |
-| `stepTimeout` | Int (seconden) | Ja | Het maximum aantal seconden dat een stap kunt uitvoeren. Deze eigenschap kan worden genegeerd in een stap door het instellen van de stap [time-out](#timeout) eigenschap. | Ja | 600 (10 minuten) |
+| `version` | string | Nee | De versie van de `acr-task.yaml` bestand zoals geparseerd door de taken van de ACR-service. Terwijl ACR taken streeft ernaar om te behouden voor achterwaartse compatibiliteit, kunt deze waarde ACR-taken voor compatibiliteit binnen een opgegeven versie. | Nee | Geen |
+| `stepTimeout` | Int (seconden) | Ja | Het maximum aantal seconden dat een stap kunt uitvoeren. Deze eigenschap kan worden genegeerd in een stap door het instellen van de eigenschap timeout van de stap. | Ja | 600 (10 minuten) |
 | `totalTimeout` | Int (seconden) | Ja | Het maximale aantal seconden dat een taak kan worden uitgevoerd. Een "uitvoeren" bevat de uitvoering en voltooiing van alle stappen in de taak, of geslaagd of mislukt. Ook is afdrukken taak uitvoer, zoals afhankelijkheden van gedetecteerde installatiekopie en de taakstatus kan worden uitgevoerd. | Nee | 3600 (1 uur) |
 
 ## <a name="task-step-types"></a>Stap taaktypen
 
 ACR taken ondersteunt drie typen van de stap. Elk staptype ondersteunt verschillende eigenschappen, zoals uiteengezet in de sectie voor elk staptype.
 
-| Staptype | Beschrijving |
+| Staptype | Description |
 | --------- | ----------- |
 | [`build`](#build) | Maakt een containerinstallatiekopie met de vertrouwde `docker build` syntaxis. |
 | [`push`](#push) | Voert een `docker push` van de zojuist gemaakte of retagged installatiekopieën naar een containerregister. Azure Container Registry, andere persoonlijke registers en de openbare Docker Hub worden ondersteund.
@@ -114,7 +114,7 @@ steps:
 
 De `build` staptype biedt ondersteuning voor de parameters in de volgende tabel. De `build` staptype biedt ook ondersteuning voor alle opties voor opbouwen van de [docker build](https://docs.docker.com/engine/reference/commandline/build/) opdracht, zoals `--build-arg` om in te stellen variabelen voor de build-tijd.
 
-| Parameter | Beschrijving | Optioneel |
+| Parameter | Description | Optioneel |
 | --------- | ----------- | :-------: |
 | `-t` &#124; `--image` | Definieert de volledig gekwalificeerde `image:tag` van de gemaakte installatiekopie.<br /><br />Installatiekopieën kunnen worden gebruikt voor interne taak validaties, zoals functionele tests, niet alle installatiekopieën vereisen `push` naar een register. De installatiekopie van het echter voor het exemplaar van een installatiekopie binnen een uitvoering van de taak, moet een naam om te verwijzen naar.<br /><br />In tegenstelling tot `az acr build`, actieve taken ACR biedt geen push standaardgedrag. Met ACR-taken, de standaard-scenario wordt ervan uitgegaan dat de mogelijkheid om te bouwen, te valideren en vervolgens een installatiekopie pushen. Zie [push](#push) voor informatie over het eventueel push ingebouwde installatiekopieën. | Ja |
 | `-f` &#124; `--file` | Hiermee geeft u het Dockerfile dat is doorgegeven aan `docker build`. Indien niet opgegeven, wordt de standaardinstelling docker-bestand in de hoofdmap van de context gebruikt. Als u een alternatief Dockerfile, slagen voor de bestandsnaam ten opzichte van de hoofdmap van de context. | Ja |
@@ -126,16 +126,16 @@ De `build` staptype ondersteunt de volgende eigenschappen. U vindt de details va
 
 | | | |
 | -------- | ---- | -------- |
-| `detach` | BOOL | Optioneel |
-| `entryPoint` | tekenreeks | Optioneel |
-| `env` | [tekenreeks, tekenreeks,...] | Optioneel |
-| `id` | tekenreeks | Optioneel |
-| `ignoreErrors` | BOOL | Optioneel |
-| `keep` | BOOL | Optioneel |
+| `detach` | bool | Optioneel |
+| `entryPoint` | string | Optioneel |
+| `env` | [string, string, ...] | Optioneel |
+| `id` | string | Optioneel |
+| `ignoreErrors` | bool | Optioneel |
+| `keep` | bool | Optioneel |
 | `startDelay` | Int (seconden) | Optioneel |
 | `timeout` | Int (seconden) | Optioneel |
-| `when` | [tekenreeks, tekenreeks,...] | Optioneel |
-| `workingDirectory` | tekenreeks | Optioneel |
+| `when` | [string, string, ...] | Optioneel |
+| `workingDirectory` | string | Optioneel |
 
 ### <a name="examples-build"></a>Voorbeelden: bouwen
 
@@ -187,12 +187,12 @@ De `push` staptype ondersteunt de volgende eigenschappen. U vindt de details van
 
 | | | |
 | -------- | ---- | -------- |
-| `env` | [tekenreeks, tekenreeks,...] | Optioneel |
-| `id` | tekenreeks | Optioneel |
-| `ignoreErrors` | BOOL | Optioneel |
+| `env` | [string, string, ...] | Optioneel |
+| `id` | string | Optioneel |
+| `ignoreErrors` | bool | Optioneel |
 | `startDelay` | Int (seconden) | Optioneel |
 | `timeout` | Int (seconden) | Optioneel |
-| `when` | [tekenreeks, tekenreeks,...] | Optioneel |
+| `when` | [string, string, ...] | Optioneel |
 
 ### <a name="examples-push"></a>Voorbeelden: push
 
@@ -230,16 +230,16 @@ De `cmd` staptype ondersteunt de volgende eigenschappen:
 
 | | | |
 | -------- | ---- | -------- |
-| `detach` | BOOL | Optioneel |
-| `entryPoint` | tekenreeks | Optioneel |
-| `env` | [tekenreeks, tekenreeks,...] | Optioneel |
-| `id` | tekenreeks | Optioneel |
-| `ignoreErrors` | BOOL | Optioneel |
-| `keep` | BOOL | Optioneel |
+| `detach` | bool | Optioneel |
+| `entryPoint` | string | Optioneel |
+| `env` | [string, string, ...] | Optioneel |
+| `id` | string | Optioneel |
+| `ignoreErrors` | bool | Optioneel |
+| `keep` | bool | Optioneel |
 | `startDelay` | Int (seconden) | Optioneel |
 | `timeout` | Int (seconden) | Optioneel |
-| `when` | [tekenreeks, tekenreeks,...] | Optioneel |
-| `workingDirectory` | tekenreeks | Optioneel |
+| `when` | [string, string, ...] | Optioneel |
+| `workingDirectory` | string | Optioneel |
 
 U vindt de details van deze eigenschappen in de [stap taakeigenschappen](#task-step-properties) sectie van dit artikel.
 
@@ -315,18 +315,18 @@ Met behulp van de standaard `docker run` image reference overeenkomst, `cmd` afb
 
 Elk staptype biedt ondersteuning voor diverse eigenschappen die geschikt zijn voor het betreffende type. De volgende tabel bevat alle beschikbare stapeigenschappen. Niet alle stap typen ondersteuning voor alle eigenschappen. Als u wilt zien welke van deze eigenschappen zijn beschikbaar voor elk staptype, Zie de [cmd](#cmd), [bouwen](#build), en [push](#push) stap type in de secties.
 
-| Eigenschap | Type | Optioneel | Beschrijving |
+| Eigenschap | Type | Optioneel | Description |
 | -------- | ---- | -------- | ----------- |
-| `detach` | BOOL | Ja | Of de container moet worden losgekoppeld wanneer wordt uitgevoerd. |
-| `entryPoint` | tekenreeks | Ja | Onderdrukt de `[ENTRYPOINT]` van een stap van de container. |
-| `env` | [tekenreeks, tekenreeks,...] | Ja | Matrix van tekenreeksen in `key=value` indeling die de omgevingsvariabelen voor de stap definiëren. |
-| [`id`](#example-id) | tekenreeks | Ja | Unieke identificatie van de stap in de taak. Overige stappen in de taak kunnen verwijzen naar van een stap `id`, zoals voor afhankelijkheden controleren met `when`.<br /><br />De `id` is ook de naam van de container die wordt uitgevoerd. Processen die worden uitgevoerd in andere containers in de taak kunnen verwijzen naar de `id` als de DNS-hostnaam of voor het voorbeeld met docker-Logboeken [id] te openen. |
-| `ignoreErrors` | BOOL | Ja | Als de waarde `true`, de stap is gemarkeerd als voltooid is, ongeacht of een fout tijdens de uitvoering ervan opgetreden. Standaard: `false`. |
-| `keep` | BOOL | Ja | Of de container van de stap moet worden opgeslagen na de uitvoering. |
+| `detach` | bool | Ja | Of de container moet worden losgekoppeld wanneer wordt uitgevoerd. |
+| `entryPoint` | string | Ja | Onderdrukt de `[ENTRYPOINT]` van een stap van de container. |
+| `env` | [string, string, ...] | Ja | Matrix van tekenreeksen in `key=value` indeling die de omgevingsvariabelen voor de stap definiëren. |
+| [`id`](#example-id) | string | Ja | Unieke identificatie van de stap in de taak. Overige stappen in de taak kunnen verwijzen naar van een stap `id`, zoals voor afhankelijkheden controleren met `when`.<br /><br />De `id` is ook de naam van de container die wordt uitgevoerd. Processen die worden uitgevoerd in andere containers in de taak kunnen verwijzen naar de `id` als de DNS-hostnaam of voor het voorbeeld met docker-Logboeken [id] te openen. |
+| `ignoreErrors` | bool | Ja | Als de waarde `true`, de stap is gemarkeerd als voltooid is, ongeacht of een fout tijdens de uitvoering ervan opgetreden. Standaard: `false`. |
+| `keep` | bool | Ja | Of de container van de stap moet worden opgeslagen na de uitvoering. |
 | `startDelay` | Int (seconden) | Ja | Het aantal seconden vertraging van een stap worden uitgevoerd. |
 | `timeout` | Int (seconden) | Ja | Maximaal aantal seconden dat een stap kan worden uitgevoerd voordat de wordt beëindigd. |
-| [`when`](#example-when) | [tekenreeks, tekenreeks,...] | Ja | Hiermee configureert u de afhankelijkheid van een stap op een of meer andere stappen binnen de taak. |
-| `workingDirectory` | tekenreeks | Ja | Hiermee stelt u de werkmap voor een stap. ACR-taken maakt standaard een hoofdmap als de werkmap. Echter, als uw build verschillende stappen heeft, eerdere stappen kunnen delen artefacten met latere stappen door de dezelfde werkmap op te geven. |
+| [`when`](#example-when) | [string, string, ...] | Ja | Hiermee configureert u de afhankelijkheid van een stap op een of meer andere stappen binnen de taak. |
+| `workingDirectory` | string | Ja | Hiermee stelt u de werkmap voor een stap. ACR-taken maakt standaard een hoofdmap als de werkmap. Echter, als uw build verschillende stappen heeft, eerdere stappen kunnen delen artefacten met latere stappen door de dezelfde werkmap op te geven. |
 
 ### <a name="examples-task-step-properties"></a>Voorbeelden: Stap taakeigenschappen
 

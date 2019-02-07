@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 02c25490ba19521715b48dc7ec92861078332a48
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 236ba7e2a76e95f3a78457fbdb0b49fd82e20b36
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731781"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815401"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Het configureren van wachtwoord eenmalige aanmelding voor een toepassing in Azure AD-galerie
 
@@ -50,7 +50,7 @@ Een toepassing uit de Azure AD-galerie die u wilt configureren:
 
 -   [De toepassing configureren voor eenmalige aanmelding wachtwoord](#configure-the-application-for-password-single-sign-on)
 
--   [De toepassing toewijzen aan een gebruiker of een groep](#assign-the-application-to-a-user-or-a-group)
+-   De toepassing toewijzen aan een gebruiker of een groep
 
     -   [Een gebruiker toewijzen aan een toepassing rechtstreeks](#assign-a-user-to-an-application-directly)
 

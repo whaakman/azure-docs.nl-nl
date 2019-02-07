@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: bd9df4553a50f162a4fb2142b7085f813311754f
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 77eaa6a642e02206eac319b76666bed8ae1fd165
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015828"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822422"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Gegevens verplaatsen tussen on-premises bronnen en de cloud met Data Management Gateway
 > [!NOTE]
@@ -62,7 +62,7 @@ In deze stap maakt u de Azure-portal gebruiken om u te maken van een Azure Data 
     ![Toevoegen aan Startboard](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNewDataFactoryAddToStartboard.png)
 
    > [!IMPORTANT]
-   > De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u de foutmelding weergegeven: **Naam gegevensfactory 'ADFTutorialOnPremDF' is niet beschikbaar**, wijzigt u de naam van de data factory (bijvoorbeeld yournameADFTutorialOnPremDF) en probeert u het opnieuw. Deze naam in plaats van ADFTutorialOnPremDF gebruiken tijdens het uitvoeren van de resterende stappen in deze zelfstudie.
+   > De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als de volgende foutmelding wordt weergegeven: **Naam gegevensfactory 'ADFTutorialOnPremDF' is niet beschikbaar**, wijzigt u de naam van de data factory (bijvoorbeeld yournameADFTutorialOnPremDF) en probeert u het opnieuw. Deze naam in plaats van ADFTutorialOnPremDF gebruiken tijdens het uitvoeren van de resterende stappen in deze zelfstudie.
    >
    > De naam van de data factory mogelijk geregistreerd als een **DNS** naam in de toekomst en wordt daarmee ook voor iedereen zichtbaar.
    >
@@ -153,7 +153,7 @@ In deze stap maakt u de Azure-portal gebruiken om u te maken van een Azure Data 
 12. U ziet **adftutorialgateway** onder **gegevensgateways** in de structuurweergave aan de linkerkant.  Als u erop klikt, ziet u de bijbehorende JSON.
 
 ## <a name="create-linked-services"></a>Gekoppelde services maken
-In deze stap maakt maken u twee gekoppelde services: **AzureStorageLinkedService** en **SqlServerLinkedService**. De **SqlServerLinkedService** wordt een on-premises SQL Server-database en de **AzureStorageLinkedService** gekoppelde service is een Azure blob-opslag gekoppeld aan de data factory. Maakt u een pijplijn verderop in dit scenario waarmee gegevens uit de on-premises SQL Server-database gekopieerd naar de Azure blob-archief.
+In deze stap maakt u twee gekoppelde services: **AzureStorageLinkedService** en **SqlServerLinkedService**. De **SqlServerLinkedService** wordt een on-premises SQL Server-database en de **AzureStorageLinkedService** gekoppelde service is een Azure blob-opslag gekoppeld aan de data factory. Maakt u een pijplijn verderop in dit scenario waarmee gegevens uit de on-premises SQL Server-database gekopieerd naar de Azure blob-archief.
 
 #### <a name="add-a-linked-service-to-an-on-premises-sql-server-database"></a>Een gekoppelde service toevoegen aan een on-premises SQL Server-database
 1. In de **Data Factory-Editor**, klikt u op **nieuw gegevensarchief** op de werkbalk en selecteer **SQL Server**.
@@ -172,7 +172,7 @@ In deze stap maakt maken u twee gekoppelde services: **AzureStorageLinkedService
       4. In de **instelling referenties** in het dialoogvenster, verificatietype, gebruikersnaam en wachtwoord opgeven en op **OK**. Als de verbinding geslaagd is, wordt de versleutelde referenties worden opgeslagen in de JSON en wordt het dialoogvenster wordt gesloten.
       5. Sluit het lege browsertabblad die in het dialoogvenster gestart als deze niet automatisch wordt gesloten en teruggaan naar het tabblad met de Azure-portal.
 
-         Op de gatewaycomputer deze referenties worden **versleutelde** met behulp van een certificaat dat is eigenaar van de Data Factory-service. Als u wilt gebruiken van het certificaat dat is gekoppeld aan de Data Management Gateway in plaats daarvan, raadpleegt u [referenties veilig instellen](#set-credentials-and-security).    
+         Op de gatewaycomputer deze referenties worden **versleutelde** met behulp van een certificaat dat is eigenaar van de Data Factory-service. Als u gebruiken van het certificaat dat is gekoppeld aan de Data Management Gateway in plaats daarvan wilt, ziet u Set referenties veilig.    
    3. Klik op **implementeren** gekoppelde service op de opdrachtbalk aan de SQL-Server implementeren. Hier ziet u de gekoppelde service in de structuurweergave wordt weergegeven.
 
       ![Gekoppelde SQL Server-service in de structuurweergave wordt weergegeven](./media/data-factory-move-data-between-onprem-and-cloud/sql-linked-service-in-tree-view.png)    

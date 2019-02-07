@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/20/2017
 ms.author: danlep
-ms.openlocfilehash: 350ae16aa66276e7e64c5c35718dca74a70f499e
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: cbfbe5bf0df1b4f40752b5b233dff6416bcdd309
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854085"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770598"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Met behulp van Azure Container Registry-webhooks
 
@@ -33,9 +33,9 @@ Zie voor meer informatie over webhook-aanvragen, [Naslaggids voor Azure Containe
 1. Selecteer **toevoegen** in de werkbalk van de webhook.
 1. Voltooi de *webhook maken* formulier met de volgende informatie:
 
-| Waarde | Beschrijving |
+| Value | Beschrijving |
 |---|---|
-| Naam | De naam die u wilt geven tot de webhook. Deze mag alleen kleine letters en cijfers bevatten en moet 5 tot 50 tekens lang zijn. |
+| Name | De naam die u wilt geven tot de webhook. Deze mag alleen kleine letters en cijfers bevatten en moet 5 tot 50 tekens lang zijn. |
 | Service-URI | De URI waar de webhook POST meldingen moet verzenden. |
 | Aangepaste kopteksten | Headers die u wilt doorgeven, samen met de POST-aanvraag. Deze moeten worden "sleutel: waarde" indeling. |
 | Triggeracties | Acties waarvoor de webhook is geactiveerd. Webhooks kan op dit moment worden geactiveerd door een installatiekopie pushen en/of acties verwijderen. |
@@ -74,7 +74,7 @@ Als u wilt testen een ACR-webhook met de Azure CLI, gebruikt u de [az acr webhoo
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01
 ```
 
-Als de resultaten wilt weergeven, gebruikt de [az acr list-webhookgebeurtenissen](/cli/azure/acr/webhook#list-events) opdracht.
+Als de resultaten wilt weergeven, gebruikt de [az acr list-webhookgebeurtenissen](/cli/azure/acr/webhook) opdracht.
 
 ```azurecli-interactive
 az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook01
@@ -104,4 +104,4 @@ Zie voor meer informatie over de indeling en de eigenschappen van de JSON-gebeur
 
 Naast de systeemeigen register webhookgebeurtenissen die in dit artikel worden besproken, kan Azure Container Registry gebeurtenissen naar Event Grid verzenden:
 
-[Snelstartgids: Verzenden container registry-gebeurtenissen naar Event Grid](container-registry-event-grid-quickstart.md)
+[Snelstart: Container registry gebeurtenissen verzenden naar Event Grid](container-registry-event-grid-quickstart.md)

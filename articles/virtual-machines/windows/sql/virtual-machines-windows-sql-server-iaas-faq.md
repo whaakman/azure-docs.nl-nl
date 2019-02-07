@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 837c9d2b4b7dc0ce2c5ee3b25106eb5fea4ed7ea
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 53c22222682e2a017f55cbd5af89671edb3eddaf
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358980"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767335"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Veelgestelde vragen over SQL Server wordt uitgevoerd op Windows-machines in Azure
 
@@ -86,7 +86,7 @@ In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoer
 
 1. **Kan ik een virtuele machine voor het gebruik van mijn eigen SQL Server-licentie, als deze is gemaakt op basis van een van de galerie met betalen per gebruik-installatiekopieën wijzigen?**
 
-   Ja. U kunt eenvoudig verplaatsen verplaatsen tussen de twee licentiemodellen, ongeacht de installatiekopie die oorspronkelijk is geïmplementeerd. Zie [Het licentiemodel voor een SQL-VM wijzigen](virtual-machines-windows-sql-ahb.md) voor meer informatie.
+   Ja. U kunt eenvoudig verplaatsen tussen de twee licentiemodellen verplaatsen als u oorspronkelijk hebt gestart met de installatiekopie van een galerie met betalen per gebruik. Echter niet mogelijk om over te schakelen van uw licentie te betalen per gebruik als u in eerste instantie met een BYOL-installatiekopie is gestart. Zie voor meer informatie, [de licentiemodel voor een virtuele machine van SQL Server wijzigen](virtual-machines-windows-sql-ahb.md).
 
 1. **Moet ik BYOL-installatiekopieën of SQL VM RP gebruiken om nieuwe SQL-VM te maken?**
 
@@ -94,11 +94,11 @@ In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoer
 
 1. **Moeten overzetten licentiemodellen uitvaltijd voor SQL Server?**
 
-   Nee. [Wijzigen van de licentiemodel](virtual-machines-windows-sql-ahb.md) vereist geen uitvaltijd voor SQL Server als de wijziging wordt onmiddellijk van kracht en niet opnieuw opstarten van de virtuele machine vereist. 
+   Nee. [Wijzigen van de licentiemodel](virtual-machines-windows-sql-ahb.md) vereist geen uitvaltijd voor SQL Server als de wijziging wordt onmiddellijk van kracht en niet opnieuw opstarten van de virtuele machine vereist. Echter, voor het registreren van uw SQL Server-VM met de SQL-VM-resourceprovider, de [SQL IaaS-extensie](virtual-machines-windows-sql-server-agent-extension.md) is een vereiste en installeren van de SQL IaaS-extensie de SQL Server-service opnieuw is opgestart. Als zodanig als de SQL IaaS-extensie worden geïnstalleerd moet, moet klikt u vervolgens het worden uitgevoerd tijdens een onderhoudsvenster. 
 
 1. **Kunnen CSP-abonnementen Azure Hybrid Benefit activeren?**
 
-   Ja. [Wijzigen van de licentiemodel](virtual-machines-windows-sql-ahb.md) is beschikbaar voor CSP-abonnementen. 
+   Ja, Azure Hybrid Benefit is beschikbaar voor CSP-abonnementen. CSP-klanten moeten eerst een betalen per gebruik-installatiekopie, implementeren en vervolgens [wijzigen van de licentiemodel](virtual-machines-windows-sql-ahb.md) voor bring-your-own-license.  
 
 1. **Mijn VM met de nieuwe SQL-VM-resourceprovider registreert gebruik te maken van extra kosten aan verbonden?**
 

@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
+ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 8730070e1b235324a53ad81957339f4ef17db6dc
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 61d0f74f59b4d6f59b3fbc87556b260751d33baa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193687"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809626"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Onderneem actie met een Automation-Runbook uit een zoekresultaat voor Log Analytics-logboek
 
-In een zoekresultaat log in Azure Log Analytics, kunt u nu selecteren **actie ondernemen** om uit te voeren van een Automation-runbook.  Het runbook kan worden gebruikt om het probleem op te lossen of een andere actie zoals zoals het verzamelen van informatie over probleemoplossing, een e-mail verzenden of een serviceaanvraag maakt op te nemen. 
+In een zoekresultaat log in Azure Log Analytics, kunt u nu selecteren **actie ondernemen** om uit te voeren van een Automation-runbook. Het runbook kan worden gebruikt om het probleem op te lossen of een andere actie zoals zoals het verzamelen van informatie over probleemoplossing, een e-mail verzenden of een serviceaanvraag maakt op te nemen. 
 
 ## <a name="components-and-features-used"></a>Gebruikte onderdelen en functies
 * [Azure Automation-account](../../automation/automation-quickstart-create-account.md)
@@ -30,11 +30,11 @@ In een zoekresultaat log in Azure Log Analytics, kunt u nu selecteren **actie on
 
 ## <a name="to-initiate-runbook-from-log-search"></a>Runbook van zoeken in Logboeken initiëren
 
-Actie ondernemen voor een gebeurtenis en een runbook in de resultaten van uw logboekbestanden voor zoeken initiëren, u beginnen met het maken van een logboekzoekopdracht en uit de resultaten kunt u een runbook op aanvraag aanroepen.  Dit kan worden bereikt vanaf de zoekfunctie van log in de [Azure-portal](../../azure-monitor/log-query/log-query-overview.md).  In dit voorbeeld wordt een zoekopdracht in Logboeken uitvoert vanuit de Azure portal met een eenvoudige demonstratie van deze functie.
+Actie ondernemen voor een gebeurtenis en een runbook in de resultaten van uw logboekbestanden voor zoeken initiëren, u beginnen met het maken van een logboekzoekopdracht en uit de resultaten kunt u een runbook op aanvraag aanroepen. Dit kan worden bereikt vanaf de zoekfunctie klassieke log in de [Azure-portal](../../azure-monitor/log-query/log-query-overview.md). In dit voorbeeld wordt een zoekopdracht in Logboeken uitvoert vanuit de Azure portal met een eenvoudige demonstratie van deze functie.
 
 1. Klik in de Azure-portal op **alle services** en selecteer **Log Analytics**.  
 2. Selecteer uw Log Analytics-werkruimte.
-3. Selecteer in de werkruimte **zoeken in logboeken**.  
+3. Selecteer in de werkruimte **Logboeken (klassiek)**.  
 4. Op de pagina zoeken in Logboeken, moet u een zoekopdracht in Logboeken uitvoert.  
 5. Uit de resultaten van de logboekzoekopdracht, klikt u op de ellips aan de linkerkant van een van de velden en in het pop-upvenster, selecteer **actie ondernemen voor**.<br><br> ![Selecteer actie ondernemen in zoekresultaat](./media/take-action/log-search-takeaction-menuoption.png) 
 6. Selecteer **uitvoeren van een runbook** en selecteert u een runbook om uit te voeren.  U kunt een runbook selecteren in het Automation-account dat is gekoppeld aan de Log Analytics-werkruimte.  Houd rekening met het volgende:

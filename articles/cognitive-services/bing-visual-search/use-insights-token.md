@@ -10,19 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 6017fc957d511aa21f8e28cf011378e8012123cc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b3e948c2eafb43f804b330287b114ef9307b0aac
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151716"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813361"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>Met behulp van een token inzichten om inzichten over een afbeelding te verkrijgen
 
 Bing Visual Search-API retourneert informatie over een afbeelding die u opgeeft. U kunt de afbeelding opgeven door de URL van de afbeelding te gebruiken, een inzichttoken of door een afbeelding te uploaden. Zie voor meer informatie over deze opties [wat is er Bing visuele zoekopdrachten-API?](overview.md). In dit artikel wordt gedemonstreerd met behulp van een token inzichten. Voor voorbeelden die laten zien uploaden van een afbeelding voor het verkrijgen van inzichten, Zie de snelstartgidsen ([C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [Node.js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md)).
 
 
-Als u een afbeeldingstoken of URL naar Visual Search verzendt, worden hieronder de formuliergegevens weergegeven die u in de hoofdtekst van de POST moet opnemen. De gegevens van het formulier de header Content-Disposition moet bevatten en de bijbehorende `name` parameter moet worden ingesteld op 'knowledgeRequest'. Zie [De aanvraag](#the-request) voor informatie over het `imageInfo`-object.
+Als u een afbeeldingstoken of URL naar Visual Search verzendt, worden hieronder de formuliergegevens weergegeven die u in de hoofdtekst van de POST moet opnemen. De gegevens van het formulier de header Content-Disposition moet bevatten en de bijbehorende `name` parameter moet worden ingesteld op 'knowledgeRequest'. Voor meer informatie over de `imageInfo` object, raadpleegt u de aanvraag.
 
 ```json
 {

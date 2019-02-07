@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: roiyz
-ms.openlocfilehash: b73cdc7e55a60fbefc294a54f70daa9b2a11ced1
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 2613584e336243128067a76ce424e640ebdf94e0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452448"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817323"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Problemen oplossen met extern bureaublad-verbindingen met een Azure-machine
 De Remote Desktop Protocol (RDP)-verbinding met uw op basis van Windows Azure-machine (VM) kan mislukken voor verschillende oorzaken hebben, zodat u geen toegang tot uw virtuele machine. Het probleem is met de extern bureaublad-service op de virtuele machine, de netwerkverbinding of de extern bureaublad-client op de hostcomputer. In dit artikel begeleidt u bij sommige van de meest voorkomende methoden voor het oplossen van problemen met RDP-verbinding. 
@@ -50,8 +50,8 @@ Lees verder als u meer gedetailleerde stappen en uitleg nodig hebt. Controleer o
 ## <a name="ways-to-troubleshoot-rdp-issues"></a>Manieren om problemen met RDP
 U kunt virtuele machines die zijn gemaakt met behulp van de Resource Manager-implementatiemodel met behulp van een van de volgende manieren oplossen:
 
-* [Azure-portal](#using-the-azure-portal) - handig is als u wilt snel opnieuw instellen van de RDP-configuratie of de gebruiker de referenties en u de Azure-hulpprogramma's geïnstalleerd hoeft.
-* [Azure PowerShell](#using-azure-powershell) : als u vertrouwd met een PowerShell-prompt bent snel opnieuw instellen van de RDP-configuratie of de gebruiker referenties met behulp van de Azure PowerShell-cmdlets.
+* Azure portal - handig als u wilt snel opnieuw instellen van de RDP-configuratie of de gebruiker de referenties en u hebt de Azure-hulpprogramma's geïnstalleerd.
+* Azure PowerShell - als u vertrouwd met een PowerShell-prompt bent snel opnieuw instellen van de RDP-configuratie of de gebruiker referenties met behulp van de Azure PowerShell-cmdlets.
 
 U vindt hier ook stappen over het oplossen van virtuele machines die zijn gemaakt met behulp van de [klassieke implementatiemodel](#troubleshoot-vms-created-using-the-classic-deployment-model).
 
@@ -236,7 +236,7 @@ Een specifiek foutbericht kunnen optreden tijdens het verbinden met uw virtuele 
 * [De externe sessie is beëindigd omdat er geen extern bureaublad-licentieservers beschikbaar, voor een licentie](troubleshoot-specific-rdp-errors.md#rdplicense).
 * [Extern bureaublad kan de computer 'name' niet vinden](troubleshoot-specific-rdp-errors.md#rdpname).
 * [Er is een verificatiefout opgetreden. Geen verbinding kan niet worden gemaakt met de lokale certificeringsinstantie](troubleshoot-specific-rdp-errors.md#rdpauth).
-* [Fout in Windows-beveiliging: uw referenties niet werkte](troubleshoot-specific-rdp-errors.md#wincred).
+* [Fout bij het Windows-beveiliging: Uw referenties niet werkte](troubleshoot-specific-rdp-errors.md#wincred).
 * [Deze computer kan geen verbinding maken met de externe computer](troubleshoot-specific-rdp-errors.md#rdpconnect).
 
 ## <a name="additional-resources"></a>Aanvullende resources

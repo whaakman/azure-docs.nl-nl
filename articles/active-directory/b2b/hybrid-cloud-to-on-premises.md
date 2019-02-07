@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: ef70b9e58a669695f3bdec7ad8ea4bab93e7e4b9
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 084784af256fdf31cf1661109c0535cb91ef1db5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082041"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817408"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>GRANT B2B-gebruikers in Azure AD-toegang tot uw on-premises toepassingen
 
@@ -43,7 +43,7 @@ Voor B2B-gebruikers toegang tot on-premises toepassingen die zijn beveiligd met 
 
    Er zijn twee methoden beschikbaar waarmee u kunt het maken van de Gast gebruiker-objecten die vereist voor verificatie in de on-premises directory zijn voor het scenario B2B-gebruiker:
 
-   - Microsoft Identity Manager (MIM) en de [MIM-beheeragent voor Microsoft Graph](#create-b2b-guest-user-objects-through-mim-preview). 
+   - Microsoft Identity Manager (MIM) en de MIM-beheeragent voor Microsoft Graph. 
    - [Een PowerShell-script](#create-b2b-guest-user-objects-through-a-script-preview). Met behulp van het script is een minder ingrijpende oplossing waarvoor geen MIM is vereist. 
 
 Het volgende diagram biedt een overzicht van hoe Azure AD Application Proxy en de generatie van de B2B-gebruikersobject in de on-premises directory werken samen om B2B-gebruikers toegang verlenen tot uw on-premises IWA en KCD-toepassingen. De genummerde stappen worden in detail onder het diagram beschreven.

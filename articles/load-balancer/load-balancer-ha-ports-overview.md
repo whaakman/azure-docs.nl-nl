@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: kumud
-ms.openlocfilehash: f1d95534fb553c6a6d1be4d72a3251ad6a573f20
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 328471292ea6cbe07e96cc18af7f9c524407de3d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317189"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809467"
 ---
 # <a name="high-availability-ports-overview"></a>Overzicht van poorten voor hoge beschikbaarheid
 
@@ -100,7 +100,7 @@ U kunt configureren *één* openbare Standard Load Balancer-resource voor de bac
 
 - De functie voor HA-poorten is niet beschikbaar voor IPv6.
 
-- Stroom symmetrie (voornamelijk voor NVA's) wordt ondersteund met back-end-exemplaar en een één NIC (en één IP-configuratie) wanneer gebruikt, zoals wordt weergegeven in de [diagram](#diagram) boven en gebruik HA-poorten in load balancer-regels. Het is niet opgegeven in ieder ander scenario. Dit betekent dat twee of meer Load Balancer-resources en hun respectieve regels onafhankelijke beslissingen en nooit gecoördineerd worden. Zie de beschrijving en diagram voor [virtuele netwerkapparaten](#nva). Wanneer u met behulp van een meerdere NIC's of de NVA tussen een openbare en interne Load Balancer tussen elkaar te plaatsen, is symmetrie van de stroom niet beschikbaar.  U kunt mogelijk dit probleem omzeilen door bron NAT'ing de inkomende gegevens overgebracht naar het IP-adres van het toestel om toe te staan van antwoorden op de dezelfde NVA binnenkomen.  Echter ten zeerste aangeraden met één NIC en de referentiearchitectuur wordt weergegeven in de [diagram](#diagram) hierboven.
+- Stroom symmetrie (voornamelijk voor NVA's) wordt ondersteund met back-end-exemplaar en een één NIC (en één IP-configuratie), alleen wanneer gebruikt zoals weergegeven in het diagram boven en gebruik HA-poorten in taakverdelingsregels. Het is niet opgegeven in ieder ander scenario. Dit betekent dat twee of meer Load Balancer-resources en hun respectieve regels onafhankelijke beslissingen en nooit gecoördineerd worden. Zie de beschrijving en diagram voor [virtuele netwerkapparaten](#nva). Wanneer u met behulp van een meerdere NIC's of de NVA tussen een openbare en interne Load Balancer tussen elkaar te plaatsen, is symmetrie van de stroom niet beschikbaar.  U kunt mogelijk dit probleem omzeilen door bron NAT'ing de inkomende gegevens overgebracht naar het IP-adres van het toestel om toe te staan van antwoorden op de dezelfde NVA binnenkomen.  Echter, wordt aangeraden met één NIC en de referentiearchitectuur wordt weergegeven in het bovenstaande diagram.
 
 
 ## <a name="next-steps"></a>Volgende stappen

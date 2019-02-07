@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 150147a0fe0fdfcf2e6c9f2b780587749af1ded0
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: e1013047bb66581e7f9d26854f2cd91655c8bd93
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857904"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810079"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Seriële Console gebruiken voor toegang tot WORMGATEN en de modus voor één gebruiker
 WORMGATEN is het eindtotaal Unified Bootloader. Vanaf WORMGATEN, u kunt wijzigen van de opstartconfiguratie om op te starten in de modus voor één gebruiker, onder andere.
@@ -39,7 +39,7 @@ U wordt om ervoor te zorgen dat WORMGATEN is ingeschakeld op de virtuele machine
 Opnieuw opstarten van uw virtuele machine met de seriële console-blade geopend kan worden gedaan met een SysRq `'b'` als de opdracht [SysRq](./serial-console-nmi-sysrq.md) is ingeschakeld, of door te klikken op het opstarten van de knop op de blade overzicht (open de virtuele machine in een nieuw browsertabblad te starten zonder sluiten de seriële console-blade). Volg de instructies distributie-specifieke hieronder voor meer informatie over wat u kunt verwachten van WORMGATEN wanneer u de computer opnieuw opstart.
 
 ## <a name="general-single-user-mode-access"></a>Algemene modus voor één gebruiker toegang
-Handmatige toegang tot de modus voor één gebruiker is mogelijk in situaties waar u niet een account hebt geconfigureerd met wachtwoordverificatie nodig. U moet de WORMGATEN configuratie handmatig invoeren modus voor één gebruiker. Nadat u dit hebt gedaan, gaat u naar [gebruikersmodus voor één gebruiker opnieuw instellen of het toevoegen van een wachtwoord](#-Use-Single-User-Mode-to-reset-or-add-a-password) voor verdere instructies.
+Handmatige toegang tot de modus voor één gebruiker is mogelijk in situaties waar u niet een account hebt geconfigureerd met wachtwoordverificatie nodig. U moet de WORMGATEN configuratie handmatig invoeren modus voor één gebruiker. Nadat u dit hebt gedaan, kunt u gebruikersmodus voor één gebruiker opnieuw instellen of het toevoegen van een wachtwoord op voor verdere instructies.
 
 In gevallen waarin de virtuele machine kan niet op te starten, worden distributies vaak automatisch verwijderen u in de modus voor één gebruiker of noodherstelmodus bevindt. Andere, nodig aanvullende instellingen echter voordat ze u in de modus voor één gebruiker of noodgevallen automatisch (zoals het instellen van een hoofdwachtwoord) kunnen verwijderen.
 
@@ -55,7 +55,7 @@ RHEL doorlaat u in de modus voor één gebruiker automatisch als het niet normaa
 ### <a name="grub-access-in-rhel"></a>Toegang tot WORMGATEN in RHEL
 RHEL wordt geleverd met WORMGATEN standaard ingeschakeld. Om in te voeren WORMGATEN, start opnieuw op uw virtuele machine met `sudo reboot` en druk op een willekeurige toets. Hier ziet u de GRUB-scherm weergegeven.
 
-> Opmerking: De Red Hat biedt ook de documentatie voor opstart in de modus redden, EMS-modus, foutopsporingsmodus en het root-wachtwoord opnieuw instellen. [Klik hier voor toegang tot deze](https://aka.ms/rhel7grubterminal).
+> Opmerking: Red Hat biedt ook de documentatie voor opstart in de modus redden, EMS-modus, foutopsporingsmodus en het root-wachtwoord opnieuw instellen. [Klik hier voor toegang tot deze](https://aka.ms/rhel7grubterminal).
 
 ### <a name="set-up-root-access-for-single-user-mode-in-rhel"></a>Toegang tot de hoofdmap voor de modus voor één gebruiker in RHEL instellen
 Modus voor één gebruiker in RHEL is vereist voor de hoofdgebruiker zijn ingeschakeld, die standaard is uitgeschakeld. Als u een noodzaak voor het inschakelen van de modus voor één gebruiker hebt, gebruikt u de volgende instructies:

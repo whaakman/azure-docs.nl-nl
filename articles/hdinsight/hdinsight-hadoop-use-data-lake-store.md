@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: a174ae5eb31620646167f36a6f3e13605db5eac6
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 5ba12e48092c02f9628e15166c84e871310d7556
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052765"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816370"
 ---
 # <a name="use-data-lake-storage-with-azure-hdinsight-clusters"></a>Data Lake Storage gebruiken met Azure HDInsight-clusters
 
@@ -69,7 +69,7 @@ Als u Data Lake-opslag gebruiken als standaardopslag, moet u de service-principa
 - De map voor alle mappen van het cluster.  Bijvoorbeeld: adl://mydatalakestore/clusters.
 - De map voor het cluster.  Bijvoorbeeld: adl://mydatalakestore/clusters/cluster1storage.
 
-Zie voor meer informatie over het maken van service-principal en het verlenen toegang [configureren Data Lake Storage access](#configure-data-lake-store-access).
+Zie voor meer informatie over het maken van service-principal en het verlenen toegang tot Data Lake-opslag configureren toegang.
 
 ### <a name="extracting-a-certificate-from-azure-keyvault-for-use-in-cluster-creation"></a>Een certificaat ophalen uit Azure Key Vault voor gebruik in het maken van clusters
 
@@ -117,12 +117,12 @@ Als u een Data Lake-opslag als extra opslag gebruiken, moet u alleen de service 
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
-Zie voor meer informatie over het maken van service-principal en het verlenen toegang [configureren Data Lake Storage access](#configure-data-lake-store-access).
+Zie voor meer informatie over het maken van service-principal en het verlenen toegang tot Data Lake-opslag configureren toegang.
 
 
 ## <a name="use-more-than-one-data-lake-storage-accounts"></a>Meer dan een Data Lake Storage-accounts gebruiken
 
-Een Data Lake Storage-account toevoegen als extra en het toevoegen van meer dan één Data Lake Storage-accounts wordt bereikt door middel van de HDInsight-cluster machtiging van de gegevens in een of meer Data Lake Storage-accounts. Zie [configureren Data Lake Storage access](#configure-data-lake-store-access).
+Een Data Lake Storage-account toevoegen als extra en het toevoegen van meer dan één Data Lake Storage-accounts wordt bereikt door middel van de HDInsight-cluster machtiging van de gegevens in een of meer Data Lake Storage-accounts. Zie Configure Data Lake Storage-toegang.
 
 ## <a name="configure-data-lake-storage-access"></a>Data Lake Storage-toegang configureren
 

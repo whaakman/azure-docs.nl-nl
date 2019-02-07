@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 02/05/2019
-ms.openlocfilehash: be6e2cbea7dd23cbe6932f0110ac1c8b630a17c2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 799f47b291b3943dcb4d6b31bc8df732c28990cd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753187"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816591"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Overzicht van Azure SQL Database Managed Instance-resourcebeperkingen
 
@@ -41,7 +41,7 @@ Azure SQL Database Managed Instance kunnen worden geïmplementeerd op twee hardw
 | Geheugen | 7 GB per vCore | 5.1 GB per vCore |
 | In-Memory OLTP-geheugen | 3 GB per vCore | 2.6 GB per vCore |
 | Maximale opslag (Algemeen) |  8 TB | 1 TB |
-| Maximale opslag (Business-kritische) | 8 TB | 1 TB, 2 TB of 4 TB, afhankelijk van het aantal kernen |
+| Maximale opslag (Business-kritische) | 1 TB | 1 TB, 2 TB of 4 TB, afhankelijk van het aantal kernen |
 
 ### <a name="service-tier-characteristics"></a>Service tier kenmerken
 

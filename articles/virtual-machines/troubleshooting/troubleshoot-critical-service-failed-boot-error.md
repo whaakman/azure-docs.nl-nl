@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: d8140966f3ba8674938a4e21b0990371390d3516
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 8a711596140340b5e6e69d04959abfef36332869
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49071174"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813786"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows bevat 'Kritieke SERVICE is mislukt' in blauw scherm bij het opstarten van een Azure-VM
 Dit artikel beschrijft de fout 'Kritieke SERVICE is mislukt', die optreden kunnen tijdens het opstarten van een Windows virtuele Machine (VM) in Microsoft Azure. Het biedt oplossen van problemen met stappen om u te helpen bij het oplossen van problemen. 
@@ -30,8 +30,8 @@ Dit artikel beschrijft de fout 'Kritieke SERVICE is mislukt', die optreden kunne
 
 Een Windows-VM niet wordt gestart. Wanneer u de schermafbeeldingen opstarten controleren in [diagnostische gegevens over opstarten](./boot-diagnostics.md), ziet u een van de volgende foutberichten weergegeven in een blauw scherm:
 
-- "Uw PC is bij een probleem en behoeften te starten. U kunt opnieuw. Bezoek voor meer informatie over dit probleem en mogelijke oplossingen http://windows.com/stopcode. Als u een ondersteuningsmedewerker aanroept, zodat ze deze gegevens: stopcode: essentiële SERVICE is mislukt " 
-- "Uw PC is bij een probleem en behoeften te starten. Sommige foutinformatie alleen worden verzameld en start we vervolgens voor u. Als u graag meer weten, kunt u zoeken naar online later voor deze fout: CRITICAL_SERVICE_FAILED "
+- "Uw PC is bij een probleem en behoeften te starten. U kunt opnieuw. Bezoek voor meer informatie over dit probleem en mogelijke oplossingen http://windows.com/stopcode. Als u een ondersteuningsmedewerker aanroept, zodat ze deze gegevens: Stopcode: KRITIEKE-SERVICE IS MISLUKT" 
+- "Uw PC is bij een probleem en behoeften te starten. Sommige foutinformatie alleen worden verzameld en start we vervolgens voor u. Als u graag meer weten, kunt u zoeken naar online later voor deze fout: CRITICAL_SERVICE_FAILED"
 
 ## <a name="cause"></a>Oorzaak
 
@@ -93,7 +93,7 @@ Als u wilt inschakelen en dump seriële Console, voer het volgende script.
 
         bcdedit /store F: boot\bcd /set {default} safeboot minimal
 
-2. [Loskoppelen van de besturingssysteemschijf en koppel de besturingssysteemschijf voor de betrokken VM vervolgens opnieuw](troubleshoot-recovery-disks-portal-windows.md). De virtuele machine wordt opgestart in de veilige modus. Als de fout zich blijft voordoen, gaat u naar de [optionele stap](#optional-analysis-the-dump-logs-in-boot-debug-mode).
+2. [Loskoppelen van de besturingssysteemschijf en koppel de besturingssysteemschijf voor de betrokken VM vervolgens opnieuw](troubleshoot-recovery-disks-portal-windows.md). De virtuele machine wordt opgestart in de veilige modus. Als de fout zich blijft voordoen, gaat u naar de optionele stap.
 3. Open de **uitvoeren** vak en voer **verifier** het hulpprogramma toepassingscontrole-stuurprogramma starten.
 4. Selecteer **niet-ondertekende stuurprogramma's automatisch selecteren**, en klik vervolgens op **volgende**.
 5. U krijgt de lijst met de stuurprogramma's die niet ondertekend zijn. Vergeet niet de bestandsnamen.
@@ -138,7 +138,7 @@ Als u wilt analyseren de logboeken van de dump zelf, de volgende stappen uit:
 9. [Loskoppelen van de besturingssysteemschijf en koppel de besturingssysteemschijf voor de betrokken VM vervolgens opnieuw](troubleshoot-recovery-disks-portal-windows.md).
 10. Start de virtuele machine om te zien als de analyse van de dump wordt weergegeven. Zoek het bestand dat niet kan worden geladen. U moet dit bestand vervangen door een bestand van de werkende virtuele machine. 
 
-    Hier volgt een voorbeeld van de dump analyse. U kunt zien dat de **fout** filecrypt.sys is: "FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys '.
+    Hier volgt een voorbeeld van de dump analyse. U kunt zien dat de **fout** filecrypt.sys is: "FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys".
 
     ```
     kd> !analyze -v 

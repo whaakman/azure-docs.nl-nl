@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8548fe53288b2f9c486c9ccdc42afa08f40b4ae1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e90880aeaae17c80d6714f917f2ea849c953711f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181588"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755405"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Zelfstudie: Virtuele Azure-netwerken voor virtuele Linux-machines maken en beheren met de Azure CLI
 
@@ -60,7 +60,7 @@ Wanneer u de zelfstudie voltooit, worden de volgende virtuele-netwerkbronnen gem
 
 Voor deze zelfstudie wordt één virtueel netwerk met twee subnetten gemaakt. Een front-endsubnet voor het hosten van een webtoepassing en een back-endsubnet voor het hosten van een databaseserver.
 
-Voordat u een virtueel netwerk kunt maken, moet u eerst een resourcegroep maken met [az group create](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myRGNetwork* gemaakt op de locatie VS Oost.
+Voordat u een virtueel netwerk kunt maken, moet u eerst een resourcegroep maken met [az group create](/cli/azure/group). In het volgende voorbeeld wordt een resourcegroep met de naam *myRGNetwork* gemaakt op de locatie VS Oost.
 
 ```azurecli-interactive 
 az group create --name myRGNetwork --location eastus
@@ -68,7 +68,7 @@ az group create --name myRGNetwork --location eastus
 
 ### <a name="create-virtual-network"></a>Virtueel netwerk maken
 
-Gebruik de opdracht [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) om een virtueel netwerk te maken. In dit voorbeeld krijgt het netwerk de naam *mvVNet* en een adresvoorvoegsel van *10.0.0.0/16*. Er wordt ook een subnet gemaakt met de naam *myFrontendSubnet* en het voorvoegsel *10.0.1.0/24*. Verderop in deze zelfstudie wordt een front-end VM verbonden met dit subnet. 
+Gebruik de opdracht [az network vnet create](/cli/azure/network/vnet) om een virtueel netwerk te maken. In dit voorbeeld krijgt het netwerk de naam *mvVNet* en een adresvoorvoegsel van *10.0.0.0/16*. Er wordt ook een subnet gemaakt met de naam *myFrontendSubnet* en het voorvoegsel *10.0.1.0/24*. Verderop in deze zelfstudie wordt een front-end VM verbonden met dit subnet. 
 
 ```azurecli-interactive 
 az network vnet create \
@@ -81,7 +81,7 @@ az network vnet create \
 
 ### <a name="create-subnet"></a>Subnet maken
 
-Er wordt een nieuw subnet toegevoegd aan het virtuele netwerk met de opdracht [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). In dit voorbeeld heeft het subnet de naam *myBackendSubnet* en een adresvoorvoegsel van *10.0.2.0/24*. Dit subnet wordt gebruikt met alle back-endservices.
+Er wordt een nieuw subnet toegevoegd aan het virtuele netwerk met de opdracht [az network vnet subnet create](/cli/azure/network/vnet/subnet). In dit voorbeeld heeft het subnet de naam *myBackendSubnet* en een adresvoorvoegsel van *10.0.2.0/24*. Dit subnet wordt gebruikt met alle back-endservices.
 
 ```azurecli-interactive 
 az network vnet subnet create \
@@ -103,11 +103,11 @@ De toewijzingsmethode kan worden ingesteld op statisch. Dit zorgt ervoor dat het
 az network public-ip create --resource-group myRGNetwork --name myPublicIPAddress
 ```
 
-Wanneer een virtuele machine wordt gemaakt met de opdracht [az vm create](/cli/azure/vm#az_vm_create), worden openbare IP-adressen standaard dynamisch toegewezen. Wanneer een virtuele machine wordt gemaakt met de opdracht [az vm create](/cli/azure/vm#az_vm_create), neemt u het argument `--public-ip-address-allocation static` op om een statisch openbaar IP-adres toe te wijzen. Deze bewerking wordt niet geïllustreerd in deze zelfstudie, maar in de volgende sectie wordt een dynamisch toegewezen IP-adres gewijzigd in een statisch toegewezen adres. 
+Wanneer een virtuele machine wordt gemaakt met de opdracht [az vm create](/cli/azure/vm), worden openbare IP-adressen standaard dynamisch toegewezen. Wanneer een virtuele machine wordt gemaakt met de opdracht [az vm create](/cli/azure/vm), neemt u het argument `--public-ip-address-allocation static` op om een statisch openbaar IP-adres toe te wijzen. Deze bewerking wordt niet geïllustreerd in deze zelfstudie, maar in de volgende sectie wordt een dynamisch toegewezen IP-adres gewijzigd in een statisch toegewezen adres. 
 
 ### <a name="change-allocation-method"></a>Toewijzingsmethode wijzigen
 
-De toewijzingsmethode voor het IP-adres kan worden gewijzigd met de opdracht [az network public-ip update](/cli/azure/network/public-ip#az_network_public_ip_update). In dit voorbeeld wordt de toewijzingsmethode voor het IP-adres van de front-end VM gewijzigd in statisch.
+De toewijzingsmethode voor het IP-adres kan worden gewijzigd met de opdracht [az network public-ip update](/cli/azure/network/public-ip). In dit voorbeeld wordt de toewijzingsmethode voor het IP-adres van de front-end VM gewijzigd in statisch.
 
 Maak eerst de toewijzing van de virtuele machine ongedaan.
 
@@ -115,7 +115,7 @@ Maak eerst de toewijzing van de virtuele machine ongedaan.
 az vm deallocate --resource-group myRGNetwork --name myFrontendVM
 ```
 
-Gebruik de opdracht [az network public-ip update](/cli/azure/network/public-ip#az_network_public_ip_update) om de toewijzingsmethode bij te werken. In dit geval wordt de `--allocation-method` ingesteld op *statisch*.
+Gebruik de opdracht [az network public-ip update](/cli/azure/network/public-ip) om de toewijzingsmethode bij te werken. In dit geval wordt de `--allocation-method` ingesteld op *statisch*.
 
 ```azurecli-interactive 
 az network public-ip update --resource-group myRGNetwork --name myPublicIPAddress --allocation-method static
@@ -133,7 +133,7 @@ Een virtuele machine hoeft vaak niet toegankelijk zijn via internet. Gebruik voo
 
 ## <a name="create-a-front-end-vm"></a>Een front-end virtuele machine maken
 
-Gebruik de opdracht [az vm create](/cli/azure/vm#az_vm_create) om de virtuele machine met de naam *myFrontendVM* te maken met *myPublicIPAddress*.
+Gebruik de opdracht [az vm create](/cli/azure/vm) om de virtuele machine met de naam *myFrontendVM* te maken met *myPublicIPAddress*.
 
 ```azurecli-interactive 
 az vm create \
@@ -165,7 +165,7 @@ De standaardregels voor netwerkbeveiligingsgroepen zijn:
 
 ### <a name="create-network-security-groups"></a>Netwerkbeveiligingsgroepen maken
 
-Een netwerkbeveiligingsgroep kan op hetzelfde moment als een virtuele machine worden gemaakt met de opdracht [az vm create](/cli/azure/vm#az_vm_create). Wanneer u dit doet, wordt de netwerkbeveiligingsgroep gekoppeld aan de netwerkinterface van de virtuele machine en wordt automatisch een regel voor de netwerkbeveiligingsgroep gemaakt waarmee verkeer op poort *22* uit elke bron wordt toegestaan. Eerder in deze zelfstudie is de front-endnetwerkbeveiligingsgroep automatisch gemaakt met de front-end VM. Er is ook automatisch een netwerkbeveiligingsgroepregel gemaakt voor poort 22. 
+Een netwerkbeveiligingsgroep kan op hetzelfde moment als een virtuele machine worden gemaakt met de opdracht [az vm create](/cli/azure/vm). Wanneer u dit doet, wordt de netwerkbeveiligingsgroep gekoppeld aan de netwerkinterface van de virtuele machine en wordt automatisch een regel voor de netwerkbeveiligingsgroep gemaakt waarmee verkeer op poort *22* uit elke bron wordt toegestaan. Eerder in deze zelfstudie is de front-endnetwerkbeveiligingsgroep automatisch gemaakt met de front-end VM. Er is ook automatisch een netwerkbeveiligingsgroepregel gemaakt voor poort 22. 
 
 In sommige gevallen kan het handig zijn vooraf een netwerkbeveiligingsgroep te maken, bijvoorbeeld wanneer er geen SSH-standaardregels kunnen worden gemaakt of wanneer de netwerkbeveiligingsgroep moet worden gekoppeld aan een subnet. 
 
@@ -191,7 +191,7 @@ az network vnet subnet update \
 
 Wanneer de front-end VM is gemaakt, is een regel voor de netwerkbeveiligingsgroep gemaakt voor het toestaan van binnenkomend verkeer op poort 22. Met deze regel worden SSH-verbindingen met de virtuele machine toegestaan. Voor dit voorbeeld moet ook verkeer op poort *80* worden toegestaan. Met deze configuratie kan een webtoepassing worden geopend op de virtuele machine.
 
-Gebruik de opdracht [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) om een regel te maken voor poort *80*.
+Gebruik de opdracht [az network nsg rule create](/cli/azure/network/nsg/rule) om een regel te maken voor poort *80*.
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -218,7 +218,7 @@ az network nsg rule list --resource-group myRGNetwork --nsg-name myFrontendNSG -
 
 Netwerkbeveiligingsgroepsregels kunnen ook van toepassing zijn tussen virtuele machines. In dit voorbeeld moet de front-end VM communiceren met de back-end-VM op poort *22* en *3306*. Deze configuratie staat SSH-verbindingen van de front-end virtuele machine toe, en staat ook toe dat een toepassing op de front-end VM communiceert met een MySQL-back-enddatabase. Al het andere verkeer moet worden geblokkeerd tussen de front-end en back-end virtuele machines.
 
-Gebruik de opdracht [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) om een regel te maken voor poort 22. U ziet dat het argument `--source-address-prefix` een waarde specificeert van *10.0.1.0/24*. Deze configuratie zorgt ervoor dat alleen verkeer vanuit het front-endsubnet wordt toegestaan door de netwerkbeveiligingsgroep.
+Gebruik de opdracht [az network nsg rule create](/cli/azure/network/nsg/rule) om een regel te maken voor poort 22. U ziet dat het argument `--source-address-prefix` een waarde specificeert van *10.0.1.0/24*. Deze configuratie zorgt ervoor dat alleen verkeer vanuit het front-endsubnet wordt toegestaan door de netwerkbeveiligingsgroep.
 
 ```azurecli-interactive 
 az network nsg rule create \

@@ -7,19 +7,30 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: a277e392acb8587e05bb78d1d8dacce40bf91f56
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: bfce998fbabb89d5e9e964bd504571756941afb4
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449551"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770483"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Veelgestelde vragen: Replicatie van Azure naar Azure
 
 In dit artikel vindt u antwoorden op veelgestelde vragen over het implementeren van herstel na noodgeval (DR) van Azure-VM's naar een andere Azure-regio met behulp van Azure Site Recovery. Als u vragen hebt na het lezen van dit artikel, plaatst u deze op de [Azure Recovery Services-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
 
-## <a name="general"></a>Algemeen
+## <a name="in-this-article"></a>In dit artikel 
+1.  **[Algemene vragen over Azure naar Azure](#general)** 
+1.  **[Replicatie](#replication)** 
+1.  **[Beleid voor wachtwoordreplicatie](#replication-policy)** 
+1.  **[Multi-VM-consistentie](#multi-vm-consistency)** 
+1.  **[Plan voor herstel](#recovery-plan)** 
+1.  **[Opnieuw beveiligen en failback](#reprotection-and-failback)** 
+1.  **[Beveiliging](#security)** 
+
+
+## <a name="general"></a>Algemene
+
 ### <a name="how-is-site-recovery-priced"></a>Hoe wordt de Site Recovery geprijsd?
 Beoordeling [prijzen voor Azure Site Recovery](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/) details.
 
@@ -59,7 +70,7 @@ Met Site Recovery kunt u repliceren en herstellen van virtuele machines tussen e
 
 Nee, Site Recovery is geen verbinding met internet vereist. Maar dit vereist toegang tot de Site Recovery-URL's en IP-adressen, zoals vermeld in [in dit artikel](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges).
 
-## <a name="replication-policy"></a>Beleid voor replicatie
+## <a name="replication-policy"></a>Beleid voor wachtwoordreplicatie
 
 ### <a name="what-is-a-replication-policy"></a>Wat is beleid voor replicatie?
 Hiermee worden de instellingen voor de bewaargeschiedenis van herstelpunten en de frequentie van de app-consistente momentopnamen gedefinieerd. Azure Site Recovery maakt standaard een nieuw replicatiebeleid met de standaardinstellingen van:
@@ -163,7 +174,7 @@ U kunt een failover wordt geactiveerd nadat de onderbreking. Site Recovery hoeft
 ### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>Wat is een RTO van een virtuele machine failover?
 Site Recovery heeft een [RTO SLA van twee uur](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). De meeste van de tijd, mislukt Site Recovery echter failover van virtuele machines binnen enkele minuten. U kunt de RTO berekenen door te gaan naar de failover taken waarin de tijd die nodig was voor de virtuele machine openen. Plan voor herstel RTO, raadpleegt u onderstaande sectie. 
 
-## <a name="recovery-plan"></a>Herstelplan
+## <a name="recovery-plan"></a>Plan voor herstel
 
 ### <a name="what-is-a-recovery-plan"></a>Wat is een herstelplan?
 Een plan voor herstel in Site Recovery coördineert het failoverherstel van virtuele machines. Dit maakt het herstel consistente wijze nauwkeurige, herhaalbare en geautomatiseerde. Een plan voor herstel worden de volgende behoeften voor de gebruiker:
@@ -198,7 +209,7 @@ Dat hangt ervan af op de situatie. Bijvoorbeeld, als de bronregio VM bestaat, zi
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>Hoeveel tijd doet het allemaal voor failback van toets maken?
 Na het opnieuw beveiligen is de hoeveelheid tijd voor failback meestal vergelijkbaar met de tijd voor de failover van de primaire regio naar een secundaire regio. 
 
-## <a name="security"></a>Beveiliging
+## <a name="a-namesecuritysecurity"></a><a name="security">Beveiliging
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>Worden er replicatiegegevens verzonden naar de Site Recovery-service?
 Nee, Site Recovery biedt geen gerepliceerde gegevens worden onderschept en er geen informatie over wat wordt uitgevoerd op uw virtuele machines. Alleen de metagegevens die nodig zijn om replicatie en failover te organiseren, worden naar de Site Recovery-service verzonden.  
 Site Recovery is ISO 27001: 2013, 27018, HIPAA, DPA gecertificeerd en wordt momenteel SOC2 en FedRAMP JAB-beoordelingen.

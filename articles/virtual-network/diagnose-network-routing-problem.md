@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: jdial
-ms.openlocfilehash: 56dd13f5c2c0db4af65d8bc5d4ee5c072a161964
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ee807387b5fc7c8a9d42564cdb6cee7d59db2508
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429631"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819787"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Een VM-routeringsprobleem vaststellen
 
@@ -116,7 +116,7 @@ Het oplossen van problemen met de routering doorgaans bestaat uit:
 - Ervoor te zorgen dat de routetabel waarin eventuele aangepaste routes bevat die u hebt gedefinieerd is gekoppeld aan het subnet dat de netwerkinterface zich bevindt. Meer informatie over het [een routetabel aan een subnet koppelen](manage-route-table.md#associate-a-route-table-to-a-subnet).
 - Zorg ervoor dat apparaten, zoals Azure VPN-gateway of netwerk virtuele apparaten die u hebt geïmplementeerd bediend worden. Gebruik de [diagnostische gegevens van VPN](../network-watcher/diagnose-communication-problem-between-networks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) mogelijkheden van Network Watcher om eventuele problemen met een Azure VPN-gateway te bepalen.
 
-Als u nog steeds communicatieproblemen ondervindt, raadpleegt u [overwegingen met betrekking tot](#considerations) en [extra diagnose](#additional-dignosis).
+Als u nog steeds communicatieproblemen ondervindt, raadpleegt u [overwegingen met betrekking tot](#considerations) en aanvullende diagnose.
 
 ## <a name="considerations"></a>Overwegingen
 

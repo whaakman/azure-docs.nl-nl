@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 9c03e0ced565daef01304e288b71c46aa0035384
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: fcd1d8c4dd1f9684db85514a80fea7022f52b0fa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730090"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817084"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Maken, wijzigen of een virtueel netwerk-peering verwijderen
 
@@ -39,7 +39,7 @@ Het account dat u zich aanmelden bij of verbinding maken met Azure, moet worden 
 
 ## <a name="create-a-peering"></a>Maken van een peering
 
-Voordat u een peering, Maak uzelf vertrouwd met de [vereisten en beperkingen](#requirements-and-contstraints) en [benodigde machtigingen](#permissions).
+Voordat u een peering, raken met de vereisten en beperkingen en [benodigde machtigingen](#permissions).
 
 1. Voer in het zoekvak boven aan de Azure-portal, *virtuele netwerken* in het zoekvak in. Wanneer **virtuele netwerken** worden weergegeven in de lijst met zoekresultaten, selecteert u deze. Schakel niet **virtuele netwerken (klassiek)** als deze wordt weergegeven in de lijst, zoals u kunt geen maken een peering van een virtueel netwerk dat is geïmplementeerd via het klassieke implementatiemodel.
 2. Selecteer het virtuele netwerk in de lijst die u maken van een peering wilt voor.
@@ -75,7 +75,7 @@ Zie voor stapsgewijze instructies voor het implementeren van peering tussen virt
 
 ## <a name="view-or-change-peering-settings"></a>Weergeven of wijzigen van instellingen van peering
 
-Voordat u een peering, Maak uzelf vertrouwd met de [vereisten en beperkingen](#requirements-and-contstraints) en [benodigde machtigingen](#permissions).
+Voordat u een peering, raken met de vereisten en beperkingen en [benodigde machtigingen](#permissions).
 
 1. Voer in het zoekvak boven aan de portal, *virtuele netwerken* in het zoekvak in. Wanneer **virtuele netwerken** worden weergegeven in de lijst met zoekresultaten, selecteert u deze. Schakel niet **virtuele netwerken (klassiek)** als deze wordt weergegeven in de lijst, zoals u kunt geen maken een peering van een virtueel netwerk dat is geïmplementeerd via het klassieke implementatiemodel.
 2. Selecteer het virtuele netwerk in de lijst die u wilt wijzigen van instellingen van peering voor.

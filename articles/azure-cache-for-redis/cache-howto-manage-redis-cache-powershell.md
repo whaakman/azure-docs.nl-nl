@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 746e1c082d370cdcf1fca6597923b0e38b9a6d62
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ffbd785126bbc204191554e5d62d642a582a3c8d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105233"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822558"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Azure Cache voor Redis met Azure PowerShell beheren
 > [!div class="op_single_selector"]
@@ -128,7 +128,7 @@ De volgende tabel bevat de eigenschappen en beschrijvingen voor de meest gebruik
 | Name |Naam van de cache | |
 | Locatie |Locatie van de cache | |
 | ResourceGroupName |Naam van resourcegroep waarin u kunt de cache maken | |
-| Grootte |De grootte van de cache. Geldige waarden zijn: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2,5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1 GB |
+| Grootte |De grootte van de cache. Geldige waarden zijn: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB |1 GB |
 | ShardCount |Het aantal shards te maken bij het maken van een premium-cache met clustering is ingeschakeld. Geldige waarden zijn: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU |Hiermee geeft u de SKU van de cache. Geldige waarden zijn: Basic, Standard en Premium |Standard |
 | RedisConfiguration |Hiermee geeft u een Redis-configuratie-instellingen. Zie voor meer informatie over elke instelling de volgende [RedisConfiguration eigenschappen](#redisconfiguration-properties) tabel. | |
@@ -137,7 +137,7 @@ De volgende tabel bevat de eigenschappen en beschrijvingen voor de meest gebruik
 | StaticIP |Bij het hosten van uw cache in een VNET, geeft een uniek IP-adres in het subnet voor de cache. Als niet is opgegeven, wordt een gekozen voor u uit het subnet. | |
 | Subnet |Bij het hosten van uw cache in een VNET, geeft de naam van het subnet waarin de cache implementeert. | |
 | VirtualNetwork |Bij het hosten van uw cache in een VNET, geeft u de resource-ID van het VNET waarin u kunt de cache te implementeren. | |
-| Sleuteltype |Hiermee geeft u op welke toegangssleutel opnieuw genereren tijdens het vernieuwen van toegangssleutels. Geldige waarden zijn: Primair, secundair | |
+| KeyType |Hiermee geeft u op welke toegangssleutel opnieuw genereren tijdens het vernieuwen van toegangssleutels. Geldige waarden zijn: Primary, Secondary | |
 
 ### <a name="redisconfiguration-properties"></a>RedisConfiguration eigenschappen
 | Eigenschap | Description | Prijscategorieën |
@@ -145,8 +145,8 @@ De volgende tabel bevat de eigenschappen en beschrijvingen voor de meest gebruik
 | de RDB-back-up-ingeschakeld |Of [Redis-gegevenspersistentie](cache-how-to-premium-persistence.md) is ingeschakeld |Alleen Premium |
 | de RDB-opslag-connection-string |De verbindingsreeks naar het opslagaccount voor [Redis-gegevenspersistentie](cache-how-to-premium-persistence.md) |Alleen Premium |
 | de RDB-back-up-frequentie |De back-upfrequentie voor [Redis-gegevenspersistentie](cache-how-to-premium-persistence.md) |Alleen Premium |
-| maxmemory-gereserveerde |Hiermee configureert u de [geheugen gereserveerd](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) voor niet-cache-processen |Standard en Premium |
-| maxmemory-beleid |Hiermee configureert u de [verwijderingsbeleid](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) voor de cache |Alle Prijscategorieën |
+| maxmemory-reserved |Hiermee configureert u de [geheugen gereserveerd](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) voor niet-cache-processen |Standard en Premium |
+| maxmemory-policy |Hiermee configureert u de [verwijderingsbeleid](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) voor de cache |Alle Prijscategorieën |
 | op de hoogte stellen-keyspace-gebeurtenissen |Hiermee configureert u [keyspace-meldingen](cache-configure.md#keyspace-notifications-advanced-settings) |Standard en Premium |
 | hash-max-ziplist-entries |Hiermee configureert u [geheugenoptimalisatie](https://redis.io/topics/memory-optimization) voor kleine cumulatieve gegevenstypen |Standard en Premium |
 | hash-max-ziplist-value |Hiermee configureert u [geheugenoptimalisatie](https://redis.io/topics/memory-optimization) voor kleine cumulatieve gegevenstypen |Standard en Premium |
@@ -260,7 +260,7 @@ De `databases` instelling alleen tijdens het maken van de cache kan worden gecon
 
     New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P3 -RedisConfiguration @{"databases" = "48"}
 
-Voor meer informatie over de `databases` eigenschap, Zie [standaard Azure Cache voor configuratie van Redis-server](cache-configure.md#default-redis-server-configuration). Voor meer informatie over het maken van een cache met de [New-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/new-azurermrediscache?view=azurermps-6.6.0) cmdlet, Zie de vorige [te maken van een Azure-Cache voor Redis](#to-create-a-redis-cache) sectie.
+Voor meer informatie over de `databases` eigenschap, Zie [standaard Azure Cache voor configuratie van Redis-server](cache-configure.md#default-redis-server-configuration). Voor meer informatie over het maken van een cache met de [New-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/new-azurermrediscache?view=azurermps-6.6.0) cmdlet, Zie de vorige te maken van een Azure-Cache voor Redis-sectie.
 
 ## <a name="to-update-an-azure-cache-for-redis"></a>Bijwerken van een Azure-Cache voor Redis
 Azure voor instanties van Redis-Cache zijn bijgewerkt met de [Set-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/Set-AzureRmRedisCache?view=azurermps-6.6.0) cmdlet.

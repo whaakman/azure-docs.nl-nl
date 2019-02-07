@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1491068248d20a917e28db5a75dee3d4b3753f5c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1c58574a96c07dcb4008682efdf96fba111d7b61
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731057"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810334"
 ---
 # <a name="back-up-your-app-in-azure"></a>Back-up maken van uw app in Azure
 De functie back-up en herstel in [Azure App Service](overview.md) kunt u eenvoudig back-ups maken, handmatig of volgens een schema. U kunt de app op een momentopname van een eerdere status herstellen door overschrijft de bestaande app of het herstellen naar een andere app. 
@@ -52,7 +52,7 @@ De volgende databaseoplossingen worden ondersteund door back-up:
 ## <a name="requirements-and-restrictions"></a>Vereisten en beperkingen
 * De functie back-up en terugzetten vereist het App Service-plan in de **Standard** laag of **Premium** laag. Zie voor meer informatie over het schalen van uw App Service-plan het gebruik van een hogere laag [opschalen van een app in Azure](web-sites-scale.md).  
   **Premium** laag kunt u een groter aantal dagelijks back-ups dan **Standard** laag.
-* U moet een Azure storage-account en een container in hetzelfde abonnement als de app die u back wilt-up. Zie voor meer informatie over Azure storage-accounts, het [koppelingen](#moreaboutstorage) aan het einde van dit artikel.
+* U moet een Azure storage-account en een container in hetzelfde abonnement als de app die u back wilt-up. Zie de koppelingen aan het einde van dit artikel voor meer informatie over Azure storage-accounts.
 * Back-ups mag maximaal 10 GB-app en database-inhoud. Als de back-upgrootte deze limiet overschrijdt, krijgt u een fout.
 * Back-ups van SSL ingeschakeld Azure Database voor MySQL wordt niet ondersteund. Als een back-up is geconfigureerd, wordt er mislukte back-ups.
 * Back-ups van SSL ingeschakeld Azure Database voor PostgreSQL wordt niet ondersteund. Als een back-up is geconfigureerd, wordt er mislukte back-ups.

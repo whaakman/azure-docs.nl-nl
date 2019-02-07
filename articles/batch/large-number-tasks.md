@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 08/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: 3e20aeb0e21eca5e4ac25206d638036f94a58202
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: ed04774969f72f1d6037a350f019d81d812d73f6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749692"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809296"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Een groot aantal taken aan een Batch-taak verzenden
 
@@ -164,7 +164,7 @@ except Exception as e:
     raise e
 ```
 
-De extensie van de Batch Python-SDK biedt ook ondersteuning toe te voegen taakparameters aan de taak met behulp van een JSON-specificatie voor de factory voor een taak. Bijvoorbeeld configureren taakparameters voor een die vergelijkbaar is met de in de voorgaande parametrische [Batch CLI sjabloon](#example-batch-cli-template) voorbeeld:
+De extensie van de Batch Python-SDK biedt ook ondersteuning toe te voegen taakparameters aan de taak met behulp van een JSON-specificatie voor de factory voor een taak. Bijvoorbeeld: taakparameters voor een parametrische die vergelijkbaar is met de in het voorgaande voorbeeld van de CLI van Batch-sjabloon configureren:
 
 ```python
 parameter_sweep = {

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 48e20df61844d83deb8ac992f783cf227e658aaf
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: d86df171de807c23aad6dd2cb8e2128098dede81
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119982"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812448"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Application Insights instellen: Bijhouden van afhankelijkheid
 Een *afhankelijkheid* is een externe component die wordt aangeroepen door uw app. Het is doorgaans een service die wordt aangeroepen met behulp van HTTP, of een database of een bestandssysteem. [Application Insights](../../azure-monitor/app/app-insights-overview.md) meet hoe lang de toepassing moet wachten voor afhankelijkheden en hoe vaak een afhankelijkheidsaanroep is mislukt. U kunt specifieke aanroepen te onderzoeken en koppelen aan aanvragen en uitzonderingen.
@@ -52,7 +52,7 @@ Gedeeltelijke afhankelijkheidsgegevens worden verzameld, automatisch door de [Ap
 * [Overzicht van de toepassing](#application-map) worden gevisualiseerd met afhankelijkheden tussen uw app en door in aangrenzende onderdelen.
 * [Prestaties, browser en de fout blades](#performance-and-blades) server afhankelijkheidsgegevens weergeven.
 * [Blade browsers](#ajax-calls) AJAX-aanroepen van de browsers van uw gebruikers bevat.
-* [Doorklikken traag of mislukte aanvragen](#diagnose-slow-requests) aanroept om te controleren van de afhankelijkheid.
+* Klik op traag of mislukte aanvragen om te controleren op hun afhankelijkheidsaanroepen.
 * [Analytics](#analytics) kan worden gebruikt om gegevens van de afhankelijkheid opvragen.
 
 ## <a name="application-map"></a>Toepassingskaart
@@ -210,7 +210,7 @@ Raadpleeg de onderstaande tabel en zorgen dat u hebt ervoor gekozen de juiste co
 | IIS-Server |Een van beide [Status Monitor installeren op uw server](../../azure-monitor/app/monitor-performance-live-website-now.md). Of [Toepassingsupgrade naar .NET framework 4.6 of hoger](https://go.microsoft.com/fwlink/?LinkId=528259) en installeer de [Application Insights-SDK](asp-net.md) in uw app. |
 | IIS Express |Gebruik in plaats daarvan de IIS-Server. |
 | Azure Web App |In het Configuratiescherm van web-app [opent u de Application Insights-blade in het Configuratiescherm van uw web-app](../../azure-monitor/app/azure-web-apps.md) en kies installeren als u hierom wordt gevraagd. |
-| Azure-Cloudservice |[Gebruik opstarttaak](../../azure-monitor/app/cloudservices.md) of [installeren .NET framework 4.6 +](../../cloud-services/cloud-services-dotnet-install-dotnet.md). |
+| Azure Cloud Service |[Gebruik opstarttaak](../../azure-monitor/app/cloudservices.md) of [installeren .NET framework 4.6 +](../../cloud-services/cloud-services-dotnet-install-dotnet.md). |
 
 ## <a name="video"></a>Video
 

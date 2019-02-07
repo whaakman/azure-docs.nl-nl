@@ -16,12 +16,12 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6174dd210cf85bfa6a3daf38965d1da65801321c
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: d137f2217575bfddec5a2bc2ead4e210b8cf1865
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076329"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815334"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Rollover van ondertekeningssleutel gebruiken in Azure Active Directory
 In dit artikel wordt beschreven wat u moet weten over de openbare sleutels die worden gebruikt in Azure Active Directory (Azure AD) om beveiligingstokens te ondertekenen. Het is belangrijk te weten dat de rollover van deze sleutels op periodieke basis en, in geval van nood, direct kan worden meegenomen. Alle toepassingen die gebruikmaken van Azure AD moet kunnen via de programmacode verwerken van het proces sleutelrollover of tot stand brengen van een periodieke handmatige rollover-proces. Lees verder voor u te begrijpen hoe de sleutels werken, het beoordelen wat de impact van de overschakeling van uw toepassing en het bijwerken van uw toepassing of een rollover van periodieke handmatige proces voor het afhandelen van sleutelrollover indien nodig tot stand brengen.
@@ -44,7 +44,7 @@ Hoe uw toepassing omgaat met sleutelrollover, is afhankelijk van variabelen, zoa
 * [Webtoepassingen / API's beveiligen van resources met behulp van Node.js passport-azure-ad-module](#passport)
 * [Webtoepassingen / API's beveiligen van bronnen en die zijn gemaakt met Visual Studio 2015 of Visual Studio 2017](#vs2015)
 * [Beveiligen van bronnen en die zijn gemaakt met Visual Studio 2013](#vs2013)
-* [Web-API's beveiligen van bronnen en die zijn gemaakt met Visual Studio 2013](#vs2013_webapi)
+* Web-API's beveiligen van bronnen en die zijn gemaakt met Visual Studio 2013
 * [Beveiligen van bronnen en die zijn gemaakt met Visual Studio 2012](#vs2012)
 * [Beveiligen van bronnen en die zijn gemaakt met Visual Studio 2010, 2008 o met behulp van Windows Identity Foundation](#vs2010)
 * [Webtoepassingen / API's beveiligen van resources met behulp van een andere bibliotheken of handmatig implementeren van een van de ondersteunde protocollen](#other)

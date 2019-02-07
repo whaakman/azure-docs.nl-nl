@@ -12,12 +12,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 87f98f084cf857ff8ab0651a02b98e64512e62f6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 12998547c5525a7132bc350dbbaa7016e4bbeaf0
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181687"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767680"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>App-wachtwoorden voor verificatie in twee stappen beheren
 
@@ -121,4 +121,4 @@ Zorg ervoor dat u uw wachtwoord correct hebt ingevoerd. Als u zeker dat u uw wac
 
 - [De verificatie-instellingen voor verificatie in twee stappen beheren](multi-factor-authentication-end-user-manage-settings.md)
 
-- Probeer de [Microsoft Authenticator-app](microsoft-authenticator-app-how-to.md) om te controleren of uw aanmeldingen met app-meldingen, in plaats van tekst of aanroepen ontvangen.
+- Probeer de [Microsoft Authenticator-app](user-help-auth-app-download-install.md) om te controleren of uw aanmeldingen met app-meldingen, in plaats van tekst of aanroepen ontvangen.

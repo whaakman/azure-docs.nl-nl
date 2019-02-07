@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: d05adabc9bbabdb9f6d1af9831dbb33afe63cf87
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 8b494e3f289d7b3a850a77f7f388cee542c088ed
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424639"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821861"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Een probleem VM-netwerk-verkeersfilter vaststellen
 
@@ -166,7 +166,7 @@ De regel met de naam **defaultSecurityRules/DenyAllInBound** is wat voorkomt dat
 
 Of het gebruik van de Azure [portal](#diagnose-using-azure-portal), [PowerShell](#diagnose-using-powershell), of de [Azure CLI](#diagnose-using-azure-cli) voor het vaststellen van het probleem dat wordt weergegeven in de [scenario](#scenario) in deze artikel, de oplossing is het maken van een regel voor de beveiliging met de volgende eigenschappen:
 
-| Eigenschap                | Waarde                                                                              |
+| Eigenschap                | Value                                                                              |
 |---------                |---------                                                                           |
 | Bron                  | Alle                                                                                |
 | Poortbereiken van bron      | Alle                                                                                |
@@ -181,7 +181,7 @@ Nadat u de regel maakt, is toegestaan voor poort 80 inkomend verkeer van interne
 
 Wanneer Azure processen binnenkomend verkeer, regels in de NSG die is gekoppeld aan het subnet (als er een gekoppelde NSG) worden verwerkt en vervolgens de regels in de NSG die is gekoppeld aan de netwerkinterface worden verwerkt. Als er een NSG die is gekoppeld aan de netwerkinterface en het subnet, is de poort moet openen in beide nsg's, voor het verkeer naar de virtuele machine kan bereiken. Om de problemen met beheer en communicatie, is het raadzaam dat u een NSG aan een subnet, in plaats van afzonderlijke netwerkinterfaces koppelen. Als VM's binnen een subnet verschillende beveiligingsregels moeten, kunt u het netwerk interfaces lid maken van een toepassingsbeveiligingsgroep (ASG), en een ASG opgeven als de bron en doel van een beveiligingsregel. Meer informatie over [toepassingsbeveiligingsgroepen](security-overview.md#application-security-groups).
 
-Als u nog steeds communicatieproblemen ondervindt, raadpleegt u [overwegingen met betrekking tot](#considerations) en [extra diagnose](#additional-dignosis).
+Als u nog steeds communicatieproblemen ondervindt, raadpleegt u [overwegingen met betrekking tot](#considerations) en aanvullende diagnose.
 
 ## <a name="considerations"></a>Overwegingen
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 49e9a057e52d46fd18e13c43d0f6024201499685
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 010a9f4e5be34986c1098f403e4df0ccf569838c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493385"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821659"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Controlelijst voor prestaties en schaalbaarheid van Microsoft Azure Storage
 ## <a name="overview"></a>Overzicht
@@ -92,7 +92,7 @@ Elk van de Azure Storage-services heeft schaalbaarheidsdoelen voor capaciteit (G
 * [Berichten per seconde](#subheading39)  
 
 #### <a name="sub1bandwidth"></a>Schaalbaarheidsdoel bandbreedte voor alle Services
-Op het moment van schrijven zijn de bandbreedte-doelen in de Verenigde Staten voor een account voor geografisch redundante opslag (GRS) 10 Gigabit per seconde (Gbps) voor inkomend (gegevens verzonden naar het opslagaccount) en 20 Gbps voor uitgaande gegevens (gegevens verzonden van het opslagaccount). Voor een account met lokaal redundante opslag (LRS), de limieten zijn hogere: 20 Gbps voor inkomend verkeer en 30 Gbps voor uitgaand verkeer.  Internationale bandbreedtelimieten mogelijk lager en kunt u vinden op onze [schaalbaarheid doelen pagina](https://msdn.microsoft.com/library/azure/dn249410.aspx).  Zie voor meer informatie over de opties voor opslagredundantie, de koppelingen in [nuttige bronnen](#sub1useful) hieronder.  
+Op het moment van schrijven zijn de bandbreedte-doelen in de Verenigde Staten voor een account voor geografisch redundante opslag (GRS) 10 Gigabit per seconde (Gbps) voor inkomend (gegevens verzonden naar het opslagaccount) en 20 Gbps voor uitgaande gegevens (gegevens verzonden van het opslagaccount). Voor een account met lokaal redundante opslag (LRS), de limieten zijn hogere: 20 Gbps voor inkomend verkeer en 30 Gbps voor uitgaand verkeer.  Internationale bandbreedtelimieten mogelijk lager en kunt u vinden op onze [schaalbaarheid doelen pagina](https://msdn.microsoft.com/library/azure/dn249410.aspx).  Zie de koppelingen in nuttige informatiebronnen hieronder voor meer informatie over de opties voor opslagredundantie.  
 
 #### <a name="what-to-do-when-approaching-a-scalability-target"></a>Wat te doen wanneer een schaalbaarheidsdoel nadert
 Als de limiet van storage-accounts die u in de combinatie van een bepaald abonnement/de regio kunt hebben bijna is bereikt, uw toepassing en het gebruik van storage-accounts evalueren en te bepalen als een van deze voorwaarden van toepassing.

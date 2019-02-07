@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 84cc99bac9ae5fa1743ed151e5bf8c3043cf5869
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f4da0a4672bc50688d0a25bbd2db1f3be984ee8b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851010"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821385"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Herstel na noodgevallen instellen voor Active Directory en DNS
 
@@ -31,10 +31,10 @@ In dit artikel wordt uitgelegd hoe u een oplossing voor noodherstel voor Active 
 
 ## <a name="replicate-the-domain-controller"></a>De domeincontroller worden gerepliceerd
 
-- U moet instellen [Site Recovery-replicatie](#enable-protection-using-site-recovery), op ten minste één virtuele machine die als host fungeert voor een domeincontroller of DNS.
-- Als u hebt [meerdere domeincontrollers](#environment-with-multiple-domain-controllers) in uw omgeving, ook moet u instellen een [extra domeincontroller](#protect-active-directory-with-active-directory-replication) op de doelsite. De extra domeincontroller kan zijn in Azure of in een secundaire on-premises datacenter.
+- U moet de replicatie van Site Recovery, op ten minste één virtuele machine die als host fungeert voor een domeincontroller of DNS instellen.
+- Als u meerdere domeincontrollers in uw omgeving hebt, moet u ook instellen van een extra domeincontroller op de doelsite. De extra domeincontroller kan zijn in Azure of in een secundaire on-premises datacenter.
 - Als u slechts een paar toepassingen en één domeincontroller hebt, kunt u een failover wordt uitgevoerd de gehele site. In dit geval wordt u aangeraden Site Recovery voor het repliceren van de domeincontroller met de doelsite (ofwel in Azure of in een secundaire on-premises datacenter). U kunt de dezelfde gerepliceerde domeincontroller of DNS-virtuele machine voor [testfailover](#test-failover-considerations).
-- - Als u veel toepassingen en meer dan één domeincontroller in uw omgeving hebt, of als u van plan bent failover wilt uitvoeren voor enkele toepassingen op een tijdstip, naast het repliceren van de domain controller virtuele machine met Site Recovery, is het raadzaam dat u om een instelt[extra domeincontroller](#protect-active-directory-with-active-directory-replication) op de doelsite (ofwel in Azure of in een secundaire on-premises datacenter). Voor [testfailover](#test-failover-considerations), kunt u de domeincontroller die gerepliceerd door Site Recovery kunt gebruiken. Voor de failover, kunt u de extra domeincontroller op de doelsite.
+- - Als u veel toepassingen en meer dan één domeincontroller in uw omgeving hebt, of als u van plan bent failover wilt uitvoeren voor enkele toepassingen op een tijdstip, naast het repliceren van de domain controller virtuele machine met Site Recovery, is het raadzaam dat u instelt om een Extra domeincontroller op de doelsite (ofwel in Azure of in een secundaire on-premises datacenter). Voor [testfailover](#test-failover-considerations), kunt u de domeincontroller die gerepliceerd door Site Recovery kunt gebruiken. Voor de failover, kunt u de extra domeincontroller op de doelsite.
 
 ## <a name="enable-protection-with-site-recovery"></a>Schakel de beveiliging met Site Recovery
 
@@ -49,7 +49,7 @@ De domeincontroller die wordt gerepliceerd met behulp van Site Recovery wordt ge
 ### <a name="configure-vm-network-settings"></a>VM-netwerkinstellingen configureren
 Voor de virtuele machine die als host fungeert voor de domeincontroller of DNS-server, in Site Recovery, configureert u netwerkinstellingen onder de **berekening en netwerk** instellingen van de gerepliceerde virtuele machine. Dit zorgt ervoor dat de virtuele machine is gekoppeld aan het juiste netwerk na een failover.
 
-## <a name="protect-active-directory"></a>Active Directory beveiligen
+## <a name="protect-active-directory"></a>Protect Active Directory
 
 ### <a name="site-to-site-protection"></a>Site-naar-site-beveiliging
 Maak een domeincontroller op de secundaire site. Wanneer u de server naar een domeincontroller promoveert, moet u de naam van het domein dat wordt gebruikt op de primaire site opgeven. U kunt de **Active Directory: Sites en Services** module voor het configureren van instellingen op de site-koppeling-object waaraan de sites worden toegevoegd. Instellingen configureren op een site-koppeling, kunt u bepalen wanneer er replicatie plaatsvindt tussen twee of meer sites, en hoe vaak vindt plaats. Zie voor meer informatie, [replicatie tussen sites plannen](https://technet.microsoft.com/library/cc731862.aspx).
@@ -165,7 +165,7 @@ Als de vorige voorwaarden wordt voldaan, is het waarschijnlijk dat de domeincont
 1. Voer een terugzetbewerking van de domeincontroller. Houd rekening met de volgende informatie:
     * Hoewel u kunt beter geen [FRS-replicatie](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), als u FRS-replicatie, volgt u de stappen voor een bindende terugzetbewerking. Het proces wordt beschreven in [met behulp van de registersleutel BurFlags om opnieuw te initialiseren van File Replication-Service](https://support.microsoft.com/kb/290762).
 
-        Zie het blogbericht voor meer informatie over BurFlags [D2 en D4: Wat is het voor?](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
+        Zie het blogbericht voor meer informatie over BurFlags [D2 en D4: Wat is het voor? ](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
     * Als u replicatie voor DFS-replicatie gebruikt, moet u de stappen voor een bindende terugzetbewerking uitvoeren. Het proces wordt beschreven in [een bindende en niet-bindende synchronisatie afdwingen voor DFSR gerepliceerd SYSVOL (like "D4/D2' voor FRS)](https://support.microsoft.com/kb/2218556).
 
         U kunt ook de PowerShell-functies gebruiken. Zie voor meer informatie, [DFSR-SYSVOL gezaghebbende/niet-bindende terugzetbewerking PowerShell functies](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/).
@@ -174,7 +174,7 @@ Als de vorige voorwaarden wordt voldaan, is het waarschijnlijk dat de domeincont
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations`
 
-    Zie voor meer informatie, [oplossen van DNS-gebeurtenis-ID 4013: de DNS-server kan niet worden geladen is AD geïntegreerde DNS-zones](https://support.microsoft.com/kb/2001093).
+    Zie voor meer informatie, [oplossen van DNS-gebeurtenis-ID 4013: De DNS-server kan niet worden geladen is AD geïntegreerde DNS-zones](https://support.microsoft.com/kb/2001093).
 
 3. De vereiste dat een globale-catalogusserver beschikbaar zijn voor het valideren van de gebruikersaanmelding uitschakelen. Om dit te doen, in de on-premises domeincontroller, kunt u de volgende registersleutel instellen op **1**. Als de DWORD-waarde niet bestaat, kunt u deze onder de **Lsa** knooppunt.
 

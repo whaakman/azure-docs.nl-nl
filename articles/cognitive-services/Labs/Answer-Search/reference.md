@@ -10,12 +10,12 @@ ms.subservice: answer-search
 ms.topic: reference
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 6ec09627fb80925fef72c491936a1dd83106874b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5e9ae8fcd756619c83ebde12df9f8405f1a39bf6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211692"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812572"
 ---
 # <a name="project-answer-search-v7-reference"></a>Antwoord zoeken v7 verwijzing project
 
@@ -62,10 +62,10 @@ Zie voor meer informatie over het toegestane gebruik en weergave van resultaten 
 ## <a name="headers"></a>Headers  
 Hier volgen de headers die bijvoorbeeld een aanvraag en antwoord bevatten.  
   
-|Header|Beschrijving|  
+|Header|Description|  
 |------------|-----------------|  
 |Accepteren|Optionele aanvraagheader.<br /><br /> De standaard-mediatype is application/json. Om op te geven dat het antwoord gebruiken [JSON-LD](http://json-ld.org/), de Accept-header ingesteld op application/ld + json.|  
-|<a name="acceptlanguage" />Accept-Language|Optionele aanvraagheader.<br /><br /> Een door komma's gescheiden lijst met talen die moet worden gebruikt voor gebruikersinterfacetekenreeksen. De lijst is in aflopende volgorde van voorkeur. Zie [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html) voor meer informatie, waaronder de verwachte indeling.<br /><br /> Deze header en de queryparameter [setLang](#setlang) sluiten elkaar uit&mdash;geef ze niet beide op.<br /><br /> Als u deze header instelt, moet u ook de queryparameter [cc](#cc) opgeven. Om de markt te bepalen waarvoor resultaten moeten worden geretourneerd, gebruikt Bing de eerste ondersteunde taal die wordt gevonden in de lijst en combineert deze met de parameterwaarde `cc`. Als de lijst geen ondersteunde taal bevat, vindt Bing de dichtstbijzijnde taal en markt die de aanvraag ondersteunen, of gebruikt een geaggregeerde of standaardmarkt voor de resultaten. Zie de header BingAPIs-Market om de markt te bepalen die Bing heeft gebruikt.<br /><br /> Gebruik deze header en de queryparameter `cc` alleen als u meerdere talen opgeeft. Gebruik anders de queryparameters [mkt](#mkt) en [setLang](#setlang).<br /><br /> Een gebruikersinterfacetekenreeks is een tekenreeks die wordt gebruikt als label in een gebruikersinterface. Er zijn maar weinig gebruikersinterfacetekenreeksen in de JSON-antwoordobjecten. De opgegeven taal wordt toegepast op koppelingen naar Bing.com-eigenschappen in de antwoordobjecten.|  
+|<a name="acceptlanguage" />Accept-Language|Optionele aanvraagheader.<br /><br /> Een door komma's gescheiden lijst met talen die moet worden gebruikt voor gebruikersinterfacetekenreeksen. De lijst is in aflopende volgorde van voorkeur. Zie [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html) voor meer informatie, waaronder de verwachte indeling.<br /><br /> Deze header en de queryparameter [setLang](#setlang) sluiten elkaar uit&mdash;geef ze niet beide op.<br /><br /> Als u deze header instelt, moet u ook de cc-queryparameter. Om de markt te bepalen waarvoor resultaten moeten worden geretourneerd, gebruikt Bing de eerste ondersteunde taal die wordt gevonden in de lijst en combineert deze met de parameterwaarde `cc`. Als de lijst geen ondersteunde taal bevat, vindt Bing de dichtstbijzijnde taal en markt die de aanvraag ondersteunen, of gebruikt een geaggregeerde of standaardmarkt voor de resultaten. Zie de header BingAPIs-Market om de markt te bepalen die Bing heeft gebruikt.<br /><br /> Gebruik deze header en de queryparameter `cc` alleen als u meerdere talen opgeeft. Gebruik anders de queryparameters [mkt](#mkt) en [setLang](#setlang).<br /><br /> Een gebruikersinterfacetekenreeks is een tekenreeks die wordt gebruikt als label in een gebruikersinterface. Er zijn maar weinig gebruikersinterfacetekenreeksen in de JSON-antwoordobjecten. De opgegeven taal wordt toegepast op koppelingen naar Bing.com-eigenschappen in de antwoordobjecten.|  
 |<a name="market" />BingAPIs-Market|Antwoordheader.<br /><br /> De markt die wordt gebruikt door de aanvraag. De notatie is \<languageCode\>-\<countryCode\>. Bijvoorbeeld: nl-NL.|  
 |<a name="traceid" />BingAPIs-TraceId|Antwoordheader.<br /><br /> De id van de logboekvermelding die de details van de aanvraag bevat. Registreer deze id wanneer er een fout optreedt. Als u het probleem niet kunt vaststellen en oplossen, neemt u deze id op bij de andere informatie die u aan het ondersteuningsteam verstrekt.|  
 |<a name="subscriptionkey" />Ocp-Apim-Subscription-Key|Vereiste aanvraagheader.<br /><br /> De abonnementssleutel die u hebt ontvangen toen u zich hebt geregistreerd voor deze service in [Cognitive Services](https://www.microsoft.com/cognitive-services/).|  
@@ -85,18 +85,18 @@ De aanvraag kan de volgende queryparameters bevatten. Zie de vereiste kolom voor
   
 |Name|Value|Type|Vereist|  
 |----------|-----------|----------|--------------|  
-|<a name="mkt" />mkt|De markt waaruit de resultaten afkomstig zijn. <br /><br />Zie voor een lijst van mogelijke waarden van de markt, [markt Codes](#market-codes).<br /><br /> **OPMERKING:** De URL van Preview-API ondersteunt momenteel alleen en-us markt en taal.<br /><br />|Reeks|Ja|  
-|<a name="query" />q|De URL om een voorbeeld van|Reeks|Ja|  
-|<a name="responseformat" />responseFormat|Het mediatype dat als u wilt gebruiken voor het antwoord. De volgende zijn waarden mogelijk niet hoofdlettergevoelig.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> De standaardwaarde is JSON. Zie voor meer informatie over de JSON-objecten dat het antwoord bevat, [Antwoordobjecten](#response-objects).<br /><br />  Als u JsonLd opgeeft, bevat de antwoordtekst JSON-LD objecten met de lijst met zoekresultaten. Zie voor meer informatie over de JSON-LD [JSON-LD](http://json-ld.org/).|Reeks|Nee|  
-|<a name="safesearch" />safeSearch|Een filter dat wordt gebruikt voor het filteren van inhoud voor volwassenen. Hier volgen de mogelijke niet-hoofdlettergevoelige filterwaarden.<br /><ul><li>Uit&mdash;webpagina's met volwassen tekst, afbeeldingen of video's retourneren.<br /><br/></li><li>Gemiddeld&mdash;webpagina's met volwassen tekst, maar niet volwassen afbeeldingen of video's retourneren.<br /><br/></li><li>Strikte&mdash;webpagina's met volwassen tekst, afbeeldingen of video's niet retourneren.</li></ul><br /> De standaardwaarde is Moderate.<br /><br /> **OPMERKING:** Als de aanvraag afkomstig van een markt is van die Bing volwassenen beleid vereist dat `safeSearch` is ingesteld op strikt, Bing negeert de `safeSearch` waarde en maakt gebruik van strikt.<br/><br/>**OPMERKING:** Als u de `site:` query-operator, bestaat de kans dat het antwoord inhoud voor volwassen, ongeacht wat bevatten de `safeSearch` queryparameter is ingesteld op. Gebruik `site:` alleen als u zich bewust bent van de inhoud op de site en uw scenario de mogelijkheid van inhoud voor volwassenen ondersteunt. |Reeks|Nee|  
-|<a name="setlang" />setLang|De taal die moet worden gebruikt voor gebruikersinterfacetekenreeksen. Geef de taal op met behulp van de tweeletterige ISO 639-1 taalcode. De taalcode voor Nederlands is bijvoorbeeld NL. De standaardwaarde is EN (Engels).<br /><br /> Hoewel dit optioneel is, moet u altijd de taal opgeven. Doorgaans stelt u `setLang` in op dezelfde taal die is opgegeven door `mkt`, tenzij de gebruiker wil dat gebruikersinterfacetekenreeksen in een andere taal worden weergegeven.<br /><br /> Deze parameter en de header [Accept-Language](#acceptlanguage) sluiten elkaar uit&mdash;geef ze niet beide op.<br /><br /> Een gebruikersinterfacetekenreeks is een tekenreeks die wordt gebruikt als label in een gebruikersinterface. Er zijn maar weinig gebruikersinterfacetekenreeksen in de JSON-antwoordobjecten. De opgegeven taal wordt ook toegepast op koppelingen naar Bing.com-eigenschappen in de antwoordobjecten.|Reeks|Nee| 
+|<a name="mkt" />mkt|De markt waaruit de resultaten afkomstig zijn. <br /><br />Zie voor een lijst van mogelijke waarden van de markt, markt-Codes.<br /><br /> **OPMERKING:** De URL van Preview-API ondersteunt momenteel alleen en-us markt en taal.<br /><br />|String|Ja|  
+|<a name="query" />q|De URL om een voorbeeld van|String|Ja|  
+|<a name="responseformat" />responseFormat|Het mediatype dat als u wilt gebruiken voor het antwoord. De volgende zijn waarden mogelijk niet hoofdlettergevoelig.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> De standaardwaarde is JSON. Zie voor meer informatie over de JSON-objecten dat het antwoord bevat, [Antwoordobjecten](#response-objects).<br /><br />  Als u JsonLd opgeeft, bevat de antwoordtekst JSON-LD objecten met de lijst met zoekresultaten. Zie voor meer informatie over de JSON-LD [JSON-LD](http://json-ld.org/).|String|Nee|  
+|<a name="safesearch" />safeSearch|Een filter dat wordt gebruikt voor het filteren van inhoud voor volwassenen. Hier volgen de mogelijke niet-hoofdlettergevoelige filterwaarden.<br /><ul><li>Uit&mdash;webpagina's met volwassen tekst, afbeeldingen of video's retourneren.<br /><br/></li><li>Gemiddeld&mdash;webpagina's met volwassen tekst, maar niet volwassen afbeeldingen of video's retourneren.<br /><br/></li><li>Strikte&mdash;webpagina's met volwassen tekst, afbeeldingen of video's niet retourneren.</li></ul><br /> De standaardwaarde is Moderate.<br /><br /> **OPMERKING:** Als de aanvraag afkomstig van een markt is van die Bing volwassenen beleid vereist dat `safeSearch` is ingesteld op strikt, Bing negeert de `safeSearch` waarde en maakt gebruik van strikt.<br/><br/>**OPMERKING:** Als u de `site:` query-operator, bestaat de kans dat het antwoord inhoud voor volwassen, ongeacht wat bevatten de `safeSearch` queryparameter is ingesteld op. Gebruik `site:` alleen als u zich bewust bent van de inhoud op de site en uw scenario de mogelijkheid van inhoud voor volwassenen ondersteunt. |String|Nee|  
+|<a name="setlang" />setLang|De taal die moet worden gebruikt voor gebruikersinterfacetekenreeksen. Geef de taal op met behulp van de tweeletterige ISO 639-1 taalcode. De taalcode voor Nederlands is bijvoorbeeld NL. De standaardwaarde is EN (Engels).<br /><br /> Hoewel dit optioneel is, moet u altijd de taal opgeven. Doorgaans stelt u `setLang` in op dezelfde taal die is opgegeven door `mkt`, tenzij de gebruiker wil dat gebruikersinterfacetekenreeksen in een andere taal worden weergegeven.<br /><br /> Deze parameter en de header [Accept-Language](#acceptlanguage) sluiten elkaar uit&mdash;geef ze niet beide op.<br /><br /> Een gebruikersinterfacetekenreeks is een tekenreeks die wordt gebruikt als label in een gebruikersinterface. Er zijn maar weinig gebruikersinterfacetekenreeksen in de JSON-antwoordobjecten. De opgegeven taal wordt ook toegepast op koppelingen naar Bing.com-eigenschappen in de antwoordobjecten.|String|Nee| 
 
 
 ## <a name="response-objects"></a>Antwoordobjecten  
 Het antwoordschema is ofwel een [webpagina] of ErrorResponse, zoals in de webzoekopdrachten-API. Als de aanvraag mislukt, wordt het object op het hoogste niveau is het [ErrorResponse](#errorresponse) object.
 
 
-|Object|Beschrijving|  
+|Object|Description|  
 |------------|-----------------|  
 |[WebPage]|Bovenste niveau JSON-object met de kenmerken van de Preview-versie.|  
 |[Feit]|Bovenste niveau JSON-object dat gegevens bevat.| 
@@ -106,14 +106,14 @@ Het antwoordschema is ofwel een [webpagina] of ErrorResponse, zoals in de webzoe
 ### <a name="error"></a>Fout  
 Hiermee definieert u de fout is opgetreden.  
   
-|Element|Beschrijving|Type|  
+|Element|Description|Type|  
 |-------------|-----------------|----------|  
-|<a name="error-code" />code|De foutcode die aangeeft van de categorie van de fout. Zie voor een lijst van mogelijke codes, [foutcodes](#error-codes).|Reeks|  
-|<a name="error-message" />Bericht|Een beschrijving van de fout.|Reeks|  
-|<a name="error-moredetails" />moreDetails|Een beschrijving met aanvullende informatie over de fout.|Reeks|  
-|<a name="error-parameter" />parameter|De queryparameter in de aanvraag die de fout heeft veroorzaakt.|Reeks|  
-|<a name="error-subcode" />subCode|De foutcode die aangeeft van de fout. Bijvoorbeeld, als `code` InvalidRequest, is `subCode` mogelijk ParameterInvalid of ParameterInvalidValue. |Reeks|  
-|<a name="error-value" />Waarde|De queryparameter-waarde die niet geldig is.|Reeks|  
+|<a name="error-code" />code|De foutcode die aangeeft van de categorie van de fout. Zie voor een lijst van mogelijke codes, [foutcodes](#error-codes).|String|  
+|<a name="error-message" />Bericht|Een beschrijving van de fout.|String|  
+|<a name="error-moredetails" />moreDetails|Een beschrijving met aanvullende informatie over de fout.|String|  
+|<a name="error-parameter" />parameter|De queryparameter in de aanvraag die de fout heeft veroorzaakt.|String|  
+|<a name="error-subcode" />subCode|De foutcode die aangeeft van de fout. Bijvoorbeeld, als `code` InvalidRequest, is `subCode` mogelijk ParameterInvalid of ParameterInvalidValue. |String|  
+|<a name="error-value" />Waarde|De queryparameter-waarde die niet geldig is.|String|  
   
 
 ### <a name="errorresponse"></a>ErrorResponse  
@@ -121,7 +121,7 @@ Het object van het type op het hoogste niveau dat het antwoord bevat als de aanv
   
 |Name|Value|Type|  
 |----------|-----------|----------|  
-|_type|Type hint.|Reeks|  
+|_type|Type hint.|String|  
 |<a name="errors" />Fouten|Een lijst van fouten die worden beschreven van de redenen waarom de aanvraag is mislukt.|[Fout](#error)|  
 
   
@@ -131,8 +131,8 @@ Hiermee definieert u de licentie waaronder de tekst of foto's kan worden gebruik
   
 |Name|Value|Type|  
 |----------|-----------|----------|  
-|naam|De naam van de licentie.|Reeks|  
-|url|De URL naar een website waar de gebruiker meer informatie over de licentie krijgt.<br /><br /> De naam en URL gebruiken om een hyperlink te maken.|Reeks|  
+|naam|De naam van de licentie.|String|  
+|url|De URL naar een website waar de gebruiker meer informatie over de licentie krijgt.<br /><br /> De naam en URL gebruiken om een hyperlink te maken.|String|  
   
 
 ### <a name="licenseattribution"></a>LicenseAttribution  
@@ -140,11 +140,11 @@ Definieert een contractuele regel voor attribution license.
   
 |Name|Value|Type|  
 |----------|-----------|----------|  
-|_type|Een hint type is ingesteld op LicenseAttribution.|Reeks|  
+|_type|Een hint type is ingesteld op LicenseAttribution.|String|  
 |licentie|De licentie waaronder de inhoud kan worden gebruikt.|[Licentie](#license)|  
-|licenseNotice|De licentie om naast het betreffende veld weer te geven. Bijvoorbeeld: 'Tekst onder licentie CC door SA'.<br /><br /> Gebruik de naam van de licentie en de URL in de `license` veld om te maken van een hyperlink naar de website waaronder de details van de licentie worden beschreven. Vervang vervolgens de licentienaam van de in de `licenseNotice` tekenreeks (bijvoorbeeld, CC-van-SA) met de hyperlink die u zojuist hebt gemaakt.|Reeks|  
+|licenseNotice|De licentie om naast het betreffende veld weer te geven. Bijvoorbeeld: 'Tekst onder licentie CC door SA'.<br /><br /> Gebruik de naam van de licentie en de URL in de `license` veld om te maken van een hyperlink naar de website waaronder de details van de licentie worden beschreven. Vervang vervolgens de licentienaam van de in de `licenseNotice` tekenreeks (bijvoorbeeld, CC-van-SA) met de hyperlink die u zojuist hebt gemaakt.|String|  
 |mustBeCloseToContent|Een Booleaanse waarde waarmee wordt bepaald of de inhoud van de regel moeten worden geplaatst in de nabijheid van het veld dat de regel van toepassing op. Als **waar**, de inhoud moeten worden geplaatst in de nabijheid. Als **false**, of dit veld niet bestaat, wordt de inhoud van de oproepende functie goeddunken mag worden geplaatst.|Booleaans|  
-|targetPropertyName|De naam van het veld dat de regel van toepassing op.|Reeks|  
+|targetPropertyName|De naam van het veld dat de regel van toepassing op.|String|  
   
 
 ### <a name="link"></a>Koppeling  
@@ -152,9 +152,9 @@ Hiermee definieert u de onderdelen van een hyperlink.
   
 |Name|Value|Type|  
 |----------|-----------|----------|  
-|_type|Type hint.|Reeks|  
-|tekst|De tekst.|Reeks|  
-|url|EEN URL. Gebruik de URL en tekst voor het maken van een hyperlink weer te geven.|Reeks|  
+|_type|Type hint.|String|  
+|tekst|De tekst.|String|  
+|url|EEN URL. Gebruik de URL en tekst voor het maken van een hyperlink weer te geven.|String|  
   
 
 ### <a name="linkattribution"></a>LinkAttribution  
@@ -162,11 +162,11 @@ Definieert een contractuele regel voor koppeling attribution.
   
 |Name|Value|Type|  
 |----------|-----------|----------|  
-|_type|Een hint type is ingesteld op LinkAttribution.|Reeks|  
+|_type|Een hint type is ingesteld op LinkAttribution.|String|  
 |mustBeCloseToContent|Een Booleaanse waarde waarmee wordt bepaald of de inhoud van de regel moeten worden geplaatst in de nabijheid van het veld dat de regel van toepassing op. Als **waar**, de inhoud moeten worden geplaatst in de nabijheid. Als **false**, of dit veld niet bestaat, wordt de inhoud van de oproepende functie goeddunken mag worden geplaatst.|Booleaans|  
-|targetPropertyName|De naam van het veld dat de regel van toepassing op.<br /><br /> Als een doel niet opgegeven is, wordt de toekenning is van toepassing op de entiteit als geheel en direct na de presentatie van de entiteit moet worden weergegeven. Als er meerdere tekst en koppeling attribution-regels met een doel niet opgeeft, moet u ze samenvoegen en deze weer te geven met behulp van een ' gegevens in: "label. Bijvoorbeeld, "gegevens uit < provider name1\> &#124; < provider name2\>'.|Reeks|  
-|tekst|De tekst attribution.|Reeks|  
-|url|De URL naar de website van de provider. Gebruik `text` en de URL voor het maken van een hyperlink.|Reeks|  
+|targetPropertyName|De naam van het veld dat de regel van toepassing op.<br /><br /> Als een doel niet opgegeven is, wordt de toekenning is van toepassing op de entiteit als geheel en direct na de presentatie van de entiteit moet worden weergegeven. Als er meerdere tekst en koppeling attribution-regels met een doel niet opgeeft, moet u ze samenvoegen en deze weer te geven met behulp van een ' gegevens in: "label. Bijvoorbeeld, "gegevens uit < provider name1\> &#124; < provider name2\>'.|String|  
+|tekst|De tekst attribution.|String|  
+|url|De URL naar de website van de provider. Gebruik `text` en de URL voor het maken van een hyperlink.|String|  
   
   
 ### <a name="mediaattribution"></a>MediaAttribution  
@@ -174,10 +174,10 @@ Definieert een contractuele regel voor media attribution.
   
 |Name|Value|Type|  
 |----------|-----------|----------|  
-|_type|Een hint type is ingesteld op MediaAttribution.|Reeks|  
+|_type|Een hint type is ingesteld op MediaAttribution.|String|  
 |mustBeCloseToContent|Een Booleaanse waarde waarmee wordt bepaald of de inhoud van de regel moeten worden geplaatst in de nabijheid van het veld dat de regel van toepassing op. Als **waar**, de inhoud moeten worden geplaatst in de nabijheid. Als **false**, of dit veld niet bestaat, wordt de inhoud van de oproepende functie goeddunken mag worden geplaatst.|Booleaans|  
-|targetPropertyName|De naam van het veld dat de regel van toepassing op.|Reeks|  
-|url|De URL die u gebruiken voor het maken van een hyperlink van de media-inhoud. Als het doel een afbeelding is, zou u de URL gebruiken om de installatiekopie van het geklikt.|Reeks|  
+|targetPropertyName|De naam van het veld dat de regel van toepassing op.|String|  
+|url|De URL die u gebruiken voor het maken van een hyperlink van de media-inhoud. Als het doel een afbeelding is, zou u de URL gebruiken om de installatiekopie van het geklikt.|String|  
   
   
   
@@ -188,8 +188,8 @@ Houd er rekening mee dat de uitgever hun naam of de website of beide bieden kan.
   
 |Name|Value|Type|  
 |----------|-----------|----------|  
-|naam|Naam van de uitgever.|Reeks|  
-|url|De URL naar de website van de uitgever.<br /><br /> Houd er rekening mee dat de uitgever niet een website bieden mogelijk.|Reeks|  
+|naam|Naam van de uitgever.|String|  
+|url|De URL naar de website van de uitgever.<br /><br /> Houd er rekening mee dat de uitgever niet een website bieden mogelijk.|String|  
   
   
 
@@ -198,28 +198,28 @@ Informatie over definieert een de webpagina wordt weergegeven in de Preview-vers
   
 |Name|Value|Type|  
 |----------|-----------|----------|
-|naam|De titel van de pagina, niet per se de HTML-titel|Reeks|
-|url|De URL die daadwerkelijk is verkend (aanvraag kan hebt gevolgd omleidingen)|Reeks|  
-|description|Korte beschrijving van de pagina en de inhoud|Reeks|  
+|naam|De titel van de pagina, niet per se de HTML-titel|String|
+|url|De URL die daadwerkelijk is verkend (aanvraag kan hebt gevolgd omleidingen)|String|  
+|description|Korte beschrijving van de pagina en de inhoud|String|  
 |isFamilyFriendly|Meest nauwkeurige voor items in de web-index; realtime haalt doen deze detectie die uitsluitend zijn gebaseerd op de URL en niet op de pagina-inhoud|booleaans|
-|primaryImageOfPage/contentUrl|De URL naar een representatieve afbeelding wilt opnemen in de Preview-versie|Reeks| 
+|primaryImageOfPage/contentUrl|De URL naar een representatieve afbeelding wilt opnemen in de Preview-versie|String| 
   
   
 ### <a name="querycontext"></a>QueryContext  
 Hiermee definieert u de querycontext die Bing voor de aanvraag gebruikt.  
   
-|Element|Beschrijving|Type|  
+|Element|Description|Type|  
 |-------------|-----------------|----------|  
 |adultIntent|Een Booleaanse waarde die aangeeft of de opgegeven query volwassenen heeft. De waarde is **waar** als de query volwassenen heeft; anders **false**.|Booleaans|  
-|alterationOverrideQuery|De queryreeks gebruiken om af te dwingen van Bing voor het gebruik van de oorspronkelijke reeks. Bijvoorbeeld, als de query-tekenreeks is *saling downwind*, de query-tekenreeks voor het overschrijven is *+ saling downwind*. Vergeet niet om te coderen van de querytekenreeks die resulteert in *% 2Bsaling + downwind*.<br /><br /> Dit veld wordt alleen opgenomen als de oorspronkelijke querytekenreeks een fout spelling bevat.|Reeks|  
-|alteredQuery|De query-tekenreeks die wordt gebruikt door Bing voor het uitvoeren van de query. Bing maakt gebruik van de gewijzigde query-tekenreeks als de oorspronkelijke query-tekenreeks spelfouten opgenomen. Bijvoorbeeld, als de query-tekenreeks is `saling downwind`, worden de gewijzigde query-tekenreeks `sailing downwind`.<br /><br /> Dit veld wordt alleen opgenomen als de oorspronkelijke querytekenreeks een fout spelling bevat.|Reeks|  
+|alterationOverrideQuery|De queryreeks gebruiken om af te dwingen van Bing voor het gebruik van de oorspronkelijke reeks. Bijvoorbeeld, als de query-tekenreeks is *saling downwind*, de query-tekenreeks voor het overschrijven is *+ saling downwind*. Vergeet niet om te coderen van de querytekenreeks die resulteert in *% 2Bsaling + downwind*.<br /><br /> Dit veld wordt alleen opgenomen als de oorspronkelijke querytekenreeks een fout spelling bevat.|String|  
+|alteredQuery|De query-tekenreeks die wordt gebruikt door Bing voor het uitvoeren van de query. Bing maakt gebruik van de gewijzigde query-tekenreeks als de oorspronkelijke query-tekenreeks spelfouten opgenomen. Bijvoorbeeld, als de query-tekenreeks is `saling downwind`, worden de gewijzigde query-tekenreeks `sailing downwind`.<br /><br /> Dit veld wordt alleen opgenomen als de oorspronkelijke querytekenreeks een fout spelling bevat.|String|  
 |askUserForLocation|Een Booleaanse waarde die aangeeft of de locatie van de gebruiker om nauwkeurig resultaten te bieden voor Bing is vereist. Als u de locatie van de gebruiker met behulp van opgegeven de [X-MSEdge-client-IP](#clientip) en [X zoeklocatie](#location) headers, kunt u dit veld negeren.<br /><br /> Voor de locatie op de hoogte-query's, zoals "weerbericht van vandaag" of "restaurants in de buurt" die de locatie van de gebruiker voor nauwkeurige resultaten, moeten dit veld is ingesteld op **waar**.<br /><br /> Voor de locatie op de hoogte lidmaatschapregelquery's op met de locatie (bijvoorbeeld: "Seattle weer'), in dit veld is ingesteld op **false**. Dit veld ook is ingesteld op **false** voor query's die geen locatie op de hoogte, zoals 'beste verkopers'.|Booleaans|  
-|originalQuery|De query-tekenreeks die zijn opgegeven in de aanvraag.|Reeks|  
+|originalQuery|De query-tekenreeks die zijn opgegeven in de aanvraag.|String|  
 
 ### <a name="identifiable"></a>Identificeerbare
 |Name|Value|Type|  
 |-------------|-----------------|----------|
-|id|Een resource-id|Reeks|
+|id|Een resource-id|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Definieert een groep resultaten, zoals mainline.
@@ -232,7 +232,7 @@ Hiermee definieert u een item voor het resultaat van zoeken om weer te geven.
 |Name|Value|Type|  
 |-------------|-----------------|----------|
 |resultIndex|Een op nul gebaseerde index van het item in het antwoord om weer te geven. Als het item bevat geen dit veld, moet u alle items weergeven in het antwoord. Bijvoorbeeld, alle nieuwsartikelen weergegeven in het antwoord nieuws.|Geheel getal|
-|answerType|Het antwoord waarin het item om weer te geven. Bijvoorbeeld, nieuws.<br /><br />Gebruik het type in het antwoord vinden in het object SearchResponse. Het type is de naam van een veld SearchResponse.<br /><br /> Echter, het antwoordtype alleen gebruiken als dit object het waardeveld bevat. anders wordt deze negeren.|Reeks|
+|answerType|Het antwoord waarin het item om weer te geven. Bijvoorbeeld, nieuws.<br /><br />Gebruik het type in het antwoord vinden in het object SearchResponse. Het type is de naam van een veld SearchResponse.<br /><br /> Echter, het antwoordtype alleen gebruiken als dit object het waardeveld bevat. anders wordt deze negeren.|String|
 |textualIndex|De index van het antwoord in textualAnswers om weer te geven.| Geheel getal zonder teken|
 |waarde|De ID die u identificeert een antwoord om weer te geven of een item van het antwoord om weer te geven. Als de ID verwijst naar een antwoord, moet u alle items van het antwoord weergegeven.|Identificeerbare|
 
@@ -253,7 +253,7 @@ Houd er rekening mee dat als de service een denial of service-aanval vermoedt, d
   
 |Name|Value|Type|  
 |----------|-----------|----------|  
-|_type|Type-hint die is ingesteld op SearchResponse.|Reeks|  
+|_type|Type-hint die is ingesteld op SearchResponse.|String|  
 |WebPage|Een JSON-object dat de Preview-versie|string|  
   
   
@@ -262,15 +262,15 @@ Definieert een contractuele regel voor attribution tekst zonder opmaak.
   
 |Name|Value|Type|  
 |----------|-----------|----------|  
-|_type|Een hint type is ingesteld op TextAttribution.|Reeks|  
-|tekst|De tekst attribution.<br /><br /> Tekst attribution geldt voor de entiteit als geheel en direct na de presentatie van de entiteit moet worden weergegeven. Als er meerdere tekst of een koppeling attribution-regels met een doel niet opgeeft, moet u ze samenvoegen en deze weer te geven met behulp van een ' gegevens in: "label.|Reeks| 
+|_type|Een hint type is ingesteld op TextAttribution.|String|  
+|tekst|De tekst attribution.<br /><br /> Tekst attribution geldt voor de entiteit als geheel en direct na de presentatie van de entiteit moet worden weergegeven. Als er meerdere tekst of een koppeling attribution-regels met een doel niet opgeeft, moet u ze samenvoegen en deze weer te geven met behulp van een ' gegevens in: "label.|String| 
 
 
 ## <a name="error-codes"></a>Foutcodes
 
 Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.  
   
-|Statuscode|Beschrijving|  
+|Statuscode|Description|  
 |-----------------|-----------------|  
 |200|Geslaagd.|  
 |400|Een van de queryparameters is ontbreekt of is ongeldig.|  
@@ -310,7 +310,7 @@ Als de aanvraag mislukt, wordt het antwoord bevat een [ErrorResponse](#errorresp
 
 Hier volgen de mogelijke fout code en de onderliggende fout code-waarden.
 
-|Code|SubCode|Beschrijving
+|Code|SubCode|Description
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>Niet geïmplementeerd|HTTP-statuscode is 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Geblokkeerd|Bing retourneert InvalidRequest wanneer er een deel van de aanvraag niet geldig is. Bijvoorbeeld, een vereiste parameter ontbreekt of een parameterwaarde is niet geldig.<br/><br/>Als de fout ParameterMissing of ParameterInvalidValue is, is de HTTP-statuscode 400.<br/><br/>Als u het HTTP-protocol in plaats van HTTPS, Bing retourneert HttpNotAllowed en de HTTP-statuscode 410.

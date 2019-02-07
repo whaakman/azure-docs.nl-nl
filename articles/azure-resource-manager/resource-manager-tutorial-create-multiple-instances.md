@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b50609449d6144d2bb013d82e2eb29e94b5b01be
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 8541d66e106656f122809eec2cd547259f0ae4d7
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754115"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495958"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Zelfstudie: Meerdere resource-instanties maken met Resource Manager-sjablonen
 
@@ -33,15 +33,17 @@ Deze zelfstudie bestaat uit de volgende taken:
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Vereisten
 
 Als u dit artikel wilt voltooien, hebt u het volgende nodig:
 
 * [Visual Studio Code](https://code.visualstudio.com/) met de [extensie Resource Manager Tools](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
 
-## <a name="open-a-quickstart-template"></a>Een quickstartsjabloon openen
+## <a name="open-a-quickstart-template"></a>Een snelstartsjabloon openen
 
-[Azure-quickstartsjablonen](https://azure.microsoft.com/resources/templates/) is een opslagplaats voor Resource Manager-sjablonen. In plaats van een sjabloon helemaal vanaf de basis te maken, kunt u een voorbeeldsjabloon zoeken en aanpassen. De in deze quickstart gebruikte sjabloon wordt [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/) (Standaardopslagaccount maken) genoemd. De sjabloon definieert een Azure Storage-accountresource.
+[Azure-snelstartsjablonen](https://azure.microsoft.com/resources/templates/) is een opslagplaats voor Resource Manager-sjablonen. In plaats van een sjabloon helemaal vanaf de basis te maken, kunt u een voorbeeldsjabloon zoeken en aanpassen. De in deze snelstart gebruikte sjabloon wordt [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/) (Standaardopslagaccount maken) genoemd. De sjabloon definieert een Azure Storage-accountresource.
 
 1. Selecteer in Visual Studio Code **Bestand**>**Bestand openen**.
 2. Plak de volgende URL in **Bestandsnaam**:
@@ -118,7 +120,7 @@ Voor meer informatie over het maken van meerdere instanties raadpleegt u [Deploy
 
 ## <a name="deploy-the-template"></a>De sjabloon implementeren
 
-Raadpleeg de sectie [De sjabloon implementeren](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) in de quickstart van Visual Studio Code voor de implementatieprocedure.
+Raadpleeg de sectie [De sjabloon implementeren](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) in de snelstartgids van Visual Studio Code voor de implementatieprocedure.
 
 Als u alle drie de opslagaccounts wilt weergeven, laat u de parameter --name weg:
 
@@ -133,7 +135,7 @@ az storage account list --resource-group $resourceGroupName
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
-Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName
+Get-AzStorageAccount -ResourceGroupName $resourceGroupName
 ```
 
 ---

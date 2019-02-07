@@ -16,12 +16,12 @@ ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: d9ab89afba2b83f99bfbf432d033cd0546a25a9d
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 36699acab7a10a11ae60c62bab8e5130362ddfc7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247388"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817254"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack registreren bij Azure
 
@@ -126,7 +126,7 @@ Verbonden omgevingen kunnen toegang krijgen tot het internet en Azure. Voor deze
       Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
-   | Parameter | Beschrijving |  
+   | Parameter | Description |  
    |-----|-----|
    | EnvironmentName | De naam van de omgeving in de Azure-cloud-abonnement. Omgevingsnamen van de ondersteunde zijn **AzureCloud**, **AzureUSGovernment**, of als een Azure-abonnement van China **AzureChinaCloud**.  |
 
@@ -142,7 +142,7 @@ Verbonden omgevingen kunnen toegang krijgen tot het internet en Azure. Voor deze
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
-5. PowerShell ISE starten als beheerder en navigeer naar de **registratie** map in de **AzureStack-hulpprogramma's-master** directory gemaakt wanneer u [gedownload van de hulpprogramma's voor Azure Stack](#bkmk_tools). Importeren van de **RegisterWithAzure.psm1** module met behulp van PowerShell:
+5. PowerShell ISE starten als beheerder en navigeer naar de **registratie** map in de **AzureStack-hulpprogramma's-master** directory gemaakt wanneer u de hulpprogramma's voor Azure Stack hebt gedownload. Importeren van de **RegisterWithAzure.psm1** module met behulp van PowerShell:
 
    ```PowerShell  
    Import-Module .\RegisterWithAzure.psm1
@@ -154,7 +154,7 @@ Verbonden omgevingen kunnen toegang krijgen tot het internet en Azure. Voor deze
       Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
-   | Parameter | Beschrijving |  
+   | Parameter | Description |  
    |-----|-----|
    | EnvironmentName | De naam van de omgeving in de Azure-cloud-abonnement. Omgevingsnamen van de ondersteunde zijn **AzureCloud**, **AzureUSGovernment**, of als een Azure-abonnement van China **AzureChinaCloud**.  |
 
@@ -190,7 +190,7 @@ Verbonden omgevingen kunnen toegang krijgen tot het internet en Azure. Voor deze
       Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
-   | Parameter | Beschrijving |  
+   | Parameter | Description |  
    |-----|-----|
    | EnvironmentName | De naam van de omgeving in de Azure-cloud-abonnement. Omgevingsnamen van de ondersteunde zijn **AzureCloud**, **AzureUSGovernment**, of als een Azure-abonnement van China **AzureChinaCloud**.  |
 
@@ -206,7 +206,7 @@ Verbonden omgevingen kunnen toegang krijgen tot het internet en Azure. Voor deze
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
-5. PowerShell ISE starten als beheerder en navigeer naar de **registratie** map in de **AzureStack-hulpprogramma's-master** directory gemaakt wanneer u [gedownload van de hulpprogramma's voor Azure Stack](#bkmk_tools). Importeren van de **RegisterWithAzure.psm1** module met behulp van PowerShell:
+5. PowerShell ISE starten als beheerder en navigeer naar de **registratie** map in de **AzureStack-hulpprogramma's-master** directory gemaakt wanneer u de hulpprogramma's voor Azure Stack hebt gedownload. Importeren van de **RegisterWithAzure.psm1** module met behulp van PowerShell:
 
   ```PowerShell  
   $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -225,11 +225,11 @@ Verbonden omgevingen kunnen toegang krijgen tot het internet en Azure. Voor deze
 
 ## <a name="register-disconnected-with-capacity-billing"></a>Niet-verbonden met een capaciteit facturering registreren
 
-Als u Azure Stack in een omgeving zonder verbinding (met geen verbinding met internet) registreert, moet u een registratie-token ophalen uit de Azure Stack-omgeving en dat token vervolgens gebruiken op een computer die verbinding kan maken met Azure en heeft [PowerShell voor Azure Stack geïnstalleerd](#bkmk_powershell).  
+Als u Azure Stack in een omgeving zonder verbinding (met geen verbinding met internet) registreert, moet u een registratie-token ophalen uit de Azure Stack-omgeving en dat token vervolgens gebruiken op een computer die verbinding kan maken met Azure en PowerShell voor Azure Stack is geïnstalleerd.  
 
 ### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Registratie van een toegangstoken ophalen uit de Azure Stack-omgeving
 
-1. PowerShell ISE starten als beheerder en navigeer naar de **registratie** map in de **AzureStack-hulpprogramma's-master** directory gemaakt wanneer u [gedownload van de hulpprogramma's voor Azure Stack](#bkmk_tools). Importeren van de **RegisterWithAzure.psm1** module:  
+1. PowerShell ISE starten als beheerder en navigeer naar de **registratie** map in de **AzureStack-hulpprogramma's-master** directory gemaakt wanneer u de hulpprogramma's voor Azure Stack hebt gedownload. Importeren van de **RegisterWithAzure.psm1** module:  
 
    ```PowerShell  
    Import-Module .\RegisterWithAzure.psm1
@@ -445,18 +445,18 @@ Als u wilt de cmdlet uitvoert, hebt u het volgende nodig:
     <String>] [<CommonParameters>]
    ```
 
-| Parameter | Type | Beschrijving |
+| Parameter | Type | Description |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PrivilegedEndpointCredential | PSCredential | De referenties waarmee [toegang tot het eindpunt met bevoegde](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). De gebruikersnaam bevindt zich in de indeling **AzureStackDomain\CloudAdmin**. |
-| PrivilegedEndpoint | Reeks | Een vooraf geconfigureerde externe PowerShell-console waarmee u mogelijkheden, zoals logboekverzameling en andere post implementatietaken. Raadpleeg voor meer informatie, de [met behulp van het eindpunt van de bevoegde](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artikel. |
+| PrivilegedEndpoint | String | Een vooraf geconfigureerde externe PowerShell-console waarmee u mogelijkheden, zoals logboekverzameling en andere post implementatietaken. Raadpleeg voor meer informatie, de [met behulp van het eindpunt van de bevoegde](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artikel. |
 | AzureContext | PSObject |  |
-| ResourceGroupName | Reeks |  |
-| ResourceGroupLocation | Reeks |  |
-| BillingModel | Reeks | Het factureringsmodel die gebruikmaakt van uw abonnement. Toegestane waarden voor deze parameter zijn: Capaciteit, PayAsYouUse en ontwikkeling. |
+| ResourceGroupName | String |  |
+| ResourceGroupLocation | String |  |
+| BillingModel | String | Het factureringsmodel die gebruikmaakt van uw abonnement. Toegestane waarden voor deze parameter zijn: Capaciteit, PayAsYouUse en ontwikkeling. |
 | MarketplaceSyndicationEnabled | Waar/onwaar | Hiermee bepaalt u of de marketplace-management-functie beschikbaar in de portal is. Ingesteld op true als registreren met een internetverbinding. Ingesteld op ONWAAR als registreren in niet-omgeving verbonden. Voor niet-verbonden registraties de [offline syndication hulpprogramma](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) kan worden gebruikt voor het downloaden van items voor de marketplace. |
 | UsageReportingEnabled | Waar/onwaar | Azure Stack-standaard metrische gegevens over gebruik rapporten. Operators met een capaciteit gebruikt of ondersteunen van een niet-verbonden omgeving moet uitschakelen rapportage over het gebruik. Toegestane waarden voor deze parameter zijn: Waar, ONWAAR. |
-| AgreementNumber | Reeks |  |
-| registrationName | Reeks | Instellen van een unieke naam voor de inschrijving als u het script voor de registratie op meer dan één exemplaar van Azure Stack met behulp van de dezelfde Azure-abonnement-ID. De parameter heeft een standaardwaarde van **AzureStackRegistration**. Echter, als u dezelfde naam op meer dan één exemplaar van Azure Stack gebruikt, mislukt het script. |
+| AgreementNumber | String |  |
+| registrationName | String | Instellen van een unieke naam voor de inschrijving als u het script voor de registratie op meer dan één exemplaar van Azure Stack met behulp van de dezelfde Azure-abonnement-ID. De parameter heeft een standaardwaarde van **AzureStackRegistration**. Echter, als u dezelfde naam op meer dan één exemplaar van Azure Stack gebruikt, mislukt het script. |
 
 ### <a name="get-azsregistrationtoken"></a>Get-AzsRegistrationToken
 
@@ -467,17 +467,17 @@ Get-AzsRegistrationToken genereert een registratietoken van de invoerparameters.
     [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [-UsageReportingEnabled] [[-AgreementNumber] <String>]
     [<CommonParameters>]
 ```
-| Parameter | Type | Beschrijving |
+| Parameter | Type | Description |
 |-------------------------------|--------------|-------------|
 | PrivilegedEndpointCredential | PSCredential | De referenties waarmee [toegang tot het eindpunt met bevoegde](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). De gebruikersnaam bevindt zich in de indeling **AzureStackDomain\CloudAdmin**. |
-| PrivilegedEndpoint | Reeks |  Een vooraf geconfigureerde externe PowerShell-console waarmee u mogelijkheden, zoals logboekverzameling en andere post implementatietaken. Raadpleeg voor meer informatie, de [met behulp van het eindpunt van de bevoegde](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artikel. |
+| PrivilegedEndpoint | String |  Een vooraf geconfigureerde externe PowerShell-console waarmee u mogelijkheden, zoals logboekverzameling en andere post implementatietaken. Raadpleeg voor meer informatie, de [met behulp van het eindpunt van de bevoegde](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artikel. |
 | AzureContext | PSObject |  |
-| ResourceGroupName | Reeks |  |
-| ResourceGroupLocation | Reeks |  |
-| BillingModel | Reeks | Het factureringsmodel die gebruikmaakt van uw abonnement. Toegestane waarden voor deze parameter zijn: Capaciteit, PayAsYouUse en ontwikkeling. |
+| ResourceGroupName | String |  |
+| ResourceGroupLocation | String |  |
+| BillingModel | String | Het factureringsmodel die gebruikmaakt van uw abonnement. Toegestane waarden voor deze parameter zijn: Capaciteit, PayAsYouUse en ontwikkeling. |
 | MarketplaceSyndicationEnabled | Waar/onwaar |  |
 | UsageReportingEnabled | Waar/onwaar | Azure Stack-standaard metrische gegevens over gebruik rapporten. Operators met een capaciteit gebruikt of ondersteunen van een niet-verbonden omgeving moet uitschakelen rapportage over het gebruik. Toegestane waarden voor deze parameter zijn: Waar, ONWAAR. |
-| AgreementNumber | Reeks |  |
+| AgreementNumber | String |  |
 
 
 ## <a name="next-steps"></a>Volgende stappen

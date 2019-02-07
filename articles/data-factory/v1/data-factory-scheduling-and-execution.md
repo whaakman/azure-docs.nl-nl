@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: a70c3ddb624639411dbee961b1c4d59ac1277147
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 2d7fc45faf1fb77c7d9181e5a2419096dd1ad0f1
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016083"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817417"
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Data Factory plannen en uitvoeren
 > [!NOTE]
@@ -275,7 +275,7 @@ Beleid van invloed op het runtimegedrag van een activiteit, specifiek wanneer he
 | retry |Geheel getal<br/><br/>De maximale waarde is 10 |0 |Het aantal nieuwe pogingen voordat de verwerking van gegevens voor het segment is gemarkeerd als fout. De uitvoeringsomgeving van de activiteit van een gegevenssegment is opnieuw uitgevoerd tot het opgegeven aantal nieuwe pogingen. De nieuwe poging wordt gedaan zo snel mogelijk na de fout. |
 | timeout |TimeSpan |00:00:00 |Een time-out opgetreden voor de activiteit. Voorbeeld: 00:10:00 (impliceert time-out 10 minuten)<br/><br/>Als een waarde niet opgegeven is of is ingesteld op 0, wordt de time-out is oneindig.<br/><br/>Als de verwerkingstijd van de gegevens op een segment de time-outwaarde overschrijdt, wordt geannuleerd en het systeem probeert om opnieuw te proberen de verwerking. Het aantal nieuwe pogingen, is afhankelijk van de eigenschap opnieuw proberen. Wanneer een time-out optreedt, wordt de status is ingesteld op time-out. |
 | vertraging |TimeSpan |00:00:00 |Geef de vertraging voor gegevensverwerking van het segment wordt gestart.<br/><br/>De uitvoering van activiteit van een gegevenssegment wordt gestart nadat de vertraging de verwachte tijd voor uitvoering in het verleden is.<br/><br/>Voorbeeld: 00:10:00 (betekent vertraging van 10 minuten) |
-| longRetry |Geheel getal<br/><br/>De maximale waarde: 10 |1 |Het aantal pogingen lang voordat de segment-uitvoering is mislukt.<br/><br/>longRetry pogingen zijn door longRetryInterval verdeeld. Dus als u nodig hebt om op te geven van een tijd tussen nieuwe pogingen, longRetry gebruiken. Als zowel nieuwe pogingen als longRetry zijn opgegeven, elke poging longRetry bevat nieuwe pogingen en het maximale aantal pogingen wordt opnieuw geprobeerd * longRetry.<br/><br/>Bijvoorbeeld, als we de volgende instellingen hebben in de beleidsregels voor activiteiten:<br/>Opnieuw uitvoeren: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00 uur<br/><br/>Wordt ervan uitgegaan dat er wordt slechts één segment om uit te voeren (status is in afwachting van) en de activiteit is uitgevoerd elke keer mislukt. Er zou worden in eerste instantie 3 opeenvolgende uitvoeringspogingen. Na elke poging zou de segmentstatus opnieuw proberen. Nadat de eerste 3 pogingen staan, kan het de segmentstatus LongRetry zou zijn.<br/><br/>Na een uur (dat wil zeggen, de longRetryInteval waarde) wordt een andere set 3 opeenvolgende uitvoeringspogingen. Hierna zou het de segmentstatus mislukt en geen pogingen meer zou worden uitgevoerd. Daarom algemene 6 pogingen zijn gedaan.<br/><br/>Als een uitvoering is geslaagd, het de segmentstatus gereed zijn en geen pogingen meer worden geprobeerd.<br/><br/>longRetry kan worden gebruikt in situaties waarin afhankelijke gegevens binnenkomen op niet-deterministisch tijdstippen of de totale omgeving is flaky onder welke gegevensverwerking plaatsvindt. In dergelijke gevallen tijd nieuwe pogingen na elkaar niet kunt doen, en dit na een interval van resultaten in de gewenste uitvoer.<br/><br/>Waarschuwing: hoge waarde voor longRetry of longRetryInterval niet instelt. Normaal gesproken dat andere systematische problemen hoofdgeheugen worden bij hogere waarden. |
+| longRetry |Geheel getal<br/><br/>De maximale waarde: 10 |1 |Het aantal pogingen lang voordat de segment-uitvoering is mislukt.<br/><br/>longRetry pogingen zijn door longRetryInterval verdeeld. Dus als u nodig hebt om op te geven van een tijd tussen nieuwe pogingen, longRetry gebruiken. Als zowel nieuwe pogingen als longRetry zijn opgegeven, elke poging longRetry bevat nieuwe pogingen en het maximale aantal pogingen wordt opnieuw geprobeerd * longRetry.<br/><br/>Bijvoorbeeld, als we de volgende instellingen hebben in de beleidsregels voor activiteiten:<br/>Opnieuw uitvoeren: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Wordt ervan uitgegaan dat er wordt slechts één segment om uit te voeren (status is in afwachting van) en de activiteit is uitgevoerd elke keer mislukt. Er zou worden in eerste instantie 3 opeenvolgende uitvoeringspogingen. Na elke poging zou de segmentstatus opnieuw proberen. Nadat de eerste 3 pogingen staan, kan het de segmentstatus LongRetry zou zijn.<br/><br/>Na een uur (dat wil zeggen, de longRetryInteval waarde) wordt een andere set 3 opeenvolgende uitvoeringspogingen. Hierna zou het de segmentstatus mislukt en geen pogingen meer zou worden uitgevoerd. Daarom algemene 6 pogingen zijn gedaan.<br/><br/>Als een uitvoering is geslaagd, het de segmentstatus gereed zijn en geen pogingen meer worden geprobeerd.<br/><br/>longRetry kan worden gebruikt in situaties waarin afhankelijke gegevens binnenkomen op niet-deterministisch tijdstippen of de totale omgeving is flaky onder welke gegevensverwerking plaatsvindt. In dergelijke gevallen tijd nieuwe pogingen na elkaar niet kunt doen, en dit na een interval van resultaten in de gewenste uitvoer.<br/><br/>Waarschuwing: hoge waarde voor longRetry of longRetryInterval niet instelt. Normaal gesproken dat andere systematische problemen hoofdgeheugen worden bij hogere waarden. |
 | longRetryInterval |TimeSpan |00:00:00 |De vertraging tussen pogingen lang opnieuw proberen |
 
 Zie voor meer informatie, [pijplijnen](data-factory-create-pipelines.md) artikel. 
@@ -320,7 +320,7 @@ Zoals eerder vermeld, kunnen de activiteiten worden in andere pijplijnen. In een
 
 ![Koppelen van activiteiten in twee pijplijnen](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
 
-Zie de [kopiëren sequentieel](#copy-sequentially) sectie in de bijlage voor een voorbeeld.
+Zie de kopiëren sequentieel sectie in de bijlage voor een voorbeeld.
 
 ## <a name="model-datasets-with-different-frequencies"></a>Model gegevenssets met verschillende frequenties
 In de voorbeelden zijn de frequentie voor gegevenssets voor invoer en uitvoer en het venster van de planning activiteit hetzelfde. Sommige scenario's vereist de mogelijkheid om uitvoer met een frequentie anders dan de frequenties van een of meer invoerwaarden te produceren. Data Factory biedt ondersteuning voor deze scenario's modelleren.
@@ -606,7 +606,7 @@ Het is mogelijk meerdere kopieerbewerkingen na elkaar uitgevoerd op een manier o
 
 CopyActivity1
 
-Invoer: Gegevensset. Uitvoer: Dataset2.
+Invoer: Dataset. Uitvoer: Dataset2.
 
 CopyActivity2
 

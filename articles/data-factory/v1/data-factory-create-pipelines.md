@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fb0448e5ad5bd91c63c2fcde9887ec23544bed3f
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: f04903cc1ffd16edd951969c86659c8f1f33105f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331347"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814126"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pijplijnen en activiteiten in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -207,7 +207,7 @@ Houd rekening met de volgende punten:
 * De invoer voor de activiteit is ingesteld op **InputDataset** en de uitvoer voor de activiteit is ingesteld op **OutputDataset**. Zie het artikel [Gegevenssets](data-factory-create-datasets.md) voor informatie over het definiëren van gegevenssets in JSON.
 * In het gedeelte **typeProperties** is **BlobSource** opgegeven als het brontype en **SqlSink** als het sink-type. In de [activiteiten voor gegevensverplaatsing](#data-movement-activities) sectie, klikt u op het gegevensarchief dat u gebruiken als een bron of een sink wilt voor meer informatie over het verplaatsen van gegevens naar/van de betreffende gegevensarchief.
 
-Zie voor een volledige procedure voor het maken van deze pijplijn, [zelfstudie: Gegevens kopiëren van Blob Storage naar SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+Zie voor een volledige procedure voor het maken van deze pijplijn, [zelfstudie: Copy data from Blob storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Zelfstudie: gegevens kopiëren vanuit blobopslag naar SQL Database).
 
 ## <a name="sample-transformation-pipeline"></a>Voorbeeld van pijplijn voor transformatie
 De volgende voorbeeldpijplijn bevat een activiteit van het type **HDInsightHive** in de sectie **activities**. In dit voorbeeld transformeert de [HDInsight Hive-activiteit](data-factory-hive-activity.md) gegevens uit een Azure-blobopslag door een Hive-scriptbestand uit te voeren op een Azure HDInsight Hadoop-cluster.
@@ -307,7 +307,7 @@ Zodra een pijplijn gemaakt/geïmplementeerd is, kunt u deze kunt beheren en bewa
 - [Pijplijnen bewaken en beheren met behulp van de Monitor and Manage App gebruiken](data-factory-monitor-manage-app.md)
 
 ## <a name="onetime-pipeline"></a>Eenmalige pijplijn
-U kunt maken en plannen van een pijplijn periodiek wordt uitgevoerd (bijvoorbeeld: per uur of dagelijks) binnen de begin- en eindtijden die u in het pijplijndefinitie van de opgeeft. Zie [activiteiten taakplanning](#scheduling-and-execution) voor meer informatie. U kunt ook een pijplijn maken die wordt slechts één keer uitgevoerd. Om dit te doen, stelt u de **pipelineMode** eigenschap in de pijplijndefinitie **eenmalige** zoals wordt weergegeven in de volgende JSON-voorbeeld. De standaardwaarde voor deze eigenschap is **geplande**.
+U kunt maken en plannen van een pijplijn periodiek wordt uitgevoerd (bijvoorbeeld: per uur of dagelijks) binnen de begin- en eindtijden die u in het pijplijndefinitie van de opgeeft. Zie planning activiteiten voor meer informatie. U kunt ook een pijplijn maken die wordt slechts één keer uitgevoerd. Om dit te doen, stelt u de **pipelineMode** eigenschap in de pijplijndefinitie **eenmalige** zoals wordt weergegeven in de volgende JSON-voorbeeld. De standaardwaarde voor deze eigenschap is **geplande**.
 
 ```json
 {

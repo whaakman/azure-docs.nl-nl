@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1c6d5754af7455a4e4cf864062a1c29dd32c88b
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 40e519495b8a245f72e51167f5807f9c585cb344
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492841"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817543"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Met behulp van connectors met de Azure AD Connect Sync Service Manager
 
@@ -42,7 +42,7 @@ Het tabblad Connectors is gebruikt voor het beheren van alle systemen die de syn
 | Import-Connector |Gebruik geen. |
 | Connector bijwerken |Gebruik geen. |
 | Schema vernieuwen |Hiermee vernieuwt u het schema in de cache. Het is voorkeur aan in plaats daarvan gebruikt u de optie in de installatiewizard sinds die updates ook regels synchroniseren. |
-| [Connectorgebied zoeken](#search-connector-space) |Gebruikt om objecten te zoeken en zo de [gaat u als volgt een object en de bijbehorende gegevens via het systeem](#follow-an-object-and-its-data-through-the-system). |
+| [Connectorgebied zoeken](#search-connector-space) |Gebruikt om objecten te zoeken en te volgen van een object en de bijbehorende gegevens via het systeem. |
 
 ### <a name="delete"></a>Verwijderen
 De verwijderingsactie wordt gebruikt voor twee verschillende dingen.  

@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 7efb2a419b5efc69e734d190245247db3588868e
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 8689918bf33b0efdd9bbfabc6d3751672959c6bb
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846762"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753075"
 ---
 # <a name="tutorial-create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Zelfstudie: Een toepassingsgateway maken met SSL-beëindiging met behulp van de Azure CLI
 
@@ -55,7 +55,7 @@ Voer het wachtwoord voor het certificaat in. In dit voorbeeld wordt *Azure123456
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Maak een resourcegroep met de opdracht [az group create](/cli/azure/group#create).
+Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Maak een resourcegroep met de opdracht [az group create](/cli/azure/group).
 
 In het volgende voorbeeld wordt de resourcegroep *myResourceGroupAG* gemaakt op de locatie *eastus*.
 
@@ -65,7 +65,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Netwerkbronnen maken
 
-Maak het virtuele netwerk *myVNet* en het subnet *myAGSubnet* met [az network vnet create](/cli/azure/network/vnet#az-net). Vervolgens kunt u het subnet *myBackendSubnet*, dat voor de back-endservers vereist is, toevoegen met [az network vnet subnet create](/cli/azure/network/vnet/subnet). Maak het openbare IP-adres*myAGPublicIPAddress* met [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create).
+Maak het virtuele netwerk *myVNet* en het subnet *myAGSubnet* met [az network vnet create](/cli/azure/network/vnet). Vervolgens kunt u het subnet *myBackendSubnet*, dat voor de back-endservers vereist is, toevoegen met [az network vnet subnet create](/cli/azure/network/vnet/subnet). Maak het openbare IP-adres*myAGPublicIPAddress* met [az network public-ip create](/cli/azure/network/public-ip).
 
 ```azurecli-interactive
 az network vnet create \
@@ -89,7 +89,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>De toepassingsgateway maken
 
-U kunt [az network application-gateway create](/cli/azure/network/application-gateway#create) gebruiken om de toepassingsgateway te maken. Als u een toepassingsgateway met de Azure CLI maakt, geeft u configuratiegegevens op, zoals capaciteit, SKU en HTTP-instellingen. 
+U kunt [az network application-gateway create](/cli/azure/network/application-gateway) gebruiken om de toepassingsgateway te maken. Als u een toepassingsgateway met de Azure CLI maakt, geeft u configuratiegegevens op, zoals capaciteit, SKU en HTTP-instellingen. 
 
 De toepassingsgateway wordt toegewezen aan *myAGSubnet* en *myAGPublicIPAddress*, die u eerder hebt gemaakt. In dit voorbeeld koppelt u het certificaat dat u hebt gemaakt aan het wachtwoord als u de toepassingsgateway maakt. 
 
@@ -155,7 +155,7 @@ az vmss extension set \
 
 ## <a name="test-the-application-gateway"></a>De toepassingsgateway testen
 
-Gebruik [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show) om het openbare IP-adres van de toepassingsgateway op te halen.
+Gebruik [az network public-ip show](/cli/azure/network/public-ip) om het openbare IP-adres van de toepassingsgateway op te halen.
 
 ```azurecli-interactive
 az network public-ip show \

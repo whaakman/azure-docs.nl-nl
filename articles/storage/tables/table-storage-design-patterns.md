@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 3ba2009ef1ea8fdf5916baab296c7ff5eee953db
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 40062cfb2e646fd6befef1e746f9493f3e4b20f9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469189"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821355"
 ---
 # <a name="table-design-patterns"></a>Tabelontwerppatronen
 Dit artikel beschrijft enkele patronen die geschikt is voor gebruik met oplossingen voor tabel-service. Ook ziet u hoe u enkele van de problemen en wisselwerking besproken in de andere artikelen van tabel storage ontwerp nagenoeg kunt oplossen. Het volgende diagram geeft een overzicht van de relaties tussen de verschillende patronen:  
@@ -73,7 +73,7 @@ De volgende patronen en richtlijnen zijn mogelijk ook relevant bij de implementa
 
 * [Secundaire index tussen partitie-patroon](#inter-partition-secondary-index-pattern)
 * [Samengestelde sleutel patroon](#compound-key-pattern)
-* [Entiteit-groepstransacties](#entity-group-transactions)
+* Entiteit-groepstransacties
 * [Werken met heterogene Entiteitstypen](#working-with-heterogeneous-entity-types)
 
 ## <a name="inter-partition-secondary-index-pattern"></a>Secundaire index tussen partitie-patroon
@@ -128,7 +128,7 @@ De volgende patronen en richtlijnen zijn mogelijk ook relevant bij de implementa
 * [Uiteindelijk consistent transacties patroon](#eventually-consistent-transactions-pattern)  
 * [Intra-partitie secundaire index patroon](#intra-partition-secondary-index-pattern)  
 * [Samengestelde sleutel patroon](#compound-key-pattern)  
-* [Entiteit-groepstransacties](#entity-group-transactions)  
+* Entiteit-groepstransacties  
 * [Werken met heterogene Entiteitstypen](#working-with-heterogeneous-entity-types)  
 
 ## <a name="eventually-consistent-transactions-pattern"></a>Uiteindelijk consistent transacties patroon
@@ -172,7 +172,7 @@ Gebruik dit patroon wanneer u een garantie voor de uiteindelijke consistentie tu
 ### <a name="related-patterns-and-guidance"></a>Gerelateerde patronen en richtlijnen
 De volgende patronen en richtlijnen zijn mogelijk ook relevant bij de implementatie van dit patroon:  
 
-* [Entiteit-groepstransacties](#entity-group-transactions)  
+* Entiteit-groepstransacties  
 * [Samenvoegen of vervangen](#merge-or-replace)  
 
 > [!NOTE]
@@ -212,7 +212,7 @@ De **EmployeeIDs** eigenschap bevat een lijst van de werknemer-id's voor werknem
 De volgende stappen wordt beschreven hoe die u volgen moet wanneer u een nieuwe werknemer toevoegen wilt als u van de tweede optie gebruikmaakt. In dit voorbeeld voegen we een werknemer met Id 000152 en een achternaam Jones op de afdeling verkoop toe:  
 
 1. Ophalen van de entiteit index met een **PartitionKey** 'Verkoop'-waarde en de **RowKey** waarde "Jones". Sla de ETag van deze entiteit voor gebruik in stap 2.  
-2. Maken van een entiteit groep transactie (dat wil zeggen, een batchbewerking) die de nieuwe werknemer-entiteit kan worden ingevoegd (**PartitionKey** 'Verkoop'-waarde en **RowKey** '000152'-waarde), en werkt de index-entiteit (**PartitionKey** 'Verkoop'-waarde en **RowKey** "Jones" waarde) door de nieuwe werknemer-ID toe te voegen aan de lijst in het veld EmployeeIDs. Zie voor meer informatie over de entiteit-groepstransacties [entiteit-groepstransacties](#entity-group-transactions).  
+2. Maken van een entiteit groep transactie (dat wil zeggen, een batchbewerking) die de nieuwe werknemer-entiteit kan worden ingevoegd (**PartitionKey** 'Verkoop'-waarde en **RowKey** '000152'-waarde), en werkt de index-entiteit (**PartitionKey** 'Verkoop'-waarde en **RowKey** "Jones" waarde) door de nieuwe werknemer-ID toe te voegen aan de lijst in het veld EmployeeIDs. Zie voor meer informatie over de entiteit-groepstransacties entiteit-groepstransacties.  
 3. Als de entiteit groep transactie is mislukt vanwege een optimistische gelijktijdigheid-fout (iemand anders heeft alleen de entiteit index gewijzigd), moet u opnieuw beginnen bij stap 1.  
 
 U kunt een soortgelijke benadering als een werknemer verwijderen als u van de tweede optie gebruikmaakt gebruiken. Wijzigen van de achternaam van een werknemer is iets ingewikkelder omdat u moet voor het uitvoeren van een entiteit groep transactie die drie entiteiten worden bijgewerkt: de entiteit werknemer, de entiteit index voor de oude achternaam en de index-entiteit voor de nieuwe achternaam. Voordat u wijzigingen aanbrengt in om op te halen van de ETag-waarden die u vervolgens gebruiken kunt om uit te voeren van de updates met behulp van optimistische gelijktijdigheid, moet u elke entiteit ophalen.  
@@ -251,7 +251,7 @@ De volgende patronen en richtlijnen zijn mogelijk ook relevant bij de implementa
 
 * [Samengestelde sleutel patroon](#compound-key-pattern)  
 * [Uiteindelijk consistent transacties patroon](#eventually-consistent-transactions-pattern)  
-* [Entiteit-groepstransacties](#entity-group-transactions)  
+* Entiteit-groepstransacties  
 * [Werken met heterogene Entiteitstypen](#working-with-heterogeneous-entity-types)  
 
 ## <a name="denormalization-pattern"></a>Denormalisatie patroon
@@ -282,7 +282,7 @@ Gebruik dit patroon wanneer u vaak nodig hebt om te controleren of gerelateerde 
 De volgende patronen en richtlijnen zijn mogelijk ook relevant bij de implementatie van dit patroon:  
 
 * [Samengestelde sleutel patroon](#compound-key-pattern)  
-* [Entiteit-groepstransacties](#entity-group-transactions)  
+* Entiteit-groepstransacties  
 * [Werken met heterogene Entiteitstypen](#working-with-heterogeneous-entity-types)
 
 ## <a name="compound-key-pattern"></a>Samengestelde sleutel patroon
@@ -325,7 +325,7 @@ Gebruik dit patroon wanneer u nodig hebt voor het opslaan van een of meer entite
 ### <a name="related-patterns-and-guidance"></a>Gerelateerde patronen en richtlijnen
 De volgende patronen en richtlijnen zijn mogelijk ook relevant bij de implementatie van dit patroon:  
 
-* [Entiteit-groepstransacties](#entity-group-transactions)  
+* Entiteit-groepstransacties  
 * [Werken met heterogene Entiteitstypen](#working-with-heterogeneous-entity-types)  
 * [Uiteindelijk consistent transacties patroon](#eventually-consistent-transactions-pattern)  
 
@@ -394,7 +394,7 @@ Gebruik dit patroon wanneer er een groot aantal entiteiten die u op hetzelfde mo
 ### <a name="related-patterns-and-guidance"></a>Gerelateerde patronen en richtlijnen
 De volgende patronen en richtlijnen zijn mogelijk ook relevant bij de implementatie van dit patroon:  
 
-* [Entiteit-groepstransacties](#entity-group-transactions)
+* Entiteit-groepstransacties
 * [Entiteiten wijzigen](#modifying-entities)  
 
 ## <a name="data-series-pattern"></a>Patroon voor gegevens uit de serie
@@ -454,7 +454,7 @@ Gebruik dit patroon wanneer nodig voor het opslaan van entiteiten waarvan groott
 ### <a name="related-patterns-and-guidance"></a>Gerelateerde patronen en richtlijnen
 De volgende patronen en richtlijnen zijn mogelijk ook relevant bij de implementatie van dit patroon:  
 
-* [Entiteit-groepstransacties](#entity-group-transactions)
+* Entiteit-groepstransacties
 * [Samenvoegen of vervangen](#merge-or-replace)
 
 ## <a name="large-entities-pattern"></a>Patroon voor grote instanties
@@ -556,7 +556,7 @@ Houd rekening met de volgende punten bij het bepalen hoe gegevens worden opgesla
 In deze sectie worden enkele van de overwegingen op moet letten wanneer u de patronen die worden beschreven in de vorige secties implementeert beschreven. De meeste van deze sectie bevat voorbeelden die zijn geschreven in C# en die gebruikmaken van de Storage-clientbibliotheek (versie 4.3.0 op het moment van schrijven).  
 
 ## <a name="retrieving-entities"></a>Bij het ophalen van entiteiten
-Zoals beschreven in de sectie [ontwerp voor het uitvoeren van query's](#design-for-querying), de meest efficiënte query is een point-query. In sommige scenario's moet u mogelijk echter meerdere entiteiten ophalen. Deze sectie beschrijft enkele algemene strategieën voor het ophalen van entiteiten met behulp van de Storage-clientbibliotheek.  
+Zoals beschreven in de sectie ontwerp voor het uitvoeren van query's, is de meest efficiënte query een point-query. In sommige scenario's moet u mogelijk echter meerdere entiteiten ophalen. Deze sectie beschrijft enkele algemene strategieën voor het ophalen van entiteiten met behulp van de Storage-clientbibliotheek.  
 
 ### <a name="executing-a-point-query-using-the-storage-client-library"></a>Uitvoeren van een point-query met de Storage-clientbibliotheek
 De eenvoudigste manier om het uitvoeren van een point-query is met de **ophalen** bewerking tabel, zoals wordt weergegeven in het volgende C# codefragment die worden opgehaald van een entiteit met een **PartitionKey** van de waarde 'Verkoop' en een  **RowKey** van de waarde '212':  

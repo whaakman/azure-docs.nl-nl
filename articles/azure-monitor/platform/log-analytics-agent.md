@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: f68e2d9c303b6df0d4a2a355dd9d41ac1616be9f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 5af403b2d75a552719088daa17259f0771b77a94
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185967"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765672"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Verzamelen van logboekgegevens met de Azure Log Analytics-agent
 
-De agent van Azure Log Analytics (OMS), voorheen aangeduid als de Microsoft Monitoring Agent (MMA) of OMS-Linux-agent is ontwikkeld voor het beheer van uitgebreide in on-premises machines computers bewaakt door [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/), en virtuele machines in elke cloud. De Windows- en Linux-agents koppelen aan een werkruimte voor logboekanalyse voor het verzamelen van gegevens uit verschillende bronnen, evenals alle unieke Logboeken of metrische gegevens als gedefinieerd in een oplossing voor bewaking. 
+De Azure Log Analytics-agent, voorheen aangeduid als de Microsoft Monitoring Agent (MMA) of OMS-Linux-agent is ontwikkeld voor het beheer van uitgebreide in on-premises machines computers bewaakt door [System Center Operations Manager ](https://docs.microsoft.com/system-center/scom/), en virtuele machines in elke cloud. De Windows- en Linux-agents koppelen aan een werkruimte voor logboekanalyse voor het verzamelen van gegevens uit verschillende bronnen, evenals alle unieke Logboeken of metrische gegevens als gedefinieerd in een oplossing voor bewaking. 
 
 Dit artikel bevat een gedetailleerd overzicht van de agent, system en netwerkvereisten en de verschillende implementatiemethoden.   
 
@@ -41,7 +41,7 @@ De agent voor Linux en Windows wordt niet alleen voor het verbinden met Log Anal
 ## <a name="supported-windows-operating-systems"></a>Ondersteunde Windows-besturingssystemen
 De volgende versies van het Windows-besturingssysteem worden officieel ondersteund voor de Windows-agent:
 
-* Windows Server 2008 Service Pack 1 (SP1) of hoger
+* Windows Server 2008 R2 of hoger
 * Windows 7 SP1 en hoger.
 
 ## <a name="supported-linux-operating-systems"></a>Ondersteunde Linux-besturingssystemen

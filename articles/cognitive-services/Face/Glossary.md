@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 17167271df81914c76882fc4d06717043e1befc1
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 06c385b1ca43277b59c337646c41cae360ce48a5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214293"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816557"
 ---
 # <a name="glossary"></a>Woordenlijst
 
@@ -23,14 +23,14 @@ ms.locfileid: "55214293"
 
 #### <a name="attributes"></a>Kenmerken
 
-Kenmerken zijn optioneel in de [detectie](#Detection-Face-Detection) resultaten, zoals [leeftijd](#Age-Attribute), [geslacht](#Gender-Attribute), [head houding](#Head-Pose-Attribute), [gezichtshaar](#Facial-Hair-Attribute), [Glimlachende](#Smile-Attribute).
-Ze kunnen worden opgehaald van de [detectie](#Detection-Face-Detection) API door de queryparameters op te geven: returnFaceAttributes. Kenmerken voorzien van extra informatie met betrekking tot het geselecteerde [gezichten](#Face); naast de [face ID](#Face-ID) en de [rechthoek](#Face-Rectangle).
+Kenmerken optioneel maken in de resultaten zijn zoals [leeftijd](#Age-Attribute), [geslacht](#Gender-Attribute), [head houding](#Head-Pose-Attribute), [gezichtshaar](#Facial-Hair-Attribute), [Glimlachende ](#Smile-Attribute).
+Ze kunnen worden opgehaald van de API-detectie door de queryparameters op te geven: returnFaceAttributes. Kenmerken voorzien van extra informatie met betrekking tot het geselecteerde [gezichten](#Face); naast de [face ID](#Face-ID) en de [rechthoek](#Face-Rectangle).
 
 Raadpleeg voor meer informatie de handleiding [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### <a name="age-attribute"></a>Leeftijd (kenmerk)
 
-Leeftijd is een van de [kenmerken](#Attributes) met de beschrijving van de leeftijd van een bepaald gezicht. Het leeftijdkenmerk is optioneel in de [detectie](#Detection-Face-Detection) resulteert en kan worden beheerd met een [detectie](#Detection-Face-Detection) aanvraag door de parameter returnFaceAttributes op te geven.
+Leeftijd is een van de [kenmerken](#Attributes) met de beschrijving van de leeftijd van een bepaald gezicht. Het leeftijdkenmerk is optioneel in de detectieresultaten van en kan worden beheerd met een aanvraag voor detectie door de parameter returnFaceAttributes op te geven.
 
 Raadpleeg voor meer informatie de handleiding [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
@@ -64,13 +64,13 @@ Raadpleeg voor meer informatie de handleiding [geconfronteerd - detecteren](http
 
 #### <a name="face"></a>Face
 
-Face is een geïntegreerde term voor de resultaten die zijn afgeleid van de Face-API die zijn gerelateerd aan gedetecteerde gezichten. Uiteindelijk face wordt vertegenwoordigd door de identiteit van een uniforme ([Face ID](#Face-ID)), een bepaald gebied in afbeeldingen ([Gezichtsrechthoek](#Face-Rectangle)), en extra face gerelateerde [kenmerken](#Face-Attributes-Facial-Attributes), zoals [leeftijd](#Age-Attribute), [geslacht](#Gender-Attribute), [oriëntatiepunten](#Face-Landmarks-Facial-Landmarks) en [head houding](#Head-Pose-Attribute). Bovendien gezichten kunnen worden geretourneerd van [detectie](#Detection-Face-Detection).
+Face is een geïntegreerde term voor de resultaten die zijn afgeleid van de Face-API die zijn gerelateerd aan gedetecteerde gezichten. Uiteindelijk face wordt vertegenwoordigd door de identiteit van een uniforme ([Face ID](#Face-ID)), een bepaald gebied in afbeeldingen ([Gezichtsrechthoek](#Face-Rectangle)), en extra gerelateerde kenmerken, zoals [leeftijd](#Age-Attribute), [geslacht](#Gender-Attribute), monumenten en [head houding](#Head-Pose-Attribute). Bovendien kunnen gezichten worden geretourneerd van detectie.
 
 Raadpleeg voor meer informatie de handleiding [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### <a name="face-api"></a>Face-API
 
-Face-API is een cloud-gebaseerde API biedt de meest geavanceerde algoritmen voor gezichtsdetectie en herkenning. De belangrijkste functionaliteit van de Face-API kan worden onderverdeeld in twee categorieën: face [detectie](#Detection-Face-Detection) met [kenmerken](#Face-Attributes-Facial-Attributes), en face [erkenning](#Recognition).
+Face-API is een cloud-gebaseerde API biedt de meest geavanceerde algoritmen voor gezichtsdetectie en herkenning. De belangrijkste functionaliteit van de Face-API kan worden onderverdeeld in twee categorieën: gezichtsherkenning met kenmerken en face [erkenning](#Recognition).
 
 Raadpleeg de volgende handleidingen voor meer informatie: [Face-API-overzicht](./Overview.md), [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [geconfronteerd - Zoek vergelijkbare](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [geconfronteerd - groep](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238), [geconfronteerd - identificeren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [ Face: controleren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
@@ -80,13 +80,13 @@ Raadpleeg [kenmerken](#Attributes).
 
 #### <a name="face-id"></a>Gezichts-id
 
-Face ID is afgeleid van de [detectie](#Detection-Face-Detection) resultaten, waarin een tekenreeks vertegenwoordigt een [face](#Face) in [Face-API](#Face-API).
+Face ID is afgeleid van de resultaten, waarin een tekenreeks vertegenwoordigt een [face](#Face) in [Face-API](#Face-API).
 
 Raadpleeg voor meer informatie de handleiding [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### <a name="face-landmarksfacial-landmarks"></a>Oriëntatiepunten/videodetectie Gezichtsoriëntatiepunten
 
-Er zijn oriëntatiepunten optioneel in de [detectie](#Detection-Face-Detection) resultaten; semantische gezichtsherkenning punten, zoals de ogen, nose en mond vandaan te houden (zoals geïllustreerd in de volgende afbeelding). Oriëntatiepunten kunnen worden beheerd met een [detectie](#Detection-Face-Detection) aanvraag door de Booleaanse nummer returnFaceLandmarks. Als returnFaceLandmarks is ingesteld als waar, wordt de geretourneerde gezichten oriëntatiepunt kenmerken hebben.
+Er zijn oriëntatiepunten optioneel maken in de resultaten; semantische gezichtsherkenning punten, zoals de ogen, nose en mond vandaan te houden (zoals geïllustreerd in de volgende afbeelding) zijn. Oriëntatiepunten kunnen worden beheerd met een aanvraag voor detectie door de Booleaanse nummer returnFaceLandmarks. Als returnFaceLandmarks is ingesteld als waar, wordt de geretourneerde gezichten oriëntatiepunt kenmerken hebben.
 
 Raadpleeg voor meer informatie de handleiding [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
@@ -94,19 +94,19 @@ Raadpleeg voor meer informatie de handleiding [geconfronteerd - detecteren](http
 
 #### <a name="face-rectangle"></a>Gezichtsrechthoek
 
-Gezichtsrechthoek is afgeleid van de [detectie](#Detection-Face-Detection) resultaten, die een rechtop rechthoek (links, boven, breedte, hoogte) in afbeeldingen in pixels. De linkerbovenhoek van een [face](#Face) (links, top), naast de breedte en hoogte geeft aan dat de face-grootten in x en y-as respectievelijk.
+Gezichtsrechthoek is afgeleid van de resultaten die een rechtop rechthoek (links, boven, breedte, hoogte) is in de afbeeldingen in pixels. De linkerbovenhoek van een [face](#Face) (links, top), naast de breedte en hoogte geeft aan dat de face-grootten in x en y-as respectievelijk.
 
 Raadpleeg voor meer informatie de handleiding [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### <a name="facial-hair-attribute"></a>Gezichtshaar (kenmerk)
 
-Gezichtshaar is een van de [kenmerken](#Attributes) gebruikt om te beschrijven de gezichtshaar lengte van de beschikbare gezichten. Het kenmerk gezichtshaar is optioneel in de [detectie](#Detection-Face-Detection) resulteert en kan worden beheerd met een [detectie](#Detection-Face-Detection) aanvraag door returnFaceAttributes. Als returnFaceAttributes 'facialHair' bevat, wordt de geretourneerde gezichten gezichtshaar kenmerken hebben.
+Gezichtshaar is een van de [kenmerken](#Attributes) gebruikt om te beschrijven de gezichtshaar lengte van de beschikbare gezichten. Het kenmerk gezichtshaar in de detectieresultaten is optioneel en kan worden beheerd met een aanvraag voor detectie door returnFaceAttributes. Als returnFaceAttributes 'facialHair' bevat, wordt de geretourneerde gezichten gezichtshaar kenmerken hebben.
 
 Raadpleeg voor meer informatie de handleiding [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### <a name="facelist"></a>FaceList
 
-FaceList is een verzameling van [PersistedFace](#PersistedFace) en is de maateenheid [Zoek vergelijkbare](#Find-Similar). Een FaceList wordt geleverd met een [FaceList ID](#FaceList-ID), en andere kenmerken zoals [naam](#Name) en [gebruikersgegevens](#UserData-User-Data).
+FaceList is een verzameling van [PersistedFace](#PersistedFace) en is de maateenheid [Zoek vergelijkbare](#Find-Similar). Een FaceList wordt geleverd met een [FaceList ID](#FaceList-ID), en andere kenmerken, zoals naam en de gebruikersgegevens.
 
 Raadpleeg de volgende handleidingen voor meer informatie: [FaceList - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b), [FaceList - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c).
 
@@ -118,7 +118,7 @@ Raadpleeg de volgende handleidingen voor meer informatie: [FaceList - maken](htt
 
 #### <a name="find-similar"></a>Zoek vergelijkbare
 
-Deze API wordt gebruikt om zoekquery soortgelijke gezichten op basis van een verzameling van gezichten wordt uitgevoerd. Query gezichten en face verzamelingen worden weergegeven als [face id's](#Face-ID) of [FceList ID](#FaceList-ID)/[LargeFaceList ID](#LargeFaceList-ID) in de aanvraag. Geretourneerde resultaten zijn gezochte soortgelijke gezichten, vertegenwoordigd door [face id's](#Face-ID) of [PersistedFace-id's](#PersistedFace-ID).
+Deze API wordt gebruikt om zoekquery soortgelijke gezichten op basis van een verzameling van gezichten wordt uitgevoerd. Query gezichten en face verzamelingen worden weergegeven als [face id's](#Face-ID) of [FceList ID](#FaceList-ID)/[LargeFaceList ID](#LargeFaceList-ID) in de aanvraag. Geretourneerde resultaten zijn gezochte soortgelijke gezichten, vertegenwoordigd door [face id's](#Face-ID) of PersistedFace-id's.
 
 Raadpleeg de volgende handleidingen voor meer informatie: [Face - Zoek vergelijkbare](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [LargeFaceList - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [FaceList - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b).
 
@@ -126,7 +126,7 @@ Raadpleeg de volgende handleidingen voor meer informatie: [Face - Zoek vergelijk
 
 #### <a name="gender-attribute"></a>Geslacht (kenmerk)
 
-Geslacht is een van de [kenmerken](#Attributes) gebruikt om te beschrijven het geslacht van de beschikbare gezichten. Het kenmerk geslacht is optioneel in de [detectie](#Detection-Face-Detection) resulteert en kan worden beheerd met een [detectie](#Detection-Face-Detection) aanvraag door returnFaceAttributes. Als returnfaceAttributes 'geslacht' bevat, wordt de geretourneerde gezichten geslacht kenmerken hebben.
+Geslacht is een van de [kenmerken](#Attributes) gebruikt om te beschrijven het geslacht van de beschikbare gezichten. Het kenmerk geslacht is optioneel in de detectieresultaten van en kan worden beheerd met een aanvraag voor detectie door returnFaceAttributes. Als returnfaceAttributes 'geslacht' bevat, wordt de geretourneerde gezichten geslacht kenmerken hebben.
 
 Raadpleeg voor meer informatie de handleiding [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
@@ -146,7 +146,7 @@ Raadpleeg voor meer informatie de handleiding [geconfronteerd - groep](https://w
 
 #### <a name="head-pose-attribute"></a>Ga met zich meebrengen (kenmerk)
 
-HEAD houding is een van de [kenmerken](#Attributes) dat staat voor face-afdrukstand in 3D-ruimte op basis van rollen, inspiratie en plafondmontagemethoden hoeken, zoals wordt weergegeven in de volgende afbeelding. De waardebereiken van de rol en zijn [-180, 180] en [tussen-90 en, 90] yaw in graden. In de huidige versie, de presentatie-waarde geretourneerd van detectie is altijd 0. Het kenmerk head houding is optioneel in de [detectie](#Detection-Face-Detection) resulteert en kan worden beheerd met een [detectie](#Detection-Face-Detection) aanvraag door de parameter returnFaceAttributes. Als de parameter returnFaceAttributes bevat 'headPose', heeft de geretourneerde gezichten head kenmerken met zich meebrengen.
+HEAD houding is een van de [kenmerken](#Attributes) dat staat voor face-afdrukstand in 3D-ruimte op basis van rollen, inspiratie en plafondmontagemethoden hoeken, zoals wordt weergegeven in de volgende afbeelding. De waardebereiken van de rol en zijn [-180, 180] en [tussen-90 en, 90] yaw in graden. In de huidige versie, de presentatie-waarde geretourneerd van detectie is altijd 0. Het kenmerk head houding is optioneel in de detectieresultaten van en kan worden beheerd met een aanvraag voor detectie door de parameter returnFaceAttributes. Als de parameter returnFaceAttributes bevat 'headPose', heeft de geretourneerde gezichten head kenmerken met zich meebrengen.
 
 Raadpleeg voor meer informatie de handleiding [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
@@ -182,11 +182,11 @@ Raadpleeg voor meer informatie de handleiding [geconfronteerd: controleren](http
 
 #### <a name="landmarks"></a>Oriëntatiepunten
 
-Raadpleeg [geconfronteerd oriëntatiepunten](#Face-Landmarks-Facial-Landmarks).
+Raadpleeg gezichtsoriëntatiepunten.
 
 #### <a name="largefacelist"></a>LargeFaceList
 
-LargeFaceList is een verzameling van [PersistedFace](#PersistedFace) en is de maateenheid [Zoek vergelijkbare](#Find-Similar). Een LargeFaceList wordt geleverd met een [LargeFaceList ID](#LargeFaceList-ID), en andere kenmerken zoals [naam](#Name) en [gebruikersgegevens](#UserData-User-Data).
+LargeFaceList is een verzameling van [PersistedFace](#PersistedFace) en is de maateenheid [Zoek vergelijkbare](#Find-Similar). Een LargeFaceList wordt geleverd met een [LargeFaceList ID](#LargeFaceList-ID), en andere kenmerken, zoals naam en de gebruikersgegevens.
 
 Raadpleeg de volgende handleidingen voor meer informatie: [LargeFaceList - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [LargeFaceList - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce), [LargeFaceList - lijst Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158db4d2de3616c086f2d6).
 
@@ -198,7 +198,7 @@ Raadpleeg de volgende handleidingen voor meer informatie: [LargeFaceList - maken
 
 #### <a name="largepersongroup"></a>LargePersonGroup
 
-LargePersonGroup is een verzameling van [personen](#Person) en is de maateenheid [identificatie](#Identification). Een LargePersonGroup wordt geleverd met een [LargePersonGroup ID](#LargePersonGroup-ID), en andere kenmerken zoals [naam](#Name) en [gebruikersgegevens](#UserData-User-Data).
+LargePersonGroup is een verzameling van [personen](#Person) en is de maateenheid [identificatie](#Identification). Een LargePersonGroup wordt geleverd met een [LargePersonGroup ID](#LargePersonGroup-ID), en andere kenmerken, zoals naam en de gebruikersgegevens.
 
 Raadpleeg de volgende handleidingen voor meer informatie: [LargePersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e), [LargePersonGroup Person - List](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adda06ac60f11b48b5aa1).
 
@@ -236,7 +236,7 @@ Raadpleeg de volgende handleidingen voor meer informatie: [LargePersonGroup - Cr
 
 #### <a name="persistedface"></a>PersistedFace
 
-PersistedFace is een gegevensstructuur in Face-API. PersistedFace wordt geleverd met een [PersistedFace ID](#PersistedFace-ID), en andere kenmerken zoals [naam](#Name), en [gebruikersgegevens](#UserData-User-Data).
+PersistedFace is een gegevensstructuur in Face-API. PersistedFace wordt geleverd met een ID PersistedFace, evenals andere kenmerken, zoals naam en de gebruikersgegevens.
 
 Raadpleeg de volgende handleidingen voor meer informatie: [LargeFaceList - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [FaceList - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargePersonGroup persoon - toevoegen Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42), [PersonGroup persoon - toevoegen Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
 
@@ -248,7 +248,7 @@ Raadpleeg de volgende handleidingen voor meer informatie: [LargeFaceList - Face 
 
 #### <a name="person"></a>Person
 
-Persoon is een gegevensstructuur die worden beheerd in de Face-API. Persoon wordt geleverd met een [ID van de persoon](#Person-ID), en andere kenmerken zoals [naam](#Name), een verzameling van [PersistedFace](#PersistedFace), en [gebruikersgegevens](#UserData-User-Data).
+Persoon is een gegevensstructuur die worden beheerd in de Face-API. Persoon wordt geleverd met een [ID van de persoon](#Person-ID), en andere kenmerken, zoals naam, een verzameling van [PersistedFace](#PersistedFace), en de gebruikersgegevens.
 
 Raadpleeg de volgende handleidingen voor meer informatie: [LargePersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup Person - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0), [PersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [PersonGroup Person - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f).
 
@@ -260,7 +260,7 @@ Raadpleeg de volgende handleidingen voor meer informatie: [LargePersonGroup Pers
 
 #### <a name="persongroup"></a>PersonGroup
 
-PersonGroup is een verzameling van [personen](#Person) en is de maateenheid [identificatie](#Identification). Een PersonGroup wordt geleverd met een [PersonGroup ID](#PersonGroup-ID), en andere kenmerken zoals [naam](#Name) en [gebruikersgegevens](#UserData-User-Data).
+PersonGroup is een verzameling van [personen](#Person) en is de maateenheid [identificatie](#Identification). Een PersonGroup wordt geleverd met een [PersonGroup ID](#PersonGroup-ID), en andere kenmerken, zoals naam en de gebruikersgegevens.
 
 Raadpleeg de volgende handleidingen voor meer informatie: [PersonGroup - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246), [PersonGroup persoon - lijst](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395241).
 
@@ -290,19 +290,25 @@ Raadpleeg [gezichtsrechthoek](#Face-Rectangle).
 
 ## <a name="s"></a>S
 
-#### <a name="smile-attribute"></a>Lach (kenmerk)
-
-Glimlach is een van de [kenmerken](#Attributes) gebruikt om te beschrijven van de expressie glimlach van de beschikbare gezichten. Het kenmerk glimlach is optioneel in de [detectie](#Detection-Face-Detection) resulteert en kan worden beheerd met een [detectie](#Detection-Face-Detection) aanvraag door returnFaceAttributes. Als returnFaceAttributes bevat 'glimlach', wordt de geretourneerde gezichten glimlach kenmerken hebben.
-
-Raadpleeg voor meer informatie de handleiding [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
-
 #### <a name="similar-face-searching"></a>Vergelijkbare gezichten zoeken
 
 Raadpleeg [Zoek vergelijkbare](#Find-Similar).
 
+#### <a name="smile-attribute"></a>Lach (kenmerk)
+
+Glimlach is een van de [kenmerken](#Attributes) gebruikt om te beschrijven van de expressie glimlach van de beschikbare gezichten. Het glimlach-kenmerk in de detectieresultaten is optioneel en kan worden beheerd met een aanvraag voor detectie door returnFaceAttributes. Als returnFaceAttributes bevat 'glimlach', wordt de geretourneerde gezichten glimlach kenmerken hebben.
+
+Raadpleeg voor meer informatie de handleiding [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+
+#### <a name="snapshot"></a>Momentopname
+
+Een momentopname is een tijdelijke, externe opslag voor bepaalde gegevenstypen Face. Het fungeert als een soort Klembord te kopiëren van gegevens van één abonnement naar een andere. Eerst de gebruiker "" een momentopname van de gegevens in het bronabonnement en vervolgens deze 'toepassen' op een nieuw gegevensobject in het doelabonnement. 
+
+Zie voor meer informatie, [Face Migratiehandleiding](./face-api-how-to-topics/how-to-migrate-face-data.md) , evenals de [Snapshot - nemen](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot/take) en [Snapshot - toepassing](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot/apply) referentiedocumentatie (REST).
+
 #### <a name="status-train"></a>Status (Train)
 
-De status is een tekenreeks die wordt gebruikt om te beschrijven de procedure voor het [Training LargeFaceList/LargePersonGroups/PersonGroups](#Train), met inbegrip van notstarted, 'actief', 'geslaagd', 'is mislukt'.
+De status is een tekenreeks die wordt gebruikt om te beschrijven de procedure voor Training LargeFaceList/LargePersonGroups/PersonGroups, met inbegrip van notstarted, 'actief', 'geslaagd', 'is mislukt'.
 
 Raadpleeg voor meer informatie de handleiding [LargeFaceList - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158422d2de3616c086f2d1), [LargePersonGroup - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4), [PersonGroup - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249).
 
@@ -330,7 +336,7 @@ Raadpleeg de volgende handleidingen voor meer informatie: [LargePersonGroup - ma
 
 #### <a name="verification"></a>Verificatie
 
-Deze API wordt gebruikt om te controleren of twee gezichten hetzelfde of niet zijn. Beide gezichten worden weergegeven als id's in de aanvraag te maken krijgt. Geverifieerd resultaten bevatten een Boole-veld ([isIdentical](#Is-Identical)) waarmee wordt aangegeven hetzelfde als de waarde true en een numeriek veld ([vertrouwen](#Confidence)) die wijzen op het niveau van betrouwbaarheid.
+Deze API wordt gebruikt om te controleren of twee gezichten hetzelfde of niet zijn. Beide gezichten worden weergegeven als id's in de aanvraag te maken krijgt. Resultaten bevatten een Boole-veld (isIdentical) waarmee wordt aangegeven hetzelfde als de waarde true en een numeriek veld geverifieerd ([vertrouwen](#Confidence)) die wijzen op het niveau van betrouwbaarheid.
 
 Raadpleeg voor meer informatie de handleiding [geconfronteerd: controleren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 

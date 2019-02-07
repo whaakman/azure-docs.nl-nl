@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 3c3b7d73de9a0e7e72351687af16b98b11f9581b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4cf7c0cdd066879edccf7869ae3c8de0191f1d2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188488"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818869"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>De gebruikersinterface van uw toepassing met behulp van een aangepast beleid in Azure Active Directory B2C aanpassen
 
@@ -86,7 +86,7 @@ Voor het maken van een openbare container in Blob-opslag, het volgende doen:
 5. Klik op **$root** openen van de nieuwe container.
 6. Klik op **Uploaden**.
 7. Klik op het mappictogram naast **selecteert u een bestand**.
-8. Ga naar **aanpassen ui.html**, die u eerder hebt gemaakt in de [Page UI-aanpassing](#the-page-ui-customization-feature) sectie.
+8. Ga naar **aanpassen ui.html**, die u eerder hebt gemaakt in de sectie Page UI-aanpassing.
 9. Klik op **Uploaden**.
 10. Selecteer de aanpassen ui.html-blob die u hebt geüpload.
 11. Naast **URL**, klikt u op **kopie**.
@@ -167,7 +167,7 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 
 De map sample_templates/wingtip bevat de volgende HTML-bestanden:
 
-| HTML5-sjabloon | Beschrijving |
+| HTML5-sjabloon | Description |
 |----------------|-------------|
 | *phonefactor.html* | Dit bestand gebruiken als een sjabloon voor een multi-factor authentication-pagina. |
 | *resetpassword.html* | Dit bestand gebruiken als een sjabloon voor een pagina voor vergeten wachtwoorden. |
@@ -175,9 +175,9 @@ De map sample_templates/wingtip bevat de volgende HTML-bestanden:
 | *unified.html* | Dit bestand gebruiken als een sjabloon voor een uniforme pagina voor registreren of aanmelden. |
 | *updateprofile.html* | Dit bestand gebruiken als een sjabloon voor een update profielpagina. |
 
-In de [, wijzigt u de beleidssectie van uw aangepaste voor registreren of aanmelden](#modify-your-sign-up-or-sign-in-custom-policy), u hebt geconfigureerd dat de definitie van de inhoud voor `api.idpselections`. De volledige set met inhoud roldefinitie-id's die worden herkend door de Azure AD B2C identiteitservaring-framework en de bijbehorende beschrijvingen zijn in de volgende tabel:
+In de sectie van uw aangepaste beleid voor registreren of aanmelden wijzigen die u hebt geconfigureerd de definitie van de inhoud voor `api.idpselections`. De volledige set met inhoud roldefinitie-id's die worden herkend door de Azure AD B2C identiteitservaring-framework en de bijbehorende beschrijvingen zijn in de volgende tabel:
 
-| De definitie van de inhoud-ID | Beschrijving | 
+| De definitie van de inhoud-ID | Description | 
 |-----------------------|-------------|
 | *api.error* | **Foutpagina**. Deze pagina wordt weergegeven wanneer er een uitzondering of een fout is opgetreden. |
 | *api.idpselections* | **Pagina voor het id-provider selecteren**. Deze pagina bevat een lijst met id-providers die de gebruiker uit tijdens het aanmelden kiezen kan. Deze opties zijn enterprise id-providers, sociale id-providers, zoals Facebook en Google + of lokale accounts. |

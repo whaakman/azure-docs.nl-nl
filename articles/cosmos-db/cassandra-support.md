@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: a68d290bc21a8cdc36d5c85f770752ad67a4e91e
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 57127f3a87d8ec3077c0e2f5f6e16f536931e97f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330752"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756849"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Door Azure Cosmos DB Cassandra API ondersteunde Apache Cassandra-functies 
 
@@ -161,7 +161,6 @@ Azure Cosmos DB Cassandra-API biedt een keuze aan consistentie voor leesbewerkin
 Azure Cosmos DB biedt op rollen gebaseerd toegangsbeheer (RBAC), wachtwoorden voor lezen/schrijven en wachtwoorden met het kenmerk alleen-lezen die kunnen worden verkregen via [Azure Portal](https://portal.azure.com). Azure Cosmos DB biedt nog geen ondersteuning voor gebruikers en rollen voor gegevensvlakactiviteiten. 
 
 ## <a name="planned-support"></a>Geplande ondersteuning 
-* Tijdstempel en TTL samen gebruiken  
 * De naam van de regio in de opdracht create keyspace wordt momenteel genegeerd: de distributie van gegevens wordt geïmplementeerd in onderliggend Cosmos DB-platform en de gegevens worden beschikbaar gesteld via de portal of powershell voor het account. 
 
 

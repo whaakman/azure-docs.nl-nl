@@ -14,12 +14,12 @@ ms.date: 01/19/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: fbca9eb3703777c0d20998e65bf446b5951c5091
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 8e63b9854d9491ed2cbb2107c93237526a7f1ba8
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745398"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766938"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>API-versieprofielen met Go in Azure Stack gebruiken
 
@@ -86,7 +86,7 @@ Als u wilt een voorbeeld van Go-code uitvoeren in Azure Stack, de volgende stapp
 
 3. Als niet beschikbaar is, maakt u een abonnement en opslaan van de abonnements-ID moet later worden gebruikt. Zie voor meer informatie over het maken van een abonnement [abonnementen voor aanbiedingen maken in Azure Stack](../azure-stack-subscribe-plan-provision-vm.md).
 
-4. Een service-principal met maken **abonnement** bereik en **eigenaar** rol. De service-principal-ID en geheim opslaan. Zie voor meer informatie over het maken van een service-principal voor Azure Stack [service-principal maken](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad). Uw Azure Stack-omgeving is nu ingesteld.
+4. Een service-principal met maken **abonnement** bereik en **eigenaar** rol. De service-principal-ID en geheim opslaan. Zie voor meer informatie over het maken van een service-principal voor Azure Stack [service-principal maken](azure-stack-create-service-principals.md). Uw Azure Stack-omgeving is nu ingesteld.
 
 5. Een servicemodule importeren van het profiel voor Go SDK in uw code. De huidige versie van Azure Stack-profiel is **2017-03-09**. Bijvoorbeeld, voor het importeren van de module op basis van netwerk **2017-03-09** profieltype, gebruikt u de volgende code:
 

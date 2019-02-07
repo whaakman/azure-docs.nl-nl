@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/05/2019
-ms.openlocfilehash: 29997b2ff7d3834a91389790256cd0d075ce1ece
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 09f1bdfa4c9a7a179bddf9473b553924bfb58fb7
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744905"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768559"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics preview-functies
 
@@ -30,14 +30,6 @@ Azure Stream Analytics biedt ondersteuning voor Azure SQL Database als een bron 
 ### <a name="integration-with-azure-machine-learning"></a>Integratie met Azure Machine Learning
 
 Stream Analytics-taken met Machine Learning (ML)-functies, kunt u schalen. Voor meer informatie over hoe u ML-functies in uw Stream Analytics-taak gebruiken kunt, gaat u naar [schalen van uw Stream Analytics-taak met Azure Machine Learning-functies](stream-analytics-scale-with-machine-learning-functions.md). Bekijk een Praktijkscenario met [uitvoeren van sentimentanalyses met behulp van Azure Stream Analytics en Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
-
-### <a name="blob-output-partitioning-by-custom-time"></a>BLOB-uitvoer partitionering met aangepaste tijd
-
-Azure Stream Analytics kunnen worden uitgevoerd naar blob-opslag op basis van aangepaste kenmerken. Ga voor meer informatie naar [blob partitioneren van uitvoer-Azure Stream Analytics aangepaste](stream-analytics-custom-path-patterns-blob-storage-output.md).
-
-### <a name="blob-output-partitioning-by-field-or-attribute"></a>BLOB-uitvoer partitionering met veld of kenmerk
-
-Azure Stream Analytics kunnen worden uitgevoerd naar blob-opslag op basis van aangepaste velden of kenmerken. Ga voor meer informatie naar [blob partitioneren van uitvoer-Azure Stream Analytics aangepaste](stream-analytics-custom-path-patterns-blob-storage-output.md).
 
 ### <a name="javascript-user-defined-aggregate"></a>De gebruiker gedefinieerde aggregatie JavaScript
 

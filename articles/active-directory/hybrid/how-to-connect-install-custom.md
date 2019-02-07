@@ -15,19 +15,19 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: be72c7fa81bffdcd8864a501264dd36fa697d18e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: fb451ab3a28ecca42fc05edad14cd513c4fe1f68
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55489084"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820484"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Custom installation of Azure AD Connect (Engelstalig)
 Voor meer opties voor de installatie gaat u naar **Aangepaste instellingen**. Deze instellingen gebruikt u wanneer u meerdere forests hebt of als u optionele functies wilt configureren die niet in de snelle installatie voorkomen. De aangepaste instellingen worden gebruikt in alle gevallen waarin de optie [**snelle installatie**](how-to-connect-install-express.md) niet aan uw implementatie of topologie voldoet.
 
 Zorg ervoor dat u, voordat u begint met de installatie van Azure AD Connect, [Azure AD Connect downloadt](https://go.microsoft.com/fwlink/?LinkId=615771) en de vereiste stappen uitvoert in [Azure AD Connect: Hardware en vereisten](how-to-connect-install-prerequisites.md). Zorg er ook voor dat de benodigde accounts beschikbaar zijn, zoals beschreven in [Azure AD Connect accounts and permissions](reference-connect-accounts-permissions.md).
 
-Als de aangepaste instellingen niet met uw topologie overeenkomen, bijvoorbeeld om DirSync te upgraden, bekijk dan de [verwante documentatie](#related-documentation) voor andere scenario's.
+Als u aangepaste instellingen komt niet overeen met uw topologie, bijvoorbeeld om te upgraden van DirSync, ziet u gerelateerde documentatie voor andere scenario's.
 
 ## <a name="custom-settings-installation-of-azure-ad-connect"></a>Installatie van Azure AD Connect met aangepaste instellingen
 ### <a name="express-settings"></a>Snelle instellingen

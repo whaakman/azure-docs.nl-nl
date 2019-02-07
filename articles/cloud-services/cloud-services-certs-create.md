@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 9cf37e611dce5705a4c866f25afa59e5c1602ec4
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: b2e87b2855ac1d76fe2ad544c17c33bfa14f635a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282200"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812375"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Overzicht van certificaten voor Azure Cloud Services
-Certificaten worden gebruikt in Azure cloud Services ([service-certificaten](#what-are-service-certificates)) en om te verifiëren bij de beheer-API ([beheercertificaten](#what-are-management-certificates)). In dit onderwerp biedt een algemeen overzicht van beide typen certificaten hoe naar [maken](#create) en [implementeren](#deploy) ze naar Azure.
+Certificaten worden gebruikt in Azure cloud Services ([service-certificaten](#what-are-service-certificates)) en om te verifiëren bij de beheer-API ([beheercertificaten](#what-are-management-certificates)). In dit onderwerp biedt een algemeen overzicht van beide typen certificaten hoe naar [maken](#create) en deze implementeren naar Azure.
 
 Certificaten die worden gebruikt in Azure zijn x.509 v3-certificaten en kunnen worden ondertekend door een andere vertrouwde certificaat of ze zijn zelf-ondertekend. Een zelfondertekend certificaat is ondertekend door de maker van een eigen, dus deze wordt niet vertrouwd standaard. De meeste browsers kunnen dit probleem te negeren. U moet alleen zelfondertekende certificaten bij het ontwikkelen en testen van uw cloudservices gebruiken. 
 
@@ -88,7 +88,7 @@ Als u wilt gebruiken dit [certificaat met de beheerportal](../azure-api-manageme
 Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 ```
 
-### <a name="internet-information-services-iis"></a>Internet informatieservices (IIS)
+### <a name="internet-information-services-iis"></a>Internet Information Services (IIS)
 Er zijn veel pagina's op het internet die betrekking hebben op hoe u dit doet met IIS. [Hier](https://www.sslshopper.com/article-how-to-create-a-self-signed-certificate-in-iis-7.html) is een geweldige ik dat ik denk dat het wordt ook uitgelegd gevonden. 
 
 ### <a name="linux"></a>Linux

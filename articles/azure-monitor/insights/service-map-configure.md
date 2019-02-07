@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2019
 ms.author: bwren
-ms.openlocfilehash: 8457334e00f7c8dfbaee75a12d6bb71b760e60d9
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 60c43475fc044b0847e5d9bd495c0d53b562114e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696990"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822698"
 ---
 # <a name="configure-service-map-in-azure"></a>Serviceoverzicht configureren in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. U kunt deze gebruiken om weer te geven van uw servers beschouwen zoals u ze--onderling verbonden systemen die kritieke services verlenen. Servicetoewijzing toont verbindingen tussen servers, processen en poorten in alle via TCP verbonden architectuur zonder configuratie vereist, dan een agent geïnstalleerd.
@@ -134,8 +134,8 @@ Serviceoverzicht worden de gegevens uit de agent voor Microsoft Dependency opgeh
 
 | Verbonden bron | Ondersteund | Description |
 |:--|:--|:--|
-| Windows-agents | Ja | Serviceoverzicht analyseert en verzamelt gegevens van Windows-computers. <br><br>Naast de [Log Analytics-agent voor Windows](../../azure-monitor/platform/log-analytics-agent.md), Windows-agents moeten de agent voor Microsoft Dependency. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
-| Linux-agents | Ja | Serviceoverzicht analyseert en verzamelt gegevens van Linux-computers. <br><br>Naast de [Log Analytics-agent voor Linux](../../azure-monitor/platform/log-analytics-agent.md), Linux-agents moeten de agent voor Microsoft Dependency. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
+| Windows-agents | Ja | Serviceoverzicht analyseert en verzamelt gegevens van Windows-computers. <br><br>Naast de [Log Analytics-agent voor Windows](../../azure-monitor/platform/log-analytics-agent.md), Windows-agents moeten de agent voor Microsoft Dependency. Zie de ondersteunde besturingssystemen voor een volledige lijst met versies van besturingssystemen. |
+| Linux-agents | Ja | Serviceoverzicht analyseert en verzamelt gegevens van Linux-computers. <br><br>Naast de [Log Analytics-agent voor Linux](../../azure-monitor/platform/log-analytics-agent.md), Linux-agents moeten de agent voor Microsoft Dependency. Zie de ondersteunde besturingssystemen voor een volledige lijst met versies van besturingssystemen. |
 | Beheergroep System Center Operations Manager | Ja | Serviceoverzicht analyseert en verzamelt gegevens van Windows en Linux-agents in een verbonden [System Center Operations Manager-beheergroep](../../azure-monitor/platform/om-agents.md). <br><br>Er is een directe verbinding van de System Center Operations Manager-agentcomputer naar Log Analytics vereist. |
 | Azure Storage-account | Nee | Serviceoverzicht verzamelt gegevens van agentcomputers, dus er zijn geen gegevens te verzamelen over Azure Storage. |
 

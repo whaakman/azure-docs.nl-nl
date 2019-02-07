@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 85c9eeb60027ba44fd5e65d056864aa76a6e720a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 412bf66902f156c6c8720a720973f97d1d7b1d8f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900881"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751613"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Zelfstudie: Gegevens kopiëren naar Azure Data Box-blobopslag via REST API's  
 
@@ -154,7 +154,7 @@ De eerste stap is het maken van een container, omdat blobs altijd naar een conta
 
    ![Het contextmenu Blobcontainers maken](media/data-box-deploy-copy-data-via-rest/create-blob-container-1.png)
 
-4. Onder de map **Blobcontainers** wordt een tekstvak weergegeven. Voer een naam in voor de blobcontainer. Zie [De container maken en machtigingen instellen](../storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) voor informatie over regels en beperkingen voor namen van blobcontainers.
+4. Onder de map **Blobcontainers** wordt een tekstvak weergegeven. Voer een naam in voor de blobcontainer. Zie [De container maken en machtigingen instellen](../storage/blobs/storage-quickstart-blobs-dotnet.md) voor informatie over regels en beperkingen voor namen van blobcontainers.
 5. Druk op **Enter** om de blobcontainer te maken of op **Esc** om te annuleren. Als de blobcontainer is gemaakt, wordt deze weergegeven in de map **Blobcontainers** voor het geselecteerde opslagaccount.
 
    ![Gemaakte blobcontainer](media/data-box-deploy-copy-data-via-rest/create-blob-container-2.png)

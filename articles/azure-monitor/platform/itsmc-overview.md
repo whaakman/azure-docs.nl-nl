@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: cd27a4d43333674ec1928fbd873e873afe84d26d
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: f0d3641800d8ec2f9fd403b006e81af04444c143
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262877"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813123"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Azure verbinden met ITSM-hulpprogramma's met behulp van IT Service Management-Connector
 
@@ -44,7 +44,7 @@ Met ITSMC, kunt u het volgende doen:
 U kunt starten met behulp van de ITSM-Connector met behulp van de volgende stappen uit:
 
 1.  [De ITSM-Connector-oplossing toevoegen](#adding-the-it-service-management-connector-solution)
-2.  [Maak een ITSM-verbinding](#creating-an-itsm-connection)
+2.  Maak een ITSM-verbinding
 3.  [De verbinding gebruiken](#using-the-solution)
 
 
@@ -178,7 +178,7 @@ De volgende informatie ziet u voorbeelden van gegevens die worden verzameld door
 **Werkitem:** **Incidenten**  
 ServiceDeskWorkItemType_s="Incident"
 
-**Velden**
+**Fields**
 
 - ServiceDeskConnectionName
 - Servicedesk-id
@@ -206,7 +206,7 @@ ServiceDeskWorkItemType_s="Incident"
 
 ServiceDeskWorkItemType_s="ChangeRequest"
 
-**Velden**
+**Fields**
 - ServiceDeskConnectionName
 - Servicedesk-id
 - Gemaakt door

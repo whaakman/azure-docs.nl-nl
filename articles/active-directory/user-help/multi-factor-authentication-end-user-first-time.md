@@ -13,12 +13,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
-ms.openlocfilehash: 6a5a2fee11d785c7513b6c1d1e66bd8b80d80292
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 9fd7a3c03c72a63f4163f85ac41248e200397206
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749709"
+ms.locfileid: "55770717"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Mijn account voor verificatie in twee stappen instellen
 Verificatie in twee stappen is een extra beveiligingsstap waarmee de beveiliging van uw account door waardoor het moeilijker is voor anderen in breken. Als u dit artikel leest, hebt u waarschijnlijk een e-mailbericht van uw werk- of schoolaccount-beheerder over multi-factor Authentication. Of misschien heeft geprobeerd aan te melden bij en krijg een bericht waarin u wordt gevraagd voor het instellen van aanvullende beveiligingsverificatie. Als dat het geval is, **u niet aanmelden totdat het proces van automatische inschrijving is voltooid**.
@@ -106,4 +106,4 @@ Volg deze stappen als u een account handmatig toevoegen aan de mobiele app wilt,
 ## <a name="next-steps"></a>Volgende stappen
 * Wijzig de gewenste opties en [uw instellingen beheren voor verificatie in twee stappen](multi-factor-authentication-end-user-manage-settings.md)
 * Instellen van [app-wachtwoorden](multi-factor-authentication-end-user-app-passwords.md) voor systeemeigen apparaat-apps die verificatie in twee stappen niet ondersteunen.
-* Bekijk de [Microsoft Authenticator-app](microsoft-authenticator-app-how-to.md) voor een snelle, veilige authenticatie, zelfs als u geen service van de cel.
+* Bekijk de [Microsoft Authenticator-app](user-help-auth-app-download-install.md) voor een snelle, veilige authenticatie, zelfs als u geen service van de cel.

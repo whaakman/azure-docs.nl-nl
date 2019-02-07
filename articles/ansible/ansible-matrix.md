@@ -1,6 +1,6 @@
 ---
-title: Ansible-module en versie matrix voor Azure
-description: Ansible-module en versie matrix voor Azure
+title: Overzicht met Ansible-modules en -versies voor Azure
+description: Overzicht met Ansible-modules en -versies voor Azure
 ms.service: ansible
 keywords: ansible, rollen, matrix, versie, azure, devops
 author: tomarchermsft
@@ -8,20 +8,20 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 09/22/2018
 ms.topic: article
-ms.openlocfilehash: 5265b6f6ebf779c83792ab2569c1b613d11070da
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 149f37d0231ecc0547e8dc7937d22a9cc38b7df3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051523"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810215"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Ansible-module en versie matrix
 
 ## <a name="ansible-modules-for-azure"></a>Ansible-modules voor Azure
-Ansible wordt geleverd met een aantal modules die kunnen worden uitgevoerd op externe hosts rechtstreeks of via playbooks.
+Ansible wordt geleverd met een aantal modules dat direct op externe hosts of via playbooks kan worden uitgevoerd.
 In dit artikel geeft een lijst van de Ansible-modules voor Azure die Azure-cloud-resources zoals VM-, netwerk- en containerservices kunt inrichten. U kunt deze modules ophalen van de officiële release van Ansible of van de volgende playbook-rollen dat is uitgegeven door Microsoft.
 
-| Ansible-module voor Azure                   |  Ansible 2.4 |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | [Ansible-rol](#introduction-to-azurepreviewmodule) | 
+| Ansible-module voor Azure                   |  Ansible 2.4 |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | Ansible-rol | 
 |---------------------------------------------|--------------|--------------|-----------------------------|-------------------------------------|-------------------------------------| 
 | **Compute**                    |           |                          |                          |                            |                                | 
 | azure_rm_availabilityset                    | Ja          | Ja                         | Ja          | Ja          | Ja                                 | 

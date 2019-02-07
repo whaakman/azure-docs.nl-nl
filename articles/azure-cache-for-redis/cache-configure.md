@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: 8a78823a208a5310e62714de7b1a3cd2e35eaa8f
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 67cc7d0dc162f2b36e38f1068f46079f46120f1c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104672"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819838"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Azure Cache voor Redis configureren
 Dit onderwerp beschrijft de configuraties die beschikbaar zijn voor uw Azure-Cache voor instanties van Redis. Dit onderwerp bevat ook de Redis-server standaardconfiguratie voor Azure Cache voor instanties van Redis.
@@ -55,9 +55,9 @@ U kunt bekijken en configureren van de volgende instellingen met behulp van de *
     * [Virtueel netwerk](#virtual-network)
     * [Firewall](#firewall)
     * [Eigenschappen](#properties)
-    * [Hiermee vergrendelt u](#locks)
+    * [Locks](#locks)
     * [Automatiseringsscript](#automation-script)
-* [Beheer](#administration)
+* Beheer
     * [Gegevens importeren](#importexport)
     * [Gegevens exporteren](#importexport)
     * [Opnieuw opstarten](#reboot)
@@ -65,7 +65,7 @@ U kunt bekijken en configureren van de volgende instellingen met behulp van de *
     * [Metrische redis-gegevens](#redis-metrics)
     * [Waarschuwingsregels](#alert-rules)
     * [Diagnostics](#diagnostics)
-* [Ondersteuning en probleemoplossing van instellingen](#support-amp-troubleshooting-settings)
+* Ondersteuning en probleemoplossing van instellingen
     * [Resourcestatus](#resource-health)
     * [Nieuwe ondersteuningsaanvraag](#new-support-request)
 
@@ -107,7 +107,7 @@ De **instellingen** sectie kunt u toegang tot en configureer de volgende instell
 * [Virtueel netwerk](#virtual-network)
 * [Firewall](#firewall)
 * [Eigenschappen](#properties)
-* [Hiermee vergrendelt u](#locks)
+* [Locks](#locks)
 * [Automatiseringsscript](#automation-script)
 
 
@@ -464,7 +464,7 @@ Zie voor meer informatie over databases [wat zijn Redis-databases?](cache-faq.md
 > * BGREWRITEAOF
 > * BGSAVE
 > * CONFIGURATIE
-> * FOUTEN OPSPOREN
+> * DEBUG
 > * MIGREREN
 > * OPSLAAN
 > * AFSLUITEN

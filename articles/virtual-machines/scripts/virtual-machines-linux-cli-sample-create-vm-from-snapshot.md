@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: db0aa1781c3e35b68a59082cf7a1760f7e9a34b4
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 33f21786b1af4d169d184487a030b7e4ea321327
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239567"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694530"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-cli"></a>Een virtuele machine maken van een momentopname met CLI
 
@@ -49,9 +49,9 @@ In dit script worden de volgende opdrachten gebruikt voor het maken van een behe
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_show) | Hiermee haalt u een momentopname op door de naam van de momentopname en de naam van de resourcegroep op te geven. De id van het geretourneerde object wordt gebruikt voor het maken van een beheerde schijf.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Hiermee maakt u beheerde schijven vanuit een momentopname met behulp van de id van een momentopname, de schijfnaam, het opslagtype en de grootte.  |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Hiermee maakt u een virtuele machine die gebruikmaakt van een beheerde besturingssysteemschijf. |
+| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot) | Hiermee haalt u een momentopname op door de naam van de momentopname en de naam van de resourcegroep op te geven. De id van het geretourneerde object wordt gebruikt voor het maken van een beheerde schijf.  |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk) | Hiermee maakt u beheerde schijven vanuit een momentopname met behulp van de id van een momentopname, de schijfnaam, het opslagtype en de grootte.  |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Hiermee maakt u een virtuele machine die gebruikmaakt van een beheerde besturingssysteemschijf. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

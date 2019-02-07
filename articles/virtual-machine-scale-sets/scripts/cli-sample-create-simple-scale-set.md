@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 06ce83695181968e54592a09b93ce084b55294bf
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 7327468722f4f3b0fc7048bc8afcdb757df50bc7
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888852"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695622"
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Een virtuele-machineschaalset maken met Azure CLI
 Met dit script maakt u in Azure een virtuele-machineschaalset met het besturingssysteem Ubuntu en bijbehorende netwerkresources, inclusief een load balancer. Nadat het script is uitgevoerd, hebt u via SSH toegang tot de virtuele machine.
@@ -47,7 +47,7 @@ In dit script worden de volgende opdrachten gebruikt voor het maken van een reso
 |---|---|
 | [az group create](/cli/azure/ad/group) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
 | [az vmss create](/cli/azure/vmss) | Hiermee maakt u de virtuele machine en verbindt u deze met het virtuele netwerk, het subnet en de netwerkbeveiligingsgroep. Om het verkeer te distribueren naar de verschillende VM-exemplaren, wordt er ook een load balancer gemaakt. Met deze opdracht geeft u ook de VM-installatiekopie op die moet worden gebruikt, samen met beheerdersreferenties.  |
-| [az group delete](/cli/azure/ad/group#delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
+| [az group delete](/cli/azure/ad/group) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
 Raadpleeg de [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview) voor meer informatie over de Azure CLI.

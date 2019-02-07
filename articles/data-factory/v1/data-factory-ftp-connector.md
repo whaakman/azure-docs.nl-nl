@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: adca66b46fad1220b49af327797cc4f91d216091
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 20f1d8ca67a38a9dc262845d87b77e2bc3fc9fb7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564660"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810577"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Gegevens verplaatsen van een FTP-server met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -155,7 +155,7 @@ De **typeProperties** sectie verschilt voor elk type gegevensset. Het bevat info
 
 | Eigenschap | Description | Vereist |
 | --- | --- | --- |
-| folderPath |Subpad naar de map. Gebruik van escape-teken ' \ ' voor speciale tekens in de tekenreeks. Zie [voorbeeld gekoppelde service en de gegevensset definities](#sample-linked-service-and-dataset-definitions) voor voorbeelden.<br/><br/>U kunt deze eigenschap combineren met **partitionBy** mappaden op basis van het segment de status begin en einde en tijden. |Ja |
+| folderPath |Subpad naar de map. Gebruik van escape-teken ' \ ' voor speciale tekens in de tekenreeks. Zie voorbeeld gekoppelde service en de gegevensset definities voor voorbeelden.<br/><br/>U kunt deze eigenschap combineren met **partitionBy** mappaden op basis van het segment de status begin en einde en tijden. |Ja |
 | fileName |Geef de naam van het bestand in de **folderPath** als u wilt dat de tabel om te verwijzen naar een specifiek bestand in de map. Als u een waarde voor deze eigenschap niet opgeeft, wordt de tabel verwijst naar alle bestanden in de map.<br/><br/>Wanneer **fileName** niet is opgegeven voor een uitvoergegevensset, de naam van het gegenereerde bestand bevindt zich in de volgende indeling: <br/><br/>De gegevens. <Guid>.txt (voorbeeld: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Nee |
 | fileFilter |Geef een filter op dat moet worden gebruikt voor het selecteren van een subset van de bestanden in de **folderPath**, in plaats van alle bestanden.<br/><br/>Toegestane waarden zijn: `*` (meerdere tekens) en `?` (Eén teken).<br/><br/>Voorbeeld 1: `"fileFilter": "*.log"`<br/>Voorbeeld 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** is van toepassing voor een invoergegevensset van de bestandsshare. Deze eigenschap wordt niet ondersteund met Hadoop Distributed File System (HDFS). |Nee |
 | partitionedBy |Hiermee geeft u een dynamisch **folderPath** en **fileName** voor time series-gegevens. Bijvoorbeeld, kunt u een **folderPath** die voor elk uur gegevens met parameters. |Nee |

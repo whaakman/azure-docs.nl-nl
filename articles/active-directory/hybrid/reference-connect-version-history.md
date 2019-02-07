@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/18/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: bf21b03463733f6613cfa515a6faf7c5ab1f33e8
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: caff4973515d3866b94dba2e89d089ff042de43b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498128"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813242"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Releasegeschiedenis van versie
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen gelden voor alle doelgroepen.
@@ -36,6 +36,9 @@ Stappen voor het upgraden van Azure AD Connect | Verschillende methoden voor [ee
 Vereiste machtigingen | Zie voor de vereiste machtigingen voor een update toepast, [accounts en machtigingen](reference-connect-accounts-permissions.md#upgrade).
 
 Downloaden | [Azure AD Connect downloaden](https://go.microsoft.com/fwlink/?LinkId=615771).
+
+>[!NOTE]
+>Niet alle versies van Azure AD Connect wordt beschikbaar gesteld voor automatische upgrade. De status van de release wordt aangegeven of een release voor automatische upgrade of voor download beschikbaar is gemaakt. Als u automatisch bijwerken is ingeschakeld op uw Azure AD Connect-server bijwerken die server automatisch naar de nieuwste versie van Azure AD Connect die voor automatische upgrade wordt vrijgegeven. Houd er rekening mee dat niet alle Azure AD Connect-configuraties die in aanmerking komen voor automatische upgrade zijn. Volg deze koppeling voor meer informatie over [Automatische upgrade](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
 ## <a name="12700"></a>1.2.70.0
 
@@ -341,10 +344,10 @@ Toestaan    | Domeinadministrators                 | Volledig beheer         | D
 Toestaan    | Beheerders                | Volledig beheer         | Dit object  |
 Toestaan    | Enterprise-domeincontrollers | Inhoud weergeven        | Dit object  |
 Toestaan    | Enterprise-domeincontrollers | Alle eigenschappen lezen  | Dit object  |
-Toestaan    | Enterprise-domeincontrollers | Machtigingen lezen     | Dit object  |
+Toestaan    | Enterprise-domeincontrollers | De machtiging lezen     | Dit object  |
 Toestaan    | Geverifieerde gebruikers           | Inhoud weergeven        | Dit object  |
 Toestaan    | Geverifieerde gebruikers           | Alle eigenschappen lezen  | Dit object  |
-Toestaan    | Geverifieerde gebruikers           | Machtigingen lezen     | Dit object  |
+Toestaan    | Geverifieerde gebruikers           | De machtiging lezen     | Dit object  |
 
 Om de instellingen voor de AD DS account dat u kunt uitvoeren [dit PowerShell-script](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). Het PowerShell-script worden de machtigingen zoals hierboven wordt vermeld op het AD DS-account toewijzen.
 

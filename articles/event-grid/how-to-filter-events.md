@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: spelluru
-ms.openlocfilehash: fa7deb8a1ef536ef0c2b7fbb0a184a950821aebf
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 95a0d1b8afba71f6c8226dfe1ad5268d9e6f24e1
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54477333"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816914"
 ---
 # <a name="filter-events-for-event-grid"></a>Gebeurtenissen filteren op Event Grid
 
@@ -20,7 +20,7 @@ In dit artikel laat zien hoe filteren van gebeurtenissen bij het maken van een E
 
 ## <a name="filter-by-event-type"></a>Filteren op gebeurtenistype
 
-Bij het maken van een Event Grid-abonnement, kunt u aangeven welke [gebeurtenistypen](event-schema.md) om naar het eindpunt te verzenden. De voorbeelden in deze sectie gebeurtenisabonnementen voor een resourcegroep maken, maar beperken van de gebeurtenissen die worden verzonden naar `Microsoft.Resources.ResourceWriteFailure` en `Microsoft.Resources.ResourceWriteSuccess`. Als u meer flexibiliteit bij het filteren van gebeurtenissen op gebeurtenistypen, Zie [filteren op geavanceerde operators en velden](#filter-by-advanced-operators-and-data-fields).
+Bij het maken van een Event Grid-abonnement, kunt u aangeven welke [gebeurtenistypen](event-schema.md) om naar het eindpunt te verzenden. De voorbeelden in deze sectie gebeurtenisabonnementen voor een resourcegroep maken, maar beperken van de gebeurtenissen die worden verzonden naar `Microsoft.Resources.ResourceWriteFailure` en `Microsoft.Resources.ResourceWriteSuccess`. Als u meer flexibiliteit nodig hebt bij het filteren van gebeurtenissen op gebeurtenistypen, ziet u filteren op geavanceerde operators en velden.
 
 Gebruik voor PowerShell de `-IncludedEventType` parameter bij het maken van het abonnement.
 
@@ -77,7 +77,7 @@ Voor een Resource Manager-sjabloon, gebruikt u de `includedEventTypes` eigenscha
 
 ## <a name="filter-by-subject"></a>Filteren op onderwerp
 
-U kunt gebeurtenissen filteren op het onderwerp in de gebeurtenisgegevens. U kunt een waarde voor het begin of einde van de certificaathouder opgeven. Als u meer flexibiliteit bij het filteren van gebeurtenissen op onderwerp, Zie [filteren op geavanceerde operators en velden](#filter-by-advanced-operators-and-data-fields).
+U kunt gebeurtenissen filteren op het onderwerp in de gebeurtenisgegevens. U kunt een waarde voor het begin of einde van de certificaathouder opgeven. Als u meer flexibiliteit nodig hebt bij het filteren van gebeurtenissen op onderwerp, raadpleegt u filteren op geavanceerde operators en velden.
 
 In de volgende PowerShell-voorbeeld maakt u een gebeurtenisabonnement waarmee gefilterd door het begin van het onderwerp. U gebruikt de `-SubjectBeginsWith` parameter gebeurtenissen voor een specifieke resource te beperken. U kunt doorgeven de resource-ID van een netwerkbeveiligingsgroep.
 

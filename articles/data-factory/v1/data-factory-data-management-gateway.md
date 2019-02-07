@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 728adae62677eb2edb1e203df9b0d9f11f6acecf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 101385b23d8ea683dc5762d491e6a4bef91bbed4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022305"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813757"
 ---
 # <a name="data-management-gateway"></a>Gegevensbeheergateway
 > [!NOTE]
@@ -246,7 +246,7 @@ Als u een firewall van derden gebruikt, kunt u handmatig de poort 8050 openen. A
 
     msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-Als u niet de poort 8050 op de gatewaycomputer openen, gebruikt u mechanismen dan met behulp van de **instelling referenties** toepassing voor het configureren van de referenties van de gegevensopslag. U kunt bijvoorbeeld [New-AzureRmDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) PowerShell-cmdlet. Zie [instelling referenties en beveiliging](#set-credentials-and-securityy) sectie over hoe de referenties voor het opslaan van gegevens kan worden ingesteld.
+Als u niet de poort 8050 op de gatewaycomputer openen, gebruikt u mechanismen dan met behulp van de **instelling referenties** toepassing voor het configureren van de referenties van de gegevensopslag. U kunt bijvoorbeeld [New-AzureRmDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) PowerShell-cmdlet. Zie de sectie over de instelling referenties en beveiliging op hoe de referenties voor het opslaan van gegevens kan worden ingesteld.
 
 ## <a name="update"></a>Update
 Gegevensbeheergateway wordt standaard automatisch bijgewerkt wanneer een nieuwere versie van de gateway beschikbaar is. De gateway is niet bijgewerkt totdat alle geplande taken worden uitgevoerd. Er zijn geen taken meer worden verwerkt door de gateway, totdat de updatebewerking is voltooid. Als de update is mislukt, is gateway teruggedraaid naar de oude versie.
@@ -362,7 +362,7 @@ De volgende tabel bevat beschrijvingen van de kolommen in de **Gatewayknooppunte
 Bewaking van eigenschap | Description
 :------------------ | :---------- 
 Name | De naam van de logische-gateway en de knooppunten die zijn gekoppeld aan de gateway. Knooppunt is een on-premises Windows-computer waarop de gateway is geïnstalleerd. Zie voor meer informatie over meer dan één knooppunt (maximaal vier knooppunten) die in één logische gateway [Data Management Gateway - hoge beschikbaarheid en schaalbaarheid](data-factory-data-management-gateway-high-availability-scalability.md).    
-Status | De status van de logische-gateway en de gateway-knooppunten. Voorbeeld: Online/Offline/Limited/enz. Zie voor meer informatie over deze statussen [gatewaystatus](#gateway-status) sectie. 
+Status | De status van de logische-gateway en de gateway-knooppunten. Voorbeeld: Online/Offline/Limited/etc. Zie voor meer informatie over deze statussen [gatewaystatus](#gateway-status) sectie. 
 Versie | Toont de versie van de logische gateway en de gateway-knooppunt. De versie van de logische gateway wordt bepaald op basis van de versie van het merendeel van de knooppunten in de groep. Als er knooppunten met verschillende versies in de logische gateway-instellingen, alleen de knooppunten met het versienummer hetzelfde als de functie logische gateway correct zijn. Anderen in de beperkte modus zijn en moeten handmatig worden bijgewerkt (alleen als automatisch bijwerken is mislukt). 
 Beschikbaar geheugen | Beschikbaar geheugen op een gateway-knooppunt. Deze waarde is een momentopname van een bijna realtime. 
 CPU-gebruik | CPU-gebruik van een gateway-knooppunt. Deze waarde is een momentopname van een bijna realtime. 
@@ -407,7 +407,7 @@ Deze sectie bevat stappen voor het verplaatsen van gateway-client van een machin
 
 1. In de portal, gaat u naar de **Data Factory-startpagina**, en klik op de **gekoppelde Services** tegel.
 
-    ![Gegevens Gateways koppeling](./media/data-factory-data-management-gateway/DataGatewaysLink.png)
+    ![Data Gateways Link](./media/data-factory-data-management-gateway/DataGatewaysLink.png)
 2. Selecteer uw gateway in de **GEGEVENSGATEWAYS** sectie van de **gekoppelde Services** pagina.
 
     ![Gekoppelde Services-pagina met gateway geselecteerd](./media/data-factory-data-management-gateway/LinkedServiceBladeWithGateway.png)

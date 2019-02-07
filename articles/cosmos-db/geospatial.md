@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: sngun
-ms.openlocfilehash: 5f096d016b2fa82e3b340a4a6b6c7e1fd6420216
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 9c6ea982d9a605696dad0c943aa6dd2ae155d6bd
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037188"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770734"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Georuimtelijke en GeoJSON locatiegegevens gebruiken met Azure Cosmos DB SQL API-account
 
@@ -150,32 +150,13 @@ Nu dat we kijken hoe u georuimtelijke gegevens invoegen, we gaan kijken hoe u qu
 ### <a name="spatial-sql-built-in-functions"></a>Ruimtelijke SQL ingebouwde functies
 Azure Cosmos DB ondersteunt de volgende Open georuimtelijke Consortium (OGC) ingebouwde functies voor georuimtelijke query's. Zie voor meer informatie over de volledige reeks ingebouwde functies in de SQL-taal, [Query Azure Cosmos DB](how-to-sql-query.md).
 
-<table>
-<tr>
-  <td><strong>Gebruik</strong></td>
-  <td><strong>Beschrijving</strong></td>
-</tr>
-<tr>
-  <td>ST_DISTANCE (spatial_expr, spatial_expr)</td>
-  <td>Retourneert de afstand tussen de twee GeoJSON Point-, Polygon- of LineString-expressies.</td>
-</tr>
-<tr>
-  <td>ST_WITHIN (spatial_expr, spatial_expr)</td>
-  <td>Retourneert een Booleaanse expressie die aangeeft of het eerste GeoJSON-object (Point, Polygon of LineString) zich bevindt in het tweede GeoJSON-object (punt, Polygon of LineString).</td>
-</tr>
-<tr>
-  <td>ST_INTERSECTS (spatial_expr, spatial_expr)</td>
-  <td>Retourneert een Booleaanse expressie die aangeeft of de twee opgegeven GeoJSON-objecten (Point, Polygon of LineString) elkaar snijden.</td>
-</tr>
-<tr>
-  <td>ST_ISVALID</td>
-  <td>Retourneert een Booleaanse waarde die aangeeft of de opgegeven GeoJSON Point-, Polygon- of LineString-expressie geldig is.</td>
-</tr>
-<tr>
-  <td>ST_ISVALIDDETAILED</td>
-  <td>Retourneert een JSON-waarde met een Booleaanse waarde die aangeeft of de opgegeven GeoJSON Point-, Polygon- of LineString-expressie geldig is. Als de expressie ongeldig is, worden ook de reden daarvoor en een tekenreekswaarde geretourneerd.</td>
-</tr>
-</table>
+|**Gebruik**|**Beschrijving**|
+|---|---|
+| ST_DISTANCE (spatial_expr, spatial_expr) | Retourneert de afstand tussen de twee GeoJSON Point-, Polygon- of LineString-expressies.|
+|ST_WITHIN (spatial_expr, spatial_expr) | Retourneert een Booleaanse expressie die aangeeft of het eerste GeoJSON-object (Point, Polygon of LineString) zich bevindt in het tweede GeoJSON-object (punt, Polygon of LineString).|
+|ST_INTERSECTS (spatial_expr, spatial_expr)| Retourneert een Booleaanse expressie die aangeeft of de twee opgegeven GeoJSON-objecten (Point, Polygon of LineString) elkaar snijden.|
+|ST_ISVALID| Retourneert een Booleaanse waarde die aangeeft of de opgegeven GeoJSON Point-, Polygon- of LineString-expressie geldig is.|
+| ST_ISVALIDDETAILED| Retourneert een JSON-waarde met een Booleaanse waarde die aangeeft of de opgegeven GeoJSON Point-, Polygon- of LineString-expressie geldig is. Als de expressie ongeldig is, worden ook de reden daarvoor en een tekenreekswaarde geretourneerd.|
 
 Ruimtelijke functies kunnen worden gebruikt om nabijheidsquery's uit te voeren op ruimtelijke gegevens. Bijvoorbeeld, als volgt een query waarmee alle familie documenten die binnen 30 kilometer van de opgegeven locatie met behulp van de ingebouwde functie ST_DISTANCE retourneert. 
 
@@ -238,7 +219,7 @@ Azure Cosmos DB ondersteunt ook omgekeerde query's uitvoert, dat wil zeggen, kun
 
 ST_ISVALID en ST_ISVALIDDETAILED kunnen worden gebruikt om te controleren of een ruimtelijk object geldig is. Bijvoorbeeld, controleert de volgende query de geldigheid van een punt met een out-of breedtegraad bereikwaarde (-132.8). ST_ISVALID retourneert alleen een Booleaanse waarde en ST_ISVALIDDETAILED retourneert de Booleaanse waarde en een tekenreeks met de reden waarom het wordt als ongeldig wordt beschouwd.
 
-** Query **
+**Query**
 
     SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 

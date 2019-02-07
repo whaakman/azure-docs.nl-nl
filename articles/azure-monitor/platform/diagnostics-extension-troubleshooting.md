@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 305aa28127e453c01de9b55ab6cb0ff3471afad9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: f92b2589afc8bf4eba1bfdf421ab27300b41aa91
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473806"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822133"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure Diagnostics oplossen van problemen
 Dit artikel bevat informatie over probleemoplossing die relevant is voor het gebruik van Azure Diagnostics. Zie voor meer informatie over Azure diagnostics [overzicht van Azure Diagnostics](diagnostics-extension-overview.md).
@@ -105,7 +105,7 @@ De meest voorkomende reden die gebeurtenisgegevens niet helemaal wordt weergegev
 
 Oplossing: Corrigeer de configuratie van de diagnostische gegevens en diagnostische gegevens opnieuw.
 
-Als het opslagaccount is correct geconfigureerde externe toegang in de machine en controleer of DiagnosticsPlugin.exe en MonAgentCore.exe worden uitgevoerd. Als ze niet worden uitgevoerd, volgt u de stappen in [Azure Diagnostics wordt niet gestart](#azure-diagnostics-is-not-starting).
+Als het opslagaccount is correct geconfigureerde externe toegang in de machine en controleer of DiagnosticsPlugin.exe en MonAgentCore.exe worden uitgevoerd. Als ze niet worden uitgevoerd, volgt u de stappen in Azure Diagnostics is niet gestart.
 
 Als de processen worden uitgevoerd, gaat u naar [gegevens lokaal ophalen vastgelegd?](#is-data-getting-captured-locally) en volg de instructies.
 
@@ -119,7 +119,7 @@ De configuratie van diagnostische bevat instructies voor een bepaald type van de
 - **Prestatiemeteritems**: Open Prestatiemeter en controleren van de teller.
 
 - **Logboeken met traceringen**:  Externe toegang in de virtuele machine en een TextWriterTraceListener toevoegen aan het configuratiebestand van de app.  Zie https://msdn.microsoft.com/library/sk36c28t.aspx voor het instellen van de listener van tekst.  Zorg ervoor dat de `<trace>` element heeft `<trace autoflush="true">`.<br />
-Als er geen logboeken met traceringen die worden gegenereerd, Zie [meer informatie over ontbrekende traceerlogboeken](#more-about-trace-logs-missing).
+Als er geen traceerlogboeken worden gegenereerd, ziet u meer over traceerlogboeken ontbreekt.
 
 - **ETW-traceringen**: Externe toegang in de virtuele machine en installeer voorbeeld.  Voer in het voorbeeld, **bestand** > **opdracht van de gebruiker** > **luisteren etwprovder1** > **etwprovider2**, enzovoort. De **luisteren** opdracht is hoofdlettergevoelig en er mag spaties tussen de door komma's gescheiden lijst van ETW-providers. Als de opdracht niet kan worden uitgevoerd, kunt u de **Log** knop in de rechterbenedenhoek van de voorbeeld-hulpprogramma om te zien wat er is geprobeerd om uit te voeren en wat het resultaat is.  Ervan uitgaande dat de invoer juist is, verschijnt een nieuw venster. U begint de ETW-traceringen zien uit te voeren in een paar seconden.
 
@@ -127,13 +127,13 @@ Als er geen logboeken met traceringen die worden gegenereerd, Zie [meer informat
 
 #### <a name="is-data-getting-captured-locally"></a>Gegevens ophalen van vastgelegd lokaal?
 Controleer vervolgens of dat de gegevens worden lokaal ophalen vastgelegd.
-De gegevens worden lokaal opgeslagen in `*.tsf` bestanden in [het lokale archief voor diagnostische gegevens](#log-artifacts-path). Verschillende soorten logboeken ophalen die zijn verzameld in verschillende `.tsf` bestanden. De namen zijn vergelijkbaar met de namen van tabellen in Azure Storage.
+De gegevens worden lokaal opgeslagen in `*.tsf` bestanden in het lokale archief voor diagnostische gegevens. Verschillende soorten logboeken ophalen die zijn verzameld in verschillende `.tsf` bestanden. De namen zijn vergelijkbaar met de namen van tabellen in Azure Storage.
 
 Bijvoorbeeld, `Performance Counters` ophalen die worden verzameld in `PerformanceCountersTable.tsf`. Gebeurtenislogboeken ophalen die zijn verzameld `WindowsEventLogsTable.tsf`. Volg de instructies in de [lokale log extractie](#local-log-extraction) sectie aan de lokale verzameling-bestanden openen en te controleren of ze ophalen die zijn verzameld op schijf te zien.
 
 Als u Logboeken ophalen verzameld lokaal niet ziet en u al hebt gecontroleerd dat de host is worden gebruikt voor het genereren van gegevens, hebt u waarschijnlijk een configuratieprobleem. Zorgvuldig te werk om uw configuratie te controleren.
 
-Bekijk ook de configuratie die is gegenereerd voor MonitoringAgent [MaConfig.xml](#log-artifacts-path). Controleer of er een sectie waarin wordt beschreven van de relevante logboek-bron. Controleer vervolgens of dat deze niet in de conversie van de configuratie van de diagnostische gegevens en de agentconfiguratie van de bewaking gaat verloren.
+Lees ook de configuratie die is gegenereerd voor MonitoringAgent MaConfig.xml. Controleer of er een sectie waarin wordt beschreven van de relevante logboek-bron. Controleer vervolgens of dat deze niet in de conversie van de configuratie van de diagnostische gegevens en de agentconfiguratie van de bewaking gaat verloren.
 
 #### <a name="is-data-getting-transferred"></a>Is de gegevens overgedragen?
 Als u hebt gecontroleerd dat de gegevens worden lokaal ophalen vastgelegd, maar u nog steeds niet er in uw storage-account ziet, kunt u de volgende stappen:
@@ -142,10 +142,10 @@ Als u hebt gecontroleerd dat de gegevens worden lokaal ophalen vastgelegd, maar 
 
 - Controleer of het opgegeven opslagaccount juist is. Zorg ervoor dat u hebt geen netwerkbeperkingen die verhinderen dat de onderdelen openbare opslag eindpunten is bereikt. Een manier om dat te doen is voor externe toegang tot bij de computer en vervolgens probeert te schrijven iets naar hetzelfde opslagaccount zelf.
 
-- Ten slotte kunt u bekijken welke fouten zijn gemeld door de monitoring Agent. De bewakingsagent schrijft de logboeken `maeventtable.tsf`, bevindt zich in [het lokale archief voor diagnostische gegevens](#log-artifacts-path). Volg de instructies in de [lokale log extractie](#local-log-extraction) sectie voor het openen van dit bestand. Probeer om te bepalen of er zijn `errors` die duiden op fouten bij het lezen van lokale bestanden wegschrijven naar opslag.
+- Ten slotte kunt u bekijken welke fouten zijn gemeld door de monitoring Agent. De bewakingsagent schrijft de logboeken `maeventtable.tsf`, bevindt zich in het lokale archief voor diagnostische gegevens. Volg de instructies in de [lokale log extractie](#local-log-extraction) sectie voor het openen van dit bestand. Probeer om te bepalen of er zijn `errors` die duiden op fouten bij het lezen van lokale bestanden wegschrijven naar opslag.
 
 ### <a name="capturing-and-archiving-logs"></a>Vastleggen en logboeken archiveren
-Als u overweegt u over het contact opnemen met ondersteuning, is de eerste plaats die kunnen ze u vragen voor het verzamelen van Logboeken vanaf uw computer. U kunt tijd besparen door dit zelf doen. Voer de `CollectGuestLogs.exe` hulpprogramma [logboekpad verzameling hulpprogramma](#log-artifacts-path). Genereert een ZIP-bestand met alle relevante Azure-Logboeken in dezelfde map.
+Als u overweegt u over het contact opnemen met ondersteuning, is de eerste plaats die kunnen ze u vragen voor het verzamelen van Logboeken vanaf uw computer. U kunt tijd besparen door dit zelf doen. Voer de `CollectGuestLogs.exe` hulpprogramma van pad naar het logboek verzameling hulpprogramma. Genereert een ZIP-bestand met alle relevante Azure-Logboeken in dezelfde map.
 
 ## <a name="diagnostics-data-tables-not-found"></a>Diagnostische gegevenstabellen is niet gevonden
 De tabellen in Azure storage die ETW-gebeurtenissen bevatten, worden met de naam met behulp van de volgende code:
@@ -213,7 +213,7 @@ Deze code wordt gegenereerd vier tabellen:
 ### <a name="how-to-check-diagnostics-extension-configuration"></a>Het controleren van de configuratie van de Diagnostics-extensie
 De eenvoudigste manier om te controleren of de configuratie van de extensie is naar [Azure Resource Explorer](http://resources.azure.com), en ga vervolgens naar de virtuele machine of cloud service waar u de Azure Diagnostics-extensie (IaaSDiagnostics / PaaDiagnostics) is.
 
-U kunt ook extern bureaublad op de machine en bekijk de Azure Diagnostics-configuratiebestand dat wordt beschreven in de [melden artefacten padsectie](#log-artifacts-path).
+U kunt ook extern bureaublad op de machine en bekijk de Azure Diagnostics-configuratiebestand dat wordt beschreven in de sectie artefacten pad.
 
 Zoek in beide gevallen **Microsoft.Azure.Diagnostics**, en vervolgens voor de **xmlCfg** of **WadCfg** veld.
 

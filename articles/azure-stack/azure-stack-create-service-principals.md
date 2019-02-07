@@ -13,12 +13,12 @@ ms.workload: na
 ms.date: 12/18/2018
 ms.author: sethm
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 5ff2ee3ed271d8c32e2d41f40a56f71aa4c6c67c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3c36bca12a16a796a964c4447b47265eecd756be
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245266"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809245"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Toepassingen toegang geven tot Azure Stack
 
@@ -38,10 +38,10 @@ Service-principals zijn het geschiktst is voor het uitvoeren van de app met uw e
 
 Afhankelijk van hoe u Azure Stack hebt geïmplementeerd, begint u met een service-principal maken. Dit document beschrijft het maken van een service principal voor:
 
-- [Azure Active Directory (Azure AD)](#create-service-principal-for-azure-ad). Azure AD is een multitenant, cloudgebaseerde directory, en identity management-service. U kunt Azure AD gebruiken met een gekoppelde Azure-Stack.
-- [Active Directory Federatieservices (AD FS)](#create-service-principal-for-ad-fs). AD FS biedt vereenvoudigde, beveiligde identiteitsfederatie en mogelijkheden voor eenmalige aanmelding (SSO) Web. U kunt AD FS gebruiken met zowel verbonden als niet-verbonden Azure Stack-exemplaren.
+- Azure Active Directory (Azure AD). Azure AD is een multitenant, cloudgebaseerde directory, en identity management-service. U kunt Azure AD gebruiken met een gekoppelde Azure-Stack.
+- Active Directory Federation Services (AD FS). AD FS biedt vereenvoudigde, beveiligde identiteitsfederatie en mogelijkheden voor eenmalige aanmelding (SSO) Web. U kunt AD FS gebruiken met zowel verbonden als niet-verbonden Azure Stack-exemplaren.
 
-Als u de service-principal hebt gemaakt, een reeks stappen die gemeenschappelijk zijn voor zowel AD FS en Azure Active Directory worden gebruikt om [overdragen van machtigingen](#assign-role-to-service-principal) aan de rol.
+Als u de service-principal hebt gemaakt, wordt een reeks stappen die gemeenschappelijk zijn voor zowel AD FS en Azure Active Directory worden gebruikt voor het overdragen van machtigingen aan de rol.
 
 ## <a name="manage-service-principal-for-azure-ad"></a>Service-principal voor Azure AD beheren
 
@@ -63,7 +63,7 @@ Wanneer u zich programmatisch aanmeldt, u de ID gebruiken voor uw toepassing, en
 
 1. Van **App-registraties** in Active Directory, selecteer uw toepassing.
 
-2. Kopieer de **Toepassings-id** en sla deze op in uw toepassingscode. De toepassingen in de [voorbeeldtoepassingen](#sample-applications) sectie verwijzen naar deze waarde als de client-ID.
+2. Kopieer de **Toepassings-id** en sla deze op in uw toepassingscode. De toepassingen in de sectie Voorbeeld toepassingen verwijzen naar deze waarde als de client-ID.
 
      ![Client-id](./media/azure-stack-create-service-principal/image12.png)
 3. Voor het genereren van een verificatiesleutel voor een Web-app / API, selecteer **instellingen** > **sleutels**. 
@@ -74,7 +74,7 @@ Na het opslaan van de sleutel wordt de waarde van de sleutel weergegeven. Kopiee
 
 ![opgeslagen sleutel](./media/azure-stack-create-service-principal/image15.png)
 
-Als u klaar bent, kunt u [een rol toewijzen aan uw toepassing](#assign-role-to-service-principal).
+Als u klaar bent, kunt u uw toepassing een rol toewijzen.
 
 ## <a name="manage-service-principal-for-ad-fs"></a>Service-principal voor AD FS beheren
 
@@ -114,7 +114,7 @@ Er is een certificaat vereist.
 
 De volgende informatie is vereist als invoer voor de automation-parameters:
 
-|Parameter|Beschrijving|Voorbeeld|
+|Parameter|Description|Voorbeeld|
 |---------|---------|---------|
 |Name|Naam van de SPN-account|MyAPP|
 |ClientCertificates|Matrix met objecten van certificaat|X509 certificaat|
@@ -201,7 +201,7 @@ Het script wordt uitgevoerd vanaf het eindpunt van de bevoegde op een virtuele m
 
 De volgende informatie is vereist als invoer voor de automation-parameters:
 
-|Parameter|Beschrijving|Voorbeeld|
+|Parameter|Description|Voorbeeld|
 |---------|---------|---------|
 |Name|Naam van de SPN-account|MyAPP|
 |ApplicationIdentifier|Unieke id|S-1-5-21-1634563105-1224503876-2692824315-2119|
@@ -245,7 +245,7 @@ Deze scripts worden uitgevoerd vanaf het eindpunt van de bevoegdheden op een ERC
 
 De volgende informatie is vereist als invoer voor de automation-parameters:
 
-| Parameter | Beschrijving | Voorbeeld |
+| Parameter | Description | Voorbeeld |
 |----------------------|--------------------------|---------|
 | Name | Naam van de SPN-account | MyAPP |
 | GenerateClientSecret | Geheim maken |  |
@@ -292,7 +292,7 @@ Het script wordt uitgevoerd vanaf het eindpunt van de bevoegde op een virtuele m
 
 De volgende informatie is vereist als invoer voor de automation-parameters:
 
-| Parameter | Beschrijving | Voorbeeld |
+| Parameter | Description | Voorbeeld |
 |-----------------------|-----------------------------------------------------------------------------------------------------------|------------------------------------------------|
 | ApplicationIdentifier | De unieke id. | S-1-5-21-1634563105-1224503876-2692824315-2119 |
 | ChangeClientSecret | Hiermee wijzigt u het clientgeheim met een punt rollover van 2880 minuten waarin het oude geheim nog geldig is. |  |
@@ -337,9 +337,9 @@ Het script wordt uitgevoerd vanaf het eindpunt van de bevoegde op een virtuele m
 
 De volgende informatie is vereist als invoer voor de automation-parameters:
 
-|Parameter|Beschrijving|Voorbeeld|
+|Parameter|Description|Voorbeeld|
 |---------|---------|---------|
-| Parameter | Beschrijving | Voorbeeld |
+| Parameter | Description | Voorbeeld |
 | ApplicationIdentifier | Unieke id | S-1-5-21-1634563105-1224503876-2692824315-2119 |
 
 > [!Note]  

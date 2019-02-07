@@ -9,16 +9,16 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: d5425cf7c2ea39770bbc3e9368f34d57d7279842
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e3d2b377df6a3ed8312ca8b2563fe466236c2741
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53534873"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818291"
 ---
 # <a name="monitor-b2b-messages-with-azure-log-analytics-in-azure-logic-apps"></a>B2B-berichten met Azure Log Analytics in Azure Logic Apps bewaken
 
-Na het instellen van B2B-communicatie tussen handelspartners in uw integratie-account, kan deze partners berichten met elkaar kunnen uitwisselen. Om te controleren dat deze communicatie werkt zoals verwacht, u AS2, X12, bewaken kunt en EDIFACT-berichten en het instellen van diagnostische gegevens van logboekregistratie voor uw integratie-account met [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Deze service controleert uw cloud en on-premises omgevingen, helpen u hun beschikbaarheid en prestaties te onderhouden en verzamelt runtime-gegevens en gebeurtenissen voor uitgebreidere foutopsporing. U kunt ook [gebruiken deze gegevens met andere services](#extend-diagnostic-data) zoals Azure Storage en Azure Event Hubs.
+Na het instellen van B2B-communicatie tussen handelspartners in uw integratie-account, kan deze partners berichten met elkaar kunnen uitwisselen. Om te controleren dat deze communicatie werkt zoals verwacht, u AS2, X12, bewaken kunt en EDIFACT-berichten en het instellen van diagnostische gegevens van logboekregistratie voor uw integratie-account met [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Deze service controleert uw cloud en on-premises omgevingen, helpen u hun beschikbaarheid en prestaties te onderhouden en verzamelt runtime-gegevens en gebeurtenissen voor uitgebreidere foutopsporing. U kunt deze gegevens ook gebruiken met andere services zoals Azure Storage en Azure Event Hubs.
 
 > [!NOTE]
 > Deze pagina mogelijk nog steeds verwijzingen naar Microsoft Operations Management Suite (OMS), die is [buiten gebruik stellen in januari 2019](../azure-monitor/platform/oms-portal-transition.md), maar deze stappen vervangt met Azure Log Analytics waar mogelijk. 
@@ -49,7 +49,7 @@ Wanneer u klaar bent, kiest u **diagnostische instelling toevoegen**.
    | **Abonnement** | <*Azure-subscription-name*> | De Azure-abonnement dat is gekoppeld aan uw integratie-account | 
    | **Resourcegroep** | <*Azure-resource-group-name*> | De Azure-resourcegroep voor uw integratie-account | 
    | **Resourcetype** | **Integratieaccounts** | Het type voor de Azure-resource waar u wilt logboekregistratie inschakelen | 
-   | **Resource** | <*integratie-accountnaam*> | De naam voor uw Azure-resource waar u wilt logboekregistratie inschakelen | 
+   | **Resource** | <*integration-account-name*> | De naam voor uw Azure-resource waar u wilt logboekregistratie inschakelen | 
    ||||  
 
    Bijvoorbeeld:
@@ -91,7 +91,7 @@ Wanneer u klaar bent, kiest u **diagnostische instelling toevoegen**.
    | **Abonnement** | <*Azure-subscription-name*> | De Azure-abonnement dat is gekoppeld aan uw integratie-account | 
    | **Resourcegroep** | <*Azure-resource-group-name*> | De Azure-resourcegroep voor uw integratie-account | 
    | **Resourcetype** | **Integratieaccounts** | Het type voor de Azure-resource waar u wilt logboekregistratie inschakelen | 
-   | **Resource** | <*integratie-accountnaam*> | De naam voor uw Azure-resource waar u wilt logboekregistratie inschakelen | 
+   | **Resource** | <*integration-account-name*> | De naam voor uw Azure-resource waar u wilt logboekregistratie inschakelen | 
    ||||  
 
    Bijvoorbeeld:

@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 6d0c8f62d109d07a9f08e5190a5a2caa0d66a0c1
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 2b90457ed939999b5163078750650c92a3516cca
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579325"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816574"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van waarschuwingen voor activiteitenlogboeken met behulp van Azure Monitor  
 
@@ -93,7 +93,7 @@ Gebruik de volgende procedure:
 
     De nieuwe waarschuwingsregel voor het activiteitenlogboek is gemaakt en een bevestigingsbericht wordt weergegeven aan de bovenkant van het venster.
 
-    U kunt inschakelen, uitschakelen, bewerken of verwijderen van een regel. [Meer informatie](#view-and-manage-activity-log-alert-rules-in-azure-portal) over het beheren van activiteit log regels.
+    U kunt inschakelen, uitschakelen, bewerken of verwijderen van een regel. Meer informatie over het beheren van activiteit log regels.
 
 
 U kunt ook een eenvoudige vergelijking voor informatie over voorwaarden waarop de waarschuwingsregels voor activiteitenlogboeken, kunnen worden gemaakt is om te verkennen of filteren van gebeurtenissen via [activiteitenlogboek in Azure portal](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal). In Azure controleren: activiteitenlogboek, een kunt filteren of nodig gebeurtenis zoeken en vervolgens een waarschuwing te maken met behulp van de **waarschuwing voor activiteitenlogboek toevoegen** knop; vervolgens stappen 4 en hoger zoals vermeld in de zelfstudie hierboven.
@@ -203,14 +203,14 @@ Het bovenstaande voorbeeld-json als (bijvoorbeeld) sampleActivityLogAlert.json t
 [Azure Monitor - activiteit Log waarschuwingen API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) is een REST-API en volledig compatibel met Azure Resource Manager REST API. Daarom kan deze worden gebruikt via Powershell met Resource Manager-cmdlet, evenals Azure CLI.
 
 ## <a name="powershell"></a>PowerShell
-Hieronder gebruik via Azure Resource Manager PowerShell-cmdlet voor het voorbeeld hierboven Resourcesjabloon (sampleActivityLogAlert.json) wordt weergegeven de [Resource sjabloonsectie](#manage-alert-rules-for-activity-log-using-azure-resource-template) :
+Hieronder gebruik via Azure Resource Manager PowerShell-cmdlet voor het voorbeeld hierboven Resourcesjabloon (sampleActivityLogAlert.json) weergegeven in de sectie Resource-sjabloon:
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
 ```
 De sampleActivityLogAlert.parameters.json heeft waarin de waarden voor de parameters die nodig zijn voor het maken van waarschuwingsregel.
 
 ## <a name="cli"></a>CLI
-Hieronder gebruik via Azure Resource Manager-opdracht in de Azure CLI voor het voorbeeld hierboven Resourcesjabloon (sampleActivityLogAlert.json) wordt weergegeven de [Resource sjabloonsectie](#manage-alert-rules-for-activity-log-using-azure-resource-template) :
+Hieronder gebruik via Azure Resource Manager-opdracht in de Azure CLI voor het voorbeeld hierboven Resourcesjabloon (sampleActivityLogAlert.json) weergegeven in de sectie Resource-sjabloon:
 
 ```azurecli
 az group deployment create --resource-group myRG --template-file sampleActivityLogAlert.json --parameters @sampleActivityLogAlert.parameters.json

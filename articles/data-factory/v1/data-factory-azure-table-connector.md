@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6ab3e918feda3dcf898928f159ebf8e317a95527
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 7156249e720416161cd56af7589ed85827c6034b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331840"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812545"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Gegevens verplaatsen naar en van Azure-tabel met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -137,7 +137,7 @@ Het volgende voorbeeld laat zien:
 1. Een gekoppelde service van het type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) (gebruikt voor tabel- en blob).
 2. Invoer [gegevensset](data-factory-create-datasets.md) van het type [AzureTable](#dataset-properties).
 3. Uitvoer [gegevensset](data-factory-create-datasets.md) van het type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-4. De [pijplijn](data-factory-create-pipelines.md) met de kopieeractiviteit die gebruikmaakt van [AzureTableSource](#activity-properties) en [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+4. De [pijplijn](data-factory-create-pipelines.md) met de kopieeractiviteit die gebruikmaakt van AzureTableSource en [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 Het voorbeeld worden gegevens die behoren tot de standaardpartitie in een Azure-tabel naar een blob eenmaal per uur. De JSON-eigenschappen die in deze voorbeelden worden beschreven in de secties na de voorbeelden.
 
@@ -479,10 +479,10 @@ Wanneer het verplaatsen van gegevens naar en van Azure Table, de volgende [toewi
 | Edm.Boolean |bool |Een Booleaanse waarde. |
 | Edm.DateTime |DateTime |Een 64-bits waarde wordt uitgedrukt als Coordinated Universal Time (UTC). Het ondersteunde bereik voor de datum/tijd van kracht vanaf 12:00 middernacht, 1 januari 1601 A.D. (C.E.), UTC. Het bereik eindigt op 31 December 9999. |
 | Edm.Double |double |Een 64-bits drijvende-kommawaarde. |
-| Edm.Guid |GUID |Een globaal unieke id van 128-bits. |
+| Edm.Guid |Guid |Een globaal unieke id van 128-bits. |
 | Edm.Int32 |Int32 |Een 32-bits geheel getal zijn. |
 | Edm.Int64 |Int64 |Een 64-bits geheel getal zijn. |
-| Edm.String |Reeks |Een waarde UTF-16-codering. Tekenreekswaarden kunnen maximaal 64 KB zijn. |
+| Edm.String |String |Een waarde UTF-16-codering. Tekenreekswaarden kunnen maximaal 64 KB zijn. |
 
 ### <a name="type-conversion-sample"></a>Type conversie voorbeeld
 Het volgende voorbeeld is voor het kopiëren van gegevens uit een Azure-Blob naar Azure-tabel met typeconversies.

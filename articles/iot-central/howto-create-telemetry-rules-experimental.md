@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a3e7d2e5961f0951806ce9014fc320feef67ac90
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 1d6f43b23bddf2d1ff7a2a41a11b4a2c8623d372
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735884"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768620"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Maak een regel Telemetrie en meldingen in uw Azure IoT Central-toepassing instellen
 
@@ -80,7 +80,7 @@ Deze sectie leest u over het instellen van acties moet worden uitgevoerd wanneer
 1. Kies de **e** actie, voer een geldig e-mailadres in de **naar** veld en geeft u een opmerking in de hoofdtekst van het e-mailbericht moet worden weergegeven wanneer de regel wordt geactiveerd.
 
     > [!NOTE]
-    > E-mailberichten worden alleen verzonden naar de gebruikers die zijn toegevoegd aan de toepassing en ten minste één keer hebben aangemeld. Meer informatie over [Gebruikersbeheer](howto-administer.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) in Azure IoT Central.
+    > E-mailberichten worden alleen verzonden naar de gebruikers die zijn toegevoegd aan de toepassing en ten minste één keer hebben aangemeld. Meer informatie over [Gebruikersbeheer](howto-administer-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) in Azure IoT Central.
 
    ![Actie configureren](media/howto-create-telemetry-rules-experimental/Configure_Action.png)
 
@@ -88,8 +88,8 @@ Deze sectie leest u over het instellen van acties moet worden uitgevoerd wanneer
 
 U kunt andere acties toevoegen aan de regel, zoals Microsoft Flow en webhooks. U kunt maximaal 5 acties per regel toevoegen.
 
-- [Microsoft Flow-actie](howto-add-microsoft-flow.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) aan een werkstroom in Microsoft Flow vliegende start wanneer een regel wordt geactiveerd 
-- [Webhookactie](howto-create-webhooks.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) naar andere services waarschuwen wanneer een regel wordt geactiveerd
+- [Microsoft Flow-actie](howto-add-microsoft-flow-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) aan een werkstroom in Microsoft Flow vliegende start wanneer een regel wordt geactiveerd 
+- [Webhookactie](howto-create-webhooks-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) naar andere services waarschuwen wanneer een regel wordt geactiveerd
 
 ## <a name="parameterize-the-rule"></a>De regel parameteriseren
 
@@ -115,6 +115,6 @@ Navigeer naar het apparaat en kies de regel die u wilt in- of uitschakelen. Scha
 
 U hebt geleerd hoe u regels maken in uw Azure IoT Central-toepassing, zijn hier enkele volgende stap:
 
-- [Microsoft Flow-actie toevoegen in regels](howto-add-microsoft-flow.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
-- [Webhook-actie toevoegen in regels](howto-create-webhooks.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
-- [Uw apparaten beheren](howto-manage-devices.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+- [Microsoft Flow-actie toevoegen in regels](howto-add-microsoft-flow-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+- [Webhook-actie toevoegen in regels](howto-create-webhooks-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+- [Uw apparaten beheren](howto-manage-devices-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)

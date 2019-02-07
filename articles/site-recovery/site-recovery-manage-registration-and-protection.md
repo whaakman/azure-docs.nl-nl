@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 7a9c0ec081b676631f950270f9234284a102d7fa
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9aaa5dd2c636f9b5d92e949e1af71eda809cdac7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212185"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810317"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Servers verwijderen en beveiliging uitschakelen
 
@@ -154,7 +154,7 @@ Hyper-V-hosts die niet worden beheerd door VMM worden verzameld in een Hyper-V-s
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure"></a>Schakel de beveiliging voor een Hyper-V virtuele machine (Hyper-V naar Azure)
 
 > [!NOTE]
-> Gebruik deze procedure als u Hyper-V-machines naar Azure zonder een VMM-server repliceert. Als u uw virtuele machines met repliceert de **System Center VMM naar Azure** scenario, volg de instructies [Schakel de beveiliging voor een Hyper-V virtuele machine die wordt gerepliceerd met behulp van de System Center VMM voor Azure-scenario](#disable-protection-for-a-hyper-v-virtual-machine-replicating-using-the-system-centet-vmm-to-azure-scenario)
+> Gebruik deze procedure als u Hyper-V-machines naar Azure zonder een VMM-server repliceert. Als u uw virtuele machines met repliceert de **System Center VMM naar Azure** scenario en volg de instructies Schakel de beveiliging voor een Hyper-V virtuele machine met behulp van de System Center VMM naar Azure repliceren
 
 1. In **beveiligde Items** > **gerepliceerde Items**, met de rechtermuisknop op de machine > **replicatie uitschakelen**.
 2. In **replicatie uitschakelen**, kunt u de volgende opties:

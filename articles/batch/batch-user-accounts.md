@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: b59bb835c9858c6e47b8bb3a3518086e887d0d84
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ba64ecc334d93c8ff973345cfd10ed12436d3fb6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542829"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813905"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Uitvoeren van taken onder gebruikersaccounts in Batch
 
@@ -60,13 +60,13 @@ Zie voor meer informatie over de toegang tot bestanden en mappen van een taak [g
 Het gebruikersaccount dat kan leiden tot misbruik niveau geeft aan of een taak wordt uitgevoerd met uitgebreide toegang. Zowel een auto-gebruikersaccount en een gebruikersaccount met de naam kunnen uitvoeren met toegang met verhoogde bevoegdheid. De twee opties voor het niveau van bevoegdheden zijn:
 
 - **NonAdmin:** De taak wordt uitgevoerd als standaardgebruiker zonder toegang met verhoogde bevoegdheid. Het standaardniveau van de uitbreiding van bevoegdheden voor een Batch-gebruikersaccount is altijd **NonAdmin**.
-- **De beheerder:** De taak wordt uitgevoerd als een gebruiker met toegang met verhoogde bevoegdheid en werkt met volledige beheerdersrechten. 
+- **Beheerder:** De taak wordt uitgevoerd als een gebruiker met toegang met verhoogde bevoegdheid en werkt met volledige beheerdersrechten. 
 
 ## <a name="auto-user-accounts"></a>Automatisch-gebruikersaccounts
 
 Standaard uitvoeren taken in Batch in een auto-gebruikersaccount als standaardgebruiker zonder toegang met verhoogde bevoegdheid en met een bereik van de taak. Wanneer de gebruiker automatisch-specificatie is geconfigureerd voor het bereik van de taak, maakt de Batch-service een auto-gebruikersaccount voor die taak alleen.
 
-Het alternatief voor het bereik van de taak is een bereik van de groep van toepassingen. Wanneer de specificatie auto-gebruiker voor een taak is geconfigureerd voor een bereik van de groep, wordt de taak wordt uitgevoerd onder een auto-gebruikersaccount op die beschikbaar is voor elke taak in de groep. Zie de sectie voor meer informatie over het bereik van de groep [een taak uitvoert als de auto-gebruiker met een bereik van de groep](#run-a-task-as-the-autouser-with-pool-scope).   
+Het alternatief voor het bereik van de taak is een bereik van de groep van toepassingen. Wanneer de specificatie auto-gebruiker voor een taak is geconfigureerd voor een bereik van de groep, wordt de taak wordt uitgevoerd onder een auto-gebruikersaccount op die beschikbaar is voor elke taak in de groep. Zie de sectie een taak uitvoeren als de auto-gebruiker met een bereik van de groep van toepassingen voor meer informatie over het bereik van de groep van toepassingen.   
 
 Het bereik van standaard verschilt op Windows en Linux-knooppunten:
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: c44eb4bbf4945973e075ff88bccde19053b812be
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 2458dadb8a97deee67a6df9b00ca5390fccb2902
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133472"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812273"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Vereisten en controlelijst voor ExpressRoute
 Als u ExpressRoute wilt gebruiken om verbinding te maken met Microsoft Cloud-services, moet u controleren of er is voldaan aan de vereisten die in de volgende secties worden genoemd.
@@ -22,7 +22,7 @@ Als u ExpressRoute wilt gebruiken om verbinding te maken met Microsoft Cloud-ser
 
 ## <a name="azure-account"></a>Azure-account
 * Een geldig en actief Microsoft Azure-account. Dit account is vereist om het ExpressRoute-circuit in te stellen. ExpressRoute-circuits zijn resources in Azure-abonnementen. Een Azure-abonnement is vereist, zelfs als connectiviteit is beperkt tot niet-Azure Microsoft-cloudservices, zoals Office 365-services en Dynamics 365.
-* Een actief Office 365-abonnement (als u Office 365-services gebruikt). Voor meer informatie raadpleegt u de sectie [Specifieke vereisten voor Office 365](#office-365-specific-requirements) in dit artikel.
+* Een actief Office 365-abonnement (als u Office 365-services gebruikt). Zie de sectie van de Office 365 specifieke vereisten van dit artikel voor meer informatie.
 
 ## <a name="connectivity-provider"></a>Connectiveitsprovider
 
@@ -33,7 +33,7 @@ Als u ExpressRoute wilt gebruiken om verbinding te maken met Microsoft Cloud-ser
 * **Redundante connectiviteit**: er is geen redundantievereiste voor fysieke connectiviteit tussen u en uw provider. Microsoft vereist dat redundante BGP-sessies worden ingesteld tussen Microsoft-routers en de peeringrouters, zelfs als u maar [één fysieke verbinding met een cloudexchange](expressroute-faqs.md#onep2plink) hebt.
 * **Routering**: afhankelijk van hoe u verbinding maakt met de Microsoft Cloud, moet u of uw provider de BGP-sessies voor [routeringsdomeinen](expressroute-circuit-peerings.md) instellen en beheren. Sommige Ethernet-connectiviteitsproviders of cloudexchange-providers bieden BGP-beheer aan als extra service.
 * **NAT**: Microsoft accepteert alleen openbare IP-adressen via Microsoft-peering. Als u privé IP-adressen in uw on-premises netwerk gebruikt, moet u of uw provider de privé IP-adressen [met behulp van de NAT](expressroute-nat.md) vertalen naar openbare IP-adressen.
-* **QoS**: Skype voor Bedrijven heeft verschillende services (zoals spraak, video, tekst) die allemaal een andere QoS-behandeling vereisen. U en uw provider moeten de [QoS-vereisten](expressroute-qos.md) volgen.
+* **QoS**: Skype voor bedrijven heeft verschillende services (zoals spraak, video, tekst) die gedifferentieerde QoS-behandeling vereisen. U en uw provider moeten de [QoS-vereisten](expressroute-qos.md) volgen.
 * **Netwerkbeveiliging**: overweeg [netwerkbeveiliging](../best-practices-network-security.md) als u via ExpressRoute verbinding maakt met de Microsoft Cloud.
 
 ## <a name="office-365"></a>Office 365

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 95ebdd74fa8be433c7a31f79ad36d4645bc57318
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 642c59e9349585ea2287f7bf439250dbfef9ba7a
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354515"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766245"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core-SDK voor SQL-API: Opmerkingen bij de release en resources
 > [!div class="op_single_selector"]
@@ -30,20 +30,14 @@ ms.locfileid: "54354515"
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**SDK downloaden**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)</td></tr>
-
-<tr><td>**API-documentatie**</td><td>[.NET API-referentiedocumentatie](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
-
-<tr><td>**Voorbeelden**</td><td>[.NET-codevoorbeelden](sql-api-dotnet-samples.md)</td></tr>
-
-<tr><td>**Aan de slag**</td><td>[Aan de slag met de Azure Cosmos DB .NET Core-SDK](sql-api-dotnetcore-get-started.md)</td></tr>
-
-<tr><td>**Zelfstudie-web-app**</td><td>[Ontwikkeling van webtoepassingen met Azure Cosmos DB](sql-api-dotnet-application.md)</td></tr>
-
-<tr><td>**Huidige ondersteunde framework**</td><td>[.NET standard 1.6 en .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)</td></tr>
-</table></br>
+| |  |
+|---|---|
+|**SDK downloaden**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)|
+|**API-documentatie**|[.NET API-referentiedocumentatie](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
+|**Voorbeelden**|[.NET-codevoorbeelden](sql-api-dotnet-samples.md)|
+|**Aan de slag**|[Aan de slag met de Azure Cosmos DB .NET Core-SDK](sql-api-dotnetcore-get-started.md)|
+|**Zelfstudie-web-app**|[Ontwikkeling van webtoepassingen met Azure Cosmos DB](sql-api-dotnet-application.md)|
+|**Huidige ondersteunde framework**|[.NET standard 1.6 en .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)|
 
 ## <a name="release-notes"></a>Releaseopmerkingen
 

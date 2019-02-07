@@ -14,16 +14,19 @@ ms.topic: article
 ms.date: 01/19/2019
 ms.author: sethm
 ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: 9a14c819acbc46d8a281f73fd4f3185caa8a1e02
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 96cb07ca4ede26e9bf0e5ceba28f1549061d0bf3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478148"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815673"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>IPsec/IKE-beleid voor site-naar-site VPN-verbindingen configureren
 
 In dit artikel worden de stappen beschreven voor het configureren van een IPsec/IKE-beleid voor site-naar-site (S2S) VPN-verbindingen in Azure Stack.
+
+>[!NOTE]
+> U moet beschikken over Azure Stack-build **1809** of later om deze functie te gebruiken.  Als u een build vóór 1809 momenteel worden uitgevoerd, werkt u uw Azure Stack-systeem naar de meest recente build voordat u deze functie te gebruiken of volg de stappen in dit artikel.
 
 ## <a name="ipsec-and-ike-policy-parameters-for-vpn-gateways"></a>Parameters voor IPsec en IKE-beleid voor VPN-gateways
 

@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: bb759c0b21287f8198f2f4e0dac10020a3b31d62
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 433f99d72feb7dc697050049817478a8c8b679e6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913594"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820960"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Ontwerphandleiding voor Azure Storage-tabel: Ontwerpen van schaalbare en performante tabellen
 
@@ -205,9 +205,9 @@ De volgende voorbeelden wordt ervan uitgegaan dat de table-service opslaat werkn
 | **Voornaam** |Reeks |
 | **LastName** |Reeks |
 | **Leeftijd** |Geheel getal |
-| **EmailAddress** |Reeks |
+| **EmailAddress** |String |
 
-De eerdere sectie [overzicht van Azure Table service](#overview) beschrijft een aantal van de belangrijkste functies van de Azure Table-service waarvoor een directe invloed op het ontwerpen van query. Dit resulteert in de volgende algemene richtlijnen voor het ontwerpen van query's tabel-service. De filtersyntaxis van de gebruikt in de onderstaande voorbeelden wordt uit de tabelservice REST-API voor meer informatie, Zie [entiteiten opvragen](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+De eerdere sectie Azure Table service-overzicht beschrijft een aantal van de belangrijkste functies van de Azure Table-service die een directe invloed hebben op het ontwerpen van query. Dit resulteert in de volgende algemene richtlijnen voor het ontwerpen van query's tabel-service. De filtersyntaxis van de gebruikt in de onderstaande voorbeelden wordt uit de tabelservice REST-API voor meer informatie, Zie [entiteiten opvragen](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 * Een ***punt Query*** is de meest efficiënte zoekopdracht om te gebruiken en wordt aanbevolen om te worden gebruikt voor zoekopdrachten met hoog volume of zoekacties laagste latentie vereisen. Dergelijke query de indexen kunt gebruiken om te zoeken op een afzonderlijke entiteit efficiënt door op te geven op beide de **PartitionKey** en **RowKey** waarden. Bijvoorbeeld: $filter = (PartitionKey eq 'Verkoop') en (RowKey eq '2')  
 * Ten tweede beste is een ***Bereikquery*** die gebruikmaakt van de **PartitionKey** en filters op een scala aan **RowKey** die moeten worden geretourneerd van meer dan één entiteit. De **PartitionKey** waarde geeft een specifieke partitie en de **RowKey** waarden identificeren een subset van de entiteiten in de betreffende partitie. Bijvoorbeeld: $filter = PartitionKey eq 'Verkoop en RowKey ge van' en RowKey lt 'T'  
@@ -1294,7 +1294,7 @@ Elke entiteit moet nog steeds **PartitionKey**, **RowKey**, en **Timestamp** waa
 
 De eerste optie, begin van de entiteit type de **RowKey**, is handig als er een mogelijkheid is die twee entiteiten van verschillende typen met dezelfde sleutelwaarde heeft mogelijk. Deze groepen ook entiteiten van hetzelfde type samen in de partitie.  
 
-De technieken beschreven in deze sectie zijn vooral relevant zijn voor de discussie [relaties voor overname](#inheritance-relationships) eerder in deze handleiding in de sectie [waardoor relaties worden gemaakt](#modelling-relationships).  
+De technieken beschreven in deze sectie zijn vooral relevant zijn voor de discussie [relaties voor overname](#inheritance-relationships) eerder in deze handleiding in de sectie waardoor relaties worden gemaakt.  
 
 > [!NOTE]
 > U moet rekening houden met inbegrip van een uniek versienummer in de waarde van het type entiteit waarmee clienttoepassingen POCO objecten ontwikkelen en werken met verschillende versies.  

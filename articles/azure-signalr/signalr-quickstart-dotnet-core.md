@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 805f8d55b1627ad12ce58e8a64728a42867a858e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: e1eced2d00737a950ed441bd83614d9d6d0b9230
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260613"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731271"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Snelstart: Een chatruimte maken met SignalR Service
 
@@ -97,7 +97,7 @@ In dit gedeelte voegt u het [hulpprogramma Secret Manager](https://docs.microsof
 
     Secret Manager wordt alleen gebruikt om de web-app te testen terwijl deze lokaal wordt gehost. In een latere zelfstudie gaat u de web-app voor de chatruimte implementeren in Azure. Als dat is gebeurd, gebruikt u een toepassingsinstelling in plaats van de verbindingsreeks op te slaan met Secret Manager.
 
-    Dit geheim is toegankelijk met de configuratie-API. Een dubbele punt (:) werkt in de configuratienaam met de configuratie-API op alle ondersteunde platforms, zie [Configuratie per omgeving](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0#configuration-by-environment). 
+    Dit geheim is toegankelijk met de configuratie-API. Een dubbele punt (:) werkt in de configuratienaam met de configuratie-API op alle ondersteunde platforms, zie [Configuratie per omgeving](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0). 
 
 
 4. Open *Startup.cs* en werk de methode `ConfigureServices` bij voor het gebruik van de Azure SignalR-service door de methode `services.AddSignalR().AddAzureSignalR()` aan te roepen:

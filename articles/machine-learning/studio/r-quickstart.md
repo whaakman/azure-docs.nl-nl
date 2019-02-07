@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/06/2017
-ms.openlocfilehash: d56c44e299125b6b7d8aff429aa6352b8e653a16
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 9fcdcc5f4e3e7a6aadb3749459562eb575deca2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508654"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822371"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Beknopte zelfstudie voor de programmeertaal R voor Azure Machine Learning Studio
 
@@ -745,7 +745,7 @@ De `ts.detrend()` functie onderstaande beide van deze bewerkingen uitvoert. De v
 
 Er is een behoorlijke bits gebeurt in de `ts.detrend()` functie. De meeste van deze code controleert op mogelijke problemen met de argumenten of omgaan met uitzonderingen die nog steeds tijdens de berekeningen optreden kunnen. Alleen een paar regels van deze code daadwerkelijk doen de berekeningen kunt.
 
-We hebben al besproken een voorbeeld van defensieve programmeren in [transformaties waarde](#valuetransformations). Beide blokken berekening verpakt in `tryCatch()`. Voor bepaalde fouten is het zinvol om terug te keren van de oorspronkelijke invoer vector en in andere gevallen kan ik een vector uit nullen retourneren.  
+We hebben al een voorbeeld van defensieve programmeren in waarde transformaties besproken. Beide blokken berekening verpakt in `tryCatch()`. Voor bepaalde fouten is het zinvol om terug te keren van de oorspronkelijke invoer vector en in andere gevallen kan ik een vector uit nullen retourneren.  
 
 Houd er rekening mee dat de lineaire regressie gebruikt voor het ongedaan maken populair een time series regressie is. De variabele voorspelde is een time series-object.  
 

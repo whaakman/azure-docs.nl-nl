@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 22d83eb617c544a374f1f6b502803d4ead214492
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1a55a4e3f25bc5afef30e325ccdd38615ba7cc2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182231"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820739"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Verwijzing van lokale bedrijven zoeken-API voor Bing versie 7
 
@@ -53,7 +53,7 @@ Hier volgen de headers die bijvoorbeeld een aanvraag en antwoord bevatten.
 |Header|Description|  
 |------------|-----------------|  
 |Accepteren|Optionele aanvraagheader.<br /><br /> De standaard-mediatype is application/json. Om op te geven dat het antwoord gebruiken [JSON-LD](http://json-ld.org/), de Accept-header ingesteld op application/ld + json.|  
-|<a name="acceptlanguage" />Accept-Language|Optionele aanvraagheader.<br /><br /> Een door komma's gescheiden lijst met talen die moet worden gebruikt voor gebruikersinterfacetekenreeksen. De lijst is in aflopende volgorde van voorkeur. Zie [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html) voor meer informatie, waaronder de verwachte indeling.<br /><br /> Deze header en de queryparameter [setLang](#setlang) sluiten elkaar uit&mdash;geef ze niet beide op.<br /><br /> Als u deze header instelt, moet u ook de queryparameter [cc](#cc) opgeven. Om de markt te bepalen waarvoor resultaten moeten worden geretourneerd, gebruikt Bing de eerste ondersteunde taal die wordt gevonden in de lijst en combineert deze met de parameterwaarde `cc`. Als de lijst geen ondersteunde taal bevat, vindt Bing de dichtstbijzijnde taal en markt die de aanvraag ondersteunen, of gebruikt een geaggregeerde of standaardmarkt voor de resultaten. Zie de header BingAPIs-Market om de markt te bepalen die Bing heeft gebruikt.<br /><br /> Gebruik deze header en de queryparameter `cc` alleen als u meerdere talen opgeeft. Gebruik anders de queryparameters [mkt](#mkt) en [setLang](#setlang).<br /><br /> Een gebruikersinterfacetekenreeks is een tekenreeks die wordt gebruikt als label in een gebruikersinterface. Er zijn maar weinig gebruikersinterfacetekenreeksen in de JSON-antwoordobjecten. De opgegeven taal wordt toegepast op koppelingen naar Bing.com-eigenschappen in de antwoordobjecten.|  
+|<a name="acceptlanguage" />Accept-Language|Optionele aanvraagheader.<br /><br /> Een door komma's gescheiden lijst met talen die moet worden gebruikt voor gebruikersinterfacetekenreeksen. De lijst is in aflopende volgorde van voorkeur. Zie [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html) voor meer informatie, waaronder de verwachte indeling.<br /><br /> Deze header en de queryparameter [setLang](#setlang) sluiten elkaar uit&mdash;geef ze niet beide op.<br /><br /> Als u deze header instelt, moet u ook de cc-queryparameter. Om de markt te bepalen waarvoor resultaten moeten worden geretourneerd, gebruikt Bing de eerste ondersteunde taal die wordt gevonden in de lijst en combineert deze met de parameterwaarde `cc`. Als de lijst geen ondersteunde taal bevat, vindt Bing de dichtstbijzijnde taal en markt die de aanvraag ondersteunen, of gebruikt een geaggregeerde of standaardmarkt voor de resultaten. Zie de header BingAPIs-Market om de markt te bepalen die Bing heeft gebruikt.<br /><br /> Gebruik deze header en de queryparameter `cc` alleen als u meerdere talen opgeeft. Gebruik anders de queryparameters [mkt](#mkt) en [setLang](#setlang).<br /><br /> Een gebruikersinterfacetekenreeks is een tekenreeks die wordt gebruikt als label in een gebruikersinterface. Er zijn maar weinig gebruikersinterfacetekenreeksen in de JSON-antwoordobjecten. De opgegeven taal wordt toegepast op koppelingen naar Bing.com-eigenschappen in de antwoordobjecten.|  
 |<a name="market" />BingAPIs-Market|Antwoordheader.<br /><br /> De markt die wordt gebruikt door de aanvraag. De notatie is \<languageCode\>-\<countryCode\>. Bijvoorbeeld: nl-NL.|  
 |<a name="traceid" />BingAPIs-TraceId|Antwoordheader.<br /><br /> De id van de logboekvermelding die de details van de aanvraag bevat. Registreer deze id wanneer er een fout optreedt. Als u het probleem niet kunt vaststellen en oplossen, neemt u deze id op bij de andere informatie die u aan het ondersteuningsteam verstrekt.|  
 |<a name="subscriptionkey" />Ocp-Apim-Subscription-Key|Vereiste aanvraagheader.<br /><br /> De abonnementssleutel die u hebt ontvangen toen u zich hebt geregistreerd voor deze service in [Cognitive Services](https://www.microsoft.com/cognitive-services/).|  
@@ -71,16 +71,16 @@ Hier volgen de headers die bijvoorbeeld een aanvraag en antwoord bevatten.
 De aanvraag kan de volgende queryparameters bevatten. Zie de vereiste kolom voor vereiste parameters. Moet u de URL de queryparameters coderen.  
   
   
-|Name|Waarde|Type|Vereist|  
+|Name|Value|Type|Vereist|  
 |----------|-----------|----------|--------------|
-|<a name="count" />count|Het aantal resuts moeten worden geretourneerd vanaf de index opgegeven door de `offset` parameter.|Reeks|Nee|   
-|<a name="localCategories" />localCategories|Lijst met opties die zoeken op categorie zakelijke definiëren.  Zie [categorieën van lokale bedrijven zoeken](local-categories.md)|Reeks|Nee|  
-|<a name="mkt" />mkt|De markt waaruit de resultaten afkomstig zijn. <br /><br />Zie voor een lijst van mogelijke waarden van de markt, [markt Codes](#market-codes).<br /><br /> **OPMERKING:** De lokale bedrijven zoeken-API ondersteunt momenteel alleen en-us markt en taal.<br /><br />|Reeks|Ja|
+|<a name="count" />count|Het aantal resuts moeten worden geretourneerd vanaf de index opgegeven door de `offset` parameter.|String|Nee|   
+|<a name="localCategories" />localCategories|Lijst met opties die zoeken op categorie zakelijke definiëren.  Zie [categorieën van lokale bedrijven zoeken](local-categories.md)|String|Nee|  
+|<a name="mkt" />mkt|De markt waaruit de resultaten afkomstig zijn. <br /><br />Zie voor een lijst van mogelijke waarden van de markt, markt-Codes.<br /><br /> **OPMERKING:** De lokale bedrijven zoeken-API ondersteunt momenteel alleen en-us markt en taal.<br /><br />|String|Ja|
 |<a name="offset"/>offset|De index om te starten van de resultaten die zijn opgegeven door de `count` parameter.|Geheel getal|Nee|  
-|<a name="query" />q|Zoekterm van de gebruiker.|Reeks|Nee|  
-|<a name="responseformat" />responseFormat|Het mediatype dat als u wilt gebruiken voor het antwoord. De volgende zijn waarden mogelijk niet hoofdlettergevoelig.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> De standaardwaarde is JSON. Zie voor meer informatie over de JSON-objecten dat het antwoord bevat, [Antwoordobjecten](#response-objects).<br /><br />  Als u JsonLd opgeeft, bevat de antwoordtekst JSON-LD objecten met de lijst met zoekresultaten. Zie voor meer informatie over de JSON-LD [JSON-LD](http://json-ld.org/).|Reeks|Nee|  
-|<a name="safesearch" />safeSearch|Een filter dat wordt gebruikt voor het filteren van inhoud voor volwassenen. Hier volgen de mogelijke niet-hoofdlettergevoelige filterwaarden.<br /><ul><li>Uit&mdash;webpagina's met volwassen tekst, afbeeldingen of video's retourneren.<br /><br/></li><li>Gemiddeld&mdash;webpagina's met volwassen tekst, maar niet volwassen afbeeldingen of video's retourneren.<br /><br/></li><li>Strikte&mdash;webpagina's met volwassen tekst, afbeeldingen of video's niet retourneren.</li></ul><br /> De standaardwaarde is Moderate.<br /><br /> **OPMERKING:** Als de aanvraag afkomstig van een markt is van die Bing volwassenen beleid vereist dat `safeSearch` is ingesteld op strikt, Bing negeert de `safeSearch` waarde en maakt gebruik van strikt.<br/><br/>**OPMERKING:** Als u de `site:` query-operator, bestaat de kans dat het antwoord inhoud voor volwassen, ongeacht wat bevatten de `safeSearch` queryparameter is ingesteld op. Gebruik `site:` alleen als u zich bewust bent van de inhoud op de site en uw scenario de mogelijkheid van inhoud voor volwassenen ondersteunt. |Reeks|Nee|  
-|<a name="setlang" />setLang|De taal die moet worden gebruikt voor gebruikersinterfacetekenreeksen. Geef de taal op met behulp van de tweeletterige ISO 639-1 taalcode. De taalcode voor Nederlands is bijvoorbeeld NL. De standaardwaarde is EN (Engels).<br /><br /> Hoewel dit optioneel is, moet u altijd de taal opgeven. Doorgaans stelt u `setLang` in op dezelfde taal die is opgegeven door `mkt`, tenzij de gebruiker wil dat gebruikersinterfacetekenreeksen in een andere taal worden weergegeven.<br /><br /> Deze parameter en de header [Accept-Language](#acceptlanguage) sluiten elkaar uit&mdash;geef ze niet beide op.<br /><br /> Een gebruikersinterfacetekenreeks is een tekenreeks die wordt gebruikt als label in een gebruikersinterface. Er zijn maar weinig gebruikersinterfacetekenreeksen in de JSON-antwoordobjecten. De opgegeven taal wordt ook toegepast op koppelingen naar Bing.com-eigenschappen in de antwoordobjecten.|Reeks|Nee| 
+|<a name="query" />q|Zoekterm van de gebruiker.|String|Nee|  
+|<a name="responseformat" />responseFormat|Het mediatype dat als u wilt gebruiken voor het antwoord. De volgende zijn waarden mogelijk niet hoofdlettergevoelig.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> De standaardwaarde is JSON. Zie voor meer informatie over de JSON-objecten dat het antwoord bevat, [Antwoordobjecten](#response-objects).<br /><br />  Als u JsonLd opgeeft, bevat de antwoordtekst JSON-LD objecten met de lijst met zoekresultaten. Zie voor meer informatie over de JSON-LD [JSON-LD](http://json-ld.org/).|String|Nee|  
+|<a name="safesearch" />safeSearch|Een filter dat wordt gebruikt voor het filteren van inhoud voor volwassenen. Hier volgen de mogelijke niet-hoofdlettergevoelige filterwaarden.<br /><ul><li>Uit&mdash;webpagina's met volwassen tekst, afbeeldingen of video's retourneren.<br /><br/></li><li>Gemiddeld&mdash;webpagina's met volwassen tekst, maar niet volwassen afbeeldingen of video's retourneren.<br /><br/></li><li>Strikte&mdash;webpagina's met volwassen tekst, afbeeldingen of video's niet retourneren.</li></ul><br /> De standaardwaarde is Moderate.<br /><br /> **OPMERKING:** Als de aanvraag afkomstig van een markt is van die Bing volwassenen beleid vereist dat `safeSearch` is ingesteld op strikt, Bing negeert de `safeSearch` waarde en maakt gebruik van strikt.<br/><br/>**OPMERKING:** Als u de `site:` query-operator, bestaat de kans dat het antwoord inhoud voor volwassen, ongeacht wat bevatten de `safeSearch` queryparameter is ingesteld op. Gebruik `site:` alleen als u zich bewust bent van de inhoud op de site en uw scenario de mogelijkheid van inhoud voor volwassenen ondersteunt. |String|Nee|  
+|<a name="setlang" />setLang|De taal die moet worden gebruikt voor gebruikersinterfacetekenreeksen. Geef de taal op met behulp van de tweeletterige ISO 639-1 taalcode. De taalcode voor Nederlands is bijvoorbeeld NL. De standaardwaarde is EN (Engels).<br /><br /> Hoewel dit optioneel is, moet u altijd de taal opgeven. Doorgaans stelt u `setLang` in op dezelfde taal die is opgegeven door `mkt`, tenzij de gebruiker wil dat gebruikersinterfacetekenreeksen in een andere taal worden weergegeven.<br /><br /> Deze parameter en de header [Accept-Language](#acceptlanguage) sluiten elkaar uit&mdash;geef ze niet beide op.<br /><br /> Een gebruikersinterfacetekenreeks is een tekenreeks die wordt gebruikt als label in een gebruikersinterface. Er zijn maar weinig gebruikersinterfacetekenreeksen in de JSON-antwoordobjecten. De opgegeven taal wordt ook toegepast op koppelingen naar Bing.com-eigenschappen in de antwoordobjecten.|String|Nee| 
 
 
 ## <a name="response-objects"></a>Antwoordobjecten  
@@ -97,20 +97,20 @@ Hiermee definieert u de fout is opgetreden.
   
 |Element|Description|Type|  
 |-------------|-----------------|----------|  
-|<a name="error-code" />code|De foutcode die aangeeft van de categorie van de fout. Zie voor een lijst van mogelijke codes, [foutcodes](#error-codes).|Reeks|  
-|<a name="error-message" />Bericht|Een beschrijving van de fout.|Reeks|  
-|<a name="error-moredetails" />moreDetails|Een beschrijving met aanvullende informatie over de fout.|Reeks|  
-|<a name="error-parameter" />parameter|De queryparameter in de aanvraag die de fout heeft veroorzaakt.|Reeks|  
-|<a name="error-subcode" />subCode|De foutcode die aangeeft van de fout. Bijvoorbeeld, als `code` InvalidRequest, is `subCode` mogelijk ParameterInvalid of ParameterInvalidValue. |Reeks|  
-|<a name="error-value" />Waarde|De queryparameter-waarde die niet geldig is.|Reeks|  
+|<a name="error-code" />code|De foutcode die aangeeft van de categorie van de fout. Zie voor een lijst van mogelijke codes, [foutcodes](#error-codes).|String|  
+|<a name="error-message" />Bericht|Een beschrijving van de fout.|String|  
+|<a name="error-moredetails" />moreDetails|Een beschrijving met aanvullende informatie over de fout.|String|  
+|<a name="error-parameter" />parameter|De queryparameter in de aanvraag die de fout heeft veroorzaakt.|String|  
+|<a name="error-subcode" />subCode|De foutcode die aangeeft van de fout. Bijvoorbeeld, als `code` InvalidRequest, is `subCode` mogelijk ParameterInvalid of ParameterInvalidValue. |String|  
+|<a name="error-value" />Waarde|De queryparameter-waarde die niet geldig is.|String|  
   
 
 ### <a name="errorresponse"></a>ErrorResponse  
 Het object van het type op het hoogste niveau dat het antwoord bevat als de aanvraag is mislukt.  
   
-|Name|Waarde|Type|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
-|_type|Type hint.|Reeks|  
+|_type|Type hint.|String|  
 |<a name="errors" />Fouten|Een lijst van fouten die worden beschreven van de redenen waarom de aanvraag is mislukt.|[Fout](#error)]|  
 
   
@@ -118,20 +118,20 @@ Het object van het type op het hoogste niveau dat het antwoord bevat als de aanv
 ### <a name="license"></a>Licentie  
 Hiermee definieert u de licentie waaronder de tekst of foto's kan worden gebruikt.  
   
-|Name|Waarde|Type|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
-|naam|De naam van de licentie.|Reeks|  
-|url|De URL naar een website waar de gebruiker meer informatie over de licentie krijgt.<br /><br /> De naam en URL gebruiken om een hyperlink te maken.|Reeks|  
+|naam|De naam van de licentie.|String|  
+|url|De URL naar een website waar de gebruiker meer informatie over de licentie krijgt.<br /><br /> De naam en URL gebruiken om een hyperlink te maken.|String|  
 
 
 ### <a name="link"></a>Koppeling  
 Hiermee definieert u de onderdelen van een hyperlink.  
   
-|Name|Waarde|Type|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
-|_type|Type hint.|Reeks|  
-|tekst|De tekst.|Reeks|  
-|url|EEN URL. Gebruik de URL en tekst voor het maken van een hyperlink weer te geven.|Reeks|  
+|_type|Type hint.|String|  
+|tekst|De tekst.|String|  
+|url|EEN URL. Gebruik de URL en tekst voor het maken van een hyperlink weer te geven.|String|  
   
 
 
@@ -141,25 +141,25 @@ Hiermee definieert u een uitgever.
   
 Houd er rekening mee dat de uitgever hun naam of de website of beide bieden kan.  
   
-|Name|Waarde|Type|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
-|naam|Naam van de uitgever.|Reeks|  
-|url|De URL naar de website van de uitgever.<br /><br /> Houd er rekening mee dat de uitgever niet een website bieden mogelijk.|Reeks|  
+|naam|Naam van de uitgever.|String|  
+|url|De URL naar de website van de uitgever.<br /><br /> Houd er rekening mee dat de uitgever niet een website bieden mogelijk.|String|  
   
   
 
 ### <a name="place"></a>Plaats  
 Informatie over een lokale bedrijven, zoals een restaurant of een hotel definieert.  
   
-|Name|Waarde|Type|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
-|_type|Type-hint die kan worden ingesteld op een van de volgende:<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>Restaurant</ul><li>|Reeks|  
-|address|Het postadres van waar de entiteit zich bevindt.|[PostalAddress](#postaladdress)|  
-|entityPresentationInfo|Meer informatie over de entiteit, zoals de hints die u gebruiken kunt om te bepalen van de entiteit-type. Of het is bijvoorbeeld een restaurant of in een hotel. De `entityScenario` ListItem is ingeschakeld.|[EntityPresentationInfo](#entitypresentationinfo)|  
-|naam|De naam van de entiteit.|Reeks|  
-|Telefoonnummer|Het telefoonnummer van de entiteit.|Reeks|  
-|url|De URL naar de website van de entiteit.<br /><br /> Gebruik deze URL samen met de naam van de entiteit op een hyperlink maken die terugkoppeling leidt de gebruiker naar de website van de entiteit.|Reeks|  
-|webSearchUrl|De URL van de Bing-zoekresultaten voor deze locatie.|Reeks| 
+|_type|Type-hint die kan worden ingesteld op een van de volgende:<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>Restaurant</ul><li>|String|  
+|address|Het postadres van waar de entiteit zich bevindt.|PostalAddress|  
+|entityPresentationInfo|Meer informatie over de entiteit, zoals de hints die u gebruiken kunt om te bepalen van de entiteit-type. Of het is bijvoorbeeld een restaurant of in een hotel. De `entityScenario` ListItem is ingeschakeld.|EntityPresentationInfo|  
+|naam|De naam van de entiteit.|String|  
+|Telefoonnummer|Het telefoonnummer van de entiteit.|String|  
+|url|De URL naar de website van de entiteit.<br /><br /> Gebruik deze URL samen met de naam van de entiteit op een hyperlink maken die terugkoppeling leidt de gebruiker naar de website van de entiteit.|String|  
+|webSearchUrl|De URL van de Bing-zoekresultaten voor deze locatie.|String| 
   
   
 ### <a name="querycontext"></a>QueryContext  
@@ -168,35 +168,35 @@ Hiermee definieert u de querycontext die Bing voor de aanvraag gebruikt.
 |Element|Description|Type|  
 |-------------|-----------------|----------|  
 |adultIntent|Een Booleaanse waarde die aangeeft of de opgegeven query volwassenen heeft. De waarde is **waar** als de query volwassenen heeft; anders **false**.|Booleaans|  
-|alterationOverrideQuery|De queryreeks gebruiken om af te dwingen van Bing voor het gebruik van de oorspronkelijke reeks. Bijvoorbeeld, als de query-tekenreeks is *saling downwind*, de query-tekenreeks voor het overschrijven is *+ saling downwind*. Vergeet niet om te coderen van de querytekenreeks die resulteert in *% 2Bsaling + downwind*.<br /><br /> Dit veld wordt alleen opgenomen als de oorspronkelijke querytekenreeks een fout spelling bevat.|Reeks|  
-|alteredQuery|De query-tekenreeks die wordt gebruikt door Bing voor het uitvoeren van de query. Bing maakt gebruik van de gewijzigde query-tekenreeks als de oorspronkelijke query-tekenreeks spelfouten opgenomen. Bijvoorbeeld, als de query-tekenreeks is `saling downwind`, worden de gewijzigde query-tekenreeks `sailing downwind`.<br /><br /> Dit veld wordt alleen opgenomen als de oorspronkelijke querytekenreeks een fout spelling bevat.|Reeks|  
+|alterationOverrideQuery|De queryreeks gebruiken om af te dwingen van Bing voor het gebruik van de oorspronkelijke reeks. Bijvoorbeeld, als de query-tekenreeks is *saling downwind*, de query-tekenreeks voor het overschrijven is *+ saling downwind*. Vergeet niet om te coderen van de querytekenreeks die resulteert in *% 2Bsaling + downwind*.<br /><br /> Dit veld wordt alleen opgenomen als de oorspronkelijke querytekenreeks een fout spelling bevat.|String|  
+|alteredQuery|De query-tekenreeks die wordt gebruikt door Bing voor het uitvoeren van de query. Bing maakt gebruik van de gewijzigde query-tekenreeks als de oorspronkelijke query-tekenreeks spelfouten opgenomen. Bijvoorbeeld, als de query-tekenreeks is `saling downwind`, worden de gewijzigde query-tekenreeks `sailing downwind`.<br /><br /> Dit veld wordt alleen opgenomen als de oorspronkelijke querytekenreeks een fout spelling bevat.|String|  
 |askUserForLocation|Een Booleaanse waarde die aangeeft of de locatie van de gebruiker om nauwkeurig resultaten te bieden voor Bing is vereist. Als u de locatie van de gebruiker met behulp van opgegeven de [X-MSEdge-client-IP](#clientip) en [X zoeklocatie](#location) headers, kunt u dit veld negeren.<br /><br /> Voor de locatie op de hoogte-query's, zoals "weerbericht van vandaag" of "restaurants in de buurt" die de locatie van de gebruiker voor nauwkeurige resultaten, moeten dit veld is ingesteld op **waar**.<br /><br /> Voor de locatie op de hoogte lidmaatschapregelquery's op met de locatie (bijvoorbeeld: "Seattle weer'), in dit veld is ingesteld op **false**. Dit veld ook is ingesteld op **false** voor query's die geen locatie op de hoogte, zoals 'beste verkopers'.|Booleaans|  
-|originalQuery|De query-tekenreeks die zijn opgegeven in de aanvraag.|Reeks|  
+|originalQuery|De query-tekenreeks die zijn opgegeven in de aanvraag.|String|  
 
 ### <a name="identifiable"></a>Identificeerbare
-|Name|Waarde|Type|  
+|Name|Value|Type|  
 |-------------|-----------------|----------|
-|id|Een resource-id|Reeks|
+|id|Een resource-id|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Definieert een groep resultaten, zoals mainline.
-|Name|Waarde|Type|  
+|Name|Value|Type|  
 |-------------|-----------------|----------|
 |items|Een lijst met resultaten om weer te geven in de groep.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Hiermee definieert u een item voor het resultaat van zoeken om weer te geven.
-|Name|Waarde|Type|  
+|Name|Value|Type|  
 |-------------|-----------------|----------|
 |resultIndex|Een op nul gebaseerde index van het item in het antwoord om weer te geven. Als het item bevat geen dit veld, moet u alle items weergeven in het antwoord. Bijvoorbeeld, alle nieuwsartikelen weergegeven in het antwoord nieuws.|Geheel getal|
-|answerType|Het antwoord waarin het item om weer te geven. Bijvoorbeeld, nieuws.<br /><br />Gebruik het type in het antwoord vinden in het object SearchResponse. Het type is de naam van een veld SearchResponse.<br /><br /> Echter, het antwoordtype alleen gebruiken als dit object het waardeveld bevat. anders wordt deze negeren.|Reeks|
+|answerType|Het antwoord waarin het item om weer te geven. Bijvoorbeeld, nieuws.<br /><br />Gebruik het type in het antwoord vinden in het object SearchResponse. Het type is de naam van een veld SearchResponse.<br /><br /> Echter, het antwoordtype alleen gebruiken als dit object het waardeveld bevat. anders wordt deze negeren.|String|
 |textualIndex|De index van het antwoord in textualAnswers om weer te geven.| Geheel getal zonder teken|
 |waarde|De ID die u identificeert een antwoord om weer te geven of een item van het antwoord om weer te geven. Als de ID verwijst naar een antwoord, moet u alle items van het antwoord weergegeven.|Identificeerbare|
 
 ### <a name="rankingresponse"></a>RankingResponse  
 Definieert wanneer de zoekopdracht in de resultaten pagina-inhoud moet worden geplaatst en in welke volgorde.  
   
-|Name|Waarde|  
+|Name|Value|  
 |----------|-----------|  
 |<a name="ranking-mainline" />mainline|De lijst met zoekresultaten om weer te geven in de hoofdlijnen.|  
 |<a name="ranking-pole" />pool|De lijst met zoekresultaten die moeten worden toegepast als de meest zichtbaar behandeling (bijvoorbeeld weergegeven boven de hoofdlijnen en zijbalk).|  
@@ -207,9 +207,9 @@ Hiermee definieert u het op het hoogste niveau object dat het antwoord bevat als
   
 Houd er rekening mee dat als de service een denial of service-aanval vermoedt, de aanvraag worden uitgevoerd (HTTP-statuscode is 200 OK); de hoofdtekst van het antwoord wordt echter niet leeg zijn.  
   
-|Name|Waarde|Type|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
-|_type|Type-hint die is ingesteld op SearchResponse.|Reeks|  
+|_type|Type-hint die is ingesteld op SearchResponse.|String|  
 |Plaatsen|Een lijst met entiteiten die relevant voor de zoekquery zijn.|JSON-object|  
 |queryContext|Een object dat de querytekenreeks die Bing voor de aanvraag gebruikt bevat.<br /><br /> Dit object bevat de query-tekenreeks, zoals opgegeven door de gebruiker. Het kan ook een gewijzigde querytekenreeks die Bing voor de query gebruikt als de querytekenreeks een fout spelling bevat bevatten.|[QueryContext](#querycontext)|  
 
