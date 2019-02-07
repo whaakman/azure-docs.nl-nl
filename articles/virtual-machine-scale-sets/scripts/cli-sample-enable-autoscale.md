@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4190a9c4ca89a0b57371f6b8d7d4e72ba480b0a6
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: c843bed96ebd69f0fe96f8dab292d50ef025e750
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888479"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657346"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Een virtuele-machineschaalset automatisch schalen met Azure CLI
 Met dit script maakt u een virtuele-machineschaalset met Ubuntu en gebruikt u metrische gegevens op basis van een host voor automatisch schalen wanneer de CPU-belasting verandert.
@@ -45,10 +45,10 @@ In dit script worden de volgende opdrachten gebruikt voor het maken van een reso
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [az group create](/cli/azure/ad/group#az_ad_group_create) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
-| [az vmss create](/cli/azure/vmss#az_vmss_create) | Hiermee maakt u de virtuele machine en verbindt u deze met het virtuele netwerk, het subnet en de netwerkbeveiligingsgroep. Om het verkeer te distribueren naar de verschillende VM-exemplaren, wordt er ook een load balancer gemaakt. Met deze opdracht geeft u ook de VM-installatiekopie op die moet worden gebruikt, samen met beheerdersreferenties.  |
-| [az monitor autoscale-settings create](/cli/azure/monitor/autoscale-settings#az_monitor_autoscale_settings_create) | Hiermee maakt u regels voor automatisch schalen voor een virtuele-machineschaalset en past u deze toe. |
-| [az group delete](/cli/azure/ad/group#delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
+| [az group create](/cli/azure/ad/group) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
+| [az vmss create](/cli/azure/vmss) | Hiermee maakt u de virtuele machine en verbindt u deze met het virtuele netwerk, het subnet en de netwerkbeveiligingsgroep. Om het verkeer te distribueren naar de verschillende VM-exemplaren, wordt er ook een load balancer gemaakt. Met deze opdracht geeft u ook de VM-installatiekopie op die moet worden gebruikt, samen met beheerdersreferenties.  |
+| [az monitor autoscale-settings create](/cli/azure/monitor/autoscale-settings) | Hiermee maakt u regels voor automatisch schalen voor een virtuele-machineschaalset en past u deze toe. |
+| [az group delete](/cli/azure/ad/group) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
 Raadpleeg de [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview) voor meer informatie over de Azure CLI.

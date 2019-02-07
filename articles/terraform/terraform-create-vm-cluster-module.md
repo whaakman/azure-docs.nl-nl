@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/19/2017
-ms.openlocfilehash: efeae877161b2632112938d63b6f6e31cce96ac5
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: d5a820da94254fe0da416d9219f7582d3a4241cb
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077195"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696163"
 ---
 # <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>Een VM-cluster maken met Terraform met behulp van het moduleregister
 
@@ -31,7 +31,7 @@ Zie voor meer informatie over Terraform de [documentatie van Terraform](https://
 ## <a name="set-up-authentication-with-azure"></a>Verificatie bij Azure instellen
 
 > [!TIP]
-> Als u [Terraform-omgevingsvariabelen](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables) gebruikt of deze zelfstudie uitvoert in de [Azure Cloud Shell](/azure/cloud-shell/overview), slaat u deze stap over.
+> Als u [Terraform-omgevingsvariabelen](/azure/virtual-machines/linux/terraform-install-configure) gebruikt of deze zelfstudie uitvoert in de [Azure Cloud Shell](/azure/cloud-shell/overview), slaat u deze stap over.
 
  Lees [Terraform installeren en de toegang tot Azure configureren](/azure/virtual-machines/linux/terraform-install-configure) om een ​​Azure-service-principal te maken. Gebruik deze service-principal om een ​​nieuw bestand, `azureProviderAndCreds.tf`, in een lege map te vullen met de volgende code:
 

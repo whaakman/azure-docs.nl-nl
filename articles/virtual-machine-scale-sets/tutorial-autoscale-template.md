@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 261af3524b36d3742c68ef147bfa648bfe95034c
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 5e02c88d894c01752965af77861d3e11e1bb101d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887765"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749190"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Zelfstudie: Een virtuele-machineschaalset automatisch schalen met een Azure-sjabloon
 Wanneer u een schaalset maakt, definieert u het aantal VM-exemplaren dat u wilt uitvoeren. Wanneer de vraag van de toepassing verandert, kunt u het aantal VM-exemplaren automatisch vergroten of verkleinen. De mogelijkheid van automatisch schalen stelt u in staat om altijd te voldoen aan de vraag van klanten houden of om gedurende de levenscyclus van uw app te reageren op wijzigingen in de prestaties van de toepassing. In deze zelfstudie leert u het volgende:
@@ -144,13 +144,13 @@ In het volgende voorbeeld wordt een regel gedefinieerd waarmee het aantal VM-exe
 ## <a name="create-an-autoscaling-scale-set"></a>Een schaalset voor automatisch schalen maken
 We gebruiken een voorbeeldsjabloon om een schaalset te maken en regels voor automatisch schalen toe te passen. U kunt [de volledige sjabloon bekijken](https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/autoscale.json) of [de sectie *Microsoft.insights/autoscalesettings* met de resourceprovider](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/scale_sets/autoscale.json#L220) van de sjabloon.
 
-Maak eerst een resourcegroep met [az group create](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
+Maak eerst een resourcegroep met [az group create](/cli/azure/group). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Maak nu een schaalset voor virtuele machines met [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). Geef desgevraagd uw eigen gebruikersnaam en wachtwoord op, zoals *azureuser*, voor gebruik als de referenties voor elk VM-exemplaar:
+Maak nu een schaalset voor virtuele machines met [az group deployment create](/cli/azure/group/deployment). Geef desgevraagd uw eigen gebruikersnaam en wachtwoord op, zoals *azureuser*, voor gebruik als de referenties voor elk VM-exemplaar:
 
 ```azurecli-interactive
 az group deployment create \
@@ -198,7 +198,7 @@ Wanneer **stress** uitvoer toont die lijkt op *stress: info: [2688] dispatching 
 
 Om te controleren of **stress** CPU-belasting genereert, onderzoekt u de actieve systeembelasting met het hulpprogramma **top**:
 
-```azuecli-interactive
+```azurecli-interactive
 top
 ```
 
@@ -264,7 +264,7 @@ Sluit *watch* af met `Ctrl-c`. De capaciteit van de schaalset wordt nog steeds o
 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Als u de schaalset en aanvullende resources wilt verwijderen, verwijdert u de resourcegroep en alle bijbehorende resources met [az group delete](/cli/azure/group#az_group_delete):
+Als u de schaalset en aanvullende resources wilt verwijderen, verwijdert u de resourcegroep en alle bijbehorende resources met [az group delete](/cli/azure/group):
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

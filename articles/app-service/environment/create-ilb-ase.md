@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: edea614065d67bab23de29e5cef3b56c69905a90
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: a707ae6959b035ae0bcc05ead027dabd528e1b59
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188604"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747506"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Een interne load balancer maken en gebruiken met een App Service-omgeving #
 
@@ -90,7 +90,7 @@ Ga als volgt te werk om een ILB AS-omgeving te maken:
 
 8. Selecteer **OK**, en selecteer vervolgens **Maken**.
 
-    ![Het maken van een ASE][1]
+    ![ASE maken][1]
 
 Op de blade **Virtueel netwerk** ziet u de optie **Virtuele-netwerkconfiguratie**. U kunt deze optie gebruiken om een extern VIP-adres of een intern VIP-adres te selecteren. De standaard is **Extern**. Als u **Extern** selecteert, maakt de AS-omgeving gebruik van een IP-adres dat toegankelijk is via internet. Als u **Intern** selecteert, is de AS-omgeving geconfigureerd met een ILB op een IP-adres binnen uw VNet.
 
@@ -129,7 +129,7 @@ Een ILB AS-omgeving verschilt iets van de niet-ILB AS-omgeving. Zoals al eerder 
 
 Nadat u de AS-omgeving hebt gemaakt, wordt in de domeinnaam het domein weergegeven dat u hebt opgegeven. In het menu  **Instelling**  wordt een nieuw item weergegeven met de naam  **ILB-certificaat**. De AS-omgeving wordt gemaakt met een certificaat waarin het domein van de ILB AS-omgeving niet wordt opgegeven. Als u de AS-omgeving met dit certificaat gebruikt, verschijnt er een melding in de browser dat het certificaat ongeldig is. Met dit certificaat kunt u HTTPS eenvoudiger testen, maar u moet uw eigen certificaat uploaden dat is gekoppeld aan het domein van uw ILB AS-omgeving. Deze stap is nodig, ongeacht of het certificaat zelfondertekend is of is verkregen via een certificeringsinstantie.
 
-![domeinnaam van de ILB ASE][3]
+![De domeinnaam van de ILB AS-omgeving][3]
 
 Voor uw ILB AS-omgeving is een geldig SSL-certificaat vereist. Gebruik interne certificeringsinstanties, koop een certificaat van een externe gebruiker of gebruik een zelfondertekend certificaat. De volgende certificaatkenmerken moeten juist zijn geconfigureerd, ongeacht wat de bron van het SSL-certificaat is:
 
@@ -223,8 +223,13 @@ Zie [Configure a web application firewall with your App Service environment][ASE
 
 * Zie [Introduction to App Service environments][Intro] (Inleiding tot App Service-omgevingen) om aan de slag te gaan met AS-omgevingen.
  
+
 <!--Image references-->
-[1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png [2]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-webapp.png [3]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate.png [4]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate2.png [5]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-ipaddresses.png
+[1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png
+[2]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-webapp.png
+[3]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate.png
+[4]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate2.png
+[5]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-ipaddresses.png
 
 <!--Links-->
 [Intro]: ./intro.md

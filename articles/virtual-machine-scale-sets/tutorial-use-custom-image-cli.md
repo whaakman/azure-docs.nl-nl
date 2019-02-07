@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 119a53949b6184389c0e36e56732f0486c24ca5c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7e2e092af0fc0340a0db7b958b02d3d16942ca77
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193485"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755183"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Zelfstudie: Een aangepaste installatiekopie voor virtuele-machineschaalsets maken en gebruiken met Azure CLI
 Wanneer u een schaalset maakt, geeft u een installatiekopie op die moet worden gebruikt wanneer de VM-exemplaren zijn geïmplementeerd. Om het aantal taken na de implementatie van VM-exemplaren te verminderen, kunt u een aangepaste VM-installatiekopie gebruiken. Deze aangepaste VM-installatiekopie bevat alle geïnstalleerde toepassingen of configuraties die vereist zijn. Alle VM-exemplaren die in de schaalset zijn gemaakt, gebruiken de aangepaste VM-installatiekopie en zijn gereed voor uw toepassingsverkeer. In deze zelfstudie leert u het volgende:
@@ -44,7 +44,7 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
 >[!NOTE]
 > Deze zelfstudie leidt u door het proces van het maken en gebruiken van een algemene VM-installatiekopie. Het maken van een schaalset op basis van een gespecialiseerde VM-installatiekopie wordt niet ondersteund.
 
-Voordat u een virtuele machine kunt maken, moet u eerst een resourcegroep maken met [az group create](/cli/azure/group#az_group_create) en daarna een virtuele machine maken met [az vm create](/cli/azure/vm). Deze VM wordt vervolgens gebruikt als bron voor een aangepaste VM-installatiekopie. In het volgende voorbeeld wordt een virtuele machine gemaakt met de naam *myVM* in de resourcegroep met de naam *myResourceGroup*:
+Voordat u een virtuele machine kunt maken, moet u eerst een resourcegroep maken met [az group create](/cli/azure/group) en daarna een virtuele machine maken met [az vm create](/cli/azure/vm). Deze VM wordt vervolgens gebruikt als bron voor een aangepaste VM-installatiekopie. In het volgende voorbeeld wordt een virtuele machine gemaakt met de naam *myVM* in de resourcegroep met de naam *myResourceGroup*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -87,7 +87,7 @@ exit
 ## <a name="create-a-custom-vm-image-from-the-source-vm"></a>Een aangepaste VM-installatiekopie maken van de bron-VM
 De bron-VM is nu aangepast met de geïnstalleerde Nginx-webserver. We maken een aangepaste VM-installatiekopie om deze te gebruiken met een schaalset.
 
-Voor het maken van een installatiekopie moet de toewijzing van de VM ongedaan worden gemaakt. Maak de toewijzing van de VM ongedaan met [az vm deallocate](/cli//azure/vm#az_vm_deallocate). Stel nu de status van de virtuele machine met [az vm generalize](/cli//azure/vm#az_vm_generalize) in als gegeneraliseerd, zodat het Azure-platform weet dat de virtuele machine klaar is voor gebruik van een aangepaste installatiekopie. U kunt alleen een installatiekopie maken op basis van een gegeneraliseerde virtuele machine:
+Voor het maken van een installatiekopie moet de toewijzing van de VM ongedaan worden gemaakt. Maak de toewijzing van de VM ongedaan met [az vm deallocate](/cli//azure/vm). Stel nu de status van de virtuele machine met [az vm generalize](/cli//azure/vm) in als gegeneraliseerd, zodat het Azure-platform weet dat de virtuele machine klaar is voor gebruik van een aangepaste installatiekopie. U kunt alleen een installatiekopie maken op basis van een gegeneraliseerde virtuele machine:
 
 ```azurecli-interactive
 az vm deallocate --resource-group myResourceGroup --name myVM
@@ -122,7 +122,7 @@ Het duurt enkele minuten om alle schaalsetresources en VM's te maken en te confi
 
 
 ## <a name="test-your-scale-set"></a>Uw schaalset testen
-Als u wilt dat verkeer de webserver kan bereiken, maakt u een load balancer-regel met behulp van [az network lb rule create](/cli/azure/network/lb/rule#create). In het volgende voorbeeld wordt een regel met de naam *myLoadBalancerRuleWeb* gemaakt die verkeer toestaat op *TCP*-poort *80*:
+Als u wilt dat verkeer de webserver kan bereiken, maakt u een load balancer-regel met behulp van [az network lb rule create](/cli/azure/network/lb/rule). In het volgende voorbeeld wordt een regel met de naam *myLoadBalancerRuleWeb* gemaakt die verkeer toestaat op *TCP*-poort *80*:
 
 ```azurecli-interactive
 az network lb rule create \
@@ -136,7 +136,7 @@ az network lb rule create \
   --protocol tcp
 ```
 
-Als u de schaalset in actie wilt zien, achterhaalt u het openbare IP-adres van uw load balancer met [az network public-ip show](/cli/azure/network/public-ip#show). In het volgende voorbeeld wordt het IP-adres voor *myScaleSetLBPublicIP* opgehaald, dat is gemaakt als onderdeel van de schaalset:
+Als u de schaalset in actie wilt zien, achterhaalt u het openbare IP-adres van uw load balancer met [az network public-ip show](/cli/azure/network/public-ip). In het volgende voorbeeld wordt het IP-adres voor *myScaleSetLBPublicIP* opgehaald, dat is gemaakt als onderdeel van de schaalset:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -152,7 +152,7 @@ Voer in uw webbrowser het openbare IP-adres in. De standaard NGINX-webpagina wor
 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Als u de schaalset en aanvullende resources wilt verwijderen, verwijdert u de resourcegroep en alle bijbehorende resources met [az group delete](/cli/azure/group#az_group_delete). De parameter `--no-wait` retourneert het besturingselement naar de prompt zonder te wachten totdat de bewerking is voltooid. De parameter `--yes` bevestigt dat u de resources wilt verwijderen, zonder een extra prompt om dit te doen.
+Als u de schaalset en aanvullende resources wilt verwijderen, verwijdert u de resourcegroep en alle bijbehorende resources met [az group delete](/cli/azure/group). De parameter `--no-wait` retourneert het besturingselement naar de prompt zonder te wachten totdat de bewerking is voltooid. De parameter `--yes` bevestigt dat u de resources wilt verwijderen, zonder een extra prompt om dit te doen.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

@@ -10,12 +10,12 @@ ms.date: 09/26/2018
 ms.topic: quickstart
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: ccd4334961ff6e5e687d2f57be0291bd389f43b4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bfc70186590bce0165cf25f089f6863152cfba47
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463800"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658365"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-nodejs"></a>Snelstart: Kubernetes-dev-ruimte maken met Azure Dev Spaces (Node.js)
 
@@ -189,4 +189,4 @@ In deze configuratie is de container geconfigureerd voor het starten van *nodemo
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Werken met meerdere containers en teamontwikkeling](team-development-nodejs.md)
+> [Werken met meerdere containers en teamontwikkeling](multi-service-nodejs.md)
