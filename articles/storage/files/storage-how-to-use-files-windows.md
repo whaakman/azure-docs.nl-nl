@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: e3b0773da49499e2eaa8c9b9f59ced4ed26276ba
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4361ec72f5f9cff924900ddd712aa1aa029c5ef4
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465160"
+ms.locfileid: "55509017"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Een Azure-bestandsshare gebruiken met Windows
 [Azure Files ](storage-files-introduction.md) is het eenvoudig te gebruiken cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen probleemloos worden gebruikt in Windows en Windows Server. In dit artikel worden de overwegingen besproken voor het gebruik van een Azure-bestandsshare met Windows en Windows Server.
@@ -45,7 +45,7 @@ U kunt Azure-bestandsshares gebruiken in een Windows-installatie die wordt uitge
 
 * **Sleutel van het opslagaccount**: Voor het koppelen van een Azure-bestandsshare hebt u de primaire (of secundaire) opslagsleutel nodig. SAS-sleutels worden momenteel niet ondersteund voor koppelen.
 
-* **Zorg ervoor dat poort 445 open is**: Het SMB-protocol vereist dat TCP-poort 445 open is. Verbindingen mislukken als poort 445 is geblokkeerd. Met de cmdlet `Test-NetConnection` kunt u controleren of uw firewall poort 445 blokkeert. Bij de volgende PowerShell-code wordt ervan uitgegaan dat u de AzureRM PowerShell-module heeft geïnstalleerd. Raadpleeg [Azure PowerShell-module installeren](https://docs.microsoft.com/powershell/azure/install-az-ps) voor meer informatie. Vergeet niet om `<your-storage-account-name>` en `<your-resoure-group-name>` te vervangen door de betreffende namen van uw opslagaccount.
+* **Zorg ervoor dat poort 445 open is**: Het SMB-protocol vereist dat TCP-poort 445 open is. Verbindingen mislukken als poort 445 is geblokkeerd. Met de cmdlet `Test-NetConnection` kunt u controleren of uw firewall poort 445 blokkeert. Bij de volgende PowerShell-code wordt ervan uitgegaan dat u de AzureRM PowerShell-module heeft geïnstalleerd. Raadpleeg [Azure PowerShell-module installeren](https://docs.microsoft.com/powershell/azure/install-az-ps) voor meer informatie. Vergeet niet om `<your-storage-account-name>` en `<your-resource-group-name>` te vervangen door de betreffende namen van uw opslagaccount.
 
     ```PowerShell
     $resourceGroupName = "<your-resource-group-name>"
@@ -83,7 +83,7 @@ In tegenstelling tot andere SMB-shares waarmee u mogelijk te maken hebt gehad, z
 Een algemeen patroon om Line-Of-Business-toepassingen die een SMB-bestandsshare van Azure verwachten te verplaatsen, is om een Azure-bestandsshare te gebruiken als alternatief voor het uitvoeren van een toegewezen Windows-bestandsserver in een virtuele Azure-machine. Als u een Line-Of-Business-toepassing succesvol wilt migreren zodat deze een Azure-bestandsshare gebruikt, is een belangrijk aandachtspunt dat veel Line-of-Business-toepassingen worden uitgevoerd in de context van een toegewezen serviceaccount met beperkte systeemmachtigingen, in plaats van het beheerdersaccount van de virtuele machine. U moet er daarom voor zorgen dat u de referenties voor de Azure-bestandsshare koppelt/opslaat in de context van een serviceaccount in plaats van uw beheerdersaccount.
 
 ### <a name="persisting-azure-file-share-credentials-in-windows"></a>Permanente referenties voor een Azure-bestandsshare in Windows  
-Met het hulpprogramma [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) kunt u de referenties van uw opslagaccount bewaren in Windows. Dit betekent dat wanneer u toegang wilt krijgen tot een Azure-bestandsshare via het UNC-pad of als u de share wilt koppelen, u uw referenties niet hoeft op te geven. Als u de referenties van uw opslagaccount wilt bewaren, voert u de volgende PowerShell-opdrachten uit, waarbij u `<your-storage-account-name>` en `<your-resoure-group-name>` vervangt waar dat nodig is.
+Met het hulpprogramma [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) kunt u de referenties van uw opslagaccount bewaren in Windows. Dit betekent dat wanneer u toegang wilt krijgen tot een Azure-bestandsshare via het UNC-pad of als u de share wilt koppelen, u uw referenties niet hoeft op te geven. Als u de referenties van uw opslagaccount wilt bewaren, voert u de volgende PowerShell-opdrachten uit, waarbij u `<your-storage-account-name>` en `<your-resource-group-name>` vervangt waar dat nodig is.
 
 ```PowerShell
 $resourceGroupName = "<your-resource-group-name>"

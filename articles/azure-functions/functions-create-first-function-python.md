@@ -11,12 +11,12 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 631fc4e613311df9386084408ead625f6d018151
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 2c14cdf963d1d6c792e6101d8a2179a560dcf096
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911887"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731254"
 ---
 # <a name="create-your-first-python-function-in-azure-preview"></a>Uw eerste Python-functie maken in Azure (preview)
 
@@ -179,7 +179,7 @@ U bent nu klaar om een functie-app en andere vereiste resources te maken om naar
 
 ## <a name="create-a-linux-function-app-in-azure"></a>Een Linux-functie-app maken in Azure
 
-De functie-app biedt een omgeving waarin uw functiecode kan worden uitgevoerd. U kunt er functies mee groeperen in een logische eenheid, zodat u resources eenvoudiger kunt beheren, implementeren en delen. U maakt een **Python-functie-app die in Linux wordt uitgevoerd** met behulp van de opdracht [az functionapp create](/cli/azure/functionapp#az_functionapp_create).
+De functie-app biedt een omgeving waarin uw functiecode kan worden uitgevoerd. U kunt er functies mee groeperen in een logische eenheid, zodat u resources eenvoudiger kunt beheren, implementeren en delen. U maakt een **Python-functie-app die in Linux wordt uitgevoerd** met behulp van de opdracht [az functionapp create](/cli/azure/functionapp).
 
 Voer in de volgende opdracht uit met daarin een unieke functie-appnaam in plaats van de tijdelijke plaatsaanduiding `<app_name>` en gebruik de naam van het opslagaccount in plaats van `<storage_name>`. De `<app_name>` is ook het standaard DNS-domein voor de functie-app. Deze naam moet uniek zijn in alle apps in Azure.
 

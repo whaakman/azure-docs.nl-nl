@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: tutorial
 ms.date: 01/14/2019
-ms.openlocfilehash: 9e6ebd45f08d2479c73e0753fe1e8df3455df1e1
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 381958b462b668447a6548029a1be616df7a3a4b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265291"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750219"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Zelfstudie: Apache Kafka-beleidsregels configureren in HDInsight met Enterprise Security Package (preview)
 
@@ -48,7 +48,7 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="create-domain-users"></a>Domeingebruikers maken
 
-Ga naar [Een HDInsight-cluster maken met Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds#create-a-domain-joined-hdinsight-cluster) voor informatie over het maken van de domeingebruikers **sales_user** en **marketing_user**. In een productiescenario zijn de domeingebruikers afkomstig uit uw Active Directory-tenant.
+Ga naar [Een HDInsight-cluster maken met Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds) voor informatie over het maken van de domeingebruikers **sales_user** en **marketing_user**. In een productiescenario zijn de domeingebruikers afkomstig uit uw Active Directory-tenant.
 
 ## <a name="create-ranger-policy"></a>Ranger-beleid maken
 

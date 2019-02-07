@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 93a4a47b539184910f01fe9261562ffd8816ad45
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: cec481ca355ecf081f6aaff8228957f0adf226f6
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581229"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691385"
 ---
 # <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-the-same-subscription-with-cli"></a>Maak een beheerde schijf op basis van een VHD-bestand in een opslagaccount in hetzelfde abonnement met CLI
 
@@ -43,7 +43,7 @@ Dit script gebruikt de volgende opdrachten om een beheerde schijf te maken op ba
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Hiermee maakt u een beheerde schijf met behulp van de URI van een VHD in een opslagaccount in hetzelfde abonnement. |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk) | Hiermee maakt u een beheerde schijf met behulp van de URI van een VHD in een opslagaccount in hetzelfde abonnement. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

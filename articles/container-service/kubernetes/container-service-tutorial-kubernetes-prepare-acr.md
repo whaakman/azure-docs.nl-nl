@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c3e5e7c4fb46b3f68013ac857dcad2e5434a978d
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: d0107e09bf8706ba7d4c813814103ca109262d8d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998314"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657396"
 ---
 # <a name="deprecated-deploy-and-use-azure-container-registry"></a>(AFGESCHAFT) Azure Container Registry implementeren en gebruiken
 
@@ -141,7 +141,7 @@ Result
 azure-vote-front
 ```
 
-Gebruik vervolgens de opdracht [az acr repository show-tags](/cli/azure/acr/repository#show-tags) om de tags voor een specifieke installatiekopie weer te geven.
+Gebruik vervolgens de opdracht [az acr repository show-tags](/cli/azure/acr/repository) om de tags voor een specifieke installatiekopie weer te geven.
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table

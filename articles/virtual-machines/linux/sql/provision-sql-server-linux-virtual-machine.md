@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.technology: database-engine
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 4087cd93b7342958717a20a08832daba1123417f
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: d6a82414974c00d5fa2a7cfe5c1dd00ceaeb3bfa
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330735"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729462"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Een virtuele SQL Server-machine inrichten in Azure Portal
 
@@ -129,7 +129,7 @@ Als u Windows gebruikt en geen BASH-shell hebt, installeert u een SSH-client, zo
 
 1. Selecteer **Openen** en voer uw gebruikersnaam en wachtwoord in bij de prompts.
 
-Zie [Een virtuele Linux-machine in Azure maken met behulp van de portal](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal#ssh-to-the-vm) voor meer informatie over verbinding maken met virtuele Linux-machines.
+Zie [Een virtuele Linux-machine in Azure maken met behulp van de portal](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal) voor meer informatie over verbinding maken met virtuele Linux-machines.
 
 > [!Note]
 > Als er een PuTTY-beveiligingswaarschuwing wordt weergegeven dat de hostsleutel van de server niet in het register wordt opgeslagen, kunt u uit de volgende opties kiezen. Als u deze host vertrouwt, selecteert u **Ja** om de sleutel aan de PuTTy-cache toe te voegen en door te gaan met verbinding maken. Als u eenmalig verbinding wilt maken, zonder de sleutel aan de cache toe te voegen, selecteert u **Nee**. Als u deze host niet vertrouwt, selecteert u **Annuleren** om de verbinding te verbreken.

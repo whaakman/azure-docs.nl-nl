@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: dda4f68046b81d96cfe92d5e8b09eab23df0003b
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: e26ae189b6b0bdcbfdcf225772cb3fd0361abca2
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846303"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698986"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Een VPN-gatewayverbinding tussen VNets configureren met behulp van Azure CLI
 
@@ -140,7 +140,7 @@ In de voorbeelden worden de volgende waarden gebruikt:
   ```azurecli
   az network vnet create -n TestVNet1 -g TestRG1 --address-prefix 10.11.0.0/16 -l eastus --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24
   ```
-3. Maak een extra adresruimte voor het back-endsubnet. In deze stap specificeren we zowel de adresruimte die we eerder hebben gemaakt en de extra adresruimte die we willen toevoegen. Dit komt doordat de opdracht [az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet#az_network_vnet_update) de vorige instellingen overschrijft. Zorg ervoor dat u alle adresvoorvoegsels opgeeft wanneer u deze opdracht gebruikt.
+3. Maak een extra adresruimte voor het back-endsubnet. In deze stap specificeren we zowel de adresruimte die we eerder hebben gemaakt en de extra adresruimte die we willen toevoegen. Dit komt doordat de opdracht [az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet) de vorige instellingen overschrijft. Zorg ervoor dat u alle adresvoorvoegsels opgeeft wanneer u deze opdracht gebruikt.
 
   ```azurecli
   az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestRG1
@@ -384,5 +384,5 @@ Deze stap is opgesplitst in twee CLI-sessies, aangeduid als **[Abonnement 1]** e
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Raadpleeg de [Documentatie voor Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) voor meer informatie.
+* Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Raadpleeg de [Documentatie voor Virtual Machines](https://docs.microsoft.com/azure/) voor meer informatie.
 * Voor meer informatie over BGP raadpleegt u [BGP Overview](vpn-gateway-bgp-overview.md) (BGP-overzicht) en [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md) (BGP configureren).

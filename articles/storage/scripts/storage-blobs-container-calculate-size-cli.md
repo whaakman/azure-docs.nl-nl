@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/28/2017
 ms.author: tamram
-ms.openlocfilehash: c38a49e82a71a23fdf621f5ac350c4242ffc2f8f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3cb1e35617a58fcde7968ab45d437d865c91f983
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29847104"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696929"
 ---
 # <a name="calculate-the-size-of-a-blob-storage-container"></a>De grootte van een Blob Storage-container berekenen
 
@@ -51,9 +51,9 @@ In dit script worden de volgende opdrachten gebruikt om de grootte van de Blob S
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
-| [az storage blob upload](/cli/azure/storage/account#az_storage_account_create) | Hiermee worden lokale bestanden geüpload naar een Azure Blob Storage-container. |
-| [az storage blob list](/cli/azure/storage/account/keys#az_storage_account_keys_list) | Hiermee wordt een lijst gemaakt van de blobs in een Azure Blob Storage-container. |
+| [az group create](/cli/azure/group) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
+| [az storage blob upload](/cli/azure/storage/account) | Hiermee worden lokale bestanden geüpload naar een Azure Blob Storage-container. |
+| [az storage blob list](/cli/azure/storage/account/keys) | Hiermee wordt een lijst gemaakt van de blobs in een Azure Blob Storage-container. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

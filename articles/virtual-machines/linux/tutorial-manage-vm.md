@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bc548ea23249f89fadcec481cc97b6ca3ed2b909
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 270479061ad40fdda9db06571ad4ef24b00d6c4d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54466853"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749139"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Zelfstudie: Virtuele Linux-machines maken en beheren met de Azure CLI
 
@@ -40,7 +40,7 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u Azure
 
 ## <a name="create-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep maken met de opdracht [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create). 
+Een resourcegroep maken met de opdracht [az group create](https://docs.microsoft.com/cli/azure/group). 
 
 Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Voordat een virtuele machine wordt gemaakt, moet een resourcegroep worden gemaakt. In dit voorbeeld wordt een resourcegroep met de naam *myResourceGroupVM* gemaakt in de regio *VS - Oost*. 
 
@@ -52,7 +52,7 @@ De resourcegroep wordt opgegeven tijdens het maken of wijzigen van een virtuele 
 
 ## <a name="create-virtual-machine"></a>Virtuele machine maken
 
-Maak een virtuele machine met de opdracht [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). 
+Maak een virtuele machine met de opdracht [az vm create](https://docs.microsoft.com/cli/azure/vm). 
 
 Wanneer u een virtuele machine maakt, zijn er diverse opties beschikbaar zoals installatiekopie besturingssysteem, schijfgrootte en beheerdersreferenties. In het volgende voorbeeld wordt een VM met de naam *myVM* gemaakt waarop Ubuntu Server loopt. Een gebruikersaccount met de naam *azureuser* wordt gemaakt op de virtuele machine en SSH-sleutels worden gegenereerd als deze niet bestaan op de standaardlocatie van de sleutel (*~/.ssh*):
 
@@ -98,7 +98,7 @@ exit
 
 Azure Marketplace bevat vele installatiekopieën die kunnen worden gebruikt voor het maken van virtuele machines. In de vorige stappen is een virtuele machine gemaakt met behulp van een Ubuntu-installatiekopie. In deze stap wordt de Azure CLI gebruikt om op de Marketplace te zoeken naar een CentOS-installatiekopie, die vervolgens wordt gebruikt voor het implementeren van een tweede virtuele machine. 
 
-Als u een lijst wilt weergeven van de meest gebruikte installatiekopieën, gebruikt u de opdracht [az vm image list](/cli/azure/vm/image#az_vm_image_list).
+Als u een lijst wilt weergeven van de meest gebruikte installatiekopieën, gebruikt u de opdracht [az vm image list](/cli/azure/vm/image).
 
 ```azurecli-interactive 
 az vm image list --output table
@@ -167,7 +167,7 @@ In de volgende tabel zijn grootten gecategoriseerd in use-cases.
 
 ### <a name="find-available-vm-sizes"></a>Beschikbare VM-grootten zoeken
 
-Als u een lijst wilt weergeven met de VM-grootten die beschikbaar zijn in een bepaalde regio, gebruikt u de opdracht [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes). 
+Als u een lijst wilt weergeven met de VM-grootten die beschikbaar zijn in een bepaalde regio, gebruikt u de opdracht [az vm list-sizes](/cli/azure/vm). 
 
 ```azurecli-interactive 
 az vm list-sizes --location eastus --output table
@@ -198,7 +198,7 @@ Gedeeltelijke uitvoer:
 
 ### <a name="create-vm-with-specific-size"></a>Een virtuele machine met een specifieke grootte maken
 
-In het vorige voorbeeld over het maken van een virtuele machine, is er geen grootte opgegeven, waardoor de standaardgrootte werd gebruikt. Een VM-grootte kan worden geselecteerd tijdens het maken met behulp van [az vm create](/cli/azure/vm#az_vm_create) en het argument `--size`. 
+In het vorige voorbeeld over het maken van een virtuele machine, is er geen grootte opgegeven, waardoor de standaardgrootte werd gebruikt. Een VM-grootte kan worden geselecteerd tijdens het maken met behulp van [az vm create](/cli/azure/vm) en het argument `--size`. 
 
 ```azurecli-interactive 
 az vm create \
@@ -217,12 +217,12 @@ Nadat een virtuele machine is geïmplementeerd, kan de grootte ervan worden gewi
 az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
 ```
 
-Voordat u de grootte van een virtuele machine wijzigt, moet u controleren of de gewenste grootte beschikbaar is in het huidige Azure-cluster. Met de opdracht [az vm list-vm-resize-options](/cli/azure/vm#az_vm_list_vm_resize_options) wordt de lijst met grootten geretourneerd. 
+Voordat u de grootte van een virtuele machine wijzigt, moet u controleren of de gewenste grootte beschikbaar is in het huidige Azure-cluster. Met de opdracht [az vm list-vm-resize-options](/cli/azure/vm) wordt de lijst met grootten geretourneerd. 
 
 ```azurecli-interactive 
 az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --query [].name
 ```
-Als de gewenste grootte beschikbaar is, kan de grootte van de virtuele machine worden gewijzigd terwijl de virtuele machine wordt uitgevoerd. De virtuele machine moet wel opnieuw worden opgestart tijdens de bewerking. Gebruik de opdracht [az vm resize]( /cli/azure/vm#az_vm_resize) om de grootte te wijzigen.
+Als de gewenste grootte beschikbaar is, kan de grootte van de virtuele machine worden gewijzigd terwijl de virtuele machine wordt uitgevoerd. De virtuele machine moet wel opnieuw worden opgestart tijdens de bewerking. Gebruik de opdracht [az vm resize]( /cli/azure/vm) om de grootte te wijzigen.
 
 ```azurecli-interactive 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
@@ -264,7 +264,7 @@ Een Azure VM kan op een van de vele energiestatussen worden ingesteld. Deze stat
 
 ### <a name="find-the-power-state"></a>De Aan-/uitstatus zoeken
 
-Als u de status van een bepaalde virtuele machine wilt ophalen, gebruikt u de opdracht [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view). Zorg ervoor dat u een geldige naam opgeeft voor de virtuele machine en resourcegroep. 
+Als u de status van een bepaalde virtuele machine wilt ophalen, gebruikt u de opdracht [az vm get-instance-view](/cli/azure/vm). Zorg ervoor dat u een geldige naam opgeeft voor de virtuele machine en resourcegroep. 
 
 ```azurecli-interactive 
 az vm get-instance-view \

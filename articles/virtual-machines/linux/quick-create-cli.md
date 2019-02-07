@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: af7f3b42aad41f103be6c86da84db2ff230ff226
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 5dda96786cde980fbec1b2f90bb7f755453b468a
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065207"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729656"
 ---
-# <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Snelstart: Een virtuele Linux-machine maken met de Azure CLI
+# <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Quickstart: Een virtuele Linux-machine maken met de Azure CLI
 
 De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. In deze snelstartgids wordt beschreven hoe u de Azure CLI gebruikt om een virtuele Linux-machine (VM) in Azure te implementeren. In deze zelfstudie installeren we Ubuntu 16.04 LTS. Als u wilt zien hoe de virtuele machine in de praktijk werkt, moet u hiermee verbinding maken via SSH en de NGINX-webserver installeren.
 
@@ -39,7 +39,7 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, hebt u voor 
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az_group_create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
+Een resourcegroep maken met de opdracht [az group create](/cli/azure/group). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -47,7 +47,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-virtual-machine"></a>Virtuele machine maken
 
-Maak een VM met de opdracht [az vm create](/cli/azure/vm#az_vm_create).
+Maak een VM met de opdracht [az vm create](/cli/azure/vm).
 
 In het volgende voorbeeld wordt een virtuele machine met de naam *myVM* gemaakt en voegt u een gebruikersaccount met de naam *azureuser* toe. De parameter `--generate-ssh-keys` wordt gebruikt om automatisch een SSH-sleutel te genereren en deze te plaatsen in de standaardsleutellocatie (*~/.ssh*). Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.
 
@@ -79,7 +79,7 @@ Noteer uw eigen `publicIpAddress` in de uitvoer van uw virtuele machine. Dit adr
 
 ## <a name="open-port-80-for-web-traffic"></a>Poort 80 openen voor webverkeer
 
-Standaard worden alleen SSH-verbindingen geopend wanneer u een virtuele Linux-machine in Azure maakt. Gebruik [az vm open-port](/cli/azure/vm#az_vm_open_port) om TCP-poort 80 te openen voor gebruik met de NGINX-webserver:
+Standaard worden alleen SSH-verbindingen geopend wanneer u een virtuele Linux-machine in Azure maakt. Gebruik [az vm open-port](/cli/azure/vm) om TCP-poort 80 te openen voor gebruik met de NGINX-webserver:
 
 ```azurecli-interactive
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -112,7 +112,7 @@ Gebruik een webbrowser naar keuze om de standaard NGINX-welkomstpagina weer te g
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-U kunt de opdracht [az group delete](/cli/azure/group#az_group_delete) gebruiken om de resourcegroep, de VM en alle gerelateerde resources te verwijderen wanneer u ze niet meer nodig hebt. 
+U kunt de opdracht [az group delete](/cli/azure/group) gebruiken om de resourcegroep, de VM en alle gerelateerde resources te verwijderen wanneer u ze niet meer nodig hebt. 
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

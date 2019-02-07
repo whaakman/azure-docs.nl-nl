@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 1/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0aa15c34e6fd6c7952a457d36e072bc91d4d5dab
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: c3c4556d22aae4328883436f7323840fd3c60c18
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102169"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729299"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Quickstart: Een token verkrijgen en Microsoft Graph API aanroepen vanuit een console-app met behulp van de identiteit van de app
 
@@ -40,7 +40,7 @@ Voor deze quickstart is [.NET Core 2.1](https://www.microsoft.com/net/download/d
 
 > [!div renderon="docs" class="sxs-lookup"]
 >
-> U hebt twee opties voor het starten van de quickstarttoepassing:
+> U hebt twee opties voor het starten van de snelstarttoepassing:
 > * [Express] [Optie 1: registreer de toepassing en laat deze automatisch configureren. Download vervolgens het codevoorbeeld](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
 > * [Handmatig] [Optie 2: registreer de toepassing en configureer handmatig de toepassing en het codevoorbeeld](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
@@ -67,7 +67,7 @@ Voor deze quickstart is [.NET Core 2.1](https://www.microsoft.com/net/download/d
 > 1. Selecteer onder het knooppunt **Gebruiker** de optie **User.Read.All** en selecteer vervolgens **Machtigingen toevoegen**
 
 > [!div class="sxs-lookup" renderon="portal"]
-> ### <a name="download-and-configure-your-quickstart-app"></a>Uw quickstart-app downloaden en configureren
+> ### <a name="download-and-configure-your-quickstart-app"></a>Uw snelstart-app downloaden en configureren
 > 
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Stap 1: uw toepassing configureren in Azure Portal
 > Om ervoor te zorgen dat het codevoorbeeld voor deze quickstart werkt, moet u een clientgeheim maken en de toepassingstoestemming **User.Read.All** van Graph API toevoegen.
@@ -203,7 +203,7 @@ var app = new ConfidentialClientApplication(
 > | `userTokenCache`  | Exemplaar van een tokencache voor de gebruiker. Omdat deze app wordt uitgevoerd in de context van de app en niet van de gebruiker, is deze waarde in dit geval null|
 > | `appTokenCache`  | Exemplaar van een tokencache voor de app|
 
-Zie de [naslagdocumentatie voor `ConfidentialClientApplication`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.-ctor?view=azure-dotnet#Microsoft_Identity_Client_ConfidentialClientApplication__ctor_System_String_System_String_System_String_Microsoft_Identity_Client_ClientCredential_Microsoft_Identity_Client_TokenCache_Microsoft_Identity_Client_TokenCache) voor meer informatie
+Zie de [naslagdocumentatie voor `ConfidentialClientApplication`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.-ctor?view=azure-dotnet) voor meer informatie
 
 ### <a name="requesting-tokens"></a>Tokens aanvragen
 

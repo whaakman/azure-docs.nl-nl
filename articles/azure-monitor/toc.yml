@@ -61,7 +61,7 @@ items:
 - name: Concepten
   items:
   - name: Azure-beheer
-    href: azure-management.md?toc=/azure/azure-monitor/toc.json
+    href: azure-management.md
   - name: Doorlopende bewaking
     href: continuous-monitoring.md
   - name: Bewakingsgegevens
@@ -135,7 +135,7 @@ items:
     - name: Waarschuwingen voor activiteitenlogboeken
       href: platform/activity-log-alerts.md
   - name: Gegevens visualiseren
-    href: visualizations.md?toc=/azure/azure-monitor/toc.json
+    href: visualizations.md
   - name: Partnerintegraties
     href: platform/partners.md
   - name: Veelgestelde vragen
@@ -195,9 +195,9 @@ items:
         - name: Windows-agents
           href: platform/agent-windows.md
         - name: VM-extensie voor Windows
-          href: ../virtual-machines/windows/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+          href: ../virtual-machines/windows/extensions-oms.md
         - name: VM-extensie voor Linux
-          href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+          href: ../virtual-machines/linux/extensions-oms.md
         - name: Operations Manager
           href: platform/om-agents.md
         - name: Log Analytics-gateway
@@ -287,7 +287,7 @@ items:
           - name: Problemen met profiler oplossen
             href: app/profiler-troubleshooting.md
         - name: Diagnostiek
-          href: ../application-insights/app-insights-azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
+          href: ../application-insights/app-insights-azure-diagnostics.md
         - name: Previews
           href: app/previews.md
       - name: ASP.NET-apps
@@ -354,7 +354,7 @@ items:
         - name: Javascript
           href: app/javascript.md
       - name: Azure Functions controleren
-        href: ../azure-functions/functions-monitoring.md?toc=/azure/application-insights/toc.json
+        href: ../azure-functions/functions-monitoring.md
       - name: Gedistribueerde tracering
         items:
         - name: Lokale doorstuurserver
@@ -397,7 +397,7 @@ items:
         - name: Geen gegevens voor .NET
           href: app/asp-net-troubleshoot-no-data.md
         - name: Snapshot Debugger
-          href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md?toc=/azure/azure-monitor/toc.json
+          href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md
         - name: Analyse
           href: app/analytics-troubleshooting.md
         - name: Java
@@ -604,7 +604,7 @@ items:
       - name: Key Vault-analyse
         href: insights/azure-key-vault.md
       - name: Service Fabric-analyse
-        href: ../service-fabric/service-fabric-diagnostics-oms-agent.md?toc=/azure/azure-monitor/toc.json
+        href: ../service-fabric/service-fabric-diagnostics-oms-agent.md
     - name: Andere resources bewaken
       items:
       - name: AD-status evalueren
@@ -653,7 +653,7 @@ items:
     - name: Voorbeelden van Metric Explorer-grafieken
       href: platform/metric-chart-samples.md
     - name: Gebeurtenissen in het activiteitenlogboek bekijken
-      href: ../azure-resource-manager/resource-group-audit.md?toc=/azure/azure-monitor/toc.json
+      href: ../azure-resource-manager/resource-group-audit.md
     - name: Servicemeldingen bekijken
       href: platform/service-notifications.md
     - name: Query uitvoeren op logboekgegevens
@@ -819,7 +819,7 @@ items:
       - name: VM-schaalsets automatisch schalen met Resource Manager-sjablonen
         href: platform/autoscale-virtual-machine-scale-sets.md
       - name: Machines automatisch schalen in een VM-schaalset
-        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json?toc=/azure/azure-monitor/toc.json
+        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
       - name: Webhooks en e-mailmeldingen configureren voor automatisch schalen
         href: platform/autoscale-webhook-email.md
     - name: Servicemeldingen
@@ -1023,9 +1023,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Codevoorbeelden
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: d972d54cd81609ae16f7966795f16e5efe41e863
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 96f79397b16212fe0897e0d03f57ffb7248118c8
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752021"
+ms.locfileid: "55767118"

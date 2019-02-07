@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9abf1d1105c112051041688f1d4305c543b148ce
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b0d2a72567783ca1c127f76d94ddc9c5e007ea89
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179477"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751018"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Zelfstudie: Een virtuele-machineschaalset maken en beheren met Azure CLI
 Met een virtuele-machineschaalset kunt u een reeks identieke virtuele machines met automatisch schalen implementeren en beheren. Gedurende de levenscyclus van een schaalset voor virtuele machines moet u mogelijk een of meer beheertaken uitvoeren. In deze zelfstudie leert u het volgende:
@@ -41,7 +41,7 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
 
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
-Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. U kunt pas een schaalset voor virtuele machines maken als er al een resourcegroep is gemaakt. Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az_group_create). In dit voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt in de regio *eastus*. 
+Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. U kunt pas een schaalset voor virtuele machines maken als er al een resourcegroep is gemaakt. Een resourcegroep maken met de opdracht [az group create](/cli/azure/group). In dit voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt in de regio *eastus*. 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -66,7 +66,7 @@ Het duurt enkele minuten om alle schaalsetresources en VM-exemplaren te maken en
 
 
 ## <a name="view-the-vm-instances-in-a-scale-set"></a>De VM-exemplaren in een schaalset bekijken
-Als u een lijst met VM-exemplaren wilt weergeven die worden uitgevoerd in een schaalset, gebruikt u [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances) als volgt:
+Als u een lijst met VM-exemplaren wilt weergeven die worden uitgevoerd in een schaalset, gebruikt u [az vmss list-instances](/cli/azure/vmss) als volgt:
 
 ```azurecli-interactive
 az vmss list-instances \
@@ -85,7 +85,7 @@ In de volgende voorbeelduitvoer ziet u dat de schaalset twee VM-exemplaren bevat
 ```
 
 
-De eerste kolom in de uitvoer bevat een *InstanceId*. Als u extra informatie wilt weergeven over een bepaald VM-exemplaar, voegt u de parameter `--instance-id` toe aan [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view). In het volgende voorbeeld wordt informatie opgevraagd over het VM-exemplaar *1*:
+De eerste kolom in de uitvoer bevat een *InstanceId*. Als u extra informatie wilt weergeven over een bepaald VM-exemplaar, voegt u de parameter `--instance-id` toe aan [az vmss get-instance-view](/cli/azure/vmss). In het volgende voorbeeld wordt informatie opgevraagd over het VM-exemplaar *1*:
 
 ```azurecli-interactive
 az vmss get-instance-view \
@@ -129,7 +129,7 @@ exit
 
 
 ## <a name="understand-vm-instance-images"></a>Installatiekopieën van VM-exemplaren begrijpen
-Toen u aan het begin van de zelfstudie een schaalset hebt gemaakt, is een `--image` van *UbuntuLTS* opgegeven voor de VM-exemplaren. Azure Marketplace bevat allerlei installatiekopieën die kunnen worden gebruikt voor het maken van VM-exemplaren. Als u een lijst wilt weergeven van de meest gebruikte installatiekopieën, gebruikt u de opdracht [az vm image list](/cli/azure/vm/image#az_vm_image_list).
+Toen u aan het begin van de zelfstudie een schaalset hebt gemaakt, is een `--image` van *UbuntuLTS* opgegeven voor de VM-exemplaren. Azure Marketplace bevat allerlei installatiekopieën die kunnen worden gebruikt voor het maken van VM-exemplaren. Als u een lijst wilt weergeven van de meest gebruikte installatiekopieën, gebruikt u de opdracht [az vm image list](/cli/azure/vm/image).
 
 ```azurecli-interactive
 az vm image list --output table
@@ -243,7 +243,7 @@ az vmss create \
 ## <a name="change-the-capacity-of-a-scale-set"></a>De capaciteit van een schaalset wijzigen
 Toen u aan het begin van de zelfstudie een schaalset hebt gemaakt, zijn er standaard twee VM-exemplaren geïmplementeerd. U kunt de parameter `--instance-count` opgeven met [az vmss create](/cli/azure/vmss) om het aantal exemplaren te wijzigen dat wordt gemaakt met een schaalset. Als u het aantal VM-exemplaren in een bestaande schaalset wilt vergroten of verkleinen, kunt u de capaciteit handmatig wijzigen. De grootte van de schaalset wordt dan aangepast, waarna de load balancer wordt geconfigureerd voor het verdelen van het verkeer.
 
-Als u het aantal VM-exemplaren in de schaalset handmatig wilt vergroten of verkleinen, gebruikt u [az vmss scale](/cli/azure/vmss#az_vmss_scale). In het volgende voorbeeld wordt het aantal VM-exemplaren in de schaalset ingesteld op *3*:
+Als u het aantal VM-exemplaren in de schaalset handmatig wilt vergroten of verkleinen, gebruikt u [az vmss scale](/cli/azure/vmss). In het volgende voorbeeld wordt het aantal VM-exemplaren in de schaalset ingesteld op *3*:
 
 ```azurecli-interactive
 az vmss scale \
@@ -252,7 +252,7 @@ az vmss scale \
     --new-capacity 3
 ```
 
-Het duurt een paar minuten om de capaciteit van de schaalset bij te werken. Als u het aantal instanties wilt weergeven dat zich momenteel in een schaalset bevindt, gebruikt u [az vmss show](/cli/azure/vmss#az_vmss_show) en voert u een query uit op *sku.capacity*:
+Het duurt een paar minuten om de capaciteit van de schaalset bij te werken. Als u het aantal instanties wilt weergeven dat zich momenteel in een schaalset bevindt, gebruikt u [az vmss show](/cli/azure/vmss) en voert u een query uit op *sku.capacity*:
 
 ```azurecli-interactive
 az vmss show \
@@ -267,27 +267,27 @@ az vmss show \
 U kunt nu een schaalset maken, verbindingsgegevens opvragen en verbinding maken met VM-exemplaren. U hebt geleerd hoe u een andere installatiekopie van het besturingssysteem kunt gebruiken voor VM-exemplaren, hoe u een andere VM-grootte selecteert of hoe u handmatig het aantal exemplaren aanpast. Als onderdeel van de dagelijkse beheertaken, kan het nodig zijn om de VM-exemplaren in de schaalset te stoppen, starten of opnieuw op te starten.
 
 ### <a name="stop-and-deallocate-vm-instances-in-a-scale-set"></a>VM-exemplaren in een schaalset stoppen en hun toewijzing ongedaan maken
-Gebruik [az vmss stop](/cli/azure/vmss#az_vmss_stop) om een of meer VM-exemplaren in een schaalset te beëindigen. Met de parameter `--instance-ids` kunt u een of meer VM-exemplaren opgeven die u wilt stoppen. Als u geen exemplaar-id opgeeft, worden alle VM-exemplaren in de schaalset gestopt. In het volgende voorbeeld wordt het exemplaar *1* gestopt:
+Gebruik [az vmss stop](/cli/azure/vmss) om een of meer VM-exemplaren in een schaalset te beëindigen. Met de parameter `--instance-ids` kunt u een of meer VM-exemplaren opgeven die u wilt stoppen. Als u geen exemplaar-id opgeeft, worden alle VM-exemplaren in de schaalset gestopt. In het volgende voorbeeld wordt het exemplaar *1* gestopt:
 
 ```azurecli-interactive
 az vmss stop --resource-group myResourceGroup --name myScaleSet --instance-ids 1
 ```
 
-De toewijzing van gestopte VM-exemplaren wordt niet ongedaan gemaakt, wat betekent dat er nog steeds compute-kosten in rekening worden gebracht voor deze exemplaren. Als u de toewijzing van de VM-exemplaren ongedaan wilt maken zodat er alleen nog opslagkosten in rekening worden gebracht, gebruikt u [az vmss deallocate](/cli/azure/vmss#az_vmss_deallocate). In het volgende voorbeeld wordt het exemplaar *1* gestopt en wordt de toewijzing ingetrokken:
+De toewijzing van gestopte VM-exemplaren wordt niet ongedaan gemaakt, wat betekent dat er nog steeds compute-kosten in rekening worden gebracht voor deze exemplaren. Als u de toewijzing van de VM-exemplaren ongedaan wilt maken zodat er alleen nog opslagkosten in rekening worden gebracht, gebruikt u [az vmss deallocate](/cli/azure/vmss). In het volgende voorbeeld wordt het exemplaar *1* gestopt en wordt de toewijzing ingetrokken:
 
 ```azurecli-interactive
 az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance-ids 1
 ```
 
 ### <a name="start-vm-instances-in-a-scale-set"></a>VM-exemplaren in een schaalset starten
-Gebruik [az vmss start](/cli/azure/vmss#az_vmss_start) om een of meer VM-exemplaren in een schaalset te starten. Met de parameter `--instance-ids` kunt u een of meer VM-exemplaren opgeven die u wilt starten. Als u geen exemplaar-id opgeeft, worden alle VM-exemplaren in de schaalset gestart. In het volgende voorbeeld wordt het exemplaar *1* gestart:
+Gebruik [az vmss start](/cli/azure/vmss) om een of meer VM-exemplaren in een schaalset te starten. Met de parameter `--instance-ids` kunt u een of meer VM-exemplaren opgeven die u wilt starten. Als u geen exemplaar-id opgeeft, worden alle VM-exemplaren in de schaalset gestart. In het volgende voorbeeld wordt het exemplaar *1* gestart:
 
 ```azurecli-interactive
 az vmss start --resource-group myResourceGroup --name myScaleSet --instance-ids 1
 ```
 
 ### <a name="restart-vm-instances-in-a-scale-set"></a>VM-exemplaren in een schaalset opnieuw opstarten
-Gebruik [az vmss restart](/cli/azure/vmss#az_vm_restart) om een of meer VM-exemplaren in een schaalset opnieuw op te starten. Met de parameter `--instance-ids` kunt u een of meer VM-exemplaren opgeven die u opnieuw wilt opstarten. Als u geen exemplaar-id opgeeft, worden alle VM-exemplaren in de schaalset opnieuw opgestart. In het volgende voorbeeld wordt het exemplaar *1* opnieuw opgestart:
+Gebruik [az vmss restart](/cli/azure/vmss) om een of meer VM-exemplaren in een schaalset opnieuw op te starten. Met de parameter `--instance-ids` kunt u een of meer VM-exemplaren opgeven die u opnieuw wilt opstarten. Als u geen exemplaar-id opgeeft, worden alle VM-exemplaren in de schaalset opnieuw opgestart. In het volgende voorbeeld wordt het exemplaar *1* opnieuw opgestart:
 
 ```azurecli-interactive
 az vmss restart --resource-group myResourceGroup --name myScaleSet --instance-ids 1

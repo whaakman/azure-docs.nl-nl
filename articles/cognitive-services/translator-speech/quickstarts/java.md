@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: Translator Speech-API Java'
+title: 'Quickstart: Translator Speech-API Java'
 titlesuffix: Azure Cognitive Services
 description: Informatie en codevoorbeelden ophalen om u te helpen snel aan de slag te gaan met de Translator Speech-API.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 1fb6eeb30b8ba348ce90916955bd8ffbb2cbb7c5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d0e9545a6bc8ec56bc5ae9c9532d80822bfe3505
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459162"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753126"
 ---
 # <a name="quickstart-translator-speech-api-with-java"></a>Quickstart: Translator Speech-API met Java 
 <a name="HOLTop"></a>
@@ -39,7 +39,7 @@ U hebt de volgende bestanden nodig.
 - [javax-websocket-client-impl-9.4.11.v20180605.jar (of nieuwer)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/javax-websocket-client-impl)
 - [jetty-client-9.4.11.v20180605.jar (of nieuwer)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-client)
 
-In de map met het uitvoerbare bestand dat u hebt gemaakt op basis van de volgende code moet ook een WAV-bestand staan met de naam speak.wav. Dit WAV-bestand de standaardindeling hebben: PCM, 16-bits, 16 kHz, mono. U kunt dit WAV-bestand verkrijgen via de [Text to Speech-API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+In de map met het uitvoerbare bestand dat u hebt gemaakt op basis van de volgende code moet ook een WAV-bestand staan met de naam speak.wav. Dit WAV-bestand de standaardindeling hebben: PCM, 16-bits, 16 kHz, mono. U kunt dit WAV-bestand verkrijgen via de [Text to Speech-API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
 U moet beschikken over een [account voor de Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) en de **Microsoft Translator Speech-API**. U hebt een betaalde abonnementssleutel nodig op het [Azure-dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 

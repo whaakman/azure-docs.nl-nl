@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: mmontwil
-ms.openlocfilehash: c448521d7e1ce70a44ca23f58d0034ca2041cbed
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 24bb5a044db813e1ee3cf2c9ff3e36a9b9ff86d7
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453427"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657056"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-java-and-vs-code"></a>Snelstartgids: Een Kubernetes-ontwikkelomgeving maken met Azure Dev Spaces (Java en VS Code)
 
@@ -27,7 +27,7 @@ In deze handleiding leert u het volgende:
 - Spoor fouten in de code van uw ontwikkelomgeving op met VS Code.
 
 > [!Note]
-> **Als u op enig moment niet verder kunt**, kunt u de [probleemoplossingssectie](troubleshooting.md) raadplegen of een opmerking op deze pagina plaatsen. U kunt ook de meer gedetailleerde [zelfstudie](get-started-netcore.md) proberen.
+> **Als u op enig moment niet verder kunt**, kunt u de [probleemoplossingssectie](troubleshooting.md) raadplegen of een opmerking op deze pagina plaatsen. U kunt ook de meer gedetailleerde [zelfstudie](get-started-java.md) proberen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -137,4 +137,4 @@ Vernieuw de web-app in de browser. U ziet dat uw aangepaste bericht wordt weerge
 Ontdek hoe Azure Dev Spaces u kan helpen om complexere apps te ontwikkelen binnen meerdere containers en hoe u ontwikkeling in samenwerkingsverband vereenvoudigt door in verschillende ruimten met verschillende versies of vertakkingen van uw code te werken.
 
 > [!div class="nextstepaction"]
-> [Werken met meerdere containers en teamontwikkeling](team-development-java.md)
+> [Werken met meerdere containers en teamontwikkeling](multi-service-java.md)

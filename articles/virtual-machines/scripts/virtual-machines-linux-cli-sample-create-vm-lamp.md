@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/05/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: ceda12b71a58153995a23eabace37b4373b57ef2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ff4c41ff6428ba6ef88473508830ec8545be8778
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155159"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731101"
 ---
 # <a name="deploy-the-lamp-stack-in-a-load-balanced-virtual-machine-scale-set"></a>De LAMP Stack implementeren in een VM-schaalset met gelijke taakverdeling
 
@@ -53,14 +53,14 @@ Dit script gebruikt de volgende opdrachten voor het maken van een resourcegroep,
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
-| [az vmss create](https://docs.microsoft.com/cli/azure/vmss#az_vmss_create) | Hiermee maakt u een VM-schaalset |
-| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#az_network_lb_rule_create) | Een eindpunt met gelijke taakverdeling toevoegen |
-| [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension#az_vmss_extension_set) | Hiermee maakt u de extensie voor het uitvoeren van het aangepaste script bij de implementatie van een virtuele machine. |
-| [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss#az_vmss_update_instances) | Hiermee voert u het aangepaste script uit op de VM-instanties die werden geïmplementeerd voordat de extensie op de schaalset werd toegepast. |
-| [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) | Vergroot de schaalset door meer VM-instanties toe te voegen. Het aangepaste script wordt op deze instanties uitgevoerd wanneer ze worden geïmplementeerd. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
+| [az vmss create](https://docs.microsoft.com/cli/azure/vmss) | Hiermee maakt u een VM-schaalset |
+| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) | Een eindpunt met gelijke taakverdeling toevoegen |
+| [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension) | Hiermee maakt u de extensie voor het uitvoeren van het aangepaste script bij de implementatie van een virtuele machine. |
+| [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss) | Hiermee voert u het aangepaste script uit op de VM-instanties die werden geïmplementeerd voordat de extensie op de schaalset werd toegepast. |
+| [az vmss scale](https://docs.microsoft.com/cli/azure/vmss) | Vergroot de schaalset door meer VM-instanties toe te voegen. Het aangepaste script wordt op deze instanties uitgevoerd wanneer ze worden geïmplementeerd. |
 | [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip) | Haal de IP-adressen van de virtuele machines op die in het voorbeeld zijn gemaakt. |
-| [az network lb show](https://docs.microsoft.com/cli/azure/network/lb#az_network_lb_show) | Hiermee haalt u de frontend- en backendpoorten op die door de load balancer worden gebruikt. |
+| [az network lb show](https://docs.microsoft.com/cli/azure/network/lb) | Hiermee haalt u de frontend- en backendpoorten op die door de load balancer worden gebruikt. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

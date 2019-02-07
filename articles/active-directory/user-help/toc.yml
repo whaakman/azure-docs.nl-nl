@@ -48,24 +48,25 @@ items:
   - name: Overzicht
     href: user-help-auth-app-overview.md
   - name: De app downloaden en installeren
-    href: microsoft-authenticator-app-how-to.md
+    href: user-help-auth-app-download-install.md
   - name: Een overzicht van accounts toevoegen
-    href: microsoft-authenticator-app-add-accounts-overview.md
+    href: user-help-auth-app-add-account-overview.md
     items:
     - name: Een werk- of schoolaccount toevoegen
-      href: microsoft-authenticator-app-add-work-account.md
+      href: user-help-auth-app-add-work-school-account.md
     - name: Een persoonlijke Microsoft-account toevoegen
-      href: microsoft-authenticator-app-add-personal-account.md
+      href: user-help-auth-app-add-personal-ms-account.md
     - name: Een account toevoegen dat niet van Microsoft is
-      href: microsoft-authenticator-app-add-non-microsoft-account.md
+      href: user-help-auth-app-add-non-ms-account.md
     - name: Handmatig een account toevoegen
-      href: microsoft-authenticator-app-add-account-manual.md
+      href: user-help-auth-app-add-account-manual.md
+    expanded: true
   - name: Aanmelden met de Microsoft Authenticator-app
-    href: microsoft-authenticator-app-phone-signin-faq.md
+    href: user-help-auth-app-sign-in.md
   - name: Een back-up maken van uw accounts en deze herstellen
-    href: microsoft-authenticator-app-backup-and-recovery.md
+    href: user-help-auth-app-backup-recovery.md
   - name: Veelgestelde vragen
-    href: microsoft-authenticator-app-faq.md
+    href: user-help-auth-app-faq.md
 - name: Hulp bij Mijn Apps-portal
   items:
   - name: Overzicht
@@ -84,9 +85,9 @@ items:
     href: user-help-register-device-on-network.md
   - name: Problemen in het bericht 'U kunt daar niet komen' oplossen
     href: user-help-device-remediation.md
-ms.openlocfilehash: ed41c40adc0d09d60f43cf3826c6bb84a464c31f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 604b2c204f893bf0abaaec86f85e2159c17a8656
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755268"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816047"

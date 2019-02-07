@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: d14b8c9c752c9d41a42f092662c5f3aa88840dc5
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 0ba18b1ef0ba6c0a73759577c83ab80550baa6f8
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157714"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754741"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Snelstart: Webverkeer omleiden met Azure Application Gateway - Azure CLI
 
@@ -39,7 +39,7 @@ az group create --name myResourceGroupAG --location eastus
 
 Wanneer u een virtueel netwerk maakt, kan de toepassingsgateway communiceren met andere resources. U kunt een virtueel netwerk maken op hetzelfde moment dat u de toepassingsgateway maakt. In dit voorbeeld worden twee subnetten gemaakt: één voor de toepassingsgateway en het andere voor de virtuele machines. Het subnet van de toepassingsgateway kan alleen bestaan uit toepassingsgateways. Andere resources zijn niet toegestaan.
 
-Maak het virtuele netwerk en het subnet met de opdracht [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Voer [az network public-ip create](/cli/azure/network/public-ip#az-public-ip-create) uit om het openbare IP-adres te maken.
+Maak het virtuele netwerk en het subnet met de opdracht [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Voer [az network public-ip create](/cli/azure/network/public-ip) uit om het openbare IP-adres te maken.
 
 ```azurecli-interactive
 az network vnet create \
@@ -133,7 +133,7 @@ done
 
 ## <a name="create-the-application-gateway"></a>De toepassingsgateway maken
 
-U kunt met de opdracht [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create) een toepassingsgateway maken. Als u met de Azure CLI een toepassingsgateway maakt, geeft u configuratiegegevens op, zoals capaciteit, SKU en HTTP-instellingen. Azure voegt dan de privé-IP-adressen van de netwerkinterfaces toe als servers in de back-endpool van de toepassingsgateway.
+U kunt met de opdracht [az network application-gateway create](/cli/azure/network/application-gateway) een toepassingsgateway maken. Als u met de Azure CLI een toepassingsgateway maakt, geeft u configuratiegegevens op, zoals capaciteit, SKU en HTTP-instellingen. Azure voegt dan de privé-IP-adressen van de netwerkinterfaces toe als servers in de back-endpool van de toepassingsgateway.
 
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')

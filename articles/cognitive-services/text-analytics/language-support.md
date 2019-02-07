@@ -37,7 +37,7 @@ Taalondersteuning wordt in eerste instantie in de Preview-versie opwaarderen naa
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
 | Deens      | `da`          | ✔ \*     | ✔           |             |     |
 | Nederlands       | `nl`          | ✔ \*     | ✔          |             |     |
-| English     | `en`          | ✔        | ✔           |  ✔ \*   |      |
+| Engels     | `en`          | ✔        | ✔           |  ✔ \*   |      |
 | Fins     | `fi`          | ✔ \*     | ✔           |             |     |
 | Frans      | `fr`          | ✔        | ✔           |             |     |
 | Duits      | `de`          | ✔ \*     | ✔           |            |     |

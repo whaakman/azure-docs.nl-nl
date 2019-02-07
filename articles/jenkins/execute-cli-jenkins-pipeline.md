@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 6/7/2017
-ms.openlocfilehash: 05e21083b060e00602f58e1a17f52f40ced7d34e
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: dfdc572810cfcfd275faa4502e508b9c8ccec9b6
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075206"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727838"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Implementeren in Azure App Service met Jenkins en de Azure CLI
 Als u een Java-web-app wilt implementeren in Azure, kunt u de Azure CLI in de [Jenkins-pijplijn](https://jenkins.io/doc/book/pipeline/) gebruiken. In deze zelfstudie maakt u een CI/CD-pijplijn op een virtuele machine in Azure. U leert onder andere:
@@ -115,7 +115,7 @@ Wanneer de definitie van de web-app is gemaakt, toont de Azure CLI soortgelijke 
 
 ### <a name="configure-java"></a>Java configureren 
 
-Stel de Java-runtimeconfiguratie in die uw app nodig heeft met de opdracht [az appservice web config update](/cli/azure/webapp/config#az-appservice-web-config-update).
+Stel de Java-runtimeconfiguratie in die uw app nodig heeft met de opdracht [az appservice web config update](/cli/azure/webapp/config).
 
 De volgende opdracht configureert de web-app om op een recente Java 8 JDK en [Apache Tomcat](http://tomcat.apache.org/) 8.0 te worden uitgevoerd.
 

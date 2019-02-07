@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 319803a8b6c07de6efafa80789248c60a9cdad06
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3ec3d152864ab8caf9f0c68966b6d4f8fd9e64dd
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241438"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695233"
 ---
 # <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-cli"></a>Een virtuele machine maken met behulp van een bestaande beheerde besturingssysteemschijf met CLI
 
@@ -52,8 +52,8 @@ Dit script gebruikt de volgende opdrachten voor het opvragen van de eigenschappe
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [az disk show](https://docs.microsoft.com/cli/azure/disk#az_disk_show) | Hiermee haalt u de eigenschappen van de beheerde schijf op door de naam van de schijf en de naam van de resourcegroep op te geven. De eigenschap Id wordt gebruikt om een beheerde schijf te koppelen aan een nieuwe virtuele machine. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Hiermee maakt u een virtuele machine die gebruikmaakt van een beheerde besturingssysteemschijf. |
+| [az disk show](https://docs.microsoft.com/cli/azure/disk) | Hiermee haalt u de eigenschappen van de beheerde schijf op door de naam van de schijf en de naam van de resourcegroep op te geven. De eigenschap Id wordt gebruikt om een beheerde schijf te koppelen aan een nieuwe virtuele machine. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Hiermee maakt u een virtuele machine die gebruikmaakt van een beheerde besturingssysteemschijf. |
 ## <a name="next-steps"></a>Volgende stappen
 
 Raadpleeg de [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure) voor meer informatie over de Azure CLI.

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: b5b6f1a1cbd4c06106b7817f9fc28d8d4a9cfc06
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: f537ccfd18685cd5aa8ee06910fc80ac3d2056c9
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306332"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750406"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Zelfstudie: Een parallelle workload uitvoeren met Azure Batch met behulp van de Python API
 
@@ -170,7 +170,7 @@ Het aantal knooppunten en de VM-grootte worden ingesteld met behulp van gedefini
 
 Naast fysieke eigenschappen van knooppunten bevat deze poolconfiguratie het object [StartTask](/python/api/azure.batch.models.starttask). StartTask wordt in elk knooppunt uitgevoerd wanneer dat knooppunt aan de pool wordt toegevoegd en telkens wanneer dat knooppunt opnieuw wordt opgestart. In dit voorbeeld voert StartTask Bash-shell-opdrachten uit om het ffmpeg-pakket en afhankelijkheden op de knooppunten te installeren.
 
-Met de methode [pool.add](/python/api/azure.batch.operations.pooloperations#azure_batch_operations_PoolOperations_add) wordt de pool naar de Batch-service verzonden.
+Met de methode [pool.add](/python/api/azure.batch.operations.pooloperations) wordt de pool naar de Batch-service verzonden.
 
 ```python
 new_pool = batch.models.PoolAddParameter(
@@ -200,7 +200,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-job"></a>Een taak maken
 
-Een Batch-taak (job) geeft een pool op die taken moet uitvoeren en optionele instellingen, zoals een prioriteit en planning voor het werk. In het voorbeeld wordt een job gemaakt met een aanroep naar `create_job`. De app gebruikt de klasse [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) om een taak te maken in de pool. Met de methode [job.add](/python/api/azure.batch.operations.joboperations#azure_batch_operations_JobOperations_add) wordt de pool naar de Batch-service verzonden. De Batch-taak heeft in eerste instantie geen taken.
+Een Batch-taak (job) geeft een pool op die taken moet uitvoeren en optionele instellingen, zoals een prioriteit en planning voor het werk. In het voorbeeld wordt een job gemaakt met een aanroep naar `create_job`. De app gebruikt de klasse [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) om een taak te maken in de pool. Met de methode [job.add](/python/api/azure.batch.operations.joboperations) wordt de pool naar de Batch-service verzonden. De Batch-taak heeft in eerste instantie geen taken.
 
 ```python
 job = batch.models.JobAddParameter(
@@ -216,7 +216,7 @@ De app maakt taken in de Batch-taak met een aanroep naar `add_tasks`. Deze gedef
 
 Het voorbeeld maakt een [OutputFile](/python/api/azure.batch.models.outputfile)-object voor het MP3-bestand nadat de opdrachtregel is uitgevoerd. De uitvoerbestanden van elke taak (één in dit geval) worden geüpload naar een container in het gekoppelde opslagaccount met behulp van de eigenschap `output_files` van de taak.
 
-Vervolgens worden met de app taken toegevoegd aan de Batch-taak met behulp van de methode [task.add_collection](/python/api/azure.batch.operations.taskoperations#azure_batch_operations_TaskOperations_add_collection). Deze methode plaatst de taken in een wachtrij voor uitvoering op de rekenknooppunten. 
+Vervolgens worden met de app taken toegevoegd aan de Batch-taak met behulp van de methode [task.add_collection](/python/api/azure.batch.operations.taskoperations). Deze methode plaatst de taken in een wachtrij voor uitvoering op de rekenknooppunten. 
 
 ```python
 tasks = list()
