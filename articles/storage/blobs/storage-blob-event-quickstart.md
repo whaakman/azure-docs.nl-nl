@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: storage
 ms.subservice: blobs
 ms.custom: seodec18
-ms.openlocfilehash: a1f5946e3dcfd00631ed09b5e9211d0b207fba33
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f38c6fec7ff98e7d5c46661741ff036edb791673
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250415"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756373"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>Snelstartgids: Opslaggebeurtenissen routeren naar een webeindpunt met Azure CLI
 
@@ -39,7 +39,7 @@ Als u Cloud Shell niet gebruikt, moet u zich eerst aanmelden met `az login`.
 
 Event Grid-onderwerpen zijn Azure-resources en moeten in een Azure-resourcegroep worden geplaatst. De resourcegroep is een logische verzameling waarin Azure-resources worden geïmplementeerd en beheerd.
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az_group_create). 
+Een resourcegroep maken met de opdracht [az group create](/cli/azure/group). 
 
 In het volgende voorbeeld wordt een resourcegroep met de naam `<resource_group_name>` gemaakt op de locatie *westcentralus*.  Vervang `<resource_group_name>` door een unieke naam voor uw resourcegroep.
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bace15a89f0dd820c69d51bee0a6b669cdf5ff73
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 7fd671c77b4c0897134457f5aacaabc11d568694
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885584"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756407"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Zelfstudie: Virtuele machines met hoge beschikbaarheid maken en implementeren met de Azure CLI
 
@@ -49,7 +49,7 @@ Gebruik beschikbaarheidssets wanneer u betrouwbare VM-oplossingen wilt implement
 
 ## <a name="create-an-availability-set"></a>Een beschikbaarheidsset maken
 
-U kunt een beschikbaarheidsset maken met behulp van [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create). In dit voorbeeld is het aantal update- en foutdomeinen ingesteld op *2* voor de beschikbaarheidsset met de naam *myAvailabilitySet* in de resourcegroep *ResourceGroupAvailability*.
+U kunt een beschikbaarheidsset maken met behulp van [az vm availability-set create](/cli/azure/vm/availability-set). In dit voorbeeld is het aantal update- en foutdomeinen ingesteld op *2* voor de beschikbaarheidsset met de naam *myAvailabilitySet* in de resourcegroep *ResourceGroupAvailability*.
 
 Maak eerst een resourcegroep met [az group create](/cli/azure/group#az-group-create) en maak daarna de beschikbaarheidsset:
 

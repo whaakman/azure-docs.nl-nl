@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: da7848fe561d061470e8921f1f76ac30bed4c809
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 58090e860b79d59021d467fcf73596271c91c7f6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163055"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751154"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Zelfstudie: Schijven maken en gebruiken met schaalset voor virtuele machines met Azure CLI
 Schaalsets voor virtuele machines maken gebruik van schijven voor het opslaan van het besturingssysteem, toepassingen en gegevens van het VM-exemplaar. Bij het maken en beheren van een schaalset is het belangrijk dat u een schijfgrootte en configuratie kiest die geschikt zijn voor de verwachte werkbelasting. Deze zelfstudie bevat informatie over het maken en beheren van VM-schijven. In deze zelfstudie leert u het volgende:
@@ -95,13 +95,13 @@ In de bovenstaande tabel wordt het max. IOP's per schijf aangegeven, maar er kan
 U kunt schijven maken en koppelen wanneer u een schaalset maakt, maar ook voor een bestaande schaalset.
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Schijven koppelen bij het maken van een schaalset
-Maak eerst een resourcegroep met de opdracht [az group create](/cli/azure/group#az_group_create). In dit voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt in de regio *eastus*.
+Maak eerst een resourcegroep met de opdracht [az group create](/cli/azure/group). In dit voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt in de regio *eastus*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Maak een schaalset voor virtuele machines met de opdracht [az vmss create](/cli/azure/vmss#az_vmss_create). In het volgende voorbeeld wordt een schaalset gemaakt met de naam *myScaleSet*, en worden SSH-sleutels gegenereerd als deze nog niet bestaan. Er worden twee schijven gemaakt met de parameter `--data-disk-sizes-gb`. De eerste schijf is *64* GB en de tweede schijf *128* GB:
+Maak een schaalset voor virtuele machines met de opdracht [az vmss create](/cli/azure/vmss). In het volgende voorbeeld wordt een schaalset gemaakt met de naam *myScaleSet*, en worden SSH-sleutels gegenereerd als deze nog niet bestaan. Er worden twee schijven gemaakt met de parameter `--data-disk-sizes-gb`. De eerste schijf is *64* GB en de tweede schijf *128* GB:
 
 ```azurecli-interactive
 az vmss create \
@@ -117,7 +117,7 @@ az vmss create \
 Het duurt enkele minuten om alle schaalsetresources en VM-exemplaren te maken en te configureren.
 
 ### <a name="attach-a-disk-to-existing-scale-set"></a>Een schijf koppelen aan een bestaande schaalset
-U kunt ook schijven koppelen aan een bestaande schaalset. Gebruik de schaalset die in de vorige stap is gemaakt om een andere schijf toe te voegen met [az vmss disk attach](/cli/azure/vmss/disk#az_vmss_disk_attach). In het volgende voorbeeld wordt een extra schijf van *128* GB gekoppeld:
+U kunt ook schijven koppelen aan een bestaande schaalset. Gebruik de schaalset die in de vorige stap is gemaakt om een andere schijf toe te voegen met [az vmss disk attach](/cli/azure/vmss/disk). In het volgende voorbeeld wordt een extra schijf van *128* GB gekoppeld:
 
 ```azurecli-interactive
 az vmss disk attach \
@@ -144,7 +144,7 @@ az vmss extension set \
   --settings '{"fileUris":["https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/prepare_vm_disks.sh"],"commandToExecute":"./prepare_vm_disks.sh"}'
 ```
 
-Als u wilt controleren of de schijven goed zijn voorbereid, gaat u met SSH naar een van de VM-exemplaren. Gebruik [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info) om de verbindingsinformatie voor uw schaalsets op te vragen:
+Als u wilt controleren of de schijven goed zijn voorbereid, gaat u met SSH naar een van de VM-exemplaren. Gebruik [az vmss list-instance-connection-info](/cli/azure/vmss) om de verbindingsinformatie voor uw schaalsets op te vragen:
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -225,7 +225,7 @@ exit
 
 
 ## <a name="list-attached-disks"></a>Gekoppelde schijven opvragen
-Als u informatie wilt opvragen over schijven die zijn gekoppeld aan een schaalset, gebruikt u [az vmss show](/cli/azure/vmss#az_vmss_show) en voert u een query uit op *virtualMachineProfile.storageProfile.dataDisks*:
+Als u informatie wilt opvragen over schijven die zijn gekoppeld aan een schaalset, gebruikt u [az vmss show](/cli/azure/vmss) en voert u een query uit op *virtualMachineProfile.storageProfile.dataDisks*:
 
 ```azurecli-interactive
 az vmss show \
@@ -279,7 +279,7 @@ U ziet vervolgens gegevens van de grootte van de schijf, de opslaglaag en het LU
 
 
 ## <a name="detach-a-disk"></a>Een schijf loskoppelen
-Wanneer u een bepaalde schijf niet meer nodig hebt, kunt u deze loskoppelen van de schaalset. De schijf wordt dan verwijderd uit alle VM-exemplaren in de schaalset. Als u een schijf wilt loskoppelen van een schaalset, gebruikt u [az vmss disk detach](/cli/azure/vmss/disk) en geeft u het LUN van de schijf op. De LUN's worden weergegeven in de uitvoer van [az vmss show](/cli/azure/vmss#az_vmss_show) in de vorige sectie. In het volgende voorbeeld wordt het LUN *2* losgekoppeld van de schaalset:
+Wanneer u een bepaalde schijf niet meer nodig hebt, kunt u deze loskoppelen van de schaalset. De schijf wordt dan verwijderd uit alle VM-exemplaren in de schaalset. Als u een schijf wilt loskoppelen van een schaalset, gebruikt u [az vmss disk detach](/cli/azure/vmss/disk) en geeft u het LUN van de schijf op. De LUN's worden weergegeven in de uitvoer van [az vmss show](/cli/azure/vmss) in de vorige sectie. In het volgende voorbeeld wordt het LUN *2* losgekoppeld van de schaalset:
 
 ```azurecli-interactive
 az vmss disk detach \
@@ -290,7 +290,7 @@ az vmss disk detach \
 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Als u de schaalset en schijven wilt verwijderen, verwijdert u de resourcegroep en alle bijbehorende resources met [az group delete](/cli/azure/group#az_group_delete). De parameter `--no-wait` retourneert het besturingselement naar de prompt zonder te wachten totdat de bewerking is voltooid. De parameter `--yes` bevestigt dat u de resources wilt verwijderen, zonder een extra prompt om dit te doen.
+Als u de schaalset en schijven wilt verwijderen, verwijdert u de resourcegroep en alle bijbehorende resources met [az group delete](/cli/azure/group). De parameter `--no-wait` retourneert het besturingselement naar de prompt zonder te wachten totdat de bewerking is voltooid. De parameter `--yes` bevestigt dat u de resources wilt verwijderen, zonder een extra prompt om dit te doen.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

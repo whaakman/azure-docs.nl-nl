@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 892d142839fac67e2cfacbe70c8474cf730c90d4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 63dbdc7dc647a05da11192476076c3ee08a5e2bf
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161491"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768206"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Zelfstudie: Een toepassingsgateway maken met een omleiding op basis van een URL-pad met behulp van Azure CLI
 
@@ -53,7 +53,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Netwerkbronnen maken 
 
-Maak het virtuele netwerk *myVNet* en het subnet *myAGSubnet* met [az network vnet create](/cli/azure/network/vnet#az-net). Vervolgens kunt u het subnet *myBackendSubnet*, dat voor de back-endservers vereist is, toevoegen met [az network vnet subnet create](/cli/azure/network/vnet/subnet). Maak het openbare IP-adres*myAGPublicIPAddress* met [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create).
+Maak het virtuele netwerk *myVNet* en het subnet *myAGSubnet* met [az network vnet create](/cli/azure/network/vnet). Vervolgens kunt u het subnet *myBackendSubnet*, dat voor de back-endservers vereist is, toevoegen met [az network vnet subnet create](/cli/azure/network/vnet/subnet). Maak het openbare IP-adres*myAGPublicIPAddress* met [az network public-ip create](/cli/azure/network/public-ip).
 
 ```azurecli-interactive
 az network vnet create \
@@ -106,7 +106,7 @@ az network application-gateway create \
 
 ### <a name="add-backend-pools-and-ports"></a>Back-endpools en back-endpoorten toevoegen
 
-U kunt de back-endadresgroepen *imagesBackendPool* en *videoBackendPool* toevoegen aan de toepassingsgateway met [az network application-gateway address-pool create](/cli/azure/network/application-gateway#az-network_application_gateway_address-pool_create). U voegt de front-endpoorten voor de pools toe met [az network application-gateway frontend-port create](/cli/azure/network/application-gateway#az-network_application_gateway_frontend_port_create). 
+U kunt de back-endadresgroepen *imagesBackendPool* en *videoBackendPool* toevoegen aan de toepassingsgateway met [az network application-gateway address-pool create](/cli/azure/network/application-gateway/address-pool). U voegt de front-endpoorten voor de pools toe met [az network application-gateway frontend-port create](/cli/azure/network/application-gateway/frontend-port). 
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -136,7 +136,7 @@ az network application-gateway frontend-port create \
 
 ### <a name="add-listeners"></a>Listeners toevoegen
 
-Voeg back-endlisteners *backendListener* en *redirectedListener*, die voor het omleiden van verkeer nodig zijn, toe met [az network application-gateway http-listener create](/cli/azure/network/application-gateway#az-network_application_gateway_http_listener_create).
+Voeg back-endlisteners *backendListener* en *redirectedListener*, die voor het omleiden van verkeer nodig zijn, toe met [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener).
 
 
 ```azurecli-interactive
@@ -157,7 +157,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-default-url-path-map"></a>Toewijzing voor standaard-URL-pad toevoegen
 
-URL-padtoewijzingen zorgen ervoor dat bepaalde URL's naar bepaalde back-endpools worden omgeleid. U kunt de URL-padtoewijzingen *imagePathRule* en *videoPathRule* maken met [az network application-gateway url-path-map create](/cli/azure/network/application-gateway#az-network_application_gateway_url_path_map_create) en [az network application-gateway url-path-map rule create](/cli/azure/network/application-gateway#az-network_application_gateway_url_path_map_rule_create)
+URL-padtoewijzingen zorgen ervoor dat bepaalde URL's naar bepaalde back-endpools worden omgeleid. U kunt de URL-padtoewijzingen *imagePathRule* en *videoPathRule* maken met [az network application-gateway url-path-map create](/cli/azure/network/application-gateway/url-path-map) en [az network application-gateway url-path-map rule create](/cli/azure/network/application-gateway/url-path-map/rule)
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -182,7 +182,7 @@ az network application-gateway url-path-map rule create \
 
 ### <a name="add-redirection-configuration"></a>Omleidingsconfiguratie toevoegen
 
-U kunt omleiding voor de listener configureren met [az network application-gateway redirect-config create](/cli/azure/network/application-gateway).
+U kunt omleiding voor de listener configureren met [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -209,7 +209,7 @@ az network application-gateway url-path-map create \
 
 ### <a name="add-routing-rules"></a>Routeringsregels toevoegen
 
-De routeringsregels koppelen de URL-padtoewijzingen aan de listeners die u hebt gemaakt. U kunt regels *defaultRule* en *redirectedRule* toevoegen met [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create).
+De routeringsregels koppelen de URL-padtoewijzingen aan de listeners die u hebt gemaakt. U kunt regels *defaultRule* en *redirectedRule* toevoegen met [az network application-gateway rule create](/cli/azure/network/application-gateway/rule).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -283,7 +283,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>De toepassingsgateway testen
 
-Gebruik [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show) om het openbare IP-adres van de toepassingsgateway op te halen. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser. Zoals *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm*, *http://40.121.222.19:8080/video/test.htm* of *http://40.121.222.19:8081/images/test.htm*.
+Gebruik [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) om het openbare IP-adres van de toepassingsgateway op te halen. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser. Zoals *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm*, *http://40.121.222.19:8080/video/test.htm* of *http://40.121.222.19:8081/images/test.htm*.
 
 ```azurepowershell-interactive
 az network public-ip show \

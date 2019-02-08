@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: priyamo
-ms.openlocfilehash: 7617b19fe4f59b582b878d5dfe365810963ff51e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2b27553e16225a7bc0d9ca74c7ec013a231d64e6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158091"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755465"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Zelfstudie: Een door het Linux-VM-systeem toegewezen beheerde identiteit gebruiken voor toegang tot Azure Storage via een toegangssleutel
 
@@ -198,4 +198,4 @@ Reactie:
 In deze zelfstudie hebt u geleerd een door het systeem toegewezen beheerde identiteit voor een virtuele Linux-machine (VM) te gebruiken om toegang tot Azure Storage te krijgen met behulp van een toegangssleutel.  Zie voor meer informatie over Azure Storage-toegangssleutels:
 
 > [!div class="nextstepaction"]
->[De toegangssleutels van uw opslagaccount beheren](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)
+>[De toegangssleutels van uw opslagaccount beheren](/azure/storage/common/storage-create-storage-account)

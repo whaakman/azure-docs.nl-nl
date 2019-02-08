@@ -13,12 +13,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: jdial
-ms.openlocfilehash: 8e46058432743febd70a017ee5131081a052364b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1b3dde1b2d638f6dd6c19ce173c7f9f071868d23
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195389"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734212"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-cli"></a>Snelstart: Een virtueel netwerk maken met Azure CLI
 
@@ -32,7 +32,7 @@ Als u ervoor kiest om Azure CLI lokaal te installeren en te gebruiken, moet u vo
 
 ## <a name="create-a-resource-group-and-a-virtual-network"></a>Een resourcegroep en een virtueel netwerk maken
 
-Voordat u een virtueel netwerk kunt maken, moet u een resourcegroep maken die het virtuele netwerk host. Maak een resourcegroep maken met [az group create](/cli/azure/group#az_group_create). In dit voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *US - oost*:
+Voordat u een virtueel netwerk kunt maken, moet u een resourcegroep maken die het virtuele netwerk host. Maak een resourcegroep maken met [az group create](/cli/azure/group). In dit voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *US - oost*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -53,7 +53,7 @@ Maak twee VM’s in het virtuele netwerk.
 
 ### <a name="create-the-first-vm"></a>De eerste VM maken
 
-Maak een VM met [az vm create](/cli/azure/vm#az_vm_create). Als SSH-sleutels niet al bestaan op de standaardsleutellocatie, worden ze met deze opdracht gemaakt. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`. Met de optie `--no-wait` wordt de virtuele machine op de achtergrond gemaakt, zodat u kunt doorgaan met de volgende stap. In dit voorbeeld wordt een VM met de naam *myVM1* gemaakt:
+Maak een VM met [az vm create](/cli/azure/vm). Als SSH-sleutels niet al bestaan op de standaardsleutellocatie, worden ze met deze opdracht gemaakt. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`. Met de optie `--no-wait` wordt de virtuele machine op de achtergrond gemaakt, zodat u kunt doorgaan met de volgende stap. In dit voorbeeld wordt een VM met de naam *myVM1* gemaakt:
 
 ```azurecli-interactive
 az vm create \

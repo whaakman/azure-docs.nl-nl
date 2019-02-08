@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 85dbdc42dd55cdb262351511918d2b813212edb0
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 79b694b877e7e26c5b9c71fb5cfbde3703ef3cb6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54882205"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750916"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Zelfstudie: Een webserver op een virtuele Linux-machine in Azure beveiligen met SSL-certificaten die zijn opgeslagen in Key Vault
 Om webservers te beveiligen, kan een Secure Sockets Layer (SSL)-certificaat worden gebruikt voor het versleutelen van internetverkeer. Deze SSL-certificaten kunnen worden opgeslagen in Azure Key Vault en beveiligde implementaties van certificaten aan virtuele Linux-machines (VM's) in Azure toestaan. In deze zelfstudie leert u het volgende:
@@ -44,13 +44,13 @@ In plaats van met een aangepaste VM-installatiekopie die standaard certificaten 
 
 
 ## <a name="create-an-azure-key-vault"></a>Een Azure Key Vault maken
-Voordat u een Key Vault en certificaten kunt maken, moet u eerst een resourcegroep maken met [az group create](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupSecureWeb* gemaakt op de locatie *VS Oost*:
+Voordat u een Key Vault en certificaten kunt maken, moet u eerst een resourcegroep maken met [az group create](/cli/azure/group). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupSecureWeb* gemaakt op de locatie *VS Oost*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupSecureWeb --location eastus
 ```
 
-Maak vervolgens een Key Vault met [Az keyvault maken](/cli/azure/keyvault#az_keyvault_create) en schakel deze in voor gebruik wanneer u een virtuele machine implementeert. Elke Key Vault moet een unieke naam hebben van alleen kleine letters. Vervang *<mykeyvault>* in het volgende voorbeeld met de naam van uw eigen unieke Key Vault:
+Maak vervolgens een Key Vault met [Az keyvault maken](/cli/azure/keyvault) en schakel deze in voor gebruik wanneer u een virtuele machine implementeert. Elke Key Vault moet een unieke naam hebben van alleen kleine letters. Vervang *<mykeyvault>* in het volgende voorbeeld met de naam van uw eigen unieke Key Vault:
 
 ```azurecli-interactive 
 keyvault_name=<mykeyvault>
@@ -61,7 +61,7 @@ az keyvault create \
 ```
 
 ## <a name="generate-a-certificate-and-store-in-key-vault"></a>Een certificaat genereren en opslaan in Key Vault
-Voor gebruik in de productie, moet u een geldig certificaat importeren dat is ondertekend door een vertrouwde provider met [az keyvault certificate import](/cli/azure/keyvault/certificate#az_keyvault_certificate_import). Voor deze zelfstudie toont het volgende voorbeeld hoe kunt u een zelfondertekend certificaat kunt genereren met [az keyvault certificate create](/cli/azure/keyvault/certificate#az_keyvault_certificate_create) dat gebruikmaakt van het standaardbeleid voor certificaten:
+Voor gebruik in de productie, moet u een geldig certificaat importeren dat is ondertekend door een vertrouwde provider met [az keyvault certificate import](/cli/azure/keyvault/certificate). Voor deze zelfstudie toont het volgende voorbeeld hoe kunt u een zelfondertekend certificaat kunt genereren met [az keyvault certificate create](/cli/azure/keyvault/certificate) dat gebruikmaakt van het standaardbeleid voor certificaten:
 
 ```azurecli-interactive 
 az keyvault certificate create \
@@ -71,7 +71,7 @@ az keyvault certificate create \
 ```
 
 ### <a name="prepare-a-certificate-for-use-with-a-vm"></a>Een certificaat voor gebruik met een virtuele machine voorbereiden
-Om het certificaat te gebruiken tijdens het creatieproces van de virtuele machine, verkrijgen de ID van het certificaat met [az keyvault secret list-versions](/cli/azure/keyvault/secret#az_keyvault_secret_list_versions). Converteer het certificaat met [az vm secret format](/cli/azure/vm/secret#az-vm-secret-format). Het volgende voorbeeld wijst de uitvoer van deze opdrachten toe aan variabelen voor eenvoudig gebruik in de volgende stappen:
+Om het certificaat te gebruiken tijdens het creatieproces van de virtuele machine, verkrijgen de ID van het certificaat met [az keyvault secret list-versions](/cli/azure/keyvault/secret). Converteer het certificaat met [az vm secret format](/cli/azure/vm/secret#az-vm-secret-format). Het volgende voorbeeld wijst de uitvoer van deze opdrachten toe aan variabelen voor eenvoudig gebruik in de volgende stappen:
 
 ```azurecli-interactive 
 secret=$(az keyvault secret list-versions \
@@ -111,7 +111,7 @@ runcmd:
 ```
 
 ### <a name="create-a-secure-vm"></a>Een beveiligde virtuele machine maken
-Maak een virtuele machine met [az vm create](/cli/azure/vm#az_vm_create). De gegevens van het certificaat worden geïnjecteerd uit de Sleutelkluis met de parameter `--secrets`. U kunt de cloud init-configuratie doorgeven met de parameter `--custom-data`:
+Maak een virtuele machine met [az vm create](/cli/azure/vm). De gegevens van het certificaat worden geïnjecteerd uit de Sleutelkluis met de parameter `--secrets`. U kunt de cloud init-configuratie doorgeven met de parameter `--custom-data`:
 
 ```azurecli-interactive 
 az vm create \
@@ -126,7 +126,7 @@ az vm create \
 
 Het duurt enkele minuten voordat de virtuele machine wordt gemaakt, de pakketten worden geïnstalleerd en de app gestart. Wanneer de virtuele machine is gemaakt, let op de `publicIpAddress` weergegeven door de Azure CLI. Dit adres wordt gebruikt voor toegang tot uw site in een webbrowser.
 
-Zodat beveiligde webverkeer uw virtuele machine bereiken kan, open poort 443 vanaf het Internet met [az vm open-port](/cli/azure/vm#az_vm_open_port):
+Zodat beveiligde webverkeer uw virtuele machine bereiken kan, open poort 443 vanaf het Internet met [az vm open-port](/cli/azure/vm):
 
 ```azurecli-interactive 
 az vm open-port \

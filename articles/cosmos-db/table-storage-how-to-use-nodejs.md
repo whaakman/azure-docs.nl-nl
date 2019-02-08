@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: b32fd36c5fd546f7d2138cb2b48ee2854667f948
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 58022ca4f605b4672cd9b6e22993fca8ff6dc591
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044260"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510942"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Azure Table Storage of de Azure Cosmos DB Table-API van Node.js gebruiken
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -56,34 +56,34 @@ U hebt voor het gebruik van Azure Storage of Azure Cosmos DB de Azure Storage SD
 ### <a name="import-the-package"></a>Het pakket importeren
 Voeg de volgende code toe aan het begin van het **server.js**-bestand in uw toepassing:
 
-```nodejs
+```javascript
 var azure = require('azure-storage');
 ```
 
 ## <a name="add-an-azure-storage-connection"></a>Een Azure Storage-verbinding toevoegen
 De Azure Storage-module leest de omgevingsvariabelen AZURE_STORAGE_ACCOUNT en AZURE_STORAGE_ACCESS_KEY, of AZURE_STORAGE_CONNECTION_STRING voor de informatie die nodig is om verbinding te maken met uw Azure Storage-account. Als deze omgevingsvariabelen niet zijn ingesteld, moet u de accountgegevens opgeven bij het aanroepen van **TableService**. De volgende code maakt bijvoorbeeld een **TableService**-object:
 
-```nodejs
+```javascript
 var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
 ## <a name="add-an-azure-cosmos-db-connection"></a>Een Azure Cosmos DB-verbinding toevoegen
 Als u een Azure Cosmos DB-verbinding wilt toevoegen, maakt u een **TableService**-object en geeft u uw accountnaam, primaire sleutel en eindpunt op. U kunt deze waarden kopiëren uit **Instellingen** > **Verbindingsreeks** in Azure Portal voor uw Cosmos DB-account. Bijvoorbeeld:
 
-```nodejs
+```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
 ```  
 
 ## <a name="create-a-table"></a>Een tabel maken
 Met de volgende code maakt u een **TableService**-object en gebruikt u dit om een nieuwe tabel te maken. 
 
-```nodejs
+```javascript
 var tableSvc = azure.createTableService();
 ```
 
 De aanroep van **createTableIfNotExists** maakt een nieuwe tabel met de opgegeven naam als deze nog niet bestaat. In het volgende voorbeeld wordt een nieuwe tabel genaamd 'mytable' gemaakt als deze nog niet bestaat:
 
-```nodejs
+```javascript
 tableSvc.createTableIfNotExists('mytable', function(error, result, response){
   if(!error){
     // Table exists or created
@@ -96,13 +96,13 @@ tableSvc.createTableIfNotExists('mytable', function(error, result, response){
 ### <a name="filters"></a>Filters
 U optioneel filters toepassen op de bewerkingen die worden uitgevoerd met behulp van **TableService**. Filterbewerkingen kunnen logboekregistratie, automatische nieuwe pogingen, enzovoort bevatten. Filters zijn objecten die een methode implementeren met de handtekening:
 
-```nodejs
+```javascript
 function handle (requestOptions, next)
 ```
 
 Na uitvoering van de voorbewerkingen voor de aanvraagopties, moet de methode **next** aanroepen en een retouraanroep doorgeven met de volgende handtekening:
 
-```nodejs
+```javascript
 function (returnObject, finalCallback, next)
 ```
 
@@ -110,7 +110,7 @@ In deze retouraanroep en na verwerking van **returnObject** (de reactie van de a
 
 Twee filters die logica implementeren voor nieuwe pogingen zijn opgenomen in de Azure SDK voor Node.js: **ExponentialRetryPolicyFilter** en **LinearRetryPolicyFilter**. De volgende maakt een **TableService**-object dat gebruikmaakt van de **ExponentialRetryPolicyFilter**:
 
-```nodejs
+```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
 var tableSvc = azure.createTableService().withFilter(retryOperations);
 ```
@@ -125,7 +125,7 @@ Wanneer u een entiteit wilt toevoegen, moet u eerst een object maken dat uw enti
 
 Hier volgt een voorbeeld van het definiëren van een entiteit. Houd er rekening mee dat **dueDate** is gedefinieerd als een type **Edm.DateTime**. Het specificeren van het type is optioneel en als dit niet wordt opgegeven, wordt het type afgeleid.
 
-```nodejs
+```javascript
 var task = {
   PartitionKey: {'_':'hometasks'},
   RowKey: {'_': '1'},
@@ -141,7 +141,7 @@ var task = {
 
 U kunt ook de **entityGenerator** gebruiken om entiteiten te maken. In het volgende voorbeeld wordt de dezelfde taakentiteit gemaakt met behulp van de **entityGenerator**.
 
-```nodejs
+```javascript
 var entGen = azure.TableUtilities.entityGenerator;
 var task = {
   PartitionKey: entGen.String('hometasks'),
@@ -153,7 +153,7 @@ var task = {
 
 Wanneer u een entiteit wilt toevoegen aan de tabel, geeft u het entiteitsobject door aan de **insertEntity**-methode.
 
-```nodejs
+```javascript
 tableSvc.insertEntity('mytable',task, function (error, result, response) {
   if(!error){
     // Entity inserted
@@ -165,7 +165,7 @@ Als de bewerking is gelukt, bevat `result` de [ETag](https://en.wikipedia.org/wi
 
 Voorbeeld van een reactie:
 
-```nodejs
+```javascript
 { '.metadata': { etag: 'W/"datetime\'2015-02-25T01%3A22%3A22.5Z\'"' } }
 ```
 
@@ -186,7 +186,7 @@ Er zijn meerdere methoden beschikbaar voor het bijwerken van een bestaande entit
 
 Het volgende voorbeeld laat zien hoe u een entiteit bijwerkt met **replaceEntity**:
 
-```nodejs
+```javascript
 tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response){
   if(!error) {
     // Entity updated
@@ -214,7 +214,7 @@ Soms is het zinvol om meerdere bewerkingen samen in een batch te verzenden om te
 
  In het volgende voorbeeld ziet u hoe u twee entiteiten in een batch kunt verzenden.
 
-```nodejs
+```javascript
 var task1 = {
   PartitionKey: {'_':'hometasks'},
   RowKey: {'_': '1'},
@@ -254,7 +254,7 @@ U kunt bewerkingen die zijn toegevoegd aan een batch, inspecteren door de `opera
 ## <a name="retrieve-an-entity-by-key"></a>Een entiteit ophalen op basis van sleutel
 Wanneer u een specifieke entiteit wilt retourneren op basis van de **PartitionKey** en **RowKey**, gebruikt u de **retrieveEntity**-methode.
 
-```nodejs
+```javascript
 tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
   if(!error){
     // result contains the entity
@@ -276,7 +276,7 @@ Wanneer u een query wilt uitvoeren op een tabel, gebruikt u het **TableQuery**-o
 
 In het volgende voorbeeld wordt een query gemaakt waarmee de bovenste vijf items met een PartitionKey 'hometasks' worden geretourneerd.
 
-```nodejs
+```javascript
 var query = new azure.TableQuery()
   .top(5)
   .where('PartitionKey eq ?', 'hometasks');
@@ -284,7 +284,7 @@ var query = new azure.TableQuery()
 
 Omdat **select** niet wordt gebruikt, worden alle velden geretourneerd. Als u de query wilt uitvoeren op een tabel, gebruikt u **queryEntities**. In het volgende voorbeeld wordt deze query gebruikt om entiteiten te retourneren uit 'mytable'.
 
-```nodejs
+```javascript
 tableSvc.queryEntities('mytable',query, null, function(error, result, response) {
   if(!error) {
     // query was successful
@@ -298,7 +298,7 @@ Als dit lukt, bevat `result.entries` een matrix van entiteiten die overeenkomen 
 Met een query naar een tabel kunnen slechts enkele velden van een entiteit worden opgehaald.
 Dit verbruikt minder bandbreedte en kan de queryprestaties verbeteren, vooral bij grote entiteiten. Gebruik de **select**-component en geef de namen door van de velden die moeten worden geretourneerd. De volgende query retourneert bijvoorbeeld alleen de velden **description** en **dueDate**.
 
-```nodejs
+```javascript
 var query = new azure.TableQuery()
   .select(['description', 'dueDate'])
   .top(5)
@@ -308,7 +308,7 @@ var query = new azure.TableQuery()
 ## <a name="delete-an-entity"></a>Een entiteit verwijderen
 U kunt een entiteit verwijderen met behulp van zijn partities en rijsleutels. In dit voorbeeld bevat het **task1**-object de **RowKey**- en **PartitionKey**-waarden van de te verwijderen entiteit. Het object wordt doorgegeven aan de **deleteEntity**-methode.
 
-```nodejs
+```javascript
 var task = {
   PartitionKey: {'_':'hometasks'},
   RowKey: {'_': '1'}
@@ -329,7 +329,7 @@ tableSvc.deleteEntity('mytable', task, function(error, response){
 ## <a name="delete-a-table"></a>Een tabel verwijderen
 Met de volgende code wordt een tabel uit een opslagaccount verwijderd.
 
-```nodejs
+```javascript
 tableSvc.deleteTable('mytable', function(error, response){
     if(!error){
         // Table deleted
@@ -346,7 +346,7 @@ Het **results**-object geretourneerd tijdens het uitvoeren van een query op enti
 
 Wanneer u een query uitvoert, kunt u een `continuationToken`-parameter opgeven tussen de queryobjectinstantie en de retouraanroepfunctie:
 
-```nodejs
+```javascript
 var nextContinuationToken = null;
 dc.table.queryEntities(tableName,
     query,
@@ -372,7 +372,7 @@ Een vertrouwde toepassing zoals een cloud-gebaseerde service genereert een SAS m
 
 In het volgende voorbeeld wordt een nieuwe beleidsregel gegenereerd voor gedeelde toegang, die zorgt dat de SAS-houder een query ('r') kan uitvoeren op de tabel. Deze toegang verloopt 100 minuten na het tijdstip waarop de toegang is gemaakt.
 
-```nodejs
+```javascript
 var startDate = new Date();
 var expiryDate = new Date(startDate);
 expiryDate.setMinutes(startDate.getMinutes() + 100);
@@ -394,7 +394,7 @@ Houd er rekening mee dat u ook de informatie over de host moet opgeven, aangezie
 
 De clienttoepassing maakt dan gebruik van de SAS met **TableServiceWithSAS** om bewerkingen op de tabel uit te voeren. In het volgende voorbeeld wordt verbinding gemaakt met de tabel en een query uitgevoerd. Zie het artikel [Using shared access signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md#examples-of-sas-uris) (gedeelde toegangshandtekeningen gebruiken) voor de indeling van tableSAS. 
 
-```nodejs
+```javascript
 // Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.windows.net` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;
 
 var sharedTableService = azure.createTableServiceWithSas(host, tableSAS);
@@ -415,7 +415,7 @@ U kunt ook een ACL (Access Control List) gebruiken om het toegangsbeleid in te s
 
 Een ACL wordt geïmplementeerd met behulp van een matrix van toegangsbeleidregels, met een id die is gekoppeld aan elk beleid. In het volgende voorbeeld worden twee beleidsregels gedefinieerd, één voor 'gebruiker1' en één voor 'gebruiker2':
 
-```nodejs
+```javascript
 var sharedAccessPolicy = {
   user1: {
     Permissions: azure.TableUtilities.SharedAccessPermissions.QUERY,
@@ -432,7 +432,7 @@ var sharedAccessPolicy = {
 
 In het volgende voorbeeld wordt de huidige ACL voor de **hometasks**-tabel opgehaald en vervolgens het nieuwe beleid toegevoegd met behulp van **setTableAcl**. Deze aanpak biedt u de volgende mogelijkheid:
 
-```nodejs
+```javascript
 var extend = require('extend');
 tableSvc.getTableAcl('hometasks', function(error, result, response) {
 if(!error){
@@ -448,7 +448,7 @@ if(!error){
 
 Nadat de ACL is ingesteld, kunt u een SAS maken op basis van de id van een beleid. In het volgende voorbeeld wordt een nieuwe SAS voor 'gebruiker2' gemaakt:
 
-```nodejs
+```javascript
 tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 ```
 

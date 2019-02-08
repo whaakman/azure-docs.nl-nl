@@ -10,12 +10,12 @@ ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a88eade0d5fbfe4fd951e3e98c72a1e697099f1a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8f2adf743760c85b8c2a75c0f398bc5b61fd1061
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466316"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754232"
 ---
 # <a name="quickstart-translator-speech-api-with-nodejs"></a>Quickstart: Translator Speech-API met Node.js 
 <a name="HOLTop"></a>
@@ -30,7 +30,7 @@ U hebt [Node.js 6](https://nodejs.org/en/download/) nodig om deze code uit te vo
 
 U moet het [Websocket-pakket](https://www.npmjs.com/package/websocket) voor Node.js installeren.
 
-In de map met het uitvoerbare bestand dat u hebt gemaakt op basis van de volgende code moet ook een WAV-bestand staan met de naam 'speak.wav'. Dit WAV-bestand moet de standaardindeling hebben: PCM, 16-bits, 16 kHz, mono. U kunt dit WAV-bestand verkrijgen via de [Text to Speech-API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+In de map met het uitvoerbare bestand dat u hebt gemaakt op basis van de volgende code moet ook een WAV-bestand staan met de naam 'speak.wav'. Dit WAV-bestand moet de standaardindeling hebben: PCM, 16-bits, 16 kHz, mono. U kunt dit WAV-bestand verkrijgen via de [Text to Speech-API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
 U moet beschikken over een [account voor de Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) en de **Microsoft Translator Speech-API**. U hebt een betaalde abonnementssleutel nodig uit uw [Azure-dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -68,7 +68,7 @@ let uri = host + path + params;
 
 /* The input .wav file is in PCM 16bit, 16kHz, mono format.
 You can obtain such a .wav file using the Text to Speech API. See:
-https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech
+https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis
 */
 let input_path = 'speak.wav';
 
