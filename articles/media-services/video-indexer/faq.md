@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 01/31/2019
 ms.author: juliako
-ms.openlocfilehash: 84f2b4d68bf95d18a63401f796e2ffca682c808f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 0b74b6ef1d849f40e7a8e6f50d87e7b322e919e7
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567270"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891773"
 ---
 # <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
@@ -66,7 +66,7 @@ In Video Indexer web gebaseerde portal, een mediabestand met behulp van het dial
 
 ### <a name="how-long-does-it-take-video-indexer-to-extract-insights-from-media"></a>Hoe lang duurt Video Indexer inzichten ophalen uit media?
 
-De hoeveelheid tijd die nodig is om te indexeren van een video of audio-bestand, beide met behulp van de Video Indexer-API en de Video Indexer webinterface, is afhankelijk van meerdere parameters op, zoals de bestandslengte van het en de kwaliteit, het aantal insights gevonden in het bestand, het aantal [gereserveerde eenheden](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) beschikbaar is, en of de [streaming-eindpunt](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview) of niet is ingeschakeld. Voor meest inhoudstypen ervan uitgaande dat 10 gereserveerde eenheden van het type S3 zijn ingeschakeld, wordt voorspeld dat indexering met 1/3 ½ van de duur van de audio- of -bestand (bijvoorbeeld een bron van 10 minuten durende video duurt 3.5 tot 5 minuten krijgt). We raden echter aan dat u een aantal testbestanden met uw eigen inhoud uitvoeren en een gemiddelde om een beter idee te krijgen.
+De hoeveelheid tijd die nodig is om te indexeren van een video of audio-bestand, beide met behulp van de Video Indexer-API en de Video Indexer webinterface, is afhankelijk van meerdere parameters op, zoals de bestandslengte van het en de kwaliteit, het aantal insights gevonden in het bestand, het aantal [gereserveerde eenheden](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) beschikbaar is, en of de [streaming-eindpunt](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview) of niet is ingeschakeld. U wordt aangeraden dat u een aantal testbestanden met uw eigen inhoud uitvoeren en een gemiddelde om een beter idee te krijgen.
 
 ### <a name="can-i-create-customized-workflows-to-automate-processes-with-video-indexer"></a>Kan ik aangepaste werkstromen voor het automatiseren van processen met Video Indexer maken?
 

@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Geautomatiseerd beheer van video- en programma's voor menselijke beoordeling gebruiken om te modereren ongepaste inhoud melden
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/20/2018
 ms.author: sajagtap
-ms.openlocfilehash: eb9f7fccfa5c759de154cb62ed866a02f619400a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 43a43ddcbfc656a3eb5a274e1bb63a473b7c89a2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208598"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867712"
 ---
 # <a name="video-moderation-with-human-review"></a>Videotoezicht met menselijke beoordeling
 

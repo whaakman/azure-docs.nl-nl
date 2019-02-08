@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariagrigoriu
 ms.custom: seodec18
-ms.openlocfilehash: 3d1821ccc3f3bc16bffd8a19d3014b5ea4876768
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: afdb082ef7d33d12d80b8edb273bea2c4c5b74a2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715602"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882111"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Aanbevolen procedures voor Azure App Service
 In dit artikel bevat een overzicht van aanbevolen procedures voor het gebruik van [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -51,7 +51,7 @@ Altijd verwerken de `http` antwoord, zelfs als u niets in de handler doet. Als u
 
 Bijvoorbeeld, als u werkt met de `http` of `https` pakket:
 
-```
+```javascript
 var request = https.request(options, function(response) {
     response.on('data', function() { /* do nothing */ });
 });

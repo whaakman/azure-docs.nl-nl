@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Leer hoe u een installatiekopie categorisatie domein om terug te keren meer gedetailleerde informatie over een afbeelding opgeven.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 76484a2340e527dc016f321dbafa29adb7c358b5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: df7e61bb9d064c4530c0212cc02fbdd849017612
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157530"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871996"
 ---
 # <a name="detecting-domain-specific-content"></a>Domeinspecifieke inhoud detecteren
 
@@ -33,7 +33,7 @@ Er zijn twee opties voor het gebruik van de domeinspecifieke modellen:
 
 U kunt de domeinspecifieke modellen dat wordt ondersteund door visie op de Computer weergeven. Computer Vision ondersteunt momenteel de volgende domeinspecifieke modellen voor het detecteren van domeinspecifieke inhoud:
 
-| Name | Beschrijving |
+| Name | Description |
 |------|-------------|
 | beroemdheden | Herkenning van beroemdheden, ondersteund voor installatiekopieën geclassificeerd de `people_` categorie |
 | Oriëntatiepunten | Oriëntatiepunten spraakherkenning, ondersteund voor installatiekopieën geclassificeerd de `outdoor_` of `building_` categorieën |

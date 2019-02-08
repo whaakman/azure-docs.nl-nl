@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Informatie over het gebruik van de methode interpreteren in de Knowledge Exploration Service KES () API.
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 4f950734081be6cf76770b1c6cb2feca7efdae70
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 88776e2f4167c950d60c0405dcf950b5173fb989
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221400"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55870925"
 ---
 # <a name="interpret-method"></a>Methode interpreteren
 
@@ -25,7 +25,7 @@ De *interpreteren* methode neemt een querytekenreeks van natuurlijke taal en ret
 
 `http://<host>/interpret?query=<query>[&<options>]`
 
-Name|Value| Beschrijving
+Name|Value| Description
 ----|----|----
 query    | Tekenreeks met tekst | De query is opgegeven door de gebruiker.  Als voltooid is ingesteld op 1, wordt de query worden geïnterpreteerd als een voorvoegsel voor genereren suggesties voor het automatisch aanvullen van query.        
 Voltooien | 0 (standaardinstelling) of 1 | 1 betekent dat er automatisch aanvullen suggesties worden gegenereerd op basis van de gegevens en index grammatica.         
@@ -37,7 +37,7 @@ Met behulp van de *aantal* en *offset* parameters, een groot aantal resultaten k
 
 ## <a name="response-json"></a>Antwoord (JSON)
 
-JSONPath     | Beschrijving
+JSONPath     | Description
 ---------|---------
 $.query |*query* parameter van de aanvraag.
 $.interpretations   |Matrix van 0 of meer manieren zodat deze overeenkomen met de invoer voor de query op basis van de grammatica.

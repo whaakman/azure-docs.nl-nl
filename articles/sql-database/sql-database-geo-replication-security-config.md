@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 1430bc4a9de863c25e40a2655f0a1cd7a75ae0f7
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 50cec0774729073678498922b2c58f1ca62d7d82
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561382"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858277"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configureren en beheren van Azure SQL Database-beveiliging voor geografisch herstel en failover
 
@@ -32,6 +32,9 @@ De belangrijkste afweging is dat het proces van het herstel na noodgevallen op s
 ## <a name="how-to-configure-logins-and-users"></a>Het configureren van aanmeldingen en gebruikers
 
 Als u aanmeldingen en gebruikers (in plaats van ingesloten gebruikers), moet u extra stappen om ervoor te zorgen dat de dezelfde aanmeldingen aanwezig zijn in de database master uitvoeren. De volgende secties beschrijven de stappen die betrokken zijn en aanvullende overwegingen.
+
+  >[!NOTE]
+  > Het is ook mogelijk met gebruik van Azure Active Directory (AAD)-aanmeldingen voor het beheren van uw databases. Zie voor meer informatie, [Azure SQL-aanmeldingen en gebruikers](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
 
 ### <a name="set-up-user-access-to-a-secondary-or-recovered-database"></a>Gebruikerstoegang tot een secundaire of herstelde database instellen
 

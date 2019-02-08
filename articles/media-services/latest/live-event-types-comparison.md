@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 02/06/2019
 ms.author: juliako
-ms.openlocfilehash: 9c8bff5a0a4f1599a3d23e0c7b07a1caca536a9b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9d62ef2295abbb8f8fc6f45ffc0c7ab1ce9616e4
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153960"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878354"
 ---
 # <a name="live-event-types-comparison"></a>Vergelijking van de typen Live gebeurtenis
 
@@ -45,7 +45,7 @@ De volgende tabel vergelijkt de functies van de twee typen van de Live gebeurten
 | Maximale beeldschermresolutie van uitvoervideo|Hetzelfde als invoer|720p (op 30 frames per seconde)|
 | Invoer-protocollen|RTMP, gefragmenteerde MP4 (Smooth Streaming)|RTMP, gefragmenteerde MP4 (Smooth Streaming)|
 | Prijs|Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/media-services/) en klik op het tabblad "Live Video"|Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/media-services/) en klik op het tabblad "Live Video"|
-| Maximale uitvoeringstijd|24 x 365 live lineaire|24x7|
+| Maximale uitvoeringstijd| 24 uur x 365 dagen live lineaire | Maximaal 24 uur|
 | Mogelijkheid om door te geven tot en met ingesloten CEA 608/708 bijschriften gegevens|Ja|Ja|
 | Ondersteuning voor slates invoegen|Nee|Nee|
 | Ondersteuning voor ad via de API-signalering| Nee|Nee|

@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Informatie over het gebruik van de spraak-naar-tekst en spraak REST-API's. In dit artikel leert u over de opties voor autorisatie, opties voor query's, het structureren van een aanvraag en antwoord heeft ontvangen.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: f369ab0ec8c460137f7e2b16a7f2696357d84c50
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c1693c5e04c33da3f21847aada0adfe1b66c4b52
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247439"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878067"
 ---
 # <a name="speech-service-rest-apis"></a>Speech Service REST API 's
 

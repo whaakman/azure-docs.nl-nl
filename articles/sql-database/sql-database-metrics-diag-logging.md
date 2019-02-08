@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 24feef28edac73f625de1c1b7dfd9a4aaf9883af
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/07/2019
+ms.openlocfilehash: f6874b1d97c36d22e60606ad8c8a356baec53b85
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734620"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893593"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metrische gegevens van Azure SQL-Database en logboekregistratie van diagnostische gegevens
 
@@ -65,14 +65,14 @@ U kunt Azure SQL-databases voor het verzamelen van de volgende diagnostische geg
 
 | Telemetrie voor databases bewaken | Individuele databases en gepoolde database-ondersteuning | Ondersteuning voor instance beheerd |
 | :------------------- | ------------------- | ------------------- |
-| [Alle metrische gegevens](sql-database-metrics-diag-logging.md#all-metrics): Bevat DTU/CPU-percentage, DTU/CPU-limiet, fysieke logboek schrijven gegevens gelezen percentage, percentage geslaagd/mislukt/geblokkeerd door firewallverbindingen, sessies percentage, percentage van de werknemers, opslag, opslagpercentage en XTP-opslagpercentage. | Ja | Nee |
-| [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): Bevat informatie over de query duur statistieken en de query-runtime-statistieken, zoals CPU-gebruik. | Ja | Ja |
-| [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): Bevat informatie over de query-wait-statistieken (wat uw query's gewacht op), zoals CPU, het logboek en VERGRENDELEN. | Ja | Ja |
-| [Fouten](sql-database-metrics-diag-logging.md#errors-dataset): Bevat informatie over SQL-fouten op de database. | Ja | Ja |
-| [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): Bevat informatie over hoe lang de database besteed aan het wachten op andere wacht typen. | Ja | Nee |
-| [Time-outs](sql-database-metrics-diag-logging.md#time-outs-dataset): Bevat informatie over time-outs op de database. | Ja | Nee |
-| [Blokken](sql-database-metrics-diag-logging.md#blockings-dataset): Bevat informatie over het blokkeren van gebeurtenissen op de database. | Ja | Nee |
-| [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): Intelligent Insights in prestaties bevat. Zie voor meer informatie, [Intelligent Insights](sql-database-intelligent-insights.md). | Ja | Ja |
+| [Alle metrische gegevens](#all-metrics): Bevat DTU/CPU-percentage, DTU/CPU-limiet, fysieke logboek schrijven gegevens gelezen percentage, percentage geslaagd/mislukt/geblokkeerd door firewallverbindingen, sessies percentage, percentage van de werknemers, opslag, opslagpercentage en XTP-opslagpercentage. | Ja | Nee |
+| [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): Bevat informatie over de query duur statistieken en de query-runtime-statistieken, zoals CPU-gebruik. | Ja | Ja |
+| [QueryStoreWaitStatistics](#query-store-wait-statistics): Bevat informatie over de query-wait-statistieken (wat uw query's gewacht op), zoals CPU, het logboek en VERGRENDELEN. | Ja | Ja |
+| [Fouten](#errors-dataset): Bevat informatie over SQL-fouten op de database. | Ja | Ja |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Bevat informatie over hoe lang de database besteed aan het wachten op andere wacht typen. | Ja | Nee |
+| [Time-outs](#time-outs-dataset): Bevat informatie over time-outs op de database. | Ja | Nee |
+| [Blokken](#blockings-dataset): Bevat informatie over het blokkeren van gebeurtenissen op de database. | Ja | Nee |
+| [SQLInsights](#intelligent-insights-dataset): Intelligent Insights in prestaties bevat. Zie voor meer informatie, [Intelligent Insights](sql-database-intelligent-insights.md). | Ja | Ja |
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -169,7 +169,7 @@ U kunt de resource van een beheerd exemplaar voor het verzamelen van de volgende
 
 | Resource | Bewaking van telemetrie |
 | :------------------- | ------------------- |
-| **Beheerd exemplaar** | [ResourceUsageStats](sql-database-metrics-diag-logging.md#logs-for-managed-instance) bevat het aantal vCores, gemiddelde CPU-percentage, i/o-aanvragen, bytes gelezen of weggeschreven, gereserveerde opslagruimte en opslagruimte gebruikt. |
+| **Beheerd exemplaar** | [ResourceUsageStats](#logs-for-managed-instances) bevat het aantal vCores, gemiddelde CPU-percentage, i/o-aanvragen, bytes gelezen of weggeschreven, gereserveerde opslagruimte en opslagruimte gebruikt. |
 
 Als u wilt inschakelen voor streaming van diagnostische gegevens telemetrie voor de resource van een beheerd exemplaar, de volgende stappen uit:
 

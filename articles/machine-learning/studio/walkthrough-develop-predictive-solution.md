@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/23/2017
-ms.openlocfilehash: 2c21c08e71592e417d8ee3850af61ca2c1486a76
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 67f893f0e201b6800e6c1a4bc1f656003f6daee5
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464720"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55879408"
 ---
 # <a name="walkthrough-develop-predictive-solution-for-credit-risk-assessment-in-azure-machine-learning-studio"></a>Walkthrough: Ontwikkelen van voorspellende oplossing voor kredietrisicobeoordeling in Azure Machine Learning Studio
 
@@ -28,7 +28,7 @@ In deze rondleiding gaan we uitgebreid in op het ontwikkelingsproces van een pre
 
 In deze rondleiding gaan we ervan uit dat u Machine Learning Studio al minstens één keer hebt gebruikt en dat u enig inzicht hebt in de concepten van machine learning. Er wordt niet van uitgegaan dat u een expert bent.
 
-Als u **Azure Machine Learning Studio** nog nooit eerder hebt gebruikt, doet u er verstandig aan te beginnen met de zelfstudie [Uw eerste gegevenswetenschapexperiment maken in Azure Machine Learning Studio](create-experiment.md). In die zelfstudie doorloopt u Machine Learning Studio voor de eerste keer. U ziet hoe u modules naar uw experiment sleept, ze aan elkaar koppelt, het experiment uitvoert en de resultaten weergeeft. Een ander hulpmiddel dat handig kan zijn wanneer u aan de slag gaat, is een diagram met een overzicht van de mogelijkheden van Machine Learning Studio. U kunt downloaden en van hieruit afdrukken: [Overzichtsdiagram van de mogelijkheden van Azure Machine Learning Studio](studio-overview-diagram.md).
+Als u **Azure Machine Learning Studio** nog nooit eerder hebt gebruikt, doet u er verstandig aan te beginnen met de zelfstudie [Uw eerste gegevenswetenschapexperiment maken in Azure Machine Learning Studio](create-experiment.md). In die zelfstudie doorloopt u Machine Learning Studio voor de eerste keer. U ziet hoe u modules naar uw experiment sleept, ze aan elkaar koppelt, het experiment uitvoert en de resultaten weergeeft.
  
 Als u geen ervaring hebt met machine learning in het algemeen, bekijk dan eerst onze informatieve videoserie. Deze heet [Wetenschappelijke gegevens voor beginners](data-science-for-beginners-the-5-questions-data-science-answers.md) en geeft u met alledaagse taal en concepten een uitgebreide inleiding tot machine learning.
 

@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Een lijst van cultuur, natuurlijke talen die worden ondersteund door de QnA Maker voor uw knowledge base. Geen verschillende talen in de dezelfde knowledge base.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 02/04/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 5a4938ec37cf006e5cd6342687e2c50cadd5272e
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 3bdc3a91e87f1bbd06ef0181d0042ee618f519c9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731067"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861439"
 ---
 # <a name="language-and-region-support-for-qna-maker"></a>Ondersteuning voor QnA Maker taal en regio
 

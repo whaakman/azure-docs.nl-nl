@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Laat zien hoe om in te schakelen in de reacties op webzoekopdrachten grafische tekstelementen.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: maheshb
-ms.openlocfilehash: a535a31678dcdb611acb1606e6091a1a40a6d42e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 17297b651d672cee746076d563b5c410390c0fa2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184067"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55862799"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Met behulp van markeringen decoration markeren van tekst
 
@@ -31,7 +31,7 @@ Bing biedt de mogelijkheid van het gebruik van Unicode-tekens of HTML-codes als 
   
 Als `textDecorations` is **waar**, Bing omvat mogelijk de volgende markeringen in tekenreeksen voor weergave van antwoorden. Als er geen HTML-equivalent, moet de cel in de HTML-tabel is leeg.
 
-|Unicode|HTML|Beschrijving
+|Unicode|HTML|Description
 |-|-|-
 |U+E000|\<b>|Het markeert het begin van de queryterm die (treffers markeren)
 |U+E001|\</b>|Het markeert het einde van de queryterm

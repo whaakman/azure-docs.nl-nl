@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: bfce998fbabb89d5e9e964bd504571756941afb4
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 555c8b0b4046fd20583597ae4f0215a815806b8e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770483"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860404"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Veelgestelde vragen: Replicatie van Azure naar Azure
 
@@ -33,6 +33,10 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over het implementeren 
 
 ### <a name="how-is-site-recovery-priced"></a>Hoe wordt de Site Recovery geprijsd?
 Beoordeling [prijzen voor Azure Site Recovery](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/) details.
+### <a name="how-does-the-free-tier-for-azure-site-recovery-work"></a>Hoe werkt de gratis laag voor Azure Site Recovery-werk?
+Elk exemplaar dat wordt beschermd met Azure Site Recovery, wordt de eerste 31 dagen gratis beschermd. Vanaf de 32e dag wordt de bescherming voor het exemplaar in rekening gebracht tegen de bovenstaande tarieven.
+###<a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Worden er gedurende de eerste 31 dagen andere Azure-kosten in rekening gebracht?
+Ja, hoewel Azure Site Recovery gratis is gedurende de eerste 31 dagen van een beschermd exemplaar, worden er mogelijk kosten in rekening gebracht voor Azure Storage, opslagtransacties en gegevensoverdracht. Voor een herstelde virtuele machine worden mogelijk ook Azure-rekenkosten in rekening gebracht. Meer informatie over prijzen ophalen [hier](https://azure.microsoft.com/pricing/details/site-recovery)
 
 ### <a name="what-are-the-best-practices-for-configuring-site-recovery-on-azure-vms"></a>Wat zijn de aanbevolen procedures voor het configureren van Site Recovery op Azure Virtual machines?
 1. [Azure-naar-Azure-architectuur begrijpen](azure-to-azure-architecture.md)
@@ -70,6 +74,10 @@ Met Site Recovery kunt u repliceren en herstellen van virtuele machines tussen e
 
 Nee, Site Recovery is geen verbinding met internet vereist. Maar dit vereist toegang tot de Site Recovery-URL's en IP-adressen, zoals vermeld in [in dit artikel](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges).
 
+### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>Kan ik afzonderlijke resourcegroep voor de afzonderlijke lagen te gebruiken of de toepassing repliceren? 
+Ja, kunt u repliceert u de toepassing en de configuratie van het herstel na noodgevallen in afzonderlijke resourcegroep te houden.
+Bijvoorbeeld, hebt u een toepassing met elke app, db en web in afzonderlijke resourcegroep lagen, hebt u klikken op de [wizard replicatie](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) drie keer op alle lagen te beveiligen. ASR kan deze drie lagen in drie verschillende resourcegroep wordt gerepliceerd.
+
 ## <a name="replication-policy"></a>Beleid voor wachtwoordreplicatie
 
 ### <a name="what-is-a-replication-policy"></a>Wat is beleid voor replicatie?
@@ -89,9 +97,12 @@ Vandaag de dag kunnen de meeste toepassingen herstellen van crash-consistente mo
 Site Recovery maakt een crash-consistente herstelpunt om de 5 minuten.
 
 ### <a name="what-is-an-application-consistent-recovery-point"></a>Wat is een toepassingsconsistente herstelpunt? 
-Toepassingsconsistente herstelpunten zijn gemaakt op basis van toepassingsconsistente momentopnamen. Toepassingsconsistente momentopnamen kunt u dezelfde gegevens als crash-consistente momentopnamen, met de toevoeging van alle gegevens in het geheugen en alle lopende transacties vastleggen. 
+Toepassingsconsistente herstelpunten zijn gemaakt op basis van toepassingsconsistente momentopnamen. Toepassingsconsistente herstelpunten vastleggen dezelfde gegevens als crash-consistente momentopnamen, met de toevoeging van alle gegevens in het geheugen en alle lopende transacties. 
 
 Vanwege de extra inhoud toepassingsconsistente momentopnamen zijn het meest betrokken en nemen de langste om uit te voeren. Het wordt aangeraden de toepassingsconsistente herstelpunten voor database-besturingssystemen en toepassingen, zoals SQL Server.
+
+### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>Wat zijn de gevolgen van toepassingsconsistente herstelpunten op de prestaties van toepassingen?
+Overweegt toepassingsconsistente herstelpunten bevat alle gegevens in het geheugen en in proces hiervoor het framework zoals VSS in windows stilleggen de toepassing. Dit, kan als heel vaak gedaan hebben invloed op de prestaties als de werkbelasting al bezet is. Is doorgaans het nodig om niet te gebruiken met lage frequentie voor app-consistente herstelpunten voor niet-workloads van databases en zelfs voor database-workload 1 uur is dit voldoende. 
 
 ### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>Wat is de minimale frequentie van toepassingsconsistente recovery point generatie?
 Site Recovery maakt een toepassingsconsistente herstelpunt met een minimale frequentie van binnen 1 uur.

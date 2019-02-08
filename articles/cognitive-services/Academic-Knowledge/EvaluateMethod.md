@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Gebruik de methode evalueren om te retourneren van een set academische entiteiten op basis van een query-expressie.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: c3449d3b61c9b8950c0530590e7f1950c06afbc3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a5ad7005a2ab3d6ed5f9c8fe38db9552e3925a30
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187290"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871316"
 ---
 # <a name="evaluate-method"></a>Methode evalueren
 
@@ -28,7 +28,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?
 ```   
 <br>
 ## <a name="request-parameters"></a>Aanvraagparameters  
-Name     | Waarde | Vereist?  | Description
+Name     | Value | Vereist?  | Description
 -----------|-----------|---------|--------
 **expr**       | Tekenreeks met tekst | Ja | Een query-expressie waarmee wordt aangegeven welke entiteiten moeten worden geretourneerd.
 **model**      | Tekenreeks met tekst | Nee  | De naam van het model dat u wilt zoeken.  Op dit moment wordt de standaardwaarde aan *nieuwste*.        

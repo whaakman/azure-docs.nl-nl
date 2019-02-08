@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: jingwang
-ms.openlocfilehash: cd07343e056493369d2093651ecf7c466595f412
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 16d0002ec8e42eec92895aaf582a8c2b3df2c3a6
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656580"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895258"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Gegevens kopiëren van Amazon Simple Storage-Service met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,7 +57,7 @@ De volgende eigenschappen worden ondersteund voor Amazon S3 gekoppelde service:
 | type | De eigenschap type moet worden ingesteld op **Amazon S3**. | Ja |
 | accessKeyId | ID van de geheime toegangssleutel. |Ja |
 | secretAccessKey | De geheime toegangssleutel zelf. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| serviceUrl | Het aangepaste S3-eindpunt opgeven als u bij het kopiëren van gegevens uit een S3-compatibele opslagprovider dan de officiële Amazon S3-service. Bijvoorbeeld, voor [gegevens kopiëren van Google Cloud Storage](#copy-from-google-cloud-storage), geef `https://storage.googleapis.com`. | Nee |
+| serviceUrl | Het aangepaste S3-eindpunt opgeven als u bij het kopiëren van gegevens uit een S3-compatibele opslagprovider dan de officiële Amazon S3-service. Bijvoorbeeld, om gegevens te kopiëren van Google Cloud Storage, geef `https://storage.googleapis.com`. | Nee |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt Azure Integration Runtime of zelfgehoste Cloudintegratieruntime gebruiken (als het gegevensarchief bevindt zich in een particulier netwerk). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
 
 >[!TIP]

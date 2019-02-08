@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Bepalen welke onderdelen van uw toepassing vereisen updates voor de Bing webzoekopdrachten v7 API's gebruiken.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.assetid: E8827BEB-4379-47CE-B67B-6C81AD7DAEB1
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: reference
 ms.date: 01/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 7c3e19fd809e442d58f7cb0e6922d4e565673fe2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 74afd08aaa2e512ae3bcae302f50585eb8024306
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188929"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864074"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Een upgrade uitvoeren voor Bing Web Search API versie 5 naar versie 7
 
@@ -39,7 +39,7 @@ Deze upgrade handleiding identificeert de wijzigingen tussen 5 en versie 7 van d
 
 - De foutcodes v5 vervangen door de volgende mogelijke `code` en `subCode` waarden.
 
-|Code|SubCode|Beschrijving
+|Code|SubCode|Description
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>Niet geïmplementeerd|Bing retourneert ServerError wanneer een van de voorwaarden van de onderliggende code optreden. De reactie omvat deze fouten als de HTTP-statuscode 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Geblokkeerd|Bing retourneert InvalidRequest wanneer er een deel van de aanvraag niet geldig is. Bijvoorbeeld, een vereiste parameter ontbreekt of een parameterwaarde is niet geldig.<br/><br/>Als de fout ParameterMissing of ParameterInvalidValue is, is de HTTP-statuscode 400.<br/><br/>Als de fout HttpNotAllowed, de HTTP-statuscode 410 is.

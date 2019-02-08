@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 5edf301ffc87a17963c3c32c7ea1b559e0834cf7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d60c99349fef26fc1ead7f6ea4b77d0c364c4abb
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244467"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868137"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Algoritmen kiezen voor Azure Machine Learning Studio
 
@@ -44,9 +44,7 @@ Verschillende gegevenswetenschappers die ik gehad met genoemde die de enige mani
 Hier volgt een voorbeeld van de [Azure AI Gallery](http://gallery.cortanaintelligence.com/) van een experiment dat probeert verschillende algoritmes op basis van dezelfde gegevens en vergelijkt de resultaten: [Vergelijk ROC classificaties: Herkenning letter](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
-> Zie [Overzichtsdiagram van de mogelijkheden van Azure Machine Learning Studio](studio-overview-diagram.md) als u een diagram wilt downloaden en afdrukken met een overzicht van de mogelijkheden van Machine Learning Studio.
-> 
-> 
+> Zie voor het downloaden van een overzicht van de infographic eenvoudig te begrijpen van de basisprincipes van machine learning voor meer informatie over populaire algoritmen gebruikt om veelvoorkomende machine learning vragen te beantwoorden [Machine learning-basisbeginselen met algoritmevoorbeelden](basics-infographic-with-algorithm-examples.md).
 
 ## <a name="flavors-of-machine-learning"></a>Versies van machine learning
 
@@ -242,13 +240,13 @@ Aan de slag en onder leiding van Microsoft Research eigen John Langford, is VW e
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor een downloadbare infographic die worden beschreven van algoritmen en voorbeelden, [downloadbare Infographic: Machine learning-basisbeginselen met algoritmevoorbeelden](basics-infographic-with-algorithm-examples.md).
+* Zie voor het downloaden van een overzicht van de infographic eenvoudig te begrijpen van de basisprincipes van machine learning voor meer informatie over populaire algoritmen gebruikt om veelvoorkomende machine learning vragen te beantwoorden [Machine learning-basisbeginselen met algoritmevoorbeelden](basics-infographic-with-algorithm-examples.md).
 
 * Zie voor een lijst op categorie van alle de machine learning-algoritmen in Machine Learning Studio, [Initialize Model](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model) in de algoritme voor Machine Learning Studio en de Module Help.
 
 * Zie voor een volledige alfabetische lijst van algoritmen en modules in Machine Learning Studio, [alfabetische lijst van Machine Learning Studio-modules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list) in de Module Help en algoritme voor Machine Learning Studio.
 
-* Zie [Overzichtsdiagram van de mogelijkheden van Azure Machine Learning Studio](studio-overview-diagram.md) als u een diagram wilt downloaden en afdrukken met een overzicht van de mogelijkheden van Machine Learning Studio.
+* U kunt downloaden en afdrukken van een diagram met een van de mogelijkheden van Machine Learning Studio overzicht: [Microsoft Azure Machine Learning Studio mogelijkheden Overview (PDF-bestand)](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf).
 
 <!-- Media -->
 

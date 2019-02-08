@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Hiermee geeft u de onderdelen van uw toepassing die u nodig hebt om bij te werken voor het gebruik van versie 7.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: scottwhi
-ms.openlocfilehash: 13e1a2d574abd080b1e947896ed5c2de568fc853
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e164e02f3e7458e0c8d4fdf8d2a88cf4ab8a17b3
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178474"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874495"
 ---
 # <a name="autosuggest-api-upgrade-guide"></a>Automatische suggestie-handleiding voor API bijwerken
 
@@ -37,7 +37,7 @@ Deze upgrade handleiding identificeert de wijzigingen tussen 5 en versie 7 van d
 
 - De foutcodes v5 vervangen door de volgende mogelijke `code` en `subCode` waarden.
 
-|Code|SubCode|Beschrijving
+|Code|SubCode|Description
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>Niet geïmplementeerd|Bing retourneert ServerError wanneer een van de voorwaarden van de onderliggende code optreden. Het antwoord bevat deze fouten als de HTTP-statuscode 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Geblokkeerd|Bing retourneert InvalidRequest wanneer er een deel van de aanvraag niet geldig is. Bijvoorbeeld, een vereiste parameter ontbreekt of een parameterwaarde is niet geldig.<br/><br/>Als de fout ParameterMissing of ParameterInvalidValue is, is de HTTP-statuscode 400.<br/><br/>Als de fout HttpNotAllowed, de HTTP-statuscode 410 is.

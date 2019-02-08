@@ -1,5 +1,5 @@
 ---
-title: Het bestandssysteem van Azure Blob-stuurprogramma voor Gen2 Preview van Azure Data Lake-opslag
+title: Het bestandssysteem van Azure Blob-stuurprogramma voor Azure Data Lake Storage Gen2
 description: Het stuurprogramma ABFS Hadoop-bestandssysteem
 services: storage
 author: jamesbak
@@ -8,16 +8,16 @@ ms.author: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: f50723fa494df0ff1490bf27451394a6e13da467
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c2830cb92df0794e9afbaadfe872ab3e044669cb
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240876"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55865950"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Het stuurprogramma van het Azure Blob-bestandssysteem (ABFS): Een speciale Azure Storage-stuurprogramma voor Hadoop
 
-Een van de primaire methoden voor gegevens in de Preview van Azure Data Lake Storage Gen2 is via de [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Data Lake Storage Gen2 kunnen gebruikers van Azure Blob Storage-toegang tot een nieuw stuurprogramma, het bestandssysteem van Azure Blob-stuurprogramma of `ABFS`. ABFS maakt deel uit van Apache Hadoop en is opgenomen in veel van de commerciële distributies van Hadoop. Dit stuurprogramma gebruikt, veel toepassingen en frameworks toegang tot gegevens in Azure Blob-opslag zonder code expliciet verwijzen naar Data Lake Storage Gen2.
+Een van de primaire methoden voor gegevens in Azure Data Lake Storage Gen2 is via de [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Data Lake Storage Gen2 kunnen gebruikers van Azure Blob Storage-toegang tot een nieuw stuurprogramma, het bestandssysteem van Azure Blob-stuurprogramma of `ABFS`. ABFS maakt deel uit van Apache Hadoop en is opgenomen in veel van de commerciële distributies van Hadoop. Dit stuurprogramma gebruikt, veel toepassingen en frameworks toegang tot gegevens in Azure Blob-opslag zonder code expliciet verwijzen naar Data Lake Storage Gen2.
 
 ## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>Eerdere mogelijkheid: Het Windows Azure Storage-Blob-stuurprogramma
 
@@ -42,7 +42,7 @@ hdfs dfs -put flight_delays.csv abfs://fileanalysis@myanalytics.dfs.core.windows
 
 Intern, het stuurprogramma ABFS vertaalt de resource (s) opgegeven in de URI op bestanden en mappen en aanroepen van de Azure Data Lake Storage REST API met deze verwijzingen.
 
-### <a name="authentication"></a>Verificatie
+### <a name="authentication"></a>Authentication
 
 Het stuurprogramma ABFS ondersteunt twee soorten verificatie zodat de Hadoop-toepassing veilig toegang krijgen resources die zich in een Data Lake Storage Gen2 geschikt-account tot kan. Volledige details van de beschikbare verificatiemethoden zijn opgegeven de [Azure Storage-beveiligingshandleiding](../common/storage-security-guide.md). Dit zijn:
 

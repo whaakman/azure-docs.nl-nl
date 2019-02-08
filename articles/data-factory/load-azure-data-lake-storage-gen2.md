@@ -1,6 +1,6 @@
 ---
-title: Gegevens laden in Azure Data Lake Storage Gen2 (Preview) met Azure Data Factory
-description: Azure Data Factory gebruiken om gegevens te kopiëren in Azure Data Lake Storage Gen2 (Preview)
+title: Gegevens laden in Azure Data Lake Storage Gen2 met Azure Data Factory
+description: Azure Data Factory gebruiken om gegevens te kopiëren in Azure Data Lake Storage Gen2
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 108ced5416eb7cd6826f4f96d4f62fd33e8f5653
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 6b03e08200c4d20a64fad329abda71c5c7edab26
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680851"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55876076"
 ---
-# <a name="load-data-into-azure-data-lake-storage-gen2-preview-with-azure-data-factory"></a>Gegevens laden in Azure Data Lake Storage Gen2 (Preview) met Azure Data Factory
+# <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Gegevens laden in Azure Data Lake Storage Gen2 met Azure Data Factory
 
-Azure Data Lake Storage Gen2 Preview is een verscheidenheid aan functies die zijn toegewezen aan de analyse van big data, die is ingebouwd in [Azure Blob-opslag](../storage/blobs/storage-blobs-introduction.md). Hiermee kunt u samenwerken met uw gegevens met behulp van beide beschermingsparadigma in het systeem en de object-opslag.
+Azure Data Lake Storage Gen2 is een verscheidenheid aan functies die zijn toegewezen aan de analyse van big data, die is ingebouwd in [Azure Blob-opslag](../storage/blobs/storage-blobs-introduction.md). Hiermee kunt u samenwerken met uw gegevens met behulp van beide beschermingsparadigma in het systeem en de object-opslag.
 
 Azure Data Factory is een volledig beheerde cloud-gebaseerde service voor gegevensintegratie. U kunt de service gebruiken voor het vullen van de lake met gegevens uit een grote verscheidenheid aan on-premises en cloud-gebaseerde gegevens worden opgeslagen en bespaar tijd bij het bouwen van uw analyseoplossingen. Voor een gedetailleerde lijst met ondersteunde connectors, Zie de tabel met [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -33,9 +33,9 @@ Dit artikel ziet u hoe u het hulpprogramma Data Factory Copy Data gebruiken om t
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Azure-abonnement: als u geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
-* Azure Storage-account met Data Lake Storage Gen2 is ingeschakeld: als u geen een Storage-account hebt, klikt u op [hier](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) een te maken.
-* AWS-account met een S3-bucket die gegevens bevat: in dit artikel laat zien hoe het kopiëren van gegevens vanaf Amazon S3. U kunt andere gegevensarchieven gebruiken door gelijksoortige stappen te volgen.
+* Azure-abonnement: Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
+* Azure Storage-account met Data Lake Storage Gen2 is ingeschakeld: Als u geen een Storage-account hebt, klikt u op [hier](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) een te maken.
+* AWS-account met een S3-bucket die gegevens bevat: In dit artikel laat zien hoe het kopiëren van gegevens vanaf Amazon S3. U kunt andere gegevensarchieven gebruiken door gelijksoortige stappen te volgen.
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 
@@ -92,7 +92,7 @@ Dit artikel ziet u hoe u het hulpprogramma Data Factory Copy Data gebruiken om t
 
     ![Geef de map voor uitvoer](./media/load-azure-data-lake-storage-gen2/specify-binary-copy.png)
     
-7. In de **doelgegevensarchief** pagina, klikt u op **+ nieuwe verbinding maken**, en selecteer vervolgens **Azure Data Lake Storage Gen2 (Preview)**, en selecteer **doorgaan** :
+7. In de **doelgegevensarchief** pagina, klikt u op **+ nieuwe verbinding maken**, en selecteer vervolgens **Azure Data Lake Storage Gen2**, en selecteer **doorgaan**:
 
     ![De pagina Doelgegevensarchief](./media/load-azure-data-lake-storage-gen2/destination-data-storage-page.png)
 

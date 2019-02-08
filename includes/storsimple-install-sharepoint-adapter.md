@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: ad45b117df545c361f17c299bee47b314a408b06
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: e2d258f327ade2149adc92bdb7fb4bcc87cdd58c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165041"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888990"
 ---
-<!--author=SharS last changed: 9/17/15-->
-
 #### <a name="to-install-the-storsimple-adapter-for-sharepoint"></a>De StorSimple-Adapter voor SharePoint installeren
 1. Kopieer het installatieprogramma naar de web front end (WFE)-server die ook is geconfigureerd voor het uitvoeren van de Centraal beheer van SharePoint-webtoepassing. 
 2. Gebruik een account met administrator-bevoegdheden te melden bij de WFE-server.
@@ -29,5 +27,5 @@ ms.locfileid: "50165041"
    
     ![StorSimple adapter klaar installatiepagina](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup_finish-include.png) 
 7. Open de pagina Centraal beheer van SharePoint. Hier ziet u een StorSimple-configuratie-groep met de StorSimple-Adapter voor SharePoint-koppelingen.
-8. Ga naar de volgende stap: [configureren Resourcestructuur](#configure-rbs).
+8. Ga naar de volgende stap: [Configureren van Resourcestructuur](#configure-rbs).
 

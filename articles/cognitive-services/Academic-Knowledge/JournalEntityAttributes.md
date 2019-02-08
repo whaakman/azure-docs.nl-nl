@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Meer informatie over de kenmerken die u met de entiteit van het logboek in de Academic Knowledge-API in Cognitive Services gebruiken kunt.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 397293c17320ef75daa5c31af76d49183b6c435c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ffb159dc684b4b6663dcb966706d4745ab88a403
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193825"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872574"
 ---
 # <a name="journal-entity"></a>Logboek-entiteit
 
@@ -24,7 +24,7 @@ ms.locfileid: "55193825"
 Name    |Description                            |Type       | Bewerkingen
 ------- | ------------------------------------- | --------- | ----------------------------
 Id      |Entiteits-id                              |Int64      |Is gelijk aan
-DJN     |Naam van genormaliseerde                |Reeks     |geen
-JN      |Logboek-weergavenaam                   |Reeks     |Is gelijk aan
+DJN     |Naam van genormaliseerde                |String     |geen
+JN      |Logboek-weergavenaam                   |String     |Is gelijk aan
 CC      |Totaal aantal citaat tellen mee           |Int32      |geen  
 ECC     |Totale geschatte citaat tellen mee |Int32      |geen

@@ -1,24 +1,24 @@
 ---
-title: 'Snelstart: Converteren van tekst naar spraak, Node.js - spraakservices'
+title: 'Quickstart: Converteren van tekst naar spraak, Node.js - spraakservices'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstartgids leert u hoe u om te converteren tekst naar spraak met behulp van Node.js en de tekst naar spraak REST-API. De voorbeeldtekst opgenomen in deze handleiding is opgebouwd als spraak synthese Markup Language (SSML). Hiermee kunt u de spraak en taal van het antwoord spraak te kiezen.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 808466e9d2546472a4f86dd0d7eacd48e75cb94a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7faa69e4adf96af7f7df9724521ee5ee1cacaad1
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224476"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861643"
 ---
-# <a name="quickstart-convert-text-to-speech-using-nodejs"></a>Snelstart: Converteert tekst naar spraak met behulp van Node.js
+# <a name="quickstart-convert-text-to-speech-using-nodejs"></a>Quickstart: Converteert tekst naar spraak met behulp van Node.js
 
 In deze snelstartgids leert u hoe u om te converteren tekst naar spraak met behulp van Node.js en de Text to Speech REST-API. De hoofdtekst van de aanvraag in deze handleiding is opgebouwd als [spraak synthese Markup Language (SSML)](speech-synthesis-markup.md), waarmee u de spraak en taal van het antwoord te kiezen.
 

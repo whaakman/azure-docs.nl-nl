@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Gebruik de methode interpreteren om terug te keren opgemaakte interpretaties van querytekenreeksen op basis van gegevens van de Academic Graph en de academische grammatica in Microsoft Cognitive Services.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: d79e14fa48631ec6ce3cde42a7dbe300034782cb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6db9a5b65fc2723af2eae006ad81716e23e52133
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171649"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860521"
 ---
 # <a name="interpret-method"></a>Methode interpreteren
 
@@ -29,7 +29,7 @@ Voor een interactieve ervaring, kunt u deze methode herhaaldelijk aanroept na el
 
 ## <a name="request-parameters"></a>Aanvraagparameters
 
-Name     | Value | Vereist?  | Beschrijving
+Name     | Value | Vereist?  | Description
 ---------|---------|---------|---------
 **query**    | Tekenreeks met tekst | Ja | De query is opgegeven door de gebruiker.  Als voltooid is ingesteld op 1, wordt de query worden geïnterpreteerd als een voorvoegsel voor genereren suggesties voor het automatisch aanvullen van query.        
 **model**    | Tekenreeks met tekst | Nee  | De naam van het model dat u wilt zoeken.  Op dit moment wordt de standaardwaarde aan *nieuwste*.        
@@ -40,7 +40,7 @@ Name     | Value | Vereist?  | Beschrijving
 <br>
   
 ## <a name="response-json"></a>Antwoord (JSON)
-Name     | Beschrijving
+Name     | Description
 ---------|---------
 **query** |De *query* parameter van de aanvraag.
 **interpretations** |Een matrix van 0 of meer verschillende methoden die overeenkomt met de invoer van de gebruiker op basis van de grammatica.

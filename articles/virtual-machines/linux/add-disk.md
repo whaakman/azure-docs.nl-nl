@@ -16,12 +16,12 @@ ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 8457df9ba809e183122fd53de75a40108e4a4ed1
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 1f545747b883ab70b597b4e598a86b192f89b027
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754299"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892758"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Een schijf toevoegen aan een virtuele Linux-machine
 Dit artikel ziet u hoe u een permanente schijf koppelen aan uw virtuele machine zodat u kunt uw gegevens - behouden, zelfs als uw virtuele machine is ingericht vanwege onderhoud vergroten of verkleinen.
@@ -73,10 +73,10 @@ De uitvoer lijkt op die in het volgende voorbeeld:
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-Hier *sdc* is de schijf die we willen. Partitioneer de schijf met `parted`, als de schijfgrootte 2 tebibytes (TiB is) of groter en vervolgens moet u GPT-partitionering, als deze onder 2TiB, kunt u partitioneren MBR of GPT gebruiken. Een primaire schijf op partitie 1 maken en de andere standaardwaarden te accepteren. Het volgende voorbeeld wordt de `parted` op */dev/sdc*:
+Hier *sdc* is de schijf die we willen. Partitioneer de schijf met `parted`, als de schijfgrootte 2 tebibytes (TiB is) of groter en vervolgens moet u GPT-partitionering, als deze onder 2TiB, kunt u partitioneren MBR of GPT gebruiken. Als u partitioneren MBR, kunt u `fdisk`. Een primaire schijf op partitie 1 maken en de andere standaardwaarden te accepteren. Het volgende voorbeeld wordt de `fdisk` op */dev/sdc*:
 
 ```bash
-sudo parted /dev/sdc
+sudo fdisk /dev/sdc
 ```
 
 Gebruik de `n` opdracht voor het toevoegen van een nieuwe partitie. In dit voorbeeld wordt er ook voor kiezen `p` voor een primaire partitie en de rest van de standaardwaarden accepteren. De uitvoer is vergelijkbaar met het volgende voorbeeld:

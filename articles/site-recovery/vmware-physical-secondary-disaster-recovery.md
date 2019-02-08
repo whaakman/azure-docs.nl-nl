@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 34b38f979fcab765a35d8aa6f0714ce85beec6fe
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 0cc9c8dc214589e03e5a6a5405c07c9f6b3e53e6
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105182"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895836"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Herstel na noodgevallen van on-premises virtuele VMware-machines of fysieke servers naar een secundaire site instellen
 
@@ -50,7 +50,7 @@ o voor fysieke computers, volgt u deze [zelfstudie](./physical-azure-disaster-re
 --|--|--
 **Vereiste onderdelen** |Mobility-service op gerepliceerde machines. On-premises configuratieserver, processerver, hoofddoelserver. Tijdelijke processerver in Azure voor failback.|Mobility-service, processerver, de configuratieserver en de Hoofddoelserver
 **Configuratie en indeling** |Recovery Services-kluis in Azure portal | Met behulp van vContinuum 
-**Gerepliceerd**|Schijf (Windows en Linux) |Volume-Windows<br> Schijf-Linux
+**Gerepliceerd**|Schijf (Windows en Linux) |Volume-Windows<br> Disk-Linux
 **Gedeeld schijfcluster**|Niet ondersteund|Ondersteund
 **Gegevensverloop limieten (gemiddeld)** |Gegevens van 10 MB/s per schijf<br> Gegevens van 25MB/s per virtuele machine<br> [Meer informatie](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | Gegevens voor > 10 MB/s per schijf  <br> De gegevens > 25 MB/s per virtuele machine
 **Controle** |Vanuit Azure portal|Van CX (configuratieserver)
@@ -82,7 +82,7 @@ Als volgt te werk om de updates te installeren:
 
 Download de [bijwerken](https://aka.ms/asr-scout-update7) ZIP-bestand en de [MySQL en PHP upgrade](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade) -configuratiebestanden. De update-ZIP-bestand bevat de alle base binaire bestanden en de cumulatieve upgrade binaire bestanden van de volgende onderdelen: 
   - InMage_ScoutCloud_RX_8.0.1.0_RHEL6-64_GA_02Mar2015.tar.gz
-  - RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.GZ
+  - RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz
   - InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe
   - InMage_CX_TP_8.0.1.0_Windows_GA_26Feb2015_release.exe
   - CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe
@@ -171,9 +171,9 @@ Scout Update 6 is een cumulatieve update. Deze bevat alle oplossingen van Update
 #### <a name="new-platform-support"></a>Platformondersteuning voor nieuwe
 * Is er ondersteuning toegevoegd voor bron Windows Server 2016
 * Is er ondersteuning toegevoegd voor de volgende Linux-besturingssystemen:
-    - Red Hat Enterprise Linux (RHEL) 6,9
+    - Red Hat Enterprise Linux (RHEL) 6.9
     - CentOS 6.9
-    - Oracle Linux 5,11
+    - Oracle Linux 5.11
     - Oracle Linux 6,8
 * Is er ondersteuning toegevoegd voor VMware Center 6.5
 
@@ -194,7 +194,7 @@ Download de [bijwerken](https://aka.ms/asr-scout-update6) ZIP-bestand. Het besta
 3. **Configuratieserver en processerver**: Kopie **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** op de configuratieserver en processerver. Dubbelklik op uit te voeren.<br>
 4. **Windows hoofddoelserver**: Voor het bijwerken van de unified agent kopiëren **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** naar de server. Dubbelklik erop uit te voeren. De unified agentupdate is ook van toepassing op de bronserver. Als bron nog niet is bijgewerkt naar Update 4, moet u de unified agent bijwerken.
   De update niet wilt toepassen op de Master target voorbereid met **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** omdat deze nieuwe algemene beschikbaarheid installatieprogramma met de meest recente wijzigingen.
-5. **vContinuum-server**:  Kopie **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** naar de server.  Zorg ervoor dat u de wizard vContinuum hebt gesloten. Dubbelklik op het bestand uit te voeren.
+5. **vContinuum-server**:  Copy **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** to the server.  Zorg ervoor dat u de wizard vContinuum hebt gesloten. Dubbelklik op het bestand uit te voeren.
     De update niet wilt toepassen op de Hoofddoelserver voorbereid met **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** omdat deze nieuwe algemene beschikbaarheid installatieprogramma met de meest recente wijzigingen.
 6. **Linux-hoofddoelserver**: Voor het bijwerken van de unified agent kopiëren **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** naar het hoofdniveau doelserver en pak het uit. Voer in de uitgepakte map **/Install**.
 7. **Windows-bronserver**: Voor het bijwerken van de unified agent kopiëren **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** naar de bronserver. Dubbelklik op het bestand uit te voeren. 
@@ -218,7 +218,7 @@ Scout Update 5 is een cumulatieve update. Het bevat alle correcties uit Update 1
 
 #### <a name="new-platform-support"></a>Platformondersteuning voor nieuwe
 * SUSE Linux Enterprise Server 11 Service Pack 4(SP4)
-* SLES 11 SP4 64 bits **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** wordt geleverd met de basis Scout GA-pakket (**InMage_Scout_Standard_8.0.1 GA.zip**). De GA-pakket downloaden via de portal, zoals beschreven in [een kluis maken](#create-a-vault).
+* SLES 11 SP4 64 bits **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** wordt geleverd met de basis Scout GA-pakket (**InMage_Scout_Standard_8.0.1 GA.zip**). Download het pakket voor algemene beschikbaarheid van de portal, zoals beschreven in een kluis maken.
 
 
 #### <a name="bug-fixes-and-enhancements"></a>Oplossingen voor problemen en verbeteringen
@@ -248,11 +248,11 @@ Scout Update 4 is een cumulatieve update. Deze bevat alle oplossingen van Update
 * Is er ondersteuning toegevoegd voor deze Linux-besturingssystemen:
   * Red Hat Enterprise Linux (RHEL) 7.0, 7.1 en 7.2
   * CentOS 7.0, 7.1 en 7.2
-  * Red Hat Enterprise Linux (RHEL) 6,8
+  * Red Hat Enterprise Linux (RHEL) 6.8
   * CentOS 6,8
 
 > [!NOTE]
-> RHEL/CentOS 7 64-bits **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** wordt geleverd met het Basispakket voor Scout GA **InMage_Scout_Standard_8.0.1 GA.zip**. De algemene beschikbaarheid Scout-pakket downloaden via de portal, zoals beschreven in [een kluis maken](#create-a-vault).
+> RHEL/CentOS 7 64-bits **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** wordt geleverd met het Basispakket voor Scout GA **InMage_Scout_Standard_8.0.1 GA.zip**. Download het pakket Scout algemeen beschikbaar vanaf de portal zoals wordt beschreven in een kluis maken.
 
 #### <a name="bug-fixes-and-enhancements"></a>Oplossingen voor problemen en verbeteringen
 
@@ -277,7 +277,7 @@ Scout Update 4 is een cumulatieve update. Deze bevat alle oplossingen van Update
 > [!NOTE]
 > * **InMage_Scout_Standard_8.0.1_GA.zip** basispakket heeft:
     * Het installatieprogramma voor een basis van een bijgewerkte configuratie server (**InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe**)
-    * Het installatieprogramma voor een basis van een Windows hoofddoel (**InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**).
+    * A Windows master target base installer (**InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**).
     * Gebruik voor alle nieuwe installaties van de nieuwe configuratie- en Windows hoofddoel GA bits.
 > * Update 4 kan worden toegepast op 8.0.1 algemene beschikbaarheid.
 > * De configuratieserver en RX updates kunnen niet worden hersteld nadat ze zijn toegepast.
@@ -314,7 +314,7 @@ Update 3 worden de volgende problemen:
     * Schadelijk bestand uploaden: Bestanden zijn beperkt tot specifieke extensies: z, aiff, AVP, avi, bmp, csv, doc, docx, fla, FLV-, GIF-, gz, gzip, JPEG-, jpg-, logboek, mid mov, mp3, mp4, mpc, mpeg, mpg, ods odt, PDF-, png, ppt, pptx, pxd, qt, ram, rar, DB, rmi, rmvb, RTF-, sdc, sitd, swf , sxc, sxw, tar, tgz, tif, TIFF-, txt, vsd, wav, wma, wmv, xls, xlsx, xml en postcode.
     * Permanente cross-site scripting: Invoer validaties zijn toegevoegd.
 
-### <a name="azure-site-recovery-scout-801-update-2-update-03dec15"></a>Azure Site Recovery Scout 8.0.1 Update 2 (03 15 december Update)
+### <a name="azure-site-recovery-scout-801-update-2-update-03dec15"></a>Azure Site Recovery Scout 8.0.1 Update 2 (Update 03Dec15)
 
 Verbeteringen in Update 2 zijn onder andere:
 

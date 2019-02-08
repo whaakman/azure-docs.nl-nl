@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Informatie over het gebruik van de methode CalcHistogram in de Knowledge Exploration Service KES () API.
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: f994a254e661cd245d2e953efd3bd595d50c6fc7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: aaa5b3a85c08f11d821557257de451b8ffc8a3fc
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214310"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860453"
 ---
 # <a name="calchistogram-method"></a>calchistogram methode
 De *calchistogram* methode berekent de objecten die overeenkomen met een structured query-expressie en berekent de verdeling van de kenmerkwaarden.
@@ -23,7 +23,7 @@ De *calchistogram* methode berekent de objecten die overeenkomen met een structu
 ## <a name="request"></a>Aanvraag
 `http://<host>/calchistogram?expr=<expr>[&options]` 
 
-Name|Value|Beschrijving
+Name|Value|Description
 ----|-----|-----------
 expr | Tekenreeks met tekst | Gestructureerde query-expressie waarmee de index-entiteiten die voor het berekenen van histogrammen.
 Kenmerken | Text string (default="") | Door komma's gescheiden lijst van kenmerk opgenomen in het antwoord.
@@ -31,7 +31,7 @@ count   | Getal (standaard = 10) | Het aantal resultaten dat moet worden geretou
 offset  | Getal (standaard = 0) | De index van het eerste resultaat om terug te keren.
 
 ## <a name="response-json"></a>Antwoord (JSON)
-JSONPath | Beschrijving
+JSONPath | Description
 ----|----
 $.expr | *markering* parameter van de aanvraag.
 $.num_entities | Totaal aantal overeenkomende entiteiten.

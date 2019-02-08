@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
-ms.openlocfilehash: 624091d4b5c1e17a301d9087f56ec5f9b0fecc5c
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 628cbcbfb712d2fcaa53bdaee262f88a78dd1527
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198776"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895666"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Aangepaste logboeken in Log Analytics
 Bron van de aangepaste logboeken in Log Analytics kunt u voor het verzamelen van gebeurtenissen uit tekstbestanden op zowel Windows als Linux-computers. Veel toepassingen logboekgegevens naar tekstbestanden in plaats van standaard logboekregistratieservices zoals Windows-gebeurtenislogboek of Syslog. Zodra de verzameld, kunt u het parseren van de gegevens in afzonderlijke velden in uw query's of extraheer de gegevens die tijdens de verzameling die moet worden afzonderlijke velden.
@@ -40,6 +40,10 @@ De logboekbestanden te verzamelen, moeten overeenkomen met de volgende criteria 
   
 >[!NOTE]
 > Als uw toepassing een nieuw logboekbestand maakt per dag of wanneer het een bepaalde grootte bereikt, detecteert de Log Analytics-agent voor Linux geen ze pas na het opnieuw is opgestart. Dit is omdat de agent alleen inventariseren en begint met de bewaking van patronen met de opgegeven zich aanmeldt bij het opstarten en als gevolg hiervan u van plan bent om het moet door het automatiseren van het opnieuw opstarten van de agent.  Deze beperking bestaat niet met de Log Analytics-agent voor Windows.  
+>
+
+>[!NOTE]
+> Maximaal 500 aangepaste logboeken kan per Log Analytics-werkruimte worden gemaakt. 
 >
 
 ## <a name="defining-a-custom-log"></a>Een aangepast logboek definiëren

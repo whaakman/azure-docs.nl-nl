@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Een lijst met ondersteunde talen en regio's voor de Automatische suggestie-API.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: scottwhi
-ms.openlocfilehash: 7caf6a9f6bce90c6ffbaa7fa4040484938d6eafd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 94a887e06af1963b16d244103de407493d4c8eb7
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177761"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55857104"
 ---
 # <a name="language-and-region-support-for-the-bing-autosuggest-api"></a>Ondersteuning voor taal en regio voor de Automatische suggestie-API
 

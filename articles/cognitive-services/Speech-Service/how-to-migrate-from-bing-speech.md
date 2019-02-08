@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Informatie over de verschillen tussen de Bing Speech en de Spraakservice developer vanuit het oogpunt van en migratie van uw toepassing met de spraak-Service.
 services: cognitive-services
 author: wsturman
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: b862975cda4a73d087d9aa0d5816fdcb9e0149dc
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 73df93345cf73939f33afedfd655cef847d895dc
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218002"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55863564"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migreren van Bing Speech naar de Speech-Service
 

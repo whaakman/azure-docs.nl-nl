@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 9db6736813b6d99efad687581f19d23023e1593a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 0ac37c2bb0430cc4299947638596be8698ae4a34
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814534"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892336"
 ---
 # <a name="create-wsfc-listener-and-configure-ilb-for-an-always-on-availability-group-on-a-sql-server-vm-with-azure-quickstart-template"></a>Maken van WSFC, listener en ILB configureren voor de groep van een Always On-beschikbaarheid op een SQL Server-VM met de Azure Quickstart-sjabloon
 Dit artikel wordt beschreven hoe u met de Azure-Snelstartsjablonen gedeeltelijk de implementatie van een Always On configuratie beschikbaarheidsgroep voor SQL Server Virtual Machines in Azure te automatiseren. Er zijn twee Azure Quickstart-sjablonen die worden gebruikt in dit proces. 
@@ -166,7 +166,7 @@ De geselecteerde beschikbaarheidsgroep die al wordt gebruikt in de AG-listener A
 ### <a name="connection-only-works-from-primary-replica"></a>Verbinding werkt alleen met primaire replica
 Dit gedrag is het waarschijnlijk in een mislukte **101-sql-vm-aglistener-setup** sjabloonimplementatie verlaten van de ILB-configuratie in een inconsistente status. Controleer of dat de back-endpool wordt de lijst met beschikbaarheid, en dat regels bestaan voor de statustest en voor de taakverdelingsregels. Als er iets ontbreekt, is de configuratie van de ILB een inconsistente toestand terechtkomen. 
 
-U lost dit probleem, verwijdert u de listener met behulp van [PowerShell](#remove-availability-group-listener), de interne Load Balancer via Azure portal verwijderen en opnieuw beginnen [stap 3](#step-3---manually-create-the-internal-load-balanced-ilb). 
+U lost dit probleem, verwijdert u de listener met behulp van [PowerShell](#remove-availability-group-listener), de interne Load Balancer via Azure portal verwijderen en opnieuw starten bij stap 3. 
 
 ### <a name="badrequest---only-sql-virtual-machine-list-can-be-updated"></a>BadRequest - lijst van de virtuele machine alleen SQL kan worden bijgewerkt
 Deze fout kan optreden bij het implementeren van de **101-sql-vm-aglistener-setup** sjabloon als de listener via SQL Server Management Studio (SSMS) is verwijderd, maar is niet verwijderd van de SQL-VM-resourceprovider. Verwijderen van de listener via SSMS verwijdert niet de metagegevens van de listener van de resourceprovider van SQL-VM; de listener moet worden verwijderd uit de resourceprovider met behulp van [PowerShell](#remove-availability-group-listener). 

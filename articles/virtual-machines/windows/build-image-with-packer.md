@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/29/2018
 ms.author: cynthn
-ms.openlocfilehash: f848c6b654f3378df04d1320d957e76ac5384465
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bab3b37d2d5063c77f8aceee84646b1ee72b0617
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427821"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892538"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Hoe u Windows-installatiekopieën voor virtuele machines maken in Azure met Packer
 Elke virtuele machine (VM) in Azure is gemaakt op basis van een installatiekopie die u de distributie van Windows en versie van het besturingssysteem definieert. Installatiekopieën kunnen bevatten vooraf geïnstalleerde toepassingen en configuraties. De Azure Marketplace bevat vele installatiekopieën die eerste en derde partij voor de meest voorkomende OS en omgevingen met toepassingen, of maak uw eigen aangepaste installatiekopieën die zijn afgestemd op uw behoeften. Dit artikel wordt uitgelegd hoe u de open-source-hulpprogramma [Packer](https://www.packer.io/) om te definiëren en maken van aangepaste installatiekopieën in Azure.
@@ -69,8 +69,7 @@ Maak een bestand met de naam *windows.json* en plak de volgende inhoud. Voer uw 
 | *client_id*                         | Weergave service principal-ID met `$sp.applicationId` |
 | *client_secret*                     | U hebt opgegeven in wachtwoord `$securePassword` |
 | *tenant_id*                         | Uitvoer van `$sub.TenantId` opdracht |
-| *abonnements-id*                   | Uitvoer van `$sub.SubscriptionId` opdracht |
-| *object_id*                         | Weergave service-principal-object-ID met `$sp.Id` |
+| *subscription_id*                   | Uitvoer van `$sub.SubscriptionId` opdracht |
 | *managed_image_resource_group_name* | Naam van de resourcegroep die u hebt gemaakt in de eerste stap |
 | *managed_image_name*                | Naam voor de installatiekopie van het beheerde schijf die is gemaakt |
 
@@ -83,7 +82,6 @@ Maak een bestand met de naam *windows.json* en plak de volgende inhoud. Voer uw 
     "client_secret": "P@ssw0rd!",
     "tenant_id": "72f988bf-86f1-41af-91ab-2d7cd011db47",
     "subscription_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-    "object_id": "a7dfb070-0d5b-47ac-b9a5-cf214fff0ae2",
 
     "managed_image_resource_group_name": "myResourceGroup",
     "managed_image_name": "myPackerImage",

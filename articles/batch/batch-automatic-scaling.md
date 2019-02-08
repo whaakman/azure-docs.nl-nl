@@ -15,12 +15,12 @@ ms.workload: multiple
 ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1bd9710edddde04f76c6373a7718519f8ede8a19
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: fdc2cd8f2218d50aa49d6b4eab2800eb6c92d9c9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730001"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869089"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Een formule voor automatisch vergroten/verkleinen voor het schalen van rekenknooppunten in een Batch-pool maken
 
@@ -376,7 +376,7 @@ await pool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> Niet opgeeft wanneer u een pool voor automatisch schalen is ingeschakeld, de _targetDedicatedComputeNodes_ parameter of het _targetLowPriorityComputeNodes_ parameter bij het aanroepen van **CreatePool** . Geef in plaats daarvan de **AutoScaleEnabled** en **AutoScaleFormula** eigenschappen in de pool. De waarden voor deze eigenschappen bepalen het doelgetal van elk type knooppunt. Ook aan handmatig een automatisch schalen ingeschakeld formaat pool (bijvoorbeeld met [BatchClient.PoolOperations.ResizePoolAsync][net_poolops_resizepoolasync]), eerste **uitschakelen** automatisch schalen op het een pool en wijzig de grootte ervan.
+> Niet opgeeft wanneer u een pool voor automatisch schalen is ingeschakeld, de _targetDedicatedNodes_ parameter of het _targetLowPriorityNodes_ parameter bij het aanroepen van **CreatePool** . Geef in plaats daarvan de **AutoScaleEnabled** en **AutoScaleFormula** eigenschappen in de pool. De waarden voor deze eigenschappen bepalen het doelgetal van elk type knooppunt. Ook aan handmatig een automatisch schalen ingeschakeld formaat pool (bijvoorbeeld met [BatchClient.PoolOperations.ResizePoolAsync][net_poolops_resizepoolasync]), eerste **uitschakelen** automatisch schalen op het een pool en wijzig de grootte ervan.
 >
 >
 
@@ -412,7 +412,7 @@ Wanneer u automatisch schalen op een bestaande pool inschakelt, houd rekening me
   * Als u de formule voor automatisch schalen of evaluatie-interval, de Batch-service weglaat gaat u door met de huidige waarde van de instelling.
 
 > [!NOTE]
-> Als u hebt opgegeven waarden voor de *targetDedicatedComputeNodes* of *targetLowPriorityComputeNodes* parameters van de **CreatePool** methode tijdens het maken van de groep in .NET, of voor de vergelijkbare parameters in een andere taal, klikt u vervolgens deze waarden worden genegeerd tijdens het automatisch vergroten/verkleinen formule wordt geëvalueerd.
+> Als u hebt opgegeven waarden voor de *targetDedicatedNodes* of *targetLowPriorityNodes* parameters van de **CreatePool** methode wanneer u de groep hebt gemaakt in .NET, of voor de vergelijkbare parameters in een andere taal, worden deze waarden worden genegeerd tijdens het automatisch vergroten/verkleinen formule wordt geëvalueerd.
 >
 >
 

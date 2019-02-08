@@ -1,6 +1,6 @@
 ---
-title: Replicatie configureren in Azure SQL Database Managed Instance | Microsoft Docs
-description: Meer informatie over het configureren van transactionele replicatie in Azure SQL Database Managed Instance
+title: Replicatie in een Azure SQL Database beheerde exemplaar in de database configureren | Microsoft Docs
+description: Meer informatie over het configureren van transactionele replicatie in een Azure SQL Database beheerde Exemplaardatabase
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,61 +11,58 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: b0188a0983ea18490f3997b857386e313daa58ed
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 038d8c919e68e68f886525a6c78139496edef8e1
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467660"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893008"
 ---
-# <a name="configure-replication-in-azure-sql-database-managed-instance"></a>Replicatie in Azure SQL Database Managed Instance configureren
+# <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Replicatie in een Azure SQL Database beheerde Exemplaardatabase configureren
 
-Transactionele replicatie kunt u voor het repliceren van gegevens uit de SQL Server of Azure SQL Database Managed Instance-databases naar het beheerd exemplaar of wijzigingen aangebracht in uw databases in het beheerde exemplaar van andere SQL-Server, SQL Database single database of elastische pool, of andere Managed Instance. Replicatie is in de openbare preview op [Azure SQL Database Managed Instance](sql-database-managed-instance.md). Een beheerd exemplaar kan uitgever, distributor en subscriber-databases hosten. Zie [transactionele replicatie configuraties](sql-database-managed-instance-transactional-replication.md#common-configurations) voor beschikbare configuraties.
+Transactionele replicatie kunt u voor het repliceren van gegevens in een Azure SQL Database beheerde exemplaar in de database uit een SQL Server-database of een ander exemplaar in de database. U kunt transactionele replicatie ook wijzigingen aangebracht in een exemplaar in de database in Azure SQL-Database beheerd exemplaar met een SQL Server-database in een individuele database in Azure SQL Database, met een gegroepeerde database in een elastische pool van Azure SQL Database gebruiken. Transactionele replicatie is in de openbare preview-versie op [Azure SQL Database managed instance](sql-database-managed-instance.md). Een beheerd exemplaar van kan uitgever, distributor en subscriber-databases hosten. Zie [transactionele replicatie configuraties](sql-database-managed-instance-transactional-replication.md#common-configurations) voor beschikbare configuraties.
 
 ## <a name="requirements"></a>Vereisten
 
-Uitgever en de distributor op Azure SQL Database is vereist:
+Het configureren van een beheerd exemplaar als een publisher of een distributor is vereist:
 
-- Azure SQL Database Managed Instance die zich niet in de Geo-DR-configuratie.
+- Dat het beheerde exemplaar niet momenteel aan een geo-replicatie-relatie deelneemt.
 
    >[!NOTE]
-   >Azure SQL-Databases die niet zijn geconfigureerd met Managed Instance mag alleen bestaan uit abonnees.
+   >Individuele databases en databases in pools in Azure SQL Database kunnen alleen worden voor abonnees.
 
-- Alle exemplaren van SQL Server moeten zich in hetzelfde vNet.
+- Alle beheerde exemplaren moeten zich in hetzelfde vNet.
 
 - Connectiviteit maakt gebruik van SQL-verificatie tussen replicatie deelnemers.
 
 - Een bestandsshare in Azure Storage-Account voor de replicatie-werkmap.
 
-- Poort 445 (TCP uitgaand) moet worden geopend in de regels van de Managed Instance-subnet voor toegang tot de Azure-bestandsshare
+- Poort 445 (TCP uitgaand) moet worden geopend in de regels van het subnet beheerd exemplaar voor toegang tot de Azure-bestandsshare
 
 ## <a name="features"></a>Functies
 
 Ondersteunt:
 
-- De combinatie van de transactionele en momentopname replicatie van on-premises en Azure SQL Database Managed Instance-exemplaren.
-
-- Abonnees kunnen worden on-premises, individuele database in Azure SQL Database of gepoolde databases in Azure SQL Database elastische pools.
-
+- De combinatie van de transactionele en momentopname replicatie van on-premises SQL Server en beheerde exemplaren in Azure SQL Database.
+- Abonnees kunnen zich in de on-premises SQL Server-database, individuele databases in Azure SQL Database of gepoolde databases in Azure SQL Database elastische pools.
 - Eenzijdige of replicatie in twee richtingen.
 
-De volgende functies worden niet ondersteund:
+De volgende functies worden niet ondersteund in een beheerd exemplaar in Azure SQL Database:
 
 - Bij te werken abonnementen.
-
 - Actieve geo-replicatie.
 
 ## <a name="configure-publishing-and-distribution-example"></a>Voorbeeld van de publicatie en distributie configureren
 
-1. [Maken van een Azure SQL Database Managed Instance](sql-database-managed-instance-create-tutorial-portal.md) in de portal.
+1. [Maken van een beheerd exemplaar voor Azure SQL Database](sql-database-managed-instance-create-tutorial-portal.md) in de portal.
 2. [Maak een Azure Storage-Account](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) voor de werkmap.
 
    Zorg ervoor dat de opslagsleutels kopiëren. Zie [opslagtoegangssleutels bekijken en kopiëren](../storage/common/storage-account-manage.md#access-keys
 ).
-3. Maak een database voor de uitgever.
+3. Maak een exemplaar in de database voor de uitgever.
 
-   Vervang in het van de voorbeeldscripts hieronder, `<Publishing_DB>` met de naam van deze database.
+   Vervang in het van de voorbeeldscripts hieronder, `<Publishing_DB>` met de naam van het exemplaar in de database.
 
 4. Maak een databasegebruiker met SQL-verificatie voor de distributor. Gebruik een beveiligd wachtwoord.
 

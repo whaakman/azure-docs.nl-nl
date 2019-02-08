@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: 451ccff9747988ee019f2be9e0cccec12c9c1ef9
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: c79f840becce43c47287ef38bd39ed3ac9168b73
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118231"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891076"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Caffe gebruiken op Azure HDInsight Spark voor gedistribueerde deep learning
 
@@ -64,7 +64,7 @@ Er zijn twee stappen in de scriptactie. De eerste stap is het de vereiste biblio
 
 De tweede stap is om te downloaden, compileren en protobuf 2.5.0 voor Caffe tijdens runtime installeren. Protobuf 2.5.0 [is vereist](https://github.com/yahoo/CaffeOnSpark/issues/87), maar deze versie niet beschikbaar als een pakket op Ubuntu 16, is dus moet u tijdens het compileren van de broncode. Er zijn ook enkele bronnen op het Internet over het compileren. Zie voor meer informatie, [hier](https://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html).
 
-Om te beginnen, kunt u alleen uitvoeren met deze scriptactie op basis van uw cluster op alle worker-knooppunten en hoofdknooppunten (voor HDInsight 3.5). U kunt de scriptacties uitvoeren op een bestaand cluster of u scriptacties gebruiken tijdens het maken van het cluster. Zie de documentatie voor meer informatie over de scriptacties [hier](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions).
+Om te beginnen, kunt u alleen uitvoeren met deze scriptactie op basis van uw cluster op alle worker-knooppunten en hoofdknooppunten (voor HDInsight 3.5). U kunt de scriptacties uitvoeren op een bestaand cluster of u scriptacties gebruiken tijdens het maken van het cluster. Zie de documentatie voor meer informatie over de scriptacties [hier](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
 
 ![Scriptacties voor het installeren van afhankelijkheden](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
 

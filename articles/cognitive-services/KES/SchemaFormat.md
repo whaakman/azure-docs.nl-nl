@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Meer informatie over de schema-indeling in de Knowledge Exploration Service KES () API.
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 4fa8f072d420a0245b9de65482ab4c97fa775bdf
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 23120e45a1070f46ae4e1927a29bdab4c990d96f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227298"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860708"
 ---
 # <a name="schema-format"></a>Schema-indeling
 
@@ -41,14 +41,14 @@ Kenmerknamen zijn hoofdlettergevoelig id's die beginnen met een letter en bestaa
 
 Hieronder volgt een lijst met ondersteunde kenmerk gegevenstypen:
 
-| Type | Beschrijving | Bewerkingen | Voorbeeld |
+| Type | Description | Bewerkingen | Voorbeeld |
 |------|-------------|------------|---------|
-| Reeks | Tekenreeks (1-1024 tekens) | is gelijk aan, starts_with | "Hallo wereld" |
+| String | Tekenreeks (1-1024 tekens) | is gelijk aan, starts_with | "Hallo wereld" |
 | Int32 | 32-bits geheel getal | gelijk aan, starts_with, is_between | 2016 |
 | Int64 | 64-bits geheel getal | gelijk aan, starts_with, is_between | 9876543210 |
-| Double-waarde | Dubbele precisie drijvende-kommawaarde | gelijk aan, starts_with, is_between | 1.602e-19 |
+| Double | Dubbele precisie drijvende-kommawaarde | gelijk aan, starts_with, is_between | 1.602e-19 |
 | Date | Datum (1400-01-01 op 9999-12-31) | equals, is_between | '2016-03-14' |
-| GUID | Unieke id | is gelijk aan | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
+| Guid | Unieke id | is gelijk aan | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
 | Blob | Intern gecomprimeerde gegevens met niet-geïndexeerde | *Geen* | 'Elke persoon en iedere organisatie op de planeet om meer te bereiken maken' |
 | Samengestelde | Samenstelling van meerdere onderliggende kenmerken| *N.v.t.* | {"Naam": "harry shum", "Relatie": "microsoft"} |
 

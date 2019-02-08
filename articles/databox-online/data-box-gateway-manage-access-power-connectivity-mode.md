@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 02/07/2019
 ms.author: alkohli
-ms.openlocfilehash: 8f9172418f15b129a71242038efd4cdb7683bbf7
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 0ad94799320e25d88f616117f1bfcf9f0513aadf
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516175"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873016"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway-preview"></a>Beheren van toegang, kracht en verbindingsmodus voor uw Azure Data Box-Gateway (preview)
 
@@ -35,7 +35,7 @@ De toegang tot uw gegevens in het Gateway-apparaat wordt bepaald door het gebrui
 
 ### <a name="change-device-administrator-password"></a>Beheerderswachtwoord voor het apparaat wijzigen
 
-Als u uw wachtwoord vergeet, kunt u het wachtwoord wijzigen. Volg deze stappen in de lokale gebruikersinterface te wijzigen van het beheerderswachtwoord voor het apparaat.
+Volg deze stappen in de lokale gebruikersinterface te wijzigen van het beheerderswachtwoord voor het apparaat.
 
 1. Ga in de lokale webgebruikersinterface naar **onderhoud > wachtwoordwijziging**.
 2. Voer in het huidige wachtwoord en klik vervolgens op het nieuwe wachtwoord. Het opgegeven wachtwoord moet tussen 8 en 16 tekens lang zijn. Het wachtwoord moet bestaan 3 van de volgende tekens bevatten: hoofdletters, kleine letters, cijfers en speciale tekens. Controleer of het nieuwe wachtwoord.

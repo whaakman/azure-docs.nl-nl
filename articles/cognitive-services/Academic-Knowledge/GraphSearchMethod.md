@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Gebruik de methode graaf zoeken in de Academic Knowledge API op een set academische entiteiten op basis van specifieke graafpatronen retourneren.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: e8472323d99de9d0d81130eac5fbe3ec9e11c590
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f6c2fbe5daeb114d6a5ea77c9823f1fa5bfe8425
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197633"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864465"
 ---
 # <a name="graph-search-method"></a>Zoekmethode Graph
 
@@ -29,7 +29,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 <br>
 
 ## <a name="request-parameters"></a>Aanvraagparameters  
-Name     | Value | Vereist?  | Beschrijving
+Name     | Value | Vereist?  | Description
 -----------|-----------|---------|--------
 **mode**       | Tekenreeks met tekst | Ja | De naam van de modus die u wilt gebruiken. De waarde is een *json* of *lambda*.
 
@@ -46,7 +46,7 @@ Voor de *lambda* zoeken, in de hoofdtekst van bericht is een tekenreeks met teks
 
 <br>
 ## <a name="response-json"></a>Antwoord (JSON)
-Name | Beschrijving
+Name | Description
 -------|-----   
 **Resultaten** | Een matrix met 0 of meer entiteiten die overeenkomen met de query-expressie. Elke entiteit bevat de waarden van de aangevraagde kenmerken. Dit veld is aanwezig als de aanvraag is verwerkt.
 **error** | HTTP-statuscodes. Dit veld is aanwezig als de aanvraag is mislukt.

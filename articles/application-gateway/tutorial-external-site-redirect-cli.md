@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: victorh
-ms.openlocfilehash: 1a9cbb14bc6d6df25dbc627bba5a3e72db5350a6
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: c7a73472696b0315f0ef11722ca98de79562258e
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727327"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895309"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Een toepassingsgateway maken met de externe omleiding met de Azure CLI
 
@@ -106,7 +106,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-a-listener-and-routing-rule"></a>Een listener en een regel voor doorsturen toevoegen
 
-Een listener is vereist voor het inschakelen van de toepassingsgateway het routeren van verkeer op de juiste wijze. Maken van de listener met behulp van [az network application-gateway http-listener maken](/cli/azure/network/application-gateway) met de frontend-poort die zijn gemaakt met [az network application-gateway frontend-port maken](/cli/azure/network/application-gateway). Een regel is vereist voor de listener weten waar ze om binnenkomend verkeer te verzenden. Maak een eenvoudige regel met de naam *redirectRule* met behulp van [az network application-gateway-regel maken](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create) met de configuratie van omleiding.
+Een listener is vereist voor het inschakelen van de toepassingsgateway het routeren van verkeer op de juiste wijze. Maken van de listener met behulp van [az network application-gateway http-listener maken](/cli/azure/network/application-gateway) met de frontend-poort die zijn gemaakt met [az network application-gateway frontend-port maken](/cli/azure/network/application-gateway). Een regel is vereist voor de listener weten waar ze om binnenkomend verkeer te verzenden. Maak een eenvoudige regel met de naam *redirectRule* met behulp van [az network application-gateway-regel maken](/cli/azure/network/application-gateway) met de configuratie van omleiding.
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 3e2fa51bcf6040eb94a9d270a7f5f375f726e62a
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: d70b7acb906c60001ad005a0fe9361950bc029b7
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846333"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895853"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus-toegangsbeheer met handtekeningen voor gedeelde toegang
 
@@ -96,7 +96,7 @@ Een SAS-token is geldig voor alle resources die worden voorafgegaan door de `<re
 
 Het is raadzaam dat u de sleutels die worden gebruikt regelmatig opnieuw genereert de [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) object. De primaire en secundaire sleutel sleuven bestaan zodat u kunt sleutels geleidelijk draaien. Als uw toepassing wordt doorgaans gebruikt voor de primaire sleutel, kunt u de primaire sleutel kopiëren naar de secundaire sleutel sleuf, en vervolgens alleen de primaire sleutel opnieuw genereren. De nieuwe waarde voor de primaire sleutel kan vervolgens worden geconfigureerd in de clienttoepassingen, die voortdurend toegang met behulp van de oude primaire sleutel in de secundaire site hebben. Als alle clients worden bijgewerkt, kunt u de secundaire sleutel voor het uiteindelijk buiten gebruik stellen van de oude primaire sleutel opnieuw genereren.
 
-Als u weet of u vermoedt dat een sleutel is geïnfecteerd en wordt u om in te trekken van de sleutels hebt, kunt u opnieuw te genereren beide de [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) en de [secundaire sleutel](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) van een [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), deze overal vervangen door nieuwe sleutels. Deze procedure worden alle tokens die zijn ondertekend met de oude sleutels ongeldig.
+Als u weet of u vermoedt dat een sleutel is geïnfecteerd en wordt u om in te trekken van de sleutels hebt, kunt u opnieuw te genereren beide de [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) en de [secundaire sleutel](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) van een [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), deze overal vervangen door nieuwe sleutels. Deze procedure worden alle tokens die zijn ondertekend met de oude sleutels ongeldig.
 
 ## <a name="shared-access-signature-authentication-with-service-bus"></a>Shared Access Signature-verificatie met Service Bus
 
@@ -255,7 +255,7 @@ De volgende tabel toont de toegangsrechten nodig zijn voor verschillende bewerki
 
 | Bewerking | Claim vereist | Claim bereik |
 | --- | --- | --- |
-| **Namespace** | | |
+| **Naamruimte** | | |
 | Verificatieregel voor een naamruimte configureren |Beheren |Een naamruimte-adres |
 | **Service-register** | | |
 | Opsommen van privé-beleid |Beheren |Een naamruimte-adres |

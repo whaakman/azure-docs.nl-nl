@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: a8134e2350b650f7dfe0b3a1d58d107e42493223
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: aa88c2c63d348d0c82e0ad93115ea49437a63567
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766500"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895055"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Storage-accounts in Azure Stack beheren
 
@@ -67,7 +67,7 @@ Het is mogelijk in een situatie waarin u wilt een verwijderd account herstellen.
 
 Er is een eenvoudige manier om dat te doen in Azure Stack:
 
-1. Blader naar de lijst met storage-accounts. Zie [vinden van een storage-account](#find) in dit artikel voor meer informatie.
+1. Blader naar de lijst met storage-accounts. Zie zoeken naar een opslagaccount in dit artikel voor meer informatie.
 2. Zoek dat specifieke account in de lijst. U wilt filteren.
 3. Controleer de *status* van het account. Deze melding **verwijderde**.
 4. Selecteer het account waarmee het detailvenster van het account wordt geopend.
@@ -113,7 +113,7 @@ Een van de neveneffecten van met een bewaarperiode is dat een verwijderd account
 U kunt vrijmaken capaciteit die gebruikmaakt van de portal of PowerShell.
 
 **Het vrijmaken van capaciteit die gebruikmaakt van de portal:**
-1. Ga naar het deelvenster met storage-accounts. Zie [vinden van een storage-account](#find).
+1. Ga naar het deelvenster met storage-accounts. Zie zoeken naar een opslagaccount.
 2. Selecteer **ruimte vrijmaken** aan de bovenkant van het deelvenster.
 3. Lees het bericht en selecteer vervolgens **OK**.
 

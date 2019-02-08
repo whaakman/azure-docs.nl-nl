@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: c796ccf9466f83714b429f6551618529e5fef47c
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 74a9764187b15bddf1dc48fa2b7988217d31abce
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164500"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889630"
 ---
-<!--author=alkohli last changed: 03/17/16-->
-
 ## <a name="troubleshooting-update-failures"></a>Problemen oplossen met mislukte updates
 **Wat moet ik doen als ik een melding zie dat de controles vóór de upgrade zijn mislukt?**
 

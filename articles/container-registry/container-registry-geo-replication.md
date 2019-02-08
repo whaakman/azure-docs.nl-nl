@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: overview-article
 ms.date: 04/10/2018
 ms.author: stevelas
-ms.openlocfilehash: 784174c1fb2427441e0ed1a13b147d2440539fa9
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: a83cf6b37a28ec38165778faa7a9ecc266cce7bd
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870335"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858253"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Geo-replicatie in Azure Container Registry
 
@@ -26,14 +26,18 @@ Een geo-gerepliceerde register biedt de volgende voordelen:
 * Geen kosten voor aanvullende uitgaand verkeer, als installatiekopieën worden opgehaald uit een lokale, gerepliceerde register in dezelfde regio als uw containerhost
 * Één management van een register in meerdere regio 's
 
+> [!NOTE]
+> Als u kopieën van containerinstallatiekopieën in meer dan één Azure container registry moet, Azure Container Registry biedt ook ondersteuning voor [image importeren](container-registry-import-images.md). Bijvoorbeeld in een DevOps-werkstroom, kunt u importeren een afbeelding uit een register ontwikkeling naar een register productie zonder gebruik van Docker-opdrachten.
+>
+
 ## <a name="example-use-case"></a>Voorbeeld van de use-case
-Contoso wordt uitgevoerd een aanwezigheid van openbare website zich in de VS, Canada en Europa. Als u wilt deze markten met inhoud van lokale en dichtbij het netwerk fungeren, Contoso wordt uitgevoerd [Azure Container Service](/azure/container-service/kubernetes/) (ACS) Kubernetes-clusters in VS-West, VS-Oost, Canada-centraal en West-Europa. De websitetoepassing geïmplementeerd als een Docker-installatiekopie maakt gebruik van de code en de installatiekopie in alle regio's. Inhoud, lokale voor deze regio wordt opgehaald uit een database, die uniek is ingericht in elke regio. Elke regionale implementatie heeft de unieke configuratie voor resources, zoals de lokale database.
+Contoso wordt uitgevoerd een aanwezigheid van openbare website zich in de VS, Canada en Europa. Als u wilt deze markten met inhoud van lokale en dichtbij het netwerk fungeren, Contoso wordt uitgevoerd [Azure Kubernetes Service](/azure/aks/) (AKS)-clusters in VS-West, VS-Oost, Canada-centraal en West-Europa. De websitetoepassing geïmplementeerd als een Docker-installatiekopie maakt gebruik van de code en de installatiekopie in alle regio's. Inhoud, lokale voor deze regio wordt opgehaald uit een database, die uniek is ingericht in elke regio. Elke regionale implementatie heeft de unieke configuratie voor resources, zoals de lokale database.
 
 Het ontwikkelteam bevindt zich in Seattle, WA, met behulp van het datacentrum VS-West.
 
 ![Pushen naar meerdere registers](media/container-registry-geo-replication/before-geo-replicate.png)<br />*Pushen naar meerdere registers*
 
-Voordat u de functies voor geo-replicatie, had Contoso een register op basis van VS in VS-West, met een extra registry in West-Europa. Voor deze verschillende regio's, moest het ontwikkelteam installatiekopieën pushen naar twee verschillende registers.
+Voordat u de functies voor geo-replicatie, had Contoso een register op basis van VS in VS-West, met een extra registry in West-Europa. Voor deze verschillende regio's, het ontwikkelteam installatiekopieën gepusht naar twee verschillende registers.
 
 ```bash
 docker push contoso.azurecr.io/public/products/web:1.2

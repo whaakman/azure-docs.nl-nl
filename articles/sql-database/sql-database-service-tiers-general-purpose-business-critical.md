@@ -11,17 +11,18 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: bdb4db2d1a9447e8e328728288c1cf425c65a988
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/07/2019
+ms.openlocfilehash: 3521f910ded2e24de9cfa7b1aa1d635843527ef5
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511822"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878813"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL Database-Servicelagen
 
 Azure SQL Database is gebaseerd op SQL Server Database Engine-architectuur die wordt aangepast aan de cloudomgeving om ervoor te zorgen, zelfs in het geval van infrastructuuruitval voor 99,99% beschikbaarheid. Er zijn drie architectuur modellen die worden gebruikt in Azure SQL Database:
+
 - [Algemeen gebruik](sql-database-service-tier-general-purpose.md) ontworpen voor het merendeel van de algemene werkbelastingen.
 - [Bedrijfskritiek](sql-database-service-tier-business-critical.md) ontworpen voor workloads met lage latentie met een leesbare replica.
 - [Zeer grootschalige](sql-database-service-tier-hyperscale.md) is ontworpen voor zeer grote databases (tot 100 TB) met meerdere leesbare replica's.
@@ -40,8 +41,8 @@ Overweeg de volgende:
 - Wanneer u de grootte van de vereiste één database (grootte van het MDF) configureert, wordt 30% van de extra opslag automatisch toegevoegd ter ondersteuning van LDF
 - Maximale grootte in het beheerde exemplaar moet worden opgegeven in veelvouden van 32 GB.
 - U kunt de grootte van een individuele database tussen 10 GB en de maximale ondersteunde selecteren
-  - Voor Standard-opslag, vergroten of verkleinen in stappen van 10 GB
-  - Voor Premium-opslag, vergroten of verkleinen in stappen van 250 GB
+  - Voor opslag in de standard-of algemene service-lagen, vergroten of verkleinen in stappen van 10 GB
+  - Voor opslag in de premium- of buxiness kritieke-lagen, vergroten of verkleinen in stappen van 250 GB
 - In de categorie Algemeen gebruik-service `tempdb` maakt gebruik van een gekoppelde SSD en deze kosten voor opslag is opgenomen in het vCore-prijs.
 - In de laag bedrijfskritiek service `tempdb` shares de gekoppelde SSD met de MDF en LDF-bestanden en opslagkosten van de tempDB is opgenomen in het vCore-prijs.
 

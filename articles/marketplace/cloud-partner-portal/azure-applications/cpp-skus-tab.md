@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0af7a7fd43bba46de6faa770bf3042fbf58a90f6
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7f73e71677a700ba8047246addb2d27799c5a616
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196809"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890889"
 ---
 # <a name="azure-application-skus-tab"></a>Azure-toepassing-SKU's tabblad
 
@@ -90,7 +90,7 @@ De volgende SKU-instellingen configureren:
   >[!NOTE]
   >Sla uw prijswijzigingen om in te schakelen exporteren/importeren van de prijsgegevens.
 
-- **Vereenvoudigd valuta prijzen** -Geef de prijs voor de SKU, in USD per maand. Dit moet hetzelfde zijn als de oude prijzen. Zie voor meer informatie, [vereenvoudigd valuta prijzen](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer#simplified-currency-pricing).
+- **Vereenvoudigd valuta prijzen** -Geef de prijs voor de SKU, in USD per maand. Dit moet hetzelfde zijn als de oude prijzen. Zie voor meer informatie, [vereenvoudigd valuta prijzen](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer).
 
 ### <a name="package-details-for-solution-template"></a>Pakketgegevens voor oplossingssjabloon
 
@@ -112,7 +112,7 @@ Geef het volgende pakket informatie op:
 
 - **Versie** -de versie van het pakket dat u zult uploaden. Versie tags moet van het formulier X.Y.Z, waarbij X, Y en Z gehele getallen zijn.
 - **Pakketbestand (.zip)** -dit pakket bevat de volgende bestanden, opgeslagen in een ZIP-bestand.
-  - applianceMainTemplate.json - de implementatie-sjabloonbestand dat wordt gebruikt voor het implementeren van de oplossing/toepassing en maak de resources die zijn gedefinieerd. Zie voor meer informatie, [Quick Start: Maken en implementeren van Azure Resource Manager-sjablonen met behulp van de Azure-portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal). 
+  - applianceMainTemplate.json - de implementatie-sjabloonbestand dat wordt gebruikt voor het implementeren van de oplossing/toepassing en maak de resources die zijn gedefinieerd. Zie voor meer informatie [Snelstart: Azure Resource Manager-sjablonen maken en implementeren via Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal). 
   - applianceCreateUIDefinition.json - dit bestand wordt gebruikt door de Azure-portal voor het genereren van de gebruikersinterface voor het inrichten van deze oplossing/toepassing. Zie voor meer informatie, [maken-Azure portal gebruikersinterface voor uw beheerde toepassing](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
   - mainTemplate.json - het sjabloonbestand die alleen de bron Microsoft.Solution/appliances bevat. Zie voor meer informatie, [inzicht in de structuur en de syntaxis van Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates). <br>
 Houd rekening met de volgende belangrijke eigenschappen van deze resource:

@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 310d662782ff7d9713007b59f0d9b75620a03f5f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 426c090a79931f252a5daeacbdd83d0238ecf672
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455096"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868108"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Resources voor elastische pool schalen in Azure SQL Database
 
@@ -27,8 +27,8 @@ In dit artikel wordt beschreven hoe u de reken- en opslagresources die beschikba
 
 - Opslag kan worden ingericht tot de maximale grootte is bereikt:
 
-  - Voor Standard-opslag, vergroten of verkleinen in stappen van 10 GB
-  - Voor Premium-opslag, vergroten of verkleinen in stappen van 250 GB
+  - Voor opslag in de standard-of algemene service-lagen, vergroten of verkleinen in stappen van 10 GB
+  - Voor opslag in de premium- of bedrijfskritiek Servicelagen, vergroten of verkleinen in stappen van 250 GB
 - Opslag voor een elastische pool kan worden bevoorraad door vergroten of verkleinen van de maximale grootte.
 - De prijs van opslag voor een elastische pool is de hoeveelheid opslagruimte, vermenigvuldigd met de prijs per eenheid opslag van de servicelaag. Zie voor meer informatie over de prijs van extra opslagruimte [prijzen van SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 

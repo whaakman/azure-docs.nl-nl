@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 89d5c9c4e553ac82b604c1d3a20eb67b4055e6c4
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e681d192b3df429fc7aa5f340baa56fa739bad34
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492885"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891637"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Installeer Azure AD Connect met behulp van SQL delegated administrator-machtigingen
 Voordat u de nieuwste build van Azure AD Connect, met beheerdersrechten de delegatie, bij het implementeren van configuraties die SQL vereist, niet wordt ondersteund.  Gebruikers die wil Azure AD Connect installeert die nodig zijn om machtigingen voor serverbeheerders (SA) op de SQL server.
@@ -54,10 +54,7 @@ Gebruik de volgende stappen voor het inrichten van de buiten-band-database en Az
 ## <a name="additional-information"></a>Aanvullende informatie
 Zodra de database is ingericht, wordt dit door de beheerder van de Azure AD Connect kunt installeren en configureren van on-premises synchronisatie op het gebruiksgemak.  
 
-De **/useexistingdatabase** vlag is vereist als u een vooraf gemaakte database.  Het is niet alleen gebruikt in recovery situaties.
-
-Naast ondersteuning voor nieuwe installaties van Azure AD Connect, met deze functie ook kunnen delegeren voor elk scenario met betrekking tot de **/useexistingdatabase** vlag.  Zie voor meer informatie over het installeren van Azure AD Connect met een bestaande database [Installeer Azure AD Connect met behulp van een bestaande ADSync-database](how-to-connect-install-existing-database.md)
-
+Zie voor meer informatie over het installeren van Azure AD Connect met een bestaande database [Installeer Azure AD Connect met behulp van een bestaande ADSync-database](how-to-connect-install-existing-database.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Aan de slag met Azure AD Connect met Express-instellingen](how-to-connect-install-express.md)

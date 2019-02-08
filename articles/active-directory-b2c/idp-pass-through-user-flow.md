@@ -10,20 +10,17 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6e236144909fc45e0e9d49273d7aed1e3e577436
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 646d5a1aec7387d8f7ee632f5e46f988e1bc012c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161338"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882213"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Een toegangstoken via een gebruikersstroom doorgeven aan uw toepassing in Azure Active Directory B2C
 
 > [!NOTE]
 > Deze functie is momenteel in openbare preview.
-
-> [!Important]
-> Deze openbare preview-functie is tijdelijk niet beschikbaar.
 
 Een [gebruikersstroom](active-directory-b2c-reference-policies.md) in Azure Active Directory (Azure AD) B2C biedt gebruikers van uw toepassing de mogelijkheid om te registreren of aanmelden met een id-provider. Wanneer het traject wordt gestart, Azure AD B2C ontvangt een [toegangstoken](active-directory-b2c-reference-tokens.md) van de id-provider. Azure AD B2C gebruikt dit token voor het ophalen van informatie over de gebruiker. U kunt een claim inschakelen in de gebruikersstroom om het token door naar de toepassingen die u in Azure AD B2C registreert.
 

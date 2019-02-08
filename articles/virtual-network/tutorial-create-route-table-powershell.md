@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 0c2ff94d65e775a12fd76b3115aa8b69ae9a405f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9b4dc2e48093398077071eb2423a80c86eb62c67
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815010"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894935"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Netwerkverkeer routeren met een routetabel met behulp van PowerShell
 
@@ -248,7 +248,7 @@ New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
 
 Hoewel route traceren wordt gebruikt voor het testen van de routering in dit artikel, wordt het ICMP via de Windows Firewall voor productie-implementaties toe te staan niet aanbevolen.
 
-U hebt doorsturen via IP in Azure voor de netwerkinterface van de VM ingeschakeld in [Doorsturen via IP inschakelen](#enable-ip-forwarding). In de VM moet het besturingssysteem of een toepassing die wordt uitgevoerd op de virtuele machine, ook netwerkverkeer kunnen doorsturen. Schakel doorsturen via IP in het besturingssysteem van de *myVmNva*.
+U doorsturen via IP in Azure voor de netwerkinterface van de virtuele machine in doorsturen via IP inschakelen ingeschakeld. In de VM moet het besturingssysteem of een toepassing die wordt uitgevoerd op de virtuele machine, ook netwerkverkeer kunnen doorsturen. Schakel doorsturen via IP in het besturingssysteem van de *myVmNva*.
 
 Vanaf een opdrachtprompt op de *myVmPrivate* VM, extern bureaublad naar de *myVmNva*:
 

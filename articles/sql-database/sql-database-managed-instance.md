@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 2e2bf4f0f7ba4546c2f8609ee3ec7efc072024ae
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: c0067dc96837d758e4c2551bcb29faf63c1a7715
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751545"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895038"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Geavanceerde beveiliging van gegevens met virtuele netwerken en in de buurt van 100% compatibiliteit van SQL-Database gebruiken
 
@@ -93,8 +93,8 @@ Beide Servicelagen garanderen een beschikbaarheid van 99,99% en kunnen u onafhan
 De volgende lijst beschrijft de belangrijkste kenmerken van de categorie Algemeen gebruik-service:
 
 - Ontwerpen voor de meeste zakelijke toepassingen met normale prestatie-eisen
-- Azure Premium storage van hoge kwaliteit (8 TB)
-- Ingebouwde [hoge beschikbaarheid](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) op basis van betrouwbare Azure Premium Storage en [Azure Service Fabric](../service-fabric/service-fabric-overview.md)
+- Hoogwaardige Azure Blob-opslag (8 TB)
+- Ingebouwde [hoge beschikbaarheid](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) op basis van betrouwbare Azure Blob-opslag en [Azure Service Fabric](../service-fabric/service-fabric-overview.md)
 
 Zie voor meer informatie, [opslag laag in het algemeen doel laag](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) en [storage aanbevolen procedures voor prestaties en overwegingen voor het beheerde exemplaren (Algemeen)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
 
@@ -107,7 +107,7 @@ Kritieke-bedrijfslaag is gebouwd voor toepassingen met hoge i/o-vereisten. Het b
 De volgende lijst geeft een overzicht van de belangrijkste kenmerken van de laag bedrijfskritiek service:
 
 - Ontworpen voor zakelijke toepassingen met de hoogste prestaties en HA-vereisten
-- Wordt geleverd met zeer snelle SSD-opslag (maximaal 1 TB op Gen 4 en maximaal 4 TB voor Gen 5)
+- Wordt geleverd met zeer snelle, lokale SSD-opslag (maximaal 1 TB op Gen 4 en maximaal 4 TB voor Gen 5)
 - Ingebouwde [hoge beschikbaarheid](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) op basis van [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) en [Azure Service Fabric](../service-fabric/service-fabric-overview.md).
 - Ingebouwde extra [alleen-lezen databasereplica](sql-database-read-scale-out.md) die kan worden gebruikt voor rapportage- en andere werkbelastingen alleen-lezen
 - [In-Memory OLTP](sql-database-in-memory.md) die kunnen worden gebruikt voor de werkbelasting aan de vereisten voor hoge prestaties  
@@ -179,7 +179,7 @@ Beheerd exemplaar implementatie optie doelen gebruikersscenario's met grote data
 
 ### <a name="back-up-and-restore"></a>Back-up en herstel  
 
-De migratie maakt gebruik van SQL-back-ups naar Azure blob-opslag. Back-ups die zijn opgeslagen in Azure storage-blob kunnen rechtstreeks worden hersteld naar een beheerd exemplaar met de [T-SQL terugzetten opdracht](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
+De migratie maakt gebruik van SQL-back-ups naar Azure Blob storage. Back-ups die zijn opgeslagen in Azure storage-blob kunnen rechtstreeks worden hersteld naar een beheerd exemplaar met de [T-SQL terugzetten opdracht](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
 
 - Zie voor een snelstart voor het herstellen van de Wide World Importers - back-upbestand van Standard-database, het [herstellen van een back-upbestand naar een beheerd exemplaar](sql-database-managed-instance-get-started-restore.md). In deze quickstart ziet dat u moet een back-upbestand uploaden naar Azure BLOB-opslag en beveiligd met behulp van een Shared access signature (SAS)-sleutel.
 - Zie voor meer informatie over het herstellen van URL [systeemeigen terugzetten vanuit URL](sql-database-managed-instance-migrate.md#native-restore-from-url).

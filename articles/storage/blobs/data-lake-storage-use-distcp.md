@@ -1,6 +1,6 @@
 ---
-title: Gegevens kopiëren naar Azure Data Lake Storage Gen2 Preview met behulp van DistCp | Microsoft Docs
-description: DistCp gebruiken om gegevens te kopiëren naar en van de Preview van Data Lake Storage Gen2
+title: Kopiëren van gegevens in Azure Data Lake Storage Gen2 DistCp gebruiken | Microsoft Docs
+description: DistCp gebruiken om gegevens te kopiëren naar en van Data Lake Storage Gen2
 services: storage
 author: seguler
 ms.subservice: data-lake-storage-gen2
@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: seguler
-ms.openlocfilehash: 9c12f96399de218241c8aa7ed686113c17a7410c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 8328ea5afb66bbecdafbb06dcbf6700194d62f9e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244144"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864057"
 ---
-# <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2-preview"></a>DistCp gebruiken om gegevens tussen Azure Storage-Blobs en Gen2 Preview van Azure Data Lake-opslag te kopiëren
+# <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>DistCp gebruiken om gegevens tussen Azure Storage-Blobs en Azure Data Lake Storage Gen2 te kopiëren
 
 U kunt [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) om gegevens te kopiëren tussen een opslagaccount voor algemeen gebruik V2 en een opslagaccount voor algemeen gebruik V2 met hiërarchische naamruimte ingeschakeld. Dit artikel bevat instructies over het hulpprogramma DistCp gebruiken.
 
@@ -24,8 +24,8 @@ DistCp biedt tal van opdrachtregelparameters en we raden u in dit artikel lezen 
 ## <a name="prerequisites"></a>Vereisten
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
-* **Een bestaand Azure Storage-account zonder Data Lake Storage Gen2 previewmogelijkheden (hiërarchische naamruimte) ingeschakeld**.
-* **Een Azure Storage-account met Data Lake Storage Gen2 (Preview)-functie ingeschakeld**. Zie voor instructies over het maken van een [een opslag Gen2 Preview van Azure Data Lake storage-account maken](data-lake-storage-quickstart-create-account.md)
+* **Een bestaand Azure Storage-account zonder Data Lake Storage Gen2 mogelijkheden (hiërarchische naamruimte) ingeschakeld**.
+* **Een Azure Storage-account met Data Lake Storage Gen2 functie ingeschakeld**. Zie voor instructies over het maken van een [een Azure Data Lake Storage Gen2 storage-account maken](data-lake-storage-quickstart-create-account.md)
 * **Een bestandssysteem** die in het opslagaccount dat is gemaakt met een hiërarchische naamruimte ingeschakeld.
 * **Azure HDInsight-cluster** met toegang tot een opslagaccount met Data Lake Storage Gen2 is ingeschakeld. Zie [gebruik Azure Data Lake Storage Gen2 met Azure HDInsight-clusters](data-lake-storage-use-hdi-cluster.md). Zorg ervoor dat u extern bureaublad inschakelen voor het cluster.
 

@@ -4,19 +4,19 @@ titlesuffix: Text Analytics - Azure Cognitive Services
 description: Text Analytics biedt elke container met een gemeenschappelijk framework van de configuratie, zodat u eenvoudig kunt configureren en beheren van instellingen voor opslag, logboekregistratie en Telemetrie en beveiliging voor uw containers.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 2360cb56f40bf899cec5d4a5fb6637eaac59f4d1
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e390b3fbaca23dd60d1ab7553a2d69cfb9b4897c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224323"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878252"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Configureren van de Text Analytics docker-containers
 
@@ -77,10 +77,10 @@ De Text Analytics-containers gebruik geen invoer of uitvoer koppelt training of 
 
 De exacte syntaxis van de locatie van de host koppelen, is afhankelijk van het hostbesturingssysteem. Bovendien de [hostcomputer](how-tos/text-analytics-how-to-install-containers.md#the-host-computer)van koppelpunten locatie is mogelijk niet toegankelijk is vanwege een conflict tussen de machtigingen die wordt gebruikt door de docker-service-account en de host koppelen locatie machtigingen. 
 
-|Optioneel| Name | Gegevenstype | Beschrijving |
+|Optioneel| Name | Gegevenstype | Description |
 |-------|------|-----------|-------------|
-|Niet toegestaan| `Input` | Reeks | Text Analytics-containers gebruik dit niet.|
-|Optioneel| `Output` | Reeks | Het doel van de uitvoer-koppelpunt. De standaardwaarde is `/output`. Dit is de locatie van de logboeken. Dit omvat de logboeken voor containers. <br><br>Voorbeeld:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Niet toegestaan| `Input` | String | Text Analytics-containers gebruik dit niet.|
+|Optioneel| `Output` | String | Het doel van de uitvoer-koppelpunt. De standaardwaarde is `/output`. Dit is de locatie van de logboeken. Dit omvat de logboeken voor containers. <br><br>Voorbeeld:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="hierarchical-settings"></a>Hiërarchische instellingen
 

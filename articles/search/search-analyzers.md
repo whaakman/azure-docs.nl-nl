@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 868658062a6407dce901b455cc92f95008df798c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 121b5542f9388355b97744aa224ac824dd8d8728
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631937"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867202"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analyzers om tekst te verwerken in Azure Search
 
@@ -36,7 +36,7 @@ De volgende lijst wordt beschreven welke analyzers worden ondersteund in Azure S
 | Categorie | Description |
 |----------|-------------|
 | [Standard Lucene analyzer](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Standaard. Er is geen specificatie of configuratie vereist. Deze algemene analyzer wordt uitgevoerd voor de meeste scenario's en talen.|
-| Vooraf gedefinieerde analyzers | Als een voltooide product bedoeld om te worden gebruikt als aangeboden-is, met beperkte aanpassingen. <br/>Er zijn twee typen: gespecialiseerde en taal. Wat is dan "vooraf gedefinieerde" het is u ernaar te verwijzen met de naam, met geen aanpassingen. <br/><br/>[(Taal-neutraal) analyzers gespecialiseerde](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable) worden gebruikt als invoer van tekst speciale verwerking of minimale vereist. Vooraf gedefinieerde niet taalanalyse bevatten **Asciifolding**, **sleutelwoord**, **patroon**, **eenvoudige**, **stoppen**, **Witruimte**.<br/><br/>[Taalanalyse](https://docs.microsoft.com/rest/api/searchservice/language-support) worden gebruikt wanneer u geavanceerde linguïstische ondersteuning nodig hebt voor de afzonderlijke talen. Azure Search biedt ondersteuning voor 35 Lucene taalanalyse en 50 analyzers voor Microsoft-verwerking van natuurlijke taal. |
+| Vooraf gedefinieerde analyzers | Als een voltooide product bedoeld om te worden gebruikt als aangeboden-is, met beperkte aanpassingen. <br/>Er zijn twee typen: gespecialiseerde en taal. Wat is dan "vooraf gedefinieerde" het is u ernaar te verwijzen met de naam, met geen aanpassingen. <br/><br/>[(Taal-neutraal) analyzers gespecialiseerde](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable) worden gebruikt als invoer van tekst speciale verwerking of minimale vereist. Non-language predefined analyzers include **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**.<br/><br/>[Taalanalyse](https://docs.microsoft.com/rest/api/searchservice/language-support) worden gebruikt wanneer u geavanceerde linguïstische ondersteuning nodig hebt voor de afzonderlijke talen. Azure Search biedt ondersteuning voor 35 Lucene taalanalyse en 50 analyzers voor Microsoft-verwerking van natuurlijke taal. |
 |[Analysevoorzieningen aanpassen](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Een gebruiker gedefinieerde configuratie van een combinatie van bestaande elementen, die bestaat uit één tokenizer (vereist) en optionele filters (char of token).|
 
 U kunt een vooraf gedefinieerde analyzer, zoals **patroon** of **stoppen**, gebruik van andere opties beschreven in [vooraf gedefinieerde Analyzer verwijzing](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable). Slechts een paar van de vooraf gedefinieerde analyzers hebt opties die u kunt instellen. Als met een aanpassing, Geef uw nieuwe configuratie met een naam, zoals *myPatternAnalyzer* te onderscheiden van het patroon van Lucene analyzer.
@@ -92,7 +92,7 @@ Stap voor stap in het volgende voorbeeld:
 * Analysefuncties zijn een eigenschap van de veldklasse voor een doorzoekbaar veld.
 * Een aangepaste analysefunctie maakt deel uit van een definitie van de index. Hierdoor kan licht worden aangepast (bijvoorbeeld één optie in één filter aanpassen) of op meerdere plaatsen worden aangepast.
 * In dit geval wordt de aangepaste analyzer is 'my_analyzer', die op zijn beurt maakt gebruik van een aangepaste standard tokenizer "my_standard_tokenizer" en twee token filters: kleine letters en aangepaste asciifolding filter 'my_asciifolding'.
-* Het definieert ook een aangepaste 'map_dash' char filter ter vervanging van alle streepjes met onderstrepingstekens voordat tokeniseren (de standaard tokenizer-einden op dash maar niet op een onderstrepingsteken).
+* Het definieert ook 2 aangepaste char filters 'map_dash' en 'remove_whitespace'. Het eerste item vervangt alle streepjes met onderstrepingstekens terwijl de tweede waarde alle spaties bestaan verwijdert. De witruimte moet UTF-8-codering in de toewijzingsregels. De char-filters worden toegepast voordat tokeniseren en is van invloed op de resulterende tokens (de standaard tokenizer-einden op streepjes en spaties, maar niet op onderstrepingsteken).
 
 ~~~~
   {
@@ -116,7 +116,8 @@ Stap voor stap in het volgende voorbeeld:
            "name":"my_analyzer",
            "@odata.type":"#Microsoft.Azure.Search.CustomAnalyzer",
            "charFilters":[
-              "map_dash"
+              "map_dash",
+              "remove_whitespace"
            ],
            "tokenizer":"my_standard_tokenizer",
            "tokenFilters":[
@@ -130,6 +131,11 @@ Stap voor stap in het volgende voorbeeld:
            "name":"map_dash",
            "@odata.type":"#Microsoft.Azure.Search.MappingCharFilter",
            "mappings":["-=>_"]
+        },
+        {
+           "name":"remove_whitespace",
+           "@odata.type":"#Microsoft.Azure.Search.MappingCharFilter",
+           "mappings":["\\u0020=>"]
         }
      ],
      "tokenizers":[

@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Een lijst van natuurlijke talen, landen en regio's die worden ondersteund door de Bing nieuws zoeken-API.
 services: cognitive-services
 author: MikeDodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: v-gedod
-ms.openlocfilehash: 08ea569d3f8f7a8eda01346369b636fa76d9e863
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f94ebb9b46ade0c03f65fdeb78bc7be96794a3d2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151870"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55866744"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Ondersteuning voor taal en regio voor de Bing nieuws zoeken-API
 
@@ -37,20 +37,20 @@ Voor een lijst van land/regio codes die u kunt opgeven de `cc` queryparameter, Z
 |Oostenrijk|Duits|de-AT|
 |Zwitserland|Duits|de CH|
 |Duitsland|Duits|de-DE|
-|Australië|Nederlands|en-AU|
-|Canada|Nederlands|NL-CA|
-|Verenigd Koninkrijk|Nederlands|en-GB|
-|Indonesië|Nederlands|NL-ID|
-|Ierland|Nederlands|NL-Internet Explorer|
-|India|Nederlands|NL-IN|
-|Maleisië|Nederlands|en Mijn|
-|Nieuw-Zeeland|Nederlands|NL-NZ|
-|Republiek der Filippijnen|Nederlands|NL-PH|
-|Singapore|Nederlands|en-SG|
-|Verenigde Staten|Nederlands|en-US|
-|Nederlands|Algemene|en-WW|
-|Nederlands|Algemene|en-XA|
-|Zuid-Afrika|Nederlands|en-ZA|
+|Australië|Engels|en-AU|
+|Canada|Engels|NL-CA|
+|Verenigd Koninkrijk|Engels|en-GB|
+|Indonesië|Engels|NL-ID|
+|Ierland|Engels|NL-Internet Explorer|
+|India|Engels|NL-IN|
+|Maleisië|Engels|en Mijn|
+|Nieuw-Zeeland|Engels|NL-NZ|
+|Republiek der Filippijnen|Engels|NL-PH|
+|Singapore|Engels|en-SG|
+|Verenigde Staten|Engels|en-US|
+|Engels|Algemene|en-WW|
+|Engels|Algemene|en-XA|
+|Zuid-Afrika|Engels|en-ZA|
 |Argentinië|Spaans|es-AR|
 |Chili|Spaans|es-CL|
 |Spanje|Spaans|es-ES|
@@ -84,10 +84,10 @@ Voor een lijst van land/regio codes die u kunt opgeven de `cc` queryparameter, Z
 |---------------------|--------------|-----------------|
 |Denemarken|Deens|da-DK|
 |Duitsland|Duits|de-DE|
-|Australië|Nederlands|en-AU|
-|Verenigd Koninkrijk|Nederlands|en-GB|
-|Verenigde Staten|Nederlands|en-US|
-|Nederlands|Algemene|en-WW|
+|Australië|Engels|en-AU|
+|Verenigd Koninkrijk|Engels|en-GB|
+|Verenigde Staten|Engels|en-US|
+|Engels|Algemene|en-WW|
 |Chili|Spaans|es-CL|
 |Mexico|Spaans|es-MX|
 |Verenigde Staten|Spaans|es-US|
@@ -106,11 +106,11 @@ Voor een lijst van land/regio codes die u kunt opgeven de `cc` queryparameter, Z
 |Land/regio|Taal|Code van de markt|  
 |---------------------|--------------|-----------------|
 |Duitsland|Duits|de-DE|
-|Australië|Nederlands|en-AU|
-|Verenigd Koninkrijk|Nederlands|en-GB|
-|Verenigde Staten|Nederlands|en-US|
-|Canada|Nederlands|NL-CA|
-|India|Nederlands|NL-IN|
+|Australië|Engels|en-AU|
+|Verenigd Koninkrijk|Engels|en-GB|
+|Verenigde Staten|Engels|en-US|
+|Canada|Engels|NL-CA|
+|India|Engels|NL-IN|
 |Frankrijk|Frans|fr-FR|
 |Canada|Frans|fr-CA|
 |Brazilië|Portugees|pt-BR|

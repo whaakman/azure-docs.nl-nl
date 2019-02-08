@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: In dit artikel bevat voorbeelden van code voor het omzetten van spraak met behulp van de SDK spraak in een omgeving met C++.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: a433269130af595354da49fd5ae400110727f969
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: dd73314f5151be848567db3131ef016404f94829
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222079"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864312"
 ---
 # <a name="translate-speech-with-the-cognitive-services-speech-sdk-for-c"></a>Omzetten van spraak met de Cognitive Services spraak-SDK voor C++
 

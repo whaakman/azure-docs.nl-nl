@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Meer informatie over de manier waarop frasestructuur parseren, ook wel bekend als 'woordgroep structuur parseren,"zinnen in de tekst identificeert.
 services: cognitive-services
 author: RichardSunMS
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 778005ee321c981fec1d1271cee54229bb3a522f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7611f5f16111b5d8b0d2d293750f658125e50837
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214168"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878201"
 ---
 # <a name="constituency-parsing"></a>Frasestructuur parseren
 
@@ -65,7 +65,7 @@ Er zijn verschillende dergelijke zinnen: *Ik*, *een nieuwe hybride auto*, *Bluet
 
 ## <a name="phrase-types"></a>Woordgroep typen
 
-| Label | Beschrijving | Voorbeeld |
+| Label | Description | Voorbeeld |
 |-------|-------------|---------|
 |ADJP   | Bijvoeglijke naamwoorden woordgroep | "daarom ruwe" |
 |ADVP   | Bewerkingsparameter woordgroep | "wissen via" |

@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Dit artikel worden de aanvraaglimieten voor de Translator Text-API. Kosten worden berekend op basis van aantal tekens, geen aanvraag frequentie met een limiet van 5000 tekens per aanvraag. Teken limieten zijn abonnement op basis van met F0 beperkt tot 2 miljoen tekens per uur.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: erhopf
-ms.openlocfilehash: 2115baae3f13c6ca6c0b9aca73d6fd43f5fcdbb4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f89e7e674efe3a823b7c969840772565650d8d07
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455708"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859467"
 ---
 # <a name="request-limits-for-translator-text"></a>Aanvraaglimieten voor Translator tekst
 

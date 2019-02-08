@@ -3,18 +3,18 @@ title: 'Zelfstudie: Een afbeelding met de Bing Visual Search SDK bijsnijden'
 description: De Bing Visual Search SDK gebruiken om inzichten te verkrijgen van specifieke are op een afbeelding.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: rosh
-ms.openlocfilehash: 66012e22b4e3e512751711ea399b8add006fb717
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 6444a49a95ee53fb624501bc464f6378423e6e26
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756390"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55863020"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Zelfstudie: Een afbeelding met de Bing Visual Search SDK voor bijsnijdenC#
 

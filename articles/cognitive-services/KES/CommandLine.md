@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Gebruik de opdrachtregelinterface voor het bouwen van de index en grammatica-bestanden van gestructureerde gegevens, en vervolgens als webservices te implementeren.
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
-ms.openlocfilehash: 52d001e32e1bdb0d0046853f18649bafa49b1f14
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 018552982a8ece3bbbaea2d60e2a6e64f681f822
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228522"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860113"
 ---
 # <a name="command-line-interface"></a>Opdrachtregelinterface
 
@@ -36,7 +36,7 @@ De **build_index** opdracht bouwt een binair indexbestand uit een bestand van de
 
 `kes.exe build_index <schemaFile> <dataFile> <indexFile> [options]`
 
-| Parameter      | Beschrijving               |
+| Parameter      | Description               |
 |----------------|---------------------------|
 | `<schemaFile>` | Pad van de invoer-schema |
 | `<dataFile>`   | Invoergegevens pad   |
@@ -61,7 +61,7 @@ De **build_grammar** opdracht wordt een grammatica is opgegeven in XML-bestand n
 
 `kes.exe build_grammar <xmlFile> <grammarFile>`
 
-| Parameter       | Beschrijving               |
+| Parameter       | Description               |
 |-----------------|---------------------------|
 | `<xmlFile>`     | XML-grammatica-specificatie invoerpad |
 | `<grammarFile>` | Uitvoerpad gecompileerde grammatica         |
@@ -76,7 +76,7 @@ De **host_service** opdracht als host fungeert voor een exemplaar van de service
 
 `kes.exe host_service <grammarFile> <indexFile> [options]`
 
-| Parameter       | Beschrijving                |
+| Parameter       | Description                |
 |-----------------|----------------------------|
 | `<grammarFile>` | Invoer binaire grammatica-pad         |
 | `<indexFile>`   | Pad van invoer binaire index           |
@@ -94,7 +94,7 @@ De **deploy_service** opdracht wordt een exemplaar van de service KES geïmpleme
 
 `kes.exe deploy_service <grammarFile> <indexFile> <serviceName> <vmSize>[options]`
 
-| Parameter       | Beschrijving                  |
+| Parameter       | Description                  |
 |-----------------|------------------------------|
 | `<grammarFile>` | Invoer binaire grammatica-pad           |
 | `<indexFile>`   | Pad van invoer binaire index             |
@@ -114,7 +114,7 @@ De **describe_index** opdracht voert informatie over een indexbestand, met inbeg
 
 `kes.exe describe_index <indexFile>`
 
-| Parameter     | Beschrijving      |
+| Parameter     | Description      |
 |---------------|------------------|
 | `<indexFile>` | Pad van de invoer-index |
 
@@ -128,7 +128,7 @@ De **describe_grammar** opdracht levert de oorspronkelijke grammatica-specificat
 
 `kes.exe describe_grammar <grammarFile>`
 
-| Parameter       | Beschrijving      |
+| Parameter       | Description      |
 |-----------------|------------------|
 | `<grammarFile>` | Pad van de invoer-grammatica |
 

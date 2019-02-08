@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 36a014fbff30c32a7149a83907c9586bc3b2f01a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: dc50f94ae9b207961a71480c2fc172e88db79cf4
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165020"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888661"
 ---
-<!--author=SharS last changed: 11/18/16-->
-
 #### <a name="to-install-regular-updates-via-windows-powershell-for-storsimple"></a>Reguliere om updates te installeren via Windows PowerShell voor StorSimple
 1. Open de seriële console van het apparaat en selecteer optie 1, **Meld u aan met volledige toegang tot de**. Typ het wachtwoord. Is het standaardwachtwoord *Wachtwoord1*. 
 2. Typ in de opdrachtprompt:

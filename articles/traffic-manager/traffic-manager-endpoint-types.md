@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.openlocfilehash: fb8922424de064bc63f793479d8c3a98b506b844
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 3f41edef56b238d8789264d00d73998794fec7eb
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232512"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55881992"
 ---
 # <a name="traffic-manager-endpoints"></a>Traffic Manager-eindpunten
 Microsoft Azure Traffic Manager kunt u bepalen hoe netwerkverkeer wordt gedistribueerd naar implementaties van toepassingen die worden uitgevoerd in verschillende datacenters. U configureren elke implementatie van toepassing als een 'eindpunt' in Traffic Manager. Bij het Traffic Manager een DNS-aanvraag ontvangt, kiest deze een eindpunt beschikbaar om te retourneren in de DNS-antwoord. Traffic manager wordt de basis van de keuze van de huidige status van endpoint en de verkeersrouteringsmethode. Zie voor meer informatie, [hoe Traffic Manager werkt](traffic-manager-how-it-works.md).
@@ -37,7 +37,7 @@ Azure-eindpunten worden gebruikt voor services op basis van Azure in Traffic Man
 
 * PaaS-cloudservices.
 * Web Apps
-* Web-Appsites
+* Web App Slots
 * PublicIPAddress-resources (die kunnen worden verbonden met virtuele machines rechtstreeks of via een Azure Load Balancer). Het openbare IP-adres moet een DNS-naam die moet worden gebruikt in een Traffic Manager-profiel is toegewezen.
 
 PublicIPAddress-resources zijn Azure Resource Manager-resources. Ze bestaan niet in het klassieke implementatiemodel. Dus zijn ze alleen ondersteund in Traffic Manager van Azure Resource Manager-ervaringen. Het andere eindpunttypen worden ondersteund via zowel Resource Manager en het klassieke implementatiemodel.
@@ -63,7 +63,7 @@ Geneste eindpunten combineren meerdere Traffic Manager-profielen voor het maken 
 
 Enkele aanvullende overwegingen zijn van toepassing bij het configureren van Web-Apps als eindpunten in Traffic Manager:
 
-1. Alleen Web-Apps op de 'Standaard'-SKU of hoger komen in aanmerking voor gebruik met Traffic Manager. Pogingen om toe te voegen een Web-App van een lagere SKU mislukken. Het downgraden van de SKU van een bestaande Web-App, resulteert in Traffic Manager, niet meer verkeer verzenden naar die Web-App.
+1. Alleen Web-Apps op de 'Standaard'-SKU of hoger komen in aanmerking voor gebruik met Traffic Manager. Pogingen om toe te voegen een Web-App van een lagere SKU mislukken. Het downgraden van de SKU van een bestaande Web-App, resulteert in Traffic Manager, niet meer verkeer verzenden naar die Web-App. Zie voor meer informatie over ondersteunde plannen voor de [App Service-plannen](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/)
 2. Wanneer een eindpunt een HTTP-aanvraag ontvangt, gebruikt de header 'host' in de aanvraag om te bepalen welke Web-App moet de aanvraag-service. De host-header bevat de DNS-naam gebruikt voor het starten van de aanvraag, bijvoorbeeld contosoapp.azurewebsites.net. Voor het gebruik van een andere DNS-naam met uw Web-App, moet de DNS-naam als een aangepaste domeinnaam voor de App worden geregistreerd. Bij het toevoegen van een Web-App-eindpunt als een Azure-eindpunt, wordt de DNS-naam van het Traffic Manager-profiel wordt automatisch geregistreerd voor de App. Deze registratie automatisch verwijderd wanneer het eindpunt wordt verwijderd.
 3. Elke Traffic Manager-profiel kan maximaal één Web-App-eindpunt hebben van elke Azure-regio. Als tijdelijke oplossing voor deze beperking, kunt u een Web-App configureren als een extern eindpunt. Zie voor meer informatie de [Veelgestelde vragen over](traffic-manager-faqs.md#traffic-manager-endpoints).
 

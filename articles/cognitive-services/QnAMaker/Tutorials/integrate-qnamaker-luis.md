@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Als uw QnA Maker knowledge base grote groeit, wordt het moeilijk te onderhouden als één monolithische ingesteld en er behoefte aan de knowledge base splitsen in kleinere logische segmenten.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 416295b9dc7736d66515ebcbf9caa52053027c85
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: fa79f519c8f3eb8baeaab04870f22a1cfefa59ab
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55489951"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884321"
 ---
 # <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Bot met QnA Maker en LUIS gebruiken voor het distribueren van uw knowledge base
 Als uw QnA Maker knowledge base grote groeit, wordt het moeilijk te onderhouden als één monolithische ingesteld en er behoefte aan de knowledge base splitsen in kleinere logische segmenten.

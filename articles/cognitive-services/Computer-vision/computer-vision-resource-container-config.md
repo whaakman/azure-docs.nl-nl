@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Diverse instellingen voor tekst herkennen containers in Computer Vision configureren.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: f29bb4ec8154c1d17eef18310037c42426d1522f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4785acacf4749ebddf362fa036b6f6a17cb0056b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458649"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868375"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>Configureren van herkennen tekst Docker-containers
 

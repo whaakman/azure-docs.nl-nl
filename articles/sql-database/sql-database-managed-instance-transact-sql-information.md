@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: f1adcca48882ca3a149046cbc0729612666363cc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/07/2019
+ms.openlocfilehash: 59599686b2a9ccee7250e33f0786d4c7af816983
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734603"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894306"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL-Database beheerd exemplaar T-SQL-verschillen van SQL Server
 
@@ -27,7 +27,7 @@ De Implementatieoptie voor beheerd exemplaar biedt extra compatibiliteit met on-
 
 Omdat er nog steeds enkele verschillen in de syntaxis en het gedrag, wordt in dit artikel bevat een overzicht van en worden deze verschillen uitgelegd. <a name="Differences"></a>
 - [Beschikbaarheid](#availability) met inbegrip van de verschillen in [Always-On](#always-on-availability) en [back-ups](#backup),
-- [Beveiliging](#security) met inbegrip van de verschillen in [controle](#auditing), [certificaten](#certificates), [referenties](#credentials), [cryptografische providers](#cryptographic-providers), [Aanmeldingen / gebruikers](#logins--users), [Service-sleutel en -service master key](#service-key-and-service-master-key),
+- [Beveiliging](#security) met inbegrip van de verschillen in [controle](#auditing), [certificaten](#certificates), [referenties](#credential), [cryptografische providers](#cryptographic-providers), [Aanmeldingen / gebruikers](#logins--users), [Service-sleutel en -service master key](#service-key-and-service-master-key),
 - [Configuratie](#configuration) met inbegrip van de verschillen in [extensie van de Buffer](#buffer-pool-extension), [sortering](#collation), [compatibiliteitsniveaus](#compatibility-levels),[Database spiegelen](#database-mirroring), [databaseopties](#database-options), [SQL Server Agent](#sql-server-agent), [Tabelopties](#tables),
 - [Functies](#functionalities) inclusief [BULKSGEWIJS invoegen/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [gedistribueerde transacties](#distributed-transactions), [ Uitgebreide gebeurtenissen](#extended-events), [externe bibliotheken](#external-libraries), [Filestream en Filetable](#filestream-and-filetable), [semantische zoekopdrachten in volledige tekst](#full-text-semantic-search), [gekoppeld servers](#linked-servers), [Polybase](#polybase), [replicatie](#replication), [herstellen](#restore-statement), [Service Broker](#service-broker), [ Opgeslagen procedures, functies en triggers](#stored-procedures-functions-triggers),
 - [Functies die verschillend gedrag in beheerde exemplaren hebben](#Changes)
@@ -74,13 +74,13 @@ Zie voor meer informatie over back-ups met behulp van T-SQL [back-up](https://do
 
 De belangrijkste verschillen tussen de controle van databases in Azure SQL Database en de databases in SQL Server zijn:
 
-- Met de implementatie-optie voor het beheerde exemplaar in Azure SQL Database, controle werkt op het serverniveau en de winkels `.xel` -logboekbestanden op Azure blob storage-account.
+- Met de implementatie-optie voor het beheerde exemplaar in Azure SQL Database, controle werkt op het serverniveau en de winkels `.xel` logboekbestanden in Azure Blob-opslag.
 - Met de individuele databases en elastische pool implementatie-opties in Azure SQL Database auditing werkt op het databaseniveau van de.
 - In on-premises SQL Server / virtuele machines, audit werkt op de server niveau, maar gebeurtenissen worden opgeslagen in bestanden system/windows-gebeurtenislogboeken.
   
-XEvent-controle voor beheerd exemplaar biedt ondersteuning voor prestatiedoelen voor Azure blob storage. Bestands- en windows logboeken worden niet ondersteund.
+XEvent controle voor beheerd exemplaar biedt ondersteuning voor Azure Blob storage-doelen. Bestands- en windows logboeken worden niet ondersteund.
 
-De sleutel verschillen de `CREATE AUDIT` syntaxis voor controle naar Azure blob-opslag zijn:
+De sleutel verschillen de `CREATE AUDIT` syntaxis voor controle naar Azure Blob storage zijn:
 
 - Een nieuwe syntaxis `TO URL` wordt geleverd en kunt u de URL van de Azure blob Storage-container op te geven waar `.xel` bestanden worden geplaatst
 - De syntaxis van de `TO FILE` wordt niet ondersteund omdat een beheerd exemplaar heeft geen toegang Windows-bestandsshares tot.
@@ -170,7 +170,7 @@ Zie voor meer informatie, [ALTER DATABASE SET PARTNER en SET WITNESS](https://do
 - Objecten in het geheugen worden niet ondersteund in de categorie Algemeen gebruik-service.  
 - Er is een limiet van 280 bestanden per exemplaar: maximaal 280 bestanden per database voor de overdracht. Zowel de gegevens en logboekbestanden worden geteld naar deze limiet.  
 - Database mag geen bestandsgroepen met filestream-gegevens bevatten.  Herstellen mislukt als .bak bevat `FILESTREAM` gegevens.  
-- Elk bestand is in Azure Premium storage geplaatst. I/o- en doorvoer per bestand afhankelijk van de grootte van elk afzonderlijk bestand, op dezelfde manier als voor Azure Premium Storage-schijven. Zie [prestaties Azure Premium-schijf](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)  
+- Elk bestand is in Azure Blob-opslag geplaatst. I/o- en doorvoer per bestand, is afhankelijk van de grootte van elk afzonderlijk bestand.  
 
 #### <a name="create-database-statement"></a>De instructie CREATE DATABASE
 
@@ -275,10 +275,10 @@ Zie voor meer informatie over het maken en wijzigen van tabellen [CREATE TABLE](
 
 ### <a name="bulk-insert--openrowset"></a>Bulksgewijs invoegen / openrowset
 
-Een beheerd exemplaar geen toegang tot gedeelde bestanden en mappen, Windows, zodat de bestanden moeten worden geïmporteerd uit Azure blob-opslag:
+Een beheerd exemplaar geen toegang tot gedeelde bestanden en mappen, Windows, zodat de bestanden moeten worden geïmporteerd uit Azure Blob-opslag:
 
-- `DATASOURCE` is vereist in `BULK INSERT` opdracht tijdens het importeren van bestanden vanuit Azure blob storage. Zie [BULKSGEWIJS invoegen](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
-- `DATASOURCE` is vereist in `OPENROWSET` wanneer u een inhoud van een bestand lezen uit Azure blob-opslag. Zie [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
+- `DATASOURCE` is vereist in `BULK INSERT` opdracht tijdens het importeren van bestanden vanuit Azure Blob storage. Zie [BULKSGEWIJS invoegen](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
+- `DATASOURCE` is vereist in `OPENROWSET` wanneer u een inhoud van een bestand lezen uit Azure Blob-opslag. Zie [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
 
 ### <a name="clr"></a>CLR
 
@@ -305,7 +305,7 @@ Geen van beide MSDTC noch [elastische transacties](sql-database-elastic-transact
 
 Sommige Windows-specifieke doelen voor XEvents worden niet ondersteund:
 
-- `etw_classic_sync target` wordt niet ondersteund. Store `.xel` bestanden in Azure blob-opslag. Zie [etw_classic_sync doel](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etwclassicsynctarget-target).
+- `etw_classic_sync target` wordt niet ondersteund. Store `.xel` bestanden in Azure blob-opslag. Zie [etw_classic_sync doel](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etw_classic_sync_target-target).
 - `event_file target`wordt niet ondersteund. Store `.xel` bestanden in Azure blob-opslag. Zie [event_file doel](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target).
 
 ### <a name="external-libraries"></a>Externe bibliotheken
@@ -347,7 +347,7 @@ Bewerkingen
 
 ### <a name="polybase"></a>PolyBase
 
-Externe tabellen verwijzen naar de bestanden in HDFS of Azure blob-opslag worden niet ondersteund. Zie voor meer informatie over Polybase [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide).
+Externe tabellen verwijzen naar de bestanden in HDFS of Azure Blob storage worden niet ondersteund. Zie voor meer informatie over Polybase [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide).
 
 ### <a name="replication"></a>Replicatie
 
@@ -365,7 +365,7 @@ Replicatie is beschikbaar voor openbare preview voor beheerde exemplaren. Zie vo
   - `RESTORE LOG ONLY`
   - `RESTORE REWINDONLY ONLY`
 - Bron  
-  - `FROM URL` (Azure blob-opslag) is alleen ondersteunde optie.
+  - `FROM URL` (Azure Blob storage) is alleen ondersteunde optie.
   - `FROM DISK`/`TAPE`/ back-upapparaat wordt niet ondersteund.
   - Back-upsets worden niet ondersteund.
 - `WITH` opties worden niet ondersteund (geen `DIFFERENTIAL`, `STATS`, enz.)

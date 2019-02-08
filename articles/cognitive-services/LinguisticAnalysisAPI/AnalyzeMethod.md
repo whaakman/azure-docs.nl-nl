@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Het gebruik van de methode analyseren in linguïstische analyse-API voor het analyseren van bepaalde invoer van natuurlijke taal.
 services: cognitive-services
 author: RichardSunMS
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: a14a685ba80dbd5e7e3d44e9032e5baaad5ef3fe
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 2b02b048719dd7707db7e97df3641a314b512177
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208632"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861677"
 ---
 # <a name="analyze-method"></a>Analysemethode
 
@@ -38,7 +38,7 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 ## <a name="request-parameters"></a>Aanvraagparameters
 
-Name | Type | Vereist | Beschrijving
+Name | Type | Vereist | Description
 -----|-------|----------|------------
 **language**    | string | Ja | ISO taalcode die moet worden gebruikt voor analyse van de twee letters. Engels is bijvoorbeeld "en".
 **analyzerIds** | lijst met tekenreeksen | Ja | Lijst met GUID's van de analyzers om toe te passen. Zie de Analyzers-documentatie voor meer informatie.
@@ -50,7 +50,7 @@ Een matrix van analysis-uitvoer, één voor elk kenmerk dat is opgegeven in de a
 
 De resultaten er als volgt uitzien:
 
-Name | Type | Beschrijving
+Name | Type | Description
 -----|------|--------------
 analyzerId | string | GUID van de opgegeven analyzer
 Resultaat | object | resultaat van de Analyzer
@@ -59,7 +59,7 @@ Houd er rekening mee dat het type van het resultaat is afhankelijk van het type 
 
 ### <a name="tokens-response-json"></a>Tokens antwoord (JSON)
 
-Name | Type | Beschrijving
+Name | Type | Description
 -----|------|-------------
 Resultaat | lijst met objecten zin | zin grenzen geïdentificeerd binnen de tekst |
 result[x].Offset | int | tekenverschuiving van de eerste van elke zin |

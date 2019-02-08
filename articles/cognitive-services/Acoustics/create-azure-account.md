@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Volg deze handleiding voor het instellen van Azure Batch- en Storage-accounts die nodig zijn voor het werken met akoestische.
 services: cognitive-services
 author: ashtat
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 638ea3e707352a95cb1fb407add365a83d11faa7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b8735c0c5d05f2ee4bd17dc41fc90d1f5aa5128a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55148639"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55876688"
 ---
 # <a name="create-an-azure-batch-account"></a>Een Azure Batch-account maken
 Volg deze handleiding voor het instellen van Azure Batch- en Storage-accounts die nodig zijn voor het werken met akoestische. Zie voor meer informatie over de Unity-invoegtoepassing die is ontwikkeld als onderdeel van het Project akoestische [wat is er akoestische](what-is-acoustics.md). Zie voor meer informatie over het akoestische opnemen in uw Unity-project [aan de slag](getting-started.md).  

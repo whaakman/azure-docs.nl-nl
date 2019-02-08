@@ -1,22 +1,22 @@
 ---
-title: Gen2 Preview van Azure Data Lake Storage gebruiken met Azure HDInsight-clusters
-description: Informatie over het opvragen van gegevens uit de Preview van Azure Data Lake Storage Gen2 en opslaan van resultaten van uw analyse.
+title: Azure Data Lake Storage Gen2 gebruiken met Azure HDInsight-clusters
+description: Leer hoe u gegevens opvraagt uit Azure Data Lake Storage Gen2 en opslaan van resultaten van uw analyse.
 author: jamesbak
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 739076289a1324cb47f0c980f0d21b153c7b5edc
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 0932c576a47af85c496d5d2d12dbc1b997d48e16
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662955"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874325"
 ---
-# <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Gen2 Preview van Azure Data Lake Storage gebruiken met Azure HDInsight-clusters
+# <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure Data Lake Storage Gen2 gebruiken met Azure HDInsight-clusters
 
-Voor het analyseren van gegevens in een HDInsight-cluster, kunt u in een willekeurige combinatie van Azure Blob Storage, Azure Blob Storage met Azure Data Lake Storage Gen2 Preview ingeschakeld of Azure Data Lake Storage Gen1 de gegevens opslaan. Alle opties voor opslag kunnen u HDInsight-clusters die worden gebruikt voor berekeningen zonder verlies van gebruikersgegevens veilig verwijderen.
+Voor het analyseren van gegevens in een HDInsight-cluster, kunt u in een willekeurige combinatie van Azure Blob Storage, Azure Blob Storage met Azure Data Lake Storage Gen2 is ingeschakeld of Azure Data Lake Storage Gen1 de gegevens opslaan. Alle opties voor opslag kunnen u HDInsight-clusters die worden gebruikt voor berekeningen zonder verlies van gebruikersgegevens veilig verwijderen.
 
 Hadoop ondersteunt een notatie van het standaardbestandssysteem. Het standaardbestandssysteem impliceert een standaardschema en instantie. De toepassing kan ook worden gebruikt om relatieve paden om te zetten. Tijdens het HDInsight-cluster maken, kunt u een blob-container in Azure Storage of de hiërarchische naamruimte die worden aangeboden door Data Lake Storage Gen2 als het standaardbestandssysteem. U kunt ook met HDInsight 3.5, kunt u een container of de hiërarchische naamruimte als het standaardbestandssysteem met een paar uitzonderingen.
 
@@ -154,7 +154,7 @@ az storage account create \
 ```
 
 > [!NOTE]
-> Tijdens de openbare preview van Data Lake Storage Gen2 alleen `--sku Standard_LRS` wordt ondersteund.
+> Tijdens de openbare van Data Lake Storage Gen2 `--sku Standard_LRS` wordt ondersteund.
 
 U wordt gevraagd de geografische regio op te geven waar het opslagaccount is gemaakt. Het opslagaccount in dezelfde regio die u van plan bent over het maken van uw HDInsight-cluster maken.
 

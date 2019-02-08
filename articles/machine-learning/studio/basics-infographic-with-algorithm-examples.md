@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodc18
 ms.date: 12/18/2017
-ms.openlocfilehash: bffdbf58929a0cb7525726be53d83794adf315bf
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: a180dd92af20df5cd8f7dbfd12687e7cddd223f2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295573"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55856621"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Downloadbare Infographic: Machine learning-basisbeginselen met algoritmevoorbeelden
 Download dit overzicht infographic eenvoudig te begrijpen van de basisprincipes van machine learning voor meer informatie over populaire algoritmen gebruikt om veelvoorkomende machine learning vragen te beantwoorden. Algoritmevoorbeelden laten zien hoe de machine learning voor beginners te begrijpen welke algoritmen moet worden gebruikt en waarvoor ze gebruikt.
@@ -32,8 +32,8 @@ Download dit overzicht infographic eenvoudig te begrijpen van de basisprincipes 
 * Zie voor een uitgebreidere bespreking van de verschillende soorten machine learning-algoritmen, hoe ze worden gebruikt en hoe u de juiste is voor uw oplossing te kiezen, [algoritmen kiezen voor Microsoft Azure Machine Learning](algorithm-choice.md).
 * Zie voor een lijst op categorie van alle de machine learning-algoritmen in Machine Learning Studio, [Initialize Model] [ initialize-model] in de algoritme voor Machine Learning Studio en de Module Help.
 * Zie voor een volledige alfabetische lijst van algoritmen en modules in Machine Learning Studio, [alfabetische lijst van Machine Learning Studio-modules] [ a-z-list] in de Module Help en algoritme voor Machine Learning Studio.
-* Zie [Overzichtsdiagram van de mogelijkheden van Azure Machine Learning Studio](studio-overview-diagram.md) als u een diagram wilt downloaden en afdrukken met een overzicht van de mogelijkheden van Machine Learning Studio.
 * Zie voor een overzicht van de Azure AI Gallery en de vele community is opgesteld beschikbare resources, [Share en het detecteren van bronnen in de Azure AI Gallery](gallery-how-to-use-contribute-publish.md).
+* U kunt downloaden en afdrukken van een diagram met een van de mogelijkheden van Machine Learning Studio overzicht: [Microsoft Azure Machine Learning Studio mogelijkheden Overview (PDF-bestand)](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf).
 
 
 

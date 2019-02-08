@@ -6,36 +6,65 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/04/2018
+ms.date: 02/06/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c0636a3e1fa50f90c68393aea910f36d38d8eaf5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 637cf4b0e53055e114536e591b334d51d5ddcc92
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437264"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883896"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Het bijwerken van Azure PowerShell-modules in Azure Automation
+
+Bijwerken van de Azure-modules in uw Automation-Account wordt aangeraden u gebruikt de [bijwerken Azure-modules runbook](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update), dit is nu open-source. Bovendien kunt u het runbook helper [Update AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) of gebruik de **Azure-Modules bijwerken** knop in de portal naar uw Azure-modules bijwerken. Zie voor meer informatie over het gebruik van de open-source-runbook, [Update Azure-Modules met open-source runbook](#open-source).
 
 De meest voorkomende Azure PowerShell-modules worden geboden door standaard in elk Automation-account. De Azure-modules worden regelmatig bijgewerkt in de Azure-team. In uw Automation-account krijgt u een manier om bij te werken van de modules in het account als nieuwe versies beschikbaar via de portal zijn.
 
 > [!NOTE]
 > De nieuwe [Az van Azure PowerShell-module](/powershell/azure/new-azureps-module-az?view=azurermps-6.13.0) worden niet ondersteund in Azure Automation.
 
-Omdat modules regelmatig door de productgroep bijgewerkt worden, kunnen wijzigingen optreden met de cmdlets opgenomen. Deze actie kan een negatieve invloed hebben op uw runbooks afhankelijk van het type wijziging, zoals de naam van een parameter of volledig beëindigde van een cmdlet. Om te voorkomen dat dit gevolgen heeft voor uw runbooks en de processen die ze automatiseren, testen en te valideren voordat u doorgaat. Als u een speciale Automation-account dat is bestemd voor dit doel niet hebt, houd rekening met het maken van een zodat u veel verschillende scenario's tijdens de ontwikkeling van uw runbooks testen kunt. Deze test moet iteratieve wijzigingen zoals het bijwerken van de PowerShell-modules bevatten. Als u uw scripts lokaal ontwikkelt, is het aanbevolen dat de dezelfde moduleversies lokaal die u in uw Automation-Account hebt, wanneer de dezelfde resultaten testen om ervoor te zorgen dat u ontvangt. Nadat de resultaten worden gevalideerd en u de vereiste wijzigingen hebt toegepast, kunt u de wijzigingen kunt verplaatsen naar productie.
+Omdat modules regelmatig door de productgroep bijgewerkt worden, kunnen wijzigingen optreden met de cmdlets opgenomen. Deze actie kan een negatieve invloed hebben op uw runbooks afhankelijk van het type wijziging, zoals de naam van een parameter of volledig beëindigde van een cmdlet.
+
+Om te voorkomen dat dit gevolgen heeft voor uw runbooks en de processen die ze automatiseren, testen en te valideren voordat u doorgaat. Als u een speciale Automation-account dat is bestemd voor dit doel niet hebt, houd rekening met het maken van een zodat u veel verschillende scenario's tijdens de ontwikkeling van uw runbooks testen kunt. Deze test moet iteratieve wijzigingen zoals het bijwerken van de PowerShell-modules bevatten. 
+
+Als u uw scripts lokaal ontwikkelt, is het aanbevolen dat de dezelfde moduleversies lokaal die u in uw Automation-Account hebt, wanneer de dezelfde resultaten testen om ervoor te zorgen dat u ontvangt. Nadat de resultaten worden gevalideerd en u de vereiste wijzigingen hebt toegepast, kunt u de wijzigingen kunt verplaatsen naar productie.
 
 > [!NOTE]
 > Een nieuw Automation-account kan niet de meest recente modules bevatten.
 
-## <a name="updating-azure-modules"></a>Azure-Modules bijwerken
+## <a name="open-source"></a>Azure-Modules bijwerken met open source-runbook
+
+Aan de slag met de **Update AutomationAzureModulesForAccount** runbook bijwerken van uw Azure-modules downloaden via de [bijwerken Azure-modules runbook opslagplaats](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) op GitHub. U kunt vervolgens importeren in uw Automation-Account of als een script uitvoeren. De instructies hiervoor vindt u de [Update Azure-modules runbook opslagplaats](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update).
+
+### <a name="considerations"></a>Overwegingen
+
+Hier volgen enkele overwegingen rekening moet houden bij het gebruik van dit proces om bij te werken van uw Azure-Modules:
+
+* Als u dit runbook met de naam van de oorspronkelijke importeert `Update-AutomationAzureModulesForAccount`, overschrijft het interne runbook met deze naam. Als gevolg hiervan het geïmporteerde runbook wordt uitgevoerd wanneer de **Update Azure-Modules** knop wordt gepusht of wanneer dit runbook wordt opgeroepen rechtstreeks via Azure Resource Manager-API voor dit Automation-account.
+
+* Alleen `Azure` en `AzureRM.*` modules worden momenteel ondersteund. De nieuwe [Az van Azure PowerShell-modules](/powershell/azure/new-azureps-module-az) nog worden niet ondersteund.
+
+* Voorkomen dat dit runbook starten op Automation-accounts die Az modules bevatten.
+
+* Voordat u begint met dit runbook, zorg ervoor dat uw Automation-account heeft een [Azure uitvoeren als-accountreferenties](manage-runas-account.md) gemaakt.
+
+* Kunt u deze code als een reguliere PowerShell-script in plaats van een runbook: alleen Meld u aan bij Azure met de [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) eerst de opdracht, en vervolgens doorgegeven `-Login $false` aan het script.
+
+* Als u dit runbook op de onafhankelijke clouds, gebruikt de `AzureRmEnvironment` parameter om door te geven van de juiste omgeving aan het runbook.  Acceptabele waarden zijn **AzureCloud**, **AzureChinaCloud**, **AzureGermanCloud**, en **AzureUSGovernment**. Deze waarden kunnen worden opgehaald uit met behulp van `Get-AzureRmEnvironment | select Name`. Als u niet een waarde voor deze parameter doorgeven, het runbook de openbare cloud van Azure wordt standaard **AzureCloud**
+
+* Als u een specifieke versie van de Azure PowerShell-module gebruiken in plaats van de meest recente beschikbare op de PowerShell Gallery wilt, deze versies doorgeven aan de optionele `ModuleVersionOverrides` parameter van de **Update-AutomationAzureModulesForAccount**runbook. Zie voor voorbeelden van de [Update AutomationAzureModulesForAccount.ps1](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update/blob/master/Update-AutomationAzureModulesForAccount.ps1
+) runbook. Azure PowerShell-modules die niet worden vermeld in de `ModuleVersionOverrides` parameter worden bijgewerkt met de meest recente moduleversies op de PowerShell Gallery. Als u niets om weer te geven de `ModuleVersionOverrides` parameter, alle modules worden bijgewerkt met de meest recente moduleversies op de PowerShell Gallery. Dit gedrag is hetzelfde als de **Update Azure-Modules** knop.
+
+## <a name="update-azure-modules-in-the-azure-portal"></a>Azure-Modules bijwerken in Azure portal
 
 1. Op de pagina Modules van uw Automation-account, wordt de optie **Update Azure-Modules**. Het altijd ingeschakeld.<br><br> ![De optie Azure-Modules in Modules pagina bijwerken](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
 
   > [!NOTE]
   > Voordat u bijwerkt van uw Azure-modules die het wordt aanbevolen dat u werkt ze bij in een test Automation-Account om ervoor te zorgen dat werken uw bestaande scripts zoals verwacht voordat het bijwerken van uw Azure-modules.
   >
-  > De **Update Azure-Modules** knop is alleen beschikbaar in de openbare cloud. het is niet beschikbaar in de [soevereine regio's](https://azure.microsoft.com/global-infrastructure/). Raadpleeg [alternatieve manieren om bij te werken uw modules](#alternative-ways-to-update-your-modules) sectie voor meer informatie.
+  > De **Update Azure-Modules** knop is alleen beschikbaar in de openbare cloud. het is niet beschikbaar in de [soevereine regio's](https://azure.microsoft.com/global-infrastructure/). Gebruik de **Update AutomationAzureModulesForAccount** runbook aan uw Azure-modules bijwerken. U kunt dit ook downloaden via de [Update Azure-modules runbook opslagplaats](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update). Zie voor meer informatie over het gebruik van de open-source-runbook, [Update Azure-Modules met open-source runbook](#open-source).
 
 2. Klik op **Update Azure-Modules**, ter bevestiging een melding wordt weergegeven dat wordt gevraagd of u wilt doorgaan.<br><br> ![Melding van Azure-Modules bijwerken](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
 
@@ -63,7 +92,9 @@ Als u van deze modules Azure PowerShell-cmdlets in uw runbooks gebruiken, wilt u
 
 Zoals gezegd, de **Update Azure-Modules** knop niet beschikbaar in soevereine clouds, dit is alleen beschikbaar in de globale Azure-cloud. Dit is vanwege het feit dat de nieuwste versie van de Azure PowerShell-modules uit de galerie met PowerShell niet met het Resource Manager-resources in deze clouds die momenteel zijn geïmplementeerd werkt mogelijk.
 
-U kunt importeren en voer de [Update AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook om te proberen bij te werken van de Azure-modules in uw Automation-Account. Het is doorgaans een goed idee om alle Azure-modules op hetzelfde moment bijwerken. Maar dit proces kan mislukken als de versies die u probeert te importeren vanuit de galerie zijn niet compatibel is met de Azure-services met de doel-Azure-omgeving die momenteel zijn geïmplementeerd. Mogelijk moet u controleren of dat de compatibele versie van de modules zijn opgegeven in de runbookparameters.
+U kunt nog steeds importeren en uitvoeren de [Update AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook om te proberen bij te werken van de Azure-modules in uw Automation-Account. Maar het wordt aanbevolen dat u de **Update AutomationAzureModulesForAccount** runbook aan uw Azure-modules bijwerken. U kunt dit ook downloaden via de [Update Azure-modules runbook opslagplaats](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update). Zie voor meer informatie over het gebruik van de open-source-runbook, [Update Azure-Modules met open-source runbook](#open-source).
+
+Het is doorgaans een goed idee om alle Azure-modules op hetzelfde moment bijwerken. Maar dit proces kan mislukken als de versies die u probeert te importeren vanuit de galerie zijn niet compatibel is met de Azure-services met de doel-Azure-omgeving die momenteel zijn geïmplementeerd. Mogelijk moet u controleren of dat de compatibele versie van de modules zijn opgegeven in de runbookparameters.
 
 Gebruik de `AzureRmEnvironment` parameter om door te geven van de juiste omgeving aan het runbook.  Acceptabele waarden zijn **AzureCloud**, **AzureChinaCloud**, **AzureGermanCloud**, en **AzureUSGovernment**. Deze waarden kunnen worden opgehaald uit met behulp van `Get-AzureRmEnvironment | select Name`. Als u niet een waarde voor deze parameter doorgeven, het runbook de openbare cloud van Azure wordt standaard **AzureCloud**
 
@@ -71,6 +102,4 @@ Als u een specifieke versie van de Azure PowerShell-module gebruiken in plaats v
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor meer informatie over integratiemodules en over het maken van aangepaste modules voor het verder Automation integreren met andere systemen, services of oplossingen, [integratiemodules](automation-integration-modules.md).
-
-
+* Ga naar de [Update Azure-modules runbook](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) voor meer informatie over deze.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e2aa52e8ad19274d45f648978e7b2f021139fe4a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a8ad5c3091c3c78aa31dbf38eb6b3032e4dc7662
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812295"
+ms.locfileid: "55870959"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Aangemeld blijven (KMSI) in Azure Active Directory B2C inschakelen
 
@@ -154,7 +154,7 @@ Bijwerken van de relying party (RP)-bestand dat initieert de gebruikersbeleving 
 
     De waarde van **SessionExpiryInSeconds** vertegenwoordigt de verlooptijd van een sessie voor eenmalige aanmelding. Dit wordt intern gebruikt door Azure AD B2C om te controleren of de sessie voor KMSI is verlopen of niet. De waarde van **KeepAliveInDays** bepaalt de verloopt/Max-Age-waarde van de cookie voor eenmalige aanmelding in de webbrowser. In tegenstelling tot **SessionExpiryInSeconds**, **KeepAliveInDays** wordt gebruikt om te voorkomen dat de browser de cookie te wissen wanneer dit gesloten. Een gebruiker kan op de achtergrond aanmelden alleen als de SSO-sessiecookie bestaat, die wordt beheerd door **KeepAliveInDays**, en niet verlopen, wordt dit bepaald door **SessionExpiryInSeconds**. 
     
-    Als een gebruiker niet inschakelt **aangemeld blijven** op de pagina registratie en aanmelding bij een sessie verloopt na het tijdstip aangegeven door **SessionExpiryInSeconds** is verstreken of de browser wordt gesloten. Als een gebruiker **aangemeld blijven**, de waarde van **KeepAliveInDays** overschrijft de waarde van **SessionExpiryInSeconds** en bepaalt de verlooptijd van de sessie. Zelfs als de gebruikers de browser sluit en opnieuw opent, ze kunnen nog steeds op de achtergrond aanmelding, zolang het is binnen de tijd van **KeepAliveInDays**. Het is raadzaam dat u de waarde van **SessionExpiryInSeconds** moet een korte periode (1200 seconden), terwijl de waarde van **KeepAliveInDays** kan worden ingesteld op een relatief lange periode (7 dagen), zoals wordt weergegeven in de bijvoorbeeld:
+    Als een gebruiker niet inschakelt **aangemeld blijven** op de pagina registratie en aanmelding bij een sessie verloopt na het tijdstip aangegeven door **SessionExpiryInSeconds** is verstreken of de browser wordt gesloten. Als een gebruiker **aangemeld blijven**, de waarde van **KeepAliveInDays** overschrijft de waarde van **SessionExpiryInSeconds** en bepaalt de verlooptijd van de sessie. Zelfs als gebruikers de browser sluit en opnieuw opent, ze kunnen nog steeds op de achtergrond aanmelden, zolang het is binnen de tijd van **KeepAliveInDays**. Het is raadzaam dat u de waarde van **SessionExpiryInSeconds** moet een korte periode (1200 seconden), terwijl de waarde van **KeepAliveInDays** kan worden ingesteld op een relatief lange periode (7 dagen), zoals wordt weergegeven in de bijvoorbeeld:
 
     ```XML
     <RelyingParty>

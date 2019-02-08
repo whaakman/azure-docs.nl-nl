@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 50a5c8d515e27db7c2c65b484cdecad8ff00baf8
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: a5c62c67cd401c043352b06e6e6070a7fc0f1296
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166023"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889545"
 ---
-<!--author=SharS last changed: 9/17/15-->
-
 #### <a name="to-connect-through-the-serial-console"></a>Verbinding maken via de seriële console
 1. Sluit de seriële kabel aan op het apparaat (rechtstreeks of via een USB-seriële adapter).
 2. Open het **Configuratiescherm** en open vervolgens **Apparaatbeheer**.
@@ -23,7 +21,7 @@ ms.locfileid: "50166023"
 5. Wijzig in het rechterdeelvenster **Verbindingstype** in **Serieel**.
 6. Typ in het rechterdeelvenster de juiste COM-poort. Zorg ervoor dat de seriële configuratieparameters als volgt zijn ingesteld:
    
-   * Snelheid: 115.200
+   * Snelheid van: 115,200
    * Gegevensbits: 8
    * Stopbits: 1
    * Pariteit: Geen

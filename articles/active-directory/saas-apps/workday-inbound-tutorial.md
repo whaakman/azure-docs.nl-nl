@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
-ms.openlocfilehash: d4a47130dadb782f41579bd20c4b5e1d1e9978bb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 11541318ca7e693cc422ecaeab182407cc5bd736
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188589"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895751"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Zelfstudie: Workday voor het automatisch inrichten van gebruikers configureren
 
@@ -713,7 +713,7 @@ Zodra de inrichting app-configuraties van Workday zijn voltooid, kunt u de inric
 
 3. Met deze bewerking wordt de eerste synchronisatie, wat een variabele aantal uren, afhankelijk van hoeveel gebruikers in de tenant Workday zijn kan duren gestart. 
 
-4. Controleer op elk gewenst moment de **auditlogboeken** tabblad in de Azure portal om te zien welke acties de provisioning-service heeft uitgevoerd. De auditlogboeken worden alle afzonderlijke synchronisatie gebeurtenissen die worden uitgevoerd door de provisioning-service, zoals welke gebruikers worden gelezen uit Workday en vervolgens later toegevoegd of bijgewerkt naar Active Directory. Raadpleeg de [probleemoplossing](#troubleshooting-provisioning-issues) sectie voor meer informatie over het controleren van de controlelogboeken en -oplossing fouten bij het inrichten.
+4. Controleer op elk gewenst moment de **auditlogboeken** tabblad in de Azure portal om te zien welke acties de provisioning-service heeft uitgevoerd. De auditlogboeken worden alle afzonderlijke synchronisatie gebeurtenissen die worden uitgevoerd door de provisioning-service, zoals welke gebruikers worden gelezen uit Workday en vervolgens later toegevoegd of bijgewerkt naar Active Directory. Raadpleeg de sectie over probleemoplossing voor instructies over het bekijken van de auditlogboeken en inrichting fouten te corrigeren.
 
 5. Zodra de initiële synchronisatie is voltooid, wordt er een overzichtsrapport van de audit schrijven in de **Provisioning** tabblad, zoals hieronder wordt weergegeven.
 

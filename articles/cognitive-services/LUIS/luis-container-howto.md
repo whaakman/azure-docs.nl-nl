@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: De LUIS-container in een docker-container, wordt uw app getrainde of gepubliceerd geladen en biedt toegang tot de voorspellingen van de query van de API-eindpunten van de container.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 97f11523c0418caaee66930c87a7de64570097d6
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 1ae4396c6b91f81e273e6ad171f4cac9b55445f6
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296898"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864722"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installeren en uitvoeren van LUIS docker-containers
  
@@ -252,7 +252,7 @@ Meer [voorbeelden](luis-container-configuration.md#example-docker-run-commands) 
 
 De container biedt eindpunt van de voorspelling query op basis van REST API's. Eindpunten voor gepubliceerde (fasering of productie)-apps hebben een _verschillende_ route dan eindpunten voor getrainde apps. 
 
-Gebruikmaken van de host https://localhost:5000, voor de container met API's. 
+Gebruikmaken van de host `https://localhost:5000`, voor de container met API's. 
 
 |Pakkettype|Methode|Route|Queryparameters|
 |--|--|--|--|

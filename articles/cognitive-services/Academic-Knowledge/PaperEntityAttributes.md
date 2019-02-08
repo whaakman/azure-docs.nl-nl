@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Meer informatie over de kenmerken die u met de entiteit van het document in de Academic Knowledge API gebruiken kunt.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
-ms.openlocfilehash: d36a39f10f9e0129af3b730a65387d7108209004
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 240541dd76221ee19c96b162da02ced90fb0ad90
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168376"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873084"
 ---
 # <a name="paper-entity"></a>Document-entiteit
 
@@ -25,32 +25,32 @@ ms.locfileid: "55168376"
 Name    |Description                                        |Type       | Bewerkingen
 ------- | ------------------------------------------------- | --------- | ----------------------------
 Id      |Entiteits-id                                          |Int64      |Is gelijk aan
-Ti      |Titel van document                                        |Reeks     |Is gelijk aan,<br/>StartsWith
-L       |Taalcode papier gescheiden door '\@@@ '            |Reeks     |Is gelijk aan
+Ti      |Titel van document                                        |String     |Is gelijk aan,<br/>StartsWith
+L       |Taalcode papier gescheiden door '\@@@ '            |String     |Is gelijk aan
 J       |Papier jaar                                         |Int32      |Is gelijk aan,<br/>IsBetween
 D       |Papier datum                                         |Date       |Is gelijk aan,<br/>IsBetween
 CC      |Aantal citaat                                     |Int32      |geen  
 ECC     |Geschatte citaat tellen                           |Int32      |geen
-AA.AuN  |Naam van auteur                                        |Reeks     |Is gelijk aan,<br/>StartsWith
+AA.AuN  |Naam van auteur                                        |String     |Is gelijk aan,<br/>StartsWith
 AA.AuId |Auteur-ID                                          |Int64      |Is gelijk aan
-AA. AfN  |Relatie is de naam van auteur                            |Reeks     |Is gelijk aan,<br/>StartsWith
+AA. AfN  |Relatie is de naam van auteur                            |String     |Is gelijk aan,<br/>StartsWith
 AA.AfId |De auteur van relatie-ID                              |Int64      |Is gelijk aan
 AA. S    |Volgorde van de auteur van het document                         |Int32      |Is gelijk aan
-F.FN    |Veld van de naam van het onderzoek                                |Reeks     |Is gelijk aan,<br/>StartsWith
+F.FN    |Veld van de naam van het onderzoek                                |String     |Is gelijk aan,<br/>StartsWith
 F.FId   |Veld van de ID van het onderzoek                                  |Int64      |Is gelijk aan
-J.JN    |De naam van het logboek                                       |Reeks     |Is gelijk aan,<br/>StartsWith
+J.JN    |De naam van het logboek                                       |String     |Is gelijk aan,<br/>StartsWith
 J.JId   |Wijzigingslogboek-ID                                         |Int64      |Is gelijk aan
-C.CN    |De naam van de vergadering-serie                             |Reeks     |Is gelijk aan,<br/>StartsWith
+C.CN    |De naam van de vergadering-serie                             |String     |Is gelijk aan,<br/>StartsWith
 C.CId   |Conferentie reeks-ID                               |Int64      |Is gelijk aan
 RId     |Waarnaar wordt verwezen, documenten-ID                              |Int64]    |Is gelijk aan
 W       |Woorden uit papier titel en samenvatting                |String[]   |Is gelijk aan
-E       |Uitgebreide metagegevens (Zie onderstaande tabel)                |Reeks     |geen  
+E       |Uitgebreide metagegevens (Zie onderstaande tabel)                |String     |geen  
         
 
 
 ## <a name="extended-metadata-attributes"></a>Uitgebreide metagegevens kenmerken ##
 
-Name    | Beschrijving               
+Name    | Description               
 --------|---------------------------    
 DN      | Weergavenaam van het document 
 S       | Bronnen - lijst van webbronnen van het document, gesorteerd op basis van statische positie

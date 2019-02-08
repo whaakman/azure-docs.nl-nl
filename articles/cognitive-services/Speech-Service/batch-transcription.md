@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Batch transcriptie is ideaal als u wilt dat een grote hoeveelheid audio in opslag, zoals Azure Blobs transcriberen. U kunt met behulp van de toegewezen REST-API, wijst u audio-bestanden met een shared access signature (SAS) URI en asynchroon ontvangen transcripties.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: bf89180ea98473d2da3495286396a12c6f25288f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0e03c388dac4a70fc45150287154406551ac2672
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228658"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867117"
 ---
 # <a name="why-use-batch-transcription"></a>Waarom Batch transcriptie gebruiken?
 
@@ -49,7 +49,7 @@ De Batch-API voor transcriptie ondersteunt de volgende indelingen:
 > [!NOTE]
 > De Batch-API voor transcriptie vereist een S0-sleutel (betalen laag). Het werkt niet met een sleutel gratis (f0).
 
-De Batch-transcriptie API wordt de linker- en -kanaal voor stereo audiostreams gesplitst tijdens de transcriptie. De twee JSON-bestanden met het resultaat zijn alle gemaakt van één kanaal. De tijdstempels per utterance bieden de ontwikkelaar te maken van een geordende definitieve transcriptie. De volgende JSON-voorbeeld ziet u de uitvoer van een kanaal, includuing eigenschappen voor het instellen van het filter voor scheldwoorden en het model leestekens.
+De Batch-transcriptie API wordt de linker- en -kanaal voor stereo audiostreams gesplitst tijdens de transcriptie. De twee JSON-bestanden met het resultaat zijn alle gemaakt van één kanaal. De tijdstempels per utterance bieden de ontwikkelaar te maken van een geordende definitieve transcriptie. De volgende JSON ziet u een voorbeeld van een aanvraag, includuing eigenschappen voor het instellen van de grof taalgebruik filteren, het model interpunctie en word-niveau tijdstempels
 
 ```json
 {
@@ -60,7 +60,8 @@ De Batch-transcriptie API wordt de linker- en -kanaal voor stereo audiostreams g
   "description": "An optional description of the transcription.",
   "properties": {
     "ProfanityFilterMode": "Masked",
-    "PunctuationMode": "DictatedAndAutomatic"
+    "PunctuationMode": "DictatedAndAutomatic",
+    "AddWordLevelTimestamps" : "True"
   },
 ```
 
@@ -208,7 +209,7 @@ Momenteel de enige opslag ondersteund door Azure Blob-opslag.
 U kunt het voorbeeld in dit artikel vinden op [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
 > [!NOTE]
-> Een audiotranscriptie vereist gewoonlijk een tijdspanne gelijk zijn aan de duur van het audiobestand, plus een overhead van twee naar drie minuten.
+> WE bieden een SLA van de tijd voor audio trascriptions via batch. Echter, zodra de taak transcriptie mailbericht (in de status actief) is, is typially verwerkt sneller dan de real-time.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -11,20 +11,24 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 01/31/2019
-ms.openlocfilehash: e2159e7cc59830c3d0d10f1c5b9697ab5b45b666
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/06/2019
+ms.openlocfilehash: b50fd21e4d3325875134d2e2e9caeed9f8db75d0
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824092"
+ms.locfileid: "55875600"
 ---
 # <a name="machine-learning-services-with-r-in-azure-sql-database-preview"></a>Machine Learning-Services (met R) in Azure SQL Database (preview)
 
 Machine Learning-Services is een functie van Azure SQL Database, die wordt gebruikt voor het uitvoeren van R-scripts in de database. De functie bevat Microsoft R-pakketten voor krachtige voorspellende analyse en machine learning. De relationele gegevens kunnen worden gebruikt in de R-scripts via opgeslagen procedures, overzichten van de T-SQL-script met-R of R-code met T-SQL.
 
-> [!NOTE]
-> Machine Learning-Services (met R) in Azure SQL Database is momenteel in openbare preview. [Aanmelden voor de Preview-versie](#signup) hieronder.
+> [!IMPORTANT]
+> Machine Learning-Services (met R) in Azure SQL Database is momenteel in openbare preview voor individuele databases en elastische pools met behulp van de vCore gebaseerde aankoopmodel in de **algemeen** en **business kritieke** Servicelagen. In deze eerste preview-versie, de **grootschalige** servicelaag en het **beheerd exemplaar** Implementatieoptie worden niet ondersteund. Momenteel is R de enige ondersteunde taal. Er is op dit moment geen ondersteuning voor Python. 
+>
+> De Preview-versie is momenteel beschikbaar in de volgende regio's: West-Europa, Noord-Europa, VS-West 2, VS-Oost, Zuid-centraal VS, Noord-centraal VS, Canada centraal, Zuidoost-Azië, India-Zuid en Australië-Zuidoost. 
+>
+> [Aanmelden voor de Preview-versie](#signup) hieronder.
 
 ## <a name="what-you-can-do-with-r"></a>U kunt doen met R
 
@@ -55,10 +59,6 @@ Als u zich voor de openbare preview-versie, de volgende stappen uit:
 2. Stuur een e-mailbericht naar Microsoft op [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com) om u te registreren voor de openbare preview. De openbare preview van Machine Learning Services (met R) in SQL Database is niet standaard ingeschakeld.
 
 Zodra u zijn geregistreerd in het programma, Microsoft zullen we u aan de openbare preview en R inschakelen voor uw bestaande of nieuwe database.
-
-Machine Learning-Services (met R) in SQL-Database is momenteel alleen beschikbaar in het op vCore gebaseerde aankoopmodel in de **algemeen** en **bedrijfskritiek** Servicelagen voor zelfstandige en elastische pool-implementatieopties. In deze eerste preview-versie, de **grootschalige** servicelaag en **Managed Instance** keuze van de implementatie worden niet ondersteund.
-
-Momenteel is R de enige ondersteunde taal. Er is op dit moment geen ondersteuning voor Python. De Preview-versie is in eerste instantie beschikbaar in de volgende regio's: West-Europa, Noord-Europa, VS-West 2, VS-Oost, Zuid-centraal VS, Noord-centraal VS, Canada centraal, Zuidoost-Azië, India-Zuid en Australië-Zuidoost. Extra regio's wordt later toegevoegd.
 
 Gebruik geen Machine Learning-Services met R voor productieworkloads tijdens de openbare preview.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: b4de9efbe85d5ab497bccd1742df23ddc1b3af43
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: bb88736762219028d58fe70d0ec32309967c95a4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354656"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55830711"
 ---
 Opslag geoptimaliseerde VM-grootten bieden een snelle doorvoer van schijfgegevens en IO- en zijn ideaal voor Big Data, SQL, NoSQL-databases, gegevensopslag en grote transactionele databases.  Voorbeelden zijn onder meer Cassandra, MongoDB, Cloudera en Redis. In dit artikel bevat informatie over het aantal vcpu's, gegevensschijven en NIC's, evenals lokale opslag en doorvoer netwerkbandbreedte voor elke grootte geoptimaliseerde.
 
@@ -31,7 +31,7 @@ Premium-opslag: Ondersteund
 
 Premium Storage Caching: Niet ondersteund
 
-| Grootte          | vCPU | Geheugen (GiB) | Tijdelijke schijf<sup>1</sup> (GiB) | NVMe-schijven | NVMe schijfdoorvoer<sup>2</sup> (IOPS voor lezen / MBps) | Cachegrootte hosten<sup>3</sup> | Maximum aantal gegevensschijven | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) | 
+| Grootte          | vCPU | Geheugen (GiB) | Tijdelijke schijf<sup>1</sup> (GiB) | NVMe-schijven<sup>2</sup> | NVMe schijfdoorvoer<sup>3</sup> (IOPS voor lezen / MBps) | Cachegrootte hosten<sup>4</sup> | Maximum aantal gegevensschijven | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) | 
 |---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 
 | Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 340,000 / 2,000 | N/A | 16 | 2 / 3,200  | 
 | Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 680,000 / 4,500 | N/A | 32 | 4 / 6,400  | 
@@ -39,11 +39,13 @@ Premium Storage Caching: Niet ondersteund
 | Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.7 M / 18.000   | N/A | 32 | 8 / 25,600 |
 | Standard_L80s_v2  | 80 | 640 | 800 | 10x1.92TB   | 3.4 M / 22,000   | N/A | 32 | 8 / 32,000 |
  
-<sup>1</sup> Lsv2-serie VM's hebben een standaardschijf van de basis van tijdelijke resource SCSI voor gebruik van een wisselbestand/wisselen bestand besturingssystemen (D: op Windows, /dev/sdb op Linux). Deze schijf biedt 80 GiB van opslag, 4000 IOPS en 80 MBps overdrachtssnelheid voor elke 8 vcpu's (bijvoorbeeld Standard_L80s_v2 biedt 800 GiB 40.000 IOPS en 800 MBPS). Dit zorgt ervoor dat de NVMe-stations kunnen volledig worden toegewezen aan het gebruik.
+<sup>1</sup> Lsv2-serie VM's hebben een standaardschijf van de basis van tijdelijke resource SCSI voor gebruik van een wisselbestand/wisselen bestand besturingssystemen (D: op Windows, /dev/sdb op Linux). Deze schijf biedt 80 GiB van opslag, 4000 IOPS en 80 MBps overdrachtssnelheid voor elke 8 vcpu's (bijvoorbeeld Standard_L80s_v2 biedt 800 GiB 40.000 IOPS en 800 MBPS). Dit zorgt ervoor dat de NVMe-stations kunnen volledig worden toegewezen aan het gebruik. Deze schijf is een tijdelijke en alle gegevens gaan verloren op stoppen/toewijzing ongedaan maken.
 
-<sup>2</sup> Hyper-V NVMe Direct-technologie biedt met toegang tot NVMe-stations die zijn toegewezen veilig in de Gast-VM-ruimte.  Maximale prestaties te bereiken, moet met behulp van de meest recente WS2019 build of Ubuntu 18.04 of 16.04 vanuit Azure Marketplace.  Schrijfprestaties is afhankelijk van i/o-grootte, station laden en gebruik van capaciteit.
+<sup>2</sup> lokale NVMe-schijven zijn kortstondige, gegevens op deze schijven gaan verloren als u stoppen/toewijzing ongedaan maken uw virtuele machine.
 
-<sup>3</sup> Lsv2-serie VM's bieden geen hostcache voor gegevensschijf zoals de Lsv2-werkbelastingen niet profiteren.  Echter aankan Lsv2 virtuele machines van Azure-schijfoptie kortstondige besturingssysteem van de virtuele machine (maximaal 30 GiB). 
+<sup>3</sup> Hyper-V NVMe Direct-technologie biedt met toegang tot lokale NVMe-stations toegewezen veilig in de Gast-VM-ruimte.  Maximale prestaties te bereiken, moet met behulp van de meest recente WS2019 build of Ubuntu 18.04 of 16.04 vanuit Azure Marketplace.  Schrijfprestaties is afhankelijk van i/o-grootte, station laden en gebruik van capaciteit.
+
+<sup>4</sup> Lsv2-serie VM's bieden geen hostcache voor gegevensschijf zoals de Lsv2-werkbelastingen niet profiteren.  Echter aankan Lsv2 virtuele machines van Azure-schijfoptie kortstondige besturingssysteem van de virtuele machine (maximaal 30 GiB). 
 
 
 

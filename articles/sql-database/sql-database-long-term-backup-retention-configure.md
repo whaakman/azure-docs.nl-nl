@@ -12,16 +12,16 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/07/2019
-ms.openlocfilehash: 8f88579a5fcdb96622a32c5b55bf8fee744d916e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 3657844d5dd4c4dcf9b9729aaeea6c9af3ed6519
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567176"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894872"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Langetermijnretentie voor Azure SQL Database beheren
 
-In Azure SQL Database, kunt u één of een gegroepeerde database met een [langetermijnretentie](sql-database-long-term-retention.md) beleid (LTR) automatisch back-ups in Azure blob-opslag maximaal 10 jaar bewaren. U kunt vervolgens deze back-ups met behulp van de Azure portal of PowerShell met een database herstellen.
+In Azure SQL Database, kunt u één of een gegroepeerde database met een [langetermijnretentie](sql-database-long-term-retention.md) beleid (LTR) automatisch back-ups in Azure Blob-opslag maximaal 10 jaar bewaren. U kunt vervolgens deze back-ups met behulp van de Azure portal of PowerShell met een database herstellen.
 
 > [!IMPORTANT]
 > [Azure SQL Database Managed Instance](sql-database-managed-instance.md) ondersteunt geen langetermijnretentie van back-up.

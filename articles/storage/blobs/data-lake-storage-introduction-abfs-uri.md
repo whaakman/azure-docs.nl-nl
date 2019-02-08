@@ -1,6 +1,6 @@
 ---
-title: Gebruik de Azure Data Lake Storage Gen2 Preview URI
-description: Gebruik de Azure Data Lake Storage Gen2 Preview URI
+title: Gebruik de Azure Data Lake Storage Gen2 URI
+description: Gebruik de Azure Data Lake Storage Gen2 URI
 services: storage
 author: jamesbak
 ms.topic: conceptual
@@ -8,16 +8,16 @@ ms.author: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 63dcea94fd880102a784e6f776855c44d4e97c87
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: fe020ab1091b91ba21174b59d0ce25ab0c6122ca
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243314"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878303"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Gebruik de Azure Data Lake Storage Gen2 URI
 
-De [Hadoop Filesystem](http://www.aosabook.org/en/hdfs.html) stuurprogramma die compatibel is met de Preview van Azure Data Lake Storage Gen2 bekend is onder de schema-id `abfs` (Azure Blob-bestandssysteem). Consistent zijn met andere Hadoop Filesystem stuurprogramma's, het stuurprogramma ABFS maakt gebruik van een URI-notatie op adresbestanden en mappen in een Data Lake Storage Gen2 geschikt-account.
+De [Hadoop Filesystem](http://www.aosabook.org/en/hdfs.html) stuurprogramma die compatibel is met Azure Data Lake Storage Gen2 bekend is onder de schema-id `abfs` (Azure Blob-bestandssysteem). Consistent zijn met andere Hadoop Filesystem stuurprogramma's, het stuurprogramma ABFS maakt gebruik van een URI-notatie op adresbestanden en mappen in een Data Lake Storage Gen2 geschikt-account.
 
 ## <a name="uri-syntax"></a>URI-syntaxis
 

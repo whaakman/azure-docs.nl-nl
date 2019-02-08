@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: a4fc037ed566905133f59163ef99d5e107ca4bcc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e47bf2a75b06f0804e446b0fdde4215b6e8193f6
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190918"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874716"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Gebruiker-inrichting en ongedaan maken van inrichting voor SaaS-toepassingen met Azure Active Directory automatiseren
 
@@ -39,7 +39,7 @@ Azure Active Directory (Azure AD) kunt u het maken, onderhoud en verwijderen van
 
 * De mogelijkheid om bestaande identiteiten tussen bron en doel-systemen.
 * Aanpasbare kenmerktoewijzingen die welke gegevens bepalen moeten stromen van het bronsysteem op het doelsysteem.
-* Optioneel e-mailwaarschuwingen voor fouten bij het inrichten
+* Optioneel e-mailwaarschuwingen voor fouten bij het inrichten.
 * Rapportage en activiteit Logboeken om te helpen bij het bewaken en problemen oplossen.
 
 ## <a name="why-use-automated-provisioning"></a>Waarom een geautomatiseerde inrichting gebruiken?
@@ -47,7 +47,7 @@ Azure Active Directory (Azure AD) kunt u het maken, onderhoud en verwijderen van
 Enkele veelvoorkomende redenen voor het gebruik van deze functie zijn onder andere:
 
 * De kosten, inefficiënt en menselijke fouten die zijn gekoppeld aan handmatige inrichting processen voorkomen.
-* De kosten die zijn gekoppeld aan die als host fungeert en onderhouden van aangepaste oplossingen voor inrichting en scripts te voorkomen
+* De kosten die zijn gekoppeld aan die als host fungeert en onderhouden van aangepaste oplossingen voor inrichting en scripts vermijden.
 * Voor het beveiligen van uw organisatie door direct identiteit van gebruikers verwijderen uit sleutel SaaS-apps wanneer ze de organisatie verlaten.
 * Eenvoudig een groot aantal gebruikers in een bepaalde SaaS-toepassing of het systeem importeren.
 * Om te profiteren met één set met beleid om te bepalen die is ingericht en die kunnen zich aanmelden bij een app.
@@ -107,7 +107,7 @@ In het scherm voor het beheren van toepassing inrichting is geconfigureerd in de
 
 ![Instellingen](./media/user-provisioning/provisioning_settings1.PNG)
 
-* **Bereikfilters** de inrichtingsservice zien welke gebruikers en groep in het bronsysteem moet worden ingericht en/of de inrichting ongedaan gemaakt op het doelsysteem. Er zijn twee aspecten bereikfilters die gezamenlijk worden geëvalueerd om te bepalen wie binnen het bereik voor het inrichten is:
+* **Bereikfilters** de inrichtingsservice zien welke gebruikers en groepen in het bronsysteem moeten worden ingericht en/of de inrichting ongedaan gemaakt op het doelsysteem. Er zijn twee aspecten bereikfilters die gezamenlijk worden geëvalueerd om te bepalen wie binnen het bereik voor het inrichten is:
 
     * **Filteren op kenmerkwaarden** -menu aan de 'Bereik van het bronobject' in de kenmerktoewijzingen Hiermee kunt u filteren op specifieke kenmerkwaarden. U kunt bijvoorbeeld opgeven dat alleen gebruikers met een kenmerk 'Afdeling' van 'Verkoop' binnen het bereik voor het inrichten moet. Zie voor meer informatie, [met behulp van bereikfilters](define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -214,13 +214,13 @@ Voor de configuratie van **synchronisatie toegewezen gebruikers en groepen allee
     
 Overzicht van de factoren die invloed hebben op de tijd die nodig zijn om uit te voeren een **voor de eerste synchronisatie**:
 
-* Het totale aantal gebruikers en groepen in het bereik vallen voor inrichting
+* Het totale aantal gebruikers en groepen in het bereik vallen voor inrichting.
 
-* Het totale aantal gebruikers, groepen en groepsleden aanwezig zijn in het bronsysteem (Azure AD)
+* Het totale aantal gebruikers, groepen en groepsleden aanwezig zijn in het bronsysteem (Azure AD).
 
 * Of gebruikers in het bereik voor het inrichten van zijn afgestemd op bestaande gebruikers in de doeltoepassing of moeten worden gemaakt voor de eerste keer. Synchronisatietaken voor dat alle gebruikers worden gemaakt voor de eerste keer duurt circa *tweemaal zo lang* als taken voor die alle gebruikers zijn afgestemd op bestaande gebruikers worden gesynchroniseerd.
 
-* Aantal fouten in de [auditlogboeken](check-status-user-account-provisioning.md). Is trager als er veel fouten en de provisioning-service is geworden in een status in quarantaine plaatsen 
+* Aantal fouten in de [auditlogboeken](check-status-user-account-provisioning.md). Is trager als er veel fouten en de provisioning-service is geworden in een status in quarantaine plaatsen.    
 
 * Aanvragen frequentielimieten en beperking geïmplementeerd door het doelsysteem. Sommige doelsystemen implementeren aanvraag frequentielimieten en beperkingen die de prestaties tijdens grote synchronisatiebewerkingen kunnen beïnvloeden. In deze omstandigheden kan een app die te veel aanvragen te snel ontvangt de respons vertragen of Verbreek de verbinding. Voor betere prestaties wordt de verbinding moet aanpassen door de app-aanvragen niet sneller dan ze kan worden verwerkt door de app verzendt. Inrichting connectors die zijn gemaakt door Microsoft u deze aanpassing. 
 

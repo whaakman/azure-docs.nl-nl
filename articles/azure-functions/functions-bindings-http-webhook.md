@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: dc9c3b6740533ae26cf395e436908a359cadf8d9
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: c92bb8e7441e9701d11f3223fa6ebde7869d6233
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321310"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895720"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions-HTTP-triggers en bindingen
 
@@ -27,6 +27,8 @@ Een HTTP-trigger kan worden aangepast om te reageren op [webhooks](https://en.wi
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
+
+De code in dit artikel standaard functies 2.x syntaxis die gebruikmaakt van .NET Core. Zie voor informatie over de syntaxis van de 1.x, de [1.x functies sjablonen](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
 
 ## <a name="packages---functions-1x"></a>Pakketten - functies 1.x
 
@@ -63,26 +65,21 @@ Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md)
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
-public static async Task<HttpResponseMessage> Run(
-    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequestMessage req, 
-    ILogger log)
+public static async Task<IActionResult> Run(
+    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] 
+    HttpRequest req, ILogger log)
 {
     log.LogInformation("C# HTTP trigger function processed a request.");
 
-    // parse query parameter
-    string name = req.GetQueryNameValuePairs()
-        .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
-        .Value;
+    string name = req.Query["name"];
 
-    // Get request body
-    dynamic data = await req.Content.ReadAsAsync<object>();
-
-    // Set name to query string or body data
+    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+    dynamic data = JsonConvert.DeserializeObject(requestBody);
     name = name ?? data?.name;
 
-    return name == null
-        ? req.CreateResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
-        : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
+    return name != null
+        ? (ActionResult)new OkObjectResult($"Hello, {name}")
+        : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
 }
 ```
 
@@ -117,48 +114,46 @@ Hier volgt de *function.json* bestand:
 
 De [configuratie](#trigger---configuration) sectie wordt uitgelegd dat deze eigenschappen.
 
-Hier volgt C#-script-code die wordt gebonden aan `HttpRequestMessage`:
+Hier volgt C#-script-code die wordt gebonden aan `HttpRequest`:
 
-```csharp
+```cs
 using System.Net;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
 
-public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
+public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 {
-    log.LogInformation($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
-    // parse query parameter
-    string name = req.GetQueryNameValuePairs()
-        .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
-        .Value;
+    string name = req.Query["name"];
 
-    // Get request body
-    dynamic data = await req.Content.ReadAsAsync<object>();
-
-    // Set name to query string or body data
+    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+    dynamic data = JsonConvert.DeserializeObject(requestBody);
     name = name ?? data?.name;
 
-    return name == null
-        ? req.CreateResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
-        : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
+    return name != null
+        ? (ActionResult)new OkObjectResult($"Hello, {name}")
+        : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
 }
 ```
 
-U kunt koppelen aan een aangepast object in plaats van `HttpRequestMessage`. Dit object wordt gemaakt van de hoofdtekst van de aanvraag, geparseerd als JSON. Op deze manier kan een type worden doorgegeven aan het antwoord van de HTTP-output-binding en geretourneerd als de antwoordtekst, samen met een 200-statuscode.
+U kunt koppelen aan een aangepast object in plaats van `HttpRequest`. Dit object is gemaakt op basis van de hoofdtekst van de aanvraag en geparseerd als JSON. Op deze manier kan een type worden doorgegeven aan het antwoord van de HTTP-output-binding en geretourneerd als de antwoordtekst, samen met een 200-statuscode.
 
 ```csharp
 using System.Net;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 
-public static string Run(CustomObject req, ILogger log)
-{
-    return "Hello " + req?.name;
+public static string Run(Person person, ILogger log)
+{   
+    return person.Name != null
+        ? (ActionResult)new OkObjectResult($"Hello, {person.Name}")
+        : new BadRequestObjectResult("Please pass an instance of Person.");
 }
 
-public class CustomObject {
-     public string name {get; set;}
+public class Person {
+     public string Name {get; set;}
 }
 ```
 
@@ -547,12 +542,12 @@ U kunt de autorisatie niveau en toegestane HTTP-methoden instellen in kenmerk co
 
 ```csharp
 [FunctionName("HttpTriggerCSharp")]
-public static HttpResponseMessage Run(
-    [HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequestMessage req)
+public static Task<IActionResult> Run(
+    [HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req)
 {
     ...
 }
- ```
+```
 
 Zie voor een compleet voorbeeld [Trigger - voorbeeld met C#](#trigger---c-example).
 
@@ -572,7 +567,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 
 ## <a name="trigger---usage"></a>Trigger - gebruik
 
-Voor C# en F# functies, kunt u het type van de invoer voor een trigger declareren `HttpRequestMessage` of een aangepast type. Als u ervoor kiest `HttpRequestMessage`, krijgt u volledige toegang tot het request-object. Voor een type aangepaste probeert de runtime parseren van de hoofdtekst van de JSON-aanvraag voor het instellen van eigenschappen van het object.
+Voor C# en F# functies, kunt u het type van de invoer voor een trigger declareren `HttpRequest` of een aangepast type. Als u ervoor kiest `HttpRequest`, krijgt u volledige toegang tot het request-object. Voor een type aangepaste probeert de runtime parseren van de hoofdtekst van de JSON-aanvraag voor het instellen van eigenschappen van het object.
 
 De Functions-runtime biedt voor JavaScript-functies, de hoofdtekst van de aanvraag in plaats van het request-object. Zie voor meer informatie de [JavaScript trigger voorbeeld](#trigger---javascript-example).
 
@@ -612,13 +607,19 @@ http://<yourapp>.azurewebsites.net/api/products/electronics/357
 Hiermee wordt de functiecode voor de ondersteuning van twee parameters in het adres _categorie_ en _id_. U kunt een [Web API Route beperking](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) met de parameters. De volgende C#-functiecode maakt gebruik van beide parameters.
 
 ```csharp
-public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id,
-                                                ILogger log)
+public static Task<IActionResult> Run(HttpRequest req, string category, int? id, ILogger log)
 {
     if (id == null)
-        return  req.CreateResponse(HttpStatusCode.OK, $"All {category} items were requested.");
+    {
+        return (ActionResult)new OkObjectResult($"All {category} items were requested.");
+    }
     else
-        return  req.CreateResponse(HttpStatusCode.OK, $"{category} item with id = {id} has been requested.");
+    {
+        return (ActionResult)new OkObjectResult($"{category} item with id = {id} has been requested.");
+    }
+    
+    // -----
+    log.LogInformation($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
 }
 ```
 
@@ -674,7 +675,7 @@ public static IActionResult Run(HttpRequest req, ILogger log)
 {
     ClaimsPrincipal identities = req.HttpContext.User;
     // ...
-    return new OkResult();
+    return new OkObjectResult();
 }
 ```
 
@@ -730,7 +731,7 @@ Er is geen ondersteunde API om via een programma te verkrijgen functietoetsen.
 
 De meeste HTTP-trigger sjablonen vereisen een API-sleutel in de aanvraag. Dus lijkt de HTTP-aanvraag normaal op de volgende URL:
 
-    https://<yourapp>.azurewebsites.net/api/<function>?code=<ApiKey>
+    https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
 
 De sleutel kan worden opgenomen in een queryreeks-variabele met de naam `code`, zoals hierboven. Kan ook worden opgenomen in een `x-functions-key` HTTP-header. De waarde van de sleutel kan zijn een functie-sleutel gedefinieerd voor de functie of een willekeurige toets host.
 
@@ -774,7 +775,7 @@ De Slack-webhook genereert een token voor u in plaats van waarin u kunt opgeven,
 
 Autorisatie van de Webhook wordt verwerkt door het onderdeel van de ontvanger webhook, onderdeel van de HTTP-trigger, en het mechanisme is afhankelijk van het webhooktype. Elke methode zijn afhankelijk van een sleutel. De functie-sleutel met de naam 'standaard' wordt standaard gebruikt. Voor het gebruik van een andere productcode, de webhook-provider voor het verzenden van de naam van de sleutel met de aanvraag in een van de volgende manieren te configureren:
 
-* **Querytekenreeks**: De provider geeft de naam van de sleutel in de `clientid` query-tekenreeksparameter, zoals `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
+* **Querytekenreeks**: De provider geeft de naam van de sleutel in de `clientid` query-tekenreeksparameter, zoals `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?clientid=<KEY_NAME>`.
 * **Aanvraagkoptekst**: De provider geeft de naam van de sleutel in de `x-functions-clientid` header.
 
 ## <a name="trigger---limits"></a>Trigger - limieten
@@ -805,7 +806,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 
 ## <a name="output---usage"></a>Uitvoer - gebruik
 
-Gebruik de taal-standaard antwoord patronen voor het verzenden van een HTTP-antwoord. In C# of C#-script, moet u de functie retourtype `HttpResponseMessage` of `Task<HttpResponseMessage>`. In C#, is een kenmerk van de geretourneerde waarde niet vereist.
+Gebruik de taal-standaard antwoord patronen voor het verzenden van een HTTP-antwoord. In C# of C#-script, moet u de functie retourtype `IActionResult` of `Task<IActionResult>`. In C#, is een kenmerk van de geretourneerde waarde niet vereist.
 
 Bijvoorbeeld antwoorden, Zie de [trigger voorbeeld](#trigger---example).
 

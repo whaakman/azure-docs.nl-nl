@@ -15,12 +15,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 8d2d8d0595099081498202a3103caa10df8cf67d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: b7214230d55831fa33d547ecf9e65051aa5bb4d9
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657838"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891450"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>Kubernetes op Azure Stack met Azure Active Directory implementeren
 
@@ -37,7 +37,7 @@ Als u wilt beginnen, zorg ervoor dat u de juiste machtigingen hebt en dat uw Azu
 
 1. Controleer of dat u toepassingen in uw tenant Azure Active Directory (Azure AD maken kunt). In dat geval moet u deze machtigingen in voor de Kubernetes-implementatie.
 
-    Zie voor instructies over het controleren van uw machtigingen [machtigingen voor Azure Active Directory controleren](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#check-azure-active-directory-permissions).
+    Zie voor instructies over het controleren van uw machtigingen [machtigingen voor Azure Active Directory controleren](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
 
 1. Een SSH openbare en persoonlijke sleutelpaar genereren om aan te melden bij de Linux-VM in Azure Stack. U moet de openbare sleutel bij het maken van het cluster.
 

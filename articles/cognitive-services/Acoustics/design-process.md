@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Dit document wordt beschreven hoe u de bedoeling van uw ontwerp in alle drie fasen van de werkstroom Project akoestische express.
 services: cognitive-services
 author: kegodin
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: cf38b2096e958a7484e5161277a608ec2cb88224
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bb5f309a96feac2caea85fbe81b7216eecfc4b79
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470482"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873934"
 ---
 # <a name="design-process-overview"></a>Overzicht van het ontwerp
 U kunt de bedoeling van uw ontwerp in alle drie fasen van de werkstroom Project akoestische express: vooraf verdient scène setup, gezonde bron plaatsing en na bake ontwerp. Het proces vereist minder markeringen die zijn gekoppeld aan volumes weerklank behoudt designer bepalen hoe een scène geluiden plaatsen.

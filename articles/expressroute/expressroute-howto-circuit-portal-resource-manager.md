@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 974421662a33cd9167d3c39b31d8da20db9f505f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3abdeff3c3f1a4069130ed7c8d49d485feea4093
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091524"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894714"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Een ExpressRoute-circuit maken en wijzigen
 > [!div class="op_single_selector"]
@@ -51,7 +51,8 @@ Open een browser, ga naar [Azure Portal](http://portal.azure.com) en meld u aan 
   ![De SKU-laag en voor gegevensmeters configureren](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
 
   * **Laag** bepaalt of een ExpressRoute-standard- of een premium-invoegtoepassing voor ExpressRoute is ingeschakeld. U kunt opgeven **Standard** om op te halen van de standaard-SKU of **Premium** voor de premium-invoegtoepassing.
-  * **Gegevensmeters** bepaalt het gegevenstype van de facturering. U kunt opgeven **Metered** voor een abonnement naar gebruik en **onbeperkt** voor een abonnement voor onbeperkt gebruik. Houd er rekening mee dat u kunt de facturering type uit wijzigen **Metered** naar **onbeperkt**, maar u kunt het type niet wijzigen **onbeperkt** naar **Metered**.
+  * **Gegevensmeters** bepaalt het gegevenstype van de facturering. U kunt opgeven **Metered** voor een abonnement naar gebruik en **onbeperkt** voor een abonnement voor onbeperkt gebruik. Houd er rekening mee dat u kunt de facturering type uit wijzigen **Metered** naar **onbeperkt**.
+    > [!IMPORTANT] U kunt het type niet wijzigen **onbeperkt** naar **Metered**.
   * **Peeringlocatie** is de fysieke locatie waar u peering met Microsoft.
 
     > [!IMPORTANT]
@@ -77,20 +78,20 @@ Op deze pagina **providerstatus** bevat informatie over de huidige status van in
 
 Wanneer u een nieuwe ExpressRoute-circuit maakt, wordt het circuit is in de volgende status:
 
-De status van provider: niet ingericht<BR>
-Circuit status: ingeschakeld
+De status van de provider: Niet ingericht<BR>
+Circuitstatus van het: Ingeschakeld
 
 ![Inrichtingsproces initiëren](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
 
 Het circuit gewijzigd in de volgende status hebben de connectiviteitsprovider Bezig inschakelen voor u is:
 
-De status van provider: inrichten<BR>
-Circuit status: ingeschakeld
+De status van de provider: Inrichten<BR>
+Circuitstatus van het: Ingeschakeld
 
 Voordat u kunt een ExpressRoute-circuit gebruiken, moet deze de status van de volgende zijn:
 
-De status van provider: ingericht<BR>
-Circuit status: ingeschakeld
+De status van de provider: Ingericht<BR>
+Circuitstatus van het: Ingeschakeld
 
 ### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. Controleer regelmatig de status en de status van de sleutel van het circuit
 Hier vindt u de eigenschappen van het circuit waarin u geïnteresseerd bent door deze te selecteren. Controleer de **providerstatus** en zorg ervoor dat het is verplaatst naar **ingerichte** voordat u doorgaat.
@@ -117,10 +118,11 @@ U kunt bepaalde eigenschappen van een ExpressRoute-circuit wijzigen zonder gevol
 U kunt de volgende taken zonder uitvaltijd uitvoeren:
 
 * In- of uitschakelen van een ExpressRoute Premium-invoegtoepassing voor uw ExpressRoute-circuit.
-* Vergroot de bandbreedte van uw ExpressRoute-circuit, mits er capaciteit beschikbaar is op de poort. Het downgraden van de bandbreedte van een circuit wordt niet ondersteund. 
-* Wijzigen van de softwarelicentiecontrole plan is uit de *naar gebruik* naar *onbeperkte gegevens*. Wijzigen van de softwarelicentiecontrole plan van onbeperkte gegevens in naar gebruik wordt niet ondersteund.
+* Vergroot de bandbreedte van uw ExpressRoute-circuit, mits er capaciteit beschikbaar is op de poort.
+  > [!IMPORTANT] Het downgraden van de bandbreedte van een circuit wordt niet ondersteund. 
+* Wijzigen van de softwarelicentiecontrole plan is uit de *naar gebruik* naar *onbeperkte gegevens*.
+  > [!IMPORTANT] Wijzigen van de softwarelicentiecontrole plan van onbeperkte gegevens in naar gebruik wordt niet ondersteund.
 * U kunt inschakelen en uitschakelen *klassieke bewerkingen toestaan*.
-
 > [!IMPORTANT]
 > U moet de ExpressRoute-circuit opnieuw te maken als er onvoldoende capaciteit op de bestaande poort. U kunt het circuit niet bijwerken als er geen extra capaciteit beschikbaar is op die locatie.
 >

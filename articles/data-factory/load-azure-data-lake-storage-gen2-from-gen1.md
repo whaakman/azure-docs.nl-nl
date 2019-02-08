@@ -1,6 +1,6 @@
 ---
-title: Gegevens kopiëren van Azure Data Lake Storage Gen1 naar Gen2 (Preview) met Azure Data Factory
-description: Gebruik Azure Data Factory om gegevens kopiëren van Azure Data Lake Storage Gen1 naar Gen2 (Preview)
+title: Gegevens kopiëren van Azure Data Lake Storage Gen1 naar Gen2 met Azure Data Factory
+description: Gebruik Azure Data Factory om gegevens kopiëren van Azure Data Lake Storage Gen1 naar Gen2
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 40cf8dcf6729d577c4fff694b0380833fccb142d
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: da42e0bf86aca571fb26367f18bbf07f90f5531b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679355"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884610"
 ---
-# <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-preview-with-azure-data-factory"></a>Gegevens kopiëren van Azure Data Lake Storage Gen1 naar Gen2 (Preview) met Azure Data Factory
+# <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Gegevens kopiëren van Azure Data Lake Storage Gen1 naar Gen2 met Azure Data Factory
 
-Azure Data Lake Storage Gen2 Preview is een verscheidenheid aan functies die zijn toegewezen aan de analyse van big data, die is ingebouwd in [Azure Blob-opslag](../storage/blobs/storage-blobs-introduction.md). Hiermee kunt u samenwerken met uw gegevens met behulp van beide beschermingsparadigma in het systeem en de object-opslag.
+Azure Data Lake Storage Gen2 is een verscheidenheid aan functies die zijn toegewezen aan de analyse van big data, die is ingebouwd in [Azure Blob-opslag](../storage/blobs/storage-blobs-introduction.md). Hiermee kunt u samenwerken met uw gegevens met behulp van beide beschermingsparadigma in het systeem en de object-opslag.
 
 Als u momenteel van Azure Data Lake Storage Gen1 gebruikmaakt, kunt u de nieuwe functie Gen2 evalueren door te kopiëren van gegevens van Data Lake Storage Gen1 naar Gen2 met Azure Data Factory.
 
@@ -32,9 +32,9 @@ In dit artikel leest u hoe u het hulpprogramma Copy Data van Data Factory gegeve
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Azure-abonnement: als u geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
+* Azure-abonnement: Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
 * Account voor Azure Data Lake Storage Gen1 met gegevens.
-* Azure Storage-account met Data Lake Storage Gen2 is ingeschakeld: als u geen een Storage-account hebt, klikt u op [hier](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) een te maken.
+* Azure Storage-account met Data Lake Storage Gen2 is ingeschakeld: Als u geen een Storage-account hebt, klikt u op [hier](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) een te maken.
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 
@@ -92,7 +92,7 @@ In dit artikel leest u hoe u het hulpprogramma Copy Data van Data Factory gegeve
 
     ![Geef de map voor uitvoer](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-binary-copy.png)
     
-7. In de **doelgegevensarchief** pagina, klikt u op **+ nieuwe verbinding maken**, en selecteer vervolgens **Azure Data Lake Storage Gen2 (Preview)**, en selecteer **doorgaan** :
+7. In de **doelgegevensarchief** pagina, klikt u op **+ nieuwe verbinding maken**, en selecteer vervolgens **Azure Data Lake Storage Gen2**, en selecteer **doorgaan**:
 
     ![De pagina Doelgegevensarchief](./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-storage-page.png)
 

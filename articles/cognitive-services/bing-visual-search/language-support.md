@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Een lijst van natuurlijke talen, landen en regio's die worden ondersteund door de Bing visuele zoekopdrachten-API. De Bing visuele zoekopdrachten-API biedt ondersteuning voor meer dan drie tientallen landen/regio's, veel met meer dan één taal.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: scottwhi
-ms.openlocfilehash: 0f7d3f8a7a9c7bdd67dc80a98744e1cd6a2433a1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8181fc259ffbed11672fe64a8fc821e234183b72
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180820"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55856849"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Ondersteuning voor taal en regio voor de Bing visuele zoekopdrachten-API
 
@@ -81,12 +81,12 @@ U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u ee
 |Land/regio|Taal|Code van de markt|
 |-------|--------|-----------|
 |Argentinië|Spaans|es-AR|
-|Australië|Nederlands|en-AU|
+|Australië|Engels|en-AU|
 |Oostenrijk|Duits|de-AT|
 |België|Nederlands|nl-BE|
 |België|Frans|fr-BE|
 |Brazilië|Portugees|pt-BR|
-|Canada|Nederlands|NL-CA|
+|Canada|Engels|NL-CA|
 |Canada|Frans|fr-CA|
 |Chili|Spaans|es-CL|
 |Denemarken|Deens|da-DK|
@@ -94,28 +94,28 @@ U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u ee
 |Frankrijk|Frans|fr-FR|
 |Duitsland|Duits|de-DE|
 |Hongkong SAR|Traditioneel Chinees|zh-HK|
-|India|Nederlands|NL-IN|
-|Indonesië|Nederlands|NL-ID|
+|India|Engels|NL-IN|
+|Indonesië|Engels|NL-ID|
 |Italië|Italiaans|IT-IT|
 |Japan|Japans|ja-JP|
 |Korea|Koreaans|ko-KR|
-|Maleisië|Nederlands|en Mijn|
+|Maleisië|Engels|en Mijn|
 |Mexico|Spaans|es-MX|
 |Nederland|Nederlands|NL-NL|
-|Nieuw-Zeeland|Nederlands|NL-NZ|
+|Nieuw-Zeeland|Engels|NL-NZ|
 |China|Chinees|zh-CN|
 |Polen|Pools|pl-PL|
 |Portugal|Portugees|pt-PT|
-|Filipijnen|Nederlands|NL-PH|
+|Filipijnen|Engels|NL-PH|
 |Rusland|Russisch|ru-RU|
 |Saoedi-Arabië|Arabisch|ar-SA|
-|Zuid-Afrika|Nederlands|en-ZA|
+|Zuid-Afrika|Engels|en-ZA|
 |Spanje|Spaans|es-ES|
 |Zweden|Zweeds|SV-SE|
 |Zwitserland|Frans|FR-h|
 |Zwitserland|Duits|de CH|
 |Taiwan|Traditioneel Chinees|zh-TW|
 |Turkije|Turks|tr-TR|
-|Verenigd Koninkrijk|Nederlands|en-GB|
-|Verenigde Staten|Nederlands|en-US|
+|Verenigd Koninkrijk|Engels|en-GB|
+|Verenigde Staten|Engels|en-US|
 |Verenigde Staten|Spaans|es-US|

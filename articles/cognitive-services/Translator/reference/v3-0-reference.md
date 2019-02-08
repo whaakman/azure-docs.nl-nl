@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Referentiedocumentatie voor de V3.0 Translator Text-API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 4d1c33480e408f892517cde6d42e103b34218f26
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 767021772fc86013cd8192216eb03840f1160807
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459063"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878694"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text-API v3.0
 
@@ -49,7 +49,7 @@ Om af te dwingen de aanvraag moet worden verwerkt door een specifieke datacenter
 |Azure|Azië en Stille Oceaan|    api-apc.cognitive.microsofttranslator.com|
 
 
-## <a name="authentication"></a>Verificatie
+## <a name="authentication"></a>Authentication
 
 Abonneren op Translator Text-API of [Cognitive Services All-in-one](https://azure.microsoft.com/pricing/details/cognitive-services/) op Microsoft Cognitive Services, en uw abonnement sleutel (beschikbaar in Azure portal) om te verifiëren. 
 

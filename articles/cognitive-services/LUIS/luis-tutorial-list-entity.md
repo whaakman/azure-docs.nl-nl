@@ -4,18 +4,18 @@ description: Informatie over het toevoegen van een entiteit lijst om te helpen L
 services: cognitive-services
 author: diberry
 titleSuffix: Azure
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: fe9276cb0af96baa8d818b1f2e965c83cb6b26c2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fc6d68e862f6a2f3c95f5ca6d130e42c96649eb1
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211488"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874610"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Een lijst met entiteit gebruiken voor het verhogen van detectie van entiteit 
 Deze zelfstudie ziet u het gebruik van een [entiteit lijst](luis-concept-entity-types.md) te verhogen van de detectie van de entiteit. Lijst met entiteiten hoeft te worden gelabeld als ze exact overeenkomen met de voorwaarden zijn.  

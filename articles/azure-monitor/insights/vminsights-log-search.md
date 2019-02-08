@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: e9e00dd9d05ff7339a6b5fd93e86bae61fbbf5ee
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 3ab70febbb41b26fd824f9ae6ef0d00358c7530f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188421"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864414"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Hoe u Logboeken voor query's van Azure Monitor voor virtuele machines (preview)
 Azure Monitor voor virtuele machines verzamelt metrische gegevens over prestaties en verbinding-, computer- en inventarisgegevens van proces- en informatie over de status en stuurt het naar de Log Analytics data store in Azure Monitor.  Deze gegevens zijn beschikbaar voor [zoeken](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics. U kunt deze gegevens toepassen op scenario's met migratieplanning, analyse, detectie en het oplossen van prestaties op aanvraag.
@@ -157,7 +157,7 @@ Records met een type *ServiceMapProcess_CL* beschikken over inventarisgegevens v
 | ProductVersion_s | De versie van het product |
 | FileVersion_s | Versie van het bestand |
 | CommandLine_s | Vanaf de opdrachtregel |
-| ExecutablePath _K | Het pad naar het uitvoerbare bestand |
+| ExecutablePath _s | Het pad naar het uitvoerbare bestand |
 | WorkingDirectory_s | De werkmap |
 | Gebruikersnaam | Het account waaronder het proces wordt uitgevoerd |
 | UserDomain | Het domein waarin het proces wordt uitgevoerd |
@@ -166,6 +166,12 @@ Records met een type *ServiceMapProcess_CL* beschikken over inventarisgegevens v
 
 ### <a name="list-all-known-machines"></a>Lijst van alle bekende machines
 `ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId`
+
+### <a name="when-was-the-vm-last-rebooted"></a>Wanneer is de virtuele machine laatst opnieuw opgestart
+`let Today = now(); ServiceMapComputer_CL | extend DaysSinceBoot = Today - BootTime_t | summarize by Computer, DaysSinceBoot, BootTime_t | sort by BootTime_t asc`
+
+### <a name="summary-of-azure-vms-by-image-location-and-sku"></a>Overzicht van Azure-VM's per afbeelding, de locatie en SKU
+`ServiceMapComputer_CL | where AzureLocation_s != "" | summarize by ComputerName_s, AzureImageOffering_s, AzureLocation_s, AzureImageSku_s`
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Een lijst van de capaciteit van het fysieke geheugen van alle beheerde computers.
 `ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s`
@@ -185,7 +191,7 @@ Records met een type *ServiceMapProcess_CL* beschikken over inventarisgegevens v
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Lijst van alle bekende processen op een opgegeven computer
 `ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
-### <a name="list-all-computers-running-sql"></a>Lijst van alle computers met SQL
+### <a name="list-all-computers-running-sql-server"></a>Lijst van alle computers met SQL Server
 `ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s`
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Lijst van alle unieke productversies van curl in mijn datacenter
@@ -193,6 +199,18 @@ Records met een type *ServiceMapProcess_CL* beschikken over inventarisgegevens v
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Maak een computergroep van alle computers waarop CentOS wordt uitgevoerd
 `ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s`
+
+### <a name="bytes-sent-and-received-trends"></a>Bytes verzonden en ontvangen van trends
+`VMConnection | summarize sum(BytesSent), sum(BytesReceived) by bin(TimeGenerated,1hr), Computer | order by Computer desc | render timechart`
+
+### <a name="which-azure-vms-are-transmitting-the-most-bytes"></a>Welke Azure-VM's zijn het meest bytes verzenden
+`VMConnection | join kind=fullouter(ServiceMapComputer_CL) on $left.Computer == $right.ComputerName_s | summarize count(BytesSent) by Computer, AzureVMSize_s | sort by count_BytesSent desc`
+
+### <a name="link-status-trends"></a>Koppeling status trends
+`VMConnection | where TimeGenerated >= ago(24hr) | where Computer == "acme-demo" | summarize  dcount(LinksEstablished), dcount(LinksLive), dcount(LinksFailed), dcount(LinksTerminated) by bin(TimeGenerated, 1h) | render timechart`
+
+### <a name="connection-failures-trend"></a>Trend van mislukte verbinding
+`VMConnection | where Computer == "acme-demo" | extend bythehour = datetime_part("hour", TimeGenerated) | project bythehour, LinksFailed | summarize failCount = count() by bythehour | sort by bythehour asc | render timechart`
 
 ### <a name="summarize-the-outbound-connections-from-a-group-of-machines"></a>Samenvatting van de uitgaande verbindingen van een groep machines
 ```

@@ -15,12 +15,12 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 3e8d9cc44e4e83dac963b3d85f7dd4d058323bf6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: f7df77447d0571b6d111e316f3f2bcf85b4e1aa4
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813820"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893751"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Beveiligingsoverwegingen voor het openen van apps op afstand met Azure AD-toepassingsproxy
 
@@ -147,7 +147,7 @@ Als u de app met Azure AD worden geconfigureerd, worden gebruikers omgeleid naar
 
 2. Nadat alle controles zijn verstreken, wordt de Azure AD STS een ondertekende token voor de toepassing en wordt de gebruiker omgeleid naar de Application Proxy-service.
 
-3. Toepassingsproxy worden geverifieerd of het token is uitgegeven om op te lossen van de toepassing. Deze andere voert controles uit ook, zoals ervoor te zorgen dat het token is ondertekend door Azure AD en is nog steeds binnen het geldige venster.
+3. Toepassingsproxy worden geverifieerd of het token is uitgegeven aan de juiste toepassing. Deze andere voert controles uit ook, zoals ervoor te zorgen dat het token is ondertekend door Azure AD en is nog steeds binnen het geldige venster.
 
 4. Application Proxy stelt in een versleutelde verificatiecookie om aan te geven dat de verificatie naar de toepassing is opgetreden. De cookie bevat de timestamp van een vervaldatum die gebaseerd op het token uit Azure AD en andere gegevens, zoals de naam van de gebruiker die de verificatie is gebaseerd op. De cookie is versleuteld met een persoonlijke sleutel die alleen bekend bij de Application Proxy-service.
 

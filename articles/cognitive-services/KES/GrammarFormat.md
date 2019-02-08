@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Meer informatie over de grammatica-indeling in de Knowledge Exploration Service KES () API.
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: f3cb307a52cfddebfa97c1b8608549acdd89169d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 72dec3effe5e350818c01cf65c9140e778effd17
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215064"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860283"
 ---
 # <a name="grammar-format"></a>Grammatica-indeling
 
@@ -126,10 +126,10 @@ before <attrref uri="academic#Year" op="lt" name="year"/
 
 De volgende tabel bevat de ondersteunde `op` waarden voor elk kenmerktype.  Het gebruik ervan is vereist voor de bijbehorende indexbewerking moet worden opgenomen in de definitie van de schema-kenmerk.
 
-| Kenmerktype | Op waarde | Beschrijving | Indexbewerking
+| Kenmerktype | Op waarde | Description | Indexbewerking
 |----|----|----|----|
-| Reeks | eq | Exacte tekenreeksovereenkomst | is gelijk aan |
-| Reeks | starts_with | Voorvoegsel tekenreeksovereenkomst | starts_with |
+| String | eq | Exacte tekenreeksovereenkomst | is gelijk aan |
+| String | starts_with | Voorvoegsel tekenreeksovereenkomst | starts_with |
 | Int32, Int64, Double | eq |  Numerieke gelijkheid | is gelijk aan |
 | Int32, Int64, Double | lt, le, gt, ge | Numerieke ongelijkheid overeenkomst (<, < =, >, > =) | is_between |
 | Int32, Int64, Double | starts_with | Voorvoegselovereenkomst van waarde in decimale notatie | starts_with |

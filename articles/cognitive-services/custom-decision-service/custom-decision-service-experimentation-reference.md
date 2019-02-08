@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: In dit artikel is een handleiding voor experimenten met Custom Decision Service.
 services: cognitive-services
 author: marco-rossi29
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: marossi
-ms.openlocfilehash: 90a99d4910b0afb885b415760f6a7ef1ca2aec33
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b5f8c853218a1db53f4dd23e7254b35990a7132b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219818"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55870262"
 ---
 # <a name="experimentation"></a>Experiment
 
@@ -77,7 +77,7 @@ python Experimentation.py [-h] -f FILE_PATH [-b BASE_COMMAND] [-p N_PROC]
 Een logboek van de resultaten wordt toegevoegd aan de *mwt-ds/DataScience/experiments.csv* bestand.
 
 ### <a name="parameters"></a>Parameters
-| Invoer | Beschrijving | Standaard |
+| Invoer | Description | Standaard |
 | --- | --- | --- |
 | `-h`, `--help` | Help-bericht en afsluiten weergeven. | |
 | `-f FILE_PATH`, `--file_path FILE_PATH` | Pad naar bestand (`.json` of `.json.gz` indeling - elke regel is een `dsjson`). | Vereist |  

@@ -13,20 +13,20 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: juliako
-ms.openlocfilehash: db7d47005b2855ffe3e28c43086a2bfa6b22c8f3
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: cce3ea06ebd7d3469dad14e491124f81567610ea
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659504"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894048"
 ---
 # <a name="live-events-and-live-outputs"></a>Live gebeurtenissen en live uitvoer
 
 Azure Media Services kunt u live-evenementen Bied uw klanten op de Azure-cloud. Voor het configureren van uw live streaming-gebeurtenissen in Media Services v3, moet u inzicht in concepten die in dit artikel worden besproken:
 
 * [Live-evenementen](#live-events)
-* [Live gebeurtenistypen](#live-vent-types)
-* [Vergelijking van de typen Live gebeurtenis](#live-event-types-comparison)
+* Live gebeurtenistypen
+* Vergelijking van de typen Live gebeurtenis
 * [Opties voor het maken van Live gebeurtenis](#live-event-creation-options)
 * [URL's voor Live-gebeurtenis opnemen](#live-event-ingest-urls)
 * [Live gebeurtenis de voorbeeld-URL](#live-event-preview-url)
@@ -66,11 +66,11 @@ U kunt de bijdrage op maximaal 1080 p oplossing tegen een tarief van het kader v
 
 Bij het maken van een Live-gebeurtenis, kunt u de volgende opties opgeven:
 
-* De streaming-protocol voor de Live-gebeurtenis (het RTMP- en Smooth Streaming-protocollen worden momenteel ondersteund).<br/>U kunt de protocoloptie niet wijzigen terwijl de Live gebeurtenis of de bijbehorende Live-uitvoer worden uitgevoerd. Als u verschillende protocollen nodig hebt, maakt u afzonderlijke Live gebeurtenis voor elke streaming-protocol.  
-* IP-beperkingen voor de opname en voorbeeldweergave. U kunt de IP-adressen die zijn toegestaan voor het opnemen van een video naar dit Live gebeurtenis definiëren. Toegestane IP-adressen kunnen worden opgegeven als één IP-adres (bijvoorbeeld 10.0.0.1), een IP-adresbereik met een IP-adres en een CIDR-subnetmasker (bijvoorbeeld 10.0.0.1/22) of een IP-adresbereik met een IP-adres en een decimaal subnetmasker met punten (bijvoorbeeld , ' 10.0.0.1(255.255.252.0)').<br/>Als geen IP-adressen zijn opgegeven en er geen regeldefinitie bestaat, zijn er geen IP-adressen toegestaan. Als u IP-adres(sen) wilt toestaan, maakt u een regel en stelt u 0.0.0.0/0 in.<br/>De IP-adressen moeten een van de volgende indelingen hebben: IpV4-adres met 4 cijfers, CIDR-adresbereik.
-* Bij het maken van de gebeurtenis kunt u opgeven dat deze automatisch wordt gestart. <br/>Wanneer autostart is ingesteld op True, wordt de Live gebeurtenis gestart na het maken ervan. De facturering begint zodra de Live gebeurtenis wordt gestart. U moet stoppen expliciet aanroepen op de bron van de Live gebeurtenis verder facturering is gestopt. U kunt ook kun u de gebeurtenis wanneer u klaar bent om te streamen. 
+* Het streaming-protocol voor de livegebeurtenis (momenteel worden de protocollen RTMP en Smooth Streaming ondersteund).<br/>U kunt de protocoloptie niet wijzigen terwijl de livegebeurtenis of de daaraan gekoppelde live-uitvoer worden uitgevoerd. Als u verschillende protocollen nodig hebt, maakt u voor elk streaming-protocol een afzonderlijke livegebeurtenis.  
+* IP-beperkingen voor de opname en voorbeeldweergave. U kunt de IP-adressen definiëren die zijn toegestaan om een video van deze livegebeurtenis op te nemen. Toegestane IP-adressen kunnen worden opgegeven als één IP-adres (bijvoorbeeld 10.0.0.1), een IP-adresbereik met een IP-adres en een CIDR-subnetmasker (bijvoorbeeld 10.0.0.1/22) of een IP-adresbereik met een IP-adres en een decimaal subnetmasker met punten (bijvoorbeeld , ' 10.0.0.1(255.255.252.0)').<br/>Als geen IP-adressen zijn opgegeven en er geen regeldefinitie bestaat, zijn er geen IP-adressen toegestaan. Als u IP-adres(sen) wilt toestaan, maakt u een regel en stelt u 0.0.0.0/0 in.<br/>De IP-adressen moeten een van de volgende indelingen hebben: IpV4-adres met 4 cijfers, CIDR-adresbereik.
+* Bij het maken van de gebeurtenis kunt u opgeven dat deze automatisch wordt gestart. <br/>Wanneer autostart is ingesteld op True, wordt de Live gebeurtenis gestart na het maken ervan. De facturering begint zodra de Live gebeurtenis wordt gestart. U moet expliciet Stop aanroepen in de resource van de livegebeurtenis om verdere facturering stop te zetten. U kunt ook kun u de gebeurtenis wanneer u klaar bent om te streamen. 
 
-    Zie voor meer informatie, [Live gebeurtenis Staten en facturering](live-event-states-billing.md).
+    Zie [Live Event states and billing](live-event-states-billing.md) (Statussen en facturering voor livegebeurtenissen) voor meer informatie.
 
 ## <a name="live-event-ingest-urls"></a>URL's voor Live-gebeurtenis opnemen
 
@@ -133,7 +133,7 @@ Zodra de **Live gebeurtenis** ontvangen van de bijdrage feed is gestart, kunt u 
 Zodra u de stroom doorgestuurd naar de Live gebeurtenis hebt, kunt u de streaminggebeurtenis starten door het maken van een [Asset](https://docs.microsoft.com/rest/api/media/assets), [uitvoer Live](https://docs.microsoft.com/rest/api/media/liveoutputs), en [Streaming-Locator gemaakt](https://docs.microsoft.com/rest/api/media/streaminglocators). Live uitvoer wordt de stream gearchiveerd en beschikbaar maken aan kijkers via de [Streaming-eindpunt](https://docs.microsoft.com/rest/api/media/streamingendpoints).  
 
 > [!NOTE]
-> Live uitvoer aan de slag met het maken en stoppen wanneer verwijderd. Wanneer u de uitvoer Live verwijdert, verwijdert u niet de onderliggende Asset en de inhoud in de asset. 
+> Live-uitvoer starten zodra ze zijn gemaakt en stoppen wanneer ze worden verwijderd. Wanneer u de live-uitvoer verwijdert, verwijdert u de onderliggende Asset en de inhoud van de Asset niet. 
 
 De relatie tussen een **Live gebeurtenis** en de bijbehorende **uitvoer Live** is vergelijkbaar met traditionele televisie broadcast, waarbij een kanaal (**Live gebeurtenis**) vertegenwoordigt een constante streamen van video en een opname (**uitvoer Live**) is afgestemd op een specifiek tijdstip-segment (bijvoorbeeld 's avonds nieuws van 18:30:00 uur op 19:00 uur). U kunt met behulp van een Digital Video Recorder (DVR) televisie vastleggen – de vergelijkbare functie in Live gebeurtenissen wordt beheerd de **ArchiveWindowLength** eigenschap. Het is een ISO 8601-timespan duur (bijvoorbeeld PTHH:MM:SS), waarmee wordt Hiermee geeft u de capaciteit van de DVR en kan worden ingesteld van minimaal 3 minuten tot een maximum van 25 uur.
 

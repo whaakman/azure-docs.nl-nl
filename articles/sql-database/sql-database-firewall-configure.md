@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: e4b217ada2aae159680b113b6ddcb41c9d121f24
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: dcd0c7073f2126e001a65e2142ea54a229553ebd
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753058"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894697"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Azure SQL-Database en SQL Data Warehouse IP-firewall-regels
 
@@ -92,7 +92,7 @@ Voor betere prestaties, de IP-firewallregels op serverniveau tijdelijk worden op
 > [!TIP]
 > U kunt [SQL Database Auditing](sql-database-auditing.md) om te controleren van wijzigingen van de firewall op serverniveau en databaseniveau.
 
-## <a name="manage-ip-firewall-rules-using-the-azure-portal"></a>IP-firewallregels met behulp van de Azure-portal beheren
+## <a name="manage-server-level-ip-firewall-rules-using-the-azure-portal"></a>IP-firewallregels op serverniveau met de Azure-portal beheren
 
 Om in te stellen een IP-firewallregel op serverniveau in Azure portal, kunt u ofwel gaat u naar de pagina overzicht voor uw Azure SQL database of de overzichtspagina voor uw SQL Database-server.
 
@@ -196,7 +196,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 | [Delete Firewall Rule](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) (Firewallregel verwijderen) |Server |Hiermee verwijdert u de IP-firewallregels op serverniveau |
 | [Firewallregels ophalen](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Server | IP-firewallregels op serverniveau opgehaald |
 
-## <a name="server-level-ip-firewall-rule-versus-a-database-level-ip-firewall-rule"></a>Het IP-firewallregel op serverniveau ten opzichte van een IP-firewallregel op databaseniveau
+## <a name="server-level-versus-database-level-ip-firewall-rules"></a>-Serverniveau ten opzichte van de IP-firewallregels op databaseniveau
 
 V. Gebruikers van één database worden volledig geïsoleerd van een andere database?
 Als u Ja kiest, moet u toegang met behulp van IP-firewallregels op databaseniveau verlenen. Hiermee voorkomt u met behulp van op serverniveau IP-firewallregels, die via de firewall op alle databases, verminderen de diepte van uw beveiliging toestaan.

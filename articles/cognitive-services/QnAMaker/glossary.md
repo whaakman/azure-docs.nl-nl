@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: De QnA Maker-service heeft veel nieuwe voorwaarden van machine learning en natuurlijke taal verwerken, evenals specifieke services. Deze lijst krijgt u inzicht in deze voorwaarden.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: e86ea22208ccd08c0268fda0cc47d5127b4568a1
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: c280f6ef99678b77edcb251ead685be88265f825
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226465"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871010"
 ---
 # <a name="glossary-for-qna-maker-knowledge-base-and-service"></a>Verklarende woordenlijst voor QnA Maker knowledge base en service
 

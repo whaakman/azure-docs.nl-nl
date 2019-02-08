@@ -4,19 +4,19 @@ titleSuffix: QnA Maker - Azure Cognitive Services
 description: Gebruik de QnA Maker-portal om toe te voegen een kennisdatabase met chit chat maken. Hierdoor wordt uw app deelnemen. Toevoegen van een vooraf gevulde set van de bovenste chit-chat in uw KB als uitgangspunt voor van uw bot chit-chat en bespaart u tijd en kosten van het schrijven van deze helemaal.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: cb62be34f7f294bda83920f95c9f7c7bd63cfbda
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 4ba744c3d8cc3a785c04bbbb1b476a857859e244
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219682"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55876851"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-portal"></a>Quickstart: Een kennisdatabase met behulp van de QnA Maker portal maken
 

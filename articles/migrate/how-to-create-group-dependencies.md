@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 007f7fe95be77a2b1661cd6c82118eb875401f24
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5c4d16ff85972bc4b608e6ce2006912fb27d49d2
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472572"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895428"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Een groep met afhankelijkheidstoewijzing groep verfijnen
 
@@ -104,7 +104,7 @@ Wanneer u agents hebt geïnstalleerd op alle computers van de groep, kunt u de a
 3. Als u gedetailleerdere afhankelijkheden, klikt u op het tijdsbereik om dit te wijzigen. Het bereik is standaard een uur. U kunt het tijdsbereik wijzigen of geef de begin- en einddatums en duur.
 
     > [!NOTE]
-      De visualisatie van afhankelijkheden gebruikersinterface biedt op dit moment geen ondersteuning voor selectie van een periode die langer dan een uur. Log Analytics te gebruiken [query uitvoeren op de afhankelijkheidsgegevens](https://docs.microsoft.com/azure/migrate/how-to-create-a-group#query-dependency-data-from-log-analytics) gedurende een langere periode.
+      De visualisatie van afhankelijkheden gebruikersinterface biedt op dit moment geen ondersteuning voor selectie van een periode die langer dan een uur. Log Analytics te gebruiken [query uitvoeren op de afhankelijkheidsgegevens](https://docs.microsoft.com/azure/migrate/how-to-create-a-group) gedurende een langere periode.
 
 4. Controleer of de afhankelijke machines het proces wordt uitgevoerd op elke machine en de machines identificeren die moeten worden toegevoegd of verwijderd uit de groep.
 5. Gebruik Ctrl + klik Selecteer machines op de kaart toevoegen of verwijderen uit de groep.
