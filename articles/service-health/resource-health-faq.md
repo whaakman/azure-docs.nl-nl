@@ -1,25 +1,18 @@
 ---
 title: Azure Resource Health Veelgestelde vragen over | Microsoft Docs
 description: Overzicht van Azure Resource Health
-services: Resource health
-documentationcenter: dev-center-name
-author: BernardoAMunoz
-manager: ''
-editor: ''
-ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
+author: stephbaron
+ms.author: stbaron
+ms.topic: conceptual
 ms.service: service-health
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.date: 01/29/2019
 ms.workload: Supportability
-ms.date: 03/27/2018
-ms.author: BernardoAMunoz
-ms.openlocfilehash: 1e22c62c291909bb4079ebaf389cfbd15ae9d8d5
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: c0de42935c1e46fd51e82a58083f85f6cee83ce3
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42056614"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884534"
 ---
 # <a name="azure-resource-health-faq"></a>Azure Resource Health Veelgestelde vragen
 Meer informatie over de antwoorden op veelgestelde vragen over Azure Resource Health.
@@ -40,7 +33,7 @@ Resourcestatus voert diverse controles op basis van de [resourcetype](resource-h
 Er zijn drie verschillende health-statussen:
 - Beschikbaar: Er zijn geen bekende problemen in de Azure-platform dat kan worden invloed heeft op deze resource
 - Niet beschikbaar: Resourcestatus heeft gedetecteerd problemen die de resource van invloed zijn op
-- Onbekend: Resourcestatus kan niet bepalen de status van een resource omdat deze informatie ontvangt over deze is gestopt. 
+- Onbekend: Resourcestatus kan de status van een resource niet bepalen omdat deze informatie ontvangt over deze is gestopt. 
 
 ## <a name="what-does-the-unknown-status-mean-is-something-wrong-with-my-resource"></a>Wat houdt de status onbekend? Er is iets mis met mijn resource?
 De status is ingesteld op Onbekend als Resource Health stopt informatie ontvangt over een specifieke resource. Terwijl deze status is niet een definitieve indicatie van de status van de resource, in gevallen waarbij u problemen ondervindt waarvan, kan dit betekenen dat er is een probleem met Azure.

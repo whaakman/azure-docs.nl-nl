@@ -191,6 +191,8 @@ items:
       href: sql-database-automated-backups.md
     - name: Langetermijnretentie van back-ups
       href: sql-database-long-term-retention.md
+    - name: Gebeurtenissen voor gepland onderhoud
+      href: sql-database-planned-maintenance.md
     - name: Failovergroepen en geo-replicatie
       items:
       - name: Actieve geo-replicatie
@@ -295,8 +297,6 @@ items:
       href: sql-database-elastic-query-overview.md
     - name: Elastische transacties
       href: sql-database-elastic-transactions-overview.md
-  - name: Vergelijking van SQL-functies
-    href: sql-database-features.md
   - name: Bewaking en afstemming
     items:
     - name: Overzicht van bewaking en afstemming
@@ -321,24 +321,28 @@ items:
         href: sql-database-performance.md
       - name: Prestatieaanbevelingen van Database Advisor
         href: sql-database-advisor.md
-  - name: Gegevens laden en verplaatsen
-    items:
-    - name: SQL Data Sync
-      href: sql-database-sync-data.md
-    - name: Transactionele replicatie
-      href: sql-database-managed-instance-transactional-replication.md
   - name: Databases-functies
     items:
-    - name: Databases-functies
-      href: sql-database-develop-overview.md
+    - name: Vergelijking van SQL-functies
+      href: sql-database-features.md
     - name: Mogelijkheden voor meerdere modellen
       href: sql-database-multi-model-features.md
     - name: In het geheugen
       href: sql-database-in-memory.md
+    - name: Transactionele replicatie
+      href: sql-database-managed-instance-transactional-replication.md
+    - name: SQL Data Sync
+      href: sql-database-sync-data.md
     - name: Tijdelijke tabellen
       href: sql-database-temporal-tables.md
     - name: Automatisering van taken
       href: sql-database-job-automation-overview.md
+    - name: Machine learning
+      items:
+      - name: Overzicht van machine learning
+        href: sql-database-machine-learning-services-overview.md
+      - name: Belangrijke verschillen
+        href: sql-database-machine-learning-services-differences.md
 - name: Handleidingen
   items:
   - name: Overzicht
@@ -523,8 +527,8 @@ items:
       href: sql-database-manage-automation.md
   - name: Apps ontwikkelen
     items:
-    - name: Connectiviteit
-      href: sql-database-libraries.md
+    - name: Overzicht
+      href: sql-database-develop-overview.md
     - name: Werken met JSON-gegevens
       href: sql-database-json-features.md
     - name: Spark-connector gebruiken
@@ -712,9 +716,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Elastische taak verwijderen (afgeschaft)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 9a04e463a7324b1021594a8fbefc5988ad8471f2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 1b32688e6e9ed6b826dd9191c8d58e85b1b2b128
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756730"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813670"
