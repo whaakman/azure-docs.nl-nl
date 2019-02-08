@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: afcac73af84010f37eccd018f39852712e495b84
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: f0f0e32ccbb8fdac934f81e2f90132f63a91f069
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55773342"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892113"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>Uw niet-Microsoft-accounts toevoegen
 Uw niet-Microsoft-accounts, zoals voor Google, Facebook of GitHub toevoegen aan de Microsoft Authenticator-app voor tweeledige verificatie. De Microsoft Authenticator-app werkt met elke app die gebruikmaakt van tweeledige verificatie en alle accounts die ondersteuning biedt voor de standaarden op basis van tijd eenmalig wachtwoord (mobiele TOTP).
@@ -55,7 +55,7 @@ Uw Google-account toevoegen door het inschakelen van tweeledige verificatie en h
 4. De camera van uw apparaat gebruiken om te scannen van de QR-code uit de **Authenticator instellen** pagina op uw PC.
 
     >[!Note]
-    >Als uw camera niet goed werkt, kunt u [handmatig invoeren van de QR-code en URL](#add-an-account-to-the-app-manually).
+    >Als uw camera niet goed werkt, kunt u de QR-code en de URL handmatig invoeren.
 
 5. Controleer de **Accounts** pagina van de Microsoft Authenticator-app op uw apparaat, om te controleren of gegevens over uw account wordt rechts en er is een bijbehorende 6-cijferige verificatiecode.
 
@@ -94,7 +94,7 @@ Uw Facebook-account toevoegen door het inschakelen van tweeledige verificatie en
 3. De camera van uw apparaat gebruiken om te scannen van de QR-code uit de **twee factor authentication** pagina op uw PC.
 
     >[!Note]
-    >Als uw camera niet goed werkt, kunt u [handmatig invoeren van de QR-code en URL](#add-an-account-to-the-app-manually).
+    >Als uw camera niet goed werkt, kunt u de QR-code en de URL handmatig invoeren.
 
 4. Controleer de **Accounts** pagina van de Microsoft Authenticator-app op uw apparaat, om te controleren of gegevens over uw account wordt rechts en er is een bijbehorende 6-cijferige verificatiecode.
 
@@ -165,7 +165,7 @@ De Amazon-account toevoegen door het inschakelen van tweeledige verificatie en h
 6. De camera van uw apparaat gebruiken om te scannen van de QR-code uit de **kiezen hoe u ontvangt codes** pagina op uw PC.
 
     >[!Note]
-    >Als uw camera niet goed werkt, kunt u [handmatig invoeren van de QR-code en URL](#add-an-account-to-the-app-manually).
+    >Als uw camera niet goed werkt, kunt u de QR-code en de URL handmatig invoeren.
 
 5. Controleer de **Accounts** pagina van de Microsoft Authenticator-app op uw apparaat, om te controleren of gegevens over uw account wordt rechts en er is een bijbehorende 6-cijferige verificatiecode.
 

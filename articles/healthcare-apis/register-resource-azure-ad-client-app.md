@@ -7,12 +7,12 @@ ms.service: healthcare-apis
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: mihansen
-ms.openlocfilehash: c0602d44a5b01e31cd2082e2b05d17c4289adaa1
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: e8305c5a69fa3fda29f4f1292b7faa59f8ec3608
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824040"
+ms.locfileid: "55870143"
 ---
 # <a name="register-a-resource-application-in-azure-active-directory"></a>Een resource-App in Azure Active Directory registreren
 
@@ -42,7 +42,9 @@ De resourcetoepassing van een heeft een URI (URI toepassings-ID), welke clients 
 
 2. Klik op **ingesteld** naast *URI toepassings-ID*.
 
-3. Klik op **een bereik toevoegen** en alle scopes die u wilt definiëren voor u API toe te voegen. Azure AD is momenteel niet toegestaan voor slashes (`/`) in de scopenamen van de. Wordt u aangeraden `$` in plaats daarvan. Een bereik, zoals `patient/*.read` zou `patient$*.read`.
+3. De id-URI invoeren en op **opslaan**. Een goede id-URI zou de URI van uw FHIR-server.
+
+4. Klik op **een bereik toevoegen** en alle scopes die u wilt definiëren voor u API toe te voegen. Azure AD is momenteel niet toegestaan voor slashes (`/`) in de scopenamen van de. Wordt u aangeraden `$` in plaats daarvan. Een bereik, zoals `patient/*.read` zou `patient$*.read`.
 
     ![Doelgroep en bereik](media/how-to-aad/portal-aad-register-new-app-registration-AUD-SCOPE.png)
 

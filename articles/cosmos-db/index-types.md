@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/5/2018
 ms.author: rimman
-ms.openlocfilehash: 50e8e63c9508aa9e81222f242ca330637075e42d
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 02055ec07de2b08abdc949e17c668912431e00ce
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199065"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871248"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Typen van de index in Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Azure Cosmos DB biedt ondersteuning voor Hash-index en bereik index voor elk pad
   
 - **Bereik index** biedt ondersteuning voor efficiënte gelijkheid query's, bereik-query's (met behulp van >, <>, =, < =,! =), en ORDER BY-query's. ORDER By-query's standaard vereist ook maximale index precisie (-1). Het gegevenstype mag tekenreeks of getal.
 
-- **Ruimtelijke index** ondersteunt efficiënte ruimtelijke (binnen en afstand) query's. Het gegevenstype mag punt, Polygon of LineString. Azure Cosmos DB ondersteunt ook het type van de ruimtelijke index voor elk pad dat kan worden opgegeven voor de gegevenstypen punt, Polygon of LineString. De waarde in het opgegeven pad moet een geldige GeoJSON-fragment, zoals {"type": 'Point', "coördinaten": [0.0, 10.0]}. Azure Cosmos DB biedt ondersteuning voor automatische indexering van punt veelhoek en LineString gegevenstypen.
+- **Ruimtelijke index** ondersteunt efficiënte ruimtelijke (binnen en afstand) query's. Het gegevenstype mag punt, Polygon of LineString. Azure Cosmos DB ondersteunt ook het type van de ruimtelijke index voor elk pad dat kan worden opgegeven voor de gegevenstypen punt, Polygon of LineString. De waarde in het opgegeven pad moet een geldige GeoJSON-fragment, zoals {"type": "Point", "coordinates": [0.0, 10.0]}. Azure Cosmos DB biedt ondersteuning voor automatische indexering van punt veelhoek en LineString gegevenstypen.
 
 Hier volgen enkele voorbeelden van query's die Hash, bereik en ruimtelijke indexen kunnen worden gebruikt voor het bieden van:
 
@@ -42,7 +42,7 @@ Hier volgen enkele voorbeelden van query's die Hash, bereik en ruimtelijke index
 | ---------- | ---------------- |
 | Hash  | Hash-via/prop /? (of /) kan worden gebruikt om de volgende query's efficiënt fungeren:<br><br>Selecteer uit verzameling c waar c.prop = "waarde"<br><br>Hash voor/eigenschappen / [] /? (of / of/eigenschappen /) kan worden gebruikt om de volgende query's efficiënt fungeren:<br><br>Selecteer taggen van verzameling c JOIN-tag IN c.props waar tag = 5  |
 | Bereik  | Bereik via/prop /? (of /) kan worden gebruikt om de volgende query's efficiënt fungeren:<br><br>Selecteer uit verzameling c waar c.prop = "waarde"<br><br>Selecteer uit verzameling c waar c.prop > 5<br><br>Selecteer uit verzameling c ORDER BY c.prop   |
-| Ruimtelijk     | Bereik via/prop /? (of /) kan worden gebruikt om de volgende query's efficiënt fungeren:<br><br>Selecteer uit de verzameling-c<br><br>WAAR ST_DISTANCE (c.prop, {"type": 'Point', "coördinaten": [0.0, 10.0]}) < 40<br><br>Selecteer in de verzameling c waar ST_WITHIN(c.prop, {"type": "Veelhoek',...}) --met het indexeren van punten ingeschakeld<br><br>Selecteer in de verzameling c waar ST_WITHIN({"type": 'Point',...}, c.prop)--met indexering voor veelhoeken ingeschakeld.     |
+| Ruimtelijk     | Bereik via/prop /? (of /) kan worden gebruikt om de volgende query's efficiënt fungeren:<br><br>Selecteer uit de verzameling-c<br><br>WAAR ST_DISTANCE (c.prop, {"type": 'Point', "coördinaten": [0.0, 10.0]}) < 40<br><br>Selecteer in de verzameling c waar ST_WITHIN(c.prop, {"type": 'Point',...}) --met het indexeren van punten ingeschakeld<br><br>Selecteer in de verzameling c waar ST_WITHIN({"type": "Veelhoek',...}, c.prop)--met indexering voor veelhoeken ingeschakeld.     |
 
 ## <a name="default-behavior-of-index-kinds"></a>Standaardgedrag index soorten
 

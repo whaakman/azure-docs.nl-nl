@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: De Text to Speech-API biedt meer dan 75 stemmen in meer dan 45 talen en landen. Voor het gebruik van standard spraakstijlen, hoeft u alleen de stem-naam met een aantal andere parameters opgeven bij het aanroepen van de Speech-Service.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: b413bd65582dceadd9aab912694c3b560070c4f3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0836ae4a9041db27cfed35dd0f1fc0df6e541aff
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251551"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859331"
 ---
 # <a name="about-the-text-to-speech-api"></a>Over de Text to Speech-API
 

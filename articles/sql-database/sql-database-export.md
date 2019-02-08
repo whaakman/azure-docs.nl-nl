@@ -12,16 +12,16 @@ ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: e980ec81f66e1045a4d9df33b3392589f5c1a668
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d00d9b4a945b139ed7b930609fdab24e4a211551
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463749"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891094"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Een Azure SQL-database naar een BACPAC-bestand exporteren
 
-Wanneer u nodig hebt voor het exporteren van een database voor het archiveren of voor het verplaatsen naar een ander platform, kunt u de database-schema en gegevens te exporteren een [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) bestand. Een BACPAC-bestand is een ZIP-bestand met de extensie van de metagegevens en gegevens uit een SQL Server-database met BACPAC. Een BACPAC-bestand kan worden opgeslagen in Azure blob-opslag of in de lokale opslag in een on-premises locatie en later geïmporteerd terug naar Azure SQL Database of een installatie van de on-premises SQL Server.
+Wanneer u nodig hebt voor het exporteren van een database voor het archiveren of voor het verplaatsen naar een ander platform, kunt u de database-schema en gegevens te exporteren een [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) bestand. Een BACPAC-bestand is een ZIP-bestand met de extensie van de metagegevens en gegevens uit een SQL Server-database met BACPAC. Een BACPAC-bestand kan worden opgeslagen in Azure Blob-opslag of lokale opslag in een on-premises locatie en later geïmporteerde terug in Azure SQL Database of in een SQL Server on-premises installatie.
 
 > [!IMPORTANT]
 > Azure SQL Database functie voor geautomatiseerde Export is op 1 maart 2017 stopgezet. U kunt [langetermijnretentie](sql-database-long-term-retention.md

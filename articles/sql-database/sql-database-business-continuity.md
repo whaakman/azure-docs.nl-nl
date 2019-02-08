@@ -12,13 +12,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 998d4f45a2d4956e0e230bcf00636a965c35dd97
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: 90d95d7ad1ffb3200a69e0e7980dae2d7ed97470
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755166"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894323"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Overzicht van bedrijfscontinuïteit met Azure SQL Database
 
@@ -132,7 +132,7 @@ Als u gebruikmaakt van de automatische back-ups met geografisch redundante opsla
 Na herstel via een van beide herstelmechanismen moet u de volgende aanvullende taken uitvoeren voordat uw gebruikers en toepassingen opnieuw actief zijn:
 
 - Clients en clienttoepassingen omleiden naar de nieuwe server en herstelde database
-- Zorg ervoor dat het juiste niveau van de server IP-firewall-regels is voldaan voor gebruikers verbinding maken of gebruiken [firewalls op databaseniveau](sql-database-firewall-configure.md#manage-ip-firewall-rules-using-the-azure-portal) zodat de juiste regels.
+- Zorg ervoor dat het juiste niveau van de server IP-firewall-regels is voldaan voor gebruikers verbinding maken of gebruiken [firewalls op databaseniveau](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-the-azure-portal) zodat de juiste regels.
 - Ervoor zorgen dat er geschikte aanmeldingen en machtigingen op hoofddatabaseniveau aanwezig zijn (of [ingesloten gebruikers](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) gebruiken)
 - Controles configureren, indien van toepassing
 - Waarschuwingen configureren, indien van toepassing

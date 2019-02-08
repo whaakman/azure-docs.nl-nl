@@ -11,13 +11,13 @@ author: vainolo
 ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 0c79554d2db4c1dc17cfbdeed052c1ae16cd68c2
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.date: 02/07/2019
+ms.openlocfilehash: 26517e55685de6e1fd9174bb1892b877f0e263d6
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297681"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895649"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Aan de slag met SQL Database Auditing
 
@@ -41,9 +41,9 @@ U kunt gebruiken om SQL database auditing aan:
 - **Analyseren** rapporten. U kunt verdachte gebeurtenissen, ongebruikelijke activiteiten en trends vinden.
 
 > [!IMPORTANT]
-> Auditlogboeken worden geschreven naar **toevoeg-Blobs** in een Azure Blob-opslag in uw Azure-abonnement.
+> Auditlogboeken worden geschreven naar **toevoeg-Blobs** in Azure Blob-opslag in uw Azure-abonnement.
 >
-> - **Premium Storage** is momenteel **niet ondersteund** door toevoeg-Blobs.
+> - **Premium-opslag** is momenteel **niet ondersteund** door toevoeg-Blobs.
 > - **Opslag in VNet** is momenteel **niet ondersteund**.
 
 ## <a id="subheading-8"></a>Definiëren op serverniveau versus controlebeleid op databaseniveau
@@ -251,7 +251,7 @@ Uitgebreide beleid met waar component ondersteuning voor aanvullende filters:
 
 U kunt beheren met Azure SQL database auditing met behulp van [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) sjablonen, zoals wordt weergegeven in deze voorbeelden:
 
-- [Een Azure SQL-Server implementeren met controle ingeschakeld auditlogboeken schrijven naar Azure blob storage-account](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
+- [Een Azure SQL-Server implementeren met controle ingeschakeld auditlogboeken schrijven naar Azure Blob storage-account](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
 - [Een Azure SQL-Server met controle ingeschakeld auditlogboeken schrijven naar Log Analytics implementeren](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
 - [Een Azure SQL-Server implementeren met controle ingeschakeld auditlogboeken schrijven naar Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
 

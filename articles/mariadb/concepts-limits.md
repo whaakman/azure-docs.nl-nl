@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/03/2018
-ms.openlocfilehash: e611c5e11d3c86474a7775971918ba95b8487da4
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.date: 02/07/2019
+ms.openlocfilehash: 79d6e185b64fdaf332f877718487809ba6273441
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970281"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895785"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Beperkingen in Azure Database voor MariaDB
 De volgende secties beschrijven capaciteit, ondersteuning voor de opslag-engine, bevoegdheden ondersteuning, gegevens manipuleren instructie ondersteuning en functionele limieten in de database-service.
@@ -34,7 +34,7 @@ Het maximum aantal verbindingen per prijscategorie en vCores zijn als volgt:
 |Geoptimaliseerd geheugen| 16| 5000|
 
 Wanneer verbindingen de limiet overschrijdt, wordt de volgende fout:
-> FOUT 1040 (08004): Te veel verbindingen
+> ERROR 1040 (08004): Te veel verbindingen
 
 ## <a name="storage-engine-support"></a>Ondersteuning voor de opslag-engine
 
@@ -52,6 +52,7 @@ Wanneer verbindingen de limiet overschrijdt, wordt de volgende fout:
 ### <a name="unsupported"></a>Niet-ondersteund
 - DBA rol: Veel parameters van de server en instellingen kunnen per ongeluk serverprestaties slechter of ACID-eigenschappen van de DBMS negatief moet worden gemaakt. Als zodanig wilt behouden de integriteit van de service en SLA op het productniveau van een, wordt deze service niet weergegeven de DBA-rol. De standaard-gebruikersaccount, die is gemaakt wanneer een nieuwe database-exemplaar wordt gemaakt, kan die gebruiker voor het uitvoeren van de meeste DDL en DML-instructies in de beheerde database-instantie.
 - SUPER bevoegdheden: Op dezelfde manier [SUPER bevoegdheden](https://mariadb.com/kb/en/library/grant/#global-privileges) is ook beperkt.
+- OPSTELLER: Vereist super bevoegdheden voor het maken en is beperkt. Als u gegevens met behulp van een back-up importeert, verwijdert u de `CREATE DEFINER` opdrachten handmatig of met behulp van de `--skip-definer` bij het uitvoeren van een mysqldump opdracht.
 
 ## <a name="data-manipulation-statement-support"></a>Beheerondersteuning-instructie bewerken
 
@@ -76,6 +77,9 @@ Wanneer verbindingen de limiet overschrijdt, wordt de volgende fout:
 
 ### <a name="subscription-management"></a>Abonnementsbeheer
 - Dynamisch verplaatsen van vooraf gemaakte servers in het abonnement en resourcegroep wordt momenteel niet ondersteund.
+
+### <a name="vnet-service-endpoints"></a>VNet-service-eindpunten
+- Ondersteuning voor VNet-service-eindpunten is alleen voor algemeen gebruik en geoptimaliseerd voor geheugen-servers.
 
 ## <a name="current-known-issues"></a>Huidige bekende problemen
 - MariaDB server-exemplaar wordt de onjuiste serverversie weergegeven nadat de verbinding tot stand is gebracht. Als u de juiste server-exemplaar-engine-versie, gebruikt de `select version();` opdracht.

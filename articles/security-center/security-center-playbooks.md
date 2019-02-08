@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: c0001f12dd71436bacb1735828ad56b628e02360
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: ff717b6cec36f7932f2e4e57dfef9ced0ea902d4
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619908"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893053"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Beveiligingsplaybook in Azure Security Center (Preview)
 In dit document wordt uitgelegd hoe u beveiligingsplaybooks gebruikt in Azure Security Center voor het reageren op beveiligingsproblemen.
@@ -93,7 +93,7 @@ In deze werkstroom kunt u zien hoelang de uitvoering van elke taak heeft geduurd
 U kunt een bestaande playbook in Security Center wijzigen om een actie of voorwaarden toe te voegen. Hiervoor hoeft u alleen op het tabblad Playbooks op de naam te klikken van de playbook die u wilt wijzigen om de ontwerpfunctie voor logische apps te starten.
 
 > [!NOTE]
-> Meer informatie over het maken van uw eigen playbook met Azure Logic App vindt u in [Uw eerste werkstroom voor logische apps maken om processen tussen cloud-apps en cloudservices te automatiseren](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app#add-an-action-that-responds-to-your-trigger).
+> Meer informatie over het maken van uw eigen playbook met Azure Logic App vindt u in [Uw eerste werkstroom voor logische apps maken om processen tussen cloud-apps en cloudservices te automatiseren](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app).
 
 
 ## <a name="see-also"></a>Zie ook

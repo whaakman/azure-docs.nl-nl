@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8f22885d67537194342115f07e4d04bc4b5c66da
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 3e1d5ed05b7acc8f7e0fcc772a4124984c6cba45
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911741"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884526"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>On-premises Apache Hadoop-clusters migreren naar Azure HDInsight - opslag aanbevolen procedures
 
@@ -50,7 +50,7 @@ Azure Storage biedt [voorlopig verwijderen voor blob-objecten](../../storage/blo
 U kunt maken [blob-momentopnamen](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob). Een momentopname is een alleen-lezen versie van een blob die moet worden uitgevoerd op een punt in tijd en biedt een manier om back-up van een blob. Nadat een momentopname is gemaakt, kan deze worden gelezen, gekopieerd, of verwijderd, maar niet gewijzigd.
 
 > [!Note]
-> Voor oudere versie van on-premises-on-premises Hadoop-distributies die beschikt niet over de 'wasbs'-certificaat moet worden geïmporteerd in het archief van de vertrouwensrelatie van Java.
+> Voor oudere versies van on-premises Hadoop-distributies die het certificaat 'wasbs' geen hebben, moeten ze worden geïmporteerd in het archief van de vertrouwensrelatie van Java.
 
 De volgende methoden kunnen worden gebruikt voor het importeren van certificaten in het archief van de vertrouwensrelatie Java:
 
@@ -159,7 +159,7 @@ HDInsight standaard heeft volledige toegang tot gegevens in de Azure Storage-acc
     |Token eigenschap|Description|
     |---|---|
     |Naam_van_beleid|De naam moet worden gebruikt voor het opgeslagen beleid te maken.|
-    |storage_account_name|De naam van uw storage-account.|
+    |storage_account_name|De naam van uw opslagaccount.|
     |storage_account_key|De sleutel voor het opslagaccount.|
     |storage_container_name|De container in het opslagaccount dat u wilt toegang te beperken.|
     |example_file_path|Het pad naar een bestand dat is geüpload naar de container.|

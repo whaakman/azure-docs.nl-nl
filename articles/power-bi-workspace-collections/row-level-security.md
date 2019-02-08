@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 80208c83c96ba78db052017c2baa3bc0db63953f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f8a5c12bb57a8f59960320c6227174b240bcbc3d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258847"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892232"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Beveiliging op rijniveau met Power BI-werkruimteverzamelingen
 
@@ -56,7 +56,7 @@ Hier volgen enkele dingen die opvallen in dit schema:
 
 Op basis van dit schema als we een filter toepassen op de **District Manager** kolom in de tabel District en als dat filter overeenkomt met de gebruiker die het rapport weergeeft, die filteren ook filters de **Store** en  **Verkoop** tabellen alleen gegevens weergeven voor die bepaalde district manager.
 
-Hier volgt hoe:
+Dit doet u als volgt:
 
 1. Klik op het tabblad modellering **rollen beheren**.  
    ![Beheren van rollen knop in het lint model maken](media/row-level-security/modeling-tab-5.png)
@@ -94,7 +94,7 @@ Dit al het werk dat moet worden aangebracht in Power BI Desktop hebt afgerond, m
 * **gebruikersnaam** (optioneel): beveiliging op rijniveau gebruikt dit is een tekenreeks die kan worden gebruikt voor het identificeren van de gebruiker bij het toepassen van RLS-regels. Zie de rij op rijniveau met Power BI Embedded
 * **rollen** : een tekenreeks met de rollen selecteren bij het toepassen van beveiliging op rijniveau regels. Als meer dan één rol wordt doorgegeven, moeten ze worden doorgegeven als een tekenreeksmatrix.
 
-Maken van het token met behulp van de [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#Microsoft_PowerBI_Security_PowerBIToken_CreateReportEmbedToken_System_String_System_String_System_String_System_DateTime_System_String_System_Collections_Generic_IEnumerable_System_String__) methode. Als de eigenschap username aanwezig is, moet u ook ten minste één waarde doorgeven in rollen.
+Maken van het token met behulp van de [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) methode. Als de eigenschap username aanwezig is, moet u ook ten minste één waarde doorgeven in rollen.
 
 U kunt bijvoorbeeld de EmbedSample wijzigen. DashboardController regel 55 kan worden gewijzigd van
 

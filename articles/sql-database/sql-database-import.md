@@ -12,23 +12,23 @@ ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: c1b6c55475c1600c89c1ac1cae9dee0068b92070
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5b717e26e61a6633ea51817bcb21ebeb15a20969
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478216"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892000"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-new-azure-sql-database"></a>Quickstart: Een BACPAC-bestand importeren naar een nieuwe Azure SQL Database
 
-U kunt een SQL Server-database migreren naar een Azure SQL database met behulp van een [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) bestand (een zip-bestand met een `.bacpac` extensie met de metagegevens en gegevens van een database). U kunt een BACPAC-bestand importeren uit Azure blob-opslag (alleen standard storage) of van de lokale opslag in een on-premises locatie. Voor maximale snelheid importeren, kunt u opgeven van een hogere servicelaag en compute (zoals P6). U kunt vervolgens omlaag schalen wanneer het importeren geslaagd is. Compatibiliteitsniveau van de geïmporteerde database is gebaseerd op het compatibiliteitsniveau van de brondatabase.
+U kunt een SQL Server-database migreren naar een Azure SQL database met behulp van een [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) bestand (een zip-bestand met een `.bacpac` extensie met de metagegevens en gegevens van een database). U kunt een BACPAC-bestand importeren uit Azure Blob-opslag (alleen standard storage) of van de lokale opslag in een on-premises locatie. Voor maximale snelheid importeren, kunt u opgeven van een hogere servicelaag en compute (zoals P6). U kunt vervolgens omlaag schalen wanneer het importeren geslaagd is. Compatibiliteitsniveau van de geïmporteerde database is gebaseerd op het compatibiliteitsniveau van de brondatabase.
 
 > [!IMPORTANT]
 > Na het importeren van uw database, kunt u de database op het huidige compatibiliteitsniveau (niveau 100 voor de database AdventureWorks2008R2) of op een hoger niveau. Zie [ALTER DATABASE Compatibility Level](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level) (Compatibiliteitsniveau ALTER DATABASE) voor meer informatie over de implicaties en opties bij het hanteren van een database op een bepaald compatibiliteitsniveau. Zie ook [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) voor informatie over aanvullende instellingen op databaseniveau in verband met compatibiliteitsniveaus.
 
 ## <a name="import-from-a-bacpac-file-in-the-azure-portal"></a>Importeren uit een BACPAC-bestand in Azure portal
 
-Deze sectie wordt beschreven hoe in de [Azure-portal](https://portal.azure.com)om te maken van een Azure SQL database vanuit een BACPAC-bestand opgeslagen in Azure blob-opslag. De portal *alleen* ondersteunt een BACPAC-bestand importeren uit Azure blob-opslag.
+Deze sectie wordt beschreven hoe in de [Azure-portal](https://portal.azure.com)om te maken van een Azure SQL database vanuit een BACPAC-bestand opgeslagen in Azure Blob-opslag. De portal *alleen* ondersteunt een BACPAC-bestand importeren uit Azure Blob-opslag.
 
 > [!NOTE]
 > [Azure SQL Database Managed Instance](sql-database-managed-instance.md) biedt ondersteuning voor importeren vanuit een BACPAC-bestand met behulp van de andere methoden in dit artikel, maar ondersteunt momenteel geen migreren in Azure portal.
@@ -58,7 +58,7 @@ SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.
 ```
 
 > [!IMPORTANT]
-> Een SQL Database-server luistert op poort 1433. Voor verbinding met een SQL Database-server achter een firewall van het bedrijf, moet de firewall voor deze poort geopend.
+> Een SQL Database-server luistert op poort 1433. Om verbinding te maken met een SQL Database-server achter een firewall van het bedrijf, moet de firewall voor deze poort zijn geopend.
 >
 
 In dit voorbeeld laat zien hoe een database met behulp van SqlPackage met Universal verificatie van Active Directory importeren.

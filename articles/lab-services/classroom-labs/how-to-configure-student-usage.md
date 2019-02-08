@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 946a2a05cee0cf8f3b91eef58442fbb2e26935c4
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 577860baa74d9f0cd7f411a64d9e6bfa9322731c
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490444"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894987"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Instellingen voor het gebruik en het beleid configureren
 In dit artikel wordt beschreven hoe u gebruikers toevoegen aan het lab, ze geregistreerd bij de testomgeving, bepalen het aantal uren dat de virtuele machine, en meer kan worden gebruikt. 
@@ -29,7 +29,9 @@ Als u hebt de **toegang beperken** ingeschakeld, gebruikers (e-mailadressen) toe
 
 1. Selecteer **Gebruikers** in het menu links.
 2. Selecteer **Gebruikers toevoegen** op de werkbalk. 
-3. Op de pagina **Gebruikers toevoegen** voert u e-mailadressen van gebruikers in op afzonderlijke regels of op één regel gescheiden door puntkomma's. 
+
+    ![Knop voor gebruikers toevoegen](../media/how-to-configure-student-usage/add-users-button.png)
+1. Op de pagina **Gebruikers toevoegen** voert u e-mailadressen van gebruikers in op afzonderlijke regels of op één regel gescheiden door puntkomma's. 
 
     ![E-mailadressen van gebruikers toevoegen](../media/how-to-configure-student-usage/add-users-email-addresses.png)
 4. Selecteer **Opslaan**. U ziet de e-mailadressen van gebruikers en hun status (al dan niet geregistreerd) in de lijst. 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 115be0ad1b7dec44f036f6d50c2ac30ceba37ba7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4400873e337c6003d2115afd77c40a31db1d5889
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457085"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895955"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Veelgestelde vragen
 
@@ -246,12 +246,12 @@ Aangeraden u onze SDK's gebruiken en gebruik de [SDK-API](../../azure-monitor/ap
 ## <a name="can-i-monitor-an-intranet-web-server"></a>Kan ik een intranet-webserver controleren?
 
 Ja, maar u moet verkeer toe te staan onze services door de firewall-uitzonderingen of proxy stuurt.
-- QuickPulse `rt.services.visualstudio.com:443` 
+- QuickPulse `https://rt.services.visualstudio.com:443` 
 - ApplicationIdProvider `https://dc.services.visualstudio.com:443` 
 - TelemetryChannel `https://dc.services.visualstudio.com:443` 
 
 
-Bekijk onze lijst met services en IP-adressen [hier](../../azure-monitor/app/ip-addresses.md).
+Bekijk onze volledige lijst met services en IP-adressen [hier](../../azure-monitor/app/ip-addresses.md).
 
 ### <a name="firewall-exception"></a>Firewall-uitzondering
 

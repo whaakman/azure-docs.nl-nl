@@ -6,23 +6,29 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 01/18/2019
-ms.openlocfilehash: e397540d33df8a509e10f52fde41fc178cdba67e
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.date: 02/07/2019
+ms.openlocfilehash: 3de5996f574bf076b856a4d0cf7e18d77b1a9e5d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411744"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895683"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Problemen met de Mobility-Service push-installatie
 
 De installatie van mobiliteitsservice is een belangrijke stap tijdens replicatie inschakelen. Het succes van deze stap is afhankelijk van uitsluitend op voldoen aan de vereisten van en werken met ondersteunde configuraties. De meest voorkomende fouten die u tijdens de installatie van Mobility service te maken krijgt zijn vanwege:
 
-* Referentie/bevoegdheden fouten
-* Aanmeldingsfouten
-* Fouten in de basisnetwerkverbinding
-* Niet-ondersteunde besturingssystemen
-* VSS-installatiefouten
+* [Referentie/bevoegdheden fouten](#credentials-check-errorid-95107--95108)
+* [Aanmeldingsfouten](#login-failures-errorid-95519-95520-95521-95522)
+* [Connectiviteitsfouten](#connectivity-failure-errorid-95117--97118)
+* [Bestands- en printerdeling fouten](#file-and-printer-sharing-services-check-errorid-95105--95106)
+* [WMI-fouten](#windows-management-instrumentation-wmi-configuration-check-error-code-95103)
+* [Niet-ondersteunde besturingssystemen](#unsupported-operating-systems)
+* [Niet-ondersteunde configuraties voor opstarten](#unsupported-boot-disk-configurations-errorid-95309-95310-95311)
+* [VSS-installatiefouten](#vss-installation-failures)
+* [De naam van het apparaat in de GRUB-configuratie in plaats van apparaat UUID](#enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-errorid-95320)
+* [LVM-volume](#lvm-support-from-920-version)
+* [Opnieuw opstarten van waarschuwingen](#install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266)
 
 Wanneer u replicatie inschakelt, installeren probeert om Azure Site Recovery mobility service-agent op uw virtuele machine. Als onderdeel hiervan probeert configuratieserver te verbinden met de virtuele machine en kopieer de Agent. Volg de stapsgewijze richtlijnen voor probleemoplossing hieronder zodat geslaagde installatie.
 
@@ -56,12 +62,14 @@ Wanneer domein vertrouwensrelatie relatie tot stand brengen tussen het primaire 
 
 Als u wijzigen van de referenties van de gekozen gebruikersaccount wilt, volgt u de instructies [hier](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
 
-## <a name="login-failure-errorid-95519"></a>Aanmelden mislukt (Aanroepstatus: 95519)
+## <a name="login-failures-errorid-95519-95520-95521-95522"></a>Mislukte aanmeldpogingen bij (Aanroepstatus: 95519, 95520, 95521, 95522)
+
+### <a name="credentials-of-the-user-account-have-been-disabled-errorid-95519"></a>Referenties van het gebruikersaccount is uitgeschakeld (Aanroepstatus: 95519)
 
 Het gebruikersaccount dat is gekozen tijdens replicatie inschakelen is uitgeschakeld. Raadpleeg het artikel zodat het gebruikersaccount dat [hier](https://aka.ms/enable_login_user) of Voer de volgende opdracht te vervangen tekst *gebruikersnaam* met de naam van de werkelijke gebruiker.
 `net user 'username' /active:yes`
 
-## <a name="login-failure-errorid-95520"></a>Aanmelden mislukt (Aanroepstatus: 95520)
+### <a name="credentials-locked-out-due-to-multiple-failed-login-attempts-errorid-95520"></a>Referenties die zijn vergrendeld vanwege meerdere mislukte aanmeldingspogingen (Aanroepstatus: 95520)
 
 Meerdere mislukte opnieuw proberen inspanningen voor toegang tot een virtuele machine, wordt het gebruikersaccount vergrendeld. De fout kan worden veroorzaakt door:
 
@@ -70,11 +78,11 @@ Meerdere mislukte opnieuw proberen inspanningen voor toegang tot een virtuele ma
 
 De referenties die is gekozen door de instructies te volgen, te wijzigen [hier](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation) en voer de bewerking na enige tijd opnieuw uit.
 
-## <a name="login-failure-errorid-95521"></a>Aanmelden mislukt (Aanroepstatus: 95521)
+### <a name="logon-servers-are-not-available-on-the-source-machine-errorid-95521"></a>Aanmeldingsservers zijn niet beschikbaar op de bronmachine (Aanroepstatus: 95521)
 
 Deze fout treedt op wanneer de aanmeldingsservers niet beschikbaar op de bronmachine zijn. Geen aanmeldingsservers beschikbaar zijn zal leiden tot het mislukken van de aanmeldingsaanvraag en dus de mobility-agent kan niet worden geïnstalleerd. Zorg ervoor dat aanmeldingsservers beschikbaar op de broncomputer zijn en de Logon-service starten voor een geslaagde aanmelding. Klik voor gedetailleerde instructies [hier](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available).
 
-## <a name="login-failure-errorid-95522"></a>Aanmelden mislukt (Aanroepstatus: 95522)
+### <a name="logon-service-isnt-running-on-the-source-machine-errorid-95522"></a>Logon-service niet wordt uitgevoerd op de bronmachine (Aanroepstatus: 95522)
 
 De aanmeldings-service niet wordt uitgevoerd op de bronmachine en fout van aanmeldingsaanvraag heeft veroorzaakt. Dus de mobility-agent kan niet worden geïnstalleerd. Zorg ervoor dat Logon-service wordt uitgevoerd op de broncomputer voor een geslaagde aanmelding om op te lossen. De logon-service wilt starten, voer de opdracht 'net start aanmelding' vanaf de opdrachtprompt of 'NetLogon'-service starten van Taakbeheer.
 
@@ -138,15 +146,17 @@ Andere artikelen over probleemoplossing van WMI kunnen worden gevonden op de vol
 Een andere meest voorkomende reden voor mislukken kan worden veroorzaakt door niet-ondersteund besturingssysteem. Zorg ervoor dat u gebruikmaakt van de ondersteunde versie van het besturingssysteem/Kernel voor geslaagde installatie van de Mobility-service. Vermijd het gebruik van persoonlijke patch.
 De lijst van besturingssystemen en versies van de kernel wordt ondersteund door Azure Site Recovery wilt weergeven, raadpleegt u onze [matrix ondersteuningsdocument](vmware-physical-azure-support-matrix.md#replicated-machines).
 
-## <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>Opstart- en systeempartities / -volumes zijn niet dezelfde schijf (Aanroepstatus: 95309)
+## <a name="unsupported-boot-disk-configurations-errorid-95309-95310-95311"></a>Niet-ondersteunde configuraties voor opstarten-schijf (Aanroepstatus: 95309, 95310, 95311)
+
+### <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>Opstart- en systeempartities / -volumes zijn niet dezelfde schijf (Aanroepstatus: 95309)
 
 Voordat u 9.20 versie, opstart- en systeempartities / volumes op verschillende schijven is een niet-ondersteunde configuratie. Van [9.20 versie](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), deze configuratie wordt ondersteund. Gebruik de meest recente versie voor deze ondersteuning.
 
-## <a name="boot-disk-not-found-errorid-95310"></a>Opstartschijf is niet gevonden (Aanroepstatus: 95310)
+### <a name="the-boot-disk-is-not-available-errorid-95310"></a>De opstartschijf is niet beschikbaar (Aanroepstatus: 95310)
 
 Een virtuele machine zonder een opstartschijf kan niet worden beveiligd. Dit is om ervoor te zorgen goede herstel van virtuele machine tijdens de failover-bewerking. Afwezigheid van opstartschijf resulteert in de machine worden opgestart na een failover is mislukt. Zorg ervoor dat de virtuele machine opstartschijf bevat en probeer het opnieuw. Merk ook op meerdere opstartschijven op dezelfde computer wordt niet ondersteund.
 
-## <a name="multiple-boot-disks-found-errorid-95311"></a>Meerdere opstartschijven gevonden (Aanroepstatus: 95311)
+### <a name="multiple-boot-disks-present-on-the-source-machine-errorid-95311"></a>Meerdere opstartschijven aanwezig op de bronmachine (Aanroepstatus: 95311)
 
 Een virtuele machine met meerdere opstartschijven is niet een [configuratie ondersteund](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage).
 
@@ -154,9 +164,45 @@ Een virtuele machine met meerdere opstartschijven is niet een [configuratie onde
 
 Is een niet-ondersteunde configuratie voor 9.20 versie root partitie of het volume dat is verspreid over meerdere schijven. Van [9.20 versie](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), deze configuratie wordt ondersteund. Gebruik de meest recente versie voor deze ondersteuning.
 
-## <a name="grub-uuid-failure-errorid-95320"></a>UUID van WORMGATEN fout (Aanroepstatus: 95320)
+## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-errorid-95320"></a>Schakel de beveiliging is mislukt omdat de apparaatnaam die worden vermeld in de GRUB-configuratie in plaats van de UUID (Aanroepstatus: 95320)
 
-Als de GRUB van de bronmachine apparaatnaam in plaats van de UUID gebruikt is, mislukt de installatie van de mobility-agent. Contact opnemen met de systeembeheerder beschikken de wijzigingen aanbrengen in de GRUB-bestand.
+**Mogelijke oorzaak:** </br>
+De GRUB-configuratiebestanden (' / boot/grub/menu.lst ', ' / boot/grub/grub.cfg ', ' / boot/grub2/grub.cfg ' of '/ standaard/etc/wormgaten') kan de waarde voor de parameters bevatten **hoofdmap** en **hervatten** als de werkelijke apparaatnamen in plaats van UUID. Site Recovery mandaten UUID benadering, zoals de naam van de apparaten voor opnieuw opstarten van de virtuele machine verschilt mogelijk als virtuele machine mogelijk niet afkomstig is-up met dezelfde naam leidt tot problemen met failover. Bijvoorbeeld: </br>
+
+
+- De volgende regel wordt uit het bestand WORMGATEN **/boot/grub2/grub.cfg**. <br>
+*linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
+
+
+- De volgende regel wordt uit het bestand WORMGATEN **/boot/grub/menu.lst**
+*kernel /boot/vmlinuz-3.0.101-63-default **hoofdmap = / dev/sda2** **= / dev/sda1 hervatten ** splash = op de achtergrond crashkernel 256M-:128M showopts vga = 0x314 =*
+
+Als u de bovenstaande vet tekenreeks ziet, bevat WORMGATEN daadwerkelijk apparaatnamen voor de parameters "root" en "Doorgaan" in plaats van UUID.
+ 
+**Over het oplossen van:**<br>
+De apparaatnamen moeten worden vervangen door de bijbehorende UUID.<br>
+
+
+1. De UUID van het apparaat vinden door het uitvoeren van de opdracht ' blkid <device name>'. Bijvoorbeeld:<br>
+```
+blkid /dev/sda1
+/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
+blkid /dev/sda2 
+/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
+```
+
+2. Vervang nu de naam van het apparaat met de UUID in de indeling, zoals ' root = UUID =<UUID>'. Bijvoorbeeld, als we de apparaatnamen vervangen door UUID voor basis- en hervatten van de parameter die hierboven worden vermeld in de bestanden "/ boot/grub2/grub.cfg ', ' / boot/grub2/grub.cfg" of "/ standaard/etc/wormgaten: vervolgens lijkt op de regels in de bestanden. <br>
+*kernel /boot/vmlinuz-3.0.101-63-default **hoofdmap = UUID = 62927e85-f7ba-40bc-9993-cc1feeb191e4** **hervatten UUID = 6f614b44-433b-431b-9ca1-4dd2f6f74f6b =** splash = op de achtergrond crashkernel 256M-:128M = showopts vga 0x314 =*
+3. De beveiliging opnieuw starten
+
+## <a name="install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266"></a>Installeren van de Mobility-Service voltooid met een waarschuwing op te starten (Aanroepstatus: 95265 & 95266)
+
+Site Recovery mobility-service heeft meerdere onderdelen, waarvan er één filter-stuurprogramma wordt aangeroepen. Filterstuurprogramma opgehaald in het systeemgeheugen geladen alleen op een tijdstip van het systeem opnieuw is opgestart. Dit betekent dat de filter-stuurprogramma-oplossingen kunnen alleen worden gerealiseerd wanneer een nieuw filterstuurprogramma wordt geladen; Dit kan gebeuren alleen op het moment van systeem opnieuw is opgestart.
+
+**Houd er rekening mee** dat dit is een waarschuwing en bestaande replicatie werkt zelfs nadat de update voor de nieuwe. U kunt telkens wanneer u profiteren van nieuwe filterstuurprogramma, maar wilt als u dan ook oude filter-stuurprogramma houdt over het werken niet opnieuw opstarten. Ja, nadat een update zonder opnieuw opstarten, naast de stuurprogramma-filter, **voordelen van andere verbeteringen en oplossingen in de mobility-service wordt gerealiseerd**. Dus Hoewel aanbevolen, is dit niet verplicht opnieuw opstarten na elke upgrade. Klik voor informatie over wanneer opnieuw opstarten verplicht is, [hier](https://aka.ms/v2a_asr_reboot).
+
+> [!TIP]
+>Raadpleeg voor best practices voor het plannen van upgrades tijdens het onderhoudsvenster [hier](https://aka.ms/v2a_asr_upgrade_practice).
 
 ## <a name="lvm-support-from-920-version"></a>LVM-ondersteuning van 9.20 versie
 

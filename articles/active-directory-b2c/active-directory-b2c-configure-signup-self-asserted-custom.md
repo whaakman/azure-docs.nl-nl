@@ -1,38 +1,40 @@
 ---
-title: Aanmelding van wijzigen in het aangepaste beleid en configureren zelf door de provider bevestigde | Microsoft Docs
-description: Een overzicht over het toevoegen van claims moeten zich aanmelden en het configureren van de invoer van de gebruiker
+title: Claims toevoegen en aanpassen van gebruikersinvoer met behulp van aangepaste beleidsregels - Azure Active Directory B2C | Microsoft Docs
+description: Informatie over het aanpassen van de invoer van de gebruiker en claims voor de reis registreren of aanmelden toevoegen in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/29/2017
+ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 2989af12407bdddf6e55e8967a0a574fff690208
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 3e48ce4adc64f434b80210ff8aa36a983ba88c26
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179205"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894917"
 ---
-# <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: Aanmelding wijzigen van nieuwe claims toevoegen en configureren van de invoer van de gebruiker.
+#  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Claims toevoegen en aanpassen van gebruikersinvoer met behulp van aangepaste beleidsregels in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-In dit artikel wordt u een nieuwe vermelding voor de gebruiker opgegeven (een claim) toevoegen aan uw aanmelding bij de gebruikersbeleving.  U wordt de vermelding configureren als een vervolgkeuzelijst en definiëren als dat nodig is.
+In dit artikel, kunt u een nieuwe vermelding voor de gebruiker opgegeven (een claim) toevoegen aan uw proefaccount gebruikersbeleving in Azure Active Directory (Azure AD) B2C.  U de vermelding configureren als een vervolgkeuzelijst en bepalen of dit is verplicht.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Voer de stappen in het artikel [aan de slag met beleid voor aangepaste](active-directory-b2c-get-started-custom.md).  De gebruikersbeleving registreren/aanmelden om de registratie een nieuw lokaal account voordat u doorgaat te testen.
+Voer de stappen in het artikel [aan de slag met beleid voor aangepaste](active-directory-b2c-get-started-custom.md). Test de registreren of aanmelden gebruikersbeleving om u te registreren met een nieuwe lokale account voordat u doorgaat.
+
+## <a name="add-claims"></a>Claims toevoegen
+
+Initiële gegevens verzamelen uit uw gebruikers wordt bereikt met behulp van de gebruikersbeleving registreren of aanmelden. Aanvullende claims kunnen later worden verzameld met behulp van een gebruikersbeleving van profiel bewerken. Telkens wanneer de Azure AD B2C haalt informatie op rechtstreeks van de gebruiker interactief, betekent dit dat de Identity-Ervaringsframework een selfasserted-provider gebruikt.
 
 
-Initiële gegevens verzamelen uit uw gebruikers wordt via aanmelding/aanmelding bereikt.  Aanvullende claims kunnen later worden verzameld via profiel bewerken gebruiker reizen. Telkens wanneer de Azure AD B2C verzamelt interactief gegevens rechtstreeks van de gebruiker, de Identiteitservaring-Framework gebruikt de `selfasserted provider`. De onderstaande stappen van toepassing op elk moment deze provider wordt gebruikt.
+### <a name="define-the-claim"></a>De claim te definiëren
 
-
-## <a name="define-the-claim-its-display-name-and-the-user-input-type"></a>De claim, de weergavenaam en het type gebruikersinvoer definiëren
-U kunt de gebruiker vragen voor hun plaats.  Voeg het volgende element aan de `<ClaimsSchema>` -element in het beleidsbestand TrustFrameworkBase:
+U kunt de gebruiker vragen voor hun plaats. Voeg het volgende element aan de **ClaimsSchema** -element in het beleidsbestand TrustFrameworkBase:
 
 ```xml
 <ClaimType Id="city">
@@ -42,14 +44,15 @@ U kunt de gebruiker vragen voor hun plaats.  Voeg het volgende element aan de `<
   <UserInputType>TextBox</UserInputType>
 </ClaimType>
 ```
-Er zijn aanvullende opties die u kunt hier om aan te passen van de claim.  Voor een volledige schema, raadpleegt u de **identiteit ervaring Framework Technical Reference Guide**.  Deze handleiding zal binnenkort worden gepubliceerd in de sectie documentatie.
 
-* `<DisplayName>` is een tekenreeks waarin de gebruiker gerichte *label*
+De volgende elementen worden gebruikt voor het definiëren van de claim:
 
-* `<UserHelpText>` de gebruiker weten wat is vereist
+- **DisplayName** -een tekenreeks die de gebruiker gerichte label definieert.
+- **UserHelpText** -helpt de gebruiker weten wat is vereist.
+- **UserInputType** -mag een tekstvak, een selectie van keuzerondje, een vervolgkeuzelijst of een meervoudige selectie.
 
-* `<UserInputType>` heeft de volgende vier opties hieronder beschreven:
-    * `TextBox`
+#### <a name="textbox"></a>Tekstvak
+
 ```xml
 <ClaimType Id="city">
   <DisplayName>city where you work</DisplayName>
@@ -59,7 +62,8 @@ Er zijn aanvullende opties die u kunt hier om aan te passen van de claim.  Voor 
 </ClaimType>
 ```
 
-    * `RadioSingleSelectduration` -Hiermee wordt een enkelvoudige selectie.
+#### <a name="radiosingleselect"></a>RadioSingleSelect
+
 ```xml
 <ClaimType Id="city">
   <DisplayName>city where you work</DisplayName>
@@ -73,10 +77,9 @@ Er zijn aanvullende opties die u kunt hier om aan te passen van de claim.  Voor 
 </ClaimType>
 ```
 
-    * `DropdownSingleSelect` -Hiermee kunt de selectie van de enige geldige waarde.
+#### <a name="dropdownsingleselect"></a>DropdownSingleSelect
 
 ![Schermopname van de vervolgkeuzelijst](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
-
 
 ```xml
 <ClaimType Id="city">
@@ -91,11 +94,9 @@ Er zijn aanvullende opties die u kunt hier om aan te passen van de claim.  Voor 
 </ClaimType>
 ```
 
-
-* `CheckboxMultiSelect` Kunt u de selectie van een of meer waarden.
+#### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
 
 ![Schermafbeelding van multiselect-optie](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
-
 
 ```xml
 <ClaimType Id="city">
@@ -110,142 +111,169 @@ Er zijn aanvullende opties die u kunt hier om aan te passen van de claim.  Voor 
 </ClaimType>
 ```
 
-## <a name="add-the-claim-to-the-sign-upsign-in-user-journey"></a>Toevoegen van de claim naar de aanmeldingspagina omhoog/teken in de gebruikersbeleving
+### <a name="add-the-claim-to-the-user-journey"></a>Toevoegen van de claim de gebruikersbeleving
 
-1. Toevoegen van de claim als een `<OutputClaim ClaimTypeReferenceId="city"/>` aan het technische profiel `LocalAccountSignUpWithLogonEmail` (gevonden in het beleidsbestand TrustFrameworkBase).  Houd er rekening mee dat de SelfAssertedAttributeProvider maakt gebruik van deze technische profiel.
+1. Toevoegen van de claim als een `<OutputClaim ClaimTypeReferenceId="city"/>` naar de `LocalAccountSignUpWithLogonEmail` technisch profiel vindt u in de TrustFrameworkBase beleid-bestand. In dit technisch profiel maakt gebruik van de SelfAssertedAttributeProvider.
 
-  ```xml
-  <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
-    <DisplayName>Email signup</DisplayName>
-    <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <Metadata>
-      <Item Key="IpAddressClaimReferenceId">IpAddress</Item>
-      <Item Key="ContentDefinitionReferenceId">api.localaccountsignup</Item>
-      <Item Key="language.button_continue">Create</Item>
-    </Metadata>
-    <CryptographicKeys>
-      <Key Id="issuer_secret" StorageReferenceId="TokenSigningKeyContainer" />
-    </CryptographicKeys>
-    <InputClaims>
-      <InputClaim ClaimTypeReferenceId="email" />
-    </InputClaims>
-    <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="objectId" />
-      <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
-      <OutputClaim ClaimTypeReferenceId="newPassword" Required="true" />
-      <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
-      <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
-      <OutputClaim ClaimTypeReferenceId="authenticationSource" />
-      <OutputClaim ClaimTypeReferenceId="newUser" />
-      <!-- Optional claims, to be collected from the user -->
-      <OutputClaim ClaimTypeReferenceId="givenName" />
-      <OutputClaim ClaimTypeReferenceId="surName" />
-      <OutputClaim ClaimTypeReferenceId="city"/>
-    </OutputClaims>
-    <ValidationTechnicalProfiles>
-      <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
-    </ValidationTechnicalProfiles>
-    <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
-  </TechnicalProfile>
-  ```
-
-2. Toevoegen van de claim naar de AAD-UserWriteUsingLogonEmail als een `<PersistedClaim ClaimTypeReferenceId="city" />` schrijven van de claim naar de map AAD na het verzamelen van de gebruiker. U kunt deze stap overslaan als u liever niet om vast te leggen van de claim in de map voor toekomstig gebruik.
-
-  ```xml
-  <!-- Technical profiles for local accounts -->
-  <TechnicalProfile Id="AAD-UserWriteUsingLogonEmail">
-    <Metadata>
-      <Item Key="Operation">Write</Item>
-      <Item Key="RaiseErrorIfClaimsPrincipalAlreadyExists">true</Item>
-    </Metadata>
-    <IncludeInSso>false</IncludeInSso>
-    <InputClaims>
-      <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" Required="true" />
-    </InputClaims>
-    <PersistedClaims>
-      <!-- Required claims -->
-      <PersistedClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" />
-      <PersistedClaim ClaimTypeReferenceId="newPassword" PartnerClaimType="password" />
-      <PersistedClaim ClaimTypeReferenceId="displayName" DefaultValue="unknown" />
-      <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration" />
-      <!-- Optional claims. -->
-      <PersistedClaim ClaimTypeReferenceId="givenName" />
-      <PersistedClaim ClaimTypeReferenceId="surname" />
-      <PersistedClaim ClaimTypeReferenceId="city" />
-    </PersistedClaims>
-    <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="objectId" />
-      <OutputClaim ClaimTypeReferenceId="newUser" PartnerClaimType="newClaimsPrincipalCreated" />
-      <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
-      <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
-      <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
-    </OutputClaims>
-    <IncludeTechnicalProfile ReferenceId="AAD-Common" />
-    <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
-  </TechnicalProfile>
-  ```
-
-3. Toevoegen van de claim naar het technische profiel dat wordt gelezen uit de map wanneer een gebruiker zich als aanmeldt een `<OutputClaim ClaimTypeReferenceId="city" />`
-
-  ```xml
-  <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
-    <Metadata>
-      <Item Key="Operation">Read</Item>
-      <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
-      <Item Key="UserMessageIfClaimsPrincipalDoesNotExist">An account could not be found for the provided user ID.</Item>
-    </Metadata>
-    <IncludeInSso>false</IncludeInSso>
-    <InputClaims>
-      <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames" Required="true" />
-    </InputClaims>
-    <OutputClaims>
-      <!-- Required claims -->
-      <OutputClaim ClaimTypeReferenceId="objectId" />
-      <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
-      <!-- Optional claims -->
-      <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
-      <OutputClaim ClaimTypeReferenceId="displayName" />
-      <OutputClaim ClaimTypeReferenceId="otherMails" />
-      <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
-      <OutputClaim ClaimTypeReferenceId="city" />
-    </OutputClaims>
-    <IncludeTechnicalProfile ReferenceId="AAD-Common" />
-  </TechnicalProfile>
-  ```
-
-4. Voeg de `<OutputClaim ClaimTypeReferenceId="city" />` bestand aan het beleid RP SignUporSignIn.xml, zodat deze claim wordt verzonden naar de toepassing in het token na een geslaagde gebruikersbeleving.
-
-  ```xml
-  <RelyingParty>
-    <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
-    <TechnicalProfile Id="PolicyProfile">
-      <DisplayName>PolicyProfile</DisplayName>
-      <Protocol Name="OpenIdConnect" />
+    ```xml
+    <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
+      <DisplayName>Email signup</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
+        <Item Key="IpAddressClaimReferenceId">IpAddress</Item>
+        <Item Key="ContentDefinitionReferenceId">api.localaccountsignup</Item>
+        <Item Key="language.button_continue">Create</Item>
+      </Metadata>
+      <CryptographicKeys>
+        <Key Id="issuer_secret" StorageReferenceId="TokenSigningKeyContainer" />
+      </CryptographicKeys>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="email" />
+      </InputClaims>
       <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="displayName" />
+        <OutputClaim ClaimTypeReferenceId="objectId" />
+        <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
+        <OutputClaim ClaimTypeReferenceId="newPassword" Required="true" />
+        <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
+        <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
+        <OutputClaim ClaimTypeReferenceId="authenticationSource" />
+        <OutputClaim ClaimTypeReferenceId="newUser" />
+        <!-- Optional claims, to be collected from the user -->
         <OutputClaim ClaimTypeReferenceId="givenName" />
-        <OutputClaim ClaimTypeReferenceId="surname" />
-        <OutputClaim ClaimTypeReferenceId="email" />
-        <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-        <OutputClaim ClaimTypeReferenceId="identityProvider" />
+        <OutputClaim ClaimTypeReferenceId="surName" />
+        <OutputClaim ClaimTypeReferenceId="city"/>
+      </OutputClaims>
+      <ValidationTechnicalProfiles>
+        <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
+      </ValidationTechnicalProfiles>
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
+    </TechnicalProfile>
+    ```
+
+2. Toevoegen van de claim aan het technische profiel van de AAD-UserWriteUsingLogonEmail als een `<PersistedClaim ClaimTypeReferenceId="city" />` schrijven van de claim naar de map AAD na het verzamelen van de gebruiker. U kunt deze stap overslaan als u liever niet om vast te leggen van de claim in de map voor toekomstig gebruik.
+
+    ```xml
+    <!-- Technical profiles for local accounts -->
+    <TechnicalProfile Id="AAD-UserWriteUsingLogonEmail">
+      <Metadata>
+        <Item Key="Operation">Write</Item>
+        <Item Key="RaiseErrorIfClaimsPrincipalAlreadyExists">true</Item>
+      </Metadata>
+      <IncludeInSso>false</IncludeInSso>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" Required="true" />
+      </InputClaims>
+      <PersistedClaims>
+        <!-- Required claims -->
+        <PersistedClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" />
+        <PersistedClaim ClaimTypeReferenceId="newPassword" PartnerClaimType="password" />
+        <PersistedClaim ClaimTypeReferenceId="displayName" DefaultValue="unknown" />
+        <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration" />
+        <!-- Optional claims. -->
+        <PersistedClaim ClaimTypeReferenceId="givenName" />
+        <PersistedClaim ClaimTypeReferenceId="surname" />
+        <PersistedClaim ClaimTypeReferenceId="city" />
+      </PersistedClaims>
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="objectId" />
+        <OutputClaim ClaimTypeReferenceId="newUser" PartnerClaimType="newClaimsPrincipalCreated" />
+        <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
+        <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
+        <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
+      </OutputClaims>
+      <IncludeTechnicalProfile ReferenceId="AAD-Common" />
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
+    </TechnicalProfile>
+    ```
+
+3. Voeg de `<OutputClaim ClaimTypeReferenceId="city" />` claim naar de technische profielen die in de map gelezen wanneer een gebruiker zich aanmeldt.
+
+    ```xml
+    <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
+      <Metadata>
+        <Item Key="Operation">Read</Item>
+        <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
+        <Item Key="UserMessageIfClaimsPrincipalDoesNotExist">An account could not be found for the provided user ID.</Item>
+      </Metadata>
+      <IncludeInSso>false</IncludeInSso>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames" Required="true" />
+      </InputClaims>
+      <OutputClaims>
+        <!-- Required claims -->
+        <OutputClaim ClaimTypeReferenceId="objectId" />
+        <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
+        <!-- Optional claims -->
+        <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
+        <OutputClaim ClaimTypeReferenceId="displayName" />
+        <OutputClaim ClaimTypeReferenceId="otherMails" />
+        <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
         <OutputClaim ClaimTypeReferenceId="city" />
       </OutputClaims>
-      <SubjectNamingInfo ClaimType="sub" />
+      <IncludeTechnicalProfile ReferenceId="AAD-Common" />
     </TechnicalProfile>
-  </RelyingParty>
-  ```
+    ```
 
-## <a name="test-the-custom-policy-using-run-now"></a>Het aangepaste beleid met behulp van 'Nu uitvoeren' testen
+    ```xml
+    <TechnicalProfile Id="AAD-UserReadUsingObjectId">
+      <Metadata>
+        <Item Key="Operation">Read</Item>
+        <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
+      </Metadata>
+      <IncludeInSso>false</IncludeInSso>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="objectId" Required="true" />
+      </InputClaims>
+      <OutputClaims>
+        <!-- Optional claims -->
+        <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
+        <OutputClaim ClaimTypeReferenceId="displayName" />
+        <OutputClaim ClaimTypeReferenceId="otherMails" />
+        <OutputClaim ClaimTypeReferenceId="givenName" />
+        <OutputClaim ClaimTypeReferenceId="city" />
+      </OutputClaims>
+      <IncludeTechnicalProfile ReferenceId="AAD-Common" />
+    </TechnicalProfile>
+    ```
+   
+4. Voeg de `<OutputClaim ClaimTypeReferenceId="city" />` claim naar het bestand SignUporSignIn.xml zodat deze claim wordt verzonden naar de toepassing in het token na een geslaagde gebruikersbeleving.
 
-1. Open de **Azure AD B2C-Blade** en navigeer naar **Identity-Ervaringsframework > aangepast beleid**.
-2. Selecteer het aangepaste beleid dat u geüpload en klikt u op de **nu uitvoeren** knop.
+    ```xml
+    <RelyingParty>
+      <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+      <TechnicalProfile Id="PolicyProfile">
+        <DisplayName>PolicyProfile</DisplayName>
+        <Protocol Name="OpenIdConnect" />
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="displayName" />
+          <OutputClaim ClaimTypeReferenceId="givenName" />
+          <OutputClaim ClaimTypeReferenceId="surname" />
+          <OutputClaim ClaimTypeReferenceId="email" />
+          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+          <OutputClaim ClaimTypeReferenceId="identityProvider" />
+          <OutputClaim ClaimTypeReferenceId="city" />
+        </OutputClaims>
+        <SubjectNamingInfo ClaimType="sub" />
+      </TechnicalProfile>
+    </RelyingParty>
+    ```
+
+## <a name="test-the-custom-policy"></a>Het aangepaste beleid testen
+
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Zorg ervoor dat u de map met uw Azure AD-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map met uw Azure AD-tenant te kiezen.
+3. Kies **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **App-registraties**.
+4. Selecteer **Identiteitservaring-Framework (Preview)**.
+5. Selecteer **uploaden aangepast beleid**, en upload vervolgens het voor twee beleidsbestanden die u hebt gewijzigd.
+2. Selecteer het beleid voor registreren of aanmelden geüpload en klikt u op de **nu uitvoeren** knop.
 3. U zou het mogelijk om u te registreren met behulp van een e-mailadres.
 
-Het scherm registreren in de testmodus moet er ongeveer als volgt uitzien:
+De registratie-scherm moet er ongeveer als volgt:
 
 ![Schermopname van het gewijzigde aanmeldingsoptie](./media/active-directory-b2c-configure-signup-self-asserted-custom/signup-with-city-claim-dropdown-example.png)
 
-  Het token naar de toepassing bevat nu de `city` claim zoals hieronder wordt weergegeven
+Het token verzonden naar de toepassing bevat de `city` claim.
+
 ```json
 {
   "exp": 1493596822,
@@ -266,19 +294,16 @@ Het scherm registreren in de testmodus moet er ongeveer als volgt uitzien:
 }
 ```
 
-## <a name="optional-remove-email-verification-from-signup-journey"></a>Optioneel: E-mailverificatie uit aanmelding reis verwijderen
+## <a name="optional-remove-email-verification"></a>Optioneel: Verwijderen van e-mailverificatie
 
-Als u wilt overslaan e-mailverificatie, de auteur van het beleid kunt verwijderen `PartnerClaimType="Verified.Email"`. Het e-mailadres wordt vereist maar niet geverifieerd, tenzij 'Vereist' = true wordt verwijderd.  U moet zorgvuldig overwegen als deze optie geschikt is voor uw use-cases is!
+Als u wilt overslaan e-mailverificatie, kunt u verwijderen `PartnerClaimType="Verified.Email"`. In dit geval het e-mailadres is vereist maar niet geverifieerd, tenzij 'Vereist' = true wordt verwijderd.  Overweeg zorgvuldig als deze optie geschikt is voor uw use-cases is.
 
-Geverifieerd met het e-mailbericht is standaard ingeschakeld in de `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` in het TrustFrameworkBase beleid-bestand in de beginnerspakket:
+Geverifieerd met het e-mailbericht is standaard ingeschakeld in de `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` in het beleidsbestand TrustFrameworkBase:
+
 ```xml
 <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als uw beleid sociale accounts ondersteunt, moet u de nieuwe claim naar de stromen voor sociaal account aanmeldingen toevoegen door het veranderen van de hieronder vermelde technische profielen. Deze claims worden gebruikt door sociaal account aanmeldingen voor het verzamelen en het schrijven van gegevens van de gebruiker.
-
-1. Ga naar het technische profiel **SelfAsserted sociale** en de uitvoerclaim toe te voegen. De volgorde van de claims in **OutputClaims** bepaalt de volgorde die Azure AD B2C de claims in het scherm wordt weergegeven. Bijvoorbeeld `<OutputClaim ClaimTypeReferenceId="city" />`.
-2. Ga naar het technische profiel **AAD-UserWriteUsingAlternativeSecurityId** en toevoegen van de claim permanent behouden. Bijvoorbeeld `<PersistedClaim ClaimTypeReferenceId="city" />`.
-3. Ga naar het technische profiel **AAD-UserReadUsingAlternativeSecurityId** en de uitvoerclaim toe te voegen. Bijvoorbeeld `<OutputClaim ClaimTypeReferenceId="city" />`.
+Meer informatie over het [gebruik aangepaste kenmerken in een aangepast profiel bewerken beleid](active-directory-b2c-create-custom-attributes-profile-edit-custom.md).

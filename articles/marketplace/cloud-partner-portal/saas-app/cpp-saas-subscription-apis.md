@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c09816d45169ce9bb6c926b8b17b075ea1059ec7
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: e56169d74d1669c3bb7adda06590145d2ca31b72
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695369"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893337"
 ---
 # <a name="saas-sell-through-azure---apis"></a>SaaS-verkopen via Azure - API 's
 
@@ -60,7 +60,7 @@ Voor het registreren van een nieuwe toepassing met behulp van de Azure portal, m
     ![SaaS AD App-registraties](./media/saas-offer-app-registration.png)
 
 4.  Voer op de pagina voor het maken, uw toepassing\'s registratie-informatie:
-    -   **Naam**: Een zinvolle toepassingsnaam invoeren
+    -   **Naam**: Voer een nuttige naam in voor de toepassing
     -   **Toepassingstype**: 
         - Selecteer **Systeemeigen** voor [clienttoepassingen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) die lokaal op een apparaat zijn geïnstalleerd. Deze instelling wordt gebruikt voor openbare [systeemeigen clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) met OAuth.
         - Selecteer **Web-app / API** voor [clienttoepassingen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) en [resource/API-Apps](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) die op een beveiligde server worden geïnstalleerd. Deze instelling wordt gebruikt voor OAuth vertrouwelijke [web-clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) en openbare [gebruiker agent-gebaseerde clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
@@ -68,7 +68,7 @@ Voor het registreren van een nieuwe toepassing met behulp van de Azure portal, m
     -   **Aanmeldings-URL**: Voor Web-app/API-Apps, geeft u de basis-URL van uw app. Bijvoorbeeld, **http://localhost:31544** mogelijk de URL voor een WebApp die wordt uitgevoerd op uw lokale computer. Gebruikers zouden deze URL vervolgens gebruiken voor het aanmelden bij een web-clienttoepassing.
     -   **Omleidings-URI**: Systeemeigen toepassing maakt, geeft u de URI die door Azure AD wordt gebruikt om tokenantwoorden te retourneren. Voer een specifieke waarde aan uw toepassing, bijvoorbeeld **http://MyFirstAADApp**.
 
-        ![SaaS AD App-registraties](./media/saas-offer-app-registration-2.png) voor specifieke voorbeelden voor webtoepassingen of systeemeigen toepassingen, bekijk de Snelstartgids begeleide instellingen die beschikbaar in de sectie aan de slag van zijn de [Azure AD-handleiding voor ontwikkelaars](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#get-started).
+        ![SaaS AD App-registraties](./media/saas-offer-app-registration-2.png) voor specifieke voorbeelden voor webtoepassingen of systeemeigen toepassingen, bekijk de Snelstartgids begeleide instellingen die beschikbaar in de sectie aan de slag van zijn de [Azure AD-handleiding voor ontwikkelaars](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 
 5.  Klik op **Create** als u klaar bent. Azure AD wijst een unieke toepassings-ID toe voor uw toepassing, en u\'re genomen om uw toepassing\'pagina voor de belangrijkste registratie s. Afhankelijk van of uw toepassing een webtoepassing of systeemeigen toepassing is, worden er verschillende opties geboden om extra mogelijkheden aan uw toepassing toe te voegen.
 
@@ -148,7 +148,9 @@ De huidige API-versie is `api-version=2017-04-15`.
 
 ### <a name="resolve-subscription"></a>Abonnement oplossen
 
-Actie na de op oplossen eindpunt kan gebruikers een token omzetten in een permanente Resource-ID.
+Actie na de op oplossen eindpunt kan gebruikers een marketplace-token worden omgezet in een permanente Resource-ID.  De Resource-ID is de unieke id voor SAAS-abonnement. 
+
+Wanneer een gebruiker wordt omgeleid naar de website van een ISV, bevat de URL een token in de queryparameters. De ISV wordt verwacht voor gebruik van dit token, en maken van een aanvraag om dit te verhelpen. Het antwoord bevat de unieke SAAS abonnements-ID, de naam, de aanbiedings-ID en het plan voor de resource. Dit token is alleen een uur geldig.
 
 *Aanvraag*
 

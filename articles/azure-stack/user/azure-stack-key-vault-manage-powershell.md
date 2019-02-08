@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: ddf08c69b5ef06d6243230230bcfdb56965aef4d
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4ec662cd60e2ca8e5db76a3fda4c68df6f3164e4
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239941"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893678"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>Key Vault in Azure Stack met behulp van PowerShell beheren
 
@@ -65,7 +65,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
 
 Als de registratie geslaagd is, wordt de volgende uitvoer geretourneerd:
 
-![Registreren](media/azure-stack-key-vault-manage-powershell/image2.png) wanneer u de key vault-opdrachten aanroepen, krijgt u mogelijk een fout, zoals 'het abonnement is niet geregistreerd voor het gebruik van de naamruimte 'Microsoft.KeyVault'.' Als u een fout optreedt, moet u bevestigen dat u hebt [de Key Vault resourceprovider ingeschakeld](#enable-your-tenant-subscription-for-vault-operations) door de instructies die eerder zijn genoemd.
+![Registreren](media/azure-stack-key-vault-manage-powershell/image2.png) wanneer u de key vault-opdrachten aanroepen, krijgt u mogelijk een fout, zoals 'het abonnement is niet geregistreerd voor het gebruik van de naamruimte 'Microsoft.KeyVault'.' Als u een fout optreedt, moet u bevestigen dat u de resourceprovider voor Key Vault hebt ingeschakeld door de instructies die eerder zijn genoemd.
 
 ## <a name="create-a-key-vault"></a>Een sleutelkluis maken
 

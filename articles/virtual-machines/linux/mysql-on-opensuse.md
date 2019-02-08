@@ -1,6 +1,6 @@
 ---
 title: MySQL installeren op een OpenSUSE-VM in Azure | Microsoft Docs
-description: Leer hoe u MySQL installeren op een OpenSUSE Linux VMirtual virtuele machine in Azure.
+description: Leer hoe u MySQL installeren op een virtuele OpenSUSE Linux-machine in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: za-rhoads
-ms.openlocfilehash: 98eb331fbd82ff718b01c99afd6840e3c2252777
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 06fb4b9c39b773393d7a58bba44f240265e2200f
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227850"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893698"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>MySQL op een a virtuele machine met OpenSUSE Linux installeren in Azure
 
@@ -130,7 +130,7 @@ Hiermee schakelt u naar de prompt MySQL waar u de SQL-instructies gebruikt om te
 
 Maak nu een nieuwe MySQL-gebruiker.
 
-```   
+```sql
 CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 ```
    
@@ -142,7 +142,7 @@ De puntkomma (;) aan het einde van de regel is van cruciaal belang voor het beë
 
 Een database maken en verlenen de `mysqluser` gebruikersmachtigingen.
 
-```   
+```sql
 CREATE DATABASE testdatabase;
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 ```
@@ -151,7 +151,7 @@ Database-gebruikersnamen en wachtwoorden worden alleen gebruikt door verbinding 
 
 Schakel aanmelden vanaf een andere computer. In dit voorbeeld wordt het IP-adres van de computer waarmee aanmelden vanaf is *10.112.113.114*.
 
-```   
+```sql
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'10.112.113.114' IDENTIFIED BY 'password';
 ```
    

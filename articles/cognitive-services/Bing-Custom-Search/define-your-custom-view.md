@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Beschrijft hoe u site en verticale search-services maken
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: aahi
-ms.openlocfilehash: 58830e3391cb6f794cfd8911e97b0c6dbb3cd2c1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 85ac778a8b0beaf6ecee186e6904f4a2e5b36f45
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193638"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882893"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>De ervaring van uw Bing Custom Search configureren
 
@@ -129,7 +129,7 @@ Standaard webpagina's zijn alleen vastgemaakt aan het begin van zoekresultaten w
 > [!NOTE]
 > Alle vergelijkingen tussen zoekquery van de gebruiker en de zoekquery van de pincode zijn niet hoofdlettergevoelig.
 
-| Waarde | Description                                                                          |
+| Value | Description                                                                          |
 |---------------|----------------------------------------------------------------------------------|
 | Begint met | De pincode is een overeenkomst als de queryreeks van de gebruiker met de querytekenreeks van de pincode begint |
 | Eindigt op   | De pincode is een overeenkomst als queryreeks van de gebruiker met de pincode van de query-tekenreeks eindigt.  |

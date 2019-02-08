@@ -15,12 +15,12 @@ ms.date: 11/16/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: be537d9598eeda902254e56a9202415f4f498d93
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: bee143f7e814884eda3c5dc9017895a8431e76aa
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245130"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890549"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Linux-installatiekopieën toevoegen aan Azure Stack
 
@@ -38,7 +38,7 @@ Houd er rekening mee dat er zijn regelmatig updates naar deze afbeeldingen, dus 
 
 Waar mogelijk, downloadt u de installatiekopieën die beschikbaar zijn via Marketplace-beheer die zijn voorbereid en getest voor Azure Stack. 
  
-De Azure Linux Agent (ook wel genoemd `WALinuxAgent` of `walinuxagent`) is vereist, en niet alle versies van de agent werkt in Azure Stack. Moet u versie 2.2.18 of hoger als u uw eigen installatiekopie maken. Houd er rekening mee dat [cloud-init](https://cloud-init.io/) wordt niet ondersteund in Azure Stack op dit moment.
+De Azure Linux Agent (ook wel genoemd `WALinuxAgent` of `walinuxagent`) is vereist, en niet alle versies van de agent werkt in Azure Stack. Moet u versie 2.2.20 of hoger als u uw eigen installatiekopie maken. Houd er rekening mee dat [cloud-init](https://cloud-init.io/) wordt niet ondersteund in Azure Stack op dit moment.
 
 U kunt uw eigen Linux-installatiekopie met behulp van de volgende instructies voorbereiden:
 

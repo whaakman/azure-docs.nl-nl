@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2019
 ms.author: magoedte
-ms.openlocfilehash: f61f420b6a738a410deed2d68acc06862600104f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 17fdcb4a57379fd11e841715a6908a4a0d280bd9
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563334"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891467"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Meer informatie over de status van uw Azure virtual machines met Azure Monitor voor virtuele machines (preview)
 Azure bevat meerdere services die afzonderlijk uitvoeren van een specifieke rol of de taak in de ruimte bewaking, maar biedt een perspectief gedetailleerde status van het besturingssysteem die worden gehost op Azure virtual machines niet beschikbaar was.  Terwijl u verschillende voorwaarden met behulp van Log Analytics of Azure Monitor controleren kan, zijn ze niet ontworpen om te modelleren en status van de belangrijkste onderdelen of algemene status van de virtuele machine vertegenwoordigen.  Met Azure Monitor voor virtuele machines de gezondheid van functie bewaakt het proactief de beschikbaarheid en prestaties van de Windows- of Linux Gast-OS met een model met daarin belangrijke onderdelen en hun relaties, criteria waarmee wordt aangegeven hoe u voor het meten van de status van deze onderdelen, en u waarschuwen wanneer een slechte status voorwaarde wordt gedetecteerd.  
@@ -106,7 +106,7 @@ Als u de status van een Azure-VM, selecteer **inzichten (preview)** in het linke
 
 ![Azure Monitor voor een overzicht van virtuele machines van een geselecteerde Azure-machine](./media/vminsights-health/vminsights-directvm-health.png)
 
-Op de **Health** tabblad onder de sectie **Gast-VM-status**, de tabel ziet u de huidige status van uw virtuele machine en het totale aantal VM-status waarschuwingen die worden gegenereerd door een slecht onderdeel. Raadpleeg [waarschuwingen](#alerting-and-alert-management) sectie voor meer informatie over de ervaring voor waarschuwingen.  
+Op de **Health** tabblad onder de sectie **Gast-VM-status**, de tabel ziet u de huidige status van uw virtuele machine en het totale aantal VM-status waarschuwingen die worden gegenereerd door een slecht onderdeel. Raadpleeg de sectie waarschuwingen voor meer informatie over de ervaring voor waarschuwingen.  
 
 De statussen die is gedefinieerd voor een virtuele machine worden in de volgende tabel beschreven: 
 

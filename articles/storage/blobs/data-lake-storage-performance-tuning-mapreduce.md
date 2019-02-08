@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 0cd7ecdc6ee7b6ccd66c9d0d88ebef0a1220a40a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 1df7765f4f006d3d79f867fbf23929f6b9b0cf08
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249109"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884389"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Richtlijnen voor MapReduce in HDInsight en Azure Data Lake Storage Gen2 afstemmen van prestaties
 
@@ -23,7 +23,7 @@ Begrijp de factoren waarmee u rekening houden moet wanneer u de prestaties van M
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 * **Een account met Azure Data Lake Storage Gen2**. Zie voor instructies over het maken van een [Quick Start: Maken van een storage-account van Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
-* **Azure HDInsight-cluster** met toegang tot een Data Lake Storage Gen2-account. Zorg ervoor dat u extern bureaublad inschakelen voor het cluster.
+* **Azure HDInsight-cluster** met toegang tot een Data Lake Storage Gen2-account. Zie [gebruik Azure Data Lake Storage Gen2 met Azure HDInsight-clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)
 * **Met behulp van MapReduce in HDInsight**.  Zie voor meer informatie, [MapReduce in Hadoop op HDInsight gebruiken](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)
 * **Richtlijnen voor het Data Lake Storage Gen2 afstemmen van prestaties**.  Zie voor de prestaties van de algemene concepten, [Data Lake Storage Gen2 prestaties afstemmen-richtlijnen](data-lake-storage-performance-tuning-guidance.md)
 

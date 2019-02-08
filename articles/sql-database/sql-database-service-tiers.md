@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/05/2019
-ms.openlocfilehash: c62be5041792690f023361da6254157aed1beeb2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: e0455ef99016fe1029f17256a6dbf5d9bbd8aa4d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749049"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890566"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database aanschaffen van modellen
 
@@ -56,10 +56,13 @@ Het op vCore gebaseerde aankoopmodel kunt u onafhankelijk reken- en opslagresour
 
 > [!IMPORTANT]
 > Reken-, IOs-, gegevens en opslaan van Logboeken worden in rekening gebracht per database of elastische pool. Back-ups opslag wordt in rekening gebracht per elke database. Zie voor meer informatie over beheerd exemplaar kosten [instanties die worden beheerd](sql-database-managed-instance.md).
-> **De volgende beperkingen regio:** Zie voor de huidige lijst met ondersteunde regio's, [producten beschikbaar per regio](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Als u maken van een beheerd exemplaar in de regio die wordt momenteel niet ondersteund wilt, kunt u [verzoek om ondersteuning te verzenden via Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance).
+> **De volgende beperkingen regio:** Zie voor de huidige lijst met ondersteunde regio's, [producten beschikbaar per regio](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Als u maken van een beheerd exemplaar in de regio die wordt momenteel niet ondersteund wilt, kunt u [verzoek om ondersteuning te verzenden via Azure portal](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance).
 .
 
-Als uw database of elastische pool meer dan 300 DTU conversie naar vCore verbruikt kan uw kosten verlagen. U kunt converteren met behulp van uw API van keuze of de Azure-portal, zonder uitvaltijd. Conversie is echter niet vereist. Als het DTU-aankoopmodel voldoet aan uw prestaties en zakelijke vereisten, moet u deze blijven gebruiken. Als u converteren van het DTU-model naar het vCore-model wilt, moet u de grootte van de compute met behulp van de volgende vuistregel: elke 100 DTU in Standard-laag moet ten minste 1 vCore in de categorie Algemeen gebruik; elke 125 DTU in Premium-laag moet ten minste 1 vCore in de laag bedrijfskritiek.
+Converteren naar het vCore-aanschafmodel kan als uw individuele database of elastische pool meer dan 300 dtu's verbruikt, de kosten verminderen. Als u converteren wilt, kunt u uw API naar keuze gebruiken of met behulp van de Azure-portal, zonder uitvaltijd kunt converteren. Echter conversie is niet vereist en niet automatisch gebeurt. Als het op DTU gebaseerde aankoopmodel voldoet aan uw prestaties en zakelijke vereisten, moet u deze blijven gebruiken. Als u converteren van het op DTU gebaseerde aankoopmodel naar het vCore-aanschafmodel wilt, selecteert u de grootte van de compute met behulp van de volgende vuistregels: 
+
+- Elke 100 DTU in Standard-laag moet ten minste 1 vCore in de categorie Algemeen gebruik
+- Elke 125 DTU in Premium-laag moet ten minste 1 vCore in de laag bedrijfskritiek
 
 ## <a name="dtu-based-purchasing-model"></a>DTU gebaseerde aankoopmodel
 

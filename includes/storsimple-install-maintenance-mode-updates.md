@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 01612b32e6c1b363df8a5c70405d0c709210328e
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 720288aff462b0590bb9da509096a9305b9b6cc7
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164247"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888596"
 ---
-<!--author=SharS last changed: 9/17/15-->
-
 #### <a name="to-install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>Voor het installeren van updates voor de onderhoudsmodus via Windows PowerShell voor StorSimple
 1. Als u dit nog niet hebt gedaan, toegang tot de seriële console van het apparaat en selecteer optie 1, **Meld u aan met volledige toegang tot de**. 
 2. Typ het wachtwoord. Is het standaardwachtwoord **Wachtwoord1**.
@@ -28,5 +26,5 @@ ms.locfileid: "50164247"
    
     Als de `RunInProgress` is `True`, de update nog steeds bezig is. Als `RunInProgress` is `False`, betekent dit dat de update is voltooid.  
 8. Wanneer de update is geïnstalleerd op de huidige controller en deze opnieuw is opgestart, verbinding maken met de andere controller en voer stap 1 t/m 6.
-9. Nadat de beide controllers zijn bijgewerkt, de onderhoudsmodus afsluit. Zie [stap 4: onderhoudsmodus afsluiten](../articles/storsimple/storsimple-update-device.md#step4) voor instructies.
+9. Nadat de beide controllers zijn bijgewerkt, de onderhoudsmodus afsluit. Zie [stap 4: Onderhoudsmodus afsluiten](../articles/storsimple/storsimple-update-device.md#step4) voor instructies.
 

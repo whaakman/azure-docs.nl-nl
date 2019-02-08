@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c280a1f7e060ab7637e8d0b2484951f72b58a89c
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: fe671dec730cd1a593c6413c38625677c3f9d164
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081191"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894102"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Voorspellende pijplijnen maken met Azure Machine Learning en Azure Data Factory
 
@@ -54,7 +54,7 @@ Met Data Factory-service kunt u gegevenspijplijnen maken die gegevens verplaatse
 Zie [Inleiding tot Azure Data Factory](data-factory-introduction.md) en [uw eerste pijplijn bouwen](data-factory-build-your-first-pipeline.md) artikelen snel aan de slag met Azure Data Factory-service.
 
 ### <a name="data-factory-and-machine-learning-together"></a>Data Factory en Machine Learning samen
-Azure Data Factory kunt u eenvoudig maken pijplijnen die gebruikmaken van een gepubliceerde [Azure Machine Learning] [ azure-machine-learning] webservice voor voorspellende analyses. Met behulp van de **Batchuitvoeringsactiviteit** in een Azure Data Factory-pijplijn, kunt u een Azure Machine Learning studio-webservice om voorspellingen te maken van de gegevens in batch aanroepen. Zie [aanroepen van een Azure Machine Learning studio-webservice met behulp van de Batch Execution-activiteit](#invoking-an-azure-ml-web-service-using-the-batch-execution-activity) sectie voor meer informatie.
+Azure Data Factory kunt u eenvoudig maken pijplijnen die gebruikmaken van een gepubliceerde [Azure Machine Learning] [ azure-machine-learning] webservice voor voorspellende analyses. Met behulp van de **Batchuitvoeringsactiviteit** in een Azure Data Factory-pijplijn, kunt u een Azure Machine Learning studio-webservice om voorspellingen te maken van de gegevens in batch aanroepen. Zie aanroepen van een Azure Machine Learning studio-webservice met behulp van de Batch Execution-activiteit-gedeelte voor meer informatie.
 
 De voorspellende modellen in de Azure Machine Learning studio scoren experimenten moeten opnieuw worden getraind met behulp van nieuwe invoergegevenssets na verloop van tijd. U kunt een opnieuw trainen van een Azure Machine Learning studio-model van een Data Factory-pijplijn door de volgende stappen:
 

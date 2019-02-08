@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/09/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eaf6890223526b213ac4ec1180288b95fe6eaa29
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c32b24007a041b9eb2cc1a5418c221239f3267b6
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149859"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893864"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Kenmerktoewijzingen voor Gebruikersinrichting voor SaaS-toepassingen in Azure Active Directory aanpassen
 Microsoft Azure AD biedt ondersteuning voor het inrichten van gebruikers voor SaaS-toepassingen van derden zoals Salesforce, Google Apps en anderen. Als u hebt met het inrichten van gebruikers voor een SaaS-toepassing van derden ingeschakeld, bepaalt de Azure-portal de kenmerkwaarden in de vorm van kenmerk-toewijzingen.
@@ -102,7 +102,7 @@ Toepassingen en systemen die ondersteuning bieden voor aanpassing van de lijst m
 * Apps die ondersteuning bieden voor [SCIM 2.0](https://tools.ietf.org/html/rfc7643), waarbij de kenmerken die zijn gedefinieerd in de [core schema](https://tools.ietf.org/html/rfc7643) moeten worden toegevoegd
 
 >[!NOTE]
->De lijst met ondersteunde kenmerken bewerken wordt alleen aanbevolen voor beheerders die het schema van hun toepassingen en systemen hebt aangepast en eerste hand kennis hebben van hoe de aangepaste kenmerken zijn gedefinieerd. Hiervoor moet soms vertrouwd zijn met de API's en ontwikkelaars-hulpprogramma's van een toepassing of het systeem. 
+>De lijst met ondersteunde kenmerken bewerken wordt alleen aanbevolen voor beheerders die het schema van hun toepassingen en systemen hebt aangepast en eerste hand kennis hebben van hoe de aangepaste kenmerken zijn gedefinieerd. Hiervoor moet soms vertrouwd zijn met de API's en ontwikkelhulpprogramma's geleverd door een toepassing of het systeem. 
 
 ![Editor](./media/customize-application-attributes/25.png) 
 

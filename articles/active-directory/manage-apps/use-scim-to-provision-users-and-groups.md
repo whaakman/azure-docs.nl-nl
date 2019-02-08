@@ -16,12 +16,12 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: e16598a10cbbe4cfa65e6b5394e749bfee99dbdc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: faebf6c5e7b32ec842c19af07e36a1120156e103
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732580"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894119"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Met behulp van systeem voor meerdere domeinen Identity Management (SCIM) voor het automatisch inrichten van gebruikers en groepen uit Azure Active Directory voor toepassingen
 
@@ -38,7 +38,7 @@ Deze mogelijkheid kan worden gebruikt in combinatie met de functie 'bring your o
 
 Er zijn twee gebruiksscenario's voor het gebruik van SCIM in Azure Active Directory:
 
-* **Inrichten van gebruikers en groepen met toepassingen die ondersteuning bieden voor SCIM** -toepassingen met SCIM 2.0 ondersteunen en bearer-tokens van OAuth gebruiken voor verificatie met Azure AD zonder configuratie werkt.
+* **Inrichten van gebruikers en groepen met toepassingen die ondersteuning bieden voor SCIM** -toepassingen die ondersteuning bieden SCIM 2.0 en bearer-tokens van OAuth gebruiken voor verificatie werken met Azure AD zonder configuratie.
   
 * **Het bouwen van uw eigen oplossing voor toepassingen die ondersteuning voor andere op API gebaseerde inrichting** -voor niet-SCIM toepassingen, kunt u een SCIM-eindpunt voor de omzetting tussen de Azure AD SCIM-eindpunt en een API biedt ondersteuning voor de toepassing voor maken inrichten van gebruikers. Voor hulp bij het ontwikkelen van een eindpunt SCIM, zijn er bibliotheken en codevoorbeelden waarin u ziet u hoe u een eindpunt SCIM bieden en vertalen SCIM berichten Common Language Infrastructure (CLI).  
 
@@ -74,7 +74,7 @@ Toepassingen die ondersteuning bieden voor het SCIM-profiel dat wordt beschreven
    *Afbeelding 3: Configureren van het inrichten in Azure portal*
     
 6. In de **Tenant-URL** en voer de URL van SCIM-eindpunt van de toepassing. Voorbeeld: https://api.contoso.com/scim/v2/
-7. Als het eindpunt SCIM een OAuth-bearer-token van een uitgever dan Azure AD vereist, kopieert u de vereiste OAuth bearer-token naar de optionele **geheim Token** veld. Als dit veld leeg laat, opgenomen Azure AD een OAuth-bearer-token van Azure AD met elke aanvraag is uitgegeven. Apps die gebruikmaken van Azure AD als een id-provider kunt controleren of deze Azure AD-token dat is uitgegeven.
+7. Als het eindpunt SCIM een OAuth-bearer-token van een uitgever dan Azure AD vereist, kopieert u de vereiste OAuth bearer-token naar de optionele **geheim Token** veld. Als dit veld leeg is, bevat Azure AD een OAuth-bearer-token van Azure AD met elke aanvraag is uitgegeven. Apps die gebruikmaken van Azure AD als id-provider kunnen deze Azure AD uitgegeven tokens te valideren.
 8. Klik op de **testverbinding** knop met Azure Active Directory wilt verbinden met het eindpunt SCIM. Als de pogingen mislukken, wordt informatie over de fout wordt weergegeven.  
 
     >[!NOTE]
@@ -153,7 +153,7 @@ De eenvoudigste manier voor het implementeren van een eindpunt SCIM inrichting a
    ![][2]
    *Afbeelding 4: Configureren van het inrichten in Azure portal*
     
-6. In de **Tenant-URL** en voer de beschikbaar gesteld op internet-URL en poort van uw eindpunt SCIM. De vermelding is iets als http://testmachine.contoso.com:9000 of http://<ip-address>:9000/, waarbij < ip-adres > de internet is-IP-adres weergegeven.  
+6. In de **Tenant-URL** en voer de beschikbaar gesteld op internet-URL en poort van uw eindpunt SCIM. De vermelding is iets als http://testmachine.contoso.com:9000 of http://\<ip-adres >: 9000 / waar \<ip-adres > is internet blootgesteld IP adres.  
 7. Als het eindpunt SCIM een OAuth-bearer-token van een uitgever dan Azure AD vereist, kopieert u de vereiste OAuth bearer-token naar de optionele **geheim Token** veld. Als dit veld leeg laat, wordt Azure AD een OAuth-bearer-token dat is uitgegeven van Azure AD met elke aanvraag bevatten. Apps die gebruikmaken van Azure AD als een id-provider kunt controleren of deze Azure AD-token dat is uitgegeven.
 8. Klik op de **testverbinding** knop met Azure Active Directory wilt verbinden met het eindpunt SCIM. Als de pogingen mislukken, wordt informatie over de fout wordt weergegeven.  
 

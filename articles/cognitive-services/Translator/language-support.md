@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Een lijst van natuurlijke talen die worden ondersteund door de Translator Text-API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jansko
-ms.openlocfilehash: 96f73d7d1324de9e5531aefcc4ee3b9a054cf941
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d0ab683ac59c17cbae1e0947cd2acd785b0365d3
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228046"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884971"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Ondersteuning voor taal en regio voor de Translator Text-API
 
@@ -50,7 +50,7 @@ De Translator Text-API ondersteunt de volgende talen voor tekst naar tekst conve
 |Tsjechisch| `cs`    |Neurale beschikbaar|  Neurale|
 |Deens|    `da`    |Neurale beschikbaar   |Neurale|
 |Nederlands| `nl`    |Neurale beschikbaar|  Neurale|
-|Nederlands|   `en`    |Neurale beschikbaar|  Neurale|
+|Engels|   `en`    |Neurale beschikbaar|  Neurale|
 |Estisch|  `et`    |Neurale beschikbaar|  Neurale|
 |Fiji|    `fj`    |Alleen statistisch|  Statistische|
 |Filipijns|  `fil`   |Alleen statistisch|  Statistische|
@@ -186,7 +186,7 @@ De woordenlijst ondersteunt de volgende talen naar of van Engels met behulp van 
 | Vietnamees      | `vi`          |
 | Welsh      | `cy`          |
 
-## <a name="detect"></a>Detecteren
+## <a name="detect"></a>Detect
 
 De volgende talen worden ondersteund door de analyse-methode. Detecteren van mei identificeren van de talen die de Microsoft Translator-kan niet worden geconverteerd.
 
@@ -206,7 +206,7 @@ De volgende talen worden ondersteund door de analyse-methode. Detecteren van mei
 | Tsjechisch |
 | Deens |
 | Nederlands |
-| Nederlands |
+| Engels |
 | Esperanto |
 | Estisch |
 | Fins |

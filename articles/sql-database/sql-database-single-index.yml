@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3a404c9f7abae979a4f4d54c6ff502a33edc9b7f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: bf79947ef3622bbbd1e41308497534a5599f8da6
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814398"
+ms.locfileid: "55884474"
 documentType: LandingData
 title: 'Azure SQL Database: Individuele database'
 metadata:
@@ -80,6 +80,7 @@ sections:
     - html: (Preview) Nieuwe SQL Server 2019 <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">intelligente queryverwerking</a> functies, zoals <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#table-variable-deferred-compilation">tabelvariabele uitgesteld compilatie</a>, <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#batch-mode-on-rowstore">batchmodus op rowstore tabellen</a>, en <a href="https://docs.microsoft.com/sql/relational-databases/user-defined-functions/scalar-udf-inlining?view=azuresqldb-current&toc=%2Fazure%2Fsql-database%2Ftoc.json"> scalaire UDF inlining</a>.
     - html: (Preview) Nieuwe functies voor Transact-SQL-taal, zoals <a href="https://docs.microsoft.com/sql/t-sql/functions/approx-count-distinct-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">APPROX_COUNT_DISTINCT statistische functie</a> en <a href="https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">bulksgewijs importeren uit Azure Blob-opslag</a>.
     - html: (Preview) Nieuwe SQL Server 2019 Online <a href="https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#online--on--off">bouwen</a> en bewerkingen van geclusterde columnstore-index opnieuw opbouwen.
+    - html: (Preview) Nieuwe <a href="https://docs.microsoft.com/azure/sql-database/sql-database-machine-learning-services-overview">Azure SQL Database-Machine Learning-Services (met R)</a>.
 - title: Quickstarts van vijf minuten
   items:
   - type: paragraph

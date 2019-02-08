@@ -14,19 +14,22 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5ab5c769280bdd91a15e6107df8c9c6b7814571c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 7f0af2c64d04d83cc3eb4043007979c17c75e051
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599907"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55877283"
 ---
+> [!NOTE]
+> Elke App Service-omgeving heeft een virtuele IP (VIP), die kunnen worden gebruikt om contact op met de App Service-omgeving.
+>
 # <a name="create-an-external-app-service-environment"></a>Een externe App Service-omgeving maken #
 
-Azure App Service Environment is een implementatie van Azure App Service in een subnet in een virtueel Azure-netwerk (VNet). Er zijn twee manieren om een AS-omgeving te implementeren:
+Azure App Service Environment is een implementatie van Azure App Service in een subnet in een virtueel Azure-netwerk (VNet). Er zijn twee manieren om een Azure App Service-omgeving (ASE) te implementeren:
 
 - Met een VIP-adres op een extern IP-adres, vaak aangeduid als Externe AS-omgeving.
-- Met de VIP-adres op een intern IP-adres, vaak aangeduid als een ILB as-omgeving omdat het interne eindpunt een interne load balancer (ILB).
+- Met de VIP-adres op een intern IP-adres, vaak aangeduid als een ILB as-omgeving omdat het interne eindpunt een interne Load Balancer (ILB).
 
 Dit artikel laat u het maken van een externe as-omgeving. Zie voor een overzicht van de as-omgeving, [een inleiding tot App Service Environment][Intro]. Zie voor meer informatie over het maken van een ILB as-omgeving [maken en gebruiken een ILB as-omgeving][MakeILBASE].
 

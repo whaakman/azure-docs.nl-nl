@@ -5,24 +5,24 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/07/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: ca1012e0f1b0b7a9e0d8bd88d94876c20d22dec5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fce7beeda352b9add3603fb74c558ad1b64fac2a
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473779"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895513"
 ---
 # <a name="azure-data-lake-storage-gen2-security-guide"></a>Azure Data Lake Storage Gen2-beveiligingshandleiding
 
-Azure Data Lake-opslag Gen2 Preview, is een verscheidenheid aan functies die is gebouwd op Azure Storage-accounts. Daarom is alle verwijzingen in dit artikel bedoeld voor een Azure Storage-account met hiërarchische naamruimte ingeschakeld (Data Lake Storage Gen2 mogelijkheden).
+Azure Data Lake Storage Gen2, is een verscheidenheid aan functies die is gebouwd op Azure Storage-accounts. Daarom is alle verwijzingen in dit artikel bedoeld voor een Azure Storage-account met hiërarchische naamruimte ingeschakeld (Data Lake Storage Gen2 mogelijkheden).
 
 - Alle gegevens die zijn geschreven naar Azure Storage automatisch versleuteld met behulp van [Storage Service Encryption (SSE)](storage-service-encryption.md). Zie voor meer informatie, [standaard codering aankondiging voor Azure-Blobs, bestanden, tabellen en Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
 - Azure Active Directory (Azure AD) en op rollen gebaseerd toegangsbeheer (RBAC) worden ondersteund voor Azure Storage voor zowel resource management-bewerkingen en bewerkingen voor gegevens, als volgt:
     - U kunt RBAC-rollen binnen het bereik van het opslagaccount dat aan beveiligings-principals en het gebruik van Azure AD te autoriseren resource management-bewerkingen zoals Sleutelbeheer toewijzen.
-    - Azure AD-integratie wordt ondersteund in de Preview-versie van bewerkingen voor gegevens in Azure Storage. U kunt RBAC-rollen binnen het bereik van een abonnement, resourcegroep, opslagaccount of een afzonderlijke bestandssysteem een beveiligings-principal of een beheerde identiteit voor Azure-resources kunt toewijzen. Zie voor meer informatie, [verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory (Preview)](storage-auth-aad.md).
+    - Azure AD-integratie wordt ondersteund voor bewerkingen voor gegevens in Azure Storage. U kunt RBAC-rollen binnen het bereik van een abonnement, resourcegroep, opslagaccount of een afzonderlijke bestandssysteem een beveiligings-principal of een beheerde identiteit voor Azure-resources kunt toewijzen. Zie voor meer informatie, [verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory](storage-auth-aad.md).
 - Gedelegeerde toegang tot de gegevensobjecten in Azure Storage kan worden verleend met behulp van [Shared Access Signatures](../storage-dotnet-shared-access-signature-part-1.md).
 
 Dit artikel bevat een overzicht van elk van deze beveiligingsfuncties die kunnen worden gebruikt met Azure Storage. Koppelingen zijn opgegeven voor artikelen die details van elke functie, kunt u eenvoudig doen nader onderzoek op elk onderwerp.
@@ -133,7 +133,7 @@ Beveiliging van gegevens vlak verwijst naar de methoden voor het beveiligen van 
 
 Hebt u drie opties voor het verlenen van toegang tot objecten in Azure Storage, met inbegrip van:
 
-- Met behulp van Azure AD toegang verlenen aan de bestandssystemen en wachtrijen (Preview). Azure AD biedt voordelen ten opzichte van andere methoden voor autorisatie, waaronder de noodzaak voor het opslaan van geheimen in uw code verwijderen. Zie voor meer informatie, [verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory (Preview)](storage-auth-aad.md). 
+- Met behulp van Azure AD toegang verlenen aan de bestandssystemen en wachtrijen. Azure AD biedt voordelen ten opzichte van andere methoden voor autorisatie, waaronder de noodzaak voor het opslaan van geheimen in uw code verwijderen. Zie voor meer informatie, [verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory](storage-auth-aad.md). 
 - Met behulp van de sleutels van uw storage-account om toegang via gedeelde sleutel te verlenen. Autoriseren via gedeelde sleutel moet opslaan van de sleutels van uw storage-account in uw toepassing, zodat Microsoft raadt het Azure AD in plaats daarvan gebruik waar mogelijk. Voor productie-Apps, of voor het verlenen van toegang tot Azure-tabellen en bestanden, voert u de gedeelde sleutel gebruiken terwijl Azure AD-integratie beschikbaar als preview is.
 - Met behulp van handtekeningen voor gedeelde toegang te verlenen omschreven machtigingen beschikt voor specifieke objecten gedurende een bepaalde periode.
 
@@ -229,7 +229,7 @@ Raadpleeg de volgende artikelen voor meer gedetailleerde informatie over het geb
 
     Dit artikel bevat een uitleg van de SAS-model, voorbeelden van handtekeningen voor gedeelde toegang en aanbevelingen voor het beste gebruik van SAS. Ook wordt besproken, is het intrekken van de machtiging is verleend.
 
-* Verificatie
+* Authentication
 
   * [Verificatie voor de Azure Storage-Services](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * Shared Access Signatures aan de slag zelfstudie

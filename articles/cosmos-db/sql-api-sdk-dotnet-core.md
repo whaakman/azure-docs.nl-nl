@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 642c59e9349585ea2287f7bf439250dbfef9ba7a
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: d25fcbce99017ff19adebd61275b395c980a3cf5
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766245"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891688"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core-SDK voor SQL-API: Opmerkingen bij de release en resources
 > [!div class="op_single_selector"]
@@ -49,6 +49,12 @@ De Azure Cosmos DB .NET Core SDK heeft de functiepariteit met de meest recente v
 * Nieuw objectmodel, met methoden en op het hoogste niveau CosmosClient verdeeld over relevante CosmosDatabases, CosmosContainers en CosmosItems klassen.
 * Ondersteuning voor stromen.
 * Bijgewerkte CosmosResponseMessage van server-statuscode retourneren en uitzondering alleen genereren als er geen reactie wordt geretourneerd.
+
+### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
+
+* Toegevoegde omgeving variabele-instelling 'POCOSerializationOnly'.
+
+* DocumentDB.Spatial.Sql.dll verwijderd en nu opgenomen in Microsoft.Azure.Documents.ServiceInterop.dll
 
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 
@@ -227,6 +233,7 @@ Als u vragen met betrekking tot deze SDK hebt, post naar [StackOverflow](https:/
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [2.2.2](#2.2.2) |06 februari 2019 |--- |
 | [2.2.1](#2.2.1) |December 24 mei 2018 |--- |
 | [2.2.0](#2.2.0) |07 december 2018 |--- |
 | [2.1.3](#2.1.3) |15 oktober 2018 |--- |

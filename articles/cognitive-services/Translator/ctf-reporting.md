@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Het gebruik Collaborative Translation Framework (CTF) rapportage.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 273b54961adafb58fe9faa7993003ff74d50b6f9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 69fbcad92d31744cae798b7ff376e77f655f6440
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218153"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55877555"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>CTF-rapportage (Collaborative Translation Framework) gebruiken
 
@@ -36,7 +36,7 @@ Het eindpunt van de CTF rapportage-API http://api.microsofttranslator.com/v2/bet
 
 
 ## <a name="methods"></a>Methoden
-| Name |    Beschrijving|
+| Name |    Description|
 |:---|:---|
 | GetUserTranslationCounts Method | Telt het aantal van de vertaling op die zijn gemaakt door de gebruiker ophalen. |
 | Methode GetUserTranslations | Hiermee haalt u de vertalingen die zijn gemaakt door de gebruiker. |
@@ -74,7 +74,7 @@ UserTranslationCount[]GetUserTranslationCounts(
 
 **Parameters**
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 |:---|:---|
 | appId | **Vereiste** als de autorisatie-header wordt gebruikt, laat het veld appid leeg anders geeft u een tekenreeks met "Bearer" + "" + toegangstoken.|
 | uriPrefix | **Optionele** een tekenreeks met het voorvoegsel van de URI van de vertaling.|
@@ -96,7 +96,7 @@ UserTranslationCount[]GetUserTranslationCounts(
 
 De resultatenset bevat een matrix van de **UserTranslationCount**. Elke UserTranslationCount heeft de volgende elementen:
 
-| Veld | Beschrijving |
+| Veld | Description |
 |:---|:---|
 | Count| Het aantal resultaten dat wordt opgehaald|
 | Vanaf | De source-taal|
@@ -145,7 +145,7 @@ UserTranslation[] GetUserTranslations (
 
 **Parameters**
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 |:---|:---|
 | appId | **Vereiste** als de autorisatie-header wordt gebruikt, laat het veld appid leeg anders geeft u een tekenreeks met "Bearer" + "" + toegangstoken.|
 | uriPrefix| **Optionele** een tekenreeks met het voorvoegsel van de URI van de vertaling.|
@@ -167,7 +167,7 @@ UserTranslation[] GetUserTranslations (
 
 De resultatenset bevat een matrix van de **UserTranslation**. Elke UserTranslation heeft de volgende elementen:
 
-| Veld | Beschrijving |
+| Veld | Description |
 |:---|:---|
 | CreatedDateUtc| De aanmaakdatum van de vermelding die met behulp van AddTranslation()|
 | Vanaf| De source-taal|

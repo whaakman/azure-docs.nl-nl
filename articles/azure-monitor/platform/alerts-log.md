@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: cb4b063d17555084f4065d7d7df931b96b95d9a4
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 7ff4a4d64b69809c53ad70edf1455880da24d52a
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751477"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892504"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van waarschuwingen met behulp van Azure Monitor
 
@@ -317,12 +317,12 @@ Het bovenstaande voorbeeld-json als (bijvoorbeeld) sampleScheduledQueryRule.json
 > Waarschuwingen voor logboeken voor Log Analytics kunnen ook worden beheerd met behulp van legacy [Log Analytics-waarschuwing API](../../azure-monitor/platform/api-alerts.md) en verouderde sjablonen van [met Log Analytics opgeslagen zoekopdrachten en waarschuwingen](../../azure-monitor/insights/solutions-resources-searches-alerts.md) ook. Zie voor meer informatie over het gebruik van de nieuwe ScheduledQueryRules API hier gedetailleerde standaard [overschakelen naar de nieuwe API voor Log Analytics-waarschuwingen](alerts-log-api-switch.md).
 
 
-Waarschuwingen hebt toegewezen PowerShell of CLI-opdrachten geen momenteel; maar zoals hieronder weergegeven kan worden gebruikt via Azure Resource Manager PowerShell-cmdlet voor het voorbeeld hierboven Resourcesjabloon (sampleScheduledQueryRule.json) in de [Resource sjabloonsectie](#azure-resource-template-for-application-insights) :
+Waarschuwingen hebt toegewezen PowerShell of CLI-opdrachten geen momenteel; maar zoals hieronder weergegeven kan worden gebruikt via Azure Resource Manager PowerShell-cmdlet voor het voorbeeld hierboven Resourcesjabloon (sampleScheduledQueryRule.json) in de sectie Resource-sjabloon:
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
 ```
 
-Hieronder gebruik via Azure Resource Manager-opdracht in de Azure CLI voor het voorbeeld hierboven Resourcesjabloon (sampleScheduledQueryRule.json) wordt weergegeven de [Resource sjabloonsectie](#azure-resource-template-for-application-insights) :
+Hieronder gebruik via Azure Resource Manager-opdracht in de Azure CLI voor het voorbeeld hierboven Resourcesjabloon (sampleScheduledQueryRule.json) weergegeven in de sectie Resource-sjabloon:
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json

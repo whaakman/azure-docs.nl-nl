@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/6/2018
-ms.openlocfilehash: 19fc20f21a57c2325254581c642b75c92c221fd9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 55106f855d1f2cab82b751b306a3a289bd740e9e
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536081"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895343"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Beperkingen in Azure Database for MySQL
 De volgende secties beschrijven capaciteit, ondersteuning voor de opslag-engine, bevoegdheden ondersteuning, gegevens manipuleren instructie ondersteuning en functionele limieten in de database-service. Zie ook [algemene beperkingen](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) van toepassing op de MySQL-database-engine.
@@ -36,7 +36,7 @@ Het maximum aantal verbindingen per prijscategorie en vCores zijn als volgt:
 |Geoptimaliseerd geheugen| 32| 10.000|
 
 Wanneer verbindingen de limiet overschrijdt, wordt de volgende fout:
-> FOUT 1040 (08004): Te veel verbindingen
+> ERROR 1040 (08004): Te veel verbindingen
 
 ## <a name="storage-engine-support"></a>Ondersteuning voor de opslag-engine
 
@@ -55,6 +55,7 @@ Wanneer verbindingen de limiet overschrijdt, wordt de volgende fout:
 ### <a name="unsupported"></a>Niet-ondersteund
 - DBA rol: Veel parameters van de server en instellingen kunnen per ongeluk serverprestaties slechter of ACID-eigenschappen van de DBMS negatief moet worden gemaakt. Als zodanig wilt behouden de integriteit van de service en SLA op het productniveau van een, wordt deze service niet weergegeven de DBA-rol. De standaard-gebruikersaccount, die is gemaakt wanneer een nieuwe database-exemplaar wordt gemaakt, kan die gebruiker voor het uitvoeren van de meeste DDL en DML-instructies in de beheerde database-instantie. 
 - SUPER bevoegdheden: Op dezelfde manier [SUPER bevoegdheden](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) is ook beperkt.
+- OPSTELLER: Vereist super bevoegdheden voor het maken en is beperkt. Als u gegevens met behulp van een back-up importeert, verwijdert u de `CREATE DEFINER` opdrachten handmatig of met behulp van de `--skip-definer` bij het uitvoeren van een mysqldump opdracht.
 
 ## <a name="data-manipulation-statement-support"></a>Beheerondersteuning-instructie bewerken
 

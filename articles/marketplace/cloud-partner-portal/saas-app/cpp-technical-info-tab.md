@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7a49e69b2e27a38b1a89fedbd6bbd70066b37dc2
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: f0f6bbf5f235d6ae3e86114e583d55c502296470
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451218"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895394"
 ---
 # <a name="saas-application-technical-info-tab"></a>Tabblad voor SaaS-toepassing technische gegevens
 
@@ -42,7 +42,7 @@ Lezen om te bepalen welk type SaaS-app u bouwt, [begrijpen storefront selectie](
 Als u wilt maken van deze ervaring die u wilt configureren van de volgende onderdelen:
 
 - Verbinding maken met de website van uw SaaS-service met Microsofts SaaS APIs. De [SaaS verkopen via Azure-API's](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis) artikel wordt uitgelegd hoe u deze verbinding te maken.
-- Verkopen via Azure in de Cloud Partner-Portal inschakelen in het configuratieformulier voor technische en geef de vereiste gegevens. Zie voor meer informatie over dit factureringsmodel en hoe deze geïmplementeerd, [SaaS-verkopen via Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions#overview).
+- Verkopen via Azure in de Cloud Partner-Portal inschakelen in het configuratieformulier voor technische en geef de vereiste gegevens. Zie voor meer informatie over dit factureringsmodel en hoe deze geïmplementeerd, [SaaS-verkopen via Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions).
 
  ![Verkopen via Microsoft-formulier](./media/saas-techinfo-sellthrough-ms.png)
 

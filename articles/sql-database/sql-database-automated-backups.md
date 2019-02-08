@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 37b88b254b350d5c9e006e882a2dc5a39b880b2c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/06/2019
+ms.openlocfilehash: 64481be769cf7506508a0d06e10fe0f59e975f16
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477808"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895870"
 ---
 # <a name="automated-backups"></a>Automatische back-ups
 
@@ -80,7 +80,7 @@ Zie voor meer informatie, [Point-in-time restore](sql-database-recovery-using-ba
 
 ### <a name="backups-for-long-term-retention"></a>Back-ups voor langetermijnretentie
 
-Zelfstandige en gepoolde databases bieden de mogelijkheid om met een langetermijnbewaarperiode (LTR) configureren van volledige back-ups voor maximaal tien jaar in Azure blob-opslag. Als LTR-beleid is ingeschakeld, worden de wekelijkse volledige back-ups automatisch gekopieerd naar een andere container voor RA-GRS-opslag. Om te voldoen aan verschillende nalevingsvereiste, kunt u verschillende bewaartermijnen voor wekelijkse, maandelijkse en/of jaarlijkse back-ups. Het opslagverbruik, is afhankelijk van de geselecteerde frequentie van back-ups en de retentie-periode. U kunt de [LTR-prijscalculator](https://azure.microsoft.com/pricing/calculator/?service=sql-database) om in te schatten van de kosten voor LTR-opslag.
+Zelfstandige en gepoolde databases bieden de mogelijkheid om met een langetermijnbewaarperiode (LTR) configureren van volledige back-ups voor maximaal tien jaar in Azure Blob-opslag. Als LTR-beleid is ingeschakeld, worden de wekelijkse volledige back-ups automatisch gekopieerd naar een andere container voor RA-GRS-opslag. Om te voldoen aan verschillende nalevingsvereiste, kunt u verschillende bewaartermijnen voor wekelijkse, maandelijkse en/of jaarlijkse back-ups. Het opslagverbruik, is afhankelijk van de geselecteerde frequentie van back-ups en de retentie-periode. U kunt de [LTR-prijscalculator](https://azure.microsoft.com/pricing/calculator/?service=sql-database) om in te schatten van de kosten voor LTR-opslag.
 
 Zoals PITR, zijn de LTR back-ups geografisch redundante en beveiligd door [Azure Storage-overschrijdend-replicatie](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
 
@@ -168,5 +168,5 @@ Zie voor meer informatie, [back-up bewaren REST-API](https://docs.microsoft.com/
 - Databaseback-ups zijn een essentieel onderdeel van een strategie voor zakelijke continuïteit en noodherstel omdat ze uw gegevens tegen per ongeluk beschadigd of verwijderd beschermen. Zie voor meer informatie over de andere Azure SQL Database oplossingen voor bedrijfscontinuïteit, [overzicht voor zakelijke continuïteit](sql-database-business-continuity.md).
 - Als u wilt herstellen naar een eerder tijdstip met behulp van de Azure-portal, Zie [database herstellen naar een eerder tijdstip met behulp van de Azure-portal](sql-database-recovery-using-backups.md).
 - Als u wilt herstellen naar een eerder tijdstip met behulp van PowerShell, Zie [database herstellen naar een eerder tijdstip met behulp van PowerShell](scripts/sql-database-restore-database-powershell.md).
-- Om te configureren, beheren en herstellen vanuit een langetermijnretentie van automatische back-ups in Azure blob-opslag met de Azure-portal, Zie [beheren met behulp van de Azure-portal langetermijnretentie](sql-database-long-term-backup-retention-configure.md).
+- Om te configureren, beheren en herstellen vanuit een langetermijnretentie van automatische back-ups in Azure Blob-opslag met behulp van de Azure portal, Zie [beheren met behulp van de Azure-portal langetermijnretentie](sql-database-long-term-backup-retention-configure.md).
 - Om te configureren, beheren en herstellen vanuit een langetermijnretentie van automatische back-ups in Azure BLOB-opslag met behulp van PowerShell, raadpleegt u [beheren met behulp van PowerShell langetermijnretentie](sql-database-long-term-backup-retention-configure.md).

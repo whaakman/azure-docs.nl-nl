@@ -13,13 +13,13 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: f82c96b972baa161658f4a864572bfcb791939ed
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/07/2019
+ms.openlocfilehash: 452811cae74253570591e5ffe2c58708fe632b39
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728994"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894391"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Aan de slag met Azure SQL Database managed instance-controle
 
@@ -154,7 +154,7 @@ Het volgende gedeelte bevat de configuratie van de controle op uw beheerde exemp
 
 Meer informatie:
 
-- [Controle van de verschillen tussen individuele databases, elastische pool, s en beheerde exemplaren in Azure SQL Database en de databases in SQL Server](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
+- [Controle van de verschillen tussen individuele databases, elastische pool, s en beheerde exemplaren in Azure SQL Database en de databases in SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
 - [SERVERAUDIT MAKEN](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVERAUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
@@ -223,13 +223,13 @@ Log Analytics biedt u realtime operationele inzichten met behulp van geïntegree
 
 De belangrijkste verschillen tussen de controle van databases in Azure SQL Database en de databases in SQL Server zijn:
 
-- Met de implementatie-optie voor het beheerde exemplaar in Azure SQL Database, controle werkt op het serverniveau en de winkels `.xel` -logboekbestanden op Azure blob storage-account.
+- Met de implementatie-optie voor het beheerde exemplaar in Azure SQL Database, controle werkt op het serverniveau en de winkels `.xel` logboekbestanden in Azure Blob-opslag.
 - Met de individuele databases en elastische pool implementatie-opties in Azure SQL Database auditing werkt op het databaseniveau van de.
 - In on-premises SQL Server / virtuele machines, audit werkt op de server niveau, maar gebeurtenissen worden opgeslagen in bestanden system/windows-gebeurtenislogboeken.
 
-XEvent-controle voor beheerd exemplaar biedt ondersteuning voor prestatiedoelen voor Azure blob storage. Bestands- en windows logboeken zijn **niet ondersteund**.
+XEvent controle voor beheerd exemplaar biedt ondersteuning voor Azure Blob storage-doelen. Bestands- en windows logboeken zijn **niet ondersteund**.
 
-De sleutel verschillen de `CREATE AUDIT` syntaxis voor het controleren van Azure blob-opslag zijn:
+De sleutel verschillen de `CREATE AUDIT` syntaxis voor het controleren van Azure Blob-opslag zijn:
 
 - Een nieuwe syntaxis `TO URL` wordt geleverd en kunt u de URL van de Azure blob Storage-container op te geven waar de `.xel` bestanden worden geplaatst.
 - Een nieuwe syntaxis `TO EXTERNAL MONITOR` is opgegeven voor het inschakelen van zelfs Hub en de Log Analytics-doelen.

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 02/07/2019
 ms.author: alkohli
-ms.openlocfilehash: 34e7a578fb04b617221376f5d1065997b12d2613
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0265de5b224e62d188fe6e3b9322d5c2e3f77fa1
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302118"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883131"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Releaseopmerkingen voor Azure Data Box-Gateway-Preview
 
@@ -52,9 +52,8 @@ De volgende tabel bevat een overzicht van de bekende problemen voor de Data Box-
 | **7.** |Vernieuwen | Machtigingen en toegangsbeheerlijsten (ACL's) blijven niet behouden via een vernieuwingsbewerking.  | |
 | **8.** |Exemplaar | Het kopiëren van gegevens is mislukt met fout:  De aangevraagde bewerking kan niet worden voltooid vanwege een beperking van bestand system.  |Deze fout treedt op wanneer de alternatieve gegevens Stream (AD) die zijn gekoppeld aan het bestand groter is dan 128 KB (maximale limiet voor ReFS).  |
 | **9.** |Symbolische koppelingen |Symbolische koppelingen worden niet ondersteund.  |Symbolische koppelingen naar de directory's leiden tot mappen ophalen nooit offline gemarkeerd. U mag de grijze cross als gevolg hiervan niet weergegeven in de mappen die aangeeft dat de mappen zijn offline en alle gekoppelde inhoud is volledig geüpload naar Azure. |
-| **10.** |Online-help |De Help-koppelingen in de Azure-portal kan niet koppelen aan documentatie.|De Help-koppelingen werken in de algemeen beschikbare versie. |
-
-
+| **10.** |Shares |Vernieuwen van een bestaande container met pagina-Blobs, naar een blok-Blob-share (of omgekeerd) leidt tot het uploaden van fouten op het bestand is gewijzigd.  |Dit gedrag wordt weergegeven wanneer u deze stappen volgen: <li> Maak een blok-Blob-share op het apparaat. </li><li> Koppelt de share aan een bestaande cloudcontainer met pagina-Blobs.</li><li>Vernieuw deze share. </li><li>Sommige van de vernieuwde bestanden die al zijn opgeslagen als pagina-Blobs in de cloud wijzigen.</li> Uploaden fouten kunnen worden gezien. |
+| **11.** |Online-help |De Help-koppelingen in de Azure-portal kan niet koppelen aan documentatie.|De Help-koppelingen werken in de algemeen beschikbare versie. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

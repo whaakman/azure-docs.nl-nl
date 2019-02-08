@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: De analyzers REST-API bevat een lijst van de analyzers die momenteel worden ondersteund door de linguïstische analyse-API.
 services: cognitive-services
 author: RichardSunMS
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 06/30/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8bf13bffe763b88e95da94f885e30d271e36da42
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9338e87644554ac8b3121c5341cea6f2bc512a97
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221680"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878184"
 ---
 # <a name="analyzers-method"></a>Methode voor analyse
 
@@ -32,7 +32,7 @@ Geen
 <br>
 
 ## <a name="response-parameters"></a>Antwoord-parameters
-Name | Type | Beschrijving
+Name | Type | Description
 -----|------|--------------
 Talen | lijst met tekenreeksen | lijst met twee letter ISO taalcodes waarvoor deze analyzer kan worden gebruikt.
 id   | string | unieke ID voor deze analyzer

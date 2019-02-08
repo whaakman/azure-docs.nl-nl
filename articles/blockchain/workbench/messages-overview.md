@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 48e7de2798d9c34942df281febcc1d4ec443010d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: fd723304e2219c457e982cbe54529d00afe526f4
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662224"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55896006"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Azure Blockchain Workbench messaging-integratie
 
@@ -36,8 +36,8 @@ De aanvraag moet de volgende velden:
 | **Naam**             | **Beschrijving**                                      |
 |----------------------|------------------------------------------------------|
 | requestId            | Client wordt geleverd GUID                                |
-| firstName            | De voornaam van de gebruiker                              |
-| lastName             | De achternaam van de gebruiker                               |
+| voornaam            | De voornaam van de gebruiker                              |
+| achternaam             | De achternaam van de gebruiker                               |
 | emailAddress         | E-mailadres van de gebruiker                           |
 | externalId           | Azure AD-object-ID van de gebruiker                      |
 | connectionId         | De unieke id voor de blockchain-verbinding |
@@ -568,7 +568,7 @@ Bevat informatie wanneer een overeenkomst-functie is aangeroepen, zoals de naam 
 | contractLedgerIdentifier    | De unieke id voor het contract op het grootboek |
 | Functienaam                | Naam van de functie |
 | parameters                  | [Informatie over parameters](#parameter-information) |
-| Transactie                 | [Transactie-informatie](#eventmessage-transaction-information) |
+| Transactie                 | Transactie-informatie |
 | inTransactionSequenceNumber | Het volgnummer van de transactie in het blok |
 | connectionId                | De unieke id voor de verbinding |
 | messageSchemaVersion        | Messaging schemaversie |

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: b242fca5a5a8490cc51222a6dd8b1ff1bb724417
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5d7b798c66ec6512c8badcccbf36d6f2f0d50e3b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247905"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882944"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Richtlijnen voor Storm op HDInsight en Azure Data Lake Storage Gen2 afstemmen van prestaties
 
@@ -23,7 +23,7 @@ Begrijp de factoren die moeten worden overwogen bij het afstemmen van de prestat
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 * **Een account met Azure Data Lake Storage Gen2**. Zie voor instructies over het maken van een [Quick Start: Maken van een account voor analytische](data-lake-storage-quickstart-create-account.md).
-* **Een Azure HDInsight-cluster** met toegang tot een Data Lake Storage Gen2-account. Zorg ervoor dat u extern bureaublad inschakelen voor het cluster.
+* **Azure HDInsight-cluster** met toegang tot een Data Lake Storage Gen2-account. Zie [gebruik Azure Data Lake Storage Gen2 met Azure HDInsight-clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2). Zorg ervoor dat u extern bureaublad inschakelen voor het cluster.
 * **Een Storm-cluster uitgevoerd op Data Lake Storage Gen2**. Zie voor meer informatie, [Storm op HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
 * **Richtlijnen voor het Data Lake Storage Gen2 afstemmen van prestaties**.  Zie voor de prestaties van de algemene concepten, [Data Lake Storage Gen2 afstemmen Prestatierichtlijnen](data-lake-storage-performance-tuning-guidance.md).   
 

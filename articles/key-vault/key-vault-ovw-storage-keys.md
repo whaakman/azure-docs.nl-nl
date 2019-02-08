@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: pryerram
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: 152e1e5892e3a72286205c2f5bf4e18b2a2bcbf7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: c71c7423b4cde2a24c8154899eec256e5746b6d7
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814840"
+ms.locfileid: "55865359"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault beheerd opslagaccount - CLI
 
@@ -56,13 +56,13 @@ In de onderstaande instructies volgen, zijn we Key Vault toewijzen als een servi
     ```
     ID-veld van de resultaten van de bovenstaande opdracht kopiëren
     
-2. Object-ID van Azure Key Vault de service principal ophalen door het uitvoeren van de onderstaande opdracht
+2. Object-ID van Azure Key Vault-service principal ophalen door het uitvoeren van de onderstaande opdracht
 
     ```
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
     ```
     
-    Na voltooiing van deze opdracht de Object-ID niet vinden in het resultaat
+    Na voltooiing van deze opdracht de Object-ID niet vinden in het resultaat:
     ```console
         {
             ...
@@ -71,7 +71,7 @@ In de onderstaande instructies volgen, zijn we Key Vault toewijzen als een servi
         }
     ```
     
-3. Opslag sleutel Operator-rol toewijzen aan Azure Key Vault-identiteit
+3. De opslag sleutel Operator-rol toewijzen aan de identiteit van de Azure Key Vault.
 
     ```
     az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope <IdOfStorageAccount>

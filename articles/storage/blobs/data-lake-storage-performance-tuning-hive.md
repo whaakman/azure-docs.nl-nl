@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 07be781c917a466b67580a99490eca4f6ff29985
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9e5570b937fe97cc9b6ccd9ac804a35ff8e07d6f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239788"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883063"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Richtlijnen voor Hive in HDInsight en Azure Data Lake Storage Gen2 afstemmen van prestaties
 
@@ -23,7 +23,7 @@ De standaardinstellingen zijn voor goede prestaties voor veel verschillende use 
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 * **De account van een Data Lake Storage Gen2**. Zie voor instructies over het maken van een [Quick Start: Een Azure Data Lake Storage Gen2 storage-account maken](data-lake-storage-quickstart-create-account.md)
-* **Azure HDInsight-cluster** met toegang tot een Data Lake Storage Gen2-account.
+* **Azure HDInsight-cluster** met toegang tot een Data Lake Storage Gen2-account. Zie [gebruik Azure Data Lake Storage Gen2 met Azure HDInsight-clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)
 * **Uitvoeren van Hive in HDInsight**.  Zie voor meer informatie over het uitvoeren van Hive-taken in HDInsight, [Hive in HDInsight gebruiken](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
 * **Richtlijnen voor het Data Lake Storage Gen2 afstemmen van prestaties**.  Zie voor de prestaties van de algemene concepten, [Data Lake Storage Gen2 prestaties afstemmen-richtlijnen](data-lake-storage-performance-tuning-guidance.md)
 

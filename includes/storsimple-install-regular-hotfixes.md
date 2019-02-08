@@ -4,17 +4,15 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 77fc95c53ba89c3905ebd1aec785e22f42339369
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 8cc5dbb907c342b766cebe6da36cf580ddac5e2c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166127"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888765"
 ---
-<!--author=SharS last changed: 9/17/15-->
-
 #### <a name="to-install-regular-hotfixes-via-windows-powershell-for-storsimple"></a>Installeren van reguliere hotfixes via Windows PowerShell voor StorSimple
-1. Verbinding maken met de seriële console van het apparaat. Zie voor meer informatie, [stap 1: verbinding maken met de seriële console](../articles/storsimple/storsimple-update-device.md#step1).
+1. Verbinding maken met de seriële console van het apparaat. Zie voor meer informatie, [stap 1: Verbinding maken met de seriële console](../articles/storsimple/storsimple-update-device.md#step1).
 2. Selecteer in het menu van de seriële console optie 1, **Meld u aan met volledige toegang tot de**. Typ het wachtwoord. Is het standaardwachtwoord **Wachtwoord1**.
 3. Typ in de opdrachtprompt:
    

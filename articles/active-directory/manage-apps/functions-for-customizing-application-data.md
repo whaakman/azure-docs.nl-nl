@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: chmutali
-ms.openlocfilehash: 7b69929b210f0f30db28b18073893505d2977051
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 3361bc384f3da3d2bde6eab703056dd85356b5f8
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179035"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895411"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Expressies schrijven voor kenmerktoewijzingen in Azure Active Directory
 Bij het configureren van inrichting tot een SaaS-toepassing, is een van de typen kenmerktoewijzingen die u kunt opgeven een expressie-toewijzing. Voor deze, moet u een script-achtige-expressie waarmee u uw gebruikers om gegevens te transformeren naar indelingen die meer geschikt is voor de SaaS-toepassing kunt schrijven.
@@ -34,7 +34,7 @@ De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visu
   1. Kenmerken moeten tussen rechte haakjes worden geplaatst. Bijvoorbeeld: [attributeName]
   2. Tekenreeksconstanten moeten tussen dubbele aanhalingstekens worden geplaatst. Bijvoorbeeld: "VS"
   3. Andere functies. Bijvoorbeeld: FunctionOne (`<<argument1>>`, FunctionTwo (`<<argument2>>`))
-* Voor tekenreeksconstanten, als u een backslash (\) of een aanhalingsteken (") in de tekenreeks, moet moet deze worden voorafgegaan door het symbool backslash (\). Bijvoorbeeld: "De naam van bedrijf: \"Contoso\""
+* Voor tekenreeksconstanten, als u een backslash (\) of een aanhalingsteken (") in de tekenreeks, moet moet deze worden voorafgegaan door het symbool backslash (\). Bijvoorbeeld: "De naam van bedrijf: \\"Contoso\\""
 
 ## <a name="list-of-functions"></a>Lijst met functies
 [Toevoeg-](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [Join](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [niet](#not) &nbsp; &nbsp; &nbsp; &nbsp; [vervangen](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Switch](#switch) &nbsp; &nbsp; &nbsp; &nbsp; [ToLower](#tolower) &nbsp; &nbsp; &nbsp; &nbsp; [ToUpper](#toupper)
@@ -220,7 +220,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 | Name | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
 | **Bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk van het bronobject |
-| **culture** |Optioneel |Reeks |De notatie voor de cultuurnaam op basis van RFC 4646 is *languagecode2-land/regioncode2*, waarbij *languagecode2* is de taalcode van twee letters en *land/regioncode2*is de code van twee letters subcultuur. Voorbeelden zijn ja-JP voor Japans (Japan) en en-US voor Engels (Verenigde Staten). In gevallen waar een taalcode van twee letters niet beschikbaar is, wordt een drieletterige code afgeleid van de ISO 639-2 gebruikt.|
+| **culture** |Optioneel |String |De notatie voor de cultuurnaam op basis van RFC 4646 is *languagecode2-land/regioncode2*, waarbij *languagecode2* is de taalcode van twee letters en *land/regioncode2*is de code van twee letters subcultuur. Voorbeelden zijn ja-JP voor Japans (Japan) en en-US voor Engels (Verenigde Staten). In gevallen waar een taalcode van twee letters niet beschikbaar is, wordt een drieletterige code afgeleid van de ISO 639-2 gebruikt.|
 
 - - -
 ### <a name="toupper"></a>ToUpper
@@ -233,7 +233,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 | Name | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
 | **Bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk van het bronobject |
-| **culture** |Optioneel |Reeks |De notatie voor de cultuurnaam op basis van RFC 4646 is *languagecode2-land/regioncode2*, waarbij *languagecode2* is de taalcode van twee letters en *land/regioncode2*is de code van twee letters subcultuur. Voorbeelden zijn ja-JP voor Japans (Japan) en en-US voor Engels (Verenigde Staten). In gevallen waar een taalcode van twee letters niet beschikbaar is, wordt een drieletterige code afgeleid van de ISO 639-2 gebruikt.|
+| **culture** |Optioneel |String |De notatie voor de cultuurnaam op basis van RFC 4646 is *languagecode2-land/regioncode2*, waarbij *languagecode2* is de taalcode van twee letters en *land/regioncode2*is de code van twee letters subcultuur. Voorbeelden zijn ja-JP voor Japans (Japan) en en-US voor Engels (Verenigde Staten). In gevallen waar een taalcode van twee letters niet beschikbaar is, wordt een drieletterige code afgeleid van de ISO 639-2 gebruikt.|
 
 ## <a name="examples"></a>Voorbeelden
 ### <a name="strip-known-domain-name"></a>Bekende domeinnaam van strook/lijn
