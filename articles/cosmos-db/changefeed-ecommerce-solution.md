@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 3f42e149b88c2405a37366c3c7b886c7a8613e00
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 90f9a13882e370d6d0c67826750b3edd27603ede
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382538"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55862289"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Gebruik Azure Cosmos DB-wijzigingenfeed voor het visualiseren van realtime gegevensanalyse
 
@@ -165,7 +165,7 @@ Om te zien hoe wijzigingenfeed verwerkt nieuwe acties op een e-commerce-site, he
 
 1. Ga terug naar de opslagplaats in Windows Verkenner en met de rechtermuisknop op **ChangeFeedFunction.sln** opnieuw openen in een nieuw Visual Studio-venster.  
 
-2. Navigeer naar de **App.config** bestand. Binnen de <appSettings> blokkeert, voeg de URI toe en unieke **primaire sleutel** die van uw Azure Cosmos DB-account dat u eerder hebt opgehaald.  
+2. Navigeer naar de **App.config** bestand. Binnen de <appSettings> blokkeren, het toevoegen van het eindpunt en moet uniek zijn **primaire sleutel** die van uw Azure Cosmos DB-account dat u eerder hebt opgehaald.  
 
 3. Voeg de **verzameling** en **database** namen. (Deze namen moeten **changefeedlabcollection** en **changefeedlabdatabase** , tenzij u ervoor kiest om de naam van uw anders.)
 

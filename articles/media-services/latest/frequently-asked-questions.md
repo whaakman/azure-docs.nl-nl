@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: juliako
-ms.openlocfilehash: be4c08bc31c8811655230ab89b48271f4c2b3164
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: a447c359c38c2173ea42b6d717067fc8b3a88f9a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756577"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55875488"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Veelgestelde vragen over Azure Media Services v3
 
@@ -36,17 +36,7 @@ Het is raadzaam dat u met behulp van een HTTP (s)-URL die verwijst naar de video
 
 ### <a name="how-does-pagination-work"></a>Hoe werkt de paginering?
 
-Media Services biedt ondersteuning voor $top voor resources die ondersteuning bieden voor OData, maar de waarde die is doorgegeven aan $top moet minder dan 1000 (bijvoorbeeld de paginagrootte voor paginering).
-
-Hiermee kunt u ofwel een klein aantal items met behulp van $top (bijvoorbeeld de 100 meest recente items) of om te pagina echter alle items met behulp van paginering. 
-
-Media Services biedt geen ondersteuning voor paginering via de gegevens met een opgegeven gebruiker paginaformaat.
-
-Zie voor meer informatie, [filteren, bestellen en](entities-overview.md).
-
-### <a name="how-to-retrieve-an-entity-in-media-services-v3"></a>Het ophalen van een entiteit in Media Services v3?
-
-V3 is gebaseerd op een uniforme API-gebied, waarmee beheer- en operations-functionaliteit die is gebouwd op **Azure Resource Manager**. In overeenstemming met **Azure Resource Manager**, de namen van voorbeeldresources altijd uniek zijn. Zo kunt u de unieke id-tekenreeksen (bijvoorbeeld GUID's) voor uw resource.
+Wanneer u paginering, moet u altijd de volgende koppeling voor het opsommen van de verzameling en niet afhankelijk van het formaat van een bepaalde pagina gebruiken. Zie voor meer informatie en voorbeelden, [filteren, bestellen en](entities-overview.md).
 
 ## <a name="live-streaming"></a>Live streamen 
 

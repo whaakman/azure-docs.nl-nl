@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Informatie over hoe gegevens kunnen worden gewijzigd voordat voorspellingen in Language Understanding (LUIS)
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 9e0d5970ff07c5fd2ef35033a9ccb52feccf3ecb
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: c43d3738b23037432ecdfe3aa872950f6a7b863e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219342"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860589"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>ALTER utterance gegevens vóór of tijdens de voorspelling
 LUIS biedt methoden voor het bewerken van de utterance vóór of tijdens de voorspelling. Het gaat hierbij spelling, en het verhelpen van problemen met de tijdzone voor prebuild datetimeV2 oplossen. 

@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 9323b393edb808f3d2d069f868deb0b67cd0c871
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 621dc22ead8fbb6882c692851d39b658da043c55
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51855187"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894680"
 ---
 # <a name="upgrade-the-configuration-of-a-cluster-in-azure"></a>Upgrade van de configuratie van een cluster in Azure 
 
 In dit artikel wordt beschreven hoe u de verschillende fabric-instellingen aanpassen voor uw Service Fabric-cluster. Voor clusters die worden gehost in Azure, kunt u instellingen via de [Azure-portal](https://portal.azure.com) of met behulp van een Azure Resource Manager-sjabloon.
 
 > [!NOTE]
-> Niet alle instellingen zijn beschikbaar in de portal. Als een instelling hieronder vermelde niet beschikbaar is via de portal aanpassen met behulp van een Azure Resource Manager-sjabloon.> 
+> Niet alle instellingen zijn beschikbaar in de portal en is een [best practice om aan te passen met behulp van een Azure Resource Manager-sjabloon](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code); Er is een portal voor Service Fabric Dev\Test alleen voor het scenario van.> 
 
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Instellingen van het cluster met behulp van Resource Manager-sjablonen aanpassen
 Azure-clusters kunnen worden geconfigureerd via de JSON-Resource Manager-sjabloon. Zie voor meer informatie over de verschillende instellingen, [configuratie-instellingen voor clusters](service-fabric-cluster-fabric-settings.md). Bijvoorbeeld de volgende stappen laten zien hoe u een nieuwe instelling toevoegen *MaxDiskQuotaInMB* naar de *Diagnostics* sectie met behulp van Azure Resource Explorer.

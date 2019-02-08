@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 734e337ba8dff996e9b9cecd7602115bf97b4810
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 97785927d5629aeca81b08353f2f9850c0a31ea0
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55773393"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894629"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Back-up en herstel van accountreferenties met de Microsoft Authenticator-app
 
@@ -83,7 +83,7 @@ Voor persoonlijke Microsoft-accounts kunt u uw identiteit bewijst door in te voe
     ![Microsoft Authenticator-app, zodat u uw QR-code scannen](./media/user-help-auth-app-backup-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
-    >Zie voor meer informatie over het registreren van een QR-code [aan de slag met de Microsoft Authenticator-app](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install#add-accounts-to-the-app) of [beveiligingsgegevens ingesteld voor het gebruik van een verificator-app](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app#to-use-the-microsoft-authenticator-app), afhankelijk van of uw beheerder beveiligingsgegevens is ingeschakeld.
+    >Zie voor meer informatie over het registreren van een QR-code [aan de slag met de Microsoft Authenticator-app](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) of [beveiligingsgegevens ingesteld voor het gebruik van een verificator-app](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app#to-use-the-microsoft-authenticator-app), afhankelijk van of uw beheerder beveiligingsgegevens is ingeschakeld.
 
 ## <a name="troubleshooting-backup-and-recovery-problems"></a>Het oplossen van problemen met back-up en herstel
 Er zijn enkele redenen waarom de back-up mogelijk niet beschikbaar:

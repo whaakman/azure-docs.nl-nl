@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: cb44311ecdf6a2c9284b14884184863237422f96
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: e7939b8d7a6a64519ac8239591c37e06ced56599
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754537"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890515"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Service Fabric-toepassingslevenscyclus
 Wanneer een toepassing in Azure Service Fabric met andere platforms, meestal niet via de volgende fasen: ontwerp, ontwikkeling, testen, implementeren, upgraden, onderhoud en verwijderen. Service Fabric biedt uitstekende ondersteuning voor de volledige levenscyclus van cloudtoepassingen, van ontwikkeling tot implementatie, dagelijkse beheer en onderhoud en uiteindelijk buiten gebruik stellen. Het service-model kunt meerdere verschillende rollen om deel te nemen onafhankelijk van elkaar in de levensduur van toepassingen. Dit artikel bevat een overzicht van de API's en hoe ze worden gebruikt door de verschillende rollen in de fasen van de levensduur van de Service Fabric-toepassingen.
@@ -58,7 +58,7 @@ Zie [implementeren van een toepassing](service-fabric-deploy-remove-applications
 
 ## <a name="test"></a>Testen
 1. Na de implementatie van het lokale ontwikkelcluster of een testcluster, een *service developer* wordt de ingebouwde failoverscenario voor de test uitgevoerd met behulp van de [ **FailoverTestScenarioParameters** ](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.failovertestscenarioparameters) en [ **FailoverTestScenario** ](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.failovertestscenario) klassen, of de [ **Invoke-ServiceFabricFailoverTestScenario** cmdlet](/powershell/module/servicefabric/invoke-servicefabricfailovertestscenario?view=azureservicefabricps). Het scenario voor het testen van failover wordt uitgevoerd van een opgegeven service via belangrijk overgangen en failovers om ervoor te zorgen dat het is nog steeds beschikbaar zijn en werken.
-2. De *service developer* voert vervolgens de ingebouwde chaos test scenario met behulp van de [ **ChaosTestScenarioParameters** ](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenarioparameters) en [  **ChaosTestScenario** ](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenario#System_Fabric_Testability_Scenario_ChaosTestScenario) klassen, of de [ **Invoke-ServiceFabricChaosTestScenario** cmdlet](/powershell/module/servicefabric/invoke-servicefabricchaostestscenario?view=azureservicefabricps). Het scenario voor het testen van chaos induceert willekeurig meerdere knooppunten, codepakket en replica-fouten in het cluster.
+2. De *service developer* voert vervolgens de ingebouwde chaos test scenario met behulp van de [ **ChaosTestScenarioParameters** ](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenarioparameters) en [  **ChaosTestScenario** ](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenario) klassen, of de [ **Invoke-ServiceFabricChaosTestScenario** cmdlet](/powershell/module/servicefabric/invoke-servicefabricchaostestscenario?view=azureservicefabricps). Het scenario voor het testen van chaos induceert willekeurig meerdere knooppunten, codepakket en replica-fouten in het cluster.
 3. De *service developer* [service-naar-servicecommunicatie testen](service-fabric-testability-scenarios-service-communication.md) door het ontwerpen van testscenario's voor die primaire replica om het cluster worden verplaatst.
 
 Zie [Inleiding tot de Fault Analysis Service](service-fabric-testability-overview.md) voor meer informatie.

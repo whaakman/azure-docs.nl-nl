@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Een lijst van natuurlijke talen, landen en regio's die worden ondersteund door de Bing nieuws zoeken-API.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: aahi
-ms.openlocfilehash: dbe9fe5b8e9cd31ca20d88b7db89a9d35e1fe8de
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8f10812fc77a36bc29c8926bb7f76bceed9d7718
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161135"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55857682"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Ondersteuning voor taal en regio voor de Bing webzoekopdrachten-API
 
@@ -71,12 +71,12 @@ U kunt ook opgeven de markt op met de `mkt` queryparameter, en een code van de *
 |Land/regio|Taal|Code van de markt|
 |-------|--------|-----------|
 |Argentinië|Spaans|es-AR|
-|Australië|Nederlands|en-AU|
+|Australië|Engels|en-AU|
 |Oostenrijk|Duits|de-AT|
 |België|Nederlands|nl-BE|
 |België|Frans|fr-BE|
 |Brazilië|Portugees|pt-BR|
-|Canada|Nederlands|NL-CA|
+|Canada|Engels|NL-CA|
 |Canada|Frans|fr-CA|
 |Chili|Spaans|es-CL|
 |Denemarken|Deens|da-DK|
@@ -84,29 +84,29 @@ U kunt ook opgeven de markt op met de `mkt` queryparameter, en een code van de *
 |Frankrijk|Frans|fr-FR|
 |Duitsland|Duits|de-DE|
 |Hongkong SAR|Traditioneel Chinees|zh-HK|
-|India|Nederlands|NL-IN|
-|Indonesië|Nederlands|NL-ID|
+|India|Engels|NL-IN|
+|Indonesië|Engels|NL-ID|
 |Italië|Italiaans|IT-IT|
 |Japan|Japans|ja-JP|
 |Korea|Koreaans|ko-KR|
-|Maleisië|Nederlands|en Mijn|
+|Maleisië|Engels|en Mijn|
 |Mexico|Spaans|es-MX|
 |Nederland|Nederlands|NL-NL|
-|Nieuw-Zeeland|Nederlands|NL-NZ|
+|Nieuw-Zeeland|Engels|NL-NZ|
 |Noorwegen|Noors|no-NO|
 |China|Chinees|zh-CN|
 |Polen|Pools|pl-PL|
 |Portugal|Portugees|pt-PT|
-|Filipijnen|Nederlands|NL-PH|
+|Filipijnen|Engels|NL-PH|
 |Rusland|Russisch|ru-RU|
 |Saoedi-Arabië|Arabisch|ar-SA|
-|Zuid-Afrika|Nederlands|en-ZA|
+|Zuid-Afrika|Engels|en-ZA|
 |Spanje|Spaans|es-ES|
 |Zweden|Zweeds|SV-SE|
 |Zwitserland|Frans|FR-h|
 |Zwitserland|Duits|de CH|
 |Taiwan|Traditioneel Chinees|zh-TW|
 |Turkije|Turks|tr-TR|
-|Verenigd Koninkrijk|Nederlands|en-GB|
-|Verenigde Staten|Nederlands|en-US|
+|Verenigd Koninkrijk|Engels|en-GB|
+|Verenigde Staten|Engels|en-US|
 |Verenigde Staten|Spaans|es-US|

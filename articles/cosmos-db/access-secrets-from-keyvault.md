@@ -1,6 +1,6 @@
 ---
 title: Key Vault gebruiken voor het opslaan en openen van Azure Cosmos DB-sleutels
-description: Azure Key Vault gebruiken voor het opslaan en toegang tot Azure Cosmos DB-verbindingsreeks, sleutels, URI van.
+description: Azure Key Vault gebruiken voor het opslaan en toegang tot Azure Cosmos DB-verbindingsreeks, sleutels, -eindpunten.
 author: rafats
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: rafats
 ms.reviewer: sngun
-ms.openlocfilehash: 8a3863ff67549c77692f8629c2e7315aec94faf8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 770e1e543a16bb54acc216aa550c44be26ab7a1a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463307"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858448"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Azure Cosmos-sleutels met behulp van Azure Key Vault beveiligen 
 
-Wanneer u Azure Cosmos DB gebruikt voor uw toepassingen, kunt u de database, verzamelingen, documenten openen met behulp van de URI van het eindpunt en de sleutel in het configuratiebestand van de app.  Het is echter niet veilig om op te zetten van sleutels en de URL rechtstreeks in de code van de toepassing omdat ze beschikbaar in niet-versleutelde tekst opmaken voor alle gebruikers zijn. U wilt ervoor zorgen dat de URI en sleutels beschikbaar, maar via een beveiligde mechanisme zijn. Dit is waar Azure Key Vault kunt u veilig opslaan en beheren van toepassingsgeheimen.
+Wanneer u Azure Cosmos DB gebruikt voor uw toepassingen, kunt u de database, verzamelingen, documenten openen met behulp van het eindpunt en de sleutel in het configuratiebestand van de app.  Het is echter niet veilig om op te zetten van sleutels en de URL rechtstreeks in de code van de toepassing omdat ze beschikbaar in niet-versleutelde tekst opmaken voor alle gebruikers zijn. U wilt ervoor zorgen dat het eindpunt en de sleutels beschikbaar, maar via een beveiligde mechanisme zijn. Dit is waar Azure Key Vault kunt u veilig opslaan en beheren van toepassingsgeheimen.
 
 De volgende stappen zijn vereist voor het opslaan en lezen van Azure Cosmos DB-toegangssleutels uit Key Vault:
 

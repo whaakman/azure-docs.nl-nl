@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Referentiedocumentatie voor de V2.0 Translator Text-API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
-ms.openlocfilehash: 9491550aae8f88621d947572741f492adcf9cdd0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f8d57723f6e51fb392e4fdbfb2b2a445d48635e3
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463222"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861711"
 ---
 # <a name="translator-text-api-v20"></a>Translator Text-API v2.0
 
@@ -327,7 +327,7 @@ Type van de inhoud van de reactie: application/xml
 |tekst|(leeg)   |Vereist. Een tekenreeks met een zin of zinnen van de opgegeven taal worden uitgesproken voor de wave-stream. De grootte van de tekst te spreken mag niet groter zijn dan 2000 tekens.|query|string|
 |language|(leeg)   |Vereist. Een tekenreeks voor de ondersteunde taalcode die moet worden de tekst in te spreken. De code moet aanwezig zijn in de lijst van codes die zijn geretourneerd door de methode `GetLanguagesForSpeak`.|query|string|
 |Indeling|(leeg)|Optioneel. Een tekenreeks die de inhoud van het type id op te geven Op dit moment `audio/wav` en `audio/mp3` beschikbaar zijn. De standaardwaarde is `audio/wav`.|query|string|
-|opties|(leeg)    |<ul><li>Optioneel. Een tekenreeks op te geven eigenschappen van de kunstmatige spraak:<li>`MaxQuality` en `MinSize` zijn beschikbaar om op te geven van de kwaliteit van de audio signalen. Met `MaxQuality`, krijgt u stemmen met de hoogste kwaliteit en met `MinSize`, krijgt u de stemmen met de kleinste grootte. De standaardwaarde is `MinSize`.</li><li>`female` en `male` zijn beschikbaar om op te geven van de gewenste geslacht van de stem. De standaardwaarde is `female`. Gebruik de verticale balk '|` to include multiple options. For example  `MaxQuality|Male`.</li></li></ul> |query|string|
+|opties|(leeg)    |<ul><li>Optioneel. Een tekenreeks op te geven eigenschappen van de kunstmatige spraak:<li>`MaxQuality` en `MinSize` zijn beschikbaar om op te geven van de kwaliteit van de audio signalen. Met `MaxQuality`, krijgt u stemmen met de hoogste kwaliteit en met `MinSize`, krijgt u de stemmen met de kleinste grootte. De standaardwaarde is `MinSize`.</li><li>`female` en `male` zijn beschikbaar om op te geven van de gewenste geslacht van de stem. De standaardwaarde is `female`. Gebruik de verticale balk `|` naar meerdere opties bevatten. Bijvoorbeeld `MaxQuality|Male`.</li></li></ul> |query|string|
 |Autorisatie|(leeg)|Vereist als de `appid` veld of `Ocp-Apim-Subscription-Key` -header is niet opgegeven. Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
 |OCP-Apim-Subscription-Key|(leeg)  |Vereist als de `appid` veld of `Authorization` -header is niet opgegeven.|koptekst|string|
 

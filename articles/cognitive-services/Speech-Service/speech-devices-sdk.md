@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Aan de slag met de SDK van de apparaten spraak. De Speech Services werken met een groot aantal apparaten en audio-bronnen. Nu kunt u uw spraaktoepassingen-naar een hoger niveau met overeenkomende hardware en software uitvoeren. De spraak-apparaten-SDK is een vooraf afgestemd bibliotheek die gekoppeld met speciaal ontwikkelde, microfoon SDK in de matrix.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 17c1d3044374ae0ba5a90c256cfc44eeacfd4aac
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d7ef018b376b96f967a065857839761fc5822239
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214990"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55876292"
 ---
 # <a name="about-the-speech-devices-sdk-preview"></a>Informatie over de apparaten van de spraakherkenning SDK (Preview)
 

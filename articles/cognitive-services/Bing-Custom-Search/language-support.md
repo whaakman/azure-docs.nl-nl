@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Een lijst met ondersteunde talen en regio's voor de Bing Custom Search-API.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: v-gedod
-ms.openlocfilehash: 24b14c4f0ca185a7916aeb19671a22ff46a23ee2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 942e61b0ee69402d516982c66a852d5e26304809
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194845"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859434"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Ondersteuning voor de Bing webzoekopdrachten-API voor aangepaste taal en regio
 
@@ -74,12 +74,12 @@ De `Accept-Language` header en het `setLang` queryparameter zijn sluiten elkaar 
 |Land/regio|Taal|Code van de markt|
 |-------|--------|-----------|
 |Argentinië|Spaans|es-AR|
-|Australië|Nederlands|en-AU|
+|Australië|Engels|en-AU|
 |Oostenrijk|Duits|de-AT|
 |België|Nederlands|nl-BE|
 |België|Frans|fr-BE|
 |Brazilië|Portugees|pt-BR|
-|Canada|Nederlands|NL-CA|
+|Canada|Engels|NL-CA|
 |Canada|Frans|fr-CA|
 |Chili|Spaans|es-CL|
 |Denemarken|Deens|da-DK|
@@ -87,29 +87,29 @@ De `Accept-Language` header en het `setLang` queryparameter zijn sluiten elkaar 
 |Frankrijk|Frans|fr-FR|
 |Duitsland|Duits|de-DE|
 |Hongkong SAR|Traditioneel Chinees|zh-HK|
-|India|Nederlands|NL-IN|
-|Indonesië|Nederlands|NL-ID|
+|India|Engels|NL-IN|
+|Indonesië|Engels|NL-ID|
 |Italië|Italiaans|IT-IT|
 |Japan|Japans|ja-JP|
 |Korea|Koreaans|ko-KR|
-|Maleisië|Nederlands|en Mijn|
+|Maleisië|Engels|en Mijn|
 |Mexico|Spaans|es-MX|
 |Nederland|Nederlands|NL-NL|
-|Nieuw-Zeeland|Nederlands|NL-NZ|
+|Nieuw-Zeeland|Engels|NL-NZ|
 |Noorwegen|Noors|no-NO|
 |China|Chinees|zh-CN|
 |Polen|Pools|pl-PL|
 |Portugal|Portugees|pt-PT|
-|Filipijnen|Nederlands|NL-PH|
+|Filipijnen|Engels|NL-PH|
 |Rusland|Russisch|ru-RU|
 |Saoedi-Arabië|Arabisch|ar-SA|
-|Zuid-Afrika|Nederlands|en-ZA|
+|Zuid-Afrika|Engels|en-ZA|
 |Spanje|Spaans|es-ES|
 |Zweden|Zweeds|SV-SE|
 |Zwitserland|Frans|FR-h|
 |Zwitserland|Duits|de CH|
 |Taiwan|Traditioneel Chinees|zh-TW|
 |Turkije|Turks|tr-TR|
-|Verenigd Koninkrijk|Nederlands|en-GB|
-|Verenigde Staten|Nederlands|en-US|
+|Verenigd Koninkrijk|Engels|en-GB|
+|Verenigde Staten|Engels|en-US|
 |Verenigde Staten|Spaans|es-US|

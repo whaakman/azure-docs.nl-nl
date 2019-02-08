@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Leer hoe u voor het herkennen van entiteiten met behulp van de Text Analytics REST-API.
 services: cognitive-services
 author: ashmaka
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 3f56bd4efafe506a95d46524713ebe49e3250f63
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5b8ebc76355d39c1e81217fd1f7af09f876838c9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220380"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55862342"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Herkenning van entiteit met de naam gebruiken in Text Analytics (Preview)
 

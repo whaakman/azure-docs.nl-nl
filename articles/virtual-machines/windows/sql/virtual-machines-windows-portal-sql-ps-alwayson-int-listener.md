@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/22/2017
+ms.date: 02/06/2019
 ms.author: mikeray
-ms.openlocfilehash: 76ebdc85db2c65b1ad99c1e7abe5e697f1c1284c
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: dd09dd337cfe11729ef3ddc5d9b19f024d64300e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063995"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872999"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Een of meer Always On availability group listeners - Resource Manager configureren
 Dit onderwerp wordt beschreven hoe u:
@@ -40,16 +40,42 @@ Verwante onderwerpen zijn onder andere:
 
 [!INCLUDE [Start your PowerShell session](../../../../includes/sql-vm-powershell.md)]
 
+## <a name="verify-powershell-version"></a>Controleer of de PowerShell-versie
+
+De voorbeelden in dit artikel worden getest met behulp van Azure PowerShell-moduleversie 5.4.1.
+
+Controleer of uw PowerShell-module is 5.4.1 of hoger.
+
+Zie [installeren van de Azure PowerShell-module](http://docs.microsoft.com/powershell/azure/install-az-ps).
+
 ## <a name="configure-the-windows-firewall"></a>De Windows Firewall configureren
+
 De Windows Firewall voor SQL Server-toegang configureren. De firewall-regels toestaan TCP-verbindingen met de poorten gebruikt door de SQL Server-exemplaar en de listener-test. Zie voor gedetailleerde instructies [configureren van een Windows-Firewall for Database Engine Access](https://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). Maak een inkomende regel voor de SQL Server-poort en de testpoort.
 
 Als u beperken van toegang met een Azure Network Security Group, zorg ervoor dat de regels voor toestaan de back-end SQL Server VM-IP-adressen bevatten, en de load balancer zwevend IP-adressen voor de AG-listener en core IP-adres van het cluster, indien van toepassing.
 
+## <a name="determine-the-load-balancer-sku-required"></a>Bepalen van de load balancer SKU vereist
+
+[Azure load balancer](../../../load-balancer/load-balancer-overview.md) is beschikbaar in 2 SKU's: Basic en Standard. De standaardversie van load balancer wordt aanbevolen. Als de virtuele machines zich in een beschikbaarheidsset, is de basisversie van load balancer toegestaan. Standaardversie van load balancer is vereist dat alle VM-IP-adressen standaard IP-adressen.
+
+De huidige [Microsoft sjabloon](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) voor een beschikbaarheid van groep gebruikmaakt van een basic load balancer met basic IP-adressen.
+
+De voorbeelden in dit artikel geeft een standaardversie van load balancer. In de voorbeelden wordt het script bevat `-sku Standard`.
+
+```PowerShell
+$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
+```
+
+Voor het maken van een basic load balancer verwijderen `-sku Standard` vanaf de opdrachtregel die wordt gemaakt van de load balancer. Bijvoorbeeld:
+
+```PowerShell
+$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe
+```
+
 ## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Voorbeeldscript: Een interne load balancer maken met PowerShell
+
 > [!NOTE]
-> Als u hebt gemaakt met de beschikbaarheidsgroep met de [Microsoft sjabloon](virtual-machines-windows-portal-sql-alwayson-availability-groups.md), de interne load balancer is al gemaakt. 
-> 
-> 
+> Als u hebt gemaakt met de beschikbaarheidsgroep met de [Microsoft sjabloon](virtual-machines-windows-portal-sql-alwayson-availability-groups.md), de interne load balancer is al gemaakt.
 
 De volgende PowerShell-script maakt u een interne load balancer, configureert u de load balancer-regels en stelt een IP-adres voor de load balancer. Voer het script, opent u Windows PowerShell ISE en plak het script in het scriptvenster. Gebruik `Connect-AzureRmAccount` aanmelden bij PowerShell. Als u meerdere Azure-abonnementen hebt, gebruikt u `Select-AzureRmSubscription ` om in te stellen van het abonnement. 
 
@@ -86,7 +112,7 @@ $SQLHealthProbe = New-AzureRmLoadBalancerProbeConfig -Name $LBProbeName -Protoco
 
 $ILBRule = New-AzureRmLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -Probe $SQLHealthProbe -Protocol tcp -FrontendPort $ListenerPort -BackendPort $ListenerPort -LoadDistribution Default -EnableFloatingIP 
 
-$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe 
+$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
 
 $bepool = Get-AzureRmLoadBalancerBackendAddressPoolConfig -Name $BackEndConfigurationName -LoadBalancer $ILB 
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 31d583456f2ca0a2804c2215906965c2241af52d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: e4f8b99cfeaa35644ed51fd8ad712fe4744c0226
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751494"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890940"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Netwerktoegang tot PaaS-resources beperken met service-eindpunten van een virtueel netwerk met de Azure CLI
 
@@ -72,7 +72,7 @@ az network vnet list-endpoint-services \
   --out table
 ``` 
 
-Maken van een ander subnet in het virtuele netwerk met [az network vnet subnet maken](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). In dit voorbeeld wordt een service-eindpunt voor *Microsoft.Storage* voor het subnet wordt gemaakt: 
+Maken van een ander subnet in het virtuele netwerk met [az network vnet subnet maken](/cli/azure/network/vnet/subnet). In dit voorbeeld wordt een service-eindpunt voor *Microsoft.Storage* voor het subnet wordt gemaakt: 
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -85,7 +85,7 @@ az network vnet subnet create \
 
 ## <a name="restrict-network-access-for-a-subnet"></a>Netwerktoegang voor een subnet beperken
 
-Maak een netwerkbeveiligingsgroep met [az network nsg maken](/cli/azure/network/nsg#az_network_nsg_create). Het volgende voorbeeld wordt een netwerkbeveiligingsgroep met de naam *myNsgPrivate*.
+Maak een netwerkbeveiligingsgroep met [az network nsg maken](/cli/azure/network/nsg). Het volgende voorbeeld wordt een netwerkbeveiligingsgroep met de naam *myNsgPrivate*.
 
 ```azurecli-interactive
 az network nsg create \
@@ -93,7 +93,7 @@ az network nsg create \
   --name myNsgPrivate
 ```
 
-Koppelen van de netwerkbeveiligingsgroep voor de *persoonlijke* subnet met de [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update). Het volgende voorbeeld wordt de *myNsgPrivate* netwerkbeveiligingsgroep naar de *persoonlijke* subnet:
+Koppelen van de netwerkbeveiligingsgroep voor de *persoonlijke* subnet met de [az network vnet subnet update](/cli/azure/network/vnet/subnet). Het volgende voorbeeld wordt de *myNsgPrivate* netwerkbeveiligingsgroep naar de *persoonlijke* subnet:
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -156,7 +156,7 @@ De stappen die nodig zijn om netwerktoegang te beperken tot resources die zijn g
 
 ### <a name="create-a-storage-account"></a>Create a storage account
 
-Maak een Azure storage-account met [az storage-account maken](/cli/azure/storage/account#az_storage_account_create). Vervang `<replace-with-your-unique-storage-account-name>` met een naam die uniek is voor alle Azure locaties, tussen 3 en 24 tekens lang, met behulp van alleen cijfers en kleine letters.
+Maak een Azure storage-account met [az storage-account maken](/cli/azure/storage/account). Vervang `<replace-with-your-unique-storage-account-name>` met een naam die uniek is voor alle Azure locaties, tussen 3 en 24 tekens lang, met behulp van alleen cijfers en kleine letters.
 
 ```azurecli-interactive
 storageAcctName="<replace-with-your-unique-storage-account-name>"
@@ -197,7 +197,7 @@ az storage share create \
 
 ### <a name="deny-all-network-access-to-a-storage-account"></a>Alle toegang tot het netwerk naar een opslagaccount weigeren
 
-Standaard accepteren opslagaccounts netwerkverbindingen van clients in ieder netwerk. Om te beperken de toegang tot geselecteerde netwerken, wijzigt u de standaardactie voor *weigeren* met [az storage account update](/cli/azure/storage/account#az_storage_account_update). Zodra het netwerktoegang is geweigerd, is de storage-account niet toegankelijk is vanaf een netwerk.
+Standaard accepteren opslagaccounts netwerkverbindingen van clients in ieder netwerk. Om te beperken de toegang tot geselecteerde netwerken, wijzigt u de standaardactie voor *weigeren* met [az storage account update](/cli/azure/storage/account). Zodra het netwerktoegang is geweigerd, is de storage-account niet toegankelijk is vanaf een netwerk.
 
 ```azurecli-interactive
 az storage account update \
@@ -208,7 +208,7 @@ az storage account update \
 
 ### <a name="enable-network-access-from-a-subnet"></a>Netwerktoegang vanuit een subnet inschakelen
 
-Toestaan van toegang tot het netwerk naar het opslagaccount van de *persoonlijke* subnet met de [az storage account network-regel toevoegen](/cli/azure/storage/account/network-rule#az_storage_account_network_rule_add).
+Toestaan van toegang tot het netwerk naar het opslagaccount van de *persoonlijke* subnet met de [az storage account network-regel toevoegen](/cli/azure/storage/account/network-rule).
 
 ```azurecli-interactive
 az storage account network-rule add \
@@ -334,7 +334,7 @@ De toegang is geweigerd en u ontvangt een *deze aanvraag is niet gemachtigd voor
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u niet meer nodig hebt, gebruikt u [az group delete](/cli/azure#az_group_delete) om de resourcegroep en alle resources die deze bevat te verwijderen.
+Wanneer u niet meer nodig hebt, gebruikt u [az group delete](/cli/azure) om de resourcegroep en alle resources die deze bevat te verwijderen.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes

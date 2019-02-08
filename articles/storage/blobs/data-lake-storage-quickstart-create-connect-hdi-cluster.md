@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: jamesbak
-ms.openlocfilehash: d49c8a8434dfa7202707731f46ea31c77d32541d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4ec63251e73e694a69f84262e9de7cce6eb8f11f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812256"
+ms.locfileid: "55878490"
 ---
-# <a name="quickstart-set-up-clusters-in-hdinsight"></a>Quickstart: Clusters instellen in HDInsight
+# <a name="quickstart-set-up-clusters-in-hdinsight"></a>Snelstart: Clusters instellen in HDInsight
 
-In deze snelstartgids leert u hoe u kunt instellen en configureren van clusters in HDInsight met Hadoop, Spark, Kafka, Interactive Query, HBase, R Server of Storm. U leert ook hoe u ze toevoegen aan een domein, clusters aanpassen en koppelt u ze naar een opslagaccount met [preview van Azure Data Lake Storage Gen2](data-lake-storage-introduction.md) ingeschakeld.
+In deze snelstartgids leert u hoe u kunt instellen en configureren van clusters in HDInsight met Hadoop, Spark, Kafka, Interactive Query, HBase, R Server of Storm. U leert ook hoe u ze toevoegen aan een domein, clusters aanpassen en koppelt u ze naar een opslagaccount met [Azure Data Lake Storage Gen2](data-lake-storage-introduction.md) ingeschakeld.
 
 Een Hadoop-cluster bestaat uit meerdere virtuele machines (knooppunten) die worden gebruikt voor gedistribueerde verwerking van taken. Azure HDInsight verwerkt implementatiegegevens van de installatie en configuratie van afzonderlijke knooppunten, zodat u alleen algemene configuratie-informatie te verstrekken.
 

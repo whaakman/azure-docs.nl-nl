@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 8bfa4178baae0d92f7efb5ea156cfd35a8b32b1b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 08189522f4f73e996ed98f3996f87da8d93b5d2a
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157462"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895632"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Netwerkverkeer routeren met een routetabel met behulp van de Azure CLI
 
@@ -44,7 +44,7 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
 
 ## <a name="create-a-route-table"></a>Een routetabel maken
 
-Voordat u een routetabel maken kunt, maakt u een resourcegroep met [az-groep maken](/cli/azure/group#az_group_create) voor alle resources die in dit artikel is gemaakt. 
+Voordat u een routetabel maken kunt, maakt u een resourcegroep met [az-groep maken](/cli/azure/group) voor alle resources die in dit artikel is gemaakt. 
 
 ```azurecli-interactive
 # Create a resource group.
@@ -78,7 +78,7 @@ az network route-table route create \
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Een routetabel aan een subnet koppelen
 
-Voordat u een routetabel aan een subnet kunt koppelen, moet u een virtueel netwerk en subnet maken. Een virtueel netwerk maken met één subnet met [az network vnet maken](/cli/azure/network/vnet#az_network_vnet_create).
+Voordat u een routetabel aan een subnet kunt koppelen, moet u een virtueel netwerk en subnet maken. Een virtueel netwerk maken met één subnet met [az network vnet maken](/cli/azure/network/vnet).
 
 ```azurecli-interactive
 az network vnet create \
@@ -107,7 +107,7 @@ az network vnet subnet create \
   --address-prefix 10.0.2.0/24
 ```
 
-Koppel de *myRouteTablePublic* routetabel aan de *openbare* subnet met de [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update).
+Koppel de *myRouteTablePublic* routetabel aan de *openbare* subnet met de [az network vnet subnet update](/cli/azure/network/vnet/subnet).
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -136,7 +136,7 @@ az vm create \
 
 Het maken van de virtuele machine duurt een paar minuten. Ga niet verder met de volgende stap voordat Azure klaar is met het maken van de virtuele machine en uitvoer over de virtuele machine retourneert. 
 
-Een netwerkinterface kan alleen netwerkverkeer doorsturen dat niet voor zijn eigen IP-adres bestemd is, als doorsturen via IP voor de netwerkinterface is ingeschakeld. Doorsturen via IP voor de netwerkinterface met inschakelen [az network nic update](/cli/azure/network/nic#az_network_nic_update).
+Een netwerkinterface kan alleen netwerkverkeer doorsturen dat niet voor zijn eigen IP-adres bestemd is, als doorsturen via IP voor de netwerkinterface is ingeschakeld. Doorsturen via IP voor de netwerkinterface met inschakelen [az network nic update](/cli/azure/network/nic).
 
 ```azurecli-interactive
 az network nic update \
@@ -145,7 +145,7 @@ az network nic update \
   --ip-forwarding true
 ```
 
-In de VM moet het besturingssysteem of een toepassing die wordt uitgevoerd op de virtuele machine, ook netwerkverkeer kunnen doorsturen. Schakel doorsturen via IP in het besturingssysteem van de virtuele machine met [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set):
+In de VM moet het besturingssysteem of een toepassing die wordt uitgevoerd op de virtuele machine, ook netwerkverkeer kunnen doorsturen. Schakel doorsturen via IP in het besturingssysteem van de virtuele machine met [az vm extension set](/cli/azure/vm/extension):
 
 ```azurecli-interactive
 az vm extension set \
@@ -268,7 +268,7 @@ Sluit de SSH-sessies met zowel de *myVmPublic* en *myVmPrivate* VM's.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u niet meer nodig hebt, gebruikt u [az group delete](/cli/azure/group#az_group_delete) om de resourcegroep en alle resources die deze bevat te verwijderen.
+Wanneer u niet meer nodig hebt, gebruikt u [az group delete](/cli/azure/group) om de resourcegroep en alle resources die deze bevat te verwijderen.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes
