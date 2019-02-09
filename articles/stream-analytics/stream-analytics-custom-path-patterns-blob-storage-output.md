@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: fc28ddd006e8a117dddd67a6d6668b9639dddec5
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 9cdf99884845a9cb83ac26723c3ea0e7a779ebff
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765192"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982672"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics aangepaste blob partitioneren van uitvoer
 
@@ -67,8 +67,6 @@ U ziet dat elke record in de blob heeft een **client_id** die overeenkomt met de
 ## <a name="custom-datetime-path-patterns"></a>Aangepaste datum/tijd-padpatronen
 
 Aangepaste datum/tijd-padpatronen kunnen u opgeven de indeling van een uitvoer die overeenstemt met Hive-Streaming-conventies, waardoor Azure Stream Analytics om gegevens te verzenden naar Azure HDInsight en Azure Databricks voor downstream verwerken. Aangepaste datum/tijd-padpatronen eenvoudig worden geïmplementeerd met behulp van de `datetime` sleutelwoord in het veld pad naar het voorvoegsel van de uitvoer, samen met de indelingsopgave blob. Bijvoorbeeld `{datetime:yyyy}`.
-
-Gebruik deze koppeling voor [Azure Portal](https://portal.azure.com/?Microsoft_Azure_StreamAnalytics_bloboutputcustomdatetimeformats=true) om uit te schakelen van de functievlag waarmee de aangepaste datum/tijd-padpatronen voor blob storage-Uitvoervoorbeeld. Deze functie zal binnenkort worden ingeschakeld in de belangrijkste portal.
 
 ### <a name="supported-tokens"></a>Ondersteunde tokens
 

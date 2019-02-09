@@ -1,19 +1,19 @@
 ---
 title: Veelgestelde vragen - VMware naar Azure-noodherstel met Azure Site Recovery | Microsoft Docs
 description: In dit artikel bevat een overzicht van veelgestelde vragen bij het instellen van herstel na noodgevallen van on-premises VMware-machines naar Azure met Azure Site Recovery
-author: rayne-wiselman
-manager: carmonm
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 1/29/2019
+ms.date: 2/7/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: aa4b0fcdfecde181eea4481cc40b898ca74fce76
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fb4add1194f7fe6d10859f76f244f027b35ad92d
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212228"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960578"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Veelgestelde vragen - VMware naar Azure-replicatie
 
@@ -108,6 +108,9 @@ Voor replicatie, moet een ondersteund besturingssysteem op een VMware-VM worden 
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>Hoe vaak kan ik repliceren naar Azure?
 Replicatie is continue bij het repliceren van virtuele VMware-machines naar Azure.
+
+### <a name="can-i-retain-the-ip-address-on-failover"></a>Kan ik het IP-adres bij failover bewaren?
+Ja, kunt u het IP-adres bij failover behouden. Zorg ervoor dat u het doel-IP-adres op 'berekening en netwerk-blade voordat de failover wordt vermeld. Zorg er ook voor de machines afsluiten op het moment van failover naar het IP-conflicten te voorkomen dat op het moment van failback.
 
 ### <a name="can-i-extend-replication"></a>Kan ik replicatie verlengen?
 Uitgebreide of gekoppelde replicatie wordt niet ondersteund. Deze functie in aanvragen [Feedbackforum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).

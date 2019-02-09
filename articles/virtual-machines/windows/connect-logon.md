@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 4bfb17a7c50e97ae71908f052f7f38110cf376df
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 14bbb77678a70b51c7f640b501827c5618cce606
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296882"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978933"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Hoe u verbinding maken met en meld u aan met een Azure-machine waarop Windows wordt uitgevoerd
 U gebruikt de knop **Verbinden** in Azure Portal om een Extern bureaublad-sessie (RDP) te starten vanaf een Windows-computer. Eerst maakt u verbinding met de virtuele machine en meld u op.
@@ -56,18 +56,18 @@ Als u wilt verbinding maken met een Windows-VM vanaf een Mac, moet u een RDP-cli
 
 ## <a name="connect-to-the-virtual-machine-using-powershell"></a>Verbinding maken met de virtuele machine met behulp van PowerShell
 
-Als u met behulp van PowerShell en de AzureRM-module geïnstalleerd hebt u mogelijk ook verbinding maken met behulp van de `Get-AzureRmRemoteDesktopFile` cmdlet, zoals hieronder wordt weergegeven.
+Als u met behulp van PowerShell en de AzureRM-module geïnstalleerd hebt u mogelijk ook verbinding maken met behulp van de `Get-AzRemoteDesktopFile` cmdlet, zoals hieronder wordt weergegeven.
 
 In dit voorbeeld wordt de RDP-verbinding, die u begeleidt bij dezelfde stappen als hierboven onmiddellijk gestart.
 
 ```powershell
-Get-AzureRmRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -Launch
+Get-AzRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -Launch
 ```
 
 U kunt ook het RDP-bestand voor toekomstig gebruik opslaan.
 
 ```powershell
-Get-AzureRmRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C:\Path\to\folder"
+Get-AzRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C:\Path\to\folder"
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

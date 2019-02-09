@@ -7,20 +7,20 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 1/30/2019
 ms.author: yizhon
-ms.openlocfilehash: b213642b093c3b5f79e5993af91ae51517f09c70
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 0bfba7f923ca394aa29dd907db1b8b1284a605d8
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747948"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981669"
 ---
-# <a name="develop-for-mobile-devices-using-azure-iot-sdks"></a>Ontwikkelen voor mobiele apparaten met behulp van Azure IoT SDK 's
-[Azure IoT Hub SDK's](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) eerste laag ondersteuning bieden voor een breed scala aan populaire platforms, waaronder Windows, Linux, OSX, MBED en mobiele platforms, zoals Android en iOS.  Als onderdeel van onze inzet om in te schakelen meer keuze en flexibiliteit in IoT-implementaties, de Java-SDK biedt ook ondersteuning voor [Android dingen](https://developer.android.com/things/) platform.  Ontwikkelaars kunnen gebruikmaken van de voordelen van het besturingssysteem Android dingen aan het apparaat tijdens het gebruik van [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) als het bericht centrale hub die kan worden geschaald naar miljoenen gelijktijdig verbonden apparaten. 
+# <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Ontwikkelen voor Android dingen platform met Azure IoT SDK 's
+[Azure IoT Hub SDK's](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) eerste laag ondersteuning bieden voor populaire platforms zoals Windows, Linux, OSX, MBED en mobiele platforms, zoals Android en iOS.  Als onderdeel van onze inzet om in te schakelen meer keuze en flexibiliteit in IoT-implementaties, de Java-SDK biedt ook ondersteuning voor [Android dingen](https://developer.android.com/things/) platform.  Ontwikkelaars kunnen gebruikmaken van de voordelen van het besturingssysteem Android dingen aan het apparaat tijdens het gebruik van [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) als het bericht centrale hub die kan worden geschaald naar miljoenen gelijktijdig verbonden apparaten. 
 
 In deze zelfstudie bevat de stappen voor het bouwen van een toepassing op apparaten op Android dingen met de Azure IoT-Java-SDK.
 
 ## <a name="prerequisites"></a>Vereisten
-* Een Android dingen ondersteunde hardware met Android dingen besturingssysteem.  U kunt volgen [Android dingen documentatie](https://developer.android.com/things/get-started/kits#flash-at) over het flash Android dingen.  Zorg ervoor dat uw zaken op Android-apparaat is verbonden met internet met essentiële randapparatuur, zoals toetsenbord, weergeven en muis aangesloten.  In deze zelfstudie maakt gebruik van Raspberry Pi 3.
+* Een Android dingen ondersteunde hardware met Android dingen besturingssysteem.  U kunt volgen [Android dingen documentatie](https://developer.android.com/things/get-started/kits#flash-at) over hoe u Android dingen OS flash.  Zorg ervoor dat uw zaken op Android-apparaat is verbonden met internet met essentiële randapparatuur, zoals toetsenbord, weergeven en muis aangesloten.  In deze zelfstudie maakt gebruik van Raspberry Pi 3.
 * Meest recente versie van [Android Studio](https://developer.android.com/studio/)
 * Meest recente versie van [Git](https://git-scm.com/)
 
@@ -69,12 +69,13 @@ Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan m
     ```
 4.  Open in '\azure-iot-samples-java\iot-hub\Samples\device\AndroidSample' bevindt zich in de Android-Project in Android Studio.
 5.  Open gradle.properties bestand en vervang 'Device_connection_string' met de apparaatverbindingsreeks die u eerder hebt genoteerd.
+    ![Schermafbeelding van de master-vertakking van de opslagplaats](./media/how-to-android-things/connection-string.png)
 6.  Klik op uitvoeren - fouten opsporen en selecteer uw apparaat voor het implementeren van deze code naar uw zaken op Android-apparaten.
 7.  Wanneer de toepassing wordt gestart, ziet u een toepassing die wordt uitgevoerd op uw apparaat Android dingen.  Deze voorbeeldtoepassing wordt verzonden, serverlogs, willekeurig gegenereerde temperatuur.
 
 ## <a name="read-the-telemetry-from-your-hub"></a>De telemetrie van uw hub lezen
 
-De voorbeeld-app die u hebt uitgevoerd op de XCode-emulator toont gegevens over van het apparaat verzonden berichten. U kunt de gegevens ook via uw IoT-hub bekijken terwijl ze worden ontvangen. De IoT Hub CLI-extensie kan verbinding maken met het **Gebeurtenissen**-eindpunt aan de servicezijde van uw IoT Hub. De extensie ontvangt de berichten die van het gesimuleerde apparaat naar de cloud worden verzonden. Een back-endtoepassing van IoT Hub wordt meestal uitgevoerd in de cloud om berichten van apparaat naar cloud te ontvangen en verwerken.
+U kunt de gegevens via uw IoT-hub bekijken terwijl ze worden ontvangen. De IoT Hub CLI-extensie kan verbinding maken met het **Gebeurtenissen**-eindpunt aan de servicezijde van uw IoT Hub. De extensie ontvangt de berichten die van het gesimuleerde apparaat naar de cloud worden verzonden. Een back-endtoepassing van IoT Hub wordt meestal uitgevoerd in de cloud om berichten van apparaat naar cloud te ontvangen en verwerken.
 
 Voer de volgende opdrachten uit in Azure Cloud Shell. Vervang daarbij `YourIoTHubName` door de naam van uw IoT-hub:
 

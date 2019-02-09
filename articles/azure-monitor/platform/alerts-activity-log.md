@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 2b90457ed939999b5163078750650c92a3516cca
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 17a7b0e0ee76490ef43fb869260dceef83cbd124
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816574"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984491"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van waarschuwingen voor activiteitenlogboeken met behulp van Azure Monitor  
 
@@ -203,20 +203,28 @@ Het bovenstaande voorbeeld-json als (bijvoorbeeld) sampleActivityLogAlert.json t
 [Azure Monitor - activiteit Log waarschuwingen API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) is een REST-API en volledig compatibel met Azure Resource Manager REST API. Daarom kan deze worden gebruikt via Powershell met Resource Manager-cmdlet, evenals Azure CLI.
 
 ## <a name="powershell"></a>PowerShell
-Hieronder gebruik via Azure Resource Manager PowerShell-cmdlet voor het voorbeeld hierboven Resourcesjabloon (sampleActivityLogAlert.json) weergegeven in de sectie Resource-sjabloon:
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
-```
-De sampleActivityLogAlert.parameters.json heeft waarin de waarden voor de parameters die nodig zijn voor het maken van waarschuwingsregel.
+
+Waarschuwingen voor activiteitenlogboeken zijn speciaal bestemd voor PowerShell-cmdlets beschikbaar:
+
+- [Set-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/set-azurermactivitylogalert): Maak een nieuwe of bestaande resource van het logboek waarschuwingsregel activiteit bijwerken
+- [Get-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermactivitylogalert): Een of meer activiteiten log waarschuwingsregel resources ophalen
+- [Remove-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/remove-azurermactivitylogalert): Activiteit log waarschuwingsregel resource met de bevestiging van de gebruiker verwijderen
+- [Enable-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/enable-azurermactivitylogalert): Om in te schakelen van een bestaande activiteit log waarschuwingsregel resource
+- [Disable-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/disable-azurermactivitylogalert): Een bestaande resource van activiteit log waarschuwingsregel uitschakelen
 
 ## <a name="cli"></a>CLI
-Hieronder gebruik via Azure Resource Manager-opdracht in de Azure CLI voor het voorbeeld hierboven Resourcesjabloon (sampleActivityLogAlert.json) weergegeven in de sectie Resource-sjabloon:
 
-```azurecli
-az group deployment create --resource-group myRG --template-file sampleActivityLogAlert.json --parameters @sampleActivityLogAlert.parameters.json
-```
-De *sampleActivityLogAlert.parameters.json* bestand heeft de waarden voor de parameters die nodig zijn voor het maken van waarschuwingsregel.
+Azure CLI-opdrachten in de set toegewezen [az monitor activiteitenlogboek waarschuwing](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert) zijn beschikbaar voor het beheren van activiteit-logboekwaarschuwingsregels.
 
+Gebruik voor het maken van een nieuwe waarschuwingsregel voor activiteitenlogboeken in de aangegeven volgorde:
+
+1. [maken van de AZ monitor activiteitenlogboek waarschuwing](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): Nieuwe activiteit log waarschuwingsregel resource maken
+1. [AZ monitor activiteitenlogboek waarschuwing bereik](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope): Bereik voor de activiteit waarschuwingsregel toevoegen
+1. [AZ monitor activiteitenlogboek waarschuwing-actiegroep](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/action-group): Actiegroep toevoegen aan de waarschuwingsregel voor activiteitenlogboeken
+
+Ophalen van een activiteit log waarschuwingsregel resource, de Azure CLI-opdracht [az monitor activiteitenlogboek waarschuwing weergeven](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
+) kan worden gebruikt. En gebruik voor alle activiteit waarschuwingsregel logboekresource weergeven in een resourcegroep, [az monitor activiteitenlogboek waarschuwing lijst](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list).
+Activiteit log waarschuwingsregel resources kunnen worden verwijderd met behulp van Azure CLI-opdracht [az monitor activiteitenlogboek waarschuwing verwijderen](https://docs.microsoft.com/en-us/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete).
 
 ## <a name="next-steps"></a>Volgende stappen
 

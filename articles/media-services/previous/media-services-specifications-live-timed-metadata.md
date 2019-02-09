@@ -4,7 +4,7 @@ description: Deze specificatie bevat een overzicht van de twee modi die worden o
 services: media-services
 documentationcenter: ''
 author: johndeu
-manager: cfowler
+manager: femila
 editor: johndeu
 ms.assetid: 265b94b1-0fb8-493a-90ec-a4244f51ce85
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 02/08/2019
 ms.author: johndeu;
-ms.openlocfilehash: f29efb9a58c0b269f64d637fa3c5d59bb3610bbc
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 3c51b5fd5bf577479aaeb316d5c1b5f8704f2d19
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265887"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980428"
 ---
-# <a name="signaling-timed-metadata-in-live-streaming"></a>Getimede metagegevens signaleren in Live streamen
+# <a name="signaling-timed-metadata-in-live-streaming-legacy"></a>Metagegevens is een time-out opgetreden in de Live Streaming (verouderde)-signalering
 
 
 ## <a name="1-introduction"></a>1-Inleiding 
@@ -68,8 +68,8 @@ Voor eenvoudige RTMP-modus ondersteunt Media Services een enkele AMF hint-berich
 
 | Veldnaam | Veldtype | Vereist? | Beschrijvingen                                                                                                             |
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
-| hint        | Reeks     | Vereist | Het gebeurtenisbericht.  Worden moet 'SpliceOut' om aan te geven van een eenvoudige modus genereren.                                              |
-| id         | Reeks     | Vereist | Een unieke id die met een beschrijving van de verbinding of het segment. Dit exemplaar van het bericht aangeeft                            |
+| hint        | String     | Vereist | Het gebeurtenisbericht.  Worden moet 'SpliceOut' om aan te geven van een eenvoudige modus genereren.                                              |
+| id         | String     | Vereist | Een unieke id die met een beschrijving van de verbinding of het segment. Dit exemplaar van het bericht aangeeft                            |
 | duur   | Aantal     | Vereist | De duur van de verbinding. Eenheden zijn precisiewaarde.                                                                |
 | elapsed    | Aantal     | Optioneel | Wanneer het signaal wordt herhaald ter ondersteuning van afstemmen op, in dit veld moet de hoeveelheid presentatietijd die is verstreken sinds het begin van de verbinding. Eenheden zijn precisiewaarde. Als u eenvoudige gebruikt, moet deze waarde niet langer zijn dan de oorspronkelijke duur van de verbinding.                                                  |
 | time       | Aantal     | Vereist | De tijd van de verbinding in de presentatietijd zijn. Eenheden zijn precisiewaarde.                                     |
@@ -80,9 +80,9 @@ Voor eenvoudige RTMP-modus ondersteunt Media Services een enkele AMF hint-berich
 
 | Veldnaam | Veldtype | Vereist? | Beschrijvingen                                                                                                             |
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
-| hint        | Reeks     | Vereist | Het gebeurtenisbericht.  Voor [SCTE-35] berichten, moet dit de met base64 (IETF RFC 4648) binaire codering splice_info_section() in volgorde van berichten worden verzonden naar HLS, Smooth en Dash-clients in overeenstemming met [SCTE-67].                                              |
-| type       | Reeks     | Vereist | Een URN of een URL voor het identificeren van het bericht-schema. Voor [SCTE-35] berichten moet dit "urn: scte:scte35:2013a:bin" in volgorde van berichten worden verzonden naar HLS, Smooth en Dash-clients in overeenstemming met [SCTE-67].  |
-| id         | Reeks     | Vereist | Een unieke id die met een beschrijving van de verbinding of het segment. Hiermee geeft u dit exemplaar van het bericht.  Berichten met gelijkwaardige semantiek moeten dezelfde waarde hebben.|
+| hint        | String     | Vereist | Het gebeurtenisbericht.  Voor [SCTE-35] berichten, moet dit de met base64 (IETF RFC 4648) binaire codering splice_info_section() in volgorde van berichten worden verzonden naar HLS, Smooth en Dash-clients in overeenstemming met [SCTE-67].                                              |
+| type       | String     | Vereist | Een URN of een URL voor het identificeren van het bericht-schema. Voor [SCTE-35] berichten moet dit "urn: scte:scte35:2013a:bin" in volgorde van berichten worden verzonden naar HLS, Smooth en Dash-clients in overeenstemming met [SCTE-67].  |
+| id         | String     | Vereist | Een unieke id die met een beschrijving van de verbinding of het segment. Hiermee geeft u dit exemplaar van het bericht.  Berichten met gelijkwaardige semantiek moeten dezelfde waarde hebben.|
 | duur   | Aantal     | Vereist | De duur van de gebeurtenis of ad splice-segment, indien bekend. Als onbekend, moet de waarde 0 zijn.                                                                 |
 | elapsed    | Aantal     | Optioneel | Wanneer het signaal van de ad [SCTE-35] wordt herhaald om te stemmen, bevat dit veld moet de hoeveelheid presentatietijd die is verstreken sinds het begin van de verbinding. Eenheden zijn precisiewaarde. In de modus [SCTE-35] deze waarde kan groter zijn dan de oorspronkelijke opgegeven duur van de verbinding of het segment.                                                  |
 | time       | Aantal     | Vereist | De presentatietijd van de gebeurtenis of ad genereren.  De presentatietijd en de duur moeten worden uitgelijnd met Stream toegang punten (SAP) van het type 1 of 2, zoals gedefinieerd in [ISO-14496-12] bijlage I. Tijdstip en de duur moeten voor uitgaand verkeer HLS uitgelijnd met de grenzen van het segment. De presentatietijd en de duur van verschillende gebeurtenisberichten binnen hetzelfde gebeurtenisstroom mogen elkaar niet overlappen. Eenheden zijn precisiewaarde.
@@ -102,11 +102,11 @@ De track voor sparse moet worden gedeclareerd in het Manifest van Live-Server me
 | **De naam van kenmerk** | **Veldtype** | **Vereist?** | **Beschrijving**                                                                                                                                                                                                                                                 |
 |--------------------|----------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | systemBitrate      | Aantal         | Vereist      | Moet '0', die wijzen op een bijhouden met onbekende, variabele bitrate.                                                                                                                                                                                                 |
-| parentTrackName    | Reeks         | Vereist      | Moet u de naam van de bovenliggende bijhouden, waarbij de tijdcodes sparse bijhouden tijdschaal uitgelijnd zijn. De track bovenliggende mag niet een sparse bijhouden.                                                                                                                    |
+| parentTrackName    | String         | Vereist      | Moet u de naam van de bovenliggende bijhouden, waarbij de tijdcodes sparse bijhouden tijdschaal uitgelijnd zijn. De track bovenliggende mag niet een sparse bijhouden.                                                                                                                    |
 | manifestOutput     | Booleaans        | Vereist      | Moet 'true', om aan te geven dat de track voor sparse worden ingesloten in het manifest Smooth client.                                                                                                                                                               |
-| Subtype            | Reeks         | Vereist      | MOET worden de vier tekens van de code "Gegevens".                                                                                                                                                                                                                         |
-| Schema             | Reeks         | Vereist      | Moet een URN of een URL voor het identificeren van het bericht-schema. Voor [SCTE-35] berichten moet dit "urn: scte:scte35:2013a:bin" in volgorde van berichten worden verzonden naar HLS, Smooth en Dash-clients in overeenstemming met [SCTE-67]. |
-| trackName          | Reeks         | Vereist      | Moet u de naam van de sparse bijhouden. De trackName kan worden gebruikt om onderscheid maken tussen meerdere gebeurtenisstreams met hetzelfde schema. Elke unieke gebeurtenisstroom moet de naam van een uniek nummer hebben.                                                                           |
+| Subtype            | String         | Vereist      | MOET worden de vier tekens van de code "Gegevens".                                                                                                                                                                                                                         |
+| Schema             | String         | Vereist      | Moet een URN of een URL voor het identificeren van het bericht-schema. Voor [SCTE-35] berichten moet dit "urn: scte:scte35:2013a:bin" in volgorde van berichten worden verzonden naar HLS, Smooth en Dash-clients in overeenstemming met [SCTE-67]. |
+| trackName          | String         | Vereist      | Moet u de naam van de sparse bijhouden. De trackName kan worden gebruikt om onderscheid maken tussen meerdere gebeurtenisstreams met hetzelfde schema. Elke unieke gebeurtenisstroom moet de naam van een uniek nummer hebben.                                                                           |
 | tijdschaal          | Aantal         | Optioneel      | Moet u de tijdschaal van de bovenliggende bijhouden.                                                                                                                                                                                                                      |
 
 -------------------------------------
@@ -366,7 +366,7 @@ De velden van de DASHEventMessageBox worden hieronder gedefinieerd:
 | **Veldnaam**          | **Veldtype**          | **Vereist?** | **Beschrijving**                                                                                                                                                                                                                                                                                                                                                    |
 |-------------------------|-------------------------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | scheme_id_uri           | string                  | Vereist      | Hiermee geeft u het schema van het bericht. Het schema is ingesteld op de waarde van de schema-kenmerk in het Manifest van Live-Server. De waarde moet een URN of een URL voor het identificeren van het bericht-schema. Voor [SCTE-35] berichten duurt dit de speciale waarde "urn: scte:scte35:2013a:bin", hoewel [SCTE-67] Hiermee wordt aanbevolen iets anders. |
-| Waarde                   | string                  | Vereist      | Een extra string-waarde die wordt gebruikt door de eigenaren van het schema voor het aanpassen van de semantiek van het bericht. Om te onderscheiden van meerdere gebeurtenisstreams met hetzelfde schema, wordt de waarde worden ingesteld op de naam van de gebeurtenisstroom (trackName voor Smooth opnemen of AMF berichtnaam voor RTMP opnemen).                                                                  |
+| Value                   | string                  | Vereist      | Een extra string-waarde die wordt gebruikt door de eigenaren van het schema voor het aanpassen van de semantiek van het bericht. Om te onderscheiden van meerdere gebeurtenisstreams met hetzelfde schema, wordt de waarde worden ingesteld op de naam van de gebeurtenisstroom (trackName voor Smooth opnemen of AMF berichtnaam voor RTMP opnemen).                                                                  |
 | Tijdschaal               | niet-ondertekende 32-bits geheel getal | Vereist      | De tijdschaal, in tikken per seconde van de van de duurvelden in het vak 'emsg' en tijden.                                                                                                                                                                                                                                                                        |
 | Presentation_time_delta | niet-ondertekende 32-bits geheel getal | Vereist      | De media presentatie tijdsdelta van de presentatietijd van de gebeurtenis en de vroegste presentatietijd in dit segment. De presentatietijd en de duur moeten worden uitgelijnd met Stream toegang punten (SAP) van het type 1 of 2, zoals gedefinieerd in [ISO-14496-12] bijlage I.                                                                                            |
 | event_duration          | niet-ondertekende 32-bits geheel getal | Vereist      | De duur van de gebeurtenis of 0xFFFFFFFF om aan te geven van een onbekende duur.                                                                                                                                                                                                                                                                                          |

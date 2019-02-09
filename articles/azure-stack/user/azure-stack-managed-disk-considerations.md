@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2019
+ms.date: 01/31/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 05efa7eaf6d95cbf63efd17b00d321d8c8509f28
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: acd92c711f432cf103b9309247704ff348287ff6
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246776"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964063"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack-beheerde schijven: de verschillen en overwegingen met betrekking tot
 
@@ -32,13 +32,12 @@ Beheerde schijven vereenvoudigt u Schijfbeheer voor IaaS-VM's door het beheer va
 > [!Note]  
 > Beheerde schijven in Azure Stack is beschikbaar via 1808 update. Dit is standaard ingeschakeld tijdens het maken van virtuele machines met behulp van de Azure Stack-portal van 1811 update.
   
-
 ## <a name="cheat-sheet-managed-disk-differences"></a>Overzichtskaart: Beheerde schijf verschillen
 
 | Functie | Azure (wereldwijd) | Azure Stack |
 | --- | --- | --- |
 |Versleuteling van Data-at-Rest |Azure Storage Service Encryption (SSE), Azure Disk Encryption (ADE)     |BitLocker-128-bits AES-versleuteling      |
-|Installatiekopie          | Ondersteuning voor beheerde aangepaste installatiekopie |Nog niet ondersteund|
+|Installatiekopie          | Ondersteuning voor beheerde aangepaste installatiekopie |Ondersteund|
 |Opties voor back-up |Ondersteuning voor Azure Backup-Service |Nog niet ondersteund |
 |Opties voor herstel na noodgevallen |Ondersteuning voor Azure Site Recovery |Nog niet ondersteund|
 |Schijftypen     |Premium SSD, Standard-SSD (Preview) en Standard HDD |Premium SSD, Standard HDD |
@@ -66,6 +65,72 @@ Azure Stack Managed Disks ondersteunt de volgende API-versies:
 
 - 2017-03-30
 
+## <a name="managed-images"></a>Beheerde installatiekopieën
+
+Azure Stack ondersteunt *beheerde installatiekopieën*, waardoor u een beheerde installatiekopie-object maken op een gegeneraliseerde VM (zowel niet-beheerde en beheerde) die u alleen van beheerde maken kunt schijf voortaan VM's. Beheerde installatiekopieën inschakelen voor de volgende twee scenario's:
+
+- U hebt niet-beheerde virtuele machines gegeneraliseerd en wilt gebruikmaken van beheerde schijven voortaan.
+- U hebt een gegeneraliseerde beheerde virtuele machine en wilt maken van meerdere, vergelijkbare beheerde virtuele machines.
+
+### <a name="migrate-unmanaged-vms-to-managed-disks"></a>Niet-beheerde virtuele machines migreren naar beheerde schijven
+
+Volg de instructies [hier](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-vhd-in-a-storage-account) naar een beheerde installatiekopie maken vanaf een gegeneraliseerde VHD in een storage-account. Deze installatiekopie kan worden gebruikt om beheerde virtuele machines gaan maken.
+
+### <a name="create-managed-image-from-vm"></a>Beheerde installatiekopie maken van VM
+
+Na het maken van een installatiekopie van een bestaande beheerde schijf-VM met behulp van het script [hier](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-managed-disk-using-powershell) , het volgende voorbeeldscript maakt u een dergelijke Linux-VM van een bestaande installatiekopie-object:
+
+```powershell
+# Variables for common values
+$resourceGroup = "myResourceGroup"
+$location = "redmond"
+$vmName = "myVM"
+$imagerg = "managedlinuxrg"
+$imagename = "simplelinuxvmm-image-2019122"
+
+# Create user object
+$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+
+# Create a resource group
+New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+
+# Create a subnet configuration
+$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
+
+# Create a virtual network
+$vnet = New-AzureRmVirtualNetwork -ResourceGroupName $resourceGroup -Location $location `
+  -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+
+# Create a public IP address and specify a DNS name
+$pip = New-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup -Location $location `
+  -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
+
+# Create an inbound network security group rule for port 3389
+$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
+  -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+  -DestinationPortRange 3389 -Access Allow
+
+# Create a network security group
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
+  -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
+
+# Create a virtual network card and associate with public IP address and NSG
+$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
+  -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+
+$image = get-azurermimage -ResourceGroupName $imagerg -ImageName $imagename
+# Create a virtual machine configuration
+$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 | `
+Set-AzureRmVMOperatingSystem -Linux -ComputerName $vmName -Credential $cred | `
+Set-AzureRmVMSourceImage -Id $image.Id | `
+Add-AzureRmVMNetworkInterface -Id $nic.Id
+
+# Create a virtual machine
+New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
+```
+
+Zie voor meer informatie, de door Azure beheerde installatiekopie artikelen [maken van een beheerde installatiekopie van een gegeneraliseerde VM in Azure](../../virtual-machines/windows/capture-image-resource.md) en [een virtuele machine maken vanaf een beheerde installatiekopie](../../virtual-machines/windows/create-vm-generalized-managed.md).
+
 ## <a name="configuration"></a>Configuratie
 
 Na het toepassen van de 1808 bijwerken of hoger, moet u de volgende configuratie voordat u Managed Disks uitvoeren:
@@ -73,8 +138,7 @@ Na het toepassen van de 1808 bijwerken of hoger, moet u de volgende configuratie
 - Als een abonnement is gemaakt vóór de update 1808, volg de onderstaande stappen voor het bijwerken van het abonnement. Anders wordt kan het implementeren van virtuele machines in dit abonnement mislukken met een foutbericht "Interne fout in Schijfbeheer."
    1. Ga in de tenantportal naar **abonnementen** en zoek het abonnement. Klik op **Resourceproviders**, klikt u vervolgens op **Microsoft.Compute**, en klik vervolgens op **opnieuw registreren**.
    2. Onder hetzelfde abonnement, gaat u naar **Access Control (IAM)**, en Controleer **Azure Stack – beheerde schijf** wordt vermeld.
-- Als u een omgeving met meerdere tenants gebruikt, vraagt u uw cloud-operator (mogelijk in uw eigen organisatie of van de Service Provider) opnieuw configureren van elk van uw gast-adreslijsten na de volgende stappen uit in [in dit artikel](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory). Implementatie van VM's in een abonnement dat is gekoppeld aan die directory Gast anders kan mislukken met een foutbericht "Interne fout in Schijfbeheer."
-
+- Als u een omgeving met meerdere tenants gebruikt, vraagt u uw cloud-operator (die mogelijk in uw eigen organisatie of van de serviceprovider) om te configureren op elk van de Gast-mappen volgens de stappen in [in dit artikel](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory). Implementatie van VM's in een abonnement dat is gekoppeld aan die directory Gast anders kan mislukken met een foutbericht "Interne fout in Schijfbeheer."
 
 ## <a name="next-steps"></a>Volgende stappen
 

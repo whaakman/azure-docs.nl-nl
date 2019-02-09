@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/24/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0d14b2eeb90bd360b71b315d7b4f4459f17f5672
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 8898149e6858c5a1cdb2d4510ad2764ffe25fda5
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073759"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964250"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>Beheer van leads met behulp van een HTTPS-eindpunt configureren
 
@@ -65,7 +65,7 @@ U kunt een HTTPS-eindpunt gebruiken voor het afhandelen van Azure Marketplace en
 
     ![Selecteer leads](./media/cloud-partner-portal-lead-management-instructions-https/https-image011.png)
 
-4. Stroom ziet u een formulier voor het leveren van gegevens over leads. U kunt items uit de ingevoerde aanvraag toewijzen door te kiezen dynamische inhoud toe te voegen. De volgende schermopname ziet **LeadTitle** als voorbeeld.
+4. Stroom ziet u een formulier voor het leveren van gegevens over leads. U kunt items uit de ingevoerde aanvraag toewijzen door te kiezen dynamische inhoud toe te voegen. De volgende schermopname ziet **OfferTitle** als voorbeeld.
 
     ![Dynamische inhoud toevoegen](./media/cloud-partner-portal-lead-management-instructions-https/https-image013.png)
 

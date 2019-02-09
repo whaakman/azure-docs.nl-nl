@@ -1,6 +1,6 @@
 ---
-title: Het Windows-VM-extensie fouten oplossen | Microsoft Docs
-description: Meer informatie over het oplossen van fouten voor virtuele machine van Windows Azure-extensie
+title: Het Windows-VM-extensies oplossen | Microsoft Docs
+description: Meer informatie over het oplossen van Azure Windows VM-extensies oplossen
 services: virtual-machines-windows
 documentationcenter: ''
 author: kundanap
@@ -15,24 +15,24 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: 9973eaa7e930d38e78289219e726b5934d82ee86
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cf53df30dfccb76a6f33621038ba7f031a69f6de
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33945419"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979690"
 ---
-# <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Virtuele machine van Windows Azure-extensie fouten oplossen
+# <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Oplossen van problemen met Azure Windows VM-extensies oplossen
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
 
-## <a name="viewing-extension-status"></a>De Extensiestatus van weergeven
-Azure Resource Manager-sjablonen kunnen in Azure PowerShell worden uitgevoerd. Nadat de sjabloon die wordt uitgevoerd, kan de status van de extensie van Azure Resource Explorer of de opdrachtregelprogramma's worden weergegeven.
+## <a name="viewing-extension-status"></a>De Extensiestatus van de weergeven
+Azure Resource Manager-sjablonen kunnen worden uitgevoerd van Azure PowerShell. Nadat de sjabloon wordt uitgevoerd, kan de status van de extensie van Azure Resource Explorer of de opdrachtregelprogramma's worden weergegeven.
 
 Hier volgt een voorbeeld:
 
 Azure PowerShell:
 
-      Get-AzureRmVM -ResourceGroupName $RGName -Name $vmName -Status
+      Get-AzVM -ResourceGroupName $RGName -Name $vmName -Status
 
 Hier volgt een voorbeeld van uitvoer:
 
@@ -59,13 +59,13 @@ Hier volgt een voorbeeld van uitvoer:
     }
   ]
 
-## <a name="troubleshooting-extension-failures"></a>Het extensie-fouten oplossen
-### <a name="rerun-the-extension-on-the-vm"></a>De uitbreiding op de virtuele machine opnieuw uitvoeren
-Als u scripts op de virtuele machine met behulp van de aangepaste Scriptextensie, kan het soms uitvoeren in een fout waarbij VM is gemaakt, maar het script is mislukt. In deze gevallen is de aanbevolen manier om deze fout herstellen voor het verwijderen van de extensie en voert u de sjabloon opnieuw.
-Opmerking: In de toekomst deze functionaliteit zou worden uitgebreid om te verwijderen van de noodzaak voor het verwijderen van de extensie.
+## <a name="troubleshooting-extension-failures"></a>Oplossen van problemen met extensies oplossen
+### <a name="rerun-the-extension-on-the-vm"></a>De extensie op de virtuele machine opnieuw uitvoeren
+Als u scripts op de virtuele machine met behulp van de extensie voor aangepaste scripts, kan u soms uitvoeren in een fout waarbij virtuele machine is gemaakt, maar het script is mislukt. In deze omstandigheden vindt is de aanbevolen manier om te herstellen van deze fout voor het verwijderen van de extensie en voert u de sjabloon opnieuw uit.
+Opmerking: In de toekomst zou deze functionaliteit wordt verbeterd, zodat de noodzaak voor het verwijderen van de extensie.
 
 #### <a name="remove-the-extension-from-azure-powershell"></a>Verwijder de extensie van Azure PowerShell
-    Remove-AzureRmVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
+    Remove-AzVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
 
-Wanneer de uitbreiding is verwijderd, is de sjabloon kan worden opnieuw uitgevoerd voor het uitvoeren van de scripts op de virtuele machine.
+Nadat de extensie is verwijderd, kan de sjabloon opnieuw uitgevoerd om uit te voeren van de scripts op de virtuele machine zijn.
 

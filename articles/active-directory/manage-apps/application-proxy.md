@@ -2,21 +2,21 @@
 title: Externe toegang tot on-premises toepassingen - Azure Active Directory-toepassingsproxy | Microsoft Docx
 description: Azure Active Directory Application Proxy biedt veilige externe toegang tot on-premises webtoepassingen. Na een single sign-on bij Azure AD, kunnen gebruikers toegang tot van zowel cloud en on-premises toepassingen via een externe URL of een interne applicatie-portal. Bijvoorbeeld, kan Application Proxy RAS- en eenmalige aanmelding bieden aan een extern bureaublad, SharePoint, Teams, Tableau, Qlik en line-of-business (LOB)-toepassingen.
 services: active-directory
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: japere
-ms.openlocfilehash: 643ef7f9960b2a91c88b4e13fe318748d175e036
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: b96ffcc7f131e54a0816875250cd10cd42c9af52
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692699"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961989"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Externe toegang tot on-premises toepassingen via de toepassingsproxy van Azure Active Directory 
 

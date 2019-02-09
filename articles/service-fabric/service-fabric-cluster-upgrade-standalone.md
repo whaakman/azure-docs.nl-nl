@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: 6f0ffac9ecf4d0c8f6c3dc7c57670b168417cd3a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: ed50f49b110d910a298e608f3625a3bddfe8a0a8
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51855138"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963163"
 ---
 # <a name="upgrading-and-updating-a-service-fabric-standalone-cluster"></a>Upgraden en het bijwerken van een zelfstandige Service Fabric-cluster
 
 Voor elk modern systeem is ontwerpen voor kunnen erg belangrijk voor het succes van uw product op lange termijn te bereiken. Een zelfstandige cluster van Azure Service Fabric is een resource waarvan u eigenaar bent. Dit artikel wordt beschreven wat kan worden bijgewerkt of bijgewerkt.
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>De fabric-versie die wordt uitgevoerd op uw cluster beheren
-Zorg ervoor dat uw cluster altijd wordt uitgevoerd een ondersteunde versie van Service Fabric. Wanneer Microsoft de release van een nieuwe versie van Service Fabric kondigt, betekent dit dat de vorige versie zich na een minimum van 60 dagen vanaf de datum van de aankondiging is gemarkeerd voor einde van ondersteuning. Nieuwe releases worden aangekondigd [op de blog van het Service Fabric-team](https://blogs.msdn.microsoft.com/azureservicefabric/). De nieuwe versie is beschikbaar om te kiezen op dat moment.
+Zorg ervoor dat uw cluster altijd voert een [ondersteunde versie van Service Fabric](service-fabric-versions.md). Wanneer Microsoft de release van een nieuwe versie van Service Fabric kondigt, betekent dit dat de vorige versie zich na een minimum van 60 dagen vanaf de datum van de aankondiging is gemarkeerd voor einde van ondersteuning. Nieuwe releases worden aangekondigd [op de blog van het Service Fabric-team](https://blogs.msdn.microsoft.com/azureservicefabric/). De nieuwe versie is beschikbaar om te kiezen op dat moment.
 
 U kunt instellen dat uw cluster voor het ontvangen van automatische infrastructuurupgrades als ze door Microsoft worden uitgegeven of u kunt handmatig een ondersteunde fabric-versie die u wilt dat uw cluster op selecteren. Lees voor meer informatie, [Upgrade van de Service Fabric-versie die wordt uitgevoerd op uw cluster](service-fabric-cluster-upgrade-windows-server.md).
 

@@ -14,18 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: c452341567055e0272c8e6a90c43d6b886d6a928
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9157765afaa610d207a47e19b73f80ae3898fd68
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425591"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977555"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Een virtuele machine van een beheerde installatiekopie maken
 
 U kunt meerdere virtuele machines (VM's) maken van een virtuele machine van Azure beheerde installatiekopieën, met behulp van de Azure portal of PowerShell. Een beheerde VM-installatiekopie bevat de informatie die nodig zijn voor het maken van een virtuele machine, met inbegrip van het besturingssysteem en gegevensschijven. De virtuele harde schijven (VHD's) die gezamenlijk de afbeelding, met inbegrip van zowel de besturingssysteemschijven en eventuele gegevensschijven worden opgeslagen als beheerde schijven. 
 
 Voordat u een nieuwe virtuele machine maakt, moet u [maken van een beheerde VM-installatiekopie](capture-image-resource.md) om te gebruiken als de bronafbeelding. 
+
 
 ## <a name="use-the-portal"></a>Gebruik de portal
 
@@ -41,17 +42,17 @@ Voordat u een nieuwe virtuele machine maakt, moet u [maken van een beheerde VM-i
 
 ## <a name="use-powershell"></a>PowerShell gebruiken
 
-U kunt PowerShell gebruiken op een virtuele machine maken van een installatiekopie met behulp van de vereenvoudigde parameter is ingesteld voor de [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm) cmdlet. De installatiekopie moet zich in dezelfde resourcegroep bevinden waar u de virtuele machine kunt maken.
+U kunt PowerShell gebruiken op een virtuele machine maken van een installatiekopie met behulp van de vereenvoudigde parameter is ingesteld voor de [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet. De installatiekopie moet zich in dezelfde resourcegroep bevinden waar u de virtuele machine kunt maken.
 
-Dit voorbeeld vereist dat de AzureRM-moduleversie 5.6.0 of hoger. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps).
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
-De vereenvoudigde parameterset voor [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm) alleen is vereist dat u een naam, resourcegroep en de naam van installatiekopie naar een virtuele machine maken van een installatiekopie opgeven. New-AzureRmVm gebruikt de waarde van de **-naam** parameter als de naam van alle resources die deze automatisch worden gemaakt. In dit voorbeeld wordt er meer gedetailleerde namen voor elk van de resources, maar laat de cmdlet deze automatisch worden gemaakt. U kunt ook resources vooraf, zoals het virtuele netwerk maken en de naam van de resource doorgeven aan de cmdlet. New-AzureRmVm gebruikt de bestaande resources als het vindt deze door hun naam.
+De vereenvoudigde parameterset voor [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) alleen is vereist dat u een naam, resourcegroep en de naam van installatiekopie naar een virtuele machine maken van een installatiekopie opgeven. Nieuwe-AzVm gebruikt de waarde van de **-naam** parameter als de naam van alle resources die deze automatisch worden gemaakt. In dit voorbeeld wordt er meer gedetailleerde namen voor elk van de resources, maar laat de cmdlet deze automatisch worden gemaakt. U kunt ook resources vooraf, zoals het virtuele netwerk maken en de naam van de resource doorgeven aan de cmdlet. Nieuwe-AzVm gebruikt de bestaande resources als het vindt deze door hun naam.
 
 Het volgende voorbeeld wordt een virtuele machine met de naam *myVMFromImage*, in de *myResourceGroup* resourcegroep van de installatiekopie met de naam *myImage*. 
 
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVMfromImage" `
     -ImageName "myImage" `

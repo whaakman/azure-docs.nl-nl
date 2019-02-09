@@ -16,12 +16,12 @@ ms.subservice: pim
 ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ad64fba0288aa5663e008484d6f0d2cbdff0bca6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f6e2042f94ce653c1d569385deddbade548a58b4
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187280"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977826"
 ---
 # <a name="license-requirements-to-use-pim"></a>Licentievereisten PIM gaat gebruiken
 
@@ -33,6 +33,7 @@ Voor het gebruik van PIM, moet uw directory een van de volgende betaalde of proe
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5
+- Microsoft 365 M5
 
 Zie [Wat is Azure Active Directory?](../fundamentals/active-directory-whatis.md) voor meer informatie.
 
@@ -63,5 +64,6 @@ Als een Azure AD Premium P2, EMS E5 of proeflicentie is verlopen, is PIM-functie
 
 ## <a name="next-steps"></a>Volgende stappen
 
+- [PIM implementeren](pim-deployment-plan.md)
 - [Beginnen met PIM](pim-getting-started.md)
 - [Rollen die in PIM kunt u niet beheren](pim-roles.md)

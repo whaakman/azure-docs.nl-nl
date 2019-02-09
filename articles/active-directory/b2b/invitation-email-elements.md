@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/23/2017
+ms.date: 02/06/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 57ba4b35cf470eff040d4a2dca42c60820fa9d9e
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: a119e2797c4771551b6087e148d609c68ffd36db
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079967"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977505"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>De elementen van de B2B-samenwerking uitnodigingse-mail - Azure Active Directory
 
@@ -66,6 +66,14 @@ De voettekst bevat de huisstijl van het Microsoft-bedrijf en kan de geadresseerd
 
   ![Wanneer de ontvanger hoeft niet te uitnodiging inwisselen](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
 
+## <a name="how-the-language-is-determined"></a>Hoe de taal die wordt bepaald
+De taal die wordt gepresenteerd aan de gastgebruiker in de uitnodiging per e-mail wordt bepaald door de volgende instellingen. Deze instellingen worden weergegeven in de volgorde van prioriteit. Als een instelling niet is geconfigureerd, bepaalt de volgende instelling in de lijst de taal. 
+- De **messageLanguage** eigenschap van de [invitedUserMessageInfo](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) object als de uitnodiging maken API wordt gebruikt
+-   De **preferredLanguage** eigenschap die is opgegeven in van de Gast [gebruikersobject](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0)
+-   De **taal van meldingen** instellen in de eigenschappen van de gastgebruiker de starttenant (voor alleen voor Azure AD-tenants)
+-   De **taal van meldingen** instellen in de eigenschappen van de resource-tenant
+
+Als geen van deze instellingen zijn geconfigureerd, standaard de taal Engels (V.S.).
 
 ## <a name="next-steps"></a>Volgende stappen
 

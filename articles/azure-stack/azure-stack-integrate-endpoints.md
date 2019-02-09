@@ -10,12 +10,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 0bb2f3ffb4b615451abc41d0d8945b4b3efdde53
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9a209aaf730b356c8c102eab7a8832ce670204cc
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816353"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977744"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack-datacenter-integratie - eindpunten publiceren
 
@@ -38,11 +38,11 @@ Interne infrastructuur voor VIP's worden niet weergegeven omdat ze niet vereist 
 |Eindpunt (VIP)|DNS-host A-record|Protocol|Poorten|
 |---------|---------|---------|---------|
 |AD FS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Portal (beheerder)|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015|
+|Portal (beheerder)|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Adminhosting | *.adminhosting. \<regio >. \<FQDN-naam > | HTTPS | 443 |
-|Azure Resource Manager (beheerder)|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
-|Portal (gebruiker)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003|
-|Azure Resource Manager (user)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
+|Azure Resource Manager (beheerder)|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Portal (gebruiker)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Azure Resource Manager (user)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Graph|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Certificaatintrekkingslijst|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
 |DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP & UDP|53|
@@ -79,7 +79,6 @@ Azure Stack ondersteunt alleen transparante proxy-servers. In een implementatie 
 |NTP|(IP van de NTP-server opgegeven voor de implementatie)|UDP|123|Openbare VIP - /27|
 |DNS|(IP van DNS-server is opgegeven voor de implementatie)|TCP<br>UDP|53|Openbare VIP - /27|
 |CRL|(URL onder CRL-distributiepunten op uw certificaat)|HTTP|80|Openbare VIP - /27|
-|Infrastructuur voor back-up|(IP of FQDN-naam van het externe doel bestandsserver)|SMB|445|Openbare-sleutelinfrastructuur netwerk|
 |LDAP|Active Directory-Forest is opgegeven voor de Graph-integratie|TCP<br>UDP|389|Openbare VIP - /27|
 |LDAP SSL|Active Directory-Forest is opgegeven voor de Graph-integratie|TCP|636|Openbare VIP - /27|
 |LDAP GC|Active Directory-Forest is opgegeven voor de Graph-integratie|TCP|3268|Openbare VIP - /27|
@@ -89,9 +88,6 @@ Azure Stack ondersteunt alleen transparante proxy-servers. In een implementatie 
 
 > [!Note]  
 > Uitgaande URL's worden verdeeld met Azure traffic manager voor de best mogelijke connectiviteit op basis van geografische locatie. Met laden met gelijke taakverdeling URL's, Microsoft kunt bijwerken en back-endeindpunten wijzigen zonder gevolgen voor klanten. Microsoft deelt niet de lijst met IP-adressen voor de URL's met taakverdeling. U moet een apparaat dat door de URL in plaats van door IP-filtering ondersteunt.
-
-> [!Note]  
-> In 1809 communiceert de infrastructuur voor Backup-service met de externe server uit de openbare VIP-netwerk. Voordat u 1809, wordt de service via het netwerk van de infrastructuur voor openbare gecommuniceerd. Als uw omgeving kan geen toegang tot infrastructuurresources van het openbare VIP-netwerk, de nieuwste versie van de toepassing [1809 hotfix](azure-stack-update-1809.md#post-update-steps) voor Azure Stack. Deze hotfix wordt de infrastructuur voor back-upservice terug verplaatsen naar de infrastructuur voor openbare-netwerk. In 1811, als u de hotfix 1809 toepast blijft de infrastructuur voor Backup-service op de infrastructuur voor openbare-netwerk. Als u de hotfix niet van toepassing, verplaatst de update voor de service weer naar de infrastructuur voor openbare-netwerk.
 
 ## <a name="next-steps"></a>Volgende stappen
 

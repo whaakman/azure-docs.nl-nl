@@ -15,19 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 1daf04e3f878d0748bfa0904259c7b7187481843
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: ede2092be4e4eaf201e15307a7d9934ea267ae37
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580479"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980700"
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Een Windows-VM verplaatsen naar een andere Azure-abonnement of resourcegroep groep
 In dit artikel leert u hoe u een Windows virtuele machine (VM) verplaatsen tussen resourcegroepen of abonnementen. Verplaatsen tussen abonnementen kan handig zijn als u een virtuele machine hebt gemaakt in een persoonlijke abonnement en wil verplaatsen naar het abonnement van uw bedrijf kunnen doorgaan met uw werk.
 
 > [!IMPORTANT]
->U kunt Azure Managed Disks op dit moment niet verplaatsen. 
->
 >Nieuwe resource-id's worden gemaakt als onderdeel van de verplaatsing. Nadat de virtuele machine is verplaatst, moet u de hulpprogramma's en scripts gebruikmaken van de nieuwe resource-id's bijwerken. 
 > 
 > 
@@ -36,23 +34,23 @@ In dit artikel leert u hoe u een Windows virtuele machine (VM) verplaatsen tusse
 
 ## <a name="use-powershell-to-move-a-vm"></a>Powershell gebruiken voor het verplaatsen van een virtuele machine
 
-Om een virtuele machine naar een andere resourcegroep verplaatsen, moet u ervoor zorgen dat u ook alle van de afhankelijke resources verplaatsen. Als u een lijst met de resource-ID van elk van deze resources, gebruikt de [Get-AzureRMResource](/powershell/module/azurerm.resources/get-azurermresource) cmdlet.
+Om een virtuele machine naar een andere resourcegroep verplaatsen, moet u ervoor zorgen dat u ook alle van de afhankelijke resources verplaatsen. Als u een lijst met de resource-ID van elk van deze resources, gebruikt de [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) cmdlet.
 
 ```azurepowershell-interactive
- Get-AzureRMResource -ResourceGroupName <sourceResourceGroupName> | Format-table -Property ResourceId 
+ Get-AzResource -ResourceGroupName <sourceResourceGroupName> | Format-table -Property ResourceId 
 ```
 
-U kunt de uitvoer van de vorige opdracht gebruiken als een door komma's gescheiden lijst van resource-id's [Move-AzureRMResource](/powershell/module/azurerm.resources/move-azurermresource) elke resource verplaatsen naar de bestemming. 
+U kunt de uitvoer van de vorige opdracht gebruiken als een door komma's gescheiden lijst van resource-id's [verplaatsen AzResource](https://docs.microsoft.com/powershell/module/az.resources/move-azresource) elke resource verplaatsen naar de bestemming. 
 
 ```azurepowershell-interactive
-Move-AzureRmResource -DestinationResourceGroupName "<myDestinationResourceGroup>" `
+Move-AzResource -DestinationResourceGroupName "<myDestinationResourceGroup>" `
     -ResourceId <myResourceId,myResourceId,myResourceId>
 ```
     
 Om de resources verplaatsen naar een ander abonnement, bevatten de **- DestinationSubscriptionId** parameter. 
 
 ```azurepowershell-interactive
-Move-AzureRmResource -DestinationSubscriptionId "<myDestinationSubscriptionID>" `
+Move-AzResource -DestinationSubscriptionId "<myDestinationSubscriptionID>" `
     -DestinationResourceGroupName "<myDestinationResourceGroup>" `
     -ResourceId <myResourceId,myResourceId,myResourceId>
 ```

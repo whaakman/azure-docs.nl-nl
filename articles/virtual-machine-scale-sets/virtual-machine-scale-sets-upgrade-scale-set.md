@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: manayar
-ms.openlocfilehash: c0c9554a6c8868a8aeb90947dbbb0e251e42733f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 4e6186310f63fde8648ded03a62b207b5f81a8e2
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733223"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984797"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Wijzigen van een virtuele-machineschaalset
+
 Gedurende de levenscyclus van uw toepassingen moet u wijzigen of bijwerken van uw virtuele-machineschaalset. Deze updates kunnen bevatten informatie over het bijwerken van de configuratie van de schaalset of wijzigen van de configuratie van de toepassing. In dit artikel wordt beschreven hoe u een bestaande schaalset met de REST-API's, Azure PowerShell of Azure CLI te wijzigen.
 
 ## <a name="fundamental-concepts"></a>Basisconcepten
@@ -36,10 +37,10 @@ Een schaalset is een 'model met een schaalset"die legt de *gewenste* status van 
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version={apiVersion}
     ```
 
-- Azure PowerShell gebruiken met [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss):
+- Azure PowerShell gebruiken met [Get-AzVmss](/powershell/module/az.compute/get-azvmss):
 
     ```powershell
-    Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+    Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
     ```
 
 - Azure CLI met [az vmss show](/cli/azure/vmss):
@@ -80,10 +81,10 @@ Ook een schaalset heeft een 'scale set exemplaar weergeven"die worden vastgelegd
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/instanceView?api-version={apiVersion}
     ```
 
-- Azure PowerShell gebruiken met [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss):
+- Azure PowerShell gebruiken met [Get-AzVmss](/powershell/module/az.compute/get-azvmss):
 
     ```powershell
-    Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceView
+    Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceView
     ```
 
 - Azure CLI met [az vmss get-instance-view](/cli/azure/vmss):
@@ -134,10 +135,10 @@ Net als bij hoe een schaalset een model-view is, elk VM-exemplaar in de schaalse
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/virtualmachines/instanceId?api-version={apiVersion}
     ```
 
-- Azure PowerShell gebruiken met [Get-AzureRmVmssVm](/powershell/module/azurerm.compute/get-azurermvmssvm):
+- Azure PowerShell gebruiken met [Get-AzVmssVm](/powershell/module/az.compute/get-azvmssvm):
 
     ```powershell
-    Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
+    Get-AzVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
 - Azure CLI met [az vmss show](/cli/azure/vmss):
@@ -174,10 +175,10 @@ Net als bij hoe een schaalset een weergave met een exemplaar van is, elk VM-exem
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/virtualmachines/instanceId/instanceView?api-version={apiVersion}
     ```
 
-- Azure PowerShell gebruiken met [Get-AzureRmVmssVm](/powershell/module/azurerm.compute/get-azurermvmssvm):
+- Azure PowerShell gebruiken met [Get-AzVmssVm](/powershell/module/az.compute/get-azvmssvm):
 
     ```powershell
-    Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
+    Get-AzVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
     ```
 
 - Azure CLI met [az vmss get-instance-view](/cli/azure/vmss)
@@ -253,10 +254,10 @@ Voor het bijwerken van een wereldwijde schaal-eigenschap instellen, moet u de ei
 
 - U kunt een Resource Manager-sjabloon met de eigenschappen van de REST-API voor het bijwerken van eigenschappen van de wereldwijde schaal instellen implementeren.
 
-- Azure PowerShell gebruiken met [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss):
+- Azure PowerShell gebruiken met [Update AzVmss](/powershell/module/az.compute/update-azvmss):
 
     ```powershell
-    Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet {scaleSetConfigPowershellObject}
+    Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet {scaleSetConfigPowershellObject}
     ```
 
 - Azure CLI met [az vmss update](/cli/azure/vmss):
@@ -300,10 +301,10 @@ Voor het bijwerken van bestaande VM's, moet u een 'handmatige upgrade' van elke 
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/manualupgrade?api-version={apiVersion}
     ```
 
-- Azure PowerShell gebruiken met [Update-AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance):
+- Azure PowerShell gebruiken met [Update AzVmssInstance](/powershell/module/az.compute/update-azvmssinstance):
     
     ```powershell
-    Update-AzureRmVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
+    Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
 - Azure CLI met [az vmss update-instanties](/cli/azure/vmss)
@@ -325,10 +326,10 @@ Er is een type wijziging op wereldwijde schaal seteigenschappen die niet aan het
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/reimage?api-version={apiVersion}
     ```
 
-- Azure PowerShell gebruiken met [Set-AzureRmVmssVm](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmssvm):
+- Azure PowerShell gebruiken met [Set AzVmssVm](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssvm):
 
     ```powershell
-    Set-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
+    Set-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
     ```
 
 - Azure CLI met [az vmss terugzetten](https://docs.microsoft.com/cli/azure/vmss):
@@ -386,10 +387,10 @@ Als u aangepaste installatiekopieën gebruikt, kunt u de installatiekopie bijwer
 ### <a name="update-the-os-image-for-your-scale-set"></a>De installatiekopie van het besturingssysteem voor uw schaalset bijwerken
 Mogelijk hebt u een schaalset die wordt uitgevoerd een oude versie van Ubuntu LTS, 16.04. U wilt bijwerken naar een nieuwere versie van Ubuntu-16.04 LTS, zoals versie *16.04.201801090*. De eigenschap image reference versie maakt geen deel uit van een lijst, zodat u kunt deze eigenschappen met een van de volgende opdrachten rechtstreeks wijzigen:
 
-- Azure PowerShell gebruiken met [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) als volgt:
+- Azure PowerShell gebruiken met [Update AzVmss](/powershell/module/az.compute/update-azvmss) als volgt:
 
     ```powershell
-    Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -ImageReferenceVersion 16.04.201801090
+    Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -ImageReferenceVersion 16.04.201801090
     ```
 
 - Azure CLI met [az vmss update](/cli/azure/vmss):
@@ -400,10 +401,10 @@ Mogelijk hebt u een schaalset die wordt uitgevoerd een oude versie van Ubuntu LT
 
 U kunt ook kunt u de installatiekopie die gebruikmaakt van uw schaalset wijzigen. U wilt mogelijk bijwerken of wijzigen van een aangepaste installatiekopie die wordt gebruikt door uw schaalset. U kunt de installatiekopie van uw schaalset maakt gebruik van door het bijwerken van de eigenschap image verwijzing-ID wijzigen. De eigenschap image verwijzing-ID maakt geen deel uit van een lijst, zodat u kunt deze eigenschap met een van de volgende opdrachten rechtstreeks wijzigen:
 
-- Azure PowerShell gebruiken met [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) als volgt:
+- Azure PowerShell gebruiken met [Update AzVmss](/powershell/module/az.compute/update-azvmss) als volgt:
 
     ```powershell
-    Update-AzureRmVmss `
+    Update-AzVmss `
         -ResourceGroupName "myResourceGroup" `
         -VMScaleSetName "myScaleSet" `
         -ImageReferenceId /subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myNewImage
@@ -426,16 +427,16 @@ Stel dat u hebt een schaalset met een Azure Load Balancer en ter vervanging van 
 
     ```powershell
     # Get the current model of the scale set and store it in a local PowerShell object named $vmss
-    $vmss=Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
+    $vmss=Get-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
     
     # Create a local PowerShell object for the new desired IP configuration, which includes the reference to the application gateway
-    $ipconf = New-AzureRmVmssIPConfig "myNic" -ApplicationGatewayBackendAddressPoolsId /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendAddressPoolName} -SubnetId $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Subnet.Id –Name $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Name
+    $ipconf = New-AzVmssIPConfig "myNic" -ApplicationGatewayBackendAddressPoolsId /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendAddressPoolName} -SubnetId $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Subnet.Id –Name $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Name
     
     # Replace the existing IP configuration in the local PowerShell object (which contains the references to the current Azure Load Balancer) with the new IP configuration
     $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0] = $ipconf
     
     # Update the model of the scale set with the new configuration in the local PowerShell object
-    Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -virtualMachineScaleSet $vmss
+    Update-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -virtualMachineScaleSet $vmss
     ```
 
 - Azure CLI:

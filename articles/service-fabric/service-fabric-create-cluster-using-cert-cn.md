@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: ryanwi
-ms.openlocfilehash: 78812f7bcce82090802672e3e232e713f0d047d1
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: a6607fa91d9c8556881a5532527a63b6f21ad4d1
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214110"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977453"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Implementeren van een Service Fabric-cluster dat gebruik maakt van de algemene certificaatnaam in plaats van vingerafdruk
 Er zijn geen twee certificaten kunnen hebben dezelfde vingerafdruk, waardoor certificaatrollover cluster of de beheer-moeilijk. Meerdere certificaten kunnen echter hebben de dezelfde algemene naam of het onderwerp.  Een cluster met behulp van algemene naam van het certificaat maakt het veel eenvoudiger Certificaatbeheer. In dit artikel wordt beschreven hoe u een Service Fabric-cluster voor het gebruik van de algemene naam van het certificaat in plaats van de vingerafdruk van het certificaat te implementeren.
@@ -177,13 +177,17 @@ Open vervolgens de *azuredeploy.json* -bestand in een teksteditor en drie update
             "commonNames": [
             {
                 "certificateCommonName": "[parameters('certificateCommonName')]",
-                "certificateIssuerThumbprint": ""
+                "certificateIssuerThumbprint": "[parameters('certificateIssuerThumbprint')]"
             }
             ],
             "x509StoreName": "[parameters('certificateStoreValue')]"
         },
         ...
     ```
+> [!NOTE]
+> Het veld 'certificateIssuerThumbprint' kunt de verwachte uitgevers van certificaten met de algemene naam van een bepaald onderwerp op te geven. Dit veld accepteert een door komma's gescheiden inventarisatie van SHA1 vingerafdrukken. Opmerking: dit is een toename van de validatie van het servercertificaat - in het geval wanneer de verlener niet opgegeven is of leeg is, wordt het certificaat voor verificatie als de keten kan worden gebouwd en eindigt om in een basiscertificaat dat wordt vertrouwd door de validatiefunctie worden geaccepteerd. Als de uitgever is opgegeven, wordt het certificaat wordt geaccepteerd als de vingerafdruk van de directe verlener overeenkomt met een van de opgegeven waarden in dit veld -, ongeacht of de hoofdmap vertrouwd of niet wordt. Houd er rekening mee dat een PKI verschillende certificeringsinstanties gebruiken kan om certificaten te verlenen voor hetzelfde onderwerp en het is dus belangrijk om op te geven van alle vingerafdrukken van de verwachte certificaatverlener voor een bepaald onderwerp.
+>
+> Opgeven van de verlener wordt beschouwd als een best practice; tijdens het weggelaten, blijven werken - voor certificaten van koppelen aan een vertrouwd basiscertificaat - dit gedrag heeft beperkingen en kan in de nabije toekomst worden geleidelijk. Ook Opmerking clusters geïmplementeerd in Azure en beveiligd met X509 certificaten uitgegeven door een persoonlijke PKI en gedeclareerd door onderwerp mogelijk niet worden gevalideerd door de Azure Service Fabric-service (voor cluster-naar-servicecommunicatie), als van de PKI-certificaat-beleid is het niet kunnen worden gedetecteerd, beschikbaar en toegankelijk is. 
 
 ## <a name="deploy-the-updated-template"></a>De bijgewerkte sjabloon implementeren
 Implementeer de bijgewerkte sjabloon opnieuw nadat de wijzigingen hebt aangebracht.

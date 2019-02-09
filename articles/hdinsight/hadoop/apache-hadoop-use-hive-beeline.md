@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: c1c4637bf3b71ade6cceb4427180edf8bc408670
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 3470caec801c5be54f04fc09a5da734a973f0c82
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408099"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962159"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>De client Apache Beeline gebruiken met Apache Hive
 
@@ -25,6 +25,7 @@ Beeline is een Hive-client die is opgenomen op de hoofdknooppunten van het HDIns
 
 * __Beeline van een SSH-verbinding met een hoofdknooppunt of edge-knooppunt__: `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
 * __Beeline gebruiken op een client via een virtueel Azure-netwerk verbinding maken met HDInsight__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
+* __Beeline gebruiken op een client, verbinding maken met een Enterprise Security Package (ESP) van HDInsight-cluster via een Azure Virtual Network__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>`
 * __Beeline gebruiken op een client, via het openbare internet verbinding maken met HDInsight__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
 
 > [!NOTE]  
@@ -35,6 +36,8 @@ Beeline is een Hive-client die is opgenomen op de hoofdknooppunten van het HDIns
 > Vervang `clustername` door de naam van uw HDInsight-cluster.
 >
 > Wanneer u verbinding maakt met het cluster via een virtueel netwerk, Vervang `<headnode-FQDN>` met de volledig gekwalificeerde domeinnaam van het hoofdknooppunt van een cluster.
+>
+> Wanneer u verbinding maakt met een Enterprise Security Package (ESP)-cluster, Vervang `<AAD-Domain>` met de naam van de Azure Active Directory (AAD) die het cluster is gekoppeld aan. Vervang `<username>` met de naam van een account in het domein met machtigingen voor toegang tot het cluster.
 
 ## <a id="prereq"></a>Vereisten
 
@@ -67,6 +70,12 @@ Beeline is een Hive-client die is opgenomen op de hoofdknooppunten van het HDIns
 
         ```bash
         beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
+        ```
+    * Wanneer u verbinding maken met een Enterprise Security Package (ESP)-cluster is toegevoegd aan Azure Active Directory (AAD), moet u ook de domeinnaam opgeven `<AAD-Domain>` en de naam van een domeingebruikersaccount met machtigingen voor toegang tot het cluster `<username>`:
+        
+        ```bash
+        kinit <username>
+        beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>
         ```
 
 2. Beeline opdrachten beginnen met een `!` teken, bijvoorbeeld `!help` wordt help weergegeven. Maar het `!` voor bepaalde opdrachten kunnen worden weggelaten. Bijvoorbeeld, `help` werkt ook.
@@ -191,7 +200,7 @@ Gebruik de volgende stappen uit om te maken van een bestand en voer vervolgens m
 
     * **MAKEN van tabel als niet bestaat** -als de tabel nog niet bestaat, wordt dit gemaakt. Omdat de **externe** trefwoord wordt niet gebruikt, wordt deze instructie maakt u een interne tabel. Interne tabellen worden opgeslagen in het datawarehouse Hive en volledig worden beheerd door Hive.
     * **OPGESLAGEN als ORC** -de gegevens worden opgeslagen in geoptimaliseerd rij kolommen (ORC)-indeling. ORC-indeling is een uiterst geoptimaliseerde en efficiënte indeling voor het opslaan van gegevens met Hive.
-    * **INSERT OVERSCHRIJVEN... Selecteer** -selecteert rijen uit de **log4jLogs** tabel met **[fout]**, voegt u vervolgens de gegevens in de **foutenlogboeken** tabel.
+    * **INSERT OVERWRITE ... Selecteer** -selecteert rijen uit de **log4jLogs** tabel met **[fout]**, voegt u vervolgens de gegevens in de **foutenlogboeken** tabel.
 
     > [!NOTE]  
     > In tegenstelling tot externe tabellen, het verwijderen van een interne tabel Hiermee verwijdert u ook de onderliggende gegevens.

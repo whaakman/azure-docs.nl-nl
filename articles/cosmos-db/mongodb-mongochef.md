@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: c679d2e6b7dc8998016e79d265f368504d6def3d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: f2ba1a6fef944911c0706ca4e71be6a55bc4b16a
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038407"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961836"
 ---
 # <a name="connect-to-cosmos-account-using-studio-3t"></a>Verbinding maken met Cosmos-account Studio 3T gebruiken
 
@@ -26,7 +26,7 @@ Voor verbinding met een Cosmos-account met behulp van Azure Cosmos DB-API voor M
 ## <a name="create-the-connection-in-studio-3t"></a>De verbinding in Studio 3T maken
 Als u wilt uw Cosmos-account toevoegen aan de Studio 3T connection manager, moet u de volgende stappen uitvoeren:
 
-1. Ophalen van de verbindingsgegevens voor uw Cosmos-account dat is geconfigureerd met Azure Cosmos DB API MongoDB met behulp van de instructies in de [verbinding maken met een MongoDB-toepassing met Azure Cosmos DB](connect-mongodb-account.md) artikel.
+1. Ophalen van de verbindingsgegevens voor uw Cosmos-account dat is geconfigureerd met Azure Cosmos DB-API voor MongoDB met behulp van de instructies in de [verbinding maken met een MongoDB-toepassing met Azure Cosmos DB](connect-mongodb-account.md) artikel.
 
     ![Schermopname van de pagina verbindingsreeks](./media/mongodb-mongochef/ConnectionStringBlade.png)
 2. Klik op **Connect** om te openen in de Connection Manager, klikt u vervolgens op **nieuwe verbinding**
@@ -111,5 +111,5 @@ Voor het maken van een database, verzameling en documenten Studio 3T gebruiken, 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over het [Robo 3T gebruiken](mongodb-robomongo.md) met Azure Cosmos DB-API voor MongoDB.
-- Verken MongoDB [voorbeelden](mongodb-samples.md) met Azure Cosmos DB-API voor MongoDB.
+- Meer informatie over het [gebruik van Robo 3T](mongodb-robomongo.md) met de API voor MongoDB van Azure Cosmos DB.
+- Verken [voorbeelden](mongodb-samples.md) van MongoDB met de API voor MongoDB van Azure Cosmos DB.

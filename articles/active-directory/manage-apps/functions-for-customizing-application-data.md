@@ -3,8 +3,8 @@ title: Expressies schrijven voor kenmerktoewijzingen in Azure Active Directory |
 description: Informatie over het gebruik van expressietoewijzingen kenmerkwaarden omzetten in een acceptabele indeling tijdens de geautomatiseerde inrichting van objecten van de SaaS-app in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: chmutali
-ms.openlocfilehash: 3361bc384f3da3d2bde6eab703056dd85356b5f8
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: c97fd915e9022171125c7c0f687413e433f82871
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895411"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983832"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Expressies schrijven voor kenmerktoewijzingen in Azure Active Directory
 Bij het configureren van inrichting tot een SaaS-toepassing, is een van de typen kenmerktoewijzingen die u kunt opgeven een expressie-toewijzing. Voor deze, moet u een script-achtige-expressie waarmee u uw gebruikers om gegevens te transformeren naar indelingen die meer geschikt is voor de SaaS-toepassing kunt schrijven.
@@ -49,7 +49,7 @@ De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visu
 
 | Name | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **Bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk van het bronobject |
+| **Bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk van het bronobject. |
 | **suffix** |Vereist |Reeks |De tekenreeks die u wilt toevoegen aan het einde van de bronwaarde. |
 
 - - -
@@ -72,7 +72,7 @@ De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visu
 
 **Beschrijving:**<br> Join() is vergelijkbaar met Append(), behalve dat deze meerdere kunt combineren **bron** tekenreeks waarden in één tekenreeks en elke waarde wordt gescheiden door een **scheidingsteken** tekenreeks.
 
-Als een van de bronwaarden is een kenmerk meerdere waarden wordt elke waarde in dit kenmerk wordt samengevoegd, van de waarde van het scheidingsteken gescheiden.
+Als een van de bronwaarden een kenmerk meerdere waarden is, wordt klikt u vervolgens elke waarde in dit kenmerk worden samengevoegd, gescheiden door de waarde van het scheidingsteken.
 
 **Parameters:**<br> 
 
@@ -105,7 +105,7 @@ Als een van de bronwaarden is een kenmerk meerdere waarden wordt elke waarde in 
 
 | Name | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **Bron** |Vereist |Reeks | Doorgaans de naam van een eerste of laatste naamkenmerk |
+| **Bron** |Vereist |String | Doorgaans de naam van een eerste of laatste naamkenmerk. |
 
 - - -
 ### <a name="not"></a>niet
@@ -117,7 +117,7 @@ Als een van de bronwaarden is een kenmerk meerdere waarden wordt elke waarde in 
 
 | Name | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **Bron** |Vereist |Booleaanse tekenreeks |Verwacht **bron** waarden zijn 'True' of 'False'... |
+| **Bron** |Vereist |Booleaanse tekenreeks |Verwacht **bron** waarden zijn 'True' of 'False'. |
 
 - - -
 ### <a name="replace"></a>Vervangen
@@ -128,7 +128,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 
 * Wanneer **oldValue** en **vervangende waarde** vindt:
   
-  * Alle instanties van oldValue in de bron vervangen door de vervangende waarde
+  * Vervangt alle instanties van **oldValue** in de **bron** met *vervangende waarde**
 * Wanneer **oldValue** en **sjabloon** vindt:
   
   * Vervangt alle instanties van de **oldValue** in de **sjabloon** met de **bron** waarde
@@ -167,7 +167,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 
 | Name | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **uniqueValueRule1... uniqueValueRuleN** |Ten minste zijn 2 afhankelijk van de vereiste, geen hoofdletters |Reeks | Lijst met regels voor het genereren van unieke waarde om te evalueren |
+| **uniqueValueRule1... uniqueValueRuleN** |Ten minste zijn 2 afhankelijk van de vereiste, geen hoofdletters |String | Lijst met regels voor het genereren van unieke waarde om te evalueren. |
 
 
 - - -
@@ -219,7 +219,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 
 | Name | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **Bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk van het bronobject |
+| **Bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk van het bronobject. |
 | **culture** |Optioneel |String |De notatie voor de cultuurnaam op basis van RFC 4646 is *languagecode2-land/regioncode2*, waarbij *languagecode2* is de taalcode van twee letters en *land/regioncode2*is de code van twee letters subcultuur. Voorbeelden zijn ja-JP voor Japans (Japan) en en-US voor Engels (Verenigde Staten). In gevallen waar een taalcode van twee letters niet beschikbaar is, wordt een drieletterige code afgeleid van de ISO 639-2 gebruikt.|
 
 - - -
@@ -232,7 +232,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 
 | Name | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **Bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk van het bronobject |
+| **Bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk van het bronobject. |
 | **culture** |Optioneel |String |De notatie voor de cultuurnaam op basis van RFC 4646 is *languagecode2-land/regioncode2*, waarbij *languagecode2* is de taalcode van twee letters en *land/regioncode2*is de code van twee letters subcultuur. Voorbeelden zijn ja-JP voor Japans (Japan) en en-US voor Engels (Verenigde Staten). In gevallen waar een taalcode van twee letters niet beschikbaar is, wordt een drieletterige code afgeleid van de ISO 639-2 gebruikt.|
 
 ## <a name="examples"></a>Voorbeelden

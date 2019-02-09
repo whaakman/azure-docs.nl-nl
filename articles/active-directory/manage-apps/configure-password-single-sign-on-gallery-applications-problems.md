@@ -3,9 +3,8 @@ title: Probleem bij het configureren wachtwoord eenmalige aanmelding voor een to
 description: Inzicht in het gezicht voor mensen van algemene problemen bij het configureren van wachtwoord eenmalige aanmelding voor toepassingen die al worden vermeld in de Azure AD-Toepassingsgalerie
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-ms.assetid: ''
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
-ms.openlocfilehash: e0571a92f376e0be481a9016f186846fe29b0a37
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.author: celested
+ms.openlocfilehash: 7d1c83440457e2ac0f4a810b37298f3d31a16adb
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168274"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965287"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Probleem bij het configureren wachtwoord eenmalige aanmelding voor een toepassing in Azure AD-galerie
 

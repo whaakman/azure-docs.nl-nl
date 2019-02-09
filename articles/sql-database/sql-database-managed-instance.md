@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: c0067dc96837d758e4c2551bcb29faf63c1a7715
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: d8959e25280a9d1dd62549c698f7b2b6b98d6154
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895038"
+ms.locfileid: "55964148"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Geavanceerde beveiliging van gegevens met virtuele netwerken en in de buurt van 100% compatibiliteit van SQL-Database gebruiken
 
@@ -107,7 +107,7 @@ Kritieke-bedrijfslaag is gebouwd voor toepassingen met hoge i/o-vereisten. Het b
 De volgende lijst geeft een overzicht van de belangrijkste kenmerken van de laag bedrijfskritiek service:
 
 - Ontworpen voor zakelijke toepassingen met de hoogste prestaties en HA-vereisten
-- Wordt geleverd met zeer snelle, lokale SSD-opslag (maximaal 1 TB op Gen 4 en maximaal 4 TB voor Gen 5)
+- Wordt geleverd met zeer snelle, lokale SSD-opslag (maximaal 1 TB op Gen4 en tot 4 TB voor Gen5)
 - Ingebouwde [hoge beschikbaarheid](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) op basis van [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) en [Azure Service Fabric](../service-fabric/service-fabric-overview.md).
 - Ingebouwde extra [alleen-lezen databasereplica](sql-database-read-scale-out.md) die kan worden gebruikt voor rapportage- en andere werkbelastingen alleen-lezen
 - [In-Memory OLTP](sql-database-in-memory.md) die kunnen worden gebruikt voor de werkbelasting aan de vereisten voor hoge prestaties  

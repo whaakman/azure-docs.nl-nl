@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 577860baa74d9f0cd7f411a64d9e6bfa9322731c
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 834674eb63af75088434db0f614b11c7a36e7adf
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894987"
+ms.locfileid: "55964811"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Instellingen voor het gebruik en het beleid configureren
 In dit artikel wordt beschreven hoe u gebruikers toevoegen aan het lab, ze geregistreerd bij de testomgeving, bepalen het aantal uren dat de virtuele machine, en meer kan worden gebruikt. 
@@ -66,11 +66,14 @@ U kunt quota's per gebruiker instellen met behulp van de volgende stappen uit:
 
 1. Selecteer **Gebruikers** in het menu links.
 2. Selecteer **quotum per gebruiker: onbeperkte** op de werkbalk. 
-3. Op de **quotum per gebruiker** weergeeft, schakelt **beperken het aantal uren dat een gebruiker kan een virtuele machine gebruiken**. 
-4. Voor **hoeveel uur wilt u geven aan elke gebruiker**, voer het aantal uren en selecteert u **opslaan**. 
+3. Op de **quotum per gebruiker** pagina, selecteert u een van de volgende opties: 
+    1. **Geen**. Gebruikers kunnen hun virtuele machines alleen tijdens het geplande tijdstip, of als lab-eigenaar op virtuele machines worden gebruikt om ze gebruiken.
+    2. **Onbeperkt (standaard)**. Gebruikers kunnen hun virtuele machines zonder enige tijdsbeperkingen gebruiken.
+    3. **Geef het aantal uren per gebruiker**. Gebruikers kunnen hun virtuele machines gebruiken voor het aantal uren (hieronder) naast het geplande tijdstip. Als u deze optie selecteert, voert u de **aantal uren** in het tekstvak in. 
 
-    ![Aantal uren per gebruiker](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
-5. Ziet u het aantal uren op de werkbalk nu: **Quotum per gebruiker: &lt;aantal uren&gt;**. 
+        ![Aantal uren per gebruiker](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
+    4. Selecteer **Opslaan**. 
+5. Ziet u de gewijzigde waarden op de werkbalk nu: **Quotum per gebruiker: &lt;aantal uren&gt;**. 
 
     ![Quotum per gebruiker](../media/how-to-configure-student-usage/quota-per-user.png)
 
@@ -80,8 +83,19 @@ U kunt quota's per gebruiker instellen met behulp van de volgende stappen uit:
 ### <a name="add-users-by-uploading-a-csv-file"></a>Gebruikers toevoegen door een CSV-bestand te uploaden
 U kunt ook gebruikers toevoegen door het uploaden van een CSV-bestand met e-mailadressen van gebruikers.
 
-1. Selecteer **uploaden CSV** op de werkbalk.
-2. Selecteer het CSV-bestand met e-mailadressen. Alle e-mailadressen moeten zich in één kolom, wanneer u het opent in Excel. 
+1. Maak een CSV-bestand met e-mailadressen van gebruikers in één kolom.
+
+    ![Quotum per gebruiker](../media/how-to-configure-student-usage/csv-file-with-users.png)
+2. Op de **gebruikers** pagina van het testlab, selecteer **uploaden CSV** op de werkbalk.
+
+    ![CSV-knop uploaden](../media/how-to-configure-student-usage/upload-csv-button.png)
+3. Selecteer het CSV-bestand met e-mailadressen. Wanneer u selecteert **Open** na het selecteren van het CSV-bestand, ziet u het volgende **gebruikers toevoegen** venster. De e-adreslijst wordt gevuld met e-mailadressen van het CSV-bestand. 
+
+    ![Gebruikers venster is gevuld met e-mailadressen uit CSV-bestand toevoegen](../media/how-to-configure-student-usage/add-users-window.png)
+4. Selecteer **opslaan** in de **gebruikers toevoegen** venster. 
+5. Bevestig dat u gebruikers in de lijst met gebruikers. 
+
+    ![Lijst met toegevoegde gebruikers](../media/how-to-configure-student-usage/list-of-added-users.png)
 
 ## <a name="manage-user-vms"></a>Gebruiker virtuele machines beheren
 Wanneer studenten registreren met Azure Lab Services met behulp van de registratie van de koppeling opgegeven, ziet u de virtuele machines toegewezen aan studenten op de **virtuele machines** tabblad. 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
 ms.custom: seodec18
-ms.openlocfilehash: ff5c18b08a2921efe72a35b9bd982986c1867812
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 9a05769b4cfd4bcaca0df9e1af1816d99f78bc62
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251287"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984462"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>SSH-ondersteuning voor Azure App Service on Linux
 
@@ -58,7 +58,7 @@ Deze stappen worden weergegeven in de opslagplaats voor Azure App Service als [e
     > [!NOTE]
     > Deze configuratie staat geen externe verbindingen naar de container toe. SSH is alleen toegankelijk via de Kudu / SCM-Site, die is geverifieerd met behulp van de publicatiereferenties.
 
-    ```docker
+    ```Dockerfile
     # ------------------------
     # SSH Server support
     # ------------------------
@@ -74,13 +74,13 @@ Deze stappen worden weergegeven in de opslagplaats voor Azure App Service als [e
     > * `Ciphers` moet ten minste een van de volgende bevatten: `aes128-cbc,3des-cbc,aes256-cbc`.
     > * `MACs` moet ten minste een van de volgende bevatten: `hmac-sha1,hmac-sha1-96`.
 
-    ```docker
+    ```Dockerfile
     COPY sshd_config /etc/ssh/
     ```
 
 3. Poort 2222 in bevatten de [ `EXPOSE` instructie](https://docs.docker.com/engine/reference/builder/#expose) voor het bestand Dockerfile. Hoewel het hoofdwachtwoord bekend is, is poort 2222 niet toegankelijk vanaf het internet. Het is een interne enige poort die toegankelijk is alleen door containers in het Brugnetwerk van een virtueel particulier netwerk.
 
-    ```docker
+    ```Dockerfile
     EXPOSE 2222 80
     ```
 
@@ -93,7 +93,7 @@ Deze stappen worden weergegeven in de opslagplaats voor Azure App Service als [e
 
 De docker-bestand maakt gebruik van de [ `ENTRYPOINT` instructie](https://docs.docker.com/engine/reference/builder/#entrypoint) het script uit te voeren.
 
-    ```docker
+    ```Dockerfile
     COPY init_container.sh /opt/startup
     ...
     RUN chmod 755 /opt/startup/init_container.sh

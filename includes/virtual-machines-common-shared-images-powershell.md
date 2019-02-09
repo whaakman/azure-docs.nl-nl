@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/10/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 3ec5b9c6357f0d075ddd9b0fd5c8a88ee2846209
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 8770aaeff3e0d7b2d6a39f596aafebf15ed48b23
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192218"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984989"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell starten
 
@@ -27,31 +27,31 @@ Als u Cloud Shell wilt openen, selecteert u **Proberen** in de rechterbovenhoek 
 Gedeelde Afbeeldingsgalerieën is in preview, maar u moet de functie registreren voordat u deze kunt gebruiken. De functie Gedeelde Afbeeldingsgalerieën registreren:
 
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature `
+Register-AzProviderFeature `
    -FeatureName GalleryPreview `
    -ProviderNamespace Microsoft.Compute
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
 ## <a name="get-the-managed-image"></a>De installatiekopie van het beheerde ophalen
 
-U ziet een lijst met installatiekopieën die beschikbaar in een resource-groep met zijn [Get-AzureRmImage](/powershell/module/AzureRM.Compute/get-azurermimage). Zodra u weet dat de installatiekopie met de naam en de resourcegroep waarvan het zich bevindt, kunt u `Get-AzureRmImage` opnieuw naar de installatiekopie-object ophalen en opslaan in een variabele voor later gebruik. In dit voorbeeld wordt een installatiekopie met de naam *myImage* uit de resourcegroep 'myResourceGroup' en wijst deze toe aan de variabele *$managedImage*. 
+U ziet een lijst met installatiekopieën die beschikbaar in een resource-groep met zijn [Get-AzImage](https://docs.microsoft.com/powershell/module/az.compute/get-azimage). Zodra u weet dat de installatiekopie met de naam en de resourcegroep waarvan het zich bevindt, kunt u `Get-AzImage` opnieuw naar de installatiekopie-object ophalen en opslaan in een variabele voor later gebruik. In dit voorbeeld wordt een installatiekopie met de naam *myImage* uit de resourcegroep 'myResourceGroup' en wijst deze toe aan de variabele *$managedImage*. 
 
 ```azurepowershell-interactive
-$managedImage = Get-AzureRmImage `
+$managedImage = Get-AzImage `
    -ImageName myImage `
    -ResourceGroupName myResourceGroup
 ```
 
 ## <a name="create-an-image-gallery"></a>Een galerie met installatiekopieën maken 
 
-Een galerie met installatiekopieën is de primaire bron die wordt gebruikt voor het inschakelen van de installatiekopie van het delen. Galerie-namen moeten uniek zijn binnen uw abonnement. Maak een installatiekopie galerie met [New-AzureRmGallery](/powershell/module/AzureRM.Compute/new-azurermgallery). Het volgende voorbeeld wordt een galerie met de naam *myGallery* in de *myGalleryRG* resourcegroep.
+Een galerie met installatiekopieën is de primaire bron die wordt gebruikt voor het inschakelen van de installatiekopie van het delen. Galerie-namen moeten uniek zijn binnen uw abonnement. Maak een installatiekopie galerie met [New-AzGallery](https://docs.microsoft.com/powershell/module/az.compute/new-azgallery). Het volgende voorbeeld wordt een galerie met de naam *myGallery* in de *myGalleryRG* resourcegroep.
 
 ```azurepowershell-interactive
-$resourceGroup = New-AzureRMResourceGroup `
+$resourceGroup = New-AzResourceGroup `
    -Name 'myGalleryRG' `
    -Location 'West Central US'  
-$gallery = New-AzureRmGallery `
+$gallery = New-AzGallery `
    -GalleryName 'myGallery' `
    -ResourceGroupName $resourceGroup.ResourceGroupName `
    -Location $resourceGroup.Location `
@@ -60,10 +60,10 @@ $gallery = New-AzureRmGallery `
    
 ## <a name="create-an-image-definition"></a>De definitie van een installatiekopie maken 
 
-Maak de galerie installatiekopie definitie met [New-AzureRmGalleryImageDefinition](/powershell/module/azurerm.compute/new-azurermgalleryimageversion). In dit voorbeeld wordt de afbeelding met de naam *myGalleryImage*.
+Maak de galerie installatiekopie definitie met [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). In dit voorbeeld wordt de afbeelding met de naam *myGalleryImage*.
 
 ```azurepowershell-interactive
-$galleryImage = New-AzureRmGalleryImageDefinition `
+$galleryImage = New-AzGalleryImageDefinition `
    -GalleryName $gallery.Name `
    -ResourceGroupName $resourceGroup.ResourceGroupName `
    -Location $gallery.Location `
@@ -87,7 +87,7 @@ Alle drie deze hebben unieke sets waarden. In een toekomstige release kunt u zic
 
 ```powershell
 # The following should set the source image as myImage1 from the table above
-$vmConfig = Set-AzureRmVMSourceImage `
+$vmConfig = Set-AzVMSourceImage `
    -VM $vmConfig `
    -PublisherName myPublisher `
    -Offer myOffer `
@@ -98,14 +98,14 @@ Dit is vergelijkbaar met hoe u deze voor de op dat moment kunt opgeven [Azure Ma
 
 ##<a name="create-an-image-version"></a>De versie van een installatiekopie maken
 
-De versie van een installatiekopie van het gebruik van een beheerde installatiekopie maken [New-AzureRmGalleryImageVersion](/powershell/module/AzureRM.Compute/new-azurermgalleryimageversion) . In dit voorbeeld de versie van de installatiekopie is *1.0.0* en deze worden gerepliceerd naar beide *West-Centraal VS* en *Zuid-centraal VS* datacenters.
+De versie van een installatiekopie van het gebruik van een beheerde installatiekopie maken [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) . In dit voorbeeld de versie van de installatiekopie is *1.0.0* en deze worden gerepliceerd naar beide *West-Centraal VS* en *Zuid-centraal VS* datacenters.
 
 
 ```azurepowershell-interactive
 $region1 = @{Name='South Central US';ReplicaCount=1}
 $region2 = @{Name='West Central US';ReplicaCount=2}
 $targetRegions = @($region1,$region2)
-$job = $imageVersion = New-AzureRmGalleryImageVersion `
+$job = $imageVersion = New-AzGalleryImageVersion `
    -GalleryImageDefinitionName $galleryImage.Name `
    -GalleryImageVersionName '1.0.0' `
    -GalleryName $gallery.Name `

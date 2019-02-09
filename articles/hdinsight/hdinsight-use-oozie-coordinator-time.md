@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/04/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6e45dfbea9545c72d80a17e8ae144f4dacc70a63
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 000f8de4d40fda39f183b0824bea6a09605e6e9d
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995011"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977606"
 ---
 # <a name="use-time-based-apache-oozie-coordinator-with-apache-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Apache Oozie-coördinator op basis van tijd met Apache Hadoop in HDInsight gebruiken voor het definiëren van werkstromen en coördinatie van taken
 In dit artikel leert u hoe u workflows en coördinatoren definieert en hoe u activeert de coördinator taken, op basis van tijd. Is het handig om te gaan via [Apache Oozie gebruiken met HDInsight] [ hdinsight-use-oozie] voordat u dit artikel leest. Naast Oozie, kunt u ook met Azure Data Factory taken plannen. Zie voor meer Azure Data Factory [gebruik Apache Pig- en Apache Hive met Data Factory](../data-factory/transform-data.md).
@@ -68,24 +68,23 @@ Voordat u met deze zelfstudie begint, moet u het volgende hebben of hebben gedaa
 
 * **Een HDInsight-cluster**. Zie voor meer informatie over het maken van een HDInsight-cluster [maken van HDInsight-clusters][hdinsight-provision], of [aan de slag met HDInsight][hdinsight-get-started]. U moet de volgende gegevens op de zelfstudie te volgen:
 
-    <table border = "1">
-    <tr><th>Cluster-eigenschap</th><th>Naam van de Windows PowerShell-variabele</th><th>Waarde</th><th>Description</th></tr>
-    <tr><td>De naam van de HDInsight-cluster</td><td>$clusterName</td><td></td><td>Het HDInsight-cluster op waarop u deze zelfstudie wordt uitgevoerd.</td></tr>
-    <tr><td>Gebruikersnaam van de HDInsight-cluster</td><td>$clusterUsername</td><td></td><td>De naam van de gebruiker in de HDInsight-cluster. </td></tr>
-    <tr><td>Gebruikerswachtwoord van HDInsight-cluster </td><td>$clusterPassword</td><td></td><td>Het wachtwoord van de gebruiker in de HDInsight-cluster.</td></tr>
-    <tr><td>Azure storage-accountnaam</td><td>$storageAccountName</td><td></td><td>Een Azure Storage-account beschikbaar voor het HDInsight-cluster. Voor deze zelfstudie gebruikt u het standaardopslagaccount die u hebt opgegeven tijdens het inrichten cluster.</td></tr>
-    <tr><td>Naam van een Azure Blob-container</td><td>$containerName</td><td></td><td>In dit voorbeeld gebruikt u de Azure Blob storage-container die wordt gebruikt voor het standaardbestandssysteem voor de HDInsight-cluster. Standaard heeft dezelfde naam als het HDInsight-cluster.</td></tr>
-    </table>
+    |Cluster-eigenschap|Naam van de Windows PowerShell-variabele|Value|Description|
+    |---|---|---|---|
+    |De naam van de HDInsight-cluster|$clusterName||Het HDInsight-cluster op waarop u deze zelfstudie wordt uitgevoerd.|
+    |Gebruikersnaam van de HDInsight-cluster|$clusterUsername||De naam van de gebruiker in de HDInsight-cluster. |
+    |Gebruikerswachtwoord van HDInsight-cluster |$clusterPassword||Het wachtwoord van de gebruiker in de HDInsight-cluster.|
+    |Azure storage-accountnaam|$storageAccountName||Een Azure Storage-account beschikbaar voor het HDInsight-cluster. Voor deze zelfstudie gebruikt u het standaardopslagaccount die u hebt opgegeven tijdens het inrichten cluster.|
+    |Naam van een Azure Blob-container|$containerName||In dit voorbeeld gebruikt u de Azure Blob storage-container die wordt gebruikt voor het standaardbestandssysteem voor de HDInsight-cluster. Standaard heeft dezelfde naam als het HDInsight-cluster.|
+
 
 * **Een Azure SQL database**. U moet een firewallregel voor de SQL-Database-server zodat toegang vanaf uw werkstation configureren. Zie voor instructies over het maken van een Azure SQL database en het configureren van de firewall [aan de slag met Azure SQL-database][sqldatabase-get-started]. Dit artikel bevat een Windows PowerShell-script voor het maken van de Azure SQL database-tabel die u nodig hebt voor deze zelfstudie.
 
-    <table border = "1">
-    <tr><th>SQL database-eigenschap</th><th>Naam van de Windows PowerShell-variabele</th><th>Waarde</th><th>Description</th></tr>
-    <tr><td>SQL database-servernaam</td><td>$sqlDatabaseServer</td><td></td><td>De SQL-databaseserver waarop Sqoop gegevens worden geëxporteerd. </td></tr>
-    <tr><td>Aanmeldingsnaam voor SQL database</td><td>$sqlDatabaseLogin</td><td></td><td>Aanmeldingsnaam voor SQL-Database.</td></tr>
-    <tr><td>Aanmeldingswachtwoord voor SQL database</td><td>$sqlDatabaseLoginPassword</td><td></td><td>Aanmeldingswachtwoord voor SQL-Database.</td></tr>
-    <tr><td>SQL-databasenaam</td><td>$sqlDatabaseName</td><td></td><td>De Azure SQL-database waarnaar Sqoop gegevens worden geëxporteerd. </td></tr>
-    </table>
+    |SQL database-eigenschap|Naam van de Windows PowerShell-variabele|Value|Description|
+    |---|---|---|---|
+    |SQL database-servernaam|$sqlDatabaseServer||De SQL-databaseserver waarop Sqoop gegevens worden geëxporteerd. |
+    |Aanmeldingsnaam voor SQL database|$sqlDatabaseLogin||Aanmeldingsnaam voor SQL-Database.|
+    |Aanmeldingswachtwoord voor SQL database|$sqlDatabaseLoginPassword||Aanmeldingswachtwoord voor SQL-Database.|
+    |SQL-databasenaam|$sqlDatabaseName||De Azure SQL-database waarnaar Sqoop gegevens worden geëxporteerd. |
 
   > [!NOTE]   
   > Een Azure SQL database staat standaard verbindingen van Azure-Services, zoals Azure HDInsight. Als deze firewallinstelling is uitgeschakeld, moet u het inschakelen van de Azure-Portal. Zie voor instructies over het maken van een SQL-Database en firewallregels configureren, [maken en SQL Database configureren][sqldatabase-get-started].
@@ -190,30 +189,27 @@ De Hive-actie in de werkstroom wordt een bestand HiveQL-script. Dit scriptbestan
 
     Werkstroomvariabelen voor de
 
-    <table border = "1">
-    <tr><th>Werkstroomvariabelen voor de</th><th>Description</th></tr>
-    <tr><td>${jobTracker}</td><td>Geef de URL van het beheer van Hadoop-taak. Gebruik <strong>jobtrackerhost:9010</strong> cluster in HDInsight versie 3.0 en 2.0.</td></tr>
-    <tr><td>${nameNode}</td><td>Geef de URL van het knooppunt van de naam van Hadoop. Gebruik de standaard-bestand system wasb: / / -adres, bijvoorbeeld <i>wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net</i>.</td></tr>
-    <tr><td>${queueName}</td><td>Hiermee geeft u de naam van de wachtrij die de taak om te worden verzonden. Gebruik <strong>standaard</strong>.</td></tr>
-    </table>
+    |Werkstroomvariabelen voor de|Description|
+    |---|---|
+    |${jobTracker}|Geef de URL van het beheer van Hadoop-taak. Gebruik **jobtrackerhost:9010** cluster in HDInsight versie 3.0 en 2.0.|
+    |${nameNode}|Geef de URL van het knooppunt van de naam van Hadoop. Gebruik de standaard-bestand system wasb: / / -adres, bijvoorbeeld *wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net*.|
+    |${queueName}|Hiermee geeft u de naam van de wachtrij die de taak om te worden verzonden. Gebruik **standaard**.|
 
     Variabelen voor de hive
 
-    <table border = "1">
-    <tr><th>Hive-takenreeksbewerkingsvariabele</th><th>Description</th></tr>
-    <tr><td>${hiveDataFolder}</td><td>De bronmap voor de opdracht Create Table Hive.</td></tr>
-    <tr><td>${hiveOutputFolder}</td><td>De map voor uitvoer voor de instructie INSERT OVERSCHRIJVEN.</td></tr>
-    <tr><td>${hiveTableName}</td><td>De naam van de Hive-tabel die verwijst naar de log4j-gegevensbestanden.</td></tr>
-    </table>
+    |Hive-takenreeksbewerkingsvariabele|Description|
+    |----|----|
+    |${hiveDataFolder}|De bronmap voor de opdracht Create Table Hive.|
+    |${hiveOutputFolder}|De map voor uitvoer voor de instructie INSERT OVERSCHRIJVEN.|
+    |${hiveTableName}|De naam van de Hive-tabel die verwijst naar de log4j-gegevensbestanden.|
 
     Variabelen voor de Sqoop
 
-    <table border = "1">
-    <tr><th>Sqoop takenreeksbewerkingsvariabele</th><th>Description</th></tr>
-    <tr><td>${sqlDatabaseConnectionString}</td><td>Verbindingsreeks van de SQL-Database.</td></tr>
-    <tr><td>${sqlDatabaseTableName}</td><td>De Azure SQL database-tabel op waarin de gegevens worden geëxporteerd.</td></tr>
-    <tr><td>${hiveOutputFolder}</td><td>De map voor uitvoer voor de instructie Hive invoegen OVERSCHRIJVEN. Dit is dezelfde map voor het exporteren met Sqoop (export-dir).</td></tr>
-    </table>
+    |Sqoop takenreeksbewerkingsvariabele|Description|
+    |---|---|
+    |${sqlDatabaseConnectionString}|Verbindingsreeks van de SQL-Database.|
+    |${sqlDatabaseTableName}|De Azure SQL database-tabel op waarin de gegevens worden geëxporteerd.|
+    |${hiveOutputFolder}|De map voor uitvoer voor de instructie Hive invoegen OVERSCHRIJVEN. Dit is dezelfde map voor het exporteren met Sqoop (export-dir).|
 
     Zie voor meer informatie over Oozie-workflow en het gebruik van de werkstroomacties [Apache Oozie 4.0 documentatie] [ apache-oozie-400] (voor HDInsight-clusterversie 3.0) of [Apache Oozie 3.3.2-documentatie ] [ apache-oozie-332] (voor HDInsight-clusterversie 2.1).
 

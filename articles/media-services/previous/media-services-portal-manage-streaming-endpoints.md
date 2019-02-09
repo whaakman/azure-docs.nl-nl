@@ -5,7 +5,7 @@ services: media-services
 documentationcenter: ''
 author: Juliako
 writer: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: bb1aca25-d23a-4520-8c45-44ef3ecd5371
 ms.service: media-services
@@ -13,16 +13,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: a023cb2ea1cf74c8029cc207c9b899631facb929
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 0f2e4ee393c07e6b15f128ed60922b8a280cabb5
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018261"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984661"
 ---
-# <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Streaming-eindpunten met Azure portal beheren
+# <a name="manage-streaming-endpoints-with-the-azure-portal-legacy"></a>Streaming-eindpunten met Azure portal (verouderde) beheren
 
 In dit artikel laat zien hoe de Azure-portal gebruiken voor het beheren van streaming-eindpunten. 
 
@@ -75,7 +75,7 @@ Zie voor gedetailleerde informatie over deze eigenschappen [streamingendpoint zo
 U kunt de streaming-eindpunt configureren door het volgende te doen:
 
 1. Selecteer het streaming-eindpunt dat u wilt configureren.
-2. Klik op **instellingen**.
+2. Klik op **Instellingen**.
 
 Er volgt een korte beschrijving van de velden.
 

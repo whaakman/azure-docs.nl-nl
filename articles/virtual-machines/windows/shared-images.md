@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/11/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: ecac7216582fa07e9c25492ddeb25e9f155da563
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 07912369179a1d1226c750a8e86837fdc6887922
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54305146"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984168"
 ---
 # <a name="preview-create-a-shared-image-gallery-with-azure-powershell"></a>Preview: Een gedeelde afbeeldingengalerie maken met Azure PowerShell 
 
@@ -40,6 +40,7 @@ De galerie met installatiekopieën van gedeelde functie heeft meerdere resourcet
 | **De definitie van installatiekopie** | Afbeeldingen worden gedefinieerd in een galerie en informatie over de installatiekopie en de vereisten voor het gebruik van deze intern uitvoeren. Dit omvat of de installatiekopie Windows of Linux, release-opmerkingen en vereisten voor minimale en maximale hoeveelheid geheugen is. Het is een definitie van een type van de installatiekopie. |
 | **De versie van installatiekopie** | Een **installatiekopieversie** is wat u gebruikt om een virtuele machine maken wanneer u een galerie. U kunt meerdere versies van een installatiekopie kunt hebben, indien nodig voor uw omgeving. Een beheerde installatiekopie, bijvoorbeeld wanneer u een **installatiekopieversie** voor het maken van een virtuele machine, de versie van de installatiekopie die wordt gebruikt voor het maken van nieuwe schijven voor de virtuele machine. Versies van een installatiekopie kunnen meerdere keren worden gebruikt. |
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -49,12 +50,12 @@ Als u wilt het voorbeeld in dit artikel hebt voltooid, moet u een bestaande behe
  
 ## <a name="create-vms-from-an-image"></a>Virtuele machines maken van een installatiekopie
 
-Als de versie van de installatiekopie is voltooid, kunt u een of meer nieuwe virtuele machines maken. Met behulp van de vereenvoudigde parameter ingesteld voor de [New-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) cmdlet, hoeft u alleen te bieden van afbeeldings-ID van de versie van de installatiekopie. 
+Als de versie van de installatiekopie is voltooid, kunt u een of meer nieuwe virtuele machines maken. Met behulp van de vereenvoudigde parameter ingesteld voor de [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet, hoeft u alleen te bieden van afbeeldings-ID van de versie van de installatiekopie. 
 
 Dit voorbeeld maakt u een virtuele machine met de naam *myVMfromImage*, in de *myResourceGroup* in de *VS-Oost* datacenter.
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
    -ResourceGroupName "myResourceGroup" `
    -Name "myVMfromImage" `
    -Image $imageVersion.Id `
@@ -70,10 +71,10 @@ New-AzureRmVm `
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-U kunt de cmdlet [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) gebruiken om de resourcegroep, de VM en alle gerelateerde resources te verwijderen wanneer u ze niet meer nodig hebt:
+Wanneer u niet meer nodig hebt, kunt u de [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) cmdlet voor het verwijderen van de resourcegroep, VM en alle gerelateerde resources:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myGalleryRG
+Remove-AzResourceGroup -Name myGalleryRG
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

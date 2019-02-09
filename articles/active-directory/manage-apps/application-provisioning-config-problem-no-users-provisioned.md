@@ -3,8 +3,8 @@ title: Er zijn geen gebruikers worden ingericht tot een toepassing met Azure AD-
 description: Het oplossen van veelvoorkomende problemen met het er geen gebruikers worden weergegeven in een Azure AD-galerie toepassing die u hebt geconfigureerd voor het inrichten van gebruikers met Azure AD
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/20/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
-ms.openlocfilehash: 181f8488255bca67131ed32474bb05a9d6d082aa
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e4a33aba906fe782c4c13760aa033fce5c1fe1d9
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154980"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964624"
 ---
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Er zijn geen gebruikers worden ingericht tot een toepassing met Azure AD-galerie
 Nadat de automatische inrichting is geconfigureerd voor een toepassing (met inbegrip van verifiëren dat de opgegeven naar Azure AD om verbinding maken met de app app-referenties geldig zijn), zijn vervolgens gebruikers en/of groepen ingericht met de app. Inrichting wordt bepaald door de volgende zaken:
@@ -60,4 +60,4 @@ Wanneer een gebruiker wordt weergegeven als 'overgeslagen' in de controlelogboek
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Azure AD Connect-synchronisatie: Informatie over declaratieve inrichting](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md)
+[Azure AD Connect-synchronisatie: Inzicht in declaratieve inrichting](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md)

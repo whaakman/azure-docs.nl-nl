@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 18d6478763fd6551cc8baac6ea54e8d91f1a28e6
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: e5e134fa7dd08bad4220866dd4f5bd9b788e624e
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629965"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980598"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Inleiding tot de handler Azure Desired State Configuration-extensie
 
@@ -35,16 +35,16 @@ In dit artikel bevat informatie over beide scenario's: de DSC-extensie gebruiken
 
 ## <a name="prerequisites"></a>Vereisten
 
-- **Lokale computer**: om te communiceren met de Azure VM-extensie, moet u de Azure-portal of de SDK van Azure PowerShell gebruiken.
-- **Gastagent**: de Azure-VM die geconfigureerd door de DSC-configuratie moet een besturingssysteem dat ondersteuning biedt voor Windows Management Framework (WMF) 4.0 of hoger. Zie voor de volledige lijst van ondersteunde versies van het besturingssysteem, de [versiegeschiedenis van DSC-extensie](/powershell/dsc/azuredscexthistory).
+- **Lokale computer**: Om te communiceren met de Azure VM-extensie, moet u de Azure-portal of de SDK van Azure PowerShell gebruiken.
+- **Gastagent**: De Azure-VM die geconfigureerd door de DSC-configuratie moet een besturingssysteem dat ondersteuning biedt voor Windows Management Framework (WMF) 4.0 of hoger. Zie voor de volledige lijst van ondersteunde versies van het besturingssysteem, de [versiegeschiedenis van DSC-extensie](/powershell/dsc/azuredscexthistory).
 
 ## <a name="terms-and-concepts"></a>Termen en begrippen
 
 Deze handleiding wordt ervan uitgegaan dat bekend zijn met de volgende concepten:
 
-- **Configuratie**: een DSC-configuratie-document.
-- **Knooppunt**: een doel voor een DSC-configuratie. In dit document, *knooppunt* altijd verwijst naar een Azure-VM.
-- **Configuratiegegevens**: een .psd1-bestand met uitwerking gegevens voor een configuratie.
+- **Configuratie**: Een DSC-configuratie-document.
+- **Knooppunt**: Een doel voor een DSC-configuratie. In dit document, *knooppunt* altijd verwijst naar een Azure-VM.
+- **Configuratiegegevens**: Een .psd1-bestand met uitwerking gegevens voor een configuratie.
 
 ## <a name="architecture"></a>Architectuur
 
@@ -70,17 +70,17 @@ In de meeste gevallen zijn sjablonen van Resource Manager-implementatie de verwa
 
 De PowerShell-cmdlets die worden gebruikt voor het beheren van de DSC-extensie worden best gebruikt in de interactieve oplossen van problemen en scenario's voor verzamelen van informatie. U kunt de cmdlets kunnen worden verpakt, publiceren en DSC-extensie-implementaties controleren. Cmdlets voor de DSC-extensie nog niet zijn bijgewerkt om te werken met de [configuratiescript standaard](#default-configuration-script).
 
-De **publiceren AzureRmVMDscConfiguration** cmdlet maakt in een configuratiebestand, scant deze voor afhankelijke DSC-resources en maakt vervolgens een ZIP-bestand. Het ZIP-bestand bevat de configuratie en DSC-resources die nodig zijn voor de configuratie wordt gerapporteerd. De cmdlet Maak ook het pakket lokaal met behulp van de *- OutputArchivePath* parameter. Anders wordt de cmdlet publiceert het ZIP-bestand voor de blob-opslag en beveiligt het met een SAS-token.
+De **publiceren AzVMDscConfiguration** cmdlet maakt in een configuratiebestand, scant deze voor afhankelijke DSC-resources en maakt vervolgens een ZIP-bestand. Het ZIP-bestand bevat de configuratie en DSC-resources die nodig zijn voor de configuratie wordt gerapporteerd. De cmdlet Maak ook het pakket lokaal met behulp van de *- OutputArchivePath* parameter. Anders wordt de cmdlet publiceert het ZIP-bestand voor de blob-opslag en beveiligt het met een SAS-token.
 
 Het configuratiescript .ps1 die de cmdlet maakt is in het ZIP-bestand in de hoofdmap van de archiefmap. De modulemap wordt geplaatst in de archiefmap van resources.
 
-De **Set AzureRmVMDscExtension** cmdlet injects de instellingen die de PowerShell DSC-extensie is vereist in een VM-configuratieobject.
+De **Set AzVMDscExtension** cmdlet injects de instellingen die de PowerShell DSC-extensie is vereist in een VM-configuratieobject.
 
-De **Get-AzureRmVMDscExtension** cmdlet haalt de status van de DSC-extensie van een specifieke virtuele machine.
+De **Get-AzVMDscExtension** cmdlet haalt de status van de DSC-extensie van een specifieke virtuele machine.
 
-De **Get-AzureRmVMDscExtensionStatus** cmdlet wordt de status van de DSC-configuratie die wordt gepubliceerd door de handler voor DSC-extensie opgehaald. Deze actie kan worden uitgevoerd op een enkele virtuele machine of op een groep virtuele machines.
+De **Get-AzVMDscExtensionStatus** cmdlet wordt de status van de DSC-configuratie die wordt gepubliceerd door de handler voor DSC-extensie opgehaald. Deze actie kan worden uitgevoerd op een enkele virtuele machine of op een groep virtuele machines.
 
-De **Remove-AzureRmVMDscExtension** cmdlet wordt de extensie-handler van een specifieke virtuele machine. Deze cmdlet biedt *niet* verwijderen van de configuratie, WMF verwijderen of wijzigen van de toegepaste instellingen op de virtuele machine. Alleen de handler extensie wordt verwijderd. 
+De **Remove-AzVMDscExtension** cmdlet wordt de extensie-handler van een specifieke virtuele machine. Deze cmdlet biedt *niet* verwijderen van de configuratie, WMF verwijderen of wijzigen van de toegepaste instellingen op de virtuele machine. Alleen de handler extensie wordt verwijderd. 
 
 Belangrijke informatie over het Resource Manager-DSC-extensie-cmdlets:
 
@@ -117,9 +117,9 @@ $location = 'westus'
 $vmName = 'myVM'
 $storageName = 'demostorage'
 #Publish the configuration script to user storage
-Publish-AzureRmVMDscConfiguration -ConfigurationPath .\iisInstall.ps1 -ResourceGroupName $resourceGroup -StorageAccountName $storageName -force
+Publish-AzVMDscConfiguration -ConfigurationPath .\iisInstall.ps1 -ResourceGroupName $resourceGroup -StorageAccountName $storageName -force
 #Set the VM to run the DSC configuration
-Set-AzureRmVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName 'iisInstall.ps1.zip' -AutoUpdate $true -ConfigurationName 'IISInstall'
+Set-AzVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName 'iisInstall.ps1.zip' -AutoUpdate $true -ConfigurationName 'IISInstall'
 ```
 
 ## <a name="azure-portal-functionality"></a>Functionaliteit van Azure portal
@@ -133,13 +133,13 @@ DSC instellen in de portal:
 
 De portal worden de volgende invoer verzameld:
 
-- **Configuratie van Modules of Script**: dit veld is verplicht (het formulier is niet bijgewerkt voor de [standaard configuratiescript](#default-configuration-script)). Configuratie-modules en -scripts vereist een .ps1-bestand met een configuratiescript of een ZIP-bestand met een .ps1-configuratiescript in de hoofdmap. Als u een ZIP-bestand gebruikt, moeten alle afhankelijke resources worden opgenomen in de mappen in het ZIP-module. U kunt het ZIP-bestand maken met behulp van de **publiceren AzureVMDscConfiguration - OutputArchivePath** opgenomen in de SDK van Azure PowerShell-cmdlet. Het ZIP-bestand is geüpload naar uw blob-opslag van gebruiker en beveiligd door een SAS-token.
+- **Configuratie van Modules of Script**: Dit veld is verplicht (het formulier is niet bijgewerkt voor de [standaard configuratiescript](#default-configuration-script)). Configuratie-modules en -scripts vereist een .ps1-bestand met een configuratiescript of een ZIP-bestand met een .ps1-configuratiescript in de hoofdmap. Als u een ZIP-bestand gebruikt, moeten alle afhankelijke resources worden opgenomen in de mappen in het ZIP-module. U kunt het ZIP-bestand maken met behulp van de **publiceren AzureVMDscConfiguration - OutputArchivePath** opgenomen in de SDK van Azure PowerShell-cmdlet. Het ZIP-bestand is geüpload naar uw blob-opslag van gebruiker en beveiligd door een SAS-token.
 
-- **Naam van de configuratie modulegekwalificeerde**: U kunt meerdere configuratiefuncties opnemen in een .ps1-bestand. Voer de naam van het configuratiescript .ps1 gevolgd door \\ en de naam van de configuratie-functie. Bijvoorbeeld, als uw .ps1-script de naam configuration.ps1 en de configuratie heeft is **IisInstall**, voer **configuration.ps1\IisInstall**.
+- **Modulegekwalificeerde naam van de configuratie van**: U kunt meerdere configuratiefuncties opnemen in een .ps1-bestand. Voer de naam van het configuratiescript .ps1 gevolgd door \\ en de naam van de configuratie-functie. Bijvoorbeeld, als uw .ps1-script de naam configuration.ps1 en de configuratie heeft is **IisInstall**, voer **configuration.ps1\IisInstall**.
 
-- **Configuratie van argumenten**: als de functie configuratie argumenten kunt gebruiken, voert u deze hier in de notatie **argumentName1 = value1, argumentName2 = value2**. Deze indeling is een andere indeling waarin de configuratie argumenten in PowerShell-cmdlets of Resource Manager-sjablonen worden geaccepteerd.
+- **Configuratie van argumenten**: Als de functie configuratie argumenten kunt gebruiken, voert u deze hier in de notatie **argumentName1 = value1, argumentName2 = value2**. Deze indeling is een andere indeling waarin de configuratie argumenten in PowerShell-cmdlets of Resource Manager-sjablonen worden geaccepteerd.
 
-- **PSD1 Configuratiegegevensbestand**: dit veld is optioneel. Als uw configuratie een configuratiebestand van de gegevens in het .psd1 vereist, moet u dit veld gebruiken voor het selecteren van het gegevensveld en uploaden naar de gebruiker blob-opslag. Het configuratiebestand van de gegevens wordt beveiligd door een SAS-token in blob-opslag.
+- **PSD1 Configuratiegegevensbestand**: Dit veld is optioneel. Als uw configuratie een configuratiebestand van de gegevens in het .psd1 vereist, moet u dit veld gebruiken voor het selecteren van het gegevensveld en uploaden naar de gebruiker blob-opslag. Het configuratiebestand van de gegevens wordt beveiligd door een SAS-token in blob-opslag.
 
 - **Versie van WMF**: Hiermee geeft u de versie van Windows Management Framework (WMF) die moet worden geïnstalleerd op de virtuele machine. Als u deze eigenschap instelt op nieuwste installeert de meest recente versie van WMF. Op dit moment de enige mogelijke waarden voor deze eigenschap worden 4.0, 5.0, 5.1, en de nieuwste. Deze mogelijke waarden zijn afhankelijk van updates. De standaardwaarde is **nieuwste**.
 
@@ -147,7 +147,7 @@ De portal worden de volgende invoer verzameld:
 
 - **Versie**: Hiermee geeft u de versie van de DSC-extensie te installeren. Zie voor meer informatie over versies [versiegeschiedenis van DSC-extensie](/powershell/dsc/azuredscexthistory).
 
-- **Automatische Upgrade van secundaire versie**: dit veld wordt toegewezen aan de **AutoUpdate** -switch in de cmdlets en de extensie voor het automatisch wordt bijgewerkt naar de meest recente versie tijdens de installatie maakt. **Ja** instructies voor gebruik van de meest recente beschikbare versie van de handler extensie en **Nee** forceert de **versie** opgegeven om te worden geïnstalleerd. Geen van beide selecteren **Ja** noch **Nee** is hetzelfde als het selecteren van **Nee**.
+- **Automatische Upgrade secundaire versie**: Dit veld wordt toegewezen aan de **AutoUpdate** -switch in de cmdlets en de extensie voor het automatisch wordt bijgewerkt naar de meest recente versie tijdens de installatie maakt. **Ja** instructies voor gebruik van de meest recente beschikbare versie van de handler extensie en **Nee** forceert de **versie** opgegeven om te worden geïnstalleerd. Geen van beide selecteren **Ja** noch **Nee** is hetzelfde als het selecteren van **Nee**.
 
 ## <a name="logs"></a>Logboeken
 

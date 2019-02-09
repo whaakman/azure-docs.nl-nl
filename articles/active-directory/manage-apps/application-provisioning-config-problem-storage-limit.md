@@ -3,8 +3,8 @@ title: Probleem bij het opslaan van administratorreferenties tijdens het inricht
 description: Het oplossen van veelvoorkomende problemen met het configureren gebruikers in te richten al een toepassing die worden vermeld in de Azure AD-Toepassingsgalerie
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asmalser
-ms.openlocfilehash: 7cf7fb676681099aae92f7ea468eacd6976296d1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6aae03369ca9f5266511acb94f7020bfe02f09ed
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163735"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961870"
 ---
 # <a name="problem-saving-administrator-credentials-while-configuring-user-provisioning-to-an-azure-active-directory-gallery-application"></a>Problemen bij het opslaan van referenties tijdens het inrichten van gebruikers naar een galerie van Azure Active Directory-toepassing configureren 
 

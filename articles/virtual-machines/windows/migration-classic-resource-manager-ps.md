@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: e1144611c68e8a3c450f8017388cfa84629f9921
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5e905168ab2c2f10bcfadfc605fdcaa800e70332
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256490"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982004"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Migreren IaaS-resources van klassiek naar Azure Resource Manager met behulp van Azure PowerShell
 Deze stappen laten zien hoe u Azure PowerShell-opdrachten gebruiken voor het migreren van infrastructuur als een service (IaaS)-resources van het klassieke implementatiemodel naar het Azure Resource Manager-implementatiemodel.
@@ -36,7 +36,9 @@ Hier volgt een stroomdiagram voor het identificeren van de volgorde waarin stapp
 
 ![Schermafbeelding van de migratiestappen](media/migration-classic-resource-manager/migration-flow.png)
 
-## <a name="step-1-plan-for-migration"></a>Stap 1: Plannen voor migratie
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
+## <a name="step-1-plan-for-migration"></a>Stap 1: Plan voor migratie
 Hier volgen enkele aanbevolen procedures die wij adviseren kijkt u bij het evalueren van migratie IaaS-resources van klassiek naar Resource Manager:
 
 * Lees de [ondersteund en niet-ondersteunde functies en configuraties](migration-classic-resource-manager-overview.md). Als u virtuele machines die gebruikmaken van niet-ondersteunde configuraties of functies hebt, raden wij u wacht de configuratie-/ functieondersteuning binnenkort aangekondigd. U kunt ook als deze aan uw behoeften voldoet, die functie te verwijderen of verplaatsen buiten die configuratie om in te schakelen van de migratie.
@@ -48,7 +50,7 @@ Hier volgen enkele aanbevolen procedures die wij adviseren kijkt u bij het evalu
 >ExpressRoute-gateways verbinding maakt met ExpressRoute-circuits in een ander abonnement worden niet automatisch gemigreerd. In dergelijke gevallen de ExpressRoute-gateway verwijderen, te migreren van het virtuele netwerk en maak de gateway opnieuw. Raadpleeg [migreren ExpressRoute-circuits en gekoppelde virtuele netwerken van het klassieke naar het Resource Manager-implementatiemodel](../../expressroute/expressroute-migration-classic-resource-manager.md) voor meer informatie.
 
 ## <a name="step-2-install-the-latest-version-of-azure-powershell"></a>Stap 2: Installeer de nieuwste versie van Azure PowerShell
-Er zijn twee manieren om Azure PowerShell te installeren: [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) of [Webplatforminstallatieprogramma (WebPI)](https://aka.ms/webpi-azps). WebPI ontvangt maandelijkse updates. PowerShell Gallery ontvangt op continue basis-updates. In dit artikel is gebaseerd op Azure PowerShell versie 2.1.0.
+Er zijn twee manieren om Azure PowerShell te installeren: [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) of [Web Platform Installer (WebPI)](https://aka.ms/webpi-azps). WebPI ontvangt maandelijkse updates. PowerShell Gallery ontvangt op continue basis-updates. In dit artikel is gebaseerd op Azure PowerShell versie 2.1.0.
 
 Zie voor installatie-instructies [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview).
 
@@ -69,19 +71,19 @@ Start een PowerShell-prompt. Voor migratie, moet u voor het instellen van uw omg
 Aanmelden bij uw account voor het Resource Manager-model.
 
 ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
 ```
 
 De beschikbare abonnementen ophalen met behulp van de volgende opdracht uit:
 
 ```powershell
-    Get-AzureRMSubscription | Sort Name | Select Name
+    Get-AzSubscription | Sort Name | Select Name
 ```
 
 Stel uw Azure-abonnement voor de huidige sessie. In het volgende voorbeeld wordt de naam van het standaard-abonnement op **mijn Azure-abonnement**. Vervang de naam van het voorbeeld-abonnement door uw eigen.
 
 ```powershell
-    Select-AzureRmSubscription –SubscriptionName "My Azure Subscription"
+    Select-AzSubscription –SubscriptionName "My Azure Subscription"
 ```
 
 > [!NOTE]
@@ -92,13 +94,13 @@ Stel uw Azure-abonnement voor de huidige sessie. In het volgende voorbeeld wordt
 Registreren bij de resourceprovider voor migratie met behulp van de volgende opdracht uit:
 
 ```powershell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+    Register-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
 ```
 
 Wacht vijf minuten voor de registratie te voltooien. U kunt de status van de goedkeuring controleren met behulp van de volgende opdracht uit:
 
 ```powershell
-    Get-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+    Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
 ```
 
 Zorg ervoor dat RegistrationState `Registered` voordat u doorgaat.
@@ -123,16 +125,16 @@ Stel uw Azure-abonnement voor de huidige sessie. In dit voorbeeld wordt het stan
 
 <br>
 
-## <a name="step-5-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Stap 5: Controleer of er voldoende virtuele Machine van Azure Resource Manager-vcpu's in de Azure-regio van uw huidige implementatie of VNET
+## <a name="step-5-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Stap 5: Zorg ervoor dat er voldoende virtuele Machine van Azure Resource Manager-vcpu's in de Azure-regio van uw huidige implementatie of VNET
 U kunt de volgende PowerShell-opdracht gebruiken om te controleren of het huidige aantal vcpu's die u in Azure Resource Manager hebt. Zie voor meer informatie over vCPU-quota, [limieten en de Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager).
 
 In dit voorbeeld controleert de beschikbaarheid de **VS-West** regio. Vervang de naam van de regio voorbeeld door uw eigen.
 
 ```powershell
-Get-AzureRmVMUsage -Location "West US"
+Get-AzVMUsage -Location "West US"
 ```
 
-## <a name="step-6-run-commands-to-migrate-your-iaas-resources"></a>Stap 6: Voer de opdrachten voor het migreren van uw IaaS-resources
+## <a name="step-6-run-commands-to-migrate-your-iaas-resources"></a>Stap 6: Opdrachten uitvoeren voor het migreren van uw IaaS-resources
 * [Migreren van virtuele machines in een cloudservice (niet in een virtueel netwerk)](#step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network)
 * [Migreren van virtuele machines in een virtueel netwerk](#step-61-option-2---migrate-virtual-machines-in-a-virtual-network)
 * [Storage-Account migreren](#step-62-migrate-a-storage-account)

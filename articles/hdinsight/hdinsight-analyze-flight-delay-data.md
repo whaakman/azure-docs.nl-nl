@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 311e2ee65b2c24eb1c288a2161bf371732aea452
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: e95440f72580b928cd41b6d03f30459cfb70a510
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817659"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965389"
 ---
 # <a name="analyze-flight-delay-data-by-using-apache-hive-in-hdinsight"></a>Gegevens over vertraagde vluchten analyseren met behulp van Apache Hive in HDInsight
 [Apache Hive](https://hive.apache.org/) biedt een methode die wordt uitgevoerd [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) taken via een SQL-achtige taal met de naam *[HiveQL] [ hadoop-hiveql]*, die kunnen worden gebruikt voor het samenvatten, uitvoeren van query's en analyseren van grote hoeveelheden gegevens.
@@ -66,13 +66,13 @@ Als u weten hoe u get wilt/uploadt de gegevens naar uw eigen opslagaccount en ho
 
 De volgende tabel bevat de bestanden die in deze zelfstudie worden gebruikt:
 
-<table border="1">
-<tr><th>Bestanden</th><th>Description</th></tr>
-<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>De HiveQL-scriptbestand dat wordt gebruikt door de Hive-taak. Met dit script is geüpload naar een Azure Blob storage-account met de openbare toegang tot. <a href="#appendix-b">Bijlage B</a> bevat instructies voor het voorbereiden en dit bestand te uploaden naar uw eigen Azure Blob storage-account.</td></tr>
-<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>De invoergegevens voor de Hive-taak. De gegevens is naar een Azure Blob storage-account met de openbare toegang tot geüpload. <a href="#appendix-a">Bijlage A</a> bevat instructies voor ophalen van de gegevens en de gegevens uploaden naar uw eigen Azure Blob storage-account.</td></tr>
-<tr><td>\tutorials\flightdelays\output</td><td>Het uitvoerpad voor de Hive-taak. De standaardcontainer wordt gebruikt voor het opslaan van de uitvoergegevens.</td></tr>
-<tr><td>\tutorials\flightdelays\jobstatus</td><td>De Hive-taak status-map op de standaard-container.</td></tr>
-</table>
+|Bestanden|Description|  
+|----|----|   
+|wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql|De HiveQL-scriptbestand dat wordt gebruikt door de Hive-taak. Met dit script is geüpload naar een Azure Blob storage-account met de openbare toegang tot. <a href="#appendix-b">Bijlage B</a> bevat instructies voor het voorbereiden en dit bestand te uploaden naar uw eigen Azure Blob storage-account.|
+|wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data|De invoergegevens voor de Hive-taak. De gegevens is naar een Azure Blob storage-account met de openbare toegang tot geüpload. <a href="#appendix-a">Bijlage A</a> bevat instructies voor ophalen van de gegevens en de gegevens uploaden naar uw eigen Azure Blob storage-account.|
+|\tutorials\flightdelays\output|Het uitvoerpad voor de Hive-taak. De standaardcontainer wordt gebruikt voor het opslaan van de uitvoergegevens.|
+|\tutorials\flightdelays\jobstatus|De Hive-taak status-map op de standaard-container.|
+
 
 ## <a name="create-cluster-and-run-hivesqoop-jobs"></a>Cluster maken en uitvoeren van Hive/Sqoop taken
 Hadoop MapReduce is batchverwerking. De meest rendabele manier om uit te voeren van een Hive-taak is een cluster maken voor de taak en de taak te verwijderen nadat de taak is voltooid. Het volgende script bevat informatie over het hele proces.
@@ -250,12 +250,11 @@ Uploaden van het gegevensbestand en de [HiveQL](https://cwiki.apache.org/conflue
 1. Blader naar [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website].
 2. Selecteer de volgende waarden op de pagina:
 
-    <table border="1">
-    <tr><th>Naam</th><th>Waarde</th></tr>
-    <tr><td>Filterjaar</td><td>2013 </td></tr>
-    <tr><td>Filterperiode</td><td>Januari</td></tr>
-    <tr><td>Velden</td><td>*Jaar*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Oorsprong*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*,  *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*,  *LateAircraftDelay* (alle andere velden wissen)</td></tr>
-    </table>
+    |Naam|Waarde|
+    |---|---|
+    |Filterjaar|2013|
+    |Filterperiode|Januari|
+    |Velden|*Jaar*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Oorsprong*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*,  *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*,  *LateAircraftDelay* (alle andere velden wissen)|
 
 3. Klik op **Downloaden**.
 4. Decomprimeer het bestand naar de **C:\Tutorials\FlightDelay\2013Data** map. Elk bestand is van een CSV-bestand en ongeveer 60GB groot is.
@@ -266,11 +265,10 @@ Uploaden van het gegevensbestand en de [HiveQL](https://cwiki.apache.org/conflue
 
 1. Het voorbereiden van de parameters:
 
-    <table border="1">
-    <tr><th>De naam van variabele</th><th>Opmerkingen</th></tr>
-    <tr><td>$storageAccountName</td><td>De Azure Storage-account waar u wilt de gegevens te uploaden.</td></tr>
-    <tr><td>$blobContainerName</td><td>De Blob-container waarin u wilt de gegevens te uploaden.</td></tr>
-    </table>
+    |De naam van variabele|Opmerkingen|
+    |---|---|
+    |$storageAccountName|De Azure Storage-account waar u wilt de gegevens te uploaden.|
+    |$blobContainerName|De Blob-container waarin u wilt de gegevens te uploaden.|
     
 2. Open Azure PowerShell ISE.
 3. Plak het volgende script in het scriptvenster:
@@ -375,11 +373,10 @@ Zie voor een volledige lijst van de opdrachten HiveQL [Data Definition Language 
 
 1. Het voorbereiden van de parameters:
 
-    <table border="1">
-    <tr><th>De naam van variabele</th><th>Opmerkingen</th></tr>
-    <tr><td>$storageAccountName</td><td>De Azure Storage-account waar u de HiveQL-script uit om te uploaden.</td></tr>
-    <tr><td>$blobContainerName</td><td>De Blob-container waarin u wilt de HiveQL-script uit om te uploaden.</td></tr>
-    </table>
+    |De naam van variabele|Opmerkingen|
+    |---|---|
+    |$storageAccountName|De Azure Storage-account waar u de HiveQL-script uit om te uploaden.|
+    |$blobContainerName|De Blob-container waarin u wilt de HiveQL-script uit om te uploaden.|
     
 2. Open Azure PowerShell ISE.  
 
@@ -564,14 +561,14 @@ Zie voor een volledige lijst van de opdrachten HiveQL [Data Definition Language 
 
 1. Het voorbereiden van de parameters:
 
-    <table border="1">
-    <tr><th>De naam van variabele</th><th>Opmerkingen</th></tr>
-    <tr><td>$sqlDatabaseServerName</td><td>De naam van de Azure SQL database-server. Voer niets voor het maken van een nieuwe server.</td></tr>
-    <tr><td>$sqlDatabaseUsername</td><td>De aanmeldingsnaam voor de Azure SQL database-server. Als een bestaande server $sqlDatabaseServerName is worden de aanmeldingsnaam en het wachtwoord voor clusteraanmelding gebruikt voor verificatie bij de server. Anders worden ze gebruikt om een nieuwe server te maken.</td></tr>
-    <tr><td>$sqlDatabasePassword</td><td>Het aanmeldingswachtwoord voor de Azure SQL database-server.</td></tr>
-    <tr><td>$sqlDatabaseLocation</td><td>Deze waarde wordt alleen gebruikt als u een nieuwe Azure databaseserver maakt.</td></tr>
-    <tr><td>$sqlDatabaseName</td><td>De SQL-database die wordt gebruikt voor het maken van de tabel AvgDelays voor de taak Sqoop. Leeg laat, wordt een database genaamd HDISqoop maken. De naam van de tabel voor de uitvoer van de taak Sqoop is AvgDelays. </td></tr>
-    </table>
+    |De naam van variabele|Opmerkingen|
+    |---|---|
+    |$sqlDatabaseServerName|De naam van de Azure SQL database-server. Voer niets voor het maken van een nieuwe server.|
+    |$sqlDatabaseUsername|De aanmeldingsnaam voor de Azure SQL database-server. Als een bestaande server $sqlDatabaseServerName is worden de aanmeldingsnaam en het wachtwoord voor clusteraanmelding gebruikt voor verificatie bij de server. Anders worden ze gebruikt om een nieuwe server te maken.|
+    |$sqlDatabasePassword|Het aanmeldingswachtwoord voor de Azure SQL database-server.|
+    |$sqlDatabaseLocation|Deze waarde wordt alleen gebruikt als u een nieuwe Azure databaseserver maakt.|
+    |$sqlDatabaseName|De SQL-database die wordt gebruikt voor het maken van de tabel AvgDelays voor de taak Sqoop. Leeg laat, wordt een database genaamd HDISqoop maken. De naam van de tabel voor de uitvoer van de taak Sqoop is AvgDelays.|
+
     
 2. Open Azure PowerShell ISE.
 

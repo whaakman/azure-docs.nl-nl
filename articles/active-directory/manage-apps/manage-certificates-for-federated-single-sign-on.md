@@ -3,9 +3,8 @@ title: Federatiecertificaten beheren in Azure AD | Microsoft Docs
 description: Informatie over het aanpassen van de vervaldatum voor de federatiecertificaten en het vernieuwen van certificaten die binnenkort vervallen.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: ''
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: jeedes
-ms.openlocfilehash: efdcdb8dd2f7917bd1270b9da1d87be655ea675f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 73aa9d232567f7c0994c29c29076ef4c8d9319fc
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170994"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963944"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Certificaten voor federatieve eenmalige aanmelding in Azure Active Directory beheren
 In dit artikel bevat informatie over veelgestelde vragen en informatie met betrekking tot de certificaten die Azure Active Directory (Azure AD) maakt voor het maken van federatieve eenmalige aanmelding (SSO) met uw SaaS-toepassingen. Toepassingen toevoegen vanuit de galerie met Azure AD-app of met behulp van de sjabloon van een toepassing buiten de galerie. De toepassing configureren met behulp van de optie voor federatieve eenmalige aanmelding.

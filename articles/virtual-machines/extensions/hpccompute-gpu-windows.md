@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: roiyz
-ms.openlocfilehash: 4bb27959bb57f3d59621e5bbbfaba9aa0c331432
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 5adc86b161770f2502b6ef9cf5ec2189ec3d4f99
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200680"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977623"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>NVIDIA GPU-stuurprogramma-extensie voor Windows
 
@@ -112,7 +112,7 @@ Het volgende voorbeeld wordt ervan uitgegaan dat de extensie is genest in de bro
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-Set-AzureRmVMExtension
+Set-AzVMExtension
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Location "southcentralus" `
@@ -144,7 +144,7 @@ az vm extension set `
 Gegevens over de status van extensie-implementaties kunnen worden opgehaald uit de Azure-portal en met behulp van Azure PowerShell en Azure CLI. Als u wilt zien de implementatiestatus van extensies voor een bepaalde virtuele machine, moet u de volgende opdracht uitvoeren.
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
 ```azurecli
@@ -164,9 +164,9 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 | 0 | Bewerking is geslaagd |
 | 1 | De bewerking is geslaagd. Opnieuw opstarten vereist. |
 | 100 | Bewerking wordt niet ondersteund of kan niet worden voltooid. | Mogelijke oorzaken: PowerShell-versie niet ondersteund, VM-grootte is niet een VM uit de N-serie, fout bij het downloaden van gegevens. Raadpleeg de logbestanden om de oorzaak van de fout te achterhalen. |
-| 240, 840 voor schijven | Time-out van de bewerking. | Voer de bewerking opnieuw uit. |
+| 240, 840 | Time-out van de bewerking. | Voer de bewerking opnieuw uit. |
 | -1 | Er is een uitzondering opgetreden. | Raadpleeg de logbestanden om de oorzaak van de uitzondering te bepalen. |
-| -5 x | De bewerking is onderbroken vanwege opnieuw opstarten. | VM opnieuw. Installatie wordt voortgezet na opnieuw opstarten. Verwijder handmatig moet worden aangeroepen. |
+| -5x | De bewerking is onderbroken vanwege opnieuw opstarten. | VM opnieuw. Installatie wordt voortgezet na opnieuw opstarten. Verwijder handmatig moet worden aangeroepen. |
 
 
 ### <a name="support"></a>Ondersteuning

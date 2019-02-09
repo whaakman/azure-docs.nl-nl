@@ -3,8 +3,8 @@ title: Rapportage over Azure Active Directory automatisch inrichten van gebruike
 description: Informatie over de status van automatische gebruikersaccount inrichten controleren en problemen oplossen met het inrichten van afzonderlijke gebruikers.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: app-mgmt
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/09/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asmalser
-ms.openlocfilehash: 833fe24f83a2f159fd00d24c67b6864ce614c445
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a013c8d3c78801414ab83fd89a59caa316f1c28f
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203909"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55958699"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Zelfstudie: Rapportage over het inrichten van automatische gebruikersaccounts
 
@@ -58,13 +58,13 @@ Hier kunt u toegang tot het overzichtsrapport van de inrichting en de inrichting
 
 Het overzichtsrapport van de inrichting is zichtbaar in de **Provisioning** tabblad voor de opgegeven toepassing. Bevindt het zich in de **synchronisatiedetails** sectie onder **instellingen**, en biedt de volgende informatie:
 
-* Het totale aantal gebruikers en groepen op die zijn gesynchroniseerd en zijn momenteel in het bereik voor het inrichten van tussen de bron en het doelsysteem
+* Het totale aantal gebruikers en groepen op die zijn gesynchroniseerd en zijn momenteel in het bereik voor het inrichten van tussen de bron en het doelsysteem.
 
 * De laatste keer dat de synchronisatie is uitgevoerd. Synchronisaties zich meestal elke 20-40 minuten, na een [voor de eerste synchronisatie](user-provisioning.md#what-happens-during-provisioning) is voltooid.
 
-* Wel of niet een [voor de eerste synchronisatie](user-provisioning.md#what-happens-during-provisioning) is voltooid
+* Wel of niet een [voor de eerste synchronisatie](user-provisioning.md#what-happens-during-provisioning) is voltooid.
 
-* Of het inrichtingsproces in quarantaine zijn geplaatst, en wat de reden voor de status van de quarantaine is (bijvoorbeeld fout om te communiceren met doelsysteem vanwege ongeldige Administrator-referenties)
+* Of het inrichtingsproces in quarantaine zijn geplaatst, en wat de reden voor de status van de quarantaine is (bijvoorbeeld fout om te communiceren met doelsysteem vanwege ongeldige Administrator-referenties).
 
 Het overzichtsrapport van de inrichting, moet de eerste plaats beheerders bekijken om te controleren op de operationele status van de taak.
 
@@ -79,7 +79,7 @@ Alle activiteiten die worden uitgevoerd door de inrichtingsservice worden vastge
 
 * **Gebeurtenissen exporteren** -een "export"-gebeurtenis wordt geregistreerd telkens wanneer de Azure AD-inrichtingsservice een gebruikersobject-account of groep voor het doelsysteem schrijft. Deze gebeurtenissen opnemen alle gebruikerskenmerken en hun waarden die zijn geschreven door de Azure AD-service inricht op het moment van de gebeurtenis. Als er een fout opgetreden is tijdens het schrijven van het gebruikersobject-account of groep op het doelsysteem, wordt deze hier weergegeven.
 
-* **Escrow-gebeurtenissen verwerken** -proces borgen optreden wanneer de provisioning-service een fout wordt aangetroffen tijdens een poging een bewerking en probeer het opnieuw met een uitstelinterval periode wordt gestart. Een gebeurtenis 'escrow' wordt geregistreerd telkens wanneer die een bewerking voor inrichting is buiten gebruik gesteld.
+* **Escrow-gebeurtenissen verwerken** -proces borgen optreden wanneer de provisioning-service een fout wordt aangetroffen tijdens een poging een bewerking en probeer het opnieuw met een uitstelinterval periode wordt gestart. Een 'escrow' gebeurtenis wordt geregistreerd telkens wanneer die een bewerking voor inrichting opnieuw wordt geprobeerd.
 
 Wanneer het inrichten van gebeurtenissen voor een afzonderlijke gebruiker bekijkt, worden de gebeurtenissen normaal plaats in de aangegeven volgorde:
 
@@ -102,7 +102,7 @@ De meest voorkomende use-case voor de inrichting auditlogboeken is om te control
 
 2. Uit de **categorie** in het menu **Accountinrichting**.
 
-3. In de **datumbereik** in het menu selecteert u het datumbereik dat u zoeken wilt,
+3. In de **datumbereik** in het menu selecteert u het datumbereik dat u wilt zoeken.
 
 4. In de **zoeken** balk, geef de gebruikers-ID van de gebruiker die u wilt zoeken. De indeling van de id-waarde moet overeenkomen met wat u hebt geselecteerd als de primaire overeenkomende ID in de configuratie van de toewijzing van kenmerken (bijvoorbeeld, userPrincipalName of werknemer-ID-nummer). De waarde van de ID die vereist zijn zichtbaar in de kolom doelen.
 

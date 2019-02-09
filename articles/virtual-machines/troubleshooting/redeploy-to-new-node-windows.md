@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: c0bf4d1684ca5a0921173dc90f51fec9fb052efc
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b10c0be91a4b12af72d48124b225dac777c4d936
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993265"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982655"
 ---
 # <a name="redeploy-windows-virtual-machine-to-new-azure-node"></a>Windows virtuele machine naar de nieuwe Azure-knooppunt opnieuw implementeren
 Als u problemen is aangesloten kan het oplossen van Remote Desktop (RDP)-verbinding of de toepassing toegang en op basis van Windows Azure-machine (VM), de virtuele machine opnieuw te implementeren helpen. Wanneer u een virtuele machine opnieuw implementeren, wordt Azure de virtuele machine af, de virtuele machine verplaatsen naar een nieuw knooppunt in de Azure-infrastructuur en vervolgens inschakelen om opnieuw op, behoud van alle configuratie-opties en bijbehorende resources. Dit artikel ziet u hoe u een virtuele machine met behulp van Azure PowerShell of Azure portal opnieuw implementeren.
@@ -34,7 +34,7 @@ Zorg ervoor dat u hebt de nieuwste Azure PowerShell 1.x op uw computer geïnstal
 Het volgende voorbeeld wordt geïmplementeerd voor de virtuele machine met de naam `myVM` in de resourcegroep met de naam `myResourceGroup`:
 
 ```powershell
-Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
+Set-AzVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
 ```
 
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../../includes/virtual-machines-common-redeploy-to-new-node.md)]

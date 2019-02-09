@@ -2,21 +2,21 @@
 title: Een toepassing gebruikerservaring in Azure Active Directory verbergen | Microsoft Docs
 description: Hoe u een toepassing gebruikerservaring in de toegangsdeelvensters van de Azure Active Directory of Office 365 voor ruimtevaartuigen verbergen.
 services: active-directory
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: kasimpso
-ms.openlocfilehash: d9745dac425652e571c547a9f0c0ee3ba0d1073c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a1c3bd400e08b83b3cc8733b68f73b7c308bdc44
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195372"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964505"
 ---
 # <a name="hide-applications-from-end-users-in-azure-active-directory"></a>Toepassingen van eindgebruikers in Azure Active Directory verbergen
 

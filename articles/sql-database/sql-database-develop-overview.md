@@ -11,20 +11,20 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
-ms.date: 02/06/2019
-ms.openlocfilehash: d9de6100e3bb7c3cc71a7a251d790df4907be5f2
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/07/2019
+ms.openlocfilehash: 01c4bcfcea038f3e69620cdce78719c8c5128faf
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820348"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964794"
 ---
 # <a name="sql-database-application-development-overview"></a>Overzicht van SQL Database-toepassing voor ontwikkelaars
 
 In dit artikel leest u meer over de algemene zaken waar ontwikkelaars van op de hoogte moeten zijn voor het schrijven van code om verbinding te maken met Azure SQL Database. In dit artikel is van toepassing op alle implementatiemodellen van Azure SQL Database (individuele database, elastische groepen en voor het beheerde exemplaar).
 
 > [!TIP]
-> Kijken de aan de slag handleidingen voor [individuele database](sql-database-single-database-quickstart-guide.md) en [MI](sql-database-managed-instance-quickstart-guide.md) als u nodig hebt voor het instellen van uw Azure SQL Database.
+> Kijken de aan de slag handleidingen voor [enkelvoudige databases](sql-database-single-database-quickstart-guide.md) en [instanties die worden beheerd](sql-database-managed-instance-quickstart-guide.md) als u nodig hebt voor het instellen van uw Azure SQL Database.
 >
 
 ## <a name="language-and-platform"></a>Taal en platform
@@ -49,14 +49,16 @@ Vermijd langlopende transacties omdat er een storing in de infrastructuur of ver
 
 ## <a name="resiliency"></a>Flexibiliteit
 
-Azure SQL Database is een cloudservice waar u tijdelijke fouten die optreden zou verwachten in de onderliggende infrastructuur of in de communicatie tussen cloudentiteiten.
-Azure SQL Database is op de transitieve infrastructuuruitval flexibele, maar deze fouten kunnen invloed hebben op de verbinding. Wanneer er een tijdelijke fout optreedt bij het verbinden met SQL-Database, uw code moet [de aanroep opnieuw](sql-database-connectivity-issues.md). Het wordt aanbevolen om voor logica voor opnieuw proberen uitstellogica te gebruiken zodat de SQL Database niet overbelast raakt door meerdere clients die tegelijk opnieuw proberen. Logica voor opnieuw proberen is afhankelijk van de [foutberichten voor SQL Database-clientprogramma's](sql-database-develop-error-messages.md).
+Azure SQL Database is een cloudservice waar u tijdelijke fouten die optreden zou verwachten in de onderliggende infrastructuur of in de communicatie tussen cloudentiteiten. Azure SQL Database is op de transitieve infrastructuuruitval flexibele, maar deze fouten kunnen invloed hebben op de verbinding. Wanneer er een tijdelijke fout optreedt bij het verbinden met SQL-Database, uw code moet [de aanroep opnieuw](sql-database-connectivity-issues.md). Het wordt aanbevolen om voor logica voor opnieuw proberen uitstellogica te gebruiken zodat de SQL Database niet overbelast raakt door meerdere clients die tegelijk opnieuw proberen. Logica voor opnieuw proberen is afhankelijk van de [foutberichten voor SQL Database-clientprogramma's](sql-database-develop-error-messages.md).
+
+Zie voor meer informatie over het voorbereiden voor gelijktijdige onderhoudsgebeurtenissen op uw Azure SQL database [plannen voor Azure-onderhoud-gebeurtenissen in Azure SQL Database](sql-database-planned-maintenance.md).
 
 ## <a name="network-considerations"></a>Aandachtspunten voor netwerken
 
 - Zorg er op de computer die als host fungeert voor uw clientprogramma voor dat de firewall uitgaande TCP-communicatie toestaat via poort 1433.  Meer informatie: [Een Azure SQL Database-firewall configureren](sql-database-configure-firewall-settings.md).
 - Als uw clientprogramma verbinding maakt met SQL-Database terwijl de client wordt uitgevoerd op een Azure-machine (VM), moet u bepaalde poortbereiken op de virtuele machine openen. Meer informatie: [Poorten boven 1433 voor ADO.NET 4.5 en SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Clientverbindingen met Azure SQL Database soms de proxyserver wordt overgeslagen en communiceren rechtstreeks met de database. Andere poorten dan poort 1433 worden belangrijk. Voor meer informatie, [Azure SQL Database-connectiviteitsarchitectuur](sql-database-connectivity-architecture.md) en [poorten boven 1433 voor ADO.NET 4.5 en SQL-Database](sql-database-develop-direct-route-ports-adonet-v12.md).
+- Zie voor netwerken configation voor een beheerd exemplaar [netwerkconfiguratie voor beheerde exemplaren](sql-database-howto-managed-instance.md#network-configuration).
 
 ## <a name="next-steps"></a>Volgende stappen
 

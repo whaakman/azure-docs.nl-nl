@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 1e7ec07c29f742202b17e94d96d88b0dfb223100
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 4e4de6d487aaad8a0d036928fe59b47f25157bf6
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464344"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963842"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastische pools kunt u beheren en schalen van meerdere Azure SQL-databases
 
@@ -34,6 +34,9 @@ Elastische groepen lossen dit probleem op door ervoor te zorgen dat databases de
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
+
+> [!IMPORTANT]
+> Er zijn geen kosten per database voor elastische pools. U wordt gefactureerd voor elk uur dat een pool bestaat op het hoogste edtu's of vCores, ongeacht het gebruik of of de groep korter dan een uur actief was.
 
 Elastische pools bieden de ontwikkelaar om aan te schaffen resources voor een groep die wordt gedeeld door meerdere databases aan onvoorspelbare perioden van gebruik door afzonderlijke databases. U kunt resources configureren voor de groep op basis van ofwel de [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) of de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md). De Resourcevereiste voor een groep wordt bepaald door de gezamenlijke gebruik van de bijbehorende databases. De hoeveelheid resources die beschikbaar is voor de groep wordt bepaald door het budget van de ontwikkelaar. De ontwikkelaar gewoon databases aan de groep toegevoegd, Hiermee stelt u de minimale en maximale beschikbare resources voor de databases (de minimale en maximale aantal dtu's of minimum of maximum aantal vCores, afhankelijk van uw keuze van het model resourcing), en stelt vervolgens de resources van de groep op basis van hun budget. Met groepen kan een ontwikkelaar services naadloos met een alsmaar groeiende schaal uitbreiden van een kleine startende ondernemer tot een volwassen bedrijf.
 

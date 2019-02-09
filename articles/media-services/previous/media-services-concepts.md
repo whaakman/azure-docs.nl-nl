@@ -11,16 +11,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/08/2018
 ms.author: juliako
-ms.openlocfilehash: 06c6451a7c8532b32a1c130f6b71df97857d2e7f
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: b3805cf46fe0fbf2461ab11959de101d8d4154f0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353697"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984593"
 ---
-# <a name="azure-media-services-concepts"></a>Azure Media Services-concepten
+# <a name="azure-media-services-concepts-legacy"></a>Azure Media Services-concepten (verouderd)
+
 In dit onderwerp biedt een overzicht van de belangrijkste concepten voor Media Services.
 
 ## <a name="a-idassetsassets-and-storage"></a><a id="assets"/>Activa en opslag
@@ -63,7 +64,7 @@ Een [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspo
 >[!NOTE]
 >Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). U moet dezelfde beleids-id gebruiken als u altijd dezelfde dagen/toegangsmachtigingen gebruikt, bijvoorbeeld beleidsregels voor locators die zijn bedoeld om gedurende een lange periode gehandhaafd te blijven (niet-upload-beleidsregels). Raadpleeg [dit](media-services-dotnet-manage-entities.md#limit-access-policies) onderwerp voor meer informatie.
 
-### <a name="blob-container"></a>BLOB-container
+### <a name="blob-container"></a>Blob container
 Een blob-container is een groepering van een reeks blobs. BLOB-containers worden gebruikt in Media Services als grens voor access control en Shared Access Signature (SAS)-locators van activa. Een Azure Storage-account kan een onbeperkt aantal blob-containers bevatten. Een container kan een onbeperkt aantal blobs bevatten.
 
 >[!NOTE]
@@ -74,7 +75,7 @@ Een blob-container is een groepering van een reeks blobs. BLOB-containers worden
 ### <a name="a-idlocatorslocators"></a><a id="locators"/>Locators
 [Locator](https://docs.microsoft.com/rest/api/media/operations/locator)s bieden een beginpunt voor toegang tot de bestanden die deel uitmaken van een asset. Een toegangsbeleid wordt gebruikt voor het definiëren van de machtigingen en de duur dat een client toegang tot een bepaalde asset heeft. Locators kunnen een veel-op-één relatie met een toegangsbeleid hebben dat verschillende locators bieden kunnen verschillende starttijden en verbindingstypen aan verschillende clients en alle met de dezelfde machtigingen en de duur van de instellingen. vanwege een beleid voor gedeelde toegangsbeperking instellen door Azure storage-services, kan niet u echter meer dan vijf unieke locators die zijn gekoppeld aan een opgegeven activum tegelijk hebben. 
 
-Media Services ondersteunt twee typen locators: OnDemandOrigin-locators, voor het streamen van media (bijvoorbeeld MPEG DASH, HLS of Smooth Streaming) of progressief downloaden van media- en SAS-URL-locators, gebruikt om te uploaden of downloaden van media-bestanden to\from Azure storage. 
+Media Services ondersteunt twee typen locators: OnDemandOrigin-locators, voor het streamen van media (bijvoorbeeld MPEG DASH, HLS of Smooth Streaming) of progressief downloaden van media- en SAS-URL-locators, voor het uploaden of downloaden van media-bestanden to\from Azure storage. 
 
 >[!NOTE]
 >De lijst met machtiging (AccessPermissions.List) mag niet worden gebruikt bij het maken van een OnDemandOrigin-locator. 
@@ -107,7 +108,7 @@ Zie voor meer informatie over ondersteunde encoders [Encoders](media-services-en
 ## <a name="live-streaming"></a>Live Streaming
 In Azure Media Services vertegenwoordigt een kanaal een pijplijn voor het verwerken van live streaming-inhoud. Een kanaal ontvangt live invoerstromen op twee manieren:
 
-* Een on-premises live codering verzendt multi-bitrate RTMP of Smooth Streaming (gefragmenteerde MP4) naar het kanaal. U kunt de volgende live coderingsprogramma's die multi-bitrate Smooth Streaming uitvoeren: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco en Elemental. De volgende live coderingsprogramma's voeren RTMP uit: Adobe Flash Live Encoder, Telestream Wirecast, Teradek, Haivision en Tricaster-coderingsprogramma's. De opgenomen streams doorgegeven via de kanalen zonder een verdere (trans) codering. Desgevraagd levert Media Services de stream aan klanten.
+* Een on-premises live codering verzendt multi-bitrate RTMP of Smooth Streaming (gefragmenteerde MP4) naar het kanaal. U kunt de volgende live coderingsprogramma's die multi-bitrate Smooth Streaming gebruiken: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco en Elemental. De volgende live coderingsprogramma's voeren RTMP uit: Adobe Flash Live Encoder, Telestream Wirecast, Teradek, Haivision and Tricaster encoders. De opgenomen streams doorgegeven via de kanalen zonder een verdere (trans) codering. Desgevraagd levert Media Services de stream aan klanten.
 * Een single-bitrate stream (in een van de volgende indelingen: RTMP of Smooth Streaming (gefragmenteerde MP4)) wordt verzonden naar het kanaal dat is ingeschakeld voor live coderen met Media Services. Het kanaal codeert de inkomende single-bitrate stream vervolgens live naar een (adaptieve) multi-bitrate videostream. Desgevraagd levert Media Services de stream aan klanten.
 
 ### <a name="channel"></a>Kanaal
@@ -133,7 +134,7 @@ Zie voor meer informatie:
 * [Werken met kanalen die een multi-bitrate livestream van on-premises encoders ontvangen](media-services-live-streaming-with-onprem-encoders.md)
 * [Quota en beperkingen](media-services-quotas-and-limitations.md).
 
-## <a name="protecting-content"></a>Beveiliging van inhoud
+## <a name="protecting-content"></a>Inhoud beschermen
 ### <a name="dynamic-encryption"></a>Dynamische versleuteling
 Azure Media Services kunt u uw media beveiligen vanaf het moment dat het verlaten van uw computer via opslag, verwerking en levering. Media Services kunt u uw inhoud dynamisch wordt versleuteld met Advanced Encryption Standard (AES) (met behulp van 128-bits coderingssleutels) en algemene versleuteling (CENC) met PlayReady en/of Widevine DRM kunt leveren. Media Services biedt ook een service voor het leveren van sleutels voor AES en PlayReady-licenties naar geautoriseerde clients.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 14f74c26822ac1dc9e781ada82809bf3a4166f18
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 5ab47165118b68e91c1218be35c6f88aa55350e2
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190898"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982604"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Configuratie en beheer Veelgestelde vragen voor Web-Apps in Azure
 
@@ -244,7 +244,7 @@ U kunt een geplande webtaak maken met behulp van de Cron-expressies:
 
 1. Maak een settings.job-bestand.
 2. In dit JSON-bestand, zijn onder andere een schema-eigenschap met behulp van een Cron-expressie: 
-    ```
+    ```json
     { "schedule": "{second}
     {minute} {hour} {day}
     {month} {day of the week}" }
@@ -270,7 +270,7 @@ Als het bericht aangeeft, kan dit verificatieproces fraude tot 24 uur duren. Ged
 
 Als uw App Service-certificaat, dit bericht weergeven na 24 uur blijft, voert u de volgende PowerShell-script. De script-contactpersonen de [certificaatprovider](https://www.godaddy.com/) rechtstreeks naar het probleem is opgelost.
 
-```
+```powershell
 Connect-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <subId>
 $actionProperties = @{
@@ -312,10 +312,10 @@ Als geen van deze voorwaarden van toepassing en het probleem zich blijft voordoe
 
 Als u compressie voor statische en dynamische inhoudstypen, voeg de volgende code in het bestand web.config op toepassingsniveau:
 
-```
+```xml
 <system.webServer>
-<urlCompression doStaticCompression="true" doDynamicCompression="true" />
-< /system.webServer>
+    <urlCompression doStaticCompression="true" doDynamicCompression="true" />
+</system.webServer>
 ```
 
 U kunt ook de specifieke dynamische en statische MIME-typen die u wilt comprimeren opgeven. Zie voor meer informatie onze reactie op een forumvraag in [httpCompression instellingen op een eenvoudige Azure-website](https://social.msdn.microsoft.com/Forums/azure/890b6d25-f7dd-4272-8970-da7798bcf25d/httpcompression-settings-on-a-simple-azure-website?forum=windowsazurewebsitespreview).

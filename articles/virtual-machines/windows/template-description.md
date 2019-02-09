@@ -15,18 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: e32e2833edc7027a984bb27b34608e4b1b898113
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 094df21bb0264ebbd8ad23c594ceb52db19d9c2f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767072"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979612"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Virtuele machines in een Azure Resource Manager-sjabloon
 
 Dit artikel wordt beschreven aspecten van een Azure Resource Manager-sjabloon die betrekking hebben op virtuele machines. In dit artikel beschrijft niet een volledige sjabloon voor het maken van een virtuele machine. Hiervoor moet u resourcedefinities voor opslagaccounts, netwerkinterfaces, openbare IP-adressen en virtuele netwerken. Zie voor meer informatie over hoe deze resources samen kunnen worden gedefinieerd, de [walkthrough voor Resource Manager-sjabloon](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 
 Er zijn veel [sjablonen in de galerie](https://azure.microsoft.com/documentation/templates/?term=VM) die de VM-resource bevatten. Niet alle elementen die kunnen worden opgenomen in een sjabloon worden hier beschreven.
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 In dit voorbeeld toont een typische resource-gedeelte van een sjabloon voor het maken van een opgegeven aantal virtuele machines:
 
@@ -163,8 +165,9 @@ De versie van de API die u in de sjabloon opgeeft is van invloed op de eigenscha
 Gebruik deze mogelijkheden voor het ophalen van de meest recente API-versies:
 
 - REST-API - [alle resourceproviders vermelden](https://docs.microsoft.com/rest/api/resources/providers)
-- PowerShell - [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
-- Azure CLI - [az provider show](https://docs.microsoft.com/cli/azure/provider)
+- PowerShell - [Get-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/get-azresourceprovider)
+- Azure CLI - [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
+
 
 ## <a name="parameters-and-variables"></a>Parameters en variabelen
 
@@ -442,7 +445,7 @@ U ziet de status van de geïnstalleerde uitbreidingen van de instellingen van de
 
 ![Status van de extensie ophalen](./media/template-description/virtual-machines-show-extensions.png)
 
-U kunt ook informatie over extensies ophalen met behulp van de **Get-AzureRmVMExtension** PowerShell-opdracht, de **vm-extensie get** Azure CLI-opdracht, of de **extensie informatie**REST-API.
+U kunt ook informatie over extensies ophalen met behulp van de **Get-AzVMExtension** PowerShell-opdracht, de **vm-extensie get** Azure CLI-opdracht, of de **extensie informatie**REST-API.
 
 ## <a name="deployments"></a>Implementaties
 

@@ -15,16 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: ff2352005470755c8ca0f472c4a790a820fea6b6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: a5e3fbc3369f19af8d93e23d669a4449ab3d414c
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754384"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980581"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Maak een beheerde installatiekopie van een gegeneraliseerde VM in Azure
 
 De resource van een beheerde installatiekopie kan worden gemaakt van een gegeneraliseerde virtuele machine (VM) die is opgeslagen als een beheerde schijf of een niet-beheerde schijf in een storage-account. De installatiekopie kan vervolgens worden gebruikt om te maken van meerdere virtuele machines. Voor meer informatie over beheerde installatiekopieën worden in rekening gebracht, Zie [Managed Disks-prijzen](https://azure.microsoft.com/pricing/details/managed-disks/). 
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>De Windows VM generaliseren met behulp van Sysprep
 
@@ -85,11 +87,11 @@ Als u wilt uw Windows-VM generaliseren, de volgende stappen uit:
 Het maken van een installatiekopie van een rechtstreeks vanuit de virtuele machine zorgt ervoor dat de installatiekopie alle schijven die zijn gekoppeld aan de virtuele machine bevat, met inbegrip van de schijf met het besturingssysteem en eventuele gegevensschijven. In dit voorbeeld laat zien hoe een beheerde installatiekopie maken van een virtuele machine die maakt gebruik van schijven beheerde.
 
 
-Voordat u begint, zorg ervoor dat u de nieuwste versie van de AzureRM.Compute PowerShell-module versie 5.7.0 moet of hoger. Uitvoeren als u wilt zien welke versie, `Get-Module -ListAvailable AzureRM.Compute` in PowerShell. Als u upgraden wilt, raadpleegt u [Azure PowerShell installeren op Windows met PowerShellGet](/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, voert u `Connect-AzureRmAccount` voor het maken van een verbinding met Azure.
+Voordat u begint, zorg ervoor dat u de nieuwste versie van de AzureRM.Compute PowerShell-module versie 5.7.0 moet of hoger. Uitvoeren als u wilt zien welke versie, `Get-Module -ListAvailable AzureRM.Compute` in PowerShell. Als u upgraden wilt, raadpleegt u [Azure PowerShell installeren op Windows met PowerShellGet](/powershell/azure/azurerm/install-az-ps). Als u PowerShell lokaal uitvoert, voert u `Connect-AzAccount` voor het maken van een verbinding met Azure.
 
 
 > [!NOTE]
-> Als u wilt voor het opslaan van uw installatiekopie in de zone-redundante opslag, moet u deze maken in een regio die ondersteuning biedt voor [beschikbaarheidszones](../../availability-zones/az-overview.md) en bevatten de `-ZoneResilient` parameter in de configuratie van de installatiekopie (`New-AzureRmImageConfig` opdracht).
+> Als u wilt voor het opslaan van uw installatiekopie in de zone-redundante opslag, moet u deze maken in een regio die ondersteuning biedt voor [beschikbaarheidszones](../../availability-zones/az-overview.md) en bevatten de `-ZoneResilient` parameter in de configuratie van de installatiekopie (`New-AzImageConfig` opdracht).
 
 Volg deze stappen voor het maken van een VM-installatiekopie:
 
@@ -104,30 +106,30 @@ Volg deze stappen voor het maken van een VM-installatiekopie:
 2. Zorg ervoor dat de virtuele machine is opgeheven.
 
     ```azurepowershell-interactive
-    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
+    Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
 3. Zet de status van de virtuele machine **gegeneraliseerd**. 
    
     ```azurepowershell-interactive
-    Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized
+    Set-AzVm -ResourceGroupName $rgName -Name $vmName -Generalized
     ```
     
 4. Haal de virtuele machine op. 
 
     ```azurepowershell-interactive
-    $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName
+    $vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName
     ```
 
 5. Maak de configuratie van installatiekopie.
 
     ```azurepowershell-interactive
-    $image = New-AzureRmImageConfig -Location $location -SourceVirtualMachineId $vm.Id 
+    $image = New-AzImageConfig -Location $location -SourceVirtualMachineId $vm.Id 
     ```
 6. Maak de installatiekopie.
 
     ```azurepowershell-interactive
-    New-AzureRmImage -Image $image -ImageName $imageName -ResourceGroupName $rgName
+    New-AzImage -Image $image -ImageName $imageName -ResourceGroupName $rgName
     ``` 
 
 ## <a name="create-an-image-from-a-managed-disk-using-powershell"></a>Een installatiekopie maken van een beheerde schijf met behulp van PowerShell
@@ -148,7 +150,7 @@ Als u maken van een afbeelding van de schijf van het besturingssysteem wilt, gee
 2. Ophalen van de virtuele machine.
 
    ```azurepowershell-interactive
-   $vm = Get-AzureRmVm -Name $vmName -ResourceGroupName $rgName
+   $vm = Get-AzVm -Name $vmName -ResourceGroupName $rgName
    ```
 
 3. Haal de ID van de beheerde schijf.
@@ -160,14 +162,14 @@ Als u maken van een afbeelding van de schijf van het besturingssysteem wilt, gee
 3. Maak de configuratie van installatiekopie.
 
     ```azurepowershell-interactive
-    $imageConfig = New-AzureRmImageConfig -Location $location
-    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -ManagedDiskId $diskID
+    $imageConfig = New-AzImageConfig -Location $location
+    $imageConfig = Set-AzImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -ManagedDiskId $diskID
     ```
     
 4. Maak de installatiekopie.
 
     ```azurepowershell-interactive
-    New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
+    New-AzImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ``` 
 
 
@@ -188,19 +190,19 @@ U kunt een beheerde installatiekopie maken van een momentopname van een gegenera
 2. Ophalen van de momentopname.
 
    ```azurepowershell-interactive
-   $snapshot = Get-AzureRmSnapshot -ResourceGroupName $rgName -SnapshotName $snapshotName
+   $snapshot = Get-AzSnapshot -ResourceGroupName $rgName -SnapshotName $snapshotName
    ```
    
 3. Maak de configuratie van installatiekopie.
 
     ```azurepowershell-interactive
-    $imageConfig = New-AzureRmImageConfig -Location $location
-    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -SnapshotId $snapshot.Id
+    $imageConfig = New-AzImageConfig -Location $location
+    $imageConfig = Set-AzImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -SnapshotId $snapshot.Id
     ```
 4. Maak de installatiekopie.
 
     ```azurepowershell-interactive
-    New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
+    New-AzImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ``` 
 
 
@@ -221,20 +223,20 @@ Een beheerde installatiekopie maken vanaf een gegeneraliseerde VHD met besturing
 2. Stoppen/toewijzing ongedaan maken de virtuele machine.
 
     ```azurepowershell-interactive
-    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
+    Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
 3. De virtuele machine markeren als gegeneraliseerd.
 
     ```azurepowershell-interactive
-    Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized 
+    Set-AzVm -ResourceGroupName $rgName -Name $vmName -Generalized  
     ```
 4.  De installatiekopie maken met behulp van uw gegeneraliseerde VHD met het besturingssysteem.
 
     ```azurepowershell-interactive
-    $imageConfig = New-AzureRmImageConfig -Location $location
-    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $osVhdUri
-    $image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
+    $imageConfig = New-AzImageConfig -Location $location
+    $imageConfig = Set-AzImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $osVhdUri
+    $image = New-AzImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ```
 
     

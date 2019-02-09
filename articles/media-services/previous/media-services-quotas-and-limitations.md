@@ -1,10 +1,10 @@
 ---
-title: Media Services-quota en beperking | Microsoft Docs
-description: Dit onderwerp beschrijft de quota's en beperkingen die zijn gekoppeld aan Microsoft Azure Media Services.
+title: Media Services, quota en beperkingen | Microsoft Docs
+description: Dit onderwerp worden quota en beperkingen die zijn gekoppeld aan Microsoft Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: d4c43afd-dba8-40a2-ad92-6de54152f7ec
 ms.service: media-services
@@ -12,25 +12,26 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: c755cc4297e0729726d63ff1ce85f85672a07041
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d647c60cbe692f617891201accb1a32e1d885389
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790263"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982111"
 ---
-# <a name="quotas-and-limitations"></a>Quota's en beperkingen
-Dit artikel wordt beschreven, quota's en beperkingen die zijn gekoppeld aan Microsoft Azure Media Services.
+# <a name="quotas-and-limitations-legacy"></a>Quota en beperkingen (verouderd)
+
+Dit artikel wordt beschreven, quota en beperkingen die zijn gekoppeld aan Microsoft Azure Media Services.
 
 [!INCLUDE [azure-mediaservices-limits](../../../includes/azure-mediaservices-limits.md)]
 
-## <a name="open-a-support-ticket-to-request-changes-to-the-default-quotas"></a>Een Ondersteuningsticket om aan te vragen van wijzigingen in de standaardquota openen
-U kunt een ondersteuningsticket openen voor het aanvragen van wijzigingen in de standaardquota opgegeven. Neem de gedetailleerde informatie in de aanvraag op de gewenste quotum wijzigingen, use case-scenario's en regio's die zijn vereist.
+## <a name="open-a-support-ticket-to-request-changes-to-the-default-quotas"></a>Open een Ondersteuningsticket om aan te vragen van wijzigingen in de standaardquota
+U kunt een ondersteuningsticket openen om aan te vragen de wijzigingen in de standaardquota die is opgegeven. Neem de gedetailleerde informatie in de aanvraag op de gewenste quota wijzigingen, use-casescenario's en regio's die zijn vereist.
 
-### <a name="how-to-open-a-support-ticket"></a>Hoe u een ondersteuningsticket opent
-In de Azure portal, gaat u naar [Help + ondersteuning](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Als u niet bent aangemeld bij Azure, wordt u gevraagd uw referenties in te voeren.
+### <a name="how-to-open-a-support-ticket"></a>Hoe u een ondersteuningsticket openen
+In de Azure-portal, gaat u naar [Help en ondersteuning](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Als u niet bent aangemeld bij Azure, wordt u gevraagd uw referenties in te voeren.
 
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten

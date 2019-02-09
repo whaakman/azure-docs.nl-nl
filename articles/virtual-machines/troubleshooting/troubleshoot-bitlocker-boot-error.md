@@ -13,19 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: b5f851fe5c8aebba441903ccc004b7dbd0029ba3
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 3a615beeec45871aab1e98ad338ffa053ddbec92
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413539"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984763"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Opstartfouten BitLocker op een Azure VM
 
  Dit artikel beschrijft de BitLocker-fouten die optreden kunnen bij het starten van een Windows virtuele machine (VM) in Microsoft Azure.
 
-> [!NOTE] 
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en klassieke](../../azure-resource-manager/resource-manager-deployment-model.md). In dit artikel bevat informatie over het Resource Manager-implementatiemodel. U wordt aangeraden dat u dit model gebruikt voor nieuwe implementaties in plaats van het klassieke implementatiemodel.
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
  ## <a name="symptom"></a>Symptoom
 
@@ -33,7 +32,7 @@ ms.locfileid: "47413539"
 
 - Sluit het USB-stuurprogramma dat beschikt over de BitLocker-sleutel
 
-- U bent vergrendeld! Geef de herstelsleutel opnieuw aan de slag (toetsenbordindeling: Verenigde Staten) de verkeerde aanmeldinformatie er te vaak is opgegeven, zodat uw PC is vergrendeld om uw privacy te beschermen. Als u wilt ophalen van de herstelsleutel, gaat u naar http://windows.microsoft.com/recoverykeyfaq van een andere PC of mobiel apparaat. Als u deze nodig hebt, de sleutel-ID is XXXXXXX. Of u kunt de PC opnieuw instellen.
+- U bent vergrendeld! Geef de herstelsleutel opnieuw aan de slag (indeling: Verenigde Staten) de verkeerde aanmelden informatie is te vaak ingevoerd, zodat uw PC is vergrendeld om uw privacy te beschermen. Als u wilt ophalen van de herstelsleutel, gaat u naar http://windows.microsoft.com/recoverykeyfaq van een andere PC of mobiel apparaat. Als u deze nodig hebt, de sleutel-ID is XXXXXXX. Of u kunt de PC opnieuw instellen.
 
 - Voer het wachtwoord voor het ontgrendelen van deze schijf [] Druk op de sleutel invoegen om te zien van het wachtwoord, terwijl u typt.
 - Voer uw herstelsleutel de herstelsleutel laden vanaf een USB-apparaat.
@@ -57,17 +56,17 @@ Als deze methode niet de los het probleem is, volg deze stappen voor het herstel
     $rgName = "myResourceGroup"
     $osDiskName = "ProblemOsDisk"
 
-    New-AzureRmDiskUpdateConfig -EncryptionSettingsEnabled $false |Update-AzureRmDisk -diskName $osDiskName -ResourceGroupName $rgName
+    New-AzDiskUpdateConfig -EncryptionSettingsEnabled $false |Update-AzDisk -diskName $osDiskName -ResourceGroupName $rgName
 
     $recoveryVMName = "myRecoveryVM" 
     $recoveryVMRG = "RecoveryVMRG" 
-    $OSDisk = Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $osDiskName;
+    $OSDisk = Get-AzDisk -ResourceGroupName $rgName -DiskName $osDiskName;
 
-    $vm = get-AzureRMVM -ResourceGroupName $recoveryVMRG -Name $recoveryVMName 
+    $vm = get-AzVM -ResourceGroupName $recoveryVMRG -Name $recoveryVMName 
 
-    Add-AzureRmVMDataDisk -VM $vm -Name $osDiskName -ManagedDiskId $osDisk.Id -Caching None -Lun 3 -CreateOption Attach 
+    Add-AzVMDataDisk -VM $vm -Name $osDiskName -ManagedDiskId $osDisk.Id -Caching None -Lun 3 -CreateOption Attach 
 
-    Update-AzureRMVM -VM $vm -ResourceGroupName $recoveryVMRG
+    Update-AzVM -VM $vm -ResourceGroupName $recoveryVMRG
     ```
      U kunt een beheerde schijf niet koppelen aan een virtuele machine die is hersteld van een blob-installatiekopie.
 
@@ -76,7 +75,7 @@ Als deze methode niet de los het probleem is, volg deze stappen voor het herstel
 4. Open een verhoogde Azure PowerShell-sessie (als administrator uitvoeren). Voer de volgende opdrachten om aan te melden bij Azure-abonnement:
 
     ```Powershell
-    Add-AzureRMAccount -SubscriptionID [SubscriptionID]
+    Add-AzAccount -SubscriptionID [SubscriptionID]
     ```
 
 5. Voer het volgende script om te controleren of de naam van de BEK-bestand:
@@ -135,7 +134,7 @@ Als deze methode niet de los het probleem is, volg deze stappen voor het herstel
         ```powershell
         manage-bde -protectors -disable F: -rc 0
         ```      
-    - Als u opnieuw opbouwen van de virtuele machine wilt met behulp van de schijf dytem, moet u het station volledig decoderen. U doet dit door de volgende opdracht uitvoeren:
+    - Als u opnieuw opbouwen van de virtuele machine wilt met behulp van de schijf dytem, moet u het station volledig decoderen. Voer hiervoor de volgende opdracht uit:
 
         ```powershell
         manage-bde -off F:
@@ -262,7 +261,7 @@ Volg deze stappen voor een scenario Key-versleutelingssleutel:
         ```powershell
         manage-bde -protectors -disable F: -rc 0
         ```      
-    - Als u opnieuw opbouwen van de virtuele machine wilt met behulp van de schijf dytem, moet u het station volledig decoderen. U doet dit door de volgende opdracht uitvoeren:
+    - Als u opnieuw opbouwen van de virtuele machine wilt met behulp van de schijf dytem, moet u het station volledig decoderen. Voer hiervoor de volgende opdracht uit:
 
         ```powershell
         manage-bde -off F:

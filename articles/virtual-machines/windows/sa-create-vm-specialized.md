@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0de7979edd741a7e4a1dc3354a8dc895929a9532
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6a54dc6a1068a9f7908760fb70fea45ef34f5b60
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811678"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981431"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Een virtuele machine maken vanaf een gespecialiseerde VHD in een storage-account
 
@@ -31,13 +31,7 @@ U hebt hiervoor twee opties:
 * [Een VHD uploaden](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
 * [Kopieer de VHD van een bestaande VM in Azure](sa-create-vm-specialized.md#option-2-copy-an-existing-azure-vm)
 
-## <a name="before-you-begin"></a>Voordat u begint
-Als u PowerShell gebruikt, zorg ervoor dat u de nieuwste versie van de AzureRM.Compute PowerShell-module hebt. Voer de volgende opdracht uit om deze te installeren.
-
-```powershell
-Install-Module AzureRM.Compute 
-```
-Zie voor meer informatie, [versiebeheer in Azure PowerShell](/powershell/azure/overview).
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 
 ## <a name="option-1-upload-a-specialized-vhd"></a>Optie 1: Een gespecialiseerde VHD uploaden
@@ -58,7 +52,7 @@ U moet een opslagaccount in Azure voor het opslaan van de geüploade VM-installa
 Als u wilt de beschikbare opslag-accounts weergeven, typt u:
 
 ```powershell
-Get-AzureRmStorageAccount
+Get-AzStorageAccount
 ```
 
 Als u een bestaand opslagaccount gebruiken wilt, gaat u verder met het uploaden van de sectie VM-installatiekopie.
@@ -68,29 +62,29 @@ Als u nodig hebt voor het maken van een storage-account, als volgt te werk:
 1. U moet de naam van de resourcegroep waar het opslagaccount dat moet worden gemaakt. Als u wilt weten van alle resourcegroepen in uw abonnement, typt u:
    
     ```powershell
-    Get-AzureRmResourceGroup
+    Get-AzResourceGroup
     ```
 
     Het maken van een resourcegroep met de naam **myResourceGroup** in de **VS-West** regio, type:
 
     ```powershell
-    New-AzureRmResourceGroup -Name myResourceGroup -Location "West US"
+    New-AzResourceGroup -Name myResourceGroup -Location "West US"
     ```
 
-2. Maak een opslagaccount met de naam **mystorageaccount** in deze resourcegroep met behulp van de [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet:
+2. Maak een opslagaccount met de naam **mystorageaccount** in deze resourcegroep met behulp van de [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet:
    
     ```powershell
-    New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
+    New-AzStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
         -SkuName "Standard_LRS" -Kind "Storage"
     ```
    
 ### <a name="upload-the-vhd-to-your-storage-account"></a>De VHD uploaden naar uw storage-account
-Gebruik de [Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) cmdlet om de installatiekopie uploaden naar een container in uw storage-account. In dit voorbeeld wordt het bestand geüpload **myVHD.vhd** van `"C:\Users\Public\Documents\Virtual hard disks\"` naar een opslagaccount met de naam **mystorageaccount** in de **myResourceGroup** resourcegroep. Het bestand worden opgenomen in de container met de naam **mycontainer** en de nieuwe bestandsnaam worden **myUploadedVHD.vhd**.
+Gebruik de [toevoegen AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) cmdlet om de installatiekopie uploaden naar een container in uw storage-account. In dit voorbeeld wordt het bestand geüpload **myVHD.vhd** van `"C:\Users\Public\Documents\Virtual hard disks\"` naar een opslagaccount met de naam **mystorageaccount** in de **myResourceGroup** resourcegroep. Het bestand worden opgenomen in de container met de naam **mycontainer** en de nieuwe bestandsnaam worden **myUploadedVHD.vhd**.
 
 ```powershell
 $rgName = "myResourceGroup"
 $urlOfUploadedImageVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
-Add-AzureRmVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
+Add-AzVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
     -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
 ```
 
@@ -119,17 +113,17 @@ U kunt een VHD kopiëren naar een ander opslagaccount te gebruiken bij het maken
 ### <a name="before-you-begin"></a>Voordat u begint
 Zorg ervoor dat u:
 
-* Hebt u informatie over de **bron- en storage-accounts**. Voor de bron-VM moet u de namen van de storage-account en een container hebt. Normaal gesproken de containernaam is **VHD's**. U moet ook een doel-opslagaccount hebben. Als u dit niet al hebt, kunt u een met behulp van de portal maken (**alle Services** > opslagaccounts > toevoegen) of met behulp van de [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet. 
+* Hebt u informatie over de **bron- en storage-accounts**. Voor de bron-VM moet u de namen van de storage-account en een container hebt. Normaal gesproken de containernaam is **VHD's**. U moet ook een doel-opslagaccount hebben. Als u dit niet al hebt, kunt u een met behulp van de portal maken (**alle Services** > opslagaccounts > toevoegen) of met behulp van de [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet. 
 * Hebt gedownload en geïnstalleerd de [AzCopy-hulpprogramma](../../storage/common/storage-use-azcopy.md). 
 
 ### <a name="deallocate-the-vm"></a>Toewijzing van de virtuele machine ongedaan maken
 Wijs de virtuele machine, zodat u de VHD moet worden gekopieerd. 
 
 * **Portal**: Klik op **virtuele machines** > **myVM** > stoppen
-* **Powershell**: Gebruik [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm) stoppen (toewijzing ongedaan maken) de virtuele machine met de naam **myVM** in resourcegroep **myResourceGroup**.
+* **Powershell**: Gebruik [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) stoppen (toewijzing ongedaan maken) de virtuele machine met de naam **myVM** in resourcegroep **myResourceGroup**.
 
 ```powershell
-Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
+Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
 ```
 
 De **Status** voor de virtuele machine in Azure portal, verandert van **gestopt** naar **gestopt (toewijzing opgeheven)**.
@@ -140,20 +134,20 @@ U moet de URL's van de bron- en storage-accounts. De URL's eruit: `https://<stor
 U kunt de Azure portal of Azure Powershell gebruiken om de URL te krijgen:
 
 * **Portal**: Klik op de **>** voor **alle services** > **opslagaccounts** > *opslagaccount*  >  **Blobs** en uw bron-VHD-bestand is waarschijnlijk in de **VHD's** container. Klik op **eigenschappen** voor de container en kopieer de tekst met het label **URL**. U moet de URL's van zowel de bron- als containers. 
-* **Powershell**: Gebruik [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) om op te halen van de gegevens voor de virtuele machine met de naam **myVM** in de resourcegroep **myResourceGroup**. In de resultaten bekijken de **opslagprofiel** sectie voor de **Vhd-Uri**. Het eerste deel van de Uri is de URL naar de container en het laatste deel is de naam van de OS VHD voor de virtuele machine.
+* **Powershell**: Gebruik [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) om op te halen van de gegevens voor de virtuele machine met de naam **myVM** in de resourcegroep **myResourceGroup**. In de resultaten bekijken de **opslagprofiel** sectie voor de **Vhd-Uri**. Het eerste deel van de Uri is de URL naar de container en het laatste deel is de naam van de OS VHD voor de virtuele machine.
 
 ```powershell
-Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
+Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ``` 
 
 ## <a name="get-the-storage-access-keys"></a>Ophalen van de toegangssleutels voor opslag
 De toegangssleutel voor de bron- en storage-accounts vinden. Zie voor meer informatie over toegang tot sleutels, [over Azure storage-accounts](../../storage/common/storage-create-storage-account.md).
 
 * **Portal**: Klik op **alle services** > **opslagaccounts** > *opslagaccount* > **toegangssleutels**. Kopieer de sleutel met het label **key1**.
-* **Powershell**: Gebruik [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) om op te halen van de toegangssleutel voor het opslagaccount **mystorageaccount** in de resourcegroep **myResourceGroup**. Kopieer de sleutel met het label **key1**.
+* **Powershell**: Gebruik [Get-AzStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) om op te halen van de toegangssleutel voor het opslagaccount **mystorageaccount** in de resourcegroep **myResourceGroup**. Kopieer de sleutel met het label **key1**.
 
 ```powershell
-Get-AzureRmStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup
+Get-AzStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup
 ```
 
 ### <a name="copy-the-vhd"></a>Kopieer de VHD
@@ -208,14 +202,14 @@ Maak de vNet en subNet van de [virtueel netwerk](../../virtual-network/virtual-n
     ```powershell
     $rgName = "myResourceGroup"
     $subnetName = "mySubNet"
-    $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
+    $singleSubnet = New-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
     ```
 2. Maak het vNet. In dit voorbeeld wordt de naam van het virtuele netwerk moet **myVnetName**, de locatie voor het **VS-West**, en het adresvoorvoegsel voor het virtuele netwerk naar **10.0.0.0/16**. 
    
     ```powershell
     $location = "West US"
     $vnetName = "myVnetName"
-    $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
+    $vnet = New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
 ### <a name="create-the-network-security-group-and-an-rdp-rule"></a>De netwerkbeveiligingsgroep en een RDP-regel maken
@@ -226,11 +220,11 @@ In het volgende voorbeeld wordt de naam van de NSG op **myNsg** en de naam van d
 ```powershell
 $nsgName = "myNsg"
 
-$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
+$rdpRule = New-AzNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
     -SourceAddressPrefix Internet -SourcePortRange * `
     -DestinationAddressPrefix * -DestinationPortRange 3389
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
+$nsg = New-AzNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
     -Name $nsgName -SecurityRules $rdpRule
     
 ```
@@ -244,14 +238,14 @@ Om te kunnen communiceren met de virtuele machine in het virtuele netwerk, hebt 
    
     ```powershell
     $ipName = "myIP"
-    $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
+    $pip = New-AzPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
         -AllocationMethod Dynamic
     ```       
 2. Maken van de NIC. In dit voorbeeld wordt de naam van de NIC is ingesteld op **myNicName**. Deze stap wordt ook gekoppeld aan de Netwerkbeveiligingsgroep die eerder hebt gemaakt met deze NIC wordt gebruikt.
    
     ```powershell
     $nicName = "myNicName"
-    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
+    $nic = New-AzNetworkInterface -Name $nicName -ResourceGroupName $rgName `
     -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
     ```
 
@@ -260,13 +254,13 @@ Om te kunnen communiceren met de virtuele machine in het virtuele netwerk, hebt 
 Dit voorbeeld wordt de naam van de VM naar 'myVM' en de grootte van de virtuele machine op 'Standard_A2'.
 ```powershell
 $vmName = "myVM"
-$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
+$vmConfig = New-AzVMConfig -VMName $vmName -VMSize "Standard_A2"
 ```
 
 ### <a name="add-the-nic"></a>De NIC toevoegen
     
 ```powershell
-$vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
+$vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
 ```
     
     
@@ -281,14 +275,14 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
     
     ```powershell
     $osDiskName = $vmName + "osDisk"
-    $vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Windows
+    $vm = Set-AzVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Windows
     ```
 
 Optioneel: Als u de gegevensschijven die moeten worden gekoppeld aan de virtuele machine hebt, moet u de gegevensschijven toevoegen met behulp van de URL's van gegevens-VHD's en de juiste Logical Unit Number (Lun).
 
 ```powershell
 $dataDiskName = $vmName + "dataDisk"
-$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 1 -CreateOption attach
+$vm = Add-AzVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 1 -CreateOption attach
 ```
 
 Wanneer u een opslagaccount, de gegevens en besturingssysteem schijf-URL's er ongeveer als volgt uit: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. U kunt dit vinden in de portal door te bladeren naar de doel-opslagcontainer, klikt u op het besturingssysteem of de gegevens-VHD die is gekopieerd en vervolgens de inhoud van de URL te kopiëren.
@@ -300,7 +294,7 @@ De virtuele machine maken met de configuraties die we zojuist hebben gemaakt.
 
 ```powershell
 #Create the new VM
-New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
+New-AzVM -ResourceGroupName $rgName -Location $location -VM $vm
 ```
 
 Als deze opdracht voltooid is, ziet u uitvoer zoals de volgende:
@@ -316,7 +310,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 U ziet de zojuist gemaakte virtuele machine ofwel in het [Azure-portal](https://portal.azure.com)onder **alle services** > **virtuele machines**, of met behulp van de volgende PowerShell opdrachten:
 
 ```powershell
-$vmList = Get-AzureRmVM -ResourceGroupName $rgName
+$vmList = Get-AzVM -ResourceGroupName $rgName
 $vmList.Name
 ```
 

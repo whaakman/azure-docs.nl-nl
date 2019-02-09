@@ -16,12 +16,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 24a12c9144535fecd23be432ee33402eb6528b28
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 8f18fbabe52c9170cde70900933ce96a3a6400c7
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413537"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984338"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Probleemoplossing voor implementatieproblemen bij het maken van een nieuwe Windows-VM in Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -44,23 +44,23 @@ Als u wilt gaan met het oplossen van problemen, de activiteitenlogboeken voor he
 
 [!INCLUDE [virtual-machines-windows-troubleshoot-deployment-new-vm-table](../../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-table.md)]
 
-**Y:** als het besturingssysteem gegeneraliseerd is, Windows en het is geüpload en/of vastgelegd met de algemene instelling, wordt er niet eventuele fouten. Op dezelfde manier als het besturingssysteem Windows gespecialiseerd, en deze is geüpload en/of vastgelegd met de instelling van gespecialiseerde en eventuele fouten niet.
+**Y:** Als het besturingssysteem Windows gegeneraliseerd, en deze is geüpload en/of vastgelegd met de algemene instelling, klik zich er niet eventuele fouten. Op dezelfde manier als het besturingssysteem Windows gespecialiseerd, en deze is geüpload en/of vastgelegd met de instelling van gespecialiseerde en eventuele fouten niet.
 
 **Uploadfouten:**
 
-**N<sup>1</sup>:** als het besturingssysteem Windows gegeneraliseerd en is geüpload als gespecialiseerd, krijgt u een time-outfout inrichten met de virtuele machine vastgelopen bij het OOBE-scherm.
+**N<sup>1</sup>:** Als het besturingssysteem Windows gegeneraliseerd en is geüpload als gespecialiseerd, krijgt u een time-outfout inrichten met de virtuele machine vastgelopen bij het OOBE-scherm.
 
-**N<sup>2</sup>:** als het besturingssysteem is Windows, en is geüpload als gegeneraliseerd, wordt er een inrichten is mislukt met de virtuele machine op het scherm OOBE vastgelopen omdat de nieuwe virtuele machine wordt uitgevoerd met de naam van de oorspronkelijke computer, gebruikersnaam en wachtwoord.
+**N<sup>2</sup>:** Als het besturingssysteem is Windows, en is geüpload als gegeneraliseerd, krijgt u een inrichting is mislukt met de virtuele machine op het scherm OOBE vastgelopen omdat de nieuwe virtuele machine wordt uitgevoerd met de oorspronkelijke de computernaam, gebruikersnaam en wachtwoord.
 
 **Resolutie**
 
-U kunt beide deze fouten oplossen [Add-AzureRmVhd voor het uploaden van de oorspronkelijke VHD](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd), on-premises beschikbaar, met dezelfde instelling als die voor het besturingssysteem (gegeneraliseerde/specifieke). Als u wilt uploaden als gegeneraliseerd, moet u eerst sysprep uitvoeren.
+U kunt beide deze fouten oplossen [toevoegen-AzVhd voor het uploaden van de oorspronkelijke VHD](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd), on-premises beschikbaar, met dezelfde instelling als die voor het besturingssysteem (gegeneraliseerde/specifieke). Als u wilt uploaden als gegeneraliseerd, moet u eerst sysprep uitvoeren.
 
 **Vastleggen fouten:**
 
-**N<sup>3</sup>:** als het besturingssysteem Windows is gegeneraliseerd, en deze wordt vastgelegd als gespecialiseerd, krijgt u een inrichting time-outfout omdat de oorspronkelijke virtuele machine kan niet worden gebruikt omdat het is gemarkeerd als gegeneraliseerd.
+**N<sup>3</sup>:** Als het besturingssysteem Windows is gegeneraliseerd, en deze wordt vastgelegd als gespecialiseerd, krijgt u een inrichting time-outfout omdat de oorspronkelijke virtuele machine kan niet worden gebruikt omdat het is gemarkeerd als gegeneraliseerd.
 
-**N<sup>4</sup>:** als het besturingssysteem is Windows, en deze wordt vastgelegd als gegeneraliseerd, krijgt u een inrichting is mislukt omdat de nieuwe virtuele machine wordt uitgevoerd met de naam van de oorspronkelijke computer, de gebruikersnaam en het wachtwoord. De oorspronkelijke virtuele machine is ook niet kan worden gebruikt omdat deze is gemarkeerd als gespecialiseerde.
+**N<sup>4</sup>:** Als het besturingssysteem is Windows, en deze wordt vastgelegd als gegeneraliseerd, wordt er een inrichten is mislukt omdat de nieuwe virtuele machine wordt uitgevoerd met de naam van de oorspronkelijke computer, de gebruikersnaam en het wachtwoord. De oorspronkelijke virtuele machine is ook niet kan worden gebruikt omdat deze is gemarkeerd als gespecialiseerde.
 
 **Resolutie**
 
@@ -69,7 +69,7 @@ Beide deze fouten oplossen, verwijdert u de huidige installatiekopie vanuit de p
 ## <a name="issue-customgallerymarketplace-image-allocation-failure"></a>Probleem: Aangepaste/galerie/marketplace-installatiekopie; Toewijzingsfout
 Deze fout zich voordoet in situaties als de nieuwe VM-aanvraag is vastgemaakt aan een cluster die op de VM-grootte wordt aangevraagd niet kan ondersteunen, of heeft geen beschikbare vrije ruimte voor de aanvraag.
 
-**1 oorzaak:** het cluster kan niet de aangevraagde VM-grootte ondersteunt.
+**1 oorzaak:** Het cluster kan niet de aangevraagde VM-grootte ondersteunt.
 
 **Oplossing 1:**
 
@@ -80,7 +80,7 @@ Deze fout zich voordoet in situaties als de nieuwe VM-aanvraag is vastgemaakt aa
   * Nadat alle virtuele machines stoppen, moet u de nieuwe virtuele machine maken in de gewenste grootte.
   * Start de nieuwe virtuele machine eerst, en vervolgens selecteert u elk van de gestopte VM's en klik op **Start**.
 
-**2 oorzaak:** het cluster heeft geen gratis resources.
+**2 oorzaak:** Het cluster heeft geen gratis resources.
 
 **Oplossing 2:**
 

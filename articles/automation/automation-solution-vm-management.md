@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 1/30/2019
+ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0473bccbd249f70139d815b8353f1ac271df754f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d6e083c4a7595bb70e77bca860c756abc2eaa18e
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658383"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979646"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>VM's starten/stoppen buiten kantooruren oplossing in Azure Automation
 
@@ -209,7 +209,7 @@ De volgende tabel bevat de variabelen die in uw Automation-account gemaakt. Alle
 |External_AutoStop_TimeAggregationOperator | De tijd aggregatieoperator, die wordt toegepast op de grootte van het geselecteerde venster om de voorwaarde te evalueren. Acceptabele waarden zijn **gemiddelde**, **Minimum**, **maximale**, **totale**, en **laatste**.|
 |External_AutoStop_TimeWindow | De grootte van het venster waarin Azure geselecteerde metrische gegevens analyseert voor het activeren van een waarschuwing. Deze parameter accepteert invoer in timespan-indeling. Mogelijke waarden zijn van 5 minuten tot zes uur.|
 |External_EnableClassicVMs| Hiermee geeft u op of de klassieke virtuele machines door de oplossing zijn gericht. De standaardwaarde is True. Dit moet worden ingesteld op False voor CSP-abonnementen.|
-|External_ExcludeVMNames | Geef de namen van de virtuele machine moeten worden uitgesloten, namen scheiden met behulp van een door komma's zonder spaties.|
+|External_ExcludeVMNames | Geef de namen van de virtuele machine moeten worden uitgesloten, namen scheiden met behulp van een door komma's zonder spaties. Dit is beperkt tot 140 VM's. Als u virtuele machines die zijn bedoeld om te worden uitgesloten worden toegevoegd door meer dan 140 VM's kunnen worden gestart of afsluiten per ongeluk|
 |External_Start_ResourceGroupNames | Hiermee geeft u een of meer resourcegroepen, waarden scheiden met behulp van een door komma's, gericht voor begin acties.|
 |External_Stop_ResourceGroupNames | Hiermee geeft u een of meer resourcegroepen, waarden scheiden met behulp van een door komma's, gericht voor stop-acties.|
 |Internal_AutomationAccountName | Hiermee geeft u de naam van het Automation-account.|
@@ -333,7 +333,7 @@ Er zijn een aantal opties die u gebruiken kunt om ervoor te zorgen dat een virtu
 
 ### <a name="exclude-a-vm"></a>Uitsluiten van een virtuele machine
 
-Als u wilt uitsluiten van een virtuele machine van de oplossing, u kunt deze toevoegen aan de **External_ExcludeVMNames** variabele. Deze variabele is een door komma's gescheiden lijst van specifieke virtuele machines moeten worden uitgesloten van de oplossing starten/stoppen.
+Als u wilt uitsluiten van een virtuele machine van de oplossing, u kunt deze toevoegen aan de **External_ExcludeVMNames** variabele. Deze variabele is een door komma's gescheiden lijst van specifieke virtuele machines moeten worden uitgesloten van de oplossing starten/stoppen. Deze lijst is beperkt tot 140 VM's. Als u meer dan 140 VM's aan deze lijst met door komma's gescheiden toevoegt, virtuele machines die zijn ingesteld om te worden uitgesloten mogelijk per ongeluk gestart of gestopt.
 
 ## <a name="modify-the-startup-and-shutdown-schedules"></a>De planning voor opstarten en afsluiten wijzigen
 

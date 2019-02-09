@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 93fbcb96415aa2c800a772fdeb925b1513d7512d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2be50b7f2583f7f15b2a0783ef729b91bc158234
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863003"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983658"
 ---
 # <a name="install-and-run-containers"></a>Containers installeren en uitvoeren
 
@@ -68,7 +68,7 @@ Containerinstallatiekopieën voor Face-API zijn beschikbaar.
 
 ### <a name="docker-pull-for-the-face-container"></a>Docker pull voor de Face-container
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/face:latest
 ```
 
@@ -132,18 +132,7 @@ Als u de container wordt uitgevoerd met een uitvoer [koppelen](./face-resource-c
 
 De Face-API containers verzenden factuurgegevens naar Azure, met behulp van een _Face-API_ resource voor uw Azure-account. 
 
-Cognitive Services-containers zijn geen licentie om uit te voeren zonder verbinding met Azure voor het meten. Klanten moeten de containers om te communiceren factureringsgegevens met de softwarelicentiecontrole-service te allen tijde inschakelen. Cognitive Services-containers verzenden klantgegevens niet naar Microsoft. 
-
-De `docker run` opdracht maakt gebruik van de volgende argumenten voor factureringsdoeleinden bepalen:
-
-| Optie | Description |
-|--------|-------------|
-| `ApiKey` | De API-sleutel van de _Face-API_ resource gebruikt voor het bijhouden van informatie over facturering. |
-| `Billing` | Het eindpunt van de _Face-API_ resource gebruikt voor het bijhouden van informatie over facturering.|
-| `Eula` | Geeft aan dat u de licentie voor de container hebt geaccepteerd.<br/>De waarde van deze optie moet worden ingesteld op `accept`. |
-
-> [!IMPORTANT]
-> Alle drie de opties met geldige waarden moeten worden opgegeven of de container start niet.
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Zie voor meer informatie over deze opties [containers configureren](./face-resource-container-config.md).
 

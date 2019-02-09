@@ -4,7 +4,7 @@ description: In dit artikel geeft u informatie over het Media Services bijwerken
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: a892ebb0-0ea0-4fc8-b715-60347cc5c95b
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 02/08/2019
 ms.author: milanga;cenkdin;juliako
-ms.openlocfilehash: 4ab2c58e5a0f9e04d824eeea443a13af7a32617d
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 096372215ae44902c633489d197dc1d8aa60f193
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619653"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983012"
 ---
-# <a name="update-media-services-after-rolling-storage-access-keys"></a>Media Services bijwerken na gebruik toegangssleutels voor opslag
+# <a name="update-media-services-after-rolling-storage-access-keys-legacy"></a>Media Services bijwerken na gebruik toegangssleutels voor opslag (verouderd)
 
 Wanneer u een nieuwe Azure Media Services (AMS)-account maakt, kunt u wordt ook gevraagd om te selecteren van een Azure Storage-account dat wordt gebruikt voor het opslaan van uw media-inhoud. U kunt meer dan één storage-accounts toevoegen aan uw Media Services-account. In dit artikel laat zien hoe opslagsleutels draaien. U ziet ook hoe u storage-accounts toevoegen aan een media-account. 
 
@@ -68,7 +68,7 @@ Het volgende voorbeeld laat zien hoe u het opslagaccount ophaalt en deze synchro
  
 ## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>Stappen voor het storage-accounts toevoegen aan uw AMS-account
 
-Het volgende artikel laat zien hoe u storage-accounts toevoegen aan uw AMS-account: [meerdere opslagaccounts koppelen aan een Media Services-account](meda-services-managing-multiple-storage-accounts.md).
+Het volgende artikel laat zien hoe storage-accounts toevoegen aan uw AMS-account: [Meerdere opslagaccounts koppelen aan een Media Services-account](meda-services-managing-multiple-storage-accounts.md).
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -77,4 +77,4 @@ Het volgende artikel laat zien hoe u storage-accounts toevoegen aan uw AMS-accou
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ### <a name="acknowledgments"></a>Bevestigingen
-Wij willen graag om te bevestigen van de volgende personen die heeft bijgedragen tot het maken van dit document: Cenk Dingiloglu, Milaan Gada, Seva Titov.
+Wij willen graag om te bevestigen van de volgende personen die heeft bijgedragen tot het maken van dit document: Cenk Dingiloglu, Milan Gada, Seva Titov.

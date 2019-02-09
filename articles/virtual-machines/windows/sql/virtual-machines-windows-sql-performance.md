@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d5b44011607a393a682112e56aff1803c6d7cf72
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: ce7b73afa150ef5fef58c5baf861da92c5203548
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811593"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980497"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Prestatierichtlijnen voor SQL Server in Azure Virtual Machines
 
@@ -135,7 +135,7 @@ Er is een uitzondering op deze aanbeveling: _als uw verbruik TempDB schrijven-in
 
   * De bovenstaande aanbevelingen gelden voor Premium Storage-schijven. Als u Premium Storage niet gebruikt, Schakel geen eventuele opslaan in cache op eventuele gegevensschijven.
 
-  * Zie de volgende artikelen voor instructies over het configureren van de opslaan in schijfcache. Zie voor de klassiek (ASM) implementatiemodel: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) en [Set AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Voor de Azure Resource Manager deployment model zien: [Set-AzureRMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) en [Set-AzureRMVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1).
+  * Zie de volgende artikelen voor instructies over het configureren van de opslaan in schijfcache. Zie voor de klassiek (ASM) implementatiemodel: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) en [Set AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Voor de Azure Resource Manager deployment model zien: [Set-AzOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk?view=azurermps-4.4.1) en [Set AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdatadisk?view=azurermps-4.4.1).
 
      > [!WARNING]
      > Stop de SQL Server-service bij het wijzigen van de cache-instelling van Azure VM-schijven om te voorkomen dat de kans op een beschadiging van de database.

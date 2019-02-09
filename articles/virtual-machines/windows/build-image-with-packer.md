@@ -14,44 +14,45 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/29/2018
 ms.author: cynthn
-ms.openlocfilehash: bab3b37d2d5063c77f8aceee84646b1ee72b0617
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 0ae4c883baa156276646755273547a17d23edc55
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892538"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982485"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Hoe u Windows-installatiekopieën voor virtuele machines maken in Azure met Packer
 Elke virtuele machine (VM) in Azure is gemaakt op basis van een installatiekopie die u de distributie van Windows en versie van het besturingssysteem definieert. Installatiekopieën kunnen bevatten vooraf geïnstalleerde toepassingen en configuraties. De Azure Marketplace bevat vele installatiekopieën die eerste en derde partij voor de meest voorkomende OS en omgevingen met toepassingen, of maak uw eigen aangepaste installatiekopieën die zijn afgestemd op uw behoeften. Dit artikel wordt uitgelegd hoe u de open-source-hulpprogramma [Packer](https://www.packer.io/) om te definiëren en maken van aangepaste installatiekopieën in Azure.
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="create-azure-resource-group"></a>Azure-resourcegroep maken
 Tijdens het bouwproces maakt Packer tijdelijke Azure-resources zoals het samenstellen van de bron-VM. Om vast te leggen die bron-VM voor gebruik als een installatiekopie, moet u een resourcegroep definiëren. De uitvoer van het bouwproces Packer wordt opgeslagen in deze resourcegroep.
 
-Maak een resourcegroep met behulp van de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
+Maak een resourcegroep met [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 
 ```powershell
 $rgName = "myResourceGroup"
 $location = "East US"
-New-AzureRmResourceGroup -Name $rgName -Location $location
+New-AzResourceGroup -Name $rgName -Location $location
 ```
 
 ## <a name="create-azure-credentials"></a>Azure-referenties maken
 Packer verifieert met Azure met behulp van een service-principal. Een Azure service-principal is een beveiligings-id die u met apps, services en automatiseringsprogramma's, zoals Packer gebruiken kunt. U bepaalt en definiëren van de machtigingen over welke bewerkingen die de service-principal in Azure uitvoeren kunt.
 
-Een service-principal met maken [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) en toewijzen van machtigingen voor de service-principal maken en beheren van resources met [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment). Vervang *&lt;wachtwoord&gt;* in het voorbeeld door uw eigen wachtwoord.  
+Een service-principal met maken [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal) en toewijzen van machtigingen voor de service-principal maken en beheren van resources met [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment). Vervang *&lt;wachtwoord&gt;* in het voorbeeld door uw eigen wachtwoord.  
 
 ```powershell
-$sp = New-AzureRmADServicePrincipal -DisplayName "AzurePacker" `
+$sp = New-AzADServicePrincipal -DisplayName "AzurePacker" `
     -Password (ConvertTo-SecureString "<password>" -AsPlainText -Force)
 Sleep 20
-New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
+New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-Om te worden geverifieerd bij Azure, moet u ook verkrijgen van uw Azure-tenant en abonnement-id's met [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription):
+Om te worden geverifieerd bij Azure, moet u ook verkrijgen van uw Azure-tenant en abonnement-id's met [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription):
 
 ```powershell
-$sub = Get-AzureRmSubscription
+$sub = Get-AzSubscription
 $sub.TenantId[0]
 $sub.SubscriptionId[0]
 ```
@@ -206,10 +207,10 @@ Het duurt een paar minuten voor Packer bouwen van de virtuele machine, het uitvo
 
 
 ## <a name="create-a-vm-from-the-packer-image"></a>Een virtuele machine uit de Packer-installatiekopie maken
-U kunt nu een virtuele machine maken door uw installatiekopie met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). De ondersteunende netwerkresources gemaakt als deze nog niet bestaan. Wanneer u hierom wordt gevraagd, voert u een beheerdersgebruikersnaam en het wachtwoord moet worden gemaakt op de virtuele machine. Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* van *myPackerImage*:
+U kunt nu een virtuele machine maken door uw installatiekopie met [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). De ondersteunende netwerkresources gemaakt als deze nog niet bestaan. Wanneer u hierom wordt gevraagd, voert u een beheerdersgebruikersnaam en het wachtwoord moet worden gemaakt op de virtuele machine. Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* van *myPackerImage*:
 
 ```powershell
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName $rgName `
     -Name "myVM" `
     -Location $location `
@@ -221,16 +222,16 @@ New-AzureRmVm `
     -Image "myPackerImage"
 ```
 
-Als u maken van virtuele machines in een andere resourcegroep of een andere regio dan uw Packer-installatiekopie wilt, geeft u de afbeeldings-ID in plaats van de naam van installatiekopie. U vindt de afbeeldings-ID met [Get-AzureRmImage](/powershell/module/AzureRM.Compute/Get-AzureRmImage).
+Als u maken van virtuele machines in een andere resourcegroep of een andere regio dan uw Packer-installatiekopie wilt, geeft u de afbeeldings-ID in plaats van de naam van installatiekopie. U vindt de afbeeldings-ID met [Get-AzImage](https://docs.microsoft.com/powershell/module/az.compute/Get-AzImage).
 
 Het duurt een paar minuten aan de virtuele machine maken vanaf uw Packer-installatiekopie.
 
 
 ## <a name="test-vm-and-webserver"></a>Virtuele machine en de webserver testen
-Haal het openbare IP-adres van uw virtuele machine op met [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). In het volgende voorbeeld wordt het IP-adres opgehaald voor het eerder gemaakte *myPublicIP*:
+Het openbare IP-adres van uw virtuele machine met [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress). In het volgende voorbeeld wordt het IP-adres opgehaald voor het eerder gemaakte *myPublicIP*:
 
 ```powershell
-Get-AzureRmPublicIPAddress `
+Get-AzPublicIPAddress `
     -ResourceGroupName $rgName `
     -Name "myPublicIPAddress" | select "IpAddress"
 ```

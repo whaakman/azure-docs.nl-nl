@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 749a599936825f5f69ae18affad0fa89a4f1118f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 95b5bbb6c227b5001865a751abddddc4924e7b2d
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259628"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981074"
 ---
 # <a name="install-and-use-apache-solr-on-windows-based-hdinsight-clusters"></a>Installeren en gebruiken van Apache Solr op Windows gebaseerde HDInsight-clusters
 
@@ -46,17 +46,12 @@ Het voorbeeld van een script gebruikt in dit onderwerp wordt een Solr op basis v
 
     ![Scriptactie gebruiken voor het aanpassen van een cluster](./media/hdinsight-hadoop-solr-install/hdi-script-action-solr.png "scriptactie gebruiken voor het aanpassen van een cluster")
 
-    <table border='1'>
-        <tr><th>Eigenschap</th><th>Waarde</th></tr>
-        <tr><td>Name</td>
-            <td>Geef een naam voor de scriptactie. Bijvoorbeeld, <b>Solr installeren</b>.</td></tr>
-        <tr><td>Script URI</td>
-            <td>Geef de Uniform Resource Identifier (URI) naar het script dat wordt aangeroepen voor het aanpassen van het cluster. Bijvoorbeeld: <i>https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</i></td></tr>
-        <tr><td>Soort knooppunt</td>
-            <td>Geef op de knooppunten waarop de aanpassing-script wordt uitgevoerd. U kunt ervoor kiezen <b>alle knooppunten</b>, <b>hoofdknooppunten alleen</b>, of <b>Worker-knooppunten</b>.
-        <tr><td>Parameters</td>
-            <td>Geef de parameters op, indien vereist door het script. Solr installeren met het script is niet vereist voor alle parameters, zodat u kunt dit leeg laten.</td></tr>
-    </table>
+    |Eigenschap|Value|
+    |---|---|
+    |Name|Geef een naam voor de scriptactie. Bijvoorbeeld, **Solr installeren**.|
+    |Script URI|Geef de Uniform Resource Identifier (URI) naar het script dat wordt aangeroepen voor het aanpassen van het cluster. Bijvoorbeeld: *https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1*|
+    |Soort knooppunt|Geef op de knooppunten waarop de aanpassing-script wordt uitgevoerd. U kunt ervoor kiezen **alle knooppunten**, **hoofdknooppunten alleen**, of **Worker-knooppunten**.
+    |Parameters|Geef de parameters op, indien vereist door het script. Solr installeren met het script is niet vereist voor alle parameters, zodat u kunt dit leeg laten.|
 
     U kunt meer dan één scriptactie voor het installeren van meerdere onderdelen op het cluster toevoegen. Nadat u de scripts hebt toegevoegd, klikt u op het vinkje om te beginnen met het maken van het cluster.
 

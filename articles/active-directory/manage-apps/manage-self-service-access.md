@@ -3,8 +3,8 @@ title: Het configureren van self-servicetoepassingen toewijzing | Microsoft Docs
 description: Self-servicetoepassingen toegang tot toestaan dat gebruikers hun eigen toepassingen zoeken inschakelen
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
-ms.author: barbkess
-ms.openlocfilehash: b2d08624a95d799962e331e3b4708dfa792d3ca8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.author: celested
+ms.openlocfilehash: 42027a650a23546514ffe0fbb0d5f8ee96fec3ac
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169128"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965066"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Self-servicetoepassingen toewijzing configureren
 

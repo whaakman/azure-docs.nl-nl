@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: pryerram
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: c71c7423b4cde2a24c8154899eec256e5746b6d7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9bff93fbec73eb73dca01660d46e35e194edb626
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865359"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963485"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault beheerd opslagaccount - CLI
 
@@ -44,6 +44,12 @@ ms.locfileid: "55865359"
       
 <a name="step-by-step-instructions-on-how-to-use-key-vault-to-manage-storage-account-keys"></a>Voor stap door stapsgewijze instructies over het gebruik van Key Vault voor het beheren van Opslagaccountsleutels
 --------------------------------------------------------------------------------
+Conceptueel gezien zijn van de lijst met stappen die worden gevolgd
+- Krijgen we eerst een opslagaccount (bestaand)
+- We vervolgens ophalen een (vooraf bestaande) sleutelkluis
+- We vervolgens een Key Vault beheerde storage-account toevoegen aan de kluis Key1 als de actieve sleutel en met een punt opnieuw genereren van 180 dagen in te stellen
+- Ten slotte stellen we een storage-context voor het opgegeven opslagaccount, met Key1
+
 In de onderstaande instructies volgen, zijn we Key Vault toewijzen als een service operatormachtigingen hebben voor uw storage-account
 
 > [!NOTE]
@@ -85,9 +91,41 @@ In de onderstaande instructies volgen, zijn we Key Vault toewijzen als een servi
     ```
     In het geval de gebruiker het storage-account hebt gemaakt en heeft geen machtigingen voor de storage-account, stel de volgende stappen uit de machtigingen voor uw account om ervoor te zorgen dat u alle opslagmachtigingen voor de in de Key Vault kunt beheren.
     
+
+<a name="step-by-step-instructions-on-how-to-use-key-vault-to-create-and-generate-sas-tokens"></a>Voor stap door stapsgewijze instructies over het gebruik van Key Vault maken en genereren van SAS-tokens
+--------------------------------------------------------------------------------
+Key Vault voor het genereren van SAS (Shared Access Signature)-tokens kunt u ook vragen. Een shared access signature biedt gedelegeerde toegang tot resources in uw opslagaccount. Met een SAS kunt u clients toegang verlenen tot bronnen in uw opslagaccount zonder het delen van sleutels van uw account. De belangrijkste reden voor het gebruik van handtekeningen voor gedeelde toegang in uw toepassingen is dat een SAS een veilige manier is voor het delen van uw opslagresources zonder dat uw accountsleutels in gevaar komen.
+
+Nadat u hebt voltooid, kunnen de volgende opdrachten om te vragen van Key Vault voor het genereren van SAS-tokens voor u in de u bovenstaande stappen uitvoeren. 
+
+De lijst met zaken die kan worden uitgevoerd in de onderstaande stappen zijn
+- Hiermee stelt u een account-SAS-definitie met de naam '<YourSASDefinitionName>'voor een Key Vault-beheerd opslagaccount'<YourStorageAccountName>'in uw kluis'<VaultName>'. 
+- Hiermee maakt u een account-SAS-token voor de services Blob, bestand, tabel en wachtrij voor het woord brontypen Service, Container en Object, met alle machtigingen via https en met de opgegeven begin- en einddatums
+- Hiermee stelt u een Key Vault beheerde opslag SAS-definitie in de kluis, met de uri van de sjabloon als de SAS-token gemaakt hierboven, van SAS-type 'account' en geldige N dagen
+- De werkelijke toegangstoken opgehaald uit de Key Vault-geheim dat overeenkomt met de SAS-definitie
+
+1. In deze stap maken we de definitie van een SAS. Zodra deze SAS-definitie is gemaakt, kunt u Key Vault voor het genereren van meer SAS-tokens voor u te vragen. Deze bewerking moet de machtiging voor opslag/setsas.
+
+```
+$sastoken = az storage account generate-sas --expiry 2020-01-01 --permissions rw --resource-types sco --services bfqt --https-only --account-name storageacct --account-key 00000000
+```
+Ziet u meer informatie over de bovenstaande bewerking [hier](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas)
+
+Wanneer deze bewerking wordt uitgevoerd, ziet u uitvoer die lijkt op, zoals hieronder wordt weergegeven. Kopiëren
+
+```console
+   "se=2020-01-01&sp=***"
+```
+
+2. In deze stap gebruiken we de uitvoer ($sasToken) gegenereerd hierboven om de definitie van een SAS te maken. Lees voor meer documentatie [hier](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)   
+
+```
+az keyvault storage sas-definition create --vault-name <YourVaultName> --account-name <YourStorageAccountName> -n <NameOfSasDefinitionYouWantToGive> --validity-period P2D --sas-type account --template-uri $sastoken
+```
+                        
+
  > [!NOTE] 
  > In het geval de gebruiker beschikt niet over machtigingen voor het opslagaccount, krijgen we eerst de Object-Id van de gebruiker
-
 
     ```
     az ad user show --upn-or-object-id "developer@contoso.com"
@@ -96,11 +134,11 @@ In de onderstaande instructies volgen, zijn we Key Vault toewijzen als een servi
     
     ```
     
-## <a name="how-to-access-your-storage-account-with-sas-tokens"></a>Toegang tot uw storage-account met SAS-tokens
+## <a name="fetch-sas-tokens-in-code"></a>SAS-tokens in de code ophalen
 
 In deze sectie bespreken we hoe u bewerkingen op uw storage-account kunt doen met het ophalen van [SAS-tokens](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) uit Key Vault
 
-In de onderstaande sectie we laten zien hoe u uw storage-accountsleutel die zijn opgeslagen in Key Vault ophalen en deze te gebruiken om te maken van de definitie van een SAS (Shared Access Signature) voor uw opslagaccount.
+In de onderstaande sectie we laten zien hoe u voor het ophalen van SAS-tokens wanneer de definitie van een SAS zoals hierboven is gemaakt.
 
 > [!NOTE] 
   Er zijn 3 manieren om te verifiëren naar Key Vault, omdat u kunt lezen de [basisconcepten](key-vault-whatis.md#basic-concepts)

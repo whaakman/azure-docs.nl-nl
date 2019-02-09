@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 01/14/2019
+ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7536913817e10fbc2b46eadd1cebdfb98079c759
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 97cdae49b4676500e29ac25b12712c94e575e5f8
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819515"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960561"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Opslagcapaciteit voor Azure Stack beheren 
 
@@ -91,7 +91,7 @@ Als een cloud-operator, kunt u de beheerportal om de opslagcapaciteit van alle s
 1. Aanmelden bij de [-beheerportal](https://adminportal.local.azurestack.external).
 2. Selecteer **alle services** > **opslag** openen van de lijst met de bestandsshare waar u de informatie over het gebruik kunt bekijken. 
 
-  ![Voorbeeld: Bestandsshares voor opslag](media/azure-stack-manage-storage-shares/storage-file-shares.png)
+    ![Voorbeeld: Bestandsshares voor opslag](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
   - **Totaal aantal** is de totale ruimte in bytes die beschikbaar op de share zijn. Deze ruimte wordt gebruikt voor gegevens en metagegevens die wordt beheerd door de storage-services.
   - **GEBRUIKT** is de hoeveelheid gegevens in bytes die wordt gebruikt door alle gebieden van de bestanden die de gegevens van de tenant en gekoppelde metagegevens opgeslagen.

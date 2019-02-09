@@ -16,18 +16,18 @@ ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: asganesh
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: f900fa5105f42dac57b392d41a8cd888850fc648
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 491664067c87de8f94d2395cb2ffbdeade2595b0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249488"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979544"
 ---
 # <a name="azure-stack-datacenter-integration"></a>Integratie van Azure Stack-datacenter
 
-Dit artikel beschrijft de gebruikerservaring van end-to-end Azure Stack bij de aanschaf van een geïntegreerde oplossing via voor een succesvolle on-site implementatie door een solution provider. Deze informatie gebruiken om uw reis vereenvoudigen en om u te helpen bij het instellen van verwachtingen op wat u, als een klant van Azure Stack moeten verwachten bij het integreren van Azure Stack in uw datacenter.
+Dit artikel beschrijft de gebruikerservaring van end-to-end Azure Stack bij de aanschaf van een geïntegreerd systeem via een geslaagde implementatie van ter plekke door een solution provider. Gebruik deze informatie om uw reis en om u te helpen bij het instellen van de verwachtingen voor u een Azure Stack-klant bent.
 
-Als een Azure Stack-klant bent, moet u verwacht dat de volgende fasen van de datacenter-integratie:
+Als een Azure Stack-klant bent, moet u verwacht dat de volgende fasen:
 
 |     |Planningsfase|Volgorde-proces|Vóór de implementatie|Factory-proces|Hardware-levering|Implementatie van op locatie|
 |-----|-----|-----|-----|-----|-----|-----|
@@ -63,7 +63,7 @@ Tijdens deze fase moet u bepalen hoe u Azure Stack integreren in uw datacenter. 
 De [algemene datacenter-Integratieoverwegingen](azure-stack-datacenter-integration.md) artikel bevat informatie die u bij het voltooien van de sjabloon helpt, ook wel het werkblad voor implementatie. 
 
 > [!IMPORTANT]
-> Tijdens deze fase is het belangrijk dat alle vereiste informatie is onderzocht en besloten op voordat u de oplossing te bestellen. Let erop dat deze stap tijd in beslag nemen en coördinatie en verzamelen van gegevens bij meerdere disciplines binnen uw organisatie vereist. 
+> Tijdens deze fase is het belangrijk dat alle vereiste informatie is onderzocht en besloten op voordat u de oplossing te bestellen. Let erop dat deze stap tijd in beslag nemen en coördinatie en verzamelen van gegevens bij meerdere disciplines binnen uw organisatie vereist. Onjuiste of onvolledige informatie kan leiden tot een langere implementatie. 
 
 In de fase vóór de implementatie moet u beslissen over het volgende:
 
@@ -90,7 +90,7 @@ Het is **cruciale** dat alle vereiste gegevens is vergrendeld en kan *voordat de
 
 -   Alle certificaten moeten worden aangeschaft en gereed.
 
--   Domeinnaam moet worden vastgesteld.
+-   Regionaam moet worden vastgesteld.
 
 -   Alle parameters van de netwerk-integratie zijn voltooid en komt overeen met wat u met uw solution provider hebt gedeeld.
 
@@ -102,16 +102,16 @@ Als u wilt implementeren in Azure Stack, moet een technicus op locatie van uw ha
 
 Hier volgt wat u mag verwachten van de technicus op locatie tijdens de implementatie-ervaring:
 
-- Controleer alle kabels en connectiviteit van de rand om te controleren of de oplossing wordt goed samengesteld en voldoet aan uw vereisten
-- De oplossing HLH (Hardware Lifecycle Host) configureren
+- Controleer alle kabels en connectiviteit van de rand om te controleren of de oplossing correct wordt samengesteld en voldoet aan uw vereisten.
+- Configureer de oplossing HLH (Hardware Lifecycle Host), indien aanwezig.
 - Controleer of dat alle BMC-, BIOS-en netwerkinstellingen juist zijn.
-- Zorg ervoor dat de firmware van alle onderdelen is de meest recente goedgekeurde versie door de oplossing
-- De implementatie starten
+- Zorg ervoor dat de firmware van alle onderdelen van de meest recente goedgekeurde versie door de oplossing.
+- De implementatie start.
 
 > [!NOTE]
 > Een implementatie van procedure door de engineering op locatie kan over een week van zakelijke duren om uit te voeren.
 
-## <a name="post-integration-phase"></a>Na integratie fase
+## <a name="post-deployment-phase"></a>Na de implementatie-fase
 Verschillende stappen moeten worden uitgevoerd door de partner voordat de oplossing wordt doorgegeven aan de klant in de fase na integratie. In deze fase is validatie belangrijk om te controleren of dat het systeem is geïmplementeerd en de prestaties goed. 
 
 Acties die moeten worden genomen door de OEM-Partner zijn:
@@ -122,13 +122,13 @@ Acties die moeten worden genomen door de OEM-Partner zijn:
 
 -   [Marketplace Syndication](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
 
--   Back-Switch-configuratiebestanden
+-   Back-upbestanden voor configuratie van de Switch en HLH configuratie
 
 -   DVM verwijderen
 
 -   Een klant overzicht voorbereiden voor implementatie
 
--   [Controleren op updates te controleren of dat de oplossingsoftware wordt bijgewerkt naar de nieuwste versie](azure-stack-updates.md)
+-   [Controleren op updates te controleren of dat de oplossingsoftware wordt bijgewerkt naar de nieuwste versie](.\azure-stack-updates.md)
 
 Er zijn verschillende stappen die vereist of optioneel zijn, afhankelijk van het installatietype zijn.
 

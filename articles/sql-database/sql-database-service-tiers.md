@@ -12,19 +12,19 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: e0455ef99016fe1029f17256a6dbf5d9bbd8aa4d
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 3e4e9d9fb3b7e9a66ec3522e046bdca1ecad98c9
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890566"
+ms.locfileid: "55965083"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database aanschaffen van modellen
 
 Azure SQL Database kunt u gemakkelijk volledig beheerde PaaS-database-engine die past bij de behoeften van uw prestaties en kosten kunt kopen. Afhankelijk van het implementatiemodel van Azure SQL Database, kunt u de aankopen model dat aansluit bij uw behoeften:
 
 - [op vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) (aanbevolen) waarmee u de exacte hoeveelheid opslagcapaciteit kiezen en compute die u nodig hebt voor uw workload.
-- [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) kunt u de berekenings- en pakketten met gelijke taakverdeling voor veelvoorkomende workloads gebundeld.
+- [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) kunt u de reken- en pakketten met gelijke taakverdeling voor veelvoorkomende workloads gebundeld.
 
 Verschillende aankopen modellen zijn beschikbaar in Azure SQL Database-implementatiemodellen:
 
@@ -39,10 +39,20 @@ De volgende tabel en de grafiek vergelijken en deze twee aankopen modellen contr
 |**Aankopen model**|**Beschrijving**|**Het meest geschikt voor**|
 |---|---|---|
 |Model op basis van DTU|Dit model is gebaseerd op een gecombineerde meting van compute, opslag- en i/o-resources. COMPUTE-grootten worden uitgedrukt in termen van Database Transaction Units (dtu's) voor individuele databases en elastische Database Transaction Units (edtu's) voor elastische pools. Zie voor meer informatie over dtu's en Edtu's [wat zijn dtu's en edtu's?](sql-database-service-tiers.md#dtu-based-purchasing-model).|Bij beste voor klanten die eenvoudige, vooraf geconfigureerde opties willen.|
-|Model op basis van vCore|Dit model kunt u reken- en opslagresources onafhankelijk van elkaar te kiezen. Ook kunt u Azure Hybrid Benefit voor SQL Server gebruiken om te krijgen van kosten te besparen.|Bij beste voor klanten die flexibiliteit, controle en transparantie waarde.|
+|Model op basis van vCore|Dit model kunt u reken- en opslagresources onafhankelijk van elkaar te kiezen. Het op vCore gebaseerde aankoopmodel kunt u gebruiken [Azure Hybrid Benefit voor SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) te krijgen van de kosten te besparen.|Bij beste voor klanten die flexibiliteit, controle en transparantie waarde.|
 ||||  
 
 ![prijsmodel](./media/sql-database-service-tiers/pricing-model.png)
+
+## <a name="compute-costs"></a>De kosten voor rekenuren
+
+De kosten zijn de totale compute-capaciteit die is ingericht voor de toepassing. Automatisch toewijzen we in de bedrijfslaag kritieke-ten minste 3 replica's. Om te weerspiegelen deze extra toewijzing van compute-resources, is de prijs in het op vCore gebaseerde aankoopmodel ongeveer 2.7 x hoger in de kritieke-bedrijfslaag dan in de categorie Algemeen gebruik-service. Om dezelfde reden, de hogere opslag prijs per GB in de de bedrijfslaag kritieke-weerspiegelt de hoge i/o- en lage latentie van de SSD-opslag. Op hetzelfde moment is niet de kosten voor back-upopslag verschil is tussen deze twee Servicelagen, omdat in beide gevallen we een klasse standard-opslag gebruiken.
+
+## <a name="storage-costs"></a>Opslagkosten
+
+Verschillende typen opslag worden anders gefactureerd. Voor opslag van gegevens in rekening gebracht voor de ingerichte opslag op basis van de database of pool maximumgrootte die u selecteert. De kosten wordt niet gewijzigd, tenzij u verlagen of te die maximaal verhogen. Back-upopslag hoort bij geautomatiseerde back-ups van uw exemplaar en dynamisch wordt toegewezen. Door de retentieperiode van uw back-ups te vergroten, zal er meer back-upopslag door uw exemplaar worden verbruikt. Er worden geen extra kosten in rekening gebracht voor back-upopslag voor maximaal 100% van uw totale ingerichte serveropslag. Voor aanvullend verbruik van back-upopslag wordt in rekening gebracht in GB per maand. Als u bijvoorbeeld een database-opslag van 100 GB hebt, krijgt u 100 GB aan back-upopslag, zonder extra kosten. Maar als de back-up 110 GB is, betaalt u voor de extra 10 GB.
+
+Voor back-upopslag van één database in rekening gebracht op het pro rata gefactureerd voor de opslag die is toegewezen aan de databaseback-ups minus de grootte van de database. Voor back-upopslag van een elastische pool in rekening gebracht op het pro rata gefactureerd voor de opslag die is toegewezen aan de databaseback-ups van alle databases in de groep minus de maximale grootte van de elastische pool. Een toename van de grootte van de database of elastische pool of een toename van de Transactiesnelheid meer opslag vereist en dus verhoogt uw back-upopslag-factuur.  Als u de maximale gegevensgrootte verhoogt, wordt deze nieuwe bedrag afgetrokken van de grootte van de back-upopslag worden gefactureerd.
 
 ## <a name="vcore-based-purchasing-model"></a>Op vCore gebaseerd aanschafmodel
 
@@ -97,6 +107,22 @@ Als u wilt migreren als u een bestaande on-premises of virtuele machine-werkbela
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Workloads die baat bij een elastische pool met resources hebben
 
 Pools zijn geschikt voor een groot aantal databases met specifieke gebruikspatronen. Voor een bepaalde database, wordt dit patroon gekenmerkt door een gemiddelde laag gebruik met relatief incidentele gebruikspieken. SQL Database evalueert automatisch het historisch resourcegebruik van databases in een bestaande SQL Database-server en op basis daarvan wordt de juiste poolconfiguratie in de Azure-portal aanbevolen. Zie [Wanneer moet een elastische pool worden gebruikt?](sql-database-elastic-pool.md) voor meer informatie.
+
+## <a name="service-tier-frequently-asked-questions-faq"></a>Servicelaag Veelgestelde vragen (FAQ)
+
+### <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>Moet ik mijn toepassing offline te converteren van een database op basis van DTU naar een vCore-servicelaag
+
+De nieuwe servicelagen bieden een eenvoudige onlineconversiemethode die vergelijkbaar is met het bestaande upgradeproces van de Standard- naar de Premium-servicelaag en omgekeerd. Deze conversie kan worden gestart via de Azure-portal, PowerShell, Azure CLI, T-SQL of de REST-API. Zie [individuele databases beheren](sql-database-single-database-scale.md) en [elastische pools beheren](sql-database-elastic-pool.md).
+
+### <a name="can-i-convert-a-database-from-a-vcore-based-service-tier-to-a-dtu-based-one"></a>Ik kan een database van een op vCore gebaseerde servicelaag converteren naar een op basis van een DTU
+
+Ja, kunt u uw database omzetten naar een ondersteunde prestaties doelstelling met behulp van Azure portal, PowerShell, Azure CLI, T-SQL of de REST-API. Zie [individuele databases beheren](sql-database-single-database-scale.md) en [elastische pools beheren](sql-database-elastic-pool.md).
+
+### <a name="can-i-upgrade-or-downgrade-between-the-general-purpose-and-business-critical-service-tiers"></a>Ik kan upgraden en downgraden tussen de lagen algemeen gebruik en bedrijfskritiek
+
+Ja, met enkele beperkingen. De SKU van de bestemming moet voldoen aan de maximale database of elastische pool-grootte die u hebt geconfigureerd voor uw bestaande implementatie. Als u [Azure Hybrid Benefit voor SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/), de bedrijfskritieke SKU is alleen beschikbaar voor klanten met Enterprise Edition-licenties. Alleen klanten die zijn gemigreerd vanuit on-premises naar de servicelaag voor algemeen gebruik met behulp van Azure Hybrid Benefit voor SQL Server Enterprise Edition-licenties kunnen upgraden naar de kritieke zakelijke-servicelaag. Zie voor meer informatie [wat zijn de specifieke rechten van de Azure Hybrid Benefit voor SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/)?
+
+Deze conversie een hoeveelheid niet leidt tot downtime en kan worden gestart via Azure portal, PowerShell, Azure CLI, T-SQL of de REST-API. Zie [individuele databases beheren](sql-database-single-database-scale.md) en [elastische pools beheren](sql-database-elastic-pool.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

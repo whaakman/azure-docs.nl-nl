@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: e4963ebae73bdd81246433fe43206139caa1661c
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: c27af57ce4fa80a4ae167ce1e27018d049923a3f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295777"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982842"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Uw eerste installatiekopie naar een Docker-containerregister pushen met de Docker-CLI
 
@@ -37,7 +37,7 @@ az acr login --name myregistry
 
 U kunt zich ook aanmelden met [dockeraanmelding](https://docs.docker.com/engine/reference/commandline/login/). Bijvoorbeeld, u mogelijk [toegewezen van een service-principal](container-registry-authentication.md#service-principal) naar het register voor een automation-scenario. Wanneer u de volgende opdracht uitvoert, geeft u interactief de service-principal appID (gebruikersnaam) en het wachtwoord wanneer hierom wordt gevraagd. Zie voor aanbevolen procedures voor het beheren van referenties voor clusteraanmelding de [dockeraanmelding](https://docs.docker.com/engine/reference/commandline/login/) opdrachten:
 
-```Docker
+```
 docker login myregistry.azurecr.io
 ```
 
@@ -50,7 +50,7 @@ Beide opdrachten retourneren `Login Succeeded` nadat deze is voltooid.
 
 Haal eerst, de openbare Nginx-installatiekopie naar uw lokale computer.
 
-```Docker
+```
 docker pull nginx
 ```
 
@@ -58,7 +58,7 @@ docker pull nginx
 
 Uitvoeren van volgende [docker uitvoeren](https://docs.docker.com/engine/reference/run/) opdracht een lokaal exemplaar van de Nginx-container interactief gestart (`-it`) op poort 8080. De `--rm` argument geeft aan dat de container moet worden verwijderd wanneer u deze stoppen.
 
-```Docker
+```
 docker run -it --rm -p 8080:80 nginx
 ```
 
@@ -74,7 +74,7 @@ Als u wilt stoppen en verwijderen van de container, drukt u op `Control` + `C`.
 
 Gebruik [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) om te maken van een alias van de installatiekopie met de volledig gekwalificeerde pad naar het register. In dit voorbeeld wordt de naamruimte `samples` gespecificeerd om overbodige items in de hoofdmap van het register te voorkomen.
 
-```Docker
+```
 docker tag nginx myregistry.azurecr.io/samples/nginx
 ```
 
@@ -84,7 +84,7 @@ Zie voor meer informatie over het taggen met naamruimten het [opslagplaatsnaamru
 
 Nu dat u hebt de installatiekopie met de volledig gekwalificeerde pad naar uw privéregister gelabeld, kunt u deze naar het register met pushen [docker push](https://docs.docker.com/engine/reference/commandline/push/):
 
-```Docker
+```
 docker push myregistry.azurecr.io/samples/nginx
 ```
 
@@ -92,7 +92,7 @@ docker push myregistry.azurecr.io/samples/nginx
 
 Gebruik de [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) opdracht voor het ophalen van de installatiekopie van het register:
 
-```Docker
+```
 docker pull myregistry.azurecr.io/samples/nginx
 ```
 
@@ -100,7 +100,7 @@ docker pull myregistry.azurecr.io/samples/nginx
 
 Gebruik de [docker uitvoeren](https://docs.docker.com/engine/reference/run/) opdracht om uit te voeren van de installatiekopie die u hebt opgehaald uit het register:
 
-```Docker
+```
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
@@ -112,7 +112,7 @@ Als u wilt stoppen en verwijderen van de container, drukt u op `Control` + `C`.
 
 Als u de Nginx-installatiekopie niet meer nodig hebt, kunt u het verwijderen lokaal met de [docker rmi](https://docs.docker.com/engine/reference/commandline/rmi/) opdracht.
 
-```Docker
+```
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 

@@ -3,9 +3,8 @@ title: Automatiseer de inrichting van apps die SCIM gebruiken in Azure Active Di
 description: Azure Active Directory kan automatisch inrichten van gebruikers en groepen voor elke toepassing of identiteit store die door een webservice is fronted met de interface die is gedefinieerd in de specificatie van het protocol SCIM
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: ''
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/12/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: faebf6c5e7b32ec842c19af07e36a1120156e103
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: a18573c73c89a2d1424a85c746ead5ccd508c034
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894119"
+ms.locfileid: "55961241"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Met behulp van systeem voor meerdere domeinen Identity Management (SCIM) voor het automatisch inrichten van gebruikers en groepen uit Azure Active Directory voor toepassingen
 

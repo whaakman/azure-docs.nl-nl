@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2018
 ms.author: roiyz
-ms.openlocfilehash: 1370f541f8913d86db948a3165d6660a8cd66528
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f29c995c4fb4a1e87c95295779ff83dd133ac61c
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963501"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984389"
 ---
 # <a name="custom-script-extension-for-windows"></a>Aangepaste Scriptextensie voor Windows
 
@@ -31,7 +31,7 @@ Dit document wordt uitgelegd hoe u de aangepaste Scriptextensie met behulp van d
 ## <a name="prerequisites"></a>Vereisten
 
 > [!NOTE]  
-> Gebruik geen aangepaste Scriptextensie om uit te voeren van Update-AzureRmVM met dezelfde virtuele machine als de parameter omdat het wacht op zichzelf.  
+> Gebruik geen aangepaste Scriptextensie om uit te voeren van Update-AzVM met dezelfde virtuele machine als de parameter omdat het wacht op zichzelf.  
 >   
 > 
 
@@ -107,17 +107,17 @@ Deze items moeten worden beschouwd als vertrouwelijke gegevens en opgegeven in d
 
 ### <a name="property-values"></a>Waarden van eigenschappen
 
-| Naam | Waarde / voorbeeld | Gegevenstype |
+| Name | Waarde / voorbeeld | Gegevenstype |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| Uitgever | Microsoft.Compute | tekenreeks |
-| type | Customscriptextension gebruiken | tekenreeks |
+| Uitgever | Microsoft.Compute | string |
+| type | CustomScriptExtension | string |
 | typeHandlerVersion | 1.9 | int |
-| fileUris (bijvoorbeeld) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | matrix |
+| fileUris (bijvoorbeeld) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
 | tijdstempel (bijvoorbeeld) | 123456789 | 32-bits geheel getal |
-| commandToExecute (bijvoorbeeld) | PowerShell - ExecutionPolicy Unrestricted - File configureren muziek app.ps1 | tekenreeks |
-| storageAccountName (bijvoorbeeld) | examplestorageacct | tekenreeks |
-| storageAccountKey (bijvoorbeeld) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | tekenreeks |
+| commandToExecute (bijvoorbeeld) | PowerShell - ExecutionPolicy Unrestricted - File configureren muziek app.ps1 | string |
+| storageAccountName (bijvoorbeeld) | examplestorageacct | string |
+| storageAccountKey (bijvoorbeeld) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 >[!NOTE]
 >De namen van deze eigenschappen zijn hoofdlettergevoelig. Om implementatieproblemen te voorkomen, door de namen te gebruiken zoals hier wordt weergegeven.
@@ -145,10 +145,10 @@ Azure VM-extensies kunnen worden geïmplementeerd met Azure Resource Manager-sja
 
 ## <a name="powershell-deployment"></a>PowerShell-implementatie
 
-De `Set-AzureRmVMCustomScriptExtension` opdracht kan worden gebruikt om de aangepaste scriptextensie toevoegen aan een bestaande virtuele machine. Zie voor meer informatie, [Set AzureRmVMCustomScriptExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension).
+De `Set-AzVMCustomScriptExtension` opdracht kan worden gebruikt om de aangepaste scriptextensie toevoegen aan een bestaande virtuele machine. Zie voor meer informatie, [Set AzVMCustomScriptExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmcustomscriptextension).
 
 ```powershell
-Set-AzureRmVMCustomScriptExtension -ResourceGroupName myResourceGroup `
+Set-AzVMCustomScriptExtension -ResourceGroupName myResourceGroup `
     -VMName myVM `
     -Location myLocation `
     -FileUri myURL `
@@ -173,7 +173,7 @@ $storagekey = "1234ABCD"
 $ProtectedSettings = @{"storageAccountName" = $storageaccname; "storageAccountKey" = $storagekey; "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File 1_Add_Tools.ps1"};
 
 #run command
-Set-AzureRmVMExtension -ResourceGroupName myRG `
+Set-AzVMExtension -ResourceGroupName myRG `
     -Location myLocation ` 
     -VMName myVM ` 
     -Name "buildserver1" ` 
@@ -190,7 +190,7 @@ In dit voorbeeld kunt u een lokale SMB-server gebruiken voor de scriptlocatie va
 ```powershell
 $ProtectedSettings = @{"commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File \\filesvr\build\serverUpdate1.ps1"};
  
-Set-AzureRmVMExtension -ResourceGroupName myRG 
+Set-AzVMExtension -ResourceGroupName myRG 
     -Location myLocation ` 
     -VMName myVM ` 
     -Name "serverUpdate" 
@@ -213,7 +213,7 @@ Als u de aangepaste scriptextensie meer dan één keer uitgevoerd wilt, kunt u d
 Gegevens over de status van extensie-implementaties kunnen worden opgehaald uit de Azure-portal en met behulp van de Azure PowerShell-module. Als u wilt zien de implementatiestatus van extensies voor een bepaalde virtuele machine, moet u de volgende opdracht uitvoeren:
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
 Extensie uitvoering uitvoer wordt naar bestanden die zich onder de volgende map op de virtuele doelmachine geregistreerd.

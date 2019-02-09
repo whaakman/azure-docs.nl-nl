@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 105b4e34d307ac08b8efbb5e263825f2df28e28c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f2b8b97878fc0970c8cfc95e5bd4420306e34cc0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862323"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977097"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installeren en uitvoeren van de Text Analytics-containers
 
@@ -77,19 +77,19 @@ Gebruik de [ `docker pull` ](https://docs.docker.com/engine/reference/commandlin
 
 ### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>Docker pull voor de sleutel woordgroep extractie-container
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
 ```
 
 ### <a name="docker-pull-for-the-language-detection-container"></a>Docker pull voor de taal detecteren-container
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
 ```
 
 ### <a name="docker-pull-for-the-sentiment-container"></a>Docker pull voor de container sentiment
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 ```
 
@@ -156,18 +156,7 @@ Als u de container wordt uitgevoerd met een uitvoer [koppelen](../text-analytics
 
 De Text Analytics containers verzenden factuurgegevens naar Azure, met behulp van een _Tekstanalyse_ resource voor uw Azure-account. 
 
-Cognitive Services-containers zijn geen licentie om uit te voeren zonder verbinding met Azure voor het meten. Klanten moeten de containers om te communiceren factureringsgegevens met de softwarelicentiecontrole-service te allen tijde inschakelen. Cognitive Services-containers verzenden klantgegevens niet naar Microsoft. 
-
-De `docker run` opdracht maakt gebruik van de volgende argumenten voor factureringsdoeleinden bepalen:
-
-| Optie | Description |
-|--------|-------------|
-| `ApiKey` | De API-sleutel van de _Tekstanalyse_ resource gebruikt voor het bijhouden van informatie over facturering. |
-| `Billing` | Het eindpunt van de _Tekstanalyse_ resource gebruikt voor het bijhouden van informatie over facturering.|
-| `Eula` | Geeft aan dat u de licentie voor de container hebt geaccepteerd.<br/>De waarde van deze optie moet worden ingesteld op `accept`. |
-
-> [!IMPORTANT]
-> Alle drie de opties met geldige waarden moeten worden opgegeven of de container start niet.
+[!INCLUDE [Container's Billing Settings](../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Zie voor meer informatie over deze opties [containers configureren](../text-analytics-resource-container-config.md).
 

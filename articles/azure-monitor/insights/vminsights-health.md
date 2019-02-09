@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2019
+ms.date: 02/08/2019
 ms.author: magoedte
-ms.openlocfilehash: 17fdcb4a57379fd11e841715a6908a4a0d280bd9
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 67217b63588946782d42b4287cf5f24e29ebe5bd
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891467"
+ms.locfileid: "55961258"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Meer informatie over de status van uw Azure virtual machines met Azure Monitor voor virtuele machines (preview)
 Azure bevat meerdere services die afzonderlijk uitvoeren van een specifieke rol of de taak in de ruimte bewaking, maar biedt een perspectief gedetailleerde status van het besturingssysteem die worden gehost op Azure virtual machines niet beschikbaar was.  Terwijl u verschillende voorwaarden met behulp van Log Analytics of Azure Monitor controleren kan, zijn ze niet ontworpen om te modelleren en status van de belangrijkste onderdelen of algemene status van de virtuele machine vertegenwoordigen.  Met Azure Monitor voor virtuele machines de gezondheid van functie bewaakt het proactief de beschikbaarheid en prestaties van de Windows- of Linux Gast-OS met een model met daarin belangrijke onderdelen en hun relaties, criteria waarmee wordt aangegeven hoe u voor het meten van de status van deze onderdelen, en u waarschuwen wanneer een slechte status voorwaarde wordt gedetecteerd.  
@@ -44,7 +44,7 @@ Zie voor meer informatie over het configureren van Azure Monitor voor virtuele m
 >
 >Er is geen regressie van alle functionaliteit die vandaag nog met de Health-functie van Azure Monitor worden geleverd voor VM's.
 
->Als gevolg van deze wijziging zullen er enkele wordt onderbroken voor een korte periode met de service en de statusgeschiedenis. De twee ervaringen in de gezondheid van diagnostische gegevens zijn getroffen - geschiedenis van de wijziging wordt opnieuw ingesteld en statuswijzigingen in de vorige voor criteria voor beveiligingsstatus niet meer beschikbaar voor controle in de kolom Status wijzigen van de Health-pagina voor diagnostische gegevens. Als u geïnteresseerd in de historische gegevens van een bent essentiële kritieke VM vervolgens u een schermafbeelding van de statusgegevens van de criteria en de bijbehorende statuswijzigingen ter referentie neemt. 
+>Als gevolg van deze wijziging, twee ervaringen in de gezondheid van diagnostische gegevens zijn getroffen - geschiedenis van de wijziging wordt opnieuw ingesteld en statuswijzigingen in de vorige voor criteria voor beveiligingsstatus niet meer beschikbaar voor controle in de kolom Status wijzigen van de Health-pagina voor diagnostische gegevens. Als u geïnteresseerd in de historische gegevens van een bent essentiële kritieke VM vervolgens u een schermafbeelding van de statusgegevens van de criteria en de bijbehorende statuswijzigingen ter referentie neemt. 
 
 ## <a name="monitoring-configuration-details"></a>Informatie over de configuratie controleren
 In deze sectie geeft een overzicht van de standaard status criteria gedefinieerd voor het bewaken van Azure Windows en Linux-machines. Alle health criteria zijn vooraf geconfigureerd voor een waarschuwing wanneer het niet in orde voorwaarde wordt voldaan. 

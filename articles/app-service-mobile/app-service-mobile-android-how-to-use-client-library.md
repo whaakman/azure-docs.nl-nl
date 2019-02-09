@@ -13,12 +13,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: c0e6aa34b80389689e49ac6ad3566a3a109a96e1
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 803c9af7b6c40f7deee2b81fb7ff0ae82ef6778a
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158159"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965151"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Het gebruik van de Azure Mobile Apps SDK voor Android
 
@@ -55,7 +55,7 @@ Beide wijzigen **build.gradle** bestanden:
 
 1. Deze code toevoegen aan de *Project* niveau **build.gradle** bestand in de *buildscript* tag:
 
-    ```text
+    ```gradle
     buildscript {
         repositories {
             jcenter()
@@ -65,7 +65,7 @@ Beide wijzigen **build.gradle** bestanden:
 
 2. Deze code toevoegen aan de *Module app* niveau **build.gradle** bestand in de *afhankelijkheden* tag:
 
-    ```text
+    ```gradle
     compile 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     ```
 
@@ -496,7 +496,7 @@ De lay-out is gedefinieerd door enkele codefragmenten van XML-code. Een bestaand
 
 In de vorige code de *listitem* kenmerk geeft de id van de indeling voor een afzonderlijke rij in de lijst. Deze code geeft een selectievakje in en de bijbehorende tekst en eenmaal voor elk item in de lijst wordt geïnstantieerd. Deze lay-out niet wordt weergegeven de **id** veld en een complexere indeling aanvullende velden in de weergave wilt opgeven. Deze code is in de **row_list_to_do.xml** bestand.
 
-```java
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -520,7 +520,7 @@ public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 
 Onderdrukking van de adapters **getView** methode. Bijvoorbeeld:
 
-```
+```java
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = convertView;
@@ -959,7 +959,7 @@ Ook moet u het project voor customtabs configureren.  Eerst een Omleidings-URL o
 
 Voeg de **redirectUriScheme** naar de `build.gradle` -bestand voor uw toepassing:
 
-```text
+```gradle
 android {
     buildTypes {
         release {
@@ -976,7 +976,7 @@ android {
 
 Voeg tot slot `com.android.support:customtabs:23.0.1` aan de lijst met afhankelijkheden in de `build.gradle` bestand:
 
-```text
+```gradle
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.google.code.gson:gson:2.3'
@@ -1076,7 +1076,7 @@ Gebruikers aanmelden bij uw toepassing met behulp van Azure Active Directory kun
 1. Uw mobiele app back-end voor AAD-aanmelding configureren door de [App Service configureren voor Active Directory-aanmelding] [ 22] zelfstudie. Zorg ervoor dat u de optionele stap voor het registreren van een systeemeigen clienttoepassing.
 2. ADAL installeren door het wijzigen van uw build.gradle-bestand om op te nemen van de volgende definities:
 
-    ```
+    ```gradle
     repositories {
         mavenCentral()
         flatDir {

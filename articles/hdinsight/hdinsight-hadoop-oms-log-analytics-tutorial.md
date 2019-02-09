@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2af68c0b9deb9d5b065f5fae42cf4bf927f0c671
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 2f45b8e5a8fbf06a86a16336b825d185baf4976b
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386441"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55959665"
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Azure Log Analytics gebruiken voor het HDInsight-clusters controleren
 
@@ -46,9 +46,19 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 In deze sectie configureert u een bestaand HDInsight Hadoop-cluster voor het gebruik van een Azure Log Analytics-werkruimte voor het bewaken van taken, logboeken voor foutopsporing, enz.
 
-1. Open een HDInsight-cluster in Azure portal.
-2. Selecteer in het linkerdeelvenster **bewaking**.
-3. Selecteer in het rechter deelvenster **inschakelen**, selecteer een bestaande Log Analytics-werkruimte en selecteer vervolgens **opslaan**.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+
+2. Selecteer in het menu links **alle services**.
+
+3. Onder **ANALYTICS**, selecteer **HDInsight-clusters**.
+
+4. Aan de linkerkant, onder **bewaking**, selecteer **Operations Management Suite**.
+
+5. In de hoofdweergave onder **OMS-controle**, selecteer **inschakelen**.
+
+6. Uit de **een werkruimte selecteren** vervolgkeuzelijst, selecteert u een bestaande Log Analytics-werkruimte.
+
+7. Selecteer **Opslaan**.
 
     ![Schakel de bewaking voor HDInsight-clusters](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "Schakel bewaking voor HDInsight-clusters")
 

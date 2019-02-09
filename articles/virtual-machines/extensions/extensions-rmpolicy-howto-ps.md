@@ -13,18 +13,20 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 82b01cec892f15f7f85f6b5f822475114b5b73c6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 68a652fe16162d96d4ec07e6690f10f0bd34f2c0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434986"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980870"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Azure Policy gebruiken voor het beperken van extensies installatie op Windows-VM 's
 
 Als u voorkomen dat het gebruik of de installatie van bepaalde uitbreidingen op uw Windows-VM's wilt, kunt u een Azure-beleid met behulp van PowerShell om te beperken van extensies voor virtuele machines binnen een resourcegroep maken. 
 
-In deze zelfstudie wordt Azure PowerShell in Cloud Shell, die voortdurend wordt bijgewerkt naar de nieuwste versie. Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze zelfstudie versie 3.6 of hoger van de Azure PowerShell-module vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). 
+In deze zelfstudie wordt Azure PowerShell in Cloud Shell, die voortdurend wordt bijgewerkt naar de nieuwste versie. 
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="create-a-rules-file"></a>Maak een regelbestand
 
@@ -97,13 +99,13 @@ Wanneer u klaar bent, bereikt de **Ctrl + O** en vervolgens **Enter** op te slaa
 
 ## <a name="create-the-policy"></a>Het beleid maken
 
-Een beleidsdefinitie is een object dat wordt gebruikt voor het opslaan van de configuratie die u wilt gebruiken. De beleidsdefinitie maakt gebruik van de regels en de parameters-bestanden voor het definiëren van het beleid. Maak een beleid definitie met de [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition) cmdlet.
+Een beleidsdefinitie is een object dat wordt gebruikt voor het opslaan van de configuratie die u wilt gebruiken. De beleidsdefinitie maakt gebruik van de regels en de parameters-bestanden voor het definiëren van het beleid. Maak een beleid definitie met de [New-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicydefinition) cmdlet.
 
  De beleidsregels en parameters zijn bestanden die u hebt gemaakt en opgeslagen als JSON-bestanden in uw cloudshell.
 
 
 ```azurepowershell-interactive
-$definition = New-AzureRmPolicyDefinition `
+$definition = New-AzPolicyDefinition `
    -Name "not-allowed-vmextension-windows" `
    -DisplayName "Not allowed VM Extensions" `
    -description "This policy governs which VM extensions that are explicitly denied."   `
@@ -116,13 +118,13 @@ $definition = New-AzureRmPolicyDefinition `
 
 ## <a name="assign-the-policy"></a>Het beleid toewijzen
 
-In dit voorbeeld wordt het beleid voor toegewezen aan een resource-groep met [New-AzureRMPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment). Een virtuele machine hebt gemaakt in de **myResourceGroup** resourcegroep niet mogelijk voor het installeren van de Agent voor VM-toegang of de Custom Script-extensies. 
+In dit voorbeeld wordt het beleid voor toegewezen aan een resource-groep met [New-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicyassignment). Een virtuele machine hebt gemaakt in de **myResourceGroup** resourcegroep niet mogelijk voor het installeren van de Agent voor VM-toegang of de Custom Script-extensies. 
 
-Gebruik de [Get-AzureRMSubscription | Format-Table](/powershell/module/azurerm.profile/get-azurermsubscription) cmdlet om op te halen van uw abonnements-ID in plaats van het certificaat in het voorbeeld.
+Gebruik de [Get-AzSubscription | Format-Table](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription) cmdlet om op te halen van uw abonnements-ID in plaats van het certificaat in het voorbeeld.
 
 ```azurepowershell-interactive
 $scope = "/subscriptions/<subscription id>/resourceGroups/myResourceGroup"
-$assignment = New-AzureRMPolicyAssignment `
+$assignment = New-AzPolicyAssignment `
    -Name "not-allowed-vmextension-windows" `
    -Scope $scope `
    -PolicyDefinition $definition `
@@ -139,10 +141,10 @@ $assignment
 
 ## <a name="test-the-policy"></a>Het beleid testen
 
-Als u wilt testen van het beleid, probeert u de extensie voor VM-toegang. De volgende zou moeten mislukken met het bericht ' Set-AzureRmVMAccessExtension: Resource 'myVMAccess' is niet toegestaan door het beleid."
+Als u wilt testen van het beleid, probeert u de extensie voor VM-toegang. De volgende zou moeten mislukken met het bericht ' Set-AzVMAccessExtension: Resource 'myVMAccess' is niet toegestaan door het beleid."
 
 ```azurepowershell-interactive
-Set-AzureRmVMAccessExtension `
+Set-AzVMAccessExtension `
    -ResourceGroupName "myResourceGroup" `
    -VMName "myVM" `
    -Name "myVMAccess" `
@@ -154,13 +156,13 @@ In de portal voor moet wijzigen van het wachtwoord mislukken met de 'de sjabloon
 ## <a name="remove-the-assignment"></a>De toewijzing verwijderen
 
 ```azurepowershell-interactive
-Remove-AzureRMPolicyAssignment -Name not-allowed-vmextension-windows -Scope $scope
+Remove-AzPolicyAssignment -Name not-allowed-vmextension-windows -Scope $scope
 ```
 
 ## <a name="remove-the-policy"></a>Verwijder het beleid
 
 ```azurepowershell-interactive
-Remove-AzureRmPolicyDefinition -Name not-allowed-vmextension-windows
+Remove-AzPolicyDefinition -Name not-allowed-vmextension-windows
 ```
     
 ## <a name="next-steps"></a>Volgende stappen

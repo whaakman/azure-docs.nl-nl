@@ -3,8 +3,8 @@ title: Inrichten van apps met bereikfilters | Microsoft Docs
 description: Informatie over het gebruik van bereikfilters toevoegen om te voorkomen dat objecten in apps die ondersteuning bieden voor geautomatiseerde gebruikersinrichting van wordt ingericht als een object niet voldoet aan uw zakelijke vereisten.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: barbkess
+ms.author: celested
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3ed3fef4f4f74939d503d5e6c8434d66f1d2a576
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7b4cdd9d9a1d5215b8e79d1412544be2b66fa02c
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176944"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961326"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Op kenmerken gebaseerde toepassing inrichten met bereikfilters
 Het doel van dit artikel is waarin wordt uitgelegd hoe u bereikfilters die zijn gebruikt om op kenmerken gebaseerde regels die bepalen welke gebruikers worden ingericht voor een toepassing te definiëren.

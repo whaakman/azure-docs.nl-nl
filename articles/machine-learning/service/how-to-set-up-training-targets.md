@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: article
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14a6bdfff486f13f18d42b1bd20880347d3ebbc8
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 292063183561722eae76c3d30ce242facd22df26
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756526"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981448"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Compute-doelen voor modeltraining instellen
 
@@ -47,6 +47,11 @@ Azure Machine Learning-service heeft verschillende ondersteuning voor verschille
 |[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
+**Alle compute-doelen kunnen worden hergebruikt voor meerdere trainingstaken**. Bijvoorbeeld, wanneer u een externe VM aan uw werkruimte koppelen, u deze opnieuw kunt gebruiken voor meerdere taken.
+
+> [!NOTE]
+> Azure Machine Learning-Computing kan worden gemaakt als een permanente resource of dynamisch gemaakt wanneer u een uitvoering aanvragen. Maken op basis van het uitvoeren van het Hiermee verwijdert u de compute-doel nadat de training-uitvoering voltooid, is zodat u niet opnieuw van compute-doelen op deze manier gemaakt gebruiken.
+
 ## <a name="whats-a-run-configuration"></a>Wat is een configuratie uitvoeren?
 
 Bij het trainen, is het gebruikelijk dat start op uw lokale computer en later deze trainingsscript uitvoeren op een andere compute-doel. Met Azure Machine Learning-service, kunt u uw script uitvoeren op verschillende compute-doelen zonder te hoeven wijzigen van uw script. 
@@ -65,7 +70,7 @@ Gebruik van een systeem-beheerde omgeving als u wilt [Conda](https://conda.io/do
 
 U hoeft alleen is geeft u elk pakket afhankelijkheid met de [CondaDependency klasse](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) vervolgens Conda maakt u een bestand met de naam **conda_dependencies.yml** in de **aml_config** de map in uw werkruimte met de lijst met pakketafhankelijkheden en stelt u de Python-omgeving wanneer u uw trainingsexperiment verzendt. 
 
-De eerste instellen van een nieuwe omgeving kan enige tijd duren, afhankelijk van de grootte van de vereiste afhankelijkheden. Als de lijst met pakketten ongewijzigd blijft, is het instellen van de tijd gebeurt slechts één keer.
+De eerste installatie van een nieuwe omgeving kan enige tijd duren, afhankelijk van de grootte van de vereiste afhankelijkheden. Zolang de lijst met pakketten ongewijzigd blijft, wordt de insteltijd slechts één keer uitgevoerd.
   
 De volgende code toont een voorbeeld van een systeem-beheerde omgeving vereisen scikit-informatie:
     
@@ -73,7 +78,7 @@ De volgende code toont een voorbeeld van een systeem-beheerde omgeving vereisen 
 
 #### <a name="user-managed-environment"></a>Gebruiker-beheerde omgeving
 
-Voor een gebruiker beheerde omgevingen bent u verantwoordelijk voor het instellen van uw omgeving en het installeren van elk pakket uw trainingsscript moet op de compute-doel. Als uw omgeving instrueren al is geconfigureerd (zoals op uw lokale computer), kunt u de instellen stap overslaan door in te stellen `user_managed_dependencies` op ' True '. Conda wordt niet controleren van uw omgeving of iets voor u installeren.
+Voor een gebruiker beheerde omgeving bent u verantwoordelijk voor het instellen van uw omgeving en het installeren van elk pakket uw trainingsscript moet op de compute-doel. Als uw omgeving instrueren al is geconfigureerd (zoals op uw lokale computer), kunt u de setup-stap overslaan door in te stellen `user_managed_dependencies` op ' True '. Conda wordt niet controleren van uw omgeving of iets voor u installeren.
 
 De volgende code toont een voorbeeld van het configureren van trainingsuitvoeringen voor een gebruiker beheerde omgeving:
 
@@ -242,7 +247,7 @@ U kunt toegang tot de compute-doelen die gekoppeld aan uw werkruimte in de Azure
 
 * [Weergave van compute-doelen](#portal-view) die is gekoppeld aan uw werkruimte
 * [Maken van een compute-doel](#portal-create) in uw werkruimte
-* [Hergebruik bestaande compute-doelen](#portal-reuse)
+* [Koppelen van een compute-doel](#portal-reuse) die buiten de werkruimte is gemaakt
 
 Nadat een doel is gemaakt en gekoppeld aan uw werkruimte, gebruikt u dit in uw configuratie uitvoeren met een `ComputeTarget` object: 
 
@@ -293,9 +298,11 @@ Volg de vorige stappen om de lijst met compute-doelen weer te geven. Gebruik ver
 
 
 
-### <a id="portal-reuse"></a>Hergebruik bestaande compute-doelen
+### <a id="portal-reuse"></a>Compute-doelen koppelen
 
-Volg de stappen hierboven om de lijst met compute-doelen weer te geven. Gebruik vervolgens deze stappen om een compute-doel opnieuw te gebruiken: 
+Voor het gebruik van compute-doelen die buiten de werkruimte van de Azure Machine Learning-service zijn gemaakt, moet u ze koppelt. Bezig met koppelen van een compute-doel, maakt ze beschikbaar voor uw werkruimte.
+
+Volg de stappen hierboven om de lijst met compute-doelen weer te geven. Gebruik vervolgens de volgende stappen uit om te koppelen van een compute-doel: 
 
 1. Selecteer het plusteken (+) om toe te voegen een compute-doel. 
 1. Voer een naam voor de compute-doel. 

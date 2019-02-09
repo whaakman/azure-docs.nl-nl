@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e3b9de282b95b27a04ac6d182b1045e18e65c5f6
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: e4b737117880393e24fe6ea00223fb0f719be4e4
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025902"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980464"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensies voor virtuele machines en functies voor Windows
 
@@ -75,12 +75,12 @@ De Windows Guest-Agent heeft geen ondersteuning voor u omleiden van verkeer agen
 
 ## <a name="discover-vm-extensions"></a>Detecteren van VM-extensies
 
-Er zijn veel verschillende VM-extensies beschikbaar voor gebruik met Azure-VM's. Als een volledige lijst wilt weergeven, gebruikt [Get-AzureRmVMExtensionImage](/powershell/module/azurerm.compute/get-azurermvmextensionimage). Het volgende voorbeeld worden alle beschikbare uitbreidingen in de *WestUS* locatie:
+Er zijn veel verschillende VM-extensies beschikbaar voor gebruik met Azure-VM's. Als een volledige lijst wilt weergeven, gebruikt [Get-AzVMExtensionImage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmextensionimage). Het volgende voorbeeld worden alle beschikbare uitbreidingen in de *WestUS* locatie:
 
 ```powershell
-Get-AzureRmVmImagePublisher -Location "WestUS" | `
-Get-AzureRmVMExtensionImageType | `
-Get-AzureRmVMExtensionImage | Select Type, Version
+Get-AzVmImagePublisher -Location "WestUS" | `
+Get-AzVMExtensionImageType | `
+Get-AzVMExtensionImage | Select Type, Version
 ```
 
 ## <a name="run-vm-extensions"></a>VM-extensies worden uitgevoerd
@@ -91,10 +91,10 @@ De volgende methoden kunnen worden gebruikt om uit te voeren van een uitbreiding
 
 ### <a name="powershell"></a>PowerShell
 
-Er bestaan verschillende PowerShell-opdrachten voor het uitvoeren van afzonderlijke uitbreidingen. Een lijst wilt bekijken, gebruikt u [Get-Command](/powershell/module/microsoft.powershell.core/get-command) en filtert u op *extensie*:
+Er bestaan verschillende PowerShell-opdrachten voor het uitvoeren van afzonderlijke uitbreidingen. Een lijst wilt bekijken, gebruikt u [Get-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-command) en filtert u op *extensie*:
 
 ```powershell
-Get-Command Set-AzureRM*Extension* -Module AzureRM.Compute
+Get-Command Set-Az*Extension* -Module AzureRM.Compute
 ```
 
 Deze biedt uitvoer is vergelijkbaar met het volgende:
@@ -102,25 +102,25 @@ Deze biedt uitvoer is vergelijkbaar met het volgende:
 ```powershell
 CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
-Cmdlet          Set-AzureRmVMAccessExtension                       4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMADDomainExtension                     4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMAEMExtension                          4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMBackupExtension                       4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMBginfoExtension                       4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMChefExtension                         4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMCustomScriptExtension                 4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMDiagnosticsExtension                  4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMDiskEncryptionExtension               4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMDscExtension                          4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMExtension                             4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMSqlServerExtension                    4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVmssDiskEncryptionExtension             4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMAccessExtension                       4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMADDomainExtension                     4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMAEMExtension                          4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMBackupExtension                       4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMBginfoExtension                       4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMChefExtension                         4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMCustomScriptExtension                 4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMDiagnosticsExtension                  4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMDiskEncryptionExtension               4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMDscExtension                          4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMExtension                             4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMSqlServerExtension                    4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVmssDiskEncryptionExtension             4.5.0      AzureRM.Compute
 ```
 
 Het volgende voorbeeld wordt de aangepaste scriptextensie voor het downloaden van een script vanuit een GitHub-opslagplaats naar de doel-VM en voer het script. Zie voor meer informatie over de aangepaste scriptextensie [Custom Script extensieoverzicht](custom-script-windows.md).
 
 ```powershell
-Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
+Set-AzVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" -Name "myCustomScript" `
     -FileUri "https://raw.githubusercontent.com/neilpeterson/nepeters-azure-templates/master/windows-custom-script-simple/support-scripts/Create-File.ps1" `
     -Run "Create-File.ps1" -Location "West US"
@@ -131,12 +131,12 @@ In het volgende voorbeeld wordt de extensie voor VM-toegang gebruikt om het behe
 ```powershell
 $cred=Get-Credential
 
-Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myVMAccess" `
+Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myVMAccess" `
     -Location WestUS -UserName $cred.GetNetworkCredential().Username `
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-De `Set-AzureRmVMExtension` opdracht kan worden gebruikt om te beginnen een VM-extensie. Zie voor meer informatie de [Set-AzureRmVMExtension verwijzing](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension).
+De `Set-AzVMExtension` opdracht kan worden gebruikt om te beginnen een VM-extensie. Zie voor meer informatie de [Set AzVMExtension verwijzing](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
 
 
 ### <a name="azure-portal"></a>Azure Portal
@@ -269,7 +269,7 @@ Uitgevers stellen updates beschikbaar aan regio's op verschillende tijdstippen, 
 #### <a name="listing-extensions-deployed-to-a-vm"></a>Aanbieding-uitbreidingen die zijn geïmplementeerd op een virtuele machine
 
 ```powershell
-$vm = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -VMName "myVM"
+$vm = Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM"
 $vm.Extensions | select Publisher, VirtualMachineExtensionType, TypeHandlerVersion
 ```
 
@@ -310,10 +310,10 @@ Als u de nieuwste secundaire versie oplossingen voor problemen, is het raadzaam 
 
 #### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>Als de extensie met autoUpgradeMinorVersion is ingesteld op een virtuele machine identificeren
 
-U kunt zien uit het model van de virtuele machine als de extensie is ingericht met 'autoUpgradeMinorVersion'. Als u wilt controleren, gebruikt u [Get-AzureRmVm](/powershell/module/azurerm.compute/get-azurermvm) en geef de resourcegroep en VM naam als volgt:
+U kunt zien uit het model van de virtuele machine als de extensie is ingericht met 'autoUpgradeMinorVersion'. Als u wilt controleren, gebruikt u [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) en geef de resourcegroep en VM naam als volgt:
 
 ```powerShell
- $vm = Get-AzureRmVm -ResourceGroupName "myResourceGroup" -VMName "myVM"
+ $vm = Get-AzVm -ResourceGroupName "myResourceGroup" -VMName "myVM"
  $vm.Extensions
 ```
 
@@ -366,10 +366,10 @@ De volgende stappen voor probleemoplossing van toepassing op alle VM-extensies.
 
 ### <a name="view-extension-status"></a>Status van de extensie weergeven
 
-Nadat een VM-extensie is uitgevoerd op basis van een virtuele machine, gebruikt u [Get-AzureRmVM ](/powershell/module/azurerm.compute/get-azurermvm) Extensiestatus moet worden geretourneerd. *Substatus [0]* laat zien dat de extensie wordt ingericht is voltooid, wat betekent dat deze succesvolle geïmplementeerd op de VM, maar de uitvoering van de extensie in de virtuele machine is mislukt, *substatus [1]*.
+Nadat een VM-extensie is uitgevoerd op basis van een virtuele machine, gebruikt u [Get-AzVM ](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) Extensiestatus moet worden geretourneerd. *Substatus [0]* laat zien dat de extensie wordt ingericht is voltooid, wat betekent dat deze succesvolle geïmplementeerd op de VM, maar de uitvoering van de extensie in de virtuele machine is mislukt, *substatus [1]*.
 
 ```powershell
-Get-AzureRmVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
+Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
 ```
 
 De uitvoer is vergelijkbaar met de volgende voorbeelduitvoer:
@@ -402,10 +402,10 @@ Uitvoeringsstatus van de extensie kan ook worden gevonden in Azure portal. Als u
 
 ### <a name="rerun-vm-extensions"></a>Opnieuw uitvoeren van VM-extensies
 
-Mogelijk zijn er gevallen waarin een VM-extensie moet opnieuw worden gestart. U kunt een uitbreiding opnieuw uitvoeren door deze te verwijderen en vervolgens opnieuw uit te voeren de extensie met een methode van de uitvoering van uw keuze. U kunt een extensie verwijderen [Remove-AzureRmVMExtension](/powershell/module/AzureRM.Compute/Remove-AzureRmVMExtension) als volgt:
+Mogelijk zijn er gevallen waarin een VM-extensie moet opnieuw worden gestart. U kunt een uitbreiding opnieuw uitvoeren door deze te verwijderen en vervolgens opnieuw uit te voeren de extensie met een methode van de uitvoering van uw keuze. U kunt een extensie verwijderen [Remove-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/Remove-AzVMExtension) als volgt:
 
 ```powershell
-Remove-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myExtensionName"
+Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myExtensionName"
 ```
 
 U kunt ook verwijderen een extensie in de Azure-portal als volgt:
@@ -416,7 +416,7 @@ U kunt ook verwijderen een extensie in de Azure-portal als volgt:
 4. Kies **verwijderen**.
 
 ## <a name="common-vm-extensions-reference"></a>Algemene referentie van de VM-extensies
-| Extensienaam | Beschrijving | Meer informatie |
+| Extensienaam | Description | Meer informatie |
 | --- | --- | --- |
 | Aangepaste Scriptextensie voor Windows |Scripts uitvoeren op een virtuele machine van Azure |[Aangepaste Scriptextensie voor Windows](custom-script-windows.md) |
 | DSC-extensie voor Windows |PowerShell DSC (Desired State Configuration)-extensie |[DSC-extensie voor Windows](dsc-overview.md) |

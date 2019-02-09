@@ -14,16 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 34b70b1a6a77a20a034a7822d9c4961c36cdd51c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d3ed1078f1f334a5732befa49cbdc5043767ad2c
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663958"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978677"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>DSC-extensie voor Linux (Microsoft.OSTCExtensions.DSCForLinux)
-
-## <a name="overview"></a>Overzicht
 
 Desired State Configuration (DSC) is een beheerplatform waarmee u voor het beheren van uw IT-afdeling en infrastructuur voor ontwikkeling met configuratie als code.
 
@@ -35,6 +33,8 @@ DSCForLinux uitbreiding is gepubliceerd en ondersteund door Microsoft. De uitbre
 - MOF-Meta-configuratie toepassen op de Linux-VM Pull-Server configureren om het pull-knooppuntconfiguratie (Pull ExtensionAction)
 - Aangepaste DSC-modules installeren op de Linux-VM (ExtensionAction installeren)
 - Verwijderen van aangepaste DSC-modules voor de Linux-VM (ExtensionAction verwijderen)
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -366,7 +366,7 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
 U kunt zich aanmelden bij uw Azure-account (Azure Resource Manager-modus) door te voeren:
 
 ```powershell>
-Login-AzureRmAccount
+Login-AzAccount
 ```
 
 Klik op [ **hier** ](../../azure-resource-manager/powershell-azure-resource-manager.md) voor meer informatie over het gebruik van Azure PowerShell met Azure Resource Manager.
@@ -398,7 +398,7 @@ $publicConfig = '{
 ```
 
 ```
-Set-AzureRmVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location `
+Set-AzVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location `
   -Name $extensionName -Publisher $publisher -ExtensionType $extensionName `
   -TypeHandlerVersion $version -SettingString $publicConfig -ProtectedSettingString $privateConfig
 ```

@@ -3,8 +3,8 @@ title: Kiezen welk toepassingstype moet worden gebruikt bij het toevoegen van ee
 description: Informatie over de ondersteunde typen toepassingen die u met Azure AD integreren kunt en hun bijbehorende configuratie-opties
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
-ms.author: barbkess
-ms.openlocfilehash: ef752d2f9d57ee8674d91fd14b56b804ccf50d22
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.author: celested
+ms.openlocfilehash: ec84ea47d7d0d136b744a4f7328a6729d05b0faf
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814182"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961037"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Het toepassingstype kiezen bij het toevoegen van een toepassing in Azure Active Directory
 Meer informatie over de vier typen toepassingen die u aan Azure Active Directory (Azure AD toevoegen kunt). Wanneer u een toepassing in Azure Active Directory toevoegt, wordt u gevraagd om een van de vier toepassingstype. 

@@ -3,9 +3,8 @@ title: Beheer van toegang tot apps met behulp van Azure AD | Microsoft Docs
 description: Hierin wordt beschreven hoe Azure Active Directory kunnen organisaties om op te geven van de apps waartoe elke gebruiker toegang heeft.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: ''
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2017
-ms.author: barbkess
-ms.openlocfilehash: 0c8450523890430587bedebbcd77ceddd8a03e42
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.author: celested
+ms.openlocfilehash: 1be695384ff6828561fe8e1e858d052cba302dc0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183387"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982690"
 ---
 # <a name="managing-access-to-apps"></a>Toegang tot apps beheren
 Beheer van continue toegang, gebruik evaluatie en rapportage blijven lastig zijn om nadat een app is geïntegreerd in identiteitssysteem van uw organisatie. In veel gevallen hebben IT-beheerders of de helpdesk te nemen van een doorlopende actieve rol bij het beheren van toegang tot uw apps. Toewijzing wordt soms uitgevoerd door een algemene of divisie IT-team. Vaak de beslissing van de toewijzing is bedoeld om te worden overgedragen aan de zakelijke besluitvormer, waarvoor ze worden goedgekeurd voordat IT heeft de toewijzing.  Andere organisaties investeren in integratie met een bestaande geautomatiseerde identiteits- en toegangsbeheer management-systeem, zoals Role-Based Access Control (RBAC) of op kenmerken gebaseerde Access Control (ABAC). De integratie en de ontwikkeling van de regel zijn meestal gespecialiseerde en dure. Controleren of rapportage over beide benaderingen management is een eigen afzonderlijke, dure en complexe investering.
@@ -39,7 +38,7 @@ Met behulp van deze toewijzing van de twee modi, beheerders kunnen maar liefst d
 Met Azure AD, is gebruik en de toewijzing reporting volledig geïntegreerd, waardoor beheerders gemakkelijk rapporteren over de status van sitetoewijzing, fouten bij licentietoewijzing en zelfs gebruik.
 
 ## <a name="complex-application-assignment-with-azure-ad"></a>Toewijzing van complexe toepassingen met Azure AD
-Houd rekening met een toepassing zoals Salesforce. In veel organisaties wordt Salesforce voornamelijk gebruikt met de marketing- en organisaties. Vaak, uitgebreide leden van het marketing-team zeer toegang tot Salesforce, terwijl de leden van het verkoopteam beperkte toegang hebben. In veel gevallen is een brede populatie van IT-medewerkers toegang beperkt tot de toepassing. Uitzonderingen op deze regels bemoeilijken belangrijk is. Het is vaak het recht van de teams van de leiderschap marketing- of een gebruikerstoegang verlenen of hun rollen onafhankelijk van deze algemene regels wijzigen.
+Houd rekening met een toepassing zoals Salesforce. In veel organisaties wordt Salesforce voornamelijk gebruikt met de marketing- en teams. Vaak, uitgebreide leden van het marketing-team zeer toegang tot Salesforce, terwijl de leden van het verkoopteam beperkte toegang hebben. In veel gevallen is een brede populatie van IT-medewerkers toegang beperkt tot de toepassing. Uitzonderingen op deze regels bemoeilijken belangrijk is. Het is vaak het recht van de teams van de leiderschap marketing- of een gebruikerstoegang verlenen of hun rollen onafhankelijk van deze algemene regels wijzigen.
 
 Met Azure AD is-toepassingen, zoals Salesforce vooraf geconfigureerd voor eenmalige aanmelding (SSO) en geautomatiseerde inrichting. Nadat de toepassing is geconfigureerd, kan een beheerder de eenmalige actie maken en toewijzen van de juiste groepen duren. In dit voorbeeld kan een beheerder de volgende toewijzingen uitvoeren:
 
@@ -47,7 +46,7 @@ Met Azure AD is-toepassingen, zoals Salesforce vooraf geconfigureerd voor eenmal
   
   * Alle leden van groepen van marketing wordt toegewezen aan de rol 'marketing' in Salesforce
   * Alle leden van het verkoopteam groepen wordt toegewezen aan de rol 'sales' in Salesforce. Een verdere verfijning kan meerdere groepen die staan voor regionale verkoopteams toegewezen aan verschillende rollen voor Salesforce gebruiken.
-* Als u wilt het uitzonderingsmechanisme voor inschakelen, kan een groepsbeheer met Self-service voor elke rol worden gemaakt. De groep 'Salesforce marketing uitzondering' kan bijvoorbeeld worden gemaakt als een groep zelf. De groep kan worden toegewezen aan de rol van de Salesforce-marketing en het marketingteam van leidinggevenden eigenaren kan worden gemaakt. Leden van het marketingteam van leidinggevenden kunnen toevoegen of verwijderen van gebruikers, instellen van een join-beleid, of zelfs goedkeuren of afwijzen afzonderlijke gebruikers aanvragen voor deelname aan. Dit mechanisme wordt ondersteund door een information worker juiste ervaring die geen speciale training voor eigenaren of leden vereist.
+* Als u wilt het uitzonderingsmechanisme voor inschakelen, kan een groepsbeheer met Self-service voor elke rol worden gemaakt. De groep 'Salesforce marketing uitzondering' kan bijvoorbeeld worden gemaakt als een groep zelf. De groep kan worden toegewezen aan de rol van de Salesforce-marketing en het marketingteam van leidinggevenden eigenaar kan worden gemaakt. Leden van het marketingteam van leidinggevenden kunnen toevoegen of verwijderen van gebruikers, instellen van een join-beleid, of zelfs goedkeuren of afwijzen afzonderlijke gebruikers aanvragen voor deelname aan. Dit mechanisme wordt ondersteund door een information worker juiste ervaring die geen speciale training voor eigenaren of leden vereist.
 
 In dit geval zouden alle toegewezen gebruikers worden automatisch ingericht met Salesforce, wanneer ze worden toegevoegd aan verschillende groepen die hun roltoewijzing zou worden bijgewerkt in Salesforce. Gebruikers zou kunnen detecteren en Salesforce via het toegangsvenster Microsoft-toepassing en Office web-clients, of zelfs door te navigeren naar de aanmeldingspagina van hun organisatie Salesforce. Beheerders zou kunnen eenvoudig gebruik en de toewijzing om status te bekijken met behulp van Azure AD-rapportage zijn.
 

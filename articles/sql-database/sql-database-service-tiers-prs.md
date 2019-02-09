@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: c223b55e8854c9d304354d917e07f4dd7720e72c
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/07/2019
+ms.openlocfilehash: aa9f3b42bbbe8255be328240d26ed4b8740cc5f7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507805"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55958487"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Azure SQL Database Premium RS-servicelaag (preview) wordt buiten gebruik gesteld - opties voor migratie
 
@@ -50,8 +50,8 @@ U wordt aangeraden migreren naar onze algemeen beschikbaar op vCore gebaseerde a
 
 |**Als u momenteel ingeschakeld bent...**|**Migreren naar vergelijkbare op vCore gebaseerde...**|**Migreren naar vergelijkbare op basis van DTU...**|
 |---|---|---|
-|Premium RS 1|Algemeen doel 1 vCore (Gen 4)|Standard 3|
-|Premium RS 2|Algemeen doel 2 vCores (Gen 4)|Standard 4|
+|Premium RS 1|Algemeen doel 1 vCore (Gen4)|Standard 3|
+|Premium RS 2|Algemeen doel 2 vCores (Gen4)|Standard 4|
 |Premium RS 4|Algemeen doel 4 vCores (Gen4)|Standaard 6|
 |Premium RS 6|Algemeen doel 6 vCores (Gen4)|Standard 7|
 
@@ -59,8 +59,8 @@ U wordt aangeraden migreren naar onze algemeen beschikbaar op vCore gebaseerde a
 
 |**Als u momenteel ingeschakeld bent...**|**Migreren naar vergelijkbare op vCore gebaseerde...**|**Migreren naar vergelijkbare op basis van DTU...**|
 |---|---|---|
-|Premium RS-pool 125 DTU|Algemeen doel 1 vCore (Gen 4)|Standard-pool 100 edtu 's|
-|Premium RS-pool 250 DTU|Algemeen doel 2 vCores (Gen 4)|Standard-pool 250 edtu 's|
+|Premium RS-pool 125 DTU|Algemeen doel 1 vCore (Gen4)|Standard-pool 100 edtu 's|
+|Premium RS-pool 250 DTU|Algemeen doel 2 vCores (Gen4)|Standard-pool 250 edtu 's|
 |Premium RS-pool 500 DTU|Algemeen doel 4 vCores (Gen4)|Standard-pool 500 edtu 's|
 |Premium RS-pool 1000 DTU|Algemeen doel 8 vCores (Gen4)|Standard-pool 1000 edtu 's|
 
@@ -70,10 +70,10 @@ U wordt aangeraden de i/o-intensieve individuele databases migreren naar onze op
 
 |**Als u momenteel ingeschakeld bent...**|**Migreren naar vergelijkbare op vCore gebaseerde...**|**Migreren naar vergelijkbare op basis van DTU...**|
 |---|---|---|
-|Premium RS 1|(Preview) Grootschalige 1 vCore (Gen 4) of -Business-kritische 1 vCore (Gen 4)|Premium 1|
-|Premium RS 2|(Preview) Grootschalige 2 vCores (Gen 4) of -Business-kritische 2 vCores (Gen 4|Premium 2|
-|Premium RS 4|(Preview) Zeer grootschalige 4 vCores (Gen 4) of Business-kritische 4 vCores (Gen4)|Premium 4
-|Premium RS 6|(Preview) Zeer grootschalige 6 vCores (Gen 4) of kritieke zakelijke-6 vCores (Gen4)|Premium 6|
+|Premium RS 1|(Preview) Grootschalige 1 vCore (Gen4) of -Business-kritische 1 vCore (Gen4)|Premium 1|
+|Premium RS 2|(Preview) Grootschalige 2 vCores (Gen4) of -Business-kritische 2 vCores (Gen4|Premium 2|
+|Premium RS 4|(Preview) Zeer grootschalige 4 vCores (Gen4) of Business-kritische 4 vCores (Gen4)|Premium 4
+|Premium RS 6|(Preview) Zeer grootschalige 6 vCores (Gen4) of kritieke zakelijke-6 vCores (Gen4)|Premium 6|
 
 |**Als u momenteel ingeschakeld bent...**|**Migreren naar vergelijkbare op vCore gebaseerde...**|**Migreren naar vergelijkbare op basis van DTU...**|
 |---|---|---|

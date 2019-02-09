@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 1ae4396c6b91f81e273e6ad171f4cac9b55445f6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a8251881b114d7b102481476d3e77923b34d34c7
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864722"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982383"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installeren en uitvoeren van LUIS docker-containers
  
@@ -60,7 +60,7 @@ De `--cpus` en `--memory` instellingen worden gebruikt als onderdeel van de `doc
 
 Gebruik de [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) opdracht voor het downloaden van een containerinstallatiekopie uit de `mcr.microsoft.com/azure-cognitive-services/luis` opslagplaats:
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 ```
 
@@ -324,18 +324,7 @@ Als u de container wordt uitgevoerd met een uitvoer [koppelen](luis-container-co
 
 De LUIS container verzendt factuurgegevens naar Azure, met behulp van een _Language Understanding_ resource voor uw Azure-account. 
 
-Cognitive Services-containers zijn geen licentie om uit te voeren zonder verbinding met Azure voor het meten. Klanten moeten de containers om te communiceren factureringsgegevens met de softwarelicentiecontrole-service te allen tijde inschakelen. Cognitive Services-containers verzenden klantgegevens (utterance) niet naar Microsoft. 
-
-De `docker run` maakt gebruik van de volgende argumenten voor factureringsdoeleinden bepalen:
-
-| Optie | Description |
-|--------|-------------|
-| `ApiKey` | De API-sleutel van de _Language Understanding_ resource gebruikt voor het bijhouden van informatie over facturering.<br/>De waarde van deze optie moet worden ingesteld op een API-sleutel voor de ingerichte Azure LUIS resource die is opgegeven `Billing`. |
-| `Billing` | Het eindpunt van de _Language Understanding_ resource gebruikt voor het bijhouden van informatie over facturering.<br/>De waarde van deze optie moet worden ingesteld op de URI van een ingerichte LUIS Azure-resource van het eindpunt.|
-| `Eula` | Geeft aan dat u de licentie voor de container hebt geaccepteerd.<br/>De waarde van deze optie moet worden ingesteld op `accept`. |
-
-> [!IMPORTANT]
-> Alle drie de opties met geldige waarden moeten worden opgegeven of de container start niet.
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Zie voor meer informatie over deze opties [containers configureren](luis-container-configuration.md).
 

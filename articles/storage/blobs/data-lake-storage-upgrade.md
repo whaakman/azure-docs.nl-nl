@@ -8,12 +8,12 @@ ms.author: normesta
 ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 750f66b0957262a62f71cb90f7035749b2128224
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: feb656fcdbb98dcab0a3ccf372a05b3f3dca91c4
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895904"
+ms.locfileid: "55961377"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Upgrade van uw big data analytics-oplossingen van Azure Data Lake Storage Gen1 naar Azure Data Lake Storage Gen2
 
@@ -128,7 +128,7 @@ Wanneer u Data Lake Storage Gen1 gebruikt, kunt u diverse Microsoft-services en 
 | Verbruik          | [Power BI Desktop  ](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-power-bi)                                                                           | *Nog niet beschikbaar*                                                                                                                                                          | *Nog niet beschikbaar*                                                                                                                             |
 |                      | [Excel ](https://techcommunity.microsoft.com/t5/Excel-Blog/Announcing-the-Azure-Data-Lake-Store-Connector-in-Excel/ba-p/91677)                                                 | *Nog niet beschikbaar*                                                                                                                                                          | *Nog niet beschikbaar*                                                                                                                             |
 |                      | [Analysis Services ](https://blogs.msdn.microsoft.com/analysisservices/2017/09/05/using-azure-analysis-services-on-top-of-azure-data-lake-storage/)                            | *Nog niet beschikbaar*                                                                                                                                                          | *Nog niet beschikbaar*                                                                                                                             |
-| Productiviteit         | [Azure Portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)                                                                      | *Niet ondersteund*                                                                                                                                                              | Accountbeheer *– nu beschikbaar* <br><br>Gegevensbewerkingen *–**nog niet beschikbaar*                                                                    |
+| Productiviteit         | [Azure Portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)                                                                      | *Niet ondersteund*                                                                                                                                                              | Accountbeheer *– nu beschikbaar* <br><br>Gegevensbewerkingen *–**nog niet beschikbaar*                                                                   |
 |                      | [Data Lake Tools voor Visual Studio ](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-data-lake-tools-install)                                   | *Nog niet beschikbaar*                                                                                                                                                          | *Nog niet beschikbaar*                                                                                                                             |
 |                      | [Azure-opslagverkenner ](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-in-storage-explorer)                                                          | *Nu beschikbaar*                                                                                                                                                              | *Nu beschikbaar*                                                                                                                                 |
 |                      | [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=usqlextpublisher.usql-vscode-ext)                                                                     | *Nog niet beschikbaar*                                                                                                                                                          | *Nog niet beschikbaar*                                                                                                                             |
@@ -232,7 +232,7 @@ Houd er rekening mee dat er zich van derden die de Data Lake Storage Gen1 naar D
 
 * Als u een hulpprogramma dat ACL's niet kopiëren of u niet wilt kopiëren via de ACL's, klikt u vervolgens moet u om in te stellen de ACL's op de doelcomputer handmatig op het juiste hoogste niveau. U kunt dat doen met behulp van Storage Explorer. Zorg ervoor dat de ACL's de standaard-ACL's zodanig in dat de bestanden en mappen die u via kopiëren overnemen.
 
-* In Data Lake Storage Gen1 is het hoogste niveau, kunt u instellen dat ACL's in de hoofdmap van het account. In Data Lake Storage Gen1 is het hoogste niveau, kunt u instellen dat ACL's echter op de hoofdmap van een bestandssysteem, niet op het hele account. Dus als u wilt de standaard-ACL's op accountniveau ingesteld, u dubbele servers in het bestandssysteem in uw Data Lake Storage Gen2-account moet.
+* In Data Lake Storage Gen1 is het hoogste niveau, kunt u instellen dat ACL's in de hoofdmap van het account. In Data Lake Storage Gen2 is het hoogste niveau, kunt u instellen dat ACL's echter op de hoofdmap van een bestandssysteem, niet op het hele account. Dus als u wilt de standaard-ACL's op accountniveau ingesteld, u dubbele servers in het bestandssysteem in uw Data Lake Storage Gen2-account moet.
 
 * Bestand naamsbeperkingen verschillen tussen de twee opslagsystemen. Deze verschillen zijn met name wanneer betreffende kopiëren van Data Lake Storage Gen2 naar Data Lake Storage Gen1 sinds de laatste meer beperkingen beperkte heeft.
 

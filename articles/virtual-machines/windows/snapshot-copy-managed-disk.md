@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 059c90df16a46c2575635d7c729ec563ef1130c6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1015e6774dac1258820e3ca4b3d06786046a8554
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459720"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980853"
 ---
 # <a name="create-a-snapshot"></a>Een momentopname maken
 
@@ -42,9 +42,9 @@ Als u de momentopname gebruiken wilt voor het maken van een nieuwe virtuele mach
 
 ## <a name="use-powershell"></a>PowerShell gebruiken
 
-De volgende stappen laten zien hoe u de VHD-schijf kopiëren, de configuratie van de momentopnamen maken en een momentopname van de schijf met behulp van de [New-AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet. 
+De volgende stappen laten zien hoe u de VHD-schijf kopiëren, de configuratie van de momentopnamen maken en een momentopname van de schijf met behulp van de [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) cmdlet. 
 
-Voordat u begint, zorg ervoor dat u hebt de nieuwste versie van de AzureRM.Compute PowerShell-module versie 5.7.0 moet of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, voert u [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) voor het maken van een verbinding met Azure.
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 1. Sommige parameters instellen: 
 
@@ -58,7 +58,7 @@ $snapshotName = 'mySnapshot'
 2. Haal de virtuele machine:
 
  ```azurepowershell-interactive
-$vm = get-azurermvm `
+$vm = get-azvm `
    -ResourceGroupName $resourceGroupName 
    -Name $vmName
 ```
@@ -66,7 +66,7 @@ $vm = get-azurermvm `
 3. Maak de momentopname-configuratie. In dit voorbeeld wordt de momentopname van de besturingssysteemschijf is:
 
  ```azurepowershell-interactive
-$snapshot =  New-AzureRmSnapshotConfig 
+$snapshot =  New-AzSnapshotConfig 
    -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id 
    -Location $location 
    -CreateOption copy
@@ -78,7 +78,7 @@ $snapshot =  New-AzureRmSnapshotConfig
 4. De momentopname:
 
  ```azurepowershell-interactive
-New-AzureRmSnapshot 
+New-AzSnapshot 
    -Snapshot $snapshot 
    -SnapshotName $snapshotName 
    -ResourceGroupName $resourceGroupName 

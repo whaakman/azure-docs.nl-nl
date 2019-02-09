@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 02/07/2019
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: 7e4756fb241500a2f153b452c6dc5a4e332bdd6b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 3ab50c92543615488d9ced599df433bf7e1e4061
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881593"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962227"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Regels voor slimme detectie van Application Insights met behulp van Azure Resource Manager-sjablonen beheren
 
@@ -31,6 +31,7 @@ U kunt de volgende instellingen voor een regel voor slimme detectie configureren
 - Als de regel is ingeschakeld (de standaardwaarde is **waar**.)
 - Als e-mailberichten moeten worden verzonden naar de abonnementseigenaren, bijdragers en lezers wanneer een detectie is gevonden (de standaardwaarde is **waar**.)
 - Eventuele aanvullende e-mailontvangers die een melding krijgen moeten wanneer er een detectie is gevonden.
+- * E-mailconfiguratie is niet beschikbaar voor regels voor slimme detectie gemarkeerd als _Preview_.
 
 Als u wilt toestaan dat de regelinstellingen via Azure Resource Manager configureren, de configuratie van de regel voor slimme detectie is nu beschikbaar als een binnenste bron binnen de Application Insights-resource met de naam **ProactiveDetectionConfigs**.
 Elke regel voor slimme detectie kan worden geconfigureerd met unieke meldingsinstellingen, voor maximale flexibiliteit.

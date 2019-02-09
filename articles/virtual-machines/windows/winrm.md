@@ -1,6 +1,6 @@
 ---
-title: WinRM toegang instellen voor een virtuele machine in Azure | Microsoft Docs
-description: Het instellen van WinRM-toegang voor gebruik met Azure een virtuele machine gemaakt in het Resource Manager-implementatiemodel.
+title: WinRM-toegang instellen voor een Azure-VM | Microsoft Docs
+description: Setup WinRM-toegang voor gebruik met een Azure-VM gemaakt in het Resource Manager-implementatiemodel.
 services: virtual-machines-windows
 documentationcenter: ''
 author: singhkays
@@ -15,36 +15,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: 5fa82dd4a85ff2e62848df0fdc6006922005a84b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 22a522fcde2b79d89e6084cdcfcbf64e4e5bd5ce
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30914542"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977963"
 ---
-# <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>WinRM toegang instellen voor virtuele Machines in Azure Resource Manager
-## <a name="winrm-in-azure-service-management-vs-azure-resource-manager"></a>WinRM in de Azure Service Management vs Azure Resource Manager
+# <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>WinRM-toegang instellen voor virtuele Machines in Azure Resource Manager
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-rm-include.md)]
-
-* Voor een overzicht van de Azure Resource Manager, raadpleegt u dit [artikel](../../azure-resource-manager/resource-group-overview.md)
-* Voor de verschillen tussen Azure-servicebeheer en Azure Resource Manager, raadpleegt u dit [artikel](../../resource-manager-deployment-model.md)
-
-Het belangrijkste verschil bij het instellen van de WinRM-configuratie tussen de twee stapels is hoe het certificaat wordt geïnstalleerd op de virtuele machine. De certificaten zijn in de Azure Resource Manager-stack gemodelleerd als bronnen die worden beheerd door de Sleutelkluis Resource Provider. Daarom moet de gebruiker om te bieden hun eigen certificaat en upload het naar een Sleutelkluis voordat u deze in een virtuele machine.
-
-Hier volgen de stappen die u nemen moet voor het instellen van een virtuele machine met de WinRM-connectiviteit
+Hier volgen de stappen die u moet uitvoeren om in te stellen van een virtuele machine met de WinRM-connectiviteit
 
 1. Een sleutelkluis maken
 2. Een zelfondertekend certificaat maken
-3. Uw zelf-ondertekend certificaat uploaden naar Sleutelkluis
-4. De URL voor uw zelf-ondertekend certificaat in de Sleutelkluis ophalen
-5. Verwijst naar de URL van uw zelf-ondertekende certificaten tijdens het maken van een virtuele machine
+3. De zelf-ondertekend certificaat uploaden naar Key Vault
+4. De URL voor uw zelf-ondertekend certificaat in de Key Vault ophalen
+5. Verwijzen naar de URL van uw zelf-ondertekende certificaten tijdens het maken van een virtuele machine
 
-## <a name="step-1-create-a-key-vault"></a>Stap 1: Een Sleutelkluis maken
-U kunt de onderstaande opdracht om te maken van de Sleutelkluis
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
+## <a name="step-1-create-a-key-vault"></a>Stap 1: Een sleutelkluis maken
+U kunt de onderstaande opdracht om te maken van de Key Vault
 
 ```
-New-AzureRmKeyVault -VaultName "<vault-name>" -ResourceGroupName "<rg-name>" -Location "<vault-location>" -EnabledForDeployment -EnabledForTemplateDeployment
+New-AzKeyVault -VaultName "<vault-name>" -ResourceGroupName "<rg-name>" -Location "<vault-location>" -EnabledForDeployment -EnabledForTemplateDeployment
 ```
 
 ## <a name="step-2-create-a-self-signed-certificate"></a>Stap 2: Een zelfondertekend certificaat maken
@@ -62,8 +56,8 @@ $password = Read-Host -Prompt "Please enter the certificate password." -AsSecure
 Export-PfxCertificate -Cert $cert -FilePath ".\$certificateName.pfx" -Password $password
 ```
 
-## <a name="step-3-upload-your-self-signed-certificate-to-the-key-vault"></a>Stap 3: Uw zelf-ondertekend certificaat uploaden naar de Sleutelkluis
-Voordat u het certificaat uploadt naar de Sleutelkluis in stap 1 hebt gemaakt, moet worden geconverteerd naar een indeling die wordt begrepen door de Microsoft.Compute-resourceprovider. De onderstaande PowerShell script kunt u dat doen
+## <a name="step-3-upload-your-self-signed-certificate-to-the-key-vault"></a>Stap 3: De zelf-ondertekend certificaat uploaden naar de Key Vault
+Voordat u het certificaat uploadt naar de Key Vault in stap 1 hebt gemaakt, moet deze geconverteerd naar een indeling die de Microsoft.Compute-resourceprovider begrijpt. De onderstaande PowerShell script kunt u dat doen
 
 ```
 $fileName = "<Path to the .pfx file>"
@@ -85,27 +79,27 @@ $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText –Force
 Set-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValue $secret
 ```
 
-## <a name="step-4-get-the-url-for-your-self-signed-certificate-in-the-key-vault"></a>Stap 4: De URL voor uw zelf-ondertekend certificaat in de Sleutelkluis ophalen
-De Microsoft.Compute-resourceprovider moet een URL naar het geheim in de Sleutelkluis tijdens het inrichten van de virtuele machine. Hierdoor kunnen de Microsoft.Compute-resourceprovider voor het downloaden van het geheim en de equivalente certificaat maken op de virtuele machine.
+## <a name="step-4-get-the-url-for-your-self-signed-certificate-in-the-key-vault"></a>Stap 4: De URL voor uw zelf-ondertekend certificaat in de Key Vault ophalen
+De Microsoft.Compute-resourceprovider moet een URL naar het geheim in de Key Vault tijdens het inrichten van de virtuele machine. Hierdoor kunnen de Microsoft.Compute-resourceprovider voor het downloaden van het geheim en de equivalente certificaat maken op de virtuele machine.
 
 > [!NOTE]
-> De URL van het geheim moet de versie ook bevatten. Een voorbeeld-URL ziet eruit als hieronder https://contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
+> De URL van de geheime sleutel nodig heeft om de versie ook. Een voorbeeld-URL ziet eruit als hieronder https://contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
 > 
 > 
 
 #### <a name="templates"></a>Sjablonen
-Krijgt u de koppeling naar de URL in de sjabloon met behulp van de onderstaande code
+Krijgt u de koppeling naar de URL in de sjabloon met de onderstaande code
 
     "certificateUrl": "[reference(resourceId(resourceGroup().name, 'Microsoft.KeyVault/vaults/secrets', '<vault-name>', '<secret-name>'), '2015-06-01').secretUriWithVersion]"
 
 #### <a name="powershell"></a>PowerShell
-U krijgt deze URL met de onderstaande PowerShell-opdracht
+U krijgt deze URL met behulp van de onderstaande PowerShell-opdracht
 
     $secretURL = (Get-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
 
 ## <a name="step-5-reference-your-self-signed-certificates-url-while-creating-a-vm"></a>Stap 5: Verwijzen naar de URL van uw zelf-ondertekende certificaten tijdens het maken van een virtuele machine
 #### <a name="azure-resource-manager-templates"></a>Azure Resource Manager-sjablonen
-Het certificaat opgehaald bij het maken van een virtuele machine via sjablonen verwezen in de geheimen en de sectie winRM zoals hieronder:
+Tijdens het maken van een virtuele machine via sjablonen, haalt het certificaat naar verwezen in de geheimen en de winRM-sectie zoals hieronder:
 
     "osProfile": {
           ...
@@ -139,21 +133,21 @@ Het certificaat opgehaald bij het maken van een virtuele machine via sjablonen v
           }
         },
 
-Een voorbeeldsjabloon voor de bovenstaande vindt u hier op [201-vm-winrm-keyvault-windows](https://azure.microsoft.com/documentation/templates/201-vm-winrm-keyvault-windows)
+Een voorbeeldsjabloon voor het bovenstaande hier kan worden gevonden op [201-vm-winrm-keyvault-windows](https://azure.microsoft.com/documentation/templates/201-vm-winrm-keyvault-windows)
 
 De broncode voor deze sjabloon kunt u vinden op [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows)
 
 #### <a name="powershell"></a>PowerShell
-    $vm = New-AzureRmVMConfig -VMName "<VM name>" -VMSize "<VM Size>"
+    $vm = New-AzVMConfig -VMName "<VM name>" -VMSize "<VM Size>"
     $credential = Get-Credential
     $secretURL = (Get-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
-    $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName "<Computer Name>" -Credential $credential -WinRMHttp -WinRMHttps -WinRMCertificateUrl $secretURL
-    $sourceVaultId = (Get-AzureRmKeyVault -ResourceGroupName "<Resource Group name>" -VaultName "<Vault Name>").ResourceId
+    $vm = Set-AzVMOperatingSystem -VM $vm -Windows -ComputerName "<Computer Name>" -Credential $credential -WinRMHttp -WinRMHttps -WinRMCertificateUrl $secretURL
+    $sourceVaultId = (Get-AzKeyVault -ResourceGroupName "<Resource Group name>" -VaultName "<Vault Name>").ResourceId
     $CertificateStore = "My"
-    $vm = Add-AzureRmVMSecret -VM $vm -SourceVaultId $sourceVaultId -CertificateStore $CertificateStore -CertificateUrl $secretURL
+    $vm = Add-AzVMSecret -VM $vm -SourceVaultId $sourceVaultId -CertificateStore $CertificateStore -CertificateUrl $secretURL
 
 ## <a name="step-6-connecting-to-the-vm"></a>Stap 6: Verbinding maken met de virtuele machine
-Voordat u verbinding kunt maken met de virtuele machine moet u controleren of moet uw computer is geconfigureerd voor extern beheer met WinRM. Start PowerShell als beheerder en voer de onderstaande opdracht om te controleren of u alles hebt ingesteld.
+Voordat u verbinding met de virtuele machine maken kunt, moet u controleren of moet uw computer is geconfigureerd voor extern beheer met WinRM. Start PowerShell als beheerder en voer de onderstaande opdracht om te controleren of u bent ingesteld.
 
     Enable-PSRemoting -Force
 
@@ -162,6 +156,6 @@ Voordat u verbinding kunt maken met de virtuele machine moet u controleren of mo
 > 
 > 
 
-Als de installatie is voltooid, kunt u met de virtuele machine via de onderstaande opdracht
+Zodra de installatie is voltooid, kunt u verbinding maken met de virtuele machine met behulp van de onderstaande opdracht
 
     Enter-PSSession -ConnectionUri https://<public-ip-dns-of-the-vm>:5986 -Credential $cred -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck) -Authentication Negotiate

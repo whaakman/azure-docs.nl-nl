@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/06/2019
-ms.openlocfilehash: f87dd0f552fd837b1fa2e60bca6844649604c25a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 28e0e69d3a6a4d3a38146cbf2c49426b3b16c784
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55885658"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961581"
 ---
 # <a name="azure-stream-analytics-job-states"></a>Azure Stream Analytics-taak Staten
 
@@ -23,7 +23,7 @@ Een Stream Analytics-taak kan worden in een van de vier statussen op elk moment.
 | --- | --- | --- |
 | **Wordt uitgevoerd** | Uw taak wordt uitgevoerd op Azure lezen van gebeurtenissen die afkomstig zijn van de gedefinieerde invoerbronnen, deze worden verwerkt en de resultaten naar de geconfigureerde uitvoerlocaties schrijven. | Het is een best practice om bij te houden van de prestaties van uw taak door de bewaking van [belangrijke metrische gegevens](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor). |
 | **Gestopt** | Uw taak is gestopt en worden de gebeurtenissen niet verwerkt. | N.v.t. | 
-| **Gedegradeerd** | Tijdelijke fouten zijn waarschijnlijk invloed op uw taak. Stream Analytics probeert onmiddellijk te herstellen van dergelijke fouten en Ga terug naar een status die wordt uitgevoerd (binnen enkele minuten). Deze fouten kunnen gebeuren vanwege netwerkproblemen, beschikbaarheid van andere Azure-resources, deserialisatie fouten enzovoort. Prestaties van uw taak wordt mogelijk beïnvloed wanneer taak gedegradeerde status heeft.| U kunt kijken de [diagnostische of activiteit logboeken](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs#debugging-using-activity-logs) voor meer informatie over de oorzaak van deze tijdelijke fouten. In gevallen, zoals de deserialisatie-fouten, het verdient neemt u corrigerende maatregelen om ervoor te zorgen gebeurtenissen worden niet onjuist gevormd. In andere gevallen waar kunt u geen actie ondernemen, Stream Analytics probeert te herstellen naar een *met* staat.  |
+| **Gedegradeerd** | Tijdelijke fouten zijn waarschijnlijk invloed op uw taak. Stream Analytics probeert onmiddellijk te herstellen van dergelijke fouten en Ga terug naar een status die wordt uitgevoerd (binnen enkele minuten). Deze fouten kunnen gebeuren vanwege netwerkproblemen, beschikbaarheid van andere Azure-resources, deserialisatie fouten enzovoort. Prestaties van uw taak wordt mogelijk beïnvloed wanneer taak gedegradeerde status heeft.| U kunt kijken de [diagnostische of activiteit logboeken](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs#debugging-using-activity-logs) voor meer informatie over de oorzaak van deze tijdelijke fouten. In gevallen, zoals de deserialisatie-fouten, het verdient neemt u corrigerende maatregelen om ervoor te zorgen gebeurtenissen worden niet onjuist gevormd. Als de taak wordt de limiet voor het gebruik van resource wordt bereikt, probeert te vergroten het SU-nummer of [uw taak parallel](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). In andere gevallen waar kunt u geen actie ondernemen, Stream Analytics probeert te herstellen naar een *met* staat.  |
 | **Mislukt** | Uw taak is een kritieke fout, wat resulteert in een mislukte status aangetroffen. Gebeurtenissen worden niet gelezen en verwerkt. Runtime-fouten zijn een veelvoorkomende oorzaak van de taken in een foutstatus loopt. | U kunt [waarschuwingen configureren](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#set-up-alerts-in-the-azure-portal) zodat u een melding ontvangen wanneer de taak gaat u naar de status mislukt. <br> <br>U kunt fouten opsporen met behulp van [activiteit en diagnostische logboeken](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs#debugging-using-activity-logs) om te bepalen van de hoofdoorzaak te achterhalen en los het probleem.|
 
 ## <a name="next-steps"></a>Volgende stappen

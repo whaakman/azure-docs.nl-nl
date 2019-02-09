@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 9992e7d280472186b32dea3c102a02e3df4d25ce
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 871b6314bff7c984bc6cc779c43800883b8ff767
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872897"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963808"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Inleiding tot Azure Data Lake Storage Gen2
 
@@ -87,5 +87,4 @@ De volgende artikelen beschreven enkele van de belangrijkste concepten van Data 
 
 -   [Hiërarchische naamruimte](data-lake-storage-namespace.md)
 -   [Een opslagaccount maken](data-lake-storage-quickstart-create-account.md)
--   [Een HDInsight-cluster maken met Data Lake Storage Gen2](data-lake-storage-quickstart-create-connect-hdi-cluster.md)
 -   [Een Data Lake Storage Gen2-account in Azure Databricks gebruiken](data-lake-storage-quickstart-create-databricks-account.md)

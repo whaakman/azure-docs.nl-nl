@@ -1,6 +1,6 @@
 ---
-title: Het beheer van bedrijfsmiddelen en gerelateerde entiteiten met mediaservices .NET SDK
-description: Informatie over het beheren van activa en gerelateerde entiteiten met het Media Services SDK voor .NET.
+title: Beheer van Assets en gerelateerde entiteiten met mediaservices .NET SDK
+description: Informatie over het beheren van assets en gerelateerde entiteiten met de Media Services SDK voor .NET.
 author: juliako
 manager: cfowler
 editor: ''
@@ -12,33 +12,33 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: af5baf3444196e5a0e8412d9ab4f019fdccb033e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7cab21919eca9ba62fa57e1c6b2089c0b8e115dc
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788842"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979969"
 ---
-# <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Het beheer van bedrijfsmiddelen en gerelateerde entiteiten met mediaservices .NET SDK
+# <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Beheer van Assets en gerelateerde entiteiten met mediaservices .NET SDK
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-manage-entities.md)
 > * [REST](media-services-rest-manage-entities.md)
 > 
 > 
 
-Dit onderwerp leest hoe voor het beheren van Azure Media Services-entiteiten met .NET. 
+In dit onderwerp wordt beschreven hoe u Azure Media Services entiteiten beheren met .NET (verouderde)
 
 >[!NOTE]
-> Vanaf 1 april 2017 wordt elke taakrecord in uw account die ouder is dan 90 dagen, automatisch verwijderd, samen met de bijbehorende onderliggende taakrecords, zelfs als het totale aantal records lager is dan het maximale quotum. Bijvoorbeeld: op 1 April 2017 elke record taak in uw account die ouder zijn dan 31 December 2016, worden automatisch verwijderd. Als u nodig hebt bij de archivering van gegevens van de taak/taak, kunt u de code in dit onderwerp beschreven.
+> Vanaf 1 april 2017 wordt elke taakrecord in uw account die ouder is dan 90 dagen, automatisch verwijderd, samen met de bijbehorende onderliggende taakrecords, zelfs als het totale aantal records lager is dan het maximale quotum. Bijvoorbeeld op 1 April 2017 wordt worden elke taakrecord in uw account die ouder zijn dan 31 December 2016, automatisch verwijderd. Als u nodig hebt voor het archiveren van de taak gegevens, kunt u de code die in dit onderwerp beschreven.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinformatie in, zoals beschreven in [Media Services ontwikkelen met .NET](media-services-dotnet-how-to-use.md). 
 
-## <a name="get-an-asset-reference"></a>Een verwijzing naar een activum ophalen
-Een taak die vaak is een verwijzing naar een bestaand activum ophalen in Media Services. De volgende voorbeeldcode laat zien hoe u krijgt een verwijzing naar een asset uit de verzameling activa op de server context-object op basis van een asset-id. Het volgende codevoorbeeld maakt gebruik van een Linq-query verwijst naar een bestaand IAsset-object.
+## <a name="get-an-asset-reference"></a>De verwijzing naar een Asset ophalen
+Een taak die vaak is het ontvangen van een verwijzing naar een bestaande asset in Media Services. De volgende voorbeeldcode laat zien hoe u krijgt een verwijzing naar een asset uit de verzameling elementen op de server context-object, op basis van een asset-id. Het volgende codevoorbeeld maakt gebruik van een Linq-query om een verwijzing naar een bestaand IAsset-object.
 
 ```csharp
     static IAsset GetAsset(string assetId)
@@ -56,7 +56,7 @@ Een taak die vaak is een verwijzing naar een bestaand activum ophalen in Media S
 ```
 
 ## <a name="list-all-assets"></a>Lijst van alle activa
-Wanneer het aantal activa dat u in de opslag hebt groeit, is het handig zijn voor een lijst met uw assets. De volgende voorbeeldcode laat zien hoe u doorloopt de verzameling activa op de server-context-object. Aan elke asset schrijft in het voorbeeld ook sommige van de eigenschapswaarden in de console. Elk activum kan bijvoorbeeld veel mediabestanden bevatten. Alle bestanden die zijn gekoppeld aan elke asset schrijft het codevoorbeeld.
+Als het aantal activa dat u in storage hebt groeit, is het handig zijn om uw assets weer te geven. Het volgende codevoorbeeld laat zien hoe u doorloopt de verzameling elementen op de server context-object. Aan elke asset schrijft in het voorbeeld ook enkele van de eigenschapswaarden naar de console. Elke asset kan bijvoorbeeld veel mediabestanden bevatten. Alle bestanden die zijn gekoppeld aan elke asset schrijft het codevoorbeeld.
 
 ```csharp
     static void ListAssets()
@@ -98,9 +98,9 @@ Wanneer het aantal activa dat u in de opslag hebt groeit, is het handig zijn voo
 
 ## <a name="get-a-job-reference"></a>De taakverwijzing van een ophalen
 
-Wanneer u met het verwerken van de taken in Media Services-code werkt, moet u vaak geen verwijzing ophalen naar een bestaande taak op basis van een id. De volgende voorbeeldcode laat zien hoe een verwijzing naar een object IJob uit de verzameling taken ophalen.
+Wanneer u met het verwerken van taken in Media Services-code werkt, moet u vaak geen verwijzing ophalen naar een bestaand project op basis van een id. Het volgende codevoorbeeld laat zien hoe u een verwijzing naar een object IJob uit de verzameling taken worden opgehaald.
 
-Mogelijk moet u de taakverwijzing van een ophalen bij het starten van de coderingstaak van een langlopende en moet de status van de taak op een thread controleren. Wanneer de methode vanuit een thread retourneert in gevallen als volgt moet u een vernieuwd verwijzing naar een taak ophalen.
+Mogelijk moet u de verwijzing naar een taak ophalen bij het starten van een coderingstaak langlopende en nodig hebt om te controleren of de status van de taak op een thread. Wanneer de methode geactiveerd vanuit een thread wordt, in gevallen als volgt moet u een vernieuwd verwijzing naar een taak ophalen.
 
 ```csharp
     static IJob GetJob(string jobId)
@@ -119,9 +119,9 @@ Mogelijk moet u de taakverwijzing van een ophalen bij het starten van de coderin
 ```
 
 ## <a name="list-jobs-and-assets"></a>Lijst met taken en activa
-Een belangrijke taak gerelateerd is aan de lijst met activa met de bijbehorende taken in Media Services. Het volgende codevoorbeeld ziet u hoe u elk object IJob en vervolgens voor elke taak eigenschappen van de taak wordt weergegeven, alle gerelateerde taken, alle invoer-activa en alle uitvoer activa. De code in dit voorbeeld kan handig zijn voor tal van andere opdrachten. Als u weergeven van de activa van de uitvoer van een of meer codering taken die u eerder hebt uitgevoerd wilt, ziet deze code u bijvoorbeeld toegang tot de activa uitvoer. Wanneer u een verwijzing naar een uitvoerasset hebt, kunt u vervolgens de inhoud leveren aan andere gebruikers of toepassingen door downloaden of URL's bieden. 
+Lijst met activa met hun bijbehorende taak in Media Services is een belangrijke verwante taak. Het volgende codevoorbeeld ziet u hoe u elk object IJob en vervolgens voor elke taak wordt de pagina eigenschappen van de taak, alle taken met betrekking tot, alle invoer-activa, en alle uitvoerassets. De code in dit voorbeeld kan nuttig zijn voor tal van andere opdrachten. Bijvoorbeeld, als u weergeven van de activa van de uitvoer van een of meer coderingstaken die u eerder hebt uitgevoerd wilt, deze code laat zien hoe toegang tot de activa van de uitvoer. Wanneer u een verwijzing naar een uitvoerasset hebt, kunt u vervolgens de inhoud leveren aan andere gebruikers of toepassingen door downloaden of URL's bieden. 
 
-Zie voor meer informatie over opties voor het leveren van assets [activa leveren met de Media Services SDK voor .NET](media-services-deliver-streaming-content.md).
+Zie voor meer informatie over opties voor het leveren van assets [leveren van Assets met de Media Services SDK voor .NET](media-services-deliver-streaming-content.md).
 
 ```csharp
     // List all jobs on the server, and for each job, also list 
@@ -201,9 +201,9 @@ Zie voor meer informatie over opties voor het leveren van assets [activa leveren
 ```
 
 ## <a name="list-all-access-policies"></a>Lijst van alle beleidsregels voor toegang
-U kunt een toegangsbeleid definiëren op een actief of de bestanden in Media Services. Een toegangsbeleid definieert de machtigingen voor een bestand of een asset (welk type toegang en de duur van). In uw code Media Services u doorgaans een toegangsbeleid definiëren door het maken van een object IAccessPolicy en vervolgens te koppelen aan een bestaande asset. Vervolgens maakt u een object ILocator, waarmee u voorzien in directe toegang tot de activa in een Media Services. De Visual Studio-project die wordt meegestuurd met deze reeks documentatie bevat enkele codevoorbeelden die het maken en toegangsbeleid en locators toewijzen aan activa weergeven.
+U kunt een toegangsbeleid definiëren voor een asset of de bestanden in Media Services. Een toegangsbeleid definieert de machtigingen voor een bestand of een asset (welk type toegang en de duur). In de code van uw Media Services kunt u doorgaans een toegangsbeleid definiëren door het maken van een object IAccessPolicy en vervolgens te koppelen aan een bestaande asset. Vervolgens maakt u een object ILocator, waarmee u voorzien in directe toegang tot activa in Media Services. De Visual Studio-project bij deze reeks documentatie bevat enkele voorbeelden van code die laten zien hoe maken en toewijzen van beleidsregels voor toegang en locators activa.
 
-De volgende voorbeeldcode laat zien hoe u een lijst van alle beleidsregels voor toegang op de server en geeft het type van de machtigingen die zijn gekoppeld aan elk. Een andere handige manier om weer te geven toegangsbeleid is voor een lijst met alle ILocator objecten op de server en vervolgens voor elke locator u kunt een lijst voor de bijbehorende toegangsbeleid met behulp van de eigenschap AccessPolicy.
+Het volgende codevoorbeeld laat zien hoe u om alle toegangsbeleid op de server weer te geven, en geeft het type van de machtigingen die zijn gekoppeld aan elk. Een andere handige manier om toegangsbeleid weer te geven is om alle ILocator objecten op de server weer te geven en vervolgens voor elke locator, u kunt een lijst de bijbehorende toegangsbeleid met behulp van de eigenschap AccessPolicy.
 
 ```csharp
     static void ListAllPolicies()
@@ -220,12 +220,12 @@ De volgende voorbeeldcode laat zien hoe u een lijst van alle beleidsregels voor 
     }
 ```
     
-## <a name="limit-access-policies"></a>Limiet-beleid 
+## <a name="limit-access-policies"></a>Beleid voor toegang 
 
 >[!NOTE]
 > Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). U moet dezelfde beleids-id gebruiken als u altijd dezelfde dagen/toegangsmachtigingen gebruikt, bijvoorbeeld beleidsregels voor locators die zijn bedoeld om gedurende een lange periode gehandhaafd te blijven (niet-upload-beleidsregels). 
 
-U kunt bijvoorbeeld een algemene reeks beleidsregels maken met de volgende code die één keer kan alleen worden uitgevoerd in uw toepassing. U kunt de id's in een logboekbestand voor later gebruik vastleggen:
+U kunt bijvoorbeeld een algemene set beleidsregels maken met de volgende code die één keer kan alleen worden uitgevoerd in uw toepassing. U kunt zich aanmelden id's naar een logboekbestand voor later gebruik:
 
 ```csharp
     double year = 365.25;
@@ -239,7 +239,7 @@ U kunt bijvoorbeeld een algemene reeks beleidsregels maken met de volgende code 
     Console.WriteLine("One week policy ID is: " + policyWeek.Id);
 ```
 
-Vervolgens gebruikt u de bestaande id's in uw code als volgt:
+Vervolgens kunt u de bestaande id's in uw code als volgt:
 
 ```csharp
     const string policy1YearId = "nb:pid:UUID:2a4f0104-51a9-4078-ae26-c730f88d35cf";
@@ -264,11 +264,11 @@ Vervolgens gebruikt u de bestaande id's in uw code als volgt:
 ```
 
 ## <a name="list-all-locators"></a>Lijst van alle Locators
-Een locator is een URL die een directe pad voor toegang tot een asset, samen met machtigingen voor de activa zoals gedefinieerd door de locator gekoppeld toegangsbeleid. Elke asset kan een verzameling ILocator objecten gekoppeld in de eigenschap Locators hebben. De servercontext heeft ook een Locators-verzameling die alle locators bevat.
+Een locator is een URL waarmee een directe paden voor toegang tot een asset, samen met machtigingen voor de activa zoals gedefinieerd door de bijbehorende toegangsbeleid van de locator. Elke asset kan een verzameling ILocator objecten gekoppeld in de eigenschap Locators hebben. De servercontext heeft ook een Locators-verzameling die alle locators bevat.
 
-Het volgende codevoorbeeld geeft een lijst van alle locators op de server. Voor elke locator wordt de Id voor de beleidsregel asset en toegang. Het type van machtigingen, de vervaldatum en het volledige pad wordt weergegeven voor de activa.
+Het volgende codevoorbeeld geeft een lijst van alle locators op de server. Voor elke locator wordt de Id voor de beleidsregel voor activa- en toegangsbeheer. Wordt ook het type van machtigingen, de vervaldatum en het volledige pad naar de asset.
 
-Houd er rekening mee dat een locator-pad naar een asset alleen een basis-URL voor de activa is. Voor het maken van een pad naar de afzonderlijke bestanden die een gebruiker of toepassing u naar bladert kan moet uw code het specifieke bestandspad toevoegen aan het locator-pad. Zie het onderwerp voor meer informatie over hoe u dit doet, [activa leveren met de Media Services SDK voor .NET](media-services-deliver-streaming-content.md).
+Houd er rekening mee dat een locator-pad naar een asset alleen een basis-URL naar de asset is. Voor het maken van een pad naar afzonderlijke bestanden die een gebruiker of toepassing u naar bladert kan moet uw code het specifieke pad toevoegen aan het pad locator. Zie het onderwerp voor meer informatie over hoe u dit doet, [leveren van Assets met de Media Services SDK voor .NET](media-services-deliver-streaming-content.md).
 
 ```csharp
     static void ListAllLocators()
@@ -290,10 +290,10 @@ Houd er rekening mee dat een locator-pad naar een asset alleen een basis-URL voo
     }
 ```
 
-## <a name="enumerating-through-large-collections-of-entities"></a>Door grote verzamelingen van entiteiten opsommen
-Tijdens het opvragen van entiteiten, is er een limiet van 1000 entiteiten in één keer wordt geretourneerd omdat openbare REST v2 queryresultaten tot 1000 resultaten beperkt. U moet gebruiken overslaan en nemen bij het opsommen van via grote verzamelingen van entiteiten. 
+## <a name="enumerating-through-large-collections-of-entities"></a>Tot en met grote verzamelingen entiteiten opsommen
+Bij het opvragen van entiteiten, is er een limiet van 1000 entiteiten in één keer wordt geretourneerd omdat openbare REST v2 queryresultaten tot 1000 resultaten beperkt. U moet gebruiken overslaan en los het probleem bij het opsommen van via grote verzamelingen van entiteiten. 
 
-De volgende functie doorlopen van de taken in de opgegeven Media Services-Account. Media Services retourneert 1000 taken in de verzameling taken. De functie maakt gebruik van overslaan en nemen om ervoor te zorgen dat alle taken die worden geïnventariseerd (als u meer dan 1000 taken in uw account hebt).
+De volgende functie zijn doorlopen van de taken in de opgegeven Media Services-Account. Media Services retourneert 1000 taken in de verzameling taken. De functie maakt gebruik van overslaan en nemen om ervoor te zorgen dat alle taken worden geïnventariseerd (als u meer dan 1000 taken in uw account hebt).
 
 ```csharp
     static void ProcessJobs()
@@ -333,7 +333,7 @@ De volgende functie doorlopen van de taken in de opgegeven Media Services-Accoun
     }
 ```
 
-## <a name="delete-an-asset"></a>Een activum verwijderen
+## <a name="delete-an-asset"></a>Een Asset verwijderen
 Het volgende voorbeeld wordt een asset.
 
 ```csharp
@@ -350,9 +350,9 @@ Het volgende voorbeeld wordt een asset.
 ```
 
 ## <a name="delete-a-job"></a>Een taak verwijderen
-Als u wilt verwijderen van een taak, moet u de status van de taak controleren, zoals aangegeven in de eigenschap State. Taken die zijn voltooid of geannuleerd kunnen worden verwijderd terwijl de taken die zich in een bepaalde status, zoals in de wachtrij, geplande of verwerking, moeten eerst worden geannuleerd, en vervolgens kunnen worden verwijderd.
+Als u wilt een taak verwijderen, moet u de status van de taak controleren, zoals aangegeven in de eigenschap State. Taken die zijn voltooid of geannuleerd kunnen worden verwijderd, terwijl taken die zich in een bepaalde status, zoals in de wachtrij, gepland of verwerking, moeten eerst worden geannuleerd, en vervolgens kunnen worden verwijderd.
 
-Het volgende codevoorbeeld toont een methode voor het verwijderen van een taak met taakstatussen controleren en vervolgens te verwijderen wanneer de status is voltooid of geannuleerd. Deze code is afhankelijk van de vorige sectie in dit onderwerp voor het ophalen van een verwijzing naar een taak: de taakverwijzing van een ophalen.
+Het volgende codevoorbeeld toont een methode voor het verwijderen van een taak door het controleren van taakstatussen en vervolgens te verwijderen wanneer de status is voltooid of geannuleerd. Deze code is afhankelijk van de vorige sectie in dit onderwerp voor het ophalen van een verwijzing naar een taak: De taakverwijzing van een ophalen.
 
 ```csharp
     static void DeleteJob(string jobId)
@@ -402,8 +402,8 @@ Het volgende codevoorbeeld toont een methode voor het verwijderen van een taak m
 ```
 
 
-## <a name="delete-an-access-policy"></a>Verwijderen van toegangsbeleid instellen
-De volgende voorbeeldcode laat zien hoe een verwijzing naar een toegangsbeleid op basis van een beleid voor Id, en vervolgens verwijdert u het beleid.
+## <a name="delete-an-access-policy"></a>Een toegangsbeleid verwijderen
+Het volgende codevoorbeeld laat zien hoe u een verwijzing naar een toegangsbeleid op basis van een beleids-Id, en vervolgens verwijdert u het beleid.
 
 ```csharp
     static void DeleteAccessPolicy(string existingPolicyId)

@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/11/2016
+ms.date: 02/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: bf999e15c04a64f717bcd7bac87e357d5ccc92e6
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: ecf0638aa999208331603ac30ccf4eb17b3c4500
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189929"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960680"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Problemen met analyses in Application Insights oplossen
 Problemen met [Application Insights Analytics](analytics.md)? Begin hier. Analytics is de krachtige zoekfunctie van Azure Application Insights.
@@ -36,7 +36,7 @@ De uitbreiding uitschakelen of gebruik een andere browser.
 
 Er is een interne fout opgetreden tijdens het portal runtime niet-verwerkte uitzondering.
 
-* Opschonen van de browser-cache. 
+* Opschonen van de browser-cache.
 
 ## <a name="e-b"></a>403... Probeer het opnieuw te laden
 ![403... Probeer het opnieuw te laden](media/analytics-troubleshooting/020.png)
@@ -71,7 +71,7 @@ Er is een fout opgetreden die te maken heeft met het verificatieproces (tijdens 
 ## <a name="e-d"></a>404 ... Kan de resource niet vinden
 ![404... resource is niet gevonden](media/analytics-troubleshooting/040.png)
 
-Bron van toepassing is verwijderd uit de Application Insights en is t beschikbaar meer. Dit kan gebeuren als u de URL naar de pagina Analytics hebt opgeslagen.
+Bron van toepassing is verwijderd uit de Application Insights en niet meer beschikbaar. Dit kan gebeuren als u de URL naar de pagina Analytics hebt opgeslagen.
 
 ## <a name="e-e"></a>403 ... Er is geen autorisatie
 ![403... niet gemachtigd](media/analytics-troubleshooting/050.png)
@@ -81,7 +81,7 @@ U bent niet gemachtigd voor het openen van deze toepassing in Analytics.
 * Krijgt u de koppeling van iemand anders? Vraag deze om te controleren of u zich in de [lezers of bijdragers voor deze resourcegroep](../../azure-monitor/app/resources-roles-access-control.md).
 * Hebt u de koppeling met andere referenties opgeslagen? Open de [Azure-portal](https://portal.azure.com), meld u af en probeer het vervolgens deze koppeling weer de juiste referenties op te geven.
 
-## <a name="html-storage"></a>403 ... HTML5-opslag
+## <a name="html-storage"></a>403 ... HTML5 Storage
 Onze portal maakt gebruik van HTML5 localStorage en sessionStorage.
 
 * Chrome: Instellingen, privacy, instellingen van de inhoud.

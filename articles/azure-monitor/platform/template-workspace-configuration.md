@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
-ms.openlocfilehash: e402cc214f25447407754bc6269300f4f052af4f
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 30d9de5653db385760155d533ad747c3cf6d2400
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232733"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960348"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Log Analytics beheren met Azure Resource Manager-sjablonen
 U kunt [Azure Resource Manager-sjablonen](../../azure-resource-manager/resource-group-authoring-templates.md) maken en configureren van Log Analytics-werkruimten. Voorbeelden van de taken die u met sjablonen uitvoeren kunt zijn:
@@ -54,9 +54,9 @@ De volgende parameters instelt een standaardwaarde:
 * locatie - standaard ingesteld op VS-Oost
 * SKU - standaard ingesteld op de nieuwe prijzen Per GB-laag met de uitgebracht in April 2018 prijsmodel
 
->[!WARNING]
->Als het maken of configureren van een Log Analytics-werkruimte in een abonnement dat is deelneemt aan het nieuwe prijsmodel April 2018, is het de enige geldige Log Analytics prijscategorie **PerGB2018**. 
->
+> [!NOTE]
+>Als het maken of configureren van een Log Analytics-werkruimte in een abonnement dat is deelneemt aan het nieuwe prijsmodel April 2018, is het de enige geldige Log Analytics prijscategorie **PerGB2018**.  
+>Als u sommige abonnementen mogelijk in het (pre-April 2018 prijsmodel) [https://docs.microsoft.com/en-us/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model], kunt u de **zelfstandige** prijscategorie, en dit slaagt voor beide abonnementen in het prijsmodel van pre-April 2018 en voor abonnementen in de nieuwe prijzen. Voor toegang tot werkruimten in abonnementen die het nieuwe proicing model hebt vastgesteld, wordt de prijscategorie zijn ingesteld op **PerGB2018**. 
 
 ### <a name="create-and-deploy-template"></a>Sjabloon maken en implementeren
 

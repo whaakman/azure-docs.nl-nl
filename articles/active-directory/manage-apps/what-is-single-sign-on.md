@@ -2,21 +2,21 @@
 title: Single sign-on bij toepassingen - Azure Active Directory | Microsoft Docs
 description: Informatie over het kiezen van een methode voor eenmalige aanmelding bij het configureren van toepassingen in Azure Active Directory (Azure AD). Eenmalige aanmelding gebruikt, zodat gebruikers niet hoeft te onthouden de wachtwoorden voor elke toepassing en te vereenvoudigen het beheer van accountbeheer.
 services: active-directory
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/25/2019
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: arvindh
-ms.openlocfilehash: 8216eb9c076111bfa70633b24f36ac97b0ee319a
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 7903094efc75ec54811bf565f407752f958498b7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664026"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55959202"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Eenmalige aanmelding voor toepassingen in Azure Active Directory
 Eenmalige aanmelding (SSO) voegt beveiliging en gemak wanneer gebruikers zich aanmelden bij toepassingen in Azure Active Directory (Azure AD). Dit artikel beschrijft de methoden voor eenmalige aanmelding en helpt u bij het kiezen van de meest geschikte methode voor eenmalige aanmelding bij het configureren van uw toepassingen.

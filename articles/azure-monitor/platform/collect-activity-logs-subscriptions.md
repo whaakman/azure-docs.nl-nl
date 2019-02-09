@@ -10,18 +10,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 344b049c46243c06c32ed061410f48f71bc70f54
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 4d336f657baef99d97568ba722e64a1f4440367f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580940"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984576"
 ---
-# <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Azure-activiteitenlogboeken verzamelen in Log Analytics voor meerdere abonnementen
+# <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions-in-different-azure-active-directory-tenants"></a>Azure-activiteitenlogboeken verzamelen in Log Analytics voor meerdere abonnementen in verschillende Azure Active Directory-tenants
 
-In dit artikel wordt een stapsgewijze methode besproken voor het verzamelen van Azure-activiteitenlogboeken in een Log Analytics-werkruimte met behulp van de connector van de Azure Log Analytics-gegevensverzamelaar voor Logic Apps. Gebruik het proces in dit artikel als u logboeken wilt verzenden naar een werkruimte in een andere Azure Active Directory. Als u bijvoorbeeld een aanbieder van beheerde services bent, wilt u mogelijk activiteitenlogboeken verzamelen uit een abonnement van een klant en opslaan in een Log Analytics-werkruimte in uw eigen abonnement.
+In dit artikel wordt een stapsgewijze methode besproken voor het verzamelen van Azure-activiteitenlogboeken in een Log Analytics-werkruimte met behulp van de connector van de Azure Log Analytics-gegevensverzamelaar voor Logic Apps. Gebruik het proces in dit artikel als u nodig hebt om Logboeken te verzenden naar een werkruimte in een andere Azure Active Directory-tenant. Als u bijvoorbeeld een aanbieder van beheerde services bent, wilt u mogelijk activiteitenlogboeken verzamelen uit een abonnement van een klant en opslaan in een Log Analytics-werkruimte in uw eigen abonnement.
 
 Als de Log Analytics-werkruimte zich in hetzelfde Azure-abonnement, of in een ander abonnement maar in dezelfde Azure Active Directory bevindt, gebruikt u de stappen in de [Oplossing voor Azure-activiteitenlogboeken](collect-activity-logs.md) voor het verzamelen van Azure-activiteitenlogboeken.
 

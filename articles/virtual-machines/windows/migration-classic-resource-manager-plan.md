@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 1960cac28b74980d17f37b4e06e79604e156381e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 540abeed3587959af5ca229f59343774b824547b
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566234"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982893"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planning voor de migratie van IaaS-resources van klassiek naar Azure Resource Manager
 Azure Resource Manager biedt veel geweldige functies, is het essentieel is voor het plannen van de migratie om ervoor zaken soepel verloopt. Tijd besteed aan het plannen, zorgt u ervoor dat u geen problemen ondervindt tijdens het uitvoeren van migratieactiviteiten.
@@ -131,23 +131,25 @@ De volgende zijn problemen gedetecteerd in veel van de grotere migraties. Dit is
     - Routetabellen
 
     U kunt uw huidige Azure Resource Manager-quota's die met de volgende opdrachten met de meest recente versie van Azure PowerShell controleren.
+    
+    [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
     **COMPUTE** *(kernen, Beschikbaarheidssets)*
 
     ```powershell
-    Get-AzureRmVMUsage -Location <azure-region>
+    Get-AzVMUsage -Location <azure-region>
     ```
 
     **Netwerk** *(virtuele netwerken, statische openbare IP-adressen, openbare IP-adressen, de Netwerkbeveiligingsgroepen Network Interfaces, Load Balancers, routetabellen)*
 
     ```powershell
-    Get-AzureRmUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
+    Get-AzUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
     ```
 
     **Opslag** *(Opslagaccount)*
 
     ```powershell
-    Get-AzureRmStorageUsage
+    Get-AzStorageUsage
     ```
 
 - **Azure Resource Manager API beperkingslimieten** : als u een groot genoeg omgeving (zoals hebt) > 400 VM's in een VNET), kunt u de standaard-API beperkingslimieten voor schrijfbewerkingen bereikt (momenteel `1200 writes/hour`) in Azure Resource Manager. Voordat u begint met de migratie, moet u een ondersteuningsticket om deze limiet voor uw abonnement te verhogen verhogen.

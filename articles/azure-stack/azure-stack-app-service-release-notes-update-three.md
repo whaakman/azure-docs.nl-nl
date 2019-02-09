@@ -16,12 +16,12 @@ ms.date: 08/20/2018
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: a7e8b1471e056fd789cda5258dd088e623c3cebd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2432c30ca98904c2e6789f4b15468f905096bbf7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248500"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962788"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>App Service op de opmerkingen bij de release van de Azure Stack update 3
 
@@ -197,7 +197,7 @@ Als u wilt implementeren in een bestaand virtueel netwerk en een interne IP-adre
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Bekende problemen voor Cloud-beheerders die Azure App Service in Azure Stack
 
-Raadpleeg de documentatie in de [opmerkingen bij de Release van Azure Stack 1807](azure-stack-update-1807.md)
+Raadpleeg de documentatie in de Azure Stack 1807 Release-opmerkingen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

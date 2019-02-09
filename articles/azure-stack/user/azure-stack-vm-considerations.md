@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2018
+ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/19/2018
-ms.openlocfilehash: 421e3bf4465f5aa9aafc4ad666af2178faedb7c3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 112e9aa023fb29bd960b61139861db4007c61b4d
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245954"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962244"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Overwegingen voor het gebruik van virtuele machines in Azure Stack
 
@@ -41,8 +41,9 @@ Virtuele machines van Azure Stack bieden on-demand en schaalbare computing-resou
 | Prestaties van de virtuele machine-schijven | Afhankelijk van schijftype en grootte. | Afhankelijk van VM-grootte van virtuele machine die de schijven zijn gekoppeld te verwijzen naar de [grootten van virtuele machines worden ondersteund in Azure Stack](azure-stack-vm-sizes.md) artikel.
 | API-versies | Azure heeft altijd de meest recente API-versies voor alle functies van de virtuele machine. | Azure Stack biedt ondersteuning voor specifieke Azure-services en specifieke API-versies voor deze services. Raadpleeg de lijst van ondersteunde API-versies wilt weergeven, de [API-versies](#api-versions) sectie van dit artikel. |
 | Azure Instance Metadata service | De Azure Instance Metadata Service bevat informatie over het uitvoeren van de exemplaren van de virtuele machine die kunnen worden gebruikt om te beheren en configureren uw virtuele machines.  | Het exemplaar metadata-service wordt niet ondersteund in Azure Stack. |
-|Beschikbaarheidssets voor virtuele machines|Meerdere domeinen met fouten (2 of 3 per regio)<br>Meerdere updatedomeinen<br>Beheerde schijfondersteuning|Meerdere domeinen met fouten (2 of 3 per regio)<br>Meerdere updatedomeinen (maximaal 20)<br>Er is geen ondersteuning voor beheerde schijven|
-|Virtuele-machineschaalsets|Automatisch schalen wordt ondersteund|Automatisch schalen niet ondersteund.<br>Meer exemplaren toevoegen aan een schaalset met behulp van de portal, Resource Manager-sjablonen of PowerShell.
+| Beschikbaarheidssets voor virtuele machines|Meerdere domeinen met fouten (2 of 3 per regio)<br>Meerdere updatedomeinen|Meerdere domeinen met fouten (2 of 3 per regio)<br>Meerdere updatedomeinen (maximaal 20)|
+| Virtuele-machineschaalsets|Automatisch schalen wordt ondersteund|Automatisch schalen niet ondersteund.<br>Meer exemplaren toevoegen aan een schaalset met behulp van de portal, Resource Manager-sjablonen of PowerShell. |
+| Diagnostische gegevens van virtuele machines | Diagnostische gegevens over Linux-VM | Linux-VM-diagnostische gegevens worden niet ondersteund in Azure Stack. Wanneer u een Linux-VM met VM diagnostics is ingeschakeld implementeren, wordt de implementatie mislukt. De implementatie mislukt ook als u de Linux-VM eenvoudige metrische gegevens via diagnostische instellingen inschakelen.
 
 ## <a name="virtual-machine-sizes"></a>Grootten van virtuele machines
 
@@ -71,7 +72,7 @@ Grootten van virtuele machines en de bijbehorende resource-hoeveelheden zijn con
 
 ## <a name="virtual-machine-extensions"></a>Extensies van de virtuele machine
 
- Azure Stack bevat een kleine set van extensies. Updates en de aanvullende extensies zijn beschikbaar via de Marketplace-syndicatie.
+Azure Stack bevat een kleine set van extensies. Updates en de aanvullende extensies zijn beschikbaar via de Marketplace-syndicatie.
 
 Gebruik de volgende PowerShell-script om de lijst met extensies voor virtuele machines die beschikbaar in uw Azure Stack-omgeving zijn:
 
@@ -82,6 +83,8 @@ Get-AzureRmVmImagePublisher -Location local | `
   Select Type, Version | `
   Format-Table -Property * -AutoSize
 ```
+
+Als een uitbreiding op een VM-implementatie de inrichting te lang duurt, kunt u de time-out van de inrichting in plaats van bij stoppen van de procedure voor de toewijzing ongedaan of verwijder de virtuele machine.
 
 ## <a name="api-versions"></a>API-versies
 
@@ -101,7 +104,7 @@ Get-AzureRmResourceProvider | `
 
 De lijst met ondersteunde resourcetypen en API-versies kan variëren als de cloud-operator uw Azure Stack-omgeving naar een nieuwere versie bijwerkt.
 
-## <a name="windows-activation"></a>Windows Activation
+## <a name="windows-activation"></a>Windows-activering
 
 Windows-producten moeten worden gebruikt in overeenstemming met de Product Use Rights en de licentievoorwaarden voor Microsoft. Maakt gebruik van Azure Stack [automatische activering van virtuele machine](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA) voor het activeren van Windows Server virtuele machines (VM's).
 

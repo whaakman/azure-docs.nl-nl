@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 02/07/2019
 ms.reviewer: vitalyg
 ms.author: mbullwin
-ms.openlocfilehash: 0b56451231f1fda4e5bd156d0aded6e84c9c0162
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 8e9cb570f69eb29887f4f904ba7b2b35548f3771
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117449"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965355"
 ---
 # <a name="sampling-in-application-insights"></a>Steekproeven in Application Insights
 
@@ -195,6 +195,63 @@ Wanneer u [configureren van de webpagina's voor Application Insights](../../azur
 Voor het voorbeeldpercentage, kiest u een percentage dat bijna 100/N waarbij N staat voor een geheel getal zijn.  Op dit moment steekproeven biedt geen ondersteuning voor andere waarden.
 
 Als u ook steekproeven vast tarief op de server inschakelt, worden de clients en de server worden gesynchroniseerd zo dat, in Search, u tussen gerelateerde paginaweergaven en aanvragen navigeren kunt.
+
+## <a name="aspnet-core-sampling"></a>ASP.NET Core-steekproeven
+
+Adaptieve steekproeven is standaard ingeschakeld voor alle ASP.NET Core-toepassingen. U kunt uitschakelen of aanpassen van de werking van steekproeven.
+
+### <a name="turning-off-adaptive-sampling"></a>Het uitschakelen van adaptieve steekproeven
+
+De standaard steekproeven-functie kan worden uitgeschakeld wanneer we-service, Application Insights in de methode toevoegt ```ConfigureServices```, met ```ApplicationInsightsServiceOptions```:
+
+``` c#
+public void ConfigureServices(IServiceCollection services)
+{
+// ...
+
+var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
+aiOptions.EnableAdaptiveSampling = false;
+services.AddApplicationInsightsTelemetry(aiOptions);
+
+//...
+}
+```
+
+De bovenstaande code wordt steekproeven functie uitgeschakeld. Volg de stappen hieronder om het toevoegen van sampling met meer opties voor het aanpassen.
+
+### <a name="configure-sampling-settings"></a>Steekproeven instellingen configureren
+
+Gebruik van uitbreidingsmethoden van ```TelemetryProcessorChainBuilder``` zoals hieronder wordt weergegeven om aan te passen van steekproeven gedrag.
+
+> [!IMPORTANT]
+> Als u deze methode gebruiken om te configureren van steekproeven, zorg ervoor dat u het gebruik van aiOptions.EnableAdaptiveSampling = false; instellingen met AddApplicationInsightsTelemetry().
+
+``` c#
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
+
+var builder = configuration .TelemetryProcessorChainBuilder;
+// version 2.5.0-beta2 and above should use the following line instead of above. (https://github.com/Microsoft/ApplicationInsights-aspnetcore/blob/develop/CHANGELOG.md#version-250-beta2)
+// var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
+
+// Using adaptive sampling
+builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:10);
+ 
+// OR Using fixed rate sampling   
+double fixedSamplingPercentage = 50;
+builder.UseSampling(fixedSamplingPercentage);
+
+builder.Build();
+
+// ...
+}
+
+```
+
+**Als de bovenstaande methode om te configureren van steekproeven, zorg ervoor dat u gebruikt ```aiOptions.EnableAdaptiveSampling = false;``` instellingen met AddApplicationInsightsTelemetry().**
+
+Zonder deze optie worden er meerdere steekproeven processors in de TelemetryProcessor keten leiden tot ongewenste gevolgen.
 
 ## <a name="fixed-rate-sampling-for-aspnet-and-java-web-sites"></a>Vast tarief sampling voor ASP.NET en Java-websites
 Vast tarief met steekproeven vermindert het verkeer dat wordt verzonden vanuit uw webserver en webbrowsers. In tegenstelling tot adaptieve steekproeven vermindert telemetrie tegen een vast tarief door u bepaald. Het ook synchroniseert de client en server steekproeven zodat gerelateerde items worden bewaard: als u de weergave van een pagina in het zoekvak bekijkt, kunt u bijvoorbeeld de gerelateerde aanvraag vinden.

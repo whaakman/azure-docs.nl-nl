@@ -11,13 +11,13 @@ author: douglaslMS
 ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6066ca586ce9923158026fbeaa405de16681de9b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 080cfb43f8fef04d2459dd0bb8779d2aa66cc359
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461336"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960970"
 ---
 # <a name="copy-an-transactionally-consistent-copy-of-an-azure-sql-database"></a>Een transactioneel consistente kopie van een Azure SQL database kopiëren
 
@@ -68,6 +68,7 @@ Meld u aan bij de database master met de principal-aanmelding op serverniveau of
 Beginnen met het kopiëren van de brondatabase met de [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx) instructie. Deze instructie uitvoert, wordt de database kopiëren proces gestart. Omdat een database kopieert een asynchroon proces is, retourneert de instructie CREATE DATABASE is voordat het kopiëren van de database voltooid is.
 
 ### <a name="copy-a-sql-database-to-the-same-server"></a>Een SQL-database kopiëren naar dezelfde server
+
 Meld u aan bij de database master met de principal-aanmelding op serverniveau of de aanmelding die het maken van de database die u wilt kopiëren. Voor de database kopiëren om te kunnen slagen, moeten aanmeldingen die niet de principal op serverniveau lid zijn van de rol dbmanager.
 
 Met deze opdracht worden Database1 gekopieerd naar een nieuwe database met de naam Database2 op dezelfde server. De bewerking kopiëren kan enige tijd duren, afhankelijk van de grootte van uw database.
@@ -86,6 +87,9 @@ Met deze opdracht kopieert Database1 op server1 naar een nieuwe database met de 
     -- Start copying from Server1 to Server2
     CREATE DATABASE Database2 AS COPY OF server1.Database1;
 
+## <a name="to-move-a-database-between-subscriptions"></a>Een database verplaatsen tussen abonnementen
+
+In de [Azure-portal](https://portal.azure.com), klikt u op **SQL-servers** en selecteer vervolgens de server die als host fungeert voor uw database in de lijst. Klik op **verplaatsen**, en kies vervolgens de resources wilt verplaatsen en het abonnement om naar te verplaatsen.
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>De voortgang van de bewerking kopiëren
 
@@ -96,7 +100,6 @@ Het kopieerproces bewaken door het opvragen van de sys.databases en sys.dm_datab
 
 > [!NOTE]
 > Als u besluit om te annuleren de kopiëren terwijl deze uitgevoerd wordt, uitvoeren van de [DROP DATABASE](https://msdn.microsoft.com/library/ms178613.aspx) instructie op de nieuwe database. U kunt ook annuleert de instructie DROP DATABASE wordt uitgevoerd op de brondatabase ook het kopieerproces.
-> 
 
 ## <a name="resolve-logins"></a>Aanmeldingen oplossen
 

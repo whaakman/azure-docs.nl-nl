@@ -16,12 +16,12 @@ ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: beb86284256d42c119e551a18d9900f0dad61b7f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d23aab91df2d69850e8c3b80a1c12f49f2e7fcaa
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247490"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965168"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 update
 
@@ -130,9 +130,9 @@ Deze update bevat ook de oplossing voor het speculatieve uitvoering kant kanaal 
 
 ### <a name="prerequisites"></a>Vereisten
 
-- De Azure-Stack installeren [1807 bijwerken](azure-stack-update-1807.md) voordat u de Azure Stack 1808 update toepassen. 
+- De Azure Stack 1807-update geïnstalleerd voordat u de Azure Stack 1808 update toepassen. 
 
-- Installeer de meest recente beschikbare [update of hotfix voor versie 1807](azure-stack-update-1807.md#post-update-steps).  
+- Installeer de meest recente beschikbare update of hotfix voor versie 1807.  
   > [!TIP]  
   > Abonneer u op de volgende *RRS* of *Atom* feeds, blijven van het Azure Stack Hotfixes:
   > - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss ... 
@@ -246,7 +246,7 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 
    - NAAM: Storage service-interne communicatiefout  
    - ERNST: Kritiek  
-   - COMPONENT: Storage  
+   - COMPONENT: Opslag  
    - BESCHRIJVING: Storage service-interne communicatiefout is opgetreden bij het verzenden van aanvragen naar de volgende knooppunten.  
 
     De waarschuwing kan veilig worden genegeerd, maar moet u de waarschuwing handmatig sluit.

@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: d43adf7009fcd668299f018b6308765bb115b237
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: e103124b2b0e720517106f9b4453ee8a76688eca
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565901"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977215"
 ---
-# <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Media Services-activa beheren voor meerdere opslagaccounts
+# <a name="managing-media-services-assets-across-multiple-storage-accounts-legacy"></a>Media Services-activa beheren voor meerdere opslagaccounts (verouderde)
 
 U kunt meerdere opslagaccounts koppelen aan een enkel Media Services-account. Mogelijkheid om meerdere opslagaccounts koppelen aan een Media Services-account biedt de volgende voordelen:
 
@@ -33,7 +33,7 @@ In dit artikel ziet u hoe u meerdere opslagaccounts koppelen aan een Media Servi
 
 Meerdere opslagaccounts aan Media Services-account koppelt, gelden de volgende overwegingen:
 
-* De Media Services-account en alle gekoppelde opslagaccounts moeten zich in hetzelfde Azure-abonnement. Het verdient aanbeveling gebruik van storage-accounts op dezelfde locatie bevinden als het Media Services-account.
+* Het Media Services-account en alle gekoppelde opslagaccounts moeten zich in hetzelfde Azure-abonnement bevinden. Het is raadzaam om opslagaccounts te gebruiken die zich op dezelfde locatie bevinden als het Media Services-account.
 * Zodra een storage-account is gekoppeld aan het opgegeven Media Services-account, kan niet worden losgekoppeld.
 * Primaire storage-account is opgegeven tijdens het aanmaken van Media Services-account. U kunt het standaardopslagaccount op dit moment niet wijzigen. 
 * Als u een Cool Storage-account toevoegen aan de AMS-account wilt, moet het opslagaccount een Blob-type en ingesteld op niet-primaire.

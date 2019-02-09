@@ -1,22 +1,61 @@
 ---
 title: Oplossen van problemen met replicatie voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure met behulp van Azure Site Recovery | Microsoft Docs
 description: Dit artikel bevat informatie over probleemoplossing voor algemene problemen met replicatie tijdens herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure met behulp van Azure Site Recovery.
-author: Rajeswari-Mamilla
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/18/2019
-ms.author: ramamill
-ms.openlocfilehash: 5c2d33b39614ded95ac38e07c844b0a8cafa7cd2
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.date: 02/7/2019
+ms.author: mayg
+ms.openlocfilehash: 71c07d93d75ee372a50ec4ff5fc81e92926d329b
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411472"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964770"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Problemen met replicatie voor virtuele VMware-machines en fysieke servers
 
 U kunt een specifiek foutbericht tegenkomen wanneer u uw virtuele VMware-machines of fysieke servers beschermen met behulp van Azure Site Recovery. In dit artikel beschrijft enkele veelvoorkomende problemen die optreden mogelijk wanneer u on-premises VMware-machines en fysieke servers naar Azure met behulp van repliceren [siteherstel](site-recovery-overview.md).
+
+## <a name="monitor-process-server-health-to-avoid-replication-issues"></a>Status van de processerver om te voorkomen dat problemen met replicatie bewaken
+
+Het verdient aanbeveling om de status van de proces-Server (PS) in de portal om ervoor te zorgen dat de replicatie vordert voor uw gekoppelde bronmachines te bewaken. Ga in de kluis naar beheren > Site Recovery-infrastructuur > configuratieservers. Klik op de blade van de configuratieserver op de processerver onder Servers die zijn gekoppeld. Proces Server-blade wordt geopend met de status van statistieken. U kunt CPU-gebruik, geheugengebruik, de status van de PS-services die nodig zijn voor replicatie, de vervaldatum van certificaat en de beschikbare vrije ruimte op te volgen. De status van alle statistische gegevens moet groen. 
+
+**Het wordt aanbevolen om geheugen en CPU-gebruik onder 70% hebben en vrije ruimte bovenstaande 25%**. Vrije ruimte verwijst naar de cache schijfruimte op de processerver die wordt gebruikt voor het opslaan van de replicatiegegevens van de bronmachines voordat u uploadt naar Azure. Als deze wordt beperkt tot minder dan 20%, wordt de replicatie voor alle gekoppelde bronmachines worden beperkt. Ga als volgt de [capaciteit richtlijnen](./site-recovery-plan-capacity-vmware.md#capacity-considerations) om te begrijpen van de vereiste configuratie voor het repliceren van de bronmachines.
+
+Zorg ervoor dat de volgende services worden uitgevoerd op de PS-machine. Starten of opnieuw starten van een service die actief is.
+
+**Ingebouwde processerver**
+
+* cxprocessserver
+* InMage PushInstall
+* De Service log Upload (LogUpload)
+* InMage Scout Application Service
+* Microsoft Azure Recovery Services-Agent (obengine)
+* InMage Scout VX Agent - Sentinel/Outpost (svagents)
+* tmansvc
+* World Wide Web Publishing Service (W3SVC)
+* MySQL
+* Microsoft Azure Site Recovery-Service (dra)
+
+**Uitbreidbare processerver**
+
+* cxprocessserver
+* InMage PushInstall
+* De Service log Upload (LogUpload)
+* InMage Scout Application Service
+* Microsoft Azure Recovery Services-Agent (obengine)
+* InMage Scout VX Agent - Sentinel/Outpost (svagents)
+* tmansvc
+
+**Processerver in Azure voor failback**
+
+* cxprocessserver
+* InMage PushInstall
+* De Service log Upload (LogUpload)
+
+Zorg ervoor dat het StartType van alle services is ingesteld op **automatisch of automatisch (vertraagd starten)**. Microsoft Azure Recovery Services-Agent (obengine) service hoeft niet te hebben het StartType is ingesteld als hierboven.
 
 ## <a name="initial-replication-issues"></a>Initiële replicatie oplossen
 
@@ -26,7 +65,7 @@ Initiële replicatiefouten worden vaak veroorzaakt door problemen met de netwerk
 
 De volgende lijst toont manieren waarop u op de bronmachine controleren kunt:
 
-*  Op de opdrachtregel op de bronserver, moet u Telnet gebruiken om te pingen van de processerver via het HTTPS-poort (de standaard HTTPS-poort is 9443) met de volgende opdracht. Voor problemen met de netwerkverbinding en problemen dat blok de firewallpoort wordt gecontroleerd.
+*  Op de opdrachtregel op de bronserver, moet u Telnet gebruiken om te pingen van de processerver via de HTTPS-poort door de volgende opdracht uit. HTTPS-poort 9443 is de standaardinstelling gebruikt door de processerver voor het verzenden en ontvangen van replicatieverkeer. U kunt deze poort wijzigen op het moment van inschrijving. De volgende opdracht uit voor problemen met de netwerkverbinding en voor problemen dat blok de firewallpoort gecontroleerd.
 
 
    `telnet <process server IP address> <port>`
@@ -35,13 +74,42 @@ De volgende lijst toont manieren waarop u op de bronmachine controleren kunt:
    > [!NOTE]
    > Telnet gebruiken om te controleren. Gebruik geen `ping`. Als Telnet niet is geïnstalleerd, voert u de stappen in [Telnet-Client installeren](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx).
 
+   Als telnet geen verbinding maken met succes met de PS-poort is, zou een leeg scherm worden weergegeven.
+
    Als u geen verbinding met de processerver maken, kunt u de binnenkomende poort 9443 op de processerver. Bijvoorbeeld, u moet mogelijk binnenkomende poort 9443 op de processerver is toegestaan als het netwerk een perimeternetwerk heeft of gescreend subnet wordt genoemd. Controleer vervolgens of het probleem nog steeds voordoet.
 
-*  Controleer de status van de **InMage Scout VX Agent-Sentinel/OutpostStart** service. Als de service niet actief is, start de service en Ga na of het probleem nog steeds voordoet.   
+*  Als telnet geslaagd is en nog de bronmachine rapporteert de PS is niet bereikbaar, open de webbrowser op de bronmachine en controleer of het adres https://<PS_IP>:<PS_Data_Port>/ bereikbaar is.
+
+    Fout voor HTTPS-certificaat wordt op te maken met dit adres verwacht. Certificaatfout negeren en doorgaan moeten terechtkomen op 400-Ongeldige aanvraag, wat betekent dat de server kan niet fungeren als een aanvraag van de browser en of de standaard HTTPS-verbinding met de server goed en goed werkt.
+
+    Als dit niet werkt, vindt u meer informatie over het foutbericht in browser richtlijnen. Voor bijvoorbeeld als de proxy-verificatie onjuist is, 407: Proxy-verificatie vereist, samen met de vereiste acties in het foutbericht wordt geretourneerd door de proxyserver. 
+
+*  Controleer de volgende logboeken op de bron-VM voor fouten met betrekking tot het netwerk uploadfouten:
+
+       C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\svagents*.log 
 
 ### <a name="check-the-process-server"></a>Controleer de processerver
 
 De volgende lijst toont manieren waarop u op de processerver controleren kunt:
+
+> [!NOTE]
+> Processerver moet een statische IPv4-adres en moet niet zijn NAT IP geconfigureerd op het.
+
+* **Controleer de verbinding tussen de bronmachines en de processerver**
+1. In het geval u kunt telnet vanaf broncomputer en nog de PS niet bereikbaar is vanuit de bron is, controleert u de end-to-end-verbinding met de cxprocessserver uit de bron-VM door cxpsclient hulpprogramma uitvoert op de bron-VM:
+
+       <install folder>\cxpsclient.exe -i <PS_IP> -l <PS_Data_Port> -y <timeout_in_secs:recommended 300>
+
+    Controleer de gegenereerde logboeken op de PS in de volgende mappen voor meer informatie over de bijbehorende fouten:
+
+       C:\ProgramData\ASR\home\svsystems\transport\log\cxps.err
+       and
+       C:\ProgramData\ASR\home\svsystems\transport\log\cxps.xfer
+2. Raadpleeg de volgende logboeken op de PS als er geen heartbeat van PS:
+
+       C:\ProgramData\ASR\home\svsystems\eventmanager*.log
+       and
+       C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
 
 *  **Controleer of de processerver actief van gegevens naar Azure pushen is**.
 

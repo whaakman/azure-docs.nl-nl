@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: 2e5838046cdb60023495c7e9e111506c333cecc7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f19693853672b6274265c95b851f478b4f3ef4a2
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102393"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961887"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Upgraden en het bijwerken van een Azure Service Fabric-cluster
 
@@ -27,7 +27,7 @@ Voor elk modern systeem is ontwerpen voor kunnen erg belangrijk voor het succes 
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>De fabric-versie die wordt uitgevoerd op uw cluster beheren
 
-Zorg ervoor dat u uw cluster met een ondersteunde fabric-versie altijd behouden. Als en wanneer we kondigen wij de release van een nieuwe versie van service fabric, betekent dit dat de vorige versie zich na een minimum van 60 dagen vanaf die datum is gemarkeerd voor einde van ondersteuning. De nieuwe releases worden aangekondigd op de blog van het service fabric-team. De nieuwe versie is beschikbaar voor vervolgens kiest.
+Zorg ervoor dat uw cluster met een [ondersteunde fabric versie](service-fabric-versions.md) altijd. Als en wanneer we kondigen wij de release van een nieuwe versie van service fabric, betekent dit dat de vorige versie zich na een minimum van 60 dagen vanaf die datum is gemarkeerd voor einde van ondersteuning. De nieuwe releases worden aangekondigd op de blog van het service fabric-team. De nieuwe versie is beschikbaar voor vervolgens kiest.
 
 14 dagen voordat het verstrijken van de release van die het cluster wordt uitgevoerd, wordt een statusgebeurtenis gegenereerd waarmee uw cluster in een waarschuwingsstatus wordt geplaatst zijn. Het cluster blijft een waarschuwingsstatus totdat u een upgrade naar een ondersteunde fabric-versie uitvoert.
 

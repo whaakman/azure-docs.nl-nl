@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/25/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 983ea87a7387c4ce6bb0c1c67bf46d81c717e69a
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 5048a4ab4db6d4cb168d2a643a412f89273658b4
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993069"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984253"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Apache Oozie gebruiken met Apache Hadoop voor het definiëren en een werkstroom uitvoeren in HDInsight
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -123,26 +123,23 @@ Er zijn twee acties die zijn gedefinieerd in de werkstroom. De actie start voor 
 
 De RunHiveScript heeft meerdere variabelen. U kunt de waarden doorgeven bij het verzenden van de taak Oozie vanaf uw werkstation met behulp van Azure PowerShell.
 
-<table border = "1">
-<tr><th>Werkstroomvariabelen voor de</th><th>Description</th></tr>
-<tr><td>${jobTracker}</td><td>Hiermee geeft u de URL van het beheer van Hadoop-taak. Gebruik <strong>jobtrackerhost:9010</strong> in HDInsight versie 3.0 en 2.1.</td></tr>
-<tr><td>${nameNode}</td><td>Hiermee geeft u de URL van het knooppunt van de naam van Hadoop. Het bestand system standaardadres gebruiken, bijvoorbeeld <i>wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net</i>.</td></tr>
-<tr><td>${queueName}</td><td>Hiermee geeft u de naam van de wachtrij die de taak wordt verzonden naar. Gebruik de <strong>standaard</strong>.</td></tr>
-</table>
+|Werkstroomvariabelen voor de|Description|
+|---|---|
+|${jobTracker}|Hiermee geeft u de URL van het beheer van Hadoop-taak. Gebruik **jobtrackerhost:9010** in HDInsight versie 3.0 en 2.1.|
+|${nameNode}|Hiermee geeft u de URL van het knooppunt van de naam van Hadoop. Het bestand system standaardadres gebruiken, bijvoorbeeld *wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net*.|
+|${queueName}|Hiermee geeft u de naam van de wachtrij die de taak wordt verzonden naar. Gebruik de **standaard**.|
 
-<table border = "1">
-<tr><th>Hive-takenreeksbewerkingsvariabele</th><th>Description</th></tr>
-<tr><td>${hiveDataFolder}</td><td>Hiermee geeft u de bronmap voor de opdracht Create Table Hive.</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>Hiermee geeft u de map voor uitvoer voor de instructie INSERT OVERSCHRIJVEN.</td></tr>
-<tr><td>${hiveTableName}</td><td>Hiermee geeft u de naam van de Hive-tabel die verwijst naar de log4j-gegevensbestanden.</td></tr>
-</table>
+|Hive-takenreeksbewerkingsvariabele|Description|
+|---|---|
+|${hiveDataFolder}|Hiermee geeft u de bronmap voor de opdracht Create Table Hive.|
+|${hiveOutputFolder}|Hiermee geeft u de map voor uitvoer voor de instructie INSERT OVERSCHRIJVEN.|
+|${hiveTableName}|Hiermee geeft u de naam van de Hive-tabel die verwijst naar de log4j-gegevensbestanden.|
 
-<table border = "1">
-<tr><th>Sqoop takenreeksbewerkingsvariabele</th><th>Description</th></tr>
-<tr><td>${sqlDatabaseConnectionString}</td><td>Hiermee geeft u de verbindingsreeks van de Azure SQL-database.</td></tr>
-<tr><td>${sqlDatabaseTableName}</td><td>Hiermee geeft u de waar de gegevens worden geëxporteerd naar Azure SQL-databasetabel.</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>Hiermee geeft u de map voor uitvoer voor de instructie Hive invoegen OVERSCHRIJVEN. Dit is dezelfde map voor het exporteren met Sqoop (export-dir).</td></tr>
-</table>
+|Sqoop takenreeksbewerkingsvariabele|Description|
+|---|---|
+|${sqlDatabaseConnectionString}|Hiermee geeft u de verbindingsreeks van de Azure SQL-database.|
+|${sqlDatabaseTableName}|Hiermee geeft u de waar de gegevens worden geëxporteerd naar Azure SQL-databasetabel.|
+|${hiveOutputFolder}|Hiermee geeft u de map voor uitvoer voor de instructie Hive invoegen OVERSCHRIJVEN. Dit is dezelfde map voor het exporteren met Sqoop (export-dir).|
 
 Zie voor meer informatie over Oozie-workflow en het gebruik van werkstroomacties [Apache Oozie 4.0 documentatie] [ apache-oozie-400] (voor HDInsight versie 3.0) of [Apache Oozie 3.3.2 documentatie] [ apache-oozie-332] (voor HDInsight versie 2.1).
 

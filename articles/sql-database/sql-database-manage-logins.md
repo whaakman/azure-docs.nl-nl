@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 81ec99c5de94736d68392cc7cf0bc3e305e0ce7d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: 436dbccfe8d5b732bc64b58ff79dc772ac8b2bce
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754010"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964182"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Beheren en het verlenen van toegang tot de database met SQL Database en SQL Data Warehouse
 
@@ -37,11 +37,14 @@ Er zijn twee beheerdersaccounts (**serverbeheerder** en **Active Directory-behee
 
 - **Serverbeheerder**
 
-Wanneer u een Azure SQL-server maakt, moet u de **aanmeldgegevens van de serverbeheerder** opgeven. De SQL-server maakt het account vervolgens als een aanmelding in de hoofddatabase. Dit account maakt verbinding met behulp van SQL Server-verificatie (gebruikersnaam en wachtwoord). Er kan slechts één van deze accounts bestaan.   
+  Wanneer u een Azure SQL-server maakt, moet u de **aanmeldgegevens van de serverbeheerder** opgeven. De SQL-server maakt het account vervolgens als een aanmelding in de hoofddatabase. Dit account maakt verbinding met behulp van SQL Server-verificatie (gebruikersnaam en wachtwoord). Er kan slechts één van deze accounts bestaan.
 
-- **Azure Active Directory-beheerder**   
+  > [!NOTE]
+  > Als u het wachtwoord voor de serverbeheerder herstellen, gaat u naar de [Azure-portal](https://portal.azure.com), klikt u op **SQL-Servers**, selecteert u de server in de lijst en klik vervolgens op **wachtwoord opnieuw instellen**.
 
-Ook één Azure Active Directory-account (een afzonderlijk account of het account van een beveiligingsgroep) kan als beheerder worden geconfigureerd. Dit is optioneel het configureren van een Azure AD-beheerder echter een Azure AD-beheerder **moet** worden geconfigureerd als u wilt gebruiken van Azure AD-accounts verbinding maken met SQL-Database. Voor meer informatie over het configureren van toegang tot Azure Active Directory raadpleegt u [Verbinding maken met SQL Database of SQL Data Warehouse met behulp van Azure Active Directory-verificatie](sql-database-aad-authentication.md) en [SSMS-ondersteuning voor Azure AD MFA met SQL Database en SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
+- **Azure Active Directory-beheerder**
+
+  Ook één Azure Active Directory-account (een afzonderlijk account of het account van een beveiligingsgroep) kan als beheerder worden geconfigureerd. Dit is optioneel het configureren van een Azure AD-beheerder echter een Azure AD-beheerder **moet** worden geconfigureerd als u wilt gebruiken van Azure AD-accounts verbinding maken met SQL-Database. Voor meer informatie over het configureren van toegang tot Azure Active Directory raadpleegt u [Verbinding maken met SQL Database of SQL Data Warehouse met behulp van Azure Active Directory-verificatie](sql-database-aad-authentication.md) en [SSMS-ondersteuning voor Azure AD MFA met SQL Database en SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
 
 De accounts van de **serverbeheerder** en de **Azure AD-beheerder** hebben de volgende kenmerken:
 
@@ -71,7 +74,6 @@ Zie voor stapsgewijze instructies voor het maken van een server, een database, d
 
 > [!IMPORTANT]
 > Het wordt aanbevolen om altijd de nieuwste versie van Management Studio te gebruiken, zodat uw versie gesynchroniseerd blijft met updates voor Microsoft Azure en SQL Database. [SQL Server Management Studio bijwerken](https://msdn.microsoft.com/library/mt238290.aspx).
-
 
 ## <a name="additional-server-level-administrative-roles"></a>Aanvullende beheerdersrollen op serverniveau
 

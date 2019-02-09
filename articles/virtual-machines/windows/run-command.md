@@ -8,20 +8,22 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 33f96c67e7179104d1895cf62f834d3b592bee04
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 86ccd35d14df529a22bd4cdcd50566e7dc0c1375
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487622"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983710"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>PowerShell-scripts uitvoeren in uw Windows-VM met de opdracht uitvoeren
 
 Opdracht wordt de VM-agent om te worden uitgevoerd binnen een Azure-VM Windows PowerShell-scripts uitvoeren. Deze scripts voor algemene machine of beheer van toepassingen kunnen worden gebruikt en kunnen worden gebruikt om snel opsporen en VM-netwerk- en problemen oplossen en ophalen van de virtuele machine naar een goede staat verkeren.
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 ## <a name="benefits"></a>Voordelen
 
-Er zijn meerdere opties die kunnen worden gebruikt voor toegang tot uw virtuele machines. Voer de opdracht kunt u scripts uitvoeren op uw virtuele machines die op afstand met behulp van de VM-agent. Voer de opdracht kan worden gebruikt via Azure portal, [REST-API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), of [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) voor Windows-VM's.
+Er zijn meerdere opties die kunnen worden gebruikt voor toegang tot uw virtuele machines. Voer de opdracht kunt u scripts uitvoeren op uw virtuele machines die op afstand met behulp van de VM-agent. Voer de opdracht kan worden gebruikt via Azure portal, [REST-API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), of [PowerShell](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) voor Windows-VM's.
 
 Deze mogelijkheid is handig in alle scenario's waarin u wilt uitvoeren van een script in een virtuele machine en is een van de enige manieren om problemen op te herstellen van een virtuele machine die beschikt niet over de RDP of SSH-poort openen vanwege een onjuiste netwerk of de gebruiker met beheerdersrechten de configuratie.
 
@@ -72,10 +74,11 @@ Deze tabel bevat de lijst met opdrachten die beschikbaar zijn voor Windows-VM's.
 
 ## <a name="powershell"></a>PowerShell
 
-Hier volgt een voorbeeld met behulp van de [Invoke-AzureRmVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) cmdlet uit te voeren van een PowerShell-script in een Azure-VM. De cmdlet wordt verwacht dat het script waarnaar wordt verwezen in de `ScriptPath` variabele worden lokaal op waar de cmdlet wordt uitgevoerd.
+Hier volgt een voorbeeld met behulp van de [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) cmdlet om een PowerShell-script uitvoeren op een Azure-VM. De cmdlet wordt verwacht dat het script waarnaar wordt verwezen in de `-ScriptPath` parameter lokaal op waar de cmdlet wordt uitgevoerd.
+
 
 ```azurepowershell-interactive
-Invoke-AzureRmVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
+Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
 ```
 
 ## <a name="limiting-access-to-run-command"></a>Beperken van toegang tot de opdracht uitvoeren

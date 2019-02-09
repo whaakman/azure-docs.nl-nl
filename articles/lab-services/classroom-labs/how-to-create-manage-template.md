@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: d0942d3465811687937ce113e664fbf3f91277d0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: b287a67c470cc1697065838e52916c285a2233a7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815241"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960187"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Maken en beheren van een sjabloon leslokaal in Azure Lab Services
 Een sjabloon in een lab is een basiskopie van de virtuele machine waarvan de virtuele machines van alle gebruikers worden gemaakt. Stel de sjabloon voor de virtuele machine zo in dat deze is geconfigureerd met precies wat u de labgebruikers wilt bieden. U kunt een naam en een beschrijving opgeven voor de sjabloon die de gebruikers van het lab kunnen zien. Vervolgens publiceert u de sjabloon voor exemplaren van de VM-sjabloon beschikbaar maken voor uw labgebruikers. Wanneer u een sjabloon publiceert, maakt Azure Lab Services virtuele machines in het lab met behulp van de sjabloon. Het aantal virtuele machines dat in dit proces wordt gemaakt, is hetzelfde als het maximum aantal gebruikers dat in het lab is toegestaan. Dit kunt u instellen in het gebruiksbeleid van het lab. Alle virtuele machines hebben dezelfde configuratie als de sjabloon.
@@ -92,7 +92,7 @@ Gebruik de volgende stappen om in te stellen van de titel en beschrijving voor d
 1. In de **sjabloon** sectie, Beweeg de muis over **naam** van de sjabloon of **beschrijving** van de sjabloon, en selecteer deze. 
 2. Voer de **nieuwe naam** of **nieuwe beschrijving** voor de sjabloon, en druk op **ENTER**.
 
-    ![Templae naam en beschrijving](../media/how-to-create-manage-template/template-name-description.png)
+    ![Naam en beschrijving sjabloon](../media/how-to-create-manage-template/template-name-description.png)
 
 ## <a name="set-up-or-update-a-template-vm"></a>Instellen of een sjabloon voor virtuele machine bijwerken
  Maak verbinding met de sjabloon-VM en installeer de vereiste software erop voordat u deze beschikbaar maakt voor uw studenten. Gebruik de volgende stappen uit om in te stellen van een VM-sjabloon voor de eerste keer of bijwerken van de virtuele machine. 
@@ -103,7 +103,12 @@ Gebruik de volgende stappen om in te stellen van de titel en beschrijving voor d
 1. Bekijk de waarschuwing en selecteer **Start**. 
 
     ![Starten van de sjabloon: waarschuwing](../media/how-to-create-manage-template/start-template-warning.png)
+2. U ziet de status op in het lab-tegel in de **sjabloon** sectie.
+
+    ![Starten van de sjabloon - status](../media/how-to-create-manage-template/template-start-status.png)
 1. Nadat deze gestart, verbinding maken met de virtuele machine, selecteer **Connect**, en volg de instructies. 
+
+    ![Verbinding maken met of stoppen van de VM-sjabloon](../media/how-to-create-manage-template/connect-stop-vm.png)
 1. Installeer alle software die de studenten nodig hebben om het lab te doorlopen (bijvoorbeeld Visual Studio, Azure Storage Explorer, enzovoort). 
 2. Verbreek de verbinding met de sjabloon-VM (sluit de Extern bureaublad-sessie). 
 3. **Stop** de sjabloon-VM door **Stoppen** te selecteren. 

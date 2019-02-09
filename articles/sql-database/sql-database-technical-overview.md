@@ -12,15 +12,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: f4b72a95c64467ce287d2cb762222d17334aad57
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: 711e51a075ce25ef3aa3c9c7e8784c914c8d0581
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755422"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982264"
 ---
-# <a name="the-azure-sql-database-service"></a>De service Azure SQL Database
+# <a name="what-is-azure-sql-database-service"></a>Wat is Azure SQL Database-service?
 
 SQL Database is een algemene, beheerde relationele databaseservice in Microsoft Azure die ondersteuning biedt voor structuren zoals relationele gegevens, JSON, ruimtelijke gegevens en XML. SQL Database biedt dynamisch schaalbare prestaties in twee verschillende aankopen modellen: een op vCore gebaseerde aankoopmodel en een op DTU gebaseerde aankoopmodel. SQL Database biedt ook opties zoals [columnstore-indexen](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) voor krachtige analyses en rapportages, en [in-memory OLTP](sql-database-in-memory.md) voor veeleisende transactieverwerking. Microsoft verzorgt op naadloze wijze alle patching en updating van de SQL-codebasis en heeft het beheer van de onderliggende infrastructuur volledig weggewerkt.
 
@@ -67,10 +67,10 @@ Dynamische schaalbaarheid is iets anders dan automatisch schalen. Automatisch sc
 SQL Database biedt twee modellen met aanschaffen:
 
 - De [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) biedt een combinatie van rekenkracht, geheugen, i/o-resources in drie Servicelagen voor lichte tot zware workloads van databases. COMPUTE-grootten in elke laag bieden een andere combinatie van deze resources, waaraan u extra opslagbronnen kunt toevoegen.
-- De [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) kunt u het aantal vCores, het bedrag of geheugen, en de hoeveelheid en de snelheid van de opslag kiezen.
+- De [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) kunt u het aantal vCores, het bedrag of geheugen, en de hoeveelheid en de snelheid van de opslag kiezen. Het op vCore gebaseerde aankoopmodel kunt u gebruiken [Azure Hybrid Benefit voor SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) te krijgen van de kosten te besparen. Zie voor meer informatie over Azure Hybrid Benefit, [Veelgestelde vragen over](#sql-database-frequently-asked-questions-faq).
 
   > [!IMPORTANT]
-  > De [grootschalige servicelaag](sql-database-service-tier-hyperscale.md) is momenteel in openbare preview. Wordt niet aanbevolen om nog een productieworkload uitvoert in grootschalige databases. U kunt een grootschalige-database niet bijwerken naar een andere service-laag. Voor test-doeleinden, wordt aangeraden een kopie van de huidige database maken en bijwerken van de kopie naar grootschalige servicelaag.
+  > De [grootschalige servicelaag](sql-database-service-tier-hyperscale.md) voor individuele databases is momenteel in openbare preview. Wordt niet aanbevolen om nog een productieworkload uitvoert in grootschalige databases. U kunt een grootschalige-database niet bijwerken naar een andere service-laag. Voor test-doeleinden, wordt aangeraden een kopie van de huidige database maken en bijwerken van de kopie naar grootschalige servicelaag.
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Elastische pools voor optimaal resourcegebruik
 
@@ -195,6 +195,41 @@ SQL Database maakt het bouwen en onderhouden van toepassingen makkelijker en pro
   Een gratis, downloadbare, open-source code-editor voor Windows, macOS en Linux die ondersteuning biedt voor extensies, waaronder de [mssql-extensie](https://aka.ms/mssql-marketplace) voor query's in Microsoft SQL Server, Azure SQL Database en SQL Data Warehouse.
 
 SQL Database ondersteunt het maken van toepassingen met Python, Java, Node.js, PHP, Ruby en .NET op macOS, Linux en Windows. SQL Database ondersteunt dezelfde [verbindingsbibliotheken](sql-database-libraries.md) als SQL Server.
+
+## <a name="sql-database-frequently-asked-questions-faq"></a>Veelgestelde vragen (FAQ) SQL-Database
+
+### <a name="what-is-the-current-version-of-sql-database"></a>Wat is de huidige versie van SQL Database
+
+De huidige versie van SQL Database is V12. Versie V11 buiten gebruik gesteld.
+
+### <a name="can-i-control-when-patching-downtime-occurs"></a>Ik kan bepalen wanneer patches downtime plaatsvindt
+
+Nee. De gevolgen van het toepassen van patches is doorgaans niet merkbare als u [maken gebruik van logica voor opnieuw proberen](sql-database-develop-overview.md#resiliency) in uw app. Zie voor meer informatie over het voorbereiden voor gelijktijdige onderhoudsgebeurtenissen op uw Azure SQL database [plannen voor Azure-onderhoud-gebeurtenissen in Azure SQL Database](sql-database-planned-maintenance.md).
+
+### <a name="azure-hybrid-benefit-questions"></a>Vragen over Azure Hybrid Benefit
+
+#### <a name="are-there-dual-use-rights-with-azure-hybrid-benefit-for-sql-server"></a>Zijn er twee gebruiksrechten met Azure Hybrid Benefit voor SQL Server
+
+U hebt 180 dagen van dual de gebruiksrechten van de licentie om te controleren of de migraties naadloos worden uitgevoerd. Na die periode van 180 dagen, de SQL Server-licentie kan alleen worden gebruikt in de cloud in SQL-Database, en heeft geen dubbele rechten on-premises gebruiken en in de cloud.
+
+#### <a name="how-does-azure-hybrid-benefit-for-sql-server-differ-from-license-mobility"></a>Hoe verschilt Azure Hybrid Benefit voor SQL Server van mobiliteit van licenties
+
+Vandaag, bieden we van mobiliteit van licenties voor SQL Server-klanten met Software Assurance waarmee hernieuwde toewijzing van licenties aan gedeelde servers van derden. Dit voordeel kan worden gebruikt op Azure IaaS- en AWS EC2.
+Azure Hybrid Benefit voor SQL Server verschilt van mobiliteit van licenties in twee belangrijke gebieden:
+
+- Het biedt economische voordelen voor maximaal gevirtualiseerde werkbelastingen naar Azure verplaatst. SQL EE klanten krijgen 4 kernen in Azure in de SKU voor algemeen gebruik voor elke kern ze on-premises voor maximaal gevirtualiseerde toepassingen eigenaar. Mobiliteit van licenties staat niet toe dat geen voor speciale kostenvoordelen voor het verplaatsen van gevirtualiseerde werkbelastingen naar de cloud.
+- Het biedt voor een PaaS-bestemming op Azure (SQL Database Managed Instance) dat zeer compatibel is met on-premises SQL Server
+
+#### <a name="what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server"></a>Wat zijn de specifieke rechten van de Azure Hybrid Benefit voor SQL Server
+
+SQL Database-klanten hebben de volgende rechten voor in verband met Azure Hybrid Benefit voor SQL Server:
+
+|Licentie-Footprint|Wat doet Azure Hybrid Benefit voor SQL Server ophalen?|
+|---|---|
+|SQL Server Enterprise Edition core customers with SA|<li>Kan Base-tarief voor algemeen gebruik of bedrijfskritieke SKU betalen</li><br><li>1 core on-premises = 4 kernen in SKU voor algemeen gebruik</li><br><li>1 core on-premises = 1 kern in bedrijfskritieke SKU</li>|
+|SQL Server Standard Edition core klanten met Software Assurance|<li>Kan Base tarief voor betalen op SKU voor algemeen gebruik alleen</li><br><li>1 core on-premises = 1 kern in SKU voor algemeen gebruik</li>|
+|||
+
 
 ## <a name="engage-with-the-sql-server-engineering-team"></a>Contact met het technische team van SQL Server
 

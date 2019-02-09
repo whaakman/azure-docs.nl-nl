@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 63334c861cc85c7119ccd3111429dee47ada3162
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: ae3a2788a0d5451736433a6338a71eda3d0ad9ca
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862935"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984355"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Inzicht in wat goede uitingen zijn voor uw LUIS-app
 
@@ -39,7 +39,7 @@ Wanneer u eerst aan de slag door [toe te voegen voorbeeld uitingen](luis-how-to-
 
 ### <a name="utterances-arent-always-well-formed"></a>Uitingen zijn niet altijd goed gevormd.
 
-Het is mogelijk een zin, zoals 'Book een ticket naar Parijs voor mij' of een fragment van een zin, zoals 'Reservering' of "Parijs vlucht."  Gebruikers maken vaak spelfouten. Bij het plannen van uw app, moet u overwegen of u [Bing spellingcontrole Check][(luis-tutorial-bing-spellcheck) om op te lossen invoer van de gebruiker voordat deze wordt doorgegeven aan LUIS. 
+Het is mogelijk een zin, zoals 'Book een ticket naar Parijs voor mij' of een fragment van een zin, zoals 'Reservering' of "Parijs vlucht."  Gebruikers maken vaak spelfouten. Bij het plannen van uw app, moet u overwegen of u gebruikt [Bing spellingcontrole](luis-tutorial-bing-spellcheck.md) om op te lossen invoer van de gebruiker voordat deze wordt doorgegeven aan LUIS. 
 
 Als het selectievakje gebruiker uitingen niet is gespeld, moet u LUIS trainen op uitingen die typefouten en spelfouten bevatten.
 

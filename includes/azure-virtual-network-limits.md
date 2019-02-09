@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 08/16/2018
+ms.date: 02/07/2019
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 0394d1cc44dae270682691e2091543e5aab321f6
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: fe1993a914ea4d3bd8ab9116748198cbb0c1c43c
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513947"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55904997"
 ---
 <a name="virtual-networking-limits-classic"></a>De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via het klassieke implementatiemodel voor elk abonnement. Meer informatie over het [weergeven van uw huidige brongebruik op basis van uw abonnementen](../articles/networking/check-usage-against-limits.md).
 
@@ -76,11 +76,12 @@ De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd v
 De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via Azure Resource Manager. De beperkingen gelden per regio en per abonnement. Meer informatie over het [uw huidige brongebruik op basis van uw abonnementen weergeven](../articles/networking/check-usage-against-limits.md)
 
 | Resource | Standaardlimiet |
-| --- | --- | --- |
+| --- | --- |
 | Load balancers | 1000 | 
 | Regels per resource, Basic | 250 |
 | Regels per resource, Standard | 1500 | 
 | Regels per IP-configuratie | 299 |
+| Regels per NIC | 500 |
 | Frontend-IP-configuraties, Basic | 200 |
 | Frontend-IP-configuraties, Standard | 600 |
 | Back-endpool, Basic | 100, één Beschikbaarheidsset |
@@ -88,7 +89,5 @@ De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd v
 | Back-endresources per Load Balancer Standard * | 150 |
 | HA-poorten, Standard | 1 per interne frontend |
 
-** Maximaal 150 resources, een combinatie van zelfstandige virtuele machines, beschikbaarheidssets en virtuele-machineschaalsets.
-
-[Neem contact op met de ondersteuning](../articles/azure-supportability/resource-manager-core-quotas-request.md ) als u de standaardlimieten wilt verhogen.
+** Tot 150 resources, een combinatie van resources voor zelfstandige virtuele machine, beschikbaarheidssets resources en resources voor virtuele-machineschaalset.
 

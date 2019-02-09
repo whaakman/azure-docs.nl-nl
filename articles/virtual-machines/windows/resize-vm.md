@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 6bd41115f586bf2969dacb772f097d84654f0306
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 0c942056e95812dfbbe6e3b1e8963799088273fb
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092591"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981193"
 ---
 # <a name="resize-a-windows-vm"></a>Formaat van een Windows VM
 
@@ -29,6 +29,8 @@ Dit artikel leest u hoe u een virtuele machine verplaatsen naar een andere [VM-g
 Nadat u een virtuele machine (VM) maakt, u kunt de virtuele machine omhoog of omlaag schalen door het veranderen van de VM-grootte. In sommige gevallen moet u eerst de virtuele machine toewijzing. Dit kan gebeuren als de nieuwe grootte is niet beschikbaar op de hardware-cluster dat momenteel als host voor de virtuele machine fungeert.
 
 Als uw virtuele machine maakt gebruik van Premium Storage, zorgt u ervoor dat u kiest een **s** versie van de grootte voor Premium Storage-ondersteuning. Bijvoorbeeld, kiest u Standard_E4**s**_v3 in plaats van Standard_E4_v3.
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="resize-a-windows-vm-not-in-an-availability-set"></a>Formaat van een Windows-VM niet in een beschikbaarheidsset
 
@@ -42,25 +44,25 @@ $vmName = "myVM"
 Lijst met de VM-grootten die beschikbaar zijn op de hardware-cluster waar de virtuele machine wordt gehost. 
    
 ```powershell
-Get-AzureRmVMSize -ResourceGroupName $resourceGroup -VMName $vmName 
+Get-AzVMSize -ResourceGroupName $resourceGroup -VMName $vmName 
 ```
 
 Als de gewenste grootte wordt weergegeven, voer de volgende opdrachten om het formaat van de virtuele machine aan. Als de gewenste grootte niet wordt vermeld, gaat u naar stap 3.
    
 ```powershell
-$vm = Get-AzureRmVM -ResourceGroupName $resourceGroup -VMName $vmName
+$vm = Get-AzVM -ResourceGroupName $resourceGroup -VMName $vmName
 $vm.HardwareProfile.VmSize = "<newVMsize>"
-Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroup
+Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 ```
 
 Als de gewenste grootte niet wordt weergegeven, voer de volgende opdrachten toewijzing van de virtuele machine, wijzig de grootte ervan, en start de VM opnieuw. Vervang **<newVMsize>** met de gewenste grootte.
    
 ```powershell
-Stop-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName -Force
-$vm = Get-AzureRmVM -ResourceGroupName $resourceGroup -VMName $vmName
+Stop-AzVM -ResourceGroupName $resourceGroup -Name $vmName -Force
+$vm = Get-AzVM -ResourceGroupName $resourceGroup -VMName $vmName
 $vm.HardwareProfile.VmSize = "<newVMSize>"
-Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroup
-Start-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName
+Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
+Start-AzVM -ResourceGroupName $resourceGroup -Name $vmName
 ```
 
 > [!WARNING]
@@ -80,15 +82,15 @@ $vmName = "myVM"
 Lijst met de VM-grootten die beschikbaar zijn op de hardware-cluster waar de virtuele machine wordt gehost. 
    
 ```powershell
-Get-AzureRmVMSize -ResourceGroupName $resourceGroup -VMName $vmName 
+Get-AzVMSize -ResourceGroupName $resourceGroup -VMName $vmName 
 ```
 
 Als de gewenste grootte wordt weergegeven, voer de volgende opdrachten om het formaat van de virtuele machine aan. Als deze niet wordt vermeld, gaat u naar de volgende sectie.
    
 ```powershell
-$vm = Get-AzureRmVM -ResourceGroupName $resourceGroup -VMName $vmName 
+$vm = Get-AzVM -ResourceGroupName $resourceGroup -VMName $vmName 
 $vm.HardwareProfile.VmSize = "<newVmSize>"
-Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroup
+Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 ```
     
 Als de gewenste grootte niet wordt vermeld, gaat u verder met de volgende stappen voor toewijzing ongedaan maken van alle virtuele machines in de beschikbaarheidsset, vergroten of verkleinen van virtuele machines en start deze opnieuw.
@@ -96,12 +98,12 @@ Als de gewenste grootte niet wordt vermeld, gaat u verder met de volgende stappe
 Stop alle virtuele machines in de beschikbaarheidsset.
    
 ```powershell
-$as = Get-AzureRmAvailabilitySet -ResourceGroupName $resourceGroup
+$as = Get-AzAvailabilitySet -ResourceGroupName $resourceGroup
 $vmIds = $as.VirtualMachinesReferences
 foreach ($vmId in $vmIDs){
     $string = $vmID.Id.Split("/")
     $vmName = $string[8]
-    Stop-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName -Force
+    Stop-AzVM -ResourceGroupName $resourceGroup -Name $vmName -Force
     } 
 ```
 
@@ -109,15 +111,15 @@ Het formaat en de virtuele machines opnieuw opstarten in de beschikbaarheidsset.
    
 ```powershell
 $newSize = "<newVmSize>"
-$as = Get-AzureRmAvailabilitySet -ResourceGroupName $resourceGroup
+$as = Get-AzAvailabilitySet -ResourceGroupName $resourceGroup
 $vmIds = $as.VirtualMachinesReferences
   foreach ($vmId in $vmIDs){
     $string = $vmID.Id.Split("/")
     $vmName = $string[8]
-    $vm = Get-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName
+    $vm = Get-AzVM -ResourceGroupName $resourceGroup -Name $vmName
     $vm.HardwareProfile.VmSize = $newSize
-    Update-AzureRmVM -ResourceGroupName $resourceGroup -VM $vm
-    Start-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName
+    Update-AzVM -ResourceGroupName $resourceGroup -VM $vm
+    Start-AzVM -ResourceGroupName $resourceGroup -Name $vmName
     }
 ```
 

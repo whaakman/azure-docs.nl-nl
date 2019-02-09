@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/05/2019
-ms.openlocfilehash: 0ae6dea86019b84e8d086a595995f8bd5b2a55ed
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/08/2019
+ms.openlocfilehash: d773d270b3b352bcaef189d201d824695b42bcef
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753296"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980139"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL-Database verklarende woordenlijst
 
@@ -28,7 +28,7 @@ ms.locfileid: "55753296"
 ||Elastische pool|[Elastische pool](sql-database-elastic-pool.md)|
 ||Beheerd exemplaar|[Beheerd exemplaar](sql-database-managed-instance.md)|
 |Serverobjecten|SQL Database-server of database-server|[Database-server](sql-database-servers.md)|
-||SQL-Database beheerd exemplaar of beheerd exemplaar|[Beheerd exemplaar](sql-database-managed-instance.md)|
+||Beheerd exemplaar van SQL-databaseserver, beheerd exemplaar server of instance-server|[Beheerd exemplaar](sql-database-managed-instance.md)|
 Databaseobjecten|Azure SQL Database|Elke database in Azure SQL Database|
 ||Individuele database|Een database gemaakt als een zelfstandige database met behulp van de Implementatieoptie individuele database|
 ||Gegroepeerde-database|Een database gemaakt binnen of verplaatst naar een elastische pool|

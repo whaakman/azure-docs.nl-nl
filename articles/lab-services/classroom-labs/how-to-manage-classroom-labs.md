@@ -1,6 +1,6 @@
 ---
 title: Leslokaallabs in Azure Lab Services beheren | Microsoft Docs
-description: Meer informatie over het maken en configureren van een leslokaallab, alle de leslokaallabs, gedeeld de registratie te koppelen met een lab-gebruiker of verwijderen van een lab te bekijken.
+description: Informatie over het maken en configureren van een leslokaallab, alle leslokaallabs weergeven, de registratiekoppeling delen met een lab-gebruiker of verwijderen van een lab.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 7d311a3fa1b00a6324c9bb81a14c1a575319472f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4f6d94c7090c2bbb0335d46b60be320b2fc19375
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819991"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962822"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Leslokaallabs in Azure Lab Services beheren 
 In dit artikel wordt beschreven hoe u maken en verwijderen van een leslokaallab. Deze leest u ook alle leslokaallabs weergeven in een lab-account. 
@@ -107,7 +107,12 @@ Als u een leslokaallab in een labaccount instelt, moet u lid zijn van de rol **L
 3. Op de **verwijderen lab** in het dialoogvenster, selecteer **verwijderen**. 
 
     ![In het dialoogvenster verwijderen](../media/how-to-manage-classroom-labs/delete-lab-dialog-box.png)
- 
+
+## <a name="switch-to-another-classroom-lab"></a>Schakel over naar een andere leslokaallab
+Als u wilt overschakelen naar een andere leslokaallab vanuit de huidige, selecteert u de vervolgkeuzelijst van labs in het lab-account aan de bovenkant.
+
+![Selecteer in het lab in vervolgkeuzelijst boven](../media/how-to-manage-classroom-labs/switch-lab.png)
+
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende artikelen:

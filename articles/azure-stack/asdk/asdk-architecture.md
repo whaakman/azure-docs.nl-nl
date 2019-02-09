@@ -12,33 +12,28 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 01/21/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 2cee4d75a111f56012782228d8070bb728720aca
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9157acc7517aea56f087a3dbff0fe7114f8b4c87
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238332"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55958802"
 ---
 # <a name="microsoft-azure-stack-development-kit-architecture"></a>Architectuur van Microsoft Azure Stack Development Kit
-De Azure Stack Development Kit (ASDK) is een implementatie van één knooppunt van Azure Stack. Alle onderdelen zijn geïnstalleerd op virtuele machines die worden uitgevoerd op één enkele hostcomputer. 
+De Azure Stack Development Kit (ASDK) is een implementatie van één knooppunt van Azure Stack uitgevoerd op een afzonderlijke host-computer. Routering compontents Edge worden geïnstalleerd op de hostcomputer NAT en VPN-mogelijkheden bieden voor Azure Stack. Azure Stack-infrastructuur rollen uitvoeren in de Hyper-V-laag van de fysieke hostcomputer.
 
-## <a name="logical-architecture-diagram"></a>Diagram van de logische architectuur
-Het volgende diagram illustreert de logische architectuur van de ASDK en de bijbehorende onderdelen.
-
-![ASDK-architectuur](media/asdk-architecture/image1.png)
 
 ## <a name="virtual-machine-roles"></a>Virtuele-machinefuncties
 De ASDK biedt services met behulp van de volgende virtuele machines die worden gehost op de hostcomputer development kit:
 
-| Name | Beschrijving |
+| Name | Description |
 | ----- | ----- |
 | **AzS-ACS01** | Azure Stack storage-services.|
 | **AzS-ADFS01** | Active Directory Federation Services (ADFS).  |
-| **AzS-BGPNAT01** | Edge-router en NAT- en VPN biedt voor Azure Stack. |
 | **AzS-CA01** | Certificaatservices van de instantie voor Azure Stack-functieservices.|
 | **AzS-DC01** | Active Directory, DNS en DHCP-services voor Microsoft Azure Stack.|
 | **AzS-ERCS01** | Noodherstel Console VM. |

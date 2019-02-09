@@ -13,14 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c46c65fe7e720e3afdd976e2480e8f183cc4398d
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 97e6029ff85ce7ee8572fd76d04a5d72b27b2950
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901187"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980105"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Toevoegen van Log Analytics opgeslagen zoekopdrachten en waarschuwingen in management-oplossing (Preview)
+
+> [!IMPORTANT]
+> De details voor het maken van een waarschuwing met behulp van Resource Manager-sjabloon zijn van de datum nu die [Log Analytics-waarschuwingen zijn uitgebreid naar Azure Monitor](../platform/alerts-extend.md). Zie voor meer informatie over het maken van een waarschuwing met Resource Manager-sjabloon [waarschuwingen beheren met behulp van Azure-Resourcesjabloon](../platform/alerts-log.md#managing-log-alerts-using-azure-resource-template).
 
 > [!NOTE]
 > Dit is een voorlopige documentatie voor het maken van oplossingen die zich momenteel in preview. Er is geen schema die hieronder worden beschreven kan worden gewijzigd.
@@ -192,7 +195,7 @@ In deze sectie is vereist. Hiermee worden de eigenschappen van drempelwaarde voo
 | De naam van element | Vereist | Description |
 |:--|:--|:--|
 | Operator | Ja | Operator voor de vergelijking van de volgende waarden:<br><br>**gt = groter is dan<br>lt = minder dan** |
-| Waarde | Ja | De waarde om de resultaten te vergelijken. |
+| Value | Ja | De waarde om de resultaten te vergelijken. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 In deze sectie is optioneel. Op te nemen voor een waarschuwing voor een meting van metrische gegevens.
@@ -204,7 +207,7 @@ In deze sectie is optioneel. Op te nemen voor een waarschuwing voor een meting v
 |:--|:--|:--|
 | TriggerCondition | Ja | Geeft aan of de drempelwaarde voor het totale aantal schendingen of achtereenvolgende schendingen van de volgende waarden:<br><br>**Totaal aantal<br>opeenvolgende** |
 | Operator | Ja | Operator voor de vergelijking van de volgende waarden:<br><br>**gt = groter is dan<br>lt = minder dan** |
-| Waarde | Ja | Het aantal keren dat de criteria voor het activeren van de waarschuwing moeten worden voldaan. |
+| Value | Ja | Het aantal keren dat de criteria voor het activeren van de waarschuwing moeten worden voldaan. |
 
 
 #### <a name="throttling"></a>Beperking

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ec80be0ece3596eab418ac39507954142944e34a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 4bcd7bcef0969cec82d42ead6307e72a3abea6e1
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260484"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978865"
 ---
 # <a name="install-and-use-apache-giraph-on-windows-based-hdinsight-clusters"></a>Installeren en Apache Giraph gebruikt op Windows gebaseerde HDInsight-clusters
 
@@ -46,17 +46,12 @@ U Giraph kunt installeren op elk type cluster (Hadoop, Storm, HBase, Spark) op A
 
     ![Scriptactie gebruiken voor het aanpassen van een cluster](./media/hdinsight-hadoop-giraph-install/hdi-script-action-giraph.png "scriptactie gebruiken voor het aanpassen van een cluster")
 
-    <table border='1'>
-        <tr><th>Eigenschap</th><th>Waarde</th></tr>
-        <tr><td>Name</td>
-            <td>Geef een naam voor de scriptactie. Bijvoorbeeld, <b>Giraph installeren</b>.</td></tr>
-        <tr><td>Script URI</td>
-            <td>Geef de Uniform Resource Identifier (URI) naar het script dat wordt aangeroepen voor het aanpassen van het cluster. Bijvoorbeeld: <i>https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</i></td></tr>
-        <tr><td>Soort knooppunt</td>
-            <td>Geef op de knooppunten waarop de aanpassing-script wordt uitgevoerd. U kunt ervoor kiezen <b>alle knooppunten</b>, <b>hoofdknooppunten alleen</b>, of <b>Worker-knooppunten</b>.
-        <tr><td>Parameters</td>
-            <td>Geef de parameters op, indien vereist door het script. Giraph installeren met het script is niet vereist voor alle parameters, zodat u kunt dit leeg laten.</td></tr>
-    </table>
+    |Eigenschap|Value|  
+    |---|---|  
+    |Name|Geef een naam voor de scriptactie. Bijvoorbeeld, **Giraph installeren**|
+    |Script URI|Geef de Uniform Resource Identifier (URI) naar het script dat wordt aangeroepen voor het aanpassen van het cluster. Bijvoorbeeld: *https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1*|
+    |Soort knooppunt|Geef op de knooppunten waarop de aanpassing-script wordt uitgevoerd. U kunt ervoor kiezen **alle knooppunten**, **hoofdknooppunten alleen**, of **Worker-knooppunten**.
+    |Parameters|Geef de parameters op, indien vereist door het script. Giraph installeren met het script is niet vereist voor alle parameters, zodat u kunt dit leeg laten.|  
 
     U kunt meer dan één scriptactie voor het installeren van meerdere onderdelen op het cluster toevoegen. Nadat u de scripts hebt toegevoegd, klikt u op het vinkje om te beginnen met het maken van het cluster.
 
@@ -78,6 +73,7 @@ We gebruiken het SimpleShortestPathsComputation-voorbeeld ter illustratie van de
     Getekend, en u de waarde (of gewicht) als de afstand tussen de objecten, de bovenstaande gegevens als volgt uitzien:
 
     ![tiny_graph.txt getekend als cirkels met verschillende afstand tussen regels](./media/hdinsight-hadoop-giraph-install/giraph-graph.png)
+
 2. Voer in het voorbeeld SimpleShortestPathsComputation. Gebruik de volgende Azure PowerShell-cmdlets om uit te voeren in het voorbeeld met behulp van het bestand tiny_graph.txt als invoer.
 
     > [!IMPORTANT]  

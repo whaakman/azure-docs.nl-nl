@@ -16,18 +16,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 52e115aa7f54eccc2be4e500c544aa38ca3bc32d
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 6618906f7b1b063de18a4f8a418c1c2744ca1533
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631273"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55975781"
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>Doorgeven van referenties aan de handler Azure DSCExtension
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
-
 In dit artikel bevat informatie over de extensie Desired State Configuration (DSC) voor Azure. Zie voor een overzicht van de DSC-extensie-handler [Inleiding tot de Azure Desired State Configuration-extensie-handler](dsc-overview.md).
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="pass-in-credentials"></a>Referenties worden doorgegeven
 
@@ -65,7 +65,7 @@ Het is belangrijk om op te nemen **knooppunt localhost** als onderdeel van de co
 
 Met dit script publiceren naar Azure Blob-opslag:
 
-`Publish-AzureRmVMDscConfiguration -ConfigurationPath .\user_configuration.ps1`
+`Publish-AzVMDscConfiguration -ConfigurationPath .\user_configuration.ps1`
 
 Instellen van de Azure-DSC-extensie en geef de referentie op:
 
@@ -73,16 +73,16 @@ Instellen van de Azure-DSC-extensie en geef de referentie op:
 $configurationName = 'Main'
 $configurationArguments = @{ Credential = Get-Credential }
 $configurationArchive = 'user_configuration.ps1.zip'
-$vm = Get-AzureRmVM -Name 'example-1'
+$vm = Get-AzVM -Name 'example-1'
 
-$vm = Set-AzureRmVMDscExtension -VMName $vm -ConfigurationArchive $configurationArchive -ConfigurationName $configurationName -ConfigurationArgument @configurationArguments
+$vm = Set-AzVMDscExtension -VMName $vm -ConfigurationArchive $configurationArchive -ConfigurationName $configurationName -ConfigurationArgument @configurationArguments
 
-$vm | Update-AzureRmVM
+$vm | Update-AzVM
 ```
 
 ## <a name="how-a-credential-is-secured"></a>Hoe een referentie is beveiligd
 
-Uitvoering van deze code wordt gevraagd om een referentie. Nadat de referentie op die is opgegeven, wordt deze korte tijd opgeslagen in het geheugen. Wanneer de referentie op die is gepubliceerd met behulp van de **Set AzureRmVMDscExtension** cmdlet, de referentie op die wordt verzonden via HTTPS naar de virtuele machine. In de virtuele machine slaat Azure de referentie op schijf versleuteld met behulp van het lokale certificaatarchief van de virtuele machine. De referentie is kort ontsleuteld in het geheugen en vervolgens opnieuw versleuteld als u wilt deze doorgeven aan DSC.
+Uitvoering van deze code wordt gevraagd om een referentie. Nadat de referentie op die is opgegeven, wordt deze korte tijd opgeslagen in het geheugen. Wanneer de referentie op die is gepubliceerd met behulp van de **Set AzVMDscExtension** cmdlet, de referentie op die wordt verzonden via HTTPS naar de virtuele machine. In de virtuele machine slaat Azure de referentie op schijf versleuteld met behulp van het lokale certificaatarchief van de virtuele machine. De referentie is kort ontsleuteld in het geheugen en vervolgens opnieuw versleuteld als u wilt deze doorgeven aan DSC.
 
 Dit proces is anders dan [met behulp van veilige configuraties zonder de extensie-handler](/powershell/dsc/securemof). De Azure-omgeving biedt een manier voor het verzenden van configuratiegegevens ontvangen via certificaten veilig. Wanneer u de handler voor DSC-extensie gebruikt, moet u niet opgeven **$CertificatePath** of een **$CertificateID**/ **$Thumbprint** vermelding in **ConfigurationData**.
 

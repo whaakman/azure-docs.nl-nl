@@ -3,8 +3,8 @@ title: Claimbewuste apps - Azure AD-toepassingsproxy | Microsoft Docs
 description: Het publiceren van on-premises ASP.NET-toepassingen die AD FS-claims voor veilige externe toegang door uw gebruikers accepteren.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: japere
-ms.openlocfilehash: efab95e926e72397f15a5b6a79e63833e19f0676
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 3cb1849f9fbf99bcd811761f6b72b0d0cb61945d
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153467"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965049"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Werken met claim-compatibele toepassingen in toepassingsproxy
 [Claimbewuste apps](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) uitvoeren van een omleiding naar de Security Token Service (STS). De STS vraagt om de referenties van de gebruiker voor een token en vervolgens wordt de gebruiker omgeleid naar de toepassing. Er zijn een aantal manieren Application Proxy om te werken met deze omleidingen in te schakelen. Gebruik dit artikel om uw implementatie van claims-compatibele apps te configureren. 

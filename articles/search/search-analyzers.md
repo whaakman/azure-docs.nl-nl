@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 121b5542f9388355b97744aa224ac824dd8d8728
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 008a24fe9822ca51b81e1f6979a3731d794a8867
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867202"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964335"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analyzers om tekst te verwerken in Azure Search
 
@@ -92,7 +92,7 @@ Stap voor stap in het volgende voorbeeld:
 * Analysefuncties zijn een eigenschap van de veldklasse voor een doorzoekbaar veld.
 * Een aangepaste analysefunctie maakt deel uit van een definitie van de index. Hierdoor kan licht worden aangepast (bijvoorbeeld één optie in één filter aanpassen) of op meerdere plaatsen worden aangepast.
 * In dit geval wordt de aangepaste analyzer is 'my_analyzer', die op zijn beurt maakt gebruik van een aangepaste standard tokenizer "my_standard_tokenizer" en twee token filters: kleine letters en aangepaste asciifolding filter 'my_asciifolding'.
-* Het definieert ook 2 aangepaste char filters 'map_dash' en 'remove_whitespace'. Het eerste item vervangt alle streepjes met onderstrepingstekens terwijl de tweede waarde alle spaties bestaan verwijdert. De witruimte moet UTF-8-codering in de toewijzingsregels. De char-filters worden toegepast voordat tokeniseren en is van invloed op de resulterende tokens (de standaard tokenizer-einden op streepjes en spaties, maar niet op onderstrepingsteken).
+* Het definieert ook 2 aangepaste char filters 'map_dash' en 'remove_whitespace'. Het eerste item vervangt alle streepjes met onderstrepingstekens terwijl de tweede waarde alle spaties verwijdert. Opslagruimten moeten worden gecodeerd in de regels voor apparaatgroeptoewijzing van UTF-8. De char-filters worden toegepast voordat tokeniseren en is van invloed op de resulterende tokens (de standaard tokenizer-einden op streepjes en spaties, maar niet op onderstrepingsteken).
 
 ~~~~
   {

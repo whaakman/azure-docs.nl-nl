@@ -4,7 +4,7 @@ description: Deze specificatie beschrijving van het protocol en de indeling voor
 services: media-services
 documentationcenter: ''
 author: cenkdin
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 43fac263-a5ea-44af-8dd5-cc88e423b4de
 ms.service: media-services
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 02/08/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: c6ff386913ed66cf4f74cb577bb8ca58e6932ada
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 16b8b5a012c5d2073a3472a70cf2064b8b0e59cd
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228875"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984831"
 ---
-# <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Specificatie van Azure Media Services live gefragmenteerde MP4-liveopname
+# <a name="azure-media-services-fragmented-mp4-live-ingest-specification-legacy"></a>Specificatie (verouderd) voor Azure Media Services live gefragmenteerde MP4-liveopname
+
 Deze specificatie beschrijving van het protocol en de indeling voor gefragmenteerde MP4-opname op basis van live streaming voor Azure Media Services. Media Services biedt een service voor live streamen die klanten gebruiken kunnen voor het streamen van live-evenementen uit te zenden van inhoud in realtime met behulp van Azure als het cloud-platform. Dit document wordt ook beschreven aanbevolen procedures voor het bouwen van uiterst redundante en robuuste live mechanismen opnemen.
 
 ## <a name="1-conformance-notation"></a>1. Conformiteit van notatie
@@ -92,7 +93,7 @@ Bij deze optie, de encoder een nummer in elk fragment MP4-bitstream wordt geplaa
 
 ![Streams afzonderlijke sporen te wissen][image3]
 
-### <a name="option-3-bundle-audio-track-with-the-lowest-bitrate-video-track-into-one-stream"></a>Optie 3: Bundel audiotrack met de laagste bitrate video bijhouden in één stream
+### <a name="option-3-bundle-audio-track-with-the-lowest-bitrate-video-track-into-one-stream"></a>Optie 3: Audio bijhouden met de laagste bitrate video track bundelen in één stream
 Bij deze optie kiest de klant het audiospoor met de laagste-bitrate video track bundelen in één fragment MP4 bitstream, en dat de andere twee video sporen als afzonderlijke streams. 
 
 ![Streams-audio en video-nummers][image4]

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 6a888df453a2626756fa47115ef97d04be701265
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 79cf839a23d41058e0d9583a378dc063cd220136
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892850"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981754"
 ---
 # <a name="understand-cost-management-data"></a>Inzicht in gegevens van Cost Management
 
@@ -28,14 +28,13 @@ De volgende informatie wordt weergegeven de momenteel ondersteunde [Microsoft Az
 | Categorie  | **Naam van aanbieding** | **Nummer van de aanbieding** |
 | --- | --- | --- |
 | **Azure Duitsland** | [Azure Duitsland-betalen per gebruik](https://azure.microsoft.com/offers/ms-azr-de-0003p/) | MS-AZR-DE-0003P |
-|**Azure Government**|Azure Government Enterprise|MS-AZR-USGOV-0017P|
-| **Enterprise Agreement (EA)**| Enterprise Dev/Test | MS-AZR-0148P |
+| **Azure Government** | Azure Government Enterprise | MS-AZR-USGOV-0017P |
+| **Enterprise Agreement (EA)** | Enterprise Dev/Test | MS-AZR-0148P |
 | **Enterprise Agreement (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade/) | MS-AZR-0017P |
 | **Microsoft Developer Network (MSDN)** | [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/) | MS-AZR-0062P |
 | **Pay-As-You-Go** | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | MS-AZR-0003P |
 | **Pay-As-You-Go** | [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/) | MS-AZR-0023P |
 | **Pay-As-You-Go** | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/) | MS-AZR-0025P |
-| **Pay-As-You-Go** | [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) | MS-AZR-0036P |
 | **Pay-As-You-Go** | [Gratis proefversie](https://azure.microsoft.com/offers/ms-azr-0044p/) | MS-AZR-0044P |
 | **Pay-As-You-Go** | [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p/) | MS-AZR-0111P |
 | **Pay-As-You-Go** | [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) | MS-AZR-0170P |
@@ -54,6 +53,7 @@ De volgende tabel ziet u niet-ondersteunde aanbiedingen.
 | **Cloud Solution Provider (CSP)** | Azure Government CSP | MS-AZR-USGOV-0145P |
 | **Cloud Solution Provider (CSP)** | Azure Duitsland in CSP voor Microsoft Cloud Duitsland | MS-AZR-DE-0145P |
 | **Pay-As-You-Go** | Azure for Students Starter | MS-AZR-0144P |
+| **Pay-As-You-Go** | [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) | MS-AZR-0036P |
 | **Ondersteuningsabonnementen** | Standard Support | MS-AZR-0041P |
 | **Ondersteuningsabonnementen** | Professional Direct-ondersteuning | MS-AZR-0042P |
 | **Ondersteuningsabonnementen** | Developer-ondersteuning | MS-AZR-0043P |
@@ -69,17 +69,6 @@ Als er geen gegevens voor een abonnement en u bepalen wilt als het abonnement on
 ## <a name="costs-included-in-cost-management"></a>Kosten die zijn opgenomen in Cost Management
 
 De volgende tabellen bevatten gegevens die is opgenomen of zich niet in Cost Management.
-
-**Accounttypen**
-
-| **Opgenomen** | **Niet inbegrepen** |
-| --- | --- |
-| Enterprise Agreement (EA) | In de cloud Solution Provider (CSP) - voor meer informatie, Zie de [Partner Center overzicht](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview). |
-| Betalen per gebruik (betalen per gebruik) |   |
-| Dev/test |   |
-| Gratis en evaluatieversies |   |
-| Partner Network |   |
-| Azure in Open | &nbsp;  |
 
 **Kosten en gebruiksgegevens**
 

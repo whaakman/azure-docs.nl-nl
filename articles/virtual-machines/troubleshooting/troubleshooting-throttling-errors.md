@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: 15a4ff73476ce54f0617a88e040ac64d7288e9a8
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 401bd3badc555ee001fbc355c7bdb77786c2d053
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741110"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977810"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Oplossen van problemen met API beperkingsfouten 
 
@@ -32,9 +32,9 @@ Wanneer een Azure API App client een beperking-fout ontvangt, wordt de HTTP-stat
 
 ## <a name="call-rate-informational-response-headers"></a>Tarief informatief antwoordheaders aanroepen 
 
-| Header                            | Waarde-indeling                           | Voorbeeld                               | Beschrijving                                                                                                                                                                                               |
+| Header                            | Waarde-indeling                           | Voorbeeld                               | Description                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| x-ms-ratelimit-resterende-resource |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | Resterend aantal van de API-aanroepen voor het beperkingsbeleid die betrekking hebben op de bucket of bewerking resourcegroep met inbegrip van het doel van deze aanvraag                                                                   |
+| x-ms-ratelimit-remaining-resource |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | Resterend aantal van de API-aanroepen voor het beperkingsbeleid die betrekking hebben op de bucket of bewerking resourcegroep met inbegrip van het doel van deze aanvraag                                                                   |
 | x-ms-request-kosten               | ```<count>   ```                             | 1                                     | Het aantal oproep telt "kosten in rekening gebracht" voor deze HTTP-aanvraag voor de limiet van het beleid van toepassing. Dit is doorgaans 1. Batchaanvragen, bijvoorbeeld voor het schalen van een virtuele-machineschaalset, kunnen kosten in rekening gebracht meerdere aantallen. |
 
 
@@ -79,8 +79,8 @@ Zoals hierboven geïllustreerd, elke beperking fout bevat de `Retry-After` kopte
 
 ## <a name="api-call-rate-and-throttling-error-analyzer"></a>API-aanroepen snelheid en bandbreedtebeperking fout analyzer
 Een preview-versie van een functie voor probleemoplossing is beschikbaar voor de Compute-resourceprovider API. Deze PowerShell-cmdlets bieden statistieken over de snelheid van de API-aanvragen per tijdsinterval per bewerking en bandbreedtebeperking schendingen per groep van de bewerking (beleid):
--   [Export-AzureRmLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/azurerm.compute/export-azurermloganalyticrequestratebyinterval)
--   [Export-AzureRmLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/azurerm.compute/export-azurermloganalyticthrottledrequests)
+-   [Export-AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
+-   [Export-AzLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequests)
 
 De API-aanroep statistieken kunnen bieden uitstekende inzicht in het gedrag van de client (s) van een abonnement en inschakelen van eenvoudige identificatie van de aanroep-patronen die zorgt ervoor beperkingen dat.
 

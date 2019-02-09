@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 9678259f4eb6fc634459f80e47b507ebe435ea37
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 281358e51ed8585e5deb407b2432ee3b7ee1537f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878915"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983260"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Language Understanding Docker-containers configureren 
 
@@ -59,7 +59,7 @@ Gebruik niet de starter-sleutel of de ontwerphandleiding.
 
 ## <a name="billing-setting"></a>Facturering instellen
 
-De `Billing` instelling geeft u aan de URI van het eindpunt van de _Language Understanding_ resource in Azure gebruikt voor het meten van factureringsgegevens voor de container. U moet een waarde voor deze configuratie-instelling opgeven en de waarde moet een geldige URI van het eindpunt voor een _Language Understanding_ resource in Azure.
+De `Billing` instelling geeft u aan de URI van het eindpunt van de _Language Understanding_ resource in Azure gebruikt voor het meten van factureringsgegevens voor de container. U moet een waarde voor deze configuratie-instelling opgeven en de waarde moet een geldige URI van het eindpunt voor een _Language Understanding_ resource in Azure. Gebruik de container rapporteert over elke 10 tot 15 minuten.
 
 Deze instelling kan worden gevonden in de volgende locaties:
 
