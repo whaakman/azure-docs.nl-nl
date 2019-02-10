@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ec8fa6c06dff0091627a800c895d45fd3b0e778e
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: e55058d6b1f76b4afcb847b946df85d5ab69971b
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53381446"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55985402"
 ---
-# <a name="enabling-azure-ultra-ssds"></a>Azure Ultra SSD's inschakelen
+# <a name="enabling-azure-ultra-ssds"></a>Enabling Azure Ultra SSDs
 
 Azure Ultra SSD biedt hoge doorvoer, een hoge IOPS en consistente lage latentie disk-opslag voor Azure IaaS VM's. Deze nieuwe aanbieding biedt boven aan de prestaties van de regel op het niveau van de dezelfde beschikbaarheid als onze bestaande schijven-aanbiedingen. Extra voordelen van Ultra SSD omvatten de mogelijkheid om de prestaties van de schijf, samen met uw workloads zonder dat uw virtuele machines opnieuw moet worden dynamisch te wijzigen. Ultra SSD is geschikt voor gegevensintensieve workloads, zoals SAP HANA, databases van de bovenste laag en transactie-zware workloads.
 
@@ -23,13 +23,13 @@ Op dit moment Ultra SSD's zijn beschikbaar als preview en moet u [inschrijven](h
 
 Na goedkeuring, voert u een van de volgende opdrachten om te bepalen welke zone in VS-Oost 2 uw Ultra SSD te implementeren:
 
-PowerShell: `Get-AzureRmComputeResourceSku | where {$_.ResourceType -eq "disks" -and $_.Name -eq "UltraSSD_LRS" }`
+PowerShell: `Get-AzComputeResourceSku | where {$_.ResourceType -eq "disks" -and $_.Name -eq "UltraSSD_LRS" }`
 
 CLI: `az vm list-skus --resource-type disks --query “[?name==’UltraSSD_LRS’]”`
 
 Het antwoord is vergelijkbaar met het onderstaande formulier, waarbij X staat voor de Zone moet worden gebruikt voor het implementeren van in VS-Oost 2. X kan 1, 2 of 3 zijn.
 
-|ResourceType  |Name  |Locatie  |Zones  |Beperking  |Mogelijkheid  |Waarde  |
+|ResourceType  |Name  |Locatie  |Zones  |Beperking  |Mogelijkheid  |Value  |
 |---------|---------|---------|---------|---------|---------|---------|
 |Schijven     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 

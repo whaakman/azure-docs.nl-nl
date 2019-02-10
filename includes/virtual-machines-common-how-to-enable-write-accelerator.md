@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 6/8/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: b2733bed4418fdfcaefb20c04683cb6a229134e9
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 733d2896ef15d2e78073268e263a144ea25846ec
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53594334"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55985407"
 ---
 # <a name="enable-write-accelerator"></a>Write Accelerator inschakelt
 
@@ -74,36 +74,36 @@ Als u wilt in- of schijven die worden ondersteund door Write Accelerator impleme
 
 Een nieuwe switchparameter **- WriteAccelerator** is toegevoegd aan de volgende cmdlets:
 
-- [Set-azurermvmosdisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-6.0.0)
-- [Add-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Add-AzureRmVMDataDisk?view=azurermps-6.0.0)
-- [Set-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Set-AzureRmVMDataDisk?view=azurermps-6.0.0)
-- [Add-AzureRmVmssDataDisk](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Add-AzureRmVmssDataDisk?view=azurermps-6.0.0)
+- [Set-AzVMOsDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk?view=azurermps-6.0.0)
+- [Add-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/Add-AzVMDataDisk?view=azurermps-6.0.0)
+- [Set-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/Set-AzVMDataDisk?view=azurermps-6.0.0)
+- [Add-AzVmssDataDisk](https://docs.microsoft.com/powershell/module/az.compute/Add-AzVmssDataDisk?view=azurermps-6.0.0)
 
 Geeft niet de parameter wordt de eigenschap ingesteld op false en schijven die geen ondersteuning door Write Accelerator bieden wordt geïmplementeerd.
 
 Een nieuwe switchparameter **- osdiskwriteaccelerator is** is toegevoegd aan de volgende cmdlets:
 
-- [Set-AzureRmVmssStorageProfile](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile?view=azurermps-6.0.0)
+- [Set-AzVmssStorageProfile](https://docs.microsoft.com/powershell/module/az.compute/Set-AzVmssStorageProfile?view=azurermps-6.0.0)
 
 De parameter niet opgeeft wordt de eigenschap op false standaard schijven die niet gebruikmaken van Write Accelerator retourneren.
 
 Een nieuwe optionele Booleaanse waarde (niet-nullbare) parameter **- osdiskwriteaccelerator is** is toegevoegd aan de volgende cmdlets:
 
-- [Update-AzureRmVM](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Update-AzureRmVM?view=azurermps-6.0.0)
-- [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Update-AzureRmVmss?view=azurermps-6.0.0)
+- [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/Update-AzVM?view=azurermps-6.0.0)
+- [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/Update-AzVmss?view=azurermps-6.0.0)
 
 Geef $true of $false om te bepalen ondersteuning van Azure Write Accelerator met de schijven.
 
 Voorbeelden van opdrachten kunnen er als volgt uitzien:
 
 ```PowerShell
-New-AzureRmVMConfig | Set-AzureRmVMOsDisk | Add-AzureRmVMDataDisk -Name "datadisk1" | Add-AzureRmVMDataDisk -Name "logdisk1" -WriteAccelerator | New-AzureRmVM
+New-AzVMConfig | Set-AzVMOsDisk | Add-AzVMDataDisk -Name "datadisk1" | Add-AzVMDataDisk -Name "logdisk1" -WriteAccelerator | New-AzVM
 
-Get-AzureRmVM | Update-AzureRmVM -OsDiskWriteAccelerator $true
+Get-AzVM | Update-AzVM -OsDiskWriteAccelerator $true
 
-New-AzureRmVmssConfig | Set-AzureRmVmssStorageProfile -OsDiskWriteAccelerator | Add-AzureRmVmssDataDisk -Name "datadisk1" -WriteAccelerator:$false | Add-AzureRmVmssDataDisk -Name "logdisk1" -WriteAccelerator | New-AzureRmVmss
+New-AzVmssConfig | Set-AzVmssStorageProfile -OsDiskWriteAccelerator | Add-AzVmssDataDisk -Name "datadisk1" -WriteAccelerator:$false | Add-AzVmssDataDisk -Name "logdisk1" -WriteAccelerator | New-AzVmss
 
-Get-AzureRmVmss | Update-AzureRmVmss -OsDiskWriteAccelerator:$false
+Get-AzVmss | Update-AzVmss -OsDiskWriteAccelerator:$false
 ```
 
 Twee hoofdscenario's kunnen scripts worden gebruikt, zoals wordt weergegeven in de volgende secties.
@@ -128,9 +128,9 @@ $size=1023
 #Pulls the VM info for later
 $vm=Get-AzurermVM -ResourceGroupName $rgname -Name $vmname
 #add a new VM data disk
-Add-AzureRmVMDataDisk -CreateOption empty -DiskSizeInGB $size -Name $vmname-$datadiskname -VM $vm -Caching None -WriteAccelerator:$true -lun $lunid
+Add-AzVMDataDisk -CreateOption empty -DiskSizeInGB $size -Name $vmname-$datadiskname -VM $vm -Caching None -WriteAccelerator:$true -lun $lunid
 #Updates the VM with the disk config - does not require a reboot
-Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
+Update-AzVM -ResourceGroupName $rgname -VM $vm
 ```
 
 ### <a name="enabling-write-accelerator-on-an-existing-azure-disk-using-powershell"></a>Write Accelerator inschakelt op een bestaande Azure-schijf met behulp van PowerShell
@@ -149,9 +149,9 @@ $newstatus = $true
 #Pulls the VM info for later
 $vm=Get-AzurermVM -ResourceGroupName $rgname -Name $vmname
 #add a new VM data disk
-Set-AzureRmVMDataDisk -VM $vm -Name $datadiskname -Caching None -WriteAccelerator:$newstatus
+Set-AzVMDataDisk -VM $vm -Name $datadiskname -Caching None -WriteAccelerator:$newstatus
 #Updates the VM with the disk config - does not require a reboot
-Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
+Update-AzVM -ResourceGroupName $rgname -VM $vm
 ```
 
 > [!Note]
