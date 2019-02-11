@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: 1c519c658db29152f7ecafa8ac244c922cf4cd9f
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: dfc5e2923215b1669b0a3300653ad0cae7379655
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118989"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960731"
 ---
 # <a name="article-top"></a>Uw bestaande Azure Mobile Service migreren naar Azure App Service
 Met de [algemene beschikbaarheid van Azure App Service], Azure Mobile Services-sites kunnen eenvoudig worden gemigreerd in-place om te profiteren van alle functies van Azure App Service.  Dit document wordt uitgelegd wat u kunt verwachten wanneer uw site van Azure Mobile Services migreren naar Azure App Service.
@@ -270,7 +270,7 @@ De volgende extra app-instellingen zijn gemigreerd vanuit uw mobiele Service en 
 | Toepassingsinstelling | Description |
 |:--- |:--- |
 | **MS\_MobileServiceName** |De naam van uw app |
-| **MS\_MobileServiceDomainSuffix** |Het domeinvoorvoegsel. Internet Explorer azure-mobile.net |
+| **MS\_MobileServiceDomainSuffix** |Het domeinvoorvoegsel. i.e azure-mobile.net |
 | **MS\_ApplicationKey** |De sleutel van uw toepassing |
 | **MS\_MasterKey** |De hoofdsleutel van uw app |
 
@@ -321,7 +321,7 @@ De logboeken weergeven:
 3. Klik op de **extra** knop
 4. Selecteer **Log Stream** onder het menu OBSERVE.
 
-Logboeken worden weergegeven in het venster als ze worden gegenereerd.  U kunt ook de logboeken voor latere analyse met behulp van de referenties voor implementatie downloaden. Zie voor meer informatie de [logboekregistratie] documentatie.
+Logboeken worden weergegeven in het venster als ze worden gegenereerd.  U kunt ook de logboeken voor latere analyse met behulp van de referenties voor implementatie downloaden. Zie voor meer informatie de [Logging] documentatie.
 
 ## <a name="known-issues"></a>Bekende problemen
 ### <a name="deleting-a-migrated-mobile-app-clone-causes-a-site-outage"></a>Verwijderen van een kloon Mobile App gemigreerd zorgt ervoor dat de uitval
@@ -332,7 +332,7 @@ Oplossing: Als u klonen van uw site wilt, doen via de portal.
 ### <a name="changing-webconfig-does-not-work"></a>Wijzigen van Web.config werkt niet
 Als u een ASP.NET-website hebt, wijzigingen in de `Web.config` bestand kan niet worden toegepast.  De Azure App Service bouwt een geschikte `Web.config` bestand tijdens het opstarten voor de ondersteuning van de Mobile Services-runtime.  U kunt bepaalde instellingen (zoals aangepaste kopteksten) met behulp van een XML-transformatiebestand overschrijven.  Maak een bestand in met de naam `applicationHost.xdt` -dit bestand moet terechtkomen de `D:\home\site` map op de Azure-Service.  Upload de `applicationHost.xdt` bestand via een aangepaste implementatiescript of rechtstreeks met Kudu.  Hieronder ziet u een voorbeelddocument:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
   <system.webServer>
@@ -349,7 +349,7 @@ Als u een ASP.NET-website hebt, wijzigingen in de `Web.config` bestand kan niet 
 </configuration>
 ```
 
-Zie voor meer informatie de [Voorbeelden van XDT transformeren] documentatie op GitHub.
+Zie voor meer informatie de [XDT Transform Samples] documentatie op GitHub.
 
 ### <a name="migrated-mobile-services-cannot-be-added-to-traffic-manager"></a>Gemigreerde Mobile Services kan niet worden toegevoegd aan Traffic Manager
 Wanneer u een Traffic Manager-profiel maakt, kunt u niet rechtstreeks een gemigreerde mobiele service aan het profiel kiezen.  Gebruik een 'Extern eindpunt'.  Het externe eindpunt kan alleen worden toegevoegd via PowerShell.  Zie voor meer informatie de [Traffic Manager-zelfstudie](https://azure.microsoft.com/blog/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/).
@@ -388,7 +388,7 @@ Nu dat uw toepassing is gemigreerd naar App Service, zijn er nog meer functies d
 [Fiddler]: https://www.telerik.com/fiddler
 [algemene beschikbaarheid van Azure App Service]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
 [Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
-[Logboekregistratie]: ../app-service/troubleshoot-diagnostic-logs.md
+[Logging]: ../app-service/troubleshoot-diagnostic-logs.md
 [Node.js-SDK voor mobiele Apps]: https://github.com/azure/azure-mobile-apps-node
 [Mobile Services versus App Service]: app-service-mobile-value-prop-migration-from-mobile-services.md
 [Notification Hubs]: ../notification-hubs/notification-hubs-push-notification-overview.md
@@ -396,5 +396,5 @@ Nu dat uw toepassing is gemigreerd naar App Service, zijn er nog meer functies d
 [Postman]: https://www.getpostman.com/
 [faseringssleuven]: ../app-service/deploy-staging-slots.md
 [VNet]: ../app-service/web-sites-integrate-with-vnet.md
-[Voorbeelden van XDT transformeren]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
+[XDT Transform Samples]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 [Functies]: ../azure-functions/functions-overview.md

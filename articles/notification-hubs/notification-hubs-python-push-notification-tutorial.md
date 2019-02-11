@@ -14,12 +14,12 @@ ms.devlang: php
 ms.topic: article
 ms.author: jowargo
 ms.date: 01/04/2019
-ms.openlocfilehash: 73c7acb563f0f6236ff49274bb1880692a3742e6
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 10bc12879ea30f75ee5af3bd9226ff1626b72ae3
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563118"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962737"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Hoe u Notification Hubs gebruiken vanuit Python
 
@@ -369,11 +369,11 @@ Wanneer u de vlag foutopsporing inschakelen tijdens het initialiseren van de Not
 U ziet bijvoorbeeld gedetailleerde van resultaat van de Notification Hub.
 
 - Wanneer het bericht is verzonden naar de Push Notification Service.
-    ```text
+    ```xml
     <Outcome>The Notification was successfully sent to the Push Notification System</Outcome>
     ```
 - Als er geen doelen gevonden voor een push-bericht waren, klikt u vervolgens gaat u waarschijnlijk de volgende uitvoer zien als het antwoord (waarmee wordt aangegeven dat er geen rapporten gevonden voor het leveren van de melding is het waarschijnlijk omdat de registraties waren enkele komt niet overeen -tags)
-    ```text
+    ```xml
     '<NotificationOutcome xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Success>0</Success><Failure>0</Failure><Results i:nil="true"/></NotificationOutcome>'
     ```
 

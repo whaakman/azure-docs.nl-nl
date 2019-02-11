@@ -14,12 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 358e8cd92fe250741adbbb9208b5e149a5f60216
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: cddb3769cfc5a2ba002e19036d986f4165670dc1
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959730"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962448"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Het gebruik van Apache Cordova-clientbibliotheek voor Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -55,7 +55,7 @@ ionic plugin add cordova-plugin-ms-azure-mobile-apps
 
 Voeg de volgende regels aan `app.component.ts` om de clientobject te maken:
 
-```
+```typescript
 declare var WindowsAzure: any;
 var client = new WindowsAzure.MobileServiceClient("https://yoursite.azurewebsites.net");
 ```
@@ -71,19 +71,19 @@ De Azure Mobile Apps Cordova-invoegtoepassing biedt ondersteuning voor beide ion
 
 [!INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
 
-## <a name="auth"></a>Hoe: verificatie van gebruikers
+## <a name="auth"></a>Procedures: Gebruikers verifiëren
 Azure App Service ondersteunt verificatie en autorisatie van app-gebruikers met behulp van verschillende externe id-providers: Facebook, Google, Microsoft-Account en Twitter. U kunt machtigingen instellen voor tabellen toegang voor specifieke bewerkingen alleen geverifieerde gebruikers te beperken. U kunt ook de identiteit van de geverifieerde gebruikers gebruiken voor het implementeren van autorisatieregels in server-scripts. Zie voor meer informatie de [aan de slag met verificatie] zelfstudie.
 
 Als u verificatie in een Apache Cordova-app, moet de volgende Cordova-invoegtoepassingen beschikbaar zijn:
 
-* [cordova-invoegtoepassing-apparaat]
-* [cordova-invoegtoepassing-inappbrowser]
+* [cordova-plugin-device]
+* [cordova-plugin-inappbrowser]
 
 Twee verificatiestromen worden ondersteund: de stroom van een server en een clientstroom.  De stroom van de server bevat de meest eenvoudige verificatie-ervaring, afhankelijk van de provider de webinterface voor verificatie. De stroom kunt diepere integratie met de apparaat-specifieke mogelijkheden zoals single-sign-on, afhankelijk van provider-specifieke apparaat-specifieke SDK's.
 
 [!INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="configure-external-redirect-urls"></a>Hoe: configureren van uw mobiele App-Service voor externe Omleidings-URL's.
+### <a name="configure-external-redirect-urls"></a>Procedures: Uw mobiele App-Service voor externe Omleidings-URL's configureren.
 Verschillende typen Apache Cordova-toepassingen gebruiken een loopback-mogelijkheid voor het afhandelen van OAuth UI stromen.  OAuth UI stromen op localhost veroorzaken problemen omdat de verificatieservice weet alleen over het gebruik van uw service standaard.  Voorbeelden van problematische OAuth UI stromen zijn:
 
 * De Ripple-emulator.
@@ -123,10 +123,10 @@ Ook deze loopback-URL's toevoegen aan de CORS-instellingen voor uw App Service:
 
 Het duurt ongeveer 10-15 seconden voor de nieuwe instellingen van kracht te laten worden.
 
-## <a name="register-for-push"></a>Hoe: registreren voor pushmeldingen
+## <a name="register-for-push"></a>Procedures: Registreren voor pushmeldingen
 Installeer de [phonegap plugin push] voor het afhandelen van pushmeldingen.  Deze invoegtoepassing eenvoudig kan worden toegevoegd met behulp van de `cordova plugin add` opdracht op de opdrachtregel, of via het installatieprogramma van de invoegtoepassing Git in Visual Studio.  Uw apparaat voor push-meldingen wordt geregistreerd in de volgende code in uw Apache Cordova-app:
 
-```
+```javascript
 var pushOptions = {
     android: {
         senderId: '<from-gcm-console>'
@@ -179,6 +179,6 @@ U vindt gedetailleerde API-details in onze [API-documentatie](https://azure.gith
 [uw eerste Apache Cordova-app]: https://cordova.apache.org/#getstarted
 [phonegap-facebook-plugin]: https://github.com/wizcorp/phonegap-facebook-plugin
 [phonegap plugin push]: https://www.npmjs.com/package/phonegap-plugin-push
-[cordova-invoegtoepassing-apparaat]: https://www.npmjs.com/package/cordova-plugin-device
-[cordova-invoegtoepassing-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
+[cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
+[cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
 [Query object documentation]: https://msdn.microsoft.com/library/azure/jj613353.aspx

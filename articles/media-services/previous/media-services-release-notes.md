@@ -11,16 +11,17 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: aa2a059dd470e671aa3483f2259bcf91796c070d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 3cf819ceb01e52b029e8654dddc355afd27a9b63
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631665"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982995"
 ---
-# <a name="azure-media-services-release-notes"></a>Opmerkingen bij de release Azure Media Services
+# <a name="azure-media-services-release-notes-legacy"></a>Releaseopmerkingen voor Azure Media Services (verouderd)
+
 Deze opmerkingen bij de release voor Azure Media Services wijzigingen ten opzichte van vorige versies en bekende problemen samenvatten.
 
 > [!NOTE]
@@ -346,12 +347,12 @@ De metagegevens van de Media Services REST is nu versie 2.7. Zie voor meer infor
 Er is nu de Media Services SDK voor .NET versie 3.0.0.7
 
 ### <a id="sept_14_breaking_changes"></a>Belangrijke wijzigingen
-* Oorsprong is gewijzigd in [streamingendpoint zo].
+* Oorsprong is gewijzigd in [StreamingEndpoint].
 * Een wijziging is aangebracht in het standaardgedrag wanneer u de Azure-portal gebruiken om te coderen en vervolgens publiceren MP4-bestanden.
 
 ### <a id="sept_14_GA_changes"></a>Nieuwe functies/scenario's die deel van de algemeen beschikbare versie uitmaken
 * De Media Indexer Mediaprocessor die is geïntroduceerd. Zie voor meer informatie, [indexeren van mediabestanden met de Media Indexer](https://msdn.microsoft.com/library/azure/dn783455.aspx).
-* U kunt de [streamingendpoint zo] entiteit toevoegen van aangepaste domeinnamen (host).
+* U kunt de [StreamingEndpoint] entiteit toevoegen van aangepaste domeinnamen (host).
   
     Toevoegen voor het gebruik van een aangepaste domeinnaam als de naam van Media Services streaming-eindpunt, aangepaste hostnamen aan uw streaming-eindpunt. De Media Services REST API's of de .NET SDK gebruiken om toe te voegen aangepaste hostnamen.
   
@@ -476,14 +477,14 @@ De volgende wijzigingen zijn opgenomen in de juni 2013 SDK voor Media Services w
 * Vanaf versie 2.3.0.0, de SDK voor Media Services ondersteunt meerdere opslag koppelen gebruikersaccounts aan een Media Services-account. Deze functie wordt ondersteund door de volgende API's:
   
     * Type IStorageAccount
-    * De eigenschap Microsoft.WindowsAzure.MediaServices.Client.CloudMediaContext.StorageAccounts
+    * Microsoft.WindowsAzure.MediaServices.Client.CloudMediaContext.StorageAccounts property
     * StorageAccount-eigenschap
     * De eigenschap StorageAccountName
   
       Zie voor meer informatie, [beheren Media Services-activa voor meerdere opslagaccounts](https://msdn.microsoft.com/library/azure/dn271889.aspx).
 * Kennisgeving met betrekking tot API's. Vanaf versie 2.2.0.0, kunt u luisteren naar Azure Queue storage meldingen. Zie voor meer informatie, [mediaservices verwerken taak meldingen](https://msdn.microsoft.com/library/azure/dn261241.aspx).
   
-    * De eigenschap Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions
+    * Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions property
     * Microsoft.WindowsAzure.MediaServices.Client.INotificationEndPoint type
     * Microsoft.WindowsAzure.MediaServices.Client.IJobNotificationSubscription type
     * Microsoft.WindowsAzure.MediaServices.Client.NotificationEndPointCollection type
@@ -504,7 +505,7 @@ Oplossingen voor problemen die in de November 2012 SDK:
 * IAssetFile.Upload(filepath): Een probleem is opgelost waarbij deze van de synchrone Uploadmethode de volgende fout is genereren wanneer er meerdere bestanden zijn geüpload naar de asset. De volgende fout is 'Server-verificatie van de aanvraag is mislukt. Zorg ervoor dat de waarde van de autorisatie-header wordt gevormd correct met inbegrip van de handtekening."
 * IAssetFile.UploadAsync: Een probleem is opgelost die beperkt het gelijktijdig uploaden van bestanden naar vijf bestanden tot.
 * IAssetFile.UploadProgressChanged: Deze gebeurtenis wordt nu geleverd door de SDK.
-* IAssetFile.DownloadAsync (string, BlobTransferClient, ILocator, CancellationToken): De overbelasting van deze methode is nu beschikbaar.
+* IAssetFile.DownloadAsync(string, BlobTransferClient, ILocator, CancellationToken): De overbelasting van deze methode is nu beschikbaar.
 * IAssetFile.DownloadAsync: Een probleem is opgelost die de gelijktijdige downloaden van bestanden op vijf bestanden beperkt.
 * IAssetFile.Delete(): Er is een probleem opgelost aanroepende verwijderen mogelijk waar een uitzondering genereert, als er geen bestand is geüpload voor de IAssetFile.
 * Taken: Een probleem is opgelost waarbij een "MP4 Smooth Streams taak" met een 'PlayReady Protection taak"koppelen met behulp van een sjabloon hebt gemaakt taken helemaal.
@@ -562,7 +563,7 @@ De volgende functionaliteit is nieuw in de release van November van de SDK:
 [Uitvoermetagegevens]: http://msdn.microsoft.com/library/azure/dn783217.aspx
 [Deliver content]: http://msdn.microsoft.com/library/azure/hh973618.aspx
 [Index media files with the Azure Media Indexer]: http://msdn.microsoft.com/library/azure/dn783455.aspx
-[Streamingendpoint zo]: http://msdn.microsoft.com/library/azure/dn783468.aspx
+[StreamingEndpoint]: http://msdn.microsoft.com/library/azure/dn783468.aspx
 [Work with Media Services live streaming]: http://msdn.microsoft.com/library/azure/dn783466.aspx
 [Use AES-128 dynamic encryption and the key delivery service]: http://msdn.microsoft.com/library/azure/dn783457.aspx
 [Use PlayReady dynamic encryption and the license delivery service]: http://msdn.microsoft.com/library/azure/dn783467.aspx
