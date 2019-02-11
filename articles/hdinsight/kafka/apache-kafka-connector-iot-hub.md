@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: ff96204d53d31940846d2ec74db57caf69d4329e
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: bd7254a9ec1ce5671aa5271ca26c678b20ef48cb
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608627"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978065"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Gebruik Apache Kafka in HDInsight met Azure IoT Hub
 
@@ -38,7 +38,7 @@ Zie voor meer informatie over de API verbinding [ https://kafka.apache.org/docum
 
 * Een edge-knooppunt in het Kafka-cluster. Zie voor meer informatie de [edge-knooppunten gebruiken met HDInsight](../hdinsight-apps-use-edge-node.md) document.
 
-* Een Azure IoT-Hub. Voor deze zelfstudie ik u aan de [online simulator Raspberry Pi verbinding maken met Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started) document.
+* An Azure IoT Hub. Voor deze zelfstudie ik u aan de [online simulator Raspberry Pi verbinding maken met Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started) document.
 
 * Een SSH-client. In de stappen in dit document wordt SSH gebruikt om verbinding te maken met het cluster. Zie het document [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
@@ -127,7 +127,7 @@ Gebruik de volgende stappen om te configureren van Kafka voor het uitvoeren van 
 
     * Wijzig de `key.converter=` en `value.converter=` regels op de volgende waarden:
 
-        ```text
+        ```ini
         key.converter=org.apache.kafka.connect.storage.StringConverter
         value.converter=org.apache.kafka.connect.storage.StringConverter
         ```
@@ -189,7 +189,7 @@ Om op te halen van IoT Hubgegevens die door de connector gebruikt, gebruikt u de
 
         Vervang `myhubname` met de naam van uw IoT-hub. Het antwoord is vergelijkbaar met de volgende tekst:
 
-        ```text
+        ```json
         "EventHubCompatibleEndpoint": "sb://ihsuprodbnres006dednamespace.servicebus.windows.net/",
         "EventHubCompatibleName": "iothub-ehub-myhub08-207673-d44b2a856e",
         "Partitions": 2
@@ -349,7 +349,7 @@ Voor het verzenden van berichten via de connector, gebruikt u de volgende stappe
     > [!IMPORTANT]  
     > U moet de waarde van de `"deviceId"` vermelding voor de ID van uw apparaat. In het volgende voorbeeld wordt het apparaat met de naam `fakepi`:
 
-    ```text
+    ```json
     {"messageId":"msg1","message":"Turn On","deviceId":"fakepi"}
     ```
 
