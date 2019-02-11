@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 794c2cf6c52ead465d35d3d551cfe76e87c06787
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b76adda6e09cdce1f94c2d0691cbe7e4cc2b6b50
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237601"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983522"
 ---
-# <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Aan de slag met het leveren van inhoud op aanvraag met behulp van REST
+# <a name="get-started-with-delivering-content-on-demand-using-rest-legacy"></a>Aan de slag met het leveren van inhoud op aanvraag met behulp van REST (verouderd)
+
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 In deze snelstartgids leidt u door de stappen van de implementatie van een video on demand (VoD) contentlevering-toepassing met behulp van Azure Media Services (AMS) REST-API's.
@@ -268,7 +269,7 @@ Een SAS-URL heeft de volgende indeling:
 Hierbij geldt het volgende:
 
 * U kunt geen meer dan vijf unieke Locators die zijn gekoppeld aan een opgegeven activum in één keer. 
-* Als u nodig hebt onmiddellijk uw bestanden uploaden, moet u de waarde StartTime ingesteld op vijf minuten vóór de huidige tijd. Dit is omdat er mogelijk klok scheeftrekken tussen uw client-computer en Media Services. Ook de waarde StartTime moet zich in de volgende datum/tijd-indeling: jjjj-MM-ddTHH (bijvoorbeeld: "2014-05-23T17:53:50Z ').    
+* Als u nodig hebt onmiddellijk uw bestanden uploaden, moet u de waarde StartTime ingesteld op vijf minuten vóór de huidige tijd. Dit is omdat er mogelijk klok scheeftrekken tussen uw client-computer en Media Services. De waarde StartTime moet ook de volgende datum/tijd-indeling zijn: JJJJ-MM-ddTHH (bijvoorbeeld: "2014-05-23T17:53:50Z ').    
 * Mogelijk zijn er een tweede 30-40 vertraging nadat een Locator is gemaakt op wanneer deze beschikbaar voor gebruik. Dit probleem is van toepassing op beide [SAS-URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) en oorsprong Locators.
 
 Het volgende voorbeeld ziet hoe u een SAS-URL-Locator maakt zoals gedefinieerd door de eigenschap Type in de hoofdtekst van de aanvraag ("1" voor een SAS-locator) en "2" voor een On-Demand origin-locator. De **pad** geretourneerd van de eigenschap bevat de URL die u gebruiken moet om uw bestand te uploaden.
@@ -407,7 +408,7 @@ Als dit lukt, wordt het volgende geretourneerd:
 
 Na het opnemen van de die activa in Media Services, media kunnen worden gecodeerd, transmuxed, van een watermerk enzovoort, voordat deze aan clients wordt geleverd. Deze activiteiten worden gepland en uitgevoerd op meerdere achtergrondrolinstanties om hoge prestaties en een hoge beschikbaarheid te garanderen. Deze activiteiten worden taken genoemd en elke taak bestaat uit atomische taken die daadwerkelijk werken op het assetbestand (Zie voor meer informatie, [taak](https://docs.microsoft.com/rest/api/media/operations/job), [taak](https://docs.microsoft.com/rest/api/media/operations/task) beschrijvingen).
 
-Zoals eerder al is aangegeven, bij het werken met Azure Media Services is een van de meest voorkomende scenario's adaptive bitrate streaming geleverd aan uw clients. Media Services kunt u een dynamisch pakket een set adaptive bitrate MP4-bestanden in een van de volgende indelingen: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
+Zoals eerder al is aangegeven, bij het werken met Azure Media Services is een van de meest voorkomende scenario's adaptive bitrate streaming geleverd aan uw clients. Media Services kunt dynamisch pakket van een set adaptive bitrate MP4-bestanden in een van de volgende indelingen: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
 
 De volgende sectie ziet hoe u een taak met een coderingstaak te maken. De taak bevat voor het transcoderen het tussentijdse bestand in een set met behulp van adaptieve bitrate MP4s **Media Encoder Standard**. De sectie wordt ook uitgelegd hoe u voor het bewaken van de taak voortgang verwerken. Wanneer de taak voltooid is, wordt u mogelijk zijn om locators die nodig zijn om toegang te krijgen tot uw bedrijfsmiddelen te maken.
 
@@ -458,7 +459,7 @@ De volgende code aanvragen van het coderingsprogramma-id.
     }
 
 ### <a name="create-a-job"></a>Een taak maken
-Elke taak kan een of meer taken, afhankelijk van het type van de verwerking die u wilt bereiken hebben. U kunt taken en hun verwante taken via de REST-API maken op twee manieren: taken kunnen worden gedefinieerd inline via de navigatie-eigenschap van de taken op taak entiteiten of batchverwerking van OData. Batchverwerking maakt gebruik van de Media Services SDK. Voor de leesbaarheid van de codevoorbeelden in dit artikel zijn taken echter gedefinieerde inline. Zie voor informatie over batchverwerking, [Open Data Protocol (OData) batchverwerking](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+Elke taak kan een of meer taken, afhankelijk van het type van de verwerking die u wilt bereiken hebben. U kunt via de REST-API, taken en hun verwante taken maken op twee manieren: Taken kunnen worden gedefinieerd inline via de navigatie-eigenschap van de taken op taak entiteiten of batchverwerking van OData. Batchverwerking maakt gebruik van de Media Services SDK. Voor de leesbaarheid van de codevoorbeelden in dit artikel zijn taken echter gedefinieerde inline. Zie voor informatie over batchverwerking, [Open Data Protocol (OData) batchverwerking](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
 Het volgende voorbeeld ziet u het maken en een taak met een die taak instellen op het coderen van een video op een specifieke oplossingsstatus en de kwaliteit te plaatsen. De volgende sectie van de documentatie bevat de lijst met alle de [taak voorinstellingen](https://msdn.microsoft.com/library/mt269960) ondersteund door de processor Media Encoder Standard.  
 
@@ -692,7 +693,7 @@ De volgende code laat zien hoe u aan te vragen van de uitvoerasset id.
 
 ## <a id="publish_get_urls"></a>De asset publiceren en te streamen en progressief downloaden ophalen URL's met REST-API
 
-Als u een asset wilt streamen of downloaden, moet u deze eerste publiceren door een locator te maken. Locators bieden toegang tot bestanden in de asset. Media Services ondersteunt twee typen locators: OnDemandOrigin-locators, voor het streamen van media (bijvoorbeeld MPEG DASH, HLS, of Smooth Streaming) en SAS-locators (Shared Access Signature), voor het downloaden van media-bestanden. 
+Als u een asset wilt streamen of downloaden, moet u deze eerste publiceren door een locator te maken. Locators bieden toegang tot bestanden in de asset. Media Services ondersteunt twee typen locators: OnDemandOrigin-locators, voor het streamen van media (bijvoorbeeld MPEG DASH, HLS of Smooth Streaming) en Access Signature (SAS)-locators, voor het downloaden van mediabestanden. 
 
 Zodra u de locators hebt gemaakt, kunt u de URL's die worden gebruikt om te streamen of te downloaden van uw bestanden kunt bouwen.
 
@@ -742,7 +743,7 @@ Het volgende voorbeeld ziet hoe u kunt de AccessPolicy voor lees-en schrijfmacht
 Als dit lukt, wordt een 201 succescode geretourneerd met een beschrijving van de AccessPolicy-entiteit die u hebt gemaakt. Vervolgens gebruikt u de AccessPolicy Id samen met de Asset-Id van de asset die het bestand dat u afleveren (zoals een uitvoerasset wilt) voor het maken van de entiteit Locator bevat.
 
 > [!NOTE]
-> Deze basiswerkstroom is hetzelfde als het uploaden van een bestand bij het opnemen van een Asset (zoals eerder in dit onderwerp is beschreven). Ook, zoals het uploaden van bestanden, als u (of uw clients) moeten onmiddellijk toegang krijgen tot uw bestanden, stelt de waarde StartTime tot vijf minuten vóór de huidige tijd. Deze actie is nodig omdat er mogelijk klok scheeftrekken tussen de client en Media Services. De waarde StartTime moet zich in de volgende datum/tijd-indeling: jjjj-MM-ddTHH (bijvoorbeeld: "2014-05-23T17:53:50Z ').
+> Deze basiswerkstroom is hetzelfde als het uploaden van een bestand bij het opnemen van een Asset (zoals eerder in dit onderwerp is beschreven). Ook, zoals het uploaden van bestanden, als u (of uw clients) moeten onmiddellijk toegang krijgen tot uw bestanden, stelt de waarde StartTime tot vijf minuten vóór de huidige tijd. Deze actie is nodig omdat er mogelijk klok scheeftrekken tussen de client en Media Services. De waarde StartTime moet zich in de volgende datum/tijd-indeling: JJJJ-MM-ddTHH (bijvoorbeeld: "2014-05-23T17:53:50Z ').
 >
 >
 
@@ -915,7 +916,7 @@ Gebruik [Azure Media Services Player](http://amsplayer.azurewebsites.net/azureme
 
 Als u wilt testen progressief downloaden, plakt u een URL in een browser (bijvoorbeeld Internet Explorer, Chrome, Safari).
 
-## <a name="next-steps-media-services-learning-paths"></a>Volgende stappen: Media Services-leertrajecten
+## <a name="next-steps-media-services-learning-paths"></a>Volgende stappen Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Feedback geven
