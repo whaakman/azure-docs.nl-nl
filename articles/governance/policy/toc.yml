@@ -23,6 +23,9 @@ items:
   - name: Azure-beleid maken en beheren
     displayName: assign, definition, compliance, exempt, exclusion
     href: ./tutorials/create-and-manage.md
+  - name: Een aangepaste beleidsdefinitie maken
+    displayName: disabled, parameters, rule, mode
+    href: ./tutorials/create-custom-policy-definition.md
   - name: Praktijklab - Azure-beleid verkennen
     displayName: create, policy, training, learn
     href: https://handsonlabs.microsoft.com/handsonlabs/SelfPacedLabs?storyId=story://content-private/content/sp-azuregovernance/1-azpolicy/a-policy
@@ -222,7 +225,7 @@ items:
       - name: Auditinstellingsniveau SQL DB controleren
         displayName: auditIfNotExists
         href: samples/audit-sql-db-audit-setting.md
-  - name: Storage
+  - name: Opslag
     items:
     - name: Toegestane SKU's voor opslagaccount en virtuele machines
       displayName: initiative, vmSKUs, storageSKUs
@@ -324,9 +327,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: UserVoice
     href: https://feedback.azure.com/forums/915958-azure-governance
-ms.openlocfilehash: 75d384a6e8a7e5592b2b5d37948d7863a41d5f78
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 9255a819340e2aa4e8f5af6752ddac3cd375705b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102648"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867253"

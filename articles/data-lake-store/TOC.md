@@ -1,5 +1,5 @@
 # [Documentatie van Data Lake Storage Gen1](index.md)
-# [Overschakelen naar documentatie van Data Lake Storage Gen2 (preciew)](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction)
+# [Overschakelen naar documentatie van Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction)
 
 # Overzicht
 ## [Overzicht van Data Lake Storage Gen1](data-lake-store-overview.md)

@@ -23,7 +23,7 @@ Azure Container Registry is een beheerde service voor Docker-containerregisters 
 
 Voor deze snelstart is moduleversie 5.7.0 of hoger van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om uw geïnstalleerde versie te bepalen. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps).
 
-Docker moet ook lokaal zijn geïnstalleerd. Docker biedt pakketten voor [Mac OS][docker-mac]-, [Windows][docker-windows]- en [Linux][docker-linux]-systemen.
+Docker moet ook lokaal zijn geïnstalleerd. Docker biedt pakketten voor [Mac OS][docker-mac], [Windows][docker-windows] en [Linux][docker-linux] systemen.
 
 Omdat Azure Cloud-Shell niet alle vereiste Docker-onderdelen bevat (de `dockerd`-daemon), kunt u de Cloud Shell niet voor deze snelstart gebruiken.
 

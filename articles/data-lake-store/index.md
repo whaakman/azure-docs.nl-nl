@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 4e2fcdac282d0cca9fe993efdaf787e43c2b6e9d
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 68e4a7bd73b7fdd4b21140c912422b062f51c775
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433813"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869191"
 ---
 # <a name="azure-data-lake-storage-gen1-documentation"></a>Documentatie voor Azure Data Lake Storage Gen1
 
-Leer hoe u Azure Data Lake Storage Gen1 (voorheen bekend als Azure Data Lake Store) kunt gebruiken om een grootschalige, met Hadoop compatibele opslagplaats te maken voor analyse van gegevens van elke grootte, soort en opnamesnelheid. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u een Data Lake-opslagplaats kunt instellen, beheren en openen voor operationele en verkennende analyse.
+Azure Data Lake Storage Gen2 is nu overal algemeen beschikbaar. We raden aan vandaag nog hierop over te stappen. Zie de pagina [productpagina](https://aka.ms/adlsgen2-product) voor meer informatie.
 
-Zie de [productpagina](https://aka.ms/adlsgen2-product) als u meer wilt weten over de preview van Data Lake Storage Gen2.
+Leer hoe u Azure Data Lake Storage Gen1 (voorheen bekend als Azure Data Lake Store) kunt gebruiken om een grootschalige, met Hadoop compatibele opslagplaats te maken voor analyse van gegevens van elke grootte, soort en opnamesnelheid. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u een Data Lake-opslagplaats kunt instellen, beheren en openen voor operationele en verkennende analyse.
 
 <ul class="panelContent cardsFTitle">
     <li>
