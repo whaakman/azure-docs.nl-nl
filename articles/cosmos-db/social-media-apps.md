@@ -4,14 +4,14 @@ description: Meer informatie over een ontwerppatroon voor sociale netwerken door
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 02/11/2019
 ms.author: maquaran
-ms.openlocfilehash: 8d6dfa292bd597c2e37f7111e3a068010dc4653c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 36b77ff6666c2c8b0d27cbdc8552ade15b21d005
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042680"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100360"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Socialiseren met Azure Cosmos DB
 
@@ -222,7 +222,7 @@ Een andere optie beschikbaar is met [Azure Cognitive Services](https://www.micro
 
 Er is een laatste, maar niet in het minst belangrijk artikel ik moet rekening houden: **schaalbaarheid**. Bij het ontwerpen van een architectuur, moet elk onderdeel op een eigen schalen. Uiteindelijk moet u meer gegevens verwerken of wilt u een grotere geografische dekking hebt. Gelukkig zijn beide taken te bereiken is een **kant en klare ervaring** met Cosmos DB.
 
-Cosmos DB biedt ondersteuning voor [dynamische partitioneren](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) out-of-the-box. Maakt automatisch partities op basis van een bepaalde **partitiesleutel**, die is gedefinieerd als een kenmerk in uw documenten. De juiste partitiesleutel te definiëren moet worden uitgevoerd tijdens de ontwerpfase. Zie voor meer informatie de [kiest u de juiste partitiesleutel](partitioning-overview.md#choose-partitionkey) artikel.
+Cosmos DB biedt ondersteuning voor dynamische partitioneren out-of-the-box. Maakt automatisch partities op basis van een bepaalde **partitiesleutel**, die is gedefinieerd als een kenmerk in uw documenten. De juiste partitiesleutel te definiëren moet worden uitgevoerd tijdens de ontwerpfase. Zie voor meer informatie, [partitionering in Azure Cosmos DB](partitioning-overview.md).
 
 Voor een sociale-ervaring, moet u uw strategie voor partitioneren met de manier waarop u query's uitvoeren en u schrijft uitlijnen. (Bijvoorbeeld leesbewerkingen binnen dezelfde partitie wenselijk zijn, en dat 'hotspots' door te spreiden schrijfbewerkingen in meerdere partities te voorkomen.) Sommige opties zijn: partities op basis van een tijdelijke sleutel (dag/maand/week), op inhoud categorie, per geografische regio of door de gebruiker. Alles echt afhankelijk van hoe u de gegevens opvragen en weergeven van de gegevens in uw sociale-ervaring.
 

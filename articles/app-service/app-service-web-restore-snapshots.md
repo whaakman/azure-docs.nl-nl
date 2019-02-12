@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: aelnably;nicking
 ms.custom: seodec18
-ms.openlocfilehash: ab1ae63352e66da557cad49bf5f320b577055877
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 8d4290f1411749e2d8d3d27fbd792ceeeea47ef7
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726558"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100487"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Een app in Azure herstellen vanuit een momentopname
 Dit artikel leest u hoe u een app in herstellen [Azure App Service](../app-service/overview.md) vanuit een momentopname. U kunt uw app herstellen naar een eerdere status, gebaseerd op een van de momentopnamen van uw app. U hoeft geen momentopnamen back-up inschakelen, het platform een momentopname van alle apps voor gegevenshersteldoeleinden automatisch opgeslagen.
@@ -38,6 +38,7 @@ Het terugzetten van momentopnamen is beschikbaar voor apps die worden uitgevoerd
 - App Service stopt de doel-app of doelsleuf tijdens het terugzetten.
 - App Service houdt u drie maanden waard is om van momentopnamen voor gegevenshersteldoeleinden platform.
 - U kunt momentopnamen alleen herstellen voor de afgelopen 30 dagen.
+- App-Services die worden uitgevoerd op een App Service Environment bieden geen ondersteuning voor momentopnamen.
  
 
 ## <a name="restore-an-app-from-a-snapshot"></a>Een app herstellen vanuit een momentopname

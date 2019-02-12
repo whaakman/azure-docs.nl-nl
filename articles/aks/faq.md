@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: iainfou
-ms.openlocfilehash: a7a7c8a6f16183d677aeb09ca62ac601cbd01289
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 2366bd5543a7c3ee4a45eff74f71232a9c60989f
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694037"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098529"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Veelgestelde vragen over Azure Kubernetes Service (AKS)
 
@@ -60,7 +60,7 @@ Als u resources voor gebruik met uw AKS-cluster, zoals storage-accounts of geres
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>Kan ik labels en andere eigenschappen van de AKS-resources in de resourcegroep MC_ * wijzigen?
 
-Wijzigen en verwijderen van de Azure-gemaakte tags en andere eigenschappen van bronnen in de *MC_** resourcegroep kan leiden tot onverwachte resultaten, zoals schalen en upgraden van fouten. Het wordt ondersteund voor het maken en wijzigen van extra aangepaste labels, zoals een zakelijke eenheid of kosten center toewijzen. Wijzigen van de resources onder de *MC_** in de AKS-cluster neemt de SLO.
+Wijzigen en verwijderen van de Azure-gemaakte tags en andere eigenschappen van bronnen in de *MC_** resourcegroep kan leiden tot onverwachte resultaten, zoals schalen en upgraden van fouten. Het wordt ondersteund voor het maken en wijzigen van extra aangepaste labels, zoals een zakelijke eenheid of kosten center toewijzen. Wijzigen van de resources onder de *MC_** in de AKS-cluster neemt de serviceniveaudoelstelling (SLO). Zie voor meer informatie, [AKS is een service level agreement bieden?](#does-aks-offer-a-service-level-agreement)
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Welke Kubernetes toelating controllers biedt ondersteuning voor AKS? Kunnen worden toelating controllers toegevoegd of verwijderd?
 

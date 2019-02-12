@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 5612926b26ac71675a42c7c726d0354a1738ac31
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 0a43414ef446beb3f5d6c8e357390363a95ac31c
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996425"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099340"
 ---
 # <a name="create-and-manage-sql-database-servers-and-single-databases-in-azure-sql-database"></a>SQL Database-servers en individuele databases in Azure SQL Database maken en beheren
 
@@ -160,5 +160,5 @@ Als u wilt maken en beheren van Azure SQL-server, databases en firewalls, gebrui
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over het migreren van een SQL Server-database naar Azure, [migreren naar Azure SQL Database](sql-database-cloud-migrate.md).
+- Zie voor meer informatie over het migreren van een SQL Server-database naar Azure, [migreren naar Azure SQL Database](sql-database-single-database-migrate.md).
 - Zie [Functies](sql-database-features.md) voor meer informatie over ondersteunde functies.

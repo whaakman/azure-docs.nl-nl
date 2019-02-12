@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asmalser
-ms.openlocfilehash: d0176cde824346c80fff097b87c107b7052e822f
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 3588496a2f41af0af273497ea3952d138385f0af
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55959558"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100853"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Bekende problemen en oplossingen met SCIM 2.0-protocol naleving van de Azure AD-gebruiker Provisioning-service
 
@@ -59,7 +59,7 @@ Ja. Als u al een exemplaar van deze toepassing voor eenmalige aanmelding gebruik
 1. Meld u aan bij Azure portal op https://portal.azure.com.
 2. In de **Azure Active Directory > bedrijfstoepassingen** sectie van de Azure-portal, zoek en selecteer uw bestaande SCIM-toepassing.
 3.  In de **eigenschappen** sectie van uw bestaande SCIM-app, Kopieer de **Object-ID**.
-4.  Ga in een nieuw browservenster naar https://developer.microsoft.com/en-us/graph/graph-explorer en meld u aan als beheerder voor de Azure AD-tenant waar uw app wordt toegevoegd.
+4.  Ga in een nieuw browservenster naar https://developer.microsoft.com/graph/graph-explorer en meld u aan als beheerder voor de Azure AD-tenant waar uw app wordt toegevoegd.
 5. Voer de volgende opdracht te vinden van de ID van uw taak in Grafiekverkenner. "[Object-id]" vervangen door de service principal-ID (object-ID) van de derde stap gekopieerd.
  
  `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
@@ -99,7 +99,7 @@ Ja. Als u de oude gedrag die bestonden voordat de oplossingen en moet een nieuw 
 1.  Meld u aan bij Azure portal op https://portal.azure.com.
 2. in de **Azure Active Directory > bedrijfstoepassingen >-toepassing maken** sectie van de Azure-portal, maakt u een nieuw **niet in de galerij** toepassing.
 3.  In de **eigenschappen** sectie van de nieuwe aangepaste app kopiëren de **Object-ID**.
-4.  Ga in een nieuw browservenster naar https://developer.microsoft.com/en-us/graph/graph-explorer en meld u aan als beheerder voor de Azure AD-tenant waar uw app wordt toegevoegd.
+4.  Ga in een nieuw browservenster naar https://developer.microsoft.com/graph/graph-explorer en meld u aan als beheerder voor de Azure AD-tenant waar uw app wordt toegevoegd.
 5. Voer de volgende opdracht om te initialiseren van de inrichtingsconfiguratie voor uw app in Grafiekverkenner.
 "[Object-id]" vervangen door de service principal-ID (object-ID) van de derde stap gekopieerd.
 

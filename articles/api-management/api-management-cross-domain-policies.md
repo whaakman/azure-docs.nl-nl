@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: fbafd2d224879dbe33c581c13dfe52fc9a22ae55
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: ecbc1af97ce5ed158138f2bcf47f5729842c0fe9
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510814"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098528"
 ---
 # <a name="api-management-cross-domain-policies"></a>API Management-beleid voor meerdere domeinen
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -145,7 +145,7 @@ In dit voorbeeld ziet u hoe u vooraf flight ondersteuningsaanvragen, zoals die m
 Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 - **Beleid secties:** inkomend
-- **Beleid bereiken:** API-bewerking
+- **Beleid bereiken:** globale, API, bewerking
 
 ## <a name="JSONP"></a> JSONP
 De `jsonp` beleid wordt JSON met ondersteuning voor opvulling (JSONP) toegevoegd aan een bewerking of een API voor het toestaan van aanroepen tussen domeinen van de browser gebaseerde JavaScript-clients. JSONP is een methode in JavaScript-programma's voor gegevens van aanvragen van een server in een ander domein. JSONP omzeilt de beperking die wordt afgedwongen door de meeste webbrowsers waar toegang tot de webpagina's moet zich in hetzelfde domein bevinden.

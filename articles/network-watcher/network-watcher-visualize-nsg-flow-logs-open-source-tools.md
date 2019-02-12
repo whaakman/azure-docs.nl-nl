@@ -1,6 +1,6 @@
 ---
-title: Azure Network Watcher NSG stroomlogboeken visualiseren met open-sourcehulpprogramma's | Microsoft Docs
-description: Deze pagina wordt beschreven hoe NSG-stroomlogboeken visualiseren met open source-hulpprogramma's.
+title: Beheren en analyseren van stroomlogboeken van Netwerkbeveiligingsgroep met behulp van Network Watcher en Elastic Stack | Microsoft Docs
+description: Beheren en analyseren van Flow logboeken van Netwerkbeveiligingsgroepen in Azure met behulp van Network Watcher en Elastic Stack.
 services: network-watcher
 documentationcenter: na
 author: mattreatMSFT
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 10f76ea58b859611483c99c2f4accec607bc2939
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7361eff0f76271564fd5a0e9b8a18221ec4138e3
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822905"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099000"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Azure Network Watcher NSG stroomlogboeken visualiseren met open-sourcehulpprogramma 's
 
@@ -177,7 +177,7 @@ sudo /etc/init.d/logstash start
 
 Raadpleeg voor meer informatie over deze invoegtoepassing de [documentatie](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob).
 
-### <a name="install-kibana"></a>Kibana installeren
+### <a name="install-kibana"></a>Install Kibana
 
 1. Voer de volgende opdrachten voor het installeren van Kibana:
 

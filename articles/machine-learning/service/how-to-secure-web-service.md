@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2f21c54100a46d2f6ba28d2063bea91b84ea06d4
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 160bc0e67b2686d17357241887a207cb4a03002c
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769318"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098099"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>SSL gebruiken voor het beveiligen van webservices met Azure Machine Learning-service
 
@@ -82,6 +82,16 @@ Als u wilt implementeren (of opnieuw implementeren) op de service met SSL is ing
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
++ **Implementeren op veld Programmable Gate Arrays (FPGA)**
+
+  Tijdens het implementeren op FPGA, geef waarden op voor de parameters met betrekking tot SSL zoals wordt weergegeven in het volgende codefragment:
+
+    ```python
+    from azureml.contrib.brainwave import BrainwaveWebservice
+
+    deployment_config = BrainwaveWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem")
+    ```
+
 ## <a name="update-your-dns"></a>Werkt u uw DNS
 
 Vervolgens moet u uw DNS om te verwijzen naar de webservice bijwerken.
@@ -97,10 +107,6 @@ Vervolgens moet u uw DNS om te verwijzen naar de webservice bijwerken.
   Werk de DNS-server op het tabblad "Configuratie" van het 'openbare IP-adres' van het AKS-cluster, zoals weergegeven in de afbeelding. U vindt het openbare IP-adres als een van de resourcetypen die is gemaakt op basis van de resourcegroep met de AKS-knooppunten van de agent en andere netwerkresources.
 
   ![Azure Machine Learning-service: Beveiligen met SSL-webservices](./media/how-to-secure-web-service/aks-public-ip-address.png)
-
-+ **Voor FPGA**:
-
-Gebruik van SSL met services die zijn geïmplementeerd op FPGA wordt momenteel niet ondersteund.
 
 ## <a name="next-steps"></a>Volgende stappen
 Leer hoe u het volgende doet:

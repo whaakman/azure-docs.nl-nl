@@ -4,17 +4,17 @@ description: Hierin wordt beschreven hoe resourcedefinitie beleid wordt gebruikt
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/04/2019
+ms.date: 02/11/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fc0d5c4abc3b8584212798d5ea5b6ab65404e93d
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 14c5a9a5d9e3bd71ca1fdaf3545af3e74b3973c2
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698289"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100621"
 ---
 # <a name="azure-policy-definition-structure"></a>Structuur van Azure-beleidsdefinities
 
@@ -90,8 +90,20 @@ Parameters werken op dezelfde manier als het samenstellen van beleid. Door param
 > [!NOTE]
 > Parameters kunnen worden toegevoegd aan de definitie van een bestaande en toegewezen. De nieuwe parameter moet bevatten de **defaultValue** eigenschap. Dit voorkomt dat bestaande toewijzingen van het beleid of initiatief indirect wordt ongeldig gemaakt.
 
-U kunt bijvoorbeeld een beleid om te beperken van de locaties waar resources kunnen worden geïmplementeerd definiëren.
-Wanneer u uw beleid maakt, zou u de volgende parameters declareren:
+### <a name="parameter-properties"></a>Eigenschappen van rapportparameter
+
+Een parameter heeft de volgende eigenschappen die worden gebruikt in de beleidsdefinitie:
+
+- **Naam**: De naam van de parameter. Gebruikt door de `parameters` implementatie-functie binnen de beleidsregel. Zie voor meer informatie, [met behulp van een parameterwaarde](#using-a-parameter-value).
+- `type`: Bepaalt of de parameter een **tekenreeks** of een **matrix**.
+- `metadata`: Definieert subeigenschappen hoofdzakelijk wordt gebruikt door de Azure portal om beschrijvende informatie weer te geven:
+  - `description`: De uitleg van waarvoor de parameter wordt gebruikt. Kan worden gebruikt voor voorbeelden van acceptabele waarden.
+  - `displayName`: De beschrijvende naam die wordt weergegeven in de portal voor de parameter.
+  - `strongType`: (Optioneel) Gebruikt bij het toewijzen van de beleidsdefinitie via de portal. Geeft een lijst van context-op de hoogte. Zie voor meer informatie, [strongType](#strongtype).
+- `defaultValue`: (Optioneel) Hiermee stelt u de waarde van de parameter in een toewijzing, als er geen waarde is opgegeven. Vereist bij het bijwerken van een bestaande beleidsdefinitie die is toegewezen.
+- `allowedValues`: (Optioneel) Geeft de lijst met waarden die de parameter tijdens de toewijzing accepteert.
+
+U kunt bijvoorbeeld een beleidsdefinitie voor het beperken van de locaties waar resources kunnen worden geïmplementeerd definiëren. Een parameter voor de beleidsdefinitie van dit kan worden **allowedLocations**. Deze parameter kan worden gebruikt door elke toewijzing van de beleidsdefinitie om te beperken van de geaccepteerde waarden. Het gebruik van **strongType** biedt een verbeterde ervaring bij het voltooien van de toewijzing via de portal:
 
 ```json
 "parameters": {
@@ -102,21 +114,17 @@ Wanneer u uw beleid maakt, zou u de volgende parameters declareren:
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "westus2"
+        "defaultValue": "westus2",
+        "allowedValues": [
+            "eastus2",
+            "westus2",
+            "westus"
+        ]
     }
 }
 ```
 
-Het type van een parameter kan worden tekenreeks of matrix. De van de metagegevenseigenschap wordt gebruikt voor hulpprogramma's zoals de Azure-portal om beschrijvende informatie weer te geven.
-
-In de metagegevenseigenschap, kunt u **strongType** voor een multi-keuzelijst met opties in Azure portal. Toegestane waarden voor **strongType** momenteel opnemen:
-
-- `"location"`
-- `"resourceTypes"`
-- `"storageSkus"`
-- `"vmSKUs"`
-- `"existingResourceGroups"`
-- `"omsWorkspace"`
+### <a name="using-a-parameter-value"></a>Met behulp van een parameterwaarde
 
 In de beleidsregel u verwijzen naar parameters met de volgende `parameters` implementatie waarde functiesyntaxis:
 
@@ -126,6 +134,19 @@ In de beleidsregel u verwijzen naar parameters met de volgende `parameters` impl
     "in": "[parameters('allowedLocations')]"
 }
 ```
+
+In dit voorbeeld verwijst naar de **allowedLocations** parameter die hebt u gezien hoe in [parametereigenschappen](#parameter-properties).
+
+### <a name="strongtype"></a>strongType
+
+Binnen de `metadata` eigenschap, kunt u **strongType** voor een multi-keuzelijst met opties in Azure portal. Toegestane waarden voor **strongType** momenteel opnemen:
+
+- `"location"`
+- `"resourceTypes"`
+- `"storageSkus"`
+- `"vmSKUs"`
+- `"existingResourceGroups"`
+- `"omsWorkspace"`
 
 ## <a name="definition-location"></a>Definitielocatie
 

@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c569d1be9a301b2282ad1b4fd6e21130f7de2575
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: ae589cdf1ef7df054bbbbe393cc2ebe8454937e5
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103527"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099748"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protocollen - kuuroorden met behulp van de impliciete stroom
 
@@ -73,13 +73,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > Als u wilt testen met behulp van de impliciete flow aanmelden, klikt u op <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank"> https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a> Na het aanmelden, moet uw browser worden omgeleid naar `https://localhost/myapp/` met een `id_token` in de adresbalk.
 >
 
-| Parameter |  | Beschrijving |
+| Parameter |  | Description |
 | --- | --- | --- |
 | `tenant` | vereist |De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn `common`, `organizations`, `consumers`, en tenant-id's. Zie voor meer details [protocol basisbeginselen](active-directory-v2-protocols.md#endpoints). |
 | `client_id` | vereist |De toepassings-Id die de portal voor wachtwoordregistratie ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) uw app is toegewezen. |
 | `response_type` | vereist |Moet bevatten `id_token` voor aanmelding OpenID Connect. Het kan ook het response_type bevatten `token`. Met behulp van `token` hier kunnen uw app ontvangt een toegangstoken onmiddellijk uit het geautoriseerde eindpunt zonder te hoeven maken van een tweede aanvraag naar het geautoriseerde eindpunt. Als u de `token` response_type, de `scope` parameter moet een scope die aangeeft welke resource voor het uitgeven van het token voor bevatten. |
 | `redirect_uri` | Aanbevolen |De redirect_uri van uw app, waarbij verificatiereacties kunnen worden verzonden en ontvangen door uw app. Het moet een van de redirect_uris die u in de portal hebt geregistreerd, behalve het url-codering moet exact overeenkomen. |
-| `scope` | vereist |Een door spaties gescheiden lijst met bereiken. Voor de OpenID Connect, moet deze het bereik bevatten `openid`, die wordt omgezet in de machtiging 'Aanmelden' in de gebruikersinterface voor toestemming. (Optioneel) u kunt ook om op te nemen de `email` of `profile` [scopes](v2-permissions-and-consent.md) voor het verkrijgen van toegang tot aanvullende gegevens. U kunt ook andere bereiken in deze aanvraag voor het aanvragen van toestemming aan verschillende resources opnemen. |
+| `scope` | vereist |Een door spaties gescheiden lijst van [scopes](v2-permissions-and-consent.md). Voor de OpenID Connect, moet deze het bereik bevatten `openid`, die wordt omgezet in de machtiging 'Aanmelden' in de gebruikersinterface voor toestemming. (Optioneel) u kunt ook om op te nemen de `email` of `profile` bereiken voor het verkrijgen van toegang tot aanvullende gegevens. U kunt ook andere bereiken in deze aanvraag voor het aanvragen van toestemming aan verschillende resources opnemen. |
 | `response_mode` | optioneel |Hiermee geeft u de methode die moet worden gebruikt voor het verzenden van het resulterende token terug naar uw app. De standaardwaarde als de aanvraag een id_token bevat te vragen voor een toegangstoken, maar het fragment. |
 | `state` | Aanbevolen |Een waarde die is opgenomen in de aanvraag die wordt ook in het token antwoord geretourneerd. Een tekenreeks van de inhoud die u wenst dat kan zijn. Een willekeurig gegenereerde unieke waarde wordt meestal gebruikt voor [cross-site-aanvraag kunnen worden vervalst aanvallen](https://tools.ietf.org/html/rfc6749#section-10.12). De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat de verificatieaanvraag heeft plaatsgevonden, zoals de pagina of de weergave die ze al had geopend. |
 | `nonce` | vereist |Een waarde die is opgenomen in de aanvraag, die worden gegenereerd door de app, die wordt opgenomen in de resulterende id_token als een claim. De app kunt vervolgens controleren of deze waarde token opnieuw afspelen aanvallen te verkleinen. De waarde is doorgaans een willekeurige, unieke tekenreeks die kan worden gebruikt voor het identificeren van de oorsprong van de aanvraag. Alleen vereist wanneer een id_token wordt aangevraagd. |
@@ -100,12 +100,12 @@ GET https://localhost/myapp/#
 access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &token_type=Bearer
 &expires_in=3599
-&scope=https%3a%2f%2fgraph.microsoft.com%2fmail.read 
+&scope=https%3a%2f%2fgraph.microsoft.com%2fuser.read 
 &id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &state=12345
 ```
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | `access_token` |Opgenomen als `response_type` bevat `token`. Het toegangstoken dat de app is aangevraagd, in dit geval voor de Microsoft Graph. Het toegangstoken niet moet worden gedecodeerd of anders is gecontroleerd, moet dit worden beschouwd als een ondoorzichtige tekenreeks. |
 | `token_type` |Opgenomen als `response_type` bevat `token`. Altijd `Bearer`. |
@@ -124,7 +124,7 @@ error=access_denied
 &error_description=the+user+canceled+the+authentication
 ```
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | `error` |Een tekenreeks voor de foutcode die kan worden gebruikt voor het classificeren van typen fouten die optreden en kan worden gebruikt om te reageren op fouten. |
 | `error_description` |Een specifieke foutbericht dat een ontwikkelaar kan helpen de hoofdoorzaak van een verificatiefout identificeren. |
@@ -156,7 +156,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=token
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
-&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&response_mode=fragment
 &state=12345&nonce=678910
 &prompt=none
 &domain_hint=organizations
@@ -166,9 +166,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 Zie voor meer informatie over de queryparameters in de URL, [het teken in de aanvraag verzenden](#send-the-sign-in-request).
 
 > [!TIP]
-> Probeer te kopiëren en plakken van de onderstaande aanvraag in een browsertabblad! (Vergeet niet om te vervangen de `domain_hint` en de `login_hint` waarden met de juiste waarden voor uw gebruiker)
+> Probeer te kopiëren en plakken van de onderstaande aanvraag in een browsertabblad! (Vergeet niet om te vervangen de `login_hint` waarden met de juiste waarde voor de gebruiker)
 >
->`https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&domain_hint=consumers-or-organizations&login_hint=your-username`
+>`https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2user.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&login_hint=your-username`
 >
 
 Dankzij de `prompt=none` parameter, dit verzoek op slagen of mislukken onmiddellijk en Ga terug naar uw toepassing. Een geslaagde reactie wordt verzonden naar uw app op de aangegeven `redirect_uri`, met behulp van de methode die is opgegeven de `response_mode` parameter.
@@ -186,7 +186,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &scope=https%3A%2F%2Fgraph.windows.net%2Fdirectory.read
 ```
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | `access_token` |Opgenomen als `response_type` bevat `token`. Het toegangstoken dat de app is aangevraagd, in dit geval voor de Microsoft Graph. Het toegangstoken niet moet worden gedecodeerd of anders is gecontroleerd, moet dit worden beschouwd als een ondoorzichtige tekenreeks. |
 | `token_type` | Altijd `Bearer`. |
@@ -206,7 +206,7 @@ error=user_authentication_required
 &error_description=the+request+could+not+be+completed+silently
 ```
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | `error` |Een tekenreeks voor de foutcode die kan worden gebruikt voor het classificeren van typen fouten die optreden en kan worden gebruikt om te reageren op fouten. |
 | `error_description` |Een specifieke foutbericht dat een ontwikkelaar kan helpen de hoofdoorzaak van een verificatiefout identificeren. |
@@ -235,7 +235,7 @@ De OpenIdConnect `end_session_endpoint` kan uw app een aanvraag verzenden naar h
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost/myapp/
 ```
 
-| Parameter |  | Beschrijving |
+| Parameter |  | Description |
 | --- | --- | --- |
 | `tenant` |vereist |De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn `common`, `organizations`, `consumers`, en tenant-id's. Zie voor meer details [protocol basisbeginselen](active-directory-v2-protocols.md#endpoints). |
 | `post_logout_redirect_uri` | Aanbevolen | De URL die de gebruiker moet worden geretourneerd aan na het afmelden is voltooid. Deze waarde moet overeenkomen met een van de omleidings-URI's die zijn geregistreerd voor de toepassing. Als niet is opgenomen, kan de gebruiker wordt een algemeen bericht met het v2.0-eindpunt worden weergegeven. |

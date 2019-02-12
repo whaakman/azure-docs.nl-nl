@@ -3,6 +3,7 @@ title: SQL Server op Azure VM-Release-opmerkingen | Microsoft Docs
 description: Meer informatie over de nieuwe functies en verbeteringen van SQL Server op een Azure-VM
 services: virtual-machines-windows
 author: MashaMSFT
+ms.author: mathoma
 manager: craigg
 tags: azure-service-management
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
@@ -12,17 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 2/5/2019
-ms.author: mathoma
-ms.openlocfilehash: e6640725c1c2de4676cbaad2698f77887d4f0547
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 1be413e2c09033268a13d1eb954c8f0922911ba2
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004686"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098558"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>SQL Server op de opmerkingen bij de release van de virtuele Machine van Azure
 
-Met Azure kunt u een virtuele machine met een installatiekopie van SQL Server ingebouwde implementeren. In dit artikel bevat een overzicht van de nieuwe functies en verbeteringen in de recente versies van [SQL Server op Azure virtual machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). Zie voor verbeteringen aan andere Azure-services, [Service-updates](https://azure.microsoft.com/updates)
+Met Azure kunt u een virtuele machine met een installatiekopie van SQL Server ingebouwde implementeren. In dit artikel bevat een overzicht van de nieuwe functies en verbeteringen in de recente versies van [SQL Server op Azure virtual machines](https://azure.microsoft.com/services/virtual-machines/sql-server/).  Het artikel bevat ook belangrijke inhoud updates die niet direclty met betrekking tot de release, maar in dezelfde periode gepubliceerd. Zie voor verbeteringen aan andere Azure-services, [Service-updates](https://azure.microsoft.com/updates)
 
 ## <a name="december-2018"></a>December 2018
 

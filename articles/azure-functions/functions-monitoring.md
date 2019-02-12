@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: ba82aeff1ce699efaa850e50d6840fa0d5483f20
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: cbc4507a7dd29afb429949a017319a63ef4cd9a2
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321089"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100191"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions controleren
 
@@ -121,7 +121,7 @@ In [Metrics Explorer](../azure-monitor/app/metrics-explorer.md), kunt u grafieke
 
 Op de [fouten](../azure-monitor/app/asp-net-exceptions.md) tabblad kunt u diagrammen maken en waarschuwingen op basis van functie fouten en server uitzonderingen. De **bewerkingsnaam** is de naam van de functie. Fouten in de afhankelijkheden worden niet weergegeven, tenzij u implementeren [aangepaste telemetrie](#custom-telemetry-in-c-functions) voor afhankelijkheden.
 
-![Aantal mislukte processen](media/functions-monitoring/failures.png)
+![Fouten](media/functions-monitoring/failures.png)
 
 Op de [prestaties](../azure-monitor/app/performance-counters.md) tabblad kunt u prestatieproblemen analyseren.
 
@@ -665,10 +665,10 @@ az webapp log tail --resource-group <resource group name> --name <function app n
 Gebruik de volgende opdrachten naar uw Azure-account toevoegen, kiest u uw abonnement en de stream-logboekbestanden voor Azure PowerShell:
 
 ```powershell
-PS C:\> Add-AzureAccount
-PS C:\> Get-AzureSubscription
-PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-AzureSubscription
-PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
+Add-AzAccount
+Get-AzSubscription
+Get-AzSubscription -SubscriptionName "<subscription name>" | Select-AzSubscription
+Get-AzWebSiteLog -Name <function app name> -Tail
 ```
 
 Zie voor meer informatie, [over het streamen van logboeken](../app-service/troubleshoot-diagnostic-logs.md#streamlogs).

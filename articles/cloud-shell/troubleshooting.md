@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 73f2e7a37e1e51bf215cbac782b454d909f275dc
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: ad389cfaa92ad487fad8b7ecb6feac40324572f0
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568529"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100564"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Het oplossen van & beperkingen van Azure Cloud Shell
 
@@ -109,10 +109,6 @@ Cloudshell biedt ondersteuning voor de nieuwste versies van de volgende browsers
 
 [!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
-### <a name="for-a-given-user-only-one-shell-can-be-active"></a>Voor een bepaalde gebruiker kan slechts één shell actief zijn
-
-Gebruikers kunnen alleen starten één type shell op een tijdstip, ofwel **Bash** of **PowerShell**. U mogelijk echter meerdere exemplaren van de Bash- of PowerShell in één keer uitgevoerd. Wisselen tussen Bash of PowerShell oorzaken Cloud Shell te starten, waarmee bestaande sessies beëindigd.
-
 ### <a name="usage-limits"></a>Gebruiksbeperkingen
 
 Cloudshell is bedoeld voor interactieve gebruiksvoorbeelden. Als gevolg hiervan, geen niet-interactieve langlopende-sessies worden beëindigd zonder waarschuwing.
@@ -140,10 +136,6 @@ De `SqlServer` opgenomen in de Cloud Shell-module bevat alleen prerelease onders
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Standaardlocatie wanneer gemaakt op basis van Azure-station
 
 Met behulp van PowerShell-cmdlets, kunnen geen gebruikers bestanden in de Azure-station maken. Wanneer gebruikers nieuwe bestanden met andere hulpprogramma's, zoals vim of nano, maakt de bestanden worden opgeslagen in de `$HOME` standaard.
-
-### <a name="commands-that-create-gui-pop-ups-are-not-supported"></a>Opdrachten die GUI pop-ups maakt worden niet ondersteund
-
-Als de gebruiker wordt uitgevoerd een opdracht die u een Windows-dialoogvenster, zoals maakt `Connect-AzureAD`, `Connect-AzureRmAccount`, of `Connect-AzAccount`, een foutmelding zoals ziet: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ### <a name="tab-completion-can-throw-psreadline-exception"></a>Tab-Aanvulling kunt PSReadline uitzondering genereren
 

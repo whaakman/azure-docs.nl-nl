@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 8127abf19c31b8a50079f416e73c98efebfd0983
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.date: 02/11/2019
+ms.openlocfilehash: 1460b595e8887fc932d5be335ae51b07a000b9fb
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999416"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098354"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Beheerd exemplaar van SQL Server-exemplaar migratie naar Azure SQL Database
 
-In dit artikel hebt u meer informatie over de methoden voor het migreren van een SQL Server 2005 of latere versie exemplaar [Azure SQL Database managed instance](sql-database-managed-instance.md).
+In dit artikel hebt u meer informatie over de methoden voor het migreren van een SQL Server 2005 of latere versie exemplaar [Azure SQL Database managed instance](sql-database-managed-instance.md). Zie voor meer informatie over het migreren naar een individuele database of elastische pool [migreren naar een database van één of gegroepeerde](sql-database-cloud-migrate.md). Zie voor informatie over het migreren van andere platforms migratie [Azure handleiding voor databasemigratie](https://datamigration.microsoft.com/).
 
 Op hoog niveau, is het proces van de database-migratie ziet eruit zoals:
 
@@ -34,7 +34,7 @@ Op hoog niveau, is het proces van de database-migratie ziet eruit zoals:
 - [Toepassingen bewaken](#monitor-applications)
 
 > [!NOTE]
-> Als u wilt migreren van een individuele database in een individuele database of elastische pool, Zie [een SQL Server-database migreren naar Azure SQL Database](sql-database-cloud-migrate.md).
+> Als u wilt migreren van een individuele database in een individuele database of elastische pool, Zie [een SQL Server-database migreren naar Azure SQL Database](sql-database-single-database-migrate.md).
 
 ## <a name="assess-managed-instance-compatibility"></a>Beoordeling van compatibiliteit met beheerd exemplaar
 

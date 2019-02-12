@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 06130a5ade63e23fdcd139902a19694a510393a3
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ff3c1e51bcf0b7d730019fad66ed8b0c3fe17a20
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332299"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097645"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Inleiding tot stroomlogboeken voor netwerkbeveiligingsgroepen
 
@@ -65,7 +65,7 @@ Logboeken van de stroom zijn onder andere de volgende eigenschappen:
                     * **Protocol** -het protocol van de stroom. Geldige waarden zijn **T** voor TCP- en **U** voor UDP
                     * **Verkeersstroom** -de richting van het netwerkverkeer. Geldige waarden zijn **ik** voor binnenkomend en **O** voor uitgaande.
                     * **Verkeer besluit** - of verkeer is toegestaan of geweigerd. Geldige waarden zijn **A** voor toegestaan en **D** voor geweigerd.
-                    * **Stroom State - versie 2 alleen** -de status van de stroom worden vastgelegd. Mogelijke statussen zijn **B**: Begint wanneer een stroom wordt gemaakt. Er worden geen statistische gegevens geleverd. **C**: Voor een continue stroom wordt voortgezet. Statistische gegevens worden geleverd met intervallen van 5 minuten. **E**: Einde, als een stroom wordt beëindigd. Er worden statistische gegevens geleverd.
+                    * **Stroom State - versie 2 alleen** -de status van de stroom worden vastgelegd. Mogelijke statussen zijn **B**: Begin, wanneer een stroom wordt gemaakt. Er worden geen statistische gegevens geleverd. **C**: Continu, voor een actieve stroom. Statistische gegevens worden geleverd met intervallen van 5 minuten. **E**: Eind, wanneer een stroom is beëindigd. Er worden statistische gegevens geleverd.
                     * **Pakketten - bron naar bestemming - versie 2 alleen** het totale aantal TCP of UDP-pakketten worden verzonden vanuit de bron naar bestemming sinds de laatste update.
                     * **Bytes verzonden - bron naar doel - versie 2 alleen** het totale aantal TCP of UDP-pakketten bytes verzonden van bron naar bestemming sinds de laatste update. Pakketbytes omvatten de pakket-header en -nettolading.
                     * **Pakketten - doel naar bron - versie 2 alleen** het totale aantal TCP of UDP-pakketten van doel naar bron verzonden sinds de laatste update.
@@ -73,7 +73,7 @@ Logboeken van de stroom zijn onder andere de volgende eigenschappen:
 
 ## <a name="nsg-flow-logs-version-2"></a>NSG-stroomlogboeken versie 2
 > [!NOTE] 
-> Versie 2 van stroomlogboeken is alleen beschikbaar in de regio US - west-centraal. Inschakelen van versie 2 resulteert-Logboeken in een niet-ondersteunde regio in versie 1-logboeken output naar uw opslagaccount.
+> Versie 2 van stroomlogboeken is alleen beschikbaar in de regio US - west-centraal. Als u Versie 2-logboeken inschakelt in een niet-ondersteunde regio worden de Versie 1-logboeken uitgevoerd naar uw opslagaccount.
 
 Versie 2 van de logboeken introduceert stroom staat. U kunt configureren welke versie van de logboeken van de stroom die u ontvangt. Zie voor informatie over het inschakelen van Logboeken van de stroom, [inschakelen van NSG-stroomlogboeken](network-watcher-nsg-flow-logging-portal.md).
 
@@ -287,5 +287,6 @@ De tekst die volgt is een voorbeeld van een stroomlogboek. Zoals u ziet, zijn er
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie voor informatie over het inschakelen van Logboeken van de stroom, [inschakelen van NSG-stroomlogboeken](network-watcher-nsg-flow-logging-portal.md).
+- Zie voor meer informatie over het lezen van de logboeken van de stroom, [lezen NSG-stroomlogboeken](network-watcher-read-nsg-flow-logs.md).
 - Zie voor meer informatie over NSG-Logboeken, [Log analytics voor netwerkbeveiligingsgroepen (nsg's)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - Om te bepalen of verkeer is toegestaan of vanaf of naar een virtuele machine verboden, Zie [een probleem VM-netwerk-verkeersfilter vaststellen](diagnose-vm-network-traffic-filtering-problem.md)

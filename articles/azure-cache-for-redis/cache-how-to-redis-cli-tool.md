@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: wesmc
-ms.openlocfilehash: 68c533235480ec49e3c561d99095d5722f6f69a4
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 30288c338785c45b860b4b2b29a646662572e179
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106321"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100599"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Het opdrachtregelprogramma Redis gebruiken met Azure Cache voor Redis
 
@@ -30,10 +30,12 @@ Als u het opdrachtregelprogramma uitvoeren op een ander platform wilt, Azure Cac
 
 ## <a name="gather-cache-access-information"></a>Toegang tot de cache-informatie verzamelen
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 U kunt de informatie die nodig is voor toegang tot de cache met behulp van drie methoden verzamelen:
 
 1. Met behulp van Azure CLI [az redis list-keys](https://docs.microsoft.com/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys)
-2. Met behulp van Azure PowerShell [Get-AzureRmRedisCacheKey](https://docs.microsoft.com/powershell/module/azurerm.rediscache/Get-AzureRmRedisCacheKey?view=azurermps-4.4.1)
+2. Met behulp van Azure PowerShell [Get-AzRedisCacheKey](https://docs.microsoft.com/powershell/module/az.rediscache/Get-AzRedisCacheKey)
 3. Met behulp van de Azure-portal.
 
 In deze sectie haalt u de sleutels van de Azure-portal.

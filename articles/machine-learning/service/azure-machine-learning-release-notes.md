@@ -11,18 +11,40 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: cea5f2a3eaa7bddb523d95936fbe0a50e0fd16ed
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 4e7cc1340a85e1d00c2f64abeb35a99052184c52
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564337"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100173"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
 In dit artikel meer informatie over de versies van de Azure Machine Learning-service.  Voor een volledige beschrijving van elke SDK, gaat u naar de referentiedocumenten voor:
 + De Azure Machine Learning [ **belangrijkste SDK voor Python**](https://aka.ms/aml-sdk)
 + De Azure Machine Learning [ **Dataprep-SDK**](https://aka.ms/data-prep-sdk)
+
+## <a name="2019-02-11"></a>2019-02-11
+
+### <a name="azure-machine-learning-sdk-for-python-v1015"></a>Azure Machine Learning-SDK voor Python v1.0.15
+
++ **Nieuwe functies**
+  + Azure Machine Learning-pijplijnen AzureBatchStep toegevoegd ([notebook](https://aka.ms/pl-azbatch)), HyperDriveStep ([notebook](https://aka.ms/pl-hyperdrive)) en planning functionaliteit op basis van tijd ([notebook](https://aka.ms/pl-schedule)).
+  +  DataTranferStep bijgewerkt om te werken met Azure SQL-Server en Azure database for PostgreSQL ([notebook](https://aka.ms/pl-data-trans)).
+
++ **Wijzigingen**
+  + Afgeschaft `PublishedPipeline.get_published_pipeline` voor `PublishedPipeline.get`.
+  + Afgeschaft `Schedule.get_schedule` voor `Schedule.get`.
+
+### <a name="azure-machine-learning-data-prep-sdk-v1012"></a>Azure Machine Learning Data Prep SDK v1.0.12
+
++ **Nieuwe functies**
+  + Data Prep nu ondersteunt het lezen van een Azure SQL-database met behulp van de gegevensopslag.
+ 
++ **Wijzigingen**
+  + Aanzienlijk verbeterd, de prestaties van het geheugen van bepaalde bewerkingen op grote hoeveelheden gegevens.
+  + `read_pandas_dataframe()` is het nu vereist `temp_folder` worden opgegeven.
+  + De `name` eigenschap op `ColumnProfile` is afgekeurd - gebruiken `column_name` in plaats daarvan.
 
 ## <a name="2019-01-28"></a>2019-01-28
 

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/11/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 6c498f51bffeadce7a7c0dba8491942f1d4d0248
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 09e1f99c7d0b56f5e2af893385dde19b8f358a19
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766092"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099136"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 update
 
@@ -118,6 +118,18 @@ Deze update bevat de volgende nieuwe functies en verbeteringen voor Azure Stack:
 - Beheerde schijven is nu standaard ingeschakeld tijdens het maken van virtuele machines met behulp van de Azure Stack-portal. Zie de [bekende problemen](#known-issues-post-installation) sectie voor de extra stappen die nodig is voor beheerde schijven om te voorkomen dat fouten bij het maken van virtuele machine.
 
 - Deze versie introduceert waarschuwing **herstellen** acties voor de Azure Stack-operators. Sommige waarschuwingen in 1811 bieden een **herstellen** knop in de waarschuwing die u selecteren kunt om het probleem te verhelpen. Zie voor meer informatie, [status en waarschuwingen in Azure Stack controleren](azure-stack-monitor-health.md).
+
+- Updates voor de update-ervaring in Azure Stack. De update verbeteringen zijn onder andere: 
+    - De tabbladen die splitsen van de Updates van de geschiedenis van updates voor betere bijhouden updates worden uitgevoerd en die updates voltooid.
+    - Status van uitgebreide visualisaties in de sectie essentials met nieuwe pictogrammen en lay-out voor de huidige en OEM-versie, evenals de laatste datum bijgewerkt.
+    - **Weergave** koppeling voor de Release-opmerkingen bij de kolom de gebruiker rechtstreeks naar de documentatie van specifieke naar die update in plaats van de pagina algemene update wordt.
+    - De **bijwerken geschiedenis** tabblad gebruikt om te bepalen uitvoeringstijden voor elk van de updates, evenals filtermogelijkheden verbeterd.  
+    - Azure Stack-schaaleenheden die zijn verbonden ontvangt nog steeds automatisch **Update beschikbaar** zodra deze beschikbaar komen.
+    - Azure Stack-schaaleenheden die niet zijn verbonden kunnen net als de updates importeren voordat. 
+    - Er zijn geen wijzigingen in het proces voor het downloaden van de JSON-logboeken via de portal. Azure Stack-operators ziet stappen uitgevoerd uitdrukken uitbreiden.
+
+    Zie voor meer informatie, [toepassen van updates in Azure Stack](azure-stack-apply-updates.md).
+
 
 ## <a name="fixed-issues"></a>Problemen opgelost
 

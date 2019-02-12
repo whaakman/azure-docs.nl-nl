@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 11/16/2018
+ms.date: 02/11/2019
 ms.author: stbaron
-ms.openlocfilehash: 7121087d9d9699a73b88e07599f70e0c7c40c1eb
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 6054b33e4068d36c5bfbb80120086a92a03525c8
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308277"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097505"
 ---
 # <a name="azure-status"></a>Status van Azure
-[Status van Azure](https://azure.microsoft.com/status/) biedt u een algemeen overzicht van de status van Azure-services. Met de status van Azure krijgt u actuele informatie over de servicebeschikbaarheid van de. Iedereen heeft toegang tot Azure-status en kan weergave alle services die rapporteren over de status van de service. 
+[Status van Azure](https://azure.microsoft.com/status/) biedt u een algemeen overzicht van de status van Azure-services en regio's. Met de status van Azure krijgt u actuele informatie over de servicebeschikbaarheid van de. Status van Azure is beschikbaar voor iedereen om alle services die hun status van de service, evenals de incidenten met brede invloed rapport weer te geven. Als u een huidige Azure-gebruiker bent, maar we raden u gebruikmaken van de persoonlijke ervaring in [Azure Service Health](https://aka.ms/azureservicehealth). Azure Service Health bevat alle storingen, gepland onderhoudsactiviteiten en aanbevelingen van de service.
 
 ![Pagina Azure status](./media/azure-status-overview/azure-status.PNG)
 

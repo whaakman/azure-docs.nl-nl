@@ -7,17 +7,17 @@ ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: douglaslMS
-ms.author: douglasl
+author: CarlRabeler
+ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: f51b31903953f9a1d4959f78d570d3de92478f50
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8d0d81d9c140c15f2e60d3f6e3033a8b0b629228
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455300"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100902"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>Gegevens vanuit een CSV-bestand laden in een Azure SQL-database (platte bestanden)
 
@@ -116,7 +116,7 @@ De resultaten horen er als volgt uit te zien:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie [SQL Server-database migreren](sql-database-cloud-migrate.md) om een SQL-serverdatabase te migreren.
+Zie [SQL Server-database migreren](sql-database-single-database-migrate.md) om een SQL-serverdatabase te migreren.
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx

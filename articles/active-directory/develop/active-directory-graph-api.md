@@ -16,19 +16,19 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: ce1940d0b83e0713ce41d84e8d4bfeff6cb75954
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 2c95e19fe47e23cda6d14fc047fbe6c30100d78e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55075853"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097761"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API
 
 > [!IMPORTANT]
 > Wij raden u ten zeerste aan om [Microsoft Graph](https://developer.microsoft.com/graph/) te gebruiken in plaats van Azure AD Graph API om toegang te krijgen tot Azure Active Directory-resources. We richten ons momenteel op ontwikkelingen in Microsoft Graph. Voor Azure AD Graph API zijn geen verdere verbeteringen gepland. Er is maar een beperkt aantal scenario's waarvoor Azure AD Graph API nog steeds geschikt is. Zie het blogbericht [Mogelijk Graph of Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) in het Office-ontwikkelaarscentrum voor meer informatie.
 
-In dit artikel is van toepassing op Azure AD Graph API. Zie voor vergelijkbare informatie met betrekking tot Microsoft Graph API [gebruik van de Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/concepts/use_the_api). 
+In dit artikel is van toepassing op Azure AD Graph API. Zie voor vergelijkbare informatie met betrekking tot Microsoft Graph API [gebruik van de Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api). 
 
 De Azure Active Directory Graph API biedt programmatische toegang tot Azure AD via REST API-eindpunten. Toepassingen kunnen Azure AD Graph API gebruiken om uit te voeren maken, lezen, bijwerken en verwijderen (CRUD)-bewerkingen op mapgegevens en -objecten. Azure AD Graph API ondersteunt bijvoorbeeld de volgende algemene bewerkingen voor een gebruikersobject:
 

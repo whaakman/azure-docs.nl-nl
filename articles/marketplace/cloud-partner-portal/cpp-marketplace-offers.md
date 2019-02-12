@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 02/07/2019
 ms.author: pbutlerm
-ms.openlocfilehash: ca4979188830fcb53732750a3eaadfc2009c4f9a
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: f13d49fde7f0e40f6dcb026fcb20cb11c028c64b
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658705"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100879"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Azure en AppSource-Marketplace-aanbiedingen
 
@@ -32,6 +32,18 @@ De volgende video introduceert de verschillende mogelijkheden en verschillende a
 **Het bouwen van Apps en Services voor Azure Marketplace en AppSource - Build 2018**
 
 Zie voor meer informatie over deze marktplaatsen, [Azure Marketplace en AppSource publicatiehandleiding voor](../marketplace-publishers-guide.md).
+
+
+## <a name="common-offer-operations"></a>Algemene bewerkingen van de aanbieding
+
+Het proces voor het maken van een nieuwe aanbieding verschilt aanzienlijk aanbieding typen, bijvoorbeeld een [aanbieding van Azure-toepassing](./azure-applications/cpp-azure-app-offer.md) en een [advies service-aanbieding](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md).  Daarentegen veel van de andere bewerkingen uitvoeren op een aanbieding in de [Cloud Partner-Portal](https://cloudpartner.azure.com) vrij zijn gestandaardiseerd op aanbiedingstypen.  Deze algemene bewerkingen, met inbegrip van publiceren, status weergeven, bijwerken en verwijderen, worden behandeld in de sectie [beheren van aanbiedingen](./manage-offers/cpp-manage-offers.md)
+
+
+## <a name="test-drive"></a>Test Drive
+
+*U kunt uitproberen* is een marketplace-functie waarmee klanten een demonstratie "proberen voordat u kopen" optie voor elke aanbieding dus ingeschakeld.  De Test Drive-mogelijkheid is beperkt tot de volgende typen: [Azure-toepassingen](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [Dynamics 365 voor Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md), [Dynamics 365 voor Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [ SaaS-toepassingen](./saas-app/cpp-saas-offer.md), en [virtuele machines](./virtual-machine/cpp-virtual-machine-offer.md).  Deze mogelijkheid is vereist voor de uitgever om een Test Drive-sjabloon, die is afgestemd op de aanbieding te maken.  Zie voor meer informatie de sectie [Test Drive](../cloud-partner-portal-orig/what-is-test-drive.md).
+
+Kunt u de bestaande marketplace-aanbiedingen met Test Drive demonstraties door toe te passen de [test drive filter](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=test-drive). 
 
 
 ## <a name="azure-marketplace-and-appsource-offer-types"></a>Azure Marketplace en AppSource bieden

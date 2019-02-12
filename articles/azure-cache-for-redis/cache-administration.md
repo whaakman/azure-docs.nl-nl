@@ -14,15 +14,17 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: wesmc
-ms.openlocfilehash: 0f86bd807bf7bf0d00ad659f86b6e1170f31074c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 72e27b7098d9891dc54b31c34e2211362e7c9f50
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019488"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099969"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Azure Cache beheren voor Redis
 In dit onderwerp wordt beschreven hoe u uitvoeren van beheertaken zoals [opnieuw wordt opgestart](#reboot) en [updates plannen](#schedule-updates) voor uw Azure-Cache voor instanties van Redis.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="reboot"></a>Opnieuw opstarten
 De **opnieuw opstarten** blade kunt u een of meer knooppunten van uw cache opnieuw opstarten. Deze mogelijkheid opnieuw opstarten, kunt u uw testtoepassing voor tolerantie als er een storing van een cacheknooppunt.
@@ -92,7 +94,7 @@ De **updates plannen** blade kunt u om een onderhoudsvenster voor uw Premium-laa
 
 Als u een onderhoudsvenster, controleert u de gewenste dagen en geef de begintijd van onderhoud-venster voor elke dag en op **OK**. Houd er rekening mee dat de duur van het onderhoudsvenster is ingesteld op UTC. 
 
-De standaard- en ten minste onderhoudsvenster voor updates is vijf uur. Deze waarde kan niet worden geconfigureerd via de Azure-portal, maar u kunt deze configureren in PowerShell met behulp van de `MaintenanceWindow` parameter van de [New-AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry) cmdlet. Zie voor meer informatie, [kan ik de geplande updates met behulp van PowerShell, CLI of andere beheerprogramma's beheren?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
+De standaard- en ten minste onderhoudsvenster voor updates is vijf uur. Deze waarde kan niet worden geconfigureerd via de Azure-portal, maar u kunt deze configureren in PowerShell met behulp van de `MaintenanceWindow` parameter van de [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry) cmdlet. Zie voor meer informatie, [kan ik de geplande updates met behulp van PowerShell, CLI of andere beheerprogramma's beheren?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
 
 
 ## <a name="schedule-updates-faq"></a>Veelgestelde vragen over updates plannen
@@ -110,10 +112,10 @@ Alleen Redis-server updates worden uitgevoerd tijdens het geplande onderhoudsven
 ### <a name="can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools"></a>Kan ik beheerde geplande updates met behulp van PowerShell, CLI of andere beheerprogramma's?
 Ja, kunt u uw geplande updates met de volgende PowerShell-cmdlets beheren:
 
-* [Get-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/get-azurermrediscachepatchschedule)
-* [New-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/new-azurermrediscachepatchschedule)
-* [New-AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry)
-* [Remove-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/remove-azurermrediscachepatchschedule)
+* [Get-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/get-azrediscachepatchschedule)
+* [New-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/new-azrediscachepatchschedule)
+* [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry)
+* [Remove-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/remove-azrediscachepatchschedule)
 
 ### <a name="what-pricing-tiers-can-use-the-schedule-updates-functionality"></a>De prijzen van lagen, kan de schema-updates-functionaliteit gebruiken?
 De **updates plannen** functie is alleen beschikbaar in de prijscategorie premium.

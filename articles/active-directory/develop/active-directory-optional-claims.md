@@ -16,12 +16,12 @@ ms.date: 11/08/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7efac4138f21a3f8e9dae087991f97dabad61822
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: fa8328039c82ffb8be94c1d7abde7b2b6b6dd52d
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077237"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098235"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Procedure: Geef optioneel claims voor uw Azure AD-app (Preview-versie)
 
@@ -76,7 +76,7 @@ De set optioneel claims die standaard beschikbaar is voor toepassingen om te geb
 | `ztdid`                    | Zero-touch-implementatie-ID | JWT | | De apparaat-id die wordt gebruikt voor [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
 |`email`                     | De adresseerbare e-mailadres voor deze gebruiker, als de gebruiker een heeft.  | JWT, SAML | | Deze waarde is standaard opgenomen als de gebruiker een gast in de tenant.  Voor beheerde gebruikers (die in de tenant), moet deze worden gevraagd via deze optionele claim of, op v2.0 alleen met het bereik OpenID.  Voor beheerde gebruikers het e-mailadres moet worden ingesteld in de [Office-beheerportal](https://portal.office.com/adminportal/home#/users).|  
 | `acct`             | Accountstatus gebruikers in de tenant. | JWT, SAML | | Als de gebruiker een lid van de tenant is, is de waarde `0`. Als ze een gast zijn, is de waarde `1`. |
-| `upn`                      | UserPrincipalName claim. | JWT, SAML  |           | Hoewel deze claim automatisch geïnstalleerd wordt, kunt u deze kunt opgeven als een optionele claim extra eigenschappen voor het wijzigen van het gedrag in het geval van de gebruiker Gast koppelen. <br> Aanvullende eigenschappen: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
+| `upn`                      | UserPrincipalName claim. | JWT, SAML  |           | Hoewel deze claim automatisch geïnstalleerd wordt, kunt u deze kunt opgeven als een optionele claim extra eigenschappen voor het wijzigen van het gedrag in het geval van de gebruiker Gast koppelen.  |
 
 ### <a name="v20-optional-claims"></a>Optionele claims v2.0
 
@@ -85,30 +85,28 @@ Deze claims worden altijd in de tokens v1.0 opgenomen, maar niet opgenomen in v2
 **Tabel 3: V2.0-alleen optioneel claims**
 
 | JWT Claim     | Name                            | Description                                | Opmerkingen |
-|---------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|
+|---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP-adres                      | De client heeft aangemeld vanaf het IP-adres.   |       |
 | `onprem_sid`  | On-premises beveiligings-id |                                             |       |
 | `pwd_exp`     | Wachtwoordverlooptijd        | De datum en tijd waarop het wachtwoord is verlopen. |       |
-| `pwd_url`     | URL van wijzigen wachtwoord             | Een URL die de gebruiker bezoeken kan om hun wachtwoord te wijzigen.   |       |
-| `in_corp`     | Inside Corporate Network        | Signalen als de client is aangemeld vanuit het bedrijfsnetwerk bevinden. Als dat niet het geval is, is de claim niet opgenomen.   |       |
-| `nickname`    | Bijnaam                        | Een andere naam voor de gebruiker te scheiden van de naam van eerste of laatste. |       |                                                                                                                |       |
+| `pwd_url`     | URL van wijzigen wachtwoord             | Een URL die de gebruiker bezoeken kan om hun wachtwoord te wijzigen.   |   |
+| `in_corp`     | Inside Corporate Network        | Signalen als de client is aangemeld vanuit het bedrijfsnetwerk bevinden. Als dat niet het geval is, is de claim niet opgenomen.   |  Op basis van de [vertrouwde IP-adressen](../authentication/howto-mfa-mfasettings.md#trusted-ips) instellingen in MFA.    |
+| `nickname`    | Bijnaam                        | Een andere naam voor de gebruiker te scheiden van de naam van eerste of laatste. | 
 | `family_name` | Achternaam                       | Biedt de achternaam, achternaam, of familienaam van de gebruiker zoals gedefinieerd in de Azure AD-gebruiker-object. <br>"family_name": "Kleefstra" |       |
 | `given_name`  | Voornaam                      | De eerste biedt of als u ' ' naam van de gebruiker, zoals ingesteld op de Azure AD-gebruiker-object.<br>'given_name': "Frank"                   |       |
+| `upn`       | User principal name | Een id voor de gebruiker die kan worden gebruikt met de parameter username_hint.  Geen een gebruiksartikel-id voor de gebruiker en mag niet worden gebruikt om belangrijke gegevens. | Zie [extra eigenschappen](#additional-properties-of-optional-claims) hieronder voor de configuratie van de claim. |
 
 ### <a name="additional-properties-of-optional-claims"></a>Aanvullende eigenschappen van optionele claims
 
-Sommige optionele claims kunnen worden geconfigureerd voor het wijzigen van de manier waarop die de claim wordt geretourneerd. De aanvullende eigenschappen worden voornamelijk gebruikt om te helpen bij de migratie van on-premises toepassingen met verschillende verwachtingen (bijvoorbeeld `include_externally_authenticated_upn_without_hash` helpt bij de clients die niet kunnen hashmarks verwerken (`#`) in de UPN)
+Sommige optionele claims kunnen worden geconfigureerd voor het wijzigen van de manier waarop die de claim wordt geretourneerd. De aanvullende eigenschappen worden voornamelijk gebruikt om te helpen bij de migratie van on-premises toepassingen met verschillende verwachtingen (bijvoorbeeld `include_externally_authenticated_upn_without_hash` helpt bij de clients die niet kunnen hekjes verwerken (`#`) in de UPN)
 
-**Tabel 4: Waarden voor het configureren van standard optioneel claims**
+**Tabel 4: Waarden voor het configureren van optionele claims**
 
-| Naam van eigenschap                                     | Aanvullende eigenschapsnaam                                                                                                             | Description |
-|---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `upn`                                                 |                                                                                                                                      |  Kan worden gebruikt voor SAML- en JWT antwoorden.        |
-| | `include_externally_authenticated_upn`              | Bevat de UPN die is opgeslagen in de resource-tenant van de Gast. Bijvoorbeeld: `foo_hometenant.com#EXT#@resourcetenant.com`                            |             
-| | `include_externally_authenticated_upn_without_hash` | Hetzelfde als hierboven, met dien verstande dat de hashmarks (`#`) zijn vervangen door een onderstrepingsteken (`_`), bijvoorbeeld `foo_hometenant.com_EXT_@resourcetenant.com` |             
-
-> [!Note]
->Op te geven dat de optionele upn-claim zonder een extra eigenschap verandert niet elk gedrag – als u wilt bekijken van een nieuwe claim uitgegeven in het token, moet ten minste één van de aanvullende eigenschappen worden toegevoegd. 
+| Naam van eigenschap  | Aanvullende eigenschapsnaam | Description |
+|----------------|--------------------------|-------------|
+| `upn`          |                          | Kan worden gebruikt voor SAML- en JWT antwoorden en v1.0 en v2.0-tokens. |
+|                | `include_externally_authenticated_upn`  | Bevat de UPN die is opgeslagen in de resource-tenant van de Gast. Bijvoorbeeld: `foo_hometenant.com#EXT#@resourcetenant.com` |             
+|                | `include_externally_authenticated_upn_without_hash` | Hetzelfde als hierboven, behalve dat de hash markeert (`#`) zijn vervangen door een onderstrepingsteken (`_`), bijvoorbeeld `foo_hometenant.com_EXT_@resourcetenant.com` |
 
 #### <a name="additional-properties-example"></a>Voorbeeld van de aanvullende eigenschappen
 
@@ -151,12 +149,12 @@ U kunt optioneel claims voor uw toepassing configureren door het wijzigen van he
 "saml2Token": [ 
               { 
                     "name": "upn", 
-                    "essential": true
+                    "essential": false
                },
                { 
                     "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
                     "source": "user", 
-                    "essential": true
+                    "essential": false
                }
        ]
    }

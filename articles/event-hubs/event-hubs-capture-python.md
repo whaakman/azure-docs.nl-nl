@@ -15,14 +15,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 72efe156920bb78631ea71a0f47f7f5fe19c7e23
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 639bc4ff9c69bca3d5f8bca6967bfc3e8e6a13d4
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133652"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100541"
 ---
-# <a name="event-hubs-capture-walkthrough-python"></a>Overzicht van Event Hubs Capture: Python
+# <a name="event-hubs-capture-walkthrough-python"></a>Event Hubs Capture walkthrough: Python
 
 Vastleggen is een functie van Azure Event Hubs. U kunt deze gebruiken automatisch de gegevensstroom in uw event hub naar een Azure Blob storage-account van uw keuze te bezorgen. Deze mogelijkheid kunt u eenvoudig is om uit te voeren batchverwerking voor realtime streaming-gegevens. In dit artikel wordt beschreven hoe u Event Hubs Capture gebruiken met Python. Zie voor meer informatie over Event Hubs Capture, de [overzichtsartikel](event-hubs-capture-overview.md).
 
@@ -41,7 +41,7 @@ In dit voorbeeld wordt de [Azure Python SDK](https://azure.microsoft.com/develop
 - Python 2.7.x
 - Een Azure-abonnement. Als u nog geen abonnement hebt, [maakt u een gratis account](https://azure.microsoft.com/free/) voordat u begint.
 - Een actief [Event Hubs-naamruimte en event hub](event-hubs-create.md). 
-- Schakel **vastleggen** functie voor de event hub met de instructies uit: [Event Hubs Capture inschakelen met behulp van de Azure portal](event-hubs-capture-enable-through-portal.md)
+- Schakel **vastleggen** functie voor de event hub met de instructies uit: [Event Hubs Capture met behulp van de Azure-portal inschakelen](event-hubs-capture-enable-through-portal.md)
 
 ## <a name="create-an-azure-blob-storage-account"></a>Een Azure Blob storage-account maken
 1. Meld u aan bij [Azure Portal][Azure portal].
@@ -62,7 +62,7 @@ In dit voorbeeld wordt de [Azure Python SDK](https://azure.microsoft.com/develop
    import datetime
    import random
    import json
-   from azure.servicebus import ServiceBusService
+   from azure.servicebus.control_client import ServiceBusService
    
    sbs = ServiceBusService(service_namespace='INSERT YOUR NAMESPACE NAME', shared_access_key_name='RootManageSharedAccessKey', shared_access_key_value='INSERT YOUR KEY')
    devices = []

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 2adf07cf2337611b9136af47ce6a35b617e2e9ff
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cafda8a48f9160c80edb02c3452035f912958bc7
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177029"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098218"
 ---
 # <a name="publish-azure-application-offer"></a>Aanbieding voor Azure-toepassing publiceren
 
@@ -46,7 +46,6 @@ De volgende tabel geeft een lijst van en beschrijft elke stap publiceren en bied
 | Live                           | < 1 dag | Aanbieding is uitgebracht, gerepliceerd naar de opgegeven regio's en beschikbaar gesteld voor het publiek. |
 |   |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|   |
 
- 
 U kunt het publicatieproces in bewaken de **Status** tabblad voor uw aanbod in de Cloud Partner-Portal.
 
 ![Tabblad van de status voor een Azure-app-aanbieding](./media/offer-status-tab.png)
@@ -54,38 +53,13 @@ U kunt het publicatieproces in bewaken de **Status** tabblad voor uw aanbod in d
 Nadat u klaar bent met het publicatieproces, uw aanbieding wordt weergegeven in de [Microsoft Azure Marketplace-toepassingscategorie](https://azuremarketplace.microsoft.com/marketplace/apps/).
 
 
-
 ## <a name="errors-and-review-feedback"></a>Fouten en lees feedback
 
-Naast het weergeven van de publicatiestatus van uw aanbieding, de **Status** tabblad geeft ook foutberichten en feedback van de **Microsoft revisie** stap.  Beoordeling problemen wordt meestal verwezen als pull-aanvraag (PR).  Elke pull-aanvraag is gekoppeld aan een online Visual Studio Team Services (VSTS, gewijzigd in [Azure DevOps](https://azure.microsoft.com/services/devops/)) artikel informatie over het probleem bevat.  De volgende afbeelding geeft een voorbeeld van een verwijzing naar een beoordeling pull-aanvraag.  Voor meer complexe situaties kunnen de controle en ondersteuning voor teams u e-mail. 
-
-![Status van tabblad weergeven Lees feedback](./media/status-tab-ms-review.png)
-
-U kunt elk gerapporteerd probleem moet oplossen voordat de aanbieding tot en met het publicatieproces blijft.  Het volgende diagram illustreert hoe dit Feedbackproces is gekoppeld aan het publicatieproces.
-
-![Publiceren stappen met VSTS feedback](./media/pub-flow-vsts-access.png)
-
-
-### <a name="vsts-access"></a>VSTS-toegang
-
-Als u wilt weergeven van de VSTS-items waarnaar wordt verwezen in lees feedback, moeten uitgevers juiste machtiging worden verleend.  Anders, nieuwe uitgevers ontvangen een `401 - Not Authorized` antwoordpagina.  Voor het aanvragen van toegang tot het voorstel controleren VSTS-systeem, moet u de volgende stappen uitvoeren:
-
-1. De volgende informatie verzamelen:
-    - De naam van de uitgever en -ID
-    - Aanbiedingstype (Azure-app), bieden een naam en SKU-ID
-    - De pull-aanvraag koppelen, bijvoorbeeld: `https://solutiontemplates.visualstudio.com/marketplacesolutions/_git/contoso/pullrequest/<number>`  Deze URL kan worden opgehaald uit de melding of het adres van de pagina 401-respons.
-    - De e-mailadressen van personen van de uitgever die u toegang verleend wilt aan.  Hierbij moet de eigenaar van adressen die u hebt opgegeven bij het registreren als een publisher op de Cloud Partner-Portal.
-2. Maak een ondersteuningsincident.  Selecteer in de titelbalk van de Cloud Partner-Portal, de **Help** knop, en kies vervolgens **ondersteuning** in het menu.  U standaard web browser moet starten en navigeer naar de Microsoft nieuwe incidenten ondersteuningspagina.  (U hebt mogelijk eerst aanmelden.)
-3. Geef de **probleemtype** als **marketplace onboarding** en **categorie** als **probleem met toegang tot**en selecteer vervolgens **starten aanvraag**.
-
-    ![Ondersteuning voor ticket categorie](./media/support-incident1.png)
-
-4. In **stap 1 van 2** pagina, Geef uw contactgegevens en selecteer **doorgaan**.
-5. In **stap 2 van 2** pagina, de titel van een incident opgeven (bijvoorbeeld `Request VSTS access`) en geef de gegevens die u hebt verzameld in de eerste stap (hierboven).  Lees en accepteer de overeenkomst, en selecteer vervolgens **indienen**.
-
-Als het incident maken voltooid is, wordt een bevestigingspagina weergegeven.  De Bevestigingsgegevens ter referentie niet opslaan.  Microsoft-ondersteuning moet binnen een paar dagen antwoord op uw aanvraag voor toegang.
+Naast het weergeven van de publicatiestatus van uw aanbieding, de **Status** tabblad geeft ook foutberichten en feedback van eventuele publishing stappen waar een probleem is opgetreden.  Als het probleem is van essentieel belang, is te publiceren geannuleerd.  Vervolgens moet u de gerapporteerde oorzaak van deze corrigeren en de aanbieding publiceren.  Omdat de **Microsoft revisie** stap vertegenwoordigt een uitgebreid overzicht van uw aanbieding en de bijbehorende technische activa (met name de Azure Resource Manager-sjabloon), problemen worden doorgaans weergegeven als pull-aanvraag (PR) koppelingen.  Een uitleg van hoe u kunt bekijken en reageren op deze pull-aanvragen, Zie [verwerking Lees feedback](./cpp-handling-review-feedback.md).
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zodra een Azure-app is gepubliceerd, kunt u [bestaande aanbieding bijwerken](./cpp-update-existing-offer.md) in overeenstemming met het wijzigen van zakelijke en technische vereisten. 
+Als u fouten in een of meer van de publicatie stappen optreden, moet u deze corrigeren en uw aanbod opnieuw publiceren.  Als er kritieke problemen zijn opgetreden de **Microsoft revisie** stap, moet u [verwerken van de beoordeling-feedback](./cpp-handling-review-feedback.md) bekijken door het openen van de Microsoft Azure DevOps-opslagplaats van team.
+
+Als een Azure-app is gepubliceerd, kunt u [de bestaande aanbieding bijwerken](./cpp-update-existing-offer.md) in overeenstemming met het wijzigen van zakelijke en technische vereisten. 

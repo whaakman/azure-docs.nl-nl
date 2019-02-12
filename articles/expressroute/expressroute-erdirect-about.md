@@ -5,15 +5,15 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/25/2019
-ms.author: mialdrid
+ms.date: 02/11/2019
+ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 0415c329364f8df312667e725f3c5376ea13a6f4
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 3124e98dd035080c2989849232b978c5d4a563ea
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098095"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100734"
 ---
 # <a name="about-expressroute-direct-preview"></a>Over ExpressRoute Direct (Preview)
 
@@ -58,7 +58,7 @@ De functionaliteit in de meeste gevallen is gelijk aan-circuits die gebruikmaken
 
 ## <a name="circuit-skus"></a>Circuit-SKU 's
 
-ExpressRoute Direct biedt ondersteuning voor scenario's voor het opnemen van enorme gegevens in Azure storage en andere services big data. ExpressRoute circuits op ExpressRoute Direct nu ook ondersteuning voor **40 Gbps** en **100 Gbps** circuit SKU's.
+ExpressRoute Direct biedt ondersteuning voor scenario's voor het opnemen van enorme gegevens in Azure storage en andere services big data. ExpressRoute circuits op ExpressRoute Direct nu ook ondersteuning voor **40 Gbps** en **100 Gbps** circuit SKU's. De fysieke poortparen zijn **100 Gbps** alleen en kan meerdere virtuele circuits met bandbreedten van 5 Gbps, 10 Gbps, 40 Gbps, 100 Gbps - maximaal 200 Gbps in elke gewenste combinatie. 
 
 ## <a name="vlan-tagging"></a>VLAN-Tagging
 

@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 02/08/2019
 ms.author: dobett
-ms.openlocfilehash: af2a2c84f9eb420a7ca9a8bd5909cbf856d29a5e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: b54331e644d55497a7c7d33344cf29a82404847e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309192"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56096909"
 ---
 # <a name="what-is-connected-factory-iot-solution-accelerator"></a>Wat is verbonden Factory IoT-oplossingsversnellers?
 
@@ -27,19 +27,19 @@ Verbonden Factory bevat de volgende functies:
 
 ## <a name="industrial-device-interoperability"></a>Interoperabiliteit van industriële apparaten
 
-- Verbinding maken met industriële activa met een OPC UA-interface.
+- Maak verbinding met industriële activa met een OPC UA-interface.
 - Gebruik de gesimuleerde productielijnen (met OPC UA-servers in Docker-containers) om te zien van live telemetrie van deze.
 - Blader door het model van de OPC UA informatie van de OPC UA-servers uit een cloud-dashboard.
 
 ## <a name="remote-management"></a>Extern beheer
 
-- Configureer uw OPC UA-activa van de cloud-dashboard (aanroep methoden, lezen en schrijven van gegevens).
-- Publiceren en telemetriegegevens van uw OPC UA-assets van een cloud-dashboard de publicatie ongedaan maken.
+- Configureer uw OPC UA-activa vanuit het clouddashboard (aanroepmethoden, lezen en schrijven van gegevens).
+- Publiceer telemetriegegevens van uw OPC UA-activa en maak de publicatie hiervan ongedaan vanuit een clouddashboard.
 
-## <a name="cloud-dashboard"></a>Cloud-dashboard
+## <a name="cloud-dashboard"></a>Clouddashboard
 
 - Telemetrie previews rechtstreeks in een cloud-dashboard weergeven.
-- Trends weergeven in de telemetrische gegevens en correlaties met behulp van de Time Series Insights Explorer-dashboard maken.
+- Geef trends in de telemetriegegevens weer en maak correlaties met het Time Series Insights Explorer-dashboard.
 - Berekende algemene Equipment Efficiency (OEE) en Key Performance Indicators (KPI's) in een cloud-dashboard zien.
 - Weergave industriële activa hiërarchieën in een boomstructuur-topologie, maar ook op een interactieve kaart.
 - Weergeven, erkent en waarschuwingen uit een cloud-dashboard sluiten.
@@ -55,7 +55,7 @@ Verbonden Factory bevat de volgende functies:
 
 ## <a name="end-to-end-security"></a>End-to-end beveiliging
 
-- Configureren van beveiligingsmachtigingen voor gebruikers met behulp van toegangsbeheer op basis van rollen (RBAC).
+- Configureer beveiligingsmachtigingen voor gebruikers met op rollen gebaseerd toegangsbeheer (RBAC).
 - End-to-end versleuteling is geïmplementeerd met behulp van de OPC UA-verificatie (met behulp van X.509-certificaten), evenals de beveiligingstokens.
 
 ## <a name="customizability"></a>Aanpassingsmogelijkheden

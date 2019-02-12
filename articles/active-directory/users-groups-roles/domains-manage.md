@@ -13,12 +13,12 @@ ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 198fb3376d44123d39a0b3ca2fb1edbd070f1f09
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 7822b5abe78bf969171f7f6ee7d706dadb8d0188
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510983"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100445"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Aangepaste domeinnamen in uw Azure Active Directory beheren
 
@@ -66,7 +66,7 @@ U moet wijzigen of verwijderen van een dergelijke resource in Azure Active direc
 
 ### <a name="forcedelete-option"></a>ForceDelete-optie
 
-U kunt **ForceDelete** een domeinnaam in de [Azure AD-beheercentrum](https://aad.portal.azure.com) of met behulp van [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/api/domain_forcedelete). Deze opties gebruiken een asynchrone bewerking en werk alle verwijzingen van de aangepaste domeinnaam, zoals 'user@contoso.com'aan de aanvankelijke standaarddomeinnaam zoals"user@contoso.onmicrosoft.com." 
+U kunt **ForceDelete** een domeinnaam in de [Azure AD-beheercentrum](https://aad.portal.azure.com) of met behulp van [Microsoft Graph API](https://docs.microsoft.com/graph/api/domain-forcedelete?view=graph-rest-beta). Deze opties gebruiken een asynchrone bewerking en werk alle verwijzingen van de aangepaste domeinnaam, zoals 'user@contoso.com'aan de aanvankelijke standaarddomeinnaam zoals"user@contoso.onmicrosoft.com." 
 
 Om aan te roepen **ForceDelete** in Azure portal, moet u ervoor zorgen dat er minder dan 1000 verwijzingen naar de domeinnaam, en alle verwijzingen waarop Exchange de provisioning-service wordt moeten worden bijgewerkt of verwijderd uit de [ Exchange-beheercentrum](https://outlook.office365.com/ecp/). Dit omvat Exchange Mail-Enabled-beveiligingsgroepen en gedistribueerde lijsten; Zie voor meer informatie, [verwijderen van beveiligingsgroepen met mailmogelijkheden](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups). Ook de **ForceDelete** bewerking wordt niet uitgevoerd als een van de volgende voorwaarden wordt voldaan:
 
@@ -112,4 +112,4 @@ De meeste beheertaken voor domeinnamen in Azure Active Directory kunnen ook word
 
 * [Aangepaste domeinnamen toevoegen](/azure/active-directory/fundamentals/add-custom-domain?context=azure/active-directory/users-groups-roles/context/ugr-context)
 * [Verwijderen van de Exchange-e-mailadres beveiligingsgroepen in Exchange-beheercentrum op een aangepaste domeinnaam in Azure AD](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups)
-* [Een aangepaste domeinnaam ForceDelete met Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/api/domain_forcedelete)
+* [Een aangepaste domeinnaam ForceDelete met Microsoft Graph API](https://docs.microsoft.com/graph/api/domain-forcedelete?view=graph-rest-beta)

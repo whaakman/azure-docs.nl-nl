@@ -1,6 +1,6 @@
 ---
 title: Abonnementssleutels
-titleSuffix: Language Understadning - Azure Cognitive Services
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS maakt gebruik van twee sleutels, de gratis authoring sleutel om uw model te maken en de eindpuntsleutel met een datalimiet voor het uitvoeren van query's de voorspelling-eindpunt met uitingen van de gebruiker.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: 0bb535a75d1eefcb835d25d28dc65c565655d2c5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1898d6e5119d3cbc2061aff8d4a7e673abd83198
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881805"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097454"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>Ontwerpen en query voorspelling endpoint-sleutels in LUIS
 LUIS maakt gebruik van twee sleutels: [ontwerpen](#programmatic-key) en [eindpunt](#endpoint-key). De ontwerphandleiding sleutel wordt automatisch voor u gemaakt wanneer u uw LUIS-account maakt. Wanneer u klaar om uw LUIS-app te publiceren bent, moet u [maken van de eindpuntsleutel](luis-how-to-azure-subscription.md), [toewijzen](luis-how-to-azure-subscription.md) aan uw LUIS-app en [gebruiken met de query eindpunt](#use-endpoint-key-in-query). 

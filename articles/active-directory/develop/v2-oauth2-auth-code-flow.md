@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 25b2e90c6293b93a15aeae2fbf08b70cb191cef0
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 13841e1ef6298ffc85f6ccf5cb2a60e5a9b992b3
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098711"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099374"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0-protocollen - OAuth 2.0-autorisatiecodestroom
 
@@ -53,15 +53,17 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=code
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &response_mode=query
-&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
+&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 &state=12345
 ```
 
 > [!TIP]
 > Klik op de onderstaande koppeling voor het uitvoeren van deze aanvraag. Na het aanmelden, moet uw browser worden omgeleid naar `https://localhost/myapp/` met een `code` in de adresbalk.
-> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
+> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&state=12345" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
+> 
+> 
 
-| Parameter    | Vereist/optioneel | Beschrijving |
+| Parameter    | Vereist/optioneel | Description |
 |--------------|-------------|--------------|
 | `tenant`    | vereist    | De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn `common`, `organizations`, `consumers`, en tenant-id's. Zie voor meer details [protocol basisbeginselen](active-directory-v2-protocols.md#endpoints).  |
 | `client_id`   | vereist    | De toepassing (client)-ID die de portal voor wachtwoordregistratie ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) of **(Preview) van de App-registraties** optreden in de Azure portal voor uw app is toegewezen.  |
@@ -90,7 +92,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 &state=12345
 ```
 
-| Parameter | Beschrijving  |
+| Parameter | Description  |
 |-----------|--------------|
 | `code` | De authorization_code die de app heeft aangevraagd. De app kan de autorisatiecode gebruiken om aan te vragen van een toegangstoken voor de doelresource. Authorization_codes zijn zeer korte levensduur hebben, doorgaans deze verloopt na ongeveer 10 minuten. |
 | `state` | Als een parameter state is opgenomen in de aanvraag, dezelfde waarde moet worden weergegeven in het antwoord. De app moet controleren of dat de provincie-waarden in de aanvraag en respons identiek zijn. |
@@ -105,7 +107,7 @@ error=access_denied
 &error_description=the+user+canceled+the+authentication
 ```
 
-| Parameter | Beschrijving  |
+| Parameter | Description  |
 |----------|------------------|
 | `error`  | Een tekenreeks voor de foutcode die kan worden gebruikt voor het classificeren van typen fouten die optreden en kan worden gebruikt om te reageren op fouten. |
 | `error_description` | Een specifieke foutbericht dat een ontwikkelaar kan helpen de hoofdoorzaak van een verificatiefout identificeren. |
@@ -114,7 +116,7 @@ error=access_denied
 
 De volgende tabel beschrijft de verschillende foutcodes die kunnen worden geretourneerd in de `error` parameter van het foutbericht.
 
-| Foutcode  | Beschrijving    | Clientactie   |
+| Foutcode  | Description    | Clientactie   |
 |-------------|----------------|-----------------|
 | `invalid_request` | Protocolfout in, zoals een ontbrekende vereiste parameter. | Los en verzend de aanvraag opnieuw. Dit is een ontwikkeling fout meestal aangetroffen tijdens de eerste test. |
 | `unauthorized_client` | De clienttoepassing is niet toegestaan om aan te vragen van een autorisatiecode. | Deze fout treedt meestal op wanneer de clienttoepassing is niet geregistreerd in Azure AD of is niet toegevoegd aan Azure AD-tenant van de gebruiker. De toepassing kan het bericht met instructies voor het installeren van de toepassing en toe te voegen aan Azure AD. |
@@ -138,7 +140,7 @@ Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 &code=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq3n8b2JRLk4OxVXr...
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &grant_type=authorization_code
@@ -148,7 +150,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > [!TIP]
 > Probeer deze aanvraag wordt uitgevoerd in Postman. (Vergeet niet om te vervangen de `code`) [ ![uitvoeren in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
 
-| Parameter  | Vereist/optioneel | Beschrijving     |
+| Parameter  | Vereist/optioneel | Description     |
 |------------|-------------------|----------------|
 | `tenant`   | vereist   | De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn `common`, `organizations`, `consumers`, en tenant-id's. Zie voor meer details [protocol basisbeginselen](active-directory-v2-protocols.md#endpoints).  |
 | `client_id` | vereist  | De aanvraag-ID die de portal voor wachtwoordregistratie ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) uw app is toegewezen. |
@@ -168,13 +170,13 @@ Een geslaagde respons token ziet er als:
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
     "token_type": "Bearer",
     "expires_in": 3599,
-    "scope": "https%3A%2F%2Fgraph.microsoft.com%2Fmail.read",
+    "scope": "https%3A%2F%2Fgraph.microsoft.com%2Fuser.read",
     "refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4...",
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
 }
 ```
 
-| Parameter     | Beschrijving   |
+| Parameter     | Description   |
 |---------------|------------------------------|
 | `access_token`  | Het aangevraagde toegangstoken. De app kan dit token gebruikt voor verificatie bij de beveiligde resource, zoals een web-API.  |
 | `token_type`    | Geeft aan dat de waarde van het token. Het enige type die ondersteuning biedt voor Azure AD is Bearer |
@@ -200,7 +202,7 @@ Foutberichten ziet er als:
 }
 ```
 
-| Parameter         | Beschrijving    |
+| Parameter         | Description    |
 |-------------------|----------------|
 | `error`       | Een tekenreeks voor de foutcode die kan worden gebruikt voor het classificeren van typen fouten die optreden en kan worden gebruikt om te reageren op fouten. |
 | `error_description` | Een specifieke foutbericht dat een ontwikkelaar kan helpen de hoofdoorzaak van een verificatiefout identificeren. |
@@ -211,7 +213,7 @@ Foutberichten ziet er als:
 
 ### <a name="error-codes-for-token-endpoint-errors"></a>Foutcodes voor token-eindpunt-fouten
 
-| Foutcode         | Beschrijving        | Clientactie    |
+| Foutcode         | Description        | Clientactie    |
 |--------------------|--------------------|------------------|
 | `invalid_request`  | Protocolfout in, zoals een ontbrekende vereiste parameter. | Los en verzend de aanvraag opnieuw   |
 | `invalid_grant`    | De autorisatiecode of het PKCE code controle is ongeldig of is verlopen. | Probeer een nieuwe aanvraag naar de `/authorize` eindpunt en controleer of de parameter code_verifier juist is.  |
@@ -239,7 +241,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 Access_tokens zijn korte duur en moet u deze vernieuwen nadat ze zijn verlopen om door te gaan met het openen van bronnen. U kunt dit doen door het indienen van een andere `POST` aanvragen naar de `/token` eindpunt, dit keer met de `refresh_token` in plaats van de `code`.  Vernieuwen van tokens geldig zijn voor alle machtigingen die de client al is toestemming geven voor - dus een vernieuwingstoken dat is uitgegeven voor een aanvraag voor `scope=mail.read` kan worden gebruikt om aan te vragen van een nieuw toegangstoken voor `scope=api://contoso.com/api/UseResource`.  
 
-Vernieuwen van tokens geen opgegeven levensduur. De levensduur van vernieuwingstokens zijn meestal relatief lange. Echter, in sommige gevallen, vernieuwingstokens verlopen, worden ingetrokken of niet over voldoende bevoegdheden voor de gewenste actie. Uw toepassing moet verwachten en verwerken [fouten die zijn geretourneerd door het eindpunt voor token-uitgifte](#error-codes-for-token-endpoint-errors) correct. 
+Vernieuwen van tokens geen opgegeven levensduur. De levensduur van vernieuwingstokens zijn meestal relatief lange. Echter, in sommige gevallen, vernieuwingstokens verlopen, worden ingetrokken of niet over voldoende bevoegdheden voor de gewenste actie. Uw toepassing moet verwachten en verwerken [fouten die zijn geretourneerd door het eindpunt voor token-uitgifte](#error-codes-for-token-endpoint-errors) correct.  Houd er rekening mee vernieuwingstokens worden niet ingetrokken wanneer het voor het nieuwe toegangstokens te verkrijgen. 
 
 ```
 // Line breaks for legibility only
@@ -249,7 +251,7 @@ Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 &refresh_token=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq...
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &grant_type=refresh_token
@@ -261,7 +263,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > 
 > 
 
-| Parameter     |                | Beschrijving        |
+| Parameter     |                | Description        |
 |---------------|----------------|--------------------|
 | `tenant`        | vereist     | De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn `common`, `organizations`, `consumers`, en tenant-id's. Zie voor meer details [protocol basisbeginselen](active-directory-v2-protocols.md#endpoints).   |
 | `client_id`     | vereist    | De **(client) toepassings-ID** die de app-registratieportal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) of **(Preview) van de App-registraties** heeft ervaring in Azure portal uw app is toegewezen.  |
@@ -280,12 +282,12 @@ Een geslaagde respons token ziet er als:
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
     "token_type": "Bearer",
     "expires_in": 3599,
-    "scope": "https%3A%2F%2Fgraph.microsoft.com%2Fmail.read",
+    "scope": "https%3A%2F%2Fgraph.microsoft.com%2Fuser.read",
     "refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4...",
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
 }
 ```
-| Parameter     | Beschrijving         |
+| Parameter     | Description         |
 |---------------|-------------------------------------------------------------|
 | `access_token`  | Het aangevraagde toegangstoken. De app kan dit token gebruikt voor verificatie bij de beveiligde resource, zoals een web-API. |
 | `token_type`    | Geeft aan dat de waarde van het token. Het enige type die ondersteuning biedt voor Azure AD is Bearer |
@@ -309,7 +311,7 @@ Een geslaagde respons token ziet er als:
 }
 ```
 
-| Parameter         | Beschrijving                                                                                        |
+| Parameter         | Description                                                                                        |
 |-------------------|----------------------------------------------------------------------------------------------------|
 | `error`           | Een tekenreeks voor de foutcode die kan worden gebruikt voor het classificeren van typen fouten die optreden en kan worden gebruikt om te reageren op fouten. |
 | `error_description` | Een specifieke foutbericht dat een ontwikkelaar kan helpen de hoofdoorzaak van een verificatiefout identificeren.           |

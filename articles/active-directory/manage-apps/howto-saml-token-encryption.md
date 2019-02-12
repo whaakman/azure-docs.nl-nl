@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: celested
 ms.reviewer: paulgarn
-ms.openlocfilehash: 0e2b6e29e159970784ab8c321bbc8c16e96b60e3
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 21bd83511f09c3049c396e13161e02dead6e3459
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757664"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100003"
 ---
 # <a name="how-to-configure-azure-ad-saml-token-encryption-preview"></a>Procedure: Configureren van Azure AD-SAML-tokenversleuteling (Preview)
 
@@ -33,19 +33,19 @@ Versleutelen van het SAML-asserties ondertekend tussen Azure AD en de toepassing
 
 Azure AD-SAML-tokens worden ook zonder versleuteling van beveiligingstoken, nooit op het netwerk in de doorgegeven. Azure AD moet token verzoek/reactie-uitwisseling moet plaatsvinden via versleutelde HTTPS/TLS-kanalen, zodat de communicatie tussen de id-provider, de browser en de toepassing verspreid over een versleutelde koppelingen. Houd rekening met de waarde van de versleuteling van beveiligingstoken voor uw situatie vergeleken met de overhead van het beheren van extra certificaten.   
 
-Voor het configureren van versleuteling van beveiligingstoken, moet u een X509 uploaden certificaatbestand met de openbare sleutel naar het Azure AD-toepassing-object dat staat voor de toepassing. Om op te halen van de X509 certificaat, kunt u downloaden uit de toepassing zelf, of ophalen van de leverancier van de toepassing in gevallen waar de leverancier van de toepassing biedt versleutelingssleutels of in gevallen waar de toepassing wordt verwacht u dat voor een persoonlijke sleutel kan zijn gemaakt met behulp van hulpprogramma's voor cryptografie, de persoonlijke sleutel gedeelte geüpload naar het sleutelarchief van de toepassing en de bijbehorende openbare-sleutelcertificaat dat is geüpload naar Azure AD.
+Voor het configureren van versleuteling van beveiligingstoken, moet u een x.509-certificaat-bestand met de openbare sleutel naar het Azure AD-toepassing-object dat staat voor de toepassing uploaden. Als u wilt het X.509-certificaat hebt verkregen, kunt u downloaden van de toepassing zelf, of ophalen van de leverancier van de toepassing in gevallen waar de leverancier van de toepassing biedt versleutelingssleutels of in gevallen waar de toepassing wordt verwacht u dat voor een persoonlijke sleutel kan zijn gemaakt met behulp van hulpprogramma's voor cryptografie, de persoonlijke sleutel gedeelte geüpload naar het sleutelarchief van de toepassing en de bijbehorende openbare-sleutelcertificaat dat is geüpload naar Azure AD.
 
 Azure AD maakt gebruik van AES-256 voor het versleutelen van de SAML-verklaring-gegevens.
 
 ## <a name="configure-saml-token-encryption"></a>SAML-tokenversleuteling configureren
 
-Volg deze stappen voor het configureren van SAML-tokenversleuteling.
+Volg deze stappen voor het configureren van SAML-tokenversleuteling:
 
 1. Verkrijgen van een openbare-sleutelcertificaat dat die overeenkomt met een persoonlijke sleutel die geconfigureerd in de toepassing.
 
-    Maak een asymmetrisch sleutelpaar moet worden gebruikt voor versleuteling. Of, als de toepassing een openbare sleutel levert voor versleuteling, volgt u de instructies van de toepassing te downloaden van de X509 certificaat.
+    Maak een asymmetrisch sleutelpaar moet worden gebruikt voor versleuteling. Of, als de toepassing een openbare sleutel levert voor versleuteling, volgt u de instructies van de toepassing te downloaden van het X.509-certificaat.
 
-    De openbare sleutel moet worden opgeslagen in een X509-bestand voor certificaat in cer-indeling.
+    De openbare sleutel moet worden opgeslagen in een bestand van de x.509-certificaat in cer-indeling.
 
     Als de toepassing gebruikmaakt van een sleutel die u voor uw exemplaar maakt, volg de instructies van uw toepassing voor het installeren van de persoonlijke sleutel die de toepassing wordt gebruikt voor het decoderen van tokens van uw Azure AD-tenant.
 
@@ -66,9 +66,9 @@ U kunt het openbare certificaat toevoegen aan de configuratie van uw toepassing 
     > [!NOTE]
     > De **Token versleuteling** optie is alleen beschikbaar voor SAML-toepassingen die zijn ingesteld vanuit de **bedrijfstoepassingen** blade in Azure portal, hetzij uit de galerie of een Buiten de galerie-app. Voor andere toepassingen, is deze optie uitgeschakeld. Voor toepassingen die zijn geregistreerd via de **App-registraties** ervaring in Azure portal, kunt u versleuteling configureren voor SAML-tokens met behulp van de toepassing het manifest, via Microsoft Graph of via PowerShell.
 
-1. Op de **Token versleuteling** weergeeft, schakelt **certificaat importeren** voor het importeren van het cer-bestand met uw openbare X509 certificaat.
+1. Op de **Token versleuteling** weergeeft, schakelt **certificaat importeren** het cer-bestand met uw openbare X.509-certificaat importeren.
 
-    ![Het cer-bestand met de X509 importeren certificaat](./media/howto-saml-token-encryption/import-certificate-small.png)
+    ![Het cer-bestand met het X.509-certificaat importeren](./media/howto-saml-token-encryption/import-certificate-small.png)
 
 1. Zodra het certificaat is geïmporteerd en de persoonlijke sleutel is geconfigureerd voor gebruik aan van de toepassing, versleuteling activeren door het selecteren van de **...**  volgende voor de status van de vingerafdruk en selecteer vervolgens **tokenversleuteling activeren** van de opties in de vervolgkeuzelijst.
 
@@ -94,7 +94,7 @@ Bij het configureren van een keyCredential met Graph, PowerShell, of in het toep
 
 ### <a name="to-configure-token-encryption-using-microsoft-graph"></a>Het configureren van versleuteling van beveiligingstoken met behulp van Microsoft Graph
 
-1. Bijwerken van de toepassing `keyCredentials` met een X509 certificaat voor versleuteling. Het volgende voorbeeld ziet hoe u dit doet.
+1. Bijwerken van de toepassing `keyCredentials` met een X.509-certificaat voor versleuteling. Het volgende voorbeeld ziet hoe u dit doet.
 
     ```
     Patch https://graph.microsoft.com/beta/applications/<application objectid>

@@ -17,20 +17,20 @@ ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: 4ee2f0387ee3c56dda7cd1a89f5c808f55699856
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 47786ac687272cc2a88c3fa885fece9c858a3c2b
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658620"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099068"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Aan de slag met Azure Active Directory Identity Protection en Microsoft Graph
 
 Microsoft Graph is de Microsoft unified-API-eindpunt en het hart van [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) API's. Er zijn drie API's die beschikbaar maken van informatie over riskante gebruikers en -aanmeldingen. De eerste API **identityRiskEvents**, kunt u Microsoft Graph op te vragen voor een lijst met [risicogebeurtenissen](../reports-monitoring/concept-risk-events.md) en informatie die is gekoppeld. De tweede API **riskyUsers**, kunt u Microsoft Graph-query voor informatie over gebruikers Identity Protection als risico gedetecteerd. De derde API **signIn**, kunt u Microsoft Graph op te vragen voor meer informatie over Azure AD-aanmeldingen met specifieke eigenschappen met betrekking tot de status van de risico's, informatie en niveau. In dit artikel helpt u op weg met [verbinding te maken met de Microsoft Graph](#Connect-to-Microsoft-Graph) en [uitvoeren van query's deze API's](#Query-the-APIs). Zie voor een diepgaande inleiding, de volledige documentatie en de toegang tot de Graph Explorer, de [Microsoft Graph-site](https://graph.microsoft.io/) of de specifieke documentatie bij deze API's:
 
-* [identityRiskEvents API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/identityriskevent)
-* [riskyUsers API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/riskyuser)
-* [signIn API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/signin)
+* [identityRiskEvents API](https://docs.microsoft.com/graph/api/resources/identityriskevent?view=graph-rest-beta)
+* [riskyUsers API](https://docs.microsoft.com/graph/api/resources/riskyuser?view=graph-rest-beta)
+* [signIn API](https://docs.microsoft.com/graph/api/resources/signin?view=graph-rest-beta)
 
 
 ## <a name="connect-to-microsoft-graph"></a>Verbinding maken met Microsoft graph
@@ -217,7 +217,7 @@ Uw client-ID, de geheime sleutel en het tenantdomein dat alleen toevoegen.
 
 ## <a name="query-the-apis"></a>Query uitvoeren op de API 's
 
-Deze drie API's bieden een groot aantal verkoopkansen informatie ophalen over riskante gebruikers en aanmeldingen in uw organisatie. Hieronder vindt u enkele veelvoorkomende use cases voor deze API's en de bijbehorende voorbeeldaanvragen. U kunt deze query's uitvoeren met de voorbeeldcode boven of met behulp van [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer).
+Deze drie API's bieden een groot aantal verkoopkansen informatie ophalen over riskante gebruikers en aanmeldingen in uw organisatie. Hieronder vindt u enkele veelvoorkomende use cases voor deze API's en de bijbehorende voorbeeldaanvragen. U kunt deze query's uitvoeren met de voorbeeldcode boven of met behulp van [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 
 ### <a name="get-the-high-risk-and-medium-risk-events-identityriskevents-api"></a>Ophalen van de gebeurtenissen met een hoog risico en gemiddeld risico (identityRiskEvents API)
 
@@ -251,7 +251,7 @@ Gefeliciteerd, u de eerste aanroep van Microsoft Graph zojuist hebt gemaakt.
 U kunt nu query risicogebeurtenissen voor identiteiten en gebruikmaken van de gegevens echter naar eigen inzicht.
 
 
-Bekijk voor meer informatie over Microsoft Graph en over het bouwen van toepassingen die gebruikmaken van de Graph API, de [documentatie](https://docs.microsoft.com/graph/overview) en nog veel meer op de [Microsoft Graph-site](https://developer.microsoft.com/en-us/graph). 
+Bekijk voor meer informatie over Microsoft Graph en over het bouwen van toepassingen die gebruikmaken van de Graph API, de [documentatie](https://docs.microsoft.com/graph/overview) en nog veel meer op de [Microsoft Graph-site](https://developer.microsoft.com/graph). 
 
 
 Zie voor meer informatie:

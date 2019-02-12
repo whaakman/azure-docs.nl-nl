@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: db1bdeed75264e32d5a96800096b6b433c62c44a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: eb05d1b28b80cb7bf48bc1160c251936423763e6
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822626"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100779"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Microsoft Graph-bindingen voor Azure Functions
 
@@ -670,7 +670,7 @@ Deze binding hoort vereist de volgende Azure AD-machtigingen:
 
 De binding wordt aangegeven dat de volgende typen .NET-functies:
 - byte[]
-- Stream
+- Streamen
 - string
 - Microsoft.Graph.DriveItem
 
@@ -817,7 +817,7 @@ Deze binding hoort vereist de volgende Azure AD-machtigingen:
 
 De binding wordt aangegeven dat de volgende typen .NET-functies:
 - byte[]
-- Stream
+- Streamen
 - string
 - Microsoft.Graph.DriveItem
 
@@ -982,7 +982,7 @@ Webhooks kunt u om te reageren op gebeurtenissen in de Microsoft Graph. Ter onde
 - Een [Microsoft Graph-webhookabonnement Invoerbinding](#webhook-input) kunt u bestaande abonnementen weergeven en ze desgewenst te vernieuwen.
 - Een [Microsoft Graph-webhookabonnement-Uitvoerbinding](#webhook-output) kunt u maken of verwijderen van de webhookabonnementen.
 
-De bindingen zelf hoeven niet alle Azure AD-machtigingen, maar u moet machtigingen die relevant zijn voor het resourcetype dat u wilt om te reageren op aanvragen. Zie voor een lijst van deze machtigingen nodig voor elk resourcetype [abonnementsmachtigingen](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions).
+De bindingen zelf hoeven niet alle Azure AD-machtigingen, maar u moet machtigingen die relevant zijn voor het resourcetype dat u wilt om te reageren op aanvragen. Zie voor een lijst van deze machtigingen nodig voor elk resourcetype [abonnementsmachtigingen](https://docs.microsoft.com/graph/api/subscription-post-subscriptions?view=graph-rest-1.0).
 
 Zie voor meer informatie over webhooks [werken met webhooks in Microsoft Graph].
 

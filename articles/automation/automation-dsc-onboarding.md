@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: 1a3cfb51cc75c89c5a4580b1b7721eb763078980
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f9a1076ddfb840ba845718c5ca0deea8c5788e7d
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096701"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100326"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Onboarding van machines voor beheer met Azure Automation State Configuration
 
@@ -24,7 +24,8 @@ Zoals [PowerShell Desired State Configuration](/powershell/dsc/overview), Status
 
 Configuratie van Azure Automation-status kan worden gebruikt voor het beheren van verschillende machines:
 
-- Virtuele Azure-machines (geïmplementeerd in het klassieke implementatiemodel en Azure Resource Manager-implementatiemodel)
+- Virtuele machines van Azure
+- Virtuele Azure-machines (klassiek)
 - Amazon Web Services (AWS) EC2 instances
 - Fysieke/virtuele Windows-machines on-premises of in een andere cloud dan Azure/AWS
 - Fysieke/virtuele Linux-machines on-premises, in Azure, of in een andere cloud dan Azure
@@ -35,6 +36,31 @@ Bovendien, als u niet klaar voor het beheren van de configuratie van machine van
 > Het beheren van virtuele Azure-machines met de configuratie van de status is opgenomen zonder extra kosten als de virtuele machine DSC-extensie geïnstalleerd dan 2.70 is. Raadpleeg de [ **Automation pagina met prijzen** ](https://azure.microsoft.com/pricing/details/automation/) voor meer informatie.
 
 De volgende secties wordt beschreven hoe u kunt Onboarding van elk type machine naar Azure Automation State Configuration.
+
+## <a name="azure-virtual-machines"></a>Virtuele machines van Azure
+
+Status van Azure Automation-configuratie kunt u eenvoudig Azure-machines vrij voor Configuratiebeheer, met de Azure portal, Azure Resource Manager-sjablonen of PowerShell. Achter de schermen en zonder dat een beheerder die op afstand verbinding met de virtuele machine, registreert de Desired State Configuration van Azure VM-extensie de virtuele machine met Azure Automation State Configuration.
+Omdat de Azure VM Desired State Configuration-extensie wordt asynchroon uitgevoerd, stappen om de voortgang bijhouden of oplossen van dit probleem vindt u in de volgende [ **onboarding voor probleemoplossing voor Azure-virtuele machine** ](#troubleshooting-azure-virtual-machine-onboarding) sectie.
+
+### <a name="azure-portal"></a>Azure Portal
+
+In de [Azure-portal](https://portal.azure.com/), gaat u naar de Azure Automation-account waar u virtuele machines activeren. Op de pagina configuratie van de status en de **knooppunten** tabblad **+ toevoegen**.
+
+Selecteer een virtuele machine van Azure voor de onboarding.
+
+Als de computer beschikt niet over de PowerShell desired state-uitbreiding geïnstalleerd en de status van de stroom wordt uitgevoerd, klikt u op **Connect**.
+
+Onder **registratie**, voer de [PowerShell DSC Local Configuration Manager-waarden](/powershell/dsc/metaconfig4) vereist zijn voor uw situatie, en (optioneel) een knooppuntconfiguratie toewijzen aan de virtuele machine.
+
+![Onboarding](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
+
+### <a name="azure-resource-manager-templates"></a>Azure Resource Manager-sjablonen
+
+Virtuele machines van Azure kan worden geïmplementeerd en vrijgegeven aan een Azure Automation State Configuration via Azure Resource Manager-sjablonen. Zie [configureren van een virtuele machine via DSC-extensie en Azure Automation DSC](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) voor een voorbeeldsjabloon uitvoeren van Onboarding van een bestaande virtuele machine voor Azure Automation State Configuration. Zoeken naar de registratiesleutel en registratie-URL genomen als invoer in deze sjabloon, ziet u de volgende [ **beveiligde registratie** ](#secure-registration) sectie.
+
+### <a name="powershell"></a>PowerShell
+
+De [registreren AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode) cmdlet kan worden gebruikt om virtuele machines in Azure portal via PowerShell activeren.
 
 ## <a name="azure-virtual-machines-classic"></a>Virtuele Azure-machines (klassiek)
 
@@ -116,31 +142,6 @@ $VM | Update-AzureVM
 
 > [!NOTE]
 > Status configuratie-knooppuntconfiguratie namen zijn hoofdlettergevoelig in de portal. Als de aanvraag niet overeen komt het knooppunt wordt niet weergegeven op de **knooppunten** tabblad.
-
-## <a name="azure-virtual-machines"></a>Virtuele machines van Azure
-
-Status van Azure Automation-configuratie kunt u eenvoudig Azure-machines vrij voor Configuratiebeheer, met de Azure portal, Azure Resource Manager-sjablonen of PowerShell. Achter de schermen en zonder dat een beheerder die op afstand verbinding met de virtuele machine, registreert de Desired State Configuration van Azure VM-extensie de virtuele machine met Azure Automation State Configuration.
-Omdat de Azure VM Desired State Configuration-extensie wordt asynchroon uitgevoerd, stappen om de voortgang bijhouden of oplossen van dit probleem vindt u in de volgende [ **onboarding voor probleemoplossing voor Azure-virtuele machine** ](#troubleshooting-azure-virtual-machine-onboarding) sectie.
-
-### <a name="azure-portal"></a>Azure Portal
-
-In de [Azure-portal](https://portal.azure.com/), gaat u naar de Azure Automation-account waar u virtuele machines activeren. Op de pagina configuratie van de status en de **knooppunten** tabblad **+ toevoegen**.
-
-Selecteer een virtuele machine van Azure voor de onboarding.
-
-Als de computer beschikt niet over de PowerShell desired state-uitbreiding geïnstalleerd en de status van de stroom wordt uitgevoerd, klikt u op **Connect**.
-
-Onder **registratie**, voer de [PowerShell DSC Local Configuration Manager-waarden](/powershell/dsc/metaconfig4) vereist zijn voor uw situatie, en (optioneel) een knooppuntconfiguratie toewijzen aan de virtuele machine.
-
-![Onboarding](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
-
-### <a name="azure-resource-manager-templates"></a>Azure Resource Manager-sjablonen
-
-Virtuele machines van Azure kan worden geïmplementeerd en vrijgegeven aan een Azure Automation State Configuration via Azure Resource Manager-sjablonen. Zie [configureren van een virtuele machine via DSC-extensie en Azure Automation DSC](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) voor een voorbeeldsjabloon uitvoeren van Onboarding van een bestaande virtuele machine voor Azure Automation State Configuration. Zoeken naar de registratiesleutel en registratie-URL genomen als invoer in deze sjabloon, ziet u de volgende [ **beveiligde registratie** ](#secure-registration) sectie.
-
-### <a name="powershell"></a>PowerShell
-
-De [registreren AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode) cmdlet kan worden gebruikt om virtuele machines in Azure portal via PowerShell activeren.
 
 ## <a name="amazon-web-services-aws-virtual-machines"></a>Amazon Web Services (AWS) virtuele machines
 

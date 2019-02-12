@@ -7,17 +7,17 @@ ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: douglaslMS
-ms.author: douglasl
+author: CarlRabeler
+ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: d00d9b4a945b139ed7b930609fdab24e4a211551
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 050da5e71fd804055d0a2ece1150b79b3922170f
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891094"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100581"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Een Azure SQL-database naar een BACPAC-bestand exporteren
 
@@ -100,5 +100,5 @@ $exportStatus
 - Zie voor meer informatie over het importeren van een BACPAC naar een SQL Server-database, [een BACPAC naar een SQL Server-database importeren](https://msdn.microsoft.com/library/hh710052.aspx).
 - Zie voor meer informatie over het exporteren van een BACPAC van een SQL Server-database, [exporteren van een Data-tier-toepassing](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
 - Zie voor meer informatie over het gebruik van de Data Migration Service voor het migreren van een database, [SQL-Server migreren naar Azure SQL Database offline met behulp van DMS](../dms/tutorial-sql-server-to-azure-sql.md).
-- Als u van SQL Server als een voorproefje op voor de migratie naar Azure SQL Database exporteert, Zie [een SQL Server-database migreren naar Azure SQL Database](sql-database-cloud-migrate.md).
+- Als u van SQL Server als een voorproefje op voor de migratie naar Azure SQL Database exporteert, Zie [een SQL Server-database migreren naar Azure SQL Database](sql-database-single-database-migrate.md).
 - Voor informatie over het beheren en te delen opslagsleutels en gedeelde toegang handtekeningen veilig, Zie [Azure Storage-beveiligingshandleiding](https://docs.microsoft.com/azure/storage/common/storage-security-guide).

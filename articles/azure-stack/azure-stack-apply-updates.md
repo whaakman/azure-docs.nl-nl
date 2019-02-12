@@ -11,22 +11,58 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2019
+ms.date: 02/11/2019
 ms.author: mabrigg
-ms.reviewer: wfayed
-ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 585fc4f1bbddb08d881414b581120b7bc14232ab
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.reviewer: justini
+ms.lastreviewed: 02/11/2019
+ms.openlocfilehash: 0c3f52c78bbfd3094324b74f3b66610fcebfa2f4
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729931"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099289"
 ---
 # <a name="apply-updates-in-azure-stack"></a>In Azure Stack-updates toepassen
 
 *Van toepassing op: Azure Stack-geïntegreerde systemen*
 
-U kunt de **bijwerken** tegel in de beheerportal om toe te passen van Microsoft of OEM-updatepakketten voor Azure Stack. U moet het updatepakket downloaden, het pakketbestanden importeren in Azure Stack en vervolgens het updatepakket te installeren.
+U kunt de **bijwerken** tegel in de beheerportal om toe te passen van Microsoft of OEM-updatepakketten voor Azure Stack.
+
+Als u van een geïntegreerde systemen versie 1807 gebruikmaakt of eerder gebruikt, moet u het updatepakket downloaden, de pakketbestanden importeren in Azure Stack en installeer vervolgens het updatepakket. Zie voor instructies [Update Azure Stack door het pakket downloaden](#update-azure-stack-by-downloading-the-package)
+
+Deze instructies werken met geïntegreerde Azure Stack-systemen bijwerken. Als u van de ontwikkelomgeving voor Azure Stack gebruikmaakt, moet u het installatiepakket voor de huidige versie te downloaden. Zie voor instructies [Azure Stack Development Kit installeren](.\asdk\asdk-install.md)
+
+## <a name="update-azure-stack"></a>Update Azure Stack
+
+### <a name="select-and-apply-an-update-package"></a>Selecteer en toepassen van een updatepakket
+
+1. Open de beheerportal.
+
+2. Selecteer **Dashboard**. Selecteer de **Update** tegel.
+
+    ![Azure Stack is een update beschikbaar](media/azure-stack-apply-updates/azure-stack-updates-1901-dashboard.png)
+
+3. Noteer de huidige versie van uw Azure Stack. U kunt bijwerken naar de volgende volledige versie. Bijvoorbeeld als u met Azure Stack 1811, de volgende versie uitgebracht is 1901.
+
+    ![Azure Stack-update van toepassing](media/azure-stack-apply-updates/azure-stack-updates-1901-updateavailable.png)
+
+4. Selecteer de volgende beschikbare versie in de lijst met Updates. U kunt selecteren **weergave** in de release notes kolom geopend, het onderwerp van de opmerkingen bij de release voor de versie als wilt controleren van wijzigingen in de versie.
+
+5. Selecteer nu bijwerken. De update wordt gestart.
+
+### <a name="review-update-history"></a>Historie van updates controleren
+
+1. Open de beheerportal.
+
+2. Selecteer **Dashboard**. Selecteer de **Update** tegel.
+
+3. Selecteer **bijwerken geschiedenis**.
+
+![Geschiedenis van Azure Stack-update](media/azure-stack-apply-updates/azure-stack-update-history.PNG)
+
+## <a name="update-azure-stack-by-downloading-the-package"></a>Azure Stack door te downloaden van het pakket bijwerken
+
+Als u van een geïntegreerde systemen versie 1807 gebruikmaakt of eerder gebruikt, moet u het updatepakket downloaden, de pakketbestanden importeren in Azure Stack en installeer vervolgens het updatepakket.
 
 ## <a name="download-the-update-package"></a>Het updatepakket downloaden
 

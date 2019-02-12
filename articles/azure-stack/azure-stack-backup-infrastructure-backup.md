@@ -14,12 +14,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 607356bb59550626c9fe5f71d4609b9c3e2b2fe0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 77493782802eeb29313b57d11442535f1734c12e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251296"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097382"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Back-up en gegevensherstel voor Azure Stack met de infrastructuur voor Backup-Service
 
@@ -38,7 +38,7 @@ Voordat u uw back-upservice inschakelt, zorg ervoor dat u hebt [vereisten voldaa
 
 De services bevatten de volgende functies.
 
-| Functie                                            | Beschrijving                                                                                                                                                |
+| Functie                                            | Description                                                                                                                                                |
 |----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Een back-upinfrastructuur Services                     | Coördinatie back-up van een subset van infrastructuurservices in Azure Stack. Als er zich een noodgeval voordoet, kunnen de gegevens worden hersteld als onderdeel van opnieuw implementeren. |
 | Compressie en codering van de geëxporteerde gegevens van de back-up | Back-gegevens worden gecomprimeerd en versleuteld door het systeem voordat deze wordt geëxporteerd naar de locatie van de externe opslag die door de beheerder.                |
@@ -52,12 +52,16 @@ De services bevatten de volgende functies.
   U moet een bestandsshare toegankelijk is vanaf de Azure-Stack die zeven back-ups kan bevatten. Elke back-up is ongeveer 10 GB. Uw bestandsshare zou het mogelijk om op te slaan 140 GB aan back-ups. Zie voor meer informatie over het selecteren van een opslaglocatie voor de Backup-Service van Azure Stack-infrastructuur [vereisten voor de back-up domeincontroller](azure-stack-backup-reference.md#backup-controller-requirements).
 - **Referenties**  
   U moet een domeingebruikersaccount en referenties, bijvoorbeeld, u kunt de Azure Stack-beheerdersreferenties.
-- **Coderingssleutel**  
-  Back-upbestanden zijn versleuteld met behulp van deze sleutel. Zorg ervoor dat u deze sleutel opslaan op een veilige locatie. Nadat u deze sleutel voor de eerste keer instellen of de sleutel in de toekomst draaien, kunt u deze sleutel uit deze interface niet weergeven. Voor meer instructies voor het genereren van een vooraf gedeelde sleutel, volgt u de scripts op [back-up inschakelen voor Azure Stack met PowerShell](azure-stack-backup-enable-backup-powershell.md).
+- **Versleutelingscertificaat**  
+  Back-upbestanden zijn versleuteld met behulp van de openbare sleutel in het certificaat. Zorg ervoor dat dit certificaat wordt opgeslagen op een veilige locatie. 
+
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over het [back-up inschakelen voor Azure Stack vanuit de beheerportal](azure-stack-backup-enable-backup-console.md).
-- Meer informatie over het [back-up inschakelen voor Azure Stack met PowerShell](azure-stack-backup-enable-backup-powershell.md).
-- Leer hoe u [maakt u een Back-up van Azure Stack](azure-stack-backup-back-up-azure-stack.md )
-- Meer informatie over het [herstel na onherstelbare gegevensverlies](azure-stack-backup-recover-data.md)
+Meer informatie over het [back-up inschakelen voor Azure Stack vanuit de beheerportal](azure-stack-backup-enable-backup-console.md).
+
+Meer informatie over het [back-up inschakelen voor Azure Stack met PowerShell](azure-stack-backup-enable-backup-powershell.md).
+
+Leer hoe u [maakt u een Back-up van Azure Stack](azure-stack-backup-back-up-azure-stack.md )
+
+Meer informatie over het [herstel na onherstelbare gegevensverlies](azure-stack-backup-recover-data.md)

@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 195afabc0f512f1202904ab7ebf1471b34e2377f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c85a7106e9567859c34345528c6549bcd752f1c6
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989267"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100462"
 ---
 # <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Over het gebruik van een individuele database in Azure SQL Database
 
@@ -25,7 +25,7 @@ In deze sectie vindt u diverse handleidingen, scripts en uitleg waarmee u kunt b
 
 ## <a name="migrate"></a>Migreren
 
-- [Migreren naar SQL Database](sql-database-cloud-migrate.md) : meer informatie over de aanbevolen migratieproces en hulpprogramma's voor migratie naar een beheerd exemplaar.
+- [Migreren naar SQL Database](sql-database-single-database-migrate.md) : meer informatie over de aanbevolen migratieproces en hulpprogramma's voor migratie naar een beheerd exemplaar.
 - Meer informatie over het [SQL-database na migratie beheren](sql-database-manage-after-migration.md).
 
 ## <a name="configure-features"></a>Functies configureren

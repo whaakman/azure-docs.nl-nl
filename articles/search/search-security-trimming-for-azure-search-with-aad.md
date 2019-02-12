@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 1cd862c59154f9da766b5df1ab8fb8d61e15d054
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 3f55b3b099cc22fda2bebf0dcb8d3e9c1a580f02
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628286"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099691"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Beveiligingsfilters voor Azure Search-resultaten met behulp van Active Directory-identiteiten bijsnijden
 
@@ -64,7 +64,7 @@ Als u geen bestaande gebruikers hebt, kunt u echter Microsoft Graph-API's gebrui
 
 Het is mogelijk dat gebruiker en groepslidmaatschap zeer vloeiende, met name in grote organisaties. Code die gebruiker en groep-id's moet vaak genoeg om op te halen wijzigingen in het lidmaatschap van de organisatie worden uitgevoerd. Uw Azure Search-index moet ook een vergelijkbare bijwerken van de planning in overeenstemming met de huidige status van de toegestane gebruikers en bronnen.
 
-### <a name="step-1-create-aad-grouphttpsdevelopermicrosoftcomen-usgraphdocsapi-referencev10apigrouppostgroups"></a>Stap 1: Maak [AAD-groep](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/group_post_groups) 
+### <a name="step-1-create-aad-grouphttpsdocsmicrosoftcomgraphapigroup-post-groupsviewgraph-rest-10"></a>Stap 1: Maak [AAD-groep](https://docs.microsoft.com/graph/api/group-post-groups?view=graph-rest-1.0) 
 ```csharp
 // Instantiate graph client 
 GraphServiceClient graph = new GraphServiceClient(new DelegateAuthenticationProvider(...));
@@ -78,7 +78,7 @@ Group group = new Group()
 Group newGroup = await graph.Groups.Request().AddAsync(group);
 ```
    
-### <a name="step-2-create-aad-userhttpsdevelopermicrosoftcomen-usgraphdocsapi-referencev10apiuserpostusers"></a>Stap 2: Maak [AAD-gebruiker](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_post_users) 
+### <a name="step-2-create-aad-userhttpsdocsmicrosoftcomgraphapiuser-post-usersviewgraph-rest-10"></a>Stap 2: Maak [AAD-gebruiker](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
 ```csharp
 User user = new User()
 {
@@ -139,7 +139,7 @@ Als u wilt filteren geretourneerde documenten in de zoekresultaten op basis van 
 
 ### <a name="step-1-retrieve-users-group-identifiers"></a>Stap 1: Ophalen van de gebruiker groeps-id 's
 
-Als de gebruikersgroepen zijn niet al in de cache of de cache is verlopen, geven de [groepen](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/directoryobject_getmembergroups) aanvraag
+Als de gebruikersgroepen zijn niet al in de cache of de cache is verlopen, geven de [groepen](https://docs.microsoft.com/graph/api/directoryobject-getmembergroups?view=graph-rest-1.0) aanvraag
 ```csharp
 private static void RefreshCacheIfRequired(string user)
 {

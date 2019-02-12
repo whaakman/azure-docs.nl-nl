@@ -14,16 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 1fe847bd0cdceec7eccab8218ccf787d8f4366ba
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: b3f978635127ef6aabb123d1c95b76ed06fccbbf
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196796"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097787"
 ---
 # <a name="azure-application-prerequisites"></a>Vereisten voor Azure-toepassing
 
-Dit artikel beschrijft de technische en zakelijke vereisten voor het publiceren van een beheerder toepassingsbieding op Azure Marketplace.
+Dit artikel beschrijft de technische en zakelijke vereisten voor het publiceren van een beheerder toepassingsbieding op Azure Marketplace.  Als u hebt nog niet gedaan, bekijkt u de video [gebouw Oplossingssjablonen en beheerde toepassingen voor Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
+
 
 ## <a name="technical-requirements"></a>Technische vereisten
 
@@ -36,6 +37,7 @@ De technische vereisten zijn onder andere de volgende items:
   * [GitHub: Azure Resource Manager Quickstart-sjablonen](https://github.com/azure/azure-quickstart-templates). Deze opslagplaats bevat alle beschikbare Azure Resource Manager-sjablonen door de community bijgedragen. Een sjabloon voor doorzoekbare index wordt onderhouden op https://azure.microsoft.com/en-us/documentation/templates/.
 * UI-definitie maken<br>
 Zie voor meer informatie, [maken-Azure portal gebruikersinterface voor uw beheerde toepassing](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview). Dit artikel worden de belangrijkste concepten van het bestand createUiDefinition.json geïntroduceerd. Dit bestand in de Azure-portal wordt gebruikt voor het genereren van de gebruikersinterface voor het maken van een beheerde toepassing.
+
 
 ## <a name="business-requirements"></a>Zakelijke vereisten
 
@@ -52,7 +54,8 @@ De zakelijke vereisten zijn onder andere de volgende procedure, contractuele en 
 * U bent zelf verantwoordelijk voor licentiëring van uw software en eventuele afhankelijkheden voor software van derden.
 * Inhoud die voldoet aan criteria voor uw aanbieding wilt laten vermelden op Azure Marketplace en in Azure portal, moet u opgeven.
 * U moet akkoord gaan met de voorwaarden van de Deelnamebeleid voor Microsoft Azure Marketplace en de overeenkomst voor uitgevers.
-* U moet voldoen aan de Microsoft Azure-Website van de gebruiksvoorwaarden en privacyverklaring van Microsoft overeenkomst van Microsoft Azure Certified-programma.
+* U moet voldoen aan de Microsoft Azure Website gebruiksvoorwaarden, de privacyverklaring van Microsoft en de overeenkomst van Microsoft Azure Certified-programma.
+
 
 ## <a name="publishing-requirements"></a>Vereisten voor publiceren
 
@@ -62,10 +65,12 @@ Als u een nieuwe aanbieding voor Azure-toepassing publiceren, moet u voldoen aan
   * Een titel
   * Een beschrijving (in HTML-indeling)
   * Een logoafbeelding (in PNG-indeling) en in deze vaste grootte: 40, 40 pixels, 90 x 90 pixels, 115 x 115 pixels en 255 x 115 pixels.
-* Een gebruiksrechtovereenkomst en privacybeleid
+* Een *gebruiksvoorwaarden* en een *privacybeleid*
 * Documentatie
 * Contactpersonen voor ondersteuning
 
+
 ## <a name="next-steps"></a>Volgende stappen
 
-[De aanbieding van een Azure-toepassing maken](./cpp-create-offer.md) 
+Als u alle vereisten hebt voldaan, u bent er klaar voor [maken van een Azure-toepassing-aanbieding](./cpp-create-offer.md). 
+ 

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/06/2019
-ms.openlocfilehash: 3ee952f10cebe374767e0db4a592695eeb1b4417
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 16d536ff5bd1f7d9a3427877a93036d9f711564e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810062"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099770"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Veelgestelde vragen over zeer grootschalige Azure-SQL-databases
 
@@ -243,7 +243,7 @@ Nee. Zeer grootschalige SQL-Database is een SMP-architectuur en is niet een asym
 
 ### <a name="what-is-the-oldest-sql-server-version-will-sql-database-hyperscale-support-migration-from"></a>Wat is de oudste SQL-Server versie wordt ondersteuning voor migratie van SQL Database grootschalige
 
-SQL Server 2005. Zie voor meer informatie, [migreren naar een enkele database of een gegroepeerde database](sql-database-cloud-migrate.md#migrate-to-a-single-database-or-a-pooled-database). Zie voor compatibiliteitsproblemen, [het oplossen van compatibiliteitsproblemen met databasemigratie](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues).
+SQL Server 2005. Zie voor meer informatie, [migreren naar een enkele database of een gegroepeerde database](sql-database-single-database-migrate.md#migrate-to-a-single-database-or-a-pooled-database). Zie voor compatibiliteitsproblemen, [het oplossen van compatibiliteitsproblemen met databasemigratie](sql-database-single-database-migrate.md#resolving-database-migration-compatibility-issues).
 
 ### <a name="does-sql-database-hyperscale-support-migration-from-other-data-sources-such-as-aurora-mysql-oracle-db2-and-other-database-platforms"></a>SQL Database grootschalige biedt ondersteuning voor migratie van andere gegevensbronnen, zoals Aurora, MySQL, Oracle, DB2 en andere databaseplatforms
 
