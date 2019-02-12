@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 89a54d99aa47af273e5955c2103ec696a985737e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 8e9d41131228c2399277e59a6d0edd78efda307b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493742"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999110"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Een Azure Machine Learning Studio-webservice implementeren
 Azure Machine Learning kunt u bouwen, testen en implementeren van voorspellende analytische oplossingen.
@@ -34,7 +34,7 @@ Als u wilt een Voorspellend model te trainen, kunt u Azure Machine Learning Stud
 Het proces voor het maken en beheren van training experimenten wordt uitgebreid elders beschreven. Raadpleeg voor meer informatie de volgende artikelen:
 
 * [Een eenvoudig experiment maken in Azure Machine Learning Studio](create-experiment.md)
-* [Een voorspellende oplossing met Azure Machine Learning ontwikkelen](walkthrough-develop-predictive-solution.md)
+* [Een voorspellende oplossing met Azure Machine Learning ontwikkelen](tutorial-part1-credit-risk.md)
 * [Uw trainingsgegevens importeren in Azure Machine Learning Studio](import-data.md)
 * [Experimentherhalingen in Azure Machine Learning Studio beheren](manage-experiment-iterations.md)
 
