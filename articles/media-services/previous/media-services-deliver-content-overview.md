@@ -4,7 +4,7 @@ description: In dit onderwerp biedt een overzicht van wat is betrokken bij het l
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 89ede54a-6a9c-4814-9858-dcfbb5f4fed5
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 3e968c71b87f7227dc4bd2e3f4ee486719b65e40
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 4c48e0d6c2b9d7ff2ff82da64a240e1bf0aacd39
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388155"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998248"
 ---
 # <a name="deliver-content-to-customers"></a>Lever inhoud aan klanten
 Wanneer u uw inhoud streamen of video on demand aan klanten leveren bent, wordt het doel is om te hoge kwaliteit video leveren aan verschillende apparaten met verschillende netwerkomstandigheden.

@@ -13,12 +13,12 @@ ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: fecd5cf3b5a6aac1133f94b4dc220eec826392f6
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: f7133ed74c9862a7e3d496a9093faaf3959e0d78
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54056940"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993415"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Interactieve rapporten maken met Azure Monitor-werkmappen
 
@@ -77,7 +77,7 @@ Query secties zijn zeer flexibel en kunnen worden gebruikt om aan te vragen bean
 
 * Het aantal uitzonderingen uw site throw tijdens dezelfde periode als een afname in gebruik
 * Wat was de verdeling van de laadtijden voor pagina's voor gebruikers die een pagina bekijken?
-* Hoeveel gebruikers een set pagina's weergegeven op uw site, maar niet een andere set pagina's? Dit kan nuttig zijn om te begrijpen als u clusters van gebruikers die gebruikmaken van verschillende subsets van functionaliteit van uw site zijn (Gebruik de `join` operator met de `kind=leftanti` modifier in de querytaal van Log Analytics).
+* Hoeveel gebruikers een set pagina's weergegeven op uw site, maar niet een andere set pagina's? Dit kan nuttig zijn om te begrijpen als u clusters van gebruikers die gebruikmaken van verschillende subsets van functionaliteit van uw site zijn (Gebruik de `join` operator met de `kind=leftanti` modifier in de Data Explorer query language).
 
 U ook worden niet alleen beperkt tot de werkmap van de query uit de context van de toepassing gestart. U kunt query's uitvoeren voor meerdere apps met Application Insights bewaakt, evenals Log Analytics-werkruimten, zolang u toegang tot deze resources hebt.
 
@@ -251,7 +251,7 @@ Een koppeling naar een werkmap in een Azure-Dashboard vastmaken:
 
 1. Klik op **Open** in de actiebalk
 2. Klik op de knop '...' naast de werkmap die u wilt vastmaken
-3. Klik op **vastmaken aan dashboard**.
+3. Klik op **Vastmaken aan dashboard**.
 
 ## <a name="contributing-workbook-templates"></a>Werkmapsjablonen bijdragen
 

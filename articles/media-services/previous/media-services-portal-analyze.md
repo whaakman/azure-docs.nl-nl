@@ -4,7 +4,7 @@ description: In dit onderwerp wordt beschreven hoe u uw media met Media Analytic
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 18213fc1-74f5-4074-a32b-02846fe90601
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: d8c3bb07c88dc96b7ca779ca0f4dfe09052ab290
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 02b972c0591bb05f72887e3e1c3d057d373ff48c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666167"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004866"
 ---
-# <a name="analyze-your-media-using-the-azure-portal"></a>Uw media analyseren met de Azure-portal
+# <a name="analyze-your-media-using-the-azure-portal-legacy"></a>Uw media analyseren met Azure portal (verouderd)
 > [!NOTE]
 > U hebt een Azure-account nodig om deze zelfstudie te voltooien. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie. 
 > 
@@ -53,7 +53,7 @@ De **Azure Media Indexer** Mediaprocessor kunt u media-bestanden en inhoud doorz
 ### <a name="language"></a>Taal
 De natuurlijke taal moet worden herkend in het multimediabestand. Bijvoorbeeld Engels of Spaans. 
 
-### <a name="captions"></a>bijschriften
+### <a name="captions"></a>Bijschriften
 U kunt een bijschrift-indeling die zal worden gegenereerd op basis van uw inhoud. Een indexeringstaak kunt ondertitelingsbestand genereren in de volgende indelingen:  
 
 * **SAMI**
@@ -65,7 +65,7 @@ Gesloten bijschrift (CC) bestanden in de volgende indelingen kunnen worden gebru
 ### <a name="aib-file"></a>AIB-bestand
 Selecteer deze optie als u wilt voor het genereren van de Audio Index Blob-bestand voor gebruik met het aangepaste IFilter van SQL Server. Zie voor meer informatie, [dit](https://azure.microsoft.com/blog/using-aib-files-with-azure-media-indexer-and-sql-server/) blog.
 
-### <a name="keywords"></a>trefwoorden
+### <a name="keywords"></a>Trefwoorden
 Selecteer deze optie als u wilt voor het genereren van een XML-bestand. Dit bestand bevat sleutelwoorden die van de gesproken inhoud, met de frequentie en offset informatie.
 
 ### <a name="job-name"></a>Taaknaam
@@ -108,7 +108,7 @@ De **Azure Media Face Detector** Mediaprocessor (MP) kunt u tellen, bijhouden va
 ### <a name="detection-mode"></a>Detectiemodus
 Een van de volgende modi kan worden gebruikt door de processor:
 
-* gezichtsherkenning
+* Gezichtsherkenning
 * gevoelsdetectie per gezicht
 * cumulatieve gevoelsdetectie
 

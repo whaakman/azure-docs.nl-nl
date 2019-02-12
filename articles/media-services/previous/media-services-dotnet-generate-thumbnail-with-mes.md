@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 9f717f0ae70c503d3527d5df2e6556c120146f3b
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 430e3f0db2f053a2d5a6ea2a3e2a2d1c4418b501
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249308"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995132"
 ---
-# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Miniatuurweergaven genereren met Media Encoder Standard met .NET
+# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Miniatuurweergaven genereren met Media Encoder Standard met .NET 
 
 U kunt Media Encoder Standard voor het genereren van miniaturen voor een of meer van uw invoervideo in [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), of [BMP](https://en.wikipedia.org/wiki/BMP_file_format) image bestandsindelingen. U kunt taken die alleen afbeeldingen produceren indienen of u miniaturen te genereren met codering kunt combineren. Dit artikel vindt enkele voorbeeld XML en JSON miniaturen voorinstellingen voor dergelijke scenario's. Aan het einde van het artikel, er is een [voorbeeldcode](#code_sample) die laat zien hoe u de Media Services .NET SDK gebruiken om uit te voeren van de coderingstaak.
 
@@ -415,7 +415,7 @@ Het volgende codevoorbeeld maakt gebruik van Media Services .NET SDK aan de volg
 * Geef het invoeractivum moeten worden gecodeerd.
 * Maak een uitvoerasset met de gecodeerde asset.
 * Voeg een gebeurtenis-handler om te controleren of de taak wordt uitgevoerd.
-* Verzenden van de taak.
+* Verzend de taak.
 
 Zie de [Media Services ontwikkelen met .NET](media-services-dotnet-how-to-use.md) artikel voor instructies over het instellen van uw ontwikkelomgeving.
 
@@ -551,14 +551,14 @@ De volgende overwegingen zijn van toepassing:
 * Het gebruik van expliciete tijdstempels voor begin/stap/bereik wordt ervan uitgegaan dat de invoerbron ten minste 1 minuut.
 * Jpg/Png/BmpImage elementen starten, stap, en bereik tekenreekskenmerken – en deze kunnen worden gezien als:
   
-  * Aantal frame als ze niet-negatief geheel getal zijn, bijvoorbeeld 'Start': "120,"
-  * Ten opzichte van de duur van bron als uitgedrukt als achtervoegsel %, bijvoorbeeld 'Start': '15% ', of
-  * Tijdstempel indien weergegeven als uu: mm:... de indeling. Bijvoorbeeld 'Start': ' 00: 01:00 "
+  * Framenummer als ze niet-negatief geheel getal zijn, bijvoorbeeld 'Start' zijn: "120",
+  * Ten opzichte van bronduur indien weergegeven als % achtervoegsel, bijvoorbeeld 'Start': '15% ', OF
+  * Tijdstempel indien weergegeven als uu: mm:... de indeling. Bijvoorbeeld 'Start': "00:01:00"
     
     U kunt combineren en neem opmerkingen als u overeenkomen.
     
-    Daarnaast ondersteunt Start ook een speciale Macro: {Best}, die probeert vast te stellen van de eerste "interessante" frame van de NOTITIE-inhoud: (stap en het bereik worden genegeerd tijdens het starten is ingesteld op {beste})
-  * Standaardinstellingen: Start: {aanbevolen}
+    Daarnaast ondersteunt Start ook een speciale Macro: {Best}, die probeert vast te stellen van de eerste "interessante" frame van de NOTITIE-inhoud: (Stap en het bereik worden genegeerd tijdens het starten is ingesteld op {beste})
+  * Standaardinstellingen: Starten: {aanbevolen}
 * De indeling van uitvoer moet expliciet worden opgegeven voor de indeling van elke afbeelding: Jpg/Png/BmpFormat. Indien aanwezig, overeenkomt MES JpgVideo naar JpgFormat enzovoort. Uitvoerindeling introduceert een nieuwe installatiekopie codec specifieke Macro: {Index}, die moet worden presenteren (één keer en slechts één keer) voor de installatiekopie uitvoerindelingen.
 
 ## <a name="next-steps"></a>Volgende stappen

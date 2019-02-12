@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell en CLI: Schakel SQL TDE - uw sleutel - Azure SQL Database | Microsoft Docs'
+title: 'PowerShell en CLI: Schakel SQL TDE - met Azure Key Vault: Breng uw eigen sleutel - Azure SQL Database | Microsoft Docs'
 description: Informatie over het configureren van een Azure SQL Database en datawarehouse voor het starten van transparante gegevensversleuteling (TDE) gebruiken voor versleuteling-at-rest met behulp van PowerShell of CLI.
 services: sql-database
 ms.service: sql-database
@@ -12,16 +12,16 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: be73f5cb7db232538f301b2eb56bf61267fce5d5
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: b6abfa24d790554de239171ffef1899cdc135d26
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566717"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996250"
 ---
-# <a name="powershell-and-cli-enable-transparent-data-encryption-using-your-own-key-from-azure-key-vault"></a>PowerShell en CLI: Transparent Data Encryption met behulp van uw eigen sleutel uit Azure Key Vault inschakelen
+# <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell en CLI: Transparent Data Encryption inschakelen met de klant beheerde sleutel uit Azure Key Vault
 
-Dit artikel helpt bij het gebruik van een sleutel uit Azure Key Vault voor transparante gegevensversleuteling (TDE) op een SQL-Database of het datawarehouse. Voor meer informatie over de TDE met Bring Your Own Key (BYOK) ondersteuning, gaat u naar [TDE Bring Your Own Key to Azure SQL](transparent-data-encryption-byok-azure-sql.md). 
+Dit artikel helpt bij het gebruik van een sleutel uit Azure Key Vault voor transparante gegevensversleuteling (TDE) op een SQL-Database of het datawarehouse. Voor meer informatie over de TDE met integratie van Azure Key Vault - ondersteuning voor Bring Your Own Key (BYOK), gaat u naar [TDE met de klant beheerde sleutels in Azure Key Vault](transparent-data-encryption-byok-azure-sql.md). 
 
 ## <a name="prerequisites-for-powershell"></a>Vereisten voor PowerShell
 

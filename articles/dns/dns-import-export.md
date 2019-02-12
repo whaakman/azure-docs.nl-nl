@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: victorh
-ms.openlocfilehash: 37dd51a60d9ec6e018f58e2cfd593490d126670b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 3dac11ac4409ddde5264307439533bd583d75a9d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888648"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993048"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importeren en exporteren van een DNS-zone-bestand met de Azure CLI 
 
@@ -116,7 +116,7 @@ Als u wilt controleren of de DNS-zone nadat u het bestand importeert, kunt u een
     az network dns record-set list -g myresourcegroup -z contoso.com
     ```
 
-* U kunt de records weergeven met behulp van de PowerShell-cmdlet `Get-AzureRmDnsRecordSet`.
+* U kunt de records weergeven met behulp van de Azure CLI-opdracht `az network dns record-set ns list`.
 * U kunt `nslookup` om te controleren of de naamomzetting voor de records. Omdat de zone nog niet is toegewezen, moet u de juiste DNS-naamservers expliciet opgeven. Het volgende voorbeeld laat zien hoe de namen van de naam toegewezen aan de zone worden opgehaald. Dit ook wordt uitgelegd hoe u de record 'www' query's uitvoeren met behulp van `nslookup`.
 
     ```azurecli
@@ -188,6 +188,6 @@ Als met het importeren van de zone, moet u eerst aanmelden, kies uw abonnement, 
 
 Voor het exporteren van de bestaande Azure DNS-zone **contoso.com** in resourcegroep **myresourcegroup** naar het bestand **contoso.com.txt** uitvoeren (in de huidige map), `azure network dns zone export`. Met deze opdracht wordt de service Azure DNS-recordsets in de zone inventariseren en de resultaten exporteren naar een bestand van de zone BIND-compatibel.
 
-    ```
-    az network dns zone export -g myresourcegroup -n contoso.com -f contoso.com.txt
-    ```
+```
+az network dns zone export -g myresourcegroup -n contoso.com -f contoso.com.txt
+```
