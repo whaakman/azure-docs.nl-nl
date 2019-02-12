@@ -6,17 +6,18 @@ keywords: clip;subclip;encoding;media
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 0894c3677b87fe48c130d648253dadd0d43429f4
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 585cb88ca853954b23369c8e097583e7e8656355
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54821444"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002136"
 ---
-# <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Kniptaken van Azure Media Clipper verzenden
+# <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Kniptaken van Azure Media Clipper verzenden 
+
 Azure Media Clipper vereist een **submitSubclipCallback** methode om te worden geïmplementeerd voor het verwerken van knipsel taken verzenden. Deze functie is voor het implementeren van een HTTP POST van de uitvoer Clipper naar een webservice. Deze webservice is waar u de coderingstaak kunt indienen. De uitvoer van de Clipper is ofwel een Media Encoder Standard codering voorinstelling voor gerenderde taken of de nettolading van de REST-API voor dynamisch-manifestfilter aanroepen. Dit Pass Through-model is nodig omdat media services-accountreferenties niet beveiligd in de browser van de client zijn.
 
 De volgende reeksdiagram illustreert de werkstroom tussen de browserclient, uw web-service en Azure Media Services: ![Azure Media Clipper reeksdiagram](media/media-services-azure-media-clipper-submit-job/media-services-azure-media-clipper-sequence-diagram.PNG)

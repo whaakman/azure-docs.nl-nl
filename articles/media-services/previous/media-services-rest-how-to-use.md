@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/10/2019
 ms.author: juliako;johndeu
-ms.openlocfilehash: 7ea2a84daaa22e0fc7ff4dc90ca41dd906b808c8
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: e0011d36ccff7b9d621679f15776bbdb15d0cbe4
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159737"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005451"
 ---
-# <a name="media-services-operations-rest-api-overview"></a>Overzicht van Media Services operations REST-API
+# <a name="media-services-operations-rest-api-overview"></a>Overzicht van Media Services operations REST-API 
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
 
 De **Media Services Operations REST** API wordt gebruikt voor het maken van taken, Assets, Live kanalen en andere resources in een Media Services-account. Zie voor meer informatie, [naslaginformatie over REST-API van Media Services Operations](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
@@ -55,12 +55,12 @@ De volgende overwegingen zijn van toepassing wanneer u met behulp van REST.
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Standaard HTTP-aanvraagheaders ondersteund door Media Services
 Er is een set van vereiste headers die u in uw aanvraag opnemen moet voor elke aanroep die u in Media Services aanbrengt, en ook een set met optionele koppen u wilt opnemen. De volgende tabel bevat de vereiste headers:
 
-| Koptekst | Type | Waarde |
+| Header | Type | Value |
 | --- | --- | --- |
 | Autorisatie |Bearer |Bearer is de enige toegestane autorisatiemechanismen. De waarde moet ook het toegangstoken dat door Azure Active Directory. |
-| x-ms-version |Decimaal |2.17 (of de meest recente versie)|
-| DataServiceVersion |Decimaal |3.0 |
-| MaxDataServiceVersion |Decimaal |3.0 |
+| x-ms-version |Decimal |2.17 (of de meest recente versie)|
+| DataServiceVersion |Decimal |3.0 |
+| MaxDataServiceVersion |Decimal |3.0 |
 
 > [!NOTE]
 > Omdat Media Services maakt gebruik van OData om beschikbaar te stellen van de REST-API's, moeten de DataServiceVersion en MaxDataServiceVersion headers worden opgenomen in alle aanvragen; echter als dat niet het geval is, klikt u vervolgens op dit moment Media Services wordt ervan uitgegaan dat de waarde DataServiceVersion in gebruik is 3.0.
@@ -69,26 +69,26 @@ Er is een set van vereiste headers die u in uw aanvraag opnemen moet voor elke a
 
 Hier volgt een aantal optionele headers:
 
-| Koptekst | Type | Waarde |
+| Header | Type | Value |
 | --- | --- | --- |
-| Datum |RFC 1123 datum |Tijdstempel van de aanvraag |
-| Accepteren |Inhoudstype |Het aangevraagde type inhoud voor het antwoord, zoals het volgende:<p> -application/json; odata = uitgebreide<p> -application/atom + xml<p> Antwoorden mogelijk een andere type inhoud, zoals een blob ophalen, waarbij een geslaagd antwoord bevat de stroom blob als de nettolading. |
-| Geaccepteerd-Encoding |Gzip, deflate |GZIP en DEFLATE-codering, indien van toepassing. Opmerking: Voor grote resources, Media Services deze header negeren en niet-gecomprimeerde gegevens retourneren. |
-| Accepteer taal |"en", "es", enzovoort. |Hiermee geeft u de gewenste taal voor het antwoord. |
-| Accepteer tekenset |Tekenset type, zoals "UTF-8" |Standaard wordt UTF-8. |
+| Date |RFC 1123 datum |Tijdstempel van de aanvraag |
+| Accepteren |Inhoudstype |Het aangevraagde type inhoud voor het antwoord, zoals het volgende:<p> -application/json;odata=verbose<p> -application/atom + xml<p> Antwoorden mogelijk een andere type inhoud, zoals een blob ophalen, waarbij een geslaagd antwoord bevat de stroom blob als de nettolading. |
+| Accept-Encoding |Gzip, deflate |GZIP en DEFLATE-codering, indien van toepassing. Opmerking: Voor grote resources, Media Services deze header negeren en niet-gecomprimeerde gegevens retourneren. |
+| Accept-Language |"en", "es", enzovoort. |Hiermee geeft u de gewenste taal voor het antwoord. |
+| Accept-Charset |Tekenset type, zoals "UTF-8" |Standaard wordt UTF-8. |
 | X-HTTP-methode |HTTP-methode |Hiermee kunnen clients of firewalls die geen ondersteuning voor HTTP-methoden, zoals opslag of verwijderen voor het gebruik van deze methoden, tunnel via een GET-aanroep. |
-| Inhoudstype |Inhoudstype |Type inhoud van de hoofdtekst van de aanvraag in de PUT- of POST-aanvragen. |
-| client-request-id |Reeks |Een aanroeper gedefinieerde waarde waarmee de aanvraag. Als u opgeeft, wordt deze waarde in het antwoordbericht worden opgenomen als een manier om toe te wijzen de aanvraag. <p><p>**Belangrijk**<p>Waarden moeten worden beperkt tot 2096b (2k). |
+| Content-Type |Inhoudstype |Type inhoud van de hoofdtekst van de aanvraag in de PUT- of POST-aanvragen. |
+| client-request-id |String |Een aanroeper gedefinieerde waarde waarmee de aanvraag. Als u opgeeft, wordt deze waarde in het antwoordbericht worden opgenomen als een manier om toe te wijzen de aanvraag. <p><p>**Belangrijk**<p>Waarden moeten worden beperkt tot 2096b (2k). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Standaard-HTTP-antwoordheaders ondersteund door Media Services
 Hier volgt een set van headers die kunnen worden geretourneerd aan u, afhankelijk van de resource die u zijn aangevraagd en de actie die u bedoeld om uit te voeren.
 
-| Koptekst | Type | Waarde |
+| Header | Type | Value |
 | --- | --- | --- |
-| aanvraag-id |Reeks |Een unieke id voor de huidige bewerking, service gegenereerd. |
-| client-request-id |Reeks |Een id die is opgegeven door de oproepende functie in de oorspronkelijke aanvraag, indien aanwezig. |
-| Datum |RFC 1123 datum |De datum/tijd die de aanvraag is verwerkt. |
-| Inhoudstype |Varieert |Het inhoudstype van de antwoordtekst. |
+| request-id |String |Een unieke id voor de huidige bewerking, service gegenereerd. |
+| client-request-id |String |Een id die is opgegeven door de oproepende functie in de oorspronkelijke aanvraag, indien aanwezig. |
+| Date |RFC 1123 datum |De datum/tijd die de aanvraag is verwerkt. |
+| Content-Type |Varieert |Het inhoudstype van de antwoordtekst. |
 | Content-Encoding |Varieert |Gzip of verkleinen, indien van toepassing. |
 
 ## <a name="standard-http-verbs-supported-by-media-services"></a>Standaard HTTP-termen die worden ondersteund door Media Services
@@ -106,7 +106,7 @@ Hier volgt een volledige lijst met HTTP-termen die kunnen worden gebruikt bij he
 ## <a name="discover-and-browse-the-media-services-entity-model"></a>Detecteren en door de Media Services-entiteitsmodel bladeren
 Als u Media Services-entiteiten meer kan worden gedetecteerd, kan de bewerking $metadata worden gebruikt. Hiermee kunt u om op te halen van alle geldige Entiteitstypen, entiteitseigenschappen, koppelingen, functies, acties, enzovoort. De bewerking $metadata toevoegt aan het einde van uw Media Services REST API-eindpunt, kunt u toegang tot deze service voor de detectie.
 
- /API/$ metagegevens.
+ /api/$metadata.
 
 U moet toevoegen '? api-version=2.x ' aan het einde van de URI als u wilt weergeven van de metagegevens in een browser of de header x-ms-version niet in uw aanvraag opnemen.
 

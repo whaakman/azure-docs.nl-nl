@@ -12,12 +12,12 @@ ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 26517e55685de6e1fd9174bb1892b877f0e263d6
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 26e131ef598feae099e789bc51909c4eb249bd79
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895649"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001975"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Aan de slag met SQL Database Auditing
 
@@ -125,6 +125,7 @@ Als u ervoor hebt gekozen auditlogboeken schrijven naar Log Analytics:
 Als u ervoor hebt gekozen auditlogboeken naar Event Hub schrijven:
 
 - Als u wilt controleren Logboeken gegevens uit Event Hub gebruiken, moet u voor het instellen van een stroom gebeurtenissen gebruiken en te schrijven naar een doel. Zie voor meer informatie, [documentatie over Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/).
+- Auditlogboeken in Event Hub worden vastgelegd in de hoofdtekst van [Apache Avro](http://avro.apache.org/) gebeurtenissen en opgeslagen met behulp van JSON opmaak met UTF-8-codering. De om controlelogboeken te lezen, kunt u [Avro-hulpprogramma's](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) of een vergelijkbaar hulpprogramma's waarmee deze indeling worden verwerkt.
 
 Als u auditlogboeken schrijven naar een Azure storage-account, zijn er verschillende methoden die u gebruiken kunt om de logboeken weer te geven:
 

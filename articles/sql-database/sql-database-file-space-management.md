@@ -11,15 +11,16 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 94b793d4ab68ae4d2b8a28961d76eed1ea875ff7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: cf73708682a8434ffabaff101d6d6928671af4b6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468628"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003717"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Ruimte in Azure SQL Database beheren
+
 Dit artikel beschrijft de verschillende typen opslagruimte in Azure SQL Database en de stappen die kunnen worden uitgevoerd wanneer de bestandsruimte voor databases toegewezen en elastische pools moet expliciet worden beheerd.
 
 ## <a name="overview"></a>Overzicht
@@ -33,11 +34,14 @@ Mogelijk moet u in de volgende scenario's het gebruik van bestandsruimte bewaken
 - Sta toe dat databases en elastische pools afzonderlijk naar een andere servicelaag of prestatielaag kunnen worden omgezet met een kleinere maximale grootte.
 
 ### <a name="monitoring-file-space-usage"></a>Gebruik van schijfruimte bewaken
+
 De meeste storage space metrische gegevens weergegeven in de Azure-portal en de volgende API's meten alleen het formaat van pagina's van gegevens die worden gebruikt:
+
 - Azure Resource Manager op basis van metrische gegevens over API's zoals PowerShell [get-metrische gegevens](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 De volgende API's meten echter ook de grootte van de toegewezen ruimte voor databases en elastische pools:
+
 - T-SQL: [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
@@ -62,13 +66,14 @@ Inzicht krijgen in de volgende storage space aantallen zijn belangrijk voor het 
 
 Het volgende diagram illustreert de relatie tussen de verschillende typen opslagruimte voor een database.
 
-![ruimte opslagtypen en relaties](./media/sql-database-file-space-management/storage-types.png) 
+![ruimte opslagtypen en relaties](./media/sql-database-file-space-management/storage-types.png)
 
 ## <a name="query-a-database-for-storage-space-information"></a>Query uitvoeren op een database voor storage space informatie
 
 De volgende query's kunnen worden gebruikt om te bepalen storage space hoeveelheden voor een database.  
 
 ### <a name="database-data-space-used"></a>Databaseruimte voor gegevens die worden gebruikt
+
 De volgende query uit om de hoeveelheid ruimte in database gegevens gebruikt te wijzigen.  Eenheden van het queryresultaat zijn in MB.
 
 ```sql
@@ -81,6 +86,7 @@ ORDER BY end_time DESC
 ```
 
 ### <a name="database-data-space-allocated-and-unused-allocated-space"></a>Gegevens uit de databaseruimte toegewezen en ongebruikte toegewezen ruimte
+
 Gebruik de volgende query retourneert de hoeveelheid ruimte in database gegevens toegewezen en de hoeveelheid niet-gebruikte ruimte die is toegewezen.  Eenheden van het queryresultaat zijn in MB.
 
 ```sql
@@ -94,6 +100,7 @@ HAVING type_desc = 'ROWS'
 ```
  
 ### <a name="database-data-max-size"></a>Maximale grootte van database
+
 De volgende query uit om de maximale grootte van de database gegevens te wijzigen.  Eenheden van het queryresultaat zijn in bytes.
 
 ```sql

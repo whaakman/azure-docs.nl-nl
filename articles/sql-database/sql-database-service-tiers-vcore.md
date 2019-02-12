@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 48180d4a9dcf7219815b5bc397647d7d97467cf7
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: da43d1261b0ba9bd65998fbaa9fe9e364e686071
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961785"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992123"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore-servicelaag, Azure Hybrid Benefit en migratie
 
@@ -29,7 +29,7 @@ Het op vCore gebaseerde aankoopmodel kunt u onafhankelijk van elkaar schalen rek
 Gen4 hardware biedt aanzienlijk meer geheugen per vCore. Gen5 hardware kunt u echter veel hoger rekenresources kan worden uitgebreid.
 
 > [!NOTE]
-> Zie voor meer informatie over Servicelagen op basis van DTU [Servicelagen op basis van DTU](sql-database-service-tiers-dtu.md). Zie voor meer informatie over Servicelagen op basis van DTU en vCore-gebaseerde service-lagen differentiëren [modellen aanschaffen van Azure SQL Database](sql-database-service-tiers.md).
+> Zie voor meer informatie over Servicelagen op basis van DTU [Servicelagen op basis van DTU](sql-database-service-tiers-dtu.md). Zie voor meer informatie over Servicelagen op basis van DTU en vCore-gebaseerde service-lagen differentiëren [modellen aanschaffen van Azure SQL Database](sql-database-purchase-models.md).
 
 ## <a name="service-tier-characteristics"></a>Service tier kenmerken
 
@@ -107,10 +107,10 @@ De volgende tabel bevat richtlijnen voor de specifieke migratiescenario's:
 |Standard|Algemeen doel|Laterale|Kunnen in willekeurige volgorde worden gemigreerd, maar moet ervoor zorgen dat een juiste vCore sizing *|
 |Premium|Bedrijfskritiek|Laterale|Kunnen in willekeurige volgorde worden gemigreerd, maar moet ervoor zorgen dat juiste vCore sizing *|
 |Standard|Bedrijfskritiek|Upgraden|Secundaire moeten eerst migreren|
-|Bedrijfskritiek|Standard|Downgrade uitvoeren|Primaire moeten eerst migreren|
-|Premium|Algemeen doel|Downgrade uitvoeren|Primaire moeten eerst migreren|
+|Bedrijfskritiek|Standard|Downgrade|Primaire moeten eerst migreren|
+|Premium|Algemeen doel|Downgrade|Primaire moeten eerst migreren|
 |Algemeen doel|Premium|Upgraden|Secundaire moeten eerst migreren|
-|Bedrijfskritiek|Algemeen doel|Downgrade uitvoeren|Primaire moeten eerst migreren|
+|Bedrijfskritiek|Algemeen doel|Downgrade|Primaire moeten eerst migreren|
 |Algemeen doel|Bedrijfskritiek|Upgraden|Secundaire moeten eerst migreren|
 ||||
 

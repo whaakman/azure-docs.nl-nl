@@ -7,12 +7,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 11/28/2018
-ms.openlocfilehash: 1c0502458a5c20991ada6f5a33d067a38596752b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d6cb019ff01a1e6df5361c62629aa2e7b52523f7
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817560"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999280"
 ---
 # <a name="azure-key-vault-managed-storage-account---powershell"></a>Azure Key Vault beheerd opslagaccount - PowerShell
 
@@ -21,6 +21,8 @@ ms.locfileid: "55817560"
 > - Verifiëren van uw clienttoepassing met behulp van een toepassings- of -identiteit, in plaats van de referenties van het opslagaccount. 
 > - Gebruik een [Azure AD beheerde identiteit](/azure/active-directory/managed-identities-azure-resources/) bij het uitvoeren op Azure. Beheerde identiteiten verwijderen de noodzaak voor clientverificatie samen en opslaan van referenties in of met uw toepassing.
 > - Gebruik rollen gebaseerd toegangsbeheer (RBAC) voor het beheren van autorisatie, die ook wordt ondersteund door Key Vault.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Een [Azure storage-account](/azure/storage/storage-create-storage-account) maakt gebruik van een referentie die uit een accountnaam en een sleutel bestaat. De sleutel is gegenereerd, en fungeert als een 'wachtwoord' in plaats van een cryptografische sleutel. Key Vault deze opslagaccountsleutels kunt beheren door op te slaan als [Key Vault-geheimen](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets). 
 
@@ -61,13 +63,13 @@ $keyVaultName = "kvContoso"
 $keyVaultSpAppId = "cfa8b339-82a2-471a-a3c9-0fc0be7a4093" # See "IMPORTANT" block above for information on Key Vault Application IDs
 
 # Authenticate your PowerShell session with Azure AD, for use with Azure Resource Manager cmdlets
-$azureProfile = Connect-AzureRmAccount
+$azureProfile = Connect-AzAccount
 
 # Get a reference to your Azure storage account
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName
+$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName
 
 # Assign RBAC role "Storage Account Key Operator Service Role" to Key Vault, limiting the access scope to your storage account. For a classic storage account, use "Classic Storage Account Key Operator Service Role." 
-New-AzureRmRoleAssignment -ApplicationId $keyVaultSpAppId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storageAccount.Id
+New-AzRoleAssignment -ApplicationId $keyVaultSpAppId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storageAccount.Id
 ```
 
 Na de roltoewijzing is gelukt ziet u uitvoer die vergelijkbaar is met het volgende voorbeeld:
@@ -95,7 +97,8 @@ Met behulp van dezelfde PowerShell-sessie, het toegangsbeleid van Key Vault voor
 
 ```azurepowershell-interactive
 # Give your user principal access to all storage account permissions, on your Key Vault instance
-Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $azureProfile.Context.Account.Id -PermissionsToStorage get, list, listsas, delete, set, update, regeneratekey, recover, backup, restore, purge
+
+Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $azureProfile.Context.Account.Id -PermissionsToStorage get, list, listsas, delete, set, update, regeneratekey, recover, backup, restore, purge
 ```
 
 Houd er rekening mee dat machtigingen voor storage-accounts zijn niet beschikbaar op de pagina storage account 'Toegangsbeleid' in de Azure-portal.
@@ -106,7 +109,7 @@ Met behulp van dezelfde PowerShell-sessie, een beheerde storage-account maken in
 
 ```azurepowershell-interactive
 # Add your storage account to your Key Vault's managed storage accounts
-Add-AzureKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -DisableAutoRegenerateKey
+Add-AzKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -DisableAutoRegenerateKey
 ```
 
 Na een geslaagde toevoeging van de storage-account met geen sleutel opnieuw genereren ziet u uitvoer die vergelijkbaar is met het volgende voorbeeld:
@@ -131,7 +134,7 @@ Als u Key Vault opnieuw genereren van sleutels van uw opslagaccount regelmatig w
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)
-Add-AzureKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -RegenerationPeriod $regenPeriod
+Add-AzKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -RegenerationPeriod $regenPeriod
 ```
 
 Na een geslaagde toevoeging van de storage-account met de sleutel opnieuw genereren ziet u uitvoer die vergelijkbaar is met het volgende voorbeeld:

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2018
+ms.date: 02/10/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 22603de40e2ebafb1354377898f5a0432e4f6129
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 3bc42bf5b83f9ff983c3d8d88a9a496cc395096c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388820"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992582"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Media Encoder Standard indelingen en codecs voor
 
@@ -29,16 +29,16 @@ In dit artikel bevat een lijst van de meest voorkomende importeren en exporteren
 | Bestandsindelingen (bestandsextensies) | Ondersteund |
 | --- | --- | --- | --- |
 | FLV (met H.264- en AAC-codecs) (.flv) |Ja |
-| MXF (.mxf) |Ja |
+| MXF    (.mxf) |Ja |
 | GXF (.gxf) |Ja |
 | MPEG2-PS, MPEG2-TS 3GP (TS, PS, .3gp, .3GP, mpg) |Ja |
-| Windows mediavideo (WMV) / de AVP (WMV-indeling, .asf) |Ja |
+| Windows Media Video (WMV)/ASF (.wmv, .asf) |Ja |
 | AVI (niet-gecomprimeerde 8-bits/10 bits) (.avi) |Ja |
-| MP4 (.mp4, .m4a, .m4v) / ISMV (.isma, .ismv) |Ja |
-| [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (dvr-ms) |Ja |
+| MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv) |Ja |
+| [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Ja |
 | Matroska/WebM (.mkv) |Ja |
 | WAVE/WAV (.wav) |Ja |
-| QuickTime (MOV) |Ja |
+| QuickTime (.mov) |Ja |
 
 > [!NOTE]
 > Hiervoor is een lijst van de meer frequent bestandsextensies. Media Encoder Standard biedt ondersteuning voor vele andere (bijvoorbeeld: .m2ts, .mpeg2video, .qt). Als u probeert een bestand coderen en krijgt u een foutbericht over de indeling die niet wordt ondersteund, Geef uw feedback [hier](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
@@ -58,7 +58,7 @@ of
 | Codecs invoervideo | Ondersteund |
 | --- | --- | --- | --- |
 | AVC 8-bits/10 bits, maximaal 4:2:2, inclusief AVCIntra |8-bits 4:2:0 en 4:2:2 |
-| Avid resolutie (in MXF) |Ja |
+| Avid DNxHD (in MXF) |Ja |
 | DVCPro/DVCProHD (in MXF) |Ja |
 | Digitale video (DV) (in AVI-bestanden) |Ja |
 | JPEG 2000 |Ja |
@@ -91,13 +91,13 @@ of
 | AMR (adaptive multi-rate) |Ja |
 | AES (SMPTE 331 M en 302 M, AES3-2003) |Nee |
 | Dolby® E |Nee |
-| Dolby® digitale (AC3) |Nee |
-| Dolby® digitale Plus (E-AC3) |Nee |
+| Dolby® Digital (AC3) |Nee |
+| Dolby® Digital Plus (E-AC3) |Nee |
 
 ## <a name="output-formats-and-codecs"></a>Output-indelingen en codecs voor
 De volgende tabel bevat de codecs en bestandsindelingen die worden ondersteund voor exporteren.
 
-| Bestandsindeling | Video-Codec | Audiocodec |
+| Bestandsindeling | Video-Codec | Audio Codec |
 | --- | --- | --- |
 | MP4 <br/><br/>(met inbegrip van multi-bitrate MP4-containers) |H.264 (hoog, Main en basislijn profielen) |AAC-LC, hij AAC v1, v2 HE-AAC |
 | MPEG2-TS |H.264 (hoog, Main en basislijn profielen) |AAC-LC, hij AAC v1, v2 HE-AAC |

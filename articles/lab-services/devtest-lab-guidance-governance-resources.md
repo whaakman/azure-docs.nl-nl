@@ -3,21 +3,23 @@ title: Beheer van Azure DevTest Labs-infrastructuur
 description: Dit artikel bevat richtlijnen voor het beheer van Azure DevTest Labs-infrastructuur.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
-author: spelluru
+author: christianreddington
 manager: femila
+editor: spelluru
 ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
-ms.author: spelluru
-ms.openlocfilehash: 7835674536c43fcb694ad8eaeb18aebb89de5fad
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.date: 02/11/2019
+ms.author: chredd
+ms.reviewer: anthdela,juselph
+ms.openlocfilehash: 68139dee2a506918a001d52212dad76483f24068
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262071"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999790"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Beheer van infrastructuur in Azure DevTest Labs - Resources
 In dit artikel komen de uitlijning en het beheer van resources voor DevTest Labs in uw organisatie. 
@@ -75,7 +77,7 @@ U kunt ook een lab voor een bepaald project binnen Azure DevOps-projecten. Vervo
 Hoe kunnen we voorkomen dat het verwijderen van resources in een lab?
 
 ### <a name="answer"></a>Antwoord
-U wordt aangeraden de juiste machtigingen op het niveau van het lab te stellen zodat alleen gemachtigde gebruikers kunnen resources verwijderen of wijzigen van beleid voor lab maken. Ontwikkelaars moeten worden geplaatst in de **DevTest Labs gebruikers** groep. De ontwikkelaar van de potentiële klant of de infrastructuur potentiële klant moet de **DevTest Labs eigenaar**. Het is raadzaam dat u slechts twee lab-eigenaren hebt. Dit beleid is een uitbreiding naar de codeopslagplaats om te voorkomen dat beschadigd. Lab gebruikt rechten voor het gebruik van resources hebben maar lab-beleid kunnen niet worden bijgewerkt. Zie het volgende artikel met een lijst met de functies en de rechten die elke ingebouwde groep in een lab heeft: [eigenaars en gebruikers toevoegen in Azure DevTest Labs](devtest-lab-add-devtest-user.md).
+U wordt aangeraden de juiste machtigingen op het niveau van het lab te stellen zodat alleen gemachtigde gebruikers kunnen resources verwijderen of wijzigen van beleid voor lab maken. Ontwikkelaars moeten worden geplaatst in de **DevTest Labs gebruikers** groep. De ontwikkelaar van de potentiële klant of de infrastructuur potentiële klant moet de **DevTest Labs eigenaar**. Het is raadzaam dat u slechts twee lab-eigenaren hebt. Dit beleid is een uitbreiding naar de codeopslagplaats om te voorkomen dat beschadigd. Lab gebruikt rechten voor het gebruik van resources hebben maar lab-beleid kunnen niet worden bijgewerkt. Zie het volgende artikel met een lijst met de functies en de rechten die elke ingebouwde groep in een lab heeft: [Eigenaars en gebruikers toevoegen in Azure DevTest Labs](devtest-lab-add-devtest-user.md).
 
 ## <a name="move-lab-to-another-resource-group"></a>Lab verplaatsen naar een andere resourcegroep 
 

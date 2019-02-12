@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: fc4d09b59e568a693b7f7951e9e716d04a5a2a49
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: d664c33c4535d25ec93fd1f36c990f2764a4e071
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729265"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000810"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>JavaScript-voorbeelden voor gebruik in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-U kunt uw eigen code van de client-side JavaScript toevoegen aan uw Azure Active Directory (Azure AD) B2C-toepassingen. Dit artikel wordt beschreven hoe kunt u uw [aangepast beleid](active-directory-b2c-overview-custom.md) om in te schakelen van de uitvoering van het script.
+U kunt uw eigen code van de client-side JavaScript toevoegen aan uw Azure Active Directory (Azure AD) B2C-toepassingen. Dit artikel wordt beschreven hoe kunt u uw [gebruikersstroom](user-flow-javascript-overview.md) of [aangepast beleid](active-directory-b2c-overview-custom.md) om in te schakelen van de uitvoering van het script.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Selecteer een [pagina contract](page-contract.md) voor de gebruikersinterface-elementen van uw toepassing. Als u van plan bent JavaScript gebruiken, moet u de versie van een contract voor al uw inhoudsdefinities in het aangepaste beleid definiëren.
+Selecteer een [pagina contract](page-contract.md) voor de gebruikersinterface-elementen van uw toepassing. Als u van plan bent JavaScript gebruiken, moet u de versie van een contract voor al uw inhoudsdefinities definiëren in het beleid of een aangepast beleid.
 
 ## <a name="add-the-scriptexecution-element"></a>Het element ScriptExecution toevoegen
 

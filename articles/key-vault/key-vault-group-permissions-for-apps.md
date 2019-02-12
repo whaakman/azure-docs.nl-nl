@@ -13,14 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: cd680f24eafe61bc73fa6eb91df4b4dfa5f5399b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 24f725f7b83c4f043ec2b977917d5bb09665c96d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073421"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990322"
 ---
 # <a name="grant-several-applications-access-to-a-key-vault"></a>Verschillende toepassingen toegang verlenen tot een key vault
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Beleid voor toegangsbeheer kan worden gebruikt om verschillende toepassingen toegang verlenen tot een key vault. Een beleid voor toegangsbeheer kan maximaal 1024 toepassingen ondersteunen en is als volgt geconfigureerd:
 
@@ -28,12 +30,16 @@ Beleid voor toegangsbeheer kan worden gebruikt om verschillende toepassingen toe
 2. Voeg alle van de toepassingen die de service-principals aan de beveiligingsgroep die is gekoppeld.
 3. De beveiliging groepstoegang verlenen tot uw Key Vault.
 
-Hier volgen de vereisten:
-* [Azure Active Directory V2 PowerShell-module installeren](https://www.powershellgallery.com/packages/AzureAD).
-* [Installeer Azure PowerShell](/powershell/azure/overview).
-* Als u wilt de volgende opdrachten uitvoeren, moet u machtigingen voor groepen in de Azure Active Directory-tenant maken/bewerken. Als u geen machtigingen hebt, moet u mogelijk contact op met uw Azure Active Directory-beheerder. Zie [over Azure Key Vault sleutels, geheimen en certificaten](about-keys-secrets-and-certificates.md) voor meer informatie over Key Vault-beleid toegangsmachtigingen.
+## <a name="prerequisites"></a>Vereisten
 
-Voer nu de volgende opdrachten uit in PowerShell:
+Hier volgen de vereisten:
+* [Installeer Azure PowerShell](/powershell/azure/overview).
+* [Installeer de Azure Active Directory V2 PowerShell-module](https://www.powershellgallery.com/packages/AzureAD).
+* Machtigingen voor groepen in de Azure Active Directory-tenant maken/bewerken. Als u geen machtigingen hebt, moet u mogelijk contact op met uw Azure Active Directory-beheerder. Zie [over Azure Key Vault sleutels, geheimen en certificaten](about-keys-secrets-and-certificates.md) voor meer informatie over Key Vault-beleid toegangsmachtigingen.
+
+## <a name="granting-key-vault-access-to-applications"></a>Key Vault toegang verlenen tot toepassingen
+
+Voer de volgende opdrachten uit in PowerShell:
 
 ```powershell
 # Connect to Azure AD 
@@ -49,7 +55,7 @@ Add-AzureADGroupMember –ObjectId $aadGroup.ObjectId -RefObjectId $spn.ObjectId
 # You can add several members to this group, in this fashion. 
  
 # Set the Key Vault ACLs 
-Set-AzureRmKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.ObjectId `
+Set-AzKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.ObjectId `
 -PermissionsToKeys decrypt,encrypt,unwrapKey,wrapKey,verify,sign,get,list,update,create,import,delete,backup,restore,recover,purge `
 –PermissionsToSecrets get,list,set,delete,backup,restore,recover,purge `
 –PermissionsToCertificates get,list,delete,create,import,update,managecontacts,getissuers,listissuers,setissuers,deleteissuers,manageissuers,recover,purge,backup,restore `

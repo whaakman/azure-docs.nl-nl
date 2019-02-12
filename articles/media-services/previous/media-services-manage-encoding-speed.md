@@ -12,22 +12,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 3f358be630d9a50d0f048d66c9f79e168c8adcdf
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 2d36b10adbe277331eafdf1b68d0f5711508cc05
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230196"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992209"
 ---
-#  <a name="manage-speed-and-concurrency-of-your-encoding"></a>De snelheid en gelijktijdigheid van uw codering beheren
+#  <a name="manage-speed-and-concurrency-of-your-encoding-legacy"></a>Beheren van de snelheid en gelijktijdigheid van uw codering (verouderd)
 
 Dit artikel geeft een kort overzicht van hoe u de snelheid en gelijktijdigheid van uw taken/coderingstaken kunt beheren.
 
 ## <a name="overview"></a>Overzicht
 
-In Media Services, een **gereserveerde-eenheidstype** bepaalt de snelheid waarmee uw multimedia standaardtaken voor de verwerking worden verwerkt. U kunt kiezen uit de volgende gereserveerde-eenheidstypen: **S1**, **S2** en **S3**. Een coderingstaak wordt bijvoorbeeld sneller uitgevoerd wanneer u het gereserveerde-eenheidstype **S2** gebruikt (in vergelijking met het type **S1**). De [encoding-eenheden schalen](media-services-scale-media-processing-overview.md) onderwerp bevat een tabel die het helpt u besluit bij de keuze tussen verschillende snelheden voor codering.
+In Media Services, een **gereserveerde-eenheidstype** bepaalt de snelheid waarmee uw multimedia standaardtaken voor de verwerking worden verwerkt. U kunt kiezen uit de volgende gereserveerde-eenheidstypen: **S1**, **S2**, of **S3**. Een coderingstaak wordt bijvoorbeeld sneller uitgevoerd wanneer u het gereserveerde-eenheidstype **S2** gebruikt (in vergelijking met het type **S1**). De [encoding-eenheden schalen](media-services-scale-media-processing-overview.md) onderwerp bevat een tabel die het helpt u besluit bij de keuze tussen verschillende snelheden voor codering.
 
 Naast het opgeven van de gereserveerde-eenheidstype, kunt u opgeven voor het inrichten van uw account met **gereserveerde eenheden**. Op basis van het aantal ingerichte, gereserveerde eenheden wordt bepaald hoeveel mediataken tegelijk kunnen worden verwerkt voor een bepaald account. Bijvoorbeeld, als uw account vijf gereserveerde eenheden, heeft en vervolgens vijf mediataken gelijktijdig zo lang zal worden uitgevoerd als er zijn taken die moeten worden verwerkt. De resterende taken in de wachtrij wordt gewacht en wordt u opgehaald voor het verwerken van sequentieel worden verwerkt wanneer een actieve taak is voltooid. Als een account heeft geen alle gereserveerde eenheden worden ingericht, klikt u vervolgens taken opgehaald sequentieel worden verwerkt. In dit geval afhankelijk de wachttijd tussen één taak is voltooid en de volgende begin van de beschikbaarheid van resources in het systeem.
 

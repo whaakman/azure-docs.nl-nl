@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 320afdb1e4f71150680e9bed6a4c1c9955c99936
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: b846e1fe4552c6cec356a7e7828135b0e1fdf315
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230621"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994098"
 ---
-# <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Toegang tot de API van Azure Media Services met Azure AD-verificatie
+# <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Toegang tot de API van Azure Media Services met Azure AD-verificatie  
  
 De API van Azure Media Services is een RESTful-API. U kunt deze gebruiken voor het uitvoeren van bewerkingen op media resources met behulp van een REST-API of met behulp van de beschikbare client-SDK's. Azure Media Services biedt een Media Services-client-SDK voor .NET van Microsoft. Als u wilt worden geautoriseerd voor toegang tot Media Services-resources en de API van Media Services, moet u eerst worden geverifieerd. 
 
@@ -138,9 +138,9 @@ Als u niet de client-Media Services .NET SDK gebruikt, moet u handmatig een Azur
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-Uitzondering: ' de externe server heeft een fout geretourneerd: (401) niet geautoriseerd. "
+Uitzondering: "De externe server heeft een fout geretourneerd: (401) niet geautoriseerd."
 
-Oplossing: De aanroepende gebruiker moet een rol Inzender of eigenaar in het Media Services-account die deze probeert te krijgen tot zijn voor de Media Services REST-aanvraag te voltooien. Zie voor meer informatie de [toegangsbeheer](media-services-use-aad-auth-to-access-ams-api.md#access-control) sectie.
+Oplossing: Voor de Media Services REST-aanvraag te voltooien, moet de aanroepende gebruiker een rol Inzender of eigenaar in het Media Services-account die deze probeert te openen. Zie voor meer informatie de [toegangsbeheer](media-services-use-aad-auth-to-access-ams-api.md#access-control) sectie.
 
 ## <a name="resources"></a>Resources
 

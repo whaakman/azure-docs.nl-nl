@@ -9,16 +9,29 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.custom: seodec2018
-ms.openlocfilehash: 9b682b9cd17c174363dcd04707a11075e30cc8e1
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 62f9d24204e734b7b5e2ed97f361ccf228ba89dc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214824"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005043"
 ---
-# <a name="query-types-and-composition-in-azure-search"></a>Typen query's en de samenstelling in Azure Search
+# <a name="how-to-compose-a-query-in-azure-search"></a>Opstellen van een query in Azure Search
 
-In Azure Search is een query een volledige specificatie van een traject bewerking. Parameters bieden overeenkomen met criteria voor het vinden van documenten in een index, uitvoering instructies voor de engine en richtlijnen voor het vormgeven van het antwoord. Preciezer nog, kunt u opgeven welke velden zijn binnen de regeling vallen, hoe u kunt zoeken, welke velden u wilt terugkeren, of u wilt sorteren of filteren, enzovoort. Niets opgeeft, een query wordt uitgevoerd op alle doorzoekbare velden als een zoekbewerking volledige tekst, een in willekeurige volgorde zonder score resultatenset geretourneerd.
+In Azure Search is een query een volledige specificatie van een traject bewerking. Parameters voor de aanvraag bieden overeenkomen met criteria voor het vinden van documenten in een index, uitvoering instructies voor de engine en richtlijnen voor het vormgeven van het antwoord. 
+
+Een queryaanvraag is een uitgebreide constructie, op te geven welke velden zijn binnen de regeling vallen, hoe u kunt zoeken, welke velden u wilt terugkeren, of u wilt sorteren of filteren, enzovoort. Niets opgeeft, een query wordt uitgevoerd op alle doorzoekbare velden als een zoekbewerking volledige tekst, een in willekeurige volgorde zonder score resultatenset geretourneerd.
+
+### <a name="apis-and-tools-for-testing"></a>API's en hulpprogramma's voor het testen
+
+De volgende tabel bevat de API's en methoden op basis van een hulpprogramma voor het verzenden van query's.
+
+| Methodologie | Description |
+|-------------|-------------|
+| [Search explorer (portal)](search-explorer.md) | Biedt een zoekbalk en opties voor de geselecteerde index en api-versie. Resultaten worden geretourneerd als JSON-documenten. <br/>[Meer informatie.](search-get-started-portal.md#query-index) | 
+| [Postman of andere hulpprogramma voor het testen van HTTP](search-fiddler.md) | Wordt uitgelegd hoe het instellen van een HTTP-aanvraagheader en de hoofdtekst voor het verzenden van query's naar Azure Search.  |
+| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | De client die kan worden gebruikt om op te vragen van een Azure Search-index.  <br/>[Meer informatie.](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [Documenten zoeken (REST-API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | GET of POST-methoden op een index, met behulp van de queryparameters voor aanvullende invoer.  |
 
 ## <a name="a-first-look-at-query-requests"></a>Een eerste blik op query-aanvragen
 
@@ -52,7 +65,7 @@ Voor het uitvoeren van deze query gebruiken [explorer en de index van de demo on
 
 U kunt deze querytekenreeks in de zoekbalk van de explorer plakken: `search=seattle townhouse +lake&searchFields=description, city&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket`
 
-### <a name="how-query-operations-are-enabled-by-the-index"></a>Hoe querybewerkingen door de index zijn ingeschakeld
+## <a name="how-query-operations-are-enabled-by-the-index"></a>Hoe querybewerkingen door de index zijn ingeschakeld
 
 Ontwerp voor de index en query ontwerp nauw zijn gekoppeld in Azure Search. Een essentiële feit van tevoren weten is dat de *indexschema*, met de kenmerken voor elk veld, bepaalt het soort query die u kunt bouwen. 
 
@@ -148,17 +161,6 @@ Als u wilt dat Azure Search om terug te keren uw resultaten gesorteerd op een an
 
 ### <a name="hit-highlighting"></a>Markeren
 In Azure Search, waarbij de nadruk ligt het exacte aantal zoekresultaten die overeenkomen met de zoekopdracht is eenvoudig met behulp van de **`highlight`**, **`highlightPreTag`**, en **`highlightPostTag`** parameters. U kunt aangeven in welke *doorzoekbare* velden de tekst moet worden benadrukt. Ook kunt u de exacte tekenreekslabels opgeven die moeten worden toegevoegd aan het begin en einde van de overeenkomstige tekst die Azure Search retourneert.
-
-## <a name="apis-and-tools-for-testing"></a>API's en hulpprogramma's voor het testen
-
-De volgende tabel bevat de API's en methoden op basis van een hulpprogramma voor het verzenden van query's.
-
-| Methodologie | Description |
-|-------------|-------------|
-| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | De client die kan worden gebruikt om op te vragen van een Azure Search-index.  <br/>[Meer informatie.](search-howto-dotnet-sdk.md#core-scenarios)  |
-| [Documenten zoeken (REST-API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | GET of POST-methoden op een index, met behulp van de queryparameters voor aanvullende invoer.  |
-| [Fiddler of Postman andere hulpprogramma voor het testen van HTTP](search-fiddler.md) | Wordt uitgelegd hoe u een aanvraag koptekst en hoofdtekst voor het verzenden van query's naar Azure Search kunt instellen.  |
-| [Search explorer in Azure portal](search-explorer.md) | Biedt een zoekbalk en opties voor de geselecteerde index en api-versie. Resultaten worden geretourneerd als JSON-documenten. <br/>[Meer informatie.](search-get-started-portal.md#query-index) | 
 
 ## <a name="see-also"></a>Zie ook
 

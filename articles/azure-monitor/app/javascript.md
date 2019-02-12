@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 55cbca97d369bea80ea9caece14754e81b5738a1
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: fee172eccd79fd28e281b2beece9702630ac39b5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661510"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001184"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights voor webpagina’s
-Krijg inzicht in de prestaties en het gebruik van uw webpagina's of app. Wanneer u [Application Insights](../../azure-monitor/app/app-insights-overview.md) toevoegt aan uw paginascript, krijgt u de beschikking over allerlei gegevens, zoals de tijden voor het laden van pagina’s en AJAX-aanroepen, tellingen en details van browseruitzonderingen en AJAX-fouten, evenals de aantallen gebruikers en sessies. Al deze gegevens kunnen worden gesegmenteerd op pagina, clientbesturingssysteem en browserversie, geografische locatie en andere dimensies. U kunt waarschuwingen instellen voor foutaantallen of het langzaam laden van de pagina. En door het invoegen van trace-aanroepen in JavaScript-code, kunt u bijhouden hoe de verschillende functies van uw webpaginatoepassing worden gebruikt.
+Krijg inzicht in de prestaties en het gebruik van uw webpagina's of app. Wanneer u [Application Insights](app-insights-overview.md) toevoegt aan uw paginascript, krijgt u de beschikking over allerlei gegevens, zoals de tijden voor het laden van pagina’s en AJAX-aanroepen, tellingen en details van browseruitzonderingen en AJAX-fouten, evenals de aantallen gebruikers en sessies. Al deze gegevens kunnen worden gesegmenteerd op pagina, clientbesturingssysteem en browserversie, geografische locatie en andere dimensies. U kunt waarschuwingen instellen voor foutaantallen of het langzaam laden van de pagina. En door het invoegen van trace-aanroepen in JavaScript-code, kunt u bijhouden hoe de verschillende functies van uw webpaginatoepassing worden gebruikt.
 
-Application Insights kan met elke webpagina worden gebruikt. Het enige wat u hiervoor hoeft te doen, is een klein stukje JavaScript toevoegen. Als de webservice [Java](java-get-started.md) of [ASP.NET](../../azure-monitor/app/asp-net.md) is, kunt u telemetrie van uw server en clients integreren.
+Application Insights kan met elke webpagina worden gebruikt. Het enige wat u hiervoor hoeft te doen, is een klein stukje JavaScript toevoegen. Als de webservice [Java](java-get-started.md) of [ASP.NET](asp-net.md) is, kunt u telemetrie van uw server en clients integreren.
 
-![Open de resource van uw app in portal.azure.com en klik op Browser](./media/javascript/03.png)
+![Open de resource van uw app in portal.azure.com en klik op Browser](media/javascript/03.png)
 
 U hebt een abonnement op [Microsoft Azure](https://azure.com) nodig. Als uw team een organisatie-abonnement heeft, vraagt u de eigenaar om uw Microsoft-account hieraan toe te voegen.
 
@@ -38,13 +38,13 @@ Meld u aan bij de [Azure Portal](https://portal.azure.com).
 
 Als u bewaking voor de serverkant van uw app al hebt ingesteld, hebt u al een resource:
 
-![Kies Bladeren, Ontwikkelaarsservices, Application Insights.](./media/javascript/01-find.png)
+![Kies Bladeren, Ontwikkelaarsservices, Application Insights.](media/javascript/01-find.png)
 
 Als u nog geen resource hebt, maakt u er een:
 
-![Kies Nieuw, Ontwikkelaarsservices, Application Insights.](./media/javascript/01-create.png)
+![Kies Nieuw, Ontwikkelaarsservices, Application Insights.](media/javascript/01-create.png)
 
-*Heb u op dit moment vragen?* [Meer over het maken van een resource](../../azure-monitor/app/create-new-resource.md ).
+*Heb u op dit moment vragen?* [Meer over het maken van een resource](create-new-resource.md ).
 
 ### <a name="add-the-sdk-script-to-your-app-or-web-pages"></a>Het SDK-script toevoegen aan uw app of webpagina's
 
@@ -70,7 +70,7 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 Voeg het script in vlak vóór de `</head>`-tag op elke pagina die u wilt volgen. Als uw website een basispagina heeft, kunt u daar het script plaatsen. Bijvoorbeeld:
 
 * In een ASP.NET-MVC-project plaatst u het in `View\Shared\_Layout.cshtml`
-* Op een SharePoint-site opent u in het Configuratiescherm [Site-instellingen / basispagina](../../azure-monitor/app/sharepoint.md).
+* Op een SharePoint-site opent u in het Configuratiescherm [Site-instellingen / basispagina](sharepoint.md).
 
 Het script bevat de instrumentatiesleutel die de gegevens naar uw Application Insights-resource stuurt. 
 
@@ -118,9 +118,9 @@ Open de blade Browsers om cumulatieve prestatiegegevens weer te geven van de bro
 
 ![Open de resource van uw app in portal.azure.com en klik op Instellingen, Browser](./media/javascript/03.png)
 
-Nog geen gegevens? Klik boven aan de pagina op **Vernieuwen**. Ziet u nog steeds niets? Zie [Probleemoplossing](../../azure-monitor/app/troubleshoot-faq.md).
+Nog geen gegevens? Klik boven aan de pagina op **Vernieuwen**. Ziet u nog steeds niets? Zie [Probleemoplossing](troubleshoot-faq.md).
 
-De blade Browser is een [Metrics Explorer-blade](../../azure-monitor/app/metrics-explorer.md) met vooraf ingestelde filters en grafiekselecties. U kunt het tijdbereik, de filters en configuratie van de grafiek bewerken, en desgewenst het resultaat als favoriet opslaan. Klik op **Standaardwaarden herstellen** om de oorspronkelijke bladeconfiguratie terug te zetten.
+De blade Browser is een [Metrics Explorer-blade](metrics-explorer.md) met vooraf ingestelde filters en grafiekselecties. U kunt het tijdbereik, de filters en configuratie van de grafiek bewerken, en desgewenst het resultaat als favoriet opslaan. Klik op **Standaardwaarden herstellen** om de oorspronkelijke bladeconfiguratie terug te zetten.
 
 ## <a name="page-load-performance"></a>Laadprestaties van de pagina
 Bovenaan staat een grafieksegment met laadtijden van pagina’s. De totale hoogte van de grafiek geeft de gemiddelde tijd aan die nodig is voor het laden en weergeven van pagina's van uw app in de browsers van uw gebruikers. De tijd wordt gemeten vanaf het moment dat de browser de eerste HTTP-aanvraag verzendt tot het moment dat alle synchrone gebeurtenissen tijdens het laden zijn verwerkt, met inbegrip van indeling en uitgevoerde scripts. Asynchrone taken, zoals het laden van de webonderdelen van AJAX-aanroepen, zijn niet opgenomen.
@@ -178,7 +178,6 @@ Klik op een rij voor specifieke informatie.
 
 ![](./media/javascript/37.png)
 
-
 Klik op `...` voor de volledige telemetrie voor een AJAX-aanroep.
 
 ### <a name="no-ajax-calls-reported"></a>Zijn er geen AJAX-aanroepen gemeld?
@@ -202,7 +201,7 @@ Stel op de blade Diagnostische gegevens doorzoeken de optie Filters in op Pagina
 Selecteer een gebeurtenis om deze gedetailleerder te bekijken. Klik op de pagina met details op '...' om nog meer details weer te geven.
 
 > [!NOTE]
-> Als u [zoeken](../../azure-monitor/app/diagnostic-search.md), u ziet dat u hebt volledige woorden: 'Abou' of 'bout' komen niet overeen 'About'.
+> Als u [zoeken](diagnostic-search.md), u ziet dat u hebt volledige woorden: 'Abou' of 'bout' komen niet overeen 'About'.
 > 
 > 
 
@@ -227,8 +226,8 @@ De naam van de pagina mag dezelfde tekens als een URL bevatten, maar alles na '#
 ## <a name="usage-tracking"></a>Gebruik bijhouden
 Wilt u weten wat gebruikers met uw app doen?
 
-* [Meer informatie over de analysehulpmiddelen van de gebruiker-gedrag](../../azure-monitor/app/usage-overview.md)
-* [Meer informatie over de API voor aangepaste gebeurtenissen en metrische gegevens](../../azure-monitor/app/api-custom-events-metrics.md).
+* [Meer informatie over de analysehulpmiddelen van de gebruiker-gedrag](usage-overview.md)
+* [Meer informatie over de API voor aangepaste gebeurtenissen en metrische gegevens](api-custom-events-metrics.md).
 
 ## <a name="video"></a> Video
 
@@ -238,7 +237,7 @@ Wilt u weten wat gebruikers met uw app doen?
 
 
 ## <a name="next"></a> Volgende stappen
-* [Bijhouden van gebruik](../../azure-monitor/app/usage-overview.md)
-* [Aangepaste gebeurtenissen en metrische gegevens](../../azure-monitor/app/api-custom-events-metrics.md)
-* [Bouwen-meten-leren](../../azure-monitor/app/usage-overview.md)
+* [Bijhouden van gebruik](usage-overview.md)
+* [Aangepaste gebeurtenissen en metrische gegevens](api-custom-events-metrics.md)
+* [Bouwen-meten-leren](usage-overview.md)
 

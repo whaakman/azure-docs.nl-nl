@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: ba5e3fae04c47420d90aa1bc800a3dbd0e5ba984
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: ff198bc5e921f1c78e2d7cb7c80bfe0615fc91bc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364428"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003258"
 ---
-# <a name="encrypting-your-content-with-storage-encryption"></a>Uw inhoud versleutelen met opslagversleuteling
+# <a name="encrypting-your-content-with-storage-encryption"></a>Uw inhoud versleutelen met opslagversleuteling 
 
 Het is raadzaam voor het versleutelen van uw inhoud lokaal via AES-256-bits codering en vervolgens te uploaden naar Azure Storage waar deze zijn opgeslagen in rust versleuteld.
 
@@ -42,7 +42,7 @@ Bij het openen van entiteiten in Media Services, moet u specifieke header-velden
 
 ### <a name="storage-side-encryption"></a>Versleuteling van opslag aan de serverzijde
 
-|Optie voor opslagversleuteling|Beschrijving|Media Services v2|Media Services v3|
+|Optie voor opslagversleuteling|Description|Media Services v2|Media Services v3|
 |---|---|---|---|
 |Media Services-Storage-versleuteling|AES-256-codering, sleutel beheerd door Media Services|Ondersteund<sup>(1)</sup>|Niet ondersteund<sup>(2)</sup>|
 |[Storage Service Encryption voor Data-at-Rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Versleuteling op de server die worden aangeboden door Azure Storage, sleutel beheerd door Azure of door de klant|Ondersteund|Ondersteund|
@@ -109,7 +109,7 @@ Hier volgen de algemene stappen voor het genereren van inhoudssleutels dat u kop
 
     Voor de versleuteling van opslag, moeten de volgende eigenschappen in de aanvraagtekst worden opgenomen.
 
-    Hoofdtekst van de aanvraageigenschap    | Beschrijving
+    Hoofdtekst van de aanvraageigenschap    | Description
     ---|---
     Id | De ID ContentKey wordt gegenereerd met behulp van de volgende indeling hebben: "nb:kid:UUID:<NEW GUID>'.
     ContentKeyType | Het inhoudstype key is een geheel getal dat de sleutel wordt gedefinieerd. Voor de indeling van de versleuteling van opslag is de waarde 1.

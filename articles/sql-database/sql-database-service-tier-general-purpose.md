@@ -12,17 +12,17 @@ ms.author: jovanpop-msft
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: d8a7ffd680ab38d78fa3675f49569dd79b91efe4
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 83be636317299adf820a60716866aa35d318d6dc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895105"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997359"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database"></a>Algemeen gebruik-servicelaag - Azure SQL Database
 
 > [!NOTE]
-> De categorie Algemeen gebruik-service in het op vCore gebaseerde aankoopmodel wordt het serviceniveau standard in het op DTU gebaseerde aankoopmodel genoemd. Zie voor een vergelijking van de vCore gebaseerde aankoopmodel met het op DTU gebaseerde aankoopmodel [Azure SQL Database-modellen en -bronnen aanschaffen](sql-database-service-tiers.md).
+> De categorie Algemeen gebruik-service in het op vCore gebaseerde aankoopmodel wordt het serviceniveau standard in het op DTU gebaseerde aankoopmodel genoemd. Zie voor een vergelijking van de vCore gebaseerde aankoopmodel met het op DTU gebaseerde aankoopmodel [Azure SQL Database-modellen en -bronnen aanschaffen](sql-database-purchase-models.md).
 
 Azure SQL Database is gebaseerd op voor de cloudomgeving is aangepast om ervoor te zorgen, zelfs in het geval van infrastructuuruitval voor 99,99% beschikbaarheid van SQL Server database engine-architectuur. Er zijn drie soorten Servicelagen die in Azure SQL Database, elk met verschillende architectuurmodellen worden gebruikt. Deze service-lagen zijn:
 

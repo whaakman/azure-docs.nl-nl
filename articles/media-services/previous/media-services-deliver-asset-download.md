@@ -1,10 +1,10 @@
 ---
-title: Media Services activa downloaden naar uw computer - Azure | Microsoft Docs
-description: Meer informatie over activa downloaden naar uw computer. Codevoorbeelden zijn geschreven in C# en gebruiken van de Media Services SDK voor .NET.
+title: Media Services-activa downloaden naar uw computer - Azure | Microsoft Docs
+description: Meer informatie over het downloaden van activa op uw computer. Codevoorbeelden zijn geschreven in C# en de Media Services SDK voor .NET gebruiken.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 8908a1dd-3ffb-4f18-955d-4c8e2d82fc5d
 ms.service: media-services
@@ -12,22 +12,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: ed53fe191dcf740f949b2d9cdcc3c97e30d85544
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 798c7e4b5efa3ca016f5e1b7e5c0967599fa6436
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788226"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993109"
 ---
-# <a name="how-to-deliver-an-asset-by-download"></a>Procedure: een Asset door Download leveren
-Dit artikel worden de opties voor het leveren van media-elementen met Media Services wordt geüpload. U kunt inhoud in Media Services leveren in talloze scenario's van toepassing. Nadat de codering, downloaden van de gegenereerde media-elementen of toegang tot deze met behulp van een streaming-locator. U kunt ook inhoud met behulp van een inhoud Delivery Network (CDN) voor betere prestaties en schaalbaarheid leveren.
+# <a name="how-to-deliver-an-asset-by-download"></a>Procedure: Een asset leveren via download  
+Dit artikel worden de opties voor het leveren van media-activa geüpload naar Media Services. Media Services-inhoud kan worden geleverd in verschillende toepassingsscenario's. Na codering, downloadt u de gegenereerde media-activa of toegang tot deze met behulp van een streaming-locator. Voor betere prestaties en schaalbaarheid, kunt u ook inhoud leveren met behulp van een Content Delivery Network (CDN).
 
-In dit voorbeeld laat zien hoe media activa downloaden van Media Services op uw lokale computer. De code vraagt de taken die zijn gekoppeld aan het Media Services-account door de taak-ID en toegang tot de **OutputMediaAssets** verzameling (dit is de set van een of meer uitvoer media-elementen die het resultaat is van een taak wordt uitgevoerd). Dit voorbeeld wordt het downloaden van media-elementen voor uitvoer van een taak, maar u kunt dezelfde aanpak voor het downloaden van andere assets toepassen.
+In dit voorbeeld laat zien hoe media-activa van Media Services downloaden naar uw lokale computer. De code vraagt de taken die zijn gekoppeld aan de Media Services-account door de taak-ID en toegang tot de **OutputMediaAssets** verzameling (dit is het instellen van een of meer uitvoer media-activa die het resultaat is van een taak wordt uitgevoerd). Dit voorbeeld laat zien hoe u kunt uitvoer media-activa downloaden uit een taak, maar u kunt dezelfde benadering voor het downloaden van andere items toepassen.
 
 >[!NOTE]
->Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). Gebruik dezelfde beleids-ID als u altijd dezelfde dagen werkt / toegangsmachtigingen, bijvoorbeeld: beleid voor locators die zijn bedoeld om te blijven aanwezig gedurende een lange periode (niet-upload policies). Raadpleeg [dit artikel](media-services-dotnet-manage-entities.md#limit-access-policies) voor meer informatie.
+>Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). Gebruik dezelfde beleids-ID als u altijd dezelfde dagen / toegangsmachtigingen gebruikt, bijvoorbeeld beleidsregels voor locators die zijn bedoeld om te blijven aanwezig gedurende een lange periode (niet-uploadbeleidsregels). Raadpleeg [dit artikel](media-services-dotnet-manage-entities.md#limit-access-policies) voor meer informatie.
 
 ```csharp
     // Download the output asset of the specified job to a local folder.
@@ -88,5 +88,5 @@ In dit voorbeeld laat zien hoe media activa downloaden van Media Services op uw 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Zie ook
-[Streaming inhoud leveren](media-services-deliver-streaming-content.md)
+[Lever streaminginhoud](media-services-deliver-streaming-content.md)
 

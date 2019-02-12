@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 55c1bc18422bc2be5172aebcd46b76ac6051a8a4
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: e9fcf36d6ece441c73e7d1224bd5918d2e74bf84
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885844"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001964"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Verzamelen en gebruiken van logboekgegevens van uw Azure-resources
 
@@ -40,7 +40,9 @@ Hier volgen enkele dingen die u met Logboeken met diagnostische gegevens doen ku
 
 * Opslaan naar een [ **Opslagaccount** ](../../azure-monitor/platform/archive-diagnostic-logs.md) voor controle of handmatige controle. U kunt opgeven de bewaartermijn (in dagen) via **instellingen voor resourcediagnose**.
 * [Stream ze **Event Hubs** ](diagnostic-logs-stream-event-hubs.md) voor opname van een service van derden of aangepaste analyseoplossing zoals Power BI.
-* Analyseren met [Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md), waar de gegevens worden geschreven onmiddellijk naar Log Analytics met hoeft niet de gegevens eerst naar opslag schrijven.  
+* Analyseren met [Azure Monitor](../../azure-monitor/platform/collect-azure-metrics-logs.md), waar de gegevens worden geschreven onmiddellijk naar Azure Monitor met hoeft niet de gegevens eerst naar opslag schrijven.  
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 U kunt een opslagaccount of Event Hubs-naamruimte die zich niet in hetzelfde abonnement bevinden als het abonnement dat Logboeken verzendt. De gebruiker die de instelling configureert, moet de juiste RBAC-toegang tot beide abonnementen hebben.
 
@@ -56,7 +58,7 @@ U kunt een opslagaccount of Event Hubs-naamruimte die zich niet in hetzelfde abo
 
 Diagnostische logboeken van resources zijn geconfigureerd met behulp van de instellingen voor resourcediagnose. Diagnostische logboeken tenant zijn geconfigureerd met behulp van de diagnostische instelling van een tenant. **Diagnostische instellingen** voor een service-besturingselement:
 
-* Waar diagnostische logboeken en metrische gegevens worden verzonden (Storage-Account, Event Hubs en/of Log Analytics).
+* Waar diagnostische logboeken en metrische gegevens worden verzonden (Storage-Account, Event Hubs en/of Azure Monitor).
 * Welke logboekcategorieën worden verzonden en of u metrische gegevens ook worden verzonden.
 * Hoe lang elke logboekcategorie moet worden bewaard in een storage-account
     - Een bewaarperiode van nul dagen betekent dat Logboeken altijd worden bewaard. De waarde kan anders een willekeurig aantal dagen tussen 1 en 2147483647 zijn.
@@ -235,5 +237,4 @@ Een diagnostische instelling toe te voegen, wordt de diagnostische instellingen 
 
 * [Diagnostische logboeken van de resource naar Stream **Event Hubs**](diagnostic-logs-stream-event-hubs.md)
 * [Diagnostische instellingen voor resources met behulp van de REST-API van Azure Monitor wijzigt](https://docs.microsoft.com/rest/api/monitor/)
-* [Logboeken van Azure storage met Log Analytics analyseren](../../azure-monitor/platform/collect-azure-metrics-logs.md)
-
+* [Logboeken van Azure storage met Azure Monitor analyseren](collect-azure-metrics-logs.md)

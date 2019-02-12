@@ -1,10 +1,10 @@
 ---
-title: Polling langlopende bewerkingen | Microsoft Docs
-description: Dit onderwerp wordt beschreven hoe pollen langlopende bewerkingen.
+title: Opvragen van configuratiegegevens bij langlopende bewerkingen | Microsoft Docs
+description: In dit onderwerp laat zien hoe pollen van langlopende bewerkingen.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 9a68c4b1-6159-42fe-9439-a3661a90ae03
 ms.service: media-services
@@ -12,29 +12,29 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: fa456a2d0bb427af80d67a0b971fe8bd41bb7868
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f5098b2691f7c73be5df6b44479082bf25effde7
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788422"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998036"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Live streamen met Azure mediaservices leveren
 
 ## <a name="overview"></a>Overzicht
 
-Microsoft Azure Media Services biedt API's die aanvragen verzenden naar de Media Services activiteiten te starten (bijvoorbeeld: maken, starten, stoppen of verwijderen van een kanaal). Deze bewerkingen zijn langlopend.
+Microsoft Azure Media Services biedt API's die aanvragen verzenden naar Media Services activiteiten te starten (bijvoorbeeld: maken, starten, stoppen of verwijderen van een kanaal). Deze bewerkingen worden langlopende.
 
-Media Services .NET SDK biedt API's die de aanvraag verzendt en wacht totdat de bewerking is voltooid (intern maakt de API's zijn gedelegeerd voor het bewerkingsvoortgang op bepaalde tijden). Bijvoorbeeld bij het aanroepen van kanaal. Start(), de methode retourneert nadat het kanaal is gestart. U kunt ook de asynchrone versie: wachten op een kanaal. StartAsync() (Zie voor meer informatie over de taakgebaseerde asynchrone patroon [tik](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx)). API's die een aanvraag verzendt en vervolgens poll-frequentie voor de status totdat de bewerking voltooid is, worden 'polling methoden' genoemd. Deze methoden (met name de Async-versie) worden aanbevolen voor interactieve toepassingen en/of stateful services.
+De Media Services .NET SDK biedt API's die de aanvraag verzenden en wacht totdat de bewerking is voltooid (intern, de API's zijn polling voor de bewerking wordt uitgevoerd met bepaalde intervallen). Bijvoorbeeld, wanneer u kanaal aanroepen. Start(), retourneert de methode nadat het kanaal wordt gestart. U kunt ook de asynchrone versie: wachten op een kanaal. StartAsync() (Zie voor meer informatie over het asynchrone patroon op basis van een taak [tik](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx)). API's die regelmatig wordt bevraagd voor de status totdat de bewerking voltooid is en verzenden van een aanvraag opnieuw worden 'methoden polling' genoemd. Deze methoden (met name de asynchrone versie) worden aanbevolen voor interactieve toepassingen en/of stateful services.
 
-Er zijn scenario's waarbij een toepassing niet kan wachten op een langdurige HTTP-verzoek en wil poll-frequentie voor de voortgang van de bewerking handmatig. Een typisch voorbeeld zou een browser interactie met een stateless webservice: als de browser aanvraagt een kanaal te maken, de webservice initieert een langdurige bewerking en retourneert de bewerkings-ID in de browser. De browser kan vervolgens vraagt u de web-service om op te halen van de status van de bewerking op basis van de-ID. Media Services .NET SDK biedt API's die handig voor dit scenario zijn. Deze API's worden 'niet polling methoden' genoemd.
-'Niet polling methoden' hebben de volgende naamgevingspatroon: verzenden*OperationName*bewerking (bijvoorbeeld SendCreateOperation). Verzenden*OperationName*bewerking methoden retourneren de **IOperation** object; het geretourneerde object bevat informatie die kan worden gebruikt voor het bijhouden van de bewerking. De verzenden*OperationName*OperationAsync methoden retourneren **taak<IOperation>**.
+Er zijn scenario's waarin een toepassing niet kunt wachten op een langdurige http-aanvraag en wil te pollen voor de bewerkingsvoortgang van de handmatig. Een typisch voorbeeld zou een browser interactie met een stateless webservice: wanneer de browser vraagt om een kanaal te maken, de webservice initieert een langdurige bewerking en de bewerkings-ID geretourneerd naar de browser. De browser kan vervolgens vraagt u de web-service om op te halen van de status van de bewerking op basis van de ID. De Media Services .NET SDK biedt API's die nuttig voor dit scenario zijn. Deze API's worden 'methoden niet polling' genoemd.
+De 'niet-polling-methoden' hebben een naamgevingspatroon uit het volgende: Verzenden*OperationName*bewerking (bijvoorbeeld SendCreateOperation). Verzenden*OperationName*bewerking methoden retourneren de **IOperation** object; het geretourneerde object bevat informatie die kan worden gebruikt voor het bijhouden van de bewerking. De verzenden*OperationName*OperationAsync methoden retourneren **taak<IOperation>**.
 
-Op dit moment wordt de volgende klassen ondersteuning voor methoden niet polling: **kanaal**, **StreamingEndpoint**, en **programma**.
+Op dit moment ondersteunen de volgende klassen niet polling methoden:  **Kanaal**, **streamingendpoint zo**, en **programma**.
 
-Om te controleren voor de status van de bewerking, gebruiken de **GetOperation** methode op de **OperationBaseCollection** klasse. Gebruik de volgende intervallen om te controleren van de bewerkingsstatus: voor **kanaal** en **StreamingEndpoint** bewerkingen, gebruikt u 30 seconden; voor **programma** bewerkingen, gebruik van 10 seconden.
+Als u wilt laten pollen voor de status van de bewerking, gebruikt u de **GetOperation** methode voor het **OperationBaseCollection** klasse. Gebruik de volgende intervallen om te controleren of de status van de bewerking: voor **kanaal** en **streamingendpoint zo** bewerkingen, gebruikt u 30 seconden; voor **programma** bewerkingen, gebruik van 10 seconden.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
 
@@ -42,11 +42,11 @@ Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinfo
 
 ## <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld definieert een klasse met de naam **ChannelOperations**. De definitie van deze klasse kan een startpunt voor de klassedefinitie van uw web-service zijn. Voor eenvoud gebruik de volgende voorbeelden de versies niet asynchrone methoden.
+Het volgende voorbeeld definieert een klasse genaamd **ChannelOperations**. Deze klassedefinitie wordt mogelijk een startpunt voor de klassedefinitie van uw web-service. De volgende voorbeelden gebruiken voor het gemak de niet-asynchrone versies van methoden.
 
-Het voorbeeld ziet ook hoe de client deze klasse zou kunnen gebruiken.
+Het voorbeeld ook ziet u hoe de client kan deze klasse.
 
-### <a name="channeloperations-class-definition"></a>De klassendefinitie ChannelOperations
+### <a name="channeloperations-class-definition"></a>Definitie van de klasse ChannelOperations
 
 ```csharp
 using Microsoft.WindowsAzure.MediaServices.Client;

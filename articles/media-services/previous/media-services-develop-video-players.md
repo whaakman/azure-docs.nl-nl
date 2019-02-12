@@ -2,7 +2,7 @@
 title: Videospelertoepassingen ontwikkelen
 description: Het onderwerp vindt u koppelingen naar de Player-Frameworks en -invoegtoepassingen die u gebruiken kunt voor het ontwikkelen van uw eigen clienttoepassingen die streamingmedia van Media Services kunnen gebruiken.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: d7f55022dc526f44251814ac953787d6652e6f90
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6c57c8ad85ef83e8739bc2bf35b3bd0dc6d5a902
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237040"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004839"
 ---
 # <a name="develop-video-player-applications"></a>Videospelertoepassingen ontwikkelen
 ## <a name="overview"></a>Overzicht
@@ -53,7 +53,7 @@ U kunt ook een van de volgende SDK's gebruiken:
 * [XBOX Video toepassingsontwikkeling](https://xbox.create.msdn.com/) 
 
 ## <a name="advertising"></a>Advertenties
-Azure Media Services biedt ondersteuning voor advertentie-invoeging via het Windows Media-Platform: Player-Frameworks. Frameworks voor spelers met ad-ondersteuning zijn beschikbaar voor Windows 8, Silverlight, Windows Phone 8 en iOS-apparaten. Elk speler framework bevat voorbeeldcode die laat zien u hoe u een player-toepassing implementeert. Er zijn drie verschillende soorten advertenties die u in uw media invoegen kunt:
+Azure Media Services biedt ondersteuning voor advertentie-invoeging via het Windows Media-Platform: Player Frameworks. Frameworks voor spelers met ad-ondersteuning zijn beschikbaar voor Windows 8, Silverlight, Windows Phone 8 en iOS-apparaten. Elk speler framework bevat voorbeeldcode die laat zien u hoe u een player-toepassing implementeert. Er zijn drie verschillende soorten advertenties die u in uw media invoegen kunt:
 
 Lineaire-volledige frame advertenties die de belangrijkste video onderbreken
 
@@ -61,7 +61,7 @@ Niet-lineaire-overlay-advertenties die worden weergegeven als de belangrijkste v
 
 Companion-advertenties die buiten de speler worden weergegeven
 
-Advertenties kunnen op elk gewenst moment in de tijdlijn van de belangrijkste video worden geplaatst. U moet de speler zien bij het afspelen van de ad en welke advertenties om af te spelen. Dit wordt gedaan met behulp van een set standaard op basis van een XML-bestanden: Video Ad-Service-sjabloon (VAST), digitale Video meerdere Ad afspeellijst (VMAP), Media abstracte sequentiëren sjabloon (b) en digitale Video speler Ad Interface Definition (VPAID). GROTE bestanden opgeven welke advertenties om weer te geven. VMAP bestanden opgeven wanneer verschillende advertenties afspelen en ENORME XML bevatten. B-bestanden zijn een andere manier om de volgorde advertenties die ook VAST XML kan bevatten. VPAID bestanden definieert een interface tussen de videospeler en de ad of ad-server. Zie voor meer informatie, [invoegen advertenties](https://msdn.microsoft.com/library/dn387398.aspx).
+Advertenties kunnen op elk gewenst moment in de tijdlijn van de belangrijkste video worden geplaatst. U moet de speler zien bij het afspelen van de ad en welke advertenties om af te spelen. Dit wordt gedaan met behulp van een set standaard op basis van een XML-bestanden: Video Ad Service-sjabloon (VAST), digitale Video meerdere Ad afspeellijst (VMAP), Media abstracte sequentiëren sjabloon (b) en digitale Video speler Ad Interface Definition (VPAID). GROTE bestanden opgeven welke advertenties om weer te geven. VMAP bestanden opgeven wanneer verschillende advertenties afspelen en ENORME XML bevatten. B-bestanden zijn een andere manier om de volgorde advertenties die ook VAST XML kan bevatten. VPAID bestanden definieert een interface tussen de videospeler en de ad of ad-server. Zie voor meer informatie, [invoegen advertenties](https://msdn.microsoft.com/library/dn387398.aspx).
 
 Zie voor meer informatie over de ondertiteling en ondersteuning voor advertenties in Live streaming video's [ondersteund gesloten ondertiteling en standaarden voor advertentie-invoeging](https://msdn.microsoft.com/library/c49e0b4d-357e-4cca-95e5-2288924d1ff3#caption_ad).
 

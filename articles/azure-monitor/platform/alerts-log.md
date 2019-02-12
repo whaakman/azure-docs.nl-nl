@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 7ff4a4d64b69809c53ad70edf1455880da24d52a
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 29050be7587f88ce7a1f5370f50dcfa1ecd68306
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892504"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990442"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van waarschuwingen met behulp van Azure Monitor
 
@@ -106,8 +106,7 @@ Gedetailleerde volgende is een stapsgewijze handleiding voor het gebruik van waa
 
     Binnen een paar minuten, wordt de waarschuwing is actief en wordt geactiveerd als eerder beschreven.
 
-Gebruikers kunnen ook hun analytics-query in voltooid [logboeken Analytics-pagina in Azure portal](../../azure-monitor/log-query/portals.md#log-analytics-page
-) en pusht u deze om te maken van een waarschuwing via '+ nieuwe waarschuwingsregel' knop - en volg de instructies in stap 6 en hoger in de bovenstaande zelfstudie.
+Gebruikers kunnen ook hun analytics-query in voltooid [melden analytics](../log-query/portals.md) en pusht u deze om te maken van een waarschuwing via de knop 'Waarschuwing instellen' - en volg de instructies in stap 6 en hoger in de bovenstaande zelfstudie.
 
  ![Log Analytics - waarschuwing instellen](media/alerts-log/AlertsAnalyticsCreate.png)
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: a5a08b851bf726a221662d7ec9fb28ae33958e69
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 99ed30809e49e36012263255c8cd0884cf6bbce8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981686"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992055"
 ---
-# <a name="import-the-postman-environment-legacy"></a>Importeren van de Postman-omgeving (verouderd)
+# <a name="import-the-postman-environment"></a>De Postman-omgeving importeren  
 
 In dit artikel bevat een definitie van de **Postman** omgevingsvariabelen die worden gebruikt de [Postman-verzameling](postman-collection.md) die gegroepeerde HTTP-aanvragen die Media Services REST-API's aanroepen bevat. De omgeving en verzameling bestanden worden gebruikt door de [Postman configureren voor Media Services REST API-aanroepen](media-rest-apis-with-postman.md) zelfstudie.
 

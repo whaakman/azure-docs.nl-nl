@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: ec61b179627702af7f2c4bc0fc0989230f5eca84
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 02b4b2efb447e3ba8c45caa378268ec402b5c3e7
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885793"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001966"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Controlegegevens van Azure gebruiken
 
 Over het complete Azure-platform brengen we controlegegevens op één plaats samen met de Azure Monitor-pijplijn, maar we erkennen dat vandaag nog niet alle controlegegevens in die pijplijn beschikbaar zijn. In dit artikel zullen we de verschillende manieren samenvatten waarop u programmatisch toegang kunt krijgen tot controlegegevens van Azure-services.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="options-for-data-consumption"></a>Opties voor het gegevensverbruik
 
@@ -40,7 +42,7 @@ Over het complete Azure-platform brengen we controlegegevens op één plaats sam
 | Metrische waarschuwingen van Azure Monitor | Meldingen | [Bekijk hier de lijst](metrics-supported.md) | <ul><li>**Webhook:** [Azure metrische waarschuwingen](alerts-webhooks.md)</li></ul> |
 | Waarschuwingen van Azure Monitor Activity-Log | Meldingen | Alle Azure-services | <ul><li>**Webhook:** Waarschuwingen van Azure Activity Log</li></ul> |
 | Meldingen over automatisch schalen | Meldingen | [Bekijk hier de lijst](autoscale-overview.md#supported-services-for-autoscale) | <ul><li>**Webhook:** [Automatisch schalen melding webhook-schema voor nettolading](autoscale-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
-| Zoekquery waarschuwingen voor activiteitenlogboeken | Meldingen | Log Analytics | <ul><li>**Webhook:** [Webhookactie voor waarschuwingsregels](alerts-log-webhook.md)</li></ul> |
+| Zoekquery waarschuwingen voor activiteitenlogboeken | Meldingen | Logboeken in Azure Monitor | <ul><li>**Webhook:** [Webhookactie voor waarschuwingsregels](alerts-log-webhook.md)</li></ul> |
 | Application Insights metrische waarschuwingen | Meldingen | Application Insights | <ul><li>**Webhook:** [Application Insights-waarschuwingen](../../azure-monitor/app/alerts.md)</li></ul> |
 | Application Insights-webtests | Meldingen | Application Insights | <ul><li>**Webhook:** [Application Insights-waarschuwingen](../../azure-monitor/app/alerts.md)</li></ul> |
 

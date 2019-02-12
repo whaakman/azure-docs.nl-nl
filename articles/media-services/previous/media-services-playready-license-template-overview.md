@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 780fa37351ec590beff6fd2d9e80ec8f22afa84d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6e5e8597ef5f080f557e40d9f053f13daee1ffd0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228501"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989352"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Overzicht van Media Services PlayReady-licentiesjablonen
 Azure Media Services biedt nu een service voor het leveren van PlayReady-licenties. Wanneer de speler (bijvoorbeeld Silverlight) probeert uw PlayReady beveiligde inhoud af te spelen, wordt een aanvraag verzonden naar de service voor het leveren van licenties om een licentie te verkrijgen. Als de licentieservice de aanvraag goedkeurt, geeft deze de licentie die is verzonden naar de client en wordt gebruikt om te ontsleutelen en de opgegeven inhoud af te spelen.
@@ -66,15 +66,15 @@ De volgende klassen zijn de belangrijkste .NET-klassen die worden gebruikt voor 
 De [MediaServicesLicenseTemplateSerializer](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer.aspx) klasse wordt gebruikt voor het serialiseren en deserialiseren van en naar de Media Services-licentiesjabloon XML.
 
 ### <a name="playreadylicenseresponsetemplate"></a>PlayReadyLicenseResponseTemplate
-[PlayReadyLicenseResponseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicenseresponsetemplate.aspx): deze klasse vertegenwoordigt de sjabloon voor het antwoord terug naar de gebruiker verzonden. Het bevat een veld voor een tekenreeks met aangepaste gegevens tussen de licentieserver en de toepassing (dit kan handig zijn voor aangepaste app-logica). Het bevat ook een lijst met een of meer licentie-sjablonen.
+[PlayReadyLicenseResponseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicenseresponsetemplate.aspx): Deze klasse vertegenwoordigt de sjabloon voor het antwoord terug naar de gebruiker verzonden. Het bevat een veld voor een tekenreeks met aangepaste gegevens tussen de licentieserver en de toepassing (dit kan handig zijn voor aangepaste app-logica). Het bevat ook een lijst met een of meer licentie-sjablonen.
 
 De antwoord-sjabloon bevat als de klasse 'op het hoogste niveau' in de Sjabloonhiërarchie, een lijst met sjablonen van de licentie. De licentie-sjablonen bevatten (direct of indirect) alle andere klassen die gezamenlijk de sjabloongegevens worden geserialiseerd.
 
 ### <a name="playreadylicensetemplate"></a>PlayReadyLicenseTemplate
-[PlayReadyLicenseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate.aspx): deze klasse vertegenwoordigt een licentiesjabloon die wordt gebruikt voor het maken van PlayReady-licenties aan gebruikers worden geretourneerd. Het bevat de gegevens op de inhoudssleutel in de licentie. Dit omvat ook alle rechten en beperkingen die de PlayReady DRM-runtime afdwingen moet wanneer de inhoudssleutel wordt gebruikt.
+[PlayReadyLicenseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate.aspx): Deze klasse vertegenwoordigt een licentiesjabloon die wordt gebruikt voor het maken van PlayReady-licenties aan gebruikers worden geretourneerd. Het bevat de gegevens op de inhoudssleutel in de licentie. Dit omvat ook alle rechten en beperkingen die de PlayReady DRM-runtime afdwingen moet wanneer de inhoudssleutel wordt gebruikt.
 
 ### <a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
-[PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx): deze klasse vertegenwoordigt de PlayRight van een PlayReady-licentie. Deze geeft de gebruiker de mogelijkheid voor het afspelen van de inhoud onderworpen aan de beperkingen die zijn geconfigureerd in de licentie en op de PlayRight zelf (voor het afspelen van beleid). Veel van de beleidsregels op een PlayRight betreft beperkingen voor uitvoer die welke typen uitvoer die voor de inhoud kan worden afgespeeld bepalen via. Dit omvat ook de beperkingen die moeten worden geplaatst in plaats wanneer een bepaalde uitvoer wordt gebruikt. Bijvoorbeeld, als DigitalVideoOnlyContentRestriction is ingeschakeld, kunt de DRM-runtime alleen de video moet worden weergegeven via digitale uitvoer. (Analoog video-uitgangen zijn niet toegestaan om door te geven van de inhoud.)
+[PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx): Deze klasse vertegenwoordigt de PlayRight van een PlayReady-licentie. Deze geeft de gebruiker de mogelijkheid voor het afspelen van de inhoud onderworpen aan de beperkingen die zijn geconfigureerd in de licentie en op de PlayRight zelf (voor het afspelen van beleid). Veel van de beleidsregels op een PlayRight betreft beperkingen voor uitvoer die welke typen uitvoer die voor de inhoud kan worden afgespeeld bepalen via. Dit omvat ook de beperkingen die moeten worden geplaatst in plaats wanneer een bepaalde uitvoer wordt gebruikt. Bijvoorbeeld, als DigitalVideoOnlyContentRestriction is ingeschakeld, kunt de DRM-runtime alleen de video moet worden weergegeven via digitale uitvoer. (Analoog video-uitgangen zijn niet toegestaan om door te geven van de inhoud.)
 
 > [!IMPORTANT]
 > Dit soort beperkingen kunnen krachtige, maar ze ook kunnen invloed hebben op de ervaring van consumenten. Als de uitvoer goed te beperken, is het mogelijk dat de inhoud afgespeeld op sommige clients. Zie voor meer informatie de [PlayReady Compliantieregels](https://www.microsoft.com/playready/licensing/compliance/).

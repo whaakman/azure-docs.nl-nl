@@ -4,23 +4,23 @@ description: In dit onderwerp ziet u hoe u redigeer gezichten met Azure media an
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/09/2019
 ms.author: juliako;
-ms.openlocfilehash: 910cc246aa19e19b109fc660682c6b2dc239cbb7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 7fa1bec1b6f83b18684f6139bf6ac8db1ae9daec
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "33789381"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004890"
 ---
-# <a name="redact-faces-with-azure-media-analytics"></a>Redigeer gezichten met Azure Media Analytics
+# <a name="redact-faces-with-azure-media-analytics-legacy"></a>Redigeer gezichten met Azure Media Analytics (verouderd)
 ## <a name="overview"></a>Overzicht
 **Azure Media Redactor** is een [Azure Media Analytics](media-services-analytics-overview.md) Mediaprocessor (MP) biedt schaalbare gezichten onherkenbaar maken in de cloud. Gezichten onherkenbaar maken kunt u uw video om gezichten van geselecteerde personen onherkenbaar wijzigen. U wilt de gezichten onherkenbaar maken-service gebruikt in scenario's met openbare veiligheid en nieuwsmedia. Kunnen een paar minuten beeldmateriaal met meerdere gezichten uren redigeer handmatig duren, maar het proces van gezichten onherkenbaar maken moet met deze service slechts een paar eenvoudige stappen. Zie voor meer informatie, [dit](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
@@ -135,7 +135,7 @@ Voorbeeld foo_IDList.txt
 
 ## <a name="blur-types"></a>De voorbeeldafbeelding van typen
 
-In de **gecombineerde** of **Redact** modus 5 verschillende vervagen modi u uit via de configuratie van de JSON-invoer kiezen kunt: **laag**, **Med**, **Hoge**, **vak**, en **zwart**. Standaard **Med** wordt gebruikt.
+In de **gecombineerde** of **Redact** modus 5 verschillende vervagen modi u uit via de configuratie van de JSON-invoer kiezen kunt: **Lage**, **Med**, **hoge**, **vak**, en **zwart**. Standaard **Med** wordt gebruikt.
 
 Hier vindt u voorbeelden van de onderstaande vervagen-typen.
 

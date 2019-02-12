@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: c4fab22513e42013a9dacf0b24b2d4b322ae09b6
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 8947d235894ffc021243a64244b4904c5ca7f128
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883395"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990425"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Veelgestelde vragen voor overgang van OMS-portal naar Azure-portal voor Log Analytics-gebruikers
 Log Analytics gebruikt een eigen portal met de OMS-portal de naam in eerste instantie de configuratie ervan beheren en analyseren van verzamelde gegevens.  Alle functionaliteit van deze portal is verplaatst naar de Azure-portal waar deze blijft op worden ontwikkeld.
@@ -105,7 +105,7 @@ Instellingen voor de meeste gegevens beheren de in de **geavanceerde instellinge
 Beheren van oplossingen in de **oplossingen** menu voor de werkruimte. 
 
 ## <a name="how-do-i-install-and-remove-management-solutions"></a>Hoe ik installeren en verwijderen van oplossingen voor het beheer?
-In de OMS-portal installeert oplossingen voor het beheer van de galerie van oplossingen en verwijderd uit **instellingen**. In de Azure-portal [installeren beheeroplossingen](../insights/solutions.md#install-a-management-solution) vanuit Azure Marketplace. [Verwijderen van oplossingen](../insights/solutions.md#remove-a-management-solution) uit de lijst met geïnstalleerde oplossingen.
+In de OMS-portal installeert oplossingen voor het beheer van de galerie van oplossingen en verwijderd uit **instellingen**. In de Azure-portal [installeren beheeroplossingen](../insights/solutions.md#install-a-monitoring-solution) vanuit Azure Marketplace. [Verwijderen van oplossingen](../insights/solutions.md#remove-a-monitoring-solution) uit de lijst met geïnstalleerde oplossingen.
 
 ## <a name="how-do-i-create-and-manage-alerts"></a>Hoe ik waarschuwingen maken en beheren?
 Regels voor waarschuwingen op basis van Log Analytics-query's worden nu beheerd de [geïntegreerde ervaring waarschuwingen](../../azure-monitor/platform/alerts-metric.md). Zie [voor het uitbreiden van waarschuwingen van Log Analytics in Azure-waarschuwingen](../../azure-monitor/platform/alerts-extend-tool.md) voor meer informatie over het configureren en gebruiken van waarschuwingen in Azure portal.

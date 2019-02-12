@@ -1,5 +1,5 @@
 ---
-title: Aan de slag met Log Analytics in Azure portal | Microsoft Docs
+title: Aan de slag met Azure Monitor log analytics | Microsoft Docs
 description: Dit artikel bevat een zelfstudie voor het gebruik van Log Analytics in Azure portal om query's schrijven.
 services: log-analytics
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: 6ed8906066d66b6e16ec482a53137f9ca70ae9c7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b9a5c78ff9d6c1e2c7194f5b92511e94dfafb058
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000050"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990493"
 ---
-# <a name="get-started-with-log-analytics-in-the-azure-portal"></a>Aan de slag met Log Analytics in Azure portal
+# <a name="get-started-with-azure-monitor-log-analytics"></a>Aan de slag met Azure Monitor log analytics
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-In deze zelfstudie leert u hoe u Log Analytics-query's schrijven met de Log Analytics-pagina in de Azure-portal (momenteel in Preview-versie). Deze leert u hoe aan:
+In deze zelfstudie leert u hoe u Azure Monitor log analytics in Azure portal gebruiken voor het schrijven van Azure Monitor logboeken-query's. Deze leert u hoe aan:
 
 - Eenvoudige query's schrijven
 - Het schema van uw gegevens begrijpen
@@ -35,8 +35,8 @@ In deze zelfstudie leert u hoe u Log Analytics-query's schrijven met de Log Anal
 - Exporteren en delen van query 's
 
 
-## <a name="meet-the-log-analytics-page"></a>Voldoen aan de Log Analytics-pagina 
-De pagina Log Analytics is een web-hulpprogramma gebruikt om te schrijven en uitvoeren van Azure Log Analytics-query's. Open het door het selecteren van **Logboeken (preview)** in het menu van Log Analytics. Het begint al met een nieuwe lege query.
+## <a name="meet-log-analytics"></a>Voldoen aan de log analytics
+Log analytics is een web-hulpprogramma gebruikt om te schrijven en uitvoeren van Azure Monitor logboeken-query's. Open het door het selecteren van **logboeken** in het menu van Azure Monitor. Het begint al met een nieuwe lege query.
 
 ![Startpagina](media/get-started-portal/homepage.png)
 
@@ -64,7 +64,7 @@ In dit voorbeeld **zoeken** is afgestemd op de _gebeurtenis_ tabel en alle recor
 ## <a name="running-a-query"></a>Een query uit te voeren
 Een query uitvoeren door te klikken op de **uitvoeren** knop of te drukken **Shift + Enter**. Houd rekening met de volgende details vast te stellen de code die wordt uitgevoerd en de gegevens die wordt geretourneerd:
 
-- Regeleinden: een één-einde wordt uw duidelijker query. Meerdere regeleinden opsplitsen deze in afzonderlijke query's.
+- Regeleinden: Een één-einde wordt uw duidelijker query. Meerdere regeleinden opsplitsen deze in afzonderlijke query's.
 - Cursor: Plaats de cursor ergens in de query wilt uitvoeren. De huidige query wordt beschouwd als de code worden totdat een lege regel is gevonden.
 - Tijdsbereik - een tijdsbereik van _afgelopen 24 uur_ is standaard ingesteld. Voor het gebruik van een ander bereik, de tijdkiezer gebruiken of een expliciete tijd toevoegen bereikfilter aan uw query.
 
@@ -83,10 +83,10 @@ Beginnen met het ophalen van alles wat de _gebeurtenis_ tabel.
 Event
 ```
 
-De pagina logboekanalyse scopes automatisch resultaten op basis van:
+Meld u analytics automatisch resultaten op basis van het bereik:
 
-- Tijdsbereik: standaard, query's zijn beperkt tot de laatste 24 uur.
-- Aantal resultaten: resultaten zijn beperkt tot maximaal 10.000 records.
+- Tijdsbereik:  Query's zijn standaard beperkt tot de laatste 24 uur.
+- Het aantal resultaten: Resultaten zijn beperkt tot maximaal 10.000 records.
 
 Deze query is zeer algemene en deze te veel resultaten worden geretourneerd. U kunt de resultaten door de tabelelementen, of door expliciet een filter toe te voegen aan de query filteren. Filteren van resultaten in de tabelelementen van toepassing op de bestaande resultatenset, terwijl een filter op de query zelf krijgt u een nieuwe gefilterde resultaat ingesteld en kan daarom meer nauwkeurige resultaten opleveren.
 
@@ -121,7 +121,7 @@ De tabel met resultaten wordt vaak een groot aantal kolommen bevat. Mogelijk vin
 
 
 ## <a name="select-a-time-range"></a>Een tijdsbereik selecteren
-Standaard de Log Analytics-pagina van toepassing is de _afgelopen 24 uur_ tijdsbereik. Voor het gebruik van een ander bereik, selecteert u een andere waarde via de tijdkiezer en klikt u op **uitvoeren**. Naast de vooraf gedefinieerde waarden, kunt u de _aangepast tijdsbereik_ optie om een absolute bereik voor uw query te selecteren.
+Standaard log analytics is van toepassing de _afgelopen 24 uur_ tijdsbereik. Voor het gebruik van een ander bereik, selecteert u een andere waarde via de tijdkiezer en klikt u op **uitvoeren**. Naast de vooraf gedefinieerde waarden, kunt u de _aangepast tijdsbereik_ optie om een absolute bereik voor uw query te selecteren.
 
 ![Tijdkiezer](media/get-started-portal/time-picker.png)
 
@@ -164,9 +164,9 @@ Als u wilt een diagram of de tabel op een van uw Azure-gedeelde dashboards vastm
 
 Bepaalde vereenvoudigen worden toegepast op een grafiek, wanneer u deze aan een dashboard vastmaken:
 
-- De tabel kolommen en rijen: als u wilt een tabel aan het dashboard vastmaakt, vier of minder kolommen moet hebben. Alleen de bovenste zeven rijen worden weergegeven.
-- Tijd van beperking: query's automatisch beperkt tot de afgelopen 14 dagen zijn.
-- Aantal beperking van de opslaglocatie: als u een grafiek die een groot aantal afzonderlijke opslaglocaties heeft weergeven, kleiner is ingevulde opslaglocaties automatisch worden gegroepeerd in één _anderen_ bin.
+- Rijen en kolommen in de tabel: Als u wilt een tabel aan het dashboard vastmaken, moet deze vier of minder kolommen hebben. Alleen de bovenste zeven rijen worden weergegeven.
+- Beperking: Er zijn query's automatisch beperkt tot de afgelopen 14 dagen.
+- BIn aantal beperkingen: Als u een grafiek die een groot aantal afzonderlijke opslaglocaties heeft weergeven, kleiner is ingevulde opslaglocaties automatisch worden gegroepeerd in één _anderen_ bin.
 
 ## <a name="save-queries"></a>Query's opslaan
 Als u een handige query hebt gemaakt, is het raadzaam opslaan of delen met anderen. De **opslaan** pictogram is op de bovenste balk.
@@ -175,7 +175,7 @@ U kunt de querypagina van de volledige, of één query opslaan als een functie. 
 
 ![Functie opslaan](media/get-started-portal/save-function.png)
 
-Log Analytics-query's worden altijd opgeslagen in een geselecteerde werkruimte en gedeeld met andere gebruikers van deze werkruimte.
+Log analytics-query's worden altijd opgeslagen in een geselecteerde werkruimte en gedeeld met andere gebruikers van deze werkruimte.
 
 ## <a name="load-queries"></a>Laden van query 's
 Het pictogram van de Query is op het gebied rechtsboven. Dit geeft een lijst van alle opgeslagen query's per categorie. Ook kunt u specifieke query's markeren als favorieten in de toekomst snel vinden. Dubbelklik op een opgeslagen query toe te voegen aan het huidige venster.
@@ -183,12 +183,12 @@ Het pictogram van de Query is op het gebied rechtsboven. Dit geeft een lijst van
 ![Queryverkenner](media/get-started-portal/query-explorer.png)
 
 ## <a name="export-and-share-as-link"></a>Exporteren en delen als koppeling
-De pagina Log Analytics ondersteunt meerdere methoden voor exporteren:
+Log analytics biedt ondersteuning voor meerdere methoden voor exporteren:
 
 - Excel: De resultaten opslaan als een CSV-bestand.
-- Power BI: De resultaten exporteren naar power BI. Zie [importeren Azure Log Analytics-gegevens in Power BI](../../azure-monitor/platform/powerbi.md) voor meer informatie.
-- Een koppeling delen: de query zelf als een koppeling die vervolgens kan worden verzonden en uitgevoerd door andere gebruikers die toegang tot dezelfde werkruimte hebben kan worden gedeeld.
+- Power BI: De resultaten exporteren naar power BI. Zie [importeren van Azure Monitor-logboekgegevens in Power BI](../../azure-monitor/platform/powerbi.md) voor meer informatie.
+- Een koppeling delen: De query zelf kan worden gedeeld als een koppeling die vervolgens kan worden verzonden en uitgevoerd door andere gebruikers die toegang tot dezelfde werkruimte hebben.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [Log Analytics-query's schrijven](get-started-queries.md).
+- Meer informatie over [Azure Monitor logboeken-query's schrijven](get-started-queries.md).

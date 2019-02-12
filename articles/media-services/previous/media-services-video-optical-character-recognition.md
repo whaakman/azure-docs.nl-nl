@@ -1,10 +1,10 @@
 ---
-title: Tekst met Azure Media Analytics OCR gedigitaliseerd | Microsoft Docs
-description: Azure Media Analytics OCR (OCR) kunt u tekstinhoud in videobestanden converteren naar bewerkbare, doorzoekbaar digitale tekst.  Hiermee kunt u de extractie van zinvolle metagegevens van de video signaal van uw media te automatiseren.
+title: Tekst met Azure Media Analytics OCR digitaliseren | Microsoft Docs
+description: Azure Media Analytics OCR (optische tekenherkenning) kunt u tekstinhoud in video's converteren naar bewerkbare, doorzoekbaar digitale tekst.  Hiermee kunt u voor het automatiseren van de extractie van nuttige metagegevens van de video signaal van de media.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 307c196e-3a50-4f4b-b982-51585448ffc6
 ms.service: media-services
@@ -12,43 +12,43 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 4a7a31b4e0069d2c94a4f109248d7b02c0b03faa
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e0fa769c9071cac0dccaf43c312c80c7d097e345
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790396"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005128"
 ---
-# <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Azure Media Analytics gebruiken voor het converteren van tekstinhoud in videobestanden in digitale tekst
+# <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Azure Media Analytics gebruiken om te converteren tekstinhoud in video's naar digitale tekst  
 ## <a name="overview"></a>Overzicht
-Als u moet voor tekstinhoud extraheren uit uw video's en het genereren van een digitale tekst worden bewerkt, doorzoekbaar, moet u Azure Media Analytics OCR (OCR). Deze Azure Media Processor tekstinhoud detecteert in uw video's en genereert tekstbestanden voor het gebruik. OCR kunt u de extractie van zinvolle metagegevens van de video signaal van uw media te automatiseren.
+Als u nodig hebt voor tekstinhoud onttrekken aan uw videobestanden en het genereren van een digitale tekst worden bewerkt, doorzoekbaar, moet u Azure Media Analytics OCR (optische tekenherkenning). Deze Azure-Mediaprocessor detecteert tekstinhoud in uw videobestanden en genereert tekstbestanden voor het gebruik. OCR, kunt u de extractie van nuttige metagegevens van de video signaal van uw media automatiseren.
 
-Wanneer gebruikt in combinatie met een zoekmachine, kunt u eenvoudig uw media indexering van tekst en verbeteren van de detectie van uw inhoud. Dit is zeer nuttig zijn bij zeer tekstuele video, zoals een video-opname of een schermopname van een diavoorstelling. De Azure OCR Media-Processor is geoptimaliseerd voor digitale tekst.
+Wanneer gebruikt in combinatie met een zoekprogramma, kunt u eenvoudig index van uw media op tekst en verbeter de zichtbaarheid van uw inhoud. Dit is bijzonder nuttig in maximaal tekstuele video, zoals een video-opname of een schermopname van een diavoorstelling. De Azure OCR Mediaprocessor die is geoptimaliseerd voor digitale tekst.
 
 De **Azure Media OCR** Mediaprocessor is momenteel in Preview.
 
-In dit artikel geeft informatie over **Azure Media OCR** en laat zien hoe u deze gebruiken met Media Services SDK voor .NET. Zie voor meer informatie over en voorbeelden [deze blog](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/).
+Dit artikel geeft meer informatie over **Azure Media OCR** en laat zien hoe u met Media Services SDK voor .NET gebruiken. Zie voor meer informatie en voorbeelden, [deze blog](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/).
 
-## <a name="ocr-input-files"></a>De invoerbestanden OCR
-Videobestanden. Op dit moment wordt de volgende indelingen worden ondersteund: MP4 MOV en WMV.
+## <a name="ocr-input-files"></a>OCR-invoerbestanden
+Videobestanden. Op dit moment worden de volgende indelingen ondersteund: MP4, MOV en WMV.
 
-## <a name="task-configuration"></a>Taken configureren
-Taken configureren (standaardoptie). Bij het maken van een taak met **Azure Media OCR**, moet u een configuratie met JSON of XML-definitie opgeven. 
+## <a name="task-configuration"></a>Configuratie van de taak
+Taakconfiguratie van de (standaardoptie). Bij het maken van een taak met **Azure Media OCR**, moet u een configuratie met behulp van JSON of XML-definitie opgeven. 
 
 >[!NOTE]
->De engine OCR duurt slechts een installatiekopie-regio met minimale 40 pixels en maximale 32000 pixels als een geldige invoer in beide hoogte/breedte.
+>De OCR-engine gaat alleen de regio van een installatiekopie met minimaal 40 pixels naar maximale 32000 pixels als een geldige invoer in beide hoogte/breedte.
 >
 
 ### <a name="attribute-descriptions"></a>Beschrijvingen van kenmerken
-| Naam van kenmerk | Beschrijving |
+| De naam van kenmerk | Description |
 | --- | --- |
-|AdvancedOutput| Als u AdvancedOutput ingesteld op true, wordt de JSON-uitvoer positionele gegevens voor elke één woord (in aanvulling op zinnen en regio's) bevatten. Als u niet zien van deze gegevens wilt, moet u de vlag ingesteld op false. De standaardwaarde is ingesteld op false. Zie voor meer informatie [deze blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
-| Taal |(optioneel) een beschrijving van de taal van de tekst waarnaar moet worden gezocht. Een van de volgende: AutoDetect (standaard), Arabisch, ChineseSimplified, ChineseTraditional, Tsjechisch Deens, Nederlands, Engels, Fins, Frans, Duits, Grieks, Hongaars, Italiaans, Japans, Koreaans, Noors, Pools, Portugees, Roemeens, Russisch, SerbianCyrillic, SerbianLatin, Slowaaks, Spaans, Zweeds, Turks. |
-| TextOrientation |(optioneel) een beschrijving van de richting van tekst voor waarnaar moet worden gezocht.  "Left" betekent dat er met de bovenkant van alle letters waarnaar wordt verwezen naar links.  De standaardtekst (zoals die die kunnen worden gevonden in een boek) kan worden aangeroepen 'Van' objectgeoriënteerde.  Een van de volgende: AutoDetect (standaard), maximaal, rechts, omlaag, links. |
-| TimeInterval |(optioneel) wordt de samplingfrequentie beschreven.  Standaard is elke seconde 1/2.<br/>JSON-indeling –: mm: ss. SSS (standaard 00:00:00.500)<br/>XML-indeling W3C XSD duur primitieve (standaard PT0.5) |
-| DetectRegions |(optioneel) Een matrix van DetectRegion objecten regio's binnen de video frame waarin u voor het detecteren van tekst opgeven.<br/>Een object DetectRegion bestaat de volgende vier waarden:<br/>Links: pixels van de linkermarge<br/>Top – pixels van de bovenmarge<br/>Breedte – breedte van de regio in pixels<br/>Hoogte – hoogte van de regio in pixels |
+|AdvancedOutput| Als u AdvancedOutput ingesteld op true, wordt de JSON-uitvoer positionele gegevens voor elke één woord (naast zinnen en regio's) bevatten. Als u niet zien deze gegevens wilt, moet u de vlag ingesteld op false. De standaardwaarde is false. Zie voor meer informatie, [deze blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
+| Taal |(optioneel) een beschrijving van de taal van de tekst waarnaar moet worden gezocht. Een van de volgende: Automatische detectie (standaard), Arabisch, ChineseSimplified, ChineseTraditional, Tsjechisch Deens, Nederlands, Engels, Fins, Frans, Duits, Grieks, Hongaars, Italiaans, Japans, Koreaans, Noors, Pools, Portugees, Roemeens, Russisch, SerbianCyrillic, SerbianLatin , Slowaaks, Spaans, Zweeds, Turks. |
+| TextOrientation |(optioneel) een beschrijving van de richting van tekst waarvoor u wilt zoeken.  "Links" betekent dat er met de bovenkant van alle letters waarnaar wordt verwezen naar de linkerkant.  Standaardtekst (zoals dat kan worden gevonden in een boek) kan worden aangeroepen 'Van' geplaatst.  Een van de volgende: Autodetectie (standaard), maximaal, rechts, omlaag naar links. |
+| TimeInterval |(optioneel) een beschrijving van de samplingfrequentie.  Standaard is elke seconde 1/2.<br/>JSON-indeling: uu: mm:. SSS (standaard 00:00:00.500)<br/>XML-indeling: W3C XSD-duur primitieve (standaard PT0.5) |
+| DetectRegions |(optioneel) Een matrix met DetectRegion objecten op te geven de regio's binnen de video waarin u kunt tekst detecteren.<br/>Een DetectRegion-object wordt gemaakt van de volgende vier waarden:<br/>Links: pixels vanaf de linkermarge<br/>Top – pixels vanaf de bovenmarge<br/>Breedte-breedte van de regio in pixels<br/>Hoogte-hoogte van de regio in pixels |
 
 #### <a name="json-preset-example"></a>Vooraf gedefinieerde JSON-voorbeeld
 
@@ -95,34 +95,34 @@ Taken configureren (standaardoptie). Bij het maken van een taak met **Azure Medi
     </VideoOcrPreset>
 ```
 
-## <a name="ocr-output-files"></a>De uitvoerbestanden OCR
-De uitvoer van de processor van de media OCR is een JSON-bestand.
+## <a name="ocr-output-files"></a>Uitvoerbestanden OCR
+De uitvoer van de Mediaprocessor die OCR is een JSON-bestand.
 
-### <a name="elements-of-the-output-json-file"></a>Elementen van de JSON-bestand voor uitvoer
-De uitvoer van de Video OCR biedt tijd gesegmenteerde gegevens van de tekens in uw video gevonden.  U kunt kenmerken, zoals taal of de afdrukstand hone in op woorden dat u geïnteresseerd in analyseren bent. 
+### <a name="elements-of-the-output-json-file"></a>Elementen van het JSON-bestand voor uitvoer
+De Video OCR-uitvoer kunt u tijd-gesegmenteerde gegevens van de tekens die is gevonden in de video.  U kunt kenmerken, zoals taal of de afdrukstand hone in op woorden dat u geïnteresseerd in analyseren bent. 
 
 De uitvoer bevat de volgende kenmerken:
 
-| Element | Beschrijving |
+| Element | Description |
 | --- | --- |
 | Tijdschaal |'maatstreepjes' per seconde van de video |
-| Offset |tijdzoneverschil voor tijdstempels. Versie 1.0 van Video-API's, zal dit altijd 0 zijn. |
-| framesnelheid |Frames per seconde van de video |
+| Offset |tijd offset voor tijdstempels. Versie 1.0 van Video-API's, wordt dit altijd 0 zijn. |
+| Framesnelheid |Frames per seconde van de video |
 | Breedte |breedte van de video in pixels |
 | Hoogte |hoogte van de video in pixels |
-| fragmenten |matrix van reeksen video waarin de metagegevens wordt gesegmenteerde op basis van tijd |
+| Fragmenten |matrix van segmenten van de video waarin de metagegevens van de gesegmenteerde overdrachtscodering op basis van tijd |
 | start |Begintijd van een fragment in 'maatstreepjes' |
-| Duur |lengte van een fragment in 'maatstreepjes' |
-| interval |het interval van elke gebeurtenis in het opgegeven fragment |
+| duur |lengte van een fragment in 'maatstreepjes' |
+| interval |interval van elke gebeurtenis in het opgegeven fragment |
 | events |matrix met regio 's |
-| regio |object dat vertegenwoordigt woorden of zinnen gedetecteerd |
-| taal |taal van de tekst binnen een regio gedetecteerd |
-| afdrukstand |richting van de tekst binnen een regio gedetecteerd |
-| regels |matrix van regels tekst binnen een regio gedetecteerd |
-| Tekst |de werkelijke tekst |
+| regio |object voor woorden of zinsdelen gedetecteerd |
+| language |taal van de tekst gedetecteerd binnen een regio |
+| Afdrukstand |richting van de tekst gedetecteerd binnen een regio |
+| regels |matrix van regels tekst gedetecteerd binnen een regio |
+| tekst |de werkelijke tekst |
 
 ### <a name="json-output-example"></a>Voorbeeld van JSON-uitvoer
-Het volgende Uitvoervoorbeeld bevat de algemene video informatie en verschillende video fragmenten. In elke video fragment bevat elke regio die wordt gedetecteerd door OCR MP met de taal en de richting van tekst. De regio bevat ook elke regel woord in deze regio met de regel tekst, de positie van de regel en elke word-informatie (word-inhoud, positie en vertrouwen) in deze regel. Hier volgt een voorbeeld en ik bepaalde inline opmerkingen plaatsen.
+Het volgende Uitvoervoorbeeld bevat de algemene informatie over de video en verschillende video fragmenten. In elke video fragment bevat elke regio die wordt gedetecteerd door OCR MP met de taal en de richting van de tekst. De regio bevat ook elke regel woord in deze regio met een van de regel tekst, positie van de regel en elke word-gegevens (word-inhoud, positie en vertrouwen) in deze regel. Hier volgt een voorbeeld en ik bepaalde inline opmerkingen plaatsen.
 
 ```json
     {
@@ -179,13 +179,13 @@ Het volgende Uitvoervoorbeeld bevat de algemene video informatie en verschillend
     }
 ```
 
-## <a name="net-sample-code"></a>Voorbeeldcode voor .NET
+## <a name="net-sample-code"></a>.NET-voorbeeldcode
 
-De volgende programma toont hoe:
+De volgende programma toont hoe u:
 
 1. Maak een asset en upload een mediabestand naar de asset.
-2. Een taak maken met een OCR configuration/voorinstelling-bestand.
-3. De uitvoer JSON-bestanden downloaden. 
+2. Een taak maken met een OCR-configuratie/definitie-bestand.
+3. De uitvoer-JSON-bestanden downloaden. 
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
 

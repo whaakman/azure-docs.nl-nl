@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 95206d0e3cb7bdb619524237ca1e466414c5acf5
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 2ac140e40ec1c70bf04c35512c28e84f59522bb8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492875"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989420"
 ---
 # <a name="consuming-an-azure-machine-learning-studio-web-service-from-excel"></a>Een Azure Machine Learning Studio-webservice uit Excel gebruiken
 
@@ -26,7 +26,7 @@ Als u Excel 2013 (of hoger) of Excel Online, gebruikt, raden wij aan dat u de Ex
 
 
 ## <a name="steps"></a>Stappen
-Een webservice publiceren. [Deze pagina](walkthrough-5-publish-web-service.md) wordt uitgelegd hoe u om dit te doen. De Excel-werkmap-functie wordt momenteel alleen ondersteund voor aanvraag/antwoord-services die een enkele uitvoer (dat wil zeggen, een enkel scoring label) hebben. 
+Een webservice publiceren. [Zelfstudie 3: Tegoed risicomodel implementeren](tutorial-part3-credit-risk-deploy.md) wordt uitgelegd hoe u om dit te doen. De Excel-werkmap-functie wordt momenteel alleen ondersteund voor aanvraag/antwoord-services die een enkele uitvoer (dat wil zeggen, een enkel scoring label) hebben. 
 
 Als u een webservice hebt, klikt u op de **WEBSERVICES** sectie aan de linkerkant van de studio en selecteer vervolgens de webservice om te gebruiken vanuit Excel.
 

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: bfc3ed5553802c8a87776dc1a5372bc27ac8d13d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 457f64b9ae9101628df5347c921bfa057a7cb754
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475183"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991426"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Naslaginformatie voor Azure Cosmos DB SQL-taal 
 
@@ -493,7 +493,7 @@ ORDER BY <sort_specification>
 |-|-|-|  
 |**Rekenkundige**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Toevoeging.<br /><br /> Aftrekken.<br /><br /> Vermenigvuldigen.<br /><br /> Delen.<br /><br /> Modulatie.|  
 |**Bitsgewijze**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|Bitsgewijze OR.<br /><br /> Bitsgewijze AND.<br /><br /> Bitsgewijze XOR.<br /><br /> Verschuiving naar links uit.<br /><br /> Verschuiving naar rechts uit.<br /><br /> Nul opvulling rechts verplaatsen.|  
-|**Logische**|**EN**<br /><br /> **OR**|Logische combinatie. Retourneert **waar** als beide argumenten zijn **waar**, retourneert **false** anders.<br /><br /> Logische combinatie. Retourneert **waar** als beide argumenten zijn **waar**, retourneert **false** anders.|  
+|**Logische**|**EN**<br /><br /> **OR**|Logische combinatie. Retourneert **waar** als beide argumenten zijn **waar**, retourneert **false** anders.<br /><br /> Logische scheiding. Retourneert **waar** als alle argumenten zijn **waar**, retourneert **false** anders.|  
 |**Vergelijking**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Is gelijk aan. Retourneert **waar** als argumenten gelijk zijn, retourneert **false** anders.<br /><br /> Niet gelijk aan. Retourneert **waar** als argumenten niet gelijk zijn zijn, retourneert **false** anders.<br /><br /> Groter dan. Retourneert **waar** als eerste argument groter dan de tweede waarde is, retourneren **false** anders.<br /><br /> Groter dan of gelijk zijn aan. Retourneert **waar** als eerste argument groter dan of gelijk zijn aan de tweede waarde is, retourneren **false** anders.<br /><br /> Kleiner dan. Retourneert **waar** als eerste argument minder is dan het tweede één rendement **false** anders.<br /><br /> Kleiner dan of gelijk zijn aan. Retourneert **waar** als eerste argument kleiner dan of gelijk zijn aan de tweede waarde, retourneren **false** anders.<br /><br /> Samenvoegen. Het tweede argument geeft als resultaat als het eerste argument is een **niet-gedefinieerde** waarde.|  
 |**String**|**&#124;&#124;**|Samenvoeging. Retourneert een samenvoeging van beide argumenten.|  
   
@@ -620,7 +620,7 @@ ORDER BY <sort_specification>
 |-|-|-|  
 |\\'|enkel aanhalingsteken (')|U+0027|  
 |\\"|dubbel aanhalingsteken (")|U+0022|  
-|\\\|omgekeerde schuine streep (\\)|U + 005C|  
+|\\\ |omgekeerde schuine streep (\\)|U + 005C|  
 |\\/|schuine streep (/)|U+002F|  
 |\b|BACKSPACE|U+0008|  
 |\f|formulier-feed|U + 000C|  

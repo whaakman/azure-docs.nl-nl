@@ -1,6 +1,6 @@
 ---
-title: Joins in Azure Log Analytics-query's | Microsoft Docs
-description: Dit artikel bevat een les over het gebruik van joins in de Log Analytics-querytaal.
+title: Joins in Logboeken-query's van Azure Monitor | Microsoft Docs
+description: Dit artikel bevat een les over het gebruik van joins in Azure Monitor logboeken-query's.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: c1f578c11fff963ee4bec47bd3737cd224b14720
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 91ff85d8c32c0bcfa984cc690382d09765a068a2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52882443"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004636"
 ---
-# <a name="joins-in-log-analytics-queries"></a>Joins in Log Analytics-query 's
+# <a name="joins-in-azure-monitor-log-queries"></a>Joins in Logboeken-query's van Azure Monitor
 
 > [!NOTE]
-> U moet voltooien [aan de slag met de Analytics-portal](get-started-portal.md) en [aan de slag met query's](get-started-queries.md) voordat het voltooien van deze les gaat uitvoeren.
+> U moet voltooien [aan de slag met Azure Monitor log-analytics](get-started-portal.md) en [logboeken-query's van Azure Monitor](get-started-queries.md) voordat het voltooien van deze les gaat uitvoeren.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -86,7 +86,7 @@ SecurityEvent
 ## <a name="join-kinds"></a>Typen koppelen
 Geef het type koppelen met de _soort_ argument. Elk type voert een andere overeenkomst tussen de records van de opgegeven tabellen, zoals beschreven in de volgende tabel.
 
-| Type join | Beschrijving |
+| Type join | Description |
 |:---|:---|
 | innerunique | Dit is de standaardmodus voor de join. Eerst de waarden van de overeenkomende kolom in de linkertabel worden gevonden en dubbele waarden zijn verwijderd.  De set met unieke waarden wordt vervolgens vergeleken met de rechtertabel. |
 | binnenste | Alleen overeenkomende records in beide tabellen zijn opgenomen in de resultaten. |
@@ -105,7 +105,7 @@ Houd rekening met de volgende punten voor optimale prestaties:
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie andere lessen voor het gebruik van de querytaal van Log Analytics:
+Zie andere lessen voor het gebruik van Azure Monitor logboeken-query's:
 
 - [Bewerkingen op tekenreeksen uitvoeren](string-operations.md)
 - [Aggregatiefuncties](aggregations.md)

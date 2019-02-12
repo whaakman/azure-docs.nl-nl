@@ -1,6 +1,6 @@
 ---
-title: Gegevensbronnen van de agent configureren in Log Analytics | Microsoft Docs
-description: Gegevensbronnen definiëren de gegevens van een Log Analytics verzamelt van agents en andere bronnen die zijn verbonden.  Dit artikel beschrijft het begrip van hoe Log Analytics maakt gebruik van gegevensbronnen, worden de details van het configureren van deze uitgelegd en bevat een samenvatting van de verschillende gegevensbronnen beschikbaar.
+title: Gegevensbronnen van de agent configureren in Azure Monitor | Microsoft Docs
+description: Gegevensbronnen definiëren de logboekgegevens Azure Monitor verzameld van agents en andere bronnen die zijn verbonden.  Dit artikel beschrijft het begrip van hoe Azure Monitor maakt gebruik van gegevensbronnen, worden de details van het configureren van deze uitgelegd en bevat een samenvatting van de verschillende gegevensbronnen beschikbaar.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,22 +11,22 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/07/2018
+ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: d9bedeeb2e354dab8bc6a7be56826f28914326be
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ad4270700712311d8bea2e2014701a99e44c735f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101527"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992442"
 ---
-# <a name="agent-data-sources-in-log-analytics"></a>Agent-gegevensbronnen in Log Analytics
-De gegevens die door Log Analytics worden verzameld van agents wordt gedefinieerd door de gegevensbronnen die u configureert.  De gegevens van agents wordt opgeslagen als [logboekgegevens](data-collection.md) met een set records.  Elke gegevensbron maakt van een bepaald type-records met elk type met een eigen set eigenschappen.
+# <a name="agent-data-sources-in-azure-monitor"></a>Agent-gegevensbronnen in Azure Monitor
+De gegevens die door Azure Monitor worden verzameld van agents wordt gedefinieerd door de gegevensbronnen die u configureert.  De gegevens van agents wordt opgeslagen als [logboekgegevens](data-collection.md) met een set records.  Elke gegevensbron maakt van een bepaald type-records met elk type met een eigen set eigenschappen.
 
 ![Logboek gegevens verzamelen](media/agent-data-sources/overview.png)
 
 ## <a name="summary-of-data-sources"></a>Overzicht van gegevensbronnen
-De volgende tabel geeft een lijst van de agent-gegevensbronnen die momenteel beschikbaar in Log Analytics zijn.  Elk heeft een koppeling naar een apart artikel geven details voor de gegevensbron.   Het bevat ook informatie over hun methode en de frequentie van de verzameling. 
+De volgende tabel geeft een lijst van de agent-gegevensbronnen die momenteel beschikbaar in Azure Monitor zijn.  Elk heeft een koppeling naar een apart artikel geven details voor de gegevensbron.   Het bevat ook informatie over hun methode en de frequentie van de verzameling. 
 
 
 | Gegevensbron | Platform | Microsoft monitoring agent | Operations Manager-agent | Azure Storage | Operations Manager vereist? | Operations Manager-agent gegevens verzonden via de beheergroep | Verzamelingsfrequentie |
@@ -43,25 +43,25 @@ De volgende tabel geeft een lijst van de agent-gegevensbronnen die momenteel bes
 ## <a name="configuring-data-sources"></a>Gegevensbronnen configureren
 Configureren van gegevensbronnen van de **gegevens** in het menu in **geavanceerde instellingen** voor de werkruimte.  Elke configuratie is afgeleverd bij alle verbonden bronnen in uw werkruimte.  U uitsluiten niet op dit moment geen agents van deze configuratie.
 
-![Windows-gebeurtenissen configureren](./media/agent-data-sources/configure-events.png)
+![Windows-gebeurtenissen configureren](media/agent-data-sources/configure-events.png)
 
-1. Selecteer in de Azure portal, **Log Analytics** > uw werkruimte > **geavanceerde instellingen**.
+1. Selecteer in de Azure portal, **Log Analytics-werkruimten** > uw werkruimte > **geavanceerde instellingen**.
 2. Selecteer **gegevens**.
 3. Klik op de gegevensbron die u wilt configureren.
 4. Volg de koppeling naar de documentatie voor elke gegevensbron in de bovenstaande tabel voor meer informatie over de configuratie.
 
 
 ## <a name="data-collection"></a>Gegevensverzameling
-Data source-configuraties geleverd aan agents die rechtstreeks zijn verbonden met Log Analytics binnen een paar minuten.  De opgegeven gegevens zijn verzameld van de agent en rechtstreeks aan Log Analytics wordt geleverd met tussenpozen die specifiek zijn voor elke gegevensbron.  Zie de documentatie voor elke gegevensbron voor deze specifieke informatie.
+Data source-configuraties geleverd aan agents die rechtstreeks zijn verbonden met Azure Monitor binnen een paar minuten.  De opgegeven gegevens worden verzameld van de agent en rechtstreeks aan Azure Monitor worden geleverd met tussenpozen die specifiek zijn voor elke gegevensbron.  Zie de documentatie voor elke gegevensbron voor deze specifieke informatie.
 
-Voor System Center Operations Manager-agents in een verbonden beheergroep, worden de gegevensbronconfiguraties vertaald in management packs en geleverd aan de beheergroep om de 5 minuten standaard.  De agent downloadt van het managementpack, zoals elk ander en de opgegeven gegevens verzamelt. De gegevens worden dat beide verzonden naar een beheerserver die de gegevens naar de met Log Analytics doorstuurt, afhankelijk van de gegevensbron, of de agent verzendt de gegevens naar Log Analytics zonder tussenkomst van de beheerserver. Zie [details van de verzameling gegevens voor het bewaken van oplossingen in Azure](../../azure-monitor/insights/solutions-inventory.md) voor meer informatie.  U kunt lezen over de details van het verbinden van Operations Manager en Log Analytics en het wijzigen van de frequentie die configuratie wordt geleverd bij [integratie configureren met System Center Operations Manager](../../log-analytics/log-analytics-om-agents.md).
+Voor System Center Operations Manager-agents in een verbonden beheergroep, worden de gegevensbronconfiguraties vertaald in management packs en geleverd aan de beheergroep om de 5 minuten standaard.  De agent downloadt van het managementpack, zoals elk ander en de opgegeven gegevens verzamelt. Afhankelijk van de gegevensbron, de gegevens worden dat beide verzonden naar een beheerserver die de gegevens naar de Azure Monitor doorstuurt of de agent verzendt de gegevens naar Azure Monitor zonder tussenkomst van de beheerserver. Zie [details van de verzameling gegevens voor het bewaken van oplossingen in Azure](../insights/solutions-inventory.md) voor meer informatie.  U kunt lezen over de details van het verbinden van Operations Manager en Azure Monitor en wijzigen van de frequentie die configuratie wordt geleverd bij [integratie configureren met System Center Operations Manager](om-agents.md).
 
-Als de agent kan geen verbinding met Log Analytics of Operations Manager, blijft het verzamelen van gegevens die deze leveren wanneer er een verbinding tot stand brengt.  Gegevens kunnen worden verbroken als de hoeveelheid gegevens bereikt de maximale cachegrootte voor de client, of als de agent niet kan geen verbinding binnen 24 uur.
+Als de agent, kan geen verbinding maken met Azure Monitor of Operations Manager, blijft het verzamelen van gegevens die deze leveren wanneer er een verbinding tot stand brengt.  Gegevens kunnen worden verbroken als de hoeveelheid gegevens bereikt de maximale cachegrootte voor de client, of als de agent niet kan geen verbinding binnen 24 uur.
 
 ## <a name="log-records"></a>Records in logboek registreren
-Alle gegevens die zijn verzameld door Log Analytics is in de werkruimte opgeslagen als records.  Records die zijn verzameld door andere gegevensbronnen hebben hun eigen set eigenschappen en worden aangeduid met hun **Type** eigenschap.  Zie de documentatie voor elke gegevensbron en de oplossing voor meer informatie over elk recordtype.
+Alle logboekgegevens die zijn verzameld door Azure Monitor is in de werkruimte opgeslagen als records.  Records die zijn verzameld door andere gegevensbronnen hebben hun eigen set eigenschappen en worden aangeduid met hun **Type** eigenschap.  Zie de documentatie voor elke gegevensbron en de oplossing voor meer informatie over elk recordtype.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [bewakingsoplossingen](../../azure-monitor/insights/solutions.md) die functionaliteit toevoegen aan Azure Monitor en ook gegevens verzamelen in de werkruimte.
-* Meer informatie over [query's bijgehouden](../../log-analytics/log-analytics-queries.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen voor de controle te analyseren.  
-* Configureer [waarschuwingen](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) om proactief te waarschuwen u van kritieke gegevens die worden verzameld van gegevensbronnen en oplossingen voor de controle.
+* Meer informatie over [bewakingsoplossingen](../insights/solutions.md) die functionaliteit toevoegen aan Azure Monitor en ook gegevens verzamelen in de werkruimte.
+* Meer informatie over [query's bijgehouden](../log-query/log-query-overview.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen voor de controle te analyseren.  
+* Configureer [waarschuwingen](alerts-overview.md) om proactief te waarschuwen u van kritieke gegevens die worden verzameld van gegevensbronnen en oplossingen voor de controle.

@@ -11,20 +11,20 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: d24f7ce20a9dfb8ede184e8f013c2d988a8a96c2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: 2857b7f5347cf546a9745dcbea02f636a798f4a2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468696"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004244"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Automatische failover-groepen gebruiken voor het inschakelen van transparante en gecoördineerd failover van meerdere databases
 
 Automatische failover-groepen is een SQL-Database-functie waarmee u voor het beheren van replicatie en failover van een groep databases op een SQL-Database-server of alle databases in een beheerd exemplaar naar een andere regio (momenteel in openbare preview voor beheerd exemplaar). Hierbij de dezelfde onderliggende technologie als [actieve geo-replicatie](sql-database-active-geo-replication.md). U kunt failover handmatig starten of kunt u het delegeren aan de service SQL Database op basis van een door de gebruiker gedefinieerd beleid. De laatste optie kunt u meerdere verwante databases in een secundaire regio wordt automatisch hersteld na een onherstelbare fout of andere niet-geplande gebeurtenis optreedt die in het volledige of gedeeltelijke verlies van beschikbaarheid van de service SQL Database in de primaire regio resulteert. Bovendien kunt u de leesbare secundaire databases voor de offload van alleen-lezen querywerkbelastingen. Omdat automatische failover-groepen hebben betrekking op meerdere databases, moeten deze databases worden geconfigureerd op de primaire server. Primaire en secundaire servers voor de databases in de failovergroep moeten zich in hetzelfde abonnement. Automatische failovergroepen ondersteuning bieden voor replicatie van alle databases in de groep met slechts één secundaire server in een andere regio.
 
 > [!NOTE]
-> Wanneer u werkt met zelfstandige of gepoolde databases op een SQL-Database-server en u wilt dat meerdere secundaire replica's in de dezelfde of verschillende regio's, gebruikt u [actieve geo-replicatie](sql-database-active-geo-replication.md).
+> Bij het werken met één of gegroepeerde databases op een SQL-Database-server en u wilt dat meerdere secundaire replica's in de dezelfde of verschillende regio's, gebruikt u [actieve geo-replicatie](sql-database-active-geo-replication.md).
 
 Wanneer u gebruikmaakt van automatische failovergroepen met automatische failover-beleid, een storing voordoet die gevolgen heeft voor een of meer van de databases in de Groepsresultaten van de in automatische failover. Bovendien, automatische failover-groepen bieden de lezen / schrijven en alleen-lezen-listener-eindpunten die blijven ongewijzigd tijdens failovers. Of u nu handmatige of automatische failover-activering, verandert failover alle secundaire databases in de groep in de primaire. Nadat de databasefailover is voltooid, wordt de DNS-record wordt automatisch bijgewerkt om te leiden van de eindpunten naar de nieuwe regio. Zie voor de specifieke RPO en RTO gegevens [overzicht van bedrijfscontinuïteit](sql-database-business-continuity.md).
 
@@ -331,7 +331,7 @@ Zoals eerder besproken automatische failover-groepen en actieve kan geo-replicat
 | Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Triggers failover van de failovergroep naar de secundaire server|
 | Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Hiermee verwijdert u een failovergroep|
 
-### <a name="rest-api-manage-sql-database-failover-groups-with-standalone-and-pooled-databases"></a>REST-API: SQL database-failovergroepen bij de zelfstandige en gepoolde databases beheren
+### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST-API: SQL database failover-groepen met één en gepoolde databases beheren
 
 | API | Description |
 | --- | --- |

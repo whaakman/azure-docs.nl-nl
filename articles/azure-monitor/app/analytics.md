@@ -10,17 +10,18 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/08/2018
+ms.date: 02/02/2019
 ms.author: mbullwin
-ms.openlocfilehash: 24a911978d6c9f9a33c81254a5e2f5951029ff3a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: c9392d910098e8a2dfadc4842dfcfe185f01fafc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120883"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004516"
 ---
 # <a name="analytics-in-application-insights"></a>Analyses in Application Insights
-Analytics is het krachtig hulpprogramma voor zoekopdrachten en query's van [Application Insights](../../azure-monitor/app/app-insights-overview.md). Analytics is een web-hulpprogramma, zodat er geen installatie vereist is. Als u Application Insights al hebt geconfigureerd voor een van uw apps vervolgens u de gegevens van uw app analyseren kunt door te Analytics openen vanuit uw app [overzichtsblade](../../azure-monitor/app/app-insights-dashboards.md).
+Analytics is het krachtig hulpprogramma voor zoekopdrachten en query's van [Application Insights](app-insights-overview.md). Analytics is een web-hulpprogramma, zodat er geen installatie vereist is.
+Als u Application Insights al hebt geconfigureerd voor een van uw apps vervolgens u de gegevens van uw app analyseren kunt door te Analytics openen vanuit uw app [overzichtsblade](app-insights-dashboards.md).
 
 ![Portal.azure.com Open, open uw Application Insights-resource en klik op Analytics.](./media/analytics/001.png)
 
@@ -28,6 +29,12 @@ U kunt ook de [Analytics Speelplaats](https://go.microsoft.com/fwlink/?linkid=85
 <br>
 <br>
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
+
+## <a name="relation-to-azure-monitor-logs"></a>De relatie met Azure Monitor-Logboeken
+Application Insights analytics is gebaseerd op [Azure Data Explorer](/azure/data-explorer) zoals Azure Monitor-logboeken en maakt ook gebruik van de [Data Explorer-querytaal](/azure/kusto/query). Het maakt gebruik van dezelfde [log analytics-portal](../log-query/get-started-portal.md) zoals Azure Monitor zich aanmeldt, hoewel de gegevens worden opgeslagen in een afzonderlijke partitie.
+
+U niet rechtstreeks toegang tot gegevens in een Log Analytics-werkruimte van Application Insights analytics, en ook kunt u rechtstreeks toegang tot toepassingsgegevens van log analytics. Schrijven van query's op beide sets met gegevens samen, een [query's in log analytics](../log-query/log-query-overview.md) en het gebruik de [app() expressie](../log-query/app-expression.md) voor het openen van toepassing.
+
 
 ## <a name="query-data-in-analytics"></a>Query uitvoeren op gegevens in Analytics
 Een typische query begint met een tabelnaam wordt opgegeven gevolgd door een reeks *operators* gescheiden door `|`.

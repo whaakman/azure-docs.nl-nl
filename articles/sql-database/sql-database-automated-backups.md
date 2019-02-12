@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/06/2019
-ms.openlocfilehash: 64481be769cf7506508a0d06e10fe0f59e975f16
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.date: 02/08/2019
+ms.openlocfilehash: af3a654010fa676096bfad895d5814b2cefa8e71
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895870"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997117"
 ---
 # <a name="automated-backups"></a>Automatische back-ups
 
@@ -63,7 +63,7 @@ De bewaartermijn voor een database gemaakt met behulp van het op DTU gebaseerde 
 
 #### <a name="vcore-based-purchasing-model"></a>Op vCore gebaseerd aanschafmodel
 
-Als u de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md), de bewaartermijn voor back-up is 7 dagen (zelfstandig, gegroepeerd en databases-instantie). Voor alle Azure SQL-databases (zelfstandige, samengevoegd, en het exemplaar van databases, kunt u [wijzigen bewaarperiode voor back-tot 35 dagen](#how-to-change-the-pitr-backup-retention-period).
+Als u de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md), de bewaartermijn voor back-up is 7 dagen (voor één, gegroepeerd en databases-instantie). Voor alle Azure SQL-databases (één, gegroepeerd, en het exemplaar van databases, kunt u [wijzigen bewaarperiode voor back-tot 35 dagen](#how-to-change-the-pitr-backup-retention-period).
 
 > [!WARNING]
 > Als u de huidige bewaarperiode verkorten, zijn alle bestaande back-ups ouder is dan de nieuwe bewaarperiode periode niet meer beschikbaar zijn. Als u de huidige retentietermijn verhoogt, wordt SQL Database de bestaande back-ups behouden totdat de langere bewaarperiode is bereikt.
@@ -80,7 +80,7 @@ Zie voor meer informatie, [Point-in-time restore](sql-database-recovery-using-ba
 
 ### <a name="backups-for-long-term-retention"></a>Back-ups voor langetermijnretentie
 
-Zelfstandige en gepoolde databases bieden de mogelijkheid om met een langetermijnbewaarperiode (LTR) configureren van volledige back-ups voor maximaal tien jaar in Azure Blob-opslag. Als LTR-beleid is ingeschakeld, worden de wekelijkse volledige back-ups automatisch gekopieerd naar een andere container voor RA-GRS-opslag. Om te voldoen aan verschillende nalevingsvereiste, kunt u verschillende bewaartermijnen voor wekelijkse, maandelijkse en/of jaarlijkse back-ups. Het opslagverbruik, is afhankelijk van de geselecteerde frequentie van back-ups en de retentie-periode. U kunt de [LTR-prijscalculator](https://azure.microsoft.com/pricing/calculator/?service=sql-database) om in te schatten van de kosten voor LTR-opslag.
+Één en gepoolde databases bieden de mogelijkheid van het configureren van (LTR) met een langetermijnbewaarperiode van volledige back-ups voor maximaal tien jaar in Azure Blob-opslag. Als LTR-beleid is ingeschakeld, worden de wekelijkse volledige back-ups automatisch gekopieerd naar een andere container voor RA-GRS-opslag. Om te voldoen aan verschillende nalevingsvereiste, kunt u verschillende bewaartermijnen voor wekelijkse, maandelijkse en/of jaarlijkse back-ups. Het opslagverbruik, is afhankelijk van de geselecteerde frequentie van back-ups en de retentie-periode. U kunt de [LTR-prijscalculator](https://azure.microsoft.com/pricing/calculator/?service=sql-database) om in te schatten van de kosten voor LTR-opslag.
 
 Zoals PITR, zijn de LTR back-ups geografisch redundante en beveiligd door [Azure Storage-overschrijdend-replicatie](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
 

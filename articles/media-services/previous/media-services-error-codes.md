@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: d485195b868b6cbca587c736ac02663491742cdb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d700423ea966cab3b0f546d21d4d2f5ca5208971
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236871"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990510"
 ---
 # <a name="azure-media-services-error-codes"></a>Azure Media Services-foutcodes
 Als u Microsoft Azure Media Services gebruikt, krijgt u mogelijk HTTP-foutcodes van de service, afhankelijk van de problemen zoals verificatietokens naar acties die worden niet ondersteund in Media Services is verlopen. Hieronder volgt een lijst met **HTTP-foutcodes** die door Media Services en de mogelijke oorzaken voor deze kunnen worden geretourneerd.  
@@ -56,7 +56,7 @@ De aanvraag is niet toegestaan vanwege een van de volgende redenen:
 
 * De Media Services-account kan niet worden gevonden of is verwijderd.
 * De Media Services-account is uitgeschakeld en het aanvraagtype is geen HTTP GET. Servicebewerkingen wordt ook een 403 antwoord geretourneerd.
-* Het verificatietoken bevat geen referentie-informatie van de gebruiker: AccountName en/of abonnements-id. U kunt deze informatie vinden in de gebruikersinterface van Media Services-extensie voor uw Media Services-account in de Azure Management Portal.
+* Het verificatietoken bevat referentie-informatie van de gebruiker: AccountName en/of abonnements-id. U kunt deze informatie vinden in de gebruikersinterface van Media Services-extensie voor uw Media Services-account in de Azure Management Portal.
 * De resource kan niet worden geopend.
   
   * Er is geprobeerd een MediaProcessor die is niet beschikbaar voor uw Media Services-account gebruiken.

@@ -1,31 +1,113 @@
 ---
-title: Definitie van de index en concepten - Azure Search
-description: Inleiding tot index termen en concepten in Azure Search, met inbegrip van fysieke structre van een omgekeerde index.
-author: brjohnstmsft
-manager: jlembicz
-ms.author: brjohnst
+title: Maak een definitie van de index en concepten - Azure Search
+description: Inleiding tot index termen en concepten in Azure Search, met inbegrip van onderdelen en de fysieke structuur.
+author: HeidiSteen
+manager: cgronlun
+ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 11/08/2017
+ms.date: 02/01/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 5a39021367c2f51125876081e9174eb372d7b9c9
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 77f4b597ad4b87db7e720dd57191c6b192a4c93b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353155"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000946"
 ---
-# <a name="indexes-and-indexing-overview-in-azure-search"></a>Indexen en indexering overzicht in Azure Search
+# <a name="create-a-basic-index-in-azure-search"></a>Maak een eenvoudige index in Azure Search
 
-In Azure Search, een *index* is een permanente opslag van *documenten* en andere constructies die worden gebruikt voor gefilterde en de volledige tekst zoekt naar een Azure Search-service. Een document is een eenheid die bestaat uit gegevens die kunnen worden doorzocht in uw index. Een e-commercedetailhandel heeft bijvoorbeeld een document voor elk item dat wordt verkocht, een nieuwsbureau heeft een document voor elk artikel, enzovoort. Deze begrippen aan betrouwbaardere database-equivalenten toewijzen: een *index* lijkt conceptueel gezien op een *tabel* en *documenten* lijken ruwweg op *rijen* in een tabel.
+In Azure Search, een *index* is een permanente opslag van *documenten* en andere constructies die worden gebruikt voor gefilterde en de volledige tekst zoekt naar een Azure Search-service. Conceptueel gezien is een document een eenheid die doorzoekbare gegevens in uw index. Een e-commercedetailhandel heeft bijvoorbeeld een document voor elk item dat wordt verkocht, een nieuwsbureau heeft een document voor elk artikel, enzovoort. Deze begrippen aan betrouwbaardere database-equivalenten toewijzen: een *index* lijkt conceptueel gezien op een *tabel* en *documenten* lijken ruwweg op *rijen* in een tabel.
 
-Wanneer u toevoegt of uploadt documenten of naar Azure Search zoekopdrachten, verzendt u aanvragen naar een specifieke index in uw zoekservice. Het proces van documenten toe te voegen aan een index wordt genoemd *indexeren*.
+Wanneer u toevoegt of uploaden van een index, maakt Azure Search fysieke structuren op basis van het schema dat u opgeeft. Bijvoorbeeld, als een veld in de index is gemarkeerd als kan worden doorzocht, een omgekeerde index is gemaakt voor dat veld. Later, wanneer u toevoegt of uploadt documenten of naar Azure Search zoekopdrachten, verzendt u aanvragen naar een specifieke index in uw zoekservice. Het laden van velden met documentwaarden heet *indexeren* of opname van gegevens.
 
-## <a name="field-types-and-attributes-in-an-azure-search-index"></a>Veldtypen en kenmerken in een Azure Search-index
+U kunt een index maken in de portal [REST-API](search-create-index-rest-api.md), of [.NET SDK](search-create-index-dotnet.md).
+
+## <a name="components-of-an-index"></a>Onderdelen van een index
+
+Stroomschema, wordt een Azure Search-index bestaat uit de volgende elementen. 
+
+De [ *Veldenverzameling* ](#fields-collection) is doorgaans het grootste deel van een index, waarbij elk veld heet, getypt en toegeschreven met toegestane gedragingen die bepalen hoe deze wordt gebruikt. Andere elementen zijn [suggesties](#suggesters), [scoreprofielen](#scoring-profiles), [analyzers](#analyzers) met onderdelen op ondersteuning voor aanpassing, en [CORS](#cors) Opties.
+
+```json
+{  
+  "name": (optional on PUT; required on POST) "name_of_index",  
+  "fields": [  
+    {  
+      "name": "name_of_field",  
+      "type": "Edm.String | Collection(Edm.String) | Edm.Int32 | Edm.Int64 | Edm.Double | Edm.Boolean | Edm.DateTimeOffset | Edm.GeographyPoint",  
+      "searchable": true (default where applicable) | false (only Edm.String and Collection(Edm.String) fields can be searchable),  
+      "filterable": true (default) | false,  
+      "sortable": true (default where applicable) | false (Collection(Edm.String) fields cannot be sortable),  
+      "facetable": true (default where applicable) | false (Edm.GeographyPoint fields cannot be facetable),  
+      "key": true | false (default, only Edm.String fields can be keys),  
+      "retrievable": true (default) | false,  
+      "analyzer": "name_of_analyzer_for_search_and_indexing", (only if 'searchAnalyzer' and 'indexAnalyzer' are not set)
+      "searchAnalyzer": "name_of_search_analyzer", (only if 'indexAnalyzer' is set and 'analyzer' is not set)
+      "indexAnalyzer": "name_of_indexing_analyzer", (only if 'searchAnalyzer' is set and 'analyzer' is not set)
+      "synonymMaps": [ "name_of_synonym_map" ] (optional, only one synonym map per field is currently supported)
+    }  
+  ],  
+  "suggesters": [  
+    {  
+      "name": "name of suggester",  
+      "searchMode": "analyzingInfixMatching",  
+      "sourceFields": ["field1", "field2", ...]  
+    }  
+  ],  
+  "scoringProfiles": [  
+    {  
+      "name": "name of scoring profile",  
+      "text": (optional, only applies to searchable fields) {  
+        "weights": {  
+          "searchable_field_name": relative_weight_value (positive #'s),  
+          ...  
+        }  
+      },  
+      "functions": (optional) [  
+        {  
+          "type": "magnitude | freshness | distance | tag",  
+          "boost": # (positive number used as multiplier for raw score != 1),  
+          "fieldName": "...",  
+          "interpolation": "constant | linear (default) | quadratic | logarithmic",  
+          "magnitude": {  
+            "boostingRangeStart": #,  
+            "boostingRangeEnd": #,  
+            "constantBoostBeyondRange": true | false (default)  
+          },  
+          "freshness": {  
+            "boostingDuration": "..." (value representing timespan leading to now over which boosting occurs)  
+          },  
+          "distance": {  
+            "referencePointParameter": "...", (parameter to be passed in queries to use as reference location)  
+            "boostingDistance": # (the distance in kilometers from the reference location where the boosting range ends)  
+          },  
+          "tag": {  
+            "tagsParameter": "..." (parameter to be passed in queries to specify a list of tags to compare against target fields)  
+          }  
+        }  
+      ],  
+      "functionAggregation": (optional, applies only when functions are specified)   
+        "sum (default) | average | minimum | maximum | firstMatching"  
+    }  
+  ],  
+  "analyzers":(optional)[ ... ],
+  "charFilters":(optional)[ ... ],
+  "tokenizers":(optional)[ ... ],
+  "tokenFilters":(optional)[ ... ],
+  "defaultScoringProfile": (optional) "...",  
+  "corsOptions": (optional) {  
+    "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],  
+    "maxAgeInSeconds": (optional) max_age_in_seconds (non-negative integer)  
+  }  
+}
+```
+
+## <a name="fields-collection-and-attribution"></a>Verzameling van velden en attribution
 Bij het definiëren van het schema moet u de naam, het type en de kenmerken van elk veld in de index opgeven. Het veldtype classificeert de gegevens die in dat veld worden opgeslagen. Kenmerken worden ingesteld op afzonderlijke velden om op te geven hoe het veld wordt gebruikt. De volgende tabellen bevatten de typen en kenmerken die u kunt opgeven.
 
-### <a name="field-types"></a>Veldtypen
+### <a name="data-types"></a>Gegevenstypen
 | Type | Description |
 | --- | --- |
 | *Edm.String* |Tekst die van tokens kan worden voorzien om te zoeken in de volledige tekst (woordafbreking, afleiding, enzovoort). |
@@ -39,7 +121,7 @@ Bij het definiëren van het schema moet u de naam, het type en de kenmerken van 
 
 Gedetailleerdere informatie over ondersteunde Azure-Search[-gegevenstypen vindt u hier](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
 
-### <a name="field-attributes"></a>Veldkenmerken
+### <a name="index-attributes"></a>Indexkenmerken
 | Kenmerk | Description |
 | --- | --- |
 | *Sleutel* |Een tekenreeks met de unieke id van elk document. Deze reeks wordt gebruikt om op te zoeken. Elke index moet een sleutel hebben. Slechts één veld kan de sleutel zijn en het type moet zijn ingesteld op Edm.String. |
@@ -51,8 +133,36 @@ Gedetailleerdere informatie over ondersteunde Azure-Search[-gegevenstypen vindt 
 
 Gedetailleerdere informatie over ondersteunde Azure-Search[-indexkenmerken vindt u hier](https://docs.microsoft.com/rest/api/searchservice/Create-Index).
 
-## <a name="guidance-for-defining-an-index-schema"></a>Richtlijnen voor het definiëren van een indexschema
-Bij het ontwerpen van uw index moet u in de planningsfase de tijd nemen om elke beslissing goed te overwegen. Als u uw index opzet, is het belangrijk dat u in uw achterhoofd houdt wat de gebruiker en uw bedrijf nodig hebben, aangezien aan elk veld de [relevante kenmerken](https://docs.microsoft.com/rest/api/searchservice/Create-Index) moeten worden toegewezen. Als u een index wilt wijzigen nadat deze is geïmplementeerd, moet u de gegevens opnieuw opbouwen en laden.
+## <a name="suggesters"></a>Suggesties
+Een suggestie is een gedeelte van het schema waarmee wordt gedefinieerd welke velden in een index worden gebruikt voor de ondersteuning van automatisch aanvullen of automatisch aangevulde query's in zoekopdrachten. Gedeeltelijke zoekreeksen worden meestal verzonden naar de suggesties (Azure Search Service REST API) terwijl de gebruiker een zoekopdracht typen is en de API een set met voorgestelde zinnen retourneert. Een suggestie die u in de index definieert bepaalt welke velden worden gebruikt voor het bouwen van de type-ahead zoektermen. Zie voor meer informatie, [toevoegen suggesties](index-add-suggesters.md) voor informatie over de configuratie.
 
-Als u de vereisten voor gegevensopslag wilt wijzigen, kunt u de capaciteit vergroten of verkleinen door partities toe te voegen of te verwijderen. Zie[Uw zoekservice in Azure beheren](search-manage.md) of [Servicelimieten](search-limits-quotas-capacity.md) voor meer informatie.
+## <a name="scoring-profiles"></a>Scoreprofielen
 
+Een scoring-profiel is een gedeelte van het schema waarmee aangepaste scoring gedragingen waarmee u invloed hebben op welke items worden weergegeven op een hoger in de lijst met zoekresultaten. Scoreprofielen bestaan uit veldgewichten en functies. Voor het gebruik ervan, geeft u een profiel met de naam van de query-tekenreeks.
+
+Een standaard scoringprofiel is van invloed op de achtergrond voor het berekenen van een zoekscore voor elk item in een resultatenset. U kunt de interne naamloze scoringprofiel gebruiken. U kunt ook instellen defaultScoringProfile gebruik van een aangepast profiel als de standaard, aangeroepen wanneer er een aangepast profiel niet is opgegeven in de query-tekenreeks.
+
+Zie voor meer informatie, [scoreprofielen toevoegen](index-add-scoring-profiles.md).
+
+## <a name="analyzers"></a>Analyses
+
+Het element analyzers Hiermee stelt u de naam van de taal-analysefunctie moet worden gebruikt voor het veld. Zie voor de toegestane set waarden, [taalanalyse in Azure Search](index-add-language-analyzers.md). Deze optie kan alleen worden gebruikt met doorzoekbare velden en deze kan niet worden ingesteld, samen met een **searchAnalyzer** of **indexAnalyzer**. Nadat de analyzer is gekozen, wordt deze niet wijzigen voor het veld.
+
+## <a name="cors"></a>CORS
+
+Client-side '-JavaScript kan niet alle API's aanroepen standaard omdat de browser voorkomen alle cross-origin-aanvragen dat wordt. Inschakelen als u cross-origin-query's naar uw index, CORS (Cross-Origin Resource Sharing) door in te stellen de **corsOptions** kenmerk. Alleen query's uit veiligheidsoverwegingen ondersteuning voor CORS. 
+
+De volgende opties kunnen worden ingesteld voor CORS:
+
++ **allowedOrigins** (vereist): Dit is een lijst met oorsprongen dat toegang tot uw index wordt verleend. Dit betekent dat alle JavaScript-code opgehaald uit deze oorsprongen mag worden query uitvoeren in uw index (ervan uitgaande dat het de juiste api-sleutel bevat). Elke oorsprong heeft meestal de vorm `protocol://<fully-qualified-domain-name>:<port>` Hoewel `<port>` vaak wordt weggelaten. Zie [Cross-origin resource sharing (Wikipedia)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) voor meer informatie.
+
+  Als u wilt toestaan toegang tot alle oorsprongen, `*` als één item in de **allowedOrigins** matrix. *Dit wordt niet aanbevolen voor productie-zoekservices* maar vaak is het handig is voor de ontwikkeling en foutopsporing.
+
++ **maxAgeInSeconds** (optioneel): Browsers gebruiken deze waarde om te bepalen van de duur (in seconden) aan voorbereidende CORS-antwoorden cache. Dit moet een niet-negatief geheel getal zijn. Hoe groter deze waarde is, de prestaties beter, maar hoe langer het duurt voor CORS-beleidswijzigingen worden doorgevoerd. Als deze niet is ingesteld, wordt een standaardduur van 5 minuten worden gebruikt.
+
+## <a name="next-steps"></a>Volgende stappen
+
+U kunt met een goed begrip van de samenstelling van de index blijven in de portal om uw eerste index te maken.
+
+> [!div class="nextstepaction"]
+> [Toevoegen van een index (portal)](search-create-index-portal.md)

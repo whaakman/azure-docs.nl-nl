@@ -4,7 +4,7 @@ description: In dit onderwerp laat zien hoe advertenties invoeren op de client.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 65c9c747-128e-497e-afe0-3f92d2bf7972
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: de084b2139bcc3ddef09b4438f8774df177b6f3c
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: cc5f3f729acca1f7aa23a7714300c1b581c6f7f8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53315935"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993891"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Advertenties invoeren op de client
 In dit artikel bevat informatie over het invoegen van verschillende typen advertenties op de client.
@@ -32,7 +32,7 @@ Zie voor meer informatie over gesloten ondertiteling en ad-ondersteuning in Live
 > 
 
 ## <a id="insert_ads_into_media"></a>Advertenties invoeren in uw Media
-Azure Media Services biedt ondersteuning voor advertentie-invoeging via het Windows Media-Platform: Player-Frameworks. Frameworks voor spelers met ad-ondersteuning zijn beschikbaar voor Windows 8, Silverlight, Windows Phone 8 en iOS-apparaten. Elk speler framework bevat voorbeeldcode die laat zien u hoe u een player-toepassing implementeert. Er zijn drie verschillende soorten advertenties die u in uw media: de lijst invoegen kunt.
+Azure Media Services biedt ondersteuning voor advertentie-invoeging via het Windows Media-Platform: Player Frameworks. Frameworks voor spelers met ad-ondersteuning zijn beschikbaar voor Windows 8, Silverlight, Windows Phone 8 en iOS-apparaten. Elk speler framework bevat voorbeeldcode die laat zien u hoe u een player-toepassing implementeert. Er zijn drie verschillende soorten advertenties die u in uw media: de lijst invoegen kunt.
 
 * **Lineaire** – full-frame-advertenties die de belangrijkste video onderbreken.
 * **Niet-lineaire** -overlay-advertenties die worden weergegeven als de belangrijkste video wordt afgespeeld, meestal een logo of andere statische afbeelding geplaatst in de speler.
@@ -382,7 +382,7 @@ Wanneer u de oplossing Microsoft.PlayerFramework.Xaml.Samples opent, ziet u een 
 
 Elk van deze voorbeelden maakt gebruik van de Media Player-klasse gedefinieerd door de speler-framework. De meeste voorbeelden gebruiken-invoegtoepassingen die is ondersteuning toegevoegd voor verschillende indelingen voor ad-antwoord. Het voorbeeld ProgrammaticAdPage communiceert via een programma met een exemplaar van de Media Player.
 
-### <a name="adpodpage-sample"></a>AdPodPage voorbeeld
+### <a name="adpodpage-sample"></a>AdPodPage Sample
 In dit voorbeeld maakt gebruik van de AdSchedulerPlugin om te definiëren wanneer om weer te geven van een AD-tenant. In dit voorbeeld wordt een aankondiging halverwege roll gepland om te worden afgespeeld na vijf seconden. De ad-schil (een groep van advertenties om weer te geven in volgorde) is opgegeven in een groot bestand geretourneerd door een ad-server. De URI moet het OVERGROTE bestand is opgegeven in de <RemoteAdSource> element.
 
 ```xml

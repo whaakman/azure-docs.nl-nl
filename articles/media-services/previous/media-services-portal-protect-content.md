@@ -4,7 +4,7 @@ description: In dit artikel ziet u hoe u de Azure portal gebruiken voor het conf
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 270b3272-7411-40a9-ad42-5acdbba31154
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: c46faf2298ebaac4f40fb1d18cbfca83076e0d4f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: dc5439c98b5abc69b6cb1ba144e015426bb887ce
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423536"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996931"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Content protection-beleid configureren met behulp van Azure portal
  U kunt uw media vanaf het moment dat het verlaten van uw computer via opslag, verwerking en levering beveiligen met Azure Media Services. U kunt Media Services gebruiken om uw inhoud dynamisch met het Advanced Encryption Standard (AES) versleuteld met behulp van 128-bits versleutelingssleutels te leveren. Ook kunt u deze met algemene versleuteling (CENC) met behulp van PlayReady en/of Widevine digital rights management (DRM) en Apple FairPlay. 

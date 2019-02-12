@@ -13,34 +13,36 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 48f1789d4909a1c3af9e9ca01d0b9d0a8e6e09f8
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: aac58cc0887c566c7377edf08f5a86e2d12cdf28
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299637"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993229"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Details van de verzameling gegevens voor de beheeroplossingen in Azure
-In dit artikel bevat een lijst met [beheeroplossingen](solutions.md) beschikbaar van Microsoft met koppelingen naar de gedetailleerde documentatie.  Het bevat ook informatie over hun methode en de frequentie van verzamelen van gegevens in Log Analytics.  Gebruik de informatie in dit artikel om te identificeren van de verschillende oplossingen beschikbaar en om te begrijpen van de stroom en verbinding eisen voor verschillende oplossingen. 
+In dit artikel bevat een lijst met [beheeroplossingen](solutions.md) beschikbaar van Microsoft met koppelingen naar de gedetailleerde documentatie.  Het bevat ook informatie over hun methode en de frequentie van verzamelen van gegevens in Azure Monitor.  Gebruik de informatie in dit artikel om te identificeren van de verschillende oplossingen beschikbaar en om te begrijpen van de stroom en verbinding eisen voor verschillende oplossingen. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="list-of-management-solutions"></a>Lijst met oplossingen voor beheer
 
-De volgende tabel bevat de [beheeroplossingen](solutions.md) in Azure die worden geleverd door Microsoft. Een vermelding in de kolom betekent dat de oplossing verzamelt gegevens in Log Analytics met behulp van deze methode.  Als een oplossing geen kolommen geselecteerd heeft, klikt u vervolgens schrijft het rechtstreeks naar Log Analytics van andere Azure-service. Volg de koppeling voor elk criterium de gedetailleerde documentatie voor meer informatie.
+De volgende tabel bevat de [beheeroplossingen](solutions.md) in Azure die worden geleverd door Microsoft. Een vermelding in de kolom betekent dat de oplossing verzamelt gegevens in Azure Monitor met behulp van deze methode.  Als een oplossing geen kolommen geselecteerd heeft, klikt u vervolgens schrijft het rechtstreeks naar Azure Monitor uit andere Azure-service. Volg de koppeling voor elk criterium de gedetailleerde documentatie voor meer informatie.
 
 Uitleg van de kolommen zijn als volgt:
 
-- **Microsoft monitoring agent** -Agent die wordt gebruikt in Windows en Linux om uit te voeren van Management pack van SCOM en beheer van oplossingen van Azure. In deze configuratie moet is de agent rechtstreeks verbonden met Log Analytics zonder verbinding met een Operations Manager-beheergroep. 
-- **Operations Manager** -identieke agent als Microsoft monitoring agent. In deze configuratie heeft [verbonden met een Operations Manager-beheergroep](../../azure-monitor/platform/om-agents.md) die verbonden met Log Analytics. 
+- **Microsoft monitoring agent** -Agent die wordt gebruikt in Windows en Linux om uit te voeren van Management pack van SCOM en beheer van oplossingen van Azure. In deze configuratie moet is de agent rechtstreeks verbonden met Azure Monitor zonder verbinding met een Operations Manager-beheergroep. 
+- **Operations Manager** -identieke agent als Microsoft monitoring agent. In deze configuratie heeft [verbonden met een Operations Manager-beheergroep](../../azure-monitor/platform/om-agents.md) die verbonden met Azure Monitor. 
 -  **Azure Storage** -oplossing verzamelt gegevens uit een Azure storage-account. 
 - **Operations Manager vereist?** -Een verbonden beheergroep van Operations Manager is vereist voor het verzamelen van gegevens door de MDM-oplossing. 
-- **Operations Manager-agent gegevens verzonden via de beheergroep** - als de agent [verbonden met een SCOM-beheergroep](../../azure-monitor/platform/om-agents.md), en vervolgens gegevens naar Log Analytics worden verzonden vanaf de beheerserver. In dit geval moet de agent niet rechtstreeks verbinding maken met Log Analytics. Als dit selectievakje niet is geselecteerd, wordt klikt u vervolgens gegevens verzonden vanaf de agent rechtstreeks met Log Analytics, zelfs als de agent is verbonden met een SCOM-beheergroep. Deze moet kunnen communiceren met Log Analytics gebruikt via de [Log Analytics gateway](../../azure-monitor/platform/gateway.md).
+- **Operations Manager-agent gegevens verzonden via de beheergroep** - als de agent [verbonden met een SCOM-beheergroep](../../azure-monitor/platform/om-agents.md), en vervolgens gegevens naar Azure Monitor is verzonden vanaf de beheerserver. In dit geval moet de agent niet rechtstreeks verbinding maken met Azure Monitor. Als dit selectievakje niet is geselecteerd, klikt u vervolgens gegevens verzonden van de agent rechtstreeks naar Azure Monitor, zelfs als de agent is verbonden met een SCOM-beheergroep. Deze moet kunnen communiceren met Azure Monitor via de [Log Analytics gateway](../../azure-monitor/platform/gateway.md).
 - **Verzamelingsfrequentie** -Hiermee geeft u de frequentie dat gegevens worden verzameld door de oplossing voor beheer. 
 
 
 
 | **Oplossing voor het beheer** | **Platform** | **Microsoft monitoring agent** | **Operations Manager-agent** | **Azure Storage** | **Operations Manager vereist?** | **Operations Manager-agent gegevens verzonden via de beheergroep** | **Verzamelingsfrequentie** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| [Activity Log Analytics](../../azure-monitor/platform/collect-activity-logs.md) | Azure | | | | | | op de melding |
+| [Activiteit Log analytics](../../azure-monitor/platform/collect-activity-logs.md) | Azure | | | | | | op de melding |
 | [AD-evaluatie](../../azure-monitor/insights/ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 dagen |
 | [AD-replicatiestatus](../../azure-monitor/insights/ad-replication-status.md) |Windows |&#8226; |&#8226; | | |&#8226; |5 dagen |
 | [Status van agent](solution-agenthealth.md) | Windows en Linux | &#8226; | &#8226; | | | &#8226; | 1 minuut |

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: eca20b775b97296510545c4d2f2f005fd91d6758
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0903756ba7df34e7dba20301d45cbd4b6cc4d5ea
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471314"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992514"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Hoge beschikbaarheid met Azure Cosmos DB
 
@@ -63,6 +63,20 @@ Regionale storingen niet ongebruikelijk en Azure Cosmos DB zorgt ervoor dat de d
 - Voor meerdere regio's Cosmos-accounts die zijn geconfigureerd met een één-schrijfregio, [automatische failover inschakelen met behulp van Azure CLI of Azure-portal](how-to-manage-database-account.md#automatic-failover). Nadat u automatische failover ingeschakeld wanneer er sprake is van een regionaal noodgeval, vindt Cosmos DB automatisch failover plaats uw account.  
 
 - Zelfs als uw Cosmos-account maximaal beschikbaar is, uw toepassing mogelijk niet goed ontworpen voor hoge mate beschikbaar blijven. Als u wilt de hoge beschikbaarheid van de end-to-end voor uw toepassing testen, periodiek aanroepen de [handmatige failover met behulp van Azure CLI of Azure-portal](how-to-manage-database-account.md#manual-failover), als onderdeel van uw toepassing testen of herstel na noodgevallen (DR) oefeningen.
+
+
+Tijdens het ontwikkelen van uw plan voor bedrijfscontinuïteit, moet u inzicht in de maximaal acceptabele tijd voordat de toepassing volledig is hersteld na een storing. De tijd die nodig is voor een toepassing om volledig te herstellen, staat bekend als de beoogde hersteltijd (RTO). U moet ook weten wat de maximale periode van recente Gegevensupdates de toepassing kan tolereren verliezen tijdens het herstellen na een storing. De periode van updates die u in het ergste geval kan kwijtraken staat bekend als het beoogde herstelpunt (RPO).
+
+De volgende tabel bevat de RTO en RPO voor de meest voorkomende scenario's.
+
+|Het aantal regio('s) |Configuratie |Consistentieniveau|RPO |RTO |
+|---------|---------|---------|-------|-------|
+|1    | *    |*   | < 240 minuten | < 1 Week |
+|>1     | Single-Master-replicatie | Sessie, Consistent voorvoegsel, uiteindelijke | < 15 minuten | < 15 minuten |
+|>1     | Single-Master-replicatie | Gebonden veroudering | K & T | < 15 minuten |
+|>1     | Replicatie van meerdere masters | Sessie, Consistent voorvoegsel, uiteindelijke | < 15 minuten | 0 |
+|>1     | Replicatie van meerdere masters | Gebonden veroudering | K & T | 0 |
+|>1     | * | Sterk | 0 | < 15 minuten |
 
 ## <a name="next-steps"></a>Volgende stappen
 

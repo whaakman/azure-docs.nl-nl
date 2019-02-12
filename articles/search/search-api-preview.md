@@ -12,12 +12,12 @@ ms.workload: search
 ms.date: 06/28/2018
 ms.author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: e496e4e2e7e2f66033d090a0534911bff4c53baa
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 524c1a6d083db02349c7dae9a0131228613dc170
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310227"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997607"
 ---
 # <a name="azure-search-service-rest-api-version-2017-11-11-preview"></a>Azure Search Service REST-api-versie 2017-11-11-Preview
 In dit artikel beschrijft de `api-version=2017-11-11-Preview` versie van Azure Search service REST API, biedt experimentele functies die nog niet algemeen beschikbaar.
@@ -28,7 +28,7 @@ In dit artikel beschrijft de `api-version=2017-11-11-Preview` versie van Azure S
 
 ## <a name="new-in-2017-11-11-preview"></a>Nieuw in 2017-11-11-Preview
 
-[**Automatisch aanvullen** ](search-autocomplete-tutorial.md) lid wordt van de bestaande [suggesties API](https://docs.microsoft.com/rest/api/searchservice/suggestions) om toe te voegen aanvullende, automatisch aangevulde optreedt op de zoekbalk. Automatisch aanvullen, retourneert candidate querytermen die een gebruiker kan kiezen als de query-tekenreeks voor een toekomstige zoekopdracht. Suggesties retourneert documenten in reactie op gedeeltelijke invoer: zoekresultaten zijn direct en dynamisch worden gewijzigd wanneer de invoer van de term zoeken in de lengte en het specifieke karakter groeit.
+[**automatisch aanvullen** ](search-autocomplete-tutorial.md) lid wordt van de bestaande [suggesties API](https://docs.microsoft.com/rest/api/searchservice/suggestions) om toe te voegen aanvullende, automatisch aangevulde optreedt op de zoekbalk. automatisch aanvullen retourneert candidate querytermen die een gebruiker als de query-tekenreeks voor een toekomstige zoekopdracht kiezen kan. Suggesties retourneert documenten in reactie op gedeeltelijke invoer: zoekresultaten zijn direct en dynamisch worden gewijzigd wanneer de invoer van de term zoeken in de lengte en het specifieke karakter groeit.
 
 [**Cognitieve zoekopdrachten**](cognitive-search-concept-intro.md), een nieuwe verrijking-mogelijkheid in Azure Search latente informatie gevonden in niet-tekstuele bronnen en niet-gedifferentieerde tekst omzetten ervan in volledige tekst doorzoekbare inhoud in Azure Search. De volgende bronnen zijn ingevoerd of gewijzigd in de preview-REST-API. Alle andere REST-API's zijn hetzelfde, ongeacht of u de algemeen beschikbare worden aangeroepen of een preview-versie.
 

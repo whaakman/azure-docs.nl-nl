@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: chmutali
-ms.openlocfilehash: c97fd915e9022171125c7c0f687413e433f82871
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: d601425ee5641c1bb07c47dcc0f9a1d94ff3dc87
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983832"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990374"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Expressies schrijven voor kenmerktoewijzingen in Azure Active Directory
 Bij het configureren van inrichting tot een SaaS-toepassing, is een van de typen kenmerktoewijzingen die u kunt opgeven een expressie-toewijzing. Voor deze, moet u een script-achtige-expressie waarmee u uw gebruikers om gegevens te transformeren naar indelingen die meer geschikt is voor de SaaS-toepassing kunt schrijven.
@@ -37,7 +37,7 @@ De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visu
 * Voor tekenreeksconstanten, als u een backslash (\) of een aanhalingsteken (") in de tekenreeks, moet moet deze worden voorafgegaan door het symbool backslash (\). Bijvoorbeeld: "De naam van bedrijf: \\"Contoso\\""
 
 ## <a name="list-of-functions"></a>Lijst met functies
-[Toevoeg-](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [Join](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [niet](#not) &nbsp; &nbsp; &nbsp; &nbsp; [vervangen](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Switch](#switch) &nbsp; &nbsp; &nbsp; &nbsp; [ToLower](#tolower) &nbsp; &nbsp; &nbsp; &nbsp; [ToUpper](#toupper)
+[Toevoeg-](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [Join](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [niet](#not) &nbsp; &nbsp; &nbsp; &nbsp; [vervangen](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [Splitsen](#split) &nbsp; &nbsp; &nbsp; &nbsp; [ StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Switch](#switch) &nbsp; &nbsp; &nbsp; &nbsp; [ToLower](#tolower) &nbsp; &nbsp; &nbsp; &nbsp; [ToUpper](#toupper)
 
 - - -
 ### <a name="append"></a>Toevoegen
@@ -128,7 +128,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 
 * Wanneer **oldValue** en **vervangende waarde** vindt:
   
-  * Vervangt alle instanties van **oldValue** in de **bron** met *vervangende waarde**
+  * Alle instanties van oldValue in de bron vervangen door de vervangende waarde
 * Wanneer **oldValue** en **sjabloon** vindt:
   
   * Vervangt alle instanties van de **oldValue** in de **sjabloon** met de **bron** waarde
@@ -183,6 +183,19 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 | **[appRoleAssignments]** |Vereist |Reeks |**[appRoleAssignments]**  object. |
 
 - - -
+### <a name="split"></a>Splitsen
+**Functie:**<br> Splitsen (bron, scheidingsteken)
+
+**Beschrijving:**<br> Hiermee wordt een tekenreeks in een matrix mulit-waarde, met behulp van het opgegeven scheidingsteken.
+
+**Parameters:**<br> 
+
+| Name | Vereiste / herhalende | Type | Opmerkingen |
+| --- | --- | --- | --- |
+| **Bron** |Vereist |Reeks |**bron** waarde om bij te werken. |
+| **delimiter** |Vereist |String |Hiermee geeft u het teken dat wordt gebruikt om de tekenreeks gesplitst (voorbeeld: ",") |
+
+- - -
 ### <a name="stripspaces"></a>StripSpaces
 **Functie:**<br> StripSpaces(source)
 
@@ -219,7 +232,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 
 | Name | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **Bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk van het bronobject. |
+| **Bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk van het bronobject |
 | **culture** |Optioneel |String |De notatie voor de cultuurnaam op basis van RFC 4646 is *languagecode2-land/regioncode2*, waarbij *languagecode2* is de taalcode van twee letters en *land/regioncode2*is de code van twee letters subcultuur. Voorbeelden zijn ja-JP voor Japans (Japan) en en-US voor Engels (Verenigde Staten). In gevallen waar een taalcode van twee letters niet beschikbaar is, wordt een drieletterige code afgeleid van de ISO 639-2 gebruikt.|
 
 - - -
@@ -282,8 +295,18 @@ NormalizeDiacritics([givenName])
 * **INVOER** (givenName): "Zoë"
 * **UITVOER**:  "Zoe"
 
-### <a name="output-date-as-a-string-in-a-certain-format"></a>Uitvoerdatum als een tekenreeks in een bepaalde indeling
+### <a name="split-a-string-into-a-multi-valued-array"></a>Een tekenreeks te splitsen in een matrix met meerdere waarden
+U moet een door komma's gescheiden lijst met tekenreeksen en splitsen in een matrix die kan worden aangesloten op een kenmerk meerdere waarden, zoals Salesforce van PermissionSets kenmerk. In dit voorbeeld wordt is een lijst met machtigingensets in extensionAttribute5 gevuld in Azure AD.
 
+**Expressie:** <br>
+Splitsen ([extensionAttribute5] ",")
+
+**Voorbeeld van invoer/uitvoer:** <br>
+
+* **INPUT** (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
+* **UITVOER**: ["PermissionSetOne", "PermissionSetTwo"]
+
+### <a name="output-date-as-a-string-in-a-certain-format"></a>Uitvoerdatum als een tekenreeks in een bepaalde indeling
 Wilt u datums verzenden naar een SaaS-toepassing in een bepaalde indeling. <br>
 U wilt bijvoorbeeld datums voor ServiceNow.
 
@@ -302,7 +325,6 @@ U moet voor het definiëren van de tijdzone van de gebruiker op basis van de sta
 Als de status code komt niet overeen met een van de vooraf gedefinieerde opties, gebruikt u standaardwaarde van 'Australië/Sydney'.
 
 **Expressie:** <br>
-
 `Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`
 
 **Voorbeeld van invoer/uitvoer:**
@@ -310,8 +332,19 @@ Als de status code komt niet overeen met een van de vooraf gedefinieerde opties,
 * **INVOER** (status): "QLD"
 * **UITVOER**: "Australië/Brisbane"
 
-### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>UserPrincipalName (UPN) van de gegenereerde waarde niet converteren naar kleine letters
+### <a name="replace-characters-using-a-regular-expression"></a>Vervangen van tekens met behulp van een reguliere expressie
+U moet tekens vinden die overeenkomen met een reguliere expressiewaarde en deze te verwijderen.
 
+**Expressie:** <br>
+
+Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
+
+**Voorbeeld van invoer/uitvoer:**
+
+* **INVOER** (mailNickname: "john_doe72"
+* **UITVOER**: "72"
+
+### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>UserPrincipalName (UPN) van de gegenereerde waarde niet converteren naar kleine letters
 In het volgende voorbeeld wordt de UPN-waarde wordt gegenereerd door het samenvoegen van de velden van de bron PreferredFirstName en PreferredLastName en de functie ToLower is van invloed op de gegenereerde tekenreeks converteren van alle tekens naar kleine letters. 
 
 `ToLower(Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"))`
@@ -323,7 +356,6 @@ In het volgende voorbeeld wordt de UPN-waarde wordt gegenereerd door het samenvo
 * **UITVOER**: "john.smith@contoso.com"
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Genereren van unieke waarde voor kenmerk userPrincipalName (UPN)
-
 Gebaseerd op van de gebruiker voornaam, de tweede voornaam en achternaam, moet u het genereren van een waarde op voor het UPN-kenmerk en controleer de uniek in de-AD-doeldirectory voordat u de waarde toewijzen aan het UPN-kenmerk.
 
 **Expressie:** <br>
@@ -349,4 +381,3 @@ Gebaseerd op van de gebruiker voornaam, de tweede voornaam en achternaam, moet u
 * [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](use-scim-to-provision-users-and-groups.md) (SCIM gebruiken om in te stellen dat gebruikers en groepen van Azure Active Directory automatisch worden ingericht voor toepassingen)
 * [Meldingen over accountinrichting](user-provisioning.md)
 * [Lijst met zelfstudies over het integreren van SaaS-Apps](../saas-apps/tutorial-list.md)
-

@@ -12,14 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: victorh
-ms.openlocfilehash: cbd1a7a3a797cc20be92583bbb5ac163333729fc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4a9a1b5599468df6bc85cc1d535b577c508dd0a9
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969798"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995643"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Reverse-DNS voor services die worden gehost in Azure configureren
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 In dit artikel wordt uitgelegd hoe het configureren van omgekeerde DNS-zoekacties voor services die worden gehost in Azure.
 
@@ -62,22 +64,22 @@ Azure momenteel ondersteunt reverse-DNS alleen voor IPv4-PublicIpAddress-resourc
 Reverse-DNS toevoegen aan een bestaande openbare IP-adres:
 
 ```powershell
-$pip = Get-AzureRmPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
+$pip = Get-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
 $pip.DnsSettings.ReverseFqdn = "contosoapp1.westus.cloudapp.azure.com."
-Set-AzureRmPublicIpAddress -PublicIpAddress $pip
+Set-AzPublicIpAddress -PublicIpAddress $pip
 ```
 
 Reverse-DNS toevoegen aan een bestaande openbare IP-adres dat niet al een DNS-naam, moet u ook een DNS-naam opgeven:
 
 ```powershell
-$pip = Get-AzureRmPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
+$pip = Get-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
 $pip.DnsSettings = New-Object -TypeName "Microsoft.Azure.Commands.Network.Models.PSPublicIpAddressDnsSettings"
 $pip.DnsSettings.DomainNameLabel = "contosoapp1"
 $pip.DnsSettings.ReverseFqdn = "contosoapp1.westus.cloudapp.azure.com."
-Set-AzureRmPublicIpAddress -PublicIpAddress $pip
+Set-AzPublicIpAddress -PublicIpAddress $pip
 ```
 
-#### <a name="azure-classic-cli"></a>CLI van Azure classic
+#### <a name="azure-classic-cli"></a>Klassieke versie van Azure CLI
 
 Reverse-DNS toevoegen aan een bestaande openbare IP-adres:
 
@@ -112,10 +114,10 @@ Een nieuwe openbare IP-adres maken met de omgekeerde DNS-eigenschap is al opgege
 #### <a name="powershell"></a>PowerShell
 
 ```powershell
-New-AzureRmPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup" -Location "WestUS" -AllocationMethod Dynamic -DomainNameLabel "contosoapp2" -ReverseFqdn "contosoapp2.westus.cloudapp.azure.com."
+New-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup" -Location "WestUS" -AllocationMethod Dynamic -DomainNameLabel "contosoapp2" -ReverseFqdn "contosoapp2.westus.cloudapp.azure.com."
 ```
 
-#### <a name="azure-classic-cli"></a>CLI van Azure classic
+#### <a name="azure-classic-cli"></a>Klassieke versie van Azure CLI
 
 ```azurecli
 azure network public-ip create -n PublicIp -g MyResourceGroup -l westus -d contosoapp3 -f contosoapp3.westus.cloudapp.azure.com.
@@ -134,10 +136,10 @@ De geconfigureerde waarde voor een bestaande openbare IP-adres weergeven:
 #### <a name="powershell"></a>PowerShell
 
 ```powershell
-Get-AzureRmPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
+Get-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
 ```
 
-#### <a name="azure-classic-cli"></a>CLI van Azure classic
+#### <a name="azure-classic-cli"></a>Klassieke versie van Azure CLI
 
 ```azurecli
 azure network public-ip show -n PublicIp -g MyResourceGroup
@@ -156,12 +158,12 @@ Verwijdert een omgekeerde DNS-eigenschap van een bestaande openbare IP-adres:
 #### <a name="powershell"></a>PowerShell
 
 ```powershell
-$pip = Get-AzureRmPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
+$pip = Get-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
 $pip.DnsSettings.ReverseFqdn = ""
-Set-AzureRmPublicIpAddress -PublicIpAddress $pip
+Set-AzPublicIpAddress -PublicIpAddress $pip
 ```
 
-#### <a name="azure-classic-cli"></a>CLI van Azure classic
+#### <a name="azure-classic-cli"></a>Klassieke versie van Azure CLI
 
 ```azurecli
 azure network public-ip set -n PublicIp -g MyResourceGroup –f ""

@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn
-ms.openlocfilehash: 7229cedf2ad5e211847054b53c34e54f633f57e0
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: d1b270a5b572707ba94be8584c0e6a80ef4a5f09
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434764"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002325"
 ---
 # <a name="azure-key-vault-logging"></a>Logboekregistratie van Azure Sleutelkluis
 
 Azure Sleutelkluis is beschikbaar in de meeste regio's. Zie de pagina [Prijzen van Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) voor meer informatie.
 
 ## <a name="introduction"></a>Inleiding
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Nadat u een of meer sleutelkluizen hebt gemaakt, wilt u wellicht controleren hoe en wanneer uw sleutelkluizen toegankelijk zijn en voor wie. U kunt dit doen door logboekregistratie in te schakelen voor Sleutelkluis. Hierbij wordt de informatie opgeslagen in een Azure-opslagaccount dat u opgeeft. Er wordt automatisch een nieuwe container met de naam **insights-logboeken-auditevent** gemaakt voor het opgegeven opslagaccount en u kunt hetzelfde opslagaccount gebruiken voor het verzamelen van logboeken voor meerdere sleutelkluizen.
 
@@ -49,7 +51,7 @@ Zie [Wat is Azure Sleutelkluis?](key-vault-whatis.md) voor algemene informatie o
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * Een bestaande sleutelkluis die u hebt gebruikt.  
-* Azure PowerShell, **versie 1.0.1 of hoger**. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) om Azure PowerShell te installeren en te koppelen aan uw Azure-abonnement. Als u Azure PowerShell al hebt geïnstalleerd, maar niet weet welke versie u hebt, typt u `(Get-Module azure -ListAvailable).Version` in de Azure PowerShell-console.  
+* Azure PowerShell, **minimaal versie 1.0.0**. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) om Azure PowerShell te installeren en te koppelen aan uw Azure-abonnement. Als u Azure PowerShell al hebt geïnstalleerd, maar niet weet welke versie u hebt, typt u `$PSVersionTable.PSVersion` in de Azure PowerShell-console.  
 * Voldoende opslagruimte op Azure voor uw Sleutelkluis-logboeken.
 
 ## <a id="connect"></a>Verbinding maken met uw abonnementen
@@ -57,7 +59,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 Start een Azure PowerShell-sessie en gebruik de volgende opdracht om u aan te melden bij uw Azure-account:  
 
 ```PowerShell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Voer in het pop-upvenster in de browser uw gebruikersnaam en wachtwoord voor uw Azure-account in. Azure PowerShell haalt alle abonnementen op die zijn gekoppeld aan dit account en gebruikt standaard het eerste.
@@ -65,13 +67,13 @@ Voer in het pop-upvenster in de browser uw gebruikersnaam en wachtwoord voor uw 
 Als u meerdere abonnementen hebt, moet u wellicht specifiek opgeven welk abonnement is gebruikt voor het maken van uw Azure Sleutelkluis. Typ het volgende als u de abonnementen voor uw account wilt zien:
 
 ```PowerShell
-    Get-AzureRmSubscription
+    Get-AzSubscription
 ```
 
 Geef vervolgens op welk abonnement is gekoppeld aan de sleutelkluis waarvoor u logboekregistratie wilt inschakelen. Typ:
 
 ```PowerShell
-Set-AzureRmContext -SubscriptionId <subscription ID>
+Set-AzContext -SubscriptionId <subscription ID>
 ```
 
 > [!NOTE]
@@ -88,7 +90,7 @@ Hoewel u een bestaand opslagaccount voor uw logboeken kunt gebruiken, maken we h
 En om het ons nog gemakkelijker te maken, gebruiken we de resourcegroep die de sleutelkluis bevat. In de [zelfstudie Aan de slag](key-vault-get-started.md) heeft deze resourcegroep de naam **ContosoResourceGroup** en we gebruiken hier ook de locatie Azië - oost. Vervang deze waarden voor uzelf, indien van toepassing:
 
 ```PowerShell
- $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
+ $sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
 ```
 
 > [!NOTE]
@@ -101,15 +103,15 @@ En om het ons nog gemakkelijker te maken, gebruiken we de resourcegroep die de s
 In de zelfstudie Aan de slag is de naam van de sleutelkluis **ContosoKeyVault**. We gaan deze naam ook hier gebruiken en de details in een variabele met de naam **kv** opslaan:
 
 ```PowerShell
-$kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
+$kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 ```
 
 ## <a id="enable"></a>Logboekregistratie inschakelen
 
-Als u logboekregistratie wilt inschakelen voor Sleutelkluis, gebruikt u de cmdlet Set-AzureRmDiagnosticSetting, samen met de variabelen die we voor ons nieuwe opslagaccount en onze sleutelkluis hebben gemaakt. Stellen we ook de **-ingeschakeld** markering **$true** en de categorie instellen op AuditEvent (de enige categorie voor logboekregistratie van Key Vault):
+Als u wilt logboekregistratie inschakelen voor Key Vault, gebruiken we de cmdlet Set-AzDiagnosticSetting, samen met de variabelen die we voor onze nieuwe storage-account en onze sleutelkluis hebben gemaakt. Stellen we ook de **-ingeschakeld** markering **$true** en de categorie instellen op AuditEvent (de enige categorie voor logboekregistratie van Key Vault):
 
 ```PowerShell
-Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
+Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
 ```
 
 De uitvoer ziet er als volgt:
@@ -129,7 +131,7 @@ Hiermee bevestigt u dat logboekregistratie nu is ingeschakeld voor uw sleutelklu
 U kunt eventueel ook een retentiebeleid instellen voor uw logboeken, zodat oudere logboeken automatisch worden verwijderd. Stel bijvoorbeeld een retentiebeleid in met behulp van de vlag **- RetentionEnabled** ingesteld op **$true** en stel de parameter **- RetentionInDays** in op **90**, zodat logboeken die ouder zijn dan 90 dagen automatisch worden verwijderd.
 
 ```PowerShell
-Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent -RetentionEnabled $true -RetentionInDays 90
+Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent -RetentionEnabled $true -RetentionInDays 90
 ```
 
 Wat wordt in het logboek vastgelegd?
@@ -152,7 +154,7 @@ $container = 'insights-logs-auditevent'
 Als u alle blobs in deze container wilt weergeven, typt u:
 
 ```PowerShell
-Get-AzureStorageBlob -Container $container -Context $sa.Context
+Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
 De uitvoer ziet er ongeveer als volgt uit:
@@ -183,13 +185,13 @@ New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Forc
 Haal vervolgens een lijst met alle blobs op:  
 
 ```PowerShell
-$blobs = Get-AzureStorageBlob -Container $container -Context $sa.Context
+$blobs = Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
-Sluis deze lijst via 'Get-AzureStorageBlobContent' door om de blobs in de doelmap te downloaden:
+Sluis deze lijst via 'Get-AzStorageBlobContent' voor het downloaden van de blobs in de doelmap:
 
 ```PowerShell
-$blobs | Get-AzureStorageBlobContent -Destination C:\Users\username\ContosoKeyVaultLogs'
+$blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVaultLogs'
 ```
 
 Wanneer u deze tweede opdracht uitvoert maakt het **/** scheidingsteken in de blobnamen een volledige mapstructuur onder de doelmap. Deze structuur wordt gebruikt voor het downloaden en opslaan van de blobs als bestanden.
@@ -199,32 +201,32 @@ Als u alleen specifieke blobs wilt downloaden, moet u jokertekens gebruiken. Bij
 * Als u meerdere sleutelkluizen hebt en het logboek voor slechts één sleutelkluis wilt downloaden met de naam CONTOSOKEYVAULT3:
 
 ```PowerShell
-Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
+Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
 ```
 
 * Als u meerdere resourcegroepen hebt en logboeken voor slechts één resourcegroep wilt downloaden, gebruikt u `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
 ```PowerShell
-Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
+Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
 ```
 
 * Als u alle logboeken voor de maand januari 2016 wilt, gebruikt u `-Blob '*/year=2016/m=01/*'`:
 
 ```PowerShell
-Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
+Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
 ```
 
-We gaan zo kijken wat er precies in de logboeken staat. Maar eerst behandelen we nog twee parameters voor Get-AzureRmDiagnosticSetting die handig kunnen zijn:
+We gaan zo kijken wat er precies in de logboeken staat. Maar voordat u verplaatsen naar die twee parameters voor Get-AzDiagnosticSetting die u moet weten:
 
-* De status van diagnostische instellingen voor uw sleutelkluisresource opvragen: `Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`
-* Logboekregistratie voor uw sleutelkluisresource uitschakelen: `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
+* De status van diagnostische instellingen voor uw sleutelkluisresource opvragen: `Get-AzDiagnosticSetting -ResourceId $kv.ResourceId`
+* Logboekregistratie voor uw sleutelkluisresource uitschakelen: `Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Category AuditEvent`
 
 ## <a id="interpret"></a>De Sleutelkluis-logboekgegevens interpreteren
 
 Afzonderlijke blobs worden opgeslagen als tekst, die is opgemaakt als een JSON-blob. In uitvoering
 
 ```PowerShell
-Get-AzureRmKeyVault -VaultName 'contosokeyvault'`
+Get-AzKeyVault -VaultName 'contosokeyvault'`
 ```
 
 retourneert een logboekvermelding die vergelijkbaar is met het voorbeeld hieronder:
@@ -280,7 +282,7 @@ De volgende tabel bevat de operationName en de bijbehorende REST-API-opdracht.
 
 | operationName | REST-API-opdracht |
 | --- | --- |
-| Verificatie |Via het Azure Active Directory-eindpunt |
+| Authentication |Via het Azure Active Directory-eindpunt |
 | VaultGet |[Informatie over een sleutelkluis ophalen](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
 | VaultPut |[Een sleutelkluis maken of bijwerken](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
 | VaultDelete |[Een sleutelkluis verwijderen](https://msdn.microsoft.com/library/azure/mt620022.aspx) |

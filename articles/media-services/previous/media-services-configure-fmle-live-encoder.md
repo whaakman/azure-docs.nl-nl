@@ -4,7 +4,7 @@ description: In dit onderwerp laat zien hoe het configureren van het coderingspr
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 3113f333-517a-47a1-a1b3-57e200c6b2a2
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/08/2019
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 1a7cbd19b89663ab874fc5a7a86587e292b86f81
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 32bed77146284799faebdb8a44e2e610f49913cf
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665882"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003734"
 ---
-# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>FMLE-coderingsprogramma gebruiken voor het verzenden van een single-bitrate live stream
+# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream-legacy"></a>FMLE-coderingsprogramma gebruiken voor het verzenden van een single-bitrate live stream (verouderd)
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
@@ -33,7 +33,7 @@ In dit artikel laat zien hoe het configureren van de [Flash Media Live Encoder](
 
 In deze zelfstudie laat zien hoe Azure Media Services (AMS) beheren met Azure Media Services Explorer (AMSE)-hulpprogramma. Dit hulpprogramma wordt alleen uitgevoerd op Windows-PC. Als u van Mac- of Linux gebruikmaakt, de Azure portal gebruiken voor het maken van [kanalen](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) en [programma's](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-Deze zelfstudie wordt beschreven met behulp van AAC. FMLE ondersteunt niet echter AAC standaard. U moet een invoegtoepassing voor de AAC-codering bijvoorbeeld-02-MainConcept kopen: [AAC-invoegtoepassing](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
+Deze zelfstudie wordt beschreven met behulp van AAC. FMLE ondersteunt niet echter AAC standaard. U moet een invoegtoepassing voor de AAC-codering zoals invoegtoepassing van MainConcept kopen: [AAC-invoegtoepassing](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
 
 ## <a name="prerequisites"></a>Vereisten
 * [Een Azure Media Services-account maken](media-services-portal-create-account.md)
@@ -80,29 +80,29 @@ In deze zelfstudie worden de volgende uitvoerinstellingen gebruikt. De rest van 
 * Profiel: Hoog (niveau 4.0)
 * Bitrate: 5000 kbps
 * Sleutelframes: 2 seconden (60 seconden)
-* Tarief frame: 30
+* Framesnelheid: 30
 
 **Audio**:
 
 * Codec: AAC (LC)
 * Bitrate: 192 kbps
-* Samplefrequentie: 44,1 kHz
+* Samplefrequentie: 44.1 kHz
 
 ### <a name="configuration-steps"></a>Configuratiestappen
 1. Navigeer naar de Flash Media Live Encoder van (FMLE) interface op de machine die wordt gebruikt.
 
     De interface is een startpagina van instellingen. Noteer de volgende instellingen om te beginnen met streamen met FMLE aanbevolen.
 
-   * Indeling: H.264 framesnelheid: 30,00
+   * Indeling: Framesnelheid H.264: 30.00
    * Invoergrootte: 1280 x 720
-   * Bitsnelheid: 5000 Kbps (kan worden aangepast op basis van de beperkingen op het netwerk)  
+   * Bitsnelheid: 5000 kbps (kan worden aangepast op basis van de beperkingen op het netwerk)  
 
      ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle3.png)
 
      Wanneer met behulp van bronnen geïnterlinieerde, kunt u de optie 'Zonder interliniëring' is ingeschakeld
 2. Selecteer de moersleutelpictogram naast indeling, moeten de volgende aanvullende instellingen:
 
-   * Profiel: Main
+   * Profiel: Algemeen
    * Niveau: 4.0
    * Frequentie van sleutelframes: 2 seconden
 

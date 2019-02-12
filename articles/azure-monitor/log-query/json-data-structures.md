@@ -1,6 +1,6 @@
 ---
-title: Werken met tekenreeksen in Azure Log Analytics-query's | Microsoft Docs
-description: Dit artikel bevat een zelfstudie voor het gebruik van de Analytics-portal voor het schrijven van query's in Log Analytics.
+title: Werken met tekenreeksen in Logboeken-query's van Azure Monitor | Microsoft Docs
+description: Dit artikel bevat een zelfstudie voor het gebruik van Azure Monitor log analytics in Azure portal om te zoeken en analyseren van logboekgegevens in Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 24f22d659ccfb6923ad2a038e12454716b2c5445
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: dda7ef2e4e974ea053f030a3ebe71a16872612b0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263880"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993721"
 ---
-# <a name="working-with-json-and-data-structures-in-log-analytics-queries"></a>Werken met JSON en gegevensstructuren in Log Analytics-query 's
+# <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Werken met JSON en gegevensstructuren in Azure Monitor logboeken-query 's
 
 > [!NOTE]
-> U moet voltooien [aan de slag met de Analytics-portal](get-started-portal.md) en [aan de slag met query's](get-started-queries.md) voordat het voltooien van deze les gaat uitvoeren.
+> U moet voltooien [aan de slag met Azure Monitor log-analytics](get-started-portal.md) en [aan de slag met Azure Monitor logboeken-query's](get-started-queries.md) voordat het voltooien van deze les gaat uitvoeren.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -131,7 +131,7 @@ print hosts_object
 ![Schema maken](media/json-data-structures/buildschema.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie andere lessen voor het gebruik van de querytaal van Log Analytics:
+Zie andere lessen voor het gebruik van Logboeken-query's in Azure Monitor:
 
 - [Bewerkingen op tekenreeksen uitvoeren](string-operations.md)
 - [Datum- en tijdbewerkingen](datetime-operations.md)

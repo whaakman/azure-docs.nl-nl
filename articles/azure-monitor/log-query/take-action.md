@@ -13,16 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 61d0f74f59b4d6f59b3fbc87556b260751d33baa
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9194d5fe6553607ac5a0bb4e133da97f53790984
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809626"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005349"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Onderneem actie met een Automation-Runbook uit een zoekresultaat voor Log Analytics-logboek
 
-In een zoekresultaat log in Azure Log Analytics, kunt u nu selecteren **actie ondernemen** om uit te voeren van een Automation-runbook. Het runbook kan worden gebruikt om het probleem op te lossen of een andere actie zoals zoals het verzamelen van informatie over probleemoplossing, een e-mail verzenden of een serviceaanvraag maakt op te nemen. 
+> [!NOTE]
+> Een runbook starten vanuit de zoekresultaten is een functie van de klassieke portal zoeken in logboeken die worden op 15 februari 2019 afgeschaft. U kunt configureren dat een actiegroep die u met een runbook naast andere acties op basis van beginnen kunt een [waarschuwingsregel](../platform/alerts-log.md) in Azure Monitor.
+
+In een zoekresultaat log in Azure Log Analytics, kunt u nu selecteren **actie ondernemen** om uit te voeren van een Automation-runbook.  Het runbook kan worden gebruikt om het probleem op te lossen of een andere actie zoals zoals het verzamelen van informatie over probleemoplossing, een e-mail verzenden of een serviceaanvraag maakt op te nemen. 
+
 
 ## <a name="components-and-features-used"></a>Gebruikte onderdelen en functies
 * [Azure Automation-account](../../automation/automation-quickstart-create-account.md)

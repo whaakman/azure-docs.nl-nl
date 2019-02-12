@@ -6,15 +6,15 @@ keywords: codering; coderingsprogramma's; media
 author: dbgeorge
 manager: johndeu
 ms.author: johndeu
-ms.date: 09/13/2018
+ms.date: 02/09/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: c90d6a5784fe9d80df4fab304b6122d3fa24d0b5
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: f07b2d128bd770854b7c240fd3c964d880029d3c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605161"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999008"
 ---
 # <a name="recommended-on-premises-encoders"></a>Aanbevolen on-premises coderingsprogramma 's
 Wanneer een live streamen met Azure Media Services, kunt u opgeven hoe u wilt dat het kanaal voor het ontvangen van de invoerstroom. Als u gebruiken van een on-premises coderingsprogramma met een live codering wilt, moet uw encoder een hoge kwaliteit single-bitrate stream pushen als uitvoer. Als u kiest voor het gebruik van een on-premises coderingsprogramma met een pass through-kanaal, moet uw encoder een multi-bitrate stream pushen als uitvoer met alle kenmerken van de gewenste uitvoer. Zie voor meer informatie, [Live streamen met on-premises coderingsprogramma's](media-services-live-streaming-with-onprem-encoders.md).
@@ -25,10 +25,10 @@ Azure Media Services raadt u aan met behulp van een van de volgende live coderin
 - Haivision KB
 - Telestream Wirecast 8.1 +
 - Telestream Wirecast S
-- Teradek segment 756
+- Teradek Slice 756
 - TriCaster 8000
 - Tricaster Mini HD-4
-- IB-Studio
+- OBS Studio
 - VMIX
 - xStream
 - Overschakelen naar Studio (iOS)
@@ -36,7 +36,7 @@ Azure Media Services raadt u aan met behulp van een van de volgende live coderin
 Azure Media Services raadt u aan met een van de volgende live coderingsprogramma's die multi-bitrate fragmented-MP4 (Smooth Streaming) als uitvoer:
 - Media Excel Hero Live en Hero 4K (UHD/HEVC)
 - Ateme TITAN Live
-- Cisco digitale Media Encoder 2200
+- Cisco Digital Media Encoder 2200
 - Elemental Live
 - Envivio 4Caster C4 ALG III
 - Imagine Communications Selenio MCP3

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: kumud
-ms.openlocfilehash: abdc50d6d3d27ab7611994089345a997afc72cae
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: d4d4420e2d38b1418a08ad1ca51dd0f75f3fe7b9
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082504"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001099"
 ---
 # <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Diagnostische logboekregistratie in Azure Traffic Manager inschakelen
 
@@ -26,29 +26,31 @@ Diagnostische logboeken in Azure Traffic Manager kunnen bieden inzicht in het ge
 
 ## <a name="enable-diagnostic-logging"></a>Bijhouden van diagnostische gegevens inschakelen
 
-U kunt de opdrachten die volgen in uitvoeren de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. De Azure Cloud Shell is een gratis interactieve shell. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Als u PowerShell vanaf uw computer uitvoeren, moet u de *AzureRM* PowerShell-module, 6.13.1 of hoger. U kunt uitvoeren `Get-Module -ListAvailable AzureRM` de geïnstalleerde versie te vinden. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook om uit te voeren `Login-AzureRmAccount` zich aanmeldt bij Azure.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+U kunt de opdrachten die volgen in uitvoeren de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. De Azure Cloud Shell is een gratis interactieve shell. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Als u PowerShell vanaf uw computer uitvoeren, moet u de Azure PowerShell-module 1.0.0 of hoger. U kunt uitvoeren `Get-Module -ListAvailable Az` de geïnstalleerde versie te vinden. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-az-ps). Als u PowerShell lokaal uitvoert, moet u ook om uit te voeren `Login-AzAccount` zich aanmeldt bij Azure.
 
 1. **Traffic Manager-profiel ophalen:**
 
-    Als u wilt vastleggen van diagnostische gegevens inschakelen, moet u de ID van een Traffic Manager-profiel. Ophalen van het Traffic Manager-profiel dat u Diagnostische logboekregistratie voor met wilt inschakelen [Get-AzureRmTrafficManagerProfile](/powershell/module/AzureRM.TrafficManager/Get-AzureRmTrafficManagerProfile). De uitvoer bevat informatie over Traffic Manager-profiel-ID.
+    Als u wilt vastleggen van diagnostische gegevens inschakelen, moet u de ID van een Traffic Manager-profiel. Ophalen van het Traffic Manager-profiel dat u Diagnostische logboekregistratie voor met wilt inschakelen [Get-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile). De uitvoer bevat informatie over Traffic Manager-profiel-ID.
 
     ```azurepowershell-interactive
-    Get-AzureRmTrafficManagerProfile -Name <TrafficManagerprofilename> -ResourceGroupName <resourcegroupname>
+    Get-AzTrafficManagerProfile -Name <TrafficManagerprofilename> -ResourceGroupName <resourcegroupname>
     ```
 
 2. **Diagnostische logboekregistratie inschakelen voor Traffic Manager-profiel:**
 
-    Diagnostische logboekregistratie inschakelen voor Traffic Manager-profiel met behulp van de ID die is verkregen in de vorige stap met [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/set-azurermdiagnosticsetting?view=latest). De volgende opdracht slaat uitgebreide logboeken voor het Traffic Manager-profiel aan een opgegeven Azure Storage-account. 
+    Diagnostische logboekregistratie inschakelen voor Traffic Manager-profiel met behulp van de ID die is verkregen in de vorige stap met [Set AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.insights/set-azdiagnosticsetting?view=latest). De volgende opdracht slaat uitgebreide logboeken voor het Traffic Manager-profiel aan een opgegeven Azure Storage-account. 
 
       ```azurepowershell-interactive
-    Set-AzureRmDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
+    Set-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
       ``` 
 3. **Controleer of de diagnostische instellingen:**
 
-      Controleer of de diagnostische instellingen voor de Traffic Manager-profiel met [Get-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermdiagnosticsetting?view=latest). De volgende opdracht geeft de categorieën die zijn geregistreerd voor een resource.
+      Controleer of de diagnostische instellingen voor de Traffic Manager-profiel met [Get-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.insights/get-azdiagnosticsetting?view=latest). De volgende opdracht geeft de categorieën die zijn geregistreerd voor een resource.
 
      ```azurepowershell-interactive
-     Get-AzureRmDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>
+     Get-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>
      ```  
       Zorg ervoor dat alle categorieën die zijn gekoppeld aan de weergave van Traffic Manager profiel resource logboekbestanden als ingeschakeld. Controleer ook of het opslagaccount correct is ingesteld.
 
@@ -70,8 +72,8 @@ De volgende tabel bevat de logboeken schema die specifiek zijn voor de Azure Tra
 |||||
 |----|----|---|---|
 |**Veldnaam**|**Veldtype**|**Definitie**|**Voorbeeld**|
-|EndpointName|Reeks|De naam van het Traffic Manager-eindpunt waarvan de gezondheidsstatus wordt opgenomen.|*myPrimaryEndpoint*|
-|Status|Reeks|De status van het Traffic Manager-eindpunt dat is dat wordt aangeduid. De status kan zijn **van** of **omlaag**.|**Omhoog**|
+|EndpointName|String|De naam van het Traffic Manager-eindpunt waarvan de gezondheidsstatus wordt opgenomen.|*myPrimaryEndpoint*|
+|Status|String|De status van het Traffic Manager-eindpunt dat is dat wordt aangeduid. De status kan zijn **van** of **omlaag**.|**Omhoog**|
 |||||
 
 ## <a name="next-steps"></a>Volgende stappen

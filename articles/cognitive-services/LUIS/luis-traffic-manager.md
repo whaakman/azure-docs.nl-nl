@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: ba3ca363afe96c137a4a9eecdeda33e0f9129111
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 89778375c6362007a81eab72663f56492f4fe206
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868426"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997903"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Microsoft Azure Traffic Manager gebruiken voor het beheer van eindpunt quotum voor sleutels
 Language Understanding (LUIS) biedt de mogelijkheid om het quotum van de aanvraag eindpunt meer dan één sleutel quotum te verhogen. Dit wordt gedaan door het maken van meer sleutels voor LUIS en deze toevoegen aan de LUIS-toepassing op de **publiceren** pagina in de **Resources en sleutels** sectie. 
@@ -362,6 +362,9 @@ De geslaagde respons met het eindpunt van LUIS is:
 ## <a name="use-the-traffic-manager-parent-profile"></a>Het profiel van de bovenliggende Traffic Manager gebruiken
 Om het verkeer over alle eindpunten beheren, moet u een aanroep naar de DNS Traffic Manager van de LUIS-eindpunt vinden plaats. Deze aanroep is gemaakt voor elke aanvraag van LUIS-eindpunt en moet de geografische locatie van de gebruiker van de clienttoepassing LUIS simuleren. De DNS-responscode tussen uw LUIS-clienttoepassing en de aanvraag toevoegen aan LUIS voor de voorspelling van het eindpunt. 
 
+## <a name="resolving-a-degraded-state"></a>Een gedegradeerde status oplossen
+
+Schakel [diagnostische logboeken](../../traffic-manager/traffic-manager-diagnostic-logs.md) voor Traffic Manager om te zien waarom Eindpuntstatus is gedegradeerd.
 
 ## <a name="clean-up"></a>Opruimen
 De twee sleutels van LUIS-eindpunt, de drie Traffic Manager-profielen en de resourcegroep die deel uitmaakt van deze vijf resources verwijderen. Dit wordt gedaan via de Azure-portal. U kunt de vijf resources verwijderen uit de lijst met resources. Verwijder de resourcegroep. 

@@ -7,14 +7,14 @@ author: anikaz
 manager: johndeu
 ms.service: media-services
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: 9bf48a994c3efeb433bcb99342f7a477d87858eb
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: be0b930c99bb14c34e395efce494e8d7372719b0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285268"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998138"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>Een taalmodel met de Video Indexer-website aanpassen
 
@@ -75,11 +75,11 @@ Als u uw taalmodel wilt indexeren van een video in uw verzameling, gaat u naar u
 
 Ziet u opties voor het bewerken van uw video, verwijdert u video en indexeren van uw video. Klik op de optie voor het indexeren van uw video.
 
-![Opnieuw indexeren](./media/customize-language-model/reindex1.png)
+![Reindex](./media/customize-language-model/reindex1.png)
 
 Dit biedt u de optie te selecteren de **Video source-taal** opnieuw indexeren van uw video. Klik op de vervolgkeuzelijst en selecteer een taalmodel die u hebt gemaakt in de lijst. Er moet de taal van uw taalmodel en de naam die u hebt opgegeven tussen haakjes.
 
-![Opnieuw indexeren](./media/customize-language-model/reindex.png)
+![Reindex](./media/customize-language-model/reindex.png)
 
 Klik op de **opnieuw indexeren** knop en de video wordt worden geïndexeerd met u taalmodel.
 

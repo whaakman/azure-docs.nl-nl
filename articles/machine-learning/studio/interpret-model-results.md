@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: fe22a465c21e9522b70ba307e2ec9772674000f2
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 67843efd87e0d1cdd1a392fdd24d29decae093e8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488540"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997002"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Modelresultaten in Azure Machine Learning Studio interpreteren
 In dit onderwerp wordt uitgelegd hoe te visualiseren en te interpreteren voorspellingsresultaten in Azure Machine Learning Studio. Nadat u hebt een model wordt getraind en voorspellingen daarboven ("het model beoordeeld') wordt uitgevoerd, moet u om te begrijpen en interpreteren van het resultaat voorspelling.
@@ -74,7 +74,7 @@ Er zijn zes kolommen in de tabel met resultaten. Vier kolommen aan de linkerkant
 
 **Publicatie van de Web service**
 
-Nadat de voorspellingsresultaten zijn begrepen en beoordeeld, gezonde, kan het experiment worden gepubliceerd als een webservice zodat u kunt deze in verschillende toepassingen implementeren en deze om te verkrijgen, voorspellingen van de klasse op alle nieuwe iris bloem aanroepen. Zie voor informatie over het wijzigen van een trainingsexperiment in een scoring-experiment en deze publiceren als een webservice, [publiceren van de Azure Machine Learning-webservice](walkthrough-5-publish-web-service.md). Deze procedure biedt u een experiment scoring zoals wordt weergegeven in afbeelding 3.
+Nadat de voorspellingsresultaten zijn begrepen en beoordeeld, gezonde, kan het experiment worden gepubliceerd als een webservice zodat u kunt deze in verschillende toepassingen implementeren en deze om te verkrijgen, voorspellingen van de klasse op alle nieuwe iris bloem aanroepen. Zie voor informatie over het wijzigen van een trainingsexperiment in een scoring-experiment en deze publiceren als een webservice, [zelfstudie 3: Tegoed risicomodel implementeren](tutorial-part3-credit-risk-deploy.md). Deze procedure biedt u een experiment scoring zoals wordt weergegeven in afbeelding 3.
 
 ![Schermopname van het scoring-experiment](./media/interpret-model-results/3.png)
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5df3b9541dafad64e012519802b09b19ef199a03
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 1c812a77429e13ea39b2f4946043c13e10aaf097
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231731"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993739"
 ---
 # <a name="add-html-markers-to-the-map"></a>HTML-markeringen toevoegen aan de kaart
 
@@ -68,20 +68,11 @@ Dit voorbeeld laat zien hoe u een HTML-markering versleepbare. Ondersteuning voo
 
 ## <a name="add-mouse-events-to-html-markers"></a>Muisgebeurtenissen toevoegen aan HTML-markeringen
 
-Deze voorbeelden laten zien hoe muisgebeurtenissen toevoegt aan een HTML-markering standaardgebeurtenissen JavaScript toevoegen aan de HTML-inhoud van de markering. 
-
-Als de `htmlContent` van de markering is een DOM-element (div-element, img...), kunt u gebeurtenissen rechtstreeks naar hen toevoegen. 
+Deze voorbeelden laten zien hoe muis toevoegen en gebeurtenissen naar een HTML-markering.
 
 <br/>
 
 <iframe height='500' scrolling='no' title='Muisgebeurtenissen toe te voegen aan HTML-markeringen' src='//codepen.io/azuremaps/embed/RqOKRz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/RqOKRz/'>muisgebeurtenissen toe te voegen aan HTML-markeringen</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
-Als de `htmlContent` is een tekenreeks (zoals) dergelijke de standaardinstelling), u kunt maken van een DOM-element en voegt u de tekenreeks als innerHTML toe en vervolgens voegt u de DOM-element toe als de htmlContent. Als de `htmlContent` is een tekenreeks met sjablonen, moet u zoeken/vervangen `{text}` en `{color}` eerst de waarden in de tekenreeks.
-
-<br/>
-
-<iframe height='500' scrolling='no' title='Muisgebeurtenissen toe te voegen aan standaard-HTML-markering' src='//codepen.io/azuremaps/embed/ZmZLBa/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/ZmZLBa/'>muisgebeurtenissen toe te voegen aan de standaard-HTML-markering</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Volgende stappen

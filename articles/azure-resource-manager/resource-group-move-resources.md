@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: 84f8d8ecbeacc5acb6b19462096e6fbd1aa45816
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 59322e303824d3a0db89e9e1252476d52106ba56
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810283"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991341"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -310,7 +310,7 @@ De bewerking kan enkele minuten uitgevoerd.
 
 ### <a name="recovery-services-limitations"></a>Recovery Services-beperkingen
 
- Voor het verplaatsen van een Recovery Services-kluis, moet u zich inschrijven voor een beperkte preview. Schrijf naar AskAzureBackupTeam@microsoft.com als u dit wilt uitproberen.
+ Voor het verplaatsen van een Recovery Services-kluis, moet u zich inschrijven een [beperkte openbare preview](../backup/backup-azure-move-recovery-services-vault.md).
 
 Op dit moment kunt u een Recovery Services-kluis verplaatsen per regio, op een tijdstip. U kunt kluizen dat voor back-up Azure Files of Azure File Sync SQL IaaS virtuele machines niet verplaatsen.
 

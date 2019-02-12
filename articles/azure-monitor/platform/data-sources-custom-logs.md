@@ -1,6 +1,6 @@
 ---
-title: Aangepaste logboeken in Log Analytics verzamelt | Microsoft Docs
-description: Log Analytics kan gebeurtenissen verzamelen uit tekstbestanden op zowel Windows als Linux-computers.  In dit artikel wordt beschreven hoe u een nieuw aangepast logboek en details van de records die ze in Log Analytics maken definiëren.
+title: Verzamelen van aangepaste logboeken in Azure Monitor | Microsoft Docs
+description: Azure Monitor kunt u gebeurtenissen verzamelen uit tekstbestanden op zowel Windows als Linux-computers.  In dit artikel wordt beschreven hoe u een nieuw aangepast logboek en details van de records die zij in Azure Monitor maken definiëren.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
-ms.openlocfilehash: 628cbcbfb712d2fcaa53bdaee262f88a78dd1527
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 7a25686ffa80b831e5d459a8795595a00f869fda
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895666"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997589"
 ---
-# <a name="custom-logs-in-log-analytics"></a>Aangepaste logboeken in Log Analytics
-Bron van de aangepaste logboeken in Log Analytics kunt u voor het verzamelen van gebeurtenissen uit tekstbestanden op zowel Windows als Linux-computers. Veel toepassingen logboekgegevens naar tekstbestanden in plaats van standaard logboekregistratieservices zoals Windows-gebeurtenislogboek of Syslog. Zodra de verzameld, kunt u het parseren van de gegevens in afzonderlijke velden in uw query's of extraheer de gegevens die tijdens de verzameling die moet worden afzonderlijke velden.
+# <a name="custom-logs-in-azure-monitor"></a>Aangepaste logboeken in Azure Monitor
+Bron van de aangepaste logboeken in Azure Monitor kunt u voor het verzamelen van gebeurtenissen uit tekstbestanden op zowel Windows als Linux-computers. Veel toepassingen logboekgegevens naar tekstbestanden in plaats van standaard logboekregistratieservices zoals Windows-gebeurtenislogboek of Syslog. Zodra de verzameld, kunt u het parseren van de gegevens in afzonderlijke velden in uw query's of extraheer de gegevens die tijdens de verzameling die moet worden afzonderlijke velden.
 
 ![Aangepaste logboekverzameling](media/data-sources-custom-logs/overview.png)
 
@@ -35,7 +35,7 @@ De logboekbestanden te verzamelen, moeten overeenkomen met de volgende criteria 
 - Het logboekbestand moet gebruiken ASCII- of UTF-8-codering.  Andere indelingen, zoals UTF-16 worden niet ondersteund.
 
 >[!NOTE]
->Als er dubbele vermeldingen in het logboekbestand, verzamelt Log Analytics deze.  Resultaten van de query wordt wel inconsistent waar de filterresultaten meer gebeurtenissen dan het aantal resultaten weergeven.  Het is belangrijk dat u in het logboek te bepalen of dit probleem wordt veroorzaakt door de toepassing die wordt deze gemaakt en los indien mogelijk het voordat u de definitie van de verzameling aangepaste logboek valideren.  
+>Als er dubbele vermeldingen in het logboekbestand, worden ze door Azure Monitor verzameld.  Resultaten van de query wordt wel inconsistent waar de filterresultaten meer gebeurtenissen dan het aantal resultaten weergeven.  Het is belangrijk dat u in het logboek te bepalen of dit probleem wordt veroorzaakt door de toepassing die wordt deze gemaakt en los indien mogelijk het voordat u de definitie van de verzameling aangepaste logboek valideren.  
 >
   
 >[!NOTE]
@@ -52,17 +52,17 @@ Gebruik de volgende procedure voor het definiëren van een aangepaste logboekbes
 ### <a name="step-1-open-the-custom-log-wizard"></a>Step 1. Open de Wizard aangepaste logboek
 De Wizard voor aangepaste logboek wordt uitgevoerd in Azure portal en kunt u een nieuw aangepast logboek voor het verzamelen van definiëren.
 
-1. Selecteer in de Azure portal, **Log Analytics** > uw werkruimte > **geavanceerde instellingen**.
+1. Selecteer in de Azure portal, **Log Analytics-werkruimten** > uw werkruimte > **geavanceerde instellingen**.
 2. Klik op **gegevens** > **aangepaste logboeken**.
 3. Standaard worden alle wijzigingen in de configuratie automatisch doorgegeven naar alle agents.  Voor Linux-agents, wordt een configuratiebestand verzonden naar de gegevensverzamelaar Fluentd.  Als u dit bestand handmatig op elke Linux-agent wijzigen wilt, klikt u vervolgens het selectievakje *toepassen op de onderstaande configuratie op mijn Linux-machines*.
 4. Klik op **toevoegen +** om het aangepaste logboek Wizard te openen.
 
 ### <a name="step-2-upload-and-parse-a-sample-log"></a>Stap 2. Uploaden en een voorbeeldlogboek parseren
-Begint u met het uploaden van een voorbeeld van het aangepaste logboek.  De wizard wordt parseren en de items worden weergegeven in dit bestand voor u om te valideren.  Log Analytics maakt gebruik van het scheidingsteken dat u opgeeft om te bepalen van elke record.
+Begint u met het uploaden van een voorbeeld van het aangepaste logboek.  De wizard wordt parseren en de items worden weergegeven in dit bestand voor u om te valideren.  Azure Monitor maakt gebruik van het scheidingsteken dat u opgeeft om te bepalen van elke record.
 
 **Nieuwe regel** is het scheidingsteken en wordt gebruikt voor de logboekbestanden met één vermelding per regel.  Als de regel met een datum en tijd in een van de beschikbare indelingen begint, dan kunt u een **Timestamp** scheidingsteken die ondersteuning biedt voor gegevens met betrekking meer dan één regel tot.
 
-Als een timestamp-scheidingsteken wordt gebruikt, wordt de eigenschap TimeGenerated van elke record die zijn opgeslagen in Log Analytics worden ingevuld met de datum/tijd opgegeven voor die vermelding in het logboekbestand.  Als een nieuwe regel als scheidingsteken wordt gebruikt, wordt TimeGenerated gevuld met de datum en tijd Log Analytics de vermelding die worden verzameld.
+Als een timestamp-scheidingsteken wordt gebruikt, wordt de eigenschap TimeGenerated van elke record die zijn opgeslagen in Azure Monitor worden ingevuld met de datum/tijd opgegeven voor die vermelding in het logboekbestand.  Als een nieuwe regel als scheidingsteken wordt gebruikt, wordt TimeGenerated gevuld met de datum en tijd Azure Monitor de vermelding die worden verzameld.
 
 
 1. Klik op **Bladeren** en blader naar een voorbeeldbestand.  Houd er rekening mee dat deze knop kan mogelijk worden gelabeld **bestand kiezen** in sommige browsers.
@@ -101,16 +101,16 @@ De naam die u opgeeft wordt gebruikt voor het logboektype zoals hierboven is bes
 3. Klik op **volgende** om op te slaan van de definitie van de aangepaste logboek.
 
 ### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>Stap 5. Valideren dat de aangepaste logboeken worden verzameld
-Het kan een uur duren voor de initiële gegevens uit een nieuw aangepast logboek wordt weergegeven in Log Analytics.  Start het verzamelen van gegevens van de logboeken die zijn gevonden in het pad dat u hebt opgegeven vanaf het moment dat u het aangepaste logboek gedefinieerd.  Deze de items die u hebt geüpload tijdens het maken van het aangepaste logboek niet behouden, maar wordt het bestaande vermeldingen in de logboekbestanden die wordt gezocht naar verzamelen.
+Het kan een uur duren voor de initiële gegevens uit een nieuw aangepast logboek wordt weergegeven in Azure Monitor.  Start het verzamelen van gegevens van de logboeken die zijn gevonden in het pad dat u hebt opgegeven vanaf het moment dat u het aangepaste logboek gedefinieerd.  Deze de items die u hebt geüpload tijdens het maken van het aangepaste logboek niet behouden, maar wordt het bestaande vermeldingen in de logboekbestanden die wordt gezocht naar verzamelen.
 
-Zodra Log Analytics wordt gestart vanuit het aangepaste logboek verzamelen, wordt de records worden beschikbaar met een logboekquery.  Gebruik de naam die u hebt opgegeven het aangepaste logboek als de **Type** in uw query.
+Zodra Azure Monitor verzamelen van het aangepaste logboek is gestart, wordt de records worden beschikbaar met een logboekquery.  Gebruik de naam die u hebt opgegeven het aangepaste logboek als de **Type** in uw query.
 
 > [!NOTE]
 > Als de RawData-eigenschap in de query ontbreekt, moet u sluiten en opnieuw openen van uw browser.
 
 
 ### <a name="step-6-parse-the-custom-log-entries"></a>Stap 6. Parseren van de aangepaste logboekvermeldingen
-De volledige logboekvermelding worden opgeslagen in één eigenschap, genaamd **RawData**.  U zult waarschijnlijk voor het scheiden van de verschillende soorten informatie in elk item in afzonderlijke eigenschappen voor elke record. Raadpleeg [parseren tekstgegevens in Log Analytics](../log-query/parse-text.md) voor opties voor het parseren van **RawData** in meerdere eigenschappen.
+De volledige logboekvermelding worden opgeslagen in één eigenschap, genaamd **RawData**.  U zult waarschijnlijk voor het scheiden van de verschillende soorten informatie in elk item in afzonderlijke eigenschappen voor elke record. Raadpleeg [parseren van tekstgegevens in Azure Monitor](../log-query/parse-text.md) voor opties voor het parseren van **RawData** in meerdere eigenschappen.
 
 ## <a name="removing-a-custom-log"></a>Een aangepast logboek verwijderen...
 Gebruik het volgende proces in Azure portal te verwijderen van een aangepaste logboek dat u eerder hebt gedefinieerd.
@@ -120,16 +120,16 @@ Gebruik het volgende proces in Azure portal te verwijderen van een aangepaste lo
 
 
 ## <a name="data-collection"></a>Gegevensverzameling
-Log Analytics verzamelt nieuwe vermeldingen van elk aangepast logboek ongeveer elke 5 minuten.  De agent wordt plaats daarvan worden opgenomen in elke logboekbestand die het verzamelt uit.  Als de agent voor een bepaalde periode offline gaat, klikt u vervolgens verzamelt Log Analytics gegevens van waar het laatste afgebroken, zelfs als deze items zijn gemaakt terwijl de agent offline was.
+Azure Monitor worden nieuwe gegevens worden verzameld van elke aangepaste logboek ongeveer elke 5 minuten.  De agent wordt plaats daarvan worden opgenomen in elke logboekbestand die het verzamelt uit.  Als de agent voor een bepaalde periode offline gaat, klikt u vervolgens verzamelt Azure Monitor gegevens van waar het laatste afgebroken, zelfs als deze items zijn gemaakt terwijl de agent offline was.
 
-De volledige inhoud van de logboekvermelding worden geschreven naar één eigenschap, genaamd **RawData**.  Zie [parseren tekstgegevens in Log Analytics](../log-query/parse-text.md) geïmporteerd voor methoden voor het parseren van elke logboekvermelding in meerdere eigenschappen.
+De volledige inhoud van de logboekvermelding worden geschreven naar één eigenschap, genaamd **RawData**.  Zie [parseren van tekstgegevens in Azure Monitor](../log-query/parse-text.md) geïmporteerd voor methoden voor het parseren van elke logboekvermelding in meerdere eigenschappen.
 
 ## <a name="custom-log-record-properties"></a>Het aangepaste logboek record-eigenschappen
 Aangepaste logboekrecords zijn een type met de naam van het logboek dat u opgeeft en de eigenschappen in de volgende tabel.
 
 | Eigenschap | Description |
 |:--- |:--- |
-| TimeGenerated |Datum en tijd waarop de record is verzameld door Log Analytics.  Als het logboek een scheidingsteken wordt gebruikt op basis van tijd is dit de tijd die worden verzameld van de vermelding. |
+| TimeGenerated |Datum en tijd waarop de record is verzameld door Azure Monitor.  Als het logboek een scheidingsteken wordt gebruikt op basis van tijd is dit de tijd die worden verzameld van de vermelding. |
 | SourceSystem |Type van de record van agent is verzameld. <br> OpsManager – Windows-agent, rechtstreeks verbinding maken of System Center Operations Manager <br> Linux: alle Linux-agents |
 | RawData |Volledige tekst van de verzamelde post. Waarschijnlijk wilt u [parseren van deze gegevens in afzonderlijke eigenschappen](../log-query/parse-text.md). |
 | ManagementGroupName |Naam van de beheergroep van System Center Operations Manage agents.  Voor andere agents is dit AOI -\<werkruimte-ID\> |
@@ -178,9 +178,9 @@ Terwijl aangepaste logboeken handig zijn als uw gegevens geschikt is voor de cri
 
 In gevallen waar uw gegevens kan niet worden verzameld met aangepaste logboeken, houd rekening met de volgende alternatieve strategieën:
 
-- Een aangepast script of andere methode gebruiken om te schrijven naar [Windows-gebeurtenissen](data-sources-windows-events.md) of [Syslog](data-sources-syslog.md) die worden verzameld door Log Analytics. 
-- De gegevens rechtstreeks naar de met behulp van Log Analytics verzenden [HTTP Data Collector API](data-collector-api.md). Een voorbeeld met behulp van runbooks in Azure Automation wordt geleverd [gegevens verzamelen in Log Analytics met een Azure Automation-runbook](runbook-datacollect.md).
+- Een aangepast script of andere methode gebruiken om te schrijven naar [Windows-gebeurtenissen](data-sources-windows-events.md) of [Syslog](data-sources-syslog.md) die door Azure Monitor worden verzameld. 
+- De gegevens rechtstreeks naar de met behulp van Azure Monitor verzenden [HTTP Data Collector API](data-collector-api.md). Een voorbeeld met behulp van runbooks in Azure Automation wordt geleverd [verzamelen logboekgegevens in Azure Monitor met een Azure Automation-runbook](runbook-datacollect.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie [parseren tekstgegevens in Log Analytics](../log-query/parse-text.md) geïmporteerd voor methoden voor het parseren van elke logboekvermelding in meerdere eigenschappen.
+* Zie [parseren van tekstgegevens in Azure Monitor](../log-query/parse-text.md) geïmporteerd voor methoden voor het parseren van elke logboekvermelding in meerdere eigenschappen.
 * Meer informatie over [query's bijgehouden](../log-query/log-query-overview.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.

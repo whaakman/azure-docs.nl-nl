@@ -4,7 +4,7 @@ description: 'In dit onderwerp laat zien hoe het configureren van het live coder
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/09/2019
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: e0e41714f6979a9cd699df70498b9c89a44d5ee1
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c734c8033947c4f4d5636bc8d82d38a3d871bdbd
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138920"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998566"
 ---
-# <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Gebruik de Wirecast-coderingsprogramma voor het verzenden van een single-bitrate live stream
+# <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Gebruik de Wirecast-coderingsprogramma voor het verzenden van een single-bitrate live stream 
 > [!div class="op_single_selector"]
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
@@ -78,13 +78,13 @@ In deze zelfstudie worden de volgende uitvoerinstellingen gebruikt. De rest van 
 * Profiel: Hoog (niveau 4.0)
 * Bitrate: 5000 kbps
 * Sleutelframes: 2 seconden (60 seconden)
-* Tarief frame: 30
+* Framesnelheid: 30
 
 **Audio**:
 
 * Codec: AAC (LC)
 * Bitrate: 192 kbps
-* Samplefrequentie: 44,1 kHz
+* Samplefrequentie: 44.1 kHz
 
 ### <a name="configuration-steps"></a>Configuratiestappen
 1. Open de Telestream Wirecast-toepassing op de computer die wordt gebruikt, en voor het streamen van RTMP instellen.
@@ -106,7 +106,7 @@ In deze zelfstudie worden de volgende uitvoerinstellingen gebruikt. De rest van 
    * Coderingsprogramma: MainConcept H.264
    * Frames per seconde: 30
    * Gemiddelde bitsnelheid: 5000 kbits per seconde (kan worden aangepast op basis van de beperkingen op het netwerk)
-   * Profiel: Main
+   * Profiel: Algemeen
    * Belangrijkste frame elke: 60 frames
 
     **Audio**

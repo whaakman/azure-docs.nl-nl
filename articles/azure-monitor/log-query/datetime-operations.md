@@ -1,6 +1,6 @@
 ---
-title: Werken met datum-/ tijdwaarden in Azure Log Analytics-query's | Microsoft Docs
-description: Hierin wordt beschreven hoe u werkt met de datum en tijd waarop gegevens in Log Analytics-query's.
+title: Werken met datum-/ tijdwaarden in Logboeken-query's van Azure Monitor | Microsoft Docs
+description: Beschrijft hoe u wilt werken met de datum en tijd-gegevens in Azure Monitor logboeken-query's.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,25 +13,25 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 15767107a5c535cfda98da2a5177e15ca221f35d
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 2465fdcc3bf7128d4813fa5f682ffda8f504f2b6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214691"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999246"
 ---
-# <a name="working-with-date-time-values-in-log-analytics-queries"></a>Werken met datum-/ tijdwaarden in Log Analytics-query 's
+# <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Werken met datum-/ tijdwaarden in Logboeken-query's van Azure Monitor
 
 > [!NOTE]
 > U moet voltooien [aan de slag met de Analytics-portal](get-started-portal.md) en [aan de slag met query's](get-started-queries.md) voordat het voltooien van deze les gaat uitvoeren.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Dit artikel wordt beschreven hoe u werkt met de datum en tijd waarop gegevens in Log Analytics-query's.
+Dit artikel wordt beschreven hoe u werkt met de datum en tijd waarop gegevens in Azure Monitor logboeken-query's.
 
 
 ## <a name="date-time-basics"></a>Grondbeginselen van de datum-tijd
-De querytaal van Log Analytics heeft twee primaire gegevenstypen die zijn gekoppeld aan de datums en tijden: datum/tijd en periode. Alle datums worden uitgedrukt in UTC. Meerdere tijdindelingen voor datum / worden ondersteund, is de ISO8601-notatie voorkeur. 
+De querytaal van Data Explorer heeft twee primaire gegevenstypen die zijn gekoppeld aan de datums en tijden: datum/tijd en periode. Alle datums worden uitgedrukt in UTC. Meerdere tijdindelingen voor datum / worden ondersteund, is de ISO8601-notatie voorkeur. 
 
 Timespans worden uitgedrukt als een decimaal getal gevolgd door een tijdeenheid:
 
@@ -154,14 +154,14 @@ Event
 
 | Categorie | Function |
 |:---|:---|
-| Gegevenstypen converteren | [ToDateTime](/azure/kusto/query/todatetimefunction)[totimespan](/azure/kusto/query/totimespanfunction)  |
-| Ronde waarde die u wilt de grootte van opslaglocatie | [opslaglocatie](/azure/kusto/query/binfunction) |
+| Gegevenstypen converteren | [todatetime](/azure/kusto/query/todatetimefunction)  [totimespan](/azure/kusto/query/totimespanfunction)  |
+| Ronde waarde die u wilt de grootte van opslaglocatie | [bin](/azure/kusto/query/binfunction) |
 | Ophalen van een bepaalde datum of tijd | [geleden](/azure/kusto/query/agofunction) [nu](/azure/kusto/query/nowfunction)   |
 | Onderdeel van de waarde ophalen | [datetime_part](/azure/kusto/query/datetime-partfunction) [getmonth](/azure/kusto/query/getmonthfunction) [monthofyear](/azure/kusto/query/monthofyearfunction) [getyear](/azure/kusto/query/getyearfunction) [dayofmonth](/azure/kusto/query/dayofmonthfunction) [dayofweek](/azure/kusto/query/dayofweekfunction) [dayofyear](/azure/kusto/query/dayofyearfunction) [weekofyear](/azure/kusto/query/weekofyearfunction) |
 | Een datum ten opzichte van de waarde ophalen  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [beginvanweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie andere lessen voor het gebruik van de querytaal van Log Analytics:
+Zie andere lessen voor het gebruik van de [Data Explorer-querytaal](/azure/kusto/query/) met Azure Monitor gegevens vastleggen:
 
 - [Bewerkingen op tekenreeksen uitvoeren](string-operations.md)
 - [Aggregatiefuncties](aggregations.md)

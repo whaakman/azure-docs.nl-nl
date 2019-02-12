@@ -11,19 +11,19 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ea7f32a08a6a183bac21436e7d58afe10c4d7b20
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: MT
+ms.date: 02/08/2019
+ms.openlocfilehash: d08deda0483516180b9923838104cfb6596e7495
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756645"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003292"
 ---
 # <a name="azure-sql-database-servers-and-their-management"></a>Azure SQL Database-servers en hun beheer
 
 ## <a name="what-is-an-azure-sql-database-server"></a>Wat is Azure SQL Database-server
 
-Een SQL Database-server is een logische constructie die als een centraal beheerpunt voor meerdere zelfstandige fungeert of [gegroepeerde](sql-database-elastic-pool.md) databases, [aanmeldingen](sql-database-manage-logins.md), [firewall-regels](sql-database-firewall-configure.md), [controle regels](sql-database-auditing.md), [beleid voor detectie van bedreigingen](sql-database-threat-detection.md), en [failovergroepen](sql-database-auto-failover-group.md) A SQL Database-server kan zich in een andere regio dan de resourcegroep. De SQL Database-server moet bestaan voordat u de Azure SQL database kunt maken. Alle databases die worden beheerd door een SQL-Database-server worden gemaakt in dezelfde regio als de SQL Database-server.
+Een SQL Database-server is een logische constructie die als een centraal beheerpunt voor meerdere één fungeert of [gegroepeerde](sql-database-elastic-pool.md) databases, [aanmeldingen](sql-database-manage-logins.md), [firewall-regels](sql-database-firewall-configure.md), [controle regels](sql-database-auditing.md), [beleid voor detectie van bedreigingen](sql-database-threat-detection.md), en [failovergroepen](sql-database-auto-failover-group.md) A SQL Database-server kan zich in een andere regio dan de resourcegroep. De SQL Database-server moet bestaan voordat u de Azure SQL database kunt maken. Alle databases die worden beheerd door een SQL-Database-server worden gemaakt in dezelfde regio als de SQL Database-server.
 
 Een SQL-Database-server is hetzelfde als een SQL Server-exemplaar dat u al bekend mee in de on-premises wereld wellicht. Met name garanties de service SQL Database geen met betrekking tot de locatie van de databases ten opzichte van de SQL-Database-server die deze beheert en wordt aangegeven dat er geen op exemplaarniveau toegang of functies. De exemplaar-databases in een beheerd exemplaar zijn daarentegen alle CO-op dezelfde manier dat u bekend met SQL Server in de on-premises wereld bent.
 

@@ -1,61 +1,61 @@
 ---
-title: Indexeren van Media-bestanden met Azure Media Indexer 2 Preview | Microsoft Docs
-description: Azure Media Indexer kunt u de inhoud van uw mediabestanden doorzoekbaar maken en voor het genereren van de tekst van een volledige-tekstindex voor gesloten ondertiteling en sleutelwoorden. Dit onderwerp wordt beschreven hoe Media Indexer 2 Preview gebruiken.
+title: Indexeren van mediabestanden met Azure Media Indexer 2-Preview | Microsoft Docs
+description: Azure Media Indexer kunt u de inhoud van uw mediabestanden doorzoekbaar maken en voor het genereren van een volledig uitgeschreven tekstversie voor gesloten ondertiteling en sleutelwoorden. In dit onderwerp laat zien hoe Media Indexer 2-Preview wilt gebruiken.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/10/2019
 ms.author: adsolank;juliako;
-ms.openlocfilehash: ae06f397fd0ed3f1a1b5ebbdc418abc02789fe91
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dd09e8949c2d71e550d02cd79611a7424d8113fc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790242"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000912"
 ---
-# <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indexeren van Media-bestanden met Azure Media Indexer 2 Preview
+# <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indexeren van mediabestanden met Azure Media Indexer 2-Preview
 ## <a name="overview"></a>Overzicht
-De **Azure Media Indexer 2 Preview** Mediaprocessor (MP) kunt u doorzoekbaar maken van media-bestanden en inhoud, evenals gesloten closed captioning houdt genereren. Vergeleken met de vorige versie van [Azure Media Indexer](media-services-index-content.md), **Azure Media Indexer 2 Preview** voert sneller te indexeren en biedt taalondersteuning voor uitgebreidere. Ondersteunde talen zijn Engels, Spaans, Frans, Duits, Italiaans, Chinees (Mandarijn, vereenvoudigd), Portugees, Arabisch, Russisch en Japans.
+De **Azure Media Indexer 2-Preview** Mediaprocessor (MP) kunt u media-bestanden en inhoud doorzoekbaar te maken, evenals genereren gesloten closed captioning sporen te wissen. In vergelijking met de vorige versie van [Azure Media Indexer](media-services-index-content.md), **Azure Media Indexer 2-Preview** voert sneller indexeren en biedt bredere taalondersteuning. Ondersteunde talen zijn Engels, Spaans, Frans, Duits, Italiaans, Chinees (Mandarijn, vereenvoudigd), Portugees, Arabisch, Russisch en Japans.
 
-De **Azure Media Indexer 2 Preview** MP is momenteel in Preview.
+De **Azure Media Indexer 2-Preview** MP is momenteel in Preview.
 
-In dit artikel wordt beschreven hoe maakt indexeertaken met **Azure Media Indexer 2 Preview**.
+In dit artikel wordt beschreven hoe maakt indexeertaken laten met **Azure Media Indexer 2-Preview**.
 
 > [!NOTE]
-> Het volgende letten:
+> De volgende overwegingen zijn van toepassing:
 > 
-> Indexer 2 wordt niet ondersteund in Azure voor China en Azure Government.
+> Indexer 2 wordt niet ondersteund in Azure China en Azure Government.
 > 
-> Wanneer u inhoud, zorg er dan voor dat gebruikmaken van mediabestanden die duidelijk speech (zonder achtergrondmuziek, ruis, effecten of microfoon hiss) hebben. Enkele voorbeelden van de betreffende inhoud zijn: vastgelegd vergaderingen, lezingen en presentaties. De volgende inhoud is mogelijk niet geschikt voor indexering: films, televisieprogramma alles met gemengde Beeld en geluid effecten slecht opgenomen inhoud met achtergrondruis (hiss).
+> Wanneer u de inhoud indexeren, zorg er dan voor dat gebruikmaken van mediabestanden die duidelijk spraak (zonder achtergrondmuziek, geluid, effecten of microfoon hiss) hebben. Enkele voorbeelden van de betreffende inhoud zijn: vastgelegd vergaderingen, lezingen en presentaties. De volgende inhoud is mogelijk niet geschikt voor indexering: films, tv-programma's, alles met gemengde audio en geluid effecten, slecht opgenomen inhoud met achtergrondgeluiden (hiss).
 > 
 > 
 
-In dit artikel geeft informatie over **Azure Media Indexer 2 Preview** en laat zien hoe u deze gebruiken met Media Services SDK voor .NET
+Dit artikel geeft meer informatie over **Azure Media Indexer 2-Preview** en laat zien hoe u met Media Services SDK voor .NET gebruiken
 
-## <a name="input-and-output-files"></a>Invoer- en bestanden
+## <a name="input-and-output-files"></a>Invoer en uitvoer bestanden
 ### <a name="input-files"></a>Invoerbestanden
 Audio- of -bestanden
 
 ### <a name="output-files"></a>Uitvoerbestanden
-Een taak voor indexering kan ondertitelingsbestanden bestanden genereren in de volgende indelingen:  
+Een indexeringstaak kunt ondertitelingsbestand genereren in de volgende indelingen:  
 
 * **SAMI**
 * **TTML**
 * **WebVTT**
 
-Gesloten bijschrift (CC) bestanden in de volgende indelingen kunnen worden gebruikt om ervoor te audio-en toegankelijk voor mensen met een handicap horen.
+Gesloten bijschrift (CC) bestanden in de volgende indelingen kunnen worden gebruikt om audio-of videobestanden toegankelijk maken voor mensen met een handicap horen.
 
-## <a name="task-configuration-preset"></a>Taken configureren (standaardoptie)
-Wanneer een taak maken van een indexering met **Azure Media Indexer 2 Preview**, moet u een configuratie-definitie opgeven.
+## <a name="task-configuration-preset"></a>Taakconfiguratie (standaardoptie)
+Wanneer een taak maken van een indexeren met **Azure Media Indexer 2-Preview**, moet u een configuratie-definitie opgeven.
 
-De volgende JSON stelt beschikbare parameters.
+Beschikbare parameters Hiermee stelt u de volgende JSON.
 
 ```json
     {
@@ -74,31 +74,31 @@ De volgende JSON stelt beschikbare parameters.
 ```
 
 ## <a name="supported-languages"></a>Ondersteunde talen
-Azure Media Indexer 2 Preview ondersteunt spraak-naar-tekst voor de volgende talen (bij het opgeven van de taalnaam in de taakconfiguratie, 4 tekens code Gebruik haakjes zoals hieronder wordt weergegeven):
+Azure Media Indexer 2-Preview biedt ondersteuning voor spraak-naar-tekst voor de volgende talen (als de naam van de taal opgeven in de taakconfiguratie, gebruik 4-tekencode tussen vierkante haken, zoals hieronder wordt weergegeven):
 
 * Engels [EnUs]
 * Spaans [EsEs]
 * Chinees (Mandarijn, vereenvoudigd) [ZhCn]
-* Frans [FrFr]
+* French [FrFr]
 * Duits [DeDe]
 * Italiaans [ItIt]
-* Portugees [PtBr]
-* Arabisch (Egyptisch) [ArEg]
-* Japans [JaJp]
+* Portuguese  [PtBr]
+* Arabisch (Egyptische) [ArEg]
+* Japanese [JaJp]
 * Russisch [RuRu]
-* Brits Engels [EnGb]
-* Spaans (Mexico) [EsMx] 
+* Brits-Engels [EnGb]
+* Spaans (Mexico) [EsMx] 
 
 ## <a name="supported-file-types"></a>Ondersteunde bestandstypen
 
-Zie voor meer informatie over de ondersteunde bestanden de [ondersteunde codecs/indelingen](media-services-media-encoder-standard-formats.md#input-containerfile-formats) sectie.
+Zie voor informatie over ondersteunde bestandstypen, de [codecs/indelingen ondersteund](media-services-media-encoder-standard-formats.md#input-containerfile-formats) sectie.
 
-## <a name="net-sample-code"></a>Voorbeeldcode voor .NET
+## <a name="net-sample-code"></a>.NET-voorbeeldcode
 
-De volgende programma toont hoe:
+De volgende programma toont hoe u:
 
 1. Maak een asset en upload een mediabestand naar de asset.
-2. Maakt een taak met een indexering taak op basis van een configuratiebestand met de volgende json-definitie:
+2. Een taak maken met een indexering taak op basis van een configuratiebestand met de volgende json-definitie:
 
     ```json
             {
@@ -116,7 +116,7 @@ De volgende programma toont hoe:
             }
     ```
     
-3. Download de uitvoerbestanden op. 
+3. Download de uitvoerbestanden. 
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
 

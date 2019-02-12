@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 02/08/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: c08759f4682c6010c2338ff7aaf61cda92eb0484
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 3dac469c2932276a903a516b71caa860f8870fa6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232084"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989335"
 ---
-# <a name="comparison-of-azure-on-demand-media-encoders"></a>Vergelijking van Azure op de media-coderingsprogramma
+# <a name="comparison-of-azure-on-demand-media-encoders"></a>Vergelijking van Azure op de media-coderingsprogramma  
 
 Dit onderwerp worden de coderingsmogelijkheden van vergeleken **Media Encoder Standard** en **Media Encoder Premium Workflow**.
 
@@ -45,31 +45,31 @@ De volgende tabel vergelijkt de functionaliteit tussen Media Encoder Standard (M
 ## <a id="billing"></a>Facturering-meter die wordt gebruikt door elke coderingsprogramma
 | Naam van Mediaprocessor | Van toepassing prijzen | Opmerkingen |
 | --- | --- | --- |
-| **Media Encoder Standard** |CODERINGSPROGRAMMA |Codering taken wordt in rekening gebracht op basis van de totale duur, in minuten, alle mediabestanden die worden geproduceerd als uitvoer, tegen het tarief dat [hier][1], onder de kolom CODERINGSPROGRAMMA. |
+| **Media Encoder Standard** |ENCODER |Codering taken wordt in rekening gebracht op basis van de totale duur, in minuten, alle mediabestanden die worden geproduceerd als uitvoer, tegen het tarief dat [hier][1], onder de kolom CODERINGSPROGRAMMA. |
 | **Media Encoder Premium Workflow** |PREMIUM ENCODER |Codering taken wordt in rekening gebracht op basis van de totale duur, in minuten, alle mediabestanden die worden geproduceerd als uitvoer, tegen het tarief dat [hier][1], in de PREMIUM ENCODER-kolom. |
 
 ## <a name="input-containerfile-formats"></a>Invoer/bestandsindelingen
 | Invoer/bestandsindelingen | Media Encoder Standard | Media Encoder Premium Workflow |
 | --- | --- | --- |
 | Adobe® Flash® F4V |Ja |Ja |
-| MXF/SMPTE 377 MIN. |Ja |Ja |
+| MXF/SMPTE 377M |Ja |Ja |
 | GXF |Ja |Ja |
 | MPEG-2-Transport Streams |Ja |Ja |
 | Programma voor MPEG-2-Streams |Ja |Ja |
 | MPEG-4/MP4 |Ja |Ja |
-| Windows Media/AVP |Ja |Ja |
+| Windows Media/ASF |Ja |Ja |
 | AVI (niet-gecomprimeerde 8-bits/10 bits) |Ja |Ja |
 | 3GPP/3GPP2 |Ja |Nee |
 | Smooth Streaming-bestandsindeling (PIFF 1.3) |Ja |Nee |
 | [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) |Ja |Nee |
 | Matroska/WebM |Ja |Nee |
-| QuickTime (MOV) |Ja |Nee |
+| QuickTime (.mov) |Ja |Nee |
 
 ## <a name="input-video-codecs"></a>Codecs invoervideo
 | Codecs Invoervideo | Media Encoder Standard | Media Encoder Premium Workflow |
 | --- | --- | --- |
 | AVC 8-bits/10 bits, maximaal 4:2:2, inclusief AVCIntra |8-bits 4:2:0 en 4:2:2 |Ja |
-| Avid resolutie (in MXF) |Ja |Ja |
+| Avid DNxHD (in MXF) |Ja |Ja |
 | DVCPro/DVCProHD (in MXF) |Ja |Ja |
 | JPEG2000 |Ja |Ja |
 | MPEG-2 (maximaal 422-profiel en hoog niveau, inclusief varianten zoals XDCAM, XDCAM HD XDCAM IMX, CableLabs® en D10) |Maximaal 422-profiel |Ja |
@@ -91,8 +91,8 @@ De volgende tabel vergelijkt de functionaliteit tussen Media Encoder Standard (M
 | --- | --- | --- |
 | AES (SMPTE 331 M en 302 M, AES3-2003) |Nee |Ja |
 | Dolby® E |Nee |Ja |
-| Dolby® digitale (AC3) |Nee |Ja |
-| Dolby® digitale Plus (E-AC3) |Nee |Ja |
+| Dolby® Digital (AC3) |Nee |Ja |
+| Dolby® Digital Plus (E-AC3) |Nee |Ja |
 | AAC (AAC-LC, AAC-HE en AAC-HEv2; tot. 5.1) |Ja |Ja |
 | MPEG-laag 2 |Ja |Ja |
 | MP3 (laag 3 Audio MPEG-1) |Ja |Ja |
@@ -111,7 +111,7 @@ De volgende tabel vergelijkt de functionaliteit tussen Media Encoder Standard (M
 | GXF |Nee |Ja |
 | MPEG-4/MP4 |Ja |Ja |
 | MPEG-TS |Ja |Ja |
-| Windows Media/AVP |Nee |Ja |
+| Windows Media/ASF |Nee |Ja |
 | AVI (niet-gecomprimeerde 8-bits/10 bits) |Nee |Ja |
 | Smooth Streaming-bestandsindeling (PIFF 1.3) |Nee |Ja |
 
@@ -120,7 +120,7 @@ De volgende tabel vergelijkt de functionaliteit tussen Media Encoder Standard (M
 | --- | --- | --- |
 | AVC (H.264; 8-bits; tot hoge profiel, niveau 5.2; 4 K Ultra HD; AVC Intra) |Alleen 8 bit 4:2:0 |Ja |
 | HEVC (H.265; 8-bits en 10-bits;)  |Nee |Ja |
-| Avid resolutie (in MXF) |Nee |Ja |
+| Avid DNxHD (in MXF) |Nee |Ja |
 | MPEG-2 (maximaal 422-profiel en hoog niveau, inclusief varianten zoals XDCAM, XDCAM HD XDCAM IMX, CableLabs® en D10) |Nee |Ja |
 | MPEG-1 |Nee |Ja |
 | Windows Media Video/VC-1 |Nee |Ja |
@@ -132,7 +132,7 @@ De volgende tabel vergelijkt de functionaliteit tussen Media Encoder Standard (M
 | Codecs Audio-uitvoer | Media Encoder Standard | Media Encoder Premium Workflow |
 | --- | --- | --- |
 | AES (SMPTE 331 M en 302 M, AES3-2003) |Nee |Ja |
-| Dolby® digitale (AC3) |Nee |Ja |
+| Dolby® Digital (AC3) |Nee |Ja |
 | Dolby® Digital Plus (E-AC3) tot 7.1 |Nee |Ja |
 | AAC (AAC-LC, AAC-HE en AAC-HEv2; tot. 5.1) |Ja |Ja |
 | MPEG-laag 2 |Nee |Ja |

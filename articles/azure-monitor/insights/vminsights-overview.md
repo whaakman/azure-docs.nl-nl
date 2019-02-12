@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2019
 ms.author: magoedte
-ms.openlocfilehash: 0733b4179793e88759ca1c3330880546650fbe09
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 9a4c31df51f804d4738e3a2eb4ce904e793c3f1b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856372"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004992"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>Wat is Azure Monitor voor virtuele machines (preview)?
 
@@ -41,7 +41,7 @@ De functies zijn ingedeeld in drie perspectieven:
 >[!NOTE]
 >Op dit moment wordt de Health-functie aangeboden alleen voor virtuele Azure-machines en virtuele-machineschaalset sets. De functies voor prestaties en kaart ondersteuning voor zowel virtuele Azure-machines en virtuele machines die worden gehost in uw omgeving of andere cloudprovider.
 
-Integratie met Log Analytics biedt krachtige aggregatie en filteren, en deze gegevenstrends na verloop van tijd kunt analyseren. Deze uitgebreide werkbelasting bewaking kan niet worden bereikt met Azure Monitor, serviceoverzicht of Log Analytics alleen.  
+Integratie met Azure Monitor Logboeken biedt krachtige aggregatie en filteren, en deze gegevenstrends na verloop van tijd kunt analyseren. Dergelijke uitgebreide werkbelasting bewaking kan niet worden bereikt met Azure Monitor of alleen Serviceoverzicht.  
 
 U kunt deze gegevens weergeven in een enkele virtuele machine van de virtuele machine rechtstreeks of u kunt Azure Monitor gebruiken voor het leveren van een samengevoegde weergave van uw virtuele machines. In deze weergave is gebaseerd op van elke functie perspectief:
 

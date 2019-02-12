@@ -13,14 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 3458bdc0f010cab622a5ddbb87cb8e1077c404a5
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 928ed383c08dd87cb003d1f729bc3fecce0c6935
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693881"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999229"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Het genereren en overdragen met HSM beveiligde sleutels voor Azure Key Vault
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Voor extra zekerheid, wanneer u Azure Key Vault, gebruikt kunt u importeren of genereren van sleutels in hardware security modules (HSM's) die de HSM-grens nooit verlaten. In dit scenario wordt vaak aangeduid als *uw eigen sleutel*, of byok genoemd. De HSM's zijn FIPS 140-2 Level 2-gevalideerde modules. Azure Key Vault gebruikt Thales nShield-familie van HSM's voor het beveiligen van uw sleutels.
 
@@ -78,21 +80,19 @@ Voer de volgende procedures op uw werkstation dat is verbonden met Internet voor
 
 ### <a name="step-11-install-azure-powershell"></a>Stap 1.1: Azure PowerShell installeren
 
-Vanuit het met Internet verbonden werkstation, download en installeer de Azure PowerShell-module met de cmdlets voor het beheren van Azure Key Vault. Dit is een minimale versie van 0.8.13 vereist.
-
-Zie voor installatie-instructies [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview).
+Vanuit het met Internet verbonden werkstation, download en installeer de Azure PowerShell-module met de cmdlets voor het beheren van Azure Key Vault. Zie voor installatie-instructies [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview).
 
 ### <a name="step-12-get-your-azure-subscription-id"></a>Stap 1.2: Uw Azure-abonnement-ID ophalen
 
 Start een Azure PowerShell-sessie en aanmelden bij uw Azure-account met behulp van de volgende opdracht uit:
 
 ```Powershell
-   Add-AzureRMAccount
+   Connect-AzAccount
 ```
-Voer in het pop-upvenster in de browser uw gebruikersnaam en wachtwoord voor uw Azure-account in. Vervolgens gebruikt u de [Get-AzureSubscription](/powershell/module/servicemanagement/azure/get-azuresubscription?view=azuresmps-3.7.0) opdracht:
+Voer in het pop-upvenster in de browser uw gebruikersnaam en wachtwoord voor uw Azure-account in. Vervolgens gebruikt u de [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) opdracht:
 
 ```powershell
-   Get-AzureRMSubscription
+   Get-AzSubscription
 ```
 Zoek in de uitvoer de ID voor het abonnement dat u voor Azure Key Vault gebruiken wilt. U kunt deze abonnements-ID wordt later nodig.
 
@@ -493,10 +493,10 @@ Gebruik een USB-station of ander draagbaar opslagmedium om te kopiëren van het 
 
 ## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>Stap 5: Uw sleutel overdragen naar Azure Key Vault
 
-Voor deze laatste stap op het met Internet verbonden werkstation gebruiken de [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) cmdlet voor het uploaden van het pakket voor sleuteloverdracht die u hebt gekopieerd uit de niet-verbonden werkstation naar de Azure Key Vault HSM:
+Voor deze laatste stap op het met Internet verbonden werkstation gebruiken de [toevoegen AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet voor het uploaden van het pakket voor sleuteloverdracht die u hebt gekopieerd uit de niet-verbonden werkstation naar de Azure Key Vault HSM:
 
    ```powershell
-        Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
+        Add-AzKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
    ```
 
 Als de upload voltooid is, ziet u de eigenschappen van de sleutel die u zojuist hebt toegevoegd wordt weergegeven.

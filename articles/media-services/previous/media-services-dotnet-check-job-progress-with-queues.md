@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 5ddee0ca94535688a0634ef8575f3aedad649a43
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: a863915ceef437957170d87ac4cc452d651a8dab
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037489"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994942"
 ---
-# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Azure Queue storage gebruiken voor het bewaken van taakmeldingen Media Services met .NET
+# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net-legacy"></a>Azure Queue storage gebruiken voor het bewaken van taakmeldingen Media Services met .NET (verouderd)
+
 Wanneer u coderingstaken uitvoert, moet u vaak een manier om bij te houden van de taak wordt uitgevoerd. U kunt Media Services voor het leveren van meldingen configureren [Azure Queue storage](../../storage/storage-dotnet-how-to-use-queues.md). U kunt taakvoortgang controleren met het ophalen van meldingen vanuit de Queue-opslag. 
 
 Berichten die worden geleverd aan Queue storage zijn toegankelijk vanaf overal ter wereld. De berichten opslagarchitectuur van wachtrij is betrouwbare en zeer schaalbare. Queue storage voor berichten polling geniet de voorkeur boven het gebruik van andere methoden.
@@ -338,7 +339,7 @@ namespace JobNotification
 }
 ```
 
-Het vorige voorbeeld de volgende uitvoer geproduceerd: uw waarden variëren.
+Het vorige voorbeeld gemaakt in de volgende uitvoer: Uw waarden variëren.
 
     Created assetFile BigBuckBunny.mp4
     Upload BigBuckBunny.mp4

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 3a1ffb3b7a0f154b1d74ca7a8789e5fdadadec31
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 2fc09ccdf68605e444ed4b196162df6205557272
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883769"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002097"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Abonnement-activiteit controleren met de Azure-activiteitenlogboek
 
@@ -83,7 +83,7 @@ U kunt het activiteitenlogboek is opgenomen door deze velden filteren in de Azur
 
 Als u een set filters hebt gedefinieerd, kunt u een query vastmaken aan uw Azure-dashboard om altijd te controleren op specifieke gebeurtenissen.
 
-Voor nog meer voeding, klikt u op de **logboeken** pictogram, waarin de gegevens van uw activiteitenlogboek in de [Log Analytics Activity Log Analytics-oplossing](../../azure-monitor/platform/collect-activity-logs.md). De blade met activiteitenlogboek biedt een eenvoudige filter/browse-ervaring op Logboeken, maar Log Analytics kunt u draait, vragen en Visualiseer uw gegevens op een krachtigere manier.
+Voor nog meer voeding, klikt u op de **logboeken** pictogram, waarin de gegevens van uw activiteitenlogboek in de [verzamelen en analyseren van de oplossing voor activiteitenlogboeken](../../azure-monitor/platform/collect-activity-logs.md). De blade met activiteitenlogboek biedt een eenvoudige filter/browse-ervaring op Logboeken, maar Azure Monitor logboeken functie kunt u draait, query's uitvoeren en uw gegevens visualiseren op een krachtigere manier.
 
 ## <a name="export-the-activity-log-with-a-log-profile"></a>Exporteren van het activiteitenlogboek met een Logboekprofiel
 Een **Logboekprofiel** bepaalt hoe uw activiteitenlogboek wordt geëxporteerd. Met behulp van een Logboekprofiel, die u kunt configureren:

@@ -1,6 +1,6 @@
 ---
-title: de expressie Workspace() in Azure Log Analytics-query | Microsoft Docs
-description: De werkruimte-expressie wordt gebruikt in een Log Analytics-query voor het ophalen van gegevens uit een specifieke werkruimte in dezelfde resourcegroep, een andere resourcegroep of een ander abonnement.
+title: Workspace() expressie in de query voor Azure Monitor | Microsoft Docs
+description: De werkruimte-expressie wordt gebruikt in een query voor Azure Monitor voor het ophalen van gegevens uit een specifieke werkruimte in dezelfde resourcegroep, een andere resourcegroep of een ander abonnement.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
-ms.openlocfilehash: 24a737a728b0a249fda76cbff481bea284ac24aa
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1d1bb3c99c82683dde9247da86e80d800fe06631
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53182941"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992977"
 ---
-# <a name="workspace-expression-in-log-analytics-query"></a>de expressie Workspace() in Log Analytics-query
+# <a name="workspace-expression-in-azure-monitor-log-query"></a>de expressie Workspace() in Azure Monitor log-query
 
-De `workspace` expressie wordt gebruikt in een Log Analytics-query voor het ophalen van gegevens uit een specifieke werkruimte in dezelfde resourcegroep, een andere resourcegroep of een ander abonnement. Dit is handig om op te nemen van logboekgegevens in een Application Insights-query en om gegevens te doorzoeken in meerdere werkruimten in een logboekquery.
+De `workspace` expressie in een Azure Monitor-query wordt gebruikt voor het ophalen van gegevens uit een specifieke werkruimte in dezelfde resourcegroep, een andere resourcegroep of een ander abonnement. Dit is handig om op te nemen van logboekgegevens in een Application Insights-query en om gegevens te doorzoeken in meerdere werkruimten in een logboekquery.
 
 
 ## <a name="syntax"></a>Syntaxis
 
-`workspace(`*ID*`)`
+`workspace(`*Identifier*`)`
 
 ## <a name="arguments"></a>Argumenten
 
@@ -36,9 +36,9 @@ De `workspace` expressie wordt gebruikt in een Log Analytics-query voor het opha
 | Id | Description | Voorbeeld
 |:---|:---|:---|
 | Resourcenaam | Menselijke leesbare naam van de werkruimte (AKA "naam van onderdeel") | Workspace("contosoretail") |
-| Gekwalificeerde naam | Volledige naam van de werkruimte in de vorm: "resourceGroup-subscriptionName/componentName" | Workspace('Contoso/ContosoResource/ContosoWorkspace') |
-| Id | GUID van de werkruimte | Workspace("b438b3f6-912a-46d5-9db1-b42069242ab4") |
-| Azure-Resource-ID | ID voor de Azure-resource | Workspace("/Subscriptions/e4227-645-44e-9c67-3b84b5982/ResourceGroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/Workspaces/contosoretail") |
+| Gekwalificeerde naam | Volledige naam van de werkruimte in de vorm: "resourceGroup-subscriptionName/componentName" | workspace('Contoso/ContosoResource/ContosoWorkspace') |
+| Id | GUID van de werkruimte | workspace("b438b3f6-912a-46d5-9db1-b42069242ab4") |
+| Azure-Resource-ID | ID voor de Azure-resource | workspace("/subscriptions/e4227-645-44e-9c67-3b84b5982/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail") |
 
 
 ## <a name="notes"></a>Opmerkingen
@@ -71,5 +71,6 @@ union
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie de [app expressie](workspace-expression.md) om te verwijzen naar Application Insights-app.
-- Meer informatie over hoe u [Log Analytics-gegevens](../../azure-monitor/log-query/log-query-overview.md) is opgeslagen.
+- Zie de [app expressie](app-expression.md) om te verwijzen naar een Application Insights-app.
+- Meer informatie over hoe u [Azure Monitor gegevens](log-query-overview.md) is opgeslagen.
+- Toegang tot volledige documentatie voor de [Data Explorer-querytaal](/azure/kusto/query/).

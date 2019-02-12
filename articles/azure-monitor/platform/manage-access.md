@@ -1,6 +1,6 @@
 ---
-title: De werkruimten in Azure Log Analytics en de OMS-portal beheren | Microsoft Docs
-description: U kunt de toegang tot werkruimten in Azure Log Analytics en de OMS-portal beheren met behulp van verschillende beheertaken voor gebruikers, accounts, werkruimten en Azure-accounts.
+title: Beheren van Log Analytics-werkruimten in Azure Monitor | Microsoft Docs
+description: U kunt Log Analytics-werkruimten in Azure Monitor met behulp van verschillende beheertaken voor gebruikers, accounts, werkruimten en Azure-accounts beheren.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,18 +11,17 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 32a31a87bacbb13cd3b2cb4561ac04e54d51ba46
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 4a777c2bd57d40b4bb6c8d36c996b655cb019e5f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656750"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005366"
 ---
-# <a name="manage-workspaces"></a>Werkruimten beheren
-
-Voor het beheren van toegang tot Log Analytics, voert u verschillende beheertaken uit voor werkruimten. In dit artikel biedt adviezen en procedures voor het beheren van werkruimten. Een werkruimte is in wezen een container met accountgegevens en eenvoudige configuratiegegevens voor het account. U of andere leden van uw organisatie kunnen meerdere werkruimten gebruiken om verschillende gegevenssets te beheren die worden verzameld uit de gehele of delen van uw IT-infrastructuur.
+# <a name="manage-log-analytics-workspaces-in-azure-monitor"></a>Log Analytics-werkruimten in Azure Monitor beheren
+Azure Monitor-winkels vastleggen gegevens in een Log Analytics-werkruimte is in wezen een container die gegevens en configuratie-informatie bevat. Voor het beheren van toegang tot gegevens vastleggen, kunt u verschillende beheertaken met betrekking tot werkruimten uitvoeren. U of andere leden van uw organisatie kunnen meerdere werkruimten gebruiken om verschillende gegevenssets te beheren die worden verzameld uit de gehele of delen van uw IT-infrastructuur.
 
 Het volgende is nodig om een werkruimte te maken:
 
@@ -32,11 +31,11 @@ Het volgende is nodig om een werkruimte te maken:
 4. U dient een geografische locatie te kiezen.
 
 ## <a name="determine-the-number-of-workspaces-you-need"></a>Vaststellen hoeveel werkruimten u nodig hebt
-Een werkruimte is een Azure-resource die bestaat uit een container waarin gegevens worden verzameld, samengevoegd, geanalyseerd en gepresenteerd in Azure Portal.
+Een Log Analytics-werkruimte is een Azure-resource en een container waaruit gegevens worden verzameld, samengevoegd, geanalyseerd en gepresenteerd in Azure Monitor.
 
-U kunt per Azure-abonnement meerdere werkruimten hebben en toegang hebben tot meer dan één werkruimte, met de mogelijkheid om op verschillende werkruimten tegelijk een query uit te voeren. In deze sectie wordt beschreven wanneer het handig kan zijn om meer dan één werkruimte te maken.
+U kunt meerdere werkruimten per Azure-abonnement hebt en u toegang hebt tot meer dan één werkruimte, de mogelijkheid om eenvoudig query's uitvoeren voor deze. In deze sectie wordt beschreven wanneer het handig kan zijn om meer dan één werkruimte te maken.
 
-Een werkruimte biedt momenteel het volgende:
+Een Log Analytics-werkruimte biedt:
 
 * Een geografische locatie voor de opslag van gegevens
 * Gegevensisolatie toegangsrechten voor verschillende gebruikers definiëren
@@ -44,7 +43,7 @@ Een werkruimte biedt momenteel het volgende:
 
 Uit oogpunt van verbruik, wordt u aangeraden dat u werkruimten zo weinig mogelijk maakt. Het maakt beheer en query's eenvoudiger en sneller. Maar op basis van de voorgaande kenmerken, kunt u meerdere werkruimten maken:
 
-* U vertegenwoordigt een mondiaal bedrijf en moet de gegevens opslaan in specifieke regio’s ten behoeve van de onafhankelijkheid van de gegevens of om nalevingsredenen.
+* U bent een mondiaal bedrijf en u moet zich aanmelden voor gegevens die zijn opgeslagen in specifieke regio's voor gegevens soevereiniteit of om nalevingsredenen.
 * U gebruikt Azure en wilt kosten voor de overdracht van uitgaande gegevens voorkomen door een werkruimte in dezelfde regio te hebben als de Azure-resource die deze beheert.
 * U wilt kosten toewijzen aan verschillende afdelingen of bedrijfsonderdelen op basis van hun gebruik door het maken van een werkruimte voor elke afdeling of bedrijfsgroep in een eigen Azure-abonnement.
 * U bent aanbieder van beheerde services en moet de Log Analytics-gegevens voor elke klant geïsoleerd van de gegevens van andere klanten bewaren.
@@ -55,16 +54,14 @@ Wanneer u Windows-agents gebruikt om gegevens te verzamelen, kunt u [elke agent 
 Als u System Center Operations Manager gebruikt, kan elke beheergroep uit Operations Manager worden verbonden met slechts één werkruimte. U kunt Microsoft Monitoring Agent installeren op computers die worden beheerd door Operations Manager en de agent laten rapporteren over zowel Operations Manager als een andere Log Analytics-werkruimte.
 
 ## <a name="workspace-information"></a>Werkruimtegegevens
+Tijdens het analyseren van gegevens in de Log Analytics-werkruimte in de **Azure Monitor** in het menu in de Azure-portal maken en beheren van toegang tot werkruimten in de **Log Analytics-werkruimten** menu.
+ 
 
-U kunt gegevens van uw werkruimte in Azure Portal bekijken. 
-
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com) als u dat nog niet hebt gedaan.
-
-2. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.  
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) en klikt u op **alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics** werkruimten.  
 
     ![Azure Portal](media/manage-access/azure-portal-01.png)  
 
-3. Selecteer in het deelvenster voor abonnementen van Log Analytics een werkruimte.
+3. Selecteer in de lijst met uw werkruimte.
 
 4. Pagina van de werkruimte geeft details weer over de aan de slag, configuratie en koppelingen voor meer informatie.  
 
@@ -84,10 +81,10 @@ Voor de volgende activiteiten zijn ook Azure-machtigingen vereist:
 | Een werkruimte maken in Azure Portal                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
 
 
-### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Toegang tot Log Analytics beheren met behulp van Azure-machtigingen
+### <a name="managing-access-to-log-analytics-workspace-using-azure-permissions"></a>Toegang tot Log Analytics-werkruimte met behulp van Azure-machtigingen beheren
 Volg de stappen in [Roltoewijzingen gebruiken voor het beheer van de toegang tot de resources van uw Azure-abonnement](../../role-based-access-control/role-assignments-portal.md) om toegang te verlenen tot de Log Analytics-werkruimte met behulp van Azure-machtigingen.
 
-Azure heeft twee ingebouwde gebruikersrollen voor Log Analytics:
+Azure heeft twee ingebouwde gebruikersrollen voor Log Analytics-werkruimten:
 - Lezer van Log Analytics
 - Inzender van Log Analytics
 
@@ -149,5 +146,4 @@ Het wordt aangeraden om toewijzingen uit te voeren op resourceniveau (werkruimte
 ## <a name="next-steps"></a>Volgende stappen
 * Zie [Log Analytics-agent overzicht](../../azure-monitor/platform/log-analytics-agent.md) voor het verzamelen van gegevens van computers in uw datacenter of andere cloudomgeving.
 * Zie [Gegevens verzamelen over Azure Virtual Machines](../../azure-monitor/learn/quick-collect-azurevm.md) voor het configureren van het verzamelen van gegevens van Azure VM's.  
-* [Log Analytics-oplossingen uit de galerie met oplossingen toevoegen](../../azure-monitor/insights/solutions.md) om functionaliteit toe te voegen en gegevens te verzamelen.
 

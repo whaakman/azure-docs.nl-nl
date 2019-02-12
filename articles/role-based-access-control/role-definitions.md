@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2019
+ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: ecfcfd5026f310a617f81af42483c29d89385288
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 8966eb337af07b90e7d9c697a4bfd14c543540aa
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700720"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991358"
 ---
 # <a name="understand-role-definitions"></a>Roldefinities begrijpen
 
@@ -147,7 +147,7 @@ Gegevensbijdrager voor opslagblob (preview-versie)
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-Aangezien Alice een jokerteken heeft (`*`) actie op het bereik van een abonnement, haar machtigingen overnemen omlaag zodat zij alle beheeracties uitvoeren. Els kan echter niet gegevensbewerkingen uitvoeren. Bijvoorbeeld, standaard, Els de blobs in een container kan niet worden gelezen, maar ze kan lezen, schrijven en verwijderen van containers.
+Aangezien Alice een jokerteken heeft (`*`) actie op het bereik van een abonnement, haar machtigingen overnemen omlaag zodat zij alle beheeracties uitvoeren. Els kan lezen, schrijven en verwijderen van containers. Els kan echter niet gegevensbewerkingen uitvoeren zonder extra stappen uit te voeren. Bijvoorbeeld: standaard, Els kan niet lezen de blobs in een container. Als u wilt de blobs lezen, zou Els moeten ophalen van de toegangssleutels voor opslag en deze gebruiken voor toegang tot de blobs.
 
 Berend machtigingen zijn beperkt tot alleen de `Actions` en `DataActions` opgegeven in de [Gegevensbijdrager voor Blob (Preview)](built-in-roles.md#storage-blob-data-contributor-preview) rol. Op basis van de rol, kunt Bob uitvoeren beheer- en bewerkingen voor gegevens. Bijvoorbeeld, Bob kan lezen, schrijven en verwijderen van containers in het opgegeven opslagaccount en hij kan ook lezen, schrijven en verwijderen van de blobs.
 

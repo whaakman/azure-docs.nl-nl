@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database-Servicelagen - DTU | Microsoft Docs
-description: Meer informatie over Servicelagen voor enkele en gepoolde databases voor compute-grootten en opslaggrootte.
+title: Azure SQL Database-Servicelagen - DTU gebaseerde aankoopmodel | Microsoft Docs
+description: Meer informatie over service-lagen in het op DTU gebaseerde aankoopmodel voor één en gepoolde databases voor reken- en -grootten.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -11,22 +11,22 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6319deb36088317cb289134b7068720e97cb10b7
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/08/2019
+ms.openlocfilehash: b960e0f670b66ea1759da441e7b1cf53151de7f6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507651"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993595"
 ---
-# <a name="dtu-based-service-tiers"></a>Servicelagen op basis van DTU
+# <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Service-lagen in het op DTU gebaseerde aankoopmodel
 
-Servicelagen op basis van DTU van elkaar worden onderscheiden door een bereik van de compute-grootten met een vaste hoeveelheid inbegrepen opslag, vaste bewaarperiode voor back-ups en vaste prijs. Alle service-lagen bieden flexibiliteit voor het wijzigen van de compute-grootten zonder uitvaltijd. Individuele databases en elastische pools worden gefactureerd per uur op basis van de servicelaag en compute-grootte.
+Service-lagen in het op DTU gebaseerde aankoopmodel van elkaar worden onderscheiden door een bereik van de compute-grootten met een vaste hoeveelheid inbegrepen opslag, vaste bewaarperiode voor back-ups en vaste prijs. Alle service-lagen in het op DTU gebaseerde aankoopmodel bieden flexibiliteit voor het wijzigen van de compute-grootten zonder uitvaltijd. Individuele databases en elastische pools worden gefactureerd per uur op basis van de servicelaag en compute-grootte.
 
 > [!IMPORTANT]
-> SQL Database Managed Instance, ondersteunt momenteel in openbare preview-versie geen een op DTU gebaseerde aankoopmodel. Zie voor meer informatie, [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
+> Beheerd exemplaar voor SQL Database biedt geen ondersteuning voor een op DTU gebaseerde aankoopmodel. Zie voor meer informatie, [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
 > [!NOTE]
-> Zie voor meer informatie over Servicelagen op vCore gebaseerde [vCore-gebaseerde service-lagen](sql-database-service-tiers-vcore.md). Zie voor meer informatie over Servicelagen op basis van DTU en vCore-gebaseerde service-lagen differentiëren [modellen aanschaffen van Azure SQL Database](sql-database-service-tiers.md).
+> Zie voor meer informatie over Servicelagen op vCore gebaseerde [vCore-gebaseerde service-lagen](sql-database-service-tiers-vcore.md). Zie voor meer informatie over Servicelagen op basis van DTU en vCore-gebaseerde service-lagen differentiëren [modellen aanschaffen van Azure SQL Database](sql-database-purchase-models.md).
 
 ## <a name="compare-the-dtu-based-service-tiers"></a>De DTU-gebaseerde service-lagen vergelijken
 
@@ -34,8 +34,8 @@ Een servicelaag kiezen afhankelijk is voornamelijk van zakelijke continuïteit-,
 
 ||Basic|Standard|Premium|
 | :-- | --: |--:| --:| --:|
-|Specifieke workload|Ontwikkeling en productie|Ontwikkeling en productie|Ontwikkeling en productie||
-|SLA voor actieve tijdsduur|99,99%|99,99%|99,99%|N.V.T. Preview-versie|
+|Specifieke workload|Ontwikkeling en productie|Ontwikkeling en productie|Ontwikkeling en productie|
+|SLA voor actieve tijdsduur|99,99%|99,99%|99,99%|
 |Retentie van back-ups|7 dagen|35 dagen|35 dagen|
 |CPU|Laag|Laag, Gemiddeld, hoog|Gemiddeld, hoog|
 |I/o-doorvoer (bij benadering) |2.5 IOP's per DTU| 2.5 IOP's per DTU | 48 IOP's per DTU|
@@ -49,12 +49,12 @@ Een servicelaag kiezen afhankelijk is voornamelijk van zakelijke continuïteit-,
 
 ## <a name="single-database-dtu-and-storage-limits"></a>DTU- en opslaglimieten van individuele database
 
-COMPUTE-grootten worden uitgedrukt in termen van Database Transaction Units (dtu's) voor individuele databases en elastische Database Transaction Units (edtu's) voor elastische pools. Zie voor meer informatie over dtu's en Edtu's [DTU gebaseerde aankoopmodel](sql-database-service-tiers.md#dtu-based-purchasing-model)?
+COMPUTE-grootten worden uitgedrukt in termen van Database Transaction Units (dtu's) voor individuele databases en elastische Database Transaction Units (edtu's) voor elastische pools. Zie voor meer informatie over dtu's en Edtu's [DTU gebaseerde aankoopmodel](sql-database-purchase-models.md#dtu-based-purchasing-model)?
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: | --: |
 | Maximale opslagruimte | 2 GB | 1 TB | 4 TB  |
-| Maximum aantal dtu 's | 5 | 3000 | 4000 | |
+| Maximum aantal dtu 's | 5 | 3000 | 4000 | 
 ||||||
 
 > [!IMPORTANT]
@@ -72,7 +72,7 @@ COMPUTE-grootten worden uitgedrukt in termen van Database Transaction Units (dtu
 ||||||
 
 > [!IMPORTANT]
-> Voor de Premium-laag is er meer dan 1 TB aan opslagruimte beschikbaar in alle regio's met uitzondering van: West-Centraal VS, China-Oost, USDoDCentral, Duitsland-centraal, USDoDEast, VS (overheid)-zuidwesten, USGov Iowa, Duitsland-Noordoost, China-Noord. In andere regio’s is de maximale opslagruimte in de Premium-laag beperkt tot 1 TB. Zie [P11-P15: huidige beperkingen](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Meer dan 1 TB aan opslag in de premium-laag is momenteel beschikbaar in alle regio's behalve het volgende: West-Centraal VS, China-Oost, USDoDCentral, Duitsland-centraal, USDoDEast, VS (overheid)-zuidwesten, USGov Iowa, Duitsland-Noordoost, China-Noord. In andere regio’s is de maximale opslagruimte in de Premium-laag beperkt tot 1 TB. Zie [P11-P15: huidige beperkingen](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > [!IMPORTANT]
 > In sommige gevallen is het wellicht voor het verkleinen van een database voor het vrijmaken van ongebruikte ruimte. Zie voor meer informatie, [bestandsruimte in Azure SQL Database beheren](sql-database-file-space-management.md).
 
@@ -88,7 +88,7 @@ De benchmark- en de methoden worden hieronder in detail beschreven.
 
 ### <a name="benchmark-summary"></a>Benchmark-overzicht
 
-ASDB meet de prestaties van een combinatie van basic-database-bewerkingen die treden het vaakst in online workloads (OLTP) voor transactieverwerking. Hoewel de benchmark is ontworpen met cloudcomputing in gedachten, het databaseschema, invullen van de gegevens en transacties zijn ontworpen voor breed representatief zijn voor de basiselementen die het meest gebruikt in een OLTP-workloads.
+De benchmark meet de prestaties van een combinatie van basic-database-bewerkingen die treden het vaakst in online workloads (OLTP) voor transactieverwerking. Hoewel de benchmark is ontworpen met cloudcomputing in gedachten, het databaseschema, invullen van de gegevens en transacties zijn ontworpen voor breed representatief zijn voor de basiselementen die het meest gebruikt in een OLTP-workloads.
 
 ### <a name="schema"></a>Schema
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 23faf3b88584f8031b4a2fdbc6d94ac2ae861431
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: cca3c69997865f22d22fc5b86565ae9f206b9aee
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104451"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990135"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Netwerkconfiguratiedetails voor App Service Environment voor PowerApps met Azure ExpressRoute
 
@@ -59,9 +59,9 @@ App Service-omgeving vereist de volgende netwerkinstellingen voor een verbinding
 
 * Inkomende netwerktoegang tot de vereiste poorten voor App Service-omgeving moet worden toegestaan. Zie voor meer informatie, [over het beheren van inkomend verkeer naar App Service-omgeving][requiredports].
 
-Om te voldoen aan de DNS-vereisten, zorg ervoor dat een geldig DNS-infrastructuur is geconfigureerd en onderhouden voor het virtuele netwerk. Als de DNS-configuratie wordt gewijzigd nadat de App Service-omgeving is gemaakt, kunnen ontwikkelaars van App Service-omgeving om op te halen de nieuwe DNS-configuratie forceren. U kunt een rolling omgeving opnieuw opstarten activeren met behulp van de **opnieuw** pictogram onder beheer van de App Service-omgeving in de [Azure portal] [NewPortal]. Het opnieuw opstarten zorgt ervoor dat de omgeving om op te halen de nieuwe DNS-configuratie.
+Om te voldoen aan de DNS-vereisten, zorg ervoor dat een geldig DNS-infrastructuur is geconfigureerd en onderhouden voor het virtuele netwerk. Als de DNS-configuratie wordt gewijzigd nadat de App Service-omgeving is gemaakt, kunnen ontwikkelaars van App Service-omgeving om op te halen de nieuwe DNS-configuratie forceren. U kunt een rolling omgeving opnieuw opstarten activeren met behulp van de **opnieuw** pictogram onder beheer van App Service-omgeving in de [Azure-portal][NewPortal]. Het opnieuw opstarten zorgt ervoor dat de omgeving om op te halen de nieuwe DNS-configuratie.
 
-Configureren om te voldoen aan de netwerkvereisten voor inkomende toegang, een [netwerkbeveiligingsgroep (NSG)][NetworkSecurityGroups] op het subnet van de App Service-omgeving. De NSG kan de vereiste toegang [voor het beheren van inkomend verkeer naar App Service-omgeving][requiredports].
+Configureren om te voldoen aan de netwerkvereisten voor inkomende toegang, een [netwerkbeveiligingsgroep (NSG)] [ NetworkSecurityGroups] op het subnet van de App Service-omgeving. De NSG kan de vereiste toegang [voor het beheren van inkomend verkeer naar App Service-omgeving][requiredports].
 
 ## <a name="outbound-network-connectivity"></a>Uitgaande netwerkconnectiviteit
 
@@ -87,7 +87,7 @@ Het gecombineerde effect van deze configuratie is dat de UDR subnetniveau voorra
 
 Zie voor achtergrondinformatie over door de gebruiker gedefinieerde routes, [routering van verkeer van virtuele netwerken][UDROverview].  
 
-Zie voor meer informatie over het maken en configureren van de gebruiker gedefinieerde routes, [netwerkverkeer routeren met een routetabel met behulp van PowerShell] [UDRHowTo].
+Zie voor meer informatie over het maken en configureren van de gebruiker gedefinieerde routes, [routeren van netwerkverkeer met een routetabel met behulp van PowerShell][UDRHowTo].
 
 ## <a name="udr-configuration"></a>UDR-configuratie
 
@@ -95,7 +95,7 @@ In deze sectie bevat een voorbeeld van de UDR-configuratie voor App Service-omge
 
 ### <a name="prerequisites"></a>Vereisten
 
-* Installeer Azure PowerShell via de [Azure Downloads page] [AzureDownloads]. Kies een download met een datum van juni 2015 of hoger. Onder **opdrachtregelprogramma's** > **Windows PowerShell**, selecteer **installeren** voor het installeren van de meest recente PowerShell-cmdlets.
+* Installeer Azure PowerShell via de [pagina Azure Downloads][AzureDownloads]. Kies een download met een datum van juni 2015 of hoger. Onder **opdrachtregelprogramma's** > **Windows PowerShell**, selecteer **installeren** voor het installeren van de meest recente PowerShell-cmdlets.
 
 * Maak een unieke subnet voor exclusief gebruik door App Service-omgeving. De unieke subnet zorgt ervoor dat de udr's toegepast alleen op het subnet open uitgaand verkeer voor App Service-omgeving.
 
@@ -118,7 +118,7 @@ Uitgaande toegang tot het internet configureren. Een route voor 0.0.0.0/0 defini
 
 0.0.0.0/0 is een brede adresbereik. Het bereik wordt overschreven door de adresbereiken van ExpressRoute aangekondigd dat specifieker zijn. Een UDR met een route 0.0.0.0/0 moet worden gebruikt in combinatie met een ExpressRoute-configuratie die alleen 0.0.0.0/0 adverteert. 
 
-Als alternatief, een huidige, uitgebreide lijst CIDR-bereiken die wordt gebruikt door Azure te downloaden. Het XML-bestand voor alle Azure-IP-adresbereiken is beschikbaar in de [Microsoft Download Center] [DownloadCenterAddressRanges].  
+Als alternatief, een huidige, uitgebreide lijst CIDR-bereiken die wordt gebruikt door Azure te downloaden. Het XML-bestand voor alle Azure-IP-adresbereiken is beschikbaar via de [Microsoft Download Center][DownloadCenterAddressRanges].  
 
 > [!NOTE]
 >
@@ -148,16 +148,23 @@ U bent nu klaar om te implementeren App Service-omgeving.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u wilt aan de slag met App Service Environment voor PowerApps, Zie [Inleiding tot App Service-omgeving] [IntroToAppServiceEnvironment].
+Als u wilt aan de slag met App Service Environment voor PowerApps, Zie [Inleiding tot App Service-omgeving][IntroToAppServiceEnvironment].
 
 <!-- LINKS -->
 [virtualnetwork]: https://azure.microsoft.com/services/virtual-network/
 [ExpressRoute]: https://azure.microsoft.com/services/expressroute/
 [requiredports]: app-service-app-service-environment-control-inbound-traffic.md
-[networkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
+[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [UDROverview]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/
-<!-- Old link -- [UDRHowTo]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/ --> [UDRHowTo]: https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell [HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md [AzureDownloads]: https://azure.microsoft.com/downloads/ [DownloadCenterAddressRanges]: https://www.microsoft.com/download/details.aspx?id=41653  
-[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/ [IntroToAppServiceEnvironment]: app-service-app-service-environment-intro.md [NewPortal]:  https://portal.azure.com
+<!-- Old link -- [UDRHowTo]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/ -->
+
+[UDRHowTo]: https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell
+[HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md
+[AzureDownloads]: https://azure.microsoft.com/downloads/ 
+[DownloadCenterAddressRanges]: https://www.microsoft.com/download/details.aspx?id=41653  
+[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
+[IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md
+[NewPortal]:  https://portal.azure.com
 
 
 <!-- IMAGES -->

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 32f3f4fd3f4f299c9b084ab8604b56ea70e639a4
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 49b763cba505a3423b47e5a2601db53b8e47a5fe
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368220"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993964"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Beveiligen van uw inhoud met Apple FairPlay of Microsoft PlayReady HLS
 Azure Media Services kunt u de inhoud van uw HTTP Live Streaming (HLS) dynamisch wordt versleuteld met behulp van de volgende indelingen:  
@@ -54,7 +54,7 @@ Het volgende is vereist als u Media Services leveren HLS versleuteld met FairPla
 
 De volgende dingen moeten worden ingesteld op Media Services sleutellevering aan clientzijde:
 
-  * **App-certificaat (AC)**: dit is een pfx-bestand dat de persoonlijke sleutel bevat. U kunt dit bestand maken en versleutelen met een wachtwoord.
+  * **App-certificaat (AC)**: Dit is een pfx-bestand dat de persoonlijke sleutel bevat. U kunt dit bestand maken en versleutelen met een wachtwoord.
 
        Wanneer u een sleutel leveringsbeleid configureert, moet u opgeven dat wachtwoord en het pfx-bestand in Base 64-indeling.
 
@@ -69,15 +69,15 @@ De volgende dingen moeten worden ingesteld op Media Services sleutellevering aan
     3. Voer de volgende opdracht uit via de opdrachtregel. Hiermee zet u het .pem-bestand naar een pfx-bestand met de persoonlijke sleutel. Het wachtwoord voor het pfx-bestand wordt vervolgens gevraagd door OpenSSL.
 
         "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12-Exporteer - FairPlay-out.pfx-inkey privatekey.pem-in FairPlay-out.pem - passin file:privatekey-pem-pass.txt
-  * **Certificaat voor App-wachtwoord**: het wachtwoord voor het maken van het pfx-bestand.
+  * **Certificaat voor App-wachtwoord**: Het wachtwoord voor het maken van het pfx-bestand.
   * **App-certificaat wachtwoord ID**: U moet het wachtwoord, vergelijkbaar met hoe ze andere sleutels Media Services uploaden uploaden. Gebruik de **ContentKeyType.FairPlayPfxPassword** enum-waarde om de Media Services-ID. Dit is wat ze nodig hebben om te gebruiken binnen de beleidsoptie sleutellevering.
-  * **IV**: dit is een willekeurige waarde van 16 bytes. Dit moet overeenkomen met de iv in het leveringsbeleid voor Assets. U genereert de iv en plaatsen op beide plaatsen: het leveringsbeleid voor Assets en de optie voor sleutellevering.
-  * **VRAAG**: deze sleutel wordt weergegeven wanneer u het certificaat genereert met behulp van de Apple Developer-portal. Elke ontwikkelingsteam ontvangt een unieke vraag. Sla een kopie van de vraag, en sla deze op een veilige plaats. U moet vragen als FairPlayAsk met Media Services later configureren.
-  * **Vraag ID**: deze ID wordt verkregen tijdens het uploaden van vragen in Media Services. U moet bevestigen uploaden met behulp van de **ContentKeyType.FairPlayAsk** enum-waarde. Als het resultaat wordt geretourneerd met de ID van de Media Services en dit is wat moet worden gebruikt bij het instellen van de belangrijkste bezorgingsoptie beleid.
+  * **iv**: Dit is een willekeurige waarde van 16 bytes. Dit moet overeenkomen met de iv in het leveringsbeleid voor Assets. U genereert de iv en plaatsen op beide plaatsen: het leveringsbeleid voor Assets en de optie voor sleutellevering.
+  * **VRAAG**: Deze sleutel wordt ontvangen wanneer u het certificaat genereert met behulp van de Apple Developer-portal. Elke ontwikkelingsteam ontvangt een unieke vraag. Sla een kopie van de vraag, en sla deze op een veilige plaats. U moet vragen als FairPlayAsk met Media Services later configureren.
+  * **VRAAG ID**: Deze ID wordt verkregen tijdens het uploaden van vragen in Media Services. U moet bevestigen uploaden met behulp van de **ContentKeyType.FairPlayAsk** enum-waarde. Als het resultaat wordt geretourneerd met de ID van de Media Services en dit is wat moet worden gebruikt bij het instellen van de belangrijkste bezorgingsoptie beleid.
 
 De volgende dingen moeten zijn ingesteld door de client FPS:
 
-  * **App-certificaat (AC)**: dit is een.cer/.der-bestand met de openbare sleutel, die het besturingssysteem wordt gebruikt voor het versleutelen van sommige nettolading. Media Services moet weten over het, omdat deze is vereist voor de speler. De sleutelleveringsservice ontsleutelt deze met behulp van de bijbehorende persoonlijke sleutel.
+  * **App-certificaat (AC)**: Dit is een.cer/.der-bestand met de openbare sleutel, die het besturingssysteem wordt gebruikt voor het versleutelen van sommige nettolading. Media Services moet weten over het, omdat deze is vereist voor de speler. De sleutelleveringsservice ontsleutelt deze met behulp van de bijbehorende persoonlijke sleutel.
 
 Als u wilt afspelen van een versleutelde FairPlay-stream een echte vraag eerste ophalen en genereer vervolgens een echt certificaat zijn. Dit proces wordt gemaakt van alle drie onderdelen:
 
@@ -138,9 +138,9 @@ De volgende overwegingen zijn van toepassing:
 * Het versleutelingstype hoeft te worden opgegeven in de URL als er slechts één versleuteling is toegepast op de asset.
 * Het versleutelingstype is niet hoofdlettergevoelig.
 * De volgende versleutelingstypen kunnen worden opgegeven:  
-  * **cenc**: Common encryption (PlayReady of Widevine)
-  * **cbcs aapl**: FairPlay
-  * **CBC**: AES-codering van envelop
+  * **cenc**:  Algemene versleuteling (PlayReady of Widevine)
+  * **cbcs-aapl**: FairPlay
+  * **cbc**: AES-codering van envelop
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
 

@@ -1,6 +1,6 @@
 ---
-title: Gegevens verzamelen van verzamelde in Log Analytics | Microsoft Docs
-description: Verzamelde is een open-source Linux-daemonwijzigingen waarmee periodiek gegevens worden verzameld van toepassingen en gegevens op systeem.  In dit artikel bevat informatie over het verzamelen van gegevens van verzamelde in Log Analytics.
+title: Gegevens verzamelen van verzamelde in Azure Monitor | Microsoft Docs
+description: Verzamelde is een open-source Linux-daemonwijzigingen waarmee periodiek gegevens worden verzameld van toepassingen en gegevens op systeem.  In dit artikel bevat informatie over het verzamelen van gegevens van verzamelde in Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 3ccb307eb028170f2dc65fd7cf90edf3115ae9a7
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: b6785dc06107424344f0a6af775abe9b1c956f70
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102683"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999314"
 ---
-# <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Gegevens verzamelen van verzamelde op Linux-agents in Log Analytics
-[Verzamelde](https://collectd.org/) is een open-source Linux-daemonwijzigingen die periodiek metrische gegevens voor prestaties van toepassingen en gegevens op systeem verzamelt. Van de voorbeeldtoepassingen bevatten de Java Virtual Machine (JVM), MySQL-Server en Nginx. In dit artikel bevat informatie over het verzamelen van prestatiegegevens van verzamelde in Log Analytics.
+# <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Gegevens verzamelen van verzamelde op Linux-agents in Azure Monitor
+[Verzamelde](https://collectd.org/) is een open-source Linux-daemonwijzigingen die periodiek metrische gegevens voor prestaties van toepassingen en gegevens op systeem verzamelt. Van de voorbeeldtoepassingen bevatten de Java Virtual Machine (JVM), MySQL-Server en Nginx. In dit artikel bevat informatie over het verzamelen van prestatiegegevens van verzamelde in Azure Monitor.
 
 Een volledige lijst met beschikbare invoegtoepassingen kan worden gevonden op [tabel van invoegtoepassingen](https://collectd.org/wiki/index.php/Table_of_Plugins).
 
@@ -57,7 +57,7 @@ De configuratie van de verzamelde gebruikmaakt van de`write_http` invoegtoepassi
 > [!NOTE]
 > Deze poort kan worden geconfigureerd met een aangepaste poort indien nodig.
 
-De Log Analytics-agent voor Linux ook luistert op poort 26000 voor verzamelde metrische gegevens en vervolgens geconverteerd naar Log Analytics-schema metrische gegevens. Hieronder volgt de Log Analytics-agent voor Linux-configuratie `collectd.conf`.
+De Log Analytics-agent voor Linux ook luistert op poort 26000 voor verzamelde metrische gegevens en vervolgens geconverteerd naar metrische gegevens van Azure Monitor-schema. Hieronder volgt de Log Analytics-agent voor Linux-configuratie `collectd.conf`.
 
     <source>
       type http
@@ -71,12 +71,12 @@ De Log Analytics-agent voor Linux ook luistert op poort 26000 voor verzamelde me
 
 
 ## <a name="versions-supported"></a>Ondersteunde versies
-- Log Analytics biedt momenteel ondersteuning verzamelde versie 4.8 en hoger.
+- Azure Monitor biedt momenteel ondersteuning voor versie 4.8 verzamelde en hoger.
 - Log Analytics-agent voor Linux v1.1.0-217 of hoger is vereist voor het verzamelde metrische gegevens verzamelen.
 
 
 ## <a name="configuration"></a>Configuratie
-Hier volgen de basisstappen voor het verzamelen van verzamelde gegevens configureren in Log Analytics.
+Hier volgen de basisstappen voor het verzamelen van verzamelde gegevens in Azure Monitor configureren.
 
 1. Verzamelde om gegevens te verzenden naar de Log Analytics-agent voor Linux met behulp van de invoegtoepassing write_http configureren.  
 2. De Log Analytics-agent voor Linux om te luisteren naar de verzamelde gegevens op de juiste poort configureren.
@@ -107,20 +107,20 @@ Hier volgen de basisstappen voor het verzamelen van verzamelde gegevens configur
 
     sudo-service verzamelde sudo /opt/microsoft/omsagent/bin/service_control opnieuw starten
 
-## <a name="collectd-metrics-to-log-analytics-schema-conversion"></a>Verzamelde metrische gegevens naar Log Analytics-schema-conversie
+## <a name="collectd-metrics-to-azure-monitor-schema-conversion"></a>Verzamelde metrische gegevens naar Azure Monitor schemaconversie
 Voor het onderhouden van een vertrouwde model tussen metrische gegevens over infrastructuur al zijn verzameld door Log Analytics-agent voor Linux en de nieuwe metrische gegevens die worden verzameld door verzamelde de schematoewijzing van het volgende wordt gebruikt:
 
-| Veld van de verzamelde metrische gegevens | Log Analytics-veld |
+| Veld van de verzamelde metrische gegevens | Azure Monitor-veld |
 |:--|:--|
 | host | Computer |
 | Invoegtoepassing | Geen |
 | plugin_instance | Instantienaam<br>Als **plugin_instance** is *null* vervolgens InstanceName = "*_Totaal*" |
-| type | Objectnaam |
+| type | ObjectName |
 | type_instance | CounterName<br>Als **type_instance** is *null* vervolgens CounterName =**leeg** |
 | dsnames] | CounterName |
 | dstypes | Geen |
 | waarden] | CounterValue |
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [query's bijgehouden](../../log-analytics/log-analytics-queries.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren. 
-* Gebruik [aangepaste velden](../../log-analytics/log-analytics-custom-fields.md) parseren van gegevens van syslog-records in afzonderlijke velden.
+* Meer informatie over [query's bijgehouden](../log-query/log-query-overview.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren. 
+* Gebruik [aangepaste velden](custom-fields.md) parseren van gegevens van syslog-records in afzonderlijke velden.

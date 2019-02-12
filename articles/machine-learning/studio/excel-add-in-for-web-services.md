@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 57c9f9a0b6f3a0502a07ca3124cbe157d8008117
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: c9c5ad0af39b698175c4bc7cb7f720452546ec10
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486891"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997063"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Excel-invoegtoepassing voor Azure Machine Learning Studio-webservices
 Excel maakt het eenvoudig om aan te roepen webservices rechtstreeks zonder code te schrijven.
@@ -24,8 +24,8 @@ Excel maakt het eenvoudig om aan te roepen webservices rechtstreeks zonder code 
 
 1. Open de [Excel-voorbeeldbestand](https://aka.ms/amlexcel-sample-2), die de Excel-invoegtoepassing en de gegevens over passagiers op ramp met de Titanic bevat. 
  
-> [!NOTE]
-> U ziet de lijst met de webservices die betrekking hebben op het bestand en onder een selectievakje voor "automatisch"voorspellen. Als u inschakelt auto-voorspellen de voorspellingen van **alle** uw services worden bijgewerkt telkens wanneer er een wijziging in de invoer is. Als dit selectievakje is uitgeschakeld wordt u voor vernieuwing te klikken op 'Alle voorspellen' hebben. Voor het inschakelen van automatische-voorspellen op een service level gaat u naar stap 6.
+    > [!NOTE]
+    > U ziet de lijst met de webservices die betrekking hebben op het bestand en onder een selectievakje voor "automatisch"voorspellen. Als u inschakelt auto-voorspellen de voorspellingen van **alle** uw services worden bijgewerkt telkens wanneer er een wijziging in de invoer is. Als dit selectievakje is uitgeschakeld wordt u voor vernieuwing te klikken op 'Alle voorspellen' hebben. Voor het inschakelen van automatische-voorspellen op een service level gaat u naar stap 6.
 
 2. De webservice kiezen door erop te klikken-' Titanic nagelaten voorspelde (Excel-invoegtoepassing voorbeeld) [Score] ' in dit voorbeeld.
    
@@ -37,7 +37,7 @@ Excel maakt het eenvoudig om aan te roepen webservices rechtstreeks zonder code 
    
     ![Sectie voorspellen][02]
 
-Een webservice implementeren of gebruik een bestaande webservice. Zie voor meer informatie over het implementeren van een webservice [scenario stap 5: De Azure Machine Learning-webservice implementeren](walkthrough-5-publish-web-service.md).
+Een webservice implementeren of gebruik een bestaande webservice. Zie voor meer informatie over het implementeren van een webservice [zelfstudie 3: Tegoed risicomodel implementeren](tutorial-part3-credit-risk-deploy.md).
 
 Haal de API-sleutel voor uw webservice. Wanneer u deze actie is afhankelijk van of u een klassieke Machine Learning-webservice van een nieuwe Machine Learning-webservice hebt gepubliceerd.
 
@@ -65,7 +65,7 @@ Haal de API-sleutel voor uw webservice. Wanneer u deze actie is afhankelijk van 
 
 ## <a name="steps-to-add-a-new-web-service"></a>Stappen voor het toevoegen van een nieuwe webservice
 
-1. Een webservice implementeren of gebruik een bestaande webservice. Zie voor meer informatie over het implementeren van een webservice [scenario stap 5: De Azure Machine Learning-webservice implementeren](walkthrough-5-publish-web-service.md).
+1. Een webservice implementeren of gebruik een bestaande webservice. Zie voor meer informatie over het implementeren van een webservice [zelfstudie 3: Tegoed risicomodel implementeren](tutorial-part3-credit-risk-deploy.md).
 2. Klik op **gebruiken**.
 3. Zoek de **Basic verbruik info** sectie. Kopieer en bewaar de **primaire sleutel** en de **Request Response** URL.
 4. In Excel, gaat u naar de **webservices** sectie (als u zich in de **Predict** sectie, klikt u op de pijl-terug naar de lijst van webservices).

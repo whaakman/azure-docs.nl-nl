@@ -1,6 +1,6 @@
 ---
-title: Verzamelen en analyseren van prestatiemeteritems in Log Analytics | Microsoft Docs
-description: Prestatiemeteritems worden verzameld door Log Analytics voor het analyseren van prestaties van Windows en Linux-agents.  In dit artikel wordt beschreven hoe u het configureren van verzamelen van prestatiemeteritems voor zowel Windows en Linux-agents, details van deze zijn opgeslagen in de werkruimte, en over het analyseren van deze in Azure portal.
+title: Verzamelen en analyseren van prestatiemeteritems in Azure Monitor | Microsoft Docs
+description: Prestatiemeteritems worden verzameld door Azure Monitor voor het analyseren van prestaties van Windows en Linux-agents.  In dit artikel wordt beschreven hoe u het configureren van verzamelen van prestatiemeteritems voor zowel Windows en Linux-agents, details van deze zijn opgeslagen in de werkruimte, en over het analyseren van deze in Azure portal.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018l
 ms.author: magoedte
-ms.openlocfilehash: 8359dda2521773145f9e3e870c3c21db1546004b
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: f6b6d04df3e3b705fd57e7dffe1570a5e10adb5d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103703"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001916"
 ---
-# <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Windows en Linux-gegevensbronnen van de prestaties die u in Log Analytics
-In Windows en Linux-prestatiemeteritems geven inzicht in de prestaties van de hardware-onderdelen, besturingssystemen en toepassingen.  Log Analytics kunt verzamelen van prestatiemeteritems op regelmatige intervallen voor analyse in de buurt van real-time (NRT) naast het verzamelen van prestatiegegevens voor langere termijn analyse en rapportage.
+# <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Windows en Linux-gegevensbronnen van de prestaties die u in Azure Monitor
+In Windows en Linux-prestatiemeteritems geven inzicht in de prestaties van de hardware-onderdelen, besturingssystemen en toepassingen.  Azure Monitor kunt verzamelen van prestatiemeteritems op regelmatige intervallen voor analyse in de buurt van real-time (NRT) naast het verzamelen van prestatiegegevens voor langere termijn analyse en rapportage.
 
 ![Prestatiemeteritems](media/data-sources-performance-counters/overview.png)
 
@@ -83,12 +83,12 @@ De parameters in dit element worden in de volgende tabel beschreven.
 | Parameters | Description |
 |:--|:--|
 | object\_naam | Objectnaam voor de verzameling. |
-| exemplaar\_reguliere expressie |  Een *reguliere expressie* definiëren welke instanties te verzamelen. De waarde: `.*` Hiermee geeft u alle instanties. Voor het verzamelen van metrische gegevens van processor voor alleen de \_totale instantie die u kunt opgeven `_Total`. U kunt opgeven voor het verzamelen van metrische gegevens verwerken voor alleen de exemplaren crond of sshd: `(crond\|sshd)`. |
+| instance\_regex |  Een *reguliere expressie* definiëren welke instanties te verzamelen. De waarde: `.*` Hiermee geeft u alle instanties. Voor het verzamelen van metrische gegevens van processor voor alleen de \_totale instantie die u kunt opgeven `_Total`. U kunt opgeven voor het verzamelen van metrische gegevens verwerken voor alleen de exemplaren crond of sshd: `(crond\|sshd)`. |
 | teller\_naam\_reguliere expressie | Een *reguliere expressie* definiëren welke items (voor het object) te verzamelen. Geef voor het verzamelen van alle tellers voor het object: `.*`. Voor het verzamelen van alleen wisselen ruimte tellers voor het geheugenobject, bijvoorbeeld, kunt u opgeven: `.+Swap.+` |
 | interval | De frequentie waarmee de prestatiemeteritems van het object die worden verzameld. |
 
 
-De volgende tabel bevat de objecten en de items die u in het configuratiebestand opgeven kunt.  Er zijn extra items beschikbaar voor bepaalde toepassingen zoals beschreven in [verzamelen van prestatiemeteritems voor Linux-toepassingen in Log Analytics](data-sources-linux-applications.md).
+De volgende tabel bevat de objecten en de items die u in het configuratiebestand opgeven kunt.  Er zijn extra items beschikbaar voor bepaalde toepassingen zoals beschreven in [verzamelen van prestatiemeteritems voor Linux-toepassingen in Azure Monitor](data-sources-linux-applications.md).
 
 | Objectnaam | Naam van teller |
 |:--|:--|
@@ -132,7 +132,7 @@ De volgende tabel bevat de objecten en de items die u in het configuratiebestand
 | Verwerken | Virtuele gedeeld geheugen |
 | Processor | Percentage DPC-tijd |
 | Processor | % Niet-actieve tijd |
-| Processor | Percentage interrupt-tijd |
+| Processor | % Interrupt Time |
 | Processor | Percentage wachttijd I/O |
 | Processor | Percentage tijd in nice |
 | Processor | % Gemachtigde tijd |
@@ -182,7 +182,7 @@ Hieronder volgt de standaardconfiguratie voor metrische gegevens voor prestaties
     </source>
 
 ## <a name="data-collection"></a>Gegevensverzameling
-Log Analytics verzamelt alle opgegeven prestatiemeteritems op de opgegeven controle-interval op alle agents die die meteritem geïnstalleerd hebben.  De gegevens worden niet samengevoegd en de onbewerkte gegevens is beschikbaar in alle log queryweergaven voor de duur die is opgegeven door uw abonnement.
+Azure Monitor verzamelt alle opgegeven prestatiemeteritems op de opgegeven controle-interval op alle agents die die meteritem geïnstalleerd hebben.  De gegevens worden niet samengevoegd en de onbewerkte gegevens is beschikbaar in alle log queryweergaven voor de duur die is opgegeven door uw abonnement.
 
 ## <a name="performance-record-properties"></a>Eigenschappen van de record Performance
 Prestatierecords zijn een type **Perf** en hebben de eigenschappen in de volgende tabel.
@@ -191,10 +191,10 @@ Prestatierecords zijn een type **Perf** en hebben de eigenschappen in de volgend
 |:--- |:--- |
 | Computer |De computer waarop de gebeurtenis is verzameld. |
 | CounterName |Naam van het prestatiemeteritem |
-| Itempad |Volledig pad van het item in de vorm \\ \\ \<Computer >\\object(exemplaar)\\teller. |
+| CounterPath |Volledig pad van het item in de vorm \\ \\ \<Computer >\\object(exemplaar)\\teller. |
 | CounterValue |Numerieke waarde van de teller. |
 | InstanceName |De naam van de event-instantie.  Leeg zijn als er is geen exemplaar. |
-| Objectnaam |Naam van de prestatie-object |
+| ObjectName |Naam van de prestatie-object |
 | SourceSystem |Het type van de agent die de gegevens zijn verzameld uit. <br><br>OpsManager – Windows-agent, rechtstreeks verbinding maken of SCOM <br> Linux: alle Linux-agents  <br> AzureStorage – Azure Diagnostics |
 | TimeGenerated |Datum en tijd dat voorbeelden worden de gegevens is gemaakt. |
 
@@ -209,11 +209,11 @@ De volgende tabel bevat voorbeelden van Logboeken-query's die prestatierecords o
 | Query’s uitvoeren | Description |
 |:--- |:--- |
 | Prestaties |Alle prestatiegegevens |
-| Perf &#124; waarbij Computer == 'Computer' |Alle prestatiegegevens van een bepaalde computer |
+| Perf &#124; where Computer == "MyComputer" |Alle prestatiegegevens van een bepaalde computer |
 | Perf &#124; waar CounterName == "Huidige wachtrijlengte" |Alle prestatiegegevens voor een bepaald meteritem |
 | Perf &#124; waarbij ObjectName == 'Processor' en CounterName == "% processortijd" en InstanceName == "_Totaal" &#124; AVGCPU samenvatten = avg(Average) door Computer |Gemiddeld CPU-gebruik op alle computers |
 | Perf &#124; waar CounterName == "% processortijd" &#124; summarize AggregatedValue = max(Max) door Computer |Maximale CPU-gebruik op alle computers |
-| Perf &#124; waarbij ObjectName == "Logische" en CounterName == 'Huidige wachtrijlengte' en Computer == "MijnComputernaam" &#124; summarize AggregatedValue avg(Average) door InstanceName = |Gemiddelde van huidige wachtrijlengte voor schijf over alle exemplaren van een bepaalde computer |
+| Perf &#124; where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and Computer == "MyComputerName" &#124; summarize AggregatedValue = avg(Average) by InstanceName |Gemiddelde van huidige wachtrijlengte voor schijf over alle exemplaren van een bepaalde computer |
 | Perf &#124; waar CounterName == "DiskTransfers per seconde" &#124; summarize AggregatedValue = percentiel (gemiddelde, 95) per Computer |95e percentiel van Schijfoverdrachten per seconde op alle computers |
 | Perf &#124; waar CounterName == "% processortijd" en InstanceName == "_Totaal" &#124; summarize AggregatedValue = avg(CounterValue) door bin (TimeGenerated, 1 uur), Computer |Per uur gemiddelde CPU-gebruik op alle computers |
 | Perf &#124; waarbij Computer == 'Computer' en CounterName startswith_cs '%' en InstanceName == "_Totaal" &#124; summarize AggregatedValue = percentiel (CounterValue, 70) door bin (TimeGenerated, 1 uur), CounterName | Per uur 70 percentiel van elke % percentage item voor een bepaalde computer |

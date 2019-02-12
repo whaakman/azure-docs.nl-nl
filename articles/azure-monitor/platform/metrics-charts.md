@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor metrics explorer
-description: Meer informatie over nieuwe functies in Azure Monitor Metrics Explorer
+description: Meer informatie over nieuwe functies in Azure Monitor metrics explorer
 author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 2b6d982f514f347dc2a59f9ca8f3c33b8c24849b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 594ebb6a3c82c9b9dd3ee03a8083abf052d20f49
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827445"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991324"
 ---
-# <a name="azure-monitor-metrics-explorer"></a>Azure Monitor Metrics Explorer
+# <a name="azure-monitor-metrics-explorer"></a>Azure Monitor metrics explorer
 
-Azure Monitor Metrics Explorer is een onderdeel van de Microsoft Azure-portal die u kunt grafieken te tekenen, visueel correleren van trends en onderzoeken van pieken en dalen in de metrische waarden. Metrics Explorer is een essentiële beginpunt voor het onderzoeken van verschillende prestaties en van beschikbaarheidsproblemen met uw toepassingen en infrastructuur die wordt gehost in Azure of bewaakt door Azure Monitor-services.
+Azure Monitor metrics explorer is een onderdeel van de Microsoft Azure-portal kunt plotting grafieken, visueel correleren van trends en onderzoeken van pieken en dalen in de metrische waarden. Metrics explorer is een essentiële beginpunt voor het onderzoeken van verschillende prestaties en van beschikbaarheidsproblemen met uw toepassingen en infrastructuur die wordt gehost in Azure of bewaakt door Azure Monitor-services.
 
 ## <a name="metrics-in-azure"></a>Metrische gegevens in Azure
 
-Metrische gegevens in Microsoft Azure, zijn de reeks meetwaarden en aantallen die worden verzameld en opgeslagen na verloop van tijd. Er zijn metrische gegevens voor standard (of 'platform') en aangepaste metrische gegevens. De standaard metrische gegevens worden aan u vertrekt door de Azure-platform zelf. Standaard metrische gegevens weer de status en gebruik statistische gegevens van uw Azure-resources. Terwijl aangepaste metrische gegevens naar Azure worden verzonden door uw toepassingen met behulp van de [Application Insights-API voor aangepaste gebeurtenissen](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Aangepaste metrische gegevens worden opgeslagen in de Application Insights-resources samen met andere specifieke metrische gegevens voor een toepassing.
+[Metrische gegevens in Azure Monitor](data-collection.md#metrics) zijn van de reeks meetwaarden en aantallen die worden verzameld en opgeslagen na verloop van tijd. Er zijn metrische gegevens voor standard (of 'platform') en aangepaste metrische gegevens. De standaard metrische gegevens worden aan u vertrekt door de Azure-platform zelf. Standaard metrische gegevens weer de status en gebruik statistische gegevens van uw Azure-resources. Terwijl aangepaste metrische gegevens naar Azure worden verzonden door uw toepassingen met behulp van de [Application Insights-API voor aangepaste gebeurtenissen](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Aangepaste metrische gegevens worden opgeslagen in de Application Insights-resources samen met andere specifieke metrische gegevens voor een toepassing.
 
 ## <a name="create-a-new-chart"></a>Maak een nieuwe grafiek
 
@@ -52,7 +52,7 @@ Metrische gegevens in Microsoft Azure, zijn de reeks meetwaarden en aantallen di
 7. Door te klikken op **metrische waarde toevoegen** en herhalende stap 3-6, kunt u meer metrische gegevens op de dezelfde grafiek toevoegen.
 
    > [!NOTE]
-   > Normaal gesproken u niet metrische gegevens met verschillende eenheden (dat wil zeggen "milliseconden" en 'kilobytes') of met aanmerkelijk verschillende schalen in een grafiek hebt. In plaats daarvan kunt u overwegen meerdere diagrammen. Klik op de knop grafiek toevoegen aan meerdere diagrammen maken in Metrics Explorer.
+   > Normaal gesproken u niet metrische gegevens met verschillende eenheden (dat wil zeggen "milliseconden" en 'kilobytes') of met aanmerkelijk verschillende schalen in een grafiek hebt. In plaats daarvan kunt u overwegen meerdere diagrammen. Klik op de knop grafiek toevoegen aan meerdere diagrammen maken in metrics explorer.
 
 ## <a name="apply-filters-to-charts"></a>Filters toepassen op grafieken
 

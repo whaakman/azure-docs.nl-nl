@@ -13,14 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 02/10/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: 7d4094abacb46c5e2b525766d61cb0ede7fc20ba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 710ec72e9867ad180afcae8273a093f48933112a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251829"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991494"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Offline FairPlay Streaming voor iOS 
  Azure Media Services biedt een reeks goed ontworpen [content protection-services](https://azure.microsoft.com/services/media-services/content-protection/) waarin behandeld:
@@ -115,14 +115,14 @@ Media Services-account is nu geconfigureerd voor het leveren van offline FairPla
 ## <a name="sample-ios-player"></a>Voorbeeld van een iOS-speler
 FPS offlinemodus ondersteuning is alleen beschikbaar op iOS 10 en hoger. De FPS Server SDK (versie 3.0 of hoger) bevat het document en een voorbeeld van een voor de offlinemodus FPS. FPS Server SDK (versie 3.0 of hoger) bevat met name de volgende twee items die betrekking hebben op de offlinemodus:
 
-* Document: 'Offline afspelen met FairPlay Streaming- en HTTP Live Streaming." Apple, 14 September 2016. Dit document is in FPS Server SDK-versie 4.0 samengevoegd in de belangrijkste FPS-document.
-* Voorbeeldcode: voorbeeld van een HLSCatalog voor de offlinemodus FPS in de 3.1\Development\Client\HLSCatalog_With_FPS\HLSCatalog\ \FairPlay Streaming Server SDK-versie. De volgende codebestanden worden in de HLSCatalog voorbeeld-app gebruikt voor het implementeren van functies voor de offline modus:
+* Document: "Offline afspelen met FairPlay Streaming- en HTTP Live Streaming." Apple, 14 September 2016. Dit document is in FPS Server SDK-versie 4.0 samengevoegd in de belangrijkste FPS-document.
+* Voorbeeldcode: Voorbeeld van een HLSCatalog voor de offlinemodus FPS in de 3.1\Development\Client\HLSCatalog_With_FPS\HLSCatalog\ \FairPlay Streaming Server SDK-versie. De volgende codebestanden worden in de HLSCatalog voorbeeld-app gebruikt voor het implementeren van functies voor de offline modus:
 
-    - Het codebestand AssetPersistenceManager.swift: AssetPersistenceManager is de hoofdklasse in dit voorbeeld waarin wordt gedemonstreerd hoe u:
+    - AssetPersistenceManager.swift codebestand: AssetPersistenceManager is de hoofdklasse in dit voorbeeld waarin wordt gedemonstreerd hoe u:
 
         - Beheren downloaden HLS-streams, zoals de API's die worden gebruikt om te starten en downloads annuleren en verwijderen van bestaande assets apparaten uit.
         - De voortgang van downloaden te ontvangen.
-    - AssetListTableViewController.swift en AssetListTableViewCell.swift code bestanden: AssetListTableViewController is de belangrijkste interface van dit voorbeeld. Het bevat een lijst van activa die in het voorbeeld gebruiken kunt om te spelen, downloaden, verwijderen of een downloaden annuleren. 
+    - Codebestanden AssetListTableViewController.swift en AssetListTableViewCell.swift: AssetListTableViewController is de belangrijkste interface van dit voorbeeld. Het bevat een lijst van activa die in het voorbeeld gebruiken kunt om te spelen, downloaden, verwijderen of een downloaden annuleren. 
 
 Deze stappen laten zien hoe u een actieve iOS-speler kunt instellen. Ervan uitgaande dat u start vanuit de voorbeeld-HLSCatalog in FPS Server SDK versie 4.0.1, maken de volgende code hoeft te wijzigen:
 

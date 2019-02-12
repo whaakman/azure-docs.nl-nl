@@ -1,5 +1,5 @@
 ---
-title: H264 Single Bitrate 16 x 9 SD Audio 5.1 | Microsoft Docs
+title: H264 Single Bitrate 16x9 SD Audio 5.1 | Microsoft Docs
 description: Het onderwerp een overzicht van de **H264 Single-Bitrate 16 x 9 SD Audio 5.1** taak vooraf ingesteld.
 author: Juliako
 manager: femila
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 15e45d959d8aa5c377db0615fdf3ad2e5f762f43
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 6f61f45d8484ddefb465a26f94b8ac448229a062
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50246259"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000882"
 ---
-# <a name="h264-single-bitrate-16x9-sd-audio-51"></a>H264 Single-Bitrate 16 x 9 SD Audio 5.1
+# <a name="h264-single-bitrate-16x9-sd-audio-51"></a>H264 Single Bitrate 16x9 SD Audio 5.1
 `Media Encoder Standard` definieert een reeks voorinstellingen die kunt u bij het maken van coderingstaken coderen. Kunt u ofwel een `preset name` om op te geven in welke indeling u wilt coderen van uw media-bestand. Of, kunt u uw eigen JSON of XML-indeling voorinstellingen (met behulp van UTF-8- of UTF-16-codering. Vervolgens geeft u door de aangepaste voorinstelling voor het coderingsprogramma. Voor een lijst van de vooraf gedefinieerde namen ondersteund door dit `Media Encoder Standard` encoder, Zie [taak voorinstellingen voor Media Encoder Standard](media-services-mes-presets-overview.md).  
   
  In dit onderwerp leest de `H264 Single Bitrate 16x9 SD Audio 5.1` vooraf in XML en JSON-indeling.  

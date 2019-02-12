@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 02/05/2019
 ms.author: v-doglov
-ms.openlocfilehash: 5a328e64128503f98476deccf33a4395f99eeeb0
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 9423fc844e766129ad81a8a286cb5bbdc722e2ca
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985167"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989308"
 ---
-# <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Problemen met Microsoft Azure Site Recovery Provider-upgrade oplossen
+# <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Problemen met het upgraden van de Microsoft Azure Site Recovery-provider oplossen
 
 Dit artikel helpt u problemen die kunnen ontstaan tijdens een Microsoft Azure Site Recovery Provider-upgrade oplossen.
 
@@ -64,5 +64,5 @@ Het probleem kunt oplossen.
     CX_THIRDPARTY_SETUP.EXE /VERYSILENT /SUPPRESSMSGBOXES /NORESTART
 
 5. Gebruik Taakbeheer om te controleren van de voortgang van de installatie. Wanneer het proces voor het CX_THIRDPARTY_SETUP. EXE is niet meer zichtbaar in Taakbeheer, gaat u verder met de volgende stap.
-6. Controleer of dat het C:\thirdparty bestaat en dat de map de bibliotheken RRD bevat.
+6. Controleer of dat C:\thirdparty bestaat en dat de map de bibliotheken RRD bevat.
 1. Terug naar de map waarin u de geïntegreerde Setup gedownload en MicrosoftAzureSiteRecoveryUnifiedSetup.exe voor het voltooien van de upgrade worden uitgevoerd. 

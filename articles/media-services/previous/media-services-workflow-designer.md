@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/08/2019
 ms.author: juliako;johndeu;anilmur
-ms.openlocfilehash: 3f01d5342fbeeb5cb5e19af63a0dd91128778859
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 7358f259d4c38157a203369e9eadae28710f4290
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823229"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993704"
 ---
-# <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Geavanceerde encoding-werkstromen maken met Workflow Designer
+# <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Geavanceerde encoding-werkstromen maken met Workflow Designer  
 ## <a name="overview"></a>Overzicht
 De **Workflow Designer** is een Windows-bureaublad hulpprogramma dat wordt gebruikt voor het ontwerpen en bouwen van aangepaste werkstromen voor codering met **Media Encoder Premium Workflow**.
 Met behulp van de kracht van de workflow designer-hulpprogramma, u kunt ontwerpen en maken van complexe werkstromen die wordt uitgevoerd in de **Media Encoder Premium**.  

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 208526b745a117c9ee14bab21f8a5ce05accd1fe
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 252aacfeb85f23699c6a2e2ac1f457f9e2b59b0e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382227"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997180"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>De Remote Monitoring solution accelerator lokaal - Docker implementeren
 
@@ -54,6 +54,8 @@ set PCS
 De opdracht toont alle omgevingsvariabelen ingesteld door de **start.cmd** script.
 
 Zorg ervoor dat Docker wordt uitgevoerd op uw lokale computer.
+> [!NOTE]
+> Docker moet worden uitgevoerd [Linux-containers](https://docs.docker.com/docker-for-windows/) als deze wordt uitgevoerd op Windows.
 
 De microservices die worden uitgevoerd in de lokale Docker-containers nodig hebt voor toegang tot de Azure-cloud-services. U kunt de internetverbinding van uw Docker-omgeving met behulp van de volgende opdracht uit om te pingen van een internetadres uit binnen een container testen:
 
@@ -66,6 +68,9 @@ Als u wilt uitvoeren in de solution accelerator, gaat u naar de **services\\scri
 ```cmd/sh
 docker-compose up
 ```
+
+> [!NOTE] 
+> Zorg ervoor dat u [delen van een lokaal station](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/issues/115) met Docker voordat u uitvoert `docker-compose up`.
 
 De eerste keer dat u deze opdracht uitvoert downloadt Docker de microservice-installatiekopieën van Docker hub kunt u de containers lokaal bouwen. Op het volgende wordt uitgevoerd, Docker de containers wordt onmiddellijk uitgevoerd.
 

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 11829256451990401b6de4bcf62f2b0b51010832
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/08/2019
+ms.openlocfilehash: d2568a4dfc4fefe9628fc63dcc0526b0876fde00
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241149"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993874"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Aanbevolen procedures voor infrastructuur voor Backup-Service
 
@@ -43,9 +43,18 @@ De Universal Naming Convention (UNC)-tekenreeks voor het pad moet een volledig g
 
 ### <a name="encryption"></a>Versleuteling
 
+#### <a name="version-1901-and-newer"></a>Versie 1901 en nieuwer
+
+Het versleutelingscertificaat dat wordt gebruikt voor het versleutelen van back-upgegevens die wordt geëxporteerd naar een externe opslag. Het certificaat kan een zelfondertekend certificaat zijn, omdat het certificaat alleen gebruikt wordt voor het transport van sleutels. New-SelfSignedCertificate Raadpleeg voor meer informatie over het maken van een certificaat.  
+De sleutel moet worden opgeslagen op een veilige locatie (bijvoorbeeld algemene Azure Key Vault-certificaat). Het CER-indeling van het certificaat wordt gebruikt om gegevens te versleutelen. Het PFX-indeling moet worden gebruikt tijdens de implementatie van de recovery cloud van Azure Stack voor het ontsleutelen van back-upgegevens.
+
+![Het certificaat op een veilige locatie opgeslagen.](media/azure-stack-backup/azure-stack-backup-encryption-store-cert.png)
+
+#### <a name="1811-and-older"></a>1811 en ouder
+
 De versleutelingssleutel wordt gebruikt voor het versleutelen van back-upgegevens die wordt geëxporteerd naar een externe opslag. De sleutel wordt gegenereerd als onderdeel van [back-up inschakelen voor Azure Stack met PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
-De sleutel moet worden opgeslagen op een veilige locatie (bijvoorbeeld: openbare Azure Key Vault-geheim). Deze sleutel moet worden gebruikt tijdens het opnieuw implementeren van Azure Stack. 
+De sleutel moet worden opgeslagen op een veilige locatie (bijvoorbeeld algemene Azure Key Vault-geheim). Deze sleutel moet worden gebruikt tijdens het opnieuw implementeren van Azure Stack. 
 
 ![De sleutel een veilige locatie opgeslagen.](media/azure-stack-backup/azure-stack-backup-encryption2.png)
 
@@ -74,7 +83,7 @@ Regio: nyc
 
 MASBackup map is waar de back-upgegevens worden opgeslagen in Azure Stack. U moet deze map niet gebruiken voor het opslaan van uw eigen gegevens. OEM moet deze map niet gebruiken voor het opslaan van een back-upgegevens ofwel. 
 
-OEM's wordt aangeraden voor het opslaan van back-upgegevens van de bijbehorende onderdelen onder de map regio. Elke netwerkswitches, host van de levenscyclus van hardware (HLH), enzovoort kunnen worden opgeslagen in een eigen submap. Bijvoorbeeld:
+OEM's wordt aangeraden voor het opslaan van back-upgegevens van de bijbehorende onderdelen onder de map regio. Elke netwerkswitches, host van de levenscyclus van hardware (HLH), enzovoort, kunnen worden opgeslagen in een eigen submap. Bijvoorbeeld:
 
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\HLH
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Switches
@@ -85,7 +94,7 @@ OEM's wordt aangeraden voor het opslaan van back-upgegevens van de bijbehorende 
 
 De volgende waarschuwingen worden ondersteund door het systeem:
 
-| Waarschuwing                                                   | Beschrijving                                                                                     | Herstel                                                                                                                                |
+| Waarschuwing                                                   | Description                                                                                     | Herstel                                                                                                                                |
 |---------------------------------------------------------|-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | Back-up is mislukt omdat de bestandsshare beperkt is | De bestandsshare is beperkt en back-controller kan back-upbestanden naar de locatie niet exporteren. | Voeg meer opslagcapaciteit toe en probeer opnieuw een back-up. Bestaande back-ups (vanaf van de oudste eerst) verwijderen om ruimte vrij te maken.                    |
 | Back-up is mislukt vanwege problemen met de netwerkverbinding.             | Netwerk tussen de Azure Stack en de share problemen ondervindt.                          | De netwerkprobleem op te lossen en probeer het back-up opnieuw.                                                                                            |
@@ -95,6 +104,6 @@ De volgende waarschuwingen worden ondersteund door het systeem:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk het referentiemateriaal voor de [infrastructuur Backup-Service](azure-stack-backup-reference.md).
+Bekijk het referentiemateriaal voor de [infrastructuur Backup-Service](azure-stack-backup-reference.md)
 
-Schakel de [infrastructuur back-upservice](azure-stack-backup-enable-backup-console.md).
+Schakel de [infrastructuur Backup-Service](azure-stack-backup-enable-backup-console.md)

@@ -1,5 +1,5 @@
 ---
-title: De replicatiestatus van de Active Directory met Azure Log Analytics controleren | Microsoft Docs
+title: Status van Active Directory-replicatie bewaken met Azure Monitor | Microsoft Docs
 description: De Status van Active Directory-replicatie-oplossingenpakket controleert regelmatig uw Active Directory-omgeving voor replicatiefouten.
 services: log-analytics
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 8d597a3491f80bc09c3e0676d17971f2509ba47a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 3b7aa932d24b7879ee3f46419afa2327ee48b403
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818733"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000990"
 ---
-# <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Status van de Active Directory-replicatie met Log Analytics controleren
+# <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Status van Active Directory-replicatie bewaken met Azure Monitor
 
 ![Symbool van AD-replicatiestatus](./media/ad-replication-status/ad-replication-status-symbol.png)
 
@@ -28,11 +28,26 @@ Active Directory is een belangrijk onderdeel van een onderneming IT-omgeving. Ho
 
 Het AD-replicatiestatus-oplossingenpakket controleert regelmatig uw Active Directory-omgeving voor replicatiefouten.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand-solution.md)]
+
 ## <a name="installing-and-configuring-the-solution"></a>Installeren en configureren van de oplossing
 Gebruik de volgende informatie om de oplossing te installeren en configureren.
 
-* U moet agenten installeren op domeincontrollers die lid van het domein zijn moet worden geëvalueerd. Of u moet agenten installeren op lidservers en configureren van de agents AD-replicatie om gegevens te verzenden naar Log Analytics. Zie voor meer informatie over hoe u Windows-computers verbinden met Log Analytics, [verbinding maken met Windows-computers naar Log Analytics](../../azure-monitor/platform/agent-windows.md). Als uw domeincontroller al deel van een bestaande System Center Operations Manager-omgeving die u wilt koppelen aan Log Analytics uitmaakt, Zie [Operations Manager verbinden met Log Analytics](../../azure-monitor/platform/om-agents.md).
-* De oplossing Active Directory Replication Status toevoegen aan uw Log Analytics-werkruimte met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](../../azure-monitor/insights/solutions.md).  Er is geen verdere configuratie nodig.
+### <a name="install-agents-on-domain-controllers"></a>Agents installeren op domeincontrollers
+U moet agenten installeren op domeincontrollers die lid van het domein zijn moet worden geëvalueerd. Of u moet agenten installeren op lidservers en configureren van de agents AD-replicatie om gegevens te verzenden naar Azure Monitor. Zie voor meer informatie over hoe u Windows-computers verbinden met Azure Monitor, [verbinding maken met Windows-computers naar Azure Monitor](../../azure-monitor/platform/agent-windows.md). Als uw domeincontroller al deel van een bestaande System Center Operations Manager-omgeving die u wilt verbinding maken met Azure Monitor uitmaakt, Zie [Operations Manager verbinden met Azure Monitor](../../azure-monitor/platform/om-agents.md).
+
+### <a name="enable-non-domain-controller"></a>Niet-domeincontroller inschakelen
+Als u niet wilt dat uw domeincontrollers rechtstreeks verbinden met Azure Monitor, kunt u een andere computer in uw domein verbonden met Azure Monitor gebruiken voor het verzamelen van gegevens voor het AD-replicatiestatus-oplossingenpakket en het verzenden van de gegevens.
+
+1. Controleer of de computer lid is van het domein dat u wilt bewaken met behulp van de AD-replicatiestatus-oplossing.
+2. [De Windows-computer verbinden met Azure Monitor](../../azure-monitor/platform/om-agents.md) of [verbinding maken met behulp van uw bestaande Operations Manager-omgeving naar Azure Monitor](../../azure-monitor/platform/om-agents.md), als deze nog niet is verbonden.
+3. Stel de volgende registersleutel op die computer:<br>Sleutel: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**<br>Waarde: **IsTarget**<br>Waardegegevens: **true**
+
+   > [!NOTE]
+   > Deze wijzigingen kunnen pas van kracht opnieuw te starten de service Microsoft Monitoring Agent (HealthService.exe).
+### <a name="install-solution"></a>Oplossing installeren
+Volg de procedure beschreven in [installeren van een oplossing voor bewaking](solutions.md#install-a-monitoring-solution) om toe te voegen de **Active Directory Replication Status** oplossing aan uw Log Analytics-werkruimte. Er is geen verdere configuratie nodig.
+
 
 ## <a name="ad-replication-status-data-collection-details"></a>Details van AD-replicatiestatus gegevens verzamelen
 De volgende tabel bevat de methoden voor het verzamelen van gegevens en andere informatie over hoe gegevens worden verzameld voor AD-replicatiestatus.
@@ -41,28 +56,15 @@ De volgende tabel bevat de methoden voor het verzamelen van gegevens en andere i
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |&#8226; |&#8226; |  |  |&#8226; |elke vijf dagen |
 
-## <a name="optionally-enable-a-non-domain-controller-to-send-ad-data-to-log-analytics"></a>Schakel eventueel een niet-domeincontroller AD-gegevens te verzenden naar Log Analytics
-Als u niet wilt dat uw domeincontrollers rechtstreeks verbinden met Log Analytics, kunt u een andere computer in uw domein verbonden met Log Analytics gebruiken voor het verzamelen van gegevens voor het AD-replicatiestatus-oplossingenpakket en het verzenden van de gegevens.
 
-### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-log-analytics"></a>Om in te schakelen van een niet-domeincontroller AD-gegevens te verzenden naar Log Analytics
-1. Controleer of de computer lid is van het domein dat u wilt bewaken met behulp van de AD-replicatiestatus-oplossing.
-2. [De Windows-computer verbinden met Log Analytics](../../azure-monitor/platform/om-agents.md) of [verbinding maken met behulp van uw bestaande Operations Manager-omgeving naar Log Analytics](../../azure-monitor/platform/om-agents.md), als deze nog niet is verbonden.
-3. Stel de volgende registersleutel op die computer:
-
-   * Sleutel: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
-   * Waarde: **IsTarget**
-   * Waardegegevens: **true**
-
-   > [!NOTE]
-   > Deze wijzigingen kunnen pas van kracht opnieuw te starten de service Microsoft Monitoring Agent (HealthService.exe).
-   >
-   >
 
 ## <a name="understanding-replication-errors"></a>Wat zijn replicatiefouten opgetreden?
-Zodra u AD status replicatiegegevens verzonden naar Log Analytics hebt, ziet u een tegel die vergelijkbaar is met de volgende afbeelding in Log Analytics, waarmee wordt aangegeven hoeveel replicatiefouten u momenteel hebt.  
-![Tegel AD-replicatiestatus](./media/ad-replication-status/oms-ad-replication-tile.png)
 
-**Kritieke replicatiefouten** fouten die aan of hoger dan 75% van zijn de [tombstone-levensduur](https://technet.microsoft.com/library/cc784932%28v=ws.10%29.aspx) voor uw Active Directory-forest.
+[!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
+
+De AD-replicatiestatus-tegel wordt weergegeven hoeveel replicatiefouten u momenteel hebt. **Kritieke replicatiefouten** fouten die aan of hoger dan 75% van zijn de [tombstone-levensduur](https://technet.microsoft.com/library/cc784932%28v=ws.10%29.aspx) voor uw Active Directory-forest.
+
+![Tegel AD-replicatiestatus](./media/ad-replication-status/oms-ad-replication-tile.png)
 
 Wanneer u op de tegel klikt, kunt u meer informatie over de fouten bekijken.
 ![Dashboard voor AD-replicatiestatus](./media/ad-replication-status/oms-ad-replication-dash.png)
@@ -104,11 +106,11 @@ Als u eerder hebt genoteerd, de dashboardtegel voor de AD-replicatiestatus-oplos
 >
 
 ### <a name="ad-replication-status-details"></a>Details van status van AD-replicatie
-Wanneer u een item in een van de lijsten op klikt, ziet u aanvullende informatie over het gebruik van zoeken in Logboeken. De resultaten worden gefilterd om alleen de fouten met betrekking tot dat item weer te geven. Bijvoorbeeld, als u klikt op de eerste domeincontroller vermeld onder **Status van doelserver (ADDC02)**, ziet u de zoekresultaten gefilterd op fouten weergeven met die domeincontroller wordt vermeld als de doelserver:
+Wanneer u een item in een van de lijsten op klikt, ziet u aanvullende informatie over met behulp van een query voor. De resultaten worden gefilterd om alleen de fouten met betrekking tot dat item weer te geven. Bijvoorbeeld, als u klikt op de eerste domeincontroller vermeld onder **Status van doelserver (ADDC02)**, ziet u de resultaten van de query is gefilterd op fouten weergeven met die domeincontroller wordt vermeld als de doelserver:
 
-![AD-status replicatiefouten opgetreden in de zoekresultaten](./media/ad-replication-status/oms-ad-replication-search-details.png)
+![AD-status replicatiefouten opgetreden in de resultaten van query](./media/ad-replication-status/oms-ad-replication-search-details.png)
 
-Hier kunt kunt u verder filteren, wijzigen van de zoekopdracht, enzovoort. Zie voor meer informatie over het gebruik van zoeken in logboeken [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md).
+Hier kunt kunt u verder filteren, wijzig de logboekquery, enzovoort. Zie voor meer informatie over het gebruik van de logboeken-query's in Azure Monitor [analyseren logboekgegevens in Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 
 De **HelpLink** veld ziet u de URL van een TechNet-pagina met aanvullende informatie over de specifieke fout. U kunt kopiëren en plakken van deze koppeling in het browservenster om informatie over het oplossen van problemen en het verhelpen van de fout te bekijken.
 
@@ -124,10 +126,11 @@ A: De gegevens worden elke vijf dagen bijgewerkt.
 A: Momenteel niet.
 
 **V: Moet ik mijn domeincontrollers toevoegen aan mijn Log Analytics-werkruimte als u wilt bekijken van de replicatiestatus?**
-A: Nee, slechts één domeincontroller moet worden toegevoegd. Als u meerdere domeincontrollers in uw Log Analytics-werkruimte hebt, worden gegevens van al deze wordt verzonden naar Log Analytics.
+A: Nee, slechts één domeincontroller moet worden toegevoegd. Als u meerdere domeincontrollers in uw Log Analytics-werkruimte hebt, worden gegevens van al deze wordt verzonden naar Azure Monitor.
 
 **V: Ik wil niet alle domeincontrollers toevoegen aan mijn werkruimte voor logboekanalyse. Kan ik nog steeds de AD-replicatiestatus-oplossing gebruiken?**
-A: Ja. U kunt de waarde van een registersleutel te kunnen instellen. Zie voor inschakelen een niet-domeincontroller AD-gegevens te verzenden naar Log Analytics
+
+A: Ja. U kunt de waarde van een registersleutel te kunnen instellen. Zie [niet-domeincontroller inschakelen](#enable-non-domain-controller).
 
 **V: Wat is de naam van het proces dat het verzamelen van gegevens wordt?**
 A: AdvisorAssessment.exe
@@ -147,9 +150,9 @@ A: Normale gebruikersmachtigingen voor Active Directory zijn voldoende.
 ## <a name="troubleshoot-data-collection-problems"></a>Problemen met gegevens verzamelen
 Als u wilt verzamelen van gegevens, moet het AD-replicatiestatus-oplossingenpakket ten minste één domeincontroller worden verbonden met uw Log Analytics-werkruimte. Totdat u verbinding maakt met een domeincontroller, er een bericht weergegeven dat aangeeft dat **nog steeds gegevens worden verzameld**.
 
-Als u hulp bij het verbinden van een van uw domeincontrollers, vindt u de documentatie bij [verbinding maken met Windows-computers naar Log Analytics](../../azure-monitor/platform/om-agents.md). Als uw domeincontroller al met een bestaande System Center Operations Manager-omgeving verbonden is, kunt u ook documentatie bij bekijken [System Center Operations Manager verbinden met Log Analytics](../../azure-monitor/platform/om-agents.md).
+Als u hulp bij het verbinden van een van uw domeincontrollers, vindt u de documentatie bij [verbinding maken met Windows-computers naar Azure Monitor](../../azure-monitor/platform/om-agents.md). Als uw domeincontroller al met een bestaande System Center Operations Manager-omgeving verbonden is, kunt u ook documentatie bij bekijken [System Center Operations Manager verbinden met Azure Monitor](../../azure-monitor/platform/om-agents.md).
 
-Als u niet wilt verbinding maken met een van uw domeincontrollers rechtstreeks Log Analytics of met System Center Operations Manager, raadpleegt u om in te schakelen van een niet-domeincontroller AD-gegevens te verzenden naar Log Analytics.
+Als u niet dat een van uw domeincontrollers verbinding rechtstreeks met Azure Monitor of System Center Operations Manager wilt, Zie [niet-domeincontroller inschakelen](#enable-non-domain-controller).
 
 ## <a name="next-steps"></a>Volgende stappen
-* Gebruik [zoekopdrachten in Logboeken in Log Analytics](../../azure-monitor/log-query/log-query-overview.md) om gedetailleerde gegevens van Active Directory-replicatie de status weer te geven.
+* Gebruik [query's bijgehouden in Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) om gedetailleerde gegevens van Active Directory-replicatie de status weer te geven.

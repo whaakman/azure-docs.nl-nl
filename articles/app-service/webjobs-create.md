@@ -15,17 +15,20 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
 ms.custom: seodec18
-ms.openlocfilehash: d21d588660b67da024491151fe4f4376cebba46f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 43ec22836cb32c21953b9eb6871b9efe300cbf9e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730982"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001167"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Achtergrondtaken uitvoeren met WebJobs in Azure App Service
 
 ## <a name="overview"></a>Overzicht
 WebJobs is een functie van [Azure App Service](https://docs.microsoft.com/azure/app-service/) waarmee u kunt een programma of script binnen dezelfde context als een web-app, API-app of mobiele app uitvoeren. Er is geen extra kosten gebruik van WebJobs.
+
+> [!IMPORTANT]
+> WebJobs is nog niet ondersteund voor App Service on Linux.
 
 Dit artikel wordt beschreven hoe u WebJobs implementeren met behulp van de [Azure-portal](https://portal.azure.com) voor het uploaden van een uitvoerbaar bestand of script. Zie voor meer informatie over het ontwikkelen en WebJobs implementeren met behulp van Visual Studio [WebJobs toepassen met Visual Studio](webjobs-dotnet-deploy-vs.md).
 
@@ -51,13 +54,13 @@ De volgende tabel beschrijft de verschillen tussen *continue* en *geactiveerd* W
 
 De volgende bestandstypen worden ondersteund:
 
-* .cmd, .bat, .exe (met behulp van Windows-cmd)
+* .cmd, .bat, .exe (using Windows cmd)
 * .ps1 (met behulp van PowerShell)
 * .sh (met Bash)
 * .php (met behulp van PHP)
 * .PY (met behulp van Python)
 * .js (met behulp van Node.js)
-* JAR (met behulp van Java)
+* .jar (using Java)
 
 ## <a name="CreateContinuous"></a> Een continue WebJob maken
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 68d9df20ca303d6f9f80d05a614da3eda466b3f8
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: b0842bfc4c9d60420f6409afc4bc42692346050b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657957"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999654"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Pacemaker op SUSE Linux Enterprise Server in Azure instellen
 
@@ -521,7 +521,7 @@ Gebruik de volgende inhoud voor het invoerbestand. U moet de inhoud voor uw abon
 }
 ```
 
-### <a name="1-assign-the-custom-role-to-the-service-principal"></a>**[1]**  De aangepaste rol toewijzen aan de Service-Principal
+### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]**  De aangepaste rol toewijzen aan de Service-Principal
 
 De aangepaste rol 'Linux omheining Agent rol' die is gemaakt in het vorige hoofdstuk aan de Service-Principal toewijzen. De rol van eigenaar niet meer gebruiken.
 

@@ -4,7 +4,7 @@ description: Meer informatie over het gebruik van de Azure Media Services Smooth
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 6068151f-b6b0-4507-9346-f03416d3d572
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 1664dc16e93fa825962690ec3ed5681478005d59
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cfabc068e801c610c9e393eea50213a3c5ad26ea
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229625"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000094"
 ---
-# <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Het gebruik van de Microsoft Smooth Streaming-invoegtoepassing voor Adobe Open Source Media Framework
+# <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Het gebruik van de Microsoft Smooth Streaming-invoegtoepassing voor Adobe Open Source Media Framework  
 ## <a name="overview"></a>Overzicht
 De Microsoft Smooth Streaming-invoegtoepassing voor Open Source Media Framework 2.0 (SS voor OSMF) breidt de mogelijkheden van de standaardwaarde van OSMF en Microsoft Smooth Streaming inhoud afspelen toegevoegd aan nieuwe en bestaande OSMF spelers. De invoegtoepassing wordt afspelen van Smooth Streaming-mogelijkheden ook toegevoegd aan Strobe Media Playback (SMP).
 
@@ -52,8 +52,8 @@ Raadpleeg voor een volledige lijst van ondersteunde functies, niet-ondersteunde 
 ## <a name="loading-the-plugin"></a>Het laden van de invoegtoepassing
 OSMF invoegtoepassingen kunnen worden geladen (op compilatietijd) statisch of dynamisch (op het moment van uitvoering). De Smooth Streaming-invoegtoepassing voor OSMF download bevat zowel dynamische en statische-versies.
 
-* Statische laden: voor het laden van statisch, een statische bibliotheek (SWC)-bestand is vereist. Statische invoegtoepassingen worden toegevoegd als een verwijzing naar de projecten en samenvoegen in de uiteindelijke uitvoer-bestand op het moment van compileren.
-* Dynamisch laden: als u wilt laden dynamisch, een vooraf gecompileerde (SWF)-bestand is vereist. Dynamische invoegtoepassingen zijn geladen in de runtime en niet zijn opgenomen in de projectuitvoer. (Gecompileerde uitvoer) Dynamische invoegtoepassingen kunnen worden geladen met behulp van HTTP- en protocollen.
+* Statische laden: Een statische bibliotheek (SWC)-bestand is voor het laden van statisch, vereist. Statische invoegtoepassingen worden toegevoegd als een verwijzing naar de projecten en samenvoegen in de uiteindelijke uitvoer-bestand op het moment van compileren.
+* Dynamisch laden: Als u wilt laden dynamisch, is een vooraf gecompileerde-bestand (SWF) vereist. Dynamische invoegtoepassingen zijn geladen in de runtime en niet zijn opgenomen in de projectuitvoer. (Gecompileerde uitvoer) Dynamische invoegtoepassingen kunnen worden geladen met behulp van HTTP- en protocollen.
 
 Zie voor meer informatie over het laden van statische en dynamische, de officiële [OSMF-invoegtoepassing pagina](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf).
 

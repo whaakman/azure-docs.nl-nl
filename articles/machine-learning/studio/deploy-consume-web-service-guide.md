@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 64276047410280f8e818cf695f1fbb0c80fdd693
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e2add42e56f939dbfeb33ac2774d404411b1fefb
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497669"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997248"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio Web Services: Implementatie en verbruik
 U kunt Azure Machine Learning kunt gebruiken om machine learning-werkstromen en modellen als webservices te implementeren. Deze webservices kunnen vervolgens worden gebruikt voor het aanroepen van de machine learning-modellen van toepassingen via Internet wilt voorspellingen in realtime of in de batchmodus. Omdat de webservices RESTful zijn, kunt u deze aanroepen van verschillende programmeertalen en platforms, zoals .NET, Java, en toepassingen, zoals Excel.
@@ -31,10 +31,10 @@ De volgende koppelingen bieden algemene informatie over het implementeren van ee
 
 * Zie voor een overzicht over het implementeren van een nieuwe webservice die gebaseerd op Azure Resource Manager, [een nieuwe webservice implementeren](publish-a-machine-learning-web-service.md).
 * Zie voor een overzicht over het implementeren van een webservice, [een Azure Machine Learning-webservice implementeren](publish-a-machine-learning-web-service.md).
-* Zie voor een volledige uitleg over het maken en implementeren van een webservice [scenario stap 1: Een Machine Learning-werkruimte maken](walkthrough-1-create-ml-workspace.md).
+* Voor een overzicht over het maken en implementeren van een webservice, beginnen met [ zelfstudie 1: Kredietrisico voorspellen](tutorial-part1-credit-risk.md).
 * Zie voor specifieke voorbeelden die een webservice implementeren:
 
-  * [Kennismaken, stap 5: De Azure Machine Learning-webservice implementeren](walkthrough-5-publish-web-service.md)
+  * [Zelfstudie 3: Tegoed risicomodel implementeren](tutorial-part3-credit-risk-deploy.md)
   * [Een webservice implementeren in meerdere regio 's](how-to-deploy-to-multiple-regions.md)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Bij de resourceprovider voor web services API's (Azure Resource Manager-API's)
@@ -84,7 +84,7 @@ U kunt uw webservice van Azure Machine Learning-webserviceportal testen. Dit omv
 
 * [Een nieuwe webservice implementeren](publish-a-machine-learning-web-service.md)
 * [Een Azure Machine Learning-webservice implementeren](publish-a-machine-learning-web-service.md)
-* [Kennismaken, stap 5: De Azure Machine Learning-webservice implementeren](walkthrough-5-publish-web-service.md)
+* [Zelfstudie 3: Tegoed risicomodel implementeren](tutorial-part3-credit-risk-deploy.md)
 
 ### <a name="from-excel"></a>Vanuit Excel
 U kunt een Excel-sjabloon die de webservice verbruikt downloaden:

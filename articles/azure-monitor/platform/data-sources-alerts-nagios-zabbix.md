@@ -1,6 +1,6 @@
 ---
-title: Verzamelen van Nagios en Zabbix-waarschuwingen in Log Analytics | Microsoft Docs
-description: Nagios en Zabbix zijn open-source hulpprogramma's voor controle. U kunt waarschuwingen van deze hulpprogramma's verzamelen in Log Analytics om ze te analyseren en met waarschuwingen van andere bronnen.  In dit artikel wordt beschreven hoe u de Log Analytics-agent voor Linux voor het verzamelen van waarschuwingen van deze systemen configureren.
+title: Verzamelen van Nagios en Zabbix-waarschuwingen in Azure Monitor | Microsoft Docs
+description: Nagios en Zabbix zijn open-source hulpprogramma's voor controle. U kunt waarschuwingen verzamelen van deze hulpprogramma's in Azure Monitor om te kunnen analyseren en met waarschuwingen van andere bronnen.  In dit artikel wordt beschreven hoe u de Log Analytics-agent voor Linux voor het verzamelen van waarschuwingen van deze systemen configureren.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 1ae719237cb1afee6d2340e1734d008799da8a86
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ac8e214df6b6990e2b27b5897350c85e0a944e0c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107528"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997954"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-azure-monitor-from-log-analytics-agent-for-linux"></a>Meldingen van Nagios en Zabbix in Azure Monitor verzamelen in Log Analytics-agent voor Linux 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-[Nagios](https://www.nagios.org/) en [Zabbix](http://www.zabbix.com/) zijn open-source hulpprogramma's voor controle. U kunt waarschuwingen van deze hulpprogramma's verzamelen in Log Analytics om ze te analyseren met logboekgegevens uit andere bronnen.  In dit artikel wordt beschreven hoe u de Log Analytics-agent voor Linux voor het verzamelen van waarschuwingen van deze systemen configureren.
+[Nagios](https://www.nagios.org/) en [Zabbix](http://www.zabbix.com/) zijn open-source hulpprogramma's voor controle. U kunt waarschuwingen verzamelen van deze hulpprogramma's in Azure Monitor om te kunnen analyseren met logboekgegevens uit andere bronnen.  In dit artikel wordt beschreven hoe u de Log Analytics-agent voor Linux voor het verzamelen van waarschuwingen van deze systemen configureren.
 
 
 > [!NOTE]
-> [Waarschuwingen die zijn gemaakt door Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) zijn onafhankelijk van logboekgegevens opgeslagen en niet toegankelijk is vanaf de logboeken-query's.
+> [Waarschuwingen die zijn gemaakt door Azure Monitor](alerts-overview.md) zijn onafhankelijk van logboekgegevens opgeslagen en niet toegankelijk is vanaf de logboeken-query's.
 
  
 ## <a name="prerequisites"></a>Vereisten
@@ -84,7 +84,7 @@ Voor het verzamelen van waarschuwingen op de Nagios-server, moet u de volgende s
 
 
 ## <a name="alert-records"></a>Waarschuwing records
-U kunt waarschuwingen records van Nagios en Zabbix ophalen met behulp van [query's bijgehouden](../log-query/log-query-overview.md) in Log Analytics.
+U kunt waarschuwingen records van Nagios en Zabbix ophalen met behulp van [query's bijgehouden](../log-query/log-query-overview.md) in Azure Monitor.
 
 ### <a name="nagios-alert-records"></a>Nagios-waarschuwing records
 
@@ -122,5 +122,5 @@ Ontvang een waarschuwing die worden verzameld door Zabbix records hebben een **T
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [waarschuwingen](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) in Azure Monitor.
+* Meer informatie over [waarschuwingen](alerts-overview.md) in Azure Monitor.
 * Meer informatie over [query's bijgehouden](../log-query/log-query-overview.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren. 

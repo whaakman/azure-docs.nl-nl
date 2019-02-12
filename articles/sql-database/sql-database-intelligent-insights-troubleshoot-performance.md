@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 156d06b3c3fab5df1cd4360fb9e6ec2648d8d0b6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1935c670b5c7622f45f8c96b8c2faf03da6282f3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455062"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993629"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Oplossen van prestatieproblemen met de Azure SQL Database met intelligente inzichten
 
@@ -237,7 +237,7 @@ Zie voor meer informatie, [Inleiding tot tabellen geoptimaliseerd voor geheugen]
 
 Dit patroon detecteerbare prestaties geeft aan dat een verslechtering van de in de huidige database werkbelastingsprestaties in vergelijking met de basislijn van de afgelopen zeven dagen. Het is vanwege het gebrek aan beschikbare dtu's in de elastische pool van uw abonnement. 
 
-Resources voor SQL Database worden gewoonlijk aangeduid als [DTU-bronnen](sql-database-service-tiers.md#dtu-based-purchasing-model), die bestaan uit een samengestelde meting van CPU- en i/o-resources voor (gegevens en transactielogboeken logboek-IO). [Elastische groep van Azure-resources](sql-database-elastic-pool.md) worden gebruikt als een pool van beschikbare eDTU-resources die zijn gedeeld tussen meerdere databases voor het schalen van toepassing. Wanneer beschikbaar eDTU-resources in de elastische pool niet voldoende voor de ondersteuning van alle databases in de groep, wordt een elastische pool DTU tekort prestatieprobleem gedetecteerd door het systeem.
+Resources voor SQL Database worden gewoonlijk aangeduid als [DTU-bronnen](sql-database-purchase-models.md#dtu-based-purchasing-model), die bestaan uit een samengestelde meting van CPU- en i/o-resources voor (gegevens en transactielogboeken logboek-IO). [Elastische groep van Azure-resources](sql-database-elastic-pool.md) worden gebruikt als een pool van beschikbare eDTU-resources die zijn gedeeld tussen meerdere databases voor het schalen van toepassing. Wanneer beschikbaar eDTU-resources in de elastische pool niet voldoende voor de ondersteuning van alle databases in de groep, wordt een elastische pool DTU tekort prestatieprobleem gedetecteerd door het systeem.
 
 ### <a name="troubleshooting"></a>Problemen oplossen
 

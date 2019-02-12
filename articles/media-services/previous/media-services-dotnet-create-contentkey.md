@@ -1,10 +1,10 @@
 ---
-title: ContentKeys maken met .NET
+title: Inhoudssleutels maken met .NET
 description: Informatie over het maken van de inhoud van de sleutels die beveiligde toegang tot bedrijfsmiddelen bieden.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 225b05e5-7d30-409c-b5b7-3ef0634310c7
 ms.service: media-services
@@ -12,37 +12,37 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 53df4c4cef19f6eef99aa15bb265317aa0cd1d58
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: af8c2b547e1ce1b15410ee20eb59934559ac41ac
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788184"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992157"
 ---
-# <a name="create-contentkeys-with-net"></a>ContentKeys maken met .NET
+# <a name="create-contentkeys-with-net-legacy"></a>Inhoudssleutels maken met .NET (verouderd)
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-create-contentkey.md)
 > * [.NET](media-services-dotnet-create-contentkey.md)
 > 
 > 
 
-Media Services kunt u maken en versleutelde activa leveren. Een **ContentKey** biedt veilige toegang tot uw **Asset**s. 
+Media Services kunt u maken en het leveren van versleutelde activa. Een **ContentKey** biedt veilige toegang tot uw **Asset**s. 
 
-Wanneer u een nieuwe asset maken (bijvoorbeeld voordat u [bestanden uploaden](media-services-dotnet-upload-files.md)), kunt u de volgende versleutelingsopties: **StorageEncrypted**, **CommonEncryptionProtected**, of **EnvelopeEncryptionProtected**. 
+Wanneer u een nieuwe asset maken (bijvoorbeeld, voordat u [bestanden uploaden](media-services-dotnet-upload-files.md)), kunt u de volgende versleutelingsopties: **StorageEncrypted**, **CommonEncryptionProtected**, of **EnvelopeEncryptionProtected**. 
 
-Als u activa aan uw clients leveren, kunt u [configureren voor bedrijfsmiddelen die dynamisch worden versleuteld](media-services-dotnet-configure-asset-delivery-policy.md) met een van de volgende twee versleutelingen: **DynamicEnvelopeEncryption** of **DynamicCommonEncryption**.
+Wanneer u elementen aan uw clients leveren, kunt u [configureren voor activa dynamisch worden versleuteld](media-services-dotnet-configure-asset-delivery-policy.md) met een van de volgende twee coderingen: **DynamicEnvelopeEncryption** of **DynamicCommonEncryption**.
 
-Versleutelde activa hebben moeten worden gekoppeld aan **ContentKey**s. In dit artikel wordt beschreven hoe een inhoudssleutel maken.
+Versleutelde assets moeten worden gekoppeld aan **ContentKey**s. In dit artikel wordt beschreven hoe u een inhoudssleutel maken.
 
 > [!NOTE]
-> Bij het maken van een nieuwe **StorageEncrypted** asset met Media Services .NET SDK, de **ContentKey** automatisch wordt gemaakt en gekoppeld aan de asset.
+> Bij het maken van een nieuwe **StorageEncrypted** asset met de Media Services .NET SDK, de **ContentKey** automatisch wordt gemaakt en gekoppeld aan de asset.
 > 
 > 
 
 ## <a name="contentkeytype"></a>ContentKeyType
-Een van de waarden moeten in te stellen wanneer een inhoud maken sleutel is het inhoudstype key. Kies een van de volgende waarden. 
+Een van de waarden die u moet ingesteld wanneer een inhoud maken sleutel is het inhoudstype key. Kies een van de volgende waarden. 
 
 ```csharp
     public enum ContentKeyType
@@ -70,7 +70,7 @@ Een van de waarden moeten in te stellen wanneer een inhoud maken sleutel is het 
     }
 ```
 
-## <a id="envelope_contentkey"></a>Het type envelop ContentKey maken
+## <a id="envelope_contentkey"></a>Type envelop ContentKey maken
 Het volgende codefragment maakt een inhoudssleutel van het type envelop versleuteling. Vervolgens wordt de sleutel gekoppeld aan de opgegeven asset.
 
 ```csharp
@@ -108,7 +108,7 @@ call
 ```
 
 
-## <a id="common_contentkey"></a>Het algemene type ContentKey maken
+## <a id="common_contentkey"></a>Gemeenschappelijk type ContentKey maken
 Het volgende codefragment maakt een inhoudssleutel van het algemene versleutelingstype. Vervolgens wordt de sleutel gekoppeld aan de opgegeven asset.
 
 ```csharp

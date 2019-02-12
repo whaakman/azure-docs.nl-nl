@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/09/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 707cd7e72245ce47289c0a744d7103c713acecb9
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: d0051f081f005d61a1eed43d177a11781b2b3fa8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765480"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997080"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes op Azure Stack Marketplace toevoegen
 
@@ -65,15 +65,15 @@ Maak een plan, een aanbieding en een abonnement voor het Kubernetes-Marketplace-
 
 Als u Active Directory Federated Services (AD FS) voor uw identity management-service gebruikt, moet u een service-principal voor gebruikers implementeert een Kubernetes-cluster maken.
 
-1. Maken en exporteren van een certificaat worden gebruikt voor de service-principal maken. Het volgende codefragment hieronder ziet u hoe u een zelfondertekend certificaat maken. 
+1. Maken en exporteren van een zelfondertekend certificaat gebruikt voor de service-principal maken. 
 
     - U hebt de volgende soorten informatie nodig:
 
        | Value | Description |
        | ---   | ---         |
-       | Wachtwoord | Wachtwoord voor het certificaat. |
-       | Pad naar het lokale certificaat | Het pad en de naam van het certificaat. Bijvoorbeeld: `path\certfilename.pfx` |
-       | Naam van het certificaat | De naam van het certificaat. |
+       | Wachtwoord | Een nieuw wachtwoord invoeren voor het certificaat. |
+       | Pad naar het lokale certificaat | Voer het pad en de naam van het certificaat. Bijvoorbeeld: `c:\certfilename.pfx` |
+       | Naam van het certificaat | Voer de naam van het certificaat. |
        | Certificaatarchieflocatie |  Bijvoorbeeld: `Cert:\LocalMachine\My` |
 
     - Open PowerShell met een opdrachtprompt. Voer het volgende script met de parameters die zijn bijgewerkt naar uw waarden:
@@ -82,8 +82,7 @@ Als u Active Directory Federated Services (AD FS) voor uw identity management-se
         # Creates a new self signed certificate 
         $passwordString = "<password>"
         $certlocation = "<local certificate path>.pfx"
-        $certificateName = "<certificate name>"
-        #certificate store location. Eg. Cert:\LocalMachine\My
+        $certificateName = "CN=<certificate name>"
         $certStoreLocation="<certificate store location>"
         
         $params = @{
@@ -105,24 +104,33 @@ Als u Active Directory Federated Services (AD FS) voor uw identity management-se
         Export-PfxCertificate -cert $cert -FilePath $certlocation -Password $pwd
         ```
 
-2. Service-principal met behulp van het certificaat maken.
+2.  Noteer het nieuwe certificaat-ID weergegeven in uw PowerShell-sessie `1C2ED76081405F14747DC3B5F76BB1D83227D824`. De ID wordt gebruikt bij het maken van de service-principal.
+
+    ```PowerShell  
+    VERBOSE: Generated new certificate 'CN=<certificate name>' (1C2ED76081405F14747DC3B5F76BB1D83227D824).
+    ```
+
+3. Service-principal met behulp van het certificaat maken.
 
     - U hebt de volgende soorten informatie nodig:
 
        | Value | Description                     |
        | ---   | ---                             |
        | ERCS IP | In de ASDK, is het eindpunt van de bevoegde normaal gesproken `AzS-ERCS01`. |
-       | De naam van de toepassing | Een eenvoudige naam voor de service-principal van toepassing. |
-       | Certificaatarchieflocatie | Het pad op de computer waarop u het certificaat hebt opgeslagen. Bijvoorbeeld: `Cert:\LocalMachine\My\<someuid>` |
+       | De naam van de toepassing | Een eenvoudige naam voor de toepassingsservice-principal invoeren. |
+       | Certificaatarchieflocatie | Het pad op de computer waarop u het certificaat hebt opgeslagen. Dit wordt aangegeven door de locatie van de store en de certificaat-ID gegenereerd in de eerste stap. Bijvoorbeeld: `Cert:\LocalMachine\My\1C2ED76081405F14747DC3B5F76BB1D83227D824` |
 
-    - Open PowerShell met een opdrachtprompt. Voer het volgende script met de parameters die zijn bijgewerkt naar uw waarden:
+       Wanneer u hierom wordt gevraagd, moet u de volgende referenties gebruiken om te verbinden met het eindpunt van de bevoegdheden. 
+        - Gebruikersnaam: Geef het account CloudAdmin in de notatie <Azure Stack domain>\cloudadmin. (Voor ASDK is de naam van de gebruiker azurestack\cloudadmin.)
+        - Wachtwoord: Voer het wachtwoord dat is opgegeven tijdens de installatie voor de AzureStackAdmin domein administrator-account.
+
+    - Voer het volgende script met de parameters die zijn bijgewerkt naar uw waarden:
 
         ```PowerShell  
         #Create service principal using the certificate
         $privilegedendpoint="<ERCS IP>"
         $applicationName="<application name>"
-        #certificate store location. Eg. Cert:\LocalMachine\My
-        $certStoreLocation="<certificate store location>"
+        $certStoreLocation="<certificate location>"
         
         # Get certificate information
         $cert = Get-Item $certStoreLocation
@@ -189,7 +197,7 @@ De volgende Ubuntu-Server-installatiekopie toevoegen aan de Marketplace:
 
 1. Selecteer **+ toevoegen vanuit Azure**.
 
-1. Voer `UbuntuServer` in.
+1. Voer `Ubuntu Server` in.
 
 1. Selecteer de nieuwste versie van de server. De volledige versie controleren en ervoor te zorgen dat u de nieuwste versie hebt:
     - **Publisher**: Canonical

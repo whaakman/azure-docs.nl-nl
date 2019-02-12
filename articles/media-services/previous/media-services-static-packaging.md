@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 1ea4639d547616f2cfdf1d5e2b78c1388ef09dc4
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 80c9f1c7e2bec3e3f3fa696134a23f0760598a29
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826119"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001133"
 ---
-# <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Met behulp van Azure Media Packager statische pakketten taken
+# <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Met behulp van Azure Media Packager statische pakketten taken  
 > [!NOTE]
 > Het einde van de levensduur van de datum voor Microsoft Azure Media Packager en Windows Azure Media Encryptor uitgebreid naar 1 maart 2017. Vóór die datum worden de functies van deze processors toegevoegd aan Media Encoder Standard (MES). Klanten worden geleverd met instructies voor het migreren van hun werkstromen voor het verzenden van taken naar MES. Indeling conversie- en versleutelingsfuncties mogelijkheden zijn mogelijk ook beschikbaar via dynamische pakketten en dynamische versleuteling.
 > 

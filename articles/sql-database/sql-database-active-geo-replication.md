@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 0c574aab722cdce91cd5a2569c14c4f1710483ed
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.date: 02/08/2019
+ms.openlocfilehash: b39967c071b21978324f205eb62d305011b65fb6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965219"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995050"
 ---
 # <a name="create-readable-secondary-databases-using-active-geo-replication"></a>Leesbare secundaire databases met behulp van actieve geo-replicatie maken
 
@@ -102,7 +102,7 @@ Voor het bereiken van echte zakelijke continuïteit, toe te voegen databaseredun
 
 - **Configureerbare compute-grootte van de secundaire database**
 
-  Primaire en secundaire databases moeten dezelfde servicelaag. Het is ook raadzaam dat deze secundaire database wordt gemaakt met dezelfde compute grootte (dtu's of vCores) als de primaire. Een secundaire met lagere compute grootte loopt het risico van een verbeterde replicatievertraging, mogelijk niet beschikbaar zijn van de secundaire server, en als gevolg daarvan risico aanzienlijk verlies van gegevens na een failover. Als gevolg hiervan, de gepubliceerde RPO = 5 per seconde kan niet worden gegarandeerd. Het andere risico is dat na een failover van de toepassing is van invloed op vanwege een gebrek aan rekencapaciteit van de nieuwe primaire totdat deze is bijgewerkt naar een hogere compute-grootte. De tijd van de upgrade is afhankelijk van de grootte van de database. Daarnaast heeft nodig momenteel deze upgrade zowel primaire als secundaire databases online zijn en daarom kunnen niet worden voltooid nadat de onderbreking is verholpen. Als u besluit te maken van de secundaire met lagere compute-grootte, biedt het logboek i/o-percentage diagram in Azure portal een goede manier om te schatten van de minimale compute-grootte van de secundaire server die is vereist voor het handhaven van de belasting van de replicatie. Bijvoorbeeld, als uw primaire database is P6 (1000 dtu's) en het logboek-i/o-percentage is 50% is de secundaire server moet ten minste P4 (500 dtu's). U kunt ook de logboekgegevens van de i/o-gebruik ophalen [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) of [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) weergaven van de database.  Zie voor meer informatie over de compute-grootten voor SQL-Database [wat SQL Database-Servicelagen zijn](sql-database-service-tiers.md).
+  Primaire en secundaire databases moeten dezelfde servicelaag. Het is ook raadzaam dat deze secundaire database wordt gemaakt met dezelfde compute grootte (dtu's of vCores) als de primaire. Een secundaire met lagere compute grootte loopt het risico van een verbeterde replicatievertraging, mogelijk niet beschikbaar zijn van de secundaire server, en als gevolg daarvan risico aanzienlijk verlies van gegevens na een failover. Als gevolg hiervan, de gepubliceerde RPO = 5 per seconde kan niet worden gegarandeerd. Het andere risico is dat na een failover van de toepassing is van invloed op vanwege een gebrek aan rekencapaciteit van de nieuwe primaire totdat deze is bijgewerkt naar een hogere compute-grootte. De tijd van de upgrade is afhankelijk van de grootte van de database. Daarnaast heeft nodig momenteel deze upgrade zowel primaire als secundaire databases online zijn en daarom kunnen niet worden voltooid nadat de onderbreking is verholpen. Als u besluit te maken van de secundaire met lagere compute-grootte, biedt het logboek i/o-percentage diagram in Azure portal een goede manier om te schatten van de minimale compute-grootte van de secundaire server die is vereist voor het handhaven van de belasting van de replicatie. Bijvoorbeeld, als uw primaire database is P6 (1000 dtu's) en het logboek-i/o-percentage is 50% is de secundaire server moet ten minste P4 (500 dtu's). U kunt ook de logboekgegevens van de i/o-gebruik ophalen [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) of [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) weergaven van de database.  Zie voor meer informatie over de compute-grootten voor SQL-Database [wat SQL Database-Servicelagen zijn](sql-database-purchase-models.md).
 
 - **Gebruiker beheerde failover en failback**
 
@@ -130,7 +130,7 @@ Doorlopend kopiëren gebruikt vanwege de hoge latentie voor wide area network, e
 
 Zoals eerder besproken, kan actieve geo-replicatie ook worden beheerd via een programma met behulp van Azure PowerShell en de REST-API. De volgende tabellen beschrijven de reeks opdrachten die beschikbaar zijn. Actieve geo-replicatie bevat een set met Azure Resource Manager-API's voor beheer, met inbegrip van de [REST-API van Azure SQL Database](https://docs.microsoft.com/rest/api/sql/) en [Azure PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview). Deze API's vereisen het gebruik van resourcegroepen en ondersteuning voor beveiliging op basis van rollen (RBAC). Zie voor meer informatie over het implementeren van toegang tot rollen [toegangsbeheer](../role-based-access-control/overview.md).
 
-### <a name="t-sql-manage-failover-of-standalone-and-pooled-databases"></a>T-SQL: Failover van de zelfstandige en gepoolde databases beheren
+### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL: Failover van één en gepoolde databases beheren
 
 > [!IMPORTANT]
 > Deze Transact-SQL-opdrachten zijn alleen van toepassing op actieve geo-replicatie en niet van toepassing op failover-groepen. Als zodanig ze ook niet van toepassing op beheerde instanties, omdat ze alleen ondersteuning voor failover-groepen.
@@ -146,7 +146,7 @@ Zoals eerder besproken, kan actieve geo-replicatie ook worden beheerd via een pr
 | [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |zorgt ervoor dat de toepassing moet worden gewacht tot alle doorgevoerde transacties worden gerepliceerd en bevestigd door de actieve secundaire database. |
 |  | |
 
-### <a name="powershell-manage-failover-of-standalone-and-pooled-databases"></a>PowerShell: Failover van de zelfstandige en gepoolde databases beheren
+### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell: Failover van één en gepoolde databases beheren
 
 | Cmdlet | Description |
 | --- | --- |
@@ -160,7 +160,7 @@ Zoals eerder besproken, kan actieve geo-replicatie ook worden beheerd via een pr
 > [!IMPORTANT]
 > Zie voor voorbeelden van scripts, [en failover een individuele database met behulp van actieve geo-replicatie configureren](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) en [en failover een gegroepeerde-database met behulp van actieve geo-replicatie configureren](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md).
 
-### <a name="rest-api-manage-failover-of-standalone-and-pooled-databases"></a>REST-API: Failover van de zelfstandige en gepoolde databases beheren
+### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>REST-API: Failover van één en gepoolde databases beheren
 
 | API | Description |
 | --- | --- |

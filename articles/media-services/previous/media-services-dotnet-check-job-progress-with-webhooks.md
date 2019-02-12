@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: b3ce3731f19565bfe950d03a2bbc980dda55a7f4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 386662a4e98b881228a82de3777632ed002bb5b0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238655"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989146"
 ---
-# <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Gebruik Azure Webhooks voor het bewaken van taakmeldingen Media Services met .NET
+# <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Gebruik Azure Webhooks voor het bewaken van taakmeldingen Media Services met .NET 
+
 Wanneer u taken uitvoert, moet u vaak een manier om bij te houden van de taak wordt uitgevoerd. U kunt Media Services-taakmeldingen bewaken met behulp van Azure-Webhooks of [Azure Queue storage](media-services-dotnet-check-job-progress-with-queues.md). Dit artikel leest hoe u werkt met webhooks.
 
 Dit artikel wordt beschreven hoe u
@@ -57,7 +58,7 @@ Bij het ontwikkelen van Media Services-functies, is het handig om toe te voegen 
 
 De [toepassingsinstellingen](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) gedeelte definieert de parameters die worden gebruikt in de webhook is gedefinieerd in dit artikel. Ook de volgende parameters toevoegen aan de app-instellingen. 
 
-|Naam|Definitie|Voorbeeld| 
+|Name|Definitie|Voorbeeld| 
 |---|---|---|
 |SigningKey |Een ondertekeningssleutel.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
 |WebHookEndpoint | Een adres van de webhook-eindpunt. Nadat de webhookfunctie is gemaakt, kunt u de URL van de **functie-URL ophalen** koppeling. | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
@@ -77,7 +78,7 @@ Uw Azure-functie is gekoppeld aan de codebestanden en andere bestanden die in de
 
 ![bestanden weergeven](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
-#### <a name="functionjson"></a>Function.JSON
+#### <a name="functionjson"></a>function.json
 
 Het bestand function.json definieert de functiebindingen en andere configuratie-instellingen. De runtime maakt gebruik van dit bestand om te bepalen welke gebeurtenissen u wilt controleren en het doorgeven van gegevens in en als resultaat de gegevens van een functie wordt uitgevoerd. 
 
@@ -119,7 +120,7 @@ Het bestand project.json bevat afhankelijkheden.
 }
 ```
     
-#### <a name="runcsx"></a>Run.csx
+#### <a name="runcsx"></a>run.csx
 
 De code in deze sectie toont een implementatie van een Azure-functie die een webhook. In dit voorbeeld wordt de functie luistert naar de webhook-aanroep van Media Services-meldingen en publiceert de uitvoerasset zodra de taak is voltooid.
 

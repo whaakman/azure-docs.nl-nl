@@ -1,5 +1,5 @@
 ---
-title: Verzamelen van prestaties van de Linux-toepassingen in Log Analytics | Microsoft Docs
+title: Verzamelen van prestaties van de Linux-toepassingen in Azure Monitor | Microsoft Docs
 description: Dit artikel bevat informatie voor het configureren van de Log Analytics-agent voor Linux voor het verzamelen van prestatiemeteritems voor MySQL en Apache HTTP-Server.
 services: log-analytics
 documentationcenter: ''
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: bf14e06f52f1b5a32ea3922083cc1f9bdbfb2aae
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 453e66934b93ab4368c4d3816d3db1a4588ae660
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104842"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001323"
 ---
-# <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Verzamelen van prestatiemeteritems voor Linux-toepassingen in Log Analytics 
+# <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Verzamelen van prestatiemeteritems voor Linux-toepassingen in Azure Monitor 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-Dit artikel bevat informatie voor het configureren van de [Log Analytics-agent voor Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) voor het verzamelen van prestatiemeteritems voor specifieke toepassingen in Log Analytics.  De toepassingen die zijn opgenomen in dit artikel zijn:  
+Dit artikel bevat informatie voor het configureren van de [Log Analytics-agent voor Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) voor het verzamelen van prestatiemeteritems voor specifieke toepassingen in Azure Monitor.  De toepassingen die zijn opgenomen in dit artikel zijn:  
 
 - [MySQL](#MySQL)
-- [Apache HTTP-Server](#apache-http-server)
+- [Apache HTTP Server](#apache-http-server)
 
 ## <a name="mysql"></a>MySQL
 Als de MySQL-Server of MariaDB-Server wordt gedetecteerd op de computer wanneer de Log Analytics-agent is geïnstalleerd, wordt een provider voor MySQL-Server voor prestatiebewaking automatisch geïnstalleerd. Deze provider maakt verbinding met de lokale MySQL/MariaDB-server om beschikbaar te stellen van statistieken over de prestaties. De referenties van de MySQL-gebruiker moeten worden geconfigureerd zodat de provider toegang heeft tot de MySQL-Server.
@@ -51,10 +51,10 @@ De vermeldingen in het verificatiebestand worden beschreven in de volgende tabel
 | Eigenschap | Description |
 |:--|:--|
 | Poort | Hiermee geeft u de huidige poort op de MySQL-exemplaar luistert. Poort 0 geeft aan dat de volgende eigenschappen worden gebruikt voor het standaardexemplaar. |
-| Binding-adres| Huidige MySQL-bind-adres. |
+| Bind-Address| Huidige MySQL-bind-adres. |
 | gebruikersnaam| De MySQL-gebruiker is gebruikt om te gebruiken voor het bewaken van de MySQL-server-exemplaar. |
 | Base64-gecodeerd wachtwoord| Het wachtwoord van de MySQL-gebruiker bewaking gecodeerd in Base64. |
-| Automatisch bijwerken| Hiermee geeft u op of u wilt opnieuw scannen op wijzigingen in het bestand my.cnf en het verificatiebestand van MySQL OMI overschreven wanneer de MySQL-OMI-Provider is bijgewerkt. |
+| AutoUpdate| Hiermee geeft u op of u wilt opnieuw scannen op wijzigingen in het bestand my.cnf en het verificatiebestand van MySQL OMI overschreven wanneer de MySQL-OMI-Provider is bijgewerkt. |
 
 ### <a name="default-instance"></a>Standaardexemplaar
 Het verificatiebestand MySQL OMI kunt een standaard exemplaar en het poortnummer dat voor het beheer van meerdere exemplaren van MySQL op een Linux-host eenvoudiger definiëren.  Het standaardexemplaar wordt aangeduid met een exemplaar met poort 0. Alle extra exemplaren wordt nemen de eigenschappen instellen vanuit het standaardexemplaar, tenzij ze verschillende waarden opgeven. Bijvoorbeeld, als MySQL-exemplaar luistert op poort '3308' wordt toegevoegd, wordt het standaardexemplaar bind-adres, gebruikersnaam en wachtwoord van de met Base64 gecodeerde worden gebruikt om te controleren van het exemplaar 3308 luisteren. Als het exemplaar op 3308 is gebonden aan een ander adres en dezelfde MySQL gebruikersnaam en wachtwoord twee gebruikt alleen de binding-adres is vereist en de andere eigenschappen, worden overgenomen.
@@ -101,7 +101,7 @@ De MySQL-gebruiker is vereist voor toegang tot de volgende query's voor het verz
 De MySQL-gebruiker moet ook SELECT-toegang tot de volgende standaardtabellen.
 
 - information_schema
-- MySQL. 
+- mysql. 
 
 Deze rechten kunnen worden verleend door het uitvoeren van de volgende opdrachten voor verlenen.
 
@@ -114,7 +114,7 @@ Deze rechten kunnen worden verleend door het uitvoeren van de volgende opdrachte
 
 ### <a name="define-performance-counters"></a>Prestatiemeteritems definiëren
 
-Nadat u de Log Analytics-agent voor Linux om gegevens te verzenden naar Log Analytics configureren, moet u de prestatiemeteritems voor het verzamelen van configureren.  Gebruik de procedure in [Windows en Linux-gegevensbronnen van de prestaties die u in Log Analytics](data-sources-performance-counters.md) met de items in de volgende tabel.
+Nadat u de Log Analytics-agent voor Linux om gegevens te verzenden naar Azure Monitor configureren, moet u de prestatiemeteritems voor het verzamelen van configureren.  Gebruik de procedure in [Windows en Linux-gegevensbronnen van de prestaties die u in Azure Monitor](data-sources-performance-counters.md) met de items in de volgende tabel.
 
 | Objectnaam | Naam van teller |
 |:--|:--|
@@ -150,13 +150,13 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 ### <a name="define-performance-counters"></a>Prestatiemeteritems definiëren
 
-Nadat u de Log Analytics-agent voor Linux om gegevens te verzenden naar Log Analytics configureren, moet u de prestatiemeteritems voor het verzamelen van configureren.  Gebruik de procedure in [Windows en Linux-gegevensbronnen van de prestaties die u in Log Analytics](data-sources-performance-counters.md) met de items in de volgende tabel.
+Nadat u de Log Analytics-agent voor Linux om gegevens te verzenden naar Azure Monitor configureren, moet u de prestatiemeteritems voor het verzamelen van configureren.  Gebruik de procedure in [Windows en Linux-gegevensbronnen van de prestaties die u in Azure Monitor](data-sources-performance-counters.md) met de items in de volgende tabel.
 
 | Objectnaam | Naam van teller |
 |:--|:--|
 | Apache HTTP-Server | Werknemers bezet |
 | Apache HTTP-Server | Niet-actieve werknemers |
-| Apache HTTP-Server | PCT bezet werknemers |
+| Apache HTTP-Server | Pct Busy Workers |
 | Apache HTTP-Server | Totaal aantal Pct CPU |
 | Virtuele Host van Apache | Fouten per minuut - Client |
 | Virtuele Host van Apache | Fouten per minuut - Server |
@@ -168,4 +168,4 @@ Nadat u de Log Analytics-agent voor Linux om gegevens te verzenden naar Log Anal
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Verzamelen van prestatiemeteritems](data-sources-performance-counters.md) van Linux-agents.
-* Meer informatie over [query's bijgehouden](../../log-analytics/log-analytics-queries.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren. 
+* Meer informatie over [query's bijgehouden](../log-query/log-query-overview.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren. 

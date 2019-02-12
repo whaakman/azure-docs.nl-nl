@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 64e353bbb83c7696960fc1d2e478478afbc94241
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 0a8cb1178ec70d4e50f2a45834f9592c4708c5af
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249234"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998634"
 ---
-# <a name="how-to-get-a-media-processor-instance"></a>Hoe: een exemplaar van de Processor Media ophalen
+# <a name="how-to-get-a-media-processor-instance"></a>Procedure: Een Mediaprocessor-exemplaar ophalen
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
 > * [REST](media-services-rest-get-media-processor.md)
@@ -40,7 +40,7 @@ Het volgende onderwerp bevat een lijst met media-processors:
 
 ## <a name="get-media-processor"></a>Ophalen van Mediaprocessor
 
-De volgende methode laat zien hoe een exemplaar van de processor media. De voorbeeldcode wordt ervan uitgegaan dat het gebruik van een module-niveau variabele met de naam **_context** om te verwijzen naar de servercontext zoals beschreven in de sectie [hoe: verbinding maken met Media Services via een programma](media-services-use-aad-auth-to-access-ams-api.md).
+De volgende methode laat zien hoe een exemplaar van de processor media. De voorbeeldcode wordt ervan uitgegaan dat het gebruik van een module-niveau variabele met de naam **_context** om te verwijzen naar de servercontext zoals beschreven in de sectie [het: Verbinding maken met mediaservices via een programma](media-services-use-aad-auth-to-access-ams-api.md).
 
     private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
     {

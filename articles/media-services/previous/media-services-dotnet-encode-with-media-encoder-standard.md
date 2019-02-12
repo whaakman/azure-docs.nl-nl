@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/09/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: e557b7220077be7fcca418f0c2cf8aceeace1eb5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d2d910c5f031329e952f4892431877ec690c2a5a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809578"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991189"
 ---
-# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Een asset coderen met Media Encoder Standard met .NET 
+# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Een asset coderen met Media Encoder Standard met .NET  
+
 Encoding-taken behoren tot de vaakst uitgevoerde bewerkingen in Media Services. U creëert coderingstaken om mediabestanden te converteren van de ene naar de andere indeling. Wanneer u codeert, kunt u de Media Services ingebouwde Media Encoder. U kunt ook een coderingsprogramma geleverd door een partner Media Services; coderingsprogramma's van derden zijn beschikbaar via de Azure Marketplace. 
 
 In dit artikel laat zien hoe uw assets met Media Encoder Standard (MES) coderen met .NET. Media Encoder Standard is geconfigureerd met een van de standaardinstellingen van het coderingsprogramma's die worden beschreven [hier](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).

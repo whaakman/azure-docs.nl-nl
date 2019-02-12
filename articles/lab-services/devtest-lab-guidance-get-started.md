@@ -3,21 +3,23 @@ title: Aan de slag met Azure DevTest Labs
 description: Dit artikel bevat de primaire scnearios voor het gebruik van Azure DevTest Labs en twee algemene paden om te beginnen met de service in uw organisatie.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
-author: spelluru
+author: christianreddington
 manager: femila
+editor: spelluru
 ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
-ms.author: spelluru
-ms.openlocfilehash: 87baef8ddb5b5d8fc979ba5afb9f9b13cb4fc2ef
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 02/11/2019
+ms.author: chredd
+ms.reviewer: anthdela,juselph
+ms.openlocfilehash: dfb73778a9d30ba50e69bff6414381235ad8b1d1
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876533"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005230"
 ---
 # <a name="get-started-with-using-azure-devtest-labs"></a>Aan de slag met Azure DevTest Labs
 Als u DevTest Labs verkennen besluit, er zijn twee algemene paden voorwaarts – Proof of Concept vs schaal implementatie. 
@@ -62,4 +64,4 @@ Een lab in Azure DevTest Labs fungeert als een geweldige container voor tijdelij
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie het volgende artikel in deze serie: [schalen van uw implementatie DevTest Labs](devtest-lab-guidance-scale.md)
+Zie het volgende artikel in deze reeks: [Schalen van uw implementatie DevTest Labs](devtest-lab-guidance-scale.md)

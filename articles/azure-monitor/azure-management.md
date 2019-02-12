@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/07/2018
 ms.author: bwren
-ms.openlocfilehash: 29daa447be051af3df86ba9211bc2e4871d8c71e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e0ad6b212e328612d2934562e1292b5c36546478
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965102"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990253"
 ---
 # <a name="azure-management---monitoring"></a>Azure Management - bewaking
 
@@ -52,13 +52,3 @@ Bescherming heeft te maken met het altijd beschikbaar houden van uw toepassingen
 ## <a name="migrate"></a>Migreren 
 Migratie heeft betrekking op het overhevelen naar de Azure-cloud van workloads die momenteel on-premises worden uitgevoerd.  [Azure Migrate](../migrate/migrate-overview.md) is een service waarmee u de geschiktheid voor migratie kunt beoordelen. Zo kunt u onder meer de grootte en kosten van virtuele on-premises machines in Azure bepalen op basis van de prestaties.  Azure Site Recovery kan u helpen bij de daadwerkelijk migratie van virtuele machines [van on-premises](../site-recovery/migrate-tutorial-on-premises-azure.md) of [vanuit Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md).  [Azure Database Migration](../dms/dms-overview.md) helpt u bij de migratie van meerdere databasebronnen naar Azure-gegevensplatforms.
 
-
-## <a name="operations-management-suite"></a>Operations Management Suite
-Eerdere technische documentatie met betrekking tot Azure-beheer bevatte Operations Management Suite (OMS), een bundeling van de volgende Azure-beheerservices:
-
-- Azure Automation
-- Azure Backup
-- Log Analytics
-- Site Recovery
-
-We laten de beschrijving van deze bundeling in onze technische documentatie achter ons, omdat volledig beheer in Azure is uitgebreid naar andere services. Geen van de services die deel uitmaken van OMS zijn veranderd, en elke heeft nog steeds een belangrijke rol in het beheer van uw Azure-toepassingen en -resources. Uw focus zou moeten liggen op de beheertaken die u uit moet voeren en op de verschillende Azure-services die voor elke taak samenwerken.

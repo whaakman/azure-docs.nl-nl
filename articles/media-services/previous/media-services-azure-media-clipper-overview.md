@@ -2,21 +2,22 @@
 title: Maak korte clips met Azure Media Clipper | Microsoft Docs
 description: Overzicht van Azure Media Clipper, een hulpprogramma voor het bouwen van mediaclips van assets
 services: media-services
-keywords: clip; subclip; codering; media
+keywords: clip;subclip;encoding;media
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 0fc04fb64e6d34c46f20b4ba5ff8a1ffc8da9c31
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9d306bc3b9e206e5f21f9c16c0cd32bc599f1b6d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237907"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003156"
 ---
-# <a name="create-clips-with-azure-media-clipper"></a>Maak korte clips met Azure Media Clipper
+# <a name="create-clips-with-azure-media-clipper"></a>Maak korte clips met Azure Media Clipper 
+
 Azure Media Clipper is een gratis JavaScript-bibliotheek waarmee webontwikkelaars om te voorzien van hun gebruikers een interface voor het maken van mediaclips. Dit hulpprogramma kan worden geïntegreerd in elke webpagina en bevat API's voor het laden van assets en kniptaken verzenden.
 
 Azure Media Clipper kunt u:
@@ -36,15 +37,15 @@ De volgende afbeelding ziet u de interface Clipper: ![Azure Media Clipper](media
 Zie de volgende lijst voor het blogbericht Clipper, verschillende bekende problemen en het wijzigingenlogboek voor de nieuwste versie van de Clipper:
 - [Blogbericht](https://azure.microsoft.com/blog/azure-media-clipper/)
 - [Lijst met bekende problemen](https://amp.azure.net/libs/amc/latest/docs/known_issues.html)
-- [Het wijzigingenlogboek](https://amp.azure.net/libs/amc/latest/docs/changelog.html)
+- [Changelog](https://amp.azure.net/libs/amc/latest/docs/changelog.html)
 
 ## <a name="browser-support"></a>Browserondersteuning
 Azure Media Clipper is gebouwd met behulp van moderne HTML5-technologieën en ondersteunt de volgende browsers:
 
-- Microsoft Edge 13 +
-- Internet Explorer 11 +
-- Chrome 54 +
-- Safari 10 +
+- Microsoft Edge 13+
+- Internet Explorer 11+
+- Chrome 54+
+- Safari 10+
 - Firefox meer dan 50
 
 > [!NOTE]
@@ -56,7 +57,7 @@ De widget Clipper is beschikbaar in de volgende 18 talen:
 - Chinees (traditioneel)
 - Tsjechisch
 - Nederlands, Vlaams
-- Nederlands
+- Engels
 - Frans
 - Duits
 - Hongaars

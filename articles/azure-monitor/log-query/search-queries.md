@@ -1,6 +1,6 @@
 ---
-title: Zoekquery's in Log Analytics | Microsoft Docs
-description: In dit artikel bevat een zelfstudie voor aan de slag zoekquery's schrijven in Log Analytics.
+title: Zoekopdrachten in Logboeken van Azure Monitor | Microsoft Docs
+description: In dit artikel bevat een zelfstudie voor aan de slag met zoeken in Logboeken-query's van Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 1f3131585a8f6581690eda777b8ffc96768b3cc6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: cda66b91a0e829ec3bc84a82c190b9d856827ad3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52882411"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004448"
 ---
-# <a name="search-queries-in-log-analytics"></a>Zoekquery's in Log Analytics
+# <a name="search-queries-in-azure-monitor-logs"></a>Zoekopdrachten in Logboeken van Azure Monitor
 
 > [!NOTE]
-> U moet voltooien [aan de slag met query's in Log Analytics](get-started-queries.md) voordat het voltooien van deze les gaat uitvoeren.
+> U moet voltooien [aan de slag met Azure Monitor logboeken-query's](get-started-queries.md) voordat het voltooien van deze les gaat uitvoeren.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Azure Log Analytics-query's kunnen beginnen met een tabelnaam wordt opgegeven of een zoekopdracht uitvoeren. In deze zelfstudie bevat informatie over query's op basis van zoeken. Er zijn voordelen voor elke methode.
+Azure Monitor logboeken-query's kunnen beginnen met een tabelnaam wordt opgegeven of een zoekopdracht uitvoeren. In deze zelfstudie bevat informatie over query's op basis van zoeken. Er zijn voordelen voor elke methode.
 
 Query's op basis van een tabel begin met het bereik van de query en daarom meestal efficiënter zijn dan zoekquery's. Zoekquery's zijn dat minder gestructureerd waardoor ze beter bij het zoeken naar een specifieke waarde over kolommen of tabellen. **Search** kunt scannen alle kolommen in een bepaalde tabel of in alle tabellen, voor de opgegeven waarde. De hoeveelheid gegevens die worden verwerkt mogelijk enorme, dit is de reden waarom deze query's het langer duren kunnen om en kunnen zeer grote resultatensets retourneren.
 
@@ -144,4 +144,4 @@ search in (Event) "win"
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie meer zelfstudies over het [Log Analytics query language site](https://aka.ms/LogAnalyticsLanguage).
+- Zie meer zelfstudies over het [Data Explorer query language site](/azure/kusto/query/).

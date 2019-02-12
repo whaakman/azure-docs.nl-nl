@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 4601628fd0fbdbd80c2b159a4578e25cb4e3c4c5
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: f2be733fc0f127288a86372adf54a547983285db
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250764"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998702"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Geavanceerde codering met MES-standaardinstellingen aanpassen 
 
@@ -238,14 +238,14 @@ De volgende overwegingen zijn van toepassing:
 * Het gebruik van expliciete tijdstempels voor begin/stap/bereik wordt ervan uitgegaan dat de invoerbron ten minste 1 minuut.
 * Jpg/Png/BmpImage elementen starten, stap, en bereik tekenreekskenmerken – en deze kunnen worden gezien als:
 
-  * Aantal frame als ze niet-negatief geheel getal zijn, bijvoorbeeld 'Start': "120,"
-  * Ten opzichte van de duur van bron als uitgedrukt als achtervoegsel %, bijvoorbeeld 'Start': '15% ', of
-  * Tijdstempel indien weergegeven als uu: mm:... indeling, bijvoorbeeld 'Start': ' 00: 01:00 "
+  * Framenummer als ze niet-negatief geheel getal zijn, bijvoorbeeld 'Start' zijn: "120",
+  * Ten opzichte van bronduur indien weergegeven als % achtervoegsel, bijvoorbeeld 'Start': '15% ', OF
+  * Tijdstempel indien weergegeven als uu: mm:... notatie, bijvoorbeeld 'Start': "00:01:00"
 
     U kunt combineren en neem opmerkingen als u overeenkomen.
 
-    Daarnaast ondersteunt Start ook een speciale Macro: {Best}, die probeert vast te stellen van de eerste "interessante" frame van de NOTITIE-inhoud: (stap en het bereik worden genegeerd tijdens het starten is ingesteld op {beste})
-  * Standaardinstellingen: Start: {aanbevolen}
+    Daarnaast ondersteunt Start ook een speciale Macro: {Best}, die probeert vast te stellen van de eerste "interessante" frame van de NOTITIE-inhoud: (Stap en het bereik worden genegeerd tijdens het starten is ingesteld op {beste})
+  * Standaardinstellingen: Starten: {aanbevolen}
 * De indeling van uitvoer moet expliciet worden opgegeven voor de indeling van elke afbeelding: Jpg/Png/BmpFormat. Indien aanwezig, overeenkomt MES JpgVideo naar JpgFormat enzovoort. Uitvoerindeling introduceert een nieuwe installatiekopie codec specifieke Macro: {Index}, die moet worden presenteren (één keer en slechts één keer) voor de installatiekopie uitvoerindelingen.
 
 ## <a id="trim_video"></a>Een video (knippen) knippen
@@ -752,9 +752,9 @@ Schakel het automatisch ongedaan maken interliniëringskleur uit. Deze optie wor
 
 
 ## <a id="audio_only"></a>Alleen audio-standaardinstellingen
-In deze sectie ziet u twee alleen audio MES-standaardinstellingen: AAC-Audio- en AAC goede kwaliteit Audio.
+In deze sectie ziet u twee alleen audio MES-standaardinstellingen: AAC-Audio- en AAC goede Audio.
 
-### <a name="aac-audio"></a>AAC-Audio
+### <a name="aac-audio"></a>AAC Audio
     {
       "Version": 1.0,
       "Codecs": [

@@ -1,6 +1,6 @@
 ---
-title: Weergeven en analyseren van gegevens in Azure Log Analytics | Microsoft Docs
-description: In dit artikel beschrijft de portals die u kunt gebruiken in de logboeken van Azure Log Analytics maken en bewerken.
+title: Weergeven en analyseren van logboekgegevens in Azure Monitor | Microsoft Docs
+description: Dit artikel wordt beschreven met behulp van Log Analytics in Azure portal maken en bewerken van logboekquery's in Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -10,22 +10,19 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 12/22/2018
 ms.author: bwren
-ms.openlocfilehash: 9a5472a6dfc944eb793e863704897c92b1a7572e
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9567f8a6b581d7c246ebaa8eb8d72ad201bf2641
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183349"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990408"
 ---
-# <a name="viewing-and-analyzing-data-in-log-analytics"></a>Weergeven en analyseren van gegevens in Log Analytics
-Er zijn twee opties beschikbaar zijn in de Azure-portal voor het analyseren van gegevens die zijn opgeslagen in Log analytics en voor het maken van query's voor ad-hoc-analyse. De query's die u maakt gebruik van deze portals kunnen worden gebruikt voor andere onderdelen, zoals waarschuwingen en dashboards.
+# <a name="viewing-and-analyzing-log-data-in-azure-monitor"></a>Weergeven en analyseren van logboekgegevens in Azure Monitor
+Log Analytics is de primaire ervaring voor het werken met gegevens aan het logboek en het maken van query's in Azure Monitor. Log Analytics van Open **logboeken** in de **Azure Monitor** menu. U kunt een inleiding tot deze portal en controleren van de functies op [aan de slag met Log Analytics in Azure portal](get-started-portal.md).
 
-## <a name="log-analytics-page"></a>Log Analytics-pagina
-Open de pagina logboekanalyse van **logboeken** in het menu van Log Analytics. Dit is een nieuwe ervaring voor het werken met gegevens aan het logboek en het maken van query's. U kunt een inleiding tot deze portal en controleren van de functies op [aan de slag met de Log Analytics-pagina in de Azure-portal](../../azure-monitor/log-query/get-started-portal.md).
-
-De pagina Log Analytics biedt de volgende verbeteringen ten opzichte van de [zoeken in Logboeken (klassiek)](#log-search-classic) optreden.
+Log Analytics biedt de volgende functies voor het werken met Logboeken-query's.
 
 * Meerdere tabbladen: afzonderlijke tabbladen om te werken met meerdere query's maken.
 * Uitgebreide visualisaties – verschillende opties voor grafieken.
@@ -38,14 +35,14 @@ De pagina Log Analytics biedt de volgende verbeteringen ten opzichte van de [zoe
 * Kolom selecteren – sorteren en groeperen van kolommen in de queryresultaten.
 
 > [!NOTE]
-> De Log Analytics-pagina heeft dezelfde functionaliteit als de portal Advanced Analytics is een extern hulpprogramma buiten de Azure-portal. De portal Advanced Analytics is nog steeds beschikbaar, maar koppelingen en verwijzingen naar deze in Azure portal worden vervangen door deze nieuwe pagina.
+> Log Analytics heeft dezelfde functionaliteit als de portal Advanced Analytics is een extern hulpprogramma buiten de Azure-portal. De portal Advanced Analytics is nog steeds beschikbaar, maar koppelingen en verwijzingen naar deze in Azure portal worden vervangen door deze nieuwe pagina.
 
-![Geavanceerde Analytics-portal](media/portals/advanced-analytics-portal.png)
+![Log Analytics](media/portals/log-analytics.png)
 
 ### <a name="resource-logs"></a>Resource-Logboeken
-De nieuwe ervaring voor Log Analytics kan worden geïntegreerd met verschillende Azure-resources zoals virtuele Machines. Dit betekent dat u kunt de pagina van de Log Analytics rechtstreeks via bewaking van de resource-menu openen zonder overstappen naar Azure Monitor of Log Analytics en het verlies van de context van de resource. **Logboeken** is nog niet is ingeschakeld voor alle Azure-resources, maar deze wordt weergegeven in het menu van de portal voor verschillende resources typen gestart.
+Log Analytics kan worden geïntegreerd met verschillende Azure-resources zoals virtuele Machines. Dit betekent dat u Log Analytics rechtstreeks via de bewaking resourcemenu openen kunt zonder dat u overschakelt naar Azure Monitor en verlies van de context van de resource. **Logboeken** is nog niet is ingeschakeld voor alle Azure-resources, maar deze wordt weergegeven in het menu van de portal voor verschillende resources typen gestart.
 
-Bij het openen van Log Analytics van een specifieke resource, het automatisch afgestemd voor logboekregistratie van records van die resource alleen.   Als u een query schrijven waarmee andere records bevat wilt, zou u nodig hebt om deze te openen vanuit het menu Log Analytics of Azure Monitor.
+Bij het openen van Log Analytics van een specifieke resource, het automatisch afgestemd voor logboekregistratie van records van die resource alleen.   Als u een query schrijven waarmee andere records bevat wilt, zou u nodig hebt om deze te openen in het menu Azure Monitor.
 
 De volgende opties zijn nog niet beschikbaar via de weergave van resources van Log Analytics:
 
@@ -56,7 +53,7 @@ De volgende opties zijn nog niet beschikbaar via de weergave van resources van L
 
 
 ### <a name="firewall-requirements"></a>Firewall-vereisten
-Uw browser vereist toegang tot de volgende adressen voor toegang tot de Log Analytics-pagina en de portal Advanced Analytics.  Als uw browser de Azure-portal via een firewall openen is, moet u toegang tot deze adressen inschakelen.
+Uw browser vereist toegang tot de volgende adressen voor toegang tot Log Analytics.  Als uw browser de Azure-portal via een firewall openen is, moet u toegang tot deze adressen inschakelen.
 
 | URI | IP | Poorten |
 |:---|:---|:---|
@@ -66,15 +63,15 @@ Uw browser vereist toegang tot de volgende adressen voor toegang tot de Log Anal
 
 
 ## <a name="log-search-classic"></a>Zoeken in Logboeken (klassiek)
-Open de pagina voor het zoeken van logboek van **Logboeken (klassiek)** in het menu van Log Analytics of van **Log Analytics** in het menu van Azure Monitor. Dit is de klassieke pagina die wordt gebruikt voor het werken met Log Analytics-query's die beschikt niet over de aanvullende functies van de [pagina logboekanalyse](#log-analytics-page) hierboven vermeld.
+Zoeken in Logboeken is de traditionele ervaring in Azure portal voor het uitvoeren van query's en analyseren van logboekgegevens in Azure Monitor. Dit wordt binnenkort stopgezet, maar is momenteel nog steeds beschikbaar. Zoeken in Logboeken van Open **Logboeken (klassiek)** in het menu van Log Analytics.
 
 
 
-![Meld u pagina zoeken](media/portals/log-search-portal.png)
+![Zoeken in logboeken](media/portals/log-search-portal.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Doorloop een [zelfstudie over het zoeken in Logboeken met](../../azure-monitor/learn/tutorial-viewdata.md) voor informatie over het maken van query's met behulp van de querytaal
-- Doorloop een [les met behulp van de portal Advanced Analytics](../../azure-monitor/log-query/get-started-portal.md) waarmee u op dezelfde manier werken als de Log Analytics-pagina.
+- Doorloop een [zelfstudie met behulp van Log Analytics](../../azure-monitor/log-query/get-started-portal.md).
+- Doorloop een [zelfstudie over het zoeken in Logboeken met](../../azure-monitor/learn/tutorial-viewdata.md).
 

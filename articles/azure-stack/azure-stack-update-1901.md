@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/09/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: cf86fafc1fcb0ffd6513abc9d02da16d1f00f22b
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: MT
+ms.openlocfilehash: 45905b5180ac248394e52b1d03a034acc47e8dbc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978923"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993585"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 update
 
@@ -68,6 +68,35 @@ Azure Stack-hotfixes zijn alleen van toepassing op Azure Stack-geïntegreerde sy
 Deze update bevat de volgende nieuwe functies en verbeteringen voor Azure Stack:
 
 - Beheerde installatiekopieën op Azure Stack inschakelen u een beheerde installatiekopie-object maken op een gegeneraliseerde VM (zowel niet-beheerde en beheerde) die u alleen van beheerde maken kunt schijf voortaan VM's. Zie voor meer informatie, [Azure Stack Managed Disks](user/azure-stack-managed-disk-considerations.md#managed-images).
+
+- **AzureRm 2.4.0**
+   * **AzureRm.Profile**  
+         Foutoplossing: `Import-AzureRmContext` correct deserialiseren van de opgeslagen-token.  
+   * **AzureRm.Resources**  
+         Foutoplossing: `Get-AzureRmResource` aan query aanvraag insensitively op resourcetype.  
+   * **Azure.Storage**  
+         Rollup-AzureRm-module bevat nu de al gepubliceerde versie 4.5.0 ondersteunen de **api-versie 2017-07-29**.  
+   * **AzureRm.Storage**  
+         Rollup-AzureRm-module bevat nu de al gepubliceerde versie 5.0.4 ondersteunen de **api-versie 2017-10-01**.  
+   * **AzureRm.Compute**  
+         Hiermee stelt u eenvoudige parameter toegevoegd in `New-AzureRMVM` en `NewAzureRMVMSS`, `-ImageName` parameter ondersteunt het opgeven van installatiekopieën die gebruiker.  
+   * **AzureRm.Insights**  
+         Rollup-AzureRm-module bevat nu de al gepubliceerde versie 5.1.5 ondersteunen de **api-versie 2018-01-01** voor metrische gegevens, metrische definities van de resourcetypen.
+
+- **AzureStack 1.7.0** dit een belangrijke wijziging release. Raadpleeg voor meer informatie over de wijzigingen die fouten veroorzaken. https://aka.ms/azspshmigration170
+   * **Azs.Backup.Admin-Module**  
+         Belangrijke wijziging: Wijzigingen in de back-up naar de versleutelingsmodus op basis van een certificaat. Ondersteuning voor symmetrische sleutels is afgeschaft.  
+   * **Azs.Fabric.Admin-Module**  
+         `Get-AzsInfrastructureVolume` is afgeschaft. Gebruik de nieuwe cmdlet `Get-AzsVolume`.  
+         `Get-AzsStorageSystem` is afgeschaft.  Gebruik de nieuwe nieuwe cmdlet `Get-AzsStorageSubSystem`.  
+         `Get-AzsStoragePool` is afgeschaft. De `StorageSubSystem` -object bevat de eigenschap capaciteit.  
+   * **Azs.Compute.Admin-Module**  
+         Foutoplossing: `Add-AzsPlatformImage`, `Get-AzsPlatformImage`: Aanroepen van `ConvertTo-PlatformImageObject` alleen in de successen.  
+         BugFix - `Add-AzsVmExtension`, `Get-AzsVmExtension`: Aanroepen van ConvertTo-VmExtensionObject alleen in de successen.  
+   * **Azs.Storage.Admin-Module**  
+         Opgelost probleem - quotum voor het nieuwe opslag gebruikt de standaardinstellingen als er geen opgegeven.
+
+De verwijzing voor de bijgewerkte modules Zie [Azure Stack-Moduleverwijzing](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0&viewFallbackFrom=azurestackps-1.7.0).
 
 ## <a name="fixed-issues"></a>Problemen opgelost
 

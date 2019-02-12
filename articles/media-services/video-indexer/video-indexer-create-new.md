@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 2f6ceeebd18a91472ee12f04c0ac8e602b05f269
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4a65e88e3f94f64a56bde882b535030968ae354d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197548"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991273"
 ---
 # <a name="create-highlights-from-existing-videos"></a>Hoogtepunten maken van bestaande video 's
 
@@ -27,17 +27,14 @@ In dit onderwerp ziet u hoe u inzichten in video's op basis van een andere video
     De pagina bevat een overzicht van de video-inzichten. 
 
     ![Inzichten](./media/video-indexer-create-new/video-indexer-summarized-insights.png)
-
 3. Klik op de knop **Bewerken**.
 
     Deze pagina geeft u de volledige uitsplitsing van een video. De uitsplitsing is onderverdeeld in blokken. Deze blokken maken het gemakkelijker om de gegevens te bekijken. Een blok kan bijvoorbeeld worden opgesplitst op basis van wanneer er tussen sprekers wordt gewisseld of als er een lange pauze plaatsvindt. U kunt uw eigen afspeellijst maken met alleen de regels die u wilt gebruiken. Om alleen specifieke onderdelen van de bronvideo weer te geven, kunt u filteren op onderwerpen/trefwoorden, gevoelens, personen, sprekers. U kunt ervoor kiezen alleen het transcript of de OCR van de video te bekijken.    
 
     ![Inzichten](./media/video-indexer-create-new/video-indexer-create-new-playlist.png)
-
 4. Maak uw afspeellijst.
 
     Als u regels wilt toevoegen aan of verwijderen uit de afspeellijst, drukt u op **+**/**-**.
-
 5. Bekijk een voorbeeld van uw afspeellijst.
 
     Zodra u klaar bent met het maken van de afspeellijst, drukt u op **Preview**.

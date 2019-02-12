@@ -7,14 +7,14 @@ author: anikaz
 manager: johndeu
 ms.service: media-services
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: 95334ac326b346da23f17d3a9d494120235abace
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 5f77857c82846fe9c3d2ad4f5f82572d18401691
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285366"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003598"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-apis"></a>Een taalmodel met Video Indexer-API's aanpassen
 
@@ -303,7 +303,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 |location|string|Ja|De Azure-regio waarnaar u de oproep worden gerouteerd. Zie voor meer informatie, [Azure-regio's en Video Indexer](regions.md).|
 |accountId|string|Ja|Unieke id voor de account|
 |modelId|string|Ja|Id van het taalmodel waarin het bestand (gegenereerd wanneer het taalmodel wordt gemaakt).|
-|bestands-id|string|Ja|Id van het bestand dat moet worden bijgewerkt (gegenereerd wanneer het bestand geüpload bij het maken of bijwerken van het taalmodel is)|
+|fileId|string|Ja|Id van het bestand dat moet worden bijgewerkt (gegenereerd wanneer het bestand geüpload bij het maken of bijwerken van het taalmodel is)|
 |accessToken|string|Ja|Toegangstoken (moet van het bereik [Account toegangstoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) voor verificatie op basis van de aanroep. Toegangstokens verloopt binnen 1 uur.|
 |fileName|string|Nee|Naam van de bestandsnaam om te werken|
 |inschakelen|booleaans|Nee|Bijwerken of dit bestand is (true) of uitgeschakeld (ONWAAR) in het taalmodel||
@@ -489,7 +489,7 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
 |location|string|Ja|De Azure-regio waarnaar u de oproep worden gerouteerd. Zie voor meer informatie, [Azure-regio's en Video Indexer](regions.md).|
 |accountID|string|Ja|Unieke id voor de account|
 |modelId|string|Ja|Id van het taalmodel waarin het bestand (gegenereerd wanneer het taalmodel wordt gemaakt).|
-|bestands-id|string|Ja|Id van het bestand dat moet worden bijgewerkt (gegenereerd wanneer het bestand geüpload bij het maken of bijwerken van het taalmodel is)|
+|fileId|string|Ja|Id van het bestand dat moet worden bijgewerkt (gegenereerd wanneer het bestand geüpload bij het maken of bijwerken van het taalmodel is)|
 |accessToken|string|Ja|Toegangstoken (moet van het bereik [Account toegangstoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) voor verificatie op basis van de aanroep. Toegangstokens verloopt binnen 1 uur.|
 
 ### <a name="request-body"></a>Aanvraagbody
@@ -526,7 +526,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 |location|string|Ja|De Azure-regio waarnaar u de oproep worden gerouteerd. Zie voor meer informatie, [Azure-regio's en Video Indexer](regions.md).|
 |accountID|string|Ja|Unieke id voor de account|
 |modelId|string|Ja|Id van het taalmodel waarin het bestand (gegenereerd wanneer het taalmodel wordt gemaakt).|
-|bestands-id|string|Ja|Id van het bestand dat moet worden bijgewerkt (gegenereerd wanneer het bestand geüpload bij het maken of bijwerken van het taalmodel is)|
+|fileId|string|Ja|Id van het bestand dat moet worden bijgewerkt (gegenereerd wanneer het bestand geüpload bij het maken of bijwerken van het taalmodel is)|
 |accessToken|string|Ja|Toegangstoken (moet van het bereik [Account toegangstoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) voor verificatie op basis van de aanroep. Toegangstokens verloopt binnen 1 uur.|
 
 ### <a name="request-body"></a>Aanvraagbody
@@ -575,7 +575,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 |location|string|Ja|De Azure-regio waarnaar u de oproep worden gerouteerd. Zie voor meer informatie, [Azure-regio's en Video Indexer](regions.md).|
 |accountID|string|Ja|Unieke id voor de account|
 |modelId|string|Ja|Id van het taalmodel waarin het bestand (gegenereerd wanneer het taalmodel wordt gemaakt).|
-|bestands-id|string|Ja|Id van het bestand dat moet worden bijgewerkt (gegenereerd wanneer het bestand geüpload bij het maken of bijwerken van het taalmodel is)|
+|fileId|string|Ja|Id van het bestand dat moet worden bijgewerkt (gegenereerd wanneer het bestand geüpload bij het maken of bijwerken van het taalmodel is)|
 |accessToken|string|Ja|Toegangstoken (moet van het bereik [Account toegangstoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) voor verificatie op basis van de aanroep. Toegangstokens verloopt binnen 1 uur.|
 
 ### <a name="request-body"></a>Aanvraagbody 

@@ -1,6 +1,6 @@
 ---
-title: Standaard-eigenschappen in Azure Monitor Log Analytics-records | Microsoft Docs
-description: Beschrijft eigenschappen die gemeenschappelijk voor meerdere gegevenstypen in Azure Monitor Log Analytics zijn.
+title: Logboekregistratie van records standaardeigenschappen in Azure Monitor | Microsoft Docs
+description: Beschrijft eigenschappen die gemeenschappelijk voor meerdere gegevenstypen in Logboeken van Azure Monitor zijn.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: bwren
-ms.openlocfilehash: 27c732a2ddd21401ffbefa727cbb8001ec288293
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 2309e7762ad36f59e0833e675e7012ee3c459e3e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381951"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997036"
 ---
-# <a name="standard-properties-in-log-analytics-records"></a>Standaardeigenschappen in Log Analytics-records
-Gegevens in [Log Analytics](../log-query/log-query-overview.md) wordt opgeslagen als een set records, elk met een bepaald type met een unieke set eigenschappen. Veel gegevenstypen heeft standaard-eigenschappen die betrekking hebben op meerdere typen. Dit artikel worden deze eigenschappen en voorbeelden van hoe u ze in query's gebruiken kunt.
+# <a name="standard-properties-in-azure-monitor-log-records"></a>Standaard-eigenschappen in Azure Monitor records in logboek registreren
+Logboekgegevens in Azure Monitor is [opgeslagen als een set records](../log-query/log-query-overview.md), elk met een bepaald type met een unieke set eigenschappen. Veel gegevenstypen heeft standaard-eigenschappen die betrekking hebben op meerdere typen. Dit artikel worden deze eigenschappen en voorbeelden van hoe u ze in query's gebruiken kunt.
 
 Sommige van deze eigenschappen zijn nog steeds wordt geïmplementeerd, zodat u ze in bepaalde gegevenstypen, maar nog niet in andere kan zien.
 
@@ -151,6 +151,6 @@ union withsource = tt *
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over hoe u [Log Analytics-gegevens worden opgeslagen](../log-query/log-query-overview.md).
-- Ophalen van een les op [schrijven van query's in Log Analytics](../../azure-monitor/log-query/get-started-queries.md).
-- Ophalen van een les op [samenvoegen van tabellen in Log Analytics-query's](../../azure-monitor/log-query/joins.md).
+- Meer informatie over hoe u [Azure Monitor log-gegevens worden opgeslagen](../log-query/log-query-overview.md).
+- Ophalen van een les op [logboeken-query's schrijven](../../azure-monitor/log-query/get-started-queries.md).
+- Ophalen van een les op [samenvoegen van tabellen in Logboeken-query's](../../azure-monitor/log-query/joins.md).

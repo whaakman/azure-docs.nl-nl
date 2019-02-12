@@ -1,10 +1,10 @@
 ---
-title: Telemetrie van Azure Media Services configureren met REST | Microsoft Docs
-description: Dit artikel laat zien hoe u de REST-API met Azure Media Services-telemetrie...
+title: Configureren van Azure Media Services-telemetrie met REST | Microsoft Docs
+description: Dit artikel laat u het gebruik van de Azure Media Services-telemetrie met behulp van REST-API...
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: e1a314fb-cc05-4a82-a41b-d1c9888aab09
 ms.service: media-services
@@ -12,39 +12,39 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: ceb2eafdb3df0d24a98d0d3b4afc7d1d9424b4de
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4b2028b16c395b770e935fdba47dc0e965284fc2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790354"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993657"
 ---
-# <a name="configuring-azure-media-services-telemetry-with-rest"></a>Telemetrie van Azure Media Services configureren met REST
+# <a name="configuring-azure-media-services-telemetry-with-rest"></a>Configureren van Azure Media Services-telemetrie met REST
 
-Dit onderwerp beschrijft de algemene stappen die u bij het configureren van de Azure Media Services (AMS) telemetrie met REST-API kan duren. 
+Dit onderwerp beschrijft de algemene stappen die u nemen kunt bij het configureren van de Azure Media Services (AMS)-telemetrie met behulp van REST-API. 
 
 >[!NOTE]
->Voor de gedetailleerde uitleg van wat is AMS Telemetrie en hoe deze wordt gebruikt, Zie de [overzicht](media-services-telemetry-overview.md) onderwerp.
+>Voor de gedetailleerde beschrijving van wat is de AMS-Telemetrie en het gebruik van deze, Zie de [overzicht](media-services-telemetry-overview.md) onderwerp.
 
-De stappen in dit onderwerp beschreven zijn:
+De stappen in dit onderwerp zijn:
 
-- Het opslagaccount die is gekoppeld aan een Media Services-account ophalen
+- Ophalen van het opslagaccount dat is gekoppeld aan een Media Services-account
 - De Meldingseindpunten ophalen
-- Maken van een Meldingseindpunt voor bewaking. 
+- Het maken van een Meldingseindpunt voor bewaking. 
 
-    Als u een Meldingseindpunt, stelt de EndPointType AzureTable (2) en endPontAddress ingesteld op de tabel opslag (bijvoorbeeld https://telemetryvalidationstore.table.core.windows.net/).
+    Voor het maken van een Meldingseindpunt, stelt u de EndPointType op AzureTable (2) en endPontAddress ingesteld op het storage-tabel (bijvoorbeeld https://telemetryvalidationstore.table.core.windows.net/).
   
 - Het bewaken van configuraties ophalen
 
-    Maak een controle configuratie-instellingen voor de services die u wilt bewaken. Niet meer dan één configuratie-instellingen voor bewaking is toegestaan. 
+    Maak een configuratie van de bewaking-instellingen voor de services die u wilt bewaken. Niet meer dan één configuratie-instellingen voor controle is toegestaan. 
 
-- Een controleconfiguratie toevoegen
+- Een configuratie van de bewaking toevoegen
 
 
  
-## <a name="get-the-storage-account-associated-with-a-media-services-account"></a>Het opslagaccount die is gekoppeld aan een Media Services-account ophalen
+## <a name="get-the-storage-account-associated-with-a-media-services-account"></a>Het opslagaccount dat is gekoppeld aan een Media Services-account ophalen
 
 ### <a name="request"></a>Aanvraag
 
@@ -105,7 +105,7 @@ De stappen in dit onderwerp beschreven zijn:
         }
     }
  
-## <a name="create-a-notification-endpoint-for-monitoring"></a>Maken van een Meldingseindpunt voor bewaking
+## <a name="create-a-notification-endpoint-for-monitoring"></a>Een melding-eindpunt maken voor het bewaken van
 
 ### <a name="request"></a>Aanvraag
 
@@ -177,7 +177,7 @@ De stappen in dit onderwerp beschreven zijn:
     
     {"d":{"results":[]}}
 
-## <a name="add-a-monitoring-configuration"></a>Een controleconfiguratie toevoegen
+## <a name="add-a-monitoring-configuration"></a>Een configuratie van de bewaking toevoegen
 
 ### <a name="request"></a>Aanvraag
 
@@ -233,9 +233,9 @@ De stappen in dit onderwerp beschreven zijn:
     Content-Type: application/json; charset=utf-8
     Host: wamsbnp1clus001rest-hs.cloudapp.net
 
-## <a name="consuming-telemetry-information"></a>Telemetrie-informatie gebruiken
+## <a name="consuming-telemetry-information"></a>Telemetriegegevens gebruiken
 
-Zie voor informatie over consumerende telemetrie [dit](media-services-telemetry-overview.md) onderwerp.
+Zie voor meer informatie over de verbruikende telemetriegegevens [dit](media-services-telemetry-overview.md) onderwerp.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -7,14 +7,16 @@ ms.service: dns
 ms.topic: article
 ms.date: 12/4/2018
 ms.author: victorh
-ms.openlocfilehash: 137d8e1c1477d5b9c88cecc39316d62a79a4cab8
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 9340a43eb88b4be03c0f0ccc0d07a32f22a9001c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873916"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997376"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>DNS-zones en records beschermen
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 DNS-zones en records zijn kritieke bronnen. Verwijderen van een DNS-zone of zelfs één DNS-record kan resulteren in een totaal van de serviceonderbreking.  Het is daarom belangrijk dat kritieke DNS-zones en records zijn beschermd tegen onbevoegde of onopzettelijke wijzigingen.
 
@@ -38,7 +40,7 @@ Machtigingen kunnen ook worden [verleend met behulp van Azure PowerShell](../rol
 
 ```azurepowershell
 # Grant 'DNS Zone Contributor' permissions to all zones in a resource group
-New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>"
+New-AzRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>"
 ```
 
 De equivalente-opdracht is ook [beschikbaar via de Azure CLI](../role-based-access-control/role-assignments-cli.md):
@@ -62,7 +64,7 @@ Machtigingen kunnen ook worden [verleend met behulp van Azure PowerShell](../rol
 
 ```azurepowershell
 # Grant 'DNS Zone Contributor' permissions to a specific zone
-New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>" -ResourceName "<zone name>" -ResourceType Microsoft.Network/DNSZones
+New-AzRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>" -ResourceName "<zone name>" -ResourceType Microsoft.Network/DNSZones
 ```
 
 De equivalente-opdracht is ook [beschikbaar via de Azure CLI](../role-based-access-control/role-assignments-cli.md):
@@ -84,7 +86,7 @@ Record-set niveau RBAC-machtigingen kunnen ook worden [verleend met behulp van A
 
 ```azurepowershell
 # Grant permissions to a specific record set
-New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -Scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/dnszones/<zone name>/<record type>/<record name>"
+New-AzRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -Scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/dnszones/<zone name>/<record type>/<record name>"
 ```
 
 De equivalente-opdracht is ook [beschikbaar via de Azure CLI](../role-based-access-control/role-assignments-cli.md):
@@ -140,7 +142,7 @@ Aangepaste roldefinities kunnen niet op dit moment worden gedefinieerd via de Az
 
 ```azurepowershell
 # Create new role definition based on input file
-New-AzureRmRoleDefinition -InputFile <file path>
+New-AzRoleDefinition -InputFile <file path>
 ```
 
 Het kan ook worden gemaakt via de Azure CLI:
@@ -172,7 +174,7 @@ Zone-niveau resource wordt vergrendeld kunnen ook worden gemaakt via Azure Power
 
 ```azurepowershell
 # Lock a DNS zone
-New-AzureRmResourceLock -LockLevel <lock level> -LockName <lock name> -ResourceName <zone name> -ResourceType Microsoft.Network/DNSZones -ResourceGroupName <resource group name>
+New-AzResourceLock -LockLevel <lock level> -LockName <lock name> -ResourceName <zone name> -ResourceType Microsoft.Network/DNSZones -ResourceGroupName <resource group name>
 ```
 
 Configureren van Azure-resourcevergrendelingen wordt momenteel niet ondersteund via de Azure CLI.
@@ -188,7 +190,7 @@ Recordset niveau resourcevergrendelingen op dit moment kunnen alleen worden geco
 
 ```azurepowershell
 # Lock a DNS record set
-New-AzureRmResourceLock -LockLevel <lock level> -LockName "<lock name>" -ResourceName "<zone name>/<record set name>" -ResourceType "Microsoft.Network/DNSZones/<record type>" -ResourceGroupName "<resource group name>"
+New-AzResourceLock -LockLevel <lock level> -LockName "<lock name>" -ResourceName "<zone name>/<record set name>" -ResourceType "Microsoft.Network/DNSZones/<record type>" -ResourceGroupName "<resource group name>"
 ```
 
 ### <a name="protecting-against-zone-deletion"></a>Bescherming tegen zone verwijderen
@@ -203,7 +205,7 @@ De volgende PowerShell-opdracht maakt een CanNotDelete-vergrendeling op basis va
 
 ```azurepowershell
 # Protect against zone delete with CanNotDelete lock on the record set
-New-AzureRmResourceLock -LockLevel CanNotDelete -LockName "<lock name>" -ResourceName "<zone name>/@" -ResourceType" Microsoft.Network/DNSZones/SOA" -ResourceGroupName "<resource group name>"
+New-AzResourceLock -LockLevel CanNotDelete -LockName "<lock name>" -ResourceName "<zone name>/@" -ResourceType" Microsoft.Network/DNSZones/SOA" -ResourceGroupName "<resource group name>"
 ```
 
 Een andere manier om te voorkomen dat onbedoelde zone verwijderen met behulp van een aangepaste rol om te controleren of de operator is en serviceaccounts die worden gebruikt voor het beheren van de zones nog geen zone machtigingen verwijderen. Als u een zone verwijderen wilt, kunt u het verwijderen van een verificatie in twee stappen, eerste verlenen zone verwijdermachtigingen ({bij de scope om te voorkomen dat u de verkeerde zone verwijdert) en seconde als u wilt verwijderen van de zone afdwingen.

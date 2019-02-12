@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met query's in Azure Log Analytics | Microsoft Docs
-description: Dit artikel bevat een zelfstudie voor aan de slag te gaan schrijven query's in Log Analytics.
+title: Aan de slag met Logboeken-query's in Azure Monitor | Microsoft Docs
+description: In dit artikel bevat een zelfstudie voor aan de slag logboeken-query's schrijven in Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 326e12444067e950b9d6ae0862424589d444b83d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 599e6b0cd615be7275df127b0b2f174bd8e6c290
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52882599"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994876"
 ---
-# <a name="get-started-with-queries-in-log-analytics"></a>Aan de slag met query's in Log Analytics
+# <a name="get-started-with-azure-monitor-log-queries"></a>Aan de slag met Azure Monitor logboeken-query 's
 
 
 > [!NOTE]
-> U moet voltooien [aan de slag met de Analytics-portal](get-started-portal.md) voordat het voltooien van deze zelfstudie.
+> U moet voltooien [aan de slag met Azure Monitor log-analytics](get-started-portal.md) voordat het voltooien van deze zelfstudie.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-In deze zelfstudie leert hoe Azure Log Analytics-query's te schrijven. Deze leert u hoe aan:
+In deze zelfstudie leert u Azure LMonitor logboeken-query's schrijven. Deze leert u hoe aan:
 
 - Structuur van de query's begrijpen
 - Query-resultaten sorteren
@@ -43,10 +43,10 @@ In deze zelfstudie leert hoe Azure Log Analytics-query's te schrijven. Deze leer
 Query's kunnen beginnen met ofwel een tabelnaam wordt opgegeven of de *zoeken* opdracht. U moet beginnen met een tabelnaam wordt opgegeven, omdat deze een duidelijke bereik voor de query wordt gedefinieerd en verbetert de prestaties van query's zowel relevantie van de resultaten.
 
 > [!NOTE]
-> De Azure Log Analytics-querytaal is hoofdlettergevoelig. Trefwoorden voor de taal worden doorgaans intern kleine letters. Wanneer u de namen van tabellen of kolommen in een query, zorg ervoor dat u het juiste geval is, zoals wordt weergegeven in het deelvenster schema.
+> De Data Explorer-querytaal die wordt gebruikt door Azure Monitor is hoofdlettergevoelig. Trefwoorden voor de taal worden doorgaans intern kleine letters. Wanneer u de namen van tabellen of kolommen in een query, zorg ervoor dat u het juiste geval is, zoals wordt weergegeven in het deelvenster schema.
 
 ### <a name="table-based-queries"></a>Query's op basis van een tabel
-Azure Log Analytics ziet u de gegevens in tabellen, elk bestaat uit meerdere kolommen. Alle tabellen en kolommen worden weergegeven in het deelvenster schema in de Analytics-portal. Identificeert een tabel die u geïnteresseerd bent en klikt u vervolgens Kijk eens een deel van de gegevens:
+Azure Monitor organiseert logboekgegevens in tabellen, elk bestaat uit meerdere kolommen. Alle tabellen en kolommen worden weergegeven in het deelvenster schema in Log Analytics in de Analytics-portal. Identificeert een tabel die u geïnteresseerd bent en klikt u vervolgens Kijk eens een deel van de gegevens:
 
 ```Kusto
 SecurityEvent
@@ -108,11 +108,11 @@ SecurityEvent
 
 Bij het schrijven van de filtervoorwaarden, kunt u de volgende expressies:
 
-| Expressie | Beschrijving | Voorbeeld |
+| Expressie | Description | Voorbeeld |
 |:---|:---|:---|
 | == | Gelijkheid controleren<br>(hoofdlettergevoelig) | `Level == 8` |
 | =~ | Gelijkheid controleren<br>(niet hoofdlettergevoelig) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
-| ! =, <> | Ongelijkheid controleren<br>(beide expressies zijn identiek) | `Level != 4` |
+| !=, <> | Ongelijkheid controleren<br>(beide expressies zijn identiek) | `Level != 4` |
 | *en*, *of* | Vereist tussen de voorwaarden| `Level == 16 or CommandLine != ""` |
 
 Als u wilt filteren op meerdere voorwaarden, kunt u ofwel **en**:
@@ -164,7 +164,7 @@ SecurityEvent
 
 Het vorige voorbeeld wordt deze uitvoer gegenereerd:
 
-![Meld u Analytics-resultaten van project](media/get-started-queries/project.png)
+![De resultaten van de query-project](media/get-started-queries/project.png)
 
 U kunt ook **project** namen van kolommen wijzigen en nieuwe te definiëren. Project wordt het volgende voorbeeld het volgende doen:
 
@@ -236,7 +236,7 @@ Perf
 
 Als u de uitvoer duidelijker, schakelt u weer te geven als een tijdgrafiek van het beschikbare geheugen na verloop van tijd:
 
-![Log Analytics geheugen na verloop van tijd](media/get-started-queries/chart.png)
+![Querygeheugen na verloop van tijd](media/get-started-queries/chart.png)
 
 
 

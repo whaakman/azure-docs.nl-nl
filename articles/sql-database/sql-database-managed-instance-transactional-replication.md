@@ -1,6 +1,6 @@
 ---
 title: Transactionele replicatie met Azure SQL Database | Microsoft-Docs'
-description: Meer informatie over het gebruik van SQL Server transactionele replicatie met zelfstandige, gegroepeerd, en databases in Azure SQL Database-exemplaar.
+description: Leer meer over SQL Server transactionele replicatie met één, gegroepeerd, en exemplaar-databases in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,15 +11,15 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 1c542c1e906b078b76b78ed30af8bdf67110199c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/08/2019
+ms.openlocfilehash: d0f9ea15b692d9aba2fde217805ea5e0ecfb4dfd
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814109"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993806"
 ---
-# <a name="transactional-replication-with-standalone-pooled-and-instance-databases-in-azure-sql-database"></a>Transactionele replicatie met zelfstandige, gegroepeerd en databases in Azure SQL Database-exemplaar
+# <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Transactionele replicatie met één, gegroepeerd en databases in Azure SQL Database-exemplaar
 
 Transactionele replicatie is een functie van Azure SQL Database en SQL-Server waarmee u voor het repliceren van gegevens uit een tabel in Azure SQL Database of SQL Server voor de tabellen die voor externe databases wordt geplaatst. Deze functie kunt u meerdere tabellen in verschillende databases synchroniseren.
 
@@ -37,22 +37,21 @@ De belangrijkste onderdelen van transactionele replicatie worden weergegeven in 
 
 ![replicatie met SQL Database](media/replication-to-sql-database/replication-to-sql-database.png)
 
-
 De **Publisher** is een exemplaar of een server die wordt gepubliceerd op bepaalde tabellen (artikelen) wijzigingen door te sturen van de updates op de Distributor. Publiceren naar een Azure SQL wordt database van een on-premises SQL Server ondersteund door de volgende versies van SQL Server:
 
-   - SQL Server 2019 (preview)
-   - SQL Server 2016 SQL-2017
-   - SQL Server 2014 SP1 CU3 of hoger (12.00.4427)
-   - SQL Server 2014 RTM CU10 (12.00.2556)
-   - SQL Server 2012 SP3 of hoger (11.0.6020)
-   - SQL Server 2012 SP2 CU8 (11.0.5634.0)
-   - Voor andere versies van SQL Server die geen ondersteuning voor publicatie naar objecten in Azure, is het mogelijk gebruikmaken van de [gegevens opnieuw te publiceren](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) methode om gegevens te verplaatsen naar nieuwere versies van SQL Server. 
+- SQL Server 2019 (preview)
+- SQL Server 2016 SQL-2017
+- SQL Server 2014 SP1 CU3 of hoger (12.00.4427)
+- SQL Server 2014 RTM CU10 (12.00.2556)
+- SQL Server 2012 SP3 of hoger (11.0.6020)
+- SQL Server 2012 SP2 CU8 (11.0.5634.0)
+- Voor andere versies van SQL Server die geen ondersteuning voor publicatie naar objecten in Azure, is het mogelijk gebruikmaken van de [gegevens opnieuw te publiceren](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) methode om gegevens te verplaatsen naar nieuwere versies van SQL Server. 
 
 De **Distributor** is een exemplaar of een server die wijzigingen in de artikelen van een uitgever verzamelt en verdeeld voor de abonnees. De Distributor kan Azure SQL Database Managed Instance of SQL Server (een willekeurige versie als het te lang is gelijk aan of hoger is dan de versie van de uitgever) zijn. 
 
-De **abonnee** is een exemplaar of een server waarop de wijzigingen op de Publisher is ontvangen. Abonnees kunnen worden als zelfstandig, gegroepeerd, en het exemplaar van de databases in Azure SQL Database of SQL Server-databases. Een abonnee op een zelfstandige of polled database moet worden geconfigureerd als push-abonnement. 
+De **abonnee** is een exemplaar of een server waarop de wijzigingen op de Publisher is ontvangen. Abonnees kunnen worden een enkele, samengevoegde en exemplaar-databases in Azure SQL Database of SQL Server-databases. Een abonnee op een enkele of gegroepeerde-database moet worden geconfigureerd als push-abonnement. 
 
-| Rol | Zelfstandige en gepoolde databases | Exemplaar-databases |
+| Rol | Één en gepoolde databases | Exemplaar-databases |
 | :----| :------------- | :--------------- |
 | **Publisher** | Nee | Ja | 
 | **Distributor** | Nee | Ja|
@@ -63,7 +62,7 @@ De **abonnee** is een exemplaar of een server waarop de wijzigingen op de Publis
 Er zijn verschillende [replicatietypes](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication?view=sql-server-2017):
 
 
-| Replicatie | Zelfstandige en gepoolde databases | Exemplaar-databases|
+| Replicatie | Één en gepoolde databases | Exemplaar-databases|
 | :----| :------------- | :--------------- |
 | [**transactionele**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Ja (alleen als abonnee) | Ja | 
 | [**momentopname**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Ja (alleen als abonnee) | Ja|
@@ -107,11 +106,11 @@ Uitgever en de distributor worden geconfigureerd op twee exemplaren die worden b
 - Beide beheerde instanties zijn op dezelfde locatie.
 - Beheerde exemplaren die als host gepubliceerd en distributor databases kunnen niet worden [geo-replicatie met behulp van automatische failover-groepen](sql-database-auto-failover-group.md).
 
-### <a name="publisher-and-distributor-on-premises-with-a-subscriber-on-a-standalone-pooled-and-instance-database"></a>Uitgever en de distributor on-premises met een abonnee op een zelfstandige, gegroepeerd en database-exemplaar 
+### <a name="publisher-and-distributor-on-premises-with-a-subscriber-on-a-single-pooled-and-instance-database"></a>Uitgever en de distributor on-premises met een abonnee op een enkele, gegroepeerd en database-exemplaar 
 
 ![Azure SQL-database als abonnee](media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
  
-In deze configuratie is een Azure SQL-Database (zelfstandige, gegroepeerd en database-exemplaar) een abonnee. Deze configuratie biedt ondersteuning voor migratie van on-premises naar Azure. Als een abonnee zich op een zelfstandige of gegroepeerde-database, moet deze in de pushmodus gebruikt.  
+In deze configuratie is een Azure SQL-Database (één, gegroepeerd en database-exemplaar) een abonnee. Deze configuratie biedt ondersteuning voor migratie van on-premises naar Azure. Als een abonnee zich op een enkele of gegroepeerde-database, moet deze in de pushmodus gebruikt.  
 
 ## <a name="next-steps"></a>Volgende stappen
 

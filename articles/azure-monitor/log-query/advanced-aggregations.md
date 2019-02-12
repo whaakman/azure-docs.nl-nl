@@ -1,6 +1,6 @@
 ---
-title: Geavanceerde aggregaties in Azure Log Analytics-query's | Microsoft Docs
-description: Beschrijft een aantal van de meer geavanceerde aggregatieopties beschikbaar voor Log Analytics-query's.
+title: Geavanceerde aggregaties in Logboeken-query's van Azure Monitor | Microsoft Docs
+description: Beschrijft een aantal van de meer geavanceerde aggregatieopties beschikbaar voor Azure Monitor logboeken-query's.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 1116d03fc9c2328365b0bde29cf9ea900e58b7ed
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 5e2152397a4a965e6d62f8fafc2a59bf318b4a5e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186358"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005417"
 ---
-# <a name="advanced-aggregations-in-log-analytics-queries"></a>Geavanceerde aggregaties in Log Analytics-query 's
+# <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Geavanceerde aggregaties in Logboeken-query's van Azure Monitor
 
 > [!NOTE]
-> U moet voltooien [aggregaties in Log Analytics-query's](./aggregations.md) voordat het voltooien van deze les gaat uitvoeren.
+> U moet voltooien [aggregaties in Azure Monitor-query's](./aggregations.md) voordat het voltooien van deze les gaat uitvoeren.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-In dit artikel worden enkele van de meer geavanceerde aggregatieopties beschikbaar voor Log Analytics-query's beschreven.
+In dit artikel worden enkele van de meer geavanceerde aggregatieopties beschikbaar op Azure Monitor-query's beschreven.
 
 ## <a name="generating-lists-and-sets"></a>Lijsten en sets genereren
 U kunt `makelist` pivot gegevens door de volgorde van waarden in een bepaalde kolom. U wilt bijvoorbeeld de meest voorkomende volgorde gebeurtenissen plaatsvinden op uw virtuele machines verkennen. U kunt de gegevens door de volgorde van EventIDs op elke computer in feite draaien. 
@@ -40,8 +40,8 @@ Event
 ```
 |Computer|list_EventID|
 |---|---|
-| Computer1 | [704,701,1501,1500,1085,704,704,701] |
-| Computer2 | [326,105,302,301,300,102] |
+| computer1 | [704,701,1501,1500,1085,704,704,701] |
+| computer2 | [326,105,302,301,300,102] |
 | ... | ... |
 
 `makelist` genereert een lijst in de volgorde waarin de gegevens erin is doorgegeven. Gebruiken om gebeurtenissen van oudste naar nieuwste sorteren, `asc` in de instructie order in plaats van `desc`. 
@@ -56,8 +56,8 @@ Event
 ```
 |Computer|list_EventID|
 |---|---|
-| Computer1 | [704,701,1501,1500,1085] |
-| Computer2 | [326,105,302,301,300,102] |
+| computer1 | [704,701,1501,1500,1085] |
+| computer2 | [326,105,302,301,300,102] |
 | ... | ... |
 
 Zoals `makelist`, `makeset` ook werkt met gegevens geordend en genereert de matrices op basis van orde van grootte de rijen die erin worden doorgegeven.
@@ -73,9 +73,9 @@ Heartbeat
 
 | Computer | Oplossingen | 
 |--------------|----------------------|
-| Computer1 | "beveiliging", "updates", 'voor wijzigingen bijhouden' |
-| Computer2 | "beveiliging", "updates" |
-| computer3 | 'malware', 'voor wijzigingen bijhouden' |
+| computer1 | "security", "updates", "changeTracking" |
+| computer2 | "beveiliging", "updates" |
+| computer3 | "antiMalware", "changeTracking" |
 | ... | ... | ... |
 
 Gebruik `mvexpand` om elke waarde in een afzonderlijke rij in plaats van een door komma's gescheiden lijst weer te geven:
@@ -89,13 +89,13 @@ Heartbeat
 
 | Computer | Oplossingen | 
 |--------------|----------------------|
-| Computer1 | "beveiliging" |
-| Computer1 | "updates" |
-| Computer1 | 'voor wijzigingen bijhouden' |
-| Computer2 | "beveiliging" |
-| Computer2 | "updates" |
+| computer1 | "beveiliging" |
+| computer1 | "updates" |
+| computer1 | "changeTracking" |
+| computer2 | "beveiliging" |
+| computer2 | "updates" |
 | computer3 | "antiMalware" |
-| computer3 | 'voor wijzigingen bijhouden' |
+| computer3 | "changeTracking" |
 | ... | ... | ... |
 
 
@@ -112,7 +112,7 @@ Heartbeat
 |--------------|----------------------|
 | "beveiliging" | ["computer1", "computer2"] |
 | "updates" | ["computer1", "computer2"] |
-| 'voor wijzigingen bijhouden' | ["computer1", "computer3"] |
+| "changeTracking" | ["computer1", "computer3"] |
 | "antiMalware" | ["computer3"] |
 | ... | ... |
 
@@ -181,7 +181,7 @@ WindowsFirewall
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie andere lessen voor het gebruik van de querytaal van Log Analytics:
+Zie andere lessen voor het gebruik van de [Data Explorer-querytaal](/azure/kusto/query/) met Azure Monitor gegevens vastleggen:
 
 - [Bewerkingen op tekenreeksen uitvoeren](string-operations.md)
 - [Datum- en tijdbewerkingen](datetime-operations.md)

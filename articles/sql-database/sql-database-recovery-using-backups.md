@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 8d2cac7635b9d97561b3cebf517c95855407cbe3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: 27a8e160fc33729c5b5266dffeb346f0296276fd
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462780"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005281"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Een Azure SQL-database met behulp van geautomatiseerde databaseback-ups herstellen
 
@@ -71,7 +71,7 @@ Er is geen ingebouwde functionaliteit bulksgewijs terugzetten. De [Azure SQL Dat
 
 ## <a name="point-in-time-restore"></a>Terugzetten naar eerder tijdstip
 
-U kunt een zelfstandige, gegroepeerd, herstellen of database naar een eerder tijdstip-exemplaar in de tijd als een nieuwe database op dezelfde server met behulp van Azure portal, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), of de [REST-API](https://docs.microsoft.com/rest/api/sql/databases). Een database kan worden hersteld naar een servicelaag of compute-grootte. Zorg ervoor dat er voldoende bronnen op de server waarop u de database wilt herstellen. Als u klaar bent, is de herstelde database een normale, volledig toegankelijk zijn, online-database. De herstelde database gelden de normale tarieven op basis van de servicelaag en de rekencapaciteit. U doet geen kosten in rekening totdat het herstellen van de database is voltooid.
+Een enkel kunt herstellen, gepoold of database naar een eerder tijdstip-exemplaar in de tijd als een nieuwe database op dezelfde server met behulp van Azure portal, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), of de [REST-API](https://docs.microsoft.com/rest/api/sql/databases). Een database kan worden hersteld naar een servicelaag of compute-grootte. Zorg ervoor dat er voldoende bronnen op de server waarop u de database wilt herstellen. Als u klaar bent, is de herstelde database een normale, volledig toegankelijk zijn, online-database. De herstelde database gelden de normale tarieven op basis van de servicelaag en de rekencapaciteit. U doet geen kosten in rekening totdat het herstellen van de database is voltooid.
 
 U kunt in het algemeen een database herstellen naar een eerder tijdstip voor herstel voor. Wanneer doet, kunt u de herstelde database behandelen als vervanging voor de oorspronkelijke database of deze gebruiken voor het ophalen van gegevens uit en werk vervolgens de oorspronkelijke database.
 
@@ -83,7 +83,7 @@ U kunt in het algemeen een database herstellen naar een eerder tijdstip voor her
 
   Als u van plan bent voor het ophalen van gegevens uit de herstelde database te herstellen van een gebruiker of toepassing fout, moet u om te schrijven en uitvoeren van de scripts voor het herstel van gegevens die nodig zijn om gegevens te extraheren uit de herstelde database naar de oorspronkelijke database. Hoewel de herstelbewerking lang duren kan om uit te voeren, is het herstellen van de database is zichtbaar in de lijst van de database tijdens het herstelproces. Als u de database tijdens de terugzetbewerking verwijdert, de herstelbewerking is geannuleerd en u betaalt geen voor de database die u hebt niet de terugzetbewerking niet voltooien.
 
-Open de pagina voor uw database wilt herstellen van een zelfstandige, gegroepeerd, of het exemplaar van database naar een eerder tijdstip met behulp van de Azure-portal, en klikt u op **herstellen** op de werkbalk.
+Om te herstellen van een enkele, gegroepeerd, of database naar een eerder tijdstip met behulp van de Azure-portal-exemplaar, open de pagina voor uw database en klik op **herstellen** op de werkbalk.
 
 ![point-in-time-restore](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
@@ -139,7 +139,7 @@ Zoals eerder is besproken, naast de Azure portal, kan databaseherstel worden uit
 
 ### <a name="powershell"></a>PowerShell
 
-- Als u een zelfstandige of gegroepeerde-database herstellen, Zie [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase)
+- Een enkele of gegroepeerde als database wilt herstellen, Zie [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase)
 
   | Cmdlet | Description |
   | --- | --- |
@@ -155,7 +155,7 @@ Zoals eerder is besproken, naast de Azure portal, kan databaseherstel worden uit
 
 ### <a name="rest-api"></a>REST-API
 
-Om te herstellen op een zelfstandige of gegroepeerde-database met behulp van de REST-API:
+Een enkele of gegroepeerde om database te herstellen met behulp van de REST-API:
 
 | API | Description |
 | --- | --- |
@@ -164,7 +164,7 @@ Om te herstellen op een zelfstandige of gegroepeerde-database met behulp van de 
 
 ### <a name="azure-cli"></a>Azure-CLI
 
-Zie voor het herstellen van een zelfstandige of gegroepeerde-database met behulp van Azure CLI, [az sql db restore](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-restore).
+Zie voor het herstellen van een enkele of gegroepeerde database met behulp van Azure CLI, [az sql db restore](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-restore).
 
 ## <a name="summary"></a>Samenvatting
 

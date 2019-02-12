@@ -1,6 +1,6 @@
 ---
-title: Werken met tekenreeksen in Azure Log Analytics-query's | Microsoft Docs
-description: Dit artikel bevat een zelfstudie voor het gebruik van de Analytics-portal voor het schrijven van query's in Log Analytics.
+title: Werken met tekenreeksen in Logboeken-query's van Azure Monitor | Microsoft Docs
+description: Beschrijft hoe u bewerken, vergelijken, te zoeken en tal van andere bewerkingen op tekenreeksen uitvoeren in Azure Monitor logboeken-query's.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 729d98dda1ae0a1410a15ee1e40c670ca211d864
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9748cd2c37775a47eb630797dd09981c38f8f7e1
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186239"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995404"
 ---
-# <a name="working-with-strings-in-log-analytics-queries"></a>Werken met tekenreeksen in Log Analytics-query 's
+# <a name="work-with-strings-in-azure-monitor-log-queries"></a>Werken met tekenreeksen in Logboeken-query's van Azure Monitor
 
 
 > [!NOTE]
-> U moet voltooien [aan de slag met de Analytics-portal](get-started-portal.md) en [aan de slag met query's](get-started-queries.md) voordat het voltooien van deze zelfstudie.
+> U moet voltooien [aan de slag met Azure Monitor log-analytics](get-started-portal.md) en [aan de slag met Azure Monitor logboeken-query's](get-started-queries.md) voordat het voltooien van deze zelfstudie.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-In dit artikel wordt beschreven hoe u bewerken, vergelijken, te zoeken en tal van andere bewerkingen op tekenreeksen uitvoeren. 
+In dit artikel wordt beschreven hoe u bewerken, vergelijken, te zoeken en tal van andere bewerkingen op tekenreeksen uitvoeren.
 
 Elk teken in een tekenreeks heeft een indexnummer op basis van de locatie. Het eerste teken is bij index 0, het volgende teken is 1, en dus een. Indexnummers verschillende tekenreeks-functies gebruiken zoals wordt weergegeven in de volgende secties. Veel van de volgende voorbeelden gebruiken de **afdrukken** voor de opdracht om te demonstreren manipuleren van tekenreeksen zonder gebruik van een specifieke gegevensbron.
 
@@ -66,7 +66,7 @@ Operator       |Description                         |Hoofdlettergevoelig|Voorbee
 `hassuffix`    |Rechts naast is een term-achtervoegsel in de links aan         |Nee            |`"North America" hassuffix "ica"`
 `!hassuffix`   |Rechts naast is niet een term-achtervoegsel in de links aan     |Nee            |' 'Noord-Amerika'! hassuffix "americ"
 `hassuffix_cs`    |Rechts naast is een term-achtervoegsel in de links aan         |Ja            |`"North America" hassuffix_cs "ica"`
-`!hassuffix_cs`   |Rechts naast is niet een term-achtervoegsel in de links aan     |Ja            |' 'Noord-Amerika'! hassuffix_cs "icA"
+`!hassuffix_cs`   |Rechts naast is niet een term-achtervoegsel in de links aan     |Ja            |`"North America" !hassuffix_cs "icA"
 `contains`     |Rechts naast treedt op als een subsequence van links zijde  |Nee            |`"FabriKam" contains "BRik"`
 `!contains`    |Rechts naast niet wordt uitgevoerd in de links aan           |Nee            |`"Fabrikam" !contains "xyz"`
 `contains_cs`   |Rechts naast treedt op als een subsequence van links zijde  |Ja           |`"FabriKam" contains_cs "Kam"`

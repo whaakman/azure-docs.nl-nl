@@ -1,5 +1,5 @@
 ---
-title: Zoeken in resources met Azure Log Analytics | Microsoft Docs
+title: Query voor resources met Azure Monitor | Microsoft Docs
 description: Dit artikel wordt beschreven hoe u kunt een query naar resources van meerdere werkruimten en Application Insights-app in uw abonnement.
 services: log-analytics
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: magoedte
-ms.openlocfilehash: 42191b21faec7bb1929a12e6bc1a724d269acb1d
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: ccc9a74c4e238ebfcab0fc05a3bf825000917843
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298871"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998933"
 ---
-# <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Uitvoeren van meerdere bronnen zoekopdrachten in Logboeken in Log Analytics  
+# <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Meerdere bronnen logboeken-query's uitvoeren in Azure Monitor  
 
-Eerder met Azure Log Analytics, u kunt gegevens alleen analyseren in de huidige werkruimte en deze kunt gebruiken om query's beperkt in meerdere werkruimten die zijn gedefinieerd in uw abonnement.  Bovendien kunt u alleen telemetrie-items die worden verzameld van uw webtoepassing met Application Insights rechtstreeks in Application Insights of vanuit Visual Studio zoeken.  Dit ook dat het een uitdaging voor het systeemeigen analyseren van operationele en toepassingsgegevens samen.   
+Eerder met Azure Monitor, u kunt gegevens alleen analyseren in de huidige werkruimte en deze kunt gebruiken om query's beperkt in meerdere werkruimten die zijn gedefinieerd in uw abonnement.  Bovendien kunt u alleen telemetrie-items die worden verzameld van uw webtoepassing met Application Insights rechtstreeks in Application Insights of vanuit Visual Studio zoeken.  Dit ook dat het een uitdaging voor het systeemeigen analyseren van operationele en toepassingsgegevens samen.   
 
-U kunt nu een query niet alleen over meerdere Log Analytics-werkruimten, maar ook gegevens uit een specifieke Application Insights-app in dezelfde resourcegroep, een andere resourcegroep of een ander abonnement. Dit biedt u een systeembreed overzicht van uw gegevens.  U kunt alleen uitvoeren met deze typen query's in [Log Analytics](portals.md#log-analytics-page). Het aantal resources (Log Analytics-werkruimten en Application Insights-app) die u in één query opnemen kunt is beperkt tot 100. 
+U kunt nu een query niet alleen over meerdere Log Analytics-werkruimten, maar ook gegevens uit een specifieke Application Insights-app in dezelfde resourcegroep, een andere resourcegroep of een ander abonnement. Dit biedt u een systeembreed overzicht van uw gegevens.  U kunt alleen uitvoeren met deze typen query's in [Log Analytics](portals.md). Het aantal resources (Log Analytics-werkruimten en Application Insights-app) die u in één query opnemen kunt is beperkt tot 100. 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Uitvoeren van query's in Log Analytics-werkruimten en Application Insights
 Om te verwijzen naar een andere werkruimte in uw query, gebruikt u de [ *werkruimte* ](https://docs.microsoft.com/azure/log-analytics/query-language/workspace-expression) -id, en voor een app uit de Application Insights, gebruikt u de [ *app* ](https://docs.microsoft.com/azure/log-analytics/query-language/app-expression)id.  
@@ -101,9 +101,9 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 ```
 
 ## <a name="using-cross-resource-query-for-multiple-resources"></a>Met behulp van meerdere bronnen query voor meerdere bronnen
-Als u meerdere bronnen query's voor het correleren van gegevens uit meerdere Log Analytics en Application Insights-resources, wordt de query kan worden complex en moeilijk te onderhouden. U moet gebruikmaken van [functies in Log Analytics](../../azure-monitor/log-query/functions.md) het scheiden van de querylogica van het bereik van de query-resources, waardoor de querystructuur eenvoudiger. Het volgende voorbeeld ziet u hoe u kunt meerdere Application Insights-resources controleren en visualiseren van het aantal mislukte aanvragen met de toepassingsnaam. 
+Als u meerdere bronnen query's voor het correleren van gegevens uit meerdere Log Analytics-werkruimten en Application Insights-resources, wordt de query kan worden complex en moeilijk te onderhouden. U moet gebruikmaken van [functies in Azure Monitor query's bijgehouden](functions.md) het scheiden van de querylogica van het bereik van de query-resources, waardoor de querystructuur eenvoudiger. Het volgende voorbeeld ziet u hoe u kunt meerdere Application Insights-resources controleren en visualiseren van het aantal mislukte aanvragen met de toepassingsnaam. 
 
-Een query als volgt die verwijst naar het bereik van Application Insights-resources maken. De `withsource= SourceApp` opdracht voegt een kolom die de toepassingsnaam Hiermee wordt aangegeven dat het logboek verzonden. [De query opslaan als functie](../../azure-monitor/log-query/functions.md#create-a-function) met de alias _applicationsScoping_.
+Een query als volgt die verwijst naar het bereik van Application Insights-resources maken. De `withsource= SourceApp` opdracht voegt een kolom die de toepassingsnaam Hiermee wordt aangegeven dat het logboek verzonden. [De query opslaan als functie](functions.md#create-a-function) met de alias _applicationsScoping_.
 
 ```Kusto
 // crossResource function that scopes my Application Insights resources
@@ -131,4 +131,5 @@ applicationsScoping
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Controleer de [Log Analytics melden verwijzing naar de](https://docs.microsoft.com/azure/log-analytics/query-language/kusto) om alle van de query-syntaxis opties die beschikbaar zijn in Log Analytics weer te geven.    
+- Beoordeling [analyseren logboekgegevens in Azure Monitor](log-query-overview.md) voor een overzicht van Logboeken-query's en de structuur van logboekgegevens van Azure Monitor.
+- Beoordeling [logboeken-query's van Azure Monitor](query-language.md) om alle resources voor Azure Monitor logboeken-query's weer te geven.

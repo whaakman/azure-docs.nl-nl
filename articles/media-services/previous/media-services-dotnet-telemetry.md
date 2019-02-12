@@ -1,10 +1,10 @@
 ---
 title: Configureren van telemetrie van Azure Media Services met .NET | Microsoft Docs
-description: In dit artikel laat zien hoe de telemetrie van de Azure Media Services met .NET SDK gebruiken.
+description: In dit artikel leest u hoe de Azure Media Services-telemetrie met behulp van .NET SDK gebruiken.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: f8f55e37-0714-49ea-bf4a-e6c1319bec44
 ms.service: media-services
@@ -12,36 +12,36 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 57b68207b5150980ce1ab9a807af40766c25c6c0
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5a24bf415cd575ebf62a2843207872c66bbeb021
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788401"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989855"
 ---
-# <a name="configuring-azure-media-services-telemetry-with-net"></a>Configureren van telemetrie van Azure Media Services met .NET
+# <a name="configuring-azure-media-services-telemetry-with-net-legacy"></a>Telemetrie van Azure Media Services met .NET (verouderde) configureren
 
-Dit artikel worden de algemene stappen die u bij het configureren van de Azure Media Services (AMS) telemetrie met .NET SDK kan duren. 
+Dit artikel beschrijft de algemene stappen die u nemen kunt bij het configureren van de Azure Media Services (AMS)-telemetrie met behulp van .NET SDK. 
 
 >[!NOTE]
->Voor de gedetailleerde uitleg van wat is AMS Telemetrie en hoe deze wordt gebruikt, Zie de [overzicht](media-services-telemetry-overview.md) artikel.
+>Voor de gedetailleerde beschrijving van wat is de AMS-Telemetrie en het gebruik van deze, Zie de [overzicht](media-services-telemetry-overview.md) artikel.
 
-U kunt telemetrische gegevens in een van de volgende manieren gebruiken:
+U kunt de telemetrische gegevens gebruiken in een van de volgende manieren:
 
-- Gegevens lezen rechtstreeks vanuit Azure Table Storage (bijvoorbeeld met behulp van de opslag-SDK). Zie voor de beschrijving van telemetrie storage-tabellen, de **verbruikt telemetrie informatie** in [dit](https://msdn.microsoft.com/library/mt742089.aspx) artikel.
+- Gegevens rechtstreeks vanuit Azure Table Storage (bijvoorbeeld met behulp van de Storage-SDK) lezen. Zie voor de beschrijving van de opslagtabellen telemetrie, het **verbruikt telemetriegegevens** in [dit](https://msdn.microsoft.com/library/mt742089.aspx) artikel.
 
 of
 
-- De ondersteuning voor het lezen van gegevens in de opslag in de Media Services .NET SDK gebruiken. Dit artikel laat zien hoe telemetrie voor de opgegeven AMS-account inschakelen en de metrische gegevens met Azure Media Services .NET SDK een query.  
+- De ondersteuning voor het lezen van gegevens in de opslag in de Media Services .NET SDK gebruiken. In dit artikel wordt uitgelegd hoe telemetrie voor de opgegeven AMS-account inschakelen en hoe u query's van de metrische gegevens met behulp van de Azure Media Services .NET SDK.  
 
 ## <a name="configuring-telemetry-for-a-media-services-account"></a>Telemetrie voor een Media Services-account configureren
 
-De volgende stappen zijn nodig om telemetrie inschakelen:
+De volgende stappen zijn nodig om de telemetrie inschakelen:
 
-- De referenties van het opslagaccount dat is gekoppeld aan het Media Services-account ophalen. 
-- Maak een Meldingseindpunt met **EndPointType** ingesteld op **AzureTable** en endPointAddress die verwijst naar de tabel opslag.
+- De referenties van het opslagaccount dat is gekoppeld aan de Media Services-account ontvangen. 
+- Maken van een Meldingseindpunt met **EndPointType** ingesteld op **AzureTable** en s parametry endPointAddress die verwijst naar het storage-tabel.
 
 ```csharp
         INotificationEndPoint notificationEndPoint = 
@@ -50,7 +50,7 @@ De volgende stappen zijn nodig om telemetrie inschakelen:
                       "https://" + _mediaServicesStorageAccountName + ".table.core.windows.net/");
 ```
 
-- Maak een controleconfiguratie instellen voor de services die u wilt bewaken. Bewaking niet meer dan één configuratie-instelling is toegestaan. 
+- Maak een configuratie van de bewaking voor de services die u wilt bewaken. Bewaking niet meer dan één configuratie-instelling is toegestaan. 
 
 ```csharp
         IMonitoringConfiguration monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
@@ -61,9 +61,9 @@ De volgende stappen zijn nodig om telemetrie inschakelen:
             });
 ```
 
-## <a name="consuming-telemetry-information"></a>Telemetrie-informatie gebruiken
+## <a name="consuming-telemetry-information"></a>Telemetriegegevens gebruiken
 
-Zie voor informatie over consumerende telemetrie [dit](media-services-telemetry-overview.md) artikel.
+Zie voor meer informatie over de verbruikende telemetriegegevens [dit](media-services-telemetry-overview.md) artikel.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
 
@@ -77,7 +77,7 @@ Zie voor informatie over consumerende telemetrie [dit](media-services-telemetry-
  
 ## <a name="example"></a>Voorbeeld  
     
-Het volgende voorbeeld ziet het inschakelen van telemetrie voor de opgegeven AMS-account en de metrische gegevens met Azure Media Services .NET SDK een query.  
+Het volgende voorbeeld ziet hoe u telemetrie voor de opgegeven AMS-account inschakelen en hoe u query's van de metrische gegevens met behulp van de Azure Media Services .NET SDK.  
 
 ```csharp
 using System;

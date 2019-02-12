@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 01/23/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 5ae8297f8e189fbe9374cec826bf5e566e5403da
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: aca051dd20ceaeb608baa144a81e0584043a1c52
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241939"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002042"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Tenant-registratie in Azure Stack beheren
 
@@ -48,7 +48,7 @@ Zie voor meer informatie over Azure Stack en API-profielen, [beheren API-versiep
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter                  | Beschrijving |
+| Parameter                  | Description |
 |---                         | --- |
 | registrationSubscriptionID | De Azure-abonnement dat is gebruikt voor de registratie. |
 | customerSubscriptionID     | De Azure-abonnement (niet Azure Stack) die horen bij de klant worden geregistreerd. Moet worden gemaakt van de aanbieding van Cloud Service Provider (CSP) tot en met de Partner Center. Als een klant meer dan één tenant heeft, moet u een abonnement voor de tenant voor aanmelding bij Azure Stack gemaakt. |
@@ -60,7 +60,7 @@ Zie voor meer informatie over Azure Stack en API-profielen, [beheren API-versiep
 
 ### <a name="powershell"></a>PowerShell
 
-Gebruik de cmdlet New-AzureRmResource om bij te werken van de registratie-resource. Hier volgt een voorbeeld van het toevoegen van een tenant:
+Gebruik de cmdlet New-AzureRmResource om toe te voegen een tenant. [Verbinding maken met Azure Stack](/azure-stack-powershell-configure-admin.md), en gebruik vervolgens de volgende cmdlet vanaf een opdrachtprompt:
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -83,7 +83,7 @@ Haal een lijst van alle tenants die zijn toegevoegd aan een registratie.
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter                  | Beschrijving          |
+| Parameter                  | Description          |
 |---                         | ---                  |
 | registrationSubscriptionId | De Azure-abonnement dat is gebruikt voor de registratie.   |
 | resourceGroup              | De resourcegroep in Azure waarop uw registratie zijn opgeslagen.    |
@@ -91,7 +91,7 @@ Haal een lijst van alle tenants die zijn toegevoegd aan een registratie.
 
 ### <a name="powershell"></a>PowerShell
 
-Gebruik de cmdlet Get-AzureRmResource om alle geregistreerde tenants weer te geven. Aanmelden bij Azure (`Add-AzureRmAccount`) met behulp van het account dat u voor de registratie gebruikt. Hier volgt een voorbeeld van het toevoegen van een tenant:
+Gebruik de cmdlet Get-AzureRmResource om alle geregistreerde tenants weer te geven. [Verbinding maken met Azure Stack](/azure-stack-powershell-configure-admin.md), en gebruik vervolgens de volgende cmdlet vanaf een opdrachtprompt:
 
 ```powershell
   Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
@@ -99,7 +99,7 @@ Gebruik de cmdlet Get-AzureRmResource om alle geregistreerde tenants weer te gev
 
 ### <a name="api-call"></a>API-aanroep
 
-U kunt een lijst van alle toewijzingen van tenant met behulp van de GET-bewerking ophalen
+U kunt een lijst van alle toewijzingen van tenant met behulp van de GET-bewerking.
 
 **Bewerking**: GET  
 **RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
@@ -111,15 +111,15 @@ api-version=2017-06-01 HTTP/1.1`
 ```JSON  
 {
     "value": [{
-            "id": " subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{ cspSubscriptionId 1}”,
+            "id": " subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{ cspSubscriptionId 1}",
             "name": " cspSubscriptionId 1",
-            "type": “Microsoft.AzureStack\customerSubscriptions”,
+            "type": "Microsoft.AzureStack\customerSubscriptions",
             "properties": { "tenantId": "tId1" }
         },
         {
-            "id": " subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{ cspSubscriptionId 2}”,
+            "id": " subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{ cspSubscriptionId 2}",
             "name": " cspSubscriptionId2 ",
-            "type": “Microsoft.AzureStack\customerSubscriptions”,
+            "type": "Microsoft.AzureStack\customerSubscriptions",
             "properties": { "tenantId": "tId2" }
         }
     ],
@@ -133,7 +133,7 @@ U kunt een tenant die is toegevoegd aan een registratie verwijderen. Als deze te
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter                  | Beschrijving          |
+| Parameter                  | Description          |
 |---                         | ---                  |
 | registrationSubscriptionId | Abonnements-ID voor de registratie.   |
 | resourceGroup              | De resourcegroep voor de registratie.   |
@@ -141,6 +141,8 @@ U kunt een tenant die is toegevoegd aan een registratie verwijderen. Als deze te
 | customerSubscriptionId     | De klant abonnements-ID.  |
 
 ### <a name="powershell"></a>PowerShell
+
+Gebruik de cmdlet Remove-AzureRmResource te verwijderen van een tenant. [Verbinding maken met Azure Stack](/azure-stack-powershell-configure-admin.md), en gebruik vervolgens de volgende cmdlet vanaf een opdrachtprompt:
 
 ```powershell
   Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01

@@ -7,24 +7,24 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 4d2994ea6ab6d6472ec56f0f2e378062590c8920
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: b620ca76cfea296e504afffd91852308a01575db
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54806994"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001968"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Consistentieniveaus en Azure Cosmos DB-API's
 
-Vijf consistentiemodellen aangeboden door Azure Cosmos DB worden ondersteund door de Azure Cosmos DB SQL API. Wanneer u Azure Cosmos DB gebruikt, is de SQL-API de standaardinstelling. 
+Vijf consistentiemodellen aangeboden door Azure Cosmos DB worden ondersteund door de SQL-API. Wanneer u Azure Cosmos DB gebruikt, is de SQL-API de standaardinstelling. 
 
-Azure Cosmos DB biedt ook ingebouwde ondersteuning voor wire-protocol-compatibele API's voor populaire-databases. Databases omvatten MongoDB, Apache Cassandra, Gremlin en Azure Table storage. Deze databases bieden niet nauwkeurig omschreven consistentiemodellen of SLA's gesteunde garanties voor consistentieniveaus. Ze bieden doorgaans slechts een subset van de vijf consistentiemodellen aangeboden door Azure Cosmos DB. Voor de SQL-API, Gremlin-API en Table-API, wordt het standaardconsistentieniveau geconfigureerd op het Azure Cosmos DB-account gebruikt. 
+Azure Cosmos DB biedt ook ingebouwde ondersteuning voor wire-protocol-compatibele API's voor populaire-databases. Databases omvatten MongoDB, Apache Cassandra, Gremlin en Azure Table storage. Deze databases bieden niet nauwkeurig omschreven consistentiemodellen of SLA's gesteunde garanties voor consistentieniveaus. Ze bieden doorgaans slechts een subset van de vijf consistentiemodellen aangeboden door Azure Cosmos DB. Voor de SQL-API, Gremlin-API en Table-API, wordt het standaardconsistentieniveau geconfigureerd op de Azure Cosmos-account gebruikt. 
 
-De volgende secties ziet u de toewijzing tussen de consistentie van de gegevens aangevraagd door een OSS-client-stuurprogramma voor Apache Cassandra 4.x en MongoDB 3.4. Dit document bevat ook de bijbehorende Azure Cosmos DB-consistentieniveaus voor Apache Cassandra en MongoDB.
+De volgende secties ziet de toewijzing tussen de consistentie van de gegevens aangevraagd door een OSS-client-stuurprogramma voor Apache Cassandra, MongoDB en de bijbehorende consistentieniveaus in Azure Cosmos DB.
 
 ## <a id="cassandra-mapping"></a>Toewijzing tussen Apache Cassandra en Azure Cosmos DB-consistentieniveaus
 
-Deze tabel bevat de toewijzing van de consistentie tussen de Apache Cassandra en consistentieniveaus in Azure Cosmos DB. Voor elk van de Cassandra-lezen en schrijven consistentieniveaus, de bijbehorende Consistentieniveau voor Cosmos DB biedt betere, dat wil zeggen, strengere garanties.
+Onderstaande tabel beschrijft de combinatie van verschillende consistentie op basis van de Cassandra-API en de equivalente systeemeigen consistentie niveau toewijzing van Cosmos DB kunt gebruiken. Alle combinatie van Apache Cassandra schrijven en lezen modi systeemeigen worden ondersteund door Cosmos DB. In elke combinaties van Apache Cassandra schrijven en lezen van consistentie-model biedt Cosmos DB even hoog of hoger consistentie gegarandeerd dan Apache Cassandra. Cosmos DB biedt bovendien een hogere duurzaamheid dan Apache Cassandra zelfs in de zwakste modus van schrijven wordt gegarandeerd.
 
 De volgende tabel toont de **schrijven consistentie toewijzing** tussen Azure Cosmos DB en Cassandra:
 
@@ -42,7 +42,7 @@ De volgende tabel toont de **schrijven consistentie toewijzing** tussen Azure Co
 | LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE    | Gebonden veroudering | <ul><li>Gebonden veroudering.</li><li>Maximaal K versies of t keer achter.</li><li>De meest recente toegezegde waarde in de regio lezen.</li></ul> |
 | EEN LOCAL_ONE,   | Consistent prefix | Consistent Prefix per regio |
 
-De volgende tabel toont de **lezen van consistentie toewijzing** tussen Azure Cosmos DB en Cassandra:
+De volgende tabel toont de **lezen consistentie toewijzing** tussen Azure Cosmos DB en Cassandra:
 
 | Cassandra | Azure Cosmos DB | Guarantee |
 | - | - | - |

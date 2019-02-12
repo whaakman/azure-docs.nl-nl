@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 2b9aee39942562ec7f17c08c0fcf46143a7a25d3
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: d5c07e0d4aca8bda42ea9f78a1475ea7bb5861f0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53585296"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997019"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Resourcegroepen bewaken met Azure Monitor (preview)
 
@@ -93,9 +93,9 @@ Een aantal **bewerken** vakken weergegeven in de buurt van de verschillende elem
 
 ![Schermafbeelding van de invoervakken](./media/resource-group-insights/0009-failure-edit-graph.png)
 
-Dit geeft aan de onderliggende Log Analytics-query die vraagt om de tabelvisualisatie van de.
+Hiermee wordt de onderliggende logboekquery die vraagt om de tabelvisualisatie van de.
 
- ![Schermafbeelding van log analytics-query-venster](./media/resource-group-insights/0010-failure-edit-query.png)
+ ![Schermafbeelding van de query-logboekvenster](./media/resource-group-insights/0010-failure-edit-query.png)
 
 U kunt de query rechtstreeks wijzigen. Of u kunt gebruiken als uitgangspunt en lenen uit bij het ontwerpen van uw eigen aangepaste geparameteriseerde werkmap.
 

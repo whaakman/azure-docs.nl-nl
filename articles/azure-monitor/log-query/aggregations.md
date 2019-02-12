@@ -1,6 +1,6 @@
 ---
-title: Aggregaties in Azure Log Analytics-query's | Microsoft Docs
-description: Hierin wordt beschreven aggregatiefuncties in Log Analytics-query's die nuttige manieren om uw gegevens te analyseren.
+title: Aggregaties in Azure Monitor query's bijgehouden | Microsoft Docs
+description: Hierin wordt beschreven aggregatiefuncties in Azure Monitor log-query's die nuttige manieren om uw gegevens te analyseren.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: f5ecd68c1538fb9e21345221aa22c28217002271
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 31ff0435487592577915e526abcb97197f591449
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185746"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000844"
 ---
-# <a name="aggregations-in-log-analytics-queries"></a>Aggregaties in Log Analytics-query 's
+# <a name="aggregations-in-azure-monitor-log-queries"></a>Aggregaties in Logboeken-query's van Azure Monitor
 
 > [!NOTE]
 > U moet voltooien [aan de slag met de Analytics-portal](get-started-portal.md) en [aan de slag met query's](get-started-queries.md) voordat het voltooien van deze les gaat uitvoeren.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Dit artikel wordt beschreven aggregatiefuncties in Log Analytics-query's die nuttige manieren om uw gegevens te analyseren. Deze alle functies werken met de `summarize` operator die hiermee een tabel met samengevoegde resultaten van de invoertabel wordt.
+Dit artikel wordt beschreven aggregatiefuncties in Azure Monitor log-query's die nuttige manieren om uw gegevens te analyseren. Deze alle functies werken met de `summarize` operator die hiermee een tabel met samengevoegde resultaten van de invoertabel wordt.
 
 ## <a name="counts"></a>Aantallen
 
@@ -147,7 +147,7 @@ Perf
 | summarize stdev(CounterValue), percentiles(CounterValue, 50) by Computer
 ```
 
-Zie andere lessen voor het gebruik van de querytaal van Log Analytics:
+Zie andere lessen voor het gebruik van de [Data Explorer-querytaal](/azure/kusto/query/) met Azure Monitor gegevens vastleggen:
 
 - [Bewerkingen op tekenreeksen uitvoeren](string-operations.md)
 - [Datum- en tijdbewerkingen](datetime-operations.md)

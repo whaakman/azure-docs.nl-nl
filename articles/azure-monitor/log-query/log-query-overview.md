@@ -1,6 +1,6 @@
 ---
-title: Analyseren van Log Analytics-gegevens in Azure Monitor | Microsoft Docs
-description: U moet een zoeken in Logboeken om op te halen van alle gegevens van Log Analytics.  In dit artikel wordt beschreven hoe u met nieuwe log searches in Log Analytics worden gebruikt en concepten die u nodig hebt om te begrijpen voordat deze is gemaakt.
+title: Analyseren van logboekgegevens in Azure Monitor | Microsoft Docs
+description: U moet een logboekquery voor het ophalen van logboekgegevens van Azure Monitor.  In dit artikel wordt beschreven hoe u met nieuwe logboekbestanden query's worden gebruikt in Azure Monitor en concepten die u nodig hebt om te begrijpen voordat deze is gemaakt.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -10,46 +10,44 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/10/2019
 ms.author: bwren
-ms.openlocfilehash: d3fc44456ac4f0df2bee35300c0f40728a40cb92
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 9aff955a2ae0f40785036c2fee22804785e6526a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54882232"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002266"
 ---
-# <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analyseren van Log Analytics-gegevens in Azure Monitor
+# <a name="analyze-log-data-in-azure-monitor"></a>Analyseren van logboekgegevens in Azure Monitor
 
 Logboekgegevens die zijn verzameld door Azure Monitor is opgeslagen in een Log Analytics-werkruimte die is gebaseerd op [Azure Data Explorer](/azure/data-explorer). Het verzamelt telemetrie van een groot aantal bronnen en maakt gebruik van de [querytaal van Data Explorer](/azure/kusto/query) ophalen en analyseren van gegevens.
 
-> [!NOTE]
-> Log Analytics is eerder beschouwd als een eigen service in Azure. Het is nu beschouwd als een onderdeel van Azure Monitor en richt zich op de opslag en analyse van gegevens met behulp van de querytaal. Functies die werden beschouwd als onderdeel van Log Analytics, zoals Windows en Linux-agents voor het verzamelen van gegevens, weergaven om bestaande gegevens en waarschuwingen te visualiseren om proactief te waarschuwen u van problemen, niet zijn gewijzigd, maar worden nu beschouwd als onderdeel van Azure Monitor.
-
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 
 ## <a name="log-queries"></a>Logboeken-query 's
 
-U moet een logboekquery voor het ophalen van gegevens van Log Analytics.  Of u bent [analyseren van gegevens in de portal](../log-query/portals.md), [configureren van een waarschuwingsregel](../platform/alerts-metric.md) om te worden geïnformeerd over een bepaalde voorwaarde of bij het ophalen van gegevens met de [Log Analytics API](https://dev.loganalytics.io/), u wordt een query gebruiken om op te geven van de gegevens die u wilt.  In dit artikel wordt beschreven hoe de logboeken-query's worden gebruikt in Log Analytics en concepten die u weten moet voordat u een maakt.
+U moet een logboekquery voor het ophalen van alle logboekgegevens van Azure Monitor.  Of u bent [analyseren van gegevens in de portal](portals.md), [configureren van een waarschuwingsregel](../platform/alerts-metric.md) om te worden geïnformeerd over een bepaalde voorwaarde of bij het ophalen van gegevens met de [logboeken-API van Azure Monitor](https://dev.loganalytics.io/) , gaat u een query maken om op te geven van de gegevens die u wilt.  In dit artikel wordt beschreven hoe de logboeken-query's worden gebruikt in Azure Monitor en concepten die u weten moet voordat u een maakt.
 
 
 
 ## <a name="where-log-queries-are-used"></a>Wanneer logboeken-query's worden gebruikt
 
-De verschillende manieren die u query's in Log Analytics gebruikt omvatten het volgende:
+De verschillende manieren die u Logboeken-query's in Azure Monitor gebruikt omvatten het volgende:
 
-- **Portals.** U kunt uitvoeren interactieve analyses van logboekgegevens in de [Azure-portal](../log-query/portals.md).  Hiermee kunt u uw query bewerken en analyseer de resultaten in verschillende indelingen en visualisaties.  
+- **Portal.** U kunt uitvoeren interactieve analyses van logboekgegevens in de [Azure-portal](portals.md).  Hiermee kunt u uw query bewerken en analyseer de resultaten in verschillende indelingen en visualisaties.  
 - **Regels voor waarschuwingen.** [Waarschuwingsregels](../platform/alerts-overview.md) proactief problemen van gegevens in uw werkruimte te identificeren.  De waarschuwingsregel is gebaseerd op een logboekzoekopdracht die automatisch met regelmatige tussenpozen wordt uitgevoerd.  De resultaten worden gecontroleerd om te bepalen of een waarschuwing moet worden gemaakt.
 - **Dashboards.** U kunt de resultaten van elke query in vastmaken een [Azure-dashboard](../learn/tutorial-logs-dashboards.md) waarmee u logboek- en metrische gegevens bij elkaar te visualiseren en (optioneel) delen met andere Azure-gebruikers. 
 - **Weergaven.**  Kunt u visualisaties van gegevens moeten worden opgenomen in de Gebruikersdashboards met [Weergaveontwerper](../platform/view-designer.md).  Logboeken-query's leveren de gegevens die worden gebruikt door [tegels](../platform/view-designer-tiles.md) en [visualisatie delen](../platform/view-designer-parts.md) in elke weergave.  
-- **Exporteren.**  Wanneer u gegevens importeren uit Log Analytics-werkruimte in Excel of [Power BI](../platform/powerbi.md), maakt u een logboekquery voor het definiëren van de gegevens te exporteren.
-- **PowerShell.** U kunt een PowerShell-script uitvoeren vanaf een opdrachtregel of een Azure Automation-runbook die gebruikmaakt van [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) voor het ophalen van gegevens van Log Analytics.  Deze cmdlet is vereist voor een query om te bepalen van de gegevens moeten worden opgehaald.
-- **Log Analytics-API.**  De [Log Analytics search API melden](../platform/alerts-overview.md) kan een client REST-API om op te halen van logboekgegevens uit de werkruimte.  De API-aanvraag bevat een query die wordt uitgevoerd op basis van Log Analytics om te bepalen van de gegevens moeten worden opgehaald.
+- **Exporteren.**  Wanneer u logboekgegevens van Azure Monitor in Excel importeert of [Power BI](../platform/powerbi.md), maakt u een logboekquery voor het definiëren van de gegevens te exporteren.
+- **PowerShell.** U kunt een PowerShell-script uitvoeren vanaf een opdrachtregel of een Azure Automation-runbook die gebruikmaakt van [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) om op te halen van logboekgegevens van Azure Monitor.  Deze cmdlet is vereist voor een query om te bepalen van de gegevens moeten worden opgehaald.
+- **API voor Azure Monitor-Logboeken.**  De [logboeken-API van Azure Monitor](../platform/alerts-overview.md) kan een client REST-API om op te halen van logboekgegevens uit de werkruimte.  De API-aanvraag bevat een query die wordt uitgevoerd op Azure Monitor om te bepalen van de gegevens moeten worden opgehaald.
 
 ![Zoekopdrachten in Logboeken](media/log-query-overview/queries-overview.png)
 
 ## <a name="write-a-query"></a>Een query schrijven
-Meld u Analytics gebruikt [een versie van de querytaal van Data Explorer](../log-query/get-started-queries.md) ophalen en analyseren van logboekgegevens op verschillende manieren.  U doorgaans begint met eenvoudige query's en vervolgens de voortgang voor het gebruik van meer geavanceerde functies zoals de vereisten van uw steeds complexer.
+Azure Monitor maakt gebruik van [een versie van de querytaal van Data Explorer](get-started-queries.md) ophalen en analyseren van logboekgegevens op verschillende manieren.  U doorgaans begint met eenvoudige query's en vervolgens de voortgang voor het gebruik van meer geavanceerde functies zoals de vereisten van uw steeds complexer.
 
 De basisstructuur van een query is een brontabel gevolgd door een reeks van operators, gescheiden door een sluisteken `|`.  U kunt koppelen samen meerdere operators voor het verfijnen van de gegevens en geavanceerde functies uitvoeren.
 
@@ -92,10 +90,10 @@ union Update, workspace("contoso-workspace").Update
 | summarize dcount(Computer) by Classification 
 ```
 
-## <a name="how-log-analytics-data-is-organized"></a>De rangschikking van Log Analytics-gegevens
+## <a name="how-azure-monitor-log-data-is-organized"></a>De rangschikking van logboekgegevens van Azure Monitor
 Wanneer u een query bouwen, start u door te bepalen welke tabellen bevatten de gegevens die u zoekt. Verschillende soorten gegevens zijn onderverdeeld in specifieke tabellen in elk [Log Analytics-werkruimte](../learn/quick-create-workspace.md).  Documentatie voor verschillende gegevensbronnen bevat de naam van het gegevenstype dat wordt gemaakt en een beschrijving van elk van de bijbehorende eigenschappen.  Veel query's worden alleen gegevens uit één tabel vereist, maar andere gebruiken misschien een verscheidenheid aan opties om op te nemen van gegevens uit meerdere tabellen.
 
-Terwijl [Application Insights](../app/app-insights-overview.md) gegevens van de toepassing stores, zoals aanvragen, uitzonderingen, traceringen en gebruik in Log Analytics, deze gegevens worden opgeslagen in een andere partitie dan de andere logboekgegevens. U dezelfde querytaal gebruiken voor toegang tot deze gegevens, maar moet gebruiken de [Application Insights-console](../app/analytics.md) of [Application Insights REST-API](https://dev.applicationinsights.io/) om deze te openen. U kunt [cross-resources query's](../log-query/cross-workspace-query.md) om Application Insights-gegevens met andere gegevens in Log Analytics te combineren.
+Terwijl [Application Insights](../app/app-insights-overview.md) winkels toepassingsgegevens, zoals aanvragen, uitzonderingen, traceringen, en gebruik in Azure Monitor-Logboeken, deze gegevens worden opgeslagen in een andere partitie dan de andere logboekgegevens. U dezelfde querytaal gebruiken voor toegang tot deze gegevens, maar moet gebruiken de [Application Insights-console](../app/analytics.md) of [Application Insights REST-API](https://dev.applicationinsights.io/) om deze te openen. U kunt [cross-resources query's](../log-query/cross-workspace-query.md) om Application Insights-gegevens met andere logboekgegevens in Azure Monitor te combineren.
 
 
 ![Tabellen](media/log-query-overview/queries-tables.png)
@@ -103,10 +101,6 @@ Terwijl [Application Insights](../app/app-insights-overview.md) gegevens van de 
 
 
 
-
-
-
 ## <a name="next-steps"></a>Volgende stappen
-
-- Meer informatie over de [portals die u gebruiken om te maken en bewerken van zoekopdrachten](../log-query/portals.md).
+- Meer informatie over het gebruik van [melden analytics maken en bewerken van zoekopdrachten in logboeken](../log-query/portals.md).
 - Bekijk een [zelfstudie over het schrijven van query's](../log-query/get-started-queries.md) met behulp van de nieuwe querytaal.

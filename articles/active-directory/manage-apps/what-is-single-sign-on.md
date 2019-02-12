@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: celested
 ms.reviewer: arvindh
-ms.openlocfilehash: 7903094efc75ec54811bf565f407752f958498b7
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 2e70746de4b744daf7242e91c51a3ccc1b331878
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55959202"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997299"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Eenmalige aanmelding voor toepassingen in Azure Active Directory
 Eenmalige aanmelding (SSO) voegt beveiliging en gemak wanneer gebruikers zich aanmelden bij toepassingen in Azure Active Directory (Azure AD). Dit artikel beschrijft de methoden voor eenmalige aanmelding en helpt u bij het kiezen van de meest geschikte methode voor eenmalige aanmelding bij het configureren van uw toepassingen.
@@ -58,7 +58,7 @@ Zie voor meer informatie:
 - [Azure Active Directory-Ontwikkelaarshandleiding voor](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 
 ## <a name="saml-sso"></a>SAML-EENMALIGE AANMELDING
-Met **eenmalige aanmelding SAML**, Azure AD verifieert de toepassing met behulp van Azure AD-account van de gebruiker. Azure AD communiceert de informatie aanmelding voor de toepassing via een verbindingsprotocol. Met SAML gebaseerde eenmalige aanmelding, kunt u gebruikers toewijzen aan de rollen van de specifieke toepassing is op basis van regels die u in de claims van SAML definieert
+Met **eenmalige aanmelding SAML**, Azure AD verifieert de toepassing met behulp van Azure AD-account van de gebruiker. Azure AD communiceert de informatie aanmelding voor de toepassing via een verbindingsprotocol. Met SAML gebaseerde eenmalige aanmelding, kunt u gebruikers toewijzen aan de rollen van de specifieke toepassing is op basis van regels die u in de SAML-claims definieert.
 
 Kies SAML gebaseerde eenmalige aanmelding wanneer de toepassing wordt ondersteund.
 
@@ -85,7 +85,7 @@ Kies één wachtwoord gebaseerde aanmelding wanneer:
 Wachtwoord gebaseerde eenmalige aanmelding wordt ondersteund voor alle cloud-gebaseerde toepassingen waarvoor een op HTML gebaseerde aanmeldingspagina. De gebruiker kan een van de volgende browsers gebruiken:
 
 - Internet Explorer 11 op Windows 7 of hoger
-- Microsoft Edge op Windows 10 Anniversary Edition of hoger 
+- Microsoft Edge op Windows 10 Anniversary Edition of hoger
 - Chrome op Windows 7 of hoger, en op Mac OS X of hoger
 - Firefox 26,0 in Windows XP SP2 of hoger, en op Mac OS X 10.6 of hoger
 

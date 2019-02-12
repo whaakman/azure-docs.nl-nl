@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: ce7892401b2b04565a00c33c5301b9c0cd05d5f5
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: MT
+ms.date: 02/08/2019
+ms.openlocfilehash: 8127abf19c31b8a50079f416e73c98efebfd0983
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732750"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999416"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Beheerd exemplaar van SQL Server-exemplaar migratie naar Azure SQL Database
 
@@ -47,7 +47,7 @@ Als er enkele blokkerende problemen die niet worden verwijderd met de Implementa
 - Als u directe toegang tot voor het besturingssysteem of het bestandssysteem, bijvoorbeeld voor installatie van derden of aangepaste agents op dezelfde virtuele machine met SQL Server vereist.
 - Als u strikte afhankelijk zijn van functies die nog steeds niet worden ondersteund, zoals FileStream / bestandstabel, PolyBase en cross-instance-transacties.
 - Als dit echt moet u blijven op een specifieke versie van SQL Server (2012, bijvoorbeeld).
-- Als uw rekenvereisten veel lager zijn die beheerd exemplaar biedt in openbare preview-versie (één vCore, bijvoorbeeld) en de consolidatie van de database is niet acceptabel optie.
+- Als uw rekenvereisten veel lager zijn die beheerd exemplaar biedt (één vCore, bijvoorbeeld) en de consolidatie van de database is niet acceptabel optie.
 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>Implementeren naar een beheerd exemplaar voor optimale grootte
 

@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 18c05f2a9dd9f7e4a6d5ec62806870311c5eb130
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 70f53ed06daad8adf10ef5a88f0672f86d6a8b48
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745705"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004125"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Waarschuwingen in Azure Monitor
-Dit artikel vindt u details van waarschuwingen zijn een van de typen waarschuwingen die worden ondersteund in de [Azure-waarschuwingen](../../azure-monitor/platform/alerts-overview.md) en gebruikers van Azure-platform voor streaminganalyse gebruiken als basis voor waarschuwingen.
+Dit artikel vindt u details van waarschuwingen zijn een van de typen waarschuwingen die worden ondersteund in de [Azure-waarschuwingen](../platform/alerts-overview.md) en gebruikers van Azure-platform voor streaminganalyse gebruiken als basis voor waarschuwingen.
 
-Waarschuwing bestaat uit regels voor zoeken in logboeken die zijn gemaakt voor [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) of [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events). Zie voor meer informatie over het gebruik ervan, [waarschuwingen maken in Azure](../../azure-monitor/platform/alerts-log.md)
+Waarschuwing bestaat uit log queryregels gemaakt voor [Azure Monitor](../learn/tutorial-viewdata.md) of [Application Insights](../app/cloudservices.md#view-azure-diagnostics-events). Zie voor meer informatie over het gebruik ervan, [waarschuwingen maken in Azure](../platform/alerts-log.md)
 
 > [!NOTE]
-> Populaire logboekgegevens van [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) is nu ook beschikbaar op de metrische platform in Azure Monitor. Voor de detailweergave [metrische waarschuwingen voor logboeken](../../azure-monitor/platform/alerts-metric-logs.md)
+> Populaire logboekgegevens van [Azure Monitor](../learn/tutorial-viewdata.md) is nu ook beschikbaar op de metrische platform in Azure Monitor. Voor de detailweergave [metrische waarschuwingen voor logboeken](../platform/alerts-metric-logs.md)
 
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>Search waarschuwingsregel - definitie en typen
@@ -41,7 +41,7 @@ Log search regels zijn gedefinieerd door de volgende gegevens:
 
 - **Drempelwaarde**.  De resultaten van zoeken in Logboeken worden geëvalueerd om te bepalen of een waarschuwing moet worden gemaakt.  De drempelwaarde is verschillend voor de verschillende typen waarschuwingsregels zoeken.
 
-Log search regels worden voor [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) of [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events), zijn twee soorten. Elk van deze typen is beschreven in de volgende secties.
+Melden van query-regels worden voor [Azure Monitor](../learn/tutorial-viewdata.md) of [Application Insights](../app/cloudservices.md#view-azure-diagnostics-events), zijn twee soorten. Elk van deze typen is beschreven in de volgende secties.
 
 - **[Aantal resultaten](#number-of-results-alert-rules)**. Één waarschuwing gemaakt wanneer het aantal records geretourneerd door de zoeken in Logboeken groter zijn dan een opgegeven getal.
 - **[Meting van metrische gegevens](#metric-measurement-alert-rules)**.  Waarschuwing gemaakt voor elk object in de resultaten van zoeken in Logboeken met waarden die groter zijn dan de opgegeven drempelwaarde.
@@ -114,11 +114,11 @@ Waarschuwingsregel zoeken werkt op de logica echter door de gebruiker aan de han
 
 Nu wordt ervan uitgegaan dat er een waarschuwingsregel met de naam *Contoso-Log-waarschuwing*, zoals per configuratie in de [voorbeeld dat is opgegeven voor het nummer van de resultaten type waarschuwing](#example-of-number-of-records-type-log-alert). 
 - Op 1:05 uur als Contoso-Log-waarschuwing is uitgevoerd door Azure-waarschuwingen, het zoekresultaat log i/o 0 records. onder de drempelwaarde is en kan daarom niet de waarschuwing wordt geactiveerd. 
-- Op de volgende iteratie om 1:10 uur als Contoso-Log-waarschuwing is uitgevoerd door Azure-waarschuwingen opgegeven log zoekresultaat 5 records. de drempelwaarde overschrijden en hierdoor wordt de waarschuwing door te activeren snel na de [actiegroep](../../azure-monitor/platform/action-groups.md) die zijn gekoppeld. 
-- Op 13:15 uur als Contoso-Log-waarschuwing is uitgevoerd door Azure-waarschuwingen, mits log zoekresultaat 2 records. de drempelwaarde overschrijden en hierdoor wordt de waarschuwing door te activeren snel na de [actiegroep](../../azure-monitor/platform/action-groups.md) die zijn gekoppeld.
+- Op de volgende iteratie om 1:10 uur als Contoso-Log-waarschuwing is uitgevoerd door Azure-waarschuwingen opgegeven log zoekresultaat 5 records. de drempelwaarde overschrijden en hierdoor wordt de waarschuwing door te activeren snel na de [actiegroep](../platform/action-groups.md) die zijn gekoppeld. 
+- Op 13:15 uur als Contoso-Log-waarschuwing is uitgevoerd door Azure-waarschuwingen, mits log zoekresultaat 2 records. de drempelwaarde overschrijden en hierdoor wordt de waarschuwing door te activeren snel na de [actiegroep](../platform/action-groups.md) die zijn gekoppeld.
 - Op de volgende iteratie om 1:20 uur als Contoso-Log-waarschuwing is uitgevoerd door Azure waarschuwing nu opgegeven log zoekresultaat opnieuw 0 records. onder de drempelwaarde is en kan daarom niet de waarschuwing wordt geactiveerd.
 
-Maar in de hierboven vermelde geval op 13:15 uur - Azure-waarschuwingen kunnen niet bepalen dat de onderliggende problemen zien bij 1:10 zich blijven voordoen en als er netto nieuwe fouten; Als door gebruiker opgegeven query kan worden rekening houdend met oudere records - kunnen Azure-waarschuwingen moet zijn. Daarom aan de fout aan de kant van de waarschuwing, wanneer de Contoso-Log-waarschuwing wordt uitgevoerd op 13:15 uur, geconfigureerd [actiegroep](../../azure-monitor/platform/action-groups.md) opnieuw wordt geactiveerd. Nu om 1:20 uur wanneer er zijn geen records worden gezien - Azure-waarschuwingen kunnen niet zeker weet dat is de oorzaak van de records opgelost; Contoso-Log-waarschuwing wordt daarom niet worden gewijzigd in opgelost in een waarschuwing voor Azure-dashboard en/of meldingen verzonden met vermelding van de resolutie van de waarschuwing.
+Maar in de hierboven vermelde geval op 13:15 uur - Azure-waarschuwingen kunnen niet bepalen dat de onderliggende problemen zien bij 1:10 zich blijven voordoen en als er netto nieuwe fouten; Als door gebruiker opgegeven query kan worden rekening houdend met oudere records - kunnen Azure-waarschuwingen moet zijn. Daarom aan de fout aan de kant van de waarschuwing, wanneer de Contoso-Log-waarschuwing wordt uitgevoerd op 13:15 uur, geconfigureerd [actiegroep](../platform/action-groups.md) opnieuw wordt geactiveerd. Nu om 1:20 uur wanneer er zijn geen records worden gezien - Azure-waarschuwingen kunnen niet zeker weet dat is de oorzaak van de records opgelost; Contoso-Log-waarschuwing wordt daarom niet worden gewijzigd in opgelost in een waarschuwing voor Azure-dashboard en/of meldingen verzonden met vermelding van de resolutie van de waarschuwing.
 
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Prijzen en facturering van waarschuwingen
@@ -133,9 +133,8 @@ Prijzen voor Logboekwaarschuwingen wordt vermeld op de [prijzen voor Azure Monit
     > Als ongeldige tekens zoals `<, >, %, &, \, ?, /` aanwezig zijn, wordt deze vervangen door een `_` in de factuur. Verwijderen van scheduleQueryRules resources gemaakt voor facturering van regels voor waarschuwingen met behulp van [verouderde Log Analytics-API](api-alerts.md) -gebruiker moet het verwijderen van de oorspronkelijke planning en het gebruik van de actie bij waarschuwing [verouderde Log Analytics-API](api-alerts.md)
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [maken in de waarschuwingen in Azure](../../azure-monitor/platform/alerts-log.md).
+* Meer informatie over [maken in de waarschuwingen in Azure](../platform/alerts-log.md).
 * Inzicht in [webhooks in waarschuwingen in Azure](alerts-log-webhook.md).
-* Meer informatie over [Azure-waarschuwingen](../../azure-monitor/platform/alerts-overview.md).
-* Meer informatie over [Application Insights](../../azure-monitor/app/analytics.md).
-* Meer informatie over [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).    
-
+* Meer informatie over [Azure-waarschuwingen](../platform/alerts-overview.md).
+* Meer informatie over [Application Insights](../app/analytics.md).
+* Meer informatie over [logboeken-query's van Azure Monitor](../log-query/log-query-overview.md).    

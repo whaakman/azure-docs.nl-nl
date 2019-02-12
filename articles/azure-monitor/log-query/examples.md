@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor Log Analytics-query voorbeelden | Microsoft Docs
-description: Voorbeelden van query's in Log Analytics met behulp van de Kusto-taal.
+title: Azure Monitor Azure Monitor log-queryvoorbeelden | Microsoft Docs
+description: Voorbeelden van Logboeken-query's in Azure Monitor met behulp van de querytaal van Data Explorer.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
-ms.openlocfilehash: d5cad3869e74f33a2d1a56352c658bb9c8f23db6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 81852590ec714c458ebf2ba2b714d0b20f0b873c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52882715"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993194"
 ---
-# <a name="log-analytics-query-examples"></a>Meld u voorbeelden van Analytics
-In dit artikel bevat verschillende voorbeelden van [query's](../../azure-monitor/log-query/log-query-overview.md) met behulp van de [Kusto-taal](https://docs.microsoft.com/azure/kusto/query/) om op te halen van verschillende typen gegevens van Log Analytics. Verschillende methoden worden gebruikt om te consolideren en analyseren van gegevens, zodat u deze voorbeelden gebruiken om verschillende strategieën die u voor uw eigen vereisten gebruiken kunt te identificeren.  
+# <a name="azure-monitor-log-query-examples"></a>Azure Monitor log-queryvoorbeelden
+In dit artikel bevat verschillende voorbeelden van [query's](log-query-overview.md) met behulp van de [Data Explorer-querytaal](https://docs.microsoft.com/azure/kusto/query/) om op te halen van verschillende soorten van logboekgegevens van Azure Monitor. Verschillende methoden worden gebruikt om te consolideren en analyseren van gegevens, zodat u deze voorbeelden gebruiken om verschillende strategieën die u voor uw eigen vereisten gebruiken kunt te identificeren.  
 
-Zie de [Kusto-Naslaggids](https://docs.microsoft.com/azure/kusto/query/) voor meer informatie over de verschillende trefwoorden die in deze voorbeelden worden gebruikt. Doorloop een [les over het maken van query's](get-started-queries.md) als u geen ervaring met Log Analytics.
+Zie de [Kusto-Naslaggids](https://docs.microsoft.com/azure/kusto/query/) voor meer informatie over de verschillende trefwoorden die in deze voorbeelden worden gebruikt. Doorloop een [les over het maken van query's](get-started-queries.md) als u geen ervaring met Azure Monitor.
 
 ## <a name="events"></a>Gebeurtenissen
 
@@ -440,4 +440,4 @@ Update
 ## <a name="next-steps"></a>Volgende stappen
 
 - Raadpleeg de [Kusto-Naslaggids](/azure/kusto/query) voor meer informatie over de taal.
-- Doorloop een [les over het schrijven van query's in Log Analytics](get-started-queries.md).
+- Doorloop een [les over het schrijven van Logboeken-query's in Azure Monitor](get-started-queries.md).

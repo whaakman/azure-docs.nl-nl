@@ -12,13 +12,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6bbb2bfa0fe3c157114d53b070d6c98e68099643
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: 4da18fffc98367f24ec95bd27617e7638e3d5705
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464727"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003666"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL-foutcodes voor SQL Database-clienttoepassingen: Database-verbindingsfouten en andere problemen
 
@@ -99,8 +99,8 @@ Verwante onderwerpen:
 
 | Foutcode | Severity | Description |
 | ---:| ---:|:--- |
-| 10928 |20 |Resource-ID: %d. De limiet voor %s voor de database is %d en is bereikt. Zie voor meer informatie, [SQL Database-resourcebeperkingen voor zelfstandige en gepoolde databases](sql-database-resource-limits-database-server.md).<br/><br/>De Resource-ID geeft aan dat de resource die de limiet is bereikt. Voor werkthreads, de Resource-ID = 1. Voor de Resource-ID-sessies = 2.<br/><br/>Zie voor meer informatie over deze fout en hoe u deze kunt oplossen:<br/>• [Azure SQL Database-resourcebeperkingen](sql-database-service-tiers-dtu.md). |
-| 10929 |20 |Resource-ID: %d. De minimumgarantie voor %s is %d, maximumlimiet is %d, en het huidige gebruik voor de database is %d. De server is momenteel echter te druk bezet ter ondersteuning van aanvragen die groter zijn dan %d voor deze database. Zie voor meer informatie, [SQL Database-resourcebeperkingen voor zelfstandige en gepoolde databases](sql-database-resource-limits-database-server.md). Anders probeer het later opnieuw.<br/><br/>De Resource-ID geeft aan dat de resource die de limiet is bereikt. Voor werkthreads, de Resource-ID = 1. Voor de Resource-ID-sessies = 2.<br/><br/>Zie voor meer informatie over deze fout en hoe u deze kunt oplossen:<br/>• [Azure SQL Database-resourcebeperkingen](sql-database-service-tiers-dtu.md). |
+| 10928 |20 |Resource-ID: %d. De limiet voor %s voor de database is %d en is bereikt. Zie voor meer informatie, [SQL Database-resourcebeperkingen voor één en gepoolde databases](sql-database-resource-limits-database-server.md).<br/><br/>De Resource-ID geeft aan dat de resource die de limiet is bereikt. Voor werkthreads, de Resource-ID = 1. Voor de Resource-ID-sessies = 2.<br/><br/>Zie voor meer informatie over deze fout en hoe u deze kunt oplossen:<br/>• [Azure SQL Database-resourcebeperkingen](sql-database-service-tiers-dtu.md). |
+| 10929 |20 |Resource-ID: %d. De minimumgarantie voor %s is %d, maximumlimiet is %d, en het huidige gebruik voor de database is %d. De server is momenteel echter te druk bezet ter ondersteuning van aanvragen die groter zijn dan %d voor deze database. Zie voor meer informatie, [SQL Database-resourcebeperkingen voor één en gepoolde databases](sql-database-resource-limits-database-server.md). Anders probeer het later opnieuw.<br/><br/>De Resource-ID geeft aan dat de resource die de limiet is bereikt. Voor werkthreads, de Resource-ID = 1. Voor de Resource-ID-sessies = 2.<br/><br/>Zie voor meer informatie over deze fout en hoe u deze kunt oplossen:<br/>• [Azure SQL Database-resourcebeperkingen](sql-database-service-tiers-dtu.md). |
 | 40544 |20 |De database heeft het groottequotum bereikt. Partitioneer of verwijder gegevens, verwijder indexen of Raadpleeg de documentatie voor mogelijke oplossingen. |
 | 40549 |16 |Sessie is beëindigd omdat er een langlopende transactie. Probeer uw transactie te verkorten. |
 | 40550 |16 |De sessie is beëindigd omdat er te veel vergrendelingen heeft verkregen. Probeer het lezen of minder rijen in één transactie te wijzigen. |

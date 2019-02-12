@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/04/2018
+ms.date: 02/08/2019
 ms.author: juliako;dbgeorge
-ms.openlocfilehash: f6d4fcf5e6ec8029bb0e7c303849fdceef5bace7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1672eb2ef0db36c9b30ca444fa4224eb1afbe828
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012085"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998481"
 ---
-# <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Het live coderingsprogramma Haivision KB gebruiken voor het verzenden van een single-bitrate live stream
+# <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Het live coderingsprogramma Haivision KB gebruiken voor het verzenden van een single-bitrate live stream  
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Haivision](media-services-configure-kb-live-encoder.md)
@@ -62,27 +62,27 @@ Video:
 -   Profiel: Hoog (niveau 4.0)
 -   Bitrate: 5000 kbps
 -   Sleutelframes: 2 seconden (60 frames)
--   Tarief frame: 30
+-   Framesnelheid: 30
 
 Audio:
 -   Codec: AAC (LC)
 -   Bitrate: 192 kbps
--   Samplefrequentie: 44,1 kHz
+-   Samplefrequentie: 44.1 kHz
 
 ## <a name="configuration-steps"></a>Configuratiestappen
 1.  Meld u aan bij de gebruikersinterface Haivision KB.
 2.  Klik op de **menuknop** in het beheercentrum kanaal en selecteer **kanaal toevoegen**  
-    ![Schermopname 2017-08-14 bij 9.15.09 AM.png](./media/media-services-configure-kb-live-encoder/step2.png)
+    ![Schermafbeelding van 2017-08-14 bij 9.15.09 AM](./media/media-services-configure-kb-live-encoder/step2.png)
 3.  Type de **kanaalnaam** veld in de naam en klik op volgende.  
-    ![Schermopname 2017-08-14 bij 9.19.07 AM.png](./media/media-services-configure-kb-live-encoder/step3.png)
+    ![Schermafbeelding van 2017-08-14 bij 9.19.07 AM](./media/media-services-configure-kb-live-encoder/step3.png)
 4.  Selecteer de **kanaal invoerbron** uit de **invoerbron** vervolgkeuzelijst en klik op volgende.
-    ![Schermopname 2017-08-14 bij 9.20.44 AM.png](./media/media-services-configure-kb-live-encoder/step4.png)
+    ![Schermafbeelding van 2017-08-14 bij 9.20.44 AM](./media/media-services-configure-kb-live-encoder/step4.png)
 5.  Uit de **Encoder sjabloon** vervolgkeuzelijst kiezen **H264-720-AAC-192** en klik op volgende.
-    ![Schermopname 2017-08-14 bij 9.23.15 AM.png](./media/media-services-configure-kb-live-encoder/step5.png)
+    ![Schermafbeelding van 2017-08-14 bij 9.23.15 AM](./media/media-services-configure-kb-live-encoder/step5.png)
 6.  Uit de **Selecteer nieuwe uitvoer** vervolgkeuzelijst kiezen **RTMP** en klik op volgende.  
-    ![Schermopname 2017-08-14 bij 9.27.51 AM.png](./media/media-services-configure-kb-live-encoder/step6.png)
+    ![Schermafbeelding van 2017-08-14 bij 9.27.51 AM](./media/media-services-configure-kb-live-encoder/step6.png)
 7.  Uit de **kanaal uitvoer** venster vullen van de Azure stream-gegevens. Plak de **RTMP** koppeling van de instellingen voor het eerste kanaal in de **Server** gebied. In de **uitvoernaam** gebied Typ de naam van het kanaal. Gebruik de sjabloon RTMPStreamName_ % video_bitrate % om de naam van de stroom in de sjabloon van Stream.
-    ![Schermopname 2017-08-14 bij 9.33.17 AM.png](./media/media-services-configure-kb-live-encoder/step7.png)
+    ![Schermafbeelding van 2017-08-14 bij 9.33.17 AM](./media/media-services-configure-kb-live-encoder/step7.png)
 8.  Klik op volgende en vervolgens klikt u op gereed.
 9.  Klik op de **knop afspelen** starten van het coderingsprogramma-kanaal.  
     ![Haivision KB.png](./media/media-services-configure-kb-live-encoder/step9.png)

@@ -1,6 +1,6 @@
 ---
-title: Die gericht is op de beheeroplossingen in Azure | Microsoft Docs
-description: Die gericht is op beheeroplossingen, kunt u oplossingen voor gegevensbeheer voor een specifieke set agents beperken.  In dit artikel wordt beschreven hoe u een scopeconfiguratie maken en dit toepassen op een oplossing.
+title: Die gericht is op bewakingsoplossingen in Azure Monitor | Microsoft Docs
+description: Die gericht is op bewakingsoplossingen, kunt u beperken bewakingsoplossingen aan een specifieke set van agents.  In dit artikel wordt beschreven hoe u een scopeconfiguratie maken en dit toepassen op een oplossing.
 services: monitoring
 documentationcenter: ''
 author: bwren
@@ -13,22 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: d82c42fa734932655f536d4fc04a50b4d6904ac5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d1d2dd689cb389b6adfe1dd534e7c73e17f755f5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192750"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989182"
 ---
-# <a name="targeting-management-solutions-in-azure-preview"></a>Die gericht is op de beheeroplossingen in Azure (Preview)
-Wanneer u een oplossing voor uw abonnement toevoegt, wordt deze automatisch geïmplementeerd standaard voor alle Windows en Linux-agents die zijn verbonden met uw Log Analytics-werkruimte.  Mogelijk wilt uw kosten beheren en beperken van de hoeveelheid gegevens die worden verzameld voor een oplossing door deze te beperken tot een bepaalde set van agents.  In dit artikel wordt beschreven hoe u **Oplossingstargeting** dit is een functie waarmee u een bereik toepassen op uw oplossingen.
+# <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Die gericht is op bewakingsoplossingen in Azure Monitor (Preview)
+Wanneer u een oplossing voor bewaking aan uw abonnement toevoegt, wordt deze automatisch geïmplementeerd standaard voor alle Windows en Linux-agents die zijn verbonden met uw Log Analytics-werkruimte.  Mogelijk wilt uw kosten beheren en beperken van de hoeveelheid gegevens die worden verzameld voor een oplossing door deze te beperken tot een bepaalde set van agents.  In dit artikel wordt beschreven hoe u **Oplossingstargeting** dit is een functie waarmee u een bereik toepassen op uw oplossingen.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="how-to-target-a-solution"></a>Het doel van een oplossing
 Er zijn drie stappen voor het die gericht is op een oplossing zoals beschreven in de volgende secties. 
 
 
 ### <a name="1-create-a-computer-group"></a>1. Een computergroep maken
-U opgeven dat de computers die u opnemen in een bereik wilt met het maken van een [computergroep](../../azure-monitor/platform/computer-groups.md) in Log Analytics.  De computergroep kan op basis van een zoeken in Logboeken of geïmporteerd uit andere bronnen, zoals Active Directory of WSUS-groepen. Als [die hieronder worden beschreven](#solutions-and-agents-that-cant-be-targeted), alleen de computers die rechtstreeks zijn verbonden met Log Analytics worden opgenomen in het bereik.
+U opgeven dat de computers die u opnemen in een bereik wilt met het maken van een [computergroep](../platform/computer-groups.md) in Azure Monitor.  Groep op de computer kan op basis van een logboekquery of uit andere bronnen, zoals Active Directory of WSUS-groepen geïmporteerd. Als [die hieronder worden beschreven](#solutions-and-agents-that-cant-be-targeted), alleen de computers die rechtstreeks zijn verbonden met Azure Monitor worden opgenomen in het bereik.
 
 U hebt één keer groep op de computer in uw werkruimte hebt gemaakt en u zult deze opnemen in de configuratie van een scope die kan worden toegepast op een of meer oplossingen.
  
@@ -38,7 +40,7 @@ U hebt één keer groep op de computer in uw werkruimte hebt gemaakt en u zult d
  
  De configuratie van een bereik met behulp van het volgende proces maken.  
 
- 1. In de Azure-portal, gaat u naar **Log Analytics** en selecteert u uw werkruimte.
+ 1. In de Azure-portal, gaat u naar **Log Analytics-werkruimten** en selecteert u uw werkruimte.
  2. In de eigenschappen voor de werkruimte onder **gegevensbronnen voor werkruimte** Selecteer **Scopeconfiguraties**.
  3. Klik op **toevoegen** om een nieuwe scopeconfiguratie te maken.
  4. Typ een **naam** voor configuratie van het bereik.
@@ -52,7 +54,7 @@ Zodra u een bereik-configuratie hebt, kunt klikt u vervolgens u deze toepassen o
 
 De configuratie van een bereik met behulp van het volgende proces toepassen.  
 
- 1. In de Azure-portal, gaat u naar **Log Analytics** en selecteert u uw werkruimte.
+ 1. In de Azure-portal, gaat u naar **Log Analytics-werkruimten** en selecteert u uw werkruimte.
  2. Selecteer in de eigenschappen voor de werkruimte **oplossingen**.
  3. Klik op de oplossing die u wilt dat aan het bereik.
  4. In de eigenschappen voor de oplossing onder **gegevensbronnen voor werkruimte** Selecteer **Oplossingstargeting**.  Als de optie niet beschikbaar is vervolgens [deze oplossing kan niet worden gericht](#solutions-and-agents-that-cant-be-targeted).
@@ -65,7 +67,7 @@ Hieronder vindt u de criteria voor agents en oplossingen die niet worden gebruik
 
 - Oplossingstargeting geldt alleen voor oplossingen die op agents implementeren.
 - Oplossingstargeting geldt alleen voor oplossingen die worden geleverd door Microsoft.  Dit geldt niet voor oplossingen [die zijn gemaakt door uzelf of partners](solutions-creating.md).
-- U kunt alleen filteren van agents die rechtstreeks verbinding met Log Analytics maken.  Oplossingen wordt automatisch geïmplementeerd op alle agents die deel van een verbonden beheergroep van Operations Manager uitmaken of ze zijn opgenomen in de configuratie van een scope of niet.
+- U kunt alleen filteren van agents die rechtstreeks verbinding met Azure Monitor maken.  Oplossingen wordt automatisch geïmplementeerd op alle agents die deel van een verbonden beheergroep van Operations Manager uitmaken of ze zijn opgenomen in de configuratie van een scope of niet.
 
 ### <a name="exceptions"></a>Uitzonderingen
 Oplossingstargeting kan niet worden gebruikt met de volgende oplossingen zelfs als ze voldoen aan de opgegeven criteria.
@@ -73,5 +75,5 @@ Oplossingstargeting kan niet worden gebruikt met de volgende oplossingen zelfs a
 - Agent-Statusevaluatie
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over oplossingen voor beheer, inclusief de oplossingen die kunnen worden geïnstalleerd in uw omgeving op [oplossingen voor Azure Log Analytics toevoegen aan uw werkruimte](solutions.md).
-- Meer informatie over het maken van computergroepen op [computergroepen in Log Analytics-zoekopdrachten](../../azure-monitor/platform/computer-groups.md).
+- Meer informatie over het controleren van oplossingen, inclusief de oplossingen die kunnen worden geïnstalleerd in uw omgeving op [toevoegen Azure Log Analytics bewakingsoplossingen aan uw werkruimte](solutions.md).
+- Meer informatie over het maken van computergroepen op [computergroepen in Azure Monitor query's bijgehouden](../platform/computer-groups.md).

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: d773d270b3b352bcaef189d201d824695b42bcef
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: a067d83c32f11e0bf091b0efc5528995ab6a021a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980139"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990067"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL-Database verklarende woordenlijst
 
@@ -30,7 +30,7 @@ ms.locfileid: "55980139"
 |Serverobjecten|SQL Database-server of database-server|[Database-server](sql-database-servers.md)|
 ||Beheerd exemplaar van SQL-databaseserver, beheerd exemplaar server of instance-server|[Beheerd exemplaar](sql-database-managed-instance.md)|
 Databaseobjecten|Azure SQL Database|Elke database in Azure SQL Database|
-||Individuele database|Een database gemaakt als een zelfstandige database met behulp van de Implementatieoptie individuele database|
+||Individuele database|Een database gemaakt met behulp van de Implementatieoptie individuele database|
 ||Gegroepeerde-database|Een database gemaakt binnen of verplaatst naar een elastische pool|
 ||Exemplaar in de database|Een database die is gemaakt in een beheerd exemplaar|
 ||Basic-database|Een database gemaakt binnen of verplaatst naar de laag basic-service van het op DTU gebaseerde aankoopmodel|
@@ -39,7 +39,7 @@ Databaseobjecten|Azure SQL Database|Elke database in Azure SQL Database|
 ||Algemeen gebruik-database|Een database gemaakt binnen of verplaatst naar de categorie Algemeen gebruik-service van het op vCore gebaseerde aankoopmodel|
 ||Zeer grootschalige database|Een database gemaakt binnen of verplaatst naar de grootschalige servicelaag van de vCore-aanschafmodel|
 ||Essentiële Business-database|Een database gemaakt binnen of verplaatst naar de kritieke zakelijke-servicelaag van de vCore-aanschafmodel|
-|[Aanschafmodellen en resources](sql-database-service-tiers.md)|DTU gebaseerde aankoopmodel|[DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md)|
+|[Aanschafmodellen en resources](sql-database-purchase-models.md)|DTU gebaseerde aankoopmodel|[DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md)|
 ||Op vCore gebaseerd aanschafmodel|[op vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md)|
 ||vCore|Een kern die het gastbesturingssysteem van de hypervisor.|
 ||Servicelaag|Een niveau van de service binnen een aankoopmodel|

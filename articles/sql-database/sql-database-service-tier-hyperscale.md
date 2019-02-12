@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 524e10b93905372377fe388a38c5dc55fdcee877
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 49c41b436e0d935d1f9fce5ba2de10e0f2d0c99d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509985"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991221"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Zeer grootschalige servicelaag (preview) voor maximaal 100 TB
 
@@ -32,7 +32,7 @@ De servicelaag grootschalige in Azure SQL Database is de nieuwste service tier i
 > [!IMPORTANT]
 > Zeer grootschalige service-laag is momenteel in openbare preview en beschikbaar is in de beperkte Azure-regio's. Zie voor een regiolijst volledig [grootschalige service beschikbare regio's voor een laag](#available-regions). Wordt niet aanbevolen om nog een productieworkload uitvoert in grootschalige databases. U kunt een grootschalige-database niet bijwerken naar een andere service-laag. Voor test-doeleinden aangeraden u een kopie van de huidige database maken en bijwerken van de kopie naar grootschalige servicelaag.
 > [!NOTE]
-> Zie voor meer informatie over de Servicelagen voor algemeen gebruik en bedrijfskritiek in het op vCore gebaseerde aankoopmodel [algemeen](sql-database-service-tier-general-purpose.md) en [bedrijfskritiek](sql-database-service-tier-business-critical.md) Servicelagen. Zie voor een vergelijking van de vCore gebaseerde aankoopmodel met het op DTU gebaseerde aankoopmodel [Azure SQL Database-modellen en -bronnen aanschaffen](sql-database-service-tiers.md).
+> Zie voor meer informatie over de Servicelagen voor algemeen gebruik en bedrijfskritiek in het op vCore gebaseerde aankoopmodel [algemeen](sql-database-service-tier-general-purpose.md) en [bedrijfskritiek](sql-database-service-tier-business-critical.md) Servicelagen. Zie voor een vergelijking van de vCore gebaseerde aankoopmodel met het op DTU gebaseerde aankoopmodel [Azure SQL Database-modellen en -bronnen aanschaffen](sql-database-purchase-models.md).
 > [!IMPORTANT]
 > Zeer grootschalige service-laag is momenteel in openbare preview. Wordt niet aanbevolen om nog een productieworkload uitvoert in grootschalige databases. U kunt een grootschalige-database niet bijwerken naar een andere service-laag. Voor test-doeleinden aangeraden u een kopie van de huidige database maken en bijwerken van de kopie naar grootschalige servicelaag.
 
@@ -162,7 +162,7 @@ Zeer grootschalige service-laag is momenteel in openbare preview en beschikbaar 
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie voor veelgestelde vragen op grote schaal, [Veelgestelde vragen over zeer grootschalige](sql-database-service-tier-hyperscale-faq.md).
-- Zie voor meer informatie over Servicelagen [Servicelagen](sql-database-service-tiers.md)
+- Zie voor meer informatie over Servicelagen [Servicelagen](sql-database-purchase-models.md)
 - Zie [overzicht van de resource op een SQL-databaseserver beperkt](sql-database-resource-limits-database-server.md) voor informatie over de beperkingen op het niveau van de server en -abonnement.
 - Zie voor het aanschaffen van model-limieten voor één database [Azure SQL Database vCore gebaseerde model limieten voor één database aanschaffen](sql-database-vcore-resource-limits-single-databases.md).
 - Voor een functies en van de vergelijkingslijst, Zie [algemene SQL-functies](sql-database-features.md).

@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 01/21/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 26721aa0eac69875f6a3704025e6ab71a54a1e31
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 086816bdb93873a39575564496cf043797f3a530
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078097"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993262"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Wat is de locatievoorwaarde in Azure Active Directory voor voorwaardelijke toegang? 
 
@@ -34,9 +34,9 @@ In dit artikel biedt u de informatie die u nodig hebt om de locatievoorwaarde te
 
 Azure AD, schakelt u eenmalige aanmelding op apparaten, apps en services vanaf elke locatie op het openbare internet. U kunt de toegang tot uw cloud-apps op basis van de netwerklocatie van een gebruiker beheren met de locatievoorwaarde. Algemene scenario's voor de locatievoorwaarde zijn:
 
-- Meervoudige verificatie vereisen voor gebruikers die toegang krijgen tot een service wanneer ze buiten het bedrijfsnetwerk vallen.  
+- Meervoudige verificatie vereisen voor gebruikers die toegang krijgen tot een service wanneer ze buiten het bedrijfsnetwerk bevinden vallen.
 
-- Blokkeert de toegang voor gebruikers met toegang tot een service van specifieke landen of regio's. 
+- Blokkeert de toegang voor gebruikers met toegang tot een service van specifieke landen of regio's.
 
 Een locatie is een label voor een netwerklocatie bevindt die een vertegenwoordigt een benoemde locatie of multi-factor authentication IP-adressen vertrouwde.
 
@@ -62,9 +62,9 @@ Een benoemde locatie heeft de volgende onderdelen:
 
 - **Als vertrouwde locatie markeren** -een vlag die u kunt instellen voor een benoemde locatie om aan te geven van een vertrouwde locatie bevindt. Vertrouwde locaties zijn meestal netwerkgebieden die worden beheerd door uw IT-afdeling. Naast de voorwaardelijke toegang benoemde locaties vertrouwde worden ook gebruikt door Azure Identity Protection en Azure AD-beveiligingsrapporten te verminderen [fout-positieven](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 
-- **Land / regio's** -deze optie kunt u een of meer land of regio voor het definiëren van een benoemde locatie selecteren. 
+- **Landen/regio's** -deze optie kunt u een of meer land of regio voor het definiëren van een benoemde locatie selecteren. 
 
-- **Onbekende gebieden opnemen** -enkele IP-adressen zijn niet toegewezen aan een bepaald land. Deze optie kunt u kiezen of deze IP-adressen op de locatie met de naam moeten worden opgenomen. Wanneer het beleid met behulp van de locatie met de naam van toepassing op onbekende locaties, kan deze controle worden.
+- **Onbekende gebieden opnemen** -enkele IP-adressen zijn niet toegewezen aan een bepaald land. Deze optie kunt u kiezen of deze IP-adressen op de locatie met de naam moeten worden opgenomen. Gebruik deze instelling wanneer het beleid met behulp van de locatie met de naam van toepassing op onbekende locaties.
 
 Het aantal benoemde locaties die u kunt configureren wordt beperkt door de grootte van het gerelateerde object in Azure AD. U kunt configureren:
 
@@ -87,7 +87,7 @@ Op de pagina van de instellingen in de multi-factor authentication-service, kunt
 
 Nadat u deze optie inschakelt, met inbegrip van de benoemde locatie **MFA goedgekeurde IP-Adressen** geldt voor elk beleid met deze geselecteerd.
 
-Voorwaardelijke toegang is voor mobiele en desktoptoepassingen, die hebben lange levensduur van de sessie, regelmatig opnieuw geëvalueerd. De standaardwaarde is één keer per uur. Wanneer de binnen bedrijfsnetwerk is en alleen uitgegeven op het moment van de initiële verificatie, Azure AD kan geen een lijst met goedgekeurde IP-bereiken. In dit geval is het moeilijker om te bepalen of de gebruiker nog steeds op het bedrijfsnetwerk bevinden:
+Voorwaardelijke toegang is voor mobiele en desktoptoepassingen, die hebben lange levensduur van de sessie, regelmatig opnieuw geëvalueerd. De standaardwaarde is één keer per uur. Wanneer de binnen bedrijfsnetwerk alleen op het moment van de initiële verificatie is uitgegeven, wordt Azure AD mogelijk niet een lijst met goedgekeurde IP-bereiken. In dit geval is het moeilijker om te bepalen of de gebruiker nog steeds op het bedrijfsnetwerk bevinden:
 
 1. Controleer of het IP-adres van de gebruiker zich in een van de goedgekeurde IP-bereiken.
 
@@ -150,7 +150,7 @@ Bij het maken of bijwerken kunt met de naam locaties voor bulksgewijze updates, 
 
 ### <a name="cloud-proxies-and-vpns"></a>Cloud-proxy's en VPN-verbindingen 
 
-Wanneer u een in de cloud gehoste proxy- of VPN-oplossing, wordt het IP-adres Azure AD gebruikt tijdens het evalueren van een beleid is het IP-adres van de proxy. De header X-Forwarded-For (XFF) met de gebruikers die openbare IP-adres niet gebruikt wordt omdat er is geen validatie dat het afkomstig van een vertrouwde bron is, dus opleveren een methode voor een IP-adres faking. 
+Wanneer u een in de cloud gehoste proxy- of VPN-oplossing, wordt het IP-adres Azure AD gebruikt tijdens het evalueren van een beleid is het IP-adres van de proxy. De header X-Forwarded-For (XFF) met het openbare IP-adres van de gebruiker wordt niet gebruikt omdat er geen validatie dat het afkomstig van een vertrouwde bron is is, zodat een methode voor een IP-adres faking opleveren. 
 
 Wanneer een cloudproxy is, een beleid dat wordt gebruikt om te vereisen dat een apparaat dat lid is domein kan worden gebruikt of binnen het bedrijfsnetwerk van AD FS.
 

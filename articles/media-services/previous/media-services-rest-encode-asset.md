@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: ada3210a59e0c3044551bee54b0a705b4b513594
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e51fa086b26e5692d8dd572654b7c1ec50c641c5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254431"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005145"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Een asset coderen met behulp van Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -30,6 +30,7 @@ ms.locfileid: "51254431"
 >
 
 ## <a name="overview"></a>Overzicht
+
 Voor het leveren van digitale video via het Internet, moet u de media comprimeren. Digitale videobestanden groot en kunnen worden te groot om te leveren via Internet, of voor apparaten van uw klanten om correct weer te geven. Codering is het proces van het comprimeren van video en audio, zodat uw klanten in uw multimedia weergeven kunnen.
 
 Coderingstaken vormen een van de meest voorkomende bewerkingen voor de verwerking in Azure Media Services. U creëert coderingstaken om mediabestanden te converteren van de ene naar de andere indeling. Wanneer u codeert, kunt u de ingebouwde Media Services encoder die (Media Encoder Standard). U kunt ook een coderingsprogramma geleverd door een partner voor Media Services gebruiken. Coderingsprogramma's van derden zijn beschikbaar via de Azure Marketplace. U kunt de details van de codering van taken met behulp van vooraf ingestelde tekenreeksen die zijn gedefinieerd voor het coderingsprogramma of met behulp van vooraf ingestelde-configuratiebestanden. Als u wilt zien welke typen voorinstellingen die beschikbaar zijn, Zie [taak voorinstellingen voor Media Encoder Standard](https://msdn.microsoft.com/library/mt269960).
@@ -54,12 +55,13 @@ Voordat u verwijst naar een media-processors, controleert u of de juiste media p
 Zie voor meer informatie over het verbinding maken met de AMS-API [toegang tot de API van Azure Media Services met Azure AD-verificatie](media-services-use-aad-auth-to-access-ams-api.md). 
 
 ## <a name="create-a-job-with-a-single-encoding-task"></a>Een taak maken met een enkele coderingstaak
+
 > [!NOTE]
 > Wanneer u met de Media Services REST API werkt, de volgende overwegingen zijn van toepassing:
 >
 > Bij het openen van entiteiten in Media Services, moet u specifieke header-velden en waarden instellen in uw HTTP-aanvragen. Zie voor meer informatie, [instellen voor het ontwikkelen van Media Services REST API](media-services-rest-how-to-use.md).
 >
-> Wanneer met behulp van JSON en op te geven voor het gebruik van de **__metadata** sleutelwoord in de aanvraag (bijvoorbeeld, om te verwijzen naar een gekoppeld object), stelt u de **accepteren** koptekst [uitgebreide JSON-indeling](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accepteren: application/json; odata = uitgebreide.
+> Wanneer met behulp van JSON en op te geven voor het gebruik van de **__metadata** sleutelwoord in de aanvraag (bijvoorbeeld, om te verwijzen naar een gekoppeld object), stelt u de **accepteren** koptekst [uitgebreide JSON-indeling](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accepteer: application/json; odata = uitgebreide.
 >
 >
 

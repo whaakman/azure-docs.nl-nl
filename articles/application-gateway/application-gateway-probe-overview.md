@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/6/2018
 ms.author: victorh
-ms.openlocfilehash: f9bd0288d4009af536bdc8f45cbaed4b3f1eee18
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 884775fc2783256d9fff43e8bc6b26cc4f638648
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018705"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998617"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Application Gateway overzicht van statuscontrole
 
@@ -27,7 +27,7 @@ Naast het gebruik van standaard health test controle, kunt u ook de statustest a
 
 Een application gateway wordt een statustest standaard automatisch geconfigureerd wanneer u een aangepaste test-configuratie niet instellen. Het gedrag van de controle werkt door een HTTP-aanvraag naar de IP-adressen geconfigureerd voor de back-endpool. Voor standaard tests als de back-end-http-instellingen zijn geconfigureerd voor HTTPS, de test maakt gebruik van HTTPS ook voor het testen van de status van de back-ends.
 
-Bijvoorbeeld: configureren van uw application gateway voor het gebruik van back-endservers A, B en C voor het ontvangen van HTTP-verkeer op poort 80. De standaard-statuscontrole test de drie servers elke 30 seconden voor een goede HTTP-antwoord. Een gezonde HTTP-antwoord is een [statuscode](https://msdn.microsoft.com/library/aa287675.aspx) tussen 200 en 399.
+Bijvoorbeeld: U configureert uw application gateway voor het gebruik van back-endservers A, B en C voor het ontvangen van HTTP-verkeer op poort 80. De standaard-statuscontrole test de drie servers elke 30 seconden voor een goede HTTP-antwoord. Een gezonde HTTP-antwoord is een [statuscode](https://msdn.microsoft.com/library/aa287675.aspx) tussen 200 en 399.
 
 Als de test standaard controle voor server A mislukt, de application gateway wordt deze verwijderd uit de back-end-pool en het netwerkverkeer stopt doorgestuurd naar deze server. De standaard-test blijft nog steeds controleren voor de server een elke 30 seconden. Als server A is op een aanvraag van een standaard-statustest reageert, deze weer als in orde wordt toegevoegd aan de back-end-pool en verkeer wordt doorgestuurd naar de server opnieuw.
 
@@ -44,7 +44,7 @@ Overeenkomen met criteria die kunnen worden opgegeven met behulp van de `New-Azu
 
 Bijvoorbeeld:
 
-```
+```powershell
 $match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
 $match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 ```
@@ -52,7 +52,7 @@ Zodra de overeenkomen met criteria die is opgegeven, wordt deze kan worden gekop
 
 ### <a name="default-health-probe-settings"></a>Standaardinstellingen voor health test
 
-| Test-eigenschap | Waarde | Beschrijving |
+| Test-eigenschap | Value | Description |
 | --- | --- | --- |
 | Test-URL |http://127.0.0.1:\<port\>/ |URL-pad |
 | Interval |30 |De hoeveelheid tijd in seconden dat moet worden gewacht voordat de volgende statustest wordt verzonden.|
@@ -78,9 +78,9 @@ Aangepaste tests kunnen u een meer nauwkeurige controle over de statuscontrole. 
 
 De volgende tabel bevat de definities voor de eigenschappen van een aangepaste statustest.
 
-| Test-eigenschap | Beschrijving |
+| Test-eigenschap | Description |
 | --- | --- |
-| Naam |De naam van de test. Deze naam wordt gebruikt om te verwijzen naar de test in de back-end-HTTP-instellingen. |
+| Name |De naam van de test. Deze naam wordt gebruikt om te verwijzen naar de test in de back-end-HTTP-instellingen. |
 | Protocol |Het protocol dat wordt gebruikt voor het verzenden van de test. De test wordt gebruikt voor het protocol dat is gedefinieerd in de back-end-HTTP-instellingen |
 | Host |De naam van de host voor het verzenden van de test. Van toepassing alleen als er meerdere sites is geconfigureerd in Application Gateway, anders gebruiken '127.0.0.1'. Deze waarde verschilt van de VM-hostnaam. |
 | Pad |Relatief pad van de test. Ongeldig pad begint met '/'. |

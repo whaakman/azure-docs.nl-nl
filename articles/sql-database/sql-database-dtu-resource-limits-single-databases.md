@@ -3,7 +3,7 @@ title: Azure SQL Database DTU gebaseerde resource beperkt individuele databases 
 description: Deze pagina beschrijft enkele algemene DTU gebaseerde resourcelimieten voor individuele databases in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: standalone-database
+ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,19 +11,19 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: ef16b0ebf41225ed820e7289132d0f556226a969
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.date: 02/08/2019
+ms.openlocfilehash: bf4c823d42d26d9fa97ee6eb5ee6ea20b857cde8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965372"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992998"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Resourcelimieten voor individuele databases met behulp van het op DTU gebaseerde aankoopmodel
 
 In dit artikel bevat de gedetailleerde resourcelimieten voor individuele databases van Azure SQL Database met behulp van het op DTU gebaseerde aankoopmodel.
 
-Zie voor DTU gebaseerde aankopen model resourcelimieten voor elastische pools, [DTU gebaseerde resourcelimieten - elastische pools](sql-database-vcore-resource-limits-elastic-pools.md). Zie voor vCore gebaseerde resourcelimieten [vCore gebaseerde resourcelimieten - individuele databases](sql-database-vcore-resource-limits-single-databases.md) en [vCore gebaseerde resourcelimieten - elastische pools](sql-database-vcore-resource-limits-elastic-pools.md). Zie voor meer informatie over de verschillende modellen aankopen [aanschaffen van modellen en service-lagen](sql-database-service-tiers.md).
+Zie voor DTU gebaseerde aankopen model resourcelimieten voor elastische pools, [DTU gebaseerde resourcelimieten - elastische pools](sql-database-vcore-resource-limits-elastic-pools.md). Zie voor vCore gebaseerde resourcelimieten [vCore gebaseerde resourcelimieten - individuele databases](sql-database-vcore-resource-limits-single-databases.md) en [vCore gebaseerde resourcelimieten - elastische pools](sql-database-vcore-resource-limits-elastic-pools.md). Zie voor meer informatie over de verschillende modellen aankopen [aanschaffen van modellen en service-lagen](sql-database-purchase-models.md).
 
 > [!IMPORTANT]
 > In sommige gevallen is het wellicht voor het verkleinen van een database voor het vrijmaken van ongebruikte ruimte. Zie voor meer informatie, [bestandsruimte in Azure SQL Database beheren](sql-database-file-space-management.md).

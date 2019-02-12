@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/28/2016
 ms.author: sogup
-ms.openlocfilehash: 0ed7260f35c483d17eb97e625ef72c310a3fcfdb
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d0fac3a075923b000c453480edbf18599f5fed3d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564133"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994863"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Back-ups van een virtuele Azure-machine beheren
 
@@ -142,7 +142,7 @@ Als u stoppen met het beveiligen van een virtuele machine wilt, wordt u gevraagd
 
 Er is een kosten die gepaard gaan met het verlaten van de herstelpunten in de opslag. Het voordeel van het bewaren van de herstelpunten is echter dat kunt u de virtuele machine later herstellen indien gewenst. Zie voor meer informatie over de kosten voor het behouden van de herstelpunten van de [prijsinformatie](https://azure.microsoft.com/pricing/details/backup/). Als u verwijderen van alle herstelpunten wilt, kunt u de virtuele machine niet terugzetten.
 
-Wanneer u stopt back-up met behoud van gegevens, herstelpunten verlopen volgens het bewaarbeleid maar Azure Backup wordt altijd één laatste herstelpunt totdat u expliciet back-upgegevens verwijderen. Als u een gegevensbron verwijderen zonder het uitvoeren van back-up stoppen, nieuwe back-ups mislukken en oude herstelpunten verlopen volgens het beleid voor het bewaren, maar een laatste herstelpunt wordt altijd worden bewaard zullen totdat u back-up stoppen met uitvoeren op dezelfde manier gegevens verwijderen.
+Het herstelpunt wordt altijd bewaard totdat de back-upitem is beveiligd met een bewaarbeleid of StopProtection met verwijderen van gegevens. In het geval van opnieuw beveiligen bepaalt het nieuwe beleid dat is gekoppeld kunnen ophalen van de retentie van herstelpunten. Als u een gegevensbron verwijderen zonder het uitvoeren van back-up stoppen, nieuwe back-ups mislukken en oude herstelpunten verlopen volgens het beleid voor het bewaren, maar een laatste herstelpunt wordt altijd worden bewaard zullen totdat u back-up stoppen met uitvoeren op dezelfde manier gegevens verwijderen.
 
 Beveiliging voor een virtuele machine stoppen:
 

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 3521f910ded2e24de9cfa7b1aa1d635843527ef5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2a9b84b20ab1480c9b0222980cb36c40e8017973
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878813"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989303"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL Database-Servicelagen
 
@@ -30,7 +30,7 @@ Azure SQL Database is gebaseerd op SQL Server Database Engine-architectuur die w
 Dit artikel worden de overwegingen voor opslag en back-up voor de Servicelagen voor algemeen gebruik en bedrijfskritiek in het op vCore gebaseerde aankoopmodel.
 
 > [!NOTE]
-> Zie voor meer informatie over de servicelaag grootschalige in het op vCore gebaseerde aankoopmodel [grootschalige servicelaag](sql-database-service-tier-hyperscale.md). Zie voor een vergelijking van de vCore gebaseerde aankoopmodel met het op DTU gebaseerde aankoopmodel [Azure SQL Database-modellen en -bronnen aanschaffen](sql-database-service-tiers.md).
+> Zie voor meer informatie over de servicelaag grootschalige in het op vCore gebaseerde aankoopmodel [grootschalige servicelaag](sql-database-service-tier-hyperscale.md). Zie voor een vergelijking van de vCore gebaseerde aankoopmodel met het op DTU gebaseerde aankoopmodel [Azure SQL Database-modellen en -bronnen aanschaffen](sql-database-purchase-models.md).
 
 ## <a name="data-and-log-storage"></a>Opslag van gegevens en logboekbestanden
 

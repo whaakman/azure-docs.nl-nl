@@ -1,10 +1,10 @@
 ---
-title: Media Analytics op het Media Services-platform | Microsoft Docs
-description: Overzicht van de openbare preview van Media Analytics, een verzameling spraakonderdelen en computer vision-services op enterprise schaal, naleving, beveiliging en globale bereiken
+title: Media Analytics op de Media Services-platform | Microsoft Docs
+description: Overzicht van de openbare preview van Media Analytics, een verzameling spraak- en computer vision-services op grote schaal, compliance, beveiliging en wereldwijd bereik
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: c56e3781-8510-4f7f-b5ff-a218c1bb6f4c
 ms.service: media-services
@@ -12,70 +12,71 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 02/08/2019
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: 0ac8b9fad35267ceaec5b5acec4722b6005f68a9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c60fd90adda4c362b15fe2e324aa55a581c9e59a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788779"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003761"
 ---
-# <a name="media-analytics-on-the-media-services-platform"></a>Media Analytics op het Media Services-platform
+# <a name="media-analytics-on-the-media-services-platform"></a>Media Analytics op de Media Services-platform 
+
 ## <a name="overview"></a>Overzicht
-Meer organisaties gebruiken video als het medium voor voorkeur voor het trainen van werknemers, hun klanten benaderen en documenteren bedrijfsfuncties. Cloud computing biedt een manier opslaan, stream en toegang tot deze grote mediabestanden. Maar als bibliotheek van video-inhoud van een bedrijf groeit, moet een even efficiënt middel insights extraheren uit de inhoud. 
+Meer organisaties zijn video gebruiken als het gewenste medium om te trainen van hun werknemers, houd contact met hun klanten en documenteren van zakelijke functies. Cloud computing kunt u opslaat, streamen en grote mediabestanden. Maar als bibliotheek van video-inhoud van een bedrijf groeit, er moet een even efficiënte manier van het extraheren van inzichten uit de inhoud. 
 
-Om deze groeiende behoefte op te lossen, biedt Azure Media Services Azure Media Analytics. Media Analytics is een verzameling spraakonderdelen en visuele onderdelen waarmee organisaties en bedrijven gemakkelijker inzichten kunnen verkrijgen op basis van hun video's, waarvoor een actie kan worden uitgevoerd. Met behulp van de kernonderdelen van het Media Services-platform gebouwd, kunnen Media Analytics media verwerken op grote schaal op dag één verwerken.
+Azure Media Services biedt om af te spelen op deze groeiende behoefte, Azure Media Analytics. Media Analytics is een verzameling spraakonderdelen en visuele onderdelen waarmee organisaties en bedrijven gemakkelijker inzichten kunnen verkrijgen op basis van hun video's, waarvoor een actie kan worden uitgevoerd. Gebouwd met behulp van de kernonderdelen van de Media Services-platform, kunnen Media Analytics mediaverwerking op schaal op dag één verwerkt.
 
-Met Media Analytics kunnen ontwikkelaars snel geavanceerde functionaliteit van de video doen in toepassingen. Het biedt bedrijfsomgevingen de volledige schaal, naleving, beveiliging en globale bereiken die vereist zijn voor grote organisaties.
+Met Media Analytics, kunnen ontwikkelaars snel geavanceerde functionaliteit voor video brengen in toepassingen. Het biedt bedrijfsomgevingen met de volledige schaal, naleving, beveiliging en wereldwijd bereik vereist voor grote organisaties.
 
-Het volgende diagram toont de Media Analytics en andere belangrijke onderdelen van het Media Services-platform. 
+Het volgende diagram toont Media Analytics en andere belangrijke onderdelen van het Media Services-platform. 
 
 ![VoD-werkstroom](./media/media-services-analytics-overview/media-services-analytics-overview01.png)
 
-Media Analytics-mediaprocessoren produceren MP4- of JSON-bestanden. Als een Mediaprocessor een MP4-bestand produceert, kunt u het bestand progressief downloaden. Als een Mediaprocessor een JSON-bestand produceert, kunt u het bestand downloaden uit Azure Blob-opslag. 
+Media Analytics-mediaprocessoren produceren MP4- of JSON-bestanden. Als een Mediaprocessor een MP4-bestand produceert, kunt u het bestand progressief downloaden. Als een Mediaprocessor een JSON-bestand produceert, kunt u het bestand downloaden uit Azure Blob storage. 
 
 ## <a name="media-analytics-services"></a>Media Analytics-services
 
 ### <a name="indexer"></a>Indexer
-Met Azure Media Indexer, kunt u inhoud doorzoekbare en houdt gesloten ondertiteling te genereren. Azure Media Indexer 2 Preview heeft vergeleken met de vorige versie, een sneller indexering en breder taal ondersteunen. Ondersteunde talen zijn Engels, Spaans, Frans, Duits, Italiaans, Chinees, Portugees en Arabisch. Zie voor gedetailleerde informatie en voorbeelden [video's verwerken met Azure Media Indexer 2](media-services-process-content-with-indexer2.md).
+Met Azure Media Indexer, kunt u doorzoekbare inhoud en het genereren van ondertitels sporen te wissen. Vergeleken met de vorige versie, heeft Azure Media Indexer 2-Preview-indexering en sneller bredere taal ondersteunen. Ondersteunde talen zijn Engels, Spaans, Frans, Duits, Italiaans, Chinees, Portugees en Arabisch. Zie voor gedetailleerde informatie en voorbeelden, [video's verwerken met Azure Media Indexer 2](media-services-process-content-with-indexer2.md).
 ### <a name="hyperlapse"></a>Hyperlapse
-Microsoft Hyperlapse combineert video stabilization en time-lapse mogelijkheid snel, verbruikbare video's van uw inhoud lange vorm maken. Naast het time-lapse video maken, kunt u Hyperlapse stabiele video's van beelden video's die zijn vastgelegd via mobiele telefoons en camcorders maken. Zie voor gedetailleerde informatie en voorbeelden [Hyperlapse media-bestanden met Azure Media Hyperlapse](media-services-hyperlapse-content.md).
+Microsoft Hyperlapse combineert video stabilization en timelapsevideo mogelijkheid om te maken van snelle, verbruikbare video's van uw inhoud lange vorm. Naast het maken van timelapsevideo video, kunt u Hyperlapse stabiele video's van schokkerige video's die zijn vastgelegd via mobiele telefoons en camcorders maken. Zie voor gedetailleerde informatie en voorbeelden, [Hyperlapse media-bestanden met Azure Media Hyperlapse](media-services-hyperlapse-content.md).
 ### <a name="motion-detector"></a>Bewegingsherkenning
-Bewegingsdetectie-detectie kunt u beweging in een video met een stilstaan achtergrond detecteren. Dit maakt het mogelijk om te controleren op valse positieven op motion gebeurtenissen gedetecteerd door bewakingscamera's te gebruiken. Zie voor gedetailleerde informatie en voorbeelden [Bewegingsdetectie voor Azure Media Analytics](media-services-motion-detection.md).
+Bewegingsherkenning kunt u beweging detecteren in een video met een stilstaande achtergrond. Dit maakt het mogelijk om te controleren voor fout-positieven op bewegingsgebeurtenissen van surveillancecamera's gedetecteerd. Zie voor gedetailleerde informatie en voorbeelden, [Bewegingsdetectie voor Azure Media Analytics](media-services-motion-detection.md).
 ### <a name="face-detector"></a>Gezichtsherkenning
-Face-detectie gebruikt, kunt u vlakken van gebruikers en hun emoties, inclusief gelukkig, sadness en onverwacht detecteren. Dit heeft verschillende nuttig toepassingen in sectoren verderop, met inbegrip van aggregeren en analyseren van reacties van mensen die een gebeurtenis. Zie voor gedetailleerde informatie en voorbeelden [gezichts- en emotion detectie voor Azure Media Analytics](media-services-face-and-emotion-detection.md).
-### <a name="video-summarization"></a>Samenvatting van de video
-Samenvatting van de video kan helpen u bij het maken van samenvattingen van lange video's door interessante codefragmenten automatisch selecteren van de bronvideo. Dit is handig als u bieden een snel overzicht van wat u wilt kunt verwachten in een lange video. Zie voor gedetailleerde informatie en voorbeelden [gebruik Azure Media Video miniaturen voor het maken van de samenvatting van de video](media-services-video-summarization.md).
+Met behulp van Gezichtsherkenning, kunt u gezichten van mensen en hun emoties, met inbegrip van blijdschap, verdriet en verrassing detecteren. Dit heeft diverse nuttige branche toepassingen, verderop, waaronder aggregeren en analyseren van reacties van personen hebt deelgenomen aan een gebeurtenis. Zie voor gedetailleerde informatie en voorbeelden, [gezichten en emoties detectie voor Azure Media Analytics](media-services-face-and-emotion-detection.md).
+### <a name="video-summarization"></a>Video-overzicht
+Samenvatting van de video kunt u bij het maken van samenvattingen van lange video's door het automatisch selecteren interessante codefragmenten in de bronvideo. Deze mogelijkheid is handig als u geven een kort overzicht van wat wilt u kunt verwachten in een lange video. Zie voor gedetailleerde informatie en voorbeelden, [met Azure Media Video Thumbnails om te maken van video-overzicht](media-services-video-summarization.md).
 ### <a name="optical-character-recognition"></a>Optische tekenherkenning
-Met Azure Media OCR (OCR), kunt u tekstinhoud in videobestanden converteren naar een bewerkbare, doorzoekbaar digitale tekst. U kunt vervolgens de extractie van zinvolle metagegevens van de video signaal van uw media automatiseren.
-### <a name="scalable-face-redaction"></a>Schaalbare face redactie
-Azure Media Redactor is een Mediaprocessor Media Analytics schaalbare face redactie in de cloud biedt. Face redactie gebruikt, kunt u uw video om te vervagen vlakken van geselecteerde gebruikers wijzigen. Het is raadzaam de service wilt gebruiken face redactie nieuws media of wanneer de openbare veiligheid is betrokken. Kunnen een paar minuten beeldmateriaal waarin meerdere vlakken uren handmatig Redigeren duren, maar met deze service face redactie duurt een paar eenvoudige stappen. Zie voor meer informatie de [Redigeren vlakken met Azure Media Analytics](media-services-face-redaction.md) artikel.
+Met Azure Media OCR (optische tekenherkenning), kunt u de tekstinhoud in video's converteren naar bewerkbare, doorzoekbaar digitale tekst. U kunt vervolgens de extractie van nuttige metagegevens van de video signaal van uw media automatiseren.
+### <a name="scalable-face-redaction"></a>Schaalbare gezichten onherkenbaar maken
+Azure Media Redactor is een mediaverwerkingsprogramma van Media Analytics biedt schaalbare gezichten onherkenbaar maken in de cloud. Met behulp van gezichten onherkenbaar maken, kunt u uw video om gezichten van geselecteerde personen onherkenbaar te wijzigen. Het is raadzaam de gezichten onherkenbaar maken-service gebruiken nieuwsmedia of als de openbare veiligheid is betrokken. Pas een paar minuten beeldmateriaal met meerdere gezichten uur redigeer handmatig, maar met deze service gezichten onherkenbaar maken duurt een paar eenvoudige stappen. Zie voor meer informatie de [Redigeer gezichten met Azure Media Analytics](media-services-face-redaction.md) artikel.
 ### <a name="content-moderation"></a>Content Moderation
-Azure Content beheerder kunt u met toezicht machine ondersteund voor uw video's. U wilt bijvoorbeeld mogelijk inhoud voor volwassenen en mooie detecteren in video's en controleer de gemarkeerde inhoud van uw menselijke toezicht. Video's voor ongewenste inhoud handmatig toezicht te houden, is een taak tijdrovend en kostbaar. Met deze service en de bijbehorende programma's combineren u toezicht machine ondersteund met mogelijkheden voor de beste resultaten human in de lus efficiënte en voordelige wijze kunt. Zie voor meer informatie, de [uw video's verwerken met Azure inhoud beheerder](media-services-content-moderation.md) artikel.
+Azure Content Moderator kunt u geautomatiseerd beheer gebruiken voor uw video's. U wilt bijvoorbeeld detecteren van mogelijk erotische en ongepaste inhoud in video's en bekijk de gemarkeerde inhoud door uw teams menselijk toezicht. Handmatig toezicht houden op video's voor ongewenste inhoud is een tijd in beslag nemen en dure taak. Met deze service en de bijbehorende programma's combineren u geautomatiseerd beheer met human-in-the-loop mogelijkheden voor de beste resultaten, efficiënte en rendabele wijze. Zie voor meer informatie, de [verwerken van uw video's met Azure Content Moderator](media-services-content-moderation.md) artikel.
 
 ## <a name="common-scenarios"></a>Algemene scenario's
-Organisaties kunnen helpen bij Media Analytics en ondernemingen verzamelen inzichten van video en meer effectief beheer van grote hoeveelheden video-inhoud. Hier volgen enkele scenario's:
+Media Analytics-organisaties kan helpen en ondernemingen vindt nieuwe inzichten uit video en meer grote volumes van video-inhoud effectief te beheren. Hier volgen enkele scenario's:
 
-* **Roep centers**. Zelfs met de komst van sociale media vergemakkelijken klantenservice aanroep afdelingen nog steeds een groot percentage van de klantenservice transacties. In deze audiogegevens gecodeerd, is een grote hoeveelheid klantgegevens die kan worden geanalyseerd om te zorgen voor hogere klanttevredenheid. Organisaties kunnen met behulp van Media Indexer Haal de tekst en maak zoekindexen en dashboards. Vervolgens kunnen ze intelligence rond de algemene klachten bronnen van klachten en andere relevante gegevens extraheren.
-* **Gebruikers gegenereerde inhoud toezicht**. Veel organisaties hebben van nieuws media-uitgevers voor afdelingen politie, openbare-portals die gebruiker gegenereerde media zoals video's en afbeeldingen te accepteren. Het volume van de inhoud kunt pieken vanwege onverwachte gebeurtenissen. In deze scenario's is het moeilijk om uit te voeren effectieve handmatige beoordelingen van inhoud voor geschiktheid. Klanten kunnen zijn afhankelijk van de service inhoud toezicht te concentreren op inhoud die geschikt is.
-* **Toezicht**. Met de groei in het gebruik van IP-camera's wordt geleverd een groeiende inventarisatie van toezicht video. Handmatig controleren toezicht video is tijd tijdrovende en foutgevoelige menselijke fouten. Media Analytics biedt services zoals bewegingsdetectie face detection en Hyperlapse waarmee het proces van controleren, beheren en afleidingen gemakkelijker te maken.
+* **Callcenters**. Zelfs met de komst van sociale media vergemakkelijken klant callcenters nog steeds een groot percentage van de klantenservice transacties. In deze audiogegevens gecodeerd, is een grote hoeveelheid klantgegevens die kan worden geanalyseerd voor het bereiken van hogere klanttevredenheid. Organisaties kunnen met behulp van Media Indexer, haal de tekst en maak zoekindexen en dashboards. Vervolgens kunnen ze intelligence rond algemene klachten, bronnen van klachten en andere relevante gegevens extraheren.
+* **Door gebruikers gegenereerde inhoudstoezicht**. Veel organisaties hebben van nieuws mediakanalen aan de politie afdelingen, openbare-portals die door gebruikers gegenereerde media zoals video's en afbeeldingen te accepteren. Het volume van de inhoud kan piekbelastingen vanwege onverwachte gebeurtenissen. In deze scenario's is het moeilijk om uit te voeren van effectieve handmatige beoordelingen van inhoud voor geschiktheid. Klanten kunnen zijn afhankelijk van de service beheer van inhoud kunt richten op de inhoud die van toepassing is.
+* **Toezicht**. Met de groei in het gebruik van IP-camera's afkomstig is een groeiende inventarisatie van toezicht video. Handmatig controleren toezicht video is het tijd intensieve en gevoelig voor menselijke fouten. Media Analytics biedt services, zoals bewegingsdetectie, gezichtsdetectie en Hyperlapse om het proces van het controleren, beheren en afgeleiden eenvoudiger maken.
 
 ## <a name="media-analytics-media-processors"></a>Media Analytics-mediaprocessoren
-Deze sectie geeft een lijst van de Media Analytics-mediaprocessoren en laat zien hoe u .NET of REST ophalen van een media-processor (MP)-object.
+Deze sectie geeft een lijst van de media-processors van Media Analytics en laat zien hoe u .NET of REST gebruiken voor het ophalen van een mediaobject processor (MP).
 
 ### <a name="mp-names"></a>MP-namen
-* Preview van Azure Media Indexer 2
+* Azure Media Indexer 2-Preview
 * Azure Media Indexer
 * Azure Media Hyperlapse
 * Azure Media Face Detector
 * Azure Media Motion Detector
 * Azure Media Video Thumbnails
 * Azure Media OCR
-* Azure Media-inhoud beheerder
+* Azure Media Content Moderator
 
 ### <a name="net"></a>.NET
-De volgende functie heeft een van de opgegeven MP-namen en een MP-object geretourneerd.
+De volgende functie neemt een van de opgegeven Management Pack-namen en retourneert een Management Pack-object.
 
     static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
     {
@@ -106,7 +107,7 @@ Aanvraag:
     x-ms-version: 2.12
     Host: media.windows.net
 
-Antwoord:
+Reactie:
 
     . . .
 
@@ -124,8 +125,8 @@ Antwoord:
        ]
     }
 
-## <a name="demos"></a>Demo 's
-Zie [Azure Media Analytics demo's](http://azuremedialabs.azurewebsites.net/demos/Analytics.html).
+## <a name="demos"></a>Demo’s
+Zie [demo's van Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html).
 
 ## <a name="provide-feedback"></a>Feedback geven
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

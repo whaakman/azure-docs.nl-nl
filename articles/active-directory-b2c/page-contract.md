@@ -10,18 +10,21 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 637cdb338496764e64c18a887673808ef4e8415a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: fa48d3825b5b942497b1eabd19a1eeb7e0141058
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203450"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003139"
 ---
 # <a name="select-a-page-contract-in-azure-active-directory-b2c-using-custom-policies"></a>Selecteer een pagina-contract in Azure Active Directory B2C met behulp van aangepaste beleidsregels
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-U kunt een contract pagina in Azure Active Directory (Azure AD) B2C selecteren door te configureren in een [aangepast beleid](active-directory-b2c-overview-custom.md). Een pagina-contract is een associatie met elementen die Azure AD B2C biedt en de inhoud die u opgeeft. Als u van plan bent te gebruiken [Javascript](javascript-samples.md), moet u de versie van een contract voor al uw inhoudsdefinities in uw aangepast beleid te definiëren.
+Of u nu werkt met gebruikersstromen of aangepast beleid, kunt u de JavaScript-code voor client-side inschakelen in uw Azure Active Directory (Azure AD) B2C-beleid. In dit artikel wordt beschreven hoe u een pagina-contract in Azure AD B2C selecteren door te configureren in een [aangepast beleid](active-directory-b2c-overview-custom.md). Een pagina-contract is een samenwerkingsverband van elementen die Azure AD B2C biedt en de inhoud die u opgeeft. Als u van plan bent te gebruiken [Javascript](javascript-samples.md), moet u de versie van een contract voor al uw inhoudsdefinities in uw aangepast beleid te definiëren.
+
+> [!NOTE]
+> Als u wilt voor het inschakelen van JavaScript voor gebruikersstromen, Zie [over het gebruik van JavaScript en pagina contract versies in een gebruikersstroom](user-flow-javascript-overview.md).
 
 ## <a name="replace-datauri-values"></a>Gegevens-URI die waarden vervangen
 

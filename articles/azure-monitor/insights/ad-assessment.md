@@ -1,5 +1,5 @@
 ---
-title: Optimalisatie van uw Active Directory-omgeving met Azure Log Analytics | Microsoft Docs
+title: Optimalisatie van uw Active Directory-omgeving met Azure Monitor | Microsoft Docs
 description: De oplossing statuscontrole van Active Directory kunt u het risico en de status van uw omgeving beoordelen op een vast interval.
 services: log-analytics
 documentationcenter: ''
@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 063cedc679c3365e6352549e78c75ecff903cae7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 8a1e08263790f1a04e672fd9d5a17c2bd1b45ce8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193005"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999025"
 ---
-# <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optimalisatie van uw Active Directory-omgeving met de oplossing statuscontrole van Active Directory in Log Analytics
+# <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Optimalisatie van uw Active Directory-omgeving met de oplossing statuscontrole van Active Directory in Azure Monitor
 
 ![AD Health Check symbool](./media/ad-assessment/ad-assessment-symbol.png)
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 De oplossing statuscontrole van Active Directory kunt u het risico en de status van uw server-omgevingen evalueren op een vast interval. Dit artikel helpt u bij het installeren en gebruiken van de oplossing zodat u corrigerende maatregelen voor potentiële problemen kunt uitvoeren.
 
@@ -40,22 +42,22 @@ Nadat u de oplossing hebt toegevoegd en een controle voltooid, samenvattende is 
 
 ## <a name="prerequisites"></a>Vereisten
 
-* De oplossing statuscontrole van Active Directory vereist een ondersteunde versie van .NET Framework 4.5.2 of hoger geïnstalleerd op elke computer die de Microsoft Monitoring Agent (MMA) geïnstalleerd is.  De MMA-agent wordt gebruikt door System Center 2016 - Operations Manager en Operations Manager 2012 R2 en de Log Analytics-service.
+* De oplossing statuscontrole van Active Directory vereist een ondersteunde versie van .NET Framework 4.5.2 of hoger geïnstalleerd op elke computer die de Microsoft Monitoring Agent (MMA) geïnstalleerd is.  De MMA-agent wordt gebruikt door System Center 2016 - Operations Manager en Operations Manager 2012 R2 en Azure Monitor.
 * De oplossing biedt ondersteuning voor domeincontrollers met Windows Server 2008 en 2008 R2, Windows Server 2012 en 2012 R2 en Windows Server 2016.
 * Een Log Analytics-werkruimte toe te voegen van de oplossing statuscontrole van Active Directory in Azure marketplace in Azure portal.  Er is geen verdere configuratie nodig.
 
   > [!NOTE]
-  > Nadat u de oplossing hebt toegevoegd, wordt het bestand AdvisorAssessment.exe toegevoegd aan servers met agents. Configuratiegegevens is gelezen en vervolgens verzonden naar de Log Analytics-service in de cloud voor verwerking. Logica wordt toegepast op de ontvangen gegevens en de cloudservice registreert de gegevens.
+  > Nadat u de oplossing hebt toegevoegd, wordt het bestand AdvisorAssessment.exe toegevoegd aan servers met agents. Configuratiegegevens is gelezen en vervolgens naar Azure Monitor in de cloud verzonden voor verwerking. Logica wordt toegepast op de ontvangen gegevens en de cloudservice registreert de gegevens.
   >
   >
 
-Als u de statuscontrole voor uw domeincontrollers die lid van het domein zijn moet worden geëvalueerd, hiervoor een agent en de verbinding met Log Analytics met behulp van een van de volgende ondersteunde methodes:
+Als u de statuscontrole voor uw domeincontrollers die lid van het domein zijn moet worden geëvalueerd, hiervoor een agent en de verbinding met Azure Monitor met een van de volgende ondersteunde methodes:
 
 1. Installeer de [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) als de domeincontroller niet door System Center 2016 - Operations Manager of Operations Manager 2012 R2 bewaakt wordt.
-2. Als deze wordt bewaakt met System Center 2016 - Operations Manager of Operations Manager 2012 R2 en de beheergroep is niet geïntegreerd met de Log Analytics-service, de domeincontroller kan worden multihomed met Log Analytics voor het verzamelen van gegevens en door te sturen naar de service en nog steeds worden bewaakt door Operations Manager.  
+2. Als deze wordt bewaakt met System Center 2016 - Operations Manager of Operations Manager 2012 R2 en de beheergroep is niet geïntegreerd met Azure Monitor, kan de domeincontroller worden met Azure Monitor voor het verzamelen van gegevens en door te sturen naar de service en nog steeds multihomed worden bewaakt door Operations Manager.  
 3. Anders, als uw Operations Manager-beheergroep is geïntegreerd met de service, moet u de domeincontrollers voor het verzamelen van gegevens toevoegen door de service die de stappen onder [toevoegen door agents beheerde computers](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-log-analytics) nadat u hebt ingeschakeld de oplossing in uw werkruimte.  
 
-De agent op uw domeincontroller welke rapporten in een Operations Manager-beheergroep, verzamelt gegevens, doorstuurt naar de toegewezen beheerserver, en vervolgens rechtstreeks vanaf een beheerserver verzonden naar de Log Analytics-service.  De gegevens worden niet naar de Operations Manager-databases geschreven.  
+De agent op uw domeincontroller welke rapporten in een Operations Manager-beheergroep, verzamelt gegevens, doorstuurt naar de toegewezen beheerserver, en vervolgens rechtstreeks vanaf een beheerserver verzonden naar Azure Monitor.  De gegevens worden niet naar de Operations Manager-databases geschreven.  
 
 ## <a name="active-directory-health-check-data-collection-details"></a>Active Directory-statuscontrole gegevens verzameling details
 
@@ -70,10 +72,10 @@ Statuscontrole van Active Directory, worden gegevens verzameld uit de volgende b
 - Gegevens uit een bestand
 - Windows Management Instrumentation (WMI)
 - DCDIAG hulpprogramma API
-- API voor File Replication Service (NTFRS)
+- File Replication Service (NTFRS) API
 - Aangepaste C#-code
 
-Gegevens worden verzameld op de domeincontroller en doorgestuurd naar Log Analytics in de zeven dagen.  
+Gegevens worden verzameld op de domeincontroller en doorgestuurd naar Azure Monitor om de zeven dagen.  
 
 ## <a name="understanding-how-recommendations-are-prioritized"></a>Inzicht krijgen in hoe aanbevelingen met prioriteit wordt toegepast
 Elke aanbeveling krijgt een waarde valutaconversie in gevallen waarin het relatieve belang van de aanbeveling. Alleen de 10 belangrijkste aanbevelingen worden weergegeven.
@@ -107,30 +109,33 @@ Nadat deze is geïnstalleerd, kunt u het overzicht van de aanbevelingen weergeve
 De beoordelingen samengevatte naleving voor uw infrastructuur en aanbevelingen voor inzoomen in weergeven.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Aanbevelingen voor een aandachtsgebied weergeven en neemt u corrigerende maatregelen
-3. Klik op de **overzicht** tegel voor uw Log Analytics-werkruimte in de Azure-portal.
+[!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
+
 4. Op de **overzicht** pagina, klikt u op de **statuscontrole van Active Directory** tegel.
 5. Op de **statuscontrole** pagina, Controleer de samenvattingsinformatie in een van de focus gebied blades en klik vervolgens op een om aanbevelingen voor die aandachtsgebied weer te geven.
 6. Op een van de focus gebiedspagina's, kunt u de aanbevelingen met prioriteit gemaakt voor uw omgeving bekijken. Klik op een aanbeveling onder **betrokken objecten** voor meer informatie over waarom de aanbeveling is gedaan.<br><br> ![afbeelding van aanbevelingen voor de statuscontrole](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
 7. U kunt ondernemen corrigerende maatregelen voorgesteld in **voorgestelde acties**. Wanneer het item is opgelost, hoger evaluaties records die acties aanbevolen zijn uitgevoerd en worden uw nalevingsscore verhoogd. Gecorrigeerde items worden weergegeven als **doorgegeven objecten**.
 
 ## <a name="ignore-recommendations"></a>Aanbevelingen negeren
-Als u aanbevelingen die u wilt negeren hebt, kunt u een tekstbestand dat door Log Analytics wordt gebruikt om te voorkomen dat de aanbevelingen wordt weergegeven in de resultaten van de evaluatie maken.
+Als u aanbevelingen die u wilt negeren hebt, kunt u een tekstbestand dat door Azure Monitor wordt gebruikt om te voorkomen dat de aanbevelingen wordt weergegeven in de resultaten van de evaluatie maken.
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Voor het identificeren van de aanbevelingen die u worden genegeerd
-1. In de Azure-portal op de pagina van de Log Analytics-werkruimte voor de geselecteerde werkruimte, klikt u op de **zoeken in logboeken** tegel.
-2. Gebruik de volgende query uit om de lijst met aanbevelingen die zijn mislukt voor computers in uw omgeving.
+[!INCLUDE [azure-monitor-log-queries](../../../includes/azure-monitor-log-queries.md)]
 
-    ```
-    ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
-    ```
-    Hier volgt een schermopname van de zoeken in Logboeken-query:<br><br> ![mislukte aanbevelingen](./media/ad-assessment/ad-failed-recommendations.png)
+Gebruik de volgende query uit om de lijst met aanbevelingen die zijn mislukt voor computers in uw omgeving.
 
-3. Kies de aanbevelingen die u wilt negeren. U gebruikt de waarden voor RecommendationId in de volgende procedure.
+```
+ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
+```
+
+Hier volgt een schermopname van de query voor:<br><br> ![mislukte aanbevelingen](media/ad-assessment/ad-failed-recommendations.png)
+
+Kies de aanbevelingen die u wilt negeren. U gebruikt de waarden voor RecommendationId in de volgende procedure.
 
 ### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Het maken en gebruiken van een tekstbestand IgnoreRecommendations.txt
 1. Maak een bestand met de naam IgnoreRecommendations.txt.
-2. Plak of typ elke RecommendationId voor elke aanbeveling dat u wilt dat in Log Analytics op een afzonderlijke regel negeren en vervolgens opslaan en sluiten van het bestand.
-3. Plaats het bestand in de volgende map op elke computer waarop u Log Analytics voor het negeren van aanbevelingen.
+2. Plak of typ elke RecommendationId voor elke aanbeveling dat u wilt dat Azure Monitor op een afzonderlijke regel negeren en vervolgens opslaan en sluiten van het bestand.
+3. Plaats het bestand in de volgende map op elke computer waar u Azure-Monitor voor het negeren van aanbevelingen.
    * Op computers met de Microsoft Monitoring Agent (verbonden rechtstreeks of via de Operations Manager) - *SystemDrive*: \Program Files\Microsoft Monitoring Agent\Agent
    * Op de beheerserver van Operations Manager 2012 R2 - *SystemDrive*: \Program Files\Microsoft System Center 2012 R2\Operations Manager\Server
    * Op de beheerserver van Operations Manager 2016 - *SystemDrive*: \Program Files\Microsoft System Center 2016\Operations Manager\Server
@@ -138,7 +143,7 @@ Als u aanbevelingen die u wilt negeren hebt, kunt u een tekstbestand dat door Lo
 ### <a name="to-verify-that-recommendations-are-ignored"></a>Om te controleren of dat er aanbevelingen worden genegeerd
 Na de volgende health controle wordt uitgevoerd, wordt standaard elke zeven dagen geplande, zijn gemarkeerd als de opgegeven aanbevelingen *genegeerd* en worden niet weergegeven op het dashboard.
 
-1. U kunt de volgende zoeken in Logboeken-query's gebruiken om de genegeerde aanbevelingen weer te geven.
+1. U kunt de volgende logboeken-query's gebruiken om de genegeerde aanbevelingen weer te geven.
 
     ```
     ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
@@ -177,11 +182,11 @@ Na de volgende health controle wordt uitgevoerd, wordt standaard elke zeven dage
 
 *Waarom worden alleen de top 10 aanbevelingen weergegeven?*
 
-* In plaats van zodat u enorme uitputtende lijst van taken, is het raadzaam dat u zich richten op de aanbevelingen met prioriteit eerst adressering. Nadat u deze kunt oplossen, worden extra aanbevelingen beschikbaar. Als u liever de gedetailleerde lijst, kunt u alle aanbevelingen met behulp van zoeken in Logboeken kunt weergeven.
+* In plaats van zodat u enorme uitputtende lijst van taken, is het raadzaam dat u zich richten op de aanbevelingen met prioriteit eerst adressering. Nadat u deze kunt oplossen, worden extra aanbevelingen beschikbaar. Als u liever de gedetailleerde lijst, kunt u met behulp van een query voor toegang tot alle aanbevelingen weergeven.
 
 *Is er een manier om een aanbeveling negeren?*
 
 * Ja, Zie [aanbevelingen negeren](#ignore-recommendations) hierboven.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Gebruik [zoekopdrachten in Logboeken in Log Analytics](../../azure-monitor/log-query/log-query-overview.md) voor meer informatie over het analyseren van gedetailleerde gegevens AD Health Check en aanbevelingen.
+* Gebruik [logboeken-query's van Azure Monitor](../log-query/log-query-overview.md) voor meer informatie over het analyseren van gedetailleerde gegevens AD Health Check en aanbevelingen.

@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 12/24/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 58124ab5938c7bee9f83a8c37ab5c5618b4b7d54
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 78b362eb75ab4e0ca17045f8c32761a65897d449
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789820"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000179"
 ---
 # <a name="what-is-video-indexer"></a>Wat is Video Indexer?
 
@@ -22,10 +22,10 @@ Azure Video Indexer is een cloudtoepassing die is gebouwd met behulp van Azure M
  
 - **Automatische taaldetectie**: Identificeert automatisch de dominante gesproken taal. De volgende talen worden ondersteund: Engels, Spaans, Frans, Duits, Italiaans, Chinees (vereenvoudigd), Japans, Russisch en Portugees (Brazilië). De taal wordt standaard ingesteld op het Engels als de taal niet kan worden gedetecteerd.
 - **Audiotranscriptie**: Converteert van spraak naar tekst in 12 talen waardoor nu extensies. Ondersteunde talen zijn Engels, Spaans, Frans, Duits, Italiaans, Chinees (Vereenvoudigd), Japans, Arabisch, Russisch, Portugees (Brazilië), Hindi en Koreaans.
-- **Ondertiteling**: Hiermee maakt u ondertiteling in drie indelingen hebben: SRT VTT, TTML.
+- **Ondertiteling**: Hiermee maakt u ondertiteling in drie indelingen hebben: VTT, TTML, SRT.
 - **Twee verwerking channel**: Automatisch detecteert, afzonderlijke transcript- en samengevoegd in één tijdlijn.
 - **Reductie van ruis**:  Hiermee schakelt u van de telephony-audio- of ruis opnamen (gebaseerd op Skype filters).
-- **Transcript aanpassing (CRI)**: Traint en uitgebreide aangepaste spraak-naar-tekst-modellen te maken van branchespecifieke Transcripten uitgevoerd.
+- **Transcript customization (CRIS)**: Traint en uitgebreide aangepaste spraak-naar-tekst-modellen te maken van branchespecifieke Transcripten uitgevoerd.
 - **Sprekerherkenning-opsomming**:  Kaarten en begrijpt welke spreker spokenetwerktopologie welke woorden en wanneer.
 - **Statistieken van de spreker**: Voorziet in statistieken voor sprekers spraak ratio's.
 - **Visual tekstherkenning (OCR)**: Retourneert de tekst die visueel wordt weergegeven in de video.

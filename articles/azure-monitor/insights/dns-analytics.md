@@ -1,6 +1,6 @@
 ---
-title: De oplossing DNS Analytics in Azure Log Analytics | Microsoft Docs
-description: Instellen en gebruiken van de oplossing DNS Analytics in Log Analytics voor het verzamelen van inzicht in de DNS-infrastructuur op beveiliging, prestaties en bewerkingen.
+title: De oplossing DNS Analytics in Azure Monitor | Microsoft Docs
+description: Instellen en gebruiken van de oplossing DNS Analytics in Azure Monitor voor het verzamelen van inzicht in de DNS-infrastructuur op beveiliging, prestaties en bewerkingen.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 21b44b1c739818206fdba9d10250a2976f1d90db
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 0eeab5a2489bacde74b98e7d404789a00b64d02a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746860"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992718"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Verzamel inzichten over uw DNS-infrastructuur met de oplossing DNS Analytics Preview
 
 ![Symbool van DNS Analytics](./media/dns-analytics/dns-analytics-symbol.png)
 
-Dit artikel wordt beschreven hoe u kunt instellen en gebruiken van de Azure DNS Analytics-oplossing in Azure Log Analytics voor het verzamelen van inzicht in de DNS-infrastructuur op beveiliging, prestaties en bewerkingen.
+Dit artikel wordt beschreven hoe u kunt instellen en de Azure DNS Analytics-oplossing in Azure Monitor gebruiken voor het verzamelen van inzicht in de DNS-infrastructuur op beveiliging, prestaties en bewerkingen.
 
 DNS Analytics helpt u bij:
 
@@ -42,21 +42,21 @@ De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door de
 
 | **Verbonden bron** | **Ondersteuning** | **Beschrijving** |
 | --- | --- | --- |
-| [Windows-agents](../../azure-monitor/platform/agent-windows.md) | Ja | De oplossing verzamelt DNS-gegevens van Windows-agents. |
-| [Linux-agents](../../azure-monitor/learn/quick-collect-linux-computer.md) | Nee | De oplossing verzamelt geen DNS-gegevens van directe Linux-agents. |
-| [System Center Operations Manager-beheergroep](../../azure-monitor/platform/om-agents.md) | Ja | De oplossing verzamelt DNS-gegevens van agents in een verbonden beheergroep van Operations Manager. Er is geen directe verbinding van de Operations Manager-agent naar Log Analytics vereist. Gegevens uit de beheergroep doorgestuurd naar de Log Analytics-werkruimte. |
-| [Azure Storage-account](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Nee | Azure storage wordt niet gebruikt door de oplossing. |
+| [Windows-agents](../platform/agent-windows.md) | Ja | De oplossing verzamelt DNS-gegevens van Windows-agents. |
+| [Linux-agents](../learn/quick-collect-linux-computer.md) | Nee | De oplossing verzamelt geen DNS-gegevens van directe Linux-agents. |
+| [System Center Operations Manager-beheergroep](../platform/om-agents.md) | Ja | De oplossing verzamelt DNS-gegevens van agents in een verbonden beheergroep van Operations Manager. Een directe verbinding van de Operations Manager-agent naar Azure Monitor is niet vereist. Gegevens uit de beheergroep doorgestuurd naar de Log Analytics-werkruimte. |
+| [Azure Storage-account](../platform/collect-azure-metrics-logs.md) | Nee | Azure storage wordt niet gebruikt door de oplossing. |
 
 ### <a name="data-collection-details"></a>Details van de verzameling gegevens
 
-De oplossing verzamelt DNS-inventarisatie- en DNS-gebeurtenis met betrekking tot gegevens van de DNS-servers waarop een Log Analytics-agent is geïnstalleerd. Deze gegevens worden vervolgens geüpload naar Log Analytics en weergegeven op het dashboard van de oplossing. Inventarisatie-gerelateerde gegevens, zoals het aantal DNS-servers, -zones en -bronrecords worden verzameld door het uitvoeren van de DNS PowerShell-cmdlets. De gegevens worden eenmaal per twee dagen bijgewerkt. De gebeurtenis-gerelateerde gegevens worden verzameld in de buurt van real-time uit de [analytische en auditlogboeken](https://technet.microsoft.com/library/dn800669.aspx#enhanc) geleverd door de verbeterde DNS-logboekregistratie en diagnostische gegevens in Windows Server 2012 R2.
+De oplossing verzamelt DNS-inventarisatie- en DNS-gebeurtenis met betrekking tot gegevens van de DNS-servers waarop een Log Analytics-agent is geïnstalleerd. Deze gegevens worden vervolgens geüpload naar Azure Monitor en weergegeven op het dashboard van de oplossing. Inventarisatie-gerelateerde gegevens, zoals het aantal DNS-servers, -zones en -bronrecords worden verzameld door het uitvoeren van de DNS PowerShell-cmdlets. De gegevens worden eenmaal per twee dagen bijgewerkt. De gebeurtenis-gerelateerde gegevens worden verzameld in de buurt van real-time uit de [analytische en auditlogboeken](https://technet.microsoft.com/library/dn800669.aspx#enhanc) geleverd door de verbeterde DNS-logboekregistratie en diagnostische gegevens in Windows Server 2012 R2.
 
 ## <a name="configuration"></a>Configuratie
 
 Gebruik de volgende informatie in de oplossing te configureren:
 
-- Hebt u een [Windows](../../azure-monitor/platform/agent-windows.md) of [Operations Manager](../../azure-monitor/platform/om-agents.md) -agent op elke DNS-server die u wilt bewaken.
-- U kunt de oplossing DNS Analytics toevoegen aan uw Log Analytics-werkruimte van de [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). U kunt ook de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](../../azure-monitor/insights/solutions.md).
+- Hebt u een [Windows](../platform/agent-windows.md) of [Operations Manager](../platform/om-agents.md) -agent op elke DNS-server die u wilt bewaken.
+- U kunt de oplossing DNS Analytics toevoegen aan uw Log Analytics-werkruimte van de [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). U kunt ook de procedure beschreven in [toevoegen Azure Monitor-oplossingen uit de galerie van oplossingen](solutions.md).
 
 De oplossing start het verzamelen van gegevens zonder de noodzaak van verdere configuratie. Echter, kunt u de volgende configuratie voor het aanpassen van het verzamelen van gegevens.
 
@@ -64,7 +64,7 @@ De oplossing start het verzamelen van gegevens zonder de noodzaak van verdere co
 
 Klik op het dashboard van de oplossing **configuratie** om de pagina configuratie van DNS Analytics te openen. Er zijn twee soorten wijzigingen in de configuratie die u kunt maken:
 
-- **Goedgekeurde domeinnamen**. De opzoekquery's worden niet door de oplossing worden verwerkt. Wordt een lijst met toegestane domeinnaamachtervoegsels bijgehouden. De lookup-query's die worden omgezet naar de domeinnamen die overeenkomen met de naam van domeinachtervoegsels in deze lijst met toegestane adressen worden niet verwerkt door de oplossing. Verwerkt geen domeinnamen in de whitelist opgenomen helpt bij het optimaliseren van de gegevens naar Log Analytics verzonden. De standaard goedgekeurde lijst bevat populaire openbare domeinnamen, zoals www.google.com en www.facebook.com. U kunt de volledige lijst met weergeven door te schuiven.
+- **Goedgekeurde domeinnamen**. De opzoekquery's worden niet door de oplossing worden verwerkt. Wordt een lijst met toegestane domeinnaamachtervoegsels bijgehouden. De lookup-query's die worden omgezet naar de domeinnamen die overeenkomen met de naam van domeinachtervoegsels in deze lijst met toegestane adressen worden niet verwerkt door de oplossing. Verwerkt geen domeinnamen in de whitelist opgenomen helpt bij het optimaliseren van de gegevens die worden verzonden naar Azure Monitor. De standaard goedgekeurde lijst bevat populaire openbare domeinnamen, zoals www.google.com en www.facebook.com. U kunt de volledige lijst met weergeven door te schuiven.
 
  De lijst om toe te voegen van eventuele achtervoegsel domeinnaam die u wilt opzoeken inzichten voor weergeven, kunt u wijzigen. U kunt ook een achtervoegsel domeinnaam die u niet wilt opzoeken inzichten voor verwijderen.
 
@@ -83,13 +83,14 @@ Als uw Operations Manager-beheergroep is verbonden met uw Log Analytics-werkruim
 - Microsoft DNS-gegevens Collector Intelligence Pack (Microsoft.IntelligencePacks.Dns)
 - Microsoft System Center Advisor DNS Analytics-configuratie (Microsoft.IntelligencePack.Dns.Configuration)
 
-Zie [Operations Manager koppelen aan Log Analytics](../../azure-monitor/platform/om-agents.md) voor meer informatie over de manier waarop uw management packs voor oplossingen worden bijgewerkt.
+Zie [Operations Manager koppelen aan Log Analytics](../platform/om-agents.md) voor meer informatie over de manier waarop uw management packs voor oplossingen worden bijgewerkt.
 
 ## <a name="use-the-dns-analytics-solution"></a>De oplossing DNS Analytics gebruiken
 
-Deze sectie wordt uitgelegd van alle dashboard-functies en het gebruik ervan.
+[!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
-Nadat u de oplossing aan uw werkruimte hebt toegevoegd, wordt de pagina overzicht van Log Analytics in Azure portal bevat een **oplossingen weergeven** koppeling naar een kort overzicht van de DNS-infrastructuur. Het bevat het aantal DNS-servers waar de gegevens worden verzameld. Het bevat ook het aantal aanvragen van clients op te lossen schadelijke domeinen in de afgelopen 24 uur. Wanneer u op de tegel klikt, wordt het oplossingsdashboard geopend.
+
+De DNS-tegel bevat het aantal DNS-servers waar de gegevens worden verzameld. Het bevat ook het aantal aanvragen van clients op te lossen schadelijke domeinen in de afgelopen 24 uur. Wanneer u op de tegel klikt, wordt het oplossingsdashboard geopend.
 
 ![Tegel DNS Analytics](./media/dns-analytics/dns-tile.png)
 
@@ -188,4 +189,4 @@ Er zijn twee manieren waarop u feedback kunt geven:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Zoeken in logboeken](../../azure-monitor/log-query/log-query-overview.md) om gedetailleerde logboekbestanden DNS-records weer te geven.
+[Query uitvoeren op Logboeken](../log-query/log-query-overview.md) om gedetailleerde logboekbestanden DNS-records weer te geven.

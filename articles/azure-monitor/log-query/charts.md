@@ -1,6 +1,6 @@
 ---
-title: Het maken van grafieken en diagrammen van Azure Log Analytics-query's | Microsoft Docs
-description: Beschrijving van verschillende visualisaties in Azure Log Analytics om uw gegevens op verschillende manieren weer te geven.
+title: Het maken van grafieken en diagrammen van Logboeken-query's van Azure Monitor | Microsoft Docs
+description: Beschrijving van verschillende visualisaties in Azure Monitor om uw logboekgegevens op verschillende manieren weer te geven.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 049e50f5800194c4126003f7e5ff7ae60b3de768
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 381e8361d31660d90eaee3f7a500139af1ef2a82
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186222"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992978"
 ---
-# <a name="creating-charts-and-diagrams-from-log-analytics-queries"></a>Het maken van grafieken en diagrammen van Log Analytics-query 's
+# <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>Het maken van grafieken en diagrammen van Azure Monitor logboeken-query 's
 
 > [!NOTE]
-> U moet voltooien [geavanceerde aggregaties in Log Analytics-query's](advanced-aggregations.md) voordat het voltooien van deze les gaat uitvoeren.
+> U moet voltooien [geavanceerde aggregaties in Logboeken-query's van Azure Monitor](advanced-aggregations.md) voordat het voltooien van deze les gaat uitvoeren.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Dit artikel beschrijft de verschillende visualisaties in Azure Log Analytics om uw gegevens op verschillende manieren weer te geven.
+Dit artikel beschrijft de verschillende visualisaties in Azure Monitor om uw logboekgegevens op verschillende manieren weer te geven.
 
 ## <a name="charting-the-results"></a>De resultaten voor grafieken
 Aan de hand van het aantal computers per besturingssysteem, in het afgelopen uur gelden starten:
@@ -93,7 +93,7 @@ U kunt schakelen tussen door de vervolgkeuzelijst met de naam van de kolom selec
 ![Staafdiagram AccountType](media/charts/charts-and-diagrams-multiDimension2.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie andere lessen voor het gebruik van de querytaal van Log Analytics:
+Zie andere lessen voor het gebruik van de [Data Explorer-querytaal](/azure/kusto/query/) met Azure Monitor gegevens vastleggen:
 
 - [Bewerkingen op tekenreeksen uitvoeren](string-operations.md)
 - [Datum- en tijdbewerkingen](datetime-operations.md)

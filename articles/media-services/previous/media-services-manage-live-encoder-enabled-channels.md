@@ -1,6 +1,6 @@
 ---
 title: Live streamen met Azure Media Services om multi-bitrate streams te maken | Microsoft Docs
-description: 'In dit onderwerp wordt beschreven hoe u een kanaal dat een single-bitrate live stream ontvangt van een on-premises coderingsprogramma en voert vervolgens live coderen naar adaptieve bitrate stream met Media Services kunt instellen. De stroom kan vervolgens worden afgeleverd bij client-afspeeltoepassing via een of meer Streaming-eindpunten, met een van de volgende protocollen voor adaptive streaming: HLS, Smooth Stream, MPEG DASH.'
+description: 'In dit onderwerp wordt beschreven hoe u een kanaal dat een single-bitrate live stream ontvangt van een on-premises coderingsprogramma en voert vervolgens live coderen naar adaptieve bitrate stream met Media Services kunt instellen. De stroom kan vervolgens geleverd aan client-afspeeltoepassing via een of meer Streaming-eindpunten, met een van de volgende protocollen voor adaptive streaming: HLS, Smooth Stream, MPEG-DASH.'
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 02/10/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: e7159a8e3acf45105a11cc4574f9474457bed3ea
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: ecdb6d7a225d3a2f2c5bbf90a36b91367faf04b0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682653"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003343"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Live streamen met Azure Media Services om multi-bitrate streams te maken
 
@@ -30,7 +30,7 @@ ms.locfileid: "52682653"
 In Azure Media Services (AMS), een **kanaal** vertegenwoordigt een pijplijn voor het verwerken van live streaming-inhoud. Een **kanaal** live invoerstromen ontvangen op twee manieren:
 
 * Een on-premises live codering verzendt een single-bitrate stream naar het kanaal dat is ingeschakeld voor live coderen met Media Services in een van de volgende indelingen: RTMP of Smooth Streaming (gefragmenteerde MP4). Het kanaal codeert de inkomende single-bitrate stream vervolgens live naar een (adaptieve) multi-bitrate videostream. Desgevraagd levert Media Services de stream aan klanten.
-* Een on-premises live codering verzendt een multi-bitrate **RTMP** of **Smooth Streaming** (gefragmenteerde MP4) naar het kanaal dat is niet ingeschakeld voor het uitvoeren van realtime codering met AMS. De opgenomen streams **kanaal**passeren zonder verdere verwerking. Deze methode wordt aangeroepen **pass-through**. U kunt de volgende live coderingsprogramma's die multi-bitrate Smooth Streaming uitvoeren: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco en Elemental. De volgende live coderingsprogramma's voeren RTMP uit: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek- en Tricaster-coderingsprogramma's.  Een live coderingsprogramma kan ook een stream met één bitsnelheid verzenden naar een kanaal dat niet is ingeschakeld voor Live Encoding, maar dit wordt niet aanbevolen. Desgevraagd levert Media Services de stream aan klanten.
+* Een on-premises live codering verzendt een multi-bitrate **RTMP** of **Smooth Streaming** (gefragmenteerde MP4) naar het kanaal dat is niet ingeschakeld voor het uitvoeren van realtime codering met AMS. De opgenomen streams **kanaal**passeren zonder verdere verwerking. Deze methode wordt aangeroepen **pass-through**. U kunt de volgende live coderingsprogramma's die multi-bitrate Smooth Streaming gebruiken: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco en Elemental. De volgende live coderingsprogramma's voeren RTMP uit: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek and Tricaster encoders.  Een live coderingsprogramma kan ook een stream met één bitsnelheid verzenden naar een kanaal dat niet is ingeschakeld voor Live Encoding, maar dit wordt niet aanbevolen. Desgevraagd levert Media Services de stream aan klanten.
   
   > [!NOTE]
   > Met behulp van een passthrough-methode is de meest voordelige manier om live te streamen.
@@ -63,7 +63,7 @@ De huidige status van een Kanaal. Mogelijke waarden:
 * **Vanaf**. Het Kanaal wordt gestart. Er is geen facturering vindt plaats in deze status. In deze status zijn streaming en updates niet toegestaan. Als er een fout optreedt, wordt het Kanaal teruggezet naar de status Stopped.
 * **Met**. Het Kanaal kan nu live streams verwerken. Het is nu facturering van gebruik. Het kanaal om te voorkomen dat verdere facturering, moet u stoppen. 
 * **Stoppen**. Het Kanaal wordt gestopt. Geen facturering vindt plaats in deze tijdelijke status. In deze status zijn streaming en updates niet toegestaan.
-* **Verwijderen van**. Het Kanaal wordt verwijderd. Geen facturering vindt plaats in deze tijdelijke status. In deze status zijn streaming en updates niet toegestaan.
+* **Deleting**. Het Kanaal wordt verwijderd. Geen facturering vindt plaats in deze tijdelijke status. In deze status zijn streaming en updates niet toegestaan.
 
 In de volgende tabel wordt het verband tussen de verschillende Kanaalstatussen en de facturering weergegeven. 
 
@@ -307,7 +307,7 @@ De huidige status van een Kanaal. Mogelijke waarden:
 * **Vanaf**. Het Kanaal wordt gestart. In deze status zijn streaming en updates niet toegestaan. Als er een fout optreedt, wordt het Kanaal teruggezet naar de status Stopped.
 * **Met**. Het Kanaal kan nu live streams verwerken.
 * **Stoppen**. Het Kanaal wordt gestopt. In deze status zijn streaming en updates niet toegestaan.
-* **Verwijderen van**. Het Kanaal wordt verwijderd. In deze status zijn streaming en updates niet toegestaan.
+* **Deleting**. Het Kanaal wordt verwijderd. In deze status zijn streaming en updates niet toegestaan.
 
 In de volgende tabel wordt het verband tussen de verschillende Kanaalstatussen en de facturering weergegeven. 
 

@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: c3f10e268101cfa5aff6506a64aab98b07fb948a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4af7af6616b5415cd13abacd6aca13bd412d4ad8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464378"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998077"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Het gebruik van een Azure Machine Learning Studio-webservice
 
@@ -70,7 +70,7 @@ Ophalen van de API-sleutel voor een klassieke Machine-Learning-webservice:
 ## <a id="connect"></a>Verbinding maken met een Machine Learning-webservice
 U kunt verbinding maken met een Machine Learning-webservice met behulp van elke programmeertaal die ondersteuning biedt voor HTTP-aanvraag en antwoord. Vindt u voorbeelden in C#, Python / R van een help-pagina Machine Learning-webservice.
 
-**Machine Learning API help** help voor Machine Learning API wordt gemaakt wanneer u een webservice implementeert. Zie [overzicht van Azure Machine Learning - webservice implementeren](walkthrough-5-publish-web-service.md).
+**Machine Learning API help** help voor Machine Learning API wordt gemaakt wanneer u een webservice implementeert. Zie [zelfstudie 3: Tegoed risicomodel implementeren](tutorial-part3-credit-risk-deploy.md).
 De help van Machine Learning API bevat details over een voorspelling webservice.
 
 1. Klik op de Web-service waarmee u werkt.

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 958c53108c024cb349922a1bd10b2cdc2dba41a3
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 90a94612248dead5b57ebff67562dda083d8669f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247279"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996131"
 ---
 # <a name="encode-an-asset-by-using-media-encoder-standard-in-the-azure-portal"></a>Een asset coderen met behulp van Media Encoder Standard in Azure portal
 
@@ -28,7 +28,7 @@ ms.locfileid: "50247279"
 > 
 > 
 
-Een van de meest voorkomende scenario's in het werken met Azure Media Services is adaptive bitrate streaming aan uw clients geleverd. Media Services ondersteunt de volgende adaptive bitrate streaming-technologieën: Apple HTTP Live Streaming (HLS), Smooth Streaming van Microsoft en Dynamic Adaptive Streaming via HTTP (DASH, ook wel MPEG-DASH genoemd). Om voor te bereiden uw video's voor adaptive bitratestreaming, moet u eerst de bronvideo coderen als multi-bitrate-bestanden. U kunt Azure Media Encoder Standard gebruiken om te coderen van uw video's.  
+Een van de meest voorkomende scenario's in het werken met Azure Media Services is adaptive bitrate streaming aan uw clients geleverd. Media Services ondersteunt de volgende adaptive bitrate streaming-technologieën: Apple HTTP Live Streaming (HLS), Smooth Streaming van Microsoft en Dynamic Adaptive Streaming via HTTP (DASH, ook wel MPEG-DASH). Om voor te bereiden uw video's voor adaptive bitratestreaming, moet u eerst de bronvideo coderen als multi-bitrate-bestanden. U kunt Azure Media Encoder Standard gebruiken om te coderen van uw video's.  
 
 Media Services biedt dynamische pakketten. Met dynamische verpakking, kunt u uw multi-bitrate MP4s in HLS, Smooth Streaming en MPEG-DASH, leveren zonder opnieuw te verpakken in deze streaming-indelingen. Wanneer u dynamische pakketten, kunt u opslaan en betaalt voor de bestanden in één opslagindeling. Media Services bouwt en levert de juiste reactie op basis van de aanvraag van een client.
 

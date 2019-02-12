@@ -1,6 +1,6 @@
 ---
-title: Geavanceerde query's in Azure Log Analytics | Microsoft Docs
-description: Dit artikel bevat een zelfstudie voor het gebruik van de Analytics-portal voor het schrijven van query's in Log Analytics.
+title: Geavanceerde query's in Azure Azure Monitor | Microsoft Docs
+description: Dit artikel bevat een zelfstudie voor het gebruik van de Analytics-portal voor het schrijven van query's in Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: b8441d72f85c2160cf756df37722fa6037441236
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 4e5574fa5a615e43d94069a03716fa290b957342
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191543"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993211"
 ---
-# <a name="writing-advanced-queries-in-log-analytics"></a>Geavanceerde query's in Log Analytics schrijven
+# <a name="writing-advanced-queries-in-azure-monitor"></a>Geavanceerde query's in Azure Monitor schrijven
 
 > [!NOTE]
-> U moet voltooien [aan de slag met de Analytics-portal](get-started-portal.md) en [aan de slag met query's](get-started-queries.md) voordat het voltooien van deze les gaat uitvoeren.
+> U moet voltooien [aan de slag met Azure Monitor log-analytics](get-started-portal.md) en [aan de slag met query's](get-started-queries.md) voordat het voltooien van deze les gaat uitvoeren.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -130,7 +130,7 @@ SecurityEvent
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie andere lessen voor het gebruik van de querytaal van Log Analytics:
+Zie andere lessen voor het gebruik van de [Data Explorer-querytaal](/azure/kusto/query/) met Azure Monitor gegevens vastleggen:
 
 - [Bewerkingen op tekenreeksen uitvoeren](string-operations.md)
 - [Datum- en tijdbewerkingen](datetime-operations.md)

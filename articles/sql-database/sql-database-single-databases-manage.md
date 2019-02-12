@@ -3,7 +3,7 @@ title: Maken en beheren van Azure SQL Database-servers en individuele databases 
 description: Meer informatie over het maken en beheren van SQL Database-servers en individuele databases.
 services: sql-database
 ms.service: sql-database
-ms.subservice: standalone-database
+ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 7d1f11abbe88bff5a7e16984aacd4953ad4f9e12
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: MT
+ms.date: 02/08/2019
+ms.openlocfilehash: 5612926b26ac71675a42c7c726d0354a1738ac31
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751188"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996425"
 ---
 # <a name="create-and-manage-sql-database-servers-and-single-databases-in-azure-sql-database"></a>SQL Database-servers en individuele databases in Azure SQL Database maken en beheren
 
@@ -57,7 +57,7 @@ Voor het beheren van een bestaande database, gaat u naar de **SQL-databases** pa
 
 ## <a name="powershell-manage-sql-database-servers-and-single-databases"></a>PowerShell: SQL Database-servers en individuele databases beheren
 
-Als u wilt maken en beheren van Azure SQL Database-servers, zelfstandig en gepoolde databases en firewalls voor SQL Database-server met Azure PowerShell, gebruikt u de volgende PowerShell-cmdlets. Als u wilt installeren of upgraden van PowerShell, Zie [Azure PowerShell-module installeren](/powershell/azure/install-az-ps).
+Als u wilt maken en beheren van Azure SQL Database-servers, één en gegroepeerde databases en firewalls voor SQL Database-server met Azure PowerShell, gebruikt u de volgende PowerShell-cmdlets. Als u wilt installeren of upgraden van PowerShell, Zie [Azure PowerShell-module installeren](/powershell/azure/install-az-ps).
 
 > [!TIP]
 > Zie voor PowerShell-voorbeeldscripts, [PowerShell gebruiken om te maken van een individuele Azure SQL-database en een firewallregel voor SQL Database-server configureren](scripts/sql-database-create-and-configure-database-powershell.md) en [bewaken en schalen van een SQL database met behulp van PowerShell enkel](scripts/sql-database-monitor-and-scale-database-powershell.md) .

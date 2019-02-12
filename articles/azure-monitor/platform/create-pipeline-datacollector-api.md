@@ -1,6 +1,6 @@
 ---
-title: Een pijplijn maken met de API van Azure Log Analytics Data Collector | Microsoft Docs
-description: De Log Analytics HTTP Data Collector-API kunt u POST-JSON-gegevens toevoegen aan de Log Analytics-opslagplaats vanaf een willekeurige client die de REST-API kunt aanroepen. Dit artikel wordt beschreven hoe u het uploaden van gegevens in bestanden opgeslagen in een automatische manier.
+title: Een pijplijn maken met de API van Azure Azure Monitor Data Collector | Microsoft Docs
+description: U kunt de API van Azure Monitor HTTP Data Collector POST-JSON-gegevens toevoegen aan de Log Analytics-werkruimte van een willekeurige client die de REST-API kunt aanroepen. Dit artikel wordt beschreven hoe u het uploaden van gegevens in bestanden opgeslagen in een automatische manier.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 94d026ce1d055d18a615919df6ed5021b15bf108
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d2736e397827373949da1634a99056420dc13b8a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186069"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003853"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Een pijplijn maken met de Collector-API
 
-De [Log Analytics Data Collector API](../../azure-monitor/platform/data-collector-api.md) kunt u een aangepaste gegevens importeren in Log Analytics. De enige vereisten zijn dat de gegevens JSON-indeling en splitsen in 30 MB of minder segmenten zijn. Dit is een volledig flexibele mechanisme dat kan worden aangesloten op tal van manieren: van gegevens rechtstreeks vanuit uw toepassing worden verzonden naar eenmalige ad-hoc uploadt. In dit artikel wordt een overzicht sommige beginpunten voor een veelvoorkomend scenario: de noodzaak om gegevens die zijn opgeslagen in bestanden op basis van reguliere, geautomatiseerde te uploaden. Terwijl de pijplijn die hier niet de meeste goed presterende of anders geoptimaliseerd, is dit bedoeld om te fungeren als een beginpunt voor het bouwen van een productie-pipeline van uw eigen.
+De [API van Azure Monitor Data Collector](data-collector-api.md) kunt u een aangepast logboekgegevens importeren in een Log Analytics-werkruimte in Azure Monitor. De enige vereisten zijn dat de gegevens JSON-indeling en splitsen in 30 MB of minder segmenten zijn. Dit is een volledig flexibele mechanisme dat kan worden aangesloten op tal van manieren: van gegevens rechtstreeks vanuit uw toepassing worden verzonden naar eenmalige ad-hoc uploadt. In dit artikel wordt een overzicht sommige beginpunten voor een veelvoorkomend scenario: de noodzaak om gegevens die zijn opgeslagen in bestanden op basis van reguliere, geautomatiseerde te uploaden. Terwijl de pijplijn die hier niet de meeste goed presterende of anders geoptimaliseerd, is dit bedoeld om te fungeren als een beginpunt voor het bouwen van een productie-pipeline van uw eigen.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="example-problem"></a>Voorbeeld van probleem
 Voor de rest van dit artikel bespreken we paginaweergavegegevens in Application Insights. In ons scenario hypothetische willen we geografische gegevens verzameld standaard door de Application Insights-SDK met aangepaste gegevens met de populatie van elk land/regio in de hele wereld, met het doel om te identificeren waar we het meeste moet uitgaven correleren Marketing bedragen. 
@@ -42,13 +44,13 @@ In dit artikel wordt niet uitgelegd hoe u gegevens maakt of [uploaden naar een A
 
 1. Een proces wordt gedetecteerd dat nieuwe gegevens zijn geüpload.  Ons voorbeeld wordt een [Azure Logic App](../../logic-apps/logic-apps-overview.md), die beschikbaar is voor een trigger voor het detecteren van nieuwe gegevens naar een blob geüpload.
 
-2. Een processor van deze nieuwe gegevens leest en converteert deze naar JSON, de indeling die is vereist door Log Analytics.  In dit voorbeeld gebruiken we een [Azure Function](../../azure-functions/functions-overview.md) als een lichtgewicht, betaalbare manier voor het uitvoeren van onze verwerkingscode. De functie wordt gestart door de dezelfde logische App die we hebben gebruikt voor het detecteren van een van de nieuwe gegevens.
+2. Een processor van deze nieuwe gegevens leest en converteert deze naar JSON, de indeling die vereist zijn voor Azure Monitor In dit voorbeeld, gebruiken we een [Azure Function](../../azure-functions/functions-overview.md) als een lichtgewicht, betaalbare manier voor het uitvoeren van onze verwerkingscode. De functie wordt gestart door de dezelfde logische App die we hebben gebruikt voor het detecteren van een van de nieuwe gegevens.
 
-3. Ten slotte, als het JSON-object beschikbaar is, wordt het verzonden naar Log Analytics. Dezelfde logische App verzendt die gegevens naar Log Analytics met behulp van de ingebouwde in Log Analytics-gegevensverzamelaar-activiteit.
+3. Ten slotte, als het JSON-object beschikbaar is, wordt het verzonden naar Azure Monitor. Dezelfde logische App verzendt die gegevens naar Azure Monitor met behulp van de ingebouwde in Log Analytics-gegevensverzamelaar-activiteit.
 
 Terwijl de gedetailleerde instellingen van de blob-opslag, logische App of Azure-functie niet in dit artikel beschreven wordt, vindt gedetailleerde instructies u op de specifieke producten pagina's.
 
-Voor het bewaken van deze pijplijn, gebruiken we Application Insights voor het bewaken van onze Azure-functie [hier details](../../azure-functions/functions-monitoring.md), en de Log Analytics voor het bewaken van de logische App [hier details](../../logic-apps/logic-apps-monitor-your-logic-apps-oms.md). 
+Voor het bewaken van deze pijplijn, gebruiken we Application Insights voor het bewaken van onze Azure-functie [hier details](../../azure-functions/functions-monitoring.md), en Azure Monitor voor het bewaken van de logische App [hier details](../../logic-apps/logic-apps-monitor-your-logic-apps-oms.md). 
 
 ## <a name="setting-up-the-pipeline"></a>Instellen van de pijplijn
 Zorg ervoor dat u hebt uw blob-container gemaakt en geconfigureerd om in te stellen de pijplijn. Evenzo, zorg ervoor dat de Log Analytics-werkruimte waar u wilt verzenden van de gegevens is gemaakt.
@@ -136,10 +138,10 @@ Nu moeten we teruggaan en de logische App die we begonnen met het bouwen van eer
 ![Compleet voorbeeld van Logic Apps-werkstroom](./media/create-pipeline-datacollector-api/logic-apps-workflow-example-02.png)
 
 ## <a name="testing-the-pipeline"></a>De pijplijn testen
-U kunt nu een nieuw bestand uploaden naar de blob die eerder hebt geconfigureerd en deze door uw logische App bewaakt. Snel, moet u ziet een nieuw exemplaar van de logische App beluisteren, naar uw Azure-functie aanroepen en de gegevens is naar Log Analytics te verzenden. 
+U kunt nu een nieuw bestand uploaden naar de blob die eerder hebt geconfigureerd en deze door uw logische App bewaakt. U moet snel, ziet een nieuw exemplaar van de logische App beluisteren, naar uw Azure-functie aanroepen en de gegevens kunnen naar Azure Monitor te verzenden. 
 
 >[!NOTE]
->Het kan duren voordat de gegevens worden weergegeven in Log Analytics de eerste keer dat u een nieuw gegevenstype verzendt tot 30 minuten.
+>Het kan duren voordat de gegevens worden weergegeven in Azure Monitor de eerste keer dat u een nieuw gegevenstype verzendt tot 30 minuten.
 
 
 ## <a name="correlating-with-other-data-in-log-analytics-and-application-insights"></a>Correleren met andere gegevens in Log Analytics en Application Insights
@@ -163,7 +165,7 @@ In dit artikel weergegeven een prototype werken, de logica achter die kan worden
 
 * Foutafhandeling toevoegen en logica in uw logische App en de functie voor opnieuw proberen.
 * Voeg logica om ervoor te zorgen dat de limiet van 30MB/één Log Analytics-gegevensopname API-aanroep niet is overschreden. De gegevens splitsen in kleinere segmenten, indien nodig.
-* Instellen van een beleid voor opschonen van de blob-opslag. Nadat is verzonden naar Log Analytics, tenzij u wilt de onbewerkte gegevens beschikbaar houden voor archiveringsdoeleinden, is er geen reden om door te gaan op te slaan. 
+* Instellen van een beleid voor opschonen van de blob-opslag. Nadat is verzonden naar de Log Analytics-werkruimte, tenzij u wilt de onbewerkte gegevens beschikbaar houden voor archiveringsdoeleinden, is er geen reden om door te gaan op te slaan. 
 * Controleer of de controle is ingeschakeld voor de volledige pijplijn, trace-punten toe te voegen en een waarschuwing indien van toepassing.
 * Maak gebruik van broncodebeheer voor het beheren van de code voor uw functie en de logische App.
 * Zorg ervoor dat een juiste wijziging management-beleid wordt gevolgd, zodat als het schema wordt gewijzigd, de functie en Logic Apps dienovereenkomstig worden aangepast.
@@ -171,4 +173,4 @@ In dit artikel weergegeven een prototype werken, de logica achter die kan worden
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over de [Data Collector API](../../azure-monitor/platform/data-collector-api.md) gegevens schrijven naar Log Analytics vanuit elke client REST-API.
+Meer informatie over de [Data Collector API](data-collector-api.md) gegevens schrijven naar Log Analytics-werkruimte van een REST-API-client.

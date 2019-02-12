@@ -6,24 +6,21 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/06/2019
+ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 637cf4b0e53055e114536e591b334d51d5ddcc92
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d8f57310cf4dbc2a27761fc44cfde6c8fd2791a2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883896"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005536"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Het bijwerken van Azure PowerShell-modules in Azure Automation
 
-Bijwerken van de Azure-modules in uw Automation-Account wordt aangeraden u gebruikt de [bijwerken Azure-modules runbook](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update), dit is nu open-source. Bovendien kunt u het runbook helper [Update AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) of gebruik de **Azure-Modules bijwerken** knop in de portal naar uw Azure-modules bijwerken. Zie voor meer informatie over het gebruik van de open-source-runbook, [Update Azure-Modules met open-source runbook](#open-source).
+Bijwerken van de Azure-modules in uw Automation-Account wordt aangeraden u gebruikt de [bijwerken Azure-modules runbook](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update), dit is nu open-source. Bovendien kunt u de **Azure-Modules bijwerken** knop in de portal naar uw Azure-modules bijwerken. Zie voor meer informatie over het gebruik van de open-source-runbook, [Update Azure-Modules met open-source runbook](#open-source).
 
 De meest voorkomende Azure PowerShell-modules worden geboden door standaard in elk Automation-account. De Azure-modules worden regelmatig bijgewerkt in de Azure-team. In uw Automation-account krijgt u een manier om bij te werken van de modules in het account als nieuwe versies beschikbaar via de portal zijn.
-
-> [!NOTE]
-> De nieuwe [Az van Azure PowerShell-module](/powershell/azure/new-azureps-module-az?view=azurermps-6.13.0) worden niet ondersteund in Azure Automation.
 
 Omdat modules regelmatig door de productgroep bijgewerkt worden, kunnen wijzigingen optreden met de cmdlets opgenomen. Deze actie kan een negatieve invloed hebben op uw runbooks afhankelijk van het type wijziging, zoals de naam van een parameter of volledig beëindigde van een cmdlet.
 
@@ -88,18 +85,6 @@ Hier volgen enkele overwegingen rekening moet houden bij het gebruik van dit pro
 
 Als u van deze modules Azure PowerShell-cmdlets in uw runbooks gebruiken, wilt u dit updateproces iedere maand uitvoeren of dus om ervoor te zorgen dat u de meest recente modules hebt. Azure Automation maakt gebruik van de `AzureRunAsConnection` verbinding te verifiëren bij het bijwerken van de modules. Als de service-principal is verlopen of niet meer op het abonnementsniveau bestaat, mislukt de module-update.
 
-## <a name="alternative-ways-to-update-your-modules"></a>Alternatieve manieren om uw modules bijwerken
-
-Zoals gezegd, de **Update Azure-Modules** knop niet beschikbaar in soevereine clouds, dit is alleen beschikbaar in de globale Azure-cloud. Dit is vanwege het feit dat de nieuwste versie van de Azure PowerShell-modules uit de galerie met PowerShell niet met het Resource Manager-resources in deze clouds die momenteel zijn geïmplementeerd werkt mogelijk.
-
-U kunt nog steeds importeren en uitvoeren de [Update AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook om te proberen bij te werken van de Azure-modules in uw Automation-Account. Maar het wordt aanbevolen dat u de **Update AutomationAzureModulesForAccount** runbook aan uw Azure-modules bijwerken. U kunt dit ook downloaden via de [Update Azure-modules runbook opslagplaats](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update). Zie voor meer informatie over het gebruik van de open-source-runbook, [Update Azure-Modules met open-source runbook](#open-source).
-
-Het is doorgaans een goed idee om alle Azure-modules op hetzelfde moment bijwerken. Maar dit proces kan mislukken als de versies die u probeert te importeren vanuit de galerie zijn niet compatibel is met de Azure-services met de doel-Azure-omgeving die momenteel zijn geïmplementeerd. Mogelijk moet u controleren of dat de compatibele versie van de modules zijn opgegeven in de runbookparameters.
-
-Gebruik de `AzureRmEnvironment` parameter om door te geven van de juiste omgeving aan het runbook.  Acceptabele waarden zijn **AzureCloud**, **AzureChinaCloud**, **AzureGermanCloud**, en **AzureUSGovernment**. Deze waarden kunnen worden opgehaald uit met behulp van `Get-AzureRmEnvironment | select Name`. Als u niet een waarde voor deze parameter doorgeven, het runbook de openbare cloud van Azure wordt standaard **AzureCloud**
-
-Als u een specifieke versie van de Azure PowerShell-module gebruiken in plaats van de meest recente beschikbare op de PowerShell Gallery wilt, deze versies doorgeven aan de optionele `ModuleVersionOverrides` parameter van de **Update AzureModule** runbook. Zie voor voorbeelden van de [Update AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook. Azure PowerShell-modules die niet worden vermeld in de `ModuleVersionOverrides` parameter worden bijgewerkt met de meest recente moduleversies op de PowerShell Gallery. Als u niets om weer te geven de `ModuleVersionOverrides` parameter, alle modules worden bijgewerkt met de meest recente moduleversies op de PowerShell Gallery. Dit gedrag is hetzelfde als de **Update Azure-Modules** knop.
-
 ## <a name="next-steps"></a>Volgende stappen
 
-* Ga naar de [Update Azure-modules runbook](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) voor meer informatie over deze.
+Ga naar de open-source [Update Azure-modules runbook](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) voor meer informatie over deze.

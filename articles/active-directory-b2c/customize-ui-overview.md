@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c81701dff8d7eebf08aa6b16c61e6915a905c729
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 767e64d4d53702ede7b55edc747366ab3d32ae4d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172711"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996096"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Over aanpassingen van de gebruikersinterface in Azure Active Directory B2C
 
@@ -24,17 +24,19 @@ De mogelijkheid om te voorzien en de gebruikersinterface (UI) die Azure Active D
 Afhankelijk van uw behoeften als het gaat om deze ervaringen, aanpassen u de gebruikersinterface van uw toepassing op verschillende manieren. Bijvoorbeeld:
 
 - Als u [gebruikersstromen](active-directory-b2c-reference-policies.md) om u te registreren of aanmelden, wachtwoord opnieuw instellen of bewerken van profielen ervaringen in uw toepassing opgeven, gebruikt u de [Azure portal om aan te passen van de gebruikersinterface](tutorial-customize-ui.md).
+- Als u een gebruikersstroom v2, kunt u een [indelingssjabloon](#page-layout-templates) te wijzigen van het uiterlijk van uw gebruiker stroom's zonder verdere aanpassingen. U kunt bijvoorbeeld een blauwe in de Indische Oceaan of Slate grijs thema toepassen op alle pagina's in uw beleid.
 - Als u alleen aanmelding bieden en verificatie e-mails, u dezelfde stappen aanpassen die worden gebruikt voor het bijbehorende wachtwoord opnieuw instellen van pagina een [Azure AD-aanmeldingspagina](../active-directory/fundamentals/customize-branding.md).
 - Als klanten hun profiel te bewerken voordat ze zich aanmelden, worden ze omgeleid naar een pagina die u met behulp van de stappen die worden gebruikt voor het aanpassen van de Azure AD-aanmeldingspagina aanpassen.
 - Als u [aangepast beleid](active-directory-b2c-overview-custom.md) opnieuw registreren of aanmelden,-wachtwoord op te geven, of profiel bewerken in uw toepassing, u [beleidsbestanden om aan te passen van de gebruikersinterface](active-directory-b2c-ui-customization-custom.md).
 - Als u nodig hebt voor dynamische inhoud op basis van de beslissing van de klant, u [aangepaste beleidsregels die u kunnen wijzigen pagina-inhoud](active-directory-b2c-ui-customization-custom-dynamic.md) , afhankelijk van een parameter die wordt verzonden in een queryreeks. Bijvoorbeeld, wordt de afbeelding op de Azure AD B2C-pagina voor registreren of aanmelden gewijzigd, op basis van een parameter die u vanuit uw web- of mobiele toepassing doorgeven.
+- U kunt JavaScript-code voor client-side inschakelen in uw Azure AD B2C [gebruikersstromen](user-flow-javascript-overview.md) of [aangepast beleid](page-contract.md).
 
 Azure AD B2C wordt uitgevoerd de code in de browser van uw klant en maakt gebruik van een moderne manier met de naam [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/). Inhoud is geladen op het moment van uitvoering, vanuit een URL die u in een beleid of Groepsbeleid opgeeft. U opgeven verschillende URL's voor verschillende pagina's. Na het laden van inhoud van de URL van uw, moeten ze worden samengevoegd met een HTML-fragment ingevoegd vanuit Azure AD B2C en vervolgens naar de klant worden weergegeven.
 
-Voordat u begint, controleert u de volgende richtlijnen:
+Wanneer u uw eigen HTML en CSS-bestanden voor het aanpassen van de gebruikersinterface, lees de volgende richtlijnen voordat u begint:
 
 - Azure AD B2C samengevoegd HTML-inhoud met uw pagina's. Niet kopiëren en probeert te wijzigen van de Standaardinhoud die Azure AD B2C biedt. Het is raadzaam uw HTML-inhoud helemaal bouwen en gebruiken van de Standaardinhoud als verwijzing.
-- Uit veiligheidsoverwegingen mag u geen JavaScript opnemen in uw inhoud.
+- JavaScript kan nu worden opgenomen in uw aangepaste inhoud.
 - Ondersteunde browserversies zijn: 
     - Internet Explorer 11, 10 en Microsoft Edge
     - Beperkte ondersteuning voor Internet Explorer 9 en 8
@@ -42,9 +44,23 @@ Voordat u begint, controleert u de volgende richtlijnen:
     - Mozilla Firefox 38.0 en hoger
 - Zorg ervoor dat u vormlabels niet in uw HTML-code opnemen omdat deze een conflict met de POST-bewerkingen die worden gegenereerd door de geïnjecteerde HTML uit Azure AD B2C veroorzaakt.
 
+## <a name="page-layout-templates"></a>Sjablonen voor lay-out
+
+Voor de gebruikersstromen v2 kunt u een vooraf ontworpen sjabloon die de standaard-pagina's geeft een beter overzicht en fungeert als een goede basis voor uw eigen aanpassing.
+
+In het menu links onder **aanpassen**, selecteer **pagina-indelingen**. Selecteer vervolgens **sjabloon (Preview)**.
+
+![Kies een sjabloon voor pagina-indeling](media/customize-ui-overview/template.png)
+
+Selecteer een sjabloon uit de lijst. Bijvoorbeeld, de **in de Indische Oceaan blauw** sjabloon van toepassing is de volgende indeling aan uw stroom gebruiker's:
+
+![In de Indische Oceaan blauw sjabloon](media/customize-ui-overview/ocean-blue.png)
+
+Wanneer u een sjabloon kiezen, de geselecteerde indeling wordt toegepast op alle pagina's in uw beleid en de URI voor elke pagina wordt weergegeven in de **aangepaste pagina URI** veld.
+
 ## <a name="where-do-i-store-ui-content"></a>Waar kan ik de gebruikersinterface inhoud opslaan?
 
-U kunt uw gebruikersinterface inhoud overal, zoals op hosten [Azure Blob-opslag](../storage/blobs/storage-blobs-introduction.md), webservers, CDN, AWS S3, of delen-bestandssystemen. Het belangrijkste is dat u host de inhoud van een openbaar beschikbare HTTPS-eindpunt met CORS ingeschakeld. Wanneer u deze in uw inhoud opgeeft, moet u een absolute URL gebruiken.
+Wanneer u uw eigen HTML en CSS-bestanden voor het aanpassen van de gebruikersinterface, kunt u uw gebruikersinterface inhoud overal, zoals op host [Azure Blob-opslag](../storage/blobs/storage-blobs-introduction.md), webservers, CDN, AWS S3, of delen-bestandssystemen. Het belangrijkste is dat u host de inhoud van een openbaar beschikbare HTTPS-eindpunt met CORS ingeschakeld. Wanneer u deze in uw inhoud opgeeft, moet u een absolute URL gebruiken.
 
 ## <a name="how-do-i-get-started"></a>Hoe ga ik aan de slag?
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Log Analytics processen automatiseren met Microsoft Flow
+title: Azure Monitor log processen automatiseren met Microsoft Flow
 description: Lees hoe u Microsoft Flow snel herhaalbare om processen te automatiseren met behulp van de Azure Log Analytics-connector kunt gebruiken.
 services: log-analytics
 documentationcenter: ''
@@ -11,19 +11,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.openlocfilehash: 441064d6cbb5b3b2fae77caef3125c8db3467553
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f38d9b40143391be34ce5f72627720e2f5119dc6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187446"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993772"
 ---
-# <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>Log Analytics processen automatiseren met de connector voor Microsoft Flow
-[Microsoft Flow](https://ms.flow.microsoft.com) kunt u geautomatiseerde werkstromen met behulp van honderden acties voor verschillende services maken. Uitvoer van een actie kan worden gebruikt als invoer voor andere zodat u kunt maken van de integratie tussen verschillende services.  De Azure Log Analytics-connector voor Microsoft Flow kunt u werkstromen kunnen opzetten waarmee gegevens opgehaald door bits-zoekopdrachten in Logboeken in Log Analytics bevatten.
+# <a name="automate-azure-monitor-log-processes-with-the-connector-for-microsoft-flow"></a>Azure Monitor log processen automatiseren met de connector voor Microsoft Flow
+[Microsoft Flow](https://ms.flow.microsoft.com) kunt u geautomatiseerde werkstromen met behulp van honderden acties voor verschillende services maken. Uitvoer van een actie kan worden gebruikt als invoer voor andere zodat u kunt maken van de integratie tussen verschillende services.  De Azure Log Analytics-connector voor Microsoft Flow kunt u werkstromen kunnen opzetten waarmee gegevens opgehaald door bits-logboeken-query's vanuit een Log Analytics-werkruimte in Azure Monitor.
 
-Bijvoorbeeld, kunt u Microsoft Flow-Log Analytics-gegevens in een e-mailmelding van Office 365 gebruiken, een bug in Azure DevOps maken of een Slack-bericht.  Door een eenvoudige planning of vanuit een actie in een gekoppelde service, zoals wanneer een e-mailbericht of een tweet wordt ontvangen, kunt u een werkstroom activeren.  
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-De in dit artikel leert u hoe u een stroom maken die de resultaten van een logboekzoekopdracht Log Analytics automatisch via e-mail, slechts één voorbeeld verzonden van hoe u Log Analytics in Microsoft Flow kunt gebruiken. 
+Bijvoorbeeld, kunt u Microsoft Flow LAzure Monitor log-gegevens in een e-mailmelding van Office 365 gebruiken, een bug in Azure DevOps maken of een Slack-bericht.  Door een eenvoudige planning of vanuit een actie in een gekoppelde service, zoals wanneer een e-mailbericht of een tweet wordt ontvangen, kunt u een werkstroom activeren.  
+
+De in dit artikel leert u hoe u een stroom maken die de resultaten van een query voor Azure Monitor automatisch via e-mail, slechts één voorbeeld verzonden van hoe u de Log Analytics-connector in Microsoft Flow kunt gebruiken. 
 
 
 ## <a name="step-1-create-a-flow"></a>Stap 1: Stroom maken
@@ -45,7 +47,7 @@ De in dit artikel leert u hoe u een stroom maken die de resultaten van een logbo
 ## <a name="step-4-configure-the-log-analytics-action"></a>Stap 4: De actie Log Analytics configureren
 
 1. Geef de details voor uw werkruimte, waaronder de abonnement-ID, resourcegroep, en de naam van de werkruimte.
-2. Voeg de volgende Log Analytics-query uit om de **Query** venster.  Dit is slechts een voorbeeld-query en u kunt vervangen door een andere waarmee gegevens worden geretourneerd.
+2. Toevoegen van de volgende log-query uit om de **Query** venster.  Dit is slechts een voorbeeld-query en u kunt vervangen door een andere waarmee gegevens worden geretourneerd.
 ```
     Event
     | where EventLevelName == "Error" 
@@ -77,7 +79,7 @@ De in dit artikel leert u hoe u een stroom maken die de resultaten van een logbo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [zoekopdrachten in Logboeken in Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+- Meer informatie over [query's bijgehouden in Azure Monitor](../log-query/log-query-overview.md).
 - Meer informatie over [Microsoft Flow](https://ms.flow.microsoft.com).
 
 

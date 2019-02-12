@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 4dbfd993a8464c569d30f11e305d4bae000a778f
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 10e60076fe527e6e773e966ccdae52a7fe99c4b2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077705"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997197"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Azure Key Vault instellen met sleutelrotatie en controle
 
 ## <a name="introduction"></a>Inleiding
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Nadat u een key vault hebt, kunt u gaan gebruiken voor het opslaan van sleutels en geheimen. Uw toepassingen niet langer nodig hebt om vast te leggen van de sleutels of geheimen, maar u kunt deze aanvragen op de kluis naar behoefte. Hiermee kunt u sleutels en geheimen bijwerken zonder het gedrag van uw toepassing, u een breed scala aan mogelijkheden om uw sleutel en geheime beheer opent.
 
@@ -45,7 +47,7 @@ Dit artikel helpt bij:
 Om in te schakelen van een toepassing op te halen van een geheim uit Key Vault, moet u eerst het geheim maken en uploaden naar uw kluis. Dit kan worden bereikt door een Azure PowerShell-sessie starten en meldt u zich bij uw Azure-account met de volgende opdracht:
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Voer in het pop-upvenster in de browser uw gebruikersnaam en wachtwoord voor uw Azure-account in. PowerShell haalt alle abonnementen die gekoppeld aan dit account zijn. PowerShell maakt gebruik van de eerste regel standaard.
@@ -53,19 +55,19 @@ Voer in het pop-upvenster in de browser uw gebruikersnaam en wachtwoord voor uw 
 Als u meerdere abonnementen hebt, hebt u mogelijk om op te geven die is gebruikt voor het maken van uw key vault. Voer de volgende als u wilt zien van de abonnementen voor uw account:
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Geef het abonnement dat is gekoppeld aan de sleutelkluis die u logboekregistratie wilt inschakelen op te voeren:
 
 ```powershell
-Set-AzureRmContext -SubscriptionId <subscriptionID>
+Set-AzContext -SubscriptionId <subscriptionID>
 ```
 
 Omdat in dit artikel ziet u het opslaan van een opslagaccountsleutel als een geheim, moet u die sleutel van het opslagaccount ophalen.
 
 ```powershell
-Get-AzureRmStorageAccountKey -ResourceGroupName <resourceGroupName> -Name <storageAccountName>
+Get-AzStorageAccountKey -ResourceGroupName <resourceGroupName> -Name <storageAccountName>
 ```
 
 Bij het ophalen van het geheim (in dit geval uw opslagaccountsleutel), moet u die converteren naar een beveiligde tekenreeks en vervolgens een geheim maken met de waarde in uw key vault.
@@ -73,13 +75,13 @@ Bij het ophalen van het geheim (in dit geval uw opslagaccountsleutel), moet u di
 ```powershell
 $secretvalue = ConvertTo-SecureString <storageAccountKey> -AsPlainText -Force
 
-Set-AzureKeyVaultSecret -VaultName <vaultName> -Name <secretName> -SecretValue $secretvalue
+Set-AzKeyVaultSecret -VaultName <vaultName> -Name <secretName> -SecretValue $secretvalue
 ```
 
 Vervolgens krijgt u de URI voor de geheime sleutel die u hebt gemaakt. Dit wordt gebruikt in een latere stap bij het aanroepen van de key vault om op te halen van het geheim. Voer de volgende PowerShell-opdracht en noteer de ID-waarde de geheime URI is:
 
 ```powershell
-Get-AzureKeyVaultSecret –VaultName <vaultName>
+Get-AzKeyVaultSecret –VaultName <vaultName>
 ```
 
 ## <a name="set-up-the-application"></a>De toepassing instellen
@@ -110,7 +112,7 @@ Genereer een sleutel voor uw toepassing vervolgens, zodat deze met uw Azure Acti
 Voordat er een aanroepen vanuit uw toepassing in de key vault, moet u de key vault Vertel over uw toepassing en de bijbehorende machtigingen. De volgende opdracht wordt de naam van de kluis en de toepassings-ID van uw Azure Active Directory-app en verleent **ophalen** toegang tot uw key vault voor de toepassing.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get
+Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get
 ```
 
 Op dit moment bent u klaar om te beginnen het bouwen van uw toepassing aanroepen. In uw toepassing, moet u de NuGet-pakketten zijn vereist om te communiceren met Azure Key Vault en Azure Active Directory installeren. Voer de volgende opdrachten vanuit de Visual Studio Package Manager-console. Bij het schrijven van dit artikel is de huidige versie van de Azure Active Directory-clientpakket 3.10.305231913, dus mogelijk om te bevestigen van de meest recente versie en dienovereenkomstig bijwerken.
@@ -168,7 +170,7 @@ Er zijn verschillende opties voor het implementeren van een strategie rotatie vo
 
 Als u wilt toestaan dat Azure Automation geheime waarden instellen in uw key vault, moet u de client-ID ophalen voor de verbinding met de naam AzureRunAsConnection, die is gemaakt wanneer u uw Azure Automation-exemplaar tot stand gebracht. U kunt deze ID vinden door te kiezen **activa** van uw Azure Automation-instantie. Van daaruit, kiest u **verbindingen** en selecteer vervolgens de **AzureRunAsConnection** service-principal. Noteer de **toepassings-ID**.
 
-![Azure Automation-client-ID](./media/keyvault-keyrotation/Azure_Automation_ClientID.png)
+![Azure Automation client ID](./media/keyvault-keyrotation/Azure_Automation_ClientID.png)
 
 In **activa**, kiest u **Modules**. Van **Modules**, selecteer **galerie**, en zoek vervolgens en **importeren** bijgewerkte versies van elk van de volgende modules:
 
@@ -188,7 +190,7 @@ In **activa**, kiest u **Modules**. Van **Modules**, selecteer **galerie**, en z
 Nadat u hebt de toepassings-ID opgehaald voor de verbinding van uw Azure Automation, moet u uw key vault vertellen dat deze toepassing toegang heeft tot bijwerken van geheimen in uw kluis aan te geven. Dit kan worden bewerkstelligd met de volgende PowerShell-opdracht:
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <applicationIDfromAzureAutomation> -PermissionsToSecrets Set
+Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <applicationIDfromAzureAutomation> -PermissionsToSecrets Set
 ```
 
 Selecteer vervolgens **Runbooks** onder uw Azure Automation-instantie en selecteer vervolgens **een Runbook toevoegen**. Selecteer **Snelle invoer**. De naam van uw runbook en selecteer **PowerShell** als het runbooktype. U hebt de mogelijkheid om toe te voegen, een beschrijving. Klik tot slot, **maken**.
@@ -205,7 +207,7 @@ try
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
     "Logging in to Azure..."
-    Connect-AzureRmAccount `
+    Connect-AzAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -230,12 +232,12 @@ $VaultName = <keyVaultName>
 $SecretName = <keyVaultSecretName>
 
 #Key name. For example key1 or key2 for the storage account
-New-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
-$SAKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
+New-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
+$SAKeys = Get-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
 
 $secretvalue = ConvertTo-SecureString $SAKeys[1].Value -AsPlainText -Force
 
-$secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
+$secret = Set-AzKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
 ```
 
 Kies in het deelvenster van editor **testvenster** voor het testen van uw script. Zodra het script wordt uitgevoerd zonder fouten, kunt u selecteren **publiceren**, en vervolgens kunt u een schema voor het runbook terug in het deelvenster voor runbook-configuratie toepassen.
@@ -246,9 +248,9 @@ Bij het instellen van een key vault, kunt u de controle voor het verzamelen van 
 Eerst moet u zich aanmelden op uw key vault inschakelen. Dit kan worden gedaan via de volgende PowerShell-opdrachten (volledige gegevens kunnen worden weergegeven op [logboekregistratie van key vault](key-vault-logging.md)):
 
 ```powershell
-$sa = New-AzureRmStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Type Standard\_LRS -Location 'East US'
-$kv = Get-AzureRmKeyVault -VaultName '<vaultName>'
-Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
+$sa = New-AzStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Type Standard\_LRS -Location 'East US'
+$kv = Get-AzKeyVault -VaultName '<vaultName>'
+Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
 ```
 
 Nadat dit is ingeschakeld, wordt de auditlogboeken start verzamelen in het opgegeven opslagaccount. Deze logboeken bevatten gebeurtenissen over hoe en wanneer uw sleutelkluizen toegankelijk zijn, en door wie.

@@ -1,6 +1,6 @@
 ---
 title: Office 365-oplossing in Azure | Microsoft Docs
-description: Dit artikel bevat informatie over configuratie en het gebruik van de Office 365-oplossing in Azure.  Het bevat een gedetailleerde beschrijving van de Office 365-records gemaakt in Log Analytics.
+description: Dit artikel bevat informatie over configuratie en het gebruik van de Office 365-oplossing in Azure.  Het bevat een gedetailleerde beschrijving van de Office 365-records gemaakt in Azure Monitor.
 services: operations-management-suite
 documentationcenter: ''
 author: bwren
@@ -12,24 +12,24 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 370483b92dcd2c468cd676a32db0ded80e8814d0
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 92ba185ce3c271284ae20981408b2b12f516e3c8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216609"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999297"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-oplossing in Azure (Preview)
 
 ![Logo van Office 365](media/solution-office-365/icon.png)
 
-De oplossing voor het beheer van Office 365 kunt u voor het bewaken van uw Office 365-omgeving in Log Analytics.
+De oplossing voor het beheer van Office 365 kunt u voor het bewaken van uw Office 365-omgeving in Azure Monitor.
 
 - Controleren van gebruikersactiviteiten in uw Office 365-accounts te gebruikspatronen analyseren, alsmede gedragsalgoritmen trends te identificeren. U kunt bijvoorbeeld specifieke gebruiksscenario's, zoals bestanden die worden gedeeld buiten uw organisatie of de meest populaire SharePoint-sites ophalen.
 - Activiteiten van beheerder voor het bijhouden van wijzigingen in de configuratie of hoge bevoegdheid bewerkingen bewaken.
 - Detecteren en onderzoeken van ongewenste gebruikersgedrag, die kan worden aangepast aan de behoeften van uw organisatie.
 - Illustratie van controle en naleving. U kunt bijvoorbeeld toegang bestandsbewerkingen op vertrouwelijke bestanden, die u met het proces voor controle en naleving helpen kunnen controleren.
-- Uitvoeren van operationele problemen oplossen met behulp van [zoekopdrachten](../log-query/log-query-overview.md) boven op Office 365-activiteitsgegevens van uw organisatie.
+- Uitvoeren van operationele problemen oplossen met behulp van [query's bijgehouden](../log-query/log-query-overview.md) boven op Office 365-activiteitsgegevens van uw organisatie.
 
 ## <a name="prerequisites"></a>Vereisten
 Het volgende is vereist voordat u deze oplossing wordt geïnstalleerd en geconfigureerd.
@@ -43,7 +43,7 @@ Het volgende is vereist voordat u deze oplossing wordt geïnstalleerd en geconfi
 Deze oplossing wordt niet geïnstalleerd voor alle management packs in [verbonden beheergroepen](../platform/om-agents.md).
   
 ## <a name="install-and-configure"></a>Installeren en configureren
-Begin met het toevoegen van de [Office 365-oplossing voor uw abonnement](solutions.md#install-a-management-solution). Wanneer deze toegevoegd, moet u de configuratiestappen uitvoeren in deze sectie om deze toegang geven tot uw Office 365-abonnement.
+Begin met het toevoegen van de [Office 365-oplossing voor uw abonnement](solutions.md#install-a-monitoring-solution). Wanneer deze toegevoegd, moet u de configuratiestappen uitvoeren in deze sectie om deze toegang geven tot uw Office 365-abonnement.
 
 ### <a name="required-information"></a>Vereiste informatie
 Voordat u deze procedure begint, moet u de volgende informatie verzamelen.
@@ -375,7 +375,7 @@ At line:12 char:18
 ```
 
 ## <a name="uninstall"></a>Verwijderen
-U kunt de oplossing voor het beheer van Office 365 met behulp van het proces in verwijderen [verwijderen van een oplossing voor](solutions.md#remove-a-management-solution). Hiermee worden gegevens die worden verzameld van Office 365 in Log Analytics echter niet gestopt. Volg de onderstaande procedure om te afmelden voor Office 365 en stop het verzamelen van gegevens.
+U kunt de oplossing voor het beheer van Office 365 met behulp van het proces in verwijderen [verwijderen van een oplossing voor](solutions.md#remove-a-monitoring-solution). Hiermee worden gegevens die worden verzameld van Office 365 in Azure Monitor echter niet gestopt. Volg de onderstaande procedure om te afmelden voor Office 365 en stop het verzamelen van gegevens.
 
 1. Sla het volgende script als *office365_unsubscribe.ps1*.
 
@@ -479,9 +479,12 @@ U kunt de oplossing voor het beheer van Office 365 met behulp van het proces in 
 De Office 365-oplossing niet ophalen van gegevens uit een van de [Log Analytics-agents](../platform/agent-data-sources.md).  Deze ophaalt gegevens rechtstreeks vanuit de Office 365.
 
 ### <a name="collection-frequency"></a>Verzamelingsfrequentie
-Het duurt een paar uur gegevens zijn in eerste instantie worden verzameld. Zodra deze wordt gestart met het verzamelen van Office 365 verzendt een [webhook melding](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) met gedetailleerde gegevens naar Log Analytics telkens wanneer een record wordt gemaakt. Deze record is beschikbaar in Log Analytics binnen een paar minuten nadat u hebt ontvangen.
+Het duurt een paar uur gegevens zijn in eerste instantie worden verzameld. Zodra deze wordt gestart met het verzamelen van Office 365 verzendt een [webhook melding](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) met gedetailleerde gegevens naar Azure Monitor telkens wanneer een record wordt gemaakt. Deze record is beschikbaar in Azure Monitor binnen een paar minuten nadat u hebt ontvangen.
 
 ## <a name="using-the-solution"></a>De oplossing gebruiken
+
+[!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
+
 Wanneer u de Office 365-oplossing aan uw Log Analytics-werkruimte toevoegt, de **Office 365** tegel wordt toegevoegd aan uw dashboard. Deze tegel toont het aantal computers in uw omgeving, evenals een grafische voorstelling hiervan, en de bijbehorende updatenaleving.<br><br>
 ![Office 365-Overzichtstegel](media/solution-office-365/tile.png)  
 
@@ -491,7 +494,7 @@ Klik op de **Office 365** tegel om te openen de **Office 365** dashboard.
 
 Het dashboard bevat de kolommen in de volgende tabel. Elke kolom bevat de bovenste tien waarschuwingen per aantal die overeenkomen met criteria voor het opgegeven bereik en het tijdsbereik van die kolom. U kunt een logboekzoekopdracht waarmee de volledige lijst door te klikken op Zie alle aan de onderkant van de kolom of door te klikken op de kolomkop uitvoeren.
 
-| Kolom | Beschrijving |
+| Kolom | Description |
 |:--|:--|
 | Bewerkingen | Bevat informatie over de actieve gebruikers in uw alle bewaakte Office 365-abonnementen. Ook mogelijk om het aantal activiteiten die na verloop van tijd plaatsvinden te zien.
 | Exchange | U kunt de uitsplitsing van Exchange Server-activiteiten, zoals toevoegen-machtiging of Set-postvak. |
@@ -501,9 +504,9 @@ Het dashboard bevat de kolommen in de volgende tabel. Elke kolom bevat de bovens
 
 
 
-## <a name="log-analytics-records"></a>Log Analytics-records
+## <a name="azure-monitor-log-records"></a>Azure Monitor log-records
 
-Alle records gemaakt in de Log Analytics-werkruimte door de Office 365-oplossing hebben een **Type** van **OfficeActivity**.  De **OfficeWorkload** eigenschap bepaalt welke Office 365-service die de record naar - Exchange, AzureActiveDirectory, SharePoint of OneDrive verwijst.  De **RecordType** eigenschap geeft u het type bewerking.  De eigenschappen voor elk bewerkingstype variëren en worden weergegeven in de onderstaande tabellen.
+Alle records in de Log Analytics-werkruimte in Azure Monitor is gemaakt door de Office 365-oplossing hebben een **Type** van **OfficeActivity**.  De **OfficeWorkload** eigenschap bepaalt welke Office 365-service die de record naar - Exchange, AzureActiveDirectory, SharePoint of OneDrive verwijst.  De **RecordType** eigenschap geeft u het type bewerking.  De eigenschappen voor elk bewerkingstype variëren en worden weergegeven in de onderstaande tabellen.
 
 ### <a name="common-properties"></a>Algemene eigenschappen
 De volgende eigenschappen gelden voor alle Office 365-records.
@@ -525,7 +528,7 @@ De volgende eigenschappen gelden voor alle Office 365-records.
 ### <a name="azure-active-directory-base"></a>Azure Active Directory-basis
 De volgende eigenschappen gelden voor alle Azure Active Directory-records.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -536,7 +539,7 @@ De volgende eigenschappen gelden voor alle Azure Active Directory-records.
 ### <a name="azure-active-directory-account-logon"></a>Aanmelding bij Azure Active Directory-Account
 Deze records worden gemaakt wanneer een Active Directory-gebruiker zich probeert aan te melden.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectoryAccountLogon |
@@ -549,7 +552,7 @@ Deze records worden gemaakt wanneer een Active Directory-gebruiker zich probeert
 ### <a name="azure-active-directory"></a>Azure Active Directory
 Deze records worden gemaakt wanneer wijzigen of toevoegingen worden aangebracht in Azure Active Directory-objecten.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -566,7 +569,7 @@ Deze records worden gemaakt wanneer wijzigen of toevoegingen worden aangebracht 
 ### <a name="data-center-security"></a>Datacenter-beveiliging
 Deze records worden gemaakt vanuit Data Center Security audit-gegevens.  
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | EffectiveOrganization | De naam van de tenant die de uitbreiding van bevoegdheden/cmdlet is gericht op. |
 | ElevationApprovedTime | De tijdstempel voor wanneer de uitbreiding is goedgekeurd. |
@@ -581,7 +584,7 @@ Deze records worden gemaakt vanuit Data Center Security audit-gegevens.
 ### <a name="exchange-admin"></a>Exchange-beheerder
 Deze records worden gemaakt wanneer er wijzigingen zijn aangebracht aan de configuratie van Exchange.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeAdmin |
@@ -595,7 +598,7 @@ Deze records worden gemaakt wanneer er wijzigingen zijn aangebracht aan de confi
 ### <a name="exchange-mailbox"></a>Exchange-postvak
 Deze records worden gemaakt wanneer er wijzigingen in of toevoegingen zijn gedaan bij de Exchange-postvakken.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
@@ -617,7 +620,7 @@ Deze records worden gemaakt wanneer er wijzigingen in of toevoegingen zijn gedaa
 ### <a name="exchange-mailbox-audit"></a>Controle van Exchange-postvak
 Deze records worden gemaakt wanneer een controlevermelding postvak wordt gemaakt.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
@@ -631,7 +634,7 @@ Deze records worden gemaakt wanneer een controlevermelding postvak wordt gemaakt
 ### <a name="exchange-mailbox-audit-group"></a>Exchange-postvak Audit-groep
 Deze records worden gemaakt wanneer er wijzigingen in of toevoegingen zijn gedaan bij de Exchange-groepen.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | OfficeWorkload | ExchangeItemGroup |
@@ -649,7 +652,7 @@ Deze records worden gemaakt wanneer er wijzigingen in of toevoegingen zijn gedaa
 ### <a name="sharepoint-base"></a>SharePoint Base
 Deze eigenschappen gelden voor alle records van SharePoint.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -665,7 +668,7 @@ Deze eigenschappen gelden voor alle records van SharePoint.
 ### <a name="sharepoint-schema"></a>SharePoint Schema
 Deze records worden gemaakt wanneer configuratiewijzigingen worden aangebracht in SharePoint.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -677,7 +680,7 @@ Deze records worden gemaakt wanneer configuratiewijzigingen worden aangebracht i
 ### <a name="sharepoint-file-operations"></a>SharePoint-bestandsbewerkingen
 Deze records worden gemaakt in reactie op bestandsbewerkingen in SharePoint.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePointFileOperation |
@@ -697,7 +700,7 @@ Deze records worden gemaakt in reactie op bestandsbewerkingen in SharePoint.
 ## <a name="sample-log-searches"></a>Voorbeeldzoekopdrachten in logboeken
 De volgende tabel biedt voorbeeldzoekopdrachten in logboeken voor updaterecords die worden verzameld door deze oplossing.
 
-| Query’s uitvoeren | Beschrijving |
+| Query’s uitvoeren | Description |
 | --- | --- |
 |Telling van alle bewerkingen op uw Office 365-abonnement |OfficeActivity &#124; count() by bewerking samenvatten |
 |Gebruik van SharePoint-sites|OfficeActivity &#124; waar OfficeWorkload = ~ 'sharepoint' &#124; count() by SiteUrl samenvatten | sorteren op aantal asc|
@@ -708,6 +711,6 @@ De volgende tabel biedt voorbeeldzoekopdrachten in logboeken voor updaterecords 
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Gebruik Logboekzoekopdrachten in [Log Analytics](../log-query/log-query-overview.md) om gedetailleerde updategegevens weer te geven.
+* Gebruik [query's bijgehouden in Azure Monitor](../log-query/log-query-overview.md) om gedetailleerde updategegevens weer te geven.
 * [Maak uw eigen dashboards](../learn/tutorial-logs-dashboards.md) om uw favoriete Office 365 zoekquery's weer te geven.
 * [Waarschuwingen maken](../platform/alerts-overview.md) om te worden proactief geïnformeerd over belangrijke Office 365-activiteiten.  

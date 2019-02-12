@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 1477242e10918a9836ceea15d418fb462e193b1b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f367d6e1b1c545bcad0faf030a56fdec2ffafca2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811737"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989062"
 ---
-# <a name="implement-failover-streaming-with-azure-media-services"></a>Failover streamen met Azure Media Services implementeren
+# <a name="implement-failover-streaming-with-media-services-legacy"></a>Failover streamen met Media Services (verouderd) implementeren
 
 In dit scenario ziet u hoe u inhoud (blobs) kopiëren van een asset naar een andere om redundantie voor on-demand streaming verwerkt. Dit scenario is handig als u wilt voor het instellen van Azure Content Delivery Network failover tussen twee datacentra, in het geval van een storing in één datacenter. In dit scenario maakt gebruik van de Azure Media Services SDK, de REST-API van Azure Media Services en de Azure Storage SDK ter illustratie van de volgende taken:
 

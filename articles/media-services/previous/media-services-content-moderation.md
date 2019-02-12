@@ -1,6 +1,6 @@
 ---
-title: Azure Media-inhoud beheerder gebruiken voor het detecteren van mogelijke inhoud voor volwassenen en mooie | Microsoft Docs
-description: Video controle helpt bij het detecteren van mogelijke inhoud voor volwassenen en mooie in video's.
+title: Azure Media Content Moderator gebruiken voor het detecteren van mogelijk erotische en ongepaste inhoud | Microsoft Docs
+description: Videotoezicht helpt bij het detecteren van mogelijke erotische en ongepaste inhoud in video's.
 services: media-services
 documentationcenter: ''
 author: sanjeev3
@@ -12,83 +12,83 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 02/08/2019
 ms.author: sajagtap
-ms.openlocfilehash: e44308f38a138c0e186e41fc8310f8b480cd4e09
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: aba7d2ff73fc1fdca6f57742582b38662177012d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788667"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995115"
 ---
-# <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Azure Media-inhoud beheerder gebruiken voor het detecteren van mogelijke inhoud voor volwassenen en mooie
+# <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Azure Media Content Moderator gebruiken voor het detecteren van mogelijk erotische en ongepaste inhoud 
 
 ## <a name="overview"></a>Overzicht
-De **Azure Media-inhoud beheerder** Mediaprocessor (MP) kunt u gebruikmaken van toezicht machine ondersteund voor uw video's. U wilt bijvoorbeeld mogelijk inhoud voor volwassenen en mooie detecteren in video's en controleer de gemarkeerde inhoud van uw menselijke toezicht.
+De **Azure Media Content Moderator** Mediaprocessor (MP) kunt u geautomatiseerd beheer gebruiken voor uw video's. U wilt bijvoorbeeld detecteren van mogelijk erotische en ongepaste inhoud in video's en bekijk de gemarkeerde inhoud door uw teams menselijk toezicht.
 
-De **Azure Media-inhoud beheerder** MP is momenteel in Preview.
+De **Azure Media Content Moderator** MP is momenteel in Preview.
 
-In dit artikel geeft informatie over **Azure Media-inhoud beheerder** en laat zien hoe u deze gebruiken met Media Services SDK voor .NET.
+Dit artikel geeft meer informatie over **Azure Media Content Moderator** en laat zien hoe u met Media Services SDK voor .NET gebruiken.
 
-## <a name="content-moderator-input-files"></a>Inhoud van de invoerbestanden beheerder
-Videobestanden. Op dit moment wordt de volgende indelingen worden ondersteund: MP4 MOV en WMV.
+## <a name="content-moderator-input-files"></a>Content Moderator-invoerbestanden
+Videobestanden. Op dit moment worden de volgende indelingen ondersteund: MP4, MOV en WMV.
 
-## <a name="content-moderator-output-files"></a>Beheerder uitvoer inhoudsbestanden
-De uitvoer van de gecontroleerde in de JSON-indeling bevat schermafbeeldingen automatisch gedetecteerd en keyframes. De keyframes worden met vertrouwen scores voor mogelijke inhoud voor volwassenen of mooie geretourneerd. Ze bevatten ook een Booleaanse vlag die aangeeft of een beoordeling wordt aanbevolen. De aanbeveling revisie vlag is toegewezen op basis van de interne drempelwaarden voor volwassenen en mooie scores waarden.
+## <a name="content-moderator-output-files"></a>Content Moderator-uitvoerbestanden
+De uitvoer van de gecontroleerde in de JSON-indeling bevat opnamen automatisch gedetecteerd en hoofdframes. De hoofdframes worden geretourneerd met vertrouwen scores voor mogelijke volwassenen of ongepaste inhoud. Ze bevatten ook een Booleaanse vlag die aangeeft of een beoordeling wordt aanbevolen. De vlag van de aanbeveling controleren is waarden op basis van de interne drempelwaarden voor erotische en ongepaste scores toegewezen.
 
-## <a name="elements-of-the-output-json-file"></a>Elementen van de JSON-bestand voor uitvoer
+## <a name="elements-of-the-output-json-file"></a>Elementen van het JSON-bestand voor uitvoer
 
-De taak wordt een JSON-uitvoer-bestand met metagegevens over gedetecteerde schermafbeeldingen en keyframes en dat ze de inhoud voor volwassenen of mooie bevatten.
+De taak levert een JSON-uitvoer-bestand met metagegevens over gedetecteerde foto's en hoofdframes en dat ze volwassenen of ongepaste inhoud bevatten.
 
 De JSON-uitvoer bevat de volgende elementen:
 
 ### <a name="root-json-elements"></a>Hoofdmap JSON-elementen
 
-| Element | Beschrijving |
+| Element | Description |
 | --- | --- |
-| versie |De versie van de beheerder van inhoud. |
-| Tijdschaal |'Maatstreepjes' per seconde van de video. |
-| offset |De time-offset voor tijdstempels. Versie 1.0 van Video-API's, wordt deze waarde altijd 0 zijn. Deze waarde in de toekomst mogelijk gewijzigd. |
-| framesnelheid |Frames per seconde van de video. |
+| versie |De versie van de Content Moderator. |
+| tijdschaal |'Tikken"per seconde van de video. |
+| offset |De tijd-offset voor tijdstempels. Versie 1.0 van Video-API's, wordt deze waarde altijd 0 zijn. Deze waarde kan in de toekomst worden gewijzigd. |
+| framerate |Aantal frames per seconde video. |
 | Breedte |De breedte van de video frame van uitvoer in pixels.|
 | Hoogte |De hoogte van de video frame van uitvoer in pixels.|
-| TotalDuration |De duur van de invoer-video in "tikken." |
-| [fragmenten](#fragments-json-elements) |De metagegevens wordt gesegmenteerde in verschillende segmenten fragmenten aangeroepen. Elke fragment is een automatische detectie gemaakt met een begindatum, duur, Intervalnummer en gebeurtenis(sen). |
+| totalDuration |De duur van de invoervideo, in "tikken." |
+| [fragments](#fragments-json-elements) |De metagegevens wordt gesegmenteerde overdrachtscodering omhoog in verschillende segmenten fragmenten genoemd. Elk fragment wordt een foto automatisch is gedetecteerd met een begindatum, duur, Intervalnummer en gebeurtenis(sen). |
 
 ### <a name="fragments-json-elements"></a>Fragmenten JSON-elementen
 
-|Element|Beschrijving|
+|Element|Description|
 |---|---|
 | start |De begintijd van de eerste gebeurtenis in "tikken." |
-| Duur |De lengte van het fragment, in "tikken." |
-| interval |Het interval van elke gebeurtenisvermelding in het fragment, in "tikken." |
-| [Gebeurtenissen](#events-json-elements) |Elke gebeurtenis geeft een illustratie en elke clip keyframes gedetecteerd en bijgehouden in die tijd bevat. Er is een matrix van gebeurtenissen. De buitenste matrix vertegenwoordigt een tijdsinterval. De interne matrix bestaat uit 0 of meer gebeurtenissen die hebben plaatsgevonden op dat moment.|
+| duur |De lengte van het fragment, in "tikken." |
+| interval |Het interval van elke vermelding in het fragment, in "tikken." |
+| [gebeurtenissen](#events-json-elements) |Elke gebeurtenis stelt een clip en elke clip hoofdframes gedetecteerd en bijgehouden binnen deze tijdsduur bevat. Er is een matrix van gebeurtenissen. De buitenste matrix vertegenwoordigt een tijdsinterval. De binnenste matrix bestaat uit 0 of meer gebeurtenissen die hebben plaatsgevonden gedurende de interval.|
 
-### <a name="events-json-elements"></a>JSON-elementen met gebeurtenissen
+### <a name="events-json-elements"></a>Gebeurtenissen JSON-elementen
 
-|Element|Beschrijving|
+|Element|Description|
 |---|---|
-| reviewRecommended | `true` of `false` , afhankelijk van of de **adultScore** of **racyScore** interne drempelwaarden overschrijden. |
-| adultScore | Score vertrouwen voor mogelijke inhoud voor volwassenen, op een schaal van 0,00 en 0,99. |
-| racyScore | Score vertrouwen voor mogelijke mooie inhoud, klikt u op een schaal van 0,00 en 0,99. |
-| index | index van het frame op een schaal van het eerste frame index op de laatste frame-index. |
-| tijdstempel | De locatie van het frame in "tikken." |
+| reviewRecommended | `true` of `false` afhankelijk van of de **adultScore** of **racyScore** de interne drempelwaarden overschrijden. |
+| adultScore | De betrouwbaarheidsscore van mogelijk pornografisch materiaal op een schaal van 0,00 en 0,99. |
+| racyScore | Betrouwbaarheidsscore voor mogelijke ongepaste inhoud, klikt u op een schaal van 0,00 en 0,99. |
+| index | index van het kader op een schaal van de eerste frame index met de laatste frame-index. |
+| tijdstempel | De locatie van het kader in "tikken." |
 | shotIndex | De index van het bovenliggende object opgenomen. |
 
 
-## <a name="content-moderation-quickstart-and-sample-output"></a>De uitvoer van de Quick Start- en voorbeeld van de controle van inhoud
+## <a name="content-moderation-quickstart-and-sample-output"></a>De uitvoer van de Quick Start en voorbeeld van de toezicht op inhoud
 
-### <a name="task-configuration-preset"></a>Taken configureren (standaardoptie)
-Bij het maken van een taak met **Azure Media-inhoud beheerder**, moet u een configuratie-definitie opgeven. De volgende configuratie-definitie is slechts voor inhoud toezicht.
+### <a name="task-configuration-preset"></a>Taakconfiguratie (standaardoptie)
+Bij het maken van een taak met **Azure Media Content Moderator**, moet u een configuratie-definitie opgeven. De volgende configuratie-voorinstelling is alleen voor inhoudstoezicht.
 
     {
       "version":"2.0"
     }
 
-### <a name="net-code-sample"></a>.NET-codevoorbeeld
+### <a name="net-code-sample"></a>.NET-codevoorbeeld dat
 
-Het volgende codevoorbeeld voor .NET gebruikt Media Services .NET SDK voor het uitvoeren van een taak inhoud beheerder. Het duurt een media services Asset als invoer met de video om te worden gecontroleerd.
-Zie de [video Quick Start inhoud beheerder](../../cognitive-services/Content-Moderator/video-moderation-api.md) voor de volledige broncode en het Visual Studio-project.
+De volgende .NET-voorbeeldcode maakt gebruik van de Media Services .NET SDK een Content Moderator-taak uit te voeren. Het duurt een media services actief als de invoer met de video om te worden gecontroleerd.
+Zie de [Content Moderator video snelstartgids](../../cognitive-services/Content-Moderator/video-moderation-api.md) voor de volledige broncode en het Visual Studio-project.
 
 
 ```csharp
@@ -230,10 +230,10 @@ The following example of a Content Moderator JSON output was truncated.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over inhoud beheerder [video-interrupts en bekijk oplossing](../../cognitive-services/Content-Moderator/video-moderation-human-review.md).
+Meer informatie over de Content Moderator [video oplossing voor beheer en controle](../../cognitive-services/Content-Moderator/video-moderation-human-review.md).
 
-De volledige broncode en Visual Studio-project uit de [video toezicht Quick Start](../../cognitive-services/Content-Moderator/video-moderation-api.md). 
+Lees de volledige broncode en het Visual Studio-project van de [videotoezicht snelstartgids](../../cognitive-services/Content-Moderator/video-moderation-api.md). 
 
-Meer informatie over het genereren van [video bekijkt](../../cognitive-services/Content-Moderator/video-reviews-quickstart-dotnet.md) van uw uitvoer met toezicht en [transcripties gemiddeld](../../cognitive-services/Content-Moderator/video-transcript-reviews-quickstart-dotnet.md) in .NET.
+Meer informatie over het genereren van [video bekijkt](../../cognitive-services/Content-Moderator/video-reviews-quickstart-dotnet.md) van de gecontroleerde uitvoer en [modereren Transcripten](../../cognitive-services/Content-Moderator/video-transcript-reviews-quickstart-dotnet.md) in .NET.
 
-Bekijk de gedetailleerde .NET [video toezicht en bekijk zelfstudie](../../cognitive-services/Content-Moderator/video-transcript-moderation-review-tutorial-dotnet.md). 
+Bekijk de gedetailleerde .NET [video met zelfstudie beheer en controle](../../cognitive-services/Content-Moderator/video-transcript-moderation-review-tutorial-dotnet.md). 

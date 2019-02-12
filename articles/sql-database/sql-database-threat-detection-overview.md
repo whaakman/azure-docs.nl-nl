@@ -11,13 +11,13 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 395bf57b967ebeefe0a4168b53a4341c304e3d4f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/08/2019
+ms.openlocfilehash: 5f20fc6ac19e2c9d304f4ab429e485fedaa29f64
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729503"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001882"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Azure SQL-Database voor de detectie van bedreigingen
 
@@ -77,7 +77,7 @@ Klik op **Threat detection waarschuwing** naar de Azure Security Center start wa
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [bedreigingen in de zelfstandige en gepoolde databases](sql-database-threat-detection.md).
+- Meer informatie over [bedreigingen in één en gepoolde databases](sql-database-threat-detection.md).
 - Meer informatie over [detectie van bedreigingen in beheerd exemplaar](sql-database-managed-instance-threat-detection.md).
 - Meer informatie over [geavanceerde beveiliging van gegevens](sql-database-advanced-data-security.md).
 - Meer informatie over [Azure SQL Database auditing](sql-database-auditing.md)

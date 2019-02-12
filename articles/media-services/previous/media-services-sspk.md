@@ -4,7 +4,7 @@ description: Meer informatie over hoe u aan de Microsoft® Smooth Streaming Clie
 services: media-services
 documentationcenter: ''
 author: xpouyat
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: e3b488e7-8428-4c10-a072-eb3af46c82ad
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 02/08/2019
 ms.author: xpouyat
-ms.openlocfilehash: 71cb4ff7c5948067dfb039caf69241cfa9e22408
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1954ccf07badbd4632c653bb1af4d6e96153e1fb
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243893"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000070"
 ---
-# <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licentieverlening Microsoft® Smooth Streaming Client Porting Kit
+# <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licentieverlening Microsoft® Smooth Streaming Client Porting Kit 
 ## <a name="overview"></a>Overzicht
 Microsoft Smooth Streaming Client Porting Kit (**SSPK** kortweg) is een op Smooth Streaming client-implementatie die is geoptimaliseerd om te helpen fabrikanten van ingesloten apparaten, kabel en mobiele operators, inhoud serviceproviders, telefoon fabrikanten, onafhankelijke softwareleveranciers (ISV's) en leveranciers van oplossingen te maken van producten en services voor adaptieve streaminginhoud in Smooth Streaming-indeling. SSPK is een apparaat en platform-onafhankelijke implementatie van Smooth Streaming client die kan worden geïmplementeerd door de licentienemer op alle apparaten en platforms. 
 
@@ -29,7 +29,7 @@ Hieronder is een architectuur op hoog niveau en IIS Smooth Streaming Porting Kit
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
-## <a name="description"></a>Beschrijving
+## <a name="description"></a>Description
 SSPK wordt gelicentieerd op termen die uitstekende bedrijfswaarde bieden. SSPK licentie biedt de bedrijfstak met:
 
 * Smooth Streaming Porting Kit-bron in C++ 
@@ -80,11 +80,11 @@ Ondertussen en uiteindelijke SSPK licentiehouders technische vragen om te kunnen
 ## <a name="microsoft-smooth-streaming-client-interim-product-agreement-licensees"></a>Microsoft Smooth Streaming Client tussentijdse Product overeenkomst licentiehouders
 * Adroit Business Solutions, Inc.
 * Geavanceerde digitale uitzending SA
-* AirTies Kablosuz Iletism Sanayive Dis Ticaret W.S.
+* AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
 * Albis Technologies Ltd.
 * Alticast Corporation
-* Amazon digitale Services, Inc.
-* Arion technologie, Inc.
+* Amazon Digital Services, Inc.
+* Arion Technology, Inc.
 * AVC Multimedia Software Co., Ltd.
 * Cavium, Inc.
 * EchoStar aanschaffen Corporation
@@ -92,37 +92,37 @@ Ondertussen en uiteindelijke SSPK licentiehouders technische vragen om te kunnen
 * Fluendo S.A.
 * HANDAN BroadInfoCom Co., Ltd.
 * Infomir GMBH
-* Irdeto VS Inc.
+* Irdeto USA Inc.
 * iWEDIA S.A. 
-* Liberty globale Services BV
+* Liberty Global Services BV
 * MediaTek Inc.
 * MStar Co, Ltd
-* NINTENDO Co., Ltd.
+* Nintendo Co., Ltd.
 * OpenTV, Inc.
-* Saffraan digitale beperkt
-* Sichuan Changhong Electric Co., Ltd.
+* Saffron Digital Limited
+* Sichuan Changhong Electric Co., Ltd
 * SoftAtHome
 * Sony Corporation
 * Tatung Technology Inc.
-* TCL technologie (Huizhou) Electronics Co., Ltd.
+* TCL Technology Electronics (Huizhou) Co., Ltd.
 * Top overwinning investeringen, Ltd.
-* Vestel Elektronik Sanayi ve Ticaret W.S.
+* Vestel Elektronik Sanayi ve Ticaret A.S.
 * VisualOn, Inc.
 * ZTE Corporation
 
 ## <a name="microsoft-smooth-streaming-client-final-product-agreement-licensees"></a>Microsoft Smooth Streaming Client eindproduct overeenkomst licentiehouders
 * Geavanceerde digitale uitzending SA
-* AirTies Kablosuz Iletism Sanayive Dis Ticaret W.S.
+* AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
 * Albis Technologies Ltd.
-* Amazon digitale Services, Inc.
-* AmTRAN technologie Co., Ltd.
+* Amazon Digital Services, Inc.
+* AmTRAN Technology Co., Ltd.
 * Arcadyan Technology Corporation
-* Arion technologie, Inc.
+* Arion Technology, Inc.
 * ATMACA ELEKTRONİK SAN. VE TİC. A.Ş
 * Brits Sky Broadcasting beperkt
-* CastPal technologie Inc., Shenzhen
+* CastPal Technology Inc., Shenzhen
 * Compal Electronics, Inc.
-* Dongguan digitale AV-technologie Corp., Ltd.
+* Dongguan Digital AV Technology Corp., Ltd.
 * EchoStar aanschaffen Corporation
 * Enseo, Inc.
 * Filmflex films beperkt
@@ -131,18 +131,18 @@ Ondertussen en uiteindelijke SSPK licentiehouders technische vragen om te kunnen
 * Haier informatie Applicantion S.R.L
 * HANDAN BroadInfoCom Co., Ltd.
 * Hisense International Co., Ltd. 
-* Homecast Co., Ltd.
-* Hon Hai precisie branche Co., Ltd.
+* Homecast Co., Ltd
+* Hon Hai Precision Industry Co., Ltd.
 * Infomir GMBH
 * Kaonmedia Co., Ltd.
 * KDDI Corporation
-* NINTENDO Co., Ltd.
+* Nintendo Co., Ltd.
 * Oranje SA
-* Saffraan digitale beperkt
-* Sagemcom breedband SAS
-* Shenzhen Coship Electronics CO., Ltd.
-* Shenzhen Jiuzhou Electric Co., Ltd.
-* Shenzhen Skyworth digitale technologie Co., Ltd.
+* Saffron Digital Limited
+* Sagemcom Broadband SAS
+* Shenzhen Coship Electronics CO., LTD
+* Shenzhen Jiuzhou Electric Co., Ltd
+* Shenzhen Skyworth Digital Technology Co., Ltd
 * Sichuan Changhong Electric Co., Ltd.
 * Skardin industriële Corp.
 * Sky Deutschland Fernsehen GmbH & Co. KG
@@ -151,7 +151,7 @@ Ondertussen en uiteindelijke SSPK licentiehouders technische vragen om te kunnen
 * Sony Corporation
 * Beperkte TCL buitenland Marketing (Offshore Macau SAR commerciële)
 * SAS-technologieën levering Technicolor
-* Tongfang globale Ltd.
+* Tongfang Global Ltd.
 * Top overwinning investeringen, Ltd.
 * Toshiba levensstijl-producten en Services Corporation
 * Universele Media Corporation /Slovakia/ s.r.o.

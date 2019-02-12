@@ -12,17 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 89e28a9b70d078c3fe385225af305252ececefce
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3ac07b06e1cf7b5b24956c10e202f9baeab60b2b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249919"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992243"
 ---
-# <a name="content-protection-overview"></a>Overzicht van de beveiliging van inhoud
- U kunt Azure Media Services gebruiken voor het beveiligen van uw media vanaf het moment dat het verlaten van uw computer via opslag, verwerking en levering. Met Media Services, kunt u uw live en on-demand inhoud dynamisch wordt versleuteld met Advanced Encryption Standard (AES-128) of een van de drie belangrijkste digital rights management (DRM)-systemen leveren: Microsoft PlayReady en Google Widevine Apple FairPlay. Media Services biedt ook een service voor het leveren van AES-sleutels en DRM (PlayReady, Widevine en FairPlay) licenties voor geautoriseerde clients. 
+# <a name="content-protection-overview"></a>Overzicht van de beveiliging van inhoud 
+
+ U kunt Azure Media Services gebruiken voor het beveiligen van uw media vanaf het moment dat het verlaten van uw computer via opslag, verwerking en levering. Met Media Services, kunt u uw live en on-demand inhoud dynamisch wordt versleuteld met Advanced Encryption Standard (AES-128) of een van de drie belangrijkste digital rights management (DRM)-systemen leveren: Microsoft PlayReady, Google Widevine en FairPlay van Apple. Media Services biedt ook een service voor het leveren van AES-sleutels en DRM (PlayReady, Widevine en FairPlay) licenties voor geautoriseerde clients. 
 
 De volgende afbeelding ziet u de Media Services content protection-werkstroom: 
 
@@ -80,9 +81,9 @@ De volgende overwegingen zijn van toepassing:
 * Versleutelingstype hoeft te worden opgegeven in de URL als er slechts één versleuteling is toegepast op de asset.
 * Coderingstype is niet hoofdlettergevoelig.
 * De volgende versleutelingstypen kunnen worden opgegeven:
-  * **cenc**: voor PlayReady of Widevine (common encryption)
-  * **cbcs aapl**: voor FairPlay (AES-CBC-codering)
-  * **CBC**: voor AES-codering van envelop
+  * **cenc**: Voor PlayReady of Widevine (common encryption)
+  * **cbcs-aapl**: Voor FairPlay (AES-CBC-codering)
+  * **cbc**: Voor AES-codering van envelop
 
 ## <a name="next-steps"></a>Volgende stappen
 De volgende artikelen beschrijven de volgende stappen om u aan de slag met beveiliging van inhoud te helpen:

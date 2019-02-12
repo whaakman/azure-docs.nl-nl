@@ -1,6 +1,6 @@
 ---
-title: Parseren van tekstgegevens in Azure Log Analytics | Microsoft Docs
-description: Beschrijving van verschillende opties voor het parseren van gegevens in Log Analytics-records wanneer de gegevens worden opgenomen en wanneer deze opgehaald in een query, vergelijkt de relatieve voordelen voor elke.
+title: Parseren van tekstgegevens in Logboeken van Azure Monitor | Microsoft Docs
+description: Beschrijving van verschillende opties voor het parseren van logboekgegevens in Azure Monitor-records wanneer de gegevens worden opgenomen en wanneer deze in een vergelijking van de relatieve voordelen voor elke query wordt opgehaald.
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 0d589156824c7b9f3f6a8c31591d69479d11780a
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: b6a2ca70faa36b94ace8158f33e58b5e6688ece3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214127"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002188"
 ---
-# <a name="parse-text-data-in-log-analytics"></a>Parseren van tekstgegevens in Log Analytics
-Sommige gegevens die zijn verzameld door Log Analytics bevat meerdere delen van gegevens in één eigenschap. Het parseren van deze gegevens in meerdere eigenschappen maken het gemakkelijker om te gebruiken in query's. Een veelvoorkomend voorbeeld is een [aangepast logboek](../../log-analytics/log-analytics-data-sources-custom-logs.md) die een hele logboekvermelding met meerdere waarden worden verzameld in één eigenschap. Door het maken van afzonderlijke eigenschappen voor de verschillende waarden, kunt u zoeken en op elk cumulatieve.
+# <a name="parse-text-data-in-azure-monitor-logs"></a>Tekstgegevens in Azure Monitor logboeken parseren
+Sommige logboekgegevens die zijn verzameld door Azure Monitor bevat meerdere delen van gegevens in één eigenschap. Het parseren van deze gegevens in meerdere eigenschappen maken het gemakkelijker om te gebruiken in query's. Een veelvoorkomend voorbeeld is een [aangepast logboek](../../log-analytics/log-analytics-data-sources-custom-logs.md) die een hele logboekvermelding met meerdere waarden worden verzameld in één eigenschap. Door het maken van afzonderlijke eigenschappen voor de verschillende waarden, kunt u zoeken en op elk cumulatieve.
 
-Dit artikel beschrijft de verschillende opties voor het parseren van gegevens in Log Analytics-records wanneer de gegevens worden opgenomen en wanneer deze opgehaald in een query, vergelijkt de relatieve voordelen voor elke.
+Dit artikel beschrijft de verschillende opties voor het parseren van logboekgegevens in Azure Monitor wanneer de gegevens worden opgenomen en wanneer deze in een vergelijking van de relatieve voordelen voor elke query wordt opgehaald.
 
 
 ## <a name="parsing-methods"></a>Methoden voor het parseren
@@ -60,7 +60,7 @@ Deze methode nadelen omvatten het volgende:
 - Kunt maken overhead bij het uitvoeren van complexe logica op zeer grote record (miljarden records) ingesteld.
 
 ## <a name="parse-data-as-its-collected"></a>Gegevens parseren als deze verzameld
-Zie [aangepaste velden gemaakt in Log Analytics](../../log-analytics/log-analytics-custom-fields.md) voor meer informatie over de gegevens worden geparseerd als deze verzameld. Hiermee maakt u aangepaste eigenschappen in de tabel die kan worden gebruikt door query's net als bij een andere eigenschap.
+Zie [maken van aangepaste velden in Azure Monitor](../platform/custom-fields.md) voor meer informatie over de gegevens worden geparseerd als deze verzameld. Hiermee maakt u aangepaste eigenschappen in de tabel die kan worden gebruikt door query's net als bij een andere eigenschap.
 
 ## <a name="parse-data-in-query-using-patterns"></a>Parseren van de gegevens in de query met behulp van patronen
 Als de gegevens die u wilt parseren kan worden aangeduid met een patroon herhaald totdat de records, kunt u verschillende operators in de [Data Explorer-querytaal](/azure/kusto/query/) om op te halen van het specifieke gedeelte van de gegevens in een of meer nieuwe eigenschappen.
@@ -106,7 +106,7 @@ AzureActivity
 | distinct UPNUserPart, Caller
 ```
 
-Om in te schakelen efficiënte parseren op grote schaal, Log Analytics maakt gebruik van re2 versie van reguliere expressies, dit is vergelijkbaar, maar niet identiek zijn aan enkele van de andere varianten van de reguliere expressie. Raadpleeg de [re2-expressiesyntaxis](https://aka.ms/kql_re2syntax) voor meer informatie.
+Om in te schakelen efficiënte parseren op grote schaal, Azure Monitor maakt gebruik van re2 versie van reguliere expressies, dit is vergelijkbaar, maar niet identiek zijn aan enkele van de andere varianten van de reguliere expressie. Raadpleeg de [re2-expressiesyntaxis](https://aka.ms/kql_re2syntax) voor meer informatie.
 
 
 ## <a name="parse-delimited-data-in-a-query"></a>In een query met scheidingstekens-gegevens parseren

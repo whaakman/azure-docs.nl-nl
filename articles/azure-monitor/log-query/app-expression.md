@@ -1,6 +1,6 @@
 ---
-title: de expressie App() in Azure Log Analytics-query | Microsoft Docs
-description: De app-expressie wordt gebruikt in een Log Analytics-query voor het ophalen van gegevens uit een specifieke Application Insights-app in dezelfde resourcegroep, een andere resourcegroep of een ander abonnement.
+title: de expressie App() in Logboeken-query's van Azure Monitor | Microsoft Docs
+description: De app-expressie wordt gebruikt in een query voor Azure Monitor voor het ophalen van gegevens uit een specifieke Application Insights-app in dezelfde resourcegroep, een andere resourcegroep of een ander abonnement.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: bwren
-ms.openlocfilehash: 2d6f3517e988d6bd66ee9007e072ee87c71d1340
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: db92db315875348ff05ec3a34b1a9fa946479c27
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104657"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998532"
 ---
-# <a name="app-expression-in-log-analytics-query"></a>app() expression in Log Analytics query
+# <a name="app-expression-in-azure-monitor-query"></a>app() expression in Azure Monitor query
 
-De `app` expressie wordt gebruikt in een Log Analytics-query voor het ophalen van gegevens uit een specifieke Application Insights-app in dezelfde resourcegroep, een andere resourcegroep of een ander abonnement. Dit is handig om op te nemen van toepassingsgegevens in een Log Analytics-query en om gegevens te doorzoeken voor meerdere toepassingen in een Application Insights-query.
+De `app` expressie in een Azure Monitor-query wordt gebruikt voor het ophalen van gegevens uit een specifieke Application Insights-app in dezelfde resourcegroep, een andere resourcegroep of een ander abonnement. Dit is handig om op te nemen van toepassingsgegevens in een query voor Azure Monitor en om gegevens te doorzoeken voor meerdere toepassingen in een Application Insights-query.
 
 
 
@@ -35,7 +35,7 @@ De `app` expressie wordt gebruikt in een Log Analytics-query voor het ophalen va
 
 - *Id*: Hiermee geeft u de app met een van de indelingen in de onderstaande tabel.
 
-| Id | Beschrijving | Voorbeeld
+| Id | Description | Voorbeeld
 |:---|:---|:---|
 | Resourcenaam | Menselijke leesbare naam van de app (AKA "naam van onderdeel") | app("fabrikamapp") |
 | Gekwalificeerde naam | Volledige naam van de app in het formulier: "resourceGroup-subscriptionName/componentName" | app('AI-Prototype/Fabrikam/fabrikamapp') |
@@ -78,5 +78,6 @@ union
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie de [werkruimte expressie](workspace-expression.md) om te verwijzen naar Log Analytics-werkruimte.
-- Meer informatie over hoe u [Log Analytics-gegevens](../../azure-monitor/log-query/log-query-overview.md) is opgeslagen.
+- Zie de [werkruimte expressie](workspace-expression.md) om te verwijzen naar een Log Analytics-werkruimte.
+- Meer informatie over hoe u [Azure Monitor gegevens](../../azure-monitor/log-query/log-query-overview.md) is opgeslagen.
+- Toegang tot volledige documentatie voor de [Data Explorer-querytaal](/azure/kusto/query/).

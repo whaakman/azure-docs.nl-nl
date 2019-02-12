@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 8a0300eeda49d85ffc08db8f285550e217613dcf
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 7dfda29525d73bebd7a2201e5c9e85314e08d46a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821611"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993840"
 ---
 # <a name="secure-your-key-vault"></a>Uw Key Vault beveiligen
 
 Azure Key Vault is een cloudservice die beveiligt uw versleutelingssleutels en geheimen (zoals certificaten, verbindingsreeksen en wachtwoorden). Omdat deze gegevens vertrouwelijk zijn en bedrijfskritiek, moet u toegang tot uw key vaults beveiligen, gemachtigde zodat alleen toepassingen en gebruikers. Dit artikel bevat een overzicht van het model voor Key Vault. Het wordt verificatie en autorisatie worden uitgelegd en wordt beschreven hoe u veilige toegang.
 
 ## <a name="overview"></a>Overzicht
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Toegang tot een Key Vault wordt geregeld via twee afzonderlijke interfaces: de beheerlaag en de gegevenslaag. 
 **Beheerlaag** omgaat met het beheren van de kluis, bijvoorbeeld - het maken van een kluis, het bijwerken van een kluis, een kluis verwijderen. 
@@ -176,24 +178,24 @@ De volgende PowerShell-fragmenten gaan uit van het volgende:
 Eerst de abonnementbeheerder wijst `key vault Contributor` en `User Access Administrator` rollen aan het beveiligingsteam. Deze rollen kunnen het beveiligingsteam voor het beheren van toegang tot andere resources en beheren van sleutelkluizen, in de resourcegroep ContosoAppRG.
 
 ```PowerShell
-New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "key vault Contributor" -ResourceGroupName ContosoAppRG
-New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "User Access Administrator" -ResourceGroupName ContosoAppRG
+New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "key vault Contributor" -ResourceGroupName ContosoAppRG
+New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "User Access Administrator" -ResourceGroupName ContosoAppRG
 ```
 
 Het volgende script toont hoe het beveiligingsteam een key vault maken en instellen van logboekregistratie en toegangsmachtigingen. Zie voor meer informatie over Key Vault-beleid toegangsmachtigingen [over Azure Key Vault sleutels, geheimen en certificaten](about-keys-secrets-and-certificates.md).
 
 ```PowerShell
 # Create key vault and enable logging
-$sa = Get-AzureRmStorageAccount -ResourceGroup ContosoAppRG -Name contosologstorage
-$kv = New-AzureRmKeyVault -Name ContosoKeyVault -ResourceGroup ContosoAppRG -SKU premium -Location 'westus' -EnabledForDeployment
-Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
+$sa = Get-AzStorageAccount -ResourceGroup ContosoAppRG -Name contosologstorage
+$kv = New-AzKeyVault -Name ContosoKeyVault -ResourceGroup ContosoAppRG -SKU premium -Location 'westus' -EnabledForDeployment
+Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
 
 # Data plane permissions for Security team
-Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -PermissionsToKeys backup,create,delete,get,import,list,restore -PermissionsToSecrets get,list,set,delete,backup,restore,recover,purge
+Set-AzKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -PermissionsToKeys backup,create,delete,get,import,list,restore -PermissionsToSecrets get,list,set,delete,backup,restore,recover,purge
 
 # Management plane permissions for Dev/ops
 # Create a new role from an existing role
-$devopsrole = Get-AzureRmRoleDefinition -Name "Virtual Machine Contributor"
+$devopsrole = Get-AzRoleDefinition -Name "Virtual Machine Contributor"
 $devopsrole.Id = $null
 $devopsrole.Name = "Contoso App Devops"
 $devopsrole.Description = "Can deploy VMs that need secrets from key vault"
@@ -201,13 +203,13 @@ $devopsrole.AssignableScopes = @("/subscriptions/<SUBSCRIPTION-GUID>")
 
 # Add permission for dev/ops so they can deploy VMs that have secrets deployed from key vaults
 $devopsrole.Actions.Add("Microsoft.KeyVault/vaults/deploy/action")
-New-AzureRmRoleDefinition -Role $devopsrole
+New-AzRoleDefinition -Role $devopsrole
 
 # Assign this newly defined role to Dev ops security group
-New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Devops')[0].Id -RoleDefinitionName "Contoso App Devops" -ResourceGroupName ContosoAppRG
+New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso App Devops')[0].Id -RoleDefinitionName "Contoso App Devops" -ResourceGroupName ContosoAppRG
 
 # Data plane permissions for Auditors
-Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Auditors')[0].Id -PermissionsToKeys list -PermissionsToSecrets list
+Set-AzKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzADGroup -SearchString 'Contoso App Auditors')[0].Id -PermissionsToKeys list -PermissionsToSecrets list
 ```
 
 De gedefinieerde aangepaste rol kan alleen worden toegewezen aan het abonnement waarin de `ContosoAppRG` resourcegroep wordt gemaakt. Als dezelfde aangepaste rollen wordt gebruikt voor andere projecten in andere abonnementen, hebben het bereik meer abonnementen die worden toegevoegd.
@@ -247,7 +249,7 @@ We raden u aan dat u beveiligde toegang tot uw key vault door verder [Key Vault-
   
 * [Toegangsbeheer voor geheimen](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
   
-* [Stel](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy) en [verwijderen](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Remove-AzureRmKeyVaultAccessPolicy) toegangsbeleid van Key Vault met behulp van PowerShell
+* [Stel](/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) en [verwijderen](/powershell/module/az.keyvault/Remove-azKeyVaultAccessPolicy) toegangsbeleid van Key Vault met behulp van PowerShell.
   
 ## <a name="next-steps"></a>Volgende stappen
 
