@@ -14,12 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: ba2eb5a7f888e4cffcd798259afa8194b4021025
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 16871bdc59d141334bc2c95f26929f270d7971cf
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488889"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100530"
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Het gebruik van de JavaScript-clientbibliotheek voor Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "38488889"
 Deze handleiding leert u hoe u algemene scenario's met behulp van de meest recente uitvoert [JavaScript-SDK voor Azure Mobile Apps]. Als u niet bekend bent met Azure Mobile Apps, voltooi eerst [Azure Mobile Apps snel starten] om te maken van een back-end en een tabel maken. In deze handleiding richten we over het gebruik van de mobiele back-end in HTML/JavaScript-Web-Apps.
 
 ## <a name="supported-platforms"></a>Ondersteunde platforms
-We beperken browserondersteuning naar de huidige en de laatste versie van de belangrijke browsers: Google Chrome, Microsoft Edge, Microsoft Internet Explorer en Mozilla Firefox.  We verwachten dat de SDK aan de functie met een relatief moderne browser.
+We beperken browserondersteuning naar de huidige en de laatste versie van de belangrijke browsers:  Google Chrome, Microsoft Edge, Microsoft Internet Explorer en Mozilla Firefox.  We verwachten dat de SDK aan de functie met een relatief moderne browser.
 
 Het pakket wordt gedistribueerd als een universeel JavaScript-Module, zodat het globals, AMD, ondersteunt en CommonJS indelingen.
 
@@ -42,10 +42,10 @@ npm install azure-mobile-apps-client --save
 
 De bibliotheek kan ook worden gebruikt als een module ES2015 binnen CommonJS omgevingen zoals Browserify en Webpack en als een AMD-bibliotheek.  Bijvoorbeeld:
 
-```
-# For ECMAScript 5.1 CommonJS
+```javascript
+// For ECMAScript 5.1 CommonJS
 var WindowsAzure = require('azure-mobile-apps-client');
-# For ES2015 modules
+// For ES2015 modules
 import * as WindowsAzure from 'azure-mobile-apps-client';
 ```
 
@@ -57,14 +57,14 @@ U kunt ook een vooraf gemaakte versie van de SDK door het downloaden van rechtst
 
 [!INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
 
-## <a name="auth"></a>Hoe: verificatie van gebruikers
+## <a name="auth"></a>Procedures: Gebruikers verifiëren
 Azure App Service ondersteunt verificatie en autorisatie van app-gebruikers met behulp van verschillende externe id-providers: Facebook, Google, Microsoft-Account en Twitter. U kunt machtigingen instellen voor tabellen toegang voor specifieke bewerkingen alleen geverifieerde gebruikers te beperken. U kunt ook de identiteit van de geverifieerde gebruikers gebruiken voor het implementeren van autorisatieregels in server-scripts. Zie voor meer informatie de [aan de slag met verificatie] zelfstudie.
 
 Twee verificatiestromen worden ondersteund: de stroom van een server en een clientstroom.  De stroom van de server bevat de meest eenvoudige verificatie-ervaring, afhankelijk van de provider de webinterface voor verificatie. De stroom kunt diepere integratie met de apparaat-specifieke mogelijkheden zoals single-sign-on, afhankelijk van provider-specifieke SDK's.
 
 [!INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="configure-external-redirect-urls"></a>Hoe: configureren van uw mobiele App-Service voor externe Omleidings-URL's.
+### <a name="configure-external-redirect-urls"></a>Procedures: Uw mobiele App-Service voor externe Omleidings-URL's configureren.
 Verschillende typen van JavaScript-toepassingen gebruiken een loopback-mogelijkheid voor het afhandelen van OAuth UI stromen.  Deze mogelijkheden omvatten:
 
 * Uw service lokaal worden uitgevoerd

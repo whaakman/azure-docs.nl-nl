@@ -4,7 +4,7 @@ description: Informatie over het gebruik van Azure Media Services maken een C# W
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 0fa5d8c5-3d5f-4886-ae55-fb6de4f5256d
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 9558a924ee151f47033178b0762a39e2d1e1f538
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 65625fcc12143a8ea53ff2ab7d1dfcb43a0def8d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828312"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992140"
 ---
-# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Over het bouwen van een toepassing met probleemloze Streaming Windows Store
+# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Over het bouwen van een toepassing met probleemloze Streaming Windows Store  
 
 De Smooth Streaming Client SDK voor Windows 8 biedt ontwikkelaars de mogelijkheid om Windows Store-toepassingen die on-demand en live Smooth Streaming inhoud kunnen spelen te bouwen. Naast de eenvoudige afspelen van Smooth Streaming-inhoud, biedt de SDK ook uitgebreide functies, zoals Microsoft PlayReady-bescherming, kwaliteit niveau beperking, Live DVR, audiostream overschakelen, luistert naar statusupdates (zoals kwaliteit verandert) en gebeurtenissen op foutniveau, enzovoort. Zie voor meer informatie van de ondersteunde functies, de [opmerkingen bij de release](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). Zie voor meer informatie, [Player Framework voor Windows 8](http://playerframework.codeplex.com/). 
 
@@ -66,7 +66,7 @@ Zie voor meer informatie over het ontwikkelen van Windows Store-toepassing [ontw
 2. Klik in het menu **FILE** op **Nieuw** en klik vervolgens op **Project**.
 3. Typ of Selecteer de volgende waarden in het dialoogvenster Nieuw Project:
 
-| Name | Waarde |
+| Name | Value |
 | --- | --- |
 | Sjabloongroep |Geïnstalleerd/sjablonen/Visual C#Windows Store |
 | Template |Lege App (XAML) |
@@ -82,7 +82,7 @@ Zie voor meer informatie over het ontwikkelen van Windows Store-toepassing [ontw
 1. Klik in Solution Explorer met de rechtermuisknop op **SSPlayer**, en klik vervolgens op **verwijzing toevoegen**.
 2. Typ of selecteer de volgende waarden:
 
-| Name | Waarde |
+| Name | Value |
 | --- | --- |
 | Referentie-groep |Windows/Extensions |
 | Referentie |Selecteer Microsoft Smooth Streaming Client SDK voor Windows 8 en Microsoft Visual C++ Runtime-pakket |
