@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 02/07/2019
 ms.author: celested
-ms.reviewer: hirsin, jesakowi, justhu
+ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 94a8cb5f0764ac1ed7330fb75131d3084d804f1e
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: cfc1ba6250a2d246c2dcf9a0128097b64896732d
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55091931"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098507"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Machtigingen en toestemming in de Azure Active Directory v2.0-eindpunt
 
@@ -52,7 +52,7 @@ Hetzelfde geldt voor alle resources van derden die zijn geïntegreerd met het Mi
 
 De resource heeft met het definiëren van deze typen machtigingen, uiterst gedetailleerde controle over de gegevens en hoe de functionaliteit van de API wordt weergegeven. Een app van derden kan deze machtigingen aanvragen van gebruikers en beheerders die de aanvraag voor de app moet goedkeuren kunnen krijgen tot gegevens of handelen namens een gebruiker. Door logische groepen te verdelen van de resource-functionaliteit in kleinere machtigingensets, kunnen apps van derden worden gebouwd om aan te vragen van alleen de specifieke machtigingen die ze nodig hebben om uit te voeren hun functie. Gebruikers en beheerders weet precies welke gegevens de app toegang heeft tot, en deze kunnen mogelijk meer vertrouwen dat deze is niet aan de hand met kwade bedoelingen. Ontwikkelaars moeten altijd ontmoeten door het concept van minimale bevoegdheden, alleen de machtigingen die ze nodig hebben voor hun toepassingen goed te laten wordt gevraagd.
 
-In OAuth, deze typen machtigingen worden genoemd *scopes*. Worden ze ook vaak gewoon aangeduid als *machtigingen*. Een machtiging wordt weergegeven in het Microsoft identity-platform als een string-waarde. U doorgaat met de Microsoft Graph-voorbeeld, is de tekenreekswaarde voor elke machtiging:
+In de OAuth 2.0, deze typen machtigingen genoemd *scopes*. Worden ze ook vaak gewoon aangeduid als *machtigingen*. Een machtiging wordt weergegeven in het Microsoft identity-platform als een string-waarde. U doorgaat met de Microsoft Graph-voorbeeld, is de tekenreekswaarde voor elke machtiging:
 
 * Lezen van de agenda van een gebruiker met behulp van `Calendars.Read`
 * Schrijven naar de agenda van een gebruiker met behulp van `Calendars.ReadWrite`
@@ -77,7 +77,7 @@ _Effectieve machtigingen_ zijn de machtigingen die uw app heeft bij aanvragen vo
 
 ## <a name="openid-connect-scopes"></a>OpenID Connect-scopes
 
-Het v2.0-implementatie van OpenID Connect is een aantal goed gedefinieerde bereiken die niet van toepassing op een specifieke resource: `openid`, `email`, `profile`, en `offline_access`.
+Het v2.0-implementatie van OpenID Connect is een aantal goed gedefinieerde bereiken die niet van toepassing op een specifieke resource: `openid`, `email`, `profile`, en `offline_access`. De `address` en `phone` OpenID Connect bereiken worden niet ondersteund.
 
 ### <a name="openid"></a>openid
 
@@ -93,9 +93,9 @@ De `profile` bereik kan worden gebruikt met de `openid` bereik en voor eventuele
 
 ### <a name="offlineaccess"></a>offline_access
 
-De [ `offline_access` bereik](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) biedt uw apptoegang tot resources namens de gebruiker voor een langere periode. Op de pagina werken account toestemming weergegeven dit bereik als de machtiging 'Toegang tot uw gegevens op elk gewenst moment'. Op de persoonlijke Microsoft-account instemmingspagina, wordt deze weergegeven als de machtiging 'Toegang tot je gegevens op elk gewenst moment'. Wanneer een gebruiker keurt de `offline_access` bereik, uw app kan vernieuwingstokens ontvangen van het token v2.0-eindpunt. Vernieuwen van tokens worden lange levensduur hebben. Uw app kan aan het nieuwe toegangstokens oudere zijn verlopen.
+De [ `offline_access` bereik](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) biedt uw apptoegang tot resources namens de gebruiker voor een langere periode. Op de pagina toestemming weergegeven dit bereik als de machtiging 'Gewoon toegang tot de gegevens die u toegang hebt gegeven'. Wanneer een gebruiker keurt de `offline_access` bereik, uw app kan vernieuwingstokens ontvangen van het token v2.0-eindpunt. Vernieuwen van tokens worden lange levensduur hebben. Uw app kan aan het nieuwe toegangstokens oudere zijn verlopen.
 
-Als uw app geen heeft aangevraagd de `offline_access` bereik, het ontvangt geen vernieuwingstokens. Dit betekent dat wanneer u een autorisatiecode in inwisselt de [OAuth 2.0-autorisatiecodestroom](active-directory-v2-protocols.md), ontvangt u alleen een toegangstoken van de `/token` eindpunt. Het toegangstoken is ongeldig voor een korte periode. Het toegangstoken is verlopen meestal binnen een uur. Op dat punt, uw app nodig heeft om te leiden van de gebruiker terug naar de `/authorize` eindpunt naar een nieuwe autorisatiecode ophalen. Tijdens deze omleiding, afhankelijk van het type app, moet de gebruiker mogelijk hun referenties opnieuw invoeren of opnieuw instemmen met machtigingen.
+Als uw app niet expliciet aanvragen de `offline_access` bereik, het ontvangt geen vernieuwingstokens. Dit betekent dat wanneer u een autorisatiecode in inwisselt de [OAuth 2.0-autorisatiecodestroom](active-directory-v2-protocols.md), ontvangt u alleen een toegangstoken van de `/token` eindpunt. Het toegangstoken is ongeldig voor een korte periode. Het toegangstoken is verlopen meestal binnen een uur. Op dat punt, uw app nodig heeft om te leiden van de gebruiker terug naar de `/authorize` eindpunt naar een nieuwe autorisatiecode ophalen. Tijdens deze omleiding, afhankelijk van het type app, moet de gebruiker mogelijk hun referenties opnieuw invoeren of opnieuw instemmen met machtigingen.  Houd er rekening mee dat hoewel de `offline_access` bereik wordt automatisch aangevraagd door de server, de client moet het nog steeds aanvragen om te kunnen ontvangen van het vernieuwen van tokens. 
 
 Zie voor meer informatie over het vernieuwen van tokens gebruiken de [protocolnaslaginformatie voor v2.0](active-directory-v2-protocols.md).
 
@@ -118,6 +118,9 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 De `scope` parameter is een door spaties gescheiden lijst van gedelegeerde machtigingen die de app is aangevraagd. Elke machtiging die wordt aangegeven door de waarde van de machtiging van de resource-id (de URI toepassings-ID) toe te voegen. In het voorbeeld aanvraag moet de app toestemming voor het lezen van de gebruiker agenda en e-mail verzenden als de gebruiker.
 
 Nadat de gebruiker de referenties invoert, wordt het v2.0-eindpunt voor een overeenkomende record van gecontroleerd *toestemming van de gebruiker*. Als de gebruiker heeft niet ingestemd met een van de aangevraagde machtigingen in het verleden, noch heeft een beheerder ingestemd met deze machtigingen namens de hele organisatie, het v2.0-eindpunt wordt de gebruiker gevraagd om de vereiste machtigingen te verlenen.
+
+> [!NOTE]
+> Op dit moment de `offline_access` ('gewoon toegang tot de gegevens die u toegang hebt gegeven") en `user.read` ('aanmelden en uw profiel te lezen') machtigingen automatisch zijn opgenomen in de eerste toestemming voor een toepassing.  Deze machtigingen zijn algemeen vereist zijn voor de functionaliteit van de juiste app - `offline_access` de apptoegang tot het vernieuwen van tokens, kritieke biedt voor native en web-apps, terwijl `user.read` biedt toegang tot de `sub` claim, zodat de client of de app correct identificeren van de gebruiker gedurende de tijd en toegang elementaire gebruikersgegevens.  
 
 ![Toestemming voor Work-account](./media/v2-permissions-and-consent/work_account_consent.png)
 
@@ -164,11 +167,11 @@ De lijst met machtigingen die zijn statisch aangevraagd voor een toepassing conf
 2. Zoek de **machtigingen voor Microsoft Graph** sectie en voeg vervolgens de machtigingen die uw app nodig heeft.
 3. **Sla** de app-registratie.
 
-### <a name="recommended-sign-the-user-in-to-your-app"></a>Aanbevolen: De gebruiker zich aanmeldt bij uw app
+### <a name="recommended-sign-the-user-into-your-app"></a>Aanbevolen: Meld u aan de gebruiker in uw app
 
 Wanneer u een toepassing die gebruikmaakt van het eindpunt beheerder toestemming bouwt, moet de app normaal gesproken een pagina of weergave waarin de beheerder van de app-machtigingen kunt goedkeuren. Deze pagina kan deel uitmaken van de app Meld u aan flow, onderdeel van de app-instellingen, of een specifieke stroom met 'verbinding maken'. In veel gevallen is het handig voor de app weer te geven 'connect' weergave alleen nadat een gebruiker is aangemeld met een werk- of school Microsoft-account.
 
-Wanneer u de gebruiker zich aanmeldt bij uw app, kunt u de organisatie die de beheerder behoort voordat ze de benodigde machtigingen goedkeuren kunt identificeren. Hoewel niet strikt noodzakelijk is, kunt u bij het maken van een meer intuïtieve ervaring voor gebruikers van uw organisatie. Volg voor het tekenen van de gebruiker in onze [v2.0 protocol zelfstudies](active-directory-v2-protocols.md).
+Wanneer u de gebruiker zich in uw app, kunt u de organisatie die de beheerder behoort voordat ze de benodigde machtigingen goedkeuren kunt identificeren. Hoewel niet strikt noodzakelijk is, kunt u bij het maken van een meer intuïtieve ervaring voor gebruikers van uw organisatie. Volg voor het tekenen van de gebruiker in onze [v2.0 protocol zelfstudies](active-directory-v2-protocols.md).
 
 ### <a name="request-the-permissions-from-a-directory-admin"></a>De machtigingen aanvragen van een directory-beheerder
 
@@ -191,10 +194,10 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
 ```
 
-| Parameter | Voorwaarde | Beschrijving |
+| Parameter | Voorwaarde | Description |
 | --- | --- | --- |
-| `tenant` | Vereist | De directory-tenant die u wilt toestemming van aanvragen. Kan worden opgegeven in de beschrijvende naamindeling of GUID of algemeen waarnaar wordt verwezen met 'algemene' zoals te zien is in het voorbeeld. |
-| `client_id` | Vereist | De aanvraag-ID die de [Portal voor Appregistratie](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) toegewezen aan uw app. |
+| `tenant` | Vereist | De directory-tenant die u wilt toestemming van aanvragen. Kan worden opgegeven in de beschrijvende naamindeling of GUID of algemeen waarnaar wordt verwezen met `common` zoals te zien is in het voorbeeld. |
+| `client_id` | Vereist | De toepassing (client)-ID die de [Portal voor Appregistratie](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) of [nieuwe portal voor App-registraties (preview)](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) is toegewezen aan uw app. |
 | `redirect_uri` | Vereist |De omleidings-URI waar u het antwoord moet worden verzonden voor uw app om af te handelen. Het moet exact overeenkomen met een van de omleidings-URI's die u in de portal voor app-registratie hebt geregistreerd. |
 | `state` | Aanbevolen | Een waarde die is opgenomen in de aanvraag die wordt ook in het token antwoord geretourneerd. Een tekenreeks van alle inhoud die u wilt dat kan zijn. Gebruik de status van de informatie over de status van de gebruiker in de app coderen voordat de verificatieaanvraag heeft plaatsgevonden, zoals de pagina of de weergave op. |
 
@@ -208,11 +211,11 @@ Als de beheerder heeft de machtigingen voor uw app goedgekeurd, is de geslaagde 
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- | --- |
 | `tenant` | De directory-tenant die uw toepassing, de machtigingen aangevraagd, in GUID-indeling. |
 | `state` | Een waarde die is opgenomen in de aanvraag die ook in het token antwoord worden geretourneerd. Een tekenreeks van alle inhoud die u wilt dat kan zijn. De status wordt gebruikt om informatie over de status van de gebruiker in de app coderen voordat de verificatieaanvraag heeft plaatsgevonden, zoals de pagina of de weergave die ze al had geopend. |
-| `admin_consent` | Wordt ingesteld op **waar**. |
+| `admin_consent` | Wordt ingesteld op `True`. |
 
 #### <a name="error-response"></a>Foutbericht
 
@@ -222,10 +225,10 @@ Als de beheerder worden de machtigingen voor uw app niet goedgekeurd, wordt de m
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- | --- |
-| `error` |Een tekenreeks voor de foutcode die kan worden gebruikt voor het classificeren van typen fouten die optreden en kan worden gebruikt om te reageren op fouten. |
-| `error_description` |Een specifieke foutbericht dat een ontwikkelaar kan helpen de hoofdoorzaak van een fout identificeren. |
+| `error` | Een tekenreeks voor de foutcode die kan worden gebruikt voor het classificeren van typen fouten die optreden en kan worden gebruikt om te reageren op fouten. |
+| `error_description` | Een specifieke foutbericht dat een ontwikkelaar kan helpen de hoofdoorzaak van een fout identificeren. |
 
 Nadat u een geslaagde respons van het eindpunt beheerder toestemming hebt ontvangen, kan uw app in de machtigingen die zij gevraagd hebben opgedaan. Vervolgens kunt u een token voor de resource die u wilt dat vraagt.
 
@@ -252,6 +255,52 @@ U kunt het resulterende toegangstoken gebruiken in HTTP-aanvragen naar de resour
 
 Zie voor meer informatie over het OAuth 2.0-protocol en toegangstokens verkrijgen, de [protocolnaslaginformatie voor v2.0-eindpunt](active-directory-v2-protocols.md).
 
-## <a name="troubleshooting"></a>Problemen oplossen
+## <a name="the-default-scope"></a>Het bereik /.default
 
-Als u of gebruikers van uw toepassing onverwachte fouten tijdens de toestemming ziet, raadpleeg dan in dit artikel voor stappen voor probleemoplossing: [Onverwachte fout bij het uitvoeren van toestemming voor een toepassing](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
+U kunt de `/.default` bereik om u te helpen uw apps van het eindpunt v1.0 migreren naar het v2.0-eindpunt. Dit is een ingebouwd bereik voor elke toepassing die naar een statische lijst met machtigingen die zijn geconfigureerd op de registratie van de toepassing verwijst. Een `scope` waarde van `https://graph.microsoft.com/.default` is functioneel hetzelfde als de eindpunten v1.0 `resource=https://graph.microsoft.com` -dat wil zeggen het aanvraagt een token met de scopes op Microsoft Graph dat de toepassing voor is geregistreerd in Azure portal.
+
+Het bereik /.default kan worden gebruikt in een OAuth 2.0-stroom, maar is met name nodig in de [op namens-stroom](v2-oauth2-on-behalf-of-flow.md) en [clientreferenties die stroom](v2-oauth2-client-creds-grant-flow.md).  
+
+> [!NOTE]
+> Statische door clients kunnen niet worden gecombineerd (`/.default`) en dynamische toestemming in één aanvraag. Dus `scope=https://graph.microsoft.com/.default+mail.read` zal leiden tot een fout vanwege de combinatie van bereik typen.
+
+### <a name="default-and-consent"></a>/.Default en toestemming
+
+De `/.default` bereik activeert het eindpuntgedrag v1.0 voor `prompt=consent` ook. Het aanvraagt toestemming voor alle machtigingen die zijn geregistreerd door de toepassing, ongeacht de bron. Als u wordt opgenomen als onderdeel van de aanvraag de `/.default` bereik retourneert een token dat bestaat uit de bereiken voor de resource die specifiek is aangevraagd.
+
+### <a name="default-when-the-user-has-already-given-consent"></a>/.Default wanneer de gebruiker heeft al ingestemd
+
+Omdat `/.default` is identiek aan de `resource`-georiënteerde v1.0-eindpunt gedrag, het zorgt voor het gedrag van de toestemming van de v1.0-eindpunt. Dat wil zeggen `/.default` alleen een toestemmingsprompt wordt geactiveerd als er geen machtiging heeft verleend tussen de client en de resource door de gebruiker. Als een dergelijke toestemming bestaat, wordt klikt u vervolgens een token geretourneerd met alle scopes die zijn verleend door de gebruiker voor die bron. Echter, als u hebt geen machtiging heeft gekregen, of de `prompt=consent` parameter is opgegeven, een toestemmingsprompt worden weergegeven voor alle scopes die zijn geregistreerd door de clienttoepassing. 
+
+#### <a name="example-1-the-user-or-tenant-admin-has-granted-permissions"></a>Voorbeeld 1: De gebruiker of een tenantbeheerder heeft machtigingen verleend
+
+De gebruiker (of een tenantbeheerder) heeft de client de Microsoft Graph machtigingen verleend `mail.read` en `user.read`. Als de client een aanvraag doet voor `scope=https://graph.microsoft.com/.default`, en vervolgens zonder toestemming vragen worden weergegeven, ongeacht de inhoud van de clienttoepassingen geregistreerde machtigingen voor Microsoft Graph. Een token wordt geretourneerd met de scopes `mail.read` en `user.read`.
+
+#### <a name="example-2-the-user-hasnt-granted-permissions-between-the-client-and-the-resource"></a>Voorbeeld 2: De gebruiker nog niet is gemachtigd tussen de client en de resource
+
+Er is geen toestemming voor de gebruiker bestaat tussen de client en de Microsoft Graph. De client is geregistreerd voor de `user.read` en `contacts.read` machtigingen, evenals het bereik van Azure Key Vault `https://vault.azure.net/user_impersonation`. Wanneer de client vraagt een token voor `scope=https://graph.microsoft.com/.default`, de gebruiker ziet een toestemmingsscherm voor de `user.read`, `contacts.read`, en de Key Vault `user_impersonation` bereiken. Het token geretourneerd heeft zojuist de `user.read` en `contacts.read` scopes erin.
+
+#### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>Voorbeeld 3: De gebruiker heeft ingestemd en de client vraagt een extra scopes
+
+De gebruiker heeft al ingestemd met `mail.read` voor de client. De client is geregistreerd voor de `contacts.read` bereik in de registratie ervan. Wanneer de client dient een aanvraag voor een token met `scope=https://graph.microsoft.com/.default` en toestemming van de aanvragen via `prompt=consent`, de gebruiker ziet een toestemmingsscherm voor alleen en alle machtigingen die zijn geregistreerd door de toepassing. `contacts.read` in het instemmingsscherm aanwezig zijn, maar `mail.read` niet. Het token wordt geretourneerd is voor Microsoft Graph en bevat `mail.read` en `contacts.read`.
+
+### <a name="using-the-default-scope-with-the-client"></a>Het bereik /.default gebruiken met de client
+
+Een speciaal geval van de `/.default` bereik bestaat wanneer een client een aanvraag een eigen `/.default` bereik. Het volgende voorbeeld ziet u dit scenario.
+
+```
+// Line breaks are for legibility only.
+
+GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
+response_type=token            //code or a hybrid flow is also possible here
+&client_id=9ada6f8a-6d83-41bc-b169-a306c21527a5
+&scope=9ada6f8a-6d83-41bc-b169-a306c21527a5/.default
+&redirect_uri=https%3A%2F%2Flocalhost
+&state=1234
+```
+
+Dit resulteert in een toestemmingsscherm voor alle geregistreerde machtigingen (indien van toepassing op basis van de bovenstaande beschrijvingen van toestemming en `/.default`), geeft als resultaat een id_token, in plaats van een toegangstoken.  Dit gedrag voor bepaalde verouderde clients van verplaatsen van ADAL naar MSAL bestaat en mag niet worden gebruikt door nieuwe clients die zijn gericht op het v2.0-eindpunt.  
+
+## <a name="troubleshooting-permissions-and-consent"></a>Oplossen van problemen met machtigingen en toestemming
+
+Als u of gebruikers van uw toepassing onverwachte fouten tijdens het proces toestemming weergegeven wordt, ziet u in dit artikel voor stappen voor probleemoplossing: [Onverwachte fout bij het uitvoeren van toestemming voor een toepassing](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
