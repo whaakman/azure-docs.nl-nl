@@ -3,7 +3,7 @@ title: Azure Cache controleren voor Redis | Microsoft Docs
 description: Informatie over het bewaken van de status en prestaties van uw Azure-Cache voor instanties van Redis
 services: azure-cache-for-redis
 documentationcenter: ''
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: ''
 ms.assetid: 7e70b153-9c87-4290-85af-2228f31df118
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: wesmc
-ms.openlocfilehash: b6264d47c7627d72b8746c79e7e050fd468171de
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.author: yegu
+ms.openlocfilehash: 3884d45eadb6ea373a511442c024d1d368f0b80a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105114"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115161"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Azure Cache controleren voor Redis
 Azure maakt gebruik van Redis-Cache [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) verschillende opties voor het bewaken van uw cache-exemplaren. U kunt metrische gegevens weergeven, grafieken met metrische gegevens aan het Startboard vastmaken, aanpassen van het bereik van datum en tijd van de bewaking van grafieken, toevoegen en metrische gegevens verwijderen uit de grafieken en waarschuwingen instellen wanneer aan bepaalde voorwaarden wordt voldaan. Deze hulpprogramma's kunnen u de status van uw Azure-Cache voor instanties van Redis en hulp bij het beheren van uw cache in toepassingen worden gecontroleerd.
@@ -67,7 +67,7 @@ Het configureren van een opslagaccount voor uw cache metrische gegevens:
 
 1. Klik op **Diagnostics** uit de **menu Resource** in de **Azure Cache voor Redis** blade.
 2. Klik op **op**.
-3. Controleer **archiveren naar een opslagaccount**.
+3. Schakel **Archiveren naar een opslagaccount** in.
 4. Selecteer het opslagaccount waarin de metrische gegevens de cache opslaan.
 5. Controleer de **1 minuut** selectievakje in en geef een **bewaarperiode (dagen)** beleid. Als u niet wilt toepassen van een beleid voor het bewaren en gegevens oneindig wilt bewaren, stelt u **bewaarperiode (dagen)** naar **0**.
 6. Klik op **Opslaan**.
@@ -99,7 +99,7 @@ Alle gegevens bevat twee versies. Prestaties voor het volledige cachegeheugen en
 | Gegevens | Description |
 | --- | --- |
 | Cachetreffers |Het aantal geslaagde sleutel zoekacties tijdens het opgegeven interval voor rapportage. Dit wordt toegewezen aan `keyspace_hits` uit de Redis [INFO](https://redis.io/commands/info) opdracht. |
-| Latentie van de cache (Preview) | De latentie van de cache berekend op basis van uit de latentie tussen knooppunten van de cache. Met deze metriek wordt gemeten in microseconden en drie dimensies heeft: "Gem.", "Min" en "Max" Dit is de gemiddelde, minimale en maximale latentie van de cache respectievelijk tijdens het opgegeven interval voor rapportage. |
+| Cache Latency (Preview) | De latentie van de cache berekend op basis van uit de latentie tussen knooppunten van de cache. Met deze metriek wordt gemeten in microseconden en drie dimensies heeft: "Gem.", "Min" en "Max" Dit is de gemiddelde, minimale en maximale latentie van de cache respectievelijk tijdens het opgegeven interval voor rapportage. |
 | Cachemissers |Het aantal mislukte sleutel zoekacties tijdens het opgegeven interval voor rapportage. Dit wordt toegewezen aan `keyspace_misses` van de Redis-INFO-opdracht. Missers in cache betekenen niet noodzakelijkerwijs dat er is een probleem met de cache. Wanneer u het patroon cache-aside programmeren, een toepassing, ziet er bijvoorbeeld eerste in de cache voor een item. Als het item is er geen (Cachemisser), wordt het item uit de database opgehaald en toegevoegd aan de cache voor later. Missers in cache zijn normaal gedrag voor het programmeren cache-aside-patroon. Als het aantal missers in cache hoger is dan verwacht, controleert u de toepassingslogica waarmee vult en leest uit de cache. Als items zijn verwijderd uit de cache vanwege geheugendruk en er enkele missers in cache zijn mogelijk, maar een betere metrische waarde om te controleren op geheugendruk zou `Used Memory` of `Evicted Keys`. |
 | Gelezen uit cache |De hoeveelheid gegevens gelezen uit de cache in MB per seconde (MB/s) tijdens het opgegeven interval voor rapportage. Deze waarde wordt afgeleid van de lijst met netwerkadapters die ondersteuning bieden voor de virtuele machine die als host fungeert voor de cache en is geen specifieke Redis. **Deze waarde komt overeen met de netwerkbandbreedte die wordt gebruikt door deze cache. Als u wilt voor het instellen van waarschuwingen voor bandbreedtelimieten van server-side '-netwerk, maakt u het met dit `Cache Read` teller. Zie [deze tabel](cache-faq.md#cache-performance) voor de waargenomen bandbreedtelimieten voor verschillende cache prijzen van lagen en -grootten.** |
 | Cache schrijven |De hoeveelheid gegevens geschreven naar de cache in MB per seconde (MB/s) tijdens de opgegeven reporting interval. Deze waarde wordt afgeleid van de lijst met netwerkadapters die ondersteuning bieden voor de virtuele machine die als host fungeert voor de cache en is geen specifieke Redis. Deze waarde komt overeen met de bandbreedte van het netwerk van de gegevens worden verzonden naar de cache van de client. |
