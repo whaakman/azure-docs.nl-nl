@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: f1b39601f0f6d254daadfafdd812549c6c95ed35
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 1cef0010464671982109b8dc4bc94e6925eaf825
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239465"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210523"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Hosting-servers voor de SQL-resourceprovider toevoegen
 
-U kunt een SQL-exemplaar op een virtuele machine (VM) hosten [Azure Stack](azure-stack-poc.md), of op een virtuele machine buiten uw Azure Stack-omgeving, zolang de SQL-resourceprovider kunt verbinding maken met het exemplaar.
+U kunt SQL Server-database die als host fungeert voor servers op een virtuele machine (VM) maken in [Azure Stack](azure-stack-poc.md), of op een virtuele machine buiten uw Azure Stack-omgeving, zolang de SQL-resourceprovider kunt verbinding maken met het exemplaar.
 
 > [!NOTE]
-> SQL-databases moeten worden gemaakt op de server van de SQL-resource-provider. De SQL-resourceprovider moet worden gemaakt in het abonnement van de provider standaard terwijl hosting SQL-servers moeten worden gemaakt in een factureerbare, gebruikersabonnement. De server van de resource provider moet niet worden gebruikt om host gebruikersdatabases.
+> De SQL-resourceprovider moet worden gemaakt in het abonnement van de provider standaard terwijl hosting SQL-servers moeten worden gemaakt in een factureerbare, gebruikersabonnement. De server van de resource provider moet niet worden gebruikt om host gebruikersdatabases.
 
 ## <a name="overview"></a>Overzicht
 

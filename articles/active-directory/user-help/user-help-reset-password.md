@@ -11,12 +11,13 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: d2fd09ea1055bcfdfc9f112f89e9234046767c23
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6521dc8db663df5e19fb97c495b4a5bcb6d3c1d1
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158873"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56208467"
 ---
 # <a name="reset-your-work-or-school-password"></a>Uw werk- of schoolaccount wachtwoord opnieuw instellen
 
@@ -154,7 +155,7 @@ Als de beheerder de functie ingeschakeld, ziet u een koppeling naar **wachtwoord
 
 Hier volgen enkele algemene foutgevallen en hun oplossingen:
 
-|Probleem|Beschrijving|Oplossing|
+|Probleem|Description|Oplossing|
 | --- | --- | --- |
 |Wanneer ik wil mijn wachtwoord wijzigen, verschijnt een foutbericht. |Uw wachtwoord bevat een woord, woordgroep of patroon dat uw wachtwoord gemakkelijk te raden maakt.| Probeer het opnieuw met een sterker wachtwoord.|
 |Wanneer ik mijn gebruikers-ID hebt ingevoerd, ga ik naar een pagina die "Neem contact op met uw beheerder."|Microsoft heeft vastgesteld dat het wachtwoord van uw gebruikersaccount wordt beheerd door uw beheerder in een on-premises omgeving. U kunt uw wachtwoord via de koppeling "Geen toegang tot uw account" als gevolg hiervan niet herstellen. |Neem contact op met uw beheerder voor meer informatie.|

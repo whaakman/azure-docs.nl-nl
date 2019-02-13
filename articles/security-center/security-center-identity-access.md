@@ -4,7 +4,7 @@ description: Lees hoe u de functies voor identiteit en toegang in Azure Security
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 01c8f864d25a35d42abcd624e31728f4fee0d80c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 845227ea5e32d10eaed555cee80c8fc520a1771a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012068"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105549"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Identiteit en toegang bewaken in Azure Security Center (Preview)
 In dit artikel leest u hoe u Azure Security Center kunt gebruiken om de identiteit en toegangsactiviteiten van gebruikers te bewaken.
@@ -47,7 +47,7 @@ Zie [aanbevelingen](security-center-identity-access.md#recommendations) voor een
 ## <a name="monitoring-security-health"></a>Beveiligingsstatus bewaken
 U kunt de beveiligingsstatus van uw resources bewaken op de **Security Center-overzicht** dashboard. De **Resources** sectie is geen integriteitsindicator waarin de ernstcategorieën voor elk resourcetype.
 
-U kunt een lijst van alle problemen weergeven door te selecteren **aanbevelingen**. Onder **Resources**, vindt u een lijst met problemen die specifiek zijn voor reken- en apps, gegevensbeveiliging, netwerken, of identiteit en toegang. Zie voor meer informatie over het toepassen van aanbevelingen [beveiligingsaanbevelingen implementeren in Azure Security Center](security-center-recommendations.md).
+U kunt een lijst van alle problemen weergeven door te selecteren **aanbevelingen**. Onder **Resources**, vindt u een lijst met problemen die specifiek zijn voor reken- en apps, gegevensbeveiliging, netwerken, of identiteit en toegang. Zie [Beveiligingsaanbevelingen implementeren in Azure Security Center](security-center-recommendations.md) voor meer informatie over het toepassen van aanbevelingen.
 
 Zie voor een volledige lijst met aanbevelingen voor identiteits- en toegangsbeheer, [aanbevelingen](security-center-identity-access.md#recommendations).
 
@@ -106,7 +106,7 @@ Onder **abonnementen**, er is een lijst met abonnementen. De eerste kolom bevat 
 ## <a name="recommendations"></a>Aanbevelingen
 Gebruik de onderstaande tabel als referentie om te begrijpen van de beschikbare Identity & Access aanbevelingen en wat elke doet als u deze toepast.
 
-|Resourcetype|Beveiligingsscore|Aanbeveling|Beschrijving|
+|Resourcetype|Beveiligingsscore|Aanbeveling|Description|
 |----|----|----|----|
 |Abonnement|50|MFA inschakelen voor de App voor Azure-accounts met eigenaarsmachtigingen voor uw abonnement|Schakel multi-factor Authentication (MFA) voor alle abonnementsaccounts met administrator-bevoegdheden om te voorkomen dat er inbreuk wordt gepleegd accounts of resources.|
 |Abonnement|50|Security center voor uw abonnementen inschakelen |Security center op al uw abonnementen voor geavanceerde detectie van bedreigingen, JIT, opname in de whitelist en geavanceerde aanbevelingen inschakelen |
@@ -118,7 +118,7 @@ Gebruik de onderstaande tabel als referentie om te begrijpen van de beschikbare 
 |Abonnement|20|Afgeschafte accounts met eigenaarsmachtigingen van uw abonnement verwijderen|Afgeschafte accounts met eigenaarsmachtigingen verwijderen van uw abonnementen.|
 |Abonnement|5|Afgeschafte accounts verwijderen van uw abonnement|Afgeschafte accounts verwijderen van uw abonnementen voor toegang tot alleen actieve gebruikers. |
 |Abonnement|5|Meer dan één eigenaar van uw abonnement opgeven|Meer dan één abonnementseigenaar aanwijzen om de beheerder toegang redundantie.|
-|Abonnement|5|Maximaal 3 eigenaren voor uw abonnement opgeven|Minder dan 3 abonnementseigenaren aanwijzen om te reduceren van de mogelijkheden voor inbreuk op een gecomprimeerde eigenaar.|
+|Abonnement|5|Maximaal drie eigenaren toewijzen aan uw abonnement|Minder dan 3 abonnementseigenaren aanwijzen om te reduceren van de mogelijkheden voor inbreuk op een gecomprimeerde eigenaar.|
 |Key Vault|5|Schakel diagnostische logboeken in Key Vault|Logboeken inschakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd. |
 |Abonnement|15|Externe accounts met leesmachtigingen verwijderen van uw abonnement|Externe accounts met leesmachtigingen verwijderen uit uw abonnement om onbewaakte toegang te voorkomen.|
 |Abonnement|1|Contactgegevens voor beveiliging verstrekken|Neem contact op met de beveiligingsgegevens voor al uw abonnementen bevatten. Contactgegevens is een e-mailadres en telefoonnummer getal. De informatie wordt gebruikt om contact met u als beveiligingsteam vindt dat uw resources zijn aangetast|

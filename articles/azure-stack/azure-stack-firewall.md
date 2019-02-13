@@ -12,30 +12,30 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: eff526118f6fd127ba720d28296baf86abd01393
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 023201d221ee5d7ec884c6a760407e8da8340d3f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246430"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207115"
 ---
 # <a name="azure-stack-firewall-integration"></a>Azure Stack-firewall-integratie
-Het verdient aanbeveling dat u een firewall-apparaat gebruiken om te beveiligen Azure Stack. Hoewel firewalls bij items zoals gedistribueerde denial-of-service (DDOS)-aanvallen, inbraakdetectie en inhoudsinspectie helpen kunnen, kunnen ze ook een knelpunt doorvoer voor Azure storage-services, zoals blobs, tabellen en wachtrijen.
+Het verdient aanbeveling dat u een firewall-apparaat gebruiken om te beveiligen Azure Stack. Firewalls kunnen beschermen tegen zaken zoals gedistribueerde denial-of-service (DDOS) aanvallen, inbraakdetectie en inhoudsinspectie. Maar kunnen ze ook een knelpunt doorvoer voor Azure storage-services, zoals blobs, tabellen en wachtrijen.
 
-Op basis van het identiteitsmodel Azure Active Directory (Azure AD) of Windows Server Active Directory Federation Services (AD FS), mogelijk moet u de AD FS-eindpunt publiceert. Als een niet-verbonden implementatiemodus wordt gebruikt, moet u het eindpunt van AD FS publiceren. Zie voor meer informatie de [datacenter-integratie identiteit artikel](azure-stack-integrate-identity.md).
+ Als een niet-verbonden implementatiemodus wordt gebruikt, moet u het eindpunt van AD FS publiceren. Zie voor meer informatie de [datacenter-integratie identiteit artikel](azure-stack-integrate-identity.md).
 
-De Azure Resource Manager (beheerder), de beheerdersportal en de Key Vault (beheerder)-eindpunten vereisen per se geen externe publiceren. Als een serviceprovider kunt u bijvoorbeeld voor het beperken van de kwetsbaarheid voor aanvallen en Azure Stack uit alleen beheren in uw netwerk en niet vanaf het internet.
+De Azure Resource Manager (beheerder), de beheerdersportal en de Key Vault (beheerder)-eindpunten vereisen per se geen externe publiceren. Als een serviceprovider kunt u de kwetsbaarheid voor aanvallen kan beperken door alleen beheren van Azure Stack uit in uw netwerk en niet vanaf het internet.
 
-Voor ondernemingen, kan het externe netwerk het bestaande bedrijfsnetwerk zijn. In een dergelijk scenario, moet u deze eindpunten voor het gebruik van Azure Stack van het bedrijfsnetwerk publiceren.
+Voor ondernemingen, kan het externe netwerk het bestaande bedrijfsnetwerk zijn. In dit scenario, moet u de eindpunten voor het gebruik van Azure Stack van het bedrijfsnetwerk publiceren.
 
 ### <a name="network-address-translation"></a>Network Address Translation
-NAT (Network Address Translation) is de aanbevolen methode om toe te staan van de implementatie van virtuele machine (DVM) voor toegang tot de externe bronnen en het internet tijdens de implementatie, evenals de Emergency Recovery Console (ERCS) virtuele machines of bevoegde eindpunt (PEP) tijdens registratie en het oplossen van problemen.
+NAT (Network Address Translation) is de aanbevolen methode om toe te staan van de implementatie van virtuele machine (DVM) voor toegang tot externe resources en het internet tijdens de implementatie, evenals de Emergency Recovery Console (ERCS) virtuele machines of bevoegde eindpunt (PEP) tijdens registratie en het oplossen van problemen.
 
-NAT kan ook een alternatief voor het openbare IP-adressen op het externe netwerk of de openbare VIP's zijn. Het is echter niet aanbevolen om dit te doen omdat het beperken van de gebruikerservaring van de tenant en verhoogt de complexiteit. De twee opties zou een 1:1 NAT die nog steeds een openbaar IP-adres per gebruiker IP-adres op de groep of veel vereist zijn: 1 NAT waarvoor een NAT-regel per gebruiker VIP-adres dat koppelingen naar alle poorten bevat een gebruiker kan gebruiken.
+NAT kan ook een alternatief voor het openbare IP-adressen op het externe netwerk of de openbare VIP's zijn. Het is echter niet aanbevolen om dit te doen omdat het beperken van de gebruikerservaring van de tenant en verhoogt de complexiteit. Een optie is een één-op-een NAT die nog steeds een openbaar IP-adres per gebruiker IP-adres op de groep vereist. Een andere optie is een veel-op-één NAT waarvoor een NAT-regel per gebruiker VIP voor alle poorten, een gebruiker kan gebruiken.
 
 Enkele van de nadelen van het gebruik van NAT voor openbaar VIP-adres zijn:
 - NAT wordt overhead toegevoegd bij het beheren van firewall-regels, omdat gebruikers hun eigen eindpunten en hun eigen regels voor publicatie in de stack software gedefinieerde netwerken (SDN beheren). Gebruikers moeten contact opnemen met de Azure Stack-operators om hun VIP's gepubliceerd en bijwerken van de lijst met poorten.
@@ -48,7 +48,7 @@ Het is momenteel aanbevolen om uit te schakelen SSL ontsleutelen op alle Azure S
 ## <a name="edge-firewall-scenario"></a>Scenario voor edge-firewall
 Azure Stack is geïmplementeerd in een edge-implementatie, rechtstreeks achter de edge router of de firewall. In deze scenario's wordt ondersteund voor de firewall om te worden boven de rand (Scenario 1), waar deze ondersteunt zowel actief / actief en actief-passief firewallconfiguraties of fungeert als het apparaat van rand (Scenario 2) waar het ondersteunt alleen actief / actief-firewall configuratie van Relying Party op gelijk kosten meervoudige pad (ECMP) met BGP of statische routering voor failover.
 
-Normaal gesproken zijn openbaar routeerbare IP-adressen opgegeven voor de openbare VIP-groep van het externe netwerk tijdens de implementatie. In een scenario edge, wordt deze niet aanbevolen voor gebruik van openbaar routeerbare IP's op een ander netwerk voor uit veiligheidsoverwegingen. In dit scenario kan een gebruiker de volledige zelf beheerde cloud-ervaring in een openbare cloud, zoals Azure-ervaring.  
+Openbaar routeerbare IP-adressen zijn opgegeven voor de openbare VIP-groep van het externe netwerk tijdens de implementatie. In een scenario edge, wordt deze niet aanbevolen voor gebruik van openbaar routeerbare IP's op een ander netwerk voor uit veiligheidsoverwegingen. In dit scenario kan een gebruiker de volledige zelf beheerde cloud-ervaring in een openbare cloud, zoals Azure-ervaring.  
 
 ![Voorbeeld van Azure Stack edge firewall](./media/azure-stack-firewall/firewallScenarios.png)
 

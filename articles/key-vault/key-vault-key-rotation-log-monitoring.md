@@ -4,7 +4,7 @@ description: Met deze instructies kunt u instellen met sleutelrotatie en control
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: ''
 ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 10e60076fe527e6e773e966ccdae52a7fe99c4b2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: deb50a71b179c3cb03d5da22e336c42b26fe0bfa
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997197"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106117"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Azure Key Vault instellen met sleutelrotatie en controle
 
@@ -38,7 +38,7 @@ Dit artikel helpt bij:
 - Hierin wordt beschreven hoe u controleert de sleutelkluis-logboeken voor controle en waarschuwingen genereren wanneer onverwachte aanvragen worden gedaan.
 
 > [!NOTE]
-> In deze zelfstudie is niet bedoeld voor de eerste installatie van uw key vault in detail uitgelegd. Zie [Aan de slag met Azure Key Vault](key-vault-get-started.md) voor meer informatie. Zie voor instructies voor platformoverschrijdende opdrachtregelinterface [Key Vault beheren met behulp van CLI](key-vault-manage-with-cli2.md).
+> In deze zelfstudie is niet bedoeld voor de eerste installatie van uw key vault in detail uitgelegd. Voor deze informatie, Zie [wat is Azure Key Vault?](key-vault-overview.md). Zie voor instructies voor platformoverschrijdende opdrachtregelinterface [Key Vault beheren met behulp van CLI](key-vault-manage-with-cli2.md).
 >
 >
 

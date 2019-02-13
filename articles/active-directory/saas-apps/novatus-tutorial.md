@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2017
 ms.author: jeedes
-ms.openlocfilehash: 73b382d41a072eb5f59ad6e32323930f1336c316
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1b58e1d2fc13543c80899c61c8532ab8a93a3b63
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172354"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207157"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-novatus"></a>Zelfstudie: Azure Active Directory-integratie met Novatus
 
@@ -115,7 +116,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
      Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://sso.novatuscontracts.com/<companyname>`
 
     > [!NOTE] 
-    > Deze waarde is niet echt. Deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [Novatus Client ondersteuningsteam](mailto:jvinci@novatusinc.com) deze waarde op te halen. 
+    > Deze waarde is niet echt. Werk deze waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [Novatus Client ondersteuningsteam](mailto:jvinci@novatusinc.com) deze waarde op te halen. 
  
 
 
