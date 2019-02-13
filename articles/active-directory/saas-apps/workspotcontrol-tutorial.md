@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 520e625ba9689ebf35e985fe95609c62102e2493
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8716d018756d1e6eadcd6ebeeaf4f67ad0bc4741
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49312720"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211152"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Zelfstudie: Azure Active Directory-integratie met Workspot besturingselement
 
@@ -29,7 +30,7 @@ Workspot besturingselement te integreren met Azure AD biedt u de volgende voorde
 
 - U kunt beheren in Azure AD die toegang tot Workspot besturingselement heeft.
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Workspot besturingselement (Single Sign-On) inschakelen met hun Azure AD-accounts.
-- U kunt uw accounts in één centrale locatie - Azure portal beheren.
+- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
 Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -43,9 +44,9 @@ Voor het configureren van Azure AD-integratie met Workspot besturingselement, mo
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -67,7 +68,7 @@ Voor het configureren van de integratie van Workspot besturingselement in Azure 
 
     ![image](./media/workspotcontrol-tutorial/a_select_app.png)
     
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
     ![image](./media/workspotcontrol-tutorial/a_new_app.png)
 
@@ -75,7 +76,7 @@ Voor het configureren van de integratie van Workspot besturingselement in Azure 
 
      ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
 In deze sectie configureert u en test Azure AD eenmalige aanmelding met Workspot beheer op basis van een testgebruiker 'Britta Simon' genoemd.
 
@@ -83,13 +84,13 @@ Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruik
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met Workspot besturingselement, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 3. **[Maak een testgebruiker Workspot besturingselement](#create-a-workspot-control-test-user)**  : als u wilt een equivalent van Britta Simon in Workspot-besturingselement dat is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
 In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Workspot besturingselement.
 
@@ -103,7 +104,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![image](./media/workspotcontrol-tutorial/b1_b2_saml_sso.png)
 
-3. Op de **instellen van eenmalige aanmelding met SAML** pagina, klikt u op **bewerken** te openen **SAML-basisconfiguratie** dialoogvenster.
+3. Klik op de pagina **Eenmalige aanmelding met SAML instellen** u de knop **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
     ![image](./media/workspotcontrol-tutorial/b1-domains_and_urlsedit.png)
 
@@ -111,20 +112,20 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_url.png)
 
-    a. In de **id** tekstvak typt u een URL met behulp van het volgende patroon: `https://<INSTANCENAME>-saml.workspot.com/saml/metadata`
+    a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://<INSTANCENAME>-saml.workspot.com/saml/metadata`
 
-    b. In de **antwoord-URL** tekstvak typt u een URL met behulp van het volgende patroon: `https://<INSTANCENAME>-saml.workspot.com/saml/assertion`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://<INSTANCENAME>-saml.workspot.com/saml/assertion`
 
-    c. Klik op **extra URL's instellen** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
+    c. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
      ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_url1.png)
 
-    In de **aanmeldings-URL** tekstvak typt u een URL met behulp van het volgende patroon:  `https://<INSTANCENAME>-saml.workspot.com/`
+    In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<INSTANCENAME>-saml.workspot.com/`
 
     > [!NOTE]
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke-id, de antwoord-URL en aanmeldings-URL. Neem contact op met [Workspot Beheerclient ondersteuningsteam](mailto:support@workspot.com) om deze waarden te verkrijgen. 
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke-id, de antwoord-URL en de aanmeldings-URL. Neem contact op met [Workspot Beheerclient ondersteuningsteam](mailto:support@workspot.com) om deze waarden te verkrijgen. 
 
-5. Op de **instellen van eenmalige aanmelding met SAML** pagina, in de **SAML-handtekeningcertificaat** sectie, klikt u op **downloaden** voor het downloaden van de **certificaat (Base64)** en sla deze op uw computer.
+5. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **certificaat (Base64)** te downloaden, en slaat u dit op uw computer op.
 
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_certficate.png) 
 
@@ -134,15 +135,15 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     a. Aanmeldings-URL
 
-    b. Azure Ad-id
+    b. Azure AD-id
 
-    c. URL voor afmelden
+    c. Afmeldings-URL
 
     ![image](./media/workspotcontrol-tutorial/d1_samlsonfigure.png) 
 
 7. In een ander browservenster, meld u aan bij Workspot besturingselement als een beveiligingsbeheerder.
 
-8. Klik in de werkbalk boven aan de pagina op **Setup**, navigeert u vervolgens naar **SAML**.
+8. Klik in de werkbalk boven aan de pagina op **Setup**, navigeert u vervolgens naar **SAML**.
 
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_setup.png)
 
@@ -150,7 +151,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
  
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_saml.png)
 
-    a. In de **entiteit-ID** tekstvak, plak de waarde van **Azure Ad-id** die u hebt gekopieerd vanuit Azure portal.   
+    a. In de **entiteit-ID** tekstvak, plak de waarde van **Azure Ad-id** die u hebt gekopieerd vanuit Azure portal.   
 
     b.In de **URL van de Service aanmelden** tekstvak, plak de waarde van **aanmeldings-URL** die u hebt gekopieerd vanuit Azure portal.
 
@@ -160,25 +161,25 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     e. Klik op **Opslaan**.
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-1. Selecteer in de Azure portal, in het linkerdeelvenster **Azure Active Directory**, selecteer **gebruikers**, en selecteer vervolgens **alle gebruikers**.
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
     ![image](./media/workspotcontrol-tutorial/d_users_and_groups.png)
 
-2. Selecteer **nieuwe gebruiker** aan de bovenkant van het scherm.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
     ![image](./media/workspotcontrol-tutorial/d_adduser.png)
 
-3. In de eigenschappen van de gebruiker de volgende stappen uitvoeren.
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
     ![image](./media/workspotcontrol-tutorial/d_userproperties.png)
 
-    a. In de **naam** veld **BrittaSimon**.
+    a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In de **gebruikersnaam** veldtype **brittasimon@yourcompanydomain.extension**  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Selecteer **eigenschappen**, selecteer de **Show wachtwoord** selectievakje en noteer de waarde die wordt weergegeven in het wachtwoord.
@@ -189,11 +190,11 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
 Om in te schakelen in Azure AD-gebruikers zich aanmelden bij Workspot besturingselement, moeten ze worden ingericht in Workspot besturingselement. In Workspot besturingselement is inrichten een handmatige taak.
 
-**Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:**
+**Als u een gebruikersaccount wilt inrichten, voert u de volgende stappen uit:**
 
 1. Meld u aan bij Workspot besturingselement als een beveiligingsbeheerder.
 
-2. Klik in de werkbalk boven aan de pagina op **gebruikers**, navigeert u vervolgens naar **gebruiker toevoegen**.
+2. Klik in de werkbalk boven aan de pagina op **gebruikers**, navigeert u vervolgens naar **gebruiker toevoegen**.
 
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_adduser.png)
 
@@ -201,9 +202,9 @@ Om in te schakelen in Azure AD-gebruikers zich aanmelden bij Workspot besturings
 
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_addnewuser.png)
 
-    a. In **voornaam** tekst voert u de voornaam van de gebruiker, zoals **Julia**.
+    a. Voer in het tekstvak **Voornaam** de voornaam van de gebruiker in, zoals **Britta**.
 
-    b. In **achternaam** tekst voert u de achternaam van de gebruiker, zoals **simon**.
+    b. Voer in het tekstvak **Achternaam** de achternaam van de gebruiker in, zoals **Simon**.
 
     c. In **e** tekst vak, voer het e-mailadres van gebruiker, zoals **Brittasimon@contoso.com**.
 
@@ -211,7 +212,7 @@ Om in te schakelen in Azure AD-gebruikers zich aanmelden bij Workspot besturings
 
     e. Selecteer de juiste gebruikersgroep uit de **groep** vervolgkeuzelijst.
 
-    f. Klik op **gebruiker toevoegen**.
+    f. Klik op **Add User**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
@@ -225,7 +226,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_app.png)
 
-3. Selecteer in het menu aan de linkerkant, **gebruikers en groepen**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
     ![image](./media/workspotcontrol-tutorial/d_leftpaneusers.png)
 
@@ -233,9 +234,9 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     ![image](./media/workspotcontrol-tutorial/d_assign_user.png)
 
-4. In de **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst met gebruikers, en klik op de **Selecteer** knop aan de onderkant van het scherm.
+4. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-5. In de **toevoegen toewijzing** dialoogvenster Selecteer de **toewijzen** knop.
+5. Selecteer in het dialoogvenster **Toewijzing toevoegen** de knop **Toewijzen**.
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 

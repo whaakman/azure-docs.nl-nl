@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/11/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: a197a366d70958859eed47a9d66606adf80344e4
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.lastreviewed: 02/11/2019
+ms.openlocfilehash: c2ef0d34897171e04d0982405909183634ebb696
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891269"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115399"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Kubernetes op Azure Stack met behulp van Active Directory Federated Services implementeren
 
@@ -43,13 +43,19 @@ Als u wilt beginnen, zorg ervoor dat u de juiste machtigingen hebt en dat uw Azu
 
     Het cluster kan niet worden geïmplementeerd naar een Azure Stack **beheerder** abonnement. U moet gebruiken een **gebruiker** abonnement. 
 
-1. Als u geen Kubernetes-Cluster in de marketplace, neemt u contact op met uw Azure Stack-beheerder.
+1. U moet de Key Vault-Service in uw Azure Stack-abonnement.
+
+1. U moet het Kubernetes-Cluster in de marketplace. 
+
+Als u de Key Vault-Service en Kubernetes-Cluster marketplace-item ontbreekt, neem contact op met uw Azure Stack-beheerder.
 
 ## <a name="create-a-service-principal"></a>Een service-principal maken
 
 U moet samenwerken met uw Azure Stack-beheerder om het instellen van uw service-principal bij gebruik van AD FS als uw oplossing voor identiteit. De service-principal geeft uw toepassing toegang heeft tot de Azure Stack-resources.
 
-1. De beheerder van uw Azure Stack biedt u een certificaat en de gegevens voor de service-principal. Deze informatie moet er als volgt uitzien:
+1. De beheerder van uw Azure Stack biedt u een certificaat en de gegevens voor de service-principal.
+
+    - De gegevens voor de service-principal moet er als volgt uitzien:
 
     ```Text  
         ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
@@ -60,9 +66,11 @@ U moet samenwerken met uw Azure Stack-beheerder om het instellen van uw service-
         RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
     ```
 
+    - Uw certificaat is een bestand met de extensie `.pfx`. U wordt het certificaat in een Key Vault opslaan als een geheim.
+
 2. Uw nieuwe service-principal een rol als een bijdrager aan uw abonnement toewijzen. Zie voor instructies [een rol toewijzen](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals).
 
-3. Maak een key vault voor het opslaan van uw certificaat voor de implementatie.
+3. Maak een key vault voor het opslaan van uw certificaat voor de implementatie. Gebruik de volgende PowerShell-scripts in plaats van de Portal.
 
     - U hebt de volgende soorten informatie nodig:
 
@@ -70,12 +78,12 @@ U moet samenwerken met uw Azure Stack-beheerder om het instellen van uw service-
         | ---   | ---         |
         | Azure Resource Manager Endpoint | De Microsoft Azure Resource Manager is een raamwerk waarmee beheerders te implementeren, beheren en bewaken van Azure-resources. Deze taken kunnen worden verwerkt in Azure Resource Manager als een groep, in plaats van afzonderlijk, in één bewerking.<br>Het eindpunt in de Azure Stack Development Kit (ASDK) is: `https://management.local.azurestack.external/`<br>Het eindpunt in geïntegreerde systemen is: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
         | Uw abonnements-ID | De [abonnements-ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) is hoe u toegang hebben tot aanbiedingen in Azure Stack. |
-        | Naam van de gebruiker | De naam van de gebruiker. |
+        | Naam van de gebruiker | Gebruik alleen de naam van de gebruiker in plaats van uw domeinnaam en gebruikersnaam, zoals `username` in plaats van `azurestack\username`. |
         | Naam van de resourcegroep  | De naam van een nieuwe resourcegroep of Selecteer een bestaande resourcegroep. De resourcenaam moet alleen alfanumerieke tekens en kleine letters. |
         | De naam van de Key Vault | De naam van de kluis.<br> Regex-patroon: `^[a-zA-Z0-9-]{3,24}$` |
         | Resourcegroeplocatie | De locatie van de resourcegroep. Dit is de regio die u voor uw Azure Stack-installatie kiest. |
 
-    - Open PowerShell met een opdrachtprompt. Voer het volgende script met de parameters die zijn bijgewerkt naar uw waarden:
+    - Open PowerShell met een opdrachtprompt met verhoogde bevoegdheid en [verbinding maken met Azure Stack](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Voer het volgende script met de parameters die zijn bijgewerkt naar uw waarden:
 
     ```PowerShell  
         $armEndpoint="<Azure Resource Manager Endpoint>"
@@ -103,7 +111,7 @@ U moet samenwerken met uw Azure Stack-beheerder om het instellen van uw service-
         Set-AzureRmKeyVaultAccessPolicy -VaultName $key_vault_name -ResourceGroupName $resource_group_name -ObjectId $objectSID -BypassObjectIdValidation -PermissionsToKeys all -PermissionsToSecrets all
     ```
 
-4. Upload uw certificaat naar de Key Vault.
+4. Upload uw certificaat naar de sleutelkluis.
 
     - U hebt de volgende soorten informatie nodig:
 
@@ -111,12 +119,12 @@ U moet samenwerken met uw Azure Stack-beheerder om het instellen van uw service-
         | ---   | ---         |
         | Pad naar het certificaat | De FQDN-naam of het bestand pad naar het certificaat. |
         | Certificaatwachtwoord | Wachtwoord voor het certificaat. |
-        | Geheime naam | De geheime sleutel die in de vorige stap zijn geproduceerd. |
-        | De naam van de Key Vault | De naam van de keyvault account in de vorige stap hebt gemaakt. |
+        | Geheime naam | De geheime naam die wordt gebruikt om te verwijzen naar het certificaat dat is opgeslagen in de kluis. |
+        | Key vault-naam | De naam van de key vault in de vorige stap hebt gemaakt. |
         | Azure Resource Manager Endpoint | Het eindpunt in de Azure Stack Development Kit (ASDK) is: `https://management.local.azurestack.external/`<br>Het eindpunt in geïntegreerde systemen is: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
         | Uw abonnements-ID | De [abonnements-ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) is hoe u toegang hebben tot aanbiedingen in Azure Stack. |
 
-    - Open PowerShell met een opdrachtprompt. Voer het volgende script met de parameters die zijn bijgewerkt naar uw waarden:
+    - Open PowerShell met een opdrachtprompt met verhoogde bevoegdheid en [verbinding maken met Azure Stack](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Voer het volgende script met de parameters die zijn bijgewerkt naar uw waarden:
 
     ```PowerShell  
         
@@ -124,7 +132,7 @@ U moet samenwerken met uw Azure Stack-beheerder om het instellen van uw service-
     $tempPFXFilePath = "<certificate path>"
     $password = "<certificate password>"
     $keyVaultSecretName = "<secret name>"
-    $keyVaultName = "<keyvault name>"
+    $keyVaultName = "<key vault name>"
     $armEndpoint="<Azure Resource Manager Endpoint>"
     $subscriptionId="<Your Subscription ID>"
     # Login Azure Stack Environment
@@ -194,11 +202,11 @@ U moet samenwerken met uw Azure Stack-beheerder om het instellen van uw service-
 
 1. Voer de **Service-Principal ClientId** dit wordt gebruikt door de Kubernetes Azure-cloud-provider. De Client-ID die wordt geïdentificeerd als de toepassings-ID wanneer uw Azure Stack-beheerder heeft de service-principal gemaakt.
 
-1. Voer de **Key Vault-resourcegroep**. 
+1. Voer de **Key Vault-resourcegroep** die gegevensbronnen van de key vault met uw certificaat.
 
-1. Voer de **sleutelkluisnaam**.
+1. Voer de **sleutelkluisnaam** de naam van de sleutelkluis die uw certificaat als een geheim bevat. 
 
-1. Voer de **Key Vault-geheim**.
+1. Voer de **Key Vault-geheim**. De naam van de geheime verwijst naar uw certificaat.
 
 1. Voer de **Kubernetes Azure Cloud Provider-versie**. Dit is de versie van de Kubernetes Azure-provider. Azure Stack brengt een aangepaste Kubernetes-build voor elke Azure Stack-versie.
 

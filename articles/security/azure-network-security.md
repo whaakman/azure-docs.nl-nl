@@ -4,7 +4,7 @@ description: Meer informatie over cloud-gebaseerde computing services met een ru
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 1d94ac5f799fc4bad13ab6a5e97a225a7499380d
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a405583503b75a64dda2bf277a4a50be4e926d28
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405970"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111285"
 ---
 # <a name="azure-network-security"></a>Azure-netwerkbeveiliging
 
@@ -88,11 +88,11 @@ Virtuele netwerken van Azure zijn te vergelijken met de virtuele netwerken die u
 
 U kunt VNets verbinden met elkaar, zodat resources die zijn verbonden met een VNet om te communiceren met elkaar via vnet's. U kunt een of beide van de volgende opties VNets met elkaar verbinden:
 
-- **Peering:** kunnen resources met andere Azure VNets in dezelfde Azure-locatie om te communiceren met elkaar verbonden. De bandbreedte en de latentie tussen het VNet is hetzelfde als wanneer de resources die zijn verbonden met hetzelfde VNet is. Lees voor meer informatie over peering [peering van virtuele netwerken](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+- **Peering:** Hiermee kunt resources die zijn verbonden met verschillende Azure VNets in dezelfde Azure-locatie om te communiceren met elkaar. De bandbreedte en de latentie tussen het VNet is hetzelfde als wanneer de resources die zijn verbonden met hetzelfde VNet is. Lees voor meer informatie over peering [peering van virtuele netwerken](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
  ![Peering](media/azure-network-security/azure-network-security-fig-3.png)
 
-- **VNet-naar-VNet-verbinding:** kunnen resources die zijn verbonden met andere Azure-VNet binnen de dezelfde of verschillende Azure-locaties. In tegenstelling tot de peering, is bandbreedte tussen de VNets, omdat de verkeersstroom moet via een Azure VPN-Gateway.
+- **VNet-naar-VNet-verbinding:** Hiermee kunt resources die zijn verbonden met andere Azure-VNet binnen de dezelfde of verschillende Azure-locaties. In tegenstelling tot de peering, is bandbreedte tussen de VNets, omdat de verkeersstroom moet via een Azure VPN-Gateway.
 
 ![VNet-naar-VNet-verbinding](media/azure-network-security/azure-network-security-fig-4.png)
 
@@ -151,9 +151,9 @@ U kunt verschillende Azure-resources verbinden met een VNet, zoals virtuele Mach
 
 U kunt VNets verbinden met elkaar, zodat resources die zijn verbonden met een VNet om te communiceren met elkaar via vnet's. U kunt een of beide van de volgende opties VNets met elkaar verbinden:
 
-- **Peering:** kunnen resources met andere Azure VNets in dezelfde Azure-locatie om te communiceren met elkaar verbonden. De bandbreedte en de latentie tussen de VNets is hetzelfde als wanneer de resources die zijn verbonden met de dezelfde VNet.To meer informatie over peering, lees de [peering van virtuele netwerken](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+- **Peering:** Hiermee kunt resources die zijn verbonden met verschillende Azure VNets in dezelfde Azure-locatie om te communiceren met elkaar. De bandbreedte en de latentie tussen de VNets is hetzelfde als wanneer de resources die zijn verbonden met de dezelfde VNet.To meer informatie over peering, lees de [peering van virtuele netwerken](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
-- **VNet-naar-VNet-verbinding:** kunnen resources die zijn verbonden met andere Azure-VNet binnen de dezelfde of verschillende Azure-locaties. In tegenstelling tot de peering, is bandbreedte tussen de VNets, omdat de verkeersstroom moet via een Azure VPN-Gateway. Voor meer informatie over het verbinden van vnet's met een VNet-naar-VNet-verbinding. Lees voor meer informatie de [een VNet-naar-VNet-verbinding configureren](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal?toc=%2fazure%2fvirtual-network%2ftoc.json) .
+- **VNet-naar-VNet-verbinding:** Hiermee kunt resources die zijn verbonden met andere Azure-VNet binnen de dezelfde of verschillende Azure-locaties. In tegenstelling tot de peering, is bandbreedte tussen de VNets, omdat de verkeersstroom moet via een Azure VPN-Gateway. Voor meer informatie over het verbinden van vnet's met een VNet-naar-VNet-verbinding. Lees voor meer informatie de [een VNet-naar-VNet-verbinding configureren](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal?toc=%2fazure%2fvirtual-network%2ftoc.json) .
 
 **On-premises connectiviteit**
 
@@ -161,11 +161,11 @@ VNets kunnen worden verbonden met [on-premises](https://docs.microsoft.com/azure
 
 U kunt uw on-premises netwerk verbinden met een VNet maken via een combinatie van de volgende opties:
 
-- **Punt-naar-site virtueel particulier netwerk (VPN):** tot stand gebracht tussen een enkele PC verbonden met uw netwerk en het VNet. Dit verbindingstype is handig als u net aan de slag gaat met Azure of voor ontwikkelaars, omdat hiervoor weinig of geen wijzigingen in uw bestaande netwerk nodig zijn. De verbinding gebruikt de SSTP-protocol voor versleutelde communicatie via Internet tussen de PC en het VNet. De latentie voor een punt-naar-site-VPN is onvoorspelbaar omdat het verkeer gaat via Internet.
+- **Punt-naar-site virtueel particulier netwerk (VPN):** Tot stand gebracht tussen een enkele PC verbonden met uw netwerk en het VNet. Dit verbindingstype is handig als u net aan de slag gaat met Azure of voor ontwikkelaars, omdat hiervoor weinig of geen wijzigingen in uw bestaande netwerk nodig zijn. De verbinding gebruikt de SSTP-protocol voor versleutelde communicatie via Internet tussen de PC en het VNet. De latentie voor een punt-naar-site-VPN is onvoorspelbaar omdat het verkeer gaat via Internet.
 
-- **Site-naar-site-VPN:** tot stand gebracht tussen uw VPN-apparaat en een Azure VPN-Gateway. Dit verbindingstype krijgen alle on-premises bron verleent u onbevoegde gebruikers toegang tot een VNet. De verbinding is een IPsec/IKE VPN waarmee de versleutelde communicatie via Internet mogelijk tussen uw on-premises apparaat en de Azure VPN-gateway. De latentie voor een site-naar-site-verbinding is onvoorspelbaar omdat het verkeer gaat via Internet.
+- **Site-to-site VPN:** Tot stand gebracht tussen uw VPN-apparaat en een Azure VPN-Gateway. Dit verbindingstype krijgen alle on-premises bron verleent u onbevoegde gebruikers toegang tot een VNet. De verbinding is een IPsec/IKE VPN waarmee de versleutelde communicatie via Internet mogelijk tussen uw on-premises apparaat en de Azure VPN-gateway. De latentie voor een site-naar-site-verbinding is onvoorspelbaar omdat het verkeer gaat via Internet.
 
-- **Azure ExpressRoute:** wordt tot stand gebracht tussen uw netwerk en Azure, via een ExpressRoute-partner. Deze verbinding is een privéverbinding. Verkeer loopt niet via Internet. De latentie voor een ExpressRoute-verbinding is voorspelbare omdat verkeer niet via Internet. Lees voor meer informatie over de vorige verbindingsopties de [verbindingstopologie](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **Azure ExpressRoute:** Wordt tot stand gebracht tussen uw netwerk en Azure, via een ExpressRoute-partner. Deze verbinding is een privéverbinding. Verkeer loopt niet via Internet. De latentie voor een ExpressRoute-verbinding is voorspelbare omdat verkeer niet via Internet. Lees voor meer informatie over de vorige verbindingsopties de [verbindingstopologie](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 **Verkeer filteren**
 
@@ -173,9 +173,9 @@ Instanties van de virtuele machine en Cloud Services [netwerkverkeer](https://do
 
 U kunt netwerkverkeer filteren tussen subnetten met behulp van een of beide van de volgende opties:
 
-- **Netwerkbeveiligingsgroepen (NSG):** elke NSG kan meerdere binnenkomende en uitgaande beveiligingsregels waarmee u verkeer filteren op bron- en IP-adres, poort en protocol bevatten. U kunt een NSG toepassen op elke NIC in een virtuele machine. U kunt ook een NSG toepassen op het subnet een NIC of andere Azure-resource is verbonden met. Lees voor meer informatie over nsg's de [Netwerkbeveiligingsgroepen](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- **Netwerkbeveiligingsgroepen (NSG):** Elke NSG kan meerdere binnenkomende en uitgaande beveiligingsregels waarmee u verkeer filteren door de bron en doel-IP-adres, poort en protocol bevatten. U kunt een NSG toepassen op elke NIC in een virtuele machine. U kunt ook een NSG toepassen op het subnet een NIC of andere Azure-resource is verbonden met. Lees voor meer informatie over nsg's de [Netwerkbeveiligingsgroepen](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 
-- **Virtuele netwerkapparaten:** een virtueel netwerkapparaat is een virtuele machine bij het uitvoeren van software die een netwerkfunctie, zoals een firewall uitvoert. Een lijst van beschikbare NVA's in de Azure Marketplace weergeven. NVA's zijn ook beschikbaar met de WAN-optimalisatie en andere netwerk verkeer functies. NVA's worden meestal gebruikt met de gebruiker gedefinieerde of BGP-routes. U kunt ook een NVA gebruiken voor het filteren van verkeer tussen VNets.
+- **Virtuele netwerkapparaten:** Een virtueel netwerkapparaat is een virtuele machine bij het uitvoeren van software die een netwerkfunctie, zoals een firewall uitvoert. Een lijst van beschikbare NVA's in de Azure Marketplace weergeven. NVA's zijn ook beschikbaar met de WAN-optimalisatie en andere netwerk verkeer functies. NVA's worden meestal gebruikt met de gebruiker gedefinieerde of BGP-routes. U kunt ook een NVA gebruiken voor het filteren van verkeer tussen VNets.
 
 **Routering**
 
@@ -183,11 +183,11 @@ U kunt eventueel van Azure standaard routering met BGP-routes via een gateway va
 
 Azure maakt routetabellen maken waarmee de resources die zijn verbonden met een subnet in elk VNet om te communiceren met elkaar worden verbonden, wordt standaard ingeschakeld. U kunt een of beide van de volgende opties implementeren om de standaardroutes die Azure maakt te onderdrukken:
 
-- **Gebruiker gedefinieerde routes:** u kunt aangepaste routetabellen maken met routes die bepalen waar verkeer wordt doorgestuurd naar voor elk subnet. Lees voor meer informatie over de gebruiker gedefinieerde routes de [gebruiker gedefinieerde routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
+- **Gebruiker gedefinieerde routes:** U kunt aangepaste routetabellen maken met routes die bepalen waar verkeer naartoe wordt doorgestuurd voor elk subnet. Lees voor meer informatie over de gebruiker gedefinieerde routes de [gebruiker gedefinieerde routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
 
-- **BGP-routes:** als u uw VNet verbinden met uw on-premises netwerk met behulp van een Azure VPN-Gateway of ExpressRoute-verbinding, kunt u BGP-routes doorgegeven aan uw vnet's.
+- **BGP-routes:** Als u uw VNet verbinden met uw on-premises netwerk met behulp van een Azure VPN-Gateway of ExpressRoute-verbinding, kunt u BGP-routes doorgegeven aan uw vnet's.
 
-### <a name="hybrid-internet-connectivity-connect-to-an-on-premises-network"></a>Hybride verbinding met internet: verbinding maken met een on-premises netwerk
+### <a name="hybrid-internet-connectivity-connect-to-an-on-premises-network"></a>Hybride verbinding met internet: Verbinding maken met een on-premises netwerk
 U kunt uw on-premises netwerk verbinden met een VNet maken via een combinatie van de volgende opties:
 
 -   Internetconnectiviteit
@@ -282,13 +282,13 @@ Dit betekent dat u de toegang tussen een enkele virtuele machine en een groep VM
 
 Een NSG wordt geleverd met enkele ingebouwde regels die u moet rekening houden met. Dit zijn:
 
--   **Toestaan dat al het verkeer binnen een bepaald virtueel netwerk:** alle virtuele machines op dezelfde Azure-netwerk met elkaar communiceren.
+-   **Al het verkeer binnen een bepaald virtueel netwerk toestaan:** Alle virtuele machines op hetzelfde Azure-netwerk kunnen met elkaar communiceren.
 
 -   **Azure load balancing inkomende toestaan:** met deze regel staat verkeer vanaf elk bronadres naar een bestemmingsadres voor de Azure load balancer.
 
 -   **Alle binnenkomend verkeer weigeren:** met deze regel blokkeert al het verkeer sourcing vanaf het Internet die u expliciet zijn toegestaan.
 
--   **Al het verkeer uitgaand verkeer naar Internet toestaan:** met deze regel kunnen virtuele machines moet verbinding met Internet initiëren. Als u niet dat deze verbindingen geïnitieerd wilt, moet u het maken van een regel voor het blokkeren van deze verbindingen of af te dwingen geforceerde tunneling.
+-   **Al het verkeer uitgaand verkeer naar Internet toestaan:** Deze regel kunnen virtuele machines moet verbinding met Internet initiëren. Als u niet dat deze verbindingen geïnitieerd wilt, moet u het maken van een regel voor het blokkeren van deze verbindingen of af te dwingen geforceerde tunneling.
 
 #### <a name="system-routes-and-user-defined-routes"></a>Systeemroutes en de gebruiker gedefinieerde routes
 
@@ -320,11 +320,11 @@ Het volgende gedeelte bevat de huidige beperking van de tabel en routes de route
 
 -   Elk virtueel netwerksubnet heeft een ingebouwde, systeem-routeringstabel. De routeringstabel van het systeem heeft de volgende drie groepen van routes:
 
- -  **Lokale VNet routes:** rechtstreeks naar de bestemming VM's in hetzelfde virtuele netwerk
+ -  **Lokale VNet routes:** Rechtstreeks naar de bestemming VM's in hetzelfde virtuele netwerk
 
- - **Op de lokale routes:** naar de Azure VPN-gateway
+ - **Op de lokale routes:** Met Azure VPN-gateway
 
- -  **Standaard-route:** rechtstreeks met Internet. Pakketten dat is bestemd voor het particuliere IP-adressen niet wordt gedekt door de vorige twee routes worden verwijderd.
+ -  **Standaard-route:** Rechtstreeks met Internet. Pakketten dat is bestemd voor het particuliere IP-adressen niet wordt gedekt door de vorige twee routes worden verwijderd.
 
 -   U kunt met het uitbrengen van de gebruiker gedefinieerde routes, een routeringstabel om toe te voegen een standaardroute maken en vervolgens de routeringstabel koppelen aan uw VNet-subnet om in te schakelen geforceerde tunneling op deze subnetten.
 
@@ -645,9 +645,9 @@ De volgende metrische gegevens worden ondersteund voor Application Gateways:
 
 De volgende logboeken worden ondersteund voor [netwerkbeveiligingsgroepen](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log):
 
-- **NetworkSecurityGroupEvent:** bevat vermeldingen voor welke NSG regels worden toegepast op VM's en functies op basis van MAC-adres-exemplaar. De status van deze regels worden elke 60 seconden worden verzameld.
+- **NetworkSecurityGroupEvent:** Bevat vermeldingen voor welke NSG regels worden toegepast op virtuele machines en rolinstanties op basis van MAC-adres. De status van deze regels worden elke 60 seconden worden verzameld.
 
-- **NetworkSecurityGroupRuleCounter:** bevat vermeldingen voor het aantal keren dat elke NSG-regel is toegepast om te weigeren of verkeer toestaan.
+- **NetworkSecurityGroupRuleCounter:** Bevat vermeldingen voor het aantal keren dat elke NSG-regel is toegepast om te weigeren of verkeer toestaan.
 
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over beveiliging vindt u enkele van de onderwerpen over onze uitgebreide beveiliging:

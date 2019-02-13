@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 09/18/2018
 ms.custom: mvc
-ms.openlocfilehash: e756b48003ebfaff98271d93a3d8f0231571b5f9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: ca0a6569dda89586c629cc46909862de4f27cf04
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242430"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56160908"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Azure Stack-compute-capaciteitsplanning
 De [VM-grootten in Azure Stack ondersteund](./user/azure-stack-vm-sizes.md) vormen een subset van die worden ondersteund op Azure. Azure legt resourcebeperkingen langs veel vectoren om te voorkomen dat overmatig van resources (server-service op het niveau en lokale). Zonder enige beperkingen met betrekking tot tenantverbruik opleggen, afnemen de tenant-ervaringen wanneer andere tenants overconsume resources. Voor netwerken uitgaande verkeer van de virtuele machine zijn er bandbreedte limieten in plaats van Azure Stack die overeenkomen met de Azure-beperkingen. Storage-resources, opslag IOPs-limieten geïmplementeerd in Azure Stack om te voorkomen dat basic overmatig van resources door tenants voor toegang tot opslag.  

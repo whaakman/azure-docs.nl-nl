@@ -12,12 +12,13 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: 668d69921fd2001cd52bc864e5ee272d179a7bbc
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a7cd67a9a7027e8567e470acab006fd09748de54
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770466"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56181708"
 ---
 # <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>Mogelijke redenen voor het foutbericht 'U kunt daar niet komen vanaf hier'
 Tijdens het openen van de interne web-apps of services van uw organisatie, krijgt u mogelijk een foutbericht dat aangeeft dat deze, **u daar niet komen vanaf hier**. Dit bericht betekent dat uw organisatie een beleid in plaats dat voorkomt dat uw apparaat toegang tot resources van uw organisatie heeft gezet. Hoewel u ontstaat mogelijk contact opnemen met de Helpdesk als dit probleem wilt oplossen, vindt hier u enkele dingen die u kunt eerst proberen.

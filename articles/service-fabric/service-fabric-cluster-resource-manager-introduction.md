@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: e3cf87ca49ae39966cffbb768dc1c191991d4036
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f3f8cf88268498d20651eab40eb655313180cadc
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096905"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203196"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Maak kennis met de Service Fabric-cluster resource manager
 Traditioneel beheer van IT-systemen of online services bedoeld specifieke fysieke of virtuele machines toe die specifieke services of systemen. Services zijn ontworpen als lagen. Er worden een 'web'-laag en een laag "gegevens" of 'opslag'. Toepassingen hoeft een berichtenservice waar aanvragen gestroomd en afmelden, evenals een set van machines speciaal voor opslaan in cache. Elke servicelaag of het type workload specifieke computers die zijn toegewezen aan deze was: de database hebt u een aantal machines die zijn toegewezen, de webservers van een enkele. Als een bepaald type werkbelasting de machines er veroorzaakt op uitvoeren te ' hot ', en vervolgens u meer machines met dezelfde configuratie hebt toegevoegd aan die laag. Echter niet van alle werkbelastingen kunnen zo gemakkelijk worden uitgebreid - met name met de gegevenslaag zou u meestal machines met grotere machines vervangen. Eenvoudig. Als een virtuele machine is mislukt, wordt die deel uitmaken van de algemene toepassing is op lagere capaciteit totdat de computer kan worden hersteld. Nog steeds redelijk eenvoudig is (als deze niet per se leuke).
@@ -43,10 +43,6 @@ Cluster Resource Manager is het onderdeel van die verantwoordelijk is voor indel
 1. Regels afdwingen
 2. Uw omgeving te optimaliseren
 3. Hulp bij het met andere processen
-
-Om te zien hoe de Cluster Resource Manager werkt, bekijkt u de volgende video van Microsoft Virtual Academy: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=d4tka66yC_5706218965">
-<img src="./media/service-fabric-cluster-resource-manager-introduction/ConceptsAndDemoVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
 
 ### <a name="what-it-isnt"></a>Wat is het niet
 In traditionele toepassingen met N lagen, er is altijd een [Load Balancer](https://en.wikipedia.org/wiki/Load_balancing_(computing)). Dit is meestal een Network Load Balancer (NLB) of een toepassing Load Balancer (ALB), afhankelijk van waar het zit in de netwerkstack. Sommige load balancers zijn Hardware-systemen, zoals van F5 BigIP aanbieding, andere zijn op basis van software, zoals Microsoft NLB de. In andere omgevingen ziet u mogelijk iets zoals HAProxy, nginx, Istio of Envoy in deze rol. In deze architectuur is de taak van taakverdeling om ervoor te zorgen staatloze werkbelastingen ontvangen (ongeveer) dezelfde hoeveelheid werk. Strategieën voor taakverdeling uiteenlopende laden. Sommige balancers zou elke andere aanroep naar een andere server verzenden. Anderen vastmaken/sessiepersistentie geboden. Meer geavanceerde balancers gebruiken schatting van de werkelijke belasting of rapportage voor het routeren van een aanroep op basis van de verwachte kosten en de huidige belasting van de machine.

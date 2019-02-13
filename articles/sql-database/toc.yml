@@ -1,5 +1,5 @@
 items:
-- name: Documentatie voor SQL DB
+- name: Documentatie voor SQL Database
   href: index.yml
 - name: SQL Database Service
   items:
@@ -67,23 +67,23 @@ items:
   expanded: true
 - name: Zelfstudies
   items:
-  - name: Azure SQL Database ontwerpen
+  - name: Een database in SQL Database ontwerpen
     items:
     - name: Database ontwerpen met SSMS
       href: sql-database-design-first-database.md
     - name: Database ontwerpen met .NET
       href: sql-database-design-first-database-csharp.md
-  - name: Migreren naar Azure SQL Database
+  - name: Migreren naar SQL Database
     items:
     - name: Migreren naar een individuele/gepoolde database met DMS
       href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
     - name: Migreren naar een beheerd exemplaar met DMS
       href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
-  - name: Beveiliging in Azure SQL Database
+  - name: Beveiliging in SQL Database
     items:
-    - name: Beveiliging van individuele databases
+    - name: Beveiliging van individuele en gepoolde databases
       href: sql-database-security-tutorial.md
-    - name: Beveiliging van beheerde exemplaren met Azure AD-aanmeldingsgegevens
+    - name: Beveiliging van een beheerd exemplaar
       href: sql-database-managed-instance-aad-security-tutorial.md
   - name: Een geografisch gedistribueerde database implementeren
     href: sql-database-implement-geo-distributed-database.md
@@ -104,10 +104,10 @@ items:
   - name: Modellen kopen
     items:
     - name: Overzicht
-      href: sql-database-service-tiers.md
+      href: sql-database-purchase-models.md
     - name: Model op basis van vCore
       href: sql-database-service-tiers-vcore.md
-    - name: DTU-model
+    - name: DTU-servicelagen
       href: sql-database-service-tiers-dtu.md
     - name: Vooruitbetalen voor reservecapaciteit
       href: sql-database-reserved-capacity.md
@@ -351,8 +351,8 @@ items:
     items:
     - name: Overzicht
       href: sql-database-howto-single-database.md
-    - name: Migreren naar SQL Database
-      href: sql-database-cloud-migrate.md
+    - name: Migreren naar een individuele/gepoolde database
+      href: sql-database-single-database-migrate.md
     - name: SQL database na migratie beheren
       href: sql-database-manage-after-migration.md
     - name: Replicatie configureren
@@ -421,7 +421,7 @@ items:
         href: sql-database-elastic-query-horizontal-partitioning.md
       - name: Query's uitvoeren op tabellen met verschillende schema's
         href: sql-database-elastic-query-vertical-partitioning.md
-    - name: Taken voor Elastic Database
+    - name: Elastische taken
       items:
       - name: Maken en beheren (PowerShell)
         href: elastic-jobs-powershell.md
@@ -459,11 +459,11 @@ items:
       href: sql-database-managed-instance-connect-app.md
   - name: Gegevens laden en verplaatsen
     items:
-    - name: Een DB binnen Azure kopiëren
+    - name: Een database kopiëren binnen Azure
       href: sql-database-copy.md
-    - name: Een DB uit een BACPAC importeren
+    - name: Database uit een BACPAC-bestand importeren
       href: sql-database-import.md
-    - name: Een DB naar een BACPAC exporteren
+    - name: Database naar een BACPAC-bestand exporteren
       href: sql-database-export.md
     - name: Gegevenssynchronisatie
       items:
@@ -605,9 +605,9 @@ items:
             href: saas-tenancy-cross-tenant-reporting.md
           - name: Tenantanalyses
             items:
-            - name: Met SQL DB
+            - name: Met SQL Database
               href: saas-tenancy-tenant-analytics.md
-            - name: Met SQL DW
+            - name: Met SQL Data Warehouse
               href: saas-tenancy-tenant-analytics-adf.md
         - name: Herstel na noodgevallen met geo-herstel
           href: saas-dbpertenant-dr-geo-restore.md
@@ -714,9 +714,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Elastische taak verwijderen (afgeschaft)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 9b11a1bd8cc68aabc8881636d5fcdfe5cbaec034
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: bf8a32ede6ce782bc0ff5ac58cd12ba70283289e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55960544"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100037"

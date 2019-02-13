@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 5bbaa90554e09d27a3c521d4a13eda44021721c8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9637212d97438d58a003ecf8d840ed887c7f5e35
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176893"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198592"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Zelfstudie: Azure Active Directory-integratie met Mozy Enterprise
 
@@ -115,7 +116,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<tenantname>.Mozyenterprise.com`
 
     > [!NOTE] 
-    > Deze waarde is niet echt. Deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [Mozy Enterprise Client-ondersteuningsteam](http://support.mozy.com/) deze waarde op te halen.
+    > Deze waarde is niet echt. Werk deze waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [Mozy Enterprise Client-ondersteuningsteam](http://support.mozy.com/) deze waarde op te halen.
 
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
 

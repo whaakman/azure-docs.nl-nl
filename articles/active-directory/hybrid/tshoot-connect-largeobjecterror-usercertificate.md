@@ -16,12 +16,13 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: e0d5e466da8804e89ffecd38dd2db6e37a3cb334
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 776e3f7047e2f6b43063e085a8ae7a8d29835a75
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663635"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217350"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect-synchronisatie: Afhandeling van LargeObject-fouten die zijn veroorzaakt door userCertificate kenmerk
 
@@ -41,7 +42,7 @@ Gebruik een van de volgende methoden om de lijst van objecten in uw tenant met L
 ## <a name="mitigation-options"></a>Opties voor risicobeperking
 Totdat de LargeObject-fout is opgelost, kan de wijzigingen van andere kenmerken op hetzelfde object kunnen niet worden geëxporteerd naar Azure AD. U kunt de fout oplossen, kunt u de volgende opties overwegen:
 
- * Azure AD Connect voor het bouwen van 1.1.524.0 en hoger upgraden of na. Bouw 1.1.524.0 en hoger, de out-of-box-synchronisatie regels om te exporteren niet kenmerken userCertificate en usersmimecertificate wordt door als de kenmerken meer dan 15 waarden hebben zijn bijgewerkt in Azure AD Connect. Raadpleeg voor meer informatie over het bijwerken van Azure AD Connect het artikel [Azure AD Connect: Een upgrade uitvoeren van een eerdere versie naar de meest recente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version).
+ * Azure AD Connect voor het bouwen van 1.1.524.0 en hoger upgraden of na. Bouw 1.1.524.0 en hoger, de out-of-box-synchronisatie regels om te exporteren niet kenmerken userCertificate en usersmimecertificate wordt door als de kenmerken meer dan 15 waarden hebben zijn bijgewerkt in Azure AD Connect. Raadpleeg voor meer informatie over het bijwerken van Azure AD Connect het artikel [Azure AD Connect: Upgraden van een vorige naar de meest recente versie](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version).
 
  * Implementeer een **uitgaande synchronisatieregel** in Azure AD Connect die Hiermee exporteert u een **null-waarde in plaats van de werkelijke waarden voor objecten met meer dan 15 certificaatwaarden**. Deze optie is geschikt als u een van de certificaatwaarden om te worden geëxporteerd naar Azure AD voor objecten met meer dan 15 waarden niet nodig hebt. Raadpleeg voor meer informatie over het implementeren van deze synchronisatieregel, volgende sectie [synchronisatieregel implementeren naar de export van het kenmerk userCertificate beperken](#implementing-sync-rule-to-limit-export-of-usercertificate-attribute).
 

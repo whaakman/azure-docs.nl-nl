@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: v-wingf
-ms.openlocfilehash: aafbde6907e59be3b0ff1d5807ffe4a7d2fffaa4
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 03c45a19c8f6bbce2ffdfff0758eb3e57203b7cf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346098"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211203"
 ---
 # <a name="tutorial-configure-cisco-spark-for-automatic-user-provisioning"></a>Zelfstudie: Cisco Spark voor het automatisch inrichten van gebruikers configureren
 
@@ -30,7 +31,7 @@ Het doel van deze zelfstudie is ter illustratie van de stappen om te worden uitg
 > [!NOTE]
 > Deze zelfstudie beschrijft een connector die is gebaseerd op de Provisioning-Service van Azure AD-gebruiker. Zie voor belangrijke informatie over wat deze service biedt, hoe het werkt en veelgestelde vragen [automatiseren van gebruikersinrichting en -opheffing in SaaS-toepassingen met Azure Active Directory](../manage-apps/user-provisioning.md).
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende vereisten hebt:
 
@@ -42,14 +43,14 @@ Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende verei
 > [!NOTE]
 > De integratie wordt ingericht op Azure AD is afhankelijk van de [Cisco Spark Webservice](https://developer.webex.com/getting-started.html), die beschikbaar is voor teams van Cisco Spark.
 
-## <a name="adding-cisco-spark-from-the-gallery"></a>Cisco Spark uit de galerie toe te voegen
+## <a name="adding-cisco-spark-from-the-gallery"></a>Cisco Spark toevoegen vanuit de galerie
 Voordat u Cisco Spark configureert voor het automatisch gebruikers inrichten met Azure AD, moet u Cisco Spark uit de galerie met Azure AD toevoegen aan uw lijst met beheerde SaaS-toepassingen.
 
 **Als u wilt toevoegen Cisco Spark uit de galerie met Azure AD, moet u de volgende stappen uitvoeren:**
 
 1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op de **Azure Active Directory** pictogram.
 
-    ![De Azure Active Directory-knop][1]
+    ![De knop Azure Active Directory][1]
 
 2. Navigeer naar **bedrijfstoepassingen** > **alle toepassingen**.
 
@@ -57,17 +58,17 @@ Voordat u Cisco Spark configureert voor het automatisch gebruikers inrichten met
 
 3. Cisco Spark toevoegen, klikt u op de **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing][3]
 
 4. Typ in het zoekvak **Cisco Spark**.
 
-    ![Cisco Spark inrichten](./media/cisco-spark-provisioning-tutorial/AppSearch.png)
+    ![Cisco Spark Provisioning](./media/cisco-spark-provisioning-tutorial/AppSearch.png)
 
 5. Selecteer in het deelvenster resultaten **Cisco Spark**, en klik vervolgens op de **toevoegen** knop Cisco Spark toevoegen aan uw lijst met SaaS-toepassingen.
 
-    ![Cisco Spark inrichten](./media/cisco-spark-provisioning-tutorial/AppSearchResults.png)
+    ![Cisco Spark Provisioning](./media/cisco-spark-provisioning-tutorial/AppSearchResults.png)
 
-    ![Cisco Spark inrichten](./media/cisco-spark-provisioning-tutorial/AppCreation.png)
+    ![Cisco Spark Provisioning](./media/cisco-spark-provisioning-tutorial/AppCreation.png)
 
 ## <a name="assigning-users-to-cisco-spark"></a>Gebruikers toewijzen aan Cisco Spark
 
@@ -95,15 +96,15 @@ Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-inricht
 
 2. Selecteer Cisco Spark in uw lijst met SaaS-toepassingen.
 
-    ![Cisco Spark inrichten](./media/cisco-spark-provisioning-tutorial/Successcenter2.png)
+    ![Cisco Spark Provisioning](./media/cisco-spark-provisioning-tutorial/Successcenter2.png)
 
 3. Selecteer de **Provisioning** tabblad.
 
-    ![Cisco Spark inrichten](./media/cisco-spark-provisioning-tutorial/ProvisioningTab.png)
+    ![Cisco Spark Provisioning](./media/cisco-spark-provisioning-tutorial/ProvisioningTab.png)
 
 4. Stel de **Inrichtingsmodus** naar **automatische**.
 
-    ![Cisco Spark inrichten](./media/cisco-spark-provisioning-tutorial/ProvisioningCredentials.png)
+    ![Cisco Spark Provisioning](./media/cisco-spark-provisioning-tutorial/ProvisioningCredentials.png)
 
 5. Onder de **beheerdersreferenties** sectie, voer de **Tenant-URL**, en **geheim Token** van uw Cisco-Spark-account.
 
@@ -137,35 +138,35 @@ Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-inricht
 
 1. Bij het invullen van de velden die in stap 5 wordt weergegeven, klikt u op **testverbinding** om te controleren of Azure AD een verbinding kunt maken met Cisco Spark. Als de verbinding is mislukt, zorg ervoor dat uw Cisco Spark account beheerdersmachtigingen heeft en probeer het opnieuw.
 
-    ![Cisco Spark inrichten](./media/cisco-spark-provisioning-tutorial/TestConnection.png)
+    ![Cisco Spark Provisioning](./media/cisco-spark-provisioning-tutorial/TestConnection.png)
 
 8. In de **e-mailmelding** en voer het e-mailadres van een persoon of groep die u moet de inrichting fout ontvangen en schakel het selectievakje in - **een e-mailmelding verzenden wanneer een foutoptreedt**.
 
-    ![Cisco Spark inrichten](./media/cisco-spark-provisioning-tutorial/EmailNotification.png)
+    ![Cisco Spark Provisioning](./media/cisco-spark-provisioning-tutorial/EmailNotification.png)
 
 9. Klik op **Opslaan**.
 
 10. Onder de **toewijzingen** sectie, selecteer **synchroniseren Azure Active Directory: gebruikers met Cisco Spark**.
 
-    ![Cisco Spark inrichten](./media/cisco-spark-provisioning-tutorial/UserMapping.png)
+    ![Cisco Spark Provisioning](./media/cisco-spark-provisioning-tutorial/UserMapping.png)
 
 11. Controleer de kenmerken van de gebruiker die worden gesynchroniseerd vanuit Azure AD met Cisco Spark in de **kenmerk toewijzing** sectie. De kenmerken die zijn geselecteerd als **overeenkomende** eigenschappen worden gebruikt zodat deze overeenkomen met de gebruikersaccounts in Cisco Spark voor update-bewerkingen. Selecteer de **opslaan** knop wijzigingen doorvoeren.
 
-    ![Cisco Spark inrichten](./media/cisco-spark-provisioning-tutorial/UserMappingAttributes.png)
+    ![Cisco Spark Provisioning](./media/cisco-spark-provisioning-tutorial/UserMappingAttributes.png)
 
 12. Als u wilt configureren bereikfilters, raadpleegt u de volgende instructies in de [Scoping filter zelfstudie](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
 13. Om in te schakelen in de Azure AD-inrichtingsservice voor Cisco Spark, wijzigen de **Inrichtingsstatus** naar **op** in de **instellingen** sectie.
 
-    ![Cisco Spark inrichten](./media/cisco-spark-provisioning-tutorial/ProvisioningStatus.png)
+    ![Cisco Spark Provisioning](./media/cisco-spark-provisioning-tutorial/ProvisioningStatus.png)
 
 14. De gebruikers en/of groepen die u wilt inrichten met Cisco Spark definiëren door het kiezen van de gewenste waarden in **bereik** in de **instellingen** sectie.
 
-    ![Cisco Spark inrichten](./media/cisco-spark-provisioning-tutorial/SyncScope.png)
+    ![Cisco Spark Provisioning](./media/cisco-spark-provisioning-tutorial/SyncScope.png)
 
 15. Wanneer u klaar om in te richten bent, klikt u op **opslaan**.
 
-    ![Cisco Spark inrichten](./media/cisco-spark-provisioning-tutorial/Save.png)
+    ![Cisco Spark Provisioning](./media/cisco-spark-provisioning-tutorial/Save.png)
 
 
 Met deze bewerking wordt gestart voor de initiële synchronisatie van alle gebruikers en/of groepen die zijn gedefinieerd **bereik** in de **instellingen** sectie. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer elke 40 minuten optreden als de Azure AD-inrichtingsservice wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en koppelingen volgen voor het inrichten van rapport van de activiteit, die alle acties die worden uitgevoerd door de Azure AD-inrichtingsservice op Cisco Spark beschrijft.
@@ -176,7 +177,7 @@ Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [ra
 
 * Cisco Spark is momenteel in de Cisco vroege veld testen (EFT) fase. Voor meer informatie, neem contact op met [van Cisco-ondersteuningsteam](https://www.webex.co.in/support/support-overview.html). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)

@@ -11,6 +11,7 @@
 ## [SQL Server migreren naar online Azure SQL DB](tutorial-sql-server-azure-sql-online.md)
 ## [SQL Server migreren naar een met Azure SQL-database beheerd offline exemplaar](tutorial-sql-server-to-managed-instance.md)
 ## [SQL Server migreren naar een met Azure SQL-database beheerd online exemplaar](tutorial-sql-server-managed-instance-online.md)
+## [RDS SQL Server migreren naar Azure SQL DB of een met Azure SQL DB beheerd online exemplaar](tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md)
 ## [MySQL migreren naar Azure DB voor offline MySQL](tutorial-mysql-azure-mysql-online.md)
 ## [PostgreSQL migreren naar Azure DB voor PostgreSQL online](tutorial-postgresql-azure-postgresql-online.md)
 ## [MongoDB offline migreren naar de Azure Cosmos DB-API](tutorial-mongodb-cosmos-db.md)

@@ -14,26 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 58db410fe5a6c2b081507eae2ccad3a258ec0864
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 226fea2df2b4a5d6dd428c1d28d8c09f47bca7de
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427587"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56162285"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Zo wilt u meer informatie over Service Fabric?
 Azure Service Fabric is een gedistribueerde systemen platform waarmee u gemakkelijk pakket, implementeren en beheren van schaalbare en betrouwbare microservices.  Service Fabric is een grote-gebied, en er is veel te leren.  In dit artikel biedt een overzicht van Service Fabric en beschrijft de belangrijkste concepten, programmeermodellen, levensduur van toepassingen, testen, clusters en statuscontrole. Lees de [overzicht](service-fabric-overview.md) en [wat zijn microservices?](service-fabric-overview-microservices.md) voor een inleiding en hoe Service Fabric kan worden gebruikt om te maken van microservices. In dit artikel bevat een uitgebreide lijst met inhoud, maar koppelen aan het overzicht en artikelen aan de slag voor elk gebied van Service Fabric. 
 
 ## <a name="core-concepts"></a>Basisconcepten
 [Service Fabric-terminologie](service-fabric-technical-overview.md), [toepassingsmodel](service-fabric-application-model.md), en [ondersteunde programmeermodellen](service-fabric-choose-framework.md) bieden meer concepten en beschrijvingen, maar hier zijn de basisprincipes.
-
-<table><tr><th>Basisconcepten</th><th>Ontwerptijd</th><th>Tijdens het gebruik</th></tr>
-<tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">
-<img src="./media/service-fabric-content-roadmap/CoreConceptsVid.png" WIDTH="240" HEIGHT="162"></a></td>
-<td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tlkI046yC_2906218965"><img src="./media/service-fabric-content-roadmap/RunTimeVid.png" WIDTH="240" HEIGHT="162"></a></td>
-<td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=x7CVH56yC_1406218965">
-<img src="./media/service-fabric-content-roadmap/RunTimeVid.png" WIDTH="240" HEIGHT="162"></a></td></tr>
-</table>
 
 ### <a name="design-time-application-type-service-type-application-package-and-manifest-service-package-and-manifest"></a>Ontwerptijd: toepassingstype, servicetype, toepassingspakket en manifest, service-pakket en het manifest
 Een toepassingstype is de naam/versie toegewezen aan een verzameling van servicetypen. Dit is gedefinieerd in een *ApplicationManifest.xml* -bestand, dat is ingesloten in een pakket toepassingsmap. Het toepassingspakket wordt vervolgens gekopieerd naar de installatiekopieopslag van het Service Fabric-cluster. U kunt vervolgens een toepassing met de naam van dit toepassingstype, die vervolgens wordt uitgevoerd binnen het cluster maken. 
@@ -106,10 +98,6 @@ Wanneer een toepassing in Service Fabric met andere platforms, meestal niet via 
 
 De hele app-levenscyclus kan worden beheerd met behulp van [PowerShell-cmdlets](/powershell/module/ServiceFabric/), [CLI-opdrachten](service-fabric-sfctl.md), [C#-API's](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java-API's](/java/api/overview/azure/servicefabric), en [ REST-API's](/rest/api/servicefabric/). U kunt ook instellen van continue integratie/continue implementatie pijplijnen met behulp van hulpprogramma's zoals [Azure pijplijnen](service-fabric-set-up-continuous-integration.md) of [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
 
-De volgende video van Microsoft Virtual Academy wordt beschreven hoe u de levensduur van uw toepassingen beheren: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
-<img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
-
 ## <a name="test-applications-and-services"></a>Testtoepassingen en -services
 Als u wilt maken echt schaalbare services, is het essentieel om te controleren of dat uw toepassingen en services echte fouten kunnen beschikken. De Fault Analysis Service is ontworpen voor het testen van services die zijn ingebouwd in Service Fabric. Met de [Fault Analysis Service](service-fabric-testability-overview.md), kunt u zinvolle fouten veroorzaken en volledige Testscenario's uitvoeren in uw toepassingen. Deze fouten en scenario's maken en valideren van de talloze Staten en overgangen die een service tijdens de levensduur, allemaal in een gecontroleerde, veilige en consistente manier optreden zal.
 
@@ -129,10 +117,6 @@ Als u wilt maken echt schaalbare services, is het essentieel om te controleren o
 Een [Service Fabric-cluster](service-fabric-deploy-anywhere.md) is een met het netwerk verbonden reeks virtuele of fysieke machines waarop uw microservices worden geïmplementeerd en beheerd. Clusters kunnen naar duizenden machines worden geschaald. Een machine of virtuele machine die deel uitmaakt van een cluster wordt een clusterknooppunt genoemd. Aan elk knooppunt wordt een knooppuntnaam toegewezen (een tekenreeks). Knooppunten hebben kenmerken zoals plaatsingseigenschappen. Elke computer of virtuele machine is een service automatisch wordt gestart, `FabricHost.exe`, die wordt uitgevoerd bij het opstarten en start vervolgens twee uitvoerbare bestanden: Fabric.exe en FabricGateway.exe. Deze twee uitvoerbare bestanden zijn vormen van het knooppunt. Voor het testen van scenario's, kunt u meerdere knooppunten op een enkele machine of virtuele machine host door het uitvoeren van meerdere exemplaren van `Fabric.exe` en `FabricGateway.exe`.
 
 Service Fabric-clusters kunnen worden gemaakt op virtuele of fysieke machines waarop Windows Server of Linux wordt uitgevoerd. Om te implementeren en uitvoeren van Service Fabric-toepassingen in een omgeving waarin u een set van Windows Server of Linux-computers onderling hebben: on-premises, op Microsoft Azure, of op elke andere cloudprovider.
-
-De video volgende Microsoft Virtual Academy beschrijving van Service Fabric-clusters: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">
-<img src="./media/service-fabric-content-roadmap/ClusterOverview.png" WIDTH="360" HEIGHT="244">
-</a></center>
 
 ### <a name="clusters-on-azure"></a>Clusters op Azure
 Service Fabric-clusters worden uitgevoerd op Azure biedt integratie met andere Azure-functies en services, waardoor bewerkingen en het beheer van het cluster, eenvoudiger en betrouwbaarder maakt. Een cluster is een Azure Resource Manager-resource, dus u kunt een model van clusters, zoals alle andere resources in Azure. Resource Manager biedt ook eenvoudig beheer van alle resources die worden gebruikt door het cluster als één eenheid. Clusters in Azure zijn geïntegreerd met Azure diagnostics en Log Analytics. Knooppunt clustertypen [virtuele-machineschaalsets](/azure/virtual-machine-scale-sets/index), zodat de functionaliteit voor automatisch schalen is ingebouwd in.
@@ -187,10 +171,6 @@ Service Fabric biedt verschillende manieren voor het [statusrapporten weergeven]
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) of andere hulpprogramma's voor visualisatie.
 * Statusquery's (via [PowerShell](/powershell/module/ServiceFabric/), [CLI](service-fabric-sfctl.md), wordt de [C# FabricClient APIs](/dotnet/api/system.fabric.fabricclient.healthclient) en [Java FabricClient APIs](/java/api/system.fabric), of [REST API's](/rest/api/servicefabric)).
 * Algemene query's dat retourneren een lijst van entiteiten die status als een van de eigenschappen (via PowerShell, CLI, de API's of REST hebben).
-
-De volgende video van Microsoft Virtual Academy beschrijft het statusmodel van de Service Fabric en hoe deze worden gebruikt: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
-<img src="./media/service-fabric-content-roadmap/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
 
 ## <a name="monitoring-and-diagnostics"></a>Controle en diagnose
 [Controle en diagnose](service-fabric-diagnostics-overview.md) essentieel zijn voor het ontwikkelen, testen en implementeren van toepassingen en services in elke omgeving. Service Fabric-oplossingen werken het beste wanneer u plannen en implementeren van bewaking en diagnostische gegevens waarmee Zorg ervoor toepassingen dat en services werken zoals verwacht in een lokale ontwikkelingsomgeving of in de productieomgeving.

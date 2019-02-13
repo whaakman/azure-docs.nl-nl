@@ -15,12 +15,13 @@ ms.subservice: hybrid
 author: billmath
 ms.custom: seohack1
 ms.author: billmath
-ms.openlocfilehash: 74f90a84bbf58edb719ccbdc9603aa3f1574681d
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c83fe4655b3b3d4de04be74c0f3ced1ddac5ec2b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493302"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185550"
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>De SSL-certificaat voor een Active Directory Federation Services (AD FS)-farm bijwerken
 
@@ -108,3 +109,4 @@ Nadat u de configuratie hebt voltooid, wordt Azure AD Connect het bericht weerge
 
 - [Azure AD Connect en federatie](how-to-connect-fed-whatis.md)
 - [Active Directory Federation Services-beheer en aanpassingen met Azure AD Connect](how-to-connect-fed-management.md)
+

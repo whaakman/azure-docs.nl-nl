@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: fddd54e7c4e88b85f6e6fa8f7319661db96e9524
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 973a82e97bc9770c30e791512b13e4c57a4c5bca
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877538"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116895"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Testen met een set van voorbeeld-uitingen batch
 
- Testen van de batch is een uitgebreide test op uw huidige, getrainde model voor het meten van de prestaties van LUIS. De gegevens die wordt gebruikt voor het testen van de batch mag niet bevatten voorbeeld uitingen in de Intents of uitingen ontvangen van het eindpunt van de runtime voorspelling. 
+ Testen van de batch is een uitgebreide test op uw huidige, getrainde model voor het meten van de prestaties van LUIS. De gegevens die wordt gebruikt voor het testen van de batch mag niet voorbeeld uitingen bevatten in de intents of uitingen ontvangen van het eindpunt van de runtime voorspelling. 
 
 <a name="batch-testing"></a>
 

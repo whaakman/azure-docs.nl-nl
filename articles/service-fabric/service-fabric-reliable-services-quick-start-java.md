@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 84a495274ffadfe816ced21cd095f7a5e18d7f89
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 0b044b15b41e2d74f08c4bc989e22b6a19949445
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199541"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56170921"
 ---
 # <a name="get-started-with-reliable-services"></a>Aan de slag met Reliable Services
 > [!div class="op_single_selector"]
@@ -28,9 +28,7 @@ ms.locfileid: "54199541"
 >
 >
 
-In dit artikel vindt u de basisbeginselen van Azure Service Fabric Reliable Services en leidt u door het maken en implementeren van een eenvoudige betrouwbare servicetoepassing die zijn geschreven in Java. Deze video Microsoft Virtual Academy leest u ook over het maken van een stateless Reliable service: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
-<img src="./media/service-fabric-reliable-services-quick-start-java/ReliableServicesJavaVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
+In dit artikel vindt u de basisbeginselen van Azure Service Fabric Reliable Services en leidt u door het maken en implementeren van een eenvoudige betrouwbare servicetoepassing die zijn geschreven in Java. 
 
 ## <a name="installation-and-setup"></a>Installeren en instellen
 Voordat u begint, zorg ervoor dat u de Service Fabric-ontwikkelomgeving instellen op uw computer hebt.

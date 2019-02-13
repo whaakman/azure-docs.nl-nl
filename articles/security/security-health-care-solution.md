@@ -1,10 +1,10 @@
 ---
 title: Een praktische handleiding voor het ontwerpen van veilige gezondheidszorg oplossingen in Azure | Microsoft Docs
-description: " In dit artikel helpt u begrijpen hoe voor verbeterde beveiliging voor uw gezondheidszorg oplossingen met behulp van de Azure-services en functies die u configureert. "
+description: " Dit artikel helpt u begrijpen hoe u de beveiliging voor de gezondheidszorg-oplossingen verbeteren met behulp van de Azure-services en functies die u configureert. "
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 7e5b082d-dc9c-4d4f-b3f1-75edcdafbd8f
 ms.service: security
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: e91a55f3fc5923545b6855a31514afb4a62bc361
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 060c176b97966816d421ddbe0d8017ad8558710a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
-ms.locfileid: "25540972"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113839"
 ---
 # <a name="a-practical-guide-to-designing-secure-health-care-solutions-in-azure"></a>Een praktische handleiding voor het ontwerpen van veilige gezondheidszorg oplossingen in Azure
-Health bedrijfstak startups, systeemintegrators (SIs), onafhankelijke softwareleveranciers (ISV's) en ziekenhuizen overwegen van een verplaatsing naar Azure zoekt richtlijnen waarmee ze gebruikmaken van beveiligingsmechanismen om te voldoen aan hun verplichtingen.
+Status branche startende ondernemingen, systeemintegrators (SI), onafhankelijke softwareleveranciers (ISV's) en organisaties in de gezondheidszorg overweegt overgang naar Azure op zoek bent naar informatie waarmee ze gebruikmaken van beveiligingsmaatregelen om te voldoen aan hun verplichtingen.
 
-[Een praktische handleiding voor het ontwerpen van Secure gezondheidszorg-oplossingen in Microsoft Azure](https://aka.ms/azureindustrysecurity) geeft u inzicht in hoe u kunt de beveiliging verbeteren voor uw oplossingen met behulp van de Azure-services en functies die u kunt configureren op basis van uw vereisten.
-De inhoud is onderverdeeld in drie hoofdsecties:
+[Een praktische handleiding voor het ontwerpen van veilige gezondheidszorg-oplossingen in Microsoft Azure](https://aka.ms/azureindustrysecurity) geeft u inzicht in hoe u beveiliging kunt verbeteren voor uw oplossingen met behulp van de Azure-services en functies die u kunt configureren op basis van uw vereisten.
+De inhoud is onderverdeeld in drie belangrijke secties:
 
-1. Overwegingen voor richtlijnen voor het gebruik van cloud-technologie, waaronder het risicobeheer van gedeeld verantwoordelijkheid, tot stand brengen van een beheersysteem voor gegevensbeveiliging, wat industrie en lokale voorschriften en het instellen van standaardwerkwijzen.
-2. Belangrijke beveiligings-principals die beide zijn afgestemd op een standaard standaardgegevens security management, zoals ISO 27001, en standaardontwikkeling processen, zoals Microsoft Security Development Lifecycle (SDL).
-3. De basisprincipes voor het gebruik van aanvragen door de uitlijning van een perspectief architect van oplossing te demonstreren waar vereisten voor de oplossingen zijn afgestemd op de informatie beveiligingsbeheer passen.
+1. Overwegingen voor richtlijnen voor het gebruik van cloudtechnologie, waaronder risicobeheer, gedeelde verantwoordelijkheid, tot stand brengen van een beheersysteem voor informatiebeveiliging, inzicht in branche en lokale voorschriften en tot stand brengen van standaardbesturingsprocedures.
+2. Belangrijke beveiligings-principals die zijn afgestemd op een standaard management-norm voor informatiebeveiliging, zoals ISO 27001, en -standaardontwikkelingsprocessen, zoals de Microsoft Security Development Lifecycle (SDL).
+3. Toepassen van de belangrijkste principes voor het gebruik van gevallen uitlijning vanuit het oogpunt architect oplossing aan de hand, waar de vereisten voor de oplossingen zijn uitgelijnd op de standaard information security management.
 
-We hopen dat u [A praktische handleiding voor het ontwerpen van Secure gezondheidszorg oplossingen](https://aka.ms/azureindustrysecurity) handig en als u vragen of suggesties hebt, laat het ons weten als u een opmerking hieronder.
+We hopen dat u [een praktische handleiding voor het ontwerpen van veilige gezondheidszorg oplossingen](https://aka.ms/azureindustrysecurity) nuttig en als u vragen of suggesties hebt, laat het ons weten door over te laten hieronder een opmerking.

@@ -4,7 +4,7 @@ description: Meer informatie over hoe u gegevens voor logboekregistratie diep om
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: 574c295c3b44d0c6146c852777f2bef3ad13ecdd
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 51376661530d5de67e0efeacbcfd0d3a56078511
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697914"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117949"
 ---
 # <a name="azure-logging-and-auditing"></a>Logboekregistratie en bewaking in Azure
 
@@ -349,7 +349,7 @@ Er zijn vier manieren om [verzamelen van Logboeken en metrische gegevens voor Az
 |Service Fabric||       Storage||    [Service Fabric-analyse (Preview)](https://docs.microsoft.com/azure/log-analytics/log-analytics-service-fabric)|
 |SQL (v12)| Microsoft.Sql/<br>servers /<br>databases||       Diagnostiek||
 ||Microsoft.Sql/<br>servers /<br>elasticPools||||
-|Storage|||         Script| [Azure Storage Analytics (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution)|
+|Opslag|||         Script| [Azure Storage Analytics (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution)|
 |Azure Virtual Machines|    Microsoft.Compute/<br>virtualMachines|  Toestelnummer|  Toestelnummer||
 ||||Diagnostiek||
 |Virtuele-machineschaalsets|    Microsoft.Compute/<br>virtualMachines    ||Diagnostiek||

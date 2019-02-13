@@ -55,22 +55,55 @@
 ### [Pagina voor Controlegeschiedenis](./cloud-partner-portal/portal-tour/cpp-history-page.md)
 ### [Pagina met inzichten](./cloud-partner-portal/portal-tour/cpp-insights-page.md)
 
+
 ## Portalbeheer
 ### [Accountregistratie ontwikkelaarscentrum](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)
-### [Persoonlijke SKU’s](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)
-### [SEO-hulp](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
 ### [Uitgeverprofiel beheren](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
 ### [Gebruikers beheren](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
+
+
+## Bedrijfsbeheer
+### [SEO-hulp](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
 ### [Naleving AVG](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
+### [Persoonlijke SKU’s](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)
+<!--  Under development: 
+### Pricing considerations
+#### Simplified currency pricing
+#### Information on taxes and price
+#### Export-import pricing
+-->
+
+### Leads beheren
+#### [Klantenleads ophalen](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md)
+#### [Azure-tabel](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table.md)
+#### [Dynamics](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics.md)
+#### [HTTPS-eindpunt](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https.md)
+#### [Marketo](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo.md)
+#### [Salesforce](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md)
+
+### Inzichten voor verkopers
+#### [Aan de slag](./cloud-partner-portal-orig/si-getting-started.md)
+#### [Nieuwe functies](./cloud-partner-portal-orig/si-changes.md)
+#### [Webanalyse](./cloud-partner-portal-orig/web-analytics.md)
+#### [Definities](./cloud-partner-portal-orig/si-insights-definitions-v4.md)
+#### [Veelgestelde vragen over Insights](./cloud-partner-portal-orig/si-faqs.md)
+
 
 ## [Marketplace-aanbiedingen](./cloud-partner-portal/cpp-marketplace-offers.md)
-
 ### [Aanbiedingen beheren](./cloud-partner-portal/manage-offers/cpp-manage-offers.md)
 #### [Aanbieding creëren](./cloud-partner-portal/manage-offers/cpp-create-offer.md)
 #### [Aanbieding publiceren](./cloud-partner-portal/manage-offers/cpp-publish-offer.md) 
 #### [Aanbiedingsstatus bekijken](./cloud-partner-portal/manage-offers/cpp-view-status-offer.md)
 #### [Aanbieding bijwerken](./cloud-partner-portal/manage-offers/cpp-update-offer.md)
 #### [Aanbieding verwijderen](./cloud-partner-portal/manage-offers/cpp-delete-offer.md) 
+
+### Test Drive
+#### [Wat is Test Drive?](./cloud-partner-portal-orig/what-is-test-drive.md)
+#### [Test Drive voor Azure Resource Manager](./cloud-partner-portal-orig/azure-resource-manager-test-drive.md)
+#### [Gehoste Test Drive](./cloud-partner-portal-orig/hosted-test-drive.md)
+#### [Logische app voor Test Drive](./cloud-partner-portal-orig/logic-app-test-drive.md)
+#### [Transformatievoorbeelden voor Test Drive](./cloud-partner-portal-orig/transforming-examples-for-test-drive.md)
+#### [Marketing en aanbevolen procedures](./cloud-partner-portal-orig/marketing-and-best-practices.md)
 
 ### [Aanbieding voor Azure-toepassing](./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md)
 #### [Vereisten](./cloud-partner-portal/azure-applications/cpp-prerequisites.md)
@@ -82,6 +115,7 @@
 ##### [Tabblad voor ondersteuning](./cloud-partner-portal/azure-applications/cpp-support-tab.md)
 #### [Technische assets maken](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md)
 #### [Aanbieding voor Azure-toepassing maken publiceren](./cloud-partner-portal/azure-applications/cpp-publish-offer.md)
+#### [Beoordelingsfeedback verwerken](./cloud-partner-portal/azure-applications/cpp-handling-review-feedback.md)
 #### [Bestaande aanbieding bijwerken](./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md)
 
 ### [Adviesservices](./cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md)
@@ -195,29 +229,6 @@
 #### [VM-aanbieding publiceren](./cloud-partner-portal/virtual-machine/cpp-publish-offer.md)
 #### [Bestaande aanbieding bijwerken](./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md)
 
-
-## Test Drive
-### [Wat is Test Drive?](./cloud-partner-portal-orig/what-is-test-drive.md)
-### [Test Drive voor Azure Resource Manager](./cloud-partner-portal-orig/azure-resource-manager-test-drive.md)
-### [Gehoste Test Drive](./cloud-partner-portal-orig/hosted-test-drive.md)
-### [Logische app voor Test Drive](./cloud-partner-portal-orig/logic-app-test-drive.md)
-### [Transformatievoorbeelden voor Test Drive](./cloud-partner-portal-orig/transforming-examples-for-test-drive.md)
-### [Marketing en aanbevolen procedures](./cloud-partner-portal-orig/marketing-and-best-practices.md)
-
-## Leads beheren
-### [Klantenleads ophalen](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md)
-### [Azure-tabel](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table.md)
-### [Dynamics](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics.md)
-### [HTTPS-eindpunt](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https.md)
-### [Marketo](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo.md)
-### [Salesforce](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md)
-
-## Inzichten voor verkopers
-### [Aan de slag](./cloud-partner-portal-orig/si-getting-started.md)
-### [Nieuwe functies](./cloud-partner-portal-orig/si-changes.md)
-### [Webanalyse](./cloud-partner-portal-orig/web-analytics.md)
-### [Definities](./cloud-partner-portal-orig/si-insights-definitions-v4.md)
-### [Veelgestelde vragen over Insights](./cloud-partner-portal-orig/si-faqs.md)
 
 ## API-naslaginformatie
 ### [Overzicht](./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md)

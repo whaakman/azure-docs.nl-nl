@@ -7,12 +7,12 @@ ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: f417338205b17c8b949156a6d5a60ef609458fc1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 504436060a71847641635b12baa63c79c77251e6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088133"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112204"
 ---
 # <a name="management-in-azure"></a>Beheer in Azure
 
@@ -24,7 +24,7 @@ In het volgende diagram ziet u de verschillende beheergebieden die nodig zijn om
 
 ![Management disciplines](../monitoring/media/management-overview/management-capabilities.png)
 
-Er is geen enkele Azure-service voldoet volledig aan de vereisten van een bepaald gebied. In plaats daarvan wordt elk gerealiseerd door verschillende services samen te werken. Sommige services, zoals Application Insights, bieden gerichte bewakingsfunctionaliteit voor webtoepassingen. Anderen, zoals Log Analytics, beheergegevens opslaan voor andere services. Deze functie kunt u gegevens van verschillende typen die zijn verzameld door verschillende services kunt analyseren.
+Er is geen enkele Azure-service voldoet volledig aan de vereisten van een bepaald gebied. In plaats daarvan wordt elk gerealiseerd door verschillende services samen te werken. Sommige services, zoals Application Insights, bieden gerichte bewakingsfunctionaliteit voor webtoepassingen. Anderen, opslaan zoals Azure Monitor-Logboeken, van beheergegevens voor andere services. Deze functie kunt u gegevens van verschillende typen die zijn verzameld door verschillende services kunt analyseren.
 
 In de volgende gedeelten worden kort de diverse beheergebieden beschreven. Ook vindt u er koppelingen naar gedetailleerde inhoud over de belangrijkste Azure-services die voor deze gebieden bedoeld zijn.
 
