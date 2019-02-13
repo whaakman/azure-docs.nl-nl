@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 12/05/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: a36f9bf3ade623a6b623116c504c2b6a04fcdf2b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c84d876828ac96bfb44b84e99b13489d51ae3370
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474867"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694020"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Zelfstudie: Azure AD-wachtwoord opnieuw instellen vanuit het aanmeldingsscherm
 
@@ -33,6 +33,7 @@ In deze zelfstudie gaat u gebruikers in staat stellen om hun wachtwoorden op het
    * [aan een hybride Azure AD zijn gekoppeld](../device-management-hybrid-azuread-joined-devices-setup.md), met netwerkconnectiviteit aan een domeincontroller.
 * U moet self-service voor wachtwoordherstel voor Azure AD inschakelen.
 * Als uw Windows 10-apparaten zich achter een proxyserver of firewall bevinden, moet u de URL's `passwordreset.microsoftonline.com` en `ajax.aspnetcdn.com` aan uw lijst met toegestane URL’s voor HTTPS-verkeer (poort 443) toevoegen.
+* Bekijk de beperkingen hieronder voordat u deze functie in uw omgeving gebruikt.
 
 ## <a name="configure-reset-password-link-using-intune"></a>De koppeling Wachtwoord opnieuw instellen configureren met Intune
 
@@ -106,6 +107,8 @@ Het auditlogboek van Azure AD bevat informatie over het IP-adres en het ClientTy
 
 ![Voorbeeld van opnieuw instellen van wachtwoord via het aanmeldingsscherm in het auditlogboek van Azure AD](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
 
+Als gebruikers een wachtwoord opnieuw instellen vanaf het aanmeldingsscherm van een Windows 10-apparaat, wordt er een tijdelijk account met lage bevoegdheid gemaakt met de naam defaultuser1. Dit account wordt gebruikt om het proces voor het opnieuw instellen van het wachtwoord te beveiligen. Het account zelf kent een willekeurig gegenereerd wachtwoord, wordt niet getoond bij het aanmelden op een apparaat en wordt automatisch verwijderd nadat de gebruiker het wachtwoord opnieuw heeft ingesteld. Er kunnen meerdere defaultuser''-profielen naast elkaar bestaan, maar deze kunnen worden genegeerd.
+
 ## <a name="limitations"></a>Beperkingen
 
 Wanneer u deze functie test met Hyper-V, wordt de koppeling 'Wachtwoord opnieuw instellen' niet weergegeven.
@@ -116,7 +119,9 @@ Wanneer u deze functionaliteit test met Extern bureaublad of een Verbeterde VM-s
 
 * Wachtwoordherstel wordt momenteel niet ondersteund vanaf een extern bureaublad.
 
-Als Ctrl+Alt+Del wordt vereist door het beleid of meldingen voor het vergrendelen van het scherm zijn uitgeschakeld, werkt **Wachtwoord opnieuw instellen** niet.
+Als Ctrl+Alt+Del vanwege beleid in versies van Windows 10 vóór versie 1809 is vereist, werkt **Wachtwoord opnieuw instellen** niet.
+
+Als meldingen voor het vergrendelen van het scherm zijn uitgeschakeld, werkt **Wachtwoord opnieuw instellen** niet.
 
 Van de volgende beleidsinstellingen is bekend dat ze de mogelijkheid om wachtwoorden opnieuw in te stellen verstoren
 
@@ -128,7 +133,7 @@ Van de volgende beleidsinstellingen is bekend dat ze de mogelijkheid om wachtwoo
 
 Deze functie werkt niet voor netwerken waarvoor 802.1x-netwerkverificatie is geïmplementeerd en de optie Onmiddellijk uitvoeren voor gebruiker zich aanmeldt. Voor netwerken waarvoor 802.1x-netwerkverificatie is geïmplementeerd, wordt het aanbevolen computerverificatie te gebruiken om deze functie in te schakelen.
 
-Voor scenario's waarbij wordt deelgenomen aan een hybride domein, bestaat er een scenario waar de SSPR-werkstroom wordt voltooid zonder dat er een Active Directory-domeincontroller is vereist. Connectiviteit met een domeincontroller is vereist om het nieuwe wachtwoord de eerste keer te gebruiken.
+Voor scenario's waarbij wordt deelgenomen aan een hybride domein, wordt de SSPR-werkstroom voltooid zonder dat er een Active Directory-domeincontroller is vereist. Als een gebruiker het wachtwoord opnieuw instelt terwijl er geen communicatie met een Active Directory-domeincontroller mogelijk is (bijvoorbeeld als er extern wordt gewerkt), kan de gebruiker zich pas aanmelden bij het apparaat als het apparaat kan communiceren met een domeincontroller en de in de cache opgeslagen referentie kan bijwerken. **Connectiviteit met een domeincontroller is vereist om het nieuwe wachtwoord de eerste keer te gebruiken**.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

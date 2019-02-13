@@ -9,14 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: c3b8f4f8188a6a28cca8b77f169a00657b11dfc5
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 695050a46df4b208205ce394cc79db891803cfa4
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50154808"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731526"
 ---
-# <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Zelfstudie: een nieuw apparaat toevoegen aan uw Azure IoT Central-toepassing
+# <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Zelfstudie: Een nieuw apparaat toevoegen aan uw Azure IoT Central-toepassing
 
 In deze zelfstudie wordt getoond hoe u en echt apparaat aan uw Microsoft Azure IoT Central-toepassing kunt toevoegen en het kunt configureren.
 
@@ -109,9 +109,11 @@ In de volgende stappen ziet u hoe u het [Node.js](https://nodejs.org/)-voorbeeld
 
    Meer informatie over het [opdrachtregelprogramma hier](https://www.npmjs.com/package/dps-keygen).
 
-1. Het hulpprogramma dps_cstr downloaden en uitpakken vanaf [GitHub](https://github.com/Azure/dps-keygen/tree/master/bin) (Windows)
+1. Het hulpprogramma dps_cstr downloaden en uitpakken vanaf [GitHub](https://github.com/Azure/dps-keygen/archive/master.zip
 
-    Zorg ervoor dat u het bestand kiest dat overeenkomt met uw platform. Als u bijvoorbeeld Windows gebruikt, moeten dps_cstr.exe en de dll-bestanden nu beschikbaar zijn in uw map. 
+)
+
+    Make sure you choose the one that matches your platform. For example, on Windows the dps_cstr.exe and the dll files should be now available in your folder. 
 
 1. De verbindingsreeks voor een apparaatinstantie in uw toepassing wordt gegenereerd op basis van apparaatinformatie die wordt verstrekt door IoT Central.
 

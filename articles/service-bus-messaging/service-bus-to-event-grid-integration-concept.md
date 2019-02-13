@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/15/2018
 ms.author: aschhab
-ms.openlocfilehash: 41514ca5911544da8608e0c7ebad18b33c33b494
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 640c01b2c73509ac897218fdea3841d016767a49
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856907"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818258"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Overzicht integratie Azure Service Bus met Azure Event Grid
 
@@ -43,7 +43,7 @@ Ga naar uw Service Bus-naamruimte, selecteer **Toegangsbeheer (IAM)** en ga naar
 Service Bus gaat vandaag gebeurtenissen verzenden voor twee scenario's:
 
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
-* [DeadletterMessagesAvailable](#dead-lettered-messages-available-event)
+* DeadletterMessagesAvailable
 
 Bovendien worden de standaard Event Grid-beveiliging en [verificatiemechanismen](https://docs.microsoft.com/azure/event-grid/security-authentication) gebruikt.
 
@@ -115,7 +115,7 @@ Als u gebeurtenissen bijvoorbeeld alleen van één wachtrij of één abonnement 
 
 U kunt op drie verschillende manieren Event Grid-abonnementen voor Service Bus-naamruimten maken:
 
-* In [Azure Portal](#portal-instructions)
+* In de Azure Portal
 * In [Azure CLI](#azure-cli-instructions)
 * In [PowerShell](#powershell-instructions)
 
@@ -168,7 +168,7 @@ mespaceName "<YOUR NAMESPACE NAME>").Id
 New-AzureRmEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>” -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith “<YOUR SERVICE BUS SUBSCRIPTION NAME>”
 ```
 
-U kunt nu kennismaken met de andere instelopties of [testen of er gebeurtenissen stromen](#test-that-events-are-flowing).
+U kunt nu kennismaken met de andere instelopties of testen of er gebeurtenissen stromen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

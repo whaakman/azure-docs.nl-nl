@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: 3a668783e8257ef9074d12b30ff0afc3a40325f4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: a6e6dfb70182d8b4924a184dcebd1d06695911a5
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539718"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747004"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Zelfstudie: een Java EE- en Postgres-web-app in Azure maken
 
@@ -50,40 +50,24 @@ git clone https://github.com/Azure-Samples/wildfly-petstore-quickstart.git
 
 ### <a name="update-the-maven-pom"></a>Maven-POM bijwerken
 
-Werk de Maven-POM bij met de gewenste naam en resourcegroep van uw App Service. Deze waarden worden toegevoegd aan de Azure-invoegtoepassing, verderop in het bestand _pom.xml_. U hoeft niet van tevoren het App Service-plan of -exemplaar te maken. Met de Maven-invoegtoepassing worden de resourcegroep en App Service gemaakt indien deze nog niet aanwezig zijn.
+Werk de Maven-invoegtoepassing van Azure bij met de gewenste naam en resourcegroep van uw App Service. U hoeft niet van tevoren het App Service-plan of -exemplaar te maken. Met de Maven-invoegtoepassing worden de resourcegroep en App Service gemaakt indien deze nog niet aanwezig zijn. 
 
-U kunt naar beneden schuiven naar de sectie `<plugins>` van _pom.xml_ om de Azure-invoegtoepassing te inspecteren. De `<plugin>`-configuratiesectie in _pom.xml_ voor de azure-webapp-maven-plugin moet de volgende configuratie bevatten:
+U kunt naar beneden scrollen naar de sectie `<plugins>` van _pom.xml_, regel 200, om de wijzigingen te maken. 
 
 ```xml
-      <!--*************************************************-->
-      <!-- Deploy to WildFly in App Service Linux           -->
-      <!--*************************************************-->
- 
-      <plugin>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.5.0</version>
-        <configuration>
- 
-          <!-- Web App information -->
-          <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
-          <appServicePlanName>${WEBAPP_PLAN_NAME}</appServicePlanName>
-          <appName>${WEBAPP_NAME}</appName>
-          <region>${REGION}</region>
- 
-          <!-- Java Runtime Stack for Web App on Linux-->
-          <linuxRuntime>wildfly 14-jre8</linuxRuntime>
- 
-        </configuration>
-      </plugin>
+<!-- Azure App Service Maven plugin for deployment -->
+<plugin>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-webapp-maven-plugin</artifactId>
+  <version>${version.maven.azure.plugin}</version>
+  <configuration>
+    <appName>YOUR_APP_NAME</appName>
+    <resourceGroup>YOUR_RESOURCE_GROUP</resourceGroup>
+    <linuxRuntime>wildfly 14-jre8</linuxRuntime>
+  ...
+</plugin>  
 ```
-
-Vervang de tijdelijke aanduidingen door gewenste resourcenamen:
-```xml
-<azure.plugin.appname>YOUR_APP_NAME</azure.plugin.appname>
-<azure.plugin.resourcegroup>YOUR_RESOURCE_GROUP</azure.plugin.resourcegroup>
-```
-
+Vervang `YOUR_APP_NAME` en `YOUR_RESOURCE_GROUP` met de namen van uw App Service en de resourcegroep.
 
 ## <a name="build-and-deploy-the-application"></a>De toepassing compileren en implementeren
 
@@ -139,12 +123,27 @@ We gaan nu enkele wijzigingen aan de Java-toepassing aanbrengen, zodat deze gebr
 
 ### <a name="add-postgres-credentials-to-the-pom"></a>Referenties voor Postgres aan de POM toevoegen
 
-Vervang in _pom.xml_ de waarden in de tijdelijke aanduiding door de naam van de Postgres-server, de aanmeldingsnaam van de beheerder en het wachtwoord. Deze waarden worden als omgevingsvariabelen toegevoegd in uw App Service-exemplaar als u de toepassing opnieuw implementeert.
+Vervang in _pom.xml_ de hoofdletterwaarden in de tijdelijke aanduiding door de naam van de Postgres-server, de aanmeldingsnaam van de beheerder en het wachtwoord. Deze velden bevinden zich binnen de Maven-invoegtoepassing van Azure. (Vervang `YOUR_SERVER_NAME`, `YOUR_PG_USERNAME`, en `YOUR_PG_PASSWORD` in de `<value>`-tags... niet binnen de `<name>`-tags!)
 
 ```xml
-<azure.plugin.postgres-server-name>SERVER_NAME</azure.plugin.postgres-server-name>
-<azure.plugin.postgres-username>USERNAME@FIRST_PART_OF_SERVER_NAME</azure.plugin.postgres-username>
-<azure.plugin.postgres-password>PASSWORD</azure.plugin.postgres-password>
+<plugin>
+      ...
+      <appSettings>
+      <property>
+        <name>POSTGRES_CONNECTIONURL</name>
+        <value>jdbc:postgresql://YOUR_SERVER_NAME:5432/postgres?ssl=true</value>
+      </property>
+      <property>
+        <name>POSTGRES_USERNAME</name>
+        <value>YOUR_PG_USERNAME</value>
+      </property>
+      <property>
+        <name>POSTGRES_PASSWORD</name>
+        <value>YOUR_PG_PASSWORD</value>
+      </property>
+    </appSettings>
+  </configuration>
+</plugin>
 ```
 
 ### <a name="update-the-java-transaction-api"></a>Java Transaction API bijwerken

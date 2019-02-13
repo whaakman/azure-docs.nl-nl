@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/11/2018
+ms.date: 01/31/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9695c3d40ee85cf1a46e078776c88ad2f61ed839
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9d4aee884e91c52be48c8a44f185f188b0c93ab5
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465400"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511136"
 ---
 # <a name="build-a-net-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Een .NET Core- en SQL Database-app maken in Azure App Service op Linux
 
@@ -359,6 +359,35 @@ Zodra `git push` is voltooid, gaat u naar de Azure-app en probeert u de nieuwe f
 ![Azure-app na Code First Migration](./media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)
 
 Alle bestaande taakitems worden nog steeds weergegeven. Als u de .NET Core-app opnieuw publiceert, blijven bestaande gegevens in SQL Database behouden. En met Entity Framework Core Migrations wordt alleen het gegevensschema gewijzigd. De bestaande gegevens blijven ongewijzigd.
+
+## <a name="stream-diagnostic-logs"></a>Diagnostische logboeken streamen
+
+Het voorbeeldproject volgt al de instructies in [ASP.NET Core-logboekregistratie in Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure) met twee configuratiewijzigingen:
+
+- Bevat een verwijzing naar `Microsoft.Extensions.Logging.AzureAppServices` in *DotNetCoreSqlDb.csproj*.
+- Roept `loggerFactory.AddAzureWebAppDiagnostics()` aan in *Startup.cs*.
+
+> [!NOTE]
+> Het logboekniveau van het project is ingesteld op `Information` in *appsettings.json*.
+> 
+
+In App Service in Linux worden apps binnen een container uitgevoerd vanuit een standaard-Docker-installatiekopie. U hebt vanuit de container toegang tot de consolelogboeken. Als u deze logboeken wilt openen, schakelt u eerst containerlogboekregistratie in door de opdracht [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) uit te voeren in Cloud Shell.
+
+```azurecli-interactive
+az webapp log config --name <app_name> --resource-group myResourceGroup --docker-container-logging filesystem
+```
+
+Zodra containerlogboekregistratie is ingeschakeld, kunt u de logboekstream bekijken door de opdracht [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) in de Cloud Shell uit te voeren.
+
+```azurecli-interactive
+az webapp log tail --name <app_name> --resource-group myResourceGroup
+```
+
+Nadat logboekstreaming is gestart, vernieuwt u de Azure-app in de browser om wat webverkeer te genereren. U kunt nu zien dat consolelogboeken worden doorgegeven aan de terminal. Als u de consolelogboeken niet meteen ziet, probeert u het opnieuw na 30 seconden.
+
+Typ `Ctrl`+`C` om op elk gewenst moment te stoppen met logboekstreaming.
+
+Zie [Logboekregistratie in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging) voor meer informatie over het aanpassen van de ASP.NET Core-logboeken.
 
 ## <a name="manage-your-azure-app"></a>Uw Azure-app beheren
 

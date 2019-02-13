@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/29/2018
+ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 0997b12ed7bc86134d0f2cc875a98ee554c667d2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: dd875fe19bdf9d02fc7217b66c8fd442abef2d42
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461233"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700261"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>Snelstartgids: De Translator Text-API gebruiken voor transliteratie van tekst met Python
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-Op dit moment is er één eindpunt beschikbaar voor Translator Text. Deze wordt ingesteld als de `base_url`. Met `path` wordt de `transliterate`-route ingesteld en wordt bepaald dat we versie 3 van de API willen gebruiken.
+Het globaal eindpunt voor de Translator Text is ingesteld als de `base_url`. Met `path` wordt de `transliterate`-route ingesteld en wordt bepaald dat we versie 3 van de API willen gebruiken.
 
 De `params` worden gebruikt om de invoertaal, en het invoer- en uitvoerscript in te stellen. In dit voorbeeld is sprake van transliteratie van Japans naar het Latijnse alfabet.
 

@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/11/2018
+ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 8bb06493683dabb92dfe75f371f96db14a7951b3
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: ba37be1f0d7224b7e607955ab350e756b6fec350
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301000"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697548"
 ---
-# <a name="tutorial-grant-access-for-a-group-using-rbac-and-azure-powershell"></a>Zelfstudie - Toegang verlenen aan een groep met RBAC en Azure PowerShell
+# <a name="tutorial-grant-access-for-a-group-using-rbac-and-azure-powershell"></a>Zelfstudie: Toegang verlenen aan een groep met RBAC en Azure PowerShell
 
 [Op rollen gebaseerde toegangsbeheer (RBAC)](overview.md) is de manier waarop u de toegang tot resources in Azure beheert. In deze zelfstudie geeft u een groep toestemming om alles in een abonnement te bekijken en om alles in een resourcegroep te beheren met Azure PowerShell.
 
@@ -32,6 +32,8 @@ In deze zelfstudie leert u het volgende:
 > * Toegang intrekken
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -68,16 +70,16 @@ Als u een rol wilt toewijzen, hebt u een gebruiker, groep of service-principal n
    11111111-1111-1111-1111-111111111111 RBAC Tutorial Group
    ```
 
-Als u niet bevoegd bent om groepen te maken, kunt u de zelfstudie [Toegang verlenen aan een gebruiker met RBAC en Azure PowerShell](tutorial-role-assignments-user-powershell.md) proberen.
+Als u geen machtigingen hebt voor het maken van groepen, kunt u in plaats daarvan de [Zelfstudie: Toegang verlenen aan een gebruiker met RBAC en Azure PowerShell](tutorial-role-assignments-user-powershell.md) proberen.
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
 U gaat een resourcegroep maken om te laten zien hoe u een rol kunt toewijzen op het niveau van een resourcegroep.
 
-1. Vraag een lijst met regiolocaties op met behulp van de opdracht [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation).
+1. Vraag een lijst met regiolocaties op met behulp van de opdracht [Get-AzLocation](/powershell/module/az.resources/get-azlocation).
 
    ```azurepowershell
-   Get-AzureRmLocation | select Location
+   Get-AzLocation | select Location
    ```
 
 1. Selecteer een locatie bij u in de buurt en wijs deze toe aan een variabele.
@@ -86,10 +88,10 @@ U gaat een resourcegroep maken om te laten zien hoe u een rol kunt toewijzen op 
    $location = "westus"
    ```
 
-1. Maak een nieuwe resourcegroep met de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup).
+1. Maak een nieuwe resourcegroep met de opdracht [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
    ```azurepowershell
-   New-AzureRmResourceGroup -Name "rbac-tutorial-resource-group" -Location $location
+   New-AzResourceGroup -Name "rbac-tutorial-resource-group" -Location $location
    ```
 
    ```Example
@@ -102,7 +104,7 @@ U gaat een resourcegroep maken om te laten zien hoe u een rol kunt toewijzen op 
 
 ## <a name="grant-access"></a>Toegang verlenen
 
-U verleent toegang aan een groep door met de opdracht [New AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) een rol toe te wijzen. U moet hierbij de beveiligings-principal, de roldefinitie en het bereik opgeven.
+U verleent toegang aan een groep door met de opdracht [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) een rol toe te wijzen. U moet hierbij de beveiligings-principal, de roldefinitie en het bereik opgeven.
 
 1. Haal de object-id van de groep op met de opdracht [Get-AzureADGroup](/powershell/module/azuread/new-azureadgroup).
 
@@ -122,10 +124,10 @@ U verleent toegang aan een groep door met de opdracht [New AzureRmRoleAssignment
     $groupId = "11111111-1111-1111-1111-111111111111"
     ```
 
-1. Vraag de id van uw abonnement op met de opdracht [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
+1. Vraag de id van uw abonnement op met de opdracht [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription).
 
     ```azurepowershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
     ```Example
@@ -144,7 +146,7 @@ U verleent toegang aan een groep door met de opdracht [New AzureRmRoleAssignment
 1. Wijs de rol [Lezer](built-in-roles.md#reader) toe aan de groep op abonnementsniveau.
 
     ```azurepowershell
-    New-AzureRmRoleAssignment -ObjectId $groupId `
+    New-AzRoleAssignment -ObjectId $groupId `
       -RoleDefinitionName "Reader" `
       -Scope $subScope
     ```
@@ -164,7 +166,7 @@ U verleent toegang aan een groep door met de opdracht [New AzureRmRoleAssignment
 1. Wijs de rol [Inzender](built-in-roles.md#contributor) toe aan de groep op het niveau van de resourcegroep.
 
     ```azurepowershell
-    New-AzureRmRoleAssignment -ObjectId $groupId `
+    New-AzRoleAssignment -ObjectId $groupId `
       -RoleDefinitionName "Contributor" `
       -ResourceGroupName "rbac-tutorial-resource-group"
     ```
@@ -183,10 +185,10 @@ U verleent toegang aan een groep door met de opdracht [New AzureRmRoleAssignment
 
 ## <a name="list-access"></a>Toegang opvragen
 
-1. Om de toegang voor het abonnement te controleren, gebruikt u de opdracht [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) om een lijst van de roltoewijzingen weer te geven.
+1. Om de toegang voor het abonnement te controleren, gebruikt u de opdracht [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) om een lijst van de roltoewijzingen weer te geven.
 
     ```azurepowershell
-    Get-AzureRmRoleAssignment -ObjectId $groupId -Scope $subScope
+    Get-AzRoleAssignment -ObjectId $groupId -Scope $subScope
     ```
 
     ```Example
@@ -203,10 +205,10 @@ U verleent toegang aan een groep door met de opdracht [New AzureRmRoleAssignment
 
     In de uitvoer ziet u dat de rol Lezer (Reader) op abonnementsniveau is toegewezen aan RBAC Tutorial Group.
 
-1. Om de toegang voor de resourcegroep te controleren, gebruikt u de opdracht [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) om een lijst van de roltoewijzingen weer te geven.
+1. Om de toegang voor de resourcegroep te controleren, gebruikt u de opdracht [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) om een lijst van de roltoewijzingen weer te geven.
 
     ```azurepowershell
-    Get-AzureRmRoleAssignment -ObjectId $groupId -ResourceGroupName "rbac-tutorial-resource-group"
+    Get-AzRoleAssignment -ObjectId $groupId -ResourceGroupName "rbac-tutorial-resource-group"
     ```
 
     ```Example
@@ -245,12 +247,12 @@ U verleent toegang aan een groep door met de opdracht [New AzureRmRoleAssignment
 
 ## <a name="remove-access"></a>Toegang intrekken
 
-U kunt de toegang voor gebruikers, groepen en toepassingen intrekken door met de opdracht [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) een roltoewijzing te verwijderen.
+U kunt de toegang voor gebruikers, groepen en toepassingen intrekken door met de opdracht [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) een roltoewijzing te verwijderen.
 
 1. Gebruik de volgende opdracht om op het niveau van de resourcegroep de toewijzing van de rol Inzender te verwijderen voor de groep.
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -ObjectId $groupId `
+    Remove-AzRoleAssignment -ObjectId $groupId `
       -RoleDefinitionName "Contributor" `
       -ResourceGroupName "rbac-tutorial-resource-group"
     ```
@@ -258,7 +260,7 @@ U kunt de toegang voor gebruikers, groepen en toepassingen intrekken door met de
 1. Gebruik de volgende opdracht om op abonnementsniveau de toewijzing van de rol Lezer te verwijderen voor de groep.
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -ObjectId $groupId `
+    Remove-AzRoleAssignment -ObjectId $groupId `
       -RoleDefinitionName "Reader" `
       -Scope $subScope
     ```
@@ -267,10 +269,10 @@ U kunt de toegang voor gebruikers, groepen en toepassingen intrekken door met de
 
 Als u de in deze zelfstudie gemaakte resources wilt opschonen, verwijdert u de resourcegroep en de groep.
 
-1. Verwijder de resourcegroep met de opdracht [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup).
+1. Verwijder de resourcegroep met de opdracht [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 
     ```azurepowershell
-    Remove-AzureRmResourceGroup -Name "rbac-tutorial-resource-group"
+    Remove-AzResourceGroup -Name "rbac-tutorial-resource-group"
     ```
 
     ```Example

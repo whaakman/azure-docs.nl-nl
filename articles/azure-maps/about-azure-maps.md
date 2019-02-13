@@ -1,24 +1,24 @@
 ---
 title: Overzicht van Azure Maps | Microsoft Docs
 description: Een inleiding tot Azure Maps
-author: dsk-2015
-ms.author: dkshir
-ms.date: 09/12/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 02/04/2019
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9bf168a0f06d662526d172687e54327b55d50bd8
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ce55185effc67709157ce6219c405bb8e32dd5db
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104264"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768576"
 ---
 # <a name="what-is-azure-maps"></a>Wat is Azure Maps?
 
-Azure Maps is een verzameling georuimtelijke services die wordt ondersteund door nieuwe kaartgegevens, waarmee u uw webtoepassingen en mobiele toepassingen kunt voorzien van een nauwkeurige geografische context. Het bevat REST-API's voor het weergeven van mappen en zoeken naar nuttige plaatsen. De API's vinden ook routes naar nuttige plaatsen, verkeersomstandigheden, tijdzones en een locatie van een IP-adres. Deze API's werken met vertrouwde hulpprogramma's om snel oplossingen te ontwikkelen en te schalen waarmee locatiegegevens worden geïntegreerd in Azure-oplossingen. Naast de REST-API's wordt het webgebaseerd [JavaScript-besturingselement](https://docs.microsoft.com/javascript/api/azure-maps-control) verstrekt om ontwikkeltaken voor meerdere mediums gemakkelijk, flexibel en mobiel te maken.
+Azure Maps is een verzameling georuimtelijke services die wordt ondersteund door de nieuwste kaartgegevens die beschikbaar zijn en uw webtoepassingen en mobiele toepassingen van een nauwkeurige geografische context voorzien. Azure Maps bestaat uit REST-API's voor het weergeven van **kaarten** met verschillende stijlen en satellietbeeldmateriaal, **zoeken** naar adressen, plaatsen en bezienswaardigheden over de hele wereld; **routes** van punt naar punt, meerdere punten, optimalisatie van meerdere punten, isochronen, commerciële voertuigen, beïnvloed door verkeer en matrixroutes; weergeven van de beste verkeersstroom en incidenten; achterhalen van de locatie van de gebruiker via **geolocatie**; en de locatie converteren naar **tijdzones**, evenals het ophalen van de tijd op een locatie. Bovendien biedt Azure Maps services voor **geofencing**, opslag van **kaartgegevens** - hosten van locatiegegevens in Azure; en **ruimtelijke bewerkingen**, die locatie-informatie bieden via georuimtelijke analyses. Azure Maps-services zijn rechtstreeks beschikbaar als REST-API's of via onze robuuste **Web SDK** of **Android SDK**. Met deze hulpprogramma's kunnen ontwikkelaars snel oplossingen ontwikkelen en schalen waarmee locatiegegevens vanuit de Azure-cloud worden geïntegreerd in Azure-oplossingen. Meld u nu aan voor een gratis [Azure Maps-account](https://azure.microsoft.com/services/azure-maps/) en begin met ontwikkelen!
 
 In de volgende video wordt Azure Maps in detail uitgelegd:
 

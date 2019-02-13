@@ -15,12 +15,13 @@ ms.date: 01/31/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
-ms.openlocfilehash: 0cd3515c9df8cc5588523c51a82e16ee8ecf5e45
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8b7616eed4a17f33ad3b490c625c69cebb32a3f8
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747625"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164529"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Wat is er nieuw in Azure Active Directory?
 
@@ -49,7 +50,7 @@ Verificatie van de eenmalige wachtwoordcode (OTP) hebben we geïntroduceerd voor
 
 Zie voor meer informatie, [e eenmalige wachtwoordcode verificatie (preview)](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode) en de blog [Azure AD maakt delen en samenwerking naadloos voor elke gebruiker met een account](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-makes-sharing-and-collaboration-seamless-for-any-user/ba-p/325949).
 
-### <a name="new-azure-ad-application-proxy-cookie-settings"></a>Nieuwe Azure AD-toepassingsproxy cookie-instellingen
+### <a name="new-azure-ad-application-proxy-cookie-settings"></a>Nieuwe cookie-instellingen Azure AD-toepassingsproxy
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** App-proxy  
@@ -67,7 +68,7 @@ Zie voor meer informatie over de nieuwe cookies [Cookie-instellingen voor toegan
 
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---january-2019"></a>Nieuwe federatieve Apps beschikbaar in de galerie van Azure AD-app - januari 2019
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---january-2019"></a>Er zijn nieuwe federatieve apps beschikbaar in de app-galerie van Azure AD: januari 2019
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Bedrijfsapps  
@@ -81,7 +82,7 @@ Zie voor meer informatie over de apps [SaaS-toepassing-integratie met Azure Acti
 
 ---
 
-### <a name="new-azure-ad-identity-protection-enhancements-public-preview"></a>Verbeteringen van Azure AD Identity Protection (preview-versie)
+### <a name="new-azure-ad-identity-protection-enhancements-public-preview"></a>Er zijn nieuwe uitbreidingen voor Azure AD Identity Protection (openbare preview)
 
 **Type:** Gewijzigde functie  
 **Categorie van de service:** Identiteitsbeveiliging  
@@ -101,7 +102,7 @@ Zie voor meer informatie over de verbeteringen voor [wat is Azure Active Directo
 
 ---
 
-### <a name="new-app-lock-feature-for-the-microsoft-authenticator-app-on-ios-and-android-devices"></a>Nieuwe App Lock-functie voor de Microsoft Authenticator-app op iOS en Android-apparaten
+### <a name="new-app-lock-feature-for-the-microsoft-authenticator-app-on-ios-and-android-devices"></a>Nieuwe functie App-vergrendeling voor de Microsoft Authenticator-app op iOS- en Android-apparaten
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Microsoft Authenticator-App  
@@ -113,7 +114,7 @@ Zie voor meer informatie de [Microsoft Authenticator-app Veelgestelde vragen ove
 
 ---
 
-### <a name="enhanced-azure-ad-privileged-identity-management-pim-export-capabilities"></a>Verbeterde Azure AD Privileged Identity Management (PIM) exporteren mogelijkheden
+### <a name="enhanced-azure-ad-privileged-identity-management-pim-export-capabilities"></a>Er zijn verbeterde exportmogelijkheden in Azure AD Privileged Identity Management (PIM)
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Privileged Identity Management  
@@ -127,7 +128,7 @@ Zie voor meer informatie, [activiteit en audit geschiedenis weergeven voor Azure
 
 ## <a name="novemberdecember-2018"></a>November/December 2018
 
-### <a name="users-removed-from-synchronization-scope-no-longer-switch-to-cloud-only-accounts"></a>Gebruikers verwijderd uit synchronisatie bereik niet langer switch naar alleen-cloud-accounts
+### <a name="users-removed-from-synchronization-scope-no-longer-switch-to-cloud-only-accounts"></a>Gebruikers die zijn verwijderd uit synchronisatiebereik worden niet langer naar alleen-cloudaccounts overgeschakeld
 
 **Type:** Vast  
 **Categorie van de service:** Gebruikersbeheer  
@@ -188,7 +189,7 @@ Zie voor meer informatie over het schema [interpreteren van de Azure AD-auditlog
 
 ---
 
-### <a name="identity-protection-improvements-to-the-supervised-machine-learning-model-and-the-risk-score-engine"></a>Identity Protection verbeteringen in de bewaakte machine learning-model en de risico-engine van score
+### <a name="identity-protection-improvements-to-the-supervised-machine-learning-model-and-the-risk-score-engine"></a>Identity Protection-verbeteringen voor het Machine Learning-model en de risicoscore-engine
 
 **Type:** Gewijzigde functie  
 **Categorie van de service:** Identiteitsbeveiliging  
@@ -200,7 +201,7 @@ Detecties van risico's worden nu geëvalueerd door de bewaakte machine learning-
 
 ---
 
-### <a name="administrators-can-reset-their-own-password-using-the-microsoft-authenticator-app-public-preview"></a>Beheerders kunnen hun eigen wachtwoord met behulp van de Microsoft Authenticator-app (preview-versie) in opnieuw instellen
+### <a name="administrators-can-reset-their-own-password-using-the-microsoft-authenticator-app-public-preview"></a>Beheerders kunnen hun eigen wachtwoord opnieuw instellen met de Microsoft Authenticator-app (openbare preview)
 
 **Type:** Gewijzigde functie  
 **Categorie van de service:** Selfservice voor wachtwoord opnieuw instellen  
@@ -222,7 +223,7 @@ Zie voor meer informatie over het gebruik van de Microsoft Authenticator-app opn
 
 ---
 
-### <a name="new-azure-ad-cloud-device-administrator-role-public-preview"></a>Nieuwe Cloud-Apparaatbeheerder voor Azure AD-rol (openbare preview)
+### <a name="new-azure-ad-cloud-device-administrator-role-public-preview"></a>Nieuwe rol van Azure AD-cloudapparaatbeheerder (openbare preview)
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Apparaatregistratie en -beheer  
@@ -234,7 +235,7 @@ Zie voor meer informatie over rollen en machtigingen, [beheerdersrollen toewijze
 
 ---
 
-### <a name="manage-your-devices-using-the-new-activity-timestamp-in-azure-ad-public-preview"></a>Uw apparaten beheren met de tijdstempel van de nieuwe activiteit in Azure AD (openbare preview)
+### <a name="manage-your-devices-using-the-new-activity-timestamp-in-azure-ad-public-preview"></a>Apparaten beheren met de nieuwe activiteitstijdstempel in Azure AD (openbare preview)
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Apparaatregistratie en -beheer  
@@ -246,7 +247,7 @@ Zie voor meer informatie over het verkrijgen en gebruiken van deze timestamp [Ho
 
 ---
 
-### <a name="administrators-can-require-users-to-accept-a-terms-of-use-on-each-device"></a>Beheerders kunnen vereisen dat gebruikers de gebruiksvoorwaarden op elk apparaat accepteren
+### <a name="administrators-can-require-users-to-accept-a-terms-of-use-on-each-device"></a>Beheerders kunnen gebruikers verplichten om gebruiksvoorwaarden op elk apparaat te accepteren
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Gebruiksvoorwaarden  
@@ -258,7 +259,7 @@ Zie voor meer informatie de [Per apparaat en de gebruiksvoorwaarden gedeelte van
 
 ---
 
-### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-a-recurring-schedule"></a>Beheerders kunnen een gebruiksrechtovereenkomst verloopt op basis van een terugkerend schema configureren
+### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-a-recurring-schedule"></a>Beheerders kunnen gebruiksvoorwaarden zo configureren dat deze verlopen op basis van een terugkerend schema
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Gebruiksvoorwaarden  
@@ -283,7 +284,7 @@ Zie voor meer informatie de [voorwaarden toevoegen van gedeelte van de Azure Act
  
 ---
 
-### <a name="new-azure-ad-privileged-identity-management-pim-emails-for-azure-active-directory-roles"></a>Nieuwe Azure AD Privileged Identity Management (PIM) e-mailberichten voor Azure Active Directory-rollen
+### <a name="new-azure-ad-privileged-identity-management-pim-emails-for-azure-active-directory-roles"></a>Nieuwe e-mailberichten van Azure AD Privileged Identity Management (PIM) voor Azure Active Directory-rollen
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Privileged Identity Management  
@@ -305,7 +306,7 @@ Zie voor meer informatie over PIM en de beschikbare e-mailmeldingen [e-mailmeldi
 
 ---
 
-### <a name="group-based-licensing-is-now-generally-available"></a>Groepslicenties is nu algemeen beschikbaar
+### <a name="group-based-licensing-is-now-generally-available"></a>Licentieverlening op basis van groepen is nu algemeen beschikbaar
 
 **Type:** Gewijzigde functie  
 **Categorie van de service:** Overige  
@@ -317,7 +318,7 @@ Zie voor meer informatie over Groepslicenties [wat is licentieverlening in Azure
 
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---november-2018"></a>Nieuwe federatieve Apps beschikbaar in de galerie van Azure AD-app - November 2018
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---november-2018"></a>Er zijn nieuwe federatieve apps beschikbaar in de app-galerie van Azure AD: november 2018
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Bedrijfsapps  

@@ -7,13 +7,13 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 10/5/2018
 ms.author: cherylmc
-Customer intent: As someone with a networking background, I want to connect my corporoate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: c02020ba8d49b123cf8914214d52ac40896a3c20
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
+ms.openlocfilehash: 17d80d07f9b272b0dcb7449404d5d6626e72ce65
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248177"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692842"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Zelfstudie: Een ExpressRoute-koppeling maken met behulp van Azure Virtual WAN (preview)
 
@@ -45,7 +45,7 @@ Voordat u Virtual WAN kunt configureren, dient u eerst uw abonnement voor de Pre
 
 **Overwegingen bij de preview:**
 
-* Beschikbaarheid in regio's: US - west-centraal
+* Beschikbaarheid in regio’s: US - west-centraal
 * Het ExpressRoute-circuit moet zijn ingeschakeld in een land dat ondersteuning biedt voor [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported)
 
 ## <a name="vnet"></a>1. Een virtueel netwerk maken
@@ -70,12 +70,12 @@ Open een browser, ga naar de [Azure-portal (preview)](https://aka.ms/azurevirtua
 
 1. Selecteer uw vWAN en selecteer onder **Virtual WAN-architectuur** de optie **ExpressRoute-circuits**
 2. Als het ExpressRoute-circuit zich in hetzelfde abonnement bevindt als uw vWAN, klikt u op **ExpressRoute-circuit selecteren** vanuit uw abonnement(en) 
-3. Selecteer met de vervolgkeuzelijst de ExpressRoute die u aan de hub wilt koppelen.
-4. Als het ExpressRoute-circuit zich niet in hetzelfde abonnement bevindt of u [een autorisatiesleutel en peer-id](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md) hebt opgegeven, selecteert u **Een circuit zoeken waarvoor een autorisatiesleutel moet worden ingewisseld**
+3. Selecteer in de vervolgkeuzelijst de ExpressRoute die u aan de hub wilt koppelen.
+4. Als het ExpressRoute-circuit zich niet in hetzelfde abonnement bevindt of u [een autorisatiesleutel en peer-id](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md) hebt gekregen, selecteert u **Een circuit zoeken waarvoor een autorisatiesleutel moet worden ingewisseld**
 5. Voer de volgende details in:
 * **Autorisatiesleutel**: gegenereerd door de circuiteigenaar zoals hierboven beschreven
 * **URI van peercircuit**: circuit-URI die wordt geleverd door de circuiteigenaar en die de unieke id voor het circuit is
-* **Routeringsgewicht** - [Routeringsgewicht](../expressroute/expressroute-optimize-routing.md) biedt u de mogelijkheid voorkeur te geven aan bepaalde paden wanneer meerdere circuits van verschillende peeringlocaties aan dezelfde hub zijn verbonden
+* **Routeringsgewicht** - [Routeringsgewicht](../expressroute/expressroute-optimize-routing.md) biedt u de mogelijkheid voorkeur te geven aan bepaalde paden wanneer meerdere circuits van verschillende peeringlocaties met dezelfde hub zijn verbonden
 6. Klik op **Circuit zoeken** en selecteer het circuit, indien gevonden
 7. Selecteer een of meer hubs in de vervolgkeuzelijst en klik op **Opslaan**
 

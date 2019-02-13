@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: robinsh
-ms.openlocfilehash: ba4f5fcb08d671937c677d8a14c27aaec16bcb1b
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: e7ffd8f6f4f3aee376a09071fad0f1a36c23f1c4
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288710"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694003"
 ---
 # <a name="internet-of-things-iot-technologies-and-solutions-paas-and-saas"></a>Technologieën en oplossingen voor IoT (Internet of Things): PaaS en SaaS
 
@@ -58,7 +58,7 @@ Organisaties met minder apparaatmodellen, meer voorspelbare modellen, en beperkt
 
 ### <a name="compare-azure-iot-solution-accelerators-and-azure-iot-central"></a>Azure IoT-oplossingsversnellers en Azure IoT Central vergelijken
 
-Azure IoT biedt verschillende opties als u een typische [IoT-oplossingsarchitectuur](/azure/iot-fundamentals/iot-introduction#iot-solution-architecture) wilt implementeren, [Azure IoT-oplossingsversnellers](/azure/iot-suite) en [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions). Beide zijn geschikt voor verschillende sets vereisten van klanten.
+Azure IoT biedt verschillende opties als u een typische [IoT-oplossingsarchitectuur](/azure/iot-fundamentals/iot-introduction) wilt implementeren, [Azure IoT-oplossingsversnellers](/azure/iot-suite) en [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions). Beide zijn geschikt voor verschillende sets vereisten van klanten.
 
 [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) is de kern-PaaS van Azure waarvan zowel Azure IoT Central als Azure IoT-oplossingsversnellers gebruikmaken. IoT Hub maakt stabiele en veilige tweerichtingscommunicatie tussen miljoenen IoT-apparaten en een cloudoplossing mogelijk. Met IoT Hub kunt u de uitdagingen van IoT-implementatie aan, zoals:
 

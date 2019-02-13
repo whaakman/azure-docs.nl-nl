@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 81bc37a4bbd63beda122d7254409e2b16f0e3cb1
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 2075f8f83392c9ddd1761a96958fcb6cb12dc013
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852154"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816421"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Aan de slag met Service Bus-wachtrijen
 
@@ -45,13 +45,13 @@ Deze zelfstudie bestaat uit de volgende stappen:
 > [!NOTE] 
 > U kunt ook een Service Bus-naamruimte en berichtentiteiten maken met [PowerShell](/powershell/azure/get-started-azureps). Zie voor meer informatie [PowerShell gebruiken om Service Bus-resources te beheren](service-bus-manage-with-ps.md).
 
-Als u al een Service Bus Messaging-naamruimte hebt gemaakt, gaat u naar het gedeelte [Een wachtrij maken met de Azure-portal](#2-create-a-queue-using-the-azure-portal).
+Als u al een Service Bus Messaging-naamruimte hebt gemaakt, gaat u naar het gedeelte Een wachtrij maken met de Microsoft Azure-portal.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-queue-using-the-azure-portal"></a>Een wachtrij maken met de Azure-portal
 
-Als u al een Service Bus-wachtrij hebt gemaakt, gaat u naar het gedeelte [Berichten naar de wachtrij verzenden](#3-send-messages-to-the-queue).
+Als u al een Service Bus-wachtrij hebt gemaakt, gaat u naar het gedeelte Berichten naar de wachtrij verzenden.
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 

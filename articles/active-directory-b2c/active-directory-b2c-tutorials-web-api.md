@@ -1,138 +1,95 @@
 ---
-title: 'Zelfstudie: toegang verlenen aan een web-API van ASP.NET vanuit een web-app met behulp van Azure Active Directory B2C | Microsoft Docs'
-description: Zelfstudie over het gebruik van Active Directory B2C om een ASP.NET web-api te beveiligen en aan te roepen vanuit een ASP.NET-web-app.
+title: 'Zelfstudie: toegang verlenen aan een web-API van ASP.NET - Azure Active Directory B2C | Microsoft Docs'
+description: Zelfstudie over het gebruik van Active Directory B2C om een ASP.NET web-API te beveiligen en aan te roepen vanuit een ASP.NET-webtoepassing.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
 ms.author: davidmu
-ms.date: 11/30/2018
+ms.date: 02/04/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: d57a1b5d8e6fee52e617ccffdcf80fa5a04bc64f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cc4db0f2fe8f5db41f6e8332a398029bd105f3af
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158227"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756339"
 ---
-# <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>Zelfstudie: toegang verlenen aan een web-API van ASP.NET vanuit een web-app met behulp van Azure Active Directory B2C
+# <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Zelfstudie: Toegang verlenen aan een web-API van ASP.NET met behulp van Azure Active Directory B2C
 
-Deze zelfstudie laat zien hoe u een web-API-resource, die wordt beveiligd door een web-Azure Active Directory (Azure AD) B2C, aanroept vanuit een ASP.NET-web-app.
+Deze zelfstudie laat zien hoe u een web-API-resource, die wordt beveiligd in Azure Active Directory (Azure AD) B2C, aanroept vanuit een ASP.NET-webtoepassing.
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Een web-API registreren in uw Azure AD B2C-tenant
-> * Bereiken voor een web-API definiëren en configureren
-> * App-machtigingen verlenen aan de web-API
-> * Voorbeeldcode bijwerken zodat Azure AD B2C wordt gebruikt om een web-API te beveiligen
+> * Een web-API-toepassing toevoegen
+> * Bereiken voor een web-API configureren
+> * Machtigingen verlenen aan de web-API
+> * Configureren van het voorbeeld voor het gebruik van de toepassing
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Voltooi de zelfstudie [Azure Active Directory B2C gebruiken voor gebruikersverificatie in een ASP.NET-web-app](active-directory-b2c-tutorials-web-app.md).
-* U moet [Visual Studio 2017](https://www.visualstudio.com/downloads/) met de **ASP.NET- en webontwikkelworkload** installeren.
+Voltooi de stappen en de vereisten in de [zelfstudie: Verificatie inschakelen in een webtoepassing met behulp van Azure Active Directory B2C](active-directory-b2c-tutorials-web-app.md).
 
-## <a name="register-web-api"></a>Web-API registreren
+## <a name="add-a-web-api-application"></a>Een web-API-toepassing toevoegen
 
-Web-API-resources moeten worden geregistreerd in uw tenant voordat deze in staat zijn om [beveiligde resourceaanvragen](../active-directory/develop/developer-glossary.md#resource-server) door [clienttoepassingen](../active-directory/develop/developer-glossary.md#client-application) die een [toegangstoken](../active-directory/develop/developer-glossary.md#access-token) van Azure Active Directory aanbieden, kunnen accepteren en erop kunnen reageren. Tijdens de registratie wordt de [toepassing en het service-principal-object](../active-directory/develop/developer-glossary.md#application-object) in uw tenant opgezet. 
+Web-API-resources moeten worden geregistreerd in uw tenant voordat deze in staat zijn om beveiligde resourceaanvragen door clienttoepassingen die een toegangstoken aanbieden, kunnen accepteren en erop kunnen reageren.
 
-Meld u als globale beheerder van de Azure AD B2C-tenant aan bij [Azure Portal](https://portal.azure.com/).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Zorg ervoor dat u de map gebruikt met uw Azure AD B2C-tenant door te klikken op het **Map- en abonnementsfilter** in het bovenste menu en de map te kiezen waarin uw tenant zich bevindt.
+3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
+4. Selecteer **Toepassingen** en vervolgens **Toevoegen**.
+5. Voer een naam in voor de toepassing. Bijvoorbeeld *webapi1*.
+6. Selecteer voor **Inclusief webtoepassing/ web-API** en **Impliciete stroom toestaan** **Ja**.
+7. Voer voor de **Antwoord-URL** een eindpunt in waarop Azure AD B2C tokens retourneert die door uw toepassing worden aangevraagd. In deze zelfstudie wordt het voorbeeld lokaal uitgevoerd en luistert dit op `https://localhost:44332`.
+8. Voer voor **App ID URI** de id in die wordt gebruikt voor uw web-API. De volledige id-URI, inclusief het domein, wordt voor u gegenereerd. Bijvoorbeeld `https://contosotenant.onmicrosoft.com/api`.
+9. Klik op **Create**.
+10. Noteer op de eigenschappenpagina de toepassings-ID die u gebruikt wanneer u de webtoepassing configureert.
 
-[!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
+## <a name="configure-scopes"></a>Bereiken configureren
 
-1. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze. U gebruikt nu de tenant die u hebt gemaakt in de vorige zelfstudie.
+Bereiken bieden een manier om toegang tot beveiligde resources te reguleren. Bereiken worden door de web-API gebruikt om toegangsbeheer op basis van een bereik te implementeren. Bijvoorbeeld: gebruikers van de web-API kunnen zowel lees- als schrijftoegang hebben of alleen leestoegang. In deze zelfstudie gebruikt u bereiken om lees- en schrijfmachtigingen voor de web-API te definiëren.
 
-2. Selecteer **Toepassingen** en vervolgens **Toevoegen**.
+1. Selecteer **Toepassingen** en vervolgens *webapi1*.
+2. Selecteer **Gepubliceerde bereiken**.
+3. Voer voor **Bereik** `Hello.Read` in en voor beschrijving `Read access to hello`.
+4. Voer voor **Bereik** `Hello.Write` in en voor beschrijving `Write access to hello`.
+5. Klik op **Opslaan**.
 
-    Gebruik de volgende instellingen voor het registreren van de voorbeeld-web-API in uw tenant.
-    
-    ![Een nieuwe API toevoegen](./media/active-directory-b2c-tutorials-web-api/web-api-registration.png)
-    
-    | Instelling      | Voorgestelde waarde  | Beschrijving                                        |
-    | ------------ | ------- | -------------------------------------------------- |
-    | **Naam** | Mijn voorbeeld-web-API | Voer een **naam** in die uw web-API aan ontwikkelaars beschrijft. |
-    | **Web-app / web-API opnemen** | Ja | Selecteer **Ja** voor een web-API. |
-    | **Impliciete stroom toestaan** | Ja | Selecteer **Ja** omdat de API gebruikmaakt van [aanmelding via OpenID Connect](active-directory-b2c-reference-oidc.md). |
-    | **Antwoord-URL** | `https://localhost:44332` | Antwoord-URL's zijn eindpunten waarop Azure AD B2C tokens retourneert die worden aangevraagd door uw API. In deze zelfstudie wordt de voorbeeld-web-API lokaal (localhost) uitgevoerd, en wordt op poort 44332 geluisterd. |
-    | **App-id-URI** | myAPISample | De URI is een unieke identificatie van de API in de tenant. Hierdoor kunt u meerdere API's per tenant registreren. [Bereiken](../active-directory/develop/developer-glossary.md#scopes) bepalen de toegang tot de beveiligde API-resource en worden per app-id-URI gedefinieerd. |
-    | **Systeemeigen client** | Nee | Aangezien dit een web-API en geen systeemeigen client is, moet u Nee selecteren. |
-    
-3. Klik op **Maken** om uw API te registreren.
+De gepubliceerde bereiken kunnen worden gebruikt om een clienttoepassingstoestemming te verlenen aan de web-API.
 
-Geregistreerde API's worden weergegeven in de lijst met toepassingen voor de Azure AD B2C-tenant. Selecteer de web-API in de lijst. Het eigenschappenvenster van de web-API wordt weergegeven.
+## <a name="grant-permissions"></a>Machtigingen verlenen
 
-![Eigenschappen van de web-API](./media/active-directory-b2c-tutorials-web-api/b2c-web-api-properties.png)
+Als u een beveiligde web-API wilt aanroepen vanuit een app, moet u uw toepassing machtigingen verlenen tot de API. In de vereiste zelfstudie hebt u een webtoepassing in Azure AD B2C gemaakt met de naam *webapp1*. Met deze toepassing kunt u de web-API aanroepen.
 
-Noteer de **client-id voor de toepassing**. Met de id wordt de API uniek aangeduid. Deze hebt u nodig als u later in deze zelfstudie de API gaat configureren.
-
-Door de web-API bij Azure AD B2C te registeren, wordt een vertrouwensrelatie gedefinieerd. Omdat de API bij B2C is geregistreerd, kan de API nu de B2C-toegangstokens vertrouwen die van andere toepassingen worden ontvangen.
-
-## <a name="define-and-configure-scopes"></a>Bereiken definiëren en configureren
-
-[Bereiken](../active-directory/develop/developer-glossary.md#scopes) bieden een manier om toegang tot beveiligde resources te reguleren. Bereiken worden door de web-API gebruikt om toegangsbeheer op basis van een bereik te implementeren. Bijvoorbeeld: gebruikers van de web-API kunnen zowel lees- als schrijftoegang hebben of alleen leestoegang. In deze zelfstudie gebruikt u bereiken om lees- en schrijfmachtigingen voor de web-API te definiëren.
-
-### <a name="define-scopes-for-the-web-api"></a>Bereiken definiëren voor de web-API
-
-Geregistreerde API's worden weergegeven in de lijst met toepassingen voor de Azure AD B2C-tenant. Selecteer de web-API in de lijst. Het eigenschappenvenster van de web-API wordt weergegeven.
-
-Klik op **Gepubliceerde bereiken (preview-versie)**.
-
-Voeg de volgende gegevens toe om bereiken voor de API te configureren. 
-
-![bereiken die zijn gedefinieerd in een web-api](media/active-directory-b2c-tutorials-web-api/scopes-defined-in-web-api.png)
-
-| Instelling      | Voorgestelde waarde  | Beschrijving                                        |
-| ------------ | ------- | -------------------------------------------------- |
-| **Bereik** | Hello.Read | Leestoegang tot Hallo |
-| **Bereik** | Hello.Write | Schrijftoegang tot Hallo |
-
-Klik op **Opslaan**.
-
-De gepubliceerde bereiken kunnen worden gebruikt om een client-appmachtiging te verlenen aan de web-API.
-
-### <a name="grant-app-permissions-to-web-api"></a>App-machtigingen verlenen aan een web-API
-
-Als u een beveiligde web-API wilt aanroepen vanuit een app, moet u uw app machtigingen verlenen tot de API. Gebruik in deze zelfstudie de web-app die u hebt gemaakt in de [zelfstudie Azure Active Directory B2C gebruiken voor gebruikersverificatie in een ASP.NET-web-app](active-directory-b2c-tutorials-web-app.md). 
-
-1. Selecteer in Azure Portal **Azure AD B2C** in de lijst met services, en klik op **Toepassingen** om de lijst met geregistreerde apps weer te geven.
-
-2. Selecteer **Mijn voorbeeld-web-app** in de lijst met apps, klik op **API-toegang (preview-versie)** en vervolgens op **Toevoegen**.
-
-3. In de vervolgkeuzelijst **API selecteren** selecteert u uw geregistreerde web-API: **Mijn voorbeeld-web-app**.
-
-4. In de vervolgkeuzelijst **Bereiken selecteren** selecteert u de bereiken die u hebt gedefinieerd toen u de web-API registreerde.
-
-    ![bereiken voor app selecteren](media/active-directory-b2c-tutorials-web-api/selecting-scopes-for-app.png)
-
+1. Selecteer **Toepassingen** en vervolgens *webapp1*.
+2. Selecteer **API-toegang**, en selecteer vervolgens **Toevoegen**.
+3. Selecteer in de vervolgkeuzelijst **API selecteren** de optie *webapi1*.
+4. Selecteer in de vervolgkeuzelijst **Bereiken selecteren** de bereiken **Hello.Read** en **Hello.Write** die u eerder hebt gedefinieerd.
 5. Klik op **OK**.
 
-Uw **Mijn voorbeeld-web-app** is geregistreerd om de beveiligde **Mijn voorbeeld-web-API** te kunnen aanroepen. Een gebruiker [voert een verificatie uit](../active-directory/develop/developer-glossary.md#authentication) bij Azure AD B2C om de web-app te kunnen gebruiken. De web-app verkrijgt een [authorisatietoekenning](../active-directory/develop/developer-glossary.md#authorization-grant) van Azure AD B2C voor toegang tot de beveiligde web-API.
+Uw toepassing is geregistreerd voor het aanroepen van de beveiligde web-API. Een gebruiker voert een verificatie uit bij Azure AD B2C om de toepassing te kunnen gebruiken. De toepassing verkrijgt een autorisatietoekenning van Azure AD B2C voor toegang tot de beveiligde web-API.
 
-## <a name="update-code"></a>Code bijwerken
+## <a name="configure-the-sample"></a>Configureren van het voorbeeld
 
-Nu de web-API is geregistreerd en u bereiken hebt gedefinieerd, moet u de web-API-code configureren om uw Azure AD B2C-tenant te gebruiken. In deze zelfstudie gaat u een voorbeeld-web-API configureren. 
-
-De voorbeeld-web-API bevindt zich in het project dat u hebt gedownload in de vereiste zelfstudie: [Zelfstudie Azure Active Directory B2C gebruiken voor gebruikersverificatie in een voor een ASP.NET-web-app](active-directory-b2c-tutorials-web-app.md). Als u die vereiste zelfstudie nog niet hebt voltooid, moet u deze voltooien voordat u verdergaat.
+Nu de web-API is geregistreerd en u bereiken hebt gedefinieerd, moet u de web-API-code configureren om uw Azure AD B2C-tenant te gebruiken. In deze zelfstudie gaat u een voorbeeld-web-API configureren. De voorbeeld-web-API bevindt zich in het project dat u hebt gedownload in de vereiste zelfstudie.
 
 Er bevinden zich twee projecten in de voorbeeldoplossing:
 
-**Voorbeeld van web-app (TaskWebApp):** Web-app voor het maken en bewerken van een takenlijst. De web-app gebruikt de gebruikersstroom voor **registratie of aanmelding** om gebruikers met een e-mailadres te registreren of aan te melden.
+Deze twee projecten bevinden zich in de voorbeeldoplossing:
 
-**Web API-voorbeeld-app (TaskService):** Web-API die ondersteuning biedt voor functionaliteit voor het maken, lezen, bijwerken en verwijderen van takenlijsten. De web-API wordt beveiligd door Azure AD B2C en aangeroepen door de web-app.
+- **TaskWebApp**: een lijst met taken maken en bewerken. Het voorbeeld gebruikt de gebruikersstroom voor **registratie of aanmelding** om gebruikers te registreren of aan te melden.
+- **TaskService**: biedt ondersteuning voor het maken, lezen, bijwerken en verwijderen van takenlijstfunctionaliteit. De API wordt beveiligd door Azure AD B2C en wordt aangeroepen door TaskWebApp.
 
-De voorbeeld-web-app en -web-API definiëren de configuratiewaarden als app-instellingen in het bestand Web.config van elk project.
+### <a name="configure-the-web-application"></a>De web-app configureren
 
-Open de oplossing **B2C-WebAPI-DotNet** in Visual Studio.
-
-### <a name="configure-the-web-app"></a>De web-app configureren
-
-1. Open **Web.config** in het project **TaskWebApp**.
-
-2. Als u de API lokaal wilt uitvoeren, moet u de localhost-instelling gebruiken voor **api:TaskServiceUrl**. Ga als volgt te werk om Web.config te wijzigen: 
+1. Open de oplossing **B2C-WebAPI-DotNet** in Visual Studio.
+2. Open **Web.config** in het project **TaskWebApp**.
+3. Als u de API lokaal wilt uitvoeren, moet u de localhost-instelling gebruiken voor **api:TaskServiceUrl**. Ga als volgt te werk om Web.config te wijzigen: 
 
     ```C#
     <add key="api:TaskServiceUrl" value="https://localhost:44332/"/>
@@ -141,7 +98,7 @@ Open de oplossing **B2C-WebAPI-DotNet** in Visual Studio.
 3. Configureer de URI van de API. Dit is de URI die de web-app gebruikt om de API-aanvraag te maken. Configureer ook de machtigingen die zijn aangevraagd.
 
     ```C#
-    <add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/myAPISample/" />
+    <add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/api/" />
     <add key="api:ReadScope" value="Hello.Read" />
     <add key="api:WriteScope" value="Hello.Write" />
     ```
@@ -149,7 +106,6 @@ Open de oplossing **B2C-WebAPI-DotNet** in Visual Studio.
 ### <a name="configure-the-web-api"></a>De web-API configureren
 
 1. Open **Web.config** in het project **TaskService**.
-
 2. Configureer de API om uw tenant te gebruiken.
 
     ```C#
@@ -159,13 +115,13 @@ Open de oplossing **B2C-WebAPI-DotNet** in Visual Studio.
 3. Stel de client-id in op de geregistreerde toepassings-id voor uw API.
 
     ```C#
-    <add key="ida:ClientId" value="<The Application ID for your web API obtained from the Azure portal>"/>
+    <add key="ida:ClientId" value="<application-ID>"/>
     ```
 
-4. Werk de instelling voor de gebruikersstroom bij met de naam die is gegenereerd toen u het de gebruikersstroom voor registratie en aanmelding maakte.
+4. Werk de instelling voor de gebruikersstroom bij met de naam van de gebruikersstroom voor registratie en aanmelding.
 
     ```C#
-    <add key="ida:SignUpSignInUserFlowId" value="B2C_1_SiUpIn" />
+    <add key="ida:SignUpSignInUserFlowId" value="B2C_1_signupsignin1" />
     ```
 
 5. Configureer de bereikinstellingen zodat deze overeenkomen met wat u in de portal hebt gemaakt.
@@ -180,24 +136,26 @@ Open de oplossing **B2C-WebAPI-DotNet** in Visual Studio.
 U moet zowel project **TaskWebApp** als **TaskService** uitvoeren. 
 
 1. Klik in Solution Explorer met de rechtermuisknop op de oplossing en selecteer vervolgens **Opstartprojecten instellen...**. 
-2. Selecteer het keuzerondje **Meerdere opstartprojecten**.
+2. Selecteer **Meerdere opstartprojecten**.
 3. Wijzig de **actie** voor beide projecten in **Start**.
-4. Klik op OK om de configuratie op te slaan.
-5. Druk op **F5** om beide toepassingen uit te voeren. Elke toepassing wordt geopend in zijn eigen browsertabblad. `https://localhost:44316/` is de web-app.
+4. Klik op **OK** om de configuratie op te slaan.
+5. Druk op **F5** om beide toepassingen uit te voeren. Elke toepassing wordt geopend in zijn eigen browsertabblad. `https://localhost:44316/` is de webtoepassing.
     `https://localhost:44332/` is de web-API.
 
-6. Klik in de web-app op de registratie-/aanmeldkoppeling in de banner met het menu om u te registeren voor de webtoepassing. Gebruik het account dat u hebt gemaakt in de [zelfstudie over de web-app](active-directory-b2c-tutorials-web-app.md). 
-7. Nadat u bent aangemeld, klikt u op de koppeling **Takenlijst** en maakt u een takenlijstitem.
+6. Klik in de webtoepassing op **Registreren / aanmelden** om bij de webtoepassing aan te melden. Gebruik het account dat u eerder hebt gemaakt. 
+7. Nadat u bent aangemeld, klikt u op de link **Takenlijst** en maakt u een takenlijstitem.
 
-Als u een takenlijstitem maakt, verzendt de web-app een aanvraag naar de web-API om het takenlijstitem te maken. Uw beveiligde web-app roept de beveiligde web-API in uw Azure AD B2C-tenant aan.
-
-## <a name="clean-up-resources"></a>Resources opschonen
-
-U kunt uw Azure AD B2C-tenant gebruiken voor andere zelfstudies voor Azure AD B2C. Als u deze niet meer nodig hebt, kunt u [uw Azure AD B2C-tenant verwijderen](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
+Als u een takenlijstitem maakt, verzendt de webtoepassing een aanvraag naar de web-API om het takenlijstitem te maken. Uw beveiligde webtoepassing roept de beveiligde web-API in uw Azure AD B2C-tenant aan.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u stapsgewijs geleerd hoe u een ASP.NET-web-API kunt beveiligen door in Azure AD B2C bereiken te registreren en te definiëren. Meer informatie over het ontwikkelen van dit scenario, met inbegrip van een stapsgewijze uitleg van de code, vindt u in de volgende zelfstudie.
+In deze zelfstudie heeft u het volgende geleerd:
+
+> [!div class="checklist"]
+> * Een web-API-toepassing toevoegen
+> * Bereiken voor een web-API configureren
+> * Machtigingen verlenen aan de web-API
+> * Configureren van het voorbeeld voor het gebruik van de toepassing
 
 > [!div class="nextstepaction"]
-> [Een ASP.NET-web-app maken met Azure Active Directory B2C met mogelijkheden voor registreren, aanmelden, profiel bewerken en wachtwoord opnieuw instellen](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+> [Zelfstudie: Id-providers toevoegen aan uw toepassingen in Azure Active Directory B2C](tutorial-add-identity-providers.md)

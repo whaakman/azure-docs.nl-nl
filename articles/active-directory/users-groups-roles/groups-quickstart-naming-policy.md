@@ -1,5 +1,5 @@
 ---
-title: Naambeleid toevoegen voor Office 365-groepen in Azure Active Directory | Microsoft Docs
+title: Quickstart voor naambeleid voor Office 365-groepen in Microsoft Azure Active Directory | Microsoft Docs
 description: Legt uit hoe u nieuwe gebruikers toevoegt of bestaande gebruikers verwijdert in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/08/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 4c607558c721b38bd63a8094f433bfe9499013af
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 43ce034f2960f31d614636c77e8f30f05e8aa41e
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102206"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507097"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Snelstartgids: Naamgevingsbeleid voor groepen in Azure Active Directory
 

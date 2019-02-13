@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 0e9537f09049d5fe056819e6f8b9718cfc52f489
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 6bfc12c17b38543f0c6979b5f5eeada562483bfa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352805"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819345"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenario's en de beschikbaarheid van Media Services-functies in datacenters
 
@@ -26,7 +26,7 @@ Met Microsoft Azure Media Services (AMS) kunt u veilig video- of audio-inhoud up
 
 Azure Media Services werkt vanuit diverse datacentra, op locaties overal ter wereld. Deze datacenters worden gegroepeerd in geografische regio's, waardoor u flexibiliteit heeft bij het kiezen waar u uw toepassingen ontwikkelt. U kunt zelf de [lijst met regio's en bijbehorende locaties](https://azure.microsoft.com/regions/) bekijken. 
 
-Dit onderwerp bevat algemene scenario's voor het leveren van uw inhoud: [live](#live_scenarios) of [on-demand](#vod_scenarios). Het onderwerp bevat ook informatie over de beschikbaarheid van mediafuncties en -services in datacenters.
+Dit onderwerp bevat algemene scenario's voor het [live](#live_scenarios) of on-demand leveren van uw inhoud. Het onderwerp bevat ook informatie over de beschikbaarheid van mediafuncties en -services in datacenters.
 
 ## <a name="overview"></a>Overzicht
 
@@ -148,7 +148,7 @@ AMS-klanten kunnen streaming-eindpunten, de mediaverwerking en de opslag in hun 
 
     **Premium**-streaming-eindpunten zijn geschikt voor geavanceerde workloads omdat er gebruik wordt gemaakt van toegewezen, schaalbare bandbreedtecapaciteit. Klanten met een **Premium**-streaming-eindpunt krijgen standaard één streaming-eenheid (SU). Het streaming-eindpunt kan worden geschaald door SU's toe te voegen. Elke SU biedt extra bandbreedtecapaciteit voor de toepassing. Zie het onderwerp [Streaming-eindpunten schalen](media-services-portal-scale-streaming-endpoints.md) voor meer informatie over het schalen van **Premium**-streaming-eindpunten.
 
-* Media Services-accounts worden gekoppeld aan een gereserveerde-eenheidstype, waarmee wordt bepaald hoe snel de mediaverwerkingstaken worden verwerkt. U kunt kiezen uit de volgende gereserveerde-eenheidstypen: **S1**, **S2** en **S3**. Een coderingstaak wordt bijvoorbeeld sneller uitgevoerd wanneer u het gereserveerde-eenheidstype **S2** gebruikt (in vergelijking met het type **S1**).
+* Media Services-accounts worden gekoppeld aan een gereserveerde-eenheidstype, waarmee wordt bepaald hoe snel de mediaverwerkingstaken worden verwerkt. U kunt kiezen uit de volgende gereserveerde-eenheidstypen: **S1**, **S2**, of **S3**. Een coderingstaak wordt bijvoorbeeld sneller uitgevoerd wanneer u het gereserveerde-eenheidstype **S2** gebruikt (in vergelijking met het type **S1**).
 
     Naast het opgeven van het gereserveerde-eenheidstype kunt u opgeven dat uw account moet worden ingericht met **gereserveerde eenheden** (RUs). Op basis van het aantal ingerichte RU's wordt bepaald hoeveel mediataken tegelijk kunnen worden verwerkt voor een bepaald account.
 
@@ -183,7 +183,7 @@ Media Services-klanten kunnen een **Standard**-streaming-eindpunt of een Premium
 
 #### <a name="availability"></a>Beschikbaarheid
 
-Beschikbaar in alle datacenters, behalve in: Duitsland, BR - zuid, India - west, India - zuid en India - centraal. 
+Beschikbaar in alle datacenters behalve: Duitsland, Brazilië - zuid, India - west, India - zuid en India - centraal. 
 
 ### <a name="encoding-media-processors"></a>Mediaprocessors coderen
 
@@ -240,7 +240,7 @@ Beschikbaar in alle datacenters.
 
 ### <a name="reserved-unit-ru-type"></a>Gereserveerde-eenheidstype (RU)
 
-Media Services-accounts worden gekoppeld aan een gereserveerde-eenheidstype, waarmee wordt bepaald hoe snel de mediaverwerkingstaken worden verwerkt. U kunt kiezen uit de volgende gereserveerde-eenheidstypen: S1, S2 en S3.
+Media Services-accounts worden gekoppeld aan een gereserveerde-eenheidstype, waarmee wordt bepaald hoe snel de mediaverwerkingstaken worden verwerkt. U kunt kiezen uit de volgende gereserveerde-eenheidstypen: S1, S2, or S3.
 
 Zie de sectie [Schalen](#scaling) voor meer informatie.
 

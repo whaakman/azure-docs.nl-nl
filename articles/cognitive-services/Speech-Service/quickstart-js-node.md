@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 1/16/2019
 ms.author: fmegen
-ms.openlocfilehash: c9f83368a540003e8bcc35282c664ec23e4ff068
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 99938f8b64339556c0ee4b9caa9124c609159af6
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226499"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747268"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-nodejs"></a>Quickstart: Spraak herkennen met de Speech-SDK voor Node.js
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-nodejs"></a>Snelstart: Spraak herkennen met de Speech-SDK voor Node.js
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In dit artikel leert u hoe u een Node.js-project maakt met behulp van de JavaScript-binding van de Cognitive Services Speech-SDK om spraak-naar-tekst te transcriberen.
-De toepassing is gebaseerd op de Microsoft [Cognitive Services Speech-SDK](https://aka.ms/csspeech/npmpackage).
+In dit artikel leert u hoe u een Node.js-project maakt met behulp van de JavaScript-binding van de Speech-SDK voor Azure Cognitive Services om spraak-naar-tekst te transcriberen.
+De toepassing is gebaseerd op de [Speech-SDK voor JavaScript](https://aka.ms/csspeech/npmpackage).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -31,48 +31,48 @@ De toepassing is gebaseerd op de Microsoft [Cognitive Services Speech-SDK](https
 
 ## <a name="create-a-new-project"></a>Een nieuw project maken
 
-Maak een nieuwe map en initialiseer het project.
+Maak een nieuwe map en initialiseer het project:
 
 ```sh
 npm init -f
 ```
 
-Hiermee worden de package.json-bestanden geïnitialiseerd met standaardwaarden. Waarschijnlijk wilt u dit bestand later bewerken.
+Hiermee worden de **package.json**-bestanden geïnitialiseerd met standaardwaarden. Waarschijnlijk wilt u dit bestand later bewerken.
 
 ## <a name="install-the-speech-sdk"></a>De Speech-SDK installeren
 
-Voeg de Speech-SDK toe aan uw Node.js-project.
+Voeg de Speech-SDK toe aan uw Node.js-project:
 
 ```
 npm install microsoft-cognitiveservices-speech-sdk
 ```
 
-Hiermee worden de meest recente versie van de Speech-SDK en alle vereiste onderdelen van npmjs gedownload en geïnstalleerd. De SDK wordt geïnstalleerd in de map `node_modules` van de projectmap.
+Hiermee worden de meest recente versie van de Speech-SDK en alle vereiste onderdelen van **npmjs** gedownload en geïnstalleerd. De SDK wordt geïnstalleerd in de map `node_modules` van uw projectmap.
 
 ## <a name="use-the-speech-sdk"></a>De Speech-SDK gebruiken
 
 Maak een nieuw bestand in de map met de naam `index.js` en open dit bestand met een teksteditor.
 
 > [!NOTE]
-> In Node.js biedt de Speech Service-SDK geen ondersteuning voor de microfoon of het gegevenstype Bestand. Beide worden alleen ondersteund in browsers. Gebruik in plaats daarvan de Stream-interface met de Speech Service-SDK, via `AudioInputStream.createPushStream()` of via `AudioInputStream.createPullStream()`.
+> In Node.js biedt de Speech-SDK geen ondersteuning voor de microfoon of het gegevenstype **Bestand**. Beide worden alleen ondersteund in browsers. Gebruik in plaats daarvan de **Stream**-interface naar de Speech-SDK, via `AudioInputStream.createPushStream()` of via `AudioInputStream.createPullStream()`.
 
 In dit voorbeeld gebruiken we de `PushAudioInputStream`-interface.
 
-Voeg de volgende JavaScript-code toe:
+Voeg deze JavaScript-code toe:
 
 [!code-javascript[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/js-node/index.js#code)]
 
 ## <a name="run-the-sample"></a>De voorbeeldtoepassing uitvoeren
 
-Als u de app wilt starten, past u `YourSubscriptionKey`, `YourServiceRegion` en `YourAudioFile.wav` aan uw configuratie aan. Daarna kunt u de app uitvoeren door de volgende opdracht aan te roepen:
+Als u de app wilt openen, past u `YourSubscriptionKey`, `YourServiceRegion` en `YourAudioFile.wav` aan uw configuratie aan. Voer de app vervolgens uit door het aanroepen van deze opdracht:
 
 ```sh
 node index.js
 ```
 
-Hiermee wordt een herkenning geactiveerd met behulp van de opgegeven bestandsnaam en wordt de uitvoer op de console weergegeven.
+Hiermee wordt een opname geactiveerd met behulp van de opgegeven bestandsnaam. Bovendien wordt de uitvoer in de console weergegeven.
 
-Hier volgt een voorbeeld van de uitvoering van `index.js` na het bijwerken van de abonnementssleutel en het gebruik van het bestand `whatstheweatherlike.wav`.
+Dit voorbeeld is de uitvoer wanneer u `index.js` uitvoert nadat u de abonnementssleutel hebt bijgewerkt en het bestand `whatstheweatherlike.wav` hebt gebruikt:
 
 ```json
 SpeechRecognitionResult {
@@ -96,33 +96,33 @@ SpeechRecognitionResult {
 
 U kunt het voorbeeld ook uitvoeren vanuit Visual Studio Code. Volg deze stappen om de quickstart te installeren, te openen en uit te voeren:
 
-1. Start Visual Studio Code, klik op Map openen en ga naar de map met de quickstart
+1. Start Visual Studio Code. Selecteer **Map openen**. Blader vervolgens naar de map quickstart.
 
-   ![Schermafbeelding van Map openen](media/sdk/qs-js-node-01-open_project.png)
+   ![Map openen](media/sdk/qs-js-node-01-open_project.png)
 
-1. Open een terminalvenster in Visual Studio Code
+1. Open een terminalvenster in Visual Studio Code.
 
-   ![Schermafbeelding van het terminalvenster](media/sdk/qs-js-node-02_open_terminal.png)
+   ![Het terminalvenster](media/sdk/qs-js-node-02_open_terminal.png)
 
-1. Voer npm uit om de afhankelijkheden te installeren
+1. Voer `npm` uit om de afhankelijkheden te installeren.
 
-   ![Schermafbeelding van npm-installatie](media/sdk/qs-js-node-03-npm_install.png)
+   ![npm install](media/sdk/qs-js-node-03-npm_install.png)
 
-1. Nu bent u klaar om `index.js` te openen en een onderbrekingspunt in te stellen
+1. Nu bent u klaar om `index.js` te openen en een onderbrekingspunt in te stellen.
 
-   ![Schermafbeelding van index.js met een onderbrekingspunt op regel 16](media/sdk/qs-js-node-04-setup_breakpoint.png)
+   ![index.js met een onderbrekingspunt op regel 16](media/sdk/qs-js-node-04-setup_breakpoint.png)
 
-1. Als u de foutopsporing wilt starten, drukt u op F5 of selecteert u Fouten opsporen/Foutopsporing starten in het menu
+1. Als u de foutopsporing wilt starten, drukt u op F5 of selecteert u **Fouten opsporen/Foutopsporing starten** in het menu.
 
-   ![Schermafbeelding van het foutopsporingsmenu](media/sdk/qs-js-node-05-start_debugging.png)
+   ![Het menu voor foutopsporing](media/sdk/qs-js-node-05-start_debugging.png)
 
-1. Wanneer een onderbrekingspunt is bereikt, kunt u de aanroepstack en variabelen inspecteren
+1. Wanneer een onderbrekingspunt is bereikt, kunt u de aanroepstack en variabelen inspecteren.
 
-   ![Schermafbeelding van foutopsporingsprogramma](media/sdk/qs-js-node-06-hit_breakpoint.png)
+   ![Foutopsporing](media/sdk/qs-js-node-06-hit_breakpoint.png)
 
-1. Alle uitvoer wordt weergegeven in het consolevenster voor foutopsporing
+1. De uitvoer wordt weergegeven in het consolevenster voor foutopsporing.
 
-   ![Schermafbeelding van console voor foutopsporing](media/sdk/qs-js-node-07-debug_output.png)
+   ![Console voor foutopsporing](media/sdk/qs-js-node-07-debug_output.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

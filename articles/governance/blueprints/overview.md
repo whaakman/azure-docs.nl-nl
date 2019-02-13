@@ -4,17 +4,17 @@ description: Azure Blueprints is een service in Azure waarmee u artefacten kunt 
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/05/2018
+ms.date: 02/01/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: bea01e8f017622f1407bbac993e50112140cc472
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 7803ed99a61a9b4ad819da882daf38cbfd6fffe9
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246242"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563368"
 ---
 # <a name="what-is-azure-blueprints"></a>Wat is Azure Blueprints?
 
@@ -56,17 +56,14 @@ Een blauwdruk bestaat uit _artefacten_. Blauwdrukken ondersteunen momenteel de v
 
 |Resource  | Hiërarchieopties| Beschrijving  |
 |---------|---------|---------|
-|Resourcegroepen     | Abonnement | Een nieuwe resourcegroep maken voor gebruik door andere artefacten binnen de blauwdruk.  Met deze tijdelijke resourcegroepen kunt u resources precies zo indelen als u ze wilt structureren, en het bereik beperken voor opgenomen beleids- en roltoewijzingsartefacten, en Azure Resource Manager-sjablonen.         |
-|Azure Resource Manager-sjabloon      | Abonnement, resourcegroep | Sjablonen worden gebruikt om complexe omgevingen samen te stellen. Voorbeeldomgevingen: een SharePoint-farm, Azure Automation State Configuration of een Log Analytics-werkruimte. |
-|Beleidstoewijzing     | Abonnement, resourcegroep | Hiermee kan een beleid of initiatief worden toegewezen aan het abonnement waaraan de blauwdruk wordt toegewezen. Het beleid of initiatief moet binnen het bereik van de blauwdruk vallen (in de blauwdrukbeheergroep). Als het beleid of initiatief parameters heeft, worden deze parameters toegewezen bij het maken of toewijzen van de blauwdruk.       |
-|Roltoewijzing   | Abonnement, resourcegroep | Voeg een bestaande gebruiker of groep toe aan een ingebouwde rol om ervoor te zorgen dat de juiste mensen altijd over de juiste toegang tot uw bronnen beschikken. Roltoewijzingen kunnen voor het hele abonnement worden gedefinieerd of genest in een specifieke resourcegroep die in de blauwdruk is opgenomen. |
+|Resourcegroepen | Abonnement | Een nieuwe resourcegroep maken voor gebruik door andere artefacten binnen de blauwdruk.  Met deze tijdelijke resourcegroepen kunt u resources precies zo indelen als u ze wilt structureren, en het bereik beperken voor opgenomen beleids- en roltoewijzingsartefacten, en Azure Resource Manager-sjablonen. |
+|Azure Resource Manager-sjabloon | Abonnement, resourcegroep | Sjablonen worden gebruikt om complexe omgevingen samen te stellen. Voorbeeldomgevingen: een SharePoint-farm, Azure Automation State Configuration of een Log Analytics-werkruimte. |
+|Beleidstoewijzing | Abonnement, resourcegroep | Hiermee kan een beleid of initiatief worden toegewezen aan het abonnement waaraan de blauwdruk wordt toegewezen. Het beleid of initiatief moet binnen het bereik van de locatie van de blauwdrukdefinitie vallen. Als het beleid of initiatief parameters heeft, worden deze parameters toegewezen bij het maken of toewijzen van de blauwdruk. |
+|Roltoewijzing | Abonnement, resourcegroep | Voeg een bestaande gebruiker of groep toe aan een ingebouwde rol om ervoor te zorgen dat de juiste mensen altijd over de juiste toegang tot uw bronnen beschikken. Roltoewijzingen kunnen voor het hele abonnement worden gedefinieerd of genest in een specifieke resourcegroep die in de blauwdruk is opgenomen. |
 
-### <a name="blueprints-and-management-groups"></a>Blauwdrukken en beheergroepen
+### <a name="blueprint-definition-locations"></a>Locaties van blauwdrukdefinities
 
-Bij het maken van een blauwdrukdefinitie definieert u waar de blauwdruk wordt opgeslagen. Momenteel kunnen blauwdrukken alleen worden opgeslagen in een [beheergroep](../management-groups/overview.md) waartoe u **Inzender**-toegang hebt. De blauwdruk is beschikbaar voor toewijzing aan elk onderliggend abonnement van die beheergroep.
-
-> [!IMPORTANT]
-> Als u geen toegang hebt tot beheergroepen of als er geen beheergroepen zijn geconfigureerd, wordt bij het laden van de lijst met blauwdrukdefinities aangegeven dat er geen beschikbaar zijn, en wordt er als u op **Bereik** klikt een ​​venster geopend met een waarschuwing over het ophalen van beheergroepen. U kunt dit oplossen door ervoor te zorgen dat een abonnement waartoe u de juiste toegang hebt, deel uitmaakt van een [beheergroep](../management-groups/overview.md).
+Bij het maken van een blauwdrukdefinitie definieert u waar de blauwdruk wordt opgeslagen. Momenteel kunnen blauwdrukken worden opgeslagen in een [beheergroep](../management-groups/overview.md) of abonnement waartoe u **Inzender**-toegang hebt. Als de locatie een beheergroep is, is de blauwdruk beschikbaar voor toewijzing aan elk onderliggend abonnement van die beheergroep.
 
 ### <a name="blueprint-parameters"></a>Blauwdrukparameters
 
@@ -101,7 +98,7 @@ Om blauwdrukken te verwijderen, moet uw account de volgende machtigingen hebben:
 - `Microsoft.Blueprint/blueprints/versions/delete`
 
 > [!NOTE]
-> Omdat blauwdrukdefinities in een beheergroep worden gemaakt, moeten de machtigingen voor blauwdrukdefinities worden toegekend voor een beheergroepbereik, of worden overgenomen in een beheergroepbereik.
+> De machtigingen voor de blauwdrukdefinitie moeten worden verleend of overgenomen van het beheergroep- of abonnementbereik waarin deze is opgeslagen.
 
 Als u een blauwdruk wilt toewijzen of de toewijzing ongedaan wilt maken, heeft uw account de volgende machtigingen nodig:
 

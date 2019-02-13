@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: een geheim uit Azure Key Vault instellen en ophalen met behulp van een Node-web-app - Azure Key Vault | Microsoft Docs'
-description: 'Quickstart: een geheim uit Azure Key Vault instellen en ophalen met behulp van een .NET-web-app'
+title: 'Snelstart: een geheim uit Azure Key Vault instellen en ophalen met behulp van een Node-web-app - Azure Key Vault | Microsoft Docs'
+description: In deze quickstart gaat u met behulp van een .NET-web-app een geheim instellen in Azure Key Vault en dit geheim vervolgens ophalen
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -9,31 +9,32 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 20d47ecaea8ce393f60cba93c3dbcf7ca4a076c8
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 300ee1b01f346f7e1c118b76d64d0eda6e4d7934
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002600"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565544"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Quickstart: een geheim uit Azure Key Vault instellen en ophalen met behulp van een .NET-web-app
 
-In deze snelstart voert u de stappen uit die nodig zijn om een Azure-webtoepassing gegevens te laten lezen uit Azure Key Vault met behulp van beheerde identiteiten voor Azure-resources. In deze zelfstudie leert u procedures om het volgende te doen:
+In deze quickstart voert u de stappen uit die nodig zijn om een Azure-webtoepassing gegevens te laten lezen uit Azure Key Vault met behulp van beheerde identiteiten voor Azure-resources. Met Key Vault kunt u de informatie beveiligen. In deze zelfstudie leert u procedures om het volgende te doen:
 
-> [!div class="checklist"]
-> * Een sleutelkluis maken.
-> * Een geheim opslaan in de sleutelkluis.
-> * Een geheim ophalen uit de sleutelkluis.
-> * Een Azure-webtoepassing maken.
-> * Schakel een [beheerde service-identiteit](../active-directory/managed-identities-azure-resources/overview.md) in voor de web-app.
-> * De vereiste machtigingen verlenen aan de webtoepassing om gegevens te lezen uit de sleutelkluis.
+* Een sleutelkluis maken.
+* Een geheim opslaan in de sleutelkluis.
+* Een geheim ophalen uit de sleutelkluis.
+* Een Azure-webtoepassing maken.
+* Schakel een [beheerde service-identiteit](../active-directory/managed-identities-azure-resources/overview.md) in voor de web-app.
+* De vereiste machtigingen verlenen aan de webtoepassing om gegevens te lezen uit de sleutelkluis.
 
-Lees voordat we verdergaan de [basisconcepten](key-vault-whatis.md#basic-concepts).
+Neem eerst de [basisconcepten voor Key Vault](key-vault-whatis.md#basic-concepts) door.
 
 >[!NOTE]
 >Key Vault is een centrale opslagplaats voor het opslaan van geheimen via een programma. Maar hiervoor moeten toepassingen en gebruikers eerst worden geverifieerd bij Key Vault, wat betekent dat ze een geheim moeten presenteren. Als u de aanbevolen procedures voor beveiliging wilt volgen, moet dit eerste geheim periodiek worden gerouleerd. 
 >
 >Met [beheerde service-identiteiten voor Azure-resources](../active-directory/managed-identities-azure-resources/overview.md) krijgen toepassingen die in Azure worden uitgevoerd, een identiteit die automatisch door Azure wordt beheerd. Dit helpt bij het oplossen van het *probleem van het introduceren van geheimen* zodat gebruikers en toepassingen aanbevolen procedures kunnen volgen en zich geen zorgen hoeven maken over het rouleren van het eerste geheim.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -77,7 +78,7 @@ De resourcegroep die u net hebt gemaakt, wordt overal in dit artikel gebruikt.
 
 Vervolgens maakt u een sleutelkluis in de resourcegroep die u in de vorige stap hebt gemaakt. Geef de volgende informatie op:
 
-* Naam van de sleutelkluis: de naam moet een tekenreeks zijn met 3-24 tekens en mag alleen (0-9, a-z, A-Z en -) bevatten.
+* Naam van de sleutelkluis: De naam moet een tekenreeks zijn met 3-24 tekens en mag alleen 0-9, a-z, A-Z en een streepje (-) bevatten.
 * Naam van de resourcegroep.
 * Locatie: **US - oost**.
 
@@ -143,8 +144,7 @@ Publiceer deze app naar Azure om deze live als web-app in actie te zien en om te
 
 Azure Key Vault biedt een manier voor het veilig opslaan van referenties en andere sleutels en geheimen, maar uw code moet worden geverifieerd voor Key Vault om ze op te halen. In [Overzicht van beheerde identiteiten voor Azure-resources](../active-directory/managed-identities-azure-resources/overview.md) wordt het oplossen van dit probleem eenvoudiger gemaakt door Azure-services een automatisch beheerde identiteit in Azure Active Directory (Azure AD) te geven. U kunt deze identiteit gebruiken voor verificatie bij alle services die ondersteuning bieden voor Azure AD-verificatie, inclusief Key Vault, zonder dat u referenties in uw code hoeft te hebben.
 
-1. Ga terug naar de Azure CLI.
-2. Voer de opdracht identity assign uit om de identiteit voor deze toepassing te maken:
+Voer in Azure CLI de opdracht assign-identity uit om de identiteit voor deze toepassing te maken:
 
    ```azurecli
    az webapp identity assign --name "keyvaultdotnetcorequickstart" --resource-group "<YourResourceGroupName>"
@@ -171,10 +171,20 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 
 ```
 
-Tijdens het uitvoeren van de toepassing ziet u nu de geheime waarde die is opgehaald. In de bovenstaande opdracht geeft u de Identity(MSI) van de App Service-machtigingen voor de bewerkingen **get** en **list** op uw Key Vault
+Tijdens het uitvoeren van de toepassing ziet u nu de geheime waarde die is opgehaald. In de bovenstaande opdracht geeft u de identiteit van de App Service machtigingen voor de bewerkingen **get** en **list** op uw sleutelkluis.
+
+## <a name="clean-up-resources"></a>Resources opschonen
+Verwijder de resourcegroep, de virtuele machine en alle gerelateerde resources wanneer u ze niet meer nodig hebt. Om dit te doen, selecteert u de resourcegroep voor de VM en selecteert u **Verwijderen**.
+
+Verwijder de sleutelkluis met behulp van de opdracht [az keyvault delete](https://docs.microsoft.com/en-us/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-delete):
+
+```azurecli
+az keyvault delete --name
+                   [--resource-group]
+                   [--subscription]
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Meer informatie over Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)
-* [Azure-SDK voor .NET](https://github.com/Azure/azure-sdk-for-net)
-* [Azure REST API-naslaginformatie](https://docs.microsoft.com/rest/api/keyvault/)
+> [!div class="nextstepaction"]
+> [Meer informatie over Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)

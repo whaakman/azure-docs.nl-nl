@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: f0e8bf922f142b795dd1a2ded4b3ec265c43481a
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: bd9cb76557c65832de5d249cdccdc36101edf646
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249936"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821283"
 ---
-# <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>Zelfstudie: handmatige failover uitvoeren voor een IoT-hub (openbare preview)
+# <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>Zelfstudie: Handmatige failover uitvoeren voor een IoT-hub (openbare preview)
 
 Handmatige failover is een functie van de IoT Hub-service waarmee klanten [failover](https://en.wikipedia.org/wiki/Failover) voor de bewerkingen van hun hub kunnen uitvoeren van een primaire regio naar een overeenkomstige geografisch gekoppelde Azure-regio. Handmatige failover kan worden uitgevoerd in geval van een regionale noodgeval of een langdurige servicestoring. U kunt ook een geplande failover uitvoeren om de prestaties van uw noodherstel te testen. U wordt echter aangeraden een test-IoT-hub te gebruiken in plaats van een IoT-hub die in productie wordt uitgevoerd. De functie voor handmatige failover wordt klanten zonder aanvullende kosten aangeboden.
 
@@ -50,7 +50,7 @@ In deze zelfstudie voert u de volgende taken uit:
     **Regio**: selecteer een regio bij u in de buurt die deel uitmaakt van de preview. In deze zelfstudie wordt `westus2` gebruikt. Er kan alleen een failover tussen Azure-regio's worden uitgevoerd die geografische gekoppeld zijn. De regio die geografisch met westus2 is gekoppeld, is WestCentralUS.
     
    > [!NOTE]
-   > Handmatige failover bevindt zich momenteel de openbare preview en is *niet* beschikbaar in de volgende Azure-regio's: US - oost, US - west, Europa - noord, Europa - west, Brazilië - zuid en US - zuid-centraal.
+   > Handmatige failover is momenteel in openbare preview en is *niet* beschikbaar in de volgende Azure-regio's: US - oost, US - west, Noord-Europa, West-Europa, Brazilië-Zuid en US - zuid-centraal.
 
    **Naam IoT-hub**: geef een naam op voor de IoT-hub. De naam van de hub moet wereldwijd uniek zijn. 
 
@@ -112,7 +112,7 @@ Een failback wordt op dezelfde manier uitgevoerd als een handmatige failover. Di
 
    ![Schermafbeelding met de aanvraag voor handmatige failback](./media/tutorial-manual-failover/trigger-failback-01-regions.png)
 
-   De banners worden weergegeven zoals uitgelegd in de sectie [Failover uitvoeren](#perform-a-failover). Als de failback is voltooid, wordt hier opnieuw `westus2` als primaire locatie en `WestCentralUS` als secundaire locatie getoond, zoals oorspronkelijk ingesteld.
+   De banners worden weergegeven zoals uitgelegd in de sectie Failover uitvoeren. Als de failback is voltooid, wordt hier opnieuw `westus2` als primaire locatie en `WestCentralUS` als secundaire locatie getoond, zoals oorspronkelijk ingesteld.
 
 ## <a name="clean-up-resources"></a>Resources opschonen 
 

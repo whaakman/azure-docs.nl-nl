@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 5884295e93a14d74a125c27ea597f2311478042a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f8b23533127b9798e5a677f646f94ae0a53fcde8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459023"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822405"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>SQL-queryvoorbeelden voor Azure Cosmos DB
 
@@ -1365,29 +1365,29 @@ Met elke wiskundige functie wordt een berekening op basis van de opgegeven invoe
 
 | Gebruik | Beschrijving |
 |----------|--------|
-| [[ABS (num_expr)](#bk_abs) | Retourneert de absolute (positieve) waarde van de opgegeven numerieke expressie. |
-| [CEILING (num_expr)](#bk_ceiling) | Retourneert het kleinste gehele getal dat groter is dan of gelijk is aan de opgegeven numerieke expressie. |
-| [FLOOR (num_expr)](#bk_floor) | Retourneert het grootste gehele getal dat kleiner is dan of gelijk is aan de opgegeven numerieke expressie. |
-| [EXP (num_expr)](#bk_exp) | Retourneert de exponent van de opgegeven numerieke expressie. |
+| [ABS (num_expr) | Retourneert de absolute (positieve) waarde van de opgegeven numerieke expressie. |
+| CEILING (num_expr) | Retourneert het kleinste gehele getal dat groter is dan of gelijk is aan de opgegeven numerieke expressie. |
+| FLOOR (num_expr) | Retourneert het grootste gehele getal dat kleiner is dan of gelijk is aan de opgegeven numerieke expressie. |
+| EXP (num_expr) | Retourneert de exponent van de opgegeven numerieke expressie. |
 | [LOG (num_expr [, grondtal])](#bk_log) | Retourneert de natuurlijke logaritme van de opgegeven numerieke expressie, of de logaritme met behulp van het opgegeven grondtal |
-| [LOG10 (num_expr)](#bk_log10) | Retourneert de waarde van de logaritme met het grondtal 10 van de opgegeven numerieke expressie. |
-| [ROUND (num_expr)](#bk_round) | Retourneert een numerieke waarde, afgerond naar het dichtstbijzijnde gehele getal. |
-| [TRUNC (num_expr)](#bk_trunc) | Retourneert een numerieke waarde, afgekapt tot het dichtstbijzijnde gehele getal. |
-| [SQRT (num_expr)](#bk_sqrt) | Retourneert de vierkantswortel van de opgegeven numerieke expressie. |
-| [SQUARE (num_expr)](#bk_square) | Retourneert het kwadraat van de opgegeven numerieke expressie. |
+| LOG10 (num_expr) | Retourneert de waarde van de logaritme met het grondtal 10 van de opgegeven numerieke expressie. |
+| ROUND (num_expr) | Retourneert een numerieke waarde, afgerond naar het dichtstbijzijnde gehele getal. |
+| TRUNC (num_expr) | Retourneert een numerieke waarde, afgekapt tot het dichtstbijzijnde gehele getal. |
+| SQRT (num_expr) | Retourneert de vierkantswortel van de opgegeven numerieke expressie. |
+| SQUARE (num_expr) | Retourneert het kwadraat van de opgegeven numerieke expressie. |
 | [POWER (num_expr, num_expr)](#bk_power) | Retourneert de machtsverheffing met de opgegeven waarde van de opgegeven numerieke expressie. |
-| [SIGN (num_expr)](#bk_sign) | Retourneert de waarde voor het teken (-1, 0, 1) van de opgegeven numerieke expressie. |
-| [ACOS (num_expr)](#bk_acos) | Retourneert de hoek, in radialen, waarvan de cosinus de opgegeven numerieke expressie is. Dit wordt ook wel de arccosinus genoemd. |
-| [ASIN (num_expr)](#bk_asin) | Retourneert de hoek, in radialen, waarvan de sinus de opgegeven numerieke expressie is. Deze functie wordt ook wel de arcsinus genoemd. |
-| [ATAN (num_expr)](#bk_atan) | Retourneert de hoek, in radialen, waarvan de tangens de opgegeven numerieke expressie is. Dit wordt ook wel de arctangens genoemd. |
-| [ATN2 (num_expr)](#bk_atn2) | Retourneert de hoek, in radialen, tussen de positieve x-as en de straal vanaf de oorsprong tot het punt (y, x), waarbij x en y de waarden van de twee opgegeven float-expressies zijn. |
-| [COS (num_expr)](#bk_cos) | Retourneert de trigonometrische cosinus van de opgegeven hoek, in radialen, in de opgegeven expressie. |
-| [COT (num_expr)](#bk_cot) | Retourneert de trigonometrische cotangens van de opgegeven hoek, in radialen, in de opgegeven expressie. |
-| [DEGREES (num_expr)](#bk_degrees) | Retourneert de overeenkomende hoek in graden voor een hoek die is opgegeven in radialen. |
-| [PI ()](#bk_pi) | Retourneert de constante waarde van PI. |
-| [RADIANS (num_expr)](#bk_radians) | Retourneert radialen als een numerieke expressie in graden wordt ingevoerd. |
-| [SIN (num_expr)](#bk_sin) | Retourneert de trigonometrische sinus van de opgegeven hoek, in radialen, in de opgegeven expressie. |
-| [TAN (num_expr)](#bk_tan) | Retourneert de tangens van de ingevoerde expressie, in de opgegeven expressie. |
+| SIGN (num_expr) | Retourneert de waarde voor het teken (-1, 0, 1) van de opgegeven numerieke expressie. |
+| ACOS (num_expr) | Retourneert de hoek, in radialen, waarvan de cosinus de opgegeven numerieke expressie is. Dit wordt ook wel de arccosinus genoemd. |
+| ASIN (num_expr) | Retourneert de hoek, in radialen, waarvan de sinus de opgegeven numerieke expressie is. Deze functie wordt ook wel de arcsinus genoemd. |
+| ATAN (num_expr) | Retourneert de hoek, in radialen, waarvan de tangens de opgegeven numerieke expressie is. Dit wordt ook wel de arctangens genoemd. |
+| ATN2 (num_expr) | Retourneert de hoek, in radialen, tussen de positieve x-as en de straal vanaf de oorsprong tot het punt (y, x), waarbij x en y de waarden van de twee opgegeven float-expressies zijn. |
+| COS (num_expr) | Retourneert de trigonometrische cosinus van de opgegeven hoek, in radialen, in de opgegeven expressie. |
+| COT (num_expr) | Retourneert de trigonometrische cotangens van de opgegeven hoek, in radialen, in de opgegeven expressie. |
+| DEGREES (num_expr) | Retourneert de overeenkomende hoek in graden voor een hoek die is opgegeven in radialen. |
+| PI () | Retourneert de constante waarde van PI. |
+| RADIANS (num_expr) | Retourneert radialen als een numerieke expressie in graden wordt ingevoerd. |
+| SIN (num_expr) | Retourneert de trigonometrische sinus van de opgegeven hoek, in radialen, in de opgegeven expressie. |
+| TAN (num_expr) | Retourneert de tangens van de ingevoerde expressie, in de opgegeven expressie. |
 
 U kunt nu bijvoorbeeld query's uitvoeren zoals wordt weergegeven in het volgende voorbeeld:
 

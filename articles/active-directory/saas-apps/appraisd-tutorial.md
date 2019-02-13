@@ -1,268 +1,280 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met Appraisd | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Appraisd.
+title: 'Zelfstudie: Integratie van Microsoft Azure Active Directory met Appraisd | Microsoft Docs'
+description: Lees hoe u eenmalige aanmelding configureert tussen Microsoft Azure Active Directory en Appraisd.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: db063306-4d0d-43ca-aae0-09f0426e7429
-ms.service: active-directory
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/10/2018
+ms.topic: tutorial
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: dae9a59b89f03a50b1adaed55cd8f97c06906526
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
-ms.translationtype: MT
+ms.openlocfilehash: 44d4988ff68d5ccca575fc29ec3f0b7dce0bf948
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49118541"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765429"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-appraisd"></a>Zelfstudie: Azure Active Directory-integratie met Appraisd
+# <a name="tutorial-azure-active-directory-integration-with-appraisd"></a>Zelfstudie: Microsoft Azure Active Directory-integratie met Appraisd
 
-In deze zelfstudie leert u hoe u Appraisd integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Appraisd kunt integreren met Microsoft Azure Active Directory (Azure AD).
+Het integreren van Appraisd met Microsoft Azure Active Directory biedt u de volgende voordelen:
 
-Appraisd integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Microsoft Azure Active Directory beheren wie toegang heeft tot Appraisd.
+* U kunt uw gebruikers zich automatisch laten aanmelden bij Appraisd (eenmalige aanmelding) met hun Microsoft Azure Active Directory-account.
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot Appraisd heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Appraisd (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts in één centrale locatie - Azure portal beheren.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Appraisd, moet u de volgende items:
+Om Microsoft Azure Active Directory-integratie met Appraisd te configureren, hebt u het volgende nodig:
 
-- Een Azure AD-abonnement
-- Een Appraisd eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op Appraisd waarop eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Appraisd uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-appraisd-from-the-gallery"></a>Appraisd uit de galerie toe te voegen
-Voor het configureren van de integratie van Appraisd in Azure AD, moet u Appraisd uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* Appraisd biedt ondersteuning voor door **SP en IDP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt toevoegen Appraisd uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-appraisd-from-the-gallery"></a>Appraisd toevoegen vanuit de galerie
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Om de integratie van Appraisd in Microsoft Azure Active Directory te configureren, moet u Appraisd vanuit de galerie aan uw lijst met beheerde SaaS-apps toevoegen.
 
-    ![image](./media/appraisd-tutorial/selectazuread.png)
+**Als u Appraisd vanuit de galerie wilt toevoegen, moet u de volgende stappen uitvoeren:**
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![image](./media/appraisd-tutorial/a_select_app.png)
-    
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![image](./media/appraisd-tutorial/a_new_app.png)
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-4. Typ in het zoekvak **Appraisd**, selecteer **Appraisd** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-     ![image](./media/appraisd-tutorial/tutorial_appraisd_addfromgallery.png)
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Appraisd op basis van een testgebruiker 'Julia steen' genoemd.
+4. Typ in het zoekvak **Appraisd**, selecteer **Appraisd** in het resultaatvenster en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Appraisd is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Appraisd tot stand worden gebracht.
+     ![Appraisd in de lijst met resultaten](common/search-new-app.png)
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met Appraisd, moet u de volgende bouwstenen voltooien:
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker Appraisd](#create-an-appraisd-test-user)**  : als u wilt een equivalent van Britta Simon in Appraisd die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+In dit gedeelte configureert en test u eenmalige aanmelding van Microsoft Azure Active Directory met Appraisd op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Microsoft Azure Active Directory-gebruiker en de daaraan gerelateerde gebruiker in Appraisd tot stand is gebracht.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+Om eenmalige aanmelding van Microsoft Azure Active Directory met Appraisd te configureren en te testen, moet u de volgende bouwstenen voltooien:
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Appraisd.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding bij Appraisd configureren](#configure-appraisd-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wilt configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker voor Appraisd maken](#create-appraisd-test-user)**: als u een tegenhanger van Britta Simon in Appraisd wilt hebben die is gekoppeld aan de Microsoft Azure Active Directory-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Appraisd, moet u de volgende stappen uitvoeren:**
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-1. In de [Azure-portal](https://portal.azure.com/)op de **Appraisd** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-    ![image](./media/appraisd-tutorial/B1_B2_Select_SSO.png)
+Om eenmalige aanmelding van Microsoft Azure Active Directory met Appraisd te configureren, moet u de volgende stappen uitvoeren:
 
-2. Op de **selecteert u een methode voor eenmalige aanmelding** dialoogvenster **SAML** modus voor eenmalige aanmelding inschakelen.
+1. In de [Microsoft Azure-portal](https://portal.azure.com/) selecteert u **Eenmalige aanmelding** op de integratiepagina van de toepassing **Appraisd**.
 
-    ![image](./media/appraisd-tutorial/b1_b2_saml_sso.png)
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-3. Op de **instellen van eenmalige aanmelding met SAML** pagina, klikt u op **bewerken** te openen **SAML-basisconfiguratie** dialoogvenster.
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-    ![image](./media/appraisd-tutorial/b1-domains_and_urlsedit.png)
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-4. Op de **SAML-basisconfiguratie** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IDP** modus gestart:
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_url.png)
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    a. Klik op **extra URL's instellen**. 
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit als u de toepassing in de door **IDP** geïnitieerde modus wilt configureren:
 
-    b. In de **Relaystatus** tekstvak typt u een URL: `<TENANTCODE>`
+    ![Informatie over eenmalige aanmelding van domeinen en URL’s van Appraisd](common/both-preintegrated-advanced-urls.png)
 
-    c. Als u wilt configureren van de toepassing in **SP** modus gestart de **aanmeldings-URL** tekstvak typt u een URL met behulp van het volgende patroon: `https://app.appraisd.com/saml/<TENANTCODE>`
+    a. Klik op **Extra URL's instellen**.
+
+    b. In het tekstvak **Relaystatus** typt u een URL: `<TENANTCODE>`
+
+    c. Als u de toepassing in de door **SP** geïnitieerde modus wilt configureren, typt u in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://app.appraisd.com/saml/<TENANTCODE>`
 
     > [!NOTE]
-    > U krijgt de werkelijke waarde van de aanmeldings-URL en de Relay-status op de pagina voor Appraisd SSO-configuratie die later in de zelfstudie wordt uitgelegd.
-    
-5. Appraisd toepassing verwacht het SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de **gebruikerskenmerken** sectie op de pagina van de toepassing-integratie. Klik op **bewerken** te openen **gebruikerskenmerken** dialoogvenster.
+    > U krijgt de werkelijke waarde van de aanmeldings-URL en de relaystatus op de pagina voor de configuratie van eenmalige aanmelding met Appraisd, wat later in de zelfstudie wordt uitgelegd.
 
-    ![image](./media/appraisd-tutorial/i3-attribute.png)
+5. De Appraisd-toepassing verwacht de SAML-asserties in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
 
-6. In de **gebruikersclaims** sectie op de **gebruikerskenmerken** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de bovenstaande afbeelding en voer de volgende stappen uit:
-    
-    a. Klik op **bewerken** te openen de **gebruikersclaims beheren** dialoogvenster.
+    ![image](common/edit-attribute.png)
 
-    ![image](./media/appraisd-tutorial/i2-attribute.png)
+6. Bewerk in het gedeelte **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** de claims met het **pictogram Bewerken** of voeg de claims toe door met **Nieuwe claim toevoegen** het kenmerk van het SAML-token te configureren, zoals wordt weergegeven in de bovenstaande afbeelding. Hierna voert u de volgende stappen uit:
 
-    ![image](./media/appraisd-tutorial/i4-attribute.png)
+    | Naam |  Bronkenmerk|
+    | ---------------| --------------- |
+    | nameidentifier | user.mail |
+    | | |
 
-    b. Uit de **bronkenmerk** , selecteert u de waarde van het kenmerk.
+    a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 
-    c. Klik op **Opslaan**. 
+    ![image](common/new-save-attribute.png)
 
-7. In de **SAML-handtekeningcertificaat** sectie, klikt u op **downloaden** voor het downloaden van de **certificaat (Base64)** en sla deze op uw computer.
+    ![image](common/new-attribute-details.png)
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_certficate.png) 
+    b. In het tekstvak **Naam** typt u de naam van het kenmerk die voor die rij wordt weergegeven.
 
-8. Op de **Appraisd instellen** sectie, kopieert u de juiste URL aan de hand van uw behoeften.
+    c. Laat **Naamruimte** leeg.
+
+    d. Selecteer Bron bij **Kenmerk**.
+
+    e. Typ de kenmerkwaarde voor die rij in de lijst met **bronkenmerken**.
+
+    f. Klik op **OK**.
+
+    g. Klik op **Opslaan**.
+
+7. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
+
+    ![De link om het certificaat te downloaden](common/certificatebase64.png)
+
+8. In het gedeelte **Appraisd instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
+
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
     a. Aanmeldings-URL
 
-    b. Azure Ad-id
+    b. Azure AD-id
 
-    c. URL voor afmelden
+    c. Afmeldings-URL
 
-    ![image](./media/appraisd-tutorial/d1_samlsonfigure.png)
+### <a name="configure-appraisd-single-sign-on"></a>Appraisd configureren voor eenmalige aanmelding
 
-9. In een ander browservenster aanmelden bij Appraisd als een beveiligingsbeheerder.
+1. Meld u in een ander browservenster bij Appraisd als een beveiligingsbeheerder aan.
 
-10. In de rechterbovenhoek van de pagina, klikt u op **instellingen** pictogram en navigeer vervolgens naar **configuratie**.
+2. Klik rechts boven in de pagina op het pictogram **Settings** en navigeer vervolgens naar  **Configuration**.
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_sett.png)
 
-11. Aan de linkerkant van het menu, klikt u op **eenmalige aanmelding SAML**.
+3. Klik aan de linkerkant van het menu op **SAML single sign-on**.
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_single.png)
 
-12. Op de **SAML 2.0 Single Sign-On configuratie** pagina, voert u de volgende stappen uit:
-    
+4. Voer op de **configuratiepagina voor eenmalige aanmelding op basis van SAML 2.0** de volgende stappen uit:
+
     ![image](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
 
-    a. Kopiëren de **Relay standaardstatus** waarde en plak deze in **Relaystatus** -tekstvak in **SAML-basisconfiguratie** in Azure portal.
+    a. Kopieer de waarde van de **standaardrelaystatus** en plak deze in het tekstvak  **Relaystatus** in  **Standaard SAML-configuratie** in de Microsoft Azure-portal.
 
-    b. Kopiëren de **Service geïnitieerde aanmeldings-URL** waarde en plak deze in **aanmeldings-URL** -tekstvak in **SAML-basisconfiguratie** in Azure portal.
+    b. Kopieer de waarde van de **door de service geïnitieerde aanmeldings-URL** en plak deze in het tekstvak  **Aanmeldings-URL** in  **Standaard SAML-configuratie** in de Microsoft Azure-portal.
 
-13. Schuif omlaag in de dezelfde pagina onder **gebruikers identificeren**, voer de volgende stappen uit:
+5. Schuif omlaag op de dezelfde pagina en voer de volgende stappen uit onder **Gebruikers identificeren**:
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_identifying.png)
 
-    a. In de **Identity Provider aanmeldings-URL voor eenmalige** tekstvak, plak de waarde van **aanmeldings-URL**, die u hebt gekopieerd uit de Azure-portal en op **opslaan**.
+    a. Plak in het tekstvak **Identity Provider Single Sign-On URL** de waarde van de **aanmeldings-URL** die u hebt gekopieerd uit de Microsoft Azure-portal en klik op **Save**.
 
-    b. In de **Identity Provider Issuer URL** tekstvak, plak de waarde van **Azure Ad-id**, die u hebt gekopieerd uit de Azure-portal en op **opslaan**.
+    b. Plak in het tekstvak **Identity Provider Issuer URL** de waarde van de **Microsoft Azure Active Directory-id** die u hebt gekopieerd uit de Microsoft Azure-portal en klik op **Save**.
 
-    c. In Kladblok, opent u het base-64 gecodeerde certificaat dat u hebt gedownload vanuit Azure portal, Kopieer de inhoud en plak deze in de **X.509-certificaat** vak en klikt u op **opslaan**.
+    c. Open in Kladblok het base-64 gecodeerde certificaat dat u hebt gedownload vanuit Azure Portal, kopieer de inhoud en plak deze in het vak  **X.509-certificaat**  en klik op **Opslaan**.
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-1. Selecteer in de Azure portal, in het linkerdeelvenster **Azure Active Directory**, selecteer **gebruikers**, en selecteer vervolgens **alle gebruikers**.
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-    ![image](./media/appraisd-tutorial/d_users_and_groups.png)
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-2. Selecteer **nieuwe gebruiker** aan de bovenkant van het scherm.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![image](./media/appraisd-tutorial/d_adduser.png)
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-3. In de eigenschappen van de gebruiker de volgende stappen uitvoeren.
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-    ![image](./media/appraisd-tutorial/d_userproperties.png)
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    a. In de **naam** veld **BrittaSimon**.
+    a. Voer in het veld **Naam****Britta Simon** in.
   
-    b. In de **gebruikersnaam** veldtype **brittasimon@yourcompanydomain.extension**  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
-    c. Selecteer **eigenschappen**, selecteer de **Show wachtwoord** selectievakje en noteer de waarde die wordt weergegeven in het wachtwoord.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
-    d. Selecteer **Maken**.
- 
-### <a name="create-an-appraisd-test-user"></a>Maak een testgebruiker Appraisd
-
-Om in te schakelen van Azure AD gebruikers zich aanmelden bij Appraisd, ze moeten worden ingericht in Appraisd. In Appraisd is inrichten een handmatige taak.
-
-**Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:**
-
-1. Aanmelden bij Appraisd als een beveiligingsbeheerder.
-
-2. In de rechterbovenhoek van de pagina, klikt u op **instellingen** pictogram en navigeer vervolgens naar **beheer centrum**.
-
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_admin.png)
-
-3. Klik in de werkbalk boven aan de pagina op **mensen**, navigeert u vervolgens naar **een nieuwe gebruiker toevoegen**.
-
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_user.png)
-
-4. Op de **een nieuwe gebruiker toevoegen** pagina, voert u de volgende stappen uit:
-
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_newuser.png)
-    
-    a. In **voornaam** tekst voert u de voornaam van de gebruiker, zoals **Julia**.
-
-    b. In **achternaam** tekst voert u de achternaam van de gebruiker, zoals **simon**.
-
-    c. In **e** tekst vak, voer het e-mailadres van gebruiker, zoals **Brittasimon@contoso.com**.
-
-    d. Klik op **Gebruiker toevoegen**.
+    d. Klik op **Create**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Appraisd.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Appraisd.
 
-1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**.
+1. Selecteer **Bedrijfstoepassingen** in de Microsoft Azure-portal, selecteer **Alle toepassingen** en selecteer vervolgens **Appraisd**.
 
-    ![image](./media/appraisd-tutorial/d_all_applications.png)
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-2. Selecteer in de lijst met toepassingen, **Appraisd**.
+2. Selecteer **Appraisd** in de lijst met toepassingen.
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_app.png)
+    ![De Appraisd-koppeling in de lijst met toepassingen](common/all-applications.png)
 
-3. Selecteer in het menu aan de linkerkant, **gebruikers en groepen**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![image](./media/appraisd-tutorial/d_leftpaneusers.png)
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-4. Selecteer de **toevoegen** knop en selecteer vervolgens **gebruikers en groepen** in de **toevoegen toewijzing** dialoogvenster.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![image](./media/appraisd-tutorial/d_assign_user.png)
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-4. In de **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst met gebruikers, en klik op de **Selecteer** knop aan de onderkant van het scherm.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst Gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-5. In de **toevoegen toewijzing** dialoogvenster, selecteer de **toewijzen** knop.
-    
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
+
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
+
+### <a name="create-appraisd-test-user"></a>Appraisd testgebruiker maken
+
+Als u wilt dat Microsoft Azure Active Directory-gebruikers zich kunnen aanmelden bij Appraisd, moeten ze worden ingericht in Appraisd. In het geval van Appraisd is dat een handmatige taak.
+
+**Als u een gebruikersaccount wilt inrichten, voert u de volgende stappen uit:**
+
+1. Meld u bij Appraisd als een beveiligingsbeheerder aan.
+
+2. Klik rechts boven in de pagina op het pictogram **Settings** en navigeer vervolgens naar  **Administration centre**.
+
+    ![image](./media/appraisd-tutorial/tutorial_appraisd_admin.png)
+
+3. Klik in de werkbalk boven aan de pagina op  **People** en navigeer naar  **Add a new user**.
+
+    ![image](./media/appraisd-tutorial/tutorial_appraisd_user.png)
+
+4. Voer de volgende stappen uit in het dialoogvenster **Add a new user**:
+
+    ![image](./media/appraisd-tutorial/tutorial_appraisd_newuser.png)
+
+    a. Typ in het tekstvak **First Name** de voornaam van de gebruiker, zoals **Britta**.
+
+    b. Typ in het tekstvak **Last Name** de achternaam van de gebruiker, zoals **Simon**.
+
+    c. Voer in het tekstvak **Email** het e-mailadres van de gebruiker in, zoals **Brittasimon@contoso.com**.
+
+    d. Klik op **Gebruiker toevoegen**.
+
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-Wanneer u op de tegel Appraisd in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Appraisd.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md). 
+Wanneer u op de tegel Appraisd in het toegangsvenster klikt, wordt u automatisch aangemeld bij de instantie van Appraisd waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
+
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
+
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

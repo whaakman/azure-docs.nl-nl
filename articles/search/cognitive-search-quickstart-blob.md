@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 50b2973f2b245cfb42ed7212e443fec1c66217cf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 191cff21cdaa6a4e94358ed0b9c63cd942f71a6e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015269"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564558"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Snelstart: Een pijplijn voor cognitief zoeken maken met vaardigheden en voorbeeldgegevens
 
@@ -147,15 +147,19 @@ De wizard kan gewoonlijk een standaardindex afleiden. U kunt in deze stap het ge
 
 De wizard biedt goede standaardinstellingen voor deze snelstart: 
 
-+ De standaardnaam is *azureblob-index*.
++ De standaardnaam is *azureblob-index*, gebaseerd op het type gegevensbron. 
+
++ De standaardvelden worden gebaseerd op het oorspronkelijke brongegevensveld (`content`), plus de uitvoervelden (`people`, `organizations` en `locations`) die zijn gemaakt door de cognitieve pijplijn. De standaardgegevenstypen worden afgeleid van metagegevens en steekproeven van gegevens.
+
 + De standaardsleutel is *metadata_storage_path* (dit veld bevat unieke waarden).
-+ Standaardgegevenstypen en -kenmerken zijn geldig voor scenario's waarbij wordt gezocht in volledige tekst.
 
-U kunt eventueel **Ophaalbaar** wissen in het veld `content`. In blobs kan dit veld oplopen tot duizenden regels. U kunt zich voorstellen hoe lastig het is om bestanden met zware inhoud, zoals Word-documenten of PowerPoint-stapels als JSON, in een lijst met zoekresultaten weer te geven. 
-
-Omdat u een set vaardigheden hebt gedefinieerd, gaat de wizard ervan uit dat u het gegevensveld van de oorspronkelijke bron wilt, plus de uitvoervelden die door de cognitieve pijplijn worden gemaakt. Daarom voegt de portal indexvelden toe voor `content`, `people`, `organizations` en `locations`. U ziet dat de wizard automatisch **Ophaalbaar** en **Doorzoekbaar** voor deze velden inschakelt. **Doorzoekbaar** geeft aan dat een veld kan worden doorzocht. **Ophaalbaar** betekent dat het in resultaten kan worden geretourneerd. 
++ **Ophaalbaar** en **Doorzoekbaar** zijn standaardkenmerken voor deze velden. **Doorzoekbaar** geeft aan dat een veld kan worden doorzocht. **Ophaalbaar** betekent dat het in resultaten kan worden geretourneerd. De wizard gaat ervan uit dat deze velden ophaalbaar en doorzoekbaar moeten zijn omdat u ze hebt gemaakt via een set vaardigheden.
 
   ![Indexvelden](media/cognitive-search-quickstart-blob/index-fields.png)
+
+Let op het doorgehaalde vinkje en het vraagteken in de kolom **Ophaalbaar** voor het veld `content`. Voor blob-documenten met veel tekst bevat het veld `content` het grootste deel van het bestand, mogelijk wel duizenden regels. Als u de inhoud van een bestand wilt doorgeven aan clientcode, moet **Ophaalbaar** geselecteerd blijven. Anders kunt u dit kenmerk uitschakelen voor `content` als de uitgepakte elementen (`people`, `organizations` en `locations`) voldoende zijn voor uw doeleinden.
+
+Als u een veld markeert als **Ophaalbaar**, betekent niet dat het veld aanwezig *moet* zijn in de lijst met zoekresultaten. U kunt de samenstelling van zoekresultaten nauwkeurig beheren met behulp van de queryparameter **$select** door op te geven welke velden u wilt opnemen. Voor velden met veel tekst zoals `content`, is de parameter **$select** de oplossing voor het aanbieden van beheersbare zoekresultaten aan de gebruikers van uw toepassing, terwijl clientcode via het kenmerk **Ophaalbaar** toegang heeft tot alle gegevens die nodig zijn.
   
 Ga door naar de volgende pagina.
 

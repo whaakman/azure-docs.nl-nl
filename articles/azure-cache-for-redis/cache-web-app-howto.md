@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: fd5a995bf03d530ccbcf9b839ccc840d202b47d6
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: d80a10bea58fdcd5b20e24f9f8ba633f2714d55c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556184"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822575"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Snelstart: Een ASP.NET-web-app maken 
 
@@ -98,9 +98,9 @@ Maak vervolgens de cache voor de app.
 In deze sectie werkt u de toepassing bij voor de ondersteuning van een nieuwe weergave waarin een eenvoudige test wordt weergegeven op basis van Azure Cache voor Redis.
 
 * [Het web.config-bestand bijwerken met een app-instelling voor de cache](#Update-the-webconfig-file-with-an-app-setting-for-the-cache)
-* [De toepassing configureren voor gebruik van de StackExchange.Redis-client](#configure-the-application-to-use-stackexchangeredis)
-* [De HomeController en lay-out bijwerken](#update-the-homecontroller-and-layout)
-* [Een nieuwe RedisCache-weergave toevoegen](#add-a-new-rediscache-view)
+* De toepassing configureren voor gebruik van de StackExchange.Redis-client
+* De HomeController en lay-out bijwerken
+* Een nieuwe RedisCache-weergave toevoegen
 
 ### <a name="update-the-webconfig-file-with-an-app-setting-for-the-cache"></a>Het web.config-bestand bijwerken met een app-instelling voor de cache
 

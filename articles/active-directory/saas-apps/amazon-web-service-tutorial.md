@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-ms.openlocfilehash: d5633648ee94c4db20f095619871ac5cd9cec7da
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: def9d44c31ed50a859bf42aa148fb7e6a36764fd
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825170"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751086"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Zelfstudie: Azure Active Directory-integratie met Amazon Web Services (AWS)
 
@@ -398,7 +398,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    a. Voer in het veld **Naam****Britta Simon** in.
+    a. Voer in het veld **Naam** **Britta Simon**in.
   
     b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
     Bijvoorbeeld: BrittaSimon@contoso.com
@@ -442,6 +442,12 @@ Het doel van deze sectie is het maken van een gebruiker met de naam Britta Simon
 In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
 Wanneer u in het toegangsvenster op de tegel Amazon Web Services (AWS) klikt, zou u automatisch moeten worden aangemeld bij het exemplaar van Amazon Web Services (AWS) waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
+
+## <a name="known-issues"></a>Bekende problemen
+
+ * In de sectie **Inrichten** onder de subsectie **Toewijzingen**, wordt het bericht 'Laden...' weergeven, maar nooit de kenmerktoewijzingen. De enige inrichtingswerkstroom die tegenwoordig wordt ondersteund is het importeren van de rollen van AWS naar Azure Active Directory voor selectie tijdens de toewijzing van de gebruiker of groep. De kenmerktoewijzingen hiervoor zijn vooraf bepaald en kunnen niet worden geconfigureerd.
+ 
+ * De sectie **Inrichten** ondersteunt alleen de invoer van één set referenties per AWS-tenant tegelijk. Alle geïmporteerde rollen worden geschreven naar de eigenschap appRoles van het Azure Active Directory [servicePrincipal-object](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) voor de AWS-tenant. Meerdere AWS-tenants (vertegenwoordigd door servicePrincipals) kunnen worden toegevoegd aan Azure Active Directory vanuit de galerie voor het inrichten, maar er is een bekend probleem waarbij u niet meer in staat bent om automatisch alle geïmporteerde rollen van de meerdere AWS servicePrincipals die voor inrichten worden gebruikt, te schrijven naar de enkele servicePrincipal die wordt gebruikt voor eenmalige aanmelding. Als tijdelijke oplossing kan de [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) worden gebruikt om alle appRoles op te halen die zijn geïmporteerd in elke AWS-servicePrincipal waar de inrichting is geconfigureerd. Deze roltekenreeksen kunnen vervolgens worden toegevoegd aan de AWS-servicePrincipal waarop eenmalige aanmelding is geconfigureerd.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

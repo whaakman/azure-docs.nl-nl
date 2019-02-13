@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 03/02/2018
-ms.openlocfilehash: 9a22e4bb0949544e18237e789ca807e57ed59abf
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: db0f18f0e7028f01044cdba8a5d7b719d3fb9e23
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733494"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749015"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Een werkstroom indienen aan Microsoft Genomics met behulp van een SAS in plaats van een opslagaccountsleutel 
 
@@ -45,18 +45,18 @@ De SAS voor de uitvoercontainer moet de volgende eigenschappen hebben:
 Er zijn twee manieren om een SAS-token te maken: met behulp van Azure Storage Explorer of via programmacode.  Als u code gebruikt, kunt u de SAS zelf samenstellen, maar u kunt ook de SDK van Azure Storage gebruiken in de taal van uw voorkeur.
 
 
-### <a name="set-up-create-a-sas-using-azure-storage-explorer"></a>Een SAS maken met behulp van Azure Storage Explorer
+### <a name="set-up-create-a-sas-using-azure-storage-explorer"></a>Instellen: Een SAS maken met behulp van Azure Storage Explorer
 
 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is een hulpprogramma voor het beheren van resources die u hebt opgeslagen in Azure Storage.  U vindt [hier](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) meer informatie over het gebruik van Azure Storage Explorer.
 
-Het bereik van de SAS voor de invoerbestanden moet worden ingesteld op het specifieke invoerbestand (blob). Volg [deze instructies](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#work-with-shared-access-signatures) om een SAS-token te maken. Als u de SAS hebt gemaakt, ziet u de volledige URL met de querytekenreeks, evenals de querytekenreeks zelf, op het scherm en kunt u deze gegevens kopiëren.
+Het bereik van de SAS voor de invoerbestanden moet worden ingesteld op het specifieke invoerbestand (blob). Volg [deze instructies](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer) om een SAS-token te maken. Als u de SAS hebt gemaakt, ziet u de volledige URL met de querytekenreeks, evenals de querytekenreeks zelf, op het scherm en kunt u deze gegevens kopiëren.
 
  ![Genomics SAS Storage Explorer](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Genomics SAS Storage Explorer")
 
 
-### <a name="set-up-create-a-sas-programattically"></a>Een SAS maken via programmacode
+### <a name="set-up-create-a-sas-programattically"></a>Instellen: Een SAS maken via programmacode
 
-Als u een SAS wilt maken met behulp van de SDK van Azure Storage, raadpleegt u de documentatie voor verschillende talen, waaronder [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2#generate-a-shared-access-signature-uri-for-a-blob), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage) en [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage#work-with-shared-access-signatures). 
+Als u een SAS wilt maken met behulp van de SDK van Azure Storage, raadpleegt u de documentatie voor verschillende talen, waaronder [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2#generate-a-shared-access-signature-uri-for-a-blob), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage) en [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage). 
 
 Als u een SAS wilt maken zonder een SDK, kunt u de SAS-querytekenreeks rechtstreeks samenstellen, inclusief alle gegevens die vereist zijn voor verificatie van de SAS. In deze [instructies](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas) worden de onderdelen van de SAS-queryreeks beschreven en ook hoe u de reeks samenstelt. De vereiste SAS-handtekening maakt u door het genereren van een HMAC aan de hand van de verificatiegegevens voor de blob/container, zoals wordt beschreven in deze [instructies](https://docs.microsoft.com/rest/api/storageservices/service-sas-examples).
 

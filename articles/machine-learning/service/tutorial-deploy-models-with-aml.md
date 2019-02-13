@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
-ms.date: 09/24/2018
+ms.date: 01/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 887be89060a6d02eea74cd127cfbc93e48c0b3ff
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0f596f40cdea095ea152785e656c44eaa062e28c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240859"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564031"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Zelfstudie: Een afbeeldingsclassificatiemodel implementeren in Azure Container Instances
 
@@ -33,23 +33,18 @@ In dit gedeelte van de zelfstudie gebruikt u Azure Machine Learning-service voor
 > * Het model implementeren in Container Instances
 > * Het geïmplementeerde model testen
 
-Container Instances is niet ideaal voor productie-implementaties, maar het is uiterst geschikt om de werkstroom te testen en om inzicht in de werkstroom te krijgen. Voor schaalbare productie-implementaties is het misschien beter om Azure Kubernetes Service te gebruiken. Zie [Modellen implementeren met de Azure Machine Learning-service](how-to-deploy-and-where.md) voor meer informatie.
-
-## <a name="get-the-notebook"></a>De notebook ophalen
-
-Voor uw gemak is deze zelfstudie beschikbaar gemaakt als een [Jupyter-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb). Voer het notebook *tutorials/img-classification-part2-deploy.ipynb* uit in [Azure Notebooks](https://notebooks.azure.com/) of op uw eigen Jupyter Notebook-server.
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+Container Instances is een uitstekende oplossing voor het testen en inzicht krijgen in de werkstroom. Voor schaalbare productie-implementaties is het misschien beter om Azure Kubernetes Service te gebruiken. Zie [Modellen implementeren met de Azure Machine Learning-service](how-to-deploy-and-where.md) voor meer informatie.
 
 >[!NOTE]
-> Code in dit artikel is getest met Azure Machine Learning SDK-versie 1.0.2.
+> Code in dit artikel is getest met Azure Machine Learning SDK-versie 1.0.8.
 
 ## <a name="prerequisites"></a>Vereisten
+Ga naar [De ontwikkelomgeving instellen](#start) om door de notebook-stappen te lezen.  
 
-Voer de modeltraining uit in het volgende notebook: [Zelfstudie (deel 1): Een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service](tutorial-train-models-with-aml.md).  
+Als u het notebook wilt uitvoeren, moet u eerst het trainen van het model voltooien in [Zelfstudie (deel 1): Een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service](tutorial-train-models-with-aml.md).   Voer vervolgens de notebook **tutorials/img-classification-part2-deploy.ipynb** uit met behulp van dezelfde notebookserver.
 
 
-## <a name="set-up-the-environment"></a>De omgeving instellen
+## <a name="start"></a>Stel de omgeving in
 
 Begin met het instellen van een testomgeving.
 
@@ -78,13 +73,16 @@ Bij de vorige zelfstudie hebt u een model geregistreerd in uw werkruimte. Nu gaa
 ```python
 from azureml.core import Workspace
 from azureml.core.model import Model
-
+import os 
 ws = Workspace.from_config()
 model=Model(ws, 'sklearn_mnist')
-model.download(target_dir = '.')
-import os 
+
+model.download(target_dir=os.getcwd(), exist_ok=True)
+
 # verify the downloaded model file
-os.stat('./sklearn_mnist_model.pkl')
+file_path = os.path.join(os.getcwd(), "sklearn_mnist_model.pkl")
+
+os.stat(file_path)
 ```
 
 ## <a name="test-the-model-locally"></a>Het model lokaal testen
@@ -100,12 +98,12 @@ Laad de testgegevens uit de map **./data/** die u hebt gemaakt tijdens de zelfst
 
 ```python
 from utils import load_data
+import os
 
+data_folder = os.path.join(os.getcwd(), 'data')
 # note we also shrink the intensity values (X) from 0-255 to 0-1. This helps the neural network converge faster
-
-X_test = load_data('./data/test-images.gz', False) / 255.0
-y_test = load_data('./data/test-labels.gz', True).reshape(-1)
-
+X_test = load_data(os.path.join(data_folder, 'test-images.gz'), False) / 255.0
+y_test = load_data(os.path.join(data_folder, 'test-labels.gz'), True).reshape(-1)
 ```
 
 ### <a name="predict-test-data"></a>Testgegevens voorspellen
@@ -116,7 +114,7 @@ U kunt voorspellingen opvragen door de set met testgegevens door te geven aan he
 import pickle
 from sklearn.externals import joblib
 
-clf = joblib.load('./sklearn_mnist_model.pkl')
+clf = joblib.load( os.path.join(os.getcwd(), 'sklearn_mnist_model.pkl'))
 y_hat = clf.predict(X_test)
 ```
 
@@ -214,7 +212,8 @@ def run(raw_data):
     data = np.array(json.loads(raw_data)['data'])
     # make prediction
     y_hat = model.predict(data)
-    return json.dumps(y_hat.tolist())
+    # you can return any data type as long as it is JSON-serializable
+    return y_hat.tolist()
 ```
 
 <a name="make-myenv"></a>
@@ -314,10 +313,10 @@ n = 30
 sample_indices = np.random.permutation(X_test.shape[0])[0:n]
 
 test_samples = json.dumps({"data": X_test[sample_indices].tolist()})
-test_samples = bytes(test_samples, encoding = 'utf8')
+test_samples = bytes(test_samples, encoding='utf8')
 
 # predict using the deployed model
-result = json.loads(service.run(input_data=test_samples))
+result = service.run(input_data=test_samples)
 
 # compare actual value vs. the predicted values:
 i = 0
@@ -347,7 +346,6 @@ U kunt ook HTTP-aanvragen op basis van onbewerkte gegevens verzenden om de webse
 
 ```python
 import requests
-import json
 
 # send a random row from the test set to score
 random_index = np.random.randint(0, len(X_test)-1)
@@ -380,6 +378,8 @@ service.delete()
 
 ## <a name="next-steps"></a>Volgende stappen
 
-+ Lees meer over alle [implementatieopties voor Azure Machine Learning-service](how-to-deploy-and-where.md). Voorbeelden van opties zijn Azure Container Instances, Azure Kubernetes Service, FPGA's en Azure IoT Edge.
-
-+ Ontdek hoe Azure Machine Learning automatisch het beste algoritme voor uw model selecteert en het daarop afstemt, en hoe het dat model voor u bouwt. Ga ook aan de slag met de zelfstudie [Automatisch algoritmen selecteren](tutorial-auto-train-models.md). 
++ Lees meer over alle [implementatieopties voor Azure Machine Learning-service](how-to-deploy-and-where.md).
++ Meer informatie over het [maken van clients voor de webservice](how-to-consume-web-service.md).
++  Doe asynchroon [voorspellingen op grote hoeveelheden gegevens](how-to-run-batch-predictions.md).
++ Bewaak uw Azure Machine Learning-modellen met [Application Insights](how-to-enable-app-insights.md).
++ Ga ook aan de slag met de zelfstudie [Automatisch algoritmen selecteren](tutorial-auto-train-models.md). 

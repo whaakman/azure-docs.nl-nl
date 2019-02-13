@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 14dc1ca90ecd342330425db840776fa67caa80b0
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e2bb5550cfe07064d595151305955d87f9c61050
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208139"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819532"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Aan de slag met de Knowledge Exploration Service
 
@@ -100,7 +100,7 @@ Nadat u een schemabestand en het gegevensbestand hebt, kunt u een gecomprimeerde
 
 `kes.exe build_index Academic.schema Academic.data Academic.index`
 
-Voor snelle ontwikkeling van prototypen buiten Azure, kan [ `kes.exe build_index` ](CommandLine.md#build_index-command) kleine indexen lokaal bouwen van gegevensbestanden met maximaal 10.000 objecten. Voor grotere bestanden, kunt u ofwel de opdracht uitvoeren vanuit een [Windows VM in Azure](../../../articles/virtual-machines/windows/quick-create-portal.md) of een externe build uitvoeren in Azure. Ga voor meer informatie naar [Omhoog schalen](#scaling-up).
+Voor snelle ontwikkeling van prototypen buiten Azure, kan [ `kes.exe build_index` ](CommandLine.md#build_index-command) kleine indexen lokaal bouwen van gegevensbestanden met maximaal 10.000 objecten. Voor grotere bestanden, kunt u ofwel de opdracht uitvoeren vanuit een [Windows VM in Azure](../../../articles/virtual-machines/windows/quick-create-portal.md) of een externe build uitvoeren in Azure. Ga voor meer informatie naar Omhoog schalen.
 
 ## <a name="use-an-xml-grammar-specification"></a>Gebruik een XML-grammatica-specificatie
 
@@ -211,7 +211,7 @@ Voor snelle ontwikkeling van prototypen kunt u de grammatica en de index in een 
 
 `kes.exe host_service Academic.grammar Academic.index --port 8000`
 
-Hiermee initieert u een lokaal exemplaar van de webservice. U kunt de service interactief testen door naar de pagina `http::localhost:<port>` te gaan vanuit een browser. Ga voor meer informatie naar [Testservice](#testing-service).
+Hiermee initieert u een lokaal exemplaar van de webservice. U kunt de service interactief testen door naar de pagina `http::localhost:<port>` te gaan vanuit een browser. Ga voor meer informatie naar Service testen.
 
 U kunt ook direct verschillende [web-API's](WebAPI.md) aanroepen om de interpretatie van natuurlijke taal, de query-voltooiing, de gestructureerde query-evaluatie en de histogramberekening te testen. Als u wilt stoppen met de service, voer dan 'afsluiten' in bij de `kes.exe host_service` opdrachtprompt of druk op Ctrl+C. Hier volgen enkele voorbeelden:
 
@@ -220,7 +220,7 @@ U kunt ook direct verschillende [web-API's](WebAPI.md) aanroepen om de interpret
 * [http://localhost:8000/evaluate?expr=Composite(Author.Name=='susan t dumais')& kenmerken=Titel,Jaar,Author.Name,Author.Id&count=2](http://localhost:8000/evaluate?expr=Composite%28Author.Name==%27susan%20t%20dumais%27%29&attributes=Title,Year,Author.Name,Author.Id&count=2)
 * [http://localhost:8000/calchistogram?expr=And(Composite(Author.Name=='susan t dumais'),jaar>= 2013)&kenmerken=Jaar,Sleutelwoord&count=4](http://localhost:8000/calchistogram?expr=And%28Composite%28Author.Name=='susan%20t%20dumais'%29,Year>=2013%29&attributes=Year,Keyword&count=4)
 
-Buiten Azure is [ `kes.exe host_service` ](CommandLine.md#host_service-command) beperkt tot indexen van maximaal 10.000 objecten. Andere beperkingen zijn een API-frequentie van 10 aanvragen per seconde en een totaal van 1000 aanvragen voordat het proces wordt automatisch beëindigd. Als u deze beperkingen wilt omzeilen, kunt u de opdracht uitvoeren vanuit een [Windows VM in Azure](../../../articles/virtual-machines/windows/quick-create-portal.md), of de Azure cloudservice implementeren met behulp van de [ `kes.exe deploy_service` ](CommandLine.md#deploy_service-command) opdracht. Ga voor meer informatie naar [Implementeren van de service](#deploying-service).
+Buiten Azure is [ `kes.exe host_service` ](CommandLine.md#host_service-command) beperkt tot indexen van maximaal 10.000 objecten. Andere beperkingen zijn een API-frequentie van 10 aanvragen per seconde en een totaal van 1000 aanvragen voordat het proces wordt automatisch beëindigd. Als u deze beperkingen wilt omzeilen, kunt u de opdracht uitvoeren vanuit een [Windows VM in Azure](../../../articles/virtual-machines/windows/quick-create-portal.md), of de Azure cloudservice implementeren met behulp van de [ `kes.exe deploy_service` ](CommandLine.md#deploy_service-command) opdracht. Ga voor meer informatie naar Service implementeren.
 
 ## <a name="scale-up-to-host-larger-indices"></a>Opschalen om grotere indexen te hosten
 
@@ -262,7 +262,7 @@ Nadat u de service implementeert, kunt u de verschillende [web-API's](WebAPI.md)
 
 ## <a name="test-the-service"></a>Test de service
 
-Voor foutopsporing bij een live-service, blader naar de hostcomputer via een webbrowser. Voor een lokale service geïmplementeerd via [host_service](#hosting-service), gaat u naar `http://localhost:<port>/`.  Voor een lokale service geïmplementeerd via [deploy_service](#deploying-service), gaat u naar `http://<serviceName>.cloudapp.net/`.
+Voor foutopsporing bij een live-service, blader naar de hostcomputer via een webbrowser. Ga naar `http://localhost:<port>/` voor een lokale service geïmplementeerd via host_service.  Ga naar `http://<serviceName>.cloudapp.net/` voor een lokale service geïmplementeerd via deploy_service.
 
 Deze pagina bevat een koppeling naar informatie over de elementaire statistieken voor API-aanroepen, evenals de grammatica en de index die wordt gehost op deze service. Deze pagina bevat ook een interactieve zoekopdracht-interface die het gebruik van de web-API's demonstreert. Voer query's in het zoekvak in om de resultaten te zien van de [interpretatie](interpretMethod.md), [evaluatie](evaluateMethod.md), en [calchistogram](calchistogramMethod.md) API-aanroepen. De onderliggende HTML-bron van deze pagina fungeert ook als een voorbeeld van hoe u de web-API's kan integreren in een app, om een uitgebreide en interactieve zoekervaring te creëren.
 

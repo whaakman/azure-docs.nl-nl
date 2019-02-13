@@ -16,14 +16,14 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 3f38162fd4d95127ddf7797638bc9af21e6aaf20
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 5b72bd45299f636a208ab39be5b7eaade2730183
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095691"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814009"
 ---
-# <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Quickstart: Een toepassing configureren voor het beschikbaar maken van web-API's (preview)
+# <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Snelstart: Een toepassing configureren voor het beschikbaar maken van web-API's (preview)
 
 U kunt een web-API ontwikkelen en deze beschikbaar maken voor clienttoepassingen door [machtigingen/bereiken](developer-glossary.md#scopes) en [rollen](developer-glossary.md#roles) beschikbaar te maken. Een correct geconfigureerde web-API wordt net als de andere Microsoft web-API's beschikbaar gesteld, met inbegrip van de Graph API en de Office 365-API's.
 
@@ -116,7 +116,7 @@ Een nieuw bereik beschikbaar maken via het toepassingsmanifest:
 ## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>Controleren of de web-API beschikbaar is gemaakt voor andere toepassingen
 
 1. Ga terug naar de Azure Active Directory-tenant, selecteer **App-registraties** en zoek en selecteer de clienttoepassing die u wilt configureren.
-1. Herhaal de stappen die worden beschreven in [Een clienttoepassing configureren voor toegang tot web-API's](#configure-a-client-application-to-access-web-apis).
+1. Herhaal de stappen die worden beschreven in Een clienttoepassing configureren voor toegang tot web-API's.
 1. Wanneer u bij de stap **Een API selecteren** bent aangekomen, selecteert u de resource. U ziet nu het nieuwe bereik, dat beschikbaar is voor machtigingsaanvragen voor clients.
 
 ## <a name="more-on-the-application-manifest"></a>Meer informatie over het toepassingsmanifest
