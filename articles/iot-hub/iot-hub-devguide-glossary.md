@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: dobett
-ms.openlocfilehash: 3725117b90ec2574737686881e47967f3d9a9e39
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: d815f980a0583058957b7d87b6c99df59e9a4821
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320085"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817375"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Verklarende woordenlijst voor IoT Hub
 In dit artikel worden enkele van de algemene termen gebruikt in de IoT Hub-artikelen.
@@ -82,7 +82,7 @@ U verbindingsreeksen in uw app-code gebruiken om in te kapselen van de vereiste 
 U kunt aangepaste maken [eindpunten](iot-hub-devguide-endpoints.md) een IoT-hub kunt u berichten worden verzonden door een [routeringsregel](#routing-rules). Aangepaste eindpunten rechtstreeks verbinding maken met een Event hub, een Service Bus-wachtrij of een Service Bus-onderwerp.
 
 ## <a name="custom-gateway"></a>Aangepaste gateway
-Een gateway zorgt voor connectiviteit voor apparaten die niet kan rechtstreeks een verbinding met [IoT-Hub](#iot-hub). U kunt [Azure IoT Edge](#azure-iot-edge) aan het bouwen van aangepaste gateways die aangepaste logica voor het afhandelen van berichten, aangepaste protocol conversies en andere verwerking op de rand implementeren.
+Een gateway zorgt voor connectiviteit voor apparaten die niet kan rechtstreeks een verbinding met [IoT-Hub](#iot-hub). Azure IoT Edge kunt u aangepaste gateways die aangepaste logica voor het afhandelen van berichten, aangepaste protocol conversies en andere verwerking op de rand implementeren bouwen.
 
 ## <a name="data-point-message"></a>Gegevenspunt bericht
 Een gegevenspunt bericht is een [apparaat-naar-cloud](#device-to-cloud) -mailbericht met [telemetrie](#telemetry) gegevens, zoals windsnelheid of temperatuur.
@@ -224,7 +224,7 @@ Gebruik van een beleid voor opnieuw proberen om af te handelen [tijdelijke foute
 U configureert [routeringsregels](iot-hub-devguide-messages-read-custom.md) in uw IoT-hub voor het routeren van apparaat-naar-cloud-berichten naar een [ingebouwd eindpunt](#built-in-endpoints) of [aangepaste eindpunten](#custom-endpoints) voor verwerking door de back-end .
 
 ## <a name="sasl-plain"></a>SASL ZONDER OPMAAK
-SASL zonder opmaak is een protocol dat de [AMQP](#advanced-message-queue-protocol) protocol wordt gebruikt om over te dragen van beveiligingstokens.
+SASL zonder opmaak is een protocol dat het AMQP-protocol wordt gebruikt om over te dragen van beveiligingstokens.
 
 ## <a name="service-rest-api"></a>Service REST API
 U kunt de [REST API voor Service](https://docs.microsoft.com/rest/api/iothub/service) van de oplossing back-end om uw apparaten te beheren. De API kunt u voor het ophalen en bijwerken [apparaatdubbel](#device-twin) eigenschappen aangeroepen [directe methoden](#direct-method), en de planning [taken](#job). Normaal gesproken moet u een van de hogere [service-SDK's](#azure-iot-service-sdks) zoals wordt weergegeven in de IoT Hub-zelfstudies.
@@ -251,7 +251,7 @@ In de context van een [apparaatdubbel](iot-hub-devguide-device-twins.md), Systee
 In de context van een [apparaatdubbel](iot-hub-devguide-device-twins.md), labels zijn metagegevens van apparaten die zijn opgeslagen en worden opgehaald met de back-end oplossing in de vorm van een JSON-document. Tags zijn niet zichtbaar voor apps op een apparaat.
 
 ## <a name="telemetry"></a>Telemetrie
-Apparaten telemetriegegevens, zoals windsnelheid of temperatuur, verzamelen en gebruiken [gegevenspunt berichten](#data-point-messages) de telemetrie verzenden naar een IoT-hub.
+Apparaten telemetriegegevens, zoals windsnelheid of temperatuur, verzamelen en gebruiken van gegevenspunt berichten naar de telemetrie wordt verzonden naar een IoT-hub.
 
 ## <a name="token-service"></a>Token-service
 Een token service kunt u een verificatiemechanisme implementeren voor uw apparaten. Het maakt gebruik van een IoT-Hub [gedeeld toegangsbeleid](#shared-access-policy) met **DeviceConnect** machtigingen voor het maken *binnen het bereik van apparaat* tokens. Deze tokens inschakelen voor een apparaat verbinding maakt met uw IoT-hub. Een apparaat maakt gebruik van een aangepaste verificatiemechanisme voor verificatie met de service voor beveiligingstokens. Als het apparaat is geverifieerd, geeft de service voor beveiligingstokens een SAS-token voor het apparaat gebruiken voor toegang tot uw IoT-hub.

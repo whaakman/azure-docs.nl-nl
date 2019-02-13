@@ -9,11 +9,11 @@ ms.date: 10/23/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: e7dfd7d2a0363a95acb76a5dc214dbd4036de11d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50973755"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55735891"
 ---
 Elk eindpunt heeft een *openbare poort* en een *particuliere poort*:
 
@@ -37,7 +37,7 @@ Nadat u een eindpunt hebt gemaakt, kunt u een toegangsbeheerlijst (ACL) kunt geb
 3. Selecteer **eindpunten** in de **instellingen** groep. De **eindpunten** pagina wordt weergegeven, waarin de huidige eindpunten voor de virtuele machine. (In dit voorbeeld is voor een Windows-VM. Een Linux VM ziet standaard u een eindpunt voor SSH.)
 
    <!-- ![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png) -->
-   ![Eindpunten](./media/virtual-machines-common-classic-setup-endpoints/endpointsblade.png)
+   ![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointsblade.png)
 
 
 4. Selecteer in de opdrachtbalk boven de eindpunt-vermeldingen **toevoegen**. De **eindpunt toevoegen** pagina wordt weergegeven.
