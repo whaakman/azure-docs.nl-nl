@@ -1,280 +1,267 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met 4me | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en 4me.
+title: 'Zelfstudie: Microsoft Azure Active Directory-integratie met 4me | Microsoft Docs'
+description: Lees hoe u eenmalige aanmelding configureert tussen Azure Active Directory en 4me.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 983eecc6-41f8-49b7-b7f6-dcf833dde121
-ms.service: active-directory
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/03/2018
+ms.topic: tutorial
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: c33edf13a8bcafd4a6c3d4885553fc856ec941d8
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: MT
+ms.openlocfilehash: 8f02260ff7a13ffb2f07e6e272be1e70d5a1577f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158122"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661578"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-4me"></a>Zelfstudie: Azure Active Directory-integratie met 4me
+# <a name="tutorial-azure-active-directory-integration-with-4me"></a>Zelfstudie: Microsoft Azure Active Directory-integratie met 4me
 
-In deze zelfstudie leert u hoe u 4me integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u 4me kunt integreren met Microsoft Azure Active Directory (Azure AD).
+Het integreren van 4me met Microsoft Azure Active Directory biedt u de volgende voordelen:
 
-4me integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Microsoft Azure Active Directory beheren wie toegang heeft tot 4me.
+* U kunt inschakelen dat gebruikers automatisch met hun Microsoft Azure Active Directory-account worden aangemeld bij 4me (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot 4me heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij 4me inschakelen (Single Sign-On) met hun Azure AD-accounts.
-- U kunt uw accounts in één centrale locatie - Azure portal beheren.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met 4me, moet u de volgende items:
+Voor het configureren van Microsoft Azure Active Directory-integratie met 4me hebt u het volgende nodig:
 
-- Een Azure AD-abonnement
-- Een 4me eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op 4me waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. 4me uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-4me-from-the-gallery"></a>4me uit de galerie toe te voegen
-Voor het configureren van de integratie van 4me in Azure AD, moet u 4me uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* 4me ondersteunt door **SP** geïnitieerde eenmalige aanmelding
+* 4me ondersteunt het **Just-In-Time** inrichten van gebruikers
 
-**Als u wilt toevoegen 4me uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-4me-from-the-gallery"></a>4me toevoegen vanuit de galerie
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Om de integratie van 4me in Microsoft Azure Active Directory te configureren, moet u 4me vanuit de galerie aan uw lijst met beheerde SaaS-apps toevoegen.
 
-    ![De Azure Active Directory-knop][1]
+**Als u 4me wilt toevoegen vanuit de galerie, moet u de volgende stappen uitvoeren:**
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![De blade Enterprise-toepassingen][2]
-    
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![De knop nieuwe toepassing][3]
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-4. Typ in het zoekvak **4me**, selecteer **4me** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![4me in de lijst met resultaten](./media/4me-tutorial/tutorial_4me_addfromgallery.png)
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met 4me op basis van een testgebruiker 'Julia steen' genoemd.
+4. Typ in het zoekvak **4me**, selecteer **4me** in het resultaatvenster en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in 4me is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in 4me tot stand worden gebracht.
+     ![4me in de lijst met resultaten](common/search-new-app.png)
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met 4me, moet u de volgende bouwstenen voltooien:
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker 4me](#create-a-4me-test-user)**  : als u wilt een equivalent van Britta Simon in 4me die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+In dit gedeelte configureert en test u eenmalige aanmelding van Microsoft Azure Active Directory met 4me op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Microsoft Azure Active Directory-gebruiker en de daaraan gerelateerde gebruiker in 4me tot stand is gebracht.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+Om eenmalige aanmelding van Microsoft Azure Active Directory met 4me te configureren en testen, moet u de volgende bouwstenen voltooien:
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing 4me.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[4me-eenmalige aanmelding configureren](#configure-4me-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wil configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker voor 4me maken](#create-4me-test-user)**: als u een tegenhanger van Britta Simon in 4me wilt hebben die is gekoppeld aan de Microsoft Azure Active Directory-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met 4me, moet u de volgende stappen uitvoeren:**
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-1. In de Azure-portal op de **4me** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+Om eenmalige aanmelding van Microsoft Azure Active Directory met 4me te configureren, moet u de volgende stappen uitvoeren:
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/4me-tutorial/tutorial_4me_samlbase.png)
+1. In de [Microsoft Azure-portal](https://portal.azure.com/) selecteert u **Eenmalige aanmelding** op de integratiepagina van de toepassing **4me**.
 
-3. Op de **4me domein en URL's** sectie, voert u de volgende stappen uit:
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-    ![4me domein en URL's, eenmalige aanmelding informatie](./media/4me-tutorial/tutorial_4me_url.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon:
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
+
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
+
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
+
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
+
+    ![Informatie over eenmalige aanmelding van domeinen en URL’s van 4me](common/sp-identifier.png)
+
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon:
 
     | Omgeving| URL|
     |---|---|
     | PRODUCTIE | `https://<SUBDOMAIN>.4me.com`|
     | QA| `https://<SUBDOMAIN>.4me.qa`|
-  
-    b. In de **id** tekstvak, een URL met behulp van het volgende patroon:
-    
+    | | |
+
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon:
+
     | Omgeving| URL|
     |---|---|
     | PRODUCTIE | `https://<SUBDOMAIN>.4me.com`|
     | QA| `https://<SUBDOMAIN>.4me.qa`|
+    | | |
 
-    > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [4me Client ondersteuningsteam](mailto:support@4me.com) om deze waarden te verkrijgen. 
- 
-4. 4me toepassing verwacht het SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de **gebruikerskenmerken** sectie op de pagina van de toepassing-integratie. De volgende Schermafbeelding toont een voorbeeld voor deze.
-    
-    ![Eenmalige aanmelding configureren](./media/4me-tutorial/tutorial_4me_attribute.png)
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met [het klantenondersteuningsteam van 4me](mailto:support@4me.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-5. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de bovenstaande afbeelding en voer de volgende stappen uit:
-    
-    | Naam kenmerk | Waarde kenmerk |
-    | ---------------| --------------- |    
-    | first_name | User.givenName |
-    | last_name | User.surname |
+5. De 4me-toepassing verwacht dat de SAML-asserties in een specifieke indeling zijn ondertekend. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
 
-    a. Klik op **kenmerk toevoegen** openen de **kenmerk toevoegen** dialoogvenster.
+    ![image](common/edit-attribute.png)
 
-    ![Eenmalige aanmelding configureren](./media/4me-tutorial/tutorial_attribute_04.png)
+6. Bewerk in het gedeelte **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** de claims met het **pictogram Bewerken** of voeg de claims toe door met **Nieuwe claim toevoegen** het kenmerk van het SAML-token te configureren, zoals wordt weergegeven in de bovenstaande afbeelding. Hierna voert u de volgende stappen uit:
 
-    ![Eenmalige aanmelding configureren](./media/4me-tutorial/tutorial_attribute_05.png)
-    
-    b. In de **naam** tekstvak typt u de naam van het kenmerk wordt weergegeven voor die rij.
-    
-    c. Uit de **waarde** weergeven, typt u de waarde van het kenmerk wordt weergegeven voor die rij.
+    | Naam | Bronkenmerk|
+    | ---------------| --------------- |
+    | first_name | user.givenname |
+    | last_name | user.surname |
+    | | |
 
-    d. Laat de **Namespace** leeg.
-    
-    d. Klik op **Ok**
+    a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 
-6. Op de **SAML-handtekeningcertificaat** sectie, Kopieer de **VINGERAFDRUK** op uw computer.
+    ![image](common/new-save-attribute.png)
 
-    ![De downloadkoppeling certificaat](./media/4me-tutorial/tutorial_4me_certificate.png) 
+    ![image](common/new-attribute-details.png)
 
-7. Klik op **opslaan** knop.
+    b. In het tekstvak **Naam** typt u de naam van het kenmerk die voor die rij wordt weergegeven.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/4me-tutorial/tutorial_general_400.png)
+    c. Laat **Naamruimte** leeg.
 
-8. Op de **4me configuratie** sectie, klikt u op **configureren 4me** openen **aanmelding configureren** venster. Kopiëren de **afmelding URL's en SAML Single Sign-On Service** uit de **Naslaggids sectie.**
+    d. Selecteer Bron bij **Kenmerk**.
 
-    ![4me configuratie](./media/4me-tutorial/tutorial_4me_configure.png) 
+    e. Typ de kenmerkwaarde voor die rij in de lijst met **bronkenmerken**.
 
-9. In een ander browservenster, meld u aan bij 4me als beheerder.
+    f. Klik op **OK**.
 
-10. Klik linksboven op, op **instellingen** logo en op de werkbalk links op **Single Sign-On**.
+    g. Klik op **Opslaan**.
 
-    ![instellingen voor 4me](./media/4me-tutorial/tutorial_4me_settings.png)
+7. Klik in de sectie **SAML-handtekeningcertificaat** op de knop **Bewerken** om het dialoogvenster **SAML-handtekeningcertificaat** te openen.
 
-11. Op de **Single Sign-On** pagina, voert u de volgende stappen uit:
+    ![SAML-handtekeningcertificaat bewerken](common/edit-certificate.png)
+
+8. Kopieer in de sectie **SAML-handtekeningcertificaat** de waarde voor **VINGERAFDRUK** en sla deze op de computer op.
+
+    ![Waarde van vingerafdruk kopiëren](common/copy-thumbprint.png)
+
+9. Kopieer in het gedeelte **4me instellen** de juiste URL('s) op basis van uw behoeften.
+
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
+
+    a. Aanmeldings-URL
+
+    b. Azure AD-id
+
+    c. Afmeldings-URL
+
+### <a name="configure-4me-single-sign-on"></a>Eenmalige aanmelding met 4me configureren
+
+1. Meld u in een ander browservenster als beheerder aan bij 4me.
+
+2. Klik linksboven op het logo **Settings** en klik in de balk links op **Single Sign-On**.
+
+    ![4me-instellingen](./media/4me-tutorial/tutorial_4me_settings.png)
+
+3. Voer op de pagina **Single Sign-On** de volgende stappen uit:
 
     ![4me singleasignon](./media/4me-tutorial/tutorial_4me_singlesignon.png)
 
-    a. Selecteer de **ingeschakeld** optie.
+    a. Selecteer de optie **Enabled**.
 
-    b. In de **externe afmeldings-URL van** tekstvak, plak de waarde van **afmelding URL**, die u hebt gekopieerd vanuit Azure portal.
+    b. Plak in het tekstvak **Remote logout URL** de waarde van de **afmeldings-URL** die u hebt gekopieerd uit de Microsoft Azure-portal.
 
-    c. Onder **SAML** sectie in de **URL voor SAML SSO-** tekstvak, plak de waarde van **Single Sign-On Service URL voor SAML**, die u hebt gekopieerd vanuit Azure portal.
+    c. Plak onder de sectie **SAML** in het tekstvak **SAML SSO URL** de waarde van de **aanmeldings-URL** die u hebt gekopieerd uit de Microsoft Azure-portal.
 
-    d. In de **certificaat vingerafdruk** tekstvak, plak de **VINGERAFDRUK** waarden van elkaar gescheiden door een dubbele punt in duplets volgorde (AA:BB:CC:DD:EE:FF:GG:HH:II), die u hebt gekopieerd vanuit Azure portal.
+    d. Plak in het tekstvak **Certificate fingerprint** de waarde voor de **vingerafdruk** gescheiden door een dubbele punt in een volgorde van dubbele waarden (AA:BB:CC:DD:EE:FF:GG:HH:II) die u hebt gekopieerd uit de Microsoft Azure-portal.
 
     e. Klik op **Opslaan**.
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-   ![Maak een testgebruiker Azure AD][100]
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![De Azure Active Directory-knop](./media/4me-tutorial/create_aaduser_01.png)
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/4me-tutorial/create_aaduser_02.png)
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    ![De knop toevoegen](./media/4me-tutorial/create_aaduser_03.png)
-
-4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
-
-    ![Het dialoogvenster gebruiker](./media/4me-tutorial/create_aaduser_04.png)
-
-    a. In de **naam** in het vak **BrittaSimon**.
-
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="create-a-4me-test-user"></a>Maak een testgebruiker 4me
-
-Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in 4me. 4me biedt ondersteuning voor just-in-time inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot 4me als deze nog niet bestaat.
-
->[!Note]
->Als u maken van een gebruiker handmatig wilt, neem dan contact op met [4me ondersteuningsteam](mailto:support@4me.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon Azure eenmalige aanmelding gebruiken door het verlenen van toegang tot 4me.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot 4me.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer **Bedrijfstoepassingen** in de Microsoft Azure-portal, selecteer **Alle toepassingen** en selecteer vervolgens **4me**.
 
-**Als u wilt Britta Simon aan 4me toewijst, moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Selecteer **4me** in de lijst met toepassingen.
 
-    ![Gebruiker toewijzen][201] 
+    ![De 4me-koppeling in de lijst met toepassingen](common/all-applications.png)
 
-2. Selecteer in de lijst met toepassingen, **4me**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De koppeling 4me in de lijst met toepassingen](./media/4me-tutorial/tutorial_4me_app.png)  
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="create-4me-test-user"></a>4me-testgebruiker maken
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
+In deze sectie wordt een gebruiker met de naam Britta Simon gemaakt in 4me. 4me biedt ondersteuning voor Just-In-Time-inrichting van gebruikers. Deze functie is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Als er nog geen gebruiker in 4me bestaat, wordt er een nieuwe gemaakt nadat deze is geverifieerd.
+
+> [!Note]
+> Als u een gebruiker handmatig wilt maken, neemt u contact op met het  [4me-ondersteuningsteam](mailto:support@4me.com).
+
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-Wanneer u op de tegel 4me in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing 4me.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md). 
+Wanneer u in het toegangsvenster op de tegel 4me klikt, wordt u automatisch aangemeld bij de instantie van 4me waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/4me-tutorial/tutorial_general_01.png
-[2]: ./media/4me-tutorial/tutorial_general_02.png
-[3]: ./media/4me-tutorial/tutorial_general_03.png
-[4]: ./media/4me-tutorial/tutorial_general_04.png
-
-[100]: ./media/4me-tutorial/tutorial_general_100.png
-
-[200]: ./media/4me-tutorial/tutorial_general_200.png
-[201]: ./media/4me-tutorial/tutorial_general_201.png
-[202]: ./media/4me-tutorial/tutorial_general_202.png
-[203]: ./media/4me-tutorial/tutorial_general_203.png
-
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

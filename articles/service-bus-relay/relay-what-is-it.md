@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 11/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 132fca9c8904c4f64fffe167e3a3f2c6bb0d2cfe
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 2937d1f665dae03795892f9ff0e8a93a894e1992
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621019"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818036"
 ---
 # <a name="what-is-azure-relay"></a>Wat is Azure Relay?
 De Azure Relay-service stelt u in staat om services die worden uitgevoerd in uw bedrijfsnetwerk op een veilige manier aan te bieden aan de openbare cloud. U kunt dit doen zonder een poort in de firewall te openen of de infrastructuur van het bedrijfsnetwerk ingrijpend te wijzigen. 
@@ -44,7 +44,7 @@ In het patroon van doorgestuurde gegevensoverdracht zijn dit de basisstappen:
 Azure Relay heeft twee functies:
 
 - [Hybride verbindingen](#hybrid-connections): maakt gebruik van websockets op basis van open standaarden, waardoor scenario's met meerdere platforms worden ingeschakeld.
-- [WCF-relays](#wcf-relays): maakt gebruik van WCF (Windows Communication Foundation) om externe procedureaanroepen in te schakelen. WCF-relay is de oude relay-aanbieding die veel klanten mogelijk al gebruiken met hun WCF-programmeringsmodellen.
+- WCF-relays: maakt gebruik van WCF (Windows Communication Foundation) om externe procedureaanroepen in te schakelen. WCF-relay is de oude relay-aanbieding die veel klanten mogelijk al gebruiken met hun WCF-programmeringsmodellen.
 
 ## <a name="hybrid-connections"></a>Hybride verbindingen
 
@@ -70,7 +70,7 @@ Zowel met hybride verbindingen als met WCF Relay wordt een beveiligde verbinding
 | **Open protocol op basis van standaarden** | |x |
 | **RPC-programmeringsmodellen** | |x |
 
-## <a name="architecture-processing-of-incoming-relay-requests"></a>Architectuur: verwerken van inkomende relay-aanvragen
+## <a name="architecture-processing-of-incoming-relay-requests"></a>Architectuur: Verwerken van inkomende relay-aanvragen
 Het volgende diagram laat zien hoe binnenkomende relay-aanvragen worden verwerkt door de Azure Relay-service:
 
 ![Verwerken van inkomende WCF Relay-aanvragen](./media/relay-what-is-it/ic690645.png)

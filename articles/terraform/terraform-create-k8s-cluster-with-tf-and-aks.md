@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/04/2018
-ms.openlocfilehash: 3ccba82e626882a99deaca2f12be3d2f96869b81
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 0ef206cf4407c6392ae5d9a70ba156f5635715e9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078946"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814789"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Een Kubernetes-cluster maken met Azure Kubernetes Service en Terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) beheert uw gehoste Kubernetes-omgeving en zorgt dat de implementatie en het beheer van toepassingen in containers snel en eenvoudig zijn en geen kennis over het beheer van containers vereisen. Het verlicht ook de last van actieve bewerkingen en onderhoud door inrichten, upgraden en bronnen op aanvraag schalen mogelijk te maken, zonder uw toepassingen offline te brengen.
@@ -352,7 +352,7 @@ In deze sectie ziet u hoe u de opdracht `terraform init` gebruikt om de resource
 
     ![Voorbeeld van de resultaten van de opdracht 'terraform plan'](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-plan-complete.png)
 
-1. Voer de opdracht `terraform apply` uit om het plan voor het maken van het Kubernetes-cluster toe te passen. Het proces voor het maken van een Kubernetes-cluster kan enige minuten duren, waardoor er een time-out kan optreden voor de Cloud Shell-sessie. Als er een time-out optreedt voor de Cloud Shell-sessie, kunt u de stappen in de sectie [Herstellen na een time-out van Cloud Shell](#recover-from-a-dloud-shell-timeout) volgen zodat u de zelfstudie kunt voltooien.
+1. Voer de opdracht `terraform apply` uit om het plan voor het maken van het Kubernetes-cluster toe te passen. Het proces voor het maken van een Kubernetes-cluster kan enige minuten duren, waardoor er een time-out kan optreden voor de Cloud Shell-sessie. Als er een time-out optreedt voor de Cloud Shell-sessie, kunt u de stappen in de sectie 'Herstellen na een time-out van Cloud Shell' volgen zodat u de zelfstudie kunt voltooien.
 
     ```bash
     terraform apply out.plan
@@ -362,7 +362,7 @@ In deze sectie ziet u hoe u de opdracht `terraform init` gebruikt om de resource
 
     ![Voorbeeld van de resultaten van de opdracht 'terraform apply'](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-apply-complete.png)
 
-1. Selecteer in Azure Portal **Alle services** in het linkermenu om alle resources weer te geven die voor uw nieuwe Kubernetes-cluster zijn gemaakt.
+1. Selecteer in Azure Portal **Alle services** in het linkermenu om de resources weer te geven die voor uw nieuwe Kubernetes-cluster zijn gemaakt.
 
     ![Cloud Shell-prompt](./media/terraform-create-k8s-cluster-with-tf-and-aks/k8s-resources-created.png)
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 7a3a94e9759dfb3c525ffcf1e840d5bec18f4808
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 6e5748f5a76ade9cc1bb91902eb0fddcec2a6daa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051308"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812341"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Beleid voor service-eindpunten voor virtuele netwerken (preview)
 
@@ -154,7 +154,7 @@ Voor beleid voor service-eindpunten is gecentraliseerde logboekregistratie niet 
 ### <a name="troubleshooting-scenarios"></a>Scenario’s voor probleemoplossing
 - De toegang tot opslagaccounts die niet in het beleid voor eindpunten is vermeld, is toegestaan
   - Netwerkbeveiligingsgroepen kunnen toegang tot het internet of tot Azure Storage-accounts in andere regio's toestaan.
-  - Netwerkbeveiligingsgroepen moeten zo worden geconfigureerd dat al het uitgaande internetverkeer wordt geweigerd en dat alleen verkeer naar specifieke Azure Storage-regio’s wordt toegestaan. Zie [Netwerkbeveiligingsgroepen](#network-security-groups) voor meer informatie.
+  - Netwerkbeveiligingsgroepen moeten zo worden geconfigureerd dat al het uitgaande internetverkeer wordt geweigerd en dat alleen verkeer naar specifieke Azure Storage-regio’s wordt toegestaan. Zie Netwerkbeveiligingsgroepen voor meer informatie.
 - De toegang wordt geweigerd voor accounts die in het beleid voor eindpunten worden vermeld
   - Mogelijk wordt de toegang geblokkeerd door netwerkbeveiligingsgroepen of firewall-filters
   - Als het verwijderen/het opnieuw toepassen van het beleid ervoor zorgt dat de verbinding wordt verbroken:

@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 89c19adc571d500fff54d493072bb9976ce51aa9
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 24ca97c21ac3728880db4c924179be1b78ec2f18
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052884"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565765"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Zelfstudie: een Python IoT Edge-module maken en implementeren op uw gesimuleerde apparaat
 
@@ -113,7 +113,7 @@ Gebruik het Python-pakket **cookiecutter** om een Python-oplossingssjabloon te m
    | Een naam opgeven voor de oplossing | Voer een beschrijvende naam voor de oplossing in of accepteer de standaardnaam **EdgeSolution**. |
    | Modulesjabloon selecteren | Kies **Python-module**. |
    | Een modulenaam opgeven | Geef de module de naam **PythonModule**. |
-   | Opslagplaats voor Docker-afbeeldingen voor de module opgeven | Een opslagplaats voor afbeeldingen bevat de naam van het containerregister en de naam van uw containerafbeelding. De containerafbeelding wordt vooraf gevuld vanuit de laatste stap. Vervang **localhost:5000** door de waarde van de aanmeldingsserver uit uw Azure-containerregister. U vindt de aanmeldingsserver op de overzichtspagina van het containerregister in de Azure-portal. De uiteindelijke tekenreeks ziet er ongeveer als volgt uit: \<registernaam\>.azurecr.io/pythonmodule. |
+   | Opslagplaats voor Docker-afbeeldingen voor de module opgeven | Een opslagplaats voor afbeeldingen bevat de naam van het containerregister en de naam van uw containerafbeelding. De containerafbeelding wordt vooraf gevuld vanuit de naam die u in de laatste stap hebt opgegeven. Vervang **localhost:5000** door de waarde van de aanmeldingsserver uit uw Azure-containerregister. U vindt de aanmeldingsserver op de overzichtspagina van het containerregister in de Azure-portal. <br><br>De uiteindelijke opslagplaats voor de installatiekopie ziet er ongeveer als volgt uit: \<registernaam\>.azurecr.io/pythonmodule. |
  
    ![Opslagplaats voor Docker-installatiekopieën opgeven](./media/tutorial-python-module/repository.png)
 
@@ -246,6 +246,12 @@ In de vorige sectie hebt u een IoT Edge-oplossing gemaakt en code toegevoegd aan
 Wanneer u Visual Studio Code de opdracht geeft om uw oplossing te bouwen, wordt eerst een bestand deployment.json gemaakt in een nieuwe map genaamd **config** op basis van de informatie in de distributiesjabloon. Vervolgens worden twee opdrachten uitgevoerd in de geïntegreerde terminal: `docker build` en `docker push`. Met deze twee opdrachten wordt uw Python-code gebouwd, in een container opgeslagen en vervolgens naar het containerregister gepusht dat u hebt opgegeven toen u de oplossing initialiseerde. 
 
 U kunt het volledige adres van de containerinstallatiekopie, inclusief de tag, zien in de opdracht `docker build` die wordt uitgevoerd in de geïntegreerde terminal van VS Code. Het adres van de installatiekopie is opgebouwd uit informatie uit het bestand module.json, in de indeling \<opslagplaats\>:\<versie\>-\<platform\>. Voor deze zelfstudie ziet dit adres er ongeveer als volgt uit: registryname.azurecr.io/pythonmodule:0.0.1-amd64.
+
+>[!TIP]
+>Als u een foutmelding krijgt bij het bouwen en pushen van de module, controleert u het volgende:
+>* Hebt u zich bij Docker in Visual Studio Code aangemeld met de referenties uit uw containerregister? Deze referenties zijn anders dan de referenties die u gebruikt om u aan te melden bij de Microsoft Azure-portal.
+>* Hebt u de juiste containeropslagplaats? Open **modules** > **cmodule** > **module.json** en zoek het veld **opslagplaats**. De opslagplaats voor de installatiekopie ziet er ongeveer uit als **\<registryname\>.azurecr.io/pythonmodule**. 
+>* Bouwt u hetzelfde type containers dat door uw ontwikkelcomputer wordt uitgevoerd? Visual Studio Code wordt teruggezet op de Linux amd64-standaardcontainers. Als op uw ontwikkelcomputer Linux arm32v7-containers worden uitgevoerd, werkt u het platform bij op de blauwe statusbalk onder aan het VS Code-venster, zodat dit overeenkomt. Python-modules bieden geen ondersteuning voor Windows-containers. 
 
 ## <a name="deploy-and-run-the-solution"></a>De oplossing implementeren en uitvoeren
 

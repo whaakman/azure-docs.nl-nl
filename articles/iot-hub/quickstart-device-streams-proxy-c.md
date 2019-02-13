@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: d0fc8d68b3412c2c43a88e3a9484dab3a150b811
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 300b42c9452fc58c857d075a7fd8c42fd6a1c409
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886268"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731730"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-application-preview"></a>Quickstart: SSH/RDP via IoT Hub-apparaatstreams met behulp van C#-proxytoepassingen (preview)
 
@@ -53,10 +53,10 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 ## <a name="prepare-the-development-environment"></a>De ontwikkelomgeving voorbereiden
 
-Voor deze quickstart gebruikt u de [Azure IoT device-SDK voor C](iot-hub-device-sdk-c-intro.md). U bereidt een ontwikkelomgeving voor die wordt gebruikt om de [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) van GitHub te klonen en te bouwen. De SDK op GitHub bevat de voorbeeldcode gebruikt in deze quickstart. 
+Voor deze snelstart gebruikt u de [Azure IoT device-SDK voor C](iot-hub-device-sdk-c-intro.md). U bereidt een ontwikkelomgeving voor die wordt gebruikt om de [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) van GitHub te klonen en te bouwen. De SDK op GitHub bevat de voorbeeldcode gebruikt in deze snelstartgids. 
 
 
-1. Download versie 3.11.4 van het [CMake-buildsysteem](https://cmake.org/download/). Controleer het gedownloade binaire bestand met behulp van de bijbehorende cryptografische hash-waarde. In het volgende voorbeeld is Windows PowerShell gebruikt om de cryptografische hash te controleren voor versie 3.11.4 van de x64 MSI-distributie:
+1. Download versie 3.11.4 van het [CMake-buildsysteem](https://cmake.org/download/) van [GitHub](https://github.com/Kitware/CMake/releases/tag/v3.11.4). Controleer het gedownloade binaire bestand met behulp van de bijbehorende cryptografische hash-waarde. In het volgende voorbeeld is Windows PowerShell gebruikt om de cryptografische hash te controleren voor versie 3.11.4 van de x64 MSI-distributie:
 
     ```PowerShell
     PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
@@ -77,7 +77,7 @@ Voor deze quickstart gebruikt u de [Azure IoT device-SDK voor C](iot-hub-device-
 2. Open een opdrachtprompt of Git Bash-shell. Voer de volgende opdracht uit voor het klonen van de [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub-opslagplaats:
     
     ```
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
     De grootte van deze opslagplaats is momenteel ongeveer 220 MB. Deze bewerking kan enkele minuten in beslag nemen.
 
@@ -86,7 +86,6 @@ Voor deze quickstart gebruikt u de [Azure IoT device-SDK voor C](iot-hub-device-
 
     ```
     cd azure-iot-sdk-c
-    git checkout public-preview
     mkdir cmake
     cd cmake
     ```
@@ -102,14 +101,14 @@ Voor deze quickstart gebruikt u de [Azure IoT device-SDK voor C](iot-hub-device-
 Voer in Windows de volgende opdrachten uit in Developer Command Prompt voor uw Visual Studio 2015- of 2017-prompt:
 
 ```
-    # In Windows
-    # For VS2015
-    $ cmake .. -G "Visual Studio 15 2015"
-    
-    # Or for VS2017
-    $ cmake .. -G "Visual Studio 15 2017
+    rem In Windows
+    rem For VS2015
+    cmake .. -G "Visual Studio 15 2015"
 
-    # Then build the project
+    rem Or for VS2017
+    cmake .. -G "Visual Studio 15 2017"
+
+    rem Then build the project
     cmake --build . -- /m /p:Configuration=Release
 ```
     
@@ -145,7 +144,7 @@ Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan m
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 
-    U gebruikt deze waarde verderop in de quickstart.
+    U gebruikt deze waarde verderop in de snelstartgids.
 
 
 ## <a name="ssh-to-a-device-via-device-streams"></a>SSH naar een apparaat via apparaatstreams
@@ -165,11 +164,12 @@ Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan m
 ```
     # In Linux
     # Go to the sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
-    $ make -j
+    make -j
+```
 
-
-    # In Windows
-    # Go to cmake at root of repository
+```
+    rem In Windows
+    rem Go to cmake at root of repository
     cmake --build . -- /m /p:Configuration=Release
 ```
 
@@ -177,10 +177,12 @@ Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan m
 ```
     # In Linux
     # Go to sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
-    $ ./iothub_client_c2d_streaming_proxy_sample
+    ./iothub_client_c2d_streaming_proxy_sample
+```
 
-    # In Windows
-    # Go to sample's release folder cmake\iothub_client\samples\iothub_client_c2d_streaming_proxy_sample\Release
+```
+    rem In Windows
+    rem Go to sample's release folder cmake\iothub_client\samples\iothub_client_c2d_streaming_proxy_sample\Release
     iothub_client_c2d_streaming_proxy_sample.exe
 ```
 

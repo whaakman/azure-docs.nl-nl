@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/09/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7156042243b1ba28cea712dc3722600b9fc46c42
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 298c9fabca9d1994e0b952fdf8b48b70370c3ec2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360625"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490666"
 ---
 # <a name="what-is-azure-backup"></a>Wat is Azure Backup?
 
@@ -47,7 +47,7 @@ Azure Backup en Azure Site Recovery dragen beide bij aan een strategie voor bedr
 
 Beide services bieden complementaire maar verschillende functionaliteit.
 
-- **Azure Site Recovery**: Site Recovery biedt een oplossing voor herstel na noodgevallen voor on-premises machines en virtuele Azure-machines. U repliceert machines vanaf een primaire naar een secundaire locatie. Wanneer zich een noodgeval voordoet, voert u een failover naar de secundaire locatie en zijn de machines van daaruit toegankelijk. Wanneer alles weer normaal functioneert, voert u een failback uit om ze te herstellen naar de primaire locatie.
+- **Azure Site Recovery**: Site Recovery biedt een oplossing voor herstel na noodgevallen voor on-premises machines en virtuele Azure-machines. U repliceert machines vanaf een primaire naar een secundaire locatie. Wanneer er zich een noodgeval voordoet, voert u een failover naar de secundaire locatie uit en zijn de machines van daaruit toegankelijk. Wanneer alles weer normaal functioneert, voert u een failback uit om ze te herstellen naar de primaire locatie.
 - **Azure Backup**: De Azure Backup-service maakt back-ups van gegevens van on-premises machines en Azure-VM's. Gegevens kunnen op een gedetailleerd niveau worden geback-upt en hersteld, inclusief back-up van bestanden, mappen, de status van het computersysteem en appbewuste gegevensback-up. Azure Backup verwerkt gegevens op een gedetailleerder niveau dan Site Recovery. Als er bijvoorbeeld een presentatie op uw laptop beschadigd raakt, kunt u Azure Backup gebruiken om de presentatie te herstellen. Als u een VM-configuratie en gegevens veilig en toegankelijk wilt houden, kunt u Site Recovery gebruiken.  
 
 Gebruik de tabel om uw behoeften op BCDR-gebied te bepalen. 
@@ -85,7 +85,7 @@ Het maken van back-ups eerst naar DPM/MABS en vervolgens naar een kluis heeft de
 
 ## <a name="what-can-be-backed-up"></a>Waar kan een back-up van worden gemaakt?
 
-**Machine** | **Back-upserver** | **Back-up**
+**Machine** | **Back-upserver** | **Een back-up maken**
 --- | --- | ---
 On-premises Windows-VM's | Geen back-up naar DPM of MABS | Back-up van bestanden, mappen, systeemstatus.
 Azure VM's (Windows en Linux) | Geen back-up naar DPM of MABS | Back-up van bestanden, mappen, systeemstatus.<br/><br/> Back-ups zijn app-bewust voor Windows-machines en bestandsbewust voor Linux-machines.
@@ -103,7 +103,7 @@ Back-up van on-premises machines en Azure-VM's beveiligd door MABS | De MARS-age
 
 ## <a name="which-backup-agent-should-i-use"></a>Welke back-upagent moet ik gebruiken?
 
-**Back-up** | **Oplossing** | **Beperking**
+**Een back-up maken** | **Oplossing** | **Beperking**
 --- | --- | ---
 Ik wil een back-up maken van on-premises Windows-machines. Machines worden niet beveiligd door DPM of MABS | Installeer de MARS-agent op de machine. | U kunt een back-up van bestanden, mappen en de systeemstatus maken naar Azure. Back-ups zijn niet app-bewust.
 Ik wil een back-up maken van on-premises Linux-machines. Machines worden niet beveiligd door DPM of MABS. | U moet DPM of MABS implementeren om een back-up te maken naar Azure.

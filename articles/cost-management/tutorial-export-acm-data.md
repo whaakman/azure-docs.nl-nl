@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/04/2019
+ms.date: 02/05/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 4ad93dad2044526f5825823540325b73f2d0d7ae
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 5f979f562ee871e7ae5f48de5bc53405cb3d1116
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053531"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766402"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Zelfstudie: Geëxporteerde gegevens maken en beheren
 
@@ -30,8 +30,7 @@ In deze zelfstudie leert u het volgende:
 > * Controleren of de gegevens zijn geëxporteerd
 
 ## <a name="prerequisites"></a>Vereisten
-
-Gegevensexport is beschikbaar voor alle klanten met een [Enterprise Overeenkomst (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). In abonnementen worden de volgende Azure-machtigingen ondersteund voor het exporteren van gegevens door gebruikers en groepen:
+Exporteren van gegevens is beschikbaar voor verschillende typen Azure-accounts, met inbegrip van [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)-klanten. Zie voor de volledige lijst met ondersteunde accounttypen [Gegevens van Azure Cost Management begrijpen](understand-cost-mgt-data.md). In abonnementen worden de volgende Azure-machtigingen ondersteund voor het exporteren van gegevens door gebruikers en groepen:
 
 - Eigenaar: eigenaren kunnen geplande exports voor een abonnement instellen, wijzigen en verwijderen.
 - Inzender: inzenders kunnen hun eigen geplande exports instellen, wijzigen en verwijderen. Zij kunnen bovendien de naam wijzigen van geplande exports die door anderen zijn ingesteld.

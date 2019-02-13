@@ -10,12 +10,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: b51bf83d2e44239ebd6bc17e25efaa2fe94250f3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5cecb11494926444249c8061f1ec93622e4d6c78
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467132"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700693"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Aan de slag in Azure Dev Spaces met behulp van .NET Core
 
@@ -99,13 +99,7 @@ Uitgebreide functies, zoals Kubernetes-foutopsporing, zijn beschikbaar voor .NET
 In deze sectie maakt u een ASP.NET Core-web-app en voert u deze uit in een container in Kubernetes.
 
 ### <a name="create-an-aspnet-core-web-app"></a>Een ASP.NET Core-web-app maken
-Als u [.NET Core](https://www.microsoft.com/net) hebt geïnstalleerd, kunt u snel een ASP.NET Core-web-app maken in een map met de naam `webfrontend`.
-    
-```cmd
-dotnet new mvc --name webfrontend
-```
-
-Of **download voorbeeldcode vanuit GitHub**  door te navigeren naar https://github.com/Azure/dev-spaces en selecteer **Clone or Download** om de GitHub-opslagplaats naar uw lokale omgeving te downloaden. De code voor deze handleiding bevindt zich in `samples/dotnetcore/getting-started/webfrontend`.
+Kloon of download de [voorbeeldtoepassing voor Azure Dev Spaces](https://github.com/Azure/dev-spaces). In dit artikel wordt de code gebruikt uit de map *samples/dotnetcore/getting-started/webfrontend*.
 
 ## <a name="preparing-code-for-docker-and-kubernetes-development"></a>Code voorbereiden voor de ontwikkeling van Docker en Kubernetes
 U hebt nu een eenvoudige web-app die lokaal kan worden uitgevoerd. U gaat hier nu een container van maken door assets te maken waarmee de container van de app wordt gedefinieerd evenals hoe deze in Kubernetes wordt geïmplementeerd. Deze taak kan eenvoudig worden uitgevoerd met Azure Dev Spaces: 
@@ -245,4 +239,4 @@ Vernieuw de web-app in de browser en ga naar de pagina Info. U ziet dat uw aange
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Meer informatie over teamontwikkeling](team-development-netcore.md)
+> [Meer informatie over het ontwikkelen van meerdere services](multi-service-netcore.md)

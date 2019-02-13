@@ -11,14 +11,14 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/12/2018
+ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: f49f6f03b6d9f1c51cada58ae782bbc364fc9d66
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7ea9ce47b82dd4ad31caf935fd10e04daa07faba
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427284"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699973"
 ---
 # <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>Zelfstudie: Een aangepaste rol maken met Azure PowerShell
 
@@ -34,12 +34,14 @@ In deze zelfstudie leert u het volgende:
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Vereisten
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 - Machtigingen voor het maken van aangepaste rollen, zoals [Eigenaar](built-in-roles.md#owner) of [Administrator voor gebruikerstoegang](built-in-roles.md#user-access-administrator)
-- [Azure PowerShell lokaal geïnstalleerd](/powershell/azure/azurerm/install-azurerm-ps)
+- [Azure PowerShell lokaal geïnstalleerd](/powershell/azure/install-az-ps)
 
 ## <a name="sign-in-to-azure-powershell"></a>Aanmelden bij Azure PowerShell
 
@@ -49,10 +51,10 @@ Meld u aan bij [Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 De eenvoudigste manier om een aangepaste rol te maken, is door een ingebouwde rol als uitgangspunt te nemen, deze te bewerken en zo een nieuwe rol te maken.
 
-1. Gebruik in PowerShell de opdracht [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) om de lijst met bewerkingen voor de resourceprovider Microsoft.Support resource op te vragen. Het is handig om te weten welke bewerkingen er beschikbaar zijn voor het maken van machtigingen. U kunt ook in [Bewerkingen van resourceprovider Azure Resource Manager](resource-provider-operations.md#microsoftsupport) een overzicht zien van alle bewerkingen.
+1. Gebruik in PowerShell de opdracht [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) om de lijst met bewerkingen voor de Microsoft.Support-resourceprovider op te vragen. Het is handig om te weten welke bewerkingen er beschikbaar zijn voor het maken van machtigingen. U kunt ook in [Bewerkingen van resourceprovider Azure Resource Manager](resource-provider-operations.md#microsoftsupport) een overzicht zien van alle bewerkingen.
 
     ```azurepowershell
-    Get-AzureRMProviderOperation "Microsoft.Support/*" | FT Operation, Description -AutoSize
+    Get-AzProviderOperation "Microsoft.Support/*" | FT Operation, Description -AutoSize
     ```
     
     ```Output
@@ -63,10 +65,10 @@ De eenvoudigste manier om een aangepaste rol te maken, is door een ingebouwde ro
     Microsoft.Support/supportTickets/write Creates or Updates a Support Ticket. You can create a Support Tic...
     ```
 
-1. Gebruik de opdracht [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) om de rol [Lezer](built-in-roles.md#reader) uit te voeren in de JSON-indeling.
+1. Gebruik de opdracht [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) om de rol [Lezer](built-in-roles.md#reader) uit te voeren in de JSON-indeling.
 
     ```azurepowershell
-    Get-AzureRmRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\CustomRoles\ReaderSupportRole.json
+    Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\CustomRoles\ReaderSupportRole.json
     ```
 
 1. Open het bestand **ReaderSupportRole.json** in een teksteditor.
@@ -75,34 +77,28 @@ De eenvoudigste manier om een aangepaste rol te maken, is door een ingebouwde ro
 
     ```json
     {
-        "Name":  "Reader",
-        "Id":  "acdd72a7-3385-48ef-bd42-f606fba81ae7",
-        "IsCustom":  false,
-        "Description":  "Lets you view everything, but not make any changes.",
-        "Actions":  [
-                        "*/read"
-                    ],
-        "NotActions":  [
-    
-                       ],
-        "DataActions":  [
-    
-                        ],
-        "NotDataActions":  [
-    
-                           ],
-        "AssignableScopes":  [
-                                 "/"
-                             ]
+      "Name": "Reader",
+      "Id": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+      "IsCustom": false,
+      "Description": "Lets you view everything, but not make any changes.",
+      "Actions": [
+        "*/read"
+      ],
+      "NotActions": [],
+      "DataActions": [],
+      "NotDataActions": [],
+      "AssignableScopes": [
+        "/"
+      ]
     }
     ```
     
 1. Bewerk het JSON-bestand om de bewerking `"Microsoft.Support/*"` toe te voegen aan de eigenschap `Actions`. Vergeet niet om een komma toe te voegen na de read-bewerking. Deze actie stelt de gebruiker in staat om ondersteuningstickets aan te maken.
 
-1. Vraag de id van uw abonnement op met de opdracht [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
+1. Vraag de id van uw abonnement op met de opdracht [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription).
 
     ```azurepowershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
 1. Voeg in `AssignableScopes` uw abonnements-id toe met de volgende indeling: `"/subscriptions/00000000-0000-0000-0000-000000000000"`
@@ -117,32 +113,26 @@ De eenvoudigste manier om een aangepaste rol te maken, is door een ingebouwde ro
 
     ```json
     {
-        "Name":  "Reader Support Tickets",
-        "IsCustom":  true,
-        "Description":  "View everything in the subscription and also open support tickets.",
-        "Actions":  [
-                        "*/read",
-                        "Microsoft.Support/*"
-                    ],
-        "NotActions":  [
-    
-                       ],
-        "DataActions":  [
-    
-                        ],
-        "NotDataActions":  [
-    
-                           ],
-        "AssignableScopes":  [
-                                 "/subscriptions/00000000-0000-0000-0000-000000000000"
-                             ]
+      "Name": "Reader Support Tickets",
+      "IsCustom": true,
+      "Description": "View everything in the subscription and also open support tickets.",
+      "Actions": [
+        "*/read",
+        "Microsoft.Support/*"
+      ],
+      "NotActions": [],
+      "DataActions": [],
+      "NotDataActions": [],
+      "AssignableScopes": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000"
+      ]
     }
     ```
     
-1. Gebruik voor het maken van de nieuwe aangepaste rol de opdracht [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) en geef het JSON-definitiebestand voor de rol op.
+1. Gebruik voor het maken van de nieuwe aangepaste rol de opdracht [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) en geef het JSON-definitiebestand voor de rol op.
 
     ```azurepowershell
-    New-AzureRmRoleDefinition -InputFile "C:\CustomRoles\ReaderSupportRole.json"
+    New-AzRoleDefinition -InputFile "C:\CustomRoles\ReaderSupportRole.json"
     ```
 
     ```Output
@@ -161,10 +151,10 @@ De eenvoudigste manier om een aangepaste rol te maken, is door een ingebouwde ro
 
 ## <a name="list-custom-roles"></a>Aangepaste rollen opvragen
 
-- Gebruik de opdracht [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) om alle aangepaste rollen weer te geven.
+- Gebruik de opdracht [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) om alle aangepaste rollen weer te geven.
 
     ```azurepowershell
-    Get-AzureRmRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
+    Get-AzRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
     ```
 
     ```Output
@@ -181,10 +171,10 @@ De eenvoudigste manier om een aangepaste rol te maken, is door een ingebouwde ro
 
 Als u de aangepaste rol wilt bijwerken, kunt u het JSON-bestand bijwerken of het object `PSRoleDefinition` gebruiken.
 
-1. Als u het JSON-bestand wilt bijwerken, gebruikt u de opdracht [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) om de aangepaste rol uit te voeren in de JSON-indeling.
+1. Als u het JSON-bestand wilt bijwerken, gebruikt u de opdracht [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) om de aangepaste rol uit te voeren in de JSON-indeling.
 
     ```azurepowershell
-    Get-AzureRmRoleDefinition -Name "Reader Support Tickets" | ConvertTo-Json | Out-File C:\CustomRoles\ReaderSupportRole2.json
+    Get-AzRoleDefinition -Name "Reader Support Tickets" | ConvertTo-Json | Out-File C:\CustomRoles\ReaderSupportRole2.json
     ```
 
 1. Open het bestand in een editor.
@@ -195,34 +185,28 @@ Als u de aangepaste rol wilt bijwerken, kunt u het JSON-bestand bijwerken of het
 
     ```json
     {
-        "Name":  "Reader Support Tickets",
-        "Id":  "22222222-2222-2222-2222-222222222222",
-        "IsCustom":  true,
-        "Description":  "View everything in the subscription and also open support tickets.",
-        "Actions":  [
-                        "*/read",
-                        "Microsoft.Support/*",
-                        "Microsoft.Resources/deployments/*"
-                    ],
-        "NotActions":  [
-    
-                       ],
-        "DataActions":  [
-    
-                        ],
-        "NotDataActions":  [
-    
-                           ],
-        "AssignableScopes":  [
-                                 "/subscriptions/00000000-0000-0000-0000-000000000000"
-                             ]
+      "Name": "Reader Support Tickets",
+      "Id": "22222222-2222-2222-2222-222222222222",
+      "IsCustom": true,
+      "Description": "View everything in the subscription and also open support tickets.",
+      "Actions": [
+        "*/read",
+        "Microsoft.Support/*",
+        "Microsoft.Resources/deployments/*"
+      ],
+      "NotActions": [],
+      "DataActions": [],
+      "NotDataActions": [],
+      "AssignableScopes": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000"
+      ]
     }
     ```
         
-1. Als u de aangepaste rol wilt bijwerken, gebruikt u de opdracht [Set-AzureRmRoleDefinition](/powershell/module/azurerm.resources/set-azurermroledefinition) en geeft u het bijgewerkte JSON-bestand op.
+1. Als u de aangepaste rol wilt bijwerken, gebruikt u de opdracht [Set-AzRoleDefinition](/powershell/module/az.resources/set-azroledefinition) en geeft u het bijgewerkte JSON-bestand op.
 
     ```azurepowershell
-    Set-AzureRmRoleDefinition -InputFile "C:\CustomRoles\ReaderSupportRole2.json"
+    Set-AzRoleDefinition -InputFile "C:\CustomRoles\ReaderSupportRole2.json"
     ```
 
     ```Output
@@ -237,10 +221,10 @@ Als u de aangepaste rol wilt bijwerken, kunt u het JSON-bestand bijwerken of het
     AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000}
     ```
 
-1. Als u het object `PSRoleDefintion` wilt gebruiken om de aangepaste rol bij te werken, gebruikt u eerst de opdracht [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) om de rol op te vragen.
+1. Als u het object `PSRoleDefintion` wilt gebruiken om de aangepaste rol bij te werken, gebruikt u eerst de opdracht [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) om de rol op te vragen.
 
     ```azurepowershell
-    $role = Get-AzureRmRoleDefinition "Reader Support Tickets"
+    $role = Get-AzRoleDefinition "Reader Support Tickets"
     ```
     
 1. Roep de methode `Add` aan om de bewerking toe te voegen waarmee diagnostische instellingen worden gelezen.
@@ -249,10 +233,10 @@ Als u de aangepaste rol wilt bijwerken, kunt u het JSON-bestand bijwerken of het
     $role.Actions.Add("Microsoft.Insights/diagnosticSettings/*/read")
     ```
 
-1. Gebruik [Set-AzureRmRoleDefinition](/powershell/module/azurerm.resources/set-azurermroledefinition) om de rol bij te werken.
+1. Gebruik [Set-AzRoleDefinition](/powershell/module/az.resources/set-azroledefinition) om de rol bij te werken.
 
     ```azurepowershell
-    Set-AzureRmRoleDefinition -Role $role
+    Set-AzRoleDefinition -Role $role
     ```
     
     ```Output
@@ -270,16 +254,16 @@ Als u de aangepaste rol wilt bijwerken, kunt u het JSON-bestand bijwerken of het
     
 ## <a name="delete-a-custom-role"></a>Een aangepaste rol verwijderen
 
-1. Gebruik de opdracht [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) om de id van de aangepaste rol op te vragen.
+1. Gebruik de opdracht [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) om de id van de aangepaste rol op te vragen.
 
     ```azurepowershell
-    Get-AzureRmRoleDefinition "Reader Support Tickets"
+    Get-AzRoleDefinition "Reader Support Tickets"
     ```
 
-1. Gebruik de opdracht [Remove-AzureRmRoleDefinition](/powershell/module/azurerm.resources/remove-azurermroledefinition) en geef de id van de rol op om de aangepaste rol te verwijderen.
+1. Gebruik de opdracht [Remove-AzRoleDefinition](/powershell/module/az.resources/remove-azroledefinition) en geef de id van de rol op om de aangepaste rol te verwijderen.
 
     ```azurepowershell
-    Remove-AzureRmRoleDefinition -Id "22222222-2222-2222-2222-222222222222"
+    Remove-AzRoleDefinition -Id "22222222-2222-2222-2222-222222222222"
     ```
 
     ```Output

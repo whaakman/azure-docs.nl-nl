@@ -5,30 +5,37 @@ services: notification-hubs
 author: spelluru
 ms.service: notification-hubs
 ms.topic: include
-ms.date: 01/04/2019
+ms.date: 02/05/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: f00ca7ddf44a9d5b850cd47520970a0396a0c1b5
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: bc920493b32d500602a5b683c098d23aff855150
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453084"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55823189"
 ---
-1. Open Android SDK Manager door te klikken op het pictogram op de werkbalk van Android Studio of door in het menu te klikken op **Extra** > **Android** > **SDK Manager**. Zoek naar de doelversie van de Android SDK die in uw project wordt gebruikt, open deze door te klikken op **Pakketgegevens weergeven** en kies **Google API's**, als dat nog niet is geïnstalleerd.
-2. Klik op het tabblad **SDK-hulpprogramma's** . Als u Google Play Service nog niet hebt geïnstalleerd, klikt u op **Google Play Services** zoals hieronder weergegeven. Klik vervolgens op **Toepassen** om met de installatie te beginnen. Noteer het SDK-pad om het in een later stadium te kunnen gebruiken.
+1. Selecteer in **Android Studio** in het menu de optie **Hulpprogramma’s**, en selecteer **SDK Manager**. 
+2. Selecteer de doelversie van de Android SDK die wordt gebruikt in het project, en selecteer **Pakketgegevens weergeven**. 
 
-    ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
-3. Open het bestand `build.gradle` in de app-map.
+    ![Android SDK Manager - doelversie selecteren](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
+3. Selecteer **Google API’s**, als dit nog niet is geïnstalleerd.
 
-    ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-add-google-play-dependency.png)
-4. Voeg deze regel toe onder `dependencies`:
+    ![Android SDK Manager - Google API’s geselecteerd](./media/notification-hubs-android-studio-add-google-play-services/googole-apis-selected.png)
+4. Schakel over naar het tabblad **SDK-hulpprogramma's** . Als u Google Play Service nog niet hebt geïnstalleerd, selecteert u **Google Play Services** zoals wordt weergegeven in de onderstaande afbeelding. Klik vervolgens op **Toepassen** om met de installatie te beginnen. Noteer het SDK-pad om het in een later stadium te kunnen gebruiken.
+
+    ![Android SDK Manager - Google Play Services geselecteerd](./media/notification-hubs-android-studio-add-google-play-services/google-play-services-selected.png)
+3. Klik op **OK** zodra het dialoogvenster **Wijziging bevestigen** wordt weergegeven. De vereiste onderdelen worden geïnstalleerd met behulp van het installatieprogramma voor onderdelen. Selecteer **Voltooien** zodra de onderdelen zijn geïnstalleerd.
+4. Selecteer **OK** om het dialoogvenster **Instellingen voor nieuwe projecten** te sluiten.  
+5. Open het bestand `build.gradle` in de **app**-map en voeg deze regel toe onder `dependencies`. 
 
     ```text
-    compile 'com.google.android.gms:play-services-gcm:12.0.0'
+    implementation 'com.google.android.gms:play-services-gcm:16.0.0'
     ```
-5. Klik op het pictogram **Project met Gradle-bestanden synchroniseren** in de werkbalk.
-6. Open **AndroidManifest.xml** en voeg dit label toe aan het label *toepassing*.
+5. Selecteer in de werkbalk het pictogram **Nu synchroniseren**.
+
+    ![Synchroniseren met Gradle](./media/notification-hubs-android-studio-add-google-play-services/gradle-sync.png)
+1. Open **AndroidManifest.xml** en voeg dit label toe aan het label *toepassing*.
 
     ```xml
     <meta-data android:name="com.google.android.gms.version"

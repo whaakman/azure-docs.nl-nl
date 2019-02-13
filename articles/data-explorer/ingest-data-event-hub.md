@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: gegevens uit Event Hub opnemen in Azure Data Explorer'
+title: 'Snelstart: gegevens uit Event Hub opnemen in Azure Data Explorer'
 description: In deze quickstart leert u hoe u gegevens uit Event Hub kunt opnemen (laden) in Azure Data Explorer.
 services: data-explorer
 author: orspod
@@ -8,14 +8,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 11c6f421e2eb1c3e508868d4a87f838781bda8e2
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 5d9819d60e21c80b882db1d12b0318599fa54095
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478447"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729734"
 ---
-# <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Quickstart: gegevens uit Event Hub opnemen in Azure Data Explorer
+# <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Snelstart: gegevens uit Event Hub opnemen in Azure Data Explorer
 
 Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. Azure Data Explorer biedt opname (laden van gegevens) vanuit Event Hubs, een big data-streamingplatform en service voor gebeurtenisopname. [Event Hubs](/azure/event-hubs/event-hubs-about) kunnen miljoenen gebeurtenissen per seconde in bijna realtime verwerken. In deze quickstart maakt u een Event Hub, maakt u verbinding met deze hub vanuit Azure Data Explorer, en ziet u de gegevens door het systeem stromen.
 
@@ -129,7 +129,7 @@ Nu kunt u vanuit Azure Data Explorer verbinding maken met de event hub. Wanneer 
      **Instelling** | **Voorgestelde waarde** | **Beschrijving van veld**
     |---|---|---|
     | Tabel | *TestTable* | De tabel die u hebt gemaakt in **TestDatabase**. |
-    | Gegevensindeling | *JSON* | JSON- en CSV-indelingen worden ondersteund. |
+    | Gegevensindeling | *JSON* | Ondersteunde indelingen zijn Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV en TXT. |
     | Toewijzen van kolommen | *TestMapping* | De toewijzing die u hebt gemaakt in **TestDatabase** en waarmee die binnenkomende JSON-gegevens worden toegewezen aan de kolomnamen en gegevenstypen van **TestTable**.|
     | | |
 

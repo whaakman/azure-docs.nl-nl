@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 12/19/2018
-ms.openlocfilehash: f23b297acdd8de0c26bf5fc02bc2d5415845b828
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 02/04/2019
+ms.openlocfilehash: ac3f24530d23278eb8f59ddc195ae1ac4f881a37
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718177"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700856"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>Zelfstudie: SQL Server online migreren naar Azure SQL Database Managed Instance met behulp van DMS
 U kunt de Azure Database Migration Service gebruiken om met minimale downtime databases te migreren van een on-premises SQL Server-exemplaar naar een [beheerd exemplaar voor Azure SQL Database](../sql-database/sql-database-managed-instance.md). In het artikel [SQL Server-exemplaar migreren naar Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-migrate.md) vindt u aanvullende methoden, waarvoor enkele handmatige stappen nodig kunnen zijn.
@@ -135,6 +135,15 @@ Nadat er een exemplaar van de service is gemaakt, zoekt u het exemplaar in de Az
    ![Brondetails](media/tutorial-sql-server-to-managed-instance-online/dms-source-details2.png)
 
 3. Selecteer **Opslaan**.
+
+4. Selecteer in het scherm **Brondatabases selecteren** de database **Adventureworks2012** voor migratie.
+
+   ![Brondatabases selecteren](media/tutorial-sql-server-to-managed-instance-online/dms-source-database1.png)
+
+    > [!IMPORTANT]
+    > Als u SQL Server Integration Services (SSIS) gebruikt, ondersteunt DMS momenteel geen migratie van de catalogusdatabase voor uw SSIS-projecten/-pakketten (SSISDB) van SQL Server naar Azure SQL Database Managed Instance. U kunt SSIS echter in Azure Data Factory (ADF) inrichten en uw SSIS-projecten/-pakketten opnieuw implementeren naar de bestemming SSISDB die wordt gehost door Azure SQL Database Managed Instance. Zie het artikel [Pakketten van SQL Server Integration Services migreren naar Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages) voor meer informatie over het migreren van SSIS-pakketten.
+
+5. Selecteer **Opslaan**.
 
 ## <a name="specify-target-details"></a>Doeldetails opgeven
 

@@ -6,29 +6,16 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 559bdd479d02a8744f9b113c43c2c860d8218401
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cbdc57489eb7ebd50e3ce7e2b4e0e4081aef8e27
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038191"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770381"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>De Azure Cosmos DB Emulator gebruiken voor lokaal ontwikkelen en testen
 
-<table>
-<tr>
-  <td><strong>Binaire bestanden</strong></td>
-  <td>[MSI downloaden](https://aka.ms/cosmosdb-emulator)</td>
-</tr>
-<tr>
-  <td><strong>Docker</strong></td>
-  <td>[Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)</td>
-</tr>
-<tr>
-  <td><strong>Docker-bron</strong></td>
-  <td>[GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker)</td>
-</tr>
-</table>
+|**Binaire bestanden**|[MSI-bestand downloaden](https://aka.ms/cosmosdb-emulator)||**Docker**|[Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)||**Docker-bron** | [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker)|
 
 De Azure Cosmos DB Emulator is een lokale omgeving waarin de Azure Cosmos DB-service wordt geëmuleerd voor ontwikkelingsdoeleinden. Met behulp van de Azure Cosmos DB Emulator kunt u uw toepassing lokaal ontwikkelen en testen, kosteloos en zonder een Azure-abonnement te maken. Als u tevreden bent over hoe uw toepassing in de Azure Cosmos DB Emulator werkt, kunt u overstappen naar een Azure Cosmos DB-account in de cloud.
 
@@ -162,133 +149,28 @@ Vanaf de installatielocatie kunt u de opdrachtregel gebruiken om de emulator te 
 
 Typ `CosmosDB.Emulator.exe /?` bij de opdrachtprompt om een lijst met opties te zien.
 
-<table>
-<tr>
-  <td><strong>Optie</strong></td>
-  <td><strong>Beschrijving</strong></td>
-  <td><strong>Opdracht</strong></td>
-  <td><strong>Argumenten</strong></td>
-</tr>
-<tr>
-  <td>[Geen argumenten]</td>
-  <td>Start de Azure Cosmos DB Emulator met standaardinstellingen.</td>
-  <td>CosmosDB.Emulator.exe</td>
-  <td></td>
-</tr>
-<tr>
-  <td>[Help]</td>
-  <td>Toont de lijst met ondersteunde opdrachtregelargumenten.</td>
-  <td>CosmosDB.Emulator.exe /?</td>
-  <td></td>
-</tr>
-<tr>
-  <td>GetStatus</td>
-  <td>Downloadt de status van de Azure Cosmos DB Emulator. De status wordt aangegeven door de afsluitcode: 1 = starten, 2 = wordt uitgevoerd, 3 = gestopt. Een negatieve afsluitcode geeft aan dat er een fout is opgetreden. Er wordt geen andere uitvoer geproduceerd.</td>
-  <td>CosmosDB.Emulator.exe /GetStatus</td>
-  <td></td>
-<tr>
-  <td>Afsluiten</td>
-  <td>Sluit de Azure Cosmos DB Emulator af.</td>
-  <td>CosmosDB.Emulator.exe /Shutdown</td>
-  <td></td>
-</tr>
-<tr>
-  <td>DataPath</td>
-  <td>Specificeert het pad waarin de gegevensbestanden worden opgeslagen. Standaard is %LocalAppdata%\CosmosDBEmulator.</td>
-  <td>CosmosDB.Emulator.exe /DataPath=&lt;gegevenspad&gt;</td>
-  <td>&lt;gegevenspad&gt;: Een toegankelijk pad</td>
-</tr>
-<tr>
-  <td>Poort</td>
-  <td>Specificeert het poortnummer dat moet worden gebruikt voor de emulator. Standaardpoort is 8081.</td>
-  <td>CosmosDB.Emulator.exe /Port=&lt;poort&gt;</td>
-  <td>&lt;poort&gt;: Enkel poortnummer</td>
-</tr>
-<tr>
-  <td>MongoPort</td>
-  <td>Specificeert het poortnummer dat moet worden gebruikt MongoDB compatibiliteit-API. Standaardinstelling is 10255.</td>
-  <td>CosmosDB.Emulator.exe /MongoPort=&lt;mongopo0rt&gt;</td>
-  <td>&lt;mongopoort&gt;: Enkel poortnummer</td>
-</tr>
-<tr>
-  <td>DirectPorts</td>
-  <td>Specificeert de poorten die worden gebruikt voor rechtstreekse connectiviteit. Standaardwaarden zijn 10251,10252,10253,10254.</td>
-  <td>CosmosDB.Emulator.exe /DirectPorts:&lt;directports&gt;</td>
-  <td>&lt;directports&gt;: Door komma's gescheiden lijst met 4 poorten</td>
-</tr>
-<tr>
-  <td>Sleutel</td>
-  <td>De autorisatiesleutel voor de emulator. De sleutel moet de base 64-codering zijn van een 64-byte-vector.</td>
-  <td>CosmosDB.Emulator.exe /Key:&lt;sleutel&gt;</td>
-  <td>&lt;sleutel&gt;: De sleutel moet de base 64-codering zijn van een 64-byte-vector</td>
-</tr>
-<tr>
-  <td>EnableRateLimiting</td>
-  <td>Geeft aan dat het beperkingsgedrag van de aanvraagsnelheid is ingeschakeld.</td>
-  <td>CosmosDB.Emulator.exe /EnableRateLimiting</td>
-  <td></td>
-</tr>
-<tr>
-  <td>DisableRateLimiting</td>
-  <td>Geeft aan dat het beperkingsgedrag van de aanvraagsnelheid is uitgeschakeld.</td>
-  <td>CosmosDB.Emulator.exe /DisableRateLimiting</td>
-  <td></td>
-</tr>
-<tr>
-  <td>NoUI</td>
-  <td>De gebruikersinterface van de emulator niet weergeven.</td>
-  <td>CosmosDB.Emulator.exe /NoUI</td>
-  <td></td>
-</tr>
-<tr>
-  <td>NoExplorer</td>
-  <td>Geen Data Explorer weergeven bij het opstarten.</td>
-  <td>CosmosDB.Emulator.exe /NoExplorer</td>
-  <td></td>
-</tr>
-<tr>
-  <td>PartitionCount</td>
-  <td>Specificeert het maximumaantal gepartitioneerde verzamelingen. Zie [Het aantal verzamelingen wijzigen](#set-partitioncount) voor meer informatie.</td>
-  <td>CosmosDB.Emulator.exe /PartitionCount=&lt;aantal partities&gt;</td>
-  <td>&lt;aantal partities&gt;: Het maximumaantal toegestane verzamelingen met één partitie. Standaardaantal is 25. Maximaal toegestaan is 250.</td>
-</tr>
-<tr>
-  <td>DefaultPartitionCount</td>
-  <td>Specificeert het aantal partities voor een gepartitioneerde verzameling.</td>
-  <td>CosmosDB.Emulator.exe /DefaultPartitionCount=&lt;standaardaantal partities&gt;</td>
-  <td>&lt;standaardaantal partities&gt; Standaardaantal is 25.</td>
-</tr>
-<tr>
-  <td>AllowNetworkAccess</td>
-  <td>Geeft toegang tot de emulator via een netwerk. U moet ook /Key=&lt;sleutelreeks&gt; of /KeyFile=&lt;bestandsnaam&gt; doorgeven om netwerktoegang in te schakelen.</td>
-  <td>CosmosDB.Emulator.exe /AllowNetworkAccess /Key=&lt;sleutelreeks&gt;<br><br>of<br><br>CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=&lt;bestandsnaam&gt;</td>
-  <td></td>
-</tr>
-<tr>
-  <td>NoFirewall</td>
-  <td>Firewallregels niet aanpassen wanneer /AllowNetworkAccess wordt gebruikt.</td>
-  <td>CosmosDB.Emulator.exe /NoFirewall</td>
-  <td></td>
-</tr>
-<tr>
-  <td>GenKeyFile</td>
-  <td>Een nieuwe autorisatiesleutel genereren en opslaan in het opgegeven bestand. De gegenereerde sleutel kan worden gebruikt met de opties/Key of/KeyFile.</td>
-  <td>CosmosDB.Emulator.exe /GenKeyFile=&lt;pad naar sleutelbestand&gt;</td>
-  <td></td>
-</tr>
-<tr>
-  <td>Consistentie</td>
-  <td>Het standaard consistentieniveau voor het account instellen.</td>
-  <td>CosmosDB.Emulator.exe /Consistency=&lt;consistentie&gt;</td>
-  <td>&lt;consistentie&gt;: De waarde moet een van de volgende [consistentieniveaus](consistency-levels.md) zijn: Sessie, Sterk, Mogelijk of Gebonden veroudering. De standaardwaarde is Sessie.</td>
-</tr>
-<tr>
-  <td>?</td>
-  <td>Het helpbericht weergeven.</td>
-  <td></td>
-  <td></td>
-</tr>
-</table>
+|**Optie** | **Beschrijving** | **Opdracht**| **Argumenten**|
+|---|---|---|---|
+|[Geen argumenten] | Start de Azure Cosmos DB Emulator met standaardinstellingen. |CosmosDB.Emulator.exe| |
+|[Help] |Toont de lijst met ondersteunde opdrachtregelargumenten.|CosmosDB.Emulator.exe /? | |
+| GetStatus |Downloadt de status van de Azure Cosmos DB Emulator. De status wordt aangegeven door de afsluitcode: 1 = starten, 2 = wordt uitgevoerd, 3 = gestopt. Een negatieve afsluitcode geeft aan dat er een fout is opgetreden. Er wordt geen andere uitvoer geproduceerd. | CosmosDB.Emulator.exe /GetStatus| |
+| Afsluiten| Sluit de Azure Cosmos DB Emulator af.| CosmosDB.Emulator.exe /Shutdown | |
+|DataPath | Specificeert het pad waarin de gegevensbestanden worden opgeslagen. Standaard is %LocalAppdata%\CosmosDBEmulator. | CosmosDB.Emulator.exe /DataPath=\<gegevenspad\> | \<gegevenspad\>: Een toegankelijk pad |
+|Poort | Specificeert het poortnummer dat moet worden gebruikt voor de emulator. Standaardpoort is 8081. |CosmosDB.Emulator.exe /Port=\<poort\> | \<poort\>: Enkel poortnummer |
+| MongoPort | Specificeert het poortnummer dat moet worden gebruikt MongoDB compatibiliteit-API. Standaardinstelling is 10255. |CosmosDB.Emulator.exe /MongoPort= \<mongoport\>|\<mongopoort\>: Enkel poortnummer|
+| DirectPorts |Specificeert de poorten die worden gebruikt voor rechtstreekse connectiviteit. Standaardwaarden zijn 10251,10252,10253,10254. | CosmosDB.Emulator.exe /DirectPorts:\<directports\> | \<directports\>: Door komma's gescheiden lijst met 4 poorten |
+| Sleutel |De autorisatiesleutel voor de emulator. De sleutel moet de base 64-codering zijn van een 64-byte-vector. | CosmosDB.Emulator.exe /Key:\<sleutel\> | \<sleutel\>: De sleutel moet de base 64-codering zijn van een 64-byte-vector|
+| EnableRateLimiting | Geeft aan dat het beperkingsgedrag van de aanvraagsnelheid is ingeschakeld. |CosmosDB.Emulator.exe /EnableRateLimiting | |
+| DisableRateLimiting |Geeft aan dat het beperkingsgedrag van de aanvraagsnelheid is uitgeschakeld. |CosmosDB.Emulator.exe /DisableRateLimiting | |
+| NoUI | De gebruikersinterface van de emulator niet weergeven. | CosmosDB.Emulator.exe /NoUI | |
+| NoExplorer | Geen Data Explorer weergeven bij het opstarten. |CosmosDB.Emulator.exe /NoExplorer | | 
+| PartitionCount | Specificeert het maximumaantal gepartitioneerde verzamelingen. Zie [Het aantal verzamelingen wijzigen](#set-partitioncount) voor meer informatie. | CosmosDB.Emulator.exe /PartitionCount=\<aantal partities\> | \<aantal partities\>: Het maximumaantal toegestane verzamelingen met één partitie. Standaardaantal is 25. Maximaal toegestaan is 250.|
+| DefaultPartitionCount| Specificeert het aantal partities voor een gepartitioneerde verzameling. | CosmosDB.Emulator.exe /DefaultPartitionCount=\<standaardaantal partities\> | \<standaardaantal partities\> Standaardaantal is 25.|
+| AllowNetworkAccess | Geeft toegang tot de emulator via een netwerk. U moet ook /Key=\<sleutelreeks\> of /KeyFile=\<bestandsnaam\> doorgeven om netwerktoegang in te schakelen. | CosmosDB.Emulator.exe /AllowNetworkAccess /Key=\<key_string\> of  CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=\<file_name\>| |
+| NoFirewall | Firewallregels niet aanpassen wanneer /AllowNetworkAccess wordt gebruikt. |CosmosDB.Emulator.exe /NoFirewall | |
+| GenKeyFile | Een nieuwe autorisatiesleutel genereren en opslaan in het opgegeven bestand. De gegenereerde sleutel kan worden gebruikt met de opties/Key of/KeyFile. | CosmosDB.Emulator.exe /GenKeyFile=\<pad naar sleutelbestand\> | |
+| Consistentie | Het standaard consistentieniveau voor het account instellen. | CosmosDB.Emulator.exe /Consistency=\<consistentie\> | \<consistentie\>: De waarde moet een van de volgende [consistentieniveaus](consistency-levels.md) zijn: Sessie, Sterk, Mogelijk of Gebonden veroudering. De standaardwaarde is Sessie. |
+| ? | Het helpbericht weergeven.| | |
 
 ## <a id="set-partitioncount"></a>Het aantal verzamelingen wijzigen
 

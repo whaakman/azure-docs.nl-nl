@@ -11,58 +11,42 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: ''
 manager: cgronlun
-ms.date: 11/30/2018
-ms.openlocfilehash: fc5398b4ffb0b9310b6ab13561830d8d3db7a611
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.date: 01/31/2019
+ms.openlocfilehash: 84017e95d41f8934de248065a2b66792628b41d2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725740"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815538"
 ---
-# <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Snelstart: Machine Learning Services (met R) gebruiken in Azure SQL Database (preview)
+# <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Quickstart: Machine Learning Services (met R) gebruiken in Azure SQL Database (preview)
 
-In dit artikel wordt uitgelegd hoe u de openbare preview van Machine Learning Services (met R) kunt gebruiken in Azure SQL Database. U wordt stapsgewijs begeleid door de basisbeginselen van het verplaatsen van gegevens tussen een SQL-database en R. Ook wordt uitgelegd hoe u juist opgemaakte R-code inpakt in de opgeslagen procedure [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) om Machine Learning-modellen in een SQL-database te bouwen, te trainen en te gebruiken.
+In dit artikel wordt uitgelegd hoe u de openbare preview van [Machine Learning Services (met R) kunt gebruiken in Azure SQL Database](sql-database-machine-learning-services-overview.md). U wordt stapsgewijs begeleid door de basisbeginselen van het verplaatsen van gegevens tussen een SQL-database en R. Ook wordt uitgelegd hoe u juist opgemaakte R-code inpakt in de opgeslagen procedure [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) om Machine Learning-modellen in een SQL-database te bouwen, te trainen en te gebruiken.
 
-Machine Learning in SQL Database wordt gebruikt om R-code en -functies uit te voeren. De code is volledig beschikbaar voor relationele gegevens als opgeslagen procedures, als T-SQL-script met R-instructies, of als R-code met T-SQL. Gebruik de kracht van zakelijke R-pakketten om geavanceerde analyses op schaal te bieden, plus de mogelijkheid om berekeningen en verwerking uit te voeren op de plek waar gegevens zich bevinden, waardoor u gegevens niet meer over het hele netwerk hoeft te verplaatsen.
+Gebruik de kracht van de taal R om geavanceerde analyses en in-database machine learning te bieden. Deze mogelijkheid zorgt voor berekeningen en verwerking op de plaats waar de gegevens zich bevinden, u hoeft de gegevens niet op te halen via het netwerk. Maak ook gebruik van de kracht van zakelijke R-pakketten om geavanceerde analyses op schaal te bieden.
 
-Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
+Machine Learning-services bevatten een basisdistributie van R, overlapt met zakelijke R-pakketten van Microsoft. R-functies en -algoritmen van Microsoft zijn ontworpen voor zowel schaal als bruikbaarheid en bieden voorspellende analyses, statistische modellen, gegevensvisualisaties en toonaangevende algoritmen voor machine learning.
 
-## <a name="sign-up-for-the-preview"></a>Registreren voor de preview-versie
+Als u geen Azure-abonnement hebt, [maakt u een account](https://azure.microsoft.com/free/) voordat u begint.
 
-De openbare preview van Machine Learning Services (met R) in SQL Database is niet standaard ingeschakeld. Stuur een e-mailbericht naar Microsoft op [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com) om u te registreren voor de openbare preview.
-
-Zodra u bent ingeschreven voor het programma, krijgt u van Microsoft toegang tot de openbare preview, en wordt uw bestaande database gemigreerd of wordt een nieuwe database gemaakt in een service met R.
-
-Machine Learning Services (met R) in SQL Database is momenteel alleen beschikbaar in het vCore-aankoopmodel in de servicelagen **Algemeen gebruik** en **Bedrijfskritiek** voor enkele databases of groepen databases. Deze eerste openbare preview biedt geen ondersteuning voor de servicelaag **Hyperscale** en **Beheerd exemplaar**. Gebruik Machine Learning Services met R tijdens de openbare preview niet voor productieworkloads.
-
-Als Machine Learning Services (met R) is ingeschakeld voor uw SQL-database, keert u terug naar deze pagina voor informatie over het uitvoeren van R-scripts in de context van een opgeslagen procedure.
-
-Momenteel is R de enige ondersteunde taal. Er is op dit moment geen ondersteuning voor Python.
+> [!NOTE]
+> Machine Learning Services (met R) in Azure SQL Database is momenteel beschikbaar als openbare preview. [Meld u aan voor de preview-versie](sql-database-machine-learning-services-overview.md#signup).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u de voorbeeldcode in deze oefeningen wilt uitvoeren, moet u eerst beschikken over een SQL-database met Machine Learning Services (met R). Na de onboarding voor de openbare preview wordt Machine Learning voor u ingeschakeld voor uw bestaande of nieuwe database, zoals hierboven is beschreven.
+Als u de voorbeeldcode in deze oefeningen wilt uitvoeren, moet u eerst beschikken over een SQL-database met Machine Learning Services (met R). Na de onboarding voor de openbare preview wordt Machine Learning voor u ingeschakeld voor uw bestaande of nieuwe database. Volg de stappen in [Meld u aan voor de preview-versie](sql-database-machine-learning-services-overview.md#signup).
 
 U kunt verbinding maken met de SQL-database en de R-scripts uitvoeren met elk willekeurig hulpprogramma voor databasebeheer of het uitvoeren van query's, zo lang het programma verbinding kan maken met een SQL-database en een T-SQL-query of opgeslagen procedure kan uitvoeren. In deze snelstart wordt [SQL Server Management Studio](sql-database-connect-query-ssms.md) gebruikt.
 
 Voor de oefening [een pakket toevoegen](#add-package) moet u ook [R](https://www.r-project.org/) en [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) installeren op de lokale computer.
 
-Voor deze snelstart is ook vereist dat u een firewallregel op serverniveau configureert. Bekijk [Een firewallregel op serverniveau maken](sql-database-get-started-portal-firewall.md) voor een snelstart die laat zien hoe u dat doet.
-
-## <a name="different-from-sql-server"></a>Verschillen met SQL Server
-
-De functionaliteit van Machine Learning Services (met R) in Azure SQL Database is vergelijkbaar met [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Er is echter een aantal verschillen:
-
-- Alleen voor R. Er is momenteel geen ondersteuning voor Python.
-- U hoeft `external scripts enabled` niet te configureren via `sp_configure`.
-- Pakketten moeten worden geïnstalleerd via **sqlmlutils**.
-- Er is geen afzonderlijk beheer voor externe resources. R-resources vormen een bepaald percentage van de SQL-resources, afhankelijk van de laag.
+Voor deze snelstart is ook vereist dat u een firewallregel op serverniveau configureert. Bekijk [Een firewallregel op serverniveau maken](sql-database-server-level-firewall-rule.md) voor een snelstart die laat zien hoe u dat doet.
 
 ## <a name="verify-r-exists"></a>Verifiëren of R bestaat
 
 U kunt bevestigen dat Machine Learning Services (met R) is ingeschakeld voor uw SQL-database. Volg de onderstaande stappen.
 
-1. Open SQL Server Management Studio en maak verbinding met de SQL-database.
+1. Open SQL Server Management Studio en maak verbinding met de SQL-database. Zie voor meer informatie over hoe u verbinding maakt, [Quickstart: SQL Server Management Studio gebruiken om verbinding te maken en query's uit te voeren op een Azure SQL database](sql-database-connect-query-ssms.md).
 
 1. Voer de onderstaande code uit. 
 
@@ -263,7 +247,6 @@ Microsoft biedt een aantal R-pakketten waarin Machine Learning Services vooraf z
 
     ![Geïnstalleerde pakketten in R](./media/sql-database-connect-query-r/r-installed-packages.png)
 
-
 ## <a name="create-a-predictive-model"></a>Een voorspellend model maken
 
 U kunt een model trainen met R en dit model opslaan in een tabel in de SQL-database. In deze oefening traint u een eenvoudig regressiemodel waarmee de remafstand van een auto wordt voorspeld op basis van de snelheid. U gebruikt de gegevensset `cars` die is opgenomen in R, omdat deze klein is en eenvoudig te begrijpen.
@@ -293,7 +276,7 @@ U kunt een model trainen met R en dit model opslaan in een tabel in de SQL-datab
     - Bied de invoergegevens die moeten worden gebruikt om het model te trainen.
 
     > [!TIP]
-    > Als u uw kennis over lineaire modellen wilt opfrissen, raden we u aan deze zelfstudie te volgen: [Lineaire modellen aanpassen](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model). Hierin wordt het proces beschreven voor het aanpassen van een model met rxLinMod
+    > Als u uw kennis over lineaire modellen wilt opfrissen, raden we u aan deze zelfstudie te volgen, waarin het proces voor het aanpassen van een model met rxLinMod wordt beschreven: [Lineaire modellen aanpassen](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
 
     Als u het model wilt bouwen, definieert u de formule binnen de R-code en geeft u de gegevens door als invoerparameter.
 
@@ -530,9 +513,10 @@ Als u een pakket wilt gebruiken dat nog niet is geïnstalleerd in de SQL-databas
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de onderstaande artikelen over Machine Learning Services van SQL Server voor meer informatie over Machine Learning Services. Deze artikelen zijn bestemd voor SQL Server, maar de meeste informatie is ook van toepassing op Machine Learning Services (met R) in Azure SQL Database.
+Zie de onderstaande artikelen over Machine Learning Services voor meer informatie. Sommige van deze artikelen zijn bestemd voor SQL Server, maar de meeste informatie is ook van toepassing op Machine Learning Services (met R) in Azure SQL Database.
 
+- [Azure SQL Database Machine Learning Services (met R)](sql-database-machine-learning-services-overview.md)
 - [SQL Server Machine Learning-services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
-- [Tutorial: Learn in-database analytics using R in SQL Server (Zelfstudie: Informatie over in-database analyse met behulp van R in SQL Server)](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
+- [Zelfstudie: Informatie over in-database analyse met behulp van R in SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
 - [End-to-end data science walkthrough for R and SQL Server (Overzicht van end-to-end-informatiewetenschap voor R en SQL Server)](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
-- [Tutorial: Use RevoScaleR R functions with SQL Server data (Zelfstudie: RevoScaleR R-functies gebruiken met SQL Server-gegevens)](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)
+- [Zelfstudie: RevoScaleR R-functies gebruiken met SQL Server-gegevens](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)

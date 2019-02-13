@@ -4,17 +4,17 @@ description: Azure Policy gebruiken om standaarden af te dwingen, te voldoen aan
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ecebeef509f1f23e34ade6a79b8ffe39d4cbb0a5
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: cb6f033c784832efab23c747057b1c0ef1b317fa
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845619"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730268"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Beleidsregels voor het afdwingen van naleving maken en beheren
 
@@ -322,7 +322,7 @@ Hiermee worden alle beschikbare beleidsdefinities geretourneerd, inclusief ingeb
 
 ## <a name="create-and-assign-an-initiative-definition"></a>Een initiatiefdefinitie maken en toewijzen
 
-Met een initiatiefdefinitie kunt u verschillende beleidsdefinities groeperen om één overkoepelend doel te bereiken. U maakt een initiatiefdefinitie om ervoor te zorgen dat bronnen binnen het bereik van de definitie voldoen aan de beleidsdefinities die gezamenlijk die initiatiefdefinitie vormen. Zie het [Overzicht van Azure Policy](../overview.md) voor meer informatie over initiatiefdefinities.
+Met een initiatiefdefinitie kunt u verschillende beleidsdefinities groeperen om één overkoepelend doel te bereiken. Een initiatief evalueert resources binnen het bereik van de toewijzing op naleving van de opgenomen beleidsregels. Zie het [Overzicht van Azure Policy](../overview.md) voor meer informatie over initiatiefdefinities.
 
 ### <a name="create-an-initiative-definition"></a>Een initiatiefdefinitie maken
 

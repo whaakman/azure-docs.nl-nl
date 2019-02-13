@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 97ec3db40279f12fd0e0f53b11b5d7f9ca7063d5
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: f35a6c61cdbbb71d937b5293df1535e7751cf31d
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48020820"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55757599"
 ---
 > [!IMPORTANT]
-> Door een van de onderdelen van de Cognitive Services Spraak-SDK op deze pagina te downloaden, accepteert u de bijbehorende licentie. Zie de [licentieovereenkomst voor de Spraak-SDK](https://aka.ms/csspeech/license201809).
+> Als u een of meer van de onderdelen van de Spraak-SDK voor Azure Cognitive Services op deze pagina downloadt, accepteert u de bijbehorende licentie. Raadpleeg de [Licentievoorwaarden voor Microsoft-software voor de Spraak-SDK](https://aka.ms/csspeech/license201809).

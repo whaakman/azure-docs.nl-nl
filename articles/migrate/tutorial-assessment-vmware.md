@@ -4,15 +4,15 @@ description: Beschrijft hoe u met behulp van de service Azure Migrate on-premise
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 01/30/2019
+ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 58a4f60a5ef01f8f2757aeb04c2dd7165d68179a
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: dee649c388ee1e9207d1fc0ecb454d03cda304b0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298718"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730761"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>On-premises virtuele VMware-machines detecteren en beoordelen voor migratie naar Azure
 
@@ -78,7 +78,7 @@ Azure Migrate maakt een on-premises virtuele machine die het collector-apparaat 
     > [!NOTE]
     > Ondersteuning van het apparaat voor eenmalige detectie is nu beëindigd omdat deze methode gebaseerd was op statistiekinstellingen van vCenter Server voor de beschikbaarheid van prestatiegegevenspunten en gemiddelde prestatiemeteritems verzamelde, wat leidde tot een te voorzichtige schaling van virtuele machines voor migratie naar Azure.
 
-    **Onmiddellijk resultaat:** als de detectie met het apparaat voor continue detectie voltooid is (wat enkele uren kan duren, afhankelijk van het aantal virtuele machines), kunt u meteen evaluaties gaan maken. Omdat het verzamelen van prestatiegegevens wordt gestart wanneer u detectie activeert, en als u direct resultaat wilt, moet u het schaalcriterium in de evaluatie instellen als *as on-premises*. Voor evaluaties op basis van prestaties is het raadzaam om ten minste een dag te wachten na het activeren van de detectie om betrouwbare aanbevelingen voor de schaal te krijgen.
+    **Snelle evaluaties:** als de detectie met het apparaat voor continue detectie voltooid is (wat enkele uren kan duren, afhankelijk van het aantal virtuele machines), kunt u meteen evaluaties gaan maken. Omdat het verzamelen van prestatiegegevens wordt gestart wanneer u detectie activeert, moet u het schaalcriterium in de evaluatie instellen als *as on-premises* wanneer u direct resultaat wilt. Voor evaluaties op basis van prestaties is het raadzaam om ten minste een dag te wachten na het activeren van de detectie om betrouwbare aanbevelingen voor de schaal te krijgen.
 
     Het apparaat verzamelt doorlopend alleen prestatiegegevens, het detecteert niet elke configuratiewijziging in de on-premises omgeving (dat wil zeggen het toevoegen/verwijderen van VM’s, toevoegen van schijven, enzovoort). Als er een configuratiewijziging in de on-premises omgeving is, kunt u het volgende doen om de wijzigingen door te voeren in de portal:
 
@@ -185,7 +185,7 @@ Importeer het gedownloade bestand naar de vCenter Server.
     - Als de virtuele machine via een proxy toegang heeft tot internet, klikt u op **Proxyinstellingen** en geeft u het proxyadres en de controlepoort op. Geef referenties op als de proxy verificatie nodig heeft. Lees [hier](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) meer over de vereisten voor internetconnectiviteit en de [lijst met URL's](https://docs.microsoft.com/azure/migrate/concepts-collector#connect-to-urls) die de collector raadpleegt.
 
       > [!NOTE]
-      > Het proxyadres moet worden ingevoerd in het formulier http://ProxyIPAddress of http://ProxyFQDN. Alleen HTTP-proxy wordt ondersteund. Als u een onderscheppende proxy hebt, kan de internetverbinding in eerste instantie mislukken als u het proxycertificaat niet hebt geïmporteerd. [Hier](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) vindt u meer informatie over hoe u dit kunt oplossen door het proxycertificaat als vertrouwd in de collector-VM te importeren.
+      > Het proxyadres moet worden ingevoerd in het formulier http://ProxyIPAddress of http://ProxyFQDN. Alleen HTTP-proxy wordt ondersteund. Als u een onderscheppende proxy hebt, kan de internetverbinding in eerste instantie mislukken als u het proxycertificaat niet hebt geïmporteerd. [Hier](https://docs.microsoft.com/azure/migrate/concepts-collector) vindt u meer informatie over hoe u dit kunt oplossen door het proxycertificaat als vertrouwd in de collector-VM te importeren.
 
     - De collector controleert of de collector-service wordt uitgevoerd. De service wordt standaard geïnstalleerd op de collector-VM.
     - Download en installeer VMware PowerCLI.
@@ -196,7 +196,7 @@ Importeer het gedownloade bestand naar de vCenter Server.
     - Selecteer in **Collection scope** een bereik voor VM-detectie. De collector kan alleen virtuele machines detecteren binnen het opgegeven bereik. U kunt het bereik instellen op een specifieke map, een datacenter of een cluster. Deze mag niet meer dan 1500 virtuele machines bevatten. Lees [hier](how-to-scale-assessment.md) meer over hoe u een grotere omgeving kunt detecteren.
 
 7. Geef in **Specify migration project** de Azure Migrate project-id en -sleutel op die u hebt gekopieerd in de portal. Als u deze niet hebt gekopieerd, opent u Azure Portal vanuit de collector-VM. Klik op de **overzichtspagina** van het project op **Machines detecteren** en kopieer de waarden.  
-8. In **Voortgang van verzamelen weergeven** kunt u de detectiestatus controleren. Lees [hier](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) meer over welke gegevens worden verzameld door de collector Azure Migrate.
+8. In **Voortgang van verzamelen weergeven** kunt u de detectiestatus controleren. Lees [hier](https://docs.microsoft.com/azure/migrate/concepts-collector) meer over welke gegevens worden verzameld door de collector Azure Migrate.
 
 > [!NOTE]
 > De collector ondersteunt alleen 'Engels (Verenigde Staten)' als de taal van het besturingssysteem en de taal van de gebruikersinterface van de collector.

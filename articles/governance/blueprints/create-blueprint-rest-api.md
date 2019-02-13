@@ -4,17 +4,17 @@ description: Gebruik Azure Blueprints om artefacten te maken, te definiëren en 
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/15/2019
+ms.date: 02/01/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b66a1c2c12a97ea8754377a138b51a4ca1739c21
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 78ce7c1063623e0c002bb6084d8c18139b3f889f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320681"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566950"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Een Azure Blueprint definiëren en toewijzen met REST API
 
@@ -76,7 +76,7 @@ In elke REST API-URI zijn er verschillende variabelen die worden gebruikt en die
    - REST API-URI
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2018-11-01-preview
      ```
 
    - Aanvraagtekst
@@ -135,7 +135,7 @@ In elke REST API-URI zijn er verschillende variabelen die worden gebruikt en die
    - REST API-URI
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleContributor?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleContributor?api-version=2018-11-01-preview
      ```
 
    - Aanvraagtekst
@@ -155,7 +155,7 @@ In elke REST API-URI zijn er verschillende variabelen die worden gebruikt en die
    - REST API-URI
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyTags?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyTags?api-version=2018-11-01-preview
      ```
 
    - Aanvraagtekst
@@ -183,7 +183,7 @@ In elke REST API-URI zijn er verschillende variabelen die worden gebruikt en die
    - REST API-URI
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyStorageTags?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyStorageTags?api-version=2018-11-01-preview
      ```
 
    - Aanvraagtekst
@@ -211,7 +211,7 @@ In elke REST API-URI zijn er verschillende variabelen die worden gebruikt en die
    - REST API-URI
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/templateStorage?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/templateStorage?api-version=2018-11-01-preview
      ```
 
    - Aanvraagtekst
@@ -297,7 +297,7 @@ In elke REST API-URI zijn er verschillende variabelen die worden gebruikt en die
    - REST API-URI
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleOwner?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleOwner?api-version=2018-11-01-preview
      ```
 
    - Aanvraagtekst
@@ -320,14 +320,14 @@ Nu de artefacten zijn toegevoegd aan de blauwdruk, is het tijd om deze te public
 - REST API-URI
 
   ```http
-  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/versions/{BlueprintVersion}?api-version=2017-11-11-preview
+  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/versions/{BlueprintVersion}?api-version=2018-11-01-preview
   ```
 
 De waarde voor `{BlueprintVersion}` is een reeks letters, cijfers en afbreekstreepjes (geen spaties of andere speciale tekens) met een maximale lengte van twintig tekens. Gebruik iets unieks en informatiefs als **v20180622-135541**.
 
 ## <a name="assign-a-blueprint"></a>Een blauwdruk toewijzen
 
-Nadat een blauwdruk is gepubliceerd met REST API, kan deze worden toegewezen aan een abonnement. Wijs de blauwdruk die u hebt gemaakt toe aan een van de abonnementen in uw beheergroephiërarchie. De **Aanvraagbody** geeft de op te geven blauwdruk op, evenals een naam en locatie voor resourcegroepen in de blauwdrukdefinitie en alle parameters die in de blauwdruk zijn gedefinieerd en die zijn gebruikt door een of meer gekoppelde artefacten.
+Nadat een blauwdruk is gepubliceerd met REST API, kan deze worden toegewezen aan een abonnement. Wijs de blauwdruk die u hebt gemaakt toe aan een van de abonnementen in uw beheergroephiërarchie. Als de blauwdruk is opgeslagen in een abonnement, kan deze alleen aan dat abonnement worden toegewezen. De **Aanvraagbody** geeft de op te geven blauwdruk op, evenals een naam en locatie voor resourcegroepen in de blauwdrukdefinitie en alle parameters die in de blauwdruk zijn gedefinieerd en die zijn gebruikt door een of meer gekoppelde artefacten.
 
 1. Geef in de Azure Blueprint-service-principal de rol **Eigenaar** op in het doelabonnement. De AppId is statisch (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), maar de service-principal-ID verschilt per tenant. U kunt voor uw tenant details aanvragen met de volgende REST API. Deze gebruikt [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md), die een andere autorisatie heeft.
 
@@ -342,7 +342,7 @@ Nadat een blauwdruk is gepubliceerd met REST API, kan deze worden toegewezen aan
    - REST API-URI
 
      ```http
-     PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2017-11-11-preview
+     PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2018-11-01-preview
      ```
 
    - Aanvraagtekst
@@ -395,7 +395,7 @@ U kunt een blauwdruk uit een abonnement verwijderen. Het verwijderen wordt vaak 
 - REST API-URI
 
   ```http
-  DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2017-11-11-preview
+  DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2018-11-01-preview
   ```
 
 ## <a name="delete-a-blueprint"></a>Een blauwdruk verwijderen
@@ -405,7 +405,7 @@ Als u de blauwdruk zelf wilt verwijderen, gebruikt u de volgende REST API-bewerk
 - REST API-URI
 
   ```http
-  DELETE https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2017-11-11-preview
+  DELETE https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2018-11-01-preview
   ```
 
 ## <a name="next-steps"></a>Volgende stappen

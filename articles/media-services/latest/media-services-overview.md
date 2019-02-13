@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 01/14/2019
+ms.date: 02/05/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: c58c31a0d6238720d643d5b1508a7ec04749887b
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 31bf120b590ad8de3263e2d3a553f1d5fcfcd7f9
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352118"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756883"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Wat is Azure Media Services v3?
 
@@ -76,11 +76,13 @@ Bekijk het voorbeeld, [Beleid voor inhoudssleutels ophalen - .NET](get-content-k
 
 ## <a name="how-can-i-get-started-with-v3"></a>Hoe ga ik aan de slag met v3?
 
-Als een ontwikkelaar kunt u de [REST-API](https://go.microsoft.com/fwlink/p/?linkid=873030) van Media Services gebruiken, of clientbibliotheken waarmee u kunt communiceren met de REST-API, om eenvoudig aangepaste mediawerkstromen te maken, beheren en onderhouden.  
+Als een ontwikkelaar kunt u de [REST-API](https://go.microsoft.com/fwlink/p/?linkid=873030) van Media Services gebruiken, of clientbibliotheken waarmee u kunt communiceren met de REST-API, om eenvoudig aangepaste mediawerkstromen te maken, beheren en onderhouden. De API van Media Services versie 3 is gebaseerd op de [OpenAPI-specificatie](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media) (voorheen bekend als een Swagger).
 
-Media Services biedt [Swagger-bestanden](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media) die u kunt gebruiken voor het genereren van SDK's voor de gewenste taal/technologie.  
+[Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE) is een hulpprogramma beschikbaar voor Windows-klanten die kennis willen maken met Media Services. AMSE is een Winforms/C#-toepassing voor het uploaden, downloaden, coderen en streamen van VOD en live-inhoud met Media Services. Het AMSE-hulpprogramma is voor clients die Media Services willen testen zonder code te schrijven. De code achter AMSE is bedoeld voor clients die willen ontwikkelen met Media Services en die code van productiekwaliteit willen zien.
 
-Microsoft genereert en ondersteunt de volgende clientbibliotheken: 
+AMSE is een Open-Source-project, en dus wordt er ondersteuning geboden door de community (problemen kunnen worden gemeld aan https://github.com/Azure/Azure-Media-Services-Explorer/issues). Op dit project is de [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Microsoft Open Source-gedragscode) van toepassing. Raadpleeg voor meer informatie de [veelgestelde vragen over de gedragscode](https://opensource.microsoft.com/codeofconduct/faq/) of neem contact op met opencode@microsoft.com als u aanvullende vragen of opmerkingen hebt.
+ 
+Azure Media Services ondersteunt de volgende clientbibliotheken: 
 
 |API-referenties|SDK’s/hulpprogramma’s|Voorbeelden|
 |---|---|---|---|

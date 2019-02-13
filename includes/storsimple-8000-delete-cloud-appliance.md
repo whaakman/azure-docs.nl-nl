@@ -4,18 +4,18 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 8de46fee4f93fffa669dc96ec5bb84e36842a055
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: ac708eb2ac79a74b8f4e09a7306a42665b3aca94
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165857"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55735972"
 ---
 #### <a name="to-delete-a-cloud-appliance"></a>Een cloudapparaat verwijderen
 
 1. Meld u aan bij Azure Portal.
 2. U kunt alleen een gedeactiveerd apparaat dat geen gegevens bevat verwijderen. Verwijder eerst de gegevens op het apparaat of [voer een failover-overschakeling van de gegevens uit](../articles/storsimple/storsimple-8000-device-failover-cloud-appliance.md) in volumecontainers naar een ander apparaat. Zodra de gegevens zijn verwijderd, kunt u het apparaat deactiveren.
-3. Klik op de servicepagina van uw StorSimple-apparaatbeheer, klik op **Apparaten** en selecteer vervolgens het apparaat. Klik met de rechtermuisknop en selecteer **Deactiveren**.
+3. Klik op de servicepagina van StorSimple-apparaatbeheer op **Apparaten** en selecteer vervolgens het apparaat. Klik met de rechtermuisknop en selecteer **Deactiveren**.
 4. Zodra het apparaat is gedeactiveerd, klikt u met de rechtermuisknop op het apparaat en selecteert u **Verwijderen**.
 
     ![Selecteer het gedeactiveerde apparaat en klik op verwijderen](./media/storsimple-8000-delete-cloud-appliance/delete-cloud-appliance1.png)

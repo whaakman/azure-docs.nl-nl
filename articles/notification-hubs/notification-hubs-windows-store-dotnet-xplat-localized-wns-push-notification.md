@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 3da3519895c30bdb40c679b832eb7fe11484d1d7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d93ede450ca9d11618d22ad22d3f22d355fcf91e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099880"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568066"
 ---
 # <a name="tutorial-push-localized-notifications-to-windows-apps-by-using-azure-notification-hubs"></a>Zelfstudie: Gelokaliseerde pushmeldingen verzenden naar Windows-apps met Azure Notification Hubs
 
@@ -30,7 +30,7 @@ ms.locfileid: "55099880"
 
 ## <a name="overview"></a>Overzicht
 
-Deze zelfstudie laat zien hoe u gelokaliseerde pushmeldingen naar mobiele apparaten kunt versturen die zijn geregistreerd bij de Notification Hubs-service. In de zelfstudie gaat u toepassingen bijwerken die zijn gemaakt in de zelfstudie: [Meldingen verzenden naar UWP-apps (Universal Windows Platform) met behulp van Azure Notification Hubs](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) om ondersteuning te bieden voor de volgende scenario's:
+Deze zelfstudie laat zien hoe u gelokaliseerde pushmeldingen naar mobiele apparaten kunt versturen die zijn geregistreerd bij de Notification Hubs-service. U kunt in de zelfstudie toepassingen bijwerken die zijn gemaakt de [Zelfstudie: Meldingen verzenden naar specifieke apparaten (Universeel Windows-platform)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) ter ondersteuning van de volgende scenario's:
 
 - In de Windows Store-app kunnen clientapparaten een taal opgeven en zich abonneren op verschillende nieuwscategorieën.
 - De back-endapp verstuurt meldingen met behulp van de **tag**- en **sjabloon**-functies van Azure Notification Hubs.
@@ -48,7 +48,7 @@ In deze zelfstudie leert u het volgende:
 
 U moet de [Zelfstudie: Meldingen verzenden naar specifieke apparaten (Universeel Windows-platform).](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)
 
-In de zelfstudie: [Pushmeldingen verzenden naar specifieke Windows-apparaten met Universeel Windows-platform-toepassingen](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) bouwt u een app die gebruikmaakt van **tags** om zich te abonneren op meldingen voor verschillende nieuws**categorieën**. In deze zelfstudie gebruikt u de **sjabloon**-functie van Notification Hubs om eenvoudig **gelokaliseerde** meldingen van belangrijk nieuws te bezorgen.
+In de [Zelfstudie: Meldingen verzenden naar specifieke apparaten (Universeel Windows-platform)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) hebt u een app gebouwd die **tags** gebruikt om u te abonneren op meldingen voor verschillende **nieuwscategorieën**. In deze zelfstudie gebruikt u de **sjabloon**-functie van Notification Hubs om eenvoudig **gelokaliseerde** meldingen van belangrijk nieuws te bezorgen.
 
 In deze context zijn sjablonen een manier om de indeling op te geven waarin een specifiek apparaat een melding moet ontvangen. De sjabloon bepaalt de exacte indeling van de payload door te verwijzen naar eigenschappen die deel uitmaken van het bericht dat is verzonden door uw back-endapp. In deze zelfstudie verzendt de back-endtoepassing een bericht met alle ondersteunde talen:
 
@@ -76,7 +76,7 @@ Zie [Push Templates](notification-hubs-templates-cross-platform-push-messages.md
 
 ## <a name="update-windows-app-to-support-locale-information"></a>Windows-app bijwerken om landinstellingen te ondersteunen
 
-1. Open de Visual Studio-oplossing die u hebt gemaakt voor de zelfstudie: [Pushmeldingen verzenden naar specifieke Windows-apparaten met Universeel Windows-platform-toepassingen](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
+1. Open in Visual Studio de oplossing die u hebt gemaakt voor de [Zelfstudie: Meldingen verzenden naar specifieke apparaten (Universeel Windows-platform).](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)
 2. Werk het bestand `MainPage.xaml` van de oplossing bij met een keuzelijst met invoervak voor landinstellingen:
 
     ```xml
@@ -216,7 +216,7 @@ private static async void SendTemplateNotificationAsync()
 
     // Sending the notification as a template notification. All template registrations that contain
     // "messageParam" or "News_<local selected>" and the proper tags will receive the notifications.
-    // This includes APNS, GCM, WNS, and MPNS template registrations.
+    // This includes APNS, FCM, WNS, and MPNS template registrations.
     Dictionary<string, string> templateParams = new Dictionary<string, string>();
 
     // Create an array of breaking news categories.

@@ -1,147 +1,105 @@
 ---
-title: 'Quickstart: Bing Entiteiten zoeken-API, C#'
+title: 'Snelstart: Een zoekaanvraag naar de REST-API van Bing Entiteiten zoeken sturen met C#'
 titlesuffix: Azure Cognitive Services
-description: Bekijk informatie en codevoorbeelden om snel aan de slag te gaan met de Bing Entiteiten zoeken-API.
+description: Gebruik deze quickstart om een aanvraag naar de Bing Entiteiten zoeken-REST API te verzenden via C# en een JSON-antwoord te ontvangen.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 62f260b11e4012b440fea51020b17590fece93fc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 63890d916f80fbfac7173abd0df9e559bcd0b76b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187025"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754928"
 ---
-# <a name="quickstart-for-bing-entity-search-api-with-c"></a>Snelstart voor Bing Entiteiten zoeken-API met C# 
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Quickstart: Een zoekaanvraag naar de REST-API van Bing Entiteiten zoeken sturen met C#
 
-In dit artikel leest u hoe u de [Bing Entiteiten zoeken](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) -API gebruikt met C#.
+Gebruik deze quickstart om voor het eerst de Bing Entiteiten zoeken-API aan te roepen en het JSON-antwoord te bekijken. Deze eenvoudige C#-toepassing stuurt een query naar de API om nieuws te zoeken en geeft het antwoord weer. De broncode voor deze toepassing is beschikbaar [op GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingEntitySearchv7.cs).
+
+Hoewel deze toepassing in C# is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
+
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt [Visual Studio 2017](https://www.visualstudio.com/downloads/) nodig om deze code uit te voeren in Windows. (De gratis Community-editie volstaat.)
+* Elke versie van [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Het [Json.NET](https://www.newtonsoft.com/json)-framework, beschikbaar als NuGet-pakket.
+* Als u Linux/MacOS gebruikt, kan deze toepassing worden uitgevoerd met behulp van [Mono](http://www.mono-project.com/).
 
-U moet beschikken over een [account voor de Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met de **Bing Entiteiten zoeken-API**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) is voldoende voor deze snelstartgids. U hebt de toegangssleutel nodig die wordt verstrekt bij het activeren van uw gratis proefversie of u gebruikt de sleutel van een betaald abonnement vanuit uw Azure-dashboard.  Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-## <a name="search-entities"></a>Entiteiten zoeken
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
-Volg deze stappen om deze toepassing uit te voeren.
+## <a name="create-and-initialize-a-project"></a>Een project maken en initialiseren
 
-1. Maak een nieuw C#-project in uw favoriete IDE.
-2. Voeg de onderstaande code toe.
-3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma uit.
+1. Maak een nieuwe C#-console-oplossing in Visual Studio. Voeg de volgende naamruimten in het hoofdcodebestand in.
+    
+    ```csharp
+    using System;
+    using System.Net.Http;
+    using System.Text;
+    ```
 
-```csharp
-using System;
-using System.Net.Http;
-using System.Text;
+2. Maak een nieuwe klasse, en voeg variabelen toe voor het API-eindpunt, uw abonnementssleutel en de zoekterm.
 
-namespace EntitySearchSample
-{
-    class Program
+    ```csharp
+    namespace EntitySearchSample
     {
-        static string host = "https://api.cognitive.microsoft.com";
-        static string path = "/bing/v7.0/entities";
-
-        static string market = "en-US";
-
-        // NOTE: Replace this example key with a valid subscription key.
-        static string key = "ENTER KEY HERE";
-
-        static string query = "italian restaurant near me";
-
-        async static void Search()
+        class Program
         {
-            HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
-
-            string uri = host + path + "?mkt=" + market + "&q=" + System.Net.WebUtility.UrlEncode(query);
-
-            HttpResponseMessage response = await client.GetAsync(uri);
-
-            string contentString = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(JsonPrettyPrint(contentString));
+            static string host = "https://api.cognitive.microsoft.com";
+            static string path = "/bing/v7.0/entities";
+    
+            static string market = "en-US";
+    
+            // NOTE: Replace this example key with a valid subscription key.
+            static string key = "ENTER YOUR KEY HERE";
+    
+            static string query = "italian restaurant near me";
+        //...
         }
-
-        static void Main(string[] args)
-        {
-            Search();
-            Console.ReadLine();
-        }
-
-
-        static string JsonPrettyPrint(string json)
-        {
-            if (string.IsNullOrEmpty(json))
-                return string.Empty;
-
-            json = json.Replace(Environment.NewLine, "").Replace("\t", "");
-
-            StringBuilder sb = new StringBuilder();
-            bool quote = false;
-            bool ignore = false;
-            int offset = 0;
-            int indentLength = 3;
-
-            foreach (char ch in json)
-            {
-                switch (ch)
-                {
-                    case '"':
-                        if (!ignore) quote = !quote;
-                        break;
-                    case '\'':
-                        if (quote) ignore = !ignore;
-                        break;
-                }
-
-                if (quote)
-                    sb.Append(ch);
-                else
-                {
-                    switch (ch)
-                    {
-                        case '{':
-                        case '[':
-                            sb.Append(ch);
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', ++offset * indentLength));
-                            break;
-                        case '}':
-                        case ']':
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', --offset * indentLength));
-                            sb.Append(ch);
-                            break;
-                        case ',':
-                            sb.Append(ch);
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', offset * indentLength));
-                            break;
-                        case ':':
-                            sb.Append(ch);
-                            sb.Append(' ');
-                            break;
-                        default:
-                            if (ch != ' ') sb.Append(ch);
-                            break;
-                    }
-                }
-            }
-
-            return sb.ToString().Trim();
-        }
-
     }
-}
-```
+    ```
 
-**Antwoord**
+## <a name="send-a-request-and-get-the-api-response"></a>Een aanvraag verzenden en het API-antwoord ontvangen
+
+1. Maak in de klasse een functie met de naam `Search()`. Maak een nieuw `Ocp-Apim-Subscription-Key`-object, en voeg uw abonnementssleutel toe aan de `HttpClient`-header.
+
+    1. Maak de URI voor uw aanvraag door de host en het pad te combineren. Voeg vervolgens uw markt toe en pas URL-codering toe op uw query.
+    2. Await op `client.GetAsync()` voor een HTTP-antwoord heeft opgehaald en sla vervolgens het json-antwoord op via een await op `ReadAsStringAsync()`.
+    3. Druk de tekenreeks af naar de console.
+
+    ```csharp
+    async static void Search()
+    {
+        //...
+        HttpClient client = new HttpClient();
+        client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
+
+        string uri = host + path + "?mkt=" + market + "&q=" + System.Net.WebUtility.UrlEncode(query);
+
+        HttpResponseMessage response = await client.GetAsync(uri);
+
+        string contentString = await response.Content.ReadAsStringAsync();
+        Console.WriteLine(JsonPrettyPrint(contentString));
+    }
+    ```
+
+2. Roep in de main-methode van uw toepassing de functie `Search()` aan.
+    
+    ```csharp
+    static void Main(string[] args)
+    {
+        Search();
+        Console.ReadLine();
+    }
+    ```
+
+
+## <a name="example-json-response"></a>Voorbeeld van JSON-antwoord
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
@@ -206,11 +164,10 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 }
 ```
 
-[Terug naar boven](#HOLTop)
-
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Zelfstudie over Bing Entiteiten zoeken](../tutorial-bing-entities-search-single-page-app.md)
-> [Overzicht van Bing Entiteiten zoeken](../search-the-web.md )
-> [API-handleiding](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [Een web-app van één pagina maken](../tutorial-bing-entities-search-single-page-app.md).
+
+* [Wat is de Bing Entiteiten zoeken-API?](../overview.md )
+* [Naslaghandleiding Bing Entiteiten zoeken-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)

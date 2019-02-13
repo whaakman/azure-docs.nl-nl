@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/24/2018
+ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 22b12349ac93f0c9dd595e01ecb4661e019c346b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ad5af3e43e1419246d1692c5028cb2453b04516c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458218"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696134"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>Snelstartgids: De Translator Text-API gebruiken om de zinlengte te bepalen met Python
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-Op dit moment is er één eindpunt beschikbaar voor Translator Text. Deze wordt ingesteld als de `base_url`. Met `path` wordt de `breaksentence`-route ingesteld en wordt bepaald dat we versie 3 van de API willen gebruiken.
+Globaal eindpunt voor de Translator Text is ingesteld als de `base_url`. Met `path` wordt de `breaksentence`-route ingesteld en wordt bepaald dat we versie 3 van de API willen gebruiken.
 
 De `params` in dit voorbeeld worden gebruikt om de taal van de opgegeven tekst in te stellen. `params` zijn niet vereist voor de route `breaksentence`. Wanneer de taal niet is vermeld in de aanvraag, wordt geprobeerd om met de API de taal van de opgegeven tekst te detecteren, en in het antwoord deze informatie te bieden samen met een betrouwbaarheidsscore.
 

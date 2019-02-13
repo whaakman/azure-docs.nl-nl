@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: sngun
-ms.openlocfilehash: b9ea87b3a56c4759a0d96b7d01e33087c64ccd91
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 631642f487986e3315c1988f8b591f6e6b43d760
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037548"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55561364"
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB: Een SQL API-app bouwen met Python en Azure Portal
 
@@ -75,7 +75,27 @@ We gaan nu een SQL API-app klonen vanuit GitHub, de verbindingsreeks instellen e
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-python-getting-started.git
     ```  
-    
+
+## <a name="update-your-connection-string"></a>Uw verbindingsreeks bijwerken
+
+Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app.
+
+1. Klik in [Azure Portal](https://portal.azure.com/), in uw Azure Cosmos DB-account, in het linkernavigatiegedeelte op **Sleutels**. In de volgende stap gebruikt u de kopieerknoppen aan de rechterkant van het scherm om de **URI** en **Primaire sleutel** in het `CosmosGetStarted.py`-bestand te kopiëren.
+
+    ![Een toegangssleutel bekijken en kopiëren in Azure Portal, blade Sleutels](./media/create-sql-api-dotnet/keys.png)
+
+2. Open het `CosmosGetStarted.py` bestand in C:\git-samples\azure-cosmos-db-python-getting-started in Visual Studio Code.
+
+3. Kopieer uw **URI**-waarde vanaf de portal (met de kopieerknop) en geef deze als waarde van de **eindpunt**sleutel in ``CosmosGetStarted.py``. 
+
+    `'ENDPOINT': 'https://FILLME.documents.azure.com',`
+
+4. Kopieer dan de waarde van uw **PRIMAIRE SLEUTEL** vanaf de portal en geef deze als **config.PRIMARYKEY-waarde** in ``CosmosGetStarted.py`` in. U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicatie met Azure Cosmos DB. 
+
+    `'PRIMARYKEY': 'FILLME',`
+
+5. Sla het bestand ``CosmosGetStarted.py`` op.
+
 ## <a name="review-the-code"></a>De code bekijken
 
 Deze stap is optioneel. Als u wilt weten hoe de databaseresources in de code worden gemaakt, kunt u de volgende codefragmenten bekijken. Als u deze stap wilt overslaan, kunt u verdergaan naar [Uw verbindingsreeks bijwerken](#update-your-connection-string). 
@@ -84,7 +104,7 @@ Als u bekend bent met de vorige versie van de Python-SDK, komen de termen 'verza
 
 De volgende codefragmenten zijn allemaal afkomstig uit het bestand `CosmosGetStarted.py`.
 
-* De CosmosClient wordt geïnitialiseerd.
+* De CosmosClient wordt geïnitialiseerd. Zorg ervoor dat u de waarden voor 'Eindpunt' en 'hoofdsleutel' bijwerkt zoals is beschreven in het gedeelte [Uw verbindingsreeks bijwerken](#update-your-connection-string). 
 
     ```python
     # Initialize the Cosmos client
@@ -146,27 +166,7 @@ De volgende codefragmenten zijn allemaal afkomstig uit het bestand `CosmosGetSta
     for item in iter(result_iterable):
         print(item['message'])
     ```
-
-## <a name="update-your-connection-string"></a>Uw verbindingsreeks bijwerken
-
-Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app.
-
-1. Klik in [Azure Portal](https://portal.azure.com/), in uw Azure Cosmos DB-account, in het linkernavigatiegedeelte op **Sleutels**. In de volgende stap gebruikt u de kopieerknoppen aan de rechterkant van het scherm om de **URI** en **Primaire sleutel** in het `CosmosGetStarted.py`-bestand te kopiëren.
-
-    ![Een toegangssleutel bekijken en kopiëren in Azure Portal, blade Sleutels](./media/create-sql-api-dotnet/keys.png)
-
-2. Open het `CosmosGetStarted.py` bestand in C:\git-samples\azure-cosmos-db-python-getting-started in Visual Studio Code.
-
-3. Kopieer uw **URI**-waarde vanaf de portal (met de kopieerknop) en geef deze als waarde van de **eindpunt**sleutel in ``CosmosGetStarted.py``. 
-
-    `'ENDPOINT': 'https://FILLME.documents.azure.com',`
-
-4. Kopieer dan de waarde van uw **PRIMAIRE SLEUTEL** vanaf de portal en geef deze als **config.PRIMARYKEY-waarde** in ``CosmosGetStarted.py`` in. U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicatie met Azure Cosmos DB. 
-
-    `'PRIMARYKEY': 'FILLME',`
-
-5. Sla het bestand ``CosmosGetStarted.py`` op.
-    
+   
 ## <a name="run-the-app"></a>De app uitvoeren
 
 1. Selecteer **View**>**Command Palette** in Visual Studio Code. 

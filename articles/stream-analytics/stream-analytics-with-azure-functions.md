@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 818c75feffc5dcf09421b22d82b8b0c767cbed7f
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 8ef1b2a2271106a382faf9e06d57b44ca1bf033b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993005"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810793"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Azure Functions uitvoeren vanuit Azure Stream Analytics-taken 
 
@@ -40,10 +40,10 @@ In deze sectie ziet u hoe u een Stream Analytics-taak configureert om een functi
 
 Voor deze taak moeten de volgende stappen worden gezet:
 * [Een Stream Analytics-taak maken met Event Hubs als invoer](#create-a-stream-analytics-job-with-event-hubs-as-input)  
-* [Een instantie van Azure Cache voor Redis maken](#create-an-azure-redis-cache-instance)  
-* [Een functie in Azure Functions maken die gegevens naar de Azure Cache voor Redis schrijft](#create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache)    
+* Een instantie van Azure Cache voor Redis maken  
+* Een functie in Azure Functions maken die gegevens naar de Azure Cache voor Redis schrijft    
 * [De Stream Analytics-taak bijwerken met de functie als uitvoer](#update-the-stream-analytics-job-with-the-function-as-output)  
-* [Azure Cache voor Redis controleren op resultaten](#check-azure-redis-cache-for-results)  
+* Azure Cache voor Redis controleren op resultaten  
 
 ## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Een Stream Analytics-taak maken met Event Hubs als invoer
 
@@ -211,7 +211,7 @@ Het gebruik van [HTTP-routering](https://docs.microsoft.com/sandbox/functions-re
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u een resourcegroep niet meer nodig hebt, verwijdert u de resourcegroep, de streamingtaak en alle gerelateerde resources. Door de taak te verwijderen, voorkomt u dat de streaming-eenheden die door de taak worden verbruikt, in rekening worden gebracht. Als u denkt dat u de taak in de toekomst nog gaat gebruiken, kunt u deze stoppen en later opnieuw starten wanneer dat nodig is. Als u deze taak niet meer gaat gebruiken, verwijdert u alle resources die in deze quickstart zijn gemaakt. Daarvoor voert u de volgende stappen uit:
+Wanneer u een resourcegroep niet meer nodig hebt, verwijdert u de resourcegroep, de streamingtaak en alle gerelateerde resources. Door de taak te verwijderen, voorkomt u dat de streaming-eenheden die door de taak worden verbruikt, in rekening worden gebracht. Als u denkt dat u de taak in de toekomst nog gaat gebruiken, kunt u deze stoppen en later opnieuw starten wanneer dat nodig is. Als u deze taak niet meer gaat gebruiken, verwijdert u alle resources die in deze snelstart zijn gemaakt. Daarvoor voert u de volgende stappen uit:
 
 1. Klik in het menu aan de linkerkant in Azure Portal op **Resourcegroepen** en klik vervolgens op de resource die u hebt gemaakt.  
 2. Klik op de pagina van uw resourcegroep op **Verwijderen**, typ de naam van de resource die u wilt verwijderen in het tekstvak en klik vervolgens op **Verwijderen**.

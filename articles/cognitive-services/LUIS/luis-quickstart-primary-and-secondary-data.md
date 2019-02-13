@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 167dce168f9adfa59a96c09c62548c7c6e253b09
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 53e975719b911a27667afc8565bd86261f927068
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211403"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820977"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Zelfstudie: namen extraheren met de entiteit Simple en een woordenlijst
 
@@ -239,7 +239,7 @@ Open [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive-services-
 
     [![Schermopname van het pop-upvenster voor het maken van een nieuwe woordgroepenlijst met woorden in het vak voor woordgroepenlijstwaarden](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Schermopname van het pop-upvenster voor het maken van een nieuwe woordgroepenlijst met woorden in het vak voor woordgroepenlijstwaarden")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
-1. U moet de app opnieuw [trainen](#train) en [publiceren](#publish) om de woordgroepenlijst te kunnen gebruiken.
+1. U moet de app opnieuw trainen en publiceren om de woordgroepenlijst te kunnen gebruiken.
 
 1. Een eindpunt opnieuw opvragen met de dezelfde utterance: `This is the lead welder paperwork.`
 

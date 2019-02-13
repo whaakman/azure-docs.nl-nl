@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Toepassingsgegevens maximaal beschikbaar maken in Azure | Microsoft Docs'
+title: 'Zelfstudie: Een maximaal beschikbare toepassing bouwen met Blob-opslag - Azure Storage'
 description: Geografisch redundante opslag met leestoegang gebruiken om uw toepassingsgegevens maximaal beschikbaar te maken
 services: storage
 author: tamram
@@ -9,14 +9,14 @@ ms.date: 01/03/2019
 ms.author: tamram
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 81cd6b073fb46b01b3b98543d8f92e2ef7b1ec1b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d2fef3a47cbcb4cfd8bce8978003eca1044d7de3
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245377"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510630"
 ---
-# <a name="tutorial-make-your-application-data-highly-available-with-azure-storage"></a>Zelfstudie: Uw toepassingsgegevens maximaal beschikbaar maken met Azure-opslag
+# <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Zelfstudie: Een maximaal beschikbare toepassing bouwen met Blob-opslag
 
 Deze zelfstudie is deel één van een serie. In deze zelfstudie leert u hoe u uw toepassingsgegevens maximaal beschikbaar maakt in Azure.
 

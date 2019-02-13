@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 05/29/2018
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 05f6b32fad4f0a449f0d801c1c7cc6a28be6f940
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: bb9bcfcc5f78ee82f187d331055e8f2fd2ed9e64
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685345"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745806"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Zelfstudie: Een gesimuleerd apparaat gebruiken om connectiviteit met uw IoT-hub te testen
 
@@ -75,7 +75,7 @@ Klik op de verbindingsreeks voor **MyTestDevice** in de lijst van apparaten om d
 
 Voer de Node.js-toepassing Gesimuleerd apparaat uit dat u eerder hebt gedownload om te simuleren dat **MyTestDevice** telemetriegegevens naar uw IoT Hub verzendt.
 
-Navigeer in een terminalvenster op uw ontwikkelcomputer naar de hoofdmap van het voorbeeldproject in Node.js dat u hebt gedownload. Navigeer vervolgens naar de map **iot-hub\Tutorials\ConnectivityTests\simulated-device**.
+Navigeer in een terminalvenster op uw ontwikkelcomputer naar de hoofdmap van het voorbeeldproject in Node.js dat u hebt gedownload. Navigeer vervolgens naar de map **iot-hub\Tutorials\ConnectivityTests**.
 
 Voer in het terminalvenster de volgende opdrachten uit om de vereiste bibliotheken te installeren en de toepassing voor het gesimuleerde apparaat uit te voeren. Gebruik de apparaatverbindingsreeks die u hebt genoteerd toen u het apparaat in de portal toevoegde.
 

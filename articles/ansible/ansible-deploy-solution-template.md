@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 01/28/2019
-ms.openlocfilehash: 705d23a93b25c513d413f2115c47d52ff6ef2bac
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9fa711c86e3ef7f05e87504905ec642808d8f601
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55229210"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770279"
 ---
 # <a name="deploy-the-ansible-solution-template-for-azure-to-centos"></a>Een Ansible-oplossingssjabloon voor Azure implementeren in CentOS
 De Ansible-oplossingssjabloon voor Azure is ontworpen voor het configureren van een Ansible-exemplaar op een CentOS virtuele machine, samen met Ansible en een reeks hulpprogramma's die is geconfigureerd om te werken met Azure. Tot de hulpmiddelen behoren:
@@ -53,7 +53,7 @@ De Ansible-oplossingssjabloon voor Azure is ontworpen voor het configureren van 
 1. Op het tabblad **Aanvullende instellingen** voert u de vereiste gegevens in:
 
     - **Grootte**: in de Azure-portal wordt standaard een standaardgrootte gebruikt. Als u een andere grootte wilt opgeven die geschikt is voor uw specifieke scenario, selecteert u de pijl om verschillende grootten weer te geven.
-    - **Grootte van VM-schijf**: selecteer **SSD** (Premium Solid-State Drive) of **HDD** (Hard Disk Drive). Voor deze demo wordt **SSD** geselecteerd omwille van de prestatievoordelen. Voor meer informatie over deze typen schijfopslag ziet u de volgende artikelen:
+    - **Type VM-schijf**: selecteer **SSD** (Premium Solid-State Drive) of **HDD** (Hard Disk Drive). Voor deze demo wordt **SSD** geselecteerd omwille van de prestatievoordelen. Voor meer informatie over deze typen schijfopslag ziet u de volgende artikelen:
         - [Krachtige Premium Storage en beheerde schijven voor VM's](/azure/virtual-machines/windows/premium-storage)
         - [Standard SSD Managed Disks for Azure Virtual machine workloads](/azure/virtual-machines/windows/disks-standard-ssd) (Standaard beheerde SSD-schijven voor workloads van Azure-VM's)
     - **Openbaar IP-adres**: configureer deze instelling als u van buiten de virtuele machine met de virtuele machine wilt communiceren. De standaardwaarde is een nieuw openbaar IP-adres met de naam `ansible-pip`. Als u een ander IP-adres wilt opgeven, selecteert u de pijl om de kenmerken op te geven, zoals de naam, SKU en toewijzing van dat IP-adres. 

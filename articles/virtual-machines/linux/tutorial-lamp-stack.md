@@ -3,7 +3,7 @@ title: 'Zelfstudie: LAMP implementeren op een virtuele Linux-machine in Azure | 
 description: In deze zelfstudie leert u hoe de LAMP-stack installeert op een virtuele Linux-machine in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 11/27/2017
-ms.author: danlep
-ms.openlocfilehash: 5caed6fba607cb93a6168bded7531bc8bf63b9da
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 01/30/2019
+ms.author: cynthn
+ms.openlocfilehash: c69c7055e420ffa64e547f5c3fe53d997cf90168
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970682"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753704"
 ---
 # <a name="tutorial-install-a-lamp-web-server-on-a-linux-virtual-machine-in-azure"></a>Zelfstudie: Een LAMP-webserver installeren op een virtuele Linux-machine in Azure
 
@@ -50,15 +50,12 @@ Voer de volgende opdracht uit om Ubuntu-pakketbronnen bij te werken en Apache, M
 sudo apt update && sudo apt install lamp-server^
 ```
 
-
-U wordt gevraagd de pakketten en andere afhankelijkheden te installeren. Stel, als daarom wordt gevraagd, een hoofdwachtwoord in voor MySQL en druk op Enter om door te gaan. Volg de resterende aanwijzingen op. In dit proces worden de minimaal vereiste PHP-extensies geïnstalleerd die voor het gebruik van PHP met MySQL nodig zijn. 
-
-![Pagina met MySQL-hoofdwachtwoord][1]
+U wordt gevraagd de pakketten en andere afhankelijkheden te installeren. In dit proces worden de minimaal vereiste PHP-extensies geïnstalleerd die voor het gebruik van PHP met MySQL nodig zijn.  
 
 ## <a name="verify-installation-and-configuration"></a>Installatie en configuratie verifiëren
 
 
-### <a name="apache"></a>Apache
+### <a name="verify-apache"></a>Apache Verifiëren
 
 Controleer de versie van Apache met de volgende opdracht:
 ```bash
@@ -70,7 +67,7 @@ Als Apache is geïnstalleerd en poort 80 is geopend voor de VM, is de webserver 
 ![Standaardpagina van Apache][3]
 
 
-### <a name="mysql"></a>MySQL
+### <a name="verify-and-secure-mysql"></a>MySQL verifiëren en beveiligen
 
 Controleer de versie van MySQL met de volgende opdracht (let op de hoofdletter `V` van de parameter):
 
@@ -78,23 +75,23 @@ Controleer de versie van MySQL met de volgende opdracht (let op de hoofdletter `
 mysql -V
 ```
 
-Voer het script `mysql_secure_installation` uit om de installatie van MySQL te beveiligen. Als u slechts een tijdelijke server instelt, kunt u deze stap overslaan.
+Als u de installatie van MySQL wilt beveiligen, inclusief het instellen van een hoofdwachtwoord, voert u het script `mysql_secure_installation` uit. 
 
 ```bash
-mysql_secure_installation
+sudo mysql_secure_installation
 ```
 
-Voer een hoofdwachtwoord voor MySQL in en configureer de beveiligingsinstellingen voor uw omgeving.
+U kunt desgewenst de invoegtoepassing voor wachtwoordvalidatie instellen (aanbevolen). Vervolgens stelt u een wachtwoord in voor de MySQL-hoofdgebruiker en configureert u de resterende instellingen voor uw omgeving. We raden u aan alle vragen met 'J' (Ja) te beantwoorden.
 
 Als u MySQL-functies wilt uitproberen (MySQL-database maken, gebruikers toevoegen of configuratie-instellingen wijzigen), meldt u zich aan bij MySQL. Deze stap is niet noodzakelijk voor het voltooien van deze zelfstudie.
 
 ```bash
-mysql -u root -p
+sudo mysql -u root -p
 ```
 
 Als u klaar bent, sluit u de mysql-prompt door `\q` te typen.
 
-### <a name="php"></a>PHP
+### <a name="verify-php"></a>PHP verifiëren
 
 Controleer de versie van PHP met de volgende opdracht:
 
@@ -114,7 +111,6 @@ Nu kunt u de zojuist gemaakte PHP-infopagina controleren. Open een browser en ga
 
 [!INCLUDE [virtual-machines-linux-tutorial-wordpress.md](../../../includes/virtual-machines-linux-tutorial-wordpress.md)]
 
-
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie hebt u een LAMP-server in Azure geïmplementeerd. U hebt geleerd hoe u:
@@ -131,6 +127,5 @@ Ga door naar de volgende zelfstudie om te leren hoe u webservers kunt beveiligen
 > [!div class="nextstepaction"]
 > [Webserver beveiligen met SSL](tutorial-secure-web-server.md)
 
-[1]: ./media/tutorial-lamp-stack/configmysqlpassword-small.png
 [2]: ./media/tutorial-lamp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lamp-stack/apachesuccesspage.png

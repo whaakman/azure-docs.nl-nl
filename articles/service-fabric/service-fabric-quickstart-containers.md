@@ -4,7 +4,7 @@ description: In deze snelstart maakt uw eerste Windows-containertoepassing in Az
 services: service-fabric
 documentationcenter: .net
 author: TylerMSFT
-manager: timlt
+manager: jpconnock
 editor: vturecek
 ms.assetid: ''
 ms.service: service-fabric
@@ -12,17 +12,17 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/30/2018
+ms.date: 01/31/2019
 ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: 2855d28a3d5414413ca1657a7bef9c060f6d4424
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 816f12ca5837fa99b4e945c965f9cbad406c63bb
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300333"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749794"
 ---
-# <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Snelstartgids: Windows-containers implementeren op Service Fabric
+# <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Quickstart: Windows-containers implementeren in Service Fabric
 
 Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u schaalbare en betrouwbare microservices en containers implementeert en beheert.
 
@@ -63,11 +63,12 @@ Geef uw service de naam 'MyContainerService' en klik op **OK**.
 ![Dialoogvenster voor nieuwe service][new-service]
 
 ## <a name="specify-the-os-build-for-your-container-image"></a>De OS-build voor de containerinstallatiekopie opgeven
+
 Containers die zijn gebouwd met een specifieke versie van Windows Server kunnen mogelijk niet worden uitgevoerd op een host waarop een andere versie van Windows Server wordt uitgevoerd. Zo werken containers die zijn gebouwd met Windows Server 1709 niet op hosts waarop Windows Server versie 2016 wordt uitgevoerd. Zie [Compatibiliteit tussen besturingssysteem van Windows Server-container en host-besturingssysteem](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility) voor meer informatie. 
 
 Met versie 6.1 en hoger van de Service Fabric-runtime kunt u meerdere besturingssysteeminstallatiekopieën per container opgeven en elke installatiekopie labelen met de buildversie van het besturingssysteem waarop deze moet worden geïmplementeerd. Zo kunt u ervoor zorgen dat uw toepassing wordt uitgevoerd op hosts waarop verschillende versies van het Windows-besturingssysteem worden uitgevoerd. Zie [Containerinstallatiekopieën opgeven die specifiek zijn voor de build van het besturingssysteem](service-fabric-get-started-containers.md#specify-os-build-specific-container-images). 
 
-Microsoft publiceert verschillende installatiekopieën voor versies van IIS die zijn gebouwd op verschillende versies van Windows Server. Voeg de volgende regels toe aan het bestand *ApplicationManifest.xml* als u ervoor wilt zorgen dat Service Fabric een container implementeert die compatibel is met de versie van Windows Server die wordt uitgevoerd op de clusterknooppunten waar uw toepassing wordt geïmplementeerd. De buildversie voor Windows Server 2016 is 14393 en die voor Windows Server versie 1709 is 16299. 
+Microsoft publiceert verschillende installatiekopieën voor versies van IIS die zijn gebouwd op verschillende versies van Windows Server. Voeg de volgende regels toe aan het bestand *ApplicationManifest.xml* als u ervoor wilt zorgen dat Service Fabric een container implementeert die compatibel is met de versie van Windows Server die wordt uitgevoerd op de clusterknooppunten waar uw toepassing wordt geïmplementeerd. De buildversie voor Windows Server 2016 is 14393 en die voor Windows Server versie 1709 is 16299.
 
 ```xml
     <ContainerHostPolicies CodePackageRef="Code"> 
@@ -80,34 +81,57 @@ Microsoft publiceert verschillende installatiekopieën voor versies van IIS die 
     </ContainerHostPolicies> 
 ```
 
-Het servicemanifest geeft nog steeds maar één installatiekopie op voor de nanoserver, `microsoft/iis:nanoserver`. 
+Het servicemanifest geeft nog steeds maar één installatiekopie op voor de nanoserver, `microsoft/iis:nanoserver`.
+
+Wijzig ook in het bestand *ApplicationManifest.xml* de optie **PasswordEncrypted** in **false**. Het account en wachtwoord zijn leeg voor de openbare containerinstallatiekopie die zich in Docker Hub bevindt. Daarom schakelen we versleuteling uit omdat het versleutelen van een leeg wachtwoord een buildfout genereert.
+
+```xml
+<RepositoryCredentials AccountName="" Password="" PasswordEncrypted="false" />
+```
 
 ## <a name="create-a-cluster"></a>Een cluster maken
 
-U kunt voor het implementeren van de toepassing naar een cluster in Azure een cluster van derden gebruiken. Party-clusters zijn gratis, tijdelijke Service Fabric-clusters die worden gehost op Azure en uitgevoerd door het Service Fabric-team. Iedereen kan hier toepassingen implementeren en meer te weten komen over het platform.  Het cluster gebruikt één zelfondertekend certificaat voor beveiliging van knooppunt-naar-knooppunt en client-naar-knooppunt. Party-clusters ondersteunen containers. Als u besluit uw eigen cluster in te stellen en te gebruiken, moet het cluster worden uitgevoerd op een SKU die ondersteuning biedt voor containers (zoals Windows Server 2016 Datacenter met Containers).
+Met het volgende voorbeeldscript wordt een Service Fabric-cluster met vijf knooppunten gemaakt dat wordt beveiligd met een X.509-certificaat. Met de opdracht wordt een zelfondertekend certificaat gemaakt en geüpload naar een nieuwe sleutelkluis. Het certificaat wordt ook gekopieerd naar een lokale map. Meer informatie over het maken van een cluster met behulp van dit script vindt u in [Een Service Fabric-cluster maken](scripts/service-fabric-powershell-create-secure-cluster-cert.md).
 
-Meld u aan en [neem deel aan een Windows-cluster](https://aka.ms/tryservicefabric). Download het PFX-certificaat naar uw computer door op de koppeling **PFX** te klikken. Klik op de koppeling **Hoe kan ik verbinding maken met een beveiligd Party-cluster?** en kopieer het certificaatwachtwoord. Het certificaat, het certificaatwachtwoord en de waarde van het **verbindingseindpunt** worden in volgende stappen gebruikt.
+Installeer zo nodig Azure PowerShell met behulp van de instructies in de [Azure PowerShell-handleiding](/powershell/azure/overview).
 
-![PFX en verbindingseindpunt](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+Voer voordat u het volgende script in PowerShell uitvoert `Connect-AzureRmAccount` uit om een verbinding met Azure te maken.
 
-> [!Note]
-> Er zijn per uur een beperkt aantal Party-clusters beschikbaar. Als er een fout optreedt wanneer u zich probeert aan te melden voor een Party-cluster, kunt u een bepaalde tijd wachten en het opnieuw proberen, of kunt u deze stappen in de zelfstudie [Een .NET-app implementeren](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) volgen om een Service Fabric-cluster in uw Azure-abonnement te maken en daarin de toepassing te implementeren. Het cluster dat is gemaakt met behulp van Visual Studio ondersteunt containers. Nadat u de toepassing in uw cluster hebt geïmplementeerd en geverifieerd, kunt u verdergaan naar [Volledig voorbeeld van de manifesten voor de Service Fabric-toepassing en -service](#complete-example-service-fabric-application-and-service-manifests) in deze snelstartgids.
->
+Kopieer het volgende script naar het Klembord en open **Windows PowerShell ISE**.  Plak de inhoud in het lege venster Untitled1.ps1. Geef vervolgens waarden op voor de variabelen in het script: `subscriptionId`, `certpwd`, `certfolder`, `adminuser`, `adminpwd`, enzovoort.  De map die u opgeeft voor `certfolder` moet bestaan voordat u het script uitvoert.
 
-Op een Windows-computer installeert u het PFX-bestand in het certificaatarchief *CurrentUser\My*.
+[!code-powershell[main](../../powershell_scripts/service-fabric/create-secure-cluster/create-secure-cluster.ps1 "Create a Service Fabric cluster")]
+
+Nadat u de waarden voor de variabelen opgegeven hebt, drukt u op **F5** om het script uit te voeren.
+
+Nadat het script is uitgevoerd en het cluster is gemaakt, zoekt u `ClusterEndpoint` op in de uitvoer. Bijvoorbeeld:
+
+```PowerShell
+...
+ClusterEndpoint : https://southcentralus.servicefabric.azure.com/runtime/clusters/b76e757d-0b97-4037-a184-9046a7c818c0
+```
+
+### <a name="install-the-certificate-for-the-cluster"></a>Het certificaat voor het cluster installeren
+
+We installeren de PFX nu in het certificaatarchief *CurrentUser\My*. Het PFX-bestand bevindt zich in de map die u hebt opgegeven met behulp van de omgevingsvariabele `certfolder` in het bovenstaande PowerShell-script.
+
+Ga naar die map en voer de volgende PowerShell-opdracht uit, waarbij u de naam van het PFX-bestand dat zich in de map `certfolder` bevindt en het wachtwoord dat u hebt opgegeven in de variabele `certpwd` vervangt. In dit voorbeeld is de huidige map ingesteld op de map die is opgegeven door de variabele `certfolder` in het PowerShell-script. Van daaruit wordt de opdracht `Import-PfxCertificate` uitgevoerd:
 
 ```powershell
-PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString 873689604 -AsPlainText -Force)
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\mysfclustergroup20190130193456.pfx -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString Password#1234 -AsPlainText -Force)
+```
 
+Met de opdracht wordt de vingerafdruk geretourneerd:
 
+```powershell
+  ...
   PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
 
 Thumbprint                                Subject
 ----------                                -------
-3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+0AC30A2FA770BEF566226CFCF75A6515D73FC686  CN=mysfcluster.SouthCentralUS.cloudapp.azure.com
 ```
 
-Onthoud de vingerafdruk voor de volgende stap.
+Onthoud de waarde van de vingerafdruk voor de volgende stap.
 
 ## <a name="deploy-the-application-to-azure-using-visual-studio"></a>De toepassing publiceren in Azure met Visual Studio
 
@@ -115,15 +139,23 @@ Nu de toepassing klaar is, kunt u deze rechtstreeks vanuit Visual Studio impleme
 
 Klik met de rechtermuisknop op **MyFirstContainer** in Solution Explorer en kies **Publiceren**. Het dialoogvenster Publiceren wordt weergegeven.
 
-Kopieer het **verbindingseindpunt** van het cluster van derden naar het veld **Verbindingseindpunt**. Bijvoorbeeld `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Klik op **Geavanceerde verbindingsparameters** en controleer de informatie van de verbindingsparameters.  De waarden *FindValue* en *ServerCertThumbprint* moeten overeenkomen met de vingerafdruk van het certificaat dat in de vorige stap is geïnstalleerd.
+Kopieer de inhoud volgend op **CN=** in het PowerShell-venster toen u de bovenstaande opdracht `Import-PfxCertificate` uitvoerde en voeg er poort `19000` aan toe. Bijvoorbeeld `mysfcluster.SouthCentralUS.cloudapp.azure.com:19000`. Kopieer dit naar het veld **Verbindingseindpunt**. Onthoud deze waarde, want u hebt deze nodig in een toekomstige stap.
+
+Klik op **Geavanceerde verbindingsparameters** en controleer de informatie van de verbindingsparameters.  De waarden *FindValue* en *ServerCertThumbprint* moeten overeenkomen met de vingerafdruk van het certificaat dat is geïnstalleerd toen u `Import-PfxCertificate` uitvoerde in de vorige stap.
 
 ![Het dialoogvenster Publiceren](./media/service-fabric-quickstart-containers/publish-app.png)
 
 Klik op **Publish**.
 
-Elke toepassing in het cluster moet een unieke naam hebben.  Clusters van derden vormen echter een openbare, gedeelde omgeving en er kan een conflict met een bestaande toepassing optreden.  Als er een naamconflict is, wijzigt u de naam van het Visual Studio-project en voert u de implementatie opnieuw uit.
+Elke toepassing in het cluster moet een unieke naam hebben. Als er een naamconflict is, wijzigt u de naam van het Visual Studio-project en voert u de implementatie opnieuw uit.
 
-Open een browser en ga naar het **verbindingseindpunt** dat is opgegeven op de pagina met het cluster van een derde. U kunt de URL eventueel vooraf laten gaan door de schema-id, `http://`, en de poort, `:80`, aan het einde toevoegen. Bijvoorbeeld http://zwin7fh14scd.westus.cloudapp.azure.com:80. U ziet de IIS-standaardwebpagina: ![IIS-standaardwebpagina][iis-default]
+Open een browser en navigeer naar het adres dat u in de vorige stap in het veld **Verbindingseindpunt** hebt ingevoerd. U kunt de URL eventueel vooraf laten gaan door de schema-id, `http://`, en de poort, `:80`, aan het einde toevoegen. Bijvoorbeeld http://mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
+
+ De IIS-standaardwebpagina moet worden weergegeven: ![IIS-standaardwebpagina][iis-default]
+
+## <a name="clean-up"></a>Opruimen
+
+Zolang het cluster actief is, worden er kosten in rekening gebracht. Overweeg daarom [het cluster te verwijderen](service-fabric-cluster-delete.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

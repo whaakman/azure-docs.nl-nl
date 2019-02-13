@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/29/2018
+ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: c99dbdb95c4dd7a6e078fd6e9ee15a590c8c40c9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6f52df9166da371b38069138bc4389a9be6b0121
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458292"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692219"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-python"></a>Snelstartgids: De Translator Text-API gebruiken om een lijst met ondersteunde talen op te halen met Python
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-Op dit moment is er één eindpunt beschikbaar voor Translator Text. Deze wordt ingesteld als de `base_url`. Met `path` wordt de `languages`-route ingesteld en wordt bepaald dat we versie 3 van de API willen gebruiken.
+Het globale eindpunt voor Translator Text wordt ingesteld als de `base_url`. Met `path` wordt de `languages`-route ingesteld en wordt bepaald dat we versie 3 van de API willen gebruiken.
 
 >[!NOTE]
 > Meer informatie over eindpunten, routes en aanvraagparameters vindt u in [Translator Text-API 3.0: talen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).

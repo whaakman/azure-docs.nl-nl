@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 06/15/2017
 ms.author: lizross
 ms.reviewer: richagi
-ms.openlocfilehash: a6beba81bf76549010bbf586cfbd0f018ee0a0dd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 853ca60ac10272062a1eb61c5f8763e4d9e120f7
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166608"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55748213"
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Wat betekent Azure Multi-Factor Authentication voor mij?
 U hebt dus een e-mail ontvangen van iemand in IT of van uw baas met de mededeling dat ze extra beveiligingsverificatie hebben toegevoegd aan uw account.  Wat betekent dat?
@@ -44,4 +44,4 @@ Selecteer een van de volgende onderwerpen om aan de slag te gaan.
 | [Aanmeldingservaring](multi-factor-authentication-end-user-signin.md) |Toont wat u kunt verwachten van aanmelden met de verschillende methoden, zoals telefoon of app. |
 | [Uw instellingen wijzigen](multi-factor-authentication-end-user-manage-settings.md) |Toont hoe u uw instellingen kunt wijzigen, zoals het telefoonnummer of de gewenste inschrijvingsmethode. |
 | [Hulp bij app-wachtwoorden](multi-factor-authentication-end-user-app-passwords.md) |Informatie over het maken en gebruiken van app-wachtwoorden. |
-| [De mobiele app gebruiken](microsoft-authenticator-app-how-to.md) |De Microsoft Authenticator-app is beschikbaar voor [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) en [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071). |
+| [De mobiele app gebruiken](microsoft-authenticator-app-how-to.md) |De Microsoft Authenticator-app is beschikbaar voor [Android](https://go.microsoft.com/fwlink/?linkid=866594) en [iOS](https://go.microsoft.com/fwlink/?linkid=866594).|

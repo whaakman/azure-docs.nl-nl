@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Federeren één AD-forest omgeving naar Azure | Microsoft Docs'
-description: Demonstreert hoe u het instellen van een hybride identiteit-omgeving gebruikmaakt van Federatie.
+title: 'Zelfstudie: Een enkele AD-forestomgeving federeren naar Azure | Microsoft Docs'
+description: In deze zelfstudie ziet u hoe u een omgeving met een hybride identiteit instelt met behulp van federatie.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -9,48 +9,48 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/16/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2e0afa4566896af98932ccd7a99ecf109ff2e56e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: 35f158b97bdae897cd851463449f1f45e5e35867
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150852"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498179"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Zelfstudie: Een enkele AD-forestomgeving federeren in de cloud
 
 ![Maken](media/tutorial-federation/diagram.png)
 
-De volgende zelfstudie begeleidt u bij het maken van een hybride identiteit-omgeving gebruikmaakt van Federatie.  Deze omgeving kan vervolgens worden gebruikt voor het testen of voor het ophalen van meer wilt weten over de werking van een hybride identiteit.
+De volgende zelfstudie begeleidt u bij het maken van een omgeving met een hybride identiteit met behulp van federatie.  Deze omgeving kan vervolgens worden gebruikt voor testdoeleinden of om meer vertrouwd te raken met de werking van een hybride identiteit.
 
 ## <a name="prerequisites"></a>Vereisten
-De volgende zijn vereisten voor het voltooien van deze zelfstudie
-- Een computer met [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) geïnstalleerd.  Het wordt aangeraden om dit te doen voor een [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) of een [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) computer.
+Dit zijn de vereisten voor het voltooien van deze zelfstudie
+- Een computer waarop [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) is geïnstalleerd.  Het wordt aangeraden dit te doen op een computer met [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) of [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 - Een [Azure-abonnement](https://azure.microsoft.com/free)
-- - Een [externe netwerkadapter](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network) waarmee de virtuele machine om te communiceren met internet.
-- Een kopie van Windows Server 2016
-- Een [aangepast domein](../../active-directory/fundamentals/add-custom-domain.md) die kan worden gecontroleerd
+- - Een [externe netwerkadapter](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network) waarmee de virtuele machine kan communiceren met internet.
+- Een exemplaar van Windows Server 2016
+- Een [aangepast domein](../../active-directory/fundamentals/add-custom-domain.md) dat kan worden geverifieerd
 
 > [!NOTE]
-> In deze zelfstudie maakt gebruik van PowerShell-scripts zodat u de zelfstudie omgeving in de snelste tijd maken kunt.  Elk van de scripts maakt gebruik van variabelen die zijn gedeclareerd aan het begin van de scripts.  U kunt en de variabelen aanleiding van uw omgeving te wijzigen.
+> In deze zelfstudie worden PowerShell-scripts gebruikt, zodat u de omgeving voor de zelfstudie zo snel mogelijk kunt inrichten.  Elk van de scripts maakt gebruik van variabelen die worden gedeclareerd aan het begin van de scripts.  U moet de variabelen aanpassen aan uw omgeving.
 >
->De scripts die worden gebruikt, maak een algemene Active Directory-omgeving voordat u Azure AD Connect installeert.  Ze zijn relevant voor alle van de zelfstudies.
+>Met de scripts wordt een algemene Active Directory Domain Services-omgeving ingericht voorafgaand aan de installatie van Azure AD Connect.  De scripts zijn relevant voor alle zelfstudies.
 >
-> Kopieën van de PowerShell-scripts die worden gebruikt in deze zelfstudie zijn beschikbaar op GitHub [hier](https://github.com/billmath/tutorial-phs).
+> Kopieën van de PowerShell-scripts die worden gebruikt in deze zelfstudie zijn [hier](https://github.com/billmath/tutorial-phs) beschikbaar op GitHub.
 
 ## <a name="create-a-virtual-machine"></a>Een virtuele machine maken
-Het eerste wat we moeten doen, om op te halen van onze hybride identiteit omgeving van en het uitvoeren is het maken van een virtuele machine die wordt gebruikt als onze on-premises Active Directory-server.  
+Het eerste wat we moeten doen om onze omgeving met een hybride identiteit in te richten, is het maken van een virtuele machine die we gaan gebruiken als onze on-premises Active Directory Domain Services-server.  
 
 >[!NOTE]
->Als u een script nooit hebt uitgevoerd in PowerShell op uw hostcomputer moet u om uit te voeren `Set-ExecutionPolicy remotesigned` en zegt Ja in PowerShell, vóór het uitvoeren van scripts.
+>Als u nooit een script hebt uitgevoerd in PowerShell op uw hostcomputer moet u `Set-ExecutionPolicy remotesigned` uitvoeren en ja zeggen in PowerShell, vóór het uitvoeren van scripts.
 
 Ga als volgt te werk:
 
 1. Open de PowerShell ISE als Administrator.
-2. Voer het volgende script.
+2. Voer het volgende script uit.
 
 ```powershell
 #Declare variables
@@ -77,26 +77,26 @@ $DVDDrive = Get-VMDvdDrive -VMName $VMName
 Set-VMFirmware -VMName $VMName -FirstBootDevice $DVDDrive 
 ```
 
-## <a name="complete-the-operating-system-deployment"></a>Voltooien van de implementatie van besturingssysteem
-Klaar bent met het bouwen van de virtuele machine, moet u om de installatie van het besturingssysteem te voltooien.
+## <a name="complete-the-operating-system-deployment"></a>Implementatie van besturingssysteem voltooien
+Om het bouwen van de virtuele machine te voltooien, moet u de installatie van het besturingssysteem afronden.
 
-1. Hyper-V-beheer, dubbelklik op de virtuele machine
+1. Ga naar Hyper-V Manager en dubbelklik op de virtuele machine
 2. Klik op de knop Start.
-3.  U wordt gevraagd naar 'Op een willekeurige toets om op te starten vanaf CD of DVD'. Ga vooruit, en doen.
-4. Selecteer uw taal op de Windows Server-opstartscherm en klikt u op **volgende**.
-5. Klik op **nu installeren**.
-6. Voer uw licentiesleutel in en klikt u op **volgende**.
-7. Controleer ** ik accepteer de licentievoorwaarden en klik op **volgende**.
-8. Selecteer **aangepast:  Alleen Windows installeren (Geavanceerd)**
+3.  U wordt gevraagd om op een willekeurige toets te drukken om op te starten vanaf cd of dvd. Druk op een willekeurige toets.
+4. Selecteer uw taal in het opstartscherm van Windows Server en klik op **Volgende**.
+5. Klik op **Nu installeren**.
+6. Voer uw licentiecode in en klik op **Volgende**.
+7. Geef aan dat u akkoord gaat met de licentievoorwaarden en klik op **Volgende**.
+8. Selecteer **Aangepast:  Alleen Windows installeren (geavanceerd)**
 9. Klik op **Volgende**
-10. Als de installatie is voltooid, start de virtuele machine, aanmelden en werken met Windows om te controleren of dat de virtuele machine is de meest recente updates.  Installeer de meest recente updates.
+10. Als de installatie is voltooid, start u de virtuele machine opnieuw op, meldt u zich aan en installeert u de beschikbare Windows-updates om er zeker van te zijn dat de VM up-to-date is.  Installeer de laatste updates.
 
-## <a name="install-active-directory-pre-requisites"></a>Vereisten voor Active Directory installeren
-Nu dat we een virtuele machine u hebt, moeten we een paar handelingen voor de installatie van Active Directory.  Dat wil zeggen, moeten we Wijzig de naam van de virtuele machine, het instellen van een statisch IP-adres en DNS-gegevens en het installeren van de Remote Server Administration tools.   Ga als volgt te werk:
+## <a name="install-active-directory-pre-requisites"></a>Vereisten voor het installeren van Active Directory Domain Services
+De virtuele machine is nu klaar en we gaan verder met enkele voorbereidende handelingen voorafgaand aan de installatie van Active Directory Domain Services.  We moeten de naam van de virtuele machine wijzigen, een statisch IP-adres en DNS-gegevens instellen, en Remote Server Administration Tools installeren.   Ga als volgt te werk:
 
 1. Open de PowerShell ISE als Administrator.
-2. Voer `Set-ExecutionPolicy remotesigned` en Ja bijvoorbeeld naar alle [A].  Druk op Enter.
-3. Voer het volgende script.
+2. Voer `Set-ExecutionPolicy remotesigned` uit en zeg Ja op alle [A].  Druk op Enter.
+3. Voer het volgende script uit.
 
 ```powershell
 #Declare variables
@@ -128,11 +128,11 @@ Get-WindowsFeature | Where installed >>$featureLogPath
 Restart-Computer
 ```
 
-## <a name="create-a-windows-server-ad-environment"></a>Een Windows Server AD-omgeving maken
-Nu dat we de virtuele machine gemaakt hebben en het is gewijzigd en een statisch IP-adres heeft, kunnen we eens en installeren en configureren van Active Directory Domain Services.  Ga als volgt te werk:
+## <a name="create-a-windows-server-ad-environment"></a>Een Windows Server AD-omgeving inrichten
+We hebben nu een VM gemaakt, de naam ervan gewijzigd en een statisch IP-adres toegewezen. De volgende stap is het installeren en configureren van Active Directory Domain Services.  Ga als volgt te werk:
 
 1. Open de PowerShell ISE als Administrator.
-2. Voer het volgende script.
+2. Voer het volgende script uit.
 
 ```powershell 
 #Declare variables
@@ -159,10 +159,10 @@ Install-ADDSForest -CreateDnsDelegation:$false -DatabasePath $DatabasePath -Doma
 ```
 
 ## <a name="create-a-windows-server-ad-user"></a>Een Windows Server AD-gebruiker maken
-Nu dat we onze Active Directory-omgeving hebt, moet er een testaccount.  Dit account wordt gemaakt in onze on-premises AD-omgeving en vervolgens worden gesynchroniseerd met Azure AD.  Ga als volgt te werk:
+De Active Directory Domain Services-omgeving is klaar. We gaan nu een testaccount maken.  Dit account wordt gemaakt in onze on-premises AD-omgeving en vervolgens gesynchroniseerd met Azure Active Directory.  Ga als volgt te werk:
 
 1. Open de PowerShell ISE als Administrator.
-2. Voer het volgende script.
+2. Voer het volgende script uit.
 
 ```powershell 
 #Declare variables
@@ -182,11 +182,11 @@ New-ADUser -Name $Name -GivenName $Givenname -Surname $Surname -DisplayName $Dis
 Set-ADUser -Identity $Identity -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Enabled $true
 ```
 
-## <a name="create-a-certificate-for-ad-fs"></a>Maak een certificaat voor AD FS
-We gaan nu een SSL-certificaat dat wordt gebruikt door AD FS maken.  Dit is, is een zelfondertekend certificaat en is alleen voor testdoeleinden.  Met behulp van een zelfondertekend certificaat in een productieomgeving wordt niet aanbevolen. Ga als volgt te werk:
+## <a name="create-a-certificate-for-ad-fs"></a>Een certificaat voor AD FS maken
+We gaan nu een SSL-certificaat maken dat wordt gebruikt door AD FS.  Dit is een zelfondertekend certificaat en is alleen voor testdoeleinden.  Microsoft beveelt het gebruik van een zelfondertekend certificaat in een productieomgeving niet aan. Ga als volgt te werk:
 
 1. Open de PowerShell ISE als Administrator.
-2. Voer het volgende script.
+2. Voer het volgende script uit.
 
 ```powershell 
 #Declare variables
@@ -197,94 +197,94 @@ $Location = "cert:\LocalMachine\My"
 New-SelfSignedCertificate -DnsName $DNSname -CertStoreLocation $Location
 ```
 
-## <a name="create-an-azure-ad-tenant"></a>Een Azure AD-tenant maken
-Nu moet maken van een Azure AD-tenant zodat we onze gebruikers naar de cloud kunt synchroniseren.  Het maken van een nieuwe Azure AD-tenant, het volgende doen.
+## <a name="create-an-azure-ad-tenant"></a>Een Azure Active Directory-tenant maken
+Nu moeten we een Azure Active Directory-tenant maken, zodat we onze gebruikers kunnen synchroniseren met de cloud.  Ga als volgt te werk om een nieuwe Azure Active Directory-tenant te maken.
 
-1. Blader naar de [Azure-portal](https://portal.azure.com) en meld u aan met een account met een Azure-abonnement.
-2. Selecteer de **plus-pictogram (+)** en zoek naar de **Azure Active Directory**.
-3. Selecteer **Azure Active Directory** in de lijst met zoekresultaten.
+1. Meld u bij de [Azure Portal](https://portal.azure.com) aan met een account waaraan een Azure-abonnement is gekoppeld.
+2. Selecteer het **plusteken (+)** en zoek naar **Azure Active Directory**.
+3. Selecteer **Azure Active Directory** in de zoekresultaten.
 4. Selecteer **Maken**.</br>
 ![Maken](media/tutorial-password-hash-sync/create1.png)</br>
-5. Geef een **naam voor de organisatie** samen met de **initiële domeinnaam**. Selecteer vervolgens **Maken**. Hiermee maakt u uw directory.
-6. Nadat deze is voltooid, klikt u op de **hier** koppeling om de directory te beheren.
+5. Geef een **naam op voor de organisatie**, evenals een **oorspronkelijke domeinnaam**. Selecteer vervolgens **Maken**. Er wordt nu een map aangemaakt.
+6. Als die klaar is, klikt u op de koppeling **hier** om de adreslijst te beheren.
 
-## <a name="create-a-global-administrator-in-azure-ad"></a>Een globale beheerder maken in Azure AD
-Nu dat we een Azure AD-tenant hebt, maakt er een globale beheerdersaccount.  Dit account wordt gebruikt voor het maken van het account van Azure AD-Connector tijdens de installatie van Azure AD Connect.  De Azure AD-Connector-account wordt gebruikt voor het schrijven van gegevens in Azure AD.   Voor het maken van de globale beheerder van account het volgende doen.
+## <a name="create-a-global-administrator-in-azure-ad"></a>Een globale beheerder maken in Azure Active Directory
+De Microsoft Azure Active Directory-tenant is klaar en we gaan nu een globale beheerdersaccount maken.  Dit account wordt gebruikt voor het maken van het Azure AD-Connector-account tijdens de installatie van Azure Active Directory Connect.  Het Azure AD-Connector-account wordt gebruikt voor het wegschrijven van gegevens naar Microsoft Azure Active Directory.   Ga als volgt te werk om het globale beheerdersaccount te maken.
 
 1.  Onder **Beheren**, selecteer **Gebruikers**.</br>
 ![Maken](media/tutorial-password-hash-sync/gadmin1.png)</br>
-2.  Selecteer **alle gebruikers** en selecteer vervolgens **+ nieuwe gebruiker**.
-3.  Geef een naam en de gebruikersnaam voor deze gebruiker. Dit is de globale beheerder voor de tenant. U wordt ook wilt wijzigen de **maprol** naar **globale beheerder.** U kunt ook het tijdelijke wachtwoord weergeven. Wanneer u klaar bent, selecteert u **maken**.</br>
+2.  Selecteer **Alle gebruikers** en selecteer vervolgens **+ Nieuwe gebruiker**.
+3.  Geef een naam en gebruikersnaam op voor deze gebruiker. Dit is de globale beheerder voor de tenant. U moet ook de waarde voor **Maprol** wijzigen naar **Globale beheerder.** U kunt ook het tijdelijke wachtwoord weergeven. Als u klaar bent, selecteert u **Maken**.</br>
 ![Maken](media/tutorial-password-hash-sync/gadmin2.png)</br>
-4. Wanneer deze is voltooid, opent u een nieuwe webbrowser en meld u aan met behulp van het nieuwe account voor globale beheerder en het tijdelijke wachtwoord myapps.microsoft.com.
-5. Wijzig het wachtwoord voor de globale beheerder iets dat u onthouden.
+4. Als de bewerkingen zijn voltooid, opent u een nieuwe webbrowser en meldt u zich met het nieuwe globale beheerdersaccount en het tijdelijke wachtwoord aan bij myapps.microsoft.com.
+5. Wijzig het wachtwoord voor de globale beheerder in iets dat u makkelijk kunt onthouden.
 
 ## <a name="add-the-custom-domain-name-to-your-directory"></a>Voeg de aangepaste domeinnaam toe aan uw directory.
-Nu dat we een tenant en een globale beheerder hebben, moeten we onze aangepast domein toevoegen zodat dat Azure het kunt controleren.  Ga als volgt te werk:
+Nu dat we een tenant en een globale beheerder hebben, moeten we ons aangepast domein toevoegen zodat dat Azure het kan controleren.  Ga als volgt te werk:
 
-1. Klik in de [Azure-portal](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) sluit de **alle gebruikers** blade.
+1. Let op dat in de [Azure Portal](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) de blade **Alle gebruikers** gesloten is.
 2. Selecteer aan de linkerkant **Namen van aangepaste domeinen**.
 3. Selecteer **Aangepast domein toevoegen**.</br>
-![Federation](media/tutorial-federation/custom1.png)</br>
-4. Op **aangepaste-domeinnamen**, voer de naam van uw aangepaste domein in het vak en klikt u op **domein toevoegen**.
-5. Op het scherm van de naam van aangepast domein u hebt opgegeven met de TXT- of MX-informatie.  Deze informatie moet worden toegevoegd aan de DNS-gegevens van de domeinregistrar onder het domein.  Zodat u nodig hebt om naar uw domeinregistrar te gaan, voert u de TXT- of MX-gegevens in de DNS-instellingen voor uw domein.  Hierdoor kunnen Azure om uw domein te verifiëren.  Dit duurt maximaal 24 uur voor Azure om het te verifiëren.  Zie voor meer informatie de [een aangepast domein toevoegen](../../active-directory/fundamentals/add-custom-domain.md) documentatie.</br>
-![Federation](media/tutorial-federation/custom2.png)</br>
-6. Om ervoor te zorgen dat deze is geverifieerd, klikt u op verifiëren klikt.</br>
-![Federation](media/tutorial-federation/custom3.png)</br>
+![Federatie](media/tutorial-federation/custom1.png)</br>
+4. Typ op de blade **Aangepaste-domeinnamen** de naam van uw aangepaste domein in het vak en selecteer vervolgens **Domein toevoegen**.
+5. Op het scherm van de naam van het aangepast domein ziet u de TXT- of de MX-gegevens.  Deze informatie moet worden toegevoegd aan de DNS-gegevens van de domeinregistrar onder het domein.  Daarom moet u naar uw domeinregistrar gaan en de TXT- of de MX-gegevens in de DNS-instellingen voor uw domein invoeren.  Hierdoor kan Azure uw domein verifiëren.  Azure heeft maximaal 24 uur nodig om dit te verifiëren.  Zie [Een aangepast domein toevoegen](../../active-directory/fundamentals/add-custom-domain.md) voor meer informatie.</br>
+![Federatie](media/tutorial-federation/custom2.png)</br>
+6. Om ervoor te zorgen dat deze is geverifieerd, klikt u op de knop Verifiëren.</br>
+![Federatie](media/tutorial-federation/custom3.png)</br>
 
-## <a name="download-and-install-azure-ad-connect"></a>Download en installeer Azure AD Connect
-Het is nu tijd om te downloaden en installeren van Azure AD Connect.  Zodra deze is geïnstalleerd wordt uitgevoerd door de snelle installatie.  Ga als volgt te werk:
+## <a name="download-and-install-azure-ad-connect"></a>Azure AD Connect downloaden en installeren
+We gaan nu Azure AD Connect downloaden en installeren.  Zodra dat is gebeurd, nemen we de snelle installatie even door.  Ga als volgt te werk:
 
 1. Download [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)
 2. Ga naar **AzureADConnect.msi** en dubbelklik erop.
 3. Selecteer in het welkomstscherm het vakje waarmee u aangeeft akkoord te gaan met de licentievoorwaarden en klik op **Doorgaan**.  
-4. Klik op het scherm Expresinstellingen op **aanpassen**.  
-5. Op het scherm van de installatie van vereiste onderdelen. Klik op **Install**.  
-6. Selecteer op het scherm aanmelden van gebruikers **Federatie met AD FS** en klikt u op **volgende**.
-![Federation](media/tutorial-federation/fed1.png)
+4. Klik in het scherm Express-instellingen op **Aanpassen**.  
+5. Ga naar het scherm voor de installatie van vereiste onderdelen. Klik op **Install**.  
+6. Selecteer op het scherm Aanmelden van gebruikers **Federatie met AD FS** en klik op **Volgende**.
+![Federatie](media/tutorial-federation/fed1.png)
 
-1. Voer de gebruikersnaam en het wachtwoord van de globale beheerder, die eerder is gemaakt op het scherm verbinding maken met Azure AD, en klik op **volgende**.
-2. Klik op het scherm van uw directory's verbinding maken **map toevoegen**.  Selecteer vervolgens **nieuw AD-account maken** contoso\Administrator gebruikersnaam en wachtwoord invoeren en op **OK**.
-3. Klik op **volgende**.
-4. Selecteer op het scherm van de configuratie van aanmelding bij Azure AD **doorgaan zonder bijbehorende alle UPN-achtervoegsels voor geverifieerde domeinen** en klikt u op **volgende.**
-5. Klik op het domein en OE filteren scherm **volgende**.
-6. Over het uniek identificeren van het scherm van uw gebruikers, klikt u op **volgende**.
-7. Klik op het Filter gebruikers en apparaten scherm op **volgende**.
-8. Klik op het scherm optionele functies **volgende**.
-9. Voer op de pagina van de referenties domeinadministrator contoso\Administrator gebruikersnaam en wachtwoord in en klikt u op **volgende.**
-10. Zorg ervoor dat op het scherm voor AD FS-farm **een nieuwe AD FS-farm configureren** is geselecteerd.
-11. Selecteer **gebruik van een certificaat geïnstalleerd op de federatieservers** en klikt u op **Bladeren**.
-12. DC1 invoeren in het zoekvak in en selecteert u deze als dat is gevonden.  Klik op **OK**.
-13. Uit de **certificaatbestand** vervolgkeuzelijst, selecteer **adfs.contoso.com** het certificaat die eerder is gemaakt.  Klik op **volgende**.
-![Federation](media/tutorial-federation/fed2.png)
+1. Voer in het scherm Verbinding maken met Azure Active Directory de gebruikersnaam en het wachtwoord van de globale beheerder, die eerder is gemaakt, in en klik op **Volgende**.
+2. Klik in het scherm Verbinding maken met uw mappen op **Volgende**.  Selecteer vervolgens **nieuw AD-account maken**, voer de gebruikersnaam en het wachtwoord in voor contoso\Administrator en klik op **OK**.
+3. Klik op **Volgende**.
+4. Selecteer op het scherm van de configuratie van aanmelding bij Azure Active Directory **Doorgaan zonder alle UPN-achtervoegsels op geverifieerde domeinen af te stemmen** en klik op **volgende.**
+5. Klik in het scherm Domein- en OE-filters op **Volgende**.
+6. In het scherm voor het uniek identificeren uw gebruikers, klikt u op **volgende**.
+7. Klik in het scherm Filter gebruikers en apparaten op **volgende**.
+8. Klik in het scherm Optionele functies op **volgende**.
+9. Voer op de pagina Referenties van domeinadministrator de gebruikersnaam en het wachtwoord voor contoso\Administrator in en klik op **Volgende.**
+10. Zorg ervoor dat in het scherm voor AD FS-farm **Een nieuwe AD FS-farm configureren** is geselecteerd.
+11. Selecteer **Gebruik van een certificaat geïnstalleerd op de federatieservers** en klik op **Bladeren**.
+12. Voer DC1 in het zoekvak in en selecteer dit als het is gevonden.  Klik op **OK**.
+13. Selecteer uit de vervolgkeuzelijst **Certificaatbestand****adfs.contoso.com** het certificaat dat eerder is gemaakt.  Klik op **Volgende**.
+![Federatie](media/tutorial-federation/fed2.png)
 
-1. Klik op het scherm van de AD FS-server, **Bladeren** DC1 invoeren in het zoekvak in en selecteert u deze als dat is gevonden.  Klik op **OK**.  Klik op **volgende**.
-![Federation](media/tutorial-federation/fed3.png)
+1. Klik op het scherm van de AD FS-server op **Bladeren** en voer DC1 in het zoekvak in en selecteer dit als het is gevonden.  Klik op **OK**.  Klik op **Volgende**.
+![Federatie](media/tutorial-federation/fed3.png)
 
-1. Klik op het scherm Web application Proxy-servers op **volgende**.
-2. Voer op het scherm voor AD FS-service-account contoso\Administrator gebruikersnaam en wachtwoord in en klikt u op **volgende.**
-3. Op het scherm Azure AD-domein selecteert u uw gecontroleerd aangepast domein in de vervolgkeuzelijst en klikt u op **volgende**.
+1. Klik op het scherm Web application Proxy-servers op **Volgende**.
+2. Voer op het scherm voor AD FS-serviceaccount de gebruikersnaam en het wachtwoord voor contoso\Administrator in en klik op **Volgende.**
+3. In het scherm Azure Active Directory-domein selecteert u uw gecontroleerd aangepast domein in de vervolgkeuzelijst en klikt u op **Volgende**.
 4. Klik in het venster Gereed om te configureren op **Installeren**.
 5. Wanneer de installatie is voltooid, klikt u op **Afsluiten**.
-6. Nadat de installatie is voltooid, meldt u zich af en opnieuw aanmelden voordat u de Synchronization Service Manager of Synchronization Rule Editor gebruiken.
+6. Als de installatie is voltooid, meldt u zich af en weer aan voordat u Synchronization Service Manager of Synchronization Rule Editor gaat gebruiken.
 
 
 ## <a name="verify-users-are-created-and-synchronization-is-occurring"></a>Controleer of gebruikers zijn gemaakt en synchronisatie plaatsvindt
-Nu controleren we dat de gebruikers die we in onze on-premises directory hebben zijn gesynchroniseerd en nu aanwezig zijn in uit Azure AD-tenant.  Let erop dat dit enkele uren kan duren.  Om te controleren of gebruikers worden gesynchroniseerd als volgt.
+We gaan nu controleren of de gebruikers die aanwezig waren in onze on-premises adreslijst, zijn gesynchroniseerd en nu aanwezig zijn in onze Azure Active Directory-tenant.  Dit synchronisatieproces kan enkele uren duren.  Ga als volgt te werk om te controleren of gebruikers zijn gesynchroniseerd.
 
 
-1. Blader naar de [Azure-portal](https://portal.azure.com) en meld u aan met een account met een Azure-abonnement.
-2. Selecteer aan de linkerkant **Azure Active Directory**
+1. Meld u bij de [Azure Portal](https://portal.azure.com) aan met een account waaraan een Azure-abonnement is gekoppeld.
+2. Selecteer links **Azure Active Directory**
 3. Onder **Beheren**, selecteer **Gebruikers**.
-4. Controleer of u de nieuwe gebruikers in de tenant zien ![synchronisatie](media/tutorial-password-hash-sync/synch1.png)
+4. Controleer of u de nieuwe gebruikers in de tenant zien ![Synch](media/tutorial-password-hash-sync/synch1.png)
 
-## <a name="test-signing-in-with-one-of-our-users"></a>Aanmelden met een van onze gebruikers testen
+## <a name="test-signing-in-with-one-of-our-users"></a>Aanmelden testen met een van onze gebruikers
 
-1.  Blader naar [https://myapps.microsoft.com](httpss://myapps.microsoft.com)
-2. Aanmelden met een gebruikersaccount dat is gemaakt in onze nieuwe tenant.  U moet aanmelding met de volgende notatie: (user@domain.onmicrosoft.com). Gebruik hetzelfde wachtwoord dat de gebruiker gebruikt voor aanmelding bij on-premises.
-![Controleer of](media/tutorial-password-hash-sync/verify1.png)
+1.  Ga naar [https://myapps.microsoft.com](httpss://myapps.microsoft.com)
+2. Meld u aan met een gebruikersaccount dat is gemaakt in onze nieuwe tenant.  U moet zich aanmelden met de volgende indeling: (user@domain.onmicrosoft.com). Gebruik het wachtwoord waarmee de gebruiker zich on-premises aanmeldt.
+![Verifiëren](media/tutorial-password-hash-sync/verify1.png)
 
-U hebt nu is ingesteld, een hybride identiteit-omgeving die u gebruiken kunt om te testen en te raken met wat Azure te bieden heeft.
+U hebt nu een omgeving met een hybride identiteit ingesteld die u kunt gebruiken voor testdoeleinden en om bekend te raken met wat Azure te bieden heeft.
 
 ## <a name="next-steps"></a>Volgende stappen
 

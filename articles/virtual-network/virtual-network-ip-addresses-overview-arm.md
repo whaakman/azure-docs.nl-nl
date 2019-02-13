@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 01/30/2019
 ms.author: jdial
-ms.openlocfilehash: f4af899be489dab2fc73bb33943882d4dc81576f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 5472878542078e2a2dbb900965b59844d6e3b4b3
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054755"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488087"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP-adrestypen en toewijzingsmethoden in Azure
 
@@ -61,22 +61,23 @@ Openbare IP-adressen worden gemaakt met een van de volgende SKU's:
 Alle openbare IP-adressen die zijn gemaakt vóór de introductie van SKU's zijn openbare IP-adressen van de basis-SKU. Door de introductie van SKU's kunt u opgeven welke SKU het openbare IP-adres is. Basis-SKU-adressen:
 
 - Worden toegewezen met de statische of dynamische toewijzingsmethode.
+- Hebben een aanpasbare time-out voor inactiviteit van de stroom met inkomende gegevens van 4-30 minuten (de standaardwaarde is vier minuten), en een vaste time-out voor inactiviteit van de stroom met uitgaande gegevens van vier minuten.
 - Zijn standaard geopend.  Netwerkbeveiligingsgroepen worden aanbevolen, maar zijn optioneel voor het beperken van binnenkomend of uitgaand verkeer.
 - Worden toegewezen aan een Azure-resource waaraan een openbaar IP-adres kan worden toegewezen, zoals netwerkinterfaces, VPN-gateways, toepassingsgateways en internetgerichte load balancers.
-- Kunnen worden toegewezen aan een specifieke zone.
-- Zijn niet zone-redundant. Zie [Overzicht van beschikbaarheidszones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over beschikbaarheidszones.
+- Bieden geen ondersteuning voor scenario's met beschikbaarheidszones.  U moet openbare IP-adressen van de standaard-SKU gebruiken voor deze scenario's. Zie [Overzicht van beschikbaarheidszones in Azure](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) en [Standard-load balancer en beschikbaarheidszones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over beschikbaarheidszones.
 
 #### <a name="standard"></a>Standard
 
 Openbare IP-adressen van de standaard-SKU:
 
-- Worden uitsluitend toegewezen met de statische toewijzingsmethode.
+- Gebruiken altijd de statische toewijzingsmethode.
+- Hebben een aanpasbare time-out voor inactiviteit van de stroom met inkomende en uitgaande gegevens van 4-66 minuten (de standaardwaarde is vier minuten).
 - Zijn standaard veilig en gesloten voor binnenkomend verkeer. U moet toegestaan binnenkomend verkeer met behulp van een [netwerkbeveiligingsgroep](security-overview.md#network-security-groups) expliciet opnemen in een whitelist.
-- Toegewezen aan netwerkinterfaces, openbare standaard load balancers, toepassingsgateways of VPN-gateways. Zie [Overzicht van load balancer uit Standard-SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over Standard-load balancers van Azure.
-- Zijn standaard zone-redundant. Kunnen zonegebonden worden gemaakt en gegarandeerd in een bepaalde beschikbaarheidszone. Zie [Overzicht van beschikbaarheidszones in Azure](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) en [Standard-load balancer en beschikbaarheidszones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over beschikbaarheidszones.
+- Worden toegewezen aan netwerkinterfaces, openbare Standard load balancers, toepassingsgateways of VPN-gateways. Meer informatie over Standard load balancers vindt u in [Overzicht van Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Zijn standaard zoneredundant en optioneel zonegebonden (kunnen zonegebonden en gegarandeerd worden gemaakt in een specifieke beschikbaarheidszone). Zie [Overzicht van beschikbaarheidszones in Azure](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) en [Standard-load balancer en beschikbaarheidszones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over beschikbaarheidszones.
  
 > [!NOTE]
-> Communicatie met een resource uit de Standard-SKU mislukt totdat u een [netwerkbeveiligingsgroep](security-overview.md#network-security-groups) maakt en koppelt en het gewenste binnenkomende verkeer expliciet toestaat.
+> Inkomende communicatie met een resource uit de Standard-SKU mislukt totdat u een [netwerkbeveiligingsgroep](security-overview.md#network-security-groups) maakt en koppelt en het gewenste binnenkomende verkeer expliciet toestaat.
 
 ### <a name="allocation-method"></a>Toewijzingsmethode
 

@@ -1,31 +1,33 @@
 ---
-title: 'Quickstart: Bing Entiteiten zoeken-API, PHP'
+title: 'Quickstart: Een zoekaanvraag verzenden naar de Bing Entity Search REST-API met PHP'
 titlesuffix: Azure Cognitive Services
-description: Bekijk informatie en codevoorbeelden om snel aan de slag te gaan met de Bing Entiteiten zoeken-API.
+description: Gebruik deze quickstart om een aanvraag naar de Bing Entity Search REST-API te verzenden via PHP en een JSON-antwoord te ontvangen.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 5915346deeea76da8b37ddfbb618fed8392fe725
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8d963c0de272b29ab592536802ad23387a9b8dad
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195483"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753432"
 ---
-# <a name="quickstart-for-bing-entity-search-api-with-php"></a>Quickstart voor Bing Entiteiten zoeken-API met PHP
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>Quickstart: Een zoekaanvraag verzenden naar de Bing Entity Search REST-API met PHP
 
-In dit artikel leest u hoe u de [Bing Entiteiten zoeken](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) -API gebruikt met PHP.
+Gebruik deze quickstart om voor het eerst de Bing Entity Search REST-API aan te roepen en het JSON-antwoord te bekijken. Deze eenvoudige PHP-toepassing stuurt een query naar de API om nieuws te zoeken en geeft het antwoord weer. 
+
+Hoewel deze toepassing in PHP is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt [PHP 5.6.x](http://php.net/downloads.php) nodig om deze code uit te voeren.
+* [PHP 5.6.x](http://php.net/downloads.php) of later
 
-U moet beschikken over een [account voor de Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met de **Bing Entiteiten zoeken-API**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) is voldoende voor deze quickstart. U hebt de toegangssleutel nodig die wordt verstrekt bij het activeren van uw gratis proefversie of u gebruikt de sleutel van een betaald abonnement vanuit uw Azure-dashboard.   Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 ## <a name="search-entities"></a>Entiteiten zoeken
 
@@ -145,11 +147,10 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 }
 ```
 
-[Terug naar boven](#HOLTop)
-
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Zelfstudie over Bing Entiteiten zoeken](../tutorial-bing-entities-search-single-page-app.md)
-> [Overzicht van Bing Entiteiten zoeken](../search-the-web.md )
-> [API-handleiding](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [Een web-app van één pagina maken](../tutorial-bing-entities-search-single-page-app.md).
+
+* [Wat is de Bing Entity Search-API?](../overview.md )
+* [Naslaghandleiding Bing Entity Search-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)

@@ -10,12 +10,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 91c4bc76a7753c7d51310fbe9b807f0969ca900c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 942d9a7b4160189d14ecdd85b21b2537d1a2a8d3
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467285"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656359"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Aan de slag in Azure Dev Spaces met behulp van Node.js
 
@@ -101,7 +101,7 @@ In deze sectie maakt u een Node.js-web-app en voert u deze uit in een container 
 ### <a name="create-a-nodejs-web-app"></a>Een Node.js-web-app maken
 Download code vanuit GitHub door naar https://github.com/Azure/dev-spaces te navigeren. Selecteer vervolgens **Clone or Download** om de GitHub-opslagplaats te downloaden naar de lokale omgeving. De code voor deze handleiding bevindt zich in `samples/nodejs/getting-started/webfrontend`.
 
-## <a name="preparing-code-for-docker-and-kubernetes-development"></a>Code voorbereiden voor de ontwikkeling van Docker en Kubernetes
+## <a name="prepare-code-for-docker-and-kubernetes-development"></a>Code voorbereiden voor ontwikkeling met Docker en Kubernetes
 U hebt nu een eenvoudige web-app die lokaal kan worden uitgevoerd. U gaat hier nu een container van maken door assets te maken waarmee de container van de app wordt gedefinieerd evenals hoe deze in Kubernetes wordt geïmplementeerd. Deze taak kan eenvoudig worden uitgevoerd met Azure Dev Spaces: 
 
 1. Start VS Code en open de map `webfrontend`. (U kunt eventuele standaardprompts negeren om foutopsporingsassets toe te voegen of om het project te herstellen.)
@@ -278,5 +278,5 @@ In deze configuratie is de container geconfigureerd voor het starten van *nodemo
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Meer informatie over teamontwikkeling](team-development-nodejs.md)
+> [Informatie over ontwikkelen van meerdere services](multi-service-nodejs.md)
 

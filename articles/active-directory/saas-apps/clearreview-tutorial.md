@@ -1,262 +1,256 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met duidelijke controleren | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Schakel controle.
+title: 'Zelfstudie: Azure Active Directory-integratie met Clear Review | Microsoft Docs'
+description: Leer hoe u eenmalige aanmelding configureert tussen Azure Active Directory en Clear Review.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 8264159a-11a2-4a8c-8285-4efea0adac8c
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/12/2018
+ms.topic: tutorial
+ms.date: 01/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 577dc0192dc9956e302e327092bc21d59fb5a0c0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: ba4d6af15145bb043629a81e4bf21f53658875a3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179545"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692185"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Zelfstudie: Azure Active Directory-integratie met duidelijke controleren
+# <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Zelfstudie: Azure Active Directory-integratie met Clear Review
 
-In deze zelfstudie leert u hoe u om te wissen revisie integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Clear Review kunt integreren met Azure Active Directory (Azure AD).
+De integratie van Clear Review met Azure AD biedt de volgende voordelen:
 
-Schakel controle integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD bepalen wie er toegang heeft tot Clear Review.
+* U kunt instellen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Clear Review (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot wissen controleren heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij wissen controleren (Single Sign-On) inschakelen met hun Azure AD-accounts.
-- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met duidelijke controleren, moet u de volgende items:
+Voor het configureren van Azure AD-integratie met Clear Review hebt u het volgende nodig:
 
-- Een Azure AD-abonnement
-- Een duidelijke revisie eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op Clear Review waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Schakel controle uit de galerie toevoegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-clear-review-from-the-gallery"></a>Schakel controle uit de galerie toevoegen
-Voor het configureren van de integratie van duidelijke controleren in Azure AD, moet u duidelijk revisie toevoegen uit de galerie aan de lijst met beheerde SaaS-apps.
+* Clear Review ondersteunt door **SP en IDP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt wissen revisie toevoegen uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-clear-review-from-the-gallery"></a>Clear Review toevoegen vanuit de galerie
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Om de integratie van Clear Review in Azure AD te configureren, moet u Clear Review vanuit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
 
-    ![De Azure Active Directory-knop][1]
+**Ga als volgt te werk om Clear Review vanuit de galerie toe te voegen:**
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![De blade Enterprise-toepassingen][2]
-    
-1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![De knop Nieuwe toepassing][3]
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-1. Typ in het zoekvak **wissen revisie**, selecteer **wissen revisie** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![Controleer in de lijst met resultaten wissen](./media/clearreview-tutorial/tutorial_clearreview_addfromgallery.png)
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
+
+4. Typ **Clear Review** in het zoekvak, selecteer **Clear Review** in het deelvenster met resultaten en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
+
+     ![Clear Review toevoegen vanuit de galerie](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met duidelijke beoordeling op basis van een testgebruiker 'Julia steen' genoemd.
+In dit gedeelte configureert en test u eenmalige aanmelding van Azure AD met Clear Review op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Clear Review tot stand is gebracht.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in duidelijke beoordeling is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker wissen gecontroleerd tot stand worden gebracht.
-
-Wissen gecontroleerd, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
-
-Om te configureren en testen van Azure AD eenmalige aanmelding met duidelijke controleren, moet u de volgende bouwstenen voltooien:
+Als u eenmalige aanmelding van Azure AD met Clear Review wilt configureren en testen, moet u de volgende procedures uitvoeren:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-1. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-1. **[Maak een testgebruiker wissen revisie](#create-a-clear-review-test-user)**  : als u wilt een equivalent van Britta Simon in duidelijke controleren die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+2. **[Eenmalige aanmelding voor Clear Review configureren](#configure-clear-review-single-sign-on)**: de instellingen voor eenmalige aanmelding aan de clientzijde configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker voor Clear Review maken](#create-clear-review-test-user)**: als u een tegenhanger van Britta Simon in Clear Review wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing wissen controleren.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met duidelijke controleren, moet u de volgende stappen uitvoeren:**
+Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configureren voor Clear Review:
 
-1. In de Azure-portal op de **wissen revisie** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. Ga in de [Azure-portal](https://portal.azure.com/) naar de pagina van de integratie van **Clear Review** en selecteer **Eenmalige aanmelding**.
 
-    ![Koppeling Eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/clearreview-tutorial/tutorial_clearreview_samlbase.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-1. Op de **wissen revisie domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IdP gestart** modus:
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![Duidelijke revisie domein en URL's eenmalige aanmelding informatie](./media/clearreview-tutorial/tutorial_clearreview_url.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    a. Typ in het tekstvak **Id** een URL met het volgende patroon: `https://<customer name>.clearreview.com/sso/metadata/`
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://<customer name>.clearreview.com/sso/acs/`
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit als u de toepassing in de door **IDP** geïnitieerde modus wilt configureren:
 
-1. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
+    ![Gegevens van domein en URL's voor eenmalige aanmelding bij Clear Review](common/idp-intiated.png)
 
-    ![Duidelijke revisie domein en URL's eenmalige aanmelding informatie](./media/clearreview-tutorial/tutorial_clearreview_url_sp.png)
+    a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://<customer name>.clearreview.com/sso/metadata/`
 
-    In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon:`https://<customer name>.clearreview.com`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://<customer name>.clearreview.com/sso/acs/`
 
-    > [!NOTE] 
-    > Dit zijn geen echte waarden. Werk deze waarden met de werkelijke aanmeldings-URL, de id en de antwoord-URL. Neem contact op met [wissen revisie ondersteuningsteam](https://clearreview.com/contact/) om deze waarden te verkrijgen.
+5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
-1. De unieke gebruikers-id-waarde wissen revisie toepassing verwacht in de naam id claim. U moet de gebruiker-id-waarde om te worden toegewezen **user.mail**.
+    ![Gegevens van domein en URL's voor eenmalige aanmelding bij Clear Review](common/metadata-upload-additional-signon.png)
 
-    ![De kenmerk-sectie](./media/clearreview-tutorial/attribute.png)
+    In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<customer name>.clearreview.com`
 
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke-id, de antwoord-URL en de aanmeldings-URL. Neem contact op met [het klantondersteuningsteam van Clear Review](https://clearreview.com/contact/) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
+6. Clear Review verwacht dat de SAML-asserties een specifieke indeling hebben. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
 
-    ![De link om het certificaat te downloaden](./media/clearreview-tutorial/tutorial_clearreview_certificate.png)
+    ![image](common/edit-attribute.png)
 
-1. Klik op **opslaan** knop.
+7. Bewerk in het gedeelte **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** de claims met het **pictogram Bewerken** of voeg de claims toe door met **Nieuwe claim toevoegen** het kenmerk van het SAML-token te configureren, zoals wordt weergegeven in de bovenstaande afbeelding. Hierna voert u de volgende stappen uit:
+    
+    | Naam | Bronkenmerk | 
+    | ---------------| --------------- |
+    | Waarde voor naam-id   | user.mail |
 
-    ![De knop voor enkelvoudige aanmelding configureren](./media/clearreview-tutorial/tutorial_general_400.png)
+    a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 
-1. Op de **wissen revisie configuratie** sectie, klikt u op **wissen controle configureren** openen **aanmelding configureren** venster. Kopiëren de **URL van de afmelding, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
+    ![image](common/new-save-attribute.png)
 
-    ![Wissen van de configuratie controleren](./media/clearreview-tutorial/tutorial_clearreview_configure.png) 
+    ![image](common/new-attribute-details.png)
 
-1. Het configureren van eenmalige aanmelding op **wissen revisie** aan clientzijde, open de **wissen revisie** portal met beheerdersreferenties.
+    b. In het tekstvak **Naam** typt u de naam van het kenmerk die voor die rij wordt weergegeven.
 
-1. Selecteer **Admin** in de linkernavigatiebalk.
+    c. Laat **Naamruimte** leeg.
+
+    d. Selecteer Bron bij **Kenmerk**.
+
+    e. Typ de kenmerkwaarde voor die rij in de lijst met **bronkenmerken**.
+
+    f. Klik op **OK**.
+
+    g. Klik op **Opslaan**.
+
+8. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
+
+    ![De link om het certificaat te downloaden](common/certificatebase64.png)
+
+9. Kopieer in de sectie **Clear Review instellen** de juiste URL('s) op basis van uw behoeften.
+
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
+
+    a. Aanmeldings-URL
+
+    b. Azure AD-id
+
+    c. Afmeldings-URL
+
+### <a name="configure-clear-review-single-sign-on"></a>Eenmalige aanmelding voor Clear Review configureren
+
+1. Als u eenmalige aanmelding wilt configureren in **Clear Review**, opent u de portal van **Clear Review** met beheerdersreferenties.
+
+2. Selecteer **Admin** in de linkernavigatie.
 
     ![De knop voor enkelvoudige aanmelding configureren](./media/clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
-1. Selecteer **wijziging** aan de onderkant van de pagina.
+3. Selecteer **Change** onderaan de pagina.
 
     ![De knop voor enkelvoudige aanmelding configureren](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
-1. Voert u de volgende stappen uit op **instellingen voor eenmalige aanmelding** pagina
+4. Voer de volgende stappen uit op de pagina **Single Sign-On Settings**.
 
     ![De knop voor enkelvoudige aanmelding configureren](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
-    a. In de **URL-verlener** tekstvak, plak de waarde van **SAML entiteit-ID** die u hebt gekopieerd vanuit Azure portal.
+    a. Plak in het tekstvak **Issuer URL** de waarde van **Azure AD-id** die u hebt gekopieerd uit de Azure-portal.
 
-    b. In de **SAML-eindpunt** tekstvak, plak de waarde van **Single Sign-On Service URL voor SAML** die u hebt gekopieerd vanuit Azure portal.    
+    b. Plak in het tekstvak **SAML2 Endpoint** de waarde van **Aanmeldings-URL** die u hebt gekopieerd uit de Azure-portal.  
 
-    c. In de **SLO eindpunt** tekstvak, plak de waarde van **aanmeldings-URL van Service** die u hebt gekopieerd vanuit Azure portal. 
+    c. Plak in het tekstvak **SLO Endpoint** de waarde van **Afmeldings-URL** die u hebt gekopieerd uit de Azure-portal.  
 
-    d. Open het gedownloade certificaat in Kladblok en plak de inhoud in de **X.509-certificaat** tekstvak.   
+    d. Open het gedownloade certificaat in Kladblok en plak de inhoud in het tekstvak **X.509 Certificate**.   
 
-1. Klik op **Opslaan**.
+5. Klik op **Opslaan**.
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-   ![Maak een testgebruiker Azure AD][100]
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-    ![De Azure Active Directory-knop](./media/clearreview-tutorial/create_aaduser_01.png)
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/clearreview-tutorial/create_aaduser_02.png)
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-1. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
-
-    ![De knop toevoegen](./media/clearreview-tutorial/create_aaduser_03.png)
-
-1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
-
-    ![Het dialoogvenster gebruiker](./media/clearreview-tutorial/create_aaduser_04.png)
-
-    a. In de **naam** in het vak **BrittaSimon**.
-
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
-  
-### <a name="create-a-clear-review-test-user"></a>Maak een testgebruiker wissen controleren
-
-In deze sectie maakt maken u een gebruiker met de naam van Britta Simon in duidelijke beoordeling. Neem contact op met [wissen revisie ondersteuningsteam](https://clearreview.com/contact/) om toe te voegen de gebruikers in het platform wissen controleren.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen om te wissen controle.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Clear Review.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer in de Azure-portal achtereenvolgens **Bedrijfstoepassingen**, **Alle toepassingen** en **Clear Review**.
 
-**Als u wilt toewijzen Britta Simon naar duidelijk overzicht, moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Selecteer **Clear Review** in de lijst met toepassingen.
 
-    ![Gebruiker toewijzen][201] 
+    ![De koppeling naar Clear Review in de lijst met toepassingen](common/all-applications.png)
 
-1. Selecteer in de lijst met toepassingen, **wissen revisie**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De koppeling wissen controleren in de lijst met toepassingen](./media/clearreview-tutorial/tutorial_clearreview_app.png)  
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="create-clear-review-test-user"></a>Een testgebruiker voor Clear Review maken
 
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+In dit gedeelte gaat u in Clear Review een gebruiker maken met de naam Britta Simon. Neem contact op met het [ondersteuningsteam van Clear Review](https://clearreview.com/contact/) om de gebruikers toe te voegen aan het Clear Review-platform.
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-Wanneer u op de tegel wissen controleren in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing wissen controleren.
-Zie [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster. 
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+
+Wanneer u in het toegangsvenster op de tegel van Clear Review klikt, wordt u automatisch aangemeld bij het exemplaar van Clear Review waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-<!--Image references-->
-
-[1]: ./media/clearreview-tutorial/tutorial_general_01.png
-[2]: ./media/clearreview-tutorial/tutorial_general_02.png
-[3]: ./media/clearreview-tutorial/tutorial_general_03.png
-[4]: ./media/clearreview-tutorial/tutorial_general_04.png
-
-[100]: ./media/clearreview-tutorial/tutorial_general_100.png
-
-[200]: ./media/clearreview-tutorial/tutorial_general_200.png
-[201]: ./media/clearreview-tutorial/tutorial_general_201.png
-[202]: ./media/clearreview-tutorial/tutorial_general_202.png
-[203]: ./media/clearreview-tutorial/tutorial_general_203.png

@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
-ms.reviewer: sgilley
-ms.date: 12/04/2018
+ms.reviewer: trbye
+ms.date: 02/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1e2746ef55f5c50ce9452b7a9d1ab060c69830db
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a293389b8175406d9036cd95c14748e5a626fb91
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244264"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752531"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Zelfstudie: Geautomatiseerde machine learning gebruiken om uw regressiemodel te bouwen
 
@@ -34,7 +34,6 @@ In deze zelfstudie leert u het volgende:
 > * Een regressiemodel automatisch trainen
 > * Het model lokaal uitvoeren met aangepaste parameters
 > * De resultaten verkennen
-> * Het beste model registreren
 
 Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](http://aka.ms/AMLFree).
 
@@ -43,36 +42,74 @@ Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begin
 
 ## <a name="prerequisites"></a>Vereisten
 
-> * [Voer de zelfstudie voor gegevensvoorbereiding uit](tutorial-data-prep.md).
-> * Een omgeving geconfigureerd met automatische machine learning. Voorbeelden zijn [Azure Notebooks](https://notebooks.azure.com/), een lokale Python-omgeving en een Data Science Virtual Machine. [Installeer geautomatiseerde machine learning](samples-notebooks.md).
+Ga naar [De ontwikkelomgeving instellen](#start) om de notebook-stappen te doorlopen, of gebruik de onderstaande instructies om het notebook op te halen en uit te voeren op Azure Notebooks of uw eigen notebookserver. U hebt het volgende nodig om het notebook uit te voeren:
 
-## <a name="get-the-notebook"></a>De notebook ophalen
+* [Voer de zelfstudie voor gegevensvoorbereiding uit](tutorial-data-prep.md).
+* Een Python 3.6 notebook-server met het volgende geïnstalleerd:
+    * De Azure Machine Learning-SDK voor Python met extra's voor `automl` en `notebooks`
+    * `matplotlib`
+* De zelfstudienotebook
+* Een machine learning-werkruimte
+* Het configuratiebestand voor de werkruimte in dezelfde directory als het notebook
 
-Voor uw gemak is deze zelfstudie beschikbaar gemaakt als een [Jupyter-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb). Voer het `regression-part2-automated-ml.ipynb`-notebook uit in [Azure Notebooks](https://notebooks.azure.com/) of op uw eigen Jupyter Notebook-server.
+Haal al deze vereisten op uit een van de secties hieronder.
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+* [Azure Notebooks](#azure) gebruiken
+* [Uw eigen Notebook-server](#server) gebruiken
 
-## <a name="import-packages"></a>Pakketten importeren
+### <a name="azure"></a>Azure Notebooks gebruiken: Gratis Jupyter-notebooks in de cloud
+
+U kunt eenvoudig aan de slag met Azure Notebooks. De [Azure Machine Learning SDK voor Python](https://aka.ms/aml-sdk) is al voor u geïnstalleerd en geconfigureerd in [Azure Notebooks](https://notebooks.azure.com/). De installatie en toekomstige updates worden automatisch beheerd via Azure-services.
+
+Nadat u de onderstaande stappen hebt uitgevoerd, voert u de notebook **tutorials/regression-part2-automated-ml.ipynb** in uw **Aan de slag**-project uit.
+
+[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+### <a name="server"></a>Uw eigen Jupyter Notebook-server gebruiken
+
+Volg deze stappen om een lokale Jupyter Notebook-server te maken op uw computer.  Nadat u de stappen hebt uitgevoerd, voert u de notebook **tutorials/regression-part2-automated-ml.ipynb** uit.
+
+1. Voltooi de [Python-quickstart voor Azure Machine Learning](quickstart-create-workspace-with-python.md) om een Miniconda-omgeving en een werkruimte te maken.
+1. Installeer de extra's voor `automl` en `notebooks` in uw omgeving met `pip install azureml-sdk[automl,notebooks]`.
+1. Installeer `maplotlib` met behulp van `pip install maplotlib`.
+1. Kloon [de GitHub-opslagplaats](https://aka.ms/aml-notebooks).
+
+    ```
+    git clone https://github.com/Azure/MachineLearningNotebooks.git
+    ```
+
+1. Start de notebookserver vanuit de gekloonde map.
+
+    ```shell
+    jupyter notebook
+
+## <a name="start"></a>Set up your development environment
+
+All the setup for your development work can be accomplished in a Python notebook. Setup includes the following actions:
+
+* Install the SDK
+* Import Python packages
+* Configure your workspace
+
+### Install and import packages
+
+If you are following the tutorial in your own Python environment, use the following to install necessary packages.
+
+```shell
+pip install azureml-sdk[automl,notebooks] matplotlib
+```
+
 Importeer de Python-pakketten die u nodig hebt in deze zelfstudie:
-
 
 ```python
 import azureml.core
 import pandas as pd
 from azureml.core.workspace import Workspace
-from azureml.train.automl.run import AutoMLRun
-import time
 import logging
 import os
 ```
 
-Als u de zelfstudie in uw eigen Python-omgeving volgt, gebruikt u het volgende om de benodigde pakketten te installeren.
-
-```shell
-pip install azureml-sdk[automl,notebooks] azureml-dataprep pandas scikit-learn matplotlib
-```
-
-## <a name="configure-workspace"></a>Werkruimte configureren
+### <a name="configure-workspace"></a>Werkruimte configureren
 
 Maak een werkruimte-object van de bestaande werkruimte. `Workspace` is een klasse die uw Azure-abonnement en resourcegegevens accepteert. Hier wordt ook een cloudresource gemaakt om de uitvoeringen van uw model te controleren en bij te houden.
 
@@ -743,7 +780,6 @@ for run in children:
     metrics = {k: v for k, v in run.get_metrics().items() if isinstance(v, float)}
     metricslist[int(properties['iteration'])] = metrics
 
-import pandas as pd
 rundata = pd.DataFrame(metricslist).sort_index(1)
 rundata
 ```
@@ -1177,6 +1213,5 @@ In deze zelfstudie over geautomatiseerde machine learning hebt u het volgende ge
 > * U hebt een werkruimte geconfigureerd en gegevens voorbereid voor een experiment.
 > * U hebt getraind met behulp van een lokaal geautomatiseerd regressiemodel met aangepaste parameters.
 > * U hebt trainingsresultaten verkend en gecontroleerd.
-> * U hebt het beste model geregistreerd.
 
 [Uw model implementeren](tutorial-deploy-models-with-aml.md) met Azure Machine Learning.

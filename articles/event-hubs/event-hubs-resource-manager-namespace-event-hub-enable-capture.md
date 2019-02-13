@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/16/2018
+ms.date: 02/06/2019
 ms.author: shvija
-ms.openlocfilehash: 1ec0945996f0232553c9c1e0469289235f506611
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3228783b3f827ddb0dce947c9c1894110bf41fb7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054823"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818767"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Een naamruimte maken met Event Hub en Capture inschakelen met behulp van een sjabloon
 
@@ -317,6 +317,7 @@ Hiermee maakt u een naamruimte van het type **EventHub** met één gebeurtenishu
             "partitionCount": "[parameters('partitionCount')]",
             "captureDescription": {
               "enabled": "true",
+              "skipEmptyArchives": false,
               "encoding": "[parameters('captureEncodingFormat')]",
               "intervalInSeconds": "[parameters('captureTime')]",
               "sizeLimitInBytes": "[parameters('captureSize')]",
@@ -364,6 +365,7 @@ Hiermee maakt u een naamruimte van het type **EventHub** met één gebeurtenishu
                         "path": "[parameters('eventHubName')]",
                         "captureDescription": {
                             "enabled": "true",
+                            "skipEmptyArchives": false,
                             "encoding": "[parameters('archiveEncodingFormat')]",
                             "intervalInSeconds": "[parameters('captureTime')]",
                             "sizeLimitInBytes": "[parameters('captureSize')]",
@@ -383,6 +385,9 @@ Hiermee maakt u een naamruimte van het type **EventHub** met één gebeurtenishu
         }
     ]
 ```
+
+> [!NOTE]
+> Gebruik de eigenschap **skipEmptyArchives** om het verzenden van lege bestanden in of uit te schakelen wanneer er geen gebeurtenissen optreden tijdens de periode voor vastleggen. 
 
 ## <a name="commands-to-run-deployment"></a>Opdrachten om implementatie uit te voeren
 

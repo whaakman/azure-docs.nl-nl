@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 01/31/2019
 ms.author: jeedes
-ms.openlocfilehash: 238999448f719ca8c95d8c170a9f2e6b6d7bc851
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 934acf44fe2c36e9f7c2f2d2fdb3b191806d0014
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54814117"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769432"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Zelfstudie: Azure Active Directory-integratie met Slack
 
@@ -106,12 +106,12 @@ Voer de volgende stappen uit om eenmalige aanmelding voor Azure Ad met Slack te 
 
     ![Informatie over Slack-domein en URLs voor eenmalige aanmelding](common/sp-identifier.png)
 
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<companyname>.slack.com`.
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<companyname>.slack.com`
 
-    b. In het tekstvak **Id (entiteits-id)** werkt u de waarde bij met de aanmeldings-URL. Dit is het domein van uw werkruimte. Bijvoorbeeld: `https://contoso.slack.com`.
+    b. Typ een URL in het vak **Id (Entiteits-id)**: `https://slack.com`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met [Slack-clientondersteuningsteam](https://slack.com/help/contact) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > De waarde van de aanmeldings-URL is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [Slack-clientondersteuningsteam](https://slack.com/help/contact) om de waarde te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. Slack-toepassing verwacht de SAML-asserties in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
 
@@ -203,7 +203,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    a. Voer in het veld **Naam****Britta Simon** in.
+    a. Voer in het veld **Naam** **Britta Simon**in.
   
     b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
     Bijvoorbeeld: BrittaSimon@contoso.com

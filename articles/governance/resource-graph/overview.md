@@ -4,16 +4,16 @@ description: Azure Resource Graph is een service in Azure waarmee op schaal comp
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/22/2018
+ms.date: 02/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: ed64f6317fefb9e82dbe14e806499965d926d434
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 6b3bad4e4619f8909f5c6d71111b4fad9ddb3098
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316196"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813276"
 ---
 # <a name="what-is-azure-resource-graph"></a>Wat is Azure Resource Graph
 
@@ -45,6 +45,10 @@ Voor meer informatie over bewerkingen en functies die kunnen worden gebruikt met
 ## <a name="permissions-in-azure-resource-graph"></a>Machtigingen in Azure Resource Graph
 
 Om Resource Graph te kunnen gebruiken, moet u over de juiste machtigingen beschikken in [Op rollen gebaseerd toegangsbeheer](../../role-based-access-control/overview.md) (RBAC), met minimaal leestoegang tot de resources die u wilt zoeken. Zonder ten minste `read`-machtigingen voor het Azure-object of de objectgroep worden er geen resultaten geretourneerd.
+
+## <a name="throttling"></a>Beperking
+
+Query's voor Resource Graph worden beperkt om de beste ervaring en responstijd te bieden aan alle klanten. Als uw organisatie de Resource Graph-API wil gebruiken voor grootschalige en regelmatige query's, gebruikt u de functie Portalfeedback vanaf de Resource Graph-pagina. Omschrijf uw bedrijfsscenario en vergeet niet om het selectievakje 'Microsoft mag per e-mail contact met u opnemen over uw feedback', zodat het team contact met u kan opnemen.
 
 ## <a name="running-your-first-query"></a>Uw eerste query uitvoeren
 

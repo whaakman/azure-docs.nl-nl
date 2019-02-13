@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 02/05/2019
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 3e4cd8859f376fa4fbb9069b145d893483c3fc14
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 0ffde84a39ef2955f14af66a05195e35109d41bb
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101257"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692134"
 ---
 # <a name="quickstart-set-up-a-dev-environment"></a>Quickstart: Een ontwikkelaarsomgeving instellen
 
@@ -64,8 +64,11 @@ Als er geen bestaande tenant is gekoppeld aan uw account, ziet u een GUID onder 
 Als u nog geen Azure AD-tenant hebt of een nieuwe wilt maken voor ontwikkeling, kan dat met behulp van de [interface voor het maken van een map](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). U moet de volgende informatie opgeven voor het maken van de nieuwe tenant:
 
 - **Naam van de organisatie**
-- **Eerste domein**: dit wordt onderdeel van *. onmicrosoft.com. U kunt het domein later nog aanpassen. 
+- **Eerste domein**: dit wordt onderdeel van *. onmicrosoft.com. U kunt het domein later nog aanpassen.
 - **Land of regio**
+
+> [!NOTE]
+> Gebruik alfanumerieke tekens als u de tenant een naam geeft. Speciale tekens zijn niet toegestaan. De naam mag maximaal 256 tekens lang zijn.
 
 ## <a name="social-and-local-accounts"></a>Socialemedia-accounts en lokale accounts
 

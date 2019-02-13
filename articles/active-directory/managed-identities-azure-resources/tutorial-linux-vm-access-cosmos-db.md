@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: priyamo
-ms.openlocfilehash: a79a776e088461b702a3fe5217eceb6c7234919c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d107e8283e68043a49c080fd1b021b29b917c6f7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186635"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812452"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Zelfstudie: Een door het Linux-VM-systeem toegewezen beheerde identiteit gebruiken voor toegang tot Azure Cosmos DB 
 
@@ -87,7 +87,7 @@ Het antwoord bevat de details van de door het systeem toegewezen beheerde identi
 
 Cosmos DB biedt geen systeemeigen ondersteuning voor Azure AD-verificatie. U kunt echter een beheerde identiteit gebruiken om een Cosmos DB-toegangssleutel op te halen uit Resource Manager, en vervolgens die sleutel gebruiken om toegang tot Cosmos DB te krijgen. In deze stap verleent u de door het systeem toegewezen beheerde identiteit toegang tot de sleutels voor het Cosmos DB-account.
 
-Werk de waarden voor `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` en `<COSMOS DB ACCOUNT NAME>` bij voor uw omgeving om de door het systeem toegewezen beheerde identiteit met behulp van de Azure CLI toegang te geven tot het Cosmos DB-account in Azure Resource Manager. Vervang `<MI PRINCIPALID>` door de `principalId` eigenschap die wordt geretourneerd door de opdracht `az resource show` in [De principalID van de Linux-VM-MI ophalen](#retrieve-the-principalID-of-the-linux-VM's-system-assigned-identity).  Cosmos DB ondersteunt twee granulariteitsniveaus bij het gebruik van toegangssleutels: lees-/schrijftoegang tot het account en alleen-lezen toegang tot het account.  Wijs de rol `DocumentDB Account Contributor` toe als u sleutels voor lezen/schrijven voor het account wilt krijgen, de rol `Cosmos DB Account Reader Role` als u alleen-lezensleutels voor het account wilt ophalen:
+Werk de waarden voor `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` en `<COSMOS DB ACCOUNT NAME>` bij voor uw omgeving om de door het systeem toegewezen beheerde identiteit met behulp van de Azure CLI toegang te geven tot het Cosmos DB-account in Azure Resource Manager. Vervang `<MI PRINCIPALID>` door de `principalId`-eigenschap die wordt geretourneerd door de opdracht `az resource show` in De principalID van de Linux-VM-MI ophalen.  Cosmos DB ondersteunt twee granulariteitsniveaus bij het gebruik van toegangssleutels: lees-/schrijftoegang tot het account en alleen-lezen toegang tot het account.  Wijs de rol `DocumentDB Account Contributor` toe als u sleutels voor lezen/schrijven voor het account wilt krijgen, de rol `Cosmos DB Account Reader Role` als u alleen-lezensleutels voor het account wilt ophalen:
 
 ```azurecli-interactive
 az role assignment create --assignee <MI PRINCIPALID> --role '<ROLE NAME>' --scope "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.DocumentDB/databaseAccounts/<COSMODS DB ACCOUNT NAME>"

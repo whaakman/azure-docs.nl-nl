@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 57388b4e2f74a1e9e8d9c322020077dfd67e89c1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1ee28d04bfce00a6fe47d6914b75cfd7b18e634d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198143"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816540"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>Wat is Computer Vision API versie 1.0?
 
@@ -26,17 +26,17 @@ ms.locfileid: "55198143"
 >- [Computer Vision API versie 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
 
 De cloud-gebaseerde Computer Vision-API geeft ontwikkelaars toegang tot geavanceerde algoritmen voor het verwerken van afbeeldingen en het retourneren van informatie. Door een afbeelding te uploaden of een afbeeldings-URL op te geven, kan visuele inhoud door Microsoft Computer Vision-algoritmen op verschillende manieren worden geanalyseerd op basis van invoer en gebruikersopties. Met de Computer Vision-API kunnen gebruikers afbeeldingen analyseren voor de volgende doeleinden:
-* [Afbeeldingen taggen op basis van inhoud.](#Tagging)
-* [Afbeeldingen categoriseren.](#Categorizing)
-* [Het type en de kwaliteit van afbeeldingen identificeren.](#Identifying)
+* Afbeeldingen labelen op basis van inhoud.
+* Afbeeldingen categoriseren.
+* Het type en de kwaliteit van afbeeldingen identificeren.
 * [Menselijke gezichten detecteren en hun coördinaten retourneren. ](#Faces)
-* [Domeinspecifieke inhoud herkennen.](#Domain-Specific)
-* [Beschrijvingen van de inhoud genereren.](#Descriptions)
-* [Optische tekenherkenning gebruiken om gedrukte tekst in afbeeldingen te identificeren.](#OCR)
-* [Handgeschreven tekst herkennen.](#RecognizeText)
-* [Onderscheid maken tussen kleurenschema's.](#Color)
-* [Inhoud voor volwassenen markeren.](#Adult)
-* [Foto's bijsnijden voor gebruik als miniaturen.](#Thumbnails)
+* Domeinspecifieke inhoud herkennen.
+* Beschrijvingen van de inhoud genereren.
+* Optische tekenherkenning gebruiken om gedrukte tekst in afbeeldingen te identificeren.
+* Handgeschreven tekst herkennen.
+* Onderscheid maken tussen kleurenschema's.
+* Inhoud voor volwassenen markeren.
+* Foto's bijsnijden voor gebruik als miniaturen.
 
 ## <a name="requirements"></a>Vereisten
 * Ondersteunde invoermethoden: Binaire gegevens over onbewerkte afbeeldingen in de vorm van een toepassings-/octetstream- of afbeeldings-URL.

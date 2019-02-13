@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Gegevens in Azure Data Lake Storage Gen2 analyseren met behulp van Azure Databricks | Microsoft Docs'
+title: 'Snelstart: Gegevens in Azure Data Lake Storage Gen2 analyseren met behulp van Azure Databricks | Microsoft Docs'
 description: Leer hoe u een Spark-taak kunt uitvoeren op Azure Databricks met behulp van de Azure-portal en een Azure Data Lake Storage Gen2-opslagaccount.
 services: storage
 author: normesta
@@ -8,16 +8,16 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 01/24/2019
-ms.openlocfilehash: cbd17ef81f5bcdf1c5c2f14f11388fd4f23e5da6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e5a1a17e60d73a041bf7850875287c753aeda16f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239912"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694164"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Quickstart: Gegevens in Azure Data Lake Storage Gen2 analyseren met behulp van Azure Databricks
 
-Deze quickstart laat zien hoe u een Apache Spark-taak met Azure Databricks kunt uitvoeren voor het analyseren van gegevens die in een opslagaccount zijn opgeslagen waarvoor Azure Data Lake Storage Gen2 Preview is ingeschakeld.
+Deze snelstart laat zien hoe u een Apache Spark-taak met Azure Databricks kunt uitvoeren voor het analyseren van gegevens die in een opslagaccount zijn opgeslagen waarvoor Azure Data Lake Storage Gen2 Preview is ingeschakeld.
 
 Als onderdeel van de Apache Spark-taak gaat u abonnementsgegevens van een radiozender analyseren om meer inzicht te krijgen in vrij/betaald gebruik op basis van demografische gegevens.
 
@@ -29,15 +29,11 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 <a id="config"/>
 
-## <a name="set-aside-storage-account-configuration"></a>Opslagaccountconfiguratie instellen
-
-U hebt de naam van uw opslagaccount en een eindpunt-URI voor het bestandssysteem nodig.
+## <a name="get-the-name-of-your-storage-account"></a>De naam van uw opslagaccount ophalen
 
 Als u de naam van uw opslagaccount in de Azure-portal wilt ophalen, kiest u **Alle services** en filtert u op de term *opslag*. Selecteer vervolgens **Opslagaccounts** en zoek het opslagaccount.
 
-Als u de eindpunt-URI voor het bestandssysteem wilt ophalen, kiest u **Eigenschappen** en zoekt u de waarde van het veld **Primair eindpunt van het ADLS-bestandssysteem** in het deelvenster met de eigenschappen.
-
-Plak beide waarden in een tekstbestand. U hebt deze binnenkort nodig.
+Plak deze naam in een tekstbestand. U hebt deze naam binnenkort nodig.
 
 <a id="service-principal"/>
 
@@ -45,9 +41,7 @@ Plak beide waarden in een tekstbestand. U hebt deze binnenkort nodig.
 
 Maak een service-principal aan de hand van de instructies in dit onderwerp: [Procedure: Gebruik de portal voor het maken van een Azure AD-toepassing en service-principal die toegang hebben tot resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-Er zijn enkele specifieke zaken die u moet doen terwijl u de stappen in dat artikel uitvoert.
-
-:heavy_check_mark: Als u de stappen gaat uitvoeren in de sectie [Een Azure Active Directory-toepassing maken](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application) van het artikel, moet u er voor zorgen dat het veld **Aanmeldings-URL** van het dialoogvenster **Maken** is ingesteld op de eindpunt-URI die u zojuist hebt verkregen.
+Er zijn een paar specifieke zaken die u moet doen terwijl u de stappen in het artikel uitvoert.
 
 :heavy_check_mark: Als u de stappen gaat uitvoeren in de sectie [De toepassing aan een rol toewijzen](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) van het artikel, moet u er voor zorgen dat u de toepassing toewijst aan de **rol van inzender voor Blob Storage**.
 
@@ -136,7 +130,7 @@ In deze sectie maakt u een notitieblok in de Azure Databricks-werkruimte en voer
     > [!NOTE]
     > Dit codeblok heeft direct toegang tot het Data Lake Gen2-eindpunt door middel van OAuth, maar er zijn andere manieren om de Databricks-werkruimte aan uw Data Lake Storage Gen2-account te koppelen. U kunt bijvoorbeeld het bestandssysteem koppelen met behulp van OAuth of directe toegang met een gedeelde sleutel gebruiken. <br>Zie het artikel [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) (Engelstalig) op de website van Azure Databricks voor voorbeelden van deze methoden.
 
-5. In dit codeblok vervangt u de tijdelijke aanduidingen `storage-account-name`, `application-id`, `authentication-id` en `tenant-id` door de waarden die u hebt verkregen bij het uitvoeren van de stappen in de secties [Opslagaccountconfiguratie instellen](#config) en [Een service-principal maken](#service-principal) van dit artikel.  Stel de tijdelijke aanduiding `file-system-name` in op de naam die u het bestandssysteem wilt geven.
+5. In dit codeblok vervangt u de tijdelijke aanduidingen `storage-account-name`, `application-id`, `authentication-id` en `tenant-id` door de waarden die u hebt verkregen bij het uitvoeren van de stappen in de secties [De naam van uw opslagaccount ophalen](#config) en [Een service-principal maken](#service-principal) van dit artikel.  Stel de tijdelijke aanduiding `file-system-name` in op de naam die u het bestandssysteem wilt geven.
 
 6. Druk op de toetsen **Shift + Enter** om de code in dit blok uit te voeren.
 

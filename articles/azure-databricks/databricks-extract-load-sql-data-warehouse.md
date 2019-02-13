@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: ETL-bewerkingen uitvoeren met behulp van Azure Databricks'
-description: Leer gegevens op te halen uit Data Lake Store en over te dragen naar Azure Databricks, de gegevens te transformeren en ze vervolgens in Azure SQL Data Warehouse te laden.
+description: Leer gegevens op te halen uit Data Lake Storage Gen2 en over te dragen naar Azure Databricks, de gegevens te transformeren en ze vervolgens in Azure SQL Data Warehouse te laden.
 services: azure-databricks
 author: mamccrea
 ms.author: mamccrea
@@ -9,80 +9,74 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
-ms.date: 11/19/2018
-ms.openlocfilehash: 4fab67a0ea93f287ddd3d5d0d5bc42a5dcfbe75c
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.date: 01/24/2019
+ms.openlocfilehash: c8b97ed5a1e1131e073783300a233ef72ef34110
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104708"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818648"
 ---
-# <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Zelfstudie: Gegevens uitpakken, transformeren en laden met Azure Databricks
+# <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Zelfstudie: Gegevens extraheren, transformeren en laden met Azure Databricks
 
-In deze zelfstudie voert u een ETL-bewerking (Extraction, Transformation, and Loading) uit met behulp van Azure Databricks. U haalt gegevens op uit Azure Data Lake Store en draagt deze over naar Azure Databricks, voert transformaties uit op de gegevens in Azure Databricks, waarna u de getransformeerde gegevens in Azure SQL Data Warehouse laadt.
+In deze zelfstudie voert u een ETL-bewerking (Extraction, Transformation, and Loading) uit met behulp van Azure Databricks. U haalt gegevens op uit Azure Data Lake Storage Gen2 en draagt deze over naar Azure Databricks, voert transformaties uit op de gegevens in Azure Databricks, waarna u de getransformeerde gegevens in Azure SQL Data Warehouse laadt.
 
 Voor de stappen in deze zelfstudie wordt gebruik gemaakt van de SQL Data Warehouse-connector voor Azure Databricks om gegevens over te dragen naar Azure Databricks. Op zijn beurt gebruikt deze connector Azure Blob Storage als tijdelijke opslag voor de gegevens die worden overgebracht tussen een Azure Databricks-cluster en Azure SQL Data Warehouse.
-
-In de volgende afbeelding wordt de stroom van de toepassing weergegeven:
-
-![Azure Databricks met Data Lake Store en SQL Data Warehouse](./media/databricks-extract-load-sql-data-warehouse/databricks-extract-transform-load-sql-datawarehouse.png "Azure Databricks met Data Lake Store en SQL Data Warehouse")
 
 Deze zelfstudie bestaat uit de volgende taken:
 
 > [!div class="checklist"]
-> * Een Azure Databricks-werkruimte maken
-> * Een Apache Spark-cluster in Azure Databricks maken
-> * Een Azure Data Lake Store-account maken
-> * Gegevens uploaden naar Azure Data Lake Store
-> * Een notitieblok maken in Azure Databricks
-> * Gegevens ophalen uit Data Lake Store
-> * Gegevens transformeren in Azure Databricks
-> * Gegevens laden in Azure SQL Data Warehouse
+> * Een Azure Databricks-service maken.
+> * Een Apache Spark-cluster in Azure Databricks maken.
+> * Een bestandssysteem maken en gegevens uploaden naar Azure Data Lake Storage Gen2.
+> * Een service-principal maken.
+> * Gegevens extraheren uit de Data Lake Store.
+> * Gegevens transformeren in Azure Databricks.
+> * Gegevens laden in Azure SQL Data Warehouse.
 
-Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
+Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Zorg ervoor dat u aan de volgende vereisten voldoet voordat u met deze zelfstudie begint:
-- Maak een Azure SQL Data Warehouse, maak een firewallregel op serverniveau en maak verbinding met de server als serverbeheerder. Volg de instructies in [Quick Start: Een Azure SQL Data Warehouse maken](../sql-data-warehouse/create-data-warehouse-portal.md)
-- Maak een databasehoofdsleutel voor Azure SQL Data Warehouse. Volg de instructies bij [Een databasehoofdsleutel maken](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
-- Maak een Azure Blob-opslagaccount met daarin een container. Haal ook de toegangssleutel op voor toegang tot het opslagaccount. Volg de instructies in [Quick Start: Een Azure Blob Storage-account maken](../storage/blobs/storage-quickstart-blobs-portal.md).
+Voltooi deze taken voordat u aan deze zelfstudie begint:
 
-## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
+* Maak een Azure SQL-datawarehouse, maak een firewallregel op serverniveau en maak verbinding met de server als serverbeheerder. Zie [Quickstart: Een Azure SQL Data Warehouse maken](../sql-data-warehouse/create-data-warehouse-portal.md).
 
-Meld u aan bij [Azure Portal](https://portal.azure.com/).
+* Maak een databasehoofdsleutel voor de Azure SQL-datawarehouse. Zie [Een databasehoofdsleutel maken](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 
-## <a name="create-an-azure-databricks-workspace"></a>Een Azure Databricks-werkruimte maken
+* Een Azure Data Lake Storage Gen2-account maken. Zie [Een Azure Data Lake Storage Gen2-account maken](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
-In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure Portal.
+* Maak een Azure Blob-opslagaccount met daarin een container. Haal ook de toegangssleutel op voor toegang tot het opslagaccount. Zie [Quickstart: Een Azure Blob Storage-account maken](../storage/blobs/storage-quickstart-blobs-portal.md).
 
-1. Selecteer in Azure Portal **Een resource maken** > **Gegevens en analyses** > **Azure Databricks**.
+* Meld u aan bij [Azure Portal](https://portal.azure.com/).
+
+## <a name="create-an-azure-databricks-service"></a>Een Azure Databricks-service maken
+
+In dit gedeelte gaat u een Azure Databricks-service maken met behulp van de Azure-portal.
+
+1. Selecteer in Azure Portal **Een resource maken** > **Analyse** > **Azure Databricks**.
 
     ![Databricks in Azure Portal](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-on-portal.png "Databricks in Azure Portal")
 
-3. Geef bij **Azure Databricks Service** de waarden op voor het maken van een Databricks-werkruimte.
+2. Geef bij **Azure Databricks Service** de volgende waarden op voor het maken van een Databricks-service:
 
-    ![Een Azure Databricks-werkruimte maken](./media/databricks-extract-load-sql-data-warehouse/create-databricks-workspace.png "Een Azure Databricks-werkruimte maken")
-
-    Geef de volgende waarden op:
-    
     |Eigenschap  |Beschrijving  |
     |---------|---------|
-    |**Werkruimtenaam**     | Geef een naam op voor uw Databricks-werkruimte.        |
+    |**Werkruimtenaam**     | Geef een naam op voor de Databricks-werkruimte.        |
     |**Abonnement**     | Selecteer uw Azure-abonnement in de vervolgkeuzelijst.        |
     |**Resourcegroep**     | Geef aan of u een nieuwe resourcegroep wilt maken of een bestaande groep wilt gebruiken. Een resourcegroep is een container met gerelateerde resources voor een Azure-oplossing. Zie [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) voor meer informatie. |
-    |**Locatie**     | Selecteer **US - oost 2**. Zie [Producten beschikbaar per regio](https://azure.microsoft.com/regions/services/) voor andere beschikbare regio's.        |
-    |**Prijscategorie**     |  U kunt kiezen tussen **Standard** en **Premium**. Deze zelfstudie kan niet worden uitgevoerd met behulp van een gratis proefabonnement vanwege limieten voor het verhogen van de quota. Bekijk de pagina [Prijzen voor Databricks](https://azure.microsoft.com/pricing/details/databricks/) voor meer informatie over deze categorieën.       |
+    |**Locatie**     | Selecteer **US - west 2**.  Zie [Producten beschikbaar per regio](https://azure.microsoft.com/regions/services/) voor andere beschikbare regio's.      |
+    |**Prijscategorie**     |  selecteer **Standaard**.     |
 
-    Selecteer **Vastmaken aan dashboard** en selecteer **Maken**.
+3. Selecteer **Vastmaken aan dashboard** en selecteer **Maken**.
 
-4. Het duurt enkele minuten om het account te maken. Tijdens het maken van het account wordt rechts in de portal de tegel **Implementatie verzenden voor Azure Databricks** weergegeven. Mogelijk moet u op uw dashboard naar rechts scrollen om de tegel te zien. Bovenaan het scherm wordt ook een voortgangsbalk weergegeven. U kunt beide gebieden bekijken voor de voortgang.
+4. Het duurt enkele minuten om het account te maken. Tijdens het maken van het account wordt rechts in de portal de tegel **Implementatie verzenden voor Azure Databricks** weergegeven. Bekijk de voortgangsbalk bovenaan om de bewerkingsstatus te volgen.
 
     ![Tegel Databricks-implementatie](./media/databricks-extract-load-sql-data-warehouse/databricks-deployment-tile.png "Tegel Databricks-implementatie")
 
-## <a name="create-a-spark-cluster-in-databricks"></a>Een Spark-cluster maken in Databricks
+## <a name="create-a-spark-cluster-in-azure-databricks"></a>Een Apache Spark-cluster in Azure Databricks maken
 
-1. Ga in Azure Portal naar de Databricks-werkruimte die u hebt gemaakt en selecteer **Werkruimte starten**.
+1. Ga in de Azure-portal naar de Databricks-service die u hebt gemaakt en selecteer **Werkruimte starten**.
 
 2. U wordt omgeleid naar de Azure Databricks-portal. Klik in de portal op **Cluster**.
 
@@ -92,360 +86,268 @@ In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure
 
     ![Een Databricks Spark-cluster maken in Azure](./media/databricks-extract-load-sql-data-warehouse/create-databricks-spark-cluster.png "Een Databricks Spark-cluster maken in Azure")
 
-    Accepteer alle andere standaardwaarden die anders zijn dan de volgende waarden:
+4. Vul de waarden voor de volgende velden in (en laat bij de overige velden de standaardwaarden staan):
 
     * Voer een naam in voor het cluster.
-    * Maak voor dit artikel een cluster met runtime versie **4.1 of hoger**.
-    * Zorg ervoor dat u het selectievakje **Beëindigen na\_\_ minuten van inactiviteit** inschakelt. Geef een duur (in minuten) op waarna het cluster moet worden beëindigd als het niet wordt gebruikt.
-    
-    Selecteer **Cluster maken**. Zodra het cluster wordt uitgevoerd, kunt u notitieblokken koppelen aan het cluster en Spark-taken uitvoeren.
 
-## <a name="create-an-azure-data-lake-store-account"></a>Een Azure Data Lake Store-account maken
+    * Maak voor dit artikel een cluster met de **5.1**-runtime.
 
-In deze sectie maakt u een Azure Data Lake Store-account waaraan u een service-principal voor Azure Active Directory koppelt. Verderop in deze zelfstudie gebruikt u deze service-principal in Azure Databricks voor toegang tot Azure Data Lake Store.
+    * Zorg ervoor dat u het selectievakje **Beëindigen na \_\_ minuten van inactiviteit** inschakelt. Geef een duur (in minuten) op waarna het cluster moet worden beëindigd als het niet wordt gebruikt.
 
-1. Selecteer in [Azure Portal](https://portal.azure.com) de optie **Een resource maken** > **Opslag** > **Data Lake Store**.
-3. In de blade **Nieuwe Data Lake Store** geeft u de waarden op zoals u ze in de volgende schermafbeelding ziet:
+    * Selecteer **Cluster maken**. Als het cluster wordt uitgevoerd, kunt u notitieblokken koppelen aan het cluster en Apache Spark-taken uitvoeren.
 
-    ![Een nieuw Azure Data Lake Store-account maken](./media/databricks-extract-load-sql-data-warehouse/create-new-datalake-store.png "Een nieuw Azure Data Lake Store-account maken")
+## <a name="create-a-file-system-and-upload-sample-data"></a>Een bestandssysteem maken en voorbeeldgegevens uploaden
 
-    Geef de volgende waarden op:
-    
-    |Eigenschap  |Beschrijving  |
-    |---------|---------|
-    |**Naam**     | Voer een unieke naam in voor het Data Lake Store-account.        |
-    |**Abonnement**     | Selecteer uw Azure-abonnement in de vervolgkeuzelijst.        |
-    |**Resourcegroep**     | Selecteer voor deze zelfstudie dezelfde resourcegroep die u hebt gebruikt bij het maken van de Azure Databricks-werkruimte.  |
-    |**Locatie**     | Selecteer **US - oost 2**.  |
-    |**Prijspakket**     |  Selecteer **Betalen per gebruik**. |
-    | **Versleutelingsinstellingen** | Behoud de standaardinstellingen. |
+Eerst maakt u een bestandssysteem in uw Data Lake Storage Gen2-account. Vervolgens uploadt u een voorbeeldgegevensbestand naar Data Lake Store. Dit bestand gebruikt u later in Azure Databricks om enkele transformaties uit te voeren.
 
-    Selecteer **Vastmaken aan dashboard** en selecteer **Maken**.
+1. Download het voorbeeldgegevensbestand [small_radio_json.json](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) naar uw lokale bestandssysteem.
 
-U gaat nu een service-principal voor Azure Active Directory maken en deze koppelen aan het Azure Data Lake Store-account dat u hebt gemaakt.
+2. Vanuit de [Microsoft Azure-portal](https://portal.azure.com/) navigeert u naar het Data Lake Storage Gen2-account dat u als een vereiste voor deze zelfstudie hebt gemaakt.
 
-### <a name="create-an-azure-active-directory-service-principal"></a>Een service-principal voor Azure Active Directory maken
+3. Selecteer vanaf de pagina **Overzicht** van het opslagaccount de optie **Openen in Explorer**.
 
-1. Selecteer in [Azure Portal](https://portal.azure.com) de optie **Alle services** en zoek naar **Azure Active Directory**.
+   ![Storage Explorer openen](./media/databricks-extract-load-sql-data-warehouse/data-lake-storage-open-storage-explorer.png "Storage Explorer openen")
 
-2. Selecteer **App-registraties**.
+4. Selecteer **Azure Storage Explorer openen** om Storage Explorer te openen.
 
-   ![app-registraties selecteren](./media/databricks-extract-load-sql-data-warehouse/select-app-registrations.png)
+   ![Tweede prompt van Storage Explorer openen](./media/databricks-extract-load-sql-data-warehouse/data-lake-storage-open-storage-explorer-2.png "Tweede prompt van Storage Explorer openen")
 
-3. Selecteer **Nieuwe toepassing registreren**.
+   Storage Explorer wordt geopend. U kunt een bestandssysteem maken en de voorbeeldgegevens uploaden met behulp van de richtlijnen in dit onderwerp: [Snelstart: Azure Storage Explorer gebruiken voor het beheren van gegevens in een Azure Data Lake Storage Gen2-account](../storage/blobs/data-lake-storage-explorer.md).
 
-   ![toepassing toevoegen](./media/databricks-extract-load-sql-data-warehouse/select-add-app.png)
+<a id="service-principal"/>
 
-4. Geef een naam en URL op voor de toepassing. Selecteer **Web-app/API** voor het type toepassing dat u wilt maken. Geef een aanmeldings-URL op en selecteer **Maken**.
+## <a name="create-a-service-principal"></a>Een service-principal maken
 
-   ![toepassing een naam geven](./media/databricks-extract-load-sql-data-warehouse/create-app.png)
+Maak een service-principal aan de hand van de instructies in dit onderwerp: [Procedure: Gebruik de portal voor het maken van een Azure AD-toepassing en service-principal die toegang hebben tot resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-Voor toegang tot het Data Lake Store-account vanuit Azure Databricks hebt u de volgende waarden nodig voor de service-principal voor Azure Active Directory die u hebt gemaakt:
-- Toepassings-id
-- Verificatiesleutel
-- Tenant-id
+Er zijn een paar dingen die u moet doen terwijl u de stappen in het artikel uitvoert.
 
-In de volgende secties haalt u deze waarden op voor de service-principal voor Azure Active Directory die u eerder hebt gemaakt.
+:heavy_check_mark: Als u de stappen gaat uitvoeren in de sectie [De toepassing aan een rol toewijzen](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) van het artikel, moet u er voor zorgen dat u de toepassing toewijst aan de **rol van inzender voor Blob Storage**.
 
-### <a name="get-application-id-and-authentication-key-for-the-service-principal"></a>Toepassings-id en verificatiesleutel voor de service-principal ophalen
+:heavy_check_mark: Als u de stappen gaat uitvoeren in de sectie [Waarden ophalen voor het aanmelden](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) van het artikel, plakt u de waarden van de tenant-id, de toepassings-id en de verificatiesleutel in een tekstbestand. U hebt deze binnenkort nodig.
+Eerst maakt u een notitieblok in de Azure Databricks-werkruimte en vervolgens voert u codefragmenten uit om het bestandssysteem in uw opslagaccount te maken.
 
-Wanneer u zich programmatisch aanmeldt, hebt u de id voor uw toepassing en een verificatiesleutel nodig. U kunt deze waarden als volgt ophalen:
+## <a name="extract-data-from-the-data-lake-store"></a>Gegevens extraheren uit de Data Lake Store
 
-1. Selecteer uw toepassing bij **App-registraties** in Azure Active Directory.
+In deze sectie maakt u een notitieblok in de Azure Databricks-werkruimte en voert u codefragmenten uit om gegevens op te halen uit de Data Lake Store en deze vervolgens te laden in Azure Databricks.
 
-   ![toepassing selecteren](./media/databricks-extract-load-sql-data-warehouse/select-app.png)
+1. Ga in de [Azure-portal](https://portal.azure.com) naar de Azure Databricks-service die u hebt gemaakt en selecteer **Werkruimte starten**.
 
-2. Kopieer de **Toepassings-id** en sla deze op in uw toepassingscode. Sommige [voorbeeldtoepassingen](#log-in-as-the-application) verwijzen naar deze waarde als de client-id.
-
-   ![client-id](./media/databricks-extract-load-sql-data-warehouse/copy-app-id.png)
-
-3. Selecteer **Instellingen** om een verificatiesleutel te genereren.
-
-   ![instellingen selecteren](./media/databricks-extract-load-sql-data-warehouse/select-settings.png)
-
-4. Selecteer **Sleutels** om een verificatiesleutel te genereren.
-
-   ![sleutels selecteren](./media/databricks-extract-load-sql-data-warehouse/select-keys.png)
-
-5. Geef een beschrijving op van de sleutel en geef de duur van de sleutel op. Selecteer **Opslaan** wanneer u klaar bent.
-
-   ![sleutel opslaan](./media/databricks-extract-load-sql-data-warehouse/save-key.png)
-
-   Na het opslaan van de sleutel wordt de waarde van de sleutel weergegeven. Kopieer deze waarde, want u kunt de sleutel later niet meer ophalen. U geeft de sleutelwaarde samen met de toepassings-id op om u aan te melden met de toepassing. Bewaar de sleutelwaarde op een locatie waar de toepassing deze kan ophalen.
-
-   ![opgeslagen sleutel](./media/databricks-extract-load-sql-data-warehouse/copy-key.png)
-
-### <a name="get-tenant-id"></a>Tenant-id ophalen
-
-Wanneer u zich programmatisch aanmeldt, moet u de tenant-id samen met uw verificatieaanvraag doorgeven.
-
-1. Selecteer **Azure Active Directory**.
-
-   ![azure active directory selecteren](./media/databricks-extract-load-sql-data-warehouse/select-active-directory.png)
-
-1. Haal de tenant-id op door **Eigenschappen** voor uw Azure AD-tenant te selecteren.
-
-   ![Azure AD-eigenschappen selecteren](./media/databricks-extract-load-sql-data-warehouse/select-ad-properties.png)
-
-1. Kopieer de **Map-id**. Deze waarde is uw tenant-id.
-
-   ![tenant-id](./media/databricks-extract-load-sql-data-warehouse/copy-directory-id.png)
-
-## <a name="upload-data-to-data-lake-store"></a>Gegevens uploaden naar Data Lake Store
-
-In deze sectie uploadt u een voorbeeldgegevensbestand naar Data Lake Store. Dit bestand gebruikt u later in Azure Databricks om enkele transformaties uit te voeren. De voorbeeldgegevens (**small_radio_json.json**) die u in deze zelfstudie gebruikt, zijn beschikbaar in deze [GitHub-opslagplaats](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
-
-1. Selecteer in [Azure Portal](https://portal.azure.com) het Data Lake Store-account dat u hebt gemaakt.
-
-2. Open het tabblad **Overzicht** en klik op **Data Explorer**.
-
-    ![Data Explorer openen](./media/databricks-extract-load-sql-data-warehouse/open-data-explorer.png "Data Explorer openen")
-
-3. Klik in Data Explorer op **Uploaden**.
-
-    ![Optie Uploaden](./media/databricks-extract-load-sql-data-warehouse/upload-to-data-lake-store.png "Optie Uploaden")
-
-4. Blader in **Bestanden uploaden** naar de locatie van uw voorbeeldgegevensbestand en selecteer **Geselecteerde bestanden toevoegen**.
-
-    ![Optie Uploaden](./media/databricks-extract-load-sql-data-warehouse/upload-data.png "Optie Uploaden")
-
-5. In deze zelfstudie hebt u het gegevensbestand geüpload naar de hoofdmap van de Data Lake Store. Het bestand is daarom nu beschikbaar op `adl://<YOUR_DATA_LAKE_STORE_ACCOUNT_NAME>.azuredatalakestore.net/small_radio_json.json`.
-
-## <a name="associate-service-principal-with-azure-data-lake-store"></a>Service-principal koppelen aan Azure Data Lake Store
-
-In deze sectie koppelt u de gegevens in het Azure Data Lake Store-account aan de service-principal voor de Azure Active Directory die u hebt gemaakt. Daardoor kunt u het Data Lake Store-account vanuit Azure Databricks openen. Voor het scenario in dit artikel leest u de gegevens in Data Lake Store om een tabel in SQL Data Warehouse te vullen. Volgens het [Overzicht van Access Control in Data Lake Store](../data-lake-store/data-lake-store-access-control.md#common-scenarios-related-to-permissions) moet u voor leestoegang voor een bestand in Data Lake Store in het bezit zijn van het volgende:
-
-- Machtigingen voor **uitvoeren** in alle mappen in de mapstructuur die naar het bestand leiden.
-- Machtigingen voor **lezen** in het bestand zelf.
-
-Voer de volgende stappen uit om deze machtigingen te verlenen.
-
-1. Selecteer in [Azure Portal](https://portal.azure.com) het Data Lake Store-account dat u hebt gemaakt en selecteer vervolgens **Data Explorer**.
-
-    ![Data Explorer starten](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-data-explorer.png "Data Explorer starten")
-
-2. Omdat het bestand met voorbeeldgegevens zich in de hoofdmap van de mapstructuur bevindt, hoeft u alleen de machtigingen voor **Uitvoeren** toe te wijzen aan de hoofdmap. Selecteer hiertoe in de hoofdmap van Data Explorer de optie **Toegang**.
-
-    ![Toegangsbeheerlijsten toevoegen voor de map](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-folder-1.png "Toegangsbeheerlijsten toevoegen voor de map")
-
-3. Selecteer onder **Toegang** de optie **Toevoegen**.
-
-    ![Toegangsbeheerlijsten toevoegen voor de map](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-folder-2.png "Toegangsbeheerlijsten toevoegen voor de map")
-
-4. Klik onder **Machtigingen toewijzen** op **Gebruiker of groep selecteren** en zoek naar de Azure Active Directory-service-principal die u eerder hebt gemaakt.
-
-    ![Toegang tot Data Lake Store toevoegen](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-folder-3.png "Toegang tot Data Lake Store toevoegen")
-
-    Selecteer de AAD-service-principal die u wilt toewijzen en klik op **Selecteren**.
-
-5. Klik onder **Machtigingen toewijzen** op **Machtigingen selecteren** > **Uitvoeren**. Behoud de andere standaardwaarden en selecteer **OK** onder **Machtigingen selecteren** en vervolgens onder **Machtigingen toewijzen**.
-
-    ![Toegang tot Data Lake Store toevoegen](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-folder-4.png "Toegang tot Data Lake Store toevoegen")
-
-6. Ga terug naar Data Explorer en klik nu op het bestand waaraan u de leesmachtiging wilt toewijzen. Selecteer onder **Bestandsvoorbeeld** de optie **Toegang**.
-
-    ![Toegang tot Data Lake Store toevoegen](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-file-1.png "Toegang tot Data Lake Store toevoegen")
-
-7. Selecteer onder **Toegang** de optie **Toevoegen**. Klik onder **Machtigingen toewijzen** op **Gebruiker of groep selecteren** en zoek naar de Azure Active Directory-service-principal die u eerder hebt gemaakt.
-
-    ![Toegang tot Data Lake Store toevoegen](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-folder-3.png "Toegang tot Data Lake Store toevoegen")
-
-    Selecteer de AAD-service-principal die u wilt toewijzen en klik op **Selecteren**.
-
-8. Klik onder **Machtigingen toewijzen** op **Machtigingen selecteren** > **Lezen**. Selecteer **OK** onder **Machtigingen selecteren** en vervolgens onder **Machtigingen toewijzen**.
-
-    ![Toegang tot Data Lake Store toevoegen](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-file-2.png "Toegang tot Data Lake Store toevoegen")
-
-    De service-principal heeft nu voldoende machtigingen om het bestand met voorbeeldgegevens uit Azure Data Lake Store te lezen.
-
-## <a name="extract-data-from-data-lake-store"></a>Gegevens ophalen uit Data Lake Store
-
-In deze sectie maakt u een notitieblok in de Azure Databricks-werkruimte en voert u codefragmenten uit om gegevens op te halen uit Data Lake Store en deze vervolgens te laden in Azure Databricks.
-
-1. Ga in [Azure Portal](https://portal.azure.com) naar de Azure Databricks-werkruimte die u hebt gemaakt en selecteer **Werkruimte starten**.
-
-2. Selecteer **Werkruimte** in het linkerdeelvenster. Selecteer in de **Werkruimte**-vervolgkeuzelijst, **Notitieblok** > **maken**.
+2. Selecteer aan de linkerkant **Werkruimte**. Selecteer in de **Werkruimte**-vervolgkeuzelijst, **Notitieblok** > **maken**.
 
     ![Een notitieblok maken in Databricks](./media/databricks-extract-load-sql-data-warehouse/databricks-create-notebook.png "Een notitieblok maken in Databricks")
 
-2. Voer in het dialoogvenster **Notitieblok maken** een naam voor het notitieblok in. Selecteer **Scala** als taal en selecteer het Spark-cluster dat u eerder hebt gemaakt.
+3. Voer in het dialoogvenster **Notitieblok maken** een naam voor het notitieblok in. Selecteer **Scala** als taal en selecteer het Spark-cluster dat u eerder hebt gemaakt.
 
-    ![Een notitieblok maken in Databricks](./media/databricks-extract-load-sql-data-warehouse/databricks-notebook-details.png "Een notitieblok maken in Databricks")
+    ![Details opgeven voor een notebook in Databricks](./media/databricks-extract-load-sql-data-warehouse/databricks-notebook-details.png "Details opgeven voor een notebook in Databricks")
 
-    Selecteer **Maken**.
+4. Selecteer **Maken**.
 
-3. Voeg het volgende fragment toe aan een lege codecel en vervang de tijdelijke waarden door de waarden die u eerder hebt opgeslagen voor de service-principal voor Azure Active Directory.
+5. Kopieer en plak het volgende codeblok in de eerste cel.
 
-        spark.conf.set("dfs.adls.oauth2.access.token.provider.type", "ClientCredential")
-        spark.conf.set("dfs.adls.oauth2.client.id", "<APPLICATION-ID>")
-        spark.conf.set("dfs.adls.oauth2.credential", "<AUTHENTICATION-KEY>")
-        spark.conf.set("dfs.adls.oauth2.refresh.url", "https://login.microsoftonline.com/<TENANT-ID>/oauth2/token")
+   ```scala
+   spark.conf.set("fs.azure.account.auth.type.<storage-account-name>.dfs.core.windows.net", "OAuth")
+   spark.conf.set("fs.azure.account.oauth.provider.type.<storage-account-name>.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
+   spark.conf.set("fs.azure.account.oauth2.client.id.<storage-account-name>.dfs.core.windows.net", "<application-id>")
+   spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account-name>.dfs.core.windows.net", "<authentication-key>")
+   spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
+   ```
 
-    Druk op **SHIFT + ENTER** om de codecel uit te voeren.
+6. In dit codeblok vervangt u de tijdelijke aanduidingen `application-id`, `authentication-id` en `tenant-id` door de waarden die u hebt verkregen bij het uitvoeren van de stappen in [Configuratie opslagaccount instellen](#config). Vervang de waarde van de tijdelijke plaatsaanduiding `storage-account-name` door de naam van uw opslagaccount.
 
-4. U kunt nu het JSON-voorbeeldbestand in Data Lake Store laden als een dataframe in Azure Databricks. Plak het volgende fragment in een nieuwe codecel, vervang de tijdelijke waarde en druk op **SHIFT + ENTER**.
+7. Druk op de toetsen **Shift + Enter** om de code in dit blok uit te voeren.
 
-        val df = spark.read.json("adl://<DATA LAKE STORE NAME>.azuredatalakestore.net/small_radio_json.json")
+8. U kunt nu het JSON-voorbeeldbestand laden als een dataframe in Azure Databricks. Plak de volgende code in de nieuwe cel. Vervang de tijdelijke aanduidingen tussen haken door uw eigen waarden.
 
-5. Voer het volgende codefragment uit om de inhoud van het dataframe weer te geven.
+   ```scala
+   val df = spark.read.json("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/small_radio_json.json")
+   ```
 
-        df.show()
+   * Vervang de tijdelijke-aanduidingswaarde `file-system-name` door de naam die u uw bestandssysteem in Storage Explorer hebt gegeven.
 
-    Het volgende (of een vergelijkbaar) codefragment wordt weergegeven:
+   * Vervang de tijdelijke plaatsaanduiding `storage-account-name` door de naam van uw opslagaccount.
 
-        +---------------------+---------+---------+------+-------------+----------+---------+-------+--------------------+------+--------+-------------+---------+--------------------+------+-------------+------+
-        |               artist|     auth|firstName|gender|itemInSession|  lastName|   length|  level|            location|method|    page| registration|sessionId|                song|status|           ts|userId|
-        +---------------------+---------+---------+------+-------------+----------+---------+-------+--------------------+------+--------+-------------+---------+--------------------+------+-------------+------+
-        | El Arrebato         |Logged In| Annalyse|     F|            2|Montgomery|234.57914| free  |  Killeen-Temple, TX|   PUT|NextSong|1384448062332|     1879|Quiero Quererte Q...|   200|1409318650332|   309|
-        | Creedence Clearwa...|Logged In|   Dylann|     M|            9|    Thomas|340.87138| paid  |       Anchorage, AK|   PUT|NextSong|1400723739332|       10|        Born To Move|   200|1409318653332|    11|
-        | Gorillaz            |Logged In|     Liam|     M|           11|     Watts|246.17751| paid  |New York-Newark-J...|   PUT|NextSong|1406279422332|     2047|                DARE|   200|1409318685332|   201|
-        ...
-        ...
+9. Druk op de toetsen **Shift + Enter** om de code in dit blok uit te voeren.
 
-U hebt nu de gegevens opgehaald uit Azure Data Lake Store en geladen in Azure Databricks.
+10. Voer de volgende code uit om de inhoud van het dataframe weer te geven:
+
+    ```scala
+    df.show()
+    ```
+   Het volgende (of een vergelijkbaar) codefragment wordt weergegeven:
+
+   ```bash
+   +---------------------+---------+---------+------+-------------+----------+---------+-------+--------------------+------+--------+-------------+---------+--------------------+------+-------------+------+
+   |               artist|     auth|firstName|gender|itemInSession|  lastName|   length|  level|            location|method|    page| registration|sessionId|                song|status|           ts|userId|
+   +---------------------+---------+---------+------+-------------+----------+---------+-------+--------------------+------+--------+-------------+---------+--------------------+------+-------------+------+
+   | El Arrebato         |Logged In| Annalyse|     F|            2|Montgomery|234.57914| free  |  Killeen-Temple, TX|   PUT|NextSong|1384448062332|     1879|Quiero Quererte Q...|   200|1409318650332|   309|
+   | Creedence Clearwa...|Logged In|   Dylann|     M|            9|    Thomas|340.87138| paid  |       Anchorage, AK|   PUT|NextSong|1400723739332|       10|        Born To Move|   200|1409318653332|    11|
+   | Gorillaz            |Logged In|     Liam|     M|           11|     Watts|246.17751| paid  |New York-Newark-J...|   PUT|NextSong|1406279422332|     2047|                DARE|   200|1409318685332|   201|
+   ...
+   ...
+   ```
+
+   U hebt de gegevens nu geëxtraheerd uit Azure Data Lake Store Gen2 en geladen in Azure Databricks.
 
 ## <a name="transform-data-in-azure-databricks"></a>Gegevens transformeren in Azure Databricks
 
-De onbewerkte voorbeeldgegevensset **small_radio_json.json** legt de doelgroep voor een radiozender vast en bestaat uit een aantal kolommen. In deze sectie gaat u de gegevens zodanig transformeren dat alleen bepaalde kolommen uit de gegevensset worden opgehaald.
+Het bestand **small_radio_json.json** met de onbewerkte voorbeeldgegevensset legt de doelgroep voor een radiozender vast en bestaat uit een aantal kolommen. In deze sectie gaat u de gegevens zodanig transformeren dat alleen bepaalde kolommen uit de gegevensset worden opgehaald.
 
-1. Begin met het ophalen van alleen de kolommen *firstName*, *lastName*, *gender*, *location* en *level* uit het dataframe dat u al hebt gemaakt.
+1. Haal eerst alleen de kolommen **firstName**, **lastName**, **gender**, **location** en **level** op uit het dataframe dat u hebt gemaakt.
 
-        val specificColumnsDf = df.select("firstname", "lastname", "gender", "location", "level")
-        specificColumnsDf.show()
+   ```scala
+   val specificColumnsDf = df.select("firstname", "lastname", "gender", "location", "level")
+   specificColumnsDf.show()
+   ```
 
-    De volgende uitvoer wordt weergegeven:
+   De uitvoer die u ontvangt, wordt weergegeven in het volgende codefragment:
 
-        +---------+----------+------+--------------------+-----+
-        |firstname|  lastname|gender|            location|level|
-        +---------+----------+------+--------------------+-----+
-        | Annalyse|Montgomery|     F|  Killeen-Temple, TX| free|
-        |   Dylann|    Thomas|     M|       Anchorage, AK| paid|
-        |     Liam|     Watts|     M|New York-Newark-J...| paid|
-        |     Tess|  Townsend|     F|Nashville-Davidso...| free|
-        |  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
-        |     Alan|     Morse|     M|Chicago-Napervill...| paid|
-        |Gabriella|   Shelton|     F|San Jose-Sunnyval...| free|
-        |   Elijah|  Williams|     M|Detroit-Warren-De...| paid|
-        |  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
-        |     Tess|  Townsend|     F|Nashville-Davidso...| free|
-        |     Alan|     Morse|     M|Chicago-Napervill...| paid|
-        |     Liam|     Watts|     M|New York-Newark-J...| paid|
-        |     Liam|     Watts|     M|New York-Newark-J...| paid|
-        |   Dylann|    Thomas|     M|       Anchorage, AK| paid|
-        |     Alan|     Morse|     M|Chicago-Napervill...| paid|
-        |   Elijah|  Williams|     M|Detroit-Warren-De...| paid|
-        |  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
-        |     Alan|     Morse|     M|Chicago-Napervill...| paid|
-        |   Dylann|    Thomas|     M|       Anchorage, AK| paid|
-        |  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
-        +---------+----------+------+--------------------+-----+
+   ```bash
+   +---------+----------+------+--------------------+-----+
+   |firstname|  lastname|gender|            location|level|
+   +---------+----------+------+--------------------+-----+
+   | Annalyse|Montgomery|     F|  Killeen-Temple, TX| free|
+   |   Dylann|    Thomas|     M|       Anchorage, AK| paid|
+   |     Liam|     Watts|     M|New York-Newark-J...| paid|
+   |     Tess|  Townsend|     F|Nashville-Davidso...| free|
+   |  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
+   |     Alan|     Morse|     M|Chicago-Napervill...| paid|
+   |Gabriella|   Shelton|     F|San Jose-Sunnyval...| free|
+   |   Elijah|  Williams|     M|Detroit-Warren-De...| paid|
+   |  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
+   |     Tess|  Townsend|     F|Nashville-Davidso...| free|
+   |     Alan|     Morse|     M|Chicago-Napervill...| paid|
+   |     Liam|     Watts|     M|New York-Newark-J...| paid|
+   |     Liam|     Watts|     M|New York-Newark-J...| paid|
+   |   Dylann|    Thomas|     M|       Anchorage, AK| paid|
+   |     Alan|     Morse|     M|Chicago-Napervill...| paid|
+   |   Elijah|  Williams|     M|Detroit-Warren-De...| paid|
+   |  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
+   |     Alan|     Morse|     M|Chicago-Napervill...| paid|
+   |   Dylann|    Thomas|     M|       Anchorage, AK| paid|
+   |  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
+   +---------+----------+------+--------------------+-----+
+   ```
 
 2. U kunt deze gegevens nog verder transformeren door de naam van de kolom **level** te wijzigen in **subscription_type**.
 
-        val renamedColumnsDf = specificColumnsDf.withColumnRenamed("level", "subscription_type")
-        renamedColumnsDf.show()
+   ```scala
+   val renamedColumnsDF = specificColumnsDf.withColumnRenamed("level", "subscription_type")
+   renamedColumnsDF.show()
+   ```
 
-    De volgende uitvoer wordt weergegeven.
+   De uitvoer die u ontvangt, wordt weergegeven in het volgende codefragment.
 
-        +---------+----------+------+--------------------+-----------------+
-        |firstname|  lastname|gender|            location|subscription_type|
-        +---------+----------+------+--------------------+-----------------+
-        | Annalyse|Montgomery|     F|  Killeen-Temple, TX|             free|
-        |   Dylann|    Thomas|     M|       Anchorage, AK|             paid|
-        |     Liam|     Watts|     M|New York-Newark-J...|             paid|
-        |     Tess|  Townsend|     F|Nashville-Davidso...|             free|
-        |  Margaux|     Smith|     F|Atlanta-Sandy Spr...|             free|
-        |     Alan|     Morse|     M|Chicago-Napervill...|             paid|
-        |Gabriella|   Shelton|     F|San Jose-Sunnyval...|             free|
-        |   Elijah|  Williams|     M|Detroit-Warren-De...|             paid|
-        |  Margaux|     Smith|     F|Atlanta-Sandy Spr...|             free|
-        |     Tess|  Townsend|     F|Nashville-Davidso...|             free|
-        |     Alan|     Morse|     M|Chicago-Napervill...|             paid|
-        |     Liam|     Watts|     M|New York-Newark-J...|             paid|
-        |     Liam|     Watts|     M|New York-Newark-J...|             paid|
-        |   Dylann|    Thomas|     M|       Anchorage, AK|             paid|
-        |     Alan|     Morse|     M|Chicago-Napervill...|             paid|
-        |   Elijah|  Williams|     M|Detroit-Warren-De...|             paid|
-        |  Margaux|     Smith|     F|Atlanta-Sandy Spr...|             free|
-        |     Alan|     Morse|     M|Chicago-Napervill...|             paid|
-        |   Dylann|    Thomas|     M|       Anchorage, AK|             paid|
-        |  Margaux|     Smith|     F|Atlanta-Sandy Spr...|             free|
-        +---------+----------+------+--------------------+-----------------+
+   ```bash
+   +---------+----------+------+--------------------+-----------------+
+   |firstname|  lastname|gender|            location|subscription_type|
+   +---------+----------+------+--------------------+-----------------+
+   | Annalyse|Montgomery|     F|  Killeen-Temple, TX|             free|
+   |   Dylann|    Thomas|     M|       Anchorage, AK|             paid|
+   |     Liam|     Watts|     M|New York-Newark-J...|             paid|
+   |     Tess|  Townsend|     F|Nashville-Davidso...|             free|
+   |  Margaux|     Smith|     F|Atlanta-Sandy Spr...|             free|
+   |     Alan|     Morse|     M|Chicago-Napervill...|             paid|
+   |Gabriella|   Shelton|     F|San Jose-Sunnyval...|             free|
+   |   Elijah|  Williams|     M|Detroit-Warren-De...|             paid|
+   |  Margaux|     Smith|     F|Atlanta-Sandy Spr...|             free|
+   |     Tess|  Townsend|     F|Nashville-Davidso...|             free|
+   |     Alan|     Morse|     M|Chicago-Napervill...|             paid|
+   |     Liam|     Watts|     M|New York-Newark-J...|             paid|
+   |     Liam|     Watts|     M|New York-Newark-J...|             paid|
+   |   Dylann|    Thomas|     M|       Anchorage, AK|             paid|
+   |     Alan|     Morse|     M|Chicago-Napervill...|             paid|
+   |   Elijah|  Williams|     M|Detroit-Warren-De...|             paid|
+   |  Margaux|     Smith|     F|Atlanta-Sandy Spr...|             free|
+   |     Alan|     Morse|     M|Chicago-Napervill...|             paid|
+   |   Dylann|    Thomas|     M|       Anchorage, AK|             paid|
+   |  Margaux|     Smith|     F|Atlanta-Sandy Spr...|             free|
+   +---------+----------+------+--------------------+-----------------+
+   ```
 
 ## <a name="load-data-into-azure-sql-data-warehouse"></a>Gegevens laden in Azure SQL Data Warehouse
 
-In deze sectie uploadt u de getransformeerde gegevens naar Azure SQL Data Warehouse. Met de Azure SQL Data Warehouse-connector voor Azure Databricks kunt u een dataframe rechtstreeks uploaden als tabel in SQL Data Warehouse.
+In deze sectie uploadt u de getransformeerde gegevens naar Azure SQL Data Warehouse. Gebruik de Azure SQL Data Warehouse-connector voor Azure Databricks om een dataframe rechtstreeks als een tabel in een SQL-datawarehouse te uploaden.
 
-Zoals eerder vermeld, maakt de SQL Data Warehouse-connector gebruik van Azure Blob Storage als een tijdelijke opslaglocatie voor het uploaden van gegevens tussen Azure Databricks en Azure SQL Data Warehouse. U begint met het opgeven van de configuratie om verbinding te maken met het opslagaccount. U moet het account al hebben gemaakt als onderdeel van de vereisten voor dit artikel.
+Zoals eerder vermeld, maakt de SQL Data Warehouse-connector gebruik van Azure Blob Storage als tijdelijke opslag voor het uploaden van gegevens tussen Azure Databricks en Azure SQL Data Warehouse. U begint met het opgeven van de configuratie om verbinding te maken met het opslagaccount. U moet het account al hebben gemaakt als onderdeel van de vereisten voor dit artikel.
 
-1. Geef de configuratie op voor toegang tot het Azure Storage-account vanuit Azure Databricks. Als u de URL voor de blob-opslag vanuit de portal kopiëren, moet u *https://* van het begin verwijderen.
+1. Geef de configuratie op voor toegang tot het Azure Storage-account vanuit Azure Databricks.
 
-        val blobStorage = "<STORAGE ACCOUNT NAME>.blob.core.windows.net"
-        val blobContainer = "<CONTAINER NAME>"
-        val blobAccessKey = "<ACCESS KEY>"
+   ```scala
+   val blobStorage = "<blob-storage-account-name>.blob.core.windows.net"
+   val blobContainer = "<blob-container-name>"
+   val blobAccessKey =  "<access-key>"
+   ```
 
 2. Geef een tijdelijke map op die wordt gebruikt tijdens het verplaatsen van gegevens tussen Azure Databricks en Azure SQL Data Warehouse.
 
-        val tempDir = "wasbs://" + blobContainer + "@" + blobStorage +"/tempDirs"
+   ```scala
+   val tempDir = "wasbs://" + blobContainer + "@" + blobStorage +"/tempDirs"
+   ```
 
-3. Voer het volgende codefragment uit om toegangssleutels voor Azure Blob-opslag op te slaan in de configuratie. Daardoor hoeft u de toegangssleutel niet als gewone tekst in het notitieblok te bewaren.
+3. Voer het volgende codefragment uit om toegangssleutels voor Azure Blob-opslag op te slaan in de configuratie. Deze actie zorgt ervoor dat u de toegangssleutel niet als gewone tekst in het notebook hoeft te bewaren.
 
-        val acntInfo = "fs.azure.account.key."+ blobStorage
-        sc.hadoopConfiguration.set(acntInfo, blobAccessKey)
+   ```scala
+   val acntInfo = "fs.azure.account.key."+ blobStorage
+   sc.hadoopConfiguration.set(acntInfo, blobAccessKey)
+   ```
 
-4. Geef de waarden op om verbinding te maken met de Azure SQL Data Warehouse-instantie. U moet een SQL-datawarehouse hebben gemaakt als onderdeel van de vereisten.
+4. Geef de waarden op om verbinding te maken met de Azure SQL Data Warehouse-instantie. U moet als vereiste een SQL-datawarehouse hebben gemaakt.
 
-        //SQL Data Warehouse related settings
-        val dwDatabase = "<DATABASE NAME>"
-        val dwServer = "<DATABASE SERVER NAME>"
-        val dwUser = "<USER NAME>"
-        val dwPass = "<PASSWORD>"
-        val dwJdbcPort = "1433"
-        val dwJdbcExtraOptions = "encrypt=true;trustServerCertificate=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;"
-        val sqlDwUrl = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass + ";$dwJdbcExtraOptions"
-        val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
+   ```scala
+   //SQL Data Warehouse related settings
+   val dwDatabase = "<database-name>"
+   val dwServer = "<database-server-name>"
+   val dwUser = "<user-name>"
+   val dwPass = "<password>"
+   val dwJdbcPort =  "1433"
+   val dwJdbcExtraOptions = "encrypt=true;trustServerCertificate=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;"
+   val sqlDwUrl = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass + ";$dwJdbcExtraOptions"
+   val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
+   ```
 
-5. Voer het volgende codefragment uit om het getransformeerde dataframe, **renamedColumnsDf**, als tabel te laden in SQL Data Warehouse. Met dit fragment wordt een tabel met de naam **SampleTable** gemaakt in de SQL-database. Houd er rekening mee dat Azure SQL DW een hoofdsleutel vereist. U kunt een hoofdsleutel maken door de opdracht "CREATE MASTER KEY;" in SQL Server Management Studio uit te voeren.
+5. Voer het volgende codefragment uit om het getransformeerde dataframe, **renamedColumnsDF**, als een tabel te laden in een SQL-datawarehouse. Met dit fragment wordt een tabel met de naam **SampleTable** gemaakt in de SQL-database.
 
-        spark.conf.set(
-          "spark.sql.parquet.writeLegacyFormat",
-          "true")
-    
-        renamedColumnsDf.write
-            .format("com.databricks.spark.sqldw")
-            .option("url", sqlDwUrlSmall)
-            .option("dbtable", "SampleTable")
-            .option( "forward_spark_azure_storage_credentials","True")
-            .option("tempdir", tempDir)
-            .mode("overwrite")
-            .save()
+   ```scala
+   spark.conf.set(
+       "spark.sql.parquet.writeLegacyFormat",
+       "true")
 
-6. Maak verbinding met de SQL-database en controleer of u de **SampleTable** ziet.
+   renamedColumnsDF.write
+       .format("com.databricks.spark.sqldw")
+       .option("url", sqlDwUrlSmall) 
+       .option("dbtable", "SampleTable")
+       .option( "forward_spark_azure_storage_credentials","True")
+       .option("tempdir", tempDir)
+       .mode("overwrite")
+       .save()
+   ```
 
-    ![Voorbeeldtabel verifiëren](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table.png "Voorbeeldtabel verifiëren")
+6. Maak verbinding met de SQL-database en controleer of u de database **SampleTable** ziet.
 
-7. Voer een Select-query uit om de inhoud van de tabel te controleren. Deze moet dezelfde gegevens bevatten als het **renamedColumnsDf**-dataframe.
+   ![De voorbeeldtabel verifiëren](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table.png "Voorbeeldtabel verifiëren")
 
-    ![Inhoud van voorbeeldtabel controleren](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table-content.png "Inhoud van voorbeeldtabel controleren")
+7. Voer een Select-query uit om de inhoud van de tabel te controleren. De tabel moet dezelfde gegevens bevatten als het dataframe **renamedColumnsDF**.
+
+    ![De inhoud van de voorbeeldtabel controleren](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table-content.png "De inhoud van de voorbeeldtabel controleren")
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Nadat u de zelfstudie hebt voltooid, kunt u het cluster beëindigen. Dit doet u door vanuit de Azure Databricks-werkruimte in het linkerdeelvenster **Clusters** te selecteren. Voor het cluster dat u wilt beëindigen, plaatst u de cursor op het weglatingsteken onder de kolom **Acties** en selecteert u het **beëindigingspictogram**.
+Nadat u de zelfstudie hebt voltooid, kunt u het cluster beëindigen. Selecteer links **Clusters** vanuit de Azure Databricks-werkruimte. Als u het cluster wilt beëindigen, wijst u onder **Acties** het beletselteken (...) aan en selecteert u het pictogram **Beëindigen**.
 
 ![Een Databricks-cluster stopzetten](./media/databricks-extract-load-sql-data-warehouse/terminate-databricks-cluster.png "Een Databricks-cluster stopzetten")
 
-Als u het cluster niet handmatig beëindigt, stopt het cluster automatisch, op voorwaarde dat het selectievakje **Beëindigen na \_\_ minuten inactiviteit** is ingeschakeld tijdens het maken van het cluster. In dat geval stopt het cluster automatisch als het gedurende de opgegeven tijd inactief is geweest.
+Als u het cluster niet handmatig beëindigt, stopt het cluster automatisch, op voorwaarde dat het selectievakje **Beëindigen na \_\_ minuten van inactiviteit** is ingeschakeld tijdens het maken van het cluster. In dat geval stopt het cluster automatisch als het gedurende de opgegeven tijd inactief is geweest.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
-> * Een Azure Databricks-werkruimte maken
+> * Een Azure Databricks-service maken
 > * Een Apache Spark-cluster in Azure Databricks maken
-> * Een Azure Data Lake Store-account maken
-> * Gegevens uploaden naar Azure Data Lake Store
 > * Een notitieblok maken in Azure Databricks
-> * Gegevens ophalen uit Data Lake Store
+> * Gegevens extraheren uit een Data Lake Storage Gen2-account
 > * Gegevens transformeren in Azure Databricks
 > * Gegevens laden in Azure SQL Data Warehouse
 

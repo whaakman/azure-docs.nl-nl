@@ -5,16 +5,16 @@ services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 12/07/2018
+ms.date: 02/02/2019
 ms.topic: tutorial
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 5790e71d2b5a5b20224c3c6d75b079b0458dba16
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 2a050f8bc5d2437c7cdbadcf3296c2ef6d4659dc
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461584"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728636"
 ---
 # <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Zelfstudie: Aangepaste gebeurtenissen naar Azure Relay Hybrid Connections routeren met behulp van Azure CLI en Event Grid
 
@@ -26,7 +26,8 @@ In dit artikel wordt ervan uitgegaan dat u al een hybride verbinding en een list
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
+> [!NOTE]
+> Als u werkt met Azure CLI op uw lokale computer, gebruikt u Azure CLI versie 2.0.56 of hoger. Zie [De Azure CLI installeren](/cli/azure/install-azure-cli) voor instructies over het installeren van de meest recente versie van Azure CLI.
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -45,10 +46,6 @@ az group create --name gridResourceGroup --location westus2
 Een Event Grid-onderwerp biedt een door de gebruiker gedefinieerd eindpunt waarop u de gebeurtenissen kunt posten. In het volgende voorbeeld wordt het aangepaste onderwerp in uw resourcegroep gemaakt. Vervang `<topic_name>` door een unieke naam voor uw aangepaste onderwerp. De naam van het Event Grid-onderwerp moet uniek zijn omdat deze wordt vertegenwoordigd door een DNS-vermelding.
 
 ```azurecli-interactive
-# if you have not already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 ```
 

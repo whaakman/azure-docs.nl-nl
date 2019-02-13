@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f9b09982e5552a85ce5800059b114f30b5f4bfad
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8fede6907b2b5fac475758b1bb8b1493b86ed408
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178576"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756543"
 ---
 # <a name="tutorial-create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Zelfstudie: Een toepassingsgateway maken waarop meerdere websites worden gehost met Azure CLI
 
@@ -44,7 +44,7 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Maak een resourcegroep met de opdracht [az group create](/cli/azure/group#create).
+Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Maak een resourcegroep met de opdracht [az group create](/cli/azure/group).
 
 In het volgende voorbeeld wordt de resourcegroep *myResourceGroupAG* gemaakt op de locatie *eastus*.
 
@@ -78,7 +78,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>De toepassingsgateway maken
 
-U kunt [az network application-gateway create](/cli/azure/network/application-gateway#create) gebruiken om de toepassingsgateway te maken. Als u een toepassingsgateway met de Azure CLI maakt, geeft u configuratiegegevens op, zoals capaciteit, SKU en HTTP-instellingen. De toepassingsgateway wordt toegewezen aan *myAGSubnet* en *myAGPublicIPAddress*, die u zojuist hebt gemaakt. 
+U kunt [az network application-gateway create](/cli/azure/network/application-gateway#az-network-application-gateway-create) gebruiken om de toepassingsgateway te maken. Als u een toepassingsgateway met de Azure CLI maakt, geeft u configuratiegegevens op, zoals capaciteit, SKU en HTTP-instellingen. De toepassingsgateway wordt toegewezen aan *myAGSubnet* en *myAGPublicIPAddress*, die u zojuist hebt gemaakt. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -106,8 +106,7 @@ Het kan enkele minuten duren voordat de toepassingsgateway is gemaakt. Nadat de 
 
 ### <a name="add-the-backend-pools"></a>Back-endpools toevoegen
 
-Voeg de back-endpools toe die de back-endservers moeten bevatten met [az network application-gateway address-pool create](/cli/azure/network/application-gatewaywork_application_gateway_address_pool_create).
-
+Voeg de back-endpools toe die de back-endservers moeten bevatten met [az network application-gateway address-pool create](/cli/azure/network/application-gateway/address-pool#az-network-application-gateway-address-pool-create)
 ```azurecli-interactive
 az network application-gateway address-pool create \
   --gateway-name myAppGateway \
@@ -122,7 +121,7 @@ az network application-gateway address-pool create \
 
 ### <a name="add-backend-listeners"></a>Back-endlisteners toevoegen
 
-Voeg de back-endlisteners, die voor het omleiden van verkeer nodig zijn, toe met [az network application-gateway http-listener create](/cli/azure/network/application-gateway).
+Voeg de back-endlisteners, die voor het omleiden van verkeer nodig zijn, toe met [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create).
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -146,7 +145,7 @@ az network application-gateway http-listener create \
 
 Regels worden afgehandeld in de volgorde waarop ze staan vermeld. Verkeer wordt omgeleid volgens de eerste regel die overeenkomt, ongeacht de specificiteit. Als u bijvoorbeeld een regel hebt die van een basislistener gebruikmaakt en een regel die via dezelfde poort van een listener voor meerdere sites gebruikmaakt, moet de regel voor de listener voor meerdere sites vermeld worden vóór de regel met de basislistener, opdat de regel voor meerdere sites kan functioneren zoals het hoort. 
 
-In dit voorbeeld maakt u twee nieuwe regels en verwijdert u de standaardregel die is gemaakt toen u de toepassingsgateway maakte. U kunt de regel toevoegen met [az network application-gateway rule create](/cli/azure/network/application-gateway).
+In dit voorbeeld maakt u twee nieuwe regels en verwijdert u de standaardregel die is gemaakt toen u de toepassingsgateway maakte. U kunt de regel toevoegen met [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -223,7 +222,7 @@ done
 
 ## <a name="create-a-cname-record-in-your-domain"></a>Een CNAME-record in uw domein maken
 
-Als de toepassingsgateway met het bijbehorende IP-adres is gemaakt, kunt u het DNS-adres ophalen en dit gebruiken om een CNAME-record in uw domein te maken. Gebruik [az network public-ip show](/cli/azure/network/public-ipwork_public_ip_show) om het DNS-adres van de toepassingsgateway op te halen. Kopieer de waarde *fqdn* van DNSSettings en gebruik deze als de waarde van de CNAME-record die u maakt. 
+Als de toepassingsgateway met het bijbehorende IP-adres is gemaakt, kunt u het DNS-adres ophalen en dit gebruiken om een CNAME-record in uw domein te maken. Gebruik [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) om het DNS-adres van de toepassingsgateway op te halen. Kopieer de waarde *fqdn* van DNSSettings en gebruik deze als de waarde van de CNAME-record die u maakt. 
 
 ```azurecli-interactive
 az network public-ip show \

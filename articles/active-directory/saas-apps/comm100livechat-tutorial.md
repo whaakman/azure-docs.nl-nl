@@ -1,296 +1,276 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Comm100 Live Chat | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Comm100 Live Chat.
+description: Leer hoe u eenmalige aanmelding configureert tussen Azure Active Directory en Comm100 Live Chat.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 0340d7f3-ab54-49ef-b77c-62a0efd5d49c
-ms.service: active-directory
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/09/2018
+ms.topic: tutorial
+ms.date: 01/22/2019
 ms.author: jeedes
-ms.openlocfilehash: b85162c8392e8ecdb08a3ed04ff5b9de835808a1
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
-ms.translationtype: MT
+ms.openlocfilehash: 1e0fbf7678ddac76d1a31c4bde4d75545b429add
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42057191"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700688"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-comm100-live-chat"></a>Zelfstudie: Azure Active Directory-integratie met Comm100 Live Chat
 
-In deze zelfstudie leert u hoe u Comm100 Live Chat integreert met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Comm100 Live Chat kunt integreren met Azure Active Directory (Azure AD).
+De integratie van Comm100 Live Chat met Azure AD biedt de volgende voordelen:
 
-Comm100 Live Chat integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD bepalen wie er toegang heeft tot Comm100 Live Chat.
+* U kunt instellen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Comm100 Live Chat (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot Comm100 Live Chat heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Comm100 Live Chat (Single Sign-On) inschakelen met hun Azure AD-accounts.
-- U kunt uw accounts in één centrale locatie - Azure portal beheren.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Comm100 Live Chat, moet u de volgende items:
+Voor het configureren van Azure AD-integratie met Comm100 Live Chat hebt u het volgende nodig:
 
-- Een Azure AD-abonnement
-- Een Comm100 Live Chat eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op Comm100 Live Chat waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Uit de galerie toe te voegen Comm100 Live Chat
-2. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-comm100-live-chat-from-the-gallery"></a>Uit de galerie toe te voegen Comm100 Live Chat
-Voor het configureren van de integratie van Comm100 Live Chat in Azure AD, moet u Comm100 Live Chat toevoegen uit de galerie aan de lijst met beheerde SaaS-apps.
+* Comm100 Live Chat ondersteunt door **SP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt toevoegen Comm100 Live Chat uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-comm100-live-chat-from-the-gallery"></a>Comm100 Live Chat toevoegen vanuit de galerie
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Om de integratie van Comm100 Live Chat in Azure AD te configureren, moet u Comm100 Live Chat vanuit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
 
-    ![De Azure Active Directory-knop][1]
+**Ga als volgt te werk om Comm100 Live Chat vanuit de galerie toe te voegen:**
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![De blade Enterprise-toepassingen][2]
-    
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![De knop nieuwe toepassing][3]
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-4. Typ in het zoekvak **Comm100 Live Chat**, selecteer **Comm100 Live Chat** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![Comm100 Live Chat in de lijst met resultaten](./media/comm100livechat-tutorial/tutorial_comm100livechat_addfromgallery.png)
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Comm100 Live Chat op basis van een testgebruiker 'Julia steen' genoemd.
+4. Typ **Comm100 Live Chat** in het zoekvak, selecteer **Comm100 Live Chat** in het deelvenster met resultaten en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Comm100 Live Chat is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Comm100 Live Chat tot stand worden gebracht.
+     ![Comm100 Live Chat toevoegen vanuit de galerie](common/search-new-app.png)
 
-Als u wilt configureren en testen van Azure AD eenmalige aanmelding met Comm100 Live Chat, u nodig hebt voor de volgende bouwstenen:
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker Comm100 Live Chat](#create-a-comm100-live-chat-test-user)**  : als u wilt een equivalent van Britta Simon in Comm100 Live Chat die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+In dit gedeelte configureert en test u eenmalige aanmelding van Azure AD met Comm100 Live Chat op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Comm100 Live Chat tot stand is gebracht.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+Als u eenmalige aanmelding van Azure AD met Comm100 Live Chat wilt configureren en testen, moet u de volgende procedures uitvoeren:
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Comm100 Live Chat.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding voor Comm100 Live Chat configureren](#configure-comm100-live-chat-single-sign-on)**: de instellingen voor eenmalige aanmelding aan de clientzijde configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker voor Comm100 Live Chat maken](#create-comm100-live-chat-test-user)**: als u een tegenhanger van Britta Simon in Comm100 Live Chat wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Comm100 Live Chat, moet u de volgende stappen uitvoeren:**
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-1. In de Azure-portal op de **Comm100 Live Chat** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configureren voor Comm100 Live Chat:
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/comm100livechat-tutorial/tutorial_comm100livechat_samlbase.png)
+1. Ga in de [Azure-portal](https://portal.azure.com/) naar de pagina van de integratie van **Comm100 Live Chat** en selecteer **Eenmalige aanmelding**.
 
-3. Op de **Comm100 Live Chat domein en URL's** sectie, voert u de volgende stappen uit:
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-    ![Comm100 Live Chat domein en URL's, eenmalige aanmelding informatie](./media/comm100livechat-tutorial/tutorial_comm100livechat_url.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-    In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<SUBDOMAIN>.comm100.com/AdminManage/LoginSSO.aspx?siteId=<SITEID>`
-    
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
+
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
+
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
+
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
+
+    ![Gegevens van domein en URL's voor eenmalige aanmelding bij Comm100 Live Chat](common/sp-signonurl.png)
+
+    In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<SUBDOMAIN>.comm100.com/AdminManage/LoginSSO.aspx?siteId=<SITEID>`
+
     > [!NOTE] 
-    > De aanmeldings-URL-waarde is niet echt. U kunt de aanmeldings-URL-waarde wordt bijgewerkt met de werkelijke aanmeldings-URL, die later in de zelfstudie wordt uitgelegd.
+    > De waarde voor de aanmeldings-URL is niet echt. Vervang de waarde voor de aanmeldings-URL door de echte URL. Dit wordt later in de zelfstudie uitgelegd.
 
-4. Toepassing Comm100 Live Chat wordt verwacht dat de SAML-asserties ondertekend naar specifieke kenmerken bevatten. Configureer de volgende kenmerken voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de **gebruikerskenmerken** sectie op de pagina van de toepassing-integratie. De volgende Schermafbeelding toont een voorbeeld voor deze.
+5. De toepassing Comm100 Live Chat verwacht dat de SAML-asserties een bepaalde indeling hebben. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
 
-    ![Eenmalige aanmelding configureren](./media/comm100livechat-tutorial/tutorial_attribute_03.png)
-    
-5. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de bovenstaande afbeelding en voer de volgende stappen uit:
-    
-    |  Naam kenmerk  | Waarde kenmerk |
-    | --------------- | -------------------- |    
-    |   e-mailen    | User.mail |
+    ![image](common/edit-attribute.png)
 
-    a. Klik op **kenmerk toevoegen** openen de **kenmerk toevoegen** dialoogvenster.
+6. Bewerk in het gedeelte **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** de claims met het **pictogram Bewerken** of voeg de claims toe door met **Nieuwe claim toevoegen** het kenmerk van het SAML-token te configureren, zoals wordt weergegeven in de bovenstaande afbeelding. Hierna voert u de volgende stappen uit: 
 
-    ![Eenmalige aanmelding configureren](./media/comm100livechat-tutorial/tutorial_attribute_04.png)
+    | Naam |  Bronkenmerk|
+    | ---------------| --------------- |
+    |   e-mail    | user.mail |
 
-    ![Eenmalige aanmelding configureren](./media/comm100livechat-tutorial/tutorial_attribute_05.png)
-    
-    b. In de **naam** tekstvak typt u de naam van het kenmerk wordt weergegeven voor die rij.
-    
-    c. Uit de **waarde** weergeven, typt u de waarde van het kenmerk wordt weergegeven voor die rij.
+    a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 
-    d. Laat de **Namespace** leeg.
-    
-    e. Klik op **OK**.
+    ![image](common/new-save-attribute.png)
 
-6. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
+    ![image](common/new-attribute-details.png)
 
-    ![De downloadkoppeling certificaat](./media/comm100livechat-tutorial/tutorial_comm100livechat_certificate.png) 
+    b. In het tekstvak **Naam** typt u de naam van het kenmerk die voor die rij wordt weergegeven.
 
-7. Klik op **opslaan** knop.
+    c. Laat **Naamruimte** leeg.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/comm100livechat-tutorial/tutorial_general_400.png)
+    d. Selecteer Bron bij **Kenmerk**.
 
-8. Op de **Comm100 Live Chat configuratie** sectie, klikt u op **configureren Comm100 Live Chat** openen **aanmelding configureren** venster. Kopiëren de **afmelding URL's en SAML Single Sign-On Service** uit de **Naslaggids sectie.**
+    e. Typ de kenmerkwaarde voor die rij in de lijst met **bronkenmerken**.
 
-    ![Configuratie van Comm100 Live Chat](./media/comm100livechat-tutorial/tutorial_comm100livechat_configure.png)
+    f. Klik op **OK**.
 
-9. In een ander browservenster, meld u aan bij Comm100 Live Chat als een beveiligingsbeheerder.
+    g. Klik op **Opslaan**.
 
-10. Op boven aan de rechterkant van de pagina, klikt u op **Mijn Account**.
+4. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
-    ![Myaccount Comm100 Live Chat](./media/comm100livechat-tutorial/tutorial_comm100livechat_account.png)
+    ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
-11. Aan de linkerkant van het menu, klikt u op **Security** en klik vervolgens op **Agent Single Sign-On**.
+6. Kopieer in de sectie **Comm100 Live Chat instellen** de juiste URL('s) op basis van uw behoeften.
 
-    ![Beveiliging Comm100 Live Chat](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-12. Op de **Agent Single Sign-On** pagina, voert u de volgende stappen uit:
+    a. Aanmeldings-URL
 
-    ![Beveiliging Comm100 Live Chat](./media/comm100livechat-tutorial/tutorial_comm100livechat_singlesignon.png)
+    b. Azure AD-id
 
-    a. De eerste koppeling in de gemarkeerde Kopieer en plak deze in **aanmeldings-URL** -tekstvak in **Comm100 Live Chat domein en URL's** sectie in Azure portal.
+    c. Afmeldings-URL
 
-    b. In de **URL voor SAML SSO-** tekstvak, plak de waarde van **Single Sign-On Service URL voor SAML**, die u hebt gekopieerd vanuit Azure portal.
+### <a name="configure-comm100-live-chat-single-sign-on"></a>Eenmalige aanmelding voor Comm100 Live Chat configureren
 
-    c. In de **externe URL voor afmelden** tekstvak, plak de waarde van **afmelding URL**, die u hebt gekopieerd vanuit Azure portal.
+9. Meld u in een ander browservenster als beveiligingsbeheerder aan bij Comm100 Live Chat.
 
-    d. Klik op **kiest u een bestand** voor het uploaden van de base-64 gecodeerde certificaat dat u hebt gedownload vanuit Azure portal, in de **certificaat**.
+10. Klik rechtsboven op **My Account**.
 
-    e. Klik op **wijzigingen opslaan**
+    ![Comm100 Live Chat myaccount](./media/comm100livechat-tutorial/tutorial_comm100livechat_account.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+11. Klik aan de linkerkant op **Security** en vervolgens op **Agent Single Sign-On**.
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+    ![Comm100 Live Chat security](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
 
-   ![Maak een testgebruiker Azure AD][100]
+12. Voer op de pagina **Agent Single Sign-On** de volgende stappen uit:
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![Comm100 Live Chat security](./media/comm100livechat-tutorial/tutorial_comm100livechat_singlesignon.png)
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+    a. Kopieer de eerste gemarkeerde koppeling en plak deze in het tekstvak **Aanmeldings-URL** in het gedeelte **Domein en URL's Comm100 Live Chat** in de Azure-portal.
 
-    ![De Azure Active Directory-knop](./media/comm100livechat-tutorial/create_aaduser_01.png)
+    b. Plak in het tekstvak **SAML SSO URL** de waarde van **Aanmeldings-URL** die u hebt gekopieerd uit de Azure-portal.
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+    c. Plak in het tekstvak **Remote Logout URL** de waarde van **Afmeldings-URL** die u hebt gekopieerd uit de Azure-portal.
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/comm100livechat-tutorial/create_aaduser_02.png)
+    d. Klik op **Choose a File** om het met base-64 gecodeerde certificaat dat u hebt gedownload uit de Azure-portal te uploaden naar het **certificaat**.
 
-3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+    e. Klik op **Save Changes**.
 
-    ![De knop toevoegen](./media/comm100livechat-tutorial/create_aaduser_03.png)
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-    ![Het dialoogvenster gebruiker](./media/comm100livechat-tutorial/create_aaduser_04.png)
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-    a. In de **naam** in het vak **BrittaSimon**.
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    ![Knop Nieuwe gebruiker](common/new-user.png)
+
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
+
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
+
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
+
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="create-a-comm100-live-chat-test-user"></a>Maak een testgebruiker Comm100 Live Chat
-
-Als u wilt dat Azure AD-gebruikers zich aanmelden bij Comm100 Live Chat, moeten ze worden ingericht voor het Comm100 Live Chat. In Comm100 Live Chat is inrichten een handmatige taak.
-
-**Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:**
-
-1. Meld u aan bij Comm100 Live Chat als een beveiligingsbeheerder.
-
-2. Op boven aan de rechterkant van de pagina, klikt u op **Mijn Account**.
-
-    ![Myaccount Comm100 Live Chat](./media/comm100livechat-tutorial/tutorial_comm100livechat_account.png)
-
-3. Aan de linkerkant van het menu, klikt u op **Agents** en klik vervolgens op **nieuwe Agent**.
-
-    ![Agent Comm100 Live Chat](./media/comm100livechat-tutorial/tutorial_comm100livechat_agent.png)
-
-4. Op de **nieuwe Agent** pagina, voert u de volgende stappen uit:
-
-    ![Nieuwe agent Comm100 Live Chat](./media/comm100livechat-tutorial/tutorial_comm100livechat_newagent.png)
-
-    a. a. In **e** tekst vak, voer het e-mailadres van gebruiker, zoals **Brittasimon@contoso.com**.
-
-    b. In **voornaam** tekst voert u de voornaam van de gebruiker, zoals **Julia**.
-
-    c. In **achternaam** tekst voert u de achternaam van de gebruiker, zoals **simon**.
-
-    d. In de **weergavenaam** tekstvak, voer de weergavenaam van de gebruiker, zoals **Julia steen**
-
-    e. In de **wachtwoord** tekstvak typt u het wachtwoord.
-
-    f. Klik op **Opslaan**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Comm100 Live Chat.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Comm100 Live Chat.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer **Bedrijfstoepassingen** in de Azure-portal, selecteer **Alle toepassingen** en selecteer vervolgens **Comm100 Live Chat**.
 
-**Als u wilt toewijzen Britta Simon bij Comm100 Live Chat, moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Selecteer **Comm100 Live Chat** in de lijst met toepassingen.
 
-    ![Gebruiker toewijzen][201] 
+    ![De koppeling naar Comm100 Live Chat in de lijst met toepassingen](common/all-applications.png)
 
-2. Selecteer in de lijst met toepassingen, **Comm100 Live Chat**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De koppeling Comm100 Live Chat in de lijst met toepassingen](./media/comm100livechat-tutorial/tutorial_comm100livechat_app.png)  
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="create-comm100-live-chat-test-user"></a>Een testgebruiker voor Comm100 Live Chat maken
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+Als Azure AD-gebruikers zich mogen aanmelden bij Comm100 Live Chat, moeten ze worden ingericht voor Comm100 Live Chat. In Comm100 Live Chat is dat een handmatige taak.
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+**Als u een gebruikersaccount wilt inrichten, voert u de volgende stappen uit:**
 
-Wanneer u op de tegel Comm100 Live Chat in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Comm100 Live Chat.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md). 
+1. Meld u aan bij Comm100 Live Chat als een beveiligingsbeheerder.
+
+2. Klik rechtsboven op **My Account**.
+
+    ![Comm100 Live Chat myaccount](./media/comm100livechat-tutorial/tutorial_comm100livechat_account.png)
+
+3. Klik aan de linkerkant op **Agents** en vervolgens op **New Agent**.
+
+    ![Comm100 Live Chat-agent](./media/comm100livechat-tutorial/tutorial_comm100livechat_agent.png)
+
+4. Voer op de pagina **New Agent** de volgende stappen uit:
+
+    ![Nieuwe agent voor Comm100 Live Chat](./media/comm100livechat-tutorial/tutorial_comm100livechat_newagent.png)
+
+    a. a. Voer in het tekstvak **Email** het e-mailadres van de gebruiker in, zoals **Brittasimon@contoso.com**.
+
+    b. Voer in het tekstvak **Voornaam** de voornaam van de gebruiker in, zoals **Britta**.
+
+    c. Voer in het tekstvak **Achternaam** de achternaam van de gebruiker in, zoals **Simon**.
+
+    d. Voer in het tekstvak **Display Name** de volledige naam van de gebruiker in, zoals **Britta Simon**.
+
+    e. Typ in het tekstvak **Password** het wachtwoord.
+
+    f. Klik op **Opslaan**.
+
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
+
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+
+Wanneer u in het toegangsvenster op de tegel van Comm100 Live Chat klikt, zou u automatisch moeten worden aangemeld bij het exemplaar van Comm100 Live Chat waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/comm100livechat-tutorial/tutorial_general_01.png
-[2]: ./media/comm100livechat-tutorial/tutorial_general_02.png
-[3]: ./media/comm100livechat-tutorial/tutorial_general_03.png
-[4]: ./media/comm100livechat-tutorial/tutorial_general_04.png
-
-[100]: ./media/comm100livechat-tutorial/tutorial_general_100.png
-
-[200]: ./media/comm100livechat-tutorial/tutorial_general_200.png
-[201]: ./media/comm100livechat-tutorial/tutorial_general_201.png
-[202]: ./media/comm100livechat-tutorial/tutorial_general_202.png
-[203]: ./media/comm100livechat-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

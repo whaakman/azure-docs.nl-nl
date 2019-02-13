@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8ec180b40e52c5702495a0124bf8ae33d2dc24a1
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 66e913f6d461d2671bd217745a9d128e24c1a60c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727780"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820926"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Zelfstudie: Azure Deployment Manager gebruiken met Resource Manager-sjablonen (beperkte preview)
 
@@ -129,7 +129,7 @@ De twee versies (1.0.0.0 en 1.0.0.1) zijn voor de [implementatie van de revisie]
 
 Sjabloonartefacten worden gebruikt door de servicetopologiesjabloon, en binaire artefacten worden gebruikt door de implementatiesjabloon. Zowel de topologiesjabloon als de implementatiesjabloon definieert een Azure-resource met een artefactbron, wat een resource is die wordt gebruikt om Resource Manager te wijzen op de sjabloon en binaire artefacten die in de implementatie worden gebruikt. Ter vereenvoudiging van de zelfstudie wordt één opslagaccount gebruikt voor het opslaan van zowel de sjabloonartefacten als de binaire artefacten. Beide artefactbronnen verwijzen naar hetzelfde opslagaccount.
 
-1. Een Azure-opslagaccount maken. Zie [Snelstart: Blobs uploaden, downloaden en vermelden met behulp van Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) voor instructies.
+1. Een Azure-opslagaccount maken. Zie voor instructies [Quickstart: blobs uploaden, downloaden en vermelden met behulp van Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md).
 2. Maak een blobcontainer in het opslagaccount.
 3. Kopieer de twee mappen (binaire bestanden en sjablonen) en de inhoud van de twee mappen naar de blobcontainer. [Microsoft Azure Storage Explorer](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409) biedt ondersteuning voor slepen en neerzetten.
 4. Haal de SAS-locatie van de container op met behulp van de volgende instructies:
@@ -180,7 +180,7 @@ De sjabloon bevat de volgende parameters:
 
 ### <a name="the-variables"></a>De variabelen
 
-In de sectie met variabelen worden de namen van de resources, de Azure-locaties voor de twee services: **Service WUS** en **Service EUS**, en de artefactpaden gedefinieerd:
+In de sectie met variabelen worden de namen van de resources, de Azure-locaties voor de twee services gedefinieerd: **Service WUS** en **Service EUS**, en de artefactpaden:
 
 ![Topologiesjabloonvariabelen in de zelfstudie over Azure Deployment Manager](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-topology-template-variables.png)
 
@@ -214,9 +214,9 @@ U maakt een parameterbestand dat wordt gebruikt in combinatie met de topologiesj
 
     - **namePrefix**: voer een tekenreeks met 4-5 tekens in. Dit voorvoegsel wordt gebruikt om voor Azure unieke resourcenamen te maken.
     - **azureResourceLocation**: als u niet bekend bent met Azure-locaties, gebruikt u in deze zelfstudie **centralus**.
-    - **artifactSourceSASLocation**: voer de SAS-URI naar de hoofdmap (de blobcontainer) waar service-eenheidsjabloon- en parameterbestanden worden opgeslagen voor implementatie in.  Zie [De artefacten voorbereiden](#prepare-the-artifacts).
+    - **artifactSourceSASLocation**: de SAS-URI naar de hoofdmap (de blobcontainer) waar service-eenheidsjabloon- en parameterbestanden worden opgeslagen voor implementatie.  Zie [De artefacten voorbereiden](#prepare-the-artifacts).
     - **templateArtifactRoot**: gebruik in deze zelfstudie **templates/1.0.0.0**, tenzij u de mapstructuur van de artefacten wijzigt.
-    - **targetScriptionID**: voer uw Azure-abonnements-id in.
+    - **targetScriptionID**: voer de id van uw Azure-abonnement in.
 
 > [!IMPORTANT]
 > De topologiesjabloon en de implementatiesjabloon delen enkele algemene parameters. Deze parameters moeten dezelfde waarden hebben. Deze parameters zijn: **namePrefix**, **azureResourceLocation** en **artifactSourceSASLocation** (beide artefactbronnen delen hetzelfde opslagaccount in deze zelfstudie).
@@ -234,7 +234,7 @@ De sjabloon bevat de volgende parameters:
 - **namePrefix**: dit voorvoegsel wordt gebruikt voor het maken van de namen van de Deployment Manager-resources. Wanneer u bijvoorbeeld het voorvoegsel 'jdoe' gebruikt, is de naam van de implementatie **jdoe**Rollout.  De namen worden gedefinieerd in de sectie met variabelen van de sjabloon.
 - **azureResourcelocation**: ter vereenvoudiging van de zelfstudie delen alle Deployment Manager-resources deze locatie, tenzij anders aangegeven. Momenteel kunnen Azure Deployment Manager-resources, met inbegrip van de implementatie, alleen worden gemaakt in **US - centraal** of **US - oost 2**.
 - **artifactSourceSASLocation**: de SAS-URI naar de hoofdmap (de blobcontainer) waar service-eenheidsjabloon- en parameterbestanden worden opgeslagen voor implementatie.  Zie [De artefacten voorbereiden](#prepare-the-artifacts).
-- **binaryArtifactRoot**: de standaardwaarde is **binaries/1.0.0.0**. Wijzig deze waarde niet tenzij u de mapstructuur wilt wijzigen zoals wordt uitgelegd in [De artefacten voorbereiden](#prepare-the-artifacts). In deze zelfstudie worden relatieve paden gebruikt.  Het volledige pad wordt samengesteld door het samenvoegen van **artifactSourceSASLocation**, **binaryArtifactRoot** en de **deployPackageUri** die is opgegeven in CreateWebApplicationParameters.json.  Zie [De artefacten voorbereiden](#prepare-the-artifacts).
+- **binaryArtifactRoot**:  de standaardwaarde is **binaries/1.0.0.0**. Wijzig deze waarde niet tenzij u de mapstructuur wilt wijzigen zoals wordt uitgelegd in [De artefacten voorbereiden](#prepare-the-artifacts). In deze zelfstudie worden relatieve paden gebruikt.  Het volledige pad wordt samengesteld door het samenvoegen van **artifactSourceSASLocation**, **binaryArtifactRoot** en de **deployPackageUri** die is opgegeven in CreateWebApplicationParameters.json.  Zie [De artefacten voorbereiden](#prepare-the-artifacts).
 - **managedIdentityID**: de door de gebruiker toegewezen beheerde identiteit die de implementatieacties uitvoert. Zie [Door de gebruiker toegewezen beheerde identiteit maken](#create-the-user-assigned-managed-identity).
 
 ### <a name="the-variables"></a>De variabelen
@@ -274,8 +274,8 @@ U maakt een parameterbestand dat wordt gebruikt in combinatie met de implementat
 2. Vul de parameterwaarden in:
 
     - **namePrefix**: voer een tekenreeks met 4-5 tekens in. Dit voorvoegsel wordt gebruikt om voor Azure unieke resourcenamen te maken.
-    - **azureResourceLocation**: momenteel kunnen Azure Deployment Manager-resources, met inbegrip van de implementatie, alleen worden gemaakt in **VS-midden** of **VS-oost 2**.
-    - **artifactSourceSASLocation**: voer de SAS-URI naar de hoofdmap (de blobcontainer) waar service-eenheidsjabloon- en parameterbestanden worden opgeslagen voor implementatie in.  Zie [De artefacten voorbereiden](#prepare-the-artifacts).
+    - **azureResourceLocation**: Momenteel kunnen Azure Deployment Manager-resources, met inbegrip van de implementatie, alleen worden gemaakt in **US - centraal** of **US - oost 2**.
+    - **artifactSourceSASLocation**: de SAS-URI naar de hoofdmap (de blobcontainer) waar service-eenheidsjabloon- en parameterbestanden worden opgeslagen voor implementatie.  Zie [De artefacten voorbereiden](#prepare-the-artifacts).
     - **binaryArtifactRoot**: gebruik in deze zelfstudie **binaries/1.0.0.0**, tenzij u de mapstructuur van de artefacten wijzigt.
     - **managedIdentityID**: voer de door de gebruiker toegewezen beheerde identiteit in. Zie [Door de gebruiker toegewezen beheerde identiteit maken](#create-the-user-assigned-managed-identity). De syntaxis is:
 
@@ -336,7 +336,7 @@ Azure PowerShell kan worden gebruikt om de sjablonen te implementeren.
         -Name $rolloutName
     ```
 
-    De Deployment Manager PowerShell-cmdlets moeten worden geïnstalleerd voordat u deze cmdlet kunt uitvoeren. Zie [Vereisten](#prerequisite).
+    De Deployment Manager PowerShell-cmdlets moeten worden geïnstalleerd voordat u deze cmdlet kunt uitvoeren. Zie Vereisten.
 
     Het volgende voorbeeld toont de actieve status:
     

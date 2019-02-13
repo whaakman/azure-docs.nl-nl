@@ -13,12 +13,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 7d456ed76ea425f8870b2045283df5cc307d05fd
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 49a2e16d198130d1c72d36377be1d914cbe3351b
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302473"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745245"
 ---
 # <a name="create-a-data-factory-and-pipeline-using-python"></a>Een data factory en pijplijn maken met behulp van Python
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -59,7 +59,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
     pip install azure-mgmt-datafactory
     ```
 
-    De [Python-SDK voor Data Factory](https://github.com/Azure/azure-sdk-for-python) ondersteunt Python 2.7, 3.3, 3.4, 3.5 en 3.6.
+    De [Python-SDK voor Data Factory](https://github.com/Azure/azure-sdk-for-python) ondersteunt Python 2.7, 3.3, 3.4, 3.5, 3.6 en 3.7.
 
 ## <a name="create-a-data-factory-client"></a>Een data factory-client maken
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/25/2018
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 0118c17045b86c88d8d92048787a20bd7d309c0b
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0ffad78afd6acdfbcea8df970358c639706f14b8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298344"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814245"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Inleiding tot privé-Docker-containerregisters in Azure
 
@@ -32,7 +32,7 @@ Haal installatiekopieën op vanuit een Azure-containerregister en push ze naar v
 
 Ontwikkelaars kunnen ook naar een containerregister pushen als onderdeel van een ontwikkelingswerkstroom met containers. Bijvoorbeeld naar een containerregister vanuit doorlopende integratie- implementatieprogramma's als [Azure DevOps Services](https://docs.microsoft.com/azure/devops/) of [Jenkins](https://jenkins.io/).
 
-Configureer [ACR Tasks](#azure-container-registry-build) om toepassingsinstallatiekopieën automatisch opnieuw te bouwen wanneer de basisinstallatiekopieën zijn bijgewerkt. Gebruik ACR Tasks om installatiekopiebuilds te automatiseren wanneer uw team code registreert in een Git-opslagplaats.
+Configureer ACR-taken om toepassingsinstallatiekopieën automatisch opnieuw te bouwen wanneer de basisinstallatiekopieën zijn bijgewerkt. Gebruik ACR Tasks om installatiekopiebuilds te automatiseren wanneer uw team code registreert in een Git-opslagplaats.
 
 ## <a name="key-concepts"></a>Belangrijkste concepten
 

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Apache Hadoop-clusters maken met behulp van Resource Manager en gegevens opvragen met Apache Hive - Azure HDInsight'
+title: 'Snelstartgids: Apache Hadoop-clusters maken met behulp van Resource Manager en gegevens opvragen met Apache Hive - Azure HDInsight'
 description: Informatie over het maken van HDInsight-clusters en het opvragen van gegevens met Hive.
 keywords: aan de slag met hadoop, hadoop linux, hadoop quickstart, aan de slag met hive, hive quickstart
 services: hdinsight
@@ -10,18 +10,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 12/27/2018
-ms.openlocfilehash: a445f41732973dcd0053ada4aaef2458ec474830
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: a3f1720f6ce62f65c3efce420c6f297e09894b8e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913509"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812563"
 ---
-# <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-resource-manager-template"></a>Quickstart: Aan de slag met Apache Hadoop en Apache Hive in Azure HDInsight met behulp van een Resource Manager-sjabloon
+# <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-resource-manager-template"></a>Snelstartgids: Aan de slag met Apache Hadoop en Apache Hive in Azure HDInsight met behulp van een Resource Manager-sjabloon
 
 In dit artikel leert u hoe u [Apache Hadoop](https://hadoop.apache.org/)-clusters maakt in HDInsight met behulp van een Resource Manager-sjabloon en hoe u vervolgens Hive-taken uitvoert in HDInsight. De meeste Hadoop-taken zijn batchtaken. U maakt een cluster, voert enkele taken uit en verwijdert het cluster vervolgens. In dit artikel gaat u al deze drie taken uitvoeren.
 
-In deze quickstart gebruikt u Resource Manager-sjabloon voor het maken van een Hadoop-cluster in HDInsight. U kunt ook een cluster maken met behulp van [Azure Portal](apache-hadoop-linux-create-cluster-get-started-portal.md).  U kunt vergelijkbare sjablonen bekijken bij de [Azure-quickstartsjablonen](https://azure.microsoft.com/resources/templates/?term=hdinsight).
+In deze snelstart gebruikt u Resource Manager-sjabloon voor het maken van een Hadoop-cluster in HDInsight. U kunt ook een cluster maken met behulp van [Azure Portal](apache-hadoop-linux-create-cluster-get-started-portal.md).  U kunt vergelijkbare sjablonen bekijken bij de [Azure-snelstartsjablonen](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular). De sjabloonverwijzing vindt u [hier](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions).
 
 Op dit moment wordt HDInsight geleverd met [zeven verschillende clustertypen](./apache-hadoop-introduction.md#cluster-types-in-hdinsight). Elk clustertype ondersteunt een andere set onderdelen. Alle clustertypen ondersteunen Hive. Zie voor een lijst van ondersteunde onderdelen in HDInsight [Wat is er nieuw in de Hadoop-clusterversies geleverd door HDInsight?](../hdinsight-component-versioning.md)  
 
@@ -238,7 +238,7 @@ In dit artikel hebt u geleerd hoe u een HDInsight-cluster op basis van Linux maa
 Als u klaar bent om te gaan werken met uw eigen gegevens en meer wilt weten over hoe HDInsight gegevens opslaat of hoe u gegevens in HDInsight krijgt, raadpleegt u de volgende artikelen:
 
 * Zie [Azure Storage gebruiken met HDInsight](../hdinsight-hadoop-use-blob-storage.md) voor meer informatie over hoe HDInsight Azure Storage gebruikt.
-* Zie voor meer informatie over hoe u een HDInsight-cluster maakt met Data Lake Storage [Quickstart: Clusters instellen in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) voor informatie over het maken van een HDInsight-cluster met Data Lake Storage
+* Zie voor meer informatie over hoe u een HDInsight-cluster maakt met Data Lake Storage [Snelstart: Clusters instellen in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) voor informatie over het maken van een HDInsight-cluster met Data Lake Storage
 * Zie [Gegevens uploaden naar HDInsight](../hdinsight-upload-data.md) voor meer informatie over het uploaden van gegevens naar HDInsight.
 * [Azure Data Lake Storage Gen2 gebruiken met Azure HDInsight-clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
 
@@ -256,6 +256,10 @@ Als u meer informatie wilt over het maken of beheren van een HDInsight-cluster, 
 * Zie [HDInsight-clusters beheren met Apache Ambari](../hdinsight-hadoop-manage-ambari.md) voor meer informatie over het beheren van uw HDInsight-cluster op basis van Linux.
 * Zie voor meer informatie over de opties die u kunt selecteren bij het maken van een HDInsight-cluster [HDInsight op Linux maken met aangepaste opties](../hdinsight-hadoop-provision-linux-clusters.md).
 
+Voor meer informatie over het maken van een HDInsight-cluster met Azure Resource Manager-sjablonen raadpleegt u:
+
+* [Azure-snelstartsjablonen](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular).
+* [Azure-sjabloonverwijzing](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions).
 
 [1]: ../HDInsight/apache-hadoop-visual-studio-tools-get-started.md
 

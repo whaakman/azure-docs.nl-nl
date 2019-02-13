@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/30/2019
-ms.openlocfilehash: 1fe92f5632544f21506bd19a52a59ed75cabe3b3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2ea87b36d8b489abf59ac4550121369a2ddf540f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461199"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752514"
 ---
 # <a name="tutorial-secure-a-standalone-or-pooled-database"></a>Zelfstudie: Een zelfstandige of gepoolde database beveiligen
 
@@ -45,7 +45,7 @@ Zorg dat u over het volgende beschikt als u de zelfstudie wilt uitvoeren:
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - Een Azure SQL-server en -database
-  - Maak deze met [Azure-portal](sql-database-get-started-portal.md), [CLI](sql-database-cli-samples.md) of [PowerShell](sql-database-powershell-samples.md)
+  - Maak deze met [Azure-portal](sql-database-single-database-get-started.md), [CLI](sql-database-cli-samples.md) of [PowerShell](sql-database-powershell-samples.md)
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -64,7 +64,7 @@ Stel **Toegang tot Azure services toestaan** in op **UIT** voor de veiligste con
 
 ### <a name="set-up-sql-database-server-firewall-rules"></a>SQL Database-firewallregels instellen
 
-Firewallregels op serverniveau zijn van toepassing op alle databases binnen dezelfde SQL Database-server.
+IP-firewallregels op serverniveau zijn van toepassing op alle databases binnen dezelfde SQL Database-server.
 
 Stel als volgt een serverfirewallregel in:
 
@@ -231,7 +231,7 @@ Ga als volgt te werk om een beveiligde verbindingsreeks te kopiëren:
 
 ## <a name="enable-security-features"></a>Beveiligingsfuncties inschakelen
 
-Azure SQL Database biedt beveiligingsfuncties die toegankelijk zijn met behulp van de Azure-portal. Deze functies zijn beschikbaar voor zowel de database als de server, behalve gegevensmaskering, wat alleen beschikbaar is op de database. Zie voor meer informatie deze artikelen over [Advanced Data Security](sql-advanced-threat-protection.md), [controle](sql-database-auditing.md), [dynamische gegevensmaskering](sql-database-dynamic-data-masking-get-started.md) en [transparante gegevensversleuteling](transparent-data-encryption-azure-sql.md).
+Azure SQL Database biedt beveiligingsfuncties die toegankelijk zijn met behulp van de Azure-portal. Deze functies zijn beschikbaar voor zowel de database als de server, behalve gegevensmaskering, wat alleen beschikbaar is op de database. Zie voor meer informatie deze artikelen over [Advanced Data Security](sql-database-advanced-data-security.md), [controle](sql-database-auditing.md), [dynamische gegevensmaskering](sql-database-dynamic-data-masking-get-started.md) en [transparante gegevensversleuteling](transparent-data-encryption-azure-sql.md).
 
 ### <a name="advanced-data-security"></a>Advanced Data Security
 

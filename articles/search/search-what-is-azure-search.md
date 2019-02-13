@@ -1,20 +1,20 @@
 ---
 title: Wat is Azure Search-service? - Azure Search
-description: Azure Search is een volledig beheerde cloudzoekservice. Bekijk de beschrijvingen van functies, een werkstroom voor het ontwikkelen en een vergelijking van Azure Search met andere producten en lees hoe u aan de slag gaat.
+description: Azure Search is een volledig beheerde cloudzoekservice van Microsoft. Bekijk de beschrijvingen van functies, een ontwikkelingswerkstroom en een vergelijking van Azure Search met andere Microsoft-zoekproducten en lees hoe u aan de slag gaat.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 11/09/2018
+ms.date: 02/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 884a726dbc7d7f2812f4de2228ca5adaf9b223ea
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 36d65e1ffab79c8f0866d60f4a133798d25e9dea
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630398"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562790"
 ---
 # <a name="what-is-azure-search"></a>Wat is Azure Search?
 Azure Search is een SaaS-cloudoplossing (Search-as-a-Service) die ontwikkelaars API’s en hulpprogramma’s biedt waarmee ze een uitgebreide zoekervaring binnen privé- en heterogene inhoud kunnen toevoegen aan web-, mobiele en bedrijfstoepassingen. De query wordt uitgevoerd op een door de gebruiker gedefinieerde index.

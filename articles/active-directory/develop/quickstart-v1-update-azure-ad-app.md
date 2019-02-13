@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 437217bdd3cc2ae8724d6bf24134d8fe725daac7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 34d0c4054273babcc56516d290857c4ddb554bf7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093305"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819090"
 ---
 # <a name="quickstart-update-an-application-in-azure-active-directory"></a>Quickstart: Een toepassing bijwerken in Azure Active Directory
 
@@ -156,7 +156,7 @@ Bij het registreren van een toepassing in Azure Active Directory, wilt u mogelij
 Het is belangrijk de verschillen te weten tussen een toepassing met één tenant en een multitenant toepassing:  
 
 - Een toepassing met één tenant is bedoeld voor gebruik in één organisatie. Deze is doorgaans een LOB-toepassing (Line-of-business) die is geschreven door een bedrijfsontwikkelaar. Een toepassing met één tenant kan alleen worden geopend door gebruikers met een account in dezelfde tenant als de toepassingsregistratie. Als gevolg hiervan hoeft deze maar in één directory te worden ingericht.
-- Een multitenant toepassing is bedoeld voor gebruik in veel organisaties. Deze wordt ook wel aangeduid als een SaaS-toepassing (software-as-a-service) en wordt doorgaans geschreven door een onafhankelijke softwareleverancier. Multitenant toepassingen moeten worden ingericht in elke tenant waar gebruikers toegang nodig hebben. Voor andere tenants dan de regio waarin de toepassing is geregistreerd, is toestemming van de gebruiker of beheerder nodig om deze toepassingen te registreren. Houd er rekening mee dat systeemeigen clienttoepassingen standaard multitenant zijn omdat ze op het apparaat van de resource-eigenaar zijn geïnstalleerd. Zie de voorgaande sectie [Overzicht van het toestemmingsframework](#overview-of-the-consent-framework) voor meer informatie over het toestemmingsframework.
+- Een multitenant toepassing is bedoeld voor gebruik in veel organisaties. Deze wordt ook wel aangeduid als een SaaS-toepassing (software-as-a-service) en wordt doorgaans geschreven door een onafhankelijke softwareleverancier. Multitenant toepassingen moeten worden ingericht in elke tenant waar gebruikers toegang nodig hebben. Voor andere tenants dan de regio waarin de toepassing is geregistreerd, is toestemming van de gebruiker of beheerder nodig om deze toepassingen te registreren. Houd er rekening mee dat systeemeigen clienttoepassingen standaard multitenant zijn omdat ze op het apparaat van de resource-eigenaar zijn geïnstalleerd. Zie de voorgaande sectie Overzicht van het toestemmingsframework voor meer informatie over het toestemmingsframework.
 
 Het multitenant maken van een toepassing vereist zowel wijzigingen in de toepassingsregistratie als wijzigingen in de web-app zelf. In de volgende secties komen beide aan de orde.
 
@@ -184,7 +184,7 @@ Ondersteuning voor toepassingen met meerdere tenants is sterk afhankelijk van he
 Uw webtoepassing biedt mogelijk ook:
 
 - De mogelijkheid voor beheerders om 'mijn bedrijf aan te melden'. Dit, dat wordt aangeduid als 'beheerderstoestemming', biedt een beheerder de mogelijkheid toestemming te verlenen namens *alle gebruikers* in de betreffende organisatie. Alleen een gebruiker die verifieert met een account dat deel uitmaakt van de rol van Globale beheerder kan beheerderstoestemming geven; voor andere gebruikers wordt een foutbericht weergegeven.
-- Een aanmeldingsmogelijkheid voor gebruikers. Er wordt verwacht dat de gebruiker de knop 'Aanmelden' te zien krijgt waarmee de browser wordt omgeleid naar het Azure Active Directory OAuth 2.0 `/authorize`-eindpunt of een OpenID Connect `/userinfo`-eindpunt. Met behulp van deze eindpunten kan de toepassing informatie verkrijgen over de nieuwe gebruiker door de id_token te inspecteren. Na de aanmeldingsfase krijgt de gebruiker een toestemmingsprompt te zien, die vergelijkbaar is met degene die in de sectie [Overzicht van het toestemmingsframework](#overview-of-the-consent-framework) wordt getoond.
+- Een aanmeldingsmogelijkheid voor gebruikers. Er wordt verwacht dat de gebruiker de knop 'Aanmelden' te zien krijgt waarmee de browser wordt omgeleid naar het Azure Active Directory OAuth 2.0 `/authorize`-eindpunt of een OpenID Connect `/userinfo`-eindpunt. Met behulp van deze eindpunten kan de toepassing informatie verkrijgen over de nieuwe gebruiker door de id_token te inspecteren. Na de aanmeldingsfase krijgt de gebruiker een toestemmingsprompt te zien, die vergelijkbaar is met degene die in de sectie Overzicht van het toestemmingsframework wordt getoond.
 
 Zie voor meer informatie over de toepassingswijzigingen die vereist zijn voor de ondersteuning van multitenant aanmeldings-/registratiemogelijkheden:
 

@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 07/24/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0d51052f4e04a1497ccf2e91427e3465bdc5bf2f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5117d426ac9595dfe25828013c1bd8c7fa81f92c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476822"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812358"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Batch-resources beheren met Azure CLI
 
@@ -63,7 +63,7 @@ Als u de Azure CLI wilt gebruiken met Batch, moet u zich aanmelden en verifiëre
 Er zijn een aantal manieren om u aan te melden bij Azure, zoals u kunt lezen in [Aanmelden met de Azure CLI](/cli/azure/authenticate-azure-cli):
 
 1. [Interactief aanmelden](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Meld u interactief aan wanneer u zelf Azure CLI-opdrachten uitvoert vanaf de opdrachtregel.
-2. [Aanmelden met een service-principal](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-logging-in-with-a-service-principal). Meld u aan met een service-principal wanneer u Azure CLI-opdrachten uitvoert vanuit een script of een toepassing.
+2. [Aanmelden met een service-principal](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Meld u aan met een service-principal wanneer u Azure CLI-opdrachten uitvoert vanuit een script of een toepassing.
 
 Ten behoeve van dit artikel laten we zien hoe u zich interactief aanmeldt bij Azure. Typ [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) op de opdrachtregel:
 
@@ -76,7 +76,7 @@ De opdracht `az login` retourneert een token dat u kunt gebruiken om u te verifi
 
 ![Meld u aan bij Azure.](./media/batch-cli-get-started/az-login.png)
 
-De voorbeelden in de sectie [Voorbeelden van shell-scripts](#sample-shell-scripts) laten ook zien hoe u een Azure CLI-sessie start door u interactief aan te melden bij Azure. Wanneer u bent aangemeld, kunt u opdrachten aanroepen voor gebruik met resources van Batch Management, met inbegrip van Batch-accounts, sleutels, toepassingspakketten en quota's.  
+De voorbeelden in de sectie Voorbeelden van shell-scripts laten ook zien hoe u een Azure CLI-sessie start door u interactief aan te melden bij Azure. Wanneer u bent aangemeld, kunt u opdrachten aanroepen voor gebruik met resources van Batch Management, met inbegrip van Batch-accounts, sleutels, toepassingspakketten en quota's.  
 
 ### <a name="log-in-to-your-batch-account"></a>Aanmelden bij uw Batch-account
 
@@ -110,7 +110,7 @@ Er zijn twee mogelijkheden voor verificatie van uw Batch-account:
     az batch account login -g myresourcegroup -n mybatchaccount --shared-key-auth
     ```
 
-De voorbeelden in de sectie [Voorbeelden van shell-scripts](#sample-shell-scripts) laten zien hoe u zich met de Azure CLI aanmeldt bij uw Batch-account met zowel Azure AD als een gedeelde sleutel.
+De voorbeelden in de sectie Voorbeelden van shell-scripts laten zien hoe u zich met de Azure CLI aanmeldt bij uw Batch-account met zowel Azure AD als een gedeelde sleutel.
 
 ## <a name="use-azure-batch-cli-extension-commands"></a>Opdrachten van de CLI-extensie van Azure Batch gebruiken
 
@@ -168,7 +168,7 @@ De volgende tips kunnen helpen bij het oplossen van problemen met Azure CLI:
 
 * Gebruik `-h` om **Help-tekst** weer te geven voor elke willekeurige CLI-opdracht
 * Gebruik `-v` en `-vv` om **uitgebreide** opdrachtuitvoer weer te geven. Als u de vlag `-vv` toevoegt, toont de Azure CLI de werkelijke REST-aanvragen en -antwoorden. Deze schakelopties zijn handig voor het weergeven van de volledige foutuitvoer.
-* U kunt **opdrachtuitvoer weergeven als JSON** met de `--json`-optie. `az batch pool show pool001 --json` wordt bijvoorbeeld weergegeven als eigenschappen van pool001 in de JSON-indeling. Vervolgens kunt u deze uitvoer kopiëren en aanpassen om te worden gebruikt in een `--json-file` (zie [JSON-bestanden](#json-files) eerder in dit artikel).
+* U kunt **opdrachtuitvoer weergeven als JSON** met de `--json`-optie. `az batch pool show pool001 --json` wordt bijvoorbeeld weergegeven als eigenschappen van pool001 in de JSON-indeling. Vervolgens kunt u deze uitvoer kopiëren en aanpassen om te worden gebruikt in een `--json-file` (zie JSON-bestanden eerder in dit artikel).
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 
 ## <a name="next-steps"></a>Volgende stappen

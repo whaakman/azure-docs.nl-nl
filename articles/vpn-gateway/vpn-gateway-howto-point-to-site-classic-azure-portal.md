@@ -1,6 +1,6 @@
 ---
 title: 'Via een computer verbinding maken met een virtueel netwerk met behulp van een punt-naar-site-verbinding en verificatie via een certificaat: Klassieke Azure-portal | Microsoft Docs'
-description: Maak een klassieke punt-naar-site VPN-gatewayverbinding met de Azure-portal.
+description: Maak een klassieke punt-naar-site VPN-gatewayverbinding met Azure Portal.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6aedfa3f0ef65fdb1b663db8637b648e685e31be
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: c133ba5a95e0476c6d992e53776b384fdc8c97ba
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321474"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809796"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Een punt-naar-site-verbinding configureren met behulp van verificatie via een certificaat (klassiek)
 
@@ -29,9 +29,9 @@ ms.locfileid: "53321474"
 In dit artikel wordt beschreven hoe u een VNet maakt met een punt-naar-site-verbinding. U maakt het VNet volgens het klassieke implementatiemodel via de Azure-portal. Deze configuratie maakt gebruik van certificaten, zelfondertekende door een certificeringsinstantie uitgegeven, om de client te verifiëren waarmee verbinding wordt gemaakt. U kunt deze configuratie ook maken met een ander implementatieprogramma of -model, met behulp van de opties die worden beschreven in de volgende artikelen:
 
 > [!div class="op_single_selector"]
-> * [Azure-portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [Azure-portal (klassiek)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+> * [Azure Portal (klassiek)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
 
 U gebruikt een punt-naar-site-VPN-gateway (P2S) om vanaf een afzonderlijke clientcomputer een beveiligde verbinding te maken met uw virtuele netwerk. Point-to-site-verbindingen zijn nuttig als u verbinding wilt maken met uw VNet vanaf een externe locatie. Een P2S-VPN is een uitstekende oplossing in plaats van een site-naar-site-VPN wanneer u maar een paar clients hebt die verbinding moeten maken met een VNet. Een P2S-verbinding wordt tot stand gebracht door deze te starten vanaf de clientcomputer.
@@ -87,7 +87,7 @@ Controleer eerst of u een Azure-abonnement hebt. Als u nog geen Azure-abonnement
 
 ### <a name="part-1-create-a-virtual-network"></a>Deel 1: Een virtueel netwerk maken
 
-Als u nog geen virtueel netwerk (VNet) hebt, maakt u er een. De schermafbeeldingen dienen alleen als voorbeeld. Zorg dat u de waarden vervangt door die van uzelf. Volg de volgende stappen om een VNet te maken met behulp van de Azure-portal:
+Als u nog geen virtueel netwerk (VNet) hebt, maakt u er een. De schermafbeeldingen dienen alleen als voorbeeld. Zorg dat u de waarden vervangt door die van uzelf. Volg de volgende stappen om een VNet te maken met behulp van Azure Portal:
 
 1. Meld u aan bij de [Azure-portal](http://portal.azure.com) en selecteer **Create a resource**. De pagina **Nieuw** wordt geopend. 
 
@@ -249,7 +249,7 @@ U kunt vertrouwde basiscertificaat toevoegen in en verwijderen uit Azure. Wannee
 
 ### <a name="to-add-a-trusted-root-certificate"></a>Een vertrouwd basiscertificaat toevoegen
 
-U kunt maximaal 20 vertrouwde .cer-basiscertificaatbestanden toevoegen aan Azure. Zie [Het CER-bestand van het basiscertificaat uploaden](#upload-the-root-certificate-.cer-file) voor instructies.
+U kunt maximaal 20 vertrouwde .cer-basiscertificaatbestanden toevoegen aan Azure. Zie Het CER-bestand van het basiscertificaat uploaden voor instructies.
 
 ### <a name="to-remove-a-trusted-root-certificate"></a>Een vertrouwd basiscertificaat verwijderen
 
@@ -275,7 +275,7 @@ De algemene procedure is het basiscertificaat te gebruiken om de toegang te behe
 
 U kunt een clientcertificaat intrekken door de vingerafdruk toe te voegen aan de intrekkingslijst.
 
-1. Haal de vingerafdruk voor het clientcertificaat op. Zie: [How to:  Retrieve the Thumbprint of a Certificate](https://msdn.microsoft.com/library/ms734695.aspx) (Procedure: de vingerafdruk van een certificaat ophalen) voor meer informatie.
+1. Haal de vingerafdruk voor het clientcertificaat op. Zie voor meer informatie [Procedure: De vingerafdruk van een certificaat ophalen](https://msdn.microsoft.com/library/ms734695.aspx).
 2. Kopieer de gegevens naar een teksteditor en verwijder de spaties, zodat u een doorlopende tekenreeks overhoudt.
 3. Ga naar het klassieke virtuele netwerk. Selecteer **Punt-naar-site-verbinding** en vervolgens **Certificaat beheren** om de pagina **Certificaten** te openen.
 4. Selecteer **Intrekkingslijst** om de pagina **Intrekkingslijst** te openen. 
@@ -290,7 +290,7 @@ Wanneer het bijwerken is voltooid, kan het certificaat niet langer worden gebrui
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Zie [Virtuele machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) voor meer informatie. 
+- Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Zie [Virtuele machines](https://docs.microsoft.com/azure/) voor meer informatie. 
 
 - Zie [Overzicht van VM-netwerken in Azure en onder Linux](../virtual-machines/linux/network-overview.md) voor meer informatie over netwerken en virtuele Linux-machines.
 

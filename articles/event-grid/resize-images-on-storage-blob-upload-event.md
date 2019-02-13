@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: e19d8b1b6eb06f78908238969a4f6e90e42bb564
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: b3ddaf7667baf98d9d5daa93a3106e457d0aeacb
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301455"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756866"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Zelfstudie: Formaat van geüploade afbeeldingen automatisch wijzigen met Event Grid
 
@@ -105,7 +105,7 @@ Nu moet u de functie-app configureren om verbinding te maken met het Blob-opslag
 
 ## <a name="configure-the-function-app"></a>De functie-app configureren
 
-De functie heeft de verbindingsreeks nodig om verbinding te maken met het Blob-opslagaccount. De functiecode die u in de volgende stap in Azure implementeert, zoekt naar de verbindingsreeks in de app-instelling myblobstorage_STORAGE en naar de containernaam van de miniatuurweergave in de app-instelling myContainerName. Haal de verbindingsreeks op met de opdracht [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string). Stel toepassingsinstellingen in met de opdracht [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set).
+De functie heeft de verbindingsreeks nodig om verbinding te maken met het Blob-opslagaccount. De functiecode die u in de volgende stap in Azure implementeert, zoekt naar de verbindingsreeks in de app-instelling myblobstorage_STORAGE en naar de containernaam van de miniatuurweergave in de app-instelling myContainerName. Haal de verbindingsreeks op met de opdracht [az storage account show-connection-string](/cli/azure/storage/account). Stel toepassingsinstellingen in met de opdracht [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings).
 
 In de volgende CLI-opdrachten is `<blob_storage_account>` de naam van het Blob-opslagaccount dat u hebt gemaakt in de vorige zelfstudie.
 
@@ -128,7 +128,7 @@ U kunt nu een codeproject van Functions implementeren naar deze functie-app.
 
 # <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 
-Het voorbeeldscript voor C# (.csx) is beschikbaar op [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Implementeer dit codeproject van Functions naar de functie-app met behulp van de opdracht [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config). 
+Het voorbeeldscript voor C# (.csx) is beschikbaar op [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Implementeer dit codeproject van Functions naar de functie-app met behulp van de opdracht [az functionapp deployment source config](/cli/azure/functionapp/deployment/source). 
 
 In de volgende opdracht is `<function_app>` de naam van de functie-app die u eerder hebt gemaakt.
 
@@ -137,7 +137,7 @@ az functionapp deployment source config --name $functionapp --resource-group $re
 ```
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
-Het voorbeeld van de resize-functie van Node.js is beschikbaar op [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node). Implementeer dit codeproject van Functions naar de functie-app met behulp van de opdracht [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config).
+Het voorbeeld van de resize-functie van Node.js is beschikbaar op [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node). Implementeer dit codeproject van Functions naar de functie-app met behulp van de opdracht [az functionapp deployment source config](/cli/azure/functionapp/deployment/source).
 
 In de volgende opdracht is `<function_app>` de naam van de functie-app die u eerder hebt gemaakt.
 
@@ -184,8 +184,12 @@ Een gebeurtenisabonnement geeft aan welke door de provider gegenereerde gebeurte
     | **Gebeurtenistypen** | BlobCreated | Schakel alle typen uit behalve **BlobCreated**. Alleen gebeurtenistypen van `Microsoft.Storage.BlobCreated` worden doorgegeven aan de functie.| 
     | **Abonneetype** |  automatisch gegenereerd |  Vooraf gedefinieerd als webhook. |
     | **Eindpunt abonnee** | automatisch gegenereerd | Gebruik de eindpunt-URL die voor u wordt gegenereerd. | 
-4. *Optioneel:* Als u in de toekomst meer containers in dezelfde blob-opslag wilt maken voor andere doeleinden, kunt u **Filteren van onderwerpen** op het tabblad **Filters** gebruiken om blob-gebeurtenissen nauwkeuriger te targeten om er zeker van te zijn dat uw functie-app alleen wordt aangeroepen wanneer blobs specifiek worden toegevoegd aan de container **images**. 
-5. Klik op **Maken** om het gebeurtenisabonnement toe te voegen. Er wordt een gebeurtenisabonnement gemaakt die `Thumbnail` activeert op het moment dat er een blob wordt toegevoegd aan de container *images*. De functie past de afbeelding in grootte aan en voegt deze toe aan de container *thumbnails*.
+4. Open het tabblad **Filters** en voer de volgende acties uit:     
+    1. Selecteer de optie **Filteren van onderwerpen inschakelen**.
+    2. Voor **Onderwerp begint met** voert u de volgende waarde in: **/blobServices/default/containers/images/blobs/**.
+
+        ![Een filter opgeven voor het gebeurtenisabonnement](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png) 
+2. Selecteer **Maken** om het gebeurtenisabonnement toe te voegen. Er wordt een gebeurtenisabonnement gemaakt die de functie `Thumbnail` activeert op het moment dat er een blob wordt toegevoegd aan de container `images`. De functie past de afbeelding in grootte aan en voegt deze toe aan de container `thumbnails`.
 
 De services in de back-end zijn nu geconfigureerd. Dit betekent dat u de functionaliteit voor het aanpassen van het formaat van afbeeldingen kunt gaan testen in de voorbeeld-web-app. 
 

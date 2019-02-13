@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/21/2018
+ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 8dcde1231d5e2d73b868411cb22b8420843197be
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4ca07416c615984b4eb6c7799ff17d9fbe43fa3b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458248"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691467"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>Quickstart: Woorden opzoeken in een tweetalige woordenlijst met Python
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-Op dit moment is er één eindpunt beschikbaar voor Translator Text. Deze wordt ingesteld als de `base_url`. Met `path` wordt de `dictionary/lookup`-route ingesteld en wordt bepaald dat we versie 3 van de API willen gebruiken.
+Het globale eindpunt voor Translator Text wordt ingesteld als de `base_url`. Met `path` wordt de `dictionary/lookup`-route ingesteld en wordt bepaald dat we versie 3 van de API willen gebruiken.
 
 De `params` worden gebruikt voor het instellen van de bron- en uitvoertalen. In dit voorbeeld wordt Engels en Spaans gebruikt: `en` en `es`.
 

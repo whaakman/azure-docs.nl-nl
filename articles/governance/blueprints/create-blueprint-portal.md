@@ -4,17 +4,17 @@ description: Gebruik Azure Blueprints om artefacten te maken, te definiëren en 
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 02/01/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0eebf1a2d1c173e2e37d24ff083e5d7ae011a900
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c6c498920d407dbbac2449d1da0d76237db0c63d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315295"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566309"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Een Azure Blueprint definiëren en toewijzen in de portal
 
@@ -42,10 +42,7 @@ De eerste stap bij het definiëren van een standaardpatroon voor naleving bestaa
 
    ![Blauwdruk maken](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Geef een **Blauwdruknaam** voor de blauwdruk op, bijvoorbeeld 'MyBlueprint' (letters en cijfers, maximaal 48 tekens, maar geen spaties of speciale tekens), maar laat **Beschrijving van blauwdruk** voorlopig leeg.  Klik in het vak **Definitielocatie** op het beletselteken aan de rechterkant, selecteer de [beheergroep](../management-groups/overview.md) waarin u de blauwdruk wilt opslaan en klik op **Selecteren**.
-
-   > [!NOTE]
-   > Blauwdrukdefinities kunnen alleen worden opgeslagen in beheergroepen. Volg [deze stappen](../management-groups/create.md) om uw eerste beheergroep te maken.
+1. Geef een **Blauwdruknaam** voor de blauwdruk op, bijvoorbeeld 'MyBlueprint' (letters en cijfers, maximaal 48 tekens, maar geen spaties of speciale tekens), maar laat **Beschrijving van blauwdruk** voorlopig leeg.  Klik in het vak **Definitielocatie** op het beletselteken aan de rechterkant, selecteer de [beheergroep](../management-groups/overview.md) of het abonnement waarin u de blauwdruk wilt opslaan en klik op **Selecteren**.
 
 1. Controleer of de gegevens correct zijn (de velden **Blauwdruknaam** en **Definitielocatie** kunnen later niet meer worden gewijzigd) en klik op **Volgende: artefacten** onderaan de pagina of op het tabblad **Artefacten** bovenaan de pagina.
 
@@ -154,7 +151,7 @@ Als de blauwdruk wordt gepubliceerd, wordt deze toegewezen aan een abonnement.
 
 ## <a name="assign-a-blueprint"></a>Een blauwdruk toewijzen
 
-Wanneer een blauwdruk is gepubliceerd, kan deze worden toegewezen aan een abonnement. Wijs de blauwdruk die u hebt gemaakt toe aan een van de abonnementen in uw beheergroephiërarchie.
+Wanneer een blauwdruk is gepubliceerd, kan deze worden toegewezen aan een abonnement. Wijs de blauwdruk die u hebt gemaakt toe aan een van de abonnementen in uw beheergroephiërarchie. Als de blauwdruk is opgeslagen in een abonnement, kan deze alleen aan dat abonnement worden toegewezen.
 
 1. Selecteer **Blauwdrukdefinities** op de pagina aan de linkerkant.
 

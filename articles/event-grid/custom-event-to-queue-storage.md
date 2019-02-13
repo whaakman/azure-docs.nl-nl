@@ -9,12 +9,12 @@ ms.date: 01/07/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: ba48473b0370c2ee0acbb7b03834eb36922db556
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9d1d9caccac0fcdeb4e1d2dae40e677f36de40ea
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474979"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728042"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Snelstart: Aangepaste gebeurtenissen naar Azure Queue Storage routeren met behulp van Azure CLI en Event Grid
 
@@ -24,9 +24,12 @@ Azure Event Grid is een gebeurtenisservice voor de cloud. Azure Queue Storage is
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="install-preview-feature"></a>Preview-functie installeren
+Als u Azure CLI of Azure PowerShell op uw lokale computer gebruikt in plaats van Cloud Shell in de Microsoft Azure-portal, zorgt u ervoor dat u de volgende versie van Azure CLI en Azure PowerShell hebt. 
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
+- Azure CLI versie 2.0.56 of hoger. Zie [De Azure CLI installeren](/cli/azure/install-azure-cli) voor instructies over het installeren van de meest recente versie van Azure CLI. 
+- Azure PowerShell versie 1.1.0 of hoger. Download de nieuwste versie van Azure PowerShell op uw Windows-computer vanuit [Azure-downloads - opdrachtregelprogramma's](https://azure.microsoft.com/downloads/). 
+
+Dit artikel bevat opdrachten voor het gebruik van Azure CLI. 
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -47,10 +50,6 @@ az group create --name gridResourceGroup --location westus2
 Een Event Grid-onderwerp biedt een door de gebruiker gedefinieerd eindpunt waarop u de gebeurtenissen kunt posten. In het volgende voorbeeld wordt het aangepaste onderwerp in uw resourcegroep gemaakt. Vervang `<topic_name>` door een unieke naam voor uw aangepaste onderwerp. De naam van het Event Grid-onderwerp moet uniek zijn omdat deze wordt vertegenwoordigd door een DNS-vermelding.
 
 ```azurecli-interactive
-# if you have not already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 ```
 

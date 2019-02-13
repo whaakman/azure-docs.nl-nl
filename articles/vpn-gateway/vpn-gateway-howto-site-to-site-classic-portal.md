@@ -1,5 +1,5 @@
 ---
-title: 'Een on-premises netwerk verbinden met een virtueel Azure-netwerk: site-naar-site-VPN (klassiek): Portal | Microsoft Docs'
+title: 'Verbind uw on-premises netwerk met een virtueel Azure-netwerk: Site-to-Site VPN (klassiek): Portal | Microsoft Docs'
 description: Een IPSec-verbinding maken vanaf uw on-premises netwerk met een klassiek virtueel Azure-netwerk via het openbare internet.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4e9736adfce83fc449b68a7448441ecee481ad2a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b0fa60d709c2fa6c286e44797d53e8a4a8d47d00
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38477893"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695601"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Een site-naar-site-verbinding maken met behulp van Azure Portal (klassiek)
 
@@ -60,13 +60,13 @@ In de voorbeelden in dit artikel worden de volgende waarden gebruikt. U kunt dez
   * 10.12.0.0/16 (optioneel voor deze oefening)
 * **Subnetten:**
   * FrontEnd: 10.11.0.0/24
-  * Back-end: 10.12.0.0/24 (optioneel voor deze oefening)
-* **Gatewaysubnet**: 10.11.255.0/27
+  * BackEnd: 10.12.0.0/24 (optioneel voor deze oefening)
+* **GatewaySubnet:** 10.11.255.0/27
 * **Resourcegroep:** TestRG1
-* **Locatie:** VS - oost
+* **Locatie:** US - oost
 * **DNS-server:** 10.11.0.3 (optioneel voor deze oefening)
 * **Lokale sitenaam:** Site2
-* **Clientadresruimte:** de adresruimte op uw on-premises site.
+* **Clientadresruimte:** De adresruimte op uw on-premises site.
 
 ## <a name="CreatVNet"></a>1. Een virtueel netwerk maken
 
@@ -127,9 +127,9 @@ De lokale site verwijst doorgaans naar uw on-premises locatie. Het bevat het IP-
   ![Klik om gatewayinstellingen te configureren](./media/vpn-gateway-howto-site-to-site-classic-portal/beforegw125.png "Klik om gatewayinstellingen te configureren")
 3. Selecteer **Site-naar-site** op de pagina **Nieuwe VPN-verbinding**.
 4. Klik op **Lokale site - vereiste instellingen configureren** om de pagina **Lokale site** te openen. Configureer de instellingen en klik vervolgens op **OK** om de instellingen op te slaan.
-  - **Naam:** geef de lokale site een naam waarmee u deze eenvoudig kunt identificeren.
-  - **IP-adres voor de VPN-gateway:** dit is het openbare IP-adres van het VPN-apparaat voor uw on-premises netwerk. Voor het VPN-apparaat is een openbaar IPv4-adres vereist. Geef een geldig openbaar IP-adres op voor het VPN-apparaat waarmee u verbinding wilt maken. Het mag zich niet achter NAT bevinden en moet bereikbaar zijn voor Azure. Als u het IP-adres van het VPN-apparaat niet kent, kunt u altijd een tijdelijke aanduiding invoegen (zolang deze maar de indeling van een geldig openbaar IP-adres heeft) en dit later wijzigen.
-  - **Clientadresruimte:** vermeld de IP-adresbereiken die u via deze gateway naar het lokale on-premises netwerk wilt routeren. U kunt meerdere adresruimtebereiken toevoegen. Zorg ervoor dat de hier opgegeven bereiken niet overlappen met bereiken van andere netwerken waarmee uw virtuele netwerk is verbonden of met de adresbereiken van het virtuele netwerk zelf.
+  - **Naam:** Geef de lokale site een naam waarmee u deze eenvoudig kunt identificeren.
+  - **IP-adres van VPN-gateway:** Dit is het openbare IP-adres van het VPN-apparaat voor uw on-premises netwerk. Voor het VPN-apparaat is een openbaar IPv4-adres vereist. Geef een geldig openbaar IP-adres op voor het VPN-apparaat waarmee u verbinding wilt maken. Het mag zich niet achter NAT bevinden en moet bereikbaar zijn voor Azure. Als u het IP-adres van het VPN-apparaat niet kent, kunt u altijd een tijdelijke aanduiding invoegen (zolang deze maar de indeling van een geldig openbaar IP-adres heeft) en dit later wijzigen.
+  - **Clientadresruimte**: Vermeld de IP-adresbereiken die u via deze gateway naar het lokale on-premises netwerk wilt routeren. U kunt meerdere adresruimtebereiken toevoegen. Zorg ervoor dat de hier opgegeven bereiken niet overlappen met bereiken van andere netwerken waarmee uw virtuele netwerk is verbonden of met de adresbereiken van het virtuele netwerk zelf.
 
   ![Lokale site](./media/vpn-gateway-howto-site-to-site-classic-portal/localnetworksite.png "Lokale site configureren")
 
@@ -208,7 +208,7 @@ Als u werkt met PowerShell en het klassieke implementatiemodel, komen de namen v
   Set-AzureVNetGatewayKey -VNetName 'Group TestRG1 TestVNet1' `
   -LocalNetworkSiteName 'D1BFC9CB_Site2' -SharedKey abc123
   ```
-Wanneer de verbinding is gemaakt, is het resultaat: **Status: geslaagd**.
+Wanneer de verbinding is gemaakt, is het resultaat: **Status: Geslaagd**.
 
 ## <a name="verify"></a>9. De verbinding controleren
 
@@ -226,5 +226,5 @@ Zie [Formaat van een gateway-SKU wijzigen](vpn-gateway-about-SKUS-legacy.md) voo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Zie [Virtuele machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) voor meer informatie.
+* Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Zie [Virtuele machines](https://docs.microsoft.com/azure/) voor meer informatie.
 * Zie [Informatie over geforceerde tunneling](vpn-gateway-about-forced-tunneling.md) voor meer informatie over geforceerde tunneling.

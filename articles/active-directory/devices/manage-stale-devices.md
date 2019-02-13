@@ -1,6 +1,6 @@
 ---
-title: Levenscyclus van apparaten beheren in Azure AD | Microsoft Docs
-description: Leer hoe apparaatbeheer u kan helpen controle te krijgen over de apparaten die toegang verkrijgen tot bronnen in uw omgeving.
+title: Verlopen apparaten beheren in Azure AD | Microsoft Docs
+description: Als gevolg van verloren, gestolen of defecte apparaten, of herinstallaties van het besturingssysteem, zijn er meestal verlopen apparaten aanwezig in uw omgeving. Informatie over het verwijderen van verlopen apparaten uit de database van geregistreerde apparaten in Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/03/2018
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 20bfa4cf02c86922836a70f8885f910814eafb22
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d6d0ee1c9a77006df2239f4e0e0457c0c0aa2c28
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092153"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493307"
 ---
-# <a name="how-to-manage-the-stale-devices-in-azure-ad"></a>Procedure: verlopen apparaten beheren in Azure AD
+# <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procedure: Verlopen apparaten beheren in Azure Active Directory
 
 In het ideale geval moet de levenscyclus van geregistreerde apparaten worden voltooid door de registratie van de apparaten ongedaan te maken op het moment dat ze niet meer nodig zijn. Als gevolg van bijvoorbeeld verloren, gestolen of defecte apparaten, of herinstallaties van het besturingssysteem, zijn er meestal echter nog wel verlopen apparaten aanwezig in uw omgeving. Als IT-beheerder is het prettig om te beschikken over een methode voor het verwijderen van verlopen apparaten, zodat u zich kunt richten op het beheren van apparaten die nog echt in gebruik zijn.
 

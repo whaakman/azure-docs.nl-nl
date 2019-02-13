@@ -1,5 +1,5 @@
 ---
-title: Selfservice voor groepsbeheer instellen in Azure AD| Microsoft Docs
+title: Selfservice voor groepsbeheer instellen - Azure Active Directory | Microsoft Docs
 description: Beveiligingsgroepen of Office 365-groepen maken en beheren in Azure Active Directory en lidmaatschap van een beveiligingsgroep of Office 365-groep aanvragen
 services: active-directory
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: get-started-article
-ms.date: 01/28/2019
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
-ms.openlocfilehash: 2880e4e32d5a5e3d96b40fa4b696b9853e7b5e89
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: f7ea78d6082ddbeebf2cbfd70f1e1ed1a8bae664
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296159"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509606"
 ---
 # <a name="set-up-azure-active-directory-for-self-service-group-management"></a>Azure Active Directory instellen voor groepsbeheer met self-service
 

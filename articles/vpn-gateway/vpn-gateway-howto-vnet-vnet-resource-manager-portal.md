@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2018
 ms.author: cherylmc
-ms.openlocfilehash: 245710d1ae3e7af4db5286a5db985fe35549ad3a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0646488c3dde4b0702d58bbd8905f4ae6bee1485
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098767"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821664"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Een VPN-gatewayverbinding tussen VNet's configureren met behulp van Azure Portal
 
@@ -133,7 +133,7 @@ In dit artikel leest u hoe u VNet's verbindt met behulp van het verbindingstype 
        - **Gedeelde sleutel**: Voer *abc123* in. U kunt de gedeelde sleutel zelf maken. Wanneer u de verbinding tussen de VNets maakt, moeten de waarden overeenkomen.
 
 ## <a name="create-and-configure-testvnet1"></a>TestVNet1 maken en configureren
-Als u al beschikt over een VNet, controleert u of de instellingen compatibel zijn met het ontwerp van de VPN-gateway. Let vooral op eventuele subnetten die met andere netwerken overlappen. Als u overlappende subnetten hebt, werkt de verbinding mogelijk niet goed. Als het VNet met de juiste instellingen is geconfigureerd, kunt u beginnen met de stappen in de sectie [Een DNS-server opgeven](#dns).
+Als u al beschikt over een VNet, controleert u of de instellingen compatibel zijn met het ontwerp van de VPN-gateway. Let vooral op eventuele subnetten die met andere netwerken overlappen. Als u overlappende subnetten hebt, werkt de verbinding mogelijk niet goed. Als het VNet met de juiste instellingen is geconfigureerd, kunt u beginnen met de stappen in de sectie Een DNS-server opgeven.
 
 ### <a name="to-create-a-virtual-network"></a>Een virtueel netwerk maken
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]

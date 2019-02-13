@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 1/30/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 29af70988cf77b9fad47e5c2478e5c86529fe9cf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: cf3c691553f2bc7ae8f10345daee92a8380aba25
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458214"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815741"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Zelfstudie: Azure Firewall implementeren en configureren in een hybride netwerk met Azure PowerShell
 
@@ -54,7 +54,7 @@ Er zijn drie belangrijke vereisten voor de correcte werking van dit scenario:
 - Er is geen door de gebruiker gedefinieerde route (UDR) nodig in het Azure Firewall-subnet, omdat het de routes overneemt van BGP.
 - Zorg dat u **AllowGatewayTransit** instelt voor de peering van VNet-Hub naar VNet-Spoke en **UseRemoteGateways** voor de peering van VNet-Spoke naar VNet-Hub.
 
-Zie het gedeelte [Routes maken](#create-routes) in deze zelfstudie voor informatie over hoe deze routes worden gemaakt.
+Zie het gedeelte Routes maken in deze zelfstudie voor informatie over hoe deze routes worden gemaakt.
 
 >[!NOTE]
 >Azure Firewall moeten directe verbinding met internet hebben. Als u geforceerde tunnels naar on-premises hebt ingeschakeld via ExpressRoute of Application Gateway, moet u UDR 0.0.0.0/0 configureren met de waarde **NextHopType** ingeschakeld als **Internet** en deze vervolgens toewijzen aan **AzureFirewallSubnet**.

@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 12/19/2018
-ms.openlocfilehash: 63cc71ff784a25984672090bc6dbba662d9a52c1
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 02/06/2019
+ms.openlocfilehash: ac7b4dc563fa663dd016971ba6a27104860c8cce
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728139"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767963"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-online-using-dms"></a>Zelfstudie: SQL Server online migreren naar Azure SQL Database met behulp van DMS
 U kunt de Azure Database Migration Service gebruiken voor het migreren van de databases van een on-premises SQL Server-exemplaar naar [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) met minimale downtime. In deze zelfstudie migreert u de database **Adventureworks2012** hersteld naar een on-premises exemplaar van SQL Server 2016 (of hoger) met een Azure SQL Database met behulp van de Azure Database Migration Service.
@@ -32,7 +32,7 @@ In deze zelfstudie leert u het volgende:
 > * Een migratierapport downloaden.
 
 > [!NOTE]
-> Als u Azure Database Migration Service gebruikt om een onlinemigratie uit te voeren, is het vereist dat u een exemplaar maakt op basis van de prijscategorie Premium.
+> Als u Azure Database Migration Service gebruikt om een onlinemigratie uit te voeren, is het vereist dat u een exemplaar maakt op basis van de prijscategorie Premium. Zie de pagina met [prijzen](https://azure.microsoft.com/pricing/details/database-migration/) van Azure Database Migration Service voor meer informatie.
 
 > [!IMPORTANT]
 > Voor een optimale migratie-ervaring raadt Microsoft u aan een exemplaar van de Azure Database Migration Service te maken in dezelfde Azure-regio als de doeldatabase. Het verplaatsen van gegevens naar regio's of geografieën kan het migratieproces vertragen en fouten veroorzaken.
@@ -46,7 +46,11 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 - Download en installeer [SQL Server 2012 of hoger](https://www.microsoft.com/sql-server/sql-server-downloads) (alle edities).
 - Schakel het TCP/IP-protocol in, dat standaard is uitgeschakeld tijdens de installatie van SQL Server Express, door de instructies in het artikel [In- of uitschakelen van een Server Network Protocol](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure) te volgen.
-- Maak een Azure SQL Database-exemplaar, dit doet u door de details in het artikel [Een Azure SQL-database maken in de Azure-portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal) te volgen.
+- Maak een Azure SQL Database. Dit doet u door de details in het artikel [Een Azure SQL-database maken in de Microsoft Azure-portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal) te volgen.
+
+    > [!NOTE]
+    > Als u SQL Server Integration Services (SSIS) gebruikt en de catalogusdatabase voor uw SSIS-projecten/-pakketten (SSISDB) van SQL Server naar Azure SQL Database wilt migreren, wordt de doel-SSISDB automatisch namens u gemaakt en beheerd wanneer u SSIS in Azure Data Factory (ADF) inricht. Zie het artikel [Pakketten van SQL Server Integration Services migreren naar Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages) voor meer informatie over het migreren van SSIS-pakketten. 
+ 
 - Download en installeer de [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) v3.3 of hoger.
 - Maak een VNET voor de Azure Database Migration Service met behulp van het Azure Resource Manager-implementatiemodel. Dit geeft site-naar-site-verbinding met uw on-premises bronservers met behulp van [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) of [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 - Zorg ervoor dat uw Azure Virtual Network (VNET) Network Security Group-regels de volgende communicatiepoorten niet blokkeren: 443, 53, 9354, 445, 12000. Zie voor meer informatie over verkeer filteren van Azure VNET NSG het artikel [Netwerkverkeer filteren met netwerkbeveiligingsgroepen](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
@@ -118,6 +122,9 @@ Voer de volgende stappen uit om een on-premises database te evalueren:
 4.  Geef in het scherm **Bronnen selecteren**, in het dialoogvenster **Verbinding maken met een server**, de verbindingsdetails met uw SQL Server op, en selecteer vervolgens **Verbinding maken**.
 5.  Selecteer in het dialoogvenster **Bronnen toevoegen** **AdventureWorks2012**, selecteer **Toevoegen**, en selecteer vervolgens **Evaluatie starten**.
 
+    > [!NOTE]
+    > Als u SSIS gebruikt, wordt de evaluatie van de bron-SSISDB momenteel niet door DMA ondersteund. SSIS-projecten/-pakketten worden echter beoordeeld/gevalideerd als ze zijn geïmplementeerd in de doel-SSISDB die wordt gehost door Azure SQL Database. Zie het artikel [Pakketten van SQL Server Integration Services migreren naar Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages) voor meer informatie over het migreren van SSIS-pakketten.
+
     Wanneer de evaluatie voltooid is, worden de resultaten weergegeven zoals in de volgende afbeelding:
 
     ![Gegevensmigratie beoordelen](media/tutorial-sql-server-to-azure-sql-online/dma-assessments.png)
@@ -134,6 +141,9 @@ Nadat u vertrouwd met de evaluatie bent en ervan overtuigd bent dat de geselecte
 
 > [!NOTE]
 > Voordat u een migratieproject in DMA maakt, moet u ervoor zorgen dat u al een Azure SQL-database hebt ingericht zoals is vermeld in de vereisten. Voor deze zelfstudie wordt ervan uitgegaan dat de naam van de Azure SQL Database **AdventureWorksAzure** is, maar u kunt elke naam die u wenst opgeven.
+
+> [!IMPORTANT]
+> Als u SSIS gebruikt, biedt DMA momenteel geen ondersteuning voor de migratie van de bron-SSISDB, maar u kunt uw SSIS-projecten/-pakketten opnieuw implementeren naar de doel-SSISDB die wordt gehost door Azure SQL Database. Zie het artikel [Pakketten van SQL Server Integration Services migreren naar Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages) voor meer informatie over het migreren van SSIS-pakketten.
 
 Voer voor het migreren van het schema **AdventureWorks2012** naar Azure SQL Database, de volgende stappen uit:
 
@@ -249,6 +259,9 @@ Nadat de service is gemaakt, zoek deze op in de Azure-portal, open hem en maak v
     > SSL-verbindingen die zijn versleuteld met behulp van een zelfondertekend certificaat bieden geen sterke beveiliging. Ze zijn vatbaar voor man-in-the-middle-aanvallen. U moet niet vertrouwen op SSL met behulp van zelfondertekende certificaten in een productieomgeving of op servers die zijn verbonden met internet.
 
    ![Brondetails](media/tutorial-sql-server-to-azure-sql-online/dms-source-details3.png)
+
+    > [!IMPORTANT]
+    > Als u SSIS gebruikt, biedt DMS momenteel geen ondersteuning voor de migratie van de bron-SSISDB, maar u kunt uw SSIS-projecten/-pakketten opnieuw implementeren naar de doel-SSISDB die wordt gehost door Azure SQL Database. Zie het artikel [Pakketten van SQL Server Integration Services migreren naar Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages) voor meer informatie over het migreren van SSIS-pakketten.
 
 ## <a name="specify-target-details"></a>Doeldetails opgeven
 1. Selecteer **Opslaan** en geef vervolgens in het scherm **Details migratiedoel** de details van de verbinding op voor de Azure SQL Database-doelserver. Dit is de vooraf ingerichte Azure SQL Database waarnaar het  **AdventureWorks2012**-schema is geïmplementeerd met behulp van de DMA.

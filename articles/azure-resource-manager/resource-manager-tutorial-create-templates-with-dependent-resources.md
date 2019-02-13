@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9565401ba40f9a87db4f62e66f3d1ea6d0d2b954
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 5cfda4ddbf51f51d76b4ede2e44f768bd3261780
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614647"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491753"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Zelfstudie: Azure Resource Manager-sjablonen met afhankelijke resources maken
 
@@ -34,6 +34,8 @@ Deze zelfstudie bestaat uit de volgende taken:
 > * De sjabloon implementeren
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -145,8 +147,8 @@ Er bestaan meerdere methoden voor het implementeren van sjablonen.  In deze zelf
     $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
     $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
 
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-    New-AzureRmResourceGroupDeployment -Name $deploymentName `
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroupDeployment -Name $deploymentName `
         -ResourceGroupName $resourceGroupName `
         -adminUsername $adminUsername `
         -adminPassword $adminPassword `
@@ -157,7 +159,7 @@ Er bestaan meerdere methoden voor het implementeren van sjablonen.  In deze zelf
 
     ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-    Get-AzureRmVM -Name SimpleWinVM -ResourceGroupName $resourceGroupName
+    Get-AzVM -Name SimpleWinVM -ResourceGroupName $resourceGroupName
     ```
 
     De naam van de virtuele machine is in code vastgelegd als **SimpleWinVM** in de sjabloon.

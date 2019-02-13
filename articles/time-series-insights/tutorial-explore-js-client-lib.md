@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
 ms.custom: seodec18
-ms.openlocfilehash: f231fa7624a2babea2a3d91076ad0348b3c9e976
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 8ed3213a40370b1ab2beb15a989a22017b058d65
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540370"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812069"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Zelfstudie: De JavaScript-clientbibliotheek van Azure Time Series Insights ontdekken
 
@@ -147,7 +147,7 @@ Voor het vullen en weergeven van grafiekbesturingselementen wordt een algemeen p
    | `splitByObject`   | De tekenreekseigenschap die u wilt splitsen (optioneel; kan null zijn). | `{property: 'Station', type: 'String'}` |
    | `color`         | De kleur van de objecten die u wilt weergeven. | `'pink'` |
    | `alias`           | Een beschrijvende naam voor de samenvoegingsexpressie. | `'Factory3Temperature'` |
-   | `contextMenuActions` | Een matrix van acties die moeten worden gebonden aan de tijdreeksobjecten in een visualisatie (optioneel). | Zie [Contextmenu's in de sectie Geavanceerde functies](#popup-context-menus) voor meer informatie. |
+   | `contextMenuActions` | Een matrix van acties die moeten worden gebonden aan de tijdreeksobjecten in een visualisatie (optioneel). | Zie Pop-upcontextmenu's in de sectie Geavanceerde functies voor meer informatie. |
 
 3. Roep een TSI-query aan met de API's van `TsiClient.Server` om de samengevoegde gegevens op te vragen:
 
@@ -260,7 +260,7 @@ In de schermafbeelding ziet u de grafieken met hun respectieve pop-upcontextmenu
 
 Kwasten of penselen worden gebruikt om een tijdbereik te bepalen voor acties zoals zoomen en verkennen.
 
-De code die wordt gebruikt om het werken met kwasten te demonstreren, wordt weergegeven in het vorige voorbeeld ('Line Chart with Context Menu to Create Pie/Bar Chart'), waarin [Pop-upcontextmenu's](#popup-context-menus-section) worden beschreven.
+De code die wordt gebruikt om het werken met kwasten te demonstreren, wordt weergegeven in het vorige voorbeeld (Lijndiagram met contextmenu voor maken van cirkel- of staafdiagram), waarin pop-upcontextmenu's worden beschreven.
 
 1. Kwastacties lijken erg op een contextmenu, in zoverre dat hiermee een reeks aangepaste acties voor de kwast kan worden gedefinieerd. Elke actie bevat een matrix met een of meer elementen. Elk element definieert één contextmenuopdracht:
    - `name`: De tekst die wordt gebruikt voor de menuopdracht: Parameters afdrukken naar console.

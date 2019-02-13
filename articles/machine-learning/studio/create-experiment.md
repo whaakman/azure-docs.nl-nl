@@ -1,10 +1,22 @@
 ---
-Titel: Eenvoudig experiment titleSuffix: Azure Machine Learning Studio description: Deze zelfstudie over Machine Learning leidt u door een eenvoudig gegevenswetenschapexperiment. We voorspellen de prijs van een auto met behulp van een regressiealgoritme.
-Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: zelfstudie
-
-Auteur: garyericson ms.author: garye ms.custom: seodec18 ms.date: 03/20/2017
+title: Eenvoudig experiment
+titleSuffix: Azure Machine Learning Studio
+description: Deze zelfstudie over Machine Learning leidt u door een eenvoudig gegevenswetenschapexperiment. We voorspellen de prijs van een auto met behulp van een regressiealgoritme.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: tutorial
+author: garyericson
+ms.author: garye
+ms.custom: seodec18
+ms.date: 03/20/2017
+ms.openlocfilehash: be52f5fbe6c7d282a50e53c4326478b937ea8081
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488375"
 ---
-
 # <a name="tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Zelfstudie: Uw eerste gegevenswetenschappelijke experiment maken in Azure Machine Learning Studio
 
 Als u **Azure Machine Learning Studio** niet eerder hebt gebruikt, biedt deze zelfstudie een goede basis.

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 97dffa4952354864f90f75ffb909228eb4202e77
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: cb888367e3204d6750c533eb8952c80947f90c11
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382804"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486806"
 ---
-# <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager versus klassieke implementatie: implementatiemodellen en de status van uw resources begrijpen
+# <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager versus klassieke implementatie: begrip van implementatiemodellen en de status van uw resources
 
 > [!NOTE]
 > De informatie in dit artikel wordt alleen gebruikt wanneer u een migratie van de klassieke implementatie naar de Azure Resource Manager-implementatie uitvoert.
@@ -30,6 +30,8 @@ In dit artikel vindt u informatie over Azure Resource Manager en het klassieke i
 Om de implementatie en het beheer van resources te vereenvoudigen, wordt aangeraden om Resource Manager te gebruiken voor alle nieuwe resources. Indien mogelijk is het ook raadzaam om bestaande resources opnieuw te implementeren via Resource Manager.
 
 Als u geen ervaring hebt met Resource Manager, is het misschien handig om eerst de terminologie door te nemen die wordt beschreven in het [overzicht van Azure Resource Manager](resource-group-overview.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="history-of-the-deployment-models"></a>Geschiedenis van de implementatiemodellen
 In Azure was in eerste instantie alleen het klassieke implementatiemodel beschikbaar. In dit model waren alle resources zelfstandig en er was geen enkele manier om gerelateerde resources te groeperen. In plaats daarvan moest u handmatig bijhouden welke resources in uw oplossing of toepassing werden gebruikt en niet vergeten om de resources op een gecoördineerde manier te beheren. Als u een oplossing wilde implementeren, moest u elke resource afzonderlijk maken via de portal of een script schrijven waarmee alle bronnen in de juiste volgorde werden geïmplementeerd. Als u een oplossing wilde verwijderen, moest u elke resource afzonderlijk verwijderen. Het was niet mogelijk om op een eenvoudige manier van beleid voor toegangsbeheer toe te passen en bij te werken voor verwante resources. Het was evenmin mogelijk om tags te koppelen aan resources, om aan de hand van labels de resources makkelijker te bewaken en factureren.
@@ -57,7 +59,7 @@ Als de resource is gemaakt via de klassieke implementatie, geldt voor virtuele m
 In sommige gevallen kunt u met een opdracht van Resource Manager gegevens ophalen van een resource die via de klassieke implementatie is gemaakt of een beheertaak uitvoeren zoals het verplaatsen van een klassieke resource naar een andere resourcegroep. Maar hierdoor mag niet de indruk worden gewekt dat de resource ondersteuning biedt voor bewerkingen van Resource Manager. Stel dat u een resourcegroep hebt met daarin een virtuele machine die is gemaakt met het klassieke implementatiemodel. Als u de volgende PowerShell-opdracht van Resource Manager uitvoert:
 
 ```powershell
-Get-AzureRmResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
+Get-AzResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
 ```
 
 wordt deze virtuele machine geretourneerd:
@@ -72,10 +74,10 @@ Location          : westus
 SubscriptionId    : {guid}
 ```
 
-Met de cmdlet **Get-AzureRmVM** van Resource Manager worden echter alleen virtuele machines geretourneerd die zijn geïmplementeerd via Resource Manager. Met de volgende opdracht wordt niet de virtuele machine geretourneerd die via de klassieke implementatie is gemaakt.
+Met de cmdlet **Get-AzVM** van Resource Manager worden echter alleen virtuele machines geretourneerd die zijn geïmplementeerd via Resource Manager. Met de volgende opdracht wordt niet de virtuele machine geretourneerd die via de klassieke implementatie is gemaakt.
 
 ```powershell
-Get-AzureRmVM -ResourceGroupName ExampleGroup
+Get-AzVM -ResourceGroupName ExampleGroup
 ```
 
 Tags worden alleen ondersteund door resources die via Resource Manager zijn gemaakt. U kunt geen tags toepassen op klassieke resources.

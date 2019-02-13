@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 7e5c78e1b30b311c6ce918453fe728ae86060dda
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 54872a1c5a40cdb3f51c17362daed93c3892001e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720659"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754554"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Zelfstudie: Een AKS-cluster (Azure Kubernetes Service) implementeren
 
@@ -67,10 +67,10 @@ Haal eerst de resource-ID van de ACR op met behulp van [az acr show][]. Werk de 
 az acr show --resource-group myResourceGroup --name <acrName> --query "id" --output tsv
 ```
 
-Als u het AKS de juiste toegangsrechten wilt verlenen om de installatiekopieën te gebruiken die zijn opgeslagen in de ACR, maakt u een roltoewijzing met behulp van de opdracht [az role assignment create][]. Vervang `<appId`> en `<acrId>` door de waarden die zijn verzameld in de vorige twee stappen.
+Als u het AKS-cluster de juiste toegangsrechten wilt verlenen om installatiekopieën te pullen die zijn opgeslagen in ACR, wijst u de rol `AcrPull` toe met behulp van de opdracht [az role assignment create][]. Vervang `<appId`> en `<acrId>` door de waarden die zijn verzameld in de vorige twee stappen.
 
 ```azurecli
-az role assignment create --assignee <appId> --scope <acrId> --role Reader
+az role assignment create --assignee <appId> --scope <acrId> --role acrpull
 ```
 
 ## <a name="create-a-kubernetes-cluster"></a>Een Kubernetes-cluster maken

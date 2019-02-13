@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: c393942112f42dc0d56388b8beac44b4287bca23
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 86224b90f7a93eae41c127d4ba87f685f895e15a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475701"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820399"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Een Azure-bestandsshare koppelen via SMB met macOS
 [Azure Files ](storage-files-introduction.md) is het eenvoudig te gebruiken cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen aan het SMB 3-protocol (industrienorm) worden gekoppeld met macOS El Capitan 10.11+. Dit artikel behandelt twee verschillende manieren om een Azure-bestandsshare te koppelen op macOS: met de Finder-gebruikersinterface en met Terminal.
@@ -38,7 +38,7 @@ ms.locfileid: "55475701"
 1. **Open Finder**: Finder is standaard geopend op MacOS, maar u kunt controleren of het de geselecteerde toepassing is door te klikken op het 'gezichtspictogram van MacOS' op de dock:  
     ![Het gezichtspictogram van Mac OS](./media/storage-how-to-use-files-mac/mount-via-finder-1.png)
 
-2. **Selecteer 'Verbinding maken met Server' in het Menu 'Ga'**: Gebruik het UNC-pad in de [vereisten](#preq) en converteer de eerste twee backslashes (`\\`) naar `smb://` en alle andere backslashes (`\`) naar slashes (`/`). Uw link moet er als volgt uitzien: Het dialoogvenster !['Verbinding maken met server'](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
+2. **Selecteer 'Verbinding maken met Server' in het Menu 'Ga'**: Gebruik het UNC-pad in de vereisten en converteer de eerste twee backslashes (`\\`) naar `smb://` en alle andere backslashes (`\`) naar slashes (`/`). Uw link moet er als volgt uitzien: Het dialoogvenster !['Verbinding maken met server'](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
 
 3. **Gebruik de naam en sleutel van het opslagaccount wanneer u wordt gevraagd om een gebruikersnaam en wachtwoord**: Wanneer u klikt op 'Verbinden' in het dialoogvenster 'Verbinden met server', wordt u gevraagd om de gebruikersnaam en het wachtwoord (hier wordt uw MacOS-gebruikersnaam automatisch ingevuld). U hebt de mogelijkheid om de naam/sleutel van het opslagaccount in uw macOS-sleutelhanger op te slaan.
 

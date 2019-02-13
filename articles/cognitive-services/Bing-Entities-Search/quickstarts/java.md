@@ -1,123 +1,156 @@
 ---
-title: 'Quickstart: Bing Entiteiten zoeken-API, Java'
+title: 'Snelstart: Een zoekaanvraag verzenden naar de Bing Entiteiten zoeken-REST API met Java'
 titlesuffix: Azure Cognitive Services
-description: Bekijk informatie en codevoorbeelden om snel aan de slag te gaan met de Bing Entiteiten zoeken-API.
+description: Gebruik deze quickstart om een aanvraag naar de REST API van Bing Entiteiten zoeken te verzenden via Java en een JSON-antwoord te ontvangen.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 000ae54d578ab7223293fc7c089d91a593931533
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5adf40648118f8eb6c33df80ba3e30208f1b2059
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169454"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813395"
 ---
-# <a name="quickstart-for-bing-entity-search-api-with-java"></a>Snelstartgids: Bing Entiteiten zoeken-API met Java 
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-java"></a>Snelstart: Een zoekaanvraag verzenden naar de Bing Entiteiten zoeken-REST API met Java
 
-In dit artikel leest u hoe u de [Bing Entiteiten zoeken](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) -API gebruikt met Java.
+Gebruik deze quickstart om voor het eerst de Bing Entiteiten zoeken-API aan te roepen en het JSON-antwoord te bekijken. Deze eenvoudige Java-toepassing stuurt een nieuwszoekquery naar de API en geeft het antwoord weer.
+
+Hoewel deze toepassing in Java is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt [JDK 7 of 8](https://aka.ms/azure-jdks) nodig om deze code te compileren en uit te voeren. U kunt een Java-IDE gebruiken als u daar graag mee werkt, maar een teksteditor volstaat.
+* De [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
+* De [Gson-bibliotheek](https://github.com/google/gson)
 
-U moet beschikken over een [account voor de Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met de **Bing Entiteiten zoeken-API**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) is voldoende voor deze snelstartgids. U hebt de toegangssleutel nodig die wordt verstrekt bij het activeren van uw gratis proefversie of u gebruikt de sleutel van een betaald abonnement vanuit uw Azure-dashboard.  Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-## <a name="search-entities"></a>Entiteiten zoeken
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
-Volg deze stappen om deze toepassing uit te voeren.
+## <a name="create-and-initialize-a-project"></a>Een project maken en initialiseren
 
-1. Maak een nieuw Java-project in uw favoriete IDE.
-2. Voeg de onderstaande code toe.
-3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma uit.
+1. Maak een nieuw Java-project in uw favoriete IDE of editor en importeer de volgende bibliotheken.
 
-```java
-import java.io.*;
-import java.net.*;
-import java.util.*;
-import javax.net.ssl.HttpsURLConnection;
+  ```java
+  import java.io.*;
+  import java.net.*;
+  import java.util.*;
+  import javax.net.ssl.HttpsURLConnection;
+  import com.google.gson.Gson;
+  import com.google.gson.GsonBuilder;
+  import com.google.gson.JsonObject;
+  import com.google.gson.JsonParser;
+  import com.google.gson.Gson;
+  import com.google.gson.GsonBuilder;
+  import com.google.gson.JsonObject;
+  import com.google.gson.JsonParser;
+  ```
 
-/*
- * Gson: https://github.com/google/gson
- * Maven info:
- *     groupId: com.google.code.gson
- *     artifactId: gson
- *     version: 2.8.1
- *
- * Once you have compiled or downloaded gson-2.8.1.jar, assuming you have placed it in the
- * same folder as this file (EntitySearch.java), you can compile and run this program at
- * the command line as follows.
- *
- * javac EntitySearch.java -cp .;gson-2.8.1.jar
- * java -cp .;gson-2.8.1.jar EntitySearch
- */
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+2. Maak in een nieuwe klasse variabelen voor het API-eindpunt, uw abonnementssleutel en een zoekquery.
 
-public class EntitySearch {
+  ```java
+  public class EntitySearch {
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+      static String subscriptionKey = "ENTER KEY HERE";
+    
+        static String host = "https://api.cognitive.microsoft.com";
+        static String path = "/bing/v7.0/entities";
+    
+        static String mkt = "en-US";
+        static String query = "italian restaurant near me";
+  //...
+    
+  ```
 
-// Replace the subscriptionKey string value with your valid subscription key.
-    static String subscriptionKey = "ENTER KEY HERE";
+## <a name="construct-a-search-request-string"></a>Een tekenreeks voor de zoekaanvraag maken
 
-    static String host = "https://api.cognitive.microsoft.com";
-    static String path = "/bing/v7.0/entities";
-
-    static String mkt = "en-US";
-    static String query = "italian restaurant near me";
-
+1. Maak een functie met de naam `search()` die een JSON `String` retourneert. Voer een URL-codering uit voor uw query en voeg deze toe aan een parametertekenreeks met `&q=`. Voeg uw markt toe aan de tekenreeks met `?mkt=`.
+ 
+2. Maak een URL-object met uw host, pad en parametertekenreeksen.
+    
+    ```java
+    //...
     public static String search () throws Exception {
         String encoded_query = URLEncoder.encode (query, "UTF-8");
         String params = "?mkt=" + mkt + "&q=" + encoded_query;
         URL url = new URL (host + path + params);
+    //...
+    ```
+      
+## <a name="send-a-search-request-and-receive-a-response"></a>Een zoekopdracht verzenden en een antwoord ontvangen
 
-        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-        connection.setRequestMethod("GET");
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-        connection.setDoOutput(true);
+1. In de functie `search()` die hierboven is gemaakt, maakt u een nieuw `HttpsURLConnection`-object met `url.openCOnnection()`. Stel de aanvraagmethode in op `GET` en voeg uw abonnementssleutel toe aan de `Ocp-Apim-Subscription-Key`-header.
 
-        StringBuilder response = new StringBuilder ();
-        BufferedReader in = new BufferedReader(
+    ```java
+    //...
+    HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+    connection.setRequestMethod("GET");
+    connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+    connection.setDoOutput(true);
+    //...
+    ```
+
+2. Maak een nieuwe `StringBuilder`. Gebruik een nieuwe `InputStreamReader` als parameter bij het instantiëren van `BufferedReader` om de API-antwoord te lezen.  
+    
+    ```java
+    //...
+    StringBuilder response = new StringBuilder ();
+    BufferedReader in = new BufferedReader(
         new InputStreamReader(connection.getInputStream()));
-        String line;
-        while ((line = in.readLine()) != null) {
-            response.append(line);
-        }
-        in.close();
+    //...
+    ```
 
-        return response.toString();
+3. Maak een `String`-object voor het opslaan van de antwoord van de `BufferedReader`. Doorloop deze en voeg elke regel toe aan de tekenreeks. Sluit vervolgens de lezer en retourneer het resultaat. 
+    
+    ```java
+    String line;
+    
+    while ((line = in.readLine()) != null) {
+      response.append(line);
     }
+    in.close();
+    
+    return response.toString();
+    ```
 
-    public static String prettify (String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(json_text).getAsJsonObject();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
+## <a name="format-the-json-response"></a>Het JSON-antwoord indelen
 
-    public static void main(String[] args) {
-        try {
-            String response = search ();
-            System.out.println (prettify (response));
+1. Maak een nieuwe functie met de naam `prettify` om het JSON-antwoord in te delen. Maak een nieuwe `JsonParser`, roep `parse()` in de json-tekst aan en sla deze op als een JSON-object. 
+
+2. Gebruik de Gson-bibliotheek om een nieuwe `GsonBuilder()` te maken en gebruik `setPrettyPrinting().create()` om de json in te delen. Retourneer deze vervolgens.    
+  
+  ```java
+  //...
+  public static String prettify (String json_text) {
+    JsonParser parser = new JsonParser();
+    JsonObject json = parser.parse(json_text).getAsJsonObject();
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    return gson.toJson(json);
+  }
+  //...
+  ```
+
+## <a name="call-the-search-function"></a>De zoekfunctie aanroepen
+
+1. Roep vanuit de hoofdmethode van uw project `search()` aan en gebruik `prettify()` om de tekst in te delen.
+    
+    ```java
+        public static void main(String[] args) {
+            try {
+                String response = search ();
+                System.out.println (prettify (response));
+            }
+            catch (Exception e) {
+                System.out.println (e);
+            }
         }
-        catch (Exception e) {
-            System.out.println (e);
-        }
-    }
-}
-```
+    ```
 
-**Antwoord**
+## <a name="example-json-response"></a>Voorbeeld van JSON-antwoord
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
@@ -182,11 +215,12 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 }
 ```
 
-[Terug naar boven](#HOLTop)
+[Terug naar boven](#main)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Zelfstudie over Bing Entiteiten zoeken](../tutorial-bing-entities-search-single-page-app.md)
-> [Overzicht van Bing Entiteiten zoeken](../search-the-web.md )
-> [API-handleiding](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [Een web-app van één pagina maken](../tutorial-bing-entities-search-single-page-app.md).
+
+* [Wat is de Bing Entiteiten zoeken-API?](../overview.md )
+* [Naslaghandleiding Bing Entiteiten zoeken-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)

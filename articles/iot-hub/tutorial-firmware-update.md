@@ -12,14 +12,14 @@ ms.workload: na
 ms.date: 06/21/2018
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: bc1887ef3cdbc56732317aea15be7a618c35847e
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 20891b0d73783c9b68a42ecfed130e377b6f8eab
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003573"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729809"
 ---
-# <a name="tutorial-implement-a-device-firmware-update-process"></a>Zelfstudie: een apparaatfirmware-updateproces implementeren
+# <a name="tutorial-implement-a-device-firmware-update-process"></a>Zelfstudie: Een apparaatfirmware-updateproces implementeren
 
 Mogelijk moet u de firmware bijwerken op de apparaten die zijn aangesloten op uw IoT-hub. Bijvoorbeeld als u nieuwe functies aan de firmware wilt toevoegen of beveiligingspatches toepassen. In veel IoT-scenario's is het onpraktisch om apparaten fysiek te bezoeken en handmatig firmware-updates toe te passen. Deze zelfstudie laat zien hoe u het firmware-updateproces op afstand kunt starten en bewaken via een back-endtoepassing die is aangesloten op uw hub.
 
@@ -73,7 +73,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later
-az iot hub show-connection-string --hub-name $hub-name -o table
+az iot hub show-connection-string --hub-name $hubname -o table
 
 ```
 

@@ -13,15 +13,15 @@ ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 01/31/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 7d622b834cef31552cac60b359cdd8404592eda9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 135189c576c67212dac6afc1388a6ef9fb045346
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255554"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512355"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Zelfstudie: Containers verpakken en implementeren als een Service Fabric-toepassing met behulp van Yeoman
 
@@ -227,17 +227,42 @@ Op dit punt in de zelfstudie is de sjabloon voor een Service Package-toepassing 
 
 ## <a name="create-a-service-fabric-cluster"></a>Een Service Fabric-cluster maken
 
-Maak uw eigen cluster om de toepassing te implementeren in een cluster in Azure.
+Voor het implementeren van de toepassing in Azure hebt u een Service Fabric-cluster nodig om de toepassing uit te voeren. Met de volgende opdrachten wordt een cluster met vijf knooppunten in Azure gemaakt.  Met de opdrachten wordt ook een zelfondertekend certificaat gemaakt, dat wordt toegevoegd aan een sleutelkluis en waarmee het certificaat lokaal wordt gedownload als PEM-bestand. Het nieuwe certificaat wordt gebruikt om het cluster te beveiligen wanneer het wordt geïmplementeerd en wordt tevens gebruikt om clients te verifiëren.
 
-Clusters van derden zijn gratis tijdelijke Service Fabric-clusters die worden gehost in Azure. Ze worden beheerd door het Service Fabric-team. Iedereen kan hier toepassingen implementeren en informatie krijgen over het platform. [Volg de instructies](https://aka.ms/tryservicefabric) om toegang te krijgen tot een cluster van derden.
+```azurecli
+#!/bin/bash
 
-Als u beheerbewerkingen wilt uitvoeren op het beveiligde Party-cluster, kunt u gebruikmaken van Service Fabric Explorer, CLI of Powershell. Als u Service Fabric Explorer wilt gebruiken, moet u het PFX-bestand downloaden van de Party Cluster-website en het certificaat importeren in uw certificaatarchief (Windows of Mac) of in de browser zelf (Ubuntu). Er is geen wachtwoord voor de zelfondertekende certificaten van het Party-cluster.
+# Variables
+ResourceGroupName="containertestcluster" 
+ClusterName="containertestcluster" 
+Location="eastus" 
+Password="q6D7nN%6ck@6" 
+Subject="containertestcluster.eastus.cloudapp.azure.com" 
+VaultName="containertestvault" 
+VmPassword="Mypa$$word!321"
+VmUserName="sfadminuser"
 
-Als u beheerbewerkingen wilt uitvoeren met Powershell of CLI, hebt u de PFX (Powershell) of PEM (CLI) nodig. Voer de volgende opdracht uit om de PFX te converteren naar een PEM-bestand:
+# Login to Azure and set the subscription
+az login
 
-```bash
-openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+az account set --subscription <mySubscriptionID>
+
+# Create resource group
+az group create --name $ResourceGroupName --location $Location 
+
+# Create secure five node Linux cluster. Creates a key vault in a resource group
+# and creates a certficate in the key vault. The certificate's subject name must match 
+# the domain that you use to access the Service Fabric cluster.  
+# The certificate is downloaded locally as a PEM file.
+az sf cluster create --resource-group $ResourceGroupName --location $Location \ 
+--certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject \ 
+--cluster-name $ClusterName --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName \ 
+--vault-resource-group $ResourceGroupName --vm-password $VmPassword --vm-user-name $VmUserName
 ```
+
+> [!Note]
+> De web-front-endservice is geconfigureerd om naar binnenkomend verkeer te luisteren op poort 80. Standaard is poort 80 geopend in uw cluster-VM's en de Azure Load Balancer.
+>
 
 Zie [Een Service Fabric-cluster maken op Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) voor meer informatie over het maken van uw eigen cluster.
 
@@ -245,10 +270,10 @@ Zie [Een Service Fabric-cluster maken op Azure](service-fabric-tutorial-create-v
 
 U kunt de toepassing implementeren in het Azure-cluster met behulp van de Service Fabric CLI. Als de Service Fabric CLI niet op uw computer is geïnstalleerd, volgt u de instructies [hier](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) om deze te installeren.
 
-Maak verbinding met het Service Fabric-cluster in Azure. Vervang het voorbeeld van een eindpunt door uw eigen eindpunt. Het eindpunt moet een volledige URL zijn die lijkt op de onderstaande.
+Maak verbinding met het Service Fabric-cluster in Azure. Vervang het voorbeeld van een eindpunt door uw eigen eindpunt. Het eindpunt moet een volledige URL zijn die lijkt op de onderstaande.  Het PEM-bestand is het zelfondertekende certificaat dat eerder is gemaakt.
 
 ```bash
-sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
+sfctl cluster select --endpoint https://containertestcluster.eastus.cloudapp.azure.com:19080 --pem containertestcluster22019013100.pem --no-verify
 ```
 
 Gebruik het installatiescript uit de **TestContainer**-directory om het toepassingspakket te kopiëren naar de installatiekopieopslag van het cluster, het toepassingstype te registreren en een exemplaar van de toepassing te maken.
@@ -257,11 +282,11 @@ Gebruik het installatiescript uit de **TestContainer**-directory om het toepassi
 ./install.sh
 ```
 
-Open een browser en ga naar Service Fabric Explorer op http://lin4hjim3l4.westus.cloudapp.azure.com:19080/Explorer. Vouw het knooppunt Toepassingen uit. U ziet dat er een vermelding is voor uw toepassingstype en nog een voor het exemplaar.
+Open een browser en ga naar Service Fabric Explorer op http://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Vouw het knooppunt Toepassingen uit. U ziet dat er een vermelding is voor uw toepassingstype en nog een voor het exemplaar.
 
 ![Service Fabric Explorer][sfx]
 
-Om verbinding te maken met de actieve toepassing, opent u een webbrowser en gaat u naar de URL van het cluster: bijvoorbeeld http://lin0823ryf2he.cloudapp.azure.com:80. U ziet nu de stemtoepassing in de webgebruikersinterface.
+Om verbinding te maken met de actieve toepassing, opent u een webbrowser en gaat u naar de URL van het cluster: bijvoorbeeld http://containertestcluster.eastus.cloudapp.azure.com:80. U ziet nu de stemtoepassing in de webgebruikersinterface.
 
 ![stemapp][votingapp]
 

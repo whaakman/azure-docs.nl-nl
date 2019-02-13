@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 70d1bc9003d98f0154b9f38738f1b8e82b0c506d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 93a41610035d91774256410cea6af1d06b085d30
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189605"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562059"
 ---
 # <a name="quickstart-run-a-container-application-in-azure-container-instances-with-the-azure-cli"></a>Snelstartgids: Een containertoepassing uitvoeren in Azure Container Instances met Azure CLI
 
@@ -39,7 +39,9 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Een container maken
 
-Nu u een resourcegroep hebt, kunt u een container in Azure uitvoeren. Als u een containerinstantie met de Azure CLI wilt maken, geeft u de naam van een resourcegroep, de naam van een containerinstantie en een Docker-containerinstallatiekopie op voor de opdracht [az container create][az-container-create]. Als u uw containers beschikbaar wilt maken op internet, moet u een of meer poorten om te openen of een DNS-naamlabel opgeven, of beide. In deze snelstartgids implementeert u een container met een DNS-naamlabel die als host fungeert voor een kleine web-app geschreven in Node.js.
+Nu u een resourcegroep hebt, kunt u een container in Azure uitvoeren. Als u een containerinstantie met de Azure CLI wilt maken, geeft u de naam van een resourcegroep, de naam van een containerinstantie en een Docker-containerinstallatiekopie op voor de opdracht [az container create][az-container-create]. In deze quickstart gebruikt u de `microsoft/aci-helloworld`-installatiekopie uit het openbare Docker Hub-register. Deze installatiekopie bevat een kleine web-app geschreven in Node.js die een statische HTML-pagina levert.
+
+Als u uw containers beschikbaar wilt maken op internet, moet u een of meer poorten om te openen of een DNS-naamlabel opgeven, of beide. In deze quickstart implementeert u een container met een DNS-naamlabel zodat de web-app openbaar bereikbaar is.
 
 Voer de volgende opdracht uit om een exemplaar van de container te starten. De waarde `--dns-name-label` moet uniek zijn voor de Azure-regio waar u het exemplaar maakt. Als u een foutbericht 'DNS-naamlabel niet beschikbaar' ontvangt, probeert u een ander DNS-naamlabel.
 
@@ -145,7 +147,7 @@ In deze snelstartgids hebt u een Azure-containerinstantie gemaakt met behulp van
 > [!div class="nextstepaction"]
 > [Zelfstudie voor Azure Container Instances](./container-instances-tutorial-prepare-app.md)
 
-Zie de snelstart [Service Fabric][service-fabric] of [Azure Kubernetes Service (AKS)][container-service] als u opties wilt uitproberen voor het uitvoeren van containers in een orchestration-systeem op Azure.
+Zie de quickstarts voor [Azure Kubernetes Service (AKS)][container-service] als u opties wilt uitproberen voor het uitvoeren van containers in een orchestration-systeem op Azure.
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
@@ -166,4 +168,3 @@ Zie de snelstart [Service Fabric][service-fabric] of [Azure Kubernetes Service (
 [az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli-install]: /cli/azure/install-azure-cli
 [container-service]: ../aks/kubernetes-walkthrough.md
-[service-fabric]: ../service-fabric/service-fabric-quickstart-containers.md

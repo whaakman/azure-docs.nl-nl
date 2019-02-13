@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/11/2018
+ms.date: 01/31/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0b4549323b64b0f6210a228ea6cb5ca301839ec8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d62e74c5d81cdf3331bde349a9ec5dfe3071e7f8
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721849"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510694"
 ---
 # <a name="tutorial-build-a-net-core-and-sql-database-app-in-azure-app-service"></a>Zelfstudie: Een .NET Core- en SQL Database-app maken in Azure App Service
 
@@ -366,6 +366,37 @@ Zodra `git push` is voltooid, gaat u naar de App Service-app en probeert u de ni
 ![Azure-app na Code First Migration](./media/app-service-web-tutorial-dotnetcore-sqldb/this-one-is-done.png)
 
 Alle bestaande taakitems worden nog steeds weergegeven. Als u de .NET Core-app opnieuw publiceert, blijven bestaande gegevens in SQL Database behouden. En met Entity Framework Core Migrations wordt alleen het gegevensschema gewijzigd. De bestaande gegevens blijven ongewijzigd.
+
+## <a name="stream-diagnostic-logs"></a>Diagnostische logboeken streamen
+
+Terwijl uw ASP.NET Core-app wordt uitgevoerd in Azure App Service, kunt u de consolelogboeken doorsluizen naar de Cloud Shell. Op die manier krijgt u de dezelfde diagnostische berichten om toepassingsfouten op te sporen.
+
+Het voorbeeldproject volgt al de instructies in [ASP.NET Core-logboekregistratie in Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure) met twee configuratiewijzigingen:
+
+- Bevat een verwijzing naar `Microsoft.Extensions.Logging.AzureAppServices` in *DotNetCoreSqlDb.csproj*.
+- Roept `loggerFactory.AddAzureWebAppDiagnostics()` aan in *Startup.cs*.
+
+Om het [logboekniveau](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level) van ASP.NET Core in App Service te wijzigen van het standaardniveau `Warning` in `Information`, gebruikt u de opdracht [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) in de Cloud Shell.
+
+```azurecli-interactive
+az webapp log config --name <app_name> --resource-group myResourceGroup --application-logging true --level information
+```
+
+> [!NOTE]
+> Het logboekniveau van het project is al ingesteld op `Information` in *appsettings.json*.
+> 
+
+Gebruik voor het starten van logboekstreaming de opdracht [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) in de Cloud Shell.
+
+```azurecli-interactive
+az webapp log tail --name <app_name> --resource-group myResourceGroup
+```
+
+Nadat logboekstreaming is gestart, vernieuwt u de Azure-app in de browser om wat webverkeer te genereren. U kunt nu zien dat consolelogboeken worden doorgegeven aan de terminal. Als u de consolelogboeken niet meteen ziet, probeert u het opnieuw na 30 seconden.
+
+Typ `Ctrl`+`C` om op elk gewenst moment te stoppen met logboekstreaming.
+
+Zie [Logboekregistratie in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging) voor meer informatie over het aanpassen van de ASP.NET Core-logboeken.
 
 ## <a name="manage-your-azure-app"></a>Uw Azure-app beheren
 

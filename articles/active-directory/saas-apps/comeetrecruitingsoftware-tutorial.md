@@ -1,243 +1,235 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met Comeet werving Software | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Comeet werving Software.
+title: 'Zelfstudie: Azure Active Directory-integratie met Comeet Recruiting Software | Microsoft Docs'
+description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en Comeet Recruiting Software.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 75f51dc9-9525-4ec6-80bf-28374f0c8adf
-ms.service: active-directory
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/29/2018
+ms.topic: tutorial
+ms.date: 01/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 137ba7a7e82ff3e57d862868859e8049838701a3
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
-ms.translationtype: MT
+ms.openlocfilehash: f49d57207a7e8ea421ff64afc6aa98ed6a0cdc91
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307750"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663482"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-comeet-recruiting-software"></a>Zelfstudie: Azure Active Directory-integratie met Comeet werving Software
+# <a name="tutorial-azure-active-directory-integration-with-comeet-recruiting-software"></a>Zelfstudie: Azure Active Directory-integratie met Comeet Recruiting Software
 
-In deze zelfstudie leert u hoe u Comeet werving om Software te integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Comeet Recruiting Software kunt integreren met Azure Active Directory (Azure AD).
+Comeet Recruiting Software integreren met Azure AD biedt de volgende voordelen:
 
-Comeet werving Software integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD bepalen wie toegang tot Comeet Recruiting Software heeft.
+* U kunt inschakelen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Comeet Recruiting Software (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot Comeet werving Software heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Comeet werving Software (Single Sign-On) inschakelen met hun Azure AD-accounts.
-- U kunt uw accounts in één centrale locatie - Azure portal beheren.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Comeet werven van Software, moet u de volgende items:
+Voor het configureren van Azure AD-integratie met Comeet Recruiting Software hebt u de volgende items nodig:
 
-- Een Azure AD-abonnement
-- Een Comeet werving Software eenmalige aanmelding ingeschakeld abonnement
-
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Abonnement op Comeet Recruiting Software met eenmalige aanmelding ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-1. Comeet werving Software uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+* Comeet Recruiting Software ondersteunt door **SP en IDP**-geïnitieerde eenmalige aanmelding
 
-## <a name="adding-comeet-recruiting-software-from-the-gallery"></a>Comeet werving Software uit de galerie toe te voegen
+## <a name="adding-comeet-recruiting-software-from-the-gallery"></a>Comeet Recruiting Software toevoegen vanuit de galerie
 
-Voor het configureren van de integratie van Comeet werving Software in Azure AD, moet u Comeet werving Software uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+Voor het configureren van de integratie van Comeet Recruiting Software in Azure AD, moet u Comeet Recruiting Software vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen Comeet werving Software uit de galerie, moet u de volgende stappen uitvoeren:**
+**Als u Comeet Recruiting Software wilt toevoegen vanuit de galerie, voert u de volgende stappen uit:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![De Azure Active Directory-knop][1]
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-    ![De blade Enterprise-toepassingen][2]
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![De knop nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-4. Typ in het zoekvak **Comeet werving Software**, selecteer **Comeet werving Software** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+4. Typ in het zoekvak **Comeet Recruiting Software** in het zoekvak, selecteer **Comeet Recruiting Software** in het deelvenster met resultaten en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-    ![Comeet werving Software in de lijst met resultaten](./media/comeetrecruitingsoftware-tutorial/tutorial_comeetrecruitingsoftware_addfromgallery.png)
+     ![Comeet Recruiting Software in de lijst met resultaten](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Comeet werven van Software op basis van een testgebruiker 'Julia steen' genoemd.
+In dit gedeelte configureert en test u eenmalige aanmelding van Azure AD met Comeet Recruiting Software op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Comeet Recruiting Software tot stand is gebracht.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Comeet werving Software is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Comeet werving Software tot stand worden gebracht.
+Als u eenmalige aanmelding voor Azure AD wilt configureren en testen met Comeet Recruiting Software, moet u de volgende bouwstenen voltooien:
 
-Als u wilt configureren en Azure AD eenmalige aanmelding met Comeet werving Software testen, moet u de volgende bouwstenen voltooien:
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding voor Comeet Recruiting Software configureren](#configure-comeet-recruiting-software-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wil configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker voor Comeet Recruiting Software maken](#create-comeet-recruiting-software-test-user)**: als u een tegenhanger van Britta Simon in Comeet Recruiting Software wilt hebben die gekoppeld is aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker Comeet werving Software](#create-a-comeet-recruiting-software-test-user)**  : als u wilt een equivalent van Britta Simon in Comeet werven van Software die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Comeet werving Software.
+Voor het configureren van eenmalige aanmelding voor Azure AD met Comeet Recruiting Software voert u de volgende stappen uit:
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Comeet werven van Software, moet u de volgende stappen uitvoeren:**
+1. In de [Azure-portal](https://portal.azure.com/) selecteert u **Eenmalige aanmelding** op de integratiepagina van de toepassing **Comeet Recruiting Software**.
 
-1. In de Azure-portal op de **Comeet werving Software** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/comeetrecruitingsoftware-tutorial/tutorial_comeetrecruitingsoftware_samlbase.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-3. Op de **Comeet werving Software domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IDP** modus gestart:
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    ![Comeet domein en URL's, eenmalige aanmelding informatie](./media/comeetrecruitingsoftware-tutorial/tutorial_comeetrecruitingsoftware_url1.png)
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit als u de toepassing in de door **IDP** geïnitieerde modus wilt configureren:
 
-    a. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://app.comeet.co/adfs_auth/acs/<UNIQUEID>/`
+    ![Eenmalige aanmelding voor Comeet Recruiting Software-domein en -URL's](common/idp-intiated.png)
 
-    b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://app.comeet.co/adfs_auth/acs/<UNIQUEID>/`
+    a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://app.comeet.co/adfs_auth/acs/<UNIQUEID>/`
+
+    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://app.comeet.co/adfs_auth/acs/<UNIQUEID>/`
 
     > [!NOTE]
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke-id en antwoord-URL. Ontvangt u deze waarden van de portal Comeet werving Software zoals wordt weergegeven in de [ondersteuningspagina](https://support.comeet.co/knowledgebase/adfs-single-sign-on/).
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke id en antwoord-URL. Neem contact op met het [ondersteuningsteam voor klanten van Comeet Recruiting Software](https://support.comeet.co/knowledgebase/adfs-single-sign-on/) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-4. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
+5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
-    ![Werving Software domein en URL's één aanmelding informatie comeet](./media/comeetrecruitingsoftware-tutorial/tutorial_comeetrecruitingsoftware_url2.png)
+    ![Eenmalige aanmelding voor Comeet Recruiting Software-domein en -URL's](common/metadata-upload-additional-signon.png)
 
-    In de **aanmeldings-URL** tekstvak typt u de URL: `https://app.comeet.co`
+    In het tekstvak **Aanmeldings-URL** typt u een URL: `https://app.comeet.co`
 
-5. Comeet werving softwaretoepassing wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. De volgende Schermafbeelding toont een voorbeeld voor deze. De standaardwaarde van **gebruikers-id** is **user.userprincipalname** maar **Comeet werving Software** wordt verwacht dat deze optie om te worden toegewezen met de e-mailadres van de gebruiker. Hiervoor kunt u **user.mail** kenmerk in de lijst of gebruik de waarde van het juiste kenmerk op basis van de organisatieconfiguratie van uw.
+5. Comeet Recruiting Software verwacht de SAML-asserties in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
 
-    ![Eenmalige aanmelding configureren](./media/comeetrecruitingsoftware-tutorial/tutorial_comeetrecruitingsoftware_attribute.png)
+    ![image](common/edit-attribute.png)
 
-6. Klik op **weergeven en bewerken van alle andere gebruikerskenmerken** selectievakje in de **gebruikerskenmerken** sectie om uit te breiden de kenmerken. De volgende stappen uitvoeren op elk van de kenmerken weergegeven:
+6. Bewerk in het gedeelte **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** de claims met het **pictogram Bewerken** of voeg de claims toe door met **Nieuwe claim toevoegen** het kenmerk van het SAML-token te configureren, zoals wordt weergegeven in de bovenstaande afbeelding. Hierna voert u de volgende stappen uit: 
 
-    | Naam kenmerk | Waarde kenmerk |
+    | Naam |  Bronkenmerk|
     | ---------------| --------------- |
-    | comeet_id | User.userPrincipalName |
+    | nameidentifier | user.mail |
+    | comeet_id | user.userprincipalname |
 
-    a. Klik op **kenmerk toevoegen** openen de **kenmerk toevoegen** dialoogvenster.
+    a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 
-    ![Eenmalige aanmelding configureren](./media/comeetrecruitingsoftware-tutorial/tutorial_attribute_04.png)
+    ![image](common/new-save-attribute.png)
 
-    ![Eenmalige aanmelding configureren](./media/comeetrecruitingsoftware-tutorial/tutorial_attribute_05.png)
+    ![image](common/new-attribute-details.png)
 
-    b. In de **naam** tekstvak, type de **kenmerknaam** wordt weergegeven voor die rij.
+    b. In het tekstvak **Naam** typt u de naam van het kenmerk die voor die rij wordt weergegeven.
 
-    c. Uit de **waarde** weergeven, typt u de waarde van het kenmerk wordt weergegeven voor die rij.
+    c. Laat **Naamruimte** leeg.
 
-    d. Klik op **OK**.
+    d. Selecteer Bron bij **Kenmerk**.
 
-7. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+    e. Typ de kenmerkwaarde voor die rij in de lijst met **bronkenmerken**.
 
-    ![De downloadkoppeling certificaat](./media/comeetrecruitingsoftware-tutorial/tutorial_comeetrecruitingsoftware_certificate.png)
+    f. Klik op **OK**.
 
-8. Klik op **opslaan** knop.
+    g. Klik op **Opslaan**.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/comeetrecruitingsoftware-tutorial/tutorial_general_400.png)
+4. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
-9. Het configureren van eenmalige aanmelding op **Comeet werving Software** zijde, plak de inhoud van de gedownloade Metadata-XML in Comeet werven van Software, zoals wordt weergegeven in de [ondersteuningspagina](https://support.comeet.co/knowledgebase/adfs-single-sign-on/).
+    ![De link om het certificaat te downloaden](common/metadataxml.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+6. In het gedeelte **Comeet Recruiting Software instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-   ![Maak een testgebruiker Azure AD][100]
+    a. Aanmeldings-URL
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    b. Azure AD-id
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+    c. Afmeldings-URL
 
-    ![De Azure Active Directory-knop](./media/comeetrecruitingsoftware-tutorial/create_aaduser_01.png)
+### <a name="configure-comeet-recruiting-software-single-sign-on"></a>Eenmalige aanmelding voor Comeet Recruiting Software configureren
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+Als u eenmalige aanmelding wilt configureren aan de **Comeet Recruiting Software**-zijde, moet u de gedownloade **Federation Metadata XML** en de juiste uit de Azure-portal gekopieerde URL's verzenden naar het [Comeet Recruiting Software-ondersteuningsteam](https://support.comeet.co/knowledgebase/adfs-single-sign-on/). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/comeetrecruitingsoftware-tutorial/create_aaduser_02.png)
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-    ![De knop toevoegen](./media/comeetrecruitingsoftware-tutorial/create_aaduser_03.png)
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-    ![Het dialoogvenster gebruiker](./media/comeetrecruitingsoftware-tutorial/create_aaduser_04.png)
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    a. In de **naam** in het vak **BrittaSimon**.
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
+
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
+
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
 
-### <a name="create-a-comeet-recruiting-software-test-user"></a>Maak een testgebruiker Comeet werving Software
-
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in Comeet werving Software. Werken met [Comeet werven van Software-ondersteuningsteam](mailto:support@comeet.co) om toe te voegen de gebruikers in de Comeet werven van Software-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
-
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen tot Comeet werving Software.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Comeet Recruiting Software.
 
-![De de gebruikersrol toewijzen][200]
+1. Selecteer **Bedrijfstoepassingen** in de Azure-portal, selecteer **Alle toepassingen** en vervolgens **Comeet Recruiting Software**.
 
-**Als u wilt toewijzen Britta Simon Comeet werven van software, moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Selecteer in de lijst met toepassingen, **Comeet Recruiting Software**.
 
-    ![Gebruiker toewijzen][201]
+    ![De koppeling Comeet Recruiting Software in de lijst met toepassingen](common/all-applications.png)
 
-2. Selecteer in de lijst met toepassingen, **Comeet werving Software**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De koppeling Comeet werving Software in de lijst met toepassingen](./media/comeetrecruitingsoftware-tutorial/tutorial_comeetrecruitingsoftware_app.png)  
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="create-comeet-recruiting-software-test-user"></a>Testgebruiker voor Comeet Recruiting Software maken
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
+In dit gedeelte gaat u een gebruiker met de naam Britta Simon in Comeet Recruiting Software maken. Werk samen met het [Comeet Recruiting Software-ondersteuningsteam](mailto:support@comeet.co) om de gebruikers in het Comeet Recruiting Software-platform toe te voegen. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-Wanneer u op de tegel Comeet werving Software in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Comeet werving Software.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
+Wanneer u op de tegel Comeet Recruiting Software in het toegangsvenster klikt, wordt u automatisch aangemeld bij de instantie van Comeet Recruiting Software waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-[1]: ./media/comeetrecruitingsoftware-tutorial/tutorial_general_01.png
-[2]: ./media/comeetrecruitingsoftware-tutorial/tutorial_general_02.png
-[3]: ./media/comeetrecruitingsoftware-tutorial/tutorial_general_03.png
-[4]: ./media/comeetrecruitingsoftware-tutorial/tutorial_general_04.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/comeetrecruitingsoftware-tutorial/tutorial_general_100.png
-
-[200]: ./media/comeetrecruitingsoftware-tutorial/tutorial_general_200.png
-[201]: ./media/comeetrecruitingsoftware-tutorial/tutorial_general_201.png
-[202]: ./media/comeetrecruitingsoftware-tutorial/tutorial_general_202.png
-[203]: ./media/comeetrecruitingsoftware-tutorial/tutorial_general_203.png

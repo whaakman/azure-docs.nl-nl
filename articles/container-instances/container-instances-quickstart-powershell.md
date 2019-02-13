@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 87cf0f09cbeeee90492e070b25b713546c6631e5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e8efcbe080cc33cb6153d97d4435bcb477587980
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438861"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565850"
 ---
 # <a name="quickstart-run-a-container-application-in-azure-container-instances-with-azure-powershell"></a>Snelstartgids: Een containertoepassing uitvoeren in Azure Container Instances met Azure PowerShell
 
@@ -39,7 +39,9 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container"></a>Een container maken
 
-Nu u een resourcegroep hebt, kunt u een container in Azure uitvoeren. Als u een containerinstantie wilt maken met Azure PowerShell, geeft u de naam van een resourcegroep, de naam van een containerinstantie en een Docker-containerinstallatiekopie op voor de cmndlet [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. Als u uw containers beschikbaar wilt maken op internet, moet u een of meer poorten om te openen of een DNS-naamlabel opgeven, of beide. In deze snelstart implementeert u een container met een DNS-naamlabel die als host fungeert voor Internet Information Services (IIS), uitgevoerd in Nano Server.
+Nu u een resourcegroep hebt, kunt u een container in Azure uitvoeren. Als u een containerinstantie wilt maken met Azure PowerShell, geeft u de naam van een resourcegroep, de naam van een containerinstantie en een Docker-containerinstallatiekopie op voor de cmndlet [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. In deze quickstart gebruikt u de `microsoft/iis:nanoserver` Windows-installatiekopie uit het openbare Docker Hub-register. Deze installatiekopie is een pakket van Internet Information Services (IIS) om uit te voeren in Nano Server.
+
+Als u uw containers beschikbaar wilt maken op internet, moet u een of meer poorten om te openen of een DNS-naamlabel opgeven, of beide. In deze quickstart implementeert u een container met een DNS-naamlabel zodat IIS openbaar bereikbaar is.
 
 Voer de volgende opdracht uit om een exemplaar van de container te starten. De waarde `-DnsNameLabel` moet uniek zijn voor de Azure-regio waar u het exemplaar maakt. Als u een foutbericht 'DNS-naamlabel niet beschikbaar' ontvangt, probeert u een ander DNS-naamlabel.
 

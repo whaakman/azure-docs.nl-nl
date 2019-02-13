@@ -9,18 +9,20 @@ ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 2fc88f82222deeecb55dac8fa77e1d8702ffe011
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 7ef45061207bed28c1b3c16b7cefbcc9bfc49959
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055027"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814962"
 ---
 # <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-template"></a>Quickstart: Een Apache Spark-cluster in HDInsight maken met behulp van een sjabloon
 
-Meer informatie over hoe u een [Apache Spark](https://spark.apache.org/)-cluster maakt in Azure HDInsight en hoe u Spark SQL-query's uitvoert op [Apache Hive](https://hive.apache.org/)-tabellen. Apache Spark maakt het mogelijk om snelle gegevensanalyses en clusterberekeningen uit te voeren met behulp van verwerking in het geheugen. Zie voor informatie over Spark in Azure HDInsight [Overzicht: Apache Spark in Azure HDInsight](apache-spark-overview.md).
+Meer informatie over hoe u een [Apache Spark](https://spark.apache.org/)-cluster maakt in Azure HDInsight en hoe u Spark SQL-query's uitvoert op [Apache Hive](https://hive.apache.org/)-tabellen. Apache Spark maakt het mogelijk om snelle gegevensanalyses en clusterberekeningen uit te voeren met behulp van verwerking in het geheugen. Zie voor informatie over Apache Spark in HDInsight [Overzicht: Apache Spark in Azure HDInsight](apache-spark-overview.md).
 
-In deze snelstart gebruikt u Resource Manager-sjabloon voor het maken van een Spark-cluster in HDInsight. Het cluster maakt gebruik van Azure Storage Blobs als de clusteropslag. Zie voor informatie over het gebruik van Data Lake Storage Gen2 [Snelstart: Clusters instellen in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+In deze snelstart gebruikt u Resource Manager-sjabloon voor het maken van een Spark-cluster in HDInsight. U kunt vergelijkbare sjablonen bekijken bij de [Azure-snelstartsjablonen](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular). De sjabloonverwijzing vindt u [hier](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions).
+
+Het cluster maakt gebruik van Azure Storage Blobs als de clusteropslag. Zie voor informatie over het gebruik van Data Lake Storage Gen2 [Snelstart: clusters instellen in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 > [!IMPORTANT]  
 > HDInsight-clusters worden pro rato per minuut gefactureerd, ongeacht of u er wel of niet gebruik van maakt. Verwijder uw cluster daarom als u er klaar mee bent. Zie voor meer informatie de sectie [Resources opschonen](#clean-up-resources) van dit artikel.

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: raynew
-ms.openlocfilehash: 334a476fee6e995c33a290d34df2f111baae34c3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fa154b79625fffb8174c510156b3a67df8bff785
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224238"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770426"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Een back-up van SQL Server-databases maken in Azure
 
@@ -202,6 +202,7 @@ Om goede back-ups te kunnen maken met Azure Backup voor SQL Server op IaaS-VM, m
 
   * Voorloop- en volgspaties
   * Volguitroepteken '!'
+  * Vierkante haak sluiten ‘]’
 
 We hebben wel aliasing voor niet-ondersteunde tekens in Azure-tabellen, maar ook dat kunt u het beste vermijden. Raadpleeg [dit artikel](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN) voor meer informatie.
 
@@ -721,6 +722,8 @@ Wanneer u de beveiliging van een SQL Server-database stopt in Azure Backup, word
 * Alle toekomstige back-uptaken stoppen en de herstelpunten behouden.
 
 Als u ervoor kiest de back-uptaken te stoppen met behoud van gegevens, worden herstelpunten verwijderd volgens het back-upbeleid. Er worden kosten in rekening gebracht voor de beveiligde SQL-exemplaren en de gebruikte opslag totdat alle herstelpunten zijn verwijderd. Zie de [pagina met prijzen voor Azure Backup](https://azure.microsoft.com/pricing/details/backup/) voor meer informatie over prijzen van Azure Backup voor SQL.
+
+Als u het maken van een back-up stopt met behoud van gegevens, verlopen de herstelpunten op basis van het retentiebeleid. Er blijft in Azure Backup echter altijd één herstelpunt behouden totdat u de back-upgegevens expliciet verwijdert. Op dezelfde manier mislukken back-ups, wanneer u een gegevensbron verwijdert zonder het maken van een back-up te stoppen. Oude herstelpunten verlopen dan op basis van het retentiebeleid, maar één herstelpunt blijft altijd behouden totdat u het maken van een back-up stopt met het verwijderen van gegevens.
 
 Ga als volgt te werk om de beveiliging van een database te stoppen:
 

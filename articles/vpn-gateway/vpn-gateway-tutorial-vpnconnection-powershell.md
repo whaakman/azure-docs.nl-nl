@@ -17,11 +17,11 @@ ms.date: 05/08/2018
 ms.author: yushwang
 ms.custom: mvc
 ms.openlocfilehash: 0c71062bded65f8aa7c259c0678ee6675e2dab38
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432214"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509470"
 ---
 # <a name="create-and-manage-s2s-vpn-connections-with-the-azure-powershell-module"></a>Azure S2S VPN-verbindingen maken en beheren met behulp van de Azure PowerShell-module
 
@@ -43,7 +43,7 @@ Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze zelfstudie m
 
 ## <a name="requirements"></a>Vereisten
 
-Voltooi de eerste zelfstudie: [Een Azure VPN-gateway maken en beheren met behulp van Microsoft Azure PowerShell](vpn-gateway-tutorial-create-gateway-powershell.md) om de volgende resources te maken:
+Voltooi de eerste zelfstudie: '[Een Azure VPN-gateway maken met behulp van Microsoft Azure PowerShell](vpn-gateway-tutorial-create-gateway-powershell.md)' om de volgende resources te maken:
 
 1. Resourcegroep (TestRG1), het virtuele netwerk (VNet1) en GatewaySubnet
 2. VPN-gateway (VNet1GW)
@@ -140,7 +140,7 @@ Azure VPN-gateway biedt ondersteuning voor een dynamisch BGP-routeringsprotocol.
 * On-premises lokale netwerkgateway ASN
 * On-premises lokale netwerkgateway BGP-peer-IP-adres
 
-Als u de BGP-eigenschappen niet hebt geconfigureerd, gebruikt u de volgende opdrachten om deze eigenschappen toe te voegen aan uw VPN-gateway en de lokale netwerkgateway: [Set AzureRmVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway?view=azurermps-6.8.1) en [ Set-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermlocalnetworkgateway?view=azurermps-6.8.1).
+Als u de BGP-eigenschappen niet hebt geconfigureerd, gebruikt u de volgende opdrachten om deze eigenschappen toe te voegen aan uw VPN-gateway en de lokale netwerkgateway: [Set-AzureRmVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway?view=azurermps-6.8.1) en [Set-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermlocalnetworkgateway?view=azurermps-6.8.1).
 
 ```azurepowershell-interactive
 $vng1 = Get-AzureRmVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8f547977e544854e281e1c6be442607d55149e5e
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d6a1d442eca0cf5e433a82fb52ed54b09b56c779
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190285"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566087"
 ---
 # <a name="quickstart-run-a-container-application-in-azure-container-instances-in-the-azure-portal"></a>Snelstartgids: Een containertoepassing in Azure Container Instances uitvoeren in Azure Portal
 
@@ -41,7 +41,7 @@ Voer de waarden voor de volgende tekstvakken in: **Containernaam**, **Containeri
 
 ![Basisinstellingen configureren voor een nieuwe containerinstantie in Azure Portal][aci-portal-03]
 
-U kunt zowel Windows- als Linux-containers maken in Azure Container Instances. Behoud voor deze snelstart de standaardinstelling voor **Linux** voor het implementeren van de Linux-gebaseerde `microsoft/aci-helloworld` installatiekopie.
+Laat in deze quickstart de standaardinstelling op **Openbaar** om de `microsoft/aci-helloworld` installatiekopie uit het openbare Docker Hub-register te implementeren. Deze installatiekopie bevat een kleine web-app die is geschreven in Node.js en die een statische HTML-pagina dient.
 
 Geef onder **configuratie** een **DNS-naamlabel** op voor uw container. De naam moet uniek zijn voor de Azure-regio waar u de containerinstallatiekopie maakt. De container zal openbaar bereikbaar zijn op `<dns-name-label>.<region>.azurecontainer.io`.
 

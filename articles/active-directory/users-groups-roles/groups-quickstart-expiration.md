@@ -1,5 +1,5 @@
 ---
-title: Quickstart voor verloopbeleid voor Office 365-groepen in Azure Active Directory | Microsoft Docs
+title: Quickstart voor verloopbeleid voor Office 365-groepen in Azure Active Directory Domain Services | Microsoft Docs
 description: Verloop voor Office 365-groepen - Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 08/07/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 6d2b5201c41ba9d5c849976f0227e9abadea7658
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 926d2dba7656781b7a6994341f0354db6835b26f
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55165231"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507348"
 ---
 # <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>Quickstart: Office 365-groepen voor verloop instellen in Azure Active Directory
 
-In deze quickstart stelt u het verloopbeleid in voor uw Office 365-groepen. Wanneer gebruikers hun eigen groepen kunnen instellen, kunnen niet-gebruikte groepen zich vermenigvuldigen. Eén manier om niet-gebruikte groepen te beheren, is door verloopbeleid voor deze groepen in te stellen om het handmatig verwijderen van groepen te verminderen.
+In deze snelstart stelt u het verloopbeleid in voor uw Office 365-groepen. Wanneer gebruikers hun eigen groepen kunnen instellen, kunnen niet-gebruikte groepen zich vermenigvuldigen. Eén manier om niet-gebruikte groepen te beheren, is door verloopbeleid voor deze groepen in te stellen om het handmatig verwijderen van groepen te verminderen.
 
 Verloopbeleid maken is eenvoudig:
 
@@ -58,11 +58,11 @@ U moet een globale beheerder of beheerder van gebruikersaccounts in de tenant zi
 
 3. Geef een e-mailadres op waar meldingen over verlooptijden naartoe moeten worden gestuurd als een groep geen eigenaar heeft.
 
-4. Stel voor deze quickstart **Enable expiration for these Office 365 groups** in op **Alle**.
+4. Stel voor deze snelstart **Enable expiration for these Office 365 groups** in op **Alle**.
 
 5. Selecteer **Opslaan** om de instellingen voor het verloop op te slaan als u klaar bent.
 
-Dat is alles. In deze quickstart hebt u het verloopbeleid ingesteld voor de geselecteerde Office 365-groepen.
+Dat is alles. In deze snelstart hebt u het verloopbeleid ingesteld voor de geselecteerde Office 365-groepen.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

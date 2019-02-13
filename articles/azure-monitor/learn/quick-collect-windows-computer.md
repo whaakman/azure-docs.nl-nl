@@ -11,15 +11,15 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 11/13/2018
+ms.date: 02/05/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 39261f18c4335f0f27b68a2df2246ec4180d11e7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0900f5e2cab24004c4e2a358a98cd750f0968b50
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193692"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752975"
 ---
 # <a name="configure-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>Log Analytics-agent configureren voor Windows-computers in een hybride omgeving
 [Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) kan gegevens rechtstreeks vanuit uw fysieke of virtuele Windows-computer in uw datacentrum of andere cloudomgeving verzamelen en onderbrengen in één opslagplaats voor uitvoerige analyse en correlatie.  In deze quickstart wordt beschreven hoe u met een paar eenvoudige stappen gegevens van uw Windows-computer configureert en verzamelt.  Zie het volgende onderwerp, [Gegevens over Azure Virtual Machines verzamelen](../../azure-monitor/learn/quick-collect-azurevm.md), voor informatie over virtuele Windows-machines in Azure.  
@@ -83,7 +83,7 @@ Log Analytics kan gebeurtenissen uit de Windows-gebeurtenislogboeken en prestati
 4. U kunt een gebeurtenislogboek toevoegen door de naam van het logboek te typen.  Typ **System** en klik op het plusteken **+**.  
 5. Schakel in de tabel de ernstcategorieën **Fout** en **Waarschuwing** in.   
 6. Klik op **Opslaan** bovenaan de pagina om de configuratie op te slaan.
-7. Selecteer **Windows-prestatiegegevens** om het verzamelen van prestatiemeteritems op een Windows-computer in te schakelen. 
+7. Selecteer **Windows-prestatiemeteritems** om het verzamelen van prestatiemeteritems op een Windows-computer in te schakelen. 
 8. Wanneer u voor het eerst Windows-prestatiemeteritems voor een nieuwe Log Analytics-werkruimte configureert, krijgt u de optie om snel verschillende algemene prestatiemeteritems te maken. Ze worden weergegeven met een selectievakje ernaast.<br> ![Standaard Windows-prestatiemeteritems geselecteerd](media/quick-collect-windows-computer/windows-perfcounters-default.png).<br> Klik op **De geselecteerde prestatiemeteritems toevoegen**.  Ze worden toegevoegd en vooraf ingesteld met een sample-interval van tien seconden.  
 9. Klik op **Opslaan** bovenaan de pagina om de configuratie op te slaan.
 

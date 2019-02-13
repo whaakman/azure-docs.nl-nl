@@ -12,14 +12,14 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: e81073850ebb45e82f2f702bec976eed4725f62e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 08903bcb15c69e3bc9a2b5435785d4a1ee8edb5c
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462559"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659045"
 ---
-# <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Aan de slag in Azure Dev Spaces met behulp van .NET Core en Visual Studio
+# <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Aan de slag in Azure Dev Spaces met .NET Core en Visual Studio
 
 In deze handleiding leert u het volgende:
 
@@ -158,4 +158,4 @@ Vernieuw de web-app in de browser en ga naar de pagina Info. U ziet dat uw aange
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Meer informatie over teamontwikkeling](team-development-netcore-visualstudio.md)
+> [Informatie over ontwikkelen van meerdere services](multi-service-netcore-visualstudio.md)

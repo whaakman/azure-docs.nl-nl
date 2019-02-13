@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/13/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 44533ea4430bb7cd3bc7e0b6451892cc68bacc19
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 251161fbb5213c765463835e4537f1b443699670
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450214"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491736"
 ---
 # <a name="what-is-azure-active-directory"></a>What is Azure Active Directory? (Engelstalig) 
 Azure Active Directory (Azure AD) is de identiteits- en toegangsbeheerservice van Microsoft op basis van de cloud. Met Azure AD kunnen uw medewerkers zich aanmelden en toegang krijgen tot resources:
@@ -72,7 +72,7 @@ Lees de volgende terminologie voor een beter begrip van Azure AD en de bijbehore
 |Globale Azure AD-beheerder|Deze beheerdersrol wordt automatisch toegewezen aan personen die de Azure AD-tenant hebben gemaakt. Globale beheerders kunnen alle beheerfuncties voor Azure AD uitvoeren, en tevens voor andere services die met Azure AD federeren, zoals Exchange Online, SharePoint Online en Skype voor Bedrijven Online. Er kunnen meerdere globale beheerders zijn, maar alleen globale beheerders kunnen beheerdersrollen aan gebruikers toewijzen (inclusief het toewijzen van andere globale beheerders).<br><br>**Opmerking**<br>Deze beheerdersrol wordt in de Azure-portal globale beheerder genoemd, maar in Microsoft Graph API, Azure AD Graph API en Azure AD PowerShell krijgt deze de naam **bedrijfsbeheerder**.<br><br>Zie [Machtigingen van de rol beheerder in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md) voor meer informatie over de verschillende beheerdersrollen.|
 |Microsoft-account (ook MSA genoemd)|Persoonlijke accounts die toegang verlenen tot uw consumentgerichte producten en cloudservices van Microsoft, bijvoorbeeld Outlook, OneDrive, Xbox LIVE en Office 365. Uw Microsoft-account wordt gemaakt en opgeslagen in het accountsysteem voor consumentidentiteiten van Microsoft, dat wordt beheerd door Microsoft.|
 
-## <a name="what-features-work-in-azure-ad"></a>Welke functies werken in Azure AD?
+## <a name="which-features-work-in-azure-ad"></a>Welke functies werken in Azure AD?
 Nadat u uw Azure AD-licentie hebt gekozen, krijgt u toegang tot (een deel van) de volgende functies voor uw organisatie.
 
 |Categorie|Beschrijving|

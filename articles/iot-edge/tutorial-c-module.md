@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 659d960881f143655e98c6f1d38696f44def3ae8
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 798cf405c222a443dbbd3a316d20c482daf4429f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055095"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563249"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Zelfstudie: Een IoT Edge-module in C ontwikkelen en implementeren op uw gesimuleerde apparaat
 
@@ -36,8 +36,8 @@ De IoT Edge-module die u maakt in deze zelfstudie filtert de temperatuurgegevens
 
 Een Azure IoT Edge-apparaat:
 
-* U kunt uw ontwikkelcomputer of een virtuele machine gebruiken als een Edge-apparaat door de stappen te volgen in de quickstart voor [Linux-](quickstart-linux.md) of [Windows-apparaten](quickstart.md).
-* C-modules voor Azure IoT Edge bieden geen ondersteuning voor Windows-containers. Als uw IoT Edge-apparaat een Windows-apparaat is, configureert u dit om [Linux-containers te kunnen gebruiken](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
+* U kunt uw ontwikkelcomputer of een virtuele machine gebruiken als een Edge-apparaat door de stappen te volgen in de snelstart voor [Linux-](quickstart-linux.md) of [Windows-apparaten](quickstart.md). 
+* C-modules voor Azure IoT Edge bieden geen ondersteuning voor Windows-containers. Als uw IoT Edge-apparaat een Windows-apparaat is, controleert u of dit is geconfigureerd om Linux-containers te kunnen gebruiken. Zie [De Azure IoT Edge-runtime installeren op Windows](how-to-install-iot-edge-windows.md) voor informatie over de verschillen in installatie bij Windows- en Linux-containers.
 
 Cloudresources:
 
@@ -49,9 +49,6 @@ Ontwikkelingsresources:
 * [C/C++-extensie](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) voor Visual Studio Code (Engelstalig).
 * [Azure IoT-hulpprogramma's](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) voor Visual Studio Code.
 * [Docker CE](https://docs.docker.com/install/).
-
->[!Note]
->C-modules voor Azure IoT Edge bieden geen ondersteuning voor Windows-containers.
 
 ## <a name="create-a-container-registry"></a>Een containerregister maken
 
@@ -69,7 +66,7 @@ Als u nog geen containerregister hebt, volgt u deze stappen om een nieuw contain
    | ----- | ----- |
    | Registernaam | Geef hier een unieke naam op. |
    | Abonnement | Selecteer een abonnement in de vervolgkeuzelijst. |
-   | Resourcegroep | Het wordt aangeraden om dezelfde resourcegroep te gebruiken voor alle test-resources die u maakt met de quickstarts en zelfstudies voor IoT Edge, zoals **IoTEdgeResources**. |
+   | Resourcegroep | Het wordt aangeraden om dezelfde resourcegroep te gebruiken voor alle test-resources die u maakt met de snelstartgidsen en zelfstudies voor IoT Edge, zoals **IoTEdgeResources**. |
    | Locatie | Kies een locatie dicht bij u in de buurt. |
    | Beheerder | Stel deze optie in op **Inschakelen**. |
    | SKU | Selecteer **Basic**. |
@@ -99,7 +96,7 @@ Maak een C-oplossingssjabloon die u met uw eigen code kunt aanpassen.
    | Een naam opgeven voor de oplossing | Voer een beschrijvende naam voor de oplossing in of accepteer de standaardnaam **EdgeSolution**. |
    | Modulesjabloon selecteren | Kies **C Module**. |
    | Een modulenaam opgeven | Geef de module de naam **CModule**. |
-   | Opslagplaats voor Docker-afbeeldingen voor de module opgeven | Een opslagplaats voor afbeeldingen bevat de naam van het containerregister en de naam van uw containerafbeelding. De containerafbeelding wordt vooraf gevuld vanuit de laatste stap. Vervang **localhost:5000** door de waarde van de aanmeldingsserver uit uw Azure-containerregister. U vindt de aanmeldingsserver op de overzichtspagina van het containerregister in de Azure-portal. De uiteindelijke tekenreeks ziet er als volgt uit: \<registernaam\>.azurecr.io/cmodule. |
+   | Opslagplaats voor Docker-afbeeldingen voor de module opgeven | Een opslagplaats voor afbeeldingen bevat de naam van het containerregister en de naam van uw containerafbeelding. De containerinstallatiekopie wordt vooraf gevuld vanuit de naam die u in de laatste stap hebt opgegeven. Vervang **localhost:5000** door de waarde van de aanmeldingsserver uit uw Azure-containerregister. U vindt de aanmeldingsserver op de overzichtspagina van het containerregister in de Azure-portal. <br><br> De uiteindelijke opslagplaats voor de installatiekopie ziet er ongeveer als volgt uit: \<registernaam\>.azurecr.io/cmodule. |
  
    ![Opslagplaats voor Docker-installatiekopieën opgeven](./media/tutorial-c-module/repository.png)
 
@@ -296,7 +293,7 @@ Voeg code toe aan uw C-module zodat deze gegevens uit de sensor kan ophalen, con
 
 12. Open in VS Code Explorer het bestand **deployment.template.json** in de werkruimte van de IoT Edge-oplossing. Dit bestand laat aan de IoT Edge-agent weten welke modules moeten worden geïmplementeerd. In dit geval gaat het om **tempSensor** en **CModule**. Het bestand laat de IoT Edge-hub ook weten hoe berichten tussen de modules moeten worden gerouteerd. De Visual Studio Code-extensie vult automatisch het overgrote deel van de informatie in die u nodig hebt in de implementatiesjabloon. Controleer echter wel of alles klopt voor uw oplossing: 
 
-   1. Het standaardplatform van uw IoT Edge-apparaat is ingesteld op **amd64** in de VS Code-statusbalk. Dit betekent dat **CModule** is ingesteld op de Linux amd64-versie van de installatiekopie. Wijzig in de statusbalk het standaardplatform van **amd64** in **arm32v7** of **windows-amd64** als dit de architectuur van het IoT Edge-apparaat is. 
+   1. Het standaardplatform van uw IoT Edge-apparaat is ingesteld op **amd64** in de VS Code-statusbalk. Dit betekent dat **CModule** is ingesteld op de Linux amd64-versie van de installatiekopie. Wijzig in de statusbalk het standaardplatform van **amd64** in **arm32v7** als dit de architectuur van het IoT Edge-apparaat is. 
 
       ![Het installatiekopieplatform van de module bijwerken](./media/tutorial-c-module/image-platform.png)
 
@@ -341,9 +338,15 @@ Vervolgens worden door Visual Studio Code twee opdrachten uitgevoerd in de geïn
 
 U kunt het volledige adres van de containerinstallatiekopie, inclusief de tag, zien in de geïntegreerde terminal van VS Code. Het adres van de installatiekopie is opgebouwd uit informatie uit het `module.json`-bestand, in de indeling **\<opslagplaats\>:\<versie\>-\<platform\>**. Voor deze zelfstudie ziet dit er als volgt uit: **myregistry.azurecr.io/cmodule:0.0.1-amd64**.
 
+>[!TIP]
+>Als u een foutmelding krijgt bij het bouwen en pushen van de module, controleert u het volgende:
+>* Hebt u zich bij Docker in Visual Studio Code aangemeld met de referenties uit uw containerregister? Deze referenties zijn anders dan de referenties die u gebruikt om u aan te melden bij de Azure-portal.
+>* Hebt u de juiste containeropslagplaats? Open **modules** > **cmodule** > **module.json** en zoek het veld **opslagplaats**. De opslagplaats voor de installatiekopie ziet er ongeveer uit als **\<registryname\>.azurecr.io/cmodule**. 
+>* Bouwt u hetzelfde type containers dat door uw ontwikkelcomputer wordt uitgevoerd? Visual Studio Code wordt teruggezet op de Linux amd64-standaardcontainers. Als op uw ontwikkelcomputer Linux arm32v7-containers worden uitgevoerd, werkt u het platform bij op de blauwe statusbalk onder aan het Visual Studio Code-venster, zodat dit overeenkomt met uw containerplatform. C-modules kunnen niet worden gebouwd als Windows-containers. 
+
 ## <a name="deploy-and-run-the-solution"></a>De oplossing implementeren en uitvoeren
 
-In deze quickstart voor het instellen van uw IoT Edge-apparaat hebt u een module geïmplementeerd met behulp van de Azure-portal. U kunt modules ook implementeren via de Azure IoT Hub Toolkit-extensie (voorheen Azure IoT Toolkit-extensie) voor Visual Studio Code. U hebt al een implementatiemanifest voorbereid voor uw scenario, namelijk het bestand **deployment.json**. U hoeft nu alleen nog maar een apparaat te selecteren dat de implementatie moet ontvangen.
+In dit snelstartartikel voor het instellen van uw IoT Edge-apparaat hebt u een module geïmplementeerd met behulp van de Azure-portal. U kunt modules ook implementeren via de Azure IoT Hub Toolkit-extensie (voorheen Azure IoT Toolkit-extensie) voor Visual Studio Code. U hebt al een implementatiemanifest voorbereid voor uw scenario, namelijk het bestand **deployment.json**. U hoeft nu alleen nog maar een apparaat te selecteren dat de implementatie moet ontvangen.
 
 1. Voer in het opdrachtpalet van VS Code de opdracht **Azure IoT Hub: Select IoT Hub**.
 

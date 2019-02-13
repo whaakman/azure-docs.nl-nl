@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: f844b460e5fc6548a17b93038d1232fe61483018
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: b4d0ee26cb9f7283cac871c70737cd701fb74c91
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754064"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818580"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Grootschalige parallelle rekenoplossingen ontwikkelen met Batch
 
@@ -62,7 +62,7 @@ Sommige van de volgende resources (accounts, rekenknooppunten, pools, jobs en ta
   * [Begintaak](#start-task)
   * [Jobbeheertaak](#job-manager-task)
   * [Jobvoorbereidingstaken en jobvrijgevingstaken](#job-preparation-and-release-tasks)
-  * [Taken met meerdere instanties (MPI)](#multi-instance-tasks)
+  * Taken met meerdere instanties (MPI)
   * [Taakafhankelijkheden](#task-dependencies)
 * [Toepassingspakketten](#application-packages)
 
@@ -153,7 +153,7 @@ Zie [Use a custom image to create a pool of virtual machines](batch-custom-image
 
 #### <a name="container-support-in-virtual-machine-pools"></a>Ondersteuning voor containers in virtuele machine-pools
 
-Bij het maken van een virtuele machine-pool met de Batch-API's, kunt u de pool instellen voor het uitvoeren van taken in Docker-containers. Momenteel moet u de pool maken met behulp van een installatiekopie die ondersteuning biedt voor Docker-containers. Gebruik Windows Server 2016 Datacenter met de Containers-installatiekopie van Azure Marketplace of geef een aangepaste VM-installatiekopie op die Docker Community Edition of Enterprise Edition en alle vereiste stuurprogramma's bevat. De poolinstellingen moeten een [containerconfiguratie](/rest/api/batchservice/pool/add#definitions_containerconfiguration) bevatten die containerinstallatiekopieën naar de virtuele machines kopieert wanneer de pool wordt gemaakt. Taken die worden uitgevoerd op de pool kunnen vervolgens verwijzen naar de containerinstallatiekopieën en uitvoeringsopties voor containers.
+Bij het maken van een virtuele machine-pool met de Batch-API's, kunt u de pool instellen voor het uitvoeren van taken in Docker-containers. Momenteel moet u de pool maken met behulp van een installatiekopie die ondersteuning biedt voor Docker-containers. Gebruik Windows Server 2016 Datacenter met de Containers-installatiekopie van Azure Marketplace of geef een aangepaste VM-installatiekopie op die Docker Community Edition of Enterprise Edition en alle vereiste stuurprogramma's bevat. De poolinstellingen moeten een [containerconfiguratie](/rest/api/batchservice/pool/add) bevatten die containerinstallatiekopieën naar de virtuele machines kopieert wanneer de pool wordt gemaakt. Taken die worden uitgevoerd op de pool kunnen vervolgens verwijzen naar de containerinstallatiekopieën en uitvoeringsopties voor containers.
 
 Zie voor meer informatie [Docker-containertoepassingen uitvoeren op Azure Batch](batch-docker-container-workloads.md).
 
@@ -215,10 +215,10 @@ U kunt [toepassingspakketten](#application-packages) opgeven die moeten worden g
 
 ### <a name="network-configuration"></a>Netwerkconfiguratie
 
-U kunt het subnet van een [virtueel netwerk (VNet)](../virtual-network/virtual-networks-overview.md) van Azure opgeven waarin de rekenknooppunten van de pool moeten worden gemaakt. Zie het gedeelte [Netwerkconfiguratie pool](#pool-network-configuration) voor meer informatie.
+U kunt het subnet van een [virtueel netwerk (VNet)](../virtual-network/virtual-networks-overview.md) van Azure opgeven waarin de rekenknooppunten van de pool moeten worden gemaakt. Zie het gedeelte 'Netwerkconfiguratie pool' voor meer informatie.
 
 
-## <a name="job"></a>Job
+## <a name="job"></a>Taak
 Een job is een verzameling taken. Deze beheert hoe de berekening door de taken op rekenknooppunten in een pool wordt uitgevoerd.
 
 * De job bepaalt de **pool** waarin het werk wordt uitgevoerd. U kunt voor elke job een nieuwe pool maken of één groep gebruiken voor een groot aantal jobs. U kunt een pool maken voor elke job die aan een jobplanning is gekoppeld, maar ook voor alle jobs die aan een jobplanning zijn gekoppeld.
@@ -271,7 +271,7 @@ Naast de taken die u definieert om een berekening op een knooppunt uit te voeren
 * [Begintaak](#start-task)
 * [Jobbeheertaak](#job-manager-task)
 * [Jobvoorbereidingstaken en jobvrijgevingstaken](#job-preparation-and-release-tasks)
-* [Taken met meerdere instanties (MPI)](#multi-instance-tasks)
+* Taken met meerdere instanties (MPI)
 * [Taakafhankelijkheden](#task-dependencies)
 
 ### <a name="start-task"></a>Begintaak

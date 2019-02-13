@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/17/2018
+ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: b5307db01cc7242ba73876409f18d511c2516091
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f995c727f46957d663cb6a6a32ac1d4313c71e8f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458156"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697138"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>Snelstartgids: De Translator Text-API gebruiken om een tekenreeks te vertalen met Python
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-Op dit moment is er één eindpunt beschikbaar voor Translator Text. Deze wordt ingesteld als de `base_url`. Met `path` wordt de `translate`-route ingesteld en wordt bepaald dat we versie 3 van de API willen gebruiken.
+Het globale eindpunt voor Translator Text wordt ingesteld als de `base_url`. Met `path` wordt de `translate`-route ingesteld en wordt bepaald dat we versie 3 van de API willen gebruiken.
 
 De `params` worden gebruikt voor het instellen van de uitvoertalen. In dit voorbeeld vertalen we van het Engels naar het Italiaans en het Duits: `it` en `de`.
 

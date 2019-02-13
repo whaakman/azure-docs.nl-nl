@@ -4,7 +4,7 @@ description: Meer informatie over het configureren van eenmalige aanmelding tuss
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 38a6ca75-7fd0-4cdc-9b9f-fae080c5a016
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 4705bb8c93381a2487ba94f9dfe3a7e8820f2fd9
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: dd413f9a7eba60fd72e7cc29f44f49b72eaaf806
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902462"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769403"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Zelfstudie: Azure Active Directory-integratie met G Suite
 
@@ -77,9 +77,9 @@ Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
     Het e-mailkenmerk wordt automatisch ingevuld voor elke gebruiker met een geldige Exchange-licentie. Als e-mail niet is ingeschakeld voor een gebruiker, wordt dit foutbericht ontvangen omdat de toepassing dit kenmerk moet ophalen om toegang te kunnen verlenen.
 
-    Als u een Exchange-licentie wilt toewijzen, gaat u met een beheerdersaccount naar portal.office.com, en klikt u in het beheercentrum op Facturering > Abonnementen. Selecteer vervolgens uw Office 365-abonnement en klik op Toewijzen aan gebruikers. Selecteer de gebruikers van wie u het abonnement wilt controleren, en klik in het rechterdeelvenster op Licenties bewerken.
+    U kunt met een beheerdersaccount naar portal.office.com gaan, in het beheercentrum klikken op Facturering > Abonnementen, uw Office 365-abonnement selecteren en vervolgens klikken op Toewijzen aan gebruikers. Selecteer de gebruikers van wie u het abonnement wilt controleren, en klik in het rechterdeelvenster op Licenties bewerken.
 
-    Nadat de Exchange-licentie is toegewezen, kan het enkele minuten duren voordat deze is toegepast. Hierna wordt het kenmerk user.mail automatisch ingevuld en is het probleem zeer waarschijnlijk opgelost.
+    Nadat de O365-licentie is toegewezen, kan het enkele minuten duren voordat deze is toegepast. Hierna wordt het kenmerk user.mail automatisch ingevuld en is het probleem zeer waarschijnlijk opgelost.
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
@@ -118,7 +118,7 @@ Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tot stand is gebr
 Als u Azure AD-eenmalige aanmelding met G Suite wilt configureren en testen, voltooit u de volgende bouwstenen:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[G Suite-eenmalige aanmelding configureren](#configure-g-suite-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wilt configureren.
+2. **[G Suite-eenmalige aanmelding configureren](#configure-g-suite-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wil configureren.
 3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 5. **[G Suite-testgebruiker maken](#create-g-suite-test-user)**: als u een tegenhanger van Britta Simon wilt in G Suite die is gekoppeld aan de Azure AD-weergave van de gebruiker.
@@ -128,7 +128,7 @@ Als u Azure AD-eenmalige aanmelding met G Suite wilt configureren en testen, vol
 
 In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-Als u Azure AD-eenmalige aanmelding met G Suite wilt configureren, voert u de volgende stappen uit:
+Als u Azure AD-eenmalige aanmelding met G Suite wilt configureren en testen, voert u de volgende stappen uit:
 
 1. Selecteer in de [Azure-portal](https://portal.azure.com/), op de integratiepagina van de **G Suite**-toepassing, de optie **Eenmalige aanmelding**.
 
@@ -142,28 +142,45 @@ Als u Azure AD-eenmalige aanmelding met G Suite wilt configureren, voert u de vo
 
     ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
+4. Voer in het gedeelte **Standaard SAML-configuratie** de volgende stappen uit als u wilt configureren voor **Gmail**:
 
     ![Informatie over G Suite-domein en URL’s voor eenmalige aanmelding](common/sp-identifier.png)
 
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
+    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
-    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon:
+    b. In het tekstvak **Id** typt u een URL met het volgende patroon:
     | |
     |--|
     | `google.com/a/<yourdomain.com>` |
     | `google.com` |
-    | `https://google.com` |
-    | `https://google.com/a/<yourdomain.com>` |
+    | `http://google.com` |
+    | `http://google.com/a/<yourdomain.com>` |
 
     > [!NOTE]
     > Dit zijn geen echte waarden. Werk deze waarden bij met de daadwerkelijke aanmeldings-URL en id. Neem contact op met het [Ondersteuningsteam voor G Suite](https://www.google.com/contact/) om deze waarden op te halen.
 
-5. In de G Suite-toepassing worden de SAML-beweringen in een specifieke indeling verwacht. Hiervoor moet u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-tokenkenmerken. In de volgende schermopname ziet u een voorbeeld hiervan. De standaardwaarde van **Unieke gebruikers-id** is **user.userprincipalname**, maar in G Suite wordt verwacht dat aan deze waarde het e-mailadres van de gebruiker is toegewezen. Hiervoor kunt u het kenmerk **user.mail** in de lijst gebruiken of de juiste kenmerkwaarde op basis van uw organisatieconfiguratie.
+5. Voer in het gedeelte **Standaard SAML-configuratie** de volgende stappen uit als u wilt configureren voor **Google Cloud Platform**:
+
+    ![Informatie over G Suite-domein en URL’s voor eenmalige aanmelding](common/sp-identifier.png)
+
+    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
+
+    b. In het tekstvak **Id** typt u een URL met het volgende patroon:
+    | |
+    |--|
+    | `google.com/a/<yourdomain.com>` |
+    | `google.com` |
+    | `http://google.com` |
+    | `http://google.com/a/<yourdomain.com>` |
+    
+    > [!NOTE] 
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de daadwerkelijke aanmeldings-URL en id. Neem contact op met het [Ondersteuningsteam voor G Suite](https://www.google.com/contact/) om deze waarden op te halen.
+
+6. In de G Suite-toepassing worden de SAML-beweringen in een specifieke indeling verwacht. Hiervoor moet u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-tokenkenmerken. In de volgende schermopname ziet u een voorbeeld hiervan. De standaardwaarde van **Unieke gebruikers-id** is **user.userprincipalname**, maar in G Suite wordt verwacht dat aan deze waarde het e-mailadres van de gebruiker is toegewezen. Hiervoor kunt u het kenmerk **user.mail** in de lijst gebruiken of de juiste kenmerkwaarde op basis van uw organisatieconfiguratie.
 
     ![image](common/edit-attribute.png)
 
-6. Bewerk in het gedeelte **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** de claims met het **pictogram Bewerken** of voeg de claims toe door met **Nieuwe claim toevoegen** het kenmerk van het SAML-token te configureren, zoals wordt weergegeven in de bovenstaande afbeelding. Hierna voert u de volgende stappen uit:
+7. Bewerk in het gedeelte **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** de claims met het **pictogram Bewerken** of voeg de claims toe door met **Nieuwe claim toevoegen** het kenmerk van het SAML-token te configureren, zoals wordt weergegeven in de bovenstaande afbeelding. Hierna voert u de volgende stappen uit:
 
     | Naam | Bronkenmerk |
     | ---------------| --------------- |
@@ -187,11 +204,11 @@ Als u Azure AD-eenmalige aanmelding met G Suite wilt configureren, voert u de vo
 
     g. Klik op **Opslaan**.
 
-7. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
+8. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
     ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
-8. In het gedeelte **G Suite instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
+9. In het gedeelte **G Suite instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
 
     ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
@@ -203,7 +220,7 @@ Als u Azure AD-eenmalige aanmelding met G Suite wilt configureren, voert u de vo
 
 ### <a name="configure-g-suite-single-sign-on"></a>G Suite-eenmalige aanmelding configureren
 
-1. Open een nieuw tabblad in uw browser en meld u met uw beheerdersaccount aan bij de [G Suite-beheerconsole](https://admin.google.com/).
+1. Open een nieuw tabblad in uw browser en meld u met uw beheerdersaccount aan bij de [G Suite-beheerconsole](http://admin.google.com/).
 
 2. Klik op **Beveiliging**. Als u de koppeling niet ziet, is deze mogelijk verborgen in het menu **Meer besturingselementen** onder aan het scherm.
 

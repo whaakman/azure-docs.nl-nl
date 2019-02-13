@@ -9,17 +9,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/18/2019
-ms.openlocfilehash: f96b2853b887836a94091dcba0ceaf6f8dd43d12
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/04/2019
+ms.openlocfilehash: 32d1be97405624fe929a9e9e1ff486f6a31200aa
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55229132"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732767"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-logins"></a>Zelfstudie: Beveiliging van een beheerd exemplaar in Azure SQL Database met behulp van Azure AD-aanmeldingen
 
-Azure SQL Database Managed Instance biedt bijna alle beveiligingsfuncties die de meest recente SQL Server on-premises (Enterprise Edition) Database Engine ook heeft:
+Managed Instance biedt bijna alle beveiligingsfuncties die de meest recente SQL Server on-premises (Enterprise Edition) Database Engine ook heeft:
 
 - Beperken van toegang in een geïsoleerde omgeving
 - Verificatiemechanismen gebruiken die identiteit vereisen (Azure AD, SQL-verificatie)
@@ -29,8 +29,8 @@ Azure SQL Database Managed Instance biedt bijna alle beveiligingsfuncties die de
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> - Een Azure Active Directory (AD)-aanmelding voor beheerde exemplaren maken
-> - Machtigingen verlenen aan Azure AD-aanmeldingen in beheerde exemplaren
+> - Een Azure Active Directory (AD)-aanmelding voor een beheerde exemplaar maken
+> - Machtigingen verlenen aan Azure AD-aanmeldingen in een beheerd exemplaar
 > - Azure AD-gebruikers maken op basis van Azure AD-aanmeldingen
 > - Machtigingen toewijzen aan Azure AD-gebruikers en beveiliging van beheerde databases
 > - Imitatie gebruiken voor Azure AD-gebruikers
@@ -38,7 +38,7 @@ In deze zelfstudie leert u het volgende:
 > - Leren over beveiligingsfuncties, zoals beveiliging tegen bedreigingen, controle, gegevensmaskering en versleuteling
 
 > [!NOTE]
-> Azure AD-aanmeldingen voor SQL Database Managed Instance bevinden zich nog in een **openbare preview-versie**.
+> De functie Azure AD-aanmeldingen voor beheerde exemplaren bevindt zich nog in een **openbare preview-versie**.
 
 Zie de artikelen [Overzicht van Azure SQL Database Managed Instance](sql-database-managed-instance-index.yml) en [-mogelijkheden](sql-database-managed-instance.md) voor meer informatie.
 
@@ -48,25 +48,25 @@ Zorg dat u over het volgende beschikt als u de zelfstudie wilt uitvoeren:
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)
 - Een beheerd exemplaar van Azure SQL Database
-    - Volg dit artikel: [QuickStart: Een beheerd exemplaar van Azure SQL Database maken](sql-database-managed-instance-get-started.md)
-- Toegang krijgen tot uw beheerde exemplaar van Azure SQL Database en [het inrichten van een Azure AD-beheerder voor het beheerde exemplaar](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance). Voor meer informatie zie:
-    - [Verbinding maken tussen uw toepassing en het beheerde exemplaar van Azure SQL Database](sql-database-managed-instance-connect-app.md) 
-    - [Azure SQL Database Managed Instance-connectiviteitsarchitectuur](sql-database-managed-instance-connectivity-architecture.md)
+  - Volg dit artikel: [Snelstart: Een beheerd exemplaar van Azure SQL Database maken](sql-database-managed-instance-get-started.md)
+- Toegang krijgen tot uw beheerde exemplaar en [het inrichten van een Azure AD-beheerder voor het beheerde exemplaar](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance). Voor meer informatie zie:
+    - [Uw toepassing verbinding laten maken met een beheerd exemplaar](sql-database-managed-instance-connect-app.md) 
+    - [Connectiviteitsarchitectuur van beheerde exemplaren](sql-database-managed-instance-connectivity-architecture.md)
     - [Verificatie van Azure Active Directory configureren en beheren met SQL](sql-database-aad-authentication-configure.md)
 
 ## <a name="limiting-access-to-your-managed-instance"></a>De toegang tot uw beheerde exemplaar beperken
 
-Beheerde exemplaren kunnen alleen worden geopend via een particulier IP-adres. Er zijn geen service-eindpunten beschikbaar om verbinding te maken met een beheerd exemplaar buiten het Managed Instance-netwerk. Net zoals bij een geïsoleerde on-premises SQL Server-omgeving hebben toepassingen of gebruikers toegang nodig tot het Managed Instance Network (VNet) voordat er een verbinding tot stand kan worden gebracht. Zie het volgende artikel [Uw toepassing verbinden met Azure SQL Database Managed Instance](sql-database-managed-instance-connect-app.md) voor meer informatie.
+Beheerde exemplaren kunnen alleen worden geopend via een particulier IP-adres. Er zijn geen service-eindpunten beschikbaar om verbinding te maken met een beheerd exemplaar buiten het Managed Instance-netwerk. Net zoals bij een geïsoleerde on-premises SQL Server-omgeving hebben toepassingen of gebruikers toegang nodig tot het Managed Instance Network (VNet) voordat er een verbinding tot stand kan worden gebracht. Zie het volgende artikel [Uw toepassing verbinden met een beheerd exemplaar](sql-database-managed-instance-connect-app.md) voor meer informatie.
 
 > [!NOTE] 
-> Omdat Managed Instance alleen kan worden geopend binnen het eigen VNET, zijn [firewallregels voor SQL Database](sql-database-firewall-configure.md) niet van toepassing. Managed Instance heeft zijn eigen [ingebouwde firewall](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
+> Omdat beheerde exemplaren alleen kunnen worden geopend binnen het eigen VNET, zijn [firewallregels voor SQL Database](sql-database-firewall-configure.md) niet van toepassing. Managed Instance heeft zijn eigen [ingebouwde firewall](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 ## <a name="create-an-azure-ad-login-for-a-managed-instance-using-ssms"></a>Een Azure AD-aanmelding maken voor een beheerd exemplaar met behulp van SSMS
 
-De eerste Azure AD-aanmelding moet worden gemaakt met het standaard SQL Server-account (niet-azure AD) dat een `sysadmin` is. Zie de volgende artikelen voor meer voorbeelden van verbinding maken met uw beheerd exemplaar:
+De eerste Azure AD-aanmelding moet worden gemaakt met het standaard SQL Server-account (niet-azure AD) dat een `sysadmin` is. Zie de volgende artikelen voor voorbeelden van verbinding maken met uw beheerd exemplaar:
 
-- [Snelstart: Azure VM configureren om verbinding te maken met een Azure SQL Database Managed Instance](sql-database-managed-instance-configure-vm.md)
-- [Snelstart: Een punt-naar-site-verbinding configureren naar een beheerd exemplaar voor Azure SQL Database van on-premises](sql-database-managed-instance-configure-p2s.md)
+- [Snelstart: Azure VM configureren om verbinding te maken met een beheerd exemplaar](sql-database-managed-instance-configure-vm.md)
+- [Snelstart: Vanuit on-premises een punt-naar-site-verbinding configureren naar een beheerd exemplaar](sql-database-managed-instance-configure-p2s.md)
 
 > [!IMPORTANT]
 > De Azure AD-beheerder die werd gebruikt voor het instellen van het beheerde exemplaar kan niet worden gebruikt om een Azure AD-aanmelding binnen het beheerde exemplaar te maken. U moet de eerste Azure AD-aanmelding maken met een SQL Server-account dat een `sysadmin` is. Dit is een tijdelijke beperking die wordt verwijderd zodra Azure AD-aanmeldingen algemeen beschikbaar zijn. U krijgt de volgende fout te zien als u probeert een Azure AD-beheerdersaccount te gebruiken om de aanmelding te maken: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
@@ -107,7 +107,7 @@ De eerste Azure AD-aanmelding moet worden gemaakt met het standaard SQL Server-a
 
 Zie [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) voor meer informatie.
 
-## <a name="granting-permissions-to-allow-the-creation-of-managed-instance-logins"></a>Machtigingen verlenen om Managed Instance-aanmeldingen toe te staan
+## <a name="granting-permissions-to-allow-the-creation-of-managed-instance-logins"></a>Machtigingen verlenen om aanmeldingen bij een beheerd exemplaar toe te staan
 
 Voor het maken van andere Azure AD-aanmeldingen, moeten SQL Server-rollen of -machtigingen aan de principal (SQL of Azure AD) worden verleend.
 
@@ -146,7 +146,7 @@ Ga als volgt te werk om de aanmelding toe te voegen aan de `sysadmin`-serverrol:
 
 Nadat de Azure AD-aanmelding is gemaakt en is voorzien van `sysadmin`-bevoegdheden, kan die aanmelding extra aanmeldingen maken met behulp van de component **FROM EXTERNAL PROVIDER** met **CREATE LOGIN**.
 
-1. Maak verbinding met de Managed Instance-server met de Azure AD-aanmelding, met behulp van SQL Server Management Studio. Voer de naam van uw Managed Instance-server in. Voor verificatie in SSMS zijn er drie opties waaruit u kunt kiezen wanneer u zich aanmeldt bij een Azure AD-account:
+1. Maak verbinding met het beheerde exemplaar met de Azure AD-aanmelding, met behulp van SQL Server Management Studio. Voer de hostnaam van uw beheerd exemplaar in. Voor verificatie in SSMS zijn er drie opties waaruit u kunt kiezen wanneer u zich aanmeldt bij een Azure AD-account:
 
     - Active Directory - Universal met ondersteuning voor MFA
     - Active Directory - wachtwoord
@@ -172,7 +172,7 @@ Nadat de Azure AD-aanmelding is gemaakt en is voorzien van `sysadmin`-bevoegdhed
 
     In dit voorbeeld maakt u een aanmelding voor de Azure AD-gebruiker bob@aadsqlmi.net, wiens domein aadsqlmi.net is gefedereerd met de Azure AD aadsqlmi.onmicrosoft.com.
 
-    Voer de volgende T-SQL-opdracht uit. Gefedereerde Azure AD-accounts zijn de Managed Instance-vervangingen voor on-premises Windows-aanmeldingen en -gebruikers.
+    Voer de volgende T-SQL-opdracht uit. Gefedereerde Azure AD-accounts zijn de vervangingen voor beheerde exemplaren voor on-premises Windows-aanmeldingen en -gebruikers.
 
     ```sql
     USE master
@@ -190,7 +190,7 @@ Nadat de Azure AD-aanmelding is gemaakt en is voorzien van `sysadmin`-bevoegdhed
         GO
         ```
 
-1. Maak een aanmelding voor een beheerd exemplaar voor een groep in Azure AD. De groep moet aanwezig zijn in Azure AD voordat u de aanmelding naar Managed Instance kunt toevoegen. Zie [Een basisgroep maken en leden toevoegen met Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Maak een groep met de naam _mygroup_ en voeg leden toe aan deze groep.
+1. Maak een aanmelding voor een beheerd exemplaar voor een groep in Azure AD. De groep moet aanwezig zijn in Azure AD voordat u de aanmelding naar een beheerd exemplaar kunt toevoegen. Zie [Een basisgroep maken en leden toevoegen met Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Maak een groep met de naam _mygroup_ en voeg leden toe aan deze groep.
 
 1. Open een nieuw queryvenster in SQL Server Management Studio.
 
@@ -203,7 +203,7 @@ Nadat de Azure AD-aanmelding is gemaakt en is voorzien van `sysadmin`-bevoegdhed
     GO
     ```
 
-1. Als test meldt u zich aan bij het beheerd exemplaar met de zojuist gemaakte aanmelding of groep. Open een nieuwe verbinding naar het beheerde exemplaar en gebruik de nieuwe aanmelding voor verificatie.
+1. Als test meldt u zich aan bij het beheerde exemplaar met de zojuist gemaakte aanmelding of groep. Open een nieuwe verbinding naar het beheerde exemplaar en gebruik de nieuwe aanmelding voor verificatie.
 1. Klik in **Objectverkenner** met de rechtermuisknop op de server en kies **Nieuwe query** als nieuwe verbinding.
 1. Controleer servermachtigingen voor de zojuist gemaakte Azure AD-aanmelding door de volgende opdracht uit te voeren:
 
@@ -213,7 +213,7 @@ Nadat de Azure AD-aanmelding is gemaakt en is voorzien van `sysadmin`-bevoegdhed
     ```
 
 > [!NOTE]
-> Ook gastgebruikers van Azure AD worden ondersteund voor Managed Instance-aanmeldingen, maar alleen wanneer ze zijn toegevoegd als onderdeel van een Azure AD-groep. Een Azure AD-gastgebruiker is een account dat vanuit een andere Azure AD wordt uitgenodigd voor de Azure AD waarvan het beheerde exemplaar deel uitmaakt. joe@contoso.com (Azure AD-Account) of steve@outlook.com (MSA-Account) kunnen bijvoorbeeld worden toegevoegd aan een groep in de Azure AD aadsqlmi. Zodra de gebruikers aan een groep zijn toegevoegd, kan er een aanmelding worden gemaakt in de **hoofd**database van Managed Instance voor de groep met de syntaxis **CREATE LOGIN**. Gastgebruikers die lid zijn van deze groep, kunnen verbinding maken met het beheerde exemplaar met behulp van hun huidige aanmeldingsgegevens (bijvoorbeeld joe@contoso.com of steve@outlook.com).
+> Ook gastgebruikers van Azure AD worden ondersteund voor aanmeldingen bij een beheerd exemplaar, maar alleen wanneer ze zijn toegevoegd als onderdeel van een Azure AD-groep. Een Azure AD-gastgebruiker is een account dat vanuit een andere Azure AD wordt uitgenodigd voor de Azure AD waarvan het beheerde exemplaar deel uitmaakt. joe@contoso.com (Azure AD-Account) of steve@outlook.com (MSA-Account) kunnen bijvoorbeeld worden toegevoegd aan een groep in de Azure AD aadsqlmi. Zodra de gebruikers aan een groep zijn toegevoegd, kan er een aanmelding worden gemaakt in de **hoofd**database van het beheerde exemplaar voor de groep met de syntaxis **CREATE LOGIN**. Gastgebruikers die lid zijn van deze groep, kunnen verbinding maken met het beheerde exemplaar met behulp van hun huidige aanmeldingsgegevens (bijvoorbeeld joe@contoso.com of steve@outlook.com).
 
 ## <a name="create-an-azure-ad-user-from-the-azure-ad-login-and-give-permissions"></a>Een Azure AD-gebruiker maken op basis van de Azure AD-aanmelding en die gebruiker machtigingen verlenen
 
@@ -227,7 +227,7 @@ Zie [Aan de slag met machtigingen voor database-engines](/sql/relational-databas
 
 ### <a name="create-an-azure-ad-user-and-create-a-sample-table"></a>Een Azure AD-gebruiker en een voorbeeldtabel maken
 
-1. Meld u aan bij uw beheerd exemplaar met behulp van een `sysadmin`-account via SQL Server Management Studio.
+1. Meld u aan bij uw beheerde exemplaar met behulp van een `sysadmin`-account via SQL Server Management Studio.
 1. Klik in **Objectverkenner** met de rechtermuisknop op de server en kies **Nieuwe query**.
 1. Gebruik in het queryvenster de volgende syntaxis om een Azure AD-gebruiker te maken op basis van een Azure AD-aanmelding:
 
@@ -292,7 +292,7 @@ Zie [Aan de slag met machtigingen voor database-engines](/sql/relational-databas
 
 Om ervoor te zorgen dat de gebruiker de gegevens in de database kan zien, geven we [rollen op databaseniveau](/sql/relational-databases/security/authentication-access/database-level-roles) aan de gebruiker.
 
-1. Meld u aan bij uw beheerd exemplaar met behulp van een `sysadmin`-account via SQL Server Management Studio.
+1. Meld u aan bij uw beheerde exemplaar met behulp van een `sysadmin`-account via SQL Server Management Studio.
 
 1. Klik in **Objectverkenner** met de rechtermuisknop op de server en kies **Nieuwe query**.
 
@@ -344,7 +344,7 @@ Managed Instance biedt ondersteuning voor het imiteren van principals op Azure A
 
 ### <a name="test-impersonation"></a>Imitatie testen
 
-1. Meld u aan bij uw beheerd exemplaar met behulp van een `sysadmin`-account via SQL Server Management Studio.
+1. Meld u aan bij uw beheerde exemplaar met behulp van een `sysadmin`-account via SQL Server Management Studio.
 
 1. Klik in **Objectverkenner** met de rechtermuisknop op de server en kies **Nieuwe query**.
 
@@ -385,7 +385,7 @@ Managed Instance biedt ondersteuning voor het imiteren van principals op Azure A
 
 Query's tussen meerdere databases worden ondersteund voor Azure AD-accounts met Azure AD-aanmeldingen. Als u een query tussen meerdere databases met een Azure AD-groep wilt testen, moeten we een andere database en tabel maken. U kunt het maken van een andere database en tabel overslaan als die al bestaan.
 
-1. Meld u aan bij uw beheerd exemplaar met behulp van een `sysadmin`-account via SQL Server Management Studio.
+1. Meld u aan bij uw beheerde exemplaar met behulp van een `sysadmin`-account via SQL Server Management Studio.
 1. Klik in **Objectverkenner** met de rechtermuisknop op de server en kies **Nieuwe query**.
 1. Gebruik in het queryvenster de volgende opdracht om een database te maken met de naam **MyMITestDB2** en een tabel met de naam **TestTable2**:
 
@@ -441,7 +441,7 @@ Query's tussen meerdere databases worden ondersteund voor Azure AD-accounts met 
 
 Zie het artikel [Beveiligingsfuncties voor mogelijkheden van beheerde exemplaren](sql-database-managed-instance.md#azure-sql-database-security-features) voor een uitgebreide lijst met manieren om uw database te beveiligen. De volgende beveiligingsfuncties worden besproken:
 
-- [Controle van Managed Instance](sql-database-managed-instance-auditing.md) 
+- [Controle van beheerde exemplaren](sql-database-managed-instance-auditing.md) 
 - [Altijd versleuteld](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
 - [Detectie van bedreigingen](sql-database-managed-instance-threat-detection.md) 
 - [Dynamische gegevensmaskering](/sql/relational-databases/security/dynamic-data-masking)
@@ -450,7 +450,7 @@ Zie het artikel [Beveiligingsfuncties voor mogelijkheden van beheerde exemplaren
 
 ### <a name="managed-instance-capabilities"></a>Mogelijkheden van beheerde exemplaren
 
-Een volledig overzicht van de mogelijkheden van Azure SQL Database Managed Instance is hier te vinden:
+Een volledig overzicht van de mogelijkheden van een beheerd exemplaar is hier te vinden:
 
 > [!div class="nextstepaction"]
 > [Mogelijkheden van beheerde exemplaren](sql-database-managed-instance.md)

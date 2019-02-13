@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: 3df96451838fe90b7d45d1aedd272fc10d798e57
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: b6e378263ac8bcd7cfee36209f70f26680988e6e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883972"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753795"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Zelfstudie: HTTPS configureren in een aangepast Front Door-domein
 
@@ -29,7 +29,7 @@ Enkele belangrijke kenmerken van de aangepaste HTTPS-functie zijn:
 
 - Geen extra kosten: er worden geen kosten in rekening gebracht voor het verwerven of vernieuwen van certificaten, of voor HTTPS-verkeer. 
 
-- Eenvoudig inschakelen: inrichten met één klik is beschikbaar in [Azure Portal](https://portal.azure.com). U kunt ook REST API of andere hulpprogramma’s voor ontwikkelaars gebruiken om de functie in te schakelen.
+- Eenvoudig inschakelen: inrichten met één klik is beschikbaar in de [Microsoft Azure-portal](https://portal.azure.com). U kunt ook REST API of andere hulpprogramma’s voor ontwikkelaars gebruiken om de functie in te schakelen.
 
 - Volledig certificaatbeheer is beschikbaar: alle aanschaf en beheer van certificaten wordt voor u afgehandeld. Certificaten worden automatisch ingericht en vernieuwd vóór de verloopdatum. Hierdoor loopt u niet het risico dat de service wordt onderbroken omdat een certificaat is verlopen.
 
@@ -43,14 +43,14 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u de stappen in deze zelfstudie kunt voltooien, moet u een Front Door maken waaraan ten minste één aangepast domein is toegevoegd. Zie [Zelfstudie: Een aangepast domein toevoegen aan uw Front Door](front-door-custom-domain.md) voor meer informatie.
+Voordat u de stappen in deze zelfstudie kunt voltooien, moet u een Front Door maken waaraan ten minste één aangepast domein is toegevoegd. Zie [Zelfstudie: Een aangepast domein aan uw Front Door toevoegen](front-door-custom-domain.md).
 
 ## <a name="ssl-certificates"></a>SSL-certificaten
 
 Als u het HTTPS-protocol wilt inschakelen voor het veilig leveren van inhoud aan een aangepast Front Door-domein, moet u een SSL-certificaat gebruiken. U kunt ervoor kiezen om een certificaat te gebruiken dat wordt beheerd door Azure Front Door Service of uw eigen certificaat gebruiken.
 
 
-### <a name="option-1-default-use-a-certificate-managed-by-front-door"></a>Optie 1 (standaard): gebruik een certificaat dat wordt beheerd door Front Door
+### <a name="option-1-default-use-a-certificate-managed-by-front-door"></a>Optie 1 (standaard): een certificaat gebruiken dat wordt beheerd door Front Door
 
 Wanneer u een certificaat gebruikt dat wordt beheerd door de Azure-service Front Door, kan de HTTPS-functie met een paar muisklikken worden ingeschakeld. Azure Front Door Service verwerkt certificaatbeheertaken van begin tot eind. Denk hierbij aan taken zoals het kopen en vernieuwen van certificaten. Zodra u de functie hebt ingeschakeld, wordt de procedure onmiddellijk gestart. Als het aangepaste domein al is toegewezen aan de standaardfront-endhost van Front Door (`{hostname}.azurefd.net`), is geen verdere actie vereist. Front Door verwerkt de stappen en voltooit uw aanvraag automatisch. Als uw aangepaste domein echter elders is toegewezen, moet u e-mail gebruiken om uw domeinbezit te valideren.
 
@@ -67,7 +67,7 @@ Volg deze stappen om HTTPS in te schakelen in een aangepast domein:
 5. Ga door naar [Domein valideren](#validate-the-domain).
 
 
-### <a name="option-2-use-your-own-certificate"></a>Optie 2: gebruik uw eigen certificaat
+### <a name="option-2-use-your-own-certificate"></a>Optie 2: Uw eigen certificaat gebruiken
 
 U kunt uw eigen certificaat gebruiken voor het inschakelen van de HTTPS-functie. Dit proces verloopt via een integratie met Azure Key Vault, waarmee u uw certificaten veilig kunt opslaan. Azure Front Door Service maakt gebruik van dit beveiligde mechanisme om uw certificaat op te vragen en er zijn maar een paar extra stappen nodig. Wanneer u uw SSL-certificaat maakt, moet u deze maken met een toegestane certificeringsinstantie (CA). Als u een niet-toegestane CA gebruikt, wordt uw aanvraag geweigerd. Zie [Toegestane certificeringsinstanties voor het inschakelen van aangepaste HTTPS in Azure Front Door Service](front-door-troubleshoot-allowed-ca.md) voor een lijst met toegestane certificeringsinstanties.
 
@@ -143,7 +143,7 @@ Uw CNAME-record moet de volgende indeling hebben, waarbij *Naam* de naam van het
 |-----------------|-------|-----------------------|
 | www.contoso.com | CNAME | contoso.azurefd.net |
 
-Zie [Create the CNAME DNS record](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain#create-the-cname-dns-records) (De CNAME DNS-record maken) voor meer informatie over CNAME-records.
+Zie [Create the CNAME DNS record](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain) (De CNAME DNS-record maken) voor meer informatie over CNAME-records.
 
 Als de CNAME-record de juiste indeling heeft, wordt de naam van het aangepaste domein automatisch geverifieerd met DigiCert en wordt er een toegewezen certificaat voor uw domeinnaam gemaakt. U ontvangt via DigiCert geen verificatie-e-mail en u hoeft uw aanvraag niet goed te keuren. Het certificaat is één jaar geldig en wordt, vóórdat het verloopt, automatisch vernieuwd. Ga verder met [Wachten op doorgifte](#wait-for-propagation). 
 

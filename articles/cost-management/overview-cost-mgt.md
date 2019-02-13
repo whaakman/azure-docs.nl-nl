@@ -5,21 +5,21 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 02/05/2018
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: a90ef531cedb5e4c32a8f0af8b6cca86a93fb39a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: e526d7fac3c66c5eaf9686db3c9f9f9506d6fc6b
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997129"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768654"
 ---
 # <a name="what-is-azure-cost-management"></a>Wat is Azure Cost Management?
 
-Kostenbeheer is het proces waarmee u effectief de kosten die samenhangen met uw bedrijf kunt plannen en beheren. Kostenbeheertaken worden normaal gesproken uitgevoerd door de financiële, management- en app-teams. Azure Cost Management helpt bedrijven met Microsoft Enterprise Overeenkomsten (EO) te plannen met de kosten in het achterhoofd. Het helpt ook effectief kosten te analyseren en actie te ondernemen om clouduitgaven te optimaliseren. Lees het artikel [Azure Cost Management best practices](cost-mgt-best-practices.md) voor meer informatie over kostenbeheer in een bedrijf.
+Kostenbeheer is het proces waarmee u effectief de kosten die samenhangen met uw bedrijf kunt plannen en beheren. Kostenbeheertaken worden normaal gesproken uitgevoerd door de financiële, management- en app-teams. Azure Cost Management helpt organisaties bij het plannen, waarbij rekening wordt gehouden met kosten. Het helpt ook effectief kosten te analyseren en actie te ondernemen om clouduitgaven te optimaliseren. Lees het artikel [Azure Cost Management best practices](cost-mgt-best-practices.md) voor meer informatie over kostenbeheer in een bedrijf.
 
 Facturering is wel gerelateerd, maar verschilt van kostenbeheer. Facturering is het proces van facturen versturen naar klanten voor geleverde goederen of diensten en de commerciële relatie beheren.  Inkoop- en financiële teams voeren normaal gesproken factureringstaken uit.
 

@@ -8,12 +8,12 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 3554151490215f128efc6725b7aaa0628d503366
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: b0f909bb7f4b59e083f0ef1c8a19c11d5d9fb312
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260111"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821300"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Zelfstudie: implementatie vanuit GitHub naar Azure App Service met continue integratie en implementatie in Jenkins
 
@@ -45,7 +45,7 @@ Voor het voltooien van deze zelfstudie hebt u de volgende items nodig:
 
   Als u geen Jenkins-server hebt, volg deze stappen dan in de Azure-portal: [Jenkins-server maken in een virtuele Azure Linux-machine](/azure/jenkins/install-jenkins-solution-template)
 
-* Een [GitHub](https://github.com)-account, zodat u een werkende kopie ([fork](#fork)) kunt verkrijgen voor de voorbeeld-Java-web-app. 
+* Een [GitHub](https://github.com)-account, zodat u een werkende kopie (fork) kunt verkrijgen voor de voorbeeld-Java-web-app. 
 
 * [Azure CLI](/cli/azure/install-azure-cli), die u kunt uitvoeren vanaf uw lokale opdrachtregel of [Azure Cloud Shell](/azure/cloud-shell/overview)
 
