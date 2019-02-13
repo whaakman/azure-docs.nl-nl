@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: jeedes
-ms.openlocfilehash: c3160f86619a6eb7e8bec7bf6e1663fc9b139852
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e1c2f7a10ec0ea14e31385fedc4b5cb665a3124e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156850"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56196617"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-one"></a>Zelfstudie: Azure Active Directory-integratie met één Zscaler
 
@@ -127,7 +128,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     | Name  | Bronkenmerk  |
     | ---------| ------------ |
-    | MemberOf     | user.assignedroles |
+    | memberOf     | user.assignedroles |
 
     a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 
@@ -168,7 +169,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     b. Klik op **SAML configureren**.
 
-11. Op de **bewerken SAML** venster de volgende stappen uitvoeren: en klik op opslaan.  
+11. Voer in het venster **SAML bewerken** de volgende stappen uit en klik op Opslaan.  
             
     ![Manage Users & Authentication](./media/zscaler-one-tutorial/ic800208.png "Manage Users & Authentication")
     
@@ -196,36 +197,36 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     b. Klik op **Activeren**.
 
-## <a name="configuring-proxy-settings"></a>Proxy-instellingen configureren
-### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>De proxy-instellingen in Internet Explorer configureren
+## <a name="configuring-proxy-settings"></a>Proxyinstellingen configureren
+### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>De proxyinstellingen configureren in Internet Explorer
 
 1. Start **Internet Explorer**.
 
-1. Selecteer **Internetopties** uit de **extra** menu voor open de **Internetopties** dialoogvenster.   
+1. Selecteer **Internetopties** in het menu **Extra** om het dialoogvenster **Internetopties** te openen.   
     
      ![Internetopties](./media/zscaler-one-tutorial/ic769492.png "Internetopties")
 
-1. Klik op de **verbindingen** tabblad.   
+1. Klik op het tabblad **Verbindingen**.   
   
-     ![Verbindingen](./media/zscaler-one-tutorial/ic769493.png "verbindingen")
+     ![Verbindingen](./media/zscaler-one-tutorial/ic769493.png "Verbindingen")
 
-1. Klik op **LAN-instellingen** openen de **LAN-instellingen** dialoogvenster.
+1. Klik op **LAN-instellingen** om het dialoogvenster **LAN-instellingen** te openen.
 
-1. In het gedeelte van de server Proxy de volgende stappen uitvoeren:   
+1. In het gedeelte Proxyserver voert u de volgende stappen uit:   
    
-    ![Proxyserver](./media/zscaler-one-tutorial/ic769494.png "proxyserver")
+    ![Proxyserver](./media/zscaler-one-tutorial/ic769494.png "Proxyserver")
 
-    a. Selecteer **een proxyserver gebruiken voor uw LAN**.
+    a. Selecteer **Een proxyserver voor uw LAN-netwerk gebruiken**.
 
     b. Typ in het tekstvak adres **gateway. Zscaler One.net**.
 
-    c. Typ in het tekstvak poort **80**.
+    c. Typ **80** in het tekstvak Poort.
 
-    d. Selecteer **proxyserver niet gebruiken voor lokale adressen**.
+    d. Selecteer **Proxyserver niet voor lokale adressen gebruiken**.
 
-    e. Klik op **OK** sluiten de **Local Area Network (LAN)-instellingen** dialoogvenster.
+    e. Klik op **OK** om het dialoogvenster **LAN-instellingen** te sluiten.
 
-1. Klik op **OK** sluiten de **Internetopties** dialoogvenster.
+1. Klik op **OK** om het dialoogvenster **Internetopties** te sluiten.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
 
@@ -278,15 +279,15 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     ![Gebruiker toewijzen][203]
 
-5. In de **gebruikers en groepen** dialoogvenster, selecteer de gebruiker, zoals **Britta Simon** in de lijst, klik vervolgens op de **Selecteer** knop aan de onderkant van het scherm.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst en klik op de knop **Selecteren** onder aan het scherm.
 
     ![image](./media/zscaler-one-tutorial/tutorial_zscalerone_users.png)
 
-6. Uit de **rol selecteren** dialoogvenster kiest u de desbetreffende gebruikersrol in de lijst en klik vervolgens op de **Selecteer** knop aan de onderkant van het scherm.
+6. In het dialoogvenster **Rol selecteren** kiest u de desbetreffende gebruikersrol in de lijst en klikt u vervolgens op de knop **Selecteren** onder aan het scherm.
 
     ![image](./media/zscaler-one-tutorial/tutorial_zscalerone_roles.png)
 
-7. In de **toevoegen toewijzing** dialoogvenster Selecteer de **toewijzen** knop.
+7. Selecteer in het dialoogvenster **Toewijzing toevoegen** de knop **Toewijzen**.
 
     ![image](./media/zscaler-one-tutorial/tutorial_zscalerone_assign.png)
 

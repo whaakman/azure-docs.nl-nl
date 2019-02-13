@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 371ff15121e3da0bec5be6159fea9c6764b0aeda
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 86f2dfaf281130115ff04ff84b413e224f54cfcf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43703640"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168337"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jda-cloud"></a>Zelfstudie: Azure Active Directory-integratie met JDA Cloud
 
@@ -29,7 +30,7 @@ JDA Cloud integreren met Azure AD biedt u de volgende voordelen:
 
 - U kunt beheren in Azure AD die toegang tot JDA Cloud heeft.
 - U kunt uw gebruikers automatisch ophalen aangemeld bij de Cloud JDA (Single Sign-On) inschakelen met hun Azure AD-accounts.
-- U kunt uw accounts in één centrale locatie - Azure portal beheren.
+- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
 Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
@@ -43,9 +44,9 @@ Voor het configureren van Azure AD-integratie met JDA Cloud, moet u de volgende 
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -69,15 +70,15 @@ Voor het configureren van de integratie van Cloud JDA in Azure AD, moet u JDA Cl
 
     ![De blade Enterprise-toepassingen][2]
 
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![De knop nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing][3]
 
 4. Typ in het zoekvak **JDA Cloud**, selecteer **JDA Cloud** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![JDA Cloud in de lijst met resultaten](./media/jdacloud-tutorial/tutorial_jdacloud_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
 In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met JDA Cloud op basis van een testgebruiker 'Julia steen' genoemd.
 
@@ -85,13 +86,13 @@ Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruik
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met JDA Cloud, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 3. **[Maak een testgebruiker JDA Cloud](#create-a-jda-cloud-test-user)**  : als u wilt een equivalent van Britta Simon in JDA Cloud die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
 In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing JDA Cloud.
 
@@ -99,7 +100,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. In de Azure-portal op de **JDA Cloud** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren][4]
 
 2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
 
@@ -109,18 +110,18 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![JDA Cloud domein en URL's, eenmalige aanmelding informatie](./media/jdacloud-tutorial/tutorial_jdacloud_url1.png)
 
-    a. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://<SUBDOMAIN>.jdadelivers.com`
+    a. Typ in het tekstvak **Id** een URL met het volgende patroon: `https://<SUBDOMAIN>.jdadelivers.com`
 
-    b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<SUBDOMAIN>.jdadelivers.com/sp/ACS.saml2`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://<SUBDOMAIN>.jdadelivers.com/sp/ACS.saml2`
 
 4. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
 
     ![JDA Cloud domein en URL's, eenmalige aanmelding informatie](./media/jdacloud-tutorial/tutorial_jdacloud_url2.png)
 
-    In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://ssonp-dl2.jdadelivers.com/sp/startSSO.ping?PartnerIdpId=<SAML Entity ID>`
+    Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://ssonp-dl2.jdadelivers.com/sp/startSSO.ping?PartnerIdpId=<SAML Entity ID>`
 
     > [!NOTE]
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke-id, de antwoord-URL en aanmeldings-URL. Krijgt u de **SAML entiteit-ID** waarde uit de **Naslaggids sectie** in de **JDA Cloudconfiguratie** sectie. Neem contact op met [JDA Cloud Client ondersteuningsteam](https://support.jda.com/) om deze waarden te verkrijgen.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke id, antwoord-URL en aanmeldings-URL. Krijgt u de **SAML entiteit-ID** waarde uit de **Naslaggids sectie** in de **JDA Cloudconfiguratie** sectie. Neem contact op met [JDA Cloud Client ondersteuningsteam](https://support.jda.com/) om deze waarden te verkrijgen.
 
 5. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
@@ -128,15 +129,15 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 6. Klik op **opslaan** knop.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/jdacloud-tutorial/tutorial_general_400.png)
+    ![De knop voor enkelvoudige aanmelding configureren](./media/jdacloud-tutorial/tutorial_general_400.png)
 
 7. Op de **JDA Cloudconfiguratie** sectie, klikt u op **JDA Cloud configureren** openen **aanmelding configureren** venster. Kopiëren de **SAML entiteit-ID** uit de **Naslaggids sectie**.
 
     ![Eenmalige aanmelding configureren](./media/jdacloud-tutorial/tutorial_jdacloud_configure.png)
 
-8. Het configureren van eenmalige aanmelding op **JDA Cloud** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [JDA Cloud-ondersteuningsteam](https://support.jda.com/). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+8. Het configureren van eenmalige aanmelding op **JDA Cloud** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [JDA Cloud-ondersteuningsteam](https://support.jda.com/). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
 Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
@@ -170,7 +171,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
 ### <a name="create-a-jda-cloud-test-user"></a>Maak een testgebruiker JDA Cloud
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in JDA Cloud. Werken met [JDA Cloud-ondersteuningsteam](https://support.jda.com/) om toe te voegen de gebruikers in het JDA Cloud-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in JDA Cloud. Werken met [JDA Cloud-ondersteuningsteam](https://support.jda.com/) om toe te voegen de gebruikers in het JDA Cloud-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 

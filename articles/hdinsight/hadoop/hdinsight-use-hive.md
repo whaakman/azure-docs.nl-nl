@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 0fa487e1ecd419780243b04a273110f3cf43761c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 03e15532d04a4c62796aad884c5e344688814672
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633960"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209231"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Wat is Apache Hive en HiveQL op Azure HDInsight?
 
@@ -204,13 +204,9 @@ Deze instructies uit uitvoeren de volgende acties:
 
 De [Apache Hive op Tez-Ontwerpdocumenten](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) bevat details over de implementatie-opties en afstemmen configuraties.
 
-Om u te helpen bij het opsporen van fouten in taken die worden uitgevoerd met behulp van Tez wordt HDInsight biedt de volgende webgebruikersinterfaces waarmee u details wilt weergeven van de Tez-taken:
+Om u te helpen bij het opsporen van fouten in taken die worden uitgevoerd met behulp van Tez wordt HDInsight biedt de volgende web-UI waarmee u details wilt weergeven van de Tez-taken: [Gebruik de weergave van de Apache Ambari Tez op Linux gebaseerde HDInsight](../hdinsight-debug-ambari-tez-view.md).
 
-* [De weergave van de Apache Ambari Tez op Linux gebaseerde HDInsight gebruiken](../hdinsight-debug-ambari-tez-view.md)
-
-* [De Apache Tez-gebruikersinterface gebruiken op HDInsight op basis van Windows](../hdinsight-debug-tez-ui.md)
-
-### <a name="low-latency-analytical-processing-llap"></a>Lage latentie Analytical Processing (LLAP)
+### <a name="low-latency-analytical-processing-llap"></a>Low Latency Analytical Processing (LLAP)
 
 [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) (ook bekend als Live Long and Process) is een nieuwe functie in Hive 2.0 waarmee de caching van query's in het geheugen. LLAP maakt Hive-query's sneller en maximaal [26 x sneller dan Hive 1.x in sommige gevallen](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
 
@@ -230,7 +226,7 @@ SQL Server Integration Services (SSIS) kunt u een Hive-taak uitvoeren. Het Azure
 
 * [Azure HDInsight Hive-taak][hivetask]
 
-* [Azure-abonnement Connection Manager][connectionmanager]
+* [Azure Subscription Connection Manager][connectionmanager]
 
 Zie voor meer informatie de [Azure Feature Pack] [ ssispack] documentatie.
 

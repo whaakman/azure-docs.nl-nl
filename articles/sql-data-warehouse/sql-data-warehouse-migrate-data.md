@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 11d41f9839456020ab65f11661c21f1e679cd76f
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 77e4500b20be844dfad31db284a9c77ad7ec6bb7
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770649"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118119"
 ---
 # <a name="migrate-your-data"></a>Uw gegevens migreren
 Gegevens kunnen worden verplaatst uit verschillende bronnen in uw SQL Data Warehouse met een verschillende hulpprogramma's.  ADF kopiëren, SSIS en bcp kunnen alles worden gebruikt om dit doel te bereiken. Echter, als de hoeveelheid gegevens toeneemt moet u bedenken afbreken van de procedure voor het migreren van gegevens in stappen. Dit biedt u de mogelijkheid om elke stap voor prestaties en flexibiliteit om te controleren of een soepele migratie te optimaliseren.
@@ -29,7 +29,7 @@ Als uw gegevens wordt gestart in platte bestanden, dan u eerst moet voordat u be
 
 PolyBase biedt ook een optie voor hoge prestaties voor het laden van de gegevens. Dat betekent echter twee hulpprogramma's gebruiken in plaats van een. Als u de beste prestaties moet gebruik van PolyBase. Als u wilt dat een enkele hulpprogramma-ervaring (en de gegevens niet enorme zijn) is ADF uw antwoord.
 
-Ga als volgt [in deze zelfstudie]( /articles/data-factory/load-azure-sql-data-warehouse.md) voor informatie over het gebruik van ADF om gegevens te laden in uw datawarehouse.
+Ga als volgt [in deze zelfstudie](../data-factory/load-azure-sql-data-warehouse.md) voor informatie over het gebruik van ADF om gegevens te laden in uw datawarehouse.
 
 ## <a name="integration-services"></a>Integratieservices
 Integration Services (SSIS) is een krachtige en flexibele extraheren transformeren en laden (ETL) hulpprogramma die ondersteuning biedt voor complexe werkstromen, transformatie en verschillende opties voor het laden van gegevens. SSIS gebruiken voor gegevens over te dragen naar Azure of als onderdeel van een bredere migratie.

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 1a5346b98de48b1a2f8928c3c2bf30730588e9c1
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 655ac490e528680f779eeca54899a022ddf3b89a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43146129"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189549"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nuclino"></a>Zelfstudie: Azure Active Directory-integratie met Nuclino
 
@@ -29,7 +30,7 @@ Nuclino integreren met Azure AD biedt u de volgende voordelen:
 
 - U kunt beheren in Azure AD die toegang tot Nuclino heeft.
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Nuclino (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts in één centrale locatie - Azure portal beheren.
+- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
 Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
@@ -43,9 +44,9 @@ Voor het configureren van Azure AD-integratie met Nuclino, moet u de volgende it
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -69,15 +70,15 @@ Voor het configureren van de integratie van Nuclino in Azure AD, moet u Nuclino 
 
     ![De blade Enterprise-toepassingen][2]
 
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![De knop nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing][3]
 
 4. Typ in het zoekvak **Nuclino**, selecteer **Nuclino** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Nuclino in de lijst met resultaten](./media/nuclino-tutorial/tutorial_nuclino_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
 In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Nuclino op basis van een testgebruiker 'Julia steen' genoemd.
 
@@ -85,13 +86,13 @@ Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruik
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met Nuclino, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 3. **[Maak een testgebruiker Nuclino](#create-a-nuclino-test-user)**  : als u wilt een equivalent van Britta Simon in Nuclino die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
 In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Nuclino.
 
@@ -99,7 +100,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. In de Azure-portal op de **Nuclino** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren][4]
 
 2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
 
@@ -109,23 +110,23 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Nuclino domein en URL's, eenmalige aanmelding informatie](./media/nuclino-tutorial/tutorial_nuclino_url1.png)
 
-    a. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://api.nuclino.com/api/sso/<UNIQUE-ID>/metadata`
+    a. Typ in het tekstvak **Id** een URL met het volgende patroon: `https://api.nuclino.com/api/sso/<UNIQUE-ID>/metadata`
 
-    b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://api.nuclino.com/api/sso/<UNIQUE-ID>/acs`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://api.nuclino.com/api/sso/<UNIQUE-ID>/acs`
 
     > [!NOTE]
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id en de antwoord-URL van de **verificatie** sectie, die verderop in deze zelfstudie wordt uitgelegd.
+    > Dit zijn geen echte waarden. Deze waarden bijwerken met de werkelijke id en de antwoord-URL van de **verificatie** sectie, die verderop in deze zelfstudie wordt uitgelegd.
 
 4. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
 
     ![Nuclino domein en URL's, eenmalige aanmelding informatie](./media/nuclino-tutorial/tutorial_nuclino_url2.png)
 
-    In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://app.nuclino.com/<UNIQUE-ID>/login`
+    Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://app.nuclino.com/<UNIQUE-ID>/login`
 
     > [!NOTE]
-    > Deze waarde is niet echt. Deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [Nuclino Client ondersteuningsteam](mailto:contact@nuclino.com) deze waarde op te halen.
+    > Deze waarde is niet echt. Werk deze waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [Nuclino Client ondersteuningsteam](mailto:contact@nuclino.com) deze waarde op te halen.
 
-5. Nuclino toepassing verwacht het SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de "**gebruikerskenmerken**" sectie op de pagina van de toepassing-integratie. De volgende Schermafbeelding toont een voorbeeld voor deze.
+5. Nuclino toepassing verwacht het SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de "**gebruikerskenmerken**" sectie op de pagina van de toepassing-integratie. In de volgende schermopname ziet u een voorbeeld hiervan.
 
     ![Eenmalige aanmelding configureren](./media/Nuclino-tutorial/tutorial_attribute.png)
 
@@ -133,8 +134,8 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     | Naam kenmerk | Waarde kenmerk |
     | ---------------| --------------- |
-    | first_name | User.givenName |
-    | last_name | User.surname |
+    | first_name | user.givenname |
+    | last_name | user.surname |
 
     a. Klik op **kenmerk toevoegen** openen de **kenmerk toevoegen** dialoogvenster.
 
@@ -150,11 +151,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 7. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
 
-    ![De downloadkoppeling certificaat](./media/nuclino-tutorial/tutorial_nuclino_certificate.png)
+    ![De link om het certificaat te downloaden](./media/nuclino-tutorial/tutorial_nuclino_certificate.png)
 
 8. Klik op **opslaan** knop.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/nuclino-tutorial/tutorial_general_400.png)
+    ![De knop voor enkelvoudige aanmelding configureren](./media/nuclino-tutorial/tutorial_general_400.png)
 
 9. Op de **Nuclino configuratie** sectie, klikt u op **configureren Nuclino** openen **aanmelding configureren** venster. Kopiëren de **SAML entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
 
@@ -188,11 +189,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     e. In de **entiteit-ID** tekstvak, plak de **SAML entiteit-ID** waarde die u hebt gekopieerd vanuit Azure portal.
 
-    f. Open uw gedownloade **Certificate(Base64)** bestand in Kladblok. Kopieer de inhoud ervan in het Klembord en plakt u deze naar de **openbaar certificaat** in het tekstvak.
+    f. Open het gedownloade bestand **Certificate(Base64)** in Kladblok. Kopieer de inhoud ervan in het Klembord en plakt u deze naar de **openbaar certificaat** in het tekstvak.
 
-    g. Klik op **wijzigingen opslaan**.
+    g. Klik op **WIJZIGINGEN OPSLAAN**.
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
 Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
@@ -229,7 +230,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in Nuclino. Nuclino biedt ondersteuning voor just-in-time inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot Nuclino als deze nog niet bestaat.
 
 > [!Note]
-> Als u maken van een gebruiker handmatig wilt, neem dan contact op met [Nuclino ondersteuningsteam](mailto:contact@nuclino.com).
+> Als u maken van een gebruiker handmatig wilt, neem dan contact op met [Nuclino ondersteuningsteam](mailto:contact@nuclino.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 

@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 75aecd166d03b751f778221632fad68d279f63a3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 11eb849567079bfb1293c3c1e8ce97c43b66d493
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468866"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116841"
 ---
-# <a name="choose-the-right-consistency-level"></a>Kies de juiste consistentieniveau 
+# <a name="choose-the-right-consistency-level"></a>Het juiste consistentieniveau kiezen 
 
 Gedistribueerde databases die afhankelijk zijn van replicatie voor hoge beschikbaarheid, lage latentie of beide, moet het fundamentele verschil tussen het lezen van consistentie en beschikbaarheid, latentie en doorvoer. De meeste commercieel verkrijgbaar gedistribueerde databases stellen ontwikkelaars om te kiezen tussen de twee extreme consistentiemodellen: sterke consistentie en uiteindelijke consistentie. Azure Cosmos DB kunnen ontwikkelaars kiezen tussen de vijf duidelijk gedefinieerde consistentiemodellen: sterk, gebonden veroudering, sessie, consistent voorvoegsel en mogelijk. Elk van deze consistentiemodellen is goed gedefinieerde, intuïtieve en kan worden gebruikt voor specifieke praktijkscenario's. Elk van de vijf consistentiemodellen bieden [zorgen voor beschikbaarheid en prestaties van een balans](consistency-levels-tradeoffs.md) en worden ondersteund door uitgebreide Sla's. De volgende eenvoudige overwegingen krijgt u de juiste keuze maken in veel algemene scenario's.
 
@@ -33,6 +33,8 @@ Houd rekening met de volgende punten als uw toepassing is gemaakt met behulp van
 - Als u minder strikte consistentiegarantie dan de opgegeven door sessieconsistentie nodig hebt, is het aanbevolen dat u consistent voorvoegsel consistentieniveau.
 
 - Als u nodig hebt voor de hoogst mogelijke beschikbaarheid en de laagste latentie, gebruikt u het niveau van uiteindelijke consistentie.
+
+- Als u nog hogere duurzaamheid van gegevens moet zonder verlies van prestaties, maakt u een aangepaste consistentieniveau op het niveau van de toepassing. Zie voor meer informatie, [instructies aangepaste synchronisatie implementeren in uw toepassingen](how-to-custom-synchronization.md).
 
 ## <a name="cassandra-mongodb-and-gremlin-api"></a>Cassandra, MongoDB en Gremlin-API
 

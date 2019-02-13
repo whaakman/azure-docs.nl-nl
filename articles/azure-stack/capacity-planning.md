@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 09/18/2018
-ms.openlocfilehash: 10a333e8521c781a223c767660ae6acaa1286929
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b8bd57953845278aa75e8cbdf41ae28300edad58
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251815"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56184904"
 ---
 # <a name="azure-stack-capacity-planning"></a>Azure Stack-capaciteitsplanning
 Bij het evalueren van een Azure Stack-oplossing, zijn er hardware-configuratie-opties die een directe invloed op de totale capaciteit van de Azure Stack-Cloud hebben. Dit zijn de klassieke keuzes van CPU, geheugen dichtheid, opslagconfiguratie, en algemene oplossing schalen of het aantal servers. De eenvoudige rekenkundige van deze onderdelen om te bepalen aan bruikbare capaciteit in tegenstelling tot een traditionele virtualisatieoplossing, is niet van toepassing. De eerste reden hiervoor is dat Azure Stack is ontworpen voor het hosten van de infrastructuur of management onderdelen binnen de oplossing zelf. De tweede reden is dat een aantal van de oplossing capaciteit wordt gereserveerd ter ondersteuning van tolerantie; het bijwerken van de software van de oplossing op een manier om onderbreking van de tenantwerkbelastingen te minimaliseren.

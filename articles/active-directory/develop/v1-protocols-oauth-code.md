@@ -16,12 +16,13 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 19199d25b960d768f844d725616220fb78e7d983
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: cdbde6eda2bd532b1a26a58e4ca82c9b5fab4e6c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094050"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56188593"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Toegang verlenen aan webtoepassingen voor Azure Active Directory met behulp van de OAuth 2.0-stroom voor het verlenen van code
 
@@ -53,7 +54,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &state=12345
 ```
 
-| Parameter |  | Beschrijving |
+| Parameter |  | Description |
 | --- | --- | --- |
 | tenant |vereist |De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn tenant-id's, bijvoorbeeld `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` of `contoso.onmicrosoft.com` of `common` voor tenant-onafhankelijke tokens |
 | client_id |vereist |De toepassings-ID die aan uw app wordt toegewezen wanneer u deze hebt geregistreerd bij Azure AD. U kunt dit vinden in de Azure Portal. Klik op **Azure Active Directory** in de zijbalk services, klikt u op **App-registraties**, en kies de toepassing. |
@@ -84,7 +85,7 @@ GET  HTTP/1.1 302 Found
 Location: http://localhost:12345/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrqqf_ZT_p5uEAEJJ_nZ3UmphWygRNy2C3jJ239gV_DBnZ2syeg95Ki-374WHUP-i3yIhv5i-7KU2CEoPXwURQp6IVYMw-DjAOzn7C3JCu5wpngXmbZKtJdWmiBzHpcO2aICJPu1KvJrDLDP20chJBXzVYJtkfjviLNNW7l7Y3ydcHDsBRKZc3GuMQanmcghXPyoDg41g8XbwPudVh7uCmUponBQpIhbuffFP_tbV8SNzsPoFz9CLpBCZagJVXeqWoYMPe2dSsPiLO9Alf_YIe5zpi-zY4C3aLw5g9at35eZTfNd0gBRpR5ojkMIcZZ6IgAA&session_state=7B29111D-C220-4263-99AB-6F6E135D75EF&state=D79E5777-702E-4260-9A62-37F75FF22CCE
 ```
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | admin_consent |De waarde is True als een beheerder ingestemd met een toestemmingsprompt van de aanvraag. |
 | code |De autorisatiecode die de toepassing heeft aangevraagd. De toepassing kan de autorisatiecode gebruiken om aan te vragen van een toegangstoken voor de doelresource. |
@@ -100,7 +101,7 @@ error=access_denied
 &error_description=the+user+canceled+the+authentication
 ```
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | error |Een foutwaarde code gedefinieerd in de sectie 5.2 van de [OAuth 2.0 machtiging Framework](https://tools.ietf.org/html/rfc6749). De volgende tabel beschrijft de foutcodes die Azure AD als resultaat geeft. |
 | error_description |Een gedetailleerde beschrijving van de fout. Dit bericht is niet bedoeld als geschikt voor eindgebruikers. |
@@ -109,7 +110,7 @@ error=access_denied
 #### <a name="error-codes-for-authorization-endpoint-errors"></a>Foutcodes voor endpoint-verificatiefouten
 De volgende tabel beschrijft de verschillende foutcodes die kunnen worden geretourneerd in de `error` parameter van het foutbericht.
 
-| Foutcode | Beschrijving | Clientactie |
+| Foutcode | Description | Clientactie |
 | --- | --- | --- |
 | invalid_request |Protocolfout in, zoals een ontbrekende vereiste parameter. |Los en verzend de aanvraag opnieuw. Dit is een fout, ontwikkeling en is meestal aangetroffen tijdens de eerste test. |
 | unauthorized_client |De clienttoepassing is niet toegestaan om aan te vragen van een autorisatiecode. |Dit gebeurt meestal wanneer de clienttoepassing is niet geregistreerd in Azure AD of is niet toegevoegd aan Azure AD-tenant van de gebruiker. De toepassing kan het bericht met instructies voor het installeren van de toepassing en toe te voegen aan Azure AD. |
@@ -138,7 +139,7 @@ grant_type=authorization_code
 //NOTE: client_secret only required for web apps
 ```
 
-| Parameter |  | Beschrijving |
+| Parameter |  | Description |
 | --- | --- | --- |
 | tenant |vereist |De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn tenant-id's, bijvoorbeeld `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` of `contoso.onmicrosoft.com` of `common` voor tenant-onafhankelijke tokens |
 | client_id |vereist |De toepassings-Id die aan uw app wordt toegewezen wanneer u deze hebt geregistreerd bij Azure AD. U kunt dit vinden in Azure portal. De toepassings-Id wordt weergegeven in de instellingen van de app-registratie. |
@@ -172,7 +173,7 @@ Een geslaagde respons kan er als volgt:
 
 ```
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | access_token |De aangevraagde [toegangstoken](access-tokens.md) als een ondertekende JSON Web Token (JWT). De app kan dit token gebruikt voor verificatie bij de beveiligde resource, zoals een web-API. |
 | token_type |Geeft aan dat de waarde van het token. Het enige type die ondersteuning biedt voor Azure AD is Bearer. Zie voor meer informatie over het Bearer-tokens [Framework voor OAuth 2.0-autorisatie: Bearer Token gebruik (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) |
@@ -203,7 +204,7 @@ Een voorbeeld-foutbericht kan er als volgt:
   "correlation_id": "a8125194-2dc8-4078-90ba-7b6592a7f231"
 }
 ```
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | error |Een tekenreeks voor de foutcode die kan worden gebruikt voor het classificeren van typen fouten die optreden en kan worden gebruikt om te reageren op fouten. |
 | error_description |Een specifieke foutbericht dat een ontwikkelaar kan helpen de hoofdoorzaak van een verificatiefout identificeren. |
@@ -215,7 +216,7 @@ Een voorbeeld-foutbericht kan er als volgt:
 #### <a name="http-status-codes"></a>HTTP-statuscodes
 De volgende tabel bevat de HTTP-statuscodes die het token-uitgifte-eindpunt retourneert. In sommige gevallen wordt de foutcode is voldoende om te beschrijven van het antwoord, maar als er fouten zijn, moet u de bijbehorende JSON-document parseren en de foutcode te onderzoeken.
 
-| HTTP-Code | Beschrijving |
+| HTTP-Code | Description |
 | --- | --- |
 | 400 |Standaard-HTTP-code. In de meeste gevallen gebruikt en wordt meestal veroorzaakt door een onjuist gevormde aanvraag. Los en verzend de aanvraag opnieuw. |
 | 401 |Verificatie mislukt. De aanvraag, bijvoorbeeld de waarde voor client_secret-parameter ontbreekt. |
@@ -223,7 +224,7 @@ De volgende tabel bevat de HTTP-statuscodes die het token-uitgifte-eindpunt reto
 | 500 |Er is een interne fout opgetreden bij de service. De aanvraag opnieuw. |
 
 #### <a name="error-codes-for-token-endpoint-errors"></a>Foutcodes voor token-eindpunt-fouten
-| Foutcode | Beschrijving | Clientactie |
+| Foutcode | Description | Clientactie |
 | --- | --- | --- |
 | invalid_request |Protocolfout in, zoals een ontbrekende vereiste parameter. |Los en verzend de aanvraag opnieuw |
 | invalid_grant |De autorisatiecode is ongeldig of is verlopen. |Probeer een nieuwe aanvraag naar de `/authorize` eindpunt |
@@ -255,7 +256,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 ```
 
 #### <a name="error-parameters"></a>Foutparameters
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | authorization_uri |De URI (fysieke eindpunt) van de autorisatie-server. Deze waarde wordt ook gebruikt als een lookup-sleutel voor meer informatie over de server van een detectie-eindpunt. <p><p> De client moet worden gevalideerd dat de autorisatie-server vertrouwd wordt. Wanneer de resource is beveiligd door Azure AD, is het voldoende om te controleren dat de URL met begint https://login.microsoftonline.com of een andere hostnaam die ondersteuning biedt voor Azure AD. Een tenant-specifieke resource moet altijd de autorisatie-URI voor een tenant-specifieke retourneren. |
 | error |Een foutwaarde code gedefinieerd in de sectie 5.2 van de [OAuth 2.0 machtiging Framework](https://tools.ietf.org/html/rfc6749). |
@@ -265,7 +266,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 #### <a name="bearer-scheme-error-codes"></a>Foutcodes voor Bearer-schema
 De specificatie RFC 6750 definieert de volgende fouten voor resources die gebruikmaken van de WWW-Authenticate-header en Bearer-schema in het antwoord.
 
-| HTTP-statuscode | Foutcode | Beschrijving | Clientactie |
+| HTTP-statuscode | Foutcode | Description | Clientactie |
 | --- | --- | --- | --- |
 | 400 |invalid_request |De aanvraag is niet grammaticaal correct. Het kan bijvoorbeeld worden een parameter ontbreekt of met behulp van dezelfde parameter twee keer. |Los de fout en probeer de aanvraag. Dit type fout moet worden uitgevoerd tijdens de ontwikkeling en bij de eerste test worden gedetecteerd. |
 | 401 |invalid_token |Het toegangstoken ontbreekt, is ongeldig of is ingetrokken. De waarde van de parameter error_description biedt aanvullende informatie. |Een nieuw token aanvragen bij de autorisatieserver. Als het nieuwe token is mislukt, heeft een onverwachte fout opgetreden. Een foutbericht weergegeven voor de gebruiker en probeer het opnieuw na de willekeurige vertraging verzenden |
@@ -309,7 +310,7 @@ Een geslaagde respons token ziet er als:
   "refresh_token": "AwABAAAAv YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfcUl4VBbiSHZyd1NVZG5QTIOcbObu3qnLutbpadZGAxqjIbMkQ2bQS09fTrjMBtDE3D6kSMIodpCecoANon9b0LATkpitimVCrl PM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4rTfgV29ghDOHRc2B-C_hHeJaJICqjZ3mY2b_YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfmVCrl-NyfN3oyG4ZCWu18M9-vEou4Sq-1oMDzExgAf61noxzkNiaTecM-Ve5cq6wHqYQjfV9DOz4lbceuYCAA"
 }
 ```
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | token_type |Het type token. De enige ondersteunde waarde is **bearer**. |
 | expires_in |De resterende levensduur van het token in seconden. Een typische waarde is 3600 (1 uur). |
@@ -335,7 +336,7 @@ Een voorbeeld-foutbericht kan er als volgt:
 }
 ```
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | error |Een tekenreeks voor de foutcode die kan worden gebruikt voor het classificeren van typen fouten die optreden en kan worden gebruikt om te reageren op fouten. |
 | error_description |Een specifieke foutbericht dat een ontwikkelaar kan helpen de hoofdoorzaak van een verificatiefout identificeren. |

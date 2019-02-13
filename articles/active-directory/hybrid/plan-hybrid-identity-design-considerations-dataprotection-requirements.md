@@ -16,12 +16,13 @@ ms.date: 05/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: ae7610b18a8ec09332612e6608f76e196376fdce
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e734b932976896b2fb4d86e2627b7827d40a2545
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55495955"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189886"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>Plan voor het verbeteren van de beveiliging van gegevens via een goede oplossing voor identiteitsbeheer
 De eerste stap bij het beveiligen van gegevens is om te bepalen wie toegang heeft tot die gegevens. U moet ook een identiteitsoplossing die kan worden geïntegreerd met uw systeem zodat de mogelijkheden van verificatie en autorisatie hebt. Verificatie en autorisatie worden vaak verward met elkaar en hun rollen verkeerd begrepen. In werkelijkheid zijn deze verschillend, zoals wordt weergegeven in de afbeelding hieronder:

@@ -6,17 +6,17 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 10/15/2018
 keywords: ''
-ms.openlocfilehash: dce59cf012a8c3bc5b6b3baf705b5619bdf43104
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 13525fffb7e6720fe81759876ffd0fe71559279c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252306"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182847"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Datacenter-integratie Azure Stack - DNS
 Mogelijk moet toegang hebben tot Azure Stack-eindpunten (**portal**, **adminportal**, **management**, **adminmanagement**, enz.)  van buiten Azure Stack moet u de Azure Stack-DNS-services integreren met de DNS-servers die als host van de DNS-zones die u wilt gebruiken in Azure Stack.
@@ -25,7 +25,7 @@ Mogelijk moet toegang hebben tot Azure Stack-eindpunten (**portal**, **adminport
 U bent op te geven van enkele belangrijke gegevens met betrekking tot DNS wanneer u Azure Stack implementeren.
 
 
-|Veld  |Beschrijving  |Voorbeeld|
+|Veld  |Description  |Voorbeeld|
 |---------|---------|---------|
 |Regio|De geografische locatie van uw Azure Stack-implementatie.|`east`|
 |De naam van het externe domein|De naam van de zone die u wilt gebruiken voor uw Azure Stack-implementatie.|`cloud.fabrikam.com`|
@@ -114,9 +114,9 @@ Met behulp van de voorbeeldwaarden, de FQDN-namen voor de DNS-zijn servers:
 `azs-ns02.east.cloud.fabrikam.com`
 
 
-Deze informatie wordt ook gemaakt aan het einde van alle Azure Stack-implementaties in een bestand met de naam `AzureStackStampDeploymentInfo.json`. Dit bestand bevindt zich de `C:\CloudDeployment\logs` map van de implementatie van virtuele machine. Als u niet zeker weet welke waarden zijn voor uw Azure Stack-implementatie gebruikt, kunt u de waarden komen vanaf deze locatie.
+Deze informatie wordt ook gemaakt aan het einde van alle Azure Stack-implementaties in een bestand met de naam `AzureStackStampInformation.json`. Dit bestand bevindt zich de `C:\CloudDeployment\logs` map van de implementatie van virtuele machine. Als u niet zeker weet welke waarden zijn voor uw Azure Stack-implementatie gebruikt, kunt u de waarden komen vanaf deze locatie.
 
-Als de implementatie van virtuele machine niet langer beschikbaar is of niet toegankelijk is, kunt u de waarden door verbinding te maken met het eindpunt van de bevoegdheden uit te voeren de `Get-AzureStackInfo` PowerShell-cmdlet. Zie voor meer informatie, [bevoegde eindpunt](azure-stack-privileged-endpoint.md).
+Als de implementatie van virtuele machine niet langer beschikbaar is of niet toegankelijk is, kunt u de waarden door verbinding te maken met het eindpunt van de bevoegdheden uit te voeren de `Get-AzureStackStampInformation` PowerShell-cmdlet. Zie voor meer informatie, [bevoegde eindpunt](azure-stack-privileged-endpoint.md).
 
 ## <a name="setting-up-conditional-forwarding-to-azure-stack"></a>Instellen van voorwaardelijk doorsturen naar Azure Stack
 

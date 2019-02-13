@@ -11,23 +11,23 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 3cf819ceb01e52b029e8654dddc355afd27a9b63
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 81139734d0eb7d15e78c465c06fc429de48480c3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982995"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182983"
 ---
-# <a name="azure-media-services-release-notes-legacy"></a>Releaseopmerkingen voor Azure Media Services (verouderd)
+# <a name="azure-media-services-release-notes"></a>Opmerkingen bij de release Azure Media Services
 
 Deze opmerkingen bij de release voor Azure Media Services wijzigingen ten opzichte van vorige versies en bekende problemen samenvatten.
 
 > [!NOTE]
-> We horen graag van onze klanten, zodat we ons richten kunnen op het oplossen van problemen die invloed hebben op u. Als u een probleem melden of vragen stellen, verzendt een bericht in de [Azure Media Services MSDN Forum].
-> 
-> 
+> Geen nieuwe functies of functionaliteit er worden toegevoegd naar Media Services v2. 
+
+We horen graag van onze klanten, zodat we ons richten kunnen op het oplossen van problemen die invloed hebben op u. Als u een probleem melden of vragen stellen, verzendt een bericht in de [Azure Media Services MSDN Forum]. 
 
 ## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>Bekende problemen
 ### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>Algemene problemen met Media Services.

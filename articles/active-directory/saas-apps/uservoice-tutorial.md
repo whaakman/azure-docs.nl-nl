@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: jeedes
-ms.openlocfilehash: a2b8faaf3ee7d8f5dfca35f860dbd003f9e6072b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 94e077e07796fc111c35b6571459a5e316096ebc
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194335"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56206630"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>Zelfstudie: Azure Active Directory-integratie met UserVoice
 
@@ -216,7 +217,7 @@ Als u wilt dat Azure AD-gebruikers zich aanmelden met UserVoice, moeten ze worde
    
     a. Typ het e-mailadres van het account dat u wilt inrichten, en klik vervolgens op in het tekstvak e-mailberichten **toevoegen**.
    
-    b. Klik op **uitnodigen**.
+    b. Klik op **Uitnodigen**.
 
 > [!NOTE]
 > U kunt alle andere UserVoice gebruiker-account maken van hulpprogramma's of API's geleverd door UserVoice aan inrichten AAD-gebruikersaccounts.

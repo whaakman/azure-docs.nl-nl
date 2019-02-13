@@ -4,7 +4,7 @@ description: De verschillende versies van Azure Key Vault
 services: key-vault
 documentationcenter: ''
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: e8622dcc-59a3-4f4b-9f63-cd2232515a65
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: 7671452e8b5226d3c3779bbe86e23b8cffe1a769
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: d74bf8603e3d5a394935994bc61fa0e96905ed25
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079048"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115025"
 ---
 # <a name="key-vault-versions"></a>Versies van Key Vault
 
@@ -26,7 +26,7 @@ ms.locfileid: "54079048"
 
 In de zomer plaats 2017 - Opslagaccountsleutels functie toegevoegd eenvoudiger integratie met Azure Storage. Zie het overzichtsonderwerp voor meer informatie, [beheerde Opslagaccountsleutels overzicht](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-storage-keys).
 
-## <a name="2016-10-01---soft-delete"></a>2016-10-01 - functie voor voorlopig verwijderen
+## <a name="2016-10-01---soft-delete"></a>2016-10-01 - Soft-delete
 
 In de zomer plaats 2017 - functie voor voorlopig verwijderen toegevoegd voor verbeterde beveiliging van uw sleutelkluizen en key vault objecten. Zie het overzichtsonderwerp voor meer informatie, [voorlopig verwijderen overzicht](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).
 

@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: afb4e634b7e255ef8f2cfc84319029af7412372e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5ececb2d3c52a1da8c1a537e6223f17a9b83921f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251874"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207531"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Datacenter-integratie-overwegingen voor Azure Stack-geïntegreerde systemen
-Als u geïnteresseerd in een geïntegreerde Azure Stack-systeem bent, moet u enkele van de belangrijkste Beschouwingen over planning om de implementatie en hoe het systeem past in uw datacenter te begrijpen. In dit artikel bevat een overzicht van deze overwegingen om u te helpen u belangrijke infrastructuur beslissingen voor uw Azure Stack-systeem met meerdere knooppunten. Een goed begrip van deze overwegingen helpt bij het werken met de leverancier van de OEM-hardware omdat ze Azure Stack in uw datacenter implementeren.  
+Als u geïnteresseerd in een geïntegreerde Azure Stack-systeem bent, moet u de belangrijkste Beschouwingen over planning om de implementatie en hoe het systeem in uw datacenter past begrijpen. In dit artikel bevat een overzicht van deze overwegingen om u te helpen u belangrijke infrastructuur beslissingen voor uw Azure Stack-systeem met meerdere knooppunten. Een goed begrip van deze overwegingen helpt bij het werken met de leverancier van de OEM-hardware omdat ze Azure Stack in uw datacenter implementeren.  
 
 > [!NOTE]
 > Azure Stack-systemen met meerdere knooppunten kunnen alleen worden gekocht van hardwareleveranciers geautoriseerde. 
@@ -53,8 +53,6 @@ Wanneer een hoger niveau van toegang nodig is voor het oplossen van problemen di
 
 ### <a name="choose-identity-provider"></a>Kies de id-provider
 U moet rekening houden met welke id-provider die u wilt gebruiken voor Azure Stack-implementatie, Azure AD of AD FS. U kunt niet de id-providers overstappen na de implementatie zonder het volledige systeem opnieuw implementeren. Als u geen eigenaar van de Azure AD-account en een account dat aan u geleverd door uw Cloudserviceprovider, en als u wilt overschakelen van de provider en gebruiken van een andere Azure AD-account, moet op dit moment u contact op met uw oplossingsprovider voor het implementeren van de f-oplossing of u uw kosten.
-
-
 
 Uw keuze van id-provider heeft geen gevolgen voor virtuele machines van tenants, identiteitssysteem en accounts die ze gebruiken, of ze kunnen deelnemen aan een Active Directory-domein, enzovoort. Dit staat los.
 
@@ -88,7 +86,7 @@ U moet denken over de manier waarop u wilt plannen van uw Azure Stack-naamruimte
 
 De volgende tabel geeft een overzicht van deze domein naming beslissingen.
 
-| Name | Beschrijving | 
+| Name | Description | 
 | -------- | ------------- | 
 |Regionaam | De naam van uw eerste Azure Stack-regio. Deze naam wordt gebruikt als onderdeel van de FQDN-naam voor de openbare virtuele IP-adressen (VIP's) die Azure Stack wordt beheerd. De regionaam van de is meestal een fysieke locatie-id, zoals de locatie van een datacenter.<br><br>De regionaam van de moet bestaan uit alleen letters en getallen tussen 0-9. Er zijn geen speciale tekens zoals "-" of "#", enzovoort zijn toegestaan.| 
 | De naam van het externe domein | De naam van de Domain Name System (DNS)-zone voor eindpunten met extern gerichte VIP's. In de FQDN-naam gebruikt voor deze openbare VIP's. | 
@@ -110,9 +108,9 @@ Voor meer informatie over welke PKI certificaten zijn vereist voor het implement
 
 
 ## <a name="time-synchronization"></a>Tijdsynchronisatie
-U moet een specifiek tijdstip-server met wordt gebruikt om te synchroniseren van Azure Stack.  Tijd symbolization is essentieel voor Azure Stack en de infrastructuur functies, zoals het wordt gebruikt voor het genereren van Kerberos-tickets die worden gebruikt voor verificatie van interne services met elkaar.
+U moet een specifiek tijdstip-server met wordt gebruikt om te synchroniseren van Azure Stack.  Tijdsynchronisatie is essentieel voor Azure Stack en de infrastructuur functies, zoals het wordt gebruikt voor het genereren van Kerberos-tickets die worden gebruikt voor verificatie van interne services met elkaar.
 
-U moet dat een IP-adres voor de tijd synchronisatie-server, hoewel de meeste van de onderdelen van de infrastructuur van een URL kunnen omzetten sommige biedt alleen ondersteuning voor IP-adressen. Als u bent zijn met behulp van de niet-verbonden Implementatieoptie wordt gebruikt, moet u een tijdserver in uw bedrijfsnetwerk dat u ervoor dat kan worden bereikt vanaf het infrastructuurnetwerk in Azure Stack.
+U moet dat een IP-adres voor de tijd synchronisatie-server, hoewel de meeste van de onderdelen van de infrastructuur van een URL kunnen omzetten sommige biedt alleen ondersteuning voor IP-adressen. Als u de niet-verbonden Implementatieoptie wordt gebruikt, moet u een tijdserver in uw bedrijfsnetwerk dat u ervoor dat kan worden bereikt vanaf het infrastructuurnetwerk in Azure Stack.
 
 ## <a name="connect-azure-stack-to-azure"></a>Azure Stack verbinden met Azure
 

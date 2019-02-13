@@ -4,7 +4,7 @@ description: " Informatie over hoe om te onboarden naar Azure Security Center St
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2ea94e79fdcc331554f42e2396d954af7cb979d8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9d95503e4b17124d1d027a90a21869ef65831654
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850071"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114413"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Onboarding van Azure Security Center Standard voor verbeterde beveiliging
 Upgrade uitvoeren naar Security Center Standard om te profiteren van verbeterde beveiligingsbeheer en bedreigingsbeveiliging voor uw hybride cloudworkloads.  U kunt de standaard gratis proberen. Zie het Security Center [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie.
@@ -57,7 +57,7 @@ Een abonnement of een werkruimte upgraden naar Standard:
    >
    >
 
-## <a name="onboard-non-azure-computers"></a>Onboarding voor niet-Azure-computers
+## <a name="onboard-non-azure-computers"></a>Niet-Azure-computers onboarden
 Security Center kan de beveiligingsstatus van uw niet-Azure-computers controleren, maar u moet deze resources dan eerst onboarden. U kunt niet-Azure computers toevoegen uit de **aan de slag** blade of vanuit de **Compute** blade. We nemen door beide methoden.
 
 ### <a name="add-new-non-azure-computers-from-getting-started"></a>Toevoegen van nieuwe niet-Azure-computers vanuit **aan de slag**

@@ -10,22 +10,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 82a691c0e0b6280a168605d56ee628d81f10823f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: eca66bc2e737b0f9a9954cad21a446e82d753f84
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245647"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203808"
 ---
 # <a name="validate-azure-stack-system-state"></a>Valideren van de systeemstatus van de Azure Stack
 
 *Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-Als Azure Stack-operators is het essentieel de mogelijkheid om te weten de gezondheid en status van uw systeem op aanvraag. Het hulpprogramma voor het valideren van Azure Stack (**Test AzureStack**) is een PowerShell-cmdlet u kunt een reeks tests uitvoeren op uw systeem voor het identificeren van fouten, indien aanwezig. U wordt meestal gevraagd dit hulpprogramma uitvoeren via de [bevoegde eindpunt (PEP)](azure-stack-privileged-endpoint.md) wanneer u Neem contact op met Microsoft klantenondersteuning Services (CSS) met een probleem. Met de status van de gehele systeem en de statusinformatie bij de hand, kunt CSS verzamelen en analyseren van gedetailleerde logboeken, richt u op het gebied waar de fout is opgetreden en samen met u het probleem op te lossen.
+Als Azure Stack-operators is het essentieel de mogelijkheid om te bepalen van de status en de status van uw systeem op aanvraag. Het hulpprogramma voor het valideren van Azure Stack (**Test AzureStack**) is een PowerShell-cmdlet u kunt een reeks tests uitvoeren op uw systeem voor het identificeren van fouten, indien aanwezig. U wordt meestal gevraagd dit hulpprogramma uitvoeren via de [bevoegde eindpunt (PEP)](azure-stack-privileged-endpoint.md) wanneer u Neem contact op met Microsoft klantenondersteuning Services (CSS) met een probleem. Met de status van de gehele systeem en de statusinformatie bij de hand, kunt CSS verzamelen en analyseren van gedetailleerde logboeken, richt u op het gebied waar de fout is opgetreden en samen met u het probleem op te lossen.
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>Uitvoeren van het hulpprogramma voor het valideren en toegang tot resultaten
 
@@ -93,7 +93,6 @@ Deze tests weinig impact op het niveau van een infrastructuur werken en u voorzi
 
 Naast de bovenstaande tests infrastructuur hebt u ook de mogelijkheid om uit te voeren cloud scenario tests om te controleren of functionaliteit tussen onderdelen van de infrastructuur. Cloud-beheerdersreferenties zijn vereist om uit te voeren van deze tests zoals ze betrekking hebben op resource-implementatie. 
     > [!NOTE]
-    >
     > Currently you cannot run cloud scenario tests using Active Directory Federated Services (AD FS) credentials. 
 
 De volgende cloud-scenario's zijn getest door het hulpprogramma voor het valideren:

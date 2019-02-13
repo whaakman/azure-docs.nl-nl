@@ -4,7 +4,7 @@ description: In dit artikel bevat informatie over prijzen voor Azure Security Ce
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/11/2018
 ms.author: rkarlin
-ms.openlocfilehash: d0cdda4553808d1197d764d0a50e535515527443
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: bde2ebf2f69de1826e21435b5551e3c3412109d2
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336438"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110214"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Een upgrade uitvoert naar Standard van Security Center-prijscategorie voor verbeterde beveiliging
 Azure Security Center biedt geïntegreerd beveiligingsbeheer en geavanceerde bedreigingsbeveiliging voor werkbelastingen die worden uitgevoerd in Azure, on-premises en in andere clouds. Het biedt zichtbaarheid en controle over hybride cloudworkloads, actieve beveiliging die de blootstelling aan bedreigingen en Slimme detectie om te laten groeien met zich snel ontwikkelende cyberaanvallen verminderen.

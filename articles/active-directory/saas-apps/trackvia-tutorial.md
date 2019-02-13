@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 1c4cc0517ad55cd3be862e974a0a707ef871d805
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6e4c90b6f9fd8b968ceb0e241649ddbcf1c2e1cb
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196375"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189108"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trackvia"></a>Zelfstudie: Azure Active Directory-integratie met TrackVia
 
@@ -119,7 +120,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://companyname.trackvia.com`
      
     > [!NOTE] 
-    > Aanmeldings-URL-waarde is niet echt. Deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [TrackVia Client ondersteuningsteam](mailto:support@trackvia.com) deze waarde op te halen.
+    > Aanmeldings-URL-waarde is niet echt. Werk deze waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [TrackVia Client ondersteuningsteam](mailto:support@trackvia.com) deze waarde op te halen.
 
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 

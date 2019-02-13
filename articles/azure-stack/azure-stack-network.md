@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: a4e04bc9071f4f677230d112a7baa708e9e8dc34
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 56884f2299df35c1565804a92fc404b6ed9e2f9a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243229"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185006"
 ---
 # <a name="network-connectivity"></a>Verbinding met het netwerk
 Dit artikel bevat informatie over de infrastructuur Azure Stack-netwerk om te bepalen hoe u het beste Azure Stack integreren met uw bestaande netwerkomgeving. 
@@ -40,7 +40,7 @@ Logische netwerken vertegenwoordigen een abstractie van de onderliggende fysieke
 
 De volgende tabel ziet u de logische netwerken en gekoppelde bereiken van de IPv4-subnet die u moet plannen:
 
-| Logisch netwerk | Beschrijving | Grootte | 
+| Logisch netwerk | Description | Grootte | 
 | -------- | ------------- | ------------ | 
 | Openbare VIP | Een totaal van 31-adressen van dit netwerk maakt gebruik van Azure Stack. Acht openbare IP-adressen worden gebruikt voor een kleine set Azure Stack-services en de rest worden gebruikt door virtuele machines van tenants. Als u van plan bent te gebruiken van App Service en de SQL-resourceproviders, worden 7 meer adressen gebruikt. De resterende 15 IP-adressen zijn gereserveerd voor toekomstige Azure-services. | / 26 (62 hosts) - /22 (1022 hosts)<br><br>Aanbevolen = /24 (254 hosts) | 
 | Switch-infrastructuur | Point-to-Point IP-adressen voor routeringsdoeleinden, toegewezen overschakelen beheerinterfaces en loopback-adressen die zijn toegewezen aan de switch. | /26 | 

@@ -1,6 +1,6 @@
 ---
-title: Blob storage gegevens verplaatsen met AzCopy - Team Data Science Process
-description: Gegevens met AzCopy verplaatsen van en naar Azure Blob-opslag
+title: Kopiëren van Blob storage-gegevens met AzCopy - Team Data Science Process
+description: Gegevens kopiëren naar en van Azure Blob Storage met behulp van AzCopy
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3165aad326ad476eb5064f0b99acd8c3f5a036d8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6c0951eb6ad3b7651da97e1a49c5edf5ab55a199
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474697"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209571"
 ---
-# <a name="move-data-to-and-from-azure-blob-storage-using-azcopy"></a>Gegevens verplaatsen naar en van Azure Blob Storage met behulp van AzCopy
+# <a name="copy-data-to-and-from-azure-blob-storage-using-azcopy"></a>Gegevens kopiëren naar en van Azure Blob Storage met behulp van AzCopy
 AzCopy is een opdrachtregelprogramma voor het uploaden, downloaden en kopiëren van gegevens naar en van Microsoft Azure-blob, bestand en table storage.
 
 Zie voor instructies over het installeren van AzCopy en aanvullende informatie over het gebruik van deze met de Azure-platform [aan de slag met het AzCopy-opdrachtregelprogramma](../../storage/common/storage-use-azcopy.md).
@@ -65,10 +65,10 @@ Als u wilt een bestand hebt gedownload van een Azure-blob, gebruik de volgende o
     AzCopy /Source:https://<your_account_name>.blob.core.windows.net/<your_container_name>/<your_sub_directory_at_blob>  /Dest:<your_local_directory> /SourceKey:<your_account_key> /Pattern:<file_pattern> /S
 
 
-## <a name="transfer-blobs-between-azure-containers"></a>Blobs overbrengen tussen Azure-containers
-Om over te dragen BLOB's tussen Azure-containers, gebruikt u de volgende opdracht:
+## <a name="copy-blobs-between-azure-containers"></a>Kopiëren van BLOB's tussen Azure-containers
+Als u wilt kopiëren van BLOB's tussen Azure-containers, gebruik de volgende opdracht:
 
-    # Transferring blobs between Azure containers
+    # Copying blobs between Azure containers
     AzCopy /Source:https://<your_account_name1>.blob.core.windows.net/<your_container_name1>/<your_sub_directory_at_blob1> /Dest:https://<your_account_name2>.blob.core.windows.net/<your_container_name2>/<your_sub_directory_at_blob2> /SourceKey:<your_account_key1> /DestKey:<your_account_key2> /Pattern:<file_pattern> /S
 
     <your_account_name>: your storage account name
@@ -76,7 +76,7 @@ Om over te dragen BLOB's tussen Azure-containers, gebruikt u de volgende opdrach
     <your_container_name>: your container name
     <your_sub_directory_at_blob>: the sub directory in the container
     <your_local_directory>: directory of local file system where files to be uploaded from or the directory of local file system files to be downloaded to
-    <file_pattern>: pattern of file names to be transferred. The standard wildcards are supported
+    <file_pattern>: pattern of file names to be copied. The standard wildcards are supported
 
 
 ## <a name="tips-for-using-azcopy"></a>Tips voor het gebruik van AzCopy

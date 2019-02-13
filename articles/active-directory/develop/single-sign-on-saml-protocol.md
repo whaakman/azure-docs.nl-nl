@@ -17,12 +17,13 @@ ms.date: 07/19/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: dd9bdc4638d1c055706026798acba08d6add08c7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a46bc954d137ad610310d83d3ad7f54370b9177b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098745"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56184037"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocol voor eenmalige SAML-aanmelding
 
@@ -46,7 +47,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 </samlp:AuthnRequest>
 ```
 
-| Parameter |  | Beschrijving |
+| Parameter |  | Description |
 | --- | --- | --- |
 | Id | Vereist | Azure AD maakt gebruik van dit kenmerk voor het vullen van de `InResponseTo` kenmerk van het geretourneerde antwoord. ID moet niet beginnen met een getal, zodat een algemene strategie bestaat uit een tekenreeks, zoals "id" aan de tekenreeksweergave van een GUID toevoegen aan het begin. Bijvoorbeeld, `id6c1c178c166d486687be4aaf5e482730` is een geldige ID. |
 | Versie | Vereist | Deze parameter moet worden ingesteld op **2.0**. |

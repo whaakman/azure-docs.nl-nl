@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: bb9277a9e8f5e8bacb6b7aab7b9a5b411c86edbd
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 3d7fd9b3e7ab8e5f193fd3b34a804b9ed0780d66
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55967380"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105685"
 ---
 # <a name="transform-data-by-using-databricks-in-azure-data-factory"></a>Gegevens transformeren met behulp van Databricks in Azure Data Factory
 
@@ -89,13 +89,13 @@ Deze sjabloon om eenvoudig te houden, maakt de sjabloon niet een geplande trigge
 
     1.  **Sink-** – voor het kopiëren van gegevens in.
 
-        Selecteer een opslag die is gemaakt in de [vereiste 1](#prerequisite), in de sink gekoppelde service.
+        Selecteer een opslag die in de vereiste 1, in de sink gekoppelde service gemaakt.
 
         ![7](media/solution-template-Databricks-notebook/Databricks-tutorial-image07.png)
 
     1.  **Databricks** – voor het verbinding maken met Databricks-cluster
 
-        Maak een Databricks gekoppelde service met behulp van de toegangssleutel die is gegenereerd in [vereiste 2.c](#prerequisite). Als u hebt een *interactieve cluster*, kunt u die selecteren. (In dit voorbeeld wordt de *nieuwe taakcluster* optie.)
+        Maak een aan Databricks gekoppelde service met behulp van de toegangssleutel in de vereiste 2.c gegenereerd. Als u hebt een *interactieve cluster*, kunt u die selecteren. (In dit voorbeeld wordt de *nieuwe taakcluster* optie.)
 
         ![8](media/solution-template-Databricks-notebook/Databricks-tutorial-image08.png)
 

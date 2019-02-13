@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 376ebcbc17cc9f5c797c2985fe3c0784f5036600
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 52e0521217fb99bc5fac3fdde8f43f9c80f86ac7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752089"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194231"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Problemen met Azure Files Sync oplossen
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -70,7 +70,7 @@ Reset-StorageSyncServer
 Dit probleem treedt op wanneer de **verbeterde beveiliging van Internet Explorer** beleid is ingeschakeld tijdens de serverregistratie. Voor meer informatie over het correct uitschakelen de **verbeterde beveiliging van Internet Explorer** beleid, Zie [Windows-Server voorbereiden voor gebruik met Azure File Sync](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) en [over het implementeren van Azure File Synchronisatie](storage-sync-files-deployment-guide.md).
 
 ## <a name="sync-group-management"></a>Synchronisatie-groepsbeheer
-<a id="cloud-endpoint-using-share"></a>**Cloud-eindpunt maken mislukt vanwege de volgende fout: "De opgegeven Azure-bestandsshare is al in gebruik door een andere CloudEndpoint"**  
+<a id="cloud-endpoint-using-share"></a>**Cloud-eindpunt maken mislukt vanwege de volgende fout: 'De opgegeven Azure-bestandsshare is al in gebruik door een ander cloudeindpunt'**  
 Dit probleem treedt op als de Azure-bestandsshare al in gebruik door een andere cloudeindpunt. 
 
 Als u dit bericht ziet en de Azure-bestandsshare momenteel niet gebruikt door een cloudeindpunt is, voert u de volgende stappen uit om te wissen van de metagegevens van de Azure File Sync op de Azure-bestandsshare:
@@ -145,7 +145,7 @@ De status van een server-eindpunt van 'Geen activiteit' betekent dat het servere
 
 Een servereindpunt kan synchronisatieactiviteiten niet aanmelden voor de volgende redenen:
 
-- De server heeft een actieve sessie VSS-synchronisatie (SnapshotSync). Wanneer een synchronisatiesessie VSS actief voor een servereindpunt is, kunnen een synchronisatiesessie start totdat de VSS-synchronisatiesessie is voltooid andere servereindpunten op hetzelfde volume niet starten.
+- Agentversie 4.3.0.0 of ouder wordt geïnstalleerd en de server heeft een actieve sessie VSS-synchronisatie (SnapshotSync). Wanneer een synchronisatiesessie VSS actief voor een servereindpunt is, kunnen een synchronisatiesessie start totdat de VSS-synchronisatiesessie is voltooid andere servereindpunten op hetzelfde volume niet starten. U lost dit probleem, installeert u agentversie 5.0.2.0 of hoger die ondersteuning biedt voor meerdere servereindpunten op een volume worden gesynchroniseerd wanneer een VSS synchroniseren sessie actief is.
 
     Huidige synchronisatie-activiteit op een server, Zie [hoe controleer ik de voortgang van een huidige synchronisatiesessie?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
@@ -538,7 +538,7 @@ Deze fout treedt op omdat er wijzigingen in de Azure-bestandsshare rechtstreeks 
 | **Fouttekenreeks** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
 | **Herstel is vereist** | Ja |
 
-In gevallen waarbij er veel per bestand synchronisatiefouten, synchronisatiesessies mislukken kunnen beginnen. Zie voor het oplossen van deze status [per bestand/map synchronisatiefouten oplossen]().
+In gevallen waarbij er veel per bestand synchronisatiefouten, synchronisatiesessies mislukken kunnen beginnen. <!-- To troubleshoot this state, see [Troubleshooting per file/directory sync errors]().-->
 
 > [!NOTE]
 > Azure File Sync maakt een tijdelijke VSS-momentopname eenmaal per dag op de server om bestanden te synchroniseren met open ingangen.

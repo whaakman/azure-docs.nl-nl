@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 3ec78c7dc3ac3ce9747a09218e1e35068c60b894
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 73beb4ba039db65c20886566f887db39fd233164
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187722"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182651"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-huddle"></a>Zelfstudie: Azure Active Directory-integratie met kruipen dicht
 
@@ -150,7 +151,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschake
     | |
 
     > [!NOTE]
-    > De waarde voor de aanmeldings-URL is niet echt. Deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [kruipen dicht Client ondersteuningsteam](https://huddle.zendesk.com) deze waarde op te halen.
+    > De waarde voor de aanmeldings-URL is niet echt. Werk deze waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [kruipen dicht Client ondersteuningsteam](https://huddle.zendesk.com) deze waarde op te halen.
 
 6. Op de **instellen van eenmalige aanmelding met SAML** pagina, in de **SAML-handtekeningcertificaat** sectie, klikt u op **downloaden** voor het downloaden van het juiste certificaat volgens uw vereiste en sla deze op uw computer.
 
@@ -181,7 +182,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     ![Het maken van een Azure AD-testgebruiker](./media/huddle-tutorial/create_aaduser_02.png)
 
-    a. Voer in het veld **Naam****Britta Simon** in.
+    a. Voer in het veld **Naam** **Britta Simon**in.
   
     b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
     Bijvoorbeeld: BrittaSimon@contoso.com
@@ -212,7 +213,7 @@ Als u wilt dat Azure AD-gebruikers zich aanmelden bij kruipen dicht, moeten ze w
 
     b. Type de **e-mailadres** van een geldige Azure AD-account die u inrichten wilt **Enter e-mailadres voor mensen die u wilt uitnodigen** tekstvak.
 
-    c. Klik op **uitnodigen**.
+    c. Klik op **Uitnodigen**.
 
     >[!NOTE]
     > De houder van Azure AD-account ontvangt een e-mailbericht ook een koppeling voor het account te bevestigen voordat deze geactiveerd wordt.

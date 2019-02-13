@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 6922571e4e816d04f6e116db582922cecc85542c
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: e610f946868940f9fde66932bedec1dc998f390b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765463"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203876"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>MySQL-databases gebruiken op Microsoft Azure Stack
 
-MySQL-databases worden vaak op websites en veel website platforms ondersteunen. Bijvoorbeeld, kunt u WordPress-website met behulp van de Web-Apps-platform als een invoegtoepassing voor service (PaaS).
+MySQL-databases worden vaak gebruikt met websites en veel website platforms ondersteunen. Bijvoorbeeld, kunt u WordPress-website met de App Services-invoegtoepassing voor resource provider (PaaS).
 
 Nadat u de resourceprovider hebt geïmplementeerd, kunt u het volgende doen:
 

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: c1847d268d7776fba2892257bf0992d0e17a727f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 64edf2aa47211c1d2a598417a7b2edc00f260075
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152056"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56208568"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Zelfstudie: Azure Active Directory-integratie met ScaleX Enterprise
 
@@ -123,7 +124,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     In de **aanmeldings-URL** tekstvak typt u de waarde met behulp van het volgende patroon: `https://platform.rescale.com/saml2/<company id>/sso/`
      
     > [!NOTE] 
-    > Dit zijn niet de werkelijke waarden. Werk deze waarden met de werkelijke-id, de antwoord-URL of aanmeldings-URL. Neem contact op met [ScaleX Enterprise Client-ondersteuningsteam](https://info.rescale.com/contact_sales) om deze waarden te verkrijgen. 
+    > Dit zijn niet de echte waarden. Werk deze waarden met de werkelijke-id, de antwoord-URL of aanmeldings-URL. Neem contact op met [ScaleX Enterprise Client-ondersteuningsteam](https://info.rescale.com/contact_sales) om deze waarden te verkrijgen. 
 
 1. Uw toepassing ScaleX wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, waarvoor u het aangepaste kenmerktoewijzingen aan de configuratie van de SAML-token kenmerken wijzigen. Klik op **weergeven en bewerk alle andere gebruikerskenmerken** selectievakje in om te openen van de aangepaste kenmerken van instellingen.
 

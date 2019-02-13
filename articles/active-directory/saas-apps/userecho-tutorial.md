@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 1aa092391f51d84a5219076ea3c63352718c2f3a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9f7c02fb395464c1b682a3cfb71cc072a807ef88
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173850"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203247"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-userecho"></a>Zelfstudie: Azure Active Directory-integratie met UserEcho
 
@@ -226,7 +227,7 @@ Het doel van deze sectie is het maken van een gebruiker met de naam van Britta S
     
     b.  Typ in het tekstvak **Email** het e-mailadres van de gebruiker, bijvoorbeeld Brittasimon@contoso.com.
     
-    c. Klik op **uitnodigen**.
+    c. Klik op **Uitnodigen**.
 
 Een uitnodiging is verzonden naar Julia waarmee haar UserEcho met aan de slag. 
 

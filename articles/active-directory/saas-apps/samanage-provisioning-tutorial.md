@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: d3442710e1e1327dcafc1b4ed6617aeb7ff1bf0f
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d620701bc8590bee746be35f69b0da890c359601
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322427"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205355"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Zelfstudie: Samanage configureren voor het automatisch inrichten van gebruikers
 
@@ -39,7 +40,7 @@ Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al het volgende hebt
 > [!NOTE]
 > De integratie wordt ingericht op Azure AD is afhankelijk van de [Samanage Rest-API](https://www.samanage.com/api/), die voor ontwikkelaars voor accounts met het pakket voor professionals Samanage beschikbaar is.
 
-## <a name="adding-samanage-from-the-gallery"></a>Samanage uit de galerie toe te voegen
+## <a name="adding-samanage-from-the-gallery"></a>Samanage toevoegen vanuit de galerie
 Voordat u Samanage configureert voor automatisch gebruikers inrichten met Azure AD, moet u Samanage uit de galerie met Azure AD toevoegen aan uw lijst met beheerde SaaS-toepassingen.
 
 **Als u wilt toevoegen Samanage uit de galerie met Azure AD, moet u de volgende stappen uitvoeren:**

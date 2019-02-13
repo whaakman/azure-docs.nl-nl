@@ -9,16 +9,16 @@ ms.assetid: 7F78B91F-F13B-40A4-B8A7-770FDB793F0F
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: article
-ms.date: 04/15/2017
+ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 4cd77dc6572ed100a7bef34829ed17579e3b5491
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b3675821cd5565df409fac209b6763845460df1c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876779"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163373"
 ---
-# <a name="bing-image-search-api-upgrade-guide"></a>Bing afbeeldingen zoeken-API Upgradehandleiding
+# <a name="bing-image-search-api-v7-upgrade-guide"></a>Bing afbeeldingen zoeken-API voor Bing versie 7 Upgradehandleiding
 
 Deze upgrade handleiding identificeert de wijzigingen tussen 5 en versie 7 van de Bing afbeeldingen zoeken-API. Deze handleiding gebruiken om te bepalen van de onderdelen van uw toepassing die u nodig hebt om bij te werken voor het gebruik van versie 7.
 

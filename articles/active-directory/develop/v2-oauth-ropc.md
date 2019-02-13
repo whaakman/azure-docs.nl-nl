@@ -16,12 +16,13 @@ ms.date: 11/28/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6df19f8d20853b569a2bc357e6c1115976a7de2c
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 716f48a5db437ef1dc865aca66fbac1c1d51aec3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097962"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207429"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-resource-owner-password-credential"></a>Azure Active Directory v2.0 en de wachtwoordreferenties van OAuth 2.0-resource-eigenaar
 
@@ -56,7 +57,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &grant_type=password
 ```
 
-| Parameter | Voorwaarde | Beschrijving |
+| Parameter | Voorwaarde | Description |
 | --- | --- | --- |
 | `tenant` | Vereist | De directory-tenant die u wilt vastleggen van de gebruiker in. Dit kan zijn in de beschrijvende naamindeling of GUID. Deze parameter kan niet worden ingesteld op `common` of `consumers`, maar kan worden ingesteld op `organizations`. |
 | `grant_type` | Vereist | Moet worden ingesteld op `password`. |
@@ -79,9 +80,9 @@ Hier volgt een voorbeeld van een geslaagde respons token:
 }
 ```
 
-| Parameter | Indeling | Beschrijving |
+| Parameter | Indeling | Description |
 | --------- | ------ | ----------- |
-| `token_type` | Reeks | Altijd ingesteld op `Bearer`. |
+| `token_type` | String | Altijd ingesteld op `Bearer`. |
 | `scope` | Tekenreeksen gescheiden door spaties | Als een toegangstoken is geretourneerd, zijn deze parameter de scopes die het toegangstoken is ongeldig voor. |
 | `expires_in`| int | Het aantal seconden dat de opgenomen toegangstoken is ongeldig voor. |
 | `access_token`| Ondoorzichtige tekenreeks | Uitgegeven voor de [scopes](v2-permissions-and-consent.md) die zijn aangevraagd. |
@@ -94,7 +95,7 @@ U kunt het vernieuwingstoken dat nieuwe toegangstokens verkrijgen en vernieuwen 
 
 Als de gebruiker de juiste gebruikersnaam of wachtwoord is niet opgegeven of de client nog niet de aangevraagde toestemming verkregen, mislukt de verificatie.
 
-| Fout | Beschrijving | Clientactie |
+| Fout | Description | Clientactie |
 |------ | ----------- | -------------|
 | `invalid_grant` | De verificatie is mislukt | De referenties zijn onjuist of de client geen toestemming voor de aangevraagde bereiken. Als de scopes niet zijn verleend, een `consent_required` suberror wordt geretourneerd. Als dit het geval is, moet de client de gebruiker doorsturen naar een interactieve prompt met behulp van een webweergave of in de browser. |
 | `invalid_request` | De aanvraag is niet goed samengesteld. | Het machtigingstype wordt niet ondersteund op de `/common` of `/consumers` verificatie contexten.  Gebruik `/organizations` in plaats daarvan. |

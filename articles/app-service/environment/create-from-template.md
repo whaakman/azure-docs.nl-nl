@@ -14,16 +14,19 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9056abdd57640026d04779a3c5c3a201095ea045
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: bdf722ffa7a7c499ff256392886e0f229f27c7a5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277468"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109891"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Een as-omgeving maken met behulp van een Azure Resource Manager-sjabloon
 
 ## <a name="overview"></a>Overzicht
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Azure App Service-omgevingen (as-omgevingen) kunnen worden gemaakt met een via internet toegankelijke eindpunt of een eindpunt op een intern adres in een Azure-netwerk (VNet). Als met een intern eindpunt dat is gemaakt, wordt dit eindpunt wordt verstrekt door een Azure-onderdeel genaamd een interne load balancer (ILB). De as-omgeving op een intern IP-adres wordt een ILB as-omgeving genoemd. De as-omgeving met een openbaar eindpunt wordt een externe as-omgeving genoemd. 
 
 Een as-omgeving kan worden gemaakt met behulp van de Azure-portal of een Azure Resource Manager-sjabloon. Dit artikel helpt bij de stappen en de syntaxis die u moet een externe as-omgeving of een ILB as-omgeving maken met Resource Manager-sjablonen. Zie voor meer informatie over het maken van een as-omgeving in Azure portal, [maken van een externe as-omgeving] [ MakeExternalASE] of [een ILB as-omgeving maken][MakeILBASE].
@@ -60,7 +63,7 @@ Na de *azuredeploy.parameters.json* bestand is ingevuld, wordt de as-omgeving ma
 $templatePath="PATH\azuredeploy.json"
 $parameterPath="PATH\azuredeploy.parameters.json"
 
-New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 ```
 
 Het duurt ongeveer een uur voor de as-omgeving moet worden gemaakt. De as-omgeving wordt vervolgens weergegeven in de portal in de lijst van de as-omgevingen voor het abonnement waarmee de implementatie is geactiveerd.
@@ -71,7 +74,7 @@ Een SSL-certificaat moet worden gekoppeld aan de as-omgeving als de 'standaard' 
 Een geldig SSL-certificaat met behulp van interne certificeringsinstanties, aanschaffen van een certificaat van een externe gebruiker of een zelfondertekend certificaat verkrijgen. De volgende certificaatkenmerken moeten correct worden geconfigureerd, ongeacht de bron van het SSL-certificaat:
 
 * **Onderwerp**: Dit kenmerk moet worden ingesteld op **.uw-root-domein-here.com*.
-* **Alternatieve onderwerpnaam**: Dit kenmerk moet bevatten zowel **.uw-root-domein-here.com* en **.Hier-root-domein-here.com*. SSL-verbindingen met de SCM/Kudu-site die is gekoppeld aan elke app gebruiken een adres van het formulier *your-app-name.scm.your-root-domain-here.com*.
+* **Alternatieve naam voor onderwerp**: Dit kenmerk moet bevatten zowel **.uw-root-domein-here.com* en **.Hier-root-domein-here.com*. SSL-verbindingen met de SCM/Kudu-site die is gekoppeld aan elke app gebruiken een adres van het formulier *your-app-name.scm.your-root-domain-here.com*.
 
 Met een geldig SSL-certificaat in voorraad, zijn twee aanvullende voorbereidende stappen nodig. Converteer het SSL-certificaat naar een .pfx-bestand of sla het certificaat in deze indeling op. Houd er rekening mee dat het pfx-bestand moet alle tussenliggende opnemen en basiscertificaten. Beveilig het bestand met een wachtwoord.
 
@@ -146,7 +149,7 @@ Na de *azuredeploy.parameters.json* bestand is ingevuld, wordt het standaard SSL
 $templatePath="PATH\azuredeploy.json"
 $parameterPath="PATH\azuredeploy.parameters.json"
 
-New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 ```
 
 Het duurt ongeveer 40 minuten per ASE-front-end de wijziging toepassen. Bijvoorbeeld, voor een standaardformaat as-omgeving die gebruikmaakt van twee front-ends, duurt het sjabloon ongeveer één uur en 20 minuten om te voltooien. Terwijl de sjabloon wordt uitgevoerd, wordt de as-omgeving kan niet schalen.  
@@ -156,7 +159,7 @@ Nadat de sjabloon is voltooid, zijn de apps op de ILB as-omgeving toegankelijk v
 Echter, net als bij apps die worden uitgevoerd op de openbare multitenant-service, kunnen configureren ontwikkelaars aangepaste hostnamen voor afzonderlijke apps. Ze kunnen ook unieke SNI SSL-certificaatbindingen voor afzonderlijke apps configureren.
 
 ## <a name="app-service-environment-v1"></a>App Service-omgeving v1 ##
-App Service-omgeving heeft twee versies: ASEv1 en ASEv2. De voorgaande informatie is gebaseerd op ASEv2. In deze sectie leest u wat de verschillen zijn tussen ASEv1 en ASEv2.
+App Service Environment heeft twee versies: ASEv1 en ASEv2. De voorgaande informatie is gebaseerd op ASEv2. In deze sectie leest u wat de verschillen zijn tussen ASEv1 en ASEv2.
 
 In ASEv1 beheren u alle resources handmatig. Dit geldt ook voor de front-ends, werkrollen en IP-adressen die worden gebruikt voor op IP gebaseerd SSL. Voordat u uw App Service-plan uitschalen kunt, moet u de groep met werkrollen die u wilt hosten van de App uitschalen.
 

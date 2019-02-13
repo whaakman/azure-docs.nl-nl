@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 032b39846d19e34f2eb87c1311feeb4bb890cb24
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: a14b0f2b01a0566a47cbcb02ee4315adcba9a90f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467455"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56200799"
 ---
 # <a name="monitor-azure-file-sync"></a>Azure File Sync bewaken
 
@@ -29,7 +29,7 @@ U kunt geregistreerde serverstatus, status van eindpunt (health sync) en metrisc
 
 ### <a name="storage-sync-service"></a>Opslagsynchronisatieservice
 
-Als u wilt weergeven van geregistreerde server en de gezondheid van server-eindpunt, gaat u naar de Opslagsynchronisatieservice in Azure portal. Status van de server geregistreerd is kan worden weergegeven in de blade van de servers geregistreerd. Serverstatus-eindpunt is in de blade voor het synchroniseren van groepen kan worden weergegeven.
+Als u wilt geregistreerde server gezondheid en server eindpunt en metrische gegevens weergeven, gaat u naar de Opslagsynchronisatieservice in Azure portal. Status van de server geregistreerd is kan worden weergegeven in de blade van de servers geregistreerd. Serverstatus-eindpunt is in de blade voor het synchroniseren van groepen kan worden weergegeven.
 
 Status van de geregistreerde Server
 - Als de status van de geregistreerde server Online is, wordt de server met succes communiceert met de service.
@@ -38,6 +38,23 @@ Status van de geregistreerde Server
 Serverstatus-eindpunt
 - De status van de server-eindpunt in de portal is gebaseerd op de gebeurtenissen synchroniseren die zijn vastgelegd in het gebeurtenislogboek telemetrie op de server (ID 9102 en 9302). Als een synchronisatiesessie is mislukt vanwege een tijdelijke fout (bijvoorbeeld fout geannuleerd), kan synchronisatie nog steeds in orde in de portal als de huidige synchronisatiesessie is uitgevoerd (gebeurtenis-ID 9302 wordt gebruikt om te bepalen als bestanden die worden toegepast), zodat. Zie de volgende documentatie voor meer informatie: [Synchroniseren van de gezondheid van](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) & [synchroniseren voortgang](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 - Als in de portal ziet een synchronisatiefout verschuldigd is om te synchroniseren niet die wordt uitgevoerd, controleert u de [documentatie voor probleemoplossing](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) voor hulp.
+
+Metrische gegevens
+- De volgende metrische gegevens worden weergegeven in de Opslagsynchronisatieservice-portal:
+
+  | Naam van de meetwaarde | Description | Portal blade(s) | 
+  |-|-|-|
+  | Bytes die worden gesynchroniseerd | Grootte van gegevens die worden overgedragen (uploaden en downloaden) | Groep voor synchronisatie, servereindpunt |
+  | Warmtemeting intrekken in de cloud | Grootte van gegevens die zijn ingetrokken | Geregistreerde servers |
+  | Bestanden die niet worden gesynchroniseerd | Aantal bestanden die niet worden gesynchroniseerd | Servereindpunt |
+  | Bestanden die zijn gesynchroniseerd | Aantal bestanden overgedragen (uploaden en downloaden) | Groep voor synchronisatie, servereindpunt |
+  | Serverheartbeat | Het aantal heartbeats ontvangen van de server | Geregistreerde servers |
+
+- Zie voor meer informatie, [Azure Monitor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#azure-monitor) sectie. 
+
+  > [!Note]  
+  > De grafieken in de portal Opslagsynchronisatieservice hebben een tijdsbereik van 24 uur. Als u wilt weergeven van verschillende tijdsbereik of dimensies, moet u Azure Monitor gebruiken.
+
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
@@ -52,7 +69,7 @@ De volgende metrische gegevens voor Azure File Sync zijn beschikbaar in Azure Mo
 | Bytes die worden gesynchroniseerd | Grootte van gegevens die worden overgedragen (uploaden en downloaden).<br><br>Eenheid: Bytes<br>Aggregatietype: Sum<br>Van toepassing afmetingen: Server-eindpunt naam, synchronisatie richting, naam van Synchronisatiegroep |
 | Warmtemeting intrekken in de cloud | Grootte van gegevens ingetrokken.<br><br>Eenheid: Bytes<br>Aggregatietype: Sum<br>Dimensie van toepassing: Servernaam |
 | Bestanden die niet worden gesynchroniseerd | Het aantal bestanden die niet worden gesynchroniseerd.<br><br>Eenheid: Count<br>Aggregatietype: Sum<br>Van toepassing afmetingen: Server-eindpunt naam, synchronisatie richting, naam van Synchronisatiegroep |
-| Bestanden die zijn gesynchroniseerd | Het aantal bestanden geüpload en gedownload.<br><br>Eenheid: Count<br>Aggregatietype: Sum<br>Van toepassing afmetingen: Server-eindpunt naam, synchronisatie richting, naam van Synchronisatiegroep |
+| Bestanden die zijn gesynchroniseerd | Aantal bestanden overgedragen (uploaden en downloaden).<br><br>Eenheid: Count<br>Aggregatietype: Sum<br>Van toepassing afmetingen: Server-eindpunt naam, synchronisatie richting, naam van Synchronisatiegroep |
 | Serverheartbeat | Het aantal heartbeats ontvangen van de server.<br><br>Eenheid: Count<br>Aggregatietype: Maximum<br>Dimensie van toepassing: Servernaam |
 | Synchronisatie-sessie resultaat | Synchroniseren van resultaat van de sessie (1 = voltooide synchronisatie sessie; 0 = mislukt synchronisatiesessie)<br><br>Eenheid: Count<br>Aggregatietypen: Maximum<br>Van toepassing afmetingen: Server-eindpunt naam, synchronisatie richting, naam van Synchronisatiegroep |
 

@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 08e1beb199287db1d030d5ad9357cbd20f1eb859
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5e0942f028752b1e3db89802ee889eac7157815d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168632"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205610"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Probleem met LocalDB met limiet van 10 GB oplossen
 Azure AD Connect vereist een SQL Server-database voor het opslaan van identiteitsgegevens. U kunt de standaard SQL Server 2012 Express LocalDB gebruiken die samen met Azure AD Connect is geïnstalleerd, maar ook uw eigen volledige SQL. Voor SQL Server Express geldt een limiet van 10 GB. Wanneer u LocalDB gebruikt en deze limiet is bereikt, kan de Azure AD Connect-synchronisatieservice niet langer starten of goed synchroniseren. Dit artikel bevat de herstelstappen.
@@ -100,7 +101,7 @@ Deze stap is het minder kans op wordt uitgevoerd in de limiet van 10 GB-probleem
 ## <a name="long-term-solution--migrate-to-full-sql"></a>Oplossing op lange termijn: migreren naar volledige SQL
 In het algemeen is het probleem op duiden dat de grootte van 10 GB-database niet meer voldoende is voor Azure AD Connect om te synchroniseren van uw on-premises Active Directory naar Azure AD. Het is raadzaam dat u overschakelt naar de volledige versie van SQL server. U kunt de LocalDB van een bestaande Azure AD Connect-implementatie niet rechtstreeks vervangen door de database van de volledige versie van SQL. In plaats daarvan implementeert u een nieuwe Azure AD Connect-server met de volledige SQL. U doet er verstandig aan een swingmigratie uit te voeren, waarbij de nieuwe Azure AD Connect-server (met SQL-database) wordt geïmplementeerd als testserver, naast de bestaande Azure AD Connect-server (met LocalDB). 
 * Zie het artikel [Aangepaste installatie van Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-custom) voor instructies over het configureren van externe SQL met Azure AD Connect.
-* Voor instructies over swingmigratie voor Azure AD Connect-upgrade, Raadpleeg het artikel [Azure AD Connect: Een upgrade uitvoeren van een eerdere versie naar de meest recente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration).
+* Instructies voor een swingmigratie voor een Azure AD Connect-upgrade vindt u in het artikel [Azure AD Connect: Upgraden van een vorige naar de meest recente versie](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration).
 
 ## <a name="next-steps"></a>Volgende stappen
 Lees meer over het [integreren van uw on-premises identiteiten met Azure Active Directory](whatis-hybrid-identity.md).

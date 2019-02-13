@@ -17,12 +17,13 @@ ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2c67e40cf540062aeadd533962c0fb296648fb86
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b96a34b9b910343e55344f6d3ee2e8e0ff6bb2db
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099999"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207083"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Azure AD-SAML-token naslaginformatie
 
@@ -31,7 +32,7 @@ Azure Active Directory (Azure AD) verzendt verschillende typen beveiligingstoken
 ## <a name="claims-in-saml-tokens"></a>Claims in het SAML-tokens
 
 > [!div class="mx-codeBreakAll"]
-| Name | Equivalent JWT Claim | Beschrijving | Voorbeeld |
+| Name | Equivalent JWT Claim | Description | Voorbeeld |
 | --- | --- | --- | ------------|
 |Doelgroep | `aud` |De beoogde ontvanger van het token. De toepassing die de token ontvangt moet controleren of de waarde van de doelgroep juist is en geen tokens die bestemd zijn voor een andere doelgroep afwijzen. | `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>`  |
 | Verificatiemoment | |Registreert de datum en tijd waarop de verificatie heeft plaatsgevonden. | `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | 

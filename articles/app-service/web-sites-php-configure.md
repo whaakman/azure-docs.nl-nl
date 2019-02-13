@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: ef8c7ca13d59c29160ff33f82d50976d2eedf4a6
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: ad5a4981869f992ab6823a13afc2cad0e5252d08
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651693"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105430"
 ---
 # <a name="configure-php-in-azure-app-service"></a>PHP configureren in Azure App Service
 
@@ -47,9 +47,11 @@ PHP 7.0 en PHP 7.2 versies zijn ook beschikbaar, maar worden niet standaard inge
 
 ### <a name="azure-powershell-windows"></a>Azure PowerShell (Windows)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1. Open Azure PowerShell, en meld u aan bij uw account:
 
-        PS C:\> Connect-AzureRmAccount
+        PS C:\> Connect-AzAccount
 2. Stel de PHP-versie voor de app.
 
         PS C:\> Set-AzureWebsite -PhpVersion {5.6 | 7.0 | 7.2} -Name {app-name}

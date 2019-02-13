@@ -2,17 +2,17 @@
 title: Azure Key Vault - functie voor voorlopig verwijderen gebruiken met CLI
 description: De aanvraag voorbeelden van voorlopig verwijderen gebruiken met CLI-codefragmenten
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: bryanla
-ms.openlocfilehash: 242398eb0bb4d4ddd2764bd66c99a7f9603ea1b9
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: f0c1db2274eea6281bd4a350909b79d048ad21c4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663941"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116720"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Key Vault-functie voor voorlopig verwijderen gebruiken met CLI
 
@@ -226,5 +226,5 @@ Aanbieding verwijderde key vault-objecten wordt ook weergegeven wanneer ze zijn 
 ## <a name="other-resources"></a>Meer informatie
 
 - Zie voor een overzicht van de functie voor voorlopig verwijderen van de Sleutelkluis, [overzicht van Azure Key Vault-functie voor voorlopig verwijderen](key-vault-ovw-soft-delete.md).
-- Zie voor een algemeen overzicht van gebruik van Azure Key Vault, [aan de slag met Azure Key Vault](key-vault-get-started.md).
+- Zie voor een algemeen overzicht van gebruik van Azure Key Vault, [wat is Azure Key Vault?](key-vault-overview.md).
 
