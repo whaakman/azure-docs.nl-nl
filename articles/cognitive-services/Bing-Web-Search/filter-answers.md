@@ -9,18 +9,18 @@ ms.assetid: 8B837DC2-70F1-41C7-9496-11EDFD1A888D
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 01/12/2017
+ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 945f89633060df7f57aa937be392149340acc21d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 26c38c34543683a3fc450d3a0ae932d8bd30dc98
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55855999"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199490"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>De antwoorden die antwoord van de zoekactie bevat filteren  
 
-Wanneer u het web zoeken, retourneert Bing alle inhoud die door deze als relevant zijn voor de zoekopdracht. Als de zoekopdracht is 'varen + dinghies', kan het antwoord, bijvoorbeeld de volgende antwoorden bevatten:
+Wanneer u het web zoeken, retourneert Bing de relevante inhoud voor de zoekopdracht gevonden. Als de zoekopdracht is 'varen + dinghies', kan het antwoord, bijvoorbeeld de volgende antwoorden bevatten:
 
 ```json
 {
@@ -44,8 +44,16 @@ Wanneer u het web zoeken, retourneert Bing alle inhoud die door deze als relevan
     }
 }    
 ```
+U kunt de typen inhoud die u (voor een voorbeeld van afbeeldingen, video's en nieuws ontvangt) filteren met behulp van de [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter) queryparameter. Bing vindt relevante inhoud voor de opgegeven antwoorden, worden in de heeft geretourneerd. Het antwoordfilter is een door komma's gescheiden lijst van antwoorden. 
 
-Als u geïnteresseerd in specifieke typen inhoud zoals afbeeldingen, video's en nieuws bent, kunt u de antwoorden op vragen met behulp van de [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter) queryparameter. Als Bing relevante inhoud voor de opgegeven antwoorden vindt, wordt het door Bing retourneert. Het antwoordfilter is een door komma's gescheiden lijst van antwoorden. Het volgende laat zien hoe u `responseFilter` op verzoek-afbeeldingen, video's en nieuws van Zeilsloepen. Wanneer u de queryreeks coderen, wordt de komma's wijzigen in %2, C.  
+Als u wilt uitsluiten van specifieke typen inhoud, zoals afbeeldingen, uit het antwoord, kunt u toevoegen een `-` teken aan het begin van de `responseFilter` waarde. U kunt uitgesloten typen scheiden met een komma (`,`). Bijvoorbeeld:
+
+```
+&responseFilter=-images,-videos
+```
+
+
+Het volgende laat zien hoe u `responseFilter` op verzoek-afbeeldingen, video's en nieuws van Zeilsloepen. Wanneer u de queryreeks coderen, wordt de komma's wijzigen in %2, C.  
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&responseFilter=images%2Cvideos%2Cnews&mkt=en-us HTTP/1.1  
@@ -57,7 +65,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Hieronder ziet u de respons op de vorige query. Zoals u ziet vinden Bing relevante resultaten voor video's en nieuws, zodat het antwoord niet opnemen.
+Hieronder ziet u de respons op de vorige query. Omdat Bing niet hebt gevonden relevante video's en nieuwsresultaten, het antwoord bevat geen ze.
 
 ```json
 {
@@ -80,12 +88,6 @@ Hieronder ziet u de respons op de vorige query. Zoals u ziet vinden Bing relevan
         }
     }
 }
-```
-
-Als u uitsluiten van specifieke typen inhoud, zoals afbeeldingen, van het antwoord wilt, kunt u ze kunt uitsluiten met het afbreekstreepje (min)-voorvoegsel op in de responseFilter-waarde. Afzonderlijke uitgesloten typen met een door komma's:
-
-```
-&responseFilter=-images,-videos
 ```
 
 Hoewel Bing heeft geen video's en nieuws resultaten geretourneerd in het vorige antwoord, betekent dit niet dat inhoud voor video's en nieuws niet bestaat. Het gewoon betekent dat de pagina niet opnemen. Echter, als u [pagina](./paging-webpages.md) door meer resultaten, de volgende pagina's wilt waarschijnlijk opnemen. Ook als u de [video's zoeken-API](../bing-video-search/search-the-web.md) en [nieuws zoeken-API](../bing-news-search/search-the-web.md) eindpunten direct, het antwoord zou waarschijnlijk resultaten bevatten.
