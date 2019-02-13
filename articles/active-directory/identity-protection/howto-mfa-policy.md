@@ -16,14 +16,15 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: ed1104d3e5ddf54657fb1f7b5c84a85ea855d95c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 90b54a6a2a6e74e49e2401a288383e3de061a1a6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55148578"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56167028"
 ---
-# <a name="how-to-configure-the-multi-factor-authentication-registration-policy"></a>Procedures: Het registratiebeleid voor meervoudige verificatie configureren
+# <a name="how-to-configure-the-multi-factor-authentication-registration-policy"></a>Procedure: Het registratiebeleid voor meervoudige verificatie configureren
 
 Azure AD Identity Protection kunt u het uitrollen van de multi-factor authentication (MFA)-inschrijving beheren door een beleid te configureren. Dit artikel wordt uitgelegd wat het beleid kan worden gebruikt voor een configureert.
 

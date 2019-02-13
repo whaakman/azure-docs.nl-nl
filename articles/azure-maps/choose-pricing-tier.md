@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 366637274a8006455f05702f47c02f505a615820
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 56f9226f1bee630895725eb0b3806e294e9a5b51
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063230"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218139"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Kies de prijscategorie van Azure Maps rechts
 
@@ -34,15 +34,14 @@ De Prijscategorieën S0 en S1 verschillende hoeveelheden doorvoer van gegevens w
 | Renderen                                  |        ✓           |     ✓    |
 | Verkeer                                 |        ✓           |     ✓    |
 | Tijdzones                              |        ✓           |     ✓    |
-| * Beelden en gecombineerde beelden (preview)  |        ✓           |     ✓    |
-| * Route bereik (preview)                  |        ✓           |     ✓    |
-| * 2 IP-locatie (preview)                |        ✓           |     ✓    |
-| * Veelhoeken van zoeken (preview)         |        ✓           |     ✓    |
-| * Batch geocodering (preview)              |        ✓           |     ✓    |
-| * Batch-routering (preview)                |        ✓           |     ✓    |
-| * Matrix routering (preview)               |        ✓           |     ✓    |
+| Beelden en gecombineerde beelden    |            |     ✓    |
+| Route bereik                    |                   |     ✓    |
+| Locatie van de IP-2 (preview)                |        ✓           |     ✓    |
+| Veelhoeken van zoekopdracht          |                   |     ✓    |
+| Batch geocodering (preview)              |                   |     ✓    |
+| Batch-routering (preview)                |                   |     ✓    |
+| Matrix-routering (preview)               |                   |     ✓    |
 
-\* Toegang tot deze mogelijkheden van de S0 prijscategorie wordt afgeschaft na 4 februari 2019.
 
 Deze aanvullende gegevenspunten zijn moet overwegen:
 * Wat voor soort enterprise hebt u?

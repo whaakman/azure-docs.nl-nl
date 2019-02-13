@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 811382fa5195c5ab38104d31ca903caabbfbc574
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1ce57fdaa4b34787d7e23e2798aef897802c2b8f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192499"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56174670"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-capriza-platform"></a>Zelfstudie: Azure Active Directory-integratie met Capriza Platform
 
@@ -115,7 +116,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<companyname>.capriza.com/<tenantid>`
 
     > [!NOTE] 
-    > Deze waarde is niet echt. Deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [Capriza Platform Client ondersteuningsteam](mailTo:support@capriza.com) deze waarde op te halen. 
+    > Deze waarde is niet echt. Werk deze waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [Capriza Platform Client ondersteuningsteam](mailTo:support@capriza.com) deze waarde op te halen. 
 
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
 

@@ -4,7 +4,7 @@ description: Meer informatie over verschillende versleutelingsopties voor in Azu
 services: security
 documentationcenter: na
 author: Barclayn
-manager: MBaldwin
+manager: barbkess
 editor: TomShinder
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: dc1ca62ce184ac290f289975ff609b8240351099
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 272cc843ab90eade06525f665d3cf2decf74a26f
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035093"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114651"
 ---
 # <a name="azure-encryption-overview"></a>Overzicht van Azure-codering
 
@@ -50,9 +50,9 @@ Met client-side encryption cloudserviceproviders geen toegang hebt tot de versle
 
 De drie modellen van versleuteling op de server bieden verschillende Sleutelbeheer kenmerken, die u op basis van uw vereisten kiezen kunt:
 
-- **Service beheerde sleutels**: biedt een combinatie van controle en het gemak met weinig overhead.
+- **Service beheerde sleutels**: Biedt een combinatie van controle en het gemak met weinig overhead.
 
-- **Door de klant beheerde sleutels**: hebt u controle over de sleutels, inclusief ondersteuning voor Bring Your Own sleutels (BYOK), of kunt u nieuwe labels te genereren.
+- **Door de klant beheerde sleutels**: Hebt u controle over de sleutels, inclusief ondersteuning voor Bring Your Own sleutels (BYOK), of kunt u nieuwe labels te genereren.
 
 - **Service beheerde sleutels in de klant beheerde hardware**: Hiermee kunt u voor het beheren van sleutels in uw eigen opslagplaats buiten Microsoft-besturingselement. Dit kenmerk wordt Host Your Own Key (HYOK) genoemd. Configuratie is echter complexe, en de meeste Azure-services bieden geen ondersteuning voor dit model.
 
@@ -78,7 +78,7 @@ Zie voor meer informatie over en downloaden van de Azure Storage-clientbibliothe
 
 Wanneer u versleuteling op de client met Key Vault gebruikt, wordt uw gegevens versleuteld met behulp van een eenmalige symmetrische inhoud versleuteling sleutel (CEK) die wordt gegenereerd door de client-SDK van Azure Storage. De CEK is versleuteld met behulp van een sleutel versleuteling (KEK-Key), wat een symmetrische sleutel of een asymmetrisch sleutelpaar kan zijn. U kunt lokaal beheren of opslaan in Key Vault. De versleutelde gegevens is vervolgens naar Azure Storage geüpload.
 
-Zie voor meer informatie over versleuteling van de client-side met Key Vault en aan de slag met praktische instructies, [zelfstudie: blobs versleutelen en ontsleutelen in Azure Storage met behulp van Key Vault](../storage/storage-encrypt-decrypt-blobs-key-vault.md).
+Zie voor meer informatie over versleuteling van de client-side met Key Vault en aan de slag met praktische instructies, [zelfstudie: Blobs versleutelen en ontsleutelen in Azure Storage met behulp van Key Vault](../storage/storage-encrypt-decrypt-blobs-key-vault.md).
 
 Ten slotte kunt u ook de Azure Storage-clientbibliotheek voor Java gebruiken om uit te voeren clientversleuteling voordat u gegevens uploadt naar Azure Storage en de gegevens ontsleutelen wanneer u deze downloaden op de client. Deze bibliotheek biedt ook ondersteuning voor integratie met [Key Vault](https://azure.microsoft.com/services/key-vault/) voor sleutelbeheer voor storage-account.
 
@@ -170,7 +170,7 @@ U kunt een punt-naar-site VPN-verbinding met een virtueel netwerk configureren m
 
 Zie voor meer informatie over punt-naar-site VPN-verbindingen met virtuele Azure-netwerken:
 
-[Een punt-naar-site-verbinding met een virtueel netwerk configureren met behulp van certificaatverificatie: Azure portal](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) 
+[Een punt-naar-site-verbinding met een virtueel netwerk configureren met behulp van certificaatverificatie: Azure-portal](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) 
 
 [Een punt-naar-site-verbinding met een virtueel netwerk configureren met behulp van verificatie via certificaat: PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 

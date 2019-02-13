@@ -4,7 +4,7 @@ description: In dit artikel biedt een set van aanbevolen procedures voor het ide
 services: security
 documentationcenter: na
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 07d8e8a8-47e8-447c-9c06-3a88d2713bc1
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: barclayn
-ms.openlocfilehash: 64d940552f2790c08e8087f279990d0a6c595bac
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bf5143c3c0c75bc37f6981c6d995339e41baa4c4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245720"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112098"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure-identiteitsbeheer en toegangsbeheer best practices voor beveiliging
 
@@ -61,11 +61,11 @@ De volgende secties worden aanbevolen procedures voor beveiliging identiteits- e
 In een [hybride identiteit](https://resources.office.com/ww-landing-M365E-EMS-IDAM-Hybrid-Identity-WhitePaper.html?) scenario wordt aangeraden dat u uw on-premises integreren en mappen in de cloud. Met de integratie kunt uw IT-team om accounts te beheren vanaf één locatie, ongeacht waar een account wordt gemaakt. Integratie van helpt ook bij uw gebruikers productiever werken door te geven van een gemeenschappelijke identiteit voor toegang tot zowel cloud en on-premises resources.
 
 
-**Beste**: uw on-premises directory's integreren met Azure AD.  
+**Beste**: Uw on-premises directory's integreren met Azure AD.  
 **Details**: Gebruik [Azure AD Connect](../active-directory/connect/active-directory-aadconnect.md) om te synchroniseren van uw on-premises directory met uw clouddirectory.
 
-**Beste**: wachtwoord-hashsynchronisatie inschakelen.  
-**Details**: wachtwoord-hashsynchronisatie is een functie die wordt gebruikt om te synchroniseren-hashes van gebruiker wachtwoord-hashes van een on-premises Active Directory-exemplaar naar een cloud-gebaseerde Azure AD-exemplaar.
+**Beste**: Wachtwoord-hashsynchronisatie inschakelen.  
+**Details**: Wachtwoord-hashsynchronisatie is een functie die wordt gebruikt om te synchroniseren-hashes van gebruiker wachtwoord-hashes van een on-premises Active Directory-exemplaar naar een cloud-gebaseerde Azure AD-exemplaar.
 
 Zelfs als u besluit het gebruik van Federatie met Active Directory Federation Services (AD FS) of andere id-providers, kunt u eventueel instellen van wachtwoord-hashsynchronisatie als een back-up in het geval uw on-premises servers mislukt of tijdelijk niet beschikbaar zijn. Hierdoor kunnen gebruikers zich aanmeldt bij de service met behulp van het wachtwoord dat ze zich aanmelden bij hun on-premises Active Directory-exemplaar gebruiken. Daarnaast kunt u Identity Protection voor het detecteren van verdachte referenties door het vergelijken van de wachtwoord-hashes met wachtwoorden die bekend is dat inbreuk worden gepleegd, als een gebruiker op andere services die niet is verbonden met Azure AD hun e-mailadres en wachtwoord heeft gebruikt.
 
@@ -79,7 +79,7 @@ In een wereld mobiel-mobiliteit en de cloud die u wilt inschakelen eenmalige aan
 
 Met behulp van dezelfde identiteitsoplossing voor voor al uw apps en resources, kunt u eenmalige aanmelding kunt bereiken. En uw gebruikers kunnen dezelfde set referenties gebruiken om te melden en toegang tot de bronnen die ze nodig hebben, ongeacht of de resources zich op locatie bevinden of in de cloud.
 
-**Beste**: eenmalige aanmelding inschakelen.  
+**Beste**: SSO inschakelen.  
 **Details**: Azure AD [uitbreiding van on-premises Active Directory](../active-directory/connect/active-directory-aadconnect.md) naar de cloud. Gebruikers kunnen hun primaire werk of school-account gebruiken voor hun domein apparaten, resources van het bedrijf en alle van de web- en SaaS-toepassingen die ze nodig hebben om hun werk te doen. Gebruikers hoeven te onthouden meerdere sets met gebruikersnamen en wachtwoorden, en de toegang tot hun toepassingen kan automatisch worden ingericht (of de inrichting ongedaan gemaakt) op basis van hun groepslidmaatschappen van de organisatie en hun status als een werknemer. En u kunt deze toegang beheren voor galerie-apps of voor uw eigen on-premises apps die u hebt ontwikkeld en gepubliceerd via de [Azure AD-toepassingsproxy](../active-directory/active-directory-application-proxy-get-started.md).
 
 Eenmalige aanmelding gebruiken waarmee gebruikers toegang krijgen tot hun [SaaS-toepassingen](../active-directory/active-directory-appssoaccess-whatis.md) op basis van hun account voor werk of school in Azure AD. Dit is van toepassing niet alleen voor Microsoft SaaS-apps, maar ook met andere apps, zoals [Google Apps](../active-directory/active-directory-saas-google-apps-tutorial.md) en [Salesforce](../active-directory/active-directory-saas-salesforce-tutorial.md). U kunt uw toepassing configureren voor gebruik van Azure AD als een [SAML gebaseerde identiteit](../active-directory/fundamentals-identity.md) provider. Als een besturingselement voor beveiliging, Azure AD niet uitgeven van een token waarmee gebruikers zich aanmelden bij de toepassing, tenzij ze de toegang via Azure AD hebt gekregen. U kunt toegang verlenen rechtstreeks of via een groep dat gebruikers lid zijn van zijn.
@@ -92,18 +92,18 @@ Gebruikers kunnen toegang krijgen tot bronnen van uw organisatie met behulp van 
 
 Als u wilt evenwicht tussen beveiliging en productiviteit, moet u bedenken hoe u een resource wordt geopend voordat u kunt een beslissing van access control. Met voorwaardelijke toegang van Azure AD kunt u deze vereiste aanpakken. Met voorwaardelijke toegang, kunt u automatisch toegang tot het toegangsbeheer voor toegang tot uw cloud-apps die zijn gebaseerd op voorwaarden.
 
-**Beste**: beheren en toegang tot bedrijfsresources beheren.  
+**Beste**: Beheren en toegang tot bedrijfsresources beheren.  
 **Details**: Azure AD configureren [voorwaardelijke toegang](../active-directory/active-directory-conditional-access-azure-portal.md) op basis van een groep, de locatie en de gevoeligheid van een toepassing voor SaaS-apps en Azure AD verbonden apps.
 
 ## <a name="enable-password-management"></a>Wachtwoordbeheer inschakelen
 
 Als u meerdere tenants hebt of als u wilt dat gebruikers kunnen [hun eigen wachtwoorden opnieuw instellen](../active-directory/active-directory-passwords-update-your-own-password.md), is het belangrijk dat u passende beveiligingsbeleidsregels gebruiken om misbruik te voorkomen.
 
-**Beste**: instellen van de self-service voor wachtwoord opnieuw instellen (SSPR) voor uw gebruikers.  
+**Beste**: Selfservice voor wachtwoordherstel (SSPR) voor uw gebruikers instellen.  
 **Details**: Gebruik de Azure AD [Self-service voor wachtwoord opnieuw instellen](../active-directory-b2c/active-directory-b2c-reference-sspr.md) functie.
 
 **Beste**: Monitor hoe of als SSPR daadwerkelijk wordt gebruikt.  
-**Details**: bewaak de gebruikers die zijn geregistreerd met behulp van de Azure AD [activiteitenrapport voor wachtwoord opnieuw instellen van inschrijving](../active-directory/active-directory-passwords-get-insights.md). De rapportagefunctie die Azure AD biedt vindt u antwoorden op vragen met behulp van vooraf gedefinieerde rapporten. Als u op de juiste wijze in licentie gegeven bent, kunt u ook aangepaste query's maken.
+**Details**: Bewaak de gebruikers die zijn geregistreerd met behulp van de Azure AD [activiteitenrapport voor wachtwoord opnieuw instellen van inschrijving](../active-directory/active-directory-passwords-get-insights.md). De rapportagefunctie die Azure AD biedt vindt u antwoorden op vragen met behulp van vooraf gedefinieerde rapporten. Als u op de juiste wijze in licentie gegeven bent, kunt u ook aangepaste query's maken.
 
 ## <a name="enforce-multi-factor-verification-for-users"></a>Meervoudige verificatie voor gebruikers afdwingen
 
@@ -113,16 +113,16 @@ Er zijn meerdere opties voor het vereisen van verificatie in twee stappen. De be
 
 Hieronder vindt u opties en prestaties voor het inschakelen van verificatie in twee stappen:
 
-**Optie 1**: [multi-factor Authentication inschakelen door het veranderen van gebruikersstatus](../active-directory/authentication/howto-mfa-userstates.md).   
-**Voordeel**: dit is de traditionele methode voor het vereisen van verificatie in twee stappen. Het werkt met beide [Azure multi-factor Authentication in de cloud en Azure multi-factor Authentication-Server](../active-directory/authentication/concept-mfa-whichversion.md). Met deze methode vereist dat gebruikers verificatie uitvoeren telkens wanneer ze zich aanmelden en vervangt beleid voor voorwaardelijke toegang.
+**Optie 1**: [Multi-factor Authentication inschakelen door het veranderen van gebruikersstatus](../active-directory/authentication/howto-mfa-userstates.md).   
+**Voordeel**: Dit is de traditionele methode voor het vereisen van verificatie in twee stappen. Het werkt met beide [Azure multi-factor Authentication in de cloud en Azure multi-factor Authentication-Server](../active-directory/authentication/concept-mfa-whichversion.md). Met deze methode vereist dat gebruikers verificatie uitvoeren telkens wanneer ze zich aanmelden en vervangt beleid voor voorwaardelijke toegang.
 
-**Optie 2**: [multi-factor Authentication inschakelen met beleid voor voorwaardelijke toegang](../active-directory/authentication/howto-mfa-getstarted.md#enable-multi-factor-authentication-with-conditional-access).   
-**Voordeel**: deze optie kunt u te vragen om verificatie in twee stappen onder bepaalde omstandigheden, met behulp van [voorwaardelijke toegang](../active-directory/active-directory-conditional-access-azure-portal.md). Specifieke voorwaarden kunnen aanmelden van gebruikers vanuit verschillende locaties, niet-vertrouwde apparaten of toepassingen die u beschouwt als riskant zijn. Voor het definiëren van specifieke voorwaarden waar u verificatie in twee stappen vereist, kunt u voorkomen constante vragen om uw gebruikers, dit kunnen een onaangename gebruikerservaring.
+**Optie 2**: [Multi-factor Authentication met beleid voor voorwaardelijke toegang inschakelen](../active-directory/authentication/howto-mfa-getstarted.md#enable-multi-factor-authentication-with-conditional-access).   
+**Voordeel**: Deze optie kunt u te vragen om verificatie in twee stappen onder bepaalde omstandigheden, met behulp van [voorwaardelijke toegang](../active-directory/active-directory-conditional-access-azure-portal.md). Specifieke voorwaarden kunnen aanmelden van gebruikers vanuit verschillende locaties, niet-vertrouwde apparaten of toepassingen die u beschouwt als riskant zijn. Voor het definiëren van specifieke voorwaarden waar u verificatie in twee stappen vereist, kunt u voorkomen constante vragen om uw gebruikers, dit kunnen een onaangename gebruikerservaring.
 
 Dit is de meest flexibele manier om in te schakelen van verificatie in twee stappen voor uw gebruikers. Als u een beleid voor voorwaardelijke toegang werkt alleen voor Azure multi-factor Authentication in de cloud en is een premium-functie van Azure AD. U vindt meer informatie over deze methode in [implementeren van cloud-gebaseerde Azure multi-factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md).
 
-**Optie 3**: multi-factor Authentication inschakelen met beleid voor voorwaardelijke toegang door het evalueren van de gebruiker en meld u risico's van [Azure AD Identity Protection](../active-directory/authentication/tutorial-risk-based-sspr-mfa.md).   
-**Voordeel**: deze optie kunt u naar:
+**Optie 3**: Multi-factor Authentication met beleid voor voorwaardelijke toegang inschakelen door het evalueren van de gebruiker en meld u risico's van [Azure AD Identity Protection](../active-directory/authentication/tutorial-risk-based-sspr-mfa.md).   
+**Voordeel**: Deze optie kunt u naar:
 
 - Detecteren van mogelijke beveiligingsproblemen die invloed hebben op de identiteiten van uw organisatie.
 - Automatische antwoorden om gedetecteerde verdachte activiteit die betrekking op de identiteiten van uw organisatie hebben te configureren.
@@ -151,11 +151,11 @@ U wordt aangeraden dat u ontwikkelt en gaat u als een schema volgt voor het beve
 
 Het volgende bevat een overzicht van de aanbevolen procedures die zijn gevonden in [beveiligen van bevoegde toegang voor hybride en cloud-implementaties in Azure AD](../active-directory/users-groups-roles/directory-admin-roles-secure.md):
 
-**Beste**: beheren, controleren en bewaken van toegang tot beschermde accounts.   
-**Details**: inschakelen [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/active-directory-securing-privileged-access.md). Nadat u Privileged Identity Management inschakelen, ontvangt u de melding e-mailberichten voor bevoegde toegang rol wijzigingen. Deze meldingen bieden vroegtijdig waarschuwen wanneer andere gebruikers worden toegevoegd aan maximaal bevoorrechte rollen in uw directory.
+**Beste**: Beheren, controleren en bewaken van toegang tot beschermde accounts.   
+**Details**: Schakel [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/active-directory-securing-privileged-access.md). Nadat u Privileged Identity Management inschakelen, ontvangt u de melding e-mailberichten voor bevoegde toegang rol wijzigingen. Deze meldingen bieden vroegtijdig waarschuwen wanneer andere gebruikers worden toegevoegd aan maximaal bevoorrechte rollen in uw directory.
 
-**Beste**: identificeren en categoriseren accounts in maximaal bevoorrechte rollen.   
-**Details**: na het inschakelen van Azure AD Privileged Identity Management, bekijk de gebruikers die zich in de globale beheerder, beheerder met bevoorrechte rol en andere maximaal bevoorrechte rollen. Verwijderen van accounts die niet langer nodig zijn in deze rollen en de resterende accounts die zijn toegewezen aan beheerdersrollen categoriseren:
+**Beste**: Identificeren en categoriseren accounts in maximaal bevoorrechte rollen.   
+**Details**: Na het inschakelen van Azure AD Privileged Identity Management, bekijk de gebruikers die zich in de globale beheerder, beheerder met bevoorrechte rol en andere maximaal bevoorrechte rollen. Verwijderen van accounts die niet langer nodig zijn in deze rollen en de resterende accounts die zijn toegewezen aan beheerdersrollen categoriseren:
 
 - Afzonderlijk toegewezen aan gebruikers met beheerdersrechten en kan worden gebruikt voor niet-administratieve doeleinden (bijvoorbeeld persoonlijke e-mailadres)
 - Afzonderlijk toegewezen aan gebruikers met beheerdersrechten en aangewezen voor administratieve doeleinden alleen
@@ -164,22 +164,22 @@ Het volgende bevat een overzicht van de aanbevolen procedures die zijn gevonden 
 - Voor geautomatiseerde scripts
 - Voor externe gebruikers
 
-**Beste**: implementeren 'just-in-time' toegang verder verlagen de blootstellingstijd van bevoegdheden en vergroot uw inzicht in het gebruik van accounts met bevoegdheden (JIT).   
+**Beste**: Implementeren 'just-in-time' toegang verder verlagen de blootstellingstijd van bevoegdheden en vergroot uw inzicht in het gebruik van accounts met bevoegdheden (JIT).   
 **Details**: Azure AD Privileged Identity Management kunt u:
 
 - Gebruikers beperken tot alleen nemen over hun JIT-bevoegdheden.
 - Rollen toewijzen voor een kortere duur met vertrouwen dat de bevoegdheden automatisch worden ingetrokken.
 
-**Beste**: ten minste twee accounts voor toegang in noodgevallen definiëren.   
-**Details**: de accounts voor toegang in noodgevallen waarmee organisaties bevoorrechte toegang in een bestaand Azure Active Directory-omgeving beperken. Deze accounts over uitgebreide beheerdersmogelijkheden en niet zijn toegewezen aan specifieke personen. Accounts voor toegang in noodgevallen zijn beperkt tot scenario's waarin de normale beheerdersaccounts kunnen niet worden gebruikt. Organisaties moeten van het noodgeval account gebruik om alleen de benodigde hoeveelheid tijd te beperken.
+**Beste**: Ten minste twee accounts voor toegang in noodgevallen definiëren.   
+**Details**: Accounts voor toegang in noodgevallen kunnen organisaties bevoorrechte toegang in een bestaand Azure Active Directory-omgeving beperken. Deze accounts over uitgebreide beheerdersmogelijkheden en niet zijn toegewezen aan specifieke personen. Accounts voor toegang in noodgevallen zijn beperkt tot scenario's waarin de normale beheerdersaccounts kunnen niet worden gebruikt. Organisaties moeten van het noodgeval account gebruik om alleen de benodigde hoeveelheid tijd te beperken.
 
 Evalueer de accounts die toegewezen of die in aanmerking komen voor de rol globale beheerder zijn. Als er geen accounts alleen in de cloud met behulp van de `*.onmicrosoft.com` domein (die bestemd zijn voor toegang in noodgevallen), maken ze. Zie beheerdersaccounts voor Noodtoegang beheren in Azure AD voor meer informatie.
 
-**Beste**: multi-factor Authentication en Registreer alle andere over uitgebreide beheerdersmogelijkheden één gebruiker niet-gefedereerde-beheerdersaccounts inschakelen.  
-**Details**: overeenkomende Azure multi-factor Authentication bij aanmelding voor alle afzonderlijke gebruikers die permanent zijn toegewezen aan een of meer van de Azure AD-beheerdersrollen: globale beheerder, beheerder met bevoorrechte rol, Exchange Online-beheerder en SharePoint Online-beheerder. De handleiding gebruiken om in te schakelen [multi-factor Authentication voor uw beheerdersaccounts](../active-directory/authentication/howto-mfa-userstates.md) en zorg ervoor dat alle gebruikers hebben [geregistreerd](https://aka.ms/mfasetup).
+**Beste**: Schakel multi-factor Authentication en de registratie van alle beheerdersaccounts van andere maximaal beschermde één gebruiker niet-gefedereerde.  
+**Details**: Azure multi-factor Authentication vereisen bij aanmelding voor alle afzonderlijke gebruikers die permanent zijn toegewezen aan een of meer van de Azure AD-beheerdersrollen: globale beheerder, beheerder met bevoorrechte rol beheerder van Exchange Online en SharePoint Online de beheerder. De handleiding gebruiken om in te schakelen [multi-factor Authentication voor uw beheerdersaccounts](../active-directory/authentication/howto-mfa-userstates.md) en zorg ervoor dat alle gebruikers hebben [geregistreerd](https://aka.ms/mfasetup).
 
-**Beste**: stappen nemen om de meest gebruikte aangevallen technieken.  
-**Details**: [identificeren Microsoft-accounts in een beheerderrol die moet worden overgeschakeld naar de werk- of schoolaccount](../active-directory/users-groups-roles/directory-admin-roles-secure.md#identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts)  
+**Beste**: Stappen om de meest gebruikte aangevallen technieken.  
+**Details**: [Microsoft-accounts in een beheerderrol die moet worden overgeschakeld naar de werk- of schoolaccount identificeren](../active-directory/users-groups-roles/directory-admin-roles-secure.md#identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts)  
 
 [Zorg ervoor dat afzonderlijke gebruikersaccounts en doorsturen voor accounts van globale beheerders van e-mail](../active-directory/users-groups-roles/directory-admin-roles-secure.md)  
 
@@ -218,7 +218,7 @@ Organisaties die niet zijn bepalen hoe resources worden gemaakt, zijn vatbaar vo
 
 Een actieve identiteit bewakingssysteem kan snel verdacht gedrag detecteren en activeren van een waarschuwing voor verder onderzoek. De volgende tabel bevat twee Azure AD-mogelijkheden waarmee organisaties hun identiteit te controleren:
 
-**Beste**: een methode om te identificeren:
+**Beste**: Beschikken over een methode om te identificeren:
 
 - Probeert aan te melden bij [zonder worden getraceerd](../active-directory/active-directory-reporting-sign-ins-from-unknown-sources.md).
 - [Brute force](../active-directory/active-directory-reporting-sign-ins-after-multiple-failures.md) aanvallen tegen een bepaald account.
@@ -226,9 +226,9 @@ Een actieve identiteit bewakingssysteem kan snel verdacht gedrag detecteren en a
 - Aanmeldingen vanaf [geïnfecteerde apparaten](../active-directory/active-directory-reporting-sign-ins-from-possibly-infected-devices.md).
 - Verdachte IP-adressen.
 
-**Details**: gebruik Azure AD Premium [anomaliedetectie rapporten](../active-directory/active-directory-view-access-usage-reports.md). Zorg ervoor dat processen en procedures voor IT-beheerders om uit te voeren van deze rapporten dagelijks of op aanvraag (meestal in een reactie op incidenten scenario).
+**Details**: Gebruik Azure AD Premium [anomaliedetectie rapporten](../active-directory/active-directory-view-access-usage-reports.md). Zorg ervoor dat processen en procedures voor IT-beheerders om uit te voeren van deze rapporten dagelijks of op aanvraag (meestal in een reactie op incidenten scenario).
 
-**Beste**: hebt u een actieve bewakingssysteem dat de hoogte van risico's gebracht en risiconiveau (hoog, Gemiddeld of laag) voor uw zakelijke vereisten kunt aanpassen.   
+**Beste**: Beschikken over een actieve bewaking systeem dat op de hoogte gebracht van de risico's en risiconiveau (hoog, Gemiddeld of laag) voor uw zakelijke vereisten kunt aanpassen.   
 **Details**: Gebruik [Azure AD Identity Protection](../active-directory/active-directory-identityprotection.md), die de huidige vlaggen risico's op een eigen dashboard en dagelijkse samenvatting meldingen via e-mail worden verzonden. Ter bescherming van identiteiten in uw organisatie, kunt u risico's gebaseerde beleidsregels die automatisch op gedetecteerde problemen reageren na het verstrijken van een opgegeven risiconiveau configureren.
 
 Organisaties die hun identiteitssystemen niet controleren zijn op gebruiker referenties zijn aangetast. Medeweten verdachte activiteiten zijn plaatsvinden via deze referenties kunnen niet organisaties dit type bedreiging beperken.

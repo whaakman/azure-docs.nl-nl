@@ -4,7 +4,7 @@ description: Dit artikel bevat een algemene beschrijving van het netwerk voor Mi
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 5a0f0594a9ccb27a0f76a679e454e9a3ffe19a43
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: af73225e08488d490e50456d235805af17ef0066
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505380"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112213"
 ---
 # <a name="azure-network-architecture"></a>Architectuur van Azure-netwerk
 De architectuur van Azure-netwerk heeft een gewijzigde versie van de bedrijfstak distributie-core/toegang standaardmodel, met verschillende hardwareabstractielagen. De lagen zijn onder andere:
@@ -58,7 +58,7 @@ Hosts rechtstreeks verbinding maken met deze switches. Ze kunnen worden gekoppel
 
 Deze architectuur bevat een standaard voor de selectie van systeemeigen VLAN. De standaard zorgt ervoor dat, indien mogelijk, dat de AR-apparaten hebben een unieke, systeemeigen VLAN voor elke trunk en de L2Aggregation naar L2Aggregation schachten. De L2Aggregation naar L2Host Switch schachten hebben een systeemeigen VLAN van niet-standaard.
 
-### <a name="link-aggregation-8023ad"></a>Koppeling aggregatie (802.3ad)
+### <a name="link-aggregation-8023ad"></a>Link aggregation (802.3ad)
 Link aggregation kunnen meerdere afzonderlijke koppelingen worden gebundeld en behandeld als één logische koppeling. Om te kunnen operationele foutopsporing, moet het nummer dat wordt gebruikt om aan te geven van de poort-kanaal interfaces worden herleid. De rest van het netwerk gebruikt hetzelfde aantal aan beide uiteinden van een poort-kanaal.
 
 De getallen die is opgegeven voor de L2Agg L2Host switch zijn de poort-kanaal getallen die aan de L2Agg wordt gebruikt. Omdat het bereik van de getallen beperktere aan de zijkant L2Host is, wordt de standaard is het gebruik van de getallen 1 en 2 aan de zijkant L2Host. Verwijzen naar de poort-kanaal te gaan naar de "a" zijde en de zijde "b", respectievelijk.

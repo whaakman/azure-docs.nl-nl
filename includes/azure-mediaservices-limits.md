@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 1e1316ef568cbc6409a8653022d9acff9837b59d
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 9cd5a63b5b1d7000605f90752be755356d40bb4a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279573"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56213011"
 ---
 >[!NOTE]
 >Als resources niet vast zijn, kunt u een ondersteuningsticket openen om te vragen of de quota kunnen worden verhoogd. Maak **geen** extra Azure Media Services-accounts in een poging om de limieten te verhogen.
@@ -27,7 +27,7 @@ ms.locfileid: "52279573"
 | Live kanalen per AMS-account |5|
 | Programma's met de status Gestopt per kanaal |50|
 | Programma's met de status Wordt uitgevoerd per kanaal |3|
-| Streaming-eindpunten met de status Wordt uitgevoerd per AMS-account|2|
+| Streaming-eindpunten (gestopt of wordt uitgevoerd) per Media Services-account|2|
 | Streaming-eenheden per streaming-eindpunt |10 |
 | Opslagaccounts | 1.000<sup>(5)</sup> (vast) |
 | Beleidsregels | 1,000,000<sup>(6)</sup> |

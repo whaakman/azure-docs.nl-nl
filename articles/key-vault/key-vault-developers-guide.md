@@ -2,19 +2,19 @@
 title: Handleiding voor ontwikkelaars van Azure Key Vault
 description: Ontwikkelaars kunnen Azure Key Vault gebruiken om cryptografische sleutels binnen de Microsoft Azure-omgeving te beheren.
 services: key-vault
-author: bryanla
-manager: mbaldwin
+author: msmbaldwin
+manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/05/2018
-ms.author: bryanla
-ms.openlocfilehash: 9ab399ae50f9b04acad411b225797f89547a2824
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 02/11/2019
+ms.author: mbaldwin
+ms.openlocfilehash: 274ba6d6a1ce2e9c8f2cae0ca29de8442525391e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237533"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106475"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Handleiding voor ontwikkelaars van Azure Key Vault
 
@@ -23,7 +23,7 @@ Key Vault kunt u veilig toegang krijgen tot gevoelige gegevens in uw toepassinge
 - Sleutels en geheimen worden beveiligd zonder te hoeven schrijven van de code zelf en u bent eenvoudig kunnen worden gebruikt in uw toepassingen.
 - U zijn kunt uw eigen klanten en hun eigen sleutels te beheren, zodat u zich concentreren kunt op het leveren van de belangrijkste softwarefuncties. Op deze manier wordt de verantwoordelijk of potentiële aansprakelijkheid voor uw klanten tenantsleutels en geheimen geen eigenaar van uw toepassingen.
 - Uw toepassing kunt sleutels gebruiken voor het ondertekenen en versleuteling nog houdt het Sleutelbeheer externe van uw toepassing, zodat de oplossing geschikt is als een geografisch gedistribueerde app.
-- Vanaf de release van September 2016 van Key Vault, kunnen uw toepassingen nu Key Vault-certificaten beheren. Zie voor meer informatie, [over sleutels, geheimen en certificaten](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates).
+- Vanaf de release van September 2016 van Key Vault, kunnen uw toepassingen nu Key Vault-certificaten beheren. Zie voor meer informatie, [over sleutels, geheimen en certificaten](/rest/api/keyvault/about-keys--secrets-and-certificates).
 
 Zie voor meer algemene informatie over Azure Key Vault [wat is Key Vault](key-vault-whatis.md).
 
@@ -36,7 +36,7 @@ Periodiek, vrijgeven we een openbare preview-versie van een nieuwe Key Vault-fun
 >[!NOTE]
 >Voor deze update van Azure Key Vault de **Opslagaccountsleutels** functie is beschikbaar als preview.
 
-In dit voorbeeld bevat onze nieuwe Opslagaccountsleutels functie beschikbaar via deze interfaces; [.NET / C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault/), [REST](https://docs.microsoft.com/rest/api/keyvault/) en [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/). 
+In dit voorbeeld bevat onze nieuwe Opslagaccountsleutels functie beschikbaar via deze interfaces; [.NET / C#](/dotnet/api/microsoft.azure.keyvault/), [REST](/rest/api/keyvault/) en [PowerShell](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault). 
 
 Zie voor meer informatie over de nieuwe functie voor Storage-Accountsleutels [overzicht van Azure Key Vault storage account sleutels](key-vault-ovw-storage-keys.md).
 
@@ -55,19 +55,19 @@ Resources in bovenstaande video:
 
 Azure Key Vault biedt een manier voor het veilig opslaan van referenties en andere sleutels en geheimen, maar uw code moet worden geverifieerd voor Key Vault om ze op te halen. Beheerde identiteiten voor Azure-resources maakt het oplossen van dit probleem eenvoudiger door middel van Azure-services een automatisch beheerde identiteit in Azure Active Directory (Azure AD). U kunt deze identiteit gebruiken voor verificatie bij alle services die ondersteuning bieden voor Azure AD-verificatie, inclusief Key Vault, zonder dat u referenties in uw code hoeft te hebben. 
 
-Zie voor meer informatie over beheerde identiteiten voor Azure-resources [het overzicht van beheerde identiteiten](../active-directory/managed-identities-azure-resources/overview.md). Zie voor meer informatie over het werken met AAD [toepassingen integreren met Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
+Zie voor meer informatie over beheerde identiteiten voor Azure-resources [het overzicht van beheerde identiteiten](../active-directory/managed-identities-azure-resources/overview.md). Zie voor meer informatie over het werken met AAD [toepassingen integreren met Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md).
 
 Voordat u met de sleutels, geheimen of certificaten werken in uw key vault, moet u maken en beheren van uw key vault via de CLI, PowerShell, Resource Manager-sjablonen of REST, zoals beschreven in de volgende artikelen:
 
 - [Maken en beheren van Sleutelkluizen met CLI](key-vault-manage-with-cli2.md)
-- [Maken en beheren van Sleutelkluizen met PowerShell](key-vault-get-started.md)
+- [Maken en beheren van Sleutelkluizen met PowerShell](key-vault-overview.md)
 - [Een sleutelkluis maken en een geheim via een Azure Resource Manager-sjabloon toevoegen](../azure-resource-manager/resource-manager-template-keyvault.md)
-- [Maken en beheren van Sleutelkluizen met REST](https://docs.microsoft.com/rest/api/keyvault/)
+- [Maken en beheren van Sleutelkluizen met REST](/rest/api/keyvault/)
 
 
 ## <a name="coding-with-key-vault"></a>Coderen met Key Vault
 
-Het beheersysteem voor Key Vault voor programmeurs bestaat uit meerdere interfaces. In deze sectie bevat koppelingen naar alle talen, evenals enkele exampls code. 
+Het beheersysteem voor Key Vault voor programmeurs bestaat uit meerdere interfaces. In deze sectie bevat koppelingen naar alle talen, evenals enkele codevoorbeelden. 
 
 ### <a name="supported-programming-and-scripting-languages"></a>Ondersteunde programmeren en scripttalen
 
@@ -75,37 +75,37 @@ Het beheersysteem voor Key Vault voor programmeurs bestaat uit meerdere interfac
 
 Al uw Key Vault-resources zijn toegankelijk via de REST-interface; kluizen, sleutels, geheimen, enz. 
 
-[Key Vault REST API-verwijzing](https://docs.microsoft.com/rest/api/keyvault/). 
+[Key Vault REST API-verwijzing](/rest/api/keyvault/).
 
 #### <a name="net"></a>.NET
 
-[.NET API-verwijzing voor Key Vault](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) 
+[.NET API-naslaginformatie voor Key Vault](/dotnet/api/microsoft.azure.keyvault).
 
 Zie voor meer informatie over de versie 2.x van de .NET SDK, de [opmerkingen bij de Release](key-vault-dotnet2api-release-notes.md).
 
 #### <a name="java"></a>Java
 
-[Java SDK voor Key Vault](https://docs.microsoft.com/java/api/overview/azure/keyvault)
+[Java SDK voor Key Vault](/java/api/overview/azure/keyvault)
 
 #### <a name="nodejs"></a>Node.js
 
 In Node.js zijn de API voor Key Vault-beheer en de Key Vault-object API afzonderlijke. Het volgende overzichtsartikel hebt u toegang tot beide. 
 
-[Azure Key Vault-modules voor Node.js](https://docs.microsoft.com/nodejs/api/overview/azure/key-vault)
+[Azure Key Vault-modules voor Node.js](/nodejs/api/overview/azure/key-vault)
 
 #### <a name="python"></a>Python
 
-[Azure Key Vault-bibliotheken voor Python](https://docs.microsoft.com/python/api/overview/azure/key-vault)
+[Azure Key Vault-bibliotheken voor Python](/python/api/overview/azure/key-vault)
 
 #### <a name="azure-cli-2"></a>Azure CLI 2
 
-[Azure CLI voor Key Vault](https://docs.microsoft.com/cli/azure/keyvault)
+[Azure CLI voor Key Vault](/cli/azure/keyvault)
 
 #### <a name="azure-powershell"></a>Azure PowerShell 
 
-[Azure PowerShell voor Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault)
+[Azure PowerShell voor Key Vault](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)
 
-### <a name="quick-start-guides"></a>Quick start-handleidingen
+### <a name="quick-start-guides"></a>Aan de slag
 
 - [Key Vault maken](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 - [Aan de slag met Key Vault in Node.js](https://github.com/Azure-Samples/key-vault-node-getting-started)
@@ -139,7 +139,7 @@ Geef taak-specifieke richtlijnen voor het werken met Azure Key Vault de volgende
 Deze artikelen zijn voor andere scenario's en services die gebruikmaken van of integreren met Key Vault.
 
 - [Azure Disk Encryption](../security/azure-security-disk-encryption.md) maakt gebruik van de industrienorm [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) functie van Windows en de [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) -functie van Linux om volumeversleuteling voor het besturingssysteem en de gegevensschijven te bieden. De oplossing is geïntegreerd met Azure Key Vault om te controleren en beheren van de sleutels en geheimen in uw key vault-abonnement, terwijl u ervoor te zorgen dat alle gegevens in de virtuele-machineschijven zijn versleuteld in rust in uw Azure-opslag.
-- [Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md) biedt de mogelijkheid voor het versleutelen van gegevens die zijn opgeslagen in het account. Voor sleutelbeheer biedt Data Lake Store twee modi voor het beheren van uw hoofdversleutelingssleutels (MEK's), die vereist zijn voor het ontsleutelen van gegevens die zijn opgeslagen in de Data Lake Store. U kunt ofwel Data Lake Store beheren van de MEK's voor u, of kies eigendom van de MEK's met uw Azure Key Vault-account behouden. U kunt de modus van Sleutelbeheer opgeven tijdens het maken van een Data Lake Store-account. 
+- [Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md) biedt de mogelijkheid voor het versleutelen van gegevens die zijn opgeslagen in het account. Voor sleutelbeheer biedt Data Lake Store twee modi voor het beheren van uw hoofdversleutelingssleutels (MEK's), die vereist zijn voor het ontsleutelen van gegevens die zijn opgeslagen in de Data Lake Store. U kunt ofwel Data Lake Store beheren van de MEK's voor u, of kies eigendom van de MEK's met uw Azure Key Vault-account behouden. U kunt de modus van Sleutelbeheer opgeven tijdens het maken van een Data Lake Store-account.
 - [Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) kunt u naar de manager uw eigen tenantsleutel. Bijvoorbeeld, in plaats van Microsoft voor het beheren van uw tenantsleutel (de standaardinstelling), kunt u uw eigen tenantsleutel om te voldoen aan specifieke regels die voor uw organisatie gelden beheren. Uw eigen tenantsleutel beheren wordt ook wel aangeduid als bring your own key of BYOK.
 
 ## <a name="key-vault-overviews-and-concepts"></a>Key Vault overzichten en concepten
@@ -152,11 +152,9 @@ Deze artikelen zijn voor andere scenario's en services die gebruikmaken van of i
 ## <a name="social"></a>Sociaal
 
 - [Key Vault-Blog](https://aka.ms/kvblog)
-- [Key Vault-Forum](https://aka.ms/kvforum)
+- [Key Vault Forum](https://aka.ms/kvforum)
 
 ## <a name="supporting-libraries"></a>Ondersteunende bibliotheken
 
 - [Microsoft Azure Key Vault-Kernbibliotheek](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core) biedt **IKey** en **IKeyResolver** interfaces voor sleutels van id's zoeken en uitvoeren van bewerkingen met sleutels.
 - [Microsoft Azure Key Vault-extensies](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions) biedt uitgebreide mogelijkheden voor Azure Key Vault.
-
-

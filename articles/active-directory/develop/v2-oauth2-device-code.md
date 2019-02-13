@@ -17,12 +17,13 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: df45ec1478314e0d60f2c66a42a48801f1ce0643
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 36b717bfd05a71639c5d1f467af8e9238474160d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093084"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56170191"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-device-code-flow"></a>Azure Active Directory v2.0 en de stroom voor OAuth 2.0-apparaat code
 
@@ -60,7 +61,7 @@ scope=user.read%20openid%20profile
 
 ```
 
-| Parameter | Voorwaarde | Beschrijving |
+| Parameter | Voorwaarde | Description |
 | --- | --- | --- |
 | tenant |Vereist |De directory-tenant die u wilt toestemming van aanvragen. Dit kan zijn in de beschrijvende naamindeling of GUID.  |
 | client_id |Vereist |De aanvraag-ID die de [Portal voor Appregistratie](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) toegewezen aan uw app. |
@@ -70,15 +71,15 @@ scope=user.read%20openid%20profile
 
 Een geslaagde reactie is een JSON-object met de vereiste gegevens zodat de gebruiker zich aanmeldt.  
 
-| Parameter | Indeling | Beschrijving |
+| Parameter | Indeling | Description |
 | ---              | --- | --- |
-|`device_code`     |Reeks| Een lange tekenreeks die wordt gebruikt om te controleren of de sessie tussen de client en de autorisatie-server.  Dit wordt gebruikt door de client om aan te vragen van het toegangstoken van de autorisatie-server. |
-|`user_code`       |Reeks| Een korte tekenreeks aan de gebruiker, gebruikt voor het identificeren van de sessie op een tweede apparaat weergegeven.|
+|`device_code`     |String| Een lange tekenreeks die wordt gebruikt om te controleren of de sessie tussen de client en de autorisatie-server.  Dit wordt gebruikt door de client om aan te vragen van het toegangstoken van de autorisatie-server. |
+|`user_code`       |String| Een korte tekenreeks aan de gebruiker, gebruikt voor het identificeren van de sessie op een tweede apparaat weergegeven.|
 |`verification_uri`|URI| De URI die de gebruiker moet te gaan met de `user_code` om te kunnen aanmelden. |
 |`verification_uri_complete`|URI| Een URI combineren de `user_code` en de `verification_uri`, die wordt gebruikt voor niet-tekstuele verzending naar de gebruiker (bijvoorbeeld via Bluetooth op een apparaat of via een QR-code).  |
 |`expires_in`      |int| Het aantal seconden voordat de `device_code` en `user_code` verlopen. |
 |`interval`        |int| Het aantal seconden dat de client tussen navragen aanvragen wachten moet. |
-| `message`        |Reeks| Een leesbare tekenreeks met instructies voor de gebruiker.  Dit kan worden gelokaliseerd door een **queryparameter** in de aanvraag van het formulier `?mkt=xx-XX`, vullen in de juiste taal voor de cultuur. |
+| `message`        |String| Een leesbare tekenreeks met instructies voor de gebruiker.  Dit kan worden gelokaliseerd door een **queryparameter** in de aanvraag van het formulier `?mkt=xx-XX`, vullen in de juiste taal voor de cultuur. |
 
 ## <a name="authenticating-the-user"></a>Verifiëren van de gebruiker
 
@@ -95,7 +96,7 @@ client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
 device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 ```
 
-|Parameter | Vereist | Beschrijving|
+|Parameter | Vereist | Description|
 | -------- | -------- | ---------- |
 |`grant_type` | Vereist| Moet zijn `urn:ietf:params:oauth:grant-type:device_code`|
 |`client_id`  | Vereist| Moet overeenkomen met de `client_id` wordt gebruikt in de eerste aanvraag. |
@@ -105,7 +106,7 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 
 Omdat de stroom van het apparaat een polling-protocol is, moet uw client verwacht voor het ontvangen van fouten voordat de verificatie van de gebruiker is voltooid.  
 
-| Fout | Beschrijving | Clientactie |
+| Fout | Description | Clientactie |
 |------ | ----------- | -------------|
 | `authorization_pending` |  De gebruiker is nog niet voltooid verificatie, maar niet de stroom is geannuleerd. | De aanvraag opnieuw nadat ten minste `interval` seconden. |
 | `authorization_declined`|  De eindgebruiker de autorisatieaanvraag geweigerd.| Stop polling en terugkeren naar een niet-geverifieerde status.  |
@@ -128,9 +129,9 @@ Een geslaagde respons token ziet er als:
 }
 ```
 
-| Parameter | Indeling | Beschrijving |
+| Parameter | Indeling | Description |
 | --------- | ------ | ----------- |
-|`token_type` | Reeks| Altijd 'Bearer. |
+|`token_type` | String| Altijd 'Bearer. |
 |`scope` | Tekenreeksen gescheiden door spaties | Als een toegangstoken is geretourneerd, zijn dit de scopes die het toegangstoken is ongeldig voor. |
 |`expires_in`| int | Aantal seconden voordat de opgenomen toegangstoken is geldig voor. |
 |`access_token`| Ondoorzichtige tekenreeks | Uitgegeven voor de [scopes](v2-permissions-and-consent.md) die zijn aangevraagd.  |

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 02/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 81df0a776cd22490342230567deacb23097cd12e
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: be51e6c829c5f12d17c6302bb951039711f12075
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094186"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113223"
 ---
 # <a name="azure-data-box-gateway-system-requirements-preview"></a>Systeemvereisten voor Azure Data Box-Gateway (Preview)
 
@@ -31,33 +31,22 @@ De systeemvereisten voor het virtuele apparaat Data Box-Gateway zijn onder ander
 
 Het onderliggende hostsysteem voor de Data Box-Gateway kan besteden aan de volgende bronnen voor het inrichten van uw virtuele apparaat:
 
-| Specificaties                                          | Beschrijving              |
+| Specificaties                                          | Description              |
 |---------------------------------------------------------|--------------------------|
 | Virtuele processors (kernen)   | Minimaal 4 |            
 | Geheugen  | Minimaal 8 GB|
 | Beschikbaarheid|Eén knooppunt|
-| Disks| Besturingssysteemschijf: 250 GB <br> Gegevensschijf: Minimaal 2 TB, thin ingericht en moet worden ondersteund door SSD 's|
+| Disks| Besturingssysteemschijf: 250 GB <br> Gegevensschijf: minimaal 2 TB, thin-provisioned en moet worden ondersteund door SSD's|
 | Netwerkinterfaces|1 of meer virtuele netwerkinterfaces|
 
 
 ## <a name="supported-os-for-clients-connected-to-device"></a>Ondersteund besturingssysteem voor clients die zijn verbonden met het apparaat
 
-Hier volgt een lijst van de ondersteunde besturingssystemen voor clients of hosts die zijn verbonden met de Data Box-Gateway.
-
-| **Besturingssysteem/platform** | **Versies** |
-| --- | --- |
-| Windows Server |2012 R2 <br> 2016 <br> 2019 |
-| Windows |8, 10 |
-| SUSE Linux |Enterprise Server 12 (x86_64)|
-| Ubuntu |16.04.3 LTS|
-| CentOS | 7.0 |
+[!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-supported-client-os.md)]
 
 ## <a name="supported-protocols-for-clients-accessing-device"></a>Ondersteunde protocollen voor toegang tot apparaat-clients
 
-|**Protocol** |**Versies**   |**Opmerkingen**  |
-|---------|---------|---------|
-|SMB    | 2.X, 3.X      | SMB-1 wordt niet ondersteund.|
-|NFS     | V3 and V4        |         |
+[!INCLUDE [Supported protocols for clients accessing device](../../includes/data-box-edge-gateway-supported-client-protocols.md)]
 
 ## <a name="supported-virtualization-platforms-for-device"></a>Ondersteunde virtualisatieplatforms voor apparaat
 
@@ -69,49 +58,22 @@ Hier volgt een lijst van de ondersteunde besturingssystemen voor clients of host
 
 ## <a name="supported-storage-accounts"></a>Ondersteunde opslagaccounts
 
-Hier volgt een lijst met ondersteunde opslagaccounts voor de Data Box-Gateway.
-
-| **Opslagaccount** | **Opmerkingen** |
-| --- | --- |
-| Klassiek | Standard |
-| Algemeen doel  |Standaard; zowel V1 als V2 worden ondersteund. Warme en koude lagen worden ondersteund. |
+[!INCLUDE [Supported storage accounts](../../includes/data-box-edge-gateway-supported-storage-accounts.md)]
 
 
 ## <a name="supported-storage-types"></a>Ondersteunde opslagtypen
 
-Hier volgt een lijst van de typen ondersteunde opslag voor de Data Box-Gateway.
-
-| **Bestandsindeling** | **Opmerkingen** |
-| --- | --- |
-| Azure blok-blob | |
-| Azure-pagina-blobs  | |
-| Azure Files | |
+[!INCLUDE [Supported storage types](../../includes/data-box-edge-gateway-supported-storage-types.md)]
 
 ## <a name="supported-browsers-for-local-web-ui"></a>Ondersteunde browsers voor de lokale web-UI
 
-Hier volgt een lijst van de browsers die worden ondersteund voor de lokale webgebruikersinterface voor het virtuele apparaat.
+[!INCLUDE [Supported browsers for local web UI](../../includes/data-box-edge-gateway-supported-browsers.md)]
 
-|Browser  |Versies  |Aanvullende vereisten/opmerkingen  |
-|---------|---------|---------|
-|Google Chrome   |Meest recente versie         |         |
-|Microsoft Edge    | Meest recente versie        |         |
-|Internet Explorer     | Meest recente versie        |         |
-|FireFox    |Meest recente versie         |         |
-
-
-## <a name="networking-requirements"></a>Netwerkvereisten
+## <a name="networking-port-requirements"></a>Poort netwerkvereisten
 
 De volgende tabel staan de poorten die moeten worden geopend in uw firewall om toe te staan voor SMB en de cloud en het beheer van verkeer. In deze tabel *in* of *inkomende* verwijst naar de richting van welke binnenkomende client aanvragen toegang tot uw apparaat. *Uit* of *uitgaande* verwijst naar de richting waarin uw gegevens in het Gateway-apparaat gegevens extern, na de implementatie verzendt: bijvoorbeeld uitgaand naar het Internet.
 
-| Poort niet.| In- of uitschalen | Poort-bereik| Vereist|   Opmerkingen                                                             |                                                                                     |
-|--------|---------|----------|--------------|----------------------|---------------|
-| TCP 80 (HTTP)|Uit|WAN |Nee|Uitgaande poort wordt gebruikt voor toegang tot Internet om op te halen van updates. <br>De webproxy uitgaande is gebruiker worden geconfigureerd. |                          
-| TCP 443 (HTTPS)|Uit|WAN|Ja|Uitgaande poort wordt gebruikt voor toegang tot gegevens in de cloud.<br>De webproxy uitgaande is gebruiker worden geconfigureerd.|   
-| UDP 53 (DNS)|Uit|WAN|In sommige gevallen<br>Zie Opmerkingen bij de|Deze poort is alleen vereist als u van een op basis van een Internet-DNS-server gebruikmaakt.<br>We raden u aan met behulp van de lokale DNS-server. |
-| UDP 123 (NTP)|Uit|WAN|In sommige gevallen<br>Zie Opmerkingen bij de|Deze poort is alleen vereist als u een Internet-gebaseerde NTP-server gebruikt.  |
-| UDP 67 (DHCP)|Uit|WAN|In sommige gevallen<br>Zie Opmerkingen bij de|Deze poort is alleen vereist als u met behulp van een DHCP-server.  |
-| TCP 80 (HTTP)|In|LAN|Ja|Dit is de binnenkomende poort voor lokale UI op het apparaat voor lokaal beheer. <br>Toegang tot de gebruikersinterface voor het lokale via HTTP worden automatisch omgeleid naar HTTPS.  | 
-| TCP 443 (HTTPS)|In|LAN|Ja|Dit is de binnenkomende poort voor lokale UI op het apparaat voor lokaal beheer. | 
+[!INCLUDE [Port configuration for device](../../includes/data-box-edge-gateway-port-config.md)]
 
 ## <a name="url-patterns-for-firewall-rules"></a>URL-patronen voor firewall-regels
 
@@ -123,26 +85,11 @@ U wordt aangeraden dat u uw firewall-regels voor uitgaand verkeer, op basis van 
 > - Het apparaat (bron) IP-adressen moet altijd worden ingesteld op alle netwerkinterfaces ingeschakeld voor de cloud.
 > - De IP-adressen moet worden ingesteld op bestemming [Azure datacenter IP-adresbereiken](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 
-|     URL-patroon                                                                                                                                                                                                                                                                                                                                                                                                                                       |     Onderdeel/functionaliteit                                                                             |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-|    https://*.databoxedge.azure.com/*<br>https://*.servicebus.windows.net/*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                        |    Azure Data Box-Gateway-service<br>Azure Service Bus<br>Verificatieservice    |
-|    http://*.backup.windowsazure.com                                                                                                                                                                                                                                                                                                                                                                                                                   |    Activering van apparaat                                                                                    |
-|    http://crl.microsoft.com/pki/*   http://www.microsoft.com/pki/*                                                                                                                                                                                                                                                                                                                                                                                    |    Het intrekken van certificaten                                                                               |
-|    https://*.core.windows.net/* https://*. data.microsoft.com http://*. msftncsi.com                                                                                                                                                                                                                                                                                                                                                                |    Azure storage-accounts en bewaking                                                                |
-|    http://windowsupdate.microsoft.com<br>http://*.windowsupdate.microsoft.com<br>https://*.windowsupdate.microsoft.com<br>http://*.update.microsoft.com<br>https://*.update.microsoft.com<br>http://*.windowsupdate.com<br>http://download.microsoft.com<br>http://*.download.windowsupdate.com<br>http://wustat.windows.com<br>http://ntservicepack.microsoft.com<br>http://*.ws.microsoft.com<br>https://*.ws.microsoft.com<br>http://*.mp.microsoft.com        |    Microsoft Update-servers                                                                             |
-|    http://*.deploy.akamaitechnologies.com                                                                                                                                                                                                                                                                                                                                                                                                             |    Akamai CDN                                                                                           |
-|    https://*.partners.extranet.microsoft.com/*                                                                                                                                                                                                                                                                                                                                                                                                        |    Ondersteuningspakket                                                                                      |
-|    http://*.data.microsoft.com                                                                                                                                                                                                                                                                                                                                                                                                                        |    Telemetrieservice in Windows, Zie de update voor de gebruikerservaring en diagnostische telemetrie      |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                                                                                         |
-
-
+[!INCLUDE [URL patterns for firewall](../../includes/data-box-edge-gateway-url-patterns-firewall.md)]
 
 ## <a name="internet-bandwidth"></a>Internet-bandbreedte
 
-De volgende vereisten zijn van toepassing op ten minste internetbandbreedte die beschikbaar is voor uw gegevens in het Gateway-apparaten.
-
-- Uw Data Box Gateway te allen tijde beschikt over een toegewezen internetbandbreedte van 20 Mbps (of meer). Deze bandbreedte mag niet worden gedeeld met andere toepassingen. 
-- Uw Data Box-Gateway is een speciale 32 Mbps internetbandbreedte (of meer) bij het gebruik van netwerkbeperking.
+[!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
 
 ## <a name="next-step"></a>Volgende stap
 

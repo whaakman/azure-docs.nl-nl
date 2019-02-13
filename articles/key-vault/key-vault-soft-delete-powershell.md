@@ -2,17 +2,17 @@
 title: Azure Key Vault - functie voor voorlopig verwijderen gebruiken met PowerShell
 description: De aanvraag voorbeelden van voorlopig verwijderen gebruiken met PowerShell-codefragmenten
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2018
 ms.author: bryanla
-ms.openlocfilehash: 48c471e17fb28843bf61f1591faafc119eb8dec8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 70437403d3b78b7f8b9eef921c933a68793450da
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002324"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113580"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Key Vault-functie voor voorlopig verwijderen gebruiken met PowerShell
 
@@ -236,5 +236,5 @@ Aanbieding verwijderde key vault-objecten wordt ook weergegeven wanneer ze zijn 
 ## <a name="other-resources"></a>Meer informatie
 
 - Zie voor een overzicht van de functie voor voorlopig verwijderen van de Sleutelkluis, [overzicht van Azure Key Vault-functie voor voorlopig verwijderen](key-vault-ovw-soft-delete.md).
-- Zie voor een algemeen overzicht van gebruik van Azure Key Vault, [aan de slag met Azure Key Vault](key-vault-get-started.md).
+- Zie voor een algemeen overzicht van gebruik van Azure Key Vault, [wat is Azure Key Vault?](key-vault-overview.md).
 

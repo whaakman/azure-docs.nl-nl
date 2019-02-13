@@ -12,23 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 44f12c72716e98e2f28796359467685e0af579dd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 42b67ae9b715670f1a0c6e0fed004487a52817d3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238243"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56206463"
 ---
 # <a name="connect-to-the-asdk"></a>Verbinding maken met de ASDK
 
 Voor het beheren van resources, moet u eerst naar de Azure Stack Development Kit (ASDK) verbinden. In dit artikel beschrijven we de stappen die u ondernemen om te verbinden met de ASDK met behulp van de volgende verbindingsopties:
 
 * [Verbinding met extern bureaublad (RDP)](#connect-with-rdp). Wanneer u verbinding maakt met behulp van de verbinding met extern bureaublad, een enkele gebruiker kan snel verbinding maken met de development kit.
-* [Virtueel particulier netwerk (VPN)](#connect-with-vpn). Wanneer u verbinding maakt met behulp van een VPN, meerdere gebruikers kunnen gelijktijdig verbinding maken van clients buiten de Azure Stack-infrastructuur. Een VPN-verbinding, moet u instellingen.
+* [Virtueel particulier netwerk (VPN)](#connect-with-vpn). Wanneer u verbinding maakt met behulp van een VPN, meerdere gebruikers kunnen gelijktijdig verbinding maken met de Azure Stack-portals van clients buiten de Azure Stack-infrastructuur. Een VPN-verbinding, moet u instellingen.
 
 <a name="connect-with-rdp"></a>
 ## <a name="connect-to-azure-stack-using-rdp"></a>Verbinding maken met Azure Stack met behulp van RDP

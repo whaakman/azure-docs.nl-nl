@@ -4,7 +4,7 @@ description: In dit artikel gebruiken voor het automatiseren van algemene taken 
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: barclayn
-ms.openlocfilehash: 11ace1b5cce742579256d08ecfe9d9a7412d3d7c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1679fbe0dedc88ca3e8293512f9a79bb7da69790
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822490"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115620"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Key Vault met de Azure CLI beheren 
 
@@ -145,18 +145,18 @@ Als u wilt dat Azure Key Vault een softwarematig beveiligde sleutel voor u te ma
 az keyvault key create --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --protection software
 ```
 
-Als u een bestaande sleutel in een PEM-bestand hebt, kunt u deze kunt uploaden naar Azure Key Vault. U kunt kiezen om de sleutel met software of HSM te beveiligen. Gebruik de volgende naar de sleutel van het .pem-bestand importeren en deze beveiligen met software:
+Als u een bestaande sleutel in een PEM-bestand hebt, kunt u deze kunt uploaden naar Azure Key Vault. U kunt kiezen om de sleutel met software of HSM te beveiligen. In dit voorbeeld wordt de sleutel van het .pem-bestand geïmporteerd en deze beveiligen met software, met het wachtwoord 'hVFkk965BuUv':
 
 ```azurecli
-az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "Pa$$w0rd" --protection software
+az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "hVFkk965BuUv" --protection software
 ```
 
 U kunt nu verwijzen naar de sleutel die u hebt gemaakt of geüpload naar Azure Key Vault met behulp van de URI. Gebruik **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** naar altijd kunnen genieten van de huidige versie. Gebruik https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] voor deze specifieke versie. Bijvoorbeeld **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**. 
 
-Een geheim toevoegen aan de kluis, dit is een wachtwoord met de naam SQLPassword en waarvoor de waarde van Pa$ $w0rd naar Sleutelkluizen van Azure. 
+Een geheim toevoegen aan de kluis, dit is een wachtwoord met de naam SQLPassword en waarvoor de waarde van "hVFkk965BuUv" aan Sleutelkluizen van Azure. 
 
 ```azurecli
-az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "Pa$$w0rd"
+az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "hVFkk965BuUv "
 ```
 
 Verwijzen naar dit wachtwoord met behulp van de URI. Gebruik **https://ContosoVault.vault.azure.net/secrets/SQLPassword** naar altijd kunnen genieten van de huidige versie en https://[keyvault-name].vault.azure.net/secret/[secret-name]/[secret-unique-id] voor deze specifieke versie. Bijvoorbeeld **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**.
@@ -164,7 +164,7 @@ Verwijzen naar dit wachtwoord met behulp van de URI. Gebruik **https://ContosoVa
 Een certificaat importeren naar de kluis met behulp van een PEM- of .pfx.
 
 ```azurecli
-az keyvault certificate import --vault-name "ContosoKeyVault" --file "c:\cert\cert.pfx" --name "ContosoCert" --password "Pa$$w0rd"
+az keyvault certificate import --vault-name "ContosoKeyVault" --file "c:\cert\cert.pfx" --name "ContosoCert" --password "hVFkk965BuUv"
 ```
 
 Laten we bekijken de sleutel, een geheim of een certificaat dat u hebt gemaakt:
@@ -203,7 +203,7 @@ Voor gedetailleerde stappen voor het registreren van een toepassing met Azure Ac
 Het registreren van een toepassing in Azure Active Directory:
 
 ```azurecli
-az ad sp create-for-rbac -n "MyApp" --password "Pa$$w0rd" --skip-assignment
+az ad sp create-for-rbac -n "MyApp" --password "hVFkk965BuUv" --skip-assignment
 # If you don't specify a password, one will be created for you.
 ```
 

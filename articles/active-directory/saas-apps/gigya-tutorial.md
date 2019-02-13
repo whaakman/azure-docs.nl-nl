@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: a4141dc5a4d7be663e382e5aadb80d42a653f807
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2ab947e17569f809ed4532c99dad7350b6b6814a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179256"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165049"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gigya"></a>Zelfstudie: Azure Active Directory-integratie met Gigya
 
@@ -141,7 +142,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
    
     ![SAML-configuratie](./media/gigya-tutorial/ic789533.png "SAML-configuratie")
    
-    a. In de **naam** tekstvak, typ een naam voor uw configuratie.
+    a. Typ in het tekstvak **Name** een naam voor de configuratie.
    
     b. In **verlener** tekstvak, plak de waarde van **SAML entiteit-ID** die u hebt gekopieerd vanuit Azure Portal. 
    
@@ -208,7 +209,7 @@ In het geval van Gigya is inrichten een handmatige taak.
    
     a. In de **e** tekstvak typt u de e-mailalias van een geldige Azure Active Directory-account dat u inrichten wilt.
     
-    b. Klik op **gebruiker uitnodigen**.
+    b. Klik op **Gebruiker uitnodigen**.
       
     > [!NOTE]
     > De houder van Azure Active Directory-account ontvangt een e-mailbericht een koppeling om te bevestigen dat het account bevat voordat deze geactiveerd wordt.

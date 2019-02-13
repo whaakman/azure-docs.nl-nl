@@ -4,7 +4,7 @@ description: Leer hoe u Azure REST API's gebruiken om te controleren van facture
 services: billing
 documentationcenter: na
 author: lleonard-msft
-manager: MBaldwin
+manager: ''
 editor: ''
 ms.assetid: 82D50B98-40F2-44B1-A445-4391EA9EBBAA
 ms.service: billing
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: erikre
-ms.openlocfilehash: d0199711370dae6a23626337946e45e84fd33047
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: a4e5307a151439dde5ac41cb5b1bbb80f43ad71c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394712"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112747"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Abonnement facturering met behulp van REST-API's bekijken
 
@@ -35,7 +35,7 @@ Content-Type: application/json
 Authorization: Bearer
 ```
 
-## <a name="build-the-request"></a>De aanvraag voor het samenstellen  
+## <a name="build-the-request"></a>De aanvraag maken  
 
 De `{subscriptionID}` parameter is vereist en identificeert het doelabonnement.
 
@@ -45,7 +45,7 @@ De `${startDate}` en `${endDate}` parameters zijn vereist voor dit voorbeeld, ma
 
 De volgende headers zijn vereist: 
 
-|Aanvraagheader|Beschrijving|  
+|Aanvraagheader|Description|  
 |--------------------|-----------------|  
 |*Content-Type:*|Vereist. Ingesteld op `application/json`.|  
 |*Autorisatie:*|Vereist. Ingesteld op een geldige `Bearer` [toegangstoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |  
@@ -81,11 +81,11 @@ Statuscode 200 wordt (OK) geretourneerd voor een geslaagde respons, waarin een l
 
 Elk item in **waarde** vertegenwoordigt een details met betrekking tot het gebruik van een service:
 
-|Antwoord-eigenschap|Beschrijving|
+|Antwoord-eigenschap|Description|
 |----------------|----------|
 |**subscriptionGuid** | Unieke ID voor het abonnement. | 
-|**Begindatum** | De datum van het gebruik aan de slag. |
-|**Einddatum** | De datum van het gebruik is beëindigd. |
+|**startDate** | De datum van het gebruik aan de slag. |
+|**endDate** | De datum van het gebruik is beëindigd. |
 |**useageQuantity** | De hoeveelheid die wordt gebruikt. | 
 |**billableQuantity** | De hoeveelheid daadwerkelijk in rekening gebracht. |
 |**pretaxCost** | Kosten gefactureerd, voordat u van toepassing zijnde belastingen. | 

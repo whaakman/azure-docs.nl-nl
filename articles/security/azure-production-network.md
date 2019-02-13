@@ -4,7 +4,7 @@ description: Dit artikel bevat een algemene beschrijving van de Azure-productien
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 710792c890c3e48fc54507f93eeaee529ca839f8
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: afae7cc6390ea4cd8c18c687e9d99400c8da9da4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114025"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116929"
 ---
 # <a name="the-azure-production-network"></a>De Azure-productienetwerk
 De gebruikers van de Azure-productienetwerk zijn beide externe klanten die toegang hebben tot hun eigen Azure-toepassingen en interne Azure ondersteuningsmedewerkers die het productienetwerk te beheren. Dit artikel worden de beveiligingsmethoden voor toegang en beveiliging mechanismen voor het tot stand brengen van verbindingen met de Azure-productienetwerk.
@@ -54,18 +54,18 @@ Firewallfuncties op verschillende niveaus voor het afdwingen van beveiligingsfun
 ### <a name="azure-security-features"></a>Functies van Azure-beveiliging
 De implementatie van Azure-host op basis van softwarefirewalls in het productienetwerk. Verschillende kernbeveiliging en firewall-functies zich bevinden in de belangrijkste Azure-omgeving. Deze beveiligingsfuncties weer een ingrijpende strategie in de Azure-omgeving. Klantgegevens in Azure wordt beveiligd door de volgende firewalls:
 
-**Hypervisor-firewall (pakketfilter)**: de firewall is in de hypervisor geïmplementeerd en geconfigureerd door de infrastructuurcontroller (FC)-agent. Deze firewall beveiligt de tenant die wordt uitgevoerd binnen de virtuele machine tegen onbevoegde toegang. Standaard, wanneer een virtuele machine wordt gemaakt, al het verkeer wordt geblokkeerd en vervolgens de agent FC regels en uitzonderingen toegevoegd in het filter geautoriseerde verkeer toe te staan.
+**Hypervisor-firewall (pakketfilter)**: Deze firewall wordt in de hypervisor geïmplementeerd en geconfigureerd door de infrastructuurcontroller (FC)-agent. Deze firewall beveiligt de tenant die wordt uitgevoerd binnen de virtuele machine tegen onbevoegde toegang. Standaard, wanneer een virtuele machine wordt gemaakt, al het verkeer wordt geblokkeerd en vervolgens de agent FC regels en uitzonderingen toegevoegd in het filter geautoriseerde verkeer toe te staan.
 
 Twee categorieën regels worden hier geprogrammeerd:
 
-- **Regels van configuratie of een infrastructuur van de computer**: standaard wordt alle communicatie geblokkeerd. Uitzonderingen bestaan waarmee een virtuele machine te verzenden en ontvangen van Dynamic Host Configuration Protocol (DHCP)-communicatie en DNS-gegevens, en verkeer verzenden naar het 'openbare' internet uitgaand naar andere virtuele machines binnen het FC-cluster en de activeringsserver van het besturingssysteem. Omdat de virtuele machines toegestaan de lijst met uitgaande bestemmingen bevat geen Azure-routersubnetten en andere eigenschappen van Microsoft, de regels fungeren als een laag van beveiliging voor hen.
-- **Rol bestand configuratieregels**: definieert de inkomende ACL's op basis van de tenants ServiceModel. Bijvoorbeeld, als een tenant een webfront-end op poort 80 op een bepaalde virtuele machine heeft, wordt poort 80 geopend voor alle IP-adressen. Als de virtuele machine een worker-functie die wordt uitgevoerd heeft, wordt de werkrol alleen voor de virtuele machine binnen dezelfde tenant geopend.
+- **Regels van configuratie of een infrastructuur van de computer**: Standaard wordt alle communicatie geblokkeerd. Uitzonderingen bestaan waarmee een virtuele machine te verzenden en ontvangen van Dynamic Host Configuration Protocol (DHCP)-communicatie en DNS-gegevens, en verkeer verzenden naar het 'openbare' internet uitgaand naar andere virtuele machines binnen het FC-cluster en de activeringsserver van het besturingssysteem. Omdat de virtuele machines toegestaan de lijst met uitgaande bestemmingen bevat geen Azure-routersubnetten en andere eigenschappen van Microsoft, de regels fungeren als een laag van beveiliging voor hen.
+- **Rol bestand configuratieregels**: Hiermee definieert u de binnenkomende ACL's op basis van de tenants ServiceModel. Bijvoorbeeld, als een tenant een webfront-end op poort 80 op een bepaalde virtuele machine heeft, wordt poort 80 geopend voor alle IP-adressen. Als de virtuele machine een worker-functie die wordt uitgevoerd heeft, wordt de werkrol alleen voor de virtuele machine binnen dezelfde tenant geopend.
 
 **Native hostfirewall**: Azure Service Fabric en Azure Storage worden uitgevoerd op een eigen besturingssysteem, dat geen hypervisor heeft en daarom Windows Firewall is geconfigureerd met de voorgaande twee sets met regels.
 
-**De firewall van host**: de hostfirewall beveiligt de hostpartitie, die de hypervisor wordt uitgevoerd. De regels zijn zo geprogrammeerd toestaan alleen de FC en jumpboxes om te communiceren met de hostpartitie op een specifieke poort. De overige uitzonderingen zijn om toe te staan DHCP-reacties en DNS-antwoorden. Een machine-configuratiebestand, met een sjabloon van firewall-regels voor de hostpartitie wordt gebruikt door Azure. Een host firewall-uitzondering bestaat waarmee virtuele machines om te communiceren met de host-onderdelen, wire-server en de van metagegevensserver, via specifieke protocol/poorten.
+**Host-firewall**: De hostfirewall beveiligt de hostpartitie, die de hypervisor wordt uitgevoerd. De regels zijn zo geprogrammeerd toestaan alleen de FC en jumpboxes om te communiceren met de hostpartitie op een specifieke poort. De overige uitzonderingen zijn om toe te staan DHCP-reacties en DNS-antwoorden. Een machine-configuratiebestand, met een sjabloon van firewall-regels voor de hostpartitie wordt gebruikt door Azure. Een host firewall-uitzondering bestaat waarmee virtuele machines om te communiceren met de host-onderdelen, wire-server en de van metagegevensserver, via specifieke protocol/poorten.
 
-**Gast-firewall**: de Windows Firewall-gedeelte van het gastbesturingssysteem te installeren, die kan geconfigureerd door klanten op klant virtuele machines en opslag worden.
+**Gast-firewall**: De Windows Firewall-gedeelte van het gastbesturingssysteem te installeren, die kan geconfigureerd door klanten op klant virtuele machines en opslag worden.
 
 Aanvullende beveiligingsfuncties die zijn ingebouwd in de mogelijkheden van Azure zijn onder andere:
 

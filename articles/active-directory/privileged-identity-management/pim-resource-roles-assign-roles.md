@@ -14,12 +14,13 @@ ms.subservice: pim
 ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 19c1e5bfdd7a510a52e23cc3f216a6b0c4448ce7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 87c92387c14cd0b82ec26acb411609c794c2601e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155218"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56171261"
 ---
 # <a name="assign-azure-resource-roles-in-pim"></a>Azure-resource-rollen in PIM toewijzen
 
@@ -80,7 +81,7 @@ Volg deze stappen voor het maken van een gebruiker in aanmerking komen voor de r
 
     PIM voor Azure-resources biedt twee afzonderlijke toewijzingstypen:
 
-    - **In aanmerking komende** toewijzingen moeten het lid van de rol van een actie voor het gebruik van de rol uit te voeren. Acties advies inwinnen wordt gecontroleerd op een multi-factor authentication (MFA), een zakelijke rechtvaardiging te geven of aanvragen van goedkeuring van fiatteurs.
+    - **In aanmerking komende** toewijzingen moeten het lid van de rol van een actie voor het gebruik van de rol uit te voeren. Acties kunnen bijvoorbeeld een meervoudige verificatiecontrole, het opgeven van een zakelijke reden of het vragen om toestemming bij aangewezen fiatteurs zijn.
 
     - **Actieve** toewijzingen vereisen het lid aan een actie voor het gebruik van de rol wordt uitgevoerd. Leden toegewezen als actief hebben de bevoegdheden die zijn toegewezen aan de rol te allen tijde.
 

@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 59322e303824d3a0db89e9e1252476d52106ba56
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1902d00bc69fd12e7d424a2c2ab3bea562ff4e79
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991341"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108769"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -28,7 +28,7 @@ Zowel de brongroep en de doelgroep worden vergrendeld tijdens de verplaatsing. S
 Verplaatsen van een resource alleen verplaatst naar een nieuwe resourcegroep. De bewerking voor verplaatsen wijzigen de locatie van de resource niet. De nieuwe resourcegroep mogelijk een andere locatie, maar dat de locatie van de resource niet wijzigen.
 
 > [!NOTE]
-> Dit artikel wordt beschreven hoe u verplaatst resources binnen een bestaand Azure-account aanbod. Als u daadwerkelijk wijzigen van uw Azure-account wilt (zoals het upgraden van gratis naar betalen per gebruik)-aanbieding die u wilt converteren van uw abonnement.
+> In dit artikel wordt beschreven hoe u resources wilt verplaatsen tussen de bestaande Azure-abonnementen. Als u wilt upgraden van uw Azure-abonnement (zoals het overschakelen van gratis naar betalen per gebruik), moet u uw abonnement te zetten.
 > * Zie het upgraden van een gratis proefversie [uw gratis proefversie of Azure voor Microsoft Imagine-abonnement upgraden naar betalen per gebruik](..//billing/billing-upgrade-azure-subscription.md).
 > * Als u wilt wijzigen in een betalen per gebruik-account, Zie [wijzigen van uw Azure-betalen per gebruik-abonnement naar een andere aanbieding](../billing/billing-how-to-switch-azure-offer.md).
 > * Als u het abonnement niet kan omzetten [maken van een Azure-ondersteuningsaanvraag](../azure-supportability/how-to-create-azure-support-request.md). Selecteer **Abonnementsbeheer** voor het probleemtype.
@@ -102,7 +102,7 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen wor
 * Portal-dashboards
 * Power BI - zowel Power BI Embedded en Power BI-Werkruimteverzameling
 * Openbaar IP-adres - Basic SKU en openbare IP kunnen worden verplaatst. Standaard SKU en openbare IP kan niet worden verplaatst.
-* Recovery Services-kluis: Schrijf u in een [privépreview](#recovery-services-limitations).
+* Recovery Services-kluis: Schrijf u in een [preview](#recovery-services-limitations).
 * Azure Cache voor Redis op: als de Azure-Cache voor Redis-exemplaar is geconfigureerd met een virtueel netwerk, het exemplaar kan niet worden verplaatst naar een ander abonnement. Zie [beperkingen in virtuele netwerken](#virtual-networks-limitations).
 * Scheduler
 * Search - u kunt verschillende zoeken resources niet verplaatsen in verschillende regio's in één bewerking. In plaats daarvan deze verplaatsen in aparte bewerkingen.

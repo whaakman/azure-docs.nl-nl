@@ -3,7 +3,7 @@ title: Inleiding tot de Azure-Cache voor Premium-laag Redis | Microsoft Docs
 description: Informatie over het maken en beheren van Redis-persistentie, Redis-clustering en VNET-ondersteuning voor uw Premium-laag Azure Cache voor instanties van Redis
 services: azure-cache-for-redis
 documentationcenter: ''
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: ''
 ms.assetid: 30f46f9f-e6ec-4c38-a8cc-f9d4444856e5
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: wesmc
-ms.openlocfilehash: 906ab6c433df7cf452d1f5ab4660abce8d4674fc
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.author: yegu
+ms.openlocfilehash: 35ecb5156a8b81fa9e10123f7700cf91af91aa0a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107509"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115841"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Inleiding tot de Azure-Cache voor Premium-laag Redis
 Azure Redis-Cache is een gedistribueerde beheerde cache waarmee u zeer schaalbare en snel reagerende toepassingen kunt maken met zeer snelle toegang tot uw gegevens. 

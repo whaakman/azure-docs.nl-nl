@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database-bestand ruimtebeheer | Microsoft Docs
-description: Deze pagina wordt beschreven hoe u voor het beheren van bestandsruimte met Azure SQL Database, en bevat voorbeelden van code voor het bepalen of u moet voor het verkleinen van een database ook hoe om uit te voeren een database bewerking verkleinen.
+title: Azure SQL Database single/gegroepeerde databases bestand beheer van adresruimte | Microsoft Docs
+description: Deze pagina wordt beschreven hoe u voor het beheren van de ruimte met één en gepoolde databases in Azure SQL Database, en bevat voorbeelden van code voor het bepalen of u moet voor het verkleinen van één of een gegroepeerde database ook hoe om uit te voeren een database bewerking verkleinen.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -11,21 +11,24 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: cf73708682a8434ffabaff101d6d6928671af4b6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 02/11/2019
+ms.openlocfilehash: 32cfb108964d67f865b1d03ffa745eb468feeea7
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003717"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110146"
 ---
-# <a name="manage-file-space-in-azure-sql-database"></a>Ruimte in Azure SQL Database beheren
+# <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Ruimte is voor één en gepoolde databases in Azure SQL Database beheren
 
-Dit artikel beschrijft de verschillende typen opslagruimte in Azure SQL Database en de stappen die kunnen worden uitgevoerd wanneer de bestandsruimte voor databases toegewezen en elastische pools moet expliciet worden beheerd.
+In dit artikel beschrijft de verschillende typen opslagruimte voor één en gepoolde databases in Azure SQL Database en de stappen die kunnen worden uitgevoerd wanneer de bestandsruimte voor databases toegewezen en elastische pools moet expliciet worden beheerd.
+
+> [!NOTE]
+> In dit artikel geldt niet voor het beheerde exemplaar Implementatieoptie in Azure SQL Database.
 
 ## <a name="overview"></a>Overzicht
 
-In Azure SQL Database zijn er patronen van werkbelasting waarbij de toewijzing van onderliggende gegevensbestanden voor databases die groter is dan de hoeveelheid gebruikte gegevenspagina's kan worden. Dit probleem kan optreden als er meer ruimte wordt gebruikt en er tegelijkertijd gegevens worden verwijderd. De reden is dat bestandsruimte die is toegewezen niet automatisch wordt opgeëist wanneer gegevens worden verwijderd.
+Met één en gepoolde databases in Azure SQL Database zijn er patronen van werkbelasting waarbij de toewijzing van onderliggende gegevensbestanden voor databases die groter is dan de hoeveelheid gebruikte gegevenspagina's kan worden. Dit probleem kan optreden als er meer ruimte wordt gebruikt en er tegelijkertijd gegevens worden verwijderd. De reden is dat bestandsruimte die is toegewezen niet automatisch wordt opgeëist wanneer gegevens worden verwijderd.
 
 Mogelijk moet u in de volgende scenario's het gebruik van bestandsruimte bewaken en gegevensbestanden verkleinen:
 
@@ -47,7 +50,7 @@ De volgende API's meten echter ook de grootte van de toegewezen ruimte voor data
 
 ### <a name="shrinking-data-files"></a>Bestanden verkleinen
 
-Gegevensbestanden als u wilt vrijmaken van ongebruikte toegewezen ruimte vanwege de mogelijke impact op de prestaties van de database niet automatisch wordt verkleind door de SQL-database-service.  Klanten kunnen echter gegevensbestanden via de self-service-verkleinen op een tijdstip van hun keuze met de volgende stappen wordt beschreven in [Reclaim ongebruikte ruimte toegewezen](#reclaim-unused-allocated-space). 
+Gegevensbestanden als u wilt vrijmaken van ongebruikte toegewezen ruimte vanwege de mogelijke impact op de prestaties van de database niet automatisch wordt verkleind door de service SQL Database.  Klanten kunnen echter gegevensbestanden via de self-service-verkleinen op een tijdstip van hun keuze met de volgende stappen wordt beschreven in [reclaim ongebruikte ruimte toegewezen](#reclaim-unused-allocated-space).
 
 > [!NOTE]
 > In tegenstelling tot gegevensbestanden en verkleint de service SQL Database automatisch logboekbestanden omdat die bewerking is niet van invloed op de prestaties van de database. 
@@ -68,9 +71,9 @@ Het volgende diagram illustreert de relatie tussen de verschillende typen opslag
 
 ![ruimte opslagtypen en relaties](./media/sql-database-file-space-management/storage-types.png)
 
-## <a name="query-a-database-for-storage-space-information"></a>Query uitvoeren op een database voor storage space informatie
+## <a name="query-a-single-database-for-storage-space-information"></a>Query uitvoeren op een individuele database voor storage space informatie
 
-De volgende query's kunnen worden gebruikt om te bepalen storage space hoeveelheden voor een database.  
+De volgende query's kunnen worden gebruikt om te bepalen storage space hoeveelheden voor één database.  
 
 ### <a name="database-data-space-used"></a>Databaseruimte voor gegevens die worden gebruikt
 
@@ -144,7 +147,7 @@ De volgende PowerShell-script om te retourneren een tabel met de ruimte die is t
 
 De resultaten van de query voor het bepalen van de toegewezen ruimte voor elke database in de groep, kan samen worden toegevoegd om te bepalen van de totale ruimte voor de elastische pool toegewezen. De toegewezen ruimte voor de elastische pool mag niet groter zijn dan de maximale grootte van de elastische pool.  
 
-Het PowerShell-script is vereist voor SQL Server PowerShell-module: Zie [downloaden PowerShell-module](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module?view=sql-server-2017) te installeren.
+Het PowerShell-script is vereist voor SQL Server PowerShell-module: Zie [downloaden PowerShell-module](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module) te installeren.
 
 ```powershell
 # Resource group name
@@ -225,7 +228,7 @@ Zie voor meer informatie over deze opdracht [SHRINKDATABASE](https://docs.micros
 
 ### <a name="auto-shrink"></a>Automatisch verkleind
 
-U kunt ook kan automatisch verkleind worden ingeschakeld voor een database.  Automatisch verkleind vermindert de complexiteit van de bestand-beheer en is minder impact hebben op prestaties van de database dan SHRINKDATABASE of SHRINKFILE.  Automatische verkleining kan met name handig voor het beheren van elastische pools met veel databases worden gemaakt.  Automatische verkleining kan echter wel minder effectief in het vrijmaken van ruimte dan SHRINKDATABASE en SHRINKFILE.
+U kunt ook kan automatisch verkleind worden ingeschakeld voor een database.  Automatisch verkleind vermindert de complexiteit van de bestand-beheer en is minder impact hebben op prestaties van de database dan `SHRINKDATABASE` of `SHRINKFILE`.  Automatische verkleining kan met name handig voor het beheren van elastische pools met veel databases worden gemaakt.  Automatische verkleining kan echter zijn minder effectief in het vrijmaken van ruimte in dan `SHRINKDATABASE` en `SHRINKFILE`.
 Wijzig de naam van de database in de volgende opdracht uit zodat automatisch verkleind.
 
 

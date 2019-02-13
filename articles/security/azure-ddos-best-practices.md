@@ -3,7 +3,7 @@ title: Azure DDoS Protection best practices en referentiearchitecturen | Microso
 description: Meer informatie over hoe u gegevens voor logboekregistratie diep om inzicht te krijgen over uw toepassing kunt gebruiken.
 services: security
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 4496a0fd3ec220d03c4cc279876234b503b0dbb6
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 9f837a5dbea15b159a226b12c034add1dcf69834
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720863"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117847"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS Protection: Aanbevolen procedures en referentiearchitecturen
 
@@ -110,7 +110,7 @@ Bijvoorbeeld, het DDoS Protection-beleid geeft aan welk volume van netwerkverkee
 
 De service Azure DDoS Protection Basic is gericht op beveiliging van de infrastructuur en beveiliging van de Azure-platform. Het beperkt verkeer wanneer het groter is dan het tarief dat is dus belangrijk dat dit mogelijk invloed op meerdere klanten in een multitenant-omgeving. Biedt geen waarschuwingen of per klant aangepast beleid.
 
-### <a name="ddos-protection-standard"></a>DDoS-bescherming standaard
+### <a name="ddos-protection-standard"></a>DDoS Protection Standard
 
 Standard protection biedt verbeterde functies voor DDoS-risicobeperking. Het automatisch afgestemd op ter bescherming van uw specifieke Azure-resources in een virtueel netwerk. Beveiliging is eenvoudig om in te schakelen op een nieuwe of bestaande virtuele netwerk en hiervoor geen wijzigingen toepassing of resource. Heeft diverse voordelen ten opzichte van de basic-service, met inbegrip van logboekregistratie, waarschuwingen en telemetrie. De volgende gedeelten worden de belangrijkste functies van de service Azure DDoS Protection Standard.
 

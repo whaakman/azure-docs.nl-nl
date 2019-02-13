@@ -1,10 +1,10 @@
 ---
-title: Internet der dingen aanbevolen beveiligingsprocedures | Microsoft Docs
-description: Het artikel biedt een samengestelde lijst met Microsoft Internet van dingen Best Practices voor beveiliging en algemene aanbevelingen.
+title: Internet of Things Security Best Practices | Microsoft Docs
+description: Het artikel biedt een gecureerde lijst met Microsoft Internet of Things Security Best Practices en algemene aanbevelingen.
 services: security
 documentationcenter: na
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 2d5598c5-4c30-481d-b8f4-51ee024ea9a7
 ms.service: security
@@ -14,59 +14,59 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 804dd6828931ca2801360ab18be938c8bacf2bfa
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9413c0503c1b78550776d1c2f6ab8239205a788b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32185337"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117864"
 ---
-# <a name="internet-of-things-security-best-practices"></a>Internet der dingen Best Practices voor beveiliging
+# <a name="internet-of-things-security-best-practices"></a>Internet of Things Security Best Practices
 
-Beveiligen van de infrastructuur van het Internet der dingen (IoT) is een kritieke onderneming voor iedereen die betrokken zijn bij IoT-oplossingen. Vanwege het aantal apparaten bij betrokken zijn en de gedistribueerde aard van deze apparaten, het effect dat een beveiligingsgebeurtenis gerelateerde tot miljoenen IoT-apparaten is niet-triviale en wijdverbreid invloed kan hebben.
+Beveiligen van het Internet of Things (IoT)-infrastructuur is een kritieke onderneming voor iedereen die betrokken zijn bij IoT-oplossingen. Vanwege het aantal apparaten bij betrokken zijn en de gedistribueerde aard van deze apparaten, de impact die een veiligheidsrisico met betrekking tot het binnendringen van miljoenen IoT-apparaten is essentieel en wijdverbreid invloed kan hebben.
 
-IoT-beveiliging moet daarom een security-in-depth-benadering. Gegevens moeten worden beveiligd in de cloud en wordt particuliere en publieke netwerken. Methoden moeten aanwezig zijn voor het inrichten van de IoT-apparaten zelf veilig. Elke laag van apparaat, met netwerk naar de cloud back-end moet sterke beveiliging garantie.
+IoT-beveiliging moet daarom een benadering van beveiliging in de diepte. Gegevens moeten worden beveiligd in de cloud en deze worden verplaatst via persoonlijke en openbare netwerken. Methoden moeten worden voldaan voor het veilig inrichten van de IoT-apparaten zelf. Elke laag van het apparaat, netwerk, naar de cloud back-end moet sterke goed beveiligingsprogramma.
 
-Aanbevolen procedures van IoT kunnen worden ingedeeld in de volgende manier:
+Best practices voor IoT kunnen worden onderverdeeld in de volgende manier:
 
-* IoT-hardwarefabrikant of integrator
-* Ontwikkelaars van IoT-oplossing
+* De fabrikant van de IoT-hardware of integrator
+* Ontwikkelaarshandleiding voor IoT-oplossing
 * Implementatie van IoT-oplossing
-* IoT-oplossing operator
+* Operator voor IoT-oplossing
 
-In dit artikel bevat een overzicht van [Internet van dingen aanbevolen beveiligingsprocedures](../iot-suite/iot-security-best-practices.md). Raadpleeg dit artikel voor meer gedetailleerde informatie.
+In dit artikel bevat een overzicht van [Internet van dingen Best Practices voor beveiliging](../iot-suite/iot-security-best-practices.md). Raadpleeg dit artikel voor meer gedetailleerde informatie.
 
-## <a name="iot-hardware-manufacturer-or-integrator"></a>IoT-hardwarefabrikant of integrator
+## <a name="iot-hardware-manufacturer-or-integrator"></a>De fabrikant van de IoT-hardware of integrator
 
-Volg de onderstaande procedures als u een hardwarefabrikant IoT of een integrator hardware:
+Volg de onderstaande aanbevolen procedures als u een IoT-hardwarefabrikant of een integrator hardware:
 
-* **Bereik van hardware aan de minimumvereisten**: het hardwareontwerp van de minimale functies die vereist zijn voor de werking van de hardware, en niets meer moet bevatten. 
-* **Controleer hardware bewijs knoeien**: bouwen in mechanismen voor het detecteren van fysieke knoeien met de hardware, zoals het openen van het apparaat behandeld, verwijderen van een deel van het apparaat gebruikt, enzovoort. 
-* **Bouwen om beveiligde hardware**: als [omzet](https://en.wikipedia.org/wiki/Cost_of_goods_sold) toestaan, beveiligingsfuncties zoals beveiligd en versleuteld opslag en functionaliteit van de Trusted Platform Module TPM-opstart opbouwen.
+* **Het bereik van hardware aan de minimale vereisten voor**: het hardwareontwerp van de minimale functies die vereist zijn voor de werking van de hardware, en niets meer moet bevatten. 
+* **Hardwarewijziging knoeien bewijs**: bouw mechanismen voor het detecteren van fysieke manipulatie van hardware, zoals het openen van de apparaat-dekking, verwijderen van een onderdeel van het apparaat, enzovoort. 
+* **Bouwen om beveiligde hardware**: als [COGS](https://en.wikipedia.org/wiki/Cost_of_goods_sold) toestaan, het bouwen van beveiligingsfuncties, zoals beveiligd en versleuteld opslag en functionaliteit op basis van een Trusted Platform Module TPM opstarten.
 * **Beveiligen van upgrades**: firmware bijwerken tijdens de levensduur van het apparaat is onvermijdelijk.
 
-## <a name="iot-solution-developer"></a>Ontwikkelaars van IoT-oplossing
+## <a name="iot-solution-developer"></a>Ontwikkelaarshandleiding voor IoT-oplossing
 
-Volg de onderstaande procedures als u een ontwikkelaar IoT-oplossing:
+Volg de onderstaande aanbevolen procedures als u een ontwikkelaar van de IoT-oplossing:
 
-* **Ga als volgt beveiligde software development methodologie**: a t/m nadenken over de beveiliging van het begin van het project helemaal tot aan de implementatie, testen en implementatie ontwikkelen van beveiligde software vereist.
-* **Kies open-sourcesoftware zorgvuldig**: open-sourcesoftware biedt de mogelijkheid snel om oplossingen te ontwikkelen.
-* **Integreren met zorg**: veel van de software-beveiligingsfouten bestaat op de grens van bibliotheken en -API. 
+* **Ga als volgt beveiligde software ontwikkelingsmethodologie**: volledig nadenken over de beveiliging van het begin van het project helemaal tot aan de implementatie, testen en implementeren voor het ontwikkelen van veilige software vereist.
+* **Kies open-sourcesoftware zorgvuldig**: open source-software biedt de mogelijkheid voor het snel ontwikkelen van oplossingen.
+* **Integreren met zorg**: veel van de software-beveiligingsfouten bestaat op de grens van de API's en bibliotheken. 
 
 ## <a name="iot-solution-deployer"></a>Implementatie van IoT-oplossing
 
-Volg de onderstaande procedures als u een deployer IoT-oplossing:
+Volg de onderstaande aanbevolen procedures als u de implementatie van een IoT-oplossing:
 
-* **Hardware veilig implementeren**: IoT-implementaties vereisen hardware in niet-beveiligde locaties, zoals in openbare ruimten of zonder supervisie landinstellingen worden geïmplementeerd.
-* **Verificatiesleutels veilig te houden**: tijdens de implementatie van elk apparaat vereist dat apparaat-id's en bijbehorende verificatiesleutels die worden gegenereerd door de cloudservice. Beveilig deze sleutels fysiek zelfs na de implementatie. Een willekeurige toets waarmee is geknoeid kan worden gebruikt door een kwaadwillende apparaat naar zich voordoen als een bestaand apparaat.
+* **Hardware veilig implementeren**: IoT-implementaties mogelijk hardware om te worden geïmplementeerd in niet-beveiligde locaties, zoals in openbare ruimten of zonder supervisie landinstellingen.
+* **Verificatiesleutels veilig te houden**: tijdens de implementatie van elk apparaat vereist dat apparaat-id's en verificatiesleutels die worden gegenereerd door de service in de cloud die is gekoppeld. Deze sleutels fysiek veilig afschermen na de implementatie. Een willekeurige toets waarmee is geknoeid kan door een schadelijke apparaat worden gebruikt voor het zich voordoen als een bestaand apparaat.
 
-## <a name="iot-solution-operator"></a>IoT-oplossing operator
+## <a name="iot-solution-operator"></a>Operator voor IoT-oplossing
 
-Volg de onderstaande procedures als u een IoT-oplossing operator:
+Volg de onderstaande aanbevolen procedures als u een IoT-oplossing operator:
 
-* **Systemen up-to-date te houden**: Zorg ervoor dat de besturingssystemen van apparaten en alle apparaatstuurprogramma's worden bijgewerkt naar de meest recente versies. 
-* **Bescherming tegen schadelijke activiteiten**: als het besturingssysteem toestaat, plaatst u de nieuwste antivirus- en anti-malware-mogelijkheden op elk besturingssysteem. 
-* **Regelmatig controleren**: controle IoT-infrastructuur voor beveiliging problemen is sleutel verwante bij het reageren op beveiligingsincidenten.
-* **Fysiek de IoT-infrastructuur beveiligen**: de slechtste beveiligingsaanvallen tegen IoT-infrastructuur worden gestart met behulp van de fysieke toegang tot apparaten.
-* **Beveiligen van referenties van de cloud**: referenties voor cloud-verificatie gebruikt voor het configureren en gebruiken van een IoT-implementatie zijn mogelijk de eenvoudigste manier om toegang te krijgen en een IoT-systeem. 
+* **Systemen up-to-date te houden**: Zorg ervoor dat de besturingssystemen van apparaten en alle apparaatstuurprogramma's worden bijgewerkt naar de nieuwste versie. 
+* **Bescherming tegen schadelijke activiteiten**: als het besturingssysteem toestaat, plaatst u de nieuwste mogelijkheden van antivirusprogramma's en anti-malware op elk besturingssysteem. 
+* **Regelmatig controleren**: controle van IoT-infrastructuur voor beveiliging problemen is essentieel gerelateerde bij het reageren op beveiligingsincidenten.
+* **De IoT-infrastructuur fysiek beveiligen**: de slechtste beveiligingsaanvallen tegen IoT-infrastructuur worden gestart met behulp van de fysieke toegang tot apparaten.
+* **Cloudreferenties beveiligen**: referenties voor cloud-verificatie gebruikt voor het configureren en gebruiken van een IoT-implementatie zijn mogelijk de eenvoudigste manier om toegang te krijgen en een IoT-systeem. 
 

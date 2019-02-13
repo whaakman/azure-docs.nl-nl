@@ -8,19 +8,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: geetha
-ms.openlocfilehash: 233325f0032dc31445bbaa9d9e522f401f43c093
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 9ec6760e790bc540554cf18a9f85f24048becbed
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488761"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114668"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Key Vault-sleutel en -geheim voor versleutelde virtuele machines met behulp van Azure back-up terugzetten
 In dit artikel vertelt over het gebruik van Azure VM Backup voor herstel van versleutelde virtuele machines van Azure uitvoeren als uw sleutel en -geheim niet bestaan in de key vault. Deze stappen kunnen ook worden gebruikt als u wilt behouden een afzonderlijk exemplaar van de sleutel (Key-versleutelingssleutel) en -geheim (BitLocker-versleutelingssleutel) voor de herstelde virtuele machine.
 
 ## <a name="prerequisites"></a>Vereisten
 * **Back-up van versleutelde virtuele machines** - versleutelde virtuele machines in Azure back-ups maken met Azure Backup. Raadpleeg het artikel [beheren van back-up en herstel van virtuele Azure-machines met behulp van PowerShell](backup-azure-vms-automation.md) voor meer informatie over hoe u back-up van versleutelde virtuele machines van Azure.
-* **Configureren van Azure Key Vault** : Zorg ervoor dat die key vault waarnaar sleutels en geheimen moeten worden hersteld, is al aanwezig. Raadpleeg het artikel [aan de slag met Azure Key Vault](../key-vault/key-vault-get-started.md) voor meer informatie over key vault-beheer.
+* **Configureren van Azure Key Vault** : Zorg ervoor dat die key vault waarnaar sleutels en geheimen moeten worden hersteld, is al aanwezig. Raadpleeg het artikel [wat is Azure Key Vault?](../key-vault/key-vault-overview.md) voor meer informatie over key vault-beheer.
 * **Herstellen schijf** -Zorg ervoor dat u de hersteltaak voor het herstellen van schijven voor het gebruik van versleutelde VM hebt geactiveerd [PowerShell stappen](backup-azure-vms-automation.md#restore-an-azure-vm). Dit is omdat deze taak wordt een JSON-bestand gegenereerd in uw opslagaccount met sleutels en geheimen voor de versleutelde VM kunnen worden hersteld.
 
 ## <a name="get-key-and-secret-from-azure-backup"></a>Sleutel en -geheim ophalen uit Azure Backup

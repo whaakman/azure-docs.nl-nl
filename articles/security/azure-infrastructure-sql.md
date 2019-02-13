@@ -4,7 +4,7 @@ description: Dit artikel bevat een algemene beschrijving van hoe Azure SQL Datab
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: cce1ff1102c42bd1627caeba7b2c86432b228607
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: cd2ad16f910f5d2b3b801c8d54e9df7660751462
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170851"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103945"
 ---
 # <a name="azure-sql-database-security-features"></a>Azure SQL Database-beveiligingsfuncties    
 Azure SQL Database voorziet in een relationele database-service in Azure. Voor het beveiligen van klantgegevens en bieden krachtige beveiliging-functies die klanten van een relationele database-service verwachten, beschikt SQL Database over een eigen sets met mogelijkheden voor beveiliging. Deze mogelijkheden zijn gebaseerd op de besturingselementen die worden overgenomen van Azure.
 
-## <a name="security-capabilities"></a>Mogelijkheden voor beveiliging
+## <a name="security-capabilities"></a>Beveiligingsmogelijkheden
 
 ### <a name="usage-of-the-tds-protocol"></a>Gebruik van het TDS-protocol
 Azure SQL Database ondersteunt alleen de gegevens in tabelvorm stream (TDS Tabular)-protocol, dat vereist dat de database toegankelijk zijn via alleen de standaard poort van de TCP/1433.
@@ -61,9 +61,9 @@ Omdat de infrastructuurcontroller (FC) de centrale orchestrator van de Azure-inf
 ### <a name="vlan-isolation"></a>VLAN-isolatie
 De Azure-productienetwerk is logisch onderverdeeld in drie primaire VLAN's:
 
-- Het belangrijkste VLAN: koppelt klant niet-vertrouwde knooppunten.
-- De FC-VLAN: Bevat vertrouwde FCs en ondersteunende systemen.
-- Het apparaat VLAN: vertrouwd netwerk en andere infrastructuurapparaten bevat.
+- Het belangrijkste VLAN: Niet-vertrouwde klant knooppunten met elkaar verbindt.
+- De FC-VLAN: Vertrouwde FCs en ondersteunende systemen bevat.
+- Het apparaat VLAN: Vertrouwd netwerk en andere infrastructuurapparaten bevat.
 
 ### <a name="packet-filtering"></a>Filteren van netwerkpakketten
 De IPFilter en de softwarefirewalls die zijn geïmplementeerd op de basis-besturingssysteem en gastbesturingssysteem van de knooppunten verbinding beperkingen afdwingen en te voorkomen dat niet-geautoriseerde verkeer tussen virtuele machines.

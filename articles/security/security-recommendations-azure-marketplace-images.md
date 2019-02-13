@@ -4,19 +4,19 @@ description: In dit artikel bevat aanbevelingen voor installatiekopieën die zij
 services: security
 documentationcenter: na
 author: barclayn
-manager: MBaldwin
+manager: barbkess
 ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: barclayn
-ms.openlocfilehash: 17372076f06cbaa833c437121a01f0dcaaf0e757
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: fa521b81c95f7c0556b082e5487848ef4d7ecaf7
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54243627"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111388"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Aanbevelingen voor beveiliging voor Azure Marketplace-installatiekopieën
 
@@ -39,7 +39,7 @@ Deze aanbevelingen kunnen ook nuttig zijn voor organisaties die geen afbeeldinge
 | Beveiliging                                                     | Het verdient aanbeveling dat LVM niet moet worden gebruikt.                                                                                                                                                                                                                                            |
 | Beveiliging                                                     | Meest recente versies van de vereiste bibliotheken moeten worden opgenomen: </br> -OpenSSL v1.0 of hoger </br> -Python 2.5 of hoger (Python 2.6 + wordt sterk aanbevolen) </br> -Python pyasn1-pakket als nog niet is geïnstalleerd </br> -d.OpenSSL v 1.0 of hoger                                                                |
 | Beveiliging                                                     | Bash-Shell geschiedenisvermeldingen moeten worden gewist                                                                                                                                                                                                                                             |
-| Netwerken                                                   | SSH-server moet worden opgenomen in de standaardinstelling. SSH keep alive ingesteld op ' sshd config ' met de volgende optie: ' ClientAliveInterval 180 '                                                                                                                                                        |
+| Netwerken                                                   | SSH-server moet worden opgenomen in de standaardinstelling. SSH keep alive ingesteld op ' sshd config ' met de volgende optie: ClientAliveInterval 180                                                                                                                                                        |
 | Netwerken                                                   | Installatiekopie mag geen aangepaste netwerkconfiguratie bevatten. De resolv.conf verwijderen: `rm /etc/resolv.conf`                                                                                                                                                                                |
 | Implementatie                                                   | Meest recente Azure Linux Agent moet worden geïnstalleerd </br> -De agent moet worden geïnstalleerd met het RPM- of Deb-pakket.  </br> -U kunt ook het proces voor handmatige installatie, maar de installer-pakketten worden aanbevolen en de voorkeur. </br> -Als de agent handmatig installeren vanuit de GitHub-opslagplaats, kopieert u eerst de `waagent` van het bestand in `/usr/sbin` en uit te voeren (als root): </br>`# chmod 755 /usr/sbin/waagent` </br>`# /usr/sbin/waagent -install` </br>Het configuratiebestand van de agent wordt geplaatst op `/etc/waagent.conf`.    |
 | Implementatie                                                   | Zorgt ervoor dat Azure Support onze partners met de seriële console-uitvoer wanneer die nodig zijn en gepaste time-out voor OS-schijf koppelen vanuit de cloudopslag kan bieden. De installatiekopie moet de volgende parameters hebben toegevoegd aan de Kernel Boot Line: `console=ttyS0 earlyprintk=ttyS0 rootdelay=300` |

@@ -4,7 +4,7 @@ description: " Uw aanbevelingen voor beveiliging met behulp van de beveiligde sc
 services: security-center
 documentationcenter: na
 author: monhaber
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: c42d02e4-201d-4a95-8527-253af903a5c6
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: monhaber
-ms.openlocfilehash: 4c7f272cbf98fefbf70e917634fb623c9e1b6a3b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 22791fc43ff17d56e1f51e7f7737a10109f47c59
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425884"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56104758"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>Verbetering van uw beveiligde score in Azure Security Center
 
@@ -80,7 +80,7 @@ De aanbeveling ziet u welke bedreigingen voor uw workload wordt blootgesteld aan
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u geleerd over het verbeteren van uw beveiliging verbeteren met **beveiligde score** in Azure Security Center. Zie voor meer informatie over Security Center:
+In dit artikel hebt u geleerd over het verbeteren van uw beveiliging verbeteren met **beveiligde score** in Azure Security Center. Zie de volgende onderwerpen voor meer informatie over Azure Security Center:
 
 * [Azure Security Center FAQ](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service.
 * [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md): meer informatie over het bewaken van de status van uw Azure-resources.

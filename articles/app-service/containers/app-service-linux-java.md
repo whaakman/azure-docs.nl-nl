@@ -13,18 +13,29 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 61bbc65c543801b0f783d01dfb803f47dbcf8a07
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d6e8d943d14cfddc260ba502e724543c6dc9cf4f
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215296"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110333"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Java developer's guide for App Service op Linux
 
 Azure App Service on Linux kunt Java-ontwikkelaars voor het snel bouwen, implementeren en schalen van hun Tomcat of Standard-editie van Java (SE) verpakt in een volledig beheerde service voor Linux-gebaseerde web-apps. Implementeer toepassingen in Maven-invoegtoepassingen vanaf de opdrachtregel of in een editor, zoals IntelliJ, Eclipse of Visual Studio Code.
 
 Deze handleiding bevat de belangrijkste concepten en instructies voor het Java-ontwikkelaars voor Linux in App Service gebruiken. Als u Azure App Service voor Linux nooit hebt gebruikt, dient u te lezen via de [Java-quickstart](quickstart-java.md) eerste. Algemene vragen over het gebruik van App Service voor Linux die niet specifiek zijn voor de Java-ontwikkeling worden beantwoord het [Veelgestelde vragen over App Service Linux](app-service-linux-faq.md).
+
+## <a name="deploying-your-app"></a>Implementeren van uw app
+
+De Maven-invoegtoepassing kunt u zowel .war als JAR-bestanden implementeren. Raadpleeg [deze documentatie](https://docs.microsoft.com/en-us/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable) voor meer informatie over de Maven-invoegtoepassing. 
+
+Als u niet met behulp van Maven, wordt uw implementatiemethode afhankelijk van uw archieftype:
+
+- Als u wilt implementeren WAR-bestanden op Tomcat, gebruikt u de `/api/wardeploy/` eindpunt naar het archiefbestand plaatsen. Zie voor meer informatie over deze API [deze documentatie](https://docs.microsoft.com/en-us/azure/app-service/deploy-zip#deploy-war-file).
+- Voor het implementeren van de JAR-bestanden in de Java SE-installatiekopieën, gebruikt u de `/api/zipdeploy/` eindpunt van de Kudu-site. Zie voor meer informatie over deze API [deze documentatie](https://docs.microsoft.com/en-us/azure/app-service/deploy-zip#rest).
+
+Implementeer uw .war of JAR met FTP niet. De FTP-programma is ontworpen om te uploaden opstartscripts, afhankelijkheden of andere runtimebestanden. Het is niet de beste keuze voor het implementeren van web-apps.
 
 ## <a name="logging-and-debugging-apps"></a>Logboekregistratie en foutopsporing van apps
 

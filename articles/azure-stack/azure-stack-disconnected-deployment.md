@@ -12,21 +12,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 05bf01e2b7c380f7bb79230885e247bd8c834d14
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 4481bcf7a794423f98f45e4a21a139dbe4c32b4f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691164"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210778"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Implementatie van Azure verbroken planningsbeslissingen voor Azure Stack-geïntegreerde systemen
-Nadat u hebt besloten [hoe u Azure Stack wordt integreren in uw hybride cloudomgeving](azure-stack-connection-models.md), kunt u vervolgens uw beslissingen voor de Azure Stack-implementatie te voltooien.
+Nadat u hebt besloten [hoe u Azure Stack wordt integreren in uw hybride cloudomgeving](azure-stack-connection-models.md), kunt u uw beslissingen voor de implementatie van Azure Stack voltooien.
 
-U kunt implementeren en gebruiken van Azure Stack zonder een verbinding met internet. Met de implementatie van een niet-verbonden bent u echter beperkt tot een AD FS-identiteitsarchief en het factureringsmodel op basis van capaciteit. Omdat voor multitenancy is vereist voor het gebruik van Azure AD, wordt multitenancy wordt niet ondersteund voor implementaties van niet-verbonden. 
+U kunt implementeren en gebruiken van Azure Stack zonder een verbinding met internet. Met de implementatie van een niet-verbonden bent u echter beperkt tot een AD FS-identiteitsarchief en het factureringsmodel op basis van capaciteit. Omdat voor multitenancy is vereist voor het gebruik van Azure Active Directory (Azure AD), wordt multitenancy wordt niet ondersteund voor implementaties van niet-verbonden. 
 
 Kies deze optie als u:
 - Beveiligings- of andere beperkingen waarvoor u Azure Stack implementeren in een omgeving die niet is verbonden met Internet hebben.
@@ -34,9 +34,9 @@ Kies deze optie als u:
 - Wilt u Azure Stack gebruiken als een privécloud-oplossing die is geïmplementeerd op het Intranet van uw bedrijf en niet zijn geïnteresseerd in hybride scenario's.
 
 > [!TIP]
-> Soms, wordt dit type omgeving ook wel een 'Onderzeese scenario'.
+> Soms, dit type omgeving wordt ook wel een *Onderzeese scenario*.
 
-Een niet-verbonden implementatie betekent niet strikt dat u geen later opnieuw verbinding uw Azure Stack-exemplaar naar Azure voor hybride tenant-VM's maken. Betekent dit dat u hebt geen verbinding met Azure tijdens de implementatie van of u niet wilt gebruiken van Azure Active Directory als uw archief.
+Een niet-verbonden implementatie beperkt u niet later opnieuw verbinding maken met uw Azure Stack-exemplaar naar Azure voor hybride tenant-VM's. Betekent dit dat u hebt geen verbinding met Azure tijdens de implementatie van of u niet wilt dat Azure AD gebruiken als uw archief.
 
 ## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>Functies die gehinderd of niet beschikbaar in niet-verbonden implementaties worden 
 Azure Stack is ontworpen om te werken het beste wanneer verbonden met Azure, dus is het belangrijk te weten dat er zijn enkele functies en functionaliteit die verminderde of helemaal niet beschikbaar is in de modus zonder verbinding. 

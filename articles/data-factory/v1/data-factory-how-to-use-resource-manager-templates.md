@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e9a99fcbe161e0b6cdabf1363ab3121a77869df7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9fb63ae141665dbeb64ee7046427098d4482aa55
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024855"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111319"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Gebruik sjablonen om aan te maken van Azure Data Factory-entiteiten
 > [!NOTE]
@@ -236,7 +236,7 @@ Zie voor aanbevolen procedures op parametriseren [aanbevolen procedures voor het
 * Instellingen variëren per omgeving (voorbeeld: ontwikkeling, testen en productie)
 * Geheimen (zoals wachtwoorden)
 
-Als u nodig hebt voor het ophalen van geheimen van [Azure Key Vault](../../key-vault/key-vault-get-started.md) bij het implementeren van Azure Data Factory-entiteiten met behulp van sjablonen, geef de **sleutelkluis** en **geheime naam** zoals wordt weergegeven in de bijvoorbeeld:
+Als u nodig hebt voor het ophalen van geheimen van [Azure Key Vault](../../key-vault/key-vault-overview.md) bij het implementeren van Azure Data Factory-entiteiten met behulp van sjablonen, geef de **sleutelkluis** en **geheime naam** zoals wordt weergegeven in de bijvoorbeeld:
 
 ```JSON
 "parameters": {

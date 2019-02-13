@@ -4,7 +4,7 @@ description: Dit document wordt uitgelegd dat de Azure Security Center aanbeveli
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 2e76c7f7-a3dd-4d9f-add9-7e0e10e9324d
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: b5cb1fe623062816955278da7b0a9e63cbc19254
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 782c769bc7825dc9b6bd3ba3b8e36885bf150eaa
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54258472"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112577"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Aanbevelingen voor Azure Security Center-container begrijpen
 
@@ -45,7 +45,7 @@ Gebruik de onderstaande tabellen als referentie om te begrijpen van de beschikba
 
 | Aanbeveling | Description | Herstel |
 | --- | --- | --- |
-|Beveiligingsproblemen in container-beveiligingsconfiguraties herstellen |Beveiligingsproblemen in container-beveiligingsconfiguraties op basis van aanbevolen procedures voor configuratie herstellen.| Door beveiligingslekken in de container-beveiligingsconfiguraties herstellen:<br>1. Bekijk de lijst met mislukte regels.<br>2. Elke regel op basis van de opgegeven instructies oplossen.|
+|Beveiligingsproblemen in containerbeveiligingsconfiguraties verhelpen |Beveiligingsproblemen in container-beveiligingsconfiguraties op basis van aanbevolen procedures voor configuratie herstellen.| Door beveiligingslekken in de container-beveiligingsconfiguraties herstellen:<br>1. Bekijk de lijst met mislukte regels.<br>2. Elke regel op basis van de opgegeven instructies oplossen.|
 
 
 ## <a name="next-steps"></a>Volgende stappen

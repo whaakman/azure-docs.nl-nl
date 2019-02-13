@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2018
 ms.author: jeedes
-ms.openlocfilehash: e23949ac4957325c3949312dad61071a1f527789
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 28ea99f7e672339e45730e80294455931573d62a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191105"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56169987"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insider-track"></a>Zelfstudie: Azure Active Directory-integratie met Insider bijhouden
 
@@ -113,7 +114,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<companyname>/InsiderTrack.Portal.<companyname>/Sso/`
 
     > [!NOTE] 
-    > Aanmeldings-URL-waarde is niet echt. Deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [Insider bijhouden Client ondersteuningsteam](https://cytecsolutions.com/contact/) deze waarde op te halen.
+    > Aanmeldings-URL-waarde is niet echt. Werk deze waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [Insider bijhouden Client ondersteuningsteam](https://cytecsolutions.com/contact/) deze waarde op te halen.
 
 4. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 

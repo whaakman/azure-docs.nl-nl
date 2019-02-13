@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: cc5ed33f40d1500124aeed2d215d281ded47f5c6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3725089c8b2e7dc71e652ddcbd20a757d9bbf726
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191658"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56169749"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getabstract"></a>Zelfstudie: Azure Active Directory-integratie met Getabstract
 
@@ -133,7 +134,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     Voor productie: `https://www.getabstract.com/portal/<org_username>`
 
     > [!NOTE] 
-    > Deze waarde is niet echt. Deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [Getabstract Client ondersteuningsteam](https://www.getabstract.com/en/contact) deze waarde op te halen.
+    > Deze waarde is niet echt. Werk deze waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [Getabstract Client ondersteuningsteam](https://www.getabstract.com/en/contact) deze waarde op te halen.
 
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 

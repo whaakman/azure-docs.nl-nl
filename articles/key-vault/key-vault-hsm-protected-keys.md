@@ -4,7 +4,7 @@ description: Gebruik dit artikel om te plannen, te genereren en vervolgens over 
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 51abafa1-812b-460f-a129-d714fdc391da
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 928ed383c08dd87cb003d1f729bc3fecce0c6935
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 76943c89cd4c0a283dc36a2a0d28c907cef0ad28
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999229"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114685"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Het genereren en overdragen met HSM beveiligde sleutels voor Azure Key Vault
 
@@ -32,7 +32,7 @@ Deze functionaliteit is niet beschikbaar voor Azure China.
 
 > [!NOTE]
 > Zie voor meer informatie over Azure Key Vault [wat is Azure Key Vault?](key-vault-whatis.md)  
-> Zie voor een aan de slag-zelfstudie, zoals het maken van een sleutelkluis voor HSM beschermde sleutels, [aan de slag met Azure Key Vault](key-vault-get-started.md).
+> Zie voor een aan de slag-zelfstudie, zoals het maken van een sleutelkluis voor HSM beschermde sleutels, [wat is Azure Key Vault?](key-vault-overview.md).
 
 Meer informatie over het genereren en overdragen van een met HSM beveiligde sleutel via Internet:
 
@@ -62,7 +62,7 @@ Zie de volgende tabel voor een lijst met vereisten voor het meenemen van uw eige
 | Een abonnement op Azure |Voor het maken van een Azure Key Vault, moet u een Azure-abonnement: [Aanmelden voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/) |
 | De Azure Key Vault Premium-servicelaag voor de ondersteuning van met HSM beveiligde sleutels |Zie voor meer informatie over de service-lagen en mogelijkheden voor Azure Key Vault, de [prijzen van Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) website. |
 | Thales HSM, smartcards en voor ondersteuningssoftware |U moet toegang hebben tot een Thales Hardware Security Module en operationele basiskennis hebben van Thales HSM's. Zie [Thales Hardware Security Module](https://www.thales-esecurity.com/msrms/buy) voor de lijst met compatibele modellen of om aan te schaffen van een HSM, als u niet hebt. |
-| De volgende hardware en software:<ol><li>Een offline x64 werkstation met een minimale Windows-besturingssysteem Windows 7 en Thales nShield-software ten minste versie 11.50.<br/><br/>Als dit werkstation Windows 7 wordt uitgevoerd, moet u [Microsoft .NET Framework 4.5 installeren](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Een werkstation dat is verbonden met Internet en heeft een minimumversie Windows-besturingssysteem van Windows 7 en [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.7.0) **minimaal versie 1.1.0** geïnstalleerd.</li><li>Een USB-station of ander draagbaar opslagapparaat met ten minste 16 MB vrije ruimte.</li></ol> |Uit veiligheidsoverwegingen, wordt u aangeraden dat de eerste werkstation niet is verbonden met een netwerk. Deze aanbeveling is echter niet via een programma afgedwongen.<br/><br/>In de volgende instructies wordt dit werkstation aangeduid als niet-verbonden werkstation.</p></blockquote><br/>Bovendien, als uw tenantsleutel bedoeld voor een productienetwerk is, raden wij u een tweede, afzonderlijk werkstation gebruiken voor het downloaden van de toolset en uploaden van de tenant-sleutel. Maar voor testdoeleinden kunt u hetzelfde werkstation gebruiken als het eerste.<br/><br/>In de volgende instructies wordt dit tweede werkstation aangeduid als het met Internet verbonden werkstation.</p></blockquote><br/> |
+| De volgende hardware en software:<ol><li>Een offline x64 werkstation met een minimale Windows-besturingssysteem Windows 7 en Thales nShield-software ten minste versie 11.50.<br/><br/>Als dit werkstation Windows 7 wordt uitgevoerd, moet u [Microsoft .NET Framework 4.5 installeren](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Een werkstation dat is verbonden met Internet en heeft een minimumversie Windows-besturingssysteem van Windows 7 en [Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) **minimaal versie 1.1.0** geïnstalleerd.</li><li>Een USB-station of ander draagbaar opslagapparaat met ten minste 16 MB vrije ruimte.</li></ol> |Uit veiligheidsoverwegingen, wordt u aangeraden dat de eerste werkstation niet is verbonden met een netwerk. Deze aanbeveling is echter niet via een programma afgedwongen.<br/><br/>In de volgende instructies wordt dit werkstation aangeduid als niet-verbonden werkstation.</p></blockquote><br/>Bovendien, als uw tenantsleutel bedoeld voor een productienetwerk is, raden wij u een tweede, afzonderlijk werkstation gebruiken voor het downloaden van de toolset en uploaden van de tenant-sleutel. Maar voor testdoeleinden kunt u hetzelfde werkstation gebruiken als het eerste.<br/><br/>In de volgende instructies wordt dit tweede werkstation aangeduid als het met Internet verbonden werkstation.</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>Genereren en uw sleutel overdragen naar Azure Key Vault HSM
 
@@ -503,4 +503,4 @@ Als de upload voltooid is, ziet u de eigenschappen van de sleutel die u zojuist 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt nu deze met HSM beveiligde sleutel gebruiken in uw key vault. Zie voor meer informatie de **als u wilt gebruiken van een hardware security module (HSM)** sectie de [aan de slag met Azure Key Vault](key-vault-get-started.md) zelfstudie.
+U kunt nu deze met HSM beveiligde sleutel gebruiken in uw key vault. Zie voor meer informatie de **als u wilt gebruiken van een hardware security module (HSM)** sectie de [aan de slag met Azure Key Vault](key-vault-overview.md) zelfstudie.

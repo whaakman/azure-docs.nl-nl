@@ -4,7 +4,7 @@ description: In dit document wordt uitgelegd hoe de detectiemogelijkheden van Az
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 4c5599cc-99a1-430f-895f-601615ef12a0
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: e9aacdd75d35a714a9f878d059514fd8aa65f50d
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 8cd76909c9ce15a97de4ea5af3b21ac120058dd3
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340739"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107358"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Detectiemogelijkheden van Azure Security Center
 Dit document bespreekt geavanceerde detectiemogelijkheden van Azure Security Center, die helpt bij het identificeren van actieve bedreigingen die gericht is op uw Microsoft Azure-resources - zowel Windows als Linux - en biedt u de inzichten die nodig zijn voor het snel reageren.

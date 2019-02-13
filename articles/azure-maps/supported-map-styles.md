@@ -3,17 +3,17 @@ title: Kaartstijlen ondersteund in Azure Maps | Microsoft Docs
 description: Ondersteund door Azure Maps kaartstijlen
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/02/2018
+ms.date: 02/12/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2f426ab85d9ab15dd080a487337b8d48358ed040
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 923b9fef75fa610ee817a86ce0b4d6b322153f01
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888457"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113428"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Azure Maps ondersteunde kaartstijlen
 Azure kaarten biedt ondersteuning voor diverse verschillende ingebouwde kaartstijlen zoals hieronder wordt beschreven.
@@ -28,10 +28,10 @@ Een **weg** kaart is een standaard-kaart die wordt weergegeven wegen, natuurlijk
 * [Tegel Serviceoverzicht](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Kaartbesturingselement JS
 
-## <a name="satellite"></a>Satelliet 
+## <a name="satellite"></a>satellite 
 De **satelliet** stijl is een combinatie van satelliet en Luchtfoto beelden.
 
-![Satelliet](./media/supported-map-styles/satellite.png)
+![satellite](./media/supported-map-styles/satellite.png)
 
 **Van toepassing API's:**
 * [Satelliet-tegel](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
@@ -56,7 +56,16 @@ De stijl van deze kaart is een hybride van wegen en labels satelliet en Luchtfot
 ## <a name="night"></a>'s nachts
 **'s nachts** is een donkere versie van de stijl overzicht met gekleurde wegen en symbolen.
 
-!['s nachts](./media/supported-map-styles/night.PNG)
+!['s nachts](./media/supported-map-styles/night.png)
 
 **Van toepassing API's:**
-* Kaartbesturingselement JS 
+* Kaartbesturingselement JS
+
+## <a name="roadshadedrelief"></a>road_shaded_relief
+**weg gearceerde vrijstelling** is een Azure-kaarten belangrijkste stijl is voltooid met beschrijvingen van de aarde.
+
+![gearceerde vrijstelling](./media/supported-map-styles/shaded-relief.png)
+
+**Van toepassing API's:**
+* Kaartbesturingselement JS
+* [Tegel Serviceoverzicht](https://docs.microsoft.com/rest/api/maps/render/getmaptile)

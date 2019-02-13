@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/10/2019
 ms.author: banders
-ms.openlocfilehash: 3ce6d37a1c9e3ebe1e1cd4546a70717674488b91
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: d3bdcc267c55434a71c915f7d4e575d47522986b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100494"
+ms.locfileid: "56110571"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Toevoegen of wijzigen van de beheerders van Azure-abonnement
 
 Om de toegang tot Azure-resources te beheren, moet u over de juiste beheerdersrol beschikken. Azure heeft een autorisatiesysteem met de naam op rollen gebaseerd toegangsbeheer (RBAC) met verschillende ingebouwde rollen die kunt u kiezen uit. U kunt deze rollen op verschillende niveaus, zoals de beheergroep, abonnement of resourcegroep toewijzen.
 
-Microsoft raadt u toegang tot resources met behulp van RBAC te beheren. Als u bent zijn echter nog steeds met het klassieke implementatiemodel, moet u een klassiek abonnementsbeheerder gebruiken. Zie voor meer informatie, [Azure Resource Manager en klassieke implementatie](../azure-resource-manager/resource-manager-deployment-model.md) en [beheerders van de klassieke Azure-abonnement](../role-based-access-control/classic-administrators.md).
+Microsoft raadt u toegang tot resources met behulp van RBAC te beheren. Echter, als u nog steeds het klassieke implementatiemodel gebruikt, u moet een beheerder voor klassiek abonnement gebruiken. Zie voor meer informatie, [Azure Resource Manager en klassieke implementatie](../azure-resource-manager/resource-manager-deployment-model.md) en [beheerders van de klassieke Azure-abonnement](../role-based-access-control/classic-administrators.md).
 
 Dit artikel wordt beschreven hoe toevoegen of wijzigen van de beheerdersrol voor een gebruiker met RBAC op het abonnementsbereik.
 

@@ -14,21 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: 4f6297fa8477ff4794bee589737e047993427c06
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a81754b9b95c7cc6e257707aec188abf1dab58c3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345859"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194866"
 ---
-# <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Zelfstudie: Voor het automatisch inrichten van gebruikers Tableau Online configureren
+# <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Zelfstudie: Tableau Online configureren voor het automatisch inrichten van gebruikers
 
 Het doel van deze zelfstudie is ter illustratie van de stappen om te worden uitgevoerd in Tableau Online en Azure Active Directory (Azure AD) naar Azure AD configureren voor automatisch inrichten en verwijdering van gebruikers en/of groepen met Tableau Online.
 
 > [!NOTE]
 > Deze zelfstudie beschrijft een connector die is gebaseerd op de Provisioning-Service van Azure AD-gebruiker. Zie voor belangrijke informatie over wat deze service biedt, hoe het werkt en veelgestelde vragen [automatiseren van gebruikersinrichting en -opheffing in SaaS-toepassingen met Azure Active Directory](../manage-apps/user-provisioning.md).
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al het volgende hebt:
 
@@ -46,7 +47,7 @@ Alvorens Tableau Online te configureren voor het automatisch gebruikers inrichte
 
 1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op de **Azure Active Directory** pictogram.
 
-    ![De Azure Active Directory-knop][1]
+    ![De knop Azure Active Directory][1]
 
 2. Navigeer naar **bedrijfstoepassingen** > **alle toepassingen**.
 
@@ -54,7 +55,7 @@ Alvorens Tableau Online te configureren voor het automatisch gebruikers inrichte
 
 3. Als u wilt toevoegen Tableau Online, klikt u op de **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing][3]
 
 4. Typ in het zoekvak **Tableau Online**.
 
@@ -115,9 +116,9 @@ Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-inricht
 
 6. Na het aanmelden bij uw account met beheerdersrechten voor Online Tableau de waarden voor **domein** en **inhouds-URL** kunnen worden geëxtraheerd uit de URL van de beheerpagina.
 
-    *   De **domein** voor uw Tableau Online account van dit deel van de URL kan worden gekopieerd: ![Tableau Online inrichten](./media/tableau-online-provisioning-tutorial/DomainUrlPart.png)
+    *   De **domein** voor uw Tableau Online account van dit deel van de URL kan worden gekopieerd: ![Tableau Online Provisioning](./media/tableau-online-provisioning-tutorial/DomainUrlPart.png)
 
-    *   De **inhouds-URL** voor uw Tableau Online account kan worden gekopieerd in deze sectie en is een waarde die tijdens de installatie van de account is gedefinieerd. In dit voorbeeld is de waarde 'contoso': ![Tableau Online inrichten](./media/tableau-online-provisioning-tutorial/ContentUrlPart.png)
+    *   De **inhouds-URL** voor uw Tableau Online account kan worden gekopieerd in deze sectie en is een waarde die tijdens de installatie van de account is gedefinieerd. In dit voorbeeld is de waarde 'contoso': ![Tableau Online Provisioning](./media/tableau-online-provisioning-tutorial/ContentUrlPart.png)
 
         > [!NOTE]
         > Uw **domein** kan afwijken van de hieronder. 
@@ -167,7 +168,7 @@ Met deze bewerking wordt gestart voor de initiële synchronisatie van alle gebru
 
 Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over het inrichten van automatische gebruikersaccounts](../manage-apps/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)

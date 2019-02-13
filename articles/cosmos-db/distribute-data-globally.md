@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/26/2018
-ms.openlocfilehash: 28c945223d225d7e91df1041bcbe02ee87b93c6a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 75940f9c3c8022c5445eb998b133a156dacde9b5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475054"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106865"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---overview"></a>Globale gegevensdistributie met Azure Cosmos DB - overzicht
 
@@ -22,6 +22,8 @@ Azure Cosmos DB is een wereldwijd gedistribueerde databaseservice die is ontwikk
 U kunt uw databases zijn wereldwijd gedistribueerde en beschikbaar zijn in een van de Azure-regio's configureren. Als u wilt de latentie verlagen, plaats de gegevens dichter naar waar uw gebruikers zijn. De vereiste regio's te kiezen, is afhankelijk van het wereldwijde bereik van uw toepassing en waar uw gebruikers zich bevinden. Azure Cosmos DB repliceert de gegevens in uw account transparant naar alle regio's die zijn gekoppeld aan uw account. Het biedt één integraal beeld van de wereldwijd gedistribueerde Azure Cosmos-database en de containers die uw toepassing kunt lezen en schrijven naar lokaal. 
 
 U kunt met Azure Cosmos DB, toevoegen of verwijderen van de regio's die zijn gekoppeld aan uw account op elk gewenst moment. Uw toepassing hoeft niet te worden onderbroken of opnieuw als u wilt toevoegen of verwijderen van een regio zijn geïmplementeerd. Deze maximaal beschikbaar blijft continu vanwege de multihoming-mogelijkheden die de service biedt.
+
+![Maximaal beschikbare implementatietopologie](./media/distribute-data-globally/deployment-topology.png)
 
 ## <a name="key-benefits-of-global-distribution"></a>Belangrijkste voordelen van wereldwijde distributie
 
@@ -50,6 +52,7 @@ Veel toepassingen profiteren van de prestatieverbeteringen die worden geleverd m
 Meer informatie over globale distributie in de volgende artikelen:
 
 * [Wereldwijde distributie - achter de schermen](global-dist-under-the-hood.md)
+* [Meerdere masters in uw toepassingen configureren](how-to-multi-master.md)
 * [Clients configureren voor multihoming](how-to-manage-database-account.md#configure-clients-for-multi-homing)
 * [Toevoegen of verwijderen van regio's van uw Azure Cosmos DB-account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Een aangepaste conflict resolutie beleid voor de SQL API-accounts maken](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

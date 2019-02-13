@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 0f134bdb4f77034dd124027fc960d172d25db721
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: e11ac55afe41231fcbc3aabb3ef54b46108eb49c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515315"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185840"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Upgrade van de service Fabric-toepassing met behulp van PowerShell
 > [!div class="op_single_selector"]
@@ -34,9 +34,7 @@ De meestgebruikte en aanbevolen upgrade benadering is van de bewaakte rolling up
 
 Een upgrade van de bewaakte toepassing kan worden uitgevoerd met behulp van de beheerde of systeemeigen API's, PowerShell, Azure CLI, Java of REST. Zie voor instructies over het uitvoeren van een upgrade met Visual Studio, [bijwerken van uw toepassing met Visual Studio](service-fabric-application-upgrade-tutorial.md).
 
-Met Service Fabric bewaakt rolling upgrades, kan de beheerder van de toepassing het statusbeleid voor evaluatie die gebruikmaakt van Service Fabric om te bepalen of de toepassing in orde configureren. Bovendien configureren de beheerder de actie die moet worden uitgevoerd wanneer de status evaluatie is mislukt (bijvoorbeeld, voeren een automatische terugdraaien.) Dit gedeelte doorloopt samen door middel van een bewaakte upgrade voor een van de SDK-voorbeelden die gebruikmaakt van PowerShell. De video volgende Microsoft Virtual Academy leidt u door een app-upgrade: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=OrHJH66yC_6406218965">
-<img src="./media/service-fabric-application-upgrade-tutorial-powershell/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
+Met Service Fabric bewaakt rolling upgrades, kan de beheerder van de toepassing het statusbeleid voor evaluatie die gebruikmaakt van Service Fabric om te bepalen of de toepassing in orde configureren. Bovendien configureren de beheerder de actie die moet worden uitgevoerd wanneer de status evaluatie is mislukt (bijvoorbeeld, voeren een automatische terugdraaien.) Dit gedeelte doorloopt samen door middel van een bewaakte upgrade voor een van de SDK-voorbeelden die gebruikmaakt van PowerShell. 
 
 ## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>Stap 1: Bouw en implementeer een voorbeeld van de Visual objecten
 Bouwt en publiceert u de toepassing met de rechtermuisknop op het toepassingsproject **VisualObjectsApplication,** en selecteren van de **publiceren** opdracht.  Zie voor meer informatie, [Service Fabric application upgrade zelfstudie](service-fabric-application-upgrade-tutorial.md).  U kunt ook PowerShell gebruiken om uw toepassing te implementeren.
@@ -76,7 +74,7 @@ Nu de *ApplicationManifest.xml* bestand (te vinden onder de **VisualObjects** pr
 
 Nu, bouw het project door te selecteren alleen de **ActorService** project, en vervolgens met de rechtermuisknop op en selecteer de **bouwen** optie in Visual Studio. Als u selecteert **alles opnieuw opbouwen**, moet u de versies voor alle projecten, bijwerken, omdat de code zou zijn gewijzigd. Vervolgens gaan we de bijgewerkte toepassing verpakken met de rechtermuisknop op ***VisualObjectsApplication***, het selecteren van het Service Fabric-Menu en kiezen **pakket**. Deze actie wordt gemaakt van een toepassingspakket dat kan worden geïmplementeerd.  Uw bijgewerkte toepassing is gereed om te worden geïmplementeerd.
 
-## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>Stap 3: Statusbeleid hebt bepaald en Upgradeparameters
+## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>Stap 3:  Besluit op statusbeleid en Upgradeparameters
 Maak uzelf vertrouwd met de [parameters toepassingsupgrade](service-fabric-application-upgrade-parameters.md) en de [upgradeproces](service-fabric-application-upgrade.md) om op te halen van een goed begrip van de verschillende parameters voor het bijwerken, time-outs en health criterium toegepast. Voor dit scenario is het criterium voor evaluatie van health service ingesteld op de standaardwaarde (en aanbevolen) waarden, wat betekent dat alle services en -exemplaren moeten zijn *in orde* na de upgrade.  
 
 Maar laten we vergroten de *HealthCheckStableDuration* 180 seconden (zodat de services van ten minste 120 seconden voordat de upgrade wordt uitgevoerd op het volgende updatedomein in orde zijn).  We gaan ook instellen de *UpgradeDomainTimeout* moet 1200 seconden en de *UpgradeTimeout* 3000 seconden zijn.
@@ -85,7 +83,7 @@ Tot slot gaan we ook stelt de *UpgradeFailureAction* terug te draaien. Deze opti
 
 FailureAction = terugdraaien
 
-HealthCheckStableDurationSec 180 =
+HealthCheckStableDurationSec = 180
 
 UpgradeDomainTimeoutSec = 1200
 
@@ -116,7 +114,7 @@ Het verdient aanbeveling dat u het toepassingspakket verwijderen nadat de regist
 Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore "VisualObjects\_V2" -ImageStoreConnectionString fabric:ImageStore
 ```
 
-## <a name="step-5-start-the-application-upgrade"></a>Stap 5: Start de upgrade van de toepassing
+## <a name="step-5-start-the-application-upgrade"></a>Stap 5: Upgrade van de toepassing starten
 Nu kunnen we gaan de upgrade van de toepassing met behulp van de [Start ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps) opdracht:
 
 ```powershell

@@ -16,12 +16,13 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 74f071d91003c63fd8db590572a7c9dea1b8915b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: de9db7abe17fc41907582ec32d3e916d0536e543
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092744"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175088"
 ---
 # <a name="id-tokens"></a>Id-tokens
 
@@ -53,16 +54,16 @@ Dit token v2.0 voorbeeld in weergeven [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAi
 
 ### <a name="header-claims"></a>Header-claims
 
-|Claim | Indeling | Beschrijving |
+|Claim | Indeling | Description |
 |-----|--------|-------------|
 |`typ` | Tekenreeks - altijd "JWT" | Geeft aan dat het token een JWT.|
-|`alg` | Reeks | Geeft aan dat de algoritme die is gebruikt voor het ondertekenen van het token. Voorbeeld: "RS256" |
-|`kid` | Reeks | Vingerafdruk voor de openbare sleutel gebruikt voor het ondertekenen van dit token. Worden weergegeven in zowel v1.0 en v2.0 `id_tokens`. |
-|`x5t` | Reeks | Hetzelfde (in gebruik en de waarde) als `kid`. Dit is echter een verouderde claim verzonden alleen in v1.0 `id_tokens` voor compatibiliteit van toepassing. |
+|`alg` | String | Geeft aan dat de algoritme die is gebruikt voor het ondertekenen van het token. Voorbeeld: "RS256" |
+|`kid` | String | Vingerafdruk voor de openbare sleutel gebruikt voor het ondertekenen van dit token. Worden weergegeven in zowel v1.0 en v2.0 `id_tokens`. |
+|`x5t` | String | Hetzelfde (in gebruik en de waarde) als `kid`. Dit is echter een verouderde claim verzonden alleen in v1.0 `id_tokens` voor compatibiliteit van toepassing. |
 
 ### <a name="payload-claims"></a>De nettolading van claims
 
-|Claim | Indeling | Beschrijving |
+|Claim | Indeling | Description |
 |-----|--------|-------------|
 |`aud` |  Tekenreeks, een URI van de App-ID | Hiermee geeft u de beoogde ontvanger van het token. In `id_tokens`, de doelgroep is van uw app toepassings-ID, toegewezen aan uw app in Azure portal. Uw app moet deze waarde te valideren en het token te negeren als de waarde komt niet overeen met. |
 |`iss` |  Tekenreeks, een STS-URI | Identificeert de beveiligingstokenservice (STS) die wordt gemaakt en retourneert het token en de Azure AD-tenant waarin de gebruiker is geverifieerd. Als het token is uitgegeven door het v2.0-eindpunt, de URI wordt beëindigd `/v2.0`.  De GUID die wordt aangegeven dat de gebruiker een consument gebruiker vanuit een Microsoft-account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Uw app moet de GUID-gedeelte van de claim gebruiken om het beperken van de set van tenants die kunnen zich aanmelden bij de app, indien van toepassing. |
@@ -70,18 +71,18 @@ Dit token v2.0 voorbeeld in weergeven [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAi
 |`idp`|Tekenreeks, meestal een STS-URI | Registreert de identiteitsprovider waarmee het onderwerp van het token is geverifieerd. Deze waarde is gelijk aan de waarde van de claim van verlener, tenzij het gebruikersaccount niet in dezelfde tenant als de verlener - gasten, bijvoorbeeld. Als de claim is niet aanwezig is, betekent dit dat de waarde van `iss` in plaats daarvan kan worden gebruikt.  Voor persoonlijke accounts worden gebruikt in een context orgnizational (bijvoorbeeld een persoonlijk account is uitgenodigd voor een Azure AD-tenant), de `idp` claim mogelijk 'live.com' of een STS URI met de tenant van Microsoft-account `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 |`nbf` |  int, een UNIX-timestamp | De claim 'nbf"(niet voor) geeft de tijd waarbinnen de JWT moet niet worden geaccepteerd voor verwerking.|
 |`exp` |  int, een UNIX-timestamp | De claim 'exp' (verlooptijd) identificeert de verlooptijd op of na die de JWT mag niet worden geaccepteerd voor verwerking.  Het is belangrijk te weten dat een resource het token voordat deze tijd ook - weigeren kan als u bijvoorbeeld een wijziging in de verificatie is vereist of intrekken van een token is gedetecteerd. |
-| `c_hash`| Reeks |De hash van de code is opgenomen in de ID-tokens, alleen wanneer de ID-token dat is uitgegeven met een OAuth 2.0-autorisatiecode. Het kan worden gebruikt om te valideren de echtheid van een autorisatiecode. Zie voor meer informatie over het uitvoeren van deze validatie de [OpenID Connect-specificatie](https://openid.net/specs/openid-connect-core-1_0.html). |
-|`at_hash`| Reeks |Toegang tot de token-hash is opgenomen in de ID tokens alleen wanneer de ID-token dat is uitgegeven met een OAuth 2.0-toegangstoken. Het kan worden gebruikt om te valideren de echtheid van een toegangstoken. Zie voor meer informatie over het uitvoeren van deze validatie de [OpenID Connect-specificatie](https://openid.net/specs/openid-connect-core-1_0.html). |
+| `c_hash`| String |De hash van de code is opgenomen in de ID-tokens, alleen wanneer de ID-token dat is uitgegeven met een OAuth 2.0-autorisatiecode. Het kan worden gebruikt om te valideren de echtheid van een autorisatiecode. Zie voor meer informatie over het uitvoeren van deze validatie de [OpenID Connect-specificatie](https://openid.net/specs/openid-connect-core-1_0.html). |
+|`at_hash`| String |Toegang tot de token-hash is opgenomen in de ID tokens alleen wanneer de ID-token dat is uitgegeven met een OAuth 2.0-toegangstoken. Het kan worden gebruikt om te valideren de echtheid van een toegangstoken. Zie voor meer informatie over het uitvoeren van deze validatie de [OpenID Connect-specificatie](https://openid.net/specs/openid-connect-core-1_0.html). |
 |`aio` | Opaque String | Een interne claim die worden gebruikt door Azure AD om gegevens te noteren voor hergebruik van token. Moeten worden genegeerd.|
-|`preferred_username` | Reeks | De primaire gebruikersnaam die de gebruiker aangeeft. Het is mogelijk een e-mailadres, telefoonnummer of een algemene gebruikersnaam zonder een indeling die is opgegeven. De waarde ervan is veranderlijke en na verloop van tijd veranderen. Omdat dit veranderlijke, moet deze waarde niet worden gebruikt om autorisatie beslissingen te nemen. De `profile` bereik is vereist voor het ontvangen van deze claim.|
-|`email` | Reeks | De `email` claim bevindt zich standaard voor de gastaccounts waarvoor een e-mailadres.  Uw app kunt aanvragen tot de claim e-mailadres voor beheerde gebruikers (die uit dezelfde tenant als de resource) met behulp van de `email` [optionele claim](active-directory-optional-claims.md).  Op het v2.0-eindpunt kunt uw app ook vragen de `email` bereik OpenID Connect - hoeft u niet om aan te vragen de optionele claim en het bereik, om op te halen van de claim.  De e-claim ondersteunt alleen adresseerbare e-mail van de profielgegevens van de gebruiker. |
-|`name` | Reeks | De `name` claim biedt een leesbare waarde die aangeeft in het onderwerp van het token. De waarde kan niet worden gegarandeerd uniek te zijn, is het veranderlijke en is ontworpen om alleen worden gebruikt voor weer te geven. De `profile` bereik is vereist voor het ontvangen van deze claim. |
-|`nonce`| Reeks | De nonce overeenkomt met de parameter die is opgenomen in de oorspronkelijke / aanvraag om de id-provider te autoriseren. Als deze niet overeenkomt, moet uw toepassing het token weigeren. |
+|`preferred_username` | String | De primaire gebruikersnaam die de gebruiker aangeeft. Het is mogelijk een e-mailadres, telefoonnummer of een algemene gebruikersnaam zonder een indeling die is opgegeven. De waarde ervan is veranderlijke en na verloop van tijd veranderen. Omdat dit veranderlijke, moet deze waarde niet worden gebruikt om autorisatie beslissingen te nemen. De `profile` bereik is vereist voor het ontvangen van deze claim.|
+|`email` | String | De `email` claim bevindt zich standaard voor de gastaccounts waarvoor een e-mailadres.  Uw app kunt aanvragen tot de claim e-mailadres voor beheerde gebruikers (die uit dezelfde tenant als de resource) met behulp van de `email` [optionele claim](active-directory-optional-claims.md).  Op het v2.0-eindpunt kunt uw app ook vragen de `email` bereik OpenID Connect - hoeft u niet om aan te vragen de optionele claim en het bereik, om op te halen van de claim.  De e-claim ondersteunt alleen adresseerbare e-mail van de profielgegevens van de gebruiker. |
+|`name` | String | De `name` claim biedt een leesbare waarde die aangeeft in het onderwerp van het token. De waarde kan niet worden gegarandeerd uniek te zijn, is het veranderlijke en is ontworpen om alleen worden gebruikt voor weer te geven. De `profile` bereik is vereist voor het ontvangen van deze claim. |
+|`nonce`| String | De nonce overeenkomt met de parameter die is opgenomen in de oorspronkelijke / aanvraag om de id-provider te autoriseren. Als deze niet overeenkomt, moet uw toepassing het token weigeren. |
 |`oid` | Tekenreeks, een GUID | De onveranderbare id voor een object in het Microsoft-identiteitssysteem, in dit geval een gebruikersaccount. Deze ID is uniek voor de gebruiker voor toepassingen: twee verschillende toepassingen die zich in dezelfde gebruiker ontvangt de dezelfde waarde in de `oid` claim. De Microsoft Graph retourneert deze ID als de `id` eigenschap voor een bepaalde gebruikersaccount. Omdat de `oid` kunnen meerdere apps correleren van gebruikers, de `profile` bereik is vereist voor het ontvangen van deze claim. Houd er rekening mee dat als een enkele gebruiker in meerdere tenants bestaat, de gebruiker een ander object-ID in elke tenant bevat: deze worden beschouwd als andere accounts, zelfs als de gebruiker meldt zich aan bij elk account met dezelfde referenties. |
 |`rh` | Opaque String |Een interne claim die door Azure gebruikt voor het valideren van tokens. Moeten worden genegeerd. |
 |`sub` | Tekenreeks, een GUID | De principal waarover het token worden bevestigd met gegevens, zoals de gebruiker van een app. Deze waarde is onveranderbaar en kan niet worden toegewezen of opnieuw gebruikt. Het onderwerp is een pairwise id - het is uniek is voor een bepaalde toepassing-ID. Als een enkele gebruiker zich in twee verschillende apps met behulp van de twee andere client-id's, krijgen die apps dus twee verschillende waarden voor de claim onderwerp. Dit kan wel of niet kan worden gewenst is afhankelijk van uw architectuur en privacy-vereisten. |
 |`tid` | Tekenreeks, een GUID | Een GUID die de Azure AD-tenant die door de gebruiker van vertegenwoordigt. De GUID is voor werk- en schoolaccounts accounts, de onveranderbare tenant-ID van de organisatie die de gebruiker behoort. De waarde voor persoonlijke accounts heeft `9188040d-6c67-4c5b-b112-36a304b66dad`. De `profile` bereik is vereist voor het ontvangen van deze claim. |
-|`unique_name` | Reeks | Biedt een voor mensen leesbare waarde waarmee het onderwerp van het token wordt geïdentificeerd. Deze waarde is niet noodzakelijkerwijs uniek zijn binnen een tenant en mag alleen worden gebruikt voor weer te geven. Alleen uitgegeven met v1.0 `id_tokens`. |
+|`unique_name` | String | Biedt een voor mensen leesbare waarde waarmee het onderwerp van het token wordt geïdentificeerd. Deze waarde is niet noodzakelijkerwijs uniek zijn binnen een tenant en mag alleen worden gebruikt voor weer te geven. Alleen uitgegeven met v1.0 `id_tokens`. |
 |`uti` | Opaque String | Een interne claim die door Azure gebruikt voor het valideren van tokens. Moeten worden genegeerd. |
 |`ver` | Tekenreeks, 1.0 of 2.0 | Geeft de versie van het id_token. |
 

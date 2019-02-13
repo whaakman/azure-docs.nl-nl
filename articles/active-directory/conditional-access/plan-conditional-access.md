@@ -12,14 +12,15 @@ ms.workload: identity
 ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: martincoetzer
-ms.openlocfilehash: ca0dfcd9b776b6aea052e2569f9a5aec3ae50eca
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1d43c7943eedcfdf839303a6a55d7727a8483441
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081021"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175809"
 ---
-# <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Procedures: De implementatie van voorwaardelijke toegang in Azure Active Directory plannen
+# <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Procedure: De implementatie van voorwaardelijke toegang in Azure Active Directory plannen
 
 Plannen van uw implementatie van voorwaardelijke toegang is van essentieel belang om ervoor te zorgen dat u de strategie van de vereiste toegang voor apps en resources in uw organisatie bereiken. U moet het merendeel van uw moment tijdens de planningsfase van uw implementatie te ontwerpen van de verschillende beleidsregels die u nodig hebt om te verlenen of Blokkeer de toegang tot uw gebruikers in de voorwaarden die u kiest. Dit document worden de stappen beschreven die u nemen moet voor het implementeren van beleid voor voorwaardelijke toegang voor veilig en effectief. Voordat u begint, zorg ervoor dat u begrijpt hoe [voorwaardelijke toegang](overview.md) werkt en wanneer u deze moet gebruiken.
 

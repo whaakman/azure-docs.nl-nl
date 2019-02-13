@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 491bdf121729d690784324051ff701f3ed2d2b7a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a39ab2eb6d08f478ed68aed2bc753e5225185fe3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243178"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175384"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure-verbonden implementatie planningsbeslissingen voor Azure Stack-geïntegreerde systemen
-Nadat u hebt besloten [hoe u Azure Stack wordt integreren in uw hybride cloudomgeving](azure-stack-connection-models.md), kunt u vervolgens uw beslissingen voor de Azure Stack-implementatie te voltooien.
+Nadat u hebt besloten [hoe u Azure Stack wordt integreren in uw hybride cloudomgeving](azure-stack-connection-models.md), kunt u uw beslissingen voor de implementatie van Azure Stack voltooien.
 
 Implementeren Azure Stack met Azure bent verbonden betekent dat u kunt Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS) voor uw archief. U kunt ook kiezen uit een van beide factureringsmodel: betalen als u-gebruik of op basis van capaciteit. Een gekoppelde implementatie is de standaardoptie omdat Hiermee kunnen klanten om op te halen van de meeste waarde ligt buiten het Azure Stack, met name voor hybride cloud-scenario's die betrekking hebben op Azure en Azure Stack. 
 

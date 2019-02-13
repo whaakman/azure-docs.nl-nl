@@ -4,7 +4,7 @@ description: Meer informatie over de beveiliging voor Azure Storage aanbevolen p
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: ''
 ms.service: security
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: TomShinder
-ms.openlocfilehash: ac01aaca8c147b1f474b59ac57424f5cdc5f8a8d
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 3ad97c7adb5901c1da1d174d12d5d6a91831cc74
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451864"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108922"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Aanbevolen procedures voor het beveiligen van PaaS-webtoepassingen en mobiele toepassingen met behulp van Azure Storage
 In dit artikel wordt besproken hoe een verzameling van Azure Storage aanbevolen beveiligingsprocedures voor het beveiligen van uw platform-as-a-service (PaaS) web en mobiele toepassingen. Deze aanbevolen procedures zijn afgeleid van onze ervaring met Azure en de ervaringen van klanten zoals zelf.
 
 Azure maakt het mogelijk om te implementeren en gebruiken van opslag op een manier niet eenvoudig haalbare on-premises. Met Azure storage, kunt u de hoge mate van schaalbaarheid en beschikbaarheid met relatief veel moeite bereiken. Azure Storage niet alleen vormt de basis voor Windows en Linux Azure Virtual Machines, kan deze ook grote gedistribueerde toepassingen ondersteunen.
 
-Azure Storage biedt de volgende vier services: Blob storage, Table storage, Queue storage en File storage. Zie voor meer informatie, [Inleiding tot Microsoft Azure Storage](../storage/storage-introduction.md).
+Azure Storage biedt de volgende vier services: BLOB storage, Table storage, Queue storage en File storage. Zie voor meer informatie, [Inleiding tot Microsoft Azure Storage](../storage/storage-introduction.md).
 
 De [Azure Storage-beveiligingshandleiding](../storage/common/storage-security-guide.md) is een fantastische bron voor gedetailleerde informatie over Azure Storage en beveiliging. Aanbevolen procedures voor deze adressen op hoog niveau enkele concepten gevonden in de handleiding voor beveiliging en koppelingen naar de beveiligingshandleiding, evenals andere bronnen, voor meer informatie.
 

@@ -13,14 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: fec075a744b5f47a4be7f1b960cceedfea7b9a2c
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 3641833f0b55f20066302de350bfab17adfade0e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47090789"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107001"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Azure-resources implementeren op meer dan één abonnement of resourcegroep
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Normaal gesproken implementeren u alle resources in uw sjabloon naar een enkele [resourcegroep](resource-group-overview.md). Er zijn echter scenario's waarin u wilt een set met resources samen te implementeren, maar plaats deze in verschillende resourcegroepen of abonnementen. U wilt bijvoorbeeld de back-virtuele machine voor Azure Site Recovery implementeren op een afzonderlijke resourcegroep en locatie. Resource Manager kunt u gebruikmaken van geneste sjablonen op doel verschillende abonnementen en resourcegroepen dan het abonnement en de resourcegroep voor de bovenliggende sjabloon gebruikt.
 
@@ -167,7 +169,7 @@ Als u een koppeling naar een afzonderlijke sjabloon, worden de functies in de ge
 
 De volgende sjablonen laten zien meerdere brongroepimplementaties. Scripts voor het implementeren van de sjablonen worden weergegeven na de tabel.
 
-|Template  |Beschrijving  |
+|Template  |Description  |
 |---------|---------|
 |[Cross-sjabloon voor abonnement](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crosssubscription.json) |Implementeert een storage-account aan een resourcegroep en één opslagaccount naar een tweede resourcegroep. Een waarde bevatten voor de abonnements-ID als de tweede resourcegroep bevindt zich op een ander abonnement. |
 |[Cross-eigenschappen resourcegroepsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) |Laat zien hoe de `resourceGroup()` wordt omgezet functie. Het biedt niet alle resources te implementeren. |
@@ -180,10 +182,10 @@ Voor PowerShell, het implementeren van twee opslagaccounts op twee resourcegroep
 $firstRG = "primarygroup"
 $secondRG = "secondarygroup"
 
-New-AzureRmResourceGroup -Name $firstRG -Location southcentralus
-New-AzureRmResourceGroup -Name $secondRG -Location eastus
+New-AzResourceGroup -Name $firstRG -Location southcentralus
+New-AzResourceGroup -Name $secondRG -Location eastus
 
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -ResourceGroupName $firstRG `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
   -storagePrefix storage `
@@ -200,13 +202,13 @@ $secondRG = "secondarygroup"
 $firstSub = "<first-subscription-id>"
 $secondSub = "<second-subscription-id>"
 
-Select-AzureRmSubscription -Subscription $secondSub
-New-AzureRmResourceGroup -Name $secondRG -Location eastus
+Select-AzSubscription -Subscription $secondSub
+New-AzResourceGroup -Name $secondRG -Location eastus
 
-Select-AzureRmSubscription -Subscription $firstSub
-New-AzureRmResourceGroup -Name $firstRG -Location southcentralus
+Select-AzSubscription -Subscription $firstSub
+New-AzResourceGroup -Name $firstRG -Location southcentralus
 
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -ResourceGroupName $firstRG `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
   -storagePrefix storage `
@@ -218,11 +220,11 @@ New-AzureRmResourceGroupDeployment `
 Voor PowerShell, om te testen hoe de **resource group-object** oplossing voor het gebruik van bovenliggende sjabloon, inline-sjabloon en gekoppelde sjabloon:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name parentGroup -Location southcentralus
-New-AzureRmResourceGroup -Name inlineGroup -Location southcentralus
-New-AzureRmResourceGroup -Name linkedGroup -Location southcentralus
+New-AzResourceGroup -Name parentGroup -Location southcentralus
+New-AzResourceGroup -Name inlineGroup -Location southcentralus
+New-AzResourceGroup -Name linkedGroup -Location southcentralus
 
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -ResourceGroupName parentGroup `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json
 ```

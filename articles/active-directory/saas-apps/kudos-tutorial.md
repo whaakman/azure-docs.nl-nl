@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 5cc6873ff1c823aad5165c89572c7a9f50e30e1c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e5b1fa6284979a8c0bd0698f85b119117dd27a05
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55204130"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172269"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kudos"></a>Zelfstudie: Azure Active Directory-integratie met kudo
 
@@ -115,7 +116,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<company>.kudosnow.com`
     
     > [!NOTE] 
-    > Deze waarde is niet echt. Deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [kudo Client ondersteuningsteam](http://success.kudosnow.com/home) deze waarde op te halen. 
+    > Deze waarde is niet echt. Werk deze waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [kudo Client ondersteuningsteam](http://success.kudosnow.com/home) deze waarde op te halen. 
  
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
 
@@ -131,7 +132,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. Meld u in een ander browservenster in uw bedrijf kudo site als beheerder.
 
-1. Klik in het menu aan de bovenkant op **instellingen**.
+1. Klik in het menu aan de bovenkant op **Settings**.
    
     ![Settings](./media/kudos-tutorial/ic787806.png "Settings")
 
@@ -196,7 +197,7 @@ In het geval van kudo is inrichten een handmatige taak.
 
 1. Meld u aan bij uw **kudo** bedrijf site als administrator.
 
-1. Klik in het menu aan de bovenkant op **instellingen**.
+1. Klik in het menu aan de bovenkant op **Settings**.
    
    ![Settings](./media/kudos-tutorial/ic787806.png "Settings")
 

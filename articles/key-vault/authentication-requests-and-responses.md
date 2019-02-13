@@ -4,7 +4,7 @@ description: Verifiëren met AD voor het gebruik van Key Vault
 services: key-vault
 documentationcenter: ''
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 4c321939-8a5b-42ca-83c4-2f5f647ca13e
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: 4d897512e5c53222cb77906200e1a33e2eeec78e
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 57f04a79396cd286ea87e6a8cc7b37f5459fa14c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074050"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111523"
 ---
 # <a name="authentication-requests-and-responses"></a>Verificatie, vragen en antwoorden
 
@@ -64,7 +64,7 @@ In dit onderwerp bevat informatie over specificaties voor de Azure Key Vault-ser
 ## <a name="error-responses"></a>Foutberichten  
  Foutafhandeling gebruikt HTTP-statuscodes. Typische resultaten zijn:  
 
--   2xx: geslaagd: Gebruikt voor normale werking. De antwoordtekst bevat het verwachte resultaat  
+-   2xx – Success: Gebruikt voor normale werking. De antwoordtekst bevat het verwachte resultaat  
 
 -   3xx – omleiding: De 304 'Niet gewijzigd' kan worden geretourneerd om te voldoen aan een voorwaardelijke GET. Andere codes 3xx kunnen in de toekomst worden gebruikt om aan te geven van wijzigingen in DNS en pad.  
 
@@ -91,7 +91,7 @@ In dit onderwerp bevat informatie over specificaties voor de Azure Key Vault-ser
 
 ```  
 
-## <a name="authentication"></a>Verificatie  
+## <a name="authentication"></a>Authentication  
  Alle aanvragen naar de Azure Key Vault moet worden geverifieerd. Azure Key Vault ondersteunt Azure Active Directory-toegangstokens die kunnen worden verkregen met behulp van OAuth2 [[RFC6749](http://tools.ietf.org/html/rfc6749)]. 
  
  Zie voor meer informatie over het registreren van uw toepassing en verifiëren voor het gebruik van Azure Key Vault, [uw clienttoepassing registreren bij Azure AD](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad).
@@ -116,7 +116,7 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 -   Autorisatie: Het adres van de OAuth2-autorisatie-service die kan worden gebruikt voor het verkrijgen van een toegangstoken voor de aanvraag.  
 
--   bron: De naam van de resource moet worden gebruikt in de autorisatieaanvraag.  
+-   resource: De naam van de resource moet worden gebruikt in de autorisatieaanvraag.  
 
 ## <a name="see-also"></a>Zie ook  
  [Informatie over sleutels, geheimen en certificaten](about-keys-secrets-and-certificates.md)

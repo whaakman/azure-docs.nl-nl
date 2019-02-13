@@ -11,12 +11,12 @@ ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
 ms.suite: integration
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: 5ae69d365a183f7d2a219d853241e73c1e27212b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: fa2ae313ab18d6e474f1dd0953a3b0a0d094c7c3
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42060582"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111806"
 ---
 # <a name="secure-b2b-messages-with-certificates"></a>Beveiligde B2B-berichten met certificaten
 
@@ -43,7 +43,7 @@ Gebruik een *openbaar certificaat* in logische apps met B2B-mogelijkheden, moet 
 
    ![Kies 'Certificaten'](media/logic-apps-enterprise-integration-certificates/add-certificates.png)
 
-3. Onder **certificaten**, kiest u **toevoegen**. Onder **certificaat toevoegen**, geef de volgende gegevens voor uw certificaat. Wanneer u klaar bent, kiest u **OK**.
+3. Onder **certificaten**, kiest u **toevoegen**. Onder **certificaat toevoegen**, geef de volgende gegevens voor uw certificaat. Als u klaar bent, kiest u **Done**.
 
    | Eigenschap | Waarde | Beschrijving | 
    |----------|-------|-------------|
@@ -60,14 +60,14 @@ Gebruik een *openbaar certificaat* in logische apps met B2B-mogelijkheden, moet 
 
 ## <a name="upload-a-private-certificate"></a>Een persoonlijk certificaat uploaden
 
-Gebruik een *persoonlijk certificaat* in logische apps met B2B-mogelijkheden, moet u eerst het certificaat uploaden naar uw integratie-account. U moet ook een persoonlijke sleutel die u eerst toevoegen aan [Azure Key Vault](../key-vault/key-vault-get-started.md). 
+Gebruik een *persoonlijk certificaat* in logische apps met B2B-mogelijkheden, moet u eerst het certificaat uploaden naar uw integratie-account. U moet ook een persoonlijke sleutel die u eerst toevoegen aan [Azure Key Vault](../key-vault/key-vault-overview.md). 
 
 Na het definiëren van de eigenschappen in de [overeenkomsten](logic-apps-enterprise-integration-agreements.md) dat u maakt, wordt het certificaat is beschikbaar voor het beveiligen van uw B2B-berichten.
 
 > [!NOTE]
 > Voor persoonlijke certificaten, zorg ervoor dat u een bijbehorende openbare certificaat dat wordt weergegeven toevoegt in de [AS2-overeenkomst](logic-apps-enterprise-integration-as2.md) **verzenden en ontvangen** instellingen voor het ondertekenen en versleutelen van berichten.
 
-1. [Uw persoonlijke sleutel toevoegen aan Azure Key Vault](../key-vault/key-vault-get-started.md#add) en bieden een **sleutelnaam**.
+1. [Uw persoonlijke sleutel toevoegen aan Azure Key Vault](../key-vault/quick-create-cli.md#add-a-secret-to-key-vault) en bieden een **sleutelnaam**.
    
 2. Toestaan dat Azure Logic Apps voor het uitvoeren van bewerkingen op Azure Key Vault. Om toegang te verlenen aan de service-principal voor Logic Apps, gebruikt u de PowerShell-opdracht [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy), bijvoorbeeld:
 
@@ -82,16 +82,16 @@ Na het definiëren van de eigenschappen in de [overeenkomsten](logic-apps-enterp
 
    ![Kies de tegel certificaten](media/logic-apps-enterprise-integration-certificates/add-certificates.png)
 
-5. Onder **certificaten**, kiest u **toevoegen**. Onder **certificaat toevoegen**, geef de volgende gegevens voor uw certificaat. Wanneer u klaar bent, kiest u **OK**.
+5. Onder **certificaten**, kiest u **toevoegen**. Onder **certificaat toevoegen**, geef de volgende gegevens voor uw certificaat. Als u klaar bent, kiest u **Done**.
 
    | Eigenschap | Waarde | Beschrijving | 
    |----------|-------|-------------|
    | **Naam** | <*naam van certificaat*> | De naam van het certificaat, namelijk 'privateCert' in dit voorbeeld | 
    | **Certificaattype** | Privé | Type van uw certificaat |
    | **Certificaat** | <*certificaat-bestandsnaam*> | Als u wilt zoeken en selecteren van het certificaatbestand dat u wilt uploaden, kies het pictogram van de map naast de **certificaat** vak. | 
-   | **Resourcegroep** | <*integratie-account-resource-group*> | De resourcegroep van uw integratie-account, die 'MyResourceGroup' in dit voorbeeld is | 
-   | **Key Vault** | <*naam van een Key vault*> | De naam van uw Azure key vault |
-   | **Sleutelnaam** | <*naam van de sleutel*> | De naam van uw sleutel |
+   | **Resourcegroep** | <*integration-account-resource-group*> | De resourcegroep van uw integratie-account, die 'MyResourceGroup' in dit voorbeeld is | 
+   | **Key Vault** | <*key-vault-name*> | De naam van uw Azure key vault |
+   | **Sleutelnaam** | <*key-name*> | De naam van uw sleutel |
    ||||
 
    ![Kies 'Toevoegen', geeft u de details van certificaat](media/logic-apps-enterprise-integration-certificates/private-certificate-details.png)

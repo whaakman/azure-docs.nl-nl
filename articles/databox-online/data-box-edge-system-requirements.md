@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 60c4b22fb34a66a0ff68db26030be0e0ea3c0066
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 52d2061262fd04e68ed13aac8932c23b7074f83e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470239"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113767"
 ---
 # <a name="azure-data-box-edge-system-requirements-preview"></a>Systeemvereisten voor Azure Data Box Edge (preview)
 
@@ -47,13 +47,15 @@ De systeemvereisten voor de Data Box-rand zijn onder andere:
 
 [!INCLUDE [Supported browsers for local web UI](../../includes/data-box-edge-gateway-supported-browsers.md)]
 
-## <a name="port-configuration-for-data-box-edge"></a>Poortconfiguratie voor de gegevens in Microsoft Edge
+## <a name="networking-port-requirements"></a>Poort netwerkvereisten
+
+### <a name="port-requirements-for-data-box-edge"></a>Poortvereisten voor gegevens in Microsoft Edge
 
 De volgende tabel staan de poorten die moeten worden geopend in uw firewall om toe te staan voor SMB en de cloud en het beheer van verkeer. In deze tabel *in* of *inkomende* verwijst naar de richting van welke binnenkomende client aanvragen toegang tot uw apparaat. *Uit* of *uitgaande* verwijst naar de richting waarin uw gegevens in het Edge-apparaat gegevens extern, na de implementatie, bijvoorbeeld, uitgaand naar het internet verzendt.
 
 [!INCLUDE [Port configuration for device](../../includes/data-box-edge-gateway-port-config.md)]
 
-## <a name="port-configuration-for-iot-edge"></a>Poortconfiguratie voor de IoT Edge
+### <a name="port-requirements-for-iot-edge"></a>Poortvereisten voor IoT Edge
 
 Azure IoT Edge kunt uitgaande communicatie tussen een on-premises Edge-apparaat en Azure-cloud met ondersteunde protocollen van IoT-Hub. Binnenkomende communicatie is alleen vereist voor specifieke scenario's waar Azure IoT Hub moeten zijn om berichten naar de Azure IoT Edge-apparaat (bijvoorbeeld Cloud naar apparaatmessaging).
 
@@ -80,25 +82,14 @@ U wordt aangeraden dat u uw firewall-regels voor uitgaand verkeer, op basis van 
 
 ### <a name="url-patterns-for-gateway-feature"></a>URL-patronen voor de functie voor de gateway
 
-|    URL-patroon                                                                                                                                                                                                                                                                                                                                                                                                                                                      |    Onderdeel of functionaliteit                                                                           |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-|    https://\*.databoxedge.azure.com/\*<br>https://\*.servicebus.windows.net/\*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                                                                           |    Azure Data Box-Edge-service<br>Azure Service Bus<br>Verificatieservice                           |
-|    http://\*.backup.windowsazure.com                                                                                                                                                                                                                                                                                                                                                                                                                                |    Activering van apparaat                                                                                    |
-|    http://crl.microsoft.com/pki/\*<br>http://www.microsoft.com/pki/\*                                                                                                                                                                                                                                                                                                                                                                                                  |    Het intrekken van certificaten                                                                               |
-|    https://\*.core.windows.net/\*<br>https://\*.data.microsoft.com<br>http://\*.msftncsi.com                                                                                                                                                                                                                                                                                                                                                                            |    Azure storage-accounts en bewaking                                                                |
-|    http://windowsupdate.microsoft.com<br>http://\*.windowsupdate.microsoft.com<br>https://\*.windowsupdate.microsoft.com<br>http://\*.update.microsoft.com<br>https://\*.update.microsoft.com<br>http://\*.windowsupdate.com<br>http://download.microsoft.com<br>http://\*.download.windowsupdate.com<br>http://wustat.windows.com<br>http://ntservicepack.microsoft.com<br>http://\*.ws.microsoft.com<br>https://\*.ws.microsoft.com<br>http://\*.mp.microsoft.com |    Microsoft Update-servers                                                                             |
-|    http://\*.deploy.akamaitechnologies.com                                                                                                                                                                                                                                                                                                                                                                                                                          |    Akamai CDN                                                                                           |
-|    https://\*.partners.extranet.microsoft.com/\*                                                                                                                                                                                                                                                                                                                                                                                                                    |    Ondersteuningspakket                                                                                      |
-|    http://\*.data.microsoft.com                                                                                                                                                                                                                                                                                                                                                                                                                                     |    Telemetrieservice in Windows, Zie de update voor de gebruikerservaring en diagnostische telemetrie      |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                         |
-
+[!INCLUDE [URL patterns for firewall](../../includes/data-box-edge-gateway-url-patterns-firewall.md)]
 
 ### <a name="url-patterns-for-compute-feature"></a>URL-patronen voor compute-functie
 
 | URL-patroon                      | Onderdeel of functionaliteit                     |   |
 |----------------------------------|---------------------------------------------|---|
 | `https://mcr.microsoft.com`<br></br>https://\*.cdn.mscr.io | Microsoft-containerregister (vereist)               |   |
-| https://\*.azurecr.io                     | Persoonlijke en 3e partij containerregisters (optioneel) |   |
+| https://\*.azurecr.io                     | Persoonlijke en van derden container Registry (optioneel) |   |
 | https://\*.azure-devices.net              | IoT Hub-toegang (vereist)                             |   |
 
 ## <a name="internet-bandwidth"></a>Internet-bandbreedte
@@ -107,4 +98,4 @@ U wordt aangeraden dat u uw firewall-regels voor uitgaand verkeer, op basis van 
 
 ## <a name="next-step"></a>Volgende stap
 
-* [Uw Azure Data Box-Edge implementeren](data-box-Edge-deploy-prep.md)
+- [Uw Azure Data Box-Edge implementeren](data-box-Edge-deploy-prep.md)

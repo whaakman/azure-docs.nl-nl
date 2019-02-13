@@ -16,12 +16,12 @@ ms.date: 02/11/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 0865227a05d5cb25a44114fc053f61b8f70ffb94
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 616854e89a95eb83508e30099a663f0017e63784
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100088"
+ms.locfileid: "56115705"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 update
 
@@ -89,7 +89,7 @@ Deze update bevat de volgende nieuwe functies en verbeteringen voor Azure Stack:
          Belangrijke wijziging: Wijzigingen in de back-up naar de versleutelingsmodus op basis van een certificaat. Ondersteuning voor symmetrische sleutels is afgeschaft.  
    * **Azs.Fabric.Admin-Module**  
          `Get-AzsInfrastructureVolume` is afgeschaft. Gebruik de nieuwe cmdlet `Get-AzsVolume`.  
-         `Get-AzsStorageSystem` is afgeschaft.  Gebruik de nieuwe nieuwe cmdlet `Get-AzsStorageSubSystem`.  
+         `Get-AzsStorageSystem` is afgeschaft.  Gebruik de nieuwe cmdlet `Get-AzsStorageSubSystem`.  
          `Get-AzsStoragePool` is afgeschaft. De `StorageSubSystem` -object bevat de eigenschap capaciteit.  
    * **Azs.Compute.Admin-Module**  
          Foutoplossing: `Add-AzsPlatformImage`, `Get-AzsPlatformImage`: Aanroepen van `ConvertTo-PlatformImageObject` alleen in de successen.  
@@ -134,7 +134,7 @@ De verwijzing voor de bijgewerkte modules Zie [Azure Stack-Moduleverwijzing](htt
 - Er is een probleem opgelost bij het instellen van de waarde van Managed Disks quota onder [quotatypen compute](azure-stack-quota-types.md#compute-quota-types) op 0, dit is gelijk aan de standaardwaarde van 2048 GiB. De quotawaarde van nul nu in acht wordt genomen.
 
 <!-- 2724873 - IS --> 
-- Er is een probleem opgelost bij het gebruik van de PowerShell-cmdlets **Start AzsScaleUnitNode** of **Stop-AzsScaleunitNode** voor het beheren van schaaleenheden, waarin u de eerste poging om te starten of stoppen van de schaaleenheid mislukken.
+- Er is een probleem opgelost bij het gebruik van de PowerShell-cmdlets **Start AzsScaleUnitNode** of **Stop-AzsScaleUnitNode** voor het beheren van schaaleenheden, waarin u de eerste poging om te starten of stoppen van de schaaleenheid mislukken.
 
 <!-- 2724961- IS ASDK --> 
 - Er is een probleem in die u hebt geregistreerd opgelost de **Microsoft.Insight** resourceprovider op de instellingen van het abonnement en een Windows-VM gemaakt met gast OS diagnostische ingeschakeld, maar de grafiek CPU-Percentage in de overzichtspagina van virtuele machine is niet meer weergeven metrische gegevens. De gegevens nu weergegeven correct.

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 0d3102a269d41fded112b0704c28ca2cf5df71a6
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 98ab9b25c59af194a1a81c600c373b2180272e10
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101149"
+ms.locfileid: "56106950"
 ---
 # <a name="handling-review-feedback"></a>Afhandeling van revisie feedback
 
@@ -71,7 +71,7 @@ Gebruik de volgende procedure om problemen die worden beschreven in de pull-aanv
 4. Klik op elk knooppunt van de opmerking in het linkerdeelvenster om te navigeren naar de opmerking in de context van de omringende code.  Corrigeer uw broncode in uw teamproject voor het probleem wordt beschreven in de opmerking.
 
 > [!Note]
-> U kan niet worden bewerkt technische activa van uw aanbieding binnen de van de beoordelingsteam Azure DevOps-omgeving.  Voor uitgevers is dit een alleen-lezen-omgeving voor de ingesloten broncode.  U kunt echter laten antwoorden op de opmerkingen voor de beoordeling-team van Microsoft.
+> U kunt de technische activa van uw aanbieding binnen de beoordelingsteam Azure DevOps-omgeving niet bewerken.  Voor uitgevers is dit een alleen-lezen-omgeving voor de ingesloten broncode.  U kunt echter laten antwoorden op de opmerkingen voor de beoordeling-team van Microsoft.
 
    In het volgende voorbeeld heeft de uitgever gecontroleerd, gecorrigeerd en heeft gereageerd op het eerste probleem.
 

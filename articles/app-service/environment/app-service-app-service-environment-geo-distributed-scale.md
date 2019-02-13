@@ -15,15 +15,18 @@ ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: aa9eb0b624df29f6fb86402c06436ed7349fa662
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 2a2fafb5da50dbd26786284592cd330df7f5557a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273864"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113690"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Geografisch gedistribueerde schaal met App Service-omgevingen
 ## <a name="overview"></a>Overzicht
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Toepassingsscenario's waarvoor zeer grote schaal kunnen groter zijn dan de capaciteit van compute resource beschikbaar is voor een implementatie van een app.  Uw stem toepassingen, zijn sportevenementen en televisie entertainment gebeurtenissen alle voorbeelden van scenario's waarin zeer grote schaal. Grote schaalvereisten kan worden voldaan door apps, horizontaal uitschalen met meerdere app-implementaties binnen één regio, evenals in regio's worden ingediend bij het verwerken van de vereisten voor het extreme laden.
 
 App Service-omgevingen zijn een ideaal platform voor horizontaal uitschalen.  Zodra een App Service Environment configuration is geselecteerd die ondersteuning voor een bekende aanvraagsnelheid bieden, ontwikkelaars kunnen implementeren extra App Service-omgevingen in "cookie snijden" gestart voor het bereiken van een gewenste piek load-capaciteit.
@@ -52,9 +55,9 @@ Voordat u het opzetten van een distributed app footprint kunt zo u een aantal on
 ## <a name="setting-up-the-traffic-manager-profile"></a>Instellen van Traffic Manager-profiel
 Als meerdere exemplaren van een app worden geïmplementeerd op meerdere App Service-omgevingen, kunnen de afzonderlijke app-exemplaren met Traffic Manager worden geregistreerd.  Voor de voorbeeld-app een Traffic Manager-profiel is nodig voor *schaalbare-as-omgeving-demo.trafficmanager.net* die klanten kunnen routeren naar een van de volgende exemplaren van de door u geïmplementeerde app:
 
-* **webfrontend1.fe1ase.p.azurewebsites.NET:**  Een exemplaar van de voorbeeld-app geïmplementeerd op de eerste App Service-omgeving.
-* **webfrontend2.fe2ase.p.azurewebsites.NET:**  Een exemplaar van de voorbeeld-app geïmplementeerd op de tweede App Service-omgeving.
-* **webfrontend3.fe3ase.p.azurewebsites.NET:**  Een exemplaar van de voorbeeld-app geïmplementeerd op de derde App Service-omgeving.
+* **webfrontend1.fe1ase.p.azurewebsites.net:**  Een exemplaar van de voorbeeld-app geïmplementeerd op de eerste App Service-omgeving.
+* **webfrontend2.fe2ase.p.azurewebsites.net:**  Een exemplaar van de voorbeeld-app geïmplementeerd op de tweede App Service-omgeving.
+* **webfrontend3.fe3ase.p.azurewebsites.net:**  Een exemplaar van de voorbeeld-app geïmplementeerd op de derde App Service-omgeving.
 
 De eenvoudigste manier om het registreren van meerdere Azure App Service-eindpunten, alle actieve in de **dezelfde** Azure-regio, is met de Powershell [ondersteuning voor Azure Resource Manager Traffic Manager] [ ARMTrafficManager].  
 
@@ -68,13 +71,13 @@ De *TrafficRoutingMethod* parameter bepaalt de load balancer-beleid voor Traffic
 
 Elke app-instantie wordt het profiel is gemaakt, als een systeemeigen Azure-eindpunt toegevoegd aan het profiel.  De onderstaande code een verwijzing naar elke front-end web-app kan worden opgehaald en worden vervolgens elke app toegevoegd als een Traffic Manager-eindpunt van de *TargetResourceId* parameter.
 
-    $webapp1 = Get-AzureRMWebApp -Name webfrontend1
+    $webapp1 = Get-AzWebApp -Name webfrontend1
     Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend1 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp1.Id –EndpointStatus Enabled –Weight 10
 
-    $webapp2 = Get-AzureRMWebApp -Name webfrontend2
+    $webapp2 = Get-AzWebApp -Name webfrontend2
     Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend2 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp2.Id –EndpointStatus Enabled –Weight 10
 
-    $webapp3 = Get-AzureRMWebApp -Name webfrontend3
+    $webapp3 = Get-AzWebApp -Name webfrontend3
     Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend3 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp3.Id –EndpointStatus Enabled –Weight 10
 
     Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile

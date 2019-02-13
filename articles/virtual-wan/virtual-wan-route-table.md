@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: 7d5cd8aab0f368ffec636e6dfcacf127c910dafc
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 45e5c43cf5eb8df1df5b26ffae50d2881bb086e4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190167"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115195"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>De routetabel van een virtuele Hub om door te sturen verkeer naar een virtueel netwerkapparaat maken
 
@@ -36,7 +36,7 @@ Controleer of dat u voldoet aan de volgende criteria:
 
 1. U hebt een Network Virtual Appliance (NVA) is een software van derden van uw keuze die normaal gesproken is ingericht vanuit Azure Marketplace (koppeling) in een virtueel netwerk.
 2. U hebt een privé IP-adres toegewezen aan de netwerkinterface van de NVA. 
-3. NVA kan niet worden geïmplementeerd in de virtuele hub. Worden moet geïmplementeerd in een apart VNet. In dit artikel worden de VNet is het VNet van het DMZ genoemd.
+3. NVA kan niet worden geïmplementeerd in de virtuele hub. Worden moet geïmplementeerd in een apart VNet. In dit artikel worden de NVA-VNet is het VNet van het DMZ genoemd.
 4. Het DMZ VNet kan een of meerdere virtuele netwerken zijn verbonden. In dit artikel wordt dit VNet 'Indirecte knooppunt VNet' genoemd. Deze vnet's kunnen worden verbonden met het DMZ-VNet via VNet-peering.
 5. Controleer of u 2 VNets die zijn al gemaakt. Deze wordt gebruikt als knooppunt VNets. In dit artikel worden de adresruimten van de VNet-spoke 10.0.2.0/24 en 10.0.3.0/24. Als u informatie over het maken van een VNet, Zie [maken van een virtueel netwerk met behulp van PowerShell](../virtual-network/quick-create-powershell.md).
 6. Zorg ervoor dat er geen virtuele netwerkgateways zijn in elk vnet's.

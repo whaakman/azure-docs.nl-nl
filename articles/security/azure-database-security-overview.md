@@ -4,7 +4,7 @@ description: Dit artikel bevat een overzicht van de Azure-database-beveiligingsf
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: 984c74c44cb5149e0c4af83ea8ca4d88e67877ae
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f9297946b7e09bc8c516470515d0eee9885d5d38
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584771"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116317"
 ---
 # <a name="azure-database-security-overview"></a>Overzicht van de beveiliging van Azure-database
 
@@ -100,7 +100,7 @@ Voor de beveiliging regelt SQL Database toegang met behulp van:
 - Verificatiemechanismen die vereisen dat gebruikers hun identiteit kunnen aantonen.
 - Autorisatiemechanismen die gebruikers tot bepaalde gegevens en acties beperken.
 
-### <a name="database-access"></a>Databasetoegang
+### <a name="database-access"></a>Toegang tot de database
 
 De beveiliging van gegevens begint met het beheren van toegang tot uw gegevens. Het datacenter dat als host fungeert voor uw gegevens beheert de fysieke toegang. U kunt een firewall voor het beheren van beveiliging in de netwerklaag configureren. U kunt ook toegang beheren door aanmeldingen voor verificatie configureren en het definiëren van machtigingen voor de server en database.
 
@@ -110,11 +110,11 @@ De beveiliging van gegevens begint met het beheren van toegang tot uw gegevens. 
 
 De Azure SQL Database-service is alleen beschikbaar via TCP-poort 1433. Voor toegang tot een SQL-database van uw computer, moet u ervoor zorgen dat de firewall van uw clientcomputer uitgaande TCP-communicatie op TCP-poort 1433 toestaat. Als binnenkomende verbindingen niet nodig zijn voor andere toepassingen, kunt u ze op TCP-poort 1433 blokkeren.
 
-#### <a name="authentication"></a>Verificatie
+#### <a name="authentication"></a>Authentication
 
 Verificatie verwijst naar hoe u uw identiteit bewijst bij het maken van verbinding met de database. SQL Database ondersteunt twee typen verificatie:
 
--   **SQL Server-verificatie**: een account voor eenmalige aanmelding wordt gemaakt wanneer een logische SQL-exemplaar is gemaakt, met de naam het abonnee-Account van de SQL-Database. Dit account maakt verbinding met behulp van [SQL Server-verificatie](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview) (gebruikersnaam en wachtwoord). Het account fungeert als beheerder voor de logische serverinstantie en voor alle gebruikersdatabases die hieraan zijn gekoppeld. De machtigingen van het abonnee-account kunnen niet worden beperkt. Er kan slechts één van deze accounts bestaan.
+-   **SQL Server-verificatie**: Bij het maken van een logische SQL-instantie wordt er een account voor enkelvoudige aanmelding gemaakt, 'account van de SQL Database-abonnee' genoemd. Dit account maakt verbinding met behulp van [SQL Server-verificatie](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview) (gebruikersnaam en wachtwoord). Het account fungeert als beheerder voor de logische serverinstantie en voor alle gebruikersdatabases die hieraan zijn gekoppeld. De machtigingen van het abonnee-account kunnen niet worden beperkt. Er kan slechts één van deze accounts bestaan.
 -   **Azure Active Directory-verificatie**: [Azure AD-verificatie](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) is een mechanisme van verbinding maken met Azure SQL Database en Azure SQL Data Warehouse met behulp van identiteiten in Azure AD. U kunt deze gebruiken om de identiteit van databasegebruikers centraal te beheren.
 
 ![Azure AD-verificatie met SQL Database](./media/azure-databse-security-overview/azure-database-fig2.png)
@@ -176,7 +176,7 @@ U kunt SQL Database auditing om te gebruiken:
 
 Er zijn twee methoden voor controle:
 
--   **Controlefunctie voor blobs**: Logboeken worden geschreven naar Azure Blob-opslag. Dit is een methode om nieuwere controle. Dit biedt betere prestaties, biedt ondersteuning voor hogere granulariteit op objectniveau en rendabeler.
+-   **Controlefunctie voor blobs**: Logboeken worden geschreven naar Azure Blob Storage. Dit is een methode om nieuwere controle. Dit biedt betere prestaties, biedt ondersteuning voor hogere granulariteit op objectniveau en rendabeler.
 -   **Tabelcontrole**: Logboeken worden geschreven naar Azure Table storage.
 
 ### <a name="threat-detection"></a>Detectie van bedreigingen

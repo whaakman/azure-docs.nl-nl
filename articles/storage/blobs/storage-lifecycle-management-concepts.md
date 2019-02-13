@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: dd74cac3000f6a280d5b8faa858c2143d17a7e55
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 284a590a484052fdb7da2f03c6155078268b2aac
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247796"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211441"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Beheren van de Azure Blob-opslag Lifecycle (Preview)
 
@@ -37,7 +37,7 @@ De levenscyclus van management-beleid is beschikbaar bij zowel algemeen gebruik 
 De levenscyclus van management-functie is gratis in preview. Klanten betalen voor de bewerkingskosten van de normale voor de [Blobs weergeven](https://docs.microsoft.com/rest/api/storageservices/list-blobs) en [Blob-laag instellen](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API-aanroepen. Zie voor meer informatie over prijzen [prijzen voor blok-Blob](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="register-for-preview"></a>Registreren voor de Preview-versie 
-Om in te schrijven in openbare preview, moet u een aanvraag indient bij het registreren van deze functie kunt u uw abonnement. Aanvragen worden meestal binnen twee weken goedgekeurd. In afwachting van goedkeuring, alle bestaande en nieuwe GPv2- of Blob storage-accounts in de volgende regio's zijn onder andere de functie: VS-West 2, West-Centraal VS, VS-Oost 2 en West-Europa. Preview-versie ondersteunt alleen blok-blob. Net als bij de meeste Preview-versies, mag niet u deze functie voor werkbelastingen voor productie gebruiken totdat het bereikt die algemene beschikbaarheid.
+Om in te schrijven in openbare preview, moet u een aanvraag indient bij het registreren van deze functie kunt u uw abonnement. Aanvragen worden meestal binnen 72 uur goedgekeurd. In afwachting van goedkeuring, alle bestaande en nieuwe GPv2- of Blob storage-accounts in de volgende regio's zijn onder andere de functie: VS-West 2, West-Centraal VS, VS-Oost 2 en West-Europa. Preview-versie ondersteunt alleen blok-blob. Net als bij de meeste Preview-versies, mag niet u deze functie voor werkbelastingen voor productie gebruiken totdat het bereikt die algemene beschikbaarheid.
 
 Als u wilt een aanvraag indient, voer de volgende PowerShell of CLI-opdrachten.
 
@@ -136,7 +136,7 @@ Elke regel in het beleid vereist drie parameters:
 
 | Parameternaam | Parametertype | Opmerkingen |
 |----------------|----------------|-------|
-| Name           | Reeks | De naam van een regel kan elke combinatie van alfanumerieke tekens bevatten. De naam van regel is hoofdlettergevoelig. Deze moet uniek zijn binnen een beleid. |
+| Name           | String | De naam van een regel kan elke combinatie van alfanumerieke tekens bevatten. De naam van regel is hoofdlettergevoelig. Deze moet uniek zijn binnen een beleid. |
 | type           | Een enum-waarde | De geldige waarde voor de Preview-versie is `Lifecycle`. |
 | definitie     | Een object dat de levenscyclus van regel definieert | Elke definitie bestaat uit een filter en een actie. |
 
@@ -209,7 +209,7 @@ Als u meer dan één actie op dezelfde blob definieert, is levensduurbeheer van 
 
 Preview-versie zijn de voorwaarden van de uitvoering van actie op basis van leeftijd. Basis-blobs gebruikt u de laatst gewijzigd om bij te houden van de leeftijd en blob-momentopnamen gebruiken de aanmaaktijd van de momentopname voor het bijhouden van leeftijd.
 
-| Actie tot uitvoering van voorwaarde | Voorwaarde-waarde | Beschrijving |
+| Actie tot uitvoering van voorwaarde | Voorwaarde-waarde | Description |
 |----------------------------|-----------------|-------------|
 | daysAfterModificationGreaterThan | Geheel getal-waarde die aangeeft van de leeftijd in dagen | Geldige voorwaarde voor base blob-acties |
 | daysAfterCreationGreaterThan     | Geheel getal-waarde die aangeeft van de leeftijd in dagen | Geldige voorwaarde voor acties van blob-momentopname | 

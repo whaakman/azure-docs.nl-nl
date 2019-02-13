@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: fa37a83799ec50c7a8a87a0ac8a3232035a49234
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 670bdd43a4a581f349ca84c17ead67975fa0232e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755659"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110163"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Altijd versleuteld: Bescherming van gevoelige gegevens en opslag van versleutelingssleutels in Azure Key Vault
 
@@ -53,7 +53,7 @@ Aan de *toepassings-ID* en *sleutel*, volg de stappen in [maken van een Azure Ac
 ## <a name="create-a-key-vault-to-store-your-keys"></a>Een key vault voor het opslaan van uw sleutels maken
 Nu dat uw client-app is geconfigureerd en u de toepassings-ID hebt, is het tijd om te maken van een key vault en de toegangsbeleid configureren zodat u en uw toepassing toegang heeft tot een van de kluis geheimen (de sleutels altijd versleuteld). De *maken*, *ophalen*, *lijst*, *aanmelding*, *controleren*, *wrapKey*, en *unwrapKey* machtigingen zijn vereist voor het maken van een nieuwe hoofdsleutel voor de kolom en voor het instellen van versleuteling met SQL Server Management Studio.
 
-U kunt snel een key vault maken het volgende script uit te voeren. Zie voor een gedetailleerde uitleg van deze cmdlets en meer informatie over het maken en configureren van een key vault [aan de slag met Azure Key Vault](../key-vault/key-vault-get-started.md).
+U kunt snel een key vault maken het volgende script uit te voeren. Zie voor een gedetailleerde uitleg van deze cmdlets en meer informatie over het maken en configureren van een key vault [wat is Azure Key Vault?](../key-vault/key-vault-overview.md).
 
 ```powershell
     $subscriptionName = '<your Azure subscription name>'

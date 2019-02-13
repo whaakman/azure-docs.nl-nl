@@ -1,5 +1,5 @@
 ---
-title: Virtual Network-service-eindpunten en regels voor Azure SQL Database en SQL Data Warehouse | Microsoft Docs
+title: VNet-eindpunten en regels voor één en gepoolde databases in Azure SQL | Microsoft Docs
 description: Een subnet markeren als een service-eindpunt voor Virtueelnetwerk. Vervolgens het eindpunt als een virtueel netwerk-regel om de ACL uw Azure SQL Database. U-SQL-Database aanvaardt vervolgens communicatie van alle virtuele machines en andere knooppunten in het subnet.
 services: sql-database
 ms.service: sql-database
@@ -11,20 +11,20 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ccc97adadef43390d2b82e206adb60962d6e1fb2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/11/2019
+ms.openlocfilehash: 6fdcf0b5baf28aee931307b28e1f161fddaa4d8e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453924"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118374"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Gebruik Virtual Network-service-eindpunten en regels voor Azure SQL
+# <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Gebruik virtual network-service-eindpunten en regels voor database-servers
 
-*Regels voor virtueel netwerk* zijn een functie van de firewall beveiliging die bepaalt of uw Azure [SQL-Database](sql-database-technical-overview.md) of [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepteert communicatie die zijn verzonden vanaf server specifieke subnetten in virtuele netwerken. In dit artikel wordt uitgelegd waarom de functie van de regel virtueel netwerk is het soms de beste optie voor het veilig toestaan van communicatie met uw Azure SQL Database en SQL Data Warehouse.
+*Regels voor virtueel netwerk* zijn een functie van de firewall beveiliging die bepaalt of de database-server voor uw individuele databases en elastische Pools in Azure [SQL-Database](sql-database-technical-overview.md) of voor uw databases in [SQL-gegevens Datawarehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepteert berichten die worden verzonden op basis van specifieke subnetten in virtuele netwerken. In dit artikel wordt uitgelegd waarom de functie van de regel virtueel netwerk is het soms de beste optie voor het veilig toestaan van communicatie met uw Azure SQL Database en SQL Data Warehouse.
 
 > [!IMPORTANT]
-> Dit onderwerp is van toepassing op Azure SQL-servers en op SQL Database- en SQL Data Warehouse-databases die op deze Azure SQL-servers worden gemaakt. Voor het gemak wordt de term 'SQL Database' gebruikt wanneer er wordt verwezen naar zowel SQL Database als SQL Data Warehouse. In dit artikel biedt *niet* zijn van toepassing op **Azure SQL Database Managed Instance**.
+> In dit artikel is van toepassing op Azure SQL-server en op zowel SQL Database en SQL Data Warehouse-databases die zijn gemaakt op de Azure SQL-server. Voor het gemak wordt de term 'SQL Database' gebruikt wanneer er wordt verwezen naar zowel SQL Database als SQL Data Warehouse. In dit artikel biedt *niet* toepassen op een **beheerd exemplaar** implementatie in Azure SQL-Database omdat er geen een service-eindpunt dat is gekoppeld aan deze.
 
 Het maken van een regel voor virtuele netwerken, er moet eerst worden een [service-eindpunt voor virtueel netwerk] [ vm-virtual-network-service-endpoints-overview-649d] voor de regel om te verwijzen naar.
 

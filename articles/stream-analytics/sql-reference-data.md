@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: d79e423dd617a498aee09cff6b774bbe90eeaa83
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 79f0e58ea11d8bdb8c30ca1e50fae2635f719681
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701773"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118017"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Gebruik van referentiegegevens uit een SQL-Database voor een Azure Stream Analytics-taak (Preview)
 
@@ -154,7 +154,7 @@ Bij het gebruik van de delta-query [tijdelijke tabellen in Azure SQL Database](.
 
 **Moet ik betalen voor extra kosten met behulp van SQL referentie-invoer voor gegevens in Azure Stream Analytics?**
 
-Er zijn geen extra [kosten per eenheid streaming](https://azure.microsoft.com/pricing/details/stream-analytics/) in de Stream Analytics-taak. De Stream Analytics-taak moet echter een gekoppelde Azure storage-account hebben. De Stream Analytics-taak vraagt de SQL-database (tijdens de taak starten en interval voor vernieuwen) om op te halen van de referentiegegevensset en winkels die momentopname in de storage-account. Opslaan van deze momentopnamen worden extra kosten uiteengezet in de [pagina met prijzen](https://azure.microsoft.compricing/details/storage/) voor Azure storage-account.
+Er zijn geen extra [kosten per eenheid streaming](https://azure.microsoft.com/pricing/details/stream-analytics/) in de Stream Analytics-taak. De Stream Analytics-taak moet echter een gekoppelde Azure storage-account hebben. De Stream Analytics-taak vraagt de SQL-database (tijdens de taak starten en interval voor vernieuwen) om op te halen van de referentiegegevensset en winkels die momentopname in de storage-account. Opslaan van deze momentopnamen worden extra kosten uiteengezet in de [pagina met prijzen](https://azure.microsoft.com/pricing/details/storage/) voor Azure storage-account.
 
 **Hoe weet ik verwijzing momentopname van de gegevens worden opgevraagd uit de SQL-database en gebruikt in de Azure Stream Analytics-taak?**
 

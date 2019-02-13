@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 0fed6751d326c5da4431e953f7ded9c12688871f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c42490b7d46df77bffd13fdda02884704fb13b67
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250041"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210296"
 ---
 # <a name="back-up-azure-stack"></a>Back-up van Azure Stack
 
 *Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-Een on-demand back-up uitvoeren op Azure Stack met back-up op locatie. Zie voor instructies over het configureren van de PowerShell-omgeving [PowerShell installeren voor Azure Stack ](azure-stack-powershell-install.md). Als u wilt aanmelden bij Azure Stack, Zie [met behulp van de beheerdersportal in Azure Stack](azure-stack-manage-portals.md).
+Een on-demand back-up uitvoeren op Azure Stack. Zie voor instructies over het configureren van de PowerShell-omgeving [PowerShell installeren voor Azure Stack ](azure-stack-powershell-install.md). Als u wilt aanmelden bij Azure Stack, Zie [met behulp van de beheerdersportal in Azure Stack](azure-stack-manage-portals.md).
 
 ## <a name="start-azure-stack-backup"></a>Start Azure Stack-back-up
 
@@ -121,4 +121,4 @@ Gebruik de Azure Stack-beheerportal om te controleren of dat deze back-up is vol
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over de werkstroom voor het herstellen van het gegevensverlies. Zie [herstel na onherstelbare gegevensverlies](azure-stack-backup-recover-data.md).
+Meer informatie over de werkstroom voor [herstellen vanaf een gegevensverlies](azure-stack-backup-recover-data.md).

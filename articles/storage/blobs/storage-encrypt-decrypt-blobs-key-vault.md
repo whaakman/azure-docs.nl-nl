@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 09bb74ead0ff52cc7a70170357ddc54a91bf00d9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4552249e7d7dd79edbe885b3d615f5071aa694ee
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239404"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116096"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Zelfstudie: Blobs in Microsoft Azure Storage met behulp van Azure Key Vault versleutelen en ontsleutelen
 ## <a name="introduction"></a>Inleiding
@@ -43,7 +43,7 @@ Hier volgt een korte beschrijving van de werking van versleuteling aan de client
 4. De versleutelde gegevens wordt vervolgens naar de Azure Storage-service geüpload.
 
 ## <a name="set-up-your-azure-key-vault"></a>Uw Azure Key Vault instellen
-Om door te gaan met deze zelfstudie, moet u de volgende stappen uitvoert, worden beschreven in de zelfstudie [aan de slag met Azure Key Vault](../../key-vault/key-vault-get-started.md):
+Om door te gaan met deze zelfstudie, moet u de volgende stappen uitvoert, worden beschreven in de zelfstudie [wat is Azure Key Vault?](../../key-vault/key-vault-overview.md):
 
 * Een sleutelkluis maken.
 * Een sleutel of geheim toevoegen aan de sleutelkluis.

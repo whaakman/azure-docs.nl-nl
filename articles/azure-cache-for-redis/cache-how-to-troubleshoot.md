@@ -3,7 +3,7 @@ title: Problemen oplossen met Azure Cache voor Redis | Microsoft Docs
 description: Informatie over het oplossen van veelvoorkomende problemen met Azure Cache voor Redis.
 services: azure-cache-for-redis
 documentationcenter: ''
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: ''
 ms.assetid: 928b9b9c-d64f-4252-884f-af7ba8309af6
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.author: wesmc
-ms.openlocfilehash: d513825cad397763792fdc9ffb833ba54e957e7d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.author: yegu
+ms.openlocfilehash: 5df659a91e31069406c97664a869d9f9445104f4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822660"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110622"
 ---
 # <a name="how-to-troubleshoot-azure-cache-for-redis"></a>Problemen oplossen met Azure Cache voor Redis
 Dit artikel bevat richtlijnen voor het oplossen van de volgende categorieën van Azure Cache voor problemen met Redis.

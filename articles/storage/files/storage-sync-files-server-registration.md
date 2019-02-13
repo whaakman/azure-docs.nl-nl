@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: cec6da78ae47b509e2bb5f8ba0007208545062e7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 493f6f3380dee4ed70bb6e0bc9bba24f93071097
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478063"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165328"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Geregistreerde servers met Azure File Sync beheren
 Met Azure File Sync kunt u bestandsshares van uw organisatie in Azure Files centraliseren zonder in te leveren op de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Dit gebeurt door het transformeren van uw Windows-Servers in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is in Windows Server gebruiken voor lokale toegang tot uw gegevens (inclusief SMB, NFS en FTPS) en u kunt zoveel caches hebben als waar ook ter wereld u nodig hebt.
@@ -165,7 +165,10 @@ Omdat Azure File Sync zelden de enige service die wordt uitgevoerd in uw datacen
 > Limieten te laag instelt is van invloed op de prestaties van Azure File Sync-synchronisatie en intrekken.
 
 ### <a name="set-azure-file-sync-network-limits"></a>Limieten voor Azure File Sync-netwerk instellen
-U kunt het netwerkgebruik van Azure File Sync beperken met behulp van de `StorageSyncNetworkLimit` cmdlets. 
+U kunt het netwerkgebruik van Azure File Sync beperken met behulp van de `StorageSyncNetworkLimit` cmdlets.
+
+> [!Note]  
+> Limieten voor netwerk niet van toepassing als een gelaagd bestand worden geopend of de cmdlet Invoke-StorageSyncFileRecall wordt gebruikt.
 
 U kunt bijvoorbeeld een nieuwe vertragingslimiet om ervoor te zorgen dat Azure File Sync niet meer dan 10 Mbps tussen 9:00 tot 17: 00 uur (17:00 uur) tijdens de werkweek gebruikt maken: 
 

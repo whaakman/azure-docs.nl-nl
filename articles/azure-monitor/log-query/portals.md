@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/22/2018
 ms.author: bwren
-ms.openlocfilehash: 9567f8a6b581d7c246ebaa8eb8d72ad201bf2641
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6e84344e1c0229d15891bd15a512880da6e20cfe
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990408"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110758"
 ---
 # <a name="viewing-and-analyzing-log-data-in-azure-monitor"></a>Weergeven en analyseren van logboekgegevens in Azure Monitor
 Log Analytics is de primaire ervaring voor het werken met gegevens aan het logboek en het maken van query's in Azure Monitor. Log Analytics van Open **logboeken** in de **Azure Monitor** menu. U kunt een inleiding tot deze portal en controleren van de functies op [aan de slag met Log Analytics in Azure portal](get-started-portal.md).
@@ -63,7 +63,7 @@ Uw browser vereist toegang tot de volgende adressen voor toegang tot Log Analyti
 
 
 ## <a name="log-search-classic"></a>Zoeken in Logboeken (klassiek)
-Zoeken in Logboeken is de traditionele ervaring in Azure portal voor het uitvoeren van query's en analyseren van logboekgegevens in Azure Monitor. Dit wordt binnenkort stopgezet, maar is momenteel nog steeds beschikbaar. Zoeken in Logboeken van Open **Logboeken (klassiek)** in het menu van Log Analytics.
+Zoeken in Logboeken is de traditionele ervaring in Azure portal voor het uitvoeren van query's en analyseren van logboekgegevens in Azure Monitor. Dit wordt binnenkort beëindigd, maar is momenteel nog steeds beschikbaar. Zoeken in Logboeken van Open **Logboeken (klassiek)** in het menu van Log Analytics.
 
 
 

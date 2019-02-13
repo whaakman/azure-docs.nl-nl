@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: ae136c9aa0e21b2a5dabf06b050727871bddf03b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8ed0912e8d4705b6cbefa9eb8f7a712a37d8b0be
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191972"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56183174"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tinfoil-security"></a>Zelfstudie: Azure Active Directory-integratie met TINFOIL SECURITY
 
@@ -152,7 +153,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschake
    
     ![Beveiliging](./media/tinfoil-security-tutorial/ic798972.png "Beveiliging")
 
-1. Op de **Single Sign-On** configuratie pagina, voert u de volgende stappen uit:
+1. Voer op de configuratiepagina **Single Sign-On** de volgende stappen uit:
    
     ![Single Sign-On](./media/tinfoil-security-tutorial/ic798973.png "Single Sign-On")
    

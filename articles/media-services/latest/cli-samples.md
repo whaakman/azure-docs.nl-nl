@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/08/2018
+ms.date: 02/11/2019
 ms.author: juliako
-ms.openlocfilehash: 9df9279a3922fa639385657660d6d0f4a55b5a4d
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 919dbd057f2fa1d762775ed799505796a420864a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53132769"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109245"
 ---
 # <a name="azure-cli-examples-for-azure-media-services"></a>Azure CLI-voorbeelden voor Azure Media Services
 
@@ -27,17 +27,21 @@ De volgende tabel bevat koppelingen naar de Azure CLI-voorbeelden voor Azure Med
 
 |  |  |
 |---|---|
+|**Schalen**||
+| [Gereserveerde schaal Media-eenheden](media-reserved-units-cli-how-to.md)|Voor de analyse van Audio en Video Analysis-taken die worden geactiveerd door Media Services v3 of Video Indexer, is het raadzaam om in te richten van uw account met 10 S3 groepsbeleidsinstelling. <br/>Het script laat zien hoe CLI gebruiken om te schalen van gereserveerde Media-eenheden (groepsbeleidsinstelling).|
 |**Account**||
 | [Een Media Services-account maken](./scripts/cli-create-account.md) | Hiermee maakt u een Azure Media Services-account. Bovendien maakt een service-principal die toegang tot API's voor het programmatisch beheren van het account kan worden gebruikt. |
 | [Opnieuw instellen van accountreferenties](./scripts/cli-reset-account-credentials.md)|Hiermee stelt u referenties voor uw account en de instellingen app.config terug worden opgehaald.|
 |**Activa**||
 | [Activa maken](./scripts/cli-create-asset.md)|Hiermee maakt u een Media Services-Asset om inhoud te uploaden.|
 | [Een bestand uploaden](./scripts/cli-upload-file-asset.md)|Hiermee wordt een lokaal bestand geüpload naar een opslagcontainer.|
-| [Een asset publiceren](./scripts/cli-publish-asset.md)| Hiermee maakt u een Streaming-Locator gemaakt en wordt in Streaming-URL's. |
 | **Transformeert** en **taken**||
 | [Transformaties maken](./scripts/cli-create-transform.md)|Laat zien hoe transformaties maken. Transformaties geven een beschrijving van de eenvoudige werkstroom van taken voor het verwerken van video- of audiobestanden (vaak 'recipe' genoemd).<br/> Kijk altijd eerst of er al een transformatie bestaat met de gewenste naam 'recipe'. Als dit het geval is, dit opnieuw gebruiken. |
 | [Taken maken](./scripts/cli-create-jobs.md)|Verzendt een taak is een eenvoudige codering transformeren met behulp van HTTPs-URL.|
 | [EventGrid maken](./scripts/cli-create-event-grid.md)|Hiermee maakt u een account op Event Grid-abonnement voor de taak de status verandert.|
+| **Deliver**||
+| [Een asset publiceren](./scripts/cli-publish-asset.md)| Hiermee maakt u een Streaming-Locator gemaakt en wordt in Streaming-URL's. |
+| [Filter](filters-dynamic-manifest-cli-howto.md)| Hiermee configureert u een filter voor een on-Demand Video asset en laat zien hoe u met behulp van CLI maken [Accountfilters](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) en [Asset Filters](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest). 
 
 ## <a name="see-also"></a>Zie ook
 

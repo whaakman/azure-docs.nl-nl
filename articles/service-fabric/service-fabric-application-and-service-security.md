@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: ryanwi
-ms.openlocfilehash: f83f7afa4173316f127c76f20967054bf13c9a6b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 91e7fdd215d246156f601d3b5e6e05b7f8f71f59
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097894"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116453"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric-toepassing en service-beveiliging
 Een architectuur met microservices kunt brengen [veel voordelen](service-fabric-overview-microservices.md). Beheren van de beveiliging van microservices, is echter een uitdaging en anders dan de traditionele monolithische toepassingen beveiliging beheren. 
@@ -31,7 +31,7 @@ In dit artikel is geen handleiding en microservices security, er zijn veel van d
 ## <a name="authentication-and-authorization"></a>Verificatie en autorisatie
 Het is vaak nodig zijn voor resources en API's die worden weergegeven door een service moeten worden beperkt tot bepaalde vertrouwde gebruikers of -clients. Verificatie is het proces van het op betrouwbare wijze vaststelling van de identiteit van een gebruiker.  Autorisatie is het proces dat kunt u API's of services beschikbaar zijn voor sommige geverifieerd, maar niet voor andere gebruikers.
 
-### <a name="authentication"></a>Verificatie
+### <a name="authentication"></a>Authentication
 De eerste stap bij het nemen van beslissingen voor API-niveau vertrouwensrelatie is verificatie. Verificatie is het proces van het op betrouwbare wijze vaststelling van de identiteit van een gebruiker.  In scenario's microservices, verificatie, wordt doorgaans afgehandeld Centraal. Als u een API-Gateway gebruikt, kunt u [verificatie-offload](/azure/architecture/patterns/gateway-offloading) naar de gateway. Als u deze methode gebruikt, zorg ervoor dat de afzonderlijke services rechtstreeks (zonder de API-Gateway) kunnen niet worden bereikt, tenzij de extra beveiliging is ingesteld om berichten te verifiëren of ze afkomstig zijn van de gateway of niet.
 
 Als services kunnen rechtstreeks worden geopend, wordt een authentication-service zoals Azure Active Directory of een toegewezen verificatie microservice die fungeert als een security token service (STS) kan worden gebruikt om gebruikers te verifiëren. Beslissingen voor de vertrouwensrelatie worden gedeeld tussen services met beveiligingstokens of cookies. 
@@ -110,7 +110,7 @@ TO DO: Encrypt disks on Linux clusters?-->
 * [Meer informatie over clusterbeveiliging](service-fabric-cluster-security.md)
 
 <!-- Links -->
-[key-vault-get-started]:../key-vault/key-vault-get-started.md
+[key-vault-get-started]:../key-vault/key-vault-overview.md
 [config-package]: service-fabric-application-and-service-manifests.md
 [service-fabric-cluster-creation-via-arm]: service-fabric-cluster-creation-via-arm.md
 

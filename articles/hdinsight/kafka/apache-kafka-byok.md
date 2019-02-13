@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 8525b1450ae8b7badfe1c569c2040ecf1ab78070
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a3b719f4b2a19f4ea399d6a0858719a1709adc93
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314368"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109485"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>Breng uw eigen sleutel voor Apache Kafka op Azure HDInsight (Preview)
 
@@ -39,7 +39,7 @@ U kunt de Azure portal of Azure CLI gebruiken veilig de om sleutels te rouleren 
 
    HDInsight biedt alleen ondersteuning voor Azure Key Vault. Als u uw eigen key vault hebt, kunt u uw sleutels importeren in Azure Key Vault. Houd er rekening mee dat de sleutels hebben moeten 'Voorlopig verwijderen' en 'Kan niet opschonen' ingeschakeld. De functies 'Voorlopig verwijderen' en 'Niet opschonen' zijn beschikbaar via de REST, .NET / C#, PowerShell en Azure CLI-interfaces.
 
-   Voor het maken van een nieuwe sleutelkluis, volgt u de [Azure Key Vault](../../key-vault/key-vault-get-started.md) Quick Start. Bezoek voor meer informatie over het importeren van bestaande sleutels [over sleutels, geheimen en certificaten](../../key-vault/about-keys-secrets-and-certificates.md).
+   Voor het maken van een nieuwe sleutelkluis, volgt u de [Azure Key Vault](../../key-vault/key-vault-overview.md) Quick Start. Bezoek voor meer informatie over het importeren van bestaande sleutels [over sleutels, geheimen en certificaten](../../key-vault/about-keys-secrets-and-certificates.md).
 
    Voor het maken van een nieuwe sleutel selecteert **genereren/importeren** uit de **sleutels** menu onder **instellingen**.
 
@@ -120,4 +120,4 @@ U kunt de Azure portal of Azure CLI gebruiken veilig de om sleutels te rouleren 
 ## <a name="next-steps"></a>Volgende stappen
 
 * Zie voor meer informatie over Azure Key Vault [wat is Azure Key Vault](../../key-vault/key-vault-whatis.md)?
-* Als u wilt aan de slag met Azure Key Vault, Zie [aan de slag met Azure Key Vault](../../key-vault/key-vault-get-started.md).
+* Als u wilt aan de slag met Azure Key Vault, Zie [aan de slag met Azure Key Vault](../../key-vault/key-vault-overview.md).

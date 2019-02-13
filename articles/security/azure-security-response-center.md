@@ -1,10 +1,10 @@
 ---
 title: Microsoft Security Response Center | Microsoft Docs
-description: Het artikel biedt een samengestelde lijst met Microsoft Security Response Center (MSRC) bronnen die kunnen worden gebruikt voor meer informatie vinden over MSRC procedures en aanbevelingen.
+description: Het artikel biedt een gecureerde lijst met resources van Microsoft Security Response Center (MSRC) die kunnen worden gebruikt voor meer informatie over MSRC procedures en aanbevelingen.
 services: security
 documentationcenter: na
 author: barclayn
-manager: Mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 6293b13f-55d0-4d85-a993-4f1cd3c103c0
 ms.service: security
@@ -14,39 +14,39 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 08bc037817be92ea19cf126a9f4db4adea136cad
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: bacfbae3e4c9750798b8df739706d9c9b9850d45
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182439"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113941"
 ---
 # <a name="microsoft-security-response-center"></a>Microsoft Security Response Center
 
-Microsoft Security Response Center (MSRC) is een aantal van de wereld meest ervaren beveiliging deskundigen geleid. Ze identificeren, bewaken, reageren, en los beveiligingsincidenten en on-premises en cloud beveiligingslekken rond de klok, elke dag van het jaar.
+De Microsoft Security Response Center (MSRC) wordt geleid door enkele van's werelds meest ervaren beveiligingsexperts. Ze identificeren, bewaken, reageert, en oplossen van beveiligingsincidenten en on-premises en cloud beveiligingsproblemen rond de klok, elke dag van het jaar.
 
-Naast het doorlopende werk heeft het team MSRC een aantal bronnen beschikbaar om u te zodat u het beveiligen van uw Azure activa en implementaties effectiever kunt begrijpen.
+Het MSRC-team heeft een aantal beschikbare resources voor u naast de continue werk, zodat u over het beveiligen van uw Azure-assets en implementaties effectiever begrijpt.
 
 ## <a name="the-msrc-blog"></a>Het MSRC-Blog
 
-De [MSRC-blog](https://blogs.technet.microsoft.com/msrc/) is de plaats naar het laatste nieuws op wat het MSRC doet om u te beschermen tegen bedreigingen van de cloud.
+De [MSRC-blog](https://blogs.technet.microsoft.com/msrc/) is de plaats waar u naar het laatste nieuws op wat het MSRC doet om u te beschermen tegen bedreigingen voor cloud.
 
 ## <a name="white-papers"></a>Technische documenten
 
-Het MSRC heeft een aantal gepubliceerd [whitepapers](https://technet.microsoft.com/library/bb969102.aspx) waarmee u begrijpt wat ze doen en hoe ze dit doen. Sommige inzicht in hoe we de Microsoft cloud beveiligen en nuttige informatie over hoe u van de dezelfde beveiligingsconfiguraties gebruikmaken kunt bevatten.
+Het MSRC heeft een aantal gepubliceerd [whitepapers](https://technet.microsoft.com/library/bb969102.aspx) waarmee u begrijpt wat ze doen en hoe ze dit doen. Sommige inzicht geven in hoe de Microsoft-cloud worden beveiligd en bevatten nuttige informatie over hoe u de dezelfde beveiligingsconfiguraties kunt gebruiken.
 
-## <a name="security-researcher-engagement-and-bounty-programs"></a>Beveiliging onderzoeker Engagement en programma's zoeken
+## <a name="security-researcher-engagement-and-bounty-programs"></a>Beveiliging onderzoeker betrokkenheid en programma's zoeken
 
-Het MSRC ondersteunt samenwerking en relaties met beveiligingsonderzoekers globaal om door te gaan van de beveiliging van het product Microsoft.
+Het MSRC biedt ondersteuning voor samenwerking en relaties met beveiligingsonderzoekers wereldwijd om door te gaan van de beveiliging van het product Microsoft.
 
-Microsoft-programma's voor vernieuwd betalen onderzoekers voor:
+Microsoft-programma's voor zoeken betalen onderzoekers voor:
 
-- Nieuwe uitbuiting technieken
-- Defensive ideeën die nieuwe exploits beperken
-- Identificatie van kritieke beveiligingsproblemen in Microsoft on-premises en cloud software.
+- Informatiestructuren exploitatie technieken
+- Defensieve ideeën die nieuw zijn op besturingssysteemprocessen
+- Identificatie van kritieke beveiligingsproblemen in Microsoft on-premises en cloud-software.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Meer informatie over deze programma's op de [MSRC Bug vernieuwd](https://technet.microsoft.com/security/dn425036) pagina en de [MSRC-blog](https://blogs.technet.microsoft.com/msrc/).
 
-Voor meer informatie over het MSRC, gaat u naar de [startpagina MSRC](https://technet.microsoft.com/library/dn440717.aspx).
+Voor meer informatie over het MSRC, gaat u naar de [MSRC-startpagina](https://technet.microsoft.com/library/dn440717.aspx).

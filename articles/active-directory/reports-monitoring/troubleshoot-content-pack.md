@@ -16,12 +16,13 @@ ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e786a2af8f86b69116b612c266dd40bbe7580e30
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: be5220c5f28505bd83110705e08a6b1c7fb12529
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161848"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210693"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Het oplossen van Azure Active Directory-activiteitenlogboek registreert inhoudspakketfouten 
 
@@ -34,7 +35,7 @@ Als u werkt met het Power BI-inhoudspakket voor Azure Active Directory (Azure AD
 
 - [Vernieuwen is mislukt](troubleshoot-content-pack.md#refresh-failed) 
 - [Gegevensbronreferenties bijwerken is mislukt](troubleshoot-content-pack.md#failed-to-update-data-source-credentials) 
-- [Het importeren van gegevens is te lang duurt](troubleshoot-content-pack.md#importing-of-data-is-taking-too-long) 
+- [Het importeren van gegevens is te lang duurt](#data-import-is-too-slow) 
 
 In dit artikel vindt u informatie over de mogelijke oorzaken en over het oplossen van deze fouten.
  

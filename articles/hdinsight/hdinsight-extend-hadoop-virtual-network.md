@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 2e986e26f22e41e1cbf7b8d1c1af694522a01d06
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: dfcbbacc5df394e0d2a515d557d655af0ea44d11
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821572"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56169969"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight met behulp van een Azure-netwerk uitbreiden
 
@@ -253,11 +253,11 @@ Geforceerde tunneling vindt een door de gebruiker gedefinieerde routering config
 >
 > Als u geen netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes voor het beheren van verkeer gebruikt, kunt u deze sectie overslaan.
 
-Als u netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes gebruiken, moet u verkeer van de Azure status en management-services tot HDInsight toestaan. U moet ook verkeer tussen virtuele machines binnen het subnet toestaat. Gebruik de volgende stappen uit om te vinden van de IP-adressen die moeten worden toegestaan:
+Als u netwerkbeveiligingsgroepen gebruikt, moet u verkeer van de Azure status en management-services tot HDInsight-clusters op poort 443 toestaan. U moet ook verkeer tussen virtuele machines binnen het subnet toestaat. Gebruik de volgende stappen uit om te vinden van de IP-adressen die moeten worden toegestaan:
 
 1. U moet altijd verkeer van de volgende IP-adressen toestaan:
 
-    | IP-adres | Toegestane poort | Richting |
+    | IP-adres van bron | Doelpoort | Richting |
     | ---- | ----- | ----- |
     | 168.61.49.99 | 443 | Inkomend |
     | 23.99.5.239 | 443 | Inkomend |
@@ -269,7 +269,7 @@ Als u netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes gebruiken,
     > [!IMPORTANT]  
     > Als de Azure-regio u niet wordt vermeld, klikt u vervolgens alleen de vier IP-adressen gebruiken uit stap 1.
 
-    | Land/regio | Regio | Toegestane IP-adressen | Toegestane poort | Richting |
+    | Land/regio | Regio | Toegestane bron-IP-adressen | Doelpoort toegestaan | Richting |
     | ---- | ---- | ---- | ---- | ----- |
     | Azië | Azië - oost | 23.102.235.122</br>52.175.38.134 | 443 | Inkomend |
     | &nbsp; | Azië - zuidoost | 13.76.245.160</br>13.76.136.249 | 443 | Inkomend |
@@ -306,15 +306,13 @@ Als u netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes gebruiken,
 
 Zie voor meer informatie de [netwerkverkeer beheren](#networktraffic) sectie.
 
+Voor uitgaande NSG-regels, kunt u verkeer van elke bron binnen het VNET-naar-bereiken van de bovenstaande adressen als ' Desitnation IP-adressen.
+
+Als u de gebruiker gedefinieerde routes(UDRs) gebruikt, moet u een route opgeven en toegestaan uitgaand verkeer van het VNET naar de bovenstaande IP-adressen met de volgende hop is ingesteld op 'Internet'.
+    
 ## <a id="hdinsight-ports"></a> Vereiste poorten
 
-Als u van plan over het gebruik van bent een **firewall** voor het beveiligen van het virtuele netwerk en toegang tot het cluster op bepaalde poorten, moet u verkeer op de poorten die nodig zijn voor uw scenario toestaan. Standaard hoeft u whitelist deze poorten:
-
-* 53
-* 443
-* 1433
-* 11000-11999
-* 14000-14999
+Als u van plan over het gebruik van bent een **firewall** en toegang tot het cluster uit buiten op bepaalde poorten, moet u mogelijk verkeer via deze poorten die nodig zijn voor uw scenario. Standaard is geen speciale zwarte lijst plaatsen van poorten nodig, zolang het azure managementverkeer wordt uitgelegd in de vorige sectie is toegestaan tot een cluster op poort 443.
 
 Zie voor een lijst met poorten voor specifieke services, de [poorten die worden gebruikt door de services van Apache Hadoop op HDInsight](hdinsight-hadoop-port-settings-for-services.md) document.
 

@@ -15,15 +15,16 @@ ms.topic: conceptual
 ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: d0092c67675ab3ab7c13185f4e7180621232884b
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 90a624a6b3b4696899af0d8606f653df260cc201
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55489101"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173263"
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Selecteer het installatietype voor Azure AD Connect
-Azure AD Connect heeft twee installatietypen voor nieuwe installatie: Express en aangepast. Dit onderwerp helpt u om te bepalen welke optie voor het gebruik tijdens de installatie.
+Azure AD Connect heeft twee installatietypen voor nieuwe installatie: Express en Aangepast. Dit onderwerp helpt u om te bepalen welke optie voor het gebruik tijdens de installatie.
 
 ## <a name="express"></a>Express
 Express is de meest voorkomende optie en wordt gebruikt door ongeveer 90% van alle nieuwe installaties. Het is ontworpen voor een configuratie die geschikt is voor de meest voorkomende scenario's voor de klant.

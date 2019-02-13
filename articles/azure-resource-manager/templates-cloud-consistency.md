@@ -12,14 +12,16 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 5e9d2746c223c679d30c31b3bd6f1e5cbfafbe1d
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 4d5c7f8a91bb63cdd80a6f70603e34f8130b92ef
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498094"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106678"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Azure Resource Manager-sjablonen voor de consistentie van de cloud ontwikkelen
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 Een belangrijk voordeel van Azure is consistentie. Infrastructuurontwikkelingsinvesteringen voor één locatie kunnen worden hergebruikt in een andere. Een sjabloon kunt u uw implementaties consistente en herhaalbare datacenteromgevingen, met inbegrip van de globale Azure, Azure soevereine clouds en Azure Stack. Als u wilt gebruiken sjablonen in verschillende clouds, moet u echter rekening houden met cloud-specifieke afhankelijkheden, zoals deze handleiding wordt uitgelegd.
 
@@ -61,14 +63,14 @@ Mogelijkheden van Azure Resource Manager zullen altijd eerst naar globale Azure 
 
 1. Zodra u een lokale kloon van de opslagplaats hebt, maak verbinding naar de bestemming van Azure Resource Manager met PowerShell.
 
-1. Importeer de module psm1 en voer de cmdlet Test-AzTemplateFunctions:
+1. Importeer de module psm1 en voer de cmdlet Test-AzureRmureRmTemplateFunctions:
 
   ```powershell
   # Import the module
   Import-module <path to local clone>\AzTemplateFunctions.psm1
 
-  # Execute the Test-AzTemplateFunctions cmdlet
-  Test-AzTemplateFunctions -path <path to local clone>
+  # Execute the Test-AzureRmTemplateFunctions cmdlet
+  Test-AzureRmTemplateFunctions -path <path to local clone>
   ```
 
 Het script worden meerdere, sjablonen, elk met alleen unieke sjabloonfuncties geminimaliseerd. De uitvoer van het script rapporteert de sjabloonfuncties ondersteunde en niet beschikbaar.
@@ -211,7 +213,7 @@ Kan de absolute URI zijn die van een artefact, is de voorkeursmethode voor het g
 }
 ```
 
-Met deze methode kunnen alle implementatie-artefacten, met inbegrip van configuratiescripts, worden opgeslagen op dezelfde locatie met de sjabloon zelf. Als u wilt wijzigen van de locatie van alle bijbehorende koppelingen, moet u alleen een andere basis-URL voor de parameters _artifactsLocation opgeven.
+Met deze methode kunnen alle implementatie-artefacten, met inbegrip van configuratiescripts, worden opgeslagen op dezelfde locatie met de sjabloon zelf. Als u wilt wijzigen van de locatie van alle bijbehorende koppelingen, hoeft u alleen te geven van een andere basis-URL voor de _artifactsLocation parameters_.
 
 ## <a name="factor-in-differing-regional-capabilities"></a>Rekening houden verschillende regionale mogelijkheden
 
@@ -232,7 +234,7 @@ az provider list --query "[].{Provider:namespace, Status:registrationState}" --o
 U kunt ook de volgende PowerShell-cmdlet gebruiken om te zien van de beschikbare resourceproviders:
 
 ```azurepowershell-interactive
-Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
 ```
 
 ### <a name="verify-the-version-of-all-resource-types"></a>Controleer of de versie van alle resourcetypen
@@ -250,7 +252,7 @@ az provider list --query "[].{namespace:namespace, resourceType:resourceType[]}"
 U kunt ook de volgende PowerShell-cmdlet gebruiken:
 
 ```azurepowershell-interactive
-Get-AzResourceProvider | select-object ProviderNamespace -ExpandProperty ResourceTypes | ft ProviderNamespace, ResourceTypeName, ApiVersions
+Get-AzureRmResourceProvider | select-object ProviderNamespace -ExpandProperty ResourceTypes | ft ProviderNamespace, ResourceTypeName, ApiVersions
 ```
 
 ### <a name="refer-to-resource-locations-with-a-parameter"></a>Verwijzen naar de resourcelocaties met een parameter
@@ -493,10 +495,10 @@ Ophalen van een lijst van de beschikbare installatiekopieën voor virtuele machi
 az vm image list -all
 ```
 
-U kunt dezelfde lijst met de Azure PowerShell-cmdlet ophalen [Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) en geef de locatie die u wilt dat met de `-Location` parameter. Bijvoorbeeld:
+U kunt dezelfde lijst met de Azure PowerShell-cmdlet ophalen [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) en geef de locatie die u wilt dat met de `-Location` parameter. Bijvoorbeeld:
 
 ```azurepowershell-interactive
-Get-AzVMImagePublisher -Location "West Europe" | Get-AzVMImageOffer | Get-AzVMImageSku | Get-AzureRMVMImage
+Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRmVMImage
 ```
 
 Met deze opdracht duurt enkele minuten om te retourneren van alle beschikbare installatiekopieën in de regio West-Europa van de globale Azure-cloud.
@@ -529,7 +531,7 @@ az vm list-sizes --location "West Europe"
 Voor Azure PowerShell gebruiken:
 
 ```azurepowershell-interactive
-Get-AzVMSize -Location "West Europe"
+Get-AzureRmVMSize -Location "West Europe"
 ```
 
 Zie voor een volledige lijst van beschikbare services, [producten beschikbaar per regio](https://azure.microsoft.com/global-infrastructure/services/?cdn=disable).
@@ -596,10 +598,10 @@ Een lijst van de VM-extensies die beschikbaar voor een bepaalde regio zijn op te
 az vm extension image list --location myLocation
 ```
 
-U kunt ook uitvoeren met Azure PowerShell [Get-AzVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) cmdlet en gebruik `-Location` om op te geven van de locatie van de installatiekopie van de virtuele machine. Bijvoorbeeld:
+U kunt ook uitvoeren met Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) cmdlet en gebruik `-Location` om op te geven van de locatie van de installatiekopie van de virtuele machine. Bijvoorbeeld:
 
 ```azurepowershell-interactive
-Get-AzVmImagePublisher -Location myLocation | Get-AzVMExtensionImageType | Get-AzVMExtensionImage | Select Type, Version
+Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version
 ```
 
 #### <a name="ensure-that-versions-are-available"></a>Zorg ervoor dat er versies beschikbaar zijn
@@ -617,16 +619,16 @@ Aangezien VM-extensies eigen Resource Manager-resources zijn, hebben ze hun eige
 
 De API-versie van de virtuele machine-extensie moet aanwezig zijn in alle locaties die u van plan bent om met de sjabloon. De locatie-afhankelijkheid werkt als de resourceprovider API-versie beschikbaar die eerder zijn besproken in de sectie 'Controleren de versie van alle brontypen'.
 
-Als u wilt ophalen van een lijst van de beschikbare API-versies voor de VM-resource-uitbreiding, gebruikt u de [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider) cmdlet met de **Microsoft.Compute** resourceprovider, zoals wordt weergegeven:
+Als u wilt ophalen van een lijst van de beschikbare API-versies voor de VM-resource-uitbreiding, gebruikt u de [Get-AzureRmResourceProvider](/powershell/module/az.resources/get-azresourceprovider) cmdlet met de **Microsoft.Compute** resourceprovider, zoals wordt weergegeven:
 
 ```azurepowershell-interactive
-Get-AzResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachines/extensions"}
+Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachines/extensions"}
 ```
 
 U kunt ook VM-extensies in schaalsets voor virtuele machines. Er gelden de locatievoorwaarden van de dezelfde. Voor het ontwikkelen van uw sjabloon voor de consistentie van de cloud, zorg ervoor dat de API-versies zijn beschikbaar in alle locaties die u van plan bent om te implementeren. Als u wilt ophalen van de API-versies van de virtuele machine-extensie voor schaalsets, gebruikt u de dezelfde cmdlet als voordat, maar geef dat de virtuele-machineschaalsets resourcetype zoals wordt weergegeven:
 
 ```azurepowershell-interactive
-Get-AzResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachineScaleSets/extensions"}
+Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachineScaleSets/extensions"}
 ```
 
 Elke specifieke uitbreiding is ook is samengesteld. Deze versie wordt weergegeven in de `typeHandlerVersion` eigenschap van de VM-extensie. Zorg ervoor dat de versie opgegeven in de `typeHandlerVersion` element van de VM-extensies van de sjabloon zijn beschikbaar in de locaties waar u van plan bent om de sjabloon te implementeren. De volgende code geeft bijvoorbeeld versie 1.7:
@@ -647,13 +649,13 @@ Elke specifieke uitbreiding is ook is samengesteld. Deze versie wordt weergegeve
         ...   
 ```
 
-Als u wilt ophalen van een lijst van de beschikbare versies voor een specifieke VM-extensie, gebruikt u de [Get-AzVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage) cmdlet. Het volgende voorbeeld wordt de beschikbare versies voor de PowerShell DSC (Desired State Configuration) VM-extensie van **myLocation**:
+Als u wilt ophalen van een lijst van de beschikbare versies voor een specifieke VM-extensie, gebruikt u de [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage) cmdlet. Het volgende voorbeeld wordt de beschikbare versies voor de PowerShell DSC (Desired State Configuration) VM-extensie van **myLocation**:
 
 ```azurepowershell-interactive
-Get-AzVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT
+Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT
 ```
 
-Als u een lijst van uitgevers, gebruikt de [Get-AzVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) opdracht. Gebruiken om aan te vragen type, de [Get-AzVMExtensionImageType](/powershell/module/az.compute/get-azvmextensionimagetype) opdracht.
+Als u een lijst van uitgevers, gebruikt de [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) opdracht. Gebruiken om aan te vragen type, de [Get-AzureRmVMExtensionImageType](/powershell/module/az.compute/get-azvmextensionimagetype) opdracht.
 
 ## <a name="tips-for-testing-and-automation"></a>Tips voor het testen en automatisering
 

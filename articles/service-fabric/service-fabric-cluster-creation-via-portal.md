@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2018
 ms.author: aljo
-ms.openlocfilehash: f0c2108ee75f843e8285c5e2c5c55834643dc7da
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 71448125d7308ca28e7241fd4019aadba430214e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620537"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106134"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Een Service Fabric-cluster maken in Azure met behulp van de Azure-portal
 > [!div class="op_single_selector"]
@@ -46,8 +46,8 @@ Als dit de eerste keer dat u het maken van een service fabric-cluster of een clu
 #### <a name="cluster-and-server-certificate-required"></a>Cluster en de server-certificaat (vereist)
 Dit certificaat is vereist voor een cluster beveiligen en te voorkomen dat onbevoegde toegang toe. Het biedt beveiliging voor clusters in een aantal manieren:
 
-* **Cluster-verificatie:** knooppunt-naar-knooppunt communicatie voor cluster federation verifieert. Alleen de knooppunten die hun identiteit met dit certificaat bewijzen kunnen kunnen deelnemen aan het cluster.
-* **Server-verificatie:** verifieert de eindpunten voor clusterbeheer aan een management-client, zodat de management-client weet dat deze communiceert met de echt cluster. Dit certificaat biedt ook SSL voor de HTTPS-API en voor Service Fabric Explorer via HTTPS.
+* **Cluster-verificatie:** Knooppunt-naar-knooppunt communicatie voor cluster federation verifieert. Alleen de knooppunten die hun identiteit met dit certificaat bewijzen kunnen kunnen deelnemen aan het cluster.
+* **Server-verificatie:** Verifieert de eindpunten voor clusterbeheer aan een management-client, zodat de management-client weet dat deze communiceert met de echt cluster. Dit certificaat biedt ook SSL voor de HTTPS-API en voor Service Fabric Explorer via HTTPS.
 
 Het certificaat moet voldoen aan de volgende vereisten voor deze doeleinden:
 
@@ -216,7 +216,7 @@ Op dit moment hebt u een beveiligd cluster met behulp van certificaten voor behe
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [service-fabric-rp-helpers]: https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers
 [azure-portal]: https://portal.azure.com/
-[key-vault-get-started]: ../key-vault/key-vault-get-started.md
+[key-vault-get-started]: ../key-vault/key-vault-overview.md
 [create-cluster-arm]: service-fabric-cluster-creation-via-arm.md
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [service-fabric-cluster-security-roles]: service-fabric-cluster-security-roles.md

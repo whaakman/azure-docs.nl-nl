@@ -4,7 +4,7 @@ description: " Informatie over de beveiligingsvoordelen van PaaS ten opzichte va
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: techlake
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: 6bc1df7acf7ce711e106983f8084f168152fc51e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e845adc3aad21e62009ee9b99dbd65bcff794bd9
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488404"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117796"
 ---
 # <a name="securing-paas-deployments"></a>PaaS-implementaties beveiligen
 
@@ -111,7 +111,7 @@ De volgende tabel geeft een lijst van de STRIDE-bedreigingen en enkele voorbeeld
 
 | Bedreiging | De beveiligingseigenschap | Mogelijke oplossingen voor Azure-platform |
 | --- | --- | --- |
-| Adresvervalsing (spoofing) | Verificatie | HTTPS-verbindingen vereisen. |
+| Adresvervalsing (spoofing) | Authentication | HTTPS-verbindingen vereisen. |
 | Tampering | Gegevensintegriteit | Valideer de SSL-certificaten. |
 | Afwijzing | Geen weerlegbaarheid | Inschakelen van Azure [controle en diagnose](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). |
 | Openbaarmaking van informatie | Vertrouwelijkheid | Gevoelige gegevens in rust versleutelen met behulp van [service-certificaten](https://docs.microsoft.com/rest/api/appservice/certificates). |

@@ -4,7 +4,7 @@ description: Dit artikel bevat een overzicht van Azure operationele beveiliging.
 services: security
 documentationcenter: na
 author: unifycloud
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
-ms.openlocfilehash: 478228ccb12fbfe3ca527bf4d16af05735b7ba92
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: da58737314012255f26d344f279d855244f0c1ba
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238536"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116470"
 ---
 # <a name="azure-operational-security-overview"></a>Overzicht van Azure operationele beveiliging
 
@@ -139,15 +139,15 @@ Network Watcher vereenvoudigt bewaking en diagnose van uw Azure-netwerk. U kunt 
 
 Netwerk-Watcher heeft momenteel de volgende mogelijkheden:
 
-- [Topologie](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview): biedt een overzicht van de verschillende onderlinge verbindingen en koppelingen tussen netwerkbronnen in een resourcegroep.
-- [Variabele pakketopname](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview): pakketgegevens in en uit een virtuele machine worden vastgelegd. Geavanceerde filteropties en verfijnde besturingselementen, zoals de mogelijkheid om tijd- en groottebeperkingen in te stellen, bieden flexibiliteit. De pakketgegevens kunnen worden opgeslagen in een blob-opslag of op de lokale schijf in de CAP-indeling.
-- [IP-stroom controleren](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): controleert of een pakket wordt toegestaan of geweigerd op basis van 5-tuple pakket parameters voor informatie over de gebeurtenisstroom (doel-IP, bron-IP, doelpoort, bronpoort en protocol). Als u een beveiligingsgroep weigert het pakket, de regel en de groep die het pakket geweigerd geretourneerd.
-- [Volgende hop](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): Hiermee bepaalt u de volgende hop voor pakketten worden gerouteerd in de infrastructuur van Azure-netwerk, zodat u kunt een diagnose gebruiker gedefinieerde routes onjuist geconfigureerd.
-- [Weergave van de beveiligingsgroep](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): de kracht en toegepaste beveiligingsregels die worden toegepast op een virtuele machine opgehaald.
+- [Topologie](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview): Geeft een overzicht van de verschillende onderlinge verbindingen en koppelingen tussen netwerkbronnen in een resourcegroep.
+- [Variabele pakketopname](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview): Pakketgegevens in en uit een virtuele machine bevat. Geavanceerde filteropties en verfijnde besturingselementen, zoals de mogelijkheid om tijd- en groottebeperkingen in te stellen, bieden flexibiliteit. De pakketgegevens kunnen worden opgeslagen in een blob-opslag of op de lokale schijf in de CAP-indeling.
+- [IP-stroom controleren](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): Controleert of een pakket wordt toegestaan of geweigerd op basis van 5-tuple pakket parameters voor informatie over de gebeurtenisstroom (doel-IP, bron-IP, doelpoort, bronpoort en protocol). Als u een beveiligingsgroep weigert het pakket, de regel en de groep die het pakket geweigerd geretourneerd.
+- [Volgende hop](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): Hiermee bepaalt u de volgende hop voor pakketten worden gerouteerd in de infrastructuur van Azure-netwerk, zodat u het probleem een onjuist geconfigureerde door de gebruiker gedefinieerde routes onderzoeken kunt.
+- [Weergave van de beveiligingsgroep](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): Hiermee haalt u de effectieve en toegepaste beveiligingsregels die worden toegepast op een virtuele machine.
 - [NSG-stroomlogboeken voor netwerkbeveiligingsgroepen](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview): Hiermee kunt u voor het vastleggen van logboeken met betrekking tot het verkeer dat is toegestaan of geweigerd door de beveiligingsregels in de groep. De stroom wordt gedefinieerd door 5-tuple-informatie: bron-IP, doel-IP, bronpoort, bestemmingspoort en protocol.
-- [Virtuele netwerkgateway en verbinding probleemoplossing](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): biedt de mogelijkheid om op te lossen virtuele netwerkgateways en verbindingen.
-- [De abonnementslimieten netwerk](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Hiermee kunt u gebruik van netwerkbronnen op basis van limieten weergeven.
-- [Diagnostische logboeken](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): biedt één of diagnostische logboeken voor netwerkbronnen in een resourcegroep uit te schakelen.
+- [Virtuele netwerkgateway en verbinding probleemoplossing](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Biedt de mogelijkheid om op te lossen virtuele netwerkgateways en verbindingen.
+- [De abonnementslimieten netwerk](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Hiermee kunt u weergeven van Resourcegebruik netwerk op basis van limieten.
+- [Diagnostische logboeken](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Biedt één of diagnostische logboeken voor netwerkbronnen in een resourcegroep uit te schakelen.
 
 Zie voor meer informatie, [Network Watcher configureren](https://docs.microsoft.com/azure/network-watcher/network-watcher-create).
 

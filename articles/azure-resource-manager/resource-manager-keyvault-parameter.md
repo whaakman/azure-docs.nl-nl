@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: cd45384bfd548cb73c10306dfee942cbcf7c8ca1
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: c78601d49dd6bb341570be08c5be491c7afc006f
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491906"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112713"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Azure Key Vault gebruiken voor veilige parameterwaarde doorgeven tijdens implementatie
 
-In plaats van hiervoor een beveiligde waarde (zoals een wachtwoord) rechtstreeks in uw parameterbestand, haalt u de waarde van een [Azure Key Vault](../key-vault/key-vault-whatis.md) tijdens een implementatie. Haalt u de waarde door te verwijzen naar de sleutelkluis en geheim in de parameter-bestand. De waarde is nooit beschikbaar gemaakt, omdat u alleen verwijzen naar de sleutelkluis-ID. De key vault kan bestaan in een ander abonnement dan de resourcegroep die u implementeert.
+In plaats van hiervoor een beveiligde waarde (zoals een wachtwoord) rechtstreeks in uw parameterbestand, haalt u de waarde van een [Azure Key Vault](../key-vault/key-vault-whatis.md) tijdens een implementatie. Haalt u de waarde door te verwijzen naar de sleutelkluis en geheim in de parameter-bestand. De waarde zelf wordt nooit getoond, omdat u alleen verwijst naar de sleutelkluis-id. De key vault kan bestaan in een ander abonnement dan de resourcegroep die u implementeert.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -274,5 +274,5 @@ New-AzResourceGroupDeployment `
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Raadpleeg voor algemene informatie over sleutelkluizen [aan de slag met Azure Key Vault](../key-vault/key-vault-get-started.md).
+- Raadpleeg voor algemene informatie over sleutelkluizen [wat is Azure Key Vault?](../key-vault/key-vault-overview.md).
 - Zie voor volledige voorbeelden van het verwijst naar een sleutel geheimen [Key Vault voorbeelden](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).

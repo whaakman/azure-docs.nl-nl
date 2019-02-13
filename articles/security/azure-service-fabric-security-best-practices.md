@@ -4,7 +4,7 @@ description: Dit artikel bevat een set van aanbevolen procedures voor Azure Serv
 services: security
 documentationcenter: na
 author: unifycloud
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2019
 ms.author: tomsh
-ms.openlocfilehash: 718b6b38121981bdec1f677537f9cd1180dfdb08
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 8bafc4a95ca9af4567ed70c190a72f3b351da47c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391233"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114702"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric best practices voor beveiliging
 Implementeren van een toepassing op Azure is een snelle, eenvoudige en kosteneffectieve. Voordat u uw cloudtoepassing in productie implementeert, Bekijk onze lijst met essentiële en aanbevolen procedures voor het implementeren van veilige clusters in uw toepassing.
@@ -173,7 +173,7 @@ Er zijn twee eenvoudige stappen voor het instellen van een key vault:
 
     De key vault moet zijn ingeschakeld voor implementatie. De compute resourceprovider kunt vervolgens de certificaten ophalen uit de kluis en te installeren op de VM-exemplaren.
 
-Zie voor meer informatie over het instellen van een key vault, [aan de slag met Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).
+Zie voor meer informatie over het instellen van een key vault, [wat is Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).
 
 ## <a name="assign-users-to-roles"></a>Gebruikers aan rollen toewijzen
 Nadat u de toepassingen voor uw cluster hebt gemaakt, uw gebruikers toewijzen aan de rollen die worden ondersteund door Service Fabric: alleen-lezen en -beheerder. U kunt deze rollen toewijzen met behulp van de Azure-portal.

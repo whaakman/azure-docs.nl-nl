@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f336f6fdb5cde638fe62d1410a9f993492be21ed
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 6f91ccc93dcd2ac9b96379c4aa94d1f430faaf66
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747557"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118289"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuele Machines, planning en implementatie van SAP NetWeaver
 
@@ -961,7 +961,7 @@ In dit geval willen we een VHD, met of zonder een besturingssysteem, uploaden en
 * Meld u aan bij uw abonnement met *az login*
 * Selecteer uw abonnement met *az account set--abonnement `<subscription name or id`>*
 * Uploaden van de VHD met *az storage blob upload* -Zie [met de Azure CLI met Azure Storage][storage-azure-cli]
-* (Optioneel) Maak een beheerde schijf van de VHD met *az schijf maken* -Zie https://docs.microsoft.com/cli/azure/disk#az_disk_create
+* (Optioneel) Maak een beheerde schijf van de VHD met *az schijf maken* -Zie https://docs.microsoft.com/cli/azure/disk
 * Maak een nieuwe virtuele machine op te geven de geüploade VHD of beheerde schijf als besturingssysteemschijf met *az vm maken* en de parameter *--koppelen-os-schijf*
 * Een gegevensschijf toevoegen aan een nieuwe virtuele machine met *az vm disk attach* en de parameter *--nieuwe*
 
@@ -990,7 +990,7 @@ Een bestaande virtuele machine of een VHD uploaden van de on-premises netwerk om
 * Meld u aan bij uw abonnement met *az login*
 * Selecteer uw abonnement met *az account set--abonnement `<subscription name or id`>*
 * Uploaden van de VHD met *az storage blob upload* -Zie [met de Azure CLI met Azure Storage][storage-azure-cli]
-* (Optioneel) De installatiekopie van een beheerde schijf maken van de VHD met *az afbeelding maken* -Zie https://docs.microsoft.com/cli/azure/image#az_image_create
+* (Optioneel) De installatiekopie van een beheerde schijf maken van de VHD met *az afbeelding maken* -Zie https://docs.microsoft.com/cli/azure/image
 * Maak een nieuwe virtuele machine op te geven de geüploade VHD of installatiekopie voor beheerde schijf als besturingssysteemschijf met *az vm maken* en de parameter *--installatiekopie*
 
 **Sjabloon**

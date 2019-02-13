@@ -14,12 +14,13 @@ ms.topic: reference
 ms.date: 11/02/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: f15556596063a09f68f024346e9fbe08663436c9
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 594fb736b8ec4b49cf1525047ff8a7ce5e5dc959
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497805"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194968"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Veelgestelde vragen over Azure Active Directory Connect
 
@@ -155,10 +156,10 @@ Om te controleren welke versie van Azure AD Connect is geïnstalleerd op uw serv
 ![Azure AD Connect-versie in het Configuratiescherm](./media/reference-connect-faq/faq1.png)
 
 **V: Hoe voer ik een upgrade naar de nieuwste versie van Azure AD Connect?**  
-Zie voor informatie over het upgraden naar de nieuwste versie, [Azure AD Connect: Een upgrade uitvoeren van een eerdere versie naar de meest recente](how-to-upgrade-previous-version.md). 
+Zie voor informatie over het upgraden naar de nieuwste versie, [Azure AD Connect: Upgraden van een vorige naar de meest recente versie](how-to-upgrade-previous-version.md). 
 
 **V: We al een upgrade uitgevoerd naar de nieuwste versie van Azure AD Connect vorig jaar. Moeten we upgrade opnieuw uitvoeren?**  
-De Azure AD Connect-team maakt regelmatig updates voor de service. Als u wilt profiteren van oplossingen voor problemen en beveiligingsupdates, evenals nieuwe functies, is het belangrijk dat u uw server up-to-date te houden met de meest recente versie. Als u Automatische upgrade inschakelt, wordt uw softwareversie wordt automatisch bijgewerkt. De versiegeschiedenis van release van Azure AD Connect, Zie [Azure AD Connect: Versiegeschiedenis van release](reference-connect-version-history.md).
+De Azure AD Connect-team maakt regelmatig updates voor de service. Als u wilt profiteren van oplossingen voor problemen en beveiligingsupdates, evenals nieuwe functies, is het belangrijk dat u uw server up-to-date te houden met de meest recente versie. Als u Automatische upgrade inschakelt, wordt uw softwareversie wordt automatisch bijgewerkt. De versiegeschiedenis van release van Azure AD Connect, Zie [Azure AD Connect: Releasegeschiedenis van versie](reference-connect-version-history.md).
 
 **V: Hoe lang duurt het voordat de upgrade uitvoert, en wat zijn de gevolgen voor Mijn gebruikers?**  
 De tijd die nodig is om bij te werken, is afhankelijk van de grootte van uw tenant. Voor grote organisaties is het mogelijk om uit te voeren van de upgrade in het weekend of 's avonds aanbevolen. Tijdens de upgrade is geen synchronisatieactiviteit plaatsvindt.

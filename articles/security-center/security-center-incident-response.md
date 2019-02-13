@@ -4,7 +4,7 @@ description: In dit document wordt uitgelegd hoe u Azure Security Center kunt ge
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 8af12f1c-4dce-4212-8ac4-170d4313492d
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 684098dd2780e827ccc74b7fbbb16a2be75fa3e1
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 99bfab5a5f80fc0a49c7cc6405154394391f43e0
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619874"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114294"
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>Azure Security Center gebruiken voor reacties op incidenten
 Veel organisaties leren pas hoe ze moeten reageren op beveiligingsincidenten nadat ze het slachtoffer zijn geworden van een aanval. Als u de kosten en schade wilt beperken, is het belangrijk dat u een plan hebt voor het reageren op incidenten voordat er een aanval plaatsvindt. U kunt Azure Security Center gebruiken in verschillende fasen tijdens een reactie op een incident.
@@ -84,7 +84,7 @@ Judy heeft zich aangemeld bij Azure Portal en werkt met de Security Center-conso
    > In dit scenario gaat Judy een waarschuwing over schadelijke SQL-activiteit beoordelen, zoals te zien is in de afbeelding hierboven.
    >
    >
-2. Klik op de waarschuwing **Schadelijke SQL-activiteit** en bekijk de aangevallen resources op de blade **Schadelijke SQL-activiteit**: ![Details van het incident](./media/security-center-incident-response/security-center-incident-response-fig5.png)
+2. Klik op de **schadelijke SQL-activiteit** waarschuwen en bekijk de aangevallen resources in de **schadelijke SQL-activiteit** blade:  ![Details incident](./media/security-center-incident-response/security-center-incident-response-fig5.png)
 
     In deze blade kan Judy aantekeningen maken over de aangevallen resources, hoe vaak deze aanval heeft plaatsgevonden en wanneer deze is gedetecteerd.
 3. Klik op de **aangevallen resource** voor meer informatie over deze aanval.

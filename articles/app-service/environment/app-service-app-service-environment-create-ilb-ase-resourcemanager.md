@@ -15,18 +15,20 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 34278e02c62bda18a4b4d2f404417e8844dd5fc4
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 35e0dc5dabaf1602b87ec6a8be86ed609f3ea12f
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156677"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107375"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Een ILB ASE maken met behulp van Azure Resource Manager-sjablonen
 
 > [!NOTE] 
 > In dit artikel gaat over de App Service Environment v1. Er is een nieuwere versie van de App Service Environment die gebruiksvriendelijker en wordt uitgevoerd op een krachtigere infrastructuur. Voor meer informatie over de nieuwe versie begin met het [Inleiding tot App Service Environment](intro.md).
 >
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Overzicht
 App Service-omgevingen kunnen worden gemaakt met een intern virtueel netwerk-adres in plaats van een openbare VIP-adres.  Deze interne adres wordt geleverd door een Azure-onderdeel de interne load balancer (ILB) genoemd.  Een ILB as-omgeving kunnen worden gemaakt met behulp van de Azure portal.  Ook kunnen worden gemaakt met automation via Azure Resource Manager-sjablonen.  Dit artikel helpt bij de stappen en de syntaxis voor het maken van een ILB as-omgeving met Azure Resource Manager-sjablonen.
@@ -51,7 +53,7 @@ Zodra de *azuredeploy.parameters.json* bestand is ingevuld voor een ILB as-omgev
     $templatePath="PATH\azuredeploy.json"
     $parameterPath="PATH\azuredeploy.parameters.json"
 
-    New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+    New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 
 Nadat de Azure Resource Manager sjabloon wordt ingediend duurt een paar uur voor de ILB as-omgeving moet worden gemaakt.  Nadat het maken is voltooid, wordt de ILB as-omgeving weergegeven in de UX-portal in de lijst met App Service-omgevingen voor het abonnement waarmee de implementatie is geactiveerd.
 
@@ -124,7 +126,7 @@ Zodra de *azuredeploy.parameters.json* bestand zijn ingevuld, wordt het standaar
     $templatePath="PATH\azuredeploy.json"
     $parameterPath="PATH\azuredeploy.parameters.json"
 
-    New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+    New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 
 Nadat de Azure Resource Manager sjabloon wordt ingediend duurt het ongeveer 40 minuten per ASE front-end de wijziging toepassen.  Bijvoorbeeld, met een standaard aangepast as-omgeving met behulp van twee front-ends, duurt de sjabloon ongeveer één uur en 20 minuten om te voltooien.  Terwijl de sjabloon wordt uitgevoerd kunnen de as-omgeving worden niet geschaald.  
 

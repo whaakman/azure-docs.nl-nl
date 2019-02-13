@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 0c7e0e539ca884739f5bf633946a4704d29b132b
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 9f8d6488d12b5550c3390699b9c34380b51b60f9
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448225"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112594"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Een waarschuwing voor metrische gegevens maken met een Resource Manager-sjabloon
 
 Dit artikel wordt beschreven hoe u kunt een [Azure Resource Manager-sjabloon](../../azure-resource-manager/resource-group-authoring-templates.md) configureren [nieuwere metrische waarschuwingen](../../azure-monitor/platform/alerts-metric-near-real-time.md) in Azure Monitor. Resource Manager-sjablonen kunnen u programmatisch waarschuwingen instellen op een consistente en reproduceerbare manier in uw omgevingen. Nieuwere metrische waarschuwingen zijn momenteel beschikbaar op [deze set resourcetypen](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
-> Resource Manager-sjabloon opgegeven voor de waarschuwing voor metrische gegevens werkt niet voor het resourcetype: Microsoft.OperationalInsights/workspaces; biedt ondersteuning voor metrische gegevens van Log Analytics is in preview. Gebruikers geïnteresseerd in de preview-functionaliteit gebruiken met resource-sjabloon, kunt contact opnemen met [Feedback voor Azure-waarschuwingen](mailto:azurealertsfeedback@microsoft.com)
+> Resource-sjabloon voor het maken van metrische waarschuwingen voor het resourcetype: Azure Log Analytics-werkruimte (dat wil zeggen) `Microsoft.OperationalInsights/workspaces`, zijn extra stappen vereist. Zie voor meer informatie het artikel op [metrische waarschuwingen voor logboeken - Resource-sjabloon](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 De eenvoudige stappen zijn als volgt:
 

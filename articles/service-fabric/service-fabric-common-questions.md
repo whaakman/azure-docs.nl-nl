@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: ce88c8c4850e5226ddda12ce5ee0e1d18b51ea5c
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: a63a10225f4dc55092c62e39b22cdf15d7f7ca5e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104079"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217510"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Veelgestelde vragen over Service Fabric
 
@@ -189,4 +189,4 @@ Ga als volgt de [Service Fabric-blog](https://blogs.msdn.microsoft.com/azureserv
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Meer informatie over de basisconcepten van Service Fabric en best practices](https://mva.microsoft.com/en-us/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965)
+Meer informatie over [core-Service Fabric-concepten](service-fabric-technical-overview.md) en [aanbevolen procedures](service-fabric-best-practices-overview.md)

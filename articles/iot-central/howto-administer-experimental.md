@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ebca3060e902c0a45619c2bd64240537cd95308d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: b43e496323da75dfc63f889283257fac41f48abf
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811848"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117728"
 ---
 # <a name="administer-your-iot-central-application"></a>Uw IoT Central-toepassing beheren
 
@@ -141,15 +141,15 @@ Volg deze stappen voor het voltooien van deze Self-serviceproces:
 
 ## <a name="export-data"></a>Gegevens exporteren
 
-U kunt inschakelen **voortdurende gegevensexport** metingen, apparaten en apparaatgegevens sjablonen exporteren naar uw Azure Blob storage-account. Meer informatie over [hoe u uw gegevens te exporteren](#howto-export-data).
+U kunt inschakelen **voortdurende gegevensexport** metingen, apparaten en apparaatgegevens sjablonen exporteren naar uw Azure Blob storage-account. Meer informatie over het [exporteren van gegevens van](#export-data).
 
 ## <a name="manage-device-connection"></a>Apparaatverbinding beheren
 
-Verbind apparaten op schaal in uw toepassing met behulp van de sleutels en certificaten hier. Meer informatie over [apparaten verbinden met](#concepts-connectivity).
+Verbind apparaten op schaal in uw toepassing met behulp van de sleutels en certificaten hier. Meer informatie over [apparaten verbinden met](/azure/iot-central/concepts-connectivity-experimental?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 
 ## <a name="use-access-tokens"></a>Toegangstokens gebruiken
 
-Toegangstokens voor het gebruik ervan in hulpprogramma's voor ontwikkelaars genereren. Er is momenteel een developer-programma beschikbaar waarmee de explorer IoT Central is voor het bewaken van apparaat-berichten en wijzigingen in propreties en instellingen. Meer informatie over de [IoT Central explorer](#howto-use-iotc-explorer). 
+Toegangstokens voor het gebruik ervan in hulpprogramma's voor ontwikkelaars genereren. Er is momenteel een developer-programma beschikbaar waarmee de explorer IoT Central is voor het bewaken van apparaat-berichten en wijzigingen in propreties en instellingen. Meer informatie over de explorer IoT Central. 
 
 ## <a name="use-the-azure-sdks-for-control-plane-operations"></a>Gebruik de Azure SDK's voor bewerkingen voor de controlelaag
 

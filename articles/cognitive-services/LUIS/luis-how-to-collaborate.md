@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/12/2019
 ms.author: diberry
-ms.openlocfilehash: 4ccf703ffde0d4a5a0961135e81259519b0a0e41
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f23212a854fb37dda89fd2bf6b223cf0dc69526b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878966"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56167561"
 ---
 # <a name="how-to-manage-authors-and-collaborators"></a>Auteurs en deelnemers beheren 
 
@@ -44,14 +44,13 @@ Hoewel LUIS momenteel geen overdracht van eigendom ondersteunt, kunt u uw app ex
 
 ## <a name="azure-active-directory-resources"></a>Azure Active Directory-resources
 
-Als u Azure Active Directory (Azure AD) in uw organisatie gebruiken, LUIS heeft toestemming nodig om de toegang tot informatie over uw gebruikers wanneer ze willen LUIS gebruikt. De resources die vereist dat LUIS zijn minimaal. 
+Als u [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD) in uw organisatie, Language Understanding (LUIS) heeft toestemming nodig om de informatie over uw gebruikers toegang wanneer ze willen LUIS gebruikt. De resources die vereist dat LUIS zijn minimaal. 
 
 De gedetailleerde beschrijving ziet u wanneer u probeert aan te melden met een account met toestemming van een beheerder is of geen toestemming van een beheerder, zoals administrator toestemming vereist:
 
-* Hiermee kunt u zich aanmelden bij de app met uw organisatieaccount en kan uw profiel te lezen. Ook kunnen de app die basisgegevens over het bedrijfsinformatie te lezen.
-* Hiermee kan de app weergeven en bijwerken van uw gegevens, zelfs wanneer u de app momenteel niet worden gebruikt.
+* Hiermee kunt u zich aanmelden bij de app met uw organisatieaccount en kan uw profiel te lezen. Ook kunnen de app die basisgegevens over het bedrijfsinformatie te lezen. Dit biedt LUIS-machtiging voor het lezen van gegevens van de basisprofielgegevens, zoals gebruikers-ID, e-mailadres, naam
+* Hiermee kan de app weergeven en bijwerken van uw gegevens, zelfs wanneer u de app momenteel niet worden gebruikt. De machtiging is vereist voor het vernieuwen van het toegangstoken van de gebruiker.
 
-De eerste machtiging biedt een LUIS-machtiging voor het lezen van gegevens van de basisprofielgegevens, zoals gebruikers-ID, e-mailadres, naam. De tweede machtiging is vereist voor het vernieuwen van het toegangstoken van de gebruiker.
 
 ## <a name="azure-active-directory-tenant-user"></a>Azure Active Directory-tenant-gebruiker
 
@@ -59,11 +58,8 @@ LUIS gebruikt standaard instemmingsstroom van Azure Active Directory (Azure AD).
 
 De tenantbeheerder kunnen rechtstreeks met de gebruiker die toegang krijgen tot LUIS in de Azure AD gebruiken nodig heeft. 
 
-Eerst de gebruiker zich aanmeldt bij LUIS en ziet de pop-upvenster hoeven beheerder goedkeuring. De gebruiker neemt contact op met de tenantbeheerder voordat u doorgaat. 
-
-Ten tweede tenant-beheerder zich aanmeldt bij LUIS en een toestemming stroom pop-upvenster ziet. Dit is het dialoogvenster dat de beheerder moet de machtiging voor de gebruiker. Zodra de beheerder de machtiging accepteert, kan de gebruiker om door te gaan met LUIS.
-
-Als de tenantbeheerder niet bij LUIS aanmelden wordt, de beheerder toegang tot [toestemming geven](https://account.activedirectory.windowsazure.com/r#/applications) voor LUIS. 
+* Eerst de gebruiker zich aanmeldt bij LUIS en ziet de pop-upvenster hoeven beheerder goedkeuring. De gebruiker neemt contact op met de tenantbeheerder voordat u doorgaat. 
+* Ten tweede tenant-beheerder zich aanmeldt bij LUIS en een toestemming stroom pop-upvenster ziet. Dit is het dialoogvenster dat de beheerder moet de machtiging voor de gebruiker. Zodra de beheerder de machtiging accepteert, kan de gebruiker om door te gaan met LUIS. Als de tenantbeheerder niet bij LUIS aanmelden wordt, de beheerder toegang tot [toestemming geven](https://account.activedirectory.windowsazure.com/r#/applications) voor LUIS, weergegeven in de volgende schermafbeelding. U ziet de lijst is gefilterd op items die de naam `LUIS`.
 
 ![Azure active directory-machtigingen per app-website](./media/luis-how-to-collaborate/tenant-permissions.png)
 

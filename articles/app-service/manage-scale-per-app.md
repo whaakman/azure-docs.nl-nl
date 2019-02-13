@@ -15,14 +15,17 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 49b5978fd647a4667503676528120a36495021c6
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 08d6d0c31e1cff799e952c50bae3446e41477aba
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731089"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56104566"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Hosting met hoge dichtheid op Azure App Service met behulp van per-app schalen
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Standaard, schaalt u App Service-apps door te schalen de [App Service-plan](overview-hosting-plans.md) ze worden uitgevoerd op. Wanneer meerdere apps worden uitgevoerd in hetzelfde App Service-plan, wordt alle apps in elk exemplaar van de scale-out uitgevoerd in het abonnement.
 
 U kunt inschakelen *per-app schalen* plannen niveau van de App-Service. Het kan worden geschaald voor een app onafhankelijk van de App Service-plan die als host fungeert. Op deze manier een App Service-plan kan worden geschaald naar 10 exemplaren, maar een app kan worden ingesteld op het gebruik van slechts vijf.
@@ -33,20 +36,20 @@ U kunt inschakelen *per-app schalen* plannen niveau van de App-Service. Het kan 
 
 ## <a name="per-app-scaling-using-powershell"></a>Per app schalen met behulp van PowerShell
 
-Maak een plan met de per-app schalen door te geven in de ```-PerSiteScaling $true``` parameter voor de ```New-AzureRmAppServicePlan``` cmdlet.
+Maak een plan met de per-app schalen door te geven in de ```-PerSiteScaling $true``` parameter voor de ```New-AzAppServicePlan``` cmdlet.
 
 ```powershell
-New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
+New-AzAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
                             -Location $Location `
                             -Tier Premium -WorkerSize Small `
                             -NumberofWorkers 5 -PerSiteScaling $true
 ```
 
-Inschakelen van per-app schalen met een bestaande App Service-Plan door te geven in de `-PerSiteScaling $true` parameter voor de ```Set-AzureRmAppServicePlan``` cmdlet.
+Inschakelen van per-app schalen met een bestaande App Service-Plan door te geven in de `-PerSiteScaling $true` parameter voor de ```Set-AzAppServicePlan``` cmdlet.
 
 ```powershell
 # Enable per-app scaling for the App Service Plan using the "PerSiteScaling" parameter.
-Set-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup `
+Set-AzAppServicePlan -ResourceGroupName $ResourceGroup `
    -Name $AppServicePlan -PerSiteScaling $true
 ```
 
@@ -56,13 +59,13 @@ In het volgende voorbeeld wordt is de app beperkt tot twee instanties, ongeacht 
 
 ```powershell
 # Get the app we want to configure to use "PerSiteScaling"
-$newapp = Get-AzureRmWebApp -ResourceGroupName $ResourceGroup -Name $webapp
+$newapp = Get-AzWebApp -ResourceGroupName $ResourceGroup -Name $webapp
     
 # Modify the NumberOfWorkers setting to the desired value.
 $newapp.SiteConfig.NumberOfWorkers = 2
     
 # Post updated app back to azure
-Set-AzureRmWebApp $newapp
+Set-AzWebApp $newapp
 ```
 
 > [!IMPORTANT]

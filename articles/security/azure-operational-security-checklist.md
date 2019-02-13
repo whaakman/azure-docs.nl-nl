@@ -4,7 +4,7 @@ description: In dit artikel biedt een set met controlelijst voor operationele be
 services: security
 documentationcenter: na
 author: unifycloud
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: aa68bb0cb2e404072ef359591ce9309f8c27b631
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7895093eeb97857764530b52486c99b451dfc303
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403982"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105906"
 ---
 # <a name="azure-operational-security-checklist"></a>Controlelijst voor Azure operationele beveiliging
 Implementeren van een toepassing op Azure is een snelle, eenvoudige en kosteneffectieve. Voordat u cloudtoepassing in productie is handig om een controlelijst om u te helpen bij het evalueren van uw toepassing meer veiligheid tegen een lijst van operationele beveiliging van essentiële en aanbevolen acties u moet denken implementeert.
@@ -36,7 +36,7 @@ Azure biedt een suite van infrastructuurservices die u gebruiken kunt om uw toep
 
 Deze controlelijst is bedoeld om u te helpen ondernemingen met verschillende operationele beveiligingsoverwegingen bedenken terwijl ze geavanceerde zakelijke toepassingen op Azure implementeert. Het kan ook worden gebruikt om informatie over het bouwen van een beveiligde cloud migratie en bewerking strategie voor uw organisatie.
 
-|Controlelijst voor categorie| Beschrijving|
+|Controlelijst voor categorie| Description|
 | ------------ | -------- |
 | [<br>Beveiligingsrollen en toegangsbeheer](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)|<ul><li>Gebruik [op rollen gebaseerd toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) voor specifieke gebruikers waarmee machtigingen toewijzen aan gebruikers, groepen en toepassingen met een bepaald bereik.</li></ul> |
 | [<br>Het verzamelen van gegevens en opslag](https://docs.microsoft.com/azure/storage/storage-security-guide)|<ul><li>Management vlak van beveiliging gebruiken voor het beveiligen van uw Opslagaccount met [Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).</li><li>Beveiliging van gegevens vlak voor het beveiligen van toegang tot uw gegevens met [Shared Access Signatures (SAS)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) en opgeslagen toegangsbeleid.</li><li>Gebruik van versleuteling op transportniveau – gebruik van HTTPS en de versleuteling van [SMB (Server message block-protocollen) 3.0](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) voor [Azure-bestandsshares](https://docs.microsoft.com/azure/storage/storage-dotnet-how-to-use-files).</li><li>Gebruik [clientversleuteling](https://docs.microsoft.com/azure/storage/storage-client-side-encryption) voor het beveiligen van gegevens die u naar storage-accounts verzendt wanneer u enige controle van versleutelingssleutels nodig hebt. </li><li>Gebruik [Storage Service Encryption (SSE)](https://docs.microsoft.com/azure/storage/storage-service-encryption) automatisch om gegevens te versleutelen in Azure Storage, en [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) voor het versleutelen van bestanden van de virtuele machine-schijf voor het besturingssysteem en gegevensschijven.</li><li>Gebruik Azure [Opslaganalyse](https://docs.microsoft.com/rest/api/storageservices/storage-analytics) voor het bewaken van autorisatie typt, net als met Blob-opslag, u zien kunt als gebruikers een Shared Access Signature of de storage-accountsleutels hebt gebruikt.</li><li>Gebruik [Cross-Origin Resource Sharing (CORS)](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) voor toegang tot de resources uit verschillende domeinen bevinden.</li></ul> |

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: iainfou
-ms.openlocfilehash: 15b389e2158cb3a2070cc09b20f79f4274fde5d9
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 680e3990afa3ed08c69402e9e5403cb9a6f3266a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699122"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175452"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor verbinding met het netwerk en beveiliging in Azure Kubernetes Service (AKS)
 
@@ -120,6 +120,34 @@ Een web application firewall (WAF) biedt een extra laag van beveiliging door het
 
 Load balancer of ingress resources blijven om uit te voeren in uw AKS-cluster om de distributie van verkeer verder te verfijnen. App-Gateway kan centraal worden beheerd als een controller voor binnenkomend verkeer met een resourcedefinitie. Aan de slag [maken van een Application Gateway-ingangscontroller][app-gateway-ingress].
 
+## <a name="control-traffic-flow-with-network-policies"></a>Controlestroom-verkeer met beleid voor netwerken
+
+**Aanbevolen procedurerichtlijn** -netwerkbeleid wilt toestaan of weigeren van verkeer naar schillen gebruiken. Standaard wordt al het verkeer toegestaan tussen schillen binnen een cluster. Definieert de regels die pod communicatie beperken voor verbeterde beveiliging.
+
+Beleid voor netwerken is een Kubernetes-functie waarmee u kunt de verkeersstroom tussen schillen beheren. U kunt toestaan of weigeren van verkeer op basis van de labels van de instellingen zoals die zijn toegewezen, naamruimte of verkeer poort. Het gebruik van netwerkbeleid profiteert van een cloud-eigen methode voor het beheren van de stroom van het verkeer. Nadat er schillen zijn dynamisch gemaakt in een AKS-cluster, kunnen het vereiste netwerkbeleid automatisch worden toegepast. Gebruik geen beveiligingsgroepen van Azure-netwerk wilt pod-pod-verkeer beheren, gebruikt u netwerkbeleid.
+
+Als u wilt gebruiken, kan de functie moet worden ingeschakeld wanneer u een AKS-cluster maakt. U kunt beleid voor netwerken in een bestaand AKS-cluster niet inschakelen. Plan vooruit om ervoor te zorgen dat u netwerkbeleid op clusters inschakelen en deze indien nodig kunt gebruiken.
+
+Een beleid voor netwerken wordt gemaakt als een Kubernetes-resource met behulp van een YAML-manifest. Het beleid wordt toegepast op de gedefinieerde schillen en vervolgens regels voor binnenkomende of uitgaande bepalen hoe het verkeer kan stromen. Het volgende voorbeeld wordt een beleid voor netwerken voor schillen met de *app: back-end* label toegepast. De regel voor inkomend verkeer vervolgens alleen verkeer toestaat van schillen met de *app: frontend* label:
+
+```yaml
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: backend-policy
+spec:
+  podSelector:
+    matchLabels:
+      app: backend
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: frontend
+```
+
+Als u wilt aan de slag met beleid, Zie [beveiliging van verkeer tussen schillen met behulp van beleid voor netwerken in Azure Kubernetes Service (AKS)][use-network-policies].
+
 ## <a name="securely-connect-to-nodes-through-a-bastion-host"></a>Veilig verbinding maken met knooppunten via een bastionhost
 
 **Aanbevolen procedurerichtlijn** -geven geen externe verbindingen naar uw AKS-knooppunten. Maken van een bastionhost, of in een virtueel netwerk management vak gaan. Gebruik de bastionhost veilig om verkeer te routeren naar uw AKS-cluster aan taken van extern beheer.
@@ -155,5 +183,6 @@ In dit artikel gericht op de verbinding met het netwerk en beveiliging. Zie voor
 [aks-ingress-tls]: ingress-tls.md
 [aks-ingress-own-tls]: ingress-own-tls.md
 [app-gateway]: ../application-gateway/overview.md
+[use-network-policies]: use-network-policies.md
 [advanced-networking]: configure-azure-cni.md
 [aks-configure-kubenet-networking]: configure-kubenet.md

@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: d647c60cbe692f617891201accb1a32e1d885389
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: b58b925653326414db7d17bf9c5a0e1fc9676821
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982111"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56181470"
 ---
-# <a name="quotas-and-limitations-legacy"></a>Quota en beperkingen (verouderd)
+# <a name="quotas-and-limitations"></a>Quota's en beperkingen
 
 Dit artikel wordt beschreven, quota en beperkingen die zijn gekoppeld aan Microsoft Azure Media Services.
 

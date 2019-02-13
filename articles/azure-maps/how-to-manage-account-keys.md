@@ -1,6 +1,6 @@
 ---
-title: Uw Azure kaarten-account en sleutels beheren | Microsoft Docs
-description: U kunt de Azure-portal gebruiken voor het beheren van uw Azure kaarten-account en beheren van de toegangssleutels van uw.
+title: Uw Azure-kaarten-account beheren | Microsoft Docs
+description: U kunt de Azure-portal gebruiken voor het beheren van uw Azure kaarten-account.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 12/12/2018
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 81746279e935f9fa5b6ef00bc8d31e75f4d3bd20
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 488167b4893c314af99b354a2422204ebbf34c5e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103041"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113683"
 ---
-# <a name="manage-your-azure-maps-account-and-keys"></a>Uw Azure kaarten-account en sleutels beheren
+# <a name="manage-your-azure-maps-account"></a>Uw Azure-kaarten-account beheren
 
-U kunt uw Azure kaarten-account en sleutels via de Azure-portal beheren. Nadat u een account en een sleutel hebt, kunt u de API's implementeren in uw website of mobiele toepassing.
+U kunt uw Azure kaarten-account via Azure portal beheren. Nadat u een account hebt, kunt u de API's implementeren in uw website of mobiele toepassing.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -32,16 +32,6 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 4. Voer de gegevens voor uw nieuwe account.
 
 ![Voer de accountgegevens in de portal](./media/how-to-manage-account-keys/new-account-portal.png)
-
-## <a name="manage-keys-on-the-account-page"></a>Sleutels op de accountpagina beheren
-
-Nadat u een account maakt, krijgt u twee willekeurig gegenereerde sleutels. Kaartgegevens ophalen of maak een nieuw exemplaar van de JavaScript-kaart, gebruikt de sleutels voor verificatie op basis van de Azure kaarten-API's.
-
-U kunt uw sleutels vinden in Azure portal. Navigeer naar uw account. Selecteer vervolgens **sleutels** in het menu.
-
-![Accountsleutels in de portal beheren](./media/how-to-manage-account-keys/account-keys-portal.png)
-
-U kunt op deze pagina kopiëren van uw sleutels of nieuwe labels te genereren.
 
 ## <a name="delete-an-account"></a>Een account verwijderen
 

@@ -10,12 +10,13 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: dc18a523ff7c275b249704fb3928f2ebde6c81a9
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 108b188b0bbb63a4c9faea936360cf2fa3edc806
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55074886"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211611"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Uw bestaande NPS-infrastructuur integreren met Azure multi-factor Authentication
 
@@ -192,7 +193,7 @@ Als u MFA voor een RADIUS-client met behulp van de NPS-extensie inschakelen, wor
 
 Als u gebruikers die niet zijn geregistreerd voor MFA hebt, kunt u bepalen wat er gebeurt wanneer ze proberen te verifiëren. Gebruik de registerinstelling *REQUIRE_USER_MATCH* in het registerpad *HKLM\Software\Microsoft\AzureMFA* om te bepalen het gedrag van de functie. Deze instelling heeft een configuratieoptie voor één:
 
-| Sleutel | Waarde | Standaard |
+| Sleutel | Value | Standaard |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | WAAR/ONWAAR | Niet ingesteld (gelijk aan TRUE) |
 
@@ -247,7 +248,7 @@ Deze fout kan worden veroorzaakt door verschillende oorzaken hebben. Volg deze s
 1. Uw NPS-server opnieuw opstarten.
 2. Controleer of dat dit clientcertificaat is geïnstalleerd, zoals verwacht.
 3. Controleer of het certificaat is gekoppeld aan uw tenant in Azure AD.
-4. Controleer https://login.microsoftonline.com/ toegankelijk is vanaf de server met de extensie.
+4. Controleer of https://login.microsoftonline.com/ toegankelijk is vanaf de server waarop de extensie wordt uitgevoerd.
 
 -------------------------------------------------------------
 
@@ -259,7 +260,7 @@ Controleer of dat AD Connect wordt uitgevoerd en dat de gebruiker aanwezig is in
 
 ### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>Waarom zie ik HTTP-verbindingsfouten in Logboeken met mijn verificaties die zijn mislukt?
 
-Controleer https://adnotifications.windowsazure.com bereikbaar is vanaf de server waarop de NPS-extensie wordt uitgevoerd.
+Controleer of https://adnotifications.windowsazure.com bereikbaar is vanaf de server waarop de NPS-extensie wordt uitgevoerd.
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Beheer van de TLS/SSL-protocollen en coderingssuites
 

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: d49c16741f581b2ad09dc173e8380fdf77391dbe
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: deb8eacb1e9c55feba6b356eedc61ba57c3a6566
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299058"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110316"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Een certificaatbestand importeren in een container die wordt uitgevoerd in Service Fabric
 
-U kunt uw containerservices beveiligen door een certificaat op te geven. Service Fabric biedt een mechanisme voor services binnen een container voor toegang tot een certificaat dat is geïnstalleerd op de knooppunten in een Windows- of Linux-cluster (versie 5.7 of hoger). Het certificaat moet worden geïnstalleerd in LocalMachine / op alle knooppunten van het cluster. Informatie over het certificaat is opgegeven in het toepassingsmanifest onder de `ContainerHostPolicies` voor labelen als het volgende codefragment bevat:
+U kunt uw containerservices beveiligen door een certificaat op te geven. Service Fabric biedt een mechanisme voor services binnen een container voor toegang tot een certificaat dat is geïnstalleerd op de knooppunten in een Windows- of Linux-cluster (versie 5.7 of hoger). Het certificaat moet worden geïnstalleerd in een certificaatarchief onder LocalMachine / op alle knooppunten van het cluster. De persoonlijke sleutel die overeenkomt met het certificaat moet beschikbaar zijn, toegankelijk en -op Windows - kan worden geëxporteerd. Informatie over het certificaat is opgegeven in het toepassingsmanifest onder de `ContainerHostPolicies` voor labelen als het volgende codefragment bevat:
 
 ```xml
   <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
@@ -31,7 +31,7 @@ U kunt uw containerservices beveiligen door een certificaat op te geven. Service
     <CertificateRef Name="MyCert2" X509FindValue="[Thumbprint2]"/>
  ```
 
-Voor Windows-clusters, bij het starten van de toepassing, de runtime leest de certificaten en genereert een PFX-bestand en het wachtwoord voor elk certificaat. Dit PFX-bestand en het wachtwoord zijn toegankelijk in de container met behulp van de volgende omgevingsvariabelen: 
+Voor Windows-clusters, bij het starten van de toepassing, worden in de runtime elk certificaat waarnaar wordt verwezen en de bijbehorende persoonlijke sleutel exporteert naar een PFX-bestand, beveiligd met een willekeurig gegenereerd wachtwoord. De bestanden PFX en het wachtwoord zijn respectievelijk toegankelijk in de container met behulp van de volgende omgevingsvariabelen: 
 
 * Certificates_ServicePackageName_CodePackageName_CertName_PFX
 * Certificates_ServicePackageName_CodePackageName_CertName_Password

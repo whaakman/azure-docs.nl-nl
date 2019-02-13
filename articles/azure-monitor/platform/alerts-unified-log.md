@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 70f53ed06daad8adf10ef5a88f0672f86d6a8b48
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 5722db5be656641301299956172ee19249be7895
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004125"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106399"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Waarschuwingen in Azure Monitor
 Dit artikel vindt u details van waarschuwingen zijn een van de typen waarschuwingen die worden ondersteund in de [Azure-waarschuwingen](../platform/alerts-overview.md) en gebruikers van Azure-platform voor streaminganalyse gebruiken als basis voor waarschuwingen.
@@ -99,14 +99,28 @@ U hebt een scenario waarin u een waarschuwing wilt als een computer processorgeb
 - **Query:** Perf | waarbij ObjectName == 'Processor' en CounterName == "% processortijd" | summarize AggregatedValue = avg(CounterValue) door bin (TimeGenerated, 5 min.), Computer<br>
 - **Tijdsperiode:** 30 minuten<br>
 - **Waarschuwingsfrequentie:** vijf minuten<br>
-- **Cumulatieve waarde:** Groter is dan 90<br>
+- **Alert Logic - voorwaarde en drempelwaarde:** Groter is dan 90<br>
+- **Het veld van de groep (aggregaat-on):** Computer
 - **De waarschuwing activeren op basis van:** Totaal aantal kiezen oplossingen groter is dan 2<br>
 
-De query maakt een gemiddelde waarde voor elke computer met 5 minuten durende intervallen.  Deze query worden uitgevoerd om de 5 minuten voor gegevens die worden verzameld in de vorige 30 minuten.  Hieronder ziet u voorbeeldgegevens voor de drie computers.
+De query maakt een gemiddelde waarde voor elke computer met 5 minuten durende intervallen.  Deze query worden uitgevoerd om de 5 minuten voor gegevens die worden verzameld in de vorige 30 minuten. Omdat het veld groep (aggregaat-on) gekozen kolommen 'Computer' - de AggregatedValue wordt verdeeld voor verschillende waarden van 'Computer' en gemiddelde CPU-gebruik voor elke computer wordt bepaald voor een opslaglocatie van de tijd van 5 minuten.  Resultaat van de voorbeeld-query voor drie computers (bijvoorbeeld) zou zijn als hieronder.
+
+
+|TimeGenerated [UTC] |Computer  |AggregatedValue  |
+|---------|---------|---------|
+|20xx-xx-xxT01:00:00Z     |   srv01.contoso.com      |    72     |
+|20xx-xx-xxT01:00:00Z     |   srv02.contoso.com      |    91     |
+|20xx-xx-xxT01:00:00Z     |   srv03.contoso.com      |    83     |
+|...     |   ...      |    ...     |
+|20xx-xx-xxT01:30:00Z     |   srv01.contoso.com      |    88     |
+|20xx-xx-xxT01:30:00Z     |   srv02.contoso.com      |    84     |
+|20xx-xx-xxT01:30:00Z     |   srv03.contoso.com      |    92     |
+
+Als resultaat van de query worden getekend, wordt deze weergegeven als.
 
 ![De resultaten van de voorbeeld-query](media/alerts-unified-log/metrics-measurement-sample-graph.png)
 
-In dit voorbeeld zou er afzonderlijke waarschuwingen voor srv02 en srv03 worden gemaakt omdat ze de drempelwaarde 90% drie keer gedurende de periode geschonden.  Als de **waarschuwing activeren op basis van:** zijn gewijzigd in **opeenvolgend** en vervolgens een waarschuwing alleen voor srv03 zouden worden gemaakt omdat deze de drempelwaarde voor drie opeenvolgende steekproeven geschonden.
+In dit voorbeeld ziet u in bins van 5 minuten voor elk van de drie computers - gemiddelde CPU-gebruik als berekend voor 5 minuten. Drempelwaarde van 90 geschonden door slechts één keer srv01 om 1:25 bin. Ter vergelijking: srv02 overschrijdt 90 op 1:10, 1:15 en 1:25 opslaglocaties; terwijl srv03 groter is dan 90 drempelwaarde bij 1:10, 1:15, 1:20 en 1:30. Omdat de waarschuwing is geconfigureerd om te activeren op basis van het totaal aantal schendingen zijn meer dan twee, zien we dat srv02 en srv03 alleen voldoen aan de criteria. Afzonderlijke waarschuwingen zouden daarom worden gemaakt voor srv02 en srv03 omdat ze de drempelwaarde 90% tweemaal in meerdere tijd opslaglocaties geschonden.  Als de *waarschuwing activeren op basis van:* parameter in plaats daarvan zijn geconfigureerd voor *continue schendingen* optie, en vervolgens een waarschuwing zou worden geactiveerd **alleen** voor srv03 omdat deze geschonden de drempelwaarde voor drie opeenvolgende opslaglocaties van 1:10 tot en met 1:20. En **niet** geschonden voor srv02, omdat deze de drempelwaarde voor twee opeenvolgende opslaglocaties van 1:10 tot en met 1:15.
 
 ## <a name="log-search-alert-rule---firing-and-state"></a>Search waarschuwingsregel - starten en de status
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 471bb1b3fb17adc9e06dba591663ee20dd9d8baf
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c1718c5a2acfe49fba4974bcf7e580c45553113d
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721560"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108735"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Toepassingsprestaties Veelgestelde vragen voor Web-Apps in Azure
 
@@ -43,7 +43,7 @@ Uw app kunnen in bepaalde situaties hoog geheugenverbruik, echt vereist meer bro
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>Hoe Automatiseer ik App Service WebApps met behulp van PowerShell?
 
-U kunt PowerShell-cmdlets gebruiken om te beheren en onderhouden van App Service Webapps. In onze blogpost [automatiseren webtoepassingen die worden gehost in Azure App Service met behulp van PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/), wordt beschreven hoe u op basis van een Azure Resource Manager PowerShell-cmdlets gebruiken om algemene taken te automatiseren. Het blogbericht: heeft ook voorbeeldcode voor verschillende beheertaken voor web-apps. Zie voor beschrijvingen en syntaxis voor alle App Service web apps-cmdlets voor [azurerm.websites gebruikt](https://docs.microsoft.com/powershell/module/azurerm.websites/?view=azurermps-4.0.0).
+U kunt PowerShell-cmdlets gebruiken om te beheren en onderhouden van App Service Webapps. In onze blogpost [automatiseren webtoepassingen die worden gehost in Azure App Service met behulp van PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/), wordt beschreven hoe u op basis van een Azure Resource Manager PowerShell-cmdlets gebruiken om algemene taken te automatiseren. Het blogbericht: heeft ook voorbeeldcode voor verschillende beheertaken voor web-apps. Zie voor beschrijvingen en syntaxis voor alle App Service web apps-cmdlets voor [Az.Websites](/powershell/module/az.websites).
 
 ## <a name="how-do-i-view-my-web-apps-event-logs"></a>Hoe kan ik mijn web-app-gebeurtenislogboeken bekijken?
 
