@@ -15,12 +15,13 @@ ms.workload: identity
 ms.date: 10/24/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: a0c2d13b2ac6715db047d56e998294688d9b65cf
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4f7d4e586dcb90153fb4d037c9c9821cd3ea3182
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097058"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56176710"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Microsoft Graph API aanroepen vanuit een Universal Windows Platform-toepassing (XAML)
 
@@ -44,7 +45,7 @@ Deze handleiding UWP met een voorbeeldtoepassing die query's van Microsoft Graph
 
 Deze handleiding maakt gebruik van de volgende NuGet-pakketten:
 
-|Bibliotheek|Beschrijving|
+|Bibliotheek|Description|
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft Authentication Library|
 
@@ -355,12 +356,12 @@ U ziet informatie uit gebruikersprofielen door de Microsoft Graph API-aanroep is
 
 U ziet ook basisinformatie over het token dat is verkregen `AcquireTokenAsync` of `AcquireTokenSilentAsync` in de **Token Info** vak:
 
-|Eigenschap  |Indeling  |Beschrijving |
+|Eigenschap  |Indeling  |Description |
 |---------|---------|---------|
 |**Naam** |Volledige naam van gebruiker|En achternaam van eerst de gebruiker.|
 |**Gebruikersnaam** |<span>user@domain.com</span> |De gebruikersnaam waarmee de gebruiker.|
 |**Token is verlopen** |DateTime |De tijd wanneer het token is verlopen. MSAL vervolg op de vervaldatum vernieuwen van het token indien nodig.|
-|**Toegangstoken** |Reeks |De token tekenreeks die wordt verzonden naar HTTP-aanvragen waarvoor een *autorisatie-header*.|
+|**Toegangstoken** |String |De token tekenreeks die wordt verzonden naar HTTP-aanvragen waarvoor een *autorisatie-header*.|
 
 #### <a name="see-whats-in-the-access-token-optional"></a>Ontdek wat er in het toegangstoken (optioneel)
 De waarde in (optioneel) kopiëren **toegangstoken** en plak deze in https://jwt.ms dit decoderen en bekijkt u de lijst met claims.

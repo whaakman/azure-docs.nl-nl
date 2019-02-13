@@ -4,7 +4,7 @@ description: Dit artikel bevat een overzicht van Azure Service Fabric-beveiligin
 services: security
 documentationcenter: na
 author: unifycloud
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 629b6fba9ced5fa2ccf22f473fe25c87d1cc4818
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 3e7717d4ee07a1f3bfebb5e09b983af68aa4ea31
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436807"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116217"
 ---
 # <a name="azure-service-fabric-security-overview"></a>Overzicht van Azure Service Fabric-beveiliging
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) is een platform voor gedistribueerde systemen waarmee u eenvoudig kunnen worden verpakt, implementeren en beheren van schaalbare en betrouwbare microservices. Service Fabric is afhankelijk van de uitdagingen van ontwikkelen en beheren van cloudtoepassingen. Ontwikkelaars en beheerders kunnen complexe infrastructuurproblemen vermijden en zich richten op het implementeren van essentiële en intensieve werkbelastingen die schaalbare en betrouwbare zijn.
@@ -47,8 +47,8 @@ U configureren client-naar-knooppunt beveiliging met behulp van de client-id's. 
 
 Service Fabric ondersteunt twee toegangstypen voor clients die zijn verbonden met een Service Fabric-cluster:
 
--   **Beheerder**: volledige toegang tot de mogelijkheden voor Computerbeheer, met inbegrip van lezen/schrijven-mogelijkheden.
--   **Gebruiker**: alleen leestoegang tot de mogelijkheden (bijvoorbeeld querymogelijkheden) en de mogelijkheid om op te lossen, toepassingen en services.
+-   **Beheerder**: Volledige toegang tot de mogelijkheden voor Computerbeheer, met inbegrip van lezen/schrijven-mogelijkheden.
+-   **Gebruiker**: Alleen lezen-toegang tot de beheerfuncties (bijvoorbeeld querymogelijkheden) en de mogelijkheid om op te lossen, toepassingen en services.
 
 Met behulp van toegangsbeheer, kunnen clusterbeheerders toegang beperken tot bepaalde typen bewerkingen voor een cluster. Dit maakt het cluster beter te beveiligen.
 
@@ -83,11 +83,11 @@ Vanuit het beveiligingsoogpunt zijn de belangrijkste doelstellingen van controle
 
 De werkstroom van bewaking en diagnostiek bestaat uit drie stappen:
 
-1.  **Gebeurtenisgeneratie**: genereren van gebeurtenissen bevat gebeurtenissen (Logboeken, traceringen, aangepaste gebeurtenissen) op het niveau van de infrastructuur (cluster) en de toepassing/service-niveau. Meer informatie over [gebeurtenissen op infrastructuurniveau](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-infra) en [gebeurtenissen op toepassingsniveau](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app) om te begrijpen wat wordt geleverd en hoe u verder instrumentatie toevoegen.
+1.  **Gebeurtenisgeneratie**: Gebeurtenisgeneratie bevat gebeurtenissen (Logboeken, traceringen, aangepaste gebeurtenissen) op het niveau van de infrastructuur (cluster) en de toepassing/service-niveau. Meer informatie over [gebeurtenissen op infrastructuurniveau](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-infra) en [gebeurtenissen op toepassingsniveau](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app) om te begrijpen wat wordt geleverd en hoe u verder instrumentatie toevoegen.
 
-2.  **Gebeurtenis-aggregatie**: gegenereerde gebeurtenissen moeten worden verzameld en samengevoegd voordat ze kunnen worden weergegeven. Wordt doorgaans aangeraden [Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) (vergelijkbaar met logboekverzameling op basis van een agent) of [EventFlow](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow) (in-process logboekverzameling).
+2.  **Gebeurtenis-aggregatie**: Gegenereerde gebeurtenissen moeten worden verzameld en samengevoegd voordat ze kunnen worden weergegeven. Wordt doorgaans aangeraden [Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) (vergelijkbaar met logboekverzameling op basis van een agent) of [EventFlow](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow) (in-process logboekverzameling).
 
-3.  **Analyse**: gebeurtenissen moeten worden zinvoller visualiseren en toegankelijk is in een indeling, om toe te staan voor analyse en weergeven. Er zijn verschillende platforms voor de analyse en visualisatie van gegevens voor controle en diagnostische gegevens. Het is raadzaam [Azure Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) en [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) omdat ze probleemloos worden geïntegreerd met Service Fabric.
+3.  **Analyse**: Gebeurtenissen moeten worden zinvoller visualiseren en toegankelijk is in een indeling, om toe te staan voor analyse en weergeven. Er zijn verschillende platforms voor de analyse en visualisatie van gegevens voor controle en diagnostische gegevens. Het is raadzaam [Azure Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) en [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) omdat ze probleemloos worden geïntegreerd met Service Fabric.
 
 U kunt ook [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) voor het bewaken van veel van de Azure-resources waarop een Service Fabric-cluster is gebouwd.
 
@@ -102,7 +102,7 @@ Digitale x.509-certificaten worden meestal gebruikt voor verificatie van clients
 
 De volgende tabel vindt u de certificaten die u nodig hebt van de cluster-instellingen:
 
-|Instelling voor gegevens |Beschrijving|
+|Instelling voor gegevens |Description|
 |-------------------------------|-----------|
 |ClusterCertificate|    Dit certificaat is vereist om de communicatie tussen de knooppunten op een cluster te beveiligen. U kunt twee clustercertificaten: een primair certificaat en een secundaire voor een upgrade.|
 |ServerCertificate| Dit certificaat wordt weergegeven op de client als er wordt geprobeerd verbinding maken met dit cluster. U kunt twee servercertificaten gebruiken: een primair certificaat en een secundaire voor een upgrade.|

@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: c48ffd92362fa19fc0abfb7ddc36eac378283938
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a43e84e97499010f36e3cd39c13bf61d281b66c7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156326"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56193132"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Synchronisatiefouten oplossen
 Fouten kunnen zich voordoen wanneer identiteitsgegevens worden gesynchroniseerd vanuit Windows Server Active Directory (AD DS) naar Azure Active Directory (Azure AD). Dit artikel bevat een overzicht van verschillende typen synchronisatiefouten enkele van de mogelijke scenario's die ertoe leiden dat deze fouten en mogelijke manieren de fouten te herstellen. In dit artikel bevat de algemene fouttypen en kan geen betrekking op alle mogelijke fouten.
@@ -40,7 +41,7 @@ Fouten tijdens het exporteren naar Azure AD geven aan dat de bewerking \(toevoeg
 
 ## <a name="data-mismatch-errors"></a>Fouten niet-overeenkomende gegevens
 ### <a name="invalidsoftmatch"></a>InvalidSoftMatch
-#### <a name="description"></a>Beschrijving
+#### <a name="description"></a>Description
 * Wanneer Azure AD Connect \(synchronisatie-engine\) geeft Azure Active Directory wilt toevoegen of bijwerken van objecten, Azure AD overeenkomt met de binnenkomende object via de **sourceAnchor** kenmerk aan de **immutableId**  kenmerk van objecten in Azure AD. Deze overeenkomst is met de naam een **harde overeenkomen met**.
 * Wanneer Azure AD **geen vindt** elk object dat overeenkomt met de **immutableId** kenmerk met de **sourceAnchor** kenmerk van het binnenkomende object, voordat u een nieuwe inricht een object, wordt gebruikgemaakt van voor het gebruik van de kenmerken ProxyAddresses en UserPrincipalName te vinden. Deze overeenkomst is met de naam een **zachte overeenkomen met**. De zachte overeenkomen met is ontworpen om objecten die al aanwezig in Azure AD (die afkomstig zijn in Azure AD) met de nieuwe objecten worden toegevoegd/bijgewerkt tijdens de synchronisatie die staan voor de dezelfde entiteit (gebruikers, groepen) on-premises te koppelen.
 * **InvalidSoftMatch** fout treedt op wanneer een overeenkomst met de vaste geen overeenkomende objecten vindt **en** zachte match vindt u een overeenkomend object maar dat object is een andere waarde van *immutableId* dan de binnenkomende object *SourceAnchor*, voorstellen dat het overeenkomende object is gesynchroniseerd met een ander object vanuit on-premises Active Directory.
@@ -108,7 +109,7 @@ Foutenrapporten synchronisatie in Azure AD Connect Health voor synchroniseren wo
 * [Dubbele of ongeldige kenmerken te voorkomen dat de directory-synchronisatie in Office 365](https://support.microsoft.com/kb/2647098)
 
 ### <a name="objecttypemismatch"></a>ObjectTypeMismatch
-#### <a name="description"></a>Beschrijving
+#### <a name="description"></a>Description
 Wanneer Azure AD probeert te zacht overeenkomen met twee objecten, is het mogelijk dat twee objecten van verschillende "objecttype' (zoals gebruiker, groep, enz. Neem contact op met) hebben de dezelfde waarden voor de kenmerken die wordt gebruikt voor het uitvoeren van de zachte match. Duplicatie van deze kenmerken is niet toegestaan in Azure AD, kan de bewerking 'ObjectTypeMismatch' synchronisatiefout leiden.
 
 #### <a name="example-scenarios-for-objecttypemismatch-error"></a>Voorbeeldscenario's voor ObjectTypeMismatch fout
@@ -129,7 +130,7 @@ De meest voorkomende reden voor de fout ObjectTypeMismatch is twee objecten van 
 
 ## <a name="duplicate-attributes"></a>Dubbele kenmerken
 ### <a name="attributevaluemustbeunique"></a>AttributeValueMustBeUnique
-#### <a name="description"></a>Beschrijving
+#### <a name="description"></a>Description
 Azure Active Directory-schema is niet toegestaan voor twee of meer objecten hebben dezelfde waarde van de volgende kenmerken. Dat is dat elk object in Azure AD wordt gedwongen om een unieke waarde van deze kenmerken voor een bepaald geval.
 
 * ProxyAddresses
@@ -167,7 +168,7 @@ De meest voorkomende reden voor de fout AttributeValueMustBeUnique is twee objec
 
 ## <a name="data-validation-failures"></a>Mislukte gegevensvalidatie
 ### <a name="identitydatavalidationfailed"></a>IdentityDataValidationFailed
-#### <a name="description"></a>Beschrijving
+#### <a name="description"></a>Description
 Azure Active Directory worden afgedwongen voor verschillende beperkingen met betrekking tot de gegevens zelf voordat toe te staan dat gegevens worden geschreven naar de map. Deze beperkingen zijn om ervoor te zorgen dat eindgebruikers de best mogelijke ervaring tijdens het gebruik van de toepassingen die afhankelijk van deze gegevens zijn krijgen.
 
 #### <a name="scenarios"></a>Scenario's
@@ -181,7 +182,7 @@ a. Zorg ervoor dat het kenmerk userPrincipalName is ondersteund tekens en de ver
 * [Voorbereiden voor het inrichten van gebruikers via adreslijstsynchronisatie op Office 365](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
 ### <a name="federateddomainchangeerror"></a>FederatedDomainChangeError
-#### <a name="description"></a>Beschrijving
+#### <a name="description"></a>Description
 Deze aanvraag resulteert in een **"FederatedDomainChangeError"** fout synchroniseren wanneer het achtervoegsel van de UserPrincipalName van een gebruiker is gewijzigd van een federatief domein in een ander federatief domein.
 
 #### <a name="scenarios"></a>Scenario's
@@ -203,7 +204,7 @@ Als de UserPrincipalName-achtervoegsel van een gebruiker is bijgewerkt van bob @
 * [Wijzigingen worden niet gesynchroniseerd met het hulpprogramma Azure Active Directory Sync nadat u de UPN van een gebruikersaccount voor het gebruik van een ander federatief domein wijzigen](https://support.microsoft.com/help/2669550/changes-aren-t-synced-by-the-azure-active-directory-sync-tool-after-you-change-the-upn-of-a-user-account-to-use-a-different-federated-domain)
 
 ## <a name="largeobject"></a>LargeObject
-### <a name="description"></a>Beschrijving
+### <a name="description"></a>Description
 Wanneer een kenmerk overschrijdt de maximale toegestane grootte, de maximale lengte of de limiet voor het aantal ingesteld door Azure Active Directory-schema, de synchronisatiebewerking resulteert in de **LargeObject** of **ExceededAllowedLength**-synchronisatiefout. Deze fout treedt meestal op voor de volgende kenmerken
 
 * userCertificate
@@ -222,7 +223,7 @@ Wanneer een kenmerk overschrijdt de maximale toegestane grootte, de maximale len
 
 ## <a name="existing-admin-role-conflict"></a>Conflict met bestaande beheerdersrol
 
-### <a name="description"></a>Beschrijving
+### <a name="description"></a>Description
 Een **bestaande Admin rol Conflict** van een gebruikersobject tijdens de synchronisatie wordt uitgevoerd wanneer dat gebruikersobject heeft:
 
 - beheerdersmachtigingen en

@@ -14,21 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 060ff6b94c171d27dae74ea76603222253f33bab
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 87081398e844f1e2b085a7e12c2b7aafce330ec9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194284"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56193761"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Inleiding tot de statuscontrole Service Fabric
 Azure Service Fabric introduceert een statusmodel dat u uitgebreide, flexibele en uitbreidbare evalueren en rapportage kunt. Het model kunt bijna-realtime bewaking van de status van het cluster en de services die erin worden uitgevoerd. U kunt eenvoudig ophalen van gegevens over de servicestatus en corrigeren mogelijke problemen voordat ze zich opstapelen en enorme storingen veroorzaken. In het model typische services rapporten op basis van hun lokale weergaven verzenden, en dat gegevens worden samengevoegd voor een algemene-niveau cluster weergeven.
 
 Dit model uitgebreide health service Fabric-onderdelen gebruiken voor het rapporteren van de huidige status. U kunt hetzelfde mechanisme gebruiken tot de status van het rapport uit uw toepassingen. Als u investeert in de gezondheid van hoge kwaliteit reporting waarmee uw aangepaste voorwaarden wordt vastgelegd, kunt u detecteren en oplossen van problemen gemakkelijker voor de toepassing wordt uitgevoerd.
-
-De volgende video van Microsoft Virtual Academy beschrijft ook het statusmodel van de Service Fabric en hoe deze worden gebruikt: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
-<img src="./media/service-fabric-health-introduction/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
 
 > [!NOTE]
 > We begonnen met het subsysteem health om nodig voor bewaakte upgrades op te lossen. Service Fabric biedt bewaakte upgrades van toepassing en cluster die ervoor zorgen dat de volledige beschikbaarheid, zonder uitvaltijd en minimale aan geen tussenkomst van de gebruiker. Als u wilt deze doelen kan bereiken, controleert de upgrade status op basis van geconfigureerde upgrade beleid. Een upgrade kan worden voortgezet wanneer health respecteert de gewenste drempelwaarden. Anders wordt is de upgrade automatisch teruggedraaid of onderbroken zodat beheerders een kans de problemen op te lossen. Zie voor meer informatie over upgrades van toepassingen, [in dit artikel](service-fabric-application-upgrade.md).

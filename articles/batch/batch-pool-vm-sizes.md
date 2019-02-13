@@ -12,24 +12,24 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2019
+ms.date: 01/25/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 787c10ab75a3534a73e04f1bd60462ea02fcf42a
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 921dfc12a7353725d3f9e05d7aa3245ec8ba6084
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191714"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185987"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Kies een VM-grootte voor rekenknooppunten in een Azure Batch-pool
 
-Wanneer u een knooppuntgrootte voor een Azure Batch-pool selecteert, kunt u kiezen uit bijna alle de VM-grootten beschikbaar zijn in Azure. Azure biedt tal van grootten voor Linux en Windows-VM's voor verschillende werkbelastingen. 
+Wanneer u een knooppuntgrootte voor een Azure Batch-pool selecteert, kunt u kiezen uit bijna alle de VM-grootten beschikbaar zijn in Azure. Azure biedt tal van grootten voor Linux en Windows-VM's voor verschillende werkbelastingen.
 
 Er zijn enkele uitzonderingen en beperkingen voor het kiezen van een VM-grootte:
+
 * Sommige families van de virtuele machine of VM-grootten worden niet ondersteund in Batch. 
 * Enkele VM-grootten zijn beperkt en moeten specifiek worden ingeschakeld voordat ze kunnen worden toegewezen.
-
 
 ## <a name="supported-vm-families-and-sizes"></a>Ondersteunde VM-reeksen en grootten
 
@@ -42,16 +42,16 @@ Batch-pools in de configuratie van de virtuele Machine ondersteuning voor alle V
 | Basic A-serie | Basic_A0 (A0) |
 | A-serie | Standard_A0 |
 | B-serie | Alle |
-| DC-serie | Alle | 
+| DC-serie | Alle |
 | Extreme geoptimaliseerd voor geheugen | Alle |
-| HB-serie<sup>1</sup> | Alle | 
-| CH-serie<sup>1</sup> | Alle |
+| Hb-series<sup>1</sup> | Alle |
+| Hc-series<sup>1</sup> | Alle |
 | Lsv2-serie | Alle |
-| NDv2-serie<sup>1</sup> | Alle |
-| NVv2-serie<sup>1</sup> | Alle |
+| NDv2-series<sup>1</sup> | Alle |
+| NVv2-serie | Alle |
 | SAP HANA | Alle |
 
-<sup>1</sup> momenteel niet ondersteund, maar in de toekomst worden ondersteund.
+<sup>1</sup> kan worden gebruikt door Batch-accounts in de gebruikersabonnementmodus; de gebruikersabonnementmodus Batch-account moet beschikken over het quotum voor kerngeheugens instellen. Zie [configuratie voor de gebruikersabonnementmodus](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode) voor meer informatie.
 
 De volgende VM-grootten worden alleen ondersteund voor knooppunten met lage prioriteit:
 
@@ -74,6 +74,7 @@ Batch-pools in de Cloud-serviceconfiguratie ondersteunen alle [VM-grootten voor 
 ## <a name="restricted-vm-families"></a>Beperkte VM-families
 
 De volgende VM-families kunnen worden toegewezen in Batch-pools, maar u moet een bepaalde verhoging aanvragen (Zie [in dit artikel](batch-quota-limit.md#increase-a-quota)):
+
 * NCv2-serie
 * NCv3-serie
 * ND-serie
@@ -82,7 +83,7 @@ Deze grootten kunnen alleen worden gebruikt in toepassingen in de configuratie v
 
 ## <a name="size-considerations"></a>Overwegingen voor grootte
 
-* **Toepassingsvereisten** -Houd rekening met de kenmerken en vereisten van de toepassing die u op de knooppunten uitvoert. Houd ook rekening met het feit of bijvoorbeeld de toepassing meerdere threads heeft en hoeveel geheugen deze gebruikt. Zo kunt u gemakkelijker de meest geschikte en voordeligste knooppuntgrootte bepalen. Voor meerdere instanties [MPI workloads](batch-mpi.md) of CUDA-toepassingen, kunt u gespecialiseerde [HPC](../virtual-machines/linux/sizes-hpc.md) of [met GPU](../virtual-machines/linux/sizes-gpu.md) VM-grootten, respectievelijk. (Zie [gebruik RDMA-compatibele of met GPU exemplaren in de Batch-pools](batch-pool-compute-intensive-sizes.md).) 
+* **Toepassingsvereisten** -Houd rekening met de kenmerken en vereisten van de toepassing die u op de knooppunten uitvoert. Houd ook rekening met het feit of bijvoorbeeld de toepassing meerdere threads heeft en hoeveel geheugen deze gebruikt. Zo kunt u gemakkelijker de meest geschikte en voordeligste knooppuntgrootte bepalen. Voor meerdere instanties [MPI workloads](batch-mpi.md) of CUDA-toepassingen, kunt u gespecialiseerde [HPC](../virtual-machines/linux/sizes-hpc.md) of [met GPU](../virtual-machines/linux/sizes-gpu.md) VM-grootten, respectievelijk. (Zie [gebruik RDMA-compatibele of met GPU exemplaren in de Batch-pools](batch-pool-compute-intensive-sizes.md).)
 
 * **Taken per knooppunt** -meestal selecteert u een knooppunt in de veronderstelling dat één taak tegelijk op een knooppunt wordt uitgevoerd. Echter, is het mogelijk nuttig om meerdere taken (en waarbij meerdere toepassingsinstanties) [parallel uit voeren](batch-parallel-node-tasks.md) op rekenknooppunten tijdens het uitvoeren van taak. Het is in dit geval kiest u de grootte van een multicore knooppunt aan de toegenomen vraag van de uitvoering van de parallelle taak.
 
@@ -97,6 +98,4 @@ Deze grootten kunnen alleen worden gebruikt in toepassingen in de configuratie v
 ## <a name="next-steps"></a>Volgende stappen
 
 * Zie voor een gedetailleerd overzicht van Batch, [grootschalige parallelle rekenoplossingen ontwikkelen met Batch](batch-api-basics.md).
-* Zie voor meer informatie over het gebruik van rekenintensieve VM-grootten [gebruik RDMA-compatibele of met GPU exemplaren in de Batch-pools](batch-pool-compute-intensive-sizes.md). 
-
-
+* Zie voor meer informatie over het gebruik van rekenintensieve VM-grootten [gebruik RDMA-compatibele of met GPU exemplaren in de Batch-pools](batch-pool-compute-intensive-sizes.md).

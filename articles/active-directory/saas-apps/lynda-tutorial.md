@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 7fa0ec222a8e08c5dda74dba0fe437062bb3f433
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2e0f14ed72ae1609d4d6605e4a53e88b8fe33f28
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156306"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217680"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lyndacom"></a>Zelfstudie: Azure Active Directory-integratie met Lynda.com
 
@@ -115,7 +116,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<subdomain>.lynda.com/Shibboleth.sso/InCommon?providerId=<url>&target=<url> `
 
     > [!NOTE] 
-    > Deze waarde is niet echt. Deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [Lynda.com Client ondersteuningsteam](https://www.linkedin.com/help/lynda/ask) om deze waarden te verkrijgen. 
+    > Deze waarde is niet echt. Werk deze waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [Lynda.com Client ondersteuningsteam](https://www.linkedin.com/help/lynda/ask) om deze waarden te verkrijgen. 
  
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het XML-bestand op uw computer.
 

@@ -13,14 +13,16 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 37f6ad26fd0ad4a1ac6c3fd6c6707b5b9aaef331
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: fbf94d0430685ea5791aaaa83669a730986e665c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770211"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111302"
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Implementatiebewerkingen bekijken met Azure Resource Manager
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 U kunt de bewerkingen voor een implementatie via de Azure-portal weergeven. Het is mogelijk dat u meest geïnteresseerd zijn in de bewerkingen weer te geven wanneer u een fout tijdens de implementatie ontvangen hebt, zodat in dit artikel is gericht op het weergeven van bewerkingen die zijn mislukt. De portal biedt een interface waarmee u eenvoudig vinden van de fouten en mogelijke oplossingen te bepalen.
 
@@ -68,13 +70,13 @@ Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
   Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
   ```
    
-1. Voor de correlatie-ID, gebruikt u:
+2. Voor de correlatie-ID, gebruikt u:
 
   ```powershell
   (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
   ```
 
-1. Elke implementatie bevat meerdere bewerkingen. Elke bewerking vertegenwoordigt een stap in het implementatieproces. Voor het detecteren van wat is een fout opgetreden bij een implementatie, moet u doorgaans informatie over de implementaties. U ziet de status van de bewerkingen met **Get-AzResourceGroupDeploymentOperation**.
+3. Elke implementatie bevat meerdere bewerkingen. Elke bewerking vertegenwoordigt een stap in het implementatieproces. Voor het detecteren van wat is een fout opgetreden bij een implementatie, moet u doorgaans informatie over de implementaties. U ziet de status van de bewerkingen met **Get-AzResourceGroupDeploymentOperation**.
 
   ```powershell 
   Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
@@ -92,7 +94,7 @@ Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
                    serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
   ```
 
-1. Meer informatie over mislukte bewerkingen ophalen van de eigenschappen voor bewerkingen met **mislukt** staat.
+4. Meer informatie over mislukte bewerkingen ophalen van de eigenschappen voor bewerkingen met **mislukt** staat.
 
   ```powershell
   (Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
@@ -115,7 +117,7 @@ Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
   ```
 
     Houd er rekening mee de serviceRequestId en de trackingId voor de bewerking. De serviceRequestId kan nuttig zijn bij het werken met de technische ondersteuning voor het oplossen van een implementatie. U gebruikt de trackingId in de volgende stap om zich te richten op een bepaalde bewerking.
-1. Als u het statusbericht van een bepaalde bewerking is mislukt, gebruikt u de volgende opdracht uit:
+5. Als u het statusbericht van een bepaalde bewerking is mislukt, gebruikt u de volgende opdracht uit:
 
   ```powershell
   ((Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
@@ -128,7 +130,7 @@ Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
   ----           -------                                                                        -------
   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
   ```
-1. Elke implementatiebewerking in Azure bevat inhoud voor aanvragen en reacties. De aanvraaginhoud is wat u hebt verzonden naar Azure tijdens de implementatie (bijvoorbeeld een virtuele machine, maken de schijf met besturingssysteem en andere resources). De inhoud van de reactie is wat Azure van uw implementatieaanvraag teruggestuurd. Tijdens de implementatie, kunt u **DeploymentDebugLogLevel** parameter om op te geven dat de aanvraag en/of het antwoord worden bewaard in het logboek. 
+6. Elke implementatiebewerking in Azure bevat inhoud voor aanvragen en reacties. De aanvraaginhoud is wat u hebt verzonden naar Azure tijdens de implementatie (bijvoorbeeld een virtuele machine, maken de schijf met besturingssysteem en andere resources). De inhoud van de reactie is wat Azure van uw implementatieaanvraag teruggestuurd. Tijdens de implementatie, kunt u **DeploymentDebugLogLevel** parameter om op te geven dat de aanvraag en/of het antwoord worden bewaard in het logboek. 
 
   U die gegevens ophalen uit het logboek en sla het lokaal met behulp van de volgende PowerShell-opdrachten:
 
@@ -146,13 +148,13 @@ Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
   az group deployment show -g ExampleGroup -n ExampleDeployment
   ```
   
-1. Een van de geretourneerde waarden is de **correlationId**. Deze waarde wordt gebruikt voor het bijhouden van gerelateerde gebeurtenissen en kan nuttig zijn bij het werken met de technische ondersteuning voor het oplossen van een implementatie.
+2. Een van de geretourneerde waarden is de **correlationId**. Deze waarde wordt gebruikt voor het bijhouden van gerelateerde gebeurtenissen en kan nuttig zijn bij het werken met de technische ondersteuning voor het oplossen van een implementatie.
 
   ```azurecli
   az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
   ```
 
-1. Als de bewerkingen voor een implementatie wilt weergeven, gebruikt u het:
+3. Als de bewerkingen voor een implementatie wilt weergeven, gebruikt u het:
 
   ```azurecli
   az group deployment operation list -g ExampleGroup -n ExampleDeployment

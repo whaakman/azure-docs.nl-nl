@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 11/05/2018
 ms.custom: mvc
-ms.openlocfilehash: 983e8b279261d3ff8e5d24c8e3a6f61c5a787e5b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: aba9014e74b8ba0cd1b528cf570d3651950c6d5f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240808"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207055"
 ---
 # <a name="tutorial-make-sql-databases-available-to-your-azure-stack-users"></a>Zelfstudie: SQL-databases beschikbaar te maken voor uw Azure Stack-gebruikers
 
@@ -35,7 +35,7 @@ Als de beheerder van een Azure Stack-cloud, kunt u aanbiedingen waarmee uw gebru
 
 ## <a name="deploy-the-sql-server-resource-provider"></a>De SQL Server-resourceprovider implementeren
 
-Het implementatieproces wordt uitgebreid beschreven in de [Gebruik SQL-databases op Azure Stack-artikel](azure-stack-sql-resource-provider-deploy.md), en bestaat uit de volgende primaire stappen uit:
+Het implementatieproces wordt uitgebreid beschreven in de [SQL-databases gebruiken op Azure Stack-artikel](azure-stack-sql-resource-provider-deploy.md), en bestaat uit de volgende primaire stappen uit:
 
 1. [De SQL-resourceprovider implementeren](azure-stack-sql-resource-provider-deploy.md).
 2. [Controleer of de implementatie](azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).

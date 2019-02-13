@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/19/2019
 ms.author: glenga
-ms.openlocfilehash: b51bf448d49647bbe03529bfe8b184a2fbaf946a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: ab502c25a632977065e55d2eeafd684203636b14
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005553"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109908"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Over het gebruik van de Azure WebJobs SDK voor verwerking op de achtergrond gebeurtenisgestuurde
 
@@ -36,7 +36,7 @@ Dit artikel bevat richtlijnen over het schrijven van code voor [de Azure WebJobs
 
 In dit artikel wordt ervan uitgegaan dat u hebt gelezen en de taken in voltooid [aan de slag met de WebJobs SDK](webjobs-sdk-get-started.md).
 
-## <a name="webhobs-host"></a>WebHobs host
+## <a name="webjobs-host"></a>WebJobs-host
 
 De host is een runtime-container voor functies.  Er wordt geluisterd naar triggers en aanroepen van functies. In versie 3.x, de host is een implementatie van `IHost`, en in versie 2.x die u gebruikt de `JobHost` object. U maakt een instantie van de host in uw code en Schrijf code voor het aanpassen van het gedrag.
 

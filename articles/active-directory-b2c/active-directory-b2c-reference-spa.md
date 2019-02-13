@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7342849af63ef2f153a89418fbf87f60bd4c4833
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 82483d8d84349a929ef4892d5e9571ea65b9a88a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183285"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56104835"
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C: App met één pagina aanmelden met behulp van OAuth 2.0-impliciete stroom
 
@@ -30,7 +30,7 @@ Ter ondersteuning van deze toepassingen, Azure Active Directory B2C (Azure AD B2
 Azure AD B2C breidt de standaard OAuth 2.0-impliciete stroom op meer dan een eenvoudige verificatie en autorisatie. Azure AD B2C introduceert de [Beleidsparameter](active-directory-b2c-reference-policies.md). Met de parameter van het beleid, kunt u OAuth 2.0 beleid toevoegen aan uw app, zoals gebruikersregistratie, aanmelding, en de gebruikersstromen management-profiel. In dit artikel laten we zien u hoe u kunt de impliciete stroom en de Azure AD gebruiken voor het implementeren van elk van deze ervaringen in uw toepassingen met één pagina. Als u aan de slag wilt, Bekijk onze [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) en [Microsoft .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) voorbeelden.
 
 In het voorbeeld van de HTTP-aanvragen in dit artikel gebruiken we ons voorbeeld van Azure AD B2C-directory **fabrikamb2c.onmicrosoft.com**. We gebruiken ook onze eigen voorbeeld toepassingen en -stromen. U kunt ook zelf de aanvragen proberen met behulp van deze waarden, of kunt u deze vervangen door uw eigen waarden.
-Meer informatie over het [ophalen van uw eigen Azure AD B2C-directory-, toepassings- en gebruiker stromen](#use-your-own-b2c-tenant).
+Meer informatie over het [ophalen van uw eigen Azure AD B2C-directory-, toepassings- en gebruiker stromen](#use-your-own-azure-ad-b2c-tenant).
 
 
 ## <a name="protocol-diagram"></a>Protocol-diagram

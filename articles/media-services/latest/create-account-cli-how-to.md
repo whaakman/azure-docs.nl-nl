@@ -10,21 +10,21 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: seodec18
-ms.date: 01/28/2019
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: b01958dc320ff6c81bb27c85ff4a5e508eabb01b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ce022e22cc98dd218dff4840f686464233f99c72
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209941"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56176339"
 ---
 # <a name="create-an-azure-media-services-account"></a>Een Azure Media Services-account maken
 
 Als u wilt beginnen met coderen, codering, analyseren, beheren en streamen van mediainhoud in Azure, moet u een Media Services-account maken. Op het moment u een Media Services-account create, maakt u ook een gekoppelde storage-account (of gebruik een bestaande resourcegroep).  
 
 > [!NOTE]
-> De Media Services-account en alle gekoppelde opslagaccounts moeten zich in hetzelfde Azure-abonnement. Het verdient aanbeveling gebruik van storage-accounts op dezelfde locatie bevinden als het Media Services-account.
+> Het Media Services-account en alle gekoppelde opslagaccounts moeten zich in hetzelfde Azure-abonnement bevinden. Het is raadzaam storage-accounts op dezelfde locatie bevinden als het Media Services-account gebruiken om te voorkomen dat de kosten voor extra latentie en gegevens uitgaand.
 
 Dit artikel wordt beschreven stappen voor het maken van een nieuwe Azure Media Services-account met de Azure CLI.  
 

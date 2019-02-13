@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: ed32cbabe5f80e131f467a87378eda8912b9a65e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ae428f18a2b927f42716a1c00b55790fe73d81a4
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496251"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173399"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect-synchronisatie: Inzicht in de standaardconfiguratie
 Dit artikel wordt uitgelegd dat de van de out-of-box-configuratieregels. Deze documenten in de regels en hoe deze regels invloed hebben op de configuratie. Ook helpt u bij de standaardconfiguratie van Azure AD Connect-synchronisatie. Het doel is dat de lezer hoe de configuratiemodel begrijpt, met de naam declaratieve inrichting werkt in een voorbeeld van een echte. In dit artikel wordt ervan uitgegaan dat u al hebt geïnstalleerd en Azure AD Connect-synchronisatie met de installatiewizard configureren.

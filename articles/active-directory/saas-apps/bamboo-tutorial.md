@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 027f5a9f02a0580fce61091e8be9ece9069fb34f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5353cc921d4fc07770737bb70d02361fa0e5f438
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156170"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198436"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bamboo-by-resolution-gmbh"></a>Zelfstudie: Azure Active Directory-integratie met SAML SSO voor Bamboe resolutie GmbH
 
@@ -139,35 +140,35 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. Ga naar de sectie beveiliging, klikt u op **SAML SingleSignOn** op de menubalk.
 
-    ![De Samlsingle](./media/bamboo-tutorial/tutorial_bamboo_samlsingle.png)
+    ![De eenmalige aanmelding met SAML](./media/bamboo-tutorial/tutorial_bamboo_samlsingle.png)
 
-1. Op de **SAML SIngleSignOn invoegtoepassing configuratiepagina**, klikt u op **toevoegen idp**. 
+1. Op de **pagina SAML SIngleSignOn Plugin Configuration** (Configuratie van plug-in voor eenmalige aanmelding met SAML) klikt u op **Add idp** (IdP toevoegen). 
 
-    ![De id-provider toevoegen](./media/bamboo-tutorial/tutorial_bamboo_addidp.png)
+    ![De IdP toevoegen](./media/bamboo-tutorial/tutorial_bamboo_addidp.png)
 
-1. Op de **kiest u de SAML-identiteitsprovider** pagina, de volgende stappen uitvoeren:
+1. Voer op de pagina **Choose your SAML Identity Provider** (Uw SAML-id-provider kiezen) de volgende stappen uit:
 
     ![De id-provider](./media/bamboo-tutorial/tutorial_bamboo_identityprovider.png)
 
-    a. Selecteer **Idp Type** als **AZURE AD**.
+    a. Selecteer bij **Idp Type** (Type IdP) de optie **AZURE AD**.
 
-    b. In de **naam** tekstvak typt u de naam.
+    b. Voer in het tekstvak **Name** (Naam) de naam in.
 
-    c. In de **beschrijving** tekstvak typt u de beschrijving.
+    c. Voer in het tekstvak **Description** (Omschrijving) de omschrijving in.
 
     d. Klik op **volgende**.
 
 1. Op de **id-providerconfiguratie** pagina op **volgende**.
 
-    ![De configuratie van de identiteit](./media/bamboo-tutorial/tutorial_bamboo_identityconfig.png)
+    ![De id-configuratie](./media/bamboo-tutorial/tutorial_bamboo_identityconfig.png)
 
 1.  Op de **metagegevens importeren SAML-id-provider** pagina, klikt u op **bestand laden** het uploaden van de **METADATA XML** -bestand dat u hebt gedownload vanuit Azure Portal.
 
-    ![De idpmetadata](./media/bamboo-tutorial/tutorial_bamboo_idpmetadata.png)
+    ![De IdP-metagegevens](./media/bamboo-tutorial/tutorial_bamboo_idpmetadata.png)
 
 1. Klik op **volgende**.
 
-1. Klik op **Instellingen opslaan**.
+1. Klik op **Save settings** (Instellingen opslaan).
 
     ![Het opslaan](./media/bamboo-tutorial/tutorial_bamboo_save.png)
     

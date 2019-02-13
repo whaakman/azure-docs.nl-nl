@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 93103311e8a9f6f4998195e21cdbc7523b1d4fca
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 3c008e77116a9b42a2ea137069529c5e241adddd
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985404"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56213003"
 ---
 U kunt eenvoudig [automatisch schalen](../articles/azure-monitor/platform/autoscale-best-practices.md) uw [virtuele machines (VM's)](../articles/virtual-machines/windows/overview.md) bij het gebruik [virtuele-machineschaalsets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) en de [functie voor automatisch schalen van Azure Monitor](../articles/azure-monitor/platform/autoscale-overview.md). Uw virtuele machines moeten lid zijn van een schaalset automatisch worden geschaald. In dit artikel bevat informatie waarmee u beter te begrijpen hoe u uw virtuele machines met behulp van automatische en handmatige methoden verticaal en horizontaal schalen.
 
@@ -57,7 +57,7 @@ U kunt [activeerbare](../articles/azure-monitor/platform/autoscale-webhook-email
 
 U kunt toevoegen of verwijderen van virtuele machines door het wijzigen van de capaciteit van de schaalset. In de Azure-portal, kunt u verkleinen of verhoog het aantal virtuele machines (weergegeven als **aantal instanties**) in de schaalset door te schuiven de onderdrukking voorwaarde-balk op het scherm schalen naar links of rechts.
 
-Met Azure PowerShell, moet u de scale set object met behulp van [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss). Vervolgens stelt u de **sku.capacity** eigenschap in op het aantal virtuele machines die u wilt en bijwerken van de schaalset met [Update AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss). Met Azure CLI kunt u de capaciteit met de **--nieuwe capaciteit** parameter voor de [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) opdracht.
+Met Azure PowerShell, moet u de scale set object met behulp van [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss). Vervolgens stelt u de **sku.capacity** eigenschap in op het aantal virtuele machines die u wilt en bijwerken van de schaalset met [Update AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss). Met Azure CLI kunt u de capaciteit met de **--nieuwe capaciteit** parameter voor de [az vmss scale](/cli/azure/vmss?view=azure-cli-latest#az-vmss-scale) opdracht.
 
 ### <a name="vertical"></a>Verticaal
 

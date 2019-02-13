@@ -10,12 +10,13 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 4b636b78c3992c6647def47cf3005ceb41e0d5ba
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f0d1c2a35a6ad246eea593990c485181aa776594
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55495289"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175086"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Het werkt als volgt: Azure AD-selfservice wachtwoord opnieuw instellen
 
@@ -89,7 +90,7 @@ Wanneer u een mobiele app, zoals de Microsoft Authenticator-app als een methode 
 * Wanneer beheerders vereisen een methode dat worden gebruikt om een wachtwoord opnieuw instellen, de verificatiecode is de enige beschikbare optie.
 * Wanneer beheerders vereisen twee methoden dat worden gebruikt om een wachtwoord opnieuw instellen, gebruikers mogen gebruiken **uitvoeren** melding **of** verificatiecode naast eventuele andere methoden ingeschakeld.
 
-| Het aantal methoden dat is vereist om het wachtwoord opnieuw in te stellen | Een | Twee |
+| Het aantal methoden dat is vereist om het wachtwoord opnieuw in te stellen | een | Twee |
 | :---: | :---: | :---: |
 | Mam-functies die beschikbaar zijn | Code | Code- of -meldingen |
 

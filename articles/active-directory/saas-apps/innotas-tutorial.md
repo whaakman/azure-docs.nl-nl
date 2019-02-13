@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: d7be7251f6d881719fdd1f99759d01ff0fdb44ad
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 21056663252ac5a41a529c3d8443efa888fbde9d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163820"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56188474"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-innotas"></a>Zelfstudie: Azure Active Directory-integratie met Innotas
 
@@ -117,7 +118,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<tenant-name>.Innotas.com`
 
     > [!NOTE] 
-    > Deze waarde is niet echt. Deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [Innotas Client ondersteuningsteam](https://www.innotas.com/contact) deze waarde op te halen. 
+    > Deze waarde is niet echt. Werk deze waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [Innotas Client ondersteuningsteam](https://www.innotas.com/contact) deze waarde op te halen. 
  
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 

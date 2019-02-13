@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: jeedes
-ms.openlocfilehash: deb7cf8368c5830bd575c617adf857448cfe2e48
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f10e2bb6e6c3e3521d9a2f1257dae401fae674ee
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166490"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56204845"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindwireless"></a>Zelfstudie: Azure Active Directory-integratie met mindWireless
 
@@ -137,7 +138,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     c. Uit de **waarde** weergeven, typt u de waarde van het kenmerk wordt weergegeven voor die rij.
 
-    d. In de **Namespace** tekstvak typt u de naamruimtewaarde die wordt weergegeven voor die rij.
+    d. Typ de naamruimtewaarde voor die rij in het tekstvak **Naamruimte**.
     
     e. Klik op **OK**.
     

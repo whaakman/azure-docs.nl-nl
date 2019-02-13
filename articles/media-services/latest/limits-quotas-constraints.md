@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 285f4f4aad18943399511cbcac711933f23f7cb2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 9f5cf0e8be0529ce59edc9aa4cd33d470415c8a6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004788"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190956"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Quota en beperkingen in Azure Media Services v3
 
@@ -37,7 +37,7 @@ Dit artikel wordt beschreven, quota en beperkingen in Azure Media Services v3.
 | Media Services-accounts in één abonnement | 25 (vast) |
 | Live uitvoer met de status per LiveEvent wordt uitgevoerd |3|
 | Opslagaccounts | 100<sup>(4)</sup> (vast) |
-| Streaming-eindpunten met de status per Media Services-account wordt uitgevoerd|2|
+| Streaming-eindpunten (gestopt of wordt uitgevoerd) per Media Services-account|2|
 | Beleid voor streaming | 100 <sup>(3)</sup> |
 | Transformaties per Media Services-account | 100 (vast)|
 | De unieke Streaming-Locators die tegelijk zijn gekoppeld aan een Asset | 100<sup>(5)</sup> (vast) |

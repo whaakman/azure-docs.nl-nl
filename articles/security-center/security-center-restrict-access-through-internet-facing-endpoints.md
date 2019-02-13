@@ -4,7 +4,7 @@ description: Dit document wordt beschreven hoe u de Azure Security Center-aanbev
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 727d88c9-163b-4ea0-a4ce-3be43686599f
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: a1677e2c5518fec4412adb87cd058571bd435dd4
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b736bb5549b7d236e746ba7b161cde79209e927b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338480"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110520"
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Toegang beperken via internetgerichte eindpunten in Azure Security Center
 Azure Security Center wordt aanbevolen dat u de toegang via internetgerichte eindpunten beperken als een van uw Netwerkbeveiligingsgroepen (nsg's) heeft een of meer binnenkomende regels waarmee toegang via 'een' bron-IP-adres. Toegang tot 'een' te openen, mogelijk kwaadwillende personen om toegang te krijgen tot uw resources. Security Center wordt aanbevolen dat u deze regels voor binnenkomende verbindingen om te beperken van toegang tot bron-IP-adressen die toegang nodig hebt.

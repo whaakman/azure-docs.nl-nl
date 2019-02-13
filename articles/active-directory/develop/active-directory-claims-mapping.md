@@ -12,14 +12,15 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin, jeedes
-ms.openlocfilehash: 18cd96c87f294f1dd8e62f41dd759558c2013aa0
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: aad699df2de8b745058784790e672f5b8c6e98e9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241665"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209741"
 ---
-# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Hoe: claims worden weergegeven in tokens voor een specifieke app in een tenant (Preview) aanpassen
+# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedure: Claims worden weergegeven in tokens voor een specifieke app in een tenant (Preview) aanpassen
 
 > [!NOTE]
 > Deze functie vervangt en vervangt de [claims aanpassing](active-directory-saml-claims-customization.md) vandaag die wordt aangeboden via de portal. Op dezelfde toepassing, als u met behulp van de portal naast de grafiek/PowerShell-methode die in dit document, claims aanpassen tokens die zijn uitgegeven voor de configuratie in de portal wordt genegeerd door toepassing. Configuraties die zijn gemaakt via de methoden die in dit document worden niet doorgevoerd in de portal.
@@ -43,7 +44,7 @@ Een claims toewijzen van beleid is een type **beleid** -object dat Hiermee wijzi
 
 Er is een bepaalde set van claims waarmee wordt gedefinieerd hoe en wanneer ze worden gebruikt in tokens.
 
-| Claim instellen | Beschrijving |
+| Claim instellen | Description |
 |---|---|
 | Core claimset | Aanwezig zijn in elke token, ongeacht het beleid. Deze claims worden ook beschouwd als beperkt, en kunnen niet worden gewijzigd. |
 | Basic claimset | Bevat de claims die worden gegenereerd door de standaardwaarde voor tokens (naast de core claimset). U kunt weglaten of basic claims wijzigen met behulp van de claims toewijzen van beleid. |
@@ -86,7 +87,7 @@ Er is een bepaalde set van claims waarmee wordt gedefinieerd hoe en wanneer ze w
 |cloud_graph_host_name|
 |cloud_instance_name|
 |CNF|
-|Code|
+|code|
 |besturingselementen|
 |credential_keys|
 |CSR|
@@ -99,7 +100,7 @@ Er is een bepaalde set van claims waarmee wordt gedefinieerd hoe en wanneer ze w
 |e-mail|
 |endpoint|
 |enfpolids|
-|EXP|
+|exp|
 |expires_on|
 |grant_type|
 |grafiek|
@@ -116,11 +117,11 @@ Er is een bepaalde set van claims waarmee wordt gedefinieerd hoe en wanneer ze w
 |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name|
 |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier|
 |IAT|
-|id-provider|
-|id-provider|
+|identityprovider|
+|idp|
 |in_corp|
 |exemplaar|
-|IpAddr|
+|ipaddr|
 |isbrowserhostedapp|
 |ISS|
 |jwk|
@@ -132,7 +133,7 @@ Er is een bepaalde set van claims waarmee wordt gedefinieerd hoe en wanneer ze w
 |mdm_compliance_url|
 |mdm_enrollment_url|
 |mdm_terms_of_use_url|
-|NameID|
+|nameid|
 |nbf|
 |netbios_name|
 |nonce|
@@ -156,10 +157,10 @@ Er is een bepaalde set van claims waarmee wordt gedefinieerd hoe en wanneer ze w
 |refreshtoken|
 |request_nonce|
 |Bron|
-|rol|
+|role|
 |rolls|
 |scope|
-|SCP|
+|scp|
 |beveiligings-id|
 |handtekening|
 |signin_state|
@@ -241,11 +242,11 @@ Om te bepalen welke claims worden uitgezonden en waarin de gegevens vandaan kome
 
 ### <a name="include-basic-claim-set"></a>Basic claimset bevatten
 
-**Tekenreeks:** IncludeBasicClaimSet
+**tekenreeks:** IncludeBasicClaimSet
 
 **Gegevenstype:** Booleaanse waarde (waar of ONWAAR)
 
-**Overzicht:** deze eigenschap bepaalt of de set basic claim is opgenomen in de tokens die worden beïnvloed door dit beleid. 
+**Overzicht:** Deze eigenschap bepaalt of de set basic claim is opgenomen in de tokens die worden beïnvloed door dit beleid. 
 
 - Indien ingesteld op True, alle claims in de set basic claim worden uitgezonden in tokens die door het beleid beïnvloed. 
 - Indien ingesteld op False, claims in de set basic claim niet in de tokens, zijn tenzij ze afzonderlijk worden toegevoegd in de claims-schema-eigenschap van hetzelfde beleid.
@@ -255,50 +256,50 @@ Om te bepalen welke claims worden uitgezonden en waarin de gegevens vandaan kome
 
 ### <a name="claims-schema"></a>Claims schema
 
-**Tekenreeks:** ClaimsSchema
+**tekenreeks:** ClaimsSchema
 
 **Gegevenstype:** JSON-blob met een of meer claim schema vermeldingen
 
-**Overzicht:** deze eigenschap wordt gedefinieerd welke claims aanwezig zijn in de tokens beïnvloed door het beleid ook aan de set basic claim en de belangrijkste invoerclaimset.
+**Overzicht:** Deze eigenschap wordt gedefinieerd welke claims aanwezig zijn in de tokens die door het beleid, naast de eenvoudige claimset en de claim kernset beïnvloed.
 Voor de invoer van elke claim schema is gedefinieerd in deze eigenschap, is bepaalde informatie vereist. Opgeven waar de gegevens vandaan (**waarde** of **bron/ID paar**), en dat de gegevens claim wordt verzonden als (**Claim Type**).
 
 ### <a name="claim-schema-entry-elements"></a>Schema-elementen voor invoer claim
 
-**Waarde:** het waarde-element definieert een statische waarde als de gegevens die moeten worden verzonden in de claim.
+**Waarde:** Het element waarde definieert een statische waarde als de gegevens die moeten worden verzonden in de claim.
 
-**De combinatie van de bron-ID:** elementen van de bron- en -ID definiëren waar de gegevens in de claim afkomstig is uit. 
+**Paar bron/ID:** De bron- en ID-elementen definiëren waar de gegevens in de claim afkomstig is uit. 
 
 Stel het bron-element op een van de volgende waarden: 
 
-- 'gebruiker': de gegevens in de claim is een eigenschap van het gebruikersobject. 
-- 'application': de gegevens in de claim is een eigenschap van de toepassing (client) service-principal. 
-- 'resource': de gegevens in de claim is een eigenschap van de resource-service-principal.
-- 'doelgroep': de gegevens in de claim is een eigenschap van de service-principal is de doelgroep van het token (de client of de resource service-principal).
-- 'bedrijf': de gegevens in de claim is een eigenschap van de resource-tenant bedrijf object.
-- 'transformatie': de gegevens in de claim afkomstig is van de claimtransformatie (Zie de sectie 'Claims transformatie' verderop in dit artikel).
+- 'gebruiker': De gegevens in de claim is een eigenschap van het gebruikersobject. 
+- 'application': De gegevens in de claim is een eigenschap van de (client) toepassingsservice-principal. 
+- "resource": De gegevens in de claim is een eigenschap van de resource service-principal.
+- 'doelgroep': De gegevens in de claim is een eigenschap van de service-principal is de doelgroep van het token (de client of de resource service-principal).
+- 'bedrijf': De gegevens in de claim is een eigenschap op van de tenant van de resource bedrijf object.
+- 'transformatie': De gegevens in de claim afkomstig is van de claimtransformatie (Zie de sectie 'Claims transformatie' verderop in dit artikel).
 
 Als de bron-transformatie, is de **TransformationID** element moet worden opgenomen in de claimdefinitie van deze ook.
 
 De ID-element geeft aan welke eigenschap van de bron geeft de waarde voor de claim. De volgende tabel bevat de waarden van geldig is voor elke waarde van de bron-ID.
 
-#### <a name="table-3-valid-id-values-per-source"></a>Tabel 3: Ongeldig id-waarden per bron
+#### <a name="table-3-valid-id-values-per-source"></a>Tabel 3: Id-waarden per bron
 
-|Bron|Id|Beschrijving|
+|Bron|Id|Description|
 |-----|-----|-----|
 |Gebruiker|Achternaam|Familienaam|
 |Gebruiker|givenName|Voornaam|
-|Gebruiker|DisplayName|Weergavenaam|
+|Gebruiker|displayname|Weergavenaam|
 |Gebruiker|object-id|ObjectID|
 |Gebruiker|mail|E-mailadres|
-|Gebruiker|userPrincipalName|User principal name|
-|Gebruiker|Afdeling|Afdeling|
+|Gebruiker|userprincipalname|User principal name|
+|Gebruiker|department|Afdeling|
 |Gebruiker|onpremisessamaccountname|Op de lokale Sam-accountnaam|
-|Gebruiker|NetBIOS-naam|NetBios-naam|
-|Gebruiker|DNS-domeinnaam|DNS-domeinnaam|
+|Gebruiker|netbiosname|NetBios-naam|
+|Gebruiker|dnsdomainname|DNS-domeinnaam|
 |Gebruiker|onpremisesecurityidentifier|on-premises beveiligings-id|
 |Gebruiker|bedrijfsnaam|Naam van organisatie|
 |Gebruiker|streetAddress|Adres|
-|Gebruiker|Postcode|Postcode|
+|Gebruiker|postalcode|Postcode|
 |Gebruiker|preferredlanguange|Voorkeurstaal|
 |Gebruiker|onpremisesuserprincipalname|on-premises UPN|
 |Gebruiker|mailnickname|E-mailbijnaam|
@@ -318,22 +319,22 @@ De ID-element geeft aan welke eigenschap van de bron geeft de waarde voor de cla
 |Gebruiker|extensionattribute14|Kenmerk toestelnummer 14|
 |Gebruiker|extensionattribute15|Kenmerk toestelnummer 15|
 |Gebruiker|othermail|Andere e-Mail|
-|Gebruiker|Land/regio|Land|
+|Gebruiker|Land/regio|Land/regio|
 |Gebruiker|city|Plaats|
 |Gebruiker|state|Status|
-|Gebruiker|functie|Functie|
+|Gebruiker|jobtitle|Functie|
 |Gebruiker|werknemer-id|Werknemer-id|
 |Gebruiker|facsimiletelephonenumber|Fax telefoonnummer|
-|toepassing, resource, doelgroep|DisplayName|Weergavenaam|
+|toepassing, resource, doelgroep|displayname|Weergavenaam|
 |toepassing, resource, doelgroep|objecten|ObjectID|
 |toepassing, resource, doelgroep|tags|Service-Principal Tag|
 |Bedrijf|tenantcountry|Land van de tenant|
 
-**TransformationID:** het element TransformationID alleen als de bron-element is ingesteld op 'transformatie' moet worden opgegeven.
+**TransformationID:** Het element TransformationID moet worden opgegeven, alleen als de bron-element is ingesteld op 'transformatie'.
 
 - Dit element moet overeenkomen met de ID-element van de transformatie-vermelding in de **ClaimsTransformation** eigenschap waarmee wordt gedefinieerd hoe de gegevens voor deze claim wordt gegenereerd.
 
-**Claimtype:** de **JwtClaimType** en **SamlClaimType** elementen definiëren die deze claim schema-item verwijst naar claim.
+**Type van claim:** De **JwtClaimType** en **SamlClaimType** elementen definiëren die deze claim schema-item verwijst naar claim.
 
 - De JwtClaimType moet de naam van de claim te worden verzonden in JWTs bevatten.
 - De SamlClaimType mag de URI van de claim in SAML-tokens worden verzonden.
@@ -343,50 +344,50 @@ De ID-element geeft aan welke eigenschap van de bron geeft de waarde voor de cla
 
 ### <a name="claims-transformation"></a>Claimstransformatie
 
-**Tekenreeks:** ClaimsTransformation
+**tekenreeks:** ClaimsTransformation
 
 **Gegevenstype:** JSON-blob, met een of meer vermeldingen voor transformatie 
 
-**Overzicht:** deze eigenschap gebruiken om algemene transformaties die van toepassing op de brongegevens voor het genereren van de uitvoergegevens voor de claims die zijn opgegeven in de Claims-Schema.
+**Overzicht:** Gebruik deze eigenschap algemene transformaties toepassen op de brongegevens voor het genereren van de uitvoergegevens voor de claims die zijn opgegeven in de Claims-Schema.
 
-**-ID:** de ID-element gebruiken om te verwijzen naar deze transformatie-vermelding in de vermelding TransformationID Claims Schema. Deze waarde moet uniek zijn voor elk item transformatie binnen dit beleid.
+**ID:** Gebruik het ID-element om te verwijzen naar deze transformatie-vermelding in de vermelding TransformationID Claims Schema. Deze waarde moet uniek zijn voor elk item transformatie binnen dit beleid.
 
-**TransformationMethod:** het element TransformationMethod identificeert welke bewerking wordt uitgevoerd voor het genereren van de gegevens voor de claim.
+**TransformationMethod:** Het element TransformationMethod identificeert welke bewerking wordt uitgevoerd voor het genereren van de gegevens voor de claim.
 
 Op basis van de gekozen methode, wordt een set van invoer en uitvoer verwacht. De invoer en uitvoer definiëren met behulp van de **InputClaims**, **invoerparameters** en **OutputClaims** elementen.
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabel 4: Transformatie methoden en verwachte invoer en uitvoer
 
-|TransformationMethod|Verwachte invoer|Verwachte uitvoer|Beschrijving|
+|TransformationMethod|Verwachte invoer|Verwachte uitvoer|Description|
 |-----|-----|-----|-----|
 |Koppelen|tekenreeks1, tekenreeks2, scheidingsteken voor duizendtallen|outputClaim|Joins invoer tekenreeksen met behulp van een scheidingsteken tussen. Bijvoorbeeld: tekenreeks1: "foo@bar.com", tekenreeks2: "sandbox", scheidingsteken: '. ' resulteert in outputClaim: "foo@bar.com.sandbox"|
 |ExtractMailPrefix|mail|outputClaim|Extraheert het lokale gedeelte van een e-mailadres. Bijvoorbeeld: e-mail: "foo@bar.com" resulteert in outputClaim: "foo". Als er geen \@ aanmelding aanwezig is, wordt de oorspronkelijke invoerreeks worden geretourneerd, zoals is.|
 
-**InputClaims:** met een element InputClaims kunt u de gegevens van een claim schema vermelding doorgeven aan een transformatie. Deze twee kenmerken heeft: **ClaimTypeReferenceId** en **TransformationClaimType**.
+**InputClaims:** Gebruik een element InputClaims om door te geven van de gegevens van een claim schema post naar een transformatie. Er worden twee kenmerken: **ClaimTypeReferenceId** en **TransformationClaimType**.
 
 - **ClaimTypeReferenceId** wordt samengevoegd met de ID-element van de vermelding van de claim schema vinden van de juiste invoer claim. 
 - **TransformationClaimType** bieden een unieke naam uit deze invoer wordt gebruikt. Deze naam moet overeenkomen met een van de verwachte invoer voor de transformatiemethode.
 
-**Invoerparameters:** met een element invoerparameters kunt u een constante waarde doorgeven aan een transformatie. Deze twee kenmerken heeft: **waarde** en **ID**.
+**InputParameters:** Gebruik een invoerparameters-element een constante waarde doorgeven aan een transformatie. Er worden twee kenmerken: **Waarde** en **ID**.
 
 - **Waarde** is van de werkelijke constante waarde die moet worden doorgegeven.
 - **ID** bieden een unieke naam in de invoer wordt gebruikt. De naam moet overeenkomen met een van de verwachte invoer voor de transformatiemethode.
 
-**OutputClaims:** een element OutputClaims gebruiken voor het opslaan van de gegevens die worden gegenereerd door een transformatie, en deze koppelen aan een claim schema-item. Deze twee kenmerken heeft: **ClaimTypeReferenceId** en **TransformationClaimType**.
+**OutputClaims:** Een element OutputClaims gebruiken voor het opslaan van de gegevens die worden gegenereerd door een transformatie, en deze koppelen aan een claim schema-item. Er worden twee kenmerken: **ClaimTypeReferenceId** en **TransformationClaimType**.
 
 - **ClaimTypeReferenceId** wordt samengevoegd met de ID van de claim schema-vermelding moet de juiste uitvoerclaim vinden.
 - **TransformationClaimType** bieden een unieke naam in de uitvoer wordt gebruikt. De naam moet overeenkomen met een van de verwachte uitvoer voor de transformatiemethode.
 
 ### <a name="exceptions-and-restrictions"></a>Uitzonderingen en beperkingen
 
-**NameID van SAML en UPN:** de kenmerken van waaruit u de waarden NameID en UPN en de claimtransformaties die zijn toegestaan, de gegevensbron zijn beperkt. Zie tabel 5 en 6 tot en met de toegestane waarden voor de tabel.
+**NameID van SAML en UPN:** De kenmerken van waaruit u de waarden NameID en UPN en de claimtransformaties die zijn toegestaan, de gegevensbron zijn beperkt. Zie tabel 5 en 6 tot en met de toegestane waarden voor de tabel.
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabel 5: Kenmerken die zijn toegestaan als een gegevensbron voor de NameID van SAML
 
-|Bron|Id|Beschrijving|
+|Bron|Id|Description|
 |-----|-----|-----|
 |Gebruiker|mail|E-mailadres|
-|Gebruiker|userPrincipalName|User principal name|
+|Gebruiker|userprincipalname|User principal name|
 |Gebruiker|onpremisessamaccountname|Op de lokale Sam-accountnaam|
 |Gebruiker|werknemer-id|Werknemer-id|
 |Gebruiker|extensionattribute1|Kenmerk toestelnummer 1|
@@ -405,7 +406,7 @@ Op basis van de gekozen methode, wordt een set van invoer en uitvoer verwacht. D
 |Gebruiker|extensionattribute14|Kenmerk toestelnummer 14|
 |Gebruiker|extensionattribute15|Kenmerk toestelnummer 15|
 
-#### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Tabel 6: Transformatie methoden is toegestaan voor NameID van SAML
+#### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Tabel 6: Transformatie-methoden die zijn toegestaan voor NameID van SAML
 
 |TransformationMethod|Beperkingen|
 | ----- | ----- |
@@ -469,7 +470,7 @@ In dit voorbeeld maakt u een beleid dat Hiermee verwijdert u de eenvoudige claim
     Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
     ```
 
-#### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Voorbeeld: Maken en toewijzen van een beleid om op te nemen van de werknemer-id en TenantCountry als claims in de tokens die zijn uitgegeven aan een service-principal
+#### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Voorbeeld: Een beleid om op te nemen van de werknemer-id en TenantCountry als claims in de tokens die zijn uitgegeven aan een service-principal maken en toewijzen
 
 In dit voorbeeld maakt u een beleid dat de werknemer-id en TenantCountry toegevoegd aan de tokens die zijn uitgegeven aan de gekoppelde service-principals. Id van de werknemer is verzonden als het claimtype naam in SAML-tokens en JWTs. De TenantCountry wordt verzonden als het type van de claim land/regio in zowel JWTs als SAML-tokens. In dit voorbeeld gaan we bevatten de eenvoudige claims in de tokens instellen.
 
@@ -493,7 +494,7 @@ In dit voorbeeld maakt u een beleid dat de werknemer-id en TenantCountry toegevo
     Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
     ```
 
-#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>Voorbeeld: Maken en toewijzen van een beleid dat gebruikmaakt van een claimtransformatie in de tokens die zijn uitgegeven aan een service-principal
+#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>Voorbeeld: Een beleid die gebruikmaakt van een claimtransformatie in de tokens die zijn uitgegeven aan een service-principal maken en toewijzen
 
 In dit voorbeeld maakt u een beleid dat een aangepaste claim "JoinedData" verleend aan de gekoppelde service-principals JWTs verzendt. Deze claim bevat een waarde die is gemaakt door de gegevens die zijn opgeslagen in het kenmerk extensionattribute1 van het gebruikersobject met '.sandbox'. In dit voorbeeld sluiten we de eenvoudige claims in de tokens instellen.
 

@@ -16,14 +16,15 @@ ms.workload: identity
 ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 419368511065e6f45d7fb9b363f5806b47ce07e8
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: bea60b0de0cf21c1d23669543f3c1daa367aea7c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076183"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56197928"
 ---
-# <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Snelstart: Gebruiksrechtovereenkomst moet zijn geaccepteerd voordat u toegang tot cloud-apps vereisen 
+# <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Quickstart: Gebruiksrechtovereenkomst moet zijn geaccepteerd voordat u toegang tot cloud-apps vereisen 
 
 Voordat u toegang tot bepaalde cloud-apps in uw omgeving, is het raadzaam om op te halen van toestemming van gebruikers in de vorm van het accepteren van de gebruiksrechtovereenkomst (gebruiksvoorwaarden). Voorwaardelijke toegang van Azure Active Directory (Azure AD) beschikt u over: 
 
@@ -119,7 +120,7 @@ Deze sectie wordt beschreven hoe u de vereiste voorwaardelijk toegangsbeleid mak
 
 Stel in het beleid:
 
-|Instelling |Waarde|
+|Instelling |Value|
 |---     | --- |
 |Gebruikers en groepen | Isabella Simonsen |
 |Cloud-apps | Microsoft Azure Management |

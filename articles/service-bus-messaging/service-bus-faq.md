@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 0b419343829e7e7bbbd31260b9cd0c8d93cd255d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: fce3c2975e4b82583aa09a3862f704f05a363828
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847812"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210591"
 ---
 # <a name="service-bus-faq"></a>Veelgestelde vragen over Service Bus
 
@@ -83,6 +83,9 @@ Net als bij andere services op Azure, wordt een reeks specifieke quota om ervoor
 Service Bus messaging-services (wachtrijen en onderwerpen/abonnementen) toestaan om berichten te verzenden van de grootte van maximaal 256 KB (standard-laag) of 1 MB (premium-laag). Als u te maken met berichten die groter zijn dan 1 MB hebt, gebruikt u de claim patroon wordt beschreven in [dit blogbericht](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
 
 ## <a name="troubleshooting"></a>Problemen oplossen
+### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Waarom kan ik geen een naamruimte maken na het verwijderen van een ander abonnement? 
+Wanneer u een naamruimte uit een abonnement verwijdert, te wachten gedurende 4 uur voordat opnieuw worden gemaakt met dezelfde naam in een ander abonnement. Anders, verschijnt de volgende strekking weergegeven: `Namespace already exists`. 
+
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Wat zijn enkele van de uitzonderingen die worden gegenereerd door Azure Service Bus-API's en hun voorgestelde acties?
 Zie voor een lijst van mogelijke Service Bus-uitzonderingen, [uitzonderingen overzicht][Exceptions overview].
 

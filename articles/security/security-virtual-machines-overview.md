@@ -4,7 +4,7 @@ description: Dit artikel bevat een overzicht van de belangrijkste functies van A
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 467b2c83-0352-4e9d-9788-c77fb400fe54
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: terrylan
-ms.openlocfilehash: 5e024161b55db9662aa288a4d3ff6a7c2b7e6266
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 15ac70891f23d95709d1998bca1ce29ad735cb87
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969682"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109075"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Overzicht van beveiliging van Azure Virtual Machines
 
@@ -47,16 +47,16 @@ Microsoft Antimalware voor Azure is een één-agent-oplossing voor toepassingen 
 
 Wanneer u implementeert en inschakelen van Microsoft Antimalware voor Azure, zijn de volgende belangrijkste functies beschikbaar:
 
-* **Real-timebeveiliging**: controleert de activiteit in Cloud Services en op virtuele Machines te detecteren en blokkeren van schadelijke software worden uitgevoerd.
-* **Geplande scan**: periodiek voert gerichte scannen voor het detecteren van malware, met inbegrip van programma's actief wordt uitgevoerd.
-* **Oplossen van malware**: automatisch actie onderneemt met gedetecteerde schadelijke software, zoals het verwijderen of schadelijke bestanden in quarantaine plaatsen en opschonen van schadelijke registervermeldingen.
-* **Handtekeningupdates**: installeert automatisch de meest recente protection handtekeningen (virusdefinities) om ervoor te zorgen dat de beveiliging op de hoogte van een vooraf bepaald frequentie.
-* **Antimalware-engine-updates**: automatisch bijgewerkt met de Microsoft Antimalware voor Azure-engine.
-* **Updates voor anti-malware-platform**: automatisch bijgewerkt met de Microsoft Antimalware voor Azure-platform.
-* **Actieve beveiliging**: rapporten telemetrie metagegevens naar Azure over gedetecteerde bedreigingen en verdachte resources om te controleren of een snelle respons. Hiermee kunt realtime synchrone handtekening levering via de Microsoft Active Protection System (MAPS).
-* **Voorbeelden van reporting**: biedt en voorbeelden van rapporten naar de Microsoft Antimalware voor Azure-service om u te helpen bij het verfijnen van de service en het oplossen van inschakelen.
-* **Uitsluitingen**: kunnen toepassingen en servicebeheerders bepaalde bestanden, processen, configureren en ze uitsluiten van beveiliging en scannen op prestaties en de andere stations.
-* **Antimalware-gebeurtenisverzameling**: registreert antimalware-servicestatus, verdachte activiteiten en herstelacties die zijn uitgevoerd in het gebeurtenislogboek van het besturingssysteem en verzamelt deze gegevens in uw Azure storage-account.
+* **Real-timebeveiliging**: Controleert de activiteit in Cloud Services en op virtuele Machines te detecteren en blokkeren van schadelijke software worden uitgevoerd.
+* **Geplande scan**: Tijd tot tijd voert gerichte scannen voor het detecteren van malware, met inbegrip van programma's actief wordt uitgevoerd.
+* **Oplossen van malware**: Automatisch onderneemt actie met gedetecteerde schadelijke software, zoals het verwijderen of schadelijke bestanden in quarantaine plaatsen en opschonen van schadelijke registervermeldingen.
+* **Handtekeningupdates**: Installeert automatisch de meest recente protection handtekeningen (virusdefinities) om ervoor te zorgen dat de beveiliging op de hoogte van een vooraf bepaald frequentie.
+* **Antimalware-engine-updates**: Automatisch bijgewerkt met de Microsoft Antimalware voor Azure-engine.
+* **Updates voor anti-malware-platform**: Automatisch bijgewerkt met de Microsoft Antimalware voor Azure-platform.
+* **Actieve beveiliging**: De metagegevens van de telemetrie naar Azure rapporten over gedetecteerde bedreigingen en verdachte resources om te controleren of een snelle respons. Hiermee kunt realtime synchrone handtekening levering via de Microsoft Active Protection System (MAPS).
+* **Voorbeelden van reporting**: Biedt en voorbeelden van rapporten naar de Microsoft Antimalware voor Azure-service om u te helpen bij het verfijnen van de service en het oplossen van inschakelen.
+* **Uitsluitingen**: Kunnen toepassingen en servicebeheerders bepaalde bestanden, processen en stations configureren ze uitsluiten van beveiliging en het scannen van prestaties en andere redenen.
+* **Antimalware-gebeurtenisverzameling**: Registreert antimalware-servicestatus, verdachte activiteiten en herstelacties die zijn uitgevoerd in het gebeurtenislogboek van het besturingssysteem en verzamelt deze gegevens in uw Azure storage-account.
 
 Meer informatie over de antimalware-software voor beveiliging van uw virtuele machines:
 
@@ -90,8 +90,7 @@ Azure Key Vault biedt u de mogelijkheid om uw sleutels op te slaan in Hardware S
 
 Meer informatie:
 
-* [Wat is Azure Key Vault?](../key-vault/key-vault-whatis.md)
-* [Aan de slag met Azure Key Vault](../key-vault/key-vault-get-started.md)
+* [Wat is Azure Key Vault?](../key-vault/key-vault-overview.md)
 * [Azure Key Vault-blog](https://blogs.technet.microsoft.com/kv/)
 
 ## <a name="virtual-machine-disk-encryption"></a>Versleuteling van de virtuele machine-schijf
@@ -103,7 +102,7 @@ De oplossing is geïntegreerd met Azure Key Vault om te controleren en beheren v
 Meer informatie:
 
 * [Azure Disk Encryption voor IaaS-VM 's](../security/azure-security-disk-encryption-overview.md)
-* [Snelstartgids: Een virtuele Windows IaaS-machine met Azure PowerShell versleutelen](../security/quick-encrypt-vm-powershell.md)
+* [Snelstart: Versleutelen van een virtuele Windows IaaS-machine met Azure PowerShell](../security/quick-encrypt-vm-powershell.md)
 
 ## <a name="virtual-machine-backup"></a>Back-up van virtuele machine
 
@@ -121,7 +120,7 @@ Een belangrijk onderdeel van uw organisatie BCDR-strategie is essentieel dat u w
 Site Recovery:
 
 * **Uw BCDR-strategie vereenvoudigt**: Site Recovery maakt het eenvoudig om replicatie, failover en herstel van meerdere zakelijke workloads en apps vanaf één locatie. Site Recovery deelt replicatie en failover, maar niet onderschept uw toepassingsgegevens of geen informatie erover.
-* **Flexibele replicatie biedt**: met Site Recovery kunt u workloads die worden uitgevoerd op Hyper-V virtuele machines, virtuele VMware-machines en fysieke Windows/Linux-servers kunt repliceren.
+* **Flexibele replicatie biedt**: U kunt workloads die worden uitgevoerd op Hyper-V virtuele machines, virtuele VMware-machines en fysieke Windows/Linux-servers repliceren met behulp van Site Recovery.
 * **Biedt ondersteuning voor failover en herstel**: Site Recovery biedt testfailovers ter ondersteuning van noodhersteloefeningen zonder gevolgen voor productie-omgevingen. Bovendien kunt u bij verwachte uitval geplande failovers uitvoeren zonder gegevensverlies, en bij onverwachte noodsituaties ongeplande failovers met minimaal gegevensverlies (afhankelijk van de replicatiefrequentie). Na een failover, kunt u een failback naar uw primaire sites. De herstelplannen van Site Recovery kunnen scripts en Azure Automation-werkmappen bevatten, zodat u failovers en het herstel van toepassingen met meerdere lagen naar behoefte kunt aanpassen.
 * **Secundaire datacenters elimineert**: U kunt repliceren naar een secundaire on-premises site, of naar Azure. Met behulp van Azure als bestemming voor herstel na noodgevallen elimineert de kosten en complexiteit van het onderhouden van een secundaire site. Gerepliceerde gegevens worden opgeslagen in Azure Storage.
 * **Kan worden geïntegreerd met bestaande BCDR-technologieën**: Site Recovery werkt samen met BCDR-functies voor andere toepassingen. U kunt Site Recovery bijvoorbeeld gebruiken ter bescherming van de SQL Server-back-end van zakelijke workloads. Dit omvat ingebouwde ondersteuning voor SQL Server Always On voor het beheren van failovers van beschikbaarheidsgroepen.
@@ -165,7 +164,7 @@ Virtuele Machines van Azure is gecertificeerd voor FISMA, FedRAMP, HIPAA, PCI DS
 
 Meer informatie:
 
-* [Vertrouwenscentrum van Microsoft: naleving](https://www.microsoft.com/en-us/trustcenter/compliance)
+* [Microsoft Trust Center: naleving](https://www.microsoft.com/en-us/trustcenter/compliance)
 * [Vertrouwde Cloud: Microsoft Azure-beveiliging, Privacy en naleving](https://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
 
 ## <a name="confidential-computing"></a>Vertrouwelijke Computing

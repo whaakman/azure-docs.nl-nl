@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jeedes
-ms.openlocfilehash: eedec7de74f3bdd7ae43d1b1eb0decd5fe83ebf6
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 01d8a52d18bb3b6317f843eb6c30061e730ee3ab
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076040"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56161078"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartlpa"></a>Zelfstudie: Azure Active Directory-integratie met SmartLPA
 
@@ -29,7 +30,7 @@ SmartLPA integreren met Azure AD biedt u de volgende voordelen:
 
 - U kunt beheren in Azure AD die toegang tot SmartLPA heeft.
 - U kunt uw gebruikers automatisch ophalen aangemeld bij SmartLPA (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts in één centrale locatie - Azure portal beheren.
+- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
 Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -43,9 +44,9 @@ Voor het configureren van Azure AD-integratie met SmartLPA, moet u de volgende i
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -59,7 +60,7 @@ Voor het configureren van de integratie van SmartLPA in Azure AD, moet u SmartLP
 
 **Als u wilt toevoegen SmartLPA uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -67,15 +68,15 @@ Voor het configureren van de integratie van SmartLPA in Azure AD, moet u SmartLP
 
     ![De blade Enterprise-toepassingen][2]
     
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![De knop nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing][3]
 
 4. Typ in het zoekvak **SmartLPA**, selecteer **SmartLPA** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![SmartLPA in de lijst met resultaten](./media/smartlpa-tutorial/tutorial_smartlpa_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
 In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met SmartLPA op basis van een testgebruiker 'Julia steen' genoemd.
 
@@ -83,13 +84,13 @@ Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruik
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met SmartLPA, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 3. **[Maak een testgebruiker SmartLPA](#create-a-smartlpa-test-user)**  : als u wilt een equivalent van Britta Simon in SmartLPA die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
 In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing SmartLPA.
 
@@ -97,7 +98,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. In de Azure-portal op de **SmartLPA** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren][4]
 
 2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
@@ -107,28 +108,28 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![SmartLPA domein en URL's, eenmalige aanmelding informatie](./media/smartlpa-tutorial/tutorial_smartlpa_url.png)
 
-    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<TENANTNAME>.smartlpa.com/`
+    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<TENANTNAME>.smartlpa.com/`
 
-    b. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://<TENANTNAME>.smartlpa.com/<UNIQUE ID>`
+    b. Typ in het tekstvak **Id** een URL met het volgende patroon: `https://<TENANTNAME>.smartlpa.com/<UNIQUE ID>`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [SmartLPA Client ondersteuningsteam](mailto:support@smartlpa.com) om deze waarden te verkrijgen.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de daadwerkelijke aanmeldings-URL en id. Neem contact op met [SmartLPA Client ondersteuningsteam](mailto:support@smartlpa.com) om deze waarden te verkrijgen.
 
 4. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
 
-    ![De downloadkoppeling certificaat](./media/smartlpa-tutorial/tutorial_smartlpa_certificate.png) 
+    ![De link om het certificaat te downloaden](./media/smartlpa-tutorial/tutorial_smartlpa_certificate.png) 
 
 5. Klik op **opslaan** knop.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/smartlpa-tutorial/tutorial_general_400.png)
+    ![De knop voor enkelvoudige aanmelding configureren](./media/smartlpa-tutorial/tutorial_general_400.png)
 
 6. Op de **SmartLPA configuratie** sectie, klikt u op **configureren SmartLPA** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
 
-    ![SmartLPA configuratie](./media/smartlpa-tutorial/tutorial_smartlpa_configure.png) 
+    ![SmartLPA Configuration](./media/smartlpa-tutorial/tutorial_smartlpa_configure.png) 
 
-7. Het configureren van eenmalige aanmelding op **SmartLPA** zijde, moet u voor het verzenden van de gedownloade **certificaat (Base64)**, **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** naar [SmartLPA ondersteuningsteam](mailto:support@smartlpa.com). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+7. Het configureren van eenmalige aanmelding op **SmartLPA** zijde, moet u voor het verzenden van de gedownloade **certificaat (Base64)**, **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** naar [SmartLPA ondersteuningsteam](mailto:support@smartlpa.com). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
 Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
@@ -162,7 +163,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
  
 ### <a name="create-a-smartlpa-test-user"></a>Maak een testgebruiker SmartLPA
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in SmartLPA. Werken met [SmartLPA ondersteuningsteam](mailto:support@smartlpa.com) om toe te voegen de gebruikers in het SmartLPA-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in SmartLPA. Werken met [SmartLPA ondersteuningsteam](mailto:support@smartlpa.com) om toe te voegen de gebruikers in het SmartLPA-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
@@ -204,7 +205,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 
 

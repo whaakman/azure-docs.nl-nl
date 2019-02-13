@@ -16,12 +16,13 @@ ms.topic: conceptual
 ms.date: 08/30/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2f1b6cec49507c5106434bf42743aadd1b3230aa
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8254766568c54748ee3646dd627a102ffc86e743
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894969"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56191347"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Azure AD Connect met behulp van een bestaande ADSync-database installeren
 Azure AD Connect vereist een SQL Server-database voor het opslaan van gegevens. U kunt de standaard die SQL Server 2012 Express LocalDB geïnstalleerd met Azure AD Connect of gebruik uw eigen volledige versie van SQL. Voorheen was tijdens de installatie van Azure AD Connect, is een nieuwe database met de naam ADSync altijd gemaakt. Met Azure AD Connect versie 1.1.613.0 (of na) hebt u de optie voor het Azure AD Connect installeren door het aan te wijzen aan een bestaande ADSync-database.

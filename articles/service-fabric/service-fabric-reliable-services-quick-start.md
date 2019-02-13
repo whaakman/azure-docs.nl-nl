@@ -1,5 +1,5 @@
 ---
-title: Uw eerste Service Fabric-toepassing maken in C# | Microsoft Docs
+title: Maak uw eerste Service Fabric-toepassing in C# | Microsoft Docs
 description: Inleiding tot het maken van een Microsoft Azure Service Fabric-toepassing met staatloze en stateful services.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: 6977fa0a62767cebbd1000335c6c3a33a5991c2c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: eb0fd7e4feb28d60173b638a15dbce598f78e6bf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208162"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182949"
 ---
 # <a name="get-started-with-reliable-services"></a>Aan de slag met Reliable Services
 > [!div class="op_single_selector"]
@@ -28,24 +28,22 @@ ms.locfileid: "34208162"
 > 
 > 
 
-Een Azure Service Fabric-toepassing bevat een of meer services waarop uw code wordt uitgevoerd. Deze handleiding wordt beschreven hoe u maakt zowel stateless als stateful Service Fabric-toepassingen met [Reliable Services](service-fabric-reliable-services-introduction.md).  Deze video Microsoft Virtual Academy leest u hoe u een stateless betrouwbare service maken: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=s39AO76yC_7206218965">  
-<img src="./media/service-fabric-reliable-services-quick-start/ReliableServicesVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
+Een Azure Service Fabric-toepassing bevat een of meer services waarop uw code wordt uitgevoerd. Deze handleiding wordt beschreven hoe u het maken van staatloze en stateful Service Fabric-toepassingen met [Reliable Services](service-fabric-reliable-services-introduction.md).  
 
 ## <a name="basic-concepts"></a>Basisbegrippen
-Om aan de slag met Reliable Services, moet u slechts enkele basisbeginselen begrijpen:
+Als u wilt aan de slag met Reliable Services, moet u slechts enkele fundamentele concepten begrijpen:
 
-* **Servicetype**: dit is uw service-implementatie. Dit is gedefinieerd door de klasse u schrijven die uitgebreider is dan `StatelessService` en andere code of afhankelijkheden gebruikt, samen met een naam en een uniek versienummer.
-* **Service-exemplaar met de naam**: voor het uitvoeren van uw service, u maakt benoemde exemplaren van het servicetype veel zoals u instanties van objecten van het type van een klasse maken. Een service-exemplaar heeft een naam in de vorm van een URI met de "fabric: / ' schema, zoals" fabric: / MyApp/MijnService '.
-* **ServiceHost**: de benoemde service-exemplaren die u maakt moeten uitvoeren in een hostproces. De ServiceHost is alleen een proces waarbij exemplaren van de service kunnen worden uitgevoerd.
-* **Service-registratie**: inschrijving brengt alles bij elkaar. Type van de service moet zijn geregistreerd met de Service Fabric-runtime in een ServiceHost om toe te staan van Service Fabric om exemplaren van deze te maken om uit te voeren.  
+* **Servicetype**: Dit is uw service-implementatie. Deze is gedefinieerd door de klasse u schrijven die een uitbreiding `StatelessService` en een andere code of afhankelijkheden gebruikt, samen met een naam en een uniek versienummer.
+* **Service-exemplaar met de naam**: Voor het uitvoeren van uw service, u benoemde exemplaren van het servicetype, veel, zoals het maken van instanties van objecten van een klassentype. Een service-exemplaar heeft een naam in de vorm van een URI met de ' fabric: / "schema, zoals ' fabric: / Mijntoep/MijnService '.
+* **ServiceHost**: De benoemde service-instanties dat u maakt moeten binnen een proces uitgevoerd. De ServiceHost is alleen een proces waarbij instanties van uw service kunnen worden uitgevoerd.
+* **Service-registratie**: Inschrijving brengt alles bij elkaar. Type van de service moet worden geregistreerd bij de Service Fabric-runtime in een ServiceHost om toe te staan van Service Fabric om instanties van deze te maken om uit te voeren.  
 
 ## <a name="create-a-stateless-service"></a>Een stateless service maken
-Een stateless service is een type service dat momenteel is de norm in de cloud-toepassingen. Dit wordt beschouwd als staatloze omdat de service zelf bevat geen gegevens die moet worden opgeslagen op betrouwbare wijze of maximaal beschikbaar is gemaakt. Als u een exemplaar van een staatloze service wordt afgesloten, is alle van de interne status verloren. In dit type van de service moet status worden opgeslagen op een externe winkel, zoals Azure-tabellen of een SQL-database voor de maximaal beschikbare en betrouwbare worden gemaakt.
+Een stateless service is een type van de service die momenteel zijn de norm in cloudtoepassingen. Het wordt beschouwd als stateless omdat de service zelf bevat geen gegevens die moet worden opgeslagen op een betrouwbare manier of maximaal beschikbaar gemaakt. Als een exemplaar van een staatloze service wordt uitgeschakeld, wordt alle van de interne status verloren gaan. In dit type service kan moet status worden opgeslagen op een externe opslag, zoals Azure Tables of een SQL-database om te worden aangebracht maximaal beschikbare en betrouwbare.
 
-Start Visual Studio 2015 of Visual Studio 2017 als beheerder en maak een nieuwe Service Fabric-toepassingsproject met de naam *HelloWorld*:
+Start Visual Studio 2015 of Visual Studio 2017 als beheerder en maak een nieuw Service Fabric-toepassing-project met de naam *HelloWorld*:
 
-![Gebruik het dialoogvenster Nieuw Project voor het maken van een nieuwe Service Fabric-toepassing](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
+![Gebruik van het dialoogvenster Nieuw Project te maken van een nieuwe Service Fabric-toepassing](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
 Maak vervolgens een stateless service-project met **.Net Core 2.0** met de naam *HelloWorldStateless*:
 
@@ -53,13 +51,13 @@ Maak vervolgens een stateless service-project met **.Net Core 2.0** met de naam 
 
 Uw oplossing bevat nu twee projecten:
 
-* *HelloWorld*. Dit is de *toepassing* project met uw *services*. Het bevat ook het toepassingsmanifest die worden beschreven van de toepassing, evenals een aantal PowerShell-scripts die u helpen bij het implementeren van uw toepassing.
-* *HelloWorldStateless*. Dit is het serviceproject. Het bevat de staatloze service-implementatie.
+* *HelloWorld*. Dit is de *toepassing* project met daarin uw *services*. Het bevat ook het toepassingsmanifest die worden beschreven van de toepassing, evenals een aantal PowerShell-scripts die u helpen bij het implementeren van uw toepassing.
+* *HelloWorldStateless*. Dit is de serviceproject. Het bevat de stateless service-implementatie.
 
 ## <a name="implement-the-service"></a>De service implementeren
-Open de **HelloWorldStateless.cs** bestand in de serviceproject. Een service kunt eventuele bedrijfslogica uitvoeren in Service Fabric. De service-API biedt twee toegangspunten voor uw code:
+Open de **HelloWorldStateless.cs** bestand in het service-project. Een service kan in Service Fabric, eventuele bedrijfslogica worden uitgevoerd. De service-API biedt twee toegangspunten voor uw code:
 
-* Een methode met een vermelding point, aangeroepen *RunAsync*, waar u kunt beginnen alle werkbelastingen, met inbegrip van langlopende compute-workloads uitvoeren.
+* Een methode met een vermelding punt, met de naam *RunAsync*, waar u kunt beginnen alle workloads, met inbegrip van langlopende compute-workloads uitvoeren.
 
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
@@ -68,7 +66,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 }
 ```
 
-* Een communicatie-ingangspunt waar u uw communicatiestack keuze, zoals ASP.NET Core kunt aansluiten. Dit is waar u ontvangen van aanvragen van gebruikers en andere services kan starten.
+* Een communicatie-toegangspunt waar u in uw communicatiestack van keuze, bijvoorbeeld ASP.NET Core aansluiten kunt. Dit is waar u ontvangen van aanvragen van gebruikers en andere services kan starten.
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -77,11 +75,11 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 }
 ```
 
-In deze zelfstudie gaan we in op de `RunAsync()` entry point-methode. Dit is waar u kunt onmiddellijk starten uitvoeren van uw code.
-De projectsjabloon bevat een Voorbeeldimplementatie van `RunAsync()` die een aantal rolling verhoogd.
+In deze zelfstudie gaan we in op de `RunAsync()` vermelding punt methode. Dit is waar u kunt direct beginnen waarop uw code wordt uitgevoerd.
+De projectsjabloon, maken omvat een Voorbeeldimplementatie van `RunAsync()` die een rolling telling wordt verhoogd.
 
 > [!NOTE]
-> Zie voor meer informatie over het werken met een communicatiestack [Service Fabric-Web-API-services met OWIN zelf die als host fungeert](service-fabric-reliable-services-communication-webapi.md)
+> Zie voor meer informatie over het werken met een communicatiestack [Web-API voor Service Fabric-services met OWIN zelf die als host fungeert](service-fabric-reliable-services-communication-webapi.md)
 > 
 > 
 
@@ -105,37 +103,37 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 }
 ```
 
-Het platform roept deze methode wanneer een exemplaar van een service is geplaatst en kan worden uitgevoerd. Voor een stateless service betekent dat gewoon wanneer het service-exemplaar wordt geopend. Een token annulering is opgegeven voor het coördineren van wanneer uw service-exemplaar moet worden gesloten. Deze cyclus openen en sluiten van een service-exemplaar kan vaak gedurende de levensduur van de service in Service Fabric optreden als geheel. Dit kan gebeuren om verschillende redenen, waaronder:
+Het platform wordt deze methode wanneer een exemplaar van een service is geplaatst en gereed is om uit te voeren. Voor een stateless service betekent dat alleen wanneer het service-exemplaar wordt geopend. Een token annulering is opgegeven voor de coördinatie van wanneer uw service-exemplaar moet worden gesloten. Deze cyclus openen en sluiten van een service-exemplaar kan vaak gedurende de levensduur van de service in Service Fabric optreden als geheel. Dit kan gebeuren om verschillende redenen, waaronder:
 
-* Het systeem wordt uw service-exemplaren voor resourceverdeling verplaatst.
-* Fouten die voorkomen in uw code.
+* Het systeem wordt uw service-instanties voor bron-balancing verplaatst.
+* Fouten optreden in uw code.
 * De toepassing of het systeem is bijgewerkt.
-* De onderliggende hardware optreedt een storing.
+* De onderliggende hardware er een storing optreedt.
 
-Deze indeling wordt beheerd door het systeem te houden van uw service maximaal beschikbaar is en goed taakverdeling.
+Deze indeling wordt beheerd door het systeem te houden van uw service hoge mate beschikbare en goed met gelijke taakverdeling.
 
-`RunAsync()` moet niet synchroon blokkeren. De implementatie van RunAsync moet een taak retourneren of await op langlopende of blokkeringen bewerkingen waarmee de runtime om door te gaan. Houd er rekening mee de `while(true)` lus in het vorige voorbeeld wordt een taak retourneren `await Task.Delay()` wordt gebruikt. Als uw werkbelasting synchroon blokkeert moet, moet u een nieuwe taak plannen `Task.Run()` in uw `RunAsync` implementatie.
+`RunAsync()` moet niet synchroon blokkeren. De implementatie van RunAsync moet een taak retourneren of await op langlopende of blokkerende bewerkingen om toe te staan van de runtime om door te gaan. Houd er rekening mee de `while(true)` lus in het vorige voorbeeld wordt een taak retourneren `await Task.Delay()` wordt gebruikt. Als uw werkbelasting synchroon blokkeert moet, moet u een nieuwe taak met plannen `Task.Run()` in uw `RunAsync` implementatie.
 
-Annulering van uw werkbelasting is een gezamenlijke inspanning gedirigeerd door het token opgegeven annulering. Het systeem wacht tot de taak te beëindigen (met succes is voltooid, annulering of fault) voordat het wordt verplaatst op. Het is belangrijk om te voldoen aan het token annulering, werk voltooien en af te sluiten `RunAsync()` zo snel mogelijk wanneer het systeem annulering aanvraagt.
+De annulering van uw werkbelasting is een gezamenlijke inspanning ingedeeld door de opgegeven annulering-token. Het systeem wacht tot de taak te beëindigen (met succes is voltooid, annulering of fout) voordat deze op. Het is belangrijk om te voldoen aan het token annulering, werk voltooien en sluit `RunAsync()` zo snel mogelijk wanneer het systeem annulering aanvraagt.
 
-In dit voorbeeld staatloze service wordt het aantal opgeslagen in een lokale variabele. Maar omdat dit een stateless service, de waarde die opgeslagen bestaat alleen voor de huidige levenscyclus van de service-exemplaar. Wanneer de service wordt verplaatst of opnieuw wordt opgestart, wordt de waarde is verloren gegaan.
+In dit voorbeeld stateless service, wordt het aantal opgeslagen in een lokale variabele. Maar omdat dit een staatloze service is, de waarde die opgeslagen bestaat alleen voor de huidige levenscyclus van de service-exemplaar. Wanneer de service worden verplaatst of opnieuw wordt opgestart, wordt de waarde is verloren gegaan.
 
 ## <a name="create-a-stateful-service"></a>Een stateful service maken
-Service Fabric introduceert een nieuw soort stateful service. Een stateful service te onderhouden op betrouwbare wijze binnen de service zelf, dezelfde locatie bevindt als de code die wordt gebruikt. Status is maximaal beschikbaar is gemaakt door de Service Fabric zonder de noodzaak om vast te leggen van de status van een externe winkel.
+Service Fabric introduceert een nieuw soort stateful service. Een stateful service kunt onderhouden van de status op betrouwbare wijze binnen de service zelf, CO-locatie met de code die wordt gebruikt. De status is maximaal beschikbaar gemaakt door de Service Fabric zonder de noodzaak om vast te leggen de status van een externe opslag.
 
-Een waarde van het prestatiemeteritem van staatloze conversie naar maximaal beschikbare en permanente, zelfs wanneer de service wordt verplaatst of opnieuw wordt opgestart, moet u een stateful service.
+Als u wilt omzetten in een waarde van het prestatiemeteritem van staatloze hoge beschikbaarheid en permanente, zelfs wanneer de service worden verplaatst of opnieuw wordt opgestart, moet u een stateful service.
 
-In dezelfde *HelloWorld* toepassing, kunt u een nieuwe service toevoegen door met de verwijzingen in het project voor een toepassing met de rechtermuisknop op de Services en **toevoegen -> nieuwe Service Fabric-Service**.
+In dezelfde *HelloWorld* toepassing, kunt u een nieuwe service toevoegen met de rechtermuisknop op de Services verwijzingen in het toepassingsproject en selecteer **Add -> New Service Fabric Service**.
 
-![Een service aan uw Service Fabric-toepassing toevoegen](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
+![Een service toevoegen aan uw Service Fabric-toepassing](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
-Selecteer **.Net Core 2.0 Stateful Service ->** en noem deze *HelloWorldStateful*. Klik op **OK**.
+Selecteer **.Net Core 2.0 -> Stateful Service** en noem het *HelloWorldStateful*. Klik op **OK**.
 
-![Gebruik het dialoogvenster Nieuw Project voor het maken van een nieuwe stateful Service Fabric-service](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
+![Gebruik van het dialoogvenster Nieuw Project te maken van een nieuwe Service Fabric stateful service](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 
-Uw toepassing hebt nu twee services: de staatloze service *HelloWorldStateless* en de stateful service *HelloWorldStateful*.
+Uw toepassing heeft nu twee services: de stateless service *HelloWorldStateless* en de stateful service *HelloWorldStateful*.
 
-Een stateful service heeft de dezelfde toegangspunten als een stateless service. Het belangrijkste verschil is de beschikbaarheid van een *state-provider* die de status op betrouwbare wijze kunt opslaan. Service Fabric wordt geleverd met een implementatie van de persistentieprovider status aangeroepen [betrouwbare verzamelingen](service-fabric-reliable-services-reliable-collections.md), dit kunt u gegevensstructuren via statusbeheer voor het betrouwbare gerepliceerd. Een stateful betrouwbare Service maakt standaard gebruik van deze state-provider.
+Een stateful service heeft de dezelfde toegangspunten als een stateless service. Het belangrijkste verschil is de beschikbaarheid van een *state-provider* die status op betrouwbare wijze kunt opslaan. Service Fabric wordt geleverd met een status-provider-implementatie met de naam [betrouwbare verzamelingen](service-fabric-reliable-services-reliable-collections.md), welke kunt u maken gerepliceerd gegevensstructuren via de betrouwbare status Manager. Een stateful betrouwbare Service maakt gebruik van deze provider staat standaard.
 
 Open **HelloWorldStateful.cs** in *HelloWorldStateful*, die de volgende RunAsync-methode bevat:
 
@@ -170,23 +168,23 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 ```
 
 ### <a name="runasync"></a>RunAsync
-`RunAsync()` draait op dezelfde manier in stateful en staatloze services. Echter, in een stateful service het platform extra werk uitvoert namens jou voordat deze wordt uitgevoerd `RunAsync()`. Deze taak kunt opnemen ervoor te zorgen dat de betrouwbare statusbeheer en betrouwbare verzamelingen klaar zijn voor gebruik.
+`RunAsync()` werkt op dezelfde manier in stateful en stateless services. Echter, in een stateful service het platform extra werk uitvoert namens voordat deze wordt uitgevoerd `RunAsync()`. Deze taak kunt opnemen ervoor zorgen dat de Manager van betrouwbare status en de betrouwbare verzamelingen klaar zijn voor gebruik.
 
 ### <a name="reliable-collections-and-the-reliable-state-manager"></a>Betrouwbare verzamelingen en de betrouwbare status Manager
 ```csharp
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
 
-[IReliableDictionary](https://msdn.microsoft.com/library/dn971511.aspx) is een dictionary-implementatie die u gebruiken kunt om op te slaan op betrouwbare wijze staat in de service. Met Service Fabric en betrouwbare verzamelingen, kunt u gegevens opslaan rechtstreeks in uw service zonder de noodzaak van een externe permanente archief. Betrouwbare verzamelingen uw gegevens maximaal beschikbaar maken. Service Fabric bewerkstelligt dit door het maken en beheren van meerdere *replica's* van uw service voor u. Het bevat ook een API die weg de complexiteit isoleert van het beheren van deze replica's en hun statusovergangen.
+[IReliableDictionary](https://msdn.microsoft.com/library/dn971511.aspx) is een dictionary-implementatie die u gebruiken kunt om op te slaan op een betrouwbare manier staat in de service. Met Service Fabric en betrouwbare verzamelingen, kunt u gegevens rechtstreeks in uw service zonder de noodzaak van een externe permanente archief opslaan. Betrouwbare verzamelingen uw gegevens maximaal beschikbaar maken. Service Fabric doet dit door het maken en beheren van meerdere *replica's* van uw service voor u. Het biedt ook een API die de complexiteit van het beheer van deze replica's en hun statusovergangen volledig weggewerkt.
 
-Betrouwbare verzamelingen kunnen elk type .NET, met inbegrip van uw aangepaste typen, met een aantal aanvullende opmerkingen worden opgeslagen.
+Betrouwbare verzamelingen kunnen elk type .NET, met inbegrip van uw aangepaste typen, met enkele aanvullende opmerkingen opslaan:
 
-* Service Fabric worden uw status maximaal beschikbaar door *repliceren* staat tussen knooppunten en betrouwbare verzamelingen opslaan van gegevens naar de lokale schijf op elke replica. Dit betekent dat alles dat is opgeslagen in betrouwbare verzamelingen moet *serialiseerbaar*. Standaard gebruik van betrouwbare verzamelingen [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) voor serialisatie, dus is het belangrijk om ervoor te zorgen dat uw typen zijn [ondersteund door de serialisatiefunctie van het gegevenscontract](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) wanneer u de serialisatiefunctie standaard gebruikt.
-* Objecten worden gerepliceerd voor hoge beschikbaarheid, wanneer u transacties op betrouwbare verzamelingen doorvoert. Objecten die zijn opgeslagen in betrouwbare verzamelingen worden opgeslagen in het lokale geheugen van uw service. Dit betekent dat u een lokale verwijzing naar het object hebt.
+* Service Fabric zorgt de status voor hoge beschikbaarheid *repliceren* status over knooppunten en betrouwbare verzamelingen gegevens naar de lokale schijf opslaan op elke replica. Dit betekent dat alles die zijn opgeslagen in Reliable Collections moet worden *serialiseerbare*. Betrouwbare verzamelingen gebruiken standaard [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) voor serialisatie, dus is het belangrijk om ervoor te zorgen dat uw typen zijn [ondersteund door de Serializer van de opdracht gegevens](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) bij het gebruik van de serializer van de standaard.
+* Objecten worden gerepliceerd voor hoge beschikbaarheid bij het doorvoeren van transacties voor betrouwbare verzamelingen. Objecten die zijn opgeslagen in de betrouwbare verzamelingen zijn opgeslagen in het lokale geheugen van uw service. Dit betekent dat u een lokale verwijzing naar het object hebt.
   
-   Het is belangrijk dat u geen lokale exemplaren van deze objecten muteren zonder dat u een updatebewerking op de verzameling betrouwbare uitvoert in een transactie. Dit is omdat wijzigingen in de lokale exemplaren van objecten worden niet automatisch worden gerepliceerd. U moet het object opnieuw weer in de woordenlijst invoegen of gebruik een van de *bijwerken* methoden in de woordenlijst.
+   Het is belangrijk dat u geen lokale exemplaren van deze objecten muteren zonder dat er een updatebewerking op de betrouwbare verzameling in een transactie. Dit is omdat wijzigingen aan lokale exemplaren van objecten wordt niet automatisch worden gerepliceerd. U moet het object opnieuw terug in de woordenlijst invoegen of gebruik een van de *bijwerken* methoden in de woordenlijst.
 
-Statusbeheer voor het betrouwbare beheert betrouwbare verzamelingen voor u. U kunt gewoon vragen statusbeheer voor het betrouwbare voor een betrouwbare verzameling met de naam op elk gewenst moment en op een willekeurige plaats in uw service. Statusbeheer voor het betrouwbare zorgt ervoor dat u een verwijzing terug. Wordt niet aanbevolen verwijzingen naar betrouwbare verzameling exemplaren te slaan in klasselid variabelen of eigenschappen. Speciale aandacht moet worden uitgevoerd om ervoor te zorgen dat de verwijzing naar een exemplaar te allen tijde in de levenscyclus van de service is ingesteld. Statusbeheer voor het betrouwbare dit werk voor u verwerkt en geoptimaliseerd voor herhaaldelijk bezoeken.
+De betrouwbare status Manager beheert betrouwbare verzamelingen voor u. U kunt gewoon vragen de betrouwbare status Manager voor een betrouwbare verzameling met de naam op elk gewenst moment en op een willekeurige plaats in uw service. De betrouwbare status Manager zorgt ervoor dat u een verwijzing terug worden opgehaald. Niet wordt aangeraden dat u verwijzingen naar instanties van betrouwbare verzameling opslaat in klasse variabelen of eigenschappen. Speciale aandacht moet worden uitgevoerd om ervoor te zorgen dat de verwijzing is ingesteld op een exemplaar te allen tijde in de levenscyclus van de service. De betrouwbare status Manager verwerkt dit werk voor u en geoptimaliseerd voor herhalingen bezoeken.
 
 ### <a name="transactional-and-asynchronous-operations"></a>Transactionele en asynchrone bewerkingen
 ```csharp
@@ -200,26 +198,26 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 }
 ```
 
-Betrouwbare verzamelingen hebben veel van dezelfde bewerkingen die hun `System.Collections.Generic` en `System.Collections.Concurrent` collega's doen, met uitzondering van LINQ. Bewerkingen op betrouwbare verzamelingen zijn asynchroon. Dit is omdat schrijfbewerkingen met betrouwbare verzamelingen i/o-bewerkingen als u wilt repliceren en de gegevens naar schijf te behouden.
+Betrouwbare verzamelingen zijn veel van dezelfde bewerkingen die hun `System.Collections.Generic` en `System.Collections.Concurrent` tegenhangers doen, met uitzondering van LINQ. Bewerkingen voor betrouwbare verzamelingen zijn asynchroon. Dit is omdat schrijfbewerkingen met betrouwbare verzamelingen i/o-bewerkingen om te repliceren en behoud van gegevens naar schijf uitvoeren.
 
-Betrouwbare verzameling bewerkingen zijn *transactionele*, zodat u status consistent voor meerdere betrouwbare verzamelingen en bewerkingen houden kunt. U kunt bijvoorbeeld een werkitem van een betrouwbare wachtrij in wachtrij, een bewerking uitvoeren op deze en het resultaat opslaan in een betrouwbare woordenlijst alle binnen een transactie. Dit wordt beschouwd als een atomic-bewerking en dit zorgt ervoor dat de hele bewerking slaagt of de hele bewerking wordt teruggedraaid. Als een fout optreedt nadat u het item in wachtrij, maar voordat u het resultaat opslaat, wordt de hele transactie wordt teruggedraaid en blijft het item in de wachtrij voor verwerking.
+Betrouwbare verzameling bewerkingen zijn *transactionele*, zodat u status consistent voor meerdere betrouwbare verzamelingen en bewerkingen houden kunt. Bijvoorbeeld, kan u uit de wachtrij verwijderen een werkitem van een betrouwbare wachtrij, het uitvoeren van een bewerking op en het resultaat opslaan in een betrouwbare Dictionary, allemaal binnen één transactie. Dit wordt behandeld als een atomische bewerking, en dit zorgt ervoor dat de gehele bewerking slaagt of de gehele bewerking wordt teruggedraaid. Als een fout optreedt nadat u het item in wachtrij, maar voordat u het resultaat opslaat, wordt de hele transactie wordt teruggedraaid en blijft het item in de wachtrij voor verwerking.
 
 ## <a name="run-the-application"></a>De toepassing uitvoeren
-We nu terug naar de *HelloWorld* toepassing. U kunt nu bouwen en implementeren van uw services. Wanneer u drukt op **F5**, uw toepassing worden gemaakt en geïmplementeerd op uw lokale cluster.
+We nu terug naar de *HelloWorld* toepassing. U kunt nu bouwen en implementeren van uw services. Wanneer u drukt u op **F5**, uw toepassing wordt gebouwd en geïmplementeerd op uw lokale cluster.
 
-Nadat de services zijn gestart, kunt u weergeven met de gegenereerde Event Tracing voor Windows (ETW)-gebeurtenissen in een **diagnostische gebeurtenissen** venster. Denk eraan dat de weergegeven gebeurtenissen afkomstig van zowel de staatloze service en de stateful service in de toepassing zijn. U kunt de stroom onderbreken door te klikken op de **onderbreken** knop. U kunt vervolgens de details van een bericht controleren door het uitbreiden van dat bericht.
+Nadat de services zijn gestart, kunt u weergeven met de gegenereerde gebeurtenissen van Event Tracing voor Windows (ETW) in een **diagnostische gebeurtenissen** venster. Merk op dat de weergegeven gebeurtenissen afkomstig van zowel de stateless service en de stateful service in de toepassing zijn. U kunt de stroom onderbreken door te klikken op de **onderbreken** knop. U kunt vervolgens de details van een bericht controleren door het uitbreiden van dat bericht.
 
 > [!NOTE]
-> Voordat u de toepassing uitvoert, zorg ervoor dat er een lokaal ontwikkelcluster uitgevoerd. Bekijk de [instructiehandleiding](service-fabric-get-started.md) voor informatie over het instellen van uw lokale omgeving.
+> Voordat u de toepassing uitvoert, zorg ervoor dat u hebt een lokaal ontwikkelcluster uitgevoerd. Bekijk de [introductiehandleiding](service-fabric-get-started.md) voor informatie over het instellen van uw lokale omgeving.
 > 
 > 
 
-![Diagnostische gebeurtenissen weergeven in Visual Studio](media/service-fabric-reliable-services-quick-start/hello-stateful-Output.png)
+![Diagnostische gebeurtenissen in Visual Studio weergeven](media/service-fabric-reliable-services-quick-start/hello-stateful-Output.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 [Fouten opsporen in uw Service Fabric-toepassing in Visual Studio](service-fabric-debugging-your-application.md)
 
-[Aan de slag: Service Fabric-Web-API-services met OWIN zelf die als host fungeert](service-fabric-reliable-services-communication-webapi.md)
+[Aan de slag: Web-API voor service Fabric-services met OWIN zelf die als host fungeert](service-fabric-reliable-services-communication-webapi.md)
 
 [Meer informatie over betrouwbare verzamelingen](service-fabric-reliable-services-reliable-collections.md)
 

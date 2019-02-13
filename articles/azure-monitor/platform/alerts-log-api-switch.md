@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/24/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: e4e935a9c78950517623acdf8196d51793fff18a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 879a91d7007057e577631e157dae71f1566acab6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462457"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118221"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Voorkeur voor switch API voor Logboekwaarschuwingen
 
@@ -30,6 +30,7 @@ Er zijn enkele voordelen van het maken en beheren van waarschuwingen via [schedu
 
 - Mogelijkheid om te [cross-werkruimte zoeken in logboeken](../log-query/cross-workspace-query.md) in regels voor waarschuwingen en het bereik van externe bronnen, zoals Log Analytics-werkruimten of zelfs Application Insights-apps
 - Met behulp van meerdere velden die aan de groep in de query, [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) gebruiker kunt opgeven welk veld moet een statistische functie op in Azure portal
+- Meld u waarschuwingen die zijn gemaakt met behulp van [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) kunt hebben periode gedefinieerd tot 48 uur en ophalen van gegevens voor een langere periode dan voorheen
 - Waarschuwingsregels maken in één keer als één resource zonder de noodzaak om te maken van drie niveaus van resources als [verouderde Log Analytics-waarschuwing API](api-alerts.md)
 - Enkele programma-interface voor alle varianten van query's gebaseerde logboekwaarschuwingen in Azure - nieuwe [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) kan worden gebruikt voor het beheren van regels voor Log Analytics, evenals de Application Insights
 - Alle waarschuwingen functionaliteit voor het nieuwe logboekbestanden en toekomstige ontwikkeling is beschikbaar via de nieuwe [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)
@@ -57,6 +58,13 @@ Met de aanvraag hoofdtekst die de onderstaande JSON.
 }
 ```
 
+De API kan ook worden geopend vanuit een PowerShell-opdrachtregel met [ARMClient](https://github.com/projectkudu/ARMClient), een open-source-opdrachtregelprogramma dat vereenvoudigt het aanroepen van de Azure Resource Manager-API. Zoals hieronder wordt weergegeven, in de PUT-aanroep voorbeeld ARMclient hulpprogramma gebruiken om over te schakelen van alle regels voor waarschuwingen die zijn gekoppeld aan de specifieke Log Analytics-werkruimte.
+
+```PowerShell
+$switchJSON = {'scheduledQueryRulesEnabled': 'true'}
+armclient PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview $switchJSON
+```
+
 Als switch van alle regels voor waarschuwingen in Log Analytics-werkruimte gebruik van nieuwe [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) is geslaagd, het volgende antwoord wordt geleverd.
 
 ```json
@@ -70,6 +78,12 @@ Gebruikers kunnen ook de huidige status van uw Log Analytics-werkruimte controle
 
 ```
 GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
+```
+
+Het uitvoeren van de bovenstaande in met behulp van PowerShell-opdrachtregel met behulp [ARMClient](https://github.com/projectkudu/ARMClient) hulpprogramma, raadpleegt u het onderstaande voorbeeld.
+
+```PowerShell
+armclient GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
 ```
 
 Als de opgegeven Log Analytics-werkruimte is overgeschakeld naar het gebruik van [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) alleen; vervolgens het antwoord JSON worden zoals hieronder vermeld.

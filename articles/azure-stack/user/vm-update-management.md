@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: rtiberiu
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 69a0bde58a365ff124bc41b6039c606cb38f71fe
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 28f8300b83f55f4b083aa1e740dcbf1db0f1dc31
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768542"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168135"
 ---
 # <a name="azure-stack-vm-update-and-management"></a>Azure Stack-VM bijwerken en beheren
 U kunt de volgende functies van Azure Automation-oplossing voor het beheren van Windows en Linux-machines die zijn geïmplementeerd met behulp van Azure Stack:
@@ -100,4 +100,4 @@ De Azure Stack-VM's kunnen nu worden opgenomen in de geplande update-implementat
 Als u een groot aantal virtuele machines van Azure Stack hebt, kunt u [deze Azure Resource Manager-sjabloon](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) eenvoudiger de oplossing te implementeren op virtuele machines. De sjabloon implementeert de Microsoft Monitoring Agent-extensie op een bestaande VM in Azure Stack en deze toevoegen aan een bestaande werkruimte van Azure LogAnalytics.
  
 ## <a name="next-steps"></a>Volgende stappen
-[SQL Server-prestaties optimaliseren](azure-stack-sql-server-vm-considerations.md)
+[SQL Server-VM-prestaties optimaliseren](azure-stack-sql-server-vm-considerations.md)

@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 2111fe6a70f45559faeb3e0f8096548dcc7b48bc
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 40394409dfafa3ad6b3d6685f5c944fc78df813f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238938"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172213"
 ---
 # <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>Het oplossen van Microsoft Azure Stack Development Kit (ASDK)
-Dit document bevat algemene informatie over probleemoplossing voor de ASDK. Als u een probleem dat niet wordt vermeld ondervindt, controleert u of om te controleren of de [MSDN-Forum voor Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) voor verdere ondersteuning en informatie.  
+Dit artikel bevat algemene informatie over probleemoplossing voor de ASDK. Als u een probleem dat niet wordt vermeld ondervindt, controleert u of om te controleren of de [MSDN-Forum voor Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) voor verdere ondersteuning en informatie.  
 
 > [!IMPORTANT]
 > Omdat de ASDK een evaluatieomgeving is, is er geen officiële ondersteuning aangeboden via Microsoft de klant ondersteuning klantenondersteuning (CSS).
@@ -67,7 +67,7 @@ Als u VHD's 'zwevende' ziet, is het belangrijk te weten als ze deel uitmaken van
 
 U kunt meer lezen over het configureren van de bewaarperiode drempelwaarde en on-demand vrijmaken in [opslagaccounts beheren](../azure-stack-manage-storage-accounts.md).
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Opslag
 ### <a name="storage-reclamation"></a>Vrijmaken van opslagruimte
 Het duurt maximaal 14 uur geregenereerde capaciteit worden weergegeven in de portal. Vrijmaken van ruimte, is afhankelijk van diverse factoren, met inbegrip van gebruikspercentage van de interne containerbestanden in blok-blobopslag. Daarom afhankelijk van hoeveel gegevens worden verwijderd, is er geen garantie voor de hoeveelheid ruimte die kan worden vrijgemaakt wanneer garbagecollector wordt uitgevoerd.
 

@@ -10,20 +10,17 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: fe7825922d9333d058d9a33d5643850c368d3457
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 474355088a339741b8dd1917fb354d55df4990f6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511391"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189188"
 ---
 # <a name="retrain-azure-machine-learning-studio-models-programmatically"></a>Azure Machine Learning Studio-modellen programmatisch opnieuw trainen
 In dit scenario leert u hoe u programmatisch opnieuw trainen een Azure Machine Learning Studio web service via C# en de service Machine Learning Batch Execution.
 
-Nadat u het model hebt retrained, heeft de volgende scenario's laten zien hoe het model in uw voorspellende webservice bijwerken:
-
-* Als u een klassieke webservice in Machine Learning-webservicesportal hebt geïmplementeerd, Zie [een klassieke webservice opnieuw trainen](retrain-a-classic-web-service.md). 
-* Als u een nieuwe webservice hebt geïmplementeerd, Zie [opnieuw trainen van een nieuwe webservice met behulp van de Machine Learning Management-cmdlets](retrain-new-web-service-using-powershell.md).
+Nadat u het model hebt retrained, gaat u naar [opnieuw trainen van een nieuwe webservice met behulp van de Machine Learning Management-cmdlets](retrain-new-web-service-using-powershell.md) voor informatie over het bijwerken van het model in uw voorspellende webservice:
 
 Zie voor een overzicht van de retraining proces [opnieuw trainen van een Machine Learning-Model](retrain-machine-learning-model.md).
 
@@ -165,9 +162,8 @@ Bekijk de resultaten om te bepalen of het zojuist getrainde model goed genoeg wo
 Kopieer de *BaseLocation*, *RelativeLocation*, en *SasBlobToken* vanuit de resultaten van de uitvoer wordt u deze gebruiken tijdens de retraining.
 
 ## <a name="next-steps"></a>Volgende stappen
-Als u de voorspellende webservice geïmplementeerd door te klikken op **webservice implementeren [klassieke]**, Zie [een klassieke webservice opnieuw trainen](retrain-a-classic-web-service.md).
 
-Als u de voorspellende webservice geïmplementeerd door te klikken op **Web Service implementeren [Nieuw]**, Zie [opnieuw trainen van een nieuwe webservice met behulp van de Machine Learning Management-cmdlets](retrain-new-web-service-using-powershell.md).
+ [Opnieuw trainen van een nieuwe webservice met behulp van de Machine Learning Management-cmdlets](retrain-new-web-service-using-powershell.md).
 
 <!-- Retrain a New web service using the Machine Learning Management REST API -->
 

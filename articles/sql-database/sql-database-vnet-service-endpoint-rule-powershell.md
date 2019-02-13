@@ -1,5 +1,5 @@
 ---
-title: PowerShell voor Virtual Network-service-eindpunten en regels in Azure SQL | Microsoft Docs
+title: PowerShell voor VNet-eindpunten en regels voor één en gepoolde databases in Azure SQL | Microsoft Docs
 description: PowerShell-scripts voor het maken en beheren van virtuele Service-eindpunten voor uw Azure SQL Database en SQL Data Warehouse biedt.
 services: sql-database
 ms.service: sql-database
@@ -11,20 +11,20 @@ author: oslake
 ms.author: moslake
 ms.reviewer: genemi, vanto
 manager: craigg
-ms.date: 10/23/2018
-ms.openlocfilehash: ae29fcfe39b5844ab948eb55ca314ae51dcae174
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.date: 02/11/2019
+ms.openlocfilehash: b30240620e3a8d3dea1849e895ec021c96fc11c6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566174"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117609"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell:  Een virtuele Service-eindpunt en een VNet-regel maken voor SQL
 
-Zowel Azure [SQL-Database](sql-database-technical-overview.md) en [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) bieden ondersteuning voor virtuele-Service-eindpunten.
+*Regels voor virtueel netwerk* zijn een functie van de firewall beveiliging die bepaalt of de database-server voor uw individuele databases en elastische Pools in Azure [SQL-Database](sql-database-technical-overview.md) of voor uw databases in [SQL-gegevens Datawarehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepteert berichten die worden verzonden op basis van specifieke subnetten in virtuele netwerken.
 
-> [!NOTE]
-> In dit artikel is van toepassing op Azure SQL-server en op zowel SQL Database en SQL Data Warehouse-databases die zijn gemaakt op de Azure SQL-server. Voor het gemak wordt de term 'SQL Database' gebruikt wanneer er wordt verwezen naar zowel SQL Database als SQL Data Warehouse. In dit artikel biedt *niet* zijn van toepassing op **Azure SQL Database Managed Instance** als u een service-eindpunt dat is gekoppeld aan een Managed Instance-subnet geen hebt.
+> [!IMPORTANT]
+> In dit artikel is van toepassing op Azure SQL-server en op zowel SQL Database en SQL Data Warehouse-databases die zijn gemaakt op de Azure SQL-server. Voor het gemak wordt de term 'SQL Database' gebruikt wanneer er wordt verwezen naar zowel SQL Database als SQL Data Warehouse. In dit artikel biedt *niet* toepassen op een **beheerd exemplaar** implementatie in Azure SQL-Database omdat er geen een service-eindpunt dat is gekoppeld aan deze.
 
 In dit artikel biedt en legt uit een PowerShell-script dat de volgende acties uitgevoerd:
 

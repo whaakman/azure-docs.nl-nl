@@ -12,24 +12,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: a9bf2240e6e60a3d2d80bf4829d74f1043024d7e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2c4a95bddea85d298ff9343bfd813d0b79b24b51
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239669"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164019"
 ---
 # <a name="azure-stack-administration-basics"></a>Basisbeginselen voor het beheer van Azure Stack
-Er zijn verschillende dingen die u weten moet als u geen ervaring met Azure Stack-beheer. Deze handleiding biedt een overzicht van uw rol als Azure Stack-operators, en wat u moet uw gebruikers ze snel worden productief laten weten.
+Er zijn verschillende dingen die u weten moet als u geen ervaring met Azure Stack-beheer. Dit artikel bevat een overzicht van uw rol als Azure Stack-operators, en wat u moet uw gebruikers ze snel worden productief laten weten.
 
 ## <a name="understand-the-builds"></a>Inzicht in de builds
 
 ### <a name="integrated-systems"></a>Geïntegreerde systemen
 
-Als u een geïntegreerde Azure Stack-systeem, worden de bijgewerkte versies van Azure Stack gedistribueerd via updatepakketten. U kunt deze pakketten importeren en ze toepassen met behulp van de tegel Updates in de beheerdersportal.
+Als u een geïntegreerde Azure Stack-systeem, worden de bijgewerkte versies van Azure Stack gedistribueerd via updatepakketten. U kunt deze pakketten importeren en ze toepassen met behulp van de tegel Updates in de beheerdersportal. Update-installaties ASDK wordt niet ondersteund. 
  
 ### <a name="development-kit"></a>Development kit
 
@@ -46,7 +46,7 @@ U moet een bewustzijn van welke services u beschikbaar voor uw gebruikers maken 
 Azure Stack omvat standaard de volgende "fundamentele services" wanneer u Azure Stack implementeren:
 
 - Compute
-- Storage
+- Opslag
 - Netwerken
 - Key Vault
 

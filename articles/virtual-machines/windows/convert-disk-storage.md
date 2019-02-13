@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/04/2018
 ms.author: ramankum
 ms.subservice: disks
-ms.openlocfilehash: 676adb05178097c1802c0ff5b3a5da1bbb7b188c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 94482666d0db3157b0c18c0b47f9937457172521
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978371"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115994"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Het opslagtype van een beheerde schijf bijwerken
 
@@ -33,7 +33,7 @@ Azure Managed Disks biedt drie opties voor het type opslag: [Premium SSD](../win
 
 * Omdat de conversie opnieuw moet opstarten van de virtuele machine (VM), moet u plannen dat de migratie van uw opslag schijven tijdens een reeds bestaande onderhoudsperiode. 
 * Als u een niet-beheerde schijf eerst [converteren naar een beheerde schijf](convert-unmanaged-to-managed-disks.md) waarmee u kunt het schakelen tussen de opslagtypen. 
-* De voorbeelden in dit artikel moet de Azure PowerShell-moduleversie 6.0.0 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-az-ps). Voer [Connect AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) voor het maken van een verbinding met Azure.
+* De voorbeelden in dit artikel moet de Azure PowerShell-moduleversie 6.0.0 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Voer [Connect AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) voor het maken van een verbinding met Azure.
 
 
 ## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium"></a>Alle beheerde schijven van een virtuele machine converteren van standard naar premium

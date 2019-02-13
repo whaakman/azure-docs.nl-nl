@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 8a2a1b70290f48b3189bfae2f67dd19c5ef4c9f2
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: b97f2d3a015ebfd5f9c8771d3fc3edc1c074c839
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093254"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203706"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualisern van uw cluster met Service Fabric Explorer
 
@@ -62,17 +62,6 @@ Voor verbinding met een Service Fabric-cluster, moet u het eindpunt voor cluster
 U kunt clienttoegang tot uw Service Fabric-cluster aan certificaten of met behulp van Azure Active Directory (AAD) beheren.
 
 Als u probeert om verbinding met een beveiligd cluster te maken, klikt u vervolgens afhankelijk van de configuratie van het cluster moet u een clientcertificaat of zich aanmelden met AAD.
-
-## <a name="video-tutorial"></a>Zelfstudievideo
-
-Voor informatie over het gebruik van Service Fabric Explorer, bekijk de volgende video van Microsoft Virtual Academy:
-
-> [!NOTE]
-> In deze video ziet Service Fabric Explorer die wordt gehost in een Service Fabric-cluster, niet de desktopversie.
->
->
-
-[<center><img src="./media/service-fabric-visualizing-your-cluster/SfxVideo.png" WIDTH="360" HEIGHT="244"></center>](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=bBTFg46yC_9806218965)
 
 ## <a name="understand-the-service-fabric-explorer-layout"></a>Inzicht in de indeling van de Service Fabric Explorer
 U kunt navigeren via de Service Fabric Explorer met behulp van de boomstructuur aan de linkerkant. In de hoofdmap van de structuur bevat het clusterdashboard een overzicht van het cluster, inclusief een overzicht van de toepassings- en knooppuntstatus.

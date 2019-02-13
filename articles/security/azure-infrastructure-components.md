@@ -4,7 +4,7 @@ description: Dit artikel bevat een algemene beschrijving van de Microsoft Azure-
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: b2e8ef232e1b25c7d000f4683830ff2e188047fb
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b390dc9bd2b690837a85a5bab361a534b9c9d5a5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186473"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118136"
 ---
 # <a name="azure-information-system-components-and-boundaries"></a>Onderdelen van het systeem Azure informatie en grenzen
 Dit artikel bevat een algemene beschrijving van de Azure-architectuur en het beheer. De Azure-systeem-omgeving bestaat uit de volgende netwerken:
@@ -54,8 +54,8 @@ Het team van het besturingssysteem biedt afbeeldingen, in de vorm van virtuele H
 
 Er zijn drie typen van installatiekopieën van besturingssystemen beheerde fabric:
 
-- Host: Een aangepast besturingssysteem dat wordt uitgevoerd op host virtuele machines.
-- Standaard: Een systeemeigen besturingssysteem dat wordt uitgevoerd op tenants (bijvoorbeeld Azure Storage). Dit besturingssysteem beschikt niet over een hypervisor.
+- Host: Een aangepast besturingssysteem die wordt uitgevoerd op host virtuele machines.
+- Native: Een systeemeigen besturingssysteem die wordt uitgevoerd op tenants (bijvoorbeeld Azure Storage). Dit besturingssysteem beschikt niet over een hypervisor.
 - Gast: Een gast-besturingssysteem die wordt uitgevoerd op de Gast-VM's.
 
 De host en de systeemeigen FC-beheerde besturingssystemen zijn ontworpen voor gebruik in de cloud en zijn niet openbaar toegankelijk is.
@@ -80,11 +80,11 @@ De serviceteams zijn:
 - Azure Active Directory
 - Azure Compute
 - Azure Net
-- Engineering-Cloudservices
-- ISSD: beveiliging
+- Cloud Engineering Services
+- ISSD: Beveiliging
 - Multifactor Authentication
 - SQL Database
-- Storage
+- Opslag
 
 ## <a name="types-of-users"></a>Typen gebruikers
 Werknemers (of ingehuurd personeel) van Microsoft worden beschouwd als interne gebruikers. Alle andere gebruikers worden beschouwd als externe gebruikers. Alle Azure-interne gebruikers hebben de status van de werknemer gecategoriseerd met een gevoeligheidsniveau waarmee de toegang tot klantgegevens (toegang of geen toegang). Gebruiker heeft bevoegdheden die naar Azure (autorisatie machtiging nadat verificatie plaatsgevonden heeft) worden in de volgende tabel beschreven:

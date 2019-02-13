@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 01/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5e4a3a1fd450cf855e0ced142e6bc93d4536f2a8
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 24e757c80e23cecb50419a4855ec3ea9f94bcf3b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827717"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112121"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Vereisten voor Azure Disk Encryption
 
@@ -29,7 +29,7 @@ Voordat u Azure Disk Encryption op Azure IaaS Virtual Machines voor de ondersteu
 ## <a name="bkmk_OSs"></a> Ondersteunde besturingssystemen
 Azure Disk Encryption wordt ondersteund op de volgende besturingssystemen:
 
-- Windows Server-versies: Windows Server 2008 R2, WindowsServer 2012, Windows Server 2012 R2 en WindowsServer 2016.
+- Windows Server-versies: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 en Windows Server 2016.
     - Voor Windows Server 2008 R2 moet u .NET Framework 4.5 zijn geïnstalleerd voordat u versleuteling in Azure inschakelen. Installeer de aanmeldhulp vanaf Windows bijwerken met de optionele update voor Microsoft .NET Framework 4.5.2 voor Windows Server 2008 R2 x64 64-systemen ([KB2901983](https://support.microsoft.com/kb/2901983)).    
 - Versies van Windows-client: Client voor Windows 8 en Windows 10-client.
 - Azure Disk Encryption is alleen ondersteund op bepaalde Azure-galerie op basis van Linux-server-distributies en versies. Voor de lijst met ondersteunde versies, raadpleegt u de [Veelgestelde vragen over Azure Disk Encryption](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
@@ -133,7 +133,7 @@ Als u al bekend met de Key Vault en Azure AD-vereisten voor Azure Disk Encryptio
 >Voordat u een key vault verwijdert, zorg ervoor dat u kunt bestaande virtuele machines met het heeft niet versleutelen. Een kluis beveiligen tegen onopzettelijk verwijderen [voorlopig verwijderen inschakelen](../key-vault/key-vault-soft-delete-powershell.md#enabling-soft-delete) en een [resourcevergrendeling](../azure-resource-manager/resource-group-lock-resources.md) op de kluis. 
  
 ## <a name="bkmk_KeyVault"></a> Een sleutelkluis maken 
-Azure Disk Encryption is geïntegreerd met [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) om te controleren en beheren van de schijf-versleutelingssleutels en geheimen in uw key vault-abonnement. U kunt een key vault maken of gebruik een bestaande resourcegroep voor Azure Disk Encryption. Zie voor meer informatie over sleutelkluizen [aan de slag met Azure Key Vault](../key-vault/key-vault-get-started.md) en [uw key vault beveiligen](../key-vault/key-vault-secure-your-key-vault.md). U kunt een Resource Manager-sjabloon, Azure PowerShell of Azure CLI gebruiken om een sleutelkluis te maken. 
+Azure Disk Encryption is geïntegreerd met [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) om te controleren en beheren van de schijf-versleutelingssleutels en geheimen in uw key vault-abonnement. U kunt een key vault maken of gebruik een bestaande resourcegroep voor Azure Disk Encryption. Zie voor meer informatie over sleutelkluizen [wat is Azure Key Vault?](../key-vault/key-vault-overview.md) en [uw key vault beveiligen](../key-vault/key-vault-secure-your-key-vault.md). U kunt een Resource Manager-sjabloon, Azure PowerShell of Azure CLI gebruiken om een sleutelkluis te maken. 
 
 
 >[!WARNING]

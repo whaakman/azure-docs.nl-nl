@@ -12,23 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: d35d3bb32f9afabb0e2b02f0d93fc60e0121e9ce
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4c9c4bce0b63bd6d45522e2e069d1ae884916e09
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247643"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172396"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Extra scale unit knooppunten toevoegen in Azure Stack
 
-Azure Stack-operators kunnen de totale capaciteit van een bestaande schaaleenheid vergroten door het toevoegen van een andere fysieke computer. De fysieke computer is ook een scale unit-knooppunt genoemd. Elke nieuwe scale unit knooppunt die u toevoegt moet homogene in CPU-type, geheugen en schijfnummer & grootte van de knooppunten die al aanwezig zijn in de schaaleenheid.
-
-> [!NOTE]  
-U moet extra scale Azure Stack 1807 of hoger om toe te voegen eenheid knooppunten uitvoeren.
+Azure Stack-operators kunnen de totale capaciteit van een bestaande schaaleenheid vergroten door het toevoegen van een andere fysieke computer. De fysieke computer is ook een scale unit-knooppunt genoemd. Elke nieuwe scale unit knooppunt die u toevoegt moet homogene in CPU-type, geheugen, en schijfnummer en grootte van de knooppunten die al aanwezig zijn in de schaaleenheid.
 
 Als u wilt toevoegen een scale unit-knooppunt, fungeren als Azure Stack en hulpprogramma's van uw hardware-leveranciers (OEM) worden uitgevoerd. De OEM-tooling wordt uitgevoerd op de hardware lifecycle-host (HLH) om te controleren of de nieuwe fysieke computer overeenkomt met het niveau van de dezelfde firmware als bestaande knooppunten.
 
@@ -107,7 +104,7 @@ De status van de schaaleenheid en schaal eenheid knooppunten kan worden opgehaal
 ### <a name="status-for-the-add-node-operation"></a>Status voor de bewerking van de knooppunten toevoegen 
 **Voor een schaaleenheid:**
 
-|Status               |Beschrijving  |
+|Status               |Description  |
 |---------------------|---------|
 |In uitvoering              |Alle knooppunten zijn actief deel aan de schaaleenheid.|
 |Gestopt              |Het knooppunt van de eenheid schaal is omlaag of niet bereikbaar is.|
@@ -118,7 +115,7 @@ De status van de schaaleenheid en schaal eenheid knooppunten kan worden opgehaal
 
 **Voor een scale unit-knooppunt:**
 
-|Status                |Beschrijving  |
+|Status                |Description  |
 |----------------------|---------|
 |In uitvoering               |Het knooppunt is actief deelnemer in de schaaleenheid.|
 |Gestopt               |Het knooppunt is niet beschikbaar.|

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6e0641f2d9427133f951ef63720b4efdac4defe5
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 60bed4786b61bc96b918511b63ae89daa1cba1c4
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409051"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217425"
 ---
 # <a name="use-apache-hive-with-apache-hadoop-on-hdinsight-with-remote-desktop"></a>Apache Hive gebruiken met Apache Hadoop op HDInsight met extern bureaublad
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -66,7 +66,7 @@ Wanneer u verbinding hebt gemaakt op het bureaublad voor het HDInsight-cluster, 
      >
    * **INDELING VAN DE RIJ**: Geeft aan hoe de gegevens zijn opgemaakt Hive. In dit geval worden de velden in elk logboek gescheiden door een spatie.
    * **OPGESLAGEN ALS TEXTFILE LOCATIE**: Geeft aan waar de gegevens worden opgeslagen Hive (de voorbeeldgegevens/map) en dat deze wordt opgeslagen als tekst.
-   * **SELECTEER**: Selecteert een telling van alle rijen waar kolom **t4** bevat de waarde **[fout]**. Dit moet een retourwaarde van **3** omdat er drie rijen die deze waarde bevatten.
+   * **SELECT**: Selecteert een telling van alle rijen waar kolom **t4** bevat de waarde **[fout]**. Dit moet een retourwaarde van **3** omdat er drie rijen die deze waarde bevatten.
    * **INPUT__FILE__NAME, zoals '%.log'** -geeft aan dat we alleen gegevens uit bestanden hebben die eindigt op moet retourneren Hive. log. Dit beperkt de zoekopdracht tot het sample.log-bestand dat de gegevens bevat, en zorgt ervoor dat dit niet het retourneren van gegevens uit andere voorbeeld gegevensbestanden die niet overeenkomen met het schema dat wordt gedefinieerd.
 4. De volgende instructies gebruiken om te maken van een nieuwe 'intern' tabel met de naam **foutenlogboeken**:
 
@@ -82,7 +82,7 @@ Wanneer u verbinding hebt gemaakt op het bureaublad voor het HDInsight-cluster, 
      >
      >
    * **OPGESLAGEN ALS ORC**: De gegevens worden opgeslagen in de kolommen (ORC)-indeling geoptimaliseerde rij. Dit is een uiterst geoptimaliseerde en efficiënte indeling voor het opslaan van gegevens met Hive.
-   * **INSERT OVERSCHRIJVEN... SELECTEER**: Selecteert de rijen van de **log4jLogs** tabel met **[fout]**, voegt u vervolgens de gegevens in de **foutenlogboeken** tabel.
+   * **INSERT OVERWRITE ... SELECT**: Selecteert de rijen van de **log4jLogs** tabel met **[fout]**, voegt u vervolgens de gegevens in de **foutenlogboeken** tabel.
 
      Om te controleren dat die bevatten alleen rijen **[fout]** in kolom t4 zijn opgeslagen in de **foutenlogboeken** tabel, gebruikt u de volgende instructie om te retourneren van alle rijen uit **foutenlogboeken**:
 
@@ -103,10 +103,7 @@ Voor meer informatie over andere manieren kunt u werken met Hadoop op HDInsight:
 * [Apache Pig gebruiken met Apache Hadoop op HDInsight](hdinsight-use-pig.md)
 * [MapReduce gebruiken met Apache Hadoop op HDInsight](hdinsight-use-mapreduce.md)
 
-Als u met Hive Tez gebruikt, ziet u de volgende documenten voor foutopsporing van informatie:
-
-* [De Apache Tez-gebruikersinterface gebruiken op HDInsight op basis van Windows](../hdinsight-debug-tez-ui.md)
-* [De weergave van de Apache Ambari Tez op Linux gebaseerde HDInsight gebruiken](../hdinsight-debug-ambari-tez-view.md)
+Als u met Hive Tez gebruikt, raadpleegt u het volgende document voor foutopsporing van informatie: [Gebruik de weergave van de Apache Ambari Tez op Linux gebaseerde HDInsight](../hdinsight-debug-ambari-tez-view.md).
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
 

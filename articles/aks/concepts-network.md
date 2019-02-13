@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: b2fc4b518ee0857014c59b84b89a0102b86f687a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6affa19c61ff4a824e390c42b7fd97554a30c9bb
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820127"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56176234"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Netwerkconcepten voor toepassingen in Azure Kubernetes Service (AKS)
 
@@ -102,9 +102,17 @@ Een andere algemene functie van inkomend verkeer is SSL/TLS-beëindiging. Op gro
 
 ## <a name="network-security-groups"></a>Netwerkbeveiligingsgroepen
 
-Een security group filter netwerkverkeer voor VM's, zoals de AKS-knooppunten. Bij het maken van Services, zoals een Load Balancer, configureert het Azure-platform automatisch alle regels voor netwerkbeveiligingsgroepen die nodig zijn. Geen regels voor netwerkbeveiligingsgroepen om te filteren van verkeer voor schillen in een AKS-cluster handmatig configureren. Alle vereiste poorten en doorsturen via definiëren als onderdeel van de manifesten voor uw Kubernetes-Service en laat het Azure-platform maken of bijwerken van de juiste regels.
+Een netwerkbeveiligingsgroep filtert het verkeer voor virtuele machines, zoals de AKS-knooppunten. Bij het maken van Services, zoals een Load Balancer, configureert het Azure-platform automatisch alle regels voor netwerkbeveiligingsgroepen die nodig zijn. Geen regels voor netwerkbeveiligingsgroepen om te filteren van verkeer voor schillen in een AKS-cluster handmatig configureren. Alle vereiste poorten en doorsturen via definiëren als onderdeel van de manifesten voor uw Kubernetes-Service en laat het Azure-platform maken of bijwerken van de juiste regels. U kunt ook beleid voor netwerken, zoals beschreven in de volgende sectie, de regels voor het filteren van verkeer automatisch worden toegepast op schillen.
 
 Standaard netwerkbeveiligingsgroep regels bestaan voor zoals SSH-verkeer. Deze standaardregels zijn voor Clusterbeheer en oplossen van problemen. Deze standaardregels verwijderen kan leiden tot problemen met AKS management en verbreekt u de serviceniveaudoelstelling (SLO).
+
+## <a name="network-policies"></a>Beleid voor netwerken
+
+Standaard kunnen alle schillen in een AKS-cluster verzonden en ontvangen van verkeer zonder beperkingen. Voor betere beveiliging, kunt u regels definiëren die de stroom van het verkeer te regelen. Back-endtoepassingen vaak alleen zichtbaar zijn voor de vereiste front-end-services of databaseonderdelen zijn alleen toegankelijk is voor de toepassingslagen die verbinding met deze maken.
+
+Beleid voor netwerken is een Kubernetes-functie waarmee u kunt de verkeersstroom tussen schillen beheren. U kunt toestaan of weigeren van verkeer op basis van de labels van de instellingen zoals die zijn toegewezen, naamruimte of verkeer poort. Netwerkbeveiligingsgroepen zijn meer voor de AKS-knooppunten niet schillen. Het gebruik van beleid voor netwerken is een geschikte, cloud-eigen manier voor het beheren van de stroom van verkeer. Nadat er schillen zijn dynamisch gemaakt in een AKS-cluster, kunnen het vereiste netwerkbeleid automatisch worden toegepast.
+
+Zie voor meer informatie, [beveiliging van verkeer tussen schillen met behulp van beleid voor netwerken in Azure Kubernetes Service (AKS)][use-network-policies].
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -139,3 +147,4 @@ Zie de volgende artikelen voor meer informatie over core Kubernetes en concepten
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-identity]: concepts-identity.md
+[use-network-policies]: use-network-policies.md

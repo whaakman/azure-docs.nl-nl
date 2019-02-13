@@ -8,20 +8,20 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 12/03/2018
-ms.openlocfilehash: 2b11d74436907380811acda3b7427ebe8011afb4
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.date: 02/12/2019
+ms.openlocfilehash: 204138e7b8b3846e2d50607b3c5ec0836abefe24
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54061020"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56162370"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Toegang tot resources van Azure Virtual Network van Azure Logic Apps met behulp van de integratie van service-omgevingen (ISEs)
 
 > [!NOTE]
-> Deze mogelijkheid is in *privépreview*. Om te vragen tot, [maken van uw aanvraag voor deelname aan hier](https://aka.ms/iseprivatepreview).
+> Deze mogelijkheid is in *privépreview*. Lid worden van de private preview [hier uw aanvraag maken](https://aka.ms/iseprivatepreview).
 
-Soms uw logic apps en integratieaccounts toegang tot beveiligde bronnen, zoals virtuele machines (VM's) en andere systemen of -services, moeten een [virtueel Azure-netwerk](../virtual-network/virtual-networks-overview.md). Als u deze toegang instelt, kunt u [maken een *integratieserviceomgeving* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) voor het uitvoeren van uw logic apps en integratieaccounts. 
+Soms uw logic apps en integratieaccounts toegang tot beveiligde bronnen, zoals virtuele machines (VM's) en andere systemen of -services, moeten een [virtueel Azure-netwerk](../virtual-network/virtual-networks-overview.md). Als u deze toegang instelt, kunt u [maken een *integratieserviceomgeving* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) voor het uitvoeren van uw logic apps en integratieaccounts.
 
 ![Integratie van service-omgeving selecteren](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 
@@ -33,27 +33,27 @@ In dit overzicht wordt beschreven hoe een ISE biedt uw logische apps en integrat
 
 ## <a name="isolated-versus-global"></a>Ten opzichte van globale (geïsoleerd)
 
-Wanneer u een geïntegreerde service environment (ISE) in Azure maakt, selecteert u de Azure-netwerk waar u *invoeren* uw ISE. Azure heeft een persoonlijke exemplaar van de Logic Apps-service in uw virtuele netwerk geïmplementeerd. Deze actie wordt een geïsoleerde omgeving waarin u kunt maken en uw logische apps worden uitgevoerd op specifieke resources gemaakt. Als u een logische app maakt, selecteert u in deze omgeving als locatie van uw app, die uw logische app direct toegang tot de resources in uw virtuele netwerk biedt. 
+Wanneer u een geïntegreerde service environment (ISE) in Azure maakt, selecteert u de Azure-netwerk waar u *invoeren* uw ISE. Azure heeft een persoonlijke exemplaar van de Logic Apps-service in uw virtuele netwerk geïmplementeerd. Deze actie wordt een geïsoleerde omgeving waarin u kunt maken en uw logische apps worden uitgevoerd op specifieke resources gemaakt. Als u een logische app maakt, selecteert u in deze omgeving als locatie van uw app, die uw logische app direct toegang tot de resources in uw virtuele netwerk biedt.
 
 Logische apps in een ISE bieden de dezelfde gebruikerservaringen en vergelijkbare mogelijkheden als de globale Logic Apps-service. Niet alleen kunt u de dezelfde ingebouwde acties en connectors in de globale Logic Apps-service, maar u kunt ook de ISE-specifieke connectors gebruiken. Dit is bijvoorbeeld sommige standaard-connectors die worden geboden door versies die worden uitgevoerd in een ISE:
- 
+
 * Azure Blob Storage, File Storage en Table Storage
 * Azure-wachtrijen, Azure Servicebus, Azure Eventhubs en IBM MQ
 * FTP- en SFTP-SSH
-* SQL Server, SQL datawarehouse, Azure Cosmos DB
+* SQL Server, SQL Data Warehouse, Azure Cosmos DB
 * AS2, X 12 en EDIFACT
 
 Het verschil tussen ISE en niet-ISE-connectors is op de locaties waar de triggers en acties uitvoeren:
 
-* In de ISE ingebouwde triggers en acties, zoals HTTP altijd uitgevoerd in dezelfde ISE als uw logische app. 
+* In de ISE ingebouwde triggers en acties, zoals HTTP altijd uitgevoerd in dezelfde ISE als uw logische app.
 
 * Voor connectors bieden twee versies, één versie wordt uitgevoerd in een ISE, terwijl de andere versie in de globale Logic Apps-service wordt uitgevoerd.  
 
-  Connectors die u hebt de **ISE** label altijd in dezelfde ISE als uw logische app uitvoeren. Connectors zonder de **ISE** label uitgevoerd in de globale Logic Apps-service. 
+  Connectors die u hebt de **ISE** label altijd in dezelfde ISE als uw logische app uitvoeren. Connectors zonder de **ISE** label uitgevoerd in de globale Logic Apps-service.
 
   ![ISE-connectors selecteren](./media/connect-virtual-network-vnet-isolated-environment-overview/select-ise-connectors.png)
 
-* Connectors die worden uitgevoerd in een ISE zijn ook beschikbaar in de globale Logic Apps-service. 
+* Connectors die worden uitgevoerd in een ISE zijn ook beschikbaar in de globale Logic Apps-service.
 
 > [!IMPORTANT]
 > Logic apps, ingebouwde acties en connectors die worden uitgevoerd in de ISE-gebruik een andere prijsschema, niet de verbruik gebaseerde prijsstelling. Zie voor meer informatie, [prijzen voor Logic Apps](../logic-apps/logic-apps-pricing.md).
@@ -62,13 +62,13 @@ Het verschil tussen ISE en niet-ISE-connectors is op de locaties waar de trigger
 
 ## <a name="permissions-for-virtual-network-access"></a>Machtigingen voor toegang tot het virtuele netwerk
 
-Wanneer u een integratie van service-omgeving (ISE) maakt, u een Azure-netwerk selecteren in waar u *invoeren* uw omgeving. Injectie implementeert een persoonlijke exemplaar van de Logic Apps-service in uw virtuele netwerk. Deze actie resulteert in een geïsoleerde omgeving waarin u kunt maken en uw logische apps worden uitgevoerd op specifieke resources. Bij het maken van selecteren uw logische apps uw ISE als locatie voor uw apps. Deze logic apps kunnen vervolgens rechtstreeks toegang hebben tot uw virtuele netwerk en verbinding maken met bronnen in dat netwerk. 
+Wanneer u een integratie van service-omgeving (ISE) maakt, u een Azure-netwerk selecteren in waar u *invoeren* uw omgeving. Injectie implementeert een persoonlijke exemplaar van de Logic Apps-service in uw virtuele netwerk. Deze actie resulteert in een geïsoleerde omgeving waarin u kunt maken en uw logische apps worden uitgevoerd op specifieke resources. Bij het maken van selecteren uw logische apps uw ISE als locatie voor uw apps. Deze logic apps kunnen vervolgens rechtstreeks toegang hebben tot uw virtuele netwerk en verbinding maken met bronnen in dat netwerk.
 
-Voor systemen die zijn verbonden met een virtueel netwerk, kunt u een ISE invoeren in dit virtuele netwerk, zodat uw logische apps rechtstreeks toegang deze systemen tot met behulp van deze items: 
+Voor systemen die zijn verbonden met een virtueel netwerk, kunt u een ISE invoeren in dit virtuele netwerk, zodat uw logische apps rechtstreeks toegang deze systemen tot met behulp van deze items:
 
 * ISE-connector voor dat systeem, bijvoorbeeld SQL Server
 
-* HTTP-actie 
+* HTTP-actie
 
 * Aangepaste connector
 

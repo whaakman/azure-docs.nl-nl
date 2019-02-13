@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 0b2d4acb3a717f51d0ff15868dea917806b5b604
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 70adbcd8c25b3acb4408447070d3b0397d258847
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181959"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56167453"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Zelfstudie: Azure Active Directory-integratie met Veritas Enterprise Vault.cloud eenmalige aanmelding
 
@@ -131,7 +132,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     | Azië en Stille Oceaan| `https://auth.syd.archivecloud.net`|
     
     > [!NOTE] 
-    > Deze waarde is niet echt. Deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [Veritas Enterprise Vault.cloud SSO-Client-ondersteuningsteam](https://www.veritas.com/support/.html) deze waarde op te halen. 
+    > Deze waarde is niet echt. Werk deze waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [Veritas Enterprise Vault.cloud SSO-Client-ondersteuningsteam](https://www.veritas.com/support/.html) deze waarde op te halen. 
 
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
 

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: jeedes
-ms.openlocfilehash: d7a0523a1e436a086be90896da4d16fab55ce9ab
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0f32a4ebd5a28c1054c19c578f3ba82e3b4951a9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55174445"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56184105"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Zelfstudie: Azure Active Directory-integratie met Teamphoria
 
@@ -114,7 +115,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     In de **aanmeldings-URL** tekstvak typt u de URL met behulp van het volgende patroon: `https://<sub-domain>.teamphoria.com/login`   
 
     > [!NOTE] 
-    > De aanmeldings-URL-waarde is niet echt. U moet deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [Teamphoria Client ondersteuningsteam](https://www.teamphoria.com/) om op te halen van de aanmeldings-URL.
+    > De waarde voor de aanmeldings-URL is niet echt. U moet deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [Teamphoria Client ondersteuningsteam](https://www.teamphoria.com/) om op te halen van de aanmeldings-URL.
 
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en sla het certificaat op uw computer.
 

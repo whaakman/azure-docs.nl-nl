@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 7183cae491287042c778c2e56be8a1451c8c71a2
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: eccbd502e1fcd50524f7627abf0c7cb675672a98
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247762"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182269"
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>SQL-databases gebruiken op Microsoft Azure Stack
 
-Gebruik van de adapter van SQL Server resource provider voor SQL-databases als een service van [Azure Stack](azure-stack-poc.md). Nadat u de resourceprovider hebt geïnstalleerd en deze hebt verbonden met een of meer exemplaren van SQL Server, kunnen u en uw gebruikers het volgende maken:
+De resourceprovider van SQL Server gebruiken om u te bieden aan SQL-databases als een service van [Azure Stack](azure-stack-poc.md). Nadat u de resourceprovider installeren en met een of meer exemplaren van SQL Server verbinden, kunnen u en uw gebruikers maken:
 
 - Databases voor cloud-eigen apps.
 - Websites die gebruikmaken van SQL.

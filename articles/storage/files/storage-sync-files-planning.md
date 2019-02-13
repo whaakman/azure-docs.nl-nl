@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 5bff36f17b407c95858924a2a88b133500c350b6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 7b6a5a46e311fa54d6957c45d35ef20d94cf7632
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751409"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56200493"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planning voor de implementatie van Azure Files Sync
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -167,10 +167,14 @@ Windows Server Failover Clustering wordt ondersteund door Azure File Sync voor d
 > De Azure File Sync-agent moet worden geïnstalleerd op elk knooppunt in een failovercluster voor synchronisatie correct te laten werken.
 
 ### <a name="data-deduplication"></a>De functie voor Gegevensontdubbeling
-Voor volumes waarvoor geen cloud-opslaglagen ingeschakeld, ondersteunt Azure File Sync Windows Server-Gegevensontdubbeling wordt ingeschakeld op het volume. Op dit moment bieden we geen interoperabiliteit tussen Azure File Sync met cloud-opslaglagen ingeschakeld en de functie voor Gegevensontdubbeling ondersteuning.
+**Agentversie 5.0.2.0**   
+Gegevensontdubbeling wordt ondersteund op volumes met cloud-opslaglagen worden ingeschakeld op Windows Server 2016 en Windows Server 2019. Inschakelen van Ontdubbeling op een volume met cloud-opslaglagen ingeschakeld, kunt u meer bestanden on-premises zonder in te richten meer opslagruimte in de cache.
+
+**Windows Server 2012 R2 of oudere agentversies**  
+Voor volumes waarvoor geen cloud-opslaglagen ingeschakeld, ondersteunt Azure File Sync Windows Server-Gegevensontdubbeling wordt ingeschakeld op het volume.
 
 ### <a name="distributed-file-system-dfs"></a>Distributed File System (DFS)
-Azure File Sync biedt ondersteuning voor samenwerking met DFS-naamruimten (DFS-N) en DFS-replicatie (DFS-R) vanaf [Azure File Sync-agent 1.2](https://go.microsoft.com/fwlink/?linkid=864522).
+Azure File Sync biedt ondersteuning voor samenwerking met DFS-naamruimten (DFS-N) en DFS-replicatie (DFS-R).
 
 **DFS-naamruimten (DFS-N)**: Azure File Sync wordt volledig ondersteund voor DFS-N-servers. U kunt de Azure File Sync-agent installeren op een of meer leden DFS-N gegevens synchroniseren tussen de servereindpunten en de cloudeindpunt. Zie voor meer informatie, [DFS-naamruimten overzicht](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
  

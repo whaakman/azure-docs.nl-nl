@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1e638bd348b7a5272dd8bfbe25aa841f38a51b9a
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: e568a8b7cfb21483f447b8244056de292e21093f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409697"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56169398"
 ---
 # <a name="run-apache-hive-queries-using-the-query-console"></a>Apache Hive-query's uitvoeren met behulp van de Query-Console
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -60,9 +60,9 @@ Als u wilt de stappen in dit artikel hebt voltooid, moet u het volgende.
      >
    * **INDELING VAN DE RIJ**: Geeft aan hoe de gegevens zijn opgemaakt Hive. In dit geval worden de velden in elk logboek gescheiden door een spatie.
    * **OPGESLAGEN ALS TEXTFILE LOCATIE**: Geeft aan waar de gegevens worden opgeslagen Hive (de voorbeeldgegevens/map) en dat deze wordt opgeslagen als tekst
-   * **SELECTEER**: Selecteer een telling van alle rijen waar kolom **t4** bevatten de waarde **[fout]**. Dit moet een retourwaarde van **3** omdat er drie rijen die deze waarde bevatten.
+   * **SELECT**: Selecteer een telling van alle rijen waar kolom **t4** bevatten de waarde **[fout]**. Dit moet een retourwaarde van **3** omdat er drie rijen die deze waarde bevatten.
    * **INPUT__FILE__NAME, zoals '%.log'** -geeft aan dat we alleen gegevens uit bestanden hebben die eindigt op moet retourneren Hive. log. Dit beperkt de zoekopdracht tot het sample.log-bestand dat de gegevens bevat, en zorgt ervoor dat dit niet het retourneren van gegevens uit andere voorbeeld gegevensbestanden die niet overeenkomen met het schema dat wordt gedefinieerd.
-3. Klik op **Indienen**. De **taak sessie** aan de onderkant van de pagina details voor de taak wordt weergegeven.
+3. Klik op **Submit** De **taak sessie** aan de onderkant van de pagina details voor de taak wordt weergegeven.
 4. Wanneer de **Status** veld **voltooid**, selecteer **Details weergeven** voor de taak. Op de pagina met details de **Taakuitvoer** bevat `[ERROR]    3`. U kunt de **downloaden** knop onder dit veld voor het downloaden van een bestand met de uitvoer van de taak.
 
 ## <a id="summary"></a>Samenvatting
@@ -80,10 +80,7 @@ Voor meer informatie over andere manieren kunt u werken met Hadoop op HDInsight:
 * [Apache Pig gebruiken met Apache Hadoop op HDInsight](hdinsight-use-pig.md)
 * [MapReduce gebruiken met Apache Hadoop op HDInsight](hdinsight-use-mapreduce.md)
 
-Als u met Hive Tez gebruikt, ziet u de volgende documenten voor foutopsporing van informatie:
-
-* [De Apache Tez-gebruikersinterface gebruiken op HDInsight op basis van Windows](../hdinsight-debug-tez-ui.md)
-* [De weergave van de Apache Ambari Tez op Linux gebaseerde HDInsight gebruiken](../hdinsight-debug-ambari-tez-view.md)
+Als u met Hive Tez gebruikt, raadpleegt u het volgende document voor foutopsporing van informatie: [Gebruik de weergave van de Apache Ambari Tez op Linux gebaseerde HDInsight](../hdinsight-debug-ambari-tez-view.md).
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
 

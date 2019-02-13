@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/05/2019
+ms.date: 02/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 07f4d170ec6f9d71ea3ecdabd88f4438fb7c1c69
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: cdc48cf278fdd68bacf74c2d6d762c8d731949e0
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745586"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111553"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Informatie over de structuur en de syntaxis van Azure Resource Manager-sjablonen
 
@@ -217,7 +217,7 @@ U kunt uw eigen functies maken in uw sjabloon. Deze functies zijn beschikbaar vo
 Bij het definiëren van de functie van een gebruiker, zijn er enkele beperkingen:
 
 * De functie heeft geen toegang tot variabelen.
-* De functie heeft geen toegang tot Sjabloonparameters. Dat wil zeggen, de [parameters functie](resource-group-template-functions-deployment.md#parameters) is beperkt tot functieparameters.
+* De functie kan de parameters die zijn gedefinieerd in de functie alleen gebruiken. Wanneer u gebruikt de [parameters functie](resource-group-template-functions-deployment.md#parameters) binnen een door de gebruiker gedefinieerde functie, u bent beperkt tot de parameters voor deze functie.
 * De functie kan geen andere door de gebruiker gedefinieerde functies aanroepen.
 * De functie niet gebruiken de [verwijzen naar de functie](resource-group-template-functions-resource.md#reference).
 * Parameters voor de functie kunnen geen standaardwaarden hebben.
@@ -298,9 +298,23 @@ In de sectie uitvoer geeft u waarden die zijn geretourneerd na de implementatie.
 
 Zie voor meer informatie, [gedeelte van Azure Resource Manager-sjablonen levert](resource-manager-templates-outputs.md).
 
-## <a name="comments"></a>Opmerkingen
+<a id="comments" />
 
-U hebt een aantal opties voor het toevoegen van opmerkingen aan uw sjabloon.
+## <a name="comments-and-metadata"></a>Opmerkingen en metagegevens
+
+U hebt een aantal opties voor het toevoegen van opmerkingen en metagegevens aan uw sjabloon.
+
+U kunt toevoegen een `metadata` object vrijwel overal in uw sjabloon. Resource Manager worden genegeerd voor het object, maar uw JSON-editor kan waarschuwt u dat de eigenschap is niet geldig. In het object definieert de eigenschappen die u nodig hebt.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "metadata": {
+        "comments": "This template was developed for demonstration purposes.",
+        "author": "Example Name"
+    },
+```
 
 Voor **parameters**, Voeg een `metadata` object met een `description` eigenschap.
 
@@ -342,18 +356,6 @@ Voor **resources**, Voeg een `comments` element of een metagegevensobject. Het v
     "properties": {}
   }
 ]
-```
-
-U kunt toevoegen een `metadata` object vrijwel overal in uw sjabloon. Resource Manager worden genegeerd voor het object, maar uw JSON-editor kan waarschuwt u dat de eigenschap is niet geldig. In het object definieert de eigenschappen die u nodig hebt.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "metadata": {
-        "comments": "This template was developed for demonstration purposes.",
-        "author": "Example Name"
-    },
 ```
 
 Voor **levert**, een metagegevensobject toevoegen aan de uitvoerwaarde.

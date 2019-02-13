@@ -15,12 +15,13 @@ ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 667eb7204669d0d94903fa652956e7671a9a9651
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5fc60d137c45abb99dd029a42c45e8575fc9cede
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55963417"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182054"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Geavanceerde opties in het SAML-token voor galerie-apps in Azure Active Directory voor Certificaatondertekening
 Vandaag nog Azure Active Directory (Azure AD) biedt ondersteuning voor duizenden vooraf geïntegreerde toepassingen in de App-galerie van Azure Active Directory. Dit is inclusief meer dan 500 toepassingen die ondersteuning bieden voor eenmalige aanmelding met behulp van het SAML 2.0-protocol. Als een gebruiker zich bij een toepassing via Azure AD verifieert met behulp van SAML, worden in Azure AD een token verzonden naar de toepassing (via een HTTP POST). De toepassing wordt vervolgens valideert en gebruikt het token voor aanmelding bij de gebruiker in plaats van dat u wordt gevraagd een gebruikersnaam en wachtwoord. Deze SAML-tokens zijn ondertekend met de unieke certificaat dat gegenereerd in Azure AD en door specifieke standard algoritmen.

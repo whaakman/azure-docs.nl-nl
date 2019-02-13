@@ -4,7 +4,7 @@ description: In dit document leest u hoe u de beveiligingswaarschuwingen in Azur
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: f8f17a55-e672-4d86-8ba9-6c3ce2e71a57
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2c0bb2a68eaaa8183463efbdc2848567ab67d1b9
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 009f5fe7243b8ce597c2be9f9c6874cdb56d103c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619741"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108542"
 ---
 # <a name="alerts-validation-in-azure-security-center"></a>Validatie van waarschuwingen in Azure Security Center
 In dit document leest u hoe u kunt controleren of uw systeem op de juiste manier is geconfigureerd voor waarschuwingen van Azure Security Center.
@@ -32,7 +32,7 @@ Als de Security Center-agent is geïnstalleerd op uw computer, volgt u de onders
 
 1. Kopieer een uitvoerbaar bestand (bijvoorbeeld calc.exe) naar het bureaublad van de computer of een andere map die eenvoudig toegankelijk is.
 2. Wijzig de naam van dit bestand in **ASC_AlertTest_662jfi039N.exe**.
-3. Open de opdrachtprompt en voer dit bestand uit met een zelf bedacht argument zoals *ASC_AlertTest_662jfi039N.exe - foo*
+3. Open de opdrachtprompt en voer dit bestand met het ongeldige argument (alleen een valse argumentnaam), zoals: *ASC_AlertTest_662jfi039N.exe -foo*
 4. Wacht 5 tot 10 minuten en open Security Center. Hier moet u nu een waarschuwing zien zoals deze:
 
     ![Waarschuwingen valideren](./media/security-center-alert-validation/security-center-alert-validation-fig2.png)

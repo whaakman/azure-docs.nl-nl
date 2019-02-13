@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 8c8110cd714400ea896f5359c26374591a481e53
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 4536048db4abc25decf1dbf02c75833c570e41af
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894037"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118204"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Cosmos DB-bindingen voor Azure Functions 2.x
 
@@ -992,7 +992,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 
 Deze sectie bevat de volgende voorbeelden die één document worden gelezen door een id-waarde uit diverse bronnen op te geven:
 
-* [Wachtrijtrigger, zoekt u de ID van JSON](#queue-trigger-look-up-id-from-string-javascript)
+* [Wachtrijtrigger, zoekt u de ID van JSON](#queue-trigger-look-up-id-from-json-javascript)
 * [HTTP-trigger, uiterlijk-id van de query-tekenreeks](#http-trigger-look-up-id-from-query-string-javascript)
 * [HTTP-trigger, ID opzoeken van gegevens routeren](#http-trigger-look-up-id-from-route-data-javascript)
 * [Trigger in de wachtrij, meerdere documenten, met behulp van SqlQuery ophalen](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
@@ -1200,7 +1200,7 @@ Dit is de JavaScript-code:
 
 Deze sectie bevat de volgende voorbeelden die één document worden gelezen door een id-waarde uit diverse bronnen op te geven:
 
-* [Wachtrijtrigger, zoekt u de ID van JSON](#queue-trigger-look-up-id-from-string-python)
+* [Wachtrijtrigger, zoekt u de ID van JSON](#queue-trigger-look-up-id-from-json-python)
 * [HTTP-trigger, uiterlijk-id van de query-tekenreeks](#http-trigger-look-up-id-from-query-string-python)
 * [HTTP-trigger, ID opzoeken van gegevens routeren](#http-trigger-look-up-id-from-route-data-python)
 * [Trigger in de wachtrij, meerdere documenten, met behulp van SqlQuery ophalen](#queue-trigger-get-multiple-docs-using-sqlquery-python)

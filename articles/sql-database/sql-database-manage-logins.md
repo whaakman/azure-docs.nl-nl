@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 436dbccfe8d5b732bc64b58ff79dc772ac8b2bce
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 34c7d431815ae7a9452bb0703cde18050d38bdb7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964182"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164614"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Beheren en het verlenen van toegang tot de database met SQL Database en SQL Data Warehouse
 
@@ -87,7 +87,7 @@ Naast de beheerdersrollen op serverniveau die eerder zijn besproken, biedt SQL D
 Een van deze beheerdersrollen is de rol **dbmanager**. Leden van deze rol kunnen nieuwe databases maken. Voor het gebruik van deze rol maakt u een gebruiker in de `master`-database en voegt u deze gebruiker vervolgens toe aan de databaserol **dbmanager**. Om een database te maken, moet de gebruiker een gebruiker zijn op basis van een SQL Server-aanmelding in de hoofddatabase of een gebruiker van een ingesloten database op basis van een Azure Active Directory-gebruiker.
 
 1. Gebruik een beheerdersaccount om verbinding te maken met de hoofddatabase.
-2. Optionele stap: Maak een aanmelding SQL Server-verificatie met behulp van de [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) instructie. Voorbeeldinstructie:
+2. Maak een aanmelding SQL Server-verificatie met behulp van de [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) instructie. Voorbeeldinstructie:
 
    ```sql
    CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';

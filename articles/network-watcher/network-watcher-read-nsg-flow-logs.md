@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: jdial
-ms.openlocfilehash: 3d97f84ba7809ba54fe7a5670fc1602f1ed6e180
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: dd4622e0359476f47a0ac939d59a2571e34a0a46
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100865"
+ms.locfileid: "56112696"
 ---
 # <a name="read-nsg-flow-logs"></a>NSG-stroomlogboeken lezen
 
@@ -185,6 +185,6 @@ Dit scenario is een voorbeeld van vermeldingen in de NSG-stroomlogboeken lezen z
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Ga naar [Elastic Stack gebruiken](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [gebruik Grafana](network-watcher-nsg-grafana.md), en [gebruik Graylog](network-watcher-nsg-graylog.md) voor meer informatie over manieren om NSG-stroomlogboeken weer te geven. Een functie van de Azure Open Source-benadering voor de blobs rechtstreeks verbruikt en verzenden naar verschillende log analytics-klanten kan hier vinden: [Azure Network Watcher NSG Stroomlogboeken Connector](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
+Ga naar [Elastic Stack gebruiken](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [gebruik Grafana](network-watcher-nsg-grafana.md), en [gebruik Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) voor meer informatie over manieren om NSG-stroomlogboeken weer te geven. Een functie van de Azure Open Source-benadering voor de blobs rechtstreeks verbruikt en verzenden naar verschillende log analytics-klanten kan hier vinden: [Azure Network Watcher NSG Stroomlogboeken Connector](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
 
 Ga voor meer informatie over de storage-blobs naar: [Azure Functions Blob storage-bindingen](../azure-functions/functions-bindings-storage-blob.md)

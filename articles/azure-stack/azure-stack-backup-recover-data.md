@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 9dc023eedf0ddca4e760d9d066b019b75597fb69
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3fd91ef17415e2c6ebb735fdedb098f8aa319d8c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246480"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207412"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Herstel na onherstelbare gegevensverlies
 
 *Van toepassing op: Azure Stack-geïntegreerde systemen.*
 
-Azure Stack Azure-services worden uitgevoerd in uw datacenter. Azure Stack kunt uitvoeren op omgevingen zo klein is als vier knooppunten in één rack zijn geïnstalleerd. Daarentegen Azure wordt uitgevoerd in meer dan 40 regio's in meerdere datacenters en meerdere zones in elke regio. Gebruikersbronnen kunnen meerdere servers, rekken, datacenters en regio's omvatten. Met Azure Stack nog u alleen kiezen waarmee u uw volledige in de cloud implementeren met een enkele rack. Hiermee wordt aangegeven dat de cloud om het risico van catastrofale gebeurtenissen in uw datacenter of storingen als gevolg van belangrijke productfouten. Wanneer zich een noodsituatie voordoet, wordt het Azure Stack-exemplaar offline gaat. Alle gegevens is mogelijk niet kan worden hersteld.
+Azure Stack Azure-services worden uitgevoerd in uw datacenter en kan worden uitgevoerd op omgevingen zo klein is als vier knooppunten in één rack zijn geïnstalleerd. Daarentegen Azure wordt uitgevoerd in meer dan 40 regio's in meerdere datacenters en meerdere zones in elke regio. Gebruikersbronnen kunnen meerdere servers, rekken, datacenters en regio's omvatten. Met Azure Stack nog u alleen kiezen waarmee u uw volledige in de cloud implementeren met een enkele rack. Hiermee wordt aangegeven dat de cloud om het risico van catastrofale gebeurtenissen in uw datacenter of storingen als gevolg van belangrijke productfouten. Wanneer zich een noodsituatie voordoet, wordt het Azure Stack-exemplaar offline gaat. Alle gegevens is mogelijk niet kan worden hersteld.
 
 Afhankelijk van de hoofdoorzaak van het verlies van gegevens moet u een service één infrastructuur repareren of herstellen van de volledige Azure Stack-exemplaar. Mogelijk moet u ook naar andere hardware op dezelfde locatie of in een andere locatie herstellen.
 

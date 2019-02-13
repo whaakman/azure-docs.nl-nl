@@ -14,12 +14,13 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: jeedes
-ms.openlocfilehash: 73aa9d232567f7c0994c29c29076ef4c8d9319fc
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a9c6f197f98eda5a71cefd3f4a0c71709a4f51b2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55963944"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203128"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Certificaten voor federatieve eenmalige aanmelding in Azure Active Directory beheren
 In dit artikel bevat informatie over veelgestelde vragen en informatie met betrekking tot de certificaten die Azure Active Directory (Azure AD) maakt voor het maken van federatieve eenmalige aanmelding (SSO) met uw SaaS-toepassingen. Toepassingen toevoegen vanuit de galerie met Azure AD-app of met behulp van de sjabloon van een toepassing buiten de galerie. De toepassing configureren met behulp van de optie voor federatieve eenmalige aanmelding.

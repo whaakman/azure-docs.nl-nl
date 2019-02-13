@@ -17,12 +17,13 @@ ms.date: 10/27/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: f8c5e5f598ab8566eacb594ff66b63ce3793f57f
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f777c851caa8613156128b266b7841d9b665754e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093187"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168711"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opties voor ondersteuning en hulp voor ontwikkelaars
 
@@ -50,7 +51,7 @@ Waar *{uw zoektermen}* uw zoekwoorden is.
 
 ## <a name="use-our-development-support-tools"></a>Gebruik onze ondersteuning ontwikkelhulpprogramma 's
 
-|Hulpprogramma  |Beschrijving  |
+|Hulpprogramma  |Description  |
 |---------|---------|
 |[jwt.ms](https://jwt.ms)| Plak een ID of toegang tot tokens voor het decoderen van de claims-namen en waarden |
 |[Fout code analyzer](https://apps.dev.microsoft.com/portal/tools/errors)| Plak de foutcode van een ontvangen tijdens het aanmelden of toestemming geven pagina's om te zien van de mogelijke oorzaken en herstel |

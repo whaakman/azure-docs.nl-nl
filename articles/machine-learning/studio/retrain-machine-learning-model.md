@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 4fec32ac2d613486ee65416ccdfac70575ea9543
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: e691913daabb832b2a3b51dac5d4a5b0e1f53871
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509572"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165069"
 ---
 # <a name="retrain-an-azure-machine-learning-studio-model"></a>Opnieuw trainen van een Azure Machine Learning Studio-model
 Uw model is getraind en opgeslagen als onderdeel van het proces voor uitoefening van machine learning-modellen in Azure Machine Learning. U vervolgens worden gebruikt om een voorspellende webservice te maken. De webservice kan vervolgens worden gebruikt in web sites, dashboards en mobiele apps. 
@@ -63,8 +63,6 @@ Als u een klassieke webservice geïmplementeerd:
 * Een nieuw eindpunt op de voorspellende webservice maken
 * De PATCH-URL en de code ophalen
 * Gebruik van de PATCH-URL naar het nieuwe eindpunt voor het retrained model 
-
-Zie voor een overzicht van de voorgaande stappen, [een klassieke webservice opnieuw trainen](retrain-a-classic-web-service.md).
 
 Als u een klassieke webservice opnieuw trainen problemen ondervindt, raadpleegt u [het oplossen van het opnieuw trainen van een Azure Machine Learning klassieke Web service](troubleshooting-retraining-models.md).
 

@@ -10,12 +10,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 9a209aaf730b356c8c102eab7a8832ce670204cc
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: fee5db2cde4e4056a8cb1fca80e09511d0ca0b53
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977744"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117271"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack-datacenter-integratie - eindpunten publiceren
 
@@ -66,7 +66,7 @@ Interne infrastructuur voor VIP's worden niet weergegeven omdat ze niet vereist 
 Azure Stack ondersteunt alleen transparante proxy-servers. In een implementatie waarbij een transparante proxy uplinks met een traditionele proxyserver, moet u toestaan de volgende poorten en URL's voor uitgaande communicatie:
 
 > [!Note]  
-> Azure Stack biedt geen ondersteuning voor het bereiken van de Azure-services die worden vermeld in de volgende tabel met Express Route.
+> Azure Stack biedt geen ondersteuning voor het bereiken van de Azure-services die worden vermeld in de volgende tabel met behulp van ExpressRoute.
 
 |Doel|Doel-URL|Protocol|Poorten|Bronnetwerk|
 |---------|---------|---------|---------|---------|
@@ -75,7 +75,7 @@ Azure Stack ondersteunt alleen transparante proxy-servers. In een implementatie 
 |Patch & bijwerken|https://&#42;.azureedge.net|HTTPS|443|Openbare VIP - /27|
 |Registratie|https://management.azure.com|HTTPS|443|Openbare VIP - /27|
 |Gebruik|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net |HTTPS|443|Openbare VIP - /27|
-|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>https://www.microsoft.com/pkiops/crl<br>https://www.microsoft.com/pkiops/certs<br>https://crl.microsoft.com/pki/crl/products<br>https://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Openbare VIP - /27<br>Openbare-sleutelinfrastructuur netwerk|
+|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>`https://www.microsoft.com/pkiops/crl`<br>`https://www.microsoft.com/pkiops/certs`<br>`https://crl.microsoft.com/pki/crl/products`<br>`https://www.microsoft.com/pki/certs`<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Openbare VIP - /27<br>Openbare-sleutelinfrastructuur netwerk|
 |NTP|(IP van de NTP-server opgegeven voor de implementatie)|UDP|123|Openbare VIP - /27|
 |DNS|(IP van DNS-server is opgegeven voor de implementatie)|TCP<br>UDP|53|Openbare VIP - /27|
 |CRL|(URL onder CRL-distributiepunten op uw certificaat)|HTTP|80|Openbare VIP - /27|

@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/26/2018
 ms.author: priyamo
-ms.openlocfilehash: cfa9a2ab2ec5d5a666bd431a430c7d1bdce6c8d8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 948873c38d7e681015efd87061b23d689c64f569
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150445"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209385"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Maken, weergeven of verwijderen van een gebruiker toegewezen beheerde identiteit met behulp van REST-API aanroepen
 
@@ -59,14 +60,14 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 
 **Aanvraagheaders**
 
-|Aanvraagheader  |Beschrijving  |
+|Aanvraagheader  |Description  |
 |---------|---------|
 |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
 |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken.        |
 
 **Aanvraagtekst**
 
-|Name  |Beschrijving  |
+|Name  |Description  |
 |---------|---------|
 |location     | Vereist. Resourcelocatie.        |
 
@@ -82,7 +83,7 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview HTTP/1.1
 ```
 
-|Aanvraagheader  |Beschrijving  |
+|Aanvraagheader  |Description  |
 |---------|---------|
 |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
 |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken.        |
@@ -102,7 +103,7 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 ```HTTP
 DELETE https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourceGroups/TestRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview HTTP/1.1
 ```
-|Aanvraagheader  |Beschrijving  |
+|Aanvraagheader  |Description  |
 |---------|---------|
 |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
 |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken.        |

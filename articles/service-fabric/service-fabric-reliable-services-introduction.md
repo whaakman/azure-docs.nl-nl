@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: masnider
-ms.openlocfilehash: 37f956606075cb21075d6f50bb53e04075936997
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: bc4e4c9137003dad9cfd96772b7ebe231cd6eace
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999030"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56171720"
 ---
 # <a name="reliable-services-overview"></a>Overzicht van Reliable Services
 Azure Service Fabric wordt het schrijven en beheren van staatloze en stateful Reliable Services. In dit onderwerp bevat informatie over:
@@ -45,12 +45,6 @@ Betrouwbare Services biedt u een eenvoudige, krachtige, op het hoogste niveau pr
 * Een eenvoudig model voor het uitvoeren van uw eigen code die lijkt op programmeermodellen u die gewend bent. Uw code is een goed gedefinieerde toegangspunt en de levenscyclus van eenvoudig te beheren.
 * Een communicatiemodel pluggable. Gebruik het transport van uw keuze, zoals HTTP met [Web-API](service-fabric-reliable-services-communication-webapi.md), WebSockets, aangepaste TCP-protocollen of iets anders. Reliable Services bieden een uitstekende out-of-the-box-opties die u kunt gebruiken, of u kunt uw eigen.
 * Voor stateful services, het programmeermodel van Reliable Services kunt u voor het opslaan van uw staat rechtstreeks in uw service met behulp van consistent en betrouwbaar [betrouwbare verzamelingen](service-fabric-reliable-services-reliable-collections.md). Betrouwbare verzamelingen zijn een eenvoudige set van maximaal beschikbare en betrouwbare verzamelingsklassen die bekend bij iedereen die is gebruikt C# verzamelingen. Services nodig traditioneel externe systemen voor het statusbeheer van betrouwbare. Met betrouwbare verzamelingen, kunt u uw staat naast uw compute opslaan met de dezelfde hoge beschikbaarheid en betrouwbaarheid die u hebt gaan verwachten van maximaal beschikbare externe winkels. Dit model worden de latentie ook verbeterd omdat u dezelfde zoeken naar de reken- en staat nodig is om te werken.
-
-Bekijk deze video van Microsoft Virtual Academy voor een overzicht van Reliable services: <center>
-<a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=HhD9566yC_4106218965">
-<img src="./media/service-fabric-reliable-services-introduction/ReliableServicesVid.png" WIDTH="360" HEIGHT="244" />
-</a>
-</center>
 
 ## <a name="what-makes-reliable-services-different"></a>Wat is het verschil Reliable Services?
 Betrouwbare Services in Service Fabric verschillen van de services die u hebt gemaakt voordat u. Service Fabric biedt betrouwbaarheid, beschikbaarheid, consistentie en schaalbaarheid.
