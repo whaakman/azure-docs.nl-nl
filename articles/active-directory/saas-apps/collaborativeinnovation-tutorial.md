@@ -1,251 +1,234 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met gezamenlijke innovatie | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en gezamenlijke innovatie.
+title: 'Zelfstudie: Azure Active Directory-integratie met Collaborative Innovation | Microsoft Docs'
+description: Leer hoe u eenmalige aanmelding configureert tussen Azure Active Directory en Collaborative Innovation.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: bba95df3-75a4-4a93-8805-b3a8aa3d4861
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
-ms.workload: identity
+ms.service: Azure-Active-Directory
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/14/2017
+ms.topic: tutorial
+ms.date: 01/22/2019
 ms.author: jeedes
-ms.openlocfilehash: f8578ee37754a411b496df93f8af54398ece9f40
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: a625e6677a706ddfffe1305c862b5a1a8e47c9ac
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151411"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769233"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-collaborative-innovation"></a>Zelfstudie: Azure Active Directory-integratie met gezamenlijke innovatie
+# <a name="tutorial-azure-active-directory-integration-with-collaborative-innovation"></a>Zelfstudie: Azure Active Directory-integratie met Collaborative Innovation
 
-In deze zelfstudie leert u hoe u gezamenlijke innovatie integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Collaborative Innovation kunt integreren met Azure Active Directory (Azure AD).
+De integratie van Collaborative Innovation met Azure AD biedt de volgende voordelen:
 
-Gezamenlijke innovatie integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD bepalen wie er toegang heeft tot Collaborative Innovation.
+* U kunt instellen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Collaborative Innovation (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot de gezamenlijke innovatie heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij gezamenlijke innovatie (Single Sign-On) inschakelen met hun Azure AD-accounts
-- U kunt uw accounts in één centrale locatie - Azure portal beheren
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met gezamenlijke innovatie, moet u de volgende items:
+Voor het configureren van Azure AD-integratie met Collaborative Innovation hebt u het volgende nodig:
 
-- Een Azure AD-abonnement
-- Een gezamenlijke innovatie eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op Collaborative Innovation waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Gezamenlijke innovatie uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-collaborative-innovation-from-the-gallery"></a>Gezamenlijke innovatie uit de galerie toe te voegen
-Voor het configureren van de integratie van gezamenlijke innovatie in Azure AD, moet u gezamenlijke innovatie in de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* Collaborative Innovation ondersteunt door **SP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt toevoegen gezamenlijke innovatie in de galerie, moet u de volgende stappen uitvoeren:**
+* Collaborative Innovation biedt ondersteuning voor **Just-In-Time**-inrichting van gebruikers
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+## <a name="adding-collaborative-innovation-from-the-gallery"></a>Collaborative Innovation toevoegen vanuit de galerie
 
-    ![Active Directory][1]
+Om de integratie van Collaborative Innovation in Azure AD te configureren, moet u Collaborative Innovation vanuit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+**Ga als volgt te werk om Collaborative Innovation vanuit de galerie toe te voegen:**
 
-    ![Applicaties][2]
-    
-1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![Applicaties][3]
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-1. Typ in het zoekvak **gezamenlijke innovatie**.
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_search.png)
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Selecteer in het deelvenster resultaten **gezamenlijke innovatie**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_addfromgallery.png)
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met gezamenlijke innovatie op basis van een testgebruiker met de naam "Britta Simon."
+4. Typ **Collaborative Innovation** in het zoekvak, selecteer **Collaborative Innovation** in het deelvenster met resultaten en klik vervolgens op **Toevoegen** om de toepassing toe te voegen.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in samenwerkingsverband innovatie is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in samenwerkingsverband innovatie tot stand worden gebracht.
+     ![Collaborative Innovation toevoegen vanuit de galerie](common/search-new-app.png)
 
-In samenwerkingsverband innovatie, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-Als u wilt configureren en testen van Azure AD eenmalige aanmelding met gezamenlijke innovatie, u nodig hebt voor de volgende bouwstenen:
+In dit gedeelte configureert en test u eenmalige aanmelding van Azure AD met Collaborative Innovation op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Collaborative Innovation tot stand is gebracht.
 
-1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Het maken van een testgebruiker gezamenlijke innovatie](#creating-a-collaborative-innovation-test-user)**  : als u wilt een equivalent van Britta Simon in samenwerkingsverband innovatie die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+Als u eenmalige aanmelding van Azure AD met Collaborative Innovation wilt configureren en testen, moet u de volgende procedures uitvoeren:
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding voor Collaborative Innovation configureren](#configure-collaborative-innovation-single-sign-on)**: de instellingen voor eenmalige aanmelding aan de clientzijde configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker voor Collaborative Innovation maken](#create-collaborative-innovation-test-user)**: als u een tegenhanger van Britta Simon in Collaborative Innovation wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing gezamenlijke innovatie.
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-**Voor het configureren van Azure AD eenmalige aanmelding met gezamenlijke innovatie, moet u de volgende stappen uitvoeren:**
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-1. In de Azure-portal op de **gezamenlijke innovatie** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configureren voor Collaborative Innovation:
 
-    ![Eenmalige aanmelding configureren][4]
+1. Ga in de [Azure-portal](https://portal.azure.com/) naar de pagina van de integratie van **Collaborative Innovation** en selecteer **Eenmalige aanmelding**.
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![Eenmalige aanmelding configureren](./media/collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_samlbase.png)
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. Op de **Samenwerkingsdomeinen innovatie en URL's** sectie, voert u de volgende stappen uit:
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-    ![Eenmalige aanmelding configureren](./media/collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_url.png)
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<instancename>.foundry.<companyname>.com/`
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    b. Typ in het tekstvak **Id** een URL met het volgende patroon: `https://<instancename>.foundry.<companyname>.com`
-    
-    > [!NOTE] 
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de daadwerkelijke aanmeldings-URL en id. Neem contact op met [gezamenlijke innovatie Client ondersteuningsteam](https://www.unilever.com/contact/) om deze waarden te verkrijgen.  
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-1. Gezamenlijk innovatie toepassingen wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de "**gebruikerskenmerken**" sectie op de pagina van de toepassing-integratie. In de volgende schermopname ziet u een voorbeeld hiervan.
-    
-    ![Eenmalige aanmelding configureren](./media/collaborativeinnovation-tutorial/attribute.png)
-    
-1. Klik op **weergeven en bewerken van alle andere gebruikerskenmerken** selectievakje in de **gebruikerskenmerken** sectie om uit te breiden de kenmerken. De volgende stappen uitvoeren op elk van de kenmerken weergegeven:
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-    | Naam kenmerk | Waarde kenmerk |
-    | ---------------| --------------- |    
-    | givenName | user.givenname |
-    | Achternaam | user.surname |
-    | EmailAddress | user.userprincipalname |
+    ![Gegevens van domein en URL's voor eenmalige aanmelding bij Collaborative Innovation](common/sp-identifier.png)
+
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<instancename>.foundry.<companyname>.com/`
+
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<instancename>.foundry.<companyname>.com`
+
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met het [klantondersteuningsteam van Collaborative Innovation](https://www.unilever.com/contact/) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+
+5. Collaborative Innovation verwacht dat de SAML-asserties een specifieke indeling hebben. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
+
+    ![image](common/edit-attribute.png)
+
+6. Bewerk in het gedeelte **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** de claims met het **pictogram Bewerken** of voeg de claims toe door met **Nieuwe claim toevoegen** het kenmerk van het SAML-token te configureren, zoals wordt weergegeven in de bovenstaande afbeelding. Hierna voert u de volgende stappen uit: 
+
+    | Naam | Bronkenmerk|
+    | ---------------| --------------- |
+    | givenname | user.givenname |
+    | surname | user.surname |
+    | emailaddress | user.userprincipalname |
     | naam | user.userprincipalname |
 
-    a. Klik op het kenmerk te openen de **kenmerk bewerken** venster.
+    a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 
-    ![Eenmalige aanmelding configureren](./media/collaborativeinnovation-tutorial/url_update.png)
+    ![image](common/new-save-attribute.png)
 
-    b. Verwijderen van de URL-waarde uit de **Namespace**.
-    
-    c. Klik op **Ok** om op te slaan van de instelling.
+    ![image](common/new-attribute-details.png)
 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+    b. In het tekstvak **Naam** typt u de naam van het kenmerk die voor die rij wordt weergegeven.
 
-    ![Eenmalige aanmelding configureren](./media/collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_certificate.png) 
+    c. Laat **Naamruimte** leeg.
 
-1. Klik op de knop **Save**.
+    d. Selecteer Bron bij **Kenmerk**.
 
-    ![Eenmalige aanmelding configureren](./media/collaborativeinnovation-tutorial/tutorial_general_400.png)
+    e. Typ de kenmerkwaarde voor die rij in de lijst met **bronkenmerken**.
 
-1. Het configureren van eenmalige aanmelding op **gezamenlijke innovatie** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [gezamenlijke innovatie ondersteuningsteam](https://www.unilever.com/contact/). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+    f. Klik op **OK**.
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    g. Klik op **Opslaan**.
 
-### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
+4. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
+
+    ![De link om het certificaat te downloaden](common/metadataxml.png)
+
+6. Kopieer in de sectie **Collaborative Innovation instellen** de juiste URL('s) op basis van uw behoeften.
+
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
+
+    a. Aanmeldings-URL
+
+    b. Azure AD-id
+
+    c. Afmeldings-URL
+
+### <a name="configure-collaborative-innovation-single-sign-on"></a>Eenmalige aanmelding voor Collaborative Innovation configureren
+
+Als u eenmalige aanmelding wilt configureren in **Collaborative Innovation**, moet u het gedownloade XML-bestand met federatieve metagegevens**** en de juiste, uit de Azure-portal gekopieerde URL's verzenden naar het [ondersteuningsteam van Collaborative Innovation](https://www.unilever.com/contact/). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
+
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-![Azure AD-gebruiker maken][100]
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/collaborativeinnovation-tutorial/create_aaduser_01.png) 
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
-    
-    ![Het maken van een Azure AD-testgebruiker](./media/collaborativeinnovation-tutorial/create_aaduser_02.png) 
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/collaborativeinnovation-tutorial/create_aaduser_03.png) 
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/collaborativeinnovation-tutorial/create_aaduser_04.png) 
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    a. In de **naam** tekstvak, type **BrittaSimon**.
-
-    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
-
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="creating-a-collaborative-innovation-test-user"></a>Het maken van een testgebruiker gezamenlijke innovatie
 
-Als u wilt dat Azure AD-gebruikers zich aanmelden bij gezamenlijke innovatie, moeten ze worden ingericht in samenwerkingsverband innovatie.  
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In het geval van deze toepassing wordt inrichting automatisch als de toepassing just-in-tijd van gebruikersinrichting ondersteunt. Er is dus niet nodig om uit te voeren stappen hier.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Collaborative Innovation.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
+1. Selecteer in de Azure-portal achtereenvolgens **Bedrijfstoepassingen**, **Alle toepassingen** en **Collaborative Innovation**.
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen tot gezamenlijke innovatie.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-![Gebruiker toewijzen][200] 
+2. Selecteer **Collaborative Innovation** in de lijst met toepassingen.
 
-**Als u wilt toewijzen Britta Simon gezamenlijke innovatie, moet u de volgende stappen uitvoeren:**
+    ![De koppeling naar Collaborative Innovation in de lijst met toepassingen](common/all-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![Gebruiker toewijzen][201] 
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-1. Selecteer in de lijst met toepassingen, **gezamenlijke innovatie**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![Eenmalige aanmelding configureren](./media/collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_app.png) 
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Gebruiker toewijzen][202] 
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-    ![Gebruiker toewijzen][203]
+### <a name="create-collaborative-innovation-test-user"></a>Een testgebruiker voor Collaborative Innovation maken
 
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+Als u wilt dat Azure AD-gebruikers zich kunnen aanmelden bij Collaborative Innovation, moeten ze worden ingericht in Collaborative Innovation.  
 
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+In het geval van deze toepassing kan dit automatisch gebeuren aangezien de toepassing just-in-time-inrichting van gebruikers ondersteunt. Het is dus niet nodig om hiervoor extra stappen uit te voeren.
 
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-Wanneer u op de tegel gezamenlijke innovatie in het toegangsvenster, krijgt u de aanmeldingspagina van de toepassing gezamenlijke innovatie.
-Zie [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster. 
+Wanneer u in het toegangsvenster op de tegel van Collaborative Innovation klikt, wordt u automatisch aangemeld bij het exemplaar van Collaborative Innovation waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/collaborativeinnovation-tutorial/tutorial_general_01.png
-[2]: ./media/collaborativeinnovation-tutorial/tutorial_general_02.png
-[3]: ./media/collaborativeinnovation-tutorial/tutorial_general_03.png
-[4]: ./media/collaborativeinnovation-tutorial/tutorial_general_04.png
-
-[100]: ./media/collaborativeinnovation-tutorial/tutorial_general_100.png
-
-[200]: ./media/collaborativeinnovation-tutorial/tutorial_general_200.png
-[201]: ./media/collaborativeinnovation-tutorial/tutorial_general_201.png
-[202]: ./media/collaborativeinnovation-tutorial/tutorial_general_202.png
-[203]: ./media/collaborativeinnovation-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
