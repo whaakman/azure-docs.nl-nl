@@ -5,15 +5,15 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 2/7/2019
+ms.date: 02/13/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: fb4add1194f7fe6d10859f76f244f027b35ad92d
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 83c9a0baa4d853c8afcb5afe1c4e5cc4ed1e0073
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55960578"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235221"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Veelgestelde vragen - VMware naar Azure-replicatie
 
@@ -31,8 +31,6 @@ Tijdens de replicatie, gegevens worden gerepliceerd naar Azure storage en betaal
 - **Herstel na noodgevallen**: U kunt volledige noodherstel instellen. In dit scenario kunt u on-premises VMware-machines repliceren naar Azure storage. Klik, als uw on-premises infrastructuur niet beschikbaar is, kunt u een failover naar Azure. Wanneer u een failover uitvoert, kan Azure-VM's worden gemaakt met behulp van de gerepliceerde gegevens. U kunt toegang tot apps en workloads op de Azure VM's, totdat uw on-premises datacenter weer beschikbaar is. U kunt vervolgens failback van Azure naar uw on-premises site.
 - **Migratie**: U kunt Site Recovery gebruiken voor het migreren van on-premises VMware-machines naar Azure. In dit scenario kunt u on-premises VMware-machines repliceren naar Azure storage. Vervolgens kunt u een failover van on-premises naar Azure. Na een failover zijn uw toepassingen en workloads beschikbaar en worden uitgevoerd op Azure Virtual machines.
 
-
-
 ## <a name="azure"></a>Azure
 ### <a name="what-do-i-need-in-azure"></a>Wat moet ik in Azure?
 U moet een Azure-abonnement, een Recovery Services-kluis, een storage-account en een virtueel netwerk. De kluis, de storage-account en het netwerk moeten zich in dezelfde regio bevinden.
@@ -44,7 +42,33 @@ U moet een LRS of GRS-opslagaccount. GRS wordt aanbevolen, omdat de gegevens dan
 Als u een abonnementsbeheerder bent, hebt u de replicatiemachtigingen die u nodig hebt. Als u niet bent, moet u machtigingen voor het maken van een Azure-VM in de resourcegroep en het virtuele netwerk dat u opgeeft bij het configureren van Site Recovery en machtigingen voor het schrijven naar het geselecteerde opslagaccount. [Meer informatie](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
 ### <a name="can-i-use-guest-os-server-license-on-azure"></a>Kan ik Gastbesturingssysteem server-licentie gebruiken op Azure?
-Ja, Microsoft Software Assurance-klanten Azure Hybrid Benefit kunnen gebruiken om op te slaan op de licentiekosten voor **Windows Server-machines** die zijn gemigreerd naar Azure of naar het gebruik van Azure voor herstel na noodgevallen.
+Ja, Microsoft Software Assurance-klanten kunnen gebruikmaken van [Azure Hybrid Benefit](https://azure.microsoft.com/en-in/pricing/hybrid-benefit/) om op te slaan op de licentiekosten voor **Windows Server-machines** die zijn gemigreerd naar Azure of naar het gebruik van Azure voor herstel na noodgevallen.
+
+## <a name="pricing"></a>Prijzen
+
+### <a name="how-are-licensing-charges-handled-during-replication-after-failover"></a>Hoe worden verwerkt licentieverlening kosten in rekening gebracht tijdens de replicatie na een failover?
+
+Raadpleeg onze Veelgestelde vragen over licenties [hier](https://aka.ms/asr_pricing_FAQ) voor meer informatie.
+
+### <a name="how-can-i-calculate-approximate-charges-during-the-use-of-site-recovery"></a>Hoe kan ik de geschatte kosten in rekening gebracht tijdens het gebruik van Site Recovery berekenen?
+
+U kunt [prijscalculator](https://aka.ms/asr_pricing_calculator) kosten wilt ramen tijdens het gebruik van Azure Site Recovery. De tool voor implementatieplanning voor gedetailleerde raming van kosten worden uitgevoerd (https://aka.ms/siterecovery_deployment_planner) en analyseren van de [kosten van het rapport met kostenramingen](https://aka.ms/asr_DP_costreport).
+
+### <a name="i-have-been-an-azure-site-recovery-user-for-over-a-month-do-i-still-get-the-first-31-days-free-for-every-protected-instance"></a>Ik ben al meer dan een maand gebruiker van Azure Site Recovery. Krijg ik nog steeds de eerste 31 dagen gratis voor elke beschermde instantie?
+
+Ja, het maakt niet uit hoe lang u Azure Site Recovery al gebruikt. Voor elk beschermd exemplaar worden geen Azure Site Recovery-kosten in rekening gebracht tijdens de eerste 31 dagen. Als u de laatste zes maanden bijvoorbeeld tien exemplaren hebt beschermd en een elfde exemplaar toevoegt aan Azure Site Recovery, worden er gedurende de eerste 31 dagen geen Azure Site Recovery-kosten in rekening gebracht voor het elfde exemplaar. Voor de eerste tien exemplaren worden er nog steeds Azure Site Recovery-kosten in rekening gebracht omdat ze al meer dan 31 dagen worden beschermd.
+
+### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Worden er gedurende de eerste 31 dagen andere Azure-kosten in rekening gebracht?
+
+Ja, hoewel Azure Site Recovery gratis is gedurende de eerste 31 dagen van een beschermd exemplaar, worden er mogelijk kosten in rekening gebracht voor Azure Storage, opslagtransacties en gegevensoverdracht. Voor een herstelde virtuele machine worden mogelijk ook Azure-rekenkosten in rekening gebracht.
+
+### <a name="what-charges-do-i-incur-while-using-azure-site-recovery"></a>Op welke kosten moet ik rekenen wanneer ik Azure Site Recovery gebruik?
+
+Raadpleeg onze [Veelgestelde vragen over de kosten in rekening gebracht](https://aka.ms/asr_pricing_FAQ) voor gedetailleerde informatie.
+
+### <a name="is-there-a-cost-associated-to-perform-dr-drillstest-failover"></a>Zijn er kosten gekoppeld aan de DR-oefeningen/test-failover uitvoeren?
+
+Er is geen afzonderlijke kosten voor noodherstelanalyse. Er zijn rekenkosten in rekening gebracht nadat de virtuele machine is gemaakt na test-failover.
 
 ## <a name="azure-site-recovery-components-upgrade"></a>Azure Site Recovery-onderdelen bijwerken
 
@@ -87,8 +111,12 @@ Gegevens worden gerepliceerd naar Azure storage. Wanneer u een failover uitvoert
 
 ## <a name="replication"></a>Replicatie
 
-### <a name="what-apps-can-i-replicate"></a>Welke apps kan ik repliceren?
+### <a name="what-applications-can-i-replicate"></a>Welke toepassingen kan ik repliceren?
 U kunt elke app of de werkbelasting wordt uitgevoerd op een VMware-VM die aan de voldoet repliceren [replicatievereisten](vmware-physical-azure-support-matrix.md##replicated-machines). Site Recovery biedt ondersteuning voor toepassingsgevoelige replicatie, zodat apps kunnen worden failover is uitgevoerd en kan niet naar een intelligente status. Site Recovery kan worden geïntegreerd met Microsoft-toepassingen zoals SharePoint, Exchange, Dynamics, SQL Server en Active Directory, en werkt nauw samen met toonaangevende leveranciers zoals Oracle, SAP, IBM en Red Hat. Lees [hier](site-recovery-workload.md) meer informatie over workloadbeveiliging.
+
+### <a name="can-i-protect-a-virtual-machine-that-has-docker-disk-configuration"></a>Kan ik een virtuele machine waarvoor Docker-schijfconfiguratie beveiligen?
+
+Nee, dit is een niet-ondersteund scenario.
 
 ### <a name="can-i-replicate-to-azure-with-a-site-to-site-vpn"></a>Kan ik repliceren naar Azure met een site-naar-site-VPN?
 Site Recovery repliceert gegevens van on-premises naar Azure storage via een openbaar eindpunt of met behulp van openbare ExpressRoute-peering. Replicatie via een site-naar-site VPN-netwerk wordt niet ondersteund.
@@ -96,11 +124,13 @@ Site Recovery repliceert gegevens van on-premises naar Azure storage via een ope
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>Kan ik repliceren naar Azure met ExpressRoute?
 Ja, ExpressRoute kan worden gebruikt voor het repliceren van virtuele machines naar Azure. Site Recovery repliceert gegevens naar een Azure Storage-Account via een openbaar eindpunt. U moet instellen [openbare peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) of [Microsoft-peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) ExpressRoute gebruiken voor Site Recovery-replicatie. Microsoft-peering is de aanbevolen routeringsdomein voor replicatie. Zorg ervoor dat de [vereisten voor netwerken](vmware-azure-configuration-server-requirements.md#network-requirements) ook voor replicatie wordt voldaan. Nadat de virtuele machines een failover uitvoeren naar een Azure-netwerk, kunt u ze openen met behulp van [privépeering](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
+### <a name="how-can-i-change-storage-account-after-machine-is-protected"></a>Hoe kan ik storage-account wijzigen nadat de machine is beveiligd?
+
+Storage-account kan alleen worden bijgewerkt naar premium. Als u gebruiken een ander opslagaccount wilt, moet u de replicatie van uw broncomputer uitschakelen en de beveiliging met een nieuw opslagaccount opnieuw inschakelen. Naast dit is er een geen andere manier om te wijzigen van het storage-account nadat bescherming is ingeschakeld.
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Waarom kan ik niet repliceren via VPN?
 
 Wanneer u naar Azure repliceren, replicatieverkeer bereikt de openbare eindpunten van een Azure Storage-account, dus u kunt alleen repliceren via het openbare internet met ExpressRoute (openbare peering) en VPN werkt niet.
-
 
 ### <a name="what-are-the-replicated-vm-requirements"></a>Wat zijn de vereisten van de gerepliceerde VM's?
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 14c5a9a5d9e3bd71ca1fdaf3545af3e74b3973c2
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: aa334f88d04bb30ce01fe12fecb3aac3c9cd572d
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100621"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237414"
 ---
 # <a name="azure-policy-definition-structure"></a>Structuur van Azure-beleidsdefinities
 
@@ -94,7 +94,7 @@ Parameters werken op dezelfde manier als het samenstellen van beleid. Door param
 
 Een parameter heeft de volgende eigenschappen die worden gebruikt in de beleidsdefinitie:
 
-- **Naam**: De naam van de parameter. Gebruikt door de `parameters` implementatie-functie binnen de beleidsregel. Zie voor meer informatie, [met behulp van een parameterwaarde](#using-a-parameter-value).
+- **name**: De naam van de parameter. Gebruikt door de `parameters` implementatie-functie binnen de beleidsregel. Zie voor meer informatie, [met behulp van een parameterwaarde](#using-a-parameter-value).
 - `type`: Bepaalt of de parameter een **tekenreeks** of een **matrix**.
 - `metadata`: Definieert subeigenschappen hoofdzakelijk wordt gebruikt door de Azure portal om beschrijvende informatie weer te geven:
   - `description`: De uitleg van waarvoor de parameter wordt gebruikt. Kan worden gebruikt voor voorbeelden van acceptabele waarden.
@@ -208,7 +208,7 @@ U kunt logische operators nesten. Het volgende voorbeeld wordt een **niet** bewe
 
 ### <a name="conditions"></a>Voorwaarden
 
-Een voorwaarde wordt geëvalueerd of een **veld** aan bepaalde criteria voldoet. De ondersteunde voorwaarden zijn:
+Een voorwaarde wordt geëvalueerd of een **veld** of de **waarde** accessor aan bepaalde criteria voldoet. De ondersteunde voorwaarden zijn:
 
 - `"equals": "value"`
 - `"notEquals": "value"`
@@ -252,7 +252,53 @@ De volgende velden worden ondersteund:
   - Deze syntaxis haakje ondersteunt tagnamen waarvoor een periode.
   - Waar **\<tagName\>** is de naam van de code voor het valideren van de voorwaarde voor.
   - Voorbeeld: `tags[Acct.CostCenter]` waar **Acct.CostCenter** is de naam van de tag.
+
 - de eigenschap aliassen - Zie voor een lijst [aliassen](#aliases).
+
+### <a name="value"></a>Value
+
+Voorwaarden kunnen ook worden samengesteld met behulp van **waarde**. **waarde** controleert of voorwaarden op basis van [parameters](#parameters), [ondersteund sjabloonfuncties](#policy-functions), of letterlijke waarden.
+**waarde** is gekoppeld met een ondersteund [voorwaarde](#conditions).
+
+#### <a name="value-examples"></a>Waarde-voorbeelden
+
+In dit voorbeeld van beleid voor regel maakt gebruik van **waarde** om te vergelijken van het resultaat van de `resourceGroup()` functie en de geretourneerde **naam** eigenschap in op een **zoals** voorwaarde van `*netrg`. De regel weigert een resource niet van de `Microsoft.Network/*` **type** in elke willekeurige resourcegroep waarvan de naam eindigt in `*netrg`.
+
+```json
+{
+    "if": {
+        "allOf": [{
+                "value": "[resourceGroup().name]",
+                "like": "*netrg"
+            },
+            {
+                "field": "type",
+                "notLike": "Microsoft.Network/*"
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+In dit voorbeeld van beleid voor regel maakt gebruik van **waarde** om te controleren als het resultaat van meerdere geneste functies **gelijk is aan** `true`. De regel wordt een resource die niet ten minste drie labels hebt geweigerd.
+
+```json
+{
+    "mode": "indexed",
+    "policyRule": {
+        "if": {
+            "value": "[less(length(field('tags')), 3)]",
+            "equals": true
+        },
+        "then": {
+            "effect": "deny"
+        }
+    }
+}
+```
 
 ### <a name="effect"></a>Effect
 
@@ -295,12 +341,15 @@ Zie voor meer informatie over elk effect, de volgorde van de evaluatie, eigensch
 
 ### <a name="policy-functions"></a>Beleidsfuncties
 
-Verschillende [Resource Manager-sjabloonfuncties](../../../azure-resource-manager/resource-group-template-functions.md) zijn beschikbaar voor gebruik binnen een beleidsregel. De functies die momenteel worden ondersteund zijn:
+Met uitzondering van de volgende implementatie en het resourcefuncties, alle [Resource Manager-sjabloonfuncties](../../../azure-resource-manager/resource-group-template-functions.md) zijn beschikbaar voor gebruik binnen een regel voor:
 
-- [parameters](../../../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
-- [concat](../../../azure-resource-manager/resource-group-template-functions-array.md#concat)
-- [resourceGroup](../../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
-- [abonnement](../../../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
+- copyIndex()
+- Deployment()
+- lijst met *
+- providers()
+- reference()
+- resourceId()
+- variables()
 
 Bovendien de `field` functie is beschikbaar voor de regels. `field` wordt voornamelijk gebruikt met **AuditIfNotExists** en **DeployIfNotExists** verwijzing velden op de resource die worden geëvalueerd. Een voorbeeld van het gebruik kan worden weergegeven de [DeployIfNotExists voorbeeld](effects.md#deployifnotexists-example).
 

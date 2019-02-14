@@ -3,23 +3,22 @@ title: Indelen van de implementatie van Azure DevTest Labs
 description: Dit artikel bevat richtlijnen voor het organiseren van implementatie van Azure DevTest Labs in uw organisatie.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
-author: christianreddington
+author: spelluru
 manager: femila
-editor: spelluru
 ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/11/2019
-ms.author: chredd
-ms.reviewer: anthdela,juselph
-ms.openlocfilehash: 1e657260eeb36dc813f856ab172882a396324450
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.author: spelluru
+ms.reviewer: christianreddington,anthdela,juselph
+ms.openlocfilehash: e0ac09a68bda539fe7abd05fce1739d1a58a3c99
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004431"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242988"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Indelen van de implementatie van Azure DevTest Labs
 In dit artikel biedt een aanbevolen aanpak voor snelle implementatie en de implementatie van Azure DevTest Labs. De volgende afbeelding ligt de nadruk op het algehele proces als richtlijnen terwijl u flexibiliteit voor het ondersteunen verschillende industriële eisen en scenario's.

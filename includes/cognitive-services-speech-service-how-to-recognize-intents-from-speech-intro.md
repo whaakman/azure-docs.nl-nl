@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 88cb9f18002f15ea926fe5ded3a5ac9af7a99cbe
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 80bf9247bbb07fa61b7153e321b1991b82a9d616
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51716164"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246829"
 ---
 <!-- N.B. no header, language-agnostic -->
 
@@ -28,4 +28,4 @@ De Microsoft Cognitive Services [spraak SDK](~/articles/cognitive-services/speec
 Zie de volgende codefragmenten voor intentieherkenning-scenario's die gebruikmaken van de spraak-SDK. Vervang de waarden in het voorbeeld door uw eigen abonnementssleutel LUIS (eindpuntsleutel), de [regio van uw abonnement](~/articles/cognitive-services/speech-service/regions.md#intent-recognition), en de **AppId** van de intentie model.
 
 > [!NOTE]
-> In tegenstelling tot andere services die wordt ondersteund door de SDK-spraak, is intentieherkenning vereist een specifiek abonnement-sleutel (LUIS eindpuntsleutel). Zie voor meer informatie over de technologie intentieherkenning de [LUIS website](https://www.luis.ai). Voor meer informatie over het verkrijgen van de **eindpuntsleutel**, Zie [maken van een LUIS-eindpuntsleutel](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-how-to-azure-subscription#create-luis-endpoint-key).
+> In tegenstelling tot andere services die wordt ondersteund door de SDK-spraak, is intentieherkenning vereist een specifiek abonnement-sleutel (LUIS eindpuntsleutel). Zie voor meer informatie over de technologie intentieherkenning de [LUIS website](https://www.luis.ai). Voor meer informatie over het verkrijgen van de **eindpuntsleutel**, Zie [maken van een LUIS-eindpuntsleutel](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-how-to-azure-subscription).

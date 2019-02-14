@@ -4,12 +4,12 @@ ms.service: cloud-shell
 ms.topic: persist-storage
 ms.date: 9/7/2018
 ms.author: juluk
-ms.openlocfilehash: a66f5ca9501d09f2ef89f421191f617c177e10eb
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e175f603e97ccf51e1e13d9c2fc42ba7ed1a475f
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52886210"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246822"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Bestanden in Azure Cloud Shell behouden
 Cloudshell gebruikmaakt van Azure File storage om bestanden in verschillende sessies persistent te maken. Op de eerste start vraagt Cloud Shell u om te koppelen van een nieuwe of bestaande bestandsshare om bestanden in verschillende sessies persistent te maken.
@@ -40,7 +40,7 @@ U kunt bestaande resources koppelen met behulp van de geavanceerde optie. U moet
 Wanneer de opslag-setup-prompt wordt weergegeven, selecteert u **geavanceerde instellingen weergeven** om extra opties weer te geven. Het filter van de opties ingevuld opslag voor lokaal redundante opslag (LRS), geografisch redundante opslag (GRS) en accounts van de zone-redundante opslag (ZRS). 
 
 > [!NOTE]
-> Met GRS of ZRS worden storage-accounts aanbevolen voor extra tolerantie voor de bestandsshare van de back-ups. Welk type redundantie, is afhankelijk van uw doelstellingen en prijs voorkeur. [Meer informatie over replicatieopties voor Azure Storage-accounts](https://docs.microsoft.com/azure/storage/common/storage-redundancy#choosing-a-replication-option).
+> Met GRS of ZRS worden storage-accounts aanbevolen voor extra tolerantie voor de bestandsshare van de back-ups. Welk type redundantie, is afhankelijk van uw doelstellingen en prijs voorkeur. [Meer informatie over replicatieopties voor Azure Storage-accounts](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
 
 ![De instelling van de Resource](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
 

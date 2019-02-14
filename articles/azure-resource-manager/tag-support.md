@@ -4,17 +4,19 @@ description: Laat zien welke typen Azure-resource bieden ondersteuning voor tags
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 1/24/2019
+ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: d9892b158eae1a83ab1f8eed6c14224e1d4bca15
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: add222c024b5adde1ce81d6ed7f725d0a691c232
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509905"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246048"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tag-ondersteuning voor Azure-resources
 Dit artikel wordt beschreven of een resourcetype ondersteunt [tags](resource-group-using-tags.md).
+
+Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, download [tag support.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv).
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
 | Resourcetype | Ondersteunt tags |
@@ -1123,13 +1125,14 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tags](resource-gro
 | servers/communicationLinks | Nee | 
 | servers/databases | Ja (Zie opmerking hieronder) | 
 | servers/encryptionProtector | Nee | 
+| servers/firewallRules | Nee | 
 | servers/sleutels | Nee | 
 | servers/restorableDroppedDatabases | Nee | 
 | servers/serviceobjectives | Nee | 
 | servers/tdeCertificates | Nee | 
 
 > [!NOTE]
-> De Master database biedt geen ondersteuning voor labels, maar andere databases ondersteuning voor tags.
+> De Master database biedt geen ondersteuning voor labels, maar andere databases, datawarehouse-databases, inclusief ondersteuning voor tags.
 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: aschhab
-ms.openlocfilehash: 8a5832433d1d8c81c22c828ec4659c10951f680a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: c467c963a558f84a0a08887d3777dccf7cd8554d
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103629"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234064"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Service-eindpunten voor Virtueelnetwerk gebruiken met Azure Service Bus
 
@@ -29,7 +29,7 @@ Het resultaat is een privé- en geïsoleerd relatie tussen de werkbelastingen di
 >[!WARNING]
 > Het implementeren van de integratie van virtuele netwerken kan voorkomen dat andere Azure-services interactie hebben met Service Bus.
 >
-> Vertrouwde Microsoft-services worden niet ondersteund wanneer virtuele netwerken worden geïmplementeerd en binnenkort beschikbaar worden gesteld.
+> Vertrouwde Microsoft-services worden niet ondersteund wanneer virtuele netwerken worden geïmplementeerd.
 >
 > Algemene Azure-scenario's die niet met virtuele netwerken werken (Let op: de lijst is **niet** volledig)-
 > - Azure Monitor
@@ -79,7 +79,7 @@ Sjabloonparameters:
 > Er zijn geen regels voor weigeren mogelijk, de Azure Resource Manager-sjabloon is de standaardactie die is ingesteld op **'Toestaan'** die verbindingen niet beperken.
 > Bij het maken van regels voor Virtueelnetwerk of Firewalls, moeten we wijzigen de ***"defaultAction"***
 > 
-> van
+> uit
 > ```json
 > "defaultAction": "Allow"
 > ```

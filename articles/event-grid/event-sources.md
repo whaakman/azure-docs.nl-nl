@@ -5,14 +5,14 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/19/2019
+ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 44bd92568db3a762453e1d76a620e6c792cd8913
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b6abb0048dcc722241a2cd87354224b0fd7fa2f9
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476033"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234183"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Bronnen van gebeurtenissen in Azure Event Grid
 
@@ -117,7 +117,7 @@ Abonneren op Service Bus-gebeurtenissen om te reageren op berichten zonder een a
 | [Overzicht: Azure Service Bus met Event Grid-integratie](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Overzicht van de integratie van Service Bus met Event Grid. |
 | [Gebeurtenisschema](event-schema-service-bus.md) | Velden weergeven in Service Bus-gebeurtenissen |
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Opslag
 
 Abonneren op gebeurtenissen van Blob-opslag om te reageren op blob-gebeurtenissen gemaakt en verwijderd.
 
@@ -131,6 +131,16 @@ Abonneren op gebeurtenissen van Blob-opslag om te reageren op blob-gebeurtenisse
 | [Resource Manager-sjabloon: Blob-opslag en een abonnement maken](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Hiermee implementeert u een Azure Blob-opslagaccount en abonneert u zich op gebeurtenissen van die opslagaccount. Verzendt gebeurtenissen naar een WebHook. |
 | [Overzicht: reageren op gebeurtenissen van Blob storage](../storage/blobs/storage-blob-event-overview.md) | Overzicht van de integratie van Blob-opslag met Event Grid. |
 | [Gebeurtenisschema](event-schema-blob-storage.md) | Velden weergegeven van gebeurtenissen van Blob Storage. |
+
+## <a name="maps"></a>Kaarten
+Abonneren op gebeurtenissen van de Azure-kaarten om te reageren op gebeurtenissen van de geofence bevindt. Een toepassing kan bijvoorbeeld een e-mailmelding leveren telkens wanneer een apparaat binnengaat of een geofence bevindt verlaat.
+
+|Titel  |Description  |
+|---------|---------|
+| [Reageren op gebeurtenissen van Azure Maps met behulp van Event Grid](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Overzicht van Azure Maps integreren met Event Grid. |
+| [Zelfstudie: Instellen van een geofence](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Deze zelfstudie leert u de basisbeginselen-stappen voor het instellen van de geofence bevindt met behulp van Azure Maps. Met Azure Event Grid kunt u de resultaten van de geofence streamen en het instellen van een melding op basis van de resultaten van de geofence bevindt. |
+| [Gebeurtenisschema](event-schema-azure-maps.md) | Velden worden weergegeven in Azure Maps-gebeurtenissen. |
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

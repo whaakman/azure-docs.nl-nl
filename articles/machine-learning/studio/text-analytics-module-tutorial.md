@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2018
-ms.openlocfilehash: 431aa2d379639b8daea2519ed643c9949102e117
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 79882fc895262f0fb607ec048e7912ae5f2efdd7
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511357"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242665"
 ---
 # <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio"></a>Een sentiment-analyse-model maken in Azure Machine Learning Studio
 
@@ -33,9 +33,9 @@ In deze zelfstudie leert u deze stappen terwijl we begeleiden door een Analytics
 
 Hier vindt u experimenten in deze zelfstudie is besproken in Azure AI Gallery:
 
-[Boek beoordelingen voorspellen](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
+[Boek beoordelingen voorspellen](https://gallery.azure.ai/Experiment/Predict-Book-Reviews-1)
 
-[Boek beoordelingen - Voorspellend Experiment voorspellen](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
+[Boek beoordelingen - Voorspellend Experiment voorspellen](https://gallery.azure.ai/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
 
 ## <a name="step-1-clean-and-preprocess-text-dataset"></a>Stap 1: Opschonen en tekst gegevensset voorverwerken
 We beginnen met het experiment door te verdelen van de beoordeling-scores in categorische lage en hoge buckets te formuleren van het probleem als twee klassen classificatie. We gebruiken [metagegevens bewerken](https://msdn.microsoft.com/library/azure/dn905986.aspx) en [groep Categorische waarden](https://msdn.microsoft.com/library/azure/dn906014.aspx) modules.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/19/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: ef670c2dc701f888be3c7bb9a546c8a8a46f993a
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 4cc115d068736f61f9edb4ec609ac592607e7fa0
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458839"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246832"
 ---
 | Resource | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |
@@ -35,7 +35,7 @@ ms.locfileid: "49458839"
 
 <sup>2</sup>Hieronder vallen zowel Standard als Premium opslagaccounts. Als u meer dan 200 opslagaccounts nodig hebt, dient u een aanvraag in te dienen via de [ondersteuning van Azure](https://azure.microsoft.com/support/faq/). Het Azure Storage-team bekijkt dan uw bedrijfsscenario en kan tot 250 opslagaccounts goedkeuren.
 
-<sup>3</sup>U kunt u een onbeperkt aantal tags per abonnement toepassen. Het aantal tags per resource of resourcegroep is beperkt tot 15. Resource Manager retourneert alleen een [lijst met unieke tagnamen en -waarden](/rest/api/resources/tags#Tags_List) in het abonnement wanneer het aantal tags 10.000 of minder is. U kunt echter nog steeds resources zoeken aan de hand van tags wanneer er meer dan 10.000 tags zijn.  
+<sup>3</sup>U kunt u een onbeperkt aantal tags per abonnement toepassen. Het aantal tags per resource of resourcegroep is beperkt tot 15. Resource Manager retourneert alleen een [lijst met unieke tagnamen en -waarden](/rest/api/resources/tags) in het abonnement wanneer het aantal tags 10.000 of minder is. U kunt echter nog steeds resources zoeken aan de hand van tags wanneer er meer dan 10.000 tags zijn.  
 
 <sup>4</sup>Deze functies zijn niet langer zijn vereist voor Azure-resourcegroepen en de Azure Resource Manager.
 

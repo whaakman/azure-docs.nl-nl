@@ -4,12 +4,12 @@ ms.service: azure-powershell
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: sewhee
-ms.openlocfilehash: 5f224ab3b0040bcba6b99d8db744e9dbde4a63c9
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: b93722147959881dfbffbb47b7a3e4b140044525
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572061"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246827"
 ---
 ## <a name="setting-up-powershell-for-resource-manager-templates"></a>PowerShell instellen voor Resource Manager-sjablonen
 Voordat u Azure PowerShell met Resource Manager gebruiken kunt, moet u het recht Windows PowerShell en Azure PowerShell-versies hebben.
@@ -63,5 +63,5 @@ U kunt het huidige Azure-abonnement instellen door het uitvoeren van deze opdrac
     $subscr="<SubscriptionName from the display of Get-AzureRmSubscription>"
     Select-AzureRmSubscription -SubscriptionName $subscr -Current
 
-Zie voor meer informatie over Azure-abonnementen en accounts [hoe: verbinding maken met uw abonnement](/powershell/azureps-cmdlets-docs#step-3-connect).
+Zie voor meer informatie over Azure-abonnementen en accounts [het: Verbinding maken met uw abonnement](/powershell/azureps-cmdlets-docs).
 

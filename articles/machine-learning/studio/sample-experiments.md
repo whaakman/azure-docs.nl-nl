@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
-ms.openlocfilehash: 653b9aa0d6083436a394cf886f8c7d8d1ed2e2ab
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e62e5a1df2b5ad3099d2ef7e5dc33b0d11683988
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465517"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245929"
 ---
 # <a name="create-azure-machine-learning-studio-experiments-from-working-examples-in-azure-ai-gallery"></a>Azure Machine Learning Studio-experimenten maken van werkende voorbeelden in Azure AI Gallery
 
-Leer hoe u met voorbeeldexperimenten uit [Azure AI Gallery](https://gallery.cortanaintelligence.com/) aan de slag gaat in plaats van experimenten voor Machine Learning helemaal opnieuw te maken. U kunt de voorbeelden gebruiken om uw eigen Machine Learning-oplossing te maken.
+Leer hoe u met voorbeeldexperimenten uit [Azure AI Gallery](https://gallery.azure.ai/) aan de slag gaat in plaats van experimenten voor Machine Learning helemaal opnieuw te maken. U kunt de voorbeelden gebruiken om uw eigen Machine Learning-oplossing te maken.
 
 De galerie bevat voorbeeldexperimenten van het Microsoft Azure Machine Learning-team en voorbeelden die door de Machine Learning-community zijn gedeeld. Hier kunt u ook vragen stellen of opmerkingen plaatsen over experimenten.
 
@@ -28,7 +28,7 @@ Bekijk de video [Copy other people's work to do data science](data-science-for-b
 
 
 ## <a name="find-an-experiment-to-copy-in-azure-ai-gallery"></a>Een experiment zoeken om in Azure AI Gallery te kopiëren
-Als u wilt zien welke experimenten beschikbaar zijn, gaat u naar [Gallery](https://gallery.cortanaintelligence.com/) en klikt u boven aan de pagina op **Experiments**.
+Als u wilt zien welke experimenten beschikbaar zijn, gaat u naar [Gallery](https://gallery.azure.ai/) en klikt u boven aan de pagina op **Experiments**.
 
 ### <a name="find-the-newest-or-most-popular-experiments"></a>De nieuwste of meest populaire experimenten zoeken
 Op deze pagina ziet u **onlangs toegevoegde** experimenten, of scroll omlaag om te zien **wat populair** is of wat de nieuwste, **populaire Microsoft-experimenten** zijn.

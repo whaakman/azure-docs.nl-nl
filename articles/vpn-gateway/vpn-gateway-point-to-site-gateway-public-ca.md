@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: cherylmc
-ms.openlocfilehash: a5634054746d7e60aff154165f651f7c815c39a3
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: ac1ae4125418a9c0b3e9587cd03a44e752ac8f82
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100819"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236954"
 ---
 # <a name="transition-from-self-signed-to-public-ca-certificates-for-p2s-gateways"></a>Overgang van zelf-ondertekend naar openbare CA-certificaten voor P2S-gateways
 
@@ -23,7 +23,7 @@ Eerder, zelfondertekend certificaat voor de gateway nodig om 18 maanden worden b
 Alleen oude gateways worden beïnvloed door deze wijziging. Als uw gatewaycertificaat worden overgezet moet, ontvangt u communicatie of pop-up in Azure portal. U kunt controleren om te zien als uw gateway wordt beïnvloed door met de stappen in dit artikel.
 
 >[!IMPORTANT]
->De overgang is gepland voor maart 12,2019 starten om 18:00 UTC. Als u liever een andere tijdvenster, kunt u een ondersteuningsaanvraag maken. U kunt een van de volgende vragen:
+>De overgang is gepland voor maart 12,2019 starten om 18:00 UTC. Als u liever een andere tijdvenster, kunt u een ondersteuningsaanvraag maken. Controleer en ten minste 24 uur van tevoren regelen van uw aanvraag voltooien.  U kunt een van de volgende vragen:
 >
 >* 06:00 UTC op 25 februari
 >* 18:00 UTC op 25 februari

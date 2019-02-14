@@ -17,24 +17,24 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de9db7abe17fc41907582ec32d3e916d0536e543
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c92472d276b3f03e5a3855587de4ca8a045bfec2
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175088"
+ms.locfileid: "56234421"
 ---
 # <a name="id-tokens"></a>Id-tokens
 
-`id_tokens` worden verzonden naar de clienttoepassing als onderdeel van een [OpenID Connect](v1-protocols-openid-connect-code.md) stroom. Ze kunnen worden verzonden, naast of in plaats van een toegangstoken en worden door de client gebruikt voor het verifiëren van de gebruiker. 
+`id_tokens` worden verzonden naar de clienttoepassing als onderdeel van een [OpenID Connect](v1-protocols-openid-connect-code.md) stroom. Ze kunnen worden verzonden, naast of in plaats van een toegangstoken en worden door de client gebruikt voor het verifiëren van de gebruiker.
 
 ## <a name="using-the-idtoken"></a>Met behulp van de id_token
 
-ID-Tokens moeten worden gebruikt om te valideren dat een gebruiker daadwerkelijk wie zij beweren is te zijn en krijg nuttige informatie over deze - mag niet worden gebruikt voor autorisatie in plaats van een [toegangstoken](access-tokens.md). De claims die het biedt kunnen worden gebruikt voor UX in uw toepassing, een database te versleutelen en bieden toegang tot de clienttoepassing. 
+ID-Tokens moeten worden gebruikt om te valideren dat een gebruiker daadwerkelijk wie zij beweren is te zijn en krijg nuttige informatie over deze - mag niet worden gebruikt voor autorisatie in plaats van een [toegangstoken](access-tokens.md). De claims die het biedt kunnen worden gebruikt voor UX in uw toepassing, een database te versleutelen en bieden toegang tot de clienttoepassing.
 
 ## <a name="claims-in-an-idtoken"></a>Claims in een id_token
 
-`id_tokens` voor een Microsoft-identiteit zijn [JWTs](https://tools.ietf.org/html/rfc7519), wat betekent dat ze bestaan uit een koptekst, nettolading en handtekening gedeelte. U kunt de header en -nettolading gebruiken om te controleren of de echtheid van het token, terwijl de nettolading de informatie over de gebruiker die is aangevraagd door de client bevat. Tenzij anders wordt vermeld, worden alle claims die hier worden vermeld in zowel v1.0 en v2.0-tokens weergegeven.
+`id_tokens` voor een Microsoft-identiteit zijn [JWTs](https://tools.ietf.org/html/rfc7519), wat betekent dat ze bestaan uit een koptekst, nettolading en handtekening gedeelte. U kunt de kop- en handtekening gebruiken om te controleren of de echtheid van het token, terwijl de nettolading de informatie over de gebruiker die is aangevraagd door de client bevat. Tenzij anders wordt vermeld, worden alle claims die hier worden vermeld in zowel v1.0 en v2.0-tokens weergegeven.
 
 ### <a name="v10"></a>v1.0
 

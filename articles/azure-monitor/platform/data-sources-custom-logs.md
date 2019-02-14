@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/09/2018
+ms.date: 02/12/2019
 ms.author: bwren
-ms.openlocfilehash: 7a25686ffa80b831e5d459a8795595a00f869fda
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997589"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234789"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Aangepaste logboeken in Azure Monitor
 Bron van de aangepaste logboeken in Azure Monitor kunt u voor het verzamelen van gebeurtenissen uit tekstbestanden op zowel Windows als Linux-computers. Veel toepassingen logboekgegevens naar tekstbestanden in plaats van standaard logboekregistratieservices zoals Windows-gebeurtenislogboek of Syslog. Zodra de verzameld, kunt u het parseren van de gegevens in afzonderlijke velden in uw query's of extraheer de gegevens die tijdens de verzameling die moet worden afzonderlijke velden.
@@ -43,7 +43,11 @@ De logboekbestanden te verzamelen, moeten overeenkomen met de volgende criteria 
 >
 
 >[!NOTE]
-> Maximaal 500 aangepaste logboeken kan per Log Analytics-werkruimte worden gemaakt. 
+> Een Log Analytics-werkruimte ondersteunt de volgende beperkingen:
+> 
+> * Alleen 500 aangepaste logboeken kunnen worden gemaakt.
+> * Een tabel biedt alleen ondersteuning voor maximaal 500 kolommen. 
+> * Het maximum aantal tekens in voor de naam van de kolom is 500. 
 >
 
 ## <a name="defining-a-custom-log"></a>Een aangepast logboek definiëren

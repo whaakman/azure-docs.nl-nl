@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: ''
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/11/2018
+ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0ec099e0f210fc267a0a34f76136a517e0ae6ccc
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: e3726037e16acdf1d6d624dbf8c2088a57b0bde6
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744514"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234538"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Hybrid Runbook Workers oplossen
 
@@ -187,6 +187,26 @@ Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Serv
 
 Start-Service -Name HealthService
 ```
+
+### <a name="already-registered"></a>Scenario: Er kan niet een Hybrid Runbook Worker toevoegen
+
+#### <a name="issue"></a>Probleem
+
+U ontvangt het volgende bericht wanneer u probeert toe te voegen een Hybrid Runbook Worker met de `Add-HybridRunbookWorker` cmdlet.
+
+```
+Machine is already registered to a different account
+```
+
+#### <a name="cause"></a>Oorzaak
+
+Dit kan worden veroorzaakt als de machine is al geregistreerd bij een ander Automation-Account of als u probeert toe te voegen opnieuw de Hybrid Runbook Worker na het verwijderen van een virtuele machine.
+
+#### <a name="resolution"></a>Oplossing
+
+U lost dit probleem, verwijder de volgende registersleutel en probeer de `Add-HybridRunbookWorker` cmdlet opnieuw uit:
+
+`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
 
 ## <a name="next-steps"></a>Volgende stappen
 
