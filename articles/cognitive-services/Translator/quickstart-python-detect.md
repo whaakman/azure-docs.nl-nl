@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: In deze quickstart leert u hoe u de taal van opgegeven tekst kunt identificeren met behulp van Python en de Translator Text-API.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 70b73fec4a6955bc1fcc91cb3895b07fd667ebca
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 5aee82695a5172f590f5e117058961187ef27a0d
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692729"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55856951"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>Snelstartgids: De Translator Text-API gebruiken om teksttaal te detecteren met Python
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-Globaal eindpunt voor de Translator Text is ingesteld als de `base_url`. Met `path` wordt de `detect`-route ingesteld en wordt bepaald dat we versie 3 van de API willen gebruiken.
+Het globaal eindpunt voor de Translator Text is ingesteld als de `base_url`. Met `path` wordt de `detect`-route ingesteld en wordt bepaald dat we versie 3 van de API willen gebruiken.
 
 >[!NOTE]
 > Meer informatie over eindpunten, routes en aanvraagparameters vindt u in [Translator Text-API 3.0: Detecteren](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).

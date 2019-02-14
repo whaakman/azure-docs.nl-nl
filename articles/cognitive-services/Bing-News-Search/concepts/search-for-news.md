@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Ontdek hoe u zoekquery's verzendt voor algemeen nieuws, populaire onderwerpen en koppen.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: overview
 ms.date: 01/11/2019
 ms.author: scottwhi
-ms.openlocfilehash: a0164f29f062a29c72d28221612e6f6cd7f03af2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b7da1782491c4317713aafe54c4fd01c2c7110a9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153042"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55880768"
 ---
 # <a name="search-for-news-with-the-bing-news-search-api"></a>Nieuws zoeken met de Bing Nieuws zoeken-API
 

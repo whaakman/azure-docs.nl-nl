@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/03/2018
+ms.date: 02/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 2f58bb8a1a3a0f0593513570355b8d3ba46816b9
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 66a40597178a8267febfd6ad18277d6b865c084d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825830"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56180161"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>Zelfstudie: Azure Active Directory-integratie met Zendesk
 
@@ -108,7 +109,12 @@ Voor het configureren van Azure AD-eenmalige aanmelding met Zendesk moet u de vo
 
     a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<subdomain>.zendesk.com`
 
-    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `<subdomain>.zendesk.com`
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon:
+    | |
+    |-|-|
+    | `<subdomain>.zendesk.com` |
+    | `https://<subdomain>.zendesk.com` |
+    | |
 
     > [!NOTE]
     > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met het [ondersteuningsteam van Zendesk](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) om de waarde te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
@@ -162,7 +168,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met Zendesk moet u de vo
 
 11. Als u op **Zendesk instellen** klikt nadat u de extensie aan de browser hebt toegevoegd, wordt u doorgestuurd naar de Zendesk-toepassing. Geef hier de Administrator-referenties op om u aan te melden bij Zendesk. In de browserextensie wordt de toepassing automatisch voor u geconfigureerd en wordt de sectie **Eenmalige aanmelding met Zendesk configureren** geautomatiseerd.
 
-     ![image](./media/zendesk-tutorial/d2_saml.png)
+    ![image](./media/zendesk-tutorial/d2_saml.png)
 
 ### <a name="configure-zendesk-single-sign-on"></a>Eenmalige aanmelding voor Zendesk configureren
 
@@ -190,7 +196,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met Zendesk moet u de vo
 
     f. Klik op **Opslaan**.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
@@ -206,7 +212,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    a. Voer in het veld **Naam****Britta Simon** in.
+    a. Voer in het veld **Naam** **Britta Simon**in.
   
     b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
     Bijvoorbeeld: BrittaSimon@contoso.com
@@ -278,5 +284,4 @@ Wanneer u op de tegel Zendesk in het toegangsvenster klikt, zou u automatisch mo
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Inrichten van gebruikers configureren](zendesk-provisioning-tutorial.md) 
-
+- [Inrichten van gebruikers configureren](zendesk-provisioning-tutorial.md)

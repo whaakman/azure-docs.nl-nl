@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/2/2019
 ms.author: jeedes
-ms.openlocfilehash: 290cec57f4394ed4f0f435e6032f72aad4a87aad
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 53d9eed4d6fc157e19c4afb7902aedc000804d11
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54821954"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56174772"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coralogix"></a>Zelfstudie: Azure Active Directory-integratie met Coralogix
 
@@ -167,7 +168,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    a. Voer in het veld **Naam****Britta Simon** in.
+    a. Voer in het veld **Naam** **Britta Simon**in.
   
     b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
     Bijvoorbeeld: BrittaSimon@contoso.com

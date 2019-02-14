@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Krijg informatie en codevoorbeelden om u te helpen snel aan de slag te gaan met behulp van de Text Analytics-API in Microsoft Cognitive Services in Azure.
 services: cognitive-services
 author: noellelacharite
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: nolachar
-ms.openlocfilehash: 0d35fa388b9300804243b8144372be0eb2a97e02
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a211bcedb0f3de41dbd62f137230bdf5d85d7fdf
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211811"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868924"
 ---
 # <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Quickstart: PHP gebruiken om de Text Analytics Cognitive Service aan te roepen
 <a name="HOLTop"></a>

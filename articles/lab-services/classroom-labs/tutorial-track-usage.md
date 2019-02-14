@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 93d7a6e884cf02fa41838d4a07644c122a43823b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: e2831191905da1b9e0ad55131be9eaa7aa13950e
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823824"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894357"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Zelfstudie: gebruik van een lab bijhouden in Azure Lab Services
 In deze zelfstudie leert u hoe een maker of eigenaar van een lab het gebruik van een lab kan bijhouden.
@@ -55,6 +55,9 @@ Als u met de muisaanwijzer een rij aanwijst in de lijst met virtuele machines, z
 - Een VM starten
 - Een VM stoppen
 - Een VM verwijderen
+
+
+![Besturingselementen van virtuele machines](../media/tutorial-track-usage/vm-controls.png)
 
 U kunt ook de werkbalkknoppen gebruiken om een virtuele machine te starten, stoppen of verwijderen. 
 

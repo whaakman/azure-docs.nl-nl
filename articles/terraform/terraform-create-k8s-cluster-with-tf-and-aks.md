@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/04/2018
-ms.openlocfilehash: 0ef206cf4407c6392ae5d9a70ba156f5635715e9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 57615ecd4c81359360004b732736bf757c0026c3
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814789"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892062"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Een Kubernetes-cluster maken met Azure Kubernetes Service en Terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) beheert uw gehoste Kubernetes-omgeving en zorgt dat de implementatie en het beheer van toepassingen in containers snel en eenvoudig zijn en geen kennis over het beheer van containers vereisen. Het verlicht ook de last van actieve bewerkingen en onderhoud door inrichten, upgraden en bronnen op aanvraag schalen mogelijk te maken, zonder uw toepassingen offline te brengen.
@@ -32,7 +32,7 @@ In deze zelfstudie leert u hoe u de volgende taken uitvoert bij het maken van ee
 
 - **Terraform configureren**: Volg de aanwijzingen in het artikel [Terraform en toegang tot Azure configureren](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **Azure-service-principal**: volg de aanwijzingen in de sectie **De service-principal maken** in het artikel [Een Azure-service-principal maken met de Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Noteer de waarden voor appId, displayName, password en tenant.
+- **Azure-service-principal**: volg de aanwijzingen in de sectie **De service-principal maken** in het artikel [Een Azure-service-principal maken met de Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Noteer de waarden voor appId, displayName, password en tenant.
 
 ## <a name="create-the-directory-structure"></a>De mapstructuur maken
 De eerste stap is het maken van een map voor de Terraform-configuratiebestanden voor de oefening.

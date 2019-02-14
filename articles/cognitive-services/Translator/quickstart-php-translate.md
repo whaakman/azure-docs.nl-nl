@@ -1,25 +1,25 @@
 ---
 title: 'Quickstart: Tekst vertalen, PHP - Translator Text-API'
 titleSuffix: Azure Cognitive Services
-description: In deze quickstart vertaalt u tekst vanuit één taal naar een andere taal met de Translator Text-API met PHP.
+description: In deze snelstartgids vertaalt u tekst vanuit één taal naar een andere taal met de Translator Text-API met PHP.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/22/2018
+ms.date: 02/08/2019
 ms.author: erhopf
-ms.openlocfilehash: 66b4fddb84b28ba1189fff6c77c9ec588ee2c2e2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 8c118092409ad1bc361255b05ff0b07719bd77ce
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207221"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977283"
 ---
 # <a name="quickstart-translate-text-with-the-translator-text-rest-api-php"></a>Quickstart: Tekst vertalen met de Translator Text REST API (PHP)
 
-In deze quickstart vertaalt u tekst vanuit één taal naar een andere taal met de Translator Text-API.
+In deze snelstartgids vertaalt u tekst vanuit één taal naar een andere taal met de Translator Text-API.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -134,7 +134,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u in het vo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de voorbeeldcode voor deze quickstart en andere resources, met inbegrip van transcriptie en taalidentificatie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
+Bekijk de voorbeeldcode voor deze snelstartgids en andere resources, met inbegrip van transcriptie en taalidentificatie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
 
 > [!div class="nextstepaction"]
 > [PHP-voorbeelden op GitHub bekijken](https://aka.ms/TranslatorGitHub?type=&language=php)

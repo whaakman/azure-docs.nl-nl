@@ -1,21 +1,21 @@
 ---
-title: 'Snelstart: Zoeken naar entiteiten met de Bing Entity Search SDK voor C#'
+title: 'Quickstart: Zoeken naar entiteiten met de Bing Entity Search SDK voor C#'
 titleSuffix: Azure Cognitive Services
 description: Gebruik deze quickstart om te zoeken naar entiteiten met de Bing Entity Search SDK voor C#.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: v-gedod
-ms.openlocfilehash: bcb5f77503566b06ee8e3346ec81dfabecbe50a5
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 6a365ef5421de3ceb31c5cc78a424f786f174ab3
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757756"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861915"
 ---
 # <a name="send-a-search-request-with-the-bing-entity-search-sdk-for-c"></a>Een aanvraag verzenden om te zoeken naar entiteiten met de Bing Entity Search SDK voor C#
 
@@ -83,4 +83,4 @@ Als u de Bing Entity Search SDK aan uw project wilt toevoegen, gaat u naar de op
 > [!div class="nextstepaction"]
 > [Een web-app met één pagina maken](../tutorial-bing-entities-search-single-page-app.md)
 
-* [Wat is de Bing Entity Search-API?](../overview.md )
+* [Wat is de Bing Entiteiten zoeken-API?](../overview.md )

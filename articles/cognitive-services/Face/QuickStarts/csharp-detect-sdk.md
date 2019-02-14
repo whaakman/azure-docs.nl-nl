@@ -1,25 +1,25 @@
 ---
 title: 'Quickstart: Gezichten in een afbeelding detecteren met de Azure Face .NET SDK'
 titleSuffix: Azure Cognitive Services
-description: In deze quickstart gebruikt u de Azure Face SDK met C# om gezichten in een afbeelding te detecteren.
+description: In deze snelstart gebruikt u de Azure Face SDK met C# om gezichten in een afbeelding te detecteren.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: pafarley
-ms.openlocfilehash: caaef0f7fdbfc3ad639deddb328c98334ad3e99d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 4cad8a01ac70e1f75603d275c621b53cf5595577
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213303"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860657"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Quickstart: Gezichten in een afbeelding detecteren met behulp van de Face .NET SDK
 
-In deze quickstart gebruikt u de SDK van de Face-service met C# om menselijke gezichten in een afbeelding te detecteren. Voor een werkvoorbeeld van de code in deze quickstart gaat u naar het Face-project in de opslagplaats [Cognitive Services Vision csharp quickstarts](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face) in GitHub.
+In deze snelstart gebruikt u de SDK van de Face-service met C# om menselijke gezichten in een afbeelding te detecteren. Voor een werkvoorbeeld van de code in deze snelstart gaat u naar het Face-project in de opslagplaats [Cognitive Services Vision csharp quickstarts](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face) in GitHub.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint. 
 
@@ -94,7 +94,7 @@ Male 37   Female 56
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze quickstart hebt u een eenvoudige .NET-consoletoepassing gemaakt, die gebruik kan maken van de service Face-API om gezichten te detecteren in zowel lokale als externe afbeeldingen. Volg hierna een meer gedetailleerde zelfstudie om te zien hoe u informatie over gezichten op een intuïtieve manier kunt presenteren aan de gebruiker.
+In deze snelstart hebt u een eenvoudige .NET-consoletoepassing gemaakt, die gebruik kan maken van de service Face-API om gezichten te detecteren in zowel lokale als externe afbeeldingen. Volg hierna een meer gedetailleerde zelfstudie om te zien hoe u informatie over gezichten op een intuïtieve manier kunt presenteren aan de gebruiker.
 
 > [!div class="nextstepaction"]
 > [Zelfstudie: Een WPF-app maken om gezichten in een afbeelding te detecteren en te analyseren](../Tutorials/FaceAPIinCSharpTutorial.md)

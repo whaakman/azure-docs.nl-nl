@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Afbeeldingsinhoud analyseren op diverse soorten ongewenst materiaal met behulp van de Content Moderator SDK voor .NET
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: db85e8bf071e9d91ab6c8e30e0e96d409166fed6
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: bd281191deb1a82d4b1b5247a011d9867f0c9bc4
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207953"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55879289"
 ---
 # <a name="quickstart-analyze-image-content-for-objectionable-material-in-c"></a>Snelstartgids: Afbeeldingsinhoud analyseren op ongewenst materiaal in C#
 

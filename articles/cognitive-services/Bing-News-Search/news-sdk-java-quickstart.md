@@ -4,21 +4,21 @@ titleSuffix: Azure Cognitive Services
 description: Gebruik deze snelstartgids om nieuws te zoeken met de Bing News Search-SDK voor Java en om het antwoord te verwerken.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 5bfd07eb11fd4504fa8c674ecb144c5fe328cc06
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0922010ad6993c8bb1571c24595370895e49c498
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149574"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55866162"
 ---
-# <a name="quickstart-search-for-news-with-the-bing-news-search-sdk-for-java"></a>Snelstart: Nieuws zoeken met de Bing News Search-SDK voor Java
+# <a name="quickstart-search-for-news-with-the-bing-news-search-sdk-for-java"></a>Quickstart: Nieuws zoeken met de Bing News Search-SDK voor Java
 
 Gebruik deze quickstart om aan de slag te gaan met de Bing News Search-SDK voor Java om nieuws te zoeken. Hoewel Bing Nieuws zoeken een REST API heeft die compatibel is met de meeste programmeertalen, biedt de SDK een eenvoudige manier om de service in uw toepassingen te integreren. De broncode voor dit voorbeeld is te vinden op [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch).
 

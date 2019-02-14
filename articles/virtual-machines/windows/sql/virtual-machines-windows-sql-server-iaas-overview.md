@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 43305efc146151d131152e712869e283af65f0b2
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: ddf36c97a8aebd3cd7446dca07e77c7f743afcb9
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359762"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982944"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Wat is SQL Server op Azure Virtual Machines? (Windows)
 
@@ -86,7 +86,7 @@ Als u uw eigen licentie wilt meenemen, converteert u een SQL-VM waarbij per gebr
 Het is mogelijk een oudere installatiekopie van SQL Server die niet beschikbaar is in de Azure-portal te implementeren met behulp van PowerShell. Gebruik de volgende opdracht om alle beschikbare installatiekopieën te bekijken met behulp van Powershell:
 
   ```PowerShell
-  Get-AzureRmVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
+  Get-AzVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
   ```
 
 Raadpleeg voor meer informatie over het implementeren van SQL Server-VM's met behulp van PowerShell [Over het inrichten van SQL Server-machines met Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
@@ -108,7 +108,7 @@ Het programma voor kwaliteitsverbetering (CEIP) is standaard ingeschakeld. Met d
 ### <a name="windows-virtual-machines"></a>Windows Virtual Machines
 * [Overzicht van Virtual Machines](../overview.md)
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Opslag
 * [Inleiding tot Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
 
 ### <a name="networking"></a>Netwerken

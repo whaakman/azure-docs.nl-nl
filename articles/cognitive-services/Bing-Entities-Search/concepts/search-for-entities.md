@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Gebruik de Bing Entiteiten zoeken-API om te zoeken naar entiteiten en locaties, en om deze te extraheren uit zoekquery's.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: b1d46d125d390f8612c5708e1964e0626acde343
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: e78cc86a91e229b5d4d4aead5709da2f694ecac1
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757757"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895360"
 ---
 # <a name="searching-for-entities-with-the-bing-entity-api"></a>Zoeken naar entiteiten met de Bing Entiteiten-API
 
@@ -174,7 +174,7 @@ Wanneer u de entiteitgegevens (naam, beschrijving en afbeelding) weergeeft, moet
 
 ## <a name="find-places"></a>Locaties zoeken
 
-Het veld `places` is een [LocalEntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#localentityanswer)-object dat een lijst met [plaats](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#place)objecten bevat (zie [Entiteitstypen](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types) voor meer informatie). De lijst bevat één of meer lokale entiteiten die antwoord bieden op de aanvraag.
+Het veld `places` is een [LocalEntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)-object dat een lijst met [plaats](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#place)objecten bevat (zie [Entiteitstypen](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types) voor meer informatie). De lijst bevat één of meer lokale entiteiten die antwoord bieden op de aanvraag.
 
 Plaatsen kunnen bijvoorbeeld restaurants, hotels of lokale bedrijven zijn. Het veld [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) bevat hints waarmee het type van de lokale entiteit kan worden geïdentificeerd. De lijst bevat een lijst met hints, zoals Place, LocalBusiness of Restaurant. Met elke volgende hint in de matrix wordt het entiteitstype verder benaderd. Voor een lijst met mogelijke typen gaat u naar [Entiteitstypen](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)
 

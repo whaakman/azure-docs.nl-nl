@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: een geheim uit Azure Key Vault instellen en ophalen met behulp van een Node-web-app - Azure Key Vault | Microsoft Docs'
+title: 'Quickstart: een geheim uit Azure Key Vault instellen en ophalen met behulp van een Node-web-app - Azure Key Vault | Microsoft Docs'
 description: In deze quickstart gaat u met behulp van een .NET-web-app een geheim instellen in Azure Key Vault en dit geheim vervolgens ophalen
 services: key-vault
 author: prashanthyv
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 300ee1b01f346f7e1c118b76d64d0eda6e4d7934
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8127a7a10c117edaefc4a215366990d847a165ec
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565544"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238280"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Quickstart: een geheim uit Azure Key Vault instellen en ophalen met behulp van een .NET-web-app
 
@@ -176,7 +176,7 @@ Tijdens het uitvoeren van de toepassing ziet u nu de geheime waarde die is opgeh
 ## <a name="clean-up-resources"></a>Resources opschonen
 Verwijder de resourcegroep, de virtuele machine en alle gerelateerde resources wanneer u ze niet meer nodig hebt. Om dit te doen, selecteert u de resourcegroep voor de VM en selecteert u **Verwijderen**.
 
-Verwijder de sleutelkluis met behulp van de opdracht [az keyvault delete](https://docs.microsoft.com/en-us/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-delete):
+Verwijder de sleutelkluis met behulp van de opdracht [az keyvault delete](https://docs.microsoft.com/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-delete):
 
 ```azurecli
 az keyvault delete --name

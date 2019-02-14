@@ -1,24 +1,24 @@
 ---
-title: 'Snelstart: Een externe afbeelding analyseren - REST, Python'
+title: 'Quickstart: Een externe afbeelding analyseren - REST, Python'
 titleSuffix: Azure Cognitive Services
 description: In deze quickstart analyseert u een externe afbeelding met behulp van de Computer Vision-API met Python.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7d46e0dbc295dec01a9b2eb26407120e0e297316
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 94a20c679f68d06a5953c5b446a6111124d8a61a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219036"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55875107"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-python-in-computer-vision"></a>Snelstart: Een externe afbeelding analyseren met de REST API en Python in Computer Vision
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-python-in-computer-vision"></a>Quickstart: Een externe afbeelding analyseren met de REST API en Python in Computer Vision
 
 In deze snelstart analyseert u een extern opgeslagen afbeelding om visuele kenmerken te verkrijgen met behulp van de REST-API van Computer Vision. Met de [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)-methode kunt u visuele kenmerken verkrijgen op basis van de afbeeldingsinhoud.
 

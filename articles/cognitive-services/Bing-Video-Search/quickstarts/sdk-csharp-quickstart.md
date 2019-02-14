@@ -1,23 +1,23 @@
 ---
-title: "Snelstart: Video's zoeken met de Bing Video's zoeken-SDK voor C#"
+title: "Quickstart: Video's zoeken met de Bing Video's zoeken-SDK voor C#"
 titleSuffix: Azure Cognitive Services
 description: Gebruik deze quickstart om zoekaanvragen voor video's te verzenden naar de Bing Video's zoeken-SDK voor C#.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: rosh
-ms.openlocfilehash: 820c6a57a4a8266b68c5a245c2c2cf316aa071a9
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: f94db7a29827a80307f4a081d93744c5edc59edb
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55569047"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867780"
 ---
-# <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-c"></a>Snelstart: Video's zoeken met de Bing Video's zoeken-SDK voor C#
+# <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-c"></a>Quickstart: Video's zoeken met de Bing Video's zoeken-SDK voor C#
 
 Gebruik deze quickstart om aan de slag te gaan met de Bing Video's zoeken-SDK voor C# om nieuws te zoeken. Hoewel Bing Video's zoeken een REST API heeft die compatibel is met de meeste programmeertalen, biedt de SDK een eenvoudige manier om de service in uw toepassingen te integreren. De broncode voor dit voorbeeld is te vinden op [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch). Deze bevat meer aantekeningen en functies.
 

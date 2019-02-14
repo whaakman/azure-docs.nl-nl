@@ -10,12 +10,13 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: a56edba483b1ba045d801681b85d755a510606cd
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6c813685a89f3d18b01ab75d710df54f8d1e1338
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493708"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56187737"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Zelfstudie:  Een enkele AD-forest integreren met pass-through-verificatie (PTA)
 
@@ -34,7 +35,7 @@ Dit zijn de vereisten voor het voltooien van deze zelfstudie
 > [!NOTE]
 > In deze zelfstudie worden PowerShell-scripts gebruikt, zodat u de omgeving voor de zelfstudie zo snel mogelijk kunt inrichten.  Elk van de scripts maakt gebruik van variabelen die worden gedeclareerd aan het begin van de scripts.  U kunt en moet de variabelen aanpassen aan uw omgeving.
 >
->Met de scripts wordt een algemene Active Directory-omgeving ingericht voorafgaand aan de installatie van Azure AD Connect.  De scripts zijn relevant voor alle zelfstudies.
+>Met de scripts wordt een algemene Active Directory Domain Services-omgeving ingericht voorafgaand aan de installatie van Azure AD Connect.  De scripts zijn relevant voor alle zelfstudies.
 >
 > Kopieën van de PowerShell-scripts die worden gebruikt in deze zelfstudie zijn [hier](https://github.com/billmath/tutorial-phs) beschikbaar op GitHub.
 
@@ -191,7 +192,7 @@ Nu moeten we een Azure Active Directory-tenant maken, zodat we onze gebruikers k
 6. Als die klaar is, klikt u op de koppeling **hier** om de adreslijst te beheren.
 
 ## <a name="create-a-global-administrator-in-azure-ad"></a>Een globale beheerder maken in Azure Active Directory
-De Azure Active Directory-tenant is klaar en we gaan nu een globale beheerdersaccount maken.  Dit account wordt gebruikt voor het maken van het Azure AD-Connector-account tijdens de installatie van Azure AD Connect.  Het Azure AD-Connector-account wordt gebruikt voor het wegschrijven van gegevens naar Azure Active Directory.   Ga als volgt te werk om het globale beheerdersaccount te maken.
+De Microsoft Azure Active Directory-tenant is klaar en we gaan nu een globale beheerdersaccount maken.  Dit account wordt gebruikt voor het maken van het Azure AD-Connector-account tijdens de installatie van Azure Active Directory Connect.  Het Azure AD-Connector-account wordt gebruikt voor het wegschrijven van gegevens naar Microsoft Azure Active Directory.   Ga als volgt te werk om het globale beheerdersaccount te maken.
 
 1.  Onder **Beheren**, selecteer **Gebruikers**.</br>
 ![Maken](media/tutorial-password-hash-sync/gadmin1.png)</br>
@@ -202,14 +203,14 @@ De Azure Active Directory-tenant is klaar en we gaan nu een globale beheerdersac
 5. Wijzig het wachtwoord voor de globale beheerder in iets dat u makkelijk kunt onthouden.
 
 ## <a name="add-the-custom-domain-name-to-your-directory"></a>Voeg de aangepaste domeinnaam toe aan uw directory.
-Nu we een tenant en een globale beheerder hebben, moeten we ons aangepast domein toevoegen zodat Azure het kan controleren.  Ga als volgt te werk:
+Nu dat we een tenant en een globale beheerder hebben, moeten we ons aangepast domein toevoegen zodat dat Azure het kan controleren.  Ga als volgt te werk:
 
 1. Let op dat in de [Azure Portal](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) de blade **Alle gebruikers** gesloten is.
 2. Selecteer aan de linkerkant **Namen van aangepaste domeinen**.
 3. Selecteer **Aangepast domein toevoegen**.</br>
 ![Aangepast](media/tutorial-federation/custom1.png)</br>
 4. Typ op de blade **Aangepaste-domeinnamen** de naam van uw aangepaste domein in het vak en selecteer vervolgens **Domein toevoegen**.
-5. Op het scherm van de naam van het aangepast domein krijgt u de TXT- of de MX-gegevens.  Deze informatie moet worden toegevoegd aan de DNS-gegevens van de domeinregistrar onder het domein.  Daarom moet u naar uw domeinregistrar gaan en de TXT- of de MX-gegevens in de DNS-instellingen voor uw domein invoeren.  Hierdoor kan Azure uw domein verifiëren.  Azure heeft maximaal 24 uur nodig om dit te verifiëren.  Zie [Een aangepaste domeinnaam toevoegen](../../active-directory/fundamentals/add-custom-domain.md) voor meer informatie.</br>
+5. Op het scherm van de naam van het aangepast domein ziet u de TXT- of de MX-gegevens.  Deze informatie moet worden toegevoegd aan de DNS-gegevens van de domeinregistrar onder het domein.  Daarom moet u naar uw domeinregistrar gaan en de TXT- of de MX-gegevens in de DNS-instellingen voor uw domein invoeren.  Hierdoor kan Azure uw domein verifiëren.  Azure heeft maximaal 24 uur nodig om dit te verifiëren.  Zie [Een aangepaste domeinnaam toevoegen](../../active-directory/fundamentals/add-custom-domain.md) voor meer informatie.</br>
 ![Aangepast](media/tutorial-federation/custom2.png)</br>
 6. Om ervoor te zorgen dat deze is geverifieerd, klikt u op de knop Verifiëren.</br>
 ![Aangepast](media/tutorial-federation/custom3.png)</br>
@@ -225,11 +226,11 @@ We gaan nu Azure AD Connect downloaden en installeren.  Zodra dat is gebeurd, ne
 6. Selecteer op het scherm aanmelden van gebruikers **Pass-through-verificatie** en **Eenmalige aanmelding inschakelen** en klik op **Volgende**.</br>
 ![PTA](media/tutorial-passthrough-authentication/pta1.png)</b>
 7. Voer in het scherm Verbinding maken met Azure Active Directory de gebruikersnaam en het wachtwoord van de globale beheerder in die eerder is gemaakt en klik op **Volgende**.
-2. Klik in het scherm Verbinding maken met uw mappen op **Map toevoegen**.  Selecteer vervolgens **Nieuw AD-account maken**, voer contoso\Administrator-gebruikersnaam en wachtwoord in en klik op **OK**.
+2. Klik in het scherm Verbinding maken met uw mappen op **Volgende**.  Selecteer vervolgens **nieuw AD-account maken**, voer de gebruikersnaam en het wachtwoord in voor contoso\Administrator en klik op **OK**.
 3. Klik op **Volgende**.
 4. Selecteer op het scherm van de configuratie van aanmelding bij Azure Active Directory **Doorgaan zonder alle UPN-achtervoegsels op geverifieerde domeinen af te stemmen** en klik op **volgende.**
 5. Klik in het scherm Domein- en OE-filteren op **Volgende**.
-6. In het scherm voor uniek identificeren van uw gebruikers, klikt u op **Volgende**.
+6. In het scherm voor het uniek identificeren uw gebruikers, klikt u op **volgende**.
 7. Klik in het scherm Gebruikers en apparaten filteren op **Volgende**.
 8. Klik in het scherm Optionele functies op **Volgende**.
 9. Voer op de pagina van de referenties voor eenmalige aanmelding contoso\Administrator gebruikersnaam en wachtwoord in en klik op **Volgende.**

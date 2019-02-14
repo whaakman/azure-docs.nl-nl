@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: tutorial
 ms.date: 02/01/2019
-ms.openlocfilehash: d87248f778c6c39cc64b1cc4725cd61d029ce040
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: e1a0dda4c13baf7fc2e5ba65d599db8c74591adb
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664739"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893235"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Zelfstudie: Apache HBase-beleidsregels configureren in HDInsight met Enterprise Security Package - (preview)
 
@@ -45,7 +45,7 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="create-domain-users"></a>Domeingebruikers maken
 
-Ga naar [Een HDInsight-cluster maken met Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds#create-a-domain-joined-hdinsight-cluster) voor informatie over het maken van de domeingebruikers **sales_user1** en **marketing_user1**. In een productiescenario zijn de domeingebruikers afkomstig uit uw Active Directory-tenant.
+Ga naar [Een HDInsight-cluster maken met Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds) voor informatie over het maken van de domeingebruikers **sales_user1** en **marketing_user1**. In een productiescenario zijn de domeingebruikers afkomstig uit uw Active Directory-tenant.
 
 ## <a name="create-hbase-tables-and-import-sample-data"></a>HBase-tabellen maken en voorbeeldgegevens importeren
 
@@ -65,7 +65,7 @@ U kunt SSH gebruiken om verbinding te maken met HBase-clusters en vervolgens [Ap
     create 'Customers', 'Name', 'Contact'
     list
     ```
-3. Voeg enkele gegevens in:
+3. Voeg enkele gegeven in:
     
     ```hbaseshell   
     put 'Customers','1001','Name:First','Alice'

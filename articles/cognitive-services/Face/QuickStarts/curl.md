@@ -1,25 +1,25 @@
 ---
 title: 'Quickstart: Gezichten in een afbeelding detecteren met de Azure REST API en cURL'
 titleSuffix: Azure Cognitive Services
-description: In deze quickstart gebruikt u de Azure Face REST API met cURL om gezichten in een afbeelding te detecteren.
+description: In deze snelstart gebruikt u de Azure Face REST API met cURL om gezichten in een afbeelding te detecteren.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: bfa7574a7f85bdb5acaa052f22e5a26c07d90c07
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a59caf51de81a554fc89b38e4bae427f28a75082
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55225649"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871299"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Quickstart: Gezichten in een afbeelding detecteren met de Face REST API en cURL
 
-In deze quickstart gebruikt u de Azure Face REST API met cURL om menselijke gezichten in een afbeelding te detecteren.
+In deze snelstart gebruikt u de Azure Face REST API met cURL om menselijke gezichten in een afbeelding te detecteren.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint. 
 
@@ -155,7 +155,7 @@ Nadat u de wijzigingen hebt aangebracht, opent u een opdrachtprompt en voert u d
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze quickstart hebt u een cURL-opdracht geschreven waarmee de Azure Face-API wordt aangeroepen om gezichten in een afbeelding te detecteren en de gezichtskenmerken te retourneren. Lees het naslagmateriaal bij de Face-API voor meer informatie.
+In deze snelstart hebt u een cURL-opdracht geschreven waarmee de Azure Face-API wordt aangeroepen om gezichten in een afbeelding te detecteren en de gezichtskenmerken te retourneren. Lees het naslagmateriaal bij de Face-API voor meer informatie.
 
 > [!div class="nextstepaction"]
 > [Face-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

@@ -16,12 +16,13 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 34d0c4054273babcc56516d290857c4ddb554bf7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e705bbbd08882f56020192a3b42c311e05bfa399
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819090"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56191722"
 ---
 # <a name="quickstart-update-an-application-in-azure-active-directory"></a>Quickstart: Een toepassing bijwerken in Azure Active Directory
 
@@ -144,7 +145,7 @@ Zie [Azure Active Directory-toepassingsmanifest](reference-app-manifest.md) voor
 
 Zoals eerder aangegeven, kunt u naast het weergeven/openen van API's voor uw eigen toepassingen, uw clienttoepassing registreren voor toegang tot API's die worden weergegeven door Microsoft-resources. De Microsoft Graph API, aangeduid als 'Microsoft Graph' in de resource/API-lijst van de portal, is beschikbaar voor alle toepassingen die zijn geregistreerd bij Azure Active Directory. Als u uw clienttoepassing registreert in een tenant met accounts die zich hebben geregistreerd voor een Office 365-abonnement, hebt u ook toegang tot de bereiken die worden weergegeven door de verschillende Office 365-resources.
 
-Zie het naslagartikel over [Microsoft Graph-machtigingen](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference) voor een volledige bespreking van de bereiken die worden weergegeven door Microsoft Graph API.
+Zie het naslagartikel over [Microsoft Graph-machtigingen](https://docs.microsoft.com/graph/permissions-reference) voor een volledige bespreking van de bereiken die worden weergegeven door Microsoft Graph API.
 
 > [!NOTE]
 > Vanwege een huidige beperking kunnen systeemeigen clienttoepassingen de Graph API van Azure Active Directory alleen aanroepen als ze de machtiging 'Toegang tot de adreslijst van uw organisatie' gebruiken. Deze beperking geldt niet voor webtoepassingen.

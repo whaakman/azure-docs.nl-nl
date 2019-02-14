@@ -4,16 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: afb702a883606557c3ceaaaf2c2bd27073bab835
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 56514f5dcf4bfe205ef46ee64dcf4dcf638d4f62
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165604"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889191"
 ---
-<!--author=alkohli last changed: 01/18/2017-->
-
-
 #### <a name="to-configure-and-register-the-device"></a>Het apparaat configureren en registreren
 
 1. Open de Windows PowerShell-interface op de seriële console van het StorSimple-apparaat. Zie [PuTTY gebruiken om verbinding te maken met de seriële console van het apparaat](#use-putty-to-connect-to-the-device-serial-console) voor instructies. **Volg de procedure exact, omdat u anders geen toegang hebt tot de console.**

@@ -13,14 +13,16 @@ ms.devlang: na
 ms.date: 12/19/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3aadeb92fccc2baa445bce73e3d3111168aeecf6
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 99d4f3b6cf42ee21c34809b5604c4603da784e7b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490256"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107817"
 ---
 # <a name="tutorial-move-azure-resources-to-another-resource-group-or-subscription"></a>Zelfstudie: Azure-resources verplaatsen naar een andere resourcegroep of een ander abonnement
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Informatie over het verplaatsen van Azure-resources van de ene naar de andere resourcegroep. U kunt Azure-resources ook verplaatsen van het ene naar het andere Azure-abonnement. In deze zelfstudie gebruikt u een resourcemanagerssjabloon om twee resourcegroepen en één opslagaccount te implementeren. Vervolgens verplaatst u het opslagaccount van de ene naar de andere resourcegroep.
 

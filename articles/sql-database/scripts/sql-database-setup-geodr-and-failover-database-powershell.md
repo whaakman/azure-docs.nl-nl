@@ -1,5 +1,5 @@
 ---
-title: PowerShell-voorbeeld van actieve geo-replicatie voor een zelfstandige Azure SQL Database | Microsoft Docs
+title: PowerShell-voorbeeld van actieve geo-replicatie voor één Azure SQL Database | Microsoft Docs
 description: Azure PowerShell-voorbeeldscript voor het instellen van actieve geo-replicatie voor een enkele database in Azure SQL Database en het uitvoeren van een failover.
 services: sql-database
 ms.service: sql-database
@@ -11,13 +11,13 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 0fa689c91ed6844c2314b3b9d3bea2619540bc50
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: 8ae5f2c6d1ebacdddb1c18972aa25240211a4a63
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463783"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992349"
 ---
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-single-database-in-azure-sql-database"></a>PowerShell gebruiken voor het configureren van actieve geo-replicatie voor een enkele database in Azure SQL Database
 

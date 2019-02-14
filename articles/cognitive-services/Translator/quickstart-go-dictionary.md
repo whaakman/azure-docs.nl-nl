@@ -4,20 +4,20 @@ titleSuffix: Azure Cognitive Services
 description: In deze snelstart vindt u alternatieve vertalingen en voorbeelden van termen in context met behulp van de Translator Text-API met Go.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: ff4fdc94b77a09898efea3c74bef6091b2ebaac8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d923dee2c1bad70183d2c0fadbc1beebe7ef3cbe
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209245"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872421"
 ---
-# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-go"></a>Snelstart: Woorden opzoeken in een tweetalige woordenlijst met Go
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-go"></a>Quickstart: Woorden opzoeken in een tweetalige woordenlijst met Go
 
 In deze snelstartgids leert u hoe u alternatieve vertalingen en gebruiksvoorbeelden voor een bepaalde tekst kunt vinden met behulp van Go en de Translator Text-REST API.
 

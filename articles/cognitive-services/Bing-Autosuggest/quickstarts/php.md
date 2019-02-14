@@ -4,20 +4,20 @@ titlesuffix: Azure Cognitive Services
 description: Informatie en codevoorbeelden om snel aan de slag te gaan met de Automatische suggestie-API voor Bing.
 services: cognitive-services
 author: v-jaswel
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 31a4c2cb0548af0c8ab3c3f6284ef1d61922b97c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 139c7149173285283041f5f4b30d2002e40810c2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187757"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872914"
 ---
-# <a name="quickstart-for-bing-autosuggest-api-with-php"></a>Quickstart voor Automatische suggestie-API voor Bing met PHP
+# <a name="quickstart-for-bing-autosuggest-api-with-php"></a>Snelstartgids voor Automatische suggestie-API voor Bing met PHP
 
 In dit artikel leest u hoe u de [Automatische suggestie-API voor Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/)  gebruikt met PHP. De Automatische suggestie-API retourneert een lijst met voorgestelde query's op basis van de gedeeltelijke queryreeks die de gebruiker invoert in het zoekvak. Normaal gesproken zou u deze API telkens aanroepen wanneer de gebruiker een nieuw teken in het zoekvak typt om vervolgens de suggesties weer te geven in de vervolgkeuzelijst van het zoekvak. In dit artikel ziet u hoe u een aanvraag verstuurt die de voorgestelde queryreeksen voor *sail* retourneert.
 
@@ -25,7 +25,7 @@ In dit artikel leest u hoe u de [Automatische suggestie-API voor Bing](https://a
 
 U hebt [PHP 5.6.x](http://php.net/downloads.php) nodig om deze code uit te voeren.
 
-U moet beschikken over een [account voor Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Automatische suggestie-API voor Bing v7**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/#search) is voldoende voor deze quickstart. U hebt de toegangssleutel nodig die wordt verstrekt bij het activeren van uw gratis proefversie of u gebruikt de sleutel van een betaald abonnement vanuit uw Azure-dashboard.
+U moet beschikken over een [account voor Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Automatische suggestie-API voor Bing v7**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/#search) is voldoende voor deze snelstartgids. U hebt de toegangssleutel nodig die wordt verstrekt bij het activeren van uw gratis proefversie of u gebruikt de sleutel van een betaald abonnement vanuit uw Azure-dashboard.
 
 ## <a name="get-autosuggest-results"></a>Resultaten van Automatische suggesties ophalen
 

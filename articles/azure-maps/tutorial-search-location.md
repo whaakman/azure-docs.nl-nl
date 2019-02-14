@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 04ab94d8b0b8f012707bb88a52c44b91063cbe39
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: ce425278bfc0f9b95285c33e9863b508246d5e79
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402180"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992285"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Zoeken naar nuttige plaatsen in de buurt met behulp van Azure Maps
 
@@ -73,47 +73,47 @@ De Map Control-API is een handige clientbibliotheek waarmee u Maps eenvoudig kun
 2. Voeg de volgende HTML-onderdelen toe aan het bestand:
 
    ```HTML
-   <!DOCTYPE html>
-   <html>
-   <head>
-      <title>Map Search</title>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
-      <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />
-      <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
-
-      <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
-      <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1"></script>
-
-      <script>      
-         var map, datasource, client, popup;
-
-         function GetMap(){
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Map Search</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        
+        <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />
+        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
+        
+        <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
+        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1"></script>
+        
+        <script>        
+        var map, datasource, client, popup;
+        
+        function GetMap(){
             //Add Map Control JavaScript code here.
-         }
-      </script>
-      <style>
-      html,
-      body {
-         width: 100%;
-         height: 100%;
-         padding: 0;
-         margin: 0;
-      }
-
-      #myMap {
-         width: 100%;
-         height: 100%;
-      }
-      </style>
-   </head>
-   <body onload="GetMap()">
-      <div id="myMap"></div>
-   </body>
-   </html>
-   ```
+        }
+        </script>
+        <style>
+            html,
+            body {
+                width: 100%;
+                height: 100%;
+                padding: 0;
+                margin: 0;
+            }
+            
+            #map {
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+    </head>
+    <body onload="GetMap()">
+        <div id="myMap"></div>
+    </body>
+    </html>
+    ```
 
    U ziet dat de HTML-header de CSS- en JavaScript-bronbestanden bevat, gehost door de Azure Map Control-bibliotheek. Let op de gebeurtenis `onload` in het hoofdtekstgedeelte van de pagina. Deze zorgt ervoor dat de functie `GetMap` wordt aangeroepen nadat het hoofdtekstgedeelte van de pagina is geladen. Deze functie bevat de inline JavaScript-code voor toegang tot de API's van Azure Maps.
 
@@ -228,8 +228,9 @@ De kaart die we tot nu toe hebben gemaakt, is uitsluitend gebaseerd op de gegeve
 2. Voeg in de tag *script* na de functie `GetMap` de volgende toe code om de resultaatgegevens van de mouse-overgebeurtenis in het pop-upvenster weer te geven. 
 
    ```JavaScript
-   function showPopup(e) {
-        //Get the properties and coordinates of the first shape that the event occurred on.
+    function showPopup(e) {
+        //Get the properties and coordinates of the first shape that the event occured on.
+
         var p = e.shapes[0].getProperties();
         var position = e.shapes[0].getCoordinates();
 
@@ -246,7 +247,7 @@ De kaart die we tot nu toe hebben gemaakt, is uitsluitend gebaseerd op de gegeve
 
         //Open the popup.
         popup.open(map);
-   }
+    }
    ```
 
 2. Sla het bestand op en vernieuw de browser. De kaart in de browser toont nu informatie in pop-ups wanneer u de muisaanwijzer over een van de spelden beweegt.

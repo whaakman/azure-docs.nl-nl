@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: 62cdc50b40fb1273fdc2eece050869fc2284cf6c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 6b57c3a172f39c596250b05024ad954a5d065440
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632973"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984814"
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Een aangepaste Docker-installatiekopie gebruiken voor Web App for Containers
 
@@ -59,7 +59,7 @@ cd docker-django-webapp-linux
 
 Bekijk in de Git-opslagplaats het _Docker-bestand_. Dit bestand beschrijft de Python-omgeving die vereist is om uw toepassing uit te voeren. De installatiekopie stelt bovendien een [SSH](https://www.ssh.com/ssh/protocol/)-server in voor veilige communicatie tussen de container en de host.
 
-```docker
+```Dockerfile
 FROM python:3.4
 
 RUN mkdir /code
@@ -254,7 +254,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 
 ### <a name="test-the-web-app"></a>De web-app testen
 
-Controleer of de web-app werkt door erheen te bladeren (`http://<app_name>azurewebsites.net`). 
+Controleer of de web-app werkt door erheen te bladeren (`http://<app_name>.azurewebsites.net`). 
 
 ![Poortconfiguratie voor web-app testen](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png)
 
@@ -280,7 +280,7 @@ SSH maakt veilige communicatie tussen een container en een client mogelijk. Om e
 
 * Een [RUN](https://docs.docker.com/engine/reference/builder/#run)-instructie die `apt-get` aanroept en vervolgens het wachtwoord instelt voor het hoofdaccount op `"Docker!"`.
 
-    ```docker
+    ```Dockerfile
     ENV SSH_PASSWD "root:Docker!"
     RUN apt-get update \
             && apt-get install -y --no-install-recommends dialog \
@@ -294,7 +294,7 @@ SSH maakt veilige communicatie tussen een container en een client mogelijk. Om e
 
 * Een [COPY](https://docs.docker.com/engine/reference/builder/#copy)-instructie die de Docker-engine opdraagt om het bestand [sshd_config](https://man.openbsd.org/sshd_config) te kopiëren naar de map */etc/ssh/*. Het configuratiebestand moet worden gebaseerd op [dit sshd_config-bestand](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config).
 
-    ```docker
+    ```Dockerfile
     COPY sshd_config /etc/ssh/
     ```
 
@@ -305,7 +305,7 @@ SSH maakt veilige communicatie tussen een container en een client mogelijk. Om e
 
 * Een instructie [EXPOSE](https://docs.docker.com/engine/reference/builder/#expose) toont poort 2222 in de container. Hoewel het hoofdwachtwoord bekend is, is poort 2222 niet toegankelijk vanaf het internet. Het is een interne poort die alleen toegankelijk is voor containers in het brugnetwerk van een particulier virtueel netwerk. Hierna kopiëren opdrachten SSH-configuratiedetails en start de service `ssh`.
 
-    ```docker
+    ```Dockerfile
     EXPOSE 8000 2222
     ```
 

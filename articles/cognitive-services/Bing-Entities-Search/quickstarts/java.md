@@ -1,23 +1,23 @@
 ---
-title: 'Snelstart: Een zoekaanvraag verzenden naar de Bing Entiteiten zoeken-REST API met Java'
+title: 'Quickstart: Een zoekaanvraag verzenden naar de Bing Entiteiten zoeken-REST API met Java'
 titlesuffix: Azure Cognitive Services
 description: Gebruik deze quickstart om een aanvraag naar de REST API van Bing Entiteiten zoeken te verzenden via Java en een JSON-antwoord te ontvangen.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 5adf40648118f8eb6c33df80ba3e30208f1b2059
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: ba8d1fa44ca3eacf4c8feeede18b594dfe72ea37
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813395"
+ms.locfileid: "55884117"
 ---
-# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-java"></a>Snelstart: Een zoekaanvraag verzenden naar de Bing Entiteiten zoeken-REST API met Java
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-java"></a>Quickstart: Een zoekaanvraag verzenden naar de Bing Entiteiten zoeken-REST API met Java
 
 Gebruik deze quickstart om voor het eerst de Bing Entiteiten zoeken-API aan te roepen en het JSON-antwoord te bekijken. Deze eenvoudige Java-toepassing stuurt een nieuwszoekquery naar de API en geeft het antwoord weer.
 

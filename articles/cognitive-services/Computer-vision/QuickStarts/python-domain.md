@@ -1,22 +1,22 @@
 ---
-title: 'Snelstart: Domeinspecifieke afbeeldingsinhoud - REST, Python'
+title: 'Quickstart: Domeinspecifieke afbeeldingsinhoud - REST, Python'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart gebruikt u domeinmodellen om beroemdheden en oriëntatiepunten in een afbeelding te identificeren met behulp van de Computer Vision-API met Python.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: d0f7512fc7ed5b261a23e5f07d96016c0477e47b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e74ce007c4309c4eb446589de47dd7a12cbf13db
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211047"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55857019"
 ---
 # <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Quickstart: Een externe domeinmodel gebruiken met de REST-API en Python in Computer Vision
 

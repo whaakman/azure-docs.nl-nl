@@ -8,19 +8,19 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/23/2018
-ms.openlocfilehash: df1efc1506fbbe51ba5afb03f147c51a57d9bbdb
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: f4541bb9516855c4391188fb57e5ab64bc03c76e
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727055"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890481"
 ---
 # <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Azure Kubernetes Service-clusters maken en configureren in Azure met behulp van Ansible
 U kunt Ansible ook gebruiken om de implementatie en configuratie van resources in uw omgeving te automatiseren. U kunt Ansible gebruiken voor het beheren van uw Azure Kubernetes Service (AKS). Dit artikel laat zien hoe u Ansible gebruikt om een Azure Kubernetes Service-cluster te maken en beheren.
 
 ## <a name="prerequisites"></a>Vereisten
 - **Azure-abonnement**: als u geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aan voordat u begint.
-- **Azure service-principal**: houd bij [het maken van de service-principal](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal) rekening met de volgende waarden: **appId**, **displayName**, **wachtwoord**, en **tenant**.
+- **Azure service-principal**: houd bij [het maken van de service-principal](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) rekening met de volgende waarden: **appId**, **displayName**, **wachtwoord**, en **tenant**.
 
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 

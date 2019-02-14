@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: In deze snelstart vertaalt u tekst vanuit één taal naar een andere taal met de Translator Text-API.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/21/2018
+ms.date: 02/08/2019
 ms.author: erhopf
-ms.openlocfilehash: 40b38fdf2773bd58cf1635d089aec7340b04ce07
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5eba927b2080e7a7f98d6ea9de593edf846c3c02
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214012"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978490"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-with-nodejs"></a>Quickstart: De Translator Text-API gebruiken om een tekenreeks te vertalen met Node.js
 

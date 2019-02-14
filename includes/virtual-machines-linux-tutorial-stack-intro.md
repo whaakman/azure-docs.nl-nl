@@ -4,16 +4,16 @@ ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: b922b5ea225c61948240e40903ac43f56fde3fb5
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 64290aad2d9f98006a715b480be8cb96965abbaf
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227355"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246841"
 ---
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az_group_create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
+Een resourcegroep maken met de opdracht [az group create](/cli/azure/group). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
 
 In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS - oost*.
 
@@ -23,7 +23,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-virtual-machine"></a>Een virtuele machine maken
 
-Maak een VM met de opdracht [az vm create](/cli/azure/vm#az_vm_create). 
+Maak een VM met de opdracht [az vm create](/cli/azure/vm). 
 
 In het volgende voorbeeld wordt een VM gemaakt met de naam *myVM* en worden er SSH-sleutels gemaakt, als deze nog niet bestaan op een standaardsleutellocatie. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`. Met de opdracht wordt *azureuser* ook ingesteld als gebruikersnaam voor de beheerder. Later gebruikt u deze naam om verbinding te maken met de VM. 
 
@@ -55,7 +55,7 @@ Wanneer de virtuele machine is gemaakt, toont de Azure CLI informatie die lijkt 
 
 ## <a name="open-port-80-for-web-traffic"></a>Poort 80 openen voor webverkeer 
 
-Standaard worden alleen SSH-verbindingen toegestaan naar Linux-VM’s die zijn geïmplementeerd in Azure. Omdat deze VM wordt gebruikt als een webserver, moet u poort 80 openen voor verkeer vanaf internet. Gebruik de opdracht [az vm open-port](/cli/azure/vm#az_vm_open_port) om de gewenste poort te openen.  
+Standaard worden alleen SSH-verbindingen toegestaan naar Linux-VM’s die zijn geïmplementeerd in Azure. Omdat deze VM wordt gebruikt als een webserver, moet u poort 80 openen voor verkeer vanaf internet. Gebruik de opdracht [az vm open-port](/cli/azure/vm) om de gewenste poort te openen.  
  
 ```azurecli-interactive 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -63,7 +63,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ## <a name="ssh-into-your-vm"></a>SSH in uw virtuele machine
 
 
-Als u het openbare IP-adres van de VM niet weet, voert u de opdracht [az network public-ip list](/cli/azure/network/public-ip#list) uit. U hebt dit IP-adres nodig voor verschillende latere stappen.
+Als u het openbare IP-adres van de VM niet weet, voert u de opdracht [az network public-ip list](/cli/azure/network/public-ip) uit. U hebt dit IP-adres nodig voor verschillende latere stappen.
 
 
 ```azurecli-interactive

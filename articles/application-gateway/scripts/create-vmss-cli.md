@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: b2485b65c54bdd5dcd523226e17c180bf1eb86a6
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 99d0939b30d04fbd5c0eb7a287105bb4cf27e9f4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734195"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116759"
 ---
 # <a name="manage-web-traffic-using-the-azure-cli"></a>Webverkeer beheren met de Azure CLI
 
@@ -47,12 +47,12 @@ In dit script worden de volgende opdrachten gebruikt om de implementatie te make
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) | Hiermee maakt u een virtueel netwerk. |
-| [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnetwork) | Hiermee maakt u een subnet in een virtueel netwerk. |
+| [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) | Hiermee maakt u een subnet in een virtueel netwerk. |
 | [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest) | Hiermee maakt u het openbare IP-adres voor de toepassingsgateway. |
 | [az network application-gateway create](https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest) | Maak een toepassingsgateway. |
-| [az vmss create](https://docs.microsoft.com/cli/azure/vmss#az-vmss-create) | Hiermee maakt u een schaalset voor virtuele machines. |
+| [az vmss create](https://docs.microsoft.com/cli/azure/vmss) | Hiermee maakt u een schaalset voor virtuele machines. |
 | [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip) | Hiermee haalt u het openbare IP-adres van de toepassingsgateway op. |
 
 ## <a name="next-steps"></a>Volgende stappen

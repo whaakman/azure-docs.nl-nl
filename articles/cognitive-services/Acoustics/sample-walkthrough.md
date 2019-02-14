@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: In deze handleiding wordt de Unity-voorbeeldscène voor Project Acoustics beschreven, met inbegrip van de implementatie naar het bureaublad en VR.
 services: cognitive-services
 author: kegodin
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: sample
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 7d8ba2f25bd53b407ab6860bc57163a79b7d228a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ecd19ec343b2744a70456fd1d3ad226856768d71
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55174258"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55880708"
 ---
 # <a name="unity-sample-walkthrough"></a>Handleiding voor het Unity-voorbeeld
 Dit is een handleiding voor het Project Acoustics-voorbeeld. Voor meer informatie over wat Acoustics Project is, bekijkt u de [Inleiding op Project Acoustics](what-is-acoustics.md). Als u hulp nodig hebt bij het toevoegen van het Project Acoustics-pakket aan een bestaand Unity-project, bekijkt u de handleiding [Aan de slag](getting-started.md).

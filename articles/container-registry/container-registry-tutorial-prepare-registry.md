@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/30/2017
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: db00672c7cbb39002c4a40eb7397af76e4c8189a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 07e328c022e8e81782902445fd8fc6e320625a51
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261310"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978922"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Zelfstudie: Een Azure-containerregister met geo-replicatie voorbereiden
 
@@ -118,7 +118,7 @@ Het Dockerfile dat deel uitmaakt van de voorbeeldopslagplaats laat zien hoe de c
 
 De [Dockerfile][dockerfile] bevindt zich in `./AcrHelloworld/Dockerfile` in de gekloonde bron.
 
-```dockerfile
+```Dockerfile
 FROM microsoft/aspnetcore:2.0 AS base
 # Update <acrName> with the name of your registry
 # Example: uniqueregistryname.azurecr.io
@@ -162,7 +162,7 @@ uniqueregistryname.azurecr.io
 
 Werk vervolgens de regel `ENV DOCKER_REGISTRY` bij met de FQDN van de aanmeldingsserver van uw register. In dit voorbeeld wordt de naam van het voorbeeldregister gebruikt, *uniqueregistryname*:
 
-```dockerfile
+```Dockerfile
 ENV DOCKER_REGISTRY uniqueregistryname.azurecr.io
 ```
 

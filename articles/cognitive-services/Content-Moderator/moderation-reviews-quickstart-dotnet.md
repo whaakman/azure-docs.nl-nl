@@ -1,21 +1,21 @@
 ---
-title: 'Snelstart: Beoordelingen maken met behulp van .NET - Content Moderator'
+title: 'Quickstart: Beoordelingen maken met behulp van .NET - Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Beoordelingen maken met behulp van de Azure Content Moderator SDK voor .NET.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 318d80049caf1328aac1cc4423b0de10df7a8c58
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d6563441285380d0fea468caaacb0130cb259976
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211505"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884348"
 ---
 # <a name="quickstart-create-reviews-using-net"></a>Quickstart: Beoordelingen maken met behulp van .NET
 

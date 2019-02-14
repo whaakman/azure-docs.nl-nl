@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: In deze snelstart detecteert u gezichten in een afbeelding met behulp van de Face-API met Ruby.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: pafarley
-ms.openlocfilehash: 6320e05172673abf809ac7fdbfea544ed74b0019
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b7dbbc328f61b47cb89af2974ad3c428d868d465
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221076"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55857121"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Quickstart: Gezichten in een afbeelding detecteren met de REST API en Ruby
 
@@ -29,9 +29,9 @@ U hebt een abonnementssleutel nodig om het voorbeeld uit te voeren. U kunt abonn
 
 Gebruik de methode [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) om gezichten in een afbeelding te detecteren en gezichtskenmerken te retourneren, waaronder:
 
-* Face ID: de unieke ID die wordt gebruikt in verschillende Face-API-scenario's.
-* Gezichtsrechthoek: de coördinaten die de locatie van het gezicht in de afbeelding aangeven (links, boven, breedte en hoogte).
-* Oriëntatiepunten: een matrix van 27 gezichtsoriëntatiepunten die verwijzen naar de belangrijkste posities van de gezichtsonderdelen.
+* Face ID: De unieke ID die wordt gebruikt in verschillende Face-API-scenario's.
+* Gezichtsrechthoek: De coördinaten die de locatie van het gezicht in de afbeelding aangeven (links, boven, breedte en hoogte).
+* Oriëntatiepunten: Een matrix van 27 gezichtsoriëntatiepunten die verwijzen naar de belangrijkste posities van de gezichtsonderdelen.
 * Gezichtskenmerken zoals leeftijd, geslacht, glimlachintensiteit, hoofdhouding en gezichtshaar.
 
 U kunt het voorbeeld uitvoeren aan de hand van de volgende stappen:

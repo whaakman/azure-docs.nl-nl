@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Gebruik de Knowledge Exploration Service (KES) API om een engine te maken voor een interactieve zoekopdracht in academische publicaties.
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: e2bb5550cfe07064d595151305955d87f9c61050
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: c9c336b9aed06095849f33060ff6969e8b7bfcaf
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819532"
+ms.locfileid: "55881703"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Aan de slag met de Knowledge Exploration Service
 

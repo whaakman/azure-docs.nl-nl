@@ -1,6 +1,6 @@
 ---
-title: Quickstart voor het toevoegen van een gastgebruiker met PowerShell voor Azure Active Directory B2B-samenwerking | Microsoft Docs
-description: In deze quickstart leert u hoe u PowerShell gebruikt voor het verzenden van een uitnodiging naar een externe gebruiker van de Azure AD B2B-samenwerking.
+title: Snelstartgids voor het toevoegen van een gastgebruiker met PowerShell voor Azure Active Directory B2B-samenwerking | Microsoft Docs
+description: In deze snelstartgids leert u hoe u PowerShell gebruikt voor het verzenden van een uitnodiging naar een externe gebruiker van de Azure AD B2B-samenwerking.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -9,16 +9,17 @@ ms.date: 08/28/2018
 ms.author: mimart
 author: msmimart
 ms.reviewer: mal
-ms.openlocfilehash: 28a2177089fb3c93670d61da62815ff67bfd544d
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3cb34fa0552eaa8f0d567ff85843e4b7df3fa967
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094798"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205372"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>Quickstart: Een gastgebruiker toevoegen met PowerShell
 
-Er zijn veel manieren waarop u externe partners voor uw apps en services met Azure Active Directory B2B-samenwerking kunt uitnodigen. In de vorige quickstart hebt u gezien hoe u gastgebruikers rechtstreeks toevoegt in de Azure Active Directory-adminportal. U kunt ook PowerShell gebruiken om gastgebruikers individueel of bulksgewijs toe te voegen. In deze quickstart gebruikt u de opdracht New-AzureADMSInvitation om een gastgebruiker toe te voegen aan uw Azure-tenant.
+Er zijn veel manieren waarop u externe partners voor uw apps en services met Azure Active Directory B2B-samenwerking kunt uitnodigen. In de vorige snelstartgids hebt u gezien hoe u gastgebruikers rechtstreeks toevoegt in de Azure Active Directory-adminportal. U kunt ook PowerShell gebruiken om gastgebruikers individueel of bulksgewijs toe te voegen. In deze snelstartgids gebruikt u de opdracht New-AzureADMSInvitation om een gastgebruiker toe te voegen aan uw Azure-tenant.
 
 Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint. 
 
@@ -103,7 +104,7 @@ Bijvoorbeeld: `Remove-AzureADUser -ObjectId "sanda_fabrikam.com#EXT#@contoso.onm
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze quickstart hebt u één gastgebruiker uitgenodigd en toegevoegd aan uw map met behulp van PowerShell. Hierna leert u hoe u gastgebruikers ook kunt uitnodigen in één bulkbewerking met behulp van PowerShell.
+In deze snelstartgids hebt u één gastgebruiker uitgenodigd en toegevoegd aan uw map met behulp van PowerShell. Hierna leert u hoe u gastgebruikers ook kunt uitnodigen in één bulkbewerking met behulp van PowerShell.
 
 > [!div class="nextstepaction"]
 > [Zelfstudie: Bulksgewijs gebruikers uitnodigen voor Azure AD B2B-samenwerking](tutorial-bulk-invite.md)

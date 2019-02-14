@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5cfda4ddbf51f51d76b4ede2e44f768bd3261780
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 2dc9d72afd14547a091acf64cea2c8f0bad75914
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491753"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234404"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Zelfstudie: Azure Resource Manager-sjablonen met afhankelijke resources maken
 
@@ -114,6 +114,8 @@ Door de afhankelijkheden op te geven, kan Resource Manager de oplossing efficië
 
 ## <a name="deploy-the-template"></a>De sjabloon implementeren
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Er bestaan meerdere methoden voor het implementeren van sjablonen.  In deze zelfstudie gebruikt u Cloud Shell van Azure Portal.
 
 1. Meld u aan bij [Cloud Shell](https://shell.azure.com). 
@@ -140,7 +142,6 @@ Er bestaan meerdere methoden voor het implementeren van sjablonen.  In deze zelf
 7. Voer vanuit Cloud Shell de volgende PowerShell-opdrachten uit. Gebruik een gegenereerd wachtwoord voor het beheerdersaccount van de virtuele machine om de beveiliging te verhogen. Zie [Vereisten](#prerequisites).
 
     ```azurepowershell
-    $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     $adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
@@ -148,13 +149,14 @@ Er bestaan meerdere methoden voor het implementeren van sjablonen.  In deze zelf
     $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
 
     New-AzResourceGroup -Name $resourceGroupName -Location $location
-    New-AzResourceGroupDeployment -Name $deploymentName `
+    New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -adminUsername $adminUsername `
         -adminPassword $adminPassword `
         -dnsLabelPrefix $dnsLabelPrefix `
         -TemplateFile azuredeploy.json
     ```
+
 8. Voer de volgende PowerShell-opdracht uit om de nieuwe virtuele machine weer te geven:
 
     ```azurepowershell

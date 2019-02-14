@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 84860b5098e141bdfbd924d86836bc7b48b0ce8f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 97734ad6119e89c00634035b1646bc29ac6549bd
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754214"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237849"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Zelfstudie: Een MongoDB-, Express-, AngularJS- en Node.js- (MEAN-)stack maken op een virtuele Linux-machine in Azure
 
@@ -134,7 +134,7 @@ Met [MongoDB](http://www.mongodb.com) worden gegevens opgeslagen in flexibele JS
 
 6. Maak een map met de naam *Books* en voeg er een bestand aan toe met de naam *server.js*, dat de configuratie voor de webserver bevat.
 
-    ```node.js
+    ```javascript
     var express = require('express');
     var bodyParser = require('body-parser');
     var app = express();
@@ -159,7 +159,7 @@ Met [MongoDB](http://www.mongodb.com) worden gegevens opgeslagen in flexibele JS
 
 2. Maak in de map *Books* een map met de naam *apps* en voeg een bestand toe met de naam *routes.js* en waarin de express-routes zijn gedefinieerd.
 
-    ```node.js
+    ```javascript
     var Book = require('./models/book');
     module.exports = function(app) {
       app.get('/book', function(req, res) {
@@ -201,7 +201,7 @@ Met [MongoDB](http://www.mongodb.com) worden gegevens opgeslagen in flexibele JS
 
 3. Maak in de map *apps* een map met de naam *models* en voeg een bestand toe met de naam *book.js* en waarin de configuratie van het boekmodel is gedefinieerd.  
 
-    ```node.js
+    ```javascript
     var mongoose = require('mongoose');
     var dbHost = 'mongodb://localhost:27017/test';
     mongoose.connect(dbHost);
@@ -223,7 +223,7 @@ Met [MongoDB](http://www.mongodb.com) worden gegevens opgeslagen in flexibele JS
 
 1. Wijzig de directory weer in *Books* (`cd ../..`), maak een map met de naam *public* en voeg een bestand toe met de naam *script.js* en waarin de configuratie voor de controller is gedefinieerd.
 
-    ```node.js
+    ```javascript
     var app = angular.module('myApp', []);
     app.controller('myCtrl', function($scope, $http) {
       $http( {

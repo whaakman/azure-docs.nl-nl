@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/30/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: ce44d4c066183ff796c8efa1dceb20dff73868ee
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ea865fe246bcb414dd1ab3f83b7135989bc0adf3
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192388"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894901"
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Toegang tot gegevens van een toepassing in de cloud beveiligen
 
@@ -50,7 +50,7 @@ az storage container set-permission \ --account-name $blobStorageAccount \ --acc
 
 In deel één van deze serie zelfstudies, werden door de webtoepassing afbeeldingen van een openbare container weergegeven. In dit deel van de serie gaat u [Shared Access Signature-tokens (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) gebruiken om de miniatuurafbeeldingen op te halen. Met SAS-tokens kunt u beperkte toegang verlenen tot een container of blob op basis van IP, protocol, tijdsinterval of toegestane rechten.
 
-In dit voorbeeld maakt de opslagplaats van de broncode gebruik van de vertakking `sasTokens` die een bijgewerkt codevoorbeeld bevat. Verwijder de bestaande GitHub-implementatie met [az webapp deployment source delete](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_delete). Configureer vervolgens GitHub-implementatie naar de webtoepassing met de opdracht [az webapp deployment source config](/cli/azure/webapp/deployment/source).  
+In dit voorbeeld maakt de opslagplaats van de broncode gebruik van de vertakking `sasTokens` die een bijgewerkt codevoorbeeld bevat. Verwijder de bestaande GitHub-implementatie met [az webapp deployment source delete](/cli/azure/webapp/deployment/source). Configureer vervolgens GitHub-implementatie naar de webtoepassing met de opdracht [az webapp deployment source config](/cli/azure/webapp/deployment/source).  
 
 In de volgende opdracht is `<web-app>` de naam van uw web-app.  
 
@@ -146,7 +146,7 @@ SSE versleutelt automatisch gegevens in alle prestatielagen (Standaard en Premiu
 
 ## <a name="enable-https-only"></a>Alleen-HTTPS inschakelen
 
-Om ervoor te zorgen dat aanvragen voor gegevens naar en van een opslagaccount beveiligd zijn, kunt u aanvragen beperken tot alleen-HTTPS. Werk het vereiste protocol voor het opslagaccount bij met de opdracht [az storage account update](/cli/azure/storage/account#az_storage_account_update).
+Om ervoor te zorgen dat aanvragen voor gegevens naar en van een opslagaccount beveiligd zijn, kunt u aanvragen beperken tot alleen-HTTPS. Werk het vereiste protocol voor het opslagaccount bij met de opdracht [az storage account update](/cli/azure/storage/account).
 
 ```azurecli-interactive
 az storage account update --resource-group myresourcegroup --name <storage-account-name> --https-only true

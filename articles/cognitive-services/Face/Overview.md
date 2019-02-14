@@ -3,18 +3,18 @@ title: Wat is de Face-API?
 titleSuffix: Azure Cognitive Services
 description: Informatie over het gebruik van de Face-service voor het detecteren en analyseren van gezichten op afbeeldingen.
 author: SteveMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
 ms.date: 10/29/2018
 ms.author: sbowles
-ms.openlocfilehash: 361d80bcca0b0a151e9fcdaab938de0c8ff5f8bc
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 655234bfec650ef027e325ff8df23fe91eecfd43
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220107"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861049"
 ---
 # <a name="what-is-the-azure-face-api"></a>Wat is de Azure Face-API?
 

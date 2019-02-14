@@ -4,20 +4,20 @@ titlesuffix: Azure Cognitive Services
 description: Maak een project, voeg labels toe, upload afbeeldingen, train uw project en detecteer objecten met de .NET SDK met C#.
 services: cognitive-services
 author: areddish
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 10/31/2018
 ms.author: areddish
-ms.openlocfilehash: 48f5bef06fddfc0df796e68be9de8b75a76cd337
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9d8340d505308753855fa0fcd286949e80d3ecaa
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211055"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55879272"
 ---
-# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-net-sdk"></a>Snelstart: een objectdetectieproject maken met de .NET SDK van Custom Vision
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-net-sdk"></a>Quickstart: een objectdetectieproject maken met de .NET SDK van Custom Vision
 
 Dit artikel biedt informatie en voorbeeldcode om u op weg te helpen met de Custom Vision-SDK voor C# om een objectdetectiemodel te maken. Wanneer u het project hebt gemaakt, kunt u gelabelde regio's toevoegen, afbeeldingen uploaden, het project trainen, de standaardeindpunt-URL voor voorspellingen ophalen en het eindpunt gebruiken om afbeeldingen programmatisch te testen. Gebruik dit voorbeeld als een sjabloon om uw eigen .NET-toepassing te maken. 
 

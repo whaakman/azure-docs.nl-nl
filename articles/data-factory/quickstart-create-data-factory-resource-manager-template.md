@@ -12,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 11/28/2018
 ms.author: douglasl
-ms.openlocfilehash: 279588e63000883d60b159f56e8c0b4686dee5b4
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: bb6c3281ffc434bd31f901b2b7f6e540f893ca76
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888767"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001899"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Zelfstudie: een Azure Data Factory maken op basis van een Azure Resource Manager-sjabloon
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](v1/data-factory-build-your-first-pipeline-using-arm.md)
 > * [Huidige versie](quickstart-create-data-factory-resource-manager-template.md)
@@ -32,9 +33,11 @@ In deze QuickStart wordt beschreven hoe u een Azure Resource Manager-sjabloon ge
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)]
 
 ### <a name="azure-powershell"></a>Azure PowerShell
+
 Installeer de nieuwste Azure PowerShell-modules met de instructies in [Azure PowerShell installeren en configureren](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="resource-manager-templates"></a>Resource Manager-sjablonen
+
 Zie [Azure Resource Manager-sjablonen maken](../azure-resource-manager/resource-group-authoring-templates.md) voor meer informatie over Azure Resource Manager-sjablonen.
 
 In de volgende sectie vindt u de volledige Resource Manager-sjabloon voor het definiëren van Data Factory-entiteiten zodat u de zelfstudie snel kunt doorlopen en de sjabloon kunt testen. Raadpleeg de sectie [Data Factory-entiteiten in de sjabloon](#data-factory-entities-in-the-template) om te lezen hoe elke Data Factory-entiteit wordt gedefinieerd.
@@ -42,6 +45,7 @@ In de volgende sectie vindt u de volledige Resource Manager-sjabloon voor het de
 Zie [Microsoft.DataFactory resource types](/azure/templates/microsoft.datafactory/allversions) (Microsoft.DataFactory-resourcetypen) voor informatie over de JSON-syntaxis en de eigenschappen voor Data Factory-resources in een sjabloon.
 
 ## <a name="data-factory-json"></a>JSON van data factory
+
 Maak een JSON-bestand met de naam **ADFTutorialARM.json** in de map **C:\ADFTutorial** en voeg de volgende inhoud toe:
 
 ```json
@@ -265,6 +269,7 @@ Maak een JSON-bestand met de naam **ADFTutorialARM.json** in de map **C:\ADFTuto
 ```
 
 ## <a name="parameters-json"></a>JSON-bestand met parameters
+
 Maak een JSON-bestand met de naam **ADFTutorialARM-Parameters.json** dat parameters voor de Azure Resource Manager-sjabloon bevat.
 
 > [!IMPORTANT]
@@ -319,6 +324,7 @@ Maak een JSON-bestand met de naam **ADFTutorialARM-Parameters.json** dat paramet
 > Mogelijk beschikt u over afzonderlijke JSON-bestanden met parameters voor ontwikkel-, test- en productieomgevingen die u met dezelfde JSON-sjabloon voor Data Factory kunt gebruiken. U kunt met behulp van een Power Shell-script het implementeren van Data Factory-entiteiten in deze omgevingen automatiseren.
 
 ## <a name="deploy-data-factory-entities"></a>Data Factory-entiteiten implementeren
+
 Voer de volgende opdracht uit in PowerShell om Data Factory-entiteiten te implementeren met behulp van de Resource Manager-sjabloon die u eerder in deze QuickStart hebt gemaakt.
 
 ```PowerShell
@@ -327,7 +333,7 @@ New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFT
 
 De uitvoer ziet eruit als in het volgende voorbeeld:
 
-```
+```console
 DeploymentName          : MyARMDeployment
 ResourceGroupName       : ADFTutorialResourceGroup
 ProvisioningState       : Succeeded
@@ -369,7 +375,7 @@ De geïmplementeerde trigger is gestopt. Een van de manieren om de trigger te st
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
     ```
-1. Maak een variabele voor de naam van de data factory. Geef dezelfde naam op die u hebt opgegeven in het bestand ADFTutorialARM-Parameters.json.
+2. Maak een variabele voor de naam van de data factory. Geef dezelfde naam op die u hebt opgegeven in het bestand ADFTutorialARM-Parameters.json.
 
     ```powershell
     $dataFactoryName = "<yourdatafactoryname>"
@@ -404,7 +410,7 @@ De geïmplementeerde trigger is gestopt. Een van de manieren om de trigger te st
     
     Hier volgt een voorbeeld van uitvoer:
     
-    ```
+    ```console
     Confirm
     Are you sure you want to start trigger 'ArmTemplateTestTrigger' in data factory 'ARMFactory1128'?
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
@@ -418,7 +424,7 @@ De geïmplementeerde trigger is gestopt. Een van de manieren om de trigger te st
     
     Hier volgt een voorbeeld van uitvoer:
     
-    ```
+    ```console
     TriggerName       : ArmTemplateTestTrigger
     ResourceGroupName : ADFTutorialResourceGroup
     DataFactoryName   : ARMFactory1128
@@ -427,31 +433,37 @@ De geïmplementeerde trigger is gestopt. Een van de manieren om de trigger te st
     ```
 
 ## <a name="monitor-the-pipeline"></a>De pijplijn bewaken
+
 1. Nadat u zich hebt aangemeld bij [Azure Portal](https://portal.azure.com/), klikt u op **Alle services**, zoekt u met een trefwoord zoals **gegeve**, en selecteert u **Gegevensfabrieken**.
 
     ![Door het menu met data factory's bladeren](media/quickstart-create-data-factory-resource-manager-template/browse-data-factories-menu.png)
+
 2. Klik op de pagina **Data factory's** op de data factory die u hebt gemaakt. Filter de lijst zo nodig op de naam van uw data factory.
 
     ![Data factory selecteren](media/quickstart-create-data-factory-resource-manager-template/select-data-factory.png)
+
 3. Klik op de pagina Data factory op de tegel **Controleren en beheren**.
 
     ![De tegel Controleren en beheren](media/quickstart-create-data-factory-resource-manager-template/monitor-manage-tile.png)
+
 4. De **toepassing voor gegevensintegratie** moet worden geopend op een afzonderlijk tabblad in de webbrowser. Als het controletabblad niet actief is, schakelt u over naar het **controletabblad**. U ziet dat de uitvoering van de pijplijn is geactiveerd door een **geplande trigger**.
 
     ![De uitvoering van de pijplijn controleren](media/quickstart-create-data-factory-resource-manager-template/monitor-pipeline-run.png)
 
     > [!IMPORTANT]
     > Zoals u ziet, wordt de pijplijn alleen uitgevoerd op het hele uur (bijvoorbeeld om 4:00 uur, 5:00 uur, 6:00 uur, enzovoort). Klik op **Vernieuwen** op de werkbalk om de lijst te vernieuwen wanneer het volgende uur wordt bereikt.
+
 5. Klik op de koppeling in de kolom **Acties**.
 
     ![Koppeling voor pijplijnacties](media/quickstart-create-data-factory-resource-manager-template/pipeline-actions-link.png)
+
 6. U ziet de uitvoering van de activiteiten die zijn gekoppeld aan de pijplijnuitvoering. In deze QuickStart heeft de pijplijn slechts één activiteit en wel van het type Kopiëren. Daarom ziet u een uitvoering voor die activiteit.
 
     ![Uitvoering van activiteiten](media/quickstart-create-data-factory-resource-manager-template/activity-runs.png)
-1. Klik op de koppeling onder de kolom **Uitvoer**. U ziet de uitvoer van de kopieerbewerking in het venster **Uitvoer**. Klik op de knop Maximaliseren om de volledige uitvoer te bekijken. U kunt het gemaximaliseerde uitvoervenster sluiten.
+7. Klik op de koppeling onder de kolom **Uitvoer**. U ziet de uitvoer van de kopieerbewerking in het venster **Uitvoer**. Klik op de knop Maximaliseren om de volledige uitvoer te bekijken. U kunt het gemaximaliseerde uitvoervenster sluiten.
 
     ![Uitvoervenster](media/quickstart-create-data-factory-resource-manager-template/output-window.png)
-7. Stop de trigger zodra u ziet dat de uitvoering is geslaagd/mislukt. De trigger voert de pijplijn eenmaal per uur uit. Bij elke uitvoering kopieert de pijplijn hetzelfde bestand uit de invoermap naar de uitvoermap. Als u de trigger wilt stoppen, voert u de volgende opdracht uit in het PowerShell-venster.
+8. Stop de trigger zodra u ziet dat de uitvoering is geslaagd/mislukt. De trigger voert de pijplijn eenmaal per uur uit. Bij elke uitvoering kopieert de pijplijn hetzelfde bestand uit de invoermap naar de uitvoermap. Als u de trigger wilt stoppen, voert u de volgende opdracht uit in het PowerShell-venster.
     
     ```powershell
     Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
@@ -460,6 +472,7 @@ De geïmplementeerde trigger is gestopt. Een van de manieren om de trigger te st
 [!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)]
 
 ## <a name="data-factory-entities-in-the-template"></a> JSON-definities voor entiteiten
+
 De volgende Data Factory-entiteiten worden in de JSON-sjabloon gedefinieerd:
 
 - [Een gekoppelde Azure Storage-service](#azure-storage-linked-service)
@@ -469,6 +482,7 @@ De volgende Data Factory-entiteiten worden in de JSON-sjabloon gedefinieerd:
 - [Trigger](#trigger)
 
 #### <a name="azure-storage-linked-service"></a>Een gekoppelde Azure Storage-service
+
 De AzureStorageLinkedService koppelt uw Azure-opslagaccount aan de gegevensfactory. U hebt een container gemaakt en gegevens naar dit opslagaccount geüpload als onderdeel van de vereisten. In deze sectie geeft u de naam en sleutel van uw Azure Storage-account op. Zie [Een gekoppelde Azure Storage-service](connector-azure-blob-storage.md#linked-service-properties) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een gekoppelde Azure Storage-service.
 
 ```json
@@ -495,6 +509,7 @@ De AzureStorageLinkedService koppelt uw Azure-opslagaccount aan de gegevensfacto
 De tekenreeks connectionString maakt gebruik van de parameters storageAccountName en storageAccountKey. De waarden voor deze parameters worden doorgegeven met behulp van een configuratiebestand. De definitie maakt ook gebruik van de variabelen azureStorageLinkedService en dataFactoryName die zijn gedefinieerd in de sjabloon.
 
 #### <a name="azure-blob-input-dataset"></a>Azure Blob-invoergegevensset
+
 De gekoppelde Azure Storage-service geeft de verbindingsreeks op die de Data Factory-service tijdens runtime gebruikt om verbinding te maken met uw Azure-opslagaccount. In de gegevenssetdefinitie van de Azure-blob geeft u de namen op van de blobcontainer, map en het bestand met de invoergegevens op. Zie [Eigenschappen van de Azure Blob-gegevensset](connector-azure-blob-storage.md#dataset-properties) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een Azure Blob-gegevensset.
 
 ```json
@@ -518,10 +533,10 @@ De gekoppelde Azure Storage-service geeft de verbindingsreeks op die de Data Fac
         }
     }
 },
-
 ```
 
 #### <a name="azure-blob-output-dataset"></a>Azure Blob-uitvoergegevensset
+
 U geeft de naam op van de map in de Azure-blobopslag die de gekopieerde gegevens uit de invoermap bevat. Zie [Eigenschappen van de Azure Blob-gegevensset](connector-azure-blob-storage.md#dataset-properties) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een Azure Blob-gegevensset.
 
 ```json
@@ -548,6 +563,7 @@ U geeft de naam op van de map in de Azure-blobopslag die de gekopieerde gegevens
 ```
 
 #### <a name="data-pipeline"></a>Gegevenspijplijn
+
 U definieert een pijplijn waarmee gegevens uit de ene Azure Blob-gegevensset naar de andere Azure Blob-gegevensset worden gekopieerd. Zie [JSON-bestand voor een pijplijn](concepts-pipelines-activities.md#pipeline-json) voor beschrijvingen van JSON-elementen die worden gebruikt voor het definiëren van een pijplijn in dit voorbeeld.
 
 ```json
@@ -587,6 +603,7 @@ U definieert een pijplijn waarmee gegevens uit de ene Azure Blob-gegevensset naa
 ```
 
 #### <a name="trigger"></a>Trigger
+
 U definieert een trigger die de pijplijn eenmaal per uur uitvoert. De geïmplementeerde trigger is gestopt. Start de trigger via de cmdlet **Start-AzureRmDataFactoryV2Trigger**. Zie het artikel [Pijplijnen uitvoeren en triggers](concepts-pipeline-execution-triggers.md#triggers) voor meer informatie over triggers.
 
 ```json
@@ -624,6 +641,7 @@ U definieert een trigger die de pijplijn eenmaal per uur uitvoert. De geïmpleme
 ```
 
 ## <a name="reuse-the-template"></a>De sjabloon hergebruiken
+
 U hebt in de zelfstudie een sjabloon voor het definiëren van Data Factory-entiteiten en een sjabloon voor het doorgeven van waarden voor parameters gemaakt. Als u dezelfde sjabloon wilt gebruiken voor het implementeren van Data Factory-entiteiten in verschillende omgevingen, maakt u een parameterbestand voor elke omgeving en gebruikt u dit bij het implementeren in die omgeving.
 
 Voorbeeld:
@@ -635,9 +653,11 @@ New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFT
 
 New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
 ```
+
 De eerste opdracht maakt gebruik van het parameterbestand voor de ontwikkelomgeving, de tweede voor de testomgeving en de derde voor de productieomgeving.
 
 U kunt de sjabloon ook hergebruiken om herhaalde taken uit te voeren. U kunt bijvoorbeeld veel data factory's maken met een of meer pijplijnen die dezelfde logica implementeren, waarbij elke data factory echter gebruikmaakt van andere Azure Storage-accounts. In dit scenario gebruikt u dezelfde sjabloon in dezelfde omgeving (voor het ontwikkelen, testen of de productie) met andere parameterbestanden om de gegevensfactory's te maken.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Met de pijplijn in dit voorbeeld worden gegevens gekopieerd van de ene locatie naar een andere locatie in een Azure Blob-opslag. Doorloop de [zelfstudies](tutorial-copy-data-dot-net.md) voor meer informatie over het gebruiken van Data Factory in andere scenario's.

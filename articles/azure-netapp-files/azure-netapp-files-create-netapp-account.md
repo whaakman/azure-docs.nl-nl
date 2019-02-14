@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: eda5f21a535c6256d534bfdaa6cf30ae710ba075
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 47b9d25f8db2241bb578528780e28f43d56371e5
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413180"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963077"
 ---
 # <a name="create-a-netapp-account"></a>Een NetApp-account maken
 Als u een NetApp-account maakt, kunt u een capaciteitspool instellen en vervolgens een volume maken. U gebruikt de Azure NetApp Files-blade om een nieuw NetApp-account te maken.
@@ -31,8 +31,8 @@ U moet uw abonnement hebben geregistreerd voor het gebruik van de NetApp-resourc
 
 ## <a name="steps"></a>Stappen 
 
-1. Zoek in uw preview-uitnodiging de URL voor de preview van Azure Portal en meld u aan bij de portal. 
-2.  Verkrijg toegang tot de Azure NetApp Files-blade via een van de volgende methoden:  
+1. Meld u aan bij Azure Portal. 
+2. Verkrijg toegang tot de Azure NetApp Files-blade via een van de volgende methoden:  
   * Zoek naar **Azure NetApp Files** in het zoekvak van de Azure-portal.  
   * Klik in de navigatie op **Alle services** en filter vervolgens op Azure NetApp Files.  
 
@@ -50,7 +50,6 @@ U moet uw abonnement hebben geregistreerd voor het gebruik van de NetApp-resourc
     Gebruik een bestaande resourcegroep of maak een nieuwe.
   * **Locatie**  
     Selecteer de regio waarin u wilt dat het account en zijn onderliggende resources zich bevinden.  
-    De Azure NetApp Files-service wordt momenteel alleen ondersteund in de regio VS - oost.  
 
     ![Nieuw NetApp-account](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)
 

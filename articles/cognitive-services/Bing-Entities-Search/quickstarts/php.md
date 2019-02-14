@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Gebruik deze quickstart om een aanvraag naar de Bing Entity Search REST-API te verzenden via PHP en een JSON-antwoord te ontvangen.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 8d963c0de272b29ab592536802ad23387a9b8dad
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: d2ec75f233984cdce462ff7b05bbe97e62daeb65
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753432"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55866488"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>Quickstart: Een zoekaanvraag verzenden naar de Bing Entity Search REST-API met PHP
 
@@ -152,5 +152,5 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 > [!div class="nextstepaction"]
 > [Een web-app van één pagina maken](../tutorial-bing-entities-search-single-page-app.md).
 
-* [Wat is de Bing Entity Search-API?](../overview.md )
-* [Naslaghandleiding Bing Entity Search-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+* [Wat is de Bing Entiteiten zoeken-API?](../overview.md )
+* [Naslaghandleiding Bing Entiteiten zoeken-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
