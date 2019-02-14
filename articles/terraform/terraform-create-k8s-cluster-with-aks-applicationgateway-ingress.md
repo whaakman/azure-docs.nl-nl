@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 1/10/2019
-ms.openlocfilehash: 2235c281b5b25390838a8f201481cfbdc9e5c223
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6add7323fdbcf07681e8566437632aa6679828e4
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478873"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891978"
 ---
 # <a name="create-a-kubernetes-cluster-with-application-gateway-ingress-controller-using-azure-kubernetes-service-and-terraform"></a>Een Kubernetes-cluster maken met een Application Gateway-controller voor inkomend verkeer, met behulp van Azure Kubernetes Service en Terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) beheert uw gehoste Kubernetes-omgeving. Met AKS kunt u snel en eenvoudig in containers geplaatste toepassingen implementeren en beheren, zonder dat u kennis hoeft te hebben van het indelen van containers. Het verlicht ook de last van actieve bewerkingen en onderhoud door inrichten, upgraden en bronnen op aanvraag schalen mogelijk te maken, zonder uw toepassingen offline te brengen.
@@ -35,7 +35,7 @@ In deze zelfstudie leert u hoe u de volgende taken uitvoert bij het maken van ee
 
 - **Terraform configureren**: Volg de aanwijzingen in het artikel [Terraform en toegang tot Azure configureren](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **Azure-service-principal**: volg de aanwijzingen in de sectie **De service-principal maken** in het artikel [Een Azure-service-principal maken met de Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Noteer de waarden voor appId, displayName en password.
+- **Azure-service-principal**: volg de aanwijzingen in de sectie **De service-principal maken** in het artikel [Een Azure-service-principal maken met de Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Noteer de waarden voor appId, displayName en password.
     - Noteer de Object-id van de service-principal die wordt weergegeven wanneer u de volgende opdracht hebt uitgevoerd
 
     ```bash
@@ -617,7 +617,7 @@ In deze sectie ziet u hoe u de opdracht `terraform init` gebruikt om de resource
 
     ![Voorbeeld van de resultaten van de opdracht 'terraform plan'](./media/terraform-k8s-cluster-appgw-with-tf-aks/terraform-plan-complete.png)
 
-1. Voer de opdracht `terraform apply` uit om het plan voor het maken van het Kubernetes-cluster toe te passen. Het proces voor het maken van een Kubernetes-cluster kan enige minuten duren, waardoor er een time-out kan optreden voor de Cloud Shell-sessie. Als er een time-out optreedt voor de Cloud Shell-sessie, kunt u de stappen in de sectie [Herstellen na een time-out van Cloud Shell](#recover-from-a-dloud-shell-timeout) volgen zodat u de zelfstudie kunt voltooien.
+1. Voer de opdracht `terraform apply` uit om het plan voor het maken van het Kubernetes-cluster toe te passen. Het proces voor het maken van een Kubernetes-cluster kan enige minuten duren, waardoor er een time-out kan optreden voor de Cloud Shell-sessie. Als er een time-out optreedt voor de Cloud Shell-sessie, kunt u de stappen in de sectie 'Herstellen na een time-out van Cloud Shell' volgen zodat u de zelfstudie kunt voltooien.
 
     ```bash
     terraform apply out.plan

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/09/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: 18bfdaaf75230cf91ea8f786188b9de9f7a6a5be
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 331bf57c415922a6686ba733b5fbcee24699a152
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696727"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118255"
 ---
 # <a name="create-a-vm-with-a-virtual-hard-disk"></a>Een virtuele machine met een virtuele harde schijf maken
 
@@ -62,7 +62,7 @@ Dit script gebruikt de volgende opdrachten voor het maken van een resourcegroep,
 | [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob) | Hiermee maakt u een blob in de container door de virtuele harde schijf te uploaden. |
 | [az vm list](https://docs.microsoft.com/cli/azure/vm) | Gebruikt met `--query` om te controleren of de naam van de virtuele machine in gebruik is. | 
 | [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | Hiermee maakt u de virtuele machines. |
-| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm-ip-addresses) | Hiermee haalt u het IP-adres van de gemaakte virtuele machine op. |
+| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az-vm-list-ip-addresses) | Hiermee haalt u het IP-adres van de gemaakte virtuele machine op. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

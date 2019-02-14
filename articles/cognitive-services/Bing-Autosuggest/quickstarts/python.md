@@ -1,21 +1,21 @@
 ---
-title: 'Snelstart: Automatische suggestie-API voor Bing, Python'
+title: 'Quickstart: Automatische suggestie-API voor Bing, Python'
 titlesuffix: Azure Cognitive Services
 description: Informatie en codevoorbeelden om snel aan de slag te gaan met de Automatische suggestie-API voor Bing.
 services: cognitive-services
 author: v-jaswel
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 1b3bb50ac45c748ba54fa4cab21836fd8e7a299b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 94903d00d47eee70f974fb8bf79703f49cdc08fd
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156783"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868154"
 ---
 # <a name="quickstart-for-bing-autosuggest-api-with-python"></a>Snelstart voor Automatische suggestie-API voor Bing met Python
 

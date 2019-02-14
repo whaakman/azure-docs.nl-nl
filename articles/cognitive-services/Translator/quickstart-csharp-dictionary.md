@@ -1,21 +1,21 @@
 ---
-title: 'Snelstart: Woorden opzoeken met een tweetalige woordenlijst, C# - Translator Text-API'
+title: 'Quickstart: Woorden opzoeken met een tweetalige woordenlijst, C# - Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: In deze quickstart leert u hoe u met behulp van de Translator Text-API alternatieve vertalingen vindt voor een term evenals gebruiksvoorbeelden van deze alternatieve vertalingen.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: a51485e383be4c7a492328064d0afcf92a385242
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7ab37122697170d62789ef5872a2815cd8c55bb0
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218628"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884678"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-c"></a>Quickstart: Woorden opzoeken in een tweetalige woordenlijst met C#
 

@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: a97bcf371efc42ff6ff12ba5921eba53abf519bc
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: cd97c61e7493249785293ae331713ba1a98efee3
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302251"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55985410"
 ---
 ## <a name="run-image-from-registry"></a>Installatiekopie vanuit register uitvoeren
 
 U kunt nu de `hello-world:v1`-containerinstallatiekopie uit het containerregister ophalen en deze uitvoeren met behulp van [docker run][docker-run]:
 
-```Docker
+```
 docker run <acrLoginServer>/hello-world:v1  
 ```
 

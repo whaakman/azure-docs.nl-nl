@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 7ed8b96a528d56b28262936c4b200762b3e93b8e
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 09eaf9465ec3912dea6e1f3ee1693f6bfed50abc
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302241"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55985411"
 ---
 ## <a name="push-image-to-registry"></a>Installatiekopie pushen naar register
 
 Als u een installatiekopie naar een Azure Container Registry wilt pushen, moet u eerst over een installatiekopie beschikken. Als u nog geen lokale containerinstallatiekopieën hebt, voert u de volgende [docker pull][docker-pull]-opdracht uit om een bestaande installatiekopie op te halen uit Docker Hub. Haal voor dit voorbeeld de installatiekopie `hello-world` op.
 
-```Docker
+```
 docker pull hello-world
 ```
 
@@ -27,19 +27,19 @@ Voordat u een installatiekopie naar het register kunt pushen, moet u deze taggen
 
 Label de installatiekopie met de opdracht [docker tag][docker-tag]. Vervang `<acrLoginServer>` door de aanmeldingsnaam van het ACR-exemplaar.
 
-```Docker
+```
 docker tag hello-world <acrLoginServer>/hello-world:v1
 ```
 
 Gebruik ten slotte [docker push][docker-push] om de installatiekopie naar de ACR-instantie te pushen. Vervang `<acrLoginServer>` door de aanmeldingsnaam van het ACR-exemplaar. In dit voorbeeld wordt de **hello-world**-opslagplaats met de `hello-world:v1`-installatiekopie gemaakt.
 
-```Docker
+```
 docker push <acrLoginServer>/hello-world:v1
 ```
 
 Nadat u de installatiekopie naar uw containerregister hebt gepusht, verwijdert u de `hello-world:v1`-installatiekopie uit uw lokale Docker-omgeving. (Merk op dat deze [docker rmi][docker-rmi]-opdracht de installatiekopie niet verwijdert uit de **hello-world**-opslagplaats in uw Azure-containerregister.)
 
-```Docker
+```
 docker rmi <acrLoginServer>/hello-world:v1
 ```
 

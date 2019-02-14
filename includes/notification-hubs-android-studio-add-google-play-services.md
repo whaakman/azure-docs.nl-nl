@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/05/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: bc920493b32d500602a5b683c098d23aff855150
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: fb27386881e89cd9056d0efccb7d3c301867bd83
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55823189"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965984"
 ---
 1. Selecteer in **Android Studio** in het menu de optie **Hulpprogramma’s**, en selecteer **SDK Manager**. 
 2. Selecteer de doelversie van de Android SDK die wordt gebruikt in het project, en selecteer **Pakketgegevens weergeven**. 
@@ -29,7 +29,7 @@ ms.locfileid: "55823189"
 4. Selecteer **OK** om het dialoogvenster **Instellingen voor nieuwe projecten** te sluiten.  
 5. Open het bestand `build.gradle` in de **app**-map en voeg deze regel toe onder `dependencies`. 
 
-    ```text
+    ```gradle
     implementation 'com.google.android.gms:play-services-gcm:16.0.0'
     ```
 5. Selecteer in de werkbalk het pictogram **Nu synchroniseren**.
