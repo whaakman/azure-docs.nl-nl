@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 02/13/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 7fb1712ee67ef6acfb7d8a059f9db8b88ce9ccac
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9ea62d731cf0c16c17f3c2e4f3e1954661289934
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863327"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245538"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Best practices van een kennisdatabase QnA Maker
 De [kennisdatabase ontwikkelingscyclus](../Concepts/development-lifecycle-knowledge-base.md) helpt u over het beheren van uw KB van begin tot einde. Gebruik deze aanbevolen procedures te verbeteren van uw knowledge base en biedt betere resultaten van uw toepassing/chat bot-eindgebruikers.
@@ -74,7 +74,7 @@ De standaard-betrouwbaarheidsscore die wordt gebruikt als een drempelwaarde is 5
 [Metagegevens](../How-To/edit-knowledge-base.md) voegt de mogelijkheid om de resultaten van de gebruikersquery van een op basis van metagegevenstags vast te stellen. De knowledge base-antwoord kan verschillen op basis van de metadata-tag, zelfs als de query hetzelfde is. Bijvoorbeeld, *"waar is vervangende domeinpagina zich"* een ander antwoord kan hebben als de locatie van de vertakking restaurant - dat wil zeggen, de metagegevens is *locatie: Seattle* versus *locatie: Redmond*.
 
 ### <a name="use-synonyms"></a>Synoniemen gebruiken
-Hoewel er enkele ondersteuning van synoniemen in het Engels, gebruikt u [wijzigingen in word](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) synoniemen toevoegen aan trefwoorden die andere vorm. Synoniemen moeten worden toegevoegd op de QnA Maker-serviceniveau en gedeeld door alle knowledge bases in de service.
+Hoewel er enkele ondersteuning van synoniemen in het Engels, gebruikt u niet-hoofdlettergevoelige [wijzigingen in word](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) synoniemen toevoegen aan trefwoorden die andere vorm. Synoniemen moeten worden toegevoegd op de QnA Maker-serviceniveau en gedeeld door alle knowledge bases in de service.
 
 |Oorspronkelijke word|Synoniemen|
 |--|--|

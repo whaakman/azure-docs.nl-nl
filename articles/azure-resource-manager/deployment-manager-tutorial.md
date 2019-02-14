@@ -13,14 +13,16 @@ ms.devlang: na
 ms.date: 11/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 66e913f6d461d2671bd217745a9d128e24c1a60c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 5c88bf00ed1f68e4ddab6175e86a46560c802744
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820926"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238212"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Zelfstudie: Azure Deployment Manager gebruiken met Resource Manager-sjablonen (beperkte preview)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Meer informatie over het gebruik van [Azure Deployment Manager](./deployment-manager-overview.md) om uw toepassingen in meerdere regio's te implementeren. Als u Deployment Manager wilt gebruiken, moet u twee sjablonen maken:
 
@@ -274,7 +276,7 @@ U maakt een parameterbestand dat wordt gebruikt in combinatie met de implementat
 2. Vul de parameterwaarden in:
 
     - **namePrefix**: voer een tekenreeks met 4-5 tekens in. Dit voorvoegsel wordt gebruikt om voor Azure unieke resourcenamen te maken.
-    - **azureResourceLocation**: Momenteel kunnen Azure Deployment Manager-resources, met inbegrip van de implementatie, alleen worden gemaakt in **US - centraal** of **US - oost 2**.
+    - **azureResourceLocation**: Momenteel kunnen Azure Deployment Manager-resources, met inbegrip van de implementatie, alleen worden gemaakt in US - centraal of **US - oost 2**.
     - **artifactSourceSASLocation**: de SAS-URI naar de hoofdmap (de blobcontainer) waar service-eenheidsjabloon- en parameterbestanden worden opgeslagen voor implementatie.  Zie [De artefacten voorbereiden](#prepare-the-artifacts).
     - **binaryArtifactRoot**: gebruik in deze zelfstudie **binaries/1.0.0.0**, tenzij u de mapstructuur van de artefacten wijzigt.
     - **managedIdentityID**: voer de door de gebruiker toegewezen beheerde identiteit in. Zie [Door de gebruiker toegewezen beheerde identiteit maken](#create-the-user-assigned-managed-identity). De syntaxis is:
@@ -293,17 +295,15 @@ Azure PowerShell kan worden gebruikt om de sjablonen te implementeren.
 1. Voer het script uit om de servicetopologie te implementeren.
 
     ```azurepowershell-interactive
-    $deploymentName = "<Enter a Deployment Name>"
     $resourceGroupName = "<Enter a Resource Group Name>"
     $location = "Central US"  
     $filePath = "<Enter the File Path to the Downloaded Tutorial Files>"
     
     # Create a resource group
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
     
     # Create the service topology
-    New-AzureRmResourceGroupDeployment `
-        -Name $deploymentName `
+    New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -TemplateFile "$filePath\ADMTemplates\CreateADMServiceTopology.json" `
         -TemplateParameterFile "$filePath\ADMTemplates\CreateADMServiceTopology.Parameters.json"
@@ -319,8 +319,7 @@ Azure PowerShell kan worden gebruikt om de sjablonen te implementeren.
 
     ```azurepowershell-interactive
     # Create the rollout
-    New-AzureRmResourceGroupDeployment `
-        -Name $deploymentName `
+    New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -TemplateFile "$filePath\ADMTemplates\CreateADMRollout.json" `
         -TemplateParameterFile "$filePath\ADMTemplates\CreateADMRollout.Parameters.json"

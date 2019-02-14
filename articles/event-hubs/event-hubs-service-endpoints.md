@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 2ad525ee0e10064d4d606dc1f899ef813fe92ab5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 077202e65c9e63c8ca5ea1a555ccd70bf27028c6
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273492"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232600"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Service-eindpunten voor Virtueelnetwerk gebruiken met Azure Event Hubs
 
@@ -29,13 +29,13 @@ Het resultaat is een privé- en geïsoleerd relatie tussen de werkbelastingen di
 >[!WARNING]
 > Implementatie van de integratie van virtuele netwerken kunt voorkomen dat andere Azure-services interactie met Event Hubs.
 >
-> Vertrouwde Microsoft-services worden niet ondersteund wanneer virtuele netwerken worden geïmplementeerd en binnenkort beschikbaar worden gesteld.
+> Vertrouwde Microsoft-services worden niet ondersteund wanneer virtuele netwerken worden geïmplementeerd.
 >
 > Algemene Azure-scenario's die niet met virtuele netwerken werken (Let op: de lijst is **niet** volledig)-
 > - Azure Monitor
 > - Azure Stream Analytics
 > - Integratie met Azure Event Grid
-> - Azure IoT Hub-Routes
+> - Azure IoT Hub Routes
 > - Azure IoT Device Explorer
 > - Azure Data Explorer
 >
@@ -44,7 +44,7 @@ Het resultaat is een privé- en geïsoleerd relatie tussen de werkbelastingen di
 > - Azure Functions
 
 > [!IMPORTANT]
-> Virtuele netwerken worden ondersteund **standard** en **toegewezen** lagen van Event Hubs. Het wordt niet ondersteund in de basic-laag.
+> Virtuele netwerken worden ondersteund in de lagen **Standard** en **Dedicated** van Event Hubs. Deze worden niet ondersteund in de Basic-laag.
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Geavanceerde beveiliging mogelijke scenario's met VNet-integratie 
 

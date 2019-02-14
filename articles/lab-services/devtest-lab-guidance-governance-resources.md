@@ -3,23 +3,22 @@ title: Beheer van Azure DevTest Labs-infrastructuur
 description: Dit artikel bevat richtlijnen voor het beheer van Azure DevTest Labs-infrastructuur.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
-author: christianreddington
+author: spelluru
 manager: femila
-editor: spelluru
 ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/11/2019
-ms.author: chredd
-ms.reviewer: anthdela,juselph
-ms.openlocfilehash: 68139dee2a506918a001d52212dad76483f24068
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.author: spelluru
+ms.reviewer: christianreddington,anthdela,juselph
+ms.openlocfilehash: aff57e58ffd247bcc697908f2f25cbf17ff9b91a
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999790"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244127"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Beheer van infrastructuur in Azure DevTest Labs - Resources
 In dit artikel komen de uitlijning en het beheer van resources voor DevTest Labs in uw organisatie. 

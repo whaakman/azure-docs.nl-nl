@@ -11,12 +11,12 @@ ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
 ms.suite: integration
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: fa2ae313ab18d6e474f1dd0953a3b0a0d094c7c3
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 38bc1615c0849a33ddfa5790a66fc05d681ce339
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111806"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244926"
 ---
 # <a name="secure-b2b-messages-with-certificates"></a>Beveiligde B2B-berichten met certificaten
 
@@ -30,6 +30,8 @@ U kunt deze certificaten gebruiken in uw apps in enterprise integration:
 * [Openbare certificaten](https://en.wikipedia.org/wiki/Public_key_certificate), die u moet aanschaffen bij een openbare internet [certificeringsinstantie (CA)](https://en.wikipedia.org/wiki/Certificate_authority) maar die niet vereisen geen sleutels. 
 
 * Persoonlijke certificaten of [ *zelfondertekende certificaten*](https://en.wikipedia.org/wiki/Self-signed_certificate), waarbij u maken en uitgeven van uzelf, maar ook persoonlijke sleutels vereist. 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="upload-a-public-certificate"></a>Een openbaar certificaat uploaden
 
@@ -60,18 +62,18 @@ Gebruik een *openbaar certificaat* in logische apps met B2B-mogelijkheden, moet 
 
 ## <a name="upload-a-private-certificate"></a>Een persoonlijk certificaat uploaden
 
-Gebruik een *persoonlijk certificaat* in logische apps met B2B-mogelijkheden, moet u eerst het certificaat uploaden naar uw integratie-account. U moet ook een persoonlijke sleutel die u eerst toevoegen aan [Azure Key Vault](../key-vault/key-vault-overview.md). 
+Gebruik een *persoonlijk certificaat* in logische apps met B2B-mogelijkheden, moet u eerst het certificaat uploaden naar uw integratie-account. U moet ook een persoonlijke sleutel die u eerst toevoegen aan [Azure Key Vault](../key-vault/key-vault-get-started.md). 
 
 Na het definiëren van de eigenschappen in de [overeenkomsten](logic-apps-enterprise-integration-agreements.md) dat u maakt, wordt het certificaat is beschikbaar voor het beveiligen van uw B2B-berichten.
 
 > [!NOTE]
 > Voor persoonlijke certificaten, zorg ervoor dat u een bijbehorende openbare certificaat dat wordt weergegeven toevoegt in de [AS2-overeenkomst](logic-apps-enterprise-integration-as2.md) **verzenden en ontvangen** instellingen voor het ondertekenen en versleutelen van berichten.
 
-1. [Uw persoonlijke sleutel toevoegen aan Azure Key Vault](../key-vault/quick-create-cli.md#add-a-secret-to-key-vault) en bieden een **sleutelnaam**.
+1. [Uw persoonlijke sleutel toevoegen aan Azure Key Vault](../key-vault/certificate-scenarios.md#import-a-certificate) en bieden een **sleutelnaam**.
    
-2. Toestaan dat Azure Logic Apps voor het uitvoeren van bewerkingen op Azure Key Vault. Om toegang te verlenen aan de service-principal voor Logic Apps, gebruikt u de PowerShell-opdracht [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy), bijvoorbeeld:
+2. Toestaan dat Azure Logic Apps voor het uitvoeren van bewerkingen op Azure Key Vault. Om toegang te verlenen aan de service-principal voor Logic Apps, gebruikt u de PowerShell-opdracht [Set AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), bijvoorbeeld:
 
-   `Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
+   `Set-AzKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
    '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`
  
 3. Meld u aan bij [Azure Portal](https://portal.azure.com). Selecteer in het hoofdmenu van Azure **alle resources**. In het zoekvak, typ de naam van uw integratie-account en selecteer vervolgens de integratieaccount dat u wilt.

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 6100a77d3c0bd1ac5e012651f1e7d359c4c67443
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 84bed7031307316545cc8e468196c6b12cde7bb7
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954450"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237058"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>HDInsight-clusters maken met Azure Data Lake Storage Gen1 als standaardopslag met behulp van PowerShell
 
@@ -39,12 +39,14 @@ Volg de instructies in de volgende vijf secties voor het configureren van HDInsi
 
 ## <a name="prerequisites"></a>Vereisten
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Voordat u deze zelfstudie begint, zorg ervoor dat u voldoet aan de volgende vereisten:
 
 * **Een Azure-abonnement**: Ga naar [gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 of hoger**: Zie [installeren en configureren van PowerShell](/powershell/azure/overview).
-* **Windows Software Development Kit (SDK)**: voor het installeren van Windows-SDK, gaat u naar [Downloads en hulpprogramma's voor Windows 10](https://dev.windows.com/downloads). De SDK wordt gebruikt voor het maken van een security-certificaat.
-* **Service-principal voor Azure Active Directory**: in deze zelfstudie wordt beschreven hoe u een service-principal maken in Azure Active Directory (Azure AD). Voor het maken van een service-principal, moet u echter een Azure AD-beheerder zijn. Als u een beheerder bent, kunt u deze vereiste overslaan en doorgaan met de zelfstudie.
+* **Windows Software Development Kit (SDK)**: Voor het installeren van Windows-SDK, gaat u naar [Downloads en hulpprogramma's voor Windows 10](https://dev.windows.com/downloads). De SDK wordt gebruikt voor het maken van een security-certificaat.
+* **Service-principal voor Azure Active Directory**: In deze zelfstudie wordt beschreven hoe u een service-principal in Azure Active Directory (Azure AD) maken. Voor het maken van een service-principal, moet u echter een Azure AD-beheerder zijn. Als u een beheerder bent, kunt u deze vereiste overslaan en doorgaan met de zelfstudie.
 
     >[!NOTE]
     >U kunt een service-principal maken alleen als u een Azure AD-beheerder. Uw Azure AD-beheerder moet een service-principal maken voordat u een HDInsight-cluster met Data Lake Storage Gen1 kunt maken. De service-principal moet worden gemaakt met een certificaat, zoals beschreven in [een service-principal maken met certificaat](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority).
@@ -57,25 +59,25 @@ Voor het maken van een Data Lake Storage Gen1-account, het volgende doen:
 1. Vanaf het bureaublad, open een PowerShell-venster en voer vervolgens de codefragmenten hieronder. Wanneer u zich aanmeldt, meld u aan als een van de abonnementbeheerders of eigenaren wordt gevraagd. 
 
         # Sign in to your Azure account
-        Connect-AzureRmAccount
+        Connect-AzAccount
 
         # List all the subscriptions associated to your account
-        Get-AzureRmSubscription
+        Get-AzSubscription
 
         # Select a subscription
-        Set-AzureRmContext -SubscriptionId <subscription ID>
+        Set-AzContext -SubscriptionId <subscription ID>
 
         # Register for Data Lake Storage Gen1
-        Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
+        Register-AzResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
     > [!NOTE]
-    > Als u de Data Lake Storage Gen1 resourceprovider registreren en een foutbericht weergegeven die vergelijkbaar is met `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`, uw abonnement mogelijk niet toegelaten voor Data Lake Storage Gen1. Volg de instructies in zodat uw Azure-abonnement voor Data Lake Storage Gen1 [aan de slag met Azure Data Lake Storage Gen1 met behulp van de Azure-portal](data-lake-store-get-started-portal.md).
+    > Als u de Data Lake Storage Gen1 resourceprovider registreren en een foutbericht weergegeven die vergelijkbaar is met `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`, uw abonnement mogelijk niet toegelaten voor Data Lake Storage Gen1. Volg de instructies in zodat uw Azure-abonnement voor Data Lake Storage Gen1 [aan de slag met Azure Data Lake Storage Gen1 met behulp van de Azure-portal](data-lake-store-get-started-portal.md).
     >
 
 2. Een Data Lake Storage Gen1-account is gekoppeld aan een Azure-resourcegroep. Beginnen met het maken van een resourcegroep.
 
         $resourceGroupName = "<your new resource group name>"
-        New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
+        New-AzResourceGroup -Name $resourceGroupName -Location "East US 2"
 
     Hier ziet u uitvoer als volgt:
 
@@ -88,7 +90,7 @@ Voor het maken van een Data Lake Storage Gen1-account, het volgende doen:
 3. Maak een Data Lake Storage Gen1-account. De accountnaam die u opgeeft moet alleen kleine letters en cijfers bevatten.
 
         $dataLakeStorageGen1Name = "<your new Data Lake Storage Gen1 name>"
-        New-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStorageGen1Name -Location "East US 2"
+        New-AzDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStorageGen1Name -Location "East US 2"
 
     Als het goed is, wordt ongeveer de volgende uitvoer weergegeven:
 
@@ -110,7 +112,7 @@ Voor het maken van een Data Lake Storage Gen1-account, het volgende doen:
 4. Met behulp van Data Lake Storage Gen1 als standaardopslag, moet u om op te geven van een pad naar de hoofdmap op waarnaar de cluster-specifieke bestanden tijdens het maken van een cluster zijn gekopieerd. Maken van een pad naar hoofdmap is **/clusters/hdiadlcluster** in het codefragment maakt gebruik van de volgende cmdlets:
 
         $myrootdir = "/"
-        New-AzureRmDataLakeStoreItem -Folder -AccountName $dataLakeStorageGen1Name -Path $myrootdir/clusters/hdiadlcluster
+        New-AzDataLakeStoreItem -Folder -AccountName $dataLakeStorageGen1Name -Path $myrootdir/clusters/hdiadlcluster
 
 
 ## <a name="set-up-authentication-for-role-based-access-to-data-lake-storage-gen1"></a>Verificatie instellen voor op rollen gebaseerde toegang tot Data Lake Storage Gen1
@@ -152,7 +154,7 @@ In deze sectie maakt u een service-principal voor een Azure AD-toepassing maken,
 
         $credential = [System.Convert]::ToBase64String($rawCertificateData)
 
-        $application = New-AzureRmADApplication `
+        $application = New-AzADApplication `
             -DisplayName "HDIADL" `
             -HomePage "https://contoso.com" `
             -IdentifierUris "https://mycontoso.com" `
@@ -163,14 +165,14 @@ In deze sectie maakt u een service-principal voor een Azure AD-toepassing maken,
         $applicationId = $application.ApplicationId
 2. Een service-principal maken met behulp van de toepassings-ID.
 
-        $servicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $applicationId
+        $servicePrincipal = New-AzADServicePrincipal -ApplicationId $applicationId
 
         $objectId = $servicePrincipal.Id
 3. De service principal toegang verlenen tot de hoofdmap van de Data Lake Storage Gen1 en alle mappen in het hoofdpad die u eerder hebt opgegeven. Gebruik de volgende cmdlets:
 
-        Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path / -AceType User -Id $objectId -Permissions All
-        Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path /clusters -AceType User -Id $objectId -Permissions All
-        Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path /clusters/hdiadlcluster -AceType User -Id $objectId -Permissions All
+        Set-AzDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path / -AceType User -Id $objectId -Permissions All
+        Set-AzDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path /clusters -AceType User -Id $objectId -Permissions All
+        Set-AzDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path /clusters/hdiadlcluster -AceType User -Id $objectId -Permissions All
 
 ## <a name="create-an-hdinsight-linux-cluster-with-data-lake-storage-gen1-as-the-default-storage"></a>Een HDInsight Linux-cluster maken met Data Lake Storage Gen1 als standaardopslag
 
@@ -178,7 +180,7 @@ In deze sectie maakt u een HDInsight Hadoop Linux-cluster met Data Lake Storage 
 
 1. De tenant-ID van het abonnement ophalen en opslaan voor later gebruik.
 
-        $tenantID = (Get-AzureRmContext).Tenant.TenantId
+        $tenantID = (Get-AzContext).Tenant.TenantId
 
 2. De HDInsight-cluster maken met behulp van de volgende cmdlets:
 
@@ -192,7 +194,7 @@ In deze sectie maakt u een HDInsight Hadoop Linux-cluster met Data Lake Storage 
         $httpCredentials = Get-Credential
         $sshCredentials = Get-Credential
 
-        New-AzureRmHDInsightCluster `
+        New-AzHDInsightCluster `
                -ClusterType Hadoop `
                -OSType Linux `
                -ClusterSizeInNodes $clusterNodes `
@@ -253,7 +255,7 @@ U kunt ook de `hdfs dfs -put` opdracht voor sommige bestanden uploaden naar Data
 
 ## <a name="see-also"></a>Zie ook
 * [Data Lake Storage Gen1 met Azure HDInsight-clusters gebruiken](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
-* [Azure-portal: een HDInsight-cluster voor het gebruik van Data Lake Storage Gen1 maken](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Azure-portal: Een HDInsight-cluster voor het gebruik van Data Lake Storage Gen1 maken](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx

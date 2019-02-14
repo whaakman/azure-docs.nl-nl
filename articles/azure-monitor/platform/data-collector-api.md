@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 02/12/2019
 ms.author: bwren
-ms.openlocfilehash: 918cfb36c3afb9fc5c9a3f2c25b7c14b04354db1
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: d2bf55129465a607fdc3bce3bd1735642c64e428
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002186"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237923"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Logboekgegevens verzenden naar Azure Monitor met de HTTP Data Collector-API (preview-versie)
 Dit artikel leest u hoe de API HTTP Data Collector gebruikt om te verzenden van logboekgegevens naar Azure Monitor van een REST-API-client.  Dit wordt beschreven hoe u gegevens die zijn verzameld door het script of een toepassing opmaken, opnemen in een aanvraag en die aanvraag heeft geautoriseerd door Azure Monitor.  Voorbeelden zijn bedoeld voor PowerShell, C# en Python.
@@ -173,6 +173,8 @@ Er zijn enkele beperkingen om de gegevens in de gegevensverzameling van Azure Mo
 * Maximaal 30 MB per post naar Azure Monitor Data Collector-API. Dit is een maximale grootte voor een enkel bericht. Als de gegevens van één die boeken groter is dan 30 MB, moet u de gegevens tot een kleinere grootte segmenten splitsen en ze gelijktijdig te verzenden.
 * Maximum van 32 KB-limiet voor veldwaarden. Als de veldwaarde groter dan 32 KB is, wordt de gegevens worden afgekapt.
 * Aanbevolen maximumaantal velden voor een bepaald type is 50. Dit is een limiet van bruikbaarheid en zoeken ervaring perspectief.  
+* Een tabel in een werkruimte voor Log Analytics biedt alleen ondersteuning voor maximaal 500 kolommen (aangeduid als een veld in dit artikel). 
+* Het maximum aantal tekens in voor de naam van de kolom is 500.
 
 ## <a name="return-codes"></a>Retourcodes
 De HTTP-statuscode 200 betekent dat de aanvraag is ontvangen voor verwerking. Hiermee wordt aangegeven dat de bewerking is voltooid.

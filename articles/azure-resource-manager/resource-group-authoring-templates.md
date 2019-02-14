@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: cdc48cf278fdd68bacf74c2d6d762c8d731949e0
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 509c9cbe3a4c2f930c9fdfda186d78118dbe4b80
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111553"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237838"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Informatie over de structuur en de syntaxis van Azure Resource Manager-sjablonen
 
@@ -46,7 +46,7 @@ In de meest eenvoudige structuur heeft een sjabloon voor de volgende elementen:
 | parameters |Nee |De waarden die zijn opgegeven wanneer de implementatie wordt uitgevoerd om aan te passen van de resource-implementatie. |
 | Variabelen |Nee |De waarden die worden gebruikt als JSON-fragmenten in de sjabloon voor het vereenvoudigen van sjabloontaalexpressies. |
 | functions |Nee |Gebruiker gedefinieerde functies die beschikbaar in de sjabloon zijn. |
-| bronnen |Ja |De resourcetypen die worden geïmplementeerd of bijgewerkt in een resourcegroep. |
+| bronnen |Ja |De resourcetypen die worden geïmplementeerd of bijgewerkt in een resourcegroep of abonnement. |
 | uitvoer |Nee |De waarden die zijn geretourneerd na de implementatie. |
 
 Elk element heeft eigenschappen die u kunt instellen. Het volgende voorbeeld ziet u de volledige syntaxis voor een sjabloon:

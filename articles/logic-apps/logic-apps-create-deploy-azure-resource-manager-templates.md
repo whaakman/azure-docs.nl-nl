@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.openlocfilehash: 52aea4e47473d4dd27519ae53322b0e72d93f20e
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 3abe7bae5506b721d4baf1e18da390b3e67977d8
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062890"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242933"
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Logische apps met Azure Resource Manager-sjablonen maken en implementeren
 
@@ -82,7 +82,7 @@ Hier volgen beschrijvingen voor de parameters in de sjabloon:
 | Parameter | Description | Voorbeeld van JSON-definitie | 
 | --------- | ----------- | ----------------------- | 
 | `logicAppName` | Hiermee definieert u de naam van de logische app die sjabloon wordt gemaakt. | "logicAppName": {"type": "string", "metagegevens": {'description': "myExampleLogicAppName"}} |
-| `testUri` | Definieert de locatie voor het testen van ping. | "testUri": {"type": "string", "defaultValue": "http://azure.microsoft.com/status/feed/"} | 
+| `testUri` | Definieert de locatie voor het testen van ping. | "testUri": { "type": "string", "defaultValue": "http://azure.microsoft.com/status/feed/"} | 
 ||||
 
 Meer informatie over [REST-API voor Logic Apps-werkstroom-definitie en eigenschappen](https://docs.microsoft.com/rest/api/logic/workflows) en [bouwen op definities voor logische Apps met JSON](logic-apps-author-definitions.md).
@@ -108,8 +108,10 @@ Deze actie zich aanmeldt bij Azure portal kunt u uw logische app details bieden 
 
 ### <a name="powershell"></a>PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ```
-New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
+New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
 ``` 
 
 ### <a name="azure-cli"></a>Azure-CLI

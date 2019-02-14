@@ -15,12 +15,12 @@ ms.date: 10/24/2018
 ms.author: celested
 ms.reviewer: tomfitz
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 427c8b35f66b9b17d3da917b632d41cba5ddc99f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4a8311e359b5afa84020227de309e8b153a7ccda
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171516"
+ms.locfileid: "56238059"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedure: De portal gebruiken om een Azure AD-toepassing en service-principal die toegang hebben tot resources te maken
 
@@ -137,7 +137,7 @@ U moet voldoende rechten hebt voor een toepassing registreren met uw Azure AD-te
 
    ![app-registraties weergeven](./media/howto-create-service-principal-portal/view-app-registrations.png)
 
-Als de instelling app-registraties is ingesteld op **Nee**, alleen [globale beheerders](../users-groups-roles/directory-assign-admin-roles.md) apps kunt registreren. Als uw account is toegewezen aan de gebruikersrol, maar de app-instelling voor registratie beperkt tot gebruikers van de beheerder is, vraagt u uw beheerder om een toewijzen aan de rol globale beheerder of zodat gebruikers om apps te registreren.
+Als de instelling app-registraties is ingesteld op **Nee**mogen alleen gebruikers met een beheerdersrol dergelijke toepassingen kunnen registreren. Zie [beschikbare rollen](../users-groups-roles/directory-assign-admin-roles.md#available-roles) en [rolmachtigingen](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) voor meer informatie over beschikbare beheerdersrollen en de specifieke machtigingen in Azure AD die worden toegewezen aan elke rol. Als uw account is toegewezen aan de gebruikersrol, maar de app-instelling voor registratie beperkt tot gebruikers van de beheerder is, vraagt u uw beheerder om u toewijzen aan een van de beheerdersrollen die kunnen maken en alle aspecten van app-registraties en om gebruikers te beheren apps registreren.
 
 ### <a name="check-azure-subscription-permissions"></a>Controleer de machtigingen van de Azure-abonnement
 

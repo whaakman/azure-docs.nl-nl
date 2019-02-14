@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 49277fc260743d0179c40374241edeece0a0e1e2
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: b4086497375bb651f4c88411e3237b27740dfd07
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814330"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236750"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql"></a>Back-up en herstel in Azure Database voor PostgreSQL
 
@@ -50,7 +50,7 @@ Er zijn twee soorten herstel beschikbaar:
 De geschatte tijd van het herstel is afhankelijk van diverse factoren, waaronder de grootte van de database, de transactielogboekgrootte bandbreedte van het netwerk en het totale aantal databases herstellen in dezelfde regio op hetzelfde moment. De hersteltijd is meestal minder dan 12 uur.
 
 > [!IMPORTANT]
-> Servers verwijderd **kan geen** worden hersteld. Als u de server verwijdert, worden alle databases die deel uitmaken van de server worden ook verwijderd en kunnen niet worden hersteld. Als u wilt beveiligen serverbronnen, na de implementatie, van per ongeluk verwijderen of onverwachte wijzigingen, kunnen beheerders gebruikmaken van [beheervergrendelingen](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources).
+> Servers verwijderd **kan geen** worden hersteld. Als u de server verwijdert, worden alle databases die deel uitmaken van de server worden ook verwijderd en kunnen niet worden hersteld. Als u wilt beveiligen serverbronnen, na de implementatie, van per ongeluk verwijderen of onverwachte wijzigingen, kunnen beheerders gebruikmaken van [beheervergrendelingen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
 
 ### <a name="point-in-time-restore"></a>Terugzetten naar eerder tijdstip
 

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: a1d52e0c6f87b9075d73508c97bd270d67d3ecf5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 8e2af866dcea3bd8ece29811b2cc8ccd4318ee54
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817619"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242801"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 release-opmerkingen
 
@@ -34,6 +34,10 @@ Als u wilt bijhouden met de meest recente ontwikkelingen, vindt in dit artikel u
 
 Zie voor meer informatie, [migratierichtlijnen voor het verplaatsen van Media Services v2 naar v3](migrate-from-v2-to-v3.md#known-issues).
 
+## <a name="february-2019"></a>Februari 2019
+
+Media Services v3 is nu upported in Azure, nationale clouds. Niet alle functies zijn nog beschikbaar in alle clouds. Zie voor meer informatie, [Clouds en regio's in welke Azure Media Services v3 bestaat](azure-clouds-regions.md).
+
 ## <a name="january-2019"></a>Januari 2019
 
 ### <a name="media-encoder-standard-and-mpi-files"></a>Media Encoder Standard- en MPI-bestanden 
@@ -46,7 +50,7 @@ U moet niet wijzigen of verwijderen van de MPI-bestand, of eventuele afhankelijk
 
 Updates van de GA-versie van de API V3 zijn onder andere:
        
-* De **PresentationTimeRange** eigenschappen zijn niet langer vereist voor **AssetFilters** en **AccountFilters**. 
+* De **PresentationTimeRange** eigenschappen zijn niet langer vereist voor **Asset Filters** en **Accountfilters**. 
 * Opties voor query uitvoeren op de $skip en $top **taken** en **transformeert** zijn verwijderd en $orderby is toegevoegd. Als onderdeel van het toevoegen van de nieuwe functionaliteit van schrijfvolgorde wordt toegepast, is het gedetecteerd dat de opties voor $top en $skip per ongeluk eerder had zijn blootgesteld zelfs als ze niet zijn geïmplementeerd.
 * Opsomming uitbreidbaarheid is opnieuw ingeschakeld. Deze functie is ingeschakeld in de preview-versies van de SDK en per ongeluk is uitgeschakeld in de GA-versie.
 * Twee vooraf gedefinieerde streaming beleidsregels is hernoemd. **SecureStreaming** is nu **MultiDrmCencStreaming**. **SecureStreamingWithFairPlay** is nu **Predefined_MultiDrmStreaming**.
@@ -67,7 +71,7 @@ De CLI 2.0-module is nu beschikbaar voor [Azure Media Services v3 GA](https://do
 - [az ams live-output](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
 - [AZ ams streaming-eindpunt](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
 - [AZ ams streaming-locator](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
-- [ams AZ account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) -kunt u voor het beheren van gereserveerde Media-eenheden
+- [ams AZ account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) -kunt u voor het beheren van gereserveerde Media-eenheden. Zie voor meer informatie, [gereserveerde Media-eenheden schalen](media-reserved-units-cli-how-to.md).
 
 ### <a name="new-features-and-breaking-changes"></a>Nieuwe functies en wijzigingen die fouten veroorzaken
 
@@ -141,7 +145,7 @@ De volgende live encoding updates worden geïntroduceerd:
 - Verbeterde RTMP-ondersteuning (verbeterde stabiliteit en meer bron encoder-ondersteuning).
 - Beveiligde RTMPS opnemen.
 
-    Wanneer u een LiveEvent maakt, u nu get 4 URL's voor opnemen. Opname van de 4 URL's zijn bijna identiek, hetzelfde streaming-token (AppId), alleen de poort nummer onderdeel verschilt. Twee van de URL's zijn primaire en back-up voor RTMPS. 
+    Wanneer u een Live gebeurtenis maakt, u nu get 4 URL's voor opnemen. Opname van de 4 URL's zijn bijna identiek, hetzelfde streaming-token (AppId), alleen de poort nummer onderdeel verschilt. Twee van de URL's zijn primaire en back-up voor RTMPS. 
 - transcodering van 24-uurs ondersteuning. 
 - Verbeterde ondersteuning voor ad-signalering in RTMP via SCTE35.
 
@@ -149,7 +153,7 @@ De volgende live encoding updates worden geïntroduceerd:
 
 Hier ziet u de volgende Event Grid verbeteringen ondersteund:
 
-- Integratie van Azure EventGrid voor eenvoudigere ontwikkeling met Logic Apps en Azure Functions. 
+- Azure Event Grid-integratie voor het eenvoudiger ontwikkelen met Logic Apps en Azure Functions. 
 - Abonneren op gebeurtenissen voor codering, Live kanalen en meer.
 
 ### <a name="cmaf-support"></a>Ondersteuning voor CMAF
@@ -179,11 +183,11 @@ Als u activa of Accountfilters tussen 09/28 en 10 gemaakt/12 met Media Services 
 De volgende functies zijn aanwezig in de .net SDK:
 
 * **Transformeert** en **taken** om te coderen of media-inhoud analyseren. Zie voor voorbeelden van [Stream bestanden](stream-files-tutorial-with-api.md) en [analyseren](analyze-videos-tutorial-with-api.md).
-* **StreamingLocators** voor het publiceren en streaming van inhoud naar apparaten van eindgebruikers
-* **StreamingPolicies** en **ContentKeyPolicies** sleutellevering en beveiliging van inhoud (DRM) configureren bij het leveren van inhoud.
-* **LiveEvents** en **LiveOutputs** om de opname- en archivering van live streaming-inhoud te configureren.
+* **Streaming-Locators** voor het publiceren en streaming van inhoud naar apparaten van eindgebruikers
+* **Beleid voor streaming** en **inhoud-sleutelbeleid** sleutellevering en beveiliging van inhoud (DRM) configureren bij het leveren van inhoud.
+* **Live gebeurtenissen** en **uitvoer Live** om de opname- en archivering van live streaming-inhoud te configureren.
 * **Activa** opslaan en publiceren van media-inhoud in Azure Storage. 
-* **Door** configureren en schalen van dynamische pakketten, versleuteling en streaming voor live en on-demand media-inhoud.
+* **Streaming-eindpunten** configureren en schalen van dynamische pakketten, versleuteling en streaming voor live en on-demand media-inhoud.
 
 ### <a name="known-issues"></a>Bekende problemen
 

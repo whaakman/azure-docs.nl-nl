@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 277667bb3b4e39acbb935285e984660a3b44993d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a66584aa1cd3f335111774ef1df37cddc630f69d
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047953"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233367"
 ---
 # <a name="save-reports-in-power-bi-workspace-collections"></a>Rapporten in Power BI Workspace Collections opslaan
 
@@ -34,9 +34,9 @@ Als u wilt een rapport hebt opgeslagen, moet u eerst een token voor het specifie
 
 Respectievelijk zodat het recht voor opslaan/opslaan als knoppen in het bestandsmenu u de juiste machtiging in de configuratie van de ingesloten opgeven moet wanneer u het rapport insluiten:
 
-* modellen. Permissions.ReadWrite
+* models.Permissions.ReadWrite
 * modellen. Permissions.Copy
-* modellen. Permissions.All
+* models.Permissions.All
 
 > [!NOTE]
 > Uw toegangstoken moet ook de juiste bereiken. Zie voor meer informatie, [Scopes](app-token-flow.md#scopes).
@@ -47,9 +47,10 @@ Stel dat u wilt een rapport insluiten in de bewerkingsmodus in uw app, dus u hoe
 
 Bijvoorbeeld, in JavaScript:
 
-```
+```html
    <div id="reportContainer"></div>
 
+    <script>
     // Get models. Models, it contains enums that can be used.
     var models = window['powerbi-client'].models;
 
@@ -75,6 +76,7 @@ Bijvoorbeeld, in JavaScript:
 
     // Embed the report and display it within the div container.
     var report = powerbi.embed(reportContainer, config);
+    </script>
 ```
 
 Een rapport is nu ingesloten in uw app in de bewerkingsmodus.
@@ -83,7 +85,7 @@ Een rapport is nu ingesloten in uw app in de bewerkingsmodus.
 
 Nadat het rapport insluiten in de bewerkingsmodus met het juiste token en machtigingen, kunt u het rapport opslaan in het bestandsmenu of van javascript:
 
-```
+```javascript
  // Get a reference to the embedded report.
     report = powerbi.get(reportContainer);
 
@@ -93,7 +95,7 @@ Nadat het rapport insluiten in de bewerkingsmodus met het juiste token en machti
 
 ## <a name="save-as"></a>Opslaan als
 
-```
+```javascript
 // Get a reference to the embedded report.
     report = powerbi.get(reportContainer);
     
@@ -110,9 +112,9 @@ Nadat het rapport insluiten in de bewerkingsmodus met het juiste token en machti
 
 Vervolgens moet u het nieuwe rapport na het laden een *opslaan als*. Het laden van het nieuwe rapport is vergelijkbaar met het insluiten van een rapport.
 
-```
+```html
 <div id="reportContainer"></div>
-  
+<script>
 var embedConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MJ',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -124,6 +126,7 @@ var embedConfiguration = {
 
     // Embed report
     var report = powerbi.embed(reportContainer, embedConfiguration);
+</script>
 ```
 
 ## <a name="see-also"></a>Zie ook

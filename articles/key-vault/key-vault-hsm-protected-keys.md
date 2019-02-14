@@ -11,14 +11,14 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 02/12/2019
 ms.author: barclayn
-ms.openlocfilehash: 76943c89cd4c0a283dc36a2a0d28c907cef0ad28
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: cc7d9a8e0d2689be4a8beb5d42c43b9e18157472
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114685"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238110"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Het genereren en overdragen met HSM beveiligde sleutels voor Azure Key Vault
 
@@ -246,7 +246,6 @@ Kopieer het pakket met BYOK-toolset van het USB-station of ander draagbaar opsla
 
 Voor deze derde stap, voer de volgende procedures op de niet-verbonden werkstation. Voor deze stap moet uw HSM zijn in de modus voor de initialisatie. 
 
-
 ### <a name="step-31-change-the-hsm-mode-to-i"></a>Stap 3.1: De HSM-modus wijzigen in 'Ik'
 
 Als u Thales nShield Edge, de modus te wijzigen: 1. Gebruik de knop modus om de vereiste modus te markeren. 2. Binnen een paar seconden en houdt u de knop wissen voor een paar seconden. Als de modus wijzigt, wordt de nieuwe modus LED niet meer knippert en branden blijft. De Status-LED onregelmatig voor een paar seconden mogelijk flash en vervolgens knippert regelmatig wanneer het apparaat gereed is. Anders wordt het apparaat blijft in de huidige modus, met de juiste modus LED belicht.
@@ -256,13 +255,13 @@ Als u Thales nShield Edge, de modus te wijzigen: 1. Gebruik de knop modus om de 
 Start een opdrachtprompt en voer het nieuwe-wereld-programma van Thales.
 
    ```cmd
-    new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
+    new-world.exe --initialize --cipher-suite=DLf3072s256mRijndael --module=1 --acs-quorum=2/3
    ```
 
 Dit programma maakt een **Beveiligingswereld** bestand op % NFAST_KMDATA%\local\world, wat overeenkomt met de map C:\ProgramData\nCipher\Key Management Settings\User. U kunt andere waarden gebruiken voor het quorum, maar in ons voorbeeld u gevraagd drie lege kaarten en pincodes voor elk adres invoeren. Klik, twee kaarten volledige toegang geven tot de beveiligingswereld. Deze kaarten worden de **Beheerderskaartenset** voor de nieuwe beveiligingswereld.
 
 > [!NOTE]
-> Als uw HSM biedt ondersteuning voor nieuwere ineens suite DLf3072s256mRijndael, kunt u vervangen--coderingssuite DLf1024s160mRijndael = met--coderingssuite DLf3072s256mRijndael =
+> Als uw HSM biedt geen ondersteuning voor de nieuwere ineens suite DLf3072s256mRijndael, kunt u vervangen--coderingssuite DLf3072s256mRijndael = met--coderingssuite DLf1024s160mRijndael =
 
 Ga daarna als volgt te werk:
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 56f9226f1bee630895725eb0b3806e294e9a5b51
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ac88bc95ac9ffe4c2f32307b0bee427829242add
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218139"
+ms.locfileid: "56234676"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Kies de prijscategorie van Azure Maps rechts
 
@@ -30,17 +30,21 @@ De Prijscategorieën S0 en S1 verschillende hoeveelheden doorvoer van gegevens w
 | Mogelijkheid                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
 | Search                                  |        ✓           |     ✓    |
-| Routering                                 |        ✓           |     ✓    |
-| Renderen                                  |        ✓           |     ✓    |
-| Verkeer                                 |        ✓           |     ✓    |
-| Tijdzones                              |        ✓           |     ✓    |
-| Beelden en gecombineerde beelden    |            |     ✓    |
-| Route bereik                    |                   |     ✓    |
-| Locatie van de IP-2 (preview)                |        ✓           |     ✓    |
-| Veelhoeken van zoekopdracht          |                   |     ✓    |
 | Batch geocodering (preview)              |                   |     ✓    |
+| Veelhoeken van zoekopdracht          |                   |     ✓    |
+| Routering                                 |        ✓           |     ✓    |
+| Route bereik                    |                   |     ✓    |
 | Batch-routering (preview)                |                   |     ✓    |
 | Matrix-routering (preview)               |                   |     ✓    |
+| Renderen                                  |        ✓           |     ✓    |
+| Beelden en gecombineerde beelden    |            |     ✓    |
+| Verkeer                                 |        ✓           |     ✓    |
+| Tijdzones                              |        ✓           |     ✓    |
+| Geolocation (preview)                |        ✓           |     ✓    |
+| Gegevens (preview)               |                   |     ✓    |
+| Spatial (preview)               |                   |     ✓    |
+| Met Geofencing (preview)               |                   |     ✓    |
+
 
 
 Deze aanvullende gegevenspunten zijn moet overwegen:

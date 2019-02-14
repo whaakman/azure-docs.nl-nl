@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: d6e8d943d14cfddc260ba502e724543c6dc9cf4f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 0d24fbe075316e492b638a2877439af270250d70
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110333"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234628"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Java developer's guide for App Service op Linux
 
@@ -28,12 +28,12 @@ Deze handleiding bevat de belangrijkste concepten en instructies voor het Java-o
 
 ## <a name="deploying-your-app"></a>Implementeren van uw app
 
-De Maven-invoegtoepassing kunt u zowel .war als JAR-bestanden implementeren. Raadpleeg [deze documentatie](https://docs.microsoft.com/en-us/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable) voor meer informatie over de Maven-invoegtoepassing. 
+De Maven-invoegtoepassing kunt u zowel .war als JAR-bestanden implementeren. Raadpleeg [deze documentatie](https://docs.microsoft.com/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable) voor meer informatie over de Maven-invoegtoepassing. 
 
 Als u niet met behulp van Maven, wordt uw implementatiemethode afhankelijk van uw archieftype:
 
-- Als u wilt implementeren WAR-bestanden op Tomcat, gebruikt u de `/api/wardeploy/` eindpunt naar het archiefbestand plaatsen. Zie voor meer informatie over deze API [deze documentatie](https://docs.microsoft.com/en-us/azure/app-service/deploy-zip#deploy-war-file).
-- Voor het implementeren van de JAR-bestanden in de Java SE-installatiekopieën, gebruikt u de `/api/zipdeploy/` eindpunt van de Kudu-site. Zie voor meer informatie over deze API [deze documentatie](https://docs.microsoft.com/en-us/azure/app-service/deploy-zip#rest).
+- Als u wilt implementeren WAR-bestanden op Tomcat, gebruikt u de `/api/wardeploy/` eindpunt naar het archiefbestand plaatsen. Zie voor meer informatie over deze API [deze documentatie](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file).
+- Voor het implementeren van de JAR-bestanden in de Java SE-installatiekopieën, gebruikt u de `/api/zipdeploy/` eindpunt van de Kudu-site. Zie voor meer informatie over deze API [deze documentatie](https://docs.microsoft.com/azure/app-service/deploy-zip#rest).
 
 Implementeer uw .war of JAR met FTP niet. De FTP-programma is ontworpen om te uploaden opstartscripts, afhankelijkheden of andere runtimebestanden. Het is niet de beste keuze voor het implementeren van web-apps.
 

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/28/2019
+ms.date: 02/13/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 94171da3c60de3efc4e2a234494816899c3d2f05
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 0afb8a09fa9780755bcfeef678b76e176f11b348
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511850"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246031"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -600,6 +600,13 @@ Updatebeheer kunnen echter nog steeds melden die machine als niet-compatibele om
 
 Implementeren van updates op updateclassificatie werkt niet op CentOS buiten het vak. Voor de implementatie goed updates voor CentOS, selecteert u alle classificaties om te controleren of updates worden toegepast. Voor SUSE, selecteren *alleen* 'Andere updates' als de classificatie tot extra beveiliging leiden kan werkt ook wordt geïnstalleerd als beveiligingsupdates die betrekking hebben op zypper (Pakketbeheer) of de afhankelijkheden ervan eerst vereist zijn. Dit gedrag is een beperking van zypper. In sommige gevallen mogelijk u gevraagd de update-implementatie opnieuw uit te voeren. Om te controleren, controleert u de update-logboek.
 
+## <a name="remove-a-vm-for-update-management"></a>Verwijderen van een virtuele machine voor updatebeheer
+
+Een virtuele machine verwijderen uit het beheer van de Update:
+
+* In uw Log Analytics-werkruimte, verwijdert u de virtuele machine van de opgeslagen zoekopdracht voor de Bereikconfiguratie `MicrosoftDefaultScopeConfig-Updates`. Opgeslagen zoekopdrachten kunnen u vinden onder **algemene** in uw werkruimte.
+* Verwijder de [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) of de [Log Analytics-agent voor Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+  
 ## <a name="troubleshoot"></a>Problemen oplossen
 
 Zie voor informatie over het oplossen van uw updatebeheer, [updatebeheer oplossen van problemen](troubleshoot/update-management.md)

@@ -17,12 +17,12 @@ ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8569b305e7f194812bfc3e12bd852334f221bd99
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 17b7f7fa4889742989a61f8cc076224d46f8eac2
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207108"
+ms.locfileid: "56234099"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedure: Uw hybride Azure Active Directory join-implementatie plannen
 
@@ -146,7 +146,7 @@ Vanaf versie 1.1.819.0 bevat Azure AD Connect een wizard om hybride Azure AD-kop
 - [Hybride Azure Active Directory-deelname configureren voor beheerde domeinen](hybrid-azuread-join-managed-domains.md)
 
 
- Als het installeren van de vereiste versie van Azure AD Connect kan niet worden gebruikt voor u, raadpleegt u [het handmatig configureren van device Registration service](https://docs.microsoft.com/en-us/azure/active-directory/devices/hybrid-azuread-join-manual). 
+ Als het installeren van de vereiste versie van Azure AD Connect kan niet worden gebruikt voor u, raadpleegt u [het handmatig configureren van device Registration service](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual). 
 
 
 ## <a name="on-premises-ad-upn-support-in-hybrid-azure-ad-join"></a>Ondersteuning voor on-premises AD UPN in hybride Azure AD join

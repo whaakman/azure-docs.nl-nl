@@ -8,21 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 02/12/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 5285e6d0aa6fe320ded729ad3b00389b27e0b9d9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: df69cb5cc2e369a5e1f372d49a821616bf624db9
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859263"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237549"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Grenzen voor uw LUIS-model en de sleutels
 LUIS heeft verschillende gebieden van de grens. De eerste is de [model grens](#model-boundaries), welke besturingselementen intents, entiteiten en functies van LUIS. Het tweede gedeelte [quotalimieten](#key-limits) op basis van het type sleutel. Is van een derde deel van de grenzen van de [combinatie op het toetsenbord](#keyboard-controls) voor het beheren van de website van LUIS. Een vierde gebied is de [world regiotoewijzing](luis-reference-regions.md) tussen de LUIS website ontwerpen en de LUIS [eindpunt](luis-glossary.md#endpoint) API's. 
 
 
 ## <a name="model-boundaries"></a>Model grenzen
+
+Als uw app de grenzen van LUIS-model en de grenzen overschrijdt, kunt u overwegen een [LUIS verzending](luis-concept-enterprise.md#dispatch-tool-and-model) app of met behulp van een [LUIS container](luis-container-howto.md). 
 
 |Onderwerp|Limiet|
 |--|:--|--|

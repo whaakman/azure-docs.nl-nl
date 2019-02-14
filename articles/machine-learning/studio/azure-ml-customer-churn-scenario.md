@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 47d267a2c4c122d8acbb2d3bf40e6858b4d6b77c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: dd65988146d3738d8540ddf4e54ed57813e10c16
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244178"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243532"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Analyseren traject van de klant met behulp van Azure Machine Learning Studio
 ## <a name="overview"></a>Overzicht
@@ -25,7 +25,7 @@ In dit artikel geeft een referentie-implementatie van een klantverloop analysis-
 Dit experiment is ontwikkeld en getest door Serge Berger, Gegevenswetenschapper Principal bij Microsoft en Roger Barga, voorheen Product Manager voor Microsoft Azure Machine Learning. De Azure-documentatieteam dank erkent hun ervaring en ze Bedankt voor het delen van deze whitepaper.
 
 > [!NOTE]
-> De gegevens die worden gebruikt voor dit experiment is niet openbaar beschikbaar. Zie voor een voorbeeld van het bouwen van een machine learning-model voor verloop analyse: [Detailhandel verloop model sjabloon](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) in [Azure AI Gallery](http://gallery.cortanaintelligence.com/)
+> De gegevens die worden gebruikt voor dit experiment is niet openbaar beschikbaar. Zie voor een voorbeeld van het bouwen van een machine learning-model voor verloop analyse: [Detailhandel verloop model sjabloon](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) in [Azure AI Gallery](http://gallery.azure.ai/)
 > 
 > 
 
@@ -106,7 +106,7 @@ De volgende diagrammen ziet u de gegevens die is gebruikt.
  
 
 > Houd er rekening mee dat deze gegevens privé is; daarom het model en de gegevens kunnen niet worden gedeeld.
-> Zie, voor een vergelijkbaar model met behulp van de openbaar beschikbare gegevens, in dit voorbeeld een experiment uit in de [Azure AI Gallery](http://gallery.cortanaintelligence.com/): [Telco Customer Churn](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
+> Zie, voor een vergelijkbaar model met behulp van de openbaar beschikbare gegevens, in dit voorbeeld een experiment uit in de [Azure AI Gallery](http://gallery.azure.ai/): [Telco Customer Churn](http://gallery.azure.ai/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
 > Voor meer informatie over hoe u een verloop Analytics-model met behulp van Cortana Intelligence Suite kunt implementeren, wordt ook aangeraden [in deze video](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) door Senior Program Manager Westerse Hyong Tok. 
 > 
@@ -219,7 +219,7 @@ Dit document beschrijft een functionele aanpak voor het aanpakken van het algeme
 
 [4] [Big Data Marketing: Bied uw klanten effectiever en stimuleren van waarde](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Telco verloop model sjabloon](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) in [Azure AI Gallery](http://gallery.cortanaintelligence.com/) 
+[5] [Telco verloop model sjabloon](http://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) in [Azure AI Gallery](http://gallery.azure.ai/) 
  
 
 ## <a name="appendix"></a>Bijlage

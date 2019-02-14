@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6d47f22b4c7b29457de18593e38548aa818205a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 89d587a71eeb75f7be567cbc29a4d77ac371e3dc
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205627"
+ms.locfileid: "56237866"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Probleem met het toevoegen van een toepassing in Azure AD-galerie
 
@@ -28,13 +28,13 @@ In dit artikel krijgt u inzicht in het gezicht voor mensen van algemene probleme
 
 ## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>Ik op de knop 'toevoegen' geklikt en mijn toepassing duurde het lang om te worden weergegeven
 
-Onder bepaalde omstandigheden, duurt het 1-2 minuten (en soms langer) voor een toepassing worden weergegeven na het toe te voegen aan uw directory. Hoewel dit niet de verwachte normale prestaties is, ziet u het toevoegen van de toepassing wordt uitgevoerd door te klikken op de **meldingen** pictogram (de klok) in de rechterbovenhoek van de [Azure-portal](https://portal.azure.com/) en bekijken voor een **In voortgang** of **voltooid** melding met het label **-toepassing maken.**
+Onder bepaalde omstandigheden, duurt het 1-2 minuten (en soms langer) voor een toepassing worden weergegeven na het toe te voegen aan uw directory. Hoewel dit niet de verwachte normale prestaties is, ziet u het toevoegen van de toepassing wordt uitgevoerd door te klikken op de **meldingen** pictogram (de klok) in de rechterbovenhoek van de [Azure-portal](https://portal.azure.com/) en bekijken voor een **In voortgang** of **voltooid** melding met het label **toepassing toe te voegen.**
 
 Als uw toepassing wordt nooit toegevoegd of er een fout optreedt wanneer u op de **toevoegen** knop, ziet u een **melding** in een **fout** staat. Als u meer informatie over de fout voor meer informatie op of delen met een ondersteuningsmedewerker wilt, kunt u meer informatie over de fout zien met de volgende stappen in de [hoe ziet u de details van een portalmelding](#how-to-see-the-details-of-a-portal-notification) sectie.
 
 ## <a name="i-clicked-the-add-button-and-my-application-didnt-appear"></a>Ik op de knop 'toevoegen' geklikt en mijn toepassing niet weergegeven
 
-Soms vanwege tijdelijke problemen toevoegen netwerkproblemen, of een bug van een toepassing is mislukt. Kunt u zien dat dit gebeurt wanneer u klikt op de **meldingen** pictogram (de klok) in de rechterbovenhoek van de Azure-portal en u ziet een rood (!) naast uw **-toepassing maken** melding. Dit geeft aan dat er is een fout opgetreden bij het maken van de toepassing.
+Soms vanwege problemen van voorbijgaande aard, netwerkproblemen of een bug mislukt toevoegen van een toepassing. Kunt u zien dat dit gebeurt wanneer u klikt op de **meldingen** pictogram (de klok) in de rechterbovenhoek van de Azure-portal en u ziet een rood (!) naast uw **toepassing toe te voegen** melding. Dit geeft aan dat er is een fout opgetreden bij het maken van de toepassing.
 
 Als u er een fout optreedt wanneer u op de **toevoegen** knop, ziet u een **melding** in een **fout** staat. Als u meer informatie over de fout voor meer informatie op of delen met een ondersteuningsmedewerker wilt, kunt u meer informatie over de fout zien met de volgende stappen in de [hoe ziet u de details van een portalmelding](#how-to-see-the-details-of-a-portal-notification) sectie.
 
@@ -42,13 +42,13 @@ Als u er een fout optreedt wanneer u op de **toevoegen** knop, ziet u een **meld
 
 Als u informatie over toepassingen, moet de [lijst met zelfstudies over het SaaS-Apps integreren met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) artikel is een goede plaats om te starten.
 
-Daarnaast de [Azure AD-toepassingen-documentbibliotheek](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) kunt u voor meer informatie over eenmalige aanmelding met Azure AD en hoe het werkt.
+Daarnaast de [Azure AD-toepassingen-documentbibliotheek](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) helpt u meer informatie over eenmalige aanmelding met Azure AD en hoe het werkt.
 
 ## <a name="how-to-see-the-details-of-a-portal-notification"></a>Hoe ziet u de details van een portalmelding
 
 U kunt de details van een portalmelding zien door de onderstaande stappen te volgen:
 
-1.  Klik op de **meldingen** pictogram (de klok) in de rechterbovenhoek van de Azure-Portal
+1.  Selecteer de **meldingen** pictogram (de klok) in de rechterbovenhoek van de Azure-Portal
 
 2.  Selecteer een bericht in een **fout** status (die met een rode (!) ernaast).
 
@@ -61,7 +61,7 @@ U kunt de details van een portalmelding zien door de onderstaande stappen te vol
 
 5.  Als u nog steeds hulp nodig hebt, kunt u ook deze informatie delen met een ondersteuningsmedewerker of de productgroep voor hulp bij het probleem.
 
-6.  Klik op de **kopie** **pictogram** aan de rechterkant van de **fout kopiëren** tekstvak kopiëren alle details van de melding om te delen met een groep ondersteuning of product engineer
+6.  Klik op de **kopie** **pictogram** aan de rechterkant van de **fout kopiëren** tekstvak kopiëren alle details van de melding om te delen met een medewerker van de groep ondersteuning of product.
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Hulp krijgen door de details van melding verzenden naar een ondersteuningsmedewerker
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: a0d697438c1265b8c4e6802dc2dad62a33f51855
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 8d99a52b500377e02af339588fe7155e26cf588c
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548592"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233384"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Doorlopende implementatie voor Azure Functions
 Azure Functions kunt eenvoudig uw functie-app met behulp van continue integratie van App Service implementeren. Functions integreert met BitBucket, Dropbox, GitHub en DevOps met Azure. Hierdoor wordt een werkstroom waar functiecode updates die worden gemaakt met behulp van een van deze implementatie van de trigger geïntegreerde services naar Azure. Als u niet bekend bent met Azure Functions, begint u met [overzicht van Azure Functions](functions-overview.md).
@@ -29,7 +29,7 @@ Continue implementatie is een goede optie voor projecten waar meerdere en regelm
 * [Lokale GIT-opslagplaats](../app-service/deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
-* [Azure DevOps-Services](https://www.visualstudio.com/team-services/)
+* [Azure DevOps](https://azure.microsoft.com/services/devops/)
 
 Implementaties worden geconfigureerd op basis van per functie-app. Nadat u continue implementatie is ingeschakeld, toegang tot de functiecode in de portal is ingesteld op *alleen-lezen*.
 
@@ -93,9 +93,9 @@ Wanneer u hebt bestaande functies die u hebt gemaakt en beheerd in de portal, mo
 > [!NOTE]
 > Nadat u continue integratie configureren, kunt u worden niet meer bewerken van de bronbestanden in de Functions-portal.
 
-- [Procedures: Referenties voor implementatie configureren](#credentials)
-- [Procedures: Downloaden van bestanden via FTP](#downftp)
-- [Procedures: Downloaden van bestanden met behulp van de lokale Git-opslagplaats](#downgit)
+- [Procedure: Referenties voor implementatie configureren](#credentials)
+- [Procedure: Downloaden van bestanden via FTP](#downftp)
+- [Procedure: Downloaden van bestanden met behulp van de lokale Git-opslagplaats](#downgit)
 
 <a name="credentials"></a>
 #### <a name="how-to-configure-deployment-credentials"></a>Procedure: Referenties voor implementatie configureren

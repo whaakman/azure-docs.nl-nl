@@ -12,44 +12,46 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/11/2019
-ms.openlocfilehash: 7ea1de4719d171605a49727d6924cb4b617b04bc
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 754f2845911307cdd698bff4aa3e891f5c1bcdbd
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097859"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234778"
 ---
-# <a name="quickstart-import-a-bacpac-file-to-a-new-azure-sql-database"></a>Quickstart: Een BACPAC-bestand importeren naar een nieuwe Azure SQL Database
+# <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Quickstart: Een BACPAC-bestand importeren in een database in Azure SQL Database
 
-U kunt een SQL Server-database migreren naar een Azure SQL database met behulp van een [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) bestand (een zip-bestand met een `.bacpac` extensie met de metagegevens en gegevens van een database). U kunt een BACPAC-bestand importeren uit Azure Blob-opslag (alleen standard storage) of van de lokale opslag in een on-premises locatie. Voor maximale snelheid importeren, kunt u opgeven van een hogere servicelaag en compute (zoals P6). U kunt vervolgens omlaag schalen wanneer het importeren geslaagd is. Compatibiliteitsniveau van de geïmporteerde database is gebaseerd op het compatibiliteitsniveau van de brondatabase.
+U kunt een SQL Server-database importeren in een database in Azure SQL Database met behulp van een [BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) bestand. U kunt de gegevens importeren uit een `BACPAC` bestand wordt opgeslagen in Azure Blob-opslag (alleen standard storage) of van de lokale opslag in een on-premises locatie. Voor maximale snelheid importeren door te geven van meer en snellere resources, schaal uw database naar een hogere servicelaag en grootte-rekenknooppunt tijdens het importproces. U kunt vervolgens omlaag schalen wanneer het importeren geslaagd is. 
 
+> [!NOTE]
+> Compatibiliteitsniveau van de geïmporteerde database is gebaseerd op het compatibiliteitsniveau van de brondatabase.
 > [!IMPORTANT]
 > Na het importeren van uw database, kunt u de database op het huidige compatibiliteitsniveau (niveau 100 voor de database AdventureWorks2008R2) of op een hoger niveau. Zie [ALTER DATABASE Compatibility Level](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level) (Compatibiliteitsniveau ALTER DATABASE) voor meer informatie over de implicaties en opties bij het hanteren van een database op een bepaald compatibiliteitsniveau. Zie ook [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) voor informatie over aanvullende instellingen op databaseniveau in verband met compatibiliteitsniveaus.
 
 ## <a name="import-from-a-bacpac-file-in-the-azure-portal"></a>Importeren uit een BACPAC-bestand in Azure portal
 
-Deze sectie wordt beschreven hoe in de [Azure-portal](https://portal.azure.com)om te maken van een Azure SQL database vanuit een BACPAC-bestand opgeslagen in Azure Blob-opslag. De portal *alleen* ondersteunt een BACPAC-bestand importeren uit Azure Blob-opslag.
+Deze sectie wordt beschreven hoe in de [Azure-portal](https://portal.azure.com)om te maken van een Azure SQL database van een `BACPAC` bestand wordt opgeslagen in Azure Blob-opslag. De portal *alleen* ondersteunt een BACPAC-bestand importeren uit Azure Blob-opslag.
 
 > [!NOTE]
-> [Azure SQL Database Managed Instance](sql-database-managed-instance.md) biedt ondersteuning voor importeren vanuit een BACPAC-bestand met behulp van de andere methoden in dit artikel, maar ondersteunt momenteel geen migreren in Azure portal.
+> [Een beheerd exemplaar](sql-database-managed-instance.md) biedt momenteel geen ondersteuning voor het migreren van een database in de Exemplaardatabase van een van een `BACPAC` bestand met de Azure-portal.
 
-Voor het importeren van een database in Azure portal, open de pagina voor de SQL-Database-server die wordt host voor het importeren en selecteer op de werkbalk **database importeren**.  
+Als u wilt importeren in een individuele database met behulp van de Azure portal, open de pagina voor de databaseserver voor de database en selecteer vervolgens op de werkbalk **database importeren**.  
 
    ![database importeren](./media/sql-database-import/import.png)
 
-Selecteer de storage-account, container en Bacpac-bestand dat u wilt importeren. Geef de nieuwe grootte van de database (meestal hetzelfde als oorsprong) en de bestemming van SQL Server-referenties opgeven. Zie voor een lijst van mogelijke waarden voor een nieuwe Azure SQL-database, [Create Database](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).
+Selecteer de opslag-account, container, en `BACPAC` bestand dat u wilt importeren. Geef de nieuwe grootte van de database (meestal hetzelfde als oorsprong) en de bestemming van SQL Server-referenties opgeven. Zie voor een lijst van mogelijke waarden voor een nieuwe Azure SQL-database, [Create Database](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).
 
 ### <a name="monitor-imports-progress"></a>Voortgang van importeren
 
-Aan de voortgang van importeren, opent u de geïmporteerde database-serverpagina, en klikt u onder **instellingen**, selecteer **geschiedenis van importeren/exporteren**. Als dat lukt, wordt de invoer heeft een **voltooid** status.
+Voortgang van een import, open de pagina van de database-server en klikt u onder **instellingen**, selecteer **geschiedenis van importeren/exporteren**. Als dat lukt, wordt de invoer heeft een **voltooid** status.
 
-Als u wilt controleren of de database op de server is, selecteert u **SQL-databases** en controleer of de nieuwe database **Online**.
+Selecteer om te controleren of de database online is op de databaseserver, **SQL-databases** en controleer of de nieuwe database **Online**.
 
 ## <a name="import-from-a-bacpac-file-using-sqlpackage"></a>Importeren uit een BACPAC-bestand met behulp van SqlPackage
 
-Voor het importeren van een SQL-database met de [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) opdrachtregel-hulpprogramma, Zie [importeren parameters en eigenschappen](https://docs.microsoft.com/sql/tools/sqlpackage#import-parameters-and-properties). SqlPackage is de meest recente [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) en [SQL Server Data Tools voor Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). U kunt ook de nieuwste versie downloaden [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) van het Microsoft download center.
+Voor het importeren van een SQL Server-database met de [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) opdrachtregel-hulpprogramma, Zie [importeren parameters en eigenschappen](https://docs.microsoft.com/sql/tools/sqlpackage#import-parameters-and-properties). SqlPackage is de meest recente [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) en [SQL Server Data Tools voor Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). U kunt ook de nieuwste versie downloaden [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) van het Microsoft download center.
 
-Voor de schaal en prestaties, het beste met behulp van SqlPackage in de meeste productieomgevingen. Raadpleeg dit blogartikel van het SQL Server-klantadviesteam over migratie met behulp van BACPAC-bestanden: [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (Migreren van SQL Server naar Azure SQL Database met BACPAC-bestanden).
+Voor de schaal en prestaties raden wij met behulp van SqlPackage in de meeste productieomgevingen in plaats van met behulp van de Azure portal. Voor een SQL Server Customer Advisory Team blog over het migreren van met `BACPAC` bestanden, Zie [migreren van SQL Server naar Azure SQL Database met BACPAC-bestanden](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 
 De volgende SqlPackage opdracht importeert de **AdventureWorks2008R2** database uit de lokale opslag met een Azure SQL Database-server met de naam **mynewserver20170403**. Deze maakt u een nieuwe database met de naam **myMigratedDatabase** met een **Premium** servicelaag en een **P6** Servicedoelstelling. Deze waarden als geschikt is voor uw omgeving te wijzigen.
 
@@ -58,7 +60,7 @@ SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.
 ```
 
 > [!IMPORTANT]
-> Een SQL Database-server luistert op poort 1433. Om verbinding te maken met een SQL Database-server achter een firewall van het bedrijf, moet de firewall voor deze poort zijn geopend.
+> Voor verbinding met een SQL Database-server een individuele database achter een firewall van het bedrijf te beheren, moet de firewall poort 1433 openen. Voor verbinding met een beheerd exemplaar, hebt u een [verbindingstype punt-naar-site](/sql-database-managed-instance-configure-p2s.md) of een express route-verbinding.
 >
 
 In dit voorbeeld laat zien hoe een database met behulp van SqlPackage met Universal verificatie van Active Directory importeren.

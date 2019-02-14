@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: magoedte
-ms.openlocfilehash: f9138ec06900f4a7f856cc90362d16496b7b4fed
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 1dba84c686fbb873f044b4980990baa396a94c79
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766009"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237668"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Lever een geïntegreerde ervaring meerdere Azure Monitor Application Insights-resources 
 In dit artikel wordt beschreven hoe u query's uitvoeren en Bekijk alle uw Application Insights toepassing logboekgegevens op één plek, zelfs wanneer ze zich in verschillende Azure-abonnementen, als vervanging voor de afschaffing van de Application Insights-Connector. Het aantal resources Application Insights-resources die u in één query opnemen kunt is beperkt tot 100.  
@@ -32,7 +32,7 @@ ApplicationInsights
 | summarize by ApplicationName
 ```
 
-Maak een functie met behulp van de operator union met de lijst met toepassingen, en sla de query als functie met de alias *applicationsScoping*.  
+Maak een functie met behulp van de operator union met de lijst met toepassingen, en sla de query in uw werkruimte als functie met de alias *applicationsScoping*.  
 
 ```
 union withsource=SourceApp 
@@ -45,7 +45,7 @@ app('Contoso-app5').requests
 ```
 
 >[!NOTE]
->U kunt de vermelde toepassingen op elk gewenst moment wijzigen door te navigeren naar Query explorer in de portal van Logboeken en de functie wordt bewerkt of met behulp van de `SavedSearch` PowerShell-cmdlet. De `withsource= SourceApp` opdracht voegt een kolom aan de resultaten die de toepassing Hiermee wordt aangegeven dat het logboek verzonden. 
+>U kunt de vermelde toepassingen op elk gewenst moment in de portal wijzigen door te gaan naar Query explorer in uw werkruimte en het selecteren van de functie voor het bewerken en vervolgens op te slaan of met behulp van de `SavedSearch` PowerShell-cmdlet. De `withsource= SourceApp` opdracht voegt een kolom aan de resultaten die de toepassing Hiermee wordt aangegeven dat het logboek verzonden. 
 >
 >De query gebruikt Application Insights-schema, maar de query wordt uitgevoerd in de werkruimte, omdat de functie applicationsScoping de gegevensstructuur van Application Insights retourneert. 
 >

@@ -11,20 +11,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: stewu
-ms.openlocfilehash: fff26406b036edeb48371b89f7e585160ddc58e0
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 318f2b550e19f4b7f56a7b8cc592d34644dca644
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123314"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235599"
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Richtlijnen voor het gebruik van PowerShell met Azure Data Lake Storage Gen1 afstemmen van prestaties
 
 In dit artikel worden de eigenschappen die kunnen worden afgestemd om op te halen voor betere prestaties tijdens het werken met Azure Data Lake Storage Gen1 met behulp van PowerShell:
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="performance-related-properties"></a>Eigenschappen met betrekking tot prestaties
 
-| Eigenschap            | Standaard | Beschrijving |
+| Eigenschap            | Standaard | Description |
 |---------------------|---------|-------------|
 | PerFileThreadCount  | 10      | Met deze parameter kunt u het aantal parallelle threads voor het uploaden of downloaden van elk bestand kiezen. Dit getal staat voor het maximumaantal threads dat per bestand kunnen worden toegewezen, maar krijgt u mogelijk minder threads, afhankelijk van uw scenario (bijvoorbeeld, als u een bestand van 1 KB uploadt, krijgt u één thread, ook als u om 20 threads vraagt).  |
 | ConcurrentFileCount | 10      | Deze parameter is specifiek bedoeld voor het uploaden en downloaden van mappen. De parameter bepaalt het aantal bestanden dat tegelijk kan worden geüpload of gedownload. Dit getal staat voor het maximum aantal bestanden dat kan worden geüpload of gedownload in één keer tegelijk, maar krijgt u mogelijk minder afhankelijk van uw scenario (bijvoorbeeld, als u twee bestanden uploadt, krijgt u twee bestanden tegelijk uploaden, zelfs als u vragen voor 15). |
@@ -33,13 +35,13 @@ In dit artikel worden de eigenschappen die kunnen worden afgestemd om op te hale
 
 Met deze opdracht downloadt bestanden van Data Lake Storage Gen1 naar de lokale schijf van de gebruiker met 20 threads per bestand en 100 bestanden tegelijk.
 
-    Export-AzureRmDataLakeStoreItem -AccountName <Data Lake Storage Gen1 account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
+    Export-AzDataLakeStoreItem -AccountName <Data Lake Storage Gen1 account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
 
 ## <a name="how-do-i-determine-the-value-for-these-properties"></a>Hoe bepaal ik welke waarden voor deze eigenschappen?
 
 De volgende vraag die u mogelijk is het bepalen van welke waarde opgeven voor de eigenschappen die betrekking hebben op prestaties. Hier volgen een aantal richtlijnen.
 
-* **Stap 1: bepaal het totale threadaantal** - begin door uit te rekenen wat het totale threadaantal is dat u wilt gebruiken. Als een algemene richtlijn, moet u zes threads voor elke fysieke kern.
+* **Stap 1: Bepalen van het totale threadaantal** -u moet beginnen door het berekenen van het totale aantal threads te gebruiken. Als een algemene richtlijn, moet u zes threads voor elke fysieke kern.
 
         Total thread count = total physical cores * 6
 
@@ -50,7 +52,7 @@ De volgende vraag die u mogelijk is het bepalen van welke waarde opgeven voor de
         Total thread count = 16 cores * 6 = 96 threads
 
 
-* **Stap 2: bereken de PerFileThreadCount** - we berekenen de PerFileThreadCount op basis van de grootte van de bestanden. Voor bestanden die kleiner zijn dan 2,5 GB is er niet nodig voor deze parameter niet wijzigen omdat de standaardwaarde van 10 voldoende is. U moet voor bestanden die groter zijn dan 2,5 GB, gebruikt u 10 threads als basis voor de eerste 2,5 GB en 1 thread voor elke extra 256 MB toename in bestandsgrootte toevoegen. Als u een map kopieert met bestanden van zeer verschillende groottes, kunt u overwegen ze op vergelijkbare grootte te sorteren. Grote verschillen in bestandsgroottes kunnen tot slechtere prestaties leiden. Als het niet mogelijk is om bestanden op grootte te sorteren, dient u de PerFileThreadCount in te stellen op basis van het grootste bestand.
+* **Stap 2: Bereken de PerFileThreadCount** -We berekenen de PerFileThreadCount op basis van de grootte van de bestanden. Voor bestanden die kleiner zijn dan 2,5 GB is er niet nodig voor deze parameter niet wijzigen omdat de standaardwaarde van 10 voldoende is. U moet voor bestanden die groter zijn dan 2,5 GB, gebruikt u 10 threads als basis voor de eerste 2,5 GB en 1 thread voor elke extra 256 MB toename in bestandsgrootte toevoegen. Als u een map kopieert met bestanden van zeer verschillende groottes, kunt u overwegen ze op vergelijkbare grootte te sorteren. Grote verschillen in bestandsgroottes kunnen tot slechtere prestaties leiden. Als het niet mogelijk is om bestanden op grootte te sorteren, dient u de PerFileThreadCount in te stellen op basis van het grootste bestand.
 
         PerFileThreadCount = 10 threads for the first 2.5 GB + 1 thread for each additional 256 MB increase in file size
 
@@ -84,13 +86,13 @@ U kunt deze instellingen blijven aanpassen door de **PerFileThreadCount** te ver
 
 ### <a name="limitation"></a>Beperking
 
-* **Het aantal bestanden is lager dan de ConcurrentFileCount**: als het aantal bestanden dat u uploadt lager is dan de **ConcurrentFileCount** die u hebt berekend, dient u de **ConcurrentFileCount** te verlagen tot deze gelijk is met het aantal bestanden. U kunt eventuele overblijvende threads gebruiken om de **PerFileThreadCount** te verhogen.
+* **Aantal bestanden is lager dan de ConcurrentFileCount**: Als het aantal bestanden dat u uploadt kleiner dan is de **ConcurrentFileCount** dat u hebt berekend en minder **ConcurrentFileCount** moet gelijk zijn aan het aantal bestanden. U kunt eventuele overblijvende threads gebruiken om de **PerFileThreadCount** te verhogen.
 
-* **Te veel threads**: als u het aantal threads te veel verhoogt zonder dat u de grootte van uw cluster verhoogt, kan dit tot slechtere prestaties leiden. Er treden mogelijk conflicten op wanneer u van context wisselt op de CPU.
+* **Te veel threads**: Als u een threadaantal verhoogt te veel zonder de clustergrootte van uw verhogen, kunt u het risico van verminderde prestaties uitvoeren. Er treden mogelijk conflicten op wanneer u van context wisselt op de CPU.
 
-* **Onvoldoende gelijktijdigheid**: als de gelijktijdigheid onvoldoende is, is uw cluster mogelijk te klein. U kunt het aantal knooppunten in het cluster, waardoor u profiteert van meer gelijktijdigheid verhogen.
+* **Onvoldoende gelijktijdigheid**: Als de gelijktijdigheid onvoldoende is, is uw cluster mogelijk te klein. U kunt het aantal knooppunten in het cluster, waardoor u profiteert van meer gelijktijdigheid verhogen.
 
-* **Beperkingsfouten**: er treden mogelijk beperkingsfouten op als uw gelijktijdigheid te hoog is. Als er beperkingsfouten optreden, dient u uw gelijktijdigheid te verkleinen of contact met ons op te nemen.
+* **Beperkingsfouten**: U ziet u mogelijk beperkingsfouten optreden als uw gelijktijdigheid te hoog is. Als er beperkingsfouten optreden, dient u uw gelijktijdigheid te verkleinen of contact met ons op te nemen.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Azure Data Lake Storage Gen1 gebruiken voor big data-vereisten](data-lake-store-data-scenarios.md) 

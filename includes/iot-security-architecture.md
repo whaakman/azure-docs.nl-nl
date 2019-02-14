@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: f2c7111373ac880d27298deb4fc919d797713f3e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 61fb8380bcad7a30d822ab610f52e8515477d683
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53995680"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56246816"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Internet of Things (IoT)-beveiligingsarchitectuur
 
@@ -179,12 +179,12 @@ In elk van de categorieën die worden beschreven in de Azure IoT-architectuur is
 
 **Misbruik van bevoegdheden (E)**: Een apparaat dat specifieke functie kan worden gedwongen om iets anders te doen. Bijvoorbeeld, kunt een klep die is geprogrammeerd om te openen halverwege worden misleiden helemaal openen.
 
-| **Onderdeel** | **Bedreiging** | **Risicobeperking** | **Risk** | **Implementatie** |
+| **Onderdeel** | **Threat** | **Risicobeperking** | **Risk** | **Implementatie** |
 | --- | --- | --- | --- | --- |
 | Apparaat |S |Identiteit toewijzen aan het apparaat en het apparaat te verifiëren |Apparaat of een deel van het apparaat vervangen door een ander apparaat. Hoe weet u dat het nu op het juiste apparaat? |Het apparaat, met behulp van Transport Layer Security (TLS) of IPSec-verificatie. Infrastructuur moet ondersteunen met behulp van vooraf gedeelde sleutel (PSK) op apparaten die volledige asymmetrische cryptografische kunnen niet worden verwerkt. Gebruikmaken van Azure AD [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
 || TRID |Toepassen tamperproof mechanismen waarmee u kunt het apparaat, bijvoorbeeld door waardoor het moeilijk is zelfs onmogelijk om op te halen van sleutels en andere cryptografische materiaal van het apparaat. |Het risico is als iemand het apparaat (fysieke interferentie) is geknoeid. Hoe weet u zeker dat, dat het apparaat is niet geknoeid met. |De meest effectieve oplossing is een vertrouwd platform module (TPM)-functie waarmee het opslaan van sleutels in speciale op-chip circuits van waaruit de sleutels kunnen niet worden gelezen, maar kunnen alleen worden gebruikt voor cryptografische bewerkingen die de sleutel gebruiken maar nooit vrijgeven van de sleutel. Geheugen-versleuteling van het apparaat. Sleutelbeheer voor het apparaat. Ondertekening van de code. | |
 || E |Toegangsbeheer van het apparaat hebben. Het autorisatieschema voor. |Als het apparaat kunt u afzonderlijke acties worden uitgevoerd op basis van de opdrachten van een externe bron, of zelfs waarmee is geknoeid sensoren, kan de aanval voor het uitvoeren van bewerkingen niet toegankelijk is. |Autorisatieschema voor het apparaat hebben | |
-| Veldgateway |S |Verificatie van de gateway van het veld naar de Cloud-Gateway (zoals certificaat, PSK, of Claim.) |Als iemand Veldgateway vervalsen kan, klikt u vervolgens deze kan worden weergegeven als een apparaat. |RSA/PSK van TLS, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). Dezelfde sleutel problemen voor de opslag en attestation van apparaten in het algemeen – aanbevolen case is TPM gebruiken. 6LowPAN-extensie voor IPSec-ter ondersteuning van draadloze Sensor netwerken (WSN). |
+| Veldgateway |S |Verificatie van de gateway van het veld naar de Cloud-Gateway (zoals certificaat, PSK, of Claim.) |Als iemand Veldgateway vervalsen kan, klikt u vervolgens deze kan worden weergegeven als een apparaat. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). Dezelfde sleutel problemen voor de opslag en attestation van apparaten in het algemeen – aanbevolen case is TPM gebruiken. 6LowPAN-extensie voor IPSec-ter ondersteuning van draadloze Sensor netwerken (WSN). |
 || TRID |Beveiligen van de Veldgateway tegen knoeien (TPM)? |Spoofing aanvallen die verleiden om de cloud gateway denken dat deze met een veldgateway communiceert kan leiden tot vrijgeven van informatie en geknoei met gegevens |Geheugen versleuteling, TPM van, verificatie. | |
 || E |Mechanisme voor toegangsbeheer voor Veldgateway | | | |
 
@@ -216,18 +216,18 @@ Hier volgen enkele voorbeelden van bedreigingen in deze categorie:
 
 **Knoeien**: Het apparaat kan opnieuw worden geconfigureerd om te werken in een status onbekend op het systeem (buiten bekende kalibreren parameters) en dus zorgen dat gegevens die kan worden geïnterpreteerd.
 
-**Adresvervalsing (spoofing) / knoeien/ontkenning**: Als niet-beveiligd (dit is slechts zelden het geval met beheer op afstand consumenten), een aanvaller de status van een apparaat anoniem kunt bewerken. Een goede illustratie is beheer op afstand die elke TV kunt inschakelen en die populaire prankster hulpprogramma's zijn.
+**Spoofing/Tampering/Repudiation**: Als niet-beveiligd (dit is slechts zelden het geval met beheer op afstand consumenten), een aanvaller de status van een apparaat anoniem kunt bewerken. Een goede illustratie is beheer op afstand die elke TV kunt inschakelen en die populaire prankster hulpprogramma's zijn.
 
 #### <a name="communication"></a>Communicatie
 
 Bedreigingen rond het communicatiepad tussen apparaten, apparaten en veldgateways en apparaat en cloud-gateway. De volgende tabel bevat enkele richtlijnen om open-sockets op het apparaat/VPN:
 
-| **Onderdeel** | **Bedreiging** | **Risicobeperking** | **Risk** | **Implementatie** |
+| **Onderdeel** | **Threat** | **Risicobeperking** | **Risk** | **Implementatie** |
 | --- | --- | --- | --- | --- |
 | Apparaat IoT-Hub |TID |(D) TLS (PSK/RSA) om het verkeer te versleutelen |Niet kan worden afgeluisterd of onderbreekt de communicatie tussen het apparaat en de gateway |Beveiliging op het protocolniveau. Met aangepaste protocollen moet u bepalen hoe ze beveiligen. In de meeste gevallen duurt de communicatie plaats van het apparaat naar de IoT Hub (de verbinding initieert apparaat). |
-| Apparaat-apparaat |TID |(D) TLS (PSK/RSA) om het verkeer te versleutelen. |Lezen van gegevens in transit tussen apparaten. Knoeien met de gegevens. Overbelasting van het apparaat met nieuwe verbindingen |Beveiliging op het protocolniveau van het (MQTT/AMQP/HTTP-/ CoAP. Met aangepaste protocollen moet u bepalen hoe ze beveiligen. De oplossing voor de DoS-bedreiging is het peer-apparaten via een gateway van het veld of cloud en hebben ze alleen act als clients op het netwerk. De peering kan leiden tot een rechtstreekse verbinding tussen de peers na dat door de gateway zijn brokered |
+| Apparaten met apparaat |TID |(D) TLS (PSK/RSA) om het verkeer te versleutelen. |Lezen van gegevens in transit tussen apparaten. Knoeien met de gegevens. Overbelasting van het apparaat met nieuwe verbindingen |Beveiliging op het protocolniveau van het (MQTT/AMQP/HTTP-/ CoAP. Met aangepaste protocollen moet u bepalen hoe ze beveiligen. De oplossing voor de DoS-bedreiging is het peer-apparaten via een gateway van het veld of cloud en hebben ze alleen act als clients op het netwerk. De peering kan leiden tot een rechtstreekse verbinding tussen de peers na dat door de gateway zijn brokered |
 | Externe entiteit apparaat |TID |Sterke koppelen van de externe entiteit op het apparaat |De verbinding met het apparaat niet kan worden afgeluisterd. Onderbreekt de communicatie met het apparaat |De externe entiteit op het apparaat NFC/Bluetooth LE veilig te koppelen. Het operationele deelvenster van het apparaat (fysiek) beheren |
-| Veldgateway Gateway Cloud |TID |TLS (PSK/RSA) om het verkeer te versleutelen. |Niet kan worden afgeluisterd of onderbreekt de communicatie tussen het apparaat en de gateway |Beveiliging op het protocolniveau van het (MQTT/AMQP/HTTP-/ CoAP). Met aangepaste protocollen moet u bepalen hoe ze beveiligen. |
+| Field Gateway Cloud Gateway |TID |TLS (PSK/RSA) om het verkeer te versleutelen. |Niet kan worden afgeluisterd of onderbreekt de communicatie tussen het apparaat en de gateway |Beveiliging op het protocolniveau van het (MQTT/AMQP/HTTP-/ CoAP). Met aangepaste protocollen moet u bepalen hoe ze beveiligen. |
 | De Cloudgateway apparaat |TID |TLS (PSK/RSA) om het verkeer te versleutelen. |Niet kan worden afgeluisterd of onderbreekt de communicatie tussen het apparaat en de gateway |Beveiliging op het protocolniveau van het (MQTT/AMQP/HTTP-/ CoAP). Met aangepaste protocollen moet u bepalen hoe ze beveiligen. |
 
 Hier volgen enkele voorbeelden van bedreigingen in deze categorie:
@@ -242,11 +242,11 @@ Hier volgen enkele voorbeelden van bedreigingen in deze categorie:
 
 **Vrijgeven van informatie:** een aanvaller kan op een broadcast afluisteren en informatie zonder toestemming te verkrijgen **denial of Service:** een aanvaller kan het signaal jam en informatie distributie weigeren
 
-#### <a name="storage"></a>Storage
+#### <a name="storage"></a>Opslag
 
 Elke gateway-apparaat en elk veld heeft een vorm van opslag (tijdelijke voor de gegevens, het besturingssysteem (OS) afbeeldingopslag queuing).
 
-| **Onderdeel** | **Bedreiging** | **Risicobeperking** | **Risk** | **Implementatie** |
+| **Onderdeel** | **Threat** | **Risicobeperking** | **Risk** | **Implementatie** |
 | --- | --- | --- | --- | --- |
 | Apparaatopslag |TRID |Versleuteling van opslag, ondertekening van de logboeken |Lezen van gegevens uit de opslag (PII-gegevens), te wijzigen met de telemetrische gegevens. Gemanipuleerde in de wachtrij geplaatst of in de cache opgeslagen opdracht control-gegevens. Knoeien met de configuratie of de firmware-update-pakketten kan in de cache opgeslagen of lokaal in de wachtrij leiden tot OS en/of systeem onderdelen worden aangetast |Versleuteling, message authentication code (MAC) of digitale handtekening. Waar mogelijk, sterk toegangsbeheer via toegang tot bronnen beheren (ACL's) of machtigingen. |
 | Installatiekopie van besturingssysteem van het apparaat |TRID | |Gemanipuleerde OS / vervangen van de OS-componenten |OS-partitie, alleen-lezen, ondertekend installatiekopie van het besturingssysteem, versleuteling |
@@ -259,7 +259,7 @@ Een cloudgateway is een systeem dat externe communicatie van en naar apparaten o
 
 Cloudgateway is voornamelijk aangepaste ingebouwde stukje software die wordt uitgevoerd als een service met beschikbaar gestelde eindpunten waarmee veldgateway en apparaten verbinding wilt maken. Het moet als zodanig zijn ontworpen met beveiliging in gedachten. Ga als volgt [SDL](https://www.microsoft.com/sdl) proces voor het ontwerpen en bouwen van deze service.
 
-#### <a name="services-zone"></a>Services-zone
+#### <a name="services-zone"></a>Services zone
 
 Een besturingssysteem (of een domeincontroller) is een oplossing voor software die is gekoppeld aan een apparaat, of een veldgateway of cloudgateway voor het beheren van een of meerdere apparaten en/of voor het verzamelen en/of opslaan en/of analyseren van gegevens van het apparaat voor presentatie, of volgende controledoeleinden. Systemen voor toegangsbeheer zijn de worden alleen entiteiten in het bereik van deze discussie die interactie met mensen onmiddellijk vergemakkelijken. De uitzonderingen zijn tussenliggende fysieke besturingselement oppervlakken op apparaten, zoals een switch waarmee een gebruiker het apparaat uitschakelen of andere eigenschappen wijzigen, en waarvoor er geen functioneel equivalent die digitaal kan worden geopend is.
 

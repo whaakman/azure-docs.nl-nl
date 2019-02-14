@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: a14b0f2b01a0566a47cbcb02ee4315adcba9a90f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5a0d02768b0fbd23e33d13c5e5c3fe84a41cdc52
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200799"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243651"
 ---
 # <a name="monitor-azure-file-sync"></a>Azure File Sync bewaken
 
@@ -48,7 +48,7 @@ Metrische gegevens
   | Warmtemeting intrekken in de cloud | Grootte van gegevens die zijn ingetrokken | Geregistreerde servers |
   | Bestanden die niet worden gesynchroniseerd | Aantal bestanden die niet worden gesynchroniseerd | Servereindpunt |
   | Bestanden die zijn gesynchroniseerd | Aantal bestanden overgedragen (uploaden en downloaden) | Groep voor synchronisatie, servereindpunt |
-  | Serverheartbeat | Het aantal heartbeats ontvangen van de server | Geregistreerde servers |
+  | Status van de server online | Het aantal heartbeats ontvangen van de server | Geregistreerde servers |
 
 - Zie voor meer informatie, [Azure Monitor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#azure-monitor) sectie. 
 
@@ -70,7 +70,7 @@ De volgende metrische gegevens voor Azure File Sync zijn beschikbaar in Azure Mo
 | Warmtemeting intrekken in de cloud | Grootte van gegevens ingetrokken.<br><br>Eenheid: Bytes<br>Aggregatietype: Sum<br>Dimensie van toepassing: Servernaam |
 | Bestanden die niet worden gesynchroniseerd | Het aantal bestanden die niet worden gesynchroniseerd.<br><br>Eenheid: Count<br>Aggregatietype: Sum<br>Van toepassing afmetingen: Server-eindpunt naam, synchronisatie richting, naam van Synchronisatiegroep |
 | Bestanden die zijn gesynchroniseerd | Aantal bestanden overgedragen (uploaden en downloaden).<br><br>Eenheid: Count<br>Aggregatietype: Sum<br>Van toepassing afmetingen: Server-eindpunt naam, synchronisatie richting, naam van Synchronisatiegroep |
-| Serverheartbeat | Het aantal heartbeats ontvangen van de server.<br><br>Eenheid: Count<br>Aggregatietype: Maximum<br>Dimensie van toepassing: Servernaam |
+| Status van de server online | Het aantal heartbeats ontvangen van de server.<br><br>Eenheid: Count<br>Aggregatietype: Maximum<br>Dimensie van toepassing: Servernaam |
 | Synchronisatie-sessie resultaat | Synchroniseren van resultaat van de sessie (1 = voltooide synchronisatie sessie; 0 = mislukt synchronisatiesessie)<br><br>Eenheid: Count<br>Aggregatietypen: Maximum<br>Van toepassing afmetingen: Server-eindpunt naam, synchronisatie richting, naam van Synchronisatiegroep |
 
 ## <a name="windows-server"></a>Windows Server

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.author: artemuwka
 ms.subservice: common
-ms.openlocfilehash: a4e115194d7e903edae4b4713c4f65eef9895cbf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c9009e898b00212dba4dec9bf38af2bfa057b8ea
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467115"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244603"
 ---
 # <a name="transfer-data-with-the-azcopy-v10-preview"></a>Gegevensoverdracht met het AzCopy-v10 (Preview)
 
@@ -54,8 +54,11 @@ AzCopy v10 is niet vereist voor een installatie. Open een voorkeurs-opdrachtrege
 ## <a name="authentication-options"></a>Verificatie-opties
 
 AzCopy v10 kunt u de volgende opties gebruiken voor verificatie met Azure Storage:
-- **Azure Active Directory [ondersteunde op Blob- en ADLS Gen2]**. Gebruik ```.\azcopy login``` zich aanmelden met Azure Active Directory.  De gebruiker moet beschikken over ['Blob Gegevensbijdrager voor' rol](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) te schrijven naar Blob-opslag met Azure Active Directory-verificatie.
-- **SAS-tokens [ondersteunde van Blob en bestand service]**. De SAS-token toevoegen aan de blobpad op de opdrachtregel om het te gebruiken. U kunt met behulp van Azure Portal, SAS-token genereren [Opslagverkenner](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), of andere hulpprogramma's van uw keuze. Zie voor meer informatie, [voorbeelden](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
+- **Azure Active Directory [ondersteunde voor Blob-en ADLS Gen2]**. Gebruik ```.\azcopy login``` zich aanmelden met Azure Active Directory.  De gebruiker moet beschikken over ['Blob Gegevensbijdrager voor' rol](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) te schrijven naar Blob-opslag met Azure Active Directory-verificatie.
+- **SAS-tokens [ondersteunde voor Blob- en Bestandsservices]**. De SAS-token toevoegen aan de blobpad op de opdrachtregel om het te gebruiken. U kunt met behulp van Azure Portal, SAS-token genereren [Opslagverkenner](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), of andere hulpprogramma's van uw keuze. Zie voor meer informatie, [voorbeelden](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
+
+> [!IMPORTANT]
+> Bij het indienen van een verzoek voor ondersteuning van Microsoft Support (of het oplossen van het probleem met betrekking tot een 3e partij). de geredigeerde versie van de opdracht die u probeert uit te voeren om ervoor te zorgen de SAS niet per ongeluk wordt gedeeld met iedereen delen. U vindt de geredigeerde versie aan het begin van het logboekbestand. Raadpleeg de sectie probleemoplossing verderop in dit artikel voor meer informatie.
 
 ## <a name="getting-started"></a>Aan de slag
 
@@ -206,11 +209,33 @@ set AZCOPY_CONCURRENCY_VALUE=<value>
 export AZCOPY_CONCURRENCY_VALUE=<value>
 # For MacOS
 export AZCOPY_CONCURRENCY_VALUE=<value>
+# To check the current value of the variable on all the platforms
+.\azcopy env
+# If the value is blank then the default value is currently in use
 ```
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-AzCopy v10 logboekbestanden en plan bestanden voor alle taken gemaakt. U kunt de logboeken kunt gebruiken om te onderzoeken en oplossen van mogelijke problemen. De logboeken van de status van de fout (UPLOADFAILED, COPYFAILED en DOWNLOADFAILED), bevat het volledige pad en de reden van de fout. De taaklogboeken van de en plan-bestanden bevinden zich in de map % USERPROFILE\\.azcopy map.
+AzCopy v10 logboekbestanden en plan bestanden voor alle taken gemaakt. U kunt de logboeken kunt gebruiken om te onderzoeken en oplossen van mogelijke problemen. De logboeken van de status van de fout (UPLOADFAILED, COPYFAILED en DOWNLOADFAILED), bevat het volledige pad en de reden van de fout. De taaklogboeken van de en plan-bestanden bevinden zich in de map % USERPROFILE\\.azcopy map op Windows of $HOME\\.azcopy map op Mac en Linux.
+
+> [!IMPORTANT]
+> Bij het indienen van een verzoek voor ondersteuning van Microsoft Support (of het oplossen van het probleem met betrekking tot een 3e partij). de geredigeerde versie van de opdracht die u probeert uit te voeren om ervoor te zorgen de SAS niet per ongeluk wordt gedeeld met iedereen delen. U vindt de geredigeerde versie aan het begin van het logboekbestand.
+
+### <a name="change-the-location-of-the-log-files"></a>Wijzig de locatie van de logboekbestanden
+
+U kunt de locatie van de logboekbestanden indien nodig, of om te voorkomen dat de besturingssysteemschijf wordt ingenomen wijzigen.
+
+```cmd
+# For Windows:
+set AZCOPY_LOG_LOCATION=<value>
+# For Linux:
+export AZCOPY_LOG_LOCATION=<value>
+# For MacOS
+export AZCOPY_LOG_LOCATION=<value>
+# To check the current value of the variable on all the platforms
+.\azcopy env
+# If the value is blank then the default value is currently in use
+```
 
 ### <a name="review-the-logs-for-errors"></a>Bekijk de logboeken voor fouten
 

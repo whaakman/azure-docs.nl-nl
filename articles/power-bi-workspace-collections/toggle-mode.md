@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 9a12940f08a11b66a0d09937d5ab8fab7304734f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 892ea129a57e77c59f37b305b96b42aa85dba32b
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754333"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232704"
 ---
 # <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>Schakelen tussen weergeven en bewerken van modus voor rapporten in Power BI-Werkruimteverzamelingen
 
@@ -30,7 +30,7 @@ U moet een toegangstoken dat u de mogelijkheid biedt zowel bekijken en bewerken 
 > [!NOTE]
 > Hiermee kunt u om te bewerken en wijzigingen in een bestaand rapport opslaan. Als u ook de functie ondersteunende **OpslaanAls**, moet u extra machtigingen opgeven. Zie voor meer informatie, [Scopes](app-token-flow.md#scopes).
 
-```
+```csharp
 using Microsoft.PowerBI.Security;
 
 // rlsUsername and roles are optional
@@ -46,9 +46,10 @@ U moet opgeven van machtigingen en een weergavemodus om te zien van het opslaan 
 
 Bijvoorbeeld, in JavaScript:
 
-```
+```html
    <div id="reportContainer"></div>
 
+    <script>
     // Get models. Models, it contains enums that can be used.
     var models = window['powerbi-client'].models;
 
@@ -74,6 +75,7 @@ Bijvoorbeeld, in JavaScript:
 
     // Embed the report and display it within the div container.
     var report = powerbi.embed(reportContainer, config);
+    </script>
 ```
 
 Hiermee geeft u aan dat het rapport insluiten in de weergavemodus op basis van **weergavemodus** wordt ingesteld op **modellen. ViewMode.View**.
@@ -82,7 +84,7 @@ Hiermee geeft u aan dat het rapport insluiten in de weergavemodus op basis van *
 
 U kunt de volgende JavaScript gebruiken om te schakelen naar de modus weergeven, als u zich in de modus bewerken.
 
-```
+```javascript
 // Get a reference to the embedded report HTML element
 var reportContainer = $('#reportContainer')[0];
 
@@ -98,7 +100,7 @@ report.switchMode("view");
 
 U kunt de volgende JavaScript gebruiken om over te schakelen naar de bewerkingsmodus, als u in de weergave modus.
 
-```
+```javascript
 // Get a reference to the embedded report HTML element
 var reportContainer = $('#reportContainer')[0];
 

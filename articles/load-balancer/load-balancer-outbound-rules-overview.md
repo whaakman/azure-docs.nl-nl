@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 0020d1a830932ffe77f7edc54e9e2e52e04dcb15
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7a0b679ef7a1a468c8a849b0a3fb9f744a392dd3
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439099"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243600"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer-regels voor uitgaand
 
@@ -34,7 +34,7 @@ Regels voor uitgaand verkeer kunnen u zelf regelen:
 - welke virtuele machines moet worden omgezet naar dit openbare IP-adressen. 
 - hoe [poorten voor uitgaande SNAT](load-balancer-outbound-connections.md#snat) moet worden toegewezen.
 - welke protocollen voor omzetting van de uitgaande.
-- de duur moet worden gebruikt voor de time-out voor inactiviteit van uitgaande verbindingen.
+- de duur moet worden gebruikt voor uitgaande verbindingen time-out voor inactiviteit (4-120 minuten).
 - Hiermee geeft u op of u voor het verzenden van een TCP-opnieuw instellen op de time-out voor inactiviteit (in openbare preview-versie). 
 
 Regels voor uitgaand verkeer Vouw [scenario 2](load-balancer-outbound-connections.md#lb) in dat wordt beschreven in de [uitgaande verbindingen](load-balancer-outbound-connections.md) artikel en de prioriteit van het scenario blijft-is.
@@ -90,7 +90,7 @@ U kunt terugkeren naar [automatische SNAT poorttoewijzing op basis van de groott
 
 ### <a name="idletimeout"></a> Niet-actieve Controletime-out uitgaande stroom
 
-Regels voor uitgaand verkeer bieden een configuratieparameter om te bepalen van de time-out voor inactiviteit uitgaande stroom en vergelijken met de behoeften van uw toepassing.  Uitgaande niet-actieve time-outs standaard 4 minuten.  De parameter accepteert een waarde tussen 4 en 66 naar specifiek het aantal minuten voor de time-out voor inactiviteit voor stromen die overeenkomt met deze bepaalde regel.
+Regels voor uitgaand verkeer bieden een configuratieparameter om te bepalen van de time-out voor inactiviteit uitgaande stroom en vergelijken met de behoeften van uw toepassing.  Uitgaande niet-actieve time-outs standaard 4 minuten.  De parameter accepteert een waarde van 4 tot 120 naar specifiek het aantal minuten voor de time-out voor inactiviteit voor stromen die overeenkomt met deze bepaalde regel.
 
 Gebruik de volgende parameter om de uitgaande time-out voor inactiviteit ingesteld op 1 uur:
 
@@ -205,7 +205,7 @@ Wanneer u een interne Standard Load Balancer, is uitgaande NAT niet beschikbaar 
 ## <a name="limitations"></a>Beperkingen
 
 - Het maximum aantal bruikbaar kortstondige poorten per frontend-IP-adres is 51,200.
-- Het bereik van de configureerbare uitgaande time-out voor inactiviteit is 4 tot en met 66 minuten (240-4000 seconden).
+- Het bereik van de configureerbare uitgaande time-out voor inactiviteit is 4 tot 120 minuten (240-7200 seconden).
 - Load Balancer biedt geen ondersteuning voor ICMP voor uitgaande NAT.
 - Portal kan niet worden gebruikt om te configureren of regels voor uitgaand verkeer bekijken.  Gebruik in plaats daarvan sjablonen, REST-API, Az CLI 2.0 of PowerShell.
 - Regels voor uitgaand verkeer kunnen alleen worden toegepast op de primaire NIC en de primaire IP-configuratie.

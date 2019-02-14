@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 43d16c291391a3ffd94f404755e644dac0daf3a9
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 280538c16f5a464f759eca74cce8ff6a97bfa4b2
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492824"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244295"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>PowerShell gebruiken voor Studio-modellen en webservice-eindpunten van een experiment maken
 
@@ -35,7 +35,7 @@ Gelukkig, u kunt dit doen met behulp van de [Azure Machine Learning retraining A
 > 
 
 ## <a name="set-up-the-training-experiment"></a>Het trainingsexperiment instellen
-Gebruik het voorbeeld [trainingsexperiment](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Training-Experiment-1) die zich in de [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Open dit experiment in uw [Azure Machine Learning Studio](https://studio.azureml.net) werkruimte.
+Gebruik het voorbeeld [trainingsexperiment](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) die zich in de [Cortana Intelligence Gallery](http://gallery.azure.ai). Open dit experiment in uw [Azure Machine Learning Studio](https://studio.azureml.net) werkruimte.
 
 > [!NOTE]
 > Als u wilt volgen, samen met het volgende voorbeeld, kunt u een standard-werkruimte in plaats van een gratis werkruimte gebruiken. Maakt u een eindpunt voor elke klant - voor een totaal van 10 eindpunten - en waarvoor een standard-werkruimte is vereist omdat een gratis werkruimte beperkt tot 3-eindpunten is. Als u alleen een gratis werkruimte hebt, alleen de scripts om toe te staan voor alleen th locaties te wijzigen.
@@ -63,7 +63,7 @@ Nu moet u de scoring-webservice implementeren.
 Om dit te doen, klikt u op **webservice ingesteld** onder het canvas en selecteer **voorspellende webservice**. Hiermee maakt u een scoring-experiment.
 U moet enkele kleine aanpassingen te kunnen gebruiken als een webservice. De kolom van het label "cnt" verwijderen uit de invoergegevens en de uitvoer naar alleen de exemplaar-id en de bijbehorende voorspelde waarde beperken.
 
-Als u wilt dat werk besparen, kunt u openen de [Voorspellend experiment](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Predicative-Experiment-1) in de galerie die al is voorbereid.
+Als u wilt dat werk besparen, kunt u openen de [Voorspellend experiment](https://gallery.azure.ai/Experiment/Bike-Rental-Predicative-Experiment-1) in de galerie die al is voorbereid.
 
 Voor het implementeren van de webservice, de voorspellende experiment uit te voeren, en klik vervolgens op de **webservice implementeren** knop onder het canvas. De naam van de scoring-webservice 'Fiets verhuur score'.
 

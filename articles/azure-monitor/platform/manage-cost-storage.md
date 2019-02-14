@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: d6b0093e396e87b528bd8ccbdb8b5454c06dfac1
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 851098840356c7d391c2b10fae1c18884f5dab02
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106287"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236104"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Gebruik en kosten voor Log Analytics beheren
 
@@ -118,7 +118,7 @@ Als u verplaatsen van uw werkruimte in de huidige prijscategorie wilt, moet u [w
 > Als de werkruimte is gekoppeld aan een Automation-account, moet u vóórdat u de prijscategorie *Zelfstandig (per GB)* kunt selecteren eerst alle oplossingen **Automation and Control** verwijderen en het Automation-account loskoppelen. Klik op de blade van de werkruimte onder **Algemeen** op **Oplossingen** om oplossingen te bekijken en te verwijderen. Klik op de blade **Prijscategorie** op de naam van het Automation-account om het Automation-account los te koppelen.
 
 > [!NOTE]
-> U kunt meer informatie over het (het instellen van de prijscategorie via ARM) [https://docs.microsoft.com/en-us/azure/azure-monitor/platform/template-workspace-configuration#create-a-log-analytics-workspace] en hoe u om ervoor te zorgen dat uw implementatie ARM slaagt, ongeacht of het abonnement is in de oude of nieuwe prijsmodel. 
+> U kunt meer informatie over het (het instellen van de prijscategorie via ARM) [https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#create-a-log-analytics-workspace] en hoe u om ervoor te zorgen dat uw implementatie ARM slaagt, ongeacht of het abonnement is in de oude of nieuwe prijsmodel. 
 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Het oplossen van waarom Log Analytics is niet meer gegevens verzamelen

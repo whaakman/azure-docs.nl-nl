@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/11/2019
-ms.openlocfilehash: a0d31aa2a051d86ac14afcb00566d0537ef08882
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8fb7ea1841d788c1d8e7809a0641140228fd2ea5
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210812"
+ms.locfileid: "56233153"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparante gegevensversleuteling voor SQL-Database en Data Warehouse
 
@@ -42,7 +42,7 @@ Microsoft ook naadloos worden verplaatst en de sleutels indien nodig voor geo-re
 
 ## <a name="customer-managed-transparent-data-encryption---bring-your-own-key"></a>Door de klant beheerde transparante gegevensversleuteling - Bring Your Own Key
 
-[TDE met de klant beheerde sleutels in Azure Key Vault](transparent-data-encryption-byok-azure-sql.md) kunt voor het versleutelen van de Database Gegevensversleutelingsleutel (DEK) met een door de klant beheerde asymmetrische sleutel met de naam TDE-beveiliging.  De TDE-beveiliging worden opgeslagen in een klanten en beheerd [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), van het Azure-cloud-gebaseerde externe sleutelbeheersysteem. De DEK TDE, die is opgeslagen op de opstartpagina van een database, is versleuteld en ontsleuteld door de TDE-beveiliging, die is opgeslagen in Azure Key Vault en nooit verlaat de key vault.  SQL-Database moet machtigingen worden toegekend voor de sleutelkluis te ontsleutelen en de DEK versleutelen met klanten. Als de machtigingen van de logische SQL-server naar de key vault worden ingetrokken, een database zijn niet toegankelijk en alle gegevens worden versleuteld. Voor Azure SQL Database, de TDE-beveiliging is ingesteld op niveau van de logische SQL-server en wordt overgenomen door alle databases die zijn gekoppeld aan die server. Voor [Azure SQL Managed Instance](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-howto-managed-instance), de TDE-beveiliging is ingesteld op het instantieniveau en deze is overgenomen door alle *versleutelde* databases op dat exemplaar. De term *server* verwijst zowel naar de server en het exemplaar in dit document, tenzij anders vermeld.
+[TDE met de klant beheerde sleutels in Azure Key Vault](transparent-data-encryption-byok-azure-sql.md) kunt voor het versleutelen van de Database Gegevensversleutelingsleutel (DEK) met een door de klant beheerde asymmetrische sleutel met de naam TDE-beveiliging.  De TDE-beveiliging worden opgeslagen in een klanten en beheerd [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), van het Azure-cloud-gebaseerde externe sleutelbeheersysteem. De DEK TDE, die is opgeslagen op de opstartpagina van een database, is versleuteld en ontsleuteld door de TDE-beveiliging, die is opgeslagen in Azure Key Vault en nooit verlaat de key vault.  SQL-Database moet machtigingen worden toegekend voor de sleutelkluis te ontsleutelen en de DEK versleutelen met klanten. Als de machtigingen van de logische SQL-server naar de key vault worden ingetrokken, een database zijn niet toegankelijk en alle gegevens worden versleuteld. Voor Azure SQL Database, de TDE-beveiliging is ingesteld op niveau van de logische SQL-server en wordt overgenomen door alle databases die zijn gekoppeld aan die server. Voor [Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance), de TDE-beveiliging is ingesteld op het instantieniveau en deze is overgenomen door alle *versleutelde* databases op dat exemplaar. De term *server* verwijst zowel naar de server en het exemplaar in dit document, tenzij anders vermeld.
 
 Gebruikers kunnen met TDE met Azure Key Vault-integratie, essentiële beheertaken zoals sleutelrotaties, key vault-machtigingen, sleutelback-ups beheren en Schakel controle/rapportage over alle TDE beveiligingstoepassingen met behulp van Azure Key Vault-functionaliteit. Key Vault biedt centraal beheer, maakt gebruik van nauw bewaakte hardware security modules (HSM's), en kunt scheiding van functies tussen het beheer van sleutels en gegevens om te voldoen aan de naleving van beveiligingsbeleid.
 Zie voor meer informatie over transparante gegevensversleuteling met Azure Key Vault-integratie (Bring Your Own Key-ondersteuning) voor Azure SQL Database, SQL Managed Instance en Data Warehouse, [transparante gegevensversleuteling met Azure Key Vault-integratie](transparent-data-encryption-byok-azure-sql.md).

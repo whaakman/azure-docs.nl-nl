@@ -1,25 +1,25 @@
 ---
 title: Het configureren van persistentie van de gegevens voor een Premium Azure Cache voor Redis
 description: Meer informatie over het configureren en beheren van uw Premium-laag Azure Cache voor instanties van Redis voor persistentie van gegevens
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
 author: yegu-ms
-manager: cfowler
+manager: jhubbard
 editor: ''
 ms.assetid: b01cf279-60a0-4711-8c5f-af22d9540d38
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2017
 ms.author: yegu
-ms.openlocfilehash: 8a98d82f00ebf6288ab35681a665d56557bbde4a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: de0b2e3ef7b0268540ef4896ade132a297ee88ff
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107783"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233980"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Het configureren van persistentie van de gegevens voor een Premium Azure Cache voor Redis
 Azure Redis-Cache heeft een ander cache-aanbiedingen die over de benodigde flexibiliteit bij de keuze van de grootte van de cache en -onderdelen, met inbegrip van Premium-functies zoals clustering, persistentie en virtual network-ondersteuning. In dit artikel wordt beschreven hoe u persistentie configureren in een premium Azure Cache voor Redis-exemplaar.

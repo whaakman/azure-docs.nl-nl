@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 56884f2299df35c1565804a92fc404b6ed9e2f9a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 97fcfa20e474edb8108474ef02c6542688d627ff
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185006"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243482"
 ---
 # <a name="network-connectivity"></a>Verbinding met het netwerk
 Dit artikel bevat informatie over de infrastructuur Azure Stack-netwerk om te bepalen hoe u het beste Azure Stack integreren met uw bestaande netwerkomgeving. 
@@ -67,9 +67,6 @@ Deze /24 (254 host IP-adressen) netwerk zijn exclusief voor de Azure Stack-regio
 
 ### <a name="azure-stack-infrastructure-network"></a>Netwerk van Azure Stack-infrastructuur
 Dit/24 netwerk is toegewezen aan interne Azure Stack-onderdelen, zodat ze kunnen communiceren en uitwisselen van gegevens worden gedeeld. Dit subnet routeerbare IP-adressen vereist, maar is privé gehouden aan de oplossing met behulp van toegangsbeheerlijsten (ACL's). Het is niet waarschijnlijk worden gerouteerd buiten de rand-switches, met uitzondering van een klein bereik gelijk in grootte aan een/27 netwerk die door enkele van deze services wordt gebruikt wanneer ze nodig toegang tot externe bronnen en/of het internet hebben. 
-
-### <a name="public-infrastructure-network"></a>Infrastructuur voor openbare-netwerk
-Dit/27 netwerk is het kleine bereik van de Azure Stack-infrastructuur subnet eerder vermeld, hoeven er geen openbare IP-adressen, maar er is internettoegang via een NAT- of transparante Proxy vereist. Dit netwerk worden toegewezen voor de EMS Recovery-Console (ERCS), de VM ERCS is internettoegang vereist tijdens de registratie naar Azure en tijdens de back-ups van infrastructuur. De VM ERCS moet routeerbaar zijn met uw beheernetwerk voor het oplossen van problemen.
 
 ### <a name="public-vip-network"></a>Openbare VIP-netwerk
 Het openbare VIP-netwerk is toegewezen aan de netwerkcontroller in Azure Stack. Het is niet een logisch netwerk op de switch. De SLB maakt gebruik van de groep met adressen en wijst/32 netwerken voor tenantwerkbelastingen. Op de switch-routeringstabel, worden deze 32 IP-adressen aangekondigd als een beschikbare route via BGP. Dit netwerk bevat de extern toegankelijke of openbare IP-adressen. De Azure Stack-infrastructuur reserveert de eerste 31 adressen van deze openbare VIP-netwerk terwijl de rest wordt gebruikt door tenant-VM's. De netwerkgrootte van het op dit subnet kan variëren van een minimum van /26 (64-hosts) tot een maximum van /22 (1022 hosts), is het raadzaam dat u van plan bent voor een/24 netwerk.

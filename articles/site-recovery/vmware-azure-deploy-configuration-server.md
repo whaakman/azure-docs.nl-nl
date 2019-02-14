@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: ramamill
-ms.openlocfilehash: 4a8ab770eef1c8d95ea2fb6340480089ded0218b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b7454226b96ff2f6a76285d708a7ce2ad1c3a6de
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863139"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235883"
 ---
 # <a name="deploy-a-configuration-server"></a>Een configuratieserver implementeren
 
@@ -130,38 +130,42 @@ Om te voorkomen onderbrekingen in de lopende replicatie, zorg ervoor dat IP-adre
 
 ## <a name="faq"></a>Veelgestelde vragen
 
-1. Kan ik de virtuele machine, waarop de configuratieserver is geïnstalleerd, voor verschillende doeleinden gebruiken?
+1. Hoe lang is het certificaat dat is opgegeven op de configuratieserver geïmplementeerd via OVF is geldig? Wat gebeurt er als ik de licentie niet opnieuw activeren?
+
+    Het certificaat dat is opgegeven met OVA-sjabloon is een geldig gedurende 180 dagen evaluatie-certificaat. Vóór de verloopdatum moet u de licentie activeren. Anders kan dit leiden tot frequente afsluiten van de configuratieserver en waardoor hinderance replicatie activiteiten.
+
+2. Kan ik de virtuele machine, waarop de configuratieserver is geïnstalleerd, voor verschillende doeleinden gebruiken?
 
     **Geen**, raden we u met de virtuele machine voor enig doel van de configuratieserver. Zorg ervoor dat u de specificaties die zijn vermeld in volgen [vereisten](#prerequisites) voor efficiënt beheer van herstel na noodgevallen.
-2. Kan ik wisselen van de kluis die al zijn geregistreerd in de configuratieserver met een nieuwe kluis?
+3. Kan ik wisselen van de kluis die al zijn geregistreerd in de configuratieserver met een nieuwe kluis?
 
     **Geen**, zodra een kluis is geregistreerd met de configuratieserver, kan niet worden gewijzigd.
-3. Kan ik de dezelfde configuratieserver gebruiken voor het beveiligen van zowel fysieke en virtuele machines?
+4. Kan ik de dezelfde configuratieserver gebruiken voor het beveiligen van zowel fysieke en virtuele machines?
 
     **Ja**, dezelfde configuratieserver kan worden gebruikt voor het repliceren van fysieke en virtuele machines. Echter kan fysieke machine kan worden niet terug alleen bij een VMware-VM.
-4. Wat is het doel van een configuratieserver en waar wordt deze gebruikt?
+5. Wat is het doel van een configuratieserver en waar wordt deze gebruikt?
 
     Raadpleeg [VMware naar Azure-replicatie-architectuur](vmware-azure-architecture.md) voor meer informatie over de configuratieserver en de functionaliteiten.
-5. Waar vind ik de meest recente versie van de configuratieserver
+6. Waar vind ik de meest recente versie van de configuratieserver
 
     Zie voor stappen voor het bijwerken van de configuratieserver via de portal, [Upgrade van de configuratieserver](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Raadpleeg voor gedetailleerde instructies voor het upgraden van alle onderdelen van Site Recovery [hier](https://aka.ms/asr_how_to_upgrade).
-6. Waar kan ik de wachtwoordzin voor de configuratieserver downloaden?
+7. Waar kan ik de wachtwoordzin voor de configuratieserver downloaden?
 
     Raadpleeg [in dit artikel](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) voor het downloaden van de wachtwoordzin.
-7. Kan ik de wachtwoordzin wijzigen?
+8. Kan ik de wachtwoordzin wijzigen?
 
     **Geen**, bent u **u met klem aangeraden niet wijzigen van de wachtwoordzin** van de configuratieserver. Wijziging in de wachtwoordzin voor replicatie van beveiligde machines verbroken en leidt tot een kritieke status heeft.
-8. Waar kan ik registratiesleutels kluis downloaden?
+9. Waar kan ik registratiesleutels kluis downloaden?
 
     In de **Recovery Services-kluis**, **beheren** > **infrastructuur voor Site Recovery** > **configuratieservers**. Selecteer in de Servers, **registratiesleutel downloaden** voor het downloaden van het bestand met kluisreferenties.
-9. Kan ik klonen van een bestaande configuratieserver en gebruiken voor het indelen van replicatie?
+10. Kan ik klonen van een bestaande configuratieserver en gebruiken voor het indelen van replicatie?
 
     **Geen**, gebruik van een gekloonde onderdeel van de configuratieserver wordt niet ondersteund.
 
-10. Kan ik het IP-adres van de configuratieserver wijzigen?
+11. Kan ik het IP-adres van de configuratieserver wijzigen?
 
     **Geen**, het wordt sterk aanbevolen niet wijzigen het IP-adres van een configuratieserver. Zorg ervoor dat alle IP-adressen toegewezen aan de configuratieserver worden statische IP-adressen en geen DHCP IP-adressen.
-11. Kan ik de configuratieserver in Azure instellen?
+12. Kan ik de configuratieserver in Azure instellen?
 
     Het verdient aanbeveling voor het instellen van de configuratieserver op on-premises-omgeving met rechtstreekse regel van verbinding met Vcenter- en data transfer latentie te minimaliseren. U kunt geplande back-ups van de configuratieserver voor nemen [failback doeleinden](vmware-azure-manage-configuration-server.md#failback-requirements).
 

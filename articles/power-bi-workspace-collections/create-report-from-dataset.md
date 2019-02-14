@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 38be6d0212f4676add76abacf9f18f0a73eb44be
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 78834f1f12d2c748cb885e437496f2acf11b69ee
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170416"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232756"
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Een nieuw rapport maken van een gegevensset in Power BI-Werkruimteverzamelingen
 
@@ -40,13 +40,13 @@ De *PowerBIToken klasse* vereist dat u installeert de [Power BI Core NuGut pakke
 
 **NuGet-pakket installeren**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.Core
 ```
 
 **C#-code**
 
-```
+```csharp
 using Microsoft.PowerBI.Security;
 
 // rlsUsername and roles are optional
@@ -65,15 +65,16 @@ Als u wilt een nieuw rapport maakt, moet de configuratie maken worden opgegeven.
 
 **NuGet-pakket installeren**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.JavaScript
 ```
 
 **JavaScript-code**
 
-```
+```html
 <div id="reportContainer"></div>
-  
+
+<script>
 var embedCreateConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MI',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -85,6 +86,7 @@ var embedCreateConfiguration = {
 
     // Create report
     var report = powerbi.createReport(reportContainer, embedCreateConfiguration);
+</script>
 ```
 
 Aanroepen van *powerbi.createReport()* maakt een leeg canvas in de bewerkingsmodus worden weergegeven in de *div* element.
@@ -95,7 +97,7 @@ Aanroepen van *powerbi.createReport()* maakt een leeg canvas in de bewerkingsmod
 
 Het rapport is niet gemaakt totdat u de **opslaan als** bewerking. Dit kan worden gedaan vanuit het bestandsmenu of van JavaScript.
 
-```
+```javascript
  // Get a reference to the embedded report.
     report = powerbi.get(reportContainer);
     
@@ -116,9 +118,9 @@ Het rapport is niet gemaakt totdat u de **opslaan als** bewerking. Dit kan worde
 
 Om te communiceren met het nieuwe rapport dat u insluiten in dezelfde manier als de toepassing wordt ingesloten een gewoon rapport wilt, wat betekent dat, een nieuw token specifiek voor het nieuwe rapport moet worden afgegeven en roep vervolgens de methode insluiten.
 
-```
+```html
 <div id="reportContainer"></div>
-  
+<script>
 var embedConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MJ',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -130,13 +132,14 @@ var embedConfiguration = {
 
     // Embed report
     var report = powerbi.embed(reportContainer, embedConfiguration);
+</script>
 ```
 
 ## <a name="automate-save-and-load-of-a-new-report-using-the-saved-event"></a>Automatiseer opslaan en laden van een nieuw rapport met behulp van de gebeurtenis 'opgeslagen'
 
 Als u wilt het automatiseren van 'opslaan als' en klikt u vervolgens het laden van het nieuwe rapport, kunt u het gebruik van de gebeurtenis 'opgeslagen'. Deze gebeurtenis wordt geactiveerd wanneer de opslagbewerking bewerking is voltooid en retourneert een Json-object met de nieuwe reportId, de naam van rapport, de oude reportId (als er een is) en als de bewerking opslaan is of opslaan.
 
-```
+```json
 {
   "reportObjectId": "5dac7a4a-4452-46b3-99f6-a25915e0fe54",
   "reportName": "newReport",
@@ -147,9 +150,9 @@ Als u wilt het automatiseren van 'opslaan als' en klikt u vervolgens het laden v
 
 Voor het automatiseren van het proces kunt u luisteren op de 'opgeslagen' gebeurtenis, duren voordat de nieuwe reportId, maken van het nieuwe token en het nieuwe rapport insluiten met het.
 
-```
+```html
 <div id="reportContainer"></div>
-  
+<script>
 var embedCreateConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MI',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -192,6 +195,7 @@ var embedCreateConfiguration = {
    // report.off removes a given event handler if it exists.
    report.off("saved");
     });
+</script>
 ```
 
 ## <a name="see-also"></a>Zie ook

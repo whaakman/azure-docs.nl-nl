@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 2e8b2753a441b0d7f27745fdf622b26dcee7784a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 125f1a2a041c8c05289c95bd12c10618bfc622a8
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572051"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246835"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Krachtige Premium Storage en beheerde schijven voor virtuele machines
 
@@ -51,7 +51,7 @@ Hier volgen enkele van de functies van Premium Storage:
 
 * **Premium storage-schijven**
 
-    Premium-opslag biedt ondersteuning voor VM-schijven die kunnen worden gekoppeld aan specifieke grootte-serie VM's. Premium Storage ondersteunt een groot aantal Azure-VM's. U hebt de mogelijkheid van acht schijfgrootten voor algemene beschikbaarheid: P4 (32 GiB), P6 (64 GiB), P10 (128 GiB), P15 (256 GB), P20 (512 GiB) P30 (1024 GiB), P40 (2048 GiB), P50 (4095 GiB). Ook drie schijfgrootten preview: P60 8192 GiB (8 TiB), P70 16,348 GiB (16 TiB), P80 32.767 GiB (32 TiB). Schijfgrootten P4, P6, P15, P60, P70 en P80 zijn momenteel alleen ondersteund voor Managed Disks. De grootte van elke schijf heeft een eigen prestatiespecificaties. Afhankelijk van uw toepassingsvereisten kunt u een of meer schijven koppelen aan uw virtuele machine. We beschrijven de specificaties in meer detail in [schaalbaarheids- en prestatiedoelen van Premium Storage](#scalability-and-performance-targets).
+    Premium-opslag biedt ondersteuning voor VM-schijven die kunnen worden gekoppeld aan specifieke grootte-serie VM's. Premium Storage ondersteunt een groot aantal Azure-VM's. Hebt u een keuze uit acht schijfgrootten voor algemene beschikbaarheid:  P4 (32 GiB), P6 (64 GiB), P10 (128 GiB), P15 (256 GiB), P20 (512 GiB), P30 (1,024 GiB), P40 (2,048 GiB), P50 (4,095 GiB). En de Preview-versie drie schijfgrootten: P60 8,192 GiB (8 TiB), P70 16,348 GiB (16 TiB), P80 32,767 GiB (32 TiB). Schijfgrootten P4, P6, P15, P60, P70 en P80 zijn momenteel alleen ondersteund voor Managed Disks. De grootte van elke schijf heeft een eigen prestatiespecificaties. Afhankelijk van uw toepassingsvereisten kunt u een of meer schijven koppelen aan uw virtuele machine. We beschrijven de specificaties in meer detail in [schaalbaarheids- en prestatiedoelen van Premium Storage](#scalability-and-performance-targets).
 
 * **Premium-pagina-blobs**
 
@@ -67,7 +67,7 @@ Hier volgen enkele van de functies van Premium Storage:
     - [Azure CLI voor Azure Storage](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
     - [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp) (voor Azure Resource Manager-implementaties) of een van de Azure Storage resource provider-clientbibliotheken
 
-    Zie voor meer informatie over limieten voor premium storage-account, [schaalbaarheids- en prestatiedoelen van Premium Storage](#premium-storage-scalability-and-performance-targets).
+    Zie voor meer informatie over limieten voor premium storage-account, schaalbaarheids- en prestatiedoelen van Premium Storage.
 
 * **Premium lokaal redundante opslag**
 
@@ -138,7 +138,7 @@ Premium storage-accounts hebben de volgende schaalbaarheidsdoelen:
 
 | Totale capaciteit | Totale bandbreedte voor een account voor lokaal redundante opslag |
 | --- | --- | 
-| Schijf capaciteit: 35 TB <br>Snapshot-capaciteit: 10 TB | Omhoog naar 50 gigabits per seconde voor binnenkomende<sup>1</sup> + uitgaande<sup>2</sup> |
+| Capaciteit van de schijf: 35 TB <br>Snapshot-capaciteit: 10 TB | Omhoog naar 50 gigabits per seconde voor binnenkomende<sup>1</sup> + uitgaande<sup>2</sup> |
 
 <sup>1</sup> alle gegevens (aanvragen) die worden verzonden naar een opslagaccount
 
@@ -149,18 +149,18 @@ Zie voor meer informatie, [schaalbaarheids- en prestatiedoelen voor Azure Storag
 Als u premium storage-accounts voor niet-beheerde schijven gebruikt en uw toepassing is groter dan de schaalbaarheidsdoelen van een enkel opslagaccount, is het raadzaam om te migreren naar managed disks. Als u niet migreren naar managed disks wilt, moet u uw toepassing gebruik meerdere opslagaccounts maken. Partities voor uw gegevens vervolgens over de storage-accounts. Bijvoorbeeld, als u koppelen 51-TB schijven op meerdere virtuele machines wilt, verdeeld over deze twee opslagaccounts. 35 TB is de limiet voor één premium storage-account. Zorg ervoor dat één premium storage-account nooit meer dan 35 TB ingerichte schijven heeft.
 
 ### <a name="premium-storage-disk-limits"></a>Limieten voor Premium Storage-schijf
-Als u een premium-opslagschijf inricht, wordt de grootte van de schijf bepaalt de maximale IOPS en doorvoer (bandbreedte). Azure biedt acht GA typen premium-opslagschijven: P4 (beheerde schijven alleen), P6 (beheerde schijven alleen), P10, P15 (beheerde schijven alleen), P20, P30 of P40 of P50. Ook drie schijfgrootten preview: P60 P70 en P80. Elke schijftype voor premium storage heeft bepaalde limieten voor IOPS en doorvoer. Limieten voor de schijftypen worden beschreven in de volgende tabel:
+Als u een premium-opslagschijf inricht, wordt de grootte van de schijf bepaalt de maximale IOPS en doorvoer (bandbreedte). Azure biedt acht typen voor algemene beschikbaarheid van premium storage-schijven: P4 (beheerde schijven alleen), P6 (beheerde schijven alleen), P10, P15 (beheerde schijven alleen), P20, P30 of P40 of P50. En de Preview-versie drie schijfgrootten: P60, P70 en P80. Elke schijftype voor premium storage heeft bepaalde limieten voor IOPS en doorvoer. Limieten voor de schijftypen worden beschreven in de volgende tabel:
 
 Grootte die is gemarkeerd met een sterretje zijn momenteel in preview.
 
 | Schijftype voor Premium-schijven  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60 *            | P70 *               | P80 *               |
 |---------------------|-------|-------|--------|--------|--------|------------------|-----------------|-----------------|-----------------|--------------------|--------------------|
-| Schijfgrootte           | 32 GiB| 64 GiB| 128 GiB| 256 GiB| 512 GiB| 1024 GiB (1 TiB) | 2048 GiB (2 TiB)| 4095 GiB (4 TiB)| 8192 giB (8 TiB)| 16.384 giB (16 TiB)| 32.767 giB (32 TiB)|
+| Schijfgrootte           | 32 GiB| 64 GiB| 128 GiB| 256 GiB| 512 GiB| 1024 GiB (1 TiB) | 2048 GiB (2 TiB)| 4095 GiB (4 TiB)| 8192 GiB (8 TiB)| 16,384 GiB (16 TiB)| 32,767 GiB (32 TiB)|
 | IOP's per schijf       | 120   | 240   | 500    | 1100   | 2300   | 5000             | 7500            | 7500            | 12.500          | 15.000             | 20,000             |
 | Doorvoer per schijf | 25 MB per seconde | 50 MB per seconde | 100 MB per seconde | 125 MB per seconde | 150 MB per seconde | 200 MB per seconde | 250 MB per seconde | 250 MB per seconde | 480 MB per seconde | 750 MB per seconde | 750 MB per seconde |
 
 > [!NOTE]
-> Zorg ervoor dat voldoende bandbreedte is beschikbaar op de virtuele machine op station schijfverkeer, zoals beschreven in [Premium Storage-ondersteunde VM's](#premium-storage-supported-vms). Anders wordt is de doorvoer van schijfgegevens en IOP's beperkt tot het lagere waarden. Maximale doorvoer en IOPS zijn gebaseerd op de VM-limieten, niet op de schijflimieten die worden beschreven in de voorgaande tabel.  
+> Zorg ervoor dat voldoende bandbreedte is beschikbaar op de virtuele machine op station schijfverkeer, zoals beschreven in [Premium Storage-ondersteunde VM's](). Anders wordt is de doorvoer van schijfgegevens en IOP's beperkt tot het lagere waarden. Maximale doorvoer en IOPS zijn gebaseerd op de VM-limieten, niet op de schijflimieten die worden beschreven in de voorgaande tabel.  
 > Azure is zodanig ontworpen Premium Storage-platform, worden uitgebreide parallelle verwerkingsarchitectuur. Het ontwerpen van uw toepassing met meerdere threads kunnen aan de hoge prestatiedoel aangeboden op de grotere schijfgrootten bereiken.
 
 Hier volgen enkele belangrijke dingen om te weten over de schaalbaarheids- en prestatiedoelen van Premium Storage:
@@ -231,7 +231,7 @@ Als een schijf is gekoppeld aan een virtuele machine, worden sommige API-bewerki
 
 De volgende limieten gelden voor premium storage-blob-momentopnamen:
 
-| Limiet voor Premium-opslag | Waarde |
+| Limiet voor Premium-opslag | Value |
 | --- | --- |
 | Maximum aantal momentopnamen per blob | 100 |
 | Capaciteit van een opslagaccount voor momentopnamen<br>(Bevat gegevens van momentopnamen alleen. Bevat geen gegevens in basis-blob.) | 10 TB |
@@ -266,7 +266,7 @@ De volgende Linux-distributies zijn gevalideerd voor Azure Premium Storage. Voor
 | Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
 | Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
 | Debian | 7.x, 8.x | 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12| 3.12.36-38.1+| SUSE-sles-12-prioriteit-v20150213 <br> SUSE-sles-12-v20150213 |
+| SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
 | SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
 | CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
 | CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 vereist](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Zie de opmerking in de volgende sectie* |
@@ -294,7 +294,7 @@ Als u Premium-opslag gebruikt, zijn de volgende factureringsvoorwaarden van toep
 
 * **Premium storage disk en blob-grootte**
 
-    Facturering voor een premium-opslagschijf of de blob is afhankelijk van de ingerichte grootte van de schijf of de blob. Azure wijst de ingerichte grootte (afgerond) toe aan de dichtstbijzijnde premium opslagschijfoptie. Voor meer informatie, Zie de tabel in [schaalbaarheids- en prestatiedoelen van Premium Storage](#premium-storage-scalability-and-performance-targets). Elke schijf toegewezen aan een grootte van de ondersteunde ingerichte schijf, en dienovereenkomstig wordt gefactureerd. Facturering voor ingerichte schijven is per uur Pro rata met behulp van de maandelijkse prijs voor de Premium-opslag-aanbieding. Bijvoorbeeld, als u een P10-schijf ingericht en deze na 20 uur, in rekening gebracht voor de aanbieding P10 20 uur Pro rata berekend. Dit is, ongeacht de hoeveelheid feitelijke gegevens geschreven naar de schijf of de IOPS en doorvoer die wordt gebruikt.
+    Facturering voor een premium-opslagschijf of de blob is afhankelijk van de ingerichte grootte van de schijf of de blob. Azure wijst de ingerichte grootte (afgerond) toe aan de dichtstbijzijnde premium opslagschijfoptie. Voor meer informatie, Zie de tabel in [schaalbaarheids- en prestatiedoelen van Premium Storage](). Elke schijf toegewezen aan een grootte van de ondersteunde ingerichte schijf, en dienovereenkomstig wordt gefactureerd. Facturering voor ingerichte schijven is per uur Pro rata met behulp van de maandelijkse prijs voor de Premium-opslag-aanbieding. Bijvoorbeeld, als u een P10-schijf ingericht en deze na 20 uur, in rekening gebracht voor de aanbieding P10 20 uur Pro rata berekend. Dit is, ongeacht de hoeveelheid feitelijke gegevens geschreven naar de schijf of de IOPS en doorvoer die wordt gebruikt.
 
 * **Premium niet-beheerde schijven, momentopnamen**
 

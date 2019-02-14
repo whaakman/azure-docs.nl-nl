@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: conceptual
 ms.date: 06/29/2018
-ms.openlocfilehash: 5bd8763234aa02d68b6e86b7259fcf10b4ef4ac5
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 4273828c9c2bdb75fcbc1de45da55c5a03dd615f
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684273"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233579"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Azure Data Lake Analytics beheren met Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -23,13 +23,15 @@ In dit artikel wordt beschreven hoe u Azure Data Lake Analytics-accounts, gegeve
 
 ## <a name="prerequisites"></a>Vereisten
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Voor het gebruik van PowerShell met Data Lake Analytics, verzamelt de volgende soorten informatie: 
 
-* **Abonnements-ID**: de ID van het Azure-abonnement met uw Data Lake Analytics-account.
-* **Resourcegroep**: de naam van de Azure-resourcegroep waarin uw Data Lake Analytics-account.
-* **Data Lake Analytics-accountnaam**: de naam van uw Data Lake Analytics-account.
-* **Standaard Data Lake Store-accountnaam**: elke Data Lake Analytics-account heeft een Data Lake Store-standaardaccount.
-* **Locatie**: de locatie van uw Data Lake Analytics-account, zoals "VS-Oost 2" of andere ondersteunde locaties.
+* **Abonnements-ID**: De ID van het Azure-abonnement met uw Data Lake Analytics-account.
+* **Resourcegroep**: De naam van de Azure-resourcegroep waarin uw Data Lake Analytics-account.
+* **Data Lake Analytics-accountnaam**: De naam van uw Data Lake Analytics-account.
+* **Standaard Data Lake Store-accountnaam**: Elk Data Lake Analytics-account heeft een Data Lake Store-standaardaccount.
+* **Locatie**: De locatie van uw Data Lake Analytics-account, zoals "VS-Oost 2" of andere ondersteunde locaties.
 
 De PowerShell-fragmenten in deze zelfstudie gebruiken deze variabelen om deze informatie op te slaan
 
@@ -49,22 +51,22 @@ Meld u bij het gebruik van een abonnements-ID of door de naam van abonnement
 
 ```powershell
 # Using subscription id
-Connect-AzureRmAccount -SubscriptionId $subId
+Connect-AzAccount -SubscriptionId $subId
 
 # Using subscription name
-Connect-AzureRmAccount -SubscriptionName $subname 
+Connect-AzAccount -SubscriptionName $subname 
 ```
 
 ## <a name="saving-authentication-context"></a>Opslaan van de verificatiecontext
 
-De `Connect-AzureRmAccount` cmdlet vraagt altijd om referenties. U kunt voorkomen dat u wordt gevraagd door met de volgende cmdlets:
+De `Connect-AzAccount` cmdlet vraagt altijd om referenties. U kunt voorkomen dat u wordt gevraagd door met de volgende cmdlets:
 
 ```powershell
 # Save login session information
-Save-AzureRmProfile -Path D:\profile.json  
+Save-AzAccounts -Path D:\profile.json  
 
 # Load login session information
-Select-AzureRmProfile -Path D:\profile.json 
+Select-AzAccounts -Path D:\profile.json 
 ```
 
 ### <a name="log-in-using-a-service-principal-identity-spi"></a>Meld u aan met een Service Principal identiteit (SPI)
@@ -76,13 +78,13 @@ $spi_appid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
 $spi_secret = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" 
 
 $pscredential = New-Object System.Management.Automation.PSCredential ($spi_appid, (ConvertTo-SecureString $spi_secret -AsPlainText -Force))
-Login-AzureRmAccount -ServicePrincipal -TenantId $tenantid -Credential $pscredential -Subscription $subid
+Login-AzAccount -ServicePrincipal -TenantId $tenantid -Credential $pscredential -Subscription $subid
 ```
 
 ## <a name="manage-accounts"></a>Accounts beheren
 
 
-### <a name="list-accounts"></a>Lijst van accounts
+### <a name="list-accounts"></a>Accountslijst
 
 ```powershell
 # List Data Lake Analytics accounts within the current subscription.
@@ -336,7 +338,7 @@ $policies = Get-AdlAnalyticsComputePolicy -Account $adla
 De `New-AdlAnalyticsComputePolicy` met de cmdlet maakt een nieuw beleid voor compute voor een Data Lake Analytics-account. In het volgende voorbeeld wordt het maximumaantal AU's beschikbaar voor de opgegeven gebruiker tot 50 en de prioriteit van de minimale job tot 250 tekens.
 
 ```powershell
-$userObjectId = (Get-AzureRmAdUser -SearchString "garymcdaniel@contoso.com").Id
+$userObjectId = (Get-AzAdUser -SearchString "garymcdaniel@contoso.com").Id
 
 New-AdlAnalyticsComputePolicy -Account $adla -Name "GaryMcDaniel" -ObjectId $objectId -ObjectType User -MaxDegreeOfParallelismPerJob 50 -MinPriorityPerJob 250
 ```
@@ -481,10 +483,10 @@ Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
 
 ## <a name="working-with-azure"></a>Werken met Azure
 
-### <a name="get-details-of-azurerm-errors"></a>Details van fouten AzureRm ophalen
+### <a name="get-error-details"></a>Foutdetails van ophalen
 
 ```powershell
-Resolve-AzureRmError -Last
+Resolve-AzError -Last
 ```
 
 ### <a name="verify-if-you-are-running-as-an-administrator-on-your-windows-machine"></a>Controleer of u als beheerder worden uitgevoerd op uw Windows-computer
@@ -505,7 +507,7 @@ Uit de naam van een abonnement:
 ```powershell
 function Get-TenantIdFromSubscriptionName( [string] $subname )
 {
-    $sub = (Get-AzureRmSubscription -SubscriptionName $subname)
+    $sub = (Get-AzSubscription -SubscriptionName $subname)
     $sub.TenantId
 }
 
@@ -517,7 +519,7 @@ Uit een abonnements-ID:
 ```powershell
 function Get-TenantIdFromSubscriptionId( [string] $subid )
 {
-    $sub = (Get-AzureRmSubscription -SubscriptionId $subid)
+    $sub = (Get-AzSubscription -SubscriptionId $subid)
     $sub.TenantId
 }
 
@@ -541,7 +543,7 @@ Get-TenantIdFromDomain $domain
 ### <a name="list-all-your-subscriptions-and-tenant-ids"></a>Lijst met al uw abonnementen en tenant-id 's
 
 ```powershell
-$subs = Get-AzureRmSubscription
+$subs = Get-AzSubscription
 foreach ($sub in $subs)
 {
     Write-Host $sub.Name "("  $sub.Id ")"
@@ -551,7 +553,7 @@ foreach ($sub in $subs)
 
 ## <a name="create-a-data-lake-analytics-account-using-a-template"></a>Een Data Lake Analytics-account met behulp van een sjabloon maken
 
-U kunt ook een Azure-resourcegroep-sjabloon met behulp van het volgende voorbeeld: [een Data Lake Analytics-account met behulp van een sjabloon maken](https://github.com/Azure-Samples/data-lake-analytics-create-account-with-arm-template)
+U kunt ook een Azure-resourcegroep-sjabloon met behulp van het volgende voorbeeld: [Een Data Lake Analytics-account met behulp van een sjabloon maken](https://github.com/Azure-Samples/data-lake-analytics-create-account-with-arm-template)
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Overzicht van Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)

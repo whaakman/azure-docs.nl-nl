@@ -10,14 +10,14 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.date: 09/08/2016
-ms.openlocfilehash: d37d5cb2b89b82bd9741dee0946b3a77d456b22a
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c9733346d091a6829bd5b42c80201df3a1357fe3
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405749"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243107"
 ---
-# <a name="overview-b2b-enterprise-integration-scenarios-in-azure-logic-apps-with-enterprise-integration-pack"></a>Overzicht: B2B enterprise integratiescenario's in Azure Logic Apps met Enterprise Integration Pack
+# <a name="overview-b2b-enterprise-integration-scenarios-in-azure-logic-apps-with-enterprise-integration-pack"></a>Overzicht: B2B-integratie bedrijfsscenario's in Azure Logic Apps met Enterprise Integration Pack
 
 U kunt voor business-to-business (B2B) werkstromen en naadloze communicatie met Azure Logic Apps enterprise integratiescenario's met Microsoft cloud-gebaseerde oplossing, het Enterprise Integration Pack inschakelen. Organisaties kunnen uitwisselen berichten elektronisch, zelfs als ze verschillende protocollen en indelingen gebruiken. Het pack transformeert verschillende indelingen in een indeling die organisaties systemen kunnen interpreteren en verwerken. Organisaties kunnen berichten via het industriestandaard-protocollen, zoals uitwisselen [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), en [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md). U kunt ook beveiligde berichten met zowel versleuteling en digitale handtekeningen.
 
@@ -33,7 +33,7 @@ Het Enterprise Integration Pack is qua, gebaseerd op 'integratieaccounts'. Deze 
 
 ## <a name="how-to-get-started-with-enterprise-integration"></a>Hoe kan ik aan de slag met bedrijfsintegratie?
 
-U kunt bouwen en beheren van B2B-apps met het Enterprise Integration Pack via de ontwerper van logische App in de **Azure-portal**. U kunt ook uw logische apps beheren met [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp "Logic apps PowerShell").
+U kunt bouwen en beheren van B2B-apps met het Enterprise Integration Pack via de ontwerper van logische App in de **Azure-portal**. U kunt ook uw logische apps beheren met [PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp).
 
 Hier volgen de hoofdstappen die u uitvoeren moet voordat u apps in Azure portal maken kunt:
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: stewu
-ms.openlocfilehash: 0d27ae79ab2c14cc5fd5ca81b8b7f089e7fa294e
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 0bf0843314f38c0de28820c82e95b7921297bf40
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126221"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233045"
 ---
 # <a name="migrate-azure-data-lake-storage-gen1-across-regions"></a>Azure Data Lake Storage Gen1 migreren tussen regio 's
 
@@ -42,11 +42,11 @@ Er zijn andere belangrijke informatie om te overwegen bij het plannen van uw mig
 
 * **Data Lake Storage Gen1 accountnaam**. De nieuwe accountnaam in de nieuwe regio moet globaal uniek zijn. De naam van uw oude Gen1 van Data Lake Storage-account in VS-Oost 2 is bijvoorbeeld mogelijk contosoeastus2.azuredatalakestore.net. U kunt uw nieuwe Gen1 van Data Lake Storage-account in de EU Noord contosonortheu.azuredatalakestore.net naam.
 
-* **Hulpprogramma's**. Het is raadzaam dat u de [Azure Data Factory Copy Activity](../data-factory/connector-azure-data-lake-store.md) Data Lake Storage Gen1 bestanden te kopiëren. Data Factory ondersteunt de verplaatsing van gegevens met hoge prestaties en betrouwbaarheid. Houd er rekening mee dat Data Factory alleen de mappenhiërarchie en de inhoud van deze bestanden kopieert. U moet handmatig toepassen eventuele toegangscontrolelijsten (ACL's) die u in het oude account aan het nieuwe account gebruiken. Zie voor meer informatie, met inbegrip van prestatiedoelen voor het scenario's, de [Kopieeractiviteit prestatie- en afstemmingshandleiding](../data-factory/copy-activity-performance.md). Als u wilt dat gegevens sneller worden gekopieerd, moet u mogelijk aanvullende Cloud Gegevensverplaatsingseenheden gebruiken. Sommige andere hulpmiddelen, zoals AdlCopy, ondersteunen geen kopiëren van gegevens tussen regio's.  
+* **Tools**. Het is raadzaam dat u de [Azure Data Factory Copy Activity](../data-factory/connector-azure-data-lake-store.md) Data Lake Storage Gen1 bestanden te kopiëren. Data Factory ondersteunt de verplaatsing van gegevens met hoge prestaties en betrouwbaarheid. Houd er rekening mee dat Data Factory alleen de mappenhiërarchie en de inhoud van deze bestanden kopieert. U moet handmatig toepassen eventuele toegangscontrolelijsten (ACL's) die u in het oude account aan het nieuwe account gebruiken. Zie voor meer informatie, met inbegrip van prestatiedoelen voor het scenario's, de [Kopieeractiviteit prestatie- en afstemmingshandleiding](../data-factory/copy-activity-performance.md). Als u wilt dat gegevens sneller worden gekopieerd, moet u mogelijk aanvullende Cloud Gegevensverplaatsingseenheden gebruiken. Sommige andere hulpmiddelen, zoals AdlCopy, ondersteunen geen kopiëren van gegevens tussen regio's.  
 
 * **Bandbreedte kosten**. [Bandbreedte kosten](https://azure.microsoft.com/pricing/details/bandwidth/) worden toegepast omdat de gegevens worden overgebracht buiten een Azure-regio.
 
-* **ACL's op uw gegevens**. Uw gegevens in de nieuwe regio worden beveiligd door de ACL's toepassen op bestanden en mappen. Zie voor meer informatie, [beveiligen van gegevens die zijn opgeslagen in Azure Data Lake Storage Gen1](data-lake-store-secure-data.md). U wordt aangeraden dat u de migratie gebruiken om te werken en uw ACL's aanpassen. Het is raadzaam om instellingen die vergelijkbaar is met uw huidige instellingen te gebruiken. U kunt de ACL's die worden toegepast op alle bestanden met behulp van de Azure-portal weergeven [PowerShell-cmdlets](/powershell/module/azurerm.datalakestore/get-azurermdatalakestoreitempermission), of -SDK's.  
+* **ACL's op uw gegevens**. Uw gegevens in de nieuwe regio worden beveiligd door de ACL's toepassen op bestanden en mappen. Zie voor meer informatie, [beveiligen van gegevens die zijn opgeslagen in Azure Data Lake Storage Gen1](data-lake-store-secure-data.md). U wordt aangeraden dat u de migratie gebruiken om te werken en uw ACL's aanpassen. Het is raadzaam om instellingen die vergelijkbaar is met uw huidige instellingen te gebruiken. U kunt de ACL's die worden toegepast op alle bestanden met behulp van de Azure-portal weergeven [PowerShell-cmdlets](/powershell/module/az.datalakestore/get-azdatalakestoreitempermission), of -SDK's.  
 
 * **Locatie van analyseservices**. Voor de beste prestaties, moeten de analytics-services, zoals Azure Data Lake Analytics of Azure HDInsight, zich in dezelfde regio als uw gegevens.  
 

@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: e691913daabb832b2a3b51dac5d4a5b0e1f53871
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f7558876391d25d2f6f3dd1fede4cb0d13d72bf0
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165069"
+ms.locfileid: "56236257"
 ---
 # <a name="retrain-an-azure-machine-learning-studio-model"></a>Opnieuw trainen van een Azure Machine Learning Studio-model
 Uw model is getraind en opgeslagen als onderdeel van het proces voor uitoefening van machine learning-modellen in Azure Machine Learning. U vervolgens worden gebruikt om een voorspellende webservice te maken. De webservice kan vervolgens worden gebruikt in web sites, dashboards en mobiele apps. 
@@ -53,8 +53,6 @@ De webservice opnieuw trainen:
 * De retraining webservice implementeren
 * Gebruik van de code Batch-Service voor uitvoering van het model trainen
 
-Zie voor een overzicht van de voorgaande stappen, [opnieuw trainen Machine Learning-modellen programmatisch](retrain-models-programmatically.md).
-
 > [!NOTE] 
 > Voor het implementeren van een nieuwe webservice moet u voldoende machtigingen hebben in het abonnement waarvoor u de webservice implementeert. Zie voor meer informatie, [beheren van een webservice met behulp van de Azure Machine Learning-webserviceportal](manage-new-webservice.md). 
 
@@ -74,8 +72,6 @@ Als u een nieuwe webservice geïmplementeerd:
 * Bijwerken van de verwijzing naar de `ilearner` blob in de JSON
 * Het importeren van de JSON in de definitie van een Web-Service
 * De webservice bijwerken met nieuwe Web-servicedefinitie
-
-Zie voor een overzicht van de voorgaande stappen, [opnieuw trainen van een nieuwe webservice met behulp van de Machine Learning Management PowerShell-cmdlets](retrain-new-web-service-using-powershell.md).
 
 Het proces voor het instellen van het opnieuw trainen van een klassieke webservice omvat de volgende stappen uit:
 

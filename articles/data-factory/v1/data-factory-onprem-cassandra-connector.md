@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: dd90834a2e112effbfd6876b84dfe8b3ca87fcf3
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 38d5d469c920cafa33e0cc5b37846df2dc6d6ab9
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015641"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236406"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Gegevens verplaatsen van een on-premises Cassandra-database met behulp van Azure Data Factory
-> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](data-factory-onprem-cassandra-connector.md)
 > * [Versie 2 (huidige versie)](../connector-cassandra.md)
 
@@ -30,7 +30,7 @@ ms.locfileid: "54015641"
 
 In dit artikel wordt uitgelegd hoe u van de Kopieeractiviteit in Azure Data Factory om gegevens te verplaatsen van een on-premises Cassandra-database. Dit is gebaseerd op de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel een algemeen overzicht van de verplaatsing van gegevens met de kopieeractiviteit geeft.
 
-U kunt gegevens kopiëren naar een on-premises Cassandra-gegevensarchief naar een ondersteunde sink-gegevensopslag. Zie voor een lijst met gegevensarchieven die worden ondersteund als sink voor de kopieeractiviteit, de [ondersteunde gegevensarchieven](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabel. Data factory ondersteunt momenteel alleen gegevens te verplaatsen van een Cassandra-gegevensarchief naar andere gegevensarchieven, maar niet voor het verplaatsen van gegevens uit andere gegevensarchieven naar een Cassandra-gegevensarchief. 
+U kunt gegevens kopiëren naar een on-premises Cassandra-gegevensarchief naar een ondersteunde sink-gegevensopslag. Zie voor een lijst met gegevensarchieven die worden ondersteund als sink voor de kopieeractiviteit, de [ondersteunde gegevensarchieven](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabel. Data factory ondersteunt momenteel alleen gegevens te verplaatsen van een Cassandra-gegevensarchief naar andere gegevensarchieven, maar niet voor het verplaatsen van gegevens uit andere gegevensarchieven naar een Cassandra-gegevensarchief.
 
 ## <a name="supported-versions"></a>Ondersteunde versies
 De Cassandra-connector ondersteunt de volgende versies van Cassandra: 2.x en 3.x. Voor de activiteit die wordt uitgevoerd op zelfgehoste Cloudintegratieruntime, Cassandra 3.x wordt ondersteund sinds IR versie 3.7 en hoger.
@@ -38,26 +38,26 @@ De Cassandra-connector ondersteunt de volgende versies van Cassandra: 2.x en 3.x
 ## <a name="prerequisites"></a>Vereisten
 Voor de Azure Data Factory-service te kunnen verbinding maken met uw on-premises Cassandra-database, moet u een Data Management Gateway installeren op dezelfde computer die als host fungeert voor de database of op een afzonderlijke computer om te voorkomen en dingen om de resources met de database. Data Management Gateway is een onderdeel dat on-premises gegevensbronnen met cloud-services in een veilige, beheerde manier verbinding maakt. Zie [Data Management Gateway](data-factory-data-management-gateway.md) artikel voor meer informatie over Data Management Gateway. Zie [gegevens verplaatsen van on-premises naar de cloud](data-factory-move-data-between-onprem-and-cloud.md) artikel voor stapsgewijze instructies over het instellen van de gateway van een pijplijn om gegevens te verplaatsen.
 
-U moet de gateway verbinding maakt met een Cassandra-database, zelfs als de database wordt gehost in de cloud, bijvoorbeeld op een Azure IaaS-VM. Y u de gateway kan hebben op dezelfde virtuele machine die als host fungeert voor de database of op een afzonderlijke virtuele machine zo lang als de gateway kan verbinding maken met de database.  
+U moet de gateway verbinding maakt met een Cassandra-database, zelfs als de database wordt gehost in de cloud, bijvoorbeeld op een Azure IaaS-VM. Y u de gateway kan hebben op dezelfde virtuele machine die als host fungeert voor de database of op een afzonderlijke virtuele machine zo lang als de gateway kan verbinding maken met de database.
 
-Wanneer u de gateway installeert, installeert deze automatisch een Cassandra-ODBC-stuurprogramma dat is gebruikt voor verbinding met de Cassandra-database. Daarom moet u niet handmatig een stuurprogramma installeren op de gatewaycomputer bij het kopiëren van gegevens uit de Cassandra-database. 
+Wanneer u de gateway installeert, installeert deze automatisch een Cassandra-ODBC-stuurprogramma dat is gebruikt voor verbinding met de Cassandra-database. Daarom moet u niet handmatig een stuurprogramma installeren op de gatewaycomputer bij het kopiëren van gegevens uit de Cassandra-database.
 
 > [!NOTE]
 > Zie [oplossen van problemen met gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) voor tips over het oplossen van de verbindingsgateway/problemen met betrekking tot.
 
 ## <a name="getting-started"></a>Aan de slag
-U kunt een pijplijn maken met een kopieeractiviteit die gegevens uit een on-premises Cassandra-gegevensarchief verplaatst met behulp van verschillende hulpprogramma's / API's. 
+U kunt een pijplijn maken met een kopieeractiviteit die gegevens uit een on-premises Cassandra-gegevensarchief verplaatst met behulp van verschillende hulpprogramma's / API's.
 
-- De eenvoudigste manier om een pijplijn te maken is met de **Kopieerwizard**. Zie [zelfstudie: Een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht van het maken van een pijplijn met behulp van de wizard kopiëren. 
-- U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en  **REST-API**. Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit. 
+- De eenvoudigste manier om een pijplijn te maken is met de **Kopieerwizard**. Zie [zelfstudie: Een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht van het maken van een pijplijn met behulp van de wizard kopiëren.
+- U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en  **REST-API**. Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit.
 
 Of u de hulpprogramma's of API's gebruikt, kunt u de volgende stappen uit voor het maken van een pijplijn die gegevens van een brongegevensarchief naar een sink-gegevensopslag verplaatst uitvoeren:
 
 1. Maak **gekoppelde services** opgeslagen om invoer- en gegevens te koppelen aan uw data factory.
-2. Maak **gegevenssets** te vertegenwoordigen invoer- en uitvoergegevens voor de kopieerbewerking. 
-3. Maak een **pijplijn** met een kopieeractiviteit waarmee een gegevensset als invoer en een gegevensset als uitvoer. 
+2. Maak **gegevenssets** te vertegenwoordigen invoer- en uitvoergegevens voor de kopieerbewerking.
+3. Maak een **pijplijn** met een kopieeractiviteit waarmee een gegevensset als invoer en een gegevensset als uitvoer.
 
-Wanneer u de wizard gebruikt, worden de JSON-definities voor deze Data Factory-entiteiten (gekoppelde services, gegevenssets en de pijplijn) automatisch voor u gemaakt. Wanneer u hulpprogramma's / API's (met uitzondering van de .NET API), kunt u deze Data Factory-entiteiten definiëren met behulp van de JSON-indeling.  Zie voor een voorbeeld met JSON-definities voor Data Factory-entiteiten die worden gebruikt om gegevens te kopiëren naar een on-premises Cassandra-gegevensarchief, [JSON-voorbeeld: Gegevens kopiëren van Cassandra naar Azure Blob](#json-example-copy-data-from-cassandra-to-azure-blob) sectie van dit artikel. 
+Wanneer u de wizard gebruikt, worden de JSON-definities voor deze Data Factory-entiteiten (gekoppelde services, gegevenssets en de pijplijn) automatisch voor u gemaakt. Wanneer u hulpprogramma's / API's (met uitzondering van de .NET API), kunt u deze Data Factory-entiteiten definiëren met behulp van de JSON-indeling. Zie voor een voorbeeld met JSON-definities voor Data Factory-entiteiten die worden gebruikt om gegevens te kopiëren naar een on-premises Cassandra-gegevensarchief, [JSON-voorbeeld: Gegevens kopiëren van Cassandra naar Azure Blob](#json-example-copy-data-from-cassandra-to-azure-blob) sectie van dit artikel.
 
 De volgende secties bevatten meer informatie over JSON-eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke naar een gegevensarchief Cassandra:
 
@@ -116,7 +116,7 @@ Het voorbeeld heeft de volgende data factory-entiteiten:
 
 **Cassandra gekoppelde service:**
 
-In dit voorbeeld wordt de **Cassandra** gekoppelde service. Zie [Cassandra gekoppelde service](#linked-service-properties) sectie voor de eigenschappen die worden ondersteund door deze gekoppelde service.  
+In dit voorbeeld wordt de **Cassandra** gekoppelde service. Zie [Cassandra gekoppelde service](#linked-service-properties) sectie voor de eigenschappen die worden ondersteund door deze gekoppelde service.
 
 ```json
 {
@@ -143,7 +143,7 @@ In dit voorbeeld wordt de **Cassandra** gekoppelde service. Zie [Cassandra gekop
 {
     "name": "AzureStorageLinkedService",
     "properties": {
-    "type": "AzureStorage",
+        "type": "AzureStorage",
         "typeProperties": {
             "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         }
@@ -212,13 +212,13 @@ De pijplijn bevat een Kopieeractiviteit die is geconfigureerd voor het gebruik v
 Zie [RelationalSource typeproperties](#copy-activity-properties) voor de lijst met eigenschappen die worden ondersteund door de RelationalSource.
 
 ```json
-{  
+{
     "name":"SamplePipeline",
-    "properties":{  
+    "properties":{
         "start":"2016-06-01T18:00:00",
         "end":"2016-06-01T19:00:00",
         "description":"pipeline with copy activity",
-        "activities":[  
+        "activities":[
         {
             "name": "CassandraToAzureBlob",
             "description": "Copy from Cassandra to an Azure blob",
@@ -254,7 +254,7 @@ Zie [RelationalSource typeproperties](#copy-activity-properties) voor de lijst m
                 "timeout": "01:00:00"
             }
         }
-        ]    
+        ]
     }
 }
 ```
@@ -262,21 +262,21 @@ Zie [RelationalSource typeproperties](#copy-activity-properties) voor de lijst m
 ### <a name="type-mapping-for-cassandra"></a>Toewijzing van het type voor Cassandra
 | Cassandra-Type | .NET op basis van Type |
 | --- | --- |
-| ASCII |Reeks |
+| ASCII |String |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
 | BOOLEAANSE WAARDE |Booleaans |
-| DECIMAAL |Decimaal |
-| DOUBLE-WAARDE |Double-waarde |
-| DRIJVENDE KOMMA |Enkelvoudig |
-| INET |Reeks |
+| DECIMAL |Decimal |
+| DOUBLE |Double |
+| FLOAT |Single |
+| INET |String |
 | INT |Int32 |
-| TEKST |Reeks |
-| TIJDSTEMPEL |DateTime |
-| TIMEUUID |GUID |
-| UUID |GUID |
-| VARCHAR |Reeks |
-| VARINT |Decimaal |
+| TEKST |String |
+| TIMESTAMP |DateTime |
+| TIMEUUID |Guid |
+| UUID |Guid |
+| VARCHAR |String |
+| VARINT |Decimal |
 
 > [!NOTE]
 > Voor de verzameling typen (kaart, set, lijst, enzovoort), verwijzen naar [werken met de Cassandra-verzamelingtypen met behulp van de virtuele tabel](#work-with-collections-using-virtual-table) sectie.
@@ -300,19 +300,19 @@ U kunt de [Kopieerwizard](data-factory-data-movement-activities.md#create-a-pipe
 ### <a name="example"></a>Voorbeeld
 De volgende "ExampleTable" wordt bijvoorbeeld een Cassandra-database-tabel met een geheel getal zijn primaire-sleutelkolom met de naam 'pk_int', een tekstkolom de benoemde waarde, een lijstkolom, een kaart-kolom en een set-kolom (met de naam 'StringSet').
 
-| pk_int | Waarde | Lijst | Kaart | StringSet |
+| pk_int | Value | Lijst | Kaart | StringSet |
 | --- | --- | --- | --- | --- |
-| 1 |"Voorbeeldwaarde 1" |["1", "2", "3"] |{'S1': "a", "S2": "b"} |{"A", "B", "C"} |
-| 3 |"Voorbeeldwaarde 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |
+| 1 |"sample value 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
+| 3 |"sample value 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |
 
 Het stuurprogramma genereert meerdere virtuele tabellen om weer te geven deze enkele tabel. De refererende-sleutelkolommen in de virtuele tabellen verwijzen naar de primaire-sleutelkolommen in de echte tabel en welke rij echte tabel een rij in de virtuele tabel komt met overeen geven.
 
 De eerste virtuele tabel is de basistabel met de naam 'ExampleTable' wordt weergegeven in de volgende tabel. De basistabel bevat dezelfde gegevens als de oorspronkelijke databasetabel, met uitzondering van de verzamelingen die zijn weggelaten uit deze tabel en uitgevouwen in andere virtuele tabellen.
 
-| pk_int | Waarde |
+| pk_int | Value |
 | --- | --- |
-| 1 |"Voorbeeldwaarde 1" |
-| 3 |"Voorbeeldwaarde 3" |
+| 1 |"sample value 1" |
+| 3 |"sample value 3" |
 
 De volgende tabellen ziet u de virtuele tabellen die de gegevens uit de lijst, toewijzen en StringSet kolommen opnieuw normaliseren. De kolommen met namen die eindigen op '_index' of '_key' geven de positie van de gegevens binnen de oorspronkelijke lijst of een kaart. De kolommen met namen die met "_Waarde eindigen" bevatten de uitgebreide gegevens uit de verzameling.
 

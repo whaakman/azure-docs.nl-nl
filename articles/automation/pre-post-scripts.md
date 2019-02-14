@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/18/2018
+ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4c34c6c6e0a3f618cbd9337993aa6d176962fe6b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 90616544b1fddb8b6def04c30202035bec04d599
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428236"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236002"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Beheren van scripts voor vóór en na (Preview)
 
@@ -26,7 +26,7 @@ Voor een runbook moet worden gebruikt als een script voor vóór of na, moet u h
 
 ## <a name="using-a-prepost-script"></a>Met behulp van een vooraf/post-script
 
-Het gebruik van een script voor vóór en/of bericht in een Update-implementatie te beginnen met het maken van een Update-implementatie. Selecteer **scripts die voorafgaan aan en bericht-Scripts (Preview)**. Hiermee opent u de **Selecteer scripts die voorafgaan aan en scripts die volgen op** pagina.  
+Gebruik van een vooraf en boeken in een Update-implementatie een script, beginnen met het maken van een Update-implementatie. Selecteer **scripts die voorafgaan aan en bericht-Scripts (Preview)**. Deze actie opent u de **Selecteer scripts die voorafgaan aan en scripts die volgen op** pagina.  
 
 ![Selecteer de optie scripts](./media/pre-post-scripts/select-scripts.png)
 
@@ -42,17 +42,19 @@ De **geselecteerde items** sectie ziet u nu zowel uw scripts die zijn geselectee
 
 Configuratie van de Update-implementatie te voltooien.
 
-Wanneer de Update-implementatie voltooid is, gaat u naar **Update-implementaties** om de resultaten weer te geven. Zoals u de status van de Pre-script en post-script worden ziet opgegeven.
+Wanneer de Update-implementatie voltooid is, gaat u naar **Update-implementaties** om de resultaten weer te geven. Zoals u ziet, wordt de status van de Pre-script en post-script worden geleverd.
 
 ![Updateresultaten](./media/pre-post-scripts/update-results.png)
 
-Door te klikken in de update-implementatie uitgevoerd waarmee u vindt meer informatie naar de scripts voor vóór en na zijn. Een koppeling naar de scriptbron op het moment van de uitvoering is opgegeven.
+Door te klikken in de update-implementatie uitvoert, krijgt u meer informatie naar de scripts voor vóór en na de. Een koppeling naar de scriptbron op het moment van de uitvoering is opgegeven.
 
 ![Implementatie-uitvoering van resultaten](./media/pre-post-scripts/deployment-run.png)
 
 ## <a name="passing-parameters"></a>Doorgeven van parameters
 
-Bij het configureren van vóór en na-scripts die u zojuist hebt in de parameters kunt doorgeven, zoals een runbook plannen. Parameters worden gedefinieerd op het moment van de update-implementatie maken. Naast de standaard runbookparameters is een extra parameter opgegeven. Deze parameter is **SoftwareUpdateConfigurationRunContext**. Deze parameter is een JSON-tekenreeks en als u de parameter in het script voor vóór of na definieert, wordt automatisch doorgegeven door de update-implementatie. De parameter bevat informatie over de update-implementatie die een subset van gegevens die zijn geretourneerd door de [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) de volgende tabel ziet u de eigenschappen die zijn opgegeven in de variabele:
+Wanneer u vooraf configureren en boeken scripts, u kunt parameters doorgeven net als een runbook plannen. Parameters worden gedefinieerd op het moment van de update-implementatie maken. Scripts voor vóór en na vereisen parameters van het type `String`. Als u een ander objecttype nodig hebt, kunt u dit casten naar het andere type met `[System.Convert]` of verwerkt; het met uw eigen logica.
+
+Naast de standaard runbookparameters, is een extra parameter opgegeven. Deze parameter is **SoftwareUpdateConfigurationRunContext**. Deze parameter is een JSON-tekenreeks en als u de parameter in het script voor vóór of na definieert, wordt automatisch doorgegeven door de update-implementatie. De parameter bevat informatie over de update-implementatie, die een subset van gegevens die zijn geretourneerd door de [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) de volgende tabel ziet u de eigenschappen die zijn opgegeven in de variabele:
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>SoftwareUpdateConfigurationRunContext eigenschappen
 
@@ -70,7 +72,7 @@ Bij het configureren van vóór en na-scripts die u zojuist hebt in de parameter
 |azureVirtualMachines     | Een lijst met resourceIds voor de Azure VM's in de update-implementatie        |
 |nonAzureComputerNames|Een lijst van de niet-Azure-computers FQDN-namen in de update-implementatie|
 
-Hieronder volgt een voorbeeld van een JSON-tekenreeks doorgegeven aan de **SoftwareUpdateConfigurationRunContext** parameter:
+Het volgende voorbeeld wordt een JSON-tekenreeks doorgegeven aan de **SoftwareUpdateConfigurationRunContext** parameter:
 
 ```json
 "SoftwareUpdateConfigurationRunContext":{
@@ -119,7 +121,7 @@ Of u kunt zoeken naar deze de naam van de script zoals te zien is in de volgende
 > [!IMPORTANT]
 > Nadat u de runbooks importeert, moet u **publiceren** ze voordat ze kunnen worden gebruikt. Om te doen die het runbook niet vinden in uw Automation-Account selecteren **bewerken**, en klikt u op **publiceren**.
 
-De voorbeelden zijn gebaseerd op de basic-sjabloon die is gedefinieerd in het volgende voorbeeld. Deze sjabloon kan worden gebruikt om uw eigen runbook te gebruiken met behulp van scripts voor vóór en na te maken. De benodigde logica voor verificatie met Azure, evenals verwerking van de `SoftwareUpdateConfigurationRunContext` parameter zijn opgenomen.
+De voorbeelden zijn gebaseerd op de basic-sjabloon die is gedefinieerd in het volgende voorbeeld. Deze sjabloon kan worden gebruikt om uw eigen runbook te gebruiken met behulp van scripts voor vóór en na te maken. De benodigde logica voor de verificatie met Azure en verwerking van de `SoftwareUpdateConfigurationRunContext` parameter zijn opgenomen.
 
 ```powershell
 <# 
@@ -174,14 +176,14 @@ $variable = Get-AutomationVariable -Name $runId
 
 ## <a name="interacting-with-non-azure-machines"></a>Interactie met niet-Azure-machines
 
-Vóór en na-taken uitvoeren in de context van Azure en ook geen toegang tot niet-Azure-machines. Om te communiceren met de niet-Azure-machines moet u het volgende hebt:
+Vóór en na-taken uitvoeren in de context van Azure en geen toegang hebt tot niet-Azure-machines. Om te communiceren met de niet-Azure-machines, hebt u de volgende items:
 
 * Een uitvoeren als-account
 * Hybrid Runbook Worker is geïnstalleerd op de computer
 * Een runbook dat u wilt lokaal uitvoeren
 * Bovenliggend runbook
 
-Om te communiceren met niet-Azure-machines die een bovenliggend runbook wordt uitgevoerd in de context van Azure. Dit runbook roept een onderliggend runbook met de [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. Moet u de `-RunOn` parameter en geef de naam van de Hybrid Runbook Worker voor het script uit te voeren op.
+Om te communiceren met niet-Azure-machines, wordt een bovenliggend runbook uitvoeren in de context van Azure. Dit runbook roept een onderliggend runbook met de [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. Moet u de `-RunOn` parameter en geef de naam van de Hybrid Runbook Worker voor het script uit te voeren op.
 
 ```powershell
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'

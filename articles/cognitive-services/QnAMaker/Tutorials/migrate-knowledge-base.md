@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 02/13/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 56d79ce236dac4659bd863b645cc6780752091da
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e91f41633bf6cf6581c237e7634150a5b92746a7
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865349"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245912"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migreren van een kennisdatabase met behulp van exporteren / importeren
 
@@ -56,7 +56,7 @@ Migreren van een kennisdatabase vereist exporteren uit een knowledge base en ver
     Op dit moment worden alle de knowledge base-inhoud - vragen, antwoorden en metagegevens, samen met de namen van de bronbestanden en de URL's, geïmporteerd naar de nieuwe knowledge base. 
 
 ## <a name="chat-logs-and-alterations"></a>Chat-logboeken en -veranderingen
-Wijzigingen (synoniemen) worden niet automatisch geïmporteerd. Gebruik de [V2 API's](https://aka.ms/qnamaker-v2-apis) voor het exporteren van de wijzigingen van de oude kennis en het [V4-API's](https://aka.ms/qnamaker-v4-apis) verplaatsen van de wijzigingen in de nieuwe knowledge base.
+Niet-hoofdlettergevoelige wijzigingen (synoniemen) worden niet automatisch geïmporteerd. Gebruik de [V2 API's](https://aka.ms/qnamaker-v2-apis) voor het exporteren van de wijzigingen van de oude kennis en het [V4-API's](https://aka.ms/qnamaker-v4-apis) verplaatsen van de wijzigingen in de nieuwe knowledge base.
 
 Er is geen manier voor het migreren van chatlogs, omdat de nieuwe knowledge base Application Insights gebruikt voor het opslaan van chatlogs. 
 

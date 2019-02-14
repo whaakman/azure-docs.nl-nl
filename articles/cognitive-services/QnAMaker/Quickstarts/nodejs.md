@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 9f4bfc0f61aeda1a4bcfce67b1501f9d297e3bce
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: ba4af5d3b6612614dee54db7fdb1287ff7136321
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874603"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245759"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-nodejs"></a>Over het gebruik van de QnA Maker REST-API met Node.js 
 <a name="HOLTop"></a>
@@ -35,8 +35,8 @@ In dit artikel leest u hoe u de [QnA Maker-API van Microsoft](../Overview/overvi
 - [Een knowledge base verwijderen.](#Delete)
 - [De huidige eindpuntsleutels ophalen.](#GetKeys)
 - [De huidige eindpuntsleutels opnieuw genereren.](#PutKeys)
-- [De huidige set woordwijzigingen ophalen.](#GetAlterations)
-- [De huidige set woordwijzigingen vervangen.](#PutAlterations)
+- [De huidige set wijzigingen voor niet-hoofdlettergevoelige word ophalen.](#GetAlterations)
+- [Vervang de huidige set met niet-hoofdlettergevoelige word wijzigingen.](#PutAlterations)
 
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 

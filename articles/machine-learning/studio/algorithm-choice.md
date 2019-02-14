@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: ee2ea608fb2a53563340b76ea916160231b27dca
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 222891df5b54a8f2c3464fc3bddf9f6b32c28d36
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978422"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244790"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Algoritmen kiezen voor Azure Machine Learning Studio
 
@@ -41,7 +41,7 @@ Lezen van het pad en de algoritme labels op de grafiek als ' voor  *&lt;pad labe
 Geen van beide zijn soms een perfecte maat. Ze zijn bedoeld om te worden van de regel van de miniatuur aanbevelingen, dus hoeft hiervoor niets erop vertrouwen dat u precies.
 Verschillende gegevenswetenschappers die ik gehad met genoemde die de enige manier om te zoeken, het beste algoritme is om te proberen ze allemaal.
 
-Hier volgt een voorbeeld van de [Azure AI Gallery](http://gallery.cortanaintelligence.com/) van een experiment dat probeert verschillende algoritmes op basis van dezelfde gegevens en vergelijkt de resultaten: [Vergelijk ROC classificaties: Herkenning letter](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+Hier volgt een voorbeeld van de [Azure AI Gallery](http://gallery.azure.ai/) van een experiment dat probeert verschillende algoritmes op basis van dezelfde gegevens en vergelijkt de resultaten: [Vergelijk ROC classificaties: Herkenning letter](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
 > Zie voor het downloaden van een overzicht van de infographic eenvoudig te begrijpen van de basisprincipes van machine learning voor meer informatie over populaire algoritmen gebruikt om veelvoorkomende machine learning vragen te beantwoorden [Machine learning-basisbeginselen met algoritmevoorbeelden](basics-infographic-with-algorithm-examples.md).

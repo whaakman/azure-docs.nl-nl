@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: d83a27d87ffadd15a27196a11ae3f69d84232efa
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 555083235aff08476e82f0daa81203b66591f3cc
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719592"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245946"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Beveiligde aanroepen naar aangepaste API's van Azure Logic Apps
 
@@ -94,13 +94,15 @@ Uw logische app maakt gebruik van deze Azure AD-identiteit te verifiëren bij Az
 
 **De toepassings-id voor uw logische app maken in PowerShell**
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 U kunt deze taak via Azure Resource Manager met PowerShell uitvoeren. Voer deze opdrachten uit in PowerShell:
 
-1. `Add-AzureRmAccount`
+1. `Add-AzAccount`
 
 2. `$SecurePassword = Read-Host -AsSecureString` (Voer een wachtwoord in en druk op enter)
 
-3. `New-AzureRmADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
+3. `New-AzADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
 
 4. Zorg ervoor dat u kopieert de **Tenant-ID** (GUID voor uw Azure AD-tenant), de **toepassings-ID**, en het wachtwoord die u hebt gebruikt.
 
@@ -236,7 +238,7 @@ In de **autorisatie** sectie, voeg deze regel:
 | ------- | -------- | ----------- | 
 | type | Ja | Het verificatietype. Voor SSL-clientcertificaten, de waarde moet `ClientCertificate`. | 
 | wachtwoord | Ja | Het wachtwoord voor toegang tot de clientcertificaat (PFX-bestand) | 
-| PFX | Ja | De met base64 gecodeerde inhoud van het clientcertificaat (PFX-bestand) | 
+| pfx | Ja | De met base64 gecodeerde inhoud van het clientcertificaat (PFX-bestand) | 
 |||| 
 
 <a name="basic"></a>

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: iainfou
-ms.openlocfilehash: ab8905a53ac1e8511750bc9624a698f7890e8fcf
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: cb441aeab8f6f2cfbaa099ee17a3af9e767fc218
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100836"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235696"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Maak een HTTPS-controller voor binnenkomend verkeer op Azure Kubernetes Service (AKS)
 
@@ -91,6 +91,8 @@ De NGINX-controller voor binnenkomend verkeer biedt ondersteuning voor TLS-beëi
 Als u wilt de certificaat-manager-domeincontroller installeren in een cluster RBAC is ingeschakeld, gebruikt u de volgende `helm install` opdracht:
 
 ```console
+kubectl label namespace kube-system certmanager.k8s.io/disable-validation=true
+
 kubectl apply \
     -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.6/deploy/manifests/00-crds.yaml
     
@@ -104,6 +106,8 @@ helm install stable/cert-manager \
 Als uw cluster niet RBAC ingeschakeld is, gebruikt u in plaats daarvan de volgende opdracht uit:
 
 ```console
+kubectl label namespace kube-system certmanager.k8s.io/disable-validation=true
+
 kubectl apply \
     -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.6/deploy/manifests/00-crds.yaml
     

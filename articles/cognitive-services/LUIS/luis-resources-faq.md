@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/12/2019
 ms.author: diberry
-ms.openlocfilehash: 1f13c5220eee19b6cf8b56e4b55922acc1b2c6b1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6b8bcdc57996e04b613a2196cb505c3f59edb953
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865026"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237277"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding Frequently Asked Questions (FAQ)
 
@@ -59,6 +59,15 @@ De verschillende variaties als voorbeeld uitingen met de intent toevoegen of het
 
 Cortana vooraf gebouwde apps zijn afgeschaft in 2017. Ze worden niet meer ondersteund.
 
+### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>Hoe ik het eigendom overdraagt van een LUIS-app?
+Als u wilt een LUIS-app overzetten naar een ander Azure-abonnement, de LUIS-app exporteren en importeren met behulp van een nieuw account. Werk de LUIS-app-ID in de clienttoepassing die wordt aangeroepen. De nieuwe app mogelijk enigszins LUIS scores geretourneerd uit de oorspronkelijke app.
+
+## <a name="luis-collaborating"></a>LUIS samenwerken
+
+### <a name="how-do-i-give-collaborators-access-to-luis-with-azure-active-directory-azure-ad-or-role-based-access-control-rbac"></a>Hoe geef ik de medewerkers toegang aan LUIS met Azure Active Directory (Azure AD) of op rollen gebaseerd toegangsbeheer (RBAC)?
+
+Zie [Azure Active Directory-resources](luis-how-to-collaborate.md#azure-active-directory-resources) en [Azure Active Directory-tenant gebruiker](luis-how-to-collaborate.md#azure-active-directory-tenant-user) voor meer informatie over de medewerkers toegang te geven. 
+
 ## <a name="luis-endpoint"></a>LUIS-eindpunt
 
 ### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>Mijn query eindpunt heeft onverwachte resultaten geretourneerd. Wat moet ik doen?
@@ -67,7 +76,7 @@ Onverwachte query voorspellingsresultaten zijn gebaseerd op de status van het ge
 
 Bezig met het herstellen van het model begint met [actief leren](luis-how-to-review-endoint-utt.md).
 
-U kunt niet-deterministisch training verwijderen door het bijwerken van de [toepassing versie instellingen API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) om te kunnen gebruiken alle trainingsgegevens. 
+U kunt niet-deterministisch training verwijderen door het bijwerken van de [toepassing versie instellingen API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) om te kunnen gebruiken alle trainingsgegevens.
 
 Controleer de [aanbevolen procedures](luis-concept-best-practices.md) voor meer tips. 
 
@@ -152,10 +161,23 @@ Elke LUIS-app beschikt over de authoring/starter-sleutel in de lijst met eindpun
 
 Als uw app bestond voordat LUIS is algemeen beschikbaar (GA), worden automatisch LUIS eindpunt sleutels in uw abonnement toegewezen. Dit is gedaan om de migratie van de algemene beschikbaarheid te vereenvoudigen. Geen nieuwe LUIS eindpunt sleutels in Azure portal zijn _niet_ automatisch toegewezen aan LUIS.
 
-## <a name="app-management"></a>App-beheer
+## <a name="key-management"></a>Sleutelbeheer
 
-### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>Hoe ik het eigendom overdraagt van een LUIS-app?
-Als u wilt een LUIS-app overzetten naar een ander Azure-abonnement, de LUIS-app exporteren en importeren met behulp van een nieuw account. Werk de LUIS-app-ID in de clienttoepassing die wordt aangeroepen. De nieuwe app mogelijk enigszins LUIS scores geretourneerd uit de oorspronkelijke app.
+### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>Hoe weet ik welke sleutel die ik nodig heb, waar ik krijgen, en wat kan ik ermee doen? 
+
+Zie [ontwerpen en query voorspelling endpoint-sleutels in LUIS](luis-concept-keys.md) voor meer informatie over de verschillen tussen de [ontwerpen sleutel](luis-how-to-account-settings.md) en de [voorspelling eindpuntsleutel](luis-how-to-azure-subscription.md). 
+
+### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>Er treedt een fout over te weinig quotum. Hoe herstel ik deze? 
+
+Zie, [voor het oplossen van fouten voor out-van-quotum wanneer de sleutel is groter dan prijzen laag gebruik](luis-how-to-azure-subscription.md##how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage) voor meer informatie.
+
+### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>Ik wil meer endpoint-query's worden afgehandeld. Hoe doe ik dat? 
+
+Zie, [voor het oplossen van fouten voor out-van-quotum wanneer de sleutel is groter dan prijzen laag gebruik](luis-how-to-azure-subscription.md##how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage) voor meer informatie.
+
+
+
+## <a name="app-management"></a>App-beheer
 
 ### <a name="how-do-i-download-a-log-of-user-utterances"></a>Hoe kan ik een logboek van de gebruiker uitingen downloaden?
 Uw LUIS-app registreert standaard uitingen van gebruikers. Als u wilt een logboek van uitingen die gebruikers naar uw LUIS-app verzenden downloaden, gaat u naar **mijn Apps**, en selecteer de app. Selecteer in de werkbalk contextuele **eindpunt-logboeken exporteren**. Het logboek wordt opgemaakt als een bestand met door komma's gescheiden waarden (CSV).

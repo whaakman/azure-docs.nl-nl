@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: a3f47726b1776b260ff8cc5eac766c23053d4fd0
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 1a21ab5af8c0dc5fbbe2c1dbab8931bd903df4ff
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728399"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235985"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Een overzicht van de mogelijkheden van Azure SQL Database-beveiliging
 
@@ -98,7 +98,7 @@ Threat detection verbetert de controle door een analyse van controlelogboeken vo
 
 ### <a name="transport-layer-security-tls-encryption-in-transit"></a>Transport Layer Security TLS (versleuteling-in-transit)
 
-SQL-Database beveiligt de gegevens van de klant door het versleutelen van gegevens in beweging met [Transport Layer Security](https://support.microsoft.com/en-us/help/3135244/tls-1-2-support-for-microsoft-sql-server).
+SQL-Database beveiligt de gegevens van de klant door het versleutelen van gegevens in beweging met [Transport Layer Security](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
 > [!IMPORTANT]
 > Azure SQL-Database wordt afgedwongen versleuteling (SSL/TLS) op alle tijden voor alle verbindingen die garandeert dat alle gegevens worden versleuteld 'in transit' tussen de database en de client. Dit gebeurt, ongeacht de instelling van **versleutelen** of **TrustServerCertificate** in de verbindingsreeks.

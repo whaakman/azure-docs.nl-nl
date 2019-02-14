@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 3de675adf7364e8281a03a46c5eeeaa1b74249b5
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 4187557ef9a38f55465547f83d7bc4c3bcad9ba7
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969281"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236926"
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-as-additional-storage"></a>Azure PowerShell gebruiken voor het maken van een HDInsight-cluster met Azure Data Lake Storage Gen1 (als extra opslag)
 
@@ -50,12 +50,15 @@ HDInsight om te werken met Data Lake Storage Gen1 configureren omvat met behulp 
 * Een taak voor het testen op het cluster uitvoeren
 
 ## <a name="prerequisites"></a>Vereisten
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Voordat u met deze zelfstudie begint, moet u het volgende hebben of hebben gedaan:
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 of hoger**. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview).
 * **Windows SDK**. Deze kunt u [hier](https://dev.windows.com/en-us/downloads) downloaden. U gebruikt dit om te maken van een security-certificaat.
-* **Azure Active Directory Service-Principal**. Stappen in deze zelfstudie vindt instructies voor het maken van een service-principal in Azure AD. U moet echter een Azure AD-beheerder om te kunnen maken van een service-principal. Als u een Azure AD-beheerder bent, kunt u deze vereiste overslaan en doorgaan met de zelfstudie.
+* **Azure Active Directory Service Principal**. Stappen in deze zelfstudie vindt instructies voor het maken van een service-principal in Azure AD. U moet echter een Azure AD-beheerder om te kunnen maken van een service-principal. Als u een Azure AD-beheerder bent, kunt u deze vereiste overslaan en doorgaan met de zelfstudie.
 
     **Als u niet een Azure AD-beheerder**, u niet mogelijk om uit te voeren van de stappen die nodig zijn om een serviceprincipal te maken. In dat geval moet de Azure AD-beheerder eerst een service-principal maken voordat u een HDInsight-cluster met Data Lake Storage Gen1 kunt maken. Ook de service-principal moet worden gemaakt met een certificaat, zoals beschreven op [een service-principal maken met certificaat](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority).
 
@@ -65,25 +68,25 @@ Volg deze stappen om een Data Lake Storage Gen1-account te maken.
 1. Vanaf het bureaublad een nieuw Azure PowerShell-venster openen en voer het volgende fragment. Wanneer u hierom wordt gevraagd om aan te melden, zorg er dan voor dat u zich aanmeldt als een van de beheerder/eigenaar van het abonnement:
 
         # Log in to your Azure account
-        Connect-AzureRmAccount
+        Connect-AzAccount
 
         # List all the subscriptions associated to your account
-        Get-AzureRmSubscription
+        Get-AzSubscription
 
         # Select a subscription
-        Set-AzureRmContext -SubscriptionId <subscription ID>
+        Set-AzContext -SubscriptionId <subscription ID>
 
         # Register for Data Lake Storage Gen1
-        Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
+        Register-AzResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
    > [!NOTE]
-   > Als u een foutbericht die vergelijkbaar is met ontvangt `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` bij het registreren van de Data Lake Storage Gen1 resourceprovider, is het mogelijk dat uw abonnement niet opgenomen in de whitelist voor Data Lake Storage Gen1 is. Zorg ervoor dat u uw Azure-abonnement voor Data Lake Storage Gen1 inschakelen Volg hiervoor de volgende [instructies](data-lake-store-get-started-portal.md).
+   > Als u een foutbericht die vergelijkbaar is met ontvangt `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` bij het registreren van de Data Lake Storage Gen1 resourceprovider, is het mogelijk dat uw abonnement niet opgenomen in de whitelist voor Data Lake Storage Gen1 is. Zorg ervoor dat u uw Azure-abonnement voor Data Lake Storage Gen1 inschakelen Volg hiervoor de volgende [instructies](data-lake-store-get-started-portal.md).
    >
    >
 2. Een Data Lake Storage Gen1-account is gekoppeld aan een Azure-resourcegroep. Maak daarom eerst een Azure-resourcegroep.
 
         $resourceGroupName = "<your new resource group name>"
-        New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
+        New-AzResourceGroup -Name $resourceGroupName -Location "East US 2"
 
     Hier ziet u uitvoer als volgt:
 
@@ -96,7 +99,7 @@ Volg deze stappen om een Data Lake Storage Gen1-account te maken.
 3. Maak een Data Lake Storage Gen1-account. De opgegeven accountnaam mag alleen kleine letters en cijfers bevatten.
 
         $dataLakeStorageGen1Name = "<your new Data Lake Storage Gen1 account name>"
-        New-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStorageGen1Name -Location "East US 2"
+        New-AzDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStorageGen1Name -Location "East US 2"
 
     Als het goed is, wordt ongeveer de volgende uitvoer weergegeven:
 
@@ -118,7 +121,7 @@ Volg deze stappen om een Data Lake Storage Gen1-account te maken.
 5. Voorbeeldgegevens uploadt naar Data Lake Storage Gen1. Gebruiken we dit verderop in dit artikel om te controleren of de gegevens toegankelijk zijn vanuit een HDInsight-cluster. Als u nog geen voorbeeldgegevens hebt om te uploaden, kunt u de map **Ambulance Data** uit de [Azure Data Lake Git-opslagplaats](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData) gebruiken.
 
         $myrootdir = "/"
-        Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStorageGen1Name -Path "C:\<path to data>\vehicle1_09142014.csv" -Destination $myrootdir\vehicle1_09142014.csv
+        Import-AzDataLakeStoreItem -AccountName $dataLakeStorageGen1Name -Path "C:\<path to data>\vehicle1_09142014.csv" -Destination $myrootdir\vehicle1_09142014.csv
 
 
 ## <a name="set-up-authentication-for-role-based-access-to-data-lake-storage-gen1"></a>Verificatie instellen voor op rollen gebaseerde toegang tot Data Lake Storage Gen1
@@ -164,7 +167,7 @@ In deze sectie maakt u de stappen uitvoeren om een service-principal voor een Az
 
         $credential = [System.Convert]::ToBase64String($rawCertificateData)
 
-        $application = New-AzureRmADApplication `
+        $application = New-AzADApplication `
             -DisplayName "HDIADL" `
             -HomePage "https://contoso.com" `
             -IdentifierUris "https://mycontoso.com" `
@@ -175,13 +178,13 @@ In deze sectie maakt u de stappen uitvoeren om een service-principal voor een Az
         $applicationId = $application.ApplicationId
 2. Maken van een service-principal met behulp van de toepassings-ID.
 
-        $servicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $applicationId
+        $servicePrincipal = New-AzADServicePrincipal -ApplicationId $applicationId
 
         $objectId = $servicePrincipal.Id
 3. De service principal toegang verlenen tot de map Data Lake Storage Gen1 en het bestand dat u toegang uit het HDInsight-cluster tot. Het onderstaande codefragment biedt toegang tot de hoofdmap van het Data Lake Storage Gen1-account (waarin het bestand met voorbeeldgegevens), en het bestand zelf.
 
-        Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path / -AceType User -Id $objectId -Permissions All
-        Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path /vehicle1_09142014.csv -AceType User -Id $objectId -Permissions All
+        Set-AzDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path / -AceType User -Id $objectId -Permissions All
+        Set-AzDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path /vehicle1_09142014.csv -AceType User -Id $objectId -Permissions All
 
 ## <a name="create-an-hdinsight-linux-cluster-with-data-lake-storage-gen1-as-additional-storage"></a>Een HDInsight Linux-cluster maken met Data Lake Storage Gen1 als extra opslag
 
@@ -189,20 +192,20 @@ In deze sectie maken we een HDInsight Hadoop Linux-cluster met Data Lake Storage
 
 1. Beginnen met het ophalen van de tenant-id van abonnement. U moet die later opnieuw.
 
-        $tenantID = (Get-AzureRmContext).Tenant.TenantId
+        $tenantID = (Get-AzContext).Tenant.TenantId
 2. Voor deze release kan voor een Hadoop-cluster, Data Lake Storage Gen1 alleen worden gebruikt als extra opslag voor het cluster. De standaardopslag worden nog steeds de blobs in Azure storage (WASB). Dus eerst maakt u de storage-account en storage-containers die zijn vereist voor het cluster.
 
         # Create an Azure storage account
         $location = "East US 2"
         $storageAccountName = "<StorageAccountName>"   # Provide a Storage account name
 
-        New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -Location $location -Type Standard_GRS
+        New-AzStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -Location $location -Type Standard_GRS
 
         # Create an Azure Blob Storage container
         $containerName = "<ContainerName>"              # Provide a container name
-        $storageAccountKey = (Get-AzureRmStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName)[0].Value
-        $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
-        New-AzureStorageContainer -Name $containerName -Context $destContext
+        $storageAccountKey = (Get-AzStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName)[0].Value
+        $destContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+        New-AzStorageContainer -Name $containerName -Context $destContext
 3. Het HDInsight-cluster maken. Gebruik de volgende cmdlets.
 
         # Set these variables
@@ -211,7 +214,7 @@ In deze sectie maken we een HDInsight Hadoop Linux-cluster met Data Lake Storage
         $httpCredentials = Get-Credential
         $sshCredentials = Get-Credential
 
-        New-AzureRmHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $httpCredentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop -Version "3.4" -OSType Linux -SshCredential $sshCredentials -ObjectID $objectId -AadTenantId $tenantID -CertificateFilePath $certificateFilePath -CertificatePassword $password
+        New-AzHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $httpCredentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop -Version "3.4" -OSType Linux -SshCredential $sshCredentials -ObjectID $objectId -AadTenantId $tenantID -CertificateFilePath $certificateFilePath -CertificatePassword $password
 
     Nadat de cmdlet is voltooid, ziet u uitvoer de clusterdetails van de aanbieding.
 

@@ -10,14 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 02/11/2019
 ms.author: spelluru
-ms.openlocfilehash: ed6c21762fed331e2f11378ec9b6d91cba9bec11
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.reviewer: christianreddington,anthdela,juselph
+ms.openlocfilehash: 781a897c99a28fbd1b695876f477b140521068e3
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251046"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244876"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Schalen van uw infrastructuur voor Azure DevTest Labs
 Vóór de implementatie van DevTest Labs op grote schaal, zijn er enkele belangrijke beslissingspunten. Informatie over deze certificaattoewijzing op hoog niveau, kunt een organisatie met ontwerpbeslissingen in de toekomst. Maar moeten deze punten niet bevatten terug vanaf een bewijs van concept van een organisatie. De drie belangrijkste gebieden voor het eerste omhoog plannen zijn:
@@ -66,4 +67,4 @@ Een DevTest Labs-concepttest heeft drie primaire rollen met gedefinieerde verant
 - **DevTest Labs-gebruiker** – de DevTest Labs-gebruiker kunt maken en gebruiken van de virtuele machines in het lab. Deze personen hebben bepaalde minimale administratieve functies op het maken van VM's (starten/stoppen/verwijderen/configureren hun virtuele machines). De gebruikers die geen VM's van andere gebruikers beheren.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie het volgende artikel in deze serie: [indelen van de implementatie van Azure DevTest Labs](devtest-lab-guidance-orchestrate-implementation.md)
+Zie het volgende artikel in deze reeks: [Indelen van de implementatie van Azure DevTest Labs](devtest-lab-guidance-orchestrate-implementation.md)

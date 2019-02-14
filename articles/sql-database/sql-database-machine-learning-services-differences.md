@@ -12,12 +12,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 01/31/2019
-ms.openlocfilehash: adc303e9b375aaa6f37e9e79ea5434675c75523d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4350fb0e75f140e120ba6cd2f074ffa1816a8fce
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824035"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237481"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-database-and-sql-server"></a>Belangrijke verschillen tussen Machine Learning-Services in Azure SQL Database en SQL Server
 
@@ -25,7 +25,7 @@ De functionaliteit van Machine Learning Services (met R) in Azure SQL Database i
 
 ## <a name="language-support"></a>Taalondersteuning
 
-SQL Server biedt ondersteuning voor R en Python via de [uitbreidingsframework](https://docs.microsoft.com/en-us/sql/advanced-analytics/concepts/extensibility-framework). SQL Database biedt geen ondersteuning voor beide talen. De belangrijkste verschillen zijn:
+SQL Server biedt ondersteuning voor R en Python via de [uitbreidingsframework](https://docs.microsoft.com/sql/advanced-analytics/concepts/extensibility-framework). SQL Database biedt geen ondersteuning voor beide talen. De belangrijkste verschillen zijn:
 
 - R is de enige ondersteunde taal in SQL-Database. Er is op dit moment geen ondersteuning voor Python.
 - De R-versie is 3.4.4.

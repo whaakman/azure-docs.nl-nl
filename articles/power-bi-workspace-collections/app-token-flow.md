@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 125c3a925bf6eff04035bb755a07f19367d1abd2
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 1dd6be61aab91bb15cc42939689e3c7399bee3db
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661085"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236529"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Verifiëren en autoriseren met Power BI-Werkruimteverzamelingen
 
@@ -106,7 +106,7 @@ Hieronder vindt u de beschikbare bereiken voor Power BI Workspace Collections.
 
 U kunt meerdere scopes opgeven met behulp van een spatie tussen de bereiken als volgt uit.
 
-```
+```csharp
 string scopes = "Dataset.Read Workspace.Report.Create";
 ```
 

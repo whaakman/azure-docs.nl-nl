@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: b5a460f3449785721ac360ba398bc47d1945b954
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 48bb9b24901cd07891f3d52bcd916f95bc2801f4
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497690"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244215"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Delen en ontdekken van bronnen in de Azure AI Gallery
 
-**[Azure AI Gallery](http://gallery.cortanaintelligence.com)**  is een community-gestuurde site voor het detecteren van en het delen van oplossingen die zijn gebouwd met Azure AI.
+**[Azure AI Gallery](http://gallery.azure.ai)**  is een community-gestuurde site voor het detecteren van en het delen van oplossingen die zijn gebouwd met Azure AI.
 De galerie heeft een aantal resources die u gebruiken kunt om uw eigen analytics-oplossingen te ontwikkelen.
 
 ## <a name="what-can-i-find-in-the-gallery"></a>Wat kan ik vinden in de galerie?

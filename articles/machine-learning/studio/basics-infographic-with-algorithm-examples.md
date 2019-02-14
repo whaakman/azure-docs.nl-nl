@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodc18
 ms.date: 12/18/2017
-ms.openlocfilehash: 12af8cd2fb46bf61324ddfb8e9a396e53e308a6d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 2db14056b6b5ccf16c8009c21bfcff00954a7802
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978609"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242888"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Downloadbare Infographic: Machine learning-basisbeginselen met algoritmevoorbeelden
 
@@ -23,7 +23,7 @@ Download dit overzicht infographic eenvoudig te begrijpen van de basisprincipes 
 
 ## <a name="popular-algorithms-in-machine-learning-studio"></a>Populaire algoritmen in Machine Learning Studio
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) wordt geleverd met een grote bibliotheek met algoritmen voor voorspellende analyses. De infographic vier populaire families van algoritmen - regressie, detectie van afwijkingen, clustering en classificatie - identificeert en vindt u koppelingen naar voorbeelden werken in de [Azure AI Gallery](https://gallery.cortanaintelligence.com/). De galerie bevat voorbeeldexperimenten en zelfstudies die laten zien hoe deze algoritmen in veel werkelijke oplossingen kunnen worden toegepast.
+[Azure Machine Learning Studio](https://studio.azureml.net/) wordt geleverd met een grote bibliotheek met algoritmen voor voorspellende analyses. De infographic vier populaire families van algoritmen - regressie, detectie van afwijkingen, clustering en classificatie - identificeert en vindt u koppelingen naar voorbeelden werken in de [Azure AI Gallery](https://gallery.azure.ai/). De galerie bevat voorbeeldexperimenten en zelfstudies die laten zien hoe deze algoritmen in veel werkelijke oplossingen kunnen worden toegepast.
 
 ## <a name="download-the-infographic-with-algorithm-examples"></a>Download de infographic met algoritmevoorbeelden
 

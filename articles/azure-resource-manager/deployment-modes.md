@@ -9,20 +9,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2019
+ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: ba7ac806a74cd0b378c39eb3873e7d64435bcf4f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f3ca140fd8606f60a07b71db32cf2d3987ed7860
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105651"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233596"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager-implementatiemodi
 
 Bij het implementeren van uw resources, kunt u opgeven dat de implementatie een incrementele update of een volledige update is.  Het belangrijkste verschil tussen deze twee modi is hoe Resource Manager omgaat met bestaande resources in de resourcegroep die zich niet in de sjabloon. De standaardmodus is incrementeel.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Alleen de sjablonen op hoofdniveau ondersteunen de volledige implementatie-modus. Voor [gekoppeld of geneste sjablonen](resource-group-linked-templates.md), moet u incrementeel modus. 
 
 ## <a name="incremental-and-complete-deployments"></a>Incrementele en volledige implementaties
 
@@ -63,8 +63,6 @@ Wanneer geïmplementeerd in **voltooid** Resource C-modus wordt verwijderd. De r
 
 ## <a name="set-deployment-mode"></a>Modus instellen voor implementatie
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Om in te stellen de implementatiemodus bij het implementeren met PowerShell, gebruikt u de `Mode` parameter.
 
 ```azurepowershell-interactive
@@ -86,7 +84,7 @@ az group deployment create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-Wanneer u een [gekoppelde of geneste sjabloon](resource-group-linked-templates.md), moet u instellen de `mode` eigenschap `Incremental`. Alleen de sjablonen op hoofdniveau ondersteunen de volledige implementatie-modus.
+Het volgende voorbeeld ziet u een gekoppelde sjabloon is ingesteld op modus stapsgewijs te implementeren:
 
 ```json
 "resources": [

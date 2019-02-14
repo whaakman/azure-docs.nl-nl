@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 88618e5b9de9cb8ac46b9b167e6fa6dbccd73687
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 717b895696ca93444744955937c6de23626c7835
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732308"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234745"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch uitvoeren voor het Windows-besturingssysteem in uw Service Fabric-cluster
 
@@ -133,9 +133,9 @@ De reparatie manager-service inschakelen:
 
 3. Het clustermanifest van uw bijwerken met deze wijzigingen, met behulp van de bijgewerkte clustermanifest [Maak een nieuw cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) of [upgrade van de clusterconfiguratie](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server). Zodra het cluster wordt uitgevoerd met bijgewerkte clustermanifest, kunt u nu de reparatie manager systeemservice uitgevoerd in het cluster, met de naam zien `fabric:/System/RepairManagerService`onder system services-punt in de Service Fabric explorer.
 
-### <a name="disable-automatic-windows-update-on-all-nodes"></a>Automatische Update van Windows op alle knooppunten uitschakelen
+### <a name="configure-windows-updates-for-all-nodes"></a>Windows-Updates configureren voor alle knooppunten
 
-Automatische updates voor Windows kunnen leiden tot verlies van beschikbaarheid, omdat meerdere clusterknooppunten opnieuw op hetzelfde moment starten kunnen. De patch orchestration-app probeert standaard om uit te schakelen van de automatische Update van Windows op elk clusterknooppunt. Als de instellingen worden beheerd door een beheerder of Groepsbeleid, is het echter raadzaam te expliciet instellen van de Windows Update-beleid om u te 'Op de hoogte stellen voordat downloaden'.
+Automatische Updates voor Windows kan leiden tot verlies van beschikbaarheid, omdat meerdere clusterknooppunten opnieuw op hetzelfde moment starten kunnen. De patch orchestration-app probeert standaard om uit te schakelen van de automatische Update van Windows op elk clusterknooppunt. Als de instellingen worden beheerd door een beheerder of Groepsbeleid, is het echter raadzaam te expliciet instellen van de Windows Update-beleid om u te 'Op de hoogte stellen voordat downloaden'.
 
 ## <a name="download-the-app-package"></a>Het app-pakket downloaden
 

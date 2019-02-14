@@ -1,25 +1,25 @@
 ---
 title: Azure Cache beheren voor Redis | Microsoft Docs
 description: Meer informatie over het uitvoeren van beheertaken, zoals opnieuw opstarten en schema-updates voor Azure Cache voor Redis
-services: azure-cache-for-redis
+services: cache
 documentationcenter: na
 author: yegu-ms
-manager: cfowler
+manager: jhubbard
 editor: tysonn
 ms.assetid: 8c915ae6-5322-4046-9938-8f7832403000
 ms.service: cache
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: 92a28beeae14b253c84c56e497be242d9c60de17
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: b75a2faa2030fc343cbabb17eb37b63c9ea34f70
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112067"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232378"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Azure Cache beheren voor Redis
 In dit onderwerp wordt beschreven hoe u uitvoeren van beheertaken zoals [opnieuw wordt opgestart](#reboot) en [updates plannen](#schedule-updates) voor uw Azure-Cache voor instanties van Redis.

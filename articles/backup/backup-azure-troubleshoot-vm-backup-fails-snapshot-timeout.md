@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 5eecd750642610737d346c5c270349e285106e95
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a73dab8a0df642e439e8519c404423c6689418f5
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820433"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236971"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup oplossen: Problemen met de agent of de extensie
 
@@ -253,3 +253,6 @@ Schakelt u de terugzetbewerking handmatig verwijst verzameling die niet zijn uit
 
 5. Klik op **verwijderen**, voor het opschonen van de verzameling van herstelpunt.
 6. Voer opnieuw de back-upbewerking opnieuw uit.
+
+> [!NOTE]
+ >Als de resource (RP-verzameling) grote heeft wordt het aantal herstelpunten, dezelfde vervolgens te verwijderen uit de portal time-out kan en mislukken. Dit is een bekend probleem CRP waar alle herstelpunten zijn niet verwijderd in de aangegeven tijd en de bewerking een time-out optreedt; de delete-bewerking slaagt echter meestal na 2 of 3 nieuwe pogingen.

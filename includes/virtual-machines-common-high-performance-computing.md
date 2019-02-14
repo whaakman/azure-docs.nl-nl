@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/15/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 7a136f34a7dd9fada23a4225b60223220c92c665
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a1a6b31c1500c51dbbc32683d9e0e911b60dcae4
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440413"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246824"
 ---
 Organisaties hebben grootschalige computerbehoeften. Deze Big Compute-workloads omvatten technisch ontwerp en -analyse, berekeningen van financiële risico's, rendering van afbeeldingen, complexe modellering, Monte Carlo-simulaties en meer. 
 
@@ -25,12 +25,12 @@ Gebruik de Azure-cloud efficiënt rekenintensieve Linux- en Windows workloads, u
     * Instellen van de clusteromgeving van uw eigen in Azure virtuele machines of [virtuele-machineschaalsets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). 
     * Optillen en verplaatsen van een on-premises cluster, of implementeren van een nieuw cluster in Azure voor extra capaciteit. 
     * Azure Resource Manager-sjablonen gebruiken om te implementeren van toonaangevende [werkbelasting managers](#workload-managers), infrastructuur en [toepassingen](#hpc-applications). 
-    * Kies [HPC en GPU VM-grootten](#hpc-and-gpu-sizes) die gespecialiseerde hardware- en netwerkverbindingen voor MPI- of GPU workloads bevatten. 
+    * Kies [HPC en GPU VM-grootten](#hpc-and-gpu-vm-sizes) die gespecialiseerde hardware- en netwerkverbindingen voor MPI- of GPU workloads bevatten. 
     * Voeg [opslag met hoge prestaties](#hpc-storage) voor I/O-intensieve workloads.
 * **Hybride oplossingen**
     * Uw on-premises oplossing voor het offloaden van piekbelastingen te verwerken ('burst') naar Azure-infrastructuur uitbreiden
-    * Gebruik van cloud computing in de aanvraag met uw bestaande [van workload manager](#workload-manager).
-    * Profiteer van [HPC en GPU VM-grootten](#hpc-and-gpu-sizes) voor MPI- of GPU-werkbelastingen.
+    * Gebruik van cloud computing in de aanvraag met uw bestaande [van workload manager](#workload-managers).
+    * Profiteer van [HPC en GPU VM-grootten](#hpc-and-gpu-vm-sizes) voor MPI- of GPU-werkbelastingen.
 * **BIG Compute-oplossingen als een service**
     * Ontwikkel aangepaste Big Compute-oplossingen en werkstromen die gebruikmaken van [Azure CycleCloud](#azure-cyclecloud), [Azure Batch](#azure-batch), en de bijbehorende [Azure-services](#related-azure-services).
     * Uitvoeren van Azure engineering en simulatie oplossingen van leveranciers zoals [Altair](http://www.altair.com/), [oorspronkelijke](https://www.rescale.com/azure/), en [Cycle Computing](https://cyclecomputing.com/) (nu [samengevoegd met Microsoft](https://blogs.microsoft.com/blog/2017/08/15/microsoft-acquires-cycle-computing-accelerate-big-computing-cloud/)).
@@ -135,7 +135,7 @@ Meer informatie:
 
 Virtuele Azure-machines, virtuele-machineschaalsets, Batch en gerelateerde compute-services vormen de basis van de meeste Azure-HPC-oplossingen. Echter, uw oplossing kan profiteren van veel gerelateerde Azure-services. Hier volgt een gedeeltelijke lijst:
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Opslag
 
 * [BLOB, table en queue storage](../articles/storage/storage-introduction.md)
 * [Bestandsopslag](../articles/storage/storage-files-introduction.md)

@@ -9,18 +9,18 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: b01de55003f620363ed27b95a2bd27bc39fdee3a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 48255614291086fe85666bec407ea62f7a365410
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991206"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237362"
 ---
 # <a name="customize-a-brands-model-in-video-indexer"></a>Een model merken in Video Indexer aanpassen
 
 Video Indexer biedt ondersteuning voor detectie merk van spraak en tekst visual tijdens het indexeren en indexeren van video en audio-inhoud. De mogelijkheid voor het detecteren van merk vermeldingen van producten, services, identificeert en bedrijven voorgesteld door de Bing merken database. Bijvoorbeeld, als Microsoft wordt vermeld in een video of audio-inhoud of als deze weergegeven in de visual tekst in een video wordt, Video Indexer wordt dit gedetecteerd als een onderdeel in de inhoud. Merken zijn disambiguated van andere context met voorwaarden.
 
-Merk-detectie is handig in tal van zakelijke scenario's zoals inhoud archief en detectie, contextuele reclame, analyse van sociale media, concurreren retail analysis en nog veel meer. Video Indexer merk detectie kunt u index merk vermeldingen in spraak- en visual tekst, met behulp van de Bing merken database evenals met aanpassingen door het bouwen van een aangepast model merken voor elke Video Indexer-account. De aangepaste merken model-functie kunt u aangeven of Video Indexer merken uit de database van Bing merken, uitsluiten van bepaalde merken detecteert wordt gedetecteerd (in wezen het maken van een zwarte lijst met merken), en omvatten merken die deel van uitmaken moeten uw model die mogelijk niet in de database van de Bing merken (in wezen het maken van een technisch overzicht van merken).
+Merk-detectie is handig in tal van zakelijke scenario's zoals inhoud archief en detectie, contextuele reclame, analyse van sociale media, concurreren retail analysis en nog veel meer. Video Indexer merk detectie kunt u index merk vermeldingen in spraak- en visual tekst, met behulp van de Bing merken database evenals met aanpassingen door het bouwen van een aangepast model merken voor elke Video Indexer-account. De aangepaste merken model-functie kunt u aangeven of Video Indexer merken uit de database van Bing merken, uitsluiten van bepaalde merken detecteert wordt gedetecteerd (in wezen het maken van een zwarte lijst met merken), en omvatten merken die deel van uitmaken moeten uw model die mogelijk niet in de database van de Bing merken (in wezen het maken van een technisch overzicht van merken). De aangepaste model merken die u maakt is alleen beschikbaar in het account waarin u het model hebt gemaakt.
 
 ## <a name="out-of-the-box-detection-example"></a>Buiten de voorbeeld-detectie
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 8/13/2018
+ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: db7ac84b5ce1f3ee2558bbc5ce14332aecd578c7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 07fb655af25fe590effcb885e7b366346724b50a
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860640"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232889"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing webzoekopdrachten-API-reactie structuur en -antwoordsessie-typen  
 
@@ -42,7 +42,7 @@ Bing webzoekopdrachten retourneert doorgaans een subset van de antwoorden. Bijvo
 
 ## <a name="webpages-answer"></a>Antwoord van de webpagina 's
 
-De [webpagina's](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) antwoord bevat een lijst met koppelingen naar webpagina's met Bing webzoekopdrachten bepaald zijn relevant zijn voor de query. Elke [webpagina](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webpage) in de lijst bevat van de pagina naam, url, weergave-URL, korte beschrijving van de datum Bing en de inhoud de inhoud gevonden.
+De [webpagina's](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) antwoord bevat een lijst met koppelingen naar webpagina's met Bing webzoekopdrachten bepaald zijn relevant zijn voor de query. Elke [webpagina](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webpage) in de lijst bevat: naam van de pagina, url, URL, een korte beschrijving van de inhoud en de datum Bing gevonden de inhoud wordt weergegeven.
 
 ```json
 {
@@ -91,7 +91,7 @@ De [installatiekopieën](https://docs.microsoft.com/rest/api/cognitiveservices/b
 }, ...
 ```
 
-Afhankelijk van het apparaat van de gebruiker, zou u meestal een subset van de miniaturen met een optie voor de gebruiker om de resterende installatiekopieën weer te geven weer.
+Afhankelijk van het apparaat van de gebruiker, zou u meestal een subset van de miniatuurweergaven, met een optie voor de gebruiker weer [pagina via](paging-webpages.md) de resterende afbeeldingen.
 
 <!-- Remove until this can be replaced with a sanitized version.
 ![List of thumbnail images](./media/cognitive-services-bing-web-api/bing-web-image-thumbnails.PNG)
@@ -314,7 +314,7 @@ Een rekenkundige expressie mag de volgende functies:
 
 |Symbool|Description|
 |------------|-----------------|
-|WORTEL|Vierkantswortel|
+|Sorteren|Vierkantswortel|
 |SIN [x], Cos [x], Tan [x]<br />Csc [x], [x] Sec Cot [x]|Trigonometrische functies (met argumenten in radialen)|
 |ArcSin[x], ArcCos[x], ArcTan[x]<br />ArcCsc[x], ArcSec[x], ArcCot[x]|Inverse trigonometrische functies (waardoor de resultaten in radialen)|
 |Exp[x], E^x|Exponentiële functie|
@@ -428,6 +428,48 @@ Als u Bing bepaalt dat de gebruiker kan zijn bedoeld om te zoeken naar een ander
     }]
 }, ...
 ```
+
+Hieronder ziet u hoe Bing maakt gebruik van het voorstel spelling.
+
+![Bing spellingcontrole suggestie voorbeeld](./media/cognitive-services-bing-web-api/bing-web-spellingsuggestion.GIF)  
+
+## <a name="response-headers"></a>Antwoordheaders
+
+Antwoorden van de Bing webzoekopdrachten-API kunnen de volgende headers bevatten:
+
+|||
+|-|-|
+|`X-MSEdge-ClientID`|De unieke ID die Bing is toegewezen aan de gebruiker|
+|`BingAPIs-Market`|De markt die is gebruikt om te voldoen aan de aanvraag|
+|`BingAPIs-TraceId`|De vermelding op de server-API voor Bing voor deze aanvraag (voor ondersteuning)|
+
+Dit is vooral belangrijk voor het behouden van de client-ID en retourneer het met de volgende aanvragen. Als u dit doet, wordt de zoekopdracht gebruikt voorbij context in volgorde van zoekresultaten en bieden ook een consistente gebruikerservaring.
+
+Echter, wanneer u de Bing webzoekopdrachten-API vanuit JavaScript aanroepen, van uw browser ingebouwde beveiligingsfuncties (CORS) kunnen voorkomen dat u toegang tot de waarden van deze headers.
+
+Om toegang te krijgen tot de headers, kunt u de Bing webzoekopdrachten-API-aanvraag via een proxy CORS. Het antwoord van een dergelijke proxy heeft een `Access-Control-Expose-Headers`-header waardoor antwoordheaders worden opgenomen in de whitelist en beschikbaar gemaakt voor JavaScript.
+
+Het is eenvoudig te installeren van een CORS-proxy om toe te staan onze [zelfstudie app](tutorial-bing-web-search-single-page-app.md) voor toegang tot de optionele client-headers. Als u [Node.js](https://nodejs.org/en/download/) nog niet hebt, moet u dit eerst installeren. Voer de volgende opdracht achter de opdrachtprompt.
+
+    npm install -g cors-proxy-server
+
+Vervolgens de Bing webzoekopdrachten-API-eindpunt in de HTML-bestand te wijzigen:
+
+    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+
+Start ten slotte de CORS-proxy met de volgende opdracht:
+
+    cors-proxy-server
+
+Laat het opdrachtvenster geopend terwijl u de zelfstudie-app gebruikt. Als u het venster sluit, wordt de proxy gestopt. In de uitbreidbare sectie met HTTP-headers onder de zoekresultaten ziet u nu (onder andere) de `X-MSEdge-ClientID`-header en kunt u controleren of deze voor elke aanvraag gelijk is.
+
+## <a name="response-headers-in-production"></a>Antwoordheaders in productie
+
+De CORS-proxy-benadering beschreven in het vorige antwoord is geschikt voor ontwikkeling, testen en leren.
+
+In een productieomgeving, moet u een script op de server in hetzelfde domein als de webpagina die gebruikmaakt van de Bing webzoekopdrachten-API te hosten. Met dit script moet API-aanroepen op verzoek van de webpagina JavaScript en alle resultaten, met inbegrip van headers, terug naar de client. Aangezien de twee resources (pagina en script) een oorsprong delen, CORS niet wordt gebruikt en de speciale headers zijn toegankelijk voor de JavaScript op de webpagina wordt weergegeven.
+
+Deze benadering ook voorkomt dat uw API-sleutel blootstelling aan het publiek, omdat alleen het script op de server nodig heeft. Het script kunt u een andere methode gebruiken om te controleren of dat de aanvraag is geautoriseerd.
 
 Hieronder ziet u hoe Bing maakt gebruik van het voorstel spelling.
 

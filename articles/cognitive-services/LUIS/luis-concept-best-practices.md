@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 02/13/2019
 ms.author: diberry
-ms.openlocfilehash: e307f258f4bf4c6aec6a0932f0787ef56f2b0d46
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: ba51da8b71406cb1bf7446bd66818a6a74e61317
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859297"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243413"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Aanbevolen procedures voor het bouwen van een language understanding-app met Cognitive Services
 Gebruik Apps kunt maken om uw LUIS-app te bouwen. 
@@ -59,6 +59,12 @@ Houd rekening met het volgende voorbeeld-uitingen:
 
 'Een vlucht reserveren' en 'Book een hotel' gebruikt u de dezelfde vocabulaire van ' book een '. Deze indeling is hetzelfde, dus het mag het hetzelfde doel met andere woorden van vertragingen van vluchten en hotels als uitgepakte entiteiten. 
 
+Voor meer informatie:
+* Concept: [Concepten over intents in uw LUIS-app](luis-concept-intent.md)
+* Zelfstudie: [LUIS-app om te bepalen van de gebruiker bedoelingen bouwen](luis-quickstart-intents-only.md)
+* Procedure: [Intents om te bepalen van de gebruiker de bedoeling uitingen toevoegen](luis-how-to-add-intents.md)
+
+
 ## <a name="do-find-sweet-spot-for-intents"></a>Vind sweet positie voor intents
 Voorspellingsgegevens van LUIS gebruiken om te bepalen als uw intenties elkaar overlappen. Overlappende intents Verwar LUIS. Het resultaat is dat boven scoring-doel te sluiten bij een ander doel. LUIS gebruikt niet precies hetzelfde pad van de gegevens voor het trainen van elke keer, is overlappende opzet een kans dat het eerste of tweede in Trainingen. U wilt dat de score van de utterance voor elke voornemen verder uit elkaar liggen, zodat deze spiegelen/flop niet plaatsvindt. Goede onderscheidende factor zijn voor intents moet resulteren in het verwachte belangrijkste doel telkens. 
  
@@ -67,6 +73,9 @@ Houd een afzonderlijke set met uitingen dat niet wordt gebruikt als [voorbeeld u
 
 Ontwikkelaars moeten drie gegevenssets hebben. De eerste is de voorbeeld-uitingen voor het bouwen van het model. De tweede is voor het testen van het model op het eindpunt. De derde is de blind gegevens die worden gebruikt test [batch testen](luis-how-to-batch-test.md). Deze laatste set wordt niet gebruikt in de toepassing training en verzonden op het eindpunt.  
 
+Voor meer informatie:
+* Concept: [Cyclus voor uw LUIS-app ontwerpen](luis-concept-app-iteration.md)
+
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>Voeg woordgroep lijsten en -patronen in de volgende herhalingen
 [Lijsten met zin](luis-concept-feature.md) kunt u voor het definiëren van woordenlijsten van woorden met betrekking tot uw app-domein. Seed uw woordgroep lijst met een paar woorden en gebruik vervolgens de functie voorstellen zodat LUIS weet over meer woorden in de woordenlijst specifieke aan uw app. Elke woord niet worden toegevoegd aan het vocabulaire, omdat de woordgroepenlijst met niet een exacte overeenkomst. 
 
@@ -74,11 +83,22 @@ Real-user-uitingen van het eindpunt, vergelijkbaar met elkaar worden verbonden, 
 
 Gebruikspatroon [optionele syntaxis](luis-concept-patterns.md) voor leestekens zodat interpunctie kan worden genegeerd. Gebruik de [expliciete lijst](luis-concept-patterns.md#explicit-lists) om te compenseren voor pattern.any syntaxis van de problemen. 
 
-Deze procedures zijn niet van toepassing voordat uw app eindpunt aanvragen ontvangen heeft omdat die Hiermee laat u het vertrouwen overhellen.  
+Deze procedures niet van toepassing voordat u uw app heeft eindpunt aanvragen ontvangen. U moet begrijpen hoe het gedrag van de app voordat u een lijst met woorden en patronen toe te voegen. Als u inzicht in hoe uw app zonder dat deze zich gedraagt, add u elk van deze functies zoals ze voor uw app gelden. 
+
+Er kan geen kwaad om ze toe te voegen aan het begin van het modelontwerp van uw, maar het is eenvoudiger om te zien hoe elke functie resultaten verandert als u deze toevoegt nadat u de app met echte verkeer. 
+
+U hoeft niet te deze functies bij elke herhaling toevoegen of wijzigen van de functies bij elke versie. 
+
+Voor meer informatie:
+* Concept: [Cyclus voor uw LUIS-app ontwerpen](luis-concept-app-iteration.md)
+* Concept: [Woordgroep lijst met functies in uw LUIS-app](luis-concept-feature.md)
+* Concept: [Patronen verbeteren nauwkeurigheid](luis-concept-patterns.md)
+* Uitleg: [Gebruik woordgroep lijsten moeten worden boost signaal van de lijst met woorden](luis-how-to-add-features.md)
+* Uitleg: [Patronen voor het verbeteren van nauwkeurigheid toevoegen](luis-how-to-model-intent-pattern.md)
 
 ## <a name="balance-your-utterances-across-all-intents"></a>Alle intents worden uw uitingen verdeeld
 
-In volgorde van LUIS om voorspellingen te nauwkeurige, moet de hoeveelheid van voorbeeld-uitingen in elk doel (met uitzondering van de geen intentie), relatief gelijk zijn. 
+In de volgorde voor LUIS voorspellingen nauwkeurige, moet de hoeveelheid van voorbeeld-uitingen in elk doel (met uitzondering van de geen intentie), relatief gelijk zijn. 
 
 Als u een doel met 100 voorbeeld uitingen en een doel met 20 voorbeeld uitingen hebt, heeft de bedoeling 100 utterance een hoger tarief van voorspellingen.  
 
@@ -86,9 +106,17 @@ Als u een doel met 100 voorbeeld uitingen en een doel met 20 voorbeeld uitingen 
 
 Dit doel is de terugval doel aangegeven alles buiten uw toepassing. Een voorbeeld utterance toevoegen aan de intentie voor elke uitingen 10 voorbeeld in de rest van uw LUIS-app geen.
 
+Voor meer informatie:
+* Concept: [Inzicht in wat goede uitingen zijn voor uw LUIS-app](luis-concept-utterance.md)
+
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>Gebruikmaken van de functie voor suggesties voor actief leren
 
 Gebruik [actief leren](luis-how-to-review-endoint-utt.md)van **bekijken eindpunt uitingen** regelmatig, in plaats van meer voorbeeld uitingen aan intents toe te voegen. Omdat de app voortdurend eindpunt uitingen ontvangt, wordt deze lijst groeit en wijzigen.
+
+Voor meer informatie:
+* Concept: [Concepten voor het inschakelen van actief leren aan de hand van de eindpunt-uitingen](luis-concept-review-endpoint-utterances.md)
+* Zelfstudie: [Zelfstudie: Niet weet voorspellingen oplossen aan de hand van de eindpunt-uitingen](luis-tutorial-review-endpoint-utterances.md)
+* Uitleg: [Over het bekijken van de eindpunt-uitingen in LUIS-portal](luis-how-to-review-endoint-utt.md)
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>De prestaties van uw app controleren
 
@@ -133,6 +161,11 @@ Voeg niet te veel [patronen](luis-concept-patterns.md). LUIS is bedoeld voor mee
 ## <a name="do-use-versions-for-each-app-iteration"></a>Gebruik versies voor elke herhaling van de app
 
 Elke cyclus authoring moet binnen een nieuwe [versie](luis-concept-version.md), gekloond van een bestaande versie. LUIS heeft geen limiet voor versies. De versienaam van een wordt gebruikt als onderdeel van de API-route, dus is het belangrijk om te kiezen tekens toegestaan in een URL, evenals te houden in het aantal 10 tekens voor een versie. Ontwikkel een strategie voor de naam van versie om te voorkomen dat uw versies ingedeeld. 
+
+Voor meer informatie:
+* Concept: [Begrijpen hoe en wanneer een LUIS-versie te gebruiken](luis-concept-version.md)
+* Uitleg: [Versies gebruiken om te bewerken en te testen zonder dat dit fasering of productie-apps](luis-how-to-manage-versions.md)
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

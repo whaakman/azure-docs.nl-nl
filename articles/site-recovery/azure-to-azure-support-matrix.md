@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: 752be8270f3eb0bcc018cfcb7f87f30f5afbc60a
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 5f3d884720bce5777a358a27dc477eabd5263d0c
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753092"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245181"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Ondersteuningsmatrix voor het repliceren van de ene Azure-regio naar een andere
 
@@ -178,7 +178,7 @@ Deze tabel samengevat ondersteuning voor de Azure VM-besturingssysteem schijf, d
 **Onderdeel** | **Ondersteuning** | **Details**
 --- | --- | ---
 Maximale grootte van de Besturingssysteemschijf | 2048 GB | [Meer informatie](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms) over VM-schijven.
-Tijdelijke schijf | Niet ondersteund | De tijdelijke schijf is altijd uitgesloten van replicatie.<br/><br/> Geen permanente gegevens op de tijdelijke schijf. [Meer informatie](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk).
+Tijdelijke schijf | Niet ondersteund | De tijdelijke schijf is altijd uitgesloten van replicatie.<br/><br/> Geen permanente gegevens niet worden opgeslagen op de tijdelijke schijf. [Meer informatie](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk).
 Maximale grootte van de gegevensschijf | 4095 GB |
 Maximum aantal voor gegevens-schijf | Maximaal 64, in overeenstemming met de ondersteuning voor een specifieke Azure-VM-grootte | [Meer informatie](../virtual-machines/windows/sizes.md) over VM-grootten.
 Veranderingssnelheid van gegevens-schijf | Maximaal 10 MBps per schijf voor premium-opslag. Maximaal 2 MBps per schijf voor Standard-opslag. | Als de gemiddelde gegevenswijzigingssnelheid op de schijf is voortdurend hoger is dan de maximale, replicatie wordt niet actueel.<br/><br/>  Echter, als de maximale sporadisch wordt overschreden, replicatie kan bijwonen, maar ziet u mogelijk enigszins vertraagd herstelpunten.

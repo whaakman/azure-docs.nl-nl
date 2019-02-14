@@ -1,6 +1,6 @@
 ---
-title: Excel verbinden met de SQL Database | Microsoft Docs
-description: Leer hoe u Microsoft Excel verbindt met Azure SQL Database in de cloud. Gegevens importeren in Excel voor rapportage en gegevens verkenning.
+title: Excel verbinden met een individuele database in Azure SQL Database | Microsoft Docs
+description: Leer hoe u Microsoft Excel verbindt met een individuele database in Azure SQL-database. Gegevens importeren in Excel voor rapportage en gegevens verkenning.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,19 +11,21 @@ author: joseidz
 ms.author: craigg
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 552293b402c697073587e887522d2daa3e33cdb6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/12/2019
+ms.openlocfilehash: c456954c3bf68fd87e51162ea6aab1d0a54b86ad
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754577"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237008"
 ---
-# <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>Excel verbinden met een Azure SQL database en een rapport maken
+# <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Excel verbinden met een individuele database in Azure SQL-database en een rapport maken
 
-Excel verbinden met een SQL-database in de cloud en gegevens importeren en tabellen en grafieken op basis van waarden in de database maken. In deze zelfstudie stelt u de verbinding tussen Excel en een databasetabel in, slaat u het bestand met de gegevens en de verbindingsinformatie voor Excel op en maakt u vervolgens een draaigrafiek uit de databasewaarden.
+Excel verbinden met een individuele database in Azure SQL Database en gegevens importeren en tabellen en grafieken op basis van waarden in de database maken. In deze zelfstudie stelt u de verbinding tussen Excel en een databasetabel in, slaat u het bestand met de gegevens en de verbindingsinformatie voor Excel op en maakt u vervolgens een draaigrafiek uit de databasewaarden.
 
-Voordat u begint hebt u een SQL Database in Azure nodig. Als u deze niet hebt, raadpleegt u [Uw eerste SQL Database maken](sql-database-single-database-get-started.md) om een database met voorbeeldgegevens binnen enkele minuten in te stellen. In dit artikel, zult u voorbeeldgegevens importeren in Excel van dat artikel, maar u kunt dezelfde stappen volgen met uw eigen gegevens.
+U moet een individuele database voordat u begint. Als u niet hebt, raadpleegt u [een individuele database maken](sql-database-single-database-get-started.md) en [IP-firewall op serverniveau maken](sql-database-server-level-firewall-rule.md) om op te halen van een individuele database met voorbeeldgegevens van en worden uitgevoerd in een paar minuten.
+
+In dit artikel, zult u voorbeeldgegevens importeren in Excel van dat artikel, maar u kunt dezelfde stappen volgen met uw eigen gegevens.
 
 U hebt ook een kopie van Excel nodig. Dit artikel gebruikt [Microsoft Excel 2016](https://products.office.com/).
 

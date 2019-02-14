@@ -3,19 +3,19 @@ title: De Tekstanalyse-API aanroepen
 titlesuffix: Azure Cognitive Services
 description: Meer informatie over het aanroepen van de Text Analytics REST-API.
 services: cognitive-services
-author: ashmaka
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/01/2018
-ms.author: ashmaka
-ms.openlocfilehash: 60aa51e4dac796e034b7b0506be0e205951226de
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: 52c5cb640bfb861fb2da52ee711fe3955a169bcf
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870772"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244025"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Over het aanroepen van de Text Analytics REST-API
 
@@ -30,9 +30,7 @@ Intrekken Text Analytics is staatloos, zodat er geen gegevensassets die u zijn w
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet beschikken over een [account voor Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Text Analytics-API**. 
-
-Hebt u de [eindpunt en de toegangssleutel](text-analytics-how-to-access-key.md) die voor u wordt gegenereerd wanneer u zich aanmeldt voor Cognitive Services. 
+Hebt u een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met de Tekstanalyse-API, en de [eindpunt en de toegangssleutel](text-analytics-how-to-access-key.md) die voor u wordt gegenereerd wanneer u zich aanmeldt voor Cognitive Services. 
 
 <a name="json-schema"></a>
 
