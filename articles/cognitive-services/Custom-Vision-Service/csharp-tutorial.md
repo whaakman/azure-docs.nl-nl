@@ -1,21 +1,21 @@
 ---
-title: 'Snelstart: Een afbeeldingsclassificatieproject maken met de Custom Vision-SDK voor C#'
+title: 'Quickstart: Een afbeeldingsclassificatieproject maken met de Custom Vision-SDK voor C#'
 titlesuffix: Azure Cognitive Services
 description: Maak een project, voeg tags toe, upload afbeeldingen, train uw project en doe een voorspelling met behulp van de .NET-SDK met C#.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 10/31/2018
 ms.author: anroth
-ms.openlocfilehash: 01c4da98bbc89a49007aa7064907abd9ed01cc0d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fd6ff54b490e3f389439d3831c7a249d4c928450
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227536"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884882"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-net-sdk"></a>Quickstart: Een afbeeldingsclassificatieproject maken met de .NET-SDK van Custom Vision
 

@@ -1,270 +1,240 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met Evernote | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Evernote.
+title: 'Zelfstudie: Integratie van Microsoft Azure Active Directory met Evernote | Microsoft Docs'
+description: Lees hoe u eenmalige aanmelding configureert tussen Microsoft Azure Active Directory en Evernote.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/20/2017
+ms.topic: tutorial
+ms.date: 02/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 4ad45757aaa64652c0f9ad06c785b2749a4620a5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: 7cff5eaf49bb9b5af79e4673549ab6ee70394c0a
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171538"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100411"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-evernote"></a>Zelfstudie: Azure Active Directory-integratie met Evernote
+# <a name="tutorial-azure-active-directory-integration-with-evernote"></a>Zelfstudie: Integratie van Microsoft Azure Active Directory met Evernote
 
-In deze zelfstudie leert u hoe u Evernote integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Evernote kunt integreren met Microsoft Azure Active Directory (Azure AD).
+Het integreren van Evernote met Microsoft Azure Active Directory biedt u de volgende voordelen:
 
-Evernote integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Microsoft Azure Active Directory wie toegang tot Evernote heeft.
+* U kunt inschakelen dat gebruikers automatisch met hun Microsoft Azure Active Directory-account worden aangemeld bij Evernote (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD toegang evernote heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld evernote (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Evernote, moet u de volgende items:
+Om Microsoft Azure Active Directory-integratie met Evernote te configureren, hebt u het volgende nodig:
 
-- Een Azure AD-abonnement
-- Een Evernote eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Abonnement op Evernote met eenmalige aanmelding (SSO) ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Evernote uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-evernote-from-the-gallery"></a>Evernote uit de galerie toe te voegen
-Voor het configureren van de integratie van Evernote in Azure AD, moet u Evernote uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* Evernote ondersteunt door **SP** en **IDP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt toevoegen Evernote uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-evernote-from-the-gallery"></a>Evernote toevoegen vanuit de galerie
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Om de configuratie van Evernote in Microsoft Azure Active Directory te configureren, moet u Evernote vanuit de galerie aan uw lijst met beheerde SaaS-apps toevoegen.
 
-    ![De Azure Active Directory-knop][1]
+**Als u Evernote vanuit de galerie wilt toevoegen, moet u de volgende stappen uitvoeren:**
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![De blade Enterprise-toepassingen][2]
-    
-1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![De knop Nieuwe toepassing][3]
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-1. Typ in het zoekvak **Evernote**, selecteer **Evernote** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![Evernote in de lijst met resultaten](./media/evernote-tutorial/tutorial_evernote_addfromgallery.png)
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
+
+4. Typ in het zoekvak **Evernote**, selecteer **Evernote** in het resultaatvenster en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
+
+     ![Evernote in de lijst met resultaten](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Evernote op basis van een testgebruiker 'Julia steen' genoemd.
+In dit gedeelte configureert en test u eenmalige aanmelding van Microsoft Azure Active Directory met Evernote op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Microsoft Azure Active Directory-gebruiker en de daaraan gerelateerde gebruiker in Evernote tot stand is gebracht.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Evernote is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Evernote tot stand worden gebracht.
-
-In Evernote, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
-
-Om te configureren en testen van Azure AD eenmalige aanmelding met Evernote, moet u de volgende bouwstenen voltooien:
+Om eenmalige aanmelding van Microsoft Azure Active Directory met Evernote te configureren en te testen, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-1. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-1. **[Maak een testgebruiker Evernote](#create-an-evernote-test-user)**  : als u wilt een equivalent van Britta Simon in Evernote die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+2. **[Evernote-eenmalige aanmelding configureren](#configure-evernote-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wil configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker voor Evernote maken](#create-evernote-test-user)**: als u een tegenhanger van Britta Simon in Evernote wilt hebben die is gekoppeld aan de Microsoft Azure Active Directory-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Evernote.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Evernote, moet u de volgende stappen uitvoeren:**
+Om eenmalige aanmelding van Microsoft Azure Active Directory met Evernote te configureren, moet u de volgende stappen uitvoeren:
 
-1. In de Azure-portal op de **Evernote** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. Ga in de [Microsoft Azure-portal](https://portal.azure.com/) naar de pagina voor toepassingsintegratie van **Evernote** en selecteer **Eenmalige aanmelding**.
 
-    ![Koppeling Eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/evernote-tutorial/tutorial_evernote_samlbase.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-1. Op de **Evernote domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in de modus voor IDP gestart:
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![Evernote domein en URL's, eenmalige aanmelding informatie](./media/evernote-tutorial/tutorial_evernote_url.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    In de **id** tekstvak typt u de URL: `https://www.evernote.com/saml2`
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-1. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit als u de toepassing in de door **IDP** geïnitieerde modus wilt configureren:
 
-    ![Evernote domein en URL's, eenmalige aanmelding informatie](./media/evernote-tutorial/tutorial_evernote_url1.png)
+    ![Informatie over eenmalige aanmelding van domeinen en URL’s van Evernote](common/idp-identifier.png)
 
-    In de **aanmeldings-URL** tekstvak typt u de URL: `https://www.evernote.com/Login.action`   
+    In het tekstvak **Id** typt u een URL: `https://www.evernote.com/saml2`
 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
+5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
-    ![De link om het certificaat te downloaden](./media/evernote-tutorial/tutorial_evernote_certificate.png) 
+    ![image](common/both-preintegrated-signon.png)
 
-1. Klik op **opslaan** knop.
+    In het tekstvak **Aanmeldings-URL** typt u een URL: `https://www.evernote.com/Login.action`
 
-    ![De knop voor enkelvoudige aanmelding configureren](./media/evernote-tutorial/tutorial_general_400.png)
+6. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
-1. Op de **Evernote configuratie** sectie, klikt u op **configureren Evernote** openen **aanmelding configureren** venster. Kopiëren de **Single Sign-On Service URL voor SAML** uit de **Naslaggids sectie.**
+    ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
-    ![Configuratie van Evernote](./media/evernote-tutorial/tutorial_evernote_configure.png) 
+7. In de sectie **Evernote instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
 
-1. Meld u in een ander browservenster in uw bedrijf Evernote site als beheerder.
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-1. Ga naar **'-beheerconsole'**
+    a. Aanmeldings-URL
+
+    b. Azure AD-id
+
+    c. Afmeldings-URL
+
+### <a name="configure-evernote-single-sign-on"></a>Evernote configureren voor eenmalige aanmelding
+
+1. Meld u in een ander browservenster bij uw Evernote-bedrijfssite als beheerder aan.
+
+2. Ga naar **'Admin Console'**
 
     ![Admin-Console](./media/evernote-tutorial/tutorial_evernote_adminconsole.png)
 
-1. Uit de **'-beheerconsole'**, gaat u naar **"Beveiliging"** en selecteer **' Single Sign-On'**
+3. Ga vanuit de **'Admin Console'** naar **‘Security’** en selecteer **‘Single Sign-On’**
 
     ![SSO-instelling](./media/evernote-tutorial/tutorial_evernote_sso.png)
 
-1. Configureer de volgende waarden:
+4. Configureer de volgende waarden:
 
-    ![Certificaat-instelling](./media/evernote-tutorial/tutorial_evernote_certx.png)
+    ![Certificaatinstelling](./media/evernote-tutorial/tutorial_evernote_certx.png)
     
-    a.  **SSO inschakelen:** Eenmalige aanmelding is standaard ingeschakeld (Klik op **uitschakelen Single Sign-on** te verwijderen van de vereiste voor eenmalige aanmelding)
+    a.  **Enable SSO:** SSO is standaard ingeschakeld (klik op **Disable Single Sign-on** om het SSO vereiste te verwijderen)
 
-    b. Plakken **SAML-eenmalige aanmelding Service-URL** waarde die u hebt gekopieerd vanuit de Azure portal in de **SAML HTTP-aanvraag-URL** tekstvak.
+    b. Plak de waarde van de **aanmeldings-URL**, die u uit de Microsoft Azure-portal naar het tekstvak **SAML HTTP Request URL** hebt gekopieerd.
 
-    c. Open het gedownloade certificaat van Azure AD in Kladblok en kopieer de inhoud, waaronder "CERTIFICATE beginnen met" en 'END CERTIFICATE' en plak deze in de **X.509-certificaat** tekstvak. 
+    c. Open het gedownloade certificaat van Microsoft Azure Active Directory in Kladblok en kopieer de inhoud, inclusief "BEGIN CERTIFICATE" en "END CERTIFICATE" en plak deze in het tekstvak **X.509 Certificate**. 
 
-    d.Click **wijzigingen opslaan**
+    d. Klik op **Save Changes**
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-   ![Maak een testgebruiker Azure AD][100]
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-    ![De Azure Active Directory-knop](./media/evernote-tutorial/create_aaduser_01.png)
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/evernote-tutorial/create_aaduser_02.png)
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-1. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
-
-    ![De knop toevoegen](./media/evernote-tutorial/create_aaduser_03.png)
-
-1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
-
-    ![Het dialoogvenster gebruiker](./media/evernote-tutorial/create_aaduser_04.png)
-
-    a. In de **naam** in het vak **BrittaSimon**.
-
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="create-an-evernote-test-user"></a>Maak een testgebruiker Evernote
 
-Als u wilt inschakelen in Azure AD-gebruikers zich aanmelden bij Evernote, moeten ze worden ingericht voor Evernote.  
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
+
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Evernote.
+
+1. Selecteer in de Microsoft Azure-portal achtereenvolgens **Bedrijfstoepassingen**, **Alle toepassingen** en **Evernote**.
+
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+
+2. Selecteer **Evernote** in de lijst met toepassingen.
+
+    ![De Evernote-koppeling in de lijst met toepassingen](common/all-applications.png)
+
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
+
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
+
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
+
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
+
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
+
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
+
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
+
+### <a name="create-evernote-test-user"></a>Evernote-testgebruiker maken
+
+Als u gebruikers van Microsoft Azure Active Directory de mogelijkheid wilt bieden om zich aan te melden bij Evernote, moeten ze worden ingericht voor Evernote.  
 In het geval van Evernote is inrichten een handmatige taak.
 
 **Voer de volgende stappen uit om een gebruikersaccount in te richten:**
 
-1. Meld u aan bij uw bedrijf Evernote site aan als beheerder.
+1. Meld u bij uw Evernote-bedrijfssite als beheerder aan.
 
-1. Klik op de **'-beheerconsole'**.
+2. Klik op de **'Admin Console'**.
 
     ![Admin-Console](./media/evernote-tutorial/tutorial_evernote_adminconsole.png)
 
-1. Uit de **'-beheerconsole'**, gaat u naar **toevoegen van gebruikers**.
+3. Ga vanuit de **'Admin Console'** naar **‘Add users’**.
 
-    ![Add-testUser](./media/evernote-tutorial/create_aaduser_0001.png)
+    ![Testgebruiker toevoegen](./media/evernote-tutorial/create_aaduser_0001.png)
 
-1. **Toevoegen van leden van een team** in de **e** tekstvak typt u het e-mailadres van gebruiker-account en klikt u op **uitnodigen.**
+4. **Voeg teamleden toe** in het tekstvak **Email**, typ het e-mailadres van het gebruikersaccount en klik op **Invite.**
 
-    ![Add-testUser](./media/evernote-tutorial/create_aaduser_0002.png)
+    ![Testgebruiker toevoegen](./media/evernote-tutorial/create_aaduser_0002.png)
     
-1. Nadat de uitnodiging is verzonden, ontvangt de houder van Azure Active Directory-account een e-mail als de uitnodiging wilt accepteren.
+5. Nadat de uitnodiging is verzonden, ontvangt de houder van het Microsoft Azure Active Directory-account een e-mail om de uitnodiging te accepteren.
 
-### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen evernote.
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-![De de gebruikersrol toewijzen][200] 
-
-**Als u wilt toewijzen Britta Simon evernote, moet u de volgende stappen uitvoeren:**
-
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
-
-    ![Gebruiker toewijzen][201] 
-
-1. Selecteer in de lijst met toepassingen, **Evernote**.
-
-    ![De koppeling Evernote in de lijst met toepassingen](./media/evernote-tutorial/tutorial_evernote_app.png)  
-
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
-
-    ![De koppeling 'Gebruikers en groepen'][202]
-
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
-
-    ![Het deelvenster toewijzing toevoegen][203]
-
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
-
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
-
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
-
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
-
-Wanneer u op de tegel Evernote in het toegangsvenster, u moet u aangemeld bij uw toepassing Evernote. U zult worden aanmelden als een organisatie-account, maar vervolgens moet zich aanmelden met uw persoonlijke account. 
+Wanneer u in het toegangsvenster op de tegel Evernote klikt, zou u automatisch moeten worden aangemeld bij het exemplaar van Evernote waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/evernote-tutorial/tutorial_general_01.png
-[2]: ./media/evernote-tutorial/tutorial_general_02.png
-[3]: ./media/evernote-tutorial/tutorial_general_03.png
-[4]: ./media/evernote-tutorial/tutorial_general_04.png
-
-[100]: ./media/evernote-tutorial/tutorial_general_100.png
-
-[200]: ./media/evernote-tutorial/tutorial_general_200.png
-[201]: ./media/evernote-tutorial/tutorial_general_201.png
-[202]: ./media/evernote-tutorial/tutorial_general_202.png
-[203]: ./media/evernote-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
