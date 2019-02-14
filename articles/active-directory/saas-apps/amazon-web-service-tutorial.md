@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-ms.openlocfilehash: def9d44c31ed50a859bf42aa148fb7e6a36764fd
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e377cf749119c23d37bb4db8ab78abb1ce8c82ae
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751086"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199745"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Zelfstudie: Azure Active Directory-integratie met Amazon Web Services (AWS)
 
@@ -447,7 +448,7 @@ Wanneer u in het toegangsvenster op de tegel Amazon Web Services (AWS) klikt, zo
 
  * In de sectie **Inrichten** onder de subsectie **Toewijzingen**, wordt het bericht 'Laden...' weergeven, maar nooit de kenmerktoewijzingen. De enige inrichtingswerkstroom die tegenwoordig wordt ondersteund is het importeren van de rollen van AWS naar Azure Active Directory voor selectie tijdens de toewijzing van de gebruiker of groep. De kenmerktoewijzingen hiervoor zijn vooraf bepaald en kunnen niet worden geconfigureerd.
  
- * De sectie **Inrichten** ondersteunt alleen de invoer van één set referenties per AWS-tenant tegelijk. Alle geïmporteerde rollen worden geschreven naar de eigenschap appRoles van het Azure Active Directory [servicePrincipal-object](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) voor de AWS-tenant. Meerdere AWS-tenants (vertegenwoordigd door servicePrincipals) kunnen worden toegevoegd aan Azure Active Directory vanuit de galerie voor het inrichten, maar er is een bekend probleem waarbij u niet meer in staat bent om automatisch alle geïmporteerde rollen van de meerdere AWS servicePrincipals die voor inrichten worden gebruikt, te schrijven naar de enkele servicePrincipal die wordt gebruikt voor eenmalige aanmelding. Als tijdelijke oplossing kan de [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) worden gebruikt om alle appRoles op te halen die zijn geïmporteerd in elke AWS-servicePrincipal waar de inrichting is geconfigureerd. Deze roltekenreeksen kunnen vervolgens worden toegevoegd aan de AWS-servicePrincipal waarop eenmalige aanmelding is geconfigureerd.
+ * De sectie **Inrichten** ondersteunt alleen de invoer van één set referenties per AWS-tenant tegelijk. Alle geïmporteerde rollen worden geschreven naar de eigenschap appRoles van het Azure Active Directory [servicePrincipal-object](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) voor de AWS-tenant. Meerdere AWS-tenants (vertegenwoordigd door servicePrincipals) kunnen worden toegevoegd aan Azure Active Directory vanuit de galerie voor het inrichten, maar er is een bekend probleem waarbij u niet meer in staat bent om automatisch alle geïmporteerde rollen van de meerdere AWS servicePrincipals die voor inrichten worden gebruikt, te schrijven naar de enkele servicePrincipal die wordt gebruikt voor eenmalige aanmelding. Als tijdelijke oplossing kan de [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) worden gebruikt om alle appRoles op te halen die zijn geïmporteerd in elke AWS-servicePrincipal waar de inrichting is geconfigureerd. Deze roltekenreeksen kunnen vervolgens worden toegevoegd aan de AWS-servicePrincipal waarop eenmalige aanmelding is geconfigureerd.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

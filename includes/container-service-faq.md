@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: b0bb45233aa34dce6794638e5d49fc2b47bef71d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: f903828285b0d4fdc8fbd932fa7c85056e937481
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53615233"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56213001"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(AFGESCHAFT) Veelgestelde vragen over Container Service
 
@@ -85,7 +85,7 @@ U vindt veelgebruikte URL's voor uw cluster in Azure Portal, Azure Resource Expl
 
 ### <a name="how-do-i-upgrade-the-orchestrator-after-deployment"></a>Hoe kan ik de orchestrator upgraden na de implementatie?
 
-Azure Container Service biedt momenteel geen hulpprogramma's voor het bijwerken van de versie van de orchestrator die u in uw cluster hebt geïmplementeerd. Als Container Service een nieuwere versie ondersteunt, kunt u een nieuw cluster implementeren. Een andere optie is om hulpprogramma's speciaal voor de orchestrator te gebruiken (als ze beschikbaar zijn) om een cluster dat al is geïmplementeerd, te upgraden. Zie bijvoorbeeld [DC/OS upgraden](https://dcos.io/docs/1.8/administration/upgrading/).
+Azure Container Service biedt momenteel geen hulpprogramma's voor het bijwerken van de versie van de orchestrator die u in uw cluster hebt geïmplementeerd. Als Container Service een nieuwere versie ondersteunt, kunt u een nieuw cluster implementeren. Een andere optie is om hulpprogramma's speciaal voor de orchestrator te gebruiken (als ze beschikbaar zijn) om een cluster dat al is geïmplementeerd, te upgraden. Zie bijvoorbeeld [DC/OS upgraden](http://docs.mesosphere.com/1.12/installing/production/upgrading).
  
 ### <a name="where-do-i-find-the-ssh-connection-string-to-my-cluster"></a>Waar vind ik de SSH-verbindingsreeks naar mijn cluster?
 

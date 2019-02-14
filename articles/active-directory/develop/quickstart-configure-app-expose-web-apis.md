@@ -16,14 +16,15 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 5b72bd45299f636a208ab39be5b7eaade2730183
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 940ca126eb18b81fd31f1ee2876948563e9d97af
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814009"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56188373"
 ---
-# <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Snelstart: Een toepassing configureren voor het beschikbaar maken van web-API's (preview)
+# <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Quickstart: Een toepassing configureren voor het beschikbaar maken van web-API's (preview)
 
 U kunt een web-API ontwikkelen en deze beschikbaar maken voor clienttoepassingen door [machtigingen/bereiken](developer-glossary.md#scopes) en [rollen](developer-glossary.md#roles) beschikbaar te maken. Een correct geconfigureerde web-API wordt net als de andere Microsoft web-API's beschikbaar gesteld, met inbegrip van de Graph API en de Office 365-API's.
 

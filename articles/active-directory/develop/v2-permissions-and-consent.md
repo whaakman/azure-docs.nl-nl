@@ -17,12 +17,13 @@ ms.date: 02/07/2019
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: cfc1ba6250a2d246c2dcf9a0128097b64896732d
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 94d0e469614204a7507ba666ac04e59774eebde7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098507"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56204408"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Machtigingen en toestemming in de Azure Active Directory v2.0-eindpunt
 
@@ -58,13 +59,13 @@ In de OAuth 2.0, deze typen machtigingen genoemd *scopes*. Worden ze ook vaak ge
 * Schrijven naar de agenda van een gebruiker met behulp van `Calendars.ReadWrite`
 * E-mail verzenden als een gebruiker met behulp van `Mail.Send`
 
-Een app-aanvragen meestal deze machtigingen door de bereiken op te geven in aanvragen voor het v2.0 eindpunt voor autorisatie. Bepaalde machtigingen hoge bevoegdheden kunnen echter alleen worden verleend via goedgekeurd door een beheerder en over het algemeen aangevraagd/verleend met behulp de [administrator toestemming eindpunt](v2-permissions-and-consent.md#admin-restricted-scopes). Lees verder voor meer informatie.
+Een app-aanvragen meestal deze machtigingen door de bereiken op te geven in aanvragen voor het v2.0 eindpunt voor autorisatie. Bepaalde machtigingen hoge bevoegdheden kunnen echter alleen worden verleend via goedgekeurd door een beheerder en over het algemeen aangevraagd/verleend met behulp de [administrator toestemming eindpunt](v2-permissions-and-consent.md#admin-restricted-permissions). Lees verder voor meer informatie.
 
 ## <a name="permission-types"></a>Machtigingstypen
 
 Microsoft identity-platform ondersteunt twee typen machtigingen: **overgedragen machtigingen** en **Toepassingsmachtigingen**.
 
-* **Gedelegeerde machtigingen** worden gebruikt door apps waarvoor een aangemelde gebruiker aanwezig zijn. Voor deze apps of de gebruiker of beheerder hiermee akkoord gaat met de machtigingen die de app-aanvragen en de app is overgedragen machtiging om te fungeren als de gebruiker is aangemeld bij het maken van aanroepen naar de doelresource. Sommige gedelegeerde machtigingen kunnen worden gegeven door gebruikers zonder beheerdersrechten, maar sommige machtigingen hogere bevoegdheden vereisen [administrator toestemming](v2-permissions-and-consent.md#admin-restricted-scopes). Als u wilt weten welke beheerder rollen toestemming voor gedelegeerde machtigingen geven kunnen, Zie [rol beheerdersmachtigingen in Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+* **Gedelegeerde machtigingen** worden gebruikt door apps waarvoor een aangemelde gebruiker aanwezig zijn. Voor deze apps of de gebruiker of beheerder hiermee akkoord gaat met de machtigingen die de app-aanvragen en de app is overgedragen machtiging om te fungeren als de gebruiker is aangemeld bij het maken van aanroepen naar de doelresource. Sommige gedelegeerde machtigingen kunnen worden gegeven door gebruikers zonder beheerdersrechten, maar sommige machtigingen hogere bevoegdheden vereisen [administrator toestemming](v2-permissions-and-consent.md#admin-restricted-permissions). Als u wilt weten welke beheerder rollen toestemming voor gedelegeerde machtigingen geven kunnen, Zie [rol beheerdersmachtigingen in Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
 * **Toepassingsmachtigingen** worden gebruikt door apps die worden uitgevoerd zonder een aangemelde gebruiker aanwezig zijn, bijvoorbeeld: apps die worden uitgevoerd als Achtergrondservices of daemons.  Machtigingen van de toepassing mag alleen bestaan uit [ingestemd door een beheerder](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 

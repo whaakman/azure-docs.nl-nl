@@ -17,12 +17,13 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: brandwe
-ms.openlocfilehash: 801da78de493b55655819ac16a9184d04a356786
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 53efe44f17f174073ea5ed39f94c9dc8078a9779
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095971"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56206766"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Quickstart: Gebruikers aanmelden en de Microsoft Graph API aanroepen vanuit een iOS-app
 
@@ -30,7 +31,7 @@ ms.locfileid: "55095971"
 
 Azure Active Directory (Azure AD) biedt de ADAL (Active Directory Authentication Library) voor iOS-clients die toegang nodig hebben tot beveiligde bronnen. ADAL vereenvoudigt het proces dat door uw app wordt gebruikt om toegangstokens te verkrijgen. 
 
-In deze quickstart maakt u een Objective C-toepassing voor een takenlijst die:
+In deze snelstart maakt u een Objective C-toepassing voor een takenlijst die:
 
 * Toegangstokens verkrijgt om de Azure AD Graph API aan te roepen met behulp van het OAuth 2.0-verificatieprotocol
 * In een map zoekt naar gebruikers met een gegeven alias
@@ -64,7 +65,7 @@ De iOS-indeling voor een omleidings-URI is:
 * **App-schema**: is geregistreerd in uw XCode-project en bepaalt hoe andere toepassingen uw toepassing kunnen aanroepen. U vindt het app-schema in **Info.plist > URL types > URL Identifier**. Maak een app-schema als u er nog geen hebt geconfigureerd.
 * **bundel-id**: is de bundel-id die wordt weergegeven als **identiteit** in de XCode-projectinstellingen.
 
-Een voorbeeld voor deze quickstartcode:
+Een voorbeeld voor deze snelstartcode:
 
 ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
@@ -109,7 +110,7 @@ Nu u een toepassing hebt in Azure AD, kunt u ADAL installeren en uw aan identite
     $ open QuickStart.xcworkspace
     ```
 
-1. Open in het QuickStart-project het plist-bestand `settings.plist`.
+1. Open in het snelstartproject het plist-bestand `settings.plist`.
 1. Vervang de waarden van de elementen in de sectie overeenkomstig de waarden die u hebt ingevoerd in de Azure Portal. Uw code verwijst naar deze waarden wanneer deze gebruikmaakt van ADAL.
     * `tenant` is het domein van de Azure AD-tenant, bijvoorbeeld contoso.onmicrosoft.com.
     * `clientId` is de client-id van uw toepassing die u hebt gekopieerd uit de portal.
@@ -238,7 +239,7 @@ Het basisprincipe achter ADAL is dat wanneer uw app een toegangstoken nodig heef
 3. Wanneer uw app een token aanvraagt door `getToken(...)` aan te roepen, probeert ADAL een token te retourneren zonder de gebruiker om referenties te vragen. Als ADAL bepaalt dat de gebruiker zich moet aanmelden om een token te verkrijgen, wordt er een aanmeldingsvenster weergegeven, worden de referenties van de gebruiker verzameld en wordt er na een geslaagde verificatie een token geretourneerd. Als ADAL om welke reden dan ook geen token kan retourneren, wordt er een `AdalException` gegenereerd.
 
 > [!NOTE]
-> Het object `AuthenticationResult` bevat een object `tokenCacheStoreItem` dat u kunt gebruiken om de informatie te verzamelen die uw app mogelijk nodig heeft. In de QuickStart wordt `tokenCacheStoreItem` gebruikt om te bepalen of de verificatie is al voltooid.
+> Het object `AuthenticationResult` bevat een object `tokenCacheStoreItem` dat u kunt gebruiken om de informatie te verzamelen die uw app mogelijk nodig heeft. In de snelstart wordt `tokenCacheStoreItem` gebruikt om te bepalen of de verificatie is al voltooid.
 
 ## <a name="step-5-build-and-run-the-application"></a>Stap 5: De toepassing bouwen en uitvoeren.
 
@@ -246,7 +247,7 @@ Gefeliciteerd! U hebt nu een werkende iOS-toepassing die gebruikers kan verifië
 
 Nu kunt u de tenant met gebruikers gaan vullen als u dat nog niet hebt gedaan.
 
-1. Start QuickStart-app en meld u aan met een van deze gebruikers.
+1. Start snelstart-app en meld u aan met een van deze gebruikers.
 1. Zoek andere gebruikers op basis van hun UPN.
 1. Sluit de app en start deze opnieuw. U ziet dat de sessie van de gebruiker intact is gebleven.
 

@@ -13,14 +13,15 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 49a2e16d198130d1c72d36377be1d914cbe3351b
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: fcef143f48bc9e7864fe69900e3c9002fd597fb5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745245"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001865"
 ---
-# <a name="create-a-data-factory-and-pipeline-using-python"></a>Een data factory en pijplijn maken met behulp van Python
+# <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Quickstart: Een data factory en pijplijn maken met behulp van Python
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Huidige versie](quickstart-create-data-factory-python.md)
@@ -47,6 +48,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 2.  Gebruik hulpprogramma's zoals [Azure Opslagverkenner](http://storageexplorer.com/) om de container **adfv2tutorial** te maken, en de map **input** in de container. Vervolgens kunt u het bestand **input.txt** uploaden naar de map **input**.
 
 ## <a name="install-the-python-package"></a>Het Python-pakket installeren
+
 1. Open een terminal of opdrachtprompt met beheerdersbevoegdheden. 
 2. Installeer eerst het Python-pakket voor Azure-beheerresources:
 
@@ -104,7 +106,6 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
             print("\tCopy duration: {}".format(activity_run.output['copyDuration']))
         else:
             print("\tErrors: {}".format(activity_run.error['message']))
-
     ```
 3. Voeg de volgende code toe aan de methode **Main** om een instantie van de klasse DataFactoryManagementClient te maken. U gebruikt dit object om de data factory, een gekoppelde service, gegevenssets en een pijplijn te maken. U kunt dit object ook gebruiken om de details van de pijplijnuitvoering te controleren. Stel **subscription_id** in op de id van uw Azure-abonnement. Voor een lijst met Azure-regio's waarin Data Factory momenteel beschikbaar is, selecteert u op de volgende pagina de regio's waarin u geïnteresseerd bent, vouwt u vervolgens **Analytics** uit en gaat u naar **Data Factory**: [Beschikbare producten per regio](https://azure.microsoft.com/global-infrastructure/services/). De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich in andere regio's bevinden.
 
@@ -165,9 +166,11 @@ U maakt gekoppelde services in een gegevensfactory om uw gegevensarchieven en co
     print_item(ls)
 ```
 ## <a name="create-datasets"></a>Gegevenssets maken
+
 In deze sectie maakt u twee gegevenssets: één voor de bron en de andere voor de sink.
 
 ### <a name="create-a-dataset-for-source-azure-blob"></a>Een gegevensset maken voor de brongegevens in Azure Blob
+
 Voeg de volgende code toe aan de methode Main om een Azure blob-gegevensset te maken. Zie het [artikel over Azure Blob-connectoren](connector-azure-blob-storage.md#dataset-properties) voor meer informatie over de eigenschappen van een Azure Blob-gegevensset.
 
 U definieert een gegevensset die de brongegevens in Azure Blob vertegenwoordigt. Deze Blob-gegevensset verwijst naar de gekoppelde Azure Storage-service die u in de vorige stap hebt gemaakt.
@@ -184,6 +187,7 @@ U definieert een gegevensset die de brongegevens in Azure Blob vertegenwoordigt.
 ```
 
 ### <a name="create-a-dataset-for-sink-azure-blob"></a>Een gegevensset maken voor de sinkgegevens in Azure Blob
+
 Voeg de volgende code toe aan de methode Main om een Azure blob-gegevensset te maken. Zie het [artikel over Azure Blob-connectoren](connector-azure-blob-storage.md#dataset-properties) voor meer informatie over de eigenschappen van een Azure Blob-gegevensset.
 
 U definieert een gegevensset die de brongegevens in Azure Blob vertegenwoordigt. Deze Blob-gegevensset verwijst naar de gekoppelde Azure Storage-service die u in de vorige stap hebt gemaakt.
@@ -218,7 +222,6 @@ Voeg de volgende code toe aan de methode **Main** om **een pijplijn met een kopi
     print_item(p)
 ```
 
-
 ## <a name="create-a-pipeline-run"></a>Een pijplijnuitvoering maken
 
 Voeg de volgende code toe aan de methode **Main** om een **pijplijnuitvoering te activeren**.
@@ -232,6 +235,7 @@ Voeg de volgende code toe aan de methode **Main** om een **pijplijnuitvoering te
 ```
 
 ## <a name="monitor-a-pipeline-run"></a>Een pijplijnuitvoering controleren
+
 Als u de uitvoering van de pijplijn wilt volgen, voegt u de volgende code toe aan de methode **Main**:
 
 ```python
@@ -251,6 +255,7 @@ main()
 ```
 
 ## <a name="full-script"></a>Volledige script
+
 Dit is de volledige Python-code:
 
 ```python
@@ -381,6 +386,7 @@ main()
 ```
 
 ## <a name="run-the-code"></a>De code uitvoeren
+
 Bouw en start de toepassing en controleer vervolgens de uitvoering van de pijplijn.
 
 In de console wordt de voortgang weergegeven van het maken van een data factory, een gekoppelde service, gegevenssets, pijplijn en pijplijnuitvoering. Wacht totdat u details ziet van de uitvoering van de kopieeractiviteit, waaronder de omvang van de gelezen/weggeschreven gegevens. Gebruik vervolgens hulpprogramma's als [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) om te controleren of de blob(s) is/zijn gekopieerd van het 'inputBlobPath' naar het 'outputBlobPath' zoals u hebt opgegeven in de variabelen.
@@ -417,8 +423,8 @@ Number of bytes written: 18
 Copy duration: 4
 ```
 
-
 ## <a name="clean-up-resources"></a>Resources opschonen
+
 Als u de data factory wilt verwijderen, voegt u de volgende code toe aan het programma:
 
 ```python
@@ -426,4 +432,5 @@ adf_client.factories.delete(rg_name,df_name)
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Met de pijplijn in dit voorbeeld worden gegevens gekopieerd van de ene locatie naar een andere locatie in een Azure Blob-opslag. Doorloop de [zelfstudies](tutorial-copy-data-dot-net.md) voor meer informatie over het gebruiken van Data Factory in andere scenario's.

@@ -13,12 +13,13 @@ ms.topic: tutorial
 ms.date: 08/16/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 35f158b97bdae897cd851463449f1f45e5e35867
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: cc6d1d53fd292a936c833450fee3af91671eec86
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498179"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56171160"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Zelfstudie: Een enkele AD-forestomgeving federeren in de cloud
 
@@ -35,7 +36,7 @@ Dit zijn de vereisten voor het voltooien van deze zelfstudie
 - Een [aangepast domein](../../active-directory/fundamentals/add-custom-domain.md) dat kan worden geverifieerd
 
 > [!NOTE]
-> In deze zelfstudie worden PowerShell-scripts gebruikt, zodat u de omgeving voor de zelfstudie zo snel mogelijk kunt inrichten.  Elk van de scripts maakt gebruik van variabelen die worden gedeclareerd aan het begin van de scripts.  U moet de variabelen aanpassen aan uw omgeving.
+> In deze zelfstudie worden PowerShell-scripts gebruikt, zodat u de omgeving voor de zelfstudie zo snel mogelijk kunt inrichten.  Elk van de scripts maakt gebruik van variabelen die worden gedeclareerd aan het begin van de scripts.  U kunt en moet de variabelen aanpassen aan uw omgeving.
 >
 >Met de scripts wordt een algemene Active Directory Domain Services-omgeving ingericht voorafgaand aan de installatie van Azure AD Connect.  De scripts zijn relevant voor alle zelfstudies.
 >
@@ -77,7 +78,7 @@ $DVDDrive = Get-VMDvdDrive -VMName $VMName
 Set-VMFirmware -VMName $VMName -FirstBootDevice $DVDDrive 
 ```
 
-## <a name="complete-the-operating-system-deployment"></a>Implementatie van besturingssysteem voltooien
+## <a name="complete-the-operating-system-deployment"></a>Implementatie van het besturingssysteem voltooien
 Om het bouwen van de virtuele machine te voltooien, moet u de installatie van het besturingssysteem afronden.
 
 1. Ga naar Hyper-V Manager en dubbelklik op de virtuele machine
@@ -214,7 +215,7 @@ De Microsoft Azure Active Directory-tenant is klaar en we gaan nu een globale be
 1.  Onder **Beheren**, selecteer **Gebruikers**.</br>
 ![Maken](media/tutorial-password-hash-sync/gadmin1.png)</br>
 2.  Selecteer **Alle gebruikers** en selecteer vervolgens **+ Nieuwe gebruiker**.
-3.  Geef een naam en gebruikersnaam op voor deze gebruiker. Dit is de globale beheerder voor de tenant. U moet ook de waarde voor **Maprol** wijzigen naar **Globale beheerder.** U kunt ook het tijdelijke wachtwoord weergeven. Als u klaar bent, selecteert u **Maken**.</br>
+3.  Geef een naam en gebruikersnaam op voor deze gebruiker. Dit is de globale beheerder voor de tenant. U moet ook de **Maprol** wijzigen naar **Globale beheerder.** U kunt ook het tijdelijke wachtwoord weergeven. Als u klaar bent, selecteert u **Maken**.</br>
 ![Maken](media/tutorial-password-hash-sync/gadmin2.png)</br>
 4. Als de bewerkingen zijn voltooid, opent u een nieuwe webbrowser en meldt u zich met het nieuwe globale beheerdersaccount en het tijdelijke wachtwoord aan bij myapps.microsoft.com.
 5. Wijzig het wachtwoord voor de globale beheerder in iets dat u makkelijk kunt onthouden.
@@ -247,9 +248,9 @@ We gaan nu Azure AD Connect downloaden en installeren.  Zodra dat is gebeurd, ne
 2. Klik in het scherm Verbinding maken met uw mappen op **Volgende**.  Selecteer vervolgens **nieuw AD-account maken**, voer de gebruikersnaam en het wachtwoord in voor contoso\Administrator en klik op **OK**.
 3. Klik op **Volgende**.
 4. Selecteer op het scherm van de configuratie van aanmelding bij Azure Active Directory **Doorgaan zonder alle UPN-achtervoegsels op geverifieerde domeinen af te stemmen** en klik op **volgende.**
-5. Klik in het scherm Domein- en OE-filters op **Volgende**.
+5. Klik in het scherm Domein- en OE-filteren op **Volgende**.
 6. In het scherm voor het uniek identificeren uw gebruikers, klikt u op **volgende**.
-7. Klik in het scherm Filter gebruikers en apparaten op **volgende**.
+7. Klik in het scherm Gebruikers en apparaten filteren op **Volgende**.
 8. Klik in het scherm Optionele functies op **volgende**.
 9. Voer op de pagina Referenties van domeinadministrator de gebruikersnaam en het wachtwoord voor contoso\Administrator in en klik op **Volgende.**
 10. Zorg ervoor dat in het scherm voor AD FS-farm **Een nieuwe AD FS-farm configureren** is geselecteerd.
@@ -276,7 +277,7 @@ We gaan nu controleren of de gebruikers die aanwezig waren in onze on-premises a
 1. Meld u bij de [Azure Portal](https://portal.azure.com) aan met een account waaraan een Azure-abonnement is gekoppeld.
 2. Selecteer links **Azure Active Directory**
 3. Onder **Beheren**, selecteer **Gebruikers**.
-4. Controleer of u de nieuwe gebruikers in de tenant zien ![Synch](media/tutorial-password-hash-sync/synch1.png)
+4. Controleer of u de nieuwe gebruikers in de tenant ![Synch](media/tutorial-password-hash-sync/synch1.png) ziet
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Aanmelden testen met een van onze gebruikers
 
