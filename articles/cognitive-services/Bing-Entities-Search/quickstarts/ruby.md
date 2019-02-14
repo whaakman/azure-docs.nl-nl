@@ -1,73 +1,81 @@
 ---
-title: 'Snelstart: Bing Entiteiten zoeken-API, Ruby'
+title: 'Snelstart: Een zoekaanvraag verzenden naar de Bing Entiteiten zoeken-REST API met Ruby'
 titlesuffix: Azure Cognitive Services
-description: Bekijk informatie en codevoorbeelden om snel aan de slag te gaan met de Bing Entiteiten zoeken-API.
+description: Gebruik deze quickstart om een aanvraag naar de REST API van Bing Entity Search te verzenden via Ruby en een JSON-antwoord te ontvangen.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 2dec6359da7afc9e0e6c8dabaec1afb35e77e85c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ed8b590d5f31daebb0cffb270f72ae156acab778
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191539"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753143"
 ---
 # <a name="quickstart-for-bing-entity-search-api-with-ruby"></a>Snelstartgids: Bing Entiteiten zoeken-API met Ruby
 
-In dit artikel leest u hoe u de [Bing Entiteiten zoeken](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) -API gebruikt met Ruby.
+Gebruik deze quickstart om voor het eerst de Bing Entiteiten zoeken-API aan te roepen en het JSON-antwoord te bekijken. Met deze eenvoudige Ruby-toepassing wordt een query naar de API gestuurd om nieuws te zoeken en wordt het antwoord weergegeven. De broncode voor deze toepassing is beschikbaar [op GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingEntitySearchv7.rb).
+
+Hoewel deze toepassing in Ruby is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) of hoger nodig om deze code uit te voeren.
+* [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) of later.
 
-U moet beschikken over een [account voor de Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met de **Bing Entiteiten zoeken-API**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) is voldoende voor deze snelstartgids. U hebt de toegangssleutel nodig die wordt verstrekt bij het activeren van uw gratis proefversie of u gebruikt de sleutel van een betaald abonnement vanuit uw Azure-dashboard.   Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
-## <a name="search-entities"></a>Entiteiten zoeken
+## <a name="create-and-initialize-the-application"></a>De toepassing maken en initialiseren
 
-Volg deze stappen om deze toepassing uit te voeren.
+1. Maak in uw favoriete IDE of teksteditor een nieuw Ruby-bestand en importeer de volgende pakketten.
 
-1. Maak een nieuw Ruby-project in uw favoriete IDE.
-2. Voeg de onderstaande code toe.
-3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma uit.
+    ```ruby
+    require 'net/https'
+    require 'cgi'
+    require 'json'
+    ```
 
-```ruby
-require 'net/https'
-require 'cgi'
-require 'json'
+2. Maak variabelen voor het API-eindpunt, de Nieuws zoeken-URL, de abonnementssleutel en een zoekquery.
+    
+    ```ruby
+    host = 'https://api.cognitive.microsoft.com'
+    path = '/bing/v7.0/entities'
+    
+    mkt = 'en-US'
+    query = 'italian restaurants near me'
+    ```
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
+## <a name="format-and-make-an-api-request"></a>Een API-aanvraag opmaken en maken
 
-# Replace the subscriptionKey string value with your valid subscription key.
-subscriptionKey = 'ENTER KEY HERE'
+1. Maak de parametertekenreeks voor de aanvraag door uw marktwaarde toe te voegen aan de parameter `?mkt=`. Codeer de query en voeg deze toe aan de parameter `&q=`. Combineer de API-host, het pad en de parameters voor de aanvraag, en cast ze als een URI-object.
 
-host = 'https://api.cognitive.microsoft.com'
-path = '/bing/v7.0/entities'
+    ```ruby
+    params = '?mkt=' + mkt + '&q=' + CGI.escape(query)
+    uri = URI (host + path + params)
+    ```
 
-mkt = 'en-US'
-query = 'italian restaurants near me'
+2. Gebruik de variabelen uit de laatste stap om de aanvraag te maken. Voeg uw abonnementssleutel toe aan de `Ocp-Apim-Subscription-Key`-header.
 
-params = '?mkt=' + mkt + '&q=' + CGI.escape(query)
-uri = URI (host + path + params)
+    ```ruby
+    request = Net::HTTP::Get.new(uri)
+    request['Ocp-Apim-Subscription-Key'] = subscriptionKey
+    ```
 
-request = Net::HTTP::Get.new(uri)
-request['Ocp-Apim-Subscription-Key'] = subscriptionKey
+3. De aanvraag verzenden en het antwoord afdrukken
 
-response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
-    http.request (request)
-end
+    ```ruby
+    response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+        http.request (request)
+    end
 
-puts JSON::pretty_generate (JSON (response.body))
-```
+    puts JSON::pretty_generate (JSON (response.body))
+    ```
 
-**Antwoord**
+## <a name="example-json-response"></a>Voorbeeld van JSON-antwoord
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
@@ -132,11 +140,10 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 }
 ```
 
-[Terug naar boven](#HOLTop)
-
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Zelfstudie over Bing Entiteiten zoeken](../tutorial-bing-entities-search-single-page-app.md)
-> [Overzicht van Bing Entiteiten zoeken](../search-the-web.md )
-> [API-handleiding](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [Een web-app van één pagina maken](../tutorial-bing-entities-search-single-page-app.md).
+
+* [Wat is de Bing Entiteiten zoeken-API?](../search-the-web.md)
+* [Naslaghandleiding Bing Entiteiten zoeken-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
