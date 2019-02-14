@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 2833d37cac87f114183ebfe2d9d17a308bf5faa5
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 84ea41388151087a0da965e3f8724907b615dee0
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097471"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56161571"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evidencecom"></a>Zelfstudie: Azure Active Directory-integratie met Evidence.com
 
@@ -202,7 +203,7 @@ Voordat Azure AD-gebruikers zich kunnen aanmelden, moeten ze worden ingericht vo
 
 3. Klik op **Add User**.
 
-4. Klik op de knop **Add**.
+4. Klik op de knop **Toevoegen**.
 
 5. Het **e-mailadres** van de toegevoegde gebruiker moet overeenkomen met de gebruikersnaam van de gebruiker in Azure AD die u toegang wilt geven. Als de gebruikersnaam en het e-mailadres niet hetzelfde zijn in uw organisatie, kunt u de sectie **Evidence.com > Attributen > Eenmalige aanmelding** van de Azure-portal gebruiken om de identificatienaam die naar Evidence.com wordt verzonden te wijzigen in het e-mailadres.
 
