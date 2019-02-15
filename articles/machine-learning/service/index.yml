@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 9c337f147eaebc376c7953e7f585b5b9f6a10f94
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f4b66f79e415be8f9598a0e6f5c875d8a2597514
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471681"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300020"
 documentType: LandingData
 title: Documentatie over Azure Machine Learning-service
 metadata:
@@ -22,12 +22,17 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: Azure Machine Learning-service biedt een omgeving in de cloud die u kunt gebruiken om machine learning-modellen te ontwikkelen, trainen, testen, implementeren, beheren en volgen. Deze service biedt volledige ondersteuning voor opensourcetechnologieën zoals Scikit-learn, Tensorflow, Pytorch en andere op Python gebaseerde frameworks. Leer aan de hand van onze quickstarts en zelfstudies hoe u deze service gebruikt voor uw machine learning-werkstromen.
+  description: Azure Machine Learning-service biedt een omgeving in de cloud waarin u snel uw machine learning-modellen kunt bouwen, trainen en implementeren. Gebruik geautomatiseerde machine learning om algoritmen te identificeren en sneller hyperparameters af te stemmen. Gebruik Azure DevOps voor Machine Learning en automatische aanpassing van de computingschaal voor een hogere productiviteit en lagere kosten. Krijg toegang tot deze mogelijkheden vanuit uw Python-omgeving met behulp van open source-frameworks zoals PyTorch, TensorFlow en scikit-learn samen met de service-SDK's. Ontdek hoe met onze quickstarts en zelfstudies.
 sections:
 - title: QuickStarts van vijf minuten
   items:
   - type: paragraph
-    text: Begin door een servicewerkruimte en resources te maken <a href="quickstart-get-started">in de Azure-portal</a> of <a href="quickstart-create-workspace-with-python">in Python</a>.
+    text: 'Als u deze service wilt gebruiken, hebt u een werkruimte en bijbehorende resources nodig.  Aan de slag:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="quickstart-get-started">Gebruik de quickstart voor de Azure-portal</a> om de werkruimte op te halen en een experiment uit te voeren zonder iets te installeren.
+    - html: <a href="quickstart-create-workspace-with-python">Gebruik de Python-quickstart</a> om de belangrijkste SDK te installeren, een werkruimte te maken en een experiment uit te voeren in een lokale notebook-server.
 - title: Zelfstudies met stapsgewijze instructies
   items:
   - type: paragraph
@@ -35,7 +40,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: Modellen voor de classificatie van afbeeldingen <a href="tutorial-train-models-with-aml">trainen</a> en <a href="tutorial-deploy-models-with-aml">implementeren</a> (<b>tweedelige reeks</b>).<br>&nbsp;
+    - html: Modellen voor de classificatie van afbeeldingen <a href="tutorial-train-models-with-aml">trainen</a> en <a href="tutorial-deploy-models-with-aml">implementeren</a> (<b>tweedelige reeks</b>).
     - html: <a href="tutorial-data-prep">Gegevens voorbereiden</a> en <a href="tutorial-auto-train-models">automatische leerprocessen gebruiken</a> om regressiemodellen te trainen en af te stemmen (<b>tweedelige reeks</b>).
 - title: Voorbeelden
   items:

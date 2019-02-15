@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f45fad91c94b35de512c0c995ef4e3a6311a25ad
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 684e6a798c690c65f70c2f6224ac8f11256ce6eb
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767415"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270127"
 documentType: LandingData
 title: Azure Maps-documentatie
 metadata:
@@ -16,7 +16,7 @@ metadata:
   ms.service: azure-maps
   services: azure-maps
   ms.topic: landing-page
-  ms.date: 02/04/2019
+  ms.date: 02/14/2019
   ms.author: philmea
 abstract:
   description: Azure Maps biedt ontwikkelaars uit alle branches krachtige georuimtelijke mogelijkheden, gecombineerd met de meest recente kaartgegevens die beschikbaar zijn, om mobiele en webapplicaties te voorzien van geografische context. Azure Maps is een Azure One API-conforme set REST API's voor kaarten, zoekfunctionaliteit, routebeschrijvingen, verkeer, tijdzones, geolocatie, geofencing, kaartgegevens en ruimtelijke bewerkingen, aangevuld met web- en Android-SDK's om het ontwikkelproces eenvoudig, flexibel en platformoverstijgend te maken.
@@ -35,13 +35,15 @@ sections:
 - title: Zelfstudies met stapsgewijze instructies
   items:
   - type: paragraph
-    text: Bouw een georuimtelijke webapplicatie om naar bezienswaardigheden en een route naar die locaties te zoeken met Azure Maps.
+    text: Bouw een georuimtelijke webapplicatie om naar bezienswaardigheden en routes naar locaties te zoeken en apparaten te volgen door een geofence te maken met Azure Maps.
   - type: list
     style: ordered
     items:
     - html: <a href="/azure/azure-maps/tutorial-search-location">Zoeken naar bezienswaardigheden</a>
     - html: <a href="/azure/azure-maps/tutorial-route-location">Route naar bezienswaardigheden</a>
     - html: <a href="/azure/azure-maps/tutorial-prioritized-routes">Routes per vervoersoptie</a>
+    - html: <a href="/azure/azure-maps/tutorial-create-store-locator">Een winkellocator maken</a>
+    - html: <a href="/azure/azure-maps/tutorial-geofence">Een geofence instellen</a>
 - title: Naslaginformatie
   items:
   - type: list
@@ -51,4 +53,4 @@ sections:
     - title: Javascript
       html: <p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">Kaartbesturingselement</a></p>
     - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/maps/render">Service voor rendering</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">Routeservice</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">Zoekservice</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">Tijdzone-service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">Verkeersservice</a></p><p><a href="https://docs.microsoft.com/rest/api/maps-management/">Accountbeheer voor Maps</a></p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/maps/data">Gegevensservice</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/geolocation">Geolocatie-service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/render">Service voor rendering</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">Routeservice</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">Zoekservice</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/spatial">Ruimtelijke service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">Tijdzone-service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">Verkeersservice</a></p>
