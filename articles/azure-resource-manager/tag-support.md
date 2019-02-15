@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: add222c024b5adde1ce81d6ed7f725d0a691c232
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: dd6836ef4f859ce77c1a56095d32373d8e08f468
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246048"
+ms.locfileid: "56270382"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tag-ondersteuning voor Azure-resources
 Dit artikel wordt beschreven of een resourcetype ondersteunt [tags](resource-group-using-tags.md).
@@ -1132,7 +1132,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | servers/tdeCertificates | Nee | 
 
 > [!NOTE]
-> De Master database biedt geen ondersteuning voor labels, maar andere databases, datawarehouse-databases, inclusief ondersteuning voor tags.
+> De Master database biedt geen ondersteuning voor labels, maar andere databases, met inbegrip van Azure SQL Data Warehouse-databases, ondersteuning voor tags. Azure SQL Data Warehouse-databases moeten zich in actieve (niet onderbroken) staat.
 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
