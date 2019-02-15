@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e3f7579324e1218cc2e2c3594889db776da6e529
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c1258ab619b165553c55481ad67d663be65ac832
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56143759"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269600"
 ---
 # <a name="how-to-use-azure-maps-android-sdk"></a>Het gebruik van Azure Maps Android SDK
 
@@ -45,7 +45,7 @@ Zie [Android Studio-documentatie](https://developer.android.com/studio/intro/) h
 
 ## <a name="set-up-a-virtual-device"></a>Instellen van een virtueel apparaat
 
-Android Studio kunt u een virtueel Android-apparaat op uw computer instellen. Dit kan helpen om te testen van uw toepassing bij het ontwikkelen van. Tot het instellen van een virtueel apparaat klikt u op het pictogram Android Virtual Device (AVD) Manager in de rechterbovenhoek van het projectscherm van uw. Klik vervolgens op de **virtueelapparaat maken** knop. U kunt ook naar de manager via hulpprogramma's ophalen > Android > AVD Manager op de werkbalk. Uit de **telefoons** categorie, selecteer **Nexus 5 X** en klikt u op **volgende**.
+Android Studio kunt u een virtueel Android-apparaat op uw computer instellen. Dit kan helpen om te testen van uw toepassing bij het ontwikkelen van. Voor het instellen van een virtueel apparaat klikt u op het pictogram beheer van Android Virtual Device (AVD) in de rechterbovenhoek van het projectscherm van uw. Klik vervolgens op de **virtueelapparaat maken** knop. U krijgt ook naar de manager via **Tools > Android > AVD Manager** in de werkbalk. Uit de **telefoons** categorie, selecteer **Nexus 5 X** en klikt u op **volgende**.
 
 Meer informatie over het instellen van een AVD in de [Android Studio-documentatie](https://developer.android.com/studio/run/managing-avds).
 
@@ -55,7 +55,7 @@ Meer informatie over het instellen van een AVD in de [Android Studio-documentati
 
 Voordat u verdergaat voor het bouwen van uw toepassing, de volgende stappen voor het installeren van Azure Maps Android SDK. 
 
-1. Het volgende toevoegen aan de **allprojects**, opslagplaatsen blokkeren uw **build.gradle** bestand.
+1. Het volgende toevoegen aan de **alle projecten**, opslagplaatsen blokkeren uw **build.gradle** bestand.
 
     ```
     maven {
@@ -79,7 +79,7 @@ Voordat u verdergaat voor het bouwen van uw toepassing, de volgende stappen voor
         implementation "com.microsoft.azure.maps:mapcontrol:0.1"
         ```
 
-3. Machtigingen instellen door het volgende om het bestand AndroidManifest.xml te toe te voegen
+3. Instellen van machtigingen door toe te voegen van de volgende uw **AndroidManifest.xml**
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -90,7 +90,7 @@ Voordat u verdergaat voor het bouwen van uw toepassing, de volgende stappen voor
     </manifest>
     ```
 
-4. Bewerken **res > Opmaak > activity_main.xml**, zodat het er, zoals het onderstaande XML-bestand:
+4. Bewerken **res > Opmaak > activity_main.xml**, zodat het ziet als de XML-code hieronder eruit:
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -187,7 +187,7 @@ Voordat u verdergaat voor het bouwen van uw toepassing, de volgende stappen voor
 
 ## <a name="import-classes"></a>Importeren van klassen
 
-Na het voltooien van de bovenstaande stappen, waarschijnlijk ontvangt u waarschuwingen van Android Studio op een van de tekst in de code. Voor het afhandelen van dit hebt voor het importeren van enkele van de klassen waarnaar wordt verwezen in `MainActivity.java`.
+Na het voltooien van de bovenstaande stappen, waarschijnlijk ontvangt u waarschuwingen van Android Studio op een van de tekst in de code. Als u wilt deze waarschuwingen oplossen, importeert u de klassen waarnaar wordt verwezen in `MainActivity.java`.
 
 U kunt deze klassen automatisch importeren door te drukken `Alt` + `Enter`(`Option` + `Return` op Mac). 
 
@@ -288,6 +288,6 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-Uw toepassing opnieuw wordt uitgevoerd en ziet u een markering op de kaart zoals hieronder.
+Opnieuw uitvoeren van uw toepassing en ziet u een markering op de kaart zoals hieronder.
 
 ![Android kaart pincode](./media/how-to-use-android-map-control-library/android-map-pin.png)

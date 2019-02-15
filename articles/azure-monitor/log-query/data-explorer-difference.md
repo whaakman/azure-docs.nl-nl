@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor log-query language verschillen | Microsoft Docs
-description: Naslaginformatie voor Data Explorer query-taal die wordt gebruikt door Azure Monitor. Bevat aanvullende elementen die specifiek zijn voor Azure Monitor en elementen in Azure Monitor logboeken-query's niet ondersteund.
+description: Referentie-informatie voor Kusto-query-taal die wordt gebruikt door Azure Monitor. Bevat aanvullende elementen die specifiek zijn voor Azure Monitor en elementen in Azure Monitor logboeken-query's niet ondersteund.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: bwren
-ms.openlocfilehash: 9c58796fa19ffb6d38582c809f7bb6ca948bd92c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1185f3f96fd39f168d138d7dbf66e7780884b1fa
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003620"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56266727"
 ---
 # <a name="azure-monitor-log-query-language-differences"></a>Azure Monitor log query language-verschillen
 
-Terwijl [registreert in Azure Monitor](log-query-overview.md) is gebouwd op [Azure Data Explorer](/azure/data-explorer) en maakt gebruik van de [hetzelfde querytaal](/azure/kusto/query), de versie van de taal heeft enkele verschillen. In dit artikel geeft elementen die verschillen tussen de versie van de taal die wordt gebruikt voor de Data Explorer en de versie die wordt gebruikt voor Azure Monitor logboeken-query's.
+Terwijl [registreert in Azure Monitor](log-query-overview.md) is gebouwd op [Azure Data Explorer](/azure/data-explorer) en maakt gebruik van dezelfde [Kusto-querytaal](/azure/kusto/query), de versie van de taal heeft enkele verschillen. In dit artikel geeft elementen die verschillen tussen de versie van de taal die wordt gebruikt voor de Data Explorer en de versie die wordt gebruikt voor Azure Monitor logboeken-query's.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="data-explorer-elements-not-supported-in-azure-monitor"></a>Data Explorer elementen niet ondersteund in Azure Monitor
-De volgende secties worden de elementen van de Data Explorer-querytaal die niet worden ondersteund door Azure Monitor beschreven.
+## <a name="kql-elements-not-supported-in-azure-monitor"></a>KQL elementen niet ondersteund in Azure Monitor
+De volgende secties beschrijven van de querytaal Kusto-elementen die niet worden ondersteund door Azure Monitor.
 
 ### <a name="statements-not-supported-in-azure-monitor"></a>Instructies worden niet ondersteund in Azure Monitor
 
@@ -64,4 +64,4 @@ De volgende operatoren ondersteuning voor specifieke functies van Azure Monitor 
 ## <a name="next-steps"></a>Volgende stappen
 
 - Ophalen van verwijzingen naar andere [resources voor het schrijven van Azure Monitor query's bijgehouden](query-language.md).
-- Toegang tot de volledige [verwijzen naar de documentatie voor Data Explorer-querytaal](/azure/kusto/query/).
+- Toegang tot de volledige [referentiedocumentatie voor Kusto-query-taal](/azure/kusto/query/).

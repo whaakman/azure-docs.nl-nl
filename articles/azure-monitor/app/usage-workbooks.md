@@ -13,12 +13,12 @@ ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: f7133ed74c9862a7e3d496a9093faaf3959e0d78
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: bcd4ae5b7092aafc452c5af3d17fd22c263b5d35
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993415"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270144"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Interactieve rapporten maken met Azure Monitor-werkmappen
 
@@ -77,7 +77,7 @@ Query secties zijn zeer flexibel en kunnen worden gebruikt om aan te vragen bean
 
 * Het aantal uitzonderingen uw site throw tijdens dezelfde periode als een afname in gebruik
 * Wat was de verdeling van de laadtijden voor pagina's voor gebruikers die een pagina bekijken?
-* Hoeveel gebruikers een set pagina's weergegeven op uw site, maar niet een andere set pagina's? Dit kan nuttig zijn om te begrijpen als u clusters van gebruikers die gebruikmaken van verschillende subsets van functionaliteit van uw site zijn (Gebruik de `join` operator met de `kind=leftanti` modifier in de Data Explorer query language).
+* Hoeveel gebruikers een set pagina's weergegeven op uw site, maar niet een andere set pagina's? Dit kan nuttig zijn om te begrijpen als u clusters van gebruikers die gebruikmaken van verschillende subsets van functionaliteit van uw site zijn (Gebruik de `join` operator met de `kind=leftanti` modifier in de [Kusto-querytaal](/azure/kusto/query/)).
 
 U ook worden niet alleen beperkt tot de werkmap van de query uit de context van de toepassing gestart. U kunt query's uitvoeren voor meerdere apps met Application Insights bewaakt, evenals Log Analytics-werkruimten, zolang u toegang tot deze resources hebt.
 

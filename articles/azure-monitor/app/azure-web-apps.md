@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4ec6e1288b34f04350a88697ca13ed044922ee50
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 19e0e5797e05589baa1e104f3e9ab8b4d9cc2d6c
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002234"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267288"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service-prestaties bewaken
 In de [Azure-portal](https://portal.azure.com) kunt u instellen prestatiebewaking van toepassingen voor uw web-apps, mobiele back-ends en API-apps in [Azure App Service](../../app-service/overview.md). Met [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) instrumenteert u uw app om telemetrie over de eigen activiteiten te sturen naar de Application Insights-service, waar de gegevens worden opgeslagen en geanalyseerd. Daar kunnen metrische grafieken en zoekfuncties worden gebruikt om problemen vast te stellen, prestaties te verbeteren en het gebruik te beoordelen.
@@ -29,7 +29,7 @@ U kunt de controle configureren door de app op twee manieren te instrumenteren:
 * **Buildtime**: u kunt een pakket installeren in uw app in ontwikkeling. Deze optie is veelzijdiger. Naast dezelfde standaardpakketten kunt u code schrijven voor het aanpassen van de telemetrie of voor het verzenden van uw eigen telemetrie. U kunt specifieke activiteiten of gebeurtenissen vastleggen volgens de semantiek van uw app-domein. 
 
 ## <a name="run-time-instrumentation-with-application-insights"></a>Runtime-instrumentatiesleutel met Application Insights
-Als u al een appservice in Azure uitvoert, u al sprake van enige controle: tarieven voor aanvragen en fouten. Application Insights om op te halen, zoals reactietijden meer toevoegen, bewaking aanroepen van afhankelijkheden, Slimme detectie en de krachtige Data Explorer querytaal. 
+Als u al een appservice in Azure uitvoert, u al sprake van enige controle: tarieven voor aanvragen en fouten. Toevoegen van Application Insights om op te halen meer, zoals reactietijden, controle aanroepen van afhankelijkheden, Slimme detectie en de krachtige Kusto querytaal. 
 
 1. **Selecteer Application Insights** in de Azure-Configuratiescherm voor uw appservice.
 

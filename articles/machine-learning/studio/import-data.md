@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: 2f401290a4a9150d27685c06c2d4cd9dc2f06f0d
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: bbae6d4b727f3e3dc51bd57e8badbc6e87814a51
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730285"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267883"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Uw trainingsgegevens vanuit verschillende gegevensbronnen importeren in Azure Machine Learning Studio
 
@@ -77,6 +77,29 @@ Een module die dan gegevenstabel hebben converteert de tabel aan gegevens op de 
 
 Indien nodig, kunt u de tabel gegevensindeling naar CSV, TSV, ARFF of SVMLight indeling met behulp van andere modules conversie kunt converteren.
 Zoeken in de **indeling Gegevensconversies** gedeelte van het modulepalet voor modules die deze functies uitvoeren.
+
+## <a name="data-capacities"></a>Gegevenscapaciteit
+
+Modules in Machine Learning Studio ondersteunen gegevenssets tot 10 GB aan compacte numerieke gegevens voor algemeen gebruik. Als een module meer dan één invoer heeft, is de waarde 10 GB de totale invoergrootte. U kunt nemen uit grotere gegevenssets steekproef met behulp van query's van Hive of Azure SQL Database, of kunt u Learning by Counts vooraf voordat u importeert de gegevens.  
+
+U kunt de volgende typen gegevens in grotere gegevenssets opnemen tijdens het normaliseren van kenmerken, tot maximaal 10 GB:
+
+* Sparse
+* Categorische gegevens
+* Tekenreeksen
+* Binaire gegevens
+
+De volgende modules zijn beperkt tot gegevenssets die kleiner zijn dan 10 GB:
+
+* Aanbevelingsmodules
+* De module Synthetic Minority Oversampling Technique (SMOTE)
+* Scriptmodules: R, Python, SQL
+* Modules waarbij de grootte van de uitvoer groter is dan invoergegevens, zoals Join- of hash-functies
+* Kruisvalidatie, Tune Model Hyperparameters, ordinale regressie en One-vs-All-multiklasse, wanneer het aantal herhalingen groot is
+
+Voor gegevenssets die groter dan een paar GB zijn moet de gegevens uploaden naar Azure Storage of Azure SQL Database of gebruik van Azure HDInsight, in plaats van rechtstreeks vanuit een lokaal bestand te uploaden.
+
+U vindt meer informatie over image-gegevens in de [afbeeldingen importeren](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/import-images#bkmk_Notes) -Moduleverwijzing voorkomen.
 
 ## <a name="import-from-a-local-file"></a>Importeren uit een lokaal bestand
 

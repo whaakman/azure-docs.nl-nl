@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: b31bdacbaf1ab81223d2a99472233cd5024edced
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0c52a10aa806962ee54fe6058f236ea9bd86414b
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300728"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268342"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - Veelgestelde vragen
 In dit artikel vindt u antwoorden op veelgestelde vragen over de Azure Backup-service.
@@ -31,7 +31,7 @@ U kunt maximaal 1000 Azure Virtual machines per kluis registreren. Als u de Micr
 Servergegevens die u wilt herstellen, samen moeten dezelfde wachtwoordzin worden gebruikt bij het instellen van back-up. Als u wilt voor het isoleren van herstel naar een specifieke server of servers, gebruikt u een wachtwoordzin voor die server of alleen servers. U kunt bijvoorbeeld verschillende wachtwoordzinnen voor de human resource-server, de accountingserver en de opslagserver gebruiken.
 
 ### <a name="can-i-move-my-vault-between-subscriptions"></a>Kan ik mijn kluis verplaatsen tussen abonnementen?
-Nee. De kluis wordt gemaakt op abonnementsniveau en kan niet opnieuw worden toegewezen aan een ander abonnement.
+Ja. Verplaatsen van een Recovery Services-kluis raadpleegt u dit [artikel](backup-azure-move-recovery-services-vault.md)
 
 ### <a name="can-i-move-backup-data-to-another-vault"></a>Kan ik back-upgegevens verplaatsen naar een andere kluis?
 Nee. Back-upgegevens die zijn opgeslagen in een kluis kan niet worden verplaatst naar een andere kluis.
@@ -148,7 +148,6 @@ Nee. Alle gegevens die naar de kluis zijn overgebracht voordat de back-uptaak is
 Als u een back-uptaak voor een virtuele Azure-machine annuleert, worden eventuele overgedragen gegevens geannuleerd. De volgende back-uptaak draagt incrementele gegevens over van na de vorige succesvolle back-up-taak.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Waarom is de grootte van de gegevens overgebracht naar de Recovery Services-kluis die kleiner is dan de gegevens die zijn geselecteerd voor back-up?
-
  Gegevens back-up van Azure Backup-Agent, DPM, en Azure Backup Server wordt gecomprimeerd en versleuteld voordat ze worden overgedragen. Met compressie en versleuteling wordt toegepast, de gegevens in de kluis is 30-40% kleiner.
 
 ### <a name="can-i-delete-individual-files-from-a-recovery-point-in-the-vault"></a>Kan ik afzonderlijke bestanden vanaf een herstelpunt in de kluis verwijderen?
@@ -156,8 +155,8 @@ Nee, Azure Backup ondersteunt niet verwijderen of permanent verwijderen van afzo
 
 
 ### <a name="if-i-cancel-a-backup-job-after-it-starts-is-the-transferred-backup-data-deleted"></a>Als ik een back-uptaak Annuleer nadat deze is gestart, wordt de overgedragen back-upgegevens dan verwijderd?
-
 Nee. Alle gegevens die zijn overgedragen naar de kluis voordat de back-uptaak is geannuleerd blijft in de kluis.
+
 - Azure Backup gebruikt een controlepuntmechanisme waarmee tijdens de back-up van tijd tot tijd controlepunten worden toegevoegd aan de back-upgegevens.
 - Omdat de back-upgegevens controlepunten bevatten, kan tijdens het volgende back-upproces de integriteit van de bestanden worden gecontroleerd.
 - De volgende back-uptaak is incrementeel ten opzichte van de gegevens waarvan eerder een back-up is gemaakt. Incrementele back-ups dragen alleen nieuwe of gewijzigde gegevens over, zodat de bandbreedte beter wordt benut.
@@ -177,7 +176,7 @@ Nee. Het bewaarbeleid kan alleen worden toegepast op back-uppunten. Deze afbeeld
 
 
 ### <a name="if-a-backup-is-kept-for-a-long-time-does-it-take-more-time-to-recover-an-older-data-point-br"></a>Als u een back-up worden bewaard gedurende een lange periode duurt langer voordat een oud gegevenspunt te herstellen? <br/>
-Nee, de tijd die nodig is om het oudste of nieuwste punt te herstellen, is hetzelfde. Elk herstelpunt gedraagt zich als een volledig punt.
+Nee. De tijd voor het herstellen van de oudste of nieuwste punt is hetzelfde. Elk herstelpunt gedraagt zich als een volledig punt.
 
 ### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storage"></a>Als elk herstelpunt een volledig punt is, heeft dit dan invloed op de totale factureerbare back-upopslag?
 Producten met een lange bewaartermijn slaan de back-upgegevens doorgaans op als volledige punten.
@@ -203,7 +202,7 @@ Nee. Recovery gratis is en niet in rekening gebracht voor het uitgaande verkeer.
 Wanneer een nieuw beleid wordt toegepast, schema en de retentie van het nieuwe beleid gevolgd.
 
 - Als de retentie is uitgebreid, worden de bestaande herstelpunten gemarkeerd voor bewaring conform het nieuwe beleid.
-- - Als de retentie is beperkt, worden de bestaande herstelpunten gemarkeerd voor verwijdering in de eerstvolgende opschoontaak, en worden ze vervolgens verwijderd.
+- Als de retentie is beperkt, worden de bestaande herstelpunten gemarkeerd voor verwijdering in de eerstvolgende opschoontaak, en worden ze vervolgens verwijderd.
 
 ## <a name="encryption"></a>Versleuteling
 

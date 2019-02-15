@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/16/2018
+ms.date: 02/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2b26261fdbae07bf3eea793efe6ff0755ca3f577
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 1383c59ca88400868f83d30d04d9b0e5f5401282
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895989"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268954"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens
 
@@ -400,7 +400,7 @@ Echter, de aanbevolen manier voor het verzenden van aanvraagtelemetrie is waar d
 
 ## <a name="operation-context"></a>Bewerkingscontext
 
-U kunt telemetrie-items bij elkaar correleren door deze te koppelen met de bewerkingscontext. De standard-aanvraag bij te houden module doet dit voor uitzonderingen en andere gebeurtenissen die worden verzonden terwijl een HTTP-aanvraag wordt verwerkt. In [zoeken](../../azure-monitor/app/diagnostic-search.md) en [Analytics](analytics.md), kunt u gemakkelijk alle gebeurtenissen die zijn gekoppeld aan de aanvraag met behulp van de bewerking-id vinden
+U kunt telemetrie-items bij elkaar correleren door deze te koppelen met de bewerkingscontext. De standard-aanvraag bij te houden module doet dit voor uitzonderingen en andere gebeurtenissen die worden verzonden terwijl een HTTP-aanvraag wordt verwerkt. In [zoeken](../../azure-monitor/app/diagnostic-search.md) en [Analytics](analytics.md), vindt u eenvoudig alle gebeurtenissen die zijn gekoppeld aan de aanvraag met behulp van de bewerking-ID.
 
 Zie [telemetriecorrelatie in Application Insights](../../azure-monitor/app/correlation.md) voor meer informatie over correlatie.
 
@@ -508,7 +508,7 @@ catch (ex)
 De SDK's catch veel uitzonderingen automatisch, zodat u altijd niet hoeven te TrackException expliciet aanroepen.
 
 * ASP.NET: [Schrijf code afvangen van uitzonderingen](../../azure-monitor/app/asp-net-exceptions.md).
-* J2EE: [Uitzonderingen automatisch zijn opgepikt](../../azure-monitor/app/java-get-started.md#exceptions-and-request-failures).
+* Java EE: [Uitzonderingen automatisch zijn opgepikt](../../azure-monitor/app/java-get-started.md#exceptions-and-request-failures).
 * JavaScript: Uitzonderingen worden automatisch onderschept. Als u uitschakelen automatisch verzamelen wilt, moet u een regel toegevoegd aan het codefragment die u in uw webpagina's invoegen:
 
 ```javascript
@@ -732,7 +732,7 @@ Thread.sleep(5000);
 telemetry.flush();
 ```
 
-Houd er rekening mee dat de functie voor asynchrone is de [server telemetrie kanaal](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
+De functie voor asynchrone is de [server telemetrie kanaal](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
 
 In het ideale geval moet flush() methode worden gebruikt in de activiteit afsluiten van de toepassing.
 
@@ -1141,7 +1141,7 @@ Als u een van deze waarden zelf instellen, kunt u de desbetreffende regel verwij
 
 * **Onderdeel**: De app en de versie ervan.
 * **Apparaat**: Gegevens over het apparaat waarop de app wordt uitgevoerd. (In web-apps, dit is de server of client-apparaat dat door de telemetrie wordt verzonden.)
-* **InstrumentationKey**: De Application Insights-resource in Azure waar de telemetrie weergegeven. Dit wordt meestal in ApplicationInsights.config opgehaald.
+* **InstrumentationKey**: De Application Insights-resource in Azure waar de telemetrie wordt weergegeven. Dit wordt meestal in ApplicationInsights.config opgehaald.
 * **Locatie**: De geografische locatie van het apparaat.
 * **Bewerking**: In de web-apps, de huidige HTTP-aanvraag. In andere typen Apps kunt u dit instellen op groepsgebeurtenissen samen.
   * **Id**: Een gegenereerde waarde die overeenkomt met verschillende gebeurtenissen, zodat wanneer u een gebeurtenis in de diagnostische gegevens doorzoeken inspecteren, u verwante items vindt.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 0ff2fbf8ddfdd191c72cfdb36a9462076f8dec5b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 50778ae742c1ec66857a6c2fa6250dc3d67e5601
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657294"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301567"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Asynchrone berichtpatronen en hoge beschikbaarheid
 
@@ -62,77 +62,10 @@ Andere onderdelen in Azure kunnen van tijd tot tijd hebben problemen met de serv
 ### <a name="service-bus-failure-on-a-single-subsystem"></a>Service Bus-fout op een enkele subsysteem
 Met elke toepassing omstandigheden kunnen leiden tot een interne onderdeel van Service Bus inconsistent worden. Wanneer Service Bus gedetecteerd, worden gegevens verzameld van de toepassing om te helpen bij het vaststellen van wat is er gebeurd. Zodra de gegevens zijn verzameld, kan de toepassing wordt opnieuw gestart in een poging om een consistente status weer. Dit proces vrij snel wordt uitgevoerd, en resultaten in een entiteit zijn niet beschikbaar voor maximaal een paar minuten, maar typische uitvaltijden lijkt veel korter.
 
-In dergelijke gevallen de clienttoepassing genereert een [System.TimeoutException] [ System.TimeoutException] of [MessagingException] [ MessagingException] uitzondering. Service Bus bevat een beperking voor dit probleem in de vorm van logica voor opnieuw proberen van geautomatiseerde client. Zodra de tijd tussen elke poging is verbruikt en het bericht is niet afgeleverd, u kunt verkennen met behulp van andere functies zoals [gekoppelde naamruimten][paired namespaces]. Gekoppelde naamruimten hebben andere beperkingen die in dit artikel worden besproken.
-
-### <a name="failure-of-service-bus-within-an-azure-datacenter"></a>Fout van Service Bus in een Azure-datacenter
-De meest waarschijnlijke oorzaak van een probleem in een Azure-datacenter is een mislukte upgrade-implementatie van Service Bus of een afhankelijke systeem. Als het platform is ontwikkeld, is de kans op dit soort fouten verminderd. Een datacenter-fout kan ook gebeuren om redenen die onder andere het volgende:
-
-* Elektrische onderbreking (voeding en genereren power verdwijnen).
-* Connectiviteit (internet pauze tussen uw clients en Azure).
-
-In beide gevallen wordt oorzaak een noodgeval natuurlijke of kunstmatige van het probleem. Dit probleem omzeilen en zorg ervoor dat u kunt nog steeds berichten verzenden, kunt u [gekoppelde naamruimten] [ paired namespaces] waarmee berichten worden verzonden naar een tweede locatie als de primaire locatie weer in orde is gemaakt. Zie voor meer informatie, [aanbevolen procedures voor de isolatie van toepassingen op basis van Service Bus-uitval en noodgevallen][Best practices for insulating applications against Service Bus outages and disasters].
-
-## <a name="paired-namespaces"></a>Gekoppelde naamruimten
-De [gekoppelde naamruimten] [ paired namespaces] functie biedt ondersteuning voor scenario's waarin een Service Bus-entiteit of een implementatie binnen een datacenter niet meer beschikbaar is. Terwijl deze gebeurtenis wordt niet vaak worden uitgevoerd, moeten gedistribueerde systemen nog worden voorbereid voor het afhandelen van slechtste use-casescenario's. Deze gebeurtenis gebeurt gewoonlijk, omdat sommige element waarop Service Bus is afhankelijk van een op korte termijn probleem ondervindt. Als u wilt behouden beschikbaarheid van toepassingen tijdens een storing, kunnen Service Bus gebruikers twee afzonderlijke naamruimten, bij voorkeur in verschillende datacenters, gebruiken voor het hosten van hun berichtentiteiten. De rest van deze sectie maakt gebruik van de volgende terminologie:
-
-* Primaire naamruimte: De naamruimte waarmee uw toepassing communiceert voor verzenden en ontvangen van bewerkingen.
-* Secundaire naamruimte: De naamruimte die als een back-up naar de primaire naamruimte fungeert. Toepassingslogica communiceert niet met deze naamruimte.
-* Failover-interval: De hoeveelheid tijd voor het accepteren van normale fouten voordat de toepassing uit de primaire naamruimte wordt overgeschakeld naar de secundaire naamruimte.
-
-Gekoppelde naamruimten ondersteuning *verzenden beschikbaarheid*. Verzenden beschikbaarheid blijft behouden de mogelijkheid om berichten te verzenden. Voor het gebruik van de beschikbaarheid verzenden, kan uw toepassing moet voldoen aan de volgende vereisten:
-
-1. Berichten worden alleen ontvangen van de primaire naamruimte.
-2. Berichten verzonden naar een bepaalde wachtrij of onderwerp mogelijk niet de juiste volgorde binnenkomen.
-3. Berichten in een sessie kunnen niet de juiste volgorde binnenkomen. Dit is een onderbreking van de normale functionaliteit van sessies. Dit betekent dat uw toepassing gebruikmaakt van sessies berichten logisch groeperen.
-4. Status van de sessie wordt alleen onderhouden op de primaire naamruimte.
-5. De primaire wachtrij kunt online is gekomen en start berichten geaccepteerd voordat de secundaire wachtrij alle berichten in de primaire wachtrij wordt geplaatst biedt.
-
-De volgende secties worden de API's, hoe de API's worden geïmplementeerd en ziet u voorbeelden van code die wordt gebruikgemaakt van de functie. Houd er rekening mee dat er met zich meebrengt die zijn gekoppeld aan deze functie zijn.
-
-### <a name="the-messagingfactorypairnamespaceasync-api"></a>De MessagingFactory.PairNamespaceAsync API
-De functie gekoppelde naamruimten bevat de [PairNamespaceAsync] [ PairNamespaceAsync] methode voor het [Microsoft.ServiceBus.Messaging.MessagingFactory] [ Microsoft.ServiceBus.Messaging.MessagingFactory] klasse:
-
-```csharp
-public Task PairNamespaceAsync(PairedNamespaceOptions options);
-```
-
-Wanneer de taak is voltooid, het koppelen van de naamruimte ook is voltooid en gereed om te reageren op een [MessageReceiver][MessageReceiver], [QueueClient] [ QueueClient] , of [TopicClient] [ TopicClient] die zijn gemaakt met de [MessagingFactory] [ MessagingFactory] exemplaar. [Microsoft.ServiceBus.Messaging.PairedNamespaceOptions] [ Microsoft.ServiceBus.Messaging.PairedNamespaceOptions] is de basisklasse voor de verschillende typen koppelen die beschikbaar met zijn een [MessagingFactory] [ MessagingFactory] object. Op dit moment de enige afgeleide klasse is een met de naam [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions], die de vereisten voor verzenden beschikbaarheid implementeert. [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] bevat een set constructors die boven op elkaar gebouwd. De constructor met de meeste parameters bekijkt, kunt u het gedrag van de andere constructors begrijpen.
-
-```csharp
-public SendAvailabilityPairedNamespaceOptions(
-    NamespaceManager secondaryNamespaceManager,
-    MessagingFactory messagingFactory,
-    int backlogQueueCount,
-    TimeSpan failoverInterval,
-    bool enableSyphon)
-```
-
-Deze parameters hebben de volgende betekenis:
-
-* *secondaryNamespaceManager*: Een geïnitialiseerd [NamespaceManager] [ NamespaceManager] -exemplaar voor de secundaire naamruimte die de [PairNamespaceAsync] [ PairNamespaceAsync] methode kunt gebruiken om in te stellen om de secundaire naamruimte. De manager van de naamruimte wordt gebruikt om op te halen van de lijst met wachtrijen in de naamruimte en om ervoor te zorgen dat de vereiste achterstand wachtrijen bestaan. Als de wachtrijen niet bestaan, worden gemaakt. [NamespaceManager] [ NamespaceManager] vereist de mogelijkheid om te maken van een token met de **beheren** claim.
-* *messagingFactory*: De [MessagingFactory] [ MessagingFactory] -exemplaar voor de secundaire naamruimte. De [MessagingFactory] [ MessagingFactory] object wordt gebruikt om te verzenden en, indien de [EnableSyphon] [ EnableSyphon] eigenschap is ingesteld op **waar**, berichten ontvangen van de achterstand wachtrijen.
-* *backlogQueueCount*: Het aantal achterstand wachtrijen te maken. Deze waarde moet ten minste 1 zijn. Wanneer u berichten verzendt naar de achterstand, wordt een van deze wachtrijen willekeurig gekozen. Als u de waarde ingesteld op 1, kunt wordt slechts één wachtrij ooit gebruikt. Wanneer dit gebeurt en de wachtrij een achterstand fouten genereert, wordt de client is niet mogelijk om te proberen een wachtrij verschillende achterstand en mislukken om uw bericht te verzenden. Het is raadzaam om de waarde instelt op een grotere waarde en standaard de waarde 10. U kunt dit wijzigen naar een hogere of lagere waarde, afhankelijk van hoeveel gegevens uw toepassing per dag verzendt. Elke wachtrij achterstand kan tot 5 GB aan berichten bevatten.
-* *failoverInterval*: De hoeveelheid tijd gedurende welke u fouten op de primaire naamruimte accepteren wilt voordat u een enkele entiteit via overschakelt naar de secundaire naamruimte. Failovers optreden op basis van de entiteit met entiteit. Entiteiten in één enkele naamruimte bevinden zich vaak in verschillende knooppunten in Service Bus. Een fout in de ene entiteit betekent niet dat een fout in een andere. U kunt deze waarde instellen op [System.TimeSpan.Zero] [ System.TimeSpan.Zero] voor failover naar de secundaire onmiddellijk na de eerste, niet-tijdelijke fout. Fouten die de failover-timer trigger zijn [MessagingException] [ MessagingException] waarin de [IsTransient] [ IsTransient] eigenschap is false, of een [ System.TimeoutException][System.TimeoutException]. Andere uitzonderingen, zoals [UnauthorizedAccessException] [ UnauthorizedAccessException] veroorzaken geen failover, omdat ze geven aan dat de client onjuist is geconfigureerd. Een [ServerBusyException] [ ServerBusyException] niet oorzaak failover omdat de juiste patroon is 10 seconden wachten vervolgens verzendt het bericht opnieuw.
-* *enableSyphon*: Geeft aan dat deze bepaalde koppelen moet ook syphon berichten van de secundaire naamruimte terug naar de primaire naamruimte. Toepassingen die berichten verzenden moeten in het algemeen is deze waarde ingesteld op **false**; toepassingen die berichten ontvangen, moeten deze waarde instelt op **waar**. De reden hiervoor is dat vaak het geval is, er minder bericht ontvangers dan afzenders van berichten. Afhankelijk van het aantal ontvangers, kunt u beschikt over een enkele toepassing-exemplaar de rechten syphon verwerken. Met behulp van de vele ontvangers heeft voor elke wachtrij achterstand met zich meebrengt.
-
-Voor het gebruik van de code, maakt u een primaire [MessagingFactory] [ MessagingFactory] exemplaar, een secundaire [MessagingFactory] [ MessagingFactory] exemplaar, een secundaire [ NamespaceManager] [ NamespaceManager] -exemplaar en een [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] exemplaar. De aanroep is net zo eenvoudig als het volgende:
-
-```csharp
-SendAvailabilityPairedNamespaceOptions sendAvailabilityOptions = new SendAvailabilityPairedNamespaceOptions(secondaryNamespaceManager, secondary);
-primary.PairNamespaceAsync(sendAvailabilityOptions).Wait();
-```
-
-Wanneer de taak die wordt geretourneerd door de [PairNamespaceAsync] [ PairNamespaceAsync] methode is voltooid, alles is ingesteld en klaar voor gebruik. Voordat de taak wordt geretourneerd, u mogelijk niet voltooid al het achtergrondwerk die nodig zijn voor de koppeling naar rechts werken. Als gevolg hiervan moet u niet starten verzenden van berichten, totdat de taak retourneert. Als er fouten opgetreden, zoals onjuiste referenties, of dat de wachtrijen achterstand maken wordt deze uitzonderingen worden gegenereerd nadat de taak is voltooid. Zodra de taak wordt geretourneerd, Controleer of de wachtrijen zijn gevonden of is gemaakt door te controleren de [BacklogQueueCount] [ BacklogQueueCount] eigenschap op uw [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] exemplaar. Voor de bovenstaande code weergegeven die voor deze bewerking als volgt:
-
-```csharp
-if (sendAvailabilityOptions.BacklogQueueCount < 1)
-{
-    // Handle case where no queues were created.
-}
-```
+In dergelijke gevallen de clienttoepassing genereert een [System.TimeoutException] [ System.TimeoutException] of [MessagingException] [ MessagingException] uitzondering. Service Bus bevat een beperking voor dit probleem in de vorm van logica voor opnieuw proberen van geautomatiseerde client. Zodra de tijd tussen elke poging is verbruikt en het bericht is niet afgeleverd, u kunt verkennen met behulp van andere vermeld in het artikel op [uitval en noodgevallen afhandelen][handling outages and disasters].
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat u hebt de basisbeginselen van asynchrone berichten in Service Bus, Raadpleeg voor meer informatie over [gekoppelde naamruimten][paired namespaces].
+Nu dat u hebt de basisbeginselen van asynchrone berichten in Service Bus, Raadpleeg voor meer informatie over [uitval en noodgevallen afhandelen][handling outages and disasters].
 
 [ServerBusyException]: /dotnet/api/microsoft.servicebus.messaging.serverbusyexception
 [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx
@@ -152,4 +85,4 @@ Nu dat u hebt de basisbeginselen van asynchrone berichten in Service Bus, Raadpl
 [IsTransient]: /dotnet/api/microsoft.servicebus.messaging.messagingexception
 [UnauthorizedAccessException]: https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx
 [BacklogQueueCount]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions?redirectedfrom=MSDN
-[paired namespaces]: service-bus-paired-namespaces.md
+[handling outages and disasters]: service-bus-outages-disasters.md

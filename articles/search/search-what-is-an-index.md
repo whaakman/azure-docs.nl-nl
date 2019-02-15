@@ -7,14 +7,14 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 02/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 77f4b597ad4b87db7e720dd57191c6b192a4c93b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fd5f58a03ffd054e79f1ff4ea6d61c33c06b6e7c
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000946"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268546"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Maak een eenvoudige index in Azure Search
 
@@ -23,6 +23,12 @@ In Azure Search, een *index* is een permanente opslag van *documenten* en andere
 Wanneer u toevoegt of uploaden van een index, maakt Azure Search fysieke structuren op basis van het schema dat u opgeeft. Bijvoorbeeld, als een veld in de index is gemarkeerd als kan worden doorzocht, een omgekeerde index is gemaakt voor dat veld. Later, wanneer u toevoegt of uploadt documenten of naar Azure Search zoekopdrachten, verzendt u aanvragen naar een specifieke index in uw zoekservice. Het laden van velden met documentwaarden heet *indexeren* of opname van gegevens.
 
 U kunt een index maken in de portal [REST-API](search-create-index-rest-api.md), of [.NET SDK](search-create-index-dotnet.md).
+
+## <a name="recommended-workflow"></a>Aanbevolen workflow
+
+Omdat fysieke structuren zijn gemaakt tijdens het indexeren, moet u [verwijderen en opnieuw maken van indexen](search-howto-reindex.md) wanneer u er belangrijke wijzigingen aanbrengen in de definitie van een bestaande veld. Dit betekent dat tijdens de ontwikkeling, u van plan frequente opnieuw op te bouwen bent moet. U kunt overwegen werken met een subset van uw gegevens om te maken van opnieuw gebouwde go sneller. 
+
+Code in plaats van portal indexeren wordt ook aanbevolen. Als u zich op de portal voor de definitie van de index baseert, heeft u om de definitie van de index op elke opnieuw in te vullen. Als alternatief kunt met behulp van een hulpprogramma zoals [Postman en de REST-API](search-fiddler.md) zijn handig voor het testen van proof of concept wanneer ontwikkelingsprojecten zich nog steeds in de eerste fasen. U kunt incrementele wijzigingen aanbrengen aan de indexdefinitie van een in de hoofdtekst van de aanvraag, de aanvraag wordt verzonden naar uw service opnieuw maken van een index met behulp van een bijgewerkte schema.
 
 ## <a name="components-of-an-index"></a>Onderdelen van een index
 
@@ -133,8 +139,20 @@ Gedetailleerdere informatie over ondersteunde Azure-Search[-gegevenstypen vindt 
 
 Gedetailleerdere informatie over ondersteunde Azure-Search[-indexkenmerken vindt u hier](https://docs.microsoft.com/rest/api/searchservice/Create-Index).
 
+## <a name="storage-implications-of-index-attributes"></a>Gevolgen van de opslag van de indexkenmerken
+
+De kenmerken die u selecteert hebben een invloed op opslag. De volgende schermafbeelding is een afbeelding van index opslag patronen die voortvloeien uit verschillende combinaties van kenmerken. De index is gebaseerd op de [ingebouwde onroerend goed voorbeeld](search-get-started-portal.md) gegevensbron, die u kunt de index en query's uitvoeren in de portal.
+
+Filteren en sorteren van operations-query op exacte overeenkomsten, zodat documenten intact worden opgeslagen. Doorzoekbare velden inschakelen van zoeken in volledige tekst en zoeken bij benadering. Omgekeerde indexen worden gemaakt voor doorzoekbare velden en gevuld met tokens voorwaarden. Een veld te markeren heeft als ophaalbaar geen merkbare invloed op de indexgrootte van de.
+
+![Index-grootte op basis van kenmerk selectie](./media/search-what-is-an-index/realestate-index-size.png "Index-grootte op basis van kenmerk selectie")
+
+Opslag-implementatie wordt beschouwd als een implementatiedetail in Azure Search en kan zonder kennisgeving worden gewijzigd. Er is geen garantie dat de huidige gedrag in de toekomst blijven behouden.
+
 ## <a name="suggesters"></a>Suggesties
-Een suggestie is een gedeelte van het schema waarmee wordt gedefinieerd welke velden in een index worden gebruikt voor de ondersteuning van automatisch aanvullen of automatisch aangevulde query's in zoekopdrachten. Gedeeltelijke zoekreeksen worden meestal verzonden naar de suggesties (Azure Search Service REST API) terwijl de gebruiker een zoekopdracht typen is en de API een set met voorgestelde zinnen retourneert. Een suggestie die u in de index definieert bepaalt welke velden worden gebruikt voor het bouwen van de type-ahead zoektermen. Zie voor meer informatie, [toevoegen suggesties](index-add-suggesters.md) voor informatie over de configuratie.
+Een suggestie is een gedeelte van het schema waarmee wordt gedefinieerd welke velden in een index worden gebruikt voor de ondersteuning van automatisch aanvullen of automatisch aangevulde query's in zoekopdrachten. Gedeeltelijke zoekreeksen worden meestal verzonden naar de suggesties (Azure Search Service REST API) terwijl de gebruiker een zoekopdracht typen is en de API een set met voorgestelde zinnen retourneert. 
+
+Een suggestie die u in de index definieert bepaalt welke velden worden gebruikt voor het bouwen van de type-ahead zoektermen. Zie voor meer informatie, [toevoegen suggesties](index-add-suggesters.md) voor informatie over de configuratie.
 
 ## <a name="scoring-profiles"></a>Scoreprofielen
 

@@ -1,7 +1,7 @@
 ---
 title: Aangepaste analyse - Azure Search toevoegen
 description: Tekst tokenizers en teken filters gebruikt in Azure Search volledige-tekstquery's wijzigen.
-ms.date: 01/31/2019
+ms.date: 02/14/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,22 +19,24 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 150510ec09744b1350a93bde4e2a4dcb141867c0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 957c8033efc386d8e8cb13cbed921c597af4f11b
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008284"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302077"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Analysevoorzieningen aanpassen aan een Azure Search-index toevoegen
 
-Een *aangepaste analysefunctie* is een door de gebruiker opgegeven combinatie van tokenizer en optionele filters gebruikt voor het aanpassen van tekst te verwerken in de zoekmachine. Bijvoorbeeld, kunt u een aangepaste analysefunctie met een *char filter* HTML-opmaak verwijderen voordat teksten worden getokeniseerd.
+Een *aangepaste analysefunctie* is van een specifiek type [tekst analyzer](search-analyzers.md) die bestaat uit een door de gebruiker gedefinieerde combinatie van bestaande tokenizer en optionele filters. Tokenizers en filters op nieuwe manieren combineren, kunt u de tekst te verwerken in de zoekmachine op specifieke resultaten behalen aanpassen. Bijvoorbeeld, kunt u een aangepaste analysefunctie met een *char filter* HTML-opmaak verwijderen voordat teksten worden getokeniseerd.
+
+ U kunt meerdere aangepaste analysefuncties voor het variëren van de combinatie van filters definiëren, maar elk veld kan alleen een analyzer gebruiken voor het indexeren van analyse en één voor search-analyse. Zie voor een illustratie van een klant analyzer ziet als eruit [aangepaste analyzer voorbeeld](search-analyzers.md#Example1).
 
 ## <a name="overview"></a>Overzicht
 
- De rol van een [zoeken in volledige tekst engine](search-lucene-query-architecture.md), simpel gezegd is om te verwerken en opslaan van documenten op een manier waarmee efficiënte query's en ophalen van bestanden. Op hoog niveau gaat alle omlaag om belangrijke woorden extraheren van documenten, ze in een index te plaatsen en vervolgens met behulp van de index om te zoeken naar documenten die overeenkomen met woorden van een bepaalde query. Het proces van het extraheren van woorden van documenten en zoekopdrachten wordt lexicale analyse genoemd. Onderdelen die lexicale analyse uitvoeren worden analyzers genoemd.
+ De rol van een [zoeken in volledige tekst engine](search-lucene-query-architecture.md), simpel gezegd is om te verwerken en opslaan van documenten op een manier waarmee efficiënte query's en ophalen van bestanden. Op hoog niveau gaat alle omlaag om belangrijke woorden extraheren van documenten, ze in een index te plaatsen en vervolgens met behulp van de index om te zoeken naar documenten die overeenkomen met woorden van een bepaalde query. Het proces van het extraheren van woorden van documenten en zoekopdrachten wordt genoemd *lexicale analyse*. Onderdelen die lexicale analyse uitvoeren heten *analyzers*.
 
- In Azure Search kunt u kiezen uit een set vooraf gedefinieerde agnostische taalanalyse in de [Analyzers](#AnalyzerTable) tabel- en taalinstellingen specifieke analyzers die worden vermeld in [taalanalyse &#40;Azure Search Service REST API&#41;](index-add-language-analyzers.md). U hebt ook een optie voor het definiëren van uw eigen aangepaste analyse.  
+ In Azure Search kunt u kiezen uit een set vooraf gedefinieerde taal-neutraal analyse in de [Analyzers](#AnalyzerTable) tabel of taalspecifieke analyzers die worden vermeld in [taalanalyse &#40;Azure Search Service REST API&#41;](index-add-language-analyzers.md). U hebt ook een optie voor het definiëren van uw eigen aangepaste analyse.  
 
  Een aangepaste analysefunctie kunt u controle over het proces van het converteren van tekst in tokens worden geïndexeerd en doorzoekbaar. Het is een gebruiker gedefinieerde configuratie die bestaan uit een enkele vooraf gedefinieerde tokenizer, een of meer token filters en een of meer char-filters. Het tokenizer is verantwoordelijk voor het verdelen van tekst in tokens en tokens filters voor het wijzigen van tokens die zijn gegenereerd door de tokenizer. CHAR-filters worden toegepast voor invoertekst voorbereiden voordat deze wordt verwerkt door het tokenizer. Char-filter kan bijvoorbeeld bepaalde tekens of symbolen vervangen.
 
@@ -50,22 +52,13 @@ Een *aangepaste analysefunctie* is een door de gebruiker opgegeven combinatie va
 
 -   ASCII-vouwen. Voeg de standaard ASCII vouwen filter voor het normaliseren van diakritische tekens zoals ö of ê in zoektermen.  
 
- U kunt meerdere aangepaste analysefuncties voor het variëren van de combinatie van filters definiëren, maar elk veld kan alleen een analyzer gebruiken voor het indexeren van analyse en één voor search-analyse.  
-
- Deze pagina bevat een lijst met ondersteunde analyzers, tokenizers token filters en char filters. U vindt hier ook een beschrijving van wijzigingen in de definitie van de index met een voorbeeld van gebruik. Zie voor meer achtergrondinformatie over de onderliggende technologie gebruikt in de implementatie van Azure Search [Analysis pakket samenvatting (Lucene)](https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/codecs/lucene410/package-summary.html). Zie voor meer voorbeelden van configuraties analyzer [analyse in Azure Search > voorbeelden](https://docs.microsoft.com/azure/search/search-analyzers#examples).
-
-
-## <a name="default-analyzer"></a>Standaard analyzer  
-
-Standaard doorzoekbare velden in Azure Search worden geanalyseerd met de [Apache Lucene Standard analyzer (standard lucene)](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) die tekst opgesplitst in de volgende elementen de ['Segmentering Unicode-tekst'](https://unicode.org/reports/tr29/) regels. De standaard analyzer converteert bovendien alle tekens naar hun vorm kleine letters. Zowel geïndexeerde documenten en zoektermen gaat u door de analyse tijdens het indexeren en verwerking van query's.  
-
- Dit wordt automatisch gebruikt in elk doorzoekbaar veld, tenzij u expliciet met een andere analyzer in het velddefinitie overschrijven. Alternatieve analyzers mag een aangepaste analysefunctie of een andere vooraf gedefinieerde analyzer uit de lijst met beschikbare [Analyzers](#AnalyzerTable) hieronder.
+ Deze pagina bevat een lijst met ondersteunde analyzers, tokenizers token filters en char filters. U vindt hier ook een beschrijving van wijzigingen in de definitie van de index met een voorbeeld van gebruik. Zie voor meer achtergrondinformatie over de onderliggende technologie gebruikt in de implementatie van Azure Search [Analysis pakket samenvatting (Lucene)](https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/codecs/lucene410/package-summary.html). Zie voor meer voorbeelden van configuraties analyzer [analyzers toevoegen in Azure Search](search-analyzers.md#examples).
 
 ## <a name="validation-rules"></a>Validatieregels  
  Namen van analyse, tokenizers token filters en char filters moeten uniek zijn en mag niet hetzelfde als een van de vooraf gedefinieerde analyzers, tokenizers, token filters of char filters. Zie de [eigenschapverwijzing](#PropertyReference) voor namen al in gebruik.
 
-## <a name="create-a-custom-analyzer"></a>Een aangepaste analysefunctie maken
- U kunt aangepaste analyse tijdens het maken van een index definiëren. De syntaxis voor het opgeven van een aangepaste analysefunctie wordt in deze sectie beschreven. U kunt Maak uzelf ook vertrouwd met de syntaxis van de aan de hand van voorbeeld-definities in [analyse in Azure Search](https://docs.microsoft.com/azure/search/search-analyzers#examples).  
+## <a name="create-custom-analyzers"></a>Maken van aangepaste analyse
+ U kunt aangepaste analyse tijdens het maken van een index definiëren. De syntaxis voor het opgeven van een aangepaste analysefunctie wordt in deze sectie beschreven. U kunt Maak uzelf ook vertrouwd met de syntaxis van de aan de hand van voorbeeld-definities in [analyzers toevoegen in Azure Search](search-analyzers.md#examples).  
 
  De definitie van een analyzer bevat een naam, type, een of meer char-filters, maximaal één tokenizer en een of meer filters token voor de verwerking van na tokeniseren. CHAR-filter worden toegepast voordat tokeniseren. Token filters en char filters worden toegepast van links naar rechts.
 
@@ -148,12 +141,13 @@ De definitie van de analyzer is een onderdeel van de grotere index. Zie [API ' C
 Definities voor char filters, tokenizers en token filters worden toegevoegd aan de index alleen als u aangepaste opties instelt. Een bestaand filter of tokenizer als te gebruiken-is, geef deze op naam in de definitie van de analyzer.
 
 <a name="Testing custom analyzers"></a>
-## <a name="test-a-custom-analyzer"></a>Een aangepaste analysefunctie testen
+
+## <a name="test-custom-analyzers"></a>Analysevoorzieningen testen
 
 U kunt de **Test Analyzer bewerking** in de [REST-API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) om te zien hoe een analyzer-einden opgegeven tekst in tokens.
 
 **Aanvraag**
-~~~~
+```
   POST https://[search service name].search.windows.net/indexes/[index name]/analyze?api-version=[api-version]
   Content-Type: application/json
     api-key: [admin key]
@@ -162,9 +156,9 @@ U kunt de **Test Analyzer bewerking** in de [REST-API](https://docs.microsoft.co
      "analyzer":"my_analyzer",
      "text": "Vis-à-vis means Opposite"
   }
-~~~~
+```
 **Antwoord**
-~~~~
+```
   {
     "tokens": [
       {
@@ -193,21 +187,21 @@ U kunt de **Test Analyzer bewerking** in de [REST-API](https://docs.microsoft.co
       }
     ]
   }
- ~~~~
+```
 
- ## <a name="update-a-custom-analyzer"></a>Een aangepaste analysefunctie bijwerken
+ ## <a name="update-custom-analyzers"></a>Analysevoorzieningen bijwerken
 
 Zodra een analyzer, een tokenizer, een token filter of een char-filter is gedefinieerd, kan niet worden gewijzigd. Nieuwe waarden kunnen worden toegevoegd aan een bestaande index alleen als de `allowIndexDowntime` vlag is ingesteld op ' True ' in de aanvraag van de update index:
 
-~~~~
+```
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true
-~~~~
+```
 
 Met deze bewerking duurt voordat uw index offline ten minste een paar seconden, waardoor uw verzoeken, indexeren en query's mislukken. Prestaties en schrijven van de beschikbaarheid van de index kan worden gehinderd voor enkele minuten nadat de index bijgewerkt of langer voor zeer grote indexen is, maar deze effecten zijn tijdelijk en uiteindelijk op hun eigen oplossen.
 
  <a name="ReferenceIndexAttributes"></a>
 
-## <a name="index-attribute-reference"></a>De kenmerkverwijzing index
+## <a name="analyzer-reference"></a>Naslaginformatie over de Analyzer
 
 De onderstaande tabellen lijst van de configuratie-eigenschappen voor de analyzers, tokenizers, token filters en char filter-sectie van de indexdefinitie van een. De structuur van een analyzer, tokenizer, of -filter in de index is samengesteld uit deze kenmerken. Zie voor meer informatie de toewijzing van waarde de [eigenschapverwijzing](#PropertyReference).
 
@@ -289,7 +283,7 @@ Deze sectie bevat de geldige waarden voor kenmerken die zijn opgegeven in de def
 |[Stoppen](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/StopAnalyzer.html)|StopAnalyzer|Tekst met een niet-letters deelt, de kleine en stopwoord token filters toegepast.<br /><br /> **Opties**<br /><br /> stopwoorden (type: string-matrix)-een lijst met stopwoorden. De standaardwaarde is een vooraf gedefinieerde lijst voor Engels. |  
 |[whitespace](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html)|(type geldt alleen wanneer opties zijn beschikbaar) |Een analyzer die gebruikmaakt van het tokenizer witruimte. Tokens die langer dan 255 tekens zijn worden gesplitst.|  
 
- <sup>1</sup> analyzer typen worden altijd voorafgegaan in code met '#Microsoft.Azure.Search' zodat "PatternAnalyzer" daadwerkelijk zou worden opgegeven als '#Microsoft.Azure.Search.PatternAnalyzer'. We hebben het voorvoegsel voor beknopt alternatief verwijderd de, maar voorvoegsel is vereist in uw code. 
+ <sup>1</sup> analyzer typen worden altijd voorafgegaan in code met '#Microsoft.Azure.Search' zodat "PatternAnalyzer" daadwerkelijk zou worden opgegeven als '#Microsoft.Azure.Search.PatternAnalyzer'. We hebben het voorvoegsel voor beknoptheid verwijderd, maar het voorvoegsel is vereist in uw code. 
  
 De analyzer_type is alleen beschikbaar voor de analyzers die kunnen worden aangepast. Als er geen opties, zijn zoals het geval is met het sleutelwoord analyzer, is er geen bijbehorende #Microsoft.Azure.Search-type.
 
@@ -390,5 +384,5 @@ In de onderstaande tabel worden de token filters die zijn geïmplementeerd met b
 
 ## <a name="see-also"></a>Zie ook  
  [Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice/)   
- [Analyse in Azure Search > Voorbeelden](https://docs.microsoft.com/azure/search/search-analyzers#examples)    
+ [Analyse in Azure Search > Voorbeelden](search-analyzers.md#examples)    
  [Index maken &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  

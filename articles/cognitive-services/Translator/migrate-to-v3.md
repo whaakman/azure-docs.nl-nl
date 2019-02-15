@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 98d2d3a54ff2f0c4ef326f8aae26e5ba8845d603
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 04d7bfcf0527b490bc18f6d85977d899823d5e69
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882333"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301873"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text-API V2 naar V3-migratie
 
@@ -41,19 +41,19 @@ De volgende lijst met methoden V2 en V3 identificeert de API's waarmee u de func
 
 | V2-API-methode   | V3 API-compatibiliteit |
 |:----------- |:-------------|
-| Translate     | [Vertalen](reference/v3-0-translate.md)          |
-| TranslateArray      | [Vertalen](reference/v3-0-translate.md)        |
-| GetLanguageNames      | [Talen](reference/v3-0-languages.md)         |
-| GetLanguagesForTranslate     | [Talen](reference/v3-0-languages.md)       |
-| GetLanguagesForSpeak      | [Microsoft Speech-Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
-| Speak     | [Microsoft Speech-Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
-| Detect     | [Detecteren](reference/v3-0-detect.md)         |
-| DetectArray     | [Detecteren](reference/v3-0-detect.md)         |
-| AddTranslation     | [Hub van Microsoft Translator-API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
-| AddTranslationArray    | [Hub van Microsoft Translator-API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
-| BreakSentences      | [BreakSentence](reference/v3-0-break-sentence.md)       |
-| GetTranslations      | Functie is niet meer ondersteund.         |
-| GetTranslationsArray      | Functie is niet meer ondersteund.         |
+| `Translate`     | [Vertalen](reference/v3-0-translate.md)          |
+| `TranslateArray`      | [Vertalen](reference/v3-0-translate.md)        |
+| `GetLanguageNames`      | [Talen](reference/v3-0-languages.md)         |
+| `GetLanguagesForTranslate`     | [Talen](reference/v3-0-languages.md)       |
+| `GetLanguagesForSpeak`      | [Microsoft Speech-Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
+| `Speak`     | [Microsoft Speech-Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| `Detect`     | [Detecteren](reference/v3-0-detect.md)         |
+| `DetectArray`     | [Detecteren](reference/v3-0-detect.md)         |
+| `AddTranslation`     | [Hub van Microsoft Translator-API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
+| `AddTranslationArray`    | [Hub van Microsoft Translator-API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
+| `BreakSentences`      | [BreakSentence](reference/v3-0-break-sentence.md)       |
+| `GetTranslations`      | Functie is niet meer ondersteund.         |
+| `GetTranslationsArray`      | Functie is niet meer ondersteund.         |
 
 ## <a name="move-to-json-format"></a>Verplaatsen naar JSON-indeling
 
@@ -75,12 +75,12 @@ De prijs van Microsoft Translator V3 wordt berekend op dezelfde manier als die v
 
 | V3-methode   | Tekens meegeteld voor facturering |
 |:----------- |:-------------|
-| Languages     | Er is geen tekens verzonden, geen geteld, er zijn geen kosten in rekening gebracht.          |
-| Translate     | Aantal is gebaseerd op het aantal tekens worden verzonden voor vertaling en het aantal talen de tekens worden vertaald. 50 tekens verzonden wordt, en 5 talen aangevraagd 50 x 5.           |
-| Transliterate     | Aantal tekens dat is ingediend voor vele worden geteld.         |
-| Dictionary lookup & example     | Aantal tekens dat is ingediend voor Dictionary lookup en voorbeelden worden geteld.         |
-| BreakSentence     | Er zijn geen kosten in rekening gebracht.       |
-| Detect     | Er zijn geen kosten in rekening gebracht.      |
+| `Languages`     | Er is geen tekens verzonden, geen geteld, er zijn geen kosten in rekening gebracht.          |
+| `Translate`     | Aantal is gebaseerd op het aantal tekens worden verzonden voor vertaling en het aantal talen de tekens worden vertaald. 50 tekens verzonden wordt, en 5 talen aangevraagd 50 x 5.           |
+| `Transliterate`     | Aantal tekens dat is ingediend voor vele worden geteld.         |
+| `Dictionary lookup & example`     | Aantal tekens dat is ingediend voor Dictionary lookup en voorbeelden worden geteld.         |
+| `BreakSentence`     | Er zijn geen kosten in rekening gebracht.       |
+| `Detect`     | Er zijn geen kosten in rekening gebracht.      |
 
 ## <a name="v3-end-points"></a>V3-eindpunten
 
@@ -88,22 +88,21 @@ Wereldwijd
 
 * api.cognitive.microsofttranslator.com
 
-
 ## <a name="v3-api-text-translations-methods"></a>V3 API tekst vertalingen-methoden
 
-[Talen](reference/v3-0-languages.md)
+[`Languages`](reference/v3-0-languages.md)
 
-[Vertalen](reference/v3-0-translate.md)
+[`Translate`](reference/v3-0-translate.md)
 
-[Transliteratie](reference/v3-0-transliterate.md)
+[`Transliterate`](reference/v3-0-transliterate.md)
 
-[BreakSentence](reference/v3-0-break-sentence.md)
+[`BreakSentence`](reference/v3-0-break-sentence.md)
 
-[Detecteren](reference/v3-0-detect.md)
+[`Detect`](reference/v3-0-detect.md)
 
-[Woordenlijst/opzoeken](reference/v3-0-dictionary-lookup.md)
+[`Dictionary/lookup`](reference/v3-0-dictionary-lookup.md)
 
-[Woordenlijst/voorbeeld](reference/v3-0-dictionary-examples.md)
+[`Dictionary/example`](reference/v3-0-dictionary-examples.md)
 
 ## <a name="compatibility-and-customization"></a>Compatibiliteit en aanpassen
 
@@ -132,7 +131,6 @@ U gebruikt versie 3 van de Translator Text-API als u het eindpunt api.cognitive.
 * U gebruikt versie 2 van de Translator Text-API als u het eindpunt api.microsofttranslator.com.
 
 Er is geen versie van de API van Translator maakt een record van uw vertalingen. De vertalingen zijn nooit met niemand gedeeld. Meer informatie over de [Translator niet traceren](http://www.aka.ms/NoTrace) webpagina.
-
 
 ## <a name="links"></a>Koppelingen
 

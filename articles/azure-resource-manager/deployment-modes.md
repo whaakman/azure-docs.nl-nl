@@ -11,24 +11,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: f3ca140fd8606f60a07b71db32cf2d3987ed7860
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: bc28349e1bfc935ac8298f991575c1e0cb42d38c
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233596"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56299224"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager-implementatiemodi
 
 Bij het implementeren van uw resources, kunt u opgeven dat de implementatie een incrementele update of een volledige update is.  Het belangrijkste verschil tussen deze twee modi is hoe Resource Manager omgaat met bestaande resources in de resourcegroep die zich niet in de sjabloon. De standaardmodus is incrementeel.
 
-Alleen de sjablonen op hoofdniveau ondersteunen de volledige implementatie-modus. Voor [gekoppeld of geneste sjablonen](resource-group-linked-templates.md), moet u incrementeel modus. 
-
-## <a name="incremental-and-complete-deployments"></a>Incrementele en volledige implementaties
-
 Voor beide modi wordt geprobeerd de Resource Manager om alle resources die zijn opgegeven in de sjabloon te maken. Als de resource al in de resourcegroep bestaat en de instellingen niet gewijzigd zijn, wordt geen bewerking uitgevoerd voor die bron. Als u de waarden van de eigenschappen voor een bron wijzigt, worden de resource wordt bijgewerkt met de nieuwe waarden. Als u probeert om bij te werken van de locatie of het type van een bestaande resource, mislukt de implementatie met een fout. In plaats daarvan implementeert u een nieuwe resource met de locatie of typ dat u nodig hebt.
 
+## <a name="complete-mode"></a>Volledige modus
+
 In de volledige modus Resource Manager **verwijdert** resources die aanwezig zijn in de resourcegroep, maar niet zijn opgegeven in de sjabloon. Resources die zijn opgegeven in de sjabloon, maar niet geïmplementeerd omdat een [voorwaarde](resource-manager-templates-resources.md#condition) wordt geëvalueerd als onwaar, worden niet verwijderd.
+
+Er zijn enkele verschillen in hoe resourcetypen omgaan met volledige modus verwijderingen. Bovenliggende resources worden automatisch verwijderd wanneer het niet in een sjabloon die in de modus voor volledig geïmplementeerd. Sommige onderliggende resources worden niet automatisch verwijderd als deze niet in de sjabloon. Deze onderliggende resource worden echter verwijderd als de bovenliggende resource wordt verwijderd. 
+
+Bijvoorbeeld, als uw resourcegroep bevat een DNS-zone (resourcetype Microsoft.Network/dnsZones) en een CNAME-record (resourcetype Microsoft.Network/dnsZones/CNAME), is de DNS-zone de bovenliggende resource voor de CNAME-record. Als u met de volledige modus implementeert en de DNS-zone niet in uw sjabloon opnemen, de DNS-zone en de CNAME-record worden beide verwijderd. Als de DNS-zone opnemen in uw sjabloon, maar de CNAME-record niet opnemen, de CNAME is niet verwijderd. 
+
+Zie voor een overzicht van hoe resourcetypen omgaan met verwijdering, [verwijdering van de Azure-resources voor volledige modus implementaties](complete-mode-deletion.md).
+
+> [!NOTE]
+> Alleen de sjablonen op hoofdniveau ondersteunen de volledige implementatie-modus. Voor [gekoppeld of geneste sjablonen](resource-group-linked-templates.md), moet u incrementeel modus. 
+>
+
+## <a name="incremental-mode"></a>Incrementele modus
 
 In de Resource Manager-incrementele modus **blijft ongewijzigd** resources die aanwezig zijn in de resourcegroep, maar niet zijn opgegeven in de sjabloon. Wanneer u opnieuw wilt implementeren op een resource in de modus voor incrementele, geeft u alle eigenschapswaarden voor de resource, niet alleen de resources die u bijwerkt. Als u bepaalde eigenschappen niet opgeeft, wordt de update als deze waarden worden overschreven door Resource Manager geïnterpreteerd.
 

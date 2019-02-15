@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: bwren
-ms.openlocfilehash: f2c4939436db5ae4c862cb311cc66a162ac716e3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c59ef72f6e836b9cdf6899d917701555fc5e1988
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989243"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268765"
 ---
 # <a name="azure-monitor-log-queries"></a>Azure Monitor logboeken-query 's
-Logboeken in Azure Monitor zijn gebouwd op Azure Data Explorer en logboeken-query's van Azure Monitor gebruikt een versie van dezelfde querytaal. De [query language-documentatie Azure Data Explorer](/azure/kusto/query) heeft alle van de details voor de taal en moet de primaire bron voor het schrijven van Azure Monitor logboeken-query's. Deze pagina bevat koppelingen naar andere bronnen voor het leren over het schrijven van query's en over de verschillen met de Azure Monitor-implementatie van de taal.
+Logboeken in Azure Monitor zijn gebouwd op Azure Data Explorer en logboeken-query's van Azure Monitor gebruikt een versie van dezelfde Kusto-query-taal. De [query language-documentatie Azure Data Explorer](/azure/kusto/query) heeft alle van de details voor de taal en moet de primaire bron voor het schrijven van Azure Monitor logboeken-query's. Deze pagina bevat koppelingen naar andere bronnen voor het leren over het schrijven van query's en over de verschillen met de Azure Monitor-implementatie van de taal.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -36,8 +36,8 @@ Logboeken in Azure Monitor zijn gebouwd op Azure Data Explorer en logboeken-quer
 
 ## <a name="reference"></a>Referentie
 
-- [Query language reference](/azure/kusto/query) is de volledige Naslaggids voor de querytaal van Data Explorer.
-- [Azure Monitor log-query language verschillen](data-explorer-difference.md) worden de verschillen tussen versies van de querytaal van Data Explorer beschreven.
+- [Query language reference](/azure/kusto/query) is de volledige Naslaggids voor de Kusto-query-taal.
+- [Azure Monitor log-query language verschillen](data-explorer-difference.md) beschrijving van de verschillen tussen versies van de Kusto-query-taal.
 - [Standaard-eigenschappen in Azure Monitor logboekregistratie van records](../../azure-monitor/platform/log-standard-properties.md) bevat eigenschappen die standaard voor alle Azure Monitor-logboekgegevens zijn.
 - [Meerdere bronnen logboeken-query's uitvoeren in Azure Monitor](../../azure-monitor/log-query/cross-workspace-query.md) wordt beschreven hoe u Logboeken-query's die gebruikmaken van gegevens uit meerdere Log Analytics-werkruimten en Application Insights-toepassingen schrijven.
 
@@ -65,4 +65,4 @@ Logboeken in Azure Monitor zijn gebouwd op Azure Data Explorer en logboeken-quer
  
 ## <a name="next-steps"></a>Volgende stappen
 
-- Toegang tot de volledige [referentiedocumentatie voor de Data Explorer-querytaal](/azure/kusto/query/).
+- Toegang tot de volledige [referentiedocumentatie voor de Kusto-query-taal](/azure/kusto/query/).

@@ -6,21 +6,21 @@ author: HeidiSteen
 manager: cgronlun
 ms.service: search
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 55de72b2a82dea3dfe763d786966565beb229042
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 1d9dffe9d311674aeb043fcc4c35110775f420af
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53745088"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300802"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Het opnieuw opbouwen van een Azure Search-index
 
 In dit artikel wordt uitgelegd hoe u een Azure Search-index, de omstandigheden waaronder opnieuw worden opgebouwd vereist zijn en aanbevelingen voor het oplossen van de impact van opnieuw op te bouwen op actieve queryaanvragen opnieuw.
 
-Een *opnieuw* te verwijderen en opnieuw maken van de fysieke gegevensstructuren die zijn gekoppeld aan een index, met inbegrip van alle omgekeerde indexen op basis van het veld verwijst. U kunt geen in Azure Search, verwijderen en opnieuw maken van specifieke velden. Als u wilt een index opnieuw maken, moet alle veld opslag worden verwijderd, opnieuw worden gemaakt op basis van een bestaande of nieuwe indexschema en vervolgens opnieuw worden gevuld met gegevens naar de index gepusht of opgehaald uit externe bronnen. Is het gebruikelijk dat indexen opnieuw samenstellen tijdens de ontwikkeling, maar mogelijk moet u ook opnieuw opbouwen van een index van de productie-niveau om te voldoen aan de structurele wijzigingen, zoals het toevoegen van complexe typen.
+Een *opnieuw* te verwijderen en opnieuw maken van de fysieke gegevensstructuren die zijn gekoppeld aan een index, met inbegrip van alle omgekeerde indexen op basis van het veld verwijst. U kunt geen in Azure Search, verwijderen en opnieuw maken van afzonderlijke velden. Als u wilt een index opnieuw maken, moet alle veld opslag worden verwijderd, opnieuw worden gemaakt op basis van een bestaande of nieuwe indexschema en vervolgens opnieuw worden gevuld met gegevens naar de index gepusht of opgehaald uit externe bronnen. Is het gebruikelijk dat indexen opnieuw samenstellen tijdens de ontwikkeling, maar mogelijk moet u ook opnieuw opbouwen van een index van de productie-niveau om te voldoen aan de structurele wijzigingen, zoals het toevoegen van complexe typen of het toevoegen van velden aan suggesties.
 
 In tegenstelling tot opnieuw op te bouwen die offline nemen van een index *gegevensvernieuwing* wordt uitgevoerd als een achtergrondtaak. U kunt toevoegen, verwijderen en vervang documenten met minimale verstoring voor querywerkbelastingen, hoewel query's doorgaans het langer duren om. Zie voor meer informatie over het bijwerken van inhoud indexeren [documenten toevoegen, bijwerken of verwijderen](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
@@ -28,7 +28,9 @@ In tegenstelling tot opnieuw op te bouwen die offline nemen van een index *gegev
 
 | Voorwaarde | Description |
 |-----------|-------------|
-| De velddefinitie van een wijzigen | Een naam, gegevenstype of specifieke herziening [indexkenmerken](https://docs.microsoft.com/rest/api/searchservice/create-index) (doorzoekbaar Filterbaar, sorteerbaar, geschikt voor facetten) is vereist voor een volledig opnieuw is gebouwd. |
+| De velddefinitie van een wijzigen | Wijzigen van een veldnaam, gegevenstype of specifieke [indexkenmerken](https://docs.microsoft.com/rest/api/searchservice/create-index) (doorzoekbaar Filterbaar, sorteerbaar, geschikt voor facetten) is vereist voor een volledig opnieuw is gebouwd. |
+| Een analyzer aan een veld toe te voegen | [Analyzers](search-analyzers.md) zijn gedefinieerd in een index en vervolgens toegewezen aan velden. U kunt een analyzer toevoegen aan een index op elk gewenst moment, maar u kunt alleen een analyzer toewijzen als het veld wordt gemaakt. Dit geldt voor zowel de **analyzer** en **indexAnalyzer** eigenschappen. De **searchAnalyzer** eigenschap is een uitzondering.
+| Een veld toevoegt aan een suggestie | Als er al een veld bestaat en u wilt toevoegen aan een [suggesties](index-add-suggesters.md) maken, moet u de index opnieuw opbouwen. |
 | Verwijderen van een veld | Als u wilt fysiek verwijdert alle traceringen van een veld, die u moet de index opnieuw opbouwen. Wanneer een direct opnieuw opbouwen niet praktijken, wijzig de meeste ontwikkelaars toepassingscode om uit te schakelen toegang tot het veld 'verwijderd'. Fysiek, blijven de velddefinitie van het en de inhoud in de index tot het volgende opnieuw bouwen met behulp van een schema dat het veld wordt weggelaten in kwestie. |
 | Schakelen tussen lagen | Als u meer capaciteit nodig hebt, is er geen in-place upgrade. Een nieuwe service wordt gemaakt op het moment dat nieuwe capaciteit en indexen helemaal moeten worden gebouwd op de nieuwe service. |
 
@@ -36,10 +38,10 @@ Andere wijzigingen kan worden gemaakt zonder gevolgen voor bestaande fysieke str
 
 + Een nieuw veld toevoegen
 + Stel de **ophalen mogelijk** kenmerk voor een bestaand veld
-+ Een analyzer instellen op een bestaand veld
++ Stel een **searchAnalyzer** op een bestaand veld
++ Toevoegen, bijwerken of verwijderen van een analyzer-constructie in een index
 + Toevoegen, bijwerken of verwijderen van scoreprofielen
 + Toevoegen, bijwerken of verwijderen van CORS-instellingen
-+ Toevoegen, bijwerken of verwijderen van suggesties
 + Toevoegen, bijwerken of verwijderen van synonymMaps
 
 Wanneer u een nieuw veld toevoegt, worden bestaande geïndexeerde documenten een null-waarde opgegeven voor het nieuwe veld. Waarden van gegevens van de externe bron vervangen in een toekomstige gegevensvernieuwing, de null-waarden toegevoegd door Azure Search.
@@ -76,7 +78,7 @@ Machtigingen voor lezen / schrijven op niveau van de service zijn vereist voor i
 
 5. [Laden van de index met documenten](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) vanuit een externe bron. U kunt deze API ook gebruiken als u een bestaande, ongewijzigd indexschema met bijgewerkte documenten vernieuwt.
 
-Wanneer u de index maakt, wordt voor elk veld in het indexschema fysieke opslag toegewezen met een omgekeerde index gemaakt voor elk doorzoekbaar veld. Velden zijn niet doorzoekbaar kunnen worden gebruikt in filters of expressies, maar kan geen omgekeerde indexen en zijn niet volledige tekst kan worden doorzocht. Op een indexen deze omgekeerde indexen worden verwijderd en opnieuw gemaakt op basis van het indexschema dat u opgeeft.
+Wanneer u de index maakt, wordt voor elk veld in het indexschema fysieke opslag toegewezen met een omgekeerde index gemaakt voor elk doorzoekbaar veld. Velden die niet kan worden doorzocht kan worden gebruikt in filters of expressies, maar kan geen omgekeerde indexen en zijn geen volledige-tekstindex of fuzzy zijn doorzoekbaar. Op een indexen deze omgekeerde indexen worden verwijderd en opnieuw gemaakt op basis van het indexschema dat u opgeeft.
 
 Wanneer u de index laadt, wordt van elk veld omgekeerde index wordt gevuld met alle van de unieke, tokens woorden uit met een toewijzing aan de bijbehorende document-id's van elk document. Bijvoorbeeld, wanneer een gegevensset hotels indexeren, kan een omgekeerde index gemaakt voor een plaatsveld termen bevatten voor Seattle, Portland, enzovoort. Documenten die Seattle of Portland in het veld Plaats opnemen moet de document-ID weergegeven samen met de term. Op een [toevoegen, bijwerken of verwijderen](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) bewerking, de voorwaarden en de lijst met document-ID worden dienovereenkomstig bijgewerkt.
 

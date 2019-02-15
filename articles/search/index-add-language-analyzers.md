@@ -1,7 +1,7 @@
 ---
 title: Taalanalyse - Azure Search toevoegen
 description: Van meerdere talen lexicale tekstanalyse voor niet-Engelse query's en indexen in Azure Search.
-ms.date: 01/31/2019
+ms.date: 02/14/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,20 +19,20 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b5c562994c169a8c5d51ee31a9606c5c40162603
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: bb7fbdeea9c19b8a6fabe06687261296110b4064
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008333"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301799"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Taalanalyse toevoegen aan een Azure Search-index
 
-Een *taalanalyse* is van een specifiek onderdeel van een [zoeken in volledige tekst engine](https://docs.microsoft.com/azure/search/search-lucene-query-architecture) die voert lexicale analyse uit met behulp van de linguïstische regels van de doel-taal. Elke doorzoekbaar veld heeft een `analyzer` eigenschap. Als uw index vertaalde tekenreeksen, zoals afzonderlijke velden voor Engels en Chinese bevat, kunt u taalanalyse opgeven voor elk veld voor toegang tot de uitgebreide linguïstische mogelijkheden van deze analyse.  
+Een *taalanalyse* is van een specifiek type [tekst analyzer](search-analyzers.md) die voert lexicale analyse uit met behulp van de linguïstische regels van de doel-taal. Elke doorzoekbaar veld heeft een **analyzer** eigenschap. Als uw index vertaalde tekenreeksen, zoals afzonderlijke velden voor Engels en Chinese bevat, kunt u taalanalyse opgeven voor elk veld voor toegang tot de uitgebreide linguïstische mogelijkheden van deze analyse.  
 
 Azure Search biedt ondersteuning voor 35 analyzers die worden ondersteund door Lucene en 50 analyzers die worden ondersteund door een eigen Microsoft verwerking van natuurlijke taal technologie die wordt gebruikt in Office en Bing.
 
-## <a name="compare-language-analyzer-types"></a>Taal analyzer typen vergelijken 
+## <a name="comparing-analyzers"></a>Vergelijking van de analyzers
 
 Sommige ontwikkelaars liever met de oplossing meer vertrouwde, eenvoudige, open-source van Lucene. Lucene-taalanalyse sneller zijn, maar de analyzers Microsoft zijn geavanceerde mogelijkheden, zoals lemmatisering, word decompounding (in talen zoals Duits, Deens, Nederlands, Zweeds, Noors, Ests, voltooien, Hongaars, Slowakije) en de entiteit herkenning (URL's, e-mailberichten, datums, getallen). Indien mogelijk moet u vergelijkingen van de Microsoft- en Lucene analyzers om te bepalen welke is beter geschikt uitvoeren. 
 
@@ -49,15 +49,17 @@ De standaard-analyzer is standaard Lucene, dat goed voor Engels, maar misschien 
  > [!Tip]
  > De [Search Analyzer-Demo](https://alice.unearth.ai/) side-by-side-vergelijking van de resultaten van de standaard Lucene analyzer, de Engelse taal-analysefunctie van Lucene en Microsofts Engelse natuurlijke taal processor biedt. Voor elke invoer zoeken opgeeft u, resultaten van elke analyzer worden weergegeven in de aangrenzende deelvensters.
 
-## <a name="analyzer-configuration"></a>Configuration Analyzer
+## <a name="configuring-analyzers"></a>Analyzers configureren
 
-Voor elk veld in het definitie van de index, kunt u instellen de `analyzer` eigenschap in op de naam van een analyzer die welke taal en de leverancier aangeeft. De dezelfde analyzer worden toegepast wanneer het indexeren en zoeken naar dat veld. U kunt bijvoorbeeld afzonderlijke velden voor Engels, Frans en Spaans hotel beschrijvingen die naast elkaar bestaan in dezelfde index hebben.  
+Taalanalysefuncties worden gebruikt als-is. Voor elk veld in het definitie van de index, kunt u instellen de **analyzer** eigenschap in op de naam van een analyzer die welke taal en de leverancier aangeeft. De dezelfde analyzer worden toegepast wanneer het indexeren en zoeken naar dat veld. U kunt bijvoorbeeld afzonderlijke velden voor Engels, Frans en Spaans hotel beschrijvingen die naast elkaar bestaan in dezelfde index hebben.  
 
 Gebruik de **searchFields** queryparameter om op te geven welk veld taalspecifieke om te zoeken op basis van uw query's. Voorbeelden van met de eigenschap analyzer in documenten zoeken, kunt u bekijken. 
 
 Zie voor meer informatie over de Indexeigenschappen van de [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index). Zie voor meer informatie over analyse in Azure Search [analyse in Azure Search](https://docs.microsoft.com/azure/search/search-analyzers).
 
-## <a name="analyzer-list"></a>Lijst met Analyzer  
+<a name="language-analyzer-list"></a>
+
+## <a name="language-analyzer-list"></a>Lijst van de analyzer taal 
  Hieronder vindt u de lijst met ondersteunde talen, samen met de namen van Lucene en Microsoft analyzer.  
 
 |Taal|De naam van de Microsoft Analyzer|Lucene Analyzer Name|  

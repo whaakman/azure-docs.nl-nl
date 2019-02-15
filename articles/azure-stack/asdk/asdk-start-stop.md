@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/14/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 0073427028d20ab969b8d0135b1c831d7fdf8c73
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b821c5cfa0dd9ea605d0d0a73e0b98a64a7502b7
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191963"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268648"
 ---
 # <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>Starten en stoppen van de Azure Stack Development Kit (ASDK)
 Het verdient aanbeveling niet gewoon de hostcomputer ASDK opnieuw te starten. In plaats daarvan moet u de procedures in dit artikel voor het correct afsluiten en opnieuw opstarten van services ASDK volgen. 
@@ -29,7 +29,7 @@ Het verdient aanbeveling niet gewoon de hostcomputer ASDK opnieuw te starten. In
 ## <a name="stop-azure-stack"></a>Stop Azure Stack 
 Als u wilt op Azure Stack-services en de hostcomputer ASDK correct wordt afgesloten, gebruik de volgende PowerShell-opdrachten:
 
-1. Meld u als AzureStack\CloudAdmin op de hostcomputer ASDK.
+1. Meld u als AzureStack\AzureStackAdmin op de hostcomputer ASDK.
 2. Open PowerShell als beheerder (niet PowerShell ISE).
 3. Voer de volgende opdrachten een bevoegde eindpunt (PEP)-sessie tot stand brengen: 
 
@@ -49,7 +49,7 @@ ASDK services automatisch moeten worden gestart wanneer de computer wordt gestar
 Ongeacht hoe de ASDK is afgesloten, moet u de volgende stappen uit om te controleren of alle Azure Stack-services zijn gestart en volledig operationeel nadat de computer wordt ingeschakeld: 
 
 1. De stroom op de hostcomputer ASDK. 
-2. Meld u als AzureStack\CloudAdmin op de hostcomputer ASDK.
+2. Meld u als AzureStack\AzureStackAdmin op de hostcomputer ASDK.
 3. Open PowerShell als beheerder (niet PowerShell ISE).
 4. Voer de volgende opdrachten een bevoegde eindpunt (PEP)-sessie tot stand brengen:
 
@@ -68,7 +68,7 @@ Zie voor meer informatie over de aanbevolen procedures voor het correct afsluite
 ## <a name="troubleshoot-startup-and-shutdown"></a>Problemen oplossen met opstarten en afsluiten 
 Deze stappen uitvoert als Azure Stack-services is niet binnen twee uur nadat u op de hostcomputer ASDK power gestart:
 
-1. Meld u als AzureStack\CloudAdmin op de hostcomputer ASDK.
+1. Meld u als AzureStack\AzureStackAdmin op de hostcomputer ASDK.
 2. Open PowerShell als beheerder (niet PowerShell ISE).
 3. Voer de volgende opdrachten een bevoegde eindpunt (PEP)-sessie tot stand brengen:
 

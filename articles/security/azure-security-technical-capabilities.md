@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: c94a078e77f1e3e5b70d2d95016b8417fe2172d5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: e7f8eef2c3422084846462e2f6159a8b8be7167f
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118476"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301822"
 ---
 # <a name="azure-security-technical-capabilities"></a>Technische mogelijkheden van Azure-beveiliging
 
@@ -462,7 +462,7 @@ Controle van de netwerkbeveiliging van uw is het essentieel is voor het netwerk 
 
 ### <a name="application-insights"></a>Application Insights
 
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is een uitbreidbare service voor Application Performance Management (APM) voor webontwikkelaars op meerdere platforms. Hiermee kunt u uw livewebtoepassing controleren. Afwijkende prestaties worden automatisch gedetecteerd. Het bevat krachtige analysehulpmiddelen om te helpen u problemen identificeren en te begrijpen wat gebruikers doen met uw app. Het is bedoeld om u te helpen de prestaties en bruikbaarheid continu te verbeteren. Het werkt voor apps op uiteenlopende platforms, waaronder .NET, Node.js en J2EE, on-premises of in de cloud gehost. Het kan worden geïntegreerd met uw devOps-proces en bevat verbindingspunten naar een verschillende hulpprogramma's voor ontwikkeling.
+[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is een uitbreidbare service voor Application Performance Management (APM) voor webontwikkelaars op meerdere platforms. Hiermee kunt u uw livewebtoepassing controleren. Afwijkende prestaties worden automatisch gedetecteerd. Het bevat krachtige analysehulpmiddelen om te helpen u problemen identificeren en te begrijpen wat gebruikers doen met uw app. Het is bedoeld om u te helpen de prestaties en bruikbaarheid continu te verbeteren. Dit werkt voor apps on-premises gehost op een groot aantal verschillende platformen, waaronder .NET, Node.js en Java EE, of in de cloud. Het kan worden geïntegreerd met uw devOps-proces en bevat verbindingspunten naar een verschillende hulpprogramma's voor ontwikkeling.
 
 Met deze service kunt u het volgende controleren:
 

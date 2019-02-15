@@ -1,30 +1,31 @@
 ---
-title: Pagina items op een pagina met zoekresultaten - Azure Search
-description: Paginering in Azure Search, een gehoste cloud search-service op Microsoft Azure.
+title: Over het werken met zoekresultaten - Azure Search
+description: Structuur en zoekresultaten sorteren, een documentaantal ophalen en inhoud navigatie zoekresultaten in Azure Search toevoegen.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
-ms.devlang: rest-api
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/29/2016
+ms.date: 02/14/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5f36dbb72e2518f7e3a27ef3aadec85312d751c2
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8cf65f0ed3ecd5c9a86d6adcdd5defd930522f85
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309308"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301550"
 ---
-# <a name="how-to-page-search-results-in-azure-search"></a>Pagina's met zoekresultaten maken in Azure Search
-Dit artikel bevat richtlijnen over het gebruik van de Azure Search Service REST API voor het implementeren van standaardelementen van een pagina met zoekresultaten, zoals het totale aantal, document ophalen, sorteervolgorde en navigatie.
+# <a name="how-to-work-with-search-results-in-azure-search"></a>Over het werken met zoeken resulteert in Azure Search
+Dit artikel bevat richtlijnen over het implementeren van standard elementen van een pagina met zoekresultaten, zoals het totale aantal, document ophalen, sorteervolgorde en navigatie. Opties voor pagina's gerelateerde die of gegevens naar uw zoekresultaten bijdragen worden opgegeven via de [Document doorzoeken](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) aanvragen naar uw Azure Search-Service verzonden. 
 
-In elk geval die hieronder worden vermeld, opties voor pagina's gerelateerde die of gegevens naar de pagina met zoekresultaten bijdragen worden opgegeven via de [Document doorzoeken](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) aanvragen naar uw Azure Search-Service verzonden. Aanvragen bevatten een GET-opdracht, pad, en queryparameters die de service wat wordt aangevraagd informeren en hoe u het antwoord te formuleren.
+In de REST-API bevatten aanvragen een GET-opdracht, pad, en queryparameters die de service wat wordt aangevraagd informeren en hoe u het antwoord te formuleren. In de .NET SDK, de equivalente API is [DocumentSearchResult klasse](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult?view=azure-dotnet).
+
+Enkele voorbeelden van code bevatten een web front-interface, dat u hier kunt vinden: [New York City taken demo-app](http://azjobsdemo.azurewebsites.net/) en [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
-> Een geldige aanvraag bevat een aantal elementen, zoals een service-URL en het pad, HTTP-term `api-version`, enzovoort. Beknopt alternatief bijgesneden we in de voorbeelden om te markeren, alleen de syntaxis die relevant is voor paginering. Raadpleeg de [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice) documentatie voor meer informatie over de syntaxis van de aanvraag.
-> 
+> Een geldige aanvraag bevat een aantal elementen, zoals een service-URL en het pad, HTTP-term `api-version`, enzovoort. Beknopt alternatief bijgesneden we in de voorbeelden om te markeren, alleen de syntaxis die relevant is voor paginering. Zie voor meer informatie over de syntaxis van de aanvraag [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice). > 
 > 
 
 ## <a name="total-hits-and-page-counts"></a>Totaal aantal treffers en het aantal paginaweergaven
@@ -32,7 +33,7 @@ Met het totale aantal resultaten die door een query zijn geretourneerd, en vervo
 
 ![][1]
 
-In Azure Search, gebruikt u de `$count`, `$top`, en `$skip` parameters om deze waarden te retourneren. Het volgende voorbeeld toont een voorbeeld van een aanvraag voor totaal aantal treffers, geretourneerd als `@OData.count`:
+In Azure Search, gebruikt u de `$count`, `$top`, en `$skip` parameters om deze waarden te retourneren. Het volgende voorbeeld toont een voorbeeld van een aanvraag voor totaal aantal treffers op een index met de naam 'onlineCatalog", geretourneerd als `@OData.count`:
 
         GET /indexes/onlineCatalog/docs?$count=true
 
@@ -48,7 +49,7 @@ Resultaten pagineren vereist zowel `$top` en `$skip`, waarbij `$top` Hiermee gee
 
         GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=30&$count=true
 
-## <a name="layout"></a>Indeling
+## <a name="layout"></a>Layout
 Op een pagina met zoekresultaten, is het raadzaam om een miniatuurafbeelding, een subset van velden en een koppeling naar een product met volledig pagina weer te geven.
 
  ![][2]
@@ -70,7 +71,7 @@ Sorteervolgorde vaak standaard ingesteld op relevantie, maar het is gebruikelijk
 
  ![][3]
 
-In Azure Search sorteren is gebaseerd op de `$orderby` expressie, voor alle velden die zijn geïndexeerd als `"Sortable": true.`
+In Azure Search sorteren is gebaseerd op de `$orderby` expressie, voor alle velden die zijn geïndexeerd als `"Sortable": true.` een `$orderby` component is een OData-expressie. Zie voor meer informatie over de syntaxis van [syntaxis voor OData-expressie voor filters en order by-componenten](query-odata-filter-orderby-syntax.md).
 
 Relevantie is sterk aan scoreprofielen gekoppeld. Kunt u de standaard score, die is afhankelijk van de analyse van tekst en statistieken rangschikken op volgorde alle resultaten met hogere scores gaan documenten met sterkere of meer overeenkomsten op een zoekterm.
 
@@ -83,7 +84,7 @@ Maakt u een methode die de geselecteerde sorteeroptie als invoer accepteert en r
  ![][5]
 
 > [!NOTE]
-> Het standaard scoren is voldoende voor veel scenario's, wordt u aangeraden relevantie in plaats daarvan op een aangepaste scoringprofiel baseren. Een aangepaste scoringprofiel biedt een manier om meer nuttig zijn voor uw bedrijf boost-items. Zie [een scoringprofiel toevoegen](https://docs.microsoft.com/rest/api/searchservice/Add-scoring-profiles-to-a-search-index) voor meer informatie. 
+> Het standaard scoren is voldoende voor veel scenario's, wordt u aangeraden relevantie in plaats daarvan op een aangepaste scoringprofiel baseren. Een aangepaste scoringprofiel biedt een manier om meer nuttig zijn voor uw bedrijf boost-items. Zie [scoreprofielen toevoegen](index-add-scoring-profiles.md) voor meer informatie. 
 > 
 > 
 
@@ -91,7 +92,7 @@ Maakt u een methode die de geselecteerde sorteeroptie als invoer accepteert en r
 Zoeknavigatie is gebruikelijk is in een pagina met resultaten, vaak te vinden op de bovenkant van de pagina of. In Azure Search biedt facetnavigatie Self-directed search op basis van vooraf gedefinieerde filters. Zie [facetnavigatie in Azure Search](search-faceted-navigation.md) voor meer informatie.
 
 ## <a name="filters-at-the-page-level"></a>Filters op paginaniveau
-Als uw ontwerp van de oplossing opgenomen toegewezen zoekpagina's voor specifieke typen inhoud (bijvoorbeeld een detailhandel online toepassing die diensten die aan de bovenkant van de pagina worden vermeld heeft), kunt u een filterexpressie samen met een **onClick**gebeurtenis aan een pagina openen in een vooraf gefilterde status. 
+Als uw ontwerp van de oplossing opgenomen toegewezen zoekpagina's voor specifieke typen inhoud (bijvoorbeeld een detailhandel online toepassing die diensten die aan de bovenkant van de pagina worden vermeld heeft), kunt u een [filterexpressie](search-filters.md) naast een **onClick** gebeurtenis aan een pagina openen in een vooraf gefilterde status. 
 
 U kunt een filter met of zonder een zoekexpressie verzenden. De volgende aanvraag wordt bijvoorbeeld filteren op naam, alleen documenten die overeenkomen met het retourneren.
 

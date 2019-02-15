@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 02/11/2019
+ms.date: 02/13/2019
 ms.author: juliako
-ms.openlocfilehash: f9748d61b1aa336c5300dd414d53388f48a41368
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 8ad0efffc89a3c11f412d94b922401c23e84a3e5
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243982"
+ms.locfileid: "56268784"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Azure Event Grid-schema's voor Media Services-gebeurtenissen
 
@@ -42,7 +42,7 @@ U kunt registreren voor alle gebeurtenissen met een abonnement op de gebeurtenis
 | Microsoft.Media.JobCanceled| Een gebeurtenis wanneer de taak geannuleerd de status verandert in ophalen. Dit is een eindtoestand die uitvoer van de taak bevat.|
 | Microsoft.Media.JobErrored| Ophalen van een gebeurtenis wanneer de taak verandert in de foutstatus. Dit is een eindtoestand die uitvoer van de taak bevat.|
 
-[Voorbeelden van schema](#event-schema-examples) volgen.
+Zie [Schema voorbeelden](#event-schema-examples) onderstaande.
 
 ### <a name="monitoring-job-output-state-changes"></a>Bewakingstaak uitvoeren statuswijzigingen
 
@@ -56,7 +56,15 @@ U kunt registreren voor alle gebeurtenissen met een abonnement op de gebeurtenis
 | Microsoft.Media.JobOutputCanceled| Een gebeurtenis wanneer de taak uitvoerovergangen naar geannuleerd status ophalen.|
 | Microsoft.Media.JobOutputErrored| Ophalen van een gebeurtenis wanneer de taak uitvoer overgangen naar de foutstatus.|
 
-[Voorbeelden van schema](#event-schema-examples) volgen.
+Zie [Schema voorbeelden](#event-schema-examples) onderstaande.
+
+### <a name="monitoring-job-output-progress"></a>Bewakingstaak uitvoeren wordt uitgevoerd
+
+| Gebeurtenistype | Description |
+| ---------- | ----------- |
+| Microsoft.Media.JobOutputProgress| Deze gebeurtenis geeft de voortgang van 0% tot 100% verwerken taak. De service probeert een gebeurtenis wordt verzonden als er van 5 is sprake % of meer toename van de waarde die wordt uitgevoerd of deze meer dan 30 seconden sinds de laatste gebeurtenis (heartbeat is). De waarde van de voortgang is niet noodzakelijkerwijs om te beginnen bij 0%, of als u wilt bereiken 100%, noch deze gegarandeerd te verhogen met een constante snelheid na verloop van tijd. Deze gebeurtenis mag niet worden gebruikt om te bepalen dat de verwerking is voltooid, moet u in plaats daarvan de statuswijzigingsgebeurtenissen gebruiken.|
+
+Zie [Schema voorbeelden](#event-schema-examples) onderstaande.
 
 ## <a name="live-event-types"></a>Live gebeurtenistypen
 
@@ -72,7 +80,7 @@ Stream-niveau gebeurtenissen worden gegenereerd per stream of de verbinding. Elk
 | Microsoft.Media.LiveEventEncoderConnected | Coderingsprogramma maakt verbinding met live-gebeurtenis. |
 | Microsoft.Media.LiveEventEncoderDisconnected | Coderingsprogramma wordt verbroken. |
 
-[Voorbeelden van schema](#event-schema-examples) volgen.
+Zie [Schema voorbeelden](#event-schema-examples) onderstaande.
 
 ### <a name="track-level-events"></a>Gebeurtenissen bijhouden op toepassingsniveau
 
@@ -87,7 +95,7 @@ Gebeurtenissen bijhouden op toepassingsniveau worden gegenereerd per spoor. De t
 | Microsoft.Media.LiveEventIngestHeartbeat | Elke 20 seconden voor elk nummer gepubliceerd bij het uitvoeren van live-gebeurtenis. Biedt statussamenvatting opnemen. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | Media-server detecteert onderbreking in de binnenkomende bijhouden. |
 
-[Voorbeelden van schema](#event-schema-examples) volgen.
+Zie [Schema voorbeelden](#event-schema-examples) onderstaande.
 
 ## <a name="event-schema-examples"></a>Gebeurtenis schema-voorbeelden
 
@@ -245,6 +253,29 @@ Voor elke wijziging van de status JobOutput lijkt het voorbeeldschema op het vol
       "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+### <a name="joboutputprogress"></a>JobOutputProgress
+
+De voorbeeldschema ziet er ongeveer als volgt:
+
+ ```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/belohGroup/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/job-5AB6DE32",
+  "eventType": "Microsoft.Media.JobOutputProgress",
+  "eventTime": "2018-12-10T18:20:12.1514867",
+  "id": "00000000-0000-0000-0000-000000000000",
+  "data": {
+    "jobCorrelationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    },
+    "label": "VideoAnalyzerPreset_0",
+    "progress": 86
   },
   "dataVersion": "1.0",
   "metadataVersion": "1"

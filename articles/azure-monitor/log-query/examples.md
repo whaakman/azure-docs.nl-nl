@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor Azure Monitor log-queryvoorbeelden | Microsoft Docs
-description: Voorbeelden van Logboeken-query's in Azure Monitor met behulp van de querytaal van Data Explorer.
+title: Azure Monitor log-queryvoorbeelden | Microsoft Docs
+description: Voorbeelden van Logboeken-query's in Azure Monitor met behulp van de Kusto-query-taal.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
-ms.openlocfilehash: 81852590ec714c458ebf2ba2b714d0b20f0b873c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c161a2fd8d1be670435d2b1a749749cea7d82bcf
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993194"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268438"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Azure Monitor log-queryvoorbeelden
-In dit artikel bevat verschillende voorbeelden van [query's](log-query-overview.md) met behulp van de [Data Explorer-querytaal](https://docs.microsoft.com/azure/kusto/query/) om op te halen van verschillende soorten van logboekgegevens van Azure Monitor. Verschillende methoden worden gebruikt om te consolideren en analyseren van gegevens, zodat u deze voorbeelden gebruiken om verschillende strategieën die u voor uw eigen vereisten gebruiken kunt te identificeren.  
+In dit artikel bevat verschillende voorbeelden van [query's](log-query-overview.md) met behulp van de [Kusto-querytaal](/azure/kusto/query/) om op te halen van verschillende soorten van logboekgegevens van Azure Monitor. Verschillende methoden worden gebruikt om te consolideren en analyseren van gegevens, zodat u deze voorbeelden gebruiken om verschillende strategieën die u voor uw eigen vereisten gebruiken kunt te identificeren.  
 
 Zie de [Kusto-Naslaggids](https://docs.microsoft.com/azure/kusto/query/) voor meer informatie over de verschillende trefwoorden die in deze voorbeelden worden gebruikt. Doorloop een [les over het maken van query's](get-started-queries.md) als u geen ervaring met Azure Monitor.
 

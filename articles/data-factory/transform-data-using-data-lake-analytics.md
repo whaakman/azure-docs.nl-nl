@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: abnarain
-ms.openlocfilehash: 1874473b3ad091ce1da0a48367548cd4432737a2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9918dd55181eb82257f23f8974159ed5e762fedd
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016491"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268074"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Gegevens transformeren met U-SQL-scripts uitgevoerd op Azure Data Lake Analytics 
-> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](v1/data-factory-usql-activity.md)
 > * [Huidige versie](transform-data-using-data-lake-analytics.md)
 
@@ -39,7 +39,7 @@ De volgende tabel bevat beschrijvingen van de algemene eigenschappen in de JSON-
 | **type**                 | De eigenschap type moet worden ingesteld op: **AzureDataLakeAnalytics**. | Ja                                      |
 | **accountName**          | Azure Data Lake Analytics-accountnaam.  | Ja                                      |
 | **dataLakeAnalyticsUri** | Azure Data Lake Analytics-URI.           | Nee                                       |
-| **Abonnements-id**       | Azure-abonnement-ID                    | Nee                                       |
+| **subscriptionId**       | Azure-abonnement-ID                    | Nee                                       |
 | **resourceGroupName**    | Naam van Azure-resourcegroep                | Nee                                       |
 
 ### <a name="service-principal-authentication"></a>Verificatie van service-principal
@@ -131,7 +131,7 @@ De volgende tabel beschrijft de namen en beschrijvingen van eigenschappen die sp
 | runtimeVersion      | Runtime-versie van de U-SQL-engine te gebruiken. | Nee       |
 | compilationMode     | <p>Compilatiemodus van U-SQL. Moet een van deze waarden: **Semantische:** Alleen uitvoeren semantische controles en nodig bevestigingen, **volledige:** Uitvoeren van de volledige compilatie, met inbegrip van syntaxiscontrole, optimalisatie, genereren van code, enz., **SingleBox:** De volledige compilatie, met TargetType instelling SingleBox uitvoeren. Als u een waarde voor deze eigenschap niet opgeeft, betekent dit dat de server de optimale compilatiemodus bepaalt. | Nee |
 
-Data Factory verzendt de Zie [SearchLogProcessing.txt Script-definitie](#sample-u-sql-script) voor de script-definitie. 
+Zie [SearchLogProcessing.txt](#sample-u-sql-script) voor de script-definitie. 
 
 ## <a name="sample-u-sql-script"></a>Voorbeeld van een U-SQL script
 

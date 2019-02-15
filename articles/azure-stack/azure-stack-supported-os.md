@@ -16,12 +16,12 @@ ms.date: 12/27/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 8f53bbd65053fe9ac2bf49478944dc99dac3acfd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 67022b1d00c8982d7b6e6eff77ffb648bfc557ec
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247847"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301278"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Gastbesturingssystemen die worden ondersteund in Azure Stack
 
@@ -31,7 +31,7 @@ ms.locfileid: "55247847"
 
 Azure Stack biedt ondersteuning voor de Windows-gastbesturingssystemen die worden vermeld in de volgende tabel:
 
-| Besturingssysteem | Beschrijving | Beschikbaar in de Marketplace |
+| Besturingssysteem | Description | Beschikbaar in de Marketplace |
 | --- | --- | --- | --- | --- | --- |
 | Windows Server, version 1709 | 64-bits | Core met Containers |
 | Windows Server 2016 | 64-bits |  Datacenter, Datacenter-Core, Datacenter met Containers |
@@ -53,11 +53,11 @@ Datacenter-edities zijn beschikbaar in de marketplace voor het downloaden van; k
 Linux-distributies die worden vermeld als beschikbaar in de Marketplace bevatten de benodigde Windows Azure Linux Agent (WALA). Als u uw eigen installatiekopie met Azure Stack maken, volgt u de richtlijnen in [toevoegen Linux-installatiekopieën naar Azure Stack](azure-stack-linux.md).
 
 > [!NOTE]
-> Aangepaste installatiekopieën moeten worden gebouwd met de meest recente openbare WALA-versie. Versies ouder dan 2.2.18 werkt mogelijk niet juist in Azure Stack.
+> Aangepaste installatiekopieën moeten worden gebouwd met de meest recente versie voor openbare WALA of met versie 2.2.20. Versies ouder dan 2.2.20 en tussen 2.2.20 en 2.2.35 (exclusieve) werkt mogelijk niet juist in Azure Stack. 
 >
 > [cloud-init](https://cloud-init.io/) wordt niet ondersteund in Azure Stack op dit moment.
 
-| Distributie | Beschrijving | Uitgever | Marketplace |
+| Distributie | Description | Uitgever | Marketplace |
 | --- | --- | --- | --- | --- | --- |
 | Op basis van centOS 6,9 | 64-bits | Rogue Wave | Ja |
 | Op basis van centOS 7.4 | 64-bits | Rogue Wave | Ja |

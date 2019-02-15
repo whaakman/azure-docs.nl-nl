@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.subservice: common
-ms.openlocfilehash: 180780c3a3a644a8da0fa544c37bc8cd252c982f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 32c47233946dacf4e80a9ff3ba25388e1231d7c9
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469495"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301057"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Probleemoplossingsgids voor Azure Storage Explorer
 
@@ -28,7 +28,7 @@ Certificaatfouten worden veroorzaakt door een van de twee volgende situaties:
 1. De app is verbonden via een 'transparante proxy', wat betekent dat een server (zoals de bedrijfsserver van uw) is HTTPS-verkeer onderschept, ontsleutelt en vervolgens versleutelt met behulp van een zelfondertekend certificaat.
 2. U kunt een toepassing die in de HTTPS-berichten die u ontvangt een zelf-ondertekend SSL-certificaat injecteert worden uitgevoerd. Voorbeelden van toepassingen die certificaten invoeren bevat antivirusprogramma's en netwerk verkeer inspectie software.
 
-Wanneer Storage Explorer een zelf ondertekend ziet of niet-vertrouwd certificaat, kan het niet meer te weten of het ontvangen HTTPS-bericht is gewijzigd. Als u een kopie van de zelf-ondertekend certificaat hebt, kunt u Storage Explorer instrueren vertrouwen aan de hand van de volgende stappen uit:
+Wanneer Storage Explorer ziet een zelf-ondertekend of niet-vertrouwd certificaat, kan het niet meer te weten of het ontvangen HTTPS-bericht is gewijzigd. Als u een kopie van de zelf-ondertekend certificaat hebt, kunt u Storage Explorer instrueren vertrouwen aan de hand van de volgende stappen uit:
 
 1. Verkrijgen van een Base-64 gecodeerde X.509 (.cer)-exemplaar van het certificaat
 2. Klik op **bewerken** > **SSL-certificaten** > **certificaten importeren**, en vervolgens de bestandskiezer om te zoeken, selecteer en open het cer-bestand
@@ -53,6 +53,18 @@ Als u waar het certificaat vandaan komt weet, kunt u proberen deze stappen om te
 Als u geen zelfondertekende certificaten met behulp van de voorgaande stappen niet kunt vinden, contact met ons opnemen via het hulpprogramma feedback voor meer informatie. U kunt ook kunt u Storage Explorer starten vanuit de opdrachtregel met de `--ignore-certificate-errors` vlag. Wanneer met deze markering wordt gestart, zal de Storage Explorer certificaatfouten negeren.
 
 ## <a name="sign-in-issues"></a>Aanmeldingsproblemen
+
+### <a name="blank-sign-in-dialog"></a>Lege-aanmeldingsvenster In
+Lege sign in dialoogvensters worden meestal veroorzaakt door AD FS Storage Explorer waarin wordt gevraagd om uit te voeren een omleiding die wordt niet ondersteund door Electron. U kunt proberen om dit probleem te omzeilen apparaat Code Flow gebruiken voor aanmelding bij. Volg de volgende stappen om dit te doen:
+1. 'Ga naar experimentele'-"Apparaat Code-aanmelding gebruiken" >.
+2. Open het dialoogvenster voor verbinding maken (ofwel via de plug-pictogram in de linkerbenedenhoek verticale balk of 'Account toevoegen' in het venster account).
+3. Kies welke omgeving u wilt aanmelden bij.
+4. Klik op de 'aanmelden' knop.
+5. Volg de instructies in het volgende deelvenster.
+
+Als u merkt wilt hebt u problemen bij het aanmelden bij het account u gebruiken, omdat de standaardbrowser is al aangemeld bij een ander account, kunt u ofwel:
+1. De koppeling en de code handmatig kopiëren naar een persoonlijke sessie van uw browser.
+2. De koppeling en code handmatig kopiëren naar een andere browser.
 
 ### <a name="reauthentication-loop-or-upn-change"></a>Herauthenticatie lus of UPN wijzigen
 Als u zich in een lus opnieuw verifiëren of de UPN van een van uw accounts hebt gewijzigd, probeert u het volgende:
@@ -90,7 +102,7 @@ Als geen van deze methoden werken [opent u een probleem op GitHub](https://githu
 Als u nog geen abonnementen ophalen nadat u aanmelden, probeert u de volgende methoden voor het oplossen van problemen:
 
 * Controleer of dat uw account toegang heeft tot de abonnementen die u verwacht. U kunt controleren of u toegang hebt u zich bij de portal aanmeldt voor de Azure-omgeving die u probeert te gebruiken.
-* Zorg ervoor dat u bent aangemeld bij het gebruik van de juiste Azure-omgeving (Azure, Azure China, Azure Duitsland, Azure US Government of aangepaste omgeving).
+* Zorg ervoor dat u bent aangemeld bij het gebruik van de juiste Azure-omgeving (Azure, Azure China 21Vianet, Azure Duitsland, Azure US Government, of aangepaste omgeving).
 * Als u zich achter een proxy bevindt, zorg ervoor dat u de Storage Explorer-proxy correct hebt geconfigureerd.
 * Probeer te verwijderen en opnieuw toe te voegen in het account.
 * Als er een koppeling 'Informatie', en weten welke foutberichten worden gerapporteerd voor de tenants die mislukken. Als u niet zeker weet wat te doen met de fout u berichten en u kunt vervolgens Zie [opent u een probleem op GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
@@ -116,7 +128,7 @@ Controleer eerst of de volgende informatie die u hebt ingevoerd juist zijn:
 * De proxy-URL en het poortnummer
 * Gebruikersnaam en het wachtwoord indien nodig door de proxy
 
-Houd er rekening mee dat Storage Explorer biedt geen ondersteuning voor PAC-bestand voor het configureren van proxy-instellingen.
+Houd er rekening mee dat Storage Explorer niet proxy auto config-bestanden biedt ondersteuning voor het configureren van proxy-instellingen.
 
 ### <a name="common-solutions"></a>Algemene oplossingen
 

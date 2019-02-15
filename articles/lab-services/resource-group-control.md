@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: spelluru
-ms.openlocfilehash: ddda9ef2b9bb716f7cdd33aa8fe9233f6c7d8e82
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 2903228a3257abe9c454c6e0720a1e228b905290
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55748997"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300037"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Geef een resourcegroep voor de virtuele machines in Azure DevTest Labs
 Als de eigenaar van een lab, kunt u uw lab-virtuele machines worden gemaakt in een specifieke resourcegroep configureren. Gebruik deze functie zodat u geen resource group limieten op uw Azure-abonnement bereiken. Deze functie kunt u uw labresources binnen een enkele resourcegroep consolideren. Het vereenvoudigt ook de resources tracking en toepassen van [beleid](../governance/policy/overview.md) moeten worden beheerd op het niveau van de resource.
@@ -32,7 +32,7 @@ Nu gaan we stapsgewijs door de opties die u als de eigenaar van een lab hebt tij
 - U kunt een **nieuwe resourcegroep** naam voor alle virtuele machines.
 - U kunt doorgaan met het bestaande gedrag, dat wil zeggen, een resourcegroep is gemaakt voor elke virtuele machine in het lab.
  
-Deze instelling is van toepassing op nieuwe virtuele machines die zijn gemaakt in het lab. Oudere VM's in uw testomgeving die zijn gemaakt in hun eigen resourcegroepen blijven ongewijzigd blijven. U kunt echter deze virtuele machines migreren van hun afzonderlijke resourcegroepen voor de algemene resourcegroep, zodat al uw lab virtuele machines in één algemene resourcegroep. Zie voor meer informatie, [resources verplaatsen naar een nieuwe resourcegroep](../azure-resource-manager/resource-group-move-resources.md). Omgevingen die zijn gemaakt in uw testomgeving gaan om te blijven in hun eigen resourcegroepen.
+Deze instelling is van toepassing op nieuwe virtuele machines die zijn gemaakt in het lab. Oudere VM's in uw testomgeving die zijn gemaakt in hun eigen resourcegroepen blijven ongewijzigd blijven. Omgevingen die zijn gemaakt in uw testomgeving gaan om te blijven in hun eigen resourcegroepen.
 
 ### <a name="how-to-use-this-api"></a>Het gebruik van deze API:
 - Gebruik de API-versie **2018_10_15_preview** tijdens het gebruik van deze API. 

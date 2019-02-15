@@ -12,12 +12,12 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 4/16/2018
 ms.author: victorh
-ms.openlocfilehash: 15a86410e8ca853c2ca2431cb9a62de628972703
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: b45e782984f637f1b084ec757000dde9dd3a5777
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320098"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302029"
 ---
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Lijst met web application firewall CRS-regelgroepen en -regels die worden aangeboden
 
@@ -27,10 +27,15 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 
 ## <a name="owasp30"></a> OWASP_3.0
 
+### <a name="General"></a> <p x-ms-format-detection="none">Algemeen</p>
 
-### <a name="crs911"></a> <p x-ms-format-detection="none">AANVRAAG-911-METHODE-AFDWINGING</p>
+|RuleId|Description|
+|---|---|
+|200004|Mogelijk is gedeeltelijk niet-overeenkomende grens.|
 
-|regel-id|Beschrijving|
+### <a name="crs911"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
+
+|RuleId|Description|
 |---|---|
 |911011|Regel 911011|
 |911012|Regel 911012|
@@ -43,9 +48,9 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 |911018|Regel 911018|
 
 
-### <a name="crs913"></a> <p x-ms-format-detection="none">AANVRAAG-913-SCANNER-DETECTIE</p>
+### <a name="crs913"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
 
-|regel-id|Beschrijving|
+|RuleId|Description|
 |---|---|
 |913011|Regel 913011|
 |913012|Regel 913012|
@@ -61,9 +66,9 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 |913017|Regel 913017|
 |913018|Regel 913018|
 
-### <a name="crs920"></a> <p x-ms-format-detection="none">AANVRAAG-920-PROTOCOL-AFDWINGING</p>
+### <a name="crs920"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
 
-|regel-id|Beschrijving|
+|RuleId|Description|
 |---|---|
 |920011|Regel 920011|
 |920012|Regel 920012|
@@ -115,9 +120,9 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 |920274|Ongeldig teken in de aanvraagheaders (buiten zeer strikte set)|
 |920460|Regel 920460|
 
-### <a name="crs921"></a> <p x-ms-format-detection="none">AANVRAAG-921-PROTOCOL-AANVAL</p>
+### <a name="crs921"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
 
-|regel-id|Beschrijving|
+|RuleId|Description|
 |---|---|
 |921011|Regel 921011|
 |921012|Regel 921012|
@@ -138,9 +143,9 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 |921017|Regel 921017|
 |921018|Regel 921018|
 
-### <a name="crs930"></a> <p x-ms-format-detection="none">AANVRAAG-930-TOEPASSING-AANVAL-LFI</p>
+### <a name="crs930"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
 
-|regel-id|Beschrijving|
+|RuleId|Description|
 |---|---|
 |930011|Regel 930011|
 |930012|Regel 930012|
@@ -155,9 +160,9 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 |930017|Regel 930017|
 |930018|Regel 930018|
 
-### <a name="crs931"></a> <p x-ms-format-detection="none">AANVRAAG-931-TOEPASSING-AANVAL-RFI</p>
+### <a name="crs931"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
 
-|regel-id|Beschrijving|
+|RuleId|Description|
 |---|---|
 |931011|Regel 931011|
 |931012|Regel 931012|
@@ -172,9 +177,9 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 |931017|Regel 931017|
 |931018|Regel 931018|
 
-### <a name="crs932"></a> <p x-ms-format-detection="none">AANVRAAG-932-TOEPASSING-AANVAL-BRONCOMPUTER</p>
+### <a name="crs932"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
 
-|regel-id|Beschrijving|
+|RuleId|Description|
 |---|---|
 |932011|Regel 932011|
 |932012|Regel 932012|
@@ -191,9 +196,9 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 |932017|Regel 932017|
 |932018|Regel 932018|
 
-### <a name="crs933"></a> <p x-ms-format-detection="none">AANVRAAG-933-TOEPASSING-AANVAL-PHP</p>
+### <a name="crs933"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
 
-|regel-id|Beschrijving|
+|RuleId|Description|
 |---|---|
 |933011|Regel 933011|
 |933012|Regel 933012|
@@ -215,9 +220,9 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 |933017|Regel 933017|
 |933018|Regel 933018|
 
-### <a name="crs941"></a> <p x-ms-format-detection="none">AANVRAAG-941-TOEPASSING-AANVAL-XSS</p>
+### <a name="crs941"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
 
-|regel-id|Beschrijving|
+|RuleId|Description|
 |---|---|
 |941011|Regel 941011|
 |941012|Regel 941012|
@@ -226,7 +231,7 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 |941130|XSS-Filter - categorie 3 = kenmerk Vector|
 |941140|XSS-Filter - categorie 4 = Vector Javascript-URI|
 |941150|XSS-Filter - categorie 5 = niet-toegestane HTML-kenmerken|
-|941180|Knooppunt-Validator Blacklist trefwoorden|
+|941180|Node-Validator Blacklist Keywords|
 |941190|Filters in Internet Explorer XSS - aanval gedetecteerd.|
 |941200|Filters in Internet Explorer XSS - aanval gedetecteerd.|
 |941210|Filters in Internet Explorer XSS - aanval gedetecteerd.|
@@ -239,6 +244,8 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 |941290|Filters in Internet Explorer XSS - aanval gedetecteerd.|
 |941300|Filters in Internet Explorer XSS - aanval gedetecteerd.|
 |941310|US-ASCII-onjuiste codering XSS-Filter - aanval gedetecteerd.|
+|941330|Filters in Internet Explorer XSS - aanval gedetecteerd.|
+|941340|Filters in Internet Explorer XSS - aanval gedetecteerd.|
 |941350|UTF-7 codering IE XSS - aanval gedetecteerd.|
 |941013|Regel 941013|
 |941014|Regel 941014|
@@ -248,25 +255,36 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 |941017|Regel 941017|
 |941018|Regel 941018|
 
-### <a name="crs942"></a> <p x-ms-format-detection="none">AANVRAAG-942-TOEPASSING-AANVAL-SQLI</p>
+### <a name="crs942"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
 
-|regel-id|Beschrijving|
+|RuleId|Description|
 |---|---|
 |942011|Regel 942011|
 |942012|Regel 942012|
 |942100|SQL-injectie-aanval gedetecteerd via libinjection|
+|942110|SQL-injectieaanvallen verminderen: Algemene webweergave gedetecteerde testen|
+|942130|SQL-injectieaanvallen verminderen: SQL-Tautology gedetecteerd.|
 |942140|SQL-injectieaanvallen = algemene DB namen gedetecteerd|
 |942160|Blind sqli tests met sleep() of benchmark() detecteert.|
 |942170|Detecteert benchmark en slaapstand voor SQL-injectie probeert, waaronder voorwaardelijke query 's|
+|942190|Detecteert MSSQL tot uitvoering van code en pogingen verzamelen van informatie|
+|942200|Detecteert MySQL Opmerking- / ruimte verborgen injecties en backtick beëindiging|
 |942230|Detecteert voorwaardelijke SQL-injectie pogingen|
+|942260|Detecteert basic SQL-verificatie overslaan probeert 2/3|
 |942270|Op zoek naar basic sql-injectie. Veelvoorkomende aanval-tekenreeks voor mysql oracle en andere.|
 |942290|Basic MongoDB SQL injection pogingen gevonden|
+|942300|MySQL-opmerkingen, voorwaarden en ch (a) r injecties gedetecteerd|
 |942320|Detecteert MySQL en PostgreSQL opgeslagen procedure/functie injecties|
+|942330|Detecteert klassieke SQL-injectie probings 1/2|
+|942340|Detecteert basic SQL-verificatie overslaan probeert 3/3|
 |942350|MySQL UDF-injectie en andere manipulatie gegevensstructuur/detecteert pogingen|
+|942360|Detecteert samengevoegde basic SQL-injectie en SQLLFI pogingen|
+|942370|Detecteert klassieke SQL-injectie probings 2/2|
 |942013|Regel 942013|
 |942014|Regel 942014|
 |942150|SQL-injectieaanvallen|
 |942410|SQL-injectieaanvallen|
+|942430|Beperkte Anomaliedetectie SQL-teken (argumenten): het aantal speciale tekens overschreden (12)|
 |942440|Volgorde van SQL-opmerking is gedetecteerd.|
 |942450|SQL hexadecimale codering geïdentificeerd|
 |942015|Regel 942015|
@@ -278,7 +296,7 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 
 ### <a name="crs943"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
 
-|regel-id|Beschrijving|
+|RuleId|Description|
 |---|---|
 |943011|Regel 943011|
 |943012|Regel 943012|
@@ -296,7 +314,7 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 
 ### <a name="crs20"></a> crs_20_protocol_violations
 
-|regel-id|Beschrijving|
+|RuleId|Description|
 |---|---|
 |960911|Ongeldige HTTP-aanvraag regel|
 |981227|Apache-fout = Ongeldige URI in de aanvraag.|
@@ -322,7 +340,7 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 
 ### <a name="crs21"></a> crs_21_protocol_anomalies
 
-|regel-id|Beschrijving|
+|RuleId|Description|
 |---|---|
 |960008|Aanvraag voor een Host-Header ontbreekt|
 |960007|Lege Host-Header|
@@ -335,7 +353,7 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 
 ### <a name="crs23"></a> crs_23_request_limits
 
-|regel-id|Beschrijving|
+|RuleId|Description|
 |---|---|
 |960209|Argumentnaam te lang.|
 |960208|Argumentwaarde is te lang|
@@ -346,7 +364,7 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 
 ### <a name="crs30"></a> crs_30_http_policy
 
-|regel-id|Beschrijving|
+|RuleId|Description|
 |---|---|
 |960032|Methode is niet toegestaan door het beleid|
 |960010|Inhoud van het type is niet toegestaan door het beleid|
@@ -356,7 +374,7 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 
 ### <a name="crs35"></a> crs_35_bad_robots
 
-|regel-id|Beschrijving|
+|RuleId|Description|
 |---|---|
 |990002|Aanvraag geeft aan dat een beveiligingsscanner gescand de Site|
 |990901|Aanvraag geeft aan dat een beveiligingsscanner gescand de Site|
@@ -365,7 +383,7 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 
 ### <a name="crs40"></a> crs_40_generic_attacks
 
-|regel-id|Beschrijving|
+|RuleId|Description|
 |---|---|
 |960024|Waarschuwing META teken Anomaliedetectie - terugkerende niet Word tekens|
 |950008|Injecteren van niet-gedocumenteerde ColdFusion-Tags|
@@ -394,7 +412,7 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 
 ### <a name="crs41sql"></a> crs_41_sql_injection_attacks
 
-|regel-id|Beschrijving|
+|RuleId|Description|
 |---|---|
 |981231|Volgorde van SQL-opmerking is gedetecteerd.|
 |981260|SQL hexadecimale codering geïdentificeerd|
@@ -431,7 +449,7 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 
 ### <a name="crs41xss"></a> crs_41_xss_attacks
 
-|regel-id|Beschrijving|
+|RuleId|Description|
 |---|---|
 |973336|XSS-Filter - categorie 1 = Script Tag Vector|
 |973338|XSS-Filter - categorie 3 = Vector Javascript-URI|
@@ -536,13 +554,13 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 
 ### <a name="crs42"></a> crs_42_tight_security
 
-|regel-id|Beschrijving|
+|RuleId|Description|
 |---|---|
 |950103|Pad verandering aanval|
 
 ### <a name="crs45"></a> crs_45_trojans
 
-|regel-id|Beschrijving|
+|RuleId|Description|
 |---|---|
 |950110|Achterdeurtoegang|
 |950921|Achterdeurtoegang|
@@ -550,6 +568,6 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Informatie over het uitschakelen van regels voor WAF recentst: [regels voor WAF aanpassen](application-gateway-customize-waf-rules-portal.md)
+Informatie over het uitschakelen van regels voor WAF door naar de pagina: [WAF-regels aanpassen](application-gateway-customize-waf-rules-portal.md)
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png

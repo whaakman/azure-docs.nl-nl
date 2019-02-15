@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 2465fdcc3bf7128d4813fa5f682ffda8f504f2b6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8350524e51d8ced45586d085fe1b49274aa6db9d
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999246"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269974"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Werken met datum-/ tijdwaarden in Logboeken-query's van Azure Monitor
 
@@ -31,7 +31,7 @@ Dit artikel wordt beschreven hoe u werkt met de datum en tijd waarop gegevens in
 
 
 ## <a name="date-time-basics"></a>Grondbeginselen van de datum-tijd
-De querytaal van Data Explorer heeft twee primaire gegevenstypen die zijn gekoppeld aan de datums en tijden: datum/tijd en periode. Alle datums worden uitgedrukt in UTC. Meerdere tijdindelingen voor datum / worden ondersteund, is de ISO8601-notatie voorkeur. 
+De Kusto-query-taal heeft twee primaire gegevenstypen die zijn gekoppeld aan de datums en tijden: datum/tijd en periode. Alle datums worden uitgedrukt in UTC. Meerdere tijdindelingen voor datum / worden ondersteund, is de ISO8601-notatie voorkeur. 
 
 Timespans worden uitgedrukt als een decimaal getal gevolgd door een tijdeenheid:
 
@@ -45,7 +45,7 @@ Timespans worden uitgedrukt als een decimaal getal gevolgd door een tijdeenheid:
 |wachttijden van microseconden | wachttijden van microseconden  |
 |maatstreepjes        | nanoseconden   |
 
-Datum/tijd kunnen worden gemaakt met het gebruik van een tekenreeks met de `todatetime` operator. Bijvoorbeeld, als u wilt controleren van de virtuele machine heartbeats verzonden in een specifiek tijdsbestek, kunt u het gebruik van de [tussen operator](/azure/kusto/query/betweenoperator) dit is handig om op te geven van een tijdsbereik...
+Datum/tijd kunnen worden gemaakt met het gebruik van een tekenreeks met de `todatetime` operator. Bijvoorbeeld: als u wilt controleren van de virtuele machine heartbeats verzonden in een specifiek tijdsbestek, gebruiken de `between` operator op die een tijdsperiode opgeven.
 
 ```Kusto
 Heartbeat
@@ -82,7 +82,7 @@ Heartbeat
 ```
 
 ## <a name="converting-time-units"></a>Tijdseenheden converteren
-Kan het nuttig zijn om een datum/tijd of de periode in een tijdeenheid dan de standaardwaarde. Bijvoorbeeld: Stel dat u bij het controleren van foutgebeurtenissen van de laatste 30 minuten en moet een berekende kolom die laat zien hoe lang gelden de gebeurtenis heeft plaatsgevonden:
+U kunt een datum/tijd of de periode in een tijdeenheid dan de standaard express. Bijvoorbeeld, als u een berekende kolom hebt en foutgebeurtenissen van de laatste 30 minuten beoordeelt hoe lang geleden waarin de gebeurtenis heeft plaatsgevonden:
 
 ```Kusto
 Event
@@ -91,7 +91,7 @@ Event
 | extend timeAgo = now() - TimeGenerated 
 ```
 
-U ziet de _timeAgo_ kolom bevat waarden, zoals: "00:09:31.5118992', wat betekent dat ze zijn opgemaakt als hh:mm:ss.fffffff. Als u wilt opmaken van deze waarden naar de _numver_ minuten sinds de begintijd, te delen die waarde door 'minuut':
+De `timeAgo` kolom bevat waarden, zoals: "00:09:31.5118992', wat betekent dat ze zijn geformatteerd als hh:mm:ss.fffffff. Als u wilt formatteren van deze waarden naar de `numver` van minuten sinds de begintijd, deelt u die waarde door 'minuut':
 
 ```Kusto
 Event
@@ -103,7 +103,7 @@ Event
 
 
 ## <a name="aggregations-and-bucketing-by-time-intervals"></a>Aggregaties en bucketing door tijdsintervallen
-Een andere zeer gangbaar scenario is de noodzaak om statistische gegevens gedurende een bepaalde periode in een bepaald tijdsinterval. Hiervoor een `bin` operator kan worden gebruikt als onderdeel van een component samenvatten.
+Een ander gebruikelijk scenario is de noodzaak om statistische gegevens gedurende een bepaalde periode in een bepaald tijdsinterval. Voor dit scenario een `bin` operator kan worden gebruikt als onderdeel van een component samenvatten.
 
 Gebruik de volgende query uit om het aantal gebeurtenissen die hebben plaatsgevonden om de 5 minuten gedurende de afgelopen half uur:
 
@@ -113,7 +113,7 @@ Event
 | summarize events_count=count() by bin(TimeGenerated, 5m) 
 ```
 
-Dit resulteert in de volgende tabel:  
+Deze query levert de volgende tabel:  
 |TimeGenerated(UTC)|events_count|
 |--|--|
 |2018-08-01T09:30:00.000|54|
@@ -131,7 +131,7 @@ Event
 | summarize events_count=count() by startofday(TimeGenerated) 
 ```
 
-Dit resulteert in de volgende resultaten:
+Deze query geeft de volgende resultaten:
 
 |tijdstempel|count_|
 |--|--|
@@ -139,11 +139,11 @@ Dit resulteert in de volgende resultaten:
 |2018-07-29T00:00:00.000|12,315|
 |2018-07-30T00:00:00.000|16,847|
 |2018-07-31T00:00:00.000|12,616|
-|2018-08-01T00:00:00.000|5,416  |
+|2018-08-01T00:00:00.000|5,416|
 
 
 ## <a name="time-zones"></a>Tijdzones
-Omdat alle datum-/ tijdwaarden worden uitgedrukt in UTC, is het vaak nuttig om te converteren naar de lokale tijdzone. Deze berekening bijvoorbeeld gebruiken om te converteren van UTC naar PST tijden:
+Omdat alle datum-/ tijdwaarden worden uitgedrukt in UTC, is het vaak nuttig om te converteren van deze waarden naar de lokale tijdzone. Deze berekening bijvoorbeeld gebruiken om te converteren van UTC naar PST tijden:
 
 ```Kusto
 Event
@@ -158,10 +158,10 @@ Event
 | Ronde waarde die u wilt de grootte van opslaglocatie | [bin](/azure/kusto/query/binfunction) |
 | Ophalen van een bepaalde datum of tijd | [geleden](/azure/kusto/query/agofunction) [nu](/azure/kusto/query/nowfunction)   |
 | Onderdeel van de waarde ophalen | [datetime_part](/azure/kusto/query/datetime-partfunction) [getmonth](/azure/kusto/query/getmonthfunction) [monthofyear](/azure/kusto/query/monthofyearfunction) [getyear](/azure/kusto/query/getyearfunction) [dayofmonth](/azure/kusto/query/dayofmonthfunction) [dayofweek](/azure/kusto/query/dayofweekfunction) [dayofyear](/azure/kusto/query/dayofyearfunction) [weekofyear](/azure/kusto/query/weekofyearfunction) |
-| Een datum ten opzichte van de waarde ophalen  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [beginvanweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
+| Haal de waarde van een relatieve datum  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [beginvanweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie andere lessen voor het gebruik van de [Data Explorer-querytaal](/azure/kusto/query/) met Azure Monitor gegevens vastleggen:
+Zie andere lessen voor het gebruik van de [Kusto-querytaal](/azure/kusto/query/) met Azure Monitor gegevens vastleggen:
 
 - [Bewerkingen op tekenreeksen uitvoeren](string-operations.md)
 - [Aggregatiefuncties](aggregations.md)

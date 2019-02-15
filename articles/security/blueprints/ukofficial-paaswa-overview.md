@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: b69b16cec08c5d29d4812258f694f2d078a9ff35
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 222957bb79a88ec7b4c6e9afd6d86fe2776dbfd3
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700975"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301788"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure-beveiliging en naleving blauwdruk: PaaS-webtoepassing die als host fungeert voor de officiële Workloads groot-Brittannië
 
@@ -182,7 +182,7 @@ Gedetailleerde informatie over het beveiligen van Azure Storage vindt u de [beve
 
 #### <a name="application-insights"></a>Application Insights
 
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is een uitbreidbare service voor Application Performance Management (APM) voor webontwikkelaars op meerdere platforms. Gebruikt voor het bewaken van live web-apps het wordt automatisch detecteren van afwijkende prestaties, prestaties analyseren en een diagnose stellen problemen en om te begrijpen hoe gebruikers interacteren met de app. Application Insights kunnen worden geïmplementeerd op platforms, waaronder .NET, Node.js en J2EE, on-premises gehost of in de cloud. De service kan ook worden geïntegreerd met uw DevOps-proces en bevat verbindingspunten naar verschillende hulpmiddelen voor ontwikkelaars.
+[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is een uitbreidbare service voor Application Performance Management (APM) voor webontwikkelaars op meerdere platforms. Gebruikt voor het bewaken van live web-apps het wordt automatisch detecteren van afwijkende prestaties, prestaties analyseren en een diagnose stellen problemen en om te begrijpen hoe gebruikers interacteren met de app. Application Insights kunnen worden geïmplementeerd op platforms, waaronder .NET, Node.js en Java EE, on-premises gehost of in de cloud. De service kan ook worden geïntegreerd met uw DevOps-proces en bevat verbindingspunten naar verschillende hulpmiddelen voor ontwikkelaars.
 
 #### <a name="application-insights-in-this-blueprint"></a>Application Insights in deze blauwdruk
 
@@ -232,7 +232,7 @@ Drie manieren is te vinden voor de implementatie van; Een eenvoudige 'express' [
 1.  Klonen of downloaden [dit](https://aka.ms/ukofficial-paaswa-repo) GitHub-opslagplaats naar uw lokale werkstation.
 2.  Beoordeling [methode 1: Azure CLI-2 (Express-versie)](https://aka.ms/ukofficial-paaswa-repo/#method-1-azure-cli-2-express-version) en de opgegeven opdrachten uit te voeren.
 3.  Beoordeling [methode 1a: Azure CLI-2 (configureren van de implementatie via scriptargumenten)](https://aka.ms/ukofficial-paaswa-repo/#method-1a-azure-cli-2-configuring-the-deployment-via-script-arguments) en voert u de opgegeven opdrachten
-4.  Beoordeling [methode 2: Azure Portal-implementatieproces](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process) en de vermelde opdrachten uitvoeren
+4.  Beoordeling [methode 2: Azure-portal implementatieproces](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process) en de vermelde opdrachten uitvoeren
 
 ## <a name="guidance-and-recommendations"></a>Richtlijnen en aanbevelingen
 
@@ -242,7 +242,7 @@ Drie manieren is te vinden voor de implementatie van; Een eenvoudige 'express' [
 
 ### <a name="azure-b2c"></a>Azure B2C
 
-[Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) kan worden geïmplementeerd als een besturingselement waarmee gebruikers kunnen registreren, een identiteit maken en inschakelen van de autorisatie en toegangsbeheer voor de openbare web-App.
+[Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) kan worden geïmplementeerd als een besturingselement waarmee gebruikers zich registreren, een identiteit maken en inschakelen autorisatie en toegangsbeheer voor de openbare web-App.
 
 ## <a name="disclaimer"></a>Vrijwaring
 

@@ -15,12 +15,12 @@ ms.date: 02/08/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 72c4bfc4151e8120f8641c743c0da3896bd71fe1
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 89e75afd3b9001f7a0b8a027744ef71c8bb69690
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995027"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56299561"
 ---
 # <a name="install-powershell-for-azure-stack"></a>PowerShell voor Azure Stack installeren
 
@@ -97,7 +97,7 @@ Installatie heeft drie stappen:
 
 Voer het volgende PowerShell-script voor het installeren van deze modules op uw ontwikkelwerkstation:
 
-- Azure Stack 1901 of hoger.
+- Azure Stack 1901 of hoger:
 
     ```PowerShell
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
@@ -108,7 +108,7 @@ Voer het volgende PowerShell-script voor het installeren van deze modules op uw 
     > [!Note]  
     > De Azure Stack-moduleversie 1.7.0 is een belangrijke wijziging. Voor het migreren van Azure Stack 1.6.0 raadpleegt u de [Migratiehandleiding](https://aka.ms/azspshmigration170).
 
-- Azure Stack 1811 of een eerdere versie.
+- Azure Stack 1811:
 
     ```PowerShell
     # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
@@ -120,7 +120,7 @@ Voer het volgende PowerShell-script voor het installeren van deze modules op uw 
     Install-Module -Name AzureStack -RequiredVersion 1.6.0
     ```
 
-- Azure Stack 1809 of een eerdere versie.
+- Azure Stack 1810 of eerder:
 
     ```PowerShell
     # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet

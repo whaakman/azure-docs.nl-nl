@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e3f60c3b0578647e68109a21ba7d57b083bea11
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ae93cce7a26666383b609ac898a25fb84caee517
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184530"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301635"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Zelfstudie: Azure Active Directory-integratie met Workday
 
@@ -113,7 +113,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![WorkDay domein en URL's eenmalige aanmelding informatie](./media/workday-tutorial/tutorial_workday_url.png)
 
-    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://impl.workday.com/<tenant>/login-saml2.htmld`
+    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://impl.workday.com/<tenant>/login-saml2.flex`
 
     b. In de **id** tekstvak, een URL typen: `https://www.workday.com`
 
@@ -166,7 +166,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     >[!NOTE]
     > De waarde van het kenmerk van de omgeving is gekoppeld aan de waarde van de tenant-URL:  
-    >-Als de domeinnaam van de tenant-URL voor Workday wordt gestart met impl bijvoorbeeld: *https://impl.workday.com/\<tenant\>/login-saml2.htmld*), wordt de **omgeving** kenmerk moet worden ingesteld op implementatie.  
+    >-Als de domeinnaam van de tenant-URL voor Workday wordt gestart met impl bijvoorbeeld: *https://impl.workday.com/\<tenant\>/login-saml2.flex*), wordt de **omgeving** kenmerk moet worden ingesteld op implementatie.  
     >-Als de domeinnaam wordt gestart met iets anders, moet u contact opnemen met [Workday Client ondersteuningsteam](https://www.workday.com/en-us/partners-services/services/support.html) om op te halen van de overeenkomende **omgeving** waarde.
 
 12. In de **SAML Setup** sectie, voert u de volgende stappen uit:

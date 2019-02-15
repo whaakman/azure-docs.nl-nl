@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: f0c9c06e953df16199acda5f821fdac35b86f07f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bbd73035993d3a981744eb5377fe0bf2c9d55b63
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477553"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268852"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>De virtuele Machine voor Datatechnologie voor Linux (Ubuntu) inrichten
 
@@ -31,7 +31,7 @@ De virtuele Machine voor Datatechnologie voor Linux is een virtuele machine op b
   * [Caffe2](https://github.com/caffe2/caffe2): Een cross-platform-versie van Caffe
   * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK): Een deep learning toolkit voor software van Microsoft Research
   * [H2O](https://www.h2o.ai/): Een open source big data-platform en de grafische gebruikersinterface
-  * [Keras](https://keras.io/): Een op hoog niveau neural network API in Python voor Theano en TensorFlow
+  * [Keras](https://keras.io/): Een op hoog niveau neural network API in Python voor TensorFlow, Cognitive Toolkit van Microsoft en Theano
   * [MXNet](http://mxnet.io/): Een flexibele en efficiënte deep learning-bibliotheek met veel taalbindingen
   * [NVIDIA DIGITS](https://developer.nvidia.com/digits): Een grafische systeem dat algemene taken voor deep learning vereenvoudigt
   * [PyTorch](http://pytorch.org/): Een Python-bibliotheek met ondersteuning voor dynamische netwerken op hoog niveau
@@ -177,7 +177,7 @@ Sommige laptops voorbeeld zijn beschikbaar in JupyterHub.
 H2O is een snelle, in het geheugen, gedistribueerde machine learning en predictive analytics-platform. Een Python-pakket is geïnstalleerd in de basis- en py35 Anaconda-omgevingen. Een R-pakket is ook geïnstalleerd. Uitvoeren voor het starten van H2O vanaf de opdrachtregel, `java -jar /dsvm/tools/h2o/current/h2o.jar`; er zijn verschillende [opdrachtregelopties](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) die u mogelijk wilt configureren. De gebruikersinterface van Flow Web kan worden geopend door te bladeren naar http://localhost:54321 aan de slag. Voorbeeldnotitieblokken zijn ook beschikbaar in JupyterHub.
 
 #### <a name="keras"></a>Keras
-Keras is een op hoog niveau neural network API in Python waarmee kan worden uitgevoerd op de hoogte van TensorFlow of Theano is. Het is beschikbaar in de hoofdmap en py35 Python-omgevingen. 
+Keras is een op hoog niveau neural network API in Python waarmee kan worden uitgevoerd op de hoogte van TensorFlow, Cognitive Toolkit van Microsoft of Theano is. Het is beschikbaar in de hoofdmap en py35 Python-omgevingen. 
 
 #### <a name="mxnet"></a>MXNet
 MXNet is een deep learning-structuur die is ontworpen voor zowel efficiëntie en flexibiliteit. R en Python-bindingen op de DSVM heeft. Voorbeeldnotitieblokken zijn opgenomen in JupyterHub en voorbeeldcode is beschikbaar in /dsvm/samples/mxnet.

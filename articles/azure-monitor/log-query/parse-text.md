@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: b6a2ca70faa36b94ace8158f33e58b5e6688ece3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 9897fbb3f5efe1f5255992e4894ea22041595263
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002188"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268189"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Tekstgegevens in Azure Monitor logboeken parseren
 Sommige logboekgegevens die zijn verzameld door Azure Monitor bevat meerdere delen van gegevens in één eigenschap. Het parseren van deze gegevens in meerdere eigenschappen maken het gemakkelijker om te gebruiken in query's. Een veelvoorkomend voorbeeld is een [aangepast logboek](../../log-analytics/log-analytics-data-sources-custom-logs.md) die een hele logboekvermelding met meerdere waarden worden verzameld in één eigenschap. Door het maken van afzonderlijke eigenschappen voor de verschillende waarden, kunt u zoeken en op elk cumulatieve.
@@ -63,7 +63,7 @@ Deze methode nadelen omvatten het volgende:
 Zie [maken van aangepaste velden in Azure Monitor](../platform/custom-fields.md) voor meer informatie over de gegevens worden geparseerd als deze verzameld. Hiermee maakt u aangepaste eigenschappen in de tabel die kan worden gebruikt door query's net als bij een andere eigenschap.
 
 ## <a name="parse-data-in-query-using-patterns"></a>Parseren van de gegevens in de query met behulp van patronen
-Als de gegevens die u wilt parseren kan worden aangeduid met een patroon herhaald totdat de records, kunt u verschillende operators in de [Data Explorer-querytaal](/azure/kusto/query/) om op te halen van het specifieke gedeelte van de gegevens in een of meer nieuwe eigenschappen.
+Als de gegevens die u wilt parseren kan worden aangeduid met een patroon herhaald totdat de records, kunt u verschillende operators in de [Kusto-querytaal](/azure/kusto/query/) om op te halen van het specifieke gedeelte van de gegevens in een of meer nieuwe eigenschappen.
 
 ### <a name="simple-text-patterns"></a>Eenvoudige patronen
 
@@ -139,7 +139,7 @@ MyCustomCSVLog_CL
 ```
 
 ## <a name="parse-predefined-structures-in-a-query"></a>Parseren van vooraf gedefinieerde structuur in een query
-Als uw gegevens zijn opgemaakt in een bekende structuur, u mogelijk gebruikt u een van de functies in de [Data Explorer-querytaal](/azure/kusto/query/) voor het parseren van vooraf gedefinieerde structuren:
+Als uw gegevens zijn opgemaakt in een bekende structuur, u mogelijk gebruikt u een van de functies in de [Kusto-querytaal](/azure/kusto/query/) voor het parseren van vooraf gedefinieerde structuren:
 
 - [JSON](/azure/kusto/query/parsejsonfunction)
 - [XML](/azure/kusto/query/parse-xmlfunction)

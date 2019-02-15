@@ -17,12 +17,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57c4f0595fdea3d266a56d125d6d86cba8b4f651
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 01cc85f7eba2aefd08192c4e3f4e5151e7645238
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195529"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269107"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Ontwerpconcepten
 Het doel van dit document is om te beschrijven van de gebieden die moeten worden beschouwd door tijdens het implementatieontwerp van de van Azure AD Connect. Dit document is een gedetailleerde informatie over bepaalde gebieden en deze concepten worden kort beschreven in andere documenten.
@@ -171,7 +171,7 @@ Als u AD FS buiten Azure AD Connect beheert of als u externe federation-servers 
 ![Externe federation-configuratie](./media/plan-connect-design-concepts/consistencyGuid-03.png)
 
 ### <a name="adding-new-directories-to-existing-deployment"></a>Nieuwe mappen toevoegen aan bestaande implementatie
-Stel dat u Azure AD Connect hebt geïmplementeerd met de functie ConsistencyGuid is ingeschakeld, en nu u wilt een andere map toevoegen aan de implementatie. Wanneer u probeert toe te voegen van de map, controleert Azure AD Connect-wizard in de status van het kenmerk ms-DS-ConsistencyGuid in de map. Als het kenmerk is geconfigureerd op een of meer objecten in de map, wordt de wizard concludeert het kenmerk wordt gebruikt door andere toepassingen en een foutmelding zoals wordt geïllustreerd in het onderstaande diagram. Als u er zeker van zijn dat het kenmerk wordt niet door bestaande toepassingen gebruikt, moet u contact op met ondersteuning voor meer informatie over het onderdrukken van de fout.
+Stel dat u Azure AD Connect hebt geïmplementeerd met de functie ConsistencyGuid is ingeschakeld, en nu u wilt een andere map toevoegen aan de implementatie. Wanneer u probeert toe te voegen van de map, controleert Azure AD Connect-wizard in de status van het kenmerk ms-DS-ConsistencyGuid in de map. Als het kenmerk is geconfigureerd op een of meer objecten in de map, wordt de wizard concludeert het kenmerk wordt gebruikt door andere toepassingen en een foutmelding zoals wordt geïllustreerd in het onderstaande diagram. Als u er zeker van zijn dat het kenmerk wordt niet door bestaande toepassingen gebruikt, kunt u de fout onderdrukken door opnieuw starten van de Azure AD Connect-wizard met de **/SkipLdapSearchcontact** , zoals hierboven beschreven opgegeven of moet u contact opnemen met Ondersteuning voor meer informatie.
 
 ![Nieuwe mappen toevoegen aan bestaande implementatie](./media/plan-connect-design-concepts/consistencyGuid-04.png)
 

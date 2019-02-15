@@ -1,5 +1,5 @@
 ---
-title: Na de migratie - Azure SQL Database beheren | Microsoft Docs
+title: Beheren van één en gepoolde databases na de migratie - Azure SQL Database | Microsoft Docs
 description: Meer informatie over het beheren van uw database na migratie naar Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,28 +11,31 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 419ee13f88e63af9bebb6dda2d96530c54baa0d0
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.date: 02/13/2019
+ms.openlocfilehash: 8c0c4ac6ce09ce92851b532b226dadfd8b9f7e18
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099731"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270433"
 ---
-# <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nieuwe DBA in de cloud, beheer van uw database in Azure SQL Database
+# <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nieuwe DBA in de cloud, uw één en gepoolde databases in Azure SQL Database beheren
 
-Verplaatsen van de traditionele zelf wordt beheerd, zelf-gecontroleerde omgeving naar een PaaS-omgeving kan overweldigend zijn iets in eerste instantie. Als een app-ontwikkelaar of een DBA, zou u wilt weten van de belangrijkste mogelijkheden van het platform waarmee u uw toepassing beschikbaar is, prestaties, veilige en flexibele - altijd. In dit artikel is erop gericht om precies dat te doen. Het artikel bondig organiseert bronnen en biedt u enkele richtlijnen over hoe u optimaal gebruik van de belangrijkste mogelijkheden van SQL Database beheren en uw toepassing efficiënt te houden en optimale resultaten in de cloud. Typische publiek voor dit artikel zou zijn die:
+Verplaatsen van de traditionele zelf wordt beheerd, zelf-gecontroleerde omgeving naar een PaaS-omgeving kan overweldigend zijn iets in eerste instantie. Als een app-ontwikkelaar of een DBA, zou u wilt weten van de belangrijkste mogelijkheden van het platform waarmee u uw toepassing beschikbaar is, prestaties, veilige en flexibele - altijd. In dit artikel is erop gericht om precies dat te doen. Het artikel bondig organiseert bronnen en biedt u enkele richtlijnen over hoe u optimaal gebruik van de belangrijkste mogelijkheden van SQL-Database met één en gepoolde databases beheren en uw toepassing efficiënt te houden en optimale resultaten in de cloud. Typische publiek voor dit artikel zou zijn die:
 
-- Migratie van hun toepassingen met Azure SQL DB: moderniseren van uw toepassingen evalueert.
+- Migratie van hun toepassingen naar Azure SQL Database: moderniseren van uw toepassingen evalueert.
 - Wordt momenteel gemigreerd van hun toepassingen – continue migratiescenario.
 - De migratie naar Azure SQL DB: nieuwe DBA in de cloud hebben onlangs zijn voltooid.
 
-In dit artikel komen enkele van de belangrijkste kenmerken van Azure SQL-database als een platform waarmee u gemakkelijk kunt gebruiken. Ze zijn als volgt:
+In dit artikel komen enkele van de belangrijkste kenmerken van Azure SQL Database als een platform waarmee u gemakkelijk gebruiken kunt bij het werken met individuele databases en gepoolde databases in elastische pools. Ze zijn als volgt:
 
 - Zakelijke continuïteit en herstel na noodgevallen (BCDR)
 - Beveiliging en compliance
 - Intelligente database controleren en onderhoud
 - Gegevensverplaatsing
+
+> [!NOTE]
+> In dit artikel is van toepassing op de volgende implementatie-opties in Azure SQL Database: enkele databases en elastische pools. Dit geldt niet voor het beheerde exemplaar Implementatieoptie in SQL-Database.
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>Zakelijke continuïteit en herstel na noodgevallen (BCDR)
 

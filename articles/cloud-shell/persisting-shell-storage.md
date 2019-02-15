@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 4671287d78dafce9b662a167ba99a680d2fa70d2
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 7bf31c11c705dbdfe8a326aad99ee8d373db8f3e
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734072"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301091"
 ---
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
@@ -101,6 +101,8 @@ De `Dismount-CloudDrive` cmdlet wordt een Azure-bestandsshare van het huidige op
 ![Actieve Dismount-CloudDrive](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
 
 [!INCLUDE [PersistingStorage-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
+
+Opmerking: Als u nodig hebt voor het definiëren van een functie in een bestand en deze aanroepen vanuit de PowerShell-cmdlets, moet klikt u vervolgens de punt worden opgenomen. Bijvoorbeeld:. .\MyFunctions.ps1
 
 ## <a name="next-steps"></a>Volgende stappen
 [Bash in Cloud Shell-snelstartgids](quickstart.md) <br>

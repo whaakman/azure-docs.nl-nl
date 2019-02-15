@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
-ms.openlocfilehash: e948842a49e87df156eb59a7e25634772550d933
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 98a81d39f698e4ea9b2db0be1dfd2a22424941ba
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235492"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300564"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Log Analytics beheren met Azure Resource Manager-sjablonen
 U kunt [Azure Resource Manager-sjablonen](../../azure-resource-manager/resource-group-authoring-templates.md) maken en configureren van Log Analytics-werkruimten. Voorbeelden van de taken die u met sjablonen uitvoeren kunt zijn:
@@ -56,7 +56,7 @@ De volgende parameters instelt een standaardwaarde:
 
 > [!NOTE]
 >Als het maken of configureren van een Log Analytics-werkruimte in een abonnement dat is deelneemt aan het nieuwe prijsmodel April 2018, is het de enige geldige Log Analytics prijscategorie **PerGB2018**.  
->Als u sommige abonnementen mogelijk in het (pre-April 2018 prijsmodel) [https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model], kunt u de **zelfstandige** prijscategorie, en dit slaagt voor beide abonnementen in het prijsmodel van pre-April 2018 en voor abonnementen in de nieuwe prijzen. Voor toegang tot werkruimten in abonnementen die het nieuwe proicing model hebt vastgesteld, wordt de prijscategorie zijn ingesteld op **PerGB2018**. 
+>Als u sommige abonnementen mogelijk de [pre-April 2018 prijsmodel](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model), kunt u de **zelfstandige** prijscategorie, en dit slaagt voor beide abonnementen in het prijsmodel van pre-April 2018 en voor abonnementen in de nieuwe prijzen. Voor toegang tot werkruimten in abonnementen die het nieuwe proicing model hebt vastgesteld, wordt de prijscategorie zijn ingesteld op **PerGB2018**. 
 
 ### <a name="create-and-deploy-template"></a>Sjabloon maken en implementeren
 

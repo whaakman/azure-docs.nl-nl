@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: 121f9ff602907e64bba0c98342e38477109e9294
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 76c9e143a4127807bfffa879103fca42d2d27e71
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993658"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268325"
 ---
 # <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>SQL naar Azure Monitor log-query-Cheatsheet 
 
-De onderstaande tabel helpt gebruikers die bekend met SQL zijn voor meer informatie over de Data Explorer-querytaal voor het schrijven van Logboeken-query's in Azure Monitor. Bekijk de T-SQL-opdracht voor het oplossen van een algemene scenario's en de overeenkomstige waarde in een query voor Azure Monitor hebben.
+De onderstaande tabel helpt gebruikers die bekend met SQL zijn voor meer informatie over de Kusto-querytaal voor het schrijven van Logboeken-query's in Azure Monitor. Bekijk de T-SQL-opdracht voor het oplossen van een algemene scenario's en de overeenkomstige waarde in een query voor Azure Monitor hebben.
 
 ## <a name="sql-to-azure-monitor"></a>SQL Azure monitor
 

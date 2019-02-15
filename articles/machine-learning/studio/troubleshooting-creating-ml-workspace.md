@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 3b2e2def075721b457775003e59d5217fd2e61b8
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: c12c87524ac1b8d0be5b691d599510f8e4573317
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509791"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267322"
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-azure-machine-learning-studio-workspace"></a>Probleemoplossingsgids: Maken en verbinding maken met een Azure Machine Learning Studio-werkruimte
 Deze handleiding bevat oplossingen voor enkele uitdagingen vaak aangetroffen bij het instellen van Azure Machine Learning Studio-werkruimten.
@@ -25,9 +25,9 @@ Deze handleiding bevat oplossingen voor enkele uitdagingen vaak aangetroffen bij
 ## <a name="workspace-owner"></a>Eigenaar van de werkruimte
 Als u wilt een werkruimte opent in Machine Learning Studio, u moet zijn aangemeld bij de Microsoft-Account dat u gebruikt voor het maken van de werkruimte, of moet u een uitnodiging ontvangen van de eigenaar voor deelname aan de werkruimte. U kunt de werkruimte, inclusief de mogelijkheid om toegang te configureren beheren vanuit Azure portal.
 
-Zie voor meer informatie over het beheren van een werkruimte [een Azure Machine Learning-werkruimte beheren].
+Zie voor meer informatie over het beheren van een werkruimte [een Azure Machine Learning Studio-werkruimte beheren].
 
-[Een Azure Machine Learning-werkruimte beheren]: manage-workspace.md
+[Een Azure Machine Learning Studio-werkruimte beheren]: manage-workspace.md
 
 ## <a name="allowed-regions"></a>Toegestane regio 's
 Machine Learning is momenteel beschikbaar in een beperkt aantal regio's. Als uw abonnement niet onder een van deze regio's, ziet u mogelijk het foutbericht, "U hebt geen abonnementen in de toegestane regio's."
@@ -35,9 +35,9 @@ Machine Learning is momenteel beschikbaar in een beperkt aantal regio's. Als uw 
 Als u wilt dat een regio worden toegevoegd aan uw abonnement, een nieuwe Microsoft-ondersteuningsaanvraag maken vanuit Azure portal, kiest u **facturering** als het probleemtype, en volg de aanwijzingen om uw aanvraag te verzenden.
 
 ## <a name="storage-account"></a>Storage-account
-De Machine Learning-service moet een storage-account voor het opslaan van gegevens. U kunt een bestaand opslagaccount gebruiken of u kunt een nieuw opslagaccount maken bij het maken van de nieuwe Machine Learning-werkruimte (als u een quotum voor het maken van een nieuw opslagaccount hebt).
+De Machine Learning-service moet een storage-account voor het opslaan van gegevens. U kunt een bestaand opslagaccount gebruiken of u kunt een nieuw opslagaccount maken bij het maken van de nieuwe Machine Learning Studio-werkruimte (als u een quotum voor het maken van een nieuw opslagaccount hebt).
 
-Nadat de nieuwe Machine Learning-werkruimte is gemaakt, kunt u zich aanmelden voor Machine Learning Studio met behulp van het Microsoft-account dat u gebruikt voor het maken van de werkruimte. Als u het foutbericht 'Werkruimte niet gevonden' (vergelijkbaar met de volgende schermafbeelding), gebruik de volgende stappen uit om uw browsercookies te verwijderen.
+Nadat de nieuwe Machine Learning Studio-werkruimte is gemaakt, kunt u zich aanmelden voor Machine Learning Studio met behulp van het Microsoft-account dat u gebruikt voor het maken van de werkruimte. Als u het foutbericht 'Werkruimte niet gevonden' (vergelijkbaar met de volgende schermafbeelding), gebruik de volgende stappen uit om uw browsercookies te verwijderen.
 
 ![De werkruimte niet vinden][screen3]
 
@@ -45,15 +45,15 @@ Nadat de nieuwe Machine Learning-werkruimte is gemaakt, kunt u zich aanmelden vo
 
 1. Als u Internet Explorer gebruikt, klikt u op de **extra** in de rechterbovenhoek en selecteer **Internetopties**.  
 
-![Internet-opties][screen4]
+   ![Internet-opties][screen4]
 
 2. Onder de **algemene** tabblad **verwijderen...**
 
-![Tabblad Algemeen][screen5]
+   ![Tabblad Algemeen][screen5]
 
 3. In de **Browsegeschiedenis verwijderen** dialoogvenster vak, zorg ervoor dat **Cookies en websitegegevens** is geselecteerd en klik op **verwijderen**.
 
-![Verwijderen van cookies][screen6]
+   ![Verwijderen van cookies][screen6]
 
 Nadat de cookies die zijn verwijderd, opnieuw opstarten van de browser en ga vervolgens naar de [Microsoft Azure Machine Learning](https://studio.azureml.net) pagina. Wanneer u wordt gevraagd een gebruikersnaam en wachtwoord, typt u hetzelfde Microsoft-account dat u gebruikt voor het maken van de werkruimte.
 

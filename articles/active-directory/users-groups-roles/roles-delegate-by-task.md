@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2fdede1308ac2c4c036d835a7be28b0e5ee180d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6ea25510596903e4020e8237bc5bd389c584ead9
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207072"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268427"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Beheerdersrollen door admin-taak in Azure Active Directory
 
@@ -202,8 +202,8 @@ Alle bestaande appwachtwoorden verwijderen die zijn gegenereerd door de geselect
 MFA uitschakelen | Globale beheerder | 
 MFA inschakelen | Globale beheerder | 
 MFA service-instellingen beheren | Globale beheerder | 
-Bepaalde gebruikers moeten opnieuw contactmethoden opgeven | Globale beheerder | 
-Meervoudige verificatie op alle geblokkeerde apparaten herstellen  | Globale beheerder | 
+Bepaalde gebruikers moeten opnieuw contactmethoden opgeven | Verificatiebeheerder | 
+Meervoudige verificatie op alle geblokkeerde apparaten herstellen  | Verificatiebeheerder | 
 
 ## <a name="mfa-server"></a>MFA-server
 

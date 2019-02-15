@@ -1,6 +1,6 @@
 ---
 title: Web service logboekregistratie - Azure Machine Learning Studio | Microsoft Docs
-description: Leer hoe u logboekregistratie inschakelen voor Machine Learning-webservices. Logboekregistratie bevat aanvullende informatie over het oplossen van de API's.
+description: Leer hoe u logboekregistratie inschakelen voor Machine Learning Studio-webservices. Logboekregistratie bevat aanvullende informatie over het oplossen van de API's.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -15,21 +15,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: 80a5ec64a2afd2367acaedd6e44ffe1a21e9c622
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 53eedd4d00b212879389d29541c4ca55ea1bfde6
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474379"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270083"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-web-services"></a>Logboekregistratie inschakelen voor Azure Machine Learning Studio-webservices
-Dit document bevat informatie over de mogelijkheid tot het vastleggen van Machine Learning-webservices. Logboekregistratie bevat aanvullende informatie, dan alleen een foutnummer en een bericht, waarmee u uw aanroepen naar de API's voor Machine Learning op te lossen.  
+Dit document bevat informatie over de logboekregistratie van webservices voor Machine Learning Studio. Logboekregistratie bevat aanvullende informatie, dan alleen een foutnummer en een bericht, die kan helpen bij het oplossen van de aanroepen van de API's voor Machine Learning Studio.  
 
 ## <a name="how-to-enable-logging-for-a-web-service"></a>Het inschakelen van logboekregistratie voor een webservice
 
-Inschakelen van logboekregistratie van het [Azure Machine Learning-webservices](https://services.azureml.net) portal. 
+Inschakelen van logboekregistratie van het [Azure Machine Learning Studio-webservices](https://services.azureml.net) portal. 
 
-1. Meld u aan bij de portal van Azure Machine Learning-webservices op [ https://services.azureml.net ](https://services.azureml.net). Een klassieke webservice, u kunt ook aanschaffen bij de portal door te klikken op **nieuwe Web Serviceservaring** op de pagina Machine Learning-webservices in Machine Learning Studio.
+1. Meld u aan bij de portal van Azure Machine Learning Studio-webservices op [ https://services.azureml.net ](https://services.azureml.net). Een klassieke webservice, u kunt ook aanschaffen bij de portal door te klikken op **nieuwe Web Serviceservaring** op de pagina Machine Learning Studio-webservices in Machine Learning Studio.
 
    ![Nieuwe Web Services-ervaring-koppeling](./media/web-services-logging/new-web-services-experience-link.png)
 

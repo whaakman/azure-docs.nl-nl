@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: f0326e6f05f44b5f2c4416a1c1db09bc5816a297
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 6f0002c6aa98aaaddf50e4aac8929e8ddd379fd8
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558308"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301669"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Opslag van gegevens en de inkomende gegevens in Azure Time Series Insights-Preview
 
@@ -112,7 +112,7 @@ Het is belangrijk om te selecteren van een juiste ID in de reeks tijd, omdat het
 
 ## <a name="your-azure-storage-account"></a>Uw Azure storage-account
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Opslag
 
 Wanneer u een betalen per gebruik Time Series Insights-omgeving maakt, maakt u twee resources: een Time Series Insights-omgeving en een Azure Storage voor algemeen gebruik V1-account waar de gegevens worden opgeslagen. We hebben gekozen Azure-opslag voor algemeen gebruik V1 van de standaardbron maken vanwege de interoperabiliteit, de prijs en prestaties. 
 
@@ -189,7 +189,7 @@ Time Series Insights Preview gegevens met behulp van een strategie voor optimali
 
 ### <a name="scale"></a>Schalen
 
-Time Series Insights Preview biedt ondersteuning voor de schaal van een eerste inkomend verkeer van maximaal 6 megabits per seconde (Mbps) per omgeving. Uitgebreide ondersteuning voor vergroten/verkleinen wordt momenteel is. We willen onze documentatie bij zodat deze verbeteringen bijwerken.
+Time Series Insights Preview biedt ondersteuning voor de schaal van een eerste inkomend verkeer van maximaal 6 Mega Bytes per seconde (Mbps) per omgeving. Uitgebreide ondersteuning voor vergroten/verkleinen wordt momenteel is. We willen onze documentatie bij zodat deze verbeteringen bijwerken
 
 ## <a name="next-steps"></a>Volgende stappen
 

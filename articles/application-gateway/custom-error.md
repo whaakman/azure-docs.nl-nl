@@ -2,21 +2,21 @@
 title: Azure Application Gateway aangepaste foutpagina's maken
 description: Dit artikel ziet u hoe u aangepaste foutpagina's voor Application Gateway maakt.
 services: application-gateway
-author: amitsriva
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 2/14/2019
 ms.author: victorh
-ms.openlocfilehash: 2f76347105743538e9fc1d7588ecb949f2675696
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: abfe33ff679bef125d9bf5b78e1790a1a4c64863
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49071173"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301601"
 ---
 # <a name="create-application-gateway-custom-error-pages"></a>Aangepaste foutpagina's voor Application Gateway maken
 
-Application Gateway kunt u aangepaste foutpagina's in plaats van standaard foutpagina's maken. U kunt uw eigen huisstijl en lay-out met behulp van een aangepaste foutpagina.
+Met Application Gateway kunt u aangepaste foutpagina's maken in plaats van standaardfoutpagina's weer te geven. U kunt uw eigen huisstijl en lay-out hanteren door een aangepaste foutpagina te gebruiken.
 
 U kunt bijvoorbeeld uw eigen onderhoudspagina definiëren als uw webtoepassing niet bereikbaar is. Of u kunt een niet-geautoriseerde toegangspagina maken als een kwaadwillende aanvraag wordt verzonden naar een web-App.
 
@@ -34,6 +34,7 @@ Aangepaste foutpagina's kunnen worden gedefinieerd op het niveau van de globale 
 - **Beide** -de aangepaste foutpagina gedefinieerd op het niveau van de listener overschrijft de is ingesteld op globaal niveau.
 
 Voor het maken van een aangepaste foutpagina weergegeven, moet u het volgende hebben:
+
 - een HTTP-antwoordstatuscode.
 - de bijbehorende locatie voor de foutpagina. 
 - een openbaar toegankelijke Azure storage-blob voor de locatie.
@@ -59,5 +60,19 @@ Nadat u een foutpagina opgeeft, wordt de application gateway downloaden vanaf de
 4. Geef een openbaar toegankelijke blob-URL voor een bepaalde status van de foutcode en klikt u op **opslaan**. De Application Gateway is nu geconfigureerd met de aangepaste foutpagina.
 
    ![Foutcodes voor Application Gateway](media/custom-error/ag-error-codes.png)
+
+## <a name="azure-powershell-configuration"></a>Azure PowerShell-configuratie
+
+U kunt Azure PowerShell gebruiken om te configureren van een aangepaste foutpagina. Bijvoorbeeld, een wereldwijde aangepaste foutpagina weergegeven:
+
+`$updatedgateway = Add-AzApplicationGatewayCustomError -ApplicationGateway $appgw -StatusCode HttpStatus502 -CustomErrorPageUrl $customError502Url`
+
+Of een listener niveau foutpagina weergegeven:
+
+`$updatedlistener = Add-AzApplicationGatewayHttpListenerCustomError -HttpListener $listener01 -StatusCode HttpStatus502 -CustomErrorPageUrl $customError502Url`
+
+Zie voor meer informatie, [toevoegen AzApplicationGatewayCustomError](https://docs.microsoft.com/powershell/module/az.network/add-azapplicationgatewaycustomerror?view=azps-1.2.0) en [toevoegen AzApplicationGatewayHttpListenerCustomError](https://docs.microsoft.com/powershell/module/az.network/add-azapplicationgatewayhttplistenercustomerror?view=azps-1.3.0).
+
 ## <a name="next-steps"></a>Volgende stappen
+
 Zie voor meer informatie over Application Gateway diagnostics [Back-endstatus, diagnostische logboeken en metrische gegevens voor Application Gateway](application-gateway-diagnostics.md).

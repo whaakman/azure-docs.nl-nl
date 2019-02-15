@@ -1,7 +1,7 @@
 ---
 title: Suggesties toevoegen aan een Azure Search-index
 description: Hiermee kunt velden voor Queryacties, automatisch aangevulde, waarbij de voorgestelde query's worden samengesteld uit de tekst uit velden in een Azure Search-index.
-ms.date: 01/31/2019
+ms.date: 02/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 35025d69865aa6890e1cd921e31ac6c26c015789
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7128e4d3b0675775dc713451ef672b28a4991499
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008410"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269923"
 ---
 # <a name="add-suggesters-to-an-azure-search-index"></a>Suggesties toevoegen aan een Azure Search-index
 
@@ -34,9 +34,12 @@ Hoewel een **suggestie** heeft een aantal eigenschappen, is het vooral een verza
 
 U kunt slechts één hebben **suggestie** resource voor elke index (met name een **suggestie** in de **suggesties** verzameling).
 
-U kunt maken een **suggestie** op elk gewenst moment, maar de impact op uw index varieert op basis van de velden. Nieuwe velden worden toegevoegd aan een suggestie als onderdeel van dezelfde update worden de minste indrukwekkende in dat er geen indexen vereist is. De definitie van het veld, blijkt volledig opnieuw opbouwen van de index toevoegen van bestaande velden echter worden gewijzigd.
+## <a name="creating-a-suggester"></a>Het maken van een suggestie 
 
-## <a name="usage"></a>Gebruik  
+U kunt maken een **suggestie** op elk gewenst moment, maar de impact op uw index varieert op basis van de velden. 
+
++ Nieuwe velden worden toegevoegd aan een suggestie als onderdeel van dezelfde update worden de minste indrukwekkende in dat er geen indexen vereist is.
++ Bestaande velden toegevoegd aan een suggestie echter Hiermee wijzigt u de definitie van het veld, blijkt volledig opnieuw opbouwen van de index.
 
  **Suggesties** werken het beste wanneer specifieke documenten in plaats van losse termen of zinnen voorstellen gebruikt. De beste kandidaat velden zijn titels, namen en andere relatief korte zinnen die een item kunnen identificeren. Minder effectief zijn terugkerende velden, zoals categorieën en -tags, of zeer lange velden, zoals velden met beschrijvingen of opmerkingen hebt.  
 

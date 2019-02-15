@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: d6065420b9081333fc257501ace868f64220ca63
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: dafafa8ff5d721034b3b10bdeb1a2fc09cd32835
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005247"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267577"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Splunk naar Azure Monitor log-query
 
-In dit artikel is bedoeld ter ondersteuning van gebruikers die bekend met Splunk zijn voor meer informatie over de Data Explorer-querytaal voor het schrijven van Logboeken-query's in Azure Monitor. Directe vergelijking worden gemaakt tussen de twee om te begrijpen van de belangrijkste verschillen en overeenkomsten waar u kunt gebruikmaken van uw bestaande kennis.
+In dit artikel is bedoeld ter ondersteuning van gebruikers die bekend met Splunk zijn voor meer informatie over de Kusto-querytaal voor het schrijven van Logboeken-query's in Azure Monitor. Directe vergelijking worden gemaakt tussen de twee om te begrijpen van de belangrijkste verschillen en overeenkomsten waar u kunt gebruikmaken van uw bestaande kennis.
 
 ## <a name="structure-and-concepts"></a>Structuur en concepten
 

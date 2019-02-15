@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 83ee548befdc7ef0a4e7ed2d4b4e61b42a217f12
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 112fff011ebfedc1abf6981661da5fd4d97fc3d0
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247065"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267136"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Problemen met Azure Machine Learning-service AKS en ACI-implementaties oplossen
 
@@ -196,12 +196,15 @@ $ docker run -p 8000:5001 <image_id>
 Vaak, in de `init()` functie in het scoring-script `Model.get_model_path()` functie aangeroepen om een modelbestand of map van de modelbestanden niet vinden in de container. Dit is vaak een bron van de fout als de modelbestand of map niet kan worden gevonden. De eenvoudigste manier om op te sporen van deze fout is om uit te voeren de volgende Python-code in de Container-shell:
 
 ```python
+import logging
+logging.basicConfig(level=logging.DEBUG)
 from azureml.core.model import Model
 print(Model.get_model_path(model_name='my-best-model'))
 ```
 
 Dit zou afdrukken van het lokale pad (relatief aan `/var/azureml-app`) in de container waar de scoring-script verwacht de modelbestand of map zoeken. Vervolgens kunt u controleren of het bestand of map inderdaad waarop is naar verwachting.
 
+Instellen van het niveau van logboekregistratie voor FOUTOPSPORING kan oorzaak aanvullende gegevens moeten worden vastgelegd, die mogelijk nuttig bij het identificeren van de fout bepalen.
 
 ## <a name="function-fails-runinputdata"></a>Functie mislukt: run(input_data)
 Als de service is geïmplementeerd, maar deze loopt vast bij het plaatsen van gegevens naar het scoring-eindpunt, kunt u fout-instructie in afvangen toevoegen uw `run(input_data)` functie zodat het gedetailleerde foutbericht wordt weergegeven in plaats daarvan retourneert. Bijvoorbeeld:

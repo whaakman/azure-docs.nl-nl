@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 9/25/2018
 ms.author: victorh
-ms.openlocfilehash: 52b42e964e7abe207064aff49f7f8f27f8476ef4
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 52653252df3efd3e12fa974ed82cd2557eee93d0
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092839"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301244"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS-server registreert alias overzicht
 
@@ -52,11 +52,11 @@ Aliasrecords verwijdert de complexiteit die zijn gekoppeld aan dit scenario. Ze 
 
 ### <a name="update-dns-zones-automatically-when-application-ips-change"></a>DNS-zones automatisch bijgewerkt wanneer de toepassing IP-adressen wijzigen
 
-In dit scenario is vergelijkbaar met het vorige voorbeeld. Misschien een toepassing wordt verplaatst, of de onderliggende virtuele machine opnieuw wordt opgestart. Een alias-record vervolgens automatisch bijgewerkt wanneer het IP-adres verandert voor de onderliggende openbare IP-adresresource. Om te voorkomen van potentiële beveiligingsrisico's, direct gebruikers naar een andere toepassing die het oude IP-adres heeft.
+In dit scenario is vergelijkbaar met het vorige voorbeeld. Misschien een toepassing wordt verplaatst, of de onderliggende virtuele machine opnieuw wordt opgestart. Een alias-record vervolgens automatisch bijgewerkt wanneer het IP-adres verandert voor de onderliggende openbare IP-adresresource. Hiermee voorkomt u mogelijke beveiligingsrisico's van het doorsturen van gebruikers naar een andere toepassing die het oude IP-adres heeft.
 
 ### <a name="host-load-balanced-applications-at-the-zone-apex"></a>Met load balancing hosting van toepassingen in de apex van de zone
 
-Het DNS-protocol wordt voorkomen dat de toewijzing van iets anders dan een A of AAAA-record in de apex van de zone. Een voorbeeld is contoso.com. Deze beperking geeft een probleem voor toepassingseigenaren van een die beschikken over Netwerktaakverdeling toepassingen achter Traffic Manager. Het is niet mogelijk om te verwijzen naar de Traffic Manager-profiel van de zone apexrecord. Als gevolg hiervan moeten toepassingseigenaren een tijdelijke oplossing gebruiken. Een omleiding op het niveau van de toepassing moet van het toppunt van de zone omleiden naar een ander domein. Een voorbeeld is een omleiding van contoso.com naar www.contoso.com. Deze overeenkomst geeft een single point of failure voor de omleidingsfunctie.
+Het DNS-protocol wordt voorkomen dat de toewijzing van iets anders dan een A of AAAA-record in de apex van de zone. Bijvoorbeeld: contoso.com. Deze beperking geeft een probleem voor toepassingseigenaren van een die beschikken over Netwerktaakverdeling toepassingen achter Traffic Manager. Het is niet mogelijk om te verwijzen naar de Traffic Manager-profiel van de zone apexrecord. Als gevolg hiervan moeten toepassingseigenaren een tijdelijke oplossing gebruiken. Een omleiding op het niveau van de toepassing moet van het toppunt van de zone omleiden naar een ander domein. Een voorbeeld is een omleiding van contoso.com naar www.contoso.com. Deze overeenkomst geeft een single point of failure voor de omleidingsfunctie.
 
 Dit probleem is met aliasrecords, niet meer bestaat. Toepassingseigenaren van kunnen nu hun apexrecord zone verwijzen naar een Traffic Manager-profiel met externe eindpunten. Toepassingseigenaren van de kunnen verwijzen naar dezelfde Traffic Manager-profiel dat wordt gebruikt voor andere domeinen in hun DNS-zone. Bijvoorbeeld: contoso.com en www.contoso.com kunnen verwijzen naar dezelfde Traffic Manager-profiel. Dit geldt zolang het Traffic Manager-profiel alleen externe eindpunten zijn geconfigureerd heeft.
 

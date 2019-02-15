@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 841c65fd8420fdfe681cb99ee7054cb4edd5fcd3
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 2cf9a98a2f27c9088266a976118acdb56f8a65d7
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53968981"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300819"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Dynamisch maken en gebruiken van een permanent volume met Azure Files in Azure Kubernetes Service (AKS)
 
@@ -26,32 +26,20 @@ In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u 
 
 Ook moet de Azure CLI-versie 2.0.46 of later zijn geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
 
-## <a name="create-a-storage-account"></a>Create a storage account
+## <a name="create-a-storage-class"></a>Maak een opslagklasse
 
-Wanneer u een Azure-bestandsshare als een Kubernetes-volume dynamisch maakt, een opslagaccount kan worden gebruikt als deze zich in de AKS **knooppunt** resourcegroep. Deze groep is met de *MC_* voorvoegsel op dat is gemaakt door de inrichting van de resources voor het AKS-cluster. De naam van de resource met de [az aks show] [ az-aks-show] opdracht.
+Een opslagklasse wordt gebruikt om te definiëren hoe een Azure-bestandsshare wordt gemaakt. Een storage-account wordt automatisch gemaakt in de *_MC* resourcegroep voor gebruik met de opslagklasse voor het opslaan van de Azure-bestandsshares. Kies van de volgende [Azure opslagredundantie] [ storage-skus] voor *skuName*:
 
-```azurecli
-$ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
-
-MC_myResourceGroup_myAKSCluster_eastus
-```
-
-Gebruik de [az storage-account maken] [ az-storage-account-create] opdracht om het opslagaccount te maken.
-
-Update `--resource-group` verzameld door de naam van de resourcegroep in de vorige stap en `--name` naar een naam van uw keuze. Geef uw eigen unieke opslagaccountnaam:
-
-```azurecli
-az storage account create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name mystorageaccount --sku Standard_LRS
-```
+* *Standard_LRS* -standaard lokaal redundante opslag (LRS)
+* *Standard_GRS* -standaard geografisch redundante opslag (GRS)
+* *Standard_RAGRS* -standard read-access geo-redundant storage (RA-GRS)
 
 > [!NOTE]
 > Azure-bestanden op dit moment werkt alleen met de Standard-opslag. Als u Premium-opslag gebruikt, kan het volume niet inrichten.
 
-## <a name="create-a-storage-class"></a>Maak een opslagklasse
+Zie voor meer informatie over Kubernetes-Opslagklassen voor Azure Files, [Kubernetes Opslagklassen][kubernetes-storage-classes].
 
-Een opslagklasse wordt gebruikt om te definiëren hoe een Azure-bestandsshare wordt gemaakt. Een storage-account kan worden opgegeven in de klasse. Als een storage-account niet opgegeven is, een *skuName* en *locatie* moet worden opgegeven, en alle opslagaccounts in de bijbehorende resourcegroep worden geëvalueerd voor een overeenkomst. Zie voor meer informatie over Kubernetes-Opslagklassen voor Azure Files, [Kubernetes Opslagklassen][kubernetes-storage-classes].
-
-Maak een bestand met de naam `azure-file-sc.yaml` en kopieer het volgende voorbeeld-manifest. Update de *storageAccount* waarde met de naam van uw opslagaccount in de vorige stap hebt gemaakt. Voor meer informatie over *mountOptions*, Zie de [koppelingsopties] [ mount-options] sectie.
+Maak een bestand met de naam `azure-file-sc.yaml` en kopieer het volgende voorbeeld-manifest. Voor meer informatie over *mountOptions*, Zie de [koppelingsopties] [ mount-options] sectie.
 
 ```yaml
 kind: StorageClass
@@ -66,7 +54,6 @@ mountOptions:
   - gid=1000
 parameters:
   skuName: Standard_LRS
-  storageAccount: mystorageaccount
 ```
 
 Maak de opslagklasse met de [kubectl toepassen] [ kubectl-apply] opdracht:
@@ -213,7 +200,7 @@ Standaard *fileMode* en *dirMode* waarden verschillen tussen de Kubernetes-versi
 
 | versie | waarde |
 | ---- | ---- |
-| V1.6.x, v1.7.x | 0777 |
+| v1.6.x, v1.7.x | 0777 |
 | v1.8.0-v1.8.5 | 0700 |
 | V1.8.6 of hoger | 0755 |
 | v1.9.0 | 0700 |
@@ -295,3 +282,4 @@ Meer informatie over Kubernetes permanente volumes met behulp van Azure Files.
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-aks-show]: /cli/azure/aks#az-aks-show
+[storage-skus]: ../storage/common/storage-redundancy.md

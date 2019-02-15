@@ -5,21 +5,21 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 02/14/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: ccfc91e85196cbc8295bce71e512d9cf856a23c8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e2c770625cf92e0db269d14d2f63dc0c896cbe9c
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453379"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267509"
 ---
 # <a name="what-is-azure-importexport-service"></a>Wat is Azure Import/Export-service?
 
 Azure Import/Export-service wordt gebruikt om veilig grote hoeveelheden gegevens naar Azure Blob storage en Azure-bestanden importeren door de verzending van harde schijven voor een Azure-datacenter. Deze service kan ook worden gebruikt voor gegevensoverdracht van Azure Blob-opslag op schijven en verzend deze naar uw on-premises sites. Gegevens uit een of meer schijven kunnen worden geïmporteerd naar Azure Blob-opslag of naar Azure Files. 
 
-Geef u eigen schijfstations en gegevens overdragen met de Azure Import/Export-service. Ook kunt u schijven die door Microsoft worden verstrekt. 
+Geef uw eigen schijven en gegevens overdragen met de Azure Import/Export-service. Ook kunt u schijven die door Microsoft worden verstrekt. 
 
 Als u overdragen van gegevens met behulp van schijven die door Microsoft worden verstrekt wilt, kunt u [Azure Data Box-schijf](../../databox/data-box-disk-overview.md) gegevens importeren in Azure. Maximaal 5 versleutelde schijf SSD's (Solid-State) van Microsoft wordt geleverd met een totale capaciteit van 40 TB per order, naar uw datacenter via een regionale luchtvaartmaatschappij. U kunt snel schijfstations configureren, gegevens naar harde schijven te kopiëren via een USB-3.0-verbinding en verzend de schijven terug naar Azure. Ga voor meer informatie naar [overzicht van Azure Data Box-schijf](../../databox/data-box-disk-overview.md).
 

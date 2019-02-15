@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 599e6b0cd615be7275df127b0b2f174bd8e6c290
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 52a441d5d8f3f44b35253e02786a033da5439597
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994876"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269853"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Aan de slag met Azure Monitor logboeken-query 's
 
@@ -43,7 +43,7 @@ In deze zelfstudie leert u Azure LMonitor logboeken-query's schrijven. Deze leer
 Query's kunnen beginnen met ofwel een tabelnaam wordt opgegeven of de *zoeken* opdracht. U moet beginnen met een tabelnaam wordt opgegeven, omdat deze een duidelijke bereik voor de query wordt gedefinieerd en verbetert de prestaties van query's zowel relevantie van de resultaten.
 
 > [!NOTE]
-> De Data Explorer-querytaal die wordt gebruikt door Azure Monitor is hoofdlettergevoelig. Trefwoorden voor de taal worden doorgaans intern kleine letters. Wanneer u de namen van tabellen of kolommen in een query, zorg ervoor dat u het juiste geval is, zoals wordt weergegeven in het deelvenster schema.
+> De Kusto-query-taal die wordt gebruikt door Azure Monitor is hoofdlettergevoelig. Trefwoorden voor de taal worden doorgaans intern kleine letters. Wanneer u de namen van tabellen of kolommen in een query, zorg ervoor dat u het juiste geval is, zoals wordt weergegeven in het deelvenster schema.
 
 ### <a name="table-based-queries"></a>Query's op basis van een tabel
 Azure Monitor organiseert logboekgegevens in tabellen, elk bestaat uit meerdere kolommen. Alle tabellen en kolommen worden weergegeven in het deelvenster schema in Log Analytics in de Analytics-portal. Identificeert een tabel die u geïnteresseerd bent en klikt u vervolgens Kijk eens een deel van de gegevens:

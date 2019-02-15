@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/14/2019
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9517ccac4006edec473e25c5e6524ce62d4e1259
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 31e380379b5237f6b1a72b3427eb857f64d55c2e
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210099"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269056"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Apparaatbeheer via Azure Active Directory Veelgestelde vragen
 
@@ -157,7 +157,11 @@ Verwijderd of uitgeschakelde gebruikers die zich niet in eerder heeft geen toega
 
 **A:** Een gebruiker kan deelnemen aan of een apparaat registreren bij Azure AD met behulp van multi-factor Authentication. Vervolgens wordt het apparaat zelf een vertrouwde tweede factor voor die gebruiker. Wanneer de gebruiker zich aanmeldt bij het apparaat en toegang verkrijgt een toepassing tot, beschouwd Azure AD het apparaat als een tweede factor. Hiermee kunt naadloos toegang krijgen tot toepassingen zonder extra prompts van multi-factor Authentication voor die gebruiker. 
 
-Dit gedrag is niet van toepassing op een andere gebruiker die zich aanmeldt op dat apparaat. Dus alle andere gebruikers die toegang hebben tot dat apparaat krijgen een multi-Factor Authentication-uitdaging. Ze hebben vervolgens toegang tot toepassingen die meervoudige verificatie vereisen.
+Dit gedrag:
+
+- Is van toepassing op Azure AD gekoppeld en Azure AD-apparaten: geregistreerd maar niet voor hybride Azure AD apparaten gekoppeld.
+
+- Is niet van toepassing op een andere gebruiker die zich aanmeldt op dat apparaat. Dus alle andere gebruikers die toegang hebben tot dat apparaat krijgen een multi-Factor Authentication-uitdaging. Ze hebben vervolgens toegang tot toepassingen die meervoudige verificatie vereisen.
 
 ---
 

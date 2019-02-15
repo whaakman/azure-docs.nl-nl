@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
-ms.openlocfilehash: 9aff955a2ae0f40785036c2fee22804785e6526a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4c428372868e3d3fac58bc851de8c59ad01d1d8f
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002266"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269957"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>Analyseren van logboekgegevens in Azure Monitor
 
-Logboekgegevens die zijn verzameld door Azure Monitor is opgeslagen in een Log Analytics-werkruimte die is gebaseerd op [Azure Data Explorer](/azure/data-explorer). Het verzamelt telemetrie van een groot aantal bronnen en maakt gebruik van de [querytaal van Data Explorer](/azure/kusto/query) ophalen en analyseren van gegevens.
+Logboekgegevens die zijn verzameld door Azure Monitor is opgeslagen in een Log Analytics-werkruimte die is gebaseerd op [Azure Data Explorer](/azure/data-explorer). Het verzamelt telemetrie van een groot aantal bronnen en maakt gebruik van de [Kusto-querytaal](/azure/kusto/query) door Data Explorer gebruikt om te halen en analyseren van gegevens.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 
-## <a name="log-queries"></a>Logboeken-query 's
+## <a name="log-queries"></a>Logboekquery's
 
 U moet een logboekquery voor het ophalen van alle logboekgegevens van Azure Monitor.  Of u bent [analyseren van gegevens in de portal](portals.md), [configureren van een waarschuwingsregel](../platform/alerts-metric.md) om te worden geïnformeerd over een bepaalde voorwaarde of bij het ophalen van gegevens met de [logboeken-API van Azure Monitor](https://dev.loganalytics.io/) , gaat u een query maken om op te geven van de gegevens die u wilt.  In dit artikel wordt beschreven hoe de logboeken-query's worden gebruikt in Azure Monitor en concepten die u weten moet voordat u een maakt.
 
@@ -47,7 +47,7 @@ De verschillende manieren die u Logboeken-query's in Azure Monitor gebruikt omva
 ![Zoekopdrachten in Logboeken](media/log-query-overview/queries-overview.png)
 
 ## <a name="write-a-query"></a>Een query schrijven
-Azure Monitor maakt gebruik van [een versie van de querytaal van Data Explorer](get-started-queries.md) ophalen en analyseren van logboekgegevens op verschillende manieren.  U doorgaans begint met eenvoudige query's en vervolgens de voortgang voor het gebruik van meer geavanceerde functies zoals de vereisten van uw steeds complexer.
+Azure Monitor maakt gebruik van [een versie van de querytaal Kusto](get-started-queries.md) ophalen en analyseren van logboekgegevens op verschillende manieren.  U doorgaans begint met eenvoudige query's en vervolgens de voortgang voor het gebruik van meer geavanceerde functies zoals de vereisten van uw steeds complexer.
 
 De basisstructuur van een query is een brontabel gevolgd door een reeks van operators, gescheiden door een sluisteken `|`.  U kunt koppelen samen meerdere operators voor het verfijnen van de gegevens en geavanceerde functies uitvoeren.
 

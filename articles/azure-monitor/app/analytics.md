@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: mbullwin
-ms.openlocfilehash: c9392d910098e8a2dfadc4842dfcfe185f01fafc
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4c3ecdd01106cc8d305764206bc75535fa4dac3a
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004516"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268597"
 ---
 # <a name="analytics-in-application-insights"></a>Analyses in Application Insights
 Analytics is het krachtig hulpprogramma voor zoekopdrachten en query's van [Application Insights](app-insights-overview.md). Analytics is een web-hulpprogramma, zodat er geen installatie vereist is.
@@ -31,7 +31,7 @@ U kunt ook de [Analytics Speelplaats](https://go.microsoft.com/fwlink/?linkid=85
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 ## <a name="relation-to-azure-monitor-logs"></a>De relatie met Azure Monitor-Logboeken
-Application Insights analytics is gebaseerd op [Azure Data Explorer](/azure/data-explorer) zoals Azure Monitor-logboeken en maakt ook gebruik van de [Data Explorer-querytaal](/azure/kusto/query). Het maakt gebruik van dezelfde [log analytics-portal](../log-query/get-started-portal.md) zoals Azure Monitor zich aanmeldt, hoewel de gegevens worden opgeslagen in een afzonderlijke partitie.
+Application Insights analytics is gebaseerd op [Azure Data Explorer](/azure/data-explorer) zoals Azure Monitor-logboeken en maakt ook gebruik van de [Kusto-querytaal](/azure/kusto/query). Het maakt gebruik van dezelfde [log analytics-portal](../log-query/get-started-portal.md) zoals Azure Monitor zich aanmeldt, hoewel de gegevens worden opgeslagen in een afzonderlijke partitie.
 
 U niet rechtstreeks toegang tot gegevens in een Log Analytics-werkruimte van Application Insights analytics, en ook kunt u rechtstreeks toegang tot toepassingsgegevens van log analytics. Schrijven van query's op beide sets met gegevens samen, een [query's in log analytics](../log-query/log-query-overview.md) en het gebruik de [app() expressie](../log-query/app-expression.md) voor het openen van toepassing.
 

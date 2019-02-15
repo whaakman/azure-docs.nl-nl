@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e3726037e16acdf1d6d624dbf8c2088a57b0bde6
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 703f27dab6ca6252647ecb37d17d0f4faf045097
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234538"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268683"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Hybrid Runbook Workers oplossen
 
@@ -204,7 +204,7 @@ Dit kan worden veroorzaakt als de machine is al geregistreerd bij een ander Auto
 
 #### <a name="resolution"></a>Oplossing
 
-U lost dit probleem, verwijder de volgende registersleutel en probeer de `Add-HybridRunbookWorker` cmdlet opnieuw uit:
+U lost dit probleem, de volgende registersleutel verwijderen en opnieuw starten de `HealthService` en probeer de `Add-HybridRunbookWorker` cmdlet opnieuw uit:
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
 

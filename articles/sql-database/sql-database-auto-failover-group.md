@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 2857b7f5347cf546a9745dcbea02f636a798f4a2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0cffb4fdff4bddc33c6938e27425035c929808b7
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004244"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301924"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Automatische failover-groepen gebruiken voor het inschakelen van transparante en gecoördineerd failover van meerdere databases
 
@@ -60,14 +60,18 @@ Voor het bereiken van echte zakelijke continuïteit, toe te voegen databaseredun
 
   De SQL Database-server of een beheerd exemplaar dat als host fungeert voor de secundaire databases in de failovergroep. De secundaire server kan niet in dezelfde regio als de primaire.
 
-- **Databases toevoegen aan de failovergroep op een SQL-Database-server**
+- **Individuele databases aan de failovergroep toe te voegen**
 
-  U kunt verschillende individuele databases of databases in een elastische pool op dezelfde SQL-Database-server in plaatsen de failover-groep met dezelfde. Als u een individuele database aan de failovergroep toevoegt, wordt automatisch een secundaire database met behulp van dezelfde grootte edition en de rekenkracht gemaakt. Als de primaire database zich in een elastische pool, wordt de secundaire server wordt automatisch gemaakt in de elastische pool met dezelfde naam. Als u een database die al een secundaire database in de secundaire server toevoegt, wordt deze geo-replicatie wordt overgenomen door de groep. Wanneer u een database die al een secundaire database in een server die geen deel uitmaakt van de failovergroep toevoegt, wordt een nieuwe secundaire gemaakt in de secundaire server.
+  U kunt verschillende individuele databases op dezelfde SQL-Database-server in dezelfde failover-groep plaatsen. Als u een individuele database aan de failovergroep toevoegt, wordt automatisch een secundaire database met behulp van dezelfde grootte edition en compute op de secundaire server gemaakt.  U hebt opgegeven die server bij de failovergroep is gemaakt. Als u een database die al een secundaire database in de secundaire server toevoegt, wordt deze koppeling voor geo-replicatie wordt overgenomen door de groep. Wanneer u een database die al een secundaire database in een server die geen deel uitmaakt van de failovergroep toevoegt, wordt een nieuwe secundaire gemaakt in de secundaire server.
   
 > [!IMPORTANT]
   > In een beheerd exemplaar, worden alle gebruikersdatabases worden gerepliceerd. Een subset van gebruikersdatabases voor de replicatie kan niet worden opgenomen in de failovergroep.
 
-- **Failover-listener voor lezen / schrijven**
+- **Databases in elastische pool toevoegen aan de failovergroep**
+
+  U kunt alle of enkele databases in een elastische pool in dezelfde failover-groep plaatsen. Als de primaire database zich in een elastische pool, wordt de secundaire server wordt automatisch gemaakt in de elastische pool met dezelfde naam (secundaire groep). U moet ervoor zorgen dat de secundaire server een elastische pool met de exacte naam en voldoende beschikbare capaciteit bevat voor het hosten van de secundaire databases die door de failovergroep wordt gemaakt. Als u een database in de groep die al een secundaire database in de secundaire groep toevoegt, wordt deze koppeling voor geo-replicatie wordt overgenomen door de groep. Wanneer u een database die al een secundaire database in een server die geen deel uitmaakt van de failovergroep toevoegt, wordt een nieuwe secundaire gemaakt in de secundaire groep.
+  
+  - **Failover-listener voor lezen / schrijven**
 
   Een DNS CNAME-record gemaakt die naar de huidige primaire URL verwijst. Hierdoor kan de SQL-toepassingen voor lezen / schrijven transparant opnieuw verbinding maken met de primaire database als de primaire gewijzigd na een failover.
 

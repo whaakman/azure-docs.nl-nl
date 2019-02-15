@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: raynew
-ms.openlocfilehash: 552ba28a9635cdd484ccd598726dcea0b3bcbc60
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 6a29aeda52fe599ec7e2ee3b3ea1846e05b73d7d
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261499"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268869"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Recovery Services-kluizen beheren en controleren
 
@@ -40,7 +40,7 @@ Te bewaken, waarschuwingen, of gegevens over een Recovery Services-kluis weergev
 
     ![Een Recovery Services-kluis maken, stap 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
-4. Klik op een kluis om te openen in de lijst met kluizen, de **overzicht** dashboard. 
+4. Klik op een kluis om te openen in de lijst met kluizen, de **overzicht** dashboard.
 
     ![Recovery services-kluis-dashboard](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
@@ -75,7 +75,7 @@ Klik op toegang tot het menu back-up waarschuwingen in het menu Recovery Service
 
 ![Waarschuwingen voor back-ups](./media/backup-azure-manage-windows-server/backup-alerts-menu.png)
 
-Waarschuwingen voor back-up in dit rapport worden de waarschuwingen voor de kluis. 
+Waarschuwingen voor back-up in dit rapport worden de waarschuwingen voor de kluis.
 
 ![Waarschuwingen voor back-ups](./media/backup-azure-manage-windows-server/backup-alerts.png)
 
@@ -124,7 +124,7 @@ Standaard worden alle gegevens, met uitzondering van **tijd laatste keer voorgek
 
 ### <a name="change-the-filter-in-alerts-report"></a>Wijzig het filter in rapport waarschuwingen
 
-Gebruik de **Filter** menu om te wijzigen van de ernst, Status, begintijd en eindtijd voor de waarschuwingen. 
+Gebruik de **Filter** menu om te wijzigen van de ernst, Status, begintijd en eindtijd voor de waarschuwingen.
 
 > [!NOTE]
 > Bewerken van de waarschuwingen voor back-up wijzigen niet filter de waarschuwing of kritieke waarschuwingen in de kluis een dashboard.
@@ -184,7 +184,7 @@ Voor meer informatie over de taken, klikt u op **In voortgang** of **mislukt** o
 
 De **back-uptaken** menu geeft informatie weer over het Item type bewerking, Status, begintijd en duur.  
 
-Open het menu back-uptaken in het hoofdmenu van de kluis, te klikken op **back-uptaken**. 
+Open het menu back-uptaken in het hoofdmenu van de kluis, te klikken op **back-uptaken**.
 
 ![Back-up items van instellingen](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
 
@@ -263,17 +263,14 @@ De back-upopslag-tegel in het dashboard ziet u de opslag verbruikt in Azure. Ops
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
-**Q1. Hoe lang duurt het voor de status van de Azure backup-agent om weer te geven in de portal?**
+### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Hoe lang duurt het voor de status van de Azure backup-agent om weer te geven in de portal?
+De Azure-portal kan maximaal 15 minuten duren in overeenstemming met de status van de Azure backup-agent-taak.
 
-A1. De Azure-portal kan maximaal 15 minuten duren in overeenstemming met de status van de Azure backup-agent-taak.
+### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Wanneer een back-uptaak is mislukt, hoe lang duurt het voordat een waarschuwing te activeren?
+Een waarschuwing wordt gegenereerd binnen 20 minuten van de Azure back-upfouten.
 
-**Q2. Wanneer een back-uptaak is mislukt, hoe lang duurt het voordat een waarschuwing te activeren?**
-
-A2. Een waarschuwing wordt gegenereerd binnen 20 minuten van de Azure back-upfouten.
-
-**Q3. Is er een aanvraag waarin een e-mailbericht niet verzonden als meldingen zijn geconfigureerd?**
-
-A3. Ja. In de volgende situaties, worden geen meldingen verzonden.
+### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Is er een aanvraag waarin een e-mailbericht niet verzonden als meldingen zijn geconfigureerd?
+Ja. In de volgende situaties, worden geen meldingen verzonden.
 
 * Als meldingen per uur worden geconfigureerd en een waarschuwing wordt gegenereerd en opgelost binnen het uur
 * Wanneer een taak is geannuleerd

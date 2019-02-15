@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: c682bca1f3d4f0e2659ed107a2b15e4e4e28b0d9
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 0ffa917aa6bcfb642cd672d0a51a70b13f041635
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492484"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267560"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Een webservice met behulp van de portal van Azure Machine Learning Studio-webservices beheren
 U kunt beheren op uw Machine Learning nieuwe en klassieke webservices met behulp van de portal voor Microsoft Azure Machine Learning-webservices. Omdat klassieke webservices en nieuwe Web services zijn afhankelijk van verschillende onderliggende technologieën, hebt u iets anders beheermogelijkheden voor elk van deze.
@@ -28,7 +28,8 @@ In Machine Learning-webservicesportal kunt u het volgende doen:
 * Maken, delete of update facturering plannen (alleen nieuw).
 * Toevoegen en verwijderen van eindpunten (alleen klassiek)
 
-
+>[!NOTE]
+>Kunt u ook in voor klassieke webservices beheren [Machine Learning Studio](http://studio.azureml.net) op de **webservices** tabblad.
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Machtigingen voor het beheren van nieuwe Resources Manager op basis van webservices
 

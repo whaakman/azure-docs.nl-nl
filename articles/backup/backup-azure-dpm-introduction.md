@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
-ms.openlocfilehash: 1f2defd2adb580aee71482a699c7987ca3fa7807
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: bb13e507e7992f4cd4d767a7a18850739b8dccf2
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301064"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270195"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Voorbereiden op back-up van workloads naar Azure met System Center DPM
 
-In dit artikel wordt uitgelegd hoe u voorbereiden voor System Center Data Protection Manager (DPM) back-ups naar Azure met behulp van de Azure Backup-service. 
+In dit artikel wordt uitgelegd hoe u voorbereiden voor System Center Data Protection Manager (DPM) back-ups naar Azure met behulp van de Azure Backup-service.
 
 Dit artikel bevat:
 
@@ -25,7 +25,7 @@ Dit artikel bevat:
 - Vereisten en beperkingen voor het gebruik van Azure Backup met DPM.
 - Stappen voor het voorbereiden van Azure, inclusief het instellen van een back-up van de Recovery Services-kluis en (optioneel) wijzigen van het type van de Azure storage voor de kluis.
 - Stappen voor het voorbereiden van de DPM-server, inclusief downloaden kluis referenties, de Azure backup-agent installeren en registreren van de DPM-server in de kluis.
-- Tips voor probleemoplossing voor algemene fouten. 
+- Tips voor probleemoplossing voor algemene fouten.
 
 
 ## <a name="why-back-up-dpm-to-azure"></a>Waarom back-up van DPM naar Azure?
@@ -42,11 +42,11 @@ De zakelijke voordelen van het back-ups van DPM-servers naar Azure zijn:
 
 ## <a name="prerequisites-and-limitations"></a>Vereisten en beperkingen
 
-**Instelling** | **Vereiste** 
+**Instelling** | **Vereiste**
 --- | ---
 DPM op een Azure-VM | System Center 2012 R2 met DPM 2012 R2 updatepakket 3 of hoger.
-DPM op een fysieke server | System Center 2012 SP1 of hoger. System Center 2012 R2. 
-DPM op een Hyper-V-VM | System Center 2012 SP1 of hoger. System Center 2012 R2. 
+DPM op een fysieke server | System Center 2012 SP1 of hoger. System Center 2012 R2.
+DPM op een Hyper-V-VM | System Center 2012 SP1 of hoger. System Center 2012 R2.
 DPM op een VMware-VM | System Center 2012 R2 met Update Rollup 5 of hoger.
 Onderdelen | De DPM-server moet Windows PowerShell en .net Framework 4.5 geïnstalleerd.
 Ondersteunde apps | [Ontdek](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) waar DPM een back-up van kan maken.
@@ -54,7 +54,7 @@ Ondersteunde bestandstypen | Deze bestandstypen kunnen een back-worden gemaakt m
 Niet-ondersteunde bestandstypen | Servers op hoofdlettergevoelige bestandssystemen; vaste koppelingen (overgeslagen); reparsepunten (overgeslagen); versleuteld en gecomprimeerd (overgeslagen); versleuteld en sparse (overgeslagen); Gecomprimeerde stream; stream parseren.
 Lokale opslag | Elke machine die u back wilt-up moet lokale vrije opslagruimte die ten minste 5% van de grootte van de gegevens die back-up hebben.  Bijvoorbeeld, vereist back-ups van 100 GB aan gegevens een minimum van 5 GB aan vrije ruimte in de nieuwe locatie.
 Kluis-opslag | Er is geen limiet voor de hoeveelheid gegevens die u kunt back-up naar een Azure Backup-kluis, maar de grootte van een gegevensbron (bijvoorbeeld een virtuele machine of een database) mag niet groter zijn dan 54400 GB.
-Azure Backup-agent | Als DPM wordt uitgevoerd op System Center 2012 SP1, installeert u updatepakket 2 of hoger voor DPM SP1. Dit is vereist voor de installatie van agent.<br/><br/> In dit artikel wordt beschreven hoe u de nieuwste versie van de Azure Backup-agent, ook wel bekend als de Microsoft Azure Recovery Service agent (MARS) implementeren. Hebt u een eerdere versie is geïmplementeerd, kunt u bijwerken naar de nieuwste versie om ervoor te zorgen dat back-up werkt zoals verwacht. 
+Azure Backup-agent | Als DPM wordt uitgevoerd op System Center 2012 SP1, installeert u updatepakket 2 of hoger voor DPM SP1. Dit is vereist voor de installatie van agent.<br/><br/> In dit artikel wordt beschreven hoe u de nieuwste versie van de Azure Backup-agent, ook wel bekend als de Microsoft Azure Recovery Service agent (MARS) implementeren. Hebt u een eerdere versie is geïmplementeerd, kunt u bijwerken naar de nieuwste versie om ervoor te zorgen dat back-up werkt zoals verwacht.
 
 
 Voordat u begint, moet u een Azure-account met de Azure Backup-functie is ingeschakeld. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Meer informatie over [prijzen van Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
@@ -85,14 +85,14 @@ De instelling voor opslagreplicatie bewerken:
 
 ## <a name="download-vault-credentials"></a>Kluisreferenties downloaden
 
-U kluisreferenties gebruiken wanneer u de DPM-server in de kluis registreert. 
+U kluisreferenties gebruiken wanneer u de DPM-server in de kluis registreert.
 
 - Het kluisreferentiebestand is een certificaat dat de portal voor elke back-upkluis genereert.
 - De portal uploadt de openbare sleutel vervolgens naar de Access Control Service (ACS).
 - Tijdens de registratiewerkstroom machine wordt de persoonlijke sleutel van het certificaat beschikbaar gesteld aan de gebruiker, de machine verifieert.
 - De Azure Backup-service verzendt op basis van de verificatie, gegevens naar de geïdentificeerde kluis.
 
- ### <a name="best-practices-for-vault-credentials"></a>Aanbevolen procedures voor kluisreferenties
+### <a name="best-practices-for-vault-credentials"></a>Aanbevolen procedures voor kluisreferenties
 
 Voor de referenties kunt u het kluisreferentiebestand via een beveiligd kanaal downloaden vanuit de Azure-portal:
 
@@ -102,7 +102,7 @@ Voor de referenties kunt u het kluisreferentiebestand via een beveiligd kanaal d
     - Echter worden back-upgegevens versleuteld met een wachtwoordzin die deel uitmaakt van de klant, zodat bestaande back-upgegevens kunnen niet worden aangetast.
 - Zorg ervoor dat bestand wordt opgeslagen in een locatie die toegankelijk is vanaf de DPM-server. Als deze is opgeslagen in een bestand share/SMB, controleert de toegangsmachtigingen.
 - De kluisreferenties verlopen na 48 uur. U kunt download nieuwe kluisreferenties zo vaak als nodig is. Alleen de meest recente kluisreferentiebestand kan echter worden gebruikt tijdens de registratiewerkstroom.
-- De Azure Backup-service niet op de hoogte van de persoonlijke sleutel van het certificaat en de persoonlijke sleutel niet beschikbaar is in de portal of de service. 
+- De Azure Backup-service niet op de hoogte van de persoonlijke sleutel van het certificaat en de persoonlijke sleutel niet beschikbaar is in de portal of de service.
 
 Download het bestand met kluisreferenties als volgt naar een lokale computer:
 
@@ -121,7 +121,7 @@ Download het bestand met kluisreferenties als volgt naar een lokale computer:
 
 ## <a name="install-the-backup-agent"></a>De Backup-Agent installeren
 
-Alle machines die een back-up Azure back-up moeten hebben de backup-agent (ook wel bekend als de agent van Microsoft Azure Recovery Service (MARS)) is geïnstalleerd. Installeer de agent op de DPM-server als volgt:
+Elke machine die wordt ondersteund door Azure Backup moet de backup-agent (ook wel bekend als de agent van Microsoft Azure Recovery Service (MARS)) is geïnstalleerd. Installeer de agent op de DPM-server als volgt:
 
 1. Open de kluis die u wilt registreren van de DPM-server.
 2. In **instellingen**, klikt u op **eigenschappen**.
@@ -132,7 +132,7 @@ Alle machines die een back-up Azure back-up moeten hebben de backup-agent (ook w
     ![Downloaden](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
 
-4. Nadat u hebt gedownload, MARSAgentInstaller.exe worden uitgevoerd. de agent installeren op de DPM-machine. 
+4. Nadat u hebt gedownload, MARSAgentInstaller.exe worden uitgevoerd. de agent installeren op de DPM-machine.
 5. Selecteer een map voor installatie en de cachemap voor de agent. De vrije ruimte voor cache-locatie moet ten minste 5% van de back-upgegevens.
 6. Als u een proxyserver gebruiken om te verbinden met het internet, in de **proxyconfiguratie** scherm, voert u de gegevens van de proxy-server. Als u gebruikmaakt van een geverifieerde proxyserver, voert u de gebruikersgegevens voor de naam en het wachtwoord in dit scherm.
 7. De Azure backup-agent installeert .NET Framework 4.5 en Windows PowerShell (als deze zijn niet geïnstalleerd) om de installatie te voltooien.
@@ -151,7 +151,7 @@ Alle machines die een back-up Azure back-up moeten hebben de backup-agent (ook w
 
     ![Kluisreferenties](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Credentials.jpg)
 
-10. In **Beperkingsinstelling**, optioneel kan worden ingeschakeld voor bandbreedteregeling voor back-ups. U kunt de snelheid limieten instellen voor werktijden en dagen opgeven. 
+10. In **Beperkingsinstelling**, optioneel kan worden ingeschakeld voor bandbreedteregeling voor back-ups. U kunt de snelheid limieten instellen voor werktijden en dagen opgeven.
 
     ![Beperkingsinstelling](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Throttling.png)
 
@@ -168,12 +168,12 @@ Alle machines die een back-up Azure back-up moeten hebben de backup-agent (ook w
     - De wachtwoordzin die wordt gebruikt voor het versleutelen van de back-ups naar de cloud.
     - Geef ten minste 16 tekens.
     - Sla het bestand op een veilige locatie, het nodig voor herstel.
-    
+
     ![Versleuteling](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Encryption.png)
 
     > [!WARNING]
     > De wachtwoordzin voor versleuteling van jou en Microsoft biedt geen inzicht hebben in deze.
-    > Als de wachtwoordzin kwijtraakt of vergeet; Microsoft kan niet helpen bij het herstellen van de back-upgegevens. 
+    > Als de wachtwoordzin kwijtraakt of vergeet; Microsoft kan niet helpen bij het herstellen van de back-upgegevens.
 
 13. Klik op **registreren** de DPM-server naar de kluis registreren.  
 

@@ -12,27 +12,27 @@ ms.date: 11/15/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c48bbffd6a6312588d071841000b9211266285e3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 907511b7f20311479e7b11a30f3d5719daea3f87
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163033"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301465"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Meer informatie over Azure AD Application Proxy connectors
 
-Connectors zijn wat Azure AD Application Proxy mogelijk maken. Ze zijn eenvoudig, gemakkelijk te implementeren en te onderhouden en heel krachtige. In dit artikel wordt beschreven welke connectors zijn, hoe deze werken, en enkele suggesties voor informatie over het optimaliseren van uw implementatie. 
+Connectors zijn wat Azure AD Application Proxy mogelijk maken. Ze is eenvoudig, gemakkelijk te implementeren en te onderhouden en heel krachtige. In dit artikel wordt beschreven welke connectors zijn, hoe deze werken, en enkele suggesties voor informatie over het optimaliseren van uw implementatie. 
 
 ## <a name="what-is-an-application-proxy-connector"></a>Wat is er een Application Proxy-connector?
 
-Connectors zijn lichtgewicht agents die zich on-premises en de uitgaande verbinding met de service voor toepassingsproxy te vergemakkelijken. Connectors moeten worden geïnstalleerd op een Windows-Server die toegang tot de back endtoepassing heeft. U kunt connectors indelen in connectorgroepen, met elke groep verwerken van verkeer voor specifieke toepassingen. Connectors taakverdeling automatisch, en kunnen helpen met het optimaliseren van de netwerkstructuur van uw. 
+Connectors zijn lichtgewicht agents die zich on-premises en de uitgaande verbinding met de service voor toepassingsproxy te vergemakkelijken. Connectors moeten worden geïnstalleerd op een Windows-Server die toegang tot de back endtoepassing heeft. U kunt connectors indelen in connectorgroepen, met elke groep verwerken van verkeer voor specifieke toepassingen.
 
 ## <a name="requirements-and-deployment"></a>Vereisten en implementatie
 
-Voor het implementeren van de toepassingsproxy is, moet u ten minste één connector, maar we raden aan twee of meer voor meer flexibiliteit. De connector installeren op een Windows Server 2012 R2 of 2016-machine. De connector moet kunnen communiceren met de service voor toepassingsproxy, evenals de on-premises toepassingen die u publiceert. 
+Voor het implementeren van de toepassingsproxy is, moet u ten minste één connector, maar we raden aan twee of meer voor meer flexibiliteit. De connector installeren op een Windows Server 2012 R2 of 2016-machine. De connector moet communiceren met de Application Proxy-service en de on-premises toepassingen die u publiceert. 
 
-### <a name="windows-server"></a>Windows server
-U moet een server met Windows Server 2012 R2 of hoger waarop kunt u de Application Proxy-connector installeren. De server moet verbinding maken met de services voor toepassingsproxy in Azure en de on-premises toepassingen die u publiceert.
+### <a name="windows-server"></a>Windows-server
+U moet een server met Windows Server 2012 R2 of hoger waarop kunt u de Application Proxy-connector installeren. De server moet verbinding maken met de services voor toepassingsproxy in Azure en de on-premises toepassingen die u wilt publiceren.
 
 De windows-server moet TLS 1.2 is ingeschakeld voordat u de Application Proxy-connector installeert. Bestaande connectors met een versie lager dan 1.5.612.0 blijven werken in eerdere versies van TLS tot nader order van kracht. TLS 1.2 inschakelen:
 
@@ -67,12 +67,12 @@ U hebt geen handmatig verwijderen van connectors die niet gebruikt worden. Wanne
 
 Azure AD biedt Automatische updates voor alle connectors die u implementeert. Als de Application Proxy Connector Updater-service wordt uitgevoerd, wordt uw connectors automatisch bijgewerkt. Als u niet de Connector Updater-service op uw server ziet, moet u [uw connector opnieuw installeren](application-proxy-add-on-premises-application.md) om eventuele updates te downloaden. 
 
-Als u niet wilt wachten tot een automatische update te komen aan uw connector, kunt u een handmatige upgrade kunt uitvoeren. Ga naar de [connector-downloadpagina](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) op de server waarop de connector zich bevindt en selecteert u een **downloaden**. Een upgrade voor de lokale connector begint dit proces. 
+Als u niet wilt wachten tot een automatische update te komen aan uw connector, kunt u een handmatige upgrade doen. Ga naar de [connector-downloadpagina](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) op de server waarop de connector zich bevindt en selecteert u een **downloaden**. Een upgrade voor de lokale connector begint dit proces. 
 
 Voor tenants met meerdere connectors gericht op de automatische updates één connector op een tijdstip in elke groep om te voorkomen dat downtime in uw omgeving. 
 
 U ondervindt mogelijk downtime tijdens uw connector bijgewerkt als:  
-- U hoeft slechts één connector. Deze uitvaltijd te voorkomen en de hoge beschikbaarheid te verbeteren, raden we u een tweede connector installeren en [maken van een connectorgroep](application-proxy-connector-groups.md).  
+- U slechts één connector hebben wij raden u een tweede connector te installeren en [maken van een connectorgroep](application-proxy-connector-groups.md). Dit wordt uitvaltijd te voorkomen en een hogere beschikbaarheid bieden.  
 - Er is een connector in het midden van een transactie wanneer de update is begonnen. Hoewel de initiële transactie verloren gegaan is, uw browser moet automatisch probeer het opnieuw of u kunt de pagina vernieuwen. Wanneer de aanvraag is verzonden, wordt het verkeer wordt doorgestuurd naar een back-connector.
 
 ## <a name="creating-connector-groups"></a>Het maken van connectorgroepen
@@ -85,7 +85,7 @@ Zie voor meer informatie over connectorgroepen [publiceren van toepassingen op a
 
 ## <a name="capacity-planning"></a>Capaciteitsplanning 
 
-Terwijl connectors wordt automatisch taakverdeling binnen een connectorgroep, is het ook belangrijk om te controleren of dat u voldoende capaciteit tussen connectors voor het afhandelen van het verwachte verkeersvolume hebt gepland. In het algemeen, des te meer gebruikers hebt, een machine die u moet de groter. Hieronder vindt u een tabel geeft een overzicht van het volume andere machines kan worden verwerkt. Houd er rekening mee is alle gebaseerd op verwachte transacties Per seconde (TPS) in plaats van door gebruiker sinds gebruik patronen variëren en kunnen niet worden gebruikt om te voorspellen laden.  Let ook op dat er enkele verschillen op basis van de grootte van de antwoorden en de reactietijd van de back-end-toepassing zijn-grotere reactieformaat en langzamer reactietijden tot een lagere maximale TPS leiden zal.
+Het is belangrijk om te controleren of dat u voldoende capaciteit tussen connectors voor het afhandelen van het verwachte verkeersvolume hebt gepland. In het algemeen, des te meer gebruikers hebt, des te groter een virtuele machine moet u. Hieronder vindt u een tabel geeft een overzicht van het volume andere machines kan worden verwerkt. Houd er rekening mee is alle gebaseerd op verwachte transacties Per seconde (TPS) in plaats van door gebruiker sinds gebruik patronen variëren en kunnen niet worden gebruikt om te voorspellen laden. Er worden ook enkele verschillen op basis van de grootte van de antwoorden en de reactietijd van de back-end-toepassing - grotere reactieformaat en langzamer reactietijden zal leiden tot een lagere maximale TPS. We raden u aan als u meer machines zodat de gedistribueerde belasting van de machines ongeveer 50 is %. De extra capaciteit weet u zeker dat u voor hoge beschikbaarheid en tolerantie hebt.
 
 |Kerngeheugens|RAM|Verwachte latentie (MS)-P99|Max TPS|
 | ----- | ----- | ----- | ----- |
@@ -102,28 +102,26 @@ Terwijl connectors wordt automatisch taakverdeling binnen een connectorgroep, is
 
 Connectors kunnen overal worden geïnstalleerd op het netwerk waarmee ze voor het verzenden van aanvragen naar de Application Proxy-service. Wat is het belangrijk is dat de computer met de connector ook toegang tot uw apps. U kunt connectors installeren op uw bedrijfsnetwerk of op een virtuele machine die wordt uitgevoerd in de cloud. Connectors kunnen binnen een gedemilitariseerde zone (DMZ) uitgevoerd, maar het is niet nodig omdat al het verkeer uitgaand, zodat uw netwerk optimaal beveiligd blijft.
 
-Connectors alleen verzenden uitgaande aanvragen. Het uitgaande verkeer wordt verzonden naar de Application Proxy-service en de gepubliceerde toepassingen. U hebt geen inkomende poorten openen omdat verkeer beide richtingen stroomt wanneer een sessie tot stand is gebracht. U hebt geen taakverdeling tussen de connectors instellen of binnenkomende toegang via uw firewalls configureren. 
+Connectors alleen verzenden uitgaande aanvragen. Het uitgaande verkeer wordt verzonden naar de Application Proxy-service en de gepubliceerde toepassingen. U hebt geen inkomende poorten openen omdat verkeer beide richtingen stroomt wanneer een sessie tot stand is gebracht. U hoeft ook te binnenkomende toegang via uw firewalls configureren. 
 
 Zie voor meer informatie over het configureren van uitgaande firewallregels [werken met bestaande on-premises proxy-servers](application-proxy-configure-connectors-with-proxy-servers.md).
 
 
 ## <a name="performance-and-scalability"></a>Prestaties en schaalbaarheid
 
-Schaal voor de service voor toepassingsproxy is transparant, maar de schaal is een factor voor connectors. U moet voldoende connectors voor het afhandelen van verkeer. U hoeft echter te configureren van taakverdeling, omdat alle connectors binnen een connectorgroep automatisch worden verdeeld.
-
-Aangezien connectors stateless, worden ze niet beïnvloed door het aantal gebruikers en sessies. In plaats daarvan reageren ze op het aantal aanvragen en de grootte van de nettolading. Met standaard webverkeer te genereren, kan een gemiddelde virtuele machine een paar duizend aanvragen per seconde verwerken. De opgegeven capaciteit is afhankelijk van de kenmerken van de exacte machine. 
+Schaal voor de service voor toepassingsproxy is transparant, maar de schaal is een factor voor connectors. U moet voldoende connectors voor het afhandelen van verkeer. Aangezien connectors stateless, ze worden niet beïnvloed door het aantal gebruikers en sessies. In plaats daarvan reageren ze op het aantal aanvragen en de grootte van de nettolading. Met standaard webverkeer te genereren, kan een gemiddelde virtuele machine een paar duizend aanvragen per seconde verwerken. De opgegeven capaciteit is afhankelijk van de kenmerken van de exacte machine. 
 
 De connectorprestaties is gebonden aan CPU- en netwerkresources. CPU-prestaties nodig is voor SSL-versleuteling en ontsleuteling, terwijl de netwerken is het belangrijk om snelle verbinding met de toepassingen en de online-service in Azure.
 
 Daarentegen is geheugen kleiner van een probleem voor connectors. De online-service zorgt voor veel van de verwerking en niet-geverifieerde al het verkeer. Alles dat kan worden uitgevoerd in de cloud wordt uitgevoerd in de cloud. 
 
-De load balancing plaatsvindt tussen connectors van een gegeven connector-groep. We doen een variant van een round-robin om te bepalen welke connector in de groep een bepaalde aanvraag fungeert. Als voor een bepaalde reden dat connector of de machine niet meer beschikbaar is, het verkeer naar een andere connector in de groep gaat. Deze flexibiliteit is ook waarom we raden u aan meerdere connectors.
+Als voor een bepaalde reden dat connector of de machine niet meer beschikbaar is, het verkeer naar een andere connector in de groep gaat. Deze flexibiliteit is ook waarom we raden u aan meerdere connectors.
 
 Een andere factor die van invloed op prestaties wordt de kwaliteit van de netwerken tussen de connectors, met inbegrip van: 
 
 * **De onlineservice**: Trage of hoge latentie verbindingen naar de Application Proxy-service in Azure van invloed zijn op de connectorprestaties. Voor de beste prestaties, verbinding maken met uw organisatie naar Azure met Express Route. Anders hebt u uw netwerken team ervoor te zorgen dat de verbindingen met Azure zo efficiënt mogelijk worden verwerkt. 
 * **De back-endtoepassingen**: In sommige gevallen moet u er extra proxy tussen de connector en de back endtoepassingen die kunnen vertragen of te voorkomen dat de verbindingen zijn. Open een browser van de connectorserver voor het oplossen van dit scenario, en probeert te krijgen tot de toepassing. Als u de connectors in Azure uitvoert, maar de toepassingen die zich on-premises, de ervaring mogelijk niet wat uw gebruikers verwachten.
-* **De domeincontrollers**: Als de connectors met behulp van Kerberos-beperkte overdracht SSO uitvoeren, ze contact op met de domeincontrollers voordat de aanvraag wordt verzonden naar de back-end. De connectors hebben een cache van Kerberos-tickets, maar in een omgeving met Bezig de reactietijd van de domeincontrollers kan beïnvloeden. Dit probleem komt vaker voor voor connectors die worden uitgevoerd in Azure, maar communiceren met domeincontrollers die zich on-premises. 
+* **De domeincontrollers**: Als de connectors uitvoeren eenmalige aanmelding (SSO) met behulp van Kerberos-beperkte overdracht, ze contact op met de domeincontrollers voordat de aanvraag wordt verzonden naar de back-end. De connectors hebben een cache van Kerberos-tickets, maar in een omgeving met Bezig de reactietijd van de domeincontrollers kan beïnvloeden. Dit probleem komt vaker voor voor connectors die worden uitgevoerd in Azure, maar communiceren met domeincontrollers die zich on-premises. 
 
 Zie voor meer informatie over het optimaliseren van uw netwerk [topologie overwegingen met betrekking tot het netwerk bij het gebruik van Azure Active Directory-toepassingsproxy](application-proxy-network-topology.md).
 

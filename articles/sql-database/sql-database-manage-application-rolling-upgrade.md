@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/29/2019
-ms.openlocfilehash: 50f6f114a4d90f48218f751e1649e8694e664491
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.date: 02/13/2019
+ms.openlocfilehash: 748a9f4d7c2ec47a2ed9470789a4443bffdc0eba
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295743"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301737"
 ---
 # <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>Rolling upgrades van cloud-toepassingen met behulp van SQL-Database van actieve geo-replicatie beheren
 
@@ -47,7 +47,7 @@ Zodra de voorbereidende stappen zijn voltooid, wordt de toepassing is gereed voo
 
 1. De primaire database is ingesteld op de modus alleen-lezen (3). In deze modus wordt gegarandeerd dat de productiesite van de web-App (V1) blijft alleen-lezen tijdens de upgrade waardoor wordt voorkomen dat de gegevensdivergentie tussen de V1 en V2-database-exemplaren.  
 2. De secundaire database met behulp van de geplande beëindiging-modus (4) de verbinding verbreken. Een volledig gesynchroniseerde onafhankelijke kopie van de primaire database wordt gemaakt. Deze database wordt bijgewerkt.
-3. Schakel de primaire database naar de modus lezen / schrijven en uitvoeren van het script bijwerken (5).
+3. Schakel de secundaire database naar de modus lezen / schrijven en uitvoeren van het script bijwerken (5).
 
 ![Configuratie van SQL Database-geo-replicatie. Herstel na noodgevallen in de cloud.](media/sql-database-manage-application-rolling-upgrade/option1-2.png)
 

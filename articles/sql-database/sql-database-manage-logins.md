@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 34c7d431815ae7a9452bb0703cde18050d38bdb7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b12fdcec32aca65b0c66f6a3fb14595453d36fdb
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164614"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301754"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Beheren en het verlenen van toegang tot de database met SQL Database en SQL Data Warehouse
 
@@ -84,9 +84,9 @@ Naast de beheerdersrollen op serverniveau die eerder zijn besproken, biedt SQL D
 
 ### <a name="database-creators"></a>Databasemakers
 
-Een van deze beheerdersrollen is de rol **dbmanager**. Leden van deze rol kunnen nieuwe databases maken. Voor het gebruik van deze rol maakt u een gebruiker in de `master`-database en voegt u deze gebruiker vervolgens toe aan de databaserol **dbmanager**. Om een database te maken, moet de gebruiker een gebruiker zijn op basis van een SQL Server-aanmelding in de hoofddatabase of een gebruiker van een ingesloten database op basis van een Azure Active Directory-gebruiker.
+Een van deze beheerdersrollen is de rol **dbmanager**. Leden van deze rol kunnen nieuwe databases maken. Voor het gebruik van deze rol maakt u een gebruiker in de `master`-database en voegt u deze gebruiker vervolgens toe aan de databaserol **dbmanager**. Voor het maken van een database, moet de gebruiker een gebruiker op basis van een SQL Server-aanmelding in de `master` database of een ingesloten databasegebruiker op basis van een Azure Active Directory-gebruiker.
 
-1. Gebruik een beheerdersaccount om verbinding te maken met de hoofddatabase.
+1. Verbinding met een administrator-account maken met de `master` database.
 2. Maak een aanmelding SQL Server-verificatie met behulp van de [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) instructie. Voorbeeldinstructie:
 
    ```sql
@@ -98,7 +98,7 @@ Een van deze beheerdersrollen is de rol **dbmanager**. Leden van deze rol kunnen
 
    Voor betere prestaties worden aanmeldingen (principals op serverniveau) tijdelijk in het cachegeheugen op databaseniveau opgeslagen. Zie [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx) als u de verificatiecache wilt vernieuwen.
 
-3. Maak een gebruiker in de hoofddatabase met behulp van de instructie [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx). De gebruiker kan een ingesloten databasegebruiker op basis van Azure Active Directory-verificatie zijn (als u uw omgeving hebt geconfigureerd voor Azure AD-verificatie), maar ook een ingesloten databasegebruiker op basis van SQL Server-verificatie of een gebruiker op basis van SQL Server-verificatie met aanmelding voor SQL Server-verificatie (gemaakt in de vorige stap). Voorbeeldinstructies:
+3. In de `master` database, het maken van een gebruiker met behulp van de [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) instructie. De gebruiker kan een ingesloten databasegebruiker op basis van Azure Active Directory-verificatie zijn (als u uw omgeving hebt geconfigureerd voor Azure AD-verificatie), maar ook een ingesloten databasegebruiker op basis van SQL Server-verificatie of een gebruiker op basis van SQL Server-verificatie met aanmelding voor SQL Server-verificatie (gemaakt in de vorige stap). Voorbeeldinstructies:
 
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
@@ -106,7 +106,7 @@ Een van deze beheerdersrollen is de rol **dbmanager**. Leden van deze rol kunnen
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. Voeg de nieuwe gebruiker toe aan de databaserol **dbmanager** met behulp van de instructie [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx). Voorbeeldinstructies:
+4. De nieuwe gebruiker toevoegen de **dbmanager** databaserol in `master` met behulp van de [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) instructie. Voorbeeldinstructies:
 
    ```sql
    ALTER ROLE dbmanager ADD MEMBER Mary; 
@@ -118,7 +118,7 @@ Een van deze beheerdersrollen is de rol **dbmanager**. Leden van deze rol kunnen
 
 5. U kunt zo nodig een firewallregel configureren, zodat de nieuwe gebruiker verbinding kan maken. (De nieuwe gebruiker kan worden gedekt door een bestaande firewallregel.)
 
-Nu kan de gebruiker verbinding maken met de hoofddatabase en nieuwe databases maken. Het account dat de database maakt, wordt eigenaar van de database.
+Nu de gebruiker verbinding met maken kan de `master` database en kunnen nieuwe databases maken. Het account dat de database maakt, wordt eigenaar van de database.
 
 ### <a name="login-managers"></a>Aanmelding managers
 
@@ -141,11 +141,19 @@ In eerste instantie kan slechts een van de beheerders of de eigenaar van de data
 GRANT ALTER ANY USER TO Mary;
 ```
 
-Om extra gebruikers volledig beheer van de database te geven, moet u ze lid maken van de vaste databaserol **db_owner** met behulp van de `ALTER ROLE`-instructie.
+Als u wilt geven extra gebruikers volledig beheer van de database, zodat ze lid zijn van de **db_owner** vaste databaserol.
+
+In Azure SQL Database met de `ALTER ROLE` instructie.
 
 ```sql
-ALTER ROLE db_owner ADD MEMBER Mary; 
+ALTER ROLE db_owner ADD MEMBER Mary;
 ```
+
+In Azure SQL Data Warehouse gebruik [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
+```sql
+EXEC sp_addrolemember 'db_owner', 'Mary';
+```
+
 
 > [!NOTE]
 > Een veelvoorkomende reden waarom het maken van een databasegebruiker op basis van een SQL Database server-aanmelding is voor gebruikers die toegang tot meerdere databases nodig hebben. Omdat ingesloten databasegebruikers zijn individuele entiteiten, elke database houdt een eigen gebruikersnaam en het eigen wachtwoord. Hierdoor kan overhead als de gebruiker moet vervolgens elk wachtwoord voor elke database op en het untenable worden kan bij een meerdere wachtwoorden voor veel databases te wijzigen. Echter, wanneer u SQL Server-aanmeldingen en hoge beschikbaarheid (actieve geo-replicatie en failover-groepen), de SQL Server-aanmeldingen moeten worden ingesteld handmatig op elke server. Anders wordt worden de gebruiker van de database niet meer toegewezen aan de aanmelding op serverniveau na een failover optreedt, en pas weer toegang tot de database na failover. Zie voor meer informatie over het configureren van aanmeldingen voor geo-replicatie [configureren en beheren van Azure SQL Database-beveiliging voor geo-herstel en failovers](sql-database-geo-replication-security-config.md).

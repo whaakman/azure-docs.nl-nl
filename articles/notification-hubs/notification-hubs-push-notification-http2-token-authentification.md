@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 012/13/2019
 ms.author: jowargo
-ms.openlocfilehash: d0d181afd9bb8f1d387ce8e33f50a78dae3a11ec
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 6fc44e432b9614eb6270b6ef4862cc0240df8206
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961428"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56266931"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Verificatie op basis van tokens (HTTP/2) voor APN 's
 
@@ -68,7 +68,7 @@ De toepassings-id is beschikbaar via de pagina met het lidmaatschap in de Develo
 
 ### <a name="authentication-token"></a>Het verificatietoken
 
-Het verificatietoken kan worden gedownload nadat u een token voor uw toepassing genereren. Raadpleeg voor meer informatie over het maken van dit token [van Apple-documentatie voor ontwikkelaars](http://help.apple.com/xcode/mac/current/#/dev11b059073?sub=dev1eb5dfe65).
+Het verificatietoken kan worden gedownload nadat u een token voor uw toepassing genereren. Raadpleeg voor meer informatie over het maken van dit token [van Apple-documentatie voor ontwikkelaars](https://help.apple.com/xcode/mac/current/#/devdfd3d04a1).
 
 ## <a name="configuring-your-notification-hub-to-use-token-based-authentication"></a>Uw notification hub voor het gebruik van verificatie op basis van tokens configureren
 

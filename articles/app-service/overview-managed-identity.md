@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: 68f640f6962802c45ca369786c4e5d0d4f785fa6
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 3f064769728d5d081c4a110e6c981c4b36aad384
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105074"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300581"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Over het gebruik van beheerde identiteiten voor App Service en Azure Functions
 
@@ -280,8 +280,8 @@ Zie voor meer informatie over Microsoft.Azure.Services.AppAuthentication en de b
 
 Een app met een beheerde identiteit heeft twee omgevingsvariabelen gedefinieerd:
 
-- MSI_ENDPOINT
-- MSI_SECRET
+- MSI_ENDPOINT - de URL naar de lokale token service.
+- MSI_SECRET - koptekst gebruikt om u te helpen tegen aanvallen van server-side '-aanvraag kunnen worden vervalst (SSRF). De waarde wordt door het platform gedraaid.
 
 De **MSI_ENDPOINT** is een lokale URL waaruit uw app tokens kan aanvragen. Als u een token voor een resource, moet u een HTTP GET-aanvraag voor dit eindpunt, met inbegrip van de volgende parameters:
 
@@ -289,7 +289,7 @@ De **MSI_ENDPOINT** is een lokale URL waaruit uw app tokens kan aanvragen. Als u
 > |-----|-----|-----|
 > |Bron|Query’s uitvoeren|De AAD-resource-URI van de resource voor een token moet worden opgehaald. Dit wordt mogelijk een van de [Azure-services die ondersteuning voor Azure AD-verificatie](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) of een andere resource-URI.|
 > |API-versie|Query’s uitvoeren|De versie van de token API moet worden gebruikt. '2017-09-01' is momenteel de enige versie die wordt ondersteund.|
-> |geheim|Header|De waarde van de omgevingsvariabele MSI_SECRET.|
+> |geheim|Header|De waarde van de omgevingsvariabele MSI_SECRET. Deze header wordt gebruikt om u te helpen tegen aanvallen van server-side '-aanvraag kunnen worden vervalst (SSRF).|
 > |clientid|Query’s uitvoeren|(Optioneel) De ID van de gebruiker toegewezen identiteit moet worden gebruikt. Als u dit weglaat, wordt het systeem toegewezen identiteit wordt gebruikt.|
 
 Een geslaagde respons met 200 OK bevat een JSON-hoofdtekst met de volgende eigenschappen:

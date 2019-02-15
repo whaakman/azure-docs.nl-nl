@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
-ms.openlocfilehash: f5c8880535d5b4b89ec3f13caa20051ae1709925
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 86e4720f001f05534bc9af703f0f98d7ca5d95e4
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812783"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268835"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routering van verkeer in virtuele netwerken
 
@@ -121,7 +121,7 @@ Een on-premises netwerkgateway kan via BGP (Border Gateway Protocol) routes uitw
 
 Wanneer u routes met Azure uitwisselt via BGP, wordt er voor elk geadverteerd voorvoegsel een afzonderlijke route toegevoegd aan de routetabel van alle subnetten in een virtueel netwerk. De route wordt toegevoegd met *Gateway van virtueel netwerk* als de bron en het 'volgende hoptype'. 
 
-Doorgifte van BGP-route kan worden uitgeschakeld op een subnet met behulp van een eigenschap in een routetabel. Wanneer u routes uitwisselt met Azure via BGP, worden er geen routes toegevoegd aan de routetabel van alle subnetten waarvoor BGP-doorgifte is uitgeschakeld. Connectiviteit met VPN-verbindingen wordt bereikt met behulp van [aangepaste routes](#custom-routes) met een volgend hoptype van *Virtueel-netwerkgateway*. Zie [Doorgifte van BGP-routes uitschakelen](manage-route-table.md#create-a-route-table) voor meer informatie.
+ER en VPN-Gateway route doorgifte kunnen worden uitgeschakeld op een subnet met behulp van een eigenschap in een routetabel. Wanneer u routes uitwisselt met Azure via BGP, worden er geen routes toegevoegd aan de routetabel van alle subnetten waarvoor BGP-doorgifte is uitgeschakeld. Connectiviteit met VPN-verbindingen wordt bereikt met behulp van [aangepaste routes](#custom-routes) met een volgend hoptype van *Virtueel-netwerkgateway*. Zie [Doorgifte van BGP-routes uitschakelen](manage-route-table.md#create-a-route-table) voor meer informatie.
 
 ## <a name="how-azure-selects-a-route"></a>Hoe Azure een route selecteert
 

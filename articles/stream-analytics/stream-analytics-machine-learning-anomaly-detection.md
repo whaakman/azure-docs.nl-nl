@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: bdd512972f1a684a3b76ae0323bbadd87bf0d659
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 9ea9cc116a13aac2dca9edf8ba86c933310b5198
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238314"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269634"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Anomaliedetectie in Azure Stream Analytics
 
-Azure Stream Analytics biedt ingebouwde machine learning-detectiemogelijkheden op basis van afwijkingen die kunnen worden gebruikt voor het bewaken van de twee meest voorkomende anomalieën: tijdelijke en permanente. Met de **AnomalyDetection_SpikeAndDip** en **AnomalyDetection_ChangePoint** functies, rechtstreeks in uw Stream Analytics-taak kunt u anomaliedetectie uitvoeren.
+Beschikbaar in de cloud en de Azure IoT Edge, Azure Stream Analytics biedt ingebouwde machine learning-detectiemogelijkheden op basis van afwijkingen die kunnen worden gebruikt voor het bewaken van de twee meest voorkomende anomalieën: tijdelijke en permanente. Met de **AnomalyDetection_SpikeAndDip** en **AnomalyDetection_ChangePoint** functies, rechtstreeks in uw Stream Analytics-taak kunt u anomaliedetectie uitvoeren.
 
 De machine learning-modellen wordt ervan uitgegaan dat een uniforme wijze sample tijdreeks. Als de tijdreeks niet uniform is, kunt u een stap aggregatie met een tumblingvenster vóór het aanroepen van detectie van afwijkingen kunt invoegen.
 
@@ -36,13 +36,14 @@ Hiaten in de tijdreeks kunnen het gevolg zijn van het model niet ontvangen van g
 
 ## <a name="spike-and-dip"></a>Piek- en dip
 
-Tijdelijke afwijkingen in de gebeurtenisstroom van een time-serie zijn voorzien van zoals pieken en dalen. Pieken en dips n de kunnen worden bewaakt met behulp van de operator op Machine Learning gebaseerde **AnomalyDetection_SpikeAndDip**.
+Tijdelijke afwijkingen in de gebeurtenisstroom van een time-serie zijn voorzien van zoals pieken en dalen. Pieken en dips n de kunnen worden bewaakt met behulp van de operator op Machine Learning gebaseerde [AnomalyDetection_SpikeAndDip](https://docs.microsoft.com/stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
+).
 
 ![Voorbeeld van een piek- en dip-anomaliedetectie](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-spike-dip.png)
 
 In de sliding window van dezelfde, als een tweede piek kleiner dan de eerste versie is, is de berekende score voor de kleinere piek waarschijnlijk niet aanzienlijke voldoende ten opzichte van de score voor de eerste piek in het niveau van betrouwbaarheid opgegeven. U kunt vertrouwen dat de instelling van het model om af te vangen van dergelijke afwijkingen verlagen. Als u begint met te veel waarschuwingen ontvangen, kunt u echter een hogere betrouwbaarheidsinterval gebruiken.
 
-De volgende voorbeeldquery wordt ervan uitgegaan dat een uniform invoer snelheid van 1 gebeurtenis per seconde in een 2 minuten-venster met een geschiedenis van 120 gebeurtenissen schuiven. De laatste SELECT-instructie worden uitgepakt en levert de score en anomaliedetectie status met een vertrouwensniveau van 95%.
+De volgende voorbeeldquery wordt ervan uitgegaan dat een uniform invoer tarief van één gebeurtenis per seconde in een sliding window van 2 minuten met een geschiedenis van 120 gebeurtenissen. De laatste SELECT-instructie worden uitgepakt en levert de score en anomaliedetectie status met een vertrouwensniveau van 95%.
 
 ```SQL
 WITH AnomalyDetectionStep AS
@@ -67,9 +68,9 @@ FROM AnomalyDetectionStep
 
 ## <a name="change-point"></a>Punt wijzigen
 
-Permanente afwijkingen in de gebeurtenisstroom van een time-series zijn wijzigingen in de distributie van de waarden in de gebeurtenisstroom, zoals wijzigingen op en trends. In Stream Analytics, dergelijke afwijkingen worden gedetecteerd met behulp van de Machine Learning op basis van **AnomalyDetection_ChangePoint** operator.
+Permanente afwijkingen in de gebeurtenisstroom van een time-series zijn wijzigingen in de distributie van de waarden in de gebeurtenisstroom, zoals wijzigingen op en trends. In Stream Analytics, dergelijke afwijkingen worden gedetecteerd met behulp van de Machine Learning op basis van [AnomalyDetection_ChangePoint](https://docs.microsoft.com/stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics) operator.
 
-Permanente wijzigingen veel langer dan pieken en dalen en kunnen duiden op catastrofale gebeurtenis(sen). Permanente wijzigingen zijn meestal niet gemakkelijk met het blote oog zichtbaar, maar kan worden gedetecteerd met de **AnomalyDetection_ChangePoint** operator.
+Permanente wijzigingen veel langer dan pieken en dalen en kunnen duiden op catastrofale gebeurtenis(sen). Permanente wijzigingen zijn niet meestal zichtbaar is voor het blote oog, maar kan worden gedetecteerd met de **AnomalyDetection_ChangePoint** operator.
 
 De volgende afbeelding is een voorbeeld van een niveau wijzigen:
 
@@ -79,7 +80,7 @@ De volgende afbeelding is een voorbeeld van een wijziging trend:
 
 ![Voorbeeld van de trend wijzigen anomaliedetectie](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-trend-change.png)
 
-De volgende voorbeeldquery wordt ervan uitgegaan dat een uniform invoer snelheid van 1 gebeurtenis per seconde in een 20 minuten Verschuivend-venster met een grootte van de geschiedenis van 1200-gebeurtenissen. De laatste SELECT-instructie worden uitgepakt en levert de score en anomaliedetectie status met een vertrouwensniveau van 80%.
+De volgende voorbeeldquery wordt ervan uitgegaan dat een uniform invoer tarief van één gebeurtenis per seconde in een sliding window van 20 minuten met een grootte van de geschiedenis van 1200 gebeurtenissen. De laatste SELECT-instructie worden uitgepakt en levert de score en anomaliedetectie status met een vertrouwensniveau van 80%.
 
 ```SQL
 WITH AnomalyDetectionStep AS

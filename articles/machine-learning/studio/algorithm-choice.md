@@ -10,16 +10,20 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 222891df5b54a8f2c3464fc3bddf9f6b32c28d36
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 6442facf680c934d976e7fa8008f2f3c3551045f
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244790"
+ms.locfileid: "56268077"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Algoritmen kiezen voor Azure Machine Learning Studio
 
 Het antwoord op de vraag 'Welke machine learning-algoritme moet ik gebruiken?' is altijd "Dat hangt ervan af." Dit is afhankelijk van de grootte, de kwaliteit en de aard van de gegevens. Dit is afhankelijk van wat u wilt doen met het antwoord. Dat hangt ervan af op hoe de berekening van de algoritme is vertaald naar instructies voor de computer die u gebruikt. En dit is afhankelijk van hoeveel tijd die u hebt. Zelfs de meest ervaren gegevenswetenschappers kunnen niet zien welk algoritme beste voordat u ze uitvoert.
+
+Machine Learning Studio biedt geavanceerde algoritmen, zoals schaalbare beslissingsstructuren, Bayesiaanse aanbevelingssystemen, Deep Neural Networks en Decision Jungles die zijn ontwikkeld door Microsoft Research. Ook bevat het schaalbare open-source machine learning-pakketten, zoals Vowpal Wabbit. Machine Learning Studio ondersteunt machine learning-algoritmen voor multiklassen en binaire classificatie, regressie en clusters. Bekijk de volledige lijst van [Machine Learning-Modules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/index).
+De documentatie biedt informatie over elk algoritme en de parameters voor het optimaliseren van de algoritmen kunt afstemmen.  
+
 
 ## <a name="the-machine-learning-algorithm-cheat-sheet"></a>Tips voor het Machine Learning-algoritme
 

@@ -16,12 +16,12 @@ ms.date: 02/11/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 616854e89a95eb83508e30099a663f0017e63784
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 94c7b5c81785c3d6fba31396f5812a1308817e33
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115705"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301108"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 update
 
@@ -199,7 +199,9 @@ De verwijzing voor de bijgewerkte modules Zie [Azure Stack-Moduleverwijzing](htt
            "autoUpgradeMinorVersion": "true"
    ```
 
-- Er is een nieuwe overweging voor het plannen van capaciteit van de Azure Stack nauwkeurig. We hebben een limiet instellen voor het totale aantal virtuele machines dat kan worden geïmplementeerd in Azure Stack, om te controleren of alle van onze interne services te voldoen aan de schaal waarmee klanten uitvoeren. De limiet is 60 VM's per host, met een maximum van 700 voor de hele stempel (als de 60 per host limiet is bereikt). Zie voor meer informatie de [nieuwe release van de Capaciteitsplanner](http://aka.ms/azstackcapacityplanner).
+- Er is een nieuwe overweging voor het plannen van capaciteit van de Azure Stack nauwkeurig. Met de update 1901 is er nu een limiet voor het totale aantal virtuele Machines dat kan worden gemaakt.  Deze limiet is bedoeld als tijdelijke om te voorkomen dat instabiliteit van de oplossing. De bron van het stabiliteitsprobleem met de op grotere aantallen virtuele machines wordt behandeld, maar een specifieke tijdlijn voor herstel nog niet is vastgesteld. Met de update 1901, is er nu een per Serverlimiet van 60 virtuele machines met een limiet totale oplossing van 700.  Een virtuele machine in Azure Stack-limiet van 8 server zou bijvoorbeeld 480 (8 * 60).  Voor een server 12 tot 16 Azure Stack-oplossing is de limiet 700. Deze limiet is gemaakt blijven alle rekencapaciteit capaciteitsoverwegingen in gedachten, zoals de tolerantie-reserve en de CPU virtueel naar fysieke hoogte-breedteverhouding die een operator wilt behouden op het stempel. Zie de nieuwe versie van de Capaciteitsplanner voor meer informatie.  
+In het geval dat de VM scale limiet is bereikt, zou de volgende foutcodes als gevolg hiervan worden geretourneerd: VMsPerScaleUnitLimitExceeded, VMsPerScaleUnitNodeLimitExceeded. 
+ 
 
 - De Compute-API-versie is nu verhoogd naar 2017-12-01.
 
