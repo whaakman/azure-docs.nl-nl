@@ -7,16 +7,16 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 02/15/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 02ecb3cdec9ddb07bf48dfe77d1ed5fbf07975e0
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.lastreviewed: 02/15/2019
+ms.openlocfilehash: 6fdec992b19a5615a35955a46fd90102890cde16
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965321"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329350"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>De ASDK gebruiken om te valideren van een back-up van Azure Stack
 Na het implementeren van Azure Stack en de inrichting van Gebruikersresources, zoals aanbiedingen, plannen, quota en abonnementen, moet u [back-up van Azure Stack-infrastructuur inschakelen](../azure-stack-backup-enable-backup-console.md). Plannen en uitvoeren van back-ups regelmatig infrastructuur zorgt ervoor dat infrastructuur voor beheergegevens is niet verloren gaan als er een catastrofale hardware- of -fout-service.
@@ -52,11 +52,11 @@ Voordat u begint met een cloudimplementatie voor herstel van de ASDK, zorg ervoo
 
 |Vereiste|Description|
 |-----|-----|
-|Pad van de back-upshare.|Het UNC-sharepad van de meest recente Azure Stack back-up die wordt gebruikt voor het herstellen van informatie over de Azure Stack-infrastructuur. Deze lokale share wordt gemaakt tijdens het implementatieproces voor cloud-herstel.|
-|Back-up van versleutelingssleutel.|De versleutelingssleutel die is gebruikt voor het plannen van de infrastructuur voor back-up wilt uitvoeren met behulp van de Azure Stack-beheerportal.|
-|ID van de back-up te herstellen.|De back-up-ID, in de alfanumerieke vorm van 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', waarmee u de back-up kunnen worden hersteld tijdens het cloudherstel.|
-|Tijd IP-adres.|Een geldige tijd IP-adres van, zoals 132.163.97.2, is vereist voor Azure Stack-implementatie.|
-|Extern certificaatwachtwoord.|Het wachtwoord voor het externe certificaat gebruikt door Azure Stack. De back-up van de CA bevat externe certificaten die moeten worden hersteld met dit wachtwoord.|
+|Pad van de back-upshare|Het UNC-sharepad van de meest recente Azure Stack back-up die wordt gebruikt voor het herstellen van informatie over de Azure Stack-infrastructuur. Deze lokale share wordt gemaakt tijdens het implementatieproces voor cloud-herstel.|
+|Back-up van versleutelingssleutel|Optioneel. Alleen vereist als u een upgrade naar Azure Stack versie 1901 of hoger van een eerdere versie van Azure Stack met back-up.|
+|Back-ID om terug te zetten|De back-up-ID, in de alfanumerieke vorm van 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', waarmee u de back-up kunnen worden hersteld tijdens het cloudherstel.|
+|IP-adres van tijd|Een geldige tijd IP-adres van, zoals 132.163.97.2, is vereist voor Azure Stack-implementatie.|
+|Wachtwoord voor het externe certificaat|Het wachtwoord voor de zelf-ondertekend certificaat persoonlijke sleutel (.pfx) dat is gebruikt voor het beveiligen van de back-up.|
 |     |     | 
 
 ## <a name="prepare-the-host-computer"></a>De computer voorbereiden 
@@ -133,11 +133,12 @@ $certPass = Read-Host -AsSecureString
 ## <a name="restore-infrastructure-data-from-backup"></a>Infrastructuur-gegevens herstellen vanaf back-up
 Na de implementatie van een geslaagde cloud-herstel u nodig hebt voor het herstellen met behulp van de **terugzetten AzureStack** cmdlet. 
 
-Na het aanmelden als de Azure Stack-operators [PowerShell voor Azure Stack installeren](asdk-post-deploy.md#install-azure-stack-powershell) en vervolgens vervangen door uw back-up-ID voor de `Name` parameter, voer de volgende opdracht uit:
+Na het aanmelden als de Azure Stack-operators [PowerShell voor Azure Stack installeren](asdk-post-deploy.md#install-azure-stack-powershell) en voer de volgende opdrachten om op te geven van het certificaat en het wachtwoord moet worden gebruikt bij het herstellen van back-up:
 
 ```powershell
 Restore-AzsBackup -Name "<BackupID>"
 ```
+
 Wacht 60 minuten nadat ASDK aanroepen van deze cmdlet voor het starten van de verificatie van de back-upgegevens in de cloud worden hersteld.
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: da75d829ccb74f7be675501b601ad3e6375bfb70
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 00468ca62e55823b4706fc52d9793f676aebd368
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813157"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312851"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Toepassingen toegang geven tot Azure Stack-bronnen met het maken van service-principals
 
@@ -50,7 +50,7 @@ De manier waarop u Active Directory hebt geconfigureerd voor Azure Stack wordt b
 * Een service-principal voor maken [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad).
 * Een service-principal voor maken [Active Directory Federation Services (AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
 
-De stappen voor het toewijzen van een service-principal aan een rol hetzelfde voor Azure AD en AD FS. Nadat u de service-principal gemaakt, kunt u [overdragen van machtigingen](azure-stack-create-service-principals.md#assign-role-to-service-principal) aan een rol toe te wijzen.
+De stappen voor het toewijzen van een service-principal aan een rol hetzelfde voor Azure AD en AD FS. Nadat u de service-principal gemaakt, kunt u [overdragen van machtigingen](azure-stack-create-service-principals.md) aan een rol toe te wijzen.
 
 ## <a name="create-service-principal-for-azure-ad"></a>Service-principal maken voor Azure AD
 
@@ -85,7 +85,7 @@ Nadat u de sleutel opgeslagen **waarde** wordt weergegeven. Noteer deze waarde o
 
 ![Waarschuwing: sleutelwaarde voor opgeslagen sleutel.](./media/azure-stack-create-service-principal/image15.png)
 
-De laatste stap is [toewijzen van uw toepassing een rol](azure-stack-create-service-principals.md#assign-role-to-service-principal).
+De laatste stap is [toewijzen van uw toepassing een rol](azure-stack-create-service-principals.md).
 
 ## <a name="create-service-principal-for-ad-fs"></a>Service-principal maken voor AD FS
 

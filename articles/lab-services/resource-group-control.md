@@ -10,21 +10,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 2903228a3257abe9c454c6e0720a1e228b905290
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 94e5f5b29e93409df2373cf6c56e8185dc5373a2
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300037"
+ms.locfileid: "56312971"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Geef een resourcegroep voor de virtuele machines in Azure DevTest Labs
-Als de eigenaar van een lab, kunt u uw lab-virtuele machines worden gemaakt in een specifieke resourcegroep configureren. Gebruik deze functie zodat u geen resource group limieten op uw Azure-abonnement bereiken. Deze functie kunt u uw labresources binnen een enkele resourcegroep consolideren. Het vereenvoudigt ook de resources tracking en toepassen van [beleid](../governance/policy/overview.md) moeten worden beheerd op het niveau van de resource.
+Als de eigenaar van een lab, kunt u uw lab-virtuele machines worden gemaakt in een specifieke resourcegroep configureren. Deze functie kunt u in de volgende scenario's: 
+
+- Minder resourcegroepen die zijn gemaakt door labs in uw abonnement hebt.
+- Uw labs werken binnen een vaste set van resourcegroepen die zijn geconfigureerd met u hebben
+- Tijdelijke oplossing voor beperkingen en -goedkeuringen vereist voor het maken van resourcegroepen binnen uw Azure-abonnement.
+- Consolideren van uw labresources binnen een enkele resourcegroep voor het vereenvoudigen van deze resources tracking en toepassen van [beleid](../governance/policy/overview.md) moeten worden beheerd op het niveau van de resource.
 
 Met deze functie kunt u een script om op te geven van een nieuwe of een bestaande resourcegroep gebruiken binnen uw Azure-abonnement voor alle uw lab VM's. DevTest Labs ondersteunt momenteel deze functie via een API. 
 
-## <a name="api-to-configure-a-resource-group-for-labs-vms"></a>API voor het configureren van een resourcegroep voor labs VM 's
+## <a name="api-to-configure-a-resource-group-for-lab-virtual-machines"></a>API voor het configureren van een resourcegroep voor de virtuele machines
 Nu gaan we stapsgewijs door de opties die u als de eigenaar van een lab hebt tijdens het gebruik van deze API: 
 
 - U kunt ervoor kiezen de **lab van resourcegroep** voor alle virtuele machines.
@@ -86,7 +91,7 @@ Als u van Azure Resource Manager-sjabloon gebruikmaakt om een lab te maken, gebr
                 "labStorageType": "Premium",
                 "premiumDataDisks": "Disabled",
                 "provisioningState": "Succeeded",
-                "uniqueIdentifier": "6e6f668f-992b-435c-bac3-d328b745cd25"
+                "uniqueIdentifier": "000000000f-0000-0000-0000-00000000000000"
             },
             "dependsOn": []
         },

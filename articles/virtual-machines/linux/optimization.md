@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: e983ae549664abf46de256e987e09191a2a44c0f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 30d153863a20dcdddc702ee5a37c34a2938d7446
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728517"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327363"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Uw Linux VM optimaliseren voor Azure
 Het maken van een Linux virtuele machine (VM) is heel gemakkelijk vanaf de opdrachtregel of vanuit de portal. Deze zelfstudie leert u hoe u om te controleren of u dit hebt ingesteld om de prestaties van de Microsoft Azure-platform te optimaliseren. In dit onderwerp wordt gebruikgemaakt van een Ubuntu-Server-VM, maar u kunt ook maken gebruik van Linux virtuele machine [uw eigen installatiekopieën als sjablonen](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -34,7 +34,7 @@ In dit onderwerp wordt ervan uitgegaan dat u al een werkende Azure-abonnement he
 Als u een Linux-VM in Azure maakt, heeft twee schijven zijn gekoppeld. **/ dev/sda** is van de besturingssysteemschijf **/dev/sdb** is de tijdelijke schijf.  Gebruik niet de belangrijkste OS-schijf (**/dev/sda**) voor alles wat met uitzondering van het besturingssysteem die is geoptimaliseerd voor snelle VM boot-tijd en biedt geen goede prestaties voor uw workloads. U wilt een of meer schijven aansluiten op uw virtuele machine om op te halen permanente en geoptimaliseerd voor opslag voor uw gegevens. 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>Schijven toe te voegen voor grootte- en prestatiedoelen
-Op basis van de VM-grootte, kunt u maximaal 16 extra schijven op een A-serie, 32 schijven op een D-serie koppelen en 64 schijven op een G-serie-machine - elke tot 1 TB in grootte. U kunt extra schijven toevoegen per ruimte en IOps-vereisten van uw behoefte. Elke schijf heeft een prestatiedoel van 500 IOps voor Standard-opslag en maximaal 5000 IOP's per schijf voor Premium-opslag.  Zie voor meer informatie over Premium Storage-schijven, [Premium Storage: Opslag met hoge prestaties voor virtuele machines in Azure](../windows/premium-storage.md)
+Op basis van de VM-grootte, kunt u maximaal 16 extra schijven op een A-serie, 32 schijven op een D-serie koppelen en 64 schijven op een G-serie-machine - elke tot 1 TB in grootte. U kunt extra schijven toevoegen per ruimte en IOps-vereisten van uw behoefte. Elke schijf heeft een prestatiedoel van 500 IOps voor Standard-opslag en maximaal 5000 IOP's per schijf voor Premium-opslag.
 
 Om te kunnen de hoogste IOps op waar de cache-instellingen zijn ingesteld op Premium Storage-schijven **ReadOnly** of **geen**, moet u uitschakelen **barrières** tijdens het koppelen het bestandssysteem in Linux. U hoeft niet barrières omdat de schrijfbewerkingen naar Premium-opslag ondersteund schijven duurzame voor deze cache-instellingen.
 
@@ -131,9 +131,8 @@ Als uw werkbelastingen meer IOps vereisen dan één schijf kan bieden, moet u ee
 ## <a name="next-steps"></a>Volgende stappen
 Denk eraan dat als met alle optimalisatie discussies, u moet het uitvoeren van tests voor en na elke wijziging voor het meten van de impact is van de wijziging.  Optimalisatie is een stapsgewijze proces dat bestaat uit verschillende resultaten op verschillende computers in uw omgeving.  Wat werkt voor één configuratie werkt niet voor andere gebruikers.
 
-Sommige handige koppelingen naar aanvullende bronnen: 
+Sommige handige koppelingen naar aanvullende bronnen:
 
-* [Premium Storage: Opslag met hoge prestaties voor workload in Azure Virtual Machine](premium-storage.md)
 * [Gebruikershandleiding voor Azure Linux Agent](../extensions/agent-linux.md)
 * [MySQL-prestaties op virtuele Azure Linux-machines optimaliseren](classic/optimize-mysql.md)
 * [Software-RAID op Linux configureren](configure-raid.md)

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: c27af57ce4fa80a4ae167ce1e27018d049923a3f
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 164d705a16dd82a1c5f3ff6f5e6982f80eb40dab
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982842"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330865"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Uw eerste installatiekopie naar een Docker-containerregister pushen met de Docker-CLI
 
@@ -116,10 +116,10 @@ Als u de Nginx-installatiekopie niet meer nodig hebt, kunt u het verwijderen lok
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 
-Als u wilt verwijderen van installatiekopieën van het Azure container registry, kunt u de Azure CLI-opdracht [az acr repository delete](/cli/azure/acr/repository#az-acr-repository-delete). De volgende opdracht verwijdert bijvoorbeeld het manifest waarnaar wordt verwezen door een label, alle gegevens van de bijbehorende laag en alle andere codes die verwijst naar het manifest.
+Als u wilt verwijderen van installatiekopieën van het Azure container registry, kunt u de Azure CLI-opdracht [az acr repository delete](/cli/azure/acr/repository#az-acr-repository-delete). Bijvoorbeeld de volgende opdracht verwijdert u het manifest waarnaar wordt verwezen door de `samples/nginx:latest` tag, alle unieke layer-gegevens en alle andere codes die verwijst naar het manifest.
 
 ```azurecli
-az acr repository delete --name myregistry --repository samples/nginx --tag latest --manifest
+az acr repository delete --name myregistry --image samples/nginx:latest
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

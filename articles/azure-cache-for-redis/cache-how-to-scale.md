@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: yegu
-ms.openlocfilehash: 5f448c1c66520a5941ad867eaf3c89c22693cc45
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 495fc031150d04f253279606baebb5d64d52bce7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235569"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313429"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Het schalen van Azure Cache voor Redis
 Azure Redis-Cache heeft een ander cache-aanbiedingen, waardoor u flexibiliteit bij de keuze van de grootte van de cache en functies. Nadat een cache is gemaakt, kunt u de grootte en de prijscategorie van de cache schalen als de vereisten van uw toepassing veranderen. Dit artikel ziet u hoe u de schaal van uw cache met behulp van de Azure-portal en hulpprogramma's, zoals Azure PowerShell en Azure CLI.
@@ -115,7 +115,7 @@ De volgende lijst bevat antwoorden op veelgestelde vragen over Azure Cache voor 
 * [Ik gaan gegevens verloren uit mijn cache tijdens schalen?](#will-i-lose-data-from-my-cache-during-scaling)
 * [Wordt mijn aangepaste databases instellen waarin dit probleem optreedt tijdens schalen?](#is-my-custom-databases-setting-affected-during-scaling)
 * [Mijn cache is beschikbaar tijdens de schalen?](#will-my-cache-be-available-during-scaling)
-* [Met Geo-replicatie is geconfigureerd, waarom kan ik niet kunnen de schaal van mijn cache of wijzigen van de shards in een cluster?](#scaling-limitations-with-geo-relication)
+* Met Geo-replicatie is geconfigureerd, waarom kan ik niet kunnen de schaal van mijn cache of wijzigen van de shards in een cluster?
 * [Bewerkingen die worden niet ondersteund](#operations-that-are-not-supported)
 * [Hoe lang duurt schalen voordat?](#how-long-does-scaling-take)
 * [Hoe weet ik wanneer schalen is voltooid?](#how-can-i-tell-when-scaling-is-complete)

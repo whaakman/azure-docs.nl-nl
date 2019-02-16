@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 17f6971cfa2dcd8c8988edc063c89859abec5367
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8164e2db064523fe648ec9ef0c72754be846dff6
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468832"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327553"
 ---
 # <a name="aks-troubleshooting"></a>Het oplossen van AKS
 
@@ -34,7 +34,11 @@ De maximuminstelling van schillen-per-knooppunt is 110 standaard als u een AKS-c
 
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Ik krijg een insufficientSubnetSize-fout tijdens het implementeren van een AKS-cluster met geavanceerde netwerken. Wat moet ik doen?
 
-In de aangepaste Azure Virtual Network-optie voor het netwerk tijdens het maken van AKS, Azure Container netwerk Interface (CNI) gebruikt voor IP-adresbeheer (IPAM). Het aantal knooppunten in een AKS-cluster kan overal liggen tussen 1 en 100 liggen. Op basis van de vorige sectie, moet de grootte van het gatewaysubnet groter zijn dan het product van het aantal knooppunten en de maximale schillen per knooppunt. De relatie kan worden uitgedrukt in op deze manier: grootte van het gatewaysubnet > aantal knooppunten in het cluster * maximale schillen per knooppunt.
+Als Azure CNI (Geavanceerd netwerken) wordt gebruikt, AKS preallocates IP-adressen op basis van de "max-schillen" per knooppunt dat is geconfigureerd. Het aantal knooppunten in een AKS-cluster kan overal liggen tussen 1 en 110. Op basis van het geconfigureerde maximum schillen per knooppunt, moet de grootte van het gatewaysubnet groter zijn dan de "product van het aantal knooppunten en de maximale schil per knooppunt". De volgende eenvoudige vergelijking geeft een overzicht van dit:
+
+Grootte van het gatewaysubnet > aantal knooppunten in het cluster (rekening houdend met de toekomstige vereisten voor vergroten/verkleinen) * max schillen per knooppunt.
+
+Zie voor meer informatie, [Plan IP-adressen voor uw cluster](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
 ## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>Mijn schil is vastgelopen in de modus CrashLoopBackOff. Wat moet ik doen?
 

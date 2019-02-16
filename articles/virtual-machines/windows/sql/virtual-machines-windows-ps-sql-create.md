@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: c37347928e75986fa8aee0d3d0a4db2667312f56
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 3feb691f1f708452b6560dbe92b77ed0417ffb82
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984372"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329401"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Over het inrichten van SQL Server-machines met Azure PowerShell
 
@@ -57,7 +57,7 @@ $ResourceGroupName = "sqlvm2"
 ### <a name="storage-properties"></a>Eigenschappen van opslag
 Definieer de storage-account en het type opslag moet worden gebruikt door de virtuele machine.
 
-Als u wilt en voer de volgende cmdlet voor het initialiseren van deze variabelen wijzigen. Wordt u aangeraden [Premium Storage](../premium-storage.md) voor productieworkloads.
+Als u wilt en voer de volgende cmdlet voor het initialiseren van deze variabelen wijzigen. Wordt u aangeraden [premium SSD's](../disks-types.md#premium-ssd) voor productieworkloads.
 
 ```PowerShell
 $StorageName = $ResourceGroupName + "storage"

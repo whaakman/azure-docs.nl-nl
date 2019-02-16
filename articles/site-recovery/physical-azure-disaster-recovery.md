@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 9c5f998470d3bf2a66d7de43bd54d5da4db57608
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a6be2fbbf946f13213f95b8876cfdddfa2ffbe67
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221749"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329214"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Herstel na noodgevallen naar Azure voor on-premises fysieke servers instellen
 
@@ -78,9 +78,6 @@ Instellen van een [Azure storage-account](../storage/common/storage-quickstart-c
 
 - Site Recovery repliceert on-premises machines naar Azure storage. Azure-VM's zijn gemaakt op basis van de opslag na failover.
 - Het opslagaccount moet zich in dezelfde regio bevinden als de Recovery Services-kluis.
-- Het opslagaccount kan standaard worden of [premium](../virtual-machines/windows/premium-storage.md).
-- Als u een premium-account hebt ingesteld, moet u ook een extra standard-account voor de logboekgegevens.
-
 
 
 ### <a name="prepare-an-account-for-mobility-service-installation"></a>Een account voorbereiden voor installatie van de Mobility-service

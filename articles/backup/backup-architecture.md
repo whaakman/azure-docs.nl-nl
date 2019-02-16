@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: raynew
-ms.openlocfilehash: 84890c0658970aa9f61a06764cf902a5e5ee4379
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 4f26c805c42f027409127232fcfef9840939e8d9
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812556"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329180"
 ---
 # <a name="azure-backup-architecture"></a>Azure Backup-architectuur
 
@@ -175,8 +175,8 @@ Back-up van ontdubbelde schijven | | | ![Gedeeltelijk][yellow]<br/><br/> Voor DP
 
 Meer informatie:
 
-- Meer informatie over disk-opslag voor [Windows](../virtual-machines/windows/about-disks-and-vhds.md) en [Linux](../virtual-machines/linux/about-disks-and-vhds.md) VM's.
-- Meer informatie over [standard](../virtual-machines/windows/standard-storage.md) en [premium](../virtual-machines/windows/premium-storage.md) opslag.
+- Meer informatie over disk-opslag voor [Windows](../virtual-machines/windows/managed-disks-overview.md) en [Linux](../virtual-machines/linux/managed-disks-overview.md) VM's.
+- Meer informatie over de beschikbare [schijftypen](../virtual-machines/windows/disks-types.md) zoals standard en premium.
 
 
 ### <a name="backing-up-and-restoring-azure-vms-with-premium-storage"></a>Back-up en herstellen van Azure-VM's met premium storage 
@@ -184,9 +184,9 @@ Meer informatie:
 U kunt back-up van virtuele Azure-machines met behulp van premium-opslag met Azure Backup:
 
 - Tijdens het back-ups van VM's met premium storage, maakt de Backup-service een tijdelijke faseringslocatie met de naam 'AzureBackup-', in de storage-account. De faseringslocatie is even groot als de momentopname van het herstelpunt.
-- Zorg ervoor dat de premium storage-account voldoende vrije ruimte heeft voor de tijdelijke faseringslocatie. [Meer informatie](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets). Wijzig de faseringslocatie niet.
+- Zorg ervoor dat de premium storage-account voldoende vrije ruimte heeft voor de tijdelijke faseringslocatie. [Meer informatie](../storage/common/storage-scalability-targets.md#premium-storage-account-scale-limits). Wijzig de faseringslocatie niet.
 - Nadat de back-uptaak is voltooid, wordt de faseringslocatie verwijderd.
-- De prijs van opslag die wordt gebruikt voor de faseringslocatie is consistent met [prijzen voor premium storage](../virtual-machines/windows/premium-storage.md#pricing-and-billing).
+- De prijs van opslag die wordt gebruikt voor de faseringslocatie is consistent met [prijzen voor premium storage](../virtual-machines/windows/disks-types.md#billing).
 
 Wanneer u virtuele Azure-machines met behulp van premium-opslag herstelt, kunt u ze kunt herstellen naar premium of standard-opslag. Doorgaans u wilt herstellen naar premium, maar het is mogelijk goedkoper zijn met herstellen naar standard als u alleen een subset van de bestanden van de virtuele machine.
 

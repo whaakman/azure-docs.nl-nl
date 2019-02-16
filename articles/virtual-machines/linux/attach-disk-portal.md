@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: d24dcc6f12347c66abc033f4c8b25c3b49870a44
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: d5dd916f7e4434640db6dae6f8c5a73d1ff2d3e0
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895768"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327956"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Een gegevensschijf koppelen aan een Linux-VM via de portal 
 In dit artikel wordt beschreven hoe u zowel nieuwe als bestaande schijven koppelt aan een virtuele Linux-machine via de Azure-portal. U kunt ook [een gegevensschijf koppelen aan een Windows-VM in Azure portal](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -29,8 +29,7 @@ In dit artikel wordt beschreven hoe u zowel nieuwe als bestaande schijven koppel
 Voordat u schijven aan uw virtuele machine koppelt, controleert u de volgende tips:
 
 * De grootte van de virtuele machine bepaalt hoeveel gegevensschijven die u kunt koppelen. Zie voor meer informatie, [grootten voor virtuele machines](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Voor het gebruik van Premium-opslag, moet u een virtuele machine uit de DS- of GS-serie. U kunt Premium en Standard disks gebruiken met deze virtuele machines. Premium storage is beschikbaar in bepaalde regio's. Zie voor meer informatie, [Premium Storage: Opslag met hoge prestaties voor workloads van virtuele Azure-machines](../windows/premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Schijven die zijn gekoppeld aan virtuele machines zijn daadwerkelijk .vhd-bestanden zoals opgeslagen in Azure. Zie voor meer informatie, [over schijven en VHD's voor virtuele machines](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Schijven die zijn gekoppeld aan virtuele machines zijn daadwerkelijk .vhd-bestanden zoals opgeslagen in Azure. Zie voor meer informatie onze [Inleiding tot beheerde schijven](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Na de schijf koppelen, moet u [verbinding maken met de Linux-VM om te koppelen van de nieuwe schijf](#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 

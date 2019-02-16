@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/4/2018
 ms.author: sogup
-ms.openlocfilehash: 41a826304af338814666e80dfaf584021809dbb0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: efd069b90e2f085b7bacf4dfa72478e1232554bc
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880043"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313357"
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Een back-upkluis upgraden naar een Recovery Services-kluis
 
@@ -37,9 +37,9 @@ Raadpleeg de verwijzingen van de PowerShell-cmdlets voor de [Resource Manager-im
 
 Controleer de volgende problemen voordat u uw back-upkluizen naar Recovery Services-kluizen upgraden.
 
-- **Minimale agentversie**: als u uw kluis bijwerken, zorg ervoor dat de Microsoft Azure Recovery Services agent (MARS) is ten minste versie 2.0.9083.0. Als de MARS-agent ouder dan 2.0.9083.0 is, moet u de agent bijwerken voordat u begint met het upgradeproces.
-- **Exemplaar op basis van facturering van maandabonnementen**: Recovery Services-kluizen ondersteunen alleen het exemplaar op basis van factureringsmodel. Als u een back-upkluis die van het oude facturering op basis van een Storage-model gebruikmaakt hebt, converteert u de facturering van maandabonnementen tijdens de upgrade.
-- **Er zijn geen bewerkingen van dagelijkse back-upconfiguratie**: tijdens de upgrade, toegang tot de beheerlaag wordt beperkt. Voltooi alle beheeracties vlak en start de upgrade.
+- **Minimale agentversie**: Als u uw kluis bijwerken, zorg ervoor dat de Microsoft Azure Recovery Services agent (MARS) is ten minste versie 2.0.9083.0. Als de MARS-agent ouder dan 2.0.9083.0 is, moet u de agent bijwerken voordat u begint met het upgradeproces.
+- **Exemplaar op basis van facturering van maandabonnementen**: Recovery Service-kluizen ondersteunen alleen het exemplaar op basis van factureringsmodel. Als u een back-upkluis die van het oude facturering op basis van een Storage-model gebruikmaakt hebt, converteert u de facturering van maandabonnementen tijdens de upgrade.
+- **Er zijn geen bewerkingen van dagelijkse back-upconfiguratie**: Toegang tot de beheerlaag wordt tijdens de upgrade, beperkt. Voltooi alle beheeracties vlak en start de upgrade.
 
 ## <a name="using-powershell-scripts-to-upgrade-your-vaults"></a>Uw upkluizen upgraden met behulp van PowerShell-scripts
 
@@ -53,7 +53,7 @@ PowerShell-scripts kunt u uw back-upkluizen upgraden naar Recovery Services-klui
 
 Het volgende script gebruiken om te upgraden van uw kluizen. Het volgende voorbeeldscript biedt uitleg van de parameters.
 
-RecoveryServicesVaultUpgrade 1.0.2.ps1 **- SubscriptionID** `<subscriptionID>` **- VaultName** `<vaultname>` **-locatie** `<location>` **- ResourceType** `BackupVault` **- TargetResourceGroupName** `<rgname>`
+RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **-VaultName** `<vaultname>` **-Location** `<location>` **-ResourceType** `BackupVault` **-TargetResourceGroupName** `<rgname>`
 
 **Abonnements-id** -de abonnement-ID-nummer van de kluis die wordt bijgewerkt.<br/>
 **VaultName** -de naam van de Backup-kluis die wordt bijgewerkt.<br/>
@@ -81,7 +81,7 @@ Het PowerShell-script vraagt u uw referenties in te voeren. Voer uw referenties 
 Nadat u uw Azure-referenties hebt ingevoerd, controleert Azure of uw omgeving voldoet aan de volgende vereisten:
 
 - **Minimale agentversie** -back-upkluizen upgraden naar Recovery Services-kluizen vereist dat de MARS-agent moet ten minste versie 2.0.9083.0. Als u items naar een Backup-kluis geregistreerd met een agent ouder is dan 2.0.9083.0 hebt, wordt de controle mislukt. Als de controle mislukt, de agent wordt bijgewerkt en probeer het opnieuw bijwerken van de kluis. U kunt de meest recente versie van de agent uit downloaden [ http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe ](https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
-- **Continue configuratie taken**: als iemand configureert u de taak voor een back-upkluis instellen om te worden bijgewerkt of registreren van een item, de controle is mislukt. Voltooi de configuratie of klaar bent met het registreren van het item en start vervolgens het upgradeproces van de kluis.
+- **Continue configuratie taken**: Als iemand configureert u de taak voor een back-upkluis instellen om te worden bijgewerkt of registreren van een item, de controle is mislukt. Voltooi de configuratie of klaar bent met het registreren van het item en start vervolgens het upgradeproces van de kluis.
 - **Opslag op basis van facturering van maandabonnementen**: Recovery Services-kluizen ondersteunen het exemplaar op basis van factureringsmodel. Als u de upgrade van de kluis op een back-upkluis die gebruikmaakt van de opslag op basis van facturering van maandabonnementen uitvoert, wordt u gevraagd om bij te werken uw factureringsmodel samen met de kluis. Anders kunt u uw factureringsmodel eerst, bijwerken en voer vervolgens de upgrade van de kluis.
 - Identificeer een resourcegroep voor de Recovery Services-kluis. Om te profiteren van de implementatiefuncties van de Resource Manager-, moet u een Recovery Services-kluis in een resourcegroep geplaatst. Als u niet welke resourcegroep u wilt gebruiken weet, Geef een naam en het upgradeproces de resourcegroep voor u gemaakt. Het upgradeproces worden ook de kluis koppelt aan de nieuwe resourcegroep.
 
@@ -98,13 +98,13 @@ De tweede schermafbeelding geeft de help van koppelingen om u te helpen aan de s
 ![Help-koppelingen in de blade snel starten](./media/backup-azure-upgrade-backup-to-recovery-services/quick-start-w-help-links.png)
 
 ## <a name="post-upgrade-steps"></a>Stappen na de upgrade
-Recovery Services-kluis biedt ondersteuning voor informatie over de tijdzone van het opgeven in de back-upbeleid. Nadat de kluis upgrade is voltooid, gaat u naar de back-upbeleid in kluismenu-instellingen en bijwerken van de informatie over de tijdzone voor elk van de beleidsregels die zijn geconfigureerd in de kluis. Dit scherm bevat al de back-upschema-tijd opgegeven als per lokale tijdzone die wordt gebruikt wanneer u beleid hebt gemaakt. 
+Recovery Services-kluis biedt ondersteuning voor informatie over de tijdzone van het opgeven in de back-upbeleid. Nadat de kluis upgrade is voltooid, gaat u naar de back-upbeleid in kluismenu-instellingen en bijwerken van de informatie over de tijdzone voor elk van de beleidsregels die zijn geconfigureerd in de kluis. Dit scherm bevat al de back-upschema-tijd opgegeven als per lokale tijdzone die wordt gebruikt wanneer u beleid hebt gemaakt.
 
 ## <a name="enhanced-security"></a>Verbeterde beveiliging
 
-Wanneer een back-upkluis is bijgewerkt naar een Recovery Services-kluis, worden de beveiligingsinstellingen voor deze kluis automatisch ingeschakeld. Als de beveiligingsinstellingen zijn op bepaalde bewerkingen zoals het verwijderen van back-ups of het wijzigen van een wachtwoordzin moet een [Azure multi-factor Authentication](../active-directory/authentication/multi-factor-authentication.md) PINCODE. Zie het artikel voor meer informatie over de verbeterde beveiliging [beveiligingsfuncties die beschermen hybride back-ups](backup-azure-security-feature.md). 
+Wanneer een back-upkluis is bijgewerkt naar een Recovery Services-kluis, worden de beveiligingsinstellingen voor deze kluis automatisch ingeschakeld. Als de beveiligingsinstellingen zijn op bepaalde bewerkingen zoals het verwijderen van back-ups of het wijzigen van een wachtwoordzin moet een [Azure multi-factor Authentication](../active-directory/authentication/multi-factor-authentication.md) PINCODE. Zie het artikel voor meer informatie over de verbeterde beveiliging [beveiligingsfuncties die beschermen hybride back-ups](backup-azure-security-feature.md).
 
-Wanneer de verbeterde beveiliging is ingeschakeld, worden gegevens van bewaard gedurende 14 dagen na de punt herstelgegevens is verwijderd uit de kluis. Klanten worden in rekening gebracht voor opslag van deze beveiligingsgegevens. Beveiliging het bewaren van gegevens is van toepassing op de herstelpunten die voor de Azure backup-agent, de Azure Backup Server en de System Center Data Protection Manager worden uitgevoerd. 
+Wanneer de verbeterde beveiliging is ingeschakeld, worden gegevens van bewaard gedurende 14 dagen na de punt herstelgegevens is verwijderd uit de kluis. Klanten worden in rekening gebracht voor opslag van deze beveiligingsgegevens. Beveiliging het bewaren van gegevens is van toepassing op de herstelpunten die voor de Azure backup-agent, de Azure Backup Server en de System Center Data Protection Manager worden uitgevoerd.
 
 ## <a name="gather-data-on-your-vault"></a>Verzamelen van gegevens voor uw kluis
 
@@ -112,38 +112,38 @@ Nadat u een naar een Recovery Services-kluis upgrade, rapporten configureren voo
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
-**De upgrade-abonnement invloed heeft op mijn back-ups?**</br>
+### <a name="does-the-upgrade-plan-affect-my-ongoing-backups"></a>De upgrade-abonnement invloed heeft op mijn back-ups?
 Nee. Uw back-ups worden onderbroken tijdens en na de upgrade.
 
-**Als ik niet van plan bent voor het upgraden van snel, wat gebeurt er met mijn kluizen?**</br>
+### <a name="if-i-dont-plan-on-upgrading-soon-what-happens-to-my-vaults"></a>Als ik niet van plan bent voor het upgraden van snel, wat gebeurt er met mijn kluizen?
 Omdat alle nieuwe functies alleen voor de Recovery Services-kluizen gelden, raden we u aan uw upkluizen upgraden. Vanaf 1 September 2017, zal Microsoft beginnen met back-upkluizen automatisch upgraden naar Recovery Services-kluizen. Na November 30,2017, u kunt niet meer met behulp van PowerShell back-up-kluizen maken. Uw kluis kan worden automatisch bijgewerkt telkens wanneer in tussen. Microsoft raadt dat u uw kluis zo snel mogelijk upgraden.
 
-**Wat doet deze upgrade gemiddelde voor mijn bestaande tooling?**</br>
-Werk uw hulpprogramma's voor op het Resource Manager-implementatiemodel. Recovery Services-kluizen zijn gemaakt voor gebruik in het Resource Manager-implementatiemodel. Planning voor het Resource Manager-implementatiemodel en accounting voor het verschil in uw kluizen is belangrijk. 
+### <a name="what-does-this-upgrade-mean-for-my-existing-tooling"></a>Wat doet deze upgrade gemiddelde voor mijn bestaande tooling?
+Werk uw hulpprogramma's voor op het Resource Manager-implementatiemodel. Recovery Services-kluizen zijn gemaakt voor gebruik in het Resource Manager-implementatiemodel. Planning voor het Resource Manager-implementatiemodel en accounting voor het verschil in uw kluizen is belangrijk.
 
-**Tijdens de upgrade is er veel downtime?**</br>
+### <a name="during-the-upgrade-is-there-much-downtime"></a>Tijdens de upgrade is er veel downtime?
 Dat hangt ervan af op het aantal resources dat wordt bijgewerkt. Voor kleinere implementaties (enkele tientallen beveiligde exemplaren), moet de volledige upgrade minder dan 20 minuten duren. Voor grotere implementaties moet het maximaal een uur duren.
 
-**Kan ik terugdraaien na de upgrade?**</br>
+### <a name="can-i-roll-back-after-upgrading"></a>Kan ik terugdraaien na de upgrade?
 Nee. Terugdraaien wordt niet ondersteund wanneer de resources zijn bijgewerkt.
 
-**Kan ik mijn abonnement of resources om te zien of ze geschikt van upgrade valideren?**</br>
+### <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-upgrade"></a>Kan ik mijn abonnement of resources om te zien of ze geschikt van upgrade valideren?
 Ja. De eerste stap bij een upgrade van valideert dat de resources geschikt voor upgrade zijn. Als de validatie van vereisten mislukt, ontvangt u berichten over alle redenen waarom die de upgrade kan niet worden voltooid.
 
-**Kan ik mijn back-up op basis van een CSP-kluis upgraden?**</br>
+### <a name="can-i-upgrade-my-csp-based-backup-vault"></a>Kan ik mijn back-up op basis van een CSP-kluis upgraden?
 Nee. U kunt back-upkluizen op basis van een CSP op dit moment niet bijwerken. Ondersteuning voor het op basis van een CSP Backup-kluizen in de volgende versies upgraden, zullen we toevoegen.
 
-**Kan ik mijn klassieke kluis na het bijwerken bekijken?**</br>
+### <a name="can-i-view-my-classic-vault-post-upgrade"></a>Kan ik mijn klassieke kluis na het bijwerken bekijken?
 Nee. U kunt geen weergeven of beheren van uw klassieke kluis na het bijwerken. Alleen mogelijk met de nieuwe Azure-portal voor alle acties op de kluis.
 
-**De upgrade is mislukt, maar de computer die de agent die niet meer bijgewerkt, bestaat. Wat moet ik doen in dat geval?**</br>
+### <a name="my-upgrade-failed-but-the-machine-that-held-the-agent-requiring-updating-doesnt-exist-anymore-what-do-i-do-in-such-a-case"></a>De upgrade is mislukt, maar de computer die de agent die niet meer bijgewerkt, bestaat. Wat moet ik doen in dat geval?
 Als u gebruiken wilt, kunnen de back-ups van deze machine voor langetermijnretentie, dan hebt u zich niet bijwerken van de kluis. In toekomstige versies zullen we ondersteuning voor het upgraden van een dergelijke kluis toevoegen.
 Als u niet nodig hebt voor het opslaan van de back-ups van deze machine niet meer, vervolgens registratie van deze machine uit de kluis en voer de upgrade uit.
 
-**Waarom zie ik niet de informatie van de taken voor mijn resources na de upgrade?**</br>
+### <a name="why-cant-i-see-the-jobs-information-for-my-resources-after-upgrade"></a>Waarom zie ik niet de informatie van de taken voor mijn resources na de upgrade?
 Controle van het back-ups (MARS-agent en IaaS) is een nieuwe functie die u ontvangt wanneer u uw back-upkluis naar Recovery Services-kluis upgraden. De informatie voor prestatiebewaking duurt tot 12 uur te synchroniseren met de service.
 
-**Hoe meld ik een probleem?**</br>
+### <a name="how-do-i-report-an-issue"></a>Hoe meld ik een probleem?
 Als een gedeelte van de upgrade van de kluis is mislukt, houd er rekening mee dat de bewerkings-ID in de volgende fout weergegeven. Microsoft Support werkt proactief als het probleem wilt oplossen. U kunt contact opnemen met ondersteuning of een e-mail verzenden naar rsvaultupgrade@service.microsoft.com met uw abonnements-ID, de naam van de kluis en de bewerkings-id. We zullen proberen om het probleem zo snel mogelijk opgelost. Probeer de bewerking niet tenzij expliciet om dit te doen door Microsoft.
 
 

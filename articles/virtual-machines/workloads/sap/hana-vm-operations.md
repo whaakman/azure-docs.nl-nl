@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c85d405502890253bcdb80c652ed53f58546de9c
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 32c326ff7bef98f9d8f4f20664889109d291a6ea
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747047"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328840"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configuraties van SAP HANA-infrastructuur en bewerkingen op Azure
 Dit document biedt richtlijnen voor het configureren van Azure-infrastructuur en SAP HANA besturingssystemen die zijn geïmplementeerd op virtuele machines van Azure (VM's). Het document bevat ook informatie over de configuratie voor SAP HANA scale-out voor de M128s VM-SKU. Dit document is niet bedoeld als vervanging van de standaard SAP-documentatie, waaronder de volgende inhoud:
@@ -68,10 +68,10 @@ Implementeer de virtuele machines in Azure met behulp van:
 U kunt een volledige SAP HANA-platform is geïnstalleerd op de virtuele machine van Azure-services via ook implementeren de [SAP Cloud platform](https://cal.sap.com/). Het installatieproces wordt beschreven in [implementeren SAP S/4HANA of BW/4HANA on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h) of met de automatisering die zijn uitgebracht [hier](https://github.com/AzureCAT-GSI/SAP-HANA-ARM).
 
 ### <a name="choose-azure-storage-type"></a>Kies Azure Storage-type
-Azure biedt twee typen opslag die geschikt zijn voor Azure-VM's waarop SAP HANA:
+Azure biedt twee typen opslag die geschikt zijn voor Azure-VM's waarop SAP HANA: Standaard harde schijven (HDD) en premium Solid-State drives (SSD). Zie voor meer informatie over deze schijftypen, dan het artikel [een schijf selecteren](../../windows/disks-types.md)
 
-- [Azure Standard Storage](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)
-- [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
+- Standaard harde schijven (HDD)
+- Premium Solid-State drives (SSD)
 
 Azure biedt twee methoden voor het implementeren van VHD's op Azure Standard en Premium-opslag. Als de algehele scenario toestaat, profiteren van [Azure beheerde schijf](https://azure.microsoft.com/services/managed-disks/) implementaties.
 
@@ -408,7 +408,7 @@ Op basis van DT 2.0 richtlijnen voor best practices moet de schijf-i/o-doorvoer 
 
 Dit is vereist voor meerdere Azure-schijven koppelen aan de DT 2.0 virtuele machine en het maken van een software-raid (gesegmenteerd te verdelen) op besturingssysteemniveau te bereiken van het maximum aantal schijfdoorvoer per virtuele machine. Een enkel Azure-schijf opgeven niet de doorvoer voor het bereiken van de maximale limiet voor de virtuele machine in dit opzicht. Azure Premium storage is verplicht om uit te voeren DT 2.0. 
 
-- Meer informatie over beschikbare Azure-schijftypes vindt [hier](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
+- Meer informatie over beschikbare Azure-schijftypes vindt [hier](../../windows/disks-types.md)
 - Meer informatie over het maken van software-raid via mdadm vindt [hier](https://docs.microsoft.com/azure/virtual-machines/linux/configure-raid)
 - Meer informatie over het configureren van LVM voor het maken van een striped volume voor maximale doorvoer vindt [hier](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm)
 

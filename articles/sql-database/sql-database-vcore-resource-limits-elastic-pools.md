@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/072019
-ms.openlocfilehash: 1040c2018e7e18ed2d2bb401dd0052c6851fa544
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.date: 02/15/2019
+ms.openlocfilehash: b0bd5c0ba8641bd287951168485be715a0b46224
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270467"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328670"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Resourcelimieten voor elastische pools met behulp van de limieten aankopen model op basis van vCore
 
@@ -59,7 +59,7 @@ U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 
-\* Zie voor de maximale huidige werknemers (aanvragen) voor een individuele database, [één database-resourcebeperkingen](sql-database-vcore-resource-limits-single-databases.md)
+\* Zie voor de maximale gelijktijdige werkers (aanvragen) voor een individuele database, [één database-resourcebeperkingen](sql-database-vcore-resource-limits-single-databases.md). Bijvoorbeeld, als de elastische groep is met Gen5 en de maximale vCore per database is 2, dan is de maximale gelijktijdige werknemers 200.  Als maximale vCore per database is 0,5, klikt u vervolgens de maximale gelijktijdige werknemers is 50 omdat op Gen5 er zijn maximaal 100 gelijktijdige werknemers per vcore.  Voor andere maximale vCore-instellingen per database die minder 1 vCore zijn of minder, het aantal gelijktijdige werknemers max wordt op dezelfde manier schaal gebracht weglating.
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>Categorie voor algemeen gebruik-service: Generatie 4 computerplatform (deel 2)
 
@@ -85,7 +85,7 @@ U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 
-\* Zie voor de maximale huidige werknemers (aanvragen) voor een individuele database, [één database-resourcebeperkingen](sql-database-vcore-resource-limits-single-databases.md)
+\* Zie voor de maximale gelijktijdige werkers (aanvragen) voor een individuele database, [één database-resourcebeperkingen](sql-database-vcore-resource-limits-single-databases.md). Bijvoorbeeld, als de elastische groep is met Gen5 en de maximale vCore per database is 2, dan is de maximale gelijktijdige werknemers 200.  Als maximale vCore per database is 0,5, klikt u vervolgens de maximale gelijktijdige werknemers is 50 omdat op Gen5 er zijn maximaal 100 gelijktijdige werknemers per vcore.  Voor andere maximale vCore-instellingen per database die minder 1 vCore zijn of minder, het aantal gelijktijdige werknemers max wordt op dezelfde manier schaal gebracht weglating.
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>Categorie voor algemeen gebruik-service: Genereren van 5-computerplatform (deel 1)
 
@@ -111,7 +111,7 @@ U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 
-\* Zie voor de maximale huidige werknemers (aanvragen) voor een individuele database, [één database-resourcebeperkingen](sql-database-vcore-resource-limits-single-databases.md)
+\* Zie voor de maximale gelijktijdige werkers (aanvragen) voor een individuele database, [één database-resourcebeperkingen](sql-database-vcore-resource-limits-single-databases.md). Bijvoorbeeld, als de elastische groep is met Gen5 en de maximale vCore per database is 2, dan is de maximale gelijktijdige werknemers 200.  Als maximale vCore per database is 0,5, klikt u vervolgens de maximale gelijktijdige werknemers is 50 omdat op Gen5 er zijn maximaal 100 gelijktijdige werknemers per vcore.  Voor andere maximale vCore-instellingen per database die minder 1 vCore zijn of minder, het aantal gelijktijdige werknemers max wordt op dezelfde manier schaal gebracht weglating.
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>Categorie voor algemeen gebruik-service: Genereren van 5-computerplatform (deel 2)
 
@@ -136,7 +136,7 @@ U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 
-\* Zie voor de maximale huidige werknemers (aanvragen) voor een individuele database, [één database-resourcebeperkingen](sql-database-vcore-resource-limits-single-databases.md)
+\* Zie voor de maximale gelijktijdige werkers (aanvragen) voor een individuele database, [één database-resourcebeperkingen](sql-database-vcore-resource-limits-single-databases.md). Bijvoorbeeld, als de elastische groep is met Gen5 en de maximale vCore per database is 2, dan is de maximale gelijktijdige werknemers 200.  Als maximale vCore per database is 0,5, klikt u vervolgens de maximale gelijktijdige werknemers is 50 omdat op Gen5 er zijn maximaal 100 gelijktijdige werknemers per vcore.  Voor andere maximale vCore-instellingen per database die minder 1 vCore zijn of minder, het aantal gelijktijdige werknemers max wordt op dezelfde manier schaal gebracht weglating.
 
 ## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Kritieke-bedrijfslaag: Opslaggrootte en compute-grootten
 
@@ -164,7 +164,7 @@ U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 
-\* Zie voor de maximale huidige werknemers (aanvragen) voor een individuele database, [één database-resourcebeperkingen](sql-database-vcore-resource-limits-single-databases.md)
+\* Zie voor de maximale gelijktijdige werkers (aanvragen) voor een individuele database, [één database-resourcebeperkingen](sql-database-vcore-resource-limits-single-databases.md). Bijvoorbeeld, als de elastische groep is met Gen5 en de maximale vCore per database is 2, dan is de maximale gelijktijdige werknemers 200.  Als maximale vCore per database is 0,5, klikt u vervolgens de maximale gelijktijdige werknemers is 50 omdat op Gen5 er zijn maximaal 100 gelijktijdige werknemers per vcore.  Voor andere maximale vCore-instellingen per database die minder 1 vCore zijn of minder, het aantal gelijktijdige werknemers max wordt op dezelfde manier schaal gebracht weglating.
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>Kritieke-bedrijfslaag: Generatie 4 computerplatform (deel 2)
 
@@ -190,7 +190,7 @@ U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 
-\* Zie voor de maximale huidige werknemers (aanvragen) voor een individuele database, [één database-resourcebeperkingen](sql-database-vcore-resource-limits-single-databases.md)
+\* Zie voor de maximale gelijktijdige werkers (aanvragen) voor een individuele database, [één database-resourcebeperkingen](sql-database-vcore-resource-limits-single-databases.md). Bijvoorbeeld, als de elastische groep is met Gen5 en de maximale vCore per database is 2, dan is de maximale gelijktijdige werknemers 200.  Als maximale vCore per database is 0,5, klikt u vervolgens de maximale gelijktijdige werknemers is 50 omdat op Gen5 er zijn maximaal 100 gelijktijdige werknemers per vcore.  Voor andere maximale vCore-instellingen per database die minder 1 vCore zijn of minder, het aantal gelijktijdige werknemers max wordt op dezelfde manier schaal gebracht weglating.
 
 #### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>Kritieke-bedrijfslaag: Genereren van 5-computerplatform (deel 1)
 
@@ -216,7 +216,7 @@ U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 
-\* Zie voor de maximale huidige werknemers (aanvragen) voor een individuele database, [één database-resourcebeperkingen](sql-database-vcore-resource-limits-single-databases.md)
+\* Zie voor de maximale gelijktijdige werkers (aanvragen) voor een individuele database, [één database-resourcebeperkingen](sql-database-vcore-resource-limits-single-databases.md). Bijvoorbeeld, als de elastische groep is met Gen5 en de maximale vCore per database is 2, dan is de maximale gelijktijdige werknemers 200.  Als maximale vCore per database is 0,5, klikt u vervolgens de maximale gelijktijdige werknemers is 50 omdat op Gen5 er zijn maximaal 100 gelijktijdige werknemers per vcore.  Voor andere maximale vCore-instellingen per database die minder 1 vCore zijn of minder, het aantal gelijktijdige werknemers max wordt op dezelfde manier schaal gebracht weglating.
 
 #### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>Kritieke-bedrijfslaag: Genereren van 5-computerplatform (deel 2)
 
@@ -242,7 +242,7 @@ U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 
-\* Zie voor de maximale huidige werknemers (aanvragen) voor een individuele database, [één database-resourcebeperkingen](sql-database-vcore-resource-limits-single-databases.md)
+\* Zie voor de maximale gelijktijdige werkers (aanvragen) voor een individuele database, [één database-resourcebeperkingen](sql-database-vcore-resource-limits-single-databases.md). Bijvoorbeeld, als de elastische groep is met Gen5 en de maximale vCore per database is 2, dan is de maximale gelijktijdige werknemers 200.  Als maximale vCore per database is 0,5, klikt u vervolgens de maximale gelijktijdige werknemers is 50 omdat op Gen5 er zijn maximaal 100 gelijktijdige werknemers per vcore.  Voor andere maximale vCore-instellingen per database die minder 1 vCore zijn of minder, het aantal gelijktijdige werknemers max wordt op dezelfde manier schaal gebracht weglating.
 
 Als alle vCores van een elastische pool bezet zijn, ontvangt elke database in de groep een gelijke hoeveelheid rekenresources voor het verwerken van query's. De service SQL Database verdeelt resources eerlijk over databases door gelijke hoeveelheden rekentijd te garanderen. Er is een elastische pool resources eerlijk naast een bepaalde hoeveelheid van de resource wordt aan elke database wordt gegarandeerd wanneer het vCore-minimum per database is ingesteld op een andere waarde dan nul.
 

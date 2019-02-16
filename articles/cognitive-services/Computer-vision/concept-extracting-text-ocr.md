@@ -1,5 +1,5 @@
 ---
-title: Tekst met OCR - Computer Vision extraheren
+title: Tekst met optische tekenherkenning (OCR) - Computer Vision extraheren
 titleSuffix: Azure Cognitive Services
 description: Concepten met betrekking tot het extraheren van tekst met optische tekenherkenning () met behulp van de Computer Vision-API.
 services: cognitive-services
@@ -8,39 +8,37 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 0f43724218994818908e87834ed1b70f4bca330b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: deb73eb9fdd6879a5fbe1fed820bf92b2d627b65
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873799"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310437"
 ---
-# <a name="extracting-text-with-optical-character-recognition"></a>Tekst met optische tekenherkenning extraheren
+# <a name="extract-text-with-optical-character-recognition"></a>Haal de tekst met optische tekenherkenning
 
-Computer Vision-technologie voor optische tekenherkenning (OCR) detecteert tekstinhoud in een afbeelding en worden de herkende tekst naar een machinaal leesbare tekenstroom geëxtraheerd. U kunt het resultaat gebruiken voor zoekopdrachten en talloze andere doeleinden, zoals medische dossiers, beveiliging en bankieren. Taal wordt automatisch gedetecteerd. Met OCR besparen gebruikers tijd en kunnen ze eenvoudig foto’s van tekst maken in plaats van deze over te schrijven.
+Computer-Vision optische tekenherkenning (OCR) functie detecteert tekstinhoud in een installatiekopie en de herkende tekst converteert naar een machinaal leesbare tekenstroom. U kunt het resultaat voor veel doeleinden, zoals zoeken, medische dossiers, beveiliging en bankieren. 
 
-OCR ondersteunt 25 talen. Deze talen zijn: Arabisch, Chinees (traditioneel), Chinees (vereenvoudigd), Deens, Duits, Engels, Fins, Frans, Grieks, Hongaars, Italiaans, Japans, Koreaans, Nederlands, Noors, Pools, Portugees, Roemeens, Russisch, Servisch (Cyrillisch en Latijns) Slowaaks, Spaans, Tsjechisch, Turks en Zweeds.
+OCR 25 talen worden ondersteund: Arabisch, Chinees (traditioneel), Chinees (vereenvoudigd), Deens, Duits, Engels, Fins, Frans, Grieks, Hongaars, Italiaans, Japans, Koreaans, Nederlands, Noors, Pools, Portugees, Roemeens, Russisch, Servisch (Cyrillisch en Latijns) Slowaaks, Spaans, Tsjechisch, Turks en Zweeds. OCR detecteert automatisch de taal van de gedetecteerde tekst.
 
-Via OCR wordt zo nodig de draaiing van de herkende tekst gecorrigeerd, in graden, rond de horizontale as van de afbeelding. OCR biedt het frame-coördinaten van elk woord, zoals te zien is in de volgende afbeelding.
+Indien nodig, corrigeert OCR de rotatie van de herkende tekst door de verschuiving van de rotatiesnelheid in graden over de afbeelding van de horizontale as worden geretourneerd. OCR biedt ook de frame-coördinaten van elk woord, zoals te zien is in de volgende afbeelding.
 
 ![Een diagram met een afbeelding wordt gedraaid en de tekst wordt gelezen en afgebakend](./Images/vision-overview-ocr.png)
 
-## <a name="ocr-requirements"></a>OCR-vereisten
+## <a name="image-requirements"></a>Vereisten voor installatiekopieën
 
 Computer Vision kan extraheren tekst met behulp van OCR van afbeeldingen aan de volgende vereisten voldoen:
 
 * De afbeelding moet worden weergegeven in de JPEG-, PNG-, GIF- of BMP-indeling
 * De grootte van de afbeelding moet tussen 50 x 50 en 4200 x 4200 pixels
-
-
-De afbeelding kan worden gedraaid in meerdere van 90 graden plus een kleine hoek van maximaal 40 graden.
+* De tekst in de afbeelding kan worden gedraaid in meerdere van 90 graden plus een kleine hoek van maximaal 40 graden.
 
 ## <a name="improving-ocr-accuracy"></a>Verbetering van de nauwkeurigheid van OCR
 
-De nauwkeurigheid van de tekstherkenning is afhankelijk van de kwaliteit van de afbeelding. Een onnauwkeurige aflezing kan worden veroorzaakt door de volgende situaties:
+De nauwkeurigheid van de tekstherkenning is afhankelijk van de kwaliteit van de afbeelding. Een lezen onnauwkeurige kan worden veroorzaakt door het volgende:
 
 * Wazige afbeeldingen.
 * Handgeschreven of cursieve tekst.
@@ -52,8 +50,8 @@ De nauwkeurigheid van de tekstherkenning is afhankelijk van de kwaliteit van de 
 
 ### <a name="ocr-limitations"></a>OCR-beperkingen
 
-Fout-positieven kunnen op foto's waarin tekst dominante wordt afkomstig zijn van gedeeltelijk herkende woorden. Precisie kan op sommige foto's, met name foto's zonder tekst, veel variëren afhankelijk van het type afbeelding.
+Fout-positieven kunnen op waarin tekst dominante wordt afbeeldingen afkomstig zijn van gedeeltelijk herkende woorden. Precisie kan op sommige afbeeldingen, met name foto's zonder tekst, veel variëren afhankelijk van het type afbeelding.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Kennis met concepten over [herkennen van afdrukken en handgeschreven tekst](concept-recognizing-text.md).
+Zie de [OCR-referentiedocumentatie](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) voor meer informatie.

@@ -4,23 +4,23 @@ description: De analyzers toewijzen aan doorzoekbare velden in een index te verv
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 02/15/2019
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 5c3894b1f19a6baa65323391526ea5492d79f8a7
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: a3f782cdd34f2a45c58e6a98d013f949767589cb
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301329"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328007"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analyzers om tekst te verwerken in Azure Search
 
-Een *analyzer* is een onderdeel van de [engine voor zoekopdrachten in volledige tekst](search-lucene-query-architecture.md) verantwoordelijk voor het verwerken van tekst in querytekenreeksen en geïndexeerde documenten. Er zijn taalanalyse en automatisch tekst manipulatie analyzers. Taalanalysefuncties worden het meest gebruikt en er is standaard taalanalyse toegewezen aan elk tekenreeksveld in een Azure Search-index.
+Een *analyzer* is een onderdeel van de [engine voor zoekopdrachten in volledige tekst](search-lucene-query-architecture.md) verantwoordelijk voor het verwerken van tekst in querytekenreeksen en geïndexeerde documenten. Verschillende analyzers bewerken als tekst op verschillende manieren, afhankelijk van het scenario. Taalanalyse verwerken tekst met behulp van de linguïstische regels om te verbeteren van zoeken kwaliteit, terwijl andere analyzers eenvoudige taken, zoals tekens te converteren naar kleine letters, bijvoorbeeld uitvoeren. 
 
-De volgende taal transformaties zijn gangbaar tijdens de analyse van tekst:
+Taalanalyse zijn het meest worden gebruikt en er is standaard taalanalyse toegewezen aan elke doorzoekbaar veld van een Azure Search-index. De volgende taal transformaties zijn gangbaar tijdens de analyse van tekst:
 
 + Niet-essentiële woorden (stopwoorden) en leestekens worden verwijderd.
 + Zinnen en afgebroken woorden zijn onderverdeeld in onderdelen.
@@ -46,7 +46,7 @@ De volgende lijst wordt beschreven welke analysefuncties zijn beschikbaar in Azu
 | Vooraf gedefinieerde analyzers | Als een voltooide product bedoeld om te worden gebruikt als aangeboden-is. <br/>Er zijn twee typen: gespecialiseerde en taal. Wat is dan "vooraf gedefinieerde" het is u ernaar te verwijzen met de naam, zonder configuratie of aanpassen. <br/><br/>[(Taal-neutraal) analyzers gespecialiseerde](index-add-custom-analyzers.md#AnalyzerTable) worden gebruikt als invoer van tekst speciale verwerking of minimale vereist. Non-language predefined analyzers include **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**.<br/><br/>[Taalanalyse](index-add-language-analyzers.md) worden gebruikt wanneer u geavanceerde linguïstische ondersteuning nodig hebt voor de afzonderlijke talen. Azure Search biedt ondersteuning voor 35 Lucene taalanalyse en 50 analyzers voor Microsoft-verwerking van natuurlijke taal. |
 |[Analysevoorzieningen aanpassen](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Verwijst naar een door de gebruiker gedefinieerde configuratie van een combinatie van bestaande elementen, die bestaat uit één tokenizer (vereist) en optionele filters (char of token).|
 
-Een aantal vooraf gedefinieerde analysefuncties, zoals **patroon** of **stoppen**, ondersteuning voor een beperkt aantal configuratieopties. Deze opties wilt instellen, u effectief maken van een aangepaste analysefunctie, die bestaat uit het vooraf gedefinieerde analzer en een van de andere opties beschreven in [vooraf gedefinieerde Analyzer verwijzing](index-add-custom-analyzers.md#AnalyzerTable). Als met een aangepaste configuratie, Geef uw nieuwe configuratie met een naam, zoals *myPatternAnalyzer* te onderscheiden van het patroon van Lucene analyzer.
+Een aantal vooraf gedefinieerde analysefuncties, zoals **patroon** of **stoppen**, ondersteuning voor een beperkt aantal configuratieopties. Deze opties wilt instellen, u effectief maken van een aangepaste analysefunctie die bestaat uit de vooraf gedefinieerde analyzer en een van de andere opties beschreven in [vooraf gedefinieerde Analyzer verwijzing](index-add-custom-analyzers.md#AnalyzerTable). Als met een aangepaste configuratie, Geef uw nieuwe configuratie met een naam, zoals *myPatternAnalyzer* te onderscheiden van het patroon van Lucene analyzer.
 
 ## <a name="how-to-specify-analyzers"></a>Analyzers opgeven
 
@@ -54,24 +54,26 @@ Een aantal vooraf gedefinieerde analysefuncties, zoals **patroon** of **stoppen*
 
 2. Op een [veld definitie](https://docs.microsoft.com/rest/api/searchservice/create-index) instellen in de index van het veld **analyzer** eigenschap op de naam van een analyse van het doel (bijvoorbeeld `"analyzer" = "keyword"`. Geldige waarden zijn de naam van een vooraf gedefinieerde analyzer, taal-analysefunctie of aangepaste analysefunctie ook in het indexschema zijn gedefinieerd. Plan analyzer toewijzen in de fase van de definitie van index voordat de index is gemaakt in de service.
 
-3. (Optioneel) in plaats van een **analyzer** eigenschap, kunt u verschillende analyzers om te indexeren en query's uitvoeren met behulp van instellen de **indexAnalyzer** en **searchAnalyzer** veld de parameters. 
+3. (Optioneel) in plaats van een **analyzer** eigenschap, kunt u verschillende analyzers om te indexeren en query's uitvoeren met behulp van instellen de **indexAnalyzer** en **searchAnalyzer** veld de parameters. U kunt verschillende analyzers zou gebruiken voor gegevens voor te bereiden en het ophalen als een van deze activiteiten een specifieke transformatie niet nodig voor de andere vereist.
 
-3. Aan de velddefinitie van een toe te voegen een analyzer leidt tot een schrijfbewerking voor de index. Als u een **analyzer** aan een bestaande index, houd er rekening mee de volgende stappen uit:
+Toewijzen van **analyzer** of **indexAnalyzer** naar een veld dat al fysiek is gemaakt is niet toegestaan. Als een van deze onduidelijk, controleert u de volgende tabel voor een overzicht van deze acties opgebouwd en waarom.
  
  | Scenario | Impact | Stappen |
  |----------|--------|-------|
- | Een nieuw veld toevoegen | Minimale | Als het veld nog niet in het schema bestaat, is er geen veld revisie omdat het veld nog geen fysieke aanwezigheid in uw index. Gebruik [Index bijwerken](https://docs.microsoft.com/rest/api/searchservice/update-index) naar een nieuw veld toevoegt aan een bestaande index.|
- | Een analyzer toevoegen aan een bestaand geïndexeerde veld. | [Opnieuw maken](search-howto-reindex.md) | De omgekeerde index voor dat veld moet worden gemaakt vanaf het begin van en de inhoud voor deze velden moet worden geïndexeerd. <br/> <br/>Voor indexen in ontwikkeling, [verwijderen](https://docs.microsoft.com/rest/api/searchservice/delete-index) en [maken](https://docs.microsoft.com/rest/api/searchservice/create-index) de index om op te halen de velddefinitie van de nieuwe. <br/> <br/>Voor indexen in de productieomgeving, kunt u opnieuw maken door het maken van een nieuw veld om te bieden de definitie van de herziene en gaan gebruiken in plaats van de oude heeft uitstellen. Gebruik [Index bijwerken](https://docs.microsoft.com/rest/api/searchservice/update-index) om op te nemen van het nieuwe veld en [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) itbet vullen. Later, als onderdeel van de index voor gepland onderhoud, kunt u de index te verwijderen van verouderde velden opschonen. |
+ | Een nieuw veld toevoegen | Minimale | Als het veld nog niet in het schema bestaat, is er geen veld revisie omdat het veld nog geen fysieke aanwezigheid in uw index. U kunt [Index bijwerken](https://docs.microsoft.com/rest/api/searchservice/update-index) naar een nieuw veld toevoegt aan een bestaande index en [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) voor het vullen van het.|
+ | Voeg een **analyzer** of **indexAnalyzer** aan een bestaand geïndexeerde veld. | [Opnieuw maken](search-howto-reindex.md) | De omgekeerde index voor dat veld opnieuw vanaf de grond moet worden gemaakt en de inhoud voor deze velden moet worden geïndexeerd. <br/> <br/>Voor indexen in ontwikkeling, [verwijderen](https://docs.microsoft.com/rest/api/searchservice/delete-index) en [maken](https://docs.microsoft.com/rest/api/searchservice/create-index) de index om op te halen de velddefinitie van de nieuwe. <br/> <br/>Voor de indexen in de productieomgeving, kunt u opnieuw opbouwen uitstellen door het maken van een nieuw veld om te bieden de definitie van de herziene en gaan gebruiken in plaats van de oude heeft. Gebruik [Index bijwerken](https://docs.microsoft.com/rest/api/searchservice/update-index) om op te nemen van het nieuwe veld en [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) voor het vullen van het. Later, als onderdeel van de index voor gepland onderhoud, kunt u de index te verwijderen van verouderde velden opschonen. |
 
 ## <a name="when-to-add-analyzers"></a>Bij het toevoegen van analyse
 
-U kunt meerdere aangepaste analysefuncties voor het variëren van de combinatie van filters definiëren, maar elk veld kan alleen een analyzer gebruiken voor het indexeren van analyse en één voor search-analyse.  
+Het beste moment kunt toevoegen en toewijzen van de analyse is tijdens het ontwikkelen van actieve, wanneer neer te zetten en opnieuw maken van indexen routine is.
 
-Wanneer de definitie van de index wordt nog steeds lichtstroom, moet u tijdens het ontwikkelen van actieve analyzers configureren. Een analyzer opgegeven op een veld is een integraal onderdeel van de definitie van het veld, zodat u deze alleen toevoegen kunt wanneer het veld wordt gemaakt. Als u wilt de analyzers toevoegen aan bestaande velden, u zult moeten [verwijderen en opnieuw opbouwen](search-howto-reindex.md) de index.
+Als een indexdefinitie inkoopketen, u nieuwe analysis-constructies aan een index toevoegen kunt, maar u moet doorgeven de **allowIndexDowntime** markering [Index bijwerken](https://docs.microsoft.com/rest/api/searchservice/update-index) als u wilt voorkomen dat deze fout:
 
-Een uitzondering hierop is de variant searchAnalyzer. Er zijn drie manieren om op te geven analyzers: **analyzer**, **indexAnalyzer**, **searchAnalyzer**. Het eerste item **analyzer**, wordt gebruikt voor het indexeren en query-aanvragen. De andere twee kunt u bepalen welke analyzers worden gebruikt voor elk aanvraagtype.
+*Index-update is niet toegestaan omdat dit leiden uitvaltijd tot zou. Om toe te voegen nieuwe analysefuncties, tokenizers, token filters of teken filters aan een bestaande index, stelt u de queryparameter 'allowIndexDowntime' op 'true' in de aanvraag van de update index. Houd er rekening mee dat uw index offline voor ten minste een paar seconden, waardoor uw indexeren en query-aanvragen mislukken door deze bewerking wordt geplaatst. Prestaties en schrijven van de beschikbaarheid van de index kan worden gehinderd voor enkele minuten nadat de index is bijgewerkt of langer voor zeer grote indexen.*
 
-Beide **analyzer** en **indexAnalyzer** moet worden opgegeven voor de velddefinitie van de eerste. De **searchAnalyzer** kenmerk kan worden toegevoegd aan een veld dat al bestaat, zonder dat er een vereiste opnieuw opbouwen.
+Hetzelfde geldt wanneer u een analyzer toewijst aan een veld. Een analyzer is een integraal onderdeel van de definitie van het veld, zodat u deze alleen toevoegen kunt wanneer het veld wordt gemaakt. Als u wilt de analyzers toevoegen aan bestaande velden, u zult moeten [verwijderen en opnieuw opbouwen](search-howto-reindex.md) de index, of een nieuw veld met de analyzer die u wilt toevoegen.
+
+Zoals opgemerkt, een uitzondering is de **searchAnalyzer** variant. Van de drie manieren om op te geven analyzers (**analyzer**, **indexAnalyzer**, **searchAnalyzer**), alleen de **searchAnalyzer** kenmerk kan worden gewijzigd op een bestaand veld.
 
 ## <a name="recommendations-for-working-with-analyzers"></a>Aanbevelingen voor het werken met analysefuncties
 

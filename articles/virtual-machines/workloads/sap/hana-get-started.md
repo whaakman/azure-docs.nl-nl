@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: c1d9047de814b7a80210fe2502d219921f5829a4
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 561eff75ef4268acd3f737f7aaa92ccaacfda7f3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976899"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328710"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Quickstart: Handmatige installatie van één exemplaar SAP HANA op Azure Virtual machines
 ## <a name="introduction"></a>Inleiding
@@ -72,7 +72,7 @@ Zie voor aanvullende SAP-documentatie over SAP HANA en andere Linux-besturingssy
 * [SAP-ondersteuning Opmerking #171356 - SAP-Software op Linux:  Algemene informatie](https://launchpad.support.sap.com/#/notes/1984787)
 * [SAP-ondersteuning Opmerking #1944799 - SAP HANA-richtlijnen voor de installatie van de SLES-besturingssysteem](http://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
 * [SAP Support Opmerking #2205917 - SAP HANA DB aanbevolen besturingssysteeminstellingen voor het voor SLES 12 voor SAP-toepassingen](https://launchpad.support.sap.com/#/notes/2205917/E)
-* [SAP Support Opmerking #1984787 - SUSE Linux Enterprise Server 12:  Opmerkingen bij de installatie](https://launchpad.support.sap.com/#/notes/1984787)
+* [SAP Support Note #1984787 - SUSE Linux Enterprise Server 12:  Opmerkingen bij de installatie](https://launchpad.support.sap.com/#/notes/1984787)
 * [SAP Support Opmerking #1391070 - UUID van de Linux-oplossingen](https://launchpad.support.sap.com/#/notes/1391070)
 * [SAP-ondersteuning Opmerking #2009879 - SAP HANA-richtlijnen voor het Red Hat Enterprise Linux (RHEL)-besturingssysteem](https://launchpad.support.sap.com/#/notes/2009879)
 * [2292690 - SAP HANA DB: Aanbevolen besturingssysteeminstellingen voor RHEL 7](https://launchpad.support.sap.com/#/notes/2292690/E)
@@ -195,7 +195,7 @@ Op basis van de [opslagvereisten voor SAP HANA TDI](https://www.sap.com/document
 | --- | --- | --- | --- | --- | --- |
 | GS5 | 448 GB | 2 x P30 | 1 x P20 | 1 x P10 | 1 x P10 | 
 
-In de configuratie van de voorgestelde schijven, worden de HANA-gegevensvolume en logboekvolume op dezelfde set Azure premium storage-schijven striped met LVM of MDADM geplaatst. Het is niet nodig voor het definiëren van een RAID-niveau voor redundantie omdat Azure Premium Storage drie kopieën van de schijven voor de redundantie van opgeslagen. Om ervoor te zorgen dat u voldoende opslagruimte configureren, raadpleegt u de [opslagvereisten voor SAP HANA TDI](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) en [SAP HANA-Server-installatie- en Updatehandleiding](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm). Ook rekening houden met de volumes van de doorvoer van verschillende virtuele harde schijf (VHD) van de verschillende Azure premium storage-schijven zoals beschreven in [High-performance Premium Storage en beheerde schijven voor virtuele machines](https://docs.microsoft.com/azure/storage/storage-premium-storage). 
+In de configuratie van de voorgestelde schijven, worden de HANA-gegevensvolume en logboekvolume op dezelfde set Azure premium storage-schijven striped met LVM of MDADM geplaatst. Het is niet nodig voor het definiëren van een RAID-niveau voor redundantie omdat Azure Premium Storage drie kopieën van de schijven voor de redundantie van opgeslagen. Om ervoor te zorgen dat u voldoende opslagruimte configureren, raadpleegt u de [opslagvereisten voor SAP HANA TDI](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) en [SAP HANA-Server-installatie- en Updatehandleiding](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm). Ook rekening houden met de volumes van de doorvoer van verschillende virtuele harde schijf (VHD) van de verschillende Azure premium storage-schijven zoals beschreven in [High-performance Premium Storage en beheerde schijven voor virtuele machines](../../windows/disks-types.md). 
 
 U kunt meer premium storage-schijven toevoegen aan de HANA DBMS-VM's voor het opslaan van de database die of transactielogboek logboekback-ups.
 
@@ -206,9 +206,7 @@ Zie de volgende artikelen voor meer informatie over de twee belangrijkste hulppr
 
 Zie voor meer informatie over het koppelen van schijven met virtuele Azure-machines waarop Linux wordt uitgevoerd als een gastbesturingssysteem [een schijf toevoegen aan een Linux-VM](../../linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Azure Premium Storage kunt u definiëren schijfcachingtype modi. Voor het bedrijf /hana/data en /hana/log striped set moet opslaan in schijfcache worden uitgeschakeld. Voor de andere volumes (schijven), de modus voor opslaan in cache moet worden ingesteld op **ReadOnly**.
-
-Zie voor meer informatie, [Premium Storage: Opslag met hoge prestaties voor Azure Virtual Machine-werkbelasting](../../windows/premium-storage.md).
+Azure premium SSD's kunt u definiëren schijfcachingtype modi. Voor het bedrijf /hana/data en /hana/log striped set moet opslaan in schijfcache worden uitgeschakeld. Voor de andere volumes (schijven), de modus voor opslaan in cache moet worden ingesteld op **ReadOnly**.
 
 Als u voorbeeld-JSON-sjablonen voor het maken van virtuele machines zoekt, gaat u naar [Azure-Snelstartsjablonen](https://github.com/Azure/azure-quickstart-templates).
 De vm-eenvoudig-sles-sjabloon is een eenvoudige sjabloon. Het bevat een sectie voor opslag, met een schijf van 100 GB gegevens. Deze sjabloon kan worden gebruikt als basis. U kunt de sjabloon aanpassen aan uw specifieke configuratie.

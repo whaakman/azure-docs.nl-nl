@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: 6b39d01266cdde0316d1a660429d5ccab546dac4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cd6f533bcd32a307facc781c3b2207a337fc8a34
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873628"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309162"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Over het bouwen van een classificatie met Custom Vision
 
@@ -95,6 +95,11 @@ In deze sectie wordt u uploaden en afbeeldingen te trainen classificatie handmat
     ![De voortgangsbalk wordt aangegeven dat alle taken zijn voltooid.](./media/getting-started-build-a-classifier/add-images04.png)
 
 Voor het uploaden van een andere set van installatiekopieën, Ga terug naar de bovenkant van deze sectie en Herhaal de stappen. Op een bepaald moment in uw project, moet u mogelijk toevoegen _voorbeelden negatieve_ om uw classificatie nauwkeurigere ervoor. Negatieve voorbeelden zijn die niet overeenkomen met een van de andere labels. Wanneer u deze installatiekopieën uploaden, van toepassing op de speciale **negatieve** naar hen te labelen.
+
+> [!NOTE]
+> De Custom Vision Service biedt ondersteuning voor de verwerking van sommige automatische negatieve afbeeldingen. Bijvoorbeeld, als u een gedeeltelijk versus bananen classificatie bouwen en verzenden van een installatiekopie van een schoen voor voorspelling, moet de classificatie die installatiekopie als dicht bij 0% score voor gedeeltelijk en bananen.
+
+> In gevallen waar de negatieve afbeeldingen slechts een variant van de afbeeldingen in training gebruikt zijn, is het aan de andere kant waarschijnlijk dat het model wordt het classificeren van de installatiekopieën van het negatieve als een gelabelde klasse vanwege de grote overeenkomsten. Bijvoorbeeld, als u een oranje versus pompelmoezen en pomelo's classificatie hebt en u in een afbeelding van een clementine feed, kan het beoordelen de clementine als een oranje omdat veel functies van de clementine lijken op die van de appels. Als uw negatieve installatiekopieën van deze aard zijn, het beste maken van een of meer extra labels (zoals **andere**) en de negatieve afbeeldingen met dit label te labelen tijdens de training om toe te staan van het model beter onderscheid maken tussen deze klassen .
 
 ## <a name="train-the-classifier"></a>De classificatie trainen
 

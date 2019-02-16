@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 5ab0a9a92297c46a4090583d41f22f2035bd310c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 19a0e7f3317a5c4a87b2622de170b0fc2cc137be
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816183"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326820"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Oplossen van fouten bij het verwijderen van het storage-resource
 
@@ -28,7 +28,7 @@ In bepaalde scenario's, verschijnt een van de volgende fouten zijn opgetreden te
 
 >**# Buiten # blobs verwijderen is mislukt:<br>BlobName.vhd: Er is momenteel een lease op de blob en er is geen lease-ID is opgegeven in de aanvraag.**
 
-De VHD's in virtuele machines van Azure zijn .vhd-bestanden die zijn opgeslagen als pagina-blobs in een standard- of premium storage-account in Azure. Zie voor meer informatie over Azure-schijven, [over niet-beheerde en beheerde disk-opslag voor Microsoft Azure Linux VM's](../linux/about-disks-and-vhds.md). 
+De VHD's in virtuele machines van Azure zijn .vhd-bestanden die zijn opgeslagen als pagina-blobs in een standard- of premium storage-account in Azure. Zie voor meer informatie over Azure-schijven, onze [Inleiding tot beheerde schijven](../linux/managed-disks-overview.md).
 
 Azure wordt voorkomen dat het verwijderen van een schijf die is gekoppeld aan een virtuele machine om beschadiging te voorkomen. Dit voorkomt ook dat het verwijderen van containers en storage-accounts waarvoor een pagina-blob die is gekoppeld aan een virtuele machine. 
 

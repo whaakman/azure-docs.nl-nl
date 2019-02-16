@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: f4be58d702b5d97722a3f9f1ee2df6b519ba4fab
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: da0e393dc2ae0d93ecc49745a42ffac4669ed74b
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731747"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326303"
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Docker Machine gebruiken om hosts te maken in Azure
 Dit artikel wordt uitgelegd hoe u [Docker Machine](https://docs.docker.com/machine/) om hosts te maken in Azure. De `docker-machine` opdracht maakt u een Linux virtuele machine (VM) in Azure en Docker installeert. Vervolgens kunt u uw Docker-hosts in Azure met behulp van de dezelfde lokale hulpprogramma's en werkstromen beheren. Voor het gebruik van docker-machine in Windows 10, moet u de Linux-bash gebruiken.
@@ -137,4 +137,4 @@ Als u wilt zien van de container in actie, open een webbrowser en voer het openb
 ![Ngnix-container die wordt uitgevoerd](./media/docker-machine/nginx.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-U kunt ook maken met hosts met de [Docker VM-extensie](dockerextension.md). Zie voor meer voorbeelden over het gebruik van Docker Compose [aan de slag met Docker en Compose in Azure](docker-compose-quickstart.md).
+Zie voor meer voorbeelden over het gebruik van Docker Compose [aan de slag met Docker en Compose in Azure](docker-compose-quickstart.md).

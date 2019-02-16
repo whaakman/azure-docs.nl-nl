@@ -10,18 +10,18 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: seodec18
-ms.date: 02/12/2019
+ms.date: 02/14/2019
 ms.author: juliako
-ms.openlocfilehash: ce022e22cc98dd218dff4840f686464233f99c72
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 20dbd0025828d5acf07227f8cced4e2d234db200
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176339"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308482"
 ---
 # <a name="create-an-azure-media-services-account"></a>Een Azure Media Services-account maken
 
-Als u wilt beginnen met coderen, codering, analyseren, beheren en streamen van mediainhoud in Azure, moet u een Media Services-account maken. Op het moment u een Media Services-account create, maakt u ook een gekoppelde storage-account (of gebruik een bestaande resourcegroep).  
+Als u wilt beginnen met coderen, codering, analyseren, beheren en streamen van mediainhoud in Azure, moet u een Media Services-account maken. Op het moment dat u een Media Services-account maakt, maakt u ook een bijbehorend opslagaccount (of gebruikt u een bestaand account).  
 
 > [!NOTE]
 > Het Media Services-account en alle gekoppelde opslagaccounts moeten zich in hetzelfde Azure-abonnement bevinden. Het is raadzaam storage-accounts op dezelfde locatie bevinden als het Media Services-account gebruiken om te voorkomen dat de kosten voor extra latentie en gegevens uitgaand.

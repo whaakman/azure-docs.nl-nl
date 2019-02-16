@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: caleteet
 manager: femila
-ms.openlocfilehash: 884f6a81796341e274027095691585212d5a3749
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: acbd41b7203e458a5ed60382354c862748863053
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830296"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328024"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Hyperledger Fabric consortium network
 
@@ -113,7 +113,7 @@ In **configuratie van de Infrastructuurresources**, u Configureer netwerkgrootte
 | Parameternaam | Description | Toegestane waarden |
 |---|---|---|
 **Schaaltype**|Het implementatietype van een enkele virtuele machine met meerdere containers of meerdere virtuele machines in een scale-out-model.|Één virtuele machine of meerdere VM 's |
-**VM-schijftype**|Het type opslag back-ups maken van de geïmplementeerde knooppunten. <br/> Voor meer informatie over opslag, gaat u naar [Inleiding tot Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction) en [Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).|Standard - SSD <br/> Premium SSD |
+**VM-schijftype**|Het type opslag back-ups maken van de geïmplementeerde knooppunten. <br/> Voor meer informatie over de typen beschikbare schijfruimte, gaat u naar [Selecteer een schijftype](../../virtual-machines/windows/disks-types.md).|Standard - SSD <br/> Premium SSD |
 
 ### <a name="multiple-vm-deployment-additional-settings"></a>Meerdere VM-implementatie (extra instellingen)
 

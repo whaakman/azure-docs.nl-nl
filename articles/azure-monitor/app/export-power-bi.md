@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4f8929182995445ff0b327bc22a9cdf75ec5641b
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 17c493568953265ac12ebccc680652ed5da6ae4d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262575"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312988"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Power BI-kanaal van Application Insights
 [Power BI](https://www.powerbi.com/) is een suite met hulpprogramma's voor business die helpt u bij het analyseren van gegevens en inzichten te delen. Uitgebreide dashboards zijn beschikbaar op elk apparaat. U kunt gegevens uit verschillende bronnen, met inbegrip van Analytics-query's uit combineren [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
@@ -26,7 +26,7 @@ Er zijn drie methoden voor het Application Insights-gegevens exporteren naar Pow
 
 * [**Analytics-query's exporteren**](#export-analytics-queries). Dit is de aanbevolen methode. Schrijf een query die u wilt en exporteren naar Power BI. U kunt deze query plaatsen op een dashboard, samen met andere gegevens.
 * [**Continue export en Azure Stream Analytics**](../../azure-monitor/app/export-stream-analytics.md). Deze methode is handig als u wilt uw gegevens bewaren gedurende lange perioden. Als u een uitgebreide gegevens bewaren-vereiste niet hebt, gebruikt u de methode export analytics-query. Continue export en Stream Analytics omvat meer werk om in te stellen en de extra opslagruimte overhead.
-* [**Power BI-adapter**](#power-pi-adapter). De set met grafieken is vooraf gedefinieerd, maar u kunt uw eigen query's uit andere bronnen toevoegen.
+* **Power BI-adapter**. De set met grafieken is vooraf gedefinieerd, maar u kunt uw eigen query's uit andere bronnen toevoegen.
 
 > [!NOTE]
 > De Power BI-adapter is nu **afgeschaft**. De vooraf gedefinieerde grafieken voor deze oplossing worden ingevuld door statische vergrendelde query's. U hebt niet de mogelijkheid om te bewerken van deze query's en afhankelijk van bepaalde eigenschappen van uw gegevens is het mogelijk dat de verbinding met Power BI om succesvol te zijn, maar er zijn geen gegevens is gevuld. Dit komt door uitsluitingscriteria die zijn ingesteld in de query vastgelegd. Hoewel deze oplossing nog steeds voor bepaalde klanten werken kan, vanwege het ontbreken van de flexibiliteit van de adapter van de aanbevolen oplossing is met de [ **Analytics-query exporteren** ](#export-analytics-queries) functionaliteit.

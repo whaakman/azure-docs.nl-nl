@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: ea83d061f7160db04c847be66e79da60da78634d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d325cfd679c2a8b878ae9a7b483431aba32b2a5a
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662904"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313276"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>HDInsight op basis van Linux-clusters aanpassen met behulp van scriptacties
 
@@ -55,7 +55,7 @@ Een scriptactie is Bash-script dat wordt uitgevoerd op de knooppunten in een HDI
 
     * Een Azure Data Lake Storage-account dat toegankelijk is via het HDInsight-cluster. Zie voor meer informatie over het gebruik van Azure Data Lake Storage met HDInsight [Quick Start: clusters instellen in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
-        De URI-notatie voor scripts die zijn opgeslagen in Data Lake-opslag is `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
+        De URI-notatie voor scripts die zijn opgeslagen in Data Lake Storage Gen1 is `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
 
         > [!NOTE]  
         > De HDInsight gebruikt voor toegang tot Data Lake Storage service-principal moet leestoegang hebben tot het script.

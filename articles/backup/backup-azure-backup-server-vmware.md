@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: ee7ebb151653b611c652c072b8cb4c07754d9b68
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 5e5a6f32eeac674a6527d333b981bbdac20a9958
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269699"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309758"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Back-up van virtuele VMware-machines met Azure Backup Server
 
@@ -39,7 +39,7 @@ Standaard communiceert Azure Backup Server via HTTPS met VMware-servers. Als u d
 
 ### <a name="before-you-start"></a>Voordat u begint
 
-- Als u niet wilt dat HTTPS te gebruiken kunt u [uitschakelen van de standaardinstelling](backup-azure-backup-server-vmware.md#disable-secure-communication-protocol).
+- Als u niet wilt dat HTTPS te gebruiken kunt u [uitschakelen van de standaardinstelling](backup-azure-backup-server-vmware.md).
 - U doorgaans verbinding maken vanuit een browser op de Azure Backup Server-machine met de vCenter-/ ESXi-server met behulp van de vSphere-webclient. De eerste keer dat u hiervoor de verbinding is niet beveiligd en ziet u het volgende.
 - Het is belangrijk om te begrijpen hoe Azure Backup Server omgaat met back-ups.
     - Als eerste stap Azure Backup Server back-ups van gegevens naar de opslag van de lokale schijf. Azure Backup-Server maakt gebruik van een opslaggroep, een set schijven en volumes waarop Azure Backup Server schijfherstelpunten voor de beveiligde gegevens worden opgeslagen. De opslaggroep kan direct gekoppelde opslag (DAS), een Fibre channel SAN- of iSCSI-opslagapparaat of SAN zijn. Het is belangrijk om ervoor te zorgen dat u voldoende opslagruimte voor de lokale back up van de gegevens van uw VMware-VM hebt.
@@ -209,7 +209,7 @@ Op de **beheren** tabblad de **algemene machtigingen** deelvenster, het nieuwe g
 ## <a name="add-the-account-on-azure-backup-server"></a>Het account toevoegen aan Azure Backup Server
 
 
-1. Open Azure Backup-Server. Als u het pictogram niet op het bureaublad vinden, opent u Microsoft Azure Backup uit de lijst met apps.
+1. Open Azure Backup Server. Als u het pictogram niet op het bureaublad vinden, opent u Microsoft Azure Backup uit de lijst met apps.
 
     ![Azure Backup Server-pictogram](./media/backup-azure-backup-server-vmware/mabs-icon.png)
 
@@ -245,7 +245,7 @@ De vCenter-Server toevoegen aan Azure Backup Server.
 
      ![Wizard voor het productie toevoegen](./media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
 
-3. In **Computers selecteren****naam/IP-serveradres**, de FQDN-naam of IP-adres van de VMware-server opgeven.   Als alle ESXi-servers worden beheerd door dezelfde vCenter, moet u de vCenter-naam opgeven. Anders wordt de ESXi-host toevoegen.
+3. In **Computers selecteren****naam/IP-serveradres**, de FQDN-naam of IP-adres van de VMware-server opgeven. Als alle ESXi-servers worden beheerd door dezelfde vCenter, moet u de vCenter-naam opgeven. Anders wordt de ESXi-host toevoegen.
 
     ![VMware-server opgeven](./media/backup-azure-backup-server-vmware/add-vmware-server-provide-server-name.png)
 

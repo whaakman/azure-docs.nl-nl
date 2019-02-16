@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 1967ba60088cae2b946cfcfe1467c2de5aebccdf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a85fb65ad971bfc70bdab0689e99921e616b56ac
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879948"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308856"
 ---
-# <a name="image-categorization-with-computer-vision"></a>Afbeelding categorisatie met Computer Vision
+# <a name="categorize-images"></a>Categoriseren van beelden
 
-Naast de labels en beschrijvingen, Computer Vision geeft als resultaat de taxonomie op basis van categorieën die in eerdere versies zijn gedefinieerd. Deze categorieën zijn ingedeeld als taxonomie met bovenliggende/onderliggende overdraagbare hiërarchieën. Alle categorieën zijn in het Engels. Ze kunnen worden gebruikt alleen of met onze nieuwe modellen tagging.
+Naast de labels en een beschrijving, Computer Vision geeft als resultaat de taxonomie op basis van categorieën gedetecteerd in een afbeelding. In tegenstelling tot tags, categorieën zijn ingedeeld in een erfelijke hiërarchie bovenliggend/onderliggend en er zijn minder van deze (in plaats van duizenden tags 86). Alle namen worden in het Engels. Categorisatie kan worden gedaan door zelf of naast het nieuwere model van de labels.
 
 ## <a name="the-86-category-concept"></a>Het concept van de 86 categorieën
 
-Op basis van een lijst met 86 concepten die worden weergegeven in het volgende diagram, kan een installatiekopie worden gecategoriseerd variërend van groot tot specifieke. Zie [Categorietaxonomie](category-taxonomy.md) voor de volledige taxonomie in tekstindeling.
+Computer vision kunt categoriseren een installatiekopie van een breed of specifiek, met behulp van de lijst met 86 categorieën in het volgende diagram. Zie [Categorietaxonomie](category-taxonomy.md) voor de volledige taxonomie in tekstindeling.
 
 ![gegroepeerde lijsten van de categorieën in de categorietaxonomie](./Images/analyze_categories-v2.png)
 

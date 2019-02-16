@@ -4,15 +4,15 @@ description: Beschikbaarheid en prestaties van optimalisatie voor verschillende 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/20/2018
+ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: ee0dc1bec39bf95cbf4f3bf7ecea92b877a78b88
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 99b981e6b5c9bc56c10b0491474c0c8773291b7e
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113750"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309196"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Compromissen tussen consistentie, beschikbaarheid en prestaties 
 
@@ -44,22 +44,23 @@ De exacte RTT latentie is een functie van de snelheid van licht afstand en de Az
 
 - Voor een bepaald type schrijfbewerking, zoals invoegen, vervangen, upsert en verwijderen, is de doorvoer van schrijfbewerkingen voor aanvraageenheden gelijk voor alle consistentieniveaus.
 
-## <a name="consistency-levels-and-data-durability"></a>Consistentie niveaus en gegevens duurzaamheid
+## <a id="rto"></a>Consistentie niveaus en gegevens duurzaamheid
 
-Binnen de databaseomgeving van een wereldwijd gedistribueerde moet u er een directe relatie is tussen de consistentie van niveau en gegevens duurzaamheid met een regiobrede uitval. De tabel definieert de relatie tussen de relatie tussen consistentie-model en gegevens duurzaamheid bij grote storing regio. Het is belangrijk te weten dat in een gedistribueerd systeem, zelfs met sterke consistentie is het onmogelijk om een gedistribueerde database met en RPO en RTO gelijk is aan nul vanwege het CAP-Theorema hebben. Zie voor meer informatie over waarom, [consistentieniveaus in Azure Cosmos DB](consistency-levels.md).
+Binnen de databaseomgeving van een wereldwijd gedistribueerde moet u er een directe relatie is tussen de consistentie van niveau en gegevens duurzaamheid met een regiobrede uitval. Tijdens het ontwikkelen van uw plan voor bedrijfscontinuïteit, moet u inzicht in de maximaal acceptabele tijd voordat de toepassing volledig is hersteld na een storing. De tijd die nodig is voor een toepassing om volledig te herstellen, staat bekend als de beoogde hersteltijd (RTO). U moet ook weten wat de maximale periode van recente Gegevensupdates de toepassing kan tolereren verliezen tijdens het herstellen na een storing. De periode van updates die u in het ergste geval kan kwijtraken staat bekend als het beoogde herstelpunt (RPO).
+
+De tabel definieert de relatie tussen de relatie tussen consistentie-model en gegevens duurzaamheid bij grote storing regio. Het is belangrijk te weten dat in een gedistribueerd systeem, zelfs met sterke consistentie is het onmogelijk om een gedistribueerde database met een RPO en de RTO gelijk is aan nul vanwege het CAP-Theorema hebt. Zie voor meer informatie over waarom, [consistentieniveaus in Azure Cosmos DB](consistency-levels.md).
 
 |**Regio('s)**|**Replicatiemodus**|**Consistentieniveau**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
 |1|Enkele of meerdere masters|Een Consistentieniveau|< 240 minuten|<1 Week|
 |>1|Single Master|Sessie, Consistent voorvoegsel, uiteindelijke|< 15 minuten|< 15 minuten|
-|>1|Single Master|Gebonden veroudering|K & T*|< 15 minuten|
+|>1|Single Master|Gebonden veroudering|K & T|< 15 minuten|
 |>1|Meerdere masters|Sessie, Consistent voorvoegsel, uiteindelijke|< 15 minuten|0|
-|>1|Meerdere masters|Gebonden veroudering|K & T*|0|
+|>1|Meerdere masters|Gebonden veroudering|K & T|0|
 |>1|Enkele of meerdere masters|Sterk|0|< 15 minuten|
 
-* K & T = het nummer van 'K' versies (updates) van een item. Of "T" tijdsinterval.
-
-
+K = het nummer van 'K' versies (updates) van een item.
+T = "T" tijd tijdsinterval sinds de laatste update.
 
 ## <a name="next-steps"></a>Volgende stappen
 

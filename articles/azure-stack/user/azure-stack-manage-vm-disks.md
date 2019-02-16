@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 5719d5c49d3061acd167f51f74aac109dc22ec49
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: e38612e0d4e0707525b313c79143018c74c4c77b
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961394"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326507"
 ---
 # <a name="create-virtual-machine-disk-storage-in-azure-stack"></a>Schijfopslag voor virtuele machine maken in Azure Stack
 
@@ -32,9 +32,9 @@ In dit artikel wordt beschreven hoe u schijfopslag voor virtuele machine maken m
 
 Vanaf versie 1808, Azure Stack biedt ondersteuning voor het gebruik van beheerde schijven en niet-beheerde schijven op virtuele machines, als zowel een besturingssysteem (OS) en een gegevensschijf. Voordat u versie 1808, worden alleen niet-beheerde schijven ondersteund. 
 
-**[Beheerde schijven](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#managed-disks)**  Schijfbeheer voor Azure IaaS VM's vereenvoudigen door het beheer van de storage-accounts die zijn gekoppeld aan de VM-schijven. U hoeft alleen te geven van de grootte van de schijf die u nodig hebt en Azure Stack maakt en beheert de schijf voor u.
+**[Beheerde schijven](../../virtual-machines/windows/managed-disks-overview.md)**  Schijfbeheer voor Azure IaaS VM's vereenvoudigen door het beheer van de storage-accounts die zijn gekoppeld aan de VM-schijven. U hoeft alleen te geven van de grootte van de schijf die u nodig hebt en Azure Stack maakt en beheert de schijf voor u.
 
-**[Niet-beheerde schijven](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks)**, vereist dat u maakt een [opslagaccount](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) voor het opslaan van de schijven. De schijven die u hebt gemaakt, worden aangeduid als VM-schijven en worden opgeslagen in containers in het opslagaccount.
+Niet-beheerde schijven, vereisen dat u een opslagaccount voor het opslaan van de schijven maken. De schijven die u hebt gemaakt, worden aangeduid als VM-schijven en worden opgeslagen in containers in het opslagaccount.
 
 ### <a name="best-practice-guidelines"></a>Richtlijnen voor aanbevolen procedures
 

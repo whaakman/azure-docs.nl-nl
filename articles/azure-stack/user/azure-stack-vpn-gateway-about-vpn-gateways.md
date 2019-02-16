@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/04/2019
+ms.date: 02/15/2019
 ms.author: sethm
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 62a0e763913ea1ca27edf88d7560c9400043bf27
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7bf7034d30a8aac187fb2eeae6569f2f495e4439
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251364"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327240"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Over VPN-gateway voor Azure Stack
 
@@ -74,11 +74,11 @@ De diagrammen en beschrijvingen in de volgende secties kunt u een verbinding sel
 
 ### <a name="site-to-site"></a>Site-naar-site
 
-Een *site-naar-site* (S2S) VPN-gatewayverbinding is een verbinding via IPsec/IKE (IKEv1 of IKEv2) VPN-tunnel. Dit type verbinding vereist een VPN-apparaat die zich op locatie en een openbaar IP-adres is toegewezen. Dit apparaat kan zich niet achter een NAT bevinden. S2S-verbindingen kunnen worden gebruikt voor cross-premises en hybride configuraties.
+Een *site-naar-site* (S2S) VPN-gatewayverbinding is een verbinding via IPsec/IKE (IKEv2) VPN-tunnel. Dit type verbinding vereist een VPN-apparaat die zich op locatie en een openbaar IP-adres is toegewezen. Dit apparaat kan zich niet achter een NAT bevinden. S2S-verbindingen kunnen worden gebruikt voor cross-premises en hybride configuraties.
 
 ![Voorbeeld van configuratie van een site-naar-site VPN-verbinding](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-site-to-site-connection-diagram.png)
 
-### <a name="multi-site"></a>Meerdere sites
+### <a name="multi-site"></a>Meerdere locaties
 
 Een *multi-site* verbinding is een variatie van de site-naar-site-verbinding. U maakt meer dan één VPN-verbinding vanaf uw virtuele netwerkgateway, meestal met verschillende on-premises sites. Wanneer u met meerdere verbindingen werkt, moet u een route gebaseerde VPN-type (ook wel een gateway voor dynamische bij het werken met klassieke VNets) gebruiken. Omdat elk virtueel netwerk maar één VPN-gateway kan hebben, delen alle verbindingen via de gateway de beschikbare bandbreedte.
 

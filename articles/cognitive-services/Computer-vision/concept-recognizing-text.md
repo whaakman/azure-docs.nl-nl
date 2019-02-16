@@ -11,18 +11,21 @@ ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7908c29f3a48821588ea93ebe33ffb6b8de77520
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 48ce15a11c3e3282535420f3e1bb1915276d70f5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881172"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313174"
 ---
 # <a name="recognizing-printed-and-handwritten-text"></a>Afgedrukte en handgeschreven tekst herkennen
 
 Computer Vision kunt detecteren en extraheer gedrukte of handgeschreven tekst uit afbeeldingen van verschillende objecten met verschillende oppervlakken en achtergronden, zoals ontvangstbevestigingen voor e-mails, posters, visitekaartjes, letters en whiteboards.
 
-Tekstherkenning bespaart tijd en moeite. U kunt productiever zijn door een afbeelding van tekst in plaats van deze te transcriberen. Tekstherkenning maakt het u notities digitaliseren. Door deze digitalisering kunt u snel en eenvoudig zoekfuncties implementeren. Bovendien verspilt u minder papier.
+De tekstfunctie is heel vergelijkbaar met [optische tekenherkenning (OCR)](concept-extracting-text-ocr.md), maar in tegenstelling tot OCR het asynchroon wordt uitgevoerd en maakt gebruik van modellen voor spraakherkenning bijgewerkt.
+
+> [!NOTE]
+> Deze technologie is momenteel in preview en is alleen beschikbaar voor Engelse tekst.
 
 ## <a name="text-recognition-requirements"></a>Vereisten voor tekst
 
@@ -32,9 +35,6 @@ Computer Vision kan herkennen gedrukte en handgeschreven tekst in afbeeldingen a
 - De afbeelding moet kleiner zijn dan 4 megabyte (MB)
 - De afmetingen van de afbeelding moet tussen 50 x 50 en 4200 x 4200 pixels
 
-> [!NOTE]
-> Deze technologie is momenteel in preview en is alleen beschikbaar voor Engelse tekst.
-
 ## <a name="next-steps"></a>Volgende stappen
 
-Kennis met concepten over [extraheren van tekst met OCR](concept-extracting-text-ocr.md).
+Zie de [herkennen tekst referentiedocumentatie voor](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) voor meer informatie.

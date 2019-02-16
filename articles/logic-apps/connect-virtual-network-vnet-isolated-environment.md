@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/12/2019
-ms.openlocfilehash: 8d7fc6d8f581c3ad0e0f3266ea615acadcb7bc25
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.date: 02/15/2019
+ms.openlocfilehash: d67bc99a63242dd56d65d6bdac0448c7742a6b9d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176200"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311899"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Verbinding maken met virtuele Azure-netwerken van Azure Logic Apps met behulp van een integratie van service-omgeving (ISE)
 
@@ -67,9 +67,10 @@ Voor het beheren van de binnenkomend en uitgaand verkeer via subnetten van het v
 | Communicatie met Azure Logic Apps <br>Communicatie van Azure Logic Apps | Inkomend <br>Uitgaand | * <br>80 & 443 | INTERNET <br>VIRTUAL_NETWORK |
 | Azure Active Directory | Uitgaand | * <br>80 & 443 | VIRTUAL_NETWORK <br>AzureActiveDirectory |
 | Afhankelijk van Azure Storage | Uitgaand | * <br>80 & 443 | VIRTUAL_NETWORK <br>Opslag |
+| De uitvoeringsgeschiedenis van uw logische app | Inkomend | * <br>443 | INTERNET <br>VIRTUAL_NETWORK |
 | Verbindingsbeheer | Uitgaand | * <br>443 | VIRTUAL_NETWORK <br>INTERNET |
 | Diagnostische logboeken en metrische gegevens publiceren | Uitgaand | * <br>443 | VIRTUAL_NETWORK <br>AzureMonitor |
-| Ontwerper van logische Apps - dynamische eigenschappen <br>De uitvoeringsgeschiedenis van uw logische app <br>Connector-implementatie <br>Aanvraag trigger eindpunt | Inkomend | * <br>454 | INTERNET <br>VIRTUAL_NETWORK |
+| Ontwerper van logische Apps - dynamische eigenschappen <br>Connector-implementatie <br>Aanvraag trigger eindpunt | Inkomend | * <br>454 | INTERNET <br>VIRTUAL_NETWORK |
 | Service Management-App-afhankelijkheid | Inkomend | * <br>454 & 455 | AppServiceManagement <br>VIRTUAL_NETWORK |
 | API Management - beheereindpunt | Inkomend | * <br>3443 | APIManagement <br>VIRTUAL_NETWORK |
 | Afhankelijkheid van logboek naar Event Hub-beleid en de monitoring agent | Uitgaand | * <br>5672 | VIRTUAL_NETWORK <br>EventHub |
