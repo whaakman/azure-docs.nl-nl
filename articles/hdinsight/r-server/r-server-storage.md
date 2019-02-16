@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 7b937158be39f9a1f7f9374611a150fd11837f02
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 888cc9d894861c7d7b808500cd60bbed9faa05d7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910263"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309114"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure Storage-oplossingen voor ML-Services op Azure HDInsight
 
@@ -119,9 +119,9 @@ Nadat u de Service-Principal een naam geven en een wachtwoord voor het maken, kl
 
 Het is ook mogelijk toegang tot het cluster toevoegen aan een of meer Data Lake Storage-accounts maken van een cluster te volgen. Open de Azure portal-vermelding voor een Data Lake-opslag en Ga naar **Data Explorer > toegang > toevoegen**. 
 
-### <a name="how-to-access-data-lake-storage-from-ml-services-on-hdinsight"></a>Toegang tot Data Lake-opslag van ML-Services op HDInsight
+### <a name="how-to-access-data-lake-storage-gen1-from-ml-services-on-hdinsight"></a>Toegang tot Data Lake Storage Gen1 van ML-Services op HDInsight
 
-Nadat u toegang tot Data Lake Storage gegeven hebt, kunt u de opslag in ML-Services-cluster in HDInsight de manier waarop u een secundaire Azure-opslagaccount dat zou doen. Het enige verschil is dat het voorvoegsel **wasb: / /** wordt gewijzigd in **adl: / /** als volgt:
+Nadat u toegang tot Data Lake Storage Gen1 gegeven hebt, kunt u de opslag in ML-Services-cluster in HDInsight de manier waarop u een secundaire Azure-opslagaccount dat zou doen. Het enige verschil is dat het voorvoegsel **wasb: / /** wordt gewijzigd in **adl: / /** als volgt:
 
 
     # Point to the ADL Storage (e.g. ADLtest)
@@ -143,7 +143,7 @@ Nadat u toegang tot Data Lake Storage gegeven hebt, kunt u de opslag in ML-Servi
     # Specify the input file in HDFS to analyze
     inputFile <-file.path(bigDataDirRoot,"mysamplefile.csv")
 
-De volgende opdrachten worden gebruikt voor het configureren van de Data Lake Storage-account met de map RevoShare en toevoegen van het CSV-voorbeeldbestand uit het vorige voorbeeld:
+De volgende opdrachten worden gebruikt voor het Data Lake Storage Gen1-account configureren met de map RevoShare en het toevoegen van het CSV-voorbeeldbestand uit het vorige voorbeeld:
 
 
     hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/user

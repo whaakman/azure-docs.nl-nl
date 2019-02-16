@@ -1,21 +1,19 @@
 ---
-title: Raspberry Pi tot cloud (C) - verbinding maken met Raspberry Pi met Azure IoT Hub | Microsoft Docs
-description: Informatie over het installeren en verbinden van Raspberry Pi met Azure IoT Hub voor Raspberry Pi gegevens verzenden naar de Azure-cloudplatform in deze zelfstudie.
+title: Raspberry Pi verbinden met Azure IoT Hub met c# | Microsoft Docs
+description: Meer informatie over het installeren en verbinden van Raspberry Pi met Azure IoT Hub voor Raspberry Pi gegevens verzenden naar de Azure-cloudplatform
 author: rangv
-manager: ''
-keywords: Azure iot raspberry pi, raspberry pi iot-hub, raspberry pi verzenden gegevens naar de cloud, raspberry pi naar de cloud
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
-ms.date: 04/11/2018
+ms.date: 02/14/2019
 ms.author: rangv
-ms.openlocfilehash: c8b254656dcd94fd846336e9c9de3ca823691904
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 1e96029b75c8168189dacdc420117e82387228d9
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053497"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327239"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Raspberry Pi verbinden met Azure IoT Hub (C)
 
@@ -27,9 +25,9 @@ Heb je nog een kit? Probeer [Raspberry Pi online simulator](iot-hub-raspberry-pi
 
 ## <a name="what-you-do"></a>Wat u allemaal doen
 
-* Een IoT-hub maken.
+* Maak een IoT-hub.
 * Registreer een apparaat voor Pi in uw IoT-hub.
-* Raspberry Pi instellen.
+* Setup Raspberry Pi.
 * Een voorbeeldtoepassing uitvoert op Pi om sensorgegevens te verzenden naar uw IoT hub.
 
 Raspberry Pi verbinden met een IoT-hub die u maakt. Vervolgens voert u een voorbeeld van toepassing op Pi temperatuur en vochtigheid gegevens verzamelen uit een sensor BME280. Ten slotte, stuurt u de sensorgegevens naar uw IoT-hub.
@@ -119,11 +117,11 @@ De sensor BME280 kunt temperatuur en vochtigheid gegevens verzamelen. En de LED 
 
 Voor sensor pincodes, gebruikt u de volgende bedrading:
 
-| Start (Sensor & LED)     | Einde (bord)            | Kleur van de kabel   |
+| Start (Sensor & LED)     | End (Board)            | Kleur van de kabel   |
 | -----------------------  | ---------------------- | ------------: |
 | LED VDD (pincode 5G)         | GPIO 4 (Pin 7)         | Wit-kabel   |
 | LED GND (pincode 6G)         | GND (pincode 6)            | Zwarte kabel   |
-| VDD (Pin 18F)            | 3, 3v PWR (Pin 17)      | Wit-kabel   |
+| VDD (Pin 18F)            | 3.3V PWR (Pin 17)      | Wit-kabel   |
 | GND (Pin 20F)            | GND (Pin 20)           | Zwarte kabel   |
 | SCK (Pin 21F)            | SPI0 SCLK (Pin 23)     | Oranje-kabel  |
 | SDO (Pin 22F)            | SPI0 MISO (Pin 21)     | Gele-kabel  |

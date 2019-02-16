@@ -4,15 +4,15 @@ description: Dit artikel wordt beschreven hoe Azure Cosmos DB biedt hoge beschik
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: fc818d2d7db60a8def99c2ad635580253dc795e0
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: b5e99b421e66f087a1793f5301736e192ef75c08
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109755"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311236"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Hoge beschikbaarheid met Azure Cosmos DB
 
@@ -64,19 +64,7 @@ Regionale storingen niet ongebruikelijk en Azure Cosmos DB zorgt ervoor dat de d
 
 - Zelfs als uw Cosmos-account maximaal beschikbaar is, uw toepassing mogelijk niet goed ontworpen voor hoge mate beschikbaar blijven. Als u wilt de hoge beschikbaarheid van de end-to-end voor uw toepassing testen, periodiek aanroepen de [handmatige failover met behulp van Azure CLI of Azure-portal](how-to-manage-database-account.md#manual-failover), als onderdeel van uw toepassing testen of herstel na noodgevallen (DR) oefeningen.
 
-
-Tijdens het ontwikkelen van uw plan voor bedrijfscontinuïteit, moet u inzicht in de maximaal acceptabele tijd voordat de toepassing volledig is hersteld na een storing. De tijd die nodig is voor een toepassing om volledig te herstellen, staat bekend als de beoogde hersteltijd (RTO). U moet ook weten wat de maximale periode van recente Gegevensupdates de toepassing kan tolereren verliezen tijdens het herstellen na een storing. De periode van updates die u in het ergste geval kan kwijtraken staat bekend als het beoogde herstelpunt (RPO).
-
-De volgende tabel bevat de RTO en RPO voor de meest voorkomende scenario's.
-
-|Het aantal regio('s) |Configuratie |Consistentieniveau|RPO |RTO |
-|---------|---------|---------|-------|-------|
-|1    | *    |*   | < 240 minuten | < 1 Week |
-|>1     | Single-Master-replicatie | Sessie, Consistent voorvoegsel, uiteindelijke | < 15 minuten | < 15 minuten |
-|>1     | Single-Master-replicatie | Gebonden veroudering | K & T | < 15 minuten |
-|>1     | Replicatie van meerdere masters | Sessie, Consistent voorvoegsel, uiteindelijke | < 15 minuten | 0 |
-|>1     | Replicatie van meerdere masters | Gebonden veroudering | K & T | 0 |
-|>1     | * | Sterk | 0 | < 15 minuten |
+- Binnen de databaseomgeving van een wereldwijd gedistribueerde moet u er een directe relatie is tussen de consistentie van niveau en gegevens duurzaamheid met een regiobrede uitval. Tijdens het ontwikkelen van uw plan voor bedrijfscontinuïteit, moet u inzicht in de maximaal acceptabele tijd voordat de toepassing volledig is hersteld na een storing. De tijd die nodig is voor een toepassing om volledig te herstellen, staat bekend als de beoogde hersteltijd (RTO). U moet ook weten wat de maximale periode van recente Gegevensupdates de toepassing kan tolereren verliezen tijdens het herstellen na een storing. De periode van updates die u in het ergste geval kan kwijtraken staat bekend als het beoogde herstelpunt (RPO). Zie voor de RTO en RPO voor Azure Cosmos DB [consistentie niveaus en gegevens duurzaamheid](consistency-levels-tradeoffs.md#rto)
 
 ## <a name="next-steps"></a>Volgende stappen
 

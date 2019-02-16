@@ -16,23 +16,23 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 42b0b7a1ca2767a7051a6c57ef2aeac8cf2bb64c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 10dc7a2c7e4de44979ec72b1d292c69866e1faae
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477400"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326405"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Converteren van Azure managed disks-opslag van standard naar premium, en vice versa
 
-Beheerde schijven biedt drie opties voor opslag: [Premium SSD](../windows/premium-storage.md), Standard-SSD, en [Standard HDD](../windows/standard-storage.md). Hiermee kunt u gemakkelijk schakelen tussen de opties met minimale downtime op basis van uw prestatiebehoeften. Dit wordt niet ondersteund voor niet-beheerde schijven. Maar u kunt eenvoudig [converteren naar managed disks](convert-unmanaged-to-managed-disks.md) eenvoudig schakelen tussen de schijftypen.
+Beheerde schijven biedt vier [schijftype](disks-types.md) opties: Ultra vaste schijf (Solid-state drive), Premium-SSD, standaarden SSD en standaard harde schijf (HDD). Hiermee kunt u gemakkelijk schakelen tussen de opties met minimale downtime op basis van uw prestatiebehoeften. Dit wordt niet ondersteund voor niet-beheerde schijven. Maar u kunt eenvoudig [converteren naar managed disks](convert-unmanaged-to-managed-disks.md) eenvoudig schakelen tussen de schijftypen.
 
 In dit artikel wordt beschreven hoe u beheerde schijven converteren van standard naar premium, en vice versa met behulp van Azure CLI. Als u wilt installeren of upgraden, raadpleegt [Azure CLI installeren](/cli/azure/install-azure-cli). 
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
 * De conversie moet opnieuw worden opgestart van de virtuele machine, dus plan de migratie van uw opslag schijven tijdens een reeds bestaande onderhoudsperiode. 
-* Als u niet-beheerde schijven, eerst [converteren naar managed disks](convert-unmanaged-to-managed-disks.md) in dit artikel gebruiken om over te schakelen tussen de opties voor opslag. 
+* Als u niet-beheerde schijven, eerst [converteren naar managed disks](convert-unmanaged-to-managed-disks.md) in dit artikel gebruiken om over te schakelen tussen de opties voor opslag.
 
 
 ## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium-and-vice-versa"></a>Alle beheerde schijven van een virtuele machine converteren van standard naar premium, en vice versa

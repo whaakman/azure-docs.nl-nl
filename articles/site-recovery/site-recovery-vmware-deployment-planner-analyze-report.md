@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7b308f3298af436b6537234cff571759551a2d4e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7504d23cbaf8a497e6ea86b5a383413474c0d034
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221593"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329964"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Rapport van de Azure Site Recovery-Implementatieplanner voor VMware naar Azure een noodgeval analyseren
 
@@ -177,7 +177,7 @@ Het is mogelijk dat u om wat voor reden dan ook niet meer dan x Mbps bandbreedte
 
 **VM-naam**: De VM-naam of IP-adres dat wordt gebruikt in het bestand VMListFile wanneer een rapport wordt gegenereerd. Deze kolom bevat ook de schijven (VMDK's) die aan de virtuele machines zijn gekoppeld. Om onderscheid te maken tussen virtuele machines van vCenter met dubbele namen of IP-adressen, bevatten de namen de naam van de ESXi-host. De vermelde ESXi-host is de host waar de virtuele machine werd geplaatst op het moment van detectie door het hulpprogramma tijdens de profileringsperiode.
 
-**VM-compatibiliteit**: Waarden zijn **Ja** en **Ja**\*. **Ja**\* verwijst naar gevallen waarin de virtuele machine in aanmerking komt voor [Azure Premium Storage](https://aka.ms/premium-storage-workload). Het hoge geprofileerde verloop of de IOPS-schijf komt overeen met categorie P20 of P30, maar de grootte van de schijf zorgt ervoor dat P10 of P20 wordt toegewezen. Het opslagaccount bepaalt aan welk schijftype voor Premium Storage een schijf wordt toegewezen, op basis van de grootte. Bijvoorbeeld:
+**VM-compatibiliteit**: Waarden zijn **Ja** en **Ja**\*. **Ja** \* is bedoeld voor gevallen waarin de virtuele machine een geschikt is voor [premium SSD's](../virtual-machines/windows/disks-types.md). Het hoge geprofileerde verloop of de IOPS-schijf komt overeen met categorie P20 of P30, maar de grootte van de schijf zorgt ervoor dat P10 of P20 wordt toegewezen. Het opslagaccount bepaalt aan welk schijftype voor Premium Storage een schijf wordt toegewezen, op basis van de grootte. Bijvoorbeeld:
 * <128 GB is een P10.
 * 128 GB tot 256 GB is een P15
 * 256 GB tot 512 GB is een P20.

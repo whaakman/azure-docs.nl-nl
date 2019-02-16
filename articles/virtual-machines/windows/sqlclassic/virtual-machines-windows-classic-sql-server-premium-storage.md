@@ -16,16 +16,18 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: cbb15ff084c3639be801458d071f3966873c2509
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: b9a668a71b0fb7b2bb57f759cc54a8d1930a0f03
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815648"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329061"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Azure Premium Storage gebruiken met SQL Server op Virtual Machines
+
 ## <a name="overview"></a>Overzicht
-[Azure Premium Storage](../premium-storage.md) is de volgende generatie van de opslag die een lage latentie hoge doorvoer i/o en. Deze geschikt is voor belangrijke i/o-intensieve werkbelastingen, zoals SQL Server op IaaS [virtuele Machines](https://azure.microsoft.com/services/virtual-machines/).
+
+[Azure premium SSD's](../disks-types.md) is de volgende generatie van de opslag die een lage latentie hoge doorvoer i/o en. Deze geschikt is voor belangrijke i/o-intensieve werkbelastingen, zoals SQL Server op IaaS [virtuele Machines](https://azure.microsoft.com/services/virtual-machines/).
 
 > [!IMPORTANT]
 > Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en klassieke](../../../azure-resource-manager/resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken.
@@ -45,12 +47,15 @@ Zie voor meer achtergrondinformatie over SQL Server in Azure Virtual Machines, [
 **Auteur:** Daniel Sol **technische controleurs:** Luis Carlos Vargas haring, Sanjay Mishra, Pravin Mital, Schwertl Thomas, Gonzalo Ruiz.
 
 ## <a name="prerequisites-for-premium-storage"></a>Vereisten voor Premium Storage
+
 Er zijn verschillende vereisten voor het gebruik van Premium Storage.
 
 ### <a name="machine-size"></a>Grootte van de machine
+
 Voor het gebruik van Premium-opslag die u wilt gebruiken van DS-serie virtuele Machines (VM). Als u niet uit de DS-machines in uw cloudservice voordat u hebt gebruikt, moet u de bestaande virtuele machine verwijdert, houden van de gekoppelde schijven en vervolgens een nieuwe cloudservice maken voordat u opnieuw maken van de virtuele machine als de grootte van de rol DS *. Zie voor meer informatie over de grootten van virtuele machines, [virtuele Machine en Cloud Service Sizes for Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="cloud-services"></a>Cloud services
+
 U kunt alleen virtuele machines DS * met Premium Storage gebruiken wanneer ze worden gemaakt in een nieuwe cloudservice. Als u SQL Server Always On in Azure, wordt de Always On-Listener verwijst naar het Azure interne of externe Load Balancer IP-adres dat is gekoppeld aan een cloudservice. In dit artikel richt zich op het migreren van behoud van beschikbaarheid in dit scenario.
 
 > [!NOTE]
@@ -59,6 +64,7 @@ U kunt alleen virtuele machines DS * met Premium Storage gebruiken wanneer ze wo
 >
 
 ### <a name="regional-vnets"></a>Regionale vnet 's
+
 U moet het virtuele netwerk (VNET) die als host fungeert voor uw virtuele machines om te worden regionale configureren voor virtuele machines DS *. Dit 'genereren' in het VNET om toe te staan de grotere virtuele machines om te worden ingericht in andere clusters en communicatie ertussen. In de volgende schermafbeelding ziet u de geselecteerde locatie regionale vnet's, terwijl de eerste resultaat een 'kleine' VNET toont.
 
 ![RegionalVNET][1]
@@ -91,6 +97,7 @@ Als u wilt verplaatsen naar een regionaal VNET in West-Europa, de configuratie t
 ```
 
 ### <a name="storage-accounts"></a>Opslagaccounts
+
 U moet een nieuw opslagaccount dat is geconfigureerd voor Premium-opslag maken. Houd er rekening mee dat het gebruik van Premium-opslag is ingesteld op het storage-account, niet op afzonderlijke VHD's, maar wanneer u een DS *-serie VM u de VHD van Premium en Standard Storage-accounts koppelen kunt. U kunt dit desgewenst als u niet wilt plaatsen van de VHD met besturingssysteem u aan bij de Premium Storage-account.
 
 De volgende **New-AzureStorageAccountPowerShell** opdracht met de 'Premium_LRS" **Type** maakt u een Premium Storage-Account:
@@ -101,16 +108,19 @@ New-AzureStorageAccount -StorageAccountName $newstorageaccountname -Location "We
 ```
 
 ### <a name="vhds-cache-settings"></a>Cache-instellingen voor VHD 's
+
 Het belangrijkste verschil tussen het maken van schijven die deel van een Premium Storage-account uitmaken is de cache-instelling van de schijf. Voor SQL Server-gegevens-volume-het schijven wordt aanbevolen dat u '**Caching van lezen**'. Voor transactie logboekvolumes, cache-instelling van de schijf moet worden ingesteld op '**geen**'. Dit wijkt af van de aanbevelingen voor Standard Storage-accounts.
 
 Nadat de VHD's zijn gekoppeld, kan de cache-instelling kan niet worden gewijzigd. U moet loskoppelen en opnieuw koppelen van de VHD met een bijgewerkte cache-instelling.
 
 ### <a name="windows-storage-spaces"></a>Windows-opslagruimten
+
 U kunt [Windows Storage Spaces](https://technet.microsoft.com/library/hh831739.aspx) net als bij vorige Standard-opslag, Hiermee kunt u voor het migreren van een virtuele machine die wordt al gebruikt door opslagruimten. Het voorbeeld in [bijlage](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) (stap 9 en verder) ziet u de Powershell-code voor het ophalen en importeren van een virtuele machine met meerdere gekoppelde VHD's.
 
 Opslaggroepen zijn met de standaard-Azure storage-account gebruikt voor het verbeteren van doorvoer en latentie te verminderen. Wellicht waarde in de testfase van opslaggroepen met Premium Storage voor nieuwe implementaties, maar Voeg deze extra complexiteit met setup van opslag.
 
 #### <a name="how-to-find-which-azure-virtual-disks-map-to-storage-pools"></a>Welke virtuele Azure-schijven toewijzen aan opslaggroepen zoeken
+
 Er zijn verschillende cache-instelling aanbevelingen voor het gekoppelde VHD's, kunt u besluiten om te kopiëren van de VHD's naar een Premium Storage-account. Echter wanneer u ze opnieuw aan de nieuwe virtuele machine van de DS-serie koppelen, mogelijk moet u de cache-instellingen wijzigen. Het is eenvoudiger om toe te passen van de Premium Storage aanbevolen van de cache-instellingen wanneer u afzonderlijke VHD's voor de SQL-gegevensbestanden en logboekbestanden (plaats één VHD met zowel) hebt.
 
 > [!NOTE]
@@ -153,23 +163,24 @@ U kunt nu gebruiken die deze informatie om te koppelen VHD's zijn gekoppeld aan 
 Wanneer u VHD's hebt gekoppeld met fysieke schijven in opslaggroepen vervolgens loskoppelen en kopieert u deze naar een Premium Storage-account, koppelt u ze met de juiste cache-instelling. Zie het voorbeeld in de [bijlage](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage), stap 8 t/m 12. Deze stappen laten zien hoe een virtuele machine gekoppelde VHD-schijfconfiguratie op een CSV-bestand uitpakken, Kopieer de VHD's, de schijfconfiguratie cache-instellingen wijzigen en ten slotte de virtuele machine opnieuw te implementeren als een DS-serie VM met alle gekoppelde schijven.
 
 ### <a name="vm-storage-bandwidth-and-vhd-storage-throughput"></a>VM-opslag bandbreedte en doorvoer van VHD-opslag
+
 Het bedrag van de prestaties van de opslag, is afhankelijk van de opgegeven DS * VM-grootte en de VHD-grootte. De virtuele machines hebben andere limieten voor het aantal virtuele harde schijven die kunnen worden gekoppeld en de maximale bandbreedte (MB/s) wordt ondersteund. Zie voor de nummers specifieke bandbreedte [virtuele Machine en Cloud Service Sizes for Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Verbeterde IOP's worden bereikt met grotere schijfgrootten. U kunt deze moet overwegen wanneer u over uw migratiepad nadenkt. Voor meer informatie, [Zie de tabel voor IOPS en schijftypen](../premium-storage.md#scalability-and-performance-targets).
+Verbeterde IOP's worden bereikt met grotere schijfgrootten. U kunt deze moet overwegen wanneer u over uw migratiepad nadenkt. Voor meer informatie, [Zie de tabel voor IOPS en schijftypen](../disks-types.md#premium-ssd).
 
 Ten slotte kunt u overwegen dat virtuele machines hebben andere maximale schijf-bandbreedten die worden ondersteund voor alle schijven die zijn gekoppeld. U kunt de maximale schijf-bandbreedte die beschikbaar zijn voor de grootte van die VM-rol kan verzadigen onder hoge belasting. Bijvoorbeeld ondersteunt een Standard_DS14 maximaal 512 MB/s; Daarom kunt u de bandbreedte van de schijf van de virtuele machine verzadigen met drie P30-schijven. Maar in dit voorbeeld kan de doorvoerlimiet wordt overschreden, afhankelijk van de combinatie van lees- en IOs.
 
 ## <a name="new-deployments"></a>Nieuwe implementaties
+
 De volgende twee secties laten zien hoe u SQL Server-VM's naar Premium Storage kunt implementeren. Zoals al eerder vermeld, hoeft niet per se te plaatsen van de besturingssysteemschijf naar Premium storage. U kunt dit doen als u willen plaatsen van alle i/o-intensieve workloads op de VHD met het besturingssysteem.
 
 Het eerste voorbeeld ziet u met behulp van bestaande Azure-galerie met installatiekopieën. Het tweede voorbeeld ziet hoe u een aangepaste VM-installatiekopie die u in een bestaande Standard storage-account hebt gebruikt.
 
 > [!NOTE]
 > Deze voorbeelden wordt ervan uitgegaan dat u al een regionaal VNET hebt gemaakt.
->
->
 
 ### <a name="create-a-new-vm-with-premium-storage-with-gallery-image"></a>Een nieuwe virtuele machine maken met Premium Storage met galerijafbeelding
+
 In het volgende voorbeeld laat zien hoe u plaatst de VHD met het besturingssysteem naar premium-opslag en koppelen van Premium Storage-VHD's. U kunt echter ook de besturingssysteemschijf plaatsen in een Standard Storage-account en voeg vervolgens VHD's die zich in een Premium Storage-account bevinden. Beide scenario's toegelicht.
 
 ```powershell
@@ -280,6 +291,7 @@ Get-AzureVM -ServiceName $destcloudsvc -Name $vmName |Get-AzureOSDisk
 ```
 
 ### <a name="create-a-new-vm-to-use-premium-storage-with-a-custom-image"></a>Een nieuwe virtuele machine voor het gebruik van Premium-opslag met een aangepaste installatiekopie maken
+
 Dit scenario wordt uitgelegd waar u de bestaande aangepaste installatiekopieën die zich in een Standard Storage-account bevinden hebt. Zoals vermeld als u wilt plaatsen van VHD met het besturingssysteem op de Premium-opslag die u wilt kopiëren van de installatiekopie die voorkomt in de Standard-opslagaccount en deze overbrengen naar een Premium Storage voordat deze kan worden gebruikt. Als u een installatiekopie van een on-premises, kunt u deze methode ook gebruiken om te kopiëren die rechtstreeks naar de Premium Storage-account.
 
 #### <a name="step-1-create-storage-account"></a>Stap 1: Opslagaccount maken
@@ -304,6 +316,7 @@ New-AzureService $destcloudsvc -Location $location
 ```
 
 #### <a name="step-3-use-existing-image"></a>Stap 3: Bestaande installatiekopie gebruiken
+
 U kunt een bestaande installatiekopie. U kunt [nemen van een installatiekopie van een bestaande virtuele machine](../classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Houd er rekening mee de machine die u installatiekopie niet hoeft te worden DS * machine. Zodra u de installatiekopie hebt, de volgende stappen laten zien hoe u het kopiëren naar de Premium Storage-account met de **Start AzureStorageBlobCopy** PowerShell-commandlet.
 
 ```powershell
@@ -348,10 +361,9 @@ Add-AzureVMImage -ImageName $newimageName -MediaLocation $imageMediaLocation
 
 > [!NOTE]
 > U merkt u misschien dat zelfs als de status als geslaagd rapporteert, nog steeds een fout van de lease krijgt kan. In dit geval wacht tien minuten.
->
->
 
 #### <a name="step-7--build-the-vm"></a>Stap 7:  De virtuele machine maken
+
 Hier maakt u de virtuele machine van de afbeelding en twee Premium Storage-VHD's koppelen:
 
 ```powershell
@@ -388,10 +400,9 @@ $vmConfigsl2 | New-AzureVM –ServiceName $destcloudsvc -VNetName $vnet
 ```
 
 ## <a name="existing-deployments-that-do-not-use-always-on-availability-groups"></a>Bestaande implementaties die geen Always On Availability Groups gebruiken
+
 > [!NOTE]
 > Voor bestaande implementaties raadpleegt u eerst de [vereisten](#prerequisites-for-premium-storage) sectie van dit artikel.
->
->
 
 Er zijn verschillende overwegingen voor SQL Server-implementaties die geen Always On Availability Groups en die kan gebruiken. Als u altijd op niet gebruikt en een bestaande zelfstandige SQL Server hebt, kunt u upgraden naar Premium Storage met behulp van een nieuwe cloud service en storage-account. Houd rekening met de volgende opties:
 
@@ -400,16 +411,13 @@ Er zijn verschillende overwegingen voor SQL Server-implementaties die geen Alway
 
 > [!NOTE]
 > Bij het kopiëren van de VHD-schijven die u moet rekening houden met de grootte, afhankelijk van de grootte welke schijftype voor Premium Storage betekent dat ze kunnen worden onderverdeeld in, deze schijf prestaties specificatie bepaalt. Azure rondt af naar de dichtstbijzijnde grootte van de schijf, dus hebt u een schijf van 400 GB, dit wordt afgerond naar een P20. Afhankelijk van uw bestaande i/o-vereisten van de OS VHD moet u mogelijk niet deze migreren naar een Premium Storage-account.
->
->
 
 Als uw SQL-Server extern is geopend, klikt u vervolgens het VIP van cloud service gewijzigd. Ook hebt update-eindpunten, ACL's en DNS-instellingen.
 
 ## <a name="existing-deployments-that-use-always-on-availability-groups"></a>Bestaande implementaties die gebruikmaken van Always On Availability Groups
+
 > [!NOTE]
 > Voor bestaande implementaties raadpleegt u eerst de [vereisten](#prerequisites-for-premium-storage) sectie van dit artikel.
->
->
 
 In deze sectie bekijken we in eerste instantie altijd op de interactie met Azure Networking. We vervolgens migraties in twee scenario's opsplitsen: waar enige uitvaltijd kan worden getolereerd-migraties en migraties waar u de minimale downtime moet bereiken.
 
@@ -425,15 +433,18 @@ In Microsoft Azure die kunt u slechts één IP-adres toegewezen aan een NIC op d
 >
 
 ### <a name="migrating-always-on-deployments-that-can-allow-some-downtime"></a>Migratie altijd op implementaties die enige uitvaltijd kunnen toestaan
+
 Er zijn twee strategieën voor het migreren van AlwaysOn-implementaties die voor enige downtime zorgen:
 
 1. **Meer secundaire replica's toevoegen aan een bestaand altijd op Cluster**
 2. **Migreren naar een nieuw altijd op Cluster**
 
 #### <a name="1-add-more-secondary-replicas-to-an-existing-always-on-cluster"></a>1. Meer secundaire replica's toevoegen aan een bestaand altijd op Cluster
+
 Een strategie bestaat uit het toevoegen van meer secundaire databases aan de AlwaysOn-beschikbaarheidsgroep. U moet deze in een nieuwe cloudservice toevoegen en bijwerken van de listener met de nieuwe load balancer IP-adres.
 
 ##### <a name="points-of-downtime"></a>Punten van downtime:
+
 * Clustervalidatie van het.
 * Always On failover testen voor de nieuwe secundaire replica's.
 
@@ -470,62 +481,71 @@ Tijd waar u handmatige failover en chaos testen op de zojuist toegevoegde knoopp
 14. Oorspronkelijke knooppunten verwijderen uit de beschikbaarheidsgroep.
 
 ##### <a name="advantages"></a>Voordelen
+
 * Nieuwe SQL-Servers kunnen worden getest (SQL Server en toepassing) voordat ze worden toegevoegd voor Always On.
 * U kunt wijzigen van de VM-grootte en de opslag aan uw exacte behoeften aanpassen. Het zou echter nuttig is om alle SQL-bestandspaden blijven hetzelfde zijn.
 * U kunt bepalen wanneer de overdracht van de DB back-ups naar de secundaire replica's wordt gestart. Dit wijkt af van het gebruik van Azure **Start AzureStorageBlobCopy** commandlet kopiëren van VHD's, omdat die een asynchrone versie is.
 
 ##### <a name="disadvantages"></a>Nadelen
+
 * Wanneer u opslaggroepen van Windows gebruikt, moet u er Cluster downtime tijdens de validatie van het volledige Cluster voor de nieuwe extra knooppunten is.
 * Afhankelijk van de versie van SQL Server en het bestaande aantal secundaire replica's, kunnen mogelijk niet meer secundaire replica's toevoegen zonder te verwijderen van bestaande secundaire replica's.
 * Er zijn mogelijk SQL data transfer lang tijdens het instellen van de secundaire replica's.
 * Is er extra kosten tijdens de migratie als u nieuwe machines die parallel worden uitgevoerd.
 
 #### <a name="2-migrate-to-a-new-always-on-cluster"></a>2. Migreren naar een nieuw altijd op Cluster
+
 Een andere strategie is een nieuwe altijd op Cluster maken met nieuwe knooppunten in een nieuwe cloudservice en leid vervolgens om de clients om deze te gebruiken.
 
 ##### <a name="points-of-downtime"></a>Punten van downtime
+
 Er is uitvaltijd wanneer u toepassingen en gebruikers naar de nieuwe Always On-listener overdraagt. Afhankelijk van de downtime:
 
 * De gebruikte tijd voor het herstellen van de laatste transactielogboekback-ups naar databases op nieuwe servers.
 * De gebruikte tijd voor het bijwerken van de clienttoepassingen kunnen gebruikmaken van de nieuwe Always On-listener.
 
 ##### <a name="advantages"></a>Voordelen
+
 * U kunt de daadwerkelijke productie-omgeving, SQL Server, testen en wijzigingen build van het besturingssysteem.
 * U hebt de optie voor het aanpassen van de opslag en grootte van virtuele machine mogelijk te verminderen. Dit kan leiden tot kosten verminderen.
 * Tijdens dit proces kunt u uw SQL Server-build of versie bijwerken. U kunt ook het besturingssysteem bijwerken.
 * Het vorige altijd op Cluster kan fungeren als het doel van een solide terugdraaien.
 
 ##### <a name="disadvantages"></a>Nadelen
+
 * U moet de DNS-naam van de listener wijzigen als u wilt dat beide AlwaysOn-clusters tegelijk worden uitgevoerd. Beheer overhead tijdens de migratie wordt toegevoegd als tekenreeksen van de client-toepassingen moeten de naam van de nieuwe Listener weerspiegelen.
 * U kunt een mechanisme voor synchronisatie tussen de twee omgevingen dat ze zo dicht mogelijk bij het minimaliseren van de laatste synchronisatievereisten voor de migratie moet implementeren.
 * Er wordt toegevoegd kosten tijdens de migratie als u de nieuwe omgeving uitgevoerd.
 
 ### <a name="migrating-always-on-deployments-for-minimal-downtime"></a>Migratie altijd op implementaties voor minimale downtime
+
 Er zijn twee strategieën voor het migreren Always On-implementaties voor minimale downtime:
 
 1. **Gebruikmaken van een bestaande secundaire: Één locatie**
 2. **Gebruikmaken van bestaande secundaire beschikbaarheidsreplica('s): Meerdere sites**
 
 #### <a name="1-utilize-an-existing-secondary-single-site"></a>1. Gebruikmaken van een bestaande secundaire: Één locatie
+
 Een strategie voor minimale downtime is een bestaande cloud secundaire en verwijderen uit de huidige cloudservice. Vervolgens kopieert u de VHD's naar de nieuwe Premium Storage-account en de virtuele machine maken in de nieuwe service in de cloud. Werk vervolgens de listener in clusters en failover.
 
 ##### <a name="points-of-downtime"></a>Punten van downtime
+
 * Er is uitvaltijd wanneer u het laatste knooppunt met het eindpunt met gelijke taakverdeling bijwerken.
 * Opnieuw verbinden met uw client kan zijn vertraagd, afhankelijk van uw client-en DNS-configuratie.
 * Er is meer downtime als u ervoor kiest om de groep altijd op Cluster offline te wisselen van de IP-adressen. U kunt dit vermijden met behulp van een OR-afhankelijkheid en mogelijke eigenaars voor de toegevoegde IP-adresresource. Zie de sectie 'Toe te voegen Resource IP-adres op hetzelfde Subnet' van de [bijlage](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
 
 > [!NOTE]
 > Wanneer u wilt dat het knooppunt toegevoegd aan partake in als altijd op Failover-Partner, moet u een Azure-eindpunt met een verwijzing naar de Load Balanced Set toevoegen. Bij het uitvoeren van de **Add-AzureEndpoint** opdracht om dit te doen, opent u actieve verbindingen om te blijven, maar nieuwe verbindingen met de listener kan niet worden tot stand worden gebracht totdat de load balancer is bijgewerkt. In deze test is gedetecteerd op de laatste 90-120seconds, dit moet worden getest.
->
->
 
 ##### <a name="advantages"></a>Voordelen
+
 * Zonder extra kosten in rekening gebracht tijdens de migratie.
 * Een-op-een migratie.
 * Minder complexiteit.
 * Staat voor verbeterde IOPS van Premium-opslag-SKU's. Als de schijven ontkoppeld van de virtuele machine zijn en gekopieerd naar de nieuwe cloudservice, een 3e partij kan hulpprogramma worden gebruikt om te verhogen van de VHD-grootte, waarmee u hogere doorvoer. Zie voor het verhogen van VHD-grootte, dit [forumdiscussie](https://social.msdn.microsoft.com/Forums/azure/4a9bcc9e-e5bf-4125-9994-7c154c9b0d52/resizing-azure-data-disk?forum=WAVirtualMachinesforWindows).
 
 ##### <a name="disadvantages"></a>Nadelen
+
 * Er is een tijdelijk onderbroken HA en DR tijdens de migratie.
 * Omdat deze een 1:1-migratie, die u moet een minimale VM-grootte die ondersteuning biedt voor het aantal VHD's, zodat u mogelijk niet krimpen van uw virtuele machines gebruiken.
 * In dit scenario gebruikt Azure **Start AzureStorageBlobCopy** -commandlet die asynchroon is. Er is geen SLA voor kopiëren is voltooid. De tijd van de exemplaren varieert, terwijl dit is afhankelijk van de wachttijd in wachtrij die ook afhankelijk van de hoeveelheid gegevens over te dragen. De tijd van het exemplaar wordt aangepast als de overdracht gaat naar een andere Azure-datacenter die ondersteuning biedt voor Premium-opslag in een andere regio. Als u alleen 2 knooppunten hebt, kunt u overwegen een mogelijke risicobeperking in het geval de kopie langer dan in de testfase duurt. Dit omvat bijvoorbeeld de volgende ideeën.
@@ -534,6 +554,7 @@ Een strategie voor minimale downtime is een bestaande cloud secundaire en verwij
   * Zorg ervoor dat u uw clusterquorum correct hebt geconfigureerd.  
 
 ##### <a name="high-level-steps"></a>Stappen op hoog niveau
+
 Dit document biedt een compleet voorbeeld van de end-to-end niet demonstreren echter de [bijlage](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) bevat gedetailleerde informatie die kunnen worden gebruikt om dit uitvoeren.
 
 ![MinimalDowntime][8]
@@ -551,17 +572,20 @@ Dit document biedt een compleet voorbeeld van de end-to-end niet demonstreren ec
 * Testfailovers.
 
 #### <a name="2-utilize-existing-secondary-replicas-multi-site"></a>2. Gebruikmaken van bestaande secundaire beschikbaarheidsreplica('s): Multi-site
+
 Als u knooppunten in meer dan één Azure-datacenter (DC hebt) of als u een hybride omgeving hebt, kunt klikt u vervolgens u de configuratie van een Always On in deze omgeving te minimaliseren van downtime.
 
 De aanpak is het wijzigen van de synchronisatie Always On in synchrone voor de on-premises of secundaire Azure-domeincontroller, en vervolgens failover via naar SQL Server. Kopieer vervolgens de VHD's naar een Premium Storage-account, en de machine opnieuw implementeren naar een nieuwe cloudservice. De listener bijwerken en vervolgens een failback uitvoeren.
 
 ##### <a name="points-of-downtime"></a>Punten van downtime
+
 Er bestaat de downtime van de tijd voor de failover naar de alternatieve DC en terug. Ook afhankelijk van uw client-en DNS-configuratie en opnieuw verbinden met uw client kan worden vertraagd.
 Houd rekening met het volgende voorbeeld van een hybride Always On configuratie:
 
 ![MultiSite1][9]
 
 ##### <a name="advantages"></a>Voordelen
+
 * U kunt gebruikmaken van bestaande infrastructuur.
 * U hebt de optie voor de Azure-opslag op de DC DR Azure eerst vóór de upgrade.
 * De DC DR-Azure-opslag kan worden geconfigureerd.
@@ -569,6 +593,7 @@ Houd rekening met het volgende voorbeeld van een hybride Always On configuratie:
 * U hoeft niet te verplaatsen van SQL Server-gegevens met back-up en herstellen.
 
 ##### <a name="disadvantages"></a>Nadelen
+
 * Afhankelijk van de clienttoegang tot SQL Server, kunnen er langere latentie als SQL Server wordt uitgevoerd in een andere domeincontroller aan de toepassing.
 * De tijd van de kopie van de VHD's naar Premium storage kan lang zijn. Dit mogelijk invloed op uw beslissing of het knooppunt dat in de beschikbaarheidsgroep. Houd rekening met deze wanneer log intensief werk belasting worden uitgevoerd tijdens de migratie is vereist, omdat het primaire knooppunt heeft de niet-gerepliceerde transacties in het transactielogboek houden. Dus kan dit aanzienlijk groeien.
 * In dit scenario gebruikt Azure **Start AzureStorageBlobCopy** -commandlet die asynchroon is. Er is geen SLA voor de voltooiing. De tijd van de exemplaren varieert, terwijl dit is afhankelijk van de wachttijd in wachtrij, deze ook afhankelijk is van de hoeveelheid gegevens over te dragen. Daarom u slechts één knooppunt hebt in uw datacenter 2e, u moet stappen nemen in het geval de kopie duurt langer dan in de testfase. Deze stappen zijn onder andere de volgende ideeën:
@@ -579,6 +604,7 @@ Houd rekening met het volgende voorbeeld van een hybride Always On configuratie:
 In dit scenario wordt ervan uitgegaan dat u de installatie hebt gedocumenteerd en hoe de opslag weet wilt aanbrengen voor cache-instellingen voor optimale schijf is toegewezen.
 
 ##### <a name="high-level-steps"></a>Stappen op hoog niveau
+
 ![Multisite2][10]
 
 * Controleer de on-premises / Azure DC alternatieve als de primaire SQL-Server en geef deze de andere automatische failover-Partner (AFP).
@@ -593,9 +619,11 @@ In dit scenario wordt ervan uitgegaan dat u de installatie hebt gedocumenteerd e
 * De AFP overschakelen naar SQL1 en SQL2
 
 ## <a name="appendix-migrating-a-multisite-always-on-cluster-to-premium-storage"></a>Bijlage: Een implementatie voor meerdere locaties altijd op een Cluster migreren naar Premium Storage
+
 De rest van dit artikel bevat een gedetailleerd voorbeeld van het converteren van een Always On clusters op meerdere locaties naar Premium storage. Ook converteert naar een interne load balancer (ILB) de Listener van een externe load balancer (ELB).
 
 ### <a name="environment"></a>Omgeving
+
 * Windows 2k12 / SQL 2k12
 * Bestanden op SP 1 DB
 * 2 x opslaggroepen per knooppunt
@@ -603,6 +631,7 @@ De rest van dit artikel bevat een gedetailleerd voorbeeld van het converteren va
 ![Appendix1][11]
 
 ### <a name="vm"></a>VIRTUELE MACHINE:
+
 In dit voorbeeld gaan we ter illustratie van verplaatsen van een ELB naar ILB. ELB is beschikbaar voor de ILB, zodat dit laat hoe u zien overschakelen naar de ILB tijdens de migratie.
 
 ![Appendix2][12]
@@ -654,6 +683,7 @@ New-AzureService $destcloudsvc -Location $location
 ```
 
 #### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Stap 2: Verhoog de toegestane fouten op resources <Optional>
+
 Voor bepaalde resources die deel uitmaken van de AlwaysOn-beschikbaarheidsgroep zijn er beperkingen voor het aantal storingen die in een periode waarin de cluster-service probeert optreden kunnen te starten van de resourcegroep. Het is raadzaam dat u deze verhogen terwijl u via deze procedure zijn doorlopen sinds als u dit niet handmatig failover en trigger failovers door machines u dicht bij deze limiet krijgt wordt afgesloten.
 
 Moet worden beperkt op het dubbele van de aftrek van de fout, om dit te doen in Failoverclusterbeheer, gaat u naar de eigenschappen van de resourcegroep Always On:
@@ -663,9 +693,11 @@ Moet worden beperkt op het dubbele van de aftrek van de fout, om dit te doen in 
 Wijzig het maximum aantal fouten in 6.
 
 #### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Stap 3: Bronnen voor het IP-adres voor de clustergroep toevoegen <Optional>
+
 Als u slechts één IP-adres hebt voor de clustergroep, en deze wordt uitgelijnd op het subnet van de cloud, houd er rekening mee, als u per ongeluk offline alle clusterknooppunten in de cloud op dat netwerk zetten en vervolgens de Cluster-IP-resource en de naam van clusternetwerk zijn pas weer online komt. In dit geval voorkomt updates dat naar andere clusterresources.
 
 #### <a name="step-4-dns-configuration"></a>Stap 4: DNS-configuratie
+
 Implementatie van een soepele overgang is afhankelijk van hoe DNS wordt gebruikt en wordt bijgewerkt.
 Wanneer AlwaysOn is geïnstalleerd, wordt een Windows Cluster-resourcegroep gemaakt als u Failoverclusterbeheer opent, ziet u dat ten minste drie bronnen heeft, zijn de twee die het document naar verwijst:
 
@@ -717,11 +749,13 @@ Get-ClusterResource $ListenerName| Set-ClusterParameter -Name "HostRecordTTL" 12
 > Hoe lager de 'HostRecordTTL', een hogere mate van DNS-verkeer plaatsvindt.
 
 ##### <a name="client-application-settings"></a>Clientinstellingen voor de toepassing
+
 Als de toepassing van uw SQL-client .net 4.5 ondersteunt SQLClient, dan hebt u kunt gebruiken ' MULTISUBNETFAILOVER = TRUE' trefwoord. Dit trefwoord moet worden toegepast, omdat u Hiermee sneller verbinding met SQL AlwaysOn-beschikbaarheidsgroep tijdens de failover. Het inventariseren via alle IP-adressen die zijn gekoppeld aan de Always On-listener parallel en een agressievere TCP-verbinding opnieuw proberen snelheid tijdens een failover uitvoert.
 
 Zie voor meer informatie over de vorige instellingen [MultiSubnetFailover trefwoord en functies die zijn gekoppeld](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Zie ook [SqlClient-ondersteuning voor hoge beschikbaarheid, herstel na noodgevallen](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx).
 
 #### <a name="step-5-cluster-quorum-settings"></a>Stap 5: Instellingen van het clusterquorum
+
 Als u wilt worden uitleven van ten minste één SQL Server niet actief op een tijdstip, moet u het clusterquorum-instelling wijzigen als File Share Witness (FSW) met twee knooppunten, moet u de Quorumconfiguratie Knooppuntmeerderheid toestaan en gebruikmaken van dynamische stem instellen , waardoor het een enkel knooppunt permanente blijven.
 
 ```powershell
@@ -742,11 +776,13 @@ Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate | Get-AzureAclConf
 Deze tekst in een bestand opslaan.
 
 #### <a name="step-7-change-failover-partners-and-replication-modes"></a>Stap 7: Failover-Partners en Replicatiemodi wijzigen
+
 Als u meer dan twee SQL-Servers hebt, moet u de failover van een andere secundaire in een andere domeincontroller of on-premises wijzigen in 'Synchrone' en er een automatische failover-Partner (AFP), is dit zodat u HA onderhouden terwijl u wijzigingen wilt aanbrengen. U kunt dit doen via TSQL van wijzigen via SSMS:
 
 ![Appendix6][16]
 
 #### <a name="step-8-remove-secondary-vm-from-cloud-service"></a>Stap 8: Secundaire virtuele machine van de cloudservice verwijderen
+
 U moet eerst het secundaire knooppunt van een cloud migreren houden. Als dit knooppunt momenteel primair is, moet u een handmatige failover starten.
 
 ```powershell
@@ -799,6 +835,7 @@ Remove-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate
 ```
 
 #### <a name="step-9-change-disk-caching-settings-in-csv-file-and-save"></a>Stap 9: Schijf opslaan in cache-instellingen in CSV-bestand wijzigen en opslaan
+
 Voor gegevensvolumes, moeten deze worden ingesteld op alleen-lezen.
 
 Voor TLOG volumes, moeten deze worden ingesteld op NONE.
@@ -879,6 +916,7 @@ Add-AzureDisk -DiskName $xioDiskName -MediaLocation  "https://$newxiostorageacco
 ```
 
 #### <a name="step-12-import-secondary-into-new-cloud-service"></a>Stap 12: Secundaire importeren in de nieuwe service in de cloud
+
 De onderstaande code gebruikt ook de optie toegevoegd hier kunt u de machine importeren en het retainable VIP gebruiken.
 
 ```powershell
@@ -970,9 +1008,11 @@ Nu de oude IP-adres van de cloudservice verwijderen.
 ![Appendix10][20]
 
 #### <a name="step-15-dns-update-check"></a>Stap 15: DNS-updates controleren
+
 Nu moet u DNS-Servers in uw SQL Server client netwerken controleren en zorg ervoor dat de extra hostrecord voor de toegevoegde IP-adres is toegevoegd als u een cluster. Als deze DNS-servers niet hebt bijgewerkt, kunt u een DNS-Zone-overdracht afdwingen en ervoor te zorgen dat de clients in er subnet zijn kunnen omzetten in beide altijd op IP-adressen, dit is dus u hoeft niet te wachten op automatische DNS-replicatie.
 
 #### <a name="step-16-reconfigure-always-on"></a>Stap 16: Configureer altijd ingeschakeld
+
 Op dit moment wachten u tot het secundaire knooppunt dat is gemigreerd volledig opnieuw worden gesynchroniseerd met het on-premises-knooppunt en schakel over naar het knooppunt synchrone replicatie en geef deze de AFP.  
 
 #### <a name="step-17-migrate-second-node"></a>Stap 17: Tweede knooppunt migreren
@@ -1028,6 +1068,7 @@ Remove-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate
 ```
 
 #### <a name="step-18-change-disk-caching-settings-in-csv-file-and-save"></a>Stap 18: Schijf opslaan in cache-instellingen in CSV-bestand wijzigen en opslaan
+
 Voor gegevensvolumes, moeten de cache-instellingen worden ingesteld op alleen-lezen.
 
 Voor TLOG volumes, moeten de cache-instellingen worden ingesteld op NONE.
@@ -1181,12 +1222,15 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 ```
 
 #### <a name="step-23-test-failover"></a>Stap 23: Testfailover
+
 Wachten op het gemigreerde knooppunt om te synchroniseren met de on-premises AlwaysOn-knooppunt. Plaats deze in de modus voor synchrone replicatie en wacht totdat deze wordt gesynchroniseerd. Vervolgens failover van on-premises naar het eerste knooppunt gemigreerd, wordt de AFP. Zodra dat heeft gewerkt, wijzigt u het laatste knooppunt van de gemigreerde in de AFP.
 
 U moet testen failovers tussen alle knooppunten en hoewel chaos-tests om te zorgen dat werk failovers als verwacht en in een tijdige manor worden uitgevoerd.
 
 #### <a name="step-24-put-back-cluster-quorum-settings--dns-ttl--failover-pntrs--sync-settings"></a>Stap 24 uur per dag: Instellingen van het clusterquorum teruggeplaatst / DNS TTL / Failover Pntrs / synchronisatie-instellingen
+
 ##### <a name="adding-ip-address-resource-on-same-subnet"></a>IP-Adresresource op hetzelfde Subnet toevoegen
+
 Als u slechts twee SQL-Servers hebt en wilt migreren naar een nieuwe cloudservice, maar houd ze op hetzelfde subnet wilt, kunt u voorkomen de listener offline nemen om te verwijderen van het oorspronkelijke altijd op IP-adres en het nieuwe IP-adres toevoegen. Als u de virtuele machines naar een ander subnet migreert, hoeft u niet om dit te doen omdat er een extra clusternetwerk die verwijst naar dat subnet.
 
 Wanneer u naar de gemigreerde secundaire gebracht en in de nieuwe bron-IP-adres voor de nieuwe cloudservice voordat de failover de bestaande primaire wordt toegevoegd, kunt u deze stappen in het failover-Clusterbeheer moet nemen:
@@ -1204,7 +1248,8 @@ Als u wilt toevoegen in IP-adres, Zie de bijlage, stap 14.
     ![Appendix15][25]
 
 ## <a name="additional-resources"></a>Aanvullende resources
-* [Azure Premium Storage](../premium-storage.md)
+
+* [Azure Premium Storage](../disks-types.md)
 * [Virtuele machines](https://azure.microsoft.com/services/virtual-machines/)
 * [SQL Server in Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 

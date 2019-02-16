@@ -8,24 +8,24 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/24/2017
 ms.author: kasinh
-ms.openlocfilehash: 830bf8603a495d1f2708f73cf090695f1b7a7c48
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: f90650cc058697e4bf9e4a0710ada213fe3d9a1f
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493929"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310828"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Problemen met Azure Backup Server oplossen
 
 Gebruik de informatie in de volgende tabellen om het oplossen van fouten die optreden tijdens het gebruik van Azure Backup Server.
 
-## <a name="invalid-vault-credentials-provided"></a>Ongeldige kluisreferenties ingevoerd 
+## <a name="invalid-vault-credentials-provided"></a>Ongeldige kluisreferenties ingevoerd
 
 U lost dit probleem, gaat u als volgt [deze stappen voor probleemoplossing](https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues).
 
-## <a name="the-agent-operation-failed-because-of-a-communication-error-with-the-dpm-agent-coordinator-service-on-the-server"></a>De agentbewerking is mislukt vanwege een communicatiefout met de service DPM agent coordinator op de server 
+## <a name="the-agent-operation-failed-because-of-a-communication-error-with-the-dpm-agent-coordinator-service-on-the-server"></a>De agentbewerking is mislukt vanwege een communicatiefout met de service DPM agent coordinator op de server
 
-U lost dit probleem, gaat u als volgt [deze stappen voor probleemoplossing](https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues). 
+U lost dit probleem, gaat u als volgt [deze stappen voor probleemoplossing](https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues).
 
 ## <a name="setup-could-not-update-registry-metadata"></a>Setup kan de metagegevens van het register niet bijwerken
 
@@ -34,7 +34,7 @@ U lost dit probleem, gaat u als volgt [deze stappen voor probleemoplossing](http
 
 
 
-## <a name="installation-issues"></a>Problemen met de installatie
+## <a name="installation-issues"></a>Installatieproblemen
 
 | Bewerking | Foutdetails | Tijdelijke oplossing |
 |-----------|---------------|------------|
@@ -56,7 +56,7 @@ U lost dit probleem, gaat u als volgt [deze stappen voor probleemoplossing](http
 | Beveiligingsgroepen configureren | DPM kan niet opsommen voor het toepassingsonderdeel op de beveiligde computer (beveiligde computernaam). | Selecteer **vernieuwen** op het scherm configureren beveiliging groep UI op het niveau van de relevante datasource-component. |
 | Beveiligingsgroepen configureren | Beveiliging kan niet worden geconfigureerd | Als de beveiligde server een SQL-server is, moet u controleren dat de rol sysadmin te op het systeem-account (NTAuthority\System) op de beveiligde computer vinden is zoals beschreven in [in dit artikel](https://technet.microsoft.com/library/hh757977(v=sc.12).aspx).
 | Beveiligingsgroepen configureren | Er is onvoldoende vrije ruimte in de opslaggroep voor deze beveiligingsgroep. | De schijven die zijn toegevoegd aan de opslaggroep [mag niet een partitie](https://technet.microsoft.com/library/hh758075(v=sc.12).aspx). Verwijder alle bestaande volumes op de schijven. Voeg ze toe aan de opslaggroep.|
-| Beleid wijzigen |Het back-upbeleid kan niet worden gewijzigd. Fout: De huidige bewerking is mislukt vanwege een interne servicefout [0x29834]. Voer de bewerking na enige tijd is verstreken. Als het probleem zich blijft voordoen, neem dan contact op met Microsoft ondersteuning. |**Oorzaak:**<br/>Deze fout treedt op onder drie voorwaarden: Wanneer beveiligingsinstellingen zijn ingeschakeld, wanneer u probeert te verminderen van de bewaartermijn hieronder de minimale waarden eerder hebt opgegeven, en wanneer u zich op een niet-ondersteunde versie. (Niet-ondersteunde versies zijn die onder versie 2.0.9052 van de Microsoft Azure Backup Server en de Azure Backup Server-update 1). <br/>**Aanbevolen actie:**<br/> Om door te gaan met updates met betrekking tot beleid, moet u de bewaarperiode boven de minimale periode opgegeven bewaarperiode instellen. (De minimale bewaarperiode is zeven dagen voor dagelijks, vier weken voor wekelijkse, drie weken voor maandelijks of één jaar voor jaarlijkse.) <br><br>(Optioneel) voorkeur een andere aanpak is het bijwerken van de backup-agent en de Azure Backup-Server als u wilt gebruikmaken van alle beveiligingsupdates. |
+| Beleid wijzigen |Het back-upbeleid kan niet worden gewijzigd. Fout: De huidige bewerking is mislukt vanwege een interne servicefout [0x29834]. Voer de bewerking na enige tijd is verstreken. Als het probleem zich blijft voordoen, neem dan contact op met Microsoft ondersteuning. | **Oorzaak:**<br/>Deze fout treedt op onder drie voorwaarden: Wanneer beveiligingsinstellingen zijn ingeschakeld, wanneer u probeert te verminderen van de bewaartermijn hieronder de minimale waarden eerder hebt opgegeven, en wanneer u zich op een niet-ondersteunde versie. (Niet-ondersteunde versies zijn die onder versie 2.0.9052 van de Microsoft Azure Backup Server en de Azure Backup Server-update 1). <br/>**Aanbevolen actie:**<br/> Om door te gaan met updates met betrekking tot beleid, moet u de bewaarperiode boven de minimale periode opgegeven bewaarperiode instellen. (De minimale bewaarperiode is zeven dagen voor dagelijks, vier weken voor wekelijkse, drie weken voor maandelijks of één jaar voor jaarlijkse.) <br><br>(Optioneel) voorkeur een andere aanpak is het bijwerken van de backup-agent en de Azure Backup-Server als u wilt gebruikmaken van alle beveiligingsupdates. |
 
 ## <a name="backup"></a>Backup
 | Bewerking | Foutdetails | Tijdelijke oplossing |
@@ -71,6 +71,11 @@ U lost dit probleem, gaat u als volgt [deze stappen voor probleemoplossing](http
 | Backup | De optie voor het opnieuw beveiligen van een VMware-VM op een nieuwe Microsoft Azure Backup Server wordt niet weergegeven als beschikbaar om toe te voegen. | VMware-eigenschappen zijn op een oude, buiten gebruik gestelde exemplaar van Microsoft Azure Backup Server gericht. Los dit probleem als volgt op:<br><ol><li>In VCenter (SC-VMM-equivalent), gaat u naar de **samenvatting** tabblad, en van daaruit naar **aangepaste kenmerken**.</li>  <li>Verwijder de oude Microsoft Azure Backup Server-naam van de **DPMServer** waarde.</li>  <li>Ga terug naar de nieuwe Microsoft Azure Backup Server en de pagina wijzigen  Nadat u hebt geselecteerd de **vernieuwen** knop, de virtuele machine wordt weergegeven met een selectievakje in als beschikbaar om toe te voegen aan de beveiliging.</li></ol> |
 | Backup | Fout bij het openen van bestanden/gedeelde mappen | Wijzig de antivirus-instellingen zoals aangegeven in de TechNet-artikel [antivirussoftware uitvoeren op de DPM-server](https://technet.microsoft.com/library/hh757911.aspx).|
 | Backup | Taken voor het maken van online herstelpunten voor VMware-VM is mislukt. Er is een fout van VMware in DPM opgetreden bij het ophalen van gegevens voor wijzigingen bijhouden. Foutcode: FileFaultFault (ID 33621) |  <ol><li> Voor de betrokken virtuele machines opnieuw in de CTK op VMware.</li> <li>Controleer dat onafhankelijke schijf is niet aanwezig op VMware.</li> <li>Stop de beveiliging voor de betrokken virtuele machines en opnieuw te beveiligen met de **vernieuwen** knop. </li><li>Voer een CC voor de betrokken virtuele machines.</li></ol>|
+
+## <a name="restore"></a>Herstellen
+| Bewerking | Foutdetails | Tijdelijke oplossing |
+| --- | --- | --- |
+| Herstellen | **Foutcode**: Fout CBPServerRegisteredVaultDontMatchWithCurrent/kluis: 100110 <br/> <br/>**Foutbericht**: De kluisreferenties verschillen van de kluis die de server is geregistreerd | **Oorzaak**: Dit probleem treedt op wanneer u probeert om bestanden te herstellen op een andere server van de oorspronkelijke server met behulp van de hersteloptie externe DPM en als de server die wordt hersteld en de oorspronkelijke server vanaf waar de gegevens een back-up is niet gekoppeld aan dezelfde Recovery Services-kluis.<br/> <br/>**Tijdelijke oplossing** om op te lossen dit probleem Zorg ervoor dat zowel de oorspronkelijke en alternatieve server zijn geregistreerd bij dezelfde kluis.|
 
 
 ## <a name="change-passphrase"></a>Wachtwoordzin wijzigen

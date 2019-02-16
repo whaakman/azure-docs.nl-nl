@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f99fa8cbc211469185f2503718c84bc1b12db44c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 56c992b1cc0e8f1d9743ff8226ab48852afc1168
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178211"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313123"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Het configureren van eenmalige aanmelding in voor een toepassing buiten de galerie
 
@@ -29,13 +29,13 @@ Het configureren van eenmalige aanmelding voor een toepassing buiten de galerie 
 ## <a name="overview-of-steps-required"></a>Overzicht van stappen die nodig zijn
 Hieronder vindt u een overzicht van de vereiste stappen voor het configureren van federatieve eenmalige aanmelding met SAML 2.0 voor een (bijvoorbeeld aangepaste) toepassing buiten de galerie.
 
--   [Waarden van de metagegevens van de toepassing in Azure AD (aanmeldings-URL-id en antwoord-URL) configureren](#_Configuring_single_sign-on)
+-   Waarden van de metagegevens van de toepassing in Azure AD (aanmeldings-URL-id en antwoord-URL) configureren
 
 -   [Selecteer gebruikers-id en de kenmerken van de gebruiker moet worden verzonden naar de toepassing toevoegen](#select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application)
 
 -   [De metagegevens van de Azure AD en het certificaat ophalen](#download-the-azure-ad-metadata-or-certificate)
 
--   [Waarden voor metagegevens van Azure AD configureren in de toepassing (aanmelding URL, uitgever, afmeldings-URL en certificaat)](#_Configuring_single_sign-on)
+-   Waarden voor metagegevens van Azure AD configureren in de toepassing (aanmelding URL, uitgever, afmeldings-URL en certificaat)
 
 -   Gebruikers toewijzen aan een toepassing
 

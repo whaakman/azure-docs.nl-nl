@@ -2,16 +2,17 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 11/08/2018
+ms.date: 02/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 4ab9da996226b3f26fd30db1cd012c80253a85a5
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 69f77bf969c5d9adfb084682fbbc9eb9e762c8b4
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51333750"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306879"
 ---
-De volgende vereisten zijn van toepassing op ten minste internetbandbreedte die is vereist voor uw apparaten.
+De apparaten die zijn ontworpen om te kunnen blijven werken wanneer de internetverbinding traag is of wordt onderbroken. In normale omstandigheden, raden we aan dat u gebruikt: 
 
-- Uw apparaat heeft een internet toegewezen 20 Mbps bandbreedte (of meer) beschikbaar te allen tijde. Deze bandbreedte niet mogen worden gedeeld met andere toepassingen.
-- Uw apparaat heeft een speciaal 64-Mbps internetbandbreedte (of meer) bij het gebruik van netwerkbeperking.
+- Minimaal 10 Mbps bandbreedte om te controleren of het apparaat blijft bijgewerkte downloaden.
+- Een minimum van 20-Mbps toegewezen uploaden en downloaden van bandbreedte om over te dragen van bestanden.
+

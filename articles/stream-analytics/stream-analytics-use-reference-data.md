@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: f065a7c428f191e37449145e946b26c3133ede05
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: cc8c10f8a3f515d3401dbb469a7e4a31c4fe3501
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699992"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329810"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Met behulp van referentiegegevens voor zoekacties in Stream Analytics
 Referentiegegevens (ook wel bekend als een opzoektabel) is een eindige gegevensset die is statische of langzaam veranderende aard is, gebruikt om uit te voeren een zoekopdracht of om te correleren met de stroom van uw gegevens. U kunt in een IoT-scenario, bijvoorbeeld slaan metagegevens over sensoren (die niet vaak wijzigen) in de referentiegegevens en ontmoet realtime IoT-gegevensstromen. Azure Stream Analytics wordt geladen referentiegegevens in het geheugen te controleren van de verwerking van gegevensstromen met lage latentie. Om het gebruik van referentiegegevens in uw Azure Stream Analytics-taak, gebruikt u in het algemeen een [verwijzing gegevens Join](https://msdn.microsoft.com/library/azure/dn949258.aspx) in uw query. 
@@ -74,7 +74,7 @@ Azure Stream Analytics scant automatisch voor vernieuwd referentiegegevens-blobs
 
 ## <a name="azure-sql-database-preview"></a>Azure SQL Database (Preview)
 
-Referentiegegevens voor Azure SQL-Database wordt opgehaald door de Stream Analytics-taak en wordt opgeslagen als een momentopname in het geheugen voor verwerking. De momentopname van uw referentiegegevens worden ook opgeslagen in een container in een storage-account dat u in de configuratie-instellingen opgeeft. De container is automatisch gemaakt wanneer de taak wordt gestart en automatisch wordt verwijderd wanneer de taak wordt gestopt.
+Referentiegegevens voor Azure SQL-Database wordt opgehaald door de Stream Analytics-taak en wordt opgeslagen als een momentopname in het geheugen voor verwerking. De momentopname van uw referentiegegevens worden ook opgeslagen in een container in een storage-account dat u in de configuratie-instellingen opgeeft. De container wordt automatisch-gemaakt wanneer de taak wordt gestart. Als de taak is gestopt of een mislukte status heeft ingevoerd, worden de containers automatisch gemaakte verwijderd wanneer de taak opnieuw wordt opgestart.  
 
 Als uw referentiegegevens een set met langzaam veranderende gegevens is, moet u het periodiek vernieuwen de momentopname die wordt gebruikt in uw taak. Stream Analytics kunt u een vernieuwingsfrequentie instellen bij het configureren van uw Azure SQL Database-verbinding voor invoer. De Stream Analytics-runtime wordt uw Azure SQL Database query volgens het interval dat is opgegeven door de vernieuwingsfrequentie. De snelste vernieuwingsfrequentie ondersteund is één keer per minuut. Voor elke vernieuwing, Stream Analytics een nieuwe momentopname opgeslagen in het opslagaccount dat is opgegeven.
 

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: 1aa9c6da2d59294c5791d65a0943bfce497f9be4
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 434971e707cdca62c76ede9f295e7af20aa4cc3f
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387043"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313531"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux Diagnostic-extensie gebruiken om te controleren, logboeken en metrische gegevens
 
@@ -127,7 +127,7 @@ Deze set van configuratie-informatie bevat gevoelige informatie die moet worden 
 }
 ```
 
-Name | Waarde
+Name | Value
 ---- | -----
 storageAccountName | De naam van het opslagaccount waarin gegevens worden geschreven door de extensie.
 storageAccountEndPoint | (optioneel) Het eindpunt voor het identificeren van de cloud waarin het opslagaccount bestaat. Als deze instelling niet aanwezig is, de openbare cloud van Azure, LAD standaard `https://core.windows.net`. Voor het gebruik van een opslagaccount in Azure Duitsland, Azure Government or Azure China, moet u deze waarde dienovereenkomstig ingesteld.
@@ -167,7 +167,7 @@ Kopieer de gegenereerde SAS in het veld storageAccountSasToken. verwijderen van 
 
 Deze optionele sectie definieert aanvullende bestemmingen waarnaar de extensie verzendt de gegevens die worden verzameld. De matrix 'sink' bevat een object voor elke aanvullende gegevens-sink. Het kenmerk "type" bepaalt de andere kenmerken in het object.
 
-Element | Waarde
+Element | Value
 ------- | -----
 naam | Een tekenreeks die wordt gebruikt om te verwijzen naar deze sink elders in de configuratie van de extensie.
 type | Het type van sink wordt gedefinieerd. Bepaalt de andere waarden (indien aanwezig) in de exemplaren van dit type.
@@ -229,7 +229,7 @@ Deze structuur bevat verschillende blokken met instellingen die invloed hebben o
 }
 ```
 
-Element | Waarde
+Element | Value
 ------- | -----
 Opslagaccount | De naam van het opslagaccount waarin gegevens worden geschreven door de extensie. Moet dezelfde naam als is opgegeven in de [beveiligde instellingen](#protected-settings).
 mdsdHttpProxy | (optioneel) Hetzelfde als in de [beveiligde instellingen](#protected-settings). De waarde van de openbare wordt overschreven door het privé-waarde als instellen. Proxy-instellingen met een geheim, zoals een wachtwoord, in plaats de [beveiligde instellingen](#protected-settings).
@@ -252,7 +252,7 @@ De resterende elementen worden beschreven in de volgende secties.
 
 Deze besturingselementen optioneel structuur PUT voor het verzamelen van metrische gegevens en logboeken voor de levering van de service Azure metrische gegevens en andere gegevens. U moet opgeven of `performanceCounters` of `syslogEvents` of beide. Moet u de `metrics` structuur.
 
-Element | Waarde
+Element | Value
 ------- | -----
 eventVolume | (optioneel) Hiermee bepaalt u het aantal partities in de storage-tabel gemaakt. U moet een van de `"Large"`, `"Medium"`, of `"Small"`. Indien niet opgegeven, wordt de standaardwaarde is `"Medium"`.
 sampleRateInSeconds | (optioneel) Het standaardinterval tussen verzameling van onbewerkte (unaggregated) metrische gegevens. De kleinste ondersteunde samplefrequentie is 15 seconden. Indien niet opgegeven, wordt de standaardwaarde is `15`.
@@ -269,7 +269,7 @@ sampleRateInSeconds | (optioneel) Het standaardinterval tussen verzameling van o
 }
 ```
 
-Element | Waarde
+Element | Value
 ------- | -----
 resourceId | De Azure Resource Manager resource-ID van de virtuele machine of van de virtuele-machineschaalset ingesteld op de virtuele machine deel uitmaakt. Deze instelling moet ook opgegeven als een sink JsonBlob wordt gebruikt in de configuratie.
 scheduledTransferPeriod | De frequentie waarmee cumulatieve metrische gegevens moeten worden berekend en overgedragen naar metrische gegevens voor Azure, uitgedrukt als een tijdsinterval IS 8601. De kleinste overdracht-periode is 60 seconden, dat wil zeggen, PT1M. U moet ten minste één scheduledTransferPeriod opgeven.
@@ -309,16 +309,16 @@ Deze optionele sectie bepaalt u het verzamelen van metrische gegevens. Onbewerkt
 * laatste verzameld waarde
 * telling van onbewerkte voorbeelden die worden gebruikt voor het berekenen van de statistische functie
 
-Element | Waarde
+Element | Value
 ------- | -----
 sinks | (optioneel) Een door komma's gescheiden lijst met namen van sinks welke LAD verzendt metrische resultaten samengevoegde. Alle samengevoegde metrische gegevens worden gepubliceerd naar elke vermelde sink. Zie [sinksConfig](#sinksconfig). Voorbeeld: `"EHsink1, myjsonsink"`.
 type | Hiermee geeft u de werkelijke provider van de metrische gegevens.
 klasse | Hiermee geeft u de specifieke metrische gegevens in de naamruimte van de provider, samen met 'item'.
 counter | Samen met "class", identificeert de specifieke metrische gegevens in de naamruimte van de provider.
 counterSpecifier | Hiermee geeft u de specifieke metrische gegevens in de naamruimte van de metrische gegevens van Azure.
-voorwaarde | (optioneel) Hiermee selecteert u een specifiek exemplaar van het object waaraan de metrische gegevens is van toepassing, of selecteert de aggregatie voor alle instanties van dat object. Zie voor meer informatie de [ `builtin` metrische definities van](#metrics-supported-by-builtin).
+voorwaarde | (optioneel) Hiermee selecteert u een specifiek exemplaar van het object waaraan de metrische gegevens is van toepassing, of selecteert de aggregatie voor alle instanties van dat object. Zie voor meer informatie de `builtin` metrische definities.
 sampleRate | Hiermee stelt u de snelheid waarmee onbewerkte voorbeelden voor deze metrische gegevens worden verzameld 8601 interval IS. Als niet is ingesteld, het interval voor gegevensverzameling is ingesteld door de waarde van [sampleRateInSeconds](#ladcfg). De kortste ondersteunde samplefrequentie is 15 seconden (PT15S).
-eenheid | Moet een van deze tekenreeksen: "Aantal", 'Bytes', 'Seconden', "Percentage", "CountPerSecond", "BytesPerSecond", 'Milliseconde'. Hiermee definieert u de eenheid voor de metrische gegevens. Gebruikers van de verzamelde gegevens verwacht dat de waarden van de verzamelde gegevens zodat deze overeenkomt met deze eenheid. LAD negeert dit veld.
+eenheid | Moet een van deze tekenreeksen: "Count", "Bytes", "Seconds", "Percent", "CountPerSecond", "BytesPerSecond", "Millisecond". Hiermee definieert u de eenheid voor de metrische gegevens. Gebruikers van de verzamelde gegevens verwacht dat de waarden van de verzamelde gegevens zodat deze overeenkomt met deze eenheid. LAD negeert dit veld.
 displayName | Het label (in de taal die is opgegeven door de bijbehorende landinstelling) moet worden gekoppeld aan deze gegevens in Azure metrische gegevens. LAD negeert dit veld.
 
 De counterSpecifier is een identifier. Consumenten van metrische gegevens, zoals de Azure portal voor grafieken en waarschuwingen functie counterSpecifier gebruiken als de "sleutel" waarmee een metrische waarde of een exemplaar van een metrische waarde. Voor `builtin` metrische gegevens, raden wij aan u counterSpecifier waarden die met beginnen `/builtin/`. Als u een specifiek exemplaar van metrische gegevens verzamelt, raden wij dat u de id van het exemplaar koppelen aan de counterSpecifier-waarde. Een aantal voorbeelden:
@@ -355,10 +355,10 @@ Deze optionele sectie bepaalt u het verzamelen van gebeurtenissen van syslog. Al
 
 De verzameling syslogEventConfiguration heeft een vermelding voor elke syslog-faciliteit van belang zijn. Als minSeverity 'NONE' voor een bepaalde opslagruimte, of als deze functie wordt niet weergegeven in het element helemaal, worden er zijn geen gebeurtenissen van deze faciliteit vastgelegd.
 
-Element | Waarde
+Element | Value
 ------- | -----
 sinks | Een door komma's gescheiden lijst met namen van sinks waarop afzonderlijke gebeurtenissen worden gepubliceerd. Alle gebeurtenissen die overeenkomen met de beperkingen in syslogEventConfiguration worden gepubliceerd naar elke vermelde sink. Voorbeeld: "EHforsyslog"
-voorziening %{facilityname/ | De naam van een syslog-faciliteit (zoals "LOG\_gebruiker ' of ' LOG\_LOCAL0 '). Zie de sectie 'faciliteit' van de [syslog man pagina](http://man7.org/linux/man-pages/man3/syslog.3.html) voor een volledige lijst.
+facilityName | De naam van een syslog-faciliteit (zoals "LOG\_gebruiker ' of ' LOG\_LOCAL0 '). Zie de sectie 'faciliteit' van de [syslog man pagina](http://man7.org/linux/man-pages/man3/syslog.3.html) voor een volledige lijst.
 minSeverity | Een ernstniveau syslog (zoals "LOG\_ERR ' of ' LOG\_INFO '). Zie de sectie 'niveau' van de [syslog man pagina](http://man7.org/linux/man-pages/man3/syslog.3.html) voor een volledige lijst. De extensie bevat gebeurtenissen die worden verzonden naar de faciliteit of een hoger niveau van de opgegeven.
 
 Wanneer u opgeeft `syslogEvents`, LAD altijd schrijft gegevens naar een tabel in Azure storage. U kunt dezelfde gegevens geschreven naar JSON-blobs en/of Event Hubs, maar kunt u het opslaan van gegevens naar een tabel niet uitschakelen. Het partitioneren gedrag voor deze tabel is dezelfde als beschreven voor `performanceCounters`. Naam van de tabel is de samenvoeging van deze tekenreeksen:
@@ -384,7 +384,7 @@ Deze optionele sectie Hiermee bepaalt u de uitvoering van willekeurige [OMI](htt
 ]
 ```
 
-Element | Waarde
+Element | Value
 ------- | -----
 naamruimte | (optioneel) De OMI-naamruimte waarin de query moet worden uitgevoerd. Als u niets opgeeft, de standaardwaarde is "root/scx", uitgevoerd door de [System Center platformoverschrijdende Providers](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
 query | De OMI-query moet worden uitgevoerd.
@@ -408,7 +408,7 @@ Hiermee bepaalt u het vastleggen van logboekbestanden. LAD nieuwe regels vastgel
 ]
 ```
 
-Element | Waarde
+Element | Value
 ------- | -----
 bestand | De volledige padnaam van het logboekbestand moet worden gevolgd en vastgelegd. De padnaam moet één bestand; de naam het kan de naam van een map of jokertekens bevatten.
 tabel | (optioneel) De Azure storage-tabel in de aangewezen storage-account (zoals aangegeven in de configuratie van de beveiligde), waarin u nieuwe regels van de 'staart"van het bestand worden geschreven.

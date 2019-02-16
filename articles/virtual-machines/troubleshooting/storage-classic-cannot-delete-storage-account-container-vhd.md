@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 72493c6bba556314c3652be5251463d1d1e005bd
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 5d4d74d4c3b5ec6779458e84da07c03033c37935
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383442"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330610"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Oplossen van fouten bij het verwijderen van het klassieke opslag-resource
 Dit artikel bevat richtlijnen voor probleemoplossing bij een van de volgende fouten optreedt bij het verwijderen van Azure klassieke storage-account, container of *.vhd pagina-blob-bestand. 
@@ -21,10 +21,10 @@ Dit artikel bevat richtlijnen voor probleemoplossing bij een van de volgende fou
 
 In dit artikel heeft alleen betrekking op problemen met klassieke opslagresources. Als een gebruiker verwijdert een klassieke virtuele machine met behulp van de Azure portal, PowerShell of CLI en vervolgens de schijven worden niet automatisch verwijderd. De gebruiker beschikt over de optie voor het verwijderen van de resource 'Disk'. Als de optie niet is geselecteerd, wordt de 'Schijf'-resource te voorkomen dat verwijderen van het opslagaccount, container en de werkelijke *.vhd pagina-blob-bestand.
 
-Meer informatie over Azure-schijven kunt u vinden [hier](../../virtual-machines/windows/about-disks-and-vhds.md). Azure wordt voorkomen dat het verwijderen van een schijf die is gekoppeld aan een virtuele machine om beschadiging te voorkomen. Dit voorkomt ook dat het verwijderen van containers en storage-accounts waarvoor een pagina-blob die is gekoppeld aan een virtuele machine. 
+Meer informatie over Azure-schijven kunt u vinden [hier](../../virtual-machines/windows/managed-disks-overview.md). Azure wordt voorkomen dat het verwijderen van een schijf die is gekoppeld aan een virtuele machine om beschadiging te voorkomen. Dit voorkomt ook dat het verwijderen van containers en storage-accounts waarvoor een pagina-blob die is gekoppeld aan een virtuele machine. 
 
 ## <a name="what-is-a-disk"></a>Wat is een 'Disk'?
-Een resource 'Disk' wordt gebruikt om een bestand met *.vhd pagina blob aan een virtuele machine, als een besturingssysteemschijf of een gegevensschijf koppelen. Een besturingssysteemschijf of gegevens schijfbron, tot verwijderd, blijft een lease op het bestand *.vhd bevatten. De storage-resources in het pad bovenstaande afbeelding kan niet worden verwijderd als een resource 'Disk' naar deze verwijst.
+Een resource 'Disk' wordt gebruikt om een bestand met *.vhd pagina blob aan een virtuele machine, als een besturingssysteemschijf of een gegevensschijf koppelen. Een besturingssysteemschijf of gegevens schijfbron, tot verwijderd, blijft een lease op het bestand *.vhd bevatten. De storage-resources in het pad dat wordt weergegeven in onderstaande afbeelding kan niet worden verwijderd als een resource 'Disk' naar deze verwijst.
 
 ![Schermafbeelding van de portal, met het deelvenster van de schijf (klassiek) 'Eigenschap' openen](./media/storage-classic-cannot-delete-storage-account-container-vhd/Disk_Lease_Illustration.jpg) 
 

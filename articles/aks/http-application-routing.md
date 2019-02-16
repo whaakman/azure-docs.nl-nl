@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 0bca7281c390388bd860219fb6f2eacb96b99df0
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: d6e1cc033416c90e27b5caf4bba310400e55b3a5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742385"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312275"
 ---
 # <a name="http-application-routing"></a>Routering van HTTP-toepassing
 
@@ -38,6 +38,9 @@ De HTTP-aanvraag routering invoegtoepassing kan worden ingeschakeld met de Azure
 ```azurecli
 az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons http_application_routing
 ```
+
+> [!TIP]
+> Als u meerdere invoegtoepassingen inschakelen wilt, kunt u deze als een door komma's gescheiden lijst verstrekken. Bijvoorbeeld, zodat HTTP-toepassingsroutering en bewaking, gebruik de indeling `--enable-addons http_application_routing,monitoring`.
 
 U kunt ook inschakelen voor HTTP-routering op een bestaand AKS-cluster met de [az aks inschakelen--invoegtoepassingen] [ az-aks-enable-addons] opdracht. Toevoegen als u wilt inschakelen op http-routering op een bestaand cluster, de `--addons` parameter en geeft u *http_application_routing* zoals wordt weergegeven in het volgende voorbeeld:
 

@@ -3,8 +3,8 @@ title: Migreren van AWS en andere platforms naar Managed Disks in Azure | Micros
 description: Virtuele machines in Azure met behulp van de VHD's van andere clouds zoals AWS of andere virtualisatieplatforms geüpload maken en te profiteren van Azure Managed Disks.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: jeconnoc
+author: roygara
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2017
-ms.author: cynthn
+ms.author: rogarana
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83e69cd488ab7e8b69895a25716350c8025c6c48
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 05e687ab31b6c19193076033e1350952549d26e0
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074900"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330746"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migreren van Amazon Web Services (AWS) en andere platforms naar Managed Disks in Azure
 
@@ -46,11 +46,8 @@ U kunt gegeneraliseerde en gespecialiseerde VHD's uploaden.
 
 ## <a name="overview-of-managed-disks"></a>Overzicht van beheerde schijven
 
-Azure Managed Disks vereenvoudigt het beheer van de virtuele machine door het verwijderen van de noodzaak om opslagaccounts te beheren. Managed Disks ook voordeel van betere betrouwbaarheid van virtuele machines in een Beschikbaarheidsset. Het zorgt ervoor dat de schijven van verschillende virtuele machines in een Beschikbaarheidsset voldoende geïsoleerd van elkaar zijn om te voorkomen dat een single point of failure. Deze plaatst automatisch schijven van verschillende virtuele machines in een Beschikbaarheidsset in verschillende kasten (stempels) zodat ze worden beperkt de gevolgen van één opslag scale unit storingen veroorzaakt door hardware en software. Op basis van uw behoeften, kunt u kiezen uit twee typen opslag: 
- 
-- [Premium Managed Disks](premium-storage.md) Solid State Drive (SSD) op basis van opslagmedia, die voorziet in hoogwaardige schijfondersteuning met lage latentie voor virtuele machines met I/O-intensieve workloads. U kunt profiteren van de snelheid en prestaties van deze schijven uitvoeren door te migreren naar Premium Managed Disks.  
-
-- [Standard Managed Disks](standard-storage.md) gebruik van vasteschijfstations (HDD) op basis van opslagmedia en zijn bij uitstek geschikt voor Dev/Test- en andere onregelmatige toegangsbewerkingen die minder gevoelig zijn voor variaties in prestaties.  
+Azure Managed Disks vereenvoudigt het beheer van de virtuele machine door het verwijderen van de noodzaak om opslagaccounts te beheren. Managed Disks ook voordeel van betere betrouwbaarheid van virtuele machines in een Beschikbaarheidsset. Het zorgt ervoor dat de schijven van verschillende virtuele machines in een Beschikbaarheidsset voldoende geïsoleerd van elkaar zijn om te voorkomen dat een single point of failure. Deze plaatst automatisch schijven van verschillende virtuele machines in een Beschikbaarheidsset in verschillende kasten (stempels) zodat ze worden beperkt de gevolgen van één opslag scale unit storingen veroorzaakt door hardware en software.
+Op basis van uw behoeften, kunt u kiezen uit vier verschillende opties voor opslag. Zie voor meer informatie over de typen beschikbare schijfruimte, dan het artikel [Selecteer een schijftype](disks-types.md).
 
 ## <a name="plan-for-the-migration-to-managed-disks"></a>Plan voor de migratie naar Managed Disks
 
@@ -69,7 +66,7 @@ Bekijk de prestatiekenmerken van virtuele machines die werken met Premium Storag
 
 ### <a name="disk-sizes"></a>Schijfformaten
 
-**Premium beheerde schijven**
+**Premium Managed Disks**
 
 Er zijn zeven typen premium-beheerde schijven die kunnen worden gebruikt met de virtuele machine en elk heeft specifieke IOPs en doorvoer limieten. In overweging nemen deze limieten bij het kiezen van het schijftype voor Premium voor uw virtuele machine op basis van de behoeften van uw toepassing in termen van capaciteit, prestaties, schaalbaarheid en piek wordt geladen.
 
@@ -91,7 +88,7 @@ Er zijn zeven typen van standard beheerde schijven die kunnen worden gebruikt me
 
 ### <a name="disk-caching-policy"></a>Beleid voor caching schijf 
 
-**Premium beheerde schijven**
+**Premium Managed Disks**
 
 Beleid voor caching schijf is standaard *alleen-lezen* voor alle Premium gegevensschijven, en *lezen / schrijven* voor de Premium-schijf die is gekoppeld aan de virtuele machine. Deze configuratieinstelling wordt aanbevolen om de optimale prestaties voor IOs van uw toepassing. Voor schijven schrijfintensief of alleen-schrijven gegevens (zoals SQL Server-logboekbestanden) uitschakelen in schijfcache zodat u betere prestaties van toepassingen kunt bereiken.
 

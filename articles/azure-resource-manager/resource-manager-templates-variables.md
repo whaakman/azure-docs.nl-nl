@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: f6c629182fdcce83c566869860480d9c70488797
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 50feca90d375d6afd3b04afe019ad9f9025f19dc
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53712743"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308567"
 ---
 # <a name="variables-section-of-azure-resource-manager-templates"></a>Sectie met variabelen van Azure Resource Manager-sjablonen
 In het gedeelte variabelen kunt u waarden die kunnen worden gebruikt in uw sjabloon maken. U hoeft niet te definiëren, variabelen, maar ze vaak de sjabloon vereenvoudigen door te verminderen van complexe expressies.
@@ -58,9 +58,7 @@ Het vorige voorbeeld hebt u geleerd één manier om te definiëren van een varia
             {
                 "name": "<name-of-array-property>",
                 "count": <number-of-iterations>,
-                "input": {
-                    <properties-to-repeat>
-                }
+                "input": <object-or-value-to-repeat>
             }
         ]
     },
@@ -68,9 +66,7 @@ Het vorige voorbeeld hebt u geleerd één manier om te definiëren van een varia
         {
             "name": "<variable-array-name>",
             "count": <number-of-iterations>,
-            "input": {
-                <properties-to-repeat>
-            }
+            "input": <object-or-value-to-repeat>
         }
     ]
 }
@@ -117,38 +113,45 @@ Ophalen van de huidige instellingen met:
 
 ## <a name="use-copy-element-in-variable-definition"></a>Kopiëren-element in de definitie van de variabele gebruiken
 
-U kunt de **kopie** syntaxis voor het maken van een variabele met een matrix met verschillende elementen. U kunt een aantal opgeven voor het aantal elementen. Elk element bevat de eigenschappen in de **invoer** object. U kunt kopiëren in een variabele, of maak de variabele gebruiken. Wanneer u een variabele definiëren en gebruiken **kopie** binnen die variabele, maakt u een object waarvoor de matrixeigenschap van een. Bij het gebruik **kopie** op het hoogste niveau en definieert u een of meer variabelen in het maakt u een of meer matrices. Beide methoden worden weergegeven in het volgende voorbeeld:
+U kunt meerdere exemplaren van een variabele maken met de `copy` eigenschap in de sectie met variabelen. U maakt een matrix van elementen die zijn samengesteld uit de waarde in de `input` eigenschap. U kunt de `copy` eigenschap in een variabele, of op het hoogste niveau van de sectie met variabelen. Bij het gebruik van `copyIndex` in een variabele iteratie moet u de naam van de iteratie opgeven.
+
+Het volgende voorbeeld laat zien hoe u kopiëren:
 
 ```json
 "variables": {
-    "disk-array-on-object": {
-        "copy": [
-            {
-                "name": "disks",
-                "count": 3,
-                "input": {
-                    "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
-                    "diskSizeGB": "1",
-                    "diskIndex": "[copyIndex('disks')]"
-                }
-            }
-        ]
-    },
+  "disk-array-on-object": {
     "copy": [
-        {
-            "name": "disks-top-level-array",
-            "count": 3,
-            "input": {
-                "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('disks-top-level-array')]"
-            }
+      {
+        "name": "disks",
+        "count": 3,
+        "input": {
+          "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
+          "diskSizeGB": "1",
+          "diskIndex": "[copyIndex('disks')]"
         }
+      }
     ]
+  },
+  "copy": [
+    {
+      "name": "disks-top-level-array",
+      "count": 3,
+      "input": {
+        "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
+        "diskSizeGB": "1",
+        "diskIndex": "[copyIndex('disks-top-level-array')]"
+      }
+    },
+    {
+      "name": "top-level-string-array",
+      "count": 5,
+      "input": "[concat('myDataDisk', copyIndex('top-level-string-array', 1))]"
+    }
+  ]
 },
 ```
 
-De variabele **schijf matrix op object** bevat de volgende object met een matrix met de naam **schijven**:
+Nadat de kopie-expressie is geëvalueerd, de variabele **schijf matrix op object** bevat de volgende object met een matrix met de naam **schijven**:
 
 ```json
 {
@@ -194,34 +197,19 @@ De variabele **schijven-bovenaan-niveau-matrix** bevat de volgende matrix:
 ]
 ```
 
-U kunt ook meer dan een object opgeven bij het gebruik van de kopie te maken van variabelen. Het volgende voorbeeld definieert twee matrices als variabelen. Een met de naam **schijven-bovenaan-niveau-matrix** en heeft vijf elementen. De andere met de naam **een verschillende-matrix** en heeft drie elementen.
+De variabele **top-niveau-string-matrix** bevat de volgende matrix:
 
 ```json
-"variables": {
-    "copy": [
-        {
-            "name": "disks-top-level-array",
-            "count": 5,
-            "input": {
-                "name": "[concat('oneDataDisk', copyIndex('disks-top-level-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('disks-top-level-array')]"
-            }
-        },
-        {
-            "name": "a-different-array",
-            "count": 3,
-            "input": {
-                "name": "[concat('twoDataDisk', copyIndex('a-different-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('a-different-array')]"
-            }
-        }
-    ]
-},
+[
+  "myDataDisk1",
+  "myDataDisk2",
+  "myDataDisk3",
+  "myDataDisk4",
+  "myDataDisk5"
+]
 ```
 
-Deze methode werkt goed als u wilt nemen parameterwaarden en zorg ervoor dat ze zich in de juiste indeling voor de waarde van een sjabloon. Het volgende voorbeeld wordt de parameterwaarden voor gebruik bij het definiëren van de beveiligingsregels voor verbindingen:
+Via het kopiëren van werkt goed als u wilt nemen parameterwaarden op te geven en toe te wijzen aan de bronwaarden. Het volgende voorbeeld wordt de parameterwaarden voor gebruik bij het definiëren van de beveiligingsregels voor verbindingen:
 
 ```json
 {

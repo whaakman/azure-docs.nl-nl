@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: bb7fbdeea9c19b8a6fabe06687261296110b4064
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 20a8d9f5b575fca5471916af0183257f2a43d5cb
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301799"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328287"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Taalanalyse toevoegen aan een Azure Search-index
 
@@ -51,9 +51,9 @@ De standaard-analyzer is standaard Lucene, dat goed voor Engels, maar misschien 
 
 ## <a name="configuring-analyzers"></a>Analyzers configureren
 
-Taalanalysefuncties worden gebruikt als-is. Voor elk veld in het definitie van de index, kunt u instellen de **analyzer** eigenschap in op de naam van een analyzer die welke taal en de leverancier aangeeft. De dezelfde analyzer worden toegepast wanneer het indexeren en zoeken naar dat veld. U kunt bijvoorbeeld afzonderlijke velden voor Engels, Frans en Spaans hotel beschrijvingen die naast elkaar bestaan in dezelfde index hebben.  
+Taalanalysefuncties worden gebruikt als-is. Voor elk veld in het definitie van de index, kunt u instellen de **analyzer** eigenschap in op de naam van een analyzer die Hiermee geeft u de taal en linguistics-stack (Microsoft of Lucene). De dezelfde analyzer worden toegepast wanneer het indexeren en zoeken naar dat veld. U kunt bijvoorbeeld afzonderlijke velden voor Engels, Frans en Spaans hotel beschrijvingen die naast elkaar bestaan in dezelfde index hebben. U kunt ook in plaats van **analyzer**, kunt u **indexAnalyzer** en **searchAnalyzer** hebben verschillende analysis regels op tijd en uitvoeren van query's te indexeren. 
 
-Gebruik de **searchFields** queryparameter om op te geven welk veld taalspecifieke om te zoeken op basis van uw query's. Voorbeelden van met de eigenschap analyzer in documenten zoeken, kunt u bekijken. 
+Gebruik de **searchFields** queryparameter om op te geven welk veld taalspecifieke om te zoeken op basis van uw query's. U kunt voorbeelden die de eigenschap analyzer in bekijken [documenten zoeken](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
 Zie voor meer informatie over de Indexeigenschappen van de [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index). Zie voor meer informatie over analyse in Azure Search [analyse in Azure Search](https://docs.microsoft.com/azure/search/search-analyzers).
 

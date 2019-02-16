@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1902d00bc69fd12e7d424a2c2ab3bea562ff4e79
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c523dd98647a72ea8e2773d573d739a53ae0f005
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108769"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328653"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -55,7 +55,7 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen wor
 * API Management
 * App Service-apps (web-apps) - Zie [beperkingen voor App Service](#app-service-limitations)
 * App Service-certificaten - Zie [beperkingen van App Service Certificate](#app-service-certificate-limitations)
-* Automation
+* Automation - Runbooks moeten zich in dezelfde resourcegroep bevinden als het Automation-Account.
 * Azure Active Directory B2C
 * Azure Cosmos DB
 * Azure Data Explorer

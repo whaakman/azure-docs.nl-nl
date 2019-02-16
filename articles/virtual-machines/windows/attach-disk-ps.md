@@ -16,25 +16,25 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 791322c71b4d1b49e1367fb0f179e7b0513a1e94
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 6788568510a0aa10a859236aebc3f3edb2de7527
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55975650"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329604"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Een gegevensschijf koppelen aan een Windows-VM met PowerShell
 
 In dit artikel wordt beschreven hoe u zowel nieuwe als bestaande schijven koppelt aan een virtuele machine van Windows met behulp van PowerShell. 
 
 Bekijk eerst de volgende tips:
+
 * De grootte van de virtuele machine bepaalt hoeveel gegevensschijven die u kunt koppelen. Zie voor meer informatie, [grootten voor virtuele machines](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Voor het gebruik van Premium-opslag, moet u een Premium-opslag ingeschakeld VM-type, zoals de DS-reeks of GS-serie virtuele machine. Zie voor meer informatie, [Premium Storage: Opslag met hoge prestaties voor workloads van virtuele Azure-machines](premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Voor het gebruik van premium SSD's, moet u een [VM-schijftype voor premium-opslag ingeschakeld](sizes-memory.md), zoals de DS-reeks of GS-serie virtuele machine.
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
-
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>Een lege gegevensschijf toevoegen aan een virtuele machine
 
@@ -61,11 +61,12 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 ### <a name="using-managed-disks-in-an-availability-zone"></a>Beheerde schijven gebruiken in een Beschikbaarheidszone
 Gebruik voor het maken van een schijf in een Beschikbaarheidszone [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) met de `-Zone` parameter. Het volgende voorbeeld wordt een schijf in de zone *1*.
 
+Gebruik voor het maken van een schijf in een Beschikbaarheidszone [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig) met de `-Zone` parameter. Het volgende voorbeeld wordt een schijf in de zone *1*.
 
 ```powershell
 $rgName = 'myResourceGroup'
 $vmName = 'myVM'
-$location = 'East US 2' 
+$location = 'East US 2'
 $storageType = 'Premium_LRS'
 $dataDiskName = $vmName + '_datadisk1'
 
@@ -78,10 +79,9 @@ $vm = Add-AzVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -Managed
 Update-AzVM -VM $vm -ResourceGroupName $rgName
 ```
 
-
 ### <a name="initialize-the-disk"></a>Initialiseer de schijf
 
-Nadat u een lege schijf toevoegt, moet u voor het initialiseren. Voor het initialiseren van de schijf, kunt u zich aanmelden bij een virtuele machine en Gebruik Schijfbeheer. Als u ingeschakeld [WinRM](https://docs.microsoft.com/windows/desktop/WinRM/portal) en een certificaat op de virtuele machine hebt gemaakt, kunt u externe PowerShell gebruiken voor het initialiseren van de schijf. U kunt ook een aangepaste scriptextensie gebruiken: 
+Nadat u een lege schijf toevoegt, moet u voor het initialiseren. Voor het initialiseren van de schijf, kunt u zich aanmelden bij een virtuele machine en Gebruik Schijfbeheer. Als u ingeschakeld [WinRM](https://docs.microsoft.com/windows/desktop/WinRM/portal) en een certificaat op de virtuele machine hebt gemaakt, kunt u externe PowerShell gebruiken voor het initialiseren van de schijf. U kunt ook een aangepaste scriptextensie gebruiken:
 
 ```azurepowershell-interactive
     $location = "location-name"
@@ -89,7 +89,7 @@ Nadat u een lege schijf toevoegt, moet u voor het initialiseren. Voor het initia
     $fileName = "script-file-name"
     Set-AzVMCustomScriptExtension -ResourceGroupName $rgName -Location $locName -VMName $vmName -Name $scriptName -TypeHandlerVersion "1.4" -StorageAccountName "mystore1" -StorageAccountKey "primary-key" -FileName $fileName -ContainerName "scripts"
 ```
-        
+
 Het scriptbestand kan code voor het initialiseren van de schijven, bijvoorbeeld bevatten:
 
 ```azurepowershell-interactive
@@ -109,10 +109,9 @@ Het scriptbestand kan code voor het initialiseren van de schijven, bijvoorbeeld 
     }
 ```
 
-
 ## <a name="attach-an-existing-data-disk-to-a-vm"></a>Een bestaande gegevensschijf koppelen aan een virtuele machine
 
-U kunt een bestaande beheerde schijf koppelen aan een virtuele machine als gegevensschijf. 
+U kunt een bestaande beheerde schijf koppelen aan een virtuele machine als gegevensschijf.
 
 ```azurepowershell-interactive
 $rgName = "myResourceGroup"

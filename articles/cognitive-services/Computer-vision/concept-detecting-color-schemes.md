@@ -8,23 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 0793f572e043248af409e65cca4fd854f1371900
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6b25da9b2569b0185d41684c45a22a3eb3377511
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55880872"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313072"
 ---
 # <a name="detect-color-schemes-in-images"></a>Kleurenschema's detecteren in afbeeldingen
 
-Computer Vision extraheert kleuren uit een afbeelding. De kleuren worden vervolgens in drie verschillende contexten geanalyseerd: de dominante voorgrondkleur, de dominante achtergrondkleur en de dominante kleuren voor de installatiekopie als geheel. Ze worden in 12 dominante Accentkleuren gegroepeerd. Deze accentkleuren zijn zwart, blauw, bruin, grijs, groen, oranje, roze, paars, rood, groenblauw, wit en geel. Computer Vision analyseert de kleuren die is geëxtraheerd uit een afbeelding om terug te keren een accentkleur dat de meest levendige kleur voor de installatiekopie voor gebruikers, door een combinatie van dominante kleuren en de verzadiging vertegenwoordigt. Afhankelijk van de kleuren in een afbeelding kunnen ofwel gewoon zwart-wit ofwel accentkleuren worden geretourneerd in hexadecimale kleurcodes. Computer Vision ook retourneert een Booleaanse waarde die aangeeft of een installatiekopie van een zwart- wit.
+Computer Vision analyseert de kleuren in een afbeelding voor drie verschillende kenmerken: de dominante voorgrondkleur, de dominante achtergrondkleur en de set dominante kleuren voor de installatiekopie als geheel. Kleuren deel uitmaken van de set geretourneerd: zwart, blauw, brown, grijs, groen, oranje, roze, paars, rood, groenblauwe, wit en geel. 
+
+Computer Vision extraheert ook een accentkleur, die de meeste levendige kleur in de afbeelding, op basis van een combinatie van dominante kleuren en de verzadiging vertegenwoordigt. De accentkleur geretourneerd als een HTML-code voor hexadecimale kleur. 
+
+Computer Vision retourneert ook een Booleaanse waarde die aangeeft of een afbeelding in zwart-wit.
 
 ## <a name="color-scheme-detection-examples"></a>Kleur-schema-detectie-voorbeelden
 
-Het volgende voorbeeld wordt de JSON-antwoord geretourneerd door visie op de Computer bij het detecteren van het kleurenschema van de installatiekopie van het voorbeeld. In dit geval wordt de installatiekopie van het voorbeeld is niet een zwart- wit -installatiekopie, maar de dominante kleuren van voorgrond en achtergrond zwart zijn en de dominante kleuren voor de afbeelding als een geheel zwart-wit zijn.
+Het volgende voorbeeld wordt de JSON-antwoord geretourneerd door visie op de Computer bij het detecteren van het kleurenschema van de installatiekopie van het voorbeeld. In dit geval wordt de installatiekopie van het voorbeeld is niet een zwart-wit-installatiekopie, maar de dominante voorgrond en achtergrondkleuren zijn zwart en de dominante kleuren voor de afbeelding als een geheel zwart-wit zijn.
 
 ![Berglandschap](./Images/mountain_vista.png)
 
@@ -48,7 +52,7 @@ Het volgende voorbeeld wordt de JSON-antwoord geretourneerd door visie op de Com
 
 ### <a name="dominant-color-examples"></a>Voorbeelden van de overheersende kleur
 
-De volgende tabel beschrijft de dominante voorgrond, achtergrond en kleuren voor elke voorbeeldafbeelding geretourneerd door de Computer Vision afbeelding.
+De volgende tabel ziet u de geretourneerde voorgrond, achtergrond en de kleuren van de afbeelding van elke voorbeeldafbeelding.
 
 | Installatiekopie | Dominante kleuren |
 |-------|-----------------|
@@ -57,7 +61,7 @@ De volgende tabel beschrijft de dominante voorgrond, achtergrond en kleuren voor
 
 ### <a name="accent-color-examples"></a>Accent kleur voorbeelden
 
- De volgende tabel beschrijft de accentkleur als een hexadecimale waarde van elke voorbeeldafbeelding geretourneerd door de Computer Vision de HTML-kleur.
+ De volgende tabel ziet de accentkleur van de geretourneerde als een hexadecimale waarde van elke voorbeeldafbeelding de HTML-kleur.
 
 | Installatiekopie | Accentkleur |
 |-------|--------------|
@@ -67,7 +71,7 @@ De volgende tabel beschrijft de dominante voorgrond, achtergrond en kleuren voor
 
 ### <a name="black--white-detection-examples"></a>Detectie van zwart- wit -voorbeelden
 
-De volgende tabel geeft aan of de voorbeeldafbeelding zwart- wit, zoals geretourneerd door visie op de Computer.
+De volgende tabel ziet de Computer Vision-zwart-wit-evaluatie in de voorbeeld-installatiekopieën.
 
 | Installatiekopie | Zwart- wit? |
 |-------|----------------|

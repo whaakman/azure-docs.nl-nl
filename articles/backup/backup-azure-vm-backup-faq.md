@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: sogup
-ms.openlocfilehash: 55fbc997f6aaf4cf99bfb8492a2e4ac608c72af8
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: fe0b47bbf1ebb9cba328bfc444172249135270c5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494898"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310271"
 ---
 # <a name="frequently-asked-questions-azure-backup"></a>Veelgestelde vragen over Azure Backup
 
@@ -81,7 +81,7 @@ Als u wilt, kunt u de optie voor terugzetten schijf gebruiken:
   * Configuratie-instellingen die niet er op het moment van back-up waren toevoegen
   * Beheer de naamgevingsconventie voor resources die zijn gemaakt.
   * De virtuele machine toevoegen aan een beschikbaarheidsset.
-  * Alle andere instellingen die moet worden geconfigureerd met behulp van PowerShell of een sjabloon toevoegen.  w
+  * Alle andere instellingen die moet worden geconfigureerd met behulp van PowerShell of een sjabloon toevoegen.
 
 ### <a name="can-i-restore-backups-of-unmanaged-vm-disks-after-i-upgrade-to-managed-disks"></a>Kan ik back-ups van niet-beheerde VM-schijven herstellen nadat ik een upgrade naar managed disks uitvoeren?
 Ja, kunt u back-ups uitgevoerd voordat de schijven zijn gemigreerd vanuit niet-beheerde beheerd.

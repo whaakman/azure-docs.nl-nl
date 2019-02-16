@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 5fbcfd102518dc231ad61c54e626c14381bf5a02
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 0ee3ff8bb1ebfc276550cba3570fdf4360aabf72
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321616"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327864"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Rapport van de Azure Site Recovery-Implementatieplanner analyseren
 In dit artikel worden de werkbladen in het Excel-rapport behandeld dat door de Azure Site Recovery-implementatieplanner voor Hyper-V naar Azure is gegenereerd.
@@ -179,7 +179,7 @@ Het Excel-rapport dat is gegenereerd door de Site Recovery-implementatieplanner 
 
 **VM-naam**: De naam van de VM die wordt gebruikt in de opgegeven voor VMListFile wanneer een rapport wordt gegenereerd. Deze kolom bevat ook de schijven (VHD's) die aan de virtuele machines zijn gekoppeld. De namen zijn onder andere de namen van de Hyper-V-hosts waar de virtuele machines zijn geplaatst toen ze door het hulpprogramma werden gedetecteerd tijdens de profileringsperiode.
 
-**VM-compatibiliteit**: Waarden zijn **Ja** en **Ja**\*. **Ja**\* verwijst naar gevallen waarin de virtuele machine in aanmerking komt voor [Azure Premium Storage](https://aka.ms/premium-storage-workload). Hier past het geprofileerde hoge verloop of IOPS bij een grotere Premium-schijfgrootte dan bij de grootte die is toegewezen aan de schijf. Het opslagaccount bepaalt aan welk schijftype voor Premium Storage een schijf wordt toegewezen, op basis van de grootte: 
+**VM-compatibiliteit**: Waarden zijn **Ja** en **Ja**\*. **Ja** \* is bedoeld voor gevallen waarin de virtuele machine een geschikt is voor [premium SSD's](../virtual-machines/windows/disks-types.md). Hier past het geprofileerde hoge verloop of IOPS bij een grotere Premium-schijfgrootte dan bij de grootte die is toegewezen aan de schijf. Het opslagaccount bepaalt aan welk schijftype voor Premium Storage een schijf wordt toegewezen, op basis van de grootte: 
 * <128 GB is een P10.
 * 128 GB tot 256 GB is een P15.
 * 256 GB tot 512 GB is een P20.

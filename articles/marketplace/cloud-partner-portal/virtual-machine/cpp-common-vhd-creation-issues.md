@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: hascipio; v-divte; v-miclar
-ms.openlocfilehash: 535a947f7a4b9c750d585ce854a14be80c4a135c
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 381f88c4641417bceca0f988d4b1a187aedaa642
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639696"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327303"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>Veelvoorkomende problemen tijdens het maken van VHD (FAQ)
 
@@ -27,7 +27,7 @@ De volgende veelgestelde vragen (FAQ) voor veelvoorkomende problemen opgetreden 
 
 ## <a name="how-do-you-create-a-vm-from-the-azure-portal-using-the-vhd-that-is-uploaded-to-premium-storage"></a>Hoe maak ik een virtuele machine vanuit de Azure-portal met behulp van de VHD die is geüpload naar premium storage?
 
-Azure Marketplace biedt momenteel geen ondersteuning voor het maken van het VM-aanbiedingen van installatiekopieën op beheerde opslag of naar Azure Premium Storage.  Zie voor meer informatie over deze opslagopties [overzicht van Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) en [High-performance Premium Storage en beheerde schijven voor virtuele machines](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).
+Azure Marketplace biedt momenteel geen ondersteuning voor het maken van het VM-aanbiedingen van installatiekopieën op beheerde opslag of naar Azure Premium Storage.  Zie voor meer informatie over deze opslagopties [overzicht van Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
 
 
 ## <a name="can-you-use-generation-2-vms-for-offers"></a>Kunt u virtuele machines van generatie 2 gebruiken voor aanbiedingen?
@@ -73,7 +73,7 @@ Ja, als die worden gehost op Azure.  Azure wijst een unieke id, de unieke ID van
 
 ## <a name="in-a-vm-how-do-you-manage-the-custom-script-extension-in-the-startup-task"></a>In een virtuele machine, hoe beheer ik de aangepaste scriptextensie in de opstarttaak?
 
-Het volgende artikel wordt uitgelegd hoe u de aangepaste Scriptextensie met behulp van de Azure PowerShell-module, Azure Resource Manager-sjablonen en details van stappen voor probleemoplossing in Windows-systemen: [Custom Script Extension voor Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
+Het volgende artikel wordt uitgelegd hoe u de aangepaste Scriptextensie met behulp van de Azure PowerShell-module, Azure Resource Manager-sjablonen en details van stappen voor probleemoplossing in Windows-systemen: [Aangepaste Scriptextensie voor Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
 
 
 ## <a name="are-32-bit-applications-or-services-supported-in-the-azure-marketplace"></a>Zijn de 32-bits toepassingen of services die worden ondersteund in de Azure Marketplace?
@@ -83,7 +83,7 @@ In het algemeen niet.  De ondersteunde besturingssystemen en standard-services v
 Raadpleeg voor meer informatie de volgende artikelen:
 - [32-bits toepassingen](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications)
 - [Ondersteuning voor 32-bits besturingssystemen in virtuele machines van Azure](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines)
-- [Ondersteuning van Microsoft-serversoftware voor virtuele machines die Microsoft Azure](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
+- [Ondersteuning van Microsoft-serversoftware voor virtuele Microsoft Azure-machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
 
 
 ## <a name="every-time-i-try-to-create-an-image-from-my-vhds-i-get-the-error-vhd-is-already-registered-with-image-repository-as-the-resource-in-powershell-i-did-not-create-any-image-before-nor-did-i-find-any-image-with-this-name-in-azure-how-do-i-resolve-this-issue"></a>Telkens wanneer ik wil een installatiekopie maken van mijn VHD's, verschijnt het foutbericht `.VHD is already registered with image repository as the resource` in PowerShell. Een andere afbeelding voordat ik niet hebben gemaakt en heeft ik een afbeelding met deze naam vinden in Azure. Hoe kan ik dit probleem oplossen?

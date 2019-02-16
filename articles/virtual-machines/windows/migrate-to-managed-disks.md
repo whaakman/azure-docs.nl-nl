@@ -16,21 +16,17 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 4aefc8c033383125a803eb0c8a38e2f3de119540
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e9c3e10f9b48bfe2efa5396c9e64d3d87be3d826
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467907"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330644"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Azure-VM's migreren naar Managed Disks in Azure
 
 Azure Managed Disks vereenvoudigt het beheer van uw opslag door het verwijderen van de noodzaak voor het storage-accounts afzonderlijk beheren.  U kunt ook uw bestaande Azure-VM's migreren naar Managed Disks profiteren van betere betrouwbaarheid van virtuele machines in een Beschikbaarheidsset. Dit zorgt ervoor dat de schijven van verschillende virtuele machines in een Beschikbaarheidsset voldoende geïsoleerd van elkaar om te voorkomen dat één punt van fouten. Deze plaatst automatisch schijven van verschillende virtuele machines in een Beschikbaarheidsset in verschillende kasten (stempels) zodat ze worden beperkt de gevolgen van één opslag scale unit storingen veroorzaakt door hardware en software.
-Op basis van uw behoeften, kunt u kiezen uit twee typen opslag:
-
-- [Premium Managed Disks](premium-storage.md) Solid State Drive (SSD) op basis van opslagmedia die voorziet in hoogwaardige schijfondersteuning met lage latentie voor virtuele machines met I/O-intensieve workloads. U kunt profiteren van de snelheid en prestaties van deze schijven uitvoeren door te migreren naar Premium Managed Disks.
-
-- [Standard Managed Disks](standard-storage.md) gebruik van vasteschijfstations (HDD) op basis van opslagmedia en zijn bij uitstek geschikt voor Dev/Test- en andere onregelmatige toegangsbewerkingen die minder gevoelig zijn voor variaties in prestaties.
+Op basis van uw behoeften, kunt u kiezen uit vier verschillende opties voor opslag. Zie voor meer informatie over de typen beschikbare schijfruimte, dan het artikel [een schijf selecteren](disks-types.md)
 
 U kunt migreren naar Managed Disks in de volgende scenario's:
 

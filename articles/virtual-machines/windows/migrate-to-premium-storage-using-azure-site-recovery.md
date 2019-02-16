@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 6db263dcfc3195c9b2ab3afe7587845a4632fd1b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f7c422d560341e51fad582439117533b7d9cd4c8
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456524"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327660"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migreren naar Premium Storage met behulp van Azure Site Recovery
 
-[Azure Premium Storage](premium-storage.md) biedt ondersteuning voor hoge prestaties en lage latentie schijven voor virtuele machines (VM's) die I/O-intensieve workloads worden uitgevoerd. Deze handleiding helpt u de VM-schijven van een standaardopslagaccount migreren naar premium storage-account met behulp van [Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
+[Azure premium SSD's](disks-types.md) bieden ondersteuning voor hoge prestaties en lage latentie schijven voor virtuele machines (VM's) die I/O-intensieve workloads worden uitgevoerd. Deze handleiding helpt u de VM-schijven van een standaardopslagaccount migreren naar premium storage-account met behulp van [Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
 
 Site Recovery is een Azure-service die aan uw strategie voor bedrijfscontinuïteit en herstel na noodgevallen bijdraagt door de replicatie van fysieke on-premises servers en virtuele machines in de cloud (Azure) of naar een secundair datacenter te organiseren. Als er uitval optreedt op uw primaire locatie, schakelt u over naar de secundaire locatie om toepassingen en workloads beschikbaar te houden. U een failback naar de primaire locatie wanneer deze weer normaal functioneren. 
 
@@ -222,7 +222,6 @@ Zie ook de volgende bronnen voor meer informatie over Azure Storage en Azure Vir
 
 * [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 * [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Premium Storage: Opslag met hoge prestaties voor werkbelastingen van de virtuele machine van Azure](premium-storage.md)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png
 [2]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-2.png

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7049a4b5159687ab928cda7ddc6b1a35959529ac
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 1db56ad31991b85ffad415818c7c67f0ee30808d
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972104"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328075"
 ---
 # <a name="sap-hana-high-availability-for-azure-virtual-machines"></a>SAP HANA met hoge beschikbaarheid voor Azure virtual machines
 
@@ -61,7 +61,7 @@ Azure heeft verschillende beschikbaarheids-Sla's voor verschillende onderdelen, 
 
 [SLA voor virtuele Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/) twee verschillende Sla's, voor de twee verschillende configuraties worden beschreven:
 
-- Een enkele virtuele machine die gebruikmaakt van [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) voor schijf met het besturingssysteem en alle gegevensschijven. Deze optie biedt een maandelijkse beschikbaarheid van 99,9 procent.
+- Een enkele virtuele machine die gebruikmaakt van [Azure premium SSD's](../../windows/disks-types.md) voor schijf met het besturingssysteem en alle gegevensschijven. Deze optie biedt een maandelijkse beschikbaarheid van 99,9 procent.
 - Meerdere (ten minste twee) virtuele machines die zijn ingedeeld in een [Azure-beschikbaarheidsset](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). Deze optie biedt een maandelijkse beschikbaarheid van 99,95 procent.
 
 Meten van de vereiste beschikbaarheid op basis van de SLA's die Azure-onderdelen kunnen bieden. Kies vervolgens de scenario's voor SAP HANA uw vereiste niveau van beschikbaarheid te bereiken.

@@ -10,12 +10,12 @@ ms.date: 01/31/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 19a715812f1250523fd050ac8b80dee9ec664be4
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 56f3573bbab059aed78608209cb2815413876bb0
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686259"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308720"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Fouten en uitzonderingen in Azure Logic Apps verwerken
 
@@ -29,12 +29,12 @@ Voor de meest eenvoudige uitzondering en de foutafhandeling, kunt u een *beleid 
 
 Hier volgen de beleidstypen opnieuw proberen: 
 
-| Type | Beschrijving | 
+| Type | Description | 
 |------|-------------| 
-| [**Standaard**](#default-retry) | Dit beleid stuurt maximaal vier nieuwe pogingen op [ *exponentieel toenemende* ](#exponential-retry) intervallen, die door 7,5 seconden schalen, maar zijn beperkt tot tussen 5 en 45 seconden. | 
-| [**Exponentieel interval**](#exponential-retry)  | Dit beleid wacht een random interval geselecteerd uit een exponentieel toenemende bereik voordat de volgende aanvraag wordt verzonden. | 
-| [**Vast interval**](#fixed-retry)  | Dit beleid wordt het opgegeven interval gewacht voordat de volgende aanvraag wordt verzonden. | 
-| [**Geen**](#no-retry)  | Geen dien de aanvraag opnieuw. | 
+| **Standaard** | Dit beleid stuurt maximaal vier nieuwe pogingen op *exponentieel toenemende* intervallen, die door 7,5 seconden schalen, maar zijn beperkt tot tussen 5 en 45 seconden. | 
+| **Exponentieel interval**  | Dit beleid wacht een random interval geselecteerd uit een exponentieel toenemende bereik voordat de volgende aanvraag wordt verzonden. | 
+| **Vast interval**  | Dit beleid wordt het opgegeven interval gewacht voordat de volgende aanvraag wordt verzonden. | 
+| **Geen**  | Geen dien de aanvraag opnieuw. | 
 ||| 
 
 Zie voor meer informatie over de limieten van het beleid opnieuw proberen [Logic Apps-limieten en configuratie](../logic-apps/logic-apps-limits-and-config.md#request-limits). 
@@ -71,19 +71,19 @@ U kunt ook handmatig opgeven het beleid voor opnieuw proberen in de `inputs` sec
 
 *Vereist*
 
-| Waarde | Type | Beschrijving |
+| Value | Type | Description |
 |-------|------|-------------|
-| <*opnieuw proberen beleidstype*> | Reeks | Het beleidstype dat u wilt gebruiken: `default`, `none`, `fixed`, of `exponential` | 
-| <*interval voor opnieuw proberen*> | Reeks | Het interval voor opnieuw proberen waarbij de waarde moet gebruiken [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Het minimale interval is standaard `PT5S` en de maximale interval `PT1D`. Wanneer u het beleid voor exponentieel interval gebruikt, kunt u verschillende minimale en maximale waarden opgeven. | 
-| <*nieuwe pogingen*> | Geheel getal | Het aantal nieuwe pogingen tussen 1 en 90 moet | 
+| <*retry-policy-type*> | String | Het beleidstype dat u wilt gebruiken: `default`, `none`, `fixed`, of `exponential` | 
+| <*retry-interval*> | String | Het interval voor opnieuw proberen waarbij de waarde moet gebruiken [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Het minimale interval is standaard `PT5S` en de maximale interval `PT1D`. Wanneer u het beleid voor exponentieel interval gebruikt, kunt u verschillende minimale en maximale waarden opgeven. | 
+| <*retry-attempts*> | Geheel getal | Het aantal nieuwe pogingen tussen 1 en 90 moet | 
 ||||
 
 *Optioneel*
 
-| Waarde | Type | Beschrijving |
+| Value | Type | Description |
 |-------|------|-------------|
-| <*minimum-interval*> | Reeks | Voor het beleid voor exponentieel interval, de kleinste interval voor het willekeurig gekozen interval in [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
-| <*maximum-interval*> | Reeks | Voor het beleid voor exponentieel interval, de grootste interval voor het willekeurig gekozen interval in [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+| <*minimum-interval*> | String | Voor het beleid voor exponentieel interval, de kleinste interval voor het willekeurig gekozen interval in [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+| <*maximum-interval*> | String | Voor het beleid voor exponentieel interval, de grootste interval voor het willekeurig gekozen interval in [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
 |||| 
 
 Hier vindt meer informatie over de verschillende beleidstypen.
@@ -153,10 +153,10 @@ Deze tabel ziet u hoe een uniform willekeurige-variabele in Logic Apps wordt geg
 
 | Aantal opnieuw proberen | Minimaal interval | Maximaal interval |
 |--------------|------------------|------------------|
-| 1 | Max (0, <*minimaal interval*>) | min (-interval <*maximaal interval*>) |
-| 2 | Max (interval, <*minimaal interval*>) | min (2 * interval, <*maximaal interval*>) |
-| 3 | Max (2 * interval, <*minimaal interval*>) | min (4 * interval, <*maximaal interval*>) |
-| 4 | Max (4 * interval, <*minimaal interval*>) | min (8 * interval, <*maximaal interval*>) |
+| 1 | max(0, <*minimum-interval*>) | min(interval, <*maximum-interval*>) |
+| 2 | max(interval, <*minimum-interval*>) | min (2 * interval, <*maximaal interval*>) |
+| 3 | max(2 * interval, <*minimum-interval*>) | min (4 * interval, <*maximaal interval*>) |
+| 4 | max(4 * interval, <*minimum-interval*>) | min (8 * interval, <*maximaal interval*>) |
 | .... | .... | .... | 
 |||| 
 

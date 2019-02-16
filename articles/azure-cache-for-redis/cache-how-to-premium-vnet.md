@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: dafa9f09b6aed1f61facf3737c7e03c81b2a0e7d
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 15b7bae6116d05e7bf4cd76a1ba1b93bb127fef8
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238246"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313089"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Over het configureren van Virtual Network-ondersteuning voor een Premium Azure Cache voor Redis
 Azure Redis-Cache heeft een ander cache-aanbiedingen, waardoor u flexibiliteit bij de keuze van de grootte van de cache en -onderdelen, met inbegrip van Premium-functies zoals clustering, persistentie en virtual network-ondersteuning. Een VNet is een particulier netwerk in de cloud. Wanneer een Azure-Cache voor Redis-exemplaar is geconfigureerd met een VNet, is niet openbaar toegankelijk en kunnen alleen worden geopend van virtuele machines en toepassingen binnen het VNet. In dit artikel wordt beschreven hoe het configureren van virtual network-ondersteuning voor een premium Azure Cache voor Redis-exemplaar.
@@ -85,7 +85,7 @@ De volgende lijst bevat antwoorden op veelgestelde vragen over Azure Cache voor 
 
 * Wat zijn enkele veelvoorkomende configuratiefouten bij de Azure-Cache voor Redis en VNets?
 * [Hoe kan ik controleren of mijn cache in een VNET werkt?](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
-* [Tijdens het verbinden met mijn Azure-Cache voor Redis in een VNET, waarom krijg ik een foutmelding als dat het externe certificaat is ongeldig?](#when-trying-to-connect-to-my-redis-cache-in-a-vnet-why-am-i-getting-an-error-stating-the-remote-certificate-is-invalid)
+* Tijdens het verbinden met mijn Azure-Cache voor Redis in een VNET, waarom krijg ik een foutmelding als dat het externe certificaat is ongeldig?
 * [Kan ik vnet's gebruiken met een standard- of basic-cache?](#can-i-use-vnets-with-a-standard-or-basic-cache)
 * Waarom het maken van een Azure-Cache voor Redis mislukken in sommige subnetten, maar niet voor andere?
 * [Wat zijn de vereisten voor de subnet-adres?](#what-are-the-subnet-address-space-requirements)

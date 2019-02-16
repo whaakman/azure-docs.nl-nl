@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 1d9dffe9d311674aeb043fcc4c35110775f420af
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 907ab5cd3272a3d3f64dcfd7c9628a609f4db2f4
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300802"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327643"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Het opnieuw opbouwen van een Azure Search-index
 
@@ -29,22 +29,23 @@ In tegenstelling tot opnieuw op te bouwen die offline nemen van een index *gegev
 | Voorwaarde | Description |
 |-----------|-------------|
 | De velddefinitie van een wijzigen | Wijzigen van een veldnaam, gegevenstype of specifieke [indexkenmerken](https://docs.microsoft.com/rest/api/searchservice/create-index) (doorzoekbaar Filterbaar, sorteerbaar, geschikt voor facetten) is vereist voor een volledig opnieuw is gebouwd. |
-| Een analyzer aan een veld toe te voegen | [Analyzers](search-analyzers.md) zijn gedefinieerd in een index en vervolgens toegewezen aan velden. U kunt een analyzer toevoegen aan een index op elk gewenst moment, maar u kunt alleen een analyzer toewijzen als het veld wordt gemaakt. Dit geldt voor zowel de **analyzer** en **indexAnalyzer** eigenschappen. De **searchAnalyzer** eigenschap is een uitzondering.
+| Een analyzer aan een veld toe te voegen | [Analyzers](search-analyzers.md) zijn gedefinieerd in een index en vervolgens toegewezen aan velden. U kunt een nieuwe analyzer toevoegen aan een index op elk gewenst moment, maar u kunt alleen *toewijzen* analyzer wanneer het veld wordt gemaakt. Dit geldt voor zowel de **analyzer** en **indexAnalyzer** eigenschappen. De **searchAnalyzer** eigenschap is een uitzondering. |
+| Bijwerken of verwijderen van een analyzer-constructie | U kan niet verwijderen of wijzigen van bestaande analyse-onderdelen (analyzer, tokenizer, token filter of char filter), tenzij u de gehele index opnieuw opbouwen. |
 | Een veld toevoegt aan een suggestie | Als er al een veld bestaat en u wilt toevoegen aan een [suggesties](index-add-suggesters.md) maken, moet u de index opnieuw opbouwen. |
-| Verwijderen van een veld | Als u wilt fysiek verwijdert alle traceringen van een veld, die u moet de index opnieuw opbouwen. Wanneer een direct opnieuw opbouwen niet praktijken, wijzig de meeste ontwikkelaars toepassingscode om uit te schakelen toegang tot het veld 'verwijderd'. Fysiek, blijven de velddefinitie van het en de inhoud in de index tot het volgende opnieuw bouwen met behulp van een schema dat het veld wordt weggelaten in kwestie. |
+| Verwijderen van een veld | Als u wilt fysiek verwijdert alle traceringen van een veld, die u moet de index opnieuw opbouwen. Wanneer een direct herstellen is het niet praktisch, kunt u toepassingscode om uit te schakelen toegang tot het veld 'verwijderd' wijzigen. Fysiek, blijven de velddefinitie van het en de inhoud in de index tot het volgende opnieuw bouwen met behulp van een schema dat het veld wordt weggelaten in kwestie. |
 | Schakelen tussen lagen | Als u meer capaciteit nodig hebt, is er geen in-place upgrade. Een nieuwe service wordt gemaakt op het moment dat nieuwe capaciteit en indexen helemaal moeten worden gebouwd op de nieuwe service. |
 
-Andere wijzigingen kan worden gemaakt zonder gevolgen voor bestaande fysieke structuren. Met name de volgende wijzigingen doen *niet* duiden op een index opnieuw opbouwen:
+Andere wijzigingen kan worden gemaakt zonder gevolgen voor bestaande fysieke structuren. Met name de volgende wijzigingen doen *niet* vereisen van een index opnieuw opbouwen:
 
 + Een nieuw veld toevoegen
-+ Stel de **ophalen mogelijk** kenmerk voor een bestaand veld
++ Stel de **ophaalbaar** kenmerk voor een bestaand veld
 + Stel een **searchAnalyzer** op een bestaand veld
-+ Toevoegen, bijwerken of verwijderen van een analyzer-constructie in een index
++ Een nieuwe analyzer constructie in een index toevoegen
 + Toevoegen, bijwerken of verwijderen van scoreprofielen
 + Toevoegen, bijwerken of verwijderen van CORS-instellingen
 + Toevoegen, bijwerken of verwijderen van synonymMaps
 
-Wanneer u een nieuw veld toevoegt, worden bestaande geïndexeerde documenten een null-waarde opgegeven voor het nieuwe veld. Waarden van gegevens van de externe bron vervangen in een toekomstige gegevensvernieuwing, de null-waarden toegevoegd door Azure Search.
+Wanneer u een nieuw veld toevoegt, worden bestaande geïndexeerde documenten een null-waarde opgegeven voor het nieuwe veld. Waarden van gegevens van de externe bron vervangen in een toekomstige gegevensvernieuwing, de null-waarden toegevoegd door Azure Search. Zie voor meer informatie over het bijwerken van inhoud indexeren [documenten toevoegen, bijwerken of verwijderen](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
 ## <a name="partial-or-incremental-indexing"></a>Gedeeltelijk of incrementele indexeren
 

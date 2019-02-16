@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: saurse
-ms.openlocfilehash: 0b880d77004013d3b3eb1999b7e9344577b9fb4f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: ab307548853a545c4aa8ee5a573ca5b1ca67c91d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266481"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310250"
 ---
 # <a name="restore-system-state-to-windows-server"></a>De systeemstatus herstellen naar WindowsServer
 
@@ -65,7 +65,7 @@ De volgende stappen wordt uitgelegd hoe u uw Windows Server-configuratie terugdr
 
 9. Kopieer de *WindowsImageBackup* Active directory in het hersteldoel met een niet-kritieke volume van de server. Het volume met de Windows-besturingssysteem is meestal het essentiële volume.
 
-10. Wanneer het herstel voltooid is, volg de stappen in de sectie [toepassen systeemstatusbestanden hersteld naar de Windows-Server](backup-azure-restore-system-state.md#apply-restored-system-state-files-to-the-windows-server), om de systeemstatus herstellen-proces te voltooien.
+10. Wanneer het herstel voltooid is, volg de stappen in de sectie [toepassen systeemstatusbestanden hersteld naar de Windows-Server](backup-azure-restore-system-state.md), om de systeemstatus herstellen-proces te voltooien.
 
 ## <a name="recover-system-state-files-to-an-alternate-server"></a>Systeemstatusbestanden herstellen naar een andere server
 

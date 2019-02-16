@@ -7,16 +7,16 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: danlep
-ms.openlocfilehash: 8bae44215cdc17e9f1617c909ef197f2757fc114
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 42790905509e2ea8bbba87587ed01b1929221db5
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857751"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329316"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Naslaginformatie over Azure Container Registry webhook
 
-U kunt [configureren van webhooks](container-registry-webhook.md) voor uw containerregister die gebeurtenissen wanneer bepaalde acties worden uitgevoerd op basis van het genereren. Bijvoorbeeld, kunt u webhooks die worden geactiveerd op containerinstallatiekopie `push` en `delete` bewerkingen. Wanneer een webhook wordt geactiveerd, problemen met Azure Container Registry een HTTP of HTTPS-aanvraag met informatie over de gebeurtenis naar een eindpunt dat u opgeeft. Het eindpunt vervolgens verwerken van de webhook en dienovereenkomstig kan reageren.
+U kunt [configureren van webhooks](container-registry-webhook.md) voor uw containerregister die gebeurtenissen wanneer bepaalde acties worden uitgevoerd op basis van het genereren. Schakel bijvoorbeeld webhooks die worden geactiveerd op de containerinstallatiekopie `push` en `delete` bewerkingen. Wanneer een webhook wordt geactiveerd, problemen met Azure Container Registry een HTTP of HTTPS-aanvraag met informatie over de gebeurtenis naar een eindpunt dat u opgeeft. Het eindpunt vervolgens verwerken van de webhook en dienovereenkomstig kan reageren.
 
 De volgende secties bevatten informatie over het schema van de webhook-aanvragen die worden gegenereerd door ondersteunde gebeurtenissen. De gebeurtenis secties bevatten de payload-schema voor het gebeurtenistype, een voorbeeld van de aangevraagde nettolading en een of meer Voorbeeldopdrachten die de webhook wordt geactiveerd.
 
@@ -40,33 +40,33 @@ Webhook wordt geactiveerd wanneer een containerinstallatiekopie is gepusht naar 
 
 ### <a name="push-event-payload"></a>Push-nettolading
 
-|Element|Type|Beschrijving|
+|Element|Type|Description|
 |-------------|----------|-----------|
-|`id`|Reeks|De ID van de webhookgebeurtenis.|
+|`id`|String|De ID van de webhookgebeurtenis.|
 |`timestamp`|DateTime|De tijd waarop de webhookgebeurtenis is geactiveerd.|
-|`action`|Reeks|De actie die de webhookgebeurtenis geactiveerd.|
-|[Doel](#target)|Complex Type|Het doel van de gebeurtenis die de webhookgebeurtenis geactiveerd.|
-|[Aanvraag](#request)|Complex Type|De aanvraag die de webhookgebeurtenis is gegenereerd.|
+|`action`|String|De actie die de webhookgebeurtenis geactiveerd.|
+|[target](#target)|Complex Type|Het doel van de gebeurtenis die de webhookgebeurtenis geactiveerd.|
+|[request](#request)|Complex Type|De aanvraag die de webhookgebeurtenis is gegenereerd.|
 
 ### <a name="target"></a>doel
 
-|Element|Type|Beschrijving|
+|Element|Type|Description|
 |------------------|----------|-----------|
-|`mediaType`|Reeks|Het MIME-type van het object waarnaar wordt verwezen.|
+|`mediaType`|String|Het MIME-type van het object waarnaar wordt verwezen.|
 |`size`|Int32|Het aantal bytes van de inhoud. Hetzelfde als het veld lengte.|
-|`digest`|Reeks|De samenvatting van de inhoud, zoals gedefinieerd door het register V2 HTTP API-specificatie.|
+|`digest`|String|De samenvatting van de inhoud, zoals gedefinieerd door het register V2 HTTP API-specificatie.|
 |`length`|Int32|Het aantal bytes van de inhoud. Hetzelfde als het veld grootte.|
-|`repository`|Reeks|De naam van de opslagplaats.|
-|`tag`|Reeks|De naam van de installatiekopie-tag.|
+|`repository`|String|De naam van de opslagplaats.|
+|`tag`|String|De naam van de installatiekopie-tag.|
 
 ### <a name="request"></a>aanvraag
 
-|Element|Type|Beschrijving|
+|Element|Type|Description|
 |------------------|----------|-----------|
-|`id`|Reeks|De ID van de aanvraag die de gebeurtenis heeft gestart.|
-|`host`|Reeks|De extern toegankelijke hostnaam van de registry-exemplaar, zoals opgegeven door de HTTP host-header op binnenkomende aanvragen.|
-|`method`|Reeks|De aanvraagmethode waarmee de gebeurtenis is gegenereerd.|
-|`useragent`|Reeks|De gebruiker agent-kop van de aanvraag.|
+|`id`|String|De ID van de aanvraag die de gebeurtenis heeft gestart.|
+|`host`|String|De extern toegankelijke hostnaam van de registry-exemplaar, zoals opgegeven door de HTTP host-header op binnenkomende aanvragen.|
+|`method`|String|De aanvraagmethode waarmee de gebeurtenis is gegenereerd.|
+|`useragent`|String|De gebruiker agent-kop van de aanvraag.|
 
 ### <a name="payload-example-push-event"></a>Voorbeeld van de nettolading: push-gebeurtenis
 
@@ -104,30 +104,30 @@ Webhook wordt geactiveerd wanneer een opslagplaats of het manifest is verwijderd
 
 ### <a name="delete-event-payload"></a>Nettolading verwijderen
 
-|Element|Type|Beschrijving|
+|Element|Type|Description|
 |-------------|----------|-----------|
-|`id`|Reeks|De ID van de webhookgebeurtenis.|
+|`id`|String|De ID van de webhookgebeurtenis.|
 |`timestamp`|DateTime|De tijd waarop de webhookgebeurtenis is geactiveerd.|
-|`action`|Reeks|De actie die de webhookgebeurtenis geactiveerd.|
-|[Doel](#delete_target)|Complex Type|Het doel van de gebeurtenis die de webhookgebeurtenis geactiveerd.|
-|[Aanvraag](#delete_request)|Complex Type|De aanvraag die de webhookgebeurtenis is gegenereerd.|
+|`action`|String|De actie die de webhookgebeurtenis geactiveerd.|
+|[target](#delete_target)|Complex Type|Het doel van de gebeurtenis die de webhookgebeurtenis geactiveerd.|
+|[request](#delete_request)|Complex Type|De aanvraag die de webhookgebeurtenis is gegenereerd.|
 
 ### <a name="delete_target"></a> Doel
 
-|Element|Type|Beschrijving|
+|Element|Type|Description|
 |------------------|----------|-----------|
-|`mediaType`|Reeks|Het MIME-type van het object waarnaar wordt verwezen.|
-|`digest`|Reeks|De samenvatting van de inhoud, zoals gedefinieerd door het register V2 HTTP API-specificatie.|
-|`repository`|Reeks|De naam van de opslagplaats.|
+|`mediaType`|String|Het MIME-type van het object waarnaar wordt verwezen.|
+|`digest`|String|De samenvatting van de inhoud, zoals gedefinieerd door het register V2 HTTP API-specificatie.|
+|`repository`|String|De naam van de opslagplaats.|
 
 ### <a name="delete_request"></a> Aanvraag
 
-|Element|Type|Beschrijving|
+|Element|Type|Description|
 |------------------|----------|-----------|
-|`id`|Reeks|De ID van de aanvraag die de gebeurtenis heeft gestart.|
-|`host`|Reeks|De extern toegankelijke hostnaam van de registry-exemplaar, zoals opgegeven door de HTTP host-header op binnenkomende aanvragen.|
-|`method`|Reeks|De aanvraagmethode waarmee de gebeurtenis is gegenereerd.|
-|`useragent`|Reeks|De gebruiker agent-kop van de aanvraag.|
+|`id`|String|De ID van de aanvraag die de gebeurtenis heeft gestart.|
+|`host`|String|De extern toegankelijke hostnaam van de registry-exemplaar, zoals opgegeven door de HTTP host-header op binnenkomende aanvragen.|
+|`method`|String|De aanvraagmethode waarmee de gebeurtenis is gegenereerd.|
+|`useragent`|String|De gebruiker agent-kop van de aanvraag.|
 
 ### <a name="payload-example-delete-event"></a>Voorbeeld van de nettolading: gebeurtenis verwijderen
 
@@ -154,10 +154,10 @@ Voorbeeld [Azure CLI](/cli/azure/acr) opdrachten die een **verwijderen** event w
 
 ```azurecli
 # Delete repository
-az acr repository delete -n MyRegistry --repository MyRepository
+az acr repository delete --name MyRegistry --repository MyRepository
 
-# Delete manifest
-az acr repository delete -n MyRegistry --repository MyRepository --tag MyTag --manifest
+# Delete image
+az acr repository delete --name MyRegistry --image MyRepository:MyTag
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

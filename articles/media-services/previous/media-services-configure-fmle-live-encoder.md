@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 32bed77146284799faebdb8a44e2e610f49913cf
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 02adb36bec574719f3f6d7f1c1b66124f96ccae1
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003734"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309230"
 ---
 # <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream-legacy"></a>FMLE-coderingsprogramma gebruiken voor het verzenden van een single-bitrate live stream (verouderd)
 > [!div class="op_single_selector"]
@@ -64,7 +64,7 @@ Deze zelfstudie wordt beschreven met behulp van AAC. FMLE ondersteunt niet echte
 >
 >
 
-Terwijl het kanaal wordt gestart, kunt u [configureren van het coderingsprogramma](media-services-configure-fmle-live-encoder.md#configure_fmle_rtmp).
+Terwijl het kanaal wordt gestart, kunt u [configureren van het coderingsprogramma](media-services-configure-fmle-live-encoder.md).
 
 > [!IMPORTANT]
 > Houd er rekening mee dat de facturering begint zodra kanaal krijgt de status gereed. Zie voor meer informatie, [van kanaal Staten](media-services-manage-live-encoder-enabled-channels.md#states).

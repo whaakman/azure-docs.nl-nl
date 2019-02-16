@@ -1,7 +1,7 @@
 ---
 title: Apache Sqoop met Apache Hadoop - Azure HDInsight
 description: Leer hoe u Apache Sqoop gebruiken om te importeren en exporteren tussen een Azure SQL Database en de Apache Hadoop op HDInsight.
-keywords: hadoop sqoop, sqoop
+keywords: hadoop sqoop,sqoop
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.openlocfilehash: d7df1c65b8588b97a6beb0a4c2428b3c6430c3b2
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: cf4895220c19e029952d5bf76aa9baa41250f692
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635694"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309341"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-apache-hadoop-on-hdinsight-and-sql-database"></a>Apache Sqoop gebruiken om te importeren en exporteren van gegevens tussen Apache Hadoop op HDInsight en SQL-Database
 
@@ -105,7 +105,7 @@ GO
     De velden in de gegevens worden gescheiden door een teken tabblad en de regels worden beëindigd door een nieuwe-regelteken.
 
     > [!IMPORTANT]  
-    > De `wasb:///` pad werkt met clusters waarvoor wordt gebruikgemaakt van Azure Storage als de standaardopslag voor het cluster. Gebruik voor clusters die gebruikmaken van Azure Data Lake Storage `adl:///` in plaats daarvan.
+    > De `wasb:///` pad werkt met clusters waarvoor wordt gebruikgemaakt van Azure Storage als de standaardopslag voor het cluster. Gebruik voor clusters die gebruikmaken van Azure Data Lake Storage Gen1 `adl:///` in plaats daarvan.
 
 2. Zodra het importeren is voltooid, gebruikt u de volgende opdracht uit om de gegevens in de nieuwe map:
 

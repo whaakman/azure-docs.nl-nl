@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87d3a44b01dff81242f935c7737bd170fe744536
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 54511ac4dfdc05ec1880695b1ae2360f0b5e8162
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246871"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328364"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Overwegingen voor Azure Virtual Machines DBMS-implementatie voor de werkbelasting van SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -106,12 +106,12 @@ Hoewel het bespreken van IaaS, zijn in het algemeen de installatie van Windows, 
 
 
 ## <a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>Opslagstructuur van een virtuele machine voor RDBMS-implementaties
-Als u wilt volgen dit hoofdstuk, is het nodig zijn om te begrijpen wat is opgegeven [dit] [ deployment-guide-3] hoofdstuk van de [Deployment Guide][deployment-guide]. Informatie over de verschillende VM-serie en de verschillen en de verschillen tussen Azure Standard en [Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) moet worden begrepen en bekende voordat dit hoofdstuk wordt gelezen.
+Als u wilt volgen dit hoofdstuk, is het nodig zijn om te begrijpen wat is opgegeven [dit] [ deployment-guide-3] hoofdstuk van de [Deployment Guide][deployment-guide]. Informatie over de verschillende VM-serie en de verschillen en de verschillen tussen de standard-opslag- en premium-opslag moet worden begrepen en bekende voordat dit hoofdstuk wordt gelezen. Voor
 
 In termen van Azure Storage voor Azure-VM's moet u bekend bent met de artikelen:
 
-- [Over schijfopslag voor Azure Windows VM 's](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds)
-- [Over de opslag van schijven voor virtuele Azure Linux-machines](https://docs.microsoft.com/azure/virtual-machines/linux/about-disks-and-vhds)
+- [Inleiding tot beheerde schijven voor virtuele Azure Windows-machines](../../windows/managed-disks-overview.md)
+- [Inleiding tot beheerde schijven voor virtuele Azure Linux-machines](../../linux/managed-disks-overview.md)
 
 In een eenvoudige configuratie, gewoonlijk het beste een structuur van waar het besturingssysteem, de DBMS-systemen en de uiteindelijke SAP-binaire bestanden staan los van de bestanden van de implementatie. Daarom raden we aan SAP-systemen die zijn uitgevoerd in Azure Virtual Machines hebben de base VHD (of de logische schijf), zoals geïnstalleerd met het besturingssysteem, de database management systeem uitvoerbare bestanden en de SAP-uitvoerbare bestanden. De DBMS-gegevens en logboekbestanden bestanden worden opgeslagen in Azure Storage (Standard of Premium Storage) in de afzonderlijke schijven en als logische schijven die zijn gekoppeld aan de oorspronkelijke Azure besturingssysteemkopie VM. Met name in Linux-implementaties, kunnen er verschillende aanbevelingen beschreven. Met name wat betreft de SAP HANA.
 
@@ -134,10 +134,8 @@ Azure dwingt een quotum IOP's per gegevensschijf. Deze quota zijn verschillend v
 > [!NOTE]
 > Als u wilt profiteren van Azure met de unieke [één VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) alle schijven die zijn gekoppeld hoeft te worden van het type Azure Premium Storage, met inbegrip van de basis-VHD.
 
-
 > [!NOTE]
 > Het wordt niet ondersteund op host hoofddatabase bestanden (gegevens en logboekbestanden bestanden) van SAP-databases op opslaghardware die zich in dezelfde locatie bevindt als van derden datacenters aangrenzende met Azure-datacenters. Voor SAP alleen opslag werkbelasting die wordt weergegeven als systeemeigen Azure service ondersteund voor de gegevens- en transactielogboek-logboekbestanden van SAP-databases.
-> 
 
 De plaatsing van bestanden van de database en logboekbestanden/opnieuw bestanden en het type Azure-opslag gebruikt, moeten worden gedefinieerd door de vereisten voor IOPS, latentie en doorvoer. Om voldoende IOP's, kan u worden afgedwongen gebruikmaken van meerdere schijven of een grotere Premium-opslag-schijf gebruiken. In het geval van meerdere schijven gebruikt, maakt u een streep software op de schijven die de bestanden bevatten of bestanden log/opnieuw. In dergelijke gevallen zijn de IOPS en de schijfdoorvoer Sla's van de onderliggende schijven voor Premium Storage of de maximale IOPS van Azure Standard Storage-schijven haalbare wél cumulatief voor de resulterende stripeset.
 

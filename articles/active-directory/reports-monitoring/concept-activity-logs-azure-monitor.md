@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e533f3db8a9d40ee062e65d96fa9bf33a366e3a8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5a995fd93fa8d538cd1a686ecc12fa69c718758c
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206341"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313497"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Azure AD-activiteitenlogboeken in Azure Monitor (preview)
 
@@ -106,37 +106,37 @@ Deze sectie bevat antwoorden op veelgestelde vragen en bekende problemen met bet
 
 **A**: Aanmeldingsactiviteiten logboeken en auditlogboeken zijn beschikbaar voor de routering via deze functie, hoewel gebeurtenissen voor beveiligingscontrole met betrekking tot B2C momenteel niet opgenomen zijn. Raadpleeg het [auditlogboekschema](reference-azure-monitor-audit-log-schema.md) en het [aanmeldingslogboekschema](reference-azure-monitor-sign-ins-log-schema.md) om uit te vinden welke typen logboeken en welke op functie gebaseerde logboeken momenteel worden ondersteund. 
 
----
+-----
 
 **V: Hoe snel na een actie wordt de bijbehorende logboeken weergegeven in mijn event hub?**
 
 **A**: De logboeken moeten weergegeven in uw event hub binnen twee tot vijf minuten nadat de actie wordt uitgevoerd. Raadpleeg [Wat is Azure Event Hubs?](../../event-hubs/event-hubs-about.md) voor meer informatie over Event Hubs.
 
----
+-----
 
 **V: Hoe snel na een actie wordt de bijbehorende logboeken weergegeven in mijn storage-account?**
 
 **A**: Voor Azure storage-accounts is de latentie overal van 5 tot 15 minuten nadat de actie wordt uitgevoerd.
 
----
+-----
 
 **V: Wat gebeurt er als de bewaarperiode van een diagnostische instelling wordt gewijzigd door een beheerder?**
 
 **A**: Het nieuwe retentiebeleid zal worden toegepast op Logboeken verzameld na de wijziging. Logboeken verzameld voordat de wijziging niet gewijzigd worden.
 
----
+-----
 
 **V: Hoeveel kost het om op te slaan van mijn gegevens?**
 
 **A**: De kosten voor opslag zijn afhankelijk van de grootte van uw logboeken en de bewaarperiode liggen die u kiest. Raadpleeg de sectie [Opslaggrootte voor activiteitenlogboeken](#storage-size-for-activity-logs) voor een lijst van de geschatte kosten voor tenants. De kosten zijn afhankelijk van het aantal logboeken dat wordt gegenereerd.
 
----
+-----
 
 **V: Hoeveel kost het om mijn gegevens naar een event hub streamen?**
 
 **A**: De kosten voor streaming is afhankelijk van het aantal berichten u per minuut ontvangt. In dit artikel wordt beschreven hoe de kosten worden berekend en vindt u een lijst met geschatte kosten, die zijn gebaseerd op het aantal berichten. 
 
----
+-----
 
 **V: Hoe Integreer ik Azure AD-activiteitenlogboeken met mijn SIEM-systeem?**
 
@@ -146,31 +146,31 @@ Deze sectie bevat antwoorden op veelgestelde vragen en bekende problemen met bet
 
 - Gebruik de [Reporting Graph API](concept-reporting-api.md) voor toegang tot de gegevens. Push de gegevens daarna naar uw SIEM-systeem met uw eigen scripts.
 
----
+-----
 
 **V: Welke SIEM-hulpprogramma's worden momenteel ondersteund?** 
 
 **A**: Azure Monitor wordt momenteel ondersteund door [Splunk](tutorial-integrate-activity-logs-with-splunk.md), QRadar, en [Sumo logische](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory). Raadpleeg [Azure-bewakingsgegevens streamen naar een Event Hub voor gebruik door een extern hulpprogramma](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md) voor meer informatie over hoe de connectors werken.
 
----
+-----
 
 **V: Hoe Integreer ik Azure AD activiteitenlogboeken met mijn Splunk instantie?**
 
 **A**: Eerste, [route de Azure AD-activiteitenlogboeken streamen naar een event hub](quickstart-azure-monitor-stream-logs-to-event-hub.md), volgt u de stappen voor het [activiteitenlogboeken integreren met Splunk](tutorial-integrate-activity-logs-with-splunk.md).
 
----
+-----
 
 **V: Hoe Integreer ik Azure AD activiteitenlogboeken Sumo logische?** 
 
 **A**: Eerste, [route de Azure AD-activiteitenlogboeken streamen naar een event hub](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory), volgt u de stappen voor het [installeert de Azure AD-toepassing en de dashboards weergeven in SumoLogic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards).
 
----
+-----
 
 **V: Krijg ik toegang tot de gegevens van een event hub zonder een externe SIEM-hulpprogramma gebruiken?** 
 
 **A**: Ja. U kunt de [Event Hubs-API](../../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md) gebruiken om de logboeken vanuit uw eigen aangepaste toepassing te bekijken. 
 
----
+-----
 
 
 ## <a name="next-steps"></a>Volgende stappen

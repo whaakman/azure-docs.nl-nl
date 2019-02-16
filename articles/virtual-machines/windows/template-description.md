@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 6821c2000efa4a03f803871d9b33272175f1265c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: d234e7f8a6005722a33a797f2b8ae6a1e1f4b98b
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113240"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327762"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Virtuele machines in een Azure Resource Manager-sjabloon
 
@@ -290,7 +290,7 @@ Verschillende elementen van het profiel worden gebruikt bij het definiëren van 
 
 ## <a name="disks-and-images"></a>Schijven en installatiekopieën
    
-In Azure, vhd-bestanden kunnen vertegenwoordigen [schijven of installatiekopieën](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Wanneer het besturingssysteem in een vhd-bestand is speciaal bedoeld om te worden van een specifieke virtuele machine, wordt dit aangeduid als een schijf. Wanneer het besturingssysteem in een vhd-bestand is gegeneraliseerd moet worden gebruikt om u te veel virtuele machines maken, deze aangeduid als een afbeelding.   
+In Azure, vhd-bestanden kunnen vertegenwoordigen [schijven of installatiekopieën](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Wanneer het besturingssysteem in een vhd-bestand is speciaal bedoeld om te worden van een specifieke virtuele machine, wordt dit aangeduid als een schijf. Wanneer het besturingssysteem in een vhd-bestand is gegeneraliseerd moet worden gebruikt om u te veel virtuele machines maken, deze aangeduid als een afbeelding.   
     
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>Nieuwe virtuele machines en nieuwe schijven maken van een platforminstallatiekopie
 

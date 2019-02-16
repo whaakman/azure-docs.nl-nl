@@ -8,98 +8,98 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 02/08/2019
 ms.author: pafarley
-ms.openlocfilehash: ae8a96c07467a4c8617b8e7983e8dd7ad6e70be4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 54faf8b37afa953aac7d411df2f539188dc5b451
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883454"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310210"
 ---
 # <a name="how-to-improve-your-classifier"></a>Hoe u de classificatie verbeteren
 
-Meer informatie over het verbeteren van de kwaliteit van uw classificatie Custom Vision Service. De kwaliteit van de classificatie is afhankelijk van de hoeveelheid, de kwaliteit en de verscheidenheid aan de gelabelde gegevens die u opgeeft en hoe met gelijke taakverdeling is van de gegevensset. Een goede classificatie heeft doorgaans een gegevensset met gelijke taakverdeling training die representatief is voor wat worden verzonden naar de classificatie. Het proces van het bouwen van een dergelijke classificatie is vaak iteratieve. Het is gebruikelijk te nemen van een paar Rondt van training, verwachte resultaten bereiken.
+In deze handleiding leert u hoe u om de kwaliteit van uw classificatie Custom Vision Service te verbeteren. De kwaliteit van de classificatie is afhankelijk van de hoeveelheid, de kwaliteit en de verscheidenheid aan de gelabelde gegevens die u opgeeft en hoe met gelijke taakverdeling is van de algehele gegevensset. Een goede classificatie heeft een gegevensset met gelijke taakverdeling training die representatief is voor wat worden verzonden naar de classificatie. Het proces van het bouwen van een dergelijke classificatie is iteratieve; het is gebruikelijk te nemen van een paar Rondt van training, verwachte resultaten bereiken.
 
-Hier volgen de algemene stappen voor het verbeteren van een classificatie. Deze stappen zijn niet moeilijk en snelle regels, maar methodiek waarmee u een betere classificatie maken.
+Hier volgt een algemeen patroon waarmee u een meer nauwkeurige classificatie:
 
 1. Eerste-round-training
-1. Meer installatiekopieën toevoegen en gegevens in balans brengen
-1. Retrain
-1. Toevoegen van afbeeldingen met verschillende achtergrond, belichting, objectgrootte, camerahoek en stijl
-1. Opnieuw trainen & kanaal in de afbeelding voor voorspelling
-1. Bekijk de voorspellingsresultaten
-1. Bestaande trainingsgegevens wijzigen
+1. Meer installatiekopieën en saldo gegevens; toevoegen opnieuw trainen
+1. Toevoegen van afbeeldingen met verschillende achtergrond, belichting, objectgrootte, camerahoek en stijl; opnieuw trainen
+1. Nieuwe installatiekopieën gebruiken voor het testen van voorspelling
+1. Bestaande trainingsgegevens op basis van voorspellingsresultaten wijzigen
 
-## <a name="data-quantity-and-data-balance"></a>Verdelen over de hoeveelheid en de gegevens van de gegevens
+## <a name="overfitting"></a>Overfitting
 
-Het belangrijkste is voor het uploaden onvoldoende installatiekopieën trainen van de classificatie. Ten minste 50 afbeeldingen per label voor de trainingsset worden aanbevolen als uitgangspunt. Er is een sterke risico dat u bent overfitting met minder afbeeldingen. Terwijl de nummers van de prestaties kunnen goed worden voorgesteld, is het mogelijk moeilijk op basis van gegevens van de echte wereld werkt. De classificatie met meer installatiekopieën training, wordt de nauwkeurigheid van de voorspellingsresultaten algemeen verhoogd.
-
-Een andere overweging is dat u moet ervoor zorgen dat uw gegevens is verdeeld. Bijvoorbeeld 500 installatiekopieën voor een label en 50 installatiekopieën voor een ander label in te stellen, wordt een gegevensset imbalanced training, waardoor het model worden meer nauwkeurige bij het voorspellen van een label dan de andere produceren. U bent waarschijnlijk betere resultaten worden weergegeven als u ten minste een 1:2-verhouding tussen het label met de minste afbeeldingen en het label met de meeste afbeeldingen onderhouden. Bijvoorbeeld, als het label met het grootste aantal afbeeldingen 500 installatiekopieën bevat, moet het label met de minste afbeeldingen ten minste 250 afbeeldingen voor training.
-
-## <a name="train-more-diverse-images"></a>Meer verschillende afbeeldingen trainen
-
-Installatiekopieën die representatief zijn voor wat worden verzonden naar de classificatie bij normaal gebruik bieden. Bijvoorbeeld, als u een classificatie 'apple', de gehanteerde classificatie mogelijk niet nauwkeurig als u foto's van de appels in platen, maar zorg voorspellingen op foto's van appels op structuren alleen trainen. Met inbegrip van tal van installatiekopieën zorgen ervoor dat de classificatie is niet gericht en goed kunt generaliseren. Hieronder worden enkele manieren die kunt u uw training diverser ingesteld:
-
-__Achtergrond:__ Installatiekopieën van het object in het zicht van verschillende achtergronden (dat wil zeggen, de vruchten op plaat versus vruchten in eigenschappenverzameling voor kruidenierswaren) bevatten. Foto's in de context zijn beter dan foto's in het zicht van neutrale achtergronden, zoals ze vindt u meer informatie voor de classificatie.
-
-![Afbeelding van achtergrond-voorbeelden](./media/getting-started-improving-your-classifier/background.png)
-
-__Verlichting:__ Installatiekopieën met gevarieerde belichting opgeven (dat wil zeggen, genomen met flash, hoge blootstelling, enz.), met name als de afbeeldingen die worden gebruikt voor voorspelling verschillende belichting hebben. Het is ook handig om op te nemen van installatiekopieën met gevarieerde verzadiging, hue en helderheid.
-
-![Afbeelding van verlichting voorbeelden](./media/getting-started-improving-your-classifier/lighting.png)
-
-__Objectgrootte van:__ Afbeeldingen waarin de objecten van uiteenlopende sizing vastleggen van verschillende onderdelen van het object opgeven. Een foto van Boeket bijvoorbeeld worden gepresenteerd bananen en een Close-up van een enkele bananen. Verschillende sizing helpt de classificatie beter te generaliseren.
-
-![Afbeelding van de grootte van voorbeelden](./media/getting-started-improving-your-classifier/size.png)
-
-__Camerahoek:__ Afbeeldingen die met verschillende camerahoeken bieden. Als uw foto's worden genomen met een set van vaste camera's (zoals surveillancecamera's), zorg er dan voor dat u een ander label toewijzen aan elke camera, zelfs als ze dezelfde objecten om te voorkomen dat overfitting - modellering van niet-gerelateerde objecten (zoals lampposts) als de belangrijkste functie vastleggen.
-
-![Afbeelding van de hoek-voorbeelden](./media/getting-started-improving-your-classifier/angle.png)
-
-__Stijl:__ Installatiekopieën van verschillende stijlen van dezelfde klasse (dat wil zeggen, verschillende soorten citrus) bevatten. Echter, hebt u afbeeldingen van objecten van hebt u aanzienlijk verschillende stijlen (dat wil zeggen, Mickey muis ten opzichte van een echte gesprekken rat), het verdient aanbeveling hun afzonderlijke functies label als afzonderlijke klassen beter vertegenwoordigen.
-
-![Afbeelding van de stijl van voorbeelden](./media/getting-started-improving-your-classifier/style.png)
-
-## <a name="use-images-submitted-for-prediction"></a>Gebruik-installatiekopieën die zijn ingediend voor voorspelling
-
-De Custom Vision Service slaat installatiekopieën verzonden naar het eindpunt van de voorspelling. Als u wilt deze installatiekopieën gebruiken voor het verbeteren van de classificatie, gebruikt u de volgende stappen uit:
-
-1. Voor installatiekopieën die worden verzonden naar de classificatie opent de [Custom Vision webpagina](https://customvision.ai), gaat u naar uw project en selecteer de __voorspellingen__ tabblad. De standaardweergave ziet u afbeeldingen van de huidige iteratie. U kunt de __iteratie__ vervolgkeuzelijst veld om installatiekopieën verzonden tijdens de vorige iteraties weer te geven.
-
-    ![Afbeelding van het tabblad voorspellingen](./media/getting-started-improving-your-classifier/predictions.png)
-
-2. Beweeg de muisaanwijzer over een afbeelding om te zien van de labels die door de classificatie zijn voorspeld. Afbeeldingen worden gerangschikt, zodat de afbeeldingen die de meeste winst aan de classificatie bieden kunnen aan de bovenkant zijn. Selecteer een andere sortering, gebruikt u de __sorteren__ sectie. Als u wilt een afbeelding toevoegen aan uw bestaande trainingsgegevens, selecteer de installatiekopie, selecteer de juiste code en klikt u op __opslaan en sluiten__. De installatiekopie wordt verwijderd uit __voorspellingen__ en toegevoegd aan de training-installatiekopieën. U kunt deze weergeven door de __Trainingsafbeeldingen__ tabblad.
-
-    ![Afbeelding van de labels pagina](./media/getting-started-improving-your-classifier/tag.png)
-
-3. Gebruik de __Train__ knop de classificatie te trainen.
-
-## <a name="visually-inspect-predictions"></a>Visueel inspecteren voorspellingen
-
-Als u wilt controleren voorspellingen van de installatiekopie, selecteer de __Trainingsafbeeldingen__ tabblad en selecteer vervolgens __iteratie geschiedenis__. Installatiekopieën die worden beschreven met een rood kader zijn onjuist voorspeld.
-
-![Afbeelding van de geschiedenis herhaling](./media/getting-started-improving-your-classifier/iteration.png)
-
-Soms visueel inspecteren kunt patronen die u verhelpen kunt door aanvullende gegevens toe te voegen of te wijzigen van bestaande trainingsgegevens identificeren. Een classificatie voor apple versus lichtgroen kan bijvoorbeeld onjuist alle groen appels labelen als lijm. U kunt mogelijk kunt dit probleem oplossen door toe te voegen en het trainen van gegevens met gelabelde afbeeldingen van groen appels leveren.
-
-## <a name="unexpected-classification"></a>Onverwachte indeling
-
-De classificatie leert soms verkeerd kenmerken die uw installatiekopieën met elkaar gemeen hebben. Als u het maken van een classificatie voor appels versus citrus en opgegeven installatiekopieën van appels in handen en citrus in wit platen zijn, kan bijvoorbeeld de classificatie voor handen versus wit platen in plaats van appels versus citrus trainen.
+Een classificatie leert soms voorspellingen op basis van willekeurige kenmerken die uw installatiekopieën gemeen hebben. Als u een classificatie voor appels versus citrus maakt en u afbeeldingen van appels in handen en citrus op wit platen hebt gebruikt, kan de classificatie onnodige belang in de handen versus platen, in plaats van appels versus citrus geven.
 
 ![Afbeelding van onverwachte indeling](./media/getting-started-improving-your-classifier/unexpected.png)
 
-Op dit probleem te corrigeren, gebruikt u de bovenstaande richtlijnen op training met meer verschillende installatiekopieën: installatiekopieën voorzien van verschillende hoeken, achtergronden, grootte van objecten, groepen en andere varianten.
+Op dit probleem te corrigeren, gebruikt u de volgende richtlijnen op training met meer verschillende installatiekopieën: installatiekopieën voorzien van verschillende hoeken, achtergronden, grootte van objecten, groepen en andere verschillen.
 
-## <a name="negative-image-handling"></a>Verwerking van negatieve afbeeldingen
+## <a name="data-quantity"></a>De hoeveelheid gegevens
 
-De Custom Vision Service biedt ondersteuning voor de verwerking van sommige automatische negatieve afbeeldingen. In het geval waar u het bouwen van een gedeeltelijk versus bananen classificatie en een afbeelding van een schoen voor voorspelling verzenden, moet de classificatie die installatiekopie als dicht bij 0% score voor gedeeltelijk en bananen.
+Het aantal trainingsafbeeldingen is de belangrijkste factor. We recomment met behulp van ten minste 50 afbeeldingen per label als uitgangspunt. Er is een hogere kans te met minder installatiekopieën en terwijl de nummers van de prestaties kunnen goed worden voorgesteld, het model is het mogelijk moeilijk met echte gegevens. 
 
-In gevallen waar de negatieve afbeeldingen slechts een variant van de afbeeldingen in training gebruikt zijn, is het aan de andere kant waarschijnlijk dat het model wordt het classificeren van de installatiekopieën van het negatieve als een gelabelde klasse vanwege de grote overeenkomsten. Bijvoorbeeld, als u een oranje versus pompelmoezen en pomelo's classificatie hebt en u in een afbeelding van een clementine feed, kan deze de clementine beoordelen als oranje. Dit probleem kan optreden omdat veel functies van de clementine (kleur, vorm, patroon, natuurlijke habitat, enzovoort) lijkt op die van appels.  Als uw negatieve afbeeldingen van deze aard zijn, het verdient aanbeveling om te maken van een of meer tags ('Overig') gescheiden en label negatieve installatiekopieën met deze tag tijdens de training om toe te staan van het model beter onderscheid maken tussen deze klassen.
+## <a name="data-balance"></a>Gegevens verdelen
+
+Het is ook belangrijk te bedenken van de relatieve hoeveelheid uw trainingsgegevens. Bijvoorbeeld, maakt het gebruik van 500 installatiekopieën voor een label en 50 installatiekopieën voor een ander label voor een gegevensset imbalanced training. Dit zorgt ervoor dat het model worden meer nauwkeurige bij het voorspellen van een label dan het andere. U bent waarschijnlijk betere resultaten worden weergegeven als u ten minste een 1:2-verhouding tussen het label met de minste afbeeldingen en het label met de meeste afbeeldingen onderhouden. Bijvoorbeeld, als het label met de meeste afbeeldingen 500 installatiekopieën bevat, moet het label met de minste afbeeldingen minimaal 250 installatiekopieën voor training.
+
+## <a name="data-variety"></a>Verschillende gegevens
+
+Zorg ervoor dat installatiekopieën die representatief zijn voor wat worden verzonden naar de classificatie bij normaal gebruik gebruiken. Anders wordt de gehanteerde classificatie kan meer informatie over voorspellingen op basis van willekeurige kenmerken die uw installatiekopieën gemeen hebben. Als u een classificatie voor appels versus citrus maakt en u afbeeldingen van appels in handen en citrus op wit platen hebt gebruikt, kan de classificatie onnodige belang in de handen versus platen, in plaats van appels versus citrus geven.
+
+![Afbeelding van onverwachte indeling](./media/getting-started-improving-your-classifier/unexpected.png)
+
+U lost dit probleem, bevatten een verscheidenheid aan installatiekopieën om ervoor te zorgen dat uw classificatie goed kunt generaliseren. Hieronder worden enkele manieren die kunt u uw training diverser ingesteld:
+
+* __Achtergrond:__ Installatiekopieën van het object in het zicht van verschillende achtergronden bieden. Foto's in de context van de natuurlijke zijn beter dan foto's in het zicht van neutrale achtergronden, zoals ze vindt u meer informatie voor de classificatie.
+
+    ![Afbeelding van achtergrond-voorbeelden](./media/getting-started-improving-your-classifier/background.png)
+
+* __Verlichting:__ Bieden van afbeeldingen met gevarieerde belichting (die wordt uitgevoerd met flash, hoge blootstelling), enzovoort, met name als de afbeeldingen die worden gebruikt voor voorspelling verschillende belichting hebben. Het is ook handig om te gebruiken installatiekopieën met verschillende verzadiging, hue en helderheid.
+
+    ![Afbeelding van verlichting voorbeelden](./media/getting-started-improving-your-classifier/lighting.png)
+
+* __Objectgrootte van:__ Bieden van installatiekopieën waarin de objecten in grootte en het aantal variëren (bijvoorbeeld een foto van boeket worden gepresenteerd bananen en een Close-up van een enkele bananen). Verschillende sizing helpt de classificatie beter te generaliseren.
+
+    ![Afbeelding van de grootte van voorbeelden](./media/getting-started-improving-your-classifier/size.png)
+
+* __Camerahoek:__ Afbeeldingen die met verschillende camerahoeken bieden. U kunt ook als al uw foto's moeten worden genomen met vaste camera's (zoals surveillancecamera's), moet u een ander label toewijzen aan elk regelmatig voordoet object om te voorkomen dat te&mdash;interpretatie van niet-gerelateerde objecten (zoals lampposts) Als de belangrijkste functie.
+
+    ![Afbeelding van de hoek-voorbeelden](./media/getting-started-improving-your-classifier/angle.png)
+
+* __Stijl:__ Installatiekopieën van verschillende stijlen van dezelfde klasse (bijvoorbeeld verschillende soorten van de dezelfde vruchten) bevatten. Echter, als u objecten aanzienlijk verschillen stijlen (zoals Mickey muis vergeleken met een muis concrete) hebt, raden wij dat u ze een label als afzonderlijke klassen beter vertegenwoordigen de afzonderlijke functies.
+
+    ![Afbeelding van de stijl van voorbeelden](./media/getting-started-improving-your-classifier/style.png)
+
+## <a name="use-prediction-images-for-further-training"></a>Voorspelling installatiekopieën gebruiken voor het trainen van verdere
+
+Wanneer u of de classificatie van de installatiekopie testen door in te dienen installatiekopieën naar het eindpunt voor de voorspelling, slaat de Custom Vision service de afbeeldingen. U kunt deze vervolgens gebruiken voor het verbeteren van het model.
+
+1. Voor installatiekopieën die worden verzonden naar de classificatie opent de [Custom Vision webpagina](https://customvision.ai), gaat u naar uw project en selecteer de __voorspellingen__ tabblad. De standaardweergave ziet u afbeeldingen van de huidige iteratie. U kunt de __iteratie__ vervolgkeuzemenu om installatiekopieën verzonden tijdens de vorige iteraties weer te geven.
+
+    ![Schermafbeelding van de voorspellingen tabblad met de installatiekopieën in de weergave](./media/getting-started-improving-your-classifier/predictions.png)
+
+2. Beweeg de muisaanwijzer over een afbeelding om te zien van de labels die door de classificatie zijn voorspeld. Afbeeldingen worden gesorteerd zodat degene die de meeste verbeteringen in de classificatie kunnen brengen worden weergegeven boven. Voor het gebruik van een andere sortering, maak een selectie in de __sorteren__ sectie. 
+
+    Als u wilt een afbeelding toevoegen aan uw bestaande trainingsgegevens, selecteer de installatiekopie, stelt u de juiste tag(s) en klikt u op __opslaan en sluiten__. De installatiekopie wordt verwijderd uit __voorspellingen__ en toegevoegd aan de set trainingsafbeeldingen. U kunt deze weergeven door de __Trainingsafbeeldingen__ tabblad.
+
+    ![Afbeelding van de labels pagina](./media/getting-started-improving-your-classifier/tag.png)
+
+3. Gebruik vervolgens de __Train__ knop de classificatie te trainen.
+
+## <a name="visually-inspect-predictions"></a>Visueel inspecteren voorspellingen
+
+Als u wilt controleren voorspellingen van de installatiekopie, gaat u naar de __Trainingsafbeeldingen__ tabblad, selecteert u uw vorige iteratie training in de **iteratie** vervolgkeuzelijst, en schakel een of meer labels onder de **Tags** sectie. De weergave wordt nu een rood kader rond elk van de installatiekopieën waarvoor het model kan niet correct voorspellen van het opgegeven label weergegeven.
+
+![Afbeelding van de geschiedenis herhaling](./media/getting-started-improving-your-classifier/iteration.png)
+
+Een visueel inspecteren kunt soms patronen die u verhelpen kunt door meer trainingsgegevens toe te voegen of te wijzigen van bestaande trainingsgegevens identificeren. Een classificatie voor appels versus lijm kan bijvoorbeeld onjuist alle groen appels labelen als lijm. U kunt dit probleem verhelpen door toe te voegen en het trainen van gegevens met gelabelde afbeeldingen van groen appels leveren.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over hoe u kunt testen installatiekopieën via een programma door indienen bij de Voorspellings-API.
+In deze handleiding, hebt u verschillende technieken zodat uw aangepaste installatiekopie classificeringsmodel nauwkeurigere geleerd. Hierna leert u hoe u kunt installatiekopieën via een programma te testen door indienen bij de Voorspellings-API.
 
 > [!div class="nextstepaction"]
 [De voorspellings-API gebruiken](use-prediction-api.md)

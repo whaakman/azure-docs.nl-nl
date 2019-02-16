@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: njray
-ms.openlocfilehash: 61cad318dbbe55ef5ecf1b8167b6594ab6e57553
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 901afc8f28b617eb5bada2a0f58761ddb9f67607
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247534"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327405"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale op Azure
 
@@ -89,7 +89,7 @@ Deze architectuur voert de toepassing, opslag en lagen op Azure virtual machines
 
 ### <a name="storage-considerations"></a>Opslagoverwegingen
 
-DB2 pureScale is, zoals Oracle RAC, een krachtige blok i/o, scale-out-database. Wordt u aangeraden de grootste [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) -optie die past bij uw behoeften. Kleinere opslagopties mogelijk geschikt voor ontwikkelings- en testomgevingen, terwijl de productie-omgevingen moeten vaak meer opslagcapaciteit. Maakt gebruik van de voorbeeld-architectuur [P30](https://azure.microsoft.com/pricing/details/managed-disks/) vanwege de verhouding tussen de IOPS op grootte en prijs. Ongeacht de grootte, Premium Storage te gebruiken voor de beste prestaties.
+DB2 pureScale is, zoals Oracle RAC, een krachtige blok i/o, scale-out-database. Wordt u aangeraden de grootste [Azure premium SSD](disks-types.md) -optie die past bij uw behoeften. Kleinere opslagopties mogelijk geschikt voor ontwikkelings- en testomgevingen, terwijl de productie-omgevingen moeten vaak meer opslagcapaciteit. Maakt gebruik van de voorbeeld-architectuur [P30](https://azure.microsoft.com/pricing/details/managed-disks/) vanwege de verhouding tussen de IOPS op grootte en prijs. Ongeacht de grootte, Premium Storage te gebruiken voor de beste prestaties.
 
 DB2 pureScale maakt gebruik van een gedeelde-alles architectuur, waarbij alle gegevens zijn toegankelijk is vanaf alle clusterknooppunten. Premium-opslag moet worden gedeeld tussen instanties, of op aanvraag of op specifieke instanties.
 

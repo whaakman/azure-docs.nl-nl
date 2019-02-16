@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 10/04/2018
 ms.author: ramankum
 ms.subservice: disks
-ms.openlocfilehash: 94482666d0db3157b0c18c0b47f9937457172521
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 18258bf8ac9d241fd8a01957d903b1db882c2d36
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115994"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326871"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Het opslagtype van een beheerde schijf bijwerken
 
-Azure Managed Disks biedt drie opties voor het type opslag: [Premium SSD](../windows/premium-storage.md), [Standard-SSD](../windows/disks-standard-ssd.md), en [Standard HDD](../windows/standard-storage.md). U kunt een beheerde schijf tussen opslagtypen met minimale downtime, op basis van uw prestatiebehoeften overschakelen. Schakelen tussen opslagtypen wordt niet ondersteund voor een niet-beheerde schijf. u kunt echter eenvoudig [niet-beheerde schijven converteren naar een beheerde schijf](convert-unmanaged-to-managed-disks.md).
+Azure managed disks biedt vier type opslagopties: Ultra Solid-State drives (SSD), Premium SSD, Standard-SSD en standaard harde schijven (HDD). U kunt een beheerde schijf tussen opslagtypen met minimale downtime, op basis van uw prestatiebehoeften overschakelen. Schakelen tussen opslagtypen wordt niet ondersteund voor een niet-beheerde schijf. u kunt echter eenvoudig [niet-beheerde schijven converteren naar een beheerde schijf](convert-unmanaged-to-managed-disks.md).
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
@@ -35,6 +35,7 @@ Azure Managed Disks biedt drie opties voor het type opslag: [Premium SSD](../win
 * Als u een niet-beheerde schijf eerst [converteren naar een beheerde schijf](convert-unmanaged-to-managed-disks.md) waarmee u kunt het schakelen tussen de opslagtypen. 
 * De voorbeelden in dit artikel moet de Azure PowerShell-moduleversie 6.0.0 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Voer [Connect AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) voor het maken van een verbinding met Azure.
 
+* De voorbeelden in dit artikel moet de Azure PowerShell-moduleversie 6.0.0 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Voer [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) voor het maken van een verbinding met Azure.
 
 ## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium"></a>Alle beheerde schijven van een virtuele machine converteren van standard naar premium
 

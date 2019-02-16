@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: 74132c436670247f3eb84859216274d3e1363d07
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b5e3e84ce8f8b4b364b2fa69dda0b0091db25b6d
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338699"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329776"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Een Windows VHD of VHDX te uploaden naar Azure voorbereiden
 Voordat u een Windows virtuele machines (VM van on-premises met Microsoft Azure) uploadt, moet u de virtuele harde schijf (VHD of VHDX) voorbereiden. Azure ondersteunt **alleen virtuele machines van generatie 1** die in de VHD-indeling en hebben een schijf met vaste grootte. De maximale grootte van de VHD is 1023 GB. U kunt een generatie 1 VM op basis van de VHDX-bestandssysteem en naar een dynamisch uitbreidbare schijf naar vaste VHD converteren. Maar u kunt een virtuele machine generatie niet wijzigen. Zie voor meer informatie, [maak ik een generatie 1 of 2 virtuele machine in Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -177,7 +177,7 @@ Zorg ervoor dat de volgende instellingen correct zijn geconfigureerd voor verbin
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "KeepAliveInterval" -Value 1  -Type DWord -force
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "KeepAliveTimeout" -Value 1 -Type DWord -force
     ```
-6. Opnieuw verbinding maken met:
+6. Reconnect:
     
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "fDisableAutoReconnect" -Value 0 -Type DWord -force
@@ -198,7 +198,7 @@ Zorg ervoor dat de volgende instellingen correct zijn geconfigureerd voor verbin
 
 9. Als de virtuele machine onderdeel van een domein is, controleert u de volgende instellingen om ervoor te zorgen dat de voormalige instellingen worden niet hersteld. Het beleid dat moeten worden gecontroleerd op zijn de volgende:
     
-    | Doel                                     | Beleid                                                                                                                                                       | Waarde                                                                                    |
+    | Doel                                     | Beleid                                                                                                                                                       | Value                                                                                    |
     |------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
     | RDP is ingeschakeld                           | Computer Computerconfiguratie\Beleid\Windows Settings\Administrative Templates\Components\Remote bureaublad bureaublad-sessiehost\Verbindingen         | Toestaan dat gebruikers op afstand verbinding maken met behulp van extern bureaublad                                  |
     | NLA-Groepsbeleid                         | Settings\Administrative Templates\Components\Remote Desktop-pc-sessie\Beveiliging                                                    | Gebruiker-verificatie voor externe verbindingen met behulp van verificatie op netwerkniveau vereisen |
@@ -232,7 +232,7 @@ Zorg ervoor dat de volgende instellingen correct zijn geconfigureerd voor verbin
    ``` 
 5. Als de virtuele machine onderdeel van een domein is, controleert u de volgende instellingen om ervoor te zorgen dat de voormalige instellingen worden niet hersteld. De AD-beleidsregels die moeten worden gecontroleerd op zijn de volgende:
 
-    | Doel                                 | Beleid                                                                                                                                                  | Waarde                                   |
+    | Doel                                 | Beleid                                                                                                                                                  | Value                                   |
     |--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
     | De Windows Firewall-profielen inschakelen | Computer Computerconfiguratie\Beleid\Windows Settings\Administrative Templates\Network\Network Connection\Windows Firewall\Domain Profile\Windows Firewall   | Beveiligen van alle netwerkverbindingen         |
     | RDP inschakelen                           | Computer Computerconfiguratie\Beleid\Windows Settings\Administrative Templates\Network\Network Connection\Windows Firewall\Domain Profile\Windows Firewall   | Inkomende extern bureaublad-uitzonderingen toestaan |
@@ -338,10 +338,10 @@ Zorg ervoor dat de volgende instellingen correct zijn geconfigureerd voor verbin
 ### <a name="install-windows-updates"></a>Windows-Updates installeren
 De ideale configuratie is het **hebben van de patch-niveau van de machine op de meest recente**. Als dit niet mogelijk is, zorg ervoor dat de volgende updates zijn geïnstalleerd:
 
-| Onderdeel               | Binair bestand         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, WindowsServer 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 versie 1607 voor 1607Windows Server 2016-versie | Windows 10 versie 1703    | Windows 10 1709 Windows Server 2016-versie 1709 | Windows 10 1803Windows Server 2016, versie 1803 |
+| Onderdeel               | Binair bestand         | Windows 7 SP1,Windows Server 2008 R2  SP1 | Windows 8,Windows Server 2012               | Windows 8.1,Windows Server 2012 R2 | Windows 10 Version 1607Windows Server 2016 Version 1607 | Windows 10 versie 1703    | Windows 10 1709 Windows Server 2016-versie 1709 | Windows 10 1803Windows Server 2016 Version 1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
-| Storage                 | Disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
-|                         | Storport.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.332             | -                                               | -                                               |
+| Opslag                 | disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
+|                         | storport.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.332             | -                                               | -                                               |
 |                         | ntfs.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17623 / 6.2.9200.21743 - KB3121255 | 6.3.9600.18654 - KB4022726         | 10.0.14393.1198 - KB4022715                             | 10.0.15063.447             | -                                               | -                                               |
 |                         | Iologmsg.dll   | 6.1.7601.23403 - KB3125574                | 6.2.9200.16384 - KB2995387                  | -                                  | -                                                       | -                          | -                                               | -                                               |
 |                         | Classpnp.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17061 / 6.2.9200.21180 - KB2995387 | 6.3.9600.18334 - KB3172614         | 10.0.14393.953 - KB4022715                              | -                          | -                                               | -                                               |
@@ -366,7 +366,7 @@ De ideale configuratie is het **hebben van de patch-niveau van de machine op de 
 | Externe bureaubladservices | rdpcorets.dll  | 6.2.9200.21506 - KB4022719                | 6.2.9200.22104 - KB4022724                  | 6.3.9600.18619 - KB4022726         | 10.0.14393.1198 - KB4022715                             | 10.0.15063.0               | -                                               | -                                               |
 |                         | termsrv.dll    | 6.1.7601.23403 - KB3125574                | 6.2.9200.17048 - KB2973501                  | 6.3.9600.17415 - KB3000850         | 10.0.14393.0 - KB4022715                                | 10.0.15063.0               | -                                               | -                                               |
 |                         | termdd.sys     | 6.1.7601.23403 - KB3125574                | -                                           | -                                  | -                                                       | -                          | -                                               | -                                               |
-|                         | Win32k.sys     | 6.1.7601.23807 - KB4022719                | 6.2.9200.22168 - KB4022718                  | 6.3.9600.18698 - KB4022726         | 10.0.14393.594 - KB4022715                              | -                          | -                                               | -                                               |
+|                         | win32k.sys     | 6.1.7601.23807 - KB4022719                | 6.2.9200.22168 - KB4022718                  | 6.3.9600.18698 - KB4022726         | 10.0.14393.594 - KB4022715                              | -                          | -                                               | -                                               |
 |                         | rdpdd.dll      | 6.1.7601.23403 - KB3125574                | -                                           | -                                  | -                                                       | -                          | -                                               | -                                               |
 |                         | rdpwd.sys      | 6.1.7601.23403 - KB3125574                | -                                           | -                                  | -                                                       | -                          | -                                               | -                                               |
 | Beveiliging                | MS17-010       | KB4012212                                 | KB4012213                                   | KB4012213                          | KB4012606                                               | KB4012606                  | -                                               | -                                               |
@@ -387,7 +387,7 @@ Zie voor meer informatie over het maken van een virtuele machine van een gespeci
 - [Een virtuele machine maken vanaf een gespecialiseerde schijf](create-vm-specialized.md)
 - [Een virtuele machine maken vanaf een gespecialiseerde VHD-schijf](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
-Als u maken van een gegeneraliseerde installatiekopie wilt, moet u sysprep uitvoeren. Zie voor meer informatie over Sysprep [Sysprep gebruiken: Een inleiding](https://technet.microsoft.com/library/bb457073.aspx). 
+Als u maken van een gegeneraliseerde installatiekopie wilt, moet u sysprep uitvoeren. Zie voor meer informatie over Sysprep [Sysprep gebruiken: een inleiding](https://technet.microsoft.com/library/bb457073.aspx). 
 
 Biedt ondersteuning voor deze generalisatie niet elke rol of de toepassing die geïnstalleerd op een Windows-computer. Dus voordat u deze procedure uitvoert, Zie het volgende artikel om ervoor te zorgen dat de rol van die computer wordt ondersteund door sysprep. Voor meer informatie, [Sysprep-ondersteuning voor serverfuncties](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
@@ -406,6 +406,10 @@ Biedt ondersteuning voor deze generalisatie niet elke rol of de toepassing die g
 5. Klik op **OK**.
 6. Als Sysprep is voltooid, sluit u de virtuele machine. Gebruik geen **opnieuw** om de virtuele machine af te sluiten.
 7. De VHD is nu gereed om te worden geüpload. Zie voor meer informatie over het maken van een virtuele machine vanaf een gegeneraliseerde schijf [een gegeneraliseerde VHD uploaden en maken van een nieuwe virtuele machines in Azure](sa-upload-generalized.md).
+
+
+>[!NOTE]
+> Een aangepaste unattend.xml wordt niet ondersteund. Terwijl we bieden ondersteuning voor de eigenschap additionalUnattendContent, die alleen beperkte ondersteuning biedt voor het toevoegen van [microsoft-windows-shell-setup](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) opties in het unattend.xml die gebruikmaakt van de Azure-inrichtingsagent. Bijvoorbeeld  ze kunnen gebruiken [additionalUnattendContent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) FirstLogonCommands en LogonCommands toe te voegen. Zie ook [additionalUnattendContent FirstLogonCommands voorbeeld](https://github.com/Azure/azure-quickstart-templates/issues/1407).
 
 
 ## <a name="complete-recommended-configurations"></a>Voert u de aanbevolen configuraties

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: d4c0bbdfb1afcef33727ba4b5b432c5de79168d4
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 8241dc0303b7e60f9ce1e04e56d152c9a0b3906c
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495217"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327507"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Een Oracle-database ontwerpen en in Azure implementeren
 
@@ -49,7 +49,7 @@ De volgende tabel bevat enkele van de verschillen tussen een on-premises impleme
 > | **Netwerken** |LAN/WAN  |SDN (software gedefinieerde netwerken)|
 > | **Beveiligingsgroep** |IP/poort beperking hulpprogramma 's |[Netwerkbeveiligingsgroep (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
 > | **Flexibiliteit** |MBTF (gemiddelde tijd tussen fouten) |MTTR (gemiddelde tijd tot herstel)|
-> | **Gepland onderhoud** |Patches of upgrades worden uitgevoerd|[Beschikbaarheidssets](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (patches of upgrades worden uitgevoerd door Azure beheerd) |
+> | **Gepland onderhoud** |Patching/upgrades|[Beschikbaarheidssets](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (patches of upgrades worden uitgevoerd door Azure beheerd) |
 > | **Resource** |Toegewezen  |Gedeeld met andere clients|
 > | **Regio's** |Datacenters |[Regioparen](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability)|
 > | **Storage** |SAN-/ fysieke schijven |[Beheerde Azure opslag](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
@@ -146,19 +146,17 @@ Op basis van uw netwerkvereisten voor bandbreedte, zijn er diverse soorten gatew
 
 ### <a name="disk-types-and-configurations"></a>Schijftypen en configuraties
 
-- *Standaard besturingssysteemschijven*: deze schijftypen bieden uw permanente gegevens en caching. Ze zijn geoptimaliseerd voor het besturingssysteem toegang bij het opstarten en zijn niet bedoeld voor transactionele of datawarehouse-workloads (analytische).
+- *Standaard besturingssysteemschijven*: Deze schijftypen bieden uw permanente gegevens en caching. Ze zijn geoptimaliseerd voor het besturingssysteem toegang bij het opstarten en zijn niet bedoeld voor transactionele of datawarehouse-workloads (analytische).
 
-- *Niet-beheerde schijven*: met deze schijftypen, u de storage-accounts die opslaan van de virtuele harde schijf (VHD)-bestanden die met de VM-schijven overeenkomen beheren. VHD-bestanden worden opgeslagen als pagina-blobs in Azure storage-accounts.
+- *Niet-beheerde schijven*: Met deze schijftypen, moet u de storage-accounts die opslaan van de virtuele harde schijf (VHD)-bestanden die met de VM-schijven overeenkomen beheren. VHD-bestanden worden opgeslagen als pagina-blobs in Azure storage-accounts.
 
 - *Beheerde schijven*: Azure beheert de storage-accounts die u voor de VM-schijven gebruikt. Geeft u het schijftype (premium of standard) en de grootte van de schijf die u nodig hebt. Azure maakt en beheert de schijf voor u.
 
-- *Premium-opslagschijven*: deze schijftypen zijn bij uitstek geschikt voor werkbelastingen voor productie. Premium-opslag biedt ondersteuning voor VM-schijven die kunnen worden gekoppeld aan specifieke grootte-series-VM's, zoals Active Directory-, DSv2-, GS- en F-serie VM's. De premium-schijf wordt geleverd met verschillende formaten en kunt u kiezen tussen schijven, variërend van 32 GB tot 4096 GB. De grootte van elke schijf heeft een eigen prestatiespecificaties. Afhankelijk van uw toepassingsvereisten kunt u een of meer schijven koppelen aan uw virtuele machine.
+- *Premium-opslagschijven*: Deze schijftypen zijn zeer geschikt voor werkbelastingen voor productie. Premium-opslag biedt ondersteuning voor VM-schijven die kunnen worden gekoppeld aan specifieke grootte-series-VM's, zoals Active Directory-, DSv2-, GS- en F-serie VM's. De premium-schijf wordt geleverd met verschillende formaten en kunt u kiezen tussen schijven, variërend van 32 GB tot 4096 GB. De grootte van elke schijf heeft een eigen prestatiespecificaties. Afhankelijk van uw toepassingsvereisten kunt u een of meer schijven koppelen aan uw virtuele machine.
 
 Wanneer u een nieuwe beheerde schijf via de portal maakt, kunt u de **accounttype** voor het type van de schijf die u wilt gebruiken. Houd er rekening mee dat niet alle beschikbare schijven worden weergegeven in de vervolgkeuzelijst. Nadat u een specifieke VM-grootte kiest, ziet u het menu alleen de premiumopslag van de beschikbare SKU's die zijn gebaseerd op deze VM-grootte.
 
 ![Schermafbeelding van de beheerde schijf-pagina](./media/oracle-design/premium_disk01.png)
-
-Zie voor meer informatie, [High-performance Premium Storage en beheerde schijven voor virtuele machines](https://docs.microsoft.com/azure/storage/storage-premium-storage).
 
 Nadat u uw opslag op een virtuele machine hebt geconfigureerd, kunt u laden van de schijven te testen voordat u een database te maken. De i/o-snelheid in termen van zowel de latentie en doorvoer te weten, kunt u bepalen of de virtuele machines de verwachte doorvoer met latentie doelen ondersteunen.
 
@@ -190,17 +188,15 @@ Nadat u een helder beeld van de i/o-vereisten hebt, kunt u een combinatie van st
 
 Er zijn drie opties voor opslaan in cache:
 
-- *Alleen-lezen*: alle aanvragen voor toekomstige leesbewerkingen in de cache zijn opgeslagen. Alle schrijfbewerkingen zijn rechtstreeks naar Azure Blob-opslag opgeslagen.
+- *Alleen-lezen*: Alle aanvragen voor toekomstige leesbewerkingen in cache zijn opgeslagen. Alle schrijfbewerkingen zijn rechtstreeks naar Azure Blob-opslag opgeslagen.
 
-- *Lezen / schrijven*: dit is een "read-ahead" algoritme. De lees- en schrijfbewerkingen in cache zijn opgeslagen voor toekomstige leesbewerkingen. Niet-write-through schrijfbewerkingen worden persistent gemaakt met de lokale cache eerst. Schrijfbewerkingen worden doorgevoerd naar Azure Storage voor SQL Server, omdat het gebruikmaakt van write-through. Het biedt ook de laagste latentie van de schijf voor lichte workloads.
+- *Lezen / schrijven*: Dit is een "read-ahead" algoritme. De lees- en schrijfbewerkingen in cache zijn opgeslagen voor toekomstige leesbewerkingen. Niet-write-through schrijfbewerkingen worden persistent gemaakt met de lokale cache eerst. Schrijfbewerkingen worden doorgevoerd naar Azure Storage voor SQL Server, omdat het gebruikmaakt van write-through. Het biedt ook de laagste latentie van de schijf voor lichte workloads.
 
-- *Geen* (uitgeschakeld): deze optie gebruikt, kunt u de cache overslaan. Alle de gegevens worden overgebracht naar de schijf en persistent gemaakt met Azure Storage. Deze methode biedt de hoogste i/o-snelheid voor i/o-intensieve workloads. U moet ook "transactiekosten" rekening mee te houden.
+- *Geen* (uitgeschakeld): Deze optie gebruikt, kunt u de cache overslaan. Alle de gegevens worden overgebracht naar de schijf en persistent gemaakt met Azure Storage. Deze methode biedt de hoogste i/o-snelheid voor i/o-intensieve workloads. U moet ook "transactiekosten" rekening mee te houden.
 
 **Aanbevelingen**
 
 Als u wilt de doorvoer te maximaliseren, raden we aan dat u met Start **geen** voor opslaan in cache. Voor Premium-opslag, houd er rekening mee moet u de 'barrières"uitschakelen wanneer u het bestandssysteem met koppelt de **ReadOnly** of **geen** opties. Het bestand/etc/fstab bijwerken met de UUID naar de schijven.
-
-Zie voor meer informatie, [Premium-opslag voor virtuele Linux-machines](https://docs.microsoft.com/azure/storage/storage-premium-storage#premium-storage-for-linux-vms).
 
 ![Schermafbeelding van de beheerde schijf-pagina](./media/oracle-design/premium_disk02.png)
 
@@ -217,12 +213,12 @@ Nadat u hebt ingesteld en geconfigureerd van uw Azure-omgeving, wordt de volgend
 
 - *Beleid voor NSG*: NSG kan worden gedefinieerd door een subnet of NIC. Het is eenvoudiger om toegang te beheren op het subnetniveau zowel voor beveiliging en werking routering voor zaken zoals firewalls van toepassingen.
 
-- *Jumpbox*: voor veiliger toegang beheerders moeten niet rechtstreeks verbinding maken met de toepassingsservice of de database. Een jumpbox wordt gebruikt als een medium tussen de administrator-machine en de Azure-resources.
+- *Jumpbox*: Voor veiliger toegang beheerders moeten niet rechtstreeks verbinding maken met de toepassingsservice of de database. Een jumpbox wordt gebruikt als een medium tussen de administrator-machine en de Azure-resources.
 ![Schermafbeelding van de Jumpbox-topologie-pagina](./media/oracle-design/jumpbox.png)
 
     De beheerder-machine moet IP beperkte toegang tot de jumpbox alleen aanbieden. De jumpbox hebt toegang tot de toepassing en de database.
 
-- *Particulier netwerk* (subnetten): het is raadzaam dat u hebt de toepassingsservice en de database op afzonderlijke subnetten, zodat betere controle kan worden ingesteld door NSG-beleid.
+- *Particulier netwerk* (subnetten): Het is raadzaam dat u hebt de toepassingsservice en de database op afzonderlijke subnetten, zodat betere controle kan worden ingesteld door NSG-beleid.
 
 
 ## <a name="additional-reading"></a>Meer lezen
@@ -234,5 +230,5 @@ Nadat u hebt ingesteld en geconfigureerd van uw Azure-omgeving, wordt de volgend
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Zelfstudie: Een maximaal beschikbare virtuele machines maken](../../linux/create-cli-complete.md)
+- [Zelfstudie: Maximaal beschikbare virtuele machines maken](../../linux/create-cli-complete.md)
 - [Azure CLI-voorbeelden voor VM-implementatie verkennen](../../linux/cli-samples.md)

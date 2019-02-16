@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c4a7239110e0d3e712c97007ecc858f104811cc
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 53f1e8edc4286c2afbdf3b6909499a2e3fccfa5d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301686"
+ms.locfileid: "56313259"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>De Azure AD Connect Health-agent installeren
 In dit document wordt beschreven hoe u de Azure AD Connect Health-agents installeert en configureert. U kunt de agents [hier](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent) downloaden.
@@ -42,7 +42,7 @@ In de volgende tabel ziet u een lijst vereisten voor het gebruik van Azure AD Co
 |FIPS uitschakelen|FIPS wordt niet ondersteund door Azure AD Connect Health-agents.|
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Uitgaande verbinding met de Azure-service-eindpunten
- Tijdens de installatie en runtime moet de agent verbonden zijn met de Azure AD Connect Health-service-eindpunten. Als de uitgaande connectiviteit is geblokkeerd met firewalls, moet u ervoor zorgen dat de volgende eindpunten wel zijn toegestaan. Lees meer over [uitgaande connectiviteit controleren](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)
+ Tijdens de installatie en runtime moet de agent verbonden zijn met de Azure AD Connect Health-service-eindpunten. Als u uitgaande connectiviteit is geblokkeerd met Firewalls, zorg er dan voor dat de volgende URL's worden niet standaard geblokkeerd. Beveiligingsbewaking of controle van deze URL's niet uit te schakelen, maar kunnen ze net als andere internetverkeer. Ze staan communicatie met Azure AD Connect Health-service-eindpunten. Lees meer over [uitgaande connectiviteit controleren](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)
 
 | Domeinomgeving | Vereiste Azure-service-eindpunten |
 | --- | --- |

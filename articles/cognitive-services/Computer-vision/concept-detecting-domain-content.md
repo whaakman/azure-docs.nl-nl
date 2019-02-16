@@ -8,53 +8,132 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: df7e61bb9d064c4530c0212cc02fbdd849017612
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 66137f01672820584f97273ddca26a66ada781ba
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871996"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312521"
 ---
-# <a name="detecting-domain-specific-content"></a>Domeinspecifieke inhoud detecteren
+# <a name="detect-domain-specific-content"></a>Domeinspecifieke inhoud detecteren
 
-Daarnaast categorisatie tagging en op het hoogste niveau, Computer Vision biedt ook ondersteuning voor gespecialiseerde (of domeinspecifieke) informatie. Gespecialiseerde informatie kan worden geïmplementeerd als zelfstandige methode of met de categorisatie op hoog niveau. Dit fungeert als een manier om de taxonomie van de 86 categorieën verder te verfijnen door toevoeging van domeinspecifieke modellen.
+Daarnaast categorisatie tagging en op hoog niveau, Computer Vision biedt ook ondersteuning voor verdere domeinspecifieke analyse met behulp van modellen die zijn getraind op speciale gegevens. 
 
-Er zijn twee opties voor het gebruik van de domeinspecifieke modellen:
+Er zijn twee manieren waarop u met de domeinspecifieke modellen: zelf (analyse van binnen het bereik) of als een uitbreiding op de functie voor categorisatie.
 
-* Analyse van binnen het bereik  
-  Alleen een gekozen model analyseren door het aanroepen van een HTTP POST-aanroep. Als u welk model weet wilt u gebruiken, geeft u de naam van het model. U alleen opvragen informatie relevant zijn voor dit model. U kunt deze optie bijvoorbeeld gebruiken als u alleen herkenning van beroemdheden wilt. Het antwoord bevat een lijst met mogelijke overeenkomsten met beroemdheden, samen met de betrouwbaarheidsscores.
-* Geavanceerde analyse  
-  Gebruik analyse om aanvullende informatie voor de categorieën van de 86-categorieëntaxonomie op te geven. Deze optie is beschikbaar voor toepassingen waarbij gebruikers een algemene afbeeldingsanalyse willen ophalen naast details uit één of meer domeinspecifieke modellen. Wanneer deze methode wordt aangeroepen, wordt eerst de classificatie van de 86-categorieëntaxonomie aangeroepen. Als een van de categorieën die van bekende of overeenkomende modellen overeenkomen, volgt een tweede fase van de classificatie-aanroepen. Bijvoorbeeld, als de `details` parameter van de HTTP POST-aanroep ofwel is ingesteld op 'alle' of 'beroemdheden' bevat, wordt de methode roept de classificatie beroemdheden nadat de classificatie 86 categorie is aangeroepen. Als de afbeelding is geclassificeerd als `people_` of een subcategorie van die categorie, en vervolgens de beroemdheden-classificatie wordt aangeroepen.
+### <a name="scoped-analysis"></a>Analyse van binnen het bereik
 
-## <a name="listing-domain-specific-models"></a>Domeinspecifieke modellen weergeven
+U kunt een installatiekopie met behulp van het gekozen domeinspecifieke model door het aanroepen van analyseren de [modellen /\<model\>/het analyseren](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) API. 
 
-U kunt de domeinspecifieke modellen dat wordt ondersteund door visie op de Computer weergeven. Computer Vision ondersteunt momenteel de volgende domeinspecifieke modellen voor het detecteren van domeinspecifieke inhoud:
+Hieronder volgt een voorbeeld van een JSON-antwoord geretourneerd door de **modellen/beroemdheden/analyseren** API voor de opgegeven installatiekopie:
+
+![Satya Nadella standing](./images/satya.jpeg)
+
+```json
+{
+  "result": {
+    "celebrities": [{
+      "faceRectangle": {
+        "top": 391,
+        "left": 318,
+        "width": 184,
+        "height": 184
+      },
+      "name": "Satya Nadella",
+      "confidence": 0.99999856948852539
+    }]
+  },
+  "requestId": "8217262a-1a90-4498-a242-68376a4b956b",
+  "metadata": {
+    "width": 800,
+    "height": 1200,
+    "format": "Jpeg"
+  }
+}
+```
+
+### <a name="enhanced-categorization-analysis"></a>Verbeterde categorisatie-analyse  
+
+U kunt ook domeinspecifieke modellen gebruiken om te voorzien in algemene installatiekopie analyse. U doet dit als onderdeel van [op hoog niveau categorisatie](concept-categorizing-images.md) door te geven van domeinspecifieke modellen in de *details* parameter van de [analyseren](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API-aanroep. 
+
+In dit geval wordt de classificatie 86 categorietaxonomie eerst genoemd. Als een van de gedetecteerde categorieën beschikt over een overeenkomende domeinspecifieke-model, wordt de installatiekopie doorgegeven dat ook model en de resultaten worden toegevoegd. 
+
+De volgende JSON-antwoord bevat hoe domeinspecifieke analyse kunnen worden opgenomen als de `detail` knooppunt in een breder categorisatie-analyse.
+
+```json
+"categories":[  
+  {  
+    "name":"abstract_",
+    "score":0.00390625
+  },
+  {  
+    "name":"people_",
+    "score":0.83984375,
+    "detail":{  
+      "celebrities":[  
+        {  
+          "name":"Satya Nadella",
+          "faceRectangle":{  
+            "left":597,
+            "top":162,
+            "width":248,
+            "height":248
+          },
+          "confidence":0.999028444
+        }
+      ],
+      "landmarks":[  
+        {  
+          "name":"Forbidden City",
+          "confidence":0.9978346
+        }
+      ]
+    }
+  }
+]
+```
+
+## <a name="list-the-domain-specific-models"></a>Lijst met de domeinspecifieke modellen
+
+Computer Vision ondersteunt momenteel de volgende domeinspecifieke modellen:
 
 | Name | Description |
 |------|-------------|
 | beroemdheden | Herkenning van beroemdheden, ondersteund voor installatiekopieën geclassificeerd de `people_` categorie |
 | Oriëntatiepunten | Oriëntatiepunten spraakherkenning, ondersteund voor installatiekopieën geclassificeerd de `outdoor_` of `building_` categorieën |
 
-### <a name="domain-model-list-example"></a>Voorbeeld van een domein model
-
-De volgende JSON-antwoord bevat de domeinspecifieke modellen dat wordt ondersteund door visie op de Computer.
+Aanroepen van de [modellen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) API retourneert deze informatie, samen met de categorieën die elk model kunt toepassen:
 
 ```json
-{
-    "models": [
-        {
-            "name": "celebrities",
-            "categories": ["people_", "人_", "pessoas_", "gente_"]
-        },
-        {
-            "name": "landmarks",
-            "categories": ["outdoor_", "户外_", "屋外_", "aoarlivre_", "alairelibre_",
-                "building_", "建筑_", "建物_", "edifício_"]
-        }
-    ]
+{  
+  "models":[  
+    {  
+      "name":"celebrities",
+      "categories":[  
+        "people_",
+        "人_",
+        "pessoas_",
+        "gente_"
+      ]
+    },
+    {  
+      "name":"landmarks",
+      "categories":[  
+        "outdoor_",
+        "户外_",
+        "屋外_",
+        "aoarlivre_",
+        "alairelibre_",
+        "building_",
+        "建筑_",
+        "建物_",
+        "edifício_"
+      ]
+    }
+  ]
 }
 ```
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 50f2c174f21243a70c830c1c30127e0629c81972
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c32dcbac8ebab5fb71839a4525163c0e6cf028ed
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110248"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310721"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Bestandsintegriteit controleren in Azure Security Center
 Informatie over het configureren van bestand integriteit controleren (FIM) in Azure Security Center gebruikt deze stapsgewijze kennismaking.
@@ -88,7 +88,7 @@ Om in te schakelen FIM in een werkruimte:
 4. Selecteer **toepassen bestandsintegriteit controleren** om in te schakelen van FIM.
 
 > [!NOTE]
-> U kunt de instellingen op elk gewenst moment wijzigen. Zie [bewerken gecontroleerde entiteiten](security-center-file-integrity-monitoring.md#edit-monitored-items) hieronder voor meer informatie.
+> U kunt de instellingen op elk gewenst moment wijzigen. Zie dat bewerken bewaakt entiteiten hieronder voor meer informatie.
 >
 >
 

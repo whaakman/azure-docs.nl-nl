@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
 ms.author: raynew
-ms.openlocfilehash: 73074898c29a240e31b181025f8cc92f25de5061
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 006d47d397bab0869ae8a75d6c17d239e71608c3
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382749"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310572"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Een back-up van een Windows-server of -client maken op Azure met behulp van het Resource Manager-implementatiemodel
 In dit artikel wordt uitgelegd hoe u back-up van uw Windows Server (of Windows-client) bestanden en mappen in Azure met Azure Backup met behulp van de Resource Manager-implementatiemodel.
@@ -72,7 +72,7 @@ Als u voor het eerst een Recovery Services-kluis maakt, bepaalt u hoe uw opslag 
 
     ![De nieuwe kluis in de lijst met Recovery Services-kluizen selecteren](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault.png)
 
-    Wanneer u de kluis selecteert, de Recovery Services-kluis blade kluisdetails, en de **overzicht** blade (*waarvan de naam van de kluis is aan de bovenkant*) de kluis om de blade details.
+    Wanneer u de kluis selecteert, de Recovery Services-kluis blade kluisdetails, en de **overzicht** blade (*waarvan de naam van de kluis is aan de bovenkant*) en de blade met kluisdetails geopend.
 
     ![De opslagconfiguratie voor nieuwe kluis bekijken](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-overview.png)
 

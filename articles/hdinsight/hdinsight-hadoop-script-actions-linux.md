@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: b0eae86a4927f716c974086411e1098f2e9a190d
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 9711e9bf94619b8cd003972d74f3bca4c45894bf
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498026"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312077"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Ontwikkeling van scriptacties met HDInsight
 
@@ -142,7 +142,7 @@ Voor de meeste bewerkingen hoeft u niet om op te geven van het bestandssysteem. 
 hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 ```
 
-In dit voorbeeld wordt de `hdfs` opdracht transparant maakt gebruik van de standaardopslag voor het cluster. Voor bepaalde bewerkingen moet u mogelijk de URI opgeven. Bijvoorbeeld, `adl:///example/jars` voor Data Lake-opslag of `wasb:///example/jars` voor Azure Storage.
+In dit voorbeeld wordt de `hdfs` opdracht transparant maakt gebruik van de standaardopslag voor het cluster. Voor bepaalde bewerkingen moet u mogelijk de URI opgeven. Bijvoorbeeld, `adl:///example/jars` voor Data Lake Storage Gen1 of `wasb:///example/jars` voor Azure Storage.
 
 ### <a name="bPS7"></a>Schrijven van gegevens in de STDOUT en STDERR
 

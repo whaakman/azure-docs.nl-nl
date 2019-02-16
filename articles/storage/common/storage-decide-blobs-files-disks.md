@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 77c4377afaff20e77e76c0a7389c79dfdce703ca
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 869d2105ccf635a46a21e9b7f382ddbef713d68b
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509130"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327007"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Bepalen wanneer u Azure-Blobs, Azure Files of Azure-schijven gebruiken
 Microsoft Azure biedt verschillende functies in Azure Storage voor het opslaan en openen van uw gegevens in de cloud. In dit artikel bevat informatie over Azure Files, Blobs en schijven, en is ontworpen om te kiezen tussen deze functies.
@@ -56,7 +56,7 @@ De volgende tabel vergelijkt Azure Files met Azure-schijven.
 |Bereik|Exclusief voor een enkele virtuele machine|Gedeelde toegang over meerdere virtuele machines|  
 |Momentopnamen en kopiëren|Ja|Ja|  
 |Configuratie|Bij het opstarten van de virtuele machine verbonden|Verbonden nadat de virtuele machine is gestart|  
-|Verificatie|Ingebouwd|Met net use instellen|  
+|Authentication|Ingebouwd|Met net use instellen|  
 |Toegang met behulp van REST|Bestanden in de VHD kunnen niet worden geopend.|Bestanden die zijn opgeslagen in een share kunnen worden geopend.|  
 |Maximale grootte|4 TiB-schijf|5 TiB-bestandsshare en 1 TiB-bestand in de share|  
 |Max. aantal IOP 's|500 IOP 's|1000 IOps|  
@@ -67,4 +67,4 @@ Bij het nemen van besluiten over hoe uw gegevens worden opgeslagen en gebruikt, 
   
 Sommige SMB-functies zijn niet van toepassing op de cloud. Zie voor meer informatie, [die niet worden ondersteund door de Azure File service](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
   
-Zie voor meer informatie over schijven [schijven en installatiekopieën beheren](../../virtual-machines/windows/about-disks-and-vhds.md) en [hoe u een gegevensschijf koppelen aan een Windows-Machine](../../virtual-machines/windows/attach-managed-disk-portal.md).
+Zie voor meer informatie over schijven, onze [Inleiding tot beheerde schijven](../../virtual-machines/windows/managed-disks-overview.md) en [hoe u een gegevensschijf koppelen aan een Windows-Machine](../../virtual-machines/windows/attach-managed-disk-portal.md).

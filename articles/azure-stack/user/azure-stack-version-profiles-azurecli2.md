@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/15/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: b27dd1b9aec89f259649b313d3ba7f944ea647f1
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 6d82410e07e725b13385f6ff2b57218c1146a80a
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765711"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329283"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>API-versieprofielen gebruiken met Azure CLI in Azure Stack
 
@@ -114,7 +114,12 @@ Voordat u virtuele machines maken kunt met behulp van CLI, moet u contact op met
 
 Gebruik de volgende stappen uit om te verbinden met Azure Stack:
 
-1. Registreren van uw Azure Stack-omgeving door het uitvoeren van de `az cloud register` opdracht.
+1. Registreren van uw Azure Stack-omgeving door het uitvoeren van de `az cloud register` opdracht. In sommige scenario's worden direct uitgaande verbinding met internet wordt doorgestuurd via een proxy of firewall, die wordt afgedwongen SSL worden onderschept. In dergelijke gevallen de `az cloud register` opdracht kan mislukken met een fout betreft, zoals "Kan geen eindpunten ophalen uit de cloud." U kunt deze fout omzeilen, kunt u de volgende omgevingsvariabelen instellen:
+
+   ```shell
+   set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
+   set ADAL_PYTHON_SSL_NO_VERIFY=1
+   ```
    
     a. Om u te registreren de *cloud administratieve* omgeving gebruiken:
 

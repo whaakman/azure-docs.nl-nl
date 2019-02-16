@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
-ms.openlocfilehash: 946b5a568d98367daec0244968b962618f22ae76
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 63906e65acb8e8aa836e6e59714bddca24ea21eb
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42055462"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326922"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000-serie: een oplossing voor hybride cloudopslag
 ## <a name="overview"></a>Overzicht
@@ -92,7 +92,7 @@ Het cloudapparaat heeft de volgende functies:
 * U kunt een onbeperkt aantal-cloudapparaten maken in de cloud, en deze in of uit als nodig.
 * Het kan helpen bij het simuleren van on-premises omgevingen herstel na noodgevallen, ontwikkeling en Testscenario's en kan helpen bij het ophalen van op itemniveau vanuit back-ups.
 
-De StorSimple-Cloudapparaat is beschikbaar in twee modellen: de 8010-apparaat (voorheen bekend als de 1100-model) en de 8020-apparaat. De 8010-apparaat heeft een maximale capaciteit van 30 TB. Het 8020-apparaat, wordt gebruikgemaakt van Azure premium-opslag, heeft een maximale capaciteit van 64 TB. (In de lokale lagen, Azure premium storage slaat gegevens op SSD's terwijl standard-opslag gegevens op HDD's opgeslagen.) Houd er rekening mee dat u moet een Azure premium storage-account naar premium storage gebruiken. Voor meer informatie over premium-opslag, gaat u naar [Premium Storage: hoogwaardige opslag voor Azure Virtual Machine-werkbelasting](../virtual-machines/windows/premium-storage.md).
+De StorSimple-Cloudapparaat is beschikbaar in twee modellen: de 8010-apparaat (voorheen bekend als de 1100-model) en de 8020-apparaat. De 8010-apparaat heeft een maximale capaciteit van 30 TB. Het 8020-apparaat, wordt gebruikgemaakt van Azure premium-opslag, heeft een maximale capaciteit van 64 TB. (In de lokale lagen, Azure premium storage slaat gegevens op SSD's terwijl standard-opslag gegevens op HDD's opgeslagen.) Houd er rekening mee dat u moet een Azure premium storage-account naar premium storage gebruiken.
 
 Voor meer informatie over de StorSimple-Cloudapparaat, gaat u naar [implementeren en beheren van een StorSimple-Cloudapparaat in Azure](storsimple-8000-cloud-appliance-u2.md).
 
@@ -238,7 +238,7 @@ Hieronder volgt een lijst van de onderdelen van de infrastructuur van StorSimple
 | Algemeen |DataCore FC |Ja* |Ondersteund met DataCore SANsymphony |Alle versies |
 | Algemeen |DFSR |Ja* |Alleen ondersteund met lokaal vastgemaakte volumes |Alle versies |
 | Algemeen |Indexeren |Ja* |Voor gelaagde volumes, enige metagegevens indexeren wordt ondersteund (geen gegevens).<br>Voor lokaal vastgemaakte volumes wordt volledige indexering ondersteund. |Alle versies |
-| Algemeen |Antivirusprogramma 's |Ja* |Voor gelaagde volumes wordt alleen scannen op open en close ondersteund.<br> Volledige scan wordt ondersteund voor lokaal vastgemaakte volumes. |Alle versies |
+| Algemeen |Anti-virus |Ja* |Voor gelaagde volumes wordt alleen scannen op open en close ondersteund.<br> Volledige scan wordt ondersteund voor lokaal vastgemaakte volumes. |Alle versies |
 
 *Ja&#42; -oplossing richtlijnen en beperkingen moeten worden toegepast.*
 
@@ -255,7 +255,7 @@ Hieronder volgt een lijst met andere software die worden gebruikt met StorSimple
 Voordat u uw Microsoft Azure StorSimple-oplossing implementeert, wordt u aangeraden de volgende termen en definities te controleren.
 
 ### <a name="key-terms-and-definitions"></a>Belangrijkste termen en definities
-| Termijn (acroniem of afkorting) | Beschrijving |
+| Termijn (acroniem of afkorting) | Description |
 | --- | --- |
 | Acces controlerecord (ACR) |Een record die zijn gekoppeld aan een volume op uw Microsoft Azure StorSimple-apparaat waarmee wordt bepaald welke hosts verbinding mee kunnen maken. De bepaling is gebaseerd op de iSCSI Qualified Name (IQN) van de hosts (die zijn opgenomen in de ACR) die zijn verbonden met uw StorSimple-apparaat. |
 | AES-256 |Een 256-bits Advanced Encryption Standard (AES)-algoritme voor het versleutelen van gegevens worden verplaatst naar en van de cloud. |
@@ -302,7 +302,7 @@ Voordat u uw Microsoft Azure StorSimple-oplossing implementeert, wordt u aangera
 | StorSimple-apparaatbeheerservice |Een uitbreiding van de Azure-portal waarmee u voor het beheren van uw Azure StorSimple on-premises en virtuele apparaten. |
 | StorSimple Snapshot Manager |Een Microsoft Management Console (MMC)-module voor het beheren van back-up en herstellen van bewerkingen in Microsoft Azure StorSimple. |
 | back-up maken |Een functie waarmee de gebruiker een interactieve back-up van een volume. Het is een alternatieve manier om een handmatige back-up maken van een volume in plaats van een geautomatiseerde back-up maken via een gedefinieerd beleid. |
-| thin provisioning |Een methode voor het optimaliseren van de efficiëntie waarmee de beschikbare opslagruimte wordt gebruikt in opslagsystemen. De opslag wordt in dunne inrichting wordt toegewezen door meerdere gebruikers op basis van de minimale schijfruimte vereist voor elke gebruiker op een bepaald moment. Zie ook *fat inrichting*. |
+| Thin provisioning |Een methode voor het optimaliseren van de efficiëntie waarmee de beschikbare opslagruimte wordt gebruikt in opslagsystemen. De opslag wordt in dunne inrichting wordt toegewezen door meerdere gebruikers op basis van de minimale schijfruimte vereist voor elke gebruiker op een bepaald moment. Zie ook *fat inrichting*. |
 | opslaglagen |Rangschikken van gegevens in logische groepen op basis van het huidige gebruik, leeftijd en relatie met andere gegevens. StorSimple is automatisch zorgt ervoor dat gegevens in lagen. |
 | volume |Logische opslagplaatsen die zijn gepresenteerd in de vorm van schijven. StorSimple-volumes komen overeen met de volumes die zijn gekoppeld met de host, met inbegrip van die door het gebruik van iSCSI- en een StorSimple-apparaat wordt gedetecteerd. |
 | volumecontainer |Een groepering van volumes en de instellingen die op hen van toepassing. Alle volumes in uw StorSimple-apparaat zijn gegroepeerd in volumecontainers. Containerinstellingen volume zijn opslagaccounts, encryption-instellingen voor gegevens die worden verzonden naar de cloud gekoppelde versleutelingssleutels, en bandbreedte voor bewerkingen met betrekking tot de cloud. |

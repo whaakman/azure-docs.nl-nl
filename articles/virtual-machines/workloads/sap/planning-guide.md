@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6f91ccc93dcd2ac9b96379c4aa94d1f430faaf66
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ac55d14f864698506610301ae46bd4b6573d4f92
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118289"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330661"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuele Machines, planning en implementatie van SAP NetWeaver
 
@@ -248,7 +248,7 @@ ms.locfileid: "56118289"
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md
-[storage-premium-storage-preview-portal]:../../windows/premium-storage.md
+[storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -870,7 +870,7 @@ Vereisten bij het voorbereiden van uw eigen Azure-VM-schijf zijn:
 
 * De VHD met het besturingssysteem kan oorspronkelijk alleen een maximale grootte van 127GB zijn. Deze beperking is aan het einde van maart 2015 verwijderd. Nu de VHD met het besturingssysteem maximaal 1TB groot zijn kan als een andere Azure-opslag VHD ook gehoste.
 * Het moet zich in de vaste VHD-indeling. Dynamische virtuele harde schijven of VHD's in de VHDx-indeling zijn nog niet ondersteund op Azure. Dynamische VHD's worden geconverteerd naar vaste VHD's tijdens het uploaden van de VHD met de PowerShell-commandlets of CLI
-* VHD's, die zijn gekoppeld aan de virtuele machine en moeten worden gekoppeld opnieuw in Azure worden in een vaste VHD-indeling ook aan de virtuele machine. Lezen [in dit artikel (Linux)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-linux) en [in dit artikel (Windows)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-windows) voor de maximale grootte van gegevensschijven. Dynamische VHD's worden geconverteerd naar vaste VHD's tijdens het uploaden van de VHD met de PowerShell-commandlets of CLI
+* VHD's, die zijn gekoppeld aan de virtuele machine en moeten worden gekoppeld opnieuw in Azure worden in een vaste VHD-indeling ook aan de virtuele machine. Lees [in dit artikel (Linux)](../../linux/managed-disks-overview.md) en [in dit artikel (Windows)](../../windows/managed-disks-overview.md)) voor de maximale grootte van gegevensschijven. Dynamische VHD's worden geconverteerd naar vaste VHD's tijdens het uploaden van de VHD met de PowerShell-commandlets of CLI
 * Voeg een andere lokale account met beheerdersbevoegdheden, die kan worden gebruikt door Microsoft ondersteuning of die kunnen worden toegewezen als context voor services en toepassingen worden uitgevoerd in totdat de virtuele machine is geïmplementeerd en meer gebruikers kan worden gebruikt.
 * Andere lokale accounts toevoegen als die welke nodig zijn voor het specifieke scenario.
 
@@ -897,7 +897,7 @@ Vereisten bij het voorbereiden van uw eigen Azure-VM-installatiekopie zijn:
 
 * De VHD met het besturingssysteem kan oorspronkelijk alleen een maximale grootte van 127GB zijn. Deze beperking is aan het einde van maart 2015 verwijderd. Nu de VHD met het besturingssysteem maximaal 1TB groot zijn kan als een andere Azure-opslag VHD ook gehoste.
 * Het moet zich in de vaste VHD-indeling. Dynamische virtuele harde schijven of VHD's in de VHDx-indeling zijn nog niet ondersteund op Azure. Dynamische VHD's worden geconverteerd naar vaste VHD's tijdens het uploaden van de VHD met de PowerShell-commandlets of CLI
-* VHD's, die zijn gekoppeld aan de virtuele machine en moeten worden gekoppeld opnieuw in Azure worden in een vaste VHD-indeling ook aan de virtuele machine. Lees [in dit artikel (Linux)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-linux) en [in dit artikel (Windows)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-windows) voor de maximale grootte van gegevensschijven. Dynamische VHD's worden geconverteerd naar vaste VHD's tijdens het uploaden van de VHD met de PowerShell-commandlets of CLI
+* VHD's, die zijn gekoppeld aan de virtuele machine en moeten worden gekoppeld opnieuw in Azure worden in een vaste VHD-indeling ook aan de virtuele machine. Lees [in dit artikel (Linux)](../../windows/managed-disks-overview.md) en [in dit artikel (Windows)](../../linux/managed-disks-overview.md) voor de maximale grootte van gegevensschijven. Dynamische VHD's worden geconverteerd naar vaste VHD's tijdens het uploaden van de VHD met de PowerShell-commandlets of CLI
 * Andere lokale accounts toevoegen als die welke nodig zijn voor het specifieke scenario.
 * Als de afbeelding bevat een installatie van SAP NetWeaver en wijzigen van de naam van de hostnaam van de oorspronkelijke naam op het moment van de Azure-implementatie is waarschijnlijk dat het beste de nieuwste versies van de SAP-Software wordt ingericht Manager DVD kopiëren naar de sjabloon. Hierdoor kunt u eenvoudig de functionaliteit voor het wijzigen van SAP opgegeven om te gebruiken om aan te passen de hostnaam van de gewijzigde en/of de SID van de SAP-systeem in de geïmplementeerde VM-installatiekopie wijzigen zodra een nieuw exemplaar wordt gestart.
 

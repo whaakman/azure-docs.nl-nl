@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: 5f3d884720bce5777a358a27dc477eabd5263d0c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 4c58d053412b8f90b6423454fcda814e8cf6da75
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245181"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329010"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Ondersteuningsmatrix voor het repliceren van de ene Azure-regio naar een andere
 
@@ -177,8 +177,8 @@ Deze tabel samengevat ondersteuning voor de Azure VM-besturingssysteem schijf, d
 
 **Onderdeel** | **Ondersteuning** | **Details**
 --- | --- | ---
-Maximale grootte van de Besturingssysteemschijf | 2048 GB | [Meer informatie](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms) over VM-schijven.
-Tijdelijke schijf | Niet ondersteund | De tijdelijke schijf is altijd uitgesloten van replicatie.<br/><br/> Geen permanente gegevens niet worden opgeslagen op de tijdelijke schijf. [Meer informatie](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk).
+Maximale grootte van de Besturingssysteemschijf | 2048 GB | [Meer informatie](../virtual-machines/windows/managed-disks-overview.md) over VM-schijven.
+Tijdelijke schijf | Niet ondersteund | De tijdelijke schijf is altijd uitgesloten van replicatie.<br/><br/> Geen permanente gegevens niet worden opgeslagen op de tijdelijke schijf. [Meer informatie](../virtual-machines/windows/managed-disks-overview.md).
 Maximale grootte van de gegevensschijf | 4095 GB |
 Maximum aantal voor gegevens-schijf | Maximaal 64, in overeenstemming met de ondersteuning voor een specifieke Azure-VM-grootte | [Meer informatie](../virtual-machines/windows/sizes.md) over VM-grootten.
 Veranderingssnelheid van gegevens-schijf | Maximaal 10 MBps per schijf voor premium-opslag. Maximaal 2 MBps per schijf voor Standard-opslag. | Als de gemiddelde gegevenswijzigingssnelheid op de schijf is voortdurend hoger is dan de maximale, replicatie wordt niet actueel.<br/><br/>  Echter, als de maximale sporadisch wordt overschreden, replicatie kan bijwonen, maar ziet u mogelijk enigszins vertraagd herstelpunten.
@@ -194,7 +194,7 @@ Versleuteling-at-rest (SSE) | Ondersteund | SSE is de standaardinstelling op sto
 Azure Disk Encryption (ADE) voor Windows-besturingssysteem | VM's zijn ingeschakeld voor [versleuteling met Azure AD-app](https://aka.ms/ade-aad-app) worden ondersteund |
 Azure Disk Encryption (ADE) voor Linux-besturingssysteem | Niet ondersteund |
 Hot toevoegen of verwijderen-schijf | Niet ondersteund | Als u toevoegen of verwijderen van de gegevensschijf op de virtuele machine, moet u replicatie uitschakelen en inschakelen van replicatie opnieuw voor de virtuele machine.
-Schijf uitsluiten | Niet ondersteund|   Tijdelijke schijf is uitgesloten standaard.
+Schijf uitsluiten | [ondersteund via powershell](https://review.docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell?branch=pr-en-us-66458#replicate-azure-virtual-machine) |  Tijdelijke schijf is uitgesloten standaard.
 Storage Spaces Direct  | Ondersteund voor crash-consistente herstelpunten. Toepassing consistente herstelpunten worden niet ondersteund. |
 Scale-out bestandsserver  | Ondersteund voor crash-consistente herstelpunten. Toepassing consistente herstelpunten worden niet ondersteund. |
 LRS | Ondersteund |

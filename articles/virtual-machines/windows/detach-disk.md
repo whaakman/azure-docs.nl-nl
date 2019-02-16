@@ -16,24 +16,21 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 750bb275ef936b3911503cd4c0f50674d3dff2d1
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: bd91607260d47d37bc3ce94ec63f700082416b6d
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981142"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329896"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Een gegevensschijf van een Windows virtuele machine loskoppelen
 
 Wanneer u een gegevensschijf die is gekoppeld aan een virtuele machine niet meer nodig hebt, kunt u deze eenvoudig loskoppelen. Hiermee wordt de schijf van de virtuele machine verwijderd, maar niet verwijderd uit de opslag.
 
 > [!WARNING]
-> Als u een schijf loskoppelen wordt deze niet automatisch verwijderd. Als u bent geabonneerd op Premium-opslag, blijft u opslag in rekening gebracht voor de schijf. Zie voor meer informatie, [prijzen en facturering bij het gebruik van Premium Storage](premium-storage.md#pricing-and-billing).
->
->
+> Als u een schijf loskoppelen wordt deze niet automatisch verwijderd. Als u bent geabonneerd op Premium-opslag, blijft u opslag in rekening gebracht voor de schijf. Zie voor meer informatie, [prijzen en facturering bij het gebruik van Premium Storage](disks-types.md#billing).
 
 Als u de bestaande gegevens op de schijf opnieuw wilt gebruiken, kunt u de schijf opnieuw koppelen aan dezelfde of een andere virtuele machine.
-
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
@@ -51,11 +48,10 @@ Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
 
 De schijf blijft in de opslag, maar is niet meer gekoppeld aan een virtuele machine.
 
-
 ## <a name="detach-a-data-disk-using-the-portal"></a>Een gegevensschijf ontkoppelen via de portal
 
 1. Selecteer in het menu links **virtuele Machines**.
-2. Selecteer de virtuele machine waarvoor de gegevensschijf die u wilt loskoppelen en klikt u op **stoppen** toewijzing van de virtuele machine.
+2. Selecteer de virtuele machine waarvoor de gegevensschijf die u wilt loskoppelen en klikt u op **stoppen** voor het toewijzen van de virtuele machine ongedaan maken.
 3. Selecteer in het deelvenster met de virtuele machine **schijven**.
 4. Aan de bovenkant van de **schijven** venster **bewerken**.
 5. In de **schijven** in het deelvenster aan de rechterkant van de gegevensschijf die u wilt loskoppelen, klikt u op de ![afbeelding van de knop ontkoppelen](./media/detach-disk/detach.png) knop loskoppelen.
@@ -65,5 +61,5 @@ De schijf blijft in de opslag, maar is niet meer gekoppeld aan een virtuele mach
 De schijf blijft in de opslag, maar is niet meer gekoppeld aan een virtuele machine.
 
 ## <a name="next-steps"></a>Volgende stappen
-Als u de gegevensschijf opnieuw gebruiken wilt, kunt u zojuist hebt [koppelen aan een andere virtuele machine](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
+Als u de gegevensschijf opnieuw gebruiken wilt, kunt u zojuist hebt [koppelen aan een andere virtuele machine](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

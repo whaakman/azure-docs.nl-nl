@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 10/08/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 00d29ac1938a1abb63fca50afe3d66253a1e29bf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bd6531bc950e006f15924bb9a0d6428f9e69d544
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460723"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330831"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>Wat is er nieuw in Azure SQL Data Warehouse? September 2018
 Azure SQL Data Warehouse ontvangt voortdurend verbeteringen. Dit artikel beschrijft de nieuwe functies en wijzigingen die zijn geïntroduceerd in September 2018.
@@ -24,6 +24,9 @@ Azure SQL Data Warehouse ontvangt voortdurend verbeteringen. Dit artikel beschri
 In April 2018, [presenteerde Microsoft](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Azure SQL Data Warehouse Gen2 met 5 x de prestaties, 5 x de schaal van compute, 4 x de gelijktijdigheid van taken en onbeperkte opslag. Zoals vermeld in de [datawarehouse in de cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) door Onderzoeksanalist, SQL Data Warehouse Gen2 **behaalt u betere resultaten dan Amazon Redshift 42%**.
 
 Gen2 is nu algemeen beschikbaar op een lagere vermelding punt van DWU500c zodat u kunt een kleinere grootte data warehouse of dev/test-omgevingen met alle van de meest recente verbeteringen van de service worden uitgevoerd. Het nieuwe toegangspunt behoudt alle Gen2 functies waaronder [adaptieve cache-opslag](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/), [belichting snel gegevens volgorde wijzigen](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/), en ondersteuning voor [realtime datawarehouse](https://azure.microsoft.com/blog/enabling-real-time-data-warehousing-with-azure-sql-data-warehouse/).
+
+## <a name="sql-vulnerability-assessment"></a>Evaluatie van SQL-beveiligingsproblemen
+[SQL beveiligingslek Assessment (VA)](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/25/sql-vulnerability-assessment-now-supports-azure-sql-data-warehouse-and-azure-sql-database-managed-instance/) is een eenvoudig-en-klare-service die doorlopend uw datawarehouse controleert. Hiermee kunt u een hoog beveiligingsniveau te allen tijde garanderen en die uw organisatie beleidsregels wordt voldaan. Het biedt een uitgebreide beveiligingsrapport samen met bruikbare herstelstappen voor elk probleem gevonden. Dit rapport eenvoudig voor u proactief beheren van de status van uw database security en uw aandacht richten op het hoogste invloed acties, zelfs als u niet een deskundige. Voor dynamische omgevingen waarin wijzigingen worden regelmatig en moeilijk zijn om bij te houden, is de evaluatie van beveiligingsproblemen waardevol zijn bij het detecteren van de instellingen die u kunnen uw datawarehouse kwetsbaar voor aanvallen laten.
 
 ## <a name="improved-availability-with-query-restartability"></a>Verbeterde beschikbaarheid met query restartability
 Tijdens het uitvoeren van query's, een willekeurig aantal problemen kan optreden die kan leiden tot een query is mislukt. Een netwerkuitval van het, een hardwarestoring of andere ontkoppeling kan leiden tot een onderbreking. SQL Data Warehouse ondersteunt nu query restartability voor stap of niveau van de instructie SELECT-query's. 

@@ -11,16 +11,16 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/14/2018
+ms.date: 02/14/2019
 ms.author: twhitney, mikhegn
-ms.openlocfilehash: b38946f813185a4821520b8591b7fd72a5f0cce0
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 9801db8a38a8c21aea26b42f4fe01bd4a43988c5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300061"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311219"
 ---
-# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Hoe: fouten opsporen in Windows-containers in Azure Service Fabric met behulp van Visual Studio 2017
+# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Procedure: Fouten opsporen in Windows-containers in Azure Service Fabric met behulp van Visual Studio 2017
 
 Met Visual Studio 2017 Update 7 (15,7), kunt u .NET-toepassingen in containers foutopsporing als Service Fabric-services. Dit artikel ziet u hoe u uw omgeving te configureren en vervolgens fouten opsporen in een .NET-toepassing in een container die wordt uitgevoerd in een lokaal Service Fabric-cluster.
 
@@ -37,10 +37,10 @@ Met Visual Studio 2017 Update 7 (15,7), kunt u .NET-toepassingen in containers f
 1. Ter ondersteuning van DNS-omzetting tussen containers, wordt u voor het instellen van uw lokale ontwikkelcluster, hebben de computernaam. Deze stappen zijn ook nodig als u adresservices via de omgekeerde proxy wilt.
     1. Open PowerShell als beheerder
     2. Navigeer naar de installatiemap van de SDK-Cluster, doorgaans `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`.
-    3. Voer het script `DevClusterSetup.ps1` met de parameter `-UseMachineName`
+    3. Het script uitvoeren `DevClusterSetup.ps1`
 
        ``` PowerShell
-         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -UseMachineName
+         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1
        ```
 
     > [!NOTE]
@@ -54,18 +54,18 @@ Met Visual Studio 2017 Update 7 (15,7), kunt u .NET-toepassingen in containers f
 Hieronder volgt een lijst met bekende beperkingen met foutopsporing containers in Service Fabric en mogelijke oplossingen:
 
 * Met behulp van ' localhost ' voor ClusterFQDNorIP wordt geen ondersteuning voor DNS-omzetting in containers.
-    * Oplossing: Het lokale cluster met behulp van de naam van de computer (Zie hierboven) instellen
+    * Oplossing: Instellen van het lokale cluster met behulp van de naam van de computer (Zie hierboven)
 * Windows10 uitgevoerd in een virtuele Machine, krijgt geen DNS-antwoord terug naar de container.
     * Oplossing: UDP-controlesom-offload voor IPv4 op de NIC van de virtuele Machines uitschakelen
     * Houd er rekening mee dat netwerken prestaties op de machine afnemen.
     * https://github.com/Azure/service-fabric-issues/issues/1061
 * Het omzetten van services in dezelfde toepassing met behulp van DNS werkt servicenaam niet op Windows10, als de toepassing is geïmplementeerd met behulp van Docker Compose
-    * Oplossing: Servicename.applicationname gebruiken voor het omzetten van de service-eindpunten
+    * Oplossing: Servicename.applicationname gebruiken voor het omzetten van service-eindpunten
     * https://github.com/Azure/service-fabric-issues/issues/1062
 * Als u IP-adres voor ClusterFQDNorIP, wordt wijzigen van de primaire IP-adres op de host DNS-functionaliteit verbroken.
     * Oplossing: Maak het cluster met behulp van het nieuwe primaire IP-adres op de host opnieuw of gebruik van de naam van de computer. Dit is standaard.
 * Als het cluster is gemaakt met FQDN-naam niet omgezet in het netwerk is, mislukt DNS.
-    * Oplossing: Het lokale cluster met behulp van de primaire IP-adres van de host opnieuw. Dit is standaard.
+    * Oplossing: Maak het lokale cluster met behulp van de primaire IP-adres van de host opnieuw. Dit is standaard.
 * Bij het opsporen van fouten in een container, docker-logboeken worden pas beschikbaar in het uitvoervenster van Visual Studio, niet via de Service Fabric-API's, met inbegrip van Service Fabric Explorer
 
 ## <a name="debug-a-net-application-running-in-docker-containers-on-service-fabric"></a>Fouten opsporen in een .NET-toepassing uitvoeren in docker-containers in Service Fabric
@@ -81,4 +81,4 @@ Hieronder volgt een lijst met bekende beperkingen met foutopsporing containers i
     Visual Studio biedt ondersteuning voor console- en ASP.NET-projecttypen voor .NET en .NET Core.
 
 ## <a name="next-steps"></a>Volgende stappen
-Volg deze koppeling voor meer informatie over de mogelijkheden van Service Fabric en containers: [overzicht van Service Fabric-containers](service-fabric-containers-overview.md).
+Volg deze koppeling voor meer informatie over de mogelijkheden van Service Fabric en containers: [Overzicht van service Fabric-containers](service-fabric-containers-overview.md).

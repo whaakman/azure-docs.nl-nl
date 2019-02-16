@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 47f9dfea24dc3134e6a2f476affaaff7e60efe8c
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 3edd70d3012840bd66460219c32135666619a3bf
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260377"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313565"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum proof-of-authority consortium
 
@@ -148,7 +148,7 @@ Als u elk soort transacties via de DApp Governance, moet u gebruikmaken van een 
 Na de installatie van MetaMask, gaat u naar de DApp Governance in de browser.  U vindt de URL in de implementatie bevestigingse-mail of via Azure portal in de uitvoer van de implementatie.  Als u een in de browser wallet geïnstalleerd geen hebt u niet mogelijk om uit te voeren handelingen; u hebt nog steeds wel kunnen lezen van de status van de beheerder.  
 
 #### <a name="becoming-an-admin"></a>Een beheerder uw account
-Als u het eerste lid dat op het netwerk geïmplementeerd, wordt klikt u vervolgens u automatisch een beheerder en uw pariteit knooppunten worden vermeld als Systeemstatuscontrolepunten.  Als u bent lid wordt van het netwerk, moet u ophalen uw stem aangegeven dat een beheerder met een meerderheid (groter dan 50%) van de bestaande-beheerder heeft ingesteld.  Als u ervoor kiest niet te worden van een beheerder en vervolgens uw knooppunten wordt nog steeds synchroniseren en valideren van de blockchain; Deze wordt echter niet opgenomen in het maakproces blokkeren. Voor het starten van de stemmende proces om te worden van een beheerder, klikt u op __Nominate__ en geef uw Ethereum-adres en de alias.
+Als u het eerste lid dat op het netwerk geïmplementeerd, wordt klikt u vervolgens u automatisch een beheerder en uw pariteit knooppunten worden vermeld als Systeemstatuscontrolepunten.  Als u bent lid wordt van het netwerk, moet u ophalen gestemd als beheerder door een meerderheid (groter dan 50%) van de bestaande set van de beheerder.  Als u ervoor kiest niet te worden van een beheerder en vervolgens uw knooppunten wordt nog steeds synchroniseren en valideren van de blockchain; Deze wordt echter niet opgenomen in het maakproces blokkeren. Voor het starten van de stemmende proces om te worden van een beheerder, klikt u op __Nominate__ en geef uw Ethereum-adres en de alias.
 
 ![Benoemen](./media/ethereum-poa-deployment/governance-dapp-nominate.png)
 
@@ -258,9 +258,9 @@ Houd er rekening mee dat virtuele Machine en Storage-laag invloed op de prestati
 
   Virtuele Machine SKU|Storage-laag|Prijs|Doorvoer|Latentie
   ---|---|---|---|---
-  F1|Standard - SSD|Laag|Laag|Hoog
+  F1|Standard - SSD|laag|laag|Hoog
   D2_v3|Standard - SSD|gemiddeld|gemiddeld|gemiddeld
-  F16s|Premium SSD|Hoog|Hoog|Laag
+  F16s|Premium SSD|Hoog|Hoog|laag
 
 Een voorbeeldimplementatie wordt hieronder weergegeven: ![netwerk grootte en prestaties](./media/ethereum-poa-deployment/network-size-and-performance.png)
 
@@ -359,7 +359,7 @@ Deze eerste stap is met behulp van de implementatie op basis van een openbaar IP
 
     -  Kies de hetzelfde aantal validator knooppunten als de rest van de leden in het netwerk om ervoor te zorgen geoorloofd weergave
 
-    -  Gebruik hetzelfde Ethereum-adres dat is opgegeven in de [vorige stap](#step-1-add-the-new-admin)
+    -  Gebruik hetzelfde Ethereum-adres dat is opgegeven in de vorige stap
 
     -  In de opgegeven doorgeven *Consortium gegevens Url* op de *Ethereum-instellingen* tabblad
 

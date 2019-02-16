@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 336ac6b81a56797ad1c1254322dbeec3e36914f3
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: d7728dd5c025a88f8912dca708abc45ab519ce2c
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358147"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327541"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>De Chef-client installeren vanuit de Azure-portal
 U kunt de uitbreiding voor de Chef-client rechtstreeks naar een Linux- of Windows-machine toevoegen vanuit de Azure-portal. Dit artikel begeleidt u bij het proces met behulp van een nieuwe virtuele Linux-machine.
@@ -53,14 +53,14 @@ In deze sectie gaat u eerst de Azure-portal gebruiken om een Linux-machine te ma
 1. Op de **basisbeginselen** tabblad, geef de volgende waarden en selecteer vervolgens **OK**.
 
     - **Naam** -Voer een naam voor de nieuwe virtuele machine.
-    - **VM-schijftype** -opgeven of **SSD** of **HDD** voor het opslagtype voor de schijf. Zie het artikel voor meer informatie over schijftypen van de virtuele machine op Azure, [High-performance Premium Storage en beheerde schijven voor virtuele machines](/azure/virtual-machines/windows/premium-storage).
+    - **VM-schijftype** -opgeven of **SSD** of **HDD** voor het opslagtype voor de schijf. Zie het artikel voor meer informatie over schijftypen van de virtuele machine op Azure, [Selecteer een schijftype](../virtual-machines/windows/disks-types.md).
     - **Gebruikersnaam** -Voer een gebruikersnaam die wordt verleend beheerdersbevoegdheden op de virtuele machine.
     - **Verificatietype** : Selecteer **wachtwoord**. U kunt ook selecteren **openbare SSH-sleutel**, en een openbare SSH-sleutelwaarde hebt opgegeven. Ten behoeve van deze demo (en in de schermafbeeldingen) **wachtwoord** is geselecteerd.
     - **Wachtwoord** en **wachtwoord bevestigen** -Geef een wachtwoord voor de gebruiker.
     - **Meld u aan met Azure Active Directory** : Selecteer **uitgeschakelde**.
     - **Abonnement** -Selecteer de gewenste Azure-abonnement, als u meer dan één hebt.
     - **Resourcegroep** -Voer een naam voor de resourcegroep.
-    - **Locatie** : Selecteer **VS-Oost**.
+    - **Locatie**: selecteer **US - oost**.
 
     ![Tabblad van de basisbeginselen voor het maken van een virtuele machine](./media/chef-extension-portal/add-vm-basics.png)
 

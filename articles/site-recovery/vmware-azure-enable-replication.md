@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 1/29/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 85c5947fa32751bd8381d6a1d59e91ba2026f5f0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: be6823486490ca6bc414e89c62a22f996aa27089
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822779"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329944"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Schakel replicatie naar Azure voor VMware-VM 's
 
@@ -88,7 +88,7 @@ Vervolgens maakt controleren u de eigenschappen van de bronmachine. Houd er reke
 2. In **Eigenschappen** kunt u de replicatie- en failoverinformatie van de virtuele machine weergeven.
 3. In **berekening en netwerk** > **Rekeneigenschappen**, kunt u meerdere VM-propoerties wijzigen:
 * Virtuele Azure-machine name - de naam om te voldoen aan vereisten voor Azure, indien nodig wijzigen
-* Doel-VM-grootte of type - standaard VM-grootte wordt gekozen op basis van de bron-VM-grootte. U kunt een andere VM-grootte op basis van de behoeften van elk gewenst moment voordat de failover selecteren. Houd er rekening mee dat de grootte van de VM-schijf is ook gebaseerd op de grootte van de bronschijf en deze alleen gewijzigd na failover worden kan. Meer informatie over [Standard](../virtual-machines/windows/disks-standard-ssd.md#scalability-and-performance-targets) en [Premium](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets) schijf grootten en IOPS.
+* Doel-VM-grootte of type - standaard VM-grootte wordt gekozen op basis van de bron-VM-grootte. U kunt een andere VM-grootte op basis van de behoeften van elk gewenst moment voordat de failover selecteren. Houd er rekening mee dat de grootte van de VM-schijf is ook gebaseerd op de grootte van de bronschijf en deze alleen gewijzigd na failover worden kan. Meer informatie over schijven en IOPS in onze [schaalbaarheidsdoelen voor schijven](../virtual-machines/windows/disk-scalability-targets.md) artikel.
 
     ![COMPUTE en netwerk-eigenschappen](./media/vmware-azure-enable-replication/vmproperties.png)
 

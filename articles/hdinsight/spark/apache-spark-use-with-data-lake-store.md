@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: e33ec52a2546100a043a78f66c2232c3c1ad264e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4f50cc46244a4fb205e0ccf60665ba892d3aa8fc
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821356"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310037"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage"></a>HDInsight Spark-cluster gebruiken voor het analyseren van gegevens in Data Lake-opslag
 
@@ -81,7 +81,7 @@ Als u een HDInsight-cluster met Data Lake-opslag als extra opslag en Azure Stora
 
 5. Voorbeeldgegevens laden in een tijdelijke tabel met de **HVAC.csv** bestand dat u hebt gekopieerd naar het Data Lake Storage-account. U kunt toegang tot de gegevens in het Data Lake Storage-account met behulp van de volgende URL-patroon.
 
-    * Als u Data Lake Storage als standaardopslag, zijn HVAC.csv op de locatie die vergelijkbaar is met de volgende URL:
+    * Als u Data Lake Storage Gen1 als standaardopslag, zijn HVAC.csv op de locatie die vergelijkbaar is met de volgende URL:
 
             adl://<data_lake_store_name>.azuredatalakestore.net/<cluster_root>/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
 

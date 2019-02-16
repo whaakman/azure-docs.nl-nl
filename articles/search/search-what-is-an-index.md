@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: fd5f58a03ffd054e79f1ff4ea6d61c33c06b6e7c
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 9cd43172fc57443cc89f238e1d4ffaae45301936
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268546"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330559"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Maak een eenvoudige index in Azure Search
 
@@ -110,7 +110,10 @@ De [ *Veldenverzameling* ](#fields-collection) is doorgaans het grootste deel va
 }
 ```
 
-## <a name="fields-collection-and-attribution"></a>Verzameling van velden en attribution
+<a name="fields-collection"></a>
+
+## <a name="fields-collection-and-field-attributes"></a>De kenmerken van de verzameling en veld van de velden
+
 Bij het definiëren van het schema moet u de naam, het type en de kenmerken van elk veld in de index opgeven. Het veldtype classificeert de gegevens die in dat veld worden opgeslagen. Kenmerken worden ingesteld op afzonderlijke velden om op te geven hoe het veld wordt gebruikt. De volgende tabellen bevatten de typen en kenmerken die u kunt opgeven.
 
 ### <a name="data-types"></a>Gegevenstypen
@@ -139,7 +142,7 @@ Gedetailleerdere informatie over ondersteunde Azure-Search[-gegevenstypen vindt 
 
 Gedetailleerdere informatie over ondersteunde Azure-Search[-indexkenmerken vindt u hier](https://docs.microsoft.com/rest/api/searchservice/Create-Index).
 
-## <a name="storage-implications-of-index-attributes"></a>Gevolgen van de opslag van de indexkenmerken
+## <a name="storage-implications"></a>Gevolgen van opslag
 
 De kenmerken die u selecteert hebben een invloed op opslag. De volgende schermafbeelding is een afbeelding van index opslag patronen die voortvloeien uit verschillende combinaties van kenmerken. De index is gebaseerd op de [ingebouwde onroerend goed voorbeeld](search-get-started-portal.md) gegevensbron, die u kunt de index en query's uitvoeren in de portal.
 
@@ -147,7 +150,9 @@ Filteren en sorteren van operations-query op exacte overeenkomsten, zodat docume
 
 ![Index-grootte op basis van kenmerk selectie](./media/search-what-is-an-index/realestate-index-size.png "Index-grootte op basis van kenmerk selectie")
 
-Opslag-implementatie wordt beschouwd als een implementatiedetail in Azure Search en kan zonder kennisgeving worden gewijzigd. Er is geen garantie dat de huidige gedrag in de toekomst blijven behouden.
+Verschillende combinaties van deze zijn kunstmatige, handig voor het verlichten van een punt, maar niet zou leiden tot een levensvatbare index. In de praktijk zou u nooit elk één veld toevoegen aan een suggestie of geen index maken die kan worden doorzocht, maar niet worden opgehaald.
+
+Storage-architectuur wordt beschouwd als een implementatiedetail in Azure Search en kan zonder kennisgeving worden gewijzigd. Er is geen garantie dat de huidige gedrag in de toekomst blijven behouden.
 
 ## <a name="suggesters"></a>Suggesties
 Een suggestie is een gedeelte van het schema waarmee wordt gedefinieerd welke velden in een index worden gebruikt voor de ondersteuning van automatisch aanvullen of automatisch aangevulde query's in zoekopdrachten. Gedeeltelijke zoekreeksen worden meestal verzonden naar de suggesties (Azure Search Service REST API) terwijl de gebruiker een zoekopdracht typen is en de API een set met voorgestelde zinnen retourneert. 

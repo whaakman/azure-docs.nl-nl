@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 62d6dce4ccb5d4badbcf9b02cbbcda576ee63212
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: add526d8c09d2aa557ddd645e9016cb9c3b225a3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869242"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328194"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exporteren en verwijderen van uw klantgegevens in Language Understanding (LUIS) in Cognitive Services
 
@@ -30,7 +30,7 @@ Inhoud van de klant is versleuteld opgeslagen in Microsoft regionale Azure stora
 - Account-inhoud van gebruikers die zijn verzameld tijdens de registratie
 - Trainingsgegevens vereist voor het bouwen van de modellen (dat wil zeggen intentie en entiteiten)
 - Query's van gebruikers aangemeld tijdens runtime voor het verbeteren van de gebruiker-modellen
-  - Gebruikers kunnen query logboekregistratie uitschakelen door toe te voegen `&log=false` aan de aanvraag om details [hier](luis-resources-faq.md#how-can-i-disable-the-logging-of-utterances)
+  - Gebruikers kunnen query logboekregistratie uitschakelen door toe te voegen `&log=false` aan de aanvraag om details [hier](troubleshooting.md#how-can-i-disable-the-logging-of-utterances)
 
 ## <a name="deleting-customer-data"></a>Verwijderen van klantgegevens
 LUIS-gebruikers hebben volledig beheer over de gebruikersinhoud van een, via de LUIS-webportal of de LUIS-API's voor programmatische verwijderen. De volgende tabel bevat koppelingen ter ondersteuning van met beide:

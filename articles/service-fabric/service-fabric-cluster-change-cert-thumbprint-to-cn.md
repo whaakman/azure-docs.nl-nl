@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/01/2019
 ms.author: ryanwi
-ms.openlocfilehash: 9c1f8507cfa1f21214428e852e6ffed4d7703254
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: e1a52aff0890e32ae739285c0380258939f29597
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564320"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312868"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Cluster niet wijzigen van de vingerafdruk van certificaat in de algemene naam
 Er zijn geen twee certificaten kunnen hebben dezelfde vingerafdruk, waardoor certificaatrollover cluster of de beheer-moeilijk. Meerdere certificaten kunnen echter hebben de dezelfde algemene naam of het onderwerp.  Schakelen tussen een geïmplementeerd cluster vanuit vingerafdrukken van het certificaat voor het gebruik van de algemene naam van het certificaat met maakt het beheren van certificaten het veel eenvoudiger. In dit artikel wordt beschreven hoe u een actief Service Fabric-cluster voor het gebruik van de algemene naam van het certificaat in plaats van de vingerafdruk van het certificaat bijwerken.
@@ -96,7 +96,7 @@ Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
 ```
 
 >[!NOTE]
-> Virtual Machine Scale ingesteld geheimen bieden geen ondersteuning voor dezelfde resource-id voor twee afzonderlijke geheimen, berekent zoals elke geheim een samengestelde unieke resource is. 
+> Scale set geheimen bieden geen ondersteuning van de dezelfde resource-ID voor twee afzonderlijke geheimen, zoals elke geheim een resource is samengesteld, unieke is. 
 
 ## <a name="download-and-update-the-template-from-the-portal"></a>Downloaden en de sjabloon van de portal bijwerken
 Het certificaat is geïnstalleerd op de onderliggende schaalset, maar u moet ook de Service Fabric-cluster voor het gebruik van dat certificaat en de algemene naam bijwerken.  Download nu de sjabloon voor de implementatie van uw cluster.  Meld u aan bij de [Azure-portal](https://portal.azure.com) en navigeer naar de resourcegroep die als host fungeert voor het cluster.  In **instellingen**, selecteer **implementaties**.  Selecteer de meest recente implementatie en klikt u op **sjabloon weergeven**.

@@ -9,12 +9,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.openlocfilehash: 11c5d44d44bf66bc7f50dac13c1c7cf0ae7acfff
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: aca64ce3d965d03ecc6fe6da0f372f355a48bed5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994382"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311865"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Apache Oozie gebruiken met Apache Hadoop voor het definiëren en een werkstroom uitvoeren op Azure HDInsight op basis van Linux
 
@@ -301,7 +301,7 @@ Waar vind ik de workflow.xml beschrijving van de taakdefinitie. Ook wordt beschr
     ```
 
     > [!NOTE]  
-    > Als het HDInsight-cluster maakt gebruik van Azure Storage als de standaardopslag, de `<value>` element inhoud beginnen met `wasb://`. Als Azure Data Lake Storage in plaats daarvan gebruikt wordt, deze begint met `adl://`.
+    > Als het HDInsight-cluster maakt gebruik van Azure Storage als de standaardopslag, de `<value>` element inhoud beginnen met `wasb://`. Als Azure Data Lake Storage Gen1 in plaats daarvan wordt gebruikt, deze begint met `adl://`.
 
     Sla de inhoud van de `<value>` -element, zoals deze wordt gebruikt in de volgende stappen.
 
@@ -494,7 +494,7 @@ De volgende stappen gebruikt de opdracht Oozie indienen en beheren van Oozie-wer
 
 Zie voor meer informatie over de opdracht Oozie [Apache Oozie-opdrachtregelprogramma](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html).
 
-## <a name="oozie-rest-api"></a>Oozie REST-API
+## <a name="oozie-rest-api"></a>Oozie REST API
 
 U kunt uw eigen hulpprogramma's die met Oozie werken bouwen met de Oozie REST-API. Hier volgt een HDInsight-specifieke informatie over het gebruik van de REST-API voor Oozie:
 
@@ -544,9 +544,9 @@ Voor toegang tot de Oozie-web-UI, voert u de volgende stappen uit:
 
        ![Taaklogboek](./media/hdinsight-use-oozie-linux-mac/joblog.png)
 
-   * **Taak DAG**: De DAG is een grafische overzicht van de gegevenspaden via de werkstroom wordt uitgevoerd.
+   * **Job DAG**: De DAG is een grafische overzicht van de gegevenspaden via de werkstroom wordt uitgevoerd.
 
-       ![Taak DAG](./media/hdinsight-use-oozie-linux-mac/jobdag.png)
+       ![Job DAG](./media/hdinsight-use-oozie-linux-mac/jobdag.png)
 
 7. Als u een van de acties op basis van de **taakgegevens** tabblad, brengt dit van informatie voor de actie. Selecteer bijvoorbeeld de **RunSqoopExport** actie.
 
@@ -685,7 +685,7 @@ Hier volgen specifieke fouten die optreden en hoe u ze op te lossen.
 
 **Oorzaak**: De Azure Blob-opslag-adressen die worden gebruikt de **job.xml** bestand geen het storage-container of de naam van het opslagaccount. De indeling van Blob storage-adres moet `wasb://containername@storageaccountname.blob.core.windows.net`.
 
-**Resolutie**: De Blob storage-adressen die gebruikmaakt van de taak wijzigen.
+**Oplossing**: De Blob storage-adressen die gebruikmaakt van de taak wijzigen.
 
 ### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltuser"></a>JA002: Oozie is niet toegestaan om te imiteren &lt;gebruiker >
 
@@ -695,7 +695,7 @@ Hier volgen specifieke fouten die optreden en hoe u ze op te lossen.
 
 **Oorzaak**: Instellingen voor de huidige machtigingen toestaan niet Oozie te imiteren van het opgegeven gebruikersaccount.
 
-**Resolutie**: Oozie kan imiteren gebruikers in de **gebruikers** groep. Gebruik de `groups USERNAME` om te zien van de groepen die het gebruikersaccount dat lid is van is. Als de gebruiker geen lid is van is de **gebruikers** groep, gebruikt u de volgende opdracht uit om toe te voegen van de gebruiker aan de groep:
+**Oplossing**: Oozie kan imiteren gebruikers in de **gebruikers** groep. Gebruik de `groups USERNAME` om te zien van de groepen die het gebruikersaccount dat lid is van is. Als de gebruiker geen lid is van is de **gebruikers** groep, gebruikt u de volgende opdracht uit om toe te voegen van de gebruiker aan de groep:
 
     sudo adduser USERNAME users
 
@@ -710,7 +710,7 @@ Hier volgen specifieke fouten die optreden en hoe u ze op te lossen.
 
 **Oorzaak**: Sqoop is kan niet worden geladen stuurprogramma voor de database vereist voor toegang tot de database.
 
-**Resolutie**: Wanneer u Sqoop van een taak Oozie gebruiken, moet u een stuurprogramma voor de database met de andere resources, zoals de workflow.xml, de taak gebruikt opnemen. Ook verwijzen naar het archief met het stuurprogramma voor de database van de `<sqoop>...</sqoop>` sectie van de workflow.xml.
+**Oplossing**: Wanneer u Sqoop van een taak Oozie gebruiken, moet u een stuurprogramma voor de database met de andere resources, zoals de workflow.xml, de taak gebruikt opnemen. Ook verwijzen naar het archief met het stuurprogramma voor de database van de `<sqoop>...</sqoop>` sectie van de workflow.xml.
 
 Bijvoorbeeld, voor de taak in dit document, moet u de volgende stappen gebruiken:
 

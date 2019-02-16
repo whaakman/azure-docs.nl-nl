@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0e190faca778f4a65a3bd4a29d05c01a89ee7e11
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 72c88ef10bf1df217ec6e24ac744d0b30386b4a3
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816727"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311525"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Gegevens verplaatsen van DB2 met behulp van Azure Data Factory Copy-activiteit
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -116,7 +116,7 @@ In dit voorbeeld biedt een voorbeeld van JSON-definities die u gebruiken kunt vo
 
 Het voorbeeld heeft de volgende Data Factory-entiteiten:
 
-- Een DB2 gekoppelde service van het type [OnPremisesDb2](data-factory-onprem-db2-connector.md#linked-service-properties)
+- Een DB2 gekoppelde service van het type [OnPremisesDb2](data-factory-onprem-db2-connector.md)
 - Een Azure Blob-opslag gekoppelde service van het type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)
 - Invoer [gegevensset](data-factory-create-datasets.md) van het type [RelationalTable](data-factory-onprem-db2-connector.md#dataset-properties)
 - Uitvoer [gegevensset](data-factory-create-datasets.md) van het type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties)

@@ -5,14 +5,14 @@ services: container-service
 author: sauryadas
 ms.service: container-service
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 02/15/2018
 ms.author: saudas
-ms.openlocfilehash: 3e8342a719bf9ae7174195f88b97972d7f13193c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 37a9712749a1575f81086d28ad461a665bef36d9
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465782"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313446"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Ondersteunde versies van Kubernetes in Azure Kubernetes Service (AKS)
 
@@ -27,11 +27,11 @@ AKS ondersteunt vier secundaire versies van Kubernetes:
 - De huidige secundaire versie die is uitgebracht upstream (n)
 - Die eerdere secundaire versies. Elke ondersteunde secundaire versie biedt ook ondersteuning voor twee stabiele patches.
 
-Bijvoorbeeld, als u AKS introduceert *1.11.x* vandaag de dag wordt ook ondersteund voor *1.10.a* + *1.10.b*, *1.9.c* + *1,9 d*, *1.8.e* + *1.8F* (waarbij de versies van de letters patch twee nieuwste stabiele builds zijn).
+Bijvoorbeeld, als u AKS introduceert *1.12.x* vandaag de dag wordt ook ondersteund voor *1.11.a* + *1.11.b*, *1.10.c*  +  *1,10 d*, *1.9.e* + *1.9f* (waarbij de versies van de letters patch twee nieuwste stabiele builds zijn).
 
-Wanneer een nieuwe secundaire versie wordt geïntroduceerd, worden de oudste ondersteunde secundaire versie en patchreleases afgeschaft. 15 dagen vóór de release van de nieuwe secundaire versie en de komende versie buiten gebruik stellen, een aankondiging is gemaakt via de [Azure updatekanalen][azure-update-channel]. In het voorbeeld hierboven waar *1.11.x* is uitgebracht, de buiten gebruik gestelde versies zijn *1.7.g* + *1.7.h*.
+Wanneer een nieuwe secundaire versie wordt geïntroduceerd, worden de oudste ondersteunde secundaire versie en patchreleases afgeschaft. 15 dagen vóór de release van de nieuwe secundaire versie en de komende versie buiten gebruik stellen, een aankondiging is gemaakt via de [Azure updatekanalen][azure-update-channel]. In het voorbeeld hierboven waar *1.12.x* is uitgebracht, de buiten gebruik gestelde versies zijn *1.8.g* + *1.8.h*.
 
-Wanneer u een AKS-cluster implementeert in de portal of met Azure CLI, wordt het cluster altijd ingesteld op de n-1 secundaire versie en de nieuwste patch. Bijvoorbeeld, als biedt ondersteuning voor AKS *1.11.x*, *1.10.a* + *1.10.b*, *1.9.c* + *1,9 d*, *1.8.e* + *1.8F*, is de standaardversie voor nieuwe clusters *1.10.b*.
+Wanneer u een AKS-cluster implementeert in de portal of met Azure CLI, wordt het cluster altijd ingesteld op de n-1 secundaire versie en de nieuwste patch. Bijvoorbeeld, als biedt ondersteuning voor AKS *1.12.x*, *1.11.a* + *1.11.b*, *1.10.c*  +   *1,10 d*, *1.9.e* + *1.9f*, is de standaardversie voor nieuwe clusters *1.10.b*.
 
 ## <a name="list-currently-supported-versions"></a>Versies weergeven die momenteel worden ondersteund
 
@@ -41,20 +41,19 @@ Als u wilt weten welke versies momenteel beschikbaar voor uw abonnement en regio
 az aks get-versions --location eastus --output table
 ```
 
-De uitvoer is vergelijkbaar met het volgende voorbeeld, waarin die Kubernetes-versie *1.12.4* is de meest recente versie beschikbaar:
+De uitvoer is vergelijkbaar met het volgende voorbeeld, waarin die Kubernetes-versie *1.12.5* is de meest recente versie beschikbaar:
 
 ```
 KubernetesVersion    Upgrades
 -------------------  -----------------------
-1.12.4               None available
-1.11.6               1.12.4
-1.11.5               1.11.6, 1.12.4
-1.10.12              1.11.5, 1.11.6
-1.10.9               1.10.12, 1.11.5, 1.11.6
+1.12.5               None available
+1.12.4               1.12.5
+1.11.7               1.12.4, 1.12.5
+1.11.6               1.11.7, 1.12.4, 1.12.5
+1.10.12              1.11.6, 1.11.7
+1.10.9               1.10.12, 1.11.6, 1.11.7
 1.9.11               1.10.9, 1.10.12
 1.9.10               1.9.11, 1.10.9, 1.10.12
-1.8.15               1.9.10, 1.9.11
-1.8.14               1.8.15, 1.9.10, 1.9.11
 ```
 
 ## <a name="faq"></a>Veelgestelde vragen
@@ -63,8 +62,8 @@ KubernetesVersion    Upgrades
 
 Als u van gebruikmaakt de *n-4* versie, die u niet de SLO zijn. Als de upgrade van versie n-4 naar n-3 is voltooid, bent u in de Serviceniveaudoelstelling. Bijvoorbeeld:
 
-- Als de ondersteunde versies van AKS *1.10.a* + *1.10.b*, *1.9.c* + *1,9 d*,  *1.8.e* + *1.8F* en u bent op *1.7.g* of *1.7.h*, u niet de SLO zijn.
-- Als de upgrade van *1.7.g* of *1.7.h* naar *1.8.e* of *1.8.f* is geslaagd, u bent terug op de Serviceniveaudoelstelling.
+- Als de ondersteunde versies van AKS *1.12.x*, *1.11.a* + *1.11.b*, *1.10.c*  +  *1,10 d*, en *1.9.e* + *1.9f* en u bent op *1.8.g* of *1.8.h*, u niet de SLO zijn.
+- Als de upgrade van *1.8.g* of *1.8.h* naar *1.9.e* of *1.9.f* is geslaagd, u bent terug op de Serviceniveaudoelstelling.
 
 Upgrades naar versies die ouder zijn dan *n-4* worden niet ondersteund. In dergelijke gevallen raden wij klanten nieuwe AKS-clusters maken en implementeren van hun workloads.
 

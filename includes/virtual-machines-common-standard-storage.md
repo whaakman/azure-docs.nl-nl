@@ -9,11 +9,11 @@ ms.date: 01/08/2019
 ms.author: yuemlu
 ms.custom: include file
 ms.openlocfilehash: ad57d373422e0fc310e51ac31f2a2e76999abf22
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193356"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56331191"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Rendabele standaardopslag en niet-beheerde en beheerde Azure-VM-schijven
 
@@ -117,7 +117,7 @@ Grootte die is gemarkeerd met een sterretje zijn momenteel in preview.
 
 | **Standaard harde schijven die worden beheerd <br>schijftype** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60*** | **S70*** | **S80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Schijfgrootte        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1.024 GiB (1 TiB) | 2.048 GiB (2 TiB) | 4.095 GiB (4 TiB) | 8.192 GiB (8 TiB) | 16,385 giB (16 TiB) | 32.767 giB (32 TiB) |
+| Schijfgrootte        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1.024 GiB (1 TiB) | 2.048 GiB (2 TiB) | 4.095 GiB (4 TiB) | 8.192 GiB (8 TiB) | 16,385 GiB (16 TiB) | 32,767 GiB (32 TiB) |
 
 
 **Momentopnamen**: Momentopnamen van schijven die standaard worden in rekening gebracht voor de extra capaciteit gebruikt door de momentopnamen. Zie voor meer informatie over momentopnamen [het maken van een momentopname van een Blob](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).

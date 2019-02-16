@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 125f1a2a041c8c05289c95bd12c10618bfc622a8
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 9f0dbc549600ef2b931ee99a36c60cae57cc7a67
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246835"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56331281"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Krachtige Premium Storage en beheerde schijven voor virtuele machines
 
@@ -98,8 +98,6 @@ Dit zijn enkele van de functies die worden ondersteund in premium-opslag ingesch
 
     > [!NOTE]
     > Als u premium-opslagschijven gegevens met behulp van stripe [opslagruimten](https://technet.microsoft.com/library/hh831739.aspx), instellen van opslagruimten met 1 kolom voor elke schijf die u gebruikt. Anders kan algehele prestaties van het striped volume lager is dan verwacht vanwege ongelijke distributie van verkeer op de schijven zijn. Standaard, in Serverbeheer, kunt u kolommen voor maximaal 8 schijven instellen. Als u meer dan 8 schijven hebt, kunt u PowerShell gebruiken om het volume te maken. Het aantal kolommen handmatig opgeven. Anders blijft de Serverbeheer-UI 8 kolommen gebruiken, zelfs als u meer schijven hebt. Bijvoorbeeld, hebt u 32 schijven in een stripeset één, 32 kolommen opgeven. Het aantal kolommen de virtuele schijf gebruikt opgeven de [New-VirtualDisk](https://technet.microsoft.com/library/hh848643.aspx) PowerShell-cmdlet gebruikt de *NumberOfColumns* parameter. Zie voor meer informatie, [overzicht van opslagruimten](https://technet.microsoft.com/library/hh831739.aspx) en [Veelgestelde vragen over de Storage Spaces](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
-    >
-    > 
 
 * **Cache**
 

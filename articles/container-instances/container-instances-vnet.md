@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 73c61c62a84642b93ed96cdd80e258a1128fef6a
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 79ba32f85c608d98b29b235bf1417e74f7e2a4d4
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077468"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313480"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Containerexemplaren in een Azure-netwerk implementeren
 
@@ -35,6 +35,7 @@ Er gelden bepaalde beperkingen wanneer u groepen met containers in een virtueel 
 
 * Voor het implementeren van containergroepen aan een subnet, mag niet het subnet een andere resourcetypen bevatten. Verwijder alle bestaande resources uit een bestaand subnet vóór de implementatie van containergroepen toe of maak een nieuw subnet.
 * Containergroepen geïmplementeerd met een virtueel netwerk ondersteunen momenteel geen openbare IP-adressen of DNS-naam van labels.
+* U kunt geen gebruiken een [beheerde identiteit](container-instances-managed-identity.md) in een containergroep geïmplementeerd in een virtueel netwerk.
 * Vanwege de extra netwerkresources die betrokken zijn is een containergroep implementeren met een virtueel netwerk meestal iets langzamer dan het implementeren van een standard containerexemplaar.
 
 ## <a name="preview-limitations"></a>Beperkingen voor Preview
@@ -253,7 +254,7 @@ appcontaineryaml  myResourceGroup  Running   microsoft/aci-helloworld  10.0.0.5:
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-### <a name="delete-container-instances"></a>Containerexemplaren verwijderen
+### <a name="delete-container-instances"></a>Containerinstanties verwijderen
 
 Wanneer u klaar bent met de containerinstanties werkt u hebt gemaakt, verwijdert deze met de volgende opdrachten:
 

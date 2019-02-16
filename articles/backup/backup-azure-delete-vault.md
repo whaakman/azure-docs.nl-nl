@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: d514074e56ff37cc7af6a97ea86aa9e02e3763e0
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: d15e3773a9b6e3dceb0799d206070730675c211d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492280"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310963"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Een Recovery Services-kluis verwijderen
 
@@ -31,7 +31,7 @@ Als u de Recovery Services-kluis openen al hebt, gaat u naar de tweede stap.
 
    ![Een Recovery Services-kluis maken, stap 1](./media/backup-azure-delete-vault/open-recovery-services-vault.png) <br/>
 
-   De lijst met Recovery Services-kluizen wordt weergegeven. 
+   De lijst met Recovery Services-kluizen wordt weergegeven.
 
    ![Kies de kluis uit lijst](./media/backup-azure-delete-vault/choose-vault-to-delete-.png)
 
@@ -50,7 +50,7 @@ Als u de Recovery Services-kluis openen al hebt, gaat u naar de tweede stap.
 
 ## <a name="delete-the-recovery-services-vault-by-force"></a>Verwijder de Recovery Services-kluis geforceerd beëindigd
 
-U kunt PowerShell gebruiken om te verwijderen van een Recovery Services-kluis geforceerd beëindigd. Door force betekent dat is de Recovery Services-kluis en alle gekoppelde back-upgegevens, definitief verwijderd. 
+U kunt PowerShell gebruiken om te verwijderen van een Recovery Services-kluis geforceerd beëindigd. Door force betekent dat is de Recovery Services-kluis en alle gekoppelde back-upgegevens, definitief verwijderd.
 
 > [!Warning]
 > Wanneer met behulp van PowerShell een Recovery Services-kluis verwijderen, moet u zeker dat u wilt alle back-upgegevens in de kluis permanent te verwijderen.
@@ -95,7 +95,7 @@ Een Recovery Services-kluis verwijderen:
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
-   
+
 1. Meld u aan uw abonnement in Azure portal en controleer of dat de kluis wordt verwijderd.
 
 
@@ -106,7 +106,6 @@ Als u wilt de kluis afhankelijkheden handmatig verwijderen, de configuratie tuss
 * Back-ups van Azure Storage (Azure-bestanden)
 * SQL Server in virtuele Azure-machines
 * Back-ups van virtuele machines van Azure
-* Microsoft Azure Recovery Services agent back-ups
 
 Gebruik de **back-upinfrastructuur** menu (Zie afbeelding) voor:
 
@@ -125,7 +124,7 @@ Gebruik de **back-upinfrastructuur** menu (Zie afbeelding) voor:
 
 1. Voor alle items in de lijst met de rechtermuisknop op het item en selecteer in het contextmenu **back-up stoppen**.
 
-    ![Selecteer de back-uptype](./media/backup-azure-delete-vault/stop-backup-item.png) 
+    ![Selecteer de back-uptype](./media/backup-azure-delete-vault/stop-backup-item.png)
 
     Het menu back-up stoppen wordt geopend.
 
@@ -154,9 +153,9 @@ Gebruik de **back-upinfrastructuur** menu (Zie afbeelding) voor:
 
 ## <a name="removing-azure-backup-server-or-dpm"></a>Azure Backup-Server of DPM verwijderen
 
-1. Schuif omlaag naar het gedeelte beheren in de kluis in het menu en klik op **back-upinfrastructuur**. 
+1. Schuif omlaag naar het gedeelte beheren in de kluis in het menu en klik op **back-upinfrastructuur**.
 
-1. Klik in het submenu **back-up-beheerservers** om de Azure Backup-Servers en System Center DPM-server weer te geven. u kunt stoppen en verwijderen van Azure-bestandsservers, SQL-Servers in de virtuele machine van Azure en Azure virtual machines. 
+1. Klik in het submenu **back-up-beheerservers** om de Azure Backup-Servers en System Center DPM-server weer te geven. u kunt stoppen en verwijderen van Azure-bestandsservers, SQL-Servers in de virtuele machine van Azure en Azure virtual machines.
 
     ![Selecteer uw kluis om het dashboard te openen](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 

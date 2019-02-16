@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 5c2c7b621512be7b81d14b99069d52f4f3aa3f33
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: cdebdf7258e99457191754cd73513fdb3744f8e9
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279557"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56323419"
 ---
 | Resource | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |
@@ -24,7 +24,7 @@ ms.locfileid: "52279557"
 
 #### <a name="template-limits"></a>Limieten voor sjabloon
 
-| Waarde | Standaardlimiet | Maximumaantal |
+| Value | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |
 | Parameters |256 |256 |
 | Variabelen |256 |256 |
@@ -37,4 +37,4 @@ ms.locfileid: "52279557"
 
 U kunt sommige limieten sjabloon met behulp van een geneste sjabloon overschrijdt. Zie voor meer informatie, [gekoppelde sjablonen gebruiken bij het implementeren van Azure-resources](../articles/azure-resource-manager/resource-group-linked-templates.md). Als u wilt verkleinen het aantal parameters, variabelen of uitvoer, kunt u verschillende waarden combineren in een object. Zie voor meer informatie, [objecten als parameters](../articles/azure-resource-manager/resource-manager-objects-as-parameters.md).
 
-Als u de limiet van 800 implementaties per resourcegroep bereikt, verwijdert u implementaties uit de geschiedenis die niet meer nodig zijn. U kunt items verwijderen uit de geschiedenis met [az group deployment verwijderen](/cli/azure/group/deployment#az_group_deployment_delete) voor Azure CLI of [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) in PowerShell. Een vermelding verwijderen uit de implementatiegeschiedenis, heeft dit geen invloed op de resources implementeren. 
+Als u de limiet van 800 implementaties per resourcegroep bereikt, verwijdert u implementaties uit de geschiedenis die niet meer nodig zijn. U kunt items verwijderen uit de geschiedenis met [az group deployment verwijderen](/cli/azure/group/deployment) voor Azure CLI of [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) in PowerShell. Een vermelding verwijderen uit de implementatiegeschiedenis, heeft dit geen invloed op de resources implementeren. 

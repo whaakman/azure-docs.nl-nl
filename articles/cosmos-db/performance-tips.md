@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: f05935f73f385b076741d2e856af8316a74e9d2f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 68378342769618c2b0e1096fbf5a2d28d0cb4b0e
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042492"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309892"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Tips voor betere prestaties voor Azure Cosmos DB en .NET
 
@@ -30,7 +30,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 
 1. **Verbindingsbeleid voor: Rechtstreekse verbinding gebruiken**
 
-    Hoe een client verbinding maakt met Azure Cosmos DB heeft belangrijke gevolgen voor de prestaties, met name wat betreft waargenomen client-side-latentie. Er zijn twee belangrijke configuratie-instellingen beschikbaar voor het configureren van client verbindingsbeleid: de verbinding *modus* en de [verbinding *protocol*](#connection-protocol).  De twee modi beschikbaar zijn:
+    Hoe een client verbinding maakt met Azure Cosmos DB heeft belangrijke gevolgen voor de prestaties, met name wat betreft waargenomen client-side-latentie. Er zijn twee belangrijke configuratie-instellingen beschikbaar voor het configureren van client verbindingsbeleid: de verbinding *modus* en de verbinding *protocol*.  De twee modi beschikbaar zijn:
 
    * Gateway-modus (standaard)
       
@@ -47,9 +47,9 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 
     |Verbindingsmodus  |Ondersteunde protocollen  |Ondersteunde SDK 's  |API/Service-poort  |
     |---------|---------|---------|---------|
-    |Gateway  |   HTTPS    |  Alle SDK 's    |   SQL(443), Mongo (10250, 10255, 10256), Table(443), Cassandra(443), Graph(443)    |
+    |Gateway  |   HTTPS    |  Alle SDK 's    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(443), Graph(443)    |
     |Rechtstreeks    |    HTTPS     |  .NET en Java-SDK    |    SQL(443)   |
-    |Rechtstreeks    |     TCP    |  .NET SDK    | Poorten binnen het bereik van 10.000 20.000 |
+    |Rechtstreeks    |     TCP    |  .Net SDK    | Poorten binnen het bereik van 10.000 20.000 |
 
     Azure Cosmos DB biedt een eenvoudige en open RESTful-programmeermodel via HTTPS. Daarnaast biedt deze een efficiënte TCP-protocol, dat is ook RESTful in het communicatiemodel en is beschikbaar via de .NET-client-SDK. Zowel Direct via TCP- en HTTPS gebruik van SSL voor initiële verificatie en versleuteling van verkeer. Gebruik indien mogelijk de TCP-protocol voor de beste prestaties.
 
@@ -86,7 +86,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 
     Omdat aanroepen naar Azure Cosmos DB zijn gemaakt via het netwerk, moet u mogelijk de graad van parallelle uitvoering van de aanvragen verschillen, zodat de clienttoepassing in de taakwachtrij doorbrengt weinig tijd wachten tussen aanvragen. Bijvoorbeeld, als u gebruikt. De NET [taak parallelle bibliotheek](https://msdn.microsoft.com//library/dd460717.aspx), maken in de volgorde van 100s van taken lezen of schrijven naar Azure Cosmos DB.
 
-## <a name="sdk-usage"></a>SDK-gebruik
+## <a name="sdk-usage"></a>SDK Usage
 1. **Installeer de meest recente SDK**
 
     De Azure Cosmos DB SDK's worden voortdurend verbeterd om de beste prestaties bieden. Zie de [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) pagina's om te bepalen van de meest recente SDK en verbeteringen te bekijken.

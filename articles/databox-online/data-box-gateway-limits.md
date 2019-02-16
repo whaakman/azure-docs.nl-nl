@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/14/2019
 ms.author: alkohli
-ms.openlocfilehash: f785e9e540af01b74678cf75159775cd2888e09e
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 34aac9a589516ace080906095ef3c14b34469bbd
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55959575"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311185"
 ---
 # <a name="azure-data-box-gateway-limits-preview"></a>Azure Data Box-Gateway-limieten (Preview)
 
@@ -36,7 +36,7 @@ De volgende tabel beschrijft de limieten voor de gegevens in het Gateway-apparaa
 |---|---|
 |Nee. van bestanden per apparaat |100 miljoen <br> Limiet is ongeveer 25 miljoen bestanden voor elke 2 TB aan schijfruimte met maximale limiet op 100 miljoen |
 |Nee. van shares per apparaat |24 |
-|Nee. van shares per container |1 |
+|Nee. van shares per Azure-opslagcontainer |1 |
 |Maximale bestandsgrootte die zijn geschreven naar een share|Maximale bestandsgrootte is voor een virtueel apparaat 2 TB 500 GB. <br> De maximale grootte wordt verhoogd met de grootte van de gegevensschijf in de voorgaande verhouding totdat een maximum van 5 TB is bereikt. |
 
 ## <a name="azure-storage-limits"></a>Limieten voor Azure-opslag

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f0fe4bef436576bec90d1d770d262c2c22d280a3
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: edd011509c9129e95bcf7ea49f5a84e17fffd176
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694581"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310547"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Een aangepaste domeinnaam voor uw Azure storage-account configureren
 
@@ -56,7 +56,7 @@ De tweede methode maakt ook gebruik van CNAME-records. Om te voorkomen uitvaltij
 
 Uw aangepaste domein toewijzen aan een blobeindpunt kan leiden tot een korte periode van uitvaltijd terwijl u bezig zijn met het registreren van het domein in de [Azure-portal](https://portal.azure.com). Als een toepassing met een service level agreement (SLA) waarvoor geen downtime op dit moment biedt ondersteuning voor het domein, gebruikt u de Azure *asverify* subdomein als een tussenliggende registratiestap. Deze stap zorgt ervoor dat gebruikers toegang uw domein tot hebben terwijl de DNS-toewijzing doorgevoerd wordt.
 
-De tussenliggende methode wordt beschreven in [registreren van een aangepast domein met behulp van de *asverify* subdomein](#register-a-custom-domain-using-the-asverify-subdomain).
+De tussenliggende methode valt registreren in een aangepast domein met behulp van de *asverify* subdomein.
 
 ## <a name="register-a-custom-domain"></a>Registreren van een aangepast domein
 Het domein registreren met behulp van de procedure in deze sectie als de volgende instructies van toepassing zijn:
@@ -65,7 +65,7 @@ Het domein registreren met behulp van de procedure in deze sectie als de volgend
 
 Azure DNS kunt u een aangepaste DNS-naam voor uw Azure Blob-archief configureren. Zie [Use Azure DNS to provide custom domain settings for an Azure service](https://docs.microsoft.com/azure/dns/dns-custom-domain#blob-storage) (Azure DNS gebruiken om aangepaste domeininstellingen te verstrekken voor een Azure-service) voor meer informatie.
 
-Als uw aangepaste domein momenteel een toepassing die geen uitvaltijd ondersteunt, gebruikt u de procedure in [registreren van een aangepast domein met behulp van de *asverify* subdomein](#register-a-custom-domain-using-the-asverify-subdomain).
+Als uw aangepaste domein momenteel een toepassing die geen uitvaltijd ondersteunt, gebruikt u de procedure in het Register een aangepast domein met behulp van de *asverify* subdomein.
 
 Als u wilt een aangepaste domeinnaam configureren, maakt u een nieuwe CNAME-record in DNS. De CNAME-record bevat een alias voor de naam van een domein. In ons voorbeeld het het adres van uw aangepaste domein wordt toegewezen aan het eindpunt van uw storage-account Blob-opslag.
 

@@ -9,12 +9,12 @@ ms.service: service-health
 ms.topic: article
 ms.workload: Supportability
 ms.date: 03/27/2018
-ms.openlocfilehash: b771e36344ff26c9a817a0314e0f223b6e809a17
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 465e8751d02692648234a7a90b84b68f41522cb2
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871692"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328262"
 ---
 # <a name="service-health"></a>Service Health
 Status van de service biedt u een aanpasbaar dashboard houdt de status van uw Azure-services in de regio's waar u ze gebruiken. In dit dashboard, kunt u actieve gebeurtenissen, zoals problemen van de serviceonderbreking gepland onderhoud of relevante statusadvies bijhouden. Wanneer gebeurtenissen niet-actief worden, krijgen ze in de geschiedenis van uw geplaatst voor maximaal 90 dagen. Ten slotte kunt u de Service Health-dashboard maken en beheren van waarschuwingen van de health service die u proactief te waarschuwen wanneer er problemen met de service van invloed zijn op u.
@@ -24,6 +24,9 @@ Status van de service houdt drie typen van de health-gebeurtenissen die mogelijk
 1. **Problemen met service** -problemen in de Azure-services die u nu direct invloed hebben op. 
 2. **Gepland onderhoud** -toekomstig onderhoud die de beschikbaarheid van uw services in de toekomst kan beïnvloeden.  
 3. **Statusadvies** -wijzigingen in de Azure-services die uw aandacht nodig hebben. Voorbeelden zijn wanneer de Azure-functies zijn afgeschaft of als u een quotum voor gebruik.
+
+> [!NOTE]
+> Als u Service Health-gebeurtenissen, moeten gebruikers de rol van lezer voor een abonnement hebben.
 
 ## <a name="get-started-with-service-health"></a>Aan de slag met Service Health
 Selecteer de tegel status van de Service op uw portaldashboard voor het starten van uw Service Health-dashboard. Als u de tegel eerder hebt verwijderd of u aangepaste dashboard, zoekt u Service Health-service in 'Meer services' (rechtsonder op uw dashboard).

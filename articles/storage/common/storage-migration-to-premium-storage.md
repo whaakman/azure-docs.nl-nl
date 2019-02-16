@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.subservice: common
-ms.openlocfilehash: 36889fc6cb8dbec77136dc8cea08416e51837243
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: bb88bf7ddaa93336c812b1ddc9794dad8daa64b7
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564830"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330576"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migreren naar Azure Premium Storage (niet-beheerde schijven)
 
@@ -32,7 +32,7 @@ Het doel van deze handleiding is om nieuwe gebruikers van Azure Premium Storage 
 U kunt virtuele machines vanaf andere platforms migreren naar Azure Premium Storage of bestaande Azure-VM's migreren van standaardopslag naar Premium Storage. Deze handleiding bevat informatie over stappen voor beide twee scenario's. Volg de stappen die zijn opgegeven in de betreffende sectie afhankelijk van uw scenario.
 
 > [!NOTE]
-> U vindt een overzicht van functies en prijzen van Premium-opslag in Premium-opslag: [Opslag met hoge prestaties voor Azure Virtual Machine-werkbelasting](../../virtual-machines/windows/premium-storage.md). Het is raadzaam om de migratie van een virtuele machine-schijf vereisen hoge IOPS naar Azure Premium Storage voor de beste prestaties voor uw toepassing. Als de schijf geen hoge IOPS is vereist, kunt u kosten kunt beperken door het onderhoud ervan in de Standard-opslag, waarin de gegevens van de virtuele machine-schijf op hardeschijfstations (HDD's) in plaats van SSD's worden opgeslagen.
+> U vindt een overzicht van functies en prijzen van premium SSD's in: [Selecteer een schijftype voor IaaS-VM's](../../virtual-machines/windows/disks-types.md#premium-ssd). Het is raadzaam om de migratie van een virtuele machine-schijf vereisen hoge IOPS naar Azure Premium Storage voor de beste prestaties voor uw toepassing. Als de schijf geen hoge IOPS is vereist, kunt u kosten kunt beperken door het onderhoud ervan in de Standard-opslag, waarin de gegevens van de virtuele machine-schijf op hardeschijfstations (HDD's) in plaats van SSD's worden opgeslagen.
 >
 
 De migratie voltooien in zijn geheel is mogelijk aanvullende acties zowel vóór als na de stappen in deze handleiding. Voorbeelden hiervan zijn virtuele netwerken of eindpunten configureren of codewijzigingen in de toepassing zelf mogelijk moet hiervoor de enige downtime in uw toepassing. Deze acties zijn uniek voor elke toepassing en u ze samen met de stappen in deze handleiding voor de volledige overgang naar Premium Storage zo weinig mogelijk moet voltooien.
@@ -69,7 +69,7 @@ Premium Storage-accounts hebben de volgende schaalbaarheidsdoelen naast de [Azur
 |:--- |:--- |
 | Capaciteit van de schijf: 35TB<br />Snapshot-capaciteit: 10 TB |Maximaal 50 gigabits per seconde voor binnenkomend en uitgaand |
 
-Bekijk voor meer informatie over specificaties van Premium Storage [Scalability and Performance Targets bij het gebruik van Premium Storage](../../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets).
+Bekijk voor meer informatie over specificaties van Premium Storage [schaalbaarheids- en prestatiedoelen voor Azure Storage](storage-scalability-targets.md#premium-storage-account-scale-limits).
 
 #### <a name="disk-caching-policy"></a>Beleid voor caching schijf
 Beleid voor caching schijf is standaard *alleen-lezen* voor alle Premium gegevensschijven, en *lezen / schrijven* voor de Premium-schijf die is gekoppeld aan de virtuele machine. Deze configuratieinstelling wordt aanbevolen om de optimale prestaties voor IOs van uw toepassing. Voor schijven schrijfintensief of alleen-schrijven gegevens (zoals SQL Server-logboekbestanden) uitschakelen in schijfcache zodat u betere prestaties van toepassingen kunt bereiken. De cache-instellingen voor bestaande gegevensschijven kunnen worden bijgewerkt met behulp van [Azure Portal](https://portal.azure.com) of de *- HostCaching* parameter van de *Set AzureDataDisk* cmdlet.
@@ -748,7 +748,7 @@ De huidige configuratie van de virtuele machine kan worden aangepast speciaal om
 2. Meld u aan bij de virtuele machine en kopieer de gegevens van het huidige volume naar de nieuwe schijf die is toegewezen aan dat volume. Doe dit voor de huidige volumes die moeten worden toegewezen aan een nieuwe schijf.
 3. Vervolgens de toepassingsinstellingen overschakelen naar de nieuwe schijven wijzigen en de oude volumes loskoppelen.
 
-Raadpleeg voor de toepassing voor betere prestaties van de schijf afstemmen, [optimaliseert de prestaties van toepassingen](../../virtual-machines/windows/premium-storage-performance.md#optimizing-application-performance).
+Raadpleeg voor het afstemmen van de toepassing voor betere prestaties van de schijf, het optimaliseren van de prestaties toepassingsgedeelte van onze [ontwerpen voor hoge prestaties](../../virtual-machines/windows/premium-storage-performance.md) artikel.
 
 ### <a name="application-migrations"></a>Migraties van toepassing
 Databases en andere complexe toepassingen kunnen speciale stappen vereist zoals gedefinieerd door de provider van de toepassing voor de migratie. Raadpleeg de documentatie van de desbetreffende toepassing. Bijvoorbeeld Normaal gesproken databases kunnen worden gemigreerd via back-up en herstellen.
@@ -765,7 +765,7 @@ Zie ook de volgende bronnen voor meer informatie over Azure Storage en Azure Vir
 
 * [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 * [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Premium Storage: Opslag met hoge prestaties voor workload in Azure Virtual Machine](../../virtual-machines/windows/premium-storage.md)
+* [Selecteer een schijftype voor IaaS-VM 's](../../virtual-machines/windows/disks-types.md)
 
 [1]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [2]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png

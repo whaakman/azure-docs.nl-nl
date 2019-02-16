@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 77763765e75500d994235bba0a5c0c3bb3e3be70
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 9917901146eb0a050531a66ab24fbd88c91c02c9
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756815"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311202"
 ---
 # <a name="get-started-with-storage-explorer"></a>Aan de slag met Storage Explorer
 
@@ -221,7 +221,7 @@ Een voorbeeld van dit scenario: stel gebruiker A is beheerder van een Azure-abon
 
 3. Gebruiker b gebruikt Opslagverkenner koppelen aan het account die deel uitmaakt van gebruiker a met behulp van de opgegeven SAS.
 
-### <a name="generate-a-sas-connection-string-for-the-account-you-want-to-share"></a>Genereren van een SAS-verbindingsreeks voor het account dat u wilt delen
+### <a name="generate-a-sas-query-string-for-the-account-you-want-to-share"></a>Genereren van een SAS-queryreeks voor het account dat u wilt delen
 
 1. In Storage Explorer met de rechtermuisknop op het opslagaccount dat u wilt delen en selecteer vervolgens **Shared Access Signature ophalen...** .
 
@@ -231,7 +231,7 @@ Een voorbeeld van dit scenario: stel gebruiker A is beheerder van een Azure-abon
 
     ![Dialoogvenster SAS ophalen][15]
 
-3. Naast de **Connection String** tekstvak, selecteer **kopie** naar het Klembord kopiëren en klik vervolgens op **sluiten**.
+3. Naast de **queryreeks** tekstvak, selecteer **kopie** naar het Klembord kopiëren en klik vervolgens op **sluiten**.
 
 ### <a name="attach-to-a-storage-account-by-using-a-sas-connection-string"></a>Koppelen aan een opslagaccount met behulp van een SAS-verbindingsreeks
 

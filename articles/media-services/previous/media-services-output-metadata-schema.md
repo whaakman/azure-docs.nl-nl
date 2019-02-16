@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: ec4b03629b56c09973c1ecc5c55930c33c24990b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: cdcdcff8a5c016cfd3074a950ad6060e55b8b0fe
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997572"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312579"
 ---
 # <a name="output-metadata"></a>Uitvoermetagegevens
 ## <a name="overview"></a>Overzicht
@@ -29,7 +29,7 @@ Media Services wordt de invoer van de activa voor het genereren van metagegevens
 
 Als u controleren van het bestand met metagegevens wilt, kunt u een **SAS** locator en download het bestand op uw lokale computer.  
 
-Dit artikel worden de elementen en typen van het XML-schema besproken waarop de metada uitvoer (&lt;source_file_name&gt;_manifest.xml) is gebaseerd. Zie voor meer informatie over het bestand met metagegevens over het invoeractivum [Invoermetagegevens](media-services-input-metadata-schema.md).  
+Dit artikel worden de elementen en typen van het XML-schema besproken waarop de metada uitvoer (&lt;source_file_name&gt;_manifest.xml) is gebaseerd. Zie voor meer informatie over het bestand met metagegevens over het invoeractivum Invoermetagegevens.  
 
 U vindt de code van de volledige schema en de XML-voorbeeld aan het einde van dit artikel.  
 
@@ -39,10 +39,10 @@ Verzameling van AssetFile vermeldingen voor de coderingstaak.
 ### <a name="child-elements"></a>Onderliggende elementen
 | Name | Description |
 | --- | --- |
-| **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |Een [AssetFile element](media-services-output-metadata-schema.md) dat is namelijk onderdeel van de verzameling AssetFiles. |
+| **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |Een element AssetFile die deel uitmaakt van de verzameling AssetFiles. |
 
 ## <a name="AssetFile "></a> AssetFile-element
-U vindt een voorbeeld van de XML- [XML-voorbeeld](media-services-output-metadata-schema.md#xml).  
+U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).  
 
 ### <a name="attributes"></a>Kenmerken
 | Name | Type | Description |
@@ -54,24 +54,24 @@ U vindt een voorbeeld van de XML- [XML-voorbeeld](media-services-output-metadata
 ### <a name="child-elements"></a>Onderliggende elementen
 | Name | Description |
 | --- | --- |
-| **Bronnen** |Verzameling van invoer/transcoderen, die is verwerkt om te kunnen deze AssetFile produceren. Zie voor meer informatie, [bronelement](media-services-output-metadata-schema.md). |
-| **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Elke fysieke AssetFile kan nul of meer video's in deze bevatten nummers interleaved in een indeling voor de juiste container. Zie voor meer informatie, [VideoTracks element](media-services-output-metadata-schema.md). |
-| **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Elke fysieke AssetFile kan nul of meer audionummers interleaved in een indeling voor de juiste container in het bevatten. Dit is een verzameling van deze audionummers. Zie voor meer informatie, [AudioTracks element](media-services-output-metadata-schema.md). |
+| **Bronnen** |Verzameling van invoer/transcoderen, die is verwerkt om te kunnen deze AssetFile produceren. Zie voor meer informatie, bron-element. |
+| **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Elke fysieke AssetFile kan nul of meer video's in deze bevatten nummers interleaved in een indeling voor de juiste container. Zie voor meer informatie, VideoTracks element. |
+| **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Elke fysieke AssetFile kan nul of meer audionummers interleaved in een indeling voor de juiste container in het bevatten. Dit is een verzameling van deze audionummers. Zie voor meer informatie, AudioTracks element. |
 
 ## <a name="Sources "></a> Bronnen-element
 Verzameling van invoer/transcoderen, die is verwerkt om te kunnen deze AssetFile produceren.  
 
-U vindt een voorbeeld van de XML- [XML-voorbeeld](media-services-output-metadata-schema.md#xml).  
+U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).  
 
 ### <a name="child-elements"></a>Onderliggende elementen
 | Name | Description |
 | --- | --- |
-| **Bron**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Een invoer/bronbestand dat wordt gebruikt bij het genereren van deze asset. Zie voor meer informatie, [bronelement](media-services-output-metadata-schema.md). |
+| **Bron**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Een invoer/bronbestand dat wordt gebruikt bij het genereren van deze asset. Zie voor meer informatie, bron-element. |
 
 ## <a name="Source "></a> Bronelement
 Een invoer/bronbestand dat wordt gebruikt bij het genereren van deze asset.  
 
-U vindt een voorbeeld van de XML- [XML-voorbeeld](media-services-output-metadata-schema.md#xml).  
+U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).  
 
 ### <a name="attributes"></a>Kenmerken
 | Name | Type | Description |
@@ -81,17 +81,17 @@ U vindt een voorbeeld van de XML- [XML-voorbeeld](media-services-output-metadata
 ## <a name="VideoTracks "></a> VideoTracks-element
 Elke fysieke AssetFile kan nul of meer video's in deze bevatten nummers interleaved in een indeling voor de juiste container. De **VideoTracks** element vertegenwoordigt een verzameling van de video worden bijgehouden.  
 
-U vindt een voorbeeld van de XML- [XML-voorbeeld](media-services-output-metadata-schema.md#xml).  
+U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).  
 
 ### <a name="child-elements"></a>Onderliggende elementen
 | Name | Description |
 | --- | --- |
-| **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Een specifieke video in de bovenliggende AssetFile bijhouden. Zie voor meer informatie, [VideoTrack element](media-services-output-metadata-schema.md#VideoTrack). |
+| **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Een specifieke video in de bovenliggende AssetFile bijhouden. Zie voor meer informatie, VideoTrack element. |
 
 ## <a name="VideoTrack"></a> VideoTrack-element
 Een specifieke video in de bovenliggende AssetFile bijhouden.  
 
-U vindt een voorbeeld van de XML- [XML-voorbeeld](media-services-output-metadata-schema.md#xml).  
+U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).  
 
 ### <a name="attributes"></a>Kenmerken
 | Name | Type | Description |
@@ -113,17 +113,17 @@ U vindt een voorbeeld van de XML- [XML-voorbeeld](media-services-output-metadata
 ## <a name="AudioTracks "></a> AudioTracks-element
 Elke fysieke AssetFile kan nul of meer audionummers interleaved in een indeling voor de juiste container in het bevatten. De **AudioTracks** element vertegenwoordigt een verzameling van deze audionummers.  
 
-U vindt een voorbeeld van de XML- [XML-voorbeeld](media-services-output-metadata-schema.md#xml).  
+U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).  
 
 ### <a name="child-elements"></a>Onderliggende elementen
 | Name | Description |
 | --- | --- |
-| **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Een specifieke audiotrack in de bovenliggende AssetFile. Zie voor meer informatie, [AudioTrack element](media-services-output-metadata-schema.md). |
+| **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Een specifieke audiotrack in de bovenliggende AssetFile. Zie voor meer informatie, AudioTrack element. |
 
 ## <a name="AudioTrack "></a> AudioTrack-element
 Een specifieke audiotrack in de bovenliggende AssetFile.  
 
-U vindt een voorbeeld van de XML- [XML-voorbeeld](media-services-output-metadata-schema.md#xml).  
+U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).  
 
 ### <a name="attributes"></a>Kenmerken
 | Name | Type | Description |
@@ -139,12 +139,12 @@ U vindt een voorbeeld van de XML- [XML-voorbeeld](media-services-output-metadata
 ### <a name="child-elements"></a>Onderliggende elementen
 | Name | Description |
 | --- | --- |
-| **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |Volume softwarelicentiecontrole resultaat parameters. Zie voor meer informatie, [LoudnessMeteringResultParameters element](media-services-output-metadata-schema.md). |
+| **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |Volume softwarelicentiecontrole resultaat parameters. Zie voor meer informatie, LoudnessMeteringResultParameters-element. |
 
 ## <a name="LoudnessMeteringResultParameters "></a> LoudnessMeteringResultParameters-element
 Volume softwarelicentiecontrole resultaat parameters.  
 
-U vindt een voorbeeld van de XML- [XML-voorbeeld](media-services-output-metadata-schema.md#xml).  
+U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).  
 
 ### <a name="attributes"></a>Kenmerken
 | Name | Type | Description |

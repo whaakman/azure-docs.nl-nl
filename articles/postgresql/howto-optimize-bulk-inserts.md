@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: fba109e04369c05f98e863b7dd0fa3d51f40d0ad
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a82984ce4c2a2e44306abaa63265e0c25cc6ace4
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810235"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310288"
 ---
 # <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql-server"></a>Bulksgewijs invoegen te optimaliseren en gebruik van tijdelijke gegevens op een Azure Database voor PostgreSQL-server 
 Dit artikel wordt beschreven hoe u bulk insert-bewerkingen optimaliseren en gebruik van tijdelijke gegevens op een Azure Database voor PostgreSQL-server.
@@ -25,9 +25,9 @@ Invoegen in een niet-geregistreerde tabel betekent dat PostgreSQL voegt zonder s
 
 Gebruik de volgende opties om een niet-geregistreerde tabel te maken:
 - Een nieuwe niet-geregistreerde tabel maken met behulp van de syntaxis van de `CREATE UNLOGGED TABLE <tableName>`.
-- Convert een bestaande tabel naar een niet-geregistreerde tabel vastgelegd met behulp van de syntaxis van de `ALTER <tableName> SET UNLOGGED`.  
+- Convert een bestaande tabel naar een niet-geregistreerde tabel vastgelegd met behulp van de syntaxis van de `ALTER TABLE <tableName> SET UNLOGGED`.  
 
-Als u wilt het proces terugdraaien, gebruikt u de syntaxis `ALTER <tableName> SET LOGGED`.
+Als u wilt het proces terugdraaien, gebruikt u de syntaxis `ALTER TABLE <tableName> SET LOGGED`.
 
 ## <a name="unlogged-table-tradeoff"></a>Negatieve gevolgen voor de niet-geregistreerde tabel
 Niet-geregistreerde tabellen zijn niet crash-safe. Een niet-geregistreerde tabel automatisch afgekapt na een crash of onderhevig aan het afsluiten niet schoon. De inhoud van een niet-geregistreerde tabel worden niet ook gerepliceerd naar de stand-by-servers. Geen indexen gemaakt in een niet-geregistreerde tabel worden ook automatisch niet-geregistreerde. Na de insert-bewerking is voltooid, converteert u de tabel zodat de insert duurzame is aangemeld.

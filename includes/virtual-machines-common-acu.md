@@ -5,15 +5,15 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
+ms.date: 12/21/2018
 ms.author: cynthn;davberg
 ms.custom: include file
-ms.openlocfilehash: 29f1ad29bf305150592fd1e634e006f83b296bbc
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 86320af20a5f296358e1fd1d38eb297a8bb1a4bb
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53784440"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56331099"
 ---
 Het concept van de Azure Compute Unit (ACU) biedt een manier om (CPU)-computerprestaties in Azure-SKU's vergelijken. Op die manier kunt u eenvoudig bepalen welke SKU hoogstwaarschijnlijk aan uw prestatiebehoeften zal voldoen.  ACU is momenteel gestandaardiseerd op 100 voor een kleine virtuele machine (Standard_A1). Alle andere SKU's geven vervolgens weer hoeveel sneller die SKU een standaardbenchmark ongeveer kan uitvoeren. 
 
@@ -47,7 +47,7 @@ Het concept van de Azure Compute Unit (ACU) biedt een manier om (CPU)-computerpr
 | [GS1 - GS5](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |180 - 240* | 1:1 |
 | [H](../articles/virtual-machines/windows/sizes-hpc.md) |290 - 300* | 1:1 |
 | [L4s - L32s](../articles/virtual-machines/windows/sizes-storage.md) |180 - 240* | 1:1 |
-| [L8s_v2 - L80s_v2](../articles/virtual-machines/windows/sizes-storage.md) |150 - 175 ** | 2:1 |
+| [L8s_v2 - L80s_v2](../articles/virtual-machines/windows/sizes-storage.md) |150 - 175** | 2:1 |
 | [M](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) | 160-180 | 2:1\*\*\* |
 
 * ACU gebruik Intel® Turbo-technologie te vergroten van de CPU-frequentie geven een toename van de prestaties.  Het bedrag van de prestatieverhoging kan variëren op basis van de VM-grootte, werkbelasting en andere werkbelastingen die worden uitgevoerd op dezelfde host.

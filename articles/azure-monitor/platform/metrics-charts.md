@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 594ebb6a3c82c9b9dd3ee03a8083abf052d20f49
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c71822f50879404ba943ef6e703364a09a80fbf3
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991324"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310930"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor metrics explorer
 
@@ -100,20 +100,6 @@ U kunt een metrische waarde splitsen op dimensie om te visualiseren hoe verschil
    > [!NOTE]
    > Filteren en splitsen in dezelfde dimensie gebruiken om te verbergen van de segmenten zijn niet relevant voor uw scenario en grafieken gemakkelijker te lezen.
 
-### <a name="new-alert-rule"></a>Nieuwe waarschuwingsregel
-
-Ook kunt u de criteria die u hebt ingesteld voor het visualiseren van uw metrische gegevens zoals de basis voor de onderliggende logica van een metrische waarde op basis van de waarschuwingsregel. 
-
-Als u klikt op **nieuwe waarschuwingsregel**
-
-![Knop nieuwe waarschuwingsregel rood gemarkeerd](./media/metrics-charts/015.png)
-
-U gaat naar het deelvenster voor het maken van waarschuwingsregel met de grootte van het onderliggende metrische gegevens van de grafiek die vooraf is ingevuld voor het genereren van regels voor aangepaste waarschuwingen te vereenvoudigen.
-
-![Waarschuwingsregel maken](./media/metrics-charts/016.png)
-
-Bekijk deze [artikel](alerts-metric.md) voor meer informatie over het instellen van metrische waarschuwingen.
-
 ## <a name="lock-boundaries-of-chart-y-axis"></a>Grenzen van de vergrendeling van grafiek y-as
 
 Vergrendeling van het bereik van de y-as wordt belangrijk wanneer de grafiek kleinere fluctuaties van hogere waarden toont. 
@@ -138,6 +124,20 @@ Voor een geconfigureerde grafiek vastmaken aan een dashboard:
 Na het configureren van de grafiek, klik op de **grafiek acties** menu in de rechter hoek van de grafiek belangrijkste, en klikt u op **vastmaken aan dashboard**.
 
 ![de installatiekopie van de metrische gegevens](./media/metrics-charts/00013.png)
+
+## <a name="create-alert-rules"></a>Waarschuwingsregels maken
+
+U kunt de criteria die u hebt ingesteld voor het visualiseren van uw metrische gegevens zoals de basis van een metrische waarde op basis van de waarschuwingsregel. De nieuwe waarschuwingsregel bevat de doelresource, metrische gegevens, opsplitsen en filterdimensies van de grafiek. U wordt mogelijk zijn om deze instellingen later in het deelvenster met het maken van waarschuwingsregel te wijzigen.
+
+### <a name="to-create-a-new-alert-rule-click-new-alert-rule"></a>Klik op om een nieuwe waarschuwingsregel **nieuwe waarschuwingsregel**
+
+![Knop nieuwe waarschuwingsregel rood gemarkeerd](./media/metrics-charts/015.png)
+
+U gaat naar het deelvenster voor het maken van waarschuwingsregel met de grootte van het onderliggende metrische gegevens van de grafiek die vooraf is ingevuld voor het genereren van regels voor aangepaste waarschuwingen te vereenvoudigen.
+
+![Waarschuwingsregel maken](./media/metrics-charts/016.png)
+
+Bekijk deze [artikel](alerts-metric.md) voor meer informatie over het instellen van metrische waarschuwingen.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 

@@ -1,23 +1,21 @@
 ---
 title: Overzicht van de Azure Diagnostics-extensie
 description: Azure diagnostics gebruiken voor foutopsporing, meten van prestaties, bewaking, analyse van het netwerkverkeer in cloudservices, virtuele machines en service fabric
-services: azure-monitor
 author: rboucher
 ms.service: azure-monitor
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 02/13/2019
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 5e3b42b1e1f72ccc4d1127f2926ee53c51d66291
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 6c59b97a8deec78149775a147d6476e67f405d3f
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470508"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310454"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Wat is Azure Diagnostics-extensie
-De Azure Diagnostics-extensie is een agent in Azure waarmee u het verzamelen van diagnostische gegevens op een geïmplementeerde toepassing. U kunt de extensie voor diagnostische gegevens gebruiken uit een aantal verschillende bronnen. Op dit moment ondersteund zijn Azure-Cloudservice (klassiek) Web- en werkrollen, virtuele Machines, Virtual Machine Scale sets en Service Fabric. Andere Azure-services hebben diagnostische gegevens van andere methoden. Zie [overzicht van de bewaking in Azure](../../azure-monitor/overview.md).
+De Azure Diagnostics-extensie is een agent in Azure waarmee u het verzamelen van diagnostische gegevens op een geïmplementeerde toepassing. U kunt de extensie voor diagnostische gegevens gebruiken uit een aantal verschillende bronnen. Op dit moment ondersteund zijn Azure-Cloudservice (klassiek) Web- en werkrollen, virtuele Machines, virtuele Machine de schaal van sets en Service Fabric. Andere Azure-services hebben diagnostische gegevens van andere methoden. Zie [overzicht van de bewaking in Azure](../../azure-monitor/overview.md).
 
 ## <a name="linux-agent"></a>Linux-agent
 Een [Linux-versie van de extensie](../../virtual-machines/extensions/diagnostics-linux.md) is beschikbaar voor virtuele Machines waarop Linux wordt uitgevoerd. De statistieken die worden verzameld en het gedrag verschillen van de Windows-versie.
@@ -27,37 +25,38 @@ De Azure Diagnostics-extensie kan de volgende typen gegevens verzamelen:
 
 | Gegevensbron | Description |
 | --- | --- |
-| Prestatiemeteritems |Besturingssysteem- en aangepaste prestatiemeteritems |
+| Metrische gegevens voor prestaties teller |Besturingssysteem- en aangepaste prestatiemeteritems |
 | Toepassingslogboeken |Traceringsberichten die is geschreven door uw toepassing |
 | Windows-gebeurtenislogboeken |Informatie verzonden naar het aanmeldingssysteem voor Windows-gebeurtenis |
-| .NET-gebeurtenisbron |Code schrijven met behulp van de .NET gebeurtenissen [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) klasse |
+| .NET-EventSource Logboeken |Code schrijven met behulp van de .NET gebeurtenissen [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) klasse |
 | IIS-logboeken |Informatie over IIS-websites |
-| ETW op basis van manifest |Event Tracing voor Windows-gebeurtenissen die worden gegenereerd door een proces. (1) |
-| Crashdumps |Informatie over de status van het proces in het geval van een crash van een toepassing |
+| [Manifest gebaseerde ETW-Logboeken](https://docs.microsoft.com/windows/desktop/etw/about-event-tracing) |Event Tracing voor Windows-gebeurtenissen die worden gegenereerd door een proces. (1) |
+| Crashdumps (Logboeken) |Informatie over de status van het proces als een toepassing vastloopt |
 | Aangepaste foutenlogboeken |Logboeken die zijn gemaakt door uw toepassing of service |
-| Logboeken met diagnostische Azure-infrastructuur |Informatie over diagnostische gegevens zelf |
+| Logboeken met diagnostische Azure-infrastructuur |Informatie over Azure Diagnostics zelf |
 
 (1) uitvoeren als u een lijst van ETW-providers, `c:\Windows\System32\logman.exe query providers` in een consolevenster weergegeven op de computer die u wilt verzamelen van gegevens uit.
 
 ## <a name="data-storage"></a>Gegevensopslag
 De extensie slaat de gegevens op in een [Azure Storage-account](diagnostics-extension-to-storage.md) die u opgeeft.
 
-U kunt ook verzenden naar [Application Insights](../../azure-monitor/app/cloudservices.md). Een andere optie is om te streamen naar [Event Hub](../../event-hubs/event-hubs-about.md), die vervolgens kunt u deze verzenden naar het controleren van niet-Azure-services.
+U kunt ook verzenden naar [Application Insights](../../azure-monitor/app/cloudservices.md). 
 
-### <a name="azure-monitor"></a>Azure Monitor
-U hebt ook de keuze van uw gegevens te verzenden naar Azure Monitor. Deze sink is op dit moment alleen van toepassing op prestatiemeteritems. Hiermee kunt u prestatiemeteritems verzamelde verzenden op de virtuele machine, VMSS, of in de cloud service naar Azure Monitor als aangepaste metrische gegevens. Biedt ondersteuning voor de Azure Monitor-sink:
+Een andere optie is om te streamen naar [Event Hub](../../event-hubs/event-hubs-about.md), die vervolgens kunt u deze verzenden naar niet-Azure-bewakingsservices.
+
+U hebt ook de keuze van het verzenden van uw gegevens met Azure Monitor metrics time series database. Deze sink is op dit moment alleen van toepassing op prestatiemeteritems. Hiermee kunt u voor het verzenden van prestatiemeteritems in als aangepaste metrische gegevens. Deze functie is in Preview. Biedt ondersteuning voor de Azure Monitor-sink:
 * Bij het ophalen van alle prestatiemeteritems verzonden naar Azure Monitor via de [Azure Monitor metrics API's.](https://docs.microsoft.com/rest/api/monitor/)
-* Waarschuwingen voor alle prestatiemeteritems verzonden naar Azure Monitor via de nieuwe [ervaring voor waarschuwingen van geïntegreerde](../../azure-monitor/platform/alerts-overview.md) in Azure Monitor
-* Wildcard-operator als de dimensie 'Instantie' op uw metrische gegevens in de prestatiemeteritems te behandelen.  Bijvoorbeeld als u hebt verzameld de ' logische schijf (\*) / DiskWrites per seconde "teller die u kunt filteren en splitsen op de dimensie 'Instantie' diagram of de waarschuwing op de schijf schrijven per seconde voor elke logische schijf op de virtuele machine (C:, D:, enz.)
+* Waarschuwingen voor alle prestatiemeteritems verzonden naar Azure Monitor via de [metrische waarschuwingen](../../azure-monitor/platform/alerts-overview.md) in Azure Monitor
+* Wildcard-operator als de dimensie 'Instantie' op uw metrische gegevens in de prestatiemeteritems te behandelen.  Bijvoorbeeld als u hebt verzameld de ' logische schijf (\*) / DiskWrites per seconde "teller die u kunt filteren en splitsen op de dimensie 'Instantie' diagram of de waarschuwing op de schijf schrijven per seconde voor elke logische schijf op de virtuele machine (bijvoorbeeld C:)
 
-Voor meer informatie over het configureren van deze sink, Raadpleeg de [documentatie voor Azure diagnostics-schema.](diagnostics-extension-schema-1dot3.md)
+Raadpleeg voor meer informatie over het configureren van deze sink de [documentatie voor Azure diagnostics-schema.](diagnostics-extension-schema-1dot3.md)
 
 ## <a name="versioning-and-configuration-schema"></a>Versiebeheer en configuratie-schema
 Zie [versiegeschiedenis van Azure Diagnostics en het Schema](diagnostics-extension-schema.md).
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Kies welke service u wilt verzamelen van diagnostische gegevens op en gebruik de volgende artikelen aan de slag. Gebruik de algemene Azure diagnostics-koppelingen ter referentie voor specifieke taken.
+Kies welke service die u probeert te verzamelen van diagnostische gegevens op en gebruik de volgende artikelen aan de slag. Gebruik de algemene Azure diagnostics-koppelingen ter referentie voor specifieke taken.
 
 ## <a name="cloud-services-using-azure-diagnostics"></a>Cloudservices met Azure Diagnostics
 * Als u Visual Studio, Zie [Visual Studio gebruiken om een Cloud Services-toepassing](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines) aan de slag. Raadpleegt u

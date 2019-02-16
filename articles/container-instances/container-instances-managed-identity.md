@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: bf807a4d24b72c948707ade28f06c4eb2a54c0a0
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 321dfaa1a58cc806394f4807c38cbdc599cfd7a0
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657022"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311560"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Het gebruik van beheerde identiteiten met Azure Container Instances
 
@@ -27,6 +27,9 @@ In dit artikel leert u meer informatie over beheerde identiteiten in Azure Conta
 > * De beheerde identiteit gebruiken voor toegang tot een Key Vault van een container die wordt uitgevoerd
 
 Pas de voorbeelden om te schakelen en gebruiken van identiteiten in Azure Container Instances voor toegang tot andere Azure-services. Deze voorbeelden zijn interactief. In de praktijk uw containerinstallatiekopieën echter uitgevoerd code voor toegang tot Azure-services.
+
+> [!NOTE]
+> Momenteel kunt u een beheerde identiteit niet gebruiken in de containergroep van een geïmplementeerd naar een virtueel netwerk.
 
 ## <a name="why-use-a-managed-identity"></a>Waarom een beheerde identiteit gebruiken?
 
