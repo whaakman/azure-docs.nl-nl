@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: bb88736762219028d58fe70d0ec32309967c95a4
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: dbbfea183454b1068558111bf62b45f5fa6415cc
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55830711"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56333802"
 ---
 Opslag geoptimaliseerde VM-grootten bieden een snelle doorvoer van schijfgegevens en IO- en zijn ideaal voor Big Data, SQL, NoSQL-databases, gegevensopslag en grote transactionele databases.  Voorbeelden zijn onder meer Cassandra, MongoDB, Cloudera en Redis. In dit artikel bevat informatie over het aantal vcpu's, gegevensschijven en NIC's, evenals lokale opslag en doorvoer netwerkbandbreedte voor elke grootte geoptimaliseerde.
 
@@ -64,7 +64,7 @@ Premium Storage Caching:  Niet ondersteund
 | Standard_L32s <sup>1</sup> | 32   | 256  | 5630 | 64   | 160,000 / 1,600   | 40.000 / 1,000     | 8 / 20,000 | 
  
 
-De maximale schijfdoorvoer die mogelijk is met de Ls-serie VM's kan worden beperkt door het aantal, de grootte en de striping van de gekoppelde schijven. Zie voor meer informatie, [Premium Storage: Opslag met hoge prestaties voor Azure virtual machine-werkbelasting](../articles/virtual-machines/windows/premium-storage.md).
+De maximale schijfdoorvoer die mogelijk is met de Ls-serie VM's kan worden beperkt door het aantal, de grootte en de striping van de gekoppelde schijven. Zie voor meer informatie, [ontwerpen voor hoge prestaties](../articles/virtual-machines/windows/premium-storage-performance.md).
 
 <sup>1</sup> exemplaar is geïsoleerd voor hardware toegewezen aan één klant.
 

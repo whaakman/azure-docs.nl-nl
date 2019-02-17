@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d16214bf08b0e0b5a95acae380f8d644fc4461ce
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: e2dc82ee49b240fe562f02b38c4991c644c010d3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56212999"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56333974"
 ---
-# <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: Ontwerp voor hoge prestaties
+# <a name="azure-premium-storage-design-for-high-performance"></a>Azure premium storage: ontwerp voor hoge prestaties
 
 In dit artikel bevat richtlijnen voor het bouwen van toepassingen met hoge prestaties met behulp van Azure Premium Storage. U kunt de instructies in dit document in combinatie met aanbevolen procedures voor prestaties van toepassing op de technologieën die worden gebruikt door uw toepassing gebruiken. Ter illustratie van de richtlijnen, hebben we met SQL Server op Premium-opslag als voorbeeld in dit document gebruikt.
 
@@ -35,7 +35,7 @@ We hebben deze richtlijnen die specifiek voor Premium-opslag omdat workloads die
 > Soms is lijkt te zijn van een prestatieprobleem schijf eigenlijk een knelpunt netwerk. In deze situaties moet u optimaliseren uw [netwerkprestaties](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
 > Als uw virtuele machine versnelde netwerken ondersteunt, moet u ervoor zorgen dat deze is ingeschakeld. Als deze niet is ingeschakeld, kunt u het inschakelen op reeds geïmplementeerde VM's op zowel [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) en [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-Voordat u begint, als u niet bekend bent met Premium Storage, lees eerst de [Premium Storage: Opslag met hoge prestaties voor Azure Virtual Machine-werkbelasting](../articles/virtual-machines/windows/premium-storage.md) en [Azure Storage Scalability and Performance Targets](../articles/storage/common/storage-scalability-targets.md) artikelen.
+Voordat u begint, als u niet bekend bent met Premium Storage, lees eerst de [Selecteer een type Azure-schijf voor IaaS-VM's](../articles/virtual-machines/windows/disks-types.md) en [Azure Storage Scalability and Performance Targets](../articles/storage/common/storage-scalability-targets.md) artikelen.
 
 ## <a name="application-performance-indicators"></a>Toepassing prestatie-indicatoren
 
@@ -45,7 +45,7 @@ In deze sectie bespreken we de algemene prestatie-indicatoren in de context van 
 
 ## <a name="iops"></a>IOPS
 
-IOPS getal is van de aanvragen die uw toepassing worden verzonden naar de opslagschijven in één seconde. Een i/o-bewerking kan worden gelezen of opeenvolgende of willekeurig schrijven. OLTP-toepassingen, zoals een detailhandel online-website moeten veel gelijktijdige gebruikersaanvragen onmiddellijk verwerkt. De aanvragen van gebruikers zijn invoegen en bijwerken van intensieve databasetransacties, die de toepassing moet snel worden verwerkt. OLTP-toepassingen moeten daarom zeer hoge IOPS. Dergelijke toepassingen verwerken miljoenen kleine en willekeurige i/o-aanvragen. Als u een dergelijke toepassing hebt, moet u de infrastructuur van de toepassing om te optimaliseren voor IOPS ontwerpen. In de volgende sectie *optimaliseert de prestaties van toepassingen*, we in detail bespreken met de factoren waarmee u rekening houden moet om op te halen van hoge IOPS.
+IOP's of i/o-bewerkingen Per seconde, is het aantal aanvragen dat uw toepassing naar de storage-schijven in één seconde verzendt. Een i/o-bewerking kan worden gelezen of opeenvolgende of willekeurig schrijven. Online Transaction verwerking (OLTP)-toepassingen, zoals een detailhandel online-website moeten veel gelijktijdige gebruikersaanvragen onmiddellijk verwerkt. De aanvragen van gebruikers zijn invoegen en bijwerken van intensieve databasetransacties, die de toepassing moet snel worden verwerkt. OLTP-toepassingen moeten daarom zeer hoge IOPS. Dergelijke toepassingen verwerken miljoenen kleine en willekeurige i/o-aanvragen. Als u een dergelijke toepassing hebt, moet u de infrastructuur van de toepassing om te optimaliseren voor IOPS ontwerpen. In de volgende sectie *optimaliseert de prestaties van toepassingen*, we in detail bespreken met de factoren waarmee u rekening houden moet om op te halen van hoge IOPS.
 
 Wanneer u een premium opslagschijf koppelen aan uw grote schaal VM, Azure-bepalingen voor u een gegarandeerd aantal IOP's aan de hand van de schijf-specificatie. Bijvoorbeeld: richt een P50 schijf 7500 IOPS. Elke grootschalige VM-grootte heeft ook een specifieke IOPS-limiet voor dat het bestand is tegen. Een standaard GS5-VM heeft bijvoorbeeld 80.000 IOP's beperken.
 
@@ -53,11 +53,11 @@ Wanneer u een premium opslagschijf koppelen aan uw grote schaal VM, Azure-bepali
 
 Doorvoer of bandbreedte is de hoeveelheid gegevens die uw toepassing worden verzonden naar het storage-schijven in een opgegeven interval. Als uw toepassing invoer/uitvoer-bewerkingen met grote i/o-eenheid grootten presteert, is er een hoge doorvoer vereist. Datawarehouse-toepassingen vaak om uit te geven van de scan bewerkingsintensieve bewerkingen die toegang tot grote delen van gegevens op een tijdstip en vaak bulksgewijs bewerkingen uit te voeren. Met andere woorden, hogere doorvoer nodig hebben voor deze toepassingen. Als u een dergelijke toepassing hebt, moet u de infrastructuur te optimaliseren voor doorvoer ontwerpen. In de volgende sectie wordt besproken hoe in detail de factoren die u moet afstemmen om dit te bereiken.
 
-Wanneer u een premium opslagschijf koppelen aan een grote schaal VM, Azure-bepalingen doorvoer volgens de specificatie van die schijf. Bijvoorbeeld: richt een P50 schijf 250 MB per seconde schijf doorvoer. Elke grootschalige VM-grootte heeft ook als specifieke doorvoerlimiet die het bestand is tegen. Standard GS5-VM heeft bijvoorbeeld een maximale doorvoer van 2000 MB per seconde. 
+Wanneer u een premium-opslagschijf koppelen aan een grote schaal VM, Azure-bepalingen doorvoer volgens de specificatie van die schijf. Bijvoorbeeld, een P50 schijf 250 MB per seconde schijfdoorvoer wordt ingericht. Elke grootschalige VM-grootte heeft ook als specifieke doorvoerlimiet die het bestand is tegen. Standard GS5-VM heeft bijvoorbeeld een maximale doorvoer van 2000 MB per seconde.
 
 Er is een relatie tussen de doorvoer en IOPS, zoals wordt weergegeven in de onderstaande formule.
 
-![](media/premium-storage-performance/image1.png)
+![Relatie van IOPS en doorvoer](../articles/virtual-machines/linux/media/premium-storage-performance/image1.png)
 
 Daarom is het belangrijk om te bepalen van de optimale doorvoer en IOPS-waarden die uw toepassing vereist. Als u een optimaliseren probeert, wordt de andere ook beïnvloed. In een volgende sectie *optimaliseert de prestaties van toepassingen*, bespreken we met meer details over het optimaliseren van IOPS en doorvoer.
 
@@ -67,23 +67,15 @@ Latentie is de tijd die nodig is een aanvraag ontvangen van een enkele aanvraag 
 
 Wanneer u uw toepassing om op te halen van hogere IOPS en doorvoer optimaliseert, heeft dit invloed op de latentie van uw toepassing. Na het afstemmen van de prestaties van toepassingen, moet u altijd de latentie van de toepassing om te voorkomen van onverwachte hoge latentie gedrag evalueren.
 
-Bewerkingen voor de controlelaag op beheerde schijven te volgen, kan verkeer van de schijf van de ene opslaglocatie naar de andere omvatten. Dit is georganiseerd via achtergrond kopiëren van gegevens kan enkele uren om uit te voeren, afhankelijk van de hoeveelheid gegevens in de schijven meestal minder dan 24 uur duren. Gedurende die tijd kunt uw toepassing ervaringen hoger dan normaal leeslatentie bij het aantal leesbewerkingen kunnen ophalen omgeleid naar de oorspronkelijke locatie en kunnen het langer duren om. Er zijn geen gevolgen voor schrijven latentie tijdens deze periode.  
+# <a name="performance-application-checklist-for-disks"></a>Controlelijst voor prestaties-toepassing voor schijven
 
-1.  [Update het opslagtype](../articles/virtual-machines/windows/convert-disk-storage.md)
-2.  [Loskoppelen en een schijf koppelen van een virtuele machine naar een andere](../articles/virtual-machines/windows/attach-disk-ps.md)
-3.  [Een beheerde schijf maken op basis van een VHD](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md)
-4.  [Een beheerde schijf maken op basis van een momentopname](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md)
-5.  [Niet-beheerde schijven converteren naar beheerde schijven](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md)
+De eerste stap bij het ontwerpen van krachtige toepassingen die worden uitgevoerd op Azure Premium Storage is het registreren van de prestatievereisten van uw toepassing. Nadat u de prestatie-eisen hebt verzameld, kunt u uw toepassing in de meest optimale prestaties kunt optimaliseren.
 
-## <a name="gather-application-performance-requirements"></a>Verzamelen van prestaties toepassingsvereisten
+In de vorige sectie beschreven we de algemene prestatie-indicatoren, IOPS, doorvoer en latentie. U moet bepalen welke van deze prestatie-indicatoren zijn essentieel voor uw toepassing om de gewenste gebruiker-ervaring te leveren. Bijvoorbeeld, belangrijkst hoge IOPS is voor de verwerking van miljoenen transacties in een tweede OLTP-toepassingen. Terwijl hoge doorvoer essentieel voor het verwerken van grote hoeveelheden gegevens in een tweede Data Warehouse-toepassingen is. Extreem lage latentie is van cruciaal belang voor realtime-toepassingen, zoals live videostreaming van websites.
 
-De eerste stap bij het ontwerpen van toepassingen met hoge prestaties die worden uitgevoerd op Azure Premium Storage is om te begrijpen van de prestatievereisten van uw toepassing. Nadat u prestatie-eisen verzamelen, kunt u uw toepassing in de meest optimale prestaties kunt optimaliseren.
+Meet vervolgens de maximale prestatie-eisen van uw toepassing gedurende hun levensduur. Gebruik de voorbeeld-controlelijst hieronder als een begin. Noteer de vereisten voor maximale prestaties tijdens normaal, piek en buiten kantooruren werkbelasting punten. Door het identificeren van de vereisten voor alle workloads niveaus, kunt u zich om te bepalen van de algehele prestaties behoefte van uw toepassing. De normale werkbelasting van een e-commerce-website worden bijvoorbeeld de transacties die het resultaat wordt gebruikt in de meeste dagen in een jaar. De piekworkload van de website worden de transacties die het resultaat wordt gebruikt tijdens de feestdagen of speciale verkoop gebeurtenissen. De piekworkload is doorgaans ervaren gedurende een beperkte periode, maar kan vereisen om de schaal van twee of meer keer de normale werking van uw toepassingen. Ontdek de 50 percentiel, 90 percentiel en 99 percentiel vereisten. Dit kunt uitfilteren uitbijters in de prestatie-eisen en u uw inspanningen zich kunt richten op het optimaliseren van voor de juiste waarden.
 
-In de vorige sectie, we de algemene prestatie-indicatoren, IOPS, Throughput and Latency uitgelegd. U moet bepalen welke van deze prestatie-indicatoren zijn essentieel voor uw toepassing om de gewenste gebruiker-ervaring te leveren. Bijvoorbeeld, belangrijkst hoge IOPS is voor de verwerking van miljoenen transacties in een tweede OLTP-toepassingen. Terwijl hoge doorvoer essentieel voor het verwerken van grote hoeveelheden gegevens in een tweede Data Warehouse-toepassingen is. Extreem lage latentie is van cruciaal belang voor realtime-toepassingen, zoals live videostreaming van websites.
-
-Meet vervolgens de maximale prestatie-eisen van uw toepassing gedurende hun levensduur. Gebruik de voorbeeld-controlelijst hieronder als een begin. Noteer de vereisten voor maximale prestaties tijdens normaal, de piek- en buiten kantooruren werkbelasting punten. Door het identificeren van de vereisten voor alle workloads niveaus, kunt u zich om te bepalen van de algehele prestaties behoefte van uw toepassing. De normale werkbelasting van een e-commerce-website worden bijvoorbeeld de transacties die het resultaat wordt gebruikt in de meeste dagen in een jaar. De piekworkload van de website worden de transacties die het resultaat wordt gebruikt tijdens de feestdagen of speciale verkoop gebeurtenissen. De piekworkload is doorgaans ervaren gedurende een beperkte periode, maar kan vereisen om de schaal van twee of meer keer de normale werking van uw toepassingen. Ontdek de 50 percentiel, 90 percentiel en 99 percentiel vereisten. Dit kunt uitfilteren uitbijters in de prestatie-eisen en u uw inspanningen zich kunt richten op het optimaliseren van voor de juiste waarden.
-
-### <a name="application-performance-requirements-checklist"></a>Controlelijst voor de vereisten van de toepassing prestaties
+## <a name="application-performance-requirements-checklist"></a>Controlelijst voor de vereisten van de toepassing prestaties
 
 | **Prestatie-eisen** | **50 Percentile** | **90 percentiel** | **99 percentiel** |
 | --- | --- | --- | --- |
@@ -106,9 +98,7 @@ Meet vervolgens de maximale prestatie-eisen van uw toepassing gedurende hun leve
 > [!NOTE]
 > U moet rekening houden met deze getallen op basis van de verwachte toekomstige groei van uw toepassing schalen. Het is een goed idee om te plannen voor groei van tevoren, omdat deze mogelijk moeilijker te wijzigen van de infrastructuur voor het verbeteren van de prestaties later opnieuw.
 
-Als u een bestaande toepassing hebt en wilt overstappen op Premium Storage, moet u eerst de controlelijst hierboven voor de bestaande toepassing bouwen. Vervolgens een prototype van uw toepassing op Premium Storage maken en ontwerpen van de toepassing op basis van de richtlijnen die worden beschreven in *optimaliseert de prestaties van toepassingen* in een volgende sectie van dit document. De volgende sectie beschrijft de hulpmiddelen die u gebruiken kunt voor het verzamelen van de metingen van de prestaties.
-
-Maak een controlelijst die vergelijkbaar is met uw bestaande toepassing voor het model. Met behulp van hulpprogramma's voor Benchmarking kunt u de werkbelastingen te simuleren en meten van prestaties van de toepassing prototype. Zie de sectie over [Benchmarking](#benchmarking) voor meer informatie. Hierdoor kunt u bepalen of Premium-opslag kan overeenkomen met of groter zijn dan de prestatievereisten van uw toepassing. Vervolgens kunt u dezelfde richtlijnen als voor uw productietoepassing implementeren.
+Als u een bestaande toepassing hebt en wilt overstappen op Premium Storage, moet u eerst de controlelijst hierboven voor de bestaande toepassing bouwen. Vervolgens een prototype van uw toepassing op Premium Storage maken en ontwerpen van de toepassing op basis van de richtlijnen die worden beschreven in *optimaliseert de prestaties van toepassingen* in een volgende sectie van dit document. Het volgende artikel beschrijft de hulpmiddelen die u gebruiken kunt voor het verzamelen van de metingen van de prestaties.
 
 ### <a name="counters-to-measure-application-performance-requirements"></a>Tellers voor het meten van prestaties toepassingsvereisten
 
@@ -129,13 +119,15 @@ De prestatiemeteritems zijn beschikbaar voor processor, geheugen, en elke logisc
 
 Meer informatie over [iostat](https://linux.die.net/man/1/iostat) en [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
 
-## <a name="optimizing-application-performance"></a>De prestaties van toepassingen optimaliseren
+
+
+## <a name="optimize-application-performance"></a>Optimaliseer de prestaties van toepassingen
 
 De belangrijkste factoren die invloed hebben op prestaties van een toepassing die wordt uitgevoerd op de Premium-opslag zijn aard van i/o-aanvragen, VM-grootte, schijfgrootte, het aantal schijven, opslaan in schijfcache, Multithreading en wachtrijdiepte. Sommige van deze factoren kunt u bepalen met knoppen geleverd door het systeem. De meeste toepassingen kunnen u niet een optie voor het wijzigen van de i/o-grootte en de wachtrijdiepte rechtstreeks geven. Bijvoorbeeld, als u SQL Server gebruikt, kiezen u niet de diepte van de i/o-grootte en wachtrij. SQL Server kiest de optimale i/o-grootte en wachtrij diepte waarden om de meeste prestaties te verkrijgen. Het is belangrijk om te begrijpen van de gevolgen van beide typen factoren voor de prestaties van uw toepassing, zodat u de juiste resources om te voldoen aan prestatiebehoeften kunt inrichten.
 
 Raadpleeg de controlelijst voor de vereisten van toepassing die u hebt gemaakt, om te bepalen hoeveel moet u het optimaliseren van prestaties van uw toepassing in deze sectie. Op basis van die, kunt u zich om te bepalen welke factoren van deze sectie moet u om af te stemmen. Te wonen de effecten van elke factor op de prestaties van uw toepassing, hulpprogramma's voor benchmarking worden uitgevoerd op de toepassingsinstellingen van uw. Raadpleeg de [Benchmarking](#Benchmarking) sectie aan het einde van dit artikel voor stappen voor het uitvoeren van algemene hulpprogramma's voor benchmarking op Windows en Linux-machines.
 
-### <a name="optimizing-iops-throughput-and-latency-at-a-glance"></a>IOPS, Throughput and Latency optimaliseren in een oogopslag
+### <a name="optimize-iops-throughput-and-latency-at-a-glance"></a>IOPS, doorvoer en latentie in een oogopslag optimaliseren
 
 De onderstaande tabel bevat een overzicht van de prestatiefactoren en de benodigde stappen voor het optimaliseren van IOPS, doorvoer en latentie. In de secties na dit overzicht wordt beschrijven elk van meerdere factoren is veel meer diepgang.
 
@@ -229,7 +221,7 @@ Met Azure Premium Storage krijgt u hetzelfde niveau van de prestaties voor virtu
 
 Wanneer waarop Linux wordt uitgevoerd met Premium Storage, controleert u de meest recente updates over de vereiste stuurprogramma's om te controleren of hoge prestaties.
 
-## <a name="premium-storage-disk-sizes"></a>Premium Storage-schijfgrootten
+## <a name="premium-storage-disk-sizes"></a>Premium storage-schijfgrootten
 
 Azure Premium Storage biedt acht schijfgrootten voor algemene beschikbaarheid en drie schijfgrootten die momenteel Preview-versie worden. De grootte van elke schijf heeft de limiet van een andere schaal voor IOPS, bandbreedte en opslag. Kies het recht voor Premium Storage-schijfgrootte, afhankelijk van de toepassingsvereisten voor de en de hoge schaal VM-grootte. De onderstaande tabel ziet u de grootten elf schijven en de bijbehorende mogelijkheden. P4, P6, P15, P60, P70 en P80 grootten zijn momenteel alleen ondersteund voor Managed Disks.
 
@@ -268,7 +260,7 @@ Raadpleeg voor meer informatie over de werking van BlobCache binnen [Azure Premi
 
 Het is belangrijk om in te schakelen van de cache op de juiste set met schijven. Of u moet inschakelen op een premium-schijf opslaan in schijfcache of niet zal afhankelijk zijn van het workloadpatroon die schijf verwerkt. De onderstaande tabel ziet u de cache-instellingen voor het besturingssysteem en gegevensschijven.
 
-| **Schijftype** | **Standaardinstelling voor Cache** |
+| **Schijftype** | **Standaardinstelling voor cache** |
 | --- | --- |
 | Besturingssysteemschijf |ReadWrite |
 | Gegevensschijf |ReadOnly |
@@ -297,6 +289,46 @@ U kunt bijvoorbeeld deze richtlijnen toepassen op SQL Server op Premium Storage 
    b.  Lezen uit cache levert, betekent dat er extra doorvoer van premium-gegevensschijven beschikbaar. SQL Server kan deze extra doorvoer voor het ophalen van meer gegevenspagina's en andere bewerkingen zoals back-up/herstel gebruiken, batch-belastingen en index opnieuw opgebouwd.  
 1. Configureren 'None' in de cache op premium storage-schijven die als host fungeert voor de logboekbestanden.  
    a.  Logboekbestanden hebben voornamelijk schrijfintensief bewerkingen. Ze kunnen daarom niet gebruikmaken van de alleen-lezen-cache.
+
+### <a name="optimize-performance-on-linux-vms"></a>Prestaties op virtuele Linux-machines te optimaliseren
+
+Voor alle premium SSD's of ultra schijven met cache ingesteld op **ReadOnly** of **geen**, moet u "barrières" uitschakelen wanneer u het bestandssysteem koppelen. U hoeft geen barrières in dit scenario omdat de schrijfbewerkingen naar premium storage-schijven duurzame voor deze cache-instellingen zijn. Wanneer de schrijfaanvraag met succes is voltooid, heeft de gegevens zijn geschreven voor het permanente archief. Als wilt uitschakelen 'barrières', een van de volgende methoden te gebruiken. Kies de koppeling voor het bestandssysteem:
+  
+* Voor **reiserFS**, zodat barrières uitschakelen, gebruikt de `barrier=none` optie koppelen. (Gebruiken om in te schakelen barrières, `barrier=flush`.)
+* Voor **ext3/ext4**, zodat barrières uitschakelen, gebruikt de `barrier=0` optie koppelen. (Gebruiken om in te schakelen barrières, `barrier=1`.)
+* Voor **XFS**, zodat barrières uitschakelen, gebruikt de `nobarrier` optie koppelen. (Gebruiken om in te schakelen barrières, `barrier`.)
+* Voor premium storage-schijven met cache ingesteld op **ReadWrite**, barrières voor schrijven duurzaamheid inschakelen.
+* Voor de volumelabels van het om vast te leggen nadat de virtuele machine opnieuw is opgestart, moet u/etc/fstab bijwerken met de universele, unieke id (UUID) verwijzingen naar de schijven. Zie voor meer informatie, [een beheerde schijf toevoegen aan een Linux-VM](../articles/virtual-machines/linux/add-disk.md).
+
+De volgende Linux-distributies zijn gevalideerd voor premium SSD's. Voor betere prestaties en stabiliteit met premium SSD's, wordt u aangeraden dat u uw VM's naar een van deze versies of hoger upgraden. 
+
+Voor sommige van de versies van moet de meest recente Linux Integration Services (LIS), v4.0, voor Azure. Als u wilt downloaden en installeren van een distributiepunt, volgt u de koppeling in de volgende tabel weergegeven. We toevoegen afbeeldingen aan de lijst als we klaar zijn met validatie. Onze validaties laten zien dat de prestaties wisselend voor elke afbeelding. Prestaties zijn afhankelijk van uw installatiekopie-instellingen en kenmerken van de werkbelasting. Verschillende afbeeldingen zijn afgesteld voor verschillende soorten workloads.
+
+| Distributie | Versie | Ondersteunde kernel | Details |
+| --- | --- | --- | --- |
+| Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
+| Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
+| Debian | 7.x, 8.x | 3.16.7-ckt4-1+ | &nbsp; |
+| SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
+| SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
+| CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
+| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 vereist](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Zie de opmerking in de volgende sectie* |
+| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [Aanbevolen LIS4](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Zie de opmerking in de volgende sectie* |
+| Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ | &nbsp; | &nbsp; |
+| Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 of RHCK |
+| Oracle | 7.0-7.1 | &nbsp; | UEK4 of RHCK met[LIS 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 6.4-6.7 | &nbsp; | UEK4 of RHCK met[LIS 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+
+## <a name="lis-drivers-for-openlogic-centos"></a>LIS-stuurprogramma's voor OpenLogic CentOS
+
+Als u nu OpenLogic CentOS-VM's worden uitgevoerd, voert u de volgende opdracht om de meest recente stuurprogramma's installeren:
+
+```
+sudo rpm -e hypervkvpd  ## (Might return an error if not installed. That's OK.)
+sudo yum install microsoft-hyper-v
+```
+
+Voor het activeren van de nieuwe stuurprogramma's, start u de VM opnieuw.
 
 ## <a name="disk-striping"></a>Striping van de schijf
 
@@ -363,249 +395,11 @@ Voor een striped volume wachtrijdiepte een hoog genoeg zijn zodat elke schijf ee
 
 Azure Premium Storage-bepalingen opgegeven aantal IOPS en doorvoer, afhankelijk van de VM-grootten en schijfgrootten die u kiest. Telkens wanneer uw toepassing probeert om het stimuleren van IOP's of doorvoer boven deze limieten van wat de virtuele machine of de schijf kan worden verwerkt, wordt het Premium Storage beperken. Dit zich voordoet in de vorm van slechtere prestaties in uw toepassing. Dit kan betekenen hogere latentie, lagere doorvoer of IOPS lager. Als Premium-opslag niet beperken biedt, wordt uw toepassing kan volledig mislukken door meer dan wat de daarbij behorende bronnen zijn geschikt voor het bereiken. Dus om prestatieproblemen te voorkomen vanwege een beperking, altijd voldoende bronnen zijn voor uw toepassing te creëren. Rekening mee te houden wat we in de VM-grootten en schijf-grootten hierboven besproken. Benchmarking is de beste manier om te achterhalen welke resources u moet uw toepassing wordt gehost.
 
-## <a name="benchmarking"></a>Benchmarking
-
-Benchmarking is het proces van het simuleren van verschillende workloads op uw toepassing en de prestaties van toepassingen voor elke werkbelasting te meten. Met behulp van de stappen in een eerdere sectie, hebt u de prestatie-eisen voor toepassingen verzameld. Door het uitvoeren van hulpprogramma's voor benchmarking op de virtuele machines die als host fungeert voor de toepassing, kunt u de prestatieniveaus die binnen uw toepassing met Premium Storage bereiken kunt bepalen. In deze sectie bieden wij u voorbeelden van benchmarks van een Standard DS14-virtuele machine ingericht met Azure Premium Storage-schijven.
-
-We hebben respectievelijk algemene hulpprogramma's voor benchmarking Iometer en FIO, voor Windows en Linux gebruikt. Deze hulpprogramma's starten meerdere threads simuleren van een productie-achtige werkbelasting en meten van prestaties van het systeem. U kunt ook een parameters, zoals het block-grootte en wachtrij diepte, die u normaal gesproken niet voor een toepassing wijzigen configureren met behulp van de hulpprogramma's. Dit biedt u meer flexibiliteit om de maximale prestaties op een grote schaal VM ingericht met premium-schijven voor verschillende soorten werkbelastingen van toepassingen te stimuleren. Voor meer informatie over elke benchmarking hulpprogramma gaat u naar [Iometer](http://www.iometer.org/) en [FIO](http://freecode.com/projects/fio).
-
-Volg de onderstaande voorbeelden, een standaard DS14-virtuele machine maken en 11 Premium-opslagschijven koppelen aan de virtuele machine. 11 schijven, 10 schijven configureren met opslaan in cache als 'Geen' en deze in een volume naam NoCacheWrites stripe. Opslaan in cache als 'Alleen-lezen' op de resterende schijf configureren en maken van een volume naam CacheReads met deze schijf. Met deze instellingen, kunt u zich om te zien van de maximale prestaties voor lezen en schrijven van een Standard DS14-virtuele machine. Ga voor gedetailleerde stappen over het maken van een DS14-VM met premium-schijven naar [maken en gebruiken een Premium Storage-account voor een VM-gegevensschijf](../articles/virtual-machines/windows/premium-storage.md).
-
-*Opwarmen van de Cache*  
-De schijf met alleen-lezentoegang opslaan in cache is mogelijk dat hoger IOP's dan de limiet van de schijf. Als u dit maximum leesprestaties uit de cache van de host, moet eerst u opgewarmd de cache van deze schijf. Dit zorgt ervoor dat de lezen IOs welke benchmarking hulpprogramma wordt station op CacheReads volume daadwerkelijk treffers in de cache en niet op de schijf rechtstreeks. Het resultaat van de cache treffers in extra IOP's uit de cache van één schijf ingeschakeld.
-
-> **Belangrijk:**  
-> U moet de cache opgewarmd voordat benchmarking, wordt uitgevoerd telkens wanneer de virtuele machine opnieuw is opgestart.
-
-#### <a name="iometer"></a>Iometer
-
-[Download het hulpprogramma Iometer](http://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) op de virtuele machine.
-
-*Testbestand*  
-Iometer maakt gebruik van een testbestand dat is opgeslagen op het volume op waarop u de benchmarking test wordt uitgevoerd. Deze stations leest en schrijft voor dit testbestand voor het meten van de schijf IOPS en doorvoer. Iometer wordt deze testbestand gemaakt als u deze niet hebt opgegeven. Maak een bestand voor het testen van 200GB iobw.tst aangeroepen op de volumes CacheReads en NoCacheWrites.
-
-*Access-specificaties*  
-De specificaties aanvragen i/o-grootte % lezen/schrijven, willekeurige/opeenvolgende % zijn geconfigureerd op het tabblad 'Specificaties Access' in Iometer. Maak een specificatie van de toegang voor elk van de scenario's die hieronder worden beschreven. De toegangsspecificaties maken en 'Opslaan' met een geschikte naam zoals – RandomWrites\_8 kB, RandomReads\_8 kB. Selecteer de bijbehorende specificatie bij het uitvoeren van de Testscenario.
-
-Hieronder, ziet u een voorbeeld van toegang tot de specificaties voor maximale schrijven IOP's-scenario  
-    ![](media/premium-storage-performance/image8.png)
-
-*Maximale IOPS Test specificaties*  
-Gebruiken om te demonstreren maximale IOPs, kleinere aanvraaggrootte. Aanvraaggrootte van 8 kB gebruiken en maken van de specificaties voor willekeurige schrijfbewerkingen en leesbewerkingen.
-
-| Access-specificatie | Aanvraaggrootte | Willekeurige % | De % lezen |
-| --- | --- | --- | --- |
-| RandomWrites\_8 kB |8 KB |100 |0 |
-| RandomReads\_8 kB |8 KB |100 |100 |
-
-*Maximale doorvoer Test specificaties*  
-Gebruiken om te demonstreren maximale doorvoer, grotere grootte van de aanvraag. Aanvraag voor de grootte van 64 kB gebruiken en maken van de specificaties voor willekeurige schrijfbewerkingen en leesbewerkingen.
-
-| Access-specificatie | Aanvraaggrootte | Willekeurige % | De % lezen |
-| --- | --- | --- | --- |
-| RandomWrites\_64 kB |64 KB |100 |0 |
-| RandomReads\_64 kB |64 KB |100 |100 |
-
-*Uitvoering van de Test Iometer*  
-Voer de stappen hieronder om te oefenen cache uit
-
-1. Twee toegangsspecificaties maken met waarden die hieronder worden weergegeven
-
-   | Name | Aanvraaggrootte | Willekeurige % | De % lezen |
-   | --- | --- | --- | --- |
-   | RandomWrites\_1 MB |1MB |100 |0 |
-   | RandomReads\_1 MB |1MB |100 |100 |
-1. Voer de test Iometer voor het initialiseren van cacheschijf met de volgende parameters. Drie werkthreads gebruiken voor het doelvolume en een wachtrijdiepte van 128. Stel de duur 'Uitvoeringstijd' van de test te 2hrs op het tabblad 'Testen instellen'.
-
-   | Scenario | Doelvolume | Name | Duur |
-   | --- | --- | --- | --- |
-   | Cacheschijf initialiseren |CacheReads |RandomWrites\_1 MB |2hrs |
-1. Voer de test Iometer voor het opwarmen van cacheschijf met de volgende parameters. Drie werkthreads gebruiken voor het doelvolume en een wachtrijdiepte van 128. Stel de duur 'Uitvoeringstijd' van de test te 2hrs op het tabblad 'Testen instellen'.
-
-   | Scenario | Doelvolume | Name | Duur |
-   | --- | --- | --- | --- |
-   | Warme van Cache-schijf |CacheReads |RandomReads\_1 MB |2hrs |
-
-Nadat de cacheschijf is opgewarmd, gaat u verder met de test-scenario's die hieronder worden vermeld. Als u wilt de Iometer test uitvoert, gebruikt u ten minste drie werkthreads voor **elke** volume als doel. Voor elke werkthread, selecteert u het doelvolume, wachtrijdiepte ingesteld en selecteert u een van de specificaties opgeslagen test, zoals wordt weergegeven in de onderstaande tabel, om uit te voeren van het bijbehorende Testscenario. De tabel toont ook verwachte resultaten voor IOPS en doorvoer bij het uitvoeren van deze tests. Voor alle scenario's, wordt een kleine i/o-grootte van 8KB en een hoge wachtrijdiepte van 128 gebruikt.
-
-| Testscenario | Doelvolume | Name | Resultaat |
-| --- | --- | --- | --- |
-| Met maximaal Gelezen IOP 's |CacheReads |RandomWrites\_8 kB |MAAR LIEFST 50.000 IOPS |
-| Met maximaal IOPS-schrijfbewerkingen |NoCacheWrites |RandomReads\_8 kB |MAAR LIEFST 64.000 IOPS |
-| Met maximaal Gecombineerde IOPS |CacheReads |RandomWrites\_8 kB |100.000 IOPS |
-| NoCacheWrites |RandomReads\_8 kB | &nbsp; | &nbsp; |
-| Met maximaal Read MB/sec |CacheReads |RandomWrites\_64 kB |524 MB/sec |
-| Met maximaal MB per seconde schrijven |NoCacheWrites |RandomReads\_64 kB |524 MB/sec |
-| Gecombineerde MB per seconde |CacheReads |RandomWrites\_64 kB |1000 MB per seconde |
-| NoCacheWrites |RandomReads\_64 kB | &nbsp; | &nbsp; |
-
-Hieronder ziet u schermafbeeldingen van de Iometer testresultaten voor gecombineerde scenario's voor IOPS en doorvoer.
-
-*Gecombineerde lees- en schrijfbewerkingen maximale IOPS*  
-![](media/premium-storage-performance/image9.png)
-
-*Gecombineerde lees- en schrijfbewerkingen maximale doorvoer*  
-![](media/premium-storage-performance/image10.png)
-
-### <a name="fio"></a>FIO
-
-FIO is een populair hulpprogramma naar een benchmark-opslag op de virtuele Linux-machines. Deze heeft de flexibiliteit om te selecteren van verschillende i/o-grootte, sequentiële of willekeurige leest en schrijft. Deze gestart werkthreads of processen de opgegeven i/o-bewerkingen uit te voeren. U kunt het type van de i/o-bewerkingen die elke werkthread moet uitvoeren met behulp van de taakbestanden opgeven. We één taakbestand per scenario is geïllustreerd in de onderstaande voorbeelden hebt gemaakt. U kunt de specificaties van deze taakbestanden benchmark-test uitvoeren verschillende werkbelastingen die worden uitgevoerd op Premium Storage kunt wijzigen. In de voorbeelden gebruiken we een Standard DS-14 VM die wordt uitgevoerd **Ubuntu**. Gebruik dezelfde instellingen die worden beschreven in het begin van de [Benchmarking sectie](#Benchmarking) en warme van de cache voordat u de benchmarking tests uitvoert.
-
-Voordat u begint, [FIO downloaden](https://github.com/axboe/fio) en installeer deze op uw virtuele machine.
-
-Voer de volgende opdracht uit voor Ubuntu,
-
-```
-apt-get install fio
-```
-
-We vier werkthreads voor het aansturen van schrijfbewerkingen en vier werkthreads gebruiken voor sparen leesbewerkingen op de schijven. De werknemers schrijven wordt verkeer over verkeer op het volume "nocache", die 10-schijven met cache ingesteld op 'None'. De werknemers lezen wordt verkeer verkeer op het volume "readcache", die 1 schijf met de cache is ingesteld op 'Alleen-lezen is'.
-
-*Maximale IOPS voor schrijven*  
-De taakbestand maken met de volgende specificaties om op te halen van de maximale IOPS voor schrijven. Geef het de naam 'fiowrite.ini'.
-
-```ini
-[global]
-size=30g
-direct=1
-iodepth=256
-ioengine=libaio
-bs=8k
-
-[writer1]
-rw=randwrite
-directory=/mnt/nocache
-[writer2]
-rw=randwrite
-directory=/mnt/nocache
-[writer3]
-rw=randwrite
-directory=/mnt/nocache
-[writer4]
-rw=randwrite
-directory=/mnt/nocache
-```
-
-Houd er rekening mee de volgen belangrijke dingen die in overeenstemming met de richtlijnen voor het ontwerpen in de vorige secties besproken. Deze specificaties zijn essentieel om het maximum aantal IOP's, te stimuleren  
-
-* Een hoge wachtrijdiepte van 256.  
-* Een kleine blokgrootte van 8KB.  
-* Meerdere threads uitvoeren van willekeurige schrijfbewerkingen.
-
-De volgende opdracht om te worden gehouden, trappen af de FIO test gedurende 30 seconden  
-
-```
-sudo fio --runtime 30 fiowrite.ini
-```
-
-Tijdens de test wordt uitgevoerd, zich kunt u kan het aantal schrijven IOP's van de virtuele machine en het leveren van Premium-schijven. Zoals u in het onderstaande voorbeeld, levert de DS14-virtuele machine de maximale IOPS-limiet van maar liefst 50.000 IOPS-schrijven.  
-    ![](media/premium-storage-performance/image11.png)
-
-*Maximale gelezen IOP 's*  
-De taakbestand maken met de volgende specificaties om op te halen van de maximale IOPS voor lezen. Geef het de naam 'fioread.ini'.
-
-```ini
-[global]
-size=30g
-direct=1
-iodepth=256
-ioengine=libaio
-bs=8k
-
-[reader1]
-rw=randread
-directory=/mnt/readcache
-[reader2]
-rw=randread
-directory=/mnt/readcache
-[reader3]
-rw=randread
-directory=/mnt/readcache
-[reader4]
-rw=randread
-directory=/mnt/readcache
-```
-
-Houd er rekening mee de volgen belangrijke dingen die in overeenstemming met de richtlijnen voor het ontwerpen in de vorige secties besproken. Deze specificaties zijn essentieel om het maximum aantal IOP's, te stimuleren
-
-* Een hoge wachtrijdiepte van 256.  
-* Een kleine blokgrootte van 8KB.  
-* Meerdere threads uitvoeren van willekeurige schrijfbewerkingen.
-
-De volgende opdracht om te worden gehouden, trappen af de FIO test gedurende 30 seconden
-
-```
-sudo fio --runtime 30 fioread.ini
-```
-
-Tijdens de test wordt uitgevoerd, zich kunt u kan het aantal gelezen IOP's van de virtuele machine en het leveren van Premium-schijven. Zoals weergegeven in het voorbeeld hieronder ziet, is de DS14-virtuele machine het leveren van meer dan 64.000 IOPS voor lezen. Dit is een combinatie van de schijf en de prestaties van de cache.  
-    ![](media/premium-storage-performance/image12.png)
-
-*Maximale lezen en schrijven IOP 's*  
-De taakbestand maken met de volgende specificaties om op te halen maximale gecombineerde lezen en schrijven IOP's. Geef het de naam 'fioreadwrite.ini'.
-
-```ini
-[global]
-size=30g
-direct=1
-iodepth=128
-ioengine=libaio
-bs=4k
-
-[reader1]
-rw=randread
-directory=/mnt/readcache
-[reader2]
-rw=randread
-directory=/mnt/readcache
-[reader3]
-rw=randread
-directory=/mnt/readcache
-[reader4]
-rw=randread
-directory=/mnt/readcache
-
-[writer1]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer2]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer3]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer4]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-```
-
-Houd er rekening mee de volgen belangrijke dingen die in overeenstemming met de richtlijnen voor het ontwerpen in de vorige secties besproken. Deze specificaties zijn essentieel om het maximum aantal IOP's, te stimuleren
-
-* Een hoge wachtrijdiepte van 128.  
-* Een kleine blokgrootte van 4KB.  
-* Meerdere threads uitvoeren van willekeurige leest en schrijft.
-
-De volgende opdracht om te worden gehouden, trappen af de FIO test gedurende 30 seconden
-
-```
-sudo fio --runtime 30 fioreadwrite.ini
-```
-
-Tijdens de test wordt uitgevoerd, kunt u zich kunt zien hoeveel gecombineerde lezen en schrijven IOP's van de virtuele machine en leveren van Premium-schijven. Zoals wordt weergegeven in het onderstaande voorbeeld, de DS14-virtuele machine is het leveren van meer dan 100.000 gecombineerde lezen en schrijven IOP's. Dit is een combinatie van de schijf en de prestaties van de cache.  
-    ![](media/premium-storage-performance/image13.png)
-
-*Maximale gecombineerde doorvoer*  
-Als u de maximale gecombineerde lezen en schrijven doorvoer, gebruikt u een groter blok en grote wachtrijdiepte met meerdere threads uitvoeren van lees- en schrijfbewerkingen. U kunt een blokgrootte van 64KB en wachtrijdiepte van 128.
-
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over Azure Premium Storage:
+Meer informatie over de typen beschikbare schijfruimte:
 
-* [Premium Storage: Opslag met hoge prestaties voor workload in Azure Virtual Machine](../articles/virtual-machines/windows/premium-storage.md)  
+* [Een diskette selecteren](../articles/virtual-machines/windows/disks-types.md)  
 
 Lees de artikelen over aanbevolen procedures voor prestaties voor SQL Server voor SQL Server-gebruikers:
 

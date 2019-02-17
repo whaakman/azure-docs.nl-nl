@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: include file
-ms.openlocfilehash: 231dcee1a9b330b2f8721283c39c71002a75fcac
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fb296236fb73823690175b12f4e07c05b60cdbcf
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49476310"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56333911"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Regio's en beschikbaarheid voor virtuele machines in Azure
 Azure werkt vanuit diverse datacentra, op locaties overal wereld. Deze datacenters worden gegroepeerd in geografische regio's, waardoor u flexibiliteit heeft bij het kiezen waar u uw toepassingen ontwikkelt. Het is belangrijk om inzicht te hebben in hoe en waar uw virtuele machines (VM's) in Azure werken, evenals in wat uw mogelijkheden zijn om de prestaties, beschikbaarheid en redundantie te maximaliseren. Dit artikel biedt een overzicht van de mogelijkheden van Azure op het gebied van beschikbaarheid en redundantie.
@@ -92,7 +92,7 @@ De kosten zijn afhankelijk van het opslagtype en de beschikbaarheid die u select
 Zie [prijzen van Azure Storage](https://azure.microsoft.com/pricing/details/storage/) voor informatie over prijzen van de verschillende opslagtypen en beschikbaarheidsopties.
 
 ## <a name="availability-sets"></a>Beschikbaarheidssets
-Een beschikbaarheidsset is een logische groepering van virtuele machines in een datacenter die Azure kan begrijpen hoe uw toepassing is gebouwd om te voorzien in redundantie en beschikbaarheid. Het wordt aangeraden dat twee of meer virtuele machines worden gemaakt binnen een beschikbaarheidsset te voorzien in een maximaal beschikbare toepassing en om te voldoen aan de [99,95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Er zijn geen kosten verbonden voor de Beschikbaarheidsset zelf, u betaalt alleen voor elke VM-instantie die u maakt. Wanneer een enkele virtuele machine gebruikmaakt van [Azure Premium Storage](../articles/virtual-machines/windows/premium-storage.md), is de Azure SLA van toepassing op niet-gepland onderhoud. 
+Een beschikbaarheidsset is een logische groepering van virtuele machines in een datacenter die Azure kan begrijpen hoe uw toepassing is gebouwd om te voorzien in redundantie en beschikbaarheid. Het wordt aangeraden dat twee of meer virtuele machines worden gemaakt binnen een beschikbaarheidsset te voorzien in een maximaal beschikbare toepassing en om te voldoen aan de [99,95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Er zijn geen kosten verbonden voor de Beschikbaarheidsset zelf, u betaalt alleen voor elke VM-instantie die u maakt. Wanneer een enkele virtuele machine gebruikmaakt [Azure premium SSD's](../articles/virtual-machines/windows/disks-types.md#premium-ssd), de Azure-SLA van toepassing op niet-gepland onderhoud.
 
 Een beschikbaarheidsset bestaat uit twee extra groepen die bescherming tegen hardwarestoringen en om updates voor veilig kunnen toepassen: foutdomeinen (FD's) en update-domeinen (ud's). Lees meer over het beheren van de beschikbaarheid van [Linux-VM's](../articles/virtual-machines/linux/manage-availability.md) of [Windows VM's](../articles/virtual-machines/windows/manage-availability.md).
 

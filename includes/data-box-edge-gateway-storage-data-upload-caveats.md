@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 02/07/2019
+ms.date: 02/14/2019
 ms.author: alkohli
-ms.openlocfilehash: ad7ceffed61665a729d4391b5f0ff2935375c253
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 8bc4b78d262cf5f30076e90b40b92c4f3237924a
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55967298"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56334045"
 ---
 Volgende voorbehoud toepassen op gegevens zoals deze is verplaatst naar Azure.
 
@@ -17,3 +17,4 @@ Volgende voorbehoud toepassen op gegevens zoals deze is verplaatst naar Azure.
 - Hebt u een bestaande Azure-object (zoals een blob of een bestand) in de cloud met dezelfde naam als het object dat wordt gekopieerd, wordt het bestand in de cloud door apparaat overschreven.
 - Een lege map voor de hiërarchie (zonder bestanden) gemaakt op basis van gedeelde mappen is niet geüpload naar de blob-containers.
 - Voor grote bestanden, raden wij aan dat u robocopy omdat het opnieuw de kopieerbewerking op onregelmatige fouten probeert.
+- Als de share die zijn gekoppeld aan de Azure storage-container geüpload blobs die niet overeenkomen met het type van de blobs die zijn gedefinieerd voor de share op het moment dat wordt gemaakt, worden klikt u vervolgens deze blobs niet bijgewerkt. U kunt bijvoorbeeld een blok-blob-share maken op het apparaat. Koppelt de share aan een bestaande cloudcontainer met pagina-blobs. Vernieuw deze share om de bestanden te downloaden. Sommige van de vernieuwde bestanden die al zijn opgeslagen als pagina-blobs in de cloud wijzigen. U ziet fouten uploaden.

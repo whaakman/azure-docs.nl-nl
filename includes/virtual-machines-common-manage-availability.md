@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: aff3f47624fe21e1d0f020e8e5732e60b4b53657
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 42b6dde708e2a1dbda225fd95e3db964267ae48a
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54084052"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56333942"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Informatie over het opnieuw opstarten van VM's - onderhoud versus downtime
 Er zijn drie scenario's die kunnen leiden tot een virtuele machine in Azure wordt beïnvloed: niet-gepland hardwareonderhoud, onverwachte downtime en gepland onderhoud.
@@ -41,7 +41,7 @@ Om de gevolgen van downtime vanwege een of meer van deze gebeurtenissen te beper
 U wordt aangeraden om twee of meer virtuele machines in een beschikbaarheidsset te groeperen, om uw toepassing van redundantie te voorzien. Deze configuratie in een datacenter zorgt ervoor dat ten minste één virtuele machine tijdens een gepland of ongepland onderhoud, beschikbaar is en voldoet aan de 99,95% Azure SLA. Zie de [SLA voor virtuele machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/) voor meer informatie.
 
 > [!IMPORTANT]
-> Voorkom dat een virtuele machine met een enkele instantie als enige deel uitmaakt van een beschikbaarheidsset. Virtuele machines in deze configuratie komen niet in aanmerking voor een SLA-garantie en kunnen te maken krijgen met downtime bij geplande onderhoudswerkzaamheden aan het Azure-platform, tenzij een dergelijke enkele virtuele machine gebruikmaakt van [Azure Premium Storage](../articles/virtual-machines/windows/premium-storage.md). De Azure SLA is wel van toepassing op enkele virtuele machines die gebruikmaken van Premium Storage.
+> Voorkom dat een virtuele machine met een enkele instantie als enige deel uitmaakt van een beschikbaarheidsset. Virtuele machines in deze configuratie niet in aanmerking komen voor SLA-garantie en krijgen met downtime bij Azure gepland onderhoud, behalve wanneer een enkele virtuele machine gebruikmaakt [Azure premium SSD's](../articles/virtual-machines/windows/disks-types.md#premium-ssd). Voor één VM's met behulp van premium SSD's, de Azure SLA van toepassing is.
 
 Elke virtuele machine in uw beschikbaarheidsset krijgt een **updatedomein** en een **foutdomein** toegewezen door het onderliggende Azure-platform. Voor iedere beschikbaarheidsset worden standaard vijf updatedomeinen toegewezen die niet door gebruiker te bewerken zijn (voor Resource Manager-implementaties kan dit aantal worden opgehoogd tot 20 updatedomeinen), om groepen virtuele machines en onderliggende fysieke hardware aan te duiden die op hetzelfde moment opnieuw kunnen worden opgestart. Wanneer in één beschikbaarheidsset meer dan vijf virtuele machines worden geconfigureerd, wordt de zesde virtuele machine in hetzelfde updatedomein geplaatst als de eerste virtuele machine, de zevende in hetzelfde updatedomein als de tweede virtuele machine, enzovoort. De volgorde waarin updatedomeinen opnieuw worden opgestart, verloopt tijdens gepland onderhoud niet altijd sequentieel, maar er wordt slechts één updatedomein tegelijk opnieuw opgestart. Een updatedomein dat opnieuw is opgestart, heeft 30 minuten om te herstellen voordat onderhoud wordt geïnitieerd op een ander updatedomein.
 
@@ -60,7 +60,7 @@ Als u momenteel VM's met niet-beheerde schijven gebruikt, raden wij u ten zeerst
 
 [!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
 
-Als u VM's met [niet-beheerde schijven](../articles/virtual-machines/windows/about-disks-and-vhds.md#types-of-disks) wilt gebruiken, volgt u onderstaande aanbevolen procedures voor opslagaccounts waarbij virtuele harde schijven (VHD's) of VM's zijn opgeslagen als [pagina-blobs](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
+Als u van plan bent VM's met niet-beheerde schijven gebruiken, volgt u onderstaande aanbevolen procedures voor opslagaccounts waarbij virtuele harde schijven (VHD's) van virtuele machines worden opgeslagen als [pagina-blobs](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 
 1. **Zorg dat alle schijven (gegevens en besturingssysteem) worden gekoppeld aan een virtuele machine op hetzelfde opslagaccount**
 2. **Controleer de [limieten](../articles/storage/common/storage-scalability-targets.md) voor het aantal niet-beheerde schijven in een opslagaccount** voordat u meer VHD's aan een opslagaccount toevoegt

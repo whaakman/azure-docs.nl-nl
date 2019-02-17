@@ -2,19 +2,16 @@
 author: cynthn
 ms.author: cynthn
 manager: jeconnoc
-ms.date: 02/04/2018
+ms.date: 02/15/2018
 ms.topic: include
-ms.openlocfilehash: 052bd610fd061504b8a4695fbb26df7ca062fbe8
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 731cb69bd719800fcf9bd0e611d538d602f48fc2
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984950"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56333901"
 ---
 > [!NOTE]
 >
-> In dit artikel is bijgewerkt voor het gebruik van de nieuwe [Az van Azure PowerShell-module](/powershell/azure/new-azureps-module-az). Kritieke problemen in AzureRM worden nog steeds opgelost, maar de nieuwe functies zijn alleen in de Az-module beschikbaar.
-> * De Az-module is al beschikbaar op de Cloud Shell met de compatibiliteit van de AzureRM is ingeschakeld.
-> * Zie voor het installeren van de Az-module lokaal [Azure PowerShell installeren](/powershell/azure/install-az-ps).
-> * Als u de Az-module lokaal installeren, kunt u de AzureRM-compatibiliteit inschakelen door het uitvoeren van `Enable-AzureRmAlias`.
+> In dit artikel is bijgewerkt voor het gebruik van de nieuwe Az van Azure PowerShell-module. Zie voor meer informatie over de nieuwe Az-module en de AzureRM-compatibiliteit, [Maak kennis met de nieuwe module voor Azure PowerShell Az](/powershell/azure/new-azureps-module-az). Zie voor installatie-instructies [Azure PowerShell installeren](/powershell/azure/install-az-ps).
 
