@@ -99,20 +99,13 @@ items:
   - name: Onderhoud en updates
     href: maintenance-and-updates.md
   - name: File Storage
-    href: about-disks-and-vhds.md
     items:
-    - name: Beheerde schijven
+    - name: Inleiding tot beheerde schijven
       href: managed-disks-overview.md
-    - name: Premium-SSD's
-      href: premium-storage.md
-    - name: Standard-SSD's
-      href: disks-standard-ssd.md
-    - name: Ultra SSD's
-      href: disks-ultra-ssd.md
-    - name: Prestaties van Premium Storage
+    - name: Een schijftype selecteren voor IaaS-VM's
+      href: disks-types.md
+    - name: Ontwerpen voor hoge prestaties
       href: premium-storage-performance.md
-    - name: Standard Storage
-      href: standard-storage.md
     - name: Schaalbaarheidsdoelen voor schijven
       href: disk-scalability-targets.md
     - name: Back-up en herstel na noodgeval voor schijven
@@ -426,6 +419,8 @@ items:
         href: add-disk.md
       - name: Azure Portal
         href: attach-disk-portal.md
+    - name: Een benchmark-test uitvoeren op een schijf
+      href: disks-benchmarks.md
     - name: Een schijf loskoppelen
       href: detach-disk.md
     - name: De grootte van een schijf wijzigen
@@ -450,7 +445,7 @@ items:
       href: using-managed-disks-template-deployments.md
     - name: Write Accelerator gebruiken
       href: how-to-enable-write-accelerator.md
-    - name: Ultra SSD inschakelen
+    - name: Ultra Disks inschakelen
       href: disks-enable-ultra-ssd.md
     - name: Prestaties optimaliseren
       href: optimization.md
@@ -562,9 +557,9 @@ items:
     href: faq.md
 - name: Problemen oplossen
   href: ../troubleshooting/index.md
-ms.openlocfilehash: 5a154ba0022a73b8acf9ded071ccfb13e62b7509
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 3c7ef0b41167e396828063950a63574ad5b3a7c9
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299136"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330797"

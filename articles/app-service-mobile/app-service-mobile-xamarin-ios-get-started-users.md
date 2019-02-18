@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: crdun
-ms.openlocfilehash: 31e02cd931b3c9ab2cc55a540841969488c0c5f7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 132909931291daf3aefddd5e1a44273050d98e06
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997506"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326167"
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>Authenticatie toevoegen aan uw Xamarin.iOS-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -35,7 +35,7 @@ U moet eerst de zelfstudie hebt voltooid [Een Xamarin.iOS-app maken]. Als u het 
 
 Veilige verificatie is vereist dat u een nieuwe URL-schema voor uw app definiëren. Hiermee kunt het verificatiesysteem terug te keren naar uw app nadat het verificatieproces voltooid is. In deze zelfstudie gebruiken we het URL-schema _appname_ in. U kunt echter een URL-schema dat u kiest. Deze moet uniek zijn voor uw mobiele App. De omleiding op de server inschakelen:
 
-1. Selecteer uw App Service in de [Azure-portal].
+1. In de [Azure-portal](https://portal.azure.com/), selecteert u uw App Service.
 
 2. Klik op de **verificatie / autorisatie** menu-optie.
 
@@ -48,9 +48,9 @@ Veilige verificatie is vereist dat u een nieuwe URL-schema voor uw app definiër
 ## <a name="restrict-permissions-to-authenticated-users"></a>Machtigingen beperken voor geverifieerde gebruikers
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-&nbsp;&nbsp;4. Voer het clientproject op een apparaat of emulator in Visual Studio of Xamarin Studio. Controleer of dat een niet-verwerkte uitzondering met een statuscode 401 (niet-gemachtigd) is gegenereerd nadat de app wordt gestart. De fout wordt geregistreerd in de console van het foutopsporingsprogramma. Dus in Visual Studio ziet u de fout in het uitvoervenster weergegeven.
+* Voer het clientproject op een apparaat of emulator in Visual Studio of Xamarin Studio. Controleer of dat een niet-verwerkte uitzondering met een statuscode 401 (niet-gemachtigd) is gegenereerd nadat de app wordt gestart. De fout wordt geregistreerd in de console van het foutopsporingsprogramma. Dus in Visual Studio ziet u de fout in het uitvoervenster weergegeven.
 
-&nbsp;&nbsp;Deze niet-geautoriseerde fout doet zich voor omdat de app probeert te krijgen tot uw back-end van mobiele App als een niet-geverifieerde gebruiker. De *TodoItem* tabel nu verificatie is vereist.
+    Deze niet-geautoriseerde fout doet zich voor omdat de app probeert te krijgen tot uw back-end van mobiele App als een niet-geverifieerde gebruiker. De *TodoItem* tabel nu verificatie is vereist.
 
 U wordt vervolgens de client-app op aanvraag resources bijwerken van de back-end van de mobiele App met een geverifieerde gebruiker.
 
@@ -58,67 +58,82 @@ U wordt vervolgens de client-app op aanvraag resources bijwerken van de back-end
 In deze sectie wijzigt u de app een aanmeldingsscherm weergegeven voordat gegevens worden weergegeven. Wanneer de app wordt gestart, wordt geen verbinding maken met uw App Service en worden geen gegevens weergegeven. Nadat de eerste keer dat de gebruiker uitvoert de beweging vernieuwen, wordt het aanmeldingsscherm weergegeven; na geslaagde aanmelding wordt de lijst met todo-items worden weergegeven.
 
 1. Open het bestand in het clientproject **QSTodoService.cs** en voeg de volgende gebruiksinstructie en `MobileServiceUser` met accessor aan de klasse QSTodoService:
- 
-        using UIKit;
-       
-        // Logged in user
-        private MobileServiceUser user;
-        public MobileServiceUser User { get { return user; } }
+
+    ```csharp
+    using UIKit;
+
+    // Logged in user
+    private MobileServiceUser user;
+    public MobileServiceUser User { get { return user; } }
+    ```
+
 2. Toevoegen van nieuwe methode met de naam **verifiëren** naar **QSTodoService** met de definitie van de volgende:
 
-        public async Task Authenticate(UIViewController view)
+    ```csharp
+    public async Task Authenticate(UIViewController view)
+    {
+        try
         {
-            try
-            {
-                AppDelegate.ResumeWithURL = url => url.Scheme == "zumoe2etestapp" && client.ResumeWithURL(url);
-                user = await client.LoginAsync(view, MobileServiceAuthenticationProvider.Facebook, "{url_scheme_of_your_app}");
-            }
-            catch (Exception ex)
-            {
-                Console.Error.WriteLine (@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
-            }
+            AppDelegate.ResumeWithURL = url => url.Scheme == "{url_scheme_of_your_app}" && client.ResumeWithURL(url);
+            user = await client.LoginAsync(view, MobileServiceAuthenticationProvider.Facebook, "{url_scheme_of_your_app}");
         }
+        catch (Exception ex)
+        {
+            Console.Error.WriteLine (@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
+        }
+    }
+    ```
 
-    >[AZURE.NOTE] Als u een id-provider dan een Facebook gebruikt, wijzigt u de waarde die is doorgegeven aan **LoginAsync** boven op een van de volgende opties: _MicrosoftAccount_, _Twitter_,  _Google_, of _WindowsAzureActiveDirectory_.
+    > [!NOTE]
+    > Als u een id-provider dan een Facebook gebruikt, wijzigt u de waarde die is doorgegeven aan **LoginAsync** boven op een van de volgende: _MicrosoftAccount_, _Twitter_, _Google_, or _WindowsAzureActiveDirectory_.
 
 3. Open **QSTodoListViewController.cs**. Wijzigen van de methodedefinitie van de van **ViewDidLoad** verwijderen van de aanroep van **RefreshAsync()** in de buurt van het einde:
-   
-        public override async void ViewDidLoad ()
-        {
-            base.ViewDidLoad ();
-   
-            todoService = QSTodoService.DefaultService;
-            await todoService.InitializeStoreAsync();
-   
-            RefreshControl.ValueChanged += async (sender, e) => {
-                await RefreshAsync();
-            }
-   
-            // Comment out the call to RefreshAsync
-            // await RefreshAsync();
+
+    ```csharp
+    public override async void ViewDidLoad ()
+    {
+        base.ViewDidLoad ();
+
+        todoService = QSTodoService.DefaultService;
+        await todoService.InitializeStoreAsync();
+
+        RefreshControl.ValueChanged += async (sender, e) => {
+            await RefreshAsync();
         }
+
+        // Comment out the call to RefreshAsync
+        // await RefreshAsync();
+    }
+    ```
+
 4. Wijzigen van de methode **RefreshAsync** om te verifiëren als de **gebruiker** eigenschap null is. Voeg de volgende code toe aan de bovenkant van de methodedefinitie van de:
-   
-        // start of RefreshAsync method
+
+    ```csharp
+    // start of RefreshAsync method
+    if (todoService.User == null) {
+        await QSTodoService.DefaultService.Authenticate(this);
         if (todoService.User == null) {
-            await QSTodoService.DefaultService.Authenticate(this);
-            if (todoService.User == null) {
-                Console.WriteLine("couldn't login!!");
-                return;
-            }
+            Console.WriteLine("couldn't login!!");
+            return;
         }
-        // rest of RefreshAsync method
+    }
+    // rest of RefreshAsync method
+    ```
+
 5. Open **AppDelegate.cs**, voeg de volgende methode toe:
 
-        public static Func<NSUrl, bool> ResumeWithURL;
+    ```csharp
+    public static Func<NSUrl, bool> ResumeWithURL;
 
-        public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
-        {
-            return ResumeWithURL != null && ResumeWithURL(url);
-        }
+    public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
+    {
+        return ResumeWithURL != null && ResumeWithURL(url);
+    }
+    ```
+
 6. Open **Info.plist** bestand, gaat u naar **URL typen** in de **Geavanceerd** sectie. Nu configureren voor de **id** en de **URL-schema's** van uw Type URL en klik op **URL-Type toevoegen**. **URL-schema's** moet gelijk zijn aan uw {url_scheme_of_your_app}.
 7. Voer het clientproject die gericht is op een apparaat of emulator in Visual Studio, verbonden met uw Mac-Host of Visual Studio voor Mac. Controleer of dat de app geen gegevens weergegeven.
-   
+
     Het gebaar vernieuwen uitvoeren door het binnenhalen van de lijst met items, waardoor het aanmeldingsscherm wordt weergegeven. Nadat u hebt geldige referenties is opgegeven, de app de lijst met todo-items worden weergegeven en kunt u updates aanbrengen in de gegevens.
 
 <!-- URLs. -->

@@ -98,12 +98,12 @@ items:
       href: quickstarts-sdk/csharp-thumb-sdk.md
     - name: Tekst extraheren
       href: quickstarts-sdk/csharp-hand-text-sdk.md
+  - name: De Python-SDK gebruiken
+    href: quickstarts-sdk/python-sdk.md
 - name: Zelfstudies
   items:
   - name: Metagegevens ophalen voor Azure-installatiekopieën
     href: Tutorials/storage-lab-tutorial.md
-  - name: Een app voor afbeeldingsverwerking maken
-    href: Tutorials/CSharpTutorial.md
 - name: Concepten
   items:
   - name: Afbeeldingen taggen
@@ -183,7 +183,11 @@ items:
 - name: Resources
   items:
   - name: Voorbeelden
-    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
+    items:
+    - name: Een app voor afbeeldingsverwerking ontdekken
+      href: Tutorials/CSharpTutorial.md
+    - name: Andere Computer Vision-voorbeelden
+      href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
   - name: Veelgestelde vragen
     href: FAQ.md
   - name: Prijzen en beperkingen
@@ -198,9 +202,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Regionale beschikbaarheid
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-ms.openlocfilehash: 700b14c16f1016a403fdf15972cc52021135c64a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 30b8a6937bafc469c4135a899af56277b4f3a9eb
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562348"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310709"
