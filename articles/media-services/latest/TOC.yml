@@ -15,12 +15,15 @@ items:
 - name: Zelfstudies
   items:
   - name: Externe bestanden coderen en video streamen - REST
+    displayName: encoding, job, transform
     href: stream-files-tutorial-with-rest.md
   - name: Externe bestanden coderen en video streamen - .NET
+    displayName: encode, encoding, job, transform
     href: stream-files-tutorial-with-api.md
   - name: Live streamen - .NET
     href: stream-live-tutorial-with-api.md
   - name: Uw video analyseren - .NET
+    displayName: job, transform
     href: analyze-videos-tutorial-with-api.md
   expanded: true
 - name: Voorbeelden
@@ -31,32 +34,54 @@ items:
     href: cli-samples.md
 - name: Concepten
   items:
-  - name: Opnemen
+  - name: Uploaden naar en opslaan in de cloud
+    href: storage-account-concept.md
     items:
     - name: Assets
       href: assets-concept.md
-  - name: Coderen
-    href: encoding-concept.md
+  - name: Encoding
     items:
+    - name: Overzicht
+      displayName: Presets
+      href: encoding-concept.md
     - name: Transformaties en taken
       href: transforms-jobs-concept.md
     - name: Indelingen voor Media Encoder Standard
       href: media-encoder-standard-formats.md
     - name: Automatisch gegenereerde adaptieve bitrateladder
       href: autogen-bitrate-ladder.md
-  - name: Analyseren
-    href: analyzing-video-audio-files-concept.md
+  - name: Media-analyses
     items:
+    - name: Overzicht
+      displayName: Presets
+      href: analyzing-video-audio-files-concept.md
     - name: Transformaties en taken
       href: transforms-jobs-concept.md
-  - name: Streamen
+  - name: Verpakking, levering, beveiliging
     items:
+    - name: Verpakking
+      items:
+      - name: Dynamische verpakking
+        href: dynamic-packaging-overview.md
+      - name: Filters
+        href: filters-concept.md
+      - name: Dynamische manifesten
+        href: filters-dynamic-manifest-overview.md
+    - name: Inhoudsbeveiliging
+      href: content-protection-overview.md
+      items:
+      - name: Multi-DRM-systeem met toegangsbeheer
+        href: design-multi-drm-system-with-access-control.md
     - name: Streaming-eindpunten
+      displayName: Origins
       href: streaming-endpoint-concept.md
     - name: Streaming-locators
+      displayName: URLs
       href: streaming-locators-concept.md
     - name: Beleid voor streaming
       href: streaming-policy-concept.md
+    - name: Beleid voor inhoudssleutels
+      href: content-key-policy-concept.md
   - name: Live streamen
     href: live-streaming-overview.md
     items:
@@ -72,36 +97,19 @@ items:
       href: live-event-states-billing.md
     - name: Latentie
       href: live-event-latency.md
-  - name: Aanbieden
+  - name: Bewaking
     items:
-    - name: Filters en dynamische manifesten
-      href: filters-dynamic-manifest-overview.md
-  - name: Controleren
-    items:
-    - name: Event Grid
+    - name: Gebeurtenissen met Event Grid
       href: reacting-to-media-services-events.md
-  - name: Beschermen
-    href: content-protection-overview.md
+  - name: Afspeel-clients
     items:
-    - name: Beleid voor inhoudssleutels
-      href: content-key-policy-concept.md
-    - name: Beleid voor streaming
-      href: streaming-policy-concept.md
-    - name: Streaming-locators
-      href: streaming-locators-concept.md
-    - name: Multi-DRM-systeem met toegangsbeheer
-      href: design-multi-drm-system-with-access-control.md
-  - name: Afspelen
-    href: use-azure-media-player.md
-  - name: Accounts
+    - name: Azure Media Player
+      href: use-azure-media-player.md
+  - name: Media Services-entiteiten
     items:
-    - name: Quota en beperkingen
-      href: limits-quotas-constraints.md
-    - name: Opslagaccounts
-      href: storage-account-concept.md
-  - name: Filteren, sorteren, pagina-entiteiten
-    href: entities-overview.md
-  - name: Van v2 naar v3 migreren
+    - name: Entiteiten sorteren, filteren, pagineren
+      href: entities-overview.md
+  - name: Hulp bij migratie van v2 naar v3
     href: migrate-from-v2-to-v3.md
 - name: Handleidingen
   items:
@@ -113,19 +121,34 @@ items:
       href: access-api-cli-how-to.md
     - name: Gereserveerde media-eenheden schalen - CLI
       href: media-reserved-units-cli-how-to.md
-  - name: Postman configureren
-    href: media-rest-apis-with-postman.md
+    - name: Start met ontwikkelen
+      href: developers-guide.md
+    - name: Postman configureren
+      href: media-rest-apis-with-postman.md
   - name: Inhoud uploaden
     items:
-    - name: Van HTTP(s) - .NET
+    - name: Van HTTPS - .NET
+      displayName: upload
       href: job-input-from-http-how-to.md
     - name: Uit een lokaal bestand - .NET
+      displayName: upload
       href: job-input-from-local-file-how-to.md
     - name: Uit een lokaal bestand - REST
+      displayName: upload
       href: upload-files-rest-how-to.md
   - name: Inhoud coderen
     items:
-    - name: Standaardinstellingen transformatie aanpassen - .NET
+    - name: HTTPS als taakinvoer - .NET
+      displayName: encode, encoding
+      href: job-input-from-http-how-to.md
+    - name: Lokaal bestand als taakinvoer - .NET
+      displayName: encode, encoding
+      href: job-input-from-local-file-how-to.md
+    - name: Lokaal bestand als taakinvoer - REST
+      displayName: encode
+      href: upload-files-rest-how-to.md
+    - name: Een aangepaste transformatie gebruiken - .NET
+      displayName: encode, encoding, tranform
       href: customize-encoder-presets-how-to.md
   - name: Event Grid gebruiken
     items:
@@ -215,13 +238,15 @@ items:
     href: https://github.com/Azure/Azure-Media-Services-Explorer
   - name: Releaseopmerkingen
     href: release-notes.md
+  - name: Quota en beperkingen
+    href: limits-quotas-constraints.md
   - name: Veelgestelde vragen
     href: frequently-asked-questions.md
   - name: Azure-clouds en -regio's
     href: azure-clouds-regions.md
-ms.openlocfilehash: 0ca98ea27a77418ee5a111a67bd013ab6ad40e55
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 05b20d905a5848cfcfd0f9c6d20e4addb5c776fc
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330015"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340430"

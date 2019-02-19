@@ -1,6 +1,6 @@
 ---
-title: Uw resources organiseren met Azure-beheergroepen
-description: Informatie over de managementgroepen en het gebruik daarvan.
+title: Uw resources organiseren met Azure-beheergroepen - Azure Governance
+description: Informatie over de managementgroepen, hoe hun machtigingen werken en hoe u ze gebruikt.
 author: rthorn17
 manager: rithorn
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
@@ -11,12 +11,12 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: ea34296e170d18a1d5636c50e7cae316b1d97948
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 9d606a46bd08ce3e999806bed2357968e5ffd914
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584601"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339284"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Uw resources organiseren met Azure-beheergroepen
 
@@ -118,7 +118,7 @@ Als u de activiteit van beheergroepen wilt bijhouden via een API, gebruikt u de 
 1. [Verhoog het toegangsniveau](../../role-based-access-control/elevate-access-global-admin.md) als tenantbeheerder van de Azure AD-tenant en wijs vervolgens de rol van Lezer toe aan de controlerende gebruiker voor het bereik `/providers/microsoft.insights/eventtypes/management`.
 1. Roep als controlerende gebruiker de [Tenant Activity Log-API](/rest/api/monitor/tenantactivitylogs) aan om de activiteit van beheergroepen weer te geven. Voor alle activiteit van beheergroepen moet u filteren op de resourceprovider **Microsoft.Management**.  Voorbeeld:
 
-```
+```http
 GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
 ```
 

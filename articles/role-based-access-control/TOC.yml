@@ -1,5 +1,5 @@
 items:
-- name: Documentatie voor toegangsbeheer op basis van rollen
+- name: Documentatie voor RBAC voor Azure-resources
   href: index.yml
 - name: Overzicht
   items:
@@ -9,7 +9,7 @@ items:
     href: rbac-and-directory-admin-roles.md
 - name: Snelstartgidsen
   items:
-  - name: Rollen voor een gebruiker weergeven
+  - name: Toegang voor een gebruiker bekijken
     href: check-access.md
 - name: Zelfstudies
   items:
@@ -29,7 +29,7 @@ items:
     href: role-definitions.md
   - name: Inzicht in weigeringstoewijzingen
     href: deny-assignments.md
-  - name: PIM (Privileged Identity Management) voor RBAC
+  - name: PIM voor Azure-resources
     href: pim-azure-resource.md
   - name: Voorwaardelijke toegang voor Azure-beheer
     href: conditional-access-azure-management.md
@@ -96,9 +96,9 @@ items:
   items:
   - name: Uw vaardigheden ontwikkelen met Microsoft Learn
     href: /learn/browse/?products=azure-active-directory
-ms.openlocfilehash: 46ff0e024e2c7dc466120054b4a8e69fa47c14cd
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 20500ad90e710b2c0e4359832a24a352c14ea0b2
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099204"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408762"
