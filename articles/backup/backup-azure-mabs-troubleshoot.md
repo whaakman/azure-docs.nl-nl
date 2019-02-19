@@ -6,14 +6,14 @@ author: kasinh
 manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/24/2017
+ms.date: 02/18/2019
 ms.author: kasinh
-ms.openlocfilehash: f90650cc058697e4bf9e4a0710ada213fe3d9a1f
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 0ebf1bae023115a268547e5c64e3a2681438092a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310828"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340668"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Problemen met Azure Backup Server oplossen
 
@@ -21,36 +21,59 @@ Gebruik de informatie in de volgende tabellen om het oplossen van fouten die opt
 
 ## <a name="invalid-vault-credentials-provided"></a>Ongeldige kluisreferenties ingevoerd
 
-U lost dit probleem, gaat u als volgt [deze stappen voor probleemoplossing](https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues).
+| Bewerking | Foutdetails | Tijdelijke oplossing |
+| --- | --- | --- |
+| Registreren bij een kluis | Er zijn ongeldige kluisreferenties opgegeven. Het bestand is beschadigd of heeft niet zijn de meest recente referenties die zijn gekoppeld aan de recovery-service. | Aanbevolen actie: <br> <ul><li> Download het meest recente referentiebestand uit de kluis en probeer het opnieuw. <br>(OR)</li> <li> Als de vorige bewerking is niet werkt, probeer het downloaden van de referenties naar een andere lokale map of een nieuwe kluis maken. <br>(OR)</li> <li> Probeer het bijwerken van de datum- en tijdinstellingen zoals beschreven in [deze blog](https://azure.microsoft.com/blog/troubleshooting-common-configuration-issues-with-azure-backup/). <br>(OR)</li> <li> Controleer of c:\windows\temp meer dan 65000 zijn bestanden heeft. Verouderde bestanden verplaatsen naar een andere locatie of verwijder de items in de map Temp. <br>(OR)</li> <li> Controleer de status van certificaten. <br> a. Open **computercertificaten beheren** (in het Configuratiescherm). <br> b. Vouw de **persoonlijke** en de onderliggende knooppunten **certificaten**.<br> c.  Verwijder het certificaat **Windows Azure-hulpprogramma's**. <br> d. Probeer de registratie in de Azure Backup-client. <br> (OR) </li> <li> Controleer als een groepsbeleid ingesteld is. </li></ul> |
+
+## <a name="replica-is-inconsistent"></a>Replica is inconsistent
+
+| Bewerking | Foutdetails | Tijdelijke oplossing |
+| --- | --- | --- |
+| Backup | Replica is inconsistent | Controleer of de optie Automatische consistentiecontrole selectievakje in de Wizard beveiligingsgroep is ingeschakeld. Zie het Microsoft TechNet-artikel voor meer informatie over de oorzaken van replica inconsistentie en relevante suggesties [de Replica is inconsistent](https://technet.microsoft.com/library/cc161593.aspx).<br> <ol><li> Een back-up van systeemstatus/BMR, Controleer of Windows Server back-up is geïnstalleerd op de beveiligde server.</li><li> Controleren op problemen met betrekking tot ruimte in de DPM-opslaggroep op de DPM/Microsoft Azure Backup Server en opslag waar nodig toewijzen.</li><li> Controleer de status van de Volume Shadow Copy-Service op de beveiligde server. Als deze uitgeschakeld is, stelt u deze handmatig te starten. Start de service op de server. Vervolgens gaat u terug naar de console DPM/Microsoft Azure Backup Server en start u de synchronisatie met de consistentiecontrole.</li></ol>|
+
+## <a name="online-recovery-point-creation-failed"></a>Een of meer online herstelpunten zijn niet gemaakt
+
+| Bewerking | Foutdetails | Tijdelijke oplossing |
+| --- | --- | --- |
+| Backup | Een of meer online herstelpunten zijn niet gemaakt | **Foutbericht**: Windows Azure Backup-Agent is niet te maken van een momentopname van het geselecteerde volume. <br> **Tijdelijke oplossing**: Verhoog de ruimte op replica en herstelpuntvolume.<br> <br> **Foutbericht**: De Windows Azure Backup Agent kan geen verbinding maken met de OBEngine-service <br> **Tijdelijke oplossing**: Controleer of de OBEngine bestaat in de lijst met services op de computer. Als de OBEngine-service is niet uitgevoerd, gebruikt u de opdracht 'net start OBEngine' om de OBEngine-service te starten. <br> <br> **Foutbericht**: De versleutelingswachtwoordzin voor deze server is niet ingesteld. Configureer een wachtwoordzin voor versleuteling. <br> **Tijdelijke oplossing**: Probeer een wachtwoordzin voor versleuteling configureren. Als dit mislukt, voert u de volgende stappen uit: <br> <ol><li>Controleer of de nieuwe locatie bestaat. Dit is de locatie die wordt vermeld in het register **HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config**, met de naam van de **ScratchLocation** moet bestaan.</li><li> Als de nieuwe locatie bestaat, probeert u opnieuw te registreren met behulp van de oude wachtwoordzin. *Wanneer u een wachtwoordzin voor versleuteling configureert, kunt u deze op een veilige locatie opslaan.*</li><ol>|
+
+## <a name="the-vault-credentials-provided-are-different-from-the-vault-the-server-is-registered"></a>De kluisreferenties verschillen van de kluis die de server is geregistreerd
+
+| Bewerking | Foutdetails | Tijdelijke oplossing |
+| --- | --- | --- |
+| Herstellen | **Foutcode**: Fout CBPServerRegisteredVaultDontMatchWithCurrent/kluis: 100110 <br/> <br/>**Foutbericht**: De kluisreferenties verschillen van de kluis die de server is geregistreerd | **Oorzaak**: Dit probleem treedt op wanneer u probeert om bestanden te herstellen op een andere server van de oorspronkelijke server met behulp van de hersteloptie externe DPM en als de server die wordt hersteld en de oorspronkelijke server vanaf waar de gegevens een back-up is niet gekoppeld aan dezelfde Recovery Services-kluis.<br/> <br/>**Tijdelijke oplossing** om op te lossen dit probleem Zorg ervoor dat zowel de oorspronkelijke en alternatieve server zijn geregistreerd bij dezelfde kluis.|
+
+## <a name="online-recovery-point-creation-jobs-for-vmware-vm-fail"></a>Taken voor het maken van online herstelpunten voor VMware-VM is mislukt
+
+| Bewerking | Foutdetails | Tijdelijke oplossing |
+| --- | --- | --- |
+| Backup | Taken voor het maken van online herstelpunten voor VMware-VM is mislukt. Er is een fout van VMware in DPM opgetreden bij het ophalen van gegevens voor wijzigingen bijhouden. Foutcode: FileFaultFault (ID 33621) |  <ol><li> Voor de betrokken virtuele machines opnieuw in de CTK op VMware.</li> <li>Controleer dat onafhankelijke schijf is niet aanwezig op VMware.</li> <li>Stop de beveiliging voor de betrokken virtuele machines en opnieuw te beveiligen met de **vernieuwen** knop. </li><li>Voer een CC voor de betrokken virtuele machines.</li></ol>|
+
 
 ## <a name="the-agent-operation-failed-because-of-a-communication-error-with-the-dpm-agent-coordinator-service-on-the-server"></a>De agentbewerking is mislukt vanwege een communicatiefout met de service DPM agent coordinator op de server
 
-U lost dit probleem, gaat u als volgt [deze stappen voor probleemoplossing](https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues).
+| Bewerking | Foutdetails | Tijdelijke oplossing |
+| --- | --- | --- |
+| Agent (s) pushen naar beveiligde servers | De agentbewerking is mislukt vanwege een communicatiefout met de service DPM Agent Coordinator op \<ServerName >. | **Voer de volgende stappen uit als de aanbevolen actie wordt weergegeven in het product niet werkt,**: <ul><li> Als u een computer uit een niet-vertrouwd domein toevoegen wilt, voert u de [stappen](https://technet.microsoft.com/library/hh757801(v=sc.12).aspx). <br> (OR) </li><li> Als u een computer van een vertrouwd domein toevoegen wilt, problemen oplossen met behulp van de stappen in [deze blog](https://blogs.technet.microsoft.com/dpm/2012/02/06/data-protection-manager-agent-network-troubleshooting/). <br>(OR)</li><li> Probeer het uitschakelen van antivirusprogramma het oplossen van problemen. Als deze het probleem wordt opgelost, wijzigt u de antivirus-instellingen zoals aangegeven in [in dit artikel](https://technet.microsoft.com/library/hh757911.aspx).</li></ul> |
 
 ## <a name="setup-could-not-update-registry-metadata"></a>Setup kan de metagegevens van het register niet bijwerken
-
-U lost dit probleem, gaat u als volgt [deze stappen voor probleemoplossing](https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot#installation-issues).
-
-
-
-
-## <a name="installation-issues"></a>Installatieproblemen
 
 | Bewerking | Foutdetails | Tijdelijke oplossing |
 |-----------|---------------|------------|
 |Installatie | Setup kan de metagegevens van het register niet bijwerken. Deze update kan leiden tot overusage opslagverbruik van. Om dit te voorkomen, de registervermelding ReFS Trimming worden bijgewerkt. | De registersleutel aanpassen **SYSTEM\CurrentControlSet\Control\FileSystem\RefsEnableInlineTrim**. Stel de Dword-waarde in op 1. |
 |Installatie | Setup kan de metagegevens van het register niet bijwerken. Deze update kan leiden tot overusage opslagverbruik van. Om dit te voorkomen, werken de registervermelding Volume snapoptimization bij te werken. | Maak de registersleutel **SOFTWARE\Microsoft Data Protection Manager\Configuration\VolSnapOptimization\WriteIds** met een lege tekenreeks-waarde. |
+
 ## <a name="registration-and-agent-related-issues"></a>Registratie en -agents oplossen
+
 | Bewerking | Foutdetails | Tijdelijke oplossing |
 | --- | --- | --- |
-| Registreren bij een kluis | Er zijn ongeldige kluisreferenties opgegeven. Het bestand is beschadigd of heeft niet zijn de meest recente referenties die zijn gekoppeld aan de recovery-service. | Deze fout corrigeren: <ul><li> Download het meest recente referentiebestand uit de kluis en probeer het opnieuw. <br>(OR)</li> <li> Als de vorige bewerking is niet werkt, probeer het downloaden van de referenties naar een andere lokale map of een nieuwe kluis maken. <br>(OR)</li> <li> Probeer het bijwerken van de datum- en tijdinstellingen zoals beschreven in [deze blog](https://azure.microsoft.com/blog/troubleshooting-common-configuration-issues-with-azure-backup/). <br>(OR)</li> <li> Controleer of c:\windows\temp meer dan 65000 zijn bestanden heeft. Verouderde bestanden verplaatsen naar een andere locatie of verwijder de items in de map Temp. <br>(OR)</li> <li> Controleer de status van certificaten. <br> a. Open **computercertificaten beheren** (in het Configuratiescherm). <br> b. Vouw de **persoonlijke** en de onderliggende knooppunten **certificaten**.<br> c.  Verwijder het certificaat **Windows Azure-hulpprogramma's**. <br> d. Probeer de registratie in de Azure Backup-client. <br> (OR) </li> <li> Controleer als een groepsbeleid ingesteld is. </li></ul> |
-| Agent (s) pushen naar beveiligde servers | De agentbewerking is mislukt vanwege een communicatiefout met de service DPM Agent Coordinator op \<ServerName >. | **Als de aanbevolen actie die wordt weergegeven in het product niet werkt, voert u de volgende stappen uit**: <ul><li> Als u een computer uit een niet-vertrouwd domein toevoegen wilt, voert u de [stappen](https://technet.microsoft.com/library/hh757801(v=sc.12).aspx). <br> (OR) </li><li> Als u een computer van een vertrouwd domein toevoegen wilt, problemen oplossen met behulp van de stappen in [deze blog](https://blogs.technet.microsoft.com/dpm/2012/02/06/data-protection-manager-agent-network-troubleshooting/). <br>(OR)</li><li> Probeer het uitschakelen van antivirusprogramma het oplossen van problemen. Als deze het probleem wordt opgelost, wijzigt u de antivirus-instellingen zoals aangegeven in [in dit artikel](https://technet.microsoft.com/library/hh757911.aspx).</li></ul> |
 | Agent (s) pushen naar beveiligde servers | De referenties die zijn opgegeven voor de server zijn ongeldig. | **Als de aanbevolen actie die wordt weergegeven in het product niet werkt, voert u de volgende stappen uit**: <br> Probeer de beveiligingsagent handmatig installeren op de productieserver zoals opgegeven in [in dit artikel](https://technet.microsoft.com/library/hh758186(v=sc.12).aspx#BKMK_Manual).|
 | Azure Backup-Agent is geen verbinding maken met de Azure Backup-service (ID: 100050) | De Azure Backup-Agent is geen verbinding maken met de Azure Backup-service. | **Als de aanbevolen actie die wordt weergegeven in het product niet werkt, voert u de volgende stappen uit**: <br>1. Voer de volgende opdracht uit vanaf een opdrachtprompt: **psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe**. Hiermee opent u het venster van Internet Explorer. <br/> 2. Ga naar **extra** > **Internetopties** > **verbindingen** > **LAN-instellingen**. <br/> 3. Controleer of de proxy-instellingen voor het systeem-account. Proxy IP en poort instellen. <br/> 4. Close Internet Explorer.|
 | Azure Backup-Agent-installatie is mislukt | De Microsoft Azure Recovery Services-installatie is mislukt. Alle wijzigingen die door de Microsoft Azure Recovery Services-installatie zijn aangebracht in het systeem worden teruggedraaid. (ID: 4024) | Azure-Agent handmatig installeren.
 
 
 ## <a name="configuring-protection-group"></a>Beveiligingsgroep configureren
+
 | Bewerking | Foutdetails | Tijdelijke oplossing |
 | --- | --- | --- |
 | Beveiligingsgroepen configureren | DPM kan niet opsommen voor het toepassingsonderdeel op de beveiligde computer (beveiligde computernaam). | Selecteer **vernieuwen** op het scherm configureren beveiliging groep UI op het niveau van de relevante datasource-component. |
@@ -59,26 +82,18 @@ U lost dit probleem, gaat u als volgt [deze stappen voor probleemoplossing](http
 | Beleid wijzigen |Het back-upbeleid kan niet worden gewijzigd. Fout: De huidige bewerking is mislukt vanwege een interne servicefout [0x29834]. Voer de bewerking na enige tijd is verstreken. Als het probleem zich blijft voordoen, neem dan contact op met Microsoft ondersteuning. | **Oorzaak:**<br/>Deze fout treedt op onder drie voorwaarden: Wanneer beveiligingsinstellingen zijn ingeschakeld, wanneer u probeert te verminderen van de bewaartermijn hieronder de minimale waarden eerder hebt opgegeven, en wanneer u zich op een niet-ondersteunde versie. (Niet-ondersteunde versies zijn die onder versie 2.0.9052 van de Microsoft Azure Backup Server en de Azure Backup Server-update 1). <br/>**Aanbevolen actie:**<br/> Om door te gaan met updates met betrekking tot beleid, moet u de bewaarperiode boven de minimale periode opgegeven bewaarperiode instellen. (De minimale bewaarperiode is zeven dagen voor dagelijks, vier weken voor wekelijkse, drie weken voor maandelijks of één jaar voor jaarlijkse.) <br><br>(Optioneel) voorkeur een andere aanpak is het bijwerken van de backup-agent en de Azure Backup-Server als u wilt gebruikmaken van alle beveiligingsupdates. |
 
 ## <a name="backup"></a>Backup
+
 | Bewerking | Foutdetails | Tijdelijke oplossing |
 | --- | --- | --- |
-| Backup | Replica is inconsistent | Controleer of de optie Automatische consistentiecontrole selectievakje in de Wizard beveiligingsgroep is ingeschakeld. Zie het Microsoft TechNet-artikel voor meer informatie over de oorzaken van replica inconsistentie en relevante suggesties [de Replica is inconsistent](https://technet.microsoft.com/library/cc161593.aspx).<br> <ol><li> Een back-up van systeemstatus/BMR, Controleer of Windows Server back-up is geïnstalleerd op de beveiligde server.</li><li> Controleren op problemen met betrekking tot ruimte in de DPM-opslaggroep op de DPM/Microsoft Azure Backup Server en opslag waar nodig toewijzen.</li><li> Controleer de status van de Volume Shadow Copy-Service op de beveiligde server. Als deze uitgeschakeld is, stelt u deze handmatig te starten. Start de service op de server. Vervolgens gaat u terug naar de console DPM/Microsoft Azure Backup Server en start u de synchronisatie met de consistentiecontrole.</li></ol>|
 | Backup | Er is een onverwachte fout opgetreden bij het uitvoeren van de taak. Het apparaat is niet gereed. | **Als de aanbevolen actie die wordt weergegeven in het product niet werkt, kunt u de volgende stappen:** <br> <ul><li>De ruimte opslagruimte op schaduwkopie instellen op onbeperkt op de items in de beveiligingsgroep toe en voer de consistentiecontrole.<br></li> (OR) <li>Verwijder de bestaande beveiliging groep en het maken van meerdere nieuwe groepen. Elke nieuwe beveiligingsgroep moet een afzonderlijk item hebben erin.</li></ul> |
 | Backup | Als u een back-up alleen de systeemstatus, controleert u of er is onvoldoende vrije ruimte op de beveiligde computer voor het opslaan van de systeemstatusback-up. | <ol><li>Controleer of Windows Server back-up is geïnstalleerd op de beveiligde machine.</li><li>Controleer of er voldoende ruimte is op de beveiligde computer voor de systeemstatus. De eenvoudigste manier om te controleren of dit is de beveiligde computer naar Windows Server back-up openen, klikt u op via de instellingen en selecteer vervolgens BMR. De gebruikersinterface vervolgens ziet u hoeveel ruimte is vereist. Open **WSB** > **lokale back-up** > **back-upschema** > **back-upconfiguratie selecteren**  >  **Volledige server** (grootte wordt weergegeven). Deze grootte gebruiken voor verificatie.</li></ol>
-| Backup | Een of meer online herstelpunten zijn niet gemaakt | Als het foutbericht dat aangeeft dat ' Windows Azure Backup-Agent kan niet worden gemaakt van een momentopname van het geselecteerde volume is ' Verhoog de ruimte op replica en herstelpuntvolume.
-| Backup | Een of meer online herstelpunten zijn niet gemaakt | Als het foutbericht luidt 'De Windows Azure Backup-Agent kan geen verbinding met de OBEngine-service maken', moet u controleren of de OBEngine bestaat in de lijst met services op de computer. Als de OBEngine-service is niet uitgevoerd, gebruikt u de opdracht 'net start OBEngine' om de OBEngine-service te starten.
-| Backup | Een of meer online herstelpunten zijn niet gemaakt | Als het foutbericht 'de versleutelingswachtwoordzin voor deze server is niet ingesteld. Configureer een versleutelingswachtwoordzin' probeert een wachtwoordzin voor versleuteling configureren. Als dit mislukt, voert u de volgende stappen uit: <br> <ol><li>Controleer of de nieuwe locatie bestaat. Dit is de locatie die wordt vermeld in het register **HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config**, met de naam van de **ScratchLocation** moet bestaan.</li><li> Als de nieuwe locatie bestaat, probeert u opnieuw te registreren met behulp van de oude wachtwoordzin. *Wanneer u een wachtwoordzin voor versleuteling configureert, kunt u deze op een veilige locatie opslaan.*</li><ol>
 | Backup | Voor BMR-back-fout | Als de grootte van de BMR groot is, sommige toepassingsbestanden verplaatsen naar het station van het besturingssysteem en probeer het opnieuw. |
 | Backup | De optie voor het opnieuw beveiligen van een VMware-VM op een nieuwe Microsoft Azure Backup Server wordt niet weergegeven als beschikbaar om toe te voegen. | VMware-eigenschappen zijn op een oude, buiten gebruik gestelde exemplaar van Microsoft Azure Backup Server gericht. Los dit probleem als volgt op:<br><ol><li>In VCenter (SC-VMM-equivalent), gaat u naar de **samenvatting** tabblad, en van daaruit naar **aangepaste kenmerken**.</li>  <li>Verwijder de oude Microsoft Azure Backup Server-naam van de **DPMServer** waarde.</li>  <li>Ga terug naar de nieuwe Microsoft Azure Backup Server en de pagina wijzigen  Nadat u hebt geselecteerd de **vernieuwen** knop, de virtuele machine wordt weergegeven met een selectievakje in als beschikbaar om toe te voegen aan de beveiliging.</li></ol> |
 | Backup | Fout bij het openen van bestanden/gedeelde mappen | Wijzig de antivirus-instellingen zoals aangegeven in de TechNet-artikel [antivirussoftware uitvoeren op de DPM-server](https://technet.microsoft.com/library/hh757911.aspx).|
-| Backup | Taken voor het maken van online herstelpunten voor VMware-VM is mislukt. Er is een fout van VMware in DPM opgetreden bij het ophalen van gegevens voor wijzigingen bijhouden. Foutcode: FileFaultFault (ID 33621) |  <ol><li> Voor de betrokken virtuele machines opnieuw in de CTK op VMware.</li> <li>Controleer dat onafhankelijke schijf is niet aanwezig op VMware.</li> <li>Stop de beveiliging voor de betrokken virtuele machines en opnieuw te beveiligen met de **vernieuwen** knop. </li><li>Voer een CC voor de betrokken virtuele machines.</li></ol>|
-
-## <a name="restore"></a>Herstellen
-| Bewerking | Foutdetails | Tijdelijke oplossing |
-| --- | --- | --- |
-| Herstellen | **Foutcode**: Fout CBPServerRegisteredVaultDontMatchWithCurrent/kluis: 100110 <br/> <br/>**Foutbericht**: De kluisreferenties verschillen van de kluis die de server is geregistreerd | **Oorzaak**: Dit probleem treedt op wanneer u probeert om bestanden te herstellen op een andere server van de oorspronkelijke server met behulp van de hersteloptie externe DPM en als de server die wordt hersteld en de oorspronkelijke server vanaf waar de gegevens een back-up is niet gekoppeld aan dezelfde Recovery Services-kluis.<br/> <br/>**Tijdelijke oplossing** om op te lossen dit probleem Zorg ervoor dat zowel de oorspronkelijke en alternatieve server zijn geregistreerd bij dezelfde kluis.|
 
 
 ## <a name="change-passphrase"></a>Wachtwoordzin wijzigen
+
 | Bewerking | Foutdetails | Tijdelijke oplossing |
 | --- | --- | --- |
 | Wachtwoordzin wijzigen |De beveiligingspincode die is ingevoerd, is onjuist. Geef de juiste beveiliging PINCODE om deze bewerking te voltooien. |**Oorzaak:**<br/> Deze fout treedt op wanneer u een ongeldige of verlopen beveiligingspincode tijdens het uitvoeren van een kritieke bewerking (zoals het wijzigen van een wachtwoordzin). <br/>**Aanbevolen actie:**<br/> Als u wilt de bewerking is voltooid, moet u een geldige beveiligingspincode invoeren. Als u de PINCODE, zich aanmelden bij de Azure-portal en gaat u naar de Recovery Services-kluis. Ga vervolgens naar **instellingen** > **eigenschappen** > **BEVEILIGINGSPINCODE genereren**. Gebruik deze PINCODE te wijzigen van de wachtwoordzin. |
@@ -86,6 +101,7 @@ U lost dit probleem, gaat u als volgt [deze stappen voor probleemoplossing](http
 
 
 ## <a name="configure-email-notifications"></a>E-mailmeldingen configureren
+
 | Bewerking | Foutdetails | Tijdelijke oplossing |
 | --- | --- | --- |
 | E-mailmeldingen met een Office 365-account instellen |Fout-ID: 2013| **Oorzaak:**<br> Het gebruik van Office 365-account <br>**Aanbevolen actie:**<ol><li> Het eerste wat om ervoor te zorgen, is dat 'Toestaan anonieme Relay op een Ontvangconnector' voor uw DPM-server is ingesteld op Exchange. Zie voor meer informatie over hoe u dit wilt configureren, [toestaan anonieme Relay op een Connector ontvangen](https://technet.microsoft.com/library/bb232021.aspx) op TechNet.</li> <li> Als u kunt geen gebruik van een interne SMTP-relay en instellen moet met behulp van uw Office 365-server, kunt u IIS instellen om te worden van een relay. De DPM-server configureren [doorsturen van de SMTP tot O365 met behulp van IIS](https://technet.microsoft.com/library/aa995718(v=exchg.65).aspx).<br><br> **BELANGRIJK:** Zorg ervoor dat u de user@domain.com indeling en *niet* domein\gebruiker.<br><br><li>DPM-punt op de lokale server-naam gebruiken als de SMTP-server-poort 587. Wijs deze het e-mailadres voor een gebruiker die de e-mailberichten van afkomstig moeten zijn.<li> De gebruikersnaam en het wachtwoord op de pagina van de installatie van DPM SMTP moet voor een domeinaccount in het domein waarop DPM ingeschakeld is. </li><br> **OPMERKING**: Wanneer u het adres van de SMTP-server wijzigen wilt, de wijziging aanbrengen in de nieuwe instellingen, instellingen voor het sluiten en weer openen om er zeker van te zijn dat dit de nieuwe waarde weergegeven.  Eenvoudig wijzigen en testen niet altijd mogelijk de nieuwe instellingen toe te passen, zodat het testen van het op deze manier is een aanbevolen procedure.<br><br>Op elk gewenst moment tijdens dit proces kunt u deze instellingen wissen door de DPM-console sluiten en het bewerken van de volgende registersleutels: **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> SMTPPassword verwijderen en SMTPUserName sleutels**. U kunt deze toevoegen terug naar de gebruikersinterface als u het opnieuw start.

@@ -1,6 +1,6 @@
 ---
-title: Aangepaste rollen met behulp van Azure CLI maken | Microsoft Docs
-description: Informatie over het maken van aangepaste rollen voor op rollen gebaseerd toegangsbeheer (RBAC) met behulp van Azure CLI. Dit omvat het weergeven, maken, bijwerken en verwijderen van aangepaste rollen.
+title: Aangepaste rollen voor Azure-resources met behulp van Azure CLI maken | Microsoft Docs
+description: Informatie over het maken van aangepaste rollen met op rollen gebaseerd toegangsbeheer (RBAC) voor Azure-resources met behulp van Azure CLI. Dit omvat het weergeven, maken, bijwerken en verwijderen van aangepaste rollen.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3b5d18a3e0bf846137dfdf68b8e5dd9e2db58792
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: b768f6e240c354369246a6d978ed3e8dd2f58f92
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437253"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338135"
 ---
-# <a name="create-custom-roles-using-azure-cli"></a>Maken van aangepaste rollen met behulp van Azure CLI
+# <a name="create-custom-roles-for-azure-resources-using-azure-cli"></a>Aangepaste rollen maken voor Azure-resources met behulp van Azure CLI
 
-Als de [ingebouwde rollen](built-in-roles.md) niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen aangepaste rollen maken. In dit artikel wordt beschreven hoe u maken en beheren van aangepaste rollen met behulp van Azure CLI.
+Als de [ingebouwde rollen voor Azure-resources](built-in-roles.md) niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen aangepaste rollen maken. In dit artikel wordt beschreven hoe u maken en beheren van aangepaste rollen met behulp van Azure CLI.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -162,6 +162,6 @@ az role definition delete --name "Virtual Machine Operator"
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Zelfstudie: Een aangepaste rol die met behulp van Azure CLI maken](tutorial-custom-role-cli.md)
-- [Aangepaste rollen in Azure](custom-roles.md)
+- [Zelfstudie: Maken van een aangepaste rol voor Azure-resources met behulp van Azure CLI](tutorial-custom-role-cli.md)
+- [Aangepaste rollen voor Azure-resources](custom-roles.md)
 - [Azure Resource Manager-resourceproviderbewerkingen](resource-provider-operations.md)

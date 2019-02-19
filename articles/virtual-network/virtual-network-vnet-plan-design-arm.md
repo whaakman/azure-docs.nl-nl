@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: ef293b39d0e82cdd26e0c41af5d63d0459064017
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: acd7a88acb31b9d3bd3ba714387561e91b3524a6
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820790"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339513"
 ---
 # <a name="plan-virtual-networks"></a>Virtuele netwerken plannen
 
@@ -113,7 +113,7 @@ Maakt gebruik van Azure [op rollen gebaseerd toegangsbeheer](../role-based-acces
 
 Azure Policy kunt u maken, toewijzen en beheren van beleidsdefinities. Beleidsdefinities afdwingen verschillende regels voor uw resources, zodat de resources voldoen aan de standaarden van de organisatie en de service level agreements blijven. Azure Policy wordt een evaluatie van uw resources, zoeken naar resources die niet compatibel zijn met de beleidsdefinities die u hebt uitgevoerd. U kunt bijvoorbeeld definiëren en een beleid toegepast dat Hiermee worden gemaakt van virtuele netwerken in een specifieke resourcegroep of een regio kunnen. Een ander beleid kunt vereisen dat elk subnet een netwerkbeveiligingsgroep zijn gekoppeld heeft. De beleidsregels worden vervolgens geëvalueerd bij het maken en bijwerken van resources.
 
-Beleid wordt toegepast op de volgende hiërarchie: Abonnement, beheergroep en resourcegroep. Meer informatie over [Azure policy](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of implementeren van een virtueel netwerk [beleidssjabloon](policy-samples.md) voorbeelden.
+Beleid wordt toegepast op de volgende hiërarchie: Abonnement, beheergroep en resourcegroep. Meer informatie over [Azure policy](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of implementeren van een virtueel netwerk [beleidssjabloon](policy-samples.md) voorbeelden.
 
 ## <a name="next-steps"></a>Volgende stappen
 

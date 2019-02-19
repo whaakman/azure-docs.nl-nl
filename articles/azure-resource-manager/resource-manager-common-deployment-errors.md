@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/16/2018
+ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 600b79ec0b34d6b79b1b56719dd800bbe8ec803a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: a5c08536614476de38c7bfde524a12163162bed4
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487146"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339257"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Veelvoorkomende problemen oplossen Azure-implementatie met Azure Resource Manager
 
@@ -36,7 +36,7 @@ Dit artikel beschrijft een aantal veelvoorkomende fouten in de Azure-implementat
 | AccountPropertyCannotBeSet | Controleer de eigenschappen van het opslagaccount beschikbaar. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
 | AllocationFailed | Het cluster of de regio geen beschikbare bronnen of kan de aangevraagde VM-grootte niet ondersteunen. De aanvraag opnieuw uitvoeren op een later tijdstip, of vraag een andere VM-grootte. | [Problemen met inrichten en de toewijzing voor Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [problemen met inrichten en de toewijzing voor Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) en [toewijzingsfouten oplossen](../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Wachten op voor de gelijktijdige bewerking is voltooid. | |
-| AuthorizationFailed | Uw account of service-principal beschikt niet over voldoende toegangsrechten voor het voltooien van de implementatie. Controleer de rol van die uw account behoort tot en de toegang voor de implementatie-scope. | [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md) |
+| AuthorizationFailed | Uw account of service-principal beschikt niet over voldoende toegangsrechten voor het voltooien van de implementatie. Controleer de rol van die uw account behoort tot en de toegang voor de implementatie-scope.<br><br>U kunt deze fout kan optreden als een vereiste resourceprovider is niet geregistreerd. | [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md)<br><br>[Registratie oplossen](resource-manager-register-provider-errors.md) |
 | BadRequest | U hebt verzonden implementatie waarden die niet overeenkomen met wat er door Resource Manager wordt verwacht. Controleer de binnenste statusbericht voor hulp bij het oplossen van problemen. | [Sjabloonverwijzing](/azure/templates/) en [ondersteunde locaties](resource-manager-templates-resources.md#location) |
 | Conflict | U vraagt om een bewerking die in de huidige status van de resource is niet toegestaan. Bijvoorbeeld, de schijfgrootte mag alleen als het maken van een virtuele machine of als de VM ongedaan is gemaakt. | |
 | DeploymentActive | Wachten op voor gelijktijdige implementatie aan deze resourcegroep te voltooien. | |

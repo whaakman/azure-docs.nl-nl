@@ -1,9 +1,15 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: db83cf4310cb4d74dcbbd290f650e4dcfc00c0c8
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343703"
 documentType: LandingData
 title: Documentatie voor Azure Policy
 metadata:
-  title: 'Documentatie voor Azure Policy - zelfstudies, API-naslaginformatie'
-  description: 'Azure Policy helpt u bij het beheren en voorkomen van IT-problemen met behulp van beleidsdefinities die regels en effecten voor uw resources afdwingen. Als u Azure Policy gebruikt, blijven uw resources voldoen aan uw bedrijfsnormen en service level agreements. Leer aan de hand van onze quickstarts, zelfstudies en voorbeelden hoe u beleidsdefinities maakt, toewijst en beheert.'
+  title: Documentatie voor Azure Policy - zelfstudies, API-naslaginformatie
+  description: Azure Policy helpt u bij het beheren en voorkomen van IT-problemen met behulp van beleidsdefinities die regels en effecten voor uw resources afdwingen. Als u Azure Policy gebruikt, blijven uw resources voldoen aan uw bedrijfsnormen en service level agreements.
   services: azure-policy
   author: DCtheGeek
   manager: carmonm
@@ -12,53 +18,56 @@ metadata:
   ms.date: 01/23/2019
   ms.author: dacoulte
 abstract:
-  description: 'Azure Policy helpt u bij het beheren en voorkomen van IT-problemen met behulp van beleidsdefinities die regels en effecten voor uw resources afdwingen. Als u Azure Policy gebruikt, blijven uw resources voldoen aan uw bedrijfsnormen en service level agreements. Leer aan de hand van onze quickstarts, zelfstudies en voorbeelden hoe u beleidsdefinities maakt, toewijst en beheert.'
+  description: Azure Policy helpt u bij het beheren en voorkomen van IT-problemen met behulp van beleidsdefinities die regels en effecten voor uw resources afdwingen. Als u Azure Policy gebruikt, blijven uw resources voldoen aan uw bedrijfsnormen en service level agreements.
 sections:
-  - title: QuickStarts van vijf minuten
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: Leer hoe u in Azure beleidsdefinities maakt, toewijst en beheert.
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Leer hoe u in Azure beleidsdefinities maakt, toewijst en beheert.'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/portal.svg
-            text: Azure-portal
-            href: ./assign-policy-portal
-          - image:
-              src: ./media/powershell.svg
-            text: Azure PowerShell
-            href: ./assign-policy-powershell
-          - image:
-              src: ./media/cli.svg
-            text: Azure-CLI
-            href: ./assign-policy-azurecli
-  - title: Zelfstudies met stapsgewijze instructies
+    - image:
+        alt: Azure-portal
+        src: ./media/portal.svg
+      text: Azure-portal
+      href: ./assign-policy-portal
+    - image:
+        alt: Azure PowerShell
+        src: ./media/powershell.svg
+      text: Azure PowerShell
+      href: ./assign-policy-powershell
+    - image:
+        alt: Azure-CLI
+        src: ./media/cli.svg
+      text: Azure-CLI
+      href: ./assign-policy-azurecli
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: Leer hoe u in Azure beleidsdefinities maakt, toewijst en beheert.
+  - type: list
+    style: unordered
     items:
-      - type: paragraph
-        text: 'Leer hoe u in Azure beleidsdefinities maakt, toewijst en beheert.'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Azure-beleid maken en beheren</a>
-  - title: Voorbeelden
+    - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Azure-beleid maken en beheren</a>
+- title: Voorbeelden
+  items:
+  - type: paragraph
+    text: Gebruik de volgende JSON-voorbeelden om beleidsdefinities te maken in Azure.
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: paragraph
-        text: Gebruik de volgende JSON-voorbeelden om beleidsdefinities te maken in Azure.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/governance/policy/samples/index">Azure PowerShell</a>
-  - title: Naslaginformatie
+    - html: <a href="/azure/governance/policy/samples/index">Azure PowerShell</a>
+- title: Naslaginformatie
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Opdrachtregel
-            html: <p><a href="/cli/azure/policy">Azure-CLI</a></p>
-          - title: PowerShell
-            html: '<p><a href="/powershell/module/az.resources/#policies">Azure PowerShell</a></p>'
-          - title: REST-API
-            html: <p><a href="/rest/api/policy-insights/policyevents">Gebeurtenissen</a></p><p><a href="/rest/api/policy-insights/policystates">Statussen</a></p><p><a href="/rest/api/resources/policyassignments">Toewijzingen</a></p><p><a href="/rest/api/resources/policydefinitions">Beleidsdefinities</a></p><p><a href="/rest/api/resources/policysetdefinitions">Initiatiefdefinities</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">Volgens beleid bijgehouden resources</a></p><p><a href="/rest/api/policy-insights/remediations">Herstelbewerkingen</a></p>
+    - title: Opdrachtregel
+      html: <p><a href="/cli/azure/policy">Azure-CLI</a></p>
+    - title: PowerShell
+      html: <p><a href="/powershell/module/az.resources/#policies">Azure PowerShell</a></p>
+    - title: REST-API
+      html: <p><a href="/rest/api/policy-insights/policyevents">Gebeurtenissen</a></p><p><a href="/rest/api/policy-insights/policystates">Statussen</a></p><p><a href="/rest/api/resources/policyassignments">Toewijzingen</a></p><p><a href="/rest/api/resources/policydefinitions">Beleidsdefinities</a></p><p><a href="/rest/api/resources/policysetdefinitions">Initiatiefdefinities</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">Volgens beleid bijgehouden resources</a></p><p><a href="/rest/api/policy-insights/remediations">Herstelbewerkingen</a></p>

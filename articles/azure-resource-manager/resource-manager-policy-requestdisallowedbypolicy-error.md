@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: e8eeb83c267d7a669f46037c2c94d69107a5edd1
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: d05ec1835bc04be0ca0fc12f41322c14b5420213
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267305"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337813"
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>RequestDisallowedByPolicy-fout opgetreden bij het Azure-resource-beleid
 
@@ -66,5 +66,5 @@ U lost dit probleem, Controleer de resource-beleidsregels en te bepalen hoe reso
 
 Raadpleeg voor meer informatie de volgende artikelen:
 
-- [Wat is Azure Policy?](../azure-policy/azure-policy-introduction.md)
-- [Maken en beheren van beleidsregels voor het afdwingen van naleving](../azure-policy/create-manage-policy.md)
+- [Wat is Azure Policy?](../governance/policy/overview.md)
+- [Maken en beheren van beleidsregels voor het afdwingen van naleving](../governance/policy/tutorials/create-and-manage.md)

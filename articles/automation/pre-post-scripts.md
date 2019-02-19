@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 90616544b1fddb8b6def04c30202035bec04d599
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 3010f4ec86b25c51fae2ce8f64238ec8815adca8
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236002"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408677"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Beheren van scripts voor vóór en na (Preview)
 
@@ -52,7 +52,19 @@ Door te klikken in de update-implementatie uitvoert, krijgt u meer informatie na
 
 ## <a name="passing-parameters"></a>Doorgeven van parameters
 
-Wanneer u vooraf configureren en boeken scripts, u kunt parameters doorgeven net als een runbook plannen. Parameters worden gedefinieerd op het moment van de update-implementatie maken. Scripts voor vóór en na vereisen parameters van het type `String`. Als u een ander objecttype nodig hebt, kunt u dit casten naar het andere type met `[System.Convert]` of verwerkt; het met uw eigen logica.
+Wanneer u vooraf configureren en boeken scripts, u kunt parameters doorgeven net als een runbook plannen. Parameters worden gedefinieerd op het moment van de update-implementatie maken. Scripts voor vóór en na ondersteuning van de volgende typen:
+
+* [char]
+* [byte]
+* [int]
+* [lang]
+* [decimaal]
+* [één]
+* [dubbele]
+* [DateTime]
+* [string]
+
+Als u een ander objecttype nodig hebt, kunt u het casten naar een ander type met uw eigen logica in het runbook.
 
 Naast de standaard runbookparameters, is een extra parameter opgegeven. Deze parameter is **SoftwareUpdateConfigurationRunContext**. Deze parameter is een JSON-tekenreeks en als u de parameter in het script voor vóór of na definieert, wordt automatisch doorgegeven door de update-implementatie. De parameter bevat informatie over de update-implementatie, die een subset van gegevens die zijn geretourneerd door de [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) de volgende tabel ziet u de eigenschappen die zijn opgegeven in de variabele:
 

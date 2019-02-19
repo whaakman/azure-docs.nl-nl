@@ -7,16 +7,16 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 3c7feda32bf162499888720ce56edac55197abe4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 59973d9530bf1c3ab3e77290b25e50860f9de0ca
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005513"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342980"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Begrijpen hoe metriek werk waarschuwingen in Azure Monitor
 
-Metrische waarschuwingen in Azure Monitor hierop worden gebaseerd multi-dimensionale metrische gegevens. Deze metrische gegevens mogelijk platform metrische gegevens, [aangepaste metrische gegevens](../../azure-monitor/platform/metrics-custom-overview.md), [populaire logboeken van Azure Monitor geconverteerd naar metrische gegevens](../../azure-monitor/platform/alerts-metric-logs.md), standaard metrische gegevens van Application Insights. Metrische waarschuwingen evalueren met regelmatige intervallen om te controleren of voorwaarden op een of meer metriek tijdreeksen ' True ' zijn en een melding wanneer de evaluaties wordt voldaan. Metrische waarschuwingen zijn stateful, dat wil zeggen, ze alleen verzenden van meldingen wanneer de status verandert.
+Metrische waarschuwingen in Azure Monitor hierop worden gebaseerd multi-dimensionale metrische gegevens. Deze metrische gegevens kan worden [platform metrische gegevens](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [aangepaste metrische gegevens](../../azure-monitor/platform/metrics-custom-overview.md), [populaire logboeken van Azure Monitor geconverteerd naar metrische gegevens](../../azure-monitor/platform/alerts-metric-logs.md) en metrische gegevens van Application Insights. Metrische waarschuwingen evalueren met regelmatige intervallen om te controleren of voorwaarden op een of meer metriek tijdreeksen ' True ' zijn en een melding wanneer de evaluaties wordt voldaan. Metrische waarschuwingen zijn stateful, dat wil zeggen, ze alleen verzenden van meldingen wanneer de status verandert.
 
 ## <a name="how-do-metric-alerts-work"></a>De werking van metrische waarschuwingen
 
@@ -65,8 +65,6 @@ Stel dat het gebruik van 'myVM' worden boven de drempelwaarde blijft in de volge
 Na enige tijd, als het gebruik van "myVM" weer omlaag naar komt normale gaat dat wil zeggen, lager dan de drempelwaarde. De waarschuwingsregel bewaakt de voorwaarde voor twee keer, voor het verzenden van een melding opgelost. De waarschuwingsregel verzendt een bericht opgelost/gedeactiveerd als voorwaarde voor de waarschuwing is niet voldaan voor drie opeenvolgende punten om ruis in het geval van voorwaarden op en neer te verminderen.
 
 Als de opgelost melding wordt verzonden via e-mail of webhooks, de status van de waarschuwing instantie (Monitorstatus genoemd) in Azure portal is ook ingesteld op opgelost.
-
-## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Bewaking op schaal met behulp van metrische waarschuwingen in Azure Monitor
 
 ### <a name="using-dimensions"></a>Met behulp van dimensies
 
@@ -123,9 +121,9 @@ Deze regel controleert als de gemiddelde CPU-gebruik gedurende de laatste vijf m
 
 Verhoging van de weergave-back-punten en aantal schendingen kunt ook waarschuwingen om alleen een waarschuwing voor de definitie van een grote afwijking te filteren. [Meer informatie over dynamische drempelwaarden voor geavanceerde opties](alerts-dynamic-thresholds.md#what-do-the-advanced-settings-in-dynamic-thresholds-mean).
 
-### <a name="monitoring-multiple-resources-using-metric-alerts"></a>Bewaking van meerdere resources met behulp van metrische waarschuwingen
+## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Bewaking op schaal met behulp van metrische waarschuwingen in Azure Monitor
 
-Als u uit de vorige sectie hebt gezien, is het mogelijk om een enkele waarschuwingsregel voor metrische gegevens die elke dimensiecombinatie van afzonderlijke (zoals controleert) een metrische tijdreeks). Eerder waren u echter nog steeds beperkt tot één resource tegelijk uitvoeren. Azure Monitor biedt ook ondersteuning voor het bewaken van meerdere resources met een waarschuwingsregel voor metrische gegevens. Deze functie is momenteel preview en alleen ondersteund op virtuele machines. Een één waarschuwing voor metrische gegevens kan ook resources in een Azure-regio te bewaken.
+Tot nu toe hebt u gezien hoe een één waarschuwing voor metrische gegevens kan worden gebruikt voor het bewaken van metrische gegevens voor een of meer time series met betrekking tot een enkel Azure-resource. In veel gevallen kunt u de dezelfde waarschuwingsregel naar veel resources toegepast. Azure Monitor biedt ook ondersteuning voor het bewaken van meerdere resources met een waarschuwingsregel voor metrische gegevens. Deze functie wordt momenteel ondersteund op virtuele machines. Een één waarschuwing voor metrische gegevens kan ook resources in een Azure-regio te bewaken.
 
 U kunt het bereik van de bewaking met een één waarschuwing voor metrische gegevens op drie manieren opgeven:
 
@@ -133,7 +131,7 @@ U kunt het bereik van de bewaking met een één waarschuwing voor metrische gege
 - alle virtuele machines (in een Azure-regio) in een of meer resourcegroepen in een abonnement
 - alle virtuele machines (in een Azure-regio) in één abonnement
 
-Het maken van regels voor metrische waarschuwingen die meerdere resources bewaken wordt momenteel niet ondersteund via Azure portal. U kunt deze regels via maken [Azure Resource Manager-sjablonen](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-metric-alert-that-monitors-multiple-resources). U ontvangt afzonderlijke meldingen voor elke virtuele machine.
+Het maken van regels voor metrische waarschuwingen die meerdere resources bewaken is vergelijkbaar met [het maken van een metrische waarschuwing](alerts-metric.md) die één resource bewaakt. Enige verschil is dat u selecteert alle resources die u wilt bewaken. U kunt ook maken met deze regels via [Azure Resource Manager-sjablonen](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-metric-alert-that-monitors-multiple-resources). U ontvangt afzonderlijke meldingen voor elke virtuele machine.
 
 ## <a name="typical-latency"></a>Normale latentie
 
@@ -149,7 +147,7 @@ Als u bent al gebruikmaken van de klassieke metrische waarschuwingen en informat
 |-------------------------------------------------|----------------------------|
 | Microsoft.ApiManagement/service | Ja |
 | Microsoft.Batch/batchAccounts| Ja|
-|Microsoft.Cache/redis| Ja
+|Microsoft.Cache/redis| Ja |
 |Microsoft.ClassicCompute/virtualMachines | Nee |
 |Microsoft.ClassicCompute/domainNames/slots/roles | Nee|
 |Microsoft.CognitiveServices/accounts | Nee |
@@ -160,7 +158,7 @@ Als u bent al gebruikmaken van de klassieke metrische waarschuwingen en informat
 |Microsoft.DBforMySQL/servers| Ja|
 |Microsoft.DBforPostgreSQL/servers| Ja|
 |Microsoft.Devices/IotHubs | Nee|
-|Microsoft.DocumentDB/databaseAccounts| Nee|
+|Microsoft.DocumentDB/databaseAccounts| Ja|
 |Microsoft.EventHub/namespaces | Ja|
 |Microsoft.Logic/workflows | Ja|
 |Microsoft.Network/loadBalancers |Ja|
@@ -168,16 +166,16 @@ Als u bent al gebruikmaken van de klassieke metrische waarschuwingen en informat
 |Microsoft.Network/applicationGateways| Ja|
 |Microsoft.Network/expressRouteCircuits| Ja|
 |Microsoft.Network/trafficManagerProfiles | Ja|
-|Microsoft.Search/searchServices | Nee|
-|Microsoft.ServiceBus/namespaces| Nee|
+|Microsoft.Search/searchServices | Ja|
+|Microsoft.ServiceBus/namespaces| Ja |
 |Microsoft.Storage/storageAccounts | Ja|
 |Microsoft.StreamAnalytics/streamingjobs| Ja|
 |Microsoft.TimeSeriesInsights/environments | Ja|
 |Microsoft. Web/serverfarms | Ja |
 |Microsoft. Websites (met uitzondering van de functies) | Ja|
 |Microsoft. Web/hostingEnvironments/multiRolePools | Nee|
-|Microsoft. Web/hostingEnvironments/workerPools| Nee
-|Microsoft.SQL/Servers | Nee|
+|Microsoft. Web/hostingEnvironments/workerPools| Nee |
+|Microsoft.SQL/Servers | Nee |
 
 ## <a name="next-steps"></a>Volgende stappen
 

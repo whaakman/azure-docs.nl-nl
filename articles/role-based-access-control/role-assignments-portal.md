@@ -1,6 +1,6 @@
 ---
-title: Toegang beheren met RBAC en Azure Portal | Microsoft Docs
-description: Informatie over het beheren van toegang voor gebruikers, groepen, service-principals en beheerde identiteiten, met behulp van op rollen gebaseerd toegangsbeheer (RBAC) en de Azure-portal. U vindt hier instructies voor het weergeven van toegang, het verlenen van toegang en het intrekken van toegang.
+title: Beheer de toegang tot Azure resoruces met RBAC en Azure portal | Microsoft Docs
+description: Informatie over het beheren van toegang tot Azure-resources voor gebruikers, groepen, service-principals en beheerde identiteiten met behulp van op rollen gebaseerd toegangsbeheer (RBAC) en de Azure-portal. U vindt hier instructies voor het weergeven van toegang, het verlenen van toegang en het intrekken van toegang.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c339556353967db26f022384f2cf877962dc6d83
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 1e3057108ef179af2f4692c061091fbdf59f0af2
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412305"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342334"
 ---
-# <a name="manage-access-using-rbac-and-the-azure-portal"></a>Toegang beheren met RBAC en Azure Portal
+# <a name="manage-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Toegang tot Azure-resources met behulp van RBAC en de Azure-portal beheren
 
-[Op rollen gebaseerde toegangsbeheer (RBAC)](overview.md) is de manier waarop u de toegang tot resources in Azure beheert. Dit artikel wordt beschreven hoe u de toegang voor gebruikers, groepen, service-principals en beheerde identiteiten met RBAC en de Azure-portal beheren.
+[Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) is de manier waarop dat u de toegang tot Azure-resources beheren. Dit artikel wordt beschreven hoe u de toegang voor gebruikers, groepen, service-principals en beheerde identiteiten met RBAC en de Azure-portal beheren.
 
 ## <a name="open-access-control-iam"></a>Open Access control (IAM)
 
@@ -41,7 +41,7 @@ De **toegangsbeheer (IAM)** blade, ook wel bekend als identiteits- en toegangsbe
 
 ## <a name="view-roles-and-permissions"></a>Rollen en machtigingen weergeven
 
-Een roldefinitie is een verzameling machtigingen die u gebruikt voor roltoewijzingen. Azure heeft meer dan 70 [ingebouwde rollen](built-in-roles.md). Volg deze stappen om de rollen en machtigingen die kunnen worden uitgevoerd op de beheer- en gegevenslaag weer te geven.
+Een roldefinitie is een verzameling machtigingen die u gebruikt voor roltoewijzingen. Azure heeft meer dan 70 [ingebouwde rollen voor Azure-resources](built-in-roles.md). Volg deze stappen om de rollen en machtigingen die kunnen worden uitgevoerd op de beheer- en gegevenslaag weer te geven.
 
 1. Open **toegangsbeheer (IAM)** met een bereik, zoals de beheergroep, abonnement, resourcegroep of resource, waar u om rollen en machtigingen weer te geven.
 
@@ -165,7 +165,7 @@ Als u in RBAC de toegang wilt intrekken voor een rol, verwijdert u de roltoewijz
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Zelfstudie: Toegang verlenen voor een gebruiker met behulp van RBAC en de Azure-portal](quickstart-assign-role-user-portal.md)
-* [Zelfstudie: Toegang verlenen voor een gebruiker met RBAC en Azure PowerShell](tutorial-role-assignments-user-powershell.md)
-* [RBAC in Azure oplossen](troubleshooting.md)
-* [Resources organiseren met beheergroepen voor Azure](../azure-resource-manager/management-groups-overview.md)
+* [Zelfstudie: Een gebruiker toegang tot Azure-resources met behulp van RBAC en de Azure-portal](quickstart-assign-role-user-portal.md)
+* [Zelfstudie: Een gebruiker toegang tot Azure-resources met behulp van RBAC en Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+* [RBAC voor Azure-resources oplossen](troubleshooting.md)
+* [Resources organiseren met beheergroepen voor Azure](../governance/management-groups/index.md)

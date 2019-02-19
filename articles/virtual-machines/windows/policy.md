@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
-ms.openlocfilehash: 42b62c819fd3d26c6ea944f968e0d5956a7f055e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 654c23474ebc96a6873f82f51f969da5c7d2d20c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987455"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343252"
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Beleid toepassen op Windows-VM's met Azure Resource Manager
 Met behulp van beleid, kan het afdwingen van een organisatie verschillende conventies en regels in de hele onderneming. Afdwinging van het gewenste gedrag kunt risico's te beperken tijdens een bijdrage levert aan het succes van de organisatie. In dit artikel wordt beschreven hoe u Azure Resource Manager-beleid kunt gebruiken voor het definiëren van het gewenste gedrag voor virtuele Machines die uw organisatie.
 
-Zie voor een inleiding tot beleid, [wat is Azure Policy?](../../azure-policy/azure-policy-introduction.md).
+Zie voor een inleiding tot beleid, [wat is Azure Policy?](../../governance/policy/overview.md).
 
 ## <a name="permitted-virtual-machines"></a>Toegestane virtuele Machines
 Om ervoor te zorgen dat virtuele machines voor uw organisatie compatibel met een toepassing zijn, kunt u de toegestane besturingssystemen beperken. In het volgende voorbeeld van beleid kunt u alleen Windows Server 2012 R2 Datacenter virtuele Machines moet worden gemaakt:
@@ -251,6 +251,6 @@ Wanneer u een on-premises-licentie hebt, kunt u het licentietarief voor opslaan 
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Na het definiëren van een beleidsregel (zoals weergegeven in de voorgaande voorbeelden), moet u de beleidsdefinitie van de maken en deze toewijzen aan een bereik. Het bereik mag een abonnement, resourcegroep of resource. Als u wilt toewijzen van beleid, Zie [gebruik Azure portal voor het toewijzen en beheren van resourcebeleid](../../azure-policy/assign-policy-definition.md), [Gebruik PowerShell om toe te wijzen beleid](../../azure-policy/assign-policy-definition-ps.md), of [gebruik Azure CLI voor het toewijzen van beleidsregels](../../azure-policy/assign-policy-definition-cli.md).
-* Zie voor een inleiding tot resourcebeleid, [wat is Azure Policy?](../../azure-policy/azure-policy-introduction.md).
+* Na het definiëren van een beleidsregel (zoals weergegeven in de voorgaande voorbeelden), moet u de beleidsdefinitie van de maken en deze toewijzen aan een bereik. Het bereik mag een abonnement, resourcegroep of resource. Als u wilt toewijzen van beleid, Zie [gebruik Azure portal voor het toewijzen en beheren van resourcebeleid](../../governance/policy/assign-policy-portal.md), [Gebruik PowerShell om toe te wijzen beleid](../../governance/policy/assign-policy-powershell.md), of [gebruik Azure CLI voor het toewijzen van beleidsregels](../../governance/policy/assign-policy-azurecli.md).
+* Zie voor een inleiding tot resourcebeleid, [wat is Azure Policy?](../../governance/policy/overview.md).
 * Voor begeleiding bij de manier waarop ondernemingen Resource Manager effectief kunnen gebruiken voor het beheer van abonnementen, gaat u naar [Azure enterprise-platform - Prescriptieve abonnementsgovernance](/azure/architecture/cloud-adoption-guide/subscription-governance).

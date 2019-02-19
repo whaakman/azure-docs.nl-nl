@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: iainfou
-ms.openlocfilehash: ade5a39273aa807f6c69f76342a0f715c7a96309
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 5e19f7cd2aa249e1c9587963e005e8114eacbdb0
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327154"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342046"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Beveiliging van verkeer tussen schillen met behulp van beleid voor netwerken in Azure Kubernetes Service (AKS)
 
@@ -242,6 +242,9 @@ spec:
           role: frontend
 ```
 
+> [!NOTE]
+> Dit netwerkbeleid maakt gebruik van een *namespaceSelector* en een *podSelector* element voor de regel voor inkomend verkeer. De syntaxis van de YAML is belangrijk voor de ingress regels om te worden additieve of niet. In dit voorbeeld moeten overeenkomen met beide elementen voor de regel voor inkomend verkeer moet worden toegepast. Kubernetes-versies voorafgaand aan *1.12* niet mogelijk deze elementen correct worden geïnterpreteerd en het netwerkverkeer beperken, zoals verwacht. Zie voor meer informatie, [gedrag van en naar het selectoren][policy-rules].
+
 De bijgewerkte beleid met behulp van de toepassing de [kubectl toepassen] [ kubectl-apply] opdracht en geeft u de naam van uw YAML-manifest:
 
 ```azurecli-interactive
@@ -442,6 +445,7 @@ Zie voor meer informatie over het gebruik van beleid, [Kubernetes netwerkbeleids
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

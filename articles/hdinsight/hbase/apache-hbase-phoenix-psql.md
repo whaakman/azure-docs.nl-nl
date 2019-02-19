@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ashishth
-ms.openlocfilehash: 04a923a8bc022aefb667489702c0e74493df94a8
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 5faea45a55d69cece56137d70862d80dfe335971
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652758"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342453"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>Bulksgewijs gegevens laden in Apache Phoenix met psql
 
@@ -115,7 +115,7 @@ Gebruik voor het laden van hogere doorvoer verdeeld zijn over het cluster, het h
     org.apache.phoenix.mapreduce.CsvBulkLoadTool --table Customers --input /inputFolderBulkLoad/customers.csv –zookeeper ZookeeperQuorum:2181:/hbase-unsecure
     ```
 
-8. Als u wilt MapReduce gebruiken met ADLS, zoek de hoofdmap van ADLS, dit is de `hbase.rootdir` waarde in de `hbase-site.xml`. In de volgende opdracht de ADLS-hoofdmap is `adl://hdinsightconf1.azuredatalakestore.net:443/hbase1`. In deze opdracht geeft de ADLS-invoer en uitvoer mappen als parameters:
+8. Als u wilt MapReduce gebruiken met Azure Data Lake Storage, zoek de Data Lake Storage-hoofdmap is de `hbase.rootdir` waarde in de `hbase-site.xml`. In de volgende opdracht, de Data Lake Storage-hoofdmap is `adl://hdinsightconf1.azuredatalakestore.net:443/hbase1`. In deze opdracht geeft u de Data Lake Storage-invoer en uitvoer mappen als parameters:
 
     ```bash
     cd /usr/hdp/current/phoenix-client
@@ -127,7 +127,7 @@ Gebruik voor het laden van hogere doorvoer verdeeld zijn over het cluster, het h
 
 ## <a name="recommendations"></a>Aanbevelingen
 
-* Gebruik de dezelfde opslagmedium voor invoer en uitvoer mappen, WASB of ADLS. Als u wilt gegevens van WASB overbrengen naar ADLS, kunt u de `distcp` opdracht:
+* Gebruik de dezelfde opslagmedium voor invoer en uitvoer mappen, Azure Storage (WASB) of Azure Data Lake-opslag (ADL). Als u wilt gegevens overbrengen naar Azure-opslag naar Data Lake-opslag, kunt u de `distcp` opdracht:
 
     ```bash
     hadoop distcp wasb://@.blob.core.windows.net/example/data/gutenberg adl://.azuredatalakestore.net:443/myfolder

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5ac06200766f37c64252599ec8a4dddb6846ea7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9e209fe0486b72c14912fd0af1b29c878e4b4545
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175401"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340107"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Zelfstudie: Workday voor het automatisch inrichten van gebruikers configureren
 
@@ -261,7 +261,7 @@ In deze stap maakt u een integratie met onbeperkte of beperkte system security g
     * **Een:** Alle leden van de beveiligingsgroep toegang tot alle gegevens beveiligd door de beveiligingsgroep.
     * **Beperkte:** Alle leden van de beveiliging groep hebben contextuele toegang tot een subset van data-exemplaren (rijen) die toegang hebben tot de beveiligingsgroep.
   * Neem contact op met uw Workday-integratie-partner om te selecteren van de juiste beveiligingsgroeptype voor de integratie.
-  * Als u welk groepstype weet, selecteert u **integratie Systeembeveiligingsgroep (onbeperkt)** of **integratie Systeembeveiligingsgroep (onbeperkt)** uit de **Type van de Tenants veiligheid Groep** vervolgkeuzelijst.
+  * Als u welk groepstype weet, selecteert u **integratie Systeembeveiligingsgroep (onbeperkt)** of **integratie Systeembeveiligingsgroep (beperkt)** uit de **Type van de Tenants beveiligingsgroep**  vervolgkeuzelijst.
 
     ![Groep CreateSecurity](./media/workday-inbound-tutorial/wd_isu_04.png "CreateSecurity groep")
 

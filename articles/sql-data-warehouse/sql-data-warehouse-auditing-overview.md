@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: ef791bdfafbbd49cacad1a75c7171b9a030df2a3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 701c5c175e22556aefa95d1ac3836d52cd19b845
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456218"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342301"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditing in Azure SQL datawarehouse
 
@@ -74,10 +74,13 @@ Het volgende gedeelte bevat de configuratie van de controle met Azure portal.
     ![Navigatievenster][8]
 
     > [!IMPORTANT]
-    > De logboeken voor controle op serverniveau worden geschreven naar **toevoeg-Blobs** in een Azure Blob-opslag in uw Azure-abonnement.
+    > Auditlogboeken worden geschreven naar **toevoeg-Blobs** in Azure Blob-opslag in uw Azure-abonnement.
     >
-    > * **Premium Storage** is momenteel **niet ondersteund** door toevoeg-Blobs.
-    > * **Opslag in VNet** is momenteel **niet ondersteund**.
+    > - Alle soorten opslag (v1, v2, blob) worden ondersteund.
+    > - Replicatie van alle opslagconfiguraties worden ondersteund.
+    > - **Premium-opslag** is momenteel **niet ondersteund**.
+    > - **Opslag in VNet** is momenteel **niet ondersteund**.
+    > - **De opslag achter een Firewall** is momenteel **niet ondersteund**
 
 8. Klik op **Opslaan**.
 

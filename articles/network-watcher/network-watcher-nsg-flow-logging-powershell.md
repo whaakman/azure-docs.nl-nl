@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 92bbcf1285449ac21cd038e1a6d27d2e3d43430b
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 55a9e373893f6f46e6c109dde947b25a36ee93ed
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259730"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342997"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>Network Security Group Flow logboeken configureren met PowerShell
 
@@ -30,9 +30,6 @@ ms.locfileid: "54259730"
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
 
 Stroomlogboeken van Netwerkbeveiligingsgroep zijn een functie van Network Watcher waarmee u informatie wilt weergeven over inkomende en uitgaande IP-verkeer via een Netwerkbeveiligingsgroep. Deze logboeken van de stroom zijn geschreven in json-indeling en weergeven van binnenkomende en uitgaande stromen op basis van per regel, de NIC die de stroom is van toepassing op, 5-tuple-informatie over de stroom (bron-/ doel-IP-adres, poort van de bron-/ doel, Protocol), en als het verkeer is toegestaan of geweigerd.
-
-> [!NOTE] 
-> Versie 2 van stroomlogboeken is alleen beschikbaar in de regio US - west-centraal. Inschakelen van versie 2 kunnen-Logboeken in een niet-ondersteunde regio leiden tot versie 1-logboeken output naar uw opslagaccount.
 
 ## <a name="register-insights-provider"></a>Insights-provider registreren
 

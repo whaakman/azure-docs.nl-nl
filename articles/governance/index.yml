@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d99fcc9a8bb69926da7538edc06ae2b7533c86be
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 985f620caaa329b48b00d6ce586e7dcefbf5869d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507423"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341230"
 documentType: LandingData
 title: Azure Management - Governance
 metadata:
@@ -39,21 +39,25 @@ sections:
     - href: ./management-groups/overview
       html: <p>Leer meer over uw abonnementen groeperen en ordenen in een logische rangschikking waarmee de implementatie van andere Governance-services op een gestructureerde manier wordt ondersteund.<br /></p>
       image:
+        alt: Beheergroepen
         src: ./media/management-groups-illustration.svg
       title: Beheergroepen
     - href: ./resource-graph/
       html: <p>Gebruik een krachtig opdrachtregelhulpprogramma (met ondersteuning voor Azure CLI en Azure PowerShell) om snel een query uit te voeren op complexe details van uw Azure-resources. Zoek en toon informatie dat eerder complexe en iteratieve scripts vereiste om die resources op schaal te ontdekken.</p>
       image:
+        alt: Resource Graph
         src: ./media/resource-graph-illustration.svg
       title: Resource Graph
     - href: ./policy/
       html: <p>Definieer standaarden voor resources in uw omgeving en pas deze toe. Voorkom dat ongewenste resources worden gemaakt, verbeter nieuwe resources met extra elementen en controleer de herstelresources in uw omgeving.</p>
       image:
+        alt: Beleid
         src: ./media/policy-illustration.svg
       title: Beleid
     - href: ./blueprints/
       html: <p>Maak een systeemeigen Azure-pakket van <i>artefacten</i> (resourcegroepen, beleid, roltoewijzingen, Resource Manager-sjablonen en meer) dat dynamisch kan worden geïmplementeerd in abonnementen om consistente en herhaalbare omgevingen te maken.</p>
       image:
+        alt: Blueprints
         src: ./media/blueprints-illustration.svg
       title: Blueprints
 - title: Implementaties

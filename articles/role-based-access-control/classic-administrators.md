@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 02/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f5049a5a829ce8e94b62409c9d3b1439e8431fb1
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 3274d753d33c759efa06b899a5511daf53aa9ec9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101148"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338645"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Beheerders van de klassieke Azure-abonnement
 
-Microsoft raadt aan dat u toegang tot resources met behulp van op rollen gebaseerd toegangsbeheer (RBAC) beheren. Echter, als u nog steeds het klassieke implementatiemodel gebruikt, moet u gebruik van de rol van een klassiek abonnement beheerder: Servicebeheerder en Medebeheerder. Zie voor meer informatie, [Azure Resource Manager en klassieke implementatie](../azure-resource-manager/resource-manager-deployment-model.md).
+Microsoft raadt aan dat u de toegang tot Azure-resources met behulp van op rollen gebaseerd toegangsbeheer (RBAC) beheren. Echter, als u nog steeds het klassieke implementatiemodel gebruikt, moet u gebruik van de rol van een klassiek abonnement beheerder: Servicebeheerder en Medebeheerder. Zie voor meer informatie, [Azure Resource Manager en klassieke implementatie](../azure-resource-manager/resource-manager-deployment-model.md).
 
 Dit artikel wordt beschreven hoe u wilt toevoegen of wijzigen van de rollen Medebeheerder en servicebeheerder en om weer te geven van de accountbeheerder.
 
@@ -155,4 +155,4 @@ Volg deze stappen om de accountbeheerder weer te geven.
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Inzicht in de verschillende rollen](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Toegang beheren met op rollen gebaseerd toegangsbeheer en Azure Portal](../role-based-access-control/role-assignments-portal.md)
+* [Toegang tot Azure-resources met behulp van RBAC en de Azure-portal beheren](../role-based-access-control/role-assignments-portal.md)

@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/27/2018
+ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 02821abd8769a89fc1c7ad9d0dd5cf4e5a245e5f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 130ca849b39336637f53b32043874b5d037a8f0d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435307"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342920"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Gebruik C# met MapReduce, streaming van Apache Hadoop in HDInsight
 
@@ -175,7 +175,13 @@ Na het maken van de toepassing, bouw het voor het produceren van de `/bin/Debug/
 
 2. Gebruik een van de volgende opdrachten om de MapReduce-taak te starten:
 
-    * Als u __Data Lake Storage__ als standaardopslag:
+    * Als u __Data Lake Storage Gen2__ als standaardopslag:
+
+        ```bash
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files abfs:///mapper.exe,abfs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+        ```
+
+    * Als u __Data Lake Storage Gen1__ als standaardopslag:
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
@@ -190,7 +196,7 @@ Na het maken van de toepassing, bouw het voor het produceren van de `/bin/Debug/
     De volgende lijst beschrijft wat elke parameter doet:
 
     * `hadoop-streaming.jar`: Het jar-bestand met de functionaliteit voor streaming MapReduce.
-    * `-files`: Voegt de `mapper.exe` en `reducer.exe` bestanden naar deze taak. De `adl:///` of `wasb:///` voordat elk bestand het pad naar de hoofdmap van de standaardopslag voor het cluster is.
+    * `-files`: Voegt de `mapper.exe` en `reducer.exe` bestanden naar deze taak. De `abfs:///`,`adl:///` of `wasb:///` voordat elk bestand het pad naar de hoofdmap van de standaardopslag voor het cluster is.
     * `-mapper`: Hiermee geeft u op welk bestand het toewijzen van de implementeert.
     * `-reducer`: Hiermee geeft u op welk bestand implementeert de reducer.
     * `-input`: De ingevoerde gegevens.

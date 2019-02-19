@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: vainolo
-ms.author: vainolo
+ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: d092b4e8096b311ba9ca9d3fbceea8fb57bf4aa9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 08c71ac1aba659a2e0fbb6655b6ee0a21576bf5d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234659"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339784"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Aan de slag met SQL Database Auditing
 
@@ -43,8 +43,11 @@ U kunt gebruiken om SQL database auditing aan:
 > [!IMPORTANT]
 > Auditlogboeken worden geschreven naar **toevoeg-Blobs** in Azure Blob-opslag in uw Azure-abonnement.
 >
-> - **Premium-opslag** is momenteel **niet ondersteund** door toevoeg-Blobs.
+> - Alle soorten opslag (v1, v2, blob) worden ondersteund.
+> - Replicatie van alle opslagconfiguraties worden ondersteund.
+> - **Premium-opslag** is momenteel **niet ondersteund**.
 > - **Opslag in VNet** is momenteel **niet ondersteund**.
+> - **De opslag achter een Firewall** is momenteel **niet ondersteund**
 
 ## <a id="subheading-8"></a>Definiëren op serverniveau versus controlebeleid op databaseniveau
 

@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 9cd43172fc57443cc89f238e1d4ffaae45301936
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: addc1a0d7356cf1ba536c7ab47e376a48621e2d9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330559"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342487"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Maak een eenvoudige index in Azure Search
 
@@ -26,9 +26,29 @@ U kunt een index maken in de portal [REST-API](search-create-index-rest-api.md),
 
 ## <a name="recommended-workflow"></a>Aanbevolen workflow
 
-Omdat fysieke structuren zijn gemaakt tijdens het indexeren, moet u [verwijderen en opnieuw maken van indexen](search-howto-reindex.md) wanneer u er belangrijke wijzigingen aanbrengen in de definitie van een bestaande veld. Dit betekent dat tijdens de ontwikkeling, u van plan frequente opnieuw op te bouwen bent moet. U kunt overwegen werken met een subset van uw gegevens om te maken van opnieuw gebouwde go sneller. 
+Die binnenkomen in de juiste index-ontwerp wordt normaal gesproken via meerdere pogingen bereikt. Met behulp van een combinatie van API's en hulpprogramma's, kunt u uw ontwerp snel voltooien.
 
-Code in plaats van portal indexeren wordt ook aanbevolen. Als u zich op de portal voor de definitie van de index baseert, heeft u om de definitie van de index op elke opnieuw in te vullen. Als alternatief kunt met behulp van een hulpprogramma zoals [Postman en de REST-API](search-fiddler.md) zijn handig voor het testen van proof of concept wanneer ontwikkelingsprojecten zich nog steeds in de eerste fasen. U kunt incrementele wijzigingen aanbrengen aan de indexdefinitie van een in de hoofdtekst van de aanvraag, de aanvraag wordt verzonden naar uw service opnieuw maken van een index met behulp van een bijgewerkte schema.
+1. Bepalen of u kunt een [indexeerfunctie](search-indexer-overview.md#supported-data-sources). Als uw externe gegevens een van de ondersteunde gegevensbronnen is, kunt u prototype en laden van een index met behulp van de [ **gegevens importeren** ](search-import-data-portal.md) wizard.
+
+2. Als u niet kunt gebruiken **gegevens importeren**, kunt u nog steeds [een eerste index maken via de portal](search-create-index-portal.md), velden, gegevenstypen, toe te voegen en het toewijzen van kenmerken met behulp van besturingselementen op de **Index toevoegen** de pagina. De portal ziet u welke kenmerken beschikbaar zijn voor verschillende gegevenstypen. Dit is handig als u geen ervaring met index-ontwerp.
+
+   ![Index-pagina toevoegen met de kenmerken van het gegevenstype](media/search-create-index-portal/field-attributes.png "kenmerken van het gegevenstype van de indexpagina toevoegen")
+  
+   Wanneer u klikt op **maken**, alle van de fysieke structuren ondersteuning van uw index worden gemaakt in uw search-service.
+
+3. Download de index schema met behulp [Index REST-API ophalen](https://docs.microsoft.com/rest/api/searchservice/get-index) en een web testen hulpprogramma zoals [Postman](search-fiddler.md). U hebt nu een JSON-weergave van de index die u hebt gemaakt in de portal. 
+
+   U wordt op dit moment overschakelen naar een benadering op basis van code. De portal is niet geschikt voor herhaling omdat u niet bewerken, een index die al is gemaakt. Maar u kunt Postman en REST gebruiken voor de resterende taken.
+
+4. [Laden van uw index met gegevens](search-what-is-data-import.md). Azure Search accepteert JSON-documenten. Voor het laden van uw gegevens via een programma, kunt u Postman gebruiken met JSON-documenten in de nettolading van de aanvraag. Als uw gegevens niet eenvoudig in JSON uitgedrukt is, is deze stap is het meest intensieve arbeid.
+
+5. Query uitvoeren in uw index, Bekijk resultaten en meer op het indexschema herhalen totdat u begint met de verwachte resultaten ziet. U kunt [ **Search explorer** ](search-explorer.md) of Postman query uitvoeren op uw index.
+
+6. Doorgaan met behulp van code om te herhalen uw ontwerp.  
+
+Omdat fysieke structuren zijn gemaakt in de service [verwijderen en opnieuw maken van indexen](search-howto-reindex.md) is noodzakelijk wanneer u er belangrijke wijzigingen in bestaande velddefinitie ab aanbrengen. Dit betekent dat tijdens de ontwikkeling, u van plan frequente opnieuw op te bouwen bent moet. U kunt overwegen werken met een subset van uw gegevens om te maken van opnieuw gebouwde go sneller. 
+
+Code, in plaats van een portal-benadering wordt aanbevolen voor terugkerende ontwerp. Als u zich op de portal voor de definitie van de index baseert, heeft u om de definitie van de index op elke opnieuw in te vullen. Als alternatief, hulpprogramma's zoals [Postman en de REST-API](search-fiddler.md) zijn handig voor het testen van proof of concept wanneer ontwikkelingsprojecten zich nog steeds in de eerste fasen. U kunt incrementele wijzigingen aanbrengen in de indexdefinitie van een in de hoofdtekst van de aanvraag, en vervolgens de aanvraag te verzenden naar uw service opnieuw maken van een index met behulp van een schema bijgewerkt.
 
 ## <a name="components-of-an-index"></a>Onderdelen van een index
 
@@ -119,13 +139,13 @@ Bij het definiëren van het schema moet u de naam, het type en de kenmerken van 
 ### <a name="data-types"></a>Gegevenstypen
 | Type | Description |
 | --- | --- |
-| *Edm.String* |Tekst die van tokens kan worden voorzien om te zoeken in de volledige tekst (woordafbreking, afleiding, enzovoort). |
+| *Edm.String* |De tekst die kan worden voorzien om zoeken in volledige tekst (woordafbreking, afleiding, enzovoort). |
 | *Collection(Edm.String)* |Een lijst met tekenreeksen die van tokens kan worden voorzien om te zoeken in de volledige tekst. Er is geen theoretische bovengrens voor het aantal items in een verzameling, maar de bovengrens van 16 MB voor de nettolading geldt voor alle verzamelingen. |
 | *Edm.Boolean* |Bevat de waarden waar/niet waar. |
 | *Edm.Int32* |32-bits waarden van een heel getal. |
 | *Edm.Int64* |64-bits waarden van een heel getal. |
 | *Edm.Double* |Numerieke gegevens met dubbele precisie. |
-| *Edm.DateTimeOffset* |Datum- en tijdwaarden die worden weergegeven in de OData-V4-indeling (bijvoorbeeld `yyyy-MM-ddTHH:mm:ss.fffZ` of `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
+| *Edm.DateTimeOffset* |Datum-en tijdwaarden weergegeven in de OData-V4-indeling (bijvoorbeeld `yyyy-MM-ddTHH:mm:ss.fffZ` of `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | *Edm.GeographyPoint* |Een punt voor een geografische locatie op de wereld. |
 
 Gedetailleerdere informatie over ondersteunde Azure-Search[-gegevenstypen vindt u hier](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
@@ -144,32 +164,33 @@ Gedetailleerdere informatie over ondersteunde Azure-Search[-indexkenmerken vindt
 
 ## <a name="storage-implications"></a>Gevolgen van opslag
 
-De kenmerken die u selecteert hebben een invloed op opslag. De volgende schermafbeelding is een afbeelding van index opslag patronen die voortvloeien uit verschillende combinaties van kenmerken. De index is gebaseerd op de [ingebouwde onroerend goed voorbeeld](search-get-started-portal.md) gegevensbron, die u kunt de index en query's uitvoeren in de portal.
+De kenmerken die u selecteert hebben een invloed op opslag. De volgende schermafbeelding ziet u index opslag patronen die voortvloeien uit verschillende combinaties van kenmerken.
 
-Filteren en sorteren van operations-query op exacte overeenkomsten, zodat documenten intact worden opgeslagen. Doorzoekbare velden inschakelen van zoeken in volledige tekst en zoeken bij benadering. Omgekeerde indexen worden gemaakt voor doorzoekbare velden en gevuld met tokens voorwaarden. Een veld te markeren heeft als ophaalbaar geen merkbare invloed op de indexgrootte van de.
+De index is gebaseerd op de [ingebouwde onroerend goed voorbeeld](search-get-started-portal.md) gegevensbron, die u kunt de index en query's uitvoeren in de portal. Hoewel de index schema's zijn niet wordt weergegeven, kunt u de kenmerken op basis van de naam van de index kunt afleiden. Bijvoorbeeld, *onroerend goed doorzoekbaar* index heeft de **doorzoekbare** geselecteerd kenmerk en niets anders, *onroerend goed worden opgehaald* index heeft de  **ophalen mogelijk** geselecteerd kenmerk en niets anders, enzovoort.
 
 ![Index-grootte op basis van kenmerk selectie](./media/search-what-is-an-index/realestate-index-size.png "Index-grootte op basis van kenmerk selectie")
 
-Verschillende combinaties van deze zijn kunstmatige, handig voor het verlichten van een punt, maar niet zou leiden tot een levensvatbare index. In de praktijk zou u nooit elk één veld toevoegen aan een suggestie of geen index maken die kan worden doorzocht, maar niet worden opgehaald.
+Hoewel deze index-varianten kunstmatige zijn, kunt we deze raadplegen voor brede vergelijkingen van de invloed van kenmerken op opslag. Instelling komt **ophaalbaar** index vergroten? Nee. Kiest, wordt er velden aan toe te voegen een **suggestie** index vergroten? Ja.
 
-Storage-architectuur wordt beschouwd als een implementatiedetail in Azure Search en kan zonder kennisgeving worden gewijzigd. Er is geen garantie dat de huidige gedrag in de toekomst blijven behouden.
+Indexen die ondersteuning bieden voor filteren en sorteren zijn proportioneel groter is dan de indexen die ondersteuning bieden voor zoeken in alleen volledige tekst. De reden is dat query filteren en sorteren op exacte overeenkomsten, zodat documenten intact worden opgeslagen. Doorzoekbare velden ondersteuning van volledige tekst en fuzzy zoeken daarentegen gebruik omgekeerde indexen, die worden ingevuld met tokens termen die minder ruimte dan de hele documenten gebruiken.
+
+> [!Note]
+> Storage-architectuur wordt beschouwd als een implementatiedetail in Azure Search en kan zonder kennisgeving worden gewijzigd. Er is geen garantie dat de huidige gedrag in de toekomst blijven behouden.
 
 ## <a name="suggesters"></a>Suggesties
-Een suggestie is een gedeelte van het schema waarmee wordt gedefinieerd welke velden in een index worden gebruikt voor de ondersteuning van automatisch aanvullen of automatisch aangevulde query's in zoekopdrachten. Gedeeltelijke zoekreeksen worden meestal verzonden naar de suggesties (Azure Search Service REST API) terwijl de gebruiker een zoekopdracht typen is en de API een set met voorgestelde zinnen retourneert. 
+Een suggestie is een gedeelte van het schema waarmee wordt gedefinieerd welke velden in een index worden gebruikt voor de ondersteuning van automatisch aanvullen of automatisch aangevulde query's in zoekopdrachten. Normaal gesproken gedeeltelijke zoekreeksen worden verzonden naar de [suggesties (REST-API)](https://docs.microsoft.com/rest/api/searchservice/suggestions) terwijl de gebruiker een zoekopdracht typen is en de API een set met voorgestelde zinnen retourneert. 
 
-Een suggestie die u in de index definieert bepaalt welke velden worden gebruikt voor het bouwen van de type-ahead zoektermen. Zie voor meer informatie, [toevoegen suggesties](index-add-suggesters.md) voor informatie over de configuratie.
+Velden worden toegevoegd aan een suggestie worden gebruikt voor het bouwen, automatisch aangevulde zoektermen. Alle van de zoektermen zijn gemaakt tijdens het indexeren en apart opgeslagen. Zie voor meer informatie over het maken van een structuur suggestie [toevoegen suggesties](index-add-suggesters.md).
 
 ## <a name="scoring-profiles"></a>Scoreprofielen
 
-Een scoring-profiel is een gedeelte van het schema waarmee aangepaste scoring gedragingen waarmee u invloed hebben op welke items worden weergegeven op een hoger in de lijst met zoekresultaten. Scoreprofielen bestaan uit veldgewichten en functies. Voor het gebruik ervan, geeft u een profiel met de naam van de query-tekenreeks.
+Een [scoringprofiel](index-add-scoring-profiles.md) is een gedeelte van het schema waarmee wordt gedefinieerd aangepast scoren gedrag waarmee kunt u bepalen welke items worden weergegeven op een hoger in de lijst met zoekresultaten. Scoreprofielen bestaan uit veldgewichten en functies. Voor het gebruik ervan, geeft u een profiel met de naam van de query-tekenreeks.
 
-Een standaard scoringprofiel is van invloed op de achtergrond voor het berekenen van een zoekscore voor elk item in een resultatenset. U kunt de interne naamloze scoringprofiel gebruiken. U kunt ook instellen defaultScoringProfile gebruik van een aangepast profiel als de standaard, aangeroepen wanneer er een aangepast profiel niet is opgegeven in de query-tekenreeks.
-
-Zie voor meer informatie, [scoreprofielen toevoegen](index-add-scoring-profiles.md).
+Een standaard scoringprofiel is van invloed op de achtergrond voor het berekenen van een zoekscore voor elk item in een resultatenset. U kunt de interne naamloze scoringprofiel gebruiken. U kunt ook instellen **defaultScoringProfile** gebruik van een aangepast profiel als de standaard, aangeroepen wanneer er een aangepast profiel niet is opgegeven in de query-tekenreeks.
 
 ## <a name="analyzers"></a>Analyses
 
-Het element analyzers Hiermee stelt u de naam van de taal-analysefunctie moet worden gebruikt voor het veld. Zie voor de toegestane set waarden, [taalanalyse in Azure Search](index-add-language-analyzers.md). Deze optie kan alleen worden gebruikt met doorzoekbare velden en deze kan niet worden ingesteld, samen met een **searchAnalyzer** of **indexAnalyzer**. Nadat de analyzer is gekozen, wordt deze niet wijzigen voor het veld.
+Het element analyzers Hiermee stelt u de naam van de taal-analysefunctie moet worden gebruikt voor het veld. Zie voor meer informatie over het bereik van de analyzers die beschikbaar zijn voor u, [analyzers toe te voegen aan een Azure Search-index](search-analyzers.md). Analyse kunnen alleen worden gebruikt met doorzoekbare velden. Nadat de analyzer is toegewezen aan een veld, kan niet worden gewijzigd, tenzij u de index opnieuw opbouwen.
 
 ## <a name="cors"></a>CORS
 

@@ -1,6 +1,6 @@
 ---
-title: Beheren van toegang met RBAC en de REST-API - Azure | Microsoft Docs
-description: Informatie over het beheren van toegang voor gebruikers, groepen en toepassingen, met behulp van op rollen gebaseerd toegangsbeheer (RBAC) en de REST-API. U vindt hier instructies voor het weergeven van toegang, het verlenen van toegang en het intrekken van toegang.
+title: Beheer de toegang tot Azure resoruces met RBAC en de REST-API - Azure | Microsoft Docs
+description: Informatie over het beheren van toegang tot Azure-resources voor gebruikers, groepen en toepassingen die gebruikmaken van op rollen gebaseerd toegangsbeheer (RBAC) en de REST-API. U vindt hier instructies voor het weergeven van toegang, het verlenen van toegang en het intrekken van toegang.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,20 +15,20 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 859a410a4ff9204e8e52fbd2cc3b38823f4bb830
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: c2ef9b0070cc9ac190b773f023ffc18d1b251a41
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435215"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338407"
 ---
-# <a name="manage-access-using-rbac-and-the-rest-api"></a>Beheren van toegang met RBAC en de REST-API
+# <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>Beheer de toegang tot Azure-resources met behulp van RBAC en de REST-API
 
-[Op rollen gebaseerde toegangsbeheer (RBAC)](overview.md) is de manier waarop u de toegang tot resources in Azure beheert. Dit artikel wordt beschreven hoe u de toegang voor gebruikers, groepen en toepassingen die gebruikmaken van RBAC en de REST-API beheren.
+[Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) is de manier waarop dat u de toegang tot Azure-resources beheren. Dit artikel wordt beschreven hoe u de toegang voor gebruikers, groepen en toepassingen die gebruikmaken van RBAC en de REST-API beheren.
 
 ## <a name="list-access"></a>Toegang opvragen
 
-In RBAC, de toegang van de lijst, u lijst maken met de roltoewijzingen. Lijst van roltoewijzingen, gebruikt u een van de [roltoewijzingen - lijst](/rest/api/authorization/roleassignments/list) REST-API's. Uw om resultaten te verfijnen, geeft u een bereik en een optioneel filter. Voor het aanroepen van de API, u moet toegang hebben tot de `Microsoft.Authorization/roleAssignments/read` bewerking bij het opgegeven bereik. Verschillende [ingebouwde rollen](built-in-roles.md) toegang krijgen tot deze bewerking.
+In RBAC, de toegang van de lijst, u lijst maken met de roltoewijzingen. Lijst van roltoewijzingen, gebruikt u een van de [roltoewijzingen - lijst](/rest/api/authorization/roleassignments/list) REST-API's. Uw om resultaten te verfijnen, geeft u een bereik en een optioneel filter. Voor het aanroepen van de API, u moet toegang hebben tot de `Microsoft.Authorization/roleAssignments/read` bewerking bij het opgegeven bereik. Verschillende [ingebouwde rollen voor Azure-resources](built-in-roles.md) toegang krijgen tot deze bewerking.
 
 1. Beginnen met de volgende aanvraag:
 
@@ -46,7 +46,7 @@ In RBAC, de toegang van de lijst, u lijst maken met de roltoewijzingen. Lijst va
 
 1. Vervang *{filter}* met de voorwaarde die u wilt toepassen op filter de lijst met toewijzingen van de rol.
 
-    | Filteren | Beschrijving |
+    | Filteren | Description |
     | --- | --- |
     | `$filter=atScope()` | Roltoewijzingen voor alleen het opgegeven bereik niet inclusief de roltoewijzingen weergegeven bij subscopes lijst. |
     | `$filter=principalId%20eq%20'{objectId}'` | Lijst met roltoewijzingen voor een opgegeven gebruiker, groep of service-principal. |
@@ -116,5 +116,5 @@ Als u in RBAC de toegang wilt intrekken voor een rol, verwijdert u de roltoewijz
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Resources implementeren met Resource Manager-sjablonen en Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
-- [Azure REST API-verwijzing](/rest/api/azure/)
-- [Aangepaste rollen met behulp van de REST-API maken](custom-roles-rest.md)
+- [Azure REST API-naslaginformatie](/rest/api/azure/)
+- [Aangepaste rollen voor Azure-resources met behulp van de REST-API maken](custom-roles-rest.md)

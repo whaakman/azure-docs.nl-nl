@@ -1,6 +1,6 @@
 ---
-title: Beheren van toegang voor externe gebruikers die gebruikmaken van RBAC in Azure | Microsoft Docs
-description: Informatie over het beheren van toegang voor gebruikers van buiten een organisatie met behulp van op rollen gebaseerd toegangsbeheer (RBAC) in Azure.
+title: Beheer de toegang tot Azure-resources voor externe gebruikers met RBAC | Microsoft Docs
+description: Informatie over het beheren van toegang tot Azure-resources voor gebruikers van buiten een organisatie met behulp van op rollen gebaseerd toegangsbeheer (RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,19 +16,19 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: aec12e6dc7d331b2610546d0b0c92fa6ce0789ee
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 770a5e61f549a10c8b313ed4d137f56dda45769e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284520"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343857"
 ---
-# <a name="manage-access-for-external-users-using-rbac"></a>Toegang voor externe gebruikers met RBAC beheren
+# <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>Toegang tot Azure-resources voor externe gebruikers met RBAC beheren
 
 Op rollen gebaseerd toegangsbeheer (RBAC) kunt beter beveiligingsbeheer voor grote organisaties en voor het midden-en kleinbedrijf werkt met externe deelnemers, leveranciers of freelancers die toegang tot bepaalde bronnen in uw omgeving, maar niet per se op de gehele nodig infrastructuur of alle scopes met betrekking tot facturering. Met RBAC kan de flexibiliteit van die eigenaar is van één Azure-abonnement beheerd door de administrator-account (service administrator-rol op een abonnementsniveau) en hebt u meerdere gebruikers uitgenodigd om te werken onder hetzelfde abonnement, maar zonder beheerdersrechten heeft voor het .
 
 > [!NOTE]
-> Office 365-abonnementen of licenties voor Azure Active Directory (bijvoorbeeld: toegang tot Azure Active Directory) ingericht vanuit het Office 365-beheercentrum center komen niet in aanmerking voor het gebruik van RBAC.
+> Office 365-abonnementen of licenties voor Azure Active Directory (bijvoorbeeld: De toegang tot Azure Active Directory) is ingericht vanuit de Office 365 Admin center komen niet in aanmerking voor het gebruik van RBAC.
 
 ## <a name="assign-rbac-roles-at-the-subscription-scope"></a>RBAC-rollen op het abonnementsbereik toewijzen
 
@@ -55,7 +55,7 @@ Na het selecteren van het abonnement, de gebruiker met beheerdersrechten moet kl
 
 ![nieuwe gebruiker toevoegen in de functie voor IAM toegang in Azure portal](./media/role-assignments-external-users/2.png)
 
-De volgende stap is het selecteren van de functie moet worden toegewezen en de gebruiker waaraan de RBAC-rol wordt toegewezen aan. In de **rol** in het vervolgkeuzemenu, de gebruiker met beheerdersrechten ziet alleen de ingebouwde RBAC-rollen die beschikbaar in Azure zijn. Zie voor meer uitleg van elke rol en hun toewijsbare bereiken gedetailleerde, [ingebouwde rollen](built-in-roles.md).
+De volgende stap is het selecteren van de functie moet worden toegewezen en de gebruiker waaraan de RBAC-rol wordt toegewezen aan. In de **rol** in het vervolgkeuzemenu, de gebruiker met beheerdersrechten ziet alleen de ingebouwde RBAC-rollen die beschikbaar in Azure zijn. Zie voor meer uitleg van elke rol en hun toewijsbare bereiken gedetailleerde, [ingebouwde rollen voor Azure-resources](built-in-roles.md).
 
 De gebruiker met beheerdersrechten moet vervolgens de e-mailadres van de externe gebruiker toevoegen. Het verwachte gedrag is voor de externe gebruiker worden niet weergegeven in de bestaande tenant. Nadat de externe gebruiker is uitgenodigd, hij is zichtbaar onder **abonnementen > Access Control (IAM)** met de huidige gebruikers die momenteel een RBAC-rol op het abonnementsbereik zijn toegewezen.
 

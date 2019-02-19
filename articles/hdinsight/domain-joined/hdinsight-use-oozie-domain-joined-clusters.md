@@ -8,13 +8,13 @@ ms.author: omidm
 ms.reviewer: mamccrea
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 0ab225d3579ed6a56c753f0c581709408c65f358
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 02/15/2019
+ms.openlocfilehash: b0ec8bf52b0b41aef4ea4cc2bfb6ed8fdcd170ec
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436276"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343286"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Voer Apache Oozie in HDInsight Hadoop clusters met Enterprise-beveiligingspakket
 
@@ -217,11 +217,12 @@ nano workflow.xml
        hiveOutputDirectory1=${nameNode}/user/${user.name}/hiveresult1
        hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
    ```
-  
-   a. Vervang `domainuser` met uw gebruikersnaam voor het domein.  
-   b. Vervang `ClusterShortName` met de korte naam voor het cluster. Bijvoorbeeld, als de naam van het cluster is https:// *[voorbeeld van de koppeling]* sechadoopcontoso.azurehdisnight.net, de `clustershortname` is de eerste zes tekens van het cluster: **sechad**.  
-   c. Vervang `jdbcurlvalue` met de JDBC-URL van de Hive-configuratie. Een voorbeeld is jdbc:hive2: / / headnodehost:10001 /; transportMode = http.      
-   d. Om het bestand hebt opgeslagen, selecteert u Ctrl + X, voer `Y`, en selecteer vervolgens **Enter**.
+
+   * Gebruik de `adl://home` URI voor de `nameNode` eigenschap als u Azure Data Lake Storage Gen1 als uw primaire clusteropslag. Als u van Azure Blob Storage gebruikmaakt, klikt u vervolgens dit wijzigen naar `wasb://home`. Als u van Azure Data Lake Storage Gen2 gebruikmaakt, klikt u vervolgens dit wijzigen naar `abfs://home`.
+   * Vervang `domainuser` met uw gebruikersnaam voor het domein.  
+   * Vervang `ClusterShortName` met de korte naam voor het cluster. Bijvoorbeeld, als de naam van het cluster is https:// *[voorbeeld van de koppeling]* sechadoopcontoso.azurehdisnight.net, de `clustershortname` is de eerste zes tekens van het cluster: **sechad**.  
+   * Vervang `jdbcurlvalue` met de JDBC-URL van de Hive-configuratie. Een voorbeeld is jdbc:hive2: / / headnodehost:10001 /; transportMode = http.      
+   * Om het bestand hebt opgeslagen, selecteert u Ctrl + X, voer `Y`, en selecteer vervolgens **Enter**.
 
    Dit eigenschappenbestand moet aanwezig zijn lokaal bij het uitvoeren van Oozie-taken.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 907ab5cd3272a3d3f64dcfd7c9628a609f4db2f4
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 2595912732389c8a415d1854a84a7b9c182e4dc7
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327643"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341637"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Het opnieuw opbouwen van een Azure Search-index
 
@@ -29,18 +29,18 @@ In tegenstelling tot opnieuw op te bouwen die offline nemen van een index *gegev
 | Voorwaarde | Description |
 |-----------|-------------|
 | De velddefinitie van een wijzigen | Wijzigen van een veldnaam, gegevenstype of specifieke [indexkenmerken](https://docs.microsoft.com/rest/api/searchservice/create-index) (doorzoekbaar Filterbaar, sorteerbaar, geschikt voor facetten) is vereist voor een volledig opnieuw is gebouwd. |
-| Een analyzer aan een veld toe te voegen | [Analyzers](search-analyzers.md) zijn gedefinieerd in een index en vervolgens toegewezen aan velden. U kunt een nieuwe analyzer toevoegen aan een index op elk gewenst moment, maar u kunt alleen *toewijzen* analyzer wanneer het veld wordt gemaakt. Dit geldt voor zowel de **analyzer** en **indexAnalyzer** eigenschappen. De **searchAnalyzer** eigenschap is een uitzondering. |
-| Bijwerken of verwijderen van een analyzer-constructie | U kan niet verwijderen of wijzigen van bestaande analyse-onderdelen (analyzer, tokenizer, token filter of char filter), tenzij u de gehele index opnieuw opbouwen. |
-| Een veld toevoegt aan een suggestie | Als er al een veld bestaat en u wilt toevoegen aan een [suggesties](index-add-suggesters.md) maken, moet u de index opnieuw opbouwen. |
-| Verwijderen van een veld | Als u wilt fysiek verwijdert alle traceringen van een veld, die u moet de index opnieuw opbouwen. Wanneer een direct herstellen is het niet praktisch, kunt u toepassingscode om uit te schakelen toegang tot het veld 'verwijderd' wijzigen. Fysiek, blijven de velddefinitie van het en de inhoud in de index tot het volgende opnieuw bouwen met behulp van een schema dat het veld wordt weggelaten in kwestie. |
-| Schakelen tussen lagen | Als u meer capaciteit nodig hebt, is er geen in-place upgrade. Een nieuwe service wordt gemaakt op het moment dat nieuwe capaciteit en indexen helemaal moeten worden gebouwd op de nieuwe service. |
+| Een analyzer toewijzen aan een veld | [Analyzers](search-analyzers.md) zijn gedefinieerd in een index en vervolgens toegewezen aan velden. U kunt de definitie van een nieuwe analyzer toevoegen aan een index op elk gewenst moment, maar u kunt alleen *toewijzen* analyzer wanneer het veld wordt gemaakt. Dit geldt voor zowel de **analyzer** en **indexAnalyzer** eigenschappen. De **searchAnalyzer** eigenschap is een uitzondering (u kunt deze eigenschap toewijzen aan een bestaand veld). |
+| Bijwerken of verwijderen van de definitie van een analyzer in een index | U kan niet verwijderen of wijzigen van een bestaande analyzer configuratie (analyzer, tokenizer, token filter of char filter) in de index, tenzij u de gehele index opnieuw opbouwen. |
+| Voeg een veld toe aan een suggestie | Als er al een veld bestaat en u wilt toevoegen aan een [suggesties](index-add-suggesters.md) maken, moet u de index opnieuw opbouwen. |
+| Een veld verwijderen | Als u wilt fysiek verwijdert alle traceringen van een veld, die u moet de index opnieuw opbouwen. Wanneer een direct herstellen is het niet praktisch, kunt u toepassingscode om uit te schakelen toegang tot het veld 'verwijderd' wijzigen. Fysiek, blijven de velddefinitie van het en de inhoud in de index tot het volgende opnieuw bouwen, wanneer u een schema dat het veld wordt weggelaten toepast in kwestie. |
+| Switch-lagen | Als u meer capaciteit nodig hebt, is er geen in-place upgrade. Een nieuwe service wordt gemaakt op het moment dat nieuwe capaciteit en indexen helemaal moeten worden gebouwd op de nieuwe service. |
 
 Andere wijzigingen kan worden gemaakt zonder gevolgen voor bestaande fysieke structuren. Met name de volgende wijzigingen doen *niet* vereisen van een index opnieuw opbouwen:
 
 + Een nieuw veld toevoegen
 + Stel de **ophaalbaar** kenmerk voor een bestaand veld
 + Stel een **searchAnalyzer** op een bestaand veld
-+ Een nieuwe analyzer constructie in een index toevoegen
++ De definitie van een nieuwe analyzer in een index toevoegen
 + Toevoegen, bijwerken of verwijderen van scoreprofielen
 + Toevoegen, bijwerken of verwijderen van CORS-instellingen
 + Toevoegen, bijwerken of verwijderen van synonymMaps
@@ -65,23 +65,30 @@ Zie voor meer informatie over indexeerfuncties [overzicht van de indexeerfunctie
 
 Plan op regelmatige, volledig opnieuw worden opgebouwd tijdens het ontwikkelen van actieve, wanneer de index schema's zijn in een status van lichtstroom. Voor toepassingen die al in de productieomgeving, wordt u aangeraden een nieuwe index die wordt uitgevoerd naast elkaar een bestaande index om te voorkomen uitvaltijd van de query te maken.
 
-Als er strenge vereisten voor de SLA, kunt u een nieuwe service speciaal voor dit werk, met de ontwikkeling van inrichting en indexeren die zich voordoen op volle isolatie van een productie-index overwegen. Een afzonderlijke service wordt uitgevoerd op een eigen hardware, een kans op conflicten tussen resources te elimineren. Wanneer ontwikkeling voltooid is, ofwel laat u de nieuwe index aanwezig is, query's omleiden naar het nieuwe eindpunt en de index of u de voltooide code voor het publiceren van een herziene-index in uw oorspronkelijke Azure Search-service wordt uitgevoerd. Er is momenteel geen mechanisme voor het verplaatsen van een kant-en-klare-index op een andere service.
+Machtigingen voor lezen / schrijven op niveau van de service zijn vereist voor index-updates. 
 
-Machtigingen voor lezen / schrijven op niveau van de service zijn vereist voor index-updates. Via een programma, kunt u bellen [Update Index REST-API](https://docs.microsoft.com/rest/api/searchservice/update-index) of .NET-API's voor een volledig opnieuw is gebouwd. De aanvraag is gelijk aan [Index REST-API maken](https://docs.microsoft.com/rest/api/searchservice/create-index), maar heeft een andere context.
+U kunt een index in de portal kan niet opnieuw maken. Via een programma, kunt u bellen [Update Index REST-API](https://docs.microsoft.com/rest/api/searchservice/update-index) of [gelijkwaardige .NET-API's](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexesoperations.createorupdatewithhttpmessagesasync?view=azure-dotnet) voor een volledig opnieuw is gebouwd. De aanvraag voor een update-index is vrijwel identiek aan [Index REST-API maken](https://docs.microsoft.com/rest/api/searchservice/create-index), maar heeft een andere context.
 
-1. Als u de naam van de index [de bestaande index](https://docs.microsoft.com/rest/api/searchservice/delete-index). Alle query's die zijn gericht op die index worden onmiddellijk verwijderd. Verwijderen van een index is onomkeerbaar, fysieke opslag voor de Veldenverzameling en andere constructies vernietigen. Zorg ervoor dat u bent wissen op de gevolgen van het verwijderen van een index voordat u deze verwijderen. 
+De volgende werkstroom is gericht op de REST-API, maar geldt ook voor de .NET SDK.
 
-2. Een indexschema voorzien van de gewijzigde of gewijzigde velddefinities. Schemavereisten worden beschreven in [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
+1. Als de naam van een index opnieuw [de bestaande index](https://docs.microsoft.com/rest/api/searchservice/delete-index). 
 
-3. Geef een [administratorsleutel](https://docs.microsoft.com/azure/search/search-security-api-keys) op de aanvraag.
+   Alle query's die zijn gericht op die index worden onmiddellijk verwijderd. Verwijderen van een index is onomkeerbaar, fysieke opslag voor de Veldenverzameling en andere constructies vernietigen. Zorg ervoor dat u bent wissen op de gevolgen van het verwijderen van een index voordat u deze verwijderen. 
 
-4. Verzendt een [Index bijwerken](https://docs.microsoft.com/rest/api/searchservice/update-index) opdracht voor het opnieuw opbouwen van de fysieke expressie van de index voor Azure Search. Hoofdtekst van de aanvraag bevat het indexschema, evenals constructs voor het scoren van profielen, analyses, suggesties en CORS-opties.
+2. Formuleren een [Index bijwerken](https://docs.microsoft.com/rest/api/searchservice/update-index) aanvraag met het eindpunt van de service, API-sleutel en een [administratorsleutel](https://docs.microsoft.com/azure/search/search-security-api-keys). Geen Administrator-code is vereist voor schrijfbewerkingen.
 
-5. [Laden van de index met documenten](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) vanuit een externe bron. U kunt deze API ook gebruiken als u een bestaande, ongewijzigd indexschema met bijgewerkte documenten vernieuwt.
+3. In de hoofdtekst van de aanvraag, voorzien van een indexschema de gewijzigde of gewijzigde velddefinities. Hoofdtekst van de aanvraag bevat het indexschema, evenals constructs voor het scoren van profielen, analyses, suggesties en CORS-opties. Schemavereisten worden beschreven in [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
+
+4. Verzendt een [Index bijwerken](https://docs.microsoft.com/rest/api/searchservice/update-index) aanvraag voor het opnieuw opbouwen van de fysieke expressie van de index voor Azure Search. 
+
+5. [Laden van de index met documenten](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) vanuit een externe bron.
 
 Wanneer u de index maakt, wordt voor elk veld in het indexschema fysieke opslag toegewezen met een omgekeerde index gemaakt voor elk doorzoekbaar veld. Velden die niet kan worden doorzocht kan worden gebruikt in filters of expressies, maar kan geen omgekeerde indexen en zijn geen volledige-tekstindex of fuzzy zijn doorzoekbaar. Op een indexen deze omgekeerde indexen worden verwijderd en opnieuw gemaakt op basis van het indexschema dat u opgeeft.
 
 Wanneer u de index laadt, wordt van elk veld omgekeerde index wordt gevuld met alle van de unieke, tokens woorden uit met een toewijzing aan de bijbehorende document-id's van elk document. Bijvoorbeeld, wanneer een gegevensset hotels indexeren, kan een omgekeerde index gemaakt voor een plaatsveld termen bevatten voor Seattle, Portland, enzovoort. Documenten die Seattle of Portland in het veld Plaats opnemen moet de document-ID weergegeven samen met de term. Op een [toevoegen, bijwerken of verwijderen](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) bewerking, de voorwaarden en de lijst met document-ID worden dienovereenkomstig bijgewerkt.
+
+> [!NOTE]
+> Als er strenge vereisten voor de SLA, kunt u een nieuwe service speciaal voor dit werk, met de ontwikkeling van inrichting en indexeren die zich voordoen op volle isolatie van een productie-index overwegen. Een afzonderlijke service wordt uitgevoerd op een eigen hardware, een kans op conflicten tussen resources te elimineren. Wanneer ontwikkeling voltooid is, ofwel laat u de nieuwe index aanwezig is, query's omleiden naar het nieuwe eindpunt en de index of u de voltooide code voor het publiceren van een herziene-index in uw oorspronkelijke Azure Search-service wordt uitgevoerd. Er is momenteel geen mechanisme voor het verplaatsen van een kant-en-klare-index op een andere service.
 
 ## <a name="view-updates"></a>Updates weergeven
 

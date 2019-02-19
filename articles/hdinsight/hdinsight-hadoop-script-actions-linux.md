@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9711e9bf94619b8cd003972d74f3bca4c45894bf
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 6702bfabd27b56ce473fe8eb14aadc9dc6e8e7c9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312077"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338866"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Ontwikkeling van scriptacties met HDInsight
 
@@ -142,7 +142,7 @@ Voor de meeste bewerkingen hoeft u niet om op te geven van het bestandssysteem. 
 hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 ```
 
-In dit voorbeeld wordt de `hdfs` opdracht transparant maakt gebruik van de standaardopslag voor het cluster. Voor bepaalde bewerkingen moet u mogelijk de URI opgeven. Bijvoorbeeld, `adl:///example/jars` voor Data Lake Storage Gen1 of `wasb:///example/jars` voor Azure Storage.
+In dit voorbeeld wordt de `hdfs` opdracht transparant maakt gebruik van de standaardopslag voor het cluster. Voor bepaalde bewerkingen moet u mogelijk de URI opgeven. Bijvoorbeeld, `adl:///example/jars` voor Azure Data Lake Storage Gen1 `abfs:///example/jars` voor Data Lake Storage Gen2 of `wasb:///example/jars` voor Azure Storage.
 
 ### <a name="bPS7"></a>Schrijven van gegevens in de STDOUT en STDERR
 

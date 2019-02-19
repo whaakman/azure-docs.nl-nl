@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 79bc9310eb3f7c8dd2b295405cea70c514d343d3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6eb759928d504bf1a3ccac4bc1aa983bb6a47979
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820861"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339360"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>HDInsight-clusters beheren met behulp van de Apache Ambari REST-API
 
@@ -255,7 +255,9 @@ De geretourneerde waarde is vergelijkbaar met een van de volgende voorbeelden:
 
 * `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net` -Deze waarde geeft aan dat het cluster een Azure Storage-account wordt gebruikt voor standaardopslag. De `ACCOUNTNAME` waarde is de naam van het opslagaccount. De `CONTAINER` gedeelte is de naam van de blob-container in het opslagaccount. De container is de hoofdmap van het HDFS-compatibele opslag voor het cluster.
 
-* `adl://home` -Deze waarde geeft aan dat het cluster een Azure Data Lake Storage wordt gebruikt voor standaardopslag.
+* `abfs://CONTAINER@ACCOUNTNAME.dfs.core.windows.net` -Deze waarde geeft aan dat het cluster een Azure Data Lake Storage Gen2 wordt gebruikt voor standaardopslag. De `ACCOUNTNAME` en `CONTAINER` waarden hebben de dezelfde betekenis als voor Azure Storage die eerder is vermeld.
+
+* `adl://home` -Deze waarde geeft aan dat het cluster een Azure Data Lake Storage Gen1 wordt gebruikt voor standaardopslag.
 
     Als u de naam van het Data Lake Storage zoekt, kunt u de volgende voorbeelden gebruiken:
 

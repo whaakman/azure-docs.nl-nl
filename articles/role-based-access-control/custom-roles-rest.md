@@ -1,6 +1,6 @@
 ---
-title: Maken van aangepaste rollen met behulp van de REST-API - Azure | Microsoft Docs
-description: Informatie over het maken van aangepaste rollen voor op rollen gebaseerd toegangsbeheer (RBAC) met behulp van de REST-API. Dit omvat het weergeven, maken, bijwerken en verwijderen van aangepaste rollen.
+title: Aangepaste rollen maken voor Azure-resources met behulp van de REST-API - Azure | Microsoft Docs
+description: Informatie over het maken van aangepaste rollen met op rollen gebaseerd toegangsbeheer (RBAC) voor Azure-resources met behulp van de REST-API. Dit omvat het weergeven, maken, bijwerken en verwijderen van aangepaste rollen.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 8a1bbe8217e2d4a9846f56124e248e19cbe70b19
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: cfcb7ef2a4fc02932f9d03c277b105c4b1e0ff3a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436059"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338764"
 ---
-# <a name="create-custom-roles-using-the-rest-api"></a>Aangepaste rollen met behulp van de REST-API maken
+# <a name="create-custom-roles-for-azure-resources-using-the-rest-api"></a>Aangepaste rollen voor Azure-resources met behulp van de REST-API maken
 
-Als de [ingebouwde rollen](built-in-roles.md) niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen aangepaste rollen maken. In dit artikel wordt beschreven hoe u maken en beheren van aangepaste rollen met behulp van de REST-API.
+Als de [ingebouwde rollen voor Azure-resources](built-in-roles.md) niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen aangepaste rollen maken. In dit artikel wordt beschreven hoe u maken en beheren van aangepaste rollen met behulp van de REST-API.
 
 ## <a name="list-roles"></a>Rollen opvragen
 
@@ -46,7 +46,7 @@ Als u wilt weergeven van alle rollen of informatie ophalen over een enkele rol m
 
 1. Vervang *{filter}* met de voorwaarde die u wilt toepassen om de rol-lijst te filteren.
 
-    | Filteren | Beschrijving |
+    | Filteren | Description |
     | --- | --- |
     | `$filter=atScopeAndBelow()` | Lijst met functies die beschikbaar zijn voor toewijzing op het opgegeven bereik en een van de onderliggende bereiken. |
     | `$filter=roleName%20eq%20'{roleDisplayName}'` | Gebruik het formulier URL-codering van de exacte naam van de rol. Bijvoorbeeld: `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
@@ -272,6 +272,6 @@ Als u wilt een aangepaste rol verwijderen, gebruikt u de [roldefinities - verwij
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Aangepaste rollen in Azure](custom-roles.md)
-- [Beheren van toegang met RBAC en de REST-API](role-assignments-rest.md)
-- [Azure REST API-verwijzing](/rest/api/azure/)
+- [Aangepaste rollen voor Azure-resources](custom-roles.md)
+- [Beheer de toegang tot Azure-resources met behulp van RBAC en de REST-API](role-assignments-rest.md)
+- [Azure REST API-naslaginformatie](/rest/api/azure/)

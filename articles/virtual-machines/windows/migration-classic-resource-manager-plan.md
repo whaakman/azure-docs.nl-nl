@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 540abeed3587959af5ca229f59343774b824547b
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 76059c587a6378ccfe16c0a633bea0c6c7a8a57d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982893"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340090"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planning voor de migratie van IaaS-resources van klassiek naar Azure Resource Manager
 Azure Resource Manager biedt veel geweldige functies, is het essentieel is voor het plannen van de migratie om ervoor zaken soepel verloopt. Tijd besteed aan het plannen, zorgt u ervoor dat u geen problemen ondervindt tijdens het uitvoeren van migratieactiviteiten.
@@ -207,7 +207,7 @@ Worden doelgericht op welke services u nu wilt inschakelen in Azure Resource Man
 - [Azure Resource Manager-sjablonen voor de implementatie eenvoudiger en meer gecontroleerde](../../azure-resource-manager/resource-group-overview.md#template-deployment).
 - [Tags](../../azure-resource-manager/resource-group-using-tags.md).
 - [Activiteit-besturingselement](../../azure-resource-manager/resource-group-audit.md)
-- [Beleid voor Azure](../../azure-policy/azure-policy-introduction.md)
+- [Beleid voor Azure](../../governance/policy/overview.md)
 
 ### <a name="pitfalls-to-avoid"></a>Valkuilen om te voorkomen
 

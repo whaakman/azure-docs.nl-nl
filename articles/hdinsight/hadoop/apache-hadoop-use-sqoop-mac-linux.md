@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 03/26/2018
-ms.openlocfilehash: cf4895220c19e029952d5bf76aa9baa41250f692
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.date: 02/15/2019
+ms.openlocfilehash: 2f16ba3fde73705d431ba97d65059b178020bb62
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309341"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340294"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-apache-hadoop-on-hdinsight-and-sql-database"></a>Apache Sqoop gebruiken om te importeren en exporteren van gegevens tussen Apache Hadoop op HDInsight en SQL-Database
 
@@ -105,7 +105,7 @@ GO
     De velden in de gegevens worden gescheiden door een teken tabblad en de regels worden beëindigd door een nieuwe-regelteken.
 
     > [!IMPORTANT]  
-    > De `wasb:///` pad werkt met clusters waarvoor wordt gebruikgemaakt van Azure Storage als de standaardopslag voor het cluster. Gebruik voor clusters die gebruikmaken van Azure Data Lake Storage Gen1 `adl:///` in plaats daarvan.
+    > De `wasb:///` pad werkt met clusters waarvoor wordt gebruikgemaakt van Azure Storage als de standaardopslag voor het cluster. Gebruik voor clusters die gebruikmaken van Azure Data Lake Storage Gen2 `abfs:///` in plaats daarvan. Gebruik voor clusters die gebruikmaken van Azure Data Lake Storage Gen1 `adl:///` in plaats daarvan.
 
 2. Zodra het importeren is voltooid, gebruikt u de volgende opdracht uit om de gegevens in de nieuwe map:
 

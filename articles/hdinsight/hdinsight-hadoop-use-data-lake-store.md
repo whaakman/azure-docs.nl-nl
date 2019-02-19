@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 9dabf3fd37c591525625969ac0af1873477b84d6
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: fe195ba485e6653cee4a45f4a33067bf536334ad
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311412"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338611"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Data Lake Storage Gen1 met Azure HDInsight-clusters gebruiken
 
@@ -56,11 +56,7 @@ Met behulp van Data Lake Storage Gen1 als een extra opslagaccount heeft geen inv
 
 ## <a name="use-data-lake-storage-gen1-as-default-storage"></a>Data Lake Storage Gen1 als standaardopslag gebruiken
 
-Wanneer HDInsight met Data Lake Storage Gen1 als standaardopslag is geïmplementeerd, wordt de cluster-gerelateerde bestanden worden opgeslagen in de volgende locatie:
-
-    adl://mydatalakestore/<cluster_root_path>/
-
-waar `<cluster_root_path>` is de naam van een map die u in Data Lake-opslag maakt. Als u een pad naar de hoofdmap van ieder cluster opgeeft, kunt u hetzelfde Data Lake Storage-account voor meer dan één cluster. U kunt dus instellingen hebben waarbij:
+Wanneer HDInsight met Data Lake Storage Gen1 als standaardopslag is geïmplementeerd, de cluster-gerelateerde bestanden worden opgeslagen in `adl://mydatalakestore/<cluster_root_path>/`, waarbij `<cluster_root_path>` is de naam van een map die u in Data Lake-opslag maakt. Als u een pad naar de hoofdmap van ieder cluster opgeeft, kunt u hetzelfde Data Lake Storage-account voor meer dan één cluster. U kunt dus instellingen hebben waarbij:
 
 * Cluster1 het pad `adl://mydatalakestore/cluster1storage` kan gebruiken
 * Cluster2 het pad `adl://mydatalakestore/cluster2storage` kan gebruiken

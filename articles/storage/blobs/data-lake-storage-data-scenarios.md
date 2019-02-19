@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: normesta
-ms.openlocfilehash: 2e39aaae7b873174db032c5e1dda516c9a998d31
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 66d7a2ce5833729d601ae896f0903a17a40fc8a3
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301907"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339487"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Met behulp van Azure Data Lake Storage Gen2 voor big data-vereisten
 
@@ -73,7 +73,7 @@ Deze tabel laat zien hoe toegangsmachtigingen voor elke Azure-service of hulppro
 |Apache DistCp | Een rol toewijzen aan een gebruiker toegewezen beheerde identiteit | [Het maken van een HDInsight-cluster met Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2#creating-an-hdinsight-cluster-with-data-lake-storage-gen2) |
 |Azure Data Factory| Een rol toewijzen aan een gebruiker toegewezen-beheerde identiteit<br>**or**<br> Een rol is een service-principal toewijzen<br>**or**<br> Gebruik van een opslagaccountsleutel | [Eigenschappen van de gekoppelde service](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#linked-service-properties) |
 |Azure HDInsight| Een rol toewijzen aan een gebruiker toegewezen beheerde identiteit | [Het maken van een HDInsight-cluster met Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2#creating-an-hdinsight-cluster-with-data-lake-storage-gen2)|
-|Azure Databricks| Een rol toewijzen aan een service-principal | [Een service-principal maken](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-service-principal)|
+|Azure Databricks| Een rol toewijzen aan een service-principal | [Procedure: De portal gebruiken om een Azure AD-toepassing en service-principal die toegang hebben tot resources te maken](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)|
 
 Als u wilt toegang verlenen tot specifieke bestanden en mappen, Zie de volgende artikelen.
 

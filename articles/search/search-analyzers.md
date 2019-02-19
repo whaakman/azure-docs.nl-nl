@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: a3f782cdd34f2a45c58e6a98d013f949767589cb
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 7306258b6a7eee66df0961b2b993d0bcc9de94b9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328007"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343269"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analyzers om tekst te verwerken in Azure Search
 
@@ -69,7 +69,7 @@ Het beste moment kunt toevoegen en toewijzen van de analyse is tijdens het ontwi
 
 Als een indexdefinitie inkoopketen, u nieuwe analysis-constructies aan een index toevoegen kunt, maar u moet doorgeven de **allowIndexDowntime** markering [Index bijwerken](https://docs.microsoft.com/rest/api/searchservice/update-index) als u wilt voorkomen dat deze fout:
 
-*Index-update is niet toegestaan omdat dit leiden uitvaltijd tot zou. Om toe te voegen nieuwe analysefuncties, tokenizers, token filters of teken filters aan een bestaande index, stelt u de queryparameter 'allowIndexDowntime' op 'true' in de aanvraag van de update index. Houd er rekening mee dat uw index offline voor ten minste een paar seconden, waardoor uw indexeren en query-aanvragen mislukken door deze bewerking wordt geplaatst. Prestaties en schrijven van de beschikbaarheid van de index kan worden gehinderd voor enkele minuten nadat de index is bijgewerkt of langer voor zeer grote indexen.*
+*"De index update is niet toegestaan omdat dit leiden uitvaltijd tot zou. Om toe te voegen nieuwe analysefuncties, tokenizers, token filters of teken filters aan een bestaande index, stelt u de queryparameter 'allowIndexDowntime' op 'true' in de aanvraag van de update index. Houd er rekening mee dat uw index offline voor ten minste een paar seconden, waardoor uw indexeren en query-aanvragen mislukken door deze bewerking wordt geplaatst. Prestaties en schrijven van de beschikbaarheid van de index kan worden gehinderd voor enkele minuten nadat de index is bijgewerkt of langer voor zeer grote indexen."*
 
 Hetzelfde geldt wanneer u een analyzer toewijst aan een veld. Een analyzer is een integraal onderdeel van de definitie van het veld, zodat u deze alleen toevoegen kunt wanneer het veld wordt gemaakt. Als u wilt de analyzers toevoegen aan bestaande velden, u zult moeten [verwijderen en opnieuw opbouwen](search-howto-reindex.md) de index, of een nieuw veld met de analyzer die u wilt toevoegen.
 

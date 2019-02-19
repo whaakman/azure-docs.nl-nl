@@ -3,21 +3,21 @@ title: Indeling van de Geofence GeoJSON-gegevens in Azure Maps | Microsoft Docs
 description: Meer informatie over de indeling van de Geofence GeoJSON-gegevens in Azure-kaarten
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/08/2018
+ms.date: 02/15/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: aa39661c8ecc4b594478def7d0cc9be3006294c4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 5a654b7fdae341da62d94499830a5e1202dff921
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008249"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339631"
 ---
 # <a name="geofencing-geojson-data"></a>Met Geofencing GeoJSON-gegevens
 
-De Azure-kaarten [ophalen Geofence](https://docs.microsoft.com/rest/api/map/spatial/getgeofencepreview) en [POST Geofence](https://docs.microsoft.com/rest/api/map/spatial/postgeofencepreview) API kunt u de nabijheid van een coördinaat ten opzichte van een opgegeven geofence of set fences ophalen. In dit artikel wordt uitgelegd hoe het voorbereiden van de gegevens van de geofence die kunnen worden gebruikt in de Azure Maps ophalen en de POST-API.
+De Azure-kaarten [ophalen Geofence](https://docs.microsoft.com/rest/api/maps/spatial/getgeofencepreview) en [POST Geofence](https://docs.microsoft.com/rest/api/maps/spatial/postgeofencepreview) API kunt u de nabijheid van een coördinaat ten opzichte van een opgegeven geofence of set fences ophalen. In dit artikel wordt uitgelegd hoe het voorbereiden van de gegevens van de geofence die kunnen worden gebruikt in de Azure Maps ophalen en de POST-API.
 
 De gegevens voor de geofence bevindt of een set van geofences wordt vertegenwoordigd door `Feature` Object en `FeatureCollection` van het Object in `GeoJSON` -indeling, die is gedefinieerd in [rfc7946](https://tools.ietf.org/html/rfc7946). Naast het volgende:
 

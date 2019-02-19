@@ -7,13 +7,13 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 1/14/2019
-ms.openlocfilehash: 8d5fc1c579fd09f1a71d63dce4d1673ef5a8652b
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.date: 2/18/2019
+ms.openlocfilehash: 4fd0f0990163963fc0cc3c7caf221609da487909
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354617"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340175"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Gegevensopname met Azure Data Explorer
 
@@ -39,15 +39,21 @@ De Azure Data Explorer data management service, die verantwoordelijk voor opname
 
 Azure Data Explorer ondersteunt verschillende methoden voor gegevensopname, elk met een eigen doelscenario's mogelijk, voordelen en nadelen. Azure Data Explorer biedt pijplijnen en connectors voor het algemene services, programmatische opname met behulp van SDK's en directe toegang tot de engine voor verkenning doeleinden.
 
-### <a name="ingestion-using-pipelines"></a>Gegevensopname met pijplijnen
+### <a name="ingestion-using-pipelines-connectors-and-plugins"></a>Gegevensopname met pijplijnen, connectors en invoegtoepassingen
 
-Azure Data Explorer ondersteunt momenteel de Event Hub-pijplijn, die kan worden beheerd met behulp van de wizard management in Azure portal. Zie voor meer informatie [Snelstart: Opnemen van gegevens van Event Hub in Azure Data Explorer](ingest-data-event-hub.md).
+Azure Data Explorer ondersteunt op dit moment:
 
-### <a name="ingestion-using-connectors-and-plugins"></a>Gegevensopname met connectors en invoegtoepassingen
+* Event Grid pijplijn, die kan worden beheerd met behulp van de wizard management in Azure portal. Zie voor meer informatie, [opnemen Azure Blobs in Azure Data Explorer](ingest-data-event-grid.md).
 
-* De Logstash-invoegtoepassing biedt ondersteuning voor Azure Data Explorer. Zie voor meer informatie, [Logstash-uitvoer-invoegtoepassing voor Azure Data Explorer](https://github.com/Azure/logstash-output-kusto/blob/master/README.md).
+* Event Hub pijplijn, die kan worden beheerd met behulp van de wizard management in Azure portal. Zie voor meer informatie, [opnemen van gegevens van Event Hub in Azure Data Explorer](ingest-data-event-hub.md).
 
-* De Kafka-connector biedt ondersteuning voor Azure Data Explorer. Zie voor meer informatie [Snelstart: Opnemen van gegevens van Kafka in Azure Data Explorer](ingest-data-kafka.md)
+* Logstash-invoegtoepassing, Zie [opname van gegevens vanuit Logstash naar Azure Data Explorer](ingest-data-logstash.md).
+
+* Kafka-connector, Zie [opnemen van gegevens van Kafka in Azure Data Explorer](ingest-data-kafka.md).
+
+### <a name="ingestion-using-integration-services"></a>Gegevensopname met integratieservices
+
+* Azure Data Factory (ADF), een volledig beheerde service voor gegevensintegratie voor analytische workloads in Azure, om gegevens te kopiëren naar en van Azure Data Explorer. Zie voor meer informatie, [gegevens kopiëren naar of van Azure Data Explorer met behulp van Azure Data Factory](/azure/data-factory/connector-azure-data-explorer).
 
 ### <a name="programmatic-ingestion"></a>Programmatische opname
 
@@ -131,21 +137,27 @@ Voor alle opname methoden dan uit query opnemen, moet u de gegevens opmaken zoda
 Schematoewijzing helpt bronvelden gegevens binden aan tabelkolommen bestemming.
 
 * [CSV-toewijzing](/azure/kusto/management/mappings?branch=master#csv-mapping) (optioneel) werkt met alle op basis van het rangtelwoord voor indelingen. Kan worden uitgevoerd met behulp van de opdrachtparameter opname of [vooraf gemaakt in de tabel](/azure/kusto/management/tables?branch=master#create-ingestion-mapping) en waarnaar wordt verwezen, van de opdracht-parameter opnemen.
-* [JSON-toewijzing](/azure/kusto/management/mappings?branch=master#json-mapping) (verplicht) en [Avro-toewijzing](/azure/kusto/management/mappings?branch=master#avro-mapping) (verplicht) kan worden uitgevoerd met behulp van de opdrachtparameter opname of [vooraf gemaakt in de tabel](/azure/kusto/management/tables#create-ingestion-mapping) en waarnaar wordt verwezen vanaf de opdrachtregel opnemen de parameter.
+* [JSON-toewijzing](/azure/kusto/management/mappings?branch=master#json-mapping) (verplicht) en [Avro-toewijzing](/azure/kusto/management/mappings?branch=master#avro-mapping) (verplicht) kan worden uitgevoerd met behulp van de opdrachtparameter opnemen. Ze kunnen ook worden [vooraf gemaakt in de tabel](/azure/kusto/management/tables#create-ingestion-mapping) en waarnaar wordt verwezen, van de opdracht-parameter opnemen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Snelstart: Opnemen van gegevens van Event Hub in Azure Data Explorer](ingest-data-event-hub.md)
+> [Opnemen van gegevens van Event Hub in Azure Data Explorer](ingest-data-event-hub.md)
 
 > [!div class="nextstepaction"]
-> [Snelstart: Opnemen van gegevens van Kafka in Azure Data Explorer](ingest-data-kafka.md)
+> [Opname van gegevens met behulp van Event Grid-abonnement in Azure Data Explorer](ingest-data-event-grid.md)
 
 > [!div class="nextstepaction"]
-> [Snelstart: Gegevens opnemen met behulp van de Python-bibliotheek voor Azure Data Explorer](python-ingest-data.md)
+> [Opnemen van gegevens van Kafka in Azure Data Explorer](ingest-data-kafka.md)
 
 > [!div class="nextstepaction"]
-> [Snelstart: Opname van gegevens met behulp van het knooppunt voor Azure Data Explorer-bibliotheek](node-ingest-data.md)
+> [Opname van gegevens met behulp van de Azure Data Explorer Python-bibliotheek](python-ingest-data.md)
 
 > [!div class="nextstepaction"]
-> [Snelstart: Opname van gegevens met behulp van de Azure Data Explorer .NET Standard SDK (Preview)](net-standard-ingest-data.md)
+> [Opname van gegevens met behulp van het knooppunt voor Azure Data Explorer-bibliotheek](node-ingest-data.md)
+
+> [!div class="nextstepaction"]
+> [Opname van gegevens met behulp van de Azure Data Explorer .NET Standard SDK (Preview)](net-standard-ingest-data.md)
+
+> [!div class="nextstepaction"]
+> [Opname van gegevens vanuit Logstash naar Azure Data Explorer](ingest-data-logstash.md)

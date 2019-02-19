@@ -11,14 +11,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 12/10/2018
+ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: e87ff83470ac8d375b4eee3b69f8793e3e11c0f5
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 2f3db5e6260b065c83f0e337306d38dca6e5ff51
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497414"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341399"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Los fouten voor de registratie van de resourceprovider
 
@@ -45,13 +45,21 @@ Message: The subscription is not registered to use namespace {resource-provider-
 
 Het foutbericht geeft suggesties voor de ondersteunde locaties en API-versies. U kunt de sjabloon wijzigen in een van de voorgestelde waarden. De meeste providers zijn geregistreerde automatisch door de Azure-portal of de opdrachtregelinterface die u gebruikt, maar niet alle. Als u een bepaalde resourceprovider voordat u dit nog niet hebt gebruikt, moet u wellicht dat de provider registreren.
 
+Of bij het uitschakelen van auto-shutdown voor virtuele machines, verschijnt er een foutbericht weergegeven die vergelijkbaar is met:
+
+```
+Code: AuthorizationFailed
+Message: The client '<identifier>' with object id '<identifier>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope ...
+```
+
 ## <a name="cause"></a>Oorzaak
 
-U ontvangt deze fouten voor een van drie redenen:
+U ontvangt deze fouten om een van de volgende redenen:
 
-* De resourceprovider is niet geregistreerd voor uw abonnement
+* De vereiste resourceprovider is niet geregistreerd voor uw abonnement
 * API-versie niet ondersteund voor het resourcetype
 * Locatie niet ondersteund voor het resourcetype
+* Voor automatische afsluiting van virtuele machines, moet de resourceprovider Microsoft.DevTestLab worden geregistreerd.
 
 ## <a name="solution-1---powershell"></a>Oplossing 1: PowerShell
 

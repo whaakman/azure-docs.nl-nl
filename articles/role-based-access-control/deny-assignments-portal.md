@@ -1,6 +1,6 @@
 ---
-title: Weergave weigeren toewijzingen met behulp van de Azure portal | Microsoft Docs
-description: Informatie over het weergeven van de gebruikers, groepen, service-principals en beheerde identiteiten die toegang tot bepaalde acties op een bepaald bereik met behulp van de Azure-portal is geweigerd.
+title: Weergave weigeren toewijzingen voor Azure-resources met behulp van de Azure portal | Microsoft Docs
+description: Informatie over het weergeven van de gebruikers, groepen, service-principals en beheerde identiteiten die toegang tot specifieke Azure-resource die op een bepaald bereik met behulp van de Azure-portal is geweigerd.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,23 +14,23 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f5870ddbbb8be0ebbeae7656485521a327b86d5b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: ec5e3daf1d4d799aab043f241548a3b4177f567c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642807"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343235"
 ---
-# <a name="view-deny-assignments-using-the-azure-portal"></a>Weergave weigeren toewijzingen met behulp van de Azure portal
+# <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Weergave weigeren toewijzingen voor Azure-resources met behulp van de Azure portal
 
-[Toewijzingen weigeren](deny-assignments.md) blokkeren dat gebruikers kunnen specifieke acties uitvoeren, zelfs als een roltoewijzing deze toegang wordt verleend. Hoewel u kunt geen uw eigen maken weigeren toewijzingen, u moet nog steeds mogelijk om toewijzingen weigeren omdat ze invloed zijn op uw algemene machtigingen. Om informatie te verkrijgen over een weigeringstoewijzing moet u de machtiging `Microsoft.Authorization/denyAssignments/read` hebben, die is opgenomen in de meeste [ingebouwde rollen](built-in-roles.md).
+[Toewijzingen weigeren](deny-assignments.md) blokkeren dat gebruikers kunnen uitvoeren van acties die specifieke Azure-resource, zelfs als een roltoewijzing deze toegang wordt verleend. Hoewel u kunt geen uw eigen maken weigeren toewijzingen, u moet nog steeds mogelijk om toewijzingen weigeren omdat ze invloed zijn op uw algemene machtigingen. Voor informatie over de toewijzing van een weigeren, hebt u de `Microsoft.Authorization/denyAssignments/read` machtiging die is opgenomen in de meeste [ingebouwde rollen voor Azure-resources](built-in-roles.md).
 
 In dit artikel wordt beschreven hoe u Azure portal gebruiken om weer te weigeren toewijzingen.
 
 > [!NOTE]
 > Op dit moment weigeren toewijzingen zijn alleen-lezen en kunnen alleen worden ingesteld door Azure.
 
-## <a name="view-deny-assignments"></a>Weergave weigeren toewijzingen
+## <a name="view-deny-assignments"></a>Weigeringstoewijzingen weergeven
 
 Volg deze stappen om weer te geven weigeren toewijzingen aan het abonnement of beheergroep groepsbereik.
 
@@ -38,11 +38,11 @@ Volg deze stappen om weer te geven weigeren toewijzingen aan het abonnement of b
 
 1. Klik op de beheergroep of het abonnement dat u wilt weergeven.
 
-1. Klik op **toegangsbeheer (IAM)**.
+1. Klik op **Toegangsbeheer (IAM)**.
 
 1. Klik op de **weigeren toewijzingen** tabblad (of klik op de **weergave** knop op de weergave weigeren toewijzingen tegel).
 
-    Als er een toewijzingen op dit bereik weigeren of overgenomen op dit bereik, worden deze weergegeven.
+    Als er een in dit bereik toewijzingen zijn geweigerd of zijn overgenomen, worden deze weergegeven.
 
     ![Toegangsbeheer - tabblad toewijzingen weigeren](./media/deny-assignments-portal/access-control-deny-assignments.png)
 
@@ -86,10 +86,10 @@ Volg deze stappen om aanvullende informatie over de toewijzing van een weigeren 
 
     ![Toewijzing - machtigingen geweigerd weigeren](./media/deny-assignments-portal/deny-assignment-denied-permissions.png)
 
-    | Actietype | Beschrijving |
+    | Actietype | Description |
     | --- | --- |
     | **Acties**  | Beheerbewerkingen geweigerd. |
-    | **notActions** | Beheerbewerkingen die zijn uitgesloten van de bewerking voor het beheer geweigerd. |
+    | **NotActions** | Beheerbewerkingen die zijn uitgesloten van de bewerking voor het beheer geweigerd. |
     | **DataActions**  | Gegevensbewerkingen geweigerd. |
     | **NotDataActions** | Gegevensbewerkingen uitgesloten van gegevensbewerking geweigerd. |
 
@@ -105,5 +105,5 @@ Volg deze stappen om aanvullende informatie over de toewijzing van een weigeren 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Informatie over toewijzingen weigeren](deny-assignments.md)
-* [Lijst weigeren toewijzingen met RBAC en de REST-API](deny-assignments-rest.md)
+* [Informatie over toewijzingen voor Azure-resources te weigeren](deny-assignments.md)
+* [Lijst weigeren toewijzingen voor Azure-resources met behulp van de REST-API](deny-assignments-rest.md)

@@ -1,6 +1,6 @@
 ---
-title: Lijst weigeren toewijzingen met RBAC en de REST-API - Azure | Microsoft Docs
-description: Meer informatie over het lijst weigeren toewijzingen voor gebruikers, groepen en toepassingen, met behulp van op rollen gebaseerd toegangsbeheer (RBAC) en de REST-API.
+title: Lijst weigeren toewijzingen voor Azure-resources met behulp van de REST-API - Azure | Microsoft Docs
+description: Meer informatie over het lijst weigeren toewijzingen voor gebruikers, groepen en toepassingen met behulp van op rollen gebaseerd toegangsbeheer (RBAC) voor Azure-resources en de REST-API.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 44c1d3b18bb9bdc63247379fe3f277cb6542f2da
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 29b8e0953109238b724cc8df9f456706f71a041e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975579"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341620"
 ---
-# <a name="list-deny-assignments-using-rbac-and-the-rest-api"></a>Lijst weigeren toewijzingen met RBAC en de REST-API
+# <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>Lijst weigeren toewijzingen voor Azure-resources met behulp van de REST-API
 
-Op dit moment weigeren toewijzingen worden **alleen-lezen** en kan alleen worden ingesteld door Azure. Hoewel u kunt geen uw eigen maken weigeren toewijzingen, u kunt een lijst weigeren toewijzingen omdat ze invloed kunnen hebben op de effectieve machtigingen. Dit artikel wordt beschreven hoe u om weer te geven met RBAC en de REST-API toewijzingen weigeren.
+Op dit moment zijn weigeringstoewijzingen **alleen-lezen** en kunnen deze alleen worden ingesteld door Azure. U kunt geen eigen weigeringstoewijzingen maken, maar u kunt wel een lijst met weigeringstoewijzingen weergeven omdat deze invloed kunnen hebben op uw effectieve machtigingen. Dit artikel wordt beschreven hoe u om weer te geven met RBAC en de REST-API toewijzingen weigeren.
 
 ## <a name="list-a-single-deny-assignment"></a>Lijst met één opdracht weigeren
 
@@ -68,7 +68,7 @@ Op dit moment weigeren toewijzingen worden **alleen-lezen** en kan alleen worden
 
 1. Vervang *{filter}* met de voorwaarde die u wilt toepassen op filter de lijst weigeren toewijzing.
 
-    | Filteren | Beschrijving |
+    | Filteren | Description |
     | --- | --- |
     | (geen filter) | Lijst met alle weigeren toewijzingen aan, boven en onder het opgegeven bereik. |
     | `$filter=atScope()` | Lijst weigeren toewijzingen voor alleen het opgegeven bereik en hoger. Geen toewijzingen op subscopes weigeren. |
@@ -86,7 +86,7 @@ Op dit moment weigeren toewijzingen worden **alleen-lezen** en kan alleen worden
 
 1. Vervang *{filter}* met de voorwaarde die u wilt toepassen op filter de lijst weigeren toewijzing. Een filter is vereist.
 
-    | Filteren | Beschrijving |
+    | Filteren | Description |
     | --- | --- |
     | `$filter=atScope()` | Lijst weigeren toewijzingen voor alleen het bereik van de hoofdmap. Geen toewijzingen op subscopes weigeren. |
     | `$filter=denyAssignmentName%20eq%20'{deny-assignment-name}'` | Lijst weigeren toewijzingen met de opgegeven naam. |
@@ -95,6 +95,6 @@ Op dit moment weigeren toewijzingen worden **alleen-lezen** en kan alleen worden
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Informatie over toewijzingen weigeren](deny-assignments.md)
-- [Toegangsrechten voor een globale beheerder in Azure Active Directory](elevate-access-global-admin.md)
+- [Informatie over toewijzingen voor Azure-resources te weigeren](deny-assignments.md)
+- [Toegangsbevoegdheid voor een globale beheerder verhogen in Azure Active Directory](elevate-access-global-admin.md)
 - [Azure REST API-naslaginformatie](/rest/api/azure/)

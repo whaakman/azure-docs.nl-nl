@@ -1,6 +1,6 @@
 ---
-title: Aangepaste rollen in Azure | Microsoft Docs
-description: Informatie over het definiëren van aangepaste rollen met op rollen gebaseerd toegangsbeheer in Azure (RBAC) voor fijnmazig toegangsbeheer van bronnen in Azure.
+title: Aangepaste rollen voor Azure-resources | Microsoft Docs
+description: Informatie over het maken van aangepaste rollen met op rollen gebaseerd toegangsbeheer (RBAC) voor fijnmazig toegangsbeheer van Azure-resources.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8d2e3dc989a44de0c7c091dfbe1254a0e204faae
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 6307c57f32700c0c2dd2e5da15b98a2a54dbe9c4
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697126"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339325"
 ---
-# <a name="custom-roles-in-azure"></a>Aangepaste rollen in Azure
+# <a name="custom-roles-for-azure-resources"></a>Aangepaste rollen voor Azure-resources
 
-Als de [ingebouwde rollen](built-in-roles.md) niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen aangepaste rollen maken. Net als de ingebouwde rollen, kunt u aangepaste rollen toewijzen aan gebruikers, groepen en service-principals op abonnement, resourcegroep en resource-bereiken. Aangepaste rollen worden opgeslagen in een directory van Azure Active Directory (Azure AD) en kunnen worden gedeeld met abonnementen. Elke directory kan maximaal 2000 aangepaste rollen hebben. Aangepaste rollen kunnen worden gemaakt met behulp van Azure PowerShell, Azure CLI of de REST-API.
+Als de [ingebouwde rollen voor Azure-resources](built-in-roles.md) niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen aangepaste rollen maken. Net als de ingebouwde rollen, kunt u aangepaste rollen toewijzen aan gebruikers, groepen en service-principals op abonnement, resourcegroep en resource-bereiken. Aangepaste rollen worden opgeslagen in een directory van Azure Active Directory (Azure AD) en kunnen worden gedeeld met abonnementen. Elke directory kan maximaal 2000 aangepaste rollen hebben. Aangepaste rollen kunnen worden gemaakt met behulp van Azure PowerShell, Azure CLI of de REST-API.
 
 ## <a name="custom-role-example"></a>Voorbeeld van de aangepaste rol
 
@@ -107,7 +107,7 @@ Net als ingebouwde rollen, de `AssignableScopes` -eigenschap geeft de scopes die
 | Een aangepaste rol weergeven | `Microsoft.Authorization/ roleDefinition/read` | Gebruikers die deze bewerking met een bereik worden verleend, kunnen de aangepaste rollen die beschikbaar voor toewijzing op dat bereik zijn bekijken. Alle ingebouwde rollen kunnen aangepaste rollen zijn beschikbaar voor toewijzing. |
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Aangepaste rollen maken met behulp van Azure PowerShell](custom-roles-powershell.md)
-- [Aangepaste rollen maken met Azure CLI](custom-roles-cli.md)
-- [Roldefinities begrijpen](role-definitions.md)
-- [RBAC in Azure oplossen](troubleshooting.md)
+- [Aangepaste rollen maken voor Azure-resources met behulp van Azure PowerShell](custom-roles-powershell.md)
+- [Aangepaste rollen maken voor Azure-resources met behulp van Azure CLI](custom-roles-cli.md)
+- [Informatie over roldefinities voor Azure-resources](role-definitions.md)
+- [RBAC voor Azure-resources oplossen](troubleshooting.md)

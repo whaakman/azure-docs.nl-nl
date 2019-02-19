@@ -1,6 +1,6 @@
 ---
-title: Wijzigen, verwijderen of uw beheergroepen in Azure beheren
-description: Informatie over het onderhouden en bijwerken van uw hiërarchie beheren.
+title: Wijzigen, verwijderen of beheren van uw beheergroepen in Azure - Azure-beheer
+description: Informatie over het weergeven, onderhouden, bijwerken en verwijderen van uw hiërarchie beheren.
 author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 10dfa9812a0546f3a8c57e28227851b6f72657fc
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: dbfb6ecb9f29a82a8871922982a64dbefc338969
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582408"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342576"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Uw resources beheren met beheergroepen
 
@@ -39,11 +39,11 @@ U kunt de naam van de beheergroep wijzigen met behulp van de portal, PowerShell 
 
 1. Selecteer de **naam van groep** optie aan de bovenkant van de pagina.
 
-   ![Naam van groep wijzigen](./media/detail_action_small.png)
+   ![Naam van groep-optie](./media/detail_action_small.png)
 
 1. Wanneer het menu wordt geopend, typt u de nieuwe naam die u wilt weergeven.
 
-   ![Naam van groep wijzigen](./media/rename_context.png)
+   ![Deelvenster van de naam van groep](./media/rename_context.png)
 
 1. Selecteer **Opslaan**.
 
@@ -87,11 +87,11 @@ Als u wilt verwijderen van een beheergroep, moeten de volgende vereisten worden 
 
    - Als het pictogram is uitgeschakeld, ziet de muis selector muiswijzer op het pictogram u de reden.
 
-   ![Groep verwijderen](./media/delete.png)
+   ![De Groepsoptie verwijderen](./media/delete.png)
 
 1. Er is een venster dat wordt geopend waaruit blijkt dat u wilt verwijderen van de beheergroep.
 
-   ![Groep verwijderen](./media/delete_confirm.png)
+   ![Bevestigingsvenster groep verwijderen](./media/delete_confirm.png)
 
 1. Selecteer **Ja**.
 
@@ -195,13 +195,13 @@ Om te zien welke machtigingen u hebt, selecteert u de beheergroep en selecteer v
 
 1. Selecteer de ellips aan het einde van de rij voor het abonnement in de lijst die u wilt verplaatsen.
 
-   ![Verplaatsen](./media/move_small.png)
+   ![Optie verplaatsen](./media/move_small.png)
 
 1. Selecteer **verplaatsen**.
 
 1. Selecteer op het menu dat verschijnt, de **bovenliggende beheergroep**.
 
-   ![Verplaatsen](./media/move_small_context.png)
+   ![Deelvenster verplaatsen](./media/move_small_context.png)
 
 1. Selecteer **Opslaan**.
 

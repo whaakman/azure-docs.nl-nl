@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 02/04/2019
 ms.author: juliako
-ms.openlocfilehash: b05c174bf96e78efd66f2c673e46ab43700c09f9
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 4f67158c0de8cdd161bce269059af6d421bb68b5
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744161"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340345"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Hulp bij de migratie voor het verplaatsen van Media Services v2 naar v3
 
@@ -45,11 +45,11 @@ Als u een videoservice ontwikkeld vandaag nog hebt op de [oudere Media Services 
 
 * Voor bestandsopslag taak verwerken, kunt u een URL voor HTTP (S) als de invoer.<br/>U hoeft niet dat inhoud die al is opgeslagen in Azure, noch moet u om activa te maken.
 * Introduceert het concept van [transformeert](transforms-jobs-concept.md) voor bestandsgebaseerde taak verwerken. Een transformatie kan worden gebruikt om herbruikbare buildconfiguraties, voor het maken van Azure Resource Manager-sjablonen en van Verwerkingsinstellingen tussen meerdere klanten of tenants isoleren.
-* Een Asset kan hebben meerdere [Streaming-Locators](streaming-locators-concept.md) elk met verschillende instellingen voor dynamische pakketten en dynamische versleuteling.
+* Een Asset kan hebben meerdere [Streaming-Locators](streaming-locators-concept.md) elk met verschillende [dynamische verpakking](dynamic-packaging-overview.md) en instellingen voor dynamische versleuteling.
 * [Inhoudsbeveiliging](content-key-policy-concept.md) biedt ondersteuning voor meerdere belangrijke functies.
 * U kunt Live gebeurtenissen die tot 24 uur lang wanneer met behulp van Media Services voor een single-bitrate bijdrage transcodering feed in een uitvoerstroom met meerdere bitrates streamen.
 * Nieuwe met lage latentie live streaming ondersteuning voor Live gebeurtenissen. Zie voor meer informatie, [latentie](live-event-latency.md).
-* Live gebeurtenis Preview biedt ondersteuning voor dynamische pakketten en dynamische versleuteling. Hierdoor kunnen de beveiliging van inhoud op Preview-versie, evenals DASH en HLS-verpakking.
+* Live gebeurtenis Preview ondersteunt [dynamische verpakking](dynamic-packaging-overview.md) en dynamische versleuteling. Hierdoor kunnen de beveiliging van inhoud op Preview-versie, evenals DASH en HLS-verpakking.
 * Live uitvoer is eenvoudiger te gebruiken dan de entiteit wordt in de v2-API's. 
 * Verbeterde RTMP-ondersteuning (verbeterde stabiliteit en meer bron encoder-ondersteuning).
 * Beveiligde RTMPS opnemen.<br/>Als u een Live gebeurtenis hebt gemaakt, krijgt u 4 URL's voor opnemen. Opname van de 4 URL's zijn bijna identiek, hetzelfde streaming-token (AppId), alleen de poort nummer onderdeel verschilt. Twee van de URL's zijn primaire en back-up voor RTMPS.   

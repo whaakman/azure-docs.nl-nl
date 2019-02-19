@@ -3,17 +3,17 @@ title: Problemen met Azure Backup Agent oplossen
 description: Installatie en registratie van Azure Backup Agent oplossen
 services: backup
 author: saurabhsensharma
-manager: shreeshd
+manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/25/2018
+ms.date: 02/18/2019
 ms.author: saurse
-ms.openlocfilehash: 65eb6ef088c9baae67d65607ede771f3c9d11a41
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 9180604b18224adace040c9eee5181b4cd4d8b92
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114138"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339002"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>Microsoft Azure Recovery Services (MARS)-Agent oplossen
 
@@ -24,8 +24,13 @@ Hier wordt beschreven hoe u fouten u tijdens de configuratie, registratie, back-
 | ---     | ---     | ---    |
 | **Fout** </br> *Er zijn ongeldige kluisreferenties opgegeven. Het bestand is beschadigd of heeft niet zijn de meest recente referenties die zijn gekoppeld aan recovery-service. (ID: 34513)* | <ul><li> De kluisreferenties zijn ongeldig (dat wil zeggen, zijn ze meer dan 48 uur vóór het tijdstip van inschrijving gedownload).<li>MARS-Agent, kan geen bestanden downloaden naar de map Temp van Windows. <li>De kluisreferenties bevinden zich op een netwerklocatie bevindt. <li>TLS 1.0 is uitgeschakeld<li> De verbinding wordt geblokkeerd door een geconfigureerde proxyserver. <br> |  <ul><li>Download nieuwe kluisreferenties. (**Opmerking**: Als meerdere bestanden van de kluis referentie eerder zijn gedownload, alleen het meest recente gedownloade bestand is geldig binnen 48 uur.) <li>Start **IE** > **instelling** > **Internetopties** > **Security**  >  **Internet**. Selecteer vervolgens **aangepast niveau**, en schuif totdat u het bestand downloaden sectie ziet. Selecteer vervolgens **inschakelen**.<li>Kunt u wellicht ook om toe te voegen deze sites in Internet Explorer [vertrouwde sites](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins#network-and-connectivity-requirements).<li>Wijzig de instellingen voor het gebruik van een proxyserver. Geeft u de proxy-server-gegevens. <li> De datum en tijd overeen met de computer.<li>Als u een foutmelding waarin staat dat downloaden van bestanden niet zijn toegestaan, is het waarschijnlijk dat er een groot aantal bestanden in de C:/Windows/Temp-map zijn.<li>Ga naar C:/Windows/Temp en controleren of er meer dan 60.000 of 65.000 bestanden met de extensie .tmp. Als er, moet u deze bestanden verwijdert.<li>Zorg dat u .NET framework 4.6.2 is geïnstalleerd. <li>Als u TLS 1.0 hebt uitgeschakeld vanwege PCI-naleving, verwijzen naar dit [pagina voor probleemoplossing](https://support.microsoft.com/help/4022913). <li>Als u antivirussoftware op de server geïnstalleerd hebt, kunt u de volgende bestanden uitsluiten van de scan antivirusprogramma's: <ul><li>CBengine.exe<li>CSC.exe is gerelateerd aan .NET Framework. Er is een CSC.exe voor elk .NET-versie die geïnstalleerd op de server. CSC.exe-bestanden die zijn gekoppeld aan alle versies van .NET Framework op de betrokken server uitsluiten. <li>Map of cache scratchlocatie. <br>*De standaardlocatie voor de tijdelijke map of het pad naar de locatie van de cache is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.<br><li>De bin-map C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
 
+## <a name="unable-to-download-vault-credential-file"></a>Kan geen kluisreferentiebestand downloaden
 
-## <a name="the-mars-agent-was-unable-to-connect-to-azure-backup"></a>De MARS-Agent is geen verbinding maken met Azure Backup
+| Foutdetails | Aanbevolen acties |
+| ---     | ---    |
+|Downloaden van het kluisreferentiebestand is mislukt. (ID: 403) | <ul><li> Probeer andere browser met kluisreferenties downloaden of uitvoeren van de onderstaande stappen te volgen: <ul><li> Start Internet Explorer, op F12 te drukken. </li><li> Ga naar **netwerk** tabblad IE cache leegmaken en cookies </li> <li> Vernieuw de pagina<br>(OR)</li></ul> <li> Controleer of het abonnement uitgeschakeld of verlopen is<br>(OR)</li> <li> Controleer als een firewallregel wordt geblokkeerd door de kluis referentie-bestand downloaden <br>(OR)</li> <li> Zorg ervoor dat u hebt niet volledig gebruikt de limiet voor de kluis (50 machines per kluis)<br>(OR)</li>  <li> Zorg ervoor dat de gebruiker heeft toestemming van de Azure Backup kluisreferentie downloaden en server registreren bij de kluis, Zie [artikel](backup-rbac-rs-vault.md)</li></ul> | 
+
+## <a name="the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup"></a>De Microsoft Azure Recovery Services-agent kan geen verbinding maken met Microsoft Azure Backup
 
 | Foutdetails | Mogelijke oorzaken | Aanbevolen acties |
 | ---     | ---     | ---    |
@@ -54,6 +59,8 @@ Hier wordt beschreven hoe u fouten u tijdens de configuratie, registratie, back-
 ## <a name="backups-dont-run-according-to-the-schedule"></a>Back-ups uitvoeren volgens het schema niet
 Als de geplande back-ups niet automatisch ophalen geactiveerd terwijl er een handmatige back-ups zonder problemen werkt, probeert u de volgende acties:
 
+- Ga naar **Configuratiescherm** > **Systeembeheer** > **Task Scheduler**. Vouw **Microsoft**, en selecteer **Online back-up**. Dubbelklik op **Microsoft OnlineBackup**, en Ga naar de **Triggers** tabblad. Zorg ervoor dat de status is ingesteld op **ingeschakeld**. Als dit niet, selecteer **bewerken**, en selecteer de **ingeschakeld** selectievakje. Op de **algemene** tabblad, Ga naar **beveiligingsopties**. Zorg ervoor dat het gebruikersaccount dat is geselecteerd voor het uitvoeren van de taak een is **SYSTEM** of **lokale beheerdersgroep** op de server.
+
 - Zie als PowerShell 3.0 of hoger is geïnstalleerd op de server. Voer de volgende opdracht uit om te controleren of de PowerShell-versie, en controleer de *belangrijke* versienummer is gelijk aan of groter is dan 3.
 
   `$PSVersionTable.PSVersion`
@@ -67,9 +74,6 @@ Als de geplande back-ups niet automatisch ophalen geactiveerd terwijl er een han
   `PS C:\WINDOWS\system32> Get-ExecutionPolicy -List`
 
   `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
-
-- Ga naar **Configuratiescherm** > **Systeembeheer** > **Task Scheduler**. Vouw **Microsoft**, en selecteer **Online back-up**. Dubbelklik op **Microsoft OnlineBackup**, en Ga naar de **Triggers** tabblad. Zorg ervoor dat de status is ingesteld op **ingeschakeld**. Als dit niet, selecteer **bewerken**, en selecteer de **ingeschakeld** selectievakje. Op de **algemene** tabblad, Ga naar **beveiligingsopties**. Zorg ervoor dat het gebruikersaccount dat is geselecteerd voor het uitvoeren van de taak een is **SYSTEM** of **lokale beheerdersgroep** op de server.
-
 
 > [!TIP]
 > Om ervoor te zorgen dat wijzigingen consequent worden toegepast, start u de server opnieuw na het uitvoeren van de bovenstaande stappen.
@@ -99,7 +103,7 @@ Azure Backup kan is niet het herstelvolume, zelfs na enkele minuten koppelen. Mo
 
 8.  Start de Microsoft iSCSI Initiator-service opnieuw. U doet dit door met de rechtermuisknop op de service en selecteer **stoppen**, met de rechtermuisknop opnieuw op en selecteer **Start**.
 
-9.  Probeer opnieuw te herstellen met behulp van **direct herstellen**.
+9.  Probeer opnieuw te herstellen met behulp van [ **direct herstellen**](backup-instant-restore-capability.md).
 
 Als het herstel is nog steeds mislukt, opnieuw opstarten van de server of -client. Als u niet opnieuw wilt opstarten of het herstel wordt nog steeds mislukt, zelfs na het opnieuw opstarten van de server, kunt u herstellen vanaf een alternatieve machine. Volg de stappen in [in dit artikel](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 

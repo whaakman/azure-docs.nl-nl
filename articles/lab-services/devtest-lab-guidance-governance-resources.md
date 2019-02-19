@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: aff57e58ffd247bcc697908f2f25cbf17ff9b91a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: c5514a43602106cf045b575d289e02b591468359
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244127"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338458"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Beheer van infrastructuur in Azure DevTest Labs - Resources
 In dit artikel komen de uitlijning en het beheer van resources voor DevTest Labs in uw organisatie. 
@@ -56,7 +56,7 @@ Hoe ik een naamconventie onderhouden in mijn DevTest Labs-omgeving?
 ### <a name="answer"></a>Antwoord
 Kunt u ze consistent maken in de DevTest Labs-omgeving om uit te breiden huidige enterprise-naamgevingsregels voor Azure-bewerkingen.
 
-Bij het implementeren van DevTest Labs, wordt u aangeraden dat u specifieke vanaf beleidsregels hebt. U implementeert deze beleidsregels door een centrale script en JSON-sjablonen voor het afdwingen van consistentie. Naamgeving van beleid kan worden geïmplementeerd via Azure-beleid toegepast op het abonnementsniveau. Zie voor JSON-voorbeelden voor Azure Policy, [voorbeelden voor Azure Policy](../azure-policy/json-samples.md).
+Bij het implementeren van DevTest Labs, wordt u aangeraden dat u specifieke vanaf beleidsregels hebt. U implementeert deze beleidsregels door een centrale script en JSON-sjablonen voor het afdwingen van consistentie. Naamgeving van beleid kan worden geïmplementeerd via Azure-beleid toegepast op het abonnementsniveau. Zie voor JSON-voorbeelden voor Azure Policy, [voorbeelden voor Azure Policy](../governance/policy/samples/index.md).
 
 ## <a name="number-of-users-per-lab-and-labs-per-organization"></a>Aantal gebruikers per lab en labs per organisatie
 

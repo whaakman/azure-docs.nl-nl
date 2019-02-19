@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 536239a9ff98c76badfc042a2d59d19b8fb6f04a
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 1f71276c25e3ec1e5791d9b35f89aa95190c6afd
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770581"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341953"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Azure Policy gebruiken voor het beperken van de installatie van de extensies op virtuele Linux-machines
 
@@ -28,7 +28,7 @@ In deze zelfstudie maakt gebruik van de CLI vanuit de Azure Cloud Shell, die voo
 
 ## <a name="create-a-rules-file"></a>Maak een regelbestand
 
-Als u wilt beperken welke extensies kunnen worden geïnstalleerd, moet u beschikken over een [regel](/azure/azure-policy/policy-definition#policy-rule) voor de logica voor het identificeren van de extensie.
+Als u wilt beperken welke extensies kunnen worden geïnstalleerd, moet u beschikken over een [regel](../../governance/policy/concepts/definition-structure.md#policy-rule) voor de logica voor het identificeren van de extensie.
 
 In dit voorbeeld laat zien hoe weigeren installeren van extensies die zijn gepubliceerd door 'Microsoft.OSTCExtensions' door het maken van een bestand in Azure Cloud Shell, maar als u in de CLI lokaal werkt, kunt u ook een lokaal bestand gemaakt en vervangen door het pad naar het pad (~/clouddrive) het lokale bestand op uw computer.
 
@@ -69,7 +69,7 @@ Wanneer u klaar bent, bereikt de **Esc** sleutel en typ vervolgens **: wq** opsl
 
 ## <a name="create-a-parameters-file"></a>Maak een parameterbestand
 
-U moet ook een [parameters](/azure/azure-policy/policy-definition#parameters) -bestand dat wordt gemaakt van een structuur moet worden gebruikt voor het doorgeven in een lijst van de extensies blokkeren. 
+U moet ook een [parameters](../../governance/policy/concepts/definition-structure.md#parameters) -bestand dat wordt gemaakt van een structuur moet worden gebruikt voor het doorgeven in een lijst van de extensies blokkeren. 
 
 Dit voorbeeld ziet u hoe u een parameterbestand maken voor virtuele Linux-machines in de Cloud Shell, maar als u in de CLI lokaal werkt, kunt u ook een lokaal bestand maken en het pad (~/clouddrive) vervangt door het pad naar het lokale bestand op uw computer.
 
@@ -171,6 +171,6 @@ az policy assignment delete --name 'not-allowed-vmextension-linux' --resource-gr
 az policy definition delete --name 'not-allowed-vmextension-linux'
 ```
 
-
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie, [Azure Policy](../../azure-policy/azure-policy-introduction.md).
+
+Zie voor meer informatie, [Azure Policy](../../governance/policy/overview.md).

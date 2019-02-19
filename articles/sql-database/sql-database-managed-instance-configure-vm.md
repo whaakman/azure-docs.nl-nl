@@ -11,15 +11,15 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, srbozovi, bonova
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: 79dbaf98f953a9cb72a7fa7cf9facc2b17fad504
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.date: 02/18/2019
+ms.openlocfilehash: 640182b50492ed21cd604423fe1cef7301095941
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410057"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408796"
 ---
-# <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Snelstartgids: Azure virtuele machine verbinding maken met een Azure SQL Database Managed Instance configureren
+# <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Quickstart: Azure virtuele machine verbinding maken met een Azure SQL Database Managed Instance configureren
 
 In deze Quick Start laat zien hoe u een virtuele Azure-machine verbinding maken met een Azure SQL Database Managed Instance configureren met behulp van SQL Server Management Studio (SSMS). Zie voor een snelstart van hoe u verbinding maakt vanaf een on-premises clientcomputer met behulp van een punt-naar-site-verbinding [een punt-naar-site-verbinding configureren](sql-database-managed-instance-configure-p2s.md) 
 
@@ -97,7 +97,8 @@ De eenvoudigste manier om een client virtuele machine maken met alle benodigde h
 4. Selecteer **aankoop** de Azure-VM in uw netwerk te implementeren.
 5. Selecteer het pictogram voor **Meldingen** om de status van de implementatie te bekijken.
 
-Niet verder voordat de virtuele machine van Azure is gemaakt. 
+> [!IMPORTANT]
+> Ga niet verder tot ongeveer 15 minuten nadat de virtuele machine is gemaakt zodat de tijd voor de scripts voor na het maken voor het installeren van SQL Server Management Studio.
 
 ## <a name="connect-to-virtual-machine"></a>Verbinding maken met de virtuele machine
 

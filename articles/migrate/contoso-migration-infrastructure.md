@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/1/2018
 ms.author: raynew
-ms.openlocfilehash: 32a489ee6266018ef1160a0870fe236cc6a72d36
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 17ec8eb779dec560cfc5350fecc0fb819e89195a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726981"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340124"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - een migratie-infrastructuur implementeren
 
@@ -27,20 +27,20 @@ In dit artikel maakt deel uit van een reeks artikelen waarin hoe het fictieve be
 
 **Artikel** | **Details** | **Status**
 --- | --- | ---
-[Artikel 1: overzicht](contoso-migration-overview.md) | Overzicht van de serie artikelen, strategie voor de migratie van Contoso en de voorbeeld-apps die worden gebruikt in de reeks. | Beschikbaar
-Artikel 2: Een Azure-infrastructuur implementeren | Contoso bereidt u de on-premises infrastructuur en de Azure-infrastructuur voor migratie. Dezelfde infrastructuur wordt gebruikt voor alle migratieartikelen in de reeks. | In dit artikel
-[Artikel 3: Evalueer on-premises bronnen voor migratie naar Azure](contoso-migration-assessment.md)  | SContoso wordt uitgevoerd een evaluatie van de on-premises SmartHotel360-app die wordt uitgevoerd op VMware. Contoso beoordeelt virtuele machines van app met behulp van de Azure Migrate-service en de app SQL Server-database met behulp van Data Migration Assistant. | Beschikbaar
+[Artikel 1: Overzicht](contoso-migration-overview.md) | Overzicht van de serie artikelen, strategie voor de migratie van Contoso en de voorbeeld-apps die worden gebruikt in de reeks. | Beschikbaar
+Artikel 2: een Azure-infrastructuur implementeren | Contoso bereidt u de on-premises infrastructuur en de Azure-infrastructuur voor migratie. Dezelfde infrastructuur wordt gebruikt voor alle migratieartikelen in de reeks. | In dit artikel
+[Artikel 3: On-premises resources voor migratie naar Azure evalueren](contoso-migration-assessment.md)  | SContoso wordt uitgevoerd een evaluatie van de on-premises SmartHotel360-app die wordt uitgevoerd op VMware. Contoso beoordeelt virtuele machines van app met behulp van de Azure Migrate-service en de app SQL Server-database met behulp van Data Migration Assistant. | Beschikbaar
 [Artikel 4: Opnieuw hosten van een app op een Azure-VM en het beheerde exemplaar van SQL Database](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso wordt een lift-and-shift-migratie naar Azure voor de on-premises SmartHotel360-app uitgevoerd. Contoso migreert u de app front-end virtuele machine via [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso de app-database migreert naar een Azure SQL Database Managed Instance met de [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Beschikbaar   
 [Artikel 5: Een app op Azure VM's opnieuw hosten](contoso-migration-rehost-vm.md) | De VM's van de SmartHotel360-app migreert Contoso naar Azure-VM's met behulp van de Site Recovery-service. | Beschikbaar
-[Artikel 6: Een app op Azure Virtual machines en in een SQL Server AlwaysOn-beschikbaarheidsgroep opnieuw hosten](contoso-migration-rehost-vm-sql-ag.md) | Contoso, worden gemigreerd met de app met behulp van Site Recovery voor het migreren van virtuele machines van de app en de Database Migration Service voor het migreren van de app-database naar een SQL Server-cluster dat wordt beveiligd door een AlwaysOn-beschikbaarheidsgroep. | Beschikbaar
-[Artikel 7: Een Linux-app op Azure VM's opnieuw hosten](contoso-migration-rehost-linux-vm.md) | Contoso is een lift-and-shift-migratie van de Linux-osTicket-app naar Azure-VM's, met behulp van de Site Recovery-service voltooid. | Beschikbaar
-[Artikel 8: Een Linux-app op Azure VM's en Azure Database for MySQL Rehost](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migreert de Linux-osTicket-app naar Azure-VM's met behulp van Site Recovery. Deze migreert de app-database naar Azure Database for MySQL via MySQL Workbench. | Beschikbaar
-[Artikel 9: Een app in een Azure-web-app en Azure SQL Database herstructureren](contoso-migration-refactor-web-app-sql.md) | Contoso de SmartHotel360-app migreert naar een Azure-web-app en de app-database migreert naar een Azure SQL Server-exemplaar met de Database Migration Assistant. | Beschikbaar    
+[Artikel 6: Een app op Azure Virtual machines en in een SQL Server AlwaysOn-beschikbaarheidsgroep rehost](contoso-migration-rehost-vm-sql-ag.md) | Contoso, worden gemigreerd met de app met behulp van Site Recovery voor het migreren van virtuele machines van de app en de Database Migration Service voor het migreren van de app-database naar een SQL Server-cluster dat wordt beveiligd door een AlwaysOn-beschikbaarheidsgroep. | Beschikbaar
+[7-artikel: Een Linux-app op Azure VM's opnieuw hosten](contoso-migration-rehost-linux-vm.md) | Contoso is een lift-and-shift-migratie van de Linux-osTicket-app naar Azure-VM's, met behulp van de Site Recovery-service voltooid. | Beschikbaar
+[8-artikel: Een Linux-app op Azure VM's en Azure Database for MySQL rehost](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migreert de Linux-osTicket-app naar Azure-VM's met behulp van Site Recovery. Deze migreert de app-database naar Azure Database for MySQL via MySQL Workbench. | Beschikbaar
+[9-artikel: Een app in een Azure-web-app en Azure SQL Database herstructureren](contoso-migration-refactor-web-app-sql.md) | Contoso de SmartHotel360-app migreert naar een Azure-web-app en de app-database migreert naar een Azure SQL Server-exemplaar met de Database Migration Assistant. | Beschikbaar    
 [Artikel 10: Een Linux-app in een Azure-web-app en de Azure Database for MySQL herstructureren](contoso-migration-refactor-linux-app-service-mysql.md) | De Linux-app osTicket migreert Contoso naar een Azure-web-app op meerdere sites. De web-app is geïntegreerd met GitHub voor continue levering. Deze migreert de app-database naar een Azure Database for MySQL-exemplaar. | Beschikbaar
-[Artikel 11: Herstructureren Team Foundation Server op Azure DevOps-Services](contoso-migration-tfs-vsts.md) | Contoso migreert de on-premises Team Foundation Server-implementatie naar Azure DevOps-Services in Azure. | Beschikbaar
-[Artikel 12: Opnieuw ontwerpen van een app in Azure-containers en Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | De app SmartHotel migreert Contoso naar Azure. Vervolgens rearchitects wordt de weblaag app als een Windows-container die wordt uitgevoerd in Azure Service Fabric en app-databases met Azure SQL Database. | Beschikbaar    
-[Artikel 13: Opnieuw opbouwen van een app in Azure](contoso-migration-rebuild.md) | Contoso wordt opnieuw gemaakt zijn SmartHotel-app met een scala aan mogelijkheden van Azure en services, waaronder Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services en Azure Cosmos DB. | Beschikbaar
-[Artikel 14: Schaal van een migratie naar Azure](contoso-migration-scale.md) | Na het proberen van migratie combinaties, bereidt Contoso worden uitgebreid naar een volledige migratie naar Azure. | Beschikbaar 
+[11-artikel: Herstructureren van Team Foundation Server op Azure DevOps-Services](contoso-migration-tfs-vsts.md) | Contoso migreert de on-premises Team Foundation Server-implementatie naar Azure DevOps-Services in Azure. | Beschikbaar
+[12-artikel: Een app in Azure-containers en Azure SQL Database opnieuw modelleren](contoso-migration-rearchitect-container-sql.md) | De app SmartHotel migreert Contoso naar Azure. Vervolgens rearchitects wordt de weblaag app als een Windows-container die wordt uitgevoerd in Azure Service Fabric en app-databases met Azure SQL Database. | Beschikbaar    
+[13-artikel: Opnieuw opbouwen van een app in Azure](contoso-migration-rebuild.md) | Contoso wordt opnieuw gemaakt zijn SmartHotel-app met een scala aan mogelijkheden van Azure en services, waaronder Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services en Azure Cosmos DB. | Beschikbaar
+[14-artikel: Schalen van een migratie naar Azure](contoso-migration-scale.md) | Na het proberen van migratie combinaties, bereidt Contoso worden uitgebreid naar een volledige migratie naar Azure. | Beschikbaar 
 
 In dit artikel die Contoso u alle Infrastructuurelementen stelt moet alle scenario's voor migratie te voltooien. 
 
@@ -49,12 +49,12 @@ In dit artikel die Contoso u alle Infrastructuurelementen stelt moet alle scenar
 
 Voordat u Contoso kunt migreren naar Azure, is het essentieel is voor het voorbereiden van een Azure-infrastructuur.  Er zijn vijf brede gebieden die Contoso nodig heeft om na te denken over:
 
-**Stap 1: Azure-abonnementen**: hoe Contoso Azure koopt, en communiceren met de Azure-platform en services?  
-**Stap 2: Hybride identiteit**: hoe wordt het beheren en toegang tot on-premises en Azure-resources beheren na de migratie? Hoe Contoso uitbreiden of identiteitsbeheer verplaatsen naar de cloud?  
-**Stap 3: Herstel na noodgevallen en flexibiliteit**: hoe Contoso zorgt dat de apps en infrastructuur flexibel zijn als er uitval en noodgevallen optreden?  
-**Stap 4: Netwerken**: hoe moet Contoso een netwerkinfrastructuur ontwerpen en verbinding tussen de on-premises datacenter en Azure?  
-**Stap 5: Beveiliging**: hoe de hybride/Azure-implementatie wordt de beveiligde?  
-**Stap 6: Governance**: hoe Contoso blijft de implementatie die is afgestemd op de vereisten voor beveiliging en governance?
+**Stap 1: Azure-abonnementen**: Hoe Contoso Azure koopt, en communiceren met de Azure-platform en services?  
+**Stap 2: Hybride identiteit**: Hoe wordt het beheren en toegang tot on-premises en Azure-resources beheren na de migratie? Hoe Contoso uitbreiden of identiteitsbeheer verplaatsen naar de cloud?  
+**Stap 3: Herstel na noodgevallen en flexibiliteit**: Hoe wordt Contoso ervoor zorgen dat de apps en infrastructuur flexibel zijn als er uitval en noodgevallen optreden?  
+**Stap 4: Netwerken**: Hoe moet Contoso een netwerkinfrastructuur ontwerpen en verbinding tussen de on-premises datacenter en Azure?  
+**Stap 5: Beveiliging**: Hoe wordt de beveiligde de hybride/Azure-implementatie?  
+**Stap 6: Governance**: Hoe wordt de implementatie die is afgestemd op de vereisten voor beveiliging en governance in Contoso houden?
 
 ## <a name="before-you-start"></a>Voordat u begint
 
@@ -132,7 +132,7 @@ Voorspelbare workloads zijn die altijd beschikbaar moeten zijn met de machines d
 Voor het gebruik van gereserveerde instanties voor specifieke virtuele machine moet exemplaren worden bijgehouden voor grote duur van de tijd Console kunt u zowel een korting en capaciteit met prioriteit. Met behulp van [Azure Reserved Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/), samen met Azure Hybrid Benefit, Contoso bespaart tot 82% op de normale betalen per gebruik prijzen (April 2018).
 
 
-## <a name="step-2-manage-hybrid-identity"></a>Stap 2: Beheren voor hybride identiteit
+## <a name="step-2-manage-hybrid-identity"></a>Stap 2: Beheren van hybride identiteit
 
 Verlenen en beheren van gebruikerstoegang tot Azure-resources met beheer van identiteits- en toegangsbeheer (IAM) is een belangrijke stap in het binnenhalen van een Azure-infrastructuur.  
 
@@ -302,9 +302,9 @@ Contoso beschikbaarheid implementeert zones als apps aanroepen van schaalbaarhei
 
 Contoso is gereed om te overwegen een strategie voor netwerken met de regionale ontwerp in plaats. Nodig om na te denken over de on-premises datacenter en Azure verbinding maakt en met elkaar communiceren, en over het ontwerpen van de netwerkinfrastructuur in Azure. Specifiek Contoso moet:
 
-- **Hybride verbinding met het netwerk van plan bent**: bepalen hoe het gaat om netwerken te verbinden via on-premises en Azure.
-- **Een Azure-netwerk-infrastructuur ontwerpen**: bepalen hoe netwerken worden geïmplementeerd via regio's. Hoe communiceert netwerken binnen dezelfde regio en tussen regio's?
-- **Ontwerpen en Azure-netwerken instellen**: Azure-netwerken en subnetten, instellen en beslissen wat erin worden geplaatst.
+- **Hybride verbinding met het netwerk van plan bent**: Bepalen hoe het gaat om netwerken te verbinden via on-premises en Azure.
+- **Een Azure-netwerk-infrastructuur ontwerpen**: Bepaal hoe netwerken worden geïmplementeerd via regio's. Hoe communiceert netwerken binnen dezelfde regio en tussen regio's?
+- **Ontwerpen en Azure-netwerken instellen**: Instellen van Azure-netwerken en subnetten en bepaal wat erin worden geplaatst.
 
 ### <a name="plan-hybrid-network-connectivity"></a>Plannen van hybride verbinding met het netwerk
 
@@ -399,10 +399,10 @@ Contoso is gereed voor het instellen van Azure-netwerken en subnetten met een ne
 
 VS-Oost 2 is de primaire regio die Contoso gebruiken voor het implementeren van resources en services. Hier ziet u hoe Contoso netwerken wordt ontwerpen:
 
-- **Hub**: de hub VNet in VS-Oost 2 is het middelpunt van primaire verbinding met het on-premises datacenter.
-- **VNets**: knooppunt VNets in VS-Oost 2 kunnen worden gebruikt om workloads te isoleren indien nodig. Contoso heeft twee knooppunt VNets in VS-Oost 2, naast de Hub VNet, doen:
+- **Hub**: De hub VNet in VS-Oost 2, is het middelpunt van primaire verbinding met het on-premises datacenter.
+- **VNets**: Knooppunt VNets in VS-Oost 2, kan worden gebruikt om workloads te isoleren indien nodig. Contoso heeft twee knooppunt VNets in VS-Oost 2, naast de Hub VNet, doen:
     - **VNET-DEV-EUS2**. Dit VNet gaat bieden de ontwikkeling en testen van team met een volledig werkend netwerk voor dev-projecten. Het fungeert als een leider gebied van productie, en zal afhankelijk zijn van de productie-infrastructuur om te functie.
-    - **VNET-PROD-EUS2**: Azure IaaS productieonderdelen bevindt zich in dit netwerk. 
+    - **VNET-PROD-EUS2**: Azure IaaS-productie-onderdelen, bevindt zich in dit netwerk. 
     -  Elk VNet heeft een eigen unieke adresruimte, met elkaar niet overlappen. Contoso wilt routering zonder NAT configureren
 - **Subnetten**:
     - Er is een subnet in elk netwerk voor elke app-laag
@@ -411,7 +411,7 @@ VS-Oost 2 is de primaire regio die Contoso gebruiken voor het implementeren van 
 
 Vnet's in VS-Oost 2 worden samengevat in de volgende tabel.
 
-**VNet** | **Bereik** | **Peer**
+**VNet** | **Range** | **Peer**
 --- | --- | ---
 **VNET-HUB-EUS2** | 10.240.0.0/20 | VNET-HUB-CUS2, VNET-DEV-EUS2, VNET-PROD-EUS2
 **VNET-DEV-EUS2** | 10.245.16.0/20 | VNET-HUB-EUS2
@@ -426,8 +426,8 @@ Vnet's in VS-Oost 2 worden samengevat in de volgende tabel.
 --- | --- | ---
 **IB-UntrustZone** | 10.240.0.0/24 | 251
 **IB-TrustZone** | 10.240.1.0/24 | 251
-**O UntrustZone** | 10.240.2.0/24 | 251
-**O TrustZone** | 10.240.3.0/24 | 251
+**OB-UntrustZone** | 10.240.2.0/24 | 251
+**OB-TrustZone** | 10.240.3.0/24 | 251
 **GatewaySubnets** | 10.240.10.0/24 | 251
 
 
@@ -449,7 +449,7 @@ Onderdelen van Azure IaaS bevinden zich in het productienetwerk. Elke app-laag h
 **Subnet** | **CIDR** | **Adressen** | **In het subnet**
 --- | --- | --- | ---
 **PROD-FE-EUS2** | 10.245.32.0/22 | 1019 | Web-front-ends laag virtuele machines
-**PRODUCTIE-APP-EUS2** | 10.245.36.0/22 | 1019 | App-laag virtuele machines
+**PROD-APP-EUS2** | 10.245.36.0/22 | 1019 | App-laag virtuele machines
 **PROD-DB-EUS2** | 10.245.40.0/23 | 507 | Database-VM 's
 **PROD-DC-EUS2** | 10.245.42.0/23 | 251 | Domeincontroller VM 's
 
@@ -461,20 +461,20 @@ Onderdelen van Azure IaaS bevinden zich in het productienetwerk. Elke app-laag h
 
 VS-midden is de secundaire regio van Contoso. Hier ziet u hoe Contoso netwerken wordt ontwerpen:
 
-- **Hub**: de hub VNet in VS-Oost 2 het middelpunt van connectiviteit met het on-premises datacenter en het knooppunt VNets in VS-Oost 2 kunnen worden gebruikt om te isoleren werkbelastingen is indien nodig, afzonderlijk beheerd vanaf andere knooppunten.
+- **Hub**: De hub die vnet in VS-Oost 2 het middelpunt van connectiviteit met het on-premises datacenter en het knooppunt dat vnets in VS-Oost 2 kunnen worden gebruikt om te isoleren werkbelastingen is indien nodig, beheerd afzonderlijk vanaf andere knooppunten.
 - **VNets**: Contoso heeft twee VNets in VS-midden:
     - VNET-PROD-CU 'S. Dit VNet is een productienetwerk, vergelijkbaar met VNET-PROD_EUS2. 
-    - VNET-ASR-CU 'S. Dit VNet fungeert als een locatie waarin de virtuele machines die zijn gemaakt na een failover van on-premises of als een locatie voor Azure-VM's waarvoor een failover van de primaire naar de secundaire regio is. Dit netwerk is vergelijkbaar met de productienetwerken, maar zonder dat alle domeincontrollers erop.
+    - VNET-ASR-CUS. Dit VNet fungeert als een locatie waarin de virtuele machines die zijn gemaakt na een failover van on-premises of als een locatie voor Azure-VM's waarvoor een failover van de primaire naar de secundaire regio is. Dit netwerk is vergelijkbaar met de productienetwerken, maar zonder dat alle domeincontrollers erop.
     -  Elk VNet in de regio heeft een eigen adresruimte, met elkaar niet overlappen. Contoso configureert routering zonder NAT bevinden.
-- **Subnetten**: de subnetten wordt op een soortgelijke manier om deze in VS-Oost 2 te worden ontworpen. De uitzondering is dat Contoso een subnet voor domeincontrollers niet nodig.
+- **Subnetten**: De subnetten wordt op een soortgelijke manier om deze in VS-Oost 2 te worden ontworpen. De uitzondering is dat Contoso een subnet voor domeincontrollers niet nodig.
 
 De VNets in VS centraal worden samengevat in de volgende tabel.
 
-**VNet** | **Bereik** | **Peer**
+**VNet** | **Range** | **Peer**
 --- | --- | ---
-**VNET-HUB-CU 'S** | 10.250.0.0/20 | VNET-HUB-EUS2, VNET-ASR-CU 'S, VNET-PROD-CU 'S
-**VNET-ASR-CU 'S** | 10.255.16.0/20 | VNET-HUB-CU 'S, VNET-PROD-CU 'S
-**VNET-PROD-CU 'S** | 10.255.32.0/20 | VNET-HUB-CU 'S, VNET-ASR-CU 'S, VNET-PROD-EUS2  
+**VNET-HUB-CUS** | 10.250.0.0/20 | VNET-HUB-EUS2, VNET-ASR-CUS, VNET-PROD-CUS
+**VNET-ASR-CUS** | 10.255.16.0/20 | VNET-HUB-CU 'S, VNET-PROD-CU 'S
+**VNET-PROD-CU 'S** | 10.255.32.0/20 | VNET-HUB-CUS, VNET-ASR-CUS, VNET-PROD-EUS2  
 
 
 ![Ster in gekoppelde regio](./media/contoso-migration-infrastructure/paired-hub-peer.png)
@@ -486,8 +486,8 @@ De VNets in VS centraal worden samengevat in de volgende tabel.
 --- | --- | ---
 **IB-UntrustZone** | 10.250.0.0/24 | 251
 **IB-TrustZone** | 10.250.1.0/24 | 251
-**O UntrustZone** | 10.250.2.0/24 | 251
-**O TrustZone** | 10.250.3.0/24 | 251
+**OB-UntrustZone** | 10.250.2.0/24 | 251
+**OB-TrustZone** | 10.250.3.0/24 | 251
 **GatewaySubnet** | 10.250.2.0/24 | 251
 
 
@@ -497,10 +497,10 @@ Parallel met het productienetwerk in de primaire regio in de VS-Oost 2, moet u e
 
 **Subnet** | **CIDR** | **Adressen** | **In het subnet**
 --- | --- | --- | ---
-**PROD-FE-CU 'S** | 10.255.32.0/22 | 1019 | Web-front-ends laag virtuele machines
-**PRODUCTIE-APP-CU 'S** | 10.255.36.0/22 | 1019 | App-laag virtuele machines
-**PROD-DB-CU 'S** | 10.255.40.0/23 | 507 | Database-VM 's
-**PROD-DC-CU 'S** | 10.255.42.0/24 | 251 | Domeincontroller VM 's
+**PROD-FE-CUS** | 10.255.32.0/22 | 1019 | Web-front-ends laag virtuele machines
+**PROD-APP-CUS** | 10.255.36.0/22 | 1019 | App-laag virtuele machines
+**PROD-DB-CUS** | 10.255.40.0/23 | 507 | Database-VM 's
+**PROD-DC-CUS** | 10.255.42.0/24 | 251 | Domeincontroller VM 's
 
 #### <a name="subnets-in-the-central-us-failoverrecovery-network-in-central-us-vnet-asr-cus"></a>Subnetten in de VS-midden failoverherstel/netwerk in VS centraal (CUS-ASR-VNET)
 
@@ -510,9 +510,9 @@ VNET-ASR-Cu's is standaard hetzelfde subnet als de productie VNet in VS-Oost 2, 
 
 **Subnet** | **CIDR** | **Adressen** | **In het subnet**
 --- | --- | --- | ---
-**ASR-FE-CU 'S** | 10.255.16.0/22 | 1019 | Web-front-ends laag virtuele machines
-**ASR-APP-CU 'S** | 10.255.20.0/22 | 1019 | App-laag virtuele machines
-**ASR-DB-CU 'S** | 10.255.24.0/23 | 507 | Database-VM 's
+**ASR-FE-CUS** | 10.255.16.0/22 | 1019 | Web-front-ends laag virtuele machines
+**ASR-APP-CUS** | 10.255.20.0/22 | 1019 | App-laag virtuele machines
+**ASR-DB-CUS** | 10.255.24.0/23 | 507 | Database-VM 's
 
 ![Hub-netwerkarchitectuur](./media/contoso-migration-infrastructure/azure-networks-cus.png)
 
@@ -568,8 +568,8 @@ Naast de on-premises domeincontrollers, Contoso gaan voor het implementeren van 
 --- | --- | --- | --- | ---
 EUS2 | CONTOSODC3 | VNET-PROD-EUS2 | PROD-DC-EUS2 | 10.245.42.4
 EUS2 | CONTOSODC4 | VNET-PROD-EUS2 | PROD-DC-EUS2 | 10.245.42.5
-CU 'S | CONTOSODC5 | VNET-PROD-CU 'S | PROD-DC-CU 'S | 10.255.42.4
-CU 'S | CONTOSODC6 | VNET-PROD-CU 'S | PROD-DC-CU 'S | 10.255.42.4
+CUS | CONTOSODC5 | VNET-PROD-CU 'S | PROD-DC-CUS | 10.255.42.4
+CUS | CONTOSODC6 | VNET-PROD-CU 'S | PROD-DC-CUS | 10.255.42.4
 
 Na de implementatie van de on-premises domeincontrollers, moet de Contoso DNS-instellingen voor netwerken in beide regio om op te nemen van de nieuwe domeincontrollers in de lijst met DNS-server bijwerken.
 
@@ -632,13 +632,13 @@ AD is een kritieke service in netwerken, en moet correct zijn geconfigureerd. Be
 
     ![AD-beheercentrum](./media/contoso-migration-infrastructure/ad-center.png)
 
-## <a name="step-5-plan-for-governance"></a>Stap 5: Plannen voor beheer
+## <a name="step-5-plan-for-governance"></a>Stap 5: Plan voor beheer
 
 Azure biedt een scala aan besturingselementen governance verschillende services en het Azure-platform. [Lees meer](https://docs.microsoft.com/azure/security/governance-in-azure) voor een basiskennis hebt van de opties.
 
 Zoals ook het configureren van de identiteit en toegangsbeheer, is al Contoso gestart voor het opzetten van sommige aspecten van beheer en beveiliging. Algemeen, zijn er drie gebieden nodig is om te overwegen:
 
-- **Beleid**: beleid in Azure is van toepassing en worden afgedwongen regels en effecten voor uw resources, zodat resources voldoen aan de vereisten van het bedrijf en sla's blijven.
+- **Beleid**: Beleid in Azure is van toepassing en worden afgedwongen regels en effecten voor uw resources, zodat resources voldoen aan de vereisten van het bedrijf en sla's blijven.
 - **Hiermee vergrendelt u**: Azure kunt u vergrendelen abonnementen, resourcegroepen en andere resources, zodat ze kunnen alleen worden gewijzigd door degenen met bevoegdheid om dit te doen.
 - **Tags**: Resources kunnen worden beheerd, gecontroleerd en beheerd met tags. Metagegevens toevoegen tags aan resources, het aanbieden van informatie over resources of eigenaren.
 
@@ -646,7 +646,7 @@ Zoals ook het configureren van de identiteit en toegangsbeheer, is al Contoso ge
 
 De Azure Policy-service beoordeelt wat uw resources, scannen op die niet compatibel zijn met de beleidsdefinities die u geïmplementeerd hebt. Bijvoorbeeld, mogelijk hebt u een beleid dat alleen bepaalde typen virtuele machines kunt opgeven of resources aan een specifieke tag vereist. 
 
-Azure-beleid een beleidsdefinitie opgeven en een beleidstoewijzing Hiermee geeft u het bereik waarin een beleid moet worden toegepast. Het bereik kan variëren van een beheergroep tot een resourcegroep. [Informatie over](https://docs.microsoft.com/azure/azure-policy/create-manage-policy) over het maken en beheren van beleid.
+Azure-beleid een beleidsdefinitie opgeven en een beleidstoewijzing Hiermee geeft u het bereik waarin een beleid moet worden toegepast. Het bereik kan variëren van een beheergroep tot een resourcegroep. [Informatie over](../governance/policy/tutorials/create-and-manage.md) over het maken en beheren van beleid.
 
 Contoso wil aan de slag met een aantal beleidsregels:
 
@@ -707,8 +707,8 @@ Contoso moet voor het visualiseren van de Azure-assets op een manier die zinvol 
 
 **Naam van de tag** | **Waarde**
 --- | ---
-Kostenplaats | 12345: dit moet een geldige kostenplaats van SAP.
-Business Unit | Naam van business unit (van SAP). Komt overeen met kostenplaats.
+Kostenplaats | 12345: Het moet een geldige kostenplaats van SAP.
+BusinessUnit | Naam van business unit (van SAP). Komt overeen met kostenplaats.
 ApplicationTeam | E-mailalias van het team dat eigenaar is van ondersteuning voor de app.
 CatalogName | De naam van de app of ShareServices, per de Servicecatalogus die ondersteuning biedt voor de resource.
 Service Manager | E-mailalias van de ITIL Service Manager voor de resource.
@@ -728,8 +728,8 @@ Beveiliging is van cruciaal belang in de cloud en Azure biedt een breed scala aa
 
 Er zijn enkele aspecten voor Contoso te overwegen:
 
-- **Azure Security Center**: Azure Security Center biedt geïntegreerd beveiligingsbeheer en geavanceerde bedreigingsbeveiliging voor hybride cloudworkloads. Met Security Center kunt u beveiligingsbeleid toepassen voor verschillende workloads, blootstelling aan bedreigingen beperken en aanvallen detecteren en afwenden.  [Meer informatie](https://docs.microsoft.com/azure/security-center/security-center-intro).
-- **Netwerkbeveiligingsgroepen (nsg's)**: een NSG is een filter (firewall) die een lijst van beveiliging bevat regels die, wanneer toegepast, toestaan of weigeren van netwerkverkeer naar resources die zijn verbonden met Azure vnet's. [Meer informatie](https://docs.microsoft.com/azure/virtual-network/security-overview).
+- **Azure Security Center**: Azure Security Center biedt geïntegreerd beveiligingsbeheer en geavanceerde bedreigingsbeveiliging voor verschillende hybride cloudworkloads. Met Security Center kunt u beveiligingsbeleid toepassen voor verschillende workloads, blootstelling aan bedreigingen beperken en aanvallen detecteren en afwenden.  [Meer informatie](https://docs.microsoft.com/azure/security-center/security-center-intro).
+- **Netwerkbeveiligingsgroepen (nsg's)**: Een NSG is een filter (firewall) die een lijst van beveiliging bevat regels die, wanneer toegepast, toestaan of weigeren van netwerkverkeer naar resources die zijn verbonden met Azure vnet's. [Meer informatie](https://docs.microsoft.com/azure/virtual-network/security-overview).
 - **Gegevensversleuteling**: Azure Disk Encryption is een functie waarmee u uw Windows- en Linux IaaS VM-schijven te versleutelen. [Meer informatie](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest).
 
 ### <a name="work-with-the-azure-security-center"></a>Werken met de Azure Security Center
@@ -781,7 +781,7 @@ Contoso heeft een model van hoe dit voor de toepassingen eruitziet worden gebouw
 
 De nsg's die zijn gekoppeld aan de asg's zullen worden geconfigureerd met minimale bevoegdheden om ervoor te zorgen dat pakketten alleen is toegestaan naar de bestemming van het ene deel van het netwerk kunnen stromen.
 
-**Actie** | **Naam** | **Bron** | **Doel** | **Poort**
+**Actie** | **Naam** | **Bron** | **Target** | **Poort**
 --- | --- | --- | --- | --- 
 Toestaan | AllowiInternetToFE | VNET-HUB-EUS1/IB-TrustZone | APP1-FE 80, 443
 Toestaan | AllowWebToApp | APP1-FE | APP1-DB | 1433

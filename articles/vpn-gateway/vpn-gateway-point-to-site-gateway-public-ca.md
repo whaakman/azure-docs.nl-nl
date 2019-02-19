@@ -5,20 +5,22 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 02/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: ac1ae4125418a9c0b3e9587cd03a44e752ac8f82
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: b89ba054040229d9925b9dbbc64d27eed171613e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236954"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339869"
 ---
 # <a name="transition-from-self-signed-to-public-ca-certificates-for-p2s-gateways"></a>Overgang van zelf-ondertekend naar openbare CA-certificaten voor P2S-gateways
 
-Azure VPN-Gateway wordt niet meer zelfondertekende certificaten verstrekt aan gateways voor P2S-verbindingen. Uitgegeven certificaten zijn nu ondertekend door een openbare certificeringsinstantie (CA). Echter, oude gateways mogelijk nog steeds gebruik van zelfondertekende certificaten. Deze zelfondertekende certificaten zijn in de buurt van de vervaldatum en moeten worden overgezet naar een openbare CA-certificaten.
+Azure VPN-Gateway wordt niet meer op Azure-niveau zelfondertekende certificaten geeft aan de gateways voor P2S-verbindingen. Uitgegeven certificaten zijn nu ondertekend door een openbare certificeringsinstantie (CA). Echter enkele van de oude gateways mogelijk nog steeds gebruik van zelfondertekende certificaten. Deze zelfondertekende certificaten zijn in de buurt van de vervaldatum en moeten worden overgezet naar een openbare CA-certificaten.
 
-Eerder, zelfondertekend certificaat voor de gateway nodig om 18 maanden worden bijgewerkt. VPN-clientconfiguratiebestanden moest vervolgens worden gegenereerd en wordt opnieuw geïmplementeerd op alle P2S-clients. Verplaatsen naar een openbare CA-certificaten wordt voorkomen dat deze beperking. Naast de overgang voor certificaten biedt deze wijziging ook platform verbeteringen, betere metrische gegevens en de stabiliteit is verbeterd.
+De certificaten in deze context zijn een certificaat met aanvullende Azure-niveau. Ze zijn niet de certificaatketens die u gebruikt bij het genereren van uw eigen zelfondertekende basiscertificaten en clientcertificaten voor verificatie. Deze certificaten blijven ongewijzigd en vervalt op de datums dat u zo gegenereerd.
+
+Voorheen een zelfondertekend certificaat voor de gateway (uitgegeven achter de schermen door Azure) die nodig zijn voor elke 18 maanden worden bijgewerkt. VPN-clientconfiguratiebestanden moest vervolgens worden gegenereerd en wordt opnieuw geïmplementeerd op alle P2S-clients. Verplaatsen naar een openbare CA-certificaten wordt voorkomen dat deze beperking. Naast de overgang voor certificaten biedt deze wijziging ook platform verbeteringen, betere metrische gegevens en de stabiliteit is verbeterd.
 
 Alleen oude gateways worden beïnvloed door deze wijziging. Als uw gatewaycertificaat worden overgezet moet, ontvangt u communicatie of pop-up in Azure portal. U kunt controleren om te zien als uw gateway wordt beïnvloed door met de stappen in dit artikel.
 

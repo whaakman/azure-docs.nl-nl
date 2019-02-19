@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: f5efeabf3cf6d52f74aa2d064dc4c67c877d34e5
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: bb186ab2700b147bee3a7dd81474409ccafb76fc
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751919"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341710"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Richtlijnen voor vertrouwde verbindingen via Internet
 
@@ -198,7 +198,7 @@ Azure biedt cloud-eigen hulpprogramma's om ervoor te zorgen dat u het verzamelen
 
 ### <a name="azure-policy"></a>Azure Policy
 
-[Azure Policy](https://azure.microsoft.com/services/azure-policy/) is een Azure-service die uw organisatie biedt betere mogelijkheid om te controleren en afdwingen van nalevingsinitiatieven. Azure Policy is momenteel beschikbaar in openbare preview in Azure-services die verkrijgbaar zijn. Azure Policy is nog niet beschikbaar in Azure Government. Klanten kunnen plannen en hun Azure Policy-regels nu testen om ervoor te zorgen boter naleving in de toekomst. 
+[Azure Policy](../../governance/policy/overview.md) is een Azure-service die uw organisatie biedt betere mogelijkheid om te controleren en afdwingen van nalevingsinitiatieven. Klanten kunnen plannen en hun Azure Policy-regels nu testen om ervoor te zorgen boter naleving in de toekomst.
 
 Azure Policy is gericht op het abonnementsniveau. De service biedt een centrale interface waar u de taken voor naleving, waaronder kunt uitvoeren:
 - Initiatieven beheren
@@ -213,13 +213,13 @@ Het volgende voorbeeldsbeleid kunnen worden gebruikt voor boter naleving scenari
 
 |Beleid  |Voorbeeldscenario  |Template  |
 |---------|---------|---------|
-|Afgedwongen door gebruiker gedefinieerde routetabel. | Zorg ervoor dat de standaardroute op alle virtuele netwerken naar een goedgekeurde virtuele netwerkgateway verwijst voor de routering naar on-premises.    | Aan de slag met dit [sjabloon](https://docs.microsoft.com/azure/azure-policy/scripts/no-user-def-route-table). |
-|Audit als Network Watcher is niet ingeschakeld voor een regio.  | Zorg ervoor dat de Network Watcher is ingeschakeld voor alle regio's gebruikt.  | Aan de slag met dit [sjabloon](https://docs.microsoft.com/azure/azure-policy/scripts/net-watch-not-enabled). |
-|NSG x in elk subnet.  | Zorg ervoor dat er een NSG (of een set van goedgekeurde nsg's) met internetverkeer geblokkeerd wordt toegepast op alle subnetten in elk virtueel netwerk. | Aan de slag met dit [sjabloon](https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-subnet). |
-|NSG x op elke NIC wordt gebruikt. | Zorg ervoor dat er een NSG met internetverkeer geblokkeerd wordt toegepast op alle NIC's op alle virtuele machines. | Aan de slag met dit [sjabloon](https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-nic). |
-|Gebruik een virtueel netwerk van goedgekeurde voor netwerkinterfaces van virtuele machines.  | Zorg ervoor dat alle NIC's in een goedgekeurde-netwerk. | Aan de slag met dit [sjabloon](https://docs.microsoft.com/azure/azure-policy/scripts/use-approved-vnet-vm-nics). |
-|Toegestane locaties. | Zorg ervoor dat alle resources worden geïmplementeerd in de regio's met compatibele virtuele netwerken en configuratie van Network Watcher.  | Aan de slag met dit [sjabloon](https://docs.microsoft.com/azure/azure-policy/scripts/allowed-locs). |
-|Niet toegestane resourcetypen, zoals **PublicIPs**. | De implementatie van resourcetypen waarvoor geen een plan naleving verbieden. Dit beleid gebruiken om te voorkomen dat de implementatie van resources voor openbaar IP-adres. Terwijl de NSG-regels kunnen worden gebruikt voor het effectief geblokkeerd binnenkomend verkeer van internet, vermindert zo wordt voorkomen dat het gebruik van openbare IP-adressen verder de kwetsbaarheid voor aanvallen.   | Aan de slag met dit [sjabloon](https://docs.microsoft.com/azure/azure-policy/scripts/not-allowed-res-type).  |
+|Afgedwongen door gebruiker gedefinieerde routetabel. | Zorg ervoor dat de standaardroute op alle virtuele netwerken naar een goedgekeurde virtuele netwerkgateway verwijst voor de routering naar on-premises.    | Aan de slag met dit [sjabloon](../../governance/policy/samples/no-user-defined-route-table.md). |
+|Audit als Network Watcher is niet ingeschakeld voor een regio.  | Zorg ervoor dat de Network Watcher is ingeschakeld voor alle regio's gebruikt.  | Aan de slag met dit [sjabloon](../../governance/policy/samples/network-watcher-not-enabled.md). |
+|NSG x in elk subnet.  | Zorg ervoor dat er een NSG (of een set van goedgekeurde nsg's) met internetverkeer geblokkeerd wordt toegepast op alle subnetten in elk virtueel netwerk. | Aan de slag met dit [sjabloon](../../governance/policy/samples/nsg-on-subnet.md). |
+|NSG x op elke NIC wordt gebruikt. | Zorg ervoor dat er een NSG met internetverkeer geblokkeerd wordt toegepast op alle NIC's op alle virtuele machines. | Aan de slag met dit [sjabloon](../../governance/policy/samples/nsg-on-nic.md). |
+|Gebruik een virtueel netwerk van goedgekeurde voor netwerkinterfaces van virtuele machines.  | Zorg ervoor dat alle NIC's in een goedgekeurde-netwerk. | Aan de slag met dit [sjabloon](../../governance/policy/samples/use-approved-vnet-vm-nics.md). |
+|Toegestane locaties. | Zorg ervoor dat alle resources worden geïmplementeerd in de regio's met compatibele virtuele netwerken en configuratie van Network Watcher.  | Aan de slag met dit [sjabloon](../../governance/policy/samples/allowed-locations.md). |
+|Niet toegestane resourcetypen, zoals **PublicIPs**. | De implementatie van resourcetypen waarvoor geen een plan naleving verbieden. Dit beleid gebruiken om te voorkomen dat de implementatie van resources voor openbaar IP-adres. Terwijl de NSG-regels kunnen worden gebruikt voor het effectief geblokkeerd binnenkomend verkeer van internet, vermindert zo wordt voorkomen dat het gebruik van openbare IP-adressen verder de kwetsbaarheid voor aanvallen.   | Aan de slag met dit [sjabloon](../../governance/policy/samples/not-allowed-resource-types.md).  |
 
 ### <a name="network-watcher-traffic-analytics"></a>Network Watcher-traffic analytics
 
@@ -264,10 +264,10 @@ U kunt eenvoudig toegang tot Microsoft Azure, Office 365 en Dynamics 365 om te v
 | Database | Azure SQL Data Warehouse | | | Ja |
 | Database | Azure Cosmos DB | | | Ja |
 | Database | Azure Cache voor Redis | | Ja | |
-| Storage | Azure Blob Storage | Ja | | |
-| Storage | Azure Files | Ja | | |
-| Storage | Azure Queue storage | Ja | | |
-| Storage | Azure Table Storage | Ja | | |
-| Storage | Azure Disk-opslag | Ja | | |
+| Opslag | Azure Blob Storage | Ja | | |
+| Opslag | Azure Files | Ja | | |
+| Opslag | Azure Queue storage | Ja | | |
+| Opslag | Azure Table Storage | Ja | | |
+| Opslag | Azure Disk-opslag | Ja | | |
 
 \* Openbare preview-versie in Azure Government, mei 2018.

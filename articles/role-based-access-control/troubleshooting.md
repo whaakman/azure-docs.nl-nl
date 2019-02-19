@@ -1,6 +1,6 @@
 ---
-title: Oplossen van RBAC in Azure | Microsoft Docs
-description: Problemen oplossen met op rollen gebaseerd toegangsbeheer in Azure (RBAC).
+title: RBAC voor Azure-resources oplossen | Microsoft Docs
+description: Problemen oplossen met op rollen gebaseerd toegangsbeheer (RBAC) voor Azure-resources.
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: e204beea5bdf72c2ec5ebcf661d3c983a2e0e6b4
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 7b27c811214def7f5646f886b955d035a50c0725
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411234"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342470"
 ---
-# <a name="troubleshoot-rbac-in-azure"></a>RBAC in Azure oplossen
+# <a name="troubleshoot-rbac-for-azure-resources"></a>RBAC voor Azure-resources oplossen
 
-In dit artikel vindt u antwoorden op veelgestelde vragen over op rollen gebaseerd toegangsbeheer (RBAC), zodat u wat weet u kunt verwachten wanneer u de rollen in de Azure-portal en kan problemen met toegang.
+In dit artikel vindt u antwoorden op veelgestelde vragen over op rollen gebaseerd toegangsbeheer (RBAC) voor Azure-resources, zodat u wat weet u kunt verwachten wanneer u de rollen in de Azure-portal en kan problemen met toegang.
 
 ## <a name="problems-with-rbac-role-assignments"></a>Problemen met RBAC-roltoewijzingen
 
@@ -119,6 +119,6 @@ Sommige functies van [Azure Functions](../azure-functions/functions-overview.md)
 Een lezer kunt klikken op de **platformfuncties** tabblad en klik vervolgens op **alle instellingen** om bepaalde instellingen weer te geven met betrekking tot een functie-app (vergelijkbaar met een web-app), maar ze kunnen een van deze instellingen niet wijzigen.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Toegang beheren met op rollen gebaseerd toegangsbeheer en Azure Portal](role-assignments-portal.md)
-* [Activiteitenlogboeken bekijken om wijzigingen van RBAC](change-history-report.md)
+* [Toegang tot Azure-resources met behulp van RBAC en de Azure-portal beheren](role-assignments-portal.md)
+* [Activiteitenlogboeken bekijken voor RBAC-wijzigingen in de Azure-resources](change-history-report.md)
 

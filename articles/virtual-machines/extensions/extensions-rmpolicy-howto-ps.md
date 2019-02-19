@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 68a652fe16162d96d4ec07e6690f10f0bd34f2c0
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 4dc68127f2d19426c372be027634bb2563dbfa6c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980870"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341654"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Azure Policy gebruiken voor het beperken van extensies installatie op Windows-VM 's
 
@@ -30,7 +30,7 @@ In deze zelfstudie wordt Azure PowerShell in Cloud Shell, die voortdurend wordt 
 
 ## <a name="create-a-rules-file"></a>Maak een regelbestand
 
-Als u wilt beperken welke extensies kunnen worden geïnstalleerd, moet u beschikken over een [regel](/azure/azure-policy/policy-definition#policy-rule) voor de logica voor het identificeren van de extensie.
+Als u wilt beperken welke extensies kunnen worden geïnstalleerd, moet u beschikken over een [regel](../../governance/policy/concepts/definition-structure.md#policy-rule) voor de logica voor het identificeren van de extensie.
 
 Dit voorbeeld ziet u hoe u voor het weigeren van de uitbreidingen die zijn gepubliceerd door 'Microsoft.Compute' door het maken van een bestand in Azure Cloud Shell, maar als u in PowerShell lokaal werkt, kunt u ook een lokaal bestand gemaakt en vervangen door het pad ($home/clouddrive) met het pad naar de lokaal bestand op uw computer.
 
@@ -70,7 +70,7 @@ Wanneer u klaar bent, bereikt de **Ctrl + O** en vervolgens **Enter** op te slaa
 
 ## <a name="create-a-parameters-file"></a>Maak een parameterbestand
 
-U moet ook een [parameters](/azure/azure-policy/policy-definition#parameters) -bestand dat wordt gemaakt van een structuur moet worden gebruikt voor het doorgeven in een lijst van de extensies blokkeren. 
+U moet ook een [parameters](../../governance/policy/concepts/definition-structure.md#parameters) -bestand dat wordt gemaakt van een structuur moet worden gebruikt voor het doorgeven in een lijst van de extensies blokkeren. 
 
 In dit voorbeeld laat zien hoe een parameterbestand maken voor virtuele machines in de Cloud Shell, maar als u in PowerShell lokaal werkt, kunt u ook een lokaal bestand gemaakt en vervangen door het pad ($home/clouddrive) met het pad naar het lokale bestand op uw computer.
 
@@ -166,4 +166,4 @@ Remove-AzPolicyDefinition -Name not-allowed-vmextension-windows
 ```
     
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie, [Azure Policy](../../azure-policy/azure-policy-introduction.md).
+Zie voor meer informatie, [Azure Policy](../../governance/policy/overview.md).

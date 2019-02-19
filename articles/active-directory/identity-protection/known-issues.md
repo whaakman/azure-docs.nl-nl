@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd894b214366302af4651b5944e250086be14beb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bc08710909252c9bcade6177a105684128acc5bf
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183833"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339020"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>Veelgestelde vragen en bekende problemen met identity protection (vernieuwd) in Azure Active Directory
 
@@ -33,6 +33,8 @@ ms.locfileid: "56183833"
 
 
 **Negeren van gebruikersrisico** in Identity Protection (vernieuwd) Hiermee stelt u de actor in de geschiedenis van risico's van de gebruiker in Identity Protection (vernieuwd) voor **\<beheerdersnaam met een hyperlink naar de blade van de gebruiker\>**.
+
+Er is een bekend probleem met huidige latentie in de gebruikersstroom voor het ontslag van risico's veroorzaken. Hebt u een 'beleid voor gebruikersrisico's ', stopt dit beleid toe te passen op gesloten gebruikers binnen enkele minuten van te klikken op 'Gebruikersrisico negeren'. Maar zijn er bekende vertragingen bij het vernieuwen van de 'risico-status' gesloten gebruikers UX. Als tijdelijke oplossing, vernieuw de pagina op het browserniveau van de om te zien dat de meest recente gebruiker 'Risico state'.
 
 
 ## <a name="risky-users-report"></a>Rapport over riskante gebruikers

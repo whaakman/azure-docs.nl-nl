@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: be2274b5d7a0e39733440379ce9678ab012d7d27
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 8ee900554371644f374e4aeed51f1eeb0c18569e
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473823"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408864"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Ondersteunde metrische gegevens met Azure Monitor
 Azure Monitor biedt verschillende manieren om te communiceren met metrische gegevens, zoals ze in het portaal grafieken, toegang hebben tot deze via de REST-API of uitvoeren van deze query's met behulp van PowerShell of CLI. Hieronder vindt u een volledige lijst van alle metrische gegevens op dit moment met metrische gegevens van Azure Monitor-pijplijn. Andere metrische gegevens is mogelijk beschikbaar in de portal of met verouderde API's. Deze lijst hieronder bevat alleen beschikbaar via de pijplijn voor het metrische gegevens van Azure Monitor samengevoegde metrische gegevens. Query's uitvoeren voor en toegang tot deze metrische gegevens gebruik de [2018-01-01-api-versie](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -652,14 +652,52 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
-|---|---|---|---|---|---|
-|MetadataRequests|Aanvragen voor metagegevens|Count|Count|Het aantal aanvragen voor metagegevens. Cosmos DB houdt kosteloos verzameling systeemmetagegevens voor elk account, waarmee u het inventariseren van verzamelingen, databases, enzovoort, en de bijbehorende configuraties, gratis.|DatabaseName, CollectionName, Region, StatusCode|
-|MongoRequestCharge|Mongo-aanvraag kosten in rekening gebracht|Count|Totaal|Mongo-Aanvraageenheden verbruikt|Databasenaam, CollectionName, regio, CommandName, foutcode|
-|MongoRequests|Mongo-aanvragen|Count|Count|Aantal aanvragen van Mongo|Databasenaam, CollectionName, regio, CommandName, foutcode|
-|TotalRequestUnits|Totaal aantal Aanvraageenheden|Count|Totaal|Aanvraag dat eenheden verbruikt|DatabaseName, CollectionName, Region, StatusCode|
-|TotalRequests|Totaal aantal aanvragen|Count|Count|Aantal aanvragen|DatabaseName, CollectionName, Region, StatusCode|
+### <a name="request-metrics"></a>Aanvraag voor metrische gegevens
 
+|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies| Tijd granulaties| Verouderde metrische toewijzing | Gebruik |
+|---|---|---|---|---|---| ---| ---| ---|
+| TotalRequests |   Totaal aantal aanvragen| Count   | Count | Aantal aanvragen|  DatabaseName, CollectionName, Region, StatusCode|   Alle |   TotalRequests, Http 2xx, Http 3xx, Http-fout 400, 401 Http-, interne serverfout Service niet beschikbaar, aanvragen beperkt, Gemiddeld aantal aanvragen per seconde |    Gebruikt voor het bewaken van aanvragen per statuscode, verzameling met een granulariteit van één minuut. Als u verzoeken per seconde, minuut aantal aggregatie gebruiken en delen door 60. |
+| MetadataRequests |    Aanvragen voor metagegevens   |Count| Count   | Het aantal aanvragen voor metagegevens. Azure Cosmos DB houdt verzameling systeemmetagegevens voor elk account, waarmee u het inventariseren van verzamelingen, databases, enzovoort, en de bijbehorende configuraties, gratis.    | DatabaseName, CollectionName, Region, StatusCode| Alle|  |Gebruikt voor het bewaken van vertragingen vanwege aanvragen voor metagegevens.|
+| MongoRequests |   Mongo-aanvragen| Count | Count|  Aantal aanvragen van Mongo   | Databasenaam, CollectionName, regio, CommandName, foutcode| Alle |Snelheid van aanvragen voor mongo-Query, Mongo-Update aanvragen snelheid, Mongo verwijderen snelheid van aanvragen, Mongo invoegen snelheid van aanvragen, snelheid van aanvragen voor Mongo-aantal|   Gebruikt voor het bewaken van Mongo aanvraag fouten, typt u het gebruik van per opdracht. |
+
+
+### <a name="request-unit-metrics"></a>Aanvraag eenheid metrische gegevens
+
+|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies| Tijd granulaties| Verouderde metrische toewijzing | Gebruik |
+|---|---|---|---|---|---| ---| ---| ---|
+| MongoRequestCharge|   Mongo-aanvraag kosten in rekening gebracht |  Count   |Totaal  |Mongo-Aanvraageenheden verbruikt|  Databasenaam, CollectionName, regio, CommandName, foutcode|   Alle |Mongo-Query aanvraag kosten in rekening gebracht, Mongo Update kosten in rekening gebracht, Mongo verwijderen aanvraag kosten in rekening gebracht, Mongo invoegen aanvraag kosten in rekening gebracht, Mongo aantal aanvraag kosten aanvragen| Gebruikt voor het bewaken van Mongo-resource ru's in een minuut.|
+| TotalRequestUnits |Totaal aantal Aanvraageenheden|   Count|  Totaal|  Aanvraag dat eenheden verbruikt| DatabaseName, CollectionName, Region, StatusCode    |Alle|   TotalRequestUnits|  Gebruikt om het totaal aantal RU-gebruik op een minute granulariteit bewaken. Als u gemiddelde ru's per seconde worden verbruikt, totale aggregatie op minuut gebruiken en delen door 60.|
+| ProvisionedThroughput |Ingerichte doorvoer|    Count|  Maximum |Ingerichte doorvoer via de granulatie van de verzameling|  DatabaseName, CollectionName|   5 MIN.| |   Gebruikt voor het bewaken van de ingerichte doorvoer per verzameling.|
+
+### <a name="storage-metrics"></a>Metrische gegevens over opslag
+
+|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies| Tijd granulaties| Verouderde metrische toewijzing | Gebruik |
+|---|---|---|---|---|---| ---| ---| ---|
+| AvailableStorage| Beschikbare opslag   |Bytes| Totaal|  Totale beschikbare opslag gerapporteerd op 5 minuten granulatie per regio|   DatabaseName, CollectionName, Region|   5 MIN.| Beschikbare opslag|   Gebruikt voor het bewaken van beschikbare opslag (alleen van toepassing op vaste opslag verzamelingen) capaciteit minimale granulariteit moet 5 minuten.| 
+| DataUsage |Gegevensgebruik |Bytes| Totaal   |Gebruik van de totale hoeveelheid gegevens die zijn gerapporteerd op 5 minuten granulatie per regio|    DatabaseName, CollectionName, Region|   5 MIN.  |Gegevensgrootte  | Wordt gebruikt om het gebruik van de totale hoeveelheid gegevens op de verzameling en de regio bewaken, moet minimale granulariteit 5 minuten.|
+| IndexUsage|   Gebruik van de index|    Bytes|  Totaal   |Totaal gebruik van de Index wordt gerapporteerd op 5 minuten granulatie per regio|    DatabaseName, CollectionName, Region|   5 MIN.| Indexgrootte| Wordt gebruikt om het gebruik van de totale hoeveelheid gegevens op de verzameling en de regio bewaken, moet minimale granulariteit 5 minuten. |
+| DocumentQuota|    Document quotum| Bytes|  Totaal|  Totale opslagquotum gerapporteerd op 5 minuten granulatie per regio. Van toepassing op f| DatabaseName, CollectionName, Region|   5 MIN.  |Opslagcapaciteit|  Wordt gebruikt voor het bewaken van de totale quotum verzameling en regio, moet minimale granulariteit 5 minuten.|
+| DocumentCount|    Aantal documenten| Count   |Totaal  |Totaldocument aantal dat is gerapporteerd aan vijf minuten granulatie per regio|  DatabaseName, CollectionName, Region|   5 MIN.  |Aantal documenten|Wordt gebruikt voor het bewaken van het documentaantal op de verzameling en regio, moet minimale granulariteit 5 minuten.|
+
+### <a name="latency-metrics"></a>Metrieken voor latentie
+
+|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies| Tijd granulaties| Gebruik |
+|---|---|---|---|---|---| ---| ---| ---|
+| ReplicationLatency    | Replicatielatentie|  MilliSeconds|   Minimum, Maximum, gemiddelde | Replicatievertraging P99 tussen de bron- en regio's voor geo-ingeschakelde account| SourceRegion, TargetRegion| Alle | Gebruikt voor het bewaken van de replicatielatentie P99 tussen elke twee regio's voor een geo-replicatie-account. |
+
+### <a name="availability-metrics"></a>Metrische gegevens over beschikbaarheid
+
+|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies| Tijd granulaties| Verouderde metrische toewijzing | Gebruik |
+|---|---|---|---|---|---| ---| ---| ---|
+| ServiceAvailability   | Beschikbaarheid van de service| Procent |Minimum,Maximum|   Beschikbaarheid van aanvragen bij de granulariteit van één uur|  |   1 UUR  | Beschikbaarheid van de service  | Dit is het percentage van totaal aantal geslaagde aanvragen. Een aanvraag wordt beschouwd als worden is mislukt vanwege een systeemfout is als de statuscode 410 is, 500 of 503 wordt gebruikt om de beschikbaarheid van het account op uur granulariteit te controleren. |
+
+### <a name="cassandra-api-metrics"></a>Metrische gegevens over Cassandra-API
+
+|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies| Tijd granulaties| Gebruik |
+|---|---|---|---|---|---| ---| ---| ---|
+| CassandraRequests | Cassandra-aanvragen |  Count|  Count|  Aantal aanvragen voor Cassandra-API|  Databasenaam, CollectionName, ErrorCode, regio, OperationType, ResourceType|   Alle| Gebruikt voor het bewaken van de Cassandra-aanvragen met een granulariteit van één minuut. Als u verzoeken per seconde, minuut aantal aggregatie gebruiken en delen door 60.|
+| CassandraRequestCharges|  Cassandra-aanvraag kosten in rekening gebracht| Count|   Sum, Min, Max, Avg| Aanvraageenheden gebruikt door de Cassandra-API-aanvragen|   DatabaseName, CollectionName, Region, OperationType, ResourceType|  Alle| Gebruikt voor het bewaken van ru's per minuut wordt gebruikt door een Cassandra-API-account.|
+| CassandraConnectionClosures   | Cassandra-verbinding is gesloten |Count| Count   |Aantal Cassandra verbindingen gesloten|    ClosureReason, Region|  Alle | Gebruikt voor het bewaken van de verbinding tussen clients en de Cassandra-API van Azure Cosmos DB.|
 
 ## <a name="microsofteventgridtopics"></a>Microsoft.EventGrid/topics
 

@@ -1,6 +1,6 @@
 ---
-title: Beheren van toegang met RBAC en Azure Resource Manager-sjablonen | Microsoft Docs
-description: Informatie over het beheren van toegang voor gebruikers, groepen en toepassingen die gebruikmaken van op rollen gebaseerd toegangsbeheer (RBAC) en Azure Resource Manager-sjablonen.
+title: Beheer de toegang tot Azure-resources met behulp van RBAC en Azure Resource Manager-sjablonen | Microsoft Docs
+description: Informatie over het beheren van toegang tot Azure-resources voor gebruikers, groepen en toepassingen die gebruikmaken van op rollen gebaseerd toegangsbeheer (RBAC) en Azure Resource Manager-sjablonen.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b8c6ac78447a4e4db79ed75100222eee8d528b58
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 537ee35e96a41cd02605319e244d39c6567c3bf1
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696894"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337200"
 ---
-# <a name="manage-access-using-rbac-and-azure-resource-manager-templates"></a>Toegang met RBAC en Azure Resource Manager-sjablonen beheren
+# <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>Beheer de toegang tot Azure-resources met behulp van RBAC en Azure Resource Manager-sjablonen
 
-[Op rollen gebaseerde toegangsbeheer (RBAC)](overview.md) is de manier waarop u de toegang tot resources in Azure beheert. Naast het gebruik van Azure PowerShell of Azure CLI kunt u toegang tot Azure-resources met RBAC kunt beheren en [Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-authoring-templates.md). Sjablonen kunnen handig zijn als u nodig hebt voor het implementeren van resources consistent en herhaaldelijk uitmaken. Dit artikel wordt beschreven hoe u toegang met RBAC en sjablonen kunt beheren.
+[Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) is de manier waarop dat u de toegang tot Azure-resources beheren. Naast het gebruik van Azure PowerShell of Azure CLI kunt u toegang tot Azure-resources met RBAC kunt beheren en [Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-authoring-templates.md). Sjablonen kunnen handig zijn als u nodig hebt voor het implementeren van resources consistent en herhaaldelijk uitmaken. Dit artikel wordt beschreven hoe u toegang met RBAC en sjablonen kunt beheren.
 
 ## <a name="example-template-to-create-a-role-assignment"></a>Van de voorbeeldsjabloon voor het maken van een roltoewijzing
 
@@ -251,6 +251,6 @@ Volg deze stappen voor het implementeren van de vorige sjabloon met de Azure CLI
     
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Uw eerste Azure Resource Manager-sjabloon maken en implementeren](../azure-resource-manager/resource-manager-create-first-template.md)
+- [Snelstart: Azure Resource Manager-sjablonen maken en implementeren via Azure Portal](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
 - [Informatie over de structuur en de syntaxis van Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-authoring-templates.md)
 - [Azure-snelstartsjablonen](https://azure.microsoft.com/resources/templates/?term=rbac)

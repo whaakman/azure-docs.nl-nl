@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 0ed317abc9d4b7d8d1c6f8b878ffe69f7a0bdbf6
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: d182d23bf4b3f4dc1ed42a737e8fe8b753c035ae
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310237"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340735"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Instellen van back-up en replicatie voor Apache HBase- en Apache Phoenix op HDInsight
 
@@ -74,6 +74,10 @@ Om te importeren een tabel, SSH naar het hoofdknooppunt van het doel HDInsight-c
 Geef het pad van de volledige uitvoer naar de standaardopslag of naar een van de gekoppelde opslagopties. Bijvoorbeeld, in Azure Storage:
 
     wasbs://<containername>@<accountname>.blob.core.windows.net/<path>
+
+In Azure Data Lake Storage Gen2 is de syntaxis:
+
+    abfs://<containername>@<accountname>.dfs.core.windows.net/<path>
 
 In Azure Data Lake Storage Gen1 is de syntaxis:
 

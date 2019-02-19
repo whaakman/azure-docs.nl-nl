@@ -1,6 +1,6 @@
 ---
-title: Informatie over roldefinities in Azure RBAC | Microsoft Docs
-description: Meer informatie over roldefinities in op rollen gebaseerd toegangsbeheer (RBAC) voor fijnmazig toegangsbeheer van bronnen in Azure.
+title: Roldefinities in RBAC voor Azure-resources begrijpen | Microsoft Docs
+description: Meer informatie over roldefinities in op rollen gebaseerd toegangsbeheer (RBAC) voor fijnmazig toegangsbeheer van Azure-resources.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 8966eb337af07b90e7d9c697a4bfd14c543540aa
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b7f4ce9508928ccc6ab766e7164c674511bcaa37
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991358"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342776"
 ---
-# <a name="understand-role-definitions"></a>Roldefinities begrijpen
+# <a name="understand-role-definitions-for-azure-resources"></a>Informatie over roldefinities voor Azure-resources
 
-Als u probeert om te begrijpen hoe een rol werkt of als u uw eigen [aangepaste rol](custom-roles.md), is het handig om te begrijpen hoe rollen worden gedefinieerd. In dit artikel worden de details van roldefinities beschreven en vindt u enkele voorbeelden.
+Als u probeert om te begrijpen hoe een rol werkt of als u uw eigen [aangepaste rol voor Azure-resources](custom-roles.md), is het handig om te begrijpen hoe rollen worden gedefinieerd. In dit artikel worden de details van roldefinities beschreven en vindt u enkele voorbeelden.
 
 ## <a name="role-definition-structure"></a>Structuur van beleidsdefinities rol
 
@@ -151,6 +151,8 @@ Aangezien Alice een jokerteken heeft (`*`) actie op het bereik van een abonnemen
 
 Berend machtigingen zijn beperkt tot alleen de `Actions` en `DataActions` opgegeven in de [Gegevensbijdrager voor Blob (Preview)](built-in-roles.md#storage-blob-data-contributor-preview) rol. Op basis van de rol, kunt Bob uitvoeren beheer- en bewerkingen voor gegevens. Bijvoorbeeld, Bob kan lezen, schrijven en verwijderen van containers in het opgegeven opslagaccount en hij kan ook lezen, schrijven en verwijderen van de blobs.
 
+Zie voor meer informatie over het beheer en beveiliging van gegevens vlak voor de opslag, de [Azure Storage-beveiligingshandleiding](../storage/common/storage-security-guide.md).
+
 ### <a name="what-tools-support-using-rbac-for-data-operations"></a>Welke hulpprogramma's ondersteunen met het RBAC voor gegevensbewerkingen?
 
 Als u wilt weergeven en werken met gegevensbewerkingen, moet u de juiste versie van de hulpprogramma's of de SDK's hebben:
@@ -225,10 +227,10 @@ Ingebouwde rollen hebben een `AssignableScopes` ingesteld op het bereik van de h
 | Functie is beschikbaar voor toewijzing alleen in de netwerk-resourcegroep | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network"` |
 | Functie is beschikbaar voor toewijzing in alle bereiken | `"/"` |
 
-Voor informatie over `AssignableScopes` voor aangepaste rollen, Zie [aangepaste rollen](custom-roles.md).
+Voor informatie over `AssignableScopes` voor aangepaste rollen, Zie [aangepaste rollen voor Azure-resources](custom-roles.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Ingebouwde rollen](built-in-roles.md)
-* [Aangepaste rollen](custom-roles.md)
+* [Ingebouwde rollen voor Azure-resources](built-in-roles.md)
+* [Aangepaste rollen voor Azure-resources](custom-roles.md)
 * [Azure Resource Manager-resourceproviderbewerkingen](resource-provider-operations.md)

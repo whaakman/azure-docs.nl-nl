@@ -12,44 +12,52 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/15/2018
+ms.date: 02/15/2019
 ms.author: aljo
-ms.openlocfilehash: 691995d0aa426766caed2f5e2458399b32332c9d
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 15561969e27512c4882eccc10f75aa932bcf23df
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903499"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338985"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Azure Active Directory instellen voor clientverificatie
 
-Voor clusters die worden uitgevoerd op Azure, Azure Active Directory (Azure AD) aanbevolen voor beveiligde toegang tot eindpunten voor beheer.  Dit artikel wordt beschreven hoe tot het instellen van Azure AD om clients voor een Service Fabric-cluster te verifiëren, die moet worden uitgevoerd voordat [het maken van het cluster](service-fabric-cluster-creation-via-arm.md).  Azure AD kan organisaties (bekend als tenants) voor het beheren van toegang tot toepassingen. Toepassingen worden onderverdeeld in die een webgebaseerde UI voor aanmelden en die met een systeemeigen client-ervaring. In dit artikel nemen we aan dat u al een tenant hebt gemaakt. Als u niet hebt gedaan, starten door te lezen [hoe u een Azure Active Directory-tenant verkrijgen][active-directory-howto-tenant].
+Voor clusters die worden uitgevoerd op Azure, Azure Active Directory (Azure AD) aanbevolen voor beveiligde toegang tot eindpunten voor beheer.  Dit artikel wordt beschreven hoe tot het instellen van Azure AD om clients voor een Service Fabric-cluster te verifiëren, die moet worden uitgevoerd voordat [het maken van het cluster](service-fabric-cluster-creation-via-arm.md).  Azure AD kan organisaties (bekend als tenants) voor het beheren van toegang tot toepassingen. Toepassingen worden onderverdeeld in die een webgebaseerde UI voor aanmelden en die met een systeemeigen client-ervaring. 
 
-## <a name="create-azure-ad-applications"></a>Azure AD-toepassingen maken
 Een Service Fabric-cluster biedt verschillende toegangspunten bij de management-functionaliteit, met inbegrip van de webconsole [Service Fabric Explorer] [ service-fabric-visualizing-your-cluster] en [Visual Studio] [ service-fabric-manage-application-in-visual-studio]. Als gevolg hiervan, het maken van twee Azure AD-toepassingen voor het beheren van toegang tot het cluster: een webtoepassing en een systeemeigen toepassing.  Nadat de toepassingen die zijn gemaakt, u gebruikers toewijzen aan de alleen-lezen en beheerdersrollen.
-
-Ter vereenvoudiging van enkele van de stappen voor het configureren van Azure AD met een Service Fabric-cluster, hebben we een set Windows PowerShell-scripts gemaakt.
 
 > [!NOTE]
 > U moet de volgende stappen uitvoeren voordat u het cluster maakt. Omdat de scripts verwacht clusternamen en eindpunten, worden de waarden moeten worden gepland en niet de waarden die u al hebt gemaakt.
 
+## <a name="prerequisites"></a>Vereisten
+In dit artikel nemen we aan dat u al een tenant hebt gemaakt. Als u niet hebt gedaan, starten door te lezen [hoe u een Azure Active Directory-tenant verkrijgen][active-directory-howto-tenant].
+
+Ter vereenvoudiging van enkele van de stappen voor het configureren van Azure AD met een Service Fabric-cluster, hebben we een set Windows PowerShell-scripts gemaakt.
+
 1. [De scripts downloaden](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) op uw computer.
 2. Met de rechtermuisknop op het zip-bestand, selecteer **eigenschappen**, selecteer de **opheffen van blokkeringen** selectievakje en klik vervolgens op **toepassen**.
 3. Pak het gecomprimeerde bestand uit.
-4. Voer `SetupApplications.ps1`, en geef de tenant-id, de clusternaam en de WebApplicationReplyUrl als parameters. Bijvoorbeeld:
+
+## <a name="create-azure-ad-applications-and-asssign-users-to-roles"></a>Azure AD-toepassingen en asssign gebruikers aan rollen maken
+Maak twee Azure AD-toepassingen voor het beheren van toegang tot het cluster: een webtoepassing en een systeemeigen toepassing. Nadat u de toepassingen voor uw cluster hebt gemaakt, uw gebruikers toewijzen aan de [rollen die worden ondersteund door Service Fabric](service-fabric-cluster-security-roles.md): alleen-lezen en -beheerder.
+
+Voer `SetupApplications.ps1`, en de tenant-ID, de naam van cluster en web application antwoord-URL opgeven als parameters.  Ook gebruikersnamen en wachtwoorden voor de gebruikers opgeven.  Bijvoorbeeld:
 
 ```PowerShell
-.\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
+$Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9890c' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
+.\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestUser' -Password 'P@ssword!123'
+.\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestAdmin' -Password 'P@ssword!123' -IsAdmin
 ```
 
 > [!NOTE]
-> Voor nationale clouds (Azure Government, China, Azure, Azure Duitsland), moet u ook opgeven de `-Location` parameter.
+> Voor nationale clouds (bijvoorbeeld Azure Government, China, Azure, Azure Duitsland), moet u ook opgeven de `-Location` parameter.
 
-U kunt uw tenant-id vinden door het uitvoeren van de PowerShell-opdracht `Get-AzureSubscription`. Deze opdracht wordt uitgevoerd, wordt de tenant-id voor elk abonnement weergegeven.
+U vindt uw *TenantId* door het uitvoeren van de PowerShell-opdracht `Get-AzureSubscription`. Deze opdracht wordt uitgevoerd, wordt de tenant-id voor elk abonnement weergegeven.
 
-Clusternaam is gebruikt voor het toevoegen van de Azure AD-toepassingen die zijn gemaakt door het script. Het hoeft niet precies overeenkomen met de naam van het daadwerkelijke cluster. Het is uitsluitend bedoeld om het Azure AD-artefacten worden toegewezen aan de Service Fabric-cluster dat ze worden gebruikt met eenvoudiger.
+*Clusternaam* wordt gebruikt voor het toevoegen van de Azure AD-toepassingen die zijn gemaakt door het script. Het hoeft niet precies overeenkomen met de naam van het daadwerkelijke cluster. Het is uitsluitend bedoeld om het Azure AD-artefacten worden toegewezen aan de Service Fabric-cluster dat ze worden gebruikt met eenvoudiger.
 
-WebApplicationReplyUrl is de standaardeindpunt dat Azure AD aan uw gebruikers retourneert nadat ze klaar zijn aangemeld. Dit eindpunt als de Service Fabric Explorer-eindpunt voor uw cluster, dit is standaard ingesteld:
+*WebApplicationReplyUrl* wordt het standaardeindpunt die Azure AD geretourneerd naar uw gebruikers nadat ze aanmelden. Dit eindpunt als de Service Fabric Explorer-eindpunt voor uw cluster, dit is standaard ingesteld:
 
 https://&lt;cluster_domain&gt;:19080/Explorer
 
@@ -58,7 +66,7 @@ U wordt gevraagd of u zich aanmeldt bij een account dat beheerdersrechten voor d
    * *ClusterName*\_Cluster
    * *ClusterName*\_Client
 
-Het script af te drukken de JSON die wordt vereist door de Azure Resource Manager-sjabloon wanneer u het cluster in de volgende sectie, maakt dus is het een goed idee om Houd het PowerShell-venster geopend.
+Het script af te drukken de JSON die is vereist voor de Azure Resource Manager-sjabloon wanneer u [maken van het cluster](service-fabric-cluster-creation-create-template.md#add-azure-ad-configuration-to-use-azure-ad-for-client-access), dus is het een goed idee om Houd het PowerShell-venster geopend.
 
 ```json
 "azureActiveDirectory": {
@@ -67,31 +75,6 @@ Het script af te drukken de JSON die wordt vereist door de Azure Resource Manage
   "clientApplication":"<guid>"
 },
 ```
-
-<a name="assign-roles"></a>
-
-## <a name="assign-users-to-roles"></a>Gebruikers aan rollen toewijzen
-Nadat u de toepassingen voor uw cluster hebt gemaakt, uw gebruikers toewijzen aan de rollen die worden ondersteund door Service Fabric: alleen-lezen en -beheerder. U kunt de rollen toewijzen met behulp van de [Azure-portal][azure-portal].
-
-1. In de Azure-portal, selecteert u uw tenant in de rechterbovenhoek.
-
-    ![Selecteer de knop tenant][select-tenant-button]
-2. Selecteer **Azure Active Directory** op de tab linksboven en selecteer 'Enterprise Application'.
-3. 'Alle Application' en selecteer vervolgens zoeken en selecteer de web-App heeft een naam, zoals `myTestCluster_Cluster`.
-4. Klik op de **gebruikers en groepen** tabblad.
-
-    ![Tabblad gebruikers en groepen][users-and-groups-tab]
-5. Klik op de **gebruiker toevoegen** knop op de nieuwe pagina, selecteert u een gebruiker en de rol wilt toewijzen en klik op de **Selecteer** knop aan de onderkant van de pagina.
-
-    ![Gebruikers toewijzen aan de pagina serverfuncties][assign-users-to-roles-page]
-6. Klik op de **toewijzen** knop aan de onderkant van de pagina.
-
-    ![Bevestiging van toewijzing toevoegen][assign-users-to-roles-confirm]
-
-> [!NOTE]
-> Zie voor meer informatie over functies in Service Fabric, [rollen gebaseerd toegangsbeheer voor Service Fabric-clients](service-fabric-cluster-security-roles.md).
->
->
 
 ## <a name="troubleshooting-help-in-setting-up-azure-active-directory"></a>Problemen bij het instellen van Azure Active Directory
 Instellen van Azure AD en het gebruik van het kunnen lastig zijn, zodat hier een aantal tips zijn over wat u doen kunt om op te sporen van het probleem.
@@ -159,10 +142,6 @@ Na het instellen van Azure Active Directory-toepassingen en functies van de inst
 [x509-certificates-and-service-fabric]: service-fabric-cluster-security.md#x509-certificates-and-service-fabric
 
 <!-- Images -->
-[select-tenant-button]: ./media/service-fabric-cluster-creation-setup-aad/select-tenant-button.png
-[users-and-groups-tab]: ./media/service-fabric-cluster-creation-setup-aad/users-and-groups-tab.png
-[assign-users-to-roles-page]: ./media/service-fabric-cluster-creation-setup-aad/assign-users-to-roles-page.png
-[assign-users-to-roles-confirm]: ./media/service-fabric-cluster-creation-setup-aad/assign-users-to-roles-confirm.png
 [sfx-select-certificate-dialog]: ./media/service-fabric-cluster-creation-setup-aad/sfx-select-certificate-dialog.png
 [sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-setup-aad/sfx-reply-address-not-match.png
 [web-application-reply-url]: ./media/service-fabric-cluster-creation-setup-aad/web-application-reply-url.png

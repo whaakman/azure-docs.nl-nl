@@ -7,54 +7,53 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 35f4e794caf84aba860b98e68eadcdcd88e77952
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 38a01b4f81b76ba90a5fda4909d0e65e6307057e
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56271869"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408711"
 ---
-# <a name="azure-data-factory-mapping-data-flow-source-transformation"></a>Azure Data Factory gegevenstransformatie stroom bron toewijzen
+# <a name="mapping-data-flow-source-transformation"></a>Gegevenstransformatie stroom bron toewijzen
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-De bron-transformatie configureert u een gegevensbron die u gebruiken wilt om gegevens in de gegevensstroom. Mogelijk hebt u meer dan 1 bron op een enkele gegevensstroom transformeren. Begin altijd het ontwerpen van uw gegevens stromen met de bron.
+De bron-transformatie configureert u een gegevensbron die u gebruiken wilt om gegevens in de gegevensstroom. Mogelijk hebt u meer dan één bron transformatie in een enkele gegevensstroom. Begin altijd het ontwerpen van uw gegevens stromen met de bron.
 
 > [!NOTE]
-> Elke gegevensstroom vereist ten minste één bron transformatie. Voeg zo veel extra bronnen die u nodig hebt
+> Elke gegevensstroom vereist ten minste één bron transformatie. Voeg zo veel extra bronnen die u nodig hebt om te voltooien, uw gegevenstransformaties. U kunt deelnemen aan deze bronnen, samen met een Join- of Union transformatie.
 
 ![Opties voor transformatie](media/data-flow/source.png "bron")
 
-De gegevensstroom-bron moet worden gekoppeld aan één ADF-gegevensset, die bepaalt de vorm en de locatie van uw gegevens schrijven naar of lezen vanaf.
+Elke bron gegevensstroom transformatie moet worden gekoppeld aan één Data Factory-gegevensset, die de vorm en de locatie van uw gegevens schrijven naar of lezen vanaf definieert. U kunt lijsten met jokertekens en bestand in uw bron om te werken met meer dan één bestand tegelijk.
 
 ## <a name="data-flow-staging-areas"></a>Ruimten met tijdelijke bestanden van de gegevensstroom
 
-ADF-gegevensstroom heeft de regel van zicht tot 5 primaire "staging" gebieden in Azure uit te voeren van uw gegevenstransformaties: Azure-Blob, ADLS Gen 1, ADLS van generatie 2, Azure SQL-database en Azure SQL DW. ADF heeft toegang tot bijna 80 verschillende systeemeigen connectors, dus als u wilt opnemen die andere gegevensbronnen in de gegevensstroom, eerst fase die gegevens in één van deze vijf primaire gegevensstroom fasering gebieden eerst met behulp van de Kopieeractiviteit:
+Gegevensstroom werkt met "staging" gegevenssets die bevinden zich allemaal in Azure. Deze stroom gegevens gegevenssets worden gebruikt voor gegevens om uit te voeren van uw gegevenstransformaties voor fasering. Data Factory heeft toegang tot bijna 80 verschillende systeemeigen connectors. Als u wilt opnemen gegevens uit de andere bronnen in uw gegevensstroom, eerst fase die gegevens in één van deze gebieden gegevensset fasering gegevensstroom met behulp van de Kopieeractiviteit.
 
 ## <a name="options"></a>Opties
 
 ### <a name="allow-schema-drift"></a>Schema drift toestaan
 Selecteer Schema Drift toestaan als de bronkolommen wordt vaak veranderen. Deze instelling kunnen alle binnenkomende velden van de bron langs de transformaties voor de Sink.
 
-### <a name="fail-if-columns-in-the-dataset-are-not-found"></a>Mislukt als kolommen in de gegevensset zijn niet gevonden
-Selecteer deze optie om af te dwingen een bron schemavalidatie is dat niet wordt uw gegevensstroom als kolommen die naar verwachting vanuit de bron niet aanwezig zijn.
+### <a name="validate-schema"></a>Schema valideren
+
+![Openbare gegevensbron](media/data-flow/source1.png "openbare bron 1")
+
+Als de inkomende versie van de brongegevens komt niet overeen met het gedefinieerde schema, klikt u vervolgens mislukt de uitvoering van de gegevensstroom.
 
 ### <a name="sampling"></a>Steekproeven
 Steekproeven gebruiken om te beperken van het aantal rijen van de bron.  Dit is handig wanneer u slechts een voorbeeld van uw gegevens nodig hebt voor het testen en foutopsporing.
 
-### <a name="define-schema"></a>Schema definiëren
+## <a name="define-schema"></a>Schema definiëren
 
 ![Bron-transformatie](media/data-flow/source2.png "2 van bron")
 
-### <a name="you-can-modify-the-name-of-the-source-columns-and-their-associated-data-types"></a>U kunt de naam van de kolommen in de gegevensbron en hun bijbehorende gegevenstypen wijzigen
-
-U moet de gegevenstypen voor elk veld hier in de bron-transformatie plaats in de gegevensset definiëren voor de bron-bestandstypen die niet sterk getypeerde (dat wil zeggen platte bestanden in plaats van Parquet-bestanden).
-
-Als u niet de kolomnamen en gegevenstypen in de gegevensstroom ziet, is het waarschijnlijk omdat u niet is gedefinieerd in de sectie Schema definiëren van de Sink. U moet alleen om dit te doen als u geen Schema Drift verwerking van gegevens stromen.
-
-Hier in de 'definiëren Schema' is tabblad op de bron-transformatie waarin u de gegevenstypen en -indelingen kunt instellen:
+U moet de gegevenstypen voor elk veld hier in de bron-transformatie definiëren voor bron-bestandstypen die niet sterk getypeerde (dat wil zeggen platte bestanden in plaats van Parquet-bestanden). Vervolgens kunt u de namen van de kolommen in een transformatie selecteren en de gegevenstypen in een transformatie afgeleide kolom wijzigen. 
 
 ![Bron-transformatie](media/data-flow/source003.png "gegevenstypen")
+
+Voor sterk getypeerde bronnen, kunt u de 
 
 ### <a name="optimize"></a>Optimaliseren
 
@@ -71,3 +70,34 @@ Selecteer een kolom van de brontabel naar partitie op. U moet ook het maximale a
 ### <a name="query-condition"></a>Queryvoorwaarde
 
 U kunt eventueel kiezen voor het partitioneren van de verbindingen op basis van een query. Voor deze optie, plaatst u de inhoud van een WHERE-predicaat. Dat wil zeggen, jaar > 1980
+
+## <a name="source-file-management"></a>Beheer van bron
+![Nieuwe instellingen voor gegevensbron](media/data-flow/source2.png "nieuwe instellingen")
+
+* Jokerteken pad naar het kiezen van een reeks van bestanden uit de bronmap die overeenkomen met een patroon. Dit overschrijft elk bestand dat u hebt ingesteld in de definitie van uw gegevensset.
+* Lijst met bestanden. Hetzelfde als een bestandsset. Verwijzen naar een tekstbestand dat u met een lijst van bestanden maakt voor het verwerken van relatief pad.
+* Kolom voor het opslaan van bestandsnaam slaat de naam van het bestand van de bron in een kolom in uw gegevens. Voer hier een nieuwe naam voor het opslaan van de tekenreeks met de bestandsnaam.
+* Na voltooiing (u kunt niets met het bronbestand doen nadat de gegevensstroom wordt uitgevoerd, de bron-bestanden verwijderen of verplaatsen van de bronbestanden. De paden voor verplaatsing zijn relatieve paden.
+
+### <a name="sql-datasets"></a>SQL-gegevenssets
+
+Wanneer u van Azure SQL DB of Azure SQL DW als de bron gebruikmaakt, hebt u extra opties.
+
+* Query: Voer een SQL-query voor de bron. Instellen van een query wordt een tabel die u hebt gekozen in de gegevensset wordt overschreven. Houd er rekening mee dat Order By-componenten niet hier worden ondersteund.
+
+* Batchgrootte: Voer een batchgrootte voor grote hoeveelheden gegevens in de batch-formaat leesbewerkingen wordt verdeeld.
+
+> [!NOTE]
+> De instellingen van het bestand-bewerking wordt alleen uitgevoerd wanneer de gegevensstroom wordt uitgevoerd vanuit een pijplijnuitvoering (pijplijn foutopsporing of uitvoering uitvoeren) met behulp van de activiteit gegevens stromen uitvoeren in een pijplijn. Bestandsbewerkingen niet uitgevoerd in de foutopsporingsmodus gegevensstroom.
+
+### <a name="projection"></a>Projectie
+
+![Projectie](media/data-flow/source3.png "projectie")
+
+Net als bij de schema's in gegevenssets, de projectie in bron definieert de kolommen met gegevens, gegevenstypen en opmaak van gegevens uit de brongegevensopslag. Als u een tekstbestand met geen schema opgegeven hebt, klikt u op 'Detecteren Data Type' om te vragen van ADF om te voorbeeld en de gegevenstypen afleiden. U kunt instellen dat de standaardgegevens indelingen voor automatische detectie toepassen met behulp van de knop 'Standaardindeling definiëren'. U kunt de kolom-gegevenstypen in een latere afgeleide kolom-transformatie kunt wijzigen. De kolomnamen kunnen worden gewijzigd met behulp van de Select-transformatie.
+
+![De standaardnotatie](media/data-flow/source2.png "standaard indelingen")
+
+## <a name="next-steps"></a>Volgende stappen
+
+Begin met het maken van de gegevenstransformatie van uw met [afgeleide kolom](data-flow-derived-column.md) en [Selecteer](data-flow-select.md).

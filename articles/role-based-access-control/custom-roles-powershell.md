@@ -1,6 +1,6 @@
 ---
-title: Aangepaste rollen met behulp van Azure PowerShell maken | Microsoft Docs
-description: Informatie over het maken van aangepaste rollen voor op rollen gebaseerd toegangsbeheer (RBAC) met behulp van Azure PowerShell. Dit omvat het weergeven, maken, bijwerken en verwijderen van aangepaste rollen.
+title: Aangepaste rollen voor Azure-resources met behulp van Azure PowerShell maken | Microsoft Docs
+description: Informatie over het maken van aangepaste rollen met op rollen gebaseerd toegangsbeheer (RBAC) voor Azure-resources met behulp van Azure PowerShell. Dit omvat het weergeven, maken, bijwerken en verwijderen van aangepaste rollen.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 26e5b33504ff543e8442108e4368ce3b04f25df4
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 92c061a7f854b46ab5aee07aa5e648ace8f9ae52
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696745"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343839"
 ---
-# <a name="create-custom-roles-using-azure-powershell"></a>Maken van aangepaste rollen met behulp van Azure PowerShell
+# <a name="create-custom-roles-for-azure-resources-using-azure-powershell"></a>Aangepaste rollen maken voor Azure-resources met behulp van Azure PowerShell
 
-Als de [ingebouwde rollen](built-in-roles.md) niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen aangepaste rollen maken. In dit artikel wordt beschreven hoe u maken en beheren van aangepaste rollen met behulp van Azure PowerShell.
+Als de [ingebouwde rollen voor Azure-resources](built-in-roles.md) niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen aangepaste rollen maken. In dit artikel wordt beschreven hoe u maken en beheren van aangepaste rollen met behulp van Azure PowerShell.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -296,6 +296,6 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Zelfstudie: Een aangepaste rol die met behulp van Azure PowerShell maken](tutorial-custom-role-powershell.md)
-- [Aangepaste rollen in Azure](custom-roles.md)
+- [Zelfstudie: Een aangepaste rol voor Azure-resources met behulp van Azure PowerShell maken](tutorial-custom-role-powershell.md)
+- [Aangepaste rollen voor Azure-resources](custom-roles.md)
 - [Azure Resource Manager-resourceproviderbewerkingen](resource-provider-operations.md)

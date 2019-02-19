@@ -1,6 +1,6 @@
 ---
-title: Activiteitenlogboeken voor RBAC wijzigingen bekijken in Azure | Microsoft Docs
-description: Weergave activiteitenlogboeken voor op rollen gebaseerd toegangsbeheer (RBAC) wijzigingen voor de afgelopen 90 dagen.
+title: Activiteitenlogboeken bekijken voor RBAC voor Azure-resources | Microsoft Docs
+description: Weergave activiteitenlogboeken voor op rollen gebaseerd toegangsbeheer (RBAC) wijzigingen voor Azure-resources voor de afgelopen 90 dagen.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ff09647dc3271c947b3037afcfacc33951ddb07
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 01ac309d333b6e2456c53e0352067471514198c9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117645"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338804"
 ---
-# <a name="view-activity-logs-for-rbac-changes"></a>Activiteitenlogboeken bekijken om wijzigingen van RBAC
+# <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Activiteitenlogboeken bekijken voor RBAC-wijzigingen in de Azure-resources
 
-Soms moet u informatie over wijzigingen in op basis van de rol beheer (RBAC), zoals voor controle of het oplossen van problemen. Telkens wanneer iemand anders wijzigingen in roltoewijzingen of roldefinities binnen uw abonnementen aanbrengt, de wijzigingen geregistreerd [Azure Activity Log](../azure-monitor/platform/activity-logs-overview.md). U kunt de activiteitenlogboeken als u wilt zien van alle RBAC-wijzigingen voor de afgelopen 90 dagen kunt bekijken.
+Soms moet u informatie over toegang op rollen gebaseerd beheer (RBAC) wijzigingen in de Azure-resources, zoals voor controle of het oplossen van problemen. Telkens wanneer iemand anders wijzigingen in roltoewijzingen of roldefinities binnen uw abonnementen aanbrengt, de wijzigingen geregistreerd [Azure Activity Log](../azure-monitor/platform/activity-logs-overview.md). U kunt de activiteitenlogboeken als u wilt zien van alle RBAC-wijzigingen voor de afgelopen 90 dagen kunt bekijken.
 
 ## <a name="operations-that-are-logged"></a>Bewerkingen die worden geregistreerd
 

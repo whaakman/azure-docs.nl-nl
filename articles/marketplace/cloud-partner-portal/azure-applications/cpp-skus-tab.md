@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7f73e71677a700ba8047246addb2d27799c5a616
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: a963db0b0b1a20c110f90bacdae092846f7bdd8b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890889"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342538"
 ---
 # <a name="azure-application-skus-tab"></a>Azure-toepassing-SKU's tabblad
 
@@ -139,7 +139,7 @@ De Azure Active Directory-id van gebruiker, groep of toepassing die u wilt de ma
 
 #### <a name="policy-settings"></a>Beleidsinstellingen
 
-Voeg de beleidsregels die voldoen aan de beheerde App. Lees de informatie over het beleid voor Azure-Resource [wat is Azure Policy?](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) 
+Voeg de beleidsregels die voldoen aan de beheerde App. Lees de informatie over het beleid voor Azure-Resource [wat is Azure Policy?](../../../governance/policy/overview.md)
 
 
    ![Instellingen voor autorisatie en beleid voor een beheerde toepassing](./media/azureapp-sku-details-managedapp-auth-policy.png)

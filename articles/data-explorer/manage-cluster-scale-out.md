@@ -7,17 +7,19 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 38dc7b70630276d51c75ca7e87f0b69ea7fe040a
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/18/2019
+ms.openlocfilehash: 15ef5282e0a073e870f2ac12b5fc442407535770
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735618"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408439"
 ---
-# <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Cluster scale-out beheren om te voldoen aan de veranderende vraag
+# <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Cluster uitbreiden om te voldoen aan veranderende vraag beheren
 
-Formaat van een cluster op de juiste wijze is essentieel dat de prestaties van Azure Data Explorer. Maar vraag op een cluster met 100% nauwkeurigheid kan niet worden voorspeld. Een statische clustergrootte kan leiden tot te voorzichtige gebruik of te veel gebruik geen van beide is ideaal. Een betere aanpak is het *schaal* een cluster, toevoegen en capaciteit met het wijzigen van de aanvraag verwijderen. In dit artikel wordt beschreven hoe u voor het beheren van cluster scale-out.
+Formaat van een cluster op de juiste wijze is essentieel dat de prestaties van Azure Data Explorer. Maar vraag op een cluster met 100% nauwkeurigheid kan niet worden voorspeld. Een statische clustergrootte kan leiden tot te voorzichtige gebruik of te veel gebruik geen van beide is ideaal. Een betere aanpak is het *schaal* een cluster, toevoegen en capaciteit met het wijzigen van de aanvraag verwijderen. Er zijn twee werkstromen voor het schalen, scale-up en scale-out. In dit artikel wordt uitgelegd dat de scale-out-werkstroom.
+
+In dit artikel wordt beschreven hoe u voor het beheren van cluster scale-out, ook wel bekend als automatisch schalen. Automatisch schalen kunt u scale-out automatisch op basis van vooraf gedefinieerde regels en planningen aantal instanties. Bepaal uw instellingen voor automatisch schalen voor het cluster in Azure portal, zoals hieronder wordt beschreven.
 
 Navigeer in uw cluster en klikt u onder **instellingen** Selecteer **uitschalen**. Onder **configureren**, selecteer **automatisch schalen inschakelen**.
 
@@ -35,6 +37,8 @@ De volgende afbeelding ziet u de stroom van de volgende stappen. We bieden hiero
 
 1. In de **schaalregel** sectie aan de rechterkant, geef waarden op voor elke instelling.
 
+    **Criteria**
+
     | Instelling | Beschrijving en waarde |
     | --- | --- | --- |
     | **Tijdverzameling** | Selecteer een aggregatie criteria, zoals **gemiddelde**. |
@@ -42,8 +46,14 @@ De volgende afbeelding ziet u de stroom van de volgende stappen. We bieden hiero
     | **Tijdsintervalstatistieken** | Kiezen tussen **gemiddelde**, **Minimum**, **maximale**, en **som**. |
     | **Operator** | Kies de gewenste optie, zoals **groter is dan of gelijk zijn aan**. |
     | **Drempelwaarde** | Kies de gewenste waarde. 80% is bijvoorbeeld voor het gebruik van de cache, een goed uitgangspunt. |
-    | **Duur** | Kies een passende hoeveelheid tijd voor het systeem om te controleren of terug bij het berekenen van metrische gegevens. Beginnen met de standaardwaarde van tien minuten. |
-    | **Bewerking** | Kies de gewenste optie om te schalen of uitschalen. |
+    | **Duur (in minuten)** | Kies een passende hoeveelheid tijd voor het systeem om te controleren of terug bij het berekenen van metrische gegevens. Beginnen met de standaardwaarde van 10 minuten. |
+    |  |  |
+
+    **Actie**
+
+    | Instelling | Beschrijving en waarde |
+    | --- | --- | --- |
+    | **Bewerking** | Kies de gewenste optie op schaal in- of scale-out. |
     | **Aantal exemplaren** | Kies het aantal knooppunten of exemplaren die u wilt toevoegen of verwijderen wanneer een metrische voorwaarde wordt voldaan. |
     | **Afkoelen (minuten)** | Kies een passende tijdsinterval moet worden gewacht tussen schaalbewerkingen. Beginnen met de standaardwaarde van vijf minuten. |
     |  |  |
@@ -54,13 +64,15 @@ De volgende afbeelding ziet u de stroom van de volgende stappen. We bieden hiero
 
     | Instelling | Beschrijving en waarde |
     | --- | --- | --- |
-    | *Minimum* | Dit is het aantal exemplaren dat uw cluster zal niet worden uitgebreid, ongeacht het gebruik. |
-    | *Maximum* | Dit is het aantal exemplaren dat uw cluster zal niet worden uitgebreid, ongeacht het gebruik. |
-    | *Standaard* | Het standaardaantal exemplaren, als er een probleem opgetreden bij het lezen van metrische gegevens voor resources die worden gebruikt. |
+    | *Minimum* | Het aantal exemplaren dat uw cluster wordt niet hieronder, ongeacht het gebruik schalen. |
+    | *Maximum* | Het aantal exemplaren dat uw cluster wordt niet, ongeacht het gebruik schalen. |
+    | *Standaard* | Het standaardaantal exemplaren, als zich problemen voordoen bij het lezen van metrische gegevens voor resources die worden gebruikt. |
     |  |  |
 
 1. Selecteer **Opslaan**.
 
 U hebt nu een scale-out-bewerking voor uw Azure Data Explorer cluster geconfigureerd. Een andere regel voor een bewerking schaal toevoegen. Hierdoor kunnen uw cluster schalen dynamisch op basis van metrische gegevens die u opgeeft.
+
+U kunt ook doen [schalen van cluster](manage-cluster-scale-up.md) voor de juiste grootte van een cluster.
 
 Als u hulp nodig met het cluster schalen problemen hebt, opent u een ondersteuningsaanvraag in de [Azure-portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: a58c61287cfc7828fe0dc15beda9d54f02a694c3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4a3da9e2ad4d5ab83c1e906b3ab43540e819b48c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814143"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341997"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Gebruik van een Java UDF met Apache Hive in HDInsight
 
@@ -213,7 +213,7 @@ Informatie over het maken van een op Java gebaseerde gebruiker gedefinieerde fun
     ```
 
     > [!NOTE]
-    > In dit voorbeeld wordt ervan uitgegaan dat Azure Storage standaardopslag voor het cluster. Als uw cluster maakt in plaats daarvan gebruik van de Data Lake-opslag, wijzigt u de `wasb:///` waarde die moet worden `adl:///`.
+    > In dit voorbeeld wordt ervan uitgegaan dat Azure Storage standaardopslag voor het cluster. Als uw cluster maakt in plaats daarvan gebruik van de Data Lake Storage Gen2, wijzigt u de `wasb:///` waarde die moet worden `abfs:///`. Als uw cluster maakt gebruik van Data Lake Storage Gen1, wijzigt u de `wasb:///` waarde die moet worden `adl:///`.
 
 3. Gebruik de UDF om te converteren die zijn opgehaald uit een tabel naar tekenreeksen met kleine letters.
 

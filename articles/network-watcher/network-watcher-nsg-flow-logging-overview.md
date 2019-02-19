@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: ff3c1e51bcf0b7d730019fad66ed8b0c3fe17a20
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: d9d87e0e6427c0a0d4b16947fd0427e1c79d8f0c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097645"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341042"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Inleiding tot stroomlogboeken voor netwerkbeveiligingsgroepen
 
@@ -72,8 +72,6 @@ Logboeken van de stroom zijn onder andere de volgende eigenschappen:
                     * **Bytes verzonden - doel naar bron - versie 2 alleen** het totale aantal TCP en UDP-pakket verzonden bytes van doel naar bron sinds de laatste update. Pakketbytes omvatten een pakket-header en -nettolading.
 
 ## <a name="nsg-flow-logs-version-2"></a>NSG-stroomlogboeken versie 2
-> [!NOTE] 
-> Versie 2 van stroomlogboeken is alleen beschikbaar in de regio US - west-centraal. Als u Versie 2-logboeken inschakelt in een niet-ondersteunde regio worden de Versie 1-logboeken uitgevoerd naar uw opslagaccount.
 
 Versie 2 van de logboeken introduceert stroom staat. U kunt configureren welke versie van de logboeken van de stroom die u ontvangt. Zie voor informatie over het inschakelen van Logboeken van de stroom, [inschakelen van NSG-stroomlogboeken](network-watcher-nsg-flow-logging-portal.md).
 

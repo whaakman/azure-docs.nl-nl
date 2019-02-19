@@ -1,6 +1,6 @@
 ---
 title: Inzicht in de querytaal
-description: Hierin wordt beschreven hoe de querytaal van Azure Resource Graph werkt.
+description: Hierin wordt beschreven hoe de Kusto-querytaal die wordt gebruikt door Azure Resource Graph werkt.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 62f61bfea3896fd3828253f5ec16cc38fe3ca007
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: cc792d27890b5d994b62784eaa511df990f9b5ec
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316659"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339971"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Inzicht krijgen in de querytaal van Azure Resource Graph
 
@@ -27,19 +27,19 @@ De beste manier om meer informatie over de querytaal die wordt gebruikt door Res
 Hier volgt de lijst met ondersteunde in tabelvorm operators in Resource-grafiek:
 
 - [count](/azure/kusto/query/countoperator)
-- [Afzonderlijke](/azure/kusto/query/distinctoperator)
+- [distinct](/azure/kusto/query/distinctoperator)
 - [Uitbreiden](/azure/kusto/query/extendoperator)
 - [Limiet](/azure/kusto/query/limitoperator)
 - [order by-](/azure/kusto/query/orderoperator)
-- [Project](/azure/kusto/query/projectoperator)
-- [Project-opslag](/azure/kusto/query/projectawayoperator)
-- [Voorbeeld](/azure/kusto/query/sampleoperator)
-- [Voorbeeld van afzonderlijke](/azure/kusto/query/sampledistinctoperator)
+- [project](/azure/kusto/query/projectoperator)
+- [project-away](/azure/kusto/query/projectawayoperator)
+- [sample](/azure/kusto/query/sampleoperator)
+- [sample-distinct](/azure/kusto/query/sampledistinctoperator)
 - [sorteren op](/azure/kusto/query/sortoperator)
 - [samenvatten](/azure/kusto/query/summarizeoperator)
-- [toets maken](/azure/kusto/query/takeoperator)
+- [take](/azure/kusto/query/takeoperator)
 - [Boven](/azure/kusto/query/topoperator)
-- [Top-geneste](/azure/kusto/query/topnestedoperator)
+- [top-nested](/azure/kusto/query/topnestedoperator)
 - [Top-hitters](/azure/kusto/query/tophittersoperator)
 - [waar](/azure/kusto/query/whereoperator)
 
@@ -51,8 +51,8 @@ Hier volgt de lijst met ondersteunde functies in Resource-grafiek:
 - [buildschema()](/azure/kusto/query/buildschema-aggfunction)
 - [strcat()](/azure/kusto/query/strcatfunction)
 - [isnotempty()](/azure/kusto/query/isnotemptyfunction)
-- [toString()](/azure/kusto/query/tostringfunction)
-- [ZIP()](/azure/kusto/query/zipfunction)
+- [tostring()](/azure/kusto/query/tostringfunction)
+- [zip()](/azure/kusto/query/zipfunction)
 
 ## <a name="next-steps"></a>Volgende stappen
 

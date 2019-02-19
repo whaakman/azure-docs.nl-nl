@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 02/15/2019
 ms.author: juliako
-ms.openlocfilehash: b399e18aa3cdd83d0c6907999f6446fd566259a1
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fa64d24d74a71981e3273fbdf5fa96b386a34685
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998583"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342436"
 ---
 # <a name="upload-and-index-your-videos"></a>Uw video's uploaden en indexeren  
 
@@ -31,7 +31,7 @@ Zodra uw video is geüpload, codeert Video Indexer, eventueel de video (besproke
 ## <a name="uploading-considerations"></a>Aandachtspunten voor uploaden
     
 - Bij het uploaden van uw video op basis van de URL (aanbevolen) moet het eindpunt worden beveiligd met TLS 1.2 (of hoger)
-- De grootte voor het uploaden met de URL-optie is beperkt tot 10GB
+- De grootte voor het uploaden met de URL-optie is beperkt tot 25GB
 - De grootte voor het uploaden met de optie byte-matrix is beperkt tot 2GB 
 - De optie van de matrix byte er een time-out na 30 minuten
 - De URL die is opgegeven in de parameter `videoURL`moet worden gecodeerd

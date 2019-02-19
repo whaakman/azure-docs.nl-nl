@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 982ed4533c34cd4a6613d289ef4712001977538f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: d67c3e452da05c626721d4c3144e612e6f9e0af4
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436208"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338441"
 ---
 # <a name="use-apache-datafu-pig-with-apache-pig-on-hdinsight"></a>Apache DataFu Pig gebruiken met Apache Pig in HDInsight
 
@@ -90,7 +90,9 @@ De stappen in deze sectie wordt ervan uitgegaan dat u bekend bent met Pig gebrui
 >
 > * Als uw cluster gebruikmaakt van Azure Storage, gebruikt u een `wasb://` pad. Bijvoorbeeld `register wasb:///example/jars/datafu-pig-1.4.0.jar`.
 >
-> * Als uw cluster maakt gebruik van Azure Data Lake Store, gebruikt u een `adl://` pad. Bijvoorbeeld `register adl://home/example/jars/datafu-pig-1.4.0.jar`.
+> * Als uw cluster maakt gebruik van Azure Data Lake Store Gen2, gebruikt u een `abfs://` pad. Bijvoorbeeld `register abfs://home/example/jars/datafu-pig-1.4.0.jar`.
+>
+> * Als uw cluster maakt gebruik van Azure Data Lake Store Gen1, gebruikt u een `adl://` pad. Bijvoorbeeld `register adl://home/example/jars/datafu-pig-1.4.0.jar`.
 
 Vaak definieert u een alias voor DataFu functies. Het volgende voorbeeld definieert een alias van `SHA`:
 
