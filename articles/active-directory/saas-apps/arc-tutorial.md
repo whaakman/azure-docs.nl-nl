@@ -1,264 +1,245 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met publiceren boog - SSO | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en publiceren boog - eenmalige aanmelding.
+title: 'Zelfstudie: Azure Active Directory-integratie met Arc Publishing - SSO | Microsoft Docs'
+description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en Allbound SSO.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: ae609583-f875-4cb8-b68e-1b0b7938e9a7
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/07/2018
+ms.topic: tutorial
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 8c4922c817d9667b1a25846df53f9366e2018342
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2d14b352f335d0e0f409c7723fd9395eac6f2a48
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187110"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209469"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-arc-publishing---sso"></a>Zelfstudie: Azure Active Directory-integratie met publiceren boog - eenmalige aanmelding
+# <a name="tutorial-azure-active-directory-integration-with-arc-publishing---sso"></a>Zelfstudie: Azure Active Directory-integratie met Arc Publishing - SSO
 
-In deze zelfstudie leert u hoe u integreert boog Publishing - eenmalige aanmelding met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Arc Publishing - SSO kunt integreren met Azure Active Directory (Azure AD).
+De integratie van Arc Publishing - SSO met Azure Active Directory heeft de volgende voordelen:
 
-Integratie van boog publicatie - eenmalige aanmelding met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure Active Directory beheren wie toegang heeft tot Arc Publishing - SSO.
+* U kunt uw gebruikers zich automatisch laten aanmelden bij Arc Publishing - SSO (eenmalige aanmelding) met hun Azure Active Directory-account.
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot publiceren boog - eenmalige aanmelding heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij publicatie boog - SSO (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met publiceren boog - SSO, moet u de volgende items:
+Voor de configuratie van Azure Active Directory-integratie met Arc Publishing - SSO hebt u het volgende nodig:
 
-- Een Azure AD-abonnement
-- De publicatie van een boog - SSO-eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op Arc Publishing - SSO waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Boog publicatie - eenmalige aanmelding in de galerie toevoegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-arc-publishing---sso-from-the-gallery"></a>Boog publicatie - eenmalige aanmelding in de galerie toevoegen
-Als u wilt configureren van de integratie van publiceren boog - eenmalige aanmelding bij Azure AD die u wilt toevoegen boog Publishing - eenmalige aanmelding in de galerie aan de lijst met beheerde SaaS-apps.
+* Arc Publishing - SSO ondersteunt door **SP en IDP** geïnitieerde eenmalige aanmelding
+* Arc Publishing - SSO ondersteunt het **Just-In-Time** inrichten van gebruikers
 
-**Als u wilt publiceren boog - eenmalige aanmelding in de galerie toevoegen de volgende stappen uitvoeren:**
+## <a name="adding-arc-publishing---sso-from-the-gallery"></a>Arc Publishing - SSO vanuit de galerie toevoegen
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Voor de configuratie van de integratie van Arc Publishing - SSO in Azure Active Directory, moet u Arc Publishing - SSO vanuit de galerie aan uw lijst met beheerde SaaS-apps toevoegen.
 
-    ![De Azure Active Directory-knop][1]
+**Voer de volgende stappen uit om Arc Publishing - SSO toe te voegen vanuit de galerie:**
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![De blade Enterprise-toepassingen][2]
-    
-1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![De knop Nieuwe toepassing][3]
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-1. In het zoekvak, typ **Publishing boog - SSO**, selecteer **Publishing boog - SSO** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![Boog publicatie - eenmalige aanmelding in de lijst met resultaten](./media/arc-tutorial/tutorial_arc_addfromgallery.png)
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
+
+4. Typ in het zoekvak  **Arc Publishing - SSO**, selecteer  **Arc Publishing - SSO** in het resultaatvenster en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
+
+     ![Arc Publishing - SSO in de lijst met resultaten](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie kunt u configureren en testen op Azure AD eenmalige aanmelding met boog publiceren - eenmalige aanmelding op basis van een testgebruiker 'Julia steen' genoemd.
+In deze sectie gaat u eenmalige aanmelding bij Azure Active Directory met Arc Publishing - SSO configureren en testen met behulp van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure Active Directory-gebruiker en de daaraan gerelateerde gebruiker in Arc Publishing - SSO tot stand is gebracht.
 
-Voor eenmalige aanmelding voor het werk, Azure AD moet weten wat de equivalente-gebruiker in boog Publishing - eenmalige aanmelding is voor een gebruiker in Azure AD. Met andere woorden, een koppeling de relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in boog Publishing - eenmalige aanmelding moet tot stand worden gebracht.
-
-Als u wilt configureren en testen van Azure AD eenmalige aanmelding met boog Publishing - SSO, u nodig hebt voor de volgende bouwstenen:
+Als u eenmalige aanmelding bij Azure Active Directory met Arc Publishing - SSO wilt configureren en testen, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-1. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-1. **[Maken van een boog publiceren - eenmalige aanmelding testen gebruiker](#create-an-arc-publishing---sso-test-user)**  : als u wilt een equivalent van Britta Simon in boog Publishing - eenmalige aanmelding die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+2. **[Eenmalige aanmelding met Arc Publishing - SSO configureren](#configure-arc-publishing---sso-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wilt configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Een testgebruiker maken in Arc Publishing - SSO](#create-arc-publishing---sso-test-user)**: om in Arc Publishing - SSO een tegenhanger van Britta Simon te hebben die is gekoppeld aan de Azure Active Directory-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw boog Publishing - SSO-toepassing.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met publiceren boog - SSO, moet u de volgende stappen uitvoeren:**
+Voor de configuratie van eenmalige aanmelding bij Azure Active Directory met Arc Publishing - SSO moet u de volgende stappen uitvoeren:
 
-1. In de Azure-portal op de **Publishing boog - SSO** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. In de [Azure Portal](https://portal.azure.com/) selecteert u **Eenmalige aanmelding** op de integratiepagina van de toepassing  **Arc Publishing - SSO**.
 
-    ![Koppeling Eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/arc-tutorial/tutorial_arc_samlbase.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-1. Op de **Publishing boog - SSO-domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IDP** modus gestart:
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![Boog publicatie - SSO-domein en één URL's aanmeldings-informatie](./media/arc-tutorial/tutorial_arc_url.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    1. Typ in het tekstvak **Id** een URL met het volgende patroon: `https://www.okta.com/saml2/service-provider/<Unique ID>`
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    1. In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://arcpublishing-<Customer>.okta.com/sso/saml2/<Unique ID>`
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit als u de toepassing in de door **IDP** geïnitieerde modus wilt configureren:
 
-1. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
+    ![Domein- en URL-gegevens voor eenmalige aanmelding met Arc Publishing - SSO](common/idp-intiated.png)
 
-    ![Boog publicatie - SSO-domein en één URL's aanmeldings-informatie](./media/arc-tutorial/tutorial_arc_url1.png)
+    a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://www.okta.com/saml2/service-provider/<Unique ID>`
 
-    Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://arcpublishing-<Customer>.okta.com/sso/saml2/<Unique ID>`
-     
-    > [!NOTE] 
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke id, antwoord-URL en aanmeldings-URL. Neem contact op met [Publishing boog - ondersteuningsteam voor SSO-Client](mailto:inf@washpost.com) om deze waarden te verkrijgen. 
+    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://arcpublishing-<Customer>.okta.com/sso/saml2/<Unique ID>`
 
-1. ARC publiceren - SSO-toepassing wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. In de volgende schermopname ziet u een voorbeeld hiervan.
-    
-    ![Eenmalige aanmelding configureren](./media/arc-tutorial/tutorial_arc_attribute.png)
+5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
-1. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de bovenstaande afbeelding en voer de volgende stappen uit:
-    
-    | Naam kenmerk | Waarde kenmerk |
+    ![Domein- en URL-gegevens voor eenmalige aanmelding met Arc Publishing - SSO](common/metadata-upload-additional-signon.png)
+
+    In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://arcpublishing-<Customer>.okta.com/sso/saml2/<Unique ID>`
+
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke-id, de antwoord-URL en de aanmeldings-URL. Neem contact op met het [ clientondersteuningsteam van Arc Publishing - SSO](mailto:inf@washpost.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+
+6. De Arc Publishing - SSO-toepassing verwacht de SAML-asserties in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
+
+    ![image](common/edit-attribute.png)
+
+7. Bewerk in het gedeelte **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** de claims met het **pictogram Bewerken** of voeg de claims toe door met **Nieuwe claim toevoegen** het kenmerk van het SAML-token te configureren, zoals wordt weergegeven in de bovenstaande afbeelding. Hierna voert u de volgende stappen uit: 
+
+    | Naam | Bronkenmerk|
     | ---------------| --------------- |    
-    | firstName | user.givenname |
-    | lastName | user.surname |
+    | voornaam | user.givenname |
+    | achternaam | user.surname |
     | e-mail | user.mail |
     | groepen | user.assignedroles |
 
-    1. Klik op **kenmerk toevoegen** openen de **kenmerk toevoegen** dialoogvenster.
 
-     ![Eenmalige aanmelding configureren](./media/arc-tutorial/tutorial_attribute_04.png)
+    a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 
-     ![Eenmalige aanmelding configureren](./media/arc-tutorial/tutorial_attribute_05.png)
-    
-    1. In het tekstvak **Naam** typt u de naam van het kenmerk die voor die rij wordt weergegeven.
-    
-    1. Uit de **waarde** weergeven, typt u de waarde van het kenmerk wordt weergegeven voor die rij.
+    ![image](common/new-save-attribute.png)
 
-    1. Laat **Naamruimte** leeg.
-    
-    1. Klik op **OK**.
+    ![image](common/new-attribute-details.png)
+
+    b. In het tekstvak **Naam** typt u de naam van het kenmerk die voor die rij wordt weergegeven.
+
+    c. Laat **Naamruimte** leeg.
+
+    d. Selecteer Bron bij **Kenmerk**.
+
+    e. Typ de kenmerkwaarde voor die rij in de lijst met **bronkenmerken**.
+
+    f. Klik op **OK**.
+
+    g. Klik op **Opslaan**.
 
     > [!NOTE]
-    > Hier de **groepen** kenmerk wordt toegewezen met **user.assignedroles**. Dit zijn aangepaste rollen in Azure AD om toe te wijzen de groepsnamen terug in de toepassing hebt gemaakt. U vindt meer richtlijnen [hier](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) voor het maken van aangepaste rollen in Azure AD. 
+    > Hier wordt het **Groepen**-kenmerk toegewezen met **user.assignedroles**. Dit zijn aangepaste rollen die in Azure Active Directory zijn gemaakt om de groepsnamen terug toe te wijzen naar de toepassing. U vindt [hier](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) meer richtlijnen voor het maken van aangepaste rollen in Azure Active Directory. 
 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
+8. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
-    ![De link om het certificaat te downloaden](./media/arc-tutorial/tutorial_arc_certificate.png) 
+    ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
-1. Klik op **opslaan** knop.
+9. In het gedeelte **Arc Publishing - SSO instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
 
-    ![De knop voor enkelvoudige aanmelding configureren](./media/arc-tutorial/tutorial_general_400.png)
-    
-1. Op de **Publishing boog - configuratie voor eenmalige aanmelding** sectie, klikt u op **configureren boog Publishing - SSO** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-    ![Boog publicatie - SSO-configuratie](./media/arc-tutorial/tutorial_arc_configure.png) 
+    a. Aanmeldings-URL
 
-1. Het configureren van eenmalige aanmelding op **Publishing boog - SSO** zijde, moet u voor het verzenden van de gedownloade **certificaat (Base64), URL van de afmelding, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** naar [boog Publicatie - ondersteuningsteam voor eenmalige aanmelding](mailto:inf@washpost.com). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+    b. Azure AD-id
+
+    c. Afmeldings-URL
+
+### <a name="configure-arc-publishing---sso-single-sign-on"></a>Eenmalige aanmelding met Arc Publishing - SSO configureren
+
+Als u eenmalige aanmelding aan de zijde van **Arc Publishing - SSO** wilt configureren, moet u het gedownloade **Certificaat (Base64)** en de juiste uit de Azure Portal gekopieerde URL's verzenden naar het [ondersteuningsteam voor Arc Publishing - SSO](mailto:inf@washpost.com). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-   ![Maak een testgebruiker Azure AD][100]
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![De Azure Active Directory-knop](./media/arc-tutorial/create_aaduser_01.png)
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/arc-tutorial/create_aaduser_02.png)
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-1. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    ![De knop toevoegen](./media/arc-tutorial/create_aaduser_03.png)
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
-1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
-
-    ![Het dialoogvenster Gebruiker](./media/arc-tutorial/create_aaduser_04.png)
-
-    1. In de **naam** in het vak **BrittaSimon**.
-
-    1. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    1. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
-
-    1. Klik op **Create**.
- 
-### <a name="create-an-arc-publishing---sso-test-user"></a>Maak een boog Publishing - gebruiker voor eenmalige aanmelding testen
-
-Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in boog Publishing - eenmalige aanmelding. ARC publiceren - eenmalige aanmelding ondersteunt just-in-time inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot publiceren boog - eenmalige aanmelding als deze nog niet bestaat.
-
->[!Note]
->Als u maken van een gebruiker handmatig wilt, neem dan contact op met [Publishing boog - ondersteuningsteam voor eenmalige aanmelding](mailto:inf@washpost.com).
+    d. Klik op **Create**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen voor publicatie boog - eenmalige aanmelding.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding bij Azure door haar toegang te geven tot Arc Publishing - SSO.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer in de Azure Portal achtereenvolgens **Bedrijfstoepassingen**, **Alle toepassingen** en **Arc Publishing - SSO**.
 
-**Als u wilt toewijzen Britta Simon naar boog Publishing - SSO, moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Selecteer **Arc Publishing - SSO** in de lijst met toepassingen.
 
-    ![Gebruiker toewijzen][201] 
+    ![De Arc Publishing - SSO-link voor eenmalige aanmelding in de lijst met toepassingen](common/all-applications.png)
 
-1. Selecteer in de lijst met toepassingen, **Publishing boog - SSO**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![Het publiceren van de boog - koppeling voor eenmalige aanmelding in de lijst met toepassingen](./media/arc-tutorial/tutorial_arc_app.png)  
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="create-arc-publishing---sso-test-user"></a>Arc Publishing - SSO-testgebruiker maken
 
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
+In dit gedeelte wordt een gebruiker met de naam Britta Simon gemaakt in Arc Publishing - SSO. Arc Publishing - SSO ondersteunt Just-In-Time-inrichting van gebruikers. Deze functie is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Als een gebruiker nog niet bestaat in Arc Publishing - SSO, wordt er na verificatie een nieuwe gemaakt.
+
+> [!Note]
+> Als u handmatig een gebruiker wilt maken, neem dan contact op met het  [ondersteuningsteam van Arc Publishing - SSO](mailto:inf@washpost.com).
+
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-Wanneer u klikt op de boog Publishing - tegel in het toegangsvenster en SSO-u moet u automatisch aangemeld bij uw boog Publishing - SSO-toepassing.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
+Wanneer u op de tegel Arc Publishing - SSO in het toegangsvenster klikt, wordt u automatisch aangemeld bij de instantie van Arc Publishing - SSO waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/arc-tutorial/tutorial_general_01.png
-[2]: ./media/arc-tutorial/tutorial_general_02.png
-[3]: ./media/arc-tutorial/tutorial_general_03.png
-[4]: ./media/arc-tutorial/tutorial_general_04.png
-
-[100]: ./media/arc-tutorial/tutorial_general_100.png
-
-[200]: ./media/arc-tutorial/tutorial_general_200.png
-[201]: ./media/arc-tutorial/tutorial_general_201.png
-[202]: ./media/arc-tutorial/tutorial_general_202.png
-[203]: ./media/arc-tutorial/tutorial_general_203.png
-
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -13,29 +13,30 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 02/09/2018
+ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ab4c5c744733ac25243f0edbc7c9a760fc0682f6
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 354625accb39344d07a22f2d3935cf4cf022d491
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883038"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977657"
 ---
 # <a name="tutorial---deploy-applications-to-a-windows-virtual-machine-in-azure-with-the-custom-script-extension"></a>Zelfstudie: Toepassingen implementeren op een virtuele Windows-machine in Azure met de aangepaste scriptextensie
 
-Als u virtuele machines (VM's) op een snelle en consistente manier wilt configureren, is een vorm van automatisering doorgaans gewenst. Een veelgebruikte manier om een virtuele Windows-machine aan te passen, is door een [aangepaste scriptextensie voor Windows](extensions-customscript.md) te gebruiken. In deze zelfstudie leert u het volgende:
+Om virtuele machines (VM's) snel en consistent te configureren, kunt u de [Aangepaste scriptextensie voor Windows](extensions-customscript.md) gebruiken. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * De aangepaste scriptextensie gebruiken om IIS te installeren
 > * Een virtuele machine maken die de aangepaste scriptextensie gebruikt
 > * Een actieve IIS-site weergeven nadat de extensie is toegepast
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell starten
 
-Als u ervoor kiest om PowerShell lokaal te installeren en te gebruiken, moet u moduleversie 5.7.0 of hoger van Azure PowerShell gebruiken voor deze zelfstudie. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
+Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. 
 
+Als u Cloud Shell wilt openen, selecteert u **Proberen** in de rechterbovenhoek van een codeblok. U kunt Cloud Shell ook openen in een afzonderlijk browsertabblad door naar [https://shell.azure.com/powershell](https://shell.azure.com/powershell) te gaan. Klik op **Kopiëren** om de codeblokken te kopiëren, plak deze in Cloud Shell en druk vervolgens op Enter om de code uit te voeren.
 
 ## <a name="custom-script-extension-overview"></a>Overzicht aangepaste scriptextensie
 Met de aangepaste scriptextensie kunnen scripts worden gedownload en uitgevoerd op virtuele machines in Azure. Deze uitbreiding is handig voor post-implementatieconfiguraties, software-installaties of andere configuratie-/beheertaken. Scripts kunnen worden gedownload uit Azure Storage of GitHub, of worden geleverd in Azure Portal tijdens de uitvoering van extensies.
@@ -46,16 +47,16 @@ U kunt de aangepaste scriptextensie gebruiken met virtuele Windows- en Linux-mac
 
 
 ## <a name="create-virtual-machine"></a>Virtuele machine maken
-Stel eerst een beheerdersnaam en -wachtwoord in voor de virtuele machine met [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Stel naam en wachtwoord van de beheerder in voor de VM met [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-U kunt de virtuele machine nu maken met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). In het volgende voorbeeld wordt een VM met de naam *myVM* gemaakt op de locatie *VS Oost*. Als deze niet al bestaan, worden de resourcegroep *myResourceGroupAutomate* en ondersteunende netwerkbronnen gemaakt. Om webverkeer mogelijk te maken, opent de cmdlet ook poort *80*.
+U kunt de virtuele machine nu maken met [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). In het volgende voorbeeld wordt een VM met de naam *myVM* gemaakt op de locatie *VS Oost*. Als deze niet al bestaan, worden de resourcegroep *myResourceGroupAutomate* en ondersteunende netwerkbronnen gemaakt. Om webverkeer mogelijk te maken, opent de cmdlet ook poort *80*.
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroupAutomate" `
     -Name "myVM" `
     -Location "East US" `
@@ -71,10 +72,10 @@ Het duurt enkele minuten voordat de bronnen en virtuele machine zijn gemaakt.
 
 
 ## <a name="automate-iis-install"></a>IIS-installatie automatiseren
-Gebruik [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) om de aangepaste scriptextensie te installeren. De extensie voert `powershell Add-WindowsFeature Web-Server` uit om de IIS-webserver te installeren en werkt vervolgens de pagina *Default.htm* bij om de hostnaam van de VM weer te geven:
+Gebruik [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) om de aangepaste scriptextensie te installeren. De extensie voert `powershell Add-WindowsFeature Web-Server` uit om de IIS-webserver te installeren en werkt vervolgens de pagina *Default.htm* bij om de hostnaam van de VM weer te geven:
 
 ```azurepowershell-interactive
-Set-AzureRmVMExtension -ResourceGroupName "myResourceGroupAutomate" `
+Set-AzVMExtension -ResourceGroupName "myResourceGroupAutomate" `
     -ExtensionName "IIS" `
     -VMName "myVM" `
     -Location "EastUS" `
@@ -86,10 +87,10 @@ Set-AzureRmVMExtension -ResourceGroupName "myResourceGroupAutomate" `
 
 
 ## <a name="test-web-site"></a>Website testen
-Haal het openbare IP-adres van uw load balancer op met [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). In het volgende voorbeeld wordt het IP-adres opgehaald voor het eerder gemaakte *myPublicIPAddress*:
+Haal het openbare IP-adres van uw load balancer op met [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress). In het volgende voorbeeld wordt het IP-adres opgehaald voor het eerder gemaakte *myPublicIPAddress*:
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIPAddress `
+Get-AzPublicIPAddress `
     -ResourceGroupName "myResourceGroupAutomate" `
     -Name "myPublicIPAddress" | select IpAddress
 ```

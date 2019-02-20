@@ -1,116 +1,109 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met instructies voor Microsoft | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en de aanwijzingen op Microsoft.
+title: 'Zelfstudie: Azure Active Directory-integratie met Directions on Microsoft | Microsoft Docs'
+description: Leer hoe u eenmalige aanmelding tussen Azure Active Directory en Directions on Microsoft configureert.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: e0c8986f-2acd-418d-a306-437abc44b640
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/22/2017
+ms.topic: tutorial
+ms.date: 01/30/2019
 ms.author: jeedes
-ms.openlocfilehash: 6d8e061368de42d4adb1150e4ea740c3ce149661
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b767854842faf7980c3d773d2700a9c08317b53b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158754"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172498"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-directions-on-microsoft"></a>Zelfstudie: Azure Active Directory-integratie met instructies voor Microsoft
+# <a name="tutorial-azure-active-directory-integration-with-directions-on-microsoft"></a>Zelfstudie: Azure Active Directory-integratie met Directions on Microsoft
 
-In deze zelfstudie leert u hoe u instructies over het Microsoft integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Directions on Microsoft kunt integreren met Azure AD (Active Directory).
+De integratie van Directions on Microsoft met Azure AD heeft de volgende voordelen:
 
-Instructies over het Microsoft integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD bepalen wie er toegang heeft tot Directions on Microsoft.
+* U kunt instellen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Directions on Microsoft (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot de aanwijzingen op Microsoft heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Microsoft (Single Sign-On) aanwijzingen met hun Azure AD-accounts inschakelen
-- U kunt uw accounts in één centrale locatie - Azure portal beheren
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met instructies voor Microsoft, moet u de volgende items:
+U hebt het volgende nodig om Azure AD-integratie te configureren met Directions on Microsoft:
 
-- Een Azure AD-abonnement
-- Een richting op Microsoft eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op Directions on Microsoft waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Instructies voor Microsoft toe te voegen uit de galerie
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-directions-on-microsoft-from-the-gallery"></a>Instructies voor Microsoft toe te voegen uit de galerie
-Voor het configureren van de integratie van de instructies op Microsoft met Azure AD, moet u de aanwijzingen op Microsoft uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* Directions on Microsoft biedt ondersteuning voor met **SP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt toevoegen aanwijzingen op Microsoft uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-directions-on-microsoft-from-the-gallery"></a>Directions on Microsoft toevoegen vanuit de galerie
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Om de integratie van Directions on Microsoft te configureren in Azure AD moet u Directions on Microsoft vanuit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
 
-    ![Active Directory][1]
+**Voer de volgende stappen uit om Directions on Microsoft toe te voegen vanuit de galerie:**
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![Applicaties][2]
-    
-1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![Applicaties][3]
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-1. Typ in het zoekvak **instructies over het Microsoft**.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/directions-microsoft-tutorial/tutorial_directionsonmicrosoft_search.png)
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-1. Selecteer in het deelvenster resultaten **instructies over het Microsoft**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/directions-microsoft-tutorial/tutorial_directionsonmicrosoft_addfromgallery.png)
+4. Typ **Directions on Microsoft** in het zoekvak, selecteer **Directions on Microsoft** in het deelvenster met resultaten en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met instructies voor Microsoft op basis van een testgebruiker met de naam "Britta Simon."
+     ![Directions on Microsoft in de lijst met resultaten](common/search-new-app.png)
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in instructies over het Microsoft is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in instructies over het Microsoft tot stand worden gebracht.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In de richtingen van Microsoft, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+In dit gedeelte configureert en test u eenmalige aanmelding van Azure AD met Directions on Microsoft op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Directions on Microsoft tot stand is gebracht.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met instructies voor Microsoft, moet u de volgende bouwstenen voltooien:
+Als u eenmalige aanmelding van Azure AD wilt configureren en testen met Directions on Microsoft, moet u de volgende procedures uitvoeren:
 
-1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Het maken van een aanwijzingen op Microsoft testgebruiker](#creating-a-directions-on-microsoft-test-user)**  : als u wilt een equivalent van Britta Simon in instructies over het Microsoft die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Directions on Microsoft-eenmalige aanmelding configureren](#configure-directions-on-microsoft-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wilt configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Directions on Microsoft-testgebruiker maken](#create-directions-on-microsoft-test-user)**: als u een tegenhanger van Britta Simon in Directions on Microsoft wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw instructies over het Microsoft-toepassing.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met instructies voor Microsoft, kunt u de volgende stappen uitvoeren:**
+Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configureren met Directions on Microsoft:
 
-1. In de Azure-portal op de **instructies over het Microsoft** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. Selecteer in de [Azure-portal](https://portal.azure.com/), op de integratiepagina voor de toepassing **Directions on Microsoft**, de optie **Eenmalige aanmelding**.
 
-    ![Eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![Eenmalige aanmelding configureren](./media/directions-microsoft-tutorial/tutorial_directionsonmicrosoft_samlbase.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-1. Op de **aanwijzingen over Microsoft-Domain en URL's** sectie, voert u de volgende stappen uit:
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![Eenmalige aanmelding configureren](./media/directions-microsoft-tutorial/tutorial_directionsonmicrosoft_url.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
+
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
+
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
+
+    ![Gegevens voor domein en URL's voor eenmalige aanmelding van Directions on Microsoft](common/sp-identifier.png)
 
     a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon:
     |  |
@@ -118,123 +111,104 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     | `https://www.directionsonmicrosoft.com/user/login` |
     | `https://<subdomain>.devcloud.acquia-sites.com/<companyname>` |
 
-    b. In het tekstvak **Id** typt u een URL met het volgende patroon:
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon:
     |  |
     | --- |
     | `https://rhelmdirectionsonmicrosoftcomtest.devcloud.acquia-sites.com/simplesaml/<companyname>` |
     | `https://www.directionsonmicrosoft.com/simplesaml/<companyname>` |
 
-    > [!NOTE] 
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de daadwerkelijke aanmeldings-URL en id. Neem contact op met [instructies op de Client voor Microsoft-ondersteuningsteam](mailto:service@DirectionsOnMicrosoft.com) om deze waarden te verkrijgen. 
- 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met het [ondersteuningsteam van Directions on Microsoft](mailto:service@DirectionsOnMicrosoft.com) om deze waarden op te vragen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-    ![Eenmalige aanmelding configureren](./media/directions-microsoft-tutorial/tutorial_directionsonmicrosoft_certificate.png) 
+5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
-1. Klik op de knop **Save**.
+    ![De link om het certificaat te downloaden](common/metadataxml.png)
 
-    ![Eenmalige aanmelding configureren](./media/directions-microsoft-tutorial/tutorial_general_400.png)
+6. Kopieer in het gedeelte **Directions on Microsoft instellen** de juiste URL('s) op basis van wat u nodig hebt.
 
-1. Het configureren van eenmalige aanmelding op **instructies over het Microsoft** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [instructies over het Microsoft-ondersteuningsteam](mailto:service@DirectionsOnMicrosoft.com). De instructies op Microsoft ondersteuning om in te schakelen team te vinden van uw federatieve sitelidmaatschap, gegevens van uw bedrijf opnemen in uw e-mailadres.
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
+
+    a. Aanmeldings-URL
+
+    b. Azure AD-id
+
+    c. Afmeldings-URL
+
+### <a name="configure-directions-on-microsoft-single-sign-on"></a>Directions on Microsoft-eenmalige aanmelding configureren
+
+Als u eenmalige aanmelding wilt configureren in **Directions on Microsoft**, moet u de gedownloade **Metagegevens-XML** verzenden naar het [ondersteuningsteam van Directions on Microsoft](mailto:service@DirectionsOnMicrosoft.com). Neem uw bedrijfsgegevens op in de e-mail als u het ondersteuningsteam van Directions on Microsoft in staat wilt stellen om uw federatieve site te zoeken.
     
-    >[!NOTE]
-    >Eenmalige aanmelding voor instructies over het Microsoft moet worden ingeschakeld door de [instructies op de Client voor Microsoft-ondersteuningsteam](mailto:service@DirectionsOnMicrosoft.com). U ontvangt een melding wanneer eenmalige aanmelding is ingeschakeld.
+>[!NOTE]
+>Directions on Microsoft-eenmalige aanmelding moet worden ingeschakeld door het [Ondersteuningsteam van Directions on Microsoft](mailto:service@DirectionsOnMicrosoft.com). U ontvangt een melding wanneer eenmalige aanmelding is ingeschakeld.
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-![Azure AD-gebruiker maken][100]
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/directions-microsoft-tutorial/create_aaduser_01.png) 
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
-    
-    ![Het maken van een Azure AD-testgebruiker](./media/directions-microsoft-tutorial/create_aaduser_02.png) 
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/directions-microsoft-tutorial/create_aaduser_03.png) 
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/directions-microsoft-tutorial/create_aaduser_04.png) 
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    a. In de **naam** tekstvak, type **BrittaSimon**.
-
-    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
-
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="creating-a-directions-on-microsoft-test-user"></a>Het maken van een aanwijzingen op Microsoft testgebruiker
 
-Er is geen actie-item voor u het inrichten van gebruikers naar instructies over het Microsoft configureren.  
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-Wanneer een toegewezen gebruiker probeert zich aanmelden bij de instructies op Microsoft via het toegangsvenster, worden instructies over het Microsoft controleert of de gebruiker bestaat. Als er nog geen gebruikersaccount beschikbaar, wordt deze automatisch gemaakt door de instructies voor Microsoft.
+In dit gedeelte geeft u Britta Simon de mogelijkheid om eenmalige aanmelding van Azure te gebruiken door haar toegang te geven tot Directions on Microsoft.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
+1. Selecteer in de Azure-portal achtereenvolgens **Bedrijfstoepassingen**, **Alle toepassingen** en **Directions on Microsoft**.
 
-In deze sectie maakt inschakelen u Britta Simon gebruik van door toegang te verlenen voor instructies over het Microsoft Azure eenmalige aanmelding.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-![Gebruiker toewijzen][200] 
+2. Selecteer **Directions on Microsoft** in de lijst met toepassingen.
 
-**Als u wilt toewijzen Britta Simon voor instructies over het Microsoft, kunt u de volgende stappen uitvoeren:**
+    ![De koppeling naar Directions on Microsoft in de lijst met toepassingen](common/all-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![Gebruiker toewijzen][201] 
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-1. Selecteer in de lijst met toepassingen, **instructies over het Microsoft**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![Eenmalige aanmelding configureren](./media/directions-microsoft-tutorial/tutorial_directionsonmicrosoft_app.png) 
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Gebruiker toewijzen][202] 
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-    ![Gebruiker toewijzen][203]
+### <a name="create-directions-on-microsoft-test-user"></a>Directions on Microsoft-testgebruiker maken
 
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+Er is geen actie-item voor het configureren van de inrichting van gebruikers in Directions on Microsoft.  
 
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+Wanneer een toegewezen gebruiker zich via het toegangsvenster wil aanmelden bij Microsoft, wordt in Directions on Microsoft gecontroleerd of de gebruiker bestaat. Als er nog geen gebruikersaccount beschikbaar is, wordt er automatisch een account gemaakt in Directions on Microsoft.
 
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
- 
-Als u de aanwijzingen op Microsoft-tegel in het toegangsvenster klikt, u moet u automatisch aangemeld bij uw instructies over het Microsoft-toepassing.
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-Zie [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster. 
+Wanneer u in het toegangsvenster op de tegel Directions on Microsoft klikt, wordt u automatisch aangemeld bij de instantie van Directions on Microsoft waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-[1]: ./media/directions-microsoft-tutorial/tutorial_general_01.png
-[2]: ./media/directions-microsoft-tutorial/tutorial_general_02.png
-[3]: ./media/directions-microsoft-tutorial/tutorial_general_03.png
-[4]: ./media/directions-microsoft-tutorial/tutorial_general_04.png
-
-[100]: ./media/directions-microsoft-tutorial/tutorial_general_100.png
-
-[200]: ./media/directions-microsoft-tutorial/tutorial_general_200.png
-[201]: ./media/directions-microsoft-tutorial/tutorial_general_201.png
-[202]: ./media/directions-microsoft-tutorial/tutorial_general_202.png
-[203]: ./media/directions-microsoft-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

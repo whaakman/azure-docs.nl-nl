@@ -1,248 +1,217 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Dealpath | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Dealpath.
+description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en Dealpath.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 51ace608-5a4f-48c0-9446-d9f86ad2e890
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/11/2017
+ms.topic: tutorial
+ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 97520460041d0a142cebdee843274793646321f5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0aed2f5f156c3b934f1328af984c78078c7316b6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188266"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189970"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dealpath"></a>Zelfstudie: Azure Active Directory-integratie met Dealpath
 
-In deze zelfstudie leert u hoe u Dealpath integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Dealpath kunt integreren met Azure Active Directory (Azure AD).
+Het integreren van Dealpath met Azure AD biedt u de volgende voordelen:
 
-Dealpath integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD beheren wie toegang heeft tot Dealpath.
+* U kunt uw gebruikers zich automatisch laten aanmelden bij Dealpath (eenmalige aanmelding) met hun Azure AD-account.
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot Dealpath heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Dealpath (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Dealpath, moet u de volgende items:
+Voor het configureren van Azure AD-integratie met Dealpath hebt u het volgende nodig:
 
-- Een Azure AD-abonnement
-- Een Dealpath eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op Dealpath waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Dealpath uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-dealpath-from-the-gallery"></a>Dealpath uit de galerie toe te voegen
-Voor het configureren van de integratie van Dealpath in Azure AD, moet u Dealpath uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* Dealpath ondersteunt door **SP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt toevoegen Dealpath uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-dealpath-from-the-gallery"></a>Dealpath toevoegen vanuit de galerie
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Om de integratie van Dealpath in Azure AD te configureren, moet u Dealpath uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-    ![De Azure Active Directory-knop][1]
+**Voer de volgende stappen uit om Dealpath toe te voegen vanuit de galerie:**
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![De blade Enterprise-toepassingen][2]
-    
-1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![De knop Nieuwe toepassing][3]
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-1. Typ in het zoekvak **Dealpath**, selecteer **Dealpath** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![Dealpath in de lijst met resultaten](./media/dealpath-tutorial/tutorial_dealpath_addfromgallery.png)
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
+
+4. Typ in het zoekvak **Dealpath**, selecteer **Dealpath** in het resultaatvenster en klik op de knop **Toevoegen** om de toepassing toe te voegen.
+
+     ![Dealpath in de resultatenlijst](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Dealpath op basis van een testgebruiker 'Julia steen' genoemd.
+In dit gedeelte configureert en test u eenmalige aanmelding van Azure AD met Dealpath op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Dealpath tot stand is gebracht.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Dealpath is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Dealpath tot stand worden gebracht.
-
-In Dealpath, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
-
-Om te configureren en testen van Azure AD eenmalige aanmelding met Dealpath, moet u de volgende bouwstenen voltooien:
+Voor het configureren en testen van Azure AD-eenmalige aanmelding met Dealpath moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-1. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-1. **[Maak een testgebruiker Dealpath](#create-a-dealpath-test-user)**  : als u wilt een equivalent van Britta Simon in Dealpath die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+2. **[Eenmalige aanmelding voor Dealpath configureren](#configure-dealpath-single-sign-on)**: de instellingen voor eenmalige aanmelding aan de clientzijde configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker voor Dealpath maken](#create-dealpath-test-user)**: als u een tegenhanger van Britta Simon in Dealpath wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Dealpath.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Dealpath, moet u de volgende stappen uitvoeren:**
+Ga als volgt te werk om Azure AD-eenmalige aanmelding met Dealpath te configureren:
 
-1. In de Azure-portal op de **Dealpath** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. In [Azure Portal](https://portal.azure.com/) selecteert u op de integratiepagina van de **Dealpath**-toepassing de optie **Eenmalige aanmelding**.
 
-    ![Koppeling Eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/dealpath-tutorial/tutorial_dealpath_samlbase.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-1. Op de **Dealpath domein en URL's** sectie, voert u de volgende stappen uit:
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![Dealpath domein en URL's, eenmalige aanmelding informatie](./media/dealpath-tutorial/tutorial_dealpath_url.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://app.dealpath.com/account/login`
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    b. Typ in het tekstvak **Id** een URL met het volgende patroon: `https://api.dealpath.com/saml/metadata/<ID>`
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-    > [!NOTE] 
-    > De id is niet echt. Werk de waarde bij met de werkelijke id. Neem contact op met [Dealpath Client ondersteuningsteam](mailto:kenter@dealpath.com) om de waarde. 
- 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
+    ![Domein- en URL-gegevens voor eenmalige aanmelding bij Dealpath](common/sp-identifier.png)
 
-    ![De link om het certificaat te downloaden](./media/dealpath-tutorial/tutorial_dealpath_certificate.png) 
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL: `https://app.dealpath.com/account/login`
 
-1. Klik op **opslaan** knop.
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://api.dealpath.com/saml/metadata/<ID>`
 
-    ![De knop voor enkelvoudige aanmelding configureren](./media/dealpath-tutorial/tutorial_general_400.png)
+    > [!NOTE]
+    > De id-waarde is niet echt. Werk de waarde bij met de werkelijke id. Neem contact op met het [ondersteuningsteam van Dealpath](mailto:kenter@dealpath.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-1. Op de **Dealpath configuratie** sectie, klikt u op **configureren Dealpath** openen **aanmelding configureren** venster. Kopiëren de **SAML entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
+4. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
-    ![Dealpath configuratie](./media/dealpath-tutorial/tutorial_dealpath_configure.png) 
+    ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
-1. In een ander browservenster, meld u aan bij Dealpath als beheerder.
+6. In de sectie **Dealpath instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
 
-1. In de rechterbovenhoek, klikt u op **Systeembeheer** en navigeer naar **integraties**, klik dan in **SAML 2.0-verificatie** sectie klikt u op **Update-instellingen**:
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-    ![Dealpath configuratie](./media/dealpath-tutorial/tutorial_dealpath_admin.png)
+    a. Aanmeldings-URL
 
-1. In de **SAML 2.0-verificatie instellen** pagina, voert u de volgende stappen uit:
+    b. Azure AD-id
 
-    ![Dealpath configuratie](./media/dealpath-tutorial/tutorial_dealpath_saml.png) 
+    c. Afmeldings-URL
 
-    a. In de **URL voor SAML SSO-** tekstvak, plak de waarde van **Single Sign-On Service URL voor SAML**, die u hebt gekopieerd vanuit Azure portal.
+### <a name="configure-dealpath-single-sign-on"></a>Dealpath voor eenmalige aanmelding configureren
 
-    b. In de **Identity Provider Issuer** tekstvak, plak de waarde van **SAML entiteit-ID**, die u hebt gekopieerd vanuit Azure portal.
+1. Meld u in een ander browservenster bij Dealpath aan als beveiligingsbeheerder.
 
-    c. Kopieer de inhoud van de gedownloade **certificate(Base64)** bestand in Kladblok en plak deze in de **openbaar certificaat** tekstvak.
+2. Klik rechtsboven op **Admin Tools** en navigeer naar **Integrations**, en klik in de sectie **SAML 2.0 Authentication** op **Update Settings**:
 
-    d. Klik op **-instellingen bijwerken**.
+    ![Dealpath Configuration](./media/dealpath-tutorial/tutorial_dealpath_admin.png)
 
+3. Voer op de pagina **Set up SAML 2.0 authentication** de volgende stappen uit:
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    ![Dealpath Configuration](./media/dealpath-tutorial/tutorial_dealpath_saml.png) 
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+    a. Plak in het tekstvak **SAML SSO URL** de waarde van **Aanmeldings-URL** die u hebt gekopieerd uit de Azure-portal.
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+    b. Plak de waarde van **Azure AD-id**, die u hebt gekopieerd vanuit de Azure-portal, in het tekstvak **Identity Provider Issuer**.
 
-   ![Maak een testgebruiker Azure AD][100]
+    c. Kopieer de inhoud van het gedownloade **certificaatbestand (Base64)** in Kladblok naar het klembord en plak deze in het tekstvak **Public Certificate**.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    d. Klik op **Update settings**.
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-    ![De Azure Active Directory-knop](./media/dealpath-tutorial/create_aaduser_01.png)
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/dealpath-tutorial/create_aaduser_02.png)
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![De knop toevoegen](./media/dealpath-tutorial/create_aaduser_03.png)
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-    ![Het dialoogvenster gebruiker](./media/dealpath-tutorial/create_aaduser_04.png)
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    a. In de **naam** in het vak **BrittaSimon**.
+    a. Voer in het veld **Naam****Britta Simon** in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="create-a-dealpath-test-user"></a>Maak een testgebruiker Dealpath
-
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in Dealpath. Werken met [Dealpath Client ondersteuningsteam](mailto:kenter@dealpath.com) om toe te voegen de gebruikers in het Dealpath-platform. Gebruikers moeten worden gemaakt en geactiveerd voordat u eenmalige aanmelding gebruiken
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Dealpath.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Dealpath.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer **Bedrijfstoepassingen** in Azure Portal, selecteer **Alle toepassingen** en selecteer vervolgens **Dealpath**.
 
-**Als u wilt Britta Simon aan Dealpath toewijst, moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Selecteer **Dealpath** in de lijst met toepassingen.
 
-    ![Gebruiker toewijzen][201] 
+    ![De koppeling Dealpath in de lijst met toepassingen](common/all-applications.png)
 
-1. Selecteer in de lijst met toepassingen, **Dealpath**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De koppeling Dealpath in de lijst met toepassingen](./media/dealpath-tutorial/tutorial_dealpath_app.png)  
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="create-dealpath-test-user"></a>Dealpath-testgebruiker maken
 
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+In deze sectie gaat u in Dealpath een gebruiker maken met de naam Britta Simon. Werk samen met het [ondersteuningsteam van Dealpath](mailto:kenter@dealpath.com) om de gebruikers toe te voegen in het Dealpath-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-Wanneer u op de tegel Dealpath in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Dealpath.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+
+Wanneer u op de tegel Dealpath in het toegangsvenster klikt, zou u automatisch moeten worden aangemeld bij de instantie van Dealpath waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/dealpath-tutorial/tutorial_general_01.png
-[2]: ./media/dealpath-tutorial/tutorial_general_02.png
-[3]: ./media/dealpath-tutorial/tutorial_general_03.png
-[4]: ./media/dealpath-tutorial/tutorial_general_04.png
-
-[100]: ./media/dealpath-tutorial/tutorial_general_100.png
-
-[200]: ./media/dealpath-tutorial/tutorial_general_200.png
-[201]: ./media/dealpath-tutorial/tutorial_general_201.png
-[202]: ./media/dealpath-tutorial/tutorial_general_202.png
-[203]: ./media/dealpath-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -1,227 +1,197 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Edcor | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Edcor.
+description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en Edcor.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 5b06f2d8-9cd7-498d-bdd6-88570a0a0a15
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/13/2017
+ms.topic: tutorial
+ms.date: 02/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 0b3ca7a101a0c3979058b7094f8e51ed80e02649
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b21d40dbb1dcb6c8ccbd412298e3656e07b42e48
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55174513"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56181521"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edcor"></a>Zelfstudie: Azure Active Directory-integratie met Edcor
 
-In deze zelfstudie leert u hoe u Edcor integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Edcor integreert met Azure Active Directory (Azure AD).
+De integratie van Edcor met Azure AD heeft de volgende voordelen:
 
-Edcor integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD beheren wie toegang heeft tot Edcor.
+* U kunt inschakelen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Edcor (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot Edcor heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Edcor (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Edcor, moet u de volgende items:
+U hebt het volgende nodig om Azure AD-integratie met Edcor te configureren:
 
-- Een Azure AD-abonnement
-- Een Edcor eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op Edcor waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Edcor uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-edcor-from-the-gallery"></a>Edcor uit de galerie toe te voegen
-Voor het configureren van de integratie van Edcor in Azure AD, moet u Edcor uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen Edcor uit de galerie, moet u de volgende stappen uitvoeren:**
+* Edcor biedt ondersteuning voor met **IDP** geïnitieerde eenmalige aanmelding
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+## <a name="adding-edcor-from-the-gallery"></a>Edcor toevoegen vanuit de galerie
 
-    ![De Azure Active Directory-knop][1]
+Als u de integratie van Edcor met Azure AD wilt configureren, moet u Edcor vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+**Als u Edcor wilt toevoegen vanuit de galerie, voert u de volgende stappen uit:**
 
-    ![De blade Enterprise-toepassingen][2]
-    
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
+
+    ![De knop Azure Active Directory](common/select-azuread.png)
+
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
+
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+
 3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![De knop Nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-4. Typ in het zoekvak **Edcor**, selecteer **Edcor** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+4. Typ **Edcor** in het zoekvak, selecteer **Edcor** in het deelvenster met resultaten en klik op de knop **Toevoegen** om de app toe te voegen.
 
-    ![Edcor in de lijst met resultaten](./media/edcor-tutorial/tutorial_edcor_addfromgallery.png)
+     ![Edcor in de lijst met resultaten](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Edcor op basis van een testgebruiker 'Julia steen' genoemd.
+In deze sectie configureert en test u eenmalige aanmelding van Azure AD met Edcor op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Edcor tot stand is gebracht.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Edcor is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Edcor tot stand worden gebracht.
-
-In Edcor, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
-
-Om te configureren en testen van Azure AD eenmalige aanmelding met Edcor, moet u de volgende bouwstenen voltooien:
+Voltooi de volgende bouwstenen als u eenmalige aanmelding van Azure AD met Edcor wilt configureren en testen:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-3. **[Maak een testgebruiker Edcor](#create-an-edcor-test-user)**  : als u wilt een equivalent van Britta Simon in Edcor die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+2. **[Eenmalige aanmelding voor Edcor configureren](#configure-edcor-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wilt configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+5. **[Testgebruiker voor Edcor maken](#create-edcor-test-user)**: als u een tegenhanger van Britta Simon in Edcor wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Edcor.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Edcor, moet u de volgende stappen uitvoeren:**
+Voer de volgende stappen uit om eenmalige aanmelding van Azure AD met Edcor te configureren:
 
-1. In de Azure-portal op de **Edcor** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. In de [Azure-portal](https://portal.azure.com/) selecteert u **Eenmalige aanmelding** op de integratiepagina van de toepassing **Edcor**.
 
-    ![Koppeling Eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/edcor-tutorial/tutorial_edcor_samlbase.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-3. Op de **Edcor domein en URL's** sectie, voert u de volgende stappen uit:
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![Edcor domein en URL's, eenmalige aanmelding informatie](./media/edcor-tutorial/tutorial_edcor_url1.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    In de **id** tekstvak, een URL typen: `https://sso.edcor.com/sp/ACS.saml2`
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-4. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+    ![Informatie over eenmalige aanmelding voor Edcor-domein en -URL's](common/idp-identifier.png)
 
-    ![De downloadkoppeling certificaat](./media/edcor-tutorial/tutorial_edcor_certificate.png) 
+    In het tekstvak **Id** typt u een URL: `https://sso.edcor.com/sp/ACS.saml2`
 
-5. Klik op **opslaan** knop.
+5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
-    ![De knop voor enkelvoudige aanmelding configureren](./media/edcor-tutorial/tutorial_general_400.png)
+    ![De link om het certificaat te downloaden](common/metadataxml.png)
 
-6. Op de **Edcor configuratie** sectie, klikt u op **configureren Edcor** openen **aanmelding configureren** venster. Kopiëren de **afmelding URL en SAML entiteit-ID** uit de **Naslaggids sectie.**
+6. In dit gedeelte **Edcor instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
 
-    ![Edcor configuratie](./media/edcor-tutorial/tutorial_edcor_configure.png) 
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-7. Het configureren van eenmalige aanmelding op **Edcor** zijde, moet u voor het verzenden van de gedownloade **Metadata XML**, **afmelding URL** en **SAML entiteit-ID** naar [Edcor ondersteuningsteam](http://www.edcor.com/contact-us-2/). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+    a. Aanmeldings-URL
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    b. Azure AD-id
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+    c. Afmeldings-URL
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+### <a name="configure-edcor-single-sign-on"></a>Eenmalige aanmelding configureren voor Edcor
 
-   ![Maak een testgebruiker Azure AD][100]
+Als u eenmalige aanmelding aan de zijde van **Edcor** wilt configureren, moet u het gedownloade **XML-bestand met federatieve metagegevens** en de correcte uit de Microsoft Azure-portal gekopieerde URL's verzenden naar het [ondersteuningsteam van Edcor](http://www.edcor.com/contact-us-2/). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-    ![De Azure Active Directory-knop](./media/edcor-tutorial/create_aaduser_01.png)
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/edcor-tutorial/create_aaduser_02.png)
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-    ![De knop toevoegen](./media/edcor-tutorial/create_aaduser_03.png)
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    ![Het dialoogvenster gebruiker](./media/edcor-tutorial/create_aaduser_04.png)
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    a. In de **naam** in het vak **BrittaSimon**.
-
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="create-an-edcor-test-user"></a>Maak een testgebruiker Edcor
-
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in Edcor. Werken met [Edcor ondersteuningsteam](http://www.edcor.com/contact-us-2/) om toe te voegen de gebruikers in het Edcor-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.  
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Edcor.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Edcor.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer **Bedrijfstoepassingen** in de Azure-portal, selecteer **Alle toepassingen** en selecteer vervolgens **Edcor**.
 
-**Als u wilt Britta Simon aan Edcor toewijst, moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Selecteer **Edcor** in de lijst met toepassingen.
 
-    ![Gebruiker toewijzen][201] 
+    ![De koppeling naar Edcor in de lijst met toepassingen](common/all-applications.png)
 
-2. Selecteer in de lijst met toepassingen, **Edcor**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De koppeling Edcor in de lijst met toepassingen](./media/edcor-tutorial/tutorial_edcor_app.png)  
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="create-edcor-test-user"></a>Edcor-testgebruiker maken
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+In deze sectie gaat u in Edcor een gebruiker maken met de naam Britta Simon. Neem contact op met het  [Edcor-ondersteuningsteam](http://www.edcor.com/contact-us-2/) om de gebruikers toe te voegen in het Edcor-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-Wanneer u op de tegel Edcor in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Edcor.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+
+Wanneer u op de tegel Edcor in het toegangsvenster klikt, wordt u automatisch aangemeld bij de instantie van Edcor waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/edcor-tutorial/tutorial_general_01.png
-[2]: ./media/edcor-tutorial/tutorial_general_02.png
-[3]: ./media/edcor-tutorial/tutorial_general_03.png
-[4]: ./media/edcor-tutorial/tutorial_general_04.png
-
-[100]: ./media/edcor-tutorial/tutorial_general_100.png
-
-[200]: ./media/edcor-tutorial/tutorial_general_200.png
-[201]: ./media/edcor-tutorial/tutorial_general_201.png
-[202]: ./media/edcor-tutorial/tutorial_general_202.png
-[203]: ./media/edcor-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

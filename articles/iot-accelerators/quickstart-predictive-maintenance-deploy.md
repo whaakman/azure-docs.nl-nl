@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 22f0eae805ad112c5a6a7746897dac7e37d90028
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: fdb481961680d5f84170a25c7a76bffa8423e0cc
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604334"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097164"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Quickstart: een cloudoplossing proberen om een analyse voor predictief onderhoud uit te voeren op mijn verbonden apparaten
 
@@ -42,7 +42,7 @@ Voer op de pagina **Oplossing voor predictief onderhoud maken** een unieke **Opl
 
 Selecteer het **Abonnement** en de **Regio** die u wilt gebruiken om de oplossingsverbetering te implementeren. U kiest meestal de regio die zich het meest in uw buurt bevindt. Voor deze snelstart gebruiken we **Visual Studio Enterprise** en **US - oost**. U moet een [globale beheerder of gebruiker](iot-accelerators-permissions.md) zijn in het abonnement.
 
-Klik op **Oplossing maken** om de implementatie te starten. Het duurt minstens vijf minuten om dit proces uit te voeren:
+Klik op **Maken** om de implementatie te starten. Het duurt minstens vijf minuten om dit proces uit te voeren:
 
 ![Details van de oplossing voor predictief onderhoud](./media/quickstart-predictive-maintenance-deploy/createform.png)
 
@@ -50,9 +50,13 @@ Klik op **Oplossing maken** om de implementatie te starten. Het duurt minstens v
 
 Wanneer de implementatie in uw Azure-abonnement is voltooid, ziet u een groen vinkje en **Gereed** op de tegel staan. U kunt zich nu aanmelden bij het dashboard van de oplossingsverbetering voor predictief onderhoud.
 
-Klik op de pagina **Ingerichte oplossingen** op de nieuwe oplossingsverbetering voor predictief onderhoud. In het deelvenster dat wordt weergegeven, kunt u informatie bekijken over de oplossingsverbetering. Kies **Oplossingsdashboard** om de oplossingsverbetering voor predictief onderhoud weer te geven:
+Klik op de pagina **Ingerichte oplossingen** op de nieuwe oplossingsverbetering voor predictief onderhoud.
 
-![Deelvenster Oplossing](./media/quickstart-predictive-maintenance-deploy/solutionpanel.png)
+![Deelvenster Oplossing](./media/quickstart-predictive-maintenance-deploy/solution.png)
+
+ In de pagina die wordt weergegeven, kunt u informatie bekijken over de oplossingsverbetering. Kies **Ga naar uw oplossingsversneller** om uw oplossingsversneller voor predictief onderhoud weer te geven:
+
+![Deelvenster Oplossing](./media/quickstart-predictive-maintenance-deploy/solutionpaneldetails.png)
 
 Klik op **Accepteren** om de machtigingsaanvraag te accepteren. Het oplossingsdashboard voor predictief onderhoud wordt weergegeven in de browser:
 

@@ -11,13 +11,13 @@ author: David-Engel
 ms.author: v-daveng
 ms.reviewer: MightyPen
 manager: craigg
-ms.date: 12/21/2018
-ms.openlocfilehash: 6e2465927f748e5538935a87aaadc84b5c2b4d1f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.date: 02/12/2019
+ms.openlocfilehash: 597a870f98d8218d86fa601fe83d524f3a370f05
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561925"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236512"
 ---
 # <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Quickstart: Golang gebruiken om een query uit te voeren op een Azure SQL-database
 
@@ -27,17 +27,37 @@ In deze snelstart gebruikt u de programmeertaal [Golang](https://godoc.org/githu
 
 Voor deze zelfstudie hebt u het volgende nodig:
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+- Een Azure SQL-database. U kunt een van deze quickstarts gebruiken om een database te maken en vervolgens te configureren in Azure SQL Database:
+
+  || Individuele database | Beheerd exemplaar |
+  |:--- |:--- |:---|
+  | Maken| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |
+  | Configureren | [IP-firewallregel op serverniveau](sql-database-server-level-firewall-rule.md)| [Connectiviteit vanaf een VM](sql-database-managed-instance-configure-vm.md)|
+  |||[Connectiviteit vanaf een locatie](sql-database-managed-instance-configure-p2s.md)
+  |Gegevens laden|Adventure Works geladen per quickstart|[Wide World Importers herstellen](sql-database-managed-instance-get-started-restore.md)
+  |||Adventure Works herstellen of importeren vanuit een [BACPAC](sql-database-import.md)-bestand uit [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||
+
+  > [!IMPORTANT]
+  > De scripts in dit artikel worden geschreven voor gebruik met de Adventure Works-database. Met een beheerd exemplaar moet u de Adventure Works-database importeren in een exemplaardatabase of de scripts in dit artikel wijzigen voor gebruik van de Wide World Importers-database.
 
 - Golang en verwante software geïnstalleerd voor uw besturingssysteem:
 
-    - **MacOS**: Installeer Homebrew en Golang. Zie [stap 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
-    - **Ubuntu**:  Installeer Golang. Zie [stap 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
-    - **Windows**: Installeer Golang. Zie [stap 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/).    
+  - **MacOS**: Installeer Homebrew en Golang. Zie [stap 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
+  - **Ubuntu**:  Installeer Golang. Zie [stap 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
+  - **Windows**: Installeer Golang. Zie [stap 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/).
 
-## <a name="sql-server-connection-information"></a>SQL Server-verbindingsgegevens
+## <a name="get-sql-server-connection-information"></a>SQL Server-verbindingsgegevens ophalen
 
-[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
+Haal de verbindingsgegevens op die u nodig hebt om verbinding te maken met de Azure SQL-database. U hebt de volledig gekwalificeerde servernaam of hostnaam, databasenaam en aanmeldingsgegevens in de volgende procedures nodig.
+
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
+
+2. Navigeer naar de pagina **SQL-database** of **Met SQL beheerde exemplaren**.
+
+3. Bekijk op de pagina **Overzicht** de volledig gekwalificeerde servernaam naast **Servernaam** voor een individuele database, of de volledig gekwalificeerde servernaam naast **Host** voor een beheerd exemplaar. Als u de servernaam of hostnaam wilt kopiëren, plaatst u de muisaanwijzer erop en selecteert u het pictogram **Kopiëren**.
 
 ## <a name="create-golang-project-and-dependencies"></a>Golang-project en -afhankelijkheden maken
 

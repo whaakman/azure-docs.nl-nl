@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
-ms.date: 12/17/2018
+ms.date: 02/08/2019
 ms.author: danlep
-ms.openlocfilehash: 647890517e6f08a4602ebed8ee1057cb45f10cbe
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 35e846aa5954e3714d301c9c75cf42b31961fdfe
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075495"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56160574"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Beschikbaarheid in regio’s voor Azure Container Instances
 
@@ -28,13 +28,13 @@ Azure Container Instances is beschikbaar in de volgende regio's met de opgegeven
 
 | Locatie | OS | CPU | Geheugen (GB) |
 | -------- | -- | :---: | :-----------: |
-| Canada - midden | Linux | 4 | 16 |
+| Canada - centraal, US - centraal, US - oost 2 | Linux | 4 | 16 |
 | US - oost, Europa - noord, Europa - west, US - west, US - west 2 | Linux | 4 | 14 |
 | Japan - oost | Linux | 2 | 8 |
-| Australië - oost, US - oost 2, Azië - zuidoost | Linux | 2 | 7 |
+| Australië - oost, Azië - zuidoost | Linux | 2 | 7 |
 | India - centraal, Azië - oost, US - noord-centraal, US - zuid-centraal, India - zuid | Linux | 2 | 3,5 |
 | US - oost, Europa - west, US - west | Windows | 4 | 14 |
-| Australië - oost, Canada - centraal, India - centraal, Azië - oost, US - oost 2, Japan - oost, US - noord-centraal, Europa - noord, US - zuid-centraal, India - zuid, Azië - zuidoost, US - west 2 | Windows | 2 | 3,5 |
+| Australië - oost, Canada - centraal, India - centraal, US - centraal, Azië - oost, US - oost 2, Japan - oost, US - noord-centraal, Europa - noord, US - zuid-centraal, India - zuid, Azië - zuidoost, US - west 2 | Windows | 2 | 3,5 |
 
 Containerinstanties die binnen deze resourcelimieten zijn gemaakt, zijn afhankelijk van de beschikbaarheid in de implementatieregio. Wanneer een regio zwaar wordt belast, kan er een fout optreden bij het implementeren van instanties. Als u dergelijke implementatiefouten wilt minimaliseren, implementeert u instanties met een lagere CPU en geheugeninstellingen, of voert u de implementatie op een later tijdstip uit.
 

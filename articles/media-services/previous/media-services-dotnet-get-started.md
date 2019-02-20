@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/29/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 40057f6d7ab792557f17c777276091e7c7c05c3c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 34a6676444c4723f64264e41cb0e3c4842486bf6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233613"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003088"
 ---
-# <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Aan de slag met het leveren van inhoud on demand met .NET SDK
+# <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Aan de slag met het leveren van inhoud on demand met .NET SDK  
+
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 In deze zelfstudie wordt u begeleid bij het implementeren van een basisservice voor levering van VoD-inhoud (Video-on-Demand) met de AMS-toepassing (Azure Media Services) via de Azure Media Services .NET SDK.
@@ -87,7 +88,7 @@ U start het streaming-eindpunt als volgt:
 
 Als u Media Services gebruikt met .NET, moet u voor de meeste Media Services-programmeertaken de klasse **CloudMediaContext** gebruiken: verbinding maken met het Media Services-account; maken, bijwerken, gebruiken en verwijderen van de volgende objecten: assets, assetbestanden, taken, toegangsbeleid, locators enzovoort.
 
-Overschrijf de standaardprogrammaklasse met de volgende code: de code laat zien u hoe de verbindingswaarden in het bestand App.config kunt lezen en hoe u het object **CloudMediaContext** maakt om verbinding met Media Services te maken. Zie [Verbinding maken met de Media Services-API](media-services-use-aad-auth-to-access-ams-api.md) voor meer informatie.
+Overschrijf de standaardklasse Program met de volgende code: De code laat zien u hoe de verbindingswaarden in het bestand App.config kunt lezen en hoe u het object **CloudMediaContext** maakt om verbinding met Media Services te maken. Zie [Verbinding maken met de Media Services-API](media-services-use-aad-auth-to-access-ams-api.md) voor meer informatie.
 
 Zorg ervoor dat de bestandsnaam en het pad waar u het media-bestand hebt opgeslagen, zijn bijgewerkt.
 
@@ -189,7 +190,7 @@ Voeg de volgende methode toe aan de klasse Program.
 ## <a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a>Het bronbestand coderen in een set Adaptive Bitrate MP4-bestanden
 Nadat assets zijn opgenomen in Media Services, kan de media worden gecodeerd, transmuxed, van een watermerk worden voorzien enzovoort, voordat deze aan clients wordt geleverd. Deze activiteiten worden gepland en uitgevoerd op meerdere achtergrondrolinstanties om hoge prestaties en een hoge beschikbaarheid te garanderen. Deze activiteiten worden taken genoemd. Elke taak bestaat uit atomische taken die daadwerkelijk werken op het assetbestand.
 
-Zoals eerder al is aangegeven, wordt bij het werken met Azure Media Services meestal Adaptive Bitrate Streaming aan de clients geleverd. Met Media Services kunt u een dynamisch pakket met een van de volgende indelingen van MP4-bestanden met een adaptieve bitsnelheid maken: HTTP Live Streaming (HLS), Smooth Streaming en MPEG DASH.
+Zoals eerder al is aangegeven, wordt bij het werken met Azure Media Services meestal Adaptive Bitrate Streaming aan de clients geleverd. Met Media Services kunt u een dynamisch pakket maken met een van de volgende indelingen voor MP4-bestanden met een adaptieve bitsnelheid: HTTP Live Streaming (HLS), Smooth Streaming en MPEG DASH.
 
 Als u gebruik wilt maken van dynamische pakketten, moet u uw tussentijds (bron)bestand (trans)coderen naar een set MP4-bestanden met een adaptieve bitsnelheid of naar Smooth Streaming-bestanden met een adaptieve bitsnelheid.  
 

@@ -4,27 +4,23 @@ titleSuffix: Azure Cognitive Services
 description: Gebruik deze snelstartgids om aanvragen naar de REST API van Bing Web Search te verzenden via Java en een JSON-antwoord te ontvangen
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 8/16/2018
+ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: a8844e339f439de4e5446e00f8e40e9a0fd1a3de
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0d20d147bc77698e97630ad3bd5e58348db45f5b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172133"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56187471"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-java"></a>Snelstartgids: Zoeken op internet met behulp van de REST API voor Bing Web Search en Java
 
-Gebruik deze snelstart om voor het eerst de Bing Webzoekopdrachten-API aan te roepen en een JSON-antwoord te ontvangen.  
-
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
-
-Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Gebruik deze quickstart om voor het eerst de Bing Webzoekopdrachten-API aan te roepen en het JSON-antwoord te ontvangen. Deze Java-toepassing stuurt een zoekaanvraag naar de API en geeft het antwoord weer. Hoewel deze toepassing in Java is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
 
 ## <a name="prerequisites"></a>Vereisten
 Voordat u verdergaat met deze snelstart moet u beschikken over:
@@ -32,6 +28,8 @@ Voordat u verdergaat met deze snelstart moet u beschikken over:
 * [JDK 7 of 8](https://aka.ms/azure-jdks)
 * [GSON-bibliotheek](https://github.com/google/gson)
 * Een abonnementssleutel
+
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="create-a-project-and-import-dependencies"></a>Een project maken en afhankelijkheden importeren
 

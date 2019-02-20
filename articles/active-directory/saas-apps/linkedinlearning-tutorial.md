@@ -4,7 +4,7 @@ description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: d5857070-bf79-4bd3-9a2a-4c1919a74946
 ms.service: Azure-Active-Directory
@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/18/2018
+ms.date: 02/11/2018
 ms.author: jeedes
-ms.openlocfilehash: be5dd0a0fd1eb45c505a2f0ddf1489d21bfd38e6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9328564b082ba3eb0cff94652271fcd64cf2630c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54821181"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168763"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>Zelfstudie: Azure Active Directory-integratie met LinkedIn Learning
 
@@ -118,11 +119,11 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD met LinkedIn L
     > [!NOTE]
     > Deze waarden zijn geen werkelijke waarden. U gaat deze waarden bijwerken met de werkelijke id en de Antwoord-URL. Dit wordt later uitgelegd in het gedeelte **Eenmalige aanmelding voor LinkedIn Learning configureren** van deze zelfstudie.
 
-5. Uw LinkedIn Learning-toepassing verwacht de SAML-asserties in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen moet toevoegen aan de configuratie van de SAML-tokenkenmerken. In de volgende schermopname ziet u een voorbeeld hiervan. De standaardwaarde van **Unieke gebruikers-id** is **user.userprincipalname**, maar LinkedIn Learning verwacht dat aan deze waarde het e-mailadres van de gebruiker wordt toegewezen. Hiervoor kunt u het kenmerk **user.mail** in de lijst gebruiken of de juiste kenmerkwaarde op basis van uw organisatieconfiguratie. 
+5. Uw LinkedIn Learning-toepassing verwacht de SAML-asserties in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen moet toevoegen aan de configuratie van de SAML-tokenkenmerken. In de volgende schermafbeelding ziet u de lijst met standaardkenmerken, waarbij **nameidentifier** is toegewezen met **user.userprincipalname**. In de toepassing LinkedIn Learning wordt verwacht dat **nameidentifier** is toegewezen met **user.mail**. Daarom moet u de toewijzing van het kenmerk bewerken door op het pictogram **Bewerken** te klikken en de toewijzing van het kenmerk te wijzigen.
 
     ![image](common/edit-attribute.png)
 
-6. Bewerk in het gedeelte **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** de claims met het **pictogram Bewerken** of voeg de claims toe door met **Nieuwe claim toevoegen** het kenmerk van het SAML-token te configureren, zoals wordt weergegeven in de bovenstaande afbeelding. Hierna voert u de volgende stappen uit:
+6. Bovendien verwacht de toepassing LinkedIn Learning nog enkele kenmerken die als SAML-antwoord moeten worden doorgestuurd. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** voert u de volgende stappen uit om het kenmerk van het SAML-token toe te voegen zoals wordt weergegeven in de onderstaande tabel:
     
     | Naam | Bronkenmerk |
     | ---------------| --------------- |
@@ -133,9 +134,9 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD met LinkedIn L
 
     a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 
-    ![image](./media/linkedinlearning-tutorial/tutorial_usermail.png)
+    ![image](common/new-save-attribute.png)
 
-    ![image](./media/linkedinlearning-tutorial/tutorial_usermailedit.png)
+    ![image](common/new-attribute-details.png)
 
     b. In het tekstvak **Naam** typt u de naam van het kenmerk die voor die rij wordt weergegeven.
 
@@ -189,7 +190,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    a. Voer in het veld **Naam****Britta Simon** in.
+    a. Voer in het veld **Naam** **Britta Simon**in.
   
     b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
     Bijvoorbeeld: BrittaSimon@contoso.com

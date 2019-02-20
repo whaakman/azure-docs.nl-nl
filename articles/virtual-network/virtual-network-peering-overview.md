@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 6bb075857d67885d968b495cc8d545af9994eaf0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c91292bff22a76e4c15f031094809e20fdc43031
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169311"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175724"
 ---
 # <a name="virtual-network-peering"></a>Peering op virtueel netwerk
 
@@ -78,7 +78,7 @@ U kunt ook de [Probleemoplosser voor virtueel netwerk peering problemen](https:/
 ## <a name="requirements-and-constraints"></a>Vereisten en beperkingen
 
 De volgende beperkingen zijn van toepassing wanneer virtuele netwerken wereldwijd zijn gekoppeld:
-- De virtuele netwerken kunnen bestaan in elke openbare cloudregio van Azure, maar niet in nationale Azure-clouds.
+- De virtuele netwerken kunnen bestaan in elke openbare cloudregio van Azure en in Azure China-cloudregio’s, maar niet in Azure Government-clouds.
 - Resources in het ene virtueel netwerk kunnen niet communiceren met het front-end IP-adres van een interne Azure load balancer in het wereldwijd gekoppelde virtuele netwerk. De load balancer en de resources die met het adres communiceren, moeten zich in dezelfde regio bevinden.
 - U kunt geen externe gateways gebruiken of gatewayoverdracht toestaan. Als u externe gateways wilt gebruiken of gatewayoverdracht wilt toestaan, moeten gekoppelde virtuele netwerken zich in dezelfde regio bevinden.
 

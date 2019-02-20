@@ -13,19 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/09/2018
+ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: dddb2e36a17ad8748ec13c24fecb23fa03887577
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 3ee9740f9ef7e364c47bb205315683d1e4ea9294
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884041"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977119"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>Zelfstudie: Virtuele machines met hoge beschikbaarheid maken en implementeren met Azure PowerShell
 
-In deze zelfstudie leert u hoe u de beschikbaarheid en betrouwbaarheid van uw Virtual Machine-oplossingen op Azure kunt verhogen met behulp van beschikbaarheidssets. Beschikbaarheidssets zorgen ervoor dat de VM's die u op Azure implementeert, worden verdeeld over meerdere geïsoleerde hardwareknooppunten in een cluster. Dit zorgt ervoor dat als er zich binnen Azure een hardware- of softwarestoring voordoet, er slechts een subset van uw VM's wordt beïnvloed en dat uw totale oplossing beschikbaar en operationeel blijft.
+In deze zelfstudie leert u hoe u de beschikbaarheid en betrouwbaarheid van uw virtuele machines (VM’s) kunt vergroten met behulp van beschikbaarheidssets. Beschikbaarheidssets zorgen ervoor dat de VM's die u in Azure implementeert, worden verdeeld over meerdere geïsoleerde hardwareknooppunten in een cluster. 
 
 In deze zelfstudie leert u het volgende:
 
@@ -35,32 +35,39 @@ In deze zelfstudie leert u het volgende:
 > * Beschikbare VM-grootten controleren
 > * Azure Advisor controleren
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
-
-Als u ervoor kiest om PowerShell lokaal te installeren en te gebruiken, moet u moduleversie 5.7.0 of hoger van Azure PowerShell gebruiken voor deze zelfstudie. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
 ## <a name="availability-set-overview"></a>Overzicht beschikbaarheidsset
 
-Een beschikbaarheidsset is een logische groeperingsmogelijkheid die u in Azure kunt gebruiken om ervoor te zorgen dat de VM-resources die u erin plaatst, van elkaar worden geïsoleerd wanneer ze in een Azure-datacenter worden geïmplementeerd. Azure zorgt ervoor dat de VM's die u in een beschikbaarheidsset plaatst, op meerdere fysieke servers, rekenrekken, opslageenheden en netwerkswitches worden uitgevoerd. Als er zich een hardware- of softwarestoring in Azure voordoet, wordt slechts een subset van uw VM's getroffen en blijft uw totale toepassing actief en beschikbaar voor uw klanten. Beschikbaarheidssets zijn essentieel wanneer u betrouwbare cloudoplossingen wilt bouwen.
+Een beschikbaarheidsset is een logische groeperingsmogelijkheid om VM-resources van elkaar te isoleren wanneer deze zijn geïmplementeerd. Azure zorgt ervoor dat de VM's die u in een beschikbaarheidsset plaatst, op meerdere fysieke servers, compute-racks, opslageenheden en netwerkswitches worden uitgevoerd. Als er een hardware- of softwarefout optreedt, heeft dit gevolgen voor slechts een subset van uw VM’s en blijft uw totale oplossing operationeel. Beschikbaarheidssets zijn essentieel voor het bouwen van betrouwbare cloudoplossingen.
 
-Laten we eens kijken naar een typische VM-oplossing met vier front-end webservers en twee VM's in de back-end. Met Azure wilt u twee beschikbaarheidssets definiëren voordat u uw VM's implementeert: een beschikbaarheidsset voor de web-laag en een beschikbaarheidsset voor de back-end-laag. Bij het maken van een nieuwe VM kunt u vervolgens de beschikbaarheidsset opgeven als parameter voor de opdracht az vm create, en zorgt Azure er automatisch voor dat de VM's die u binnen de beschikbare set maakt, worden geïsoleerd over meerdere fysieke hardwareresources. Als er een probleem is met de fysieke hardware waarop een van uw webserver- of back-end-VM's draait, weet u dat de andere instanties van uw webserver en back-end-VM's actief blijven, omdat ze worden uitgevoerd op andere hardware.
+Laten we eens kijken naar een typische VM-oplossing met vier front-end webservers en twee VM's in de back-end. Met Azure wilt u twee beschikbaarheidssets definiëren voordat u uw VM's implementeert: eentje voor de web-laag en eentje voor de back-endlaag. Wanneer u een nieuwe VM maakt, geeft u de beschikbaarheidsset op als parameter. Azure zorgt ervoor dat de VM’s worden geïsoleerd over meerdere fysieke hardwareresources. Als er een probleem is met de fysieke hardware waarop een van uw servers draait, weet u dat de andere instanties van uw servers actief blijven, omdat ze worden uitgevoerd op andere hardware.
 
 Gebruik beschikbaarheidssets wanneer u betrouwbare VM-oplossingen wilt implementeren in Azure.
 
+## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell starten
+
+Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. 
+
+Als u Cloud Shell wilt openen, selecteert u **Proberen** in de rechterbovenhoek van een codeblok. U kunt Cloud Shell ook openen in een afzonderlijk browsertabblad door naar [https://shell.azure.com/powershell](https://shell.azure.com/powershell) te gaan. Klik op **Kopiëren** om de codeblokken te kopiëren, plak deze in Cloud Shell en druk vervolgens op Enter om de code uit te voeren.
+
 ## <a name="create-an-availability-set"></a>Een beschikbaarheidsset maken
 
-U kunt een beschikbaarheidsset maken met [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset). In dit voorbeeld stellen we het aantal update- en foutdomeinen in op *2* voor de beschikbaarheidsset met de naam *myAvailabilitySet* in de resourcegroep *ResourceGroupAvailability*.
+De hardware op een locatie is onderverdeeld in meerdere updatedomeinen en foutdomeinen. Een **updatedomein** is een groep VM's en onderliggende hardware die op hetzelfde moment opnieuw kan worden opgestart. VM's in hetzelfde **foutdomein** delen dezelfde opslag en hebben een gemeenschappelijke voedingsbron en netwerkswitch.  
+
+U kunt een beschikbaarheidsset maken met behulp van [New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset). In dit voorbeeld is *2* het aantal voor zowel de updatedomeinen als de foutdomeinen en is *myAvailabilitySet* de naam van de beschikbaarheidsset.
 
 Maak een resourcegroep.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name myResourceGroupAvailability -Location EastUS
+New-AzResourceGroup `
+   -Name myResourceGroupAvailability `
+   -Location EastUS
 ```
 
-Maak een beheerde beschikbaarheidsset met behulp van [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset) met de parameter `-sku aligned`.
+Maak een beheerde beschikbaarheidsset met behulp van [New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset) met de parameter `-sku aligned`.
 
 ```azurepowershell-interactive
-New-AzureRmAvailabilitySet `
+New-AzAvailabilitySet `
    -Location "EastUS" `
    -Name "myAvailabilitySet" `
    -ResourceGroupName "myResourceGroupAvailability" `
@@ -70,11 +77,10 @@ New-AzureRmAvailabilitySet `
 ```
 
 ## <a name="create-vms-inside-an-availability-set"></a>VM's maken in een beschikbaarheidsset
-VM's moeten worden gemaakt binnen de beschikbaarheidsset om ervoor te zorgen dat ze correct over de hardware worden verdeeld. U kunt geen bestaande VM toevoegen aan een beschikbaarheidsset nadat deze is gemaakt. 
+VM's moeten binnen de beschikbaarheidsset worden gemaakt, zodat ze correct over de hardware worden verdeeld. U kunt geen bestaande VM toevoegen aan een beschikbaarheidsset nadat deze is gemaakt. 
 
-De hardware op een locatie is onderverdeeld in meerdere updatedomeinen en foutdomeinen. Een **updatedomein** is een groep VM's en onderliggende hardware die op hetzelfde moment opnieuw kan worden opgestart. VM's in hetzelfde **foutdomein** delen dezelfde opslag en hebben een gemeenschappelijke voedingsbron en netwerkswitch. 
 
-Wanneer u een VM maakt met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm), gebruikt u de parameter `-AvailabilitySetName` om de naam van de beschikbaarheidsset op te geven.
+Wanneer u een VM maakt met [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm), gebruikt u de parameter `-AvailabilitySetName` om de naam van de beschikbaarheidsset op te geven.
 
 Stel eerst een beheerdersnaam en -wachtwoord in voor de virtuele machine met [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
@@ -82,12 +88,12 @@ Stel eerst een beheerdersnaam en -wachtwoord in voor de virtuele machine met [Ge
 $cred = Get-Credential
 ```
 
-Maak nu twee VM's met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) in de beschikbaarheidsset.
+Maak nu twee VM's met [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) in de beschikbaarheidsset.
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)
 {
-    New-AzureRmVm `
+    New-AzVm `
         -ResourceGroupName "myResourceGroupAvailability" `
         -Name "myVM$i" `
         -Location "East US" `
@@ -100,27 +106,27 @@ for ($i=1; $i -le 2; $i++)
 }
 ```
 
-Door de parameter `-AsJob` wordt de VM gemaakt als achtergrondtaak, zodat u weer terugkeert naar de PowerShell-prompts. U kunt details van achtergrondtaken bekijken met de cmdlet `Job`. Het duurt enkele minuten om beide VM's te maken en te configureren. Wanneer dit klaar is, hebt u twee virtuele machines die zijn gedistribueerd over de onderliggende hardware. 
+Het duurt enkele minuten om beide VM's te maken en te configureren. Wanneer dit klaar is, hebt u twee virtuele machines die zijn gedistribueerd over de onderliggende hardware. 
 
-Als u de beschikbaarheidsset in de portal bekijkt door naar Resource Groups > myResourceGroupAvailability > myAvailabilitySet te gaan, ziet u hoe de VM's zijn verdeeld over de twee fout- en updatedomeinen.
+Als u de beschikbaarheidsset in de portal bekijkt door naar **Resourcegroepen** > **myResourceGroupAvailability** > **myAvailabilitySet** te gaan, ziet u hoe de VM's zijn verdeeld over de twee fout- en updatedomeinen.
 
 ![Beschikbaarheidsset in de portal](./media/tutorial-availability-sets/fd-ud.png)
 
 ## <a name="check-for-available-vm-sizes"></a>Beschikbare VM-grootten controleren 
 
-U kunt later meer VM's toevoegen aan de beschikbaarheidsset, maar u moet weten welke VM-grootten beschikbaar zijn op de hardware. Gebruik [Get-AzureRMVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) om een lijst weer te geven met alle beschikbare grootten op de hardwarecluster voor de beschikbaarheidsset.
+U kunt later meer VM's toevoegen aan de beschikbaarheidsset, maar u moet weten welke VM-grootten beschikbaar zijn op de hardware. Gebruik [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) om een lijst weer te geven met alle beschikbare grootten op het hardwarecluster voor de beschikbaarheidsset.
 
 ```azurepowershell-interactive
-Get-AzureRmVMSize `
+Get-AzVMSize `
    -ResourceGroupName "myResourceGroupAvailability" `
    -AvailabilitySetName "myAvailabilitySet"
 ```
 
 ## <a name="check-azure-advisor"></a>Azure Advisor controleren 
 
-U kunt ook Azure Advisor gebruiken om meer informatie te krijgen over het verbeteren van de beschikbaarheid van uw VM's. Azure Advisor helpt u best practices voor het optimaliseren van uw Azure-implementaties te volgen. Het analyseert uw resourceconfiguratie en gebruikstelemetrie, en raadt vervolgens oplossingen aan die u kunnen helpen de kosteneffectiviteit, prestaties, hoge beschikbaarheid en beveiliging van uw Azure-resources te verbeteren.
+U kunt ook Azure Advisor gebruiken om meer informatie te krijgen over het verbeteren van de beschikbaarheid van uw VM's. Azure Advisor analyseert uw configuratie en gebruikstelemetrie, en raadt vervolgens oplossingen aan die u kunnen helpen de kosteneffectiviteit, prestaties, beschikbaarheid en beveiliging van uw Azure-resources te verbeteren.
 
-Meld u aan bij [Azure Portal](https://portal.azure.com), selecteer **Alle services** en typ **Advisor**. Het Advisor-dashboard toont de persoonlijke aanbevelingen voor het geselecteerde abonnement. Zie [Aan de slag met Azure Advisor](../../advisor/advisor-get-started.md) voor meer informatie.
+Meld u aan bij [Azure Portal](https://portal.azure.com), selecteer **Alle services** en typ **Advisor**. Op het Advisor-dashboard worden de gepersonaliseerde aanbevelingen voor het geselecteerde abonnement weergegeven. Zie [Aan de slag met Azure Advisor](../../advisor/advisor-get-started.md) voor meer informatie.
 
 
 ## <a name="next-steps"></a>Volgende stappen

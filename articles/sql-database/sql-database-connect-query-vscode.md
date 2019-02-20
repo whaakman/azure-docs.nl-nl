@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/11/2019
-ms.openlocfilehash: 7e782bca80bfd7a6d2c9fc0494859e3f560649bc
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/12/2019
+ms.openlocfilehash: 669da18c889d906c629a7656eaa766993bf67373
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507634"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238348"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Snelstartgids: Visual Studio Code gebruiken om verbinding te maken met en query's uit te voeren voor een Azure SQL-database
 
@@ -26,17 +26,30 @@ ms.locfileid: "55507634"
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor deze zelfstudie hebt u het volgende nodig:
+- Een Azure SQL-database. U kunt een van deze quickstarts gebruiken om een database te maken en vervolgens te configureren in Azure SQL Database:
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+  || Individuele database | Beheerd exemplaar |
+  |:--- |:--- |:---|
+  | Maken| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |
+  | Configureren | [IP-firewallregel op serverniveau](sql-database-server-level-firewall-rule.md)| [Connectiviteit vanaf een VM](sql-database-managed-instance-configure-vm.md)|
+  |||[Connectiviteit vanaf locatie](sql-database-managed-instance-configure-p2s.md)
+  |Gegevens laden|Adventure Works geladen per quickstart|[Wide World Importers herstellen](sql-database-managed-instance-get-started-restore.md)
+  |||Adventure Works herstellen of importeren vanuit een [BACPAC](sql-database-import.md)-bestand uit [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||
 
-#### <a name="install-visual-studio-code"></a>Visual Studio Code installeren
+  > [!IMPORTANT]
+  > De scripts in dit artikel zijn geschreven voor gebruik met de Adventure Works-database. Met een beheerd exemplaar moet u de Adventure Works-database importeren in een exemplaardatabase of de scripts in dit artikel wijzigen voor gebruik van de Wide World Importers-database.
+
+## <a name="install-visual-studio-code"></a>Visual Studio Code installeren
 
 Zorg ervoor dat u de nieuwste versie van [Visual Studio Code](https://code.visualstudio.com/Download) hebt geïnstalleerd en de [mssql-extensie](https://aka.ms/mssql-marketplace) hebt geladen. Zie [VS-code installeren](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-and-start-visual-studio-code) en [mssql voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) voor hulp bij het installeren van de mssql-extensie.
 
 ## <a name="configure-visual-studio-code"></a>Visual Studio Code configureren 
 
 ### <a name="mac-os"></a>**Mac OS**
+
 Voor macOS moet u OpenSSL installeren. Dit is een vereiste voor .Net Core waarvan de mssql-extensie gebruikmaakt. Open de terminal en voer de volgende opdrachten in om **brew** en **OpenSSL** te installeren. 
 
 ```bash
@@ -56,9 +69,15 @@ Er is geen speciale configuratie vereist.
 
 Er is geen speciale configuratie vereist.
 
-## <a name="sql-server-connection-information"></a>SQL Server-verbindingsgegevens
+## <a name="get-sql-server-connection-information"></a>SQL Server-verbindingsgegevens ophalen
 
-[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
+Haal de verbindingsgegevens op die u nodig hebt om verbinding te maken met de Azure SQL-database. U hebt de volledig gekwalificeerde servernaam of hostnaam, databasenaam en aanmeldingsgegevens in de volgende procedures nodig.
+
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
+
+2. Navigeer naar de pagina **SQL-database** of **Met SQL beheerde exemplaren**.
+
+3. Bekijk op de pagina **Overzicht** de volledig gekwalificeerde servernaam naast **Servernaam** voor één database, of de volledig gekwalificeerde servernaam naast **Host** voor een beheerd exemplaar. Als u de servernaam of hostnaam wilt kopiëren, plaatst u de muisaanwijzer erop en selecteert u het pictogram **Kopiëren**.
 
 ## <a name="set-language-mode-to-sql"></a>Taalmodus instellen op SQL
 

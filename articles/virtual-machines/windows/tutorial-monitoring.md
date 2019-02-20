@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/04/2017
+ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1bee08800eb5b480024001f742e8965cbd609a73
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2e7e67236a2f9709bafc0a0383f6ac12b26ca57e
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428882"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984185"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>Zelfstudie: Een virtuele Windows-machine bewaken en bijwerken in Azure
 
@@ -40,7 +40,11 @@ In deze zelfstudie leert u het volgende:
 > * Wijzigingen en inventaris bewaken
 > * Geavanceerde bewaking instellen
 
-Voor deze zelfstudie is moduleversie 5.7.0 of hoger van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps).
+## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell starten
+
+Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. 
+
+Als u Cloud Shell wilt openen, selecteert u **Proberen** in de rechterbovenhoek van een codeblok. U kunt Cloud Shell ook openen in een afzonderlijk browsertabblad door naar [https://shell.azure.com/powershell](https://shell.azure.com/powershell) te gaan. Klik op **Kopiëren** om de codeblokken te kopiëren, plak deze in Cloud Shell en druk vervolgens op Enter om de code uit te voeren.
 
 ## <a name="create-virtual-machine"></a>Virtuele machine maken
 
@@ -50,10 +54,10 @@ Voor het configureren van Azure-bewaking en updatebeheer in deze zelfstudie hebt
 $cred = Get-Credential
 ```
 
-Maak nu de VM met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). In het volgende voorbeeld wordt een VM met de naam *myVM* gemaakt op de locatie *VS Oost*. Als deze niet al bestaan, worden de resourcegroep *myResourceGroupMonitorMonitor* en ondersteunende netwerkresources gemaakt:
+Maak nu de VM met [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). In het volgende voorbeeld wordt een VM met de naam *myVM* gemaakt op de locatie *VS Oost*. Als deze niet al bestaan, worden de resourcegroep *myResourceGroupMonitorMonitor* en ondersteunende netwerkresources gemaakt:
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroupMonitor" `
     -Name "myVM" `
     -Location "East US" `
@@ -66,10 +70,10 @@ Het duurt enkele minuten voordat de bronnen en virtuele machine zijn gemaakt.
 
 Als virtuele Windows-machines opstarten, legt de agent voor diagnostische opstartgegevens schermuitvoer vast voor het oplossen van problemen. Deze mogelijkheid is standaard ingeschakeld. De vastgelegde schermafbeeldingen worden opgeslagen in een Azure-opslagaccount, dat ook standaard wordt gemaakt.
 
-U krijgt de diagnostische opstartgegevens met de opdracht [Get-AzureRmVMBootDiagnosticsData](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmbootdiagnosticsdata). In het volgende voorbeeld wordt de diagnostische opstartgegevens gedownload naar de hoofdmap van station * c:\*.
+U krijgt de diagnostische opstartgegevens met de opdracht [Get-AzureRmVMBootDiagnosticsData](https://docs.microsoft.com/powershell/module/az.compute/get-azvmbootdiagnosticsdata). In het volgende voorbeeld wordt de diagnostische opstartgegevens gedownload naar de hoofdmap van station * c:\*.
 
 ```powershell
-Get-AzureRmVMBootDiagnosticsData -ResourceGroupName "myResourceGroupMonitor" -Name "myVM" -Windows -LocalPath "c:\"
+Get-AzVMBootDiagnosticsData -ResourceGroupName "myResourceGroupMonitor" -Name "myVM" -Windows -LocalPath "c:\"
 ```
 
 ## <a name="view-host-metrics"></a>Metrische gegevens over de host weergeven
@@ -259,13 +263,13 @@ De grafiek toont wijzigingen die in de loop der tijd hebben plaatsgevonden. Nada
 
 U kunt geavanceerdere bewaking van de VM uitvoeren met behulp van de oplossingen zoals Updatebeheer en Wijzigingen en inventaris bewaken, mogelijk gemaakt met [Azure Automation](../../automation/automation-intro.md).
 
-Wanneer u toegang hebt tot de Log Analytics-werkruimte, vindt u de werkruimtesleutel en werkruimte-id door **Geavanceerde instellingen** te selecteren onder **INSTELLINGEN**. Gebruik de opdracht  [Set AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) om de extensie voor de Microsoft Monitoring-agent aan de virtuele machine toevoegen. Werk de waarden van de variabelen in het onderstaande voorbeeld bij met uw werkruimtesleutel en werkruimte-id voor Log Analytics.
+Wanneer u toegang hebt tot de Log Analytics-werkruimte, vindt u de werkruimtesleutel en werkruimte-id door **Geavanceerde instellingen** te selecteren onder **INSTELLINGEN**. Gebruik de opdracht [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) om de extensie voor de Microsoft Monitoring-agent aan de virtuele machine toe te voegen. Werk de waarden van de variabelen in het onderstaande voorbeeld bij met uw werkruimtesleutel en werkruimte-id voor Log Analytics.
 
 ```powershell
 $workspaceId = "<Replace with your workspace Id>"
 $key = "<Replace with your primary key>"
 
-Set-AzureRmVMExtension -ResourceGroupName "myResourceGroupMonitor" `
+Set-AzVMExtension -ResourceGroupName "myResourceGroupMonitor" `
   -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
   -VMName "myVM" `
   -Publisher "Microsoft.EnterpriseCloud.Monitoring" `

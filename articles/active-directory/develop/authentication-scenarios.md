@@ -17,12 +17,13 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: db642fea6dbf1bd1ebc53f5066d01dc4f9a5490f
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 58b0d2c12a4e2088964e397b1bc499fa4adfdff3
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095630"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244552"
 ---
 # <a name="what-is-authentication"></a>Wat is verificatie?
 
@@ -47,7 +48,7 @@ Hier volgt wat u moet weten over de verschillende onderdelen in het diagram:
 
 * Azure AD is de identiteitsprovider. De identiteitsprovider is verantwoordelijk voor het verifiëren van de identiteit van gebruikers en toepassingen uit de directory van een organisatie. Er worden ook beveiligingstokens uitgegeven nadat die gebruikers en toepassingen zijn geverifieerd.
 * Als een toepassing het verifiëren wil uitbesteden aan Azure AD, moet deze bij Azure AD zijn geregistreerd. Azure AD registreert de app in de directory en geeft deze een unieke id.
-* Ontwikkelaars kunnen de open-sourceverificatiebibliotheken van Azure AD gebruiken om de verificatie te vereenvoudigen. Hierbij worden de protocolgegevens voor u verwerkt. Voor meer informatie ziet u de Azure AD [v2.0-verificatiebibliotheken](reference-v2-libraries.md) en de [v1.0-verificatiebibliotheken](active-directory-authentication-libraries.md).
+* Ontwikkelaars kunnen de open-sourceverificatiebibliotheken van Azure AD gebruiken om de verificatie te vereenvoudigen. Hierbij worden de protocolgegevens voor u verwerkt. Voor meer informatie raadpleegt u de [v2.0-verificatiebibliotheken](reference-v2-libraries.md) en de [v1.0-verificatiebibliotheken](active-directory-authentication-libraries.md) voor Azure AD.
 * Wanneer een gebruiker is geverifieerd, moet de toepassing het beveiligingstoken van de gebruiker valideren om er zeker van te zijn dat de verificatie is gelukt. U kunt snelstartgidsen, zelfstudies, codevoorbeelden in verschillende talen en frameworks bekijken waarin u ziet wat de toepassing moet doen.
   * Om snel een app te bouwen en functionaliteit toe te voegen, zoals tokens ophalen, tokens vernieuwen, gebruikers aanmelden, bepaalde gebruikersgegevens weergeven, enzovoort, gaat u naar het gedeelte **Snelstartgidsen** in de documentatie.
   * Ga naar het gedeelte **Zelfstudies** van de documentatie voor uitgebreide, op scenario's gebaseerde procedures voor ontwikkelaarstaken (zoals toegangstokens verkrijgen en deze gebruiken in aanroepen naar de Microsoft Graph-API en andere API's en aanmelden met Microsoft implementeren in een traditionele webbrowser-app via OpenID Connect).

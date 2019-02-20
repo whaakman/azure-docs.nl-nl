@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 1328835714086dcec71b0e9dd4d1916794f557a6
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 2e34aef9a6f184c60fbb23023f798941a1fc11da
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390171"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894425"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Zelfstudie: Toegang tot een leslokaallab in Azure Lab Services
 In deze zelfstudie maakt u als student verbinding met een virtuele machine (VM) in een leslokaallab. 
@@ -32,10 +32,10 @@ In deze zelfstudie voert u de volgende acties uit:
 
 ## <a name="use-the-registration-link"></a>De registratiekoppeling gebruiken
 
-1. Navigeer naar de **registratie-URL** die u hebt ontvangen van de docent. 
-2. Meld u aan bij de service met uw schoolaccount om de registratie te voltooien. 
-3. Controleer nadat u zich hebt geregistreerd of u de virtuele machines ziet voor het lab waartoe u toegang hebt. 
-2. Wacht tot de virtuele machine gereed is en **start** dan de virtuele machine. Dit proces duurt enige tijd.  
+1. Navigeer naar de **registratie-URL** die u hebt ontvangen van de docent. U hoeft de registratie-URL niet meer te gebruiken nadat u de registratie hebt voltooid. In plaats daarvan gebruikt u deze URL: [https://labs.azure.com](https://labs.azure.com). 
+1. Meld u aan bij de service met uw schoolaccount om de registratie te voltooien. 
+2. Controleer nadat u zich hebt geregistreerd of u de virtuele machines ziet voor het lab waartoe u toegang hebt. 
+3. Wacht tot de virtuele machine gereed is en **start** dan de virtuele machine. Dit proces duurt enige tijd.  
 
     ![De virtuele machine starten](../media/tutorial-connect-vm-in-classroom-lab/start-vm.png)
 

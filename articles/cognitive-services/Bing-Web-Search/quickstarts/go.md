@@ -4,26 +4,24 @@ titleSuffix: Azure Cognitive Services
 description: Gebruik deze snelstartgids om aanvragen naar de REST API van Bing Web Search te verzenden via Go en een JSON-antwoord te ontvangen
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 8/16/2018
+ms.date: 02/12/2019
 ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
 ms.custom: seodec2018
-ms.openlocfilehash: 11f15d37830bb177031ff90d93ea1053b66013ce
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 3c64841656f81f2f78c02c54f08ca24cccd78586
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203222"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56186859"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>Snelstartgids: Zoeken op internet met behulp van de REST API voor Bing Web Search en Go
 
-Gebruik deze snelstart om voor het eerst de Bing Webzoekopdrachten-API aan te roepen en binnen tien minuten een JSON-antwoord te ontvangen.  
-
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]  
+Gebruik deze quickstart om voor het eerst de Bing Webzoekopdrachten-API aan te roepen en het JSON-antwoord te ontvangen. Deze Go-toepassing stuurt een query naar de API en geeft het antwoord weer. Hoewel deze toepassing in Go is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
 
 Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
@@ -34,6 +32,8 @@ Voordat u verdergaat met deze snelstart moet u beschikken over:
 * Een abonnementssleutel
 
 Voor deze snelstart zijn alleen **kern**bibliotheken vereist. Er zijn daarom geen externe afhankelijkheden.  
+
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]  
 
 ## <a name="create-a-project-and-import-core-libraries"></a>Een project maken en kernbibliotheken importeren
 

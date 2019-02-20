@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 01/29/2019
 ms.author: astay;cephalin;kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 416566ac52e8df6324cbf6146919df160deb0f98
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 6965379aadefd110ce6e46e105bbde10626b63c1
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220991"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892164"
 ---
 # <a name="configure-your-python-app-for-azure-app-service"></a>Een Python-app configureren voor Azure App Service
 In dit artikel wordt beschreven hoe Python-apps worden uitgevoerd in [Azure App Service](app-service-linux-intro.md) en hoe u het gedrag van Azure App Service zo nodig kunt aanpassen. Python-apps moet worden geïmplementeerd met alle vereiste [pip](https://pypi.org/project/pip/)-modules. De implementatie-engine van App Service (Kudu) activeert automatisch een virtuele omgeving waarin `pip install -r requirements.txt` voor u wordt uitgevoerd wanneer u een [Git-opslagplaats](../deploy-local-git.md) implementeert, of een [Zip-pakket](../deploy-zip.md) waarvoor buildprocessen zijn ingeschakeld.
@@ -82,7 +82,7 @@ Voor Django-apps zoekt App Service in uw app-code naar een bestand met de naam `
 gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
 ```
 
-Voor gedetailleerde controle over de opstartopdracht gebruikt u een [aangepaste opstartopdracht](#custom-startup-command) en vervangt u `<module>` door de naam van de module die *wsgi.py* bevat.
+Voor gedetailleerde controle over de opstartopdracht gebruikt u een aangepaste opstartopdracht en vervangt u `<module>` door de naam van de module die *wsgi.py* bevat.
 
 ### <a name="flask-app"></a>Flask-app
 
@@ -95,7 +95,7 @@ gunicorn --bind=0.0.0.0 --timeout 600 application:app
 gunicorn --bind=0.0.0.0 --timeout 600 app:app
 ```
 
-Als de hoofdmodule van de app in een ander bestand is opgenomen, gebruikt u een andere naam voor het app-object. Als u aanvullende argumenten wilt doorgeven aan Gunicorn, gebruikt u een [aangepaste opstartopdracht](#custom-startup-command).
+Als de hoofdmodule van de app in een ander bestand is opgenomen, gebruikt u een andere naam voor het app-object. Als u aanvullende argumenten wilt doorgeven aan Gunicorn, gebruikt u een aangepaste opstartopdracht.
 
 ### <a name="default-behavior"></a>Standaardgedrag
 
@@ -160,7 +160,7 @@ Populaire webframeworks bieden toegang tot de `X-Forwarded-*`-informatie in het 
 - Start de App Service opnieuw op en wacht 15-20 seconden voordat u de app opnieuw controleert.
 - Zorg ervoor dat u App Service voor Linux gebruikt in plaats van een Windows-exemplaar. Voer vanuit de Azure CLI de opdracht `az webapp show --resource-group <resource_group_name> --name <app_service_name> --query kind` uit, waarbij u `<resource_group_name>` en `<app_service_name>` dienovereenkomstig vervangt. Als het goed is, ziet u `app,linux` als uitvoer. Als dit niet het geval is, maakt u de App Service opnieuw en kiest u Linux.
 - Gebruik SSH of de Kudu-console om rechtstreeks verbinding te maken met de App Service en controleer of uw bestanden in *site/wwwroot* staan. Als uw bestanden niet bestaan, controleert u uw implementatieproces en implementeert u de app opnieuw.
-- Als uw bestanden bestaan, heeft App Service uw specifieke opstartbestand niet kunnen identificeren. Controleer of de app is gestructureerd zoals App Service dat verwacht voor [Django](#django-app) of [Flask](#flask-app), of gebruik een [aangepaste opstartopdracht](#custom-startup-command).
+- Als uw bestanden bestaan, heeft App Service uw specifieke opstartbestand niet kunnen identificeren. Controleer of de app is gestructureerd zoals App Service dat verwacht voor [Django](#django-app) of [Flask](#flask-app), of gebruik een aangepaste opstartopdracht.
 - **U ziet het bericht 'Service niet beschikbaar' in de browser.** De browser heeft een time-out gegenereerd in afwachting van een reactie van App Service. Dat betekent dat de App Service de Gunicorn-server heeft gestart, maar dat de argumenten die de app-code opgeeft onjuist zijn.
 - Vernieuw de browser, met name als u gebruikmaakt van de laagste prijscategorieën in uw App Service-plan. Het is bijvoorbeeld mogelijk dat het opstarten van de app langer duurt wanneer gebruik wordt gemaakt van de gratis prijscategorie en reageert na het vernieuwen van de browser.
 - Controleer of de app is gestructureerd zoals App Service dat verwacht voor [Django](#django-app) of [Flask](#flask-app), of gebruik een [aangepaste opstartopdracht](#customize-startup-command).

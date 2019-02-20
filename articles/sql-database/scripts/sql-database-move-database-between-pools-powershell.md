@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.reviewer: ''
 ms.author: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 5e94771706e5d7c95e4f08c06dee8a707bbfe356
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.date: 02/08/2019
+ms.openlocfilehash: 2e225dbe9f58c2f444901c4f4f37c5e8c94caab4
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487996"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990250"
 ---
 # <a name="use-powershell-to-create-elastic-pools-and-move-databases-between-elastic-pools"></a>PowerShell gebruiken voor het maken van elastische pools en verplaatsen van databases tussen elastische pools
 
@@ -49,7 +49,7 @@ In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel 
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
 | [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Hiermee maakt u een SQL Database-server die een enkele database of elastische pool host. |
 | [New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool) | Hiermee maakt u een elastische pool. |
-| [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | Hiermee maakt u een database op een SQL Database-server als een zelfstandige of een gegroepeerde database. |
+| [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | Hiermee maakt u een database op een SQL Database-server als een enkele of gepoolde database. |
 | [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) | Hiermee worden database-eigenschappen bijgewerkt of worden databasegegevens verplaatst naar, uit of tussen elastische pools. |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 |||

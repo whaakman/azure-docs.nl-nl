@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 016ad5f97c0c9ebbdd3dbc1156c38b4cc842fe9e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 66640bd60f6ba8c2f612a6bc9b88a07b13012997
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757187"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990031"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Quickstart: Eén database maken in Azure SQL Database via de Azure-portal
 
@@ -29,7 +29,7 @@ Voor alle stappen in deze snelstartgids moet u zich aanmelden bij [Azure Portal]
 
 ## <a name="create-a-single-database"></a>Een individuele database maken
 
-Een individuele database bevat een gedefinieerde set reken-, geheugen-, IO- en opslagresources die gebruikmaakt van één van twee aankoopmodellen. Zie https://docs.microsoft.com/en-us/azure/sql-database/sql-database-service-tiers voor meer informatie. Wanneer u een individuele database maakt, definieert u ook een [SQL Database-server](sql-database-servers.md) om die te beheren en in een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) in een opgegeven regio te plaatsen.
+Een individuele database bevat een gedefinieerde set reken-, geheugen-, IO- en opslagresources die gebruikmaakt van een van twee [aankoopmodel(sql-database-purchase-models.md). Wanneer u een individuele database maakt, definieert u ook een [SQL Database-server](sql-database-servers.md) om die te beheren en in een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) in een opgegeven regio te plaatsen.
 
 U maakt als volgt een individuele database met de voorbeeldgegevens van Adventure Works LT:
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 70229a0b211acd08d285ad7a943f39285fad8012
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: f6713326045ebd84f1cd484803fbc725ad798d7b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810419"
+ms.locfileid: "55882264"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Virtuele Azure-machines verplaatsen naar een andere regio
 
@@ -31,7 +31,7 @@ Deze zelfstudie laat zien hoe u Azure-VM’s naar een andere regio verplaatst me
 > * [De resources in de bronregio verwijderen](#discard-the-resource-in-the-source-region) 
 
 > [!IMPORTANT]
-> Dit document biedt hulp bij het ongewijzigd verplaatsen van Azure-VM’s van de ene regio naar een andere regio. Raadpleeg deze zelfstudie als u de beschikbaarheid wilt verbeteren door VM’s in een beschikbaarheidsset te verplaatsen naar VM’s die zijn vastgemaakt aan een zone in een andere regio.
+> Dit document biedt hulp bij het ongewijzigd verplaatsen van Azure-VM’s van de ene regio naar een andere regio. Raadpleeg deze zelfstudie [hier](move-azure-VMs-AVset-Azone.md) als u de beschikbaarheid wilt verbeteren door VM’s in een beschikbaarheidsset te verplaatsen naar VM’s die zijn vastgemaakt aan een zone in een andere regio.
 
 ## <a name="verify-prerequisites"></a>Vereisten controleren
 

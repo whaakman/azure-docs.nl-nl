@@ -16,14 +16,15 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9abfd410e9137a897753fcf04ee113bd04749a7a
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: f3b49efa5e28eab2168c9a85d17e39ca7f0fce4a
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881678"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984780"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Zelfstudie: Schijven met virtuele-machineschaalset maken en gebruiken met Azure PowerShell
+
 Schaalsets voor virtuele machines maken gebruik van schijven voor het opslaan van het besturingssysteem, toepassingen en gegevens van het VM-exemplaar. Bij het maken en beheren van een schaalset is het belangrijk dat u een schijfgrootte en configuratie kiest die geschikt zijn voor de verwachte werkbelasting. Deze zelfstudie bevat informatie over het maken en beheren van VM-schijven. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
@@ -35,9 +36,9 @@ Schaalsets voor virtuele machines maken gebruik van schijven voor het opslaan va
 
 Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
 
-Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze zelfstudie versie 6.0.0 of hoger van de Azure PowerShell-module vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure. 
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
 
 ## <a name="default-azure-disks"></a>Standaard Azure-schijven
@@ -95,12 +96,12 @@ In de bovenstaande tabel wordt het max. IOP's per schijf aangegeven, maar er kan
 U kunt schijven maken en koppelen wanneer u een schaalset maakt, maar ook voor een bestaande schaalset.
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Schijven koppelen bij het maken van een schaalset
-Maak een schaalset met virtuele machines met behulp van [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). Geef desgevraagd een gebruikersnaam en wachtwoord op voor de VM-exemplaren. Om het verkeer te distribueren naar de verschillende VM-exemplaren, wordt er ook een load balancer gemaakt. De load balancer bevat regels voor het distribueren van verkeer op TCP-poort 80, en voor het toestaan van verkeer van Extern bureaublad op TCP-poort 3389 en externe toegang via PowerShell op TCP-poort 5985.
+Maak een virtuele-machineschaalset met behulp van [New-AzVmss](/powershell/module/az.compute/new-azvmss). Geef desgevraagd een gebruikersnaam en wachtwoord op voor de VM-exemplaren. Om het verkeer te distribueren naar de verschillende VM-exemplaren, wordt er ook een load balancer gemaakt. De load balancer bevat regels voor het distribueren van verkeer op TCP-poort 80, en voor het toestaan van verkeer van Extern bureaublad op TCP-poort 3389 en externe toegang via PowerShell op TCP-poort 5985.
 
 Er worden twee schijven gemaakt met de parameter `-DataDiskSizeGb`. De eerste schijf is *64* GB en de tweede schijf *128* GB. Geef desgevraagd uw eigen beheerdersreferenties op voor de VM-exemplaren in de schaalset:
 
 ```azurepowershell-interactive
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS" `
   -VMScaleSetName "myScaleSet" `
@@ -115,23 +116,23 @@ New-AzureRmVmss `
 Het duurt enkele minuten om alle schaalsetresources en VM-exemplaren te maken en te configureren.
 
 ### <a name="attach-a-disk-to-existing-scale-set"></a>Een schijf koppelen aan een bestaande schaalset
-U kunt ook schijven koppelen aan een bestaande schaalset. Gebruik de schaalset die in de vorige stap is gemaakt om een andere schijf toe te voegen met [Add-AzureRmVmssDataDisk](/powershell/module/azurerm.compute/add-azurermvmssdatadisk). In het volgende voorbeeld wordt een extra schijf van *128* GB gekoppeld aan een bestaande schaalset:
+U kunt ook schijven koppelen aan een bestaande schaalset. Gebruik de schaalset die in de vorige stap is gemaakt om een andere schijf toe te voegen met [Add-AzVmssDataDisk](/powershell/module/az.compute/add-azvmssdatadisk). In het volgende voorbeeld wordt een extra schijf van *128* GB gekoppeld aan een bestaande schaalset:
 
 ```azurepowershell-interactive
 # Get scale set object
-$vmss = Get-AzureRmVmss `
+$vmss = Get-AzVmss `
           -ResourceGroupName "myResourceGroup" `
           -VMScaleSetName "myScaleSet"
 
 # Attach a 128 GB data disk to LUN 2
-Add-AzureRmVmssDataDisk `
+Add-AzVmssDataDisk `
   -VirtualMachineScaleSet $vmss `
   -CreateOption Empty `
   -Lun 2 `
   -DiskSizeGB 128
 
 # Update the scale set to apply the change
-Update-AzureRmVmss `
+Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Name "myScaleSet" `
   -VirtualMachineScaleSet $vmss
@@ -143,11 +144,13 @@ De schijven die worden gemaakt en die worden gekoppeld aan de VM-exemplaren in u
 
 Als u dit proces wilt automatiseren voor meerdere VM-exemplaren in een schaalset, kunt u de aangepaste scriptextensie van Azure gebruiken. Met deze extensie kunt u scripts lokaal uitvoeren op elk VM-exemplaar, bijvoorbeeld om gekoppelde gegevensschijven voor te bereiden. Zie voor meer informatie het [overzicht van de aangepaste scriptextensie](../virtual-machines/windows/extensions-customscript.md).
 
-In het volgende voorbeeld wordt met [Add-AzureRmVmssExtension](/powershell/module/AzureRM.Compute/Add-AzureRmVmssExtension) op elk VM-exemplaar een voorbeeldscript uit een GitHub-repository uitgevoerd waarmee alle gekoppelde RAW-gegevensschijven worden voorbereid:
+
+In het volgende voorbeeld wordt met [Add-AzVmssExtension](/powershell/module/az.compute/Add-AzVmssExtension) op elk VM-exemplaar een voorbeeldscript uit een GitHub-repository uitgevoerd waarmee alle gekoppelde RAW-gegevensschijven worden voorbereid:
+
 
 ```azurepowershell-interactive
 # Get scale set object
-$vmss = Get-AzureRmVmss `
+$vmss = Get-AzVmss `
           -ResourceGroupName "myResourceGroup" `
           -VMScaleSetName "myScaleSet"
 
@@ -158,7 +161,7 @@ $publicSettings = @{
 }
 
 # Use Custom Script Extension to prepare the attached data disks
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
+Add-AzVmssExtension -VirtualMachineScaleSet $vmss `
   -Name "customScript" `
   -Publisher "Microsoft.Compute" `
   -Type "CustomScriptExtension" `
@@ -166,7 +169,7 @@ Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
   -Setting $publicSettings
 
 # Update the scale set and apply the Custom Script Extension to the VM instances
-Update-AzureRmVmss `
+Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Name "myScaleSet" `
   -VirtualMachineScaleSet $vmss
@@ -174,17 +177,18 @@ Update-AzureRmVmss `
 
 Als u wilt controleren of de schijven goed zijn voorbereid, gaat u met RDP naar een van de VM-exemplaren. 
 
-Haal eerst het load balancer-object op met [Get-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancer). Bekijk vervolgens de binnenkomende NAT-regels met [Get-AzureRmLoadBalancerInboundNatRuleConfig](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancerInboundNatRuleConfig). De NAT-regels vermelden de *FrontendPort* voor elk VM-exemplaar waarop RDP luistert. Vraag ten slotte het openbare IP-adres van de load balancer op met [Get-AzureRmPublicIPAddress](/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress):
+Haal eerst het load balancer-object op met [Get-AzLoadBalancer](/powershell/module/az.network/Get-AzLoadBalancer). Bekijk vervolgens de inkomende NAT-regels met [Get-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/Get-AzLoadBalancerInboundNatRuleConfig). De NAT-regels vermelden de *FrontendPort* voor elk VM-exemplaar waarop RDP luistert. Vraag ten slotte het openbare IP-adres van de load balancer op met [Get-AzPublicIPAddress](/powershell/module/az.network/Get-AzPublicIpAddress):
+
 
 ```azurepowershell-interactive
 # Get the load balancer object
-$lb = Get-AzureRmLoadBalancer -ResourceGroupName "myResourceGroup" -Name "myLoadBalancer"
+$lb = Get-AzLoadBalancer -ResourceGroupName "myResourceGroup" -Name "myLoadBalancer"
 
 # View the list of inbound NAT rules
-Get-AzureRmLoadBalancerInboundNatRuleConfig -LoadBalancer $lb | Select-Object Name,Protocol,FrontEndPort,BackEndPort
+Get-AzLoadBalancerInboundNatRuleConfig -LoadBalancer $lb | Select-Object Name,Protocol,FrontEndPort,BackEndPort
 
 # View the public IP address of the load balancer
-Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" -Name myPublicIPAddress | Select IpAddress
+Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" -Name myPublicIPAddress | Select IpAddress
 ```
 
 U kunt nu verbinding maken met uw VM door uw openbare IP-adres en poortnummer van het vereiste VM-exemplaar op te geven, zoals is gedaan in de voorgaande opdrachten. Wanneer u hierom wordt gevraagd, voert u de referenties in die zijn gebruikt bij het maken van de schaalset. Als u Azure Cloud Shell gebruikt, voert u deze stap uit vanaf een lokale PowerShell-prompt of vanuit de Extern bureaublad-client. In het volgende voorbeeld wordt verbinding gemaakt met het VM-exemplaar *1*:
@@ -245,10 +249,10 @@ Sluit de sessie van Extern bureaublad met het VM-exemplaar.
 
 
 ## <a name="list-attached-disks"></a>Gekoppelde schijven opvragen
-Gebruik [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) als volgt om informatie op te vragen over schijven die zijn gekoppeld aan een schaalset:
+Gebruik [Get-AzVmss](/powershell/module/az.compute/get-azvmss) als volgt om informatie op te vragen over schijven die zijn gekoppeld aan een schaalset:
 
 ```azurepowershell-interactive
-Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
+Get-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
 ```
 
 Onder de eigenschap *VirtualMachineProfile.StorageProfile* wordt de lijst met *DataDisks* weergegeven. U ziet vervolgens gegevens van de grootte van de schijf, de opslaglaag en het LUN (Logical Unit Number). In de volgende voorbeelduitvoer ziet u gegevens van de drie gegevensschijven die aan het VM-exemplaar zijn gekoppeld:
@@ -279,21 +283,21 @@ DataDisks[2]                            :
 
 
 ## <a name="detach-a-disk"></a>Een schijf loskoppelen
-Wanneer u een bepaalde schijf niet meer nodig hebt, kunt u deze loskoppelen van de schaalset. De schijf wordt dan verwijderd uit alle VM-exemplaren in de schaalset. Als u een schijf wilt loskoppelen van een schaalset, gebruikt u [Remove-AzureRmVmssDataDisk](/powershell/module/azurerm.compute/remove-azurermvmssdatadisk) en geeft u het LUN van de schijf op. De LUN's worden weergegeven in de uitvoer van [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) in de vorige sectie. In het volgende voorbeeld wordt het LUN *3* losgekoppeld van de schaalset:
+Wanneer u een bepaalde schijf niet meer nodig hebt, kunt u deze loskoppelen van de schaalset. De schijf wordt dan verwijderd uit alle VM-exemplaren in de schaalset. Als u een schijf wilt loskoppelen van een schaalset, gebruikt u [Remove-AzVmssDataDisk](/powershell/module/az.compute/remove-azvmssdatadisk) en geeft u het LUN van de schijf op. De LUN's worden weergegeven in de uitvoer van [Get-AzVmss](/powershell/module/az.compute/get-azvmss) in de vorige sectie. In het volgende voorbeeld wordt het LUN *3* losgekoppeld van de schaalset:
 
 ```azurepowershell-interactive
 # Get scale set object
-$vmss = Get-AzureRmVmss `
+$vmss = Get-AzVmss `
           -ResourceGroupName "myResourceGroup" `
           -VMScaleSetName "myScaleSet"
 
 # Detach a disk from the scale set
-Remove-AzureRmVmssDataDisk `
+Remove-AzVmssDataDisk `
   -VirtualMachineScaleSet $vmss `
   -Lun 2
 
 # Update the scale set and detach the disk from the VM instances
-Update-AzureRmVmss `
+Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Name "myScaleSet" `
   -VirtualMachineScaleSet $vmss
@@ -301,10 +305,10 @@ Update-AzureRmVmss `
 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Als u de schaalset en schijven wilt verwijderen, verwijdert u de resourcegroep en alle bijbehorende resources met [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup). De parameter `-Force` bevestigt dat u de resources wilt verwijderen, zonder een extra prompt om dit te doen. De parameter `-AsJob` retourneert het besturingselement naar de prompt zonder te wachten totdat de bewerking is voltooid.
+Als u de schaalset en schijven wilt verwijderen, verwijdert u de resourcegroep en alle bijbehorende resources met [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). De parameter `-Force` bevestigt dat u de resources wilt verwijderen, zonder een extra prompt om dit te doen. De parameter `-AsJob` retourneert het besturingselement naar de prompt zonder te wachten totdat de bewerking is voltooid.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
+Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
 
 

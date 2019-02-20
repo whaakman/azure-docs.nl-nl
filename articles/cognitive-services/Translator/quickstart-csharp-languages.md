@@ -1,34 +1,31 @@
 ---
-title: 'Snelstart: Lijst met ondersteunde talen ophalen, C# - Translator Text-API'
+title: 'Quickstart: Lijst met ondersteunde talen ophalen, C# - Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: In deze quickstart haalt u een lijst met ondersteunde talen op voor vertaling, transcriptie en het opzoeken in woordenlijsten met behulp van de Translator Text-API.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 11/26/2018
+ms.date: 02/07/2019
 ms.author: erhopf
-ms.openlocfilehash: e638375c9c8316c00ee8da000ca5223330072985
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ae7408ac635b2825ab17f40786c3fd60b76d78ac
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215568"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892453"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-c"></a>Quickstart: De Translator Text-API gebruiken om een lijst met ondersteunde talen op te halen met C#
 
 In deze quickstart haalt u een lijst met ondersteunde talen op voor vertaling, transcriptie en het opzoeken in woordenlijsten met behulp van de Translator Text-API.
-
-Voor deze snelstart is een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met een Translator Text-resource vereist. Als u geen account hebt, kunt u de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/) gebruiken om een abonnementssleutel op te halen.
 
 ## <a name="prerequisites"></a>Vereisten
 
 * [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Json.NET NuGet-pakket](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) of uw favoriete teksteditor
-* Een Azure-abonnementssleutel voor Translator Text
 
 ## <a name="create-a-net-core-project"></a>Een .NET Core-project maken
 
@@ -72,14 +69,13 @@ static void GetLanguages()
 }
 ```
 
-## <a name="set-the-subscription-key-host-name-and-path"></a>Abonnementssleutel, hostnaam en pad instellen
+## <a name="set-the-host-name-and-path"></a>Stel de hostnaam en het pad in
 
 Voeg deze regels toe aan de functie `GetLanguages`.
 
 ```csharp
 string host = "https://api.cognitive.microsofttranslator.com";
 string route = "/languages?api-version=3.0";
-string subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 ```
 
 ## <a name="instantiate-the-client-and-make-a-request"></a>De client instantiëren en een aanvraag indienen
@@ -109,17 +105,11 @@ Voeg deze code toe aan `HttpRequestMessage`:
 ```csharp
 // Set the method to GET
 request.Method = HttpMethod.Get;
-
 // Construct the full URI
 request.RequestUri = new Uri(host + route);
-
-// Add the authorization header
-request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-
 // Send request, get response
 var response = client.SendAsync(request).Result;
 var jsonResponse = response.Content.ReadAsStringAsync().Result;
-
 // Print the response
 Console.WriteLine(jsonResponse);
 Console.WriteLine("Press any key to continue.");

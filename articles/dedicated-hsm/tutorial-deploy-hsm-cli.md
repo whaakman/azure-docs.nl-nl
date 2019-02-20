@@ -4,7 +4,7 @@ description: Zelfstudie voor het implementeren van een toegewezen HSM in een bes
 services: dedicated-hsm
 documentationcenter: na
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: d8171a3c506ed53c986db6cddd959411f0a146aa
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c8713c4d3f6bd7835fed8e668407ea9ee55cc712
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080313"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111829"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Zelfstudie: HSM's implementeren in een bestaand virtueel netwerk met behulp van CLI
 
@@ -38,7 +38,7 @@ Deze zelfstudie richt zich op twee HSM's en de vereiste ExpressRoute-gateway (zi
 
 ## <a name="prerequisites"></a>Vereisten
 
-Azure Toegewezen HSM is momenteel niet beschikbaar in de Azure-portal. Alle interactie met de service verloopt via de opdrachtregel of met behulp van PowerShell. In deze zelfstudie wordt gebruikgemaakt van de CLI (opdrachtregelinterface) in Azure Cloud Shell. Volg de instructies in [Aan de slag met Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) als u niet bekend bent met Azure CLI. 
+Azure Toegewezen HSM is momenteel niet beschikbaar in de Azure-portal. Alle interactie met de service verloopt via de opdrachtregel of met behulp van PowerShell. In deze zelfstudie wordt gebruikgemaakt van de CLI (opdrachtregelinterface) in Azure Cloud Shell. Volg de instructies om aan de slag te gaan als u niet bekend bent met Azure CLI: [Aan de slag met de Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 
 Veronderstellingen:
 

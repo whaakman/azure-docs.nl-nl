@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/26/2018
+ms.date: 02/08/2019
 ms.author: dobett
-ms.openlocfilehash: d02e72a46e2bec69792eacef673c779310561f83
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 46ea73e0a0c2dd14dcafcaa332c7feb1c70445df
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602644"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098882"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Quickstart: Een cloudgebaseerde oplossing proberen voor het beheren van mijn industriële IoT-apparaten
 
@@ -42,7 +42,7 @@ Voer op de pagina **Oplossing voor verbonden factory maken** een unieke **oploss
 
 Selecteer het **Abonnement** en de **Regio** die u wilt gebruiken om de oplossingsverbetering te implementeren. U kiest meestal de regio die zich het meest in uw buurt bevindt. Voor deze snelstart gebruiken we **Visual Studio Enterprise** en **US - oost**. U moet een [globale beheerder of gebruiker](iot-accelerators-permissions.md) zijn in het abonnement.
 
-Klik op **Oplossing maken** om de implementatie te starten. Het duurt minstens vijf minuten om dit proces uit te voeren:
+Klik op **Maken** om de implementatie te starten. Het duurt minstens vijf minuten om dit proces uit te voeren:
 
 ![Overzicht van de oplossing voor verbonden factory’s](./media/quickstart-connected-factory-deploy/createform.png)
 
@@ -54,7 +54,7 @@ Klik op de pagina **Ingerichte oplossingen** op de nieuwe oplossingsversneller v
 
 ![Nieuwe oplossing kiezen](./media/quickstart-connected-factory-deploy/choosenew.png)
 
-In het deelvenster dat wordt weergegeven, kunt u informatie bekijken over de oplossingsversneller voor verbonden factory's. Kies **Oplossingsdashboard** om de oplossingsversneller voor verbonden factory's weer te geven:
+In het deelvenster dat wordt weergegeven, kunt u informatie bekijken over de oplossingsversneller voor Connected Factory. Kies **Ga naar uw oplossingsversneller** om uw oplossingsversneller voor Connected Factory weer te geven:
 
 ![Deelvenster Oplossing](./media/quickstart-connected-factory-deploy/solutionpanel.png)
 

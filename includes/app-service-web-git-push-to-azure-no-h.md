@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 026540290710d039dbc06c394ab538ebe2d7c12f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: aa6f18d4f667862687083c5db3679ce9d8e188cd
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344666"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56212996"
 ---
 Voeg, eenmaal terug in het _lokale terminalvenster_, een externe Azure-instantie toe aan uw lokale Git-opslagplaats. Vervang _&lt;deploymentLocalGitUrl-from-create-step>_ door de URL van de externe Git-instantie die u hebt opgeslagen in [Een web-app maken](#create-a-web-app).
 
@@ -21,7 +21,7 @@ Voeg, eenmaal terug in het _lokale terminalvenster_, een externe Azure-instantie
 git remote add azure <deploymentLocalGitUrl-from-create-step>
 ```
 
-Push naar de externe Azure-instantie om uw app te implementeren met de volgende opdracht. Wanneer u door Git Credential Manager om referenties wordt gevraagd, geeft u de referenties op die u hebt gemaakt in [Een implementatiegebruiker configureren](#configure-a-deployment-user) en niet de referenties die u gebruikt om u aan te melden bij Azure Portal.
+Push naar de externe Azure-instantie om uw app te implementeren met de volgende opdracht. Wanneer u door Git Credential Manager om referenties wordt gevraagd, geeft u de referenties op die u hebt gemaakt in Een implementatiegebruiker configureren, en niet de referenties die u gebruikt om u aan te melden bij de Azure-portal.
 
 ```bash
 git push azure master

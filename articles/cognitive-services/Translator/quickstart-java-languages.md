@@ -4,30 +4,27 @@ titleSuffix: Azure Cognitive Services
 description: In deze quickstart haalt u een lijst met ondersteunde talen op voor vertaling, transcriptie en het opzoeken in woordenlijsten met behulp van de Translator Text-API.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 12/03/2018
+ms.date: 02/07/2019
 ms.author: erhopf
-ms.openlocfilehash: 937fd58b28a3e64f7f4f9fc4bf52e8280af81136
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 88347076888b68459747757d655759d3f83d19a7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226967"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964556"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>Snelstart: De Translator Text-API gebruiken om een lijst met ondersteunde talen op te halen met Java
+# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>Quickstart: De Translator Text-API gebruiken om een lijst met ondersteunde talen op te halen met Java
 
 In deze quickstart haalt u een lijst met ondersteunde talen op voor vertaling, transcriptie en het opzoeken in woordenlijsten met behulp van de Translator Text-API.
-
-Voor deze snelstart is een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met een Translator Text-resource vereist. Als u geen account hebt, kunt u de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/) gebruiken om een abonnementssleutel op te halen.
 
 ## <a name="prerequisites"></a>Vereisten
 
 * [JDK 7 of hoger](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Gradle](https://gradle.org/install/)
-* Een Azure-abonnementssleutel voor Translator Text
 
 ## <a name="initialize-a-project-with-gradle"></a>Een project initialiseren met Gradle
 
@@ -50,7 +47,7 @@ Wanneer u wordt gevraagd om een **DSL** te kiezen, selecteert u **Kotlin**.
 
 Zoek `build.gradle.kts` en open dit met uw favoriete IDE- of teksteditor. Kopieer het vervolgens in deze buildconfiguratie:
 
-```
+```java
 plugins {
     java
     application
@@ -104,27 +101,25 @@ public class GetLanguages {
 Voeg deze regels toe aan de klasse `GetLanguages`:
 
 ```java
-String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 String url = "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0";
 ```
 
 ## <a name="create-a-client-and-build-a-request"></a>Een client maken en een aanvraag samenstellen
 
-Voeg deze regel toe aan de klasse `GetLanguages` om `OkHttpClient` te instantiëren:
+Voeg deze regel toe aan de klasse `GetLanguages` om de `OkHttpClient` te instantiëren:
 
 ```java
 // Instantiates the OkHttpClient.
 OkHttpClient client = new OkHttpClient();
 ```
 
-Stel vervolgens de GET-aanvraag samen.
+Stel vervolgens de `GET`-aanvraag samen.
 
 ```java
 // This function performs a GET request.
 public String Get() throws IOException {
     Request request = new Request.Builder()
             .url(url).get()
-            .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
             .addHeader("Content-type", "application/json").build();
     Response response = client.newCall(request).execute();
     return response.body().string();
@@ -167,6 +162,12 @@ Nu kunt u de voorbeeld-app gaan uitvoeren. Ga vanaf de opdrachtregel (of termina
 
 ```console
 gradle build
+```
+
+Wanneer de build is voltooid, voert u het volgende uit:
+
+```console
+gradle run
 ```
 
 ## <a name="sample-response"></a>Voorbeeldantwoord

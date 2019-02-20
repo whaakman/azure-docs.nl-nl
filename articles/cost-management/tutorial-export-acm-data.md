@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 5f979f562ee871e7ae5f48de5bc53405cb3d1116
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: a7c503fba534b72323472fa58b14188bc412003c
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766402"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100684"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Zelfstudie: Geëxporteerde gegevens maken en beheren
 
@@ -71,7 +71,7 @@ Er zijn drie soorten exportopties:
 
 **Dagelijkse export van de maandkosten tot heden**: de eerste uitvoer wordt onmiddellijk uitgevoerd. Volgende exports worden de volgende dag op hetzelfde tijdstip als de eerste export uitgevoerd. De meest recente gegevens worden uit de vorige dagelijkse exports samengevoegd.
 
-**Wekelijkse kosten voor de afgelopen zeven dagen**: de eerste uitvoer wordt onmiddellijk uitgevoerd. Volgende exports worden op dezelfde weekdag en hetzelfde tijdstip als de eerste export uitgevoerd. De kosten zijn voor de afgelopen zeven dagen.
+**Wekelijkse export van kosten voor de afgelopen zeven dagen**: de eerste uitvoer wordt onmiddellijk uitgevoerd. Volgende exports worden op dezelfde weekdag en hetzelfde tijdstip als de eerste export uitgevoerd. De kosten zijn voor de afgelopen zeven dagen.
 
 **Aangepast**: hiermee kunt u wekelijkse en maandelijkse exports plannen met week-tot-datum- en maand-tot-heden-opties. *De eerste uitvoer wordt onmiddellijk uitgevoerd.*
 

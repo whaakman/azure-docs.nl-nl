@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 02/13/2019
 ms.author: alkohli
-ms.openlocfilehash: 158c2a8919bccea03f5c7b67aef23cd07022c259
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 5a72bfccd69a51aa6bafb34bb768b48640e554af
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900507"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243005"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Zelfstudie: Azure Data Box terugsturen en de gegevens controleren die u naar Azure hebt geüpload
 
@@ -32,7 +32,7 @@ In deze zelfstudie vindt u informatie over onderwerpen als:
 
 Zorg voordat u begint voor het volgende:
 
-- U hebt de [Zelfstudie: Gegevens kopiëren naar Azure Data Box en deze gegevens controleren](data-box-deploy-copy-data.md) voltooid. 
+- U hebt de [Zelfstudie: Gegevens kopiëren naar Azure Data Box en deze gegevens controleren](data-box-deploy-copy-data.md). 
 - Kopieertaken zijn voltooid. Voorbereiding voor verzending kan niet worden uitgevoerd als er nog kopieertaken worden uitgevoerd.
 
 ## <a name="prepare-to-ship"></a>Voorbereiding voor verzending
@@ -42,7 +42,7 @@ Zorg voordat u begint voor het volgende:
 ## <a name="ship-data-box-back"></a>De Data Box terugsturen
 
 1. Zorg ervoor dat het apparaat uit staat en de kabels zijn verwijderd. Rol het netsnoer op en plaats het veilig aan de achterzijde van het apparaat.
-2. Als het apparaat wordt verzonden in de VS, zorgt u ervoor dat het verzendlabel wordt weergegeven op het E-ink-scherm en spreekt u met de vervoerder een tijdstip af waarop het kan worden opgehaald. Als het label is beschadigd of ontbreekt of niet wordt weergegeven op het E-ink-scherm, gaat u naar **Overzicht > Verzendlabel downloaden** in de Azure-portal. Download het verzendlabel en bevestig dat op het apparaat.
+2. Als het apparaat wordt verzonden in de VS, zorgt u ervoor dat het verzendlabel wordt weergegeven op het E-ink-scherm en spreekt u met de vervoerder een tijdstip af waarop het kan worden opgehaald. Neem contact op met de Microsoft-ondersteuning als het label beschadigd is of ontbreekt of niet wordt weergegeven op het e-inkscherm. Ga, indien het ondersteuningsteam dit aanraadt, in de Azure-portal naar **Overzicht > Verzendlabel downloaden**. Download het verzendlabel en bevestig dat op het apparaat.
 
     Als het apparaat wordt geleverd in Europa, wordt er geen verzendlabel weergegeven op het E-ink-scherm. In dat geval vindt u het retourlabel in het doorzichtige hoesje onder het verzendlabel aan de voorkant. Verwijder het oude verzendlabel en zorg ervoor dat het verzendlabel duidelijk zichtbaar is.
     

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 5d844692b6199d93fa835da1021c9753311e17de
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 0d0009c833c313b5416998502601285e5b710a8d
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824513"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112543"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Virtuele Azure-machines verplaatsen naar een andere regio
 
@@ -33,7 +33,7 @@ Dit document behandelt de verschillende scenario's waarin u uw virtuele machines
 Klanten verplaatsen virtuele machines om de volgende redenen:-
 
 - Als u al in één regio hebt geïmplementeerd en een nieuwe ondersteunde regio wordt toegevoegd die zich dichter bij de eindgebruikers van uw toepassing of service bevindt, wilt u waarschijnlijk **uw virtuele machines ongewijzigd naar de nieuwe regio verplaatsen** om latentie te verminderen. Diezelfde aanpak wordt gebruikt als u abonnementen wilt samenvoegen of er bestuurlijke-/organisatieregels zijn op basis waarvan u verplicht bent te verplaatsen. 
-- Als uw virtuele machine is geïmplementeerd als een enkele virtuele machine of als onderdeel van een beschikbaarheidsset en u de SLA voor beschikbaarheid wilt vergroten, kunt u uw **virtuele machines als een beschikbaarheidsset verplaatsen**. 
+- Als uw VM is geïmplementeerd als een enkel VM-exemplaar of als onderdeel van een beschikbaarheidsset en u de SLA’s voor beschikbaarheid wilt vergroten, kunt u uw **VM’s naar een beschikbaarheidsszone verplaatsen**. 
 
 ## <a name="how-to-move-azure-vms"></a>Hoe kunt u virtuele Azure-machines verplaatsen
 Het verplaatsen van virtuele machines omvat de volgende stappen:
@@ -97,7 +97,7 @@ Op basis van de hierboven genoemde [architecturen](#typical-architectures-for-a-
 
 2. **Virtuele machines die in een beschikbaarheidsset zijn geïmplementeerd**: wanneer u replicatie voor uw virtuele machine met Azure Site Recovery inschakelt, kunt u kiezen voor een configuratie waarin uw virtuele machines in een beschikbaarheidsset in afzonderlijke beschikbaarheidszones worden geplaatst. Nadat u de verplaatsing hebt voltooid, is de SLA voor beschikbaarheid 99,9%.
 
-      ![aset-Azone.PNG](media/move-vm-overview/aset-Azone.PNG)
+     ![aset-Azone.PNG](media/move-vm-overview/aset-Azone.PNG)
 
 
 ## <a name="next-steps"></a>Volgende stappen

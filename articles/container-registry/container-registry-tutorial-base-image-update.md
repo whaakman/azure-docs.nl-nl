@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c89a239cd3abbdd59813626f4b64596ee8a1fd7e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: e2dd02ada2c22fa8d6c2d79387ea01f3ec97dd7e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756798"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108123"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Zelfstudie: Builds van containerinstallatiekopieën automatiseren wanneer een basisinstallatiekopie wordt bijgewerkt in een Azure-containerregister 
 
@@ -78,6 +78,8 @@ In deze zelfstudie wordt u door een bijwerkscenario van een basisinstallatiekopi
 [Dockerfile-base][dockerfile-base]: De installatiekopie die `Dockerfile-app` opgeeft als basis. Deze is zelf gebaseerd op een [Node][base-node]-installatiekopie en bevat de omgevingsvariabele `NODE_VERSION`.
 
 In de volgende gedeeltes maakt u een taak, werkt u de waarde `NODE_VERSION` in het Docker-bestand van de basisinstallatiekopie bij en gebruikt u ACR Tasks om de basisinstallatiekopie te maken. Zodra de ACR-taak de nieuwe basisinstallatiekopie naar uw register pusht, wordt er automatisch een build van de toepassingsinstallatiekopie geactiveerd. Optioneel kunt u de containerinstallatiekopie van de toepassing lokaal uitvoeren om de verschillende versietekenreeksen in de ingebouwde installatiekopieën te bekijken.
+
+In deze zelfstudie wordt met een ACR-taak één container-installatiekopie gemaakt en gepusht, die is opgegeven in een Dockerfile. Met ACR-taken kunnen ook [taken bestaande uit meerdere stappen](container-registry-tasks-multi-step.md) worden uitgevoerd (momenteel in preview). Hierbij wordt een YAML-bestand gebruikt om de stappen voor het bouwen, pushen en optioneel testen van meerdere containers te definiëren.
 
 ## <a name="build-the-base-image"></a>De basisinstallatiekopie bouwen
 
@@ -257,7 +259,7 @@ In deze zelfstudie hebt u geleerd hoe u een taak configureert om automatisch bui
 [azure-cli]: /cli/azure/install-azure-cli
 [az-acr-build]: /cli/azure/acr#az-acr-build-run
 [az-acr-task-create]: /cli/azure/acr
-[az-acr-task-run]: /cli/azure/acr-run
+[az-acr-task-run]: /cli/azure/acr#az-acr-run
 [az-acr-login]: /cli/azure/acr#az-acr-login
 [az-acr-task-list-runs]: /cli/azure/acr
 [az-acr-task]: /cli/azure/acr

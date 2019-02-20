@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 23c53982919ad29c639a6441f206abb35ddb7a1b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2ef6d855c422095995278716c82ebd4e8795b268
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430788"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977997"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-powershell"></a>Een virtuele Windows-machine maken in een beschikbaarheidszone met PowerShell
 
@@ -29,23 +29,23 @@ In dit artikel wordt beschreven hoe u Azure PowerShell gebruikt om in een Azure-
 
 Als u een beschikbaarheidszone wilt gebruiken, maakt u een virtuele machine in een [ondersteunde Azure-regio](../../availability-zones/az-overview.md#regions-that-support-availability-zones).
 
-Zorg ervoor dat u de nieuwste Azure PowerShell-module hebt geïnstalleerd. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps).
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Meld u aan bij uw Azure-abonnement met de opdracht `Connect-AzureRmAccount` en volg de instructies op het scherm.
+Meld u aan bij uw Azure-abonnement met de opdracht `Connect-AzAccount` en volg de instructies op het scherm.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ## <a name="check-vm-sku-availability"></a>Beschikbaarheid van VM-SKU controleren
 De beschikbaarheid van VM-grootten, of SKU's, kan verschillen per regio en zone. Als hulp bij de planning voor het gebruik van de beschikbaarheidszones kunt u een overzicht maken van de beschikbare VM-SKU's per Azure-regio en zone. Hiermee zorgt u ervoor dat u een correcte VM-grootte kiest en de gewenste tolerantie in zones verkrijgt. Voor meer informatie over de verschillende VM-typen en -grootten raadpleegt u het [Overzicht van de VM-grootten](sizes.md).
 
-U vraagt de beschikbare VM-SKU's op met de opdracht [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku). Met het volgende voorbeeld wordt een lijst weergegeven van de beschikbare VM-SKU's in de regio *eastus2*:
+U kunt de beschikbare VM-SKU's bekijken met de opdracht [Get-AzComputeResourceSku](https://docs.microsoft.com/powershell/module/az.compute/get-azcomputeresourcesku). Met het volgende voorbeeld wordt een lijst weergegeven van de beschikbare VM-SKU's in de regio *eastus2*:
 
 ```powershell
-Get-AzureRmComputeResourceSku | where {$_.Locations.Contains("eastus2")};
+Get-AzComputeResourceSku | where {$_.Locations.Contains("eastus2")};
 ```
 
 De uitvoer is vergelijkbaar met het volgende verkorte voorbeeld, waarin de beschikbaarheidszones worden weergegeven waarin elke VM-grootte beschikbaar is:
@@ -69,10 +69,10 @@ virtualMachines   Standard_E4_v3   eastus2  {1, 2, 3}
 
 ## <a name="create-resource-group"></a>Een resourcegroep maken
 
-Maak een Azure-resourcegroep met de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. In dit voorbeeld wordt er een resourcegroep met de naam *MyResourceGroup* gemaakt in de *eastus2*. 
+Maak een Azure-resourcegroep met behulp van de opdracht [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. In dit voorbeeld wordt er een resourcegroep met de naam *MyResourceGroup* gemaakt in de *eastus2*. 
 
 ```powershell
-New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS2
+New-AzResourceGroup -Name myResourceGroup -Location EastUS2
 ```
 
 ## <a name="create-networking-resources"></a>Netwerkresources maken
@@ -82,14 +82,14 @@ Deze resources worden gebruikt voor netwerkconnectiviteit met de virtuele machin
 
 ```powershell
 # Create a subnet configuration
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
+$subnetConfig = New-AzVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
 
 # Create a virtual network
-$vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location eastus2 `
+$vnet = New-AzVirtualNetwork -ResourceGroupName myResourceGroup -Location eastus2 `
     -Name myVNet -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
 
 # Create a public IP address in an availability zone and specify a DNS name
-$pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location eastus2 -Zone 2 `
+$pip = New-AzPublicIpAddress -ResourceGroupName myResourceGroup -Location eastus2 -Zone 2 `
     -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)"
 ```
 
@@ -98,26 +98,26 @@ De netwerkbeveiligingsgroep beveiligt de virtuele machine met binnenkomende en u
 
 ```powershell
 # Create an inbound network security group rule for port 3389
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
+$nsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
     -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
     -DestinationPortRange 3389 -Access Allow
 
 # Create an inbound network security group rule for port 80
-$nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleWWW  -Protocol Tcp `
+$nsgRuleWeb = New-AzNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleWWW  -Protocol Tcp `
     -Direction Inbound -Priority 1001 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
     -DestinationPortRange 80 -Access Allow
 
 # Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location eastus2 `
+$nsg = New-AzNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location eastus2 `
     -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP,$nsgRuleWeb
 ```
 
 ### <a name="create-a-network-card-for-the-virtual-machine"></a>Een netwerkkaart voor de virtuele machine maken 
-Maak een netwerkkaart met [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) voor de virtuele machine. De netwerkkaart verbindt de virtuele machine met een subnet, netwerkbeveiligingsgroep en openbaar IP-adres.
+Maak een netwerkkaart met [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) voor de virtuele machine. De netwerkkaart verbindt de virtuele machine met een subnet, netwerkbeveiligingsgroep en openbaar IP-adres.
 
 ```powershell
 # Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroup -Location eastus2 `
+$nic = New-AzNetworkInterface -Name myNic -ResourceGroupName myResourceGroup -Location eastus2 `
     -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 ```
 
@@ -130,24 +130,24 @@ Maak een virtuele-machineconfiguratie. Deze configuratie bevat de instellingen d
 $cred = Get-Credential
 
 # Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_DS1_v2 -Zone 2 | `
-    Set-AzureRmVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | `
-    Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer `
-    -Skus 2016-Datacenter -Version latest | Add-AzureRmVMNetworkInterface -Id $nic.Id
+$vmConfig = New-AzVMConfig -VMName myVM -VMSize Standard_DS1_v2 -Zone 2 | `
+    Set-AzVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | `
+    Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer `
+    -Skus 2016-Datacenter -Version latest | Add-AzVMNetworkInterface -Id $nic.Id
 ```
 
-Maak de virtuele machine met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
+Maak de virtuele machine met [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm).
 
 ```powershell
-New-AzureRmVM -ResourceGroupName myResourceGroup -Location eastus2 -VM $vmConfig
+New-AzVM -ResourceGroupName myResourceGroup -Location eastus2 -VM $vmConfig
 ```
 
 ## <a name="confirm-zone-for-managed-disk"></a>Zone voor beheerde schijf bevestigen
 
-U hebt de resource van het IP-adres van de virtuele machine gemaakt in dezelfde beschikbaarheidszone als de virtuele machine. De resource van de beheerde schijf voor de VM wordt in dezelfde beschikbaarheidszone gemaakt. U kunt dit controleren met [Get-AzureRmDisk](/powershell/module/azurerm.compute/get-azurermdisk):
+U hebt de resource van het IP-adres van de virtuele machine gemaakt in dezelfde beschikbaarheidszone als de virtuele machine. De resource van de beheerde schijf voor de VM wordt in dezelfde beschikbaarheidszone gemaakt. U kunt dit controleren met [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk):
 
 ```powershell
-Get-AzureRmDisk -ResourceGroupName myResourceGroup
+Get-AzDisk -ResourceGroupName myResourceGroup
 ```
 
 In de uitvoer ziet u dat de beheerde schijf zich in dezelfde beschikbaarheidszone bevindt als de virtuele machine:

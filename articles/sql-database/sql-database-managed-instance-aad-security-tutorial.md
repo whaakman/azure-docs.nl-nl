@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 32d1be97405624fe929a9e9e1ff486f6a31200aa
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 402e10d9b99dbf0eeba8aac27071e4d78fdf0f01
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732767"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984508"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-logins"></a>Zelfstudie: Beveiliging van een beheerd exemplaar in Azure SQL Database met behulp van Azure AD-aanmeldingen
 
@@ -32,7 +32,7 @@ In deze zelfstudie leert u het volgende:
 > - Een Azure Active Directory (AD)-aanmelding voor een beheerde exemplaar maken
 > - Machtigingen verlenen aan Azure AD-aanmeldingen in een beheerd exemplaar
 > - Azure AD-gebruikers maken op basis van Azure AD-aanmeldingen
-> - Machtigingen toewijzen aan Azure AD-gebruikers en beveiliging van beheerde databases
+> - Machtigingen aan Azure AD-gebruikers toewijzen en databasebeveiliging beheren
 > - Imitatie gebruiken voor Azure AD-gebruikers
 > - Databaseoverschrijdende query’s gebruiken voor Azure AD-gebruikers
 > - Leren over beveiligingsfuncties, zoals beveiliging tegen bedreigingen, controle, gegevensmaskering en versleuteling

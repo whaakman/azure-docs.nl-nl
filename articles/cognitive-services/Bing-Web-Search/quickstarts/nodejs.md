@@ -4,33 +4,31 @@ titleSuffix: Azure Cognitive Services
 description: Gebruik deze snelstartgids om aanvragen naar de REST API van Bing Web Search te verzenden via Node.js en een JSON-antwoord te ontvangen
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 9/26/2018
+ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: e07b38c74e4ed815d5ec52be97c2b6a8e7b6ddb0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 3233357d9013c2a1f9d77178c217ca9310a34ac4
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166234"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198198"
 ---
 # <a name="search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Zoeken op internet met behulp van de REST API voor Bing Web Search en Node.js
 
-Gebruik deze snelstart om voor het eerst de Bing Webzoekopdrachten-API aan te roepen en binnen tien minuten een JSON-antwoord te ontvangen.
-
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
-
-Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Gebruik deze quickstart om voor het eerst de Bing Webzoekopdrachten-API aan te roepen en het JSON-antwoord te ontvangen. Deze Node.js-toepassing stuurt een zoekaanvraag naar de API en geeft het antwoord weer. Hoewel deze toepassing in JavaScript is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
 
 ## <a name="prerequisites"></a>Vereisten
 Voordat u verdergaat met deze snelstart moet u beschikken over:
 
 * [Node.js 6](https://nodejs.org/en/download/) of later
 * Een abonnementssleutel
+
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="create-a-project-and-declare-required-modules"></a>Een project maken en de vereiste modules declareren
 

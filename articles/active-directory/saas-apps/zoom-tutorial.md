@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/24/2018
+ms.date: 02/05/2019
 ms.author: jeedes
-ms.openlocfilehash: ace02a0cb93cf3e56e4b895524b9e2d35440aecb
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ca0e2c0ce12edba504745e2783844db5109ee01a
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812979"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237702"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Zelfstudie: Azure Active Directory-integratie met Zoom
 
@@ -124,6 +125,10 @@ Voor het configureren van Azure AD eenmalige aanmelding met Zoom, moet u de volg
     | Achternaam  | user.surname  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname |
     | Telefoonnummer  | User.telephonenumber  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone |
     | Afdeling  | user.department  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department |
+    | role |    user.assignedrole |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role |
+
+    > [!NOTE]
+    > Klik [hier](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) als u wilt weten hoe u rollen in Azure AD moet configureren
 
     a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 
@@ -141,11 +146,14 @@ Voor het configureren van Azure AD eenmalige aanmelding met Zoom, moet u de volg
 
     f. Klik op **Opslaan**.
 
-4. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
+    > [!NOTE]
+    > Zoom kan een groepsclaim in SAML-nettolading verwachten, dus als u een groep hebt aangemaakt, neemt contact op met het [Zoom-ondersteuningsteam](https://support.zoom.us/hc/en-us) en vermeldt u de groepsinformatie, zodat zij deze info ook van hun kant kunnen configureren. U moet ook de Object-id aan het [Zoom-ondersteuningsteam](https://support.zoom.us/hc/en-us) melden zodat zij van hun kant een configuratie kunnen uitvoeren. Volg het [document](https://support.zoom.us/hc/en-us/articles/115005887566) om de Object-id te verkrijgen.
+
+7. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
     ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
-6. In de sectie **Zoom instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
+8. In de sectie **Zoom instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
 
     ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
@@ -160,29 +168,29 @@ Voor het configureren van Azure AD eenmalige aanmelding met Zoom, moet u de volg
 1. Meld u in een ander webbrowservenster aan als beheerder bij uw Zoom-bedrijfswebsite.
 
 2. Klik op het tabblad **Eenmalige aanmelding**.
-   
-    ![Tabblad Eenmalige aanmelding](./media/zoom-tutorial/IC784700.png "Eenmalige aanmelding")
+
+    ![Tabblad Eenmalige aanmelding](./media/zoom-tutorial/ic784700.png "Eenmalige aanmelding")
 
 3. Klik op het tabblad **Beveiligingsbeheer** en ga vervolgens naar de instellingen voor **Eenmalige aanmelding**.
 
 4. Voer in de sectie Eenmalige aanmelding de volgende stappen uit:
-   
-    ![Sectie Eenmalige aanmelding](./media/zoom-tutorial/IC784701.png "Eenmalige aanmelding")
-   
+
+    ![Sectie Eenmalige aanmelding](./media/zoom-tutorial/ic784701.png "Eenmalige aanmelding")
+
     a. Plak in het tekstvak **Aanmeldingspagina-URL** de waarde van **Aanmeldings-URL** die u hebt gekopieerd uit Azure Portal.
-   
+
     b. Plak in het tekstvak **Afmeldingspagina-URL** de waarde van **Afmeldings-URL** die u hebt gekopieerd uit Azure Portal.
-     
+
     c. Open het base-64 gecodeerde certificaat in Kladblok, kopieer de inhoud ervan naar het klembord en plak het in het tekstvak **Id-providercertificaat**.
 
     d. Plak in het tekstvak **Verlener** de waarde van **Azure AD-id**, die u hebt gekopieerd uit Azure Portal. 
 
     e. Klik op **Opslaan**.
 
-    > [!NOTE] 
+    > [!NOTE]
     > Ga naar de Zoom-documentatie voor meer informatie[https://zoomus.zendesk.com/hc/articles/115005887566](https://zoomus.zendesk.com/hc/articles/115005887566)
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
@@ -240,17 +248,17 @@ Als u wilt dat Azure AD-gebruikers zich kunnen aanmelden bij Zoom, moeten ze wor
 ### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Voer de volgende stappen uit als u een gebruikersaccount wilt inrichten:
 
 1. Meld u aan als beheerder bij uw **Zoom**-bedrijfswebsite.
- 
+
 2. Klik op het tabblad **Accountbeheer** en klik vervolgens op **Gebruikersbeheer**.
 
 3. Klik in de sectie Gebruikersbeheer op **Gebruikers toevoegen**.
-   
-    ![Gebruikersbeheer](./media/zoom-tutorial/IC784703.png "Gebruikersbeheer")
+
+    ![Gebruikersbeheer](./media/zoom-tutorial/ic784703.png "Gebruikersbeheer")
 
 4. Voer op de pagina **Gebruikers toevoegen** de volgende stappen uit:
-   
-    ![Gebruikers toevoegen](./media/zoom-tutorial/IC784704.png "Gebruikers toevoegen")
-   
+
+    ![Gebruikers toevoegen](./media/zoom-tutorial/ic784704.png "Gebruikers toevoegen")
+
     a. Selecteer als **Gebruikerstype**, **Standaard**.
 
     b. Typ in het tekstvak **E-mails** het e-mailadres van een geldig Azure AD-account dat u wilt inrichten.
@@ -260,7 +268,7 @@ Als u wilt dat Azure AD-gebruikers zich kunnen aanmelden bij Zoom, moeten ze wor
 > [!NOTE]
 > U kunt alle andere hulpprogramma's of API's voor het maken van Zoom-gebruikersaccounts gebruiken die worden geleverd door Zoom voor het inrichten van Azure Active Directory-gebruikersaccounts.
 
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
@@ -273,4 +281,3 @@ Wanneer u op de tegel Zoom in het toegangsvenster klikt, wordt u automatisch aan
 - [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

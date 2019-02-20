@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 01/08/2019
+ms.date: 02/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3e192449858d6cbd2d054fa7c70276739cfe1143
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 427f3f498ac04c68ef0b335b50c60db46b46d042
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189476"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243851"
 ---
 # <a name="what-is-azure-analysis-services"></a>Wat is Azure Analysis Services?
 
@@ -140,17 +140,19 @@ DirectQuery-modus* maakt gebruik van de relationele back-end-database voor opsla
 
 \* Welke functies beschikbaar zijn hangt af van de laag.
 
-## <a name="supported-datasources"></a>Ondersteunde gegevensbronnen
+## <a name="supported-data-sources"></a>Ondersteunde gegevensbronnen
 
 Tabellarische modellen in Azure Analysis Services ondersteunen een breed scala aan gegevensbronnen, van eenvoudige tekstbestanden tot Big Data in Azure Data Lake Store. Raadpleeg voor meer informatie [Data sources supported in Azure Analysis Services](analysis-services-datasource.md) (Gegevensbronnen die in Azure Analysis Services worden ondersteund).
 
 ## <a name="your-data-is-secure"></a>Gegevens zijn beveiligd
 
-Azure Analysis Services beveiligt uw gevoelige gegevens op meerdere niveaus. Op serverniveau: Firewall, Azure-verificatie, serverbeheerdersrollen en serverversleuteling. En op gegevensmodelniveau zorgen gebruikersrollen en beveiliging op rijniveau en objectniveau ervoor dat uw gegevens veilig zijn en alleen worden gezien door de gebruikers voor wie ze bestemd zijn.
+Azure Analysis Services beveiligt uw gevoelige gegevens op meerdere niveaus. Als Azure-service is bij Analysis Services een **basisniveau** aan DDoS-aanvallen automatisch ingeschakeld als onderdeel van het Azure-platform. Zie voor meer informatie het [overzicht van de DDoS Protection-standaard](../virtual-network/ddos-protection-overview.md). 
+
+Op serverniveau biedt Analysis Services firewall, Azure-verificatie, serverbeheerdersrollen en serverversleuteling. Op gegevensmodelniveau zorgen gebruikersrollen en beveiliging op rijniveau en objectniveau ervoor dat uw gegevens veilig zijn en alleen worden gezien door de gebruikers voor wie ze bestemd zijn.
 
 ### <a name="firewall"></a>Firewall
 
-De firewall van Azure Analysis Services blokkeert alle clientverbindingen behalve die met IP-adressen die zijn opgegeven in regels. Configureer regels voor toegestane IP-adressen als individuele client-IP-adressen of als een bereik. Verbindingen van Power BI (service) kunnen ook worden toegestaan of geblokkeerd. Configureer de firewall en regels in de portal of met behulp van PowerShell. Zie [Configure a server firewall](analysis-services-qs-firewall.md) (een serverfirewall configureren) voor meer informatie.
+De firewall van Azure Analysis Services blokkeert alle clientverbindingen behalve die met IP-adressen die zijn opgegeven in regels. Firewall-beveiliging is standaard niet ingeschakeld voor nieuwe servers. Het verdient aanbeveling om onmiddellijk nadat de server is gemaakt de firewallbeveiliging in te schakelen en de regels te configureren als onderdeel van een serverinrichtingsscript of in de portal. Configureer regels voor toegestane IP-adressen als individuele client-IP-adressen of als een bereik. Verbindingen van Power BI (service) kunnen ook worden toegestaan of geblokkeerd. Configureer de firewall en regels in de portal of met behulp van PowerShell. Zie [Configure a server firewall](analysis-services-qs-firewall.md) (een serverfirewall configureren) voor meer informatie.
 
 ### <a name="authentication"></a>Verificatie
 

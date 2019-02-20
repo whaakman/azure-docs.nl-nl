@@ -4,43 +4,43 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: aeefb63a283c473a98639ead1aa6640d88409125
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 1f8f8d314a8bb37a08b3696f597b395a8a4beb8e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318127"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56213009"
 ---
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij uw Azure-abonnement met de opdracht `Connect-AzureRmAccount` en volg de instructies op het scherm.
+Meld u aan bij uw Azure-abonnement met de opdracht `Connect-AzAccount` en volg de instructies op het scherm.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Als u niet weet welke locatie u kunt gebruiken, kunt u een lijst met de beschikbare locaties weergeven. Geef de lijst met locaties weer met behulp van het volgende codevoorbeeld, en zoek de locatie die u wilt gebruiken. In dit voorbeeld wordt **eastus** gebruikt. Sla de locatie op in een variabele en gebruik de variabele zodat u de locatie op één plek kunt wijzigen.
 
 ```powershell
-Get-AzureRmLocation | select Location
+Get-AzLocation | select Location
 $location = "eastus"
 ```
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Maak een Azure-resourcegroep met de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
+Maak een Azure-resourcegroep met behulp van de opdracht [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
 
 ```powershell
 $resourceGroup = "myResourceGroup"
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
 ## <a name="create-a-storage-account"></a>Create a storage account
 
-Maak een standaardopslagaccount voor algemeen gebruik met LRS-replicatie maken met behulp van [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Haal vervolgens de opslagaccountcontext op waarin het te gebruiken opslagaccount wordt gedefinieerd. Verwijs bij het werken met een opslagaccount naar de context in plaats van herhaaldelijk de referenties door te geven. Gebruik het volgende voorbeeld om een opslagaccount met de naam *mystorageaccount* met lokaal redundante opslag (LRS) en blob-codering (standaard ingeschakeld) te maken.
+Maak met behulp van [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) een standaardopslagaccount voor algemeen gebruik met LRS-replicatie. Haal vervolgens de opslagaccountcontext op waarin het te gebruiken opslagaccount wordt gedefinieerd. Verwijs bij het werken met een opslagaccount naar de context in plaats van herhaaldelijk de referenties door te geven. Gebruik het volgende voorbeeld om een opslagaccount met de naam *mystorageaccount* met lokaal redundante opslag (LRS) en blob-codering (standaard ingeschakeld) te maken.
 
 ```powershell
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name "mystorageaccount" `
   -SkuName Standard_LRS `
   -Location $location `

@@ -4,24 +4,24 @@ titleSuffix: Azure Cognitive Services
 description: In deze quickstart leert u hoe u een tekenreeks van het Engels naar het Italiaans en Duits vertaalt met Python en de Translator Text REST API.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: a757b766537cc4f1105d77478f4a1d7543c27e40
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e2e7535476965258d02f3cd3db0126a0e8a486ab
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227910"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963621"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-java"></a>Quickstart: De Translator Text-API gebruiken om een tekenreeks te vertalen met Java
 
 In deze quickstart leert u hoe u een tekenreeks van het Engels naar het Italiaans en Duits vertaalt met Python en de Translator Text REST API.
 
-Voor deze quickstart is een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met een Translator Text-resource vereist. Als u geen account hebt, kunt u de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/) gebruiken om een abonnementssleutel op te halen.
+Voor deze snelstart is een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met een Translator Text-resource vereist. Als u geen account hebt, kunt u de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/) gebruiken om een abonnementssleutel op te halen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -172,6 +172,12 @@ Nu kunt u de voorbeeld-app gaan uitvoeren. Ga vanaf de opdrachtregel (of termina
 gradle build
 ```
 
+Wanneer de build is voltooid, voert u het volgende uit:
+
+```console
+gradle run
+```
+
 ## <a name="sample-response"></a>Voorbeeldantwoord
 
 ```json
@@ -197,7 +203,7 @@ gradle build
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de voorbeeldcode voor deze quickstart en andere resources, met inbegrip van transcriptie en taalidentificatie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
+Bekijk de voorbeeldcode voor deze snelstartgids en andere resources, met inbegrip van transcriptie en taalidentificatie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
 
 > [!div class="nextstepaction"]
 > [Bekijk Java-voorbeelden op GitHub](https://aka.ms/TranslatorGitHub?type=&language=java)
@@ -208,4 +214,4 @@ Bekijk de voorbeeldcode voor deze quickstart en andere resources, met inbegrip v
 * [Een taal identificeren op basis van de invoer](quickstart-java-detect.md)
 * [Alternatieve vertalingen verkrijgen](quickstart-java-dictionary.md)
 * [Een lijst ophalen van ondersteunde talen](quickstart-java-languages.md)
-* [De zinslengte in invoer bepalen](quickstart-java-sentences.md)
+* [De zinlengte in invoer bepalen](quickstart-java-sentences.md)

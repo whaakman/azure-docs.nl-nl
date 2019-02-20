@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 11/14/2018
+ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f8585023b01de55acb6c1b43b45e27af914a0a96
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 192ecf0cf4f97a709808fa04f676035e8a672b79
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884415"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976943"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Zelfstudie: Een aangepaste installatiekopie van een Azure-VM maken met Azure PowerShell
 
-Aangepaste installatiekopieën zijn soortgelijk aan Marketplace-installatiekopieën, maar u kunt deze zelf maken. Aangepaste installatiekopieën kunnen worden gebruikt voor het opstarten van configuraties, zoals het vooraf laden van toepassingen, toepassingsconfiguraties en andere besturingssysteemconfiguraties. In deze zelfstudie maakt u uw eigen aangepaste installatiekopie van een virtuele Azure-machine. In deze zelfstudie leert u procedures om het volgende te doen:
+Aangepaste installatiekopieën zijn soortgelijk aan Marketplace-installatiekopieën, maar u kunt deze zelf maken. Aangepaste installatiekopieën kunnen worden gebruikt als een bootstrap voor implementaties en zorgen voor consistentie tussen verschillende virtuele machines. In deze zelfstudie maakt u uw eigen aangepaste installatiekopie van een virtuele Azure-machine met behulp van PowerShell. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
 > * Systeem voorbereiden en virtuele machines generaliseren
@@ -40,13 +40,15 @@ In de onderstaande stappen wordt gedetailleerd beschreven hoe u van een bestaand
 
 Om het voorbeeld in deze zelfstudie uit te voeren, moet u een bestaande virtuele machine hebben. Indien nodig kan dit [voorbeeldscript](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) er een voor u maken. Vervang tijdens het volgen van de zelfstudie de namen van de resourcegroep en de virtuele machine waar nodig.
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell starten
 
-Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze zelfstudie moduleversie 5.7.0 of hoger van AzureRM vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps).
+Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. 
+
+Als u Cloud Shell wilt openen, selecteert u **Proberen** in de rechterbovenhoek van een codeblok. U kunt Cloud Shell ook openen in een afzonderlijk browsertabblad door naar [https://shell.azure.com/powershell](https://shell.azure.com/powershell) te gaan. Klik op **Kopiëren** om de codeblokken te kopiëren, plak deze in Cloud Shell en druk vervolgens op Enter om de code uit te voeren.
 
 ## <a name="prepare-vm"></a>VM voorbereiden
 
-Voor het maken van een installatiekopie van een virtuele machine moet u de virtuele machine voorbereiden door de VM te generaliseren, de toewijzing ervan ongedaan te maken en de bron-VM vervolgens als gegeneraliseerd te markeren.
+Voor het maken van een installatiekopie van een virtuele machine moet u de bron-VM voorbereiden door deze te generaliseren, de toewijzing ervan ongedaan te maken en de bron-VM vervolgens met Azure als gegeneraliseerd te markeren.
 
 ### <a name="generalize-the-windows-vm-using-sysprep"></a>De Windows VM generaliseren met behulp van Sysprep
 
@@ -54,60 +56,71 @@ Sysprep verwijdert onder meer al uw persoonlijke accountinformatie en de machine
 
 
 1. Maak verbinding met de virtuele machine.
-2. Open het venster met de opdrachtprompt als beheerder. Wijzig de directory in *%windir%\system32\sysprep* en voer dan *sysprep.exe* uit.
-3. In het dialoogvenster **Hulpprogramma voor systeemvoorbereiding** selecteert u *OOBE (Out-of-Box Experience) van systeem starten* en zorgt u dat het selectievakje *Generaliseren* is ingeschakeld.
-4. In **Opties voor afsluiten** selecteert u *Afsluiten* en klikt u vervolgens op **OK**.
+2. Open het venster met de opdrachtprompt als beheerder. Wijzig de directory in *%windir%\system32\sysprep* en voer dan `sysprep.exe`run uit.
+3. In het dialoogvenster **Hulpprogramma voor systeemvoorbereiding** selecteert u **OOBE (Out-of-Box Experience) van systeem starten** en zorgt u dat het selectievakje **Generaliseren** is ingeschakeld.
+4. In **Opties voor afsluiten** selecteert u **Afsluiten** en klikt u vervolgens op **OK**.
 5. Wanneer Sysprep is voltooid, wordt de virtuele machine afgesloten. **Start de VM niet opnieuw**.
 
 ### <a name="deallocate-and-mark-the-vm-as-generalized"></a>De toewijzing van de virtuele machine ongedaan maken en de virtuele machine markeren als gegeneraliseerd
 
 Voor het maken van een installatiekopie moet de toewijzing van de virtuele machine ongedaan worden gemaakt en moet de VM worden gemarkeerd als gegeneraliseerd in Azure.
 
-De toewijzing van de VM wordt opgeheven met [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm).
+De toewijzing van de VM wordt opgeheven met [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
 
 ```azurepowershell-interactive
-Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Force
+Stop-AzVM `
+   -ResourceGroupName myResourceGroup `
+   -Name myVM -Force
 ```
 
-Stel de status van de virtuele machine in op `-Generalized` met [Set-AzureRmVm](/powershell/module/azurerm.compute/set-azurermvm). 
+Stel de status van de virtuele machine in op `-Generalized` met [Set-AzVm](https://docs.microsoft.com/powershell/module/az.compute/set-azvm). 
    
 ```azurepowershell-interactive
-Set-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Generalized
+Set-AzVM `
+   -ResourceGroupName myResourceGroup `
+   -Name myVM -Generalized
 ```
 
 
 ## <a name="create-the-image"></a>De installatiekopie maken
 
-Maak nu een installatiekopie van de VM met [New-AzureRmImageConfig](/powershell/module/azurerm.compute/new-azurermimageconfig) en [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage). In het volgende voorbeeld wordt een installatiekopie met de naam *myImage* gemaakt van een virtuele machine met de naam *myVM*.
+Maak nu een installatiekopie van de VM met [New-AzImageConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azimageconfig) en [New-AzImage](https://docs.microsoft.com/powershell/module/az.compute/new-azimage). In het volgende voorbeeld wordt een installatiekopie met de naam *myImage* gemaakt van een virtuele machine met de naam *myVM*.
 
 Haal de virtuele machine op. 
 
 ```azurepowershell-interactive
-$vm = Get-AzureRmVM -Name myVM -ResourceGroupName myResourceGroup
+$vm = Get-AzVM `
+   -Name myVM `
+   -ResourceGroupName myResourceGroup
 ```
 
 Maak de configuratie van installatiekopie.
 
 ```azurepowershell-interactive
-$image = New-AzureRmImageConfig -Location EastUS -SourceVirtualMachineId $vm.ID 
+$image = New-AzImageConfig `
+   -Location EastUS `
+   -SourceVirtualMachineId $vm.ID 
 ```
 
 Maak de installatiekopie.
 
 ```azurepowershell-interactive
-New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceGroup
+New-AzImage `
+   -Image $image `
+   -ImageName myImage `
+   -ResourceGroupName myResourceGroup
 ``` 
 
  
 ## <a name="create-vms-from-the-image"></a>VM's maken van de installatiekopie
 
-Nu u een installatiekopie hebt gemaakt, kunt u een of meer nieuwe VM's van de installatiekopie maken met behulp. Het maken van een VM op basis van een aangepaste installatiekopie is vergelijkbaar met het maken van een VM met behulp van een Marketplace-installatiekopie. Wanneer u een Marketplace-installatiekopie gebruikt, hebt u de informatie over de installatiekopie, de leverancier van de installatiekopie, de aanbieding, de SKU en de versie. Met de vereenvoudigde parameterset voor de cmdlet [New-AzureRMVM](/powershell/module/azurerm.compute/new-azurermvm) hoeft u alleen de naam op te geven van de aangepaste installatiekopie, zolang deze zich in dezelfde resourcegroep bevindt. 
+Nu u een installatiekopie hebt gemaakt, kunt u een of meer nieuwe VM's van de installatiekopie maken met behulp. Het maken van een VM op basis van een aangepaste installatiekopie is vergelijkbaar met het maken van een VM met behulp van een Marketplace-installatiekopie. Wanneer u een Marketplace-installatiekopie gebruikt, hebt u de informatie over de installatiekopie, de leverancier van de installatiekopie, de aanbieding, de SKU en de versie. Met de vereenvoudigde parameterset voor de cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) hoeft u alleen de naam op te geven van de aangepaste installatiekopie, zolang deze zich in dezelfde resourcegroep bevindt. 
 
 In dit voorbeeld wordt een VM met de naam *myVMfromImage* gemaakt van een installatiekopie met de naam *myImage* in *myResourceGroup*.
 
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVMfromImage" `
     -ImageName "myImage" `
@@ -126,14 +139,14 @@ Hier volgen enkele voorbeelden van algemene taken voor beheerde installatiekopie
 Geef een lijst weer van alle installatiekopieën gesorteerd op naam.
 
 ```azurepowershell-interactive
-$images = Get-AzureRMResource -ResourceType Microsoft.Compute/images 
+$images = Get-AzResource -ResourceType Microsoft.Compute/images 
 $images.name
 ```
 
 Een installatiekopie verwijderen. In dit voorbeeld wordt de installatiekopie met de naam *myImage* verwijderd uit *myResourceGroup*.
 
 ```azurepowershell-interactive
-Remove-AzureRmImage `
+Remove-AzImage `
     -ImageName myImage `
     -ResourceGroupName myResourceGroup
 ```

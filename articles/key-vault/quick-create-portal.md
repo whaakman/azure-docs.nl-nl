@@ -3,7 +3,7 @@ title: 'Azure-snelstart: Een geheim uit Key Vault instellen en ophalen met Azure
 description: Snelstart waarin wordt getoond hoe u een geheim uit Azure Key Vault instelt en ophaalt met behulp van de Azure Portal
 services: key-vault
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 98cf8387-34de-468e-ac8f-5c02c9e83e68
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: c3b605507c3878770db2c7dcb53a2ff9bb512b6b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 4dd81fd03c39dec3c34e614234a563ec8c2ced38
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078385"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117099"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Quickstart: Een geheim uit Azure Key Vault instellen en ophalen met behulp van de Azure Portal
 
@@ -58,14 +58,14 @@ Vanaf dit punt is uw Azure-account nu als enige gemachtigd om bewerkingen op dez
 
 ## <a name="add-a-secret-to-key-vault"></a>Een geheim toevoegen aan Key Vault
 
-Als u een geheim wilt toevoegen aan de kluis, hoeft u maar een paar extra stappen uit te voeren. In dit geval voegen we een wachtwoord toe dat door een toepassing kan worden gebruikt. Het wachtwoord is **ExamplePassword** en we slaan de waarde van **Pa$$w0rd** hier in op.
+Als u een geheim wilt toevoegen aan de kluis, hoeft u maar een paar extra stappen uit te voeren. In dit geval voegen we een wachtwoord toe dat door een toepassing kan worden gebruikt. Het wachtwoord heeft de naam **ExamplePassword** en slaat daarin de waarde **hVFkk965BuUv** op.
 
 1. Selecteer op de eigenschappenpagina's van de sleutelkluis **Geheimen**.
 2. Klik op **Genereren/importeren**.
 3. Kies in het scherm **Een geheim maken** de volgende waarden:
     - **Uploadopties**: Handmatig.
     - **Naam**: ExamplePassword.
-    - **Waarde**: Pa$$w0rd.
+    - **Waarde**: hVFkk965BuUv
     - Houd voor de overige waarden de standaardwaarden aan. Klik op **Create**.
 
 Zodra u het bericht ontvangt dat het geheim met succes is gemaakt, kunt u erop klikken in de lijst. Vervolgens ziet u enkele van de eigenschappen. Als u op de huidige versie klikt, ziet u de waarde die u hebt opgegeven in de vorige stap.

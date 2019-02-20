@@ -1,255 +1,229 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Dovetale | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Dovetale.
+description: Leer hoe u eenmalige aanmelding tussen Azure Active Directory en Dovetale configureert.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 81da50c3-df94-458a-8b6a-a30827ee6358
-ms.service: active-directory
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/09/2018
+ms.topic: tutorial
+ms.date: 01/31/2019
 ms.author: jeedes
-ms.openlocfilehash: dd2aa699c22518ebbe7f29ba8dfd296da7385476
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
-ms.translationtype: MT
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a9b5810dd7989ec31228877aa33987df2e6a7435
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40162004"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185905"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dovetale"></a>Zelfstudie: Azure Active Directory-integratie met Dovetale
 
-In deze zelfstudie leert u hoe u Dovetale integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Dovetale kunt integreren met Azure AD (Active Directory).
+De integratie van Dovetale met Azure AD heeft de volgende voordelen:
 
-Dovetale integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD bepalen wie er toegang heeft tot Dovetale.
+* U kunt instellen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Dovetale (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot Dovetale heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Dovetale (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts in één centrale locatie - Azure portal beheren.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Dovetale, moet u de volgende items:
+U hebt het volgende nodig om Azure AD-integratie te configureren met Dovetale:
 
-- Een Azure AD-abonnement
-- Een Dovetale eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op Dovetale waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-1. Dovetale uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+* Dovetale biedt ondersteuning voor met **SP** en **IDP** geïnitieerde eenmalige aanmelding
 
-## <a name="adding-dovetale-from-the-gallery"></a>Dovetale uit de galerie toe te voegen
+* Dovetale biedt ondersteuning voor **Just-In-Time**-inrichting van gebruikers
 
-Voor het configureren van de integratie van Dovetale in Azure AD, moet u Dovetale uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+## <a name="adding-dovetale-from-the-gallery"></a>Dovetale toevoegen vanuit de galerie
 
-**Als u wilt toevoegen Dovetale uit de galerie, moet u de volgende stappen uitvoeren:**
+Om de integratie van Dovetale te configureren in Azure AD moet u Dovetale vanuit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+**Voer de volgende stappen uit om Dovetale toe te voegen vanuit de galerie:**
 
-    ![De Azure Active Directory-knop][1]
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![De blade Enterprise-toepassingen][2]
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![De knop nieuwe toepassing][3]
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-4. Typ in het zoekvak **Dovetale**, selecteer **Dovetale** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-    ![Dovetale in de lijst met resultaten](./media/dovetale-tutorial/tutorial_dovetale_addfromgallery.png)
+4. Typ **Dovetale** in het zoekvak, selecteer **Dovetale** in het deelvenster met resultaten en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+     ![Dovetale in de lijst met resultaten](common/search-new-app.png)
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Dovetale op basis van een testgebruiker 'Julia steen' genoemd.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Dovetale is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Dovetale tot stand worden gebracht.
+In dit gedeelte configureert en test u eenmalige aanmelding van Azure AD met Dovetale op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Dovetale tot stand is gebracht.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met Dovetale, moet u de volgende bouwstenen voltooien:
+Als u eenmalige aanmelding van Azure AD wilt configureren en testen met Dovetale, moet u de volgende procedures uitvoeren:
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker Dovetale](#create-a-dovetale-test-user)**  : als u wilt een equivalent van Britta Simon in Dovetale die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Dovetale-eenmalige aanmelding configureren](#configure-dovetale-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wilt configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Dovetale-testgebruiker maken](#create-dovetale-test-user)**: als u een tegenhanger van Britta Simon in Dovetale wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Dovetale.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Dovetale, moet u de volgende stappen uitvoeren:**
+Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configureren met Dovetale:
 
-1. In de Azure-portal op de **Dovetale** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. Selecteer in de [Azure-portal](https://portal.azure.com/), op de integratiepagina voor de toepassing **Dovetale**, de optie **Eenmalige aanmelding**.
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/dovetale-tutorial/tutorial_dovetale_samlbase.png)
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-3. Op de **Dovetale domein en URL's** sectie, als u wilt configureren van de toepassing in **IDP** gestart modus wordt de gebruiker hoeft niet te werk als de app al vooraf geïntegreerd in Azure is:
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    ![Dovetale domein en URL's, eenmalige aanmelding informatie](./media/dovetale-tutorial/tutorial_dovetale_url1.png)
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-4. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
+4. In de sectie **SAML-basisconfiguratie** hoeft de gebruiker geen enkele stap uit te voeren omdat de app al vooraf is geïntegreerd met Azure.
 
-    ![Dovetale domein en URL's, eenmalige aanmelding informatie](./media/dovetale-tutorial/tutorial_dovetale_url2.png)
+    ![Gegevens voor domein en URL's voor eenmalige aanmelding van Dovetale](common/preintegrated.png)
 
-    In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `<COMPANYNAME>.dovetale.com`
+5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
+
+    ![Gegevens voor domein en URL's voor eenmalige aanmelding van Dovetale](common/metadata-upload-additional-signon.png)
+
+    In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `<COMPANYNAME>.dovetale.com`
 
     > [!NOTE]
-    > Deze waarde is niet echt. Deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [Dovetale Client ondersteuningsteam](mailto:support@dovetale.com) deze waarde op te halen.
+    > De waarde is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met het [ondersteuningsteam van Dovetale](mailto:support@dovetale.com) om de waarden op te vragen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-5. Dovetale toepassing verwacht het SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de "**gebruikerskenmerken**" sectie op de pagina van de toepassing-integratie. De volgende Schermafbeelding toont een voorbeeld voor deze.
-    
-    ![Eenmalige aanmelding configureren](./media/dovetale-tutorial/tutorial_attribute.png)
+5. Dovetale-toepassing verwacht de SAML-asserties in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
 
-6. Klik op **weergeven en bewerken van alle andere gebruikerskenmerken** selectievakje in de **gebruikerskenmerken** sectie om uit te breiden de kenmerken. De volgende stappen uitvoeren op elk van de kenmerken weergegeven:
+    ![image](common/edit-attribute.png)
 
-    | Naam kenmerk | Waarde kenmerk |
+6. Bewerk in het gedeelte **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** de claims met het **pictogram Bewerken** of voeg de claims toe door met **Nieuwe claim toevoegen** het kenmerk van het SAML-token te configureren, zoals wordt weergegeven in de bovenstaande afbeelding. Hierna voert u de volgende stappen uit: 
+
+    | Naam | Bronkenmerk|
     | ---------------| --------------- |
-    | e-mailen | User.mail |
-    | first_name | User.givenName |
-    | naam | User.userPrincipalName |
-    | last_name | User.surname |
+    | e-mail | user.mail |
+    | first_name | user.givenname |
+    | naam | user.userprincipalname |
+    | last_name | user.surname |
 
-    a. Klik op **kenmerk toevoegen** openen de **kenmerk toevoegen** dialoogvenster.
+    a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 
-    ![Eenmalige aanmelding configureren](./media/dovetale-tutorial/tutorial_attribute_04.png)
+    ![image](common/new-save-attribute.png)
 
-    ![Eenmalige aanmelding configureren](./media/dovetale-tutorial/tutorial_attribute_05.png)
+    ![image](common/new-attribute-details.png)
 
-    b. In de **naam** tekstvak, type de **kenmerknaam** wordt weergegeven voor die rij.
+    b. In het tekstvak **Naam** typt u de naam van het kenmerk die voor die rij wordt weergegeven.
 
-    c. Uit de **waarde** weergeven, typt u de waarde van het kenmerk wordt weergegeven voor die rij.
+    c. Laat **Naamruimte** leeg.
 
-    d. Laat **NAAMRUIMTE** waarde leeg.
+    d. Selecteer Bron bij **Kenmerk**.
 
-    e. Klik op **OK**.
+    e. Typ de kenmerkwaarde voor die rij in de lijst met **bronkenmerken**.
 
-7. Op de **SAML-handtekeningcertificaat** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok.
+    f. Klik op **OK**.
 
-    ![De downloadkoppeling certificaat](./media/dovetale-tutorial/tutorial_dovetale_certificate.png) 
+    g. Klik op **Opslaan**.
 
-8. Klik op **opslaan** knop.
+7. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op de kopieerknop om de **URL voor federatieve metagegevens van de app** te kopiëren en slaat u deze op uw computer op.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/dovetale-tutorial/tutorial_general_400.png)
+    ![De link om het certificaat te downloaden](common/copy-metadataurl.png)
 
-9. Op de **Dovetale configuratie** sectie, klikt u op **configureren Dovetale** openen **aanmelding configureren** venster. Kopiëren de **SAML entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
+### <a name="configure-dovetale-single-sign-on"></a>Dovetale-eenmalige aanmelding configureren
 
-    ![Dovetale configuratie](./media/dovetale-tutorial/tutorial_dovetale_configure.png)
+Als u eenmalige aanmelding wilt configureren in **Dovetale**, moet u de **App-URL voor federatieve metagegevens** verzenden naar het [ondersteuningsteam van Dovetale](mailto:support@dovetale.com). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
-10. Het configureren van eenmalige aanmelding op **Dovetale** zijde, moet u voor het verzenden van de **App-Url voor federatieve metagegevens, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** naar [Dovetale ondersteuningsteam](mailto:support@dovetale.com). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-   ![Maak een testgebruiker Azure AD][100]
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-    ![De Azure Active Directory-knop](./media/dovetale-tutorial/create_aaduser_01.png)
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/dovetale-tutorial/create_aaduser_02.png)
+    a. Voer in het veld **Naam****Britta Simon** in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
-
-    ![De knop toevoegen](./media/dovetale-tutorial/create_aaduser_03.png)
-
-4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
-
-    ![Het dialoogvenster gebruiker](./media/dovetale-tutorial/create_aaduser_04.png)
-
-    a. In de **naam** in het vak **BrittaSimon**.
-
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
 
-### <a name="create-a-dovetale-test-user"></a>Maak een testgebruiker Dovetale
-
-Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in Dovetale. Dovetale biedt ondersteuning voor just-in-time inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot Dovetale als deze nog niet bestaat.
-
-> [!Note]
-> Als u maken van een gebruiker handmatig wilt, neem dan contact op met [Dovetale ondersteuningsteam](mailto:support@dovetale.com).
-
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Dovetale.
+In dit gedeelte geeft u Britta Simon de mogelijkheid om eenmalige aanmelding van Azure te gebruiken door haar toegang te geven tot Dovetale.
 
-![De de gebruikersrol toewijzen][200]
+1. Selecteer in de Azure-portal achtereenvolgens **Bedrijfstoepassingen**, **Alle toepassingen** en **Dovetale**.
 
-**Als u wilt Britta Simon aan Dovetale toewijst, moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Selecteer **Dovetale** in de lijst met toepassingen.
 
-    ![Gebruiker toewijzen][201]
+    ![De koppeling naar Dovetale in de lijst met toepassingen](common/all-applications.png)
 
-2. Selecteer in de lijst met toepassingen, **Dovetale**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De koppeling Dovetale in de lijst met toepassingen](./media/dovetale-tutorial/tutorial_dovetale_app.png)  
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst Gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="create-dovetale-test-user"></a>Dovetale-testgebruiker maken
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
+In deze sectie wordt een gebruiker met de naam Britta Simon gemaakt in Dovetale. Dovetale biedt ondersteuning voor **Just-In-Time-inrichting van gebruikers**, die standaard is ingeschakeld. Er is geen actie-item voor u in deze sectie. Als er nog geen gebruiker in Dovetale bestaat, wordt er een nieuwe gemaakt nadat deze is geverifieerd.
 
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+> [!Note]
+> Neem contact op met het [ondersteuningsteam van Dovetale](mailto:support@dovetale.com) als u handmatig een gebruiker moet maken.
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-Wanneer u op de tegel Dovetale in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Dovetale.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+
+Wanneer u in het toegangsvenster op de tegel Dovetale klikt, wordt u automatisch aangemeld bij de instantie van Dovetale waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-[1]: ./media/dovetale-tutorial/tutorial_general_01.png
-[2]: ./media/dovetale-tutorial/tutorial_general_02.png
-[3]: ./media/dovetale-tutorial/tutorial_general_03.png
-[4]: ./media/dovetale-tutorial/tutorial_general_04.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/dovetale-tutorial/tutorial_general_100.png
-
-[200]: ./media/dovetale-tutorial/tutorial_general_200.png
-[201]: ./media/dovetale-tutorial/tutorial_general_201.png
-[202]: ./media/dovetale-tutorial/tutorial_general_202.png
-[203]: ./media/dovetale-tutorial/tutorial_general_203.png

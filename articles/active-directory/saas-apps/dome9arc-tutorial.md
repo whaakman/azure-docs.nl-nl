@@ -1,237 +1,257 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met Dome9 boog | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Dome9 boog.
+title: 'Zelfstudie: Azure Active Directory-integratie met Dome9 Arc | Microsoft Docs'
+description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en Dome9 Arc.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 4c12875f-de71-40cb-b9ac-216a805334e5
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/22/2018
+ms.topic: tutorial
+ms.date: 01/31/2019
 ms.author: jeedes
-ms.openlocfilehash: a313acecf0660e527508f28e1ea86485996cc4f9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 91ef20398bc3e15b1ee47c6e7c28795f4d9bc08c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191394"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190939"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-dome9-arc"></a>Zelfstudie: Azure Active Directory-integratie met Dome9 boog
+# <a name="tutorial-azure-active-directory-integration-with-dome9-arc"></a>Zelfstudie: Azure Active Directory-integratie met Dome9 Arc
 
-In deze zelfstudie leert u hoe u Dome9 boog integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Dome9 Arc kunt integreren met Azure Active Directory (Azure AD).
+Het integreren van Dome9 Arc met Azure AD biedt u de volgende voordelen:
 
-Dome9 boog integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD beheren wie toegang heeft tot Dome9 Arc.
+* U kunt gebruikers zich automatisch met hun Azure AD-account laten aanmelden bij Dome9 Arc (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot Dome9 boog heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij de boog Dome9 (Single Sign-On) inschakelen met hun Azure AD-accounts.
-- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Dome9 boog, moet u de volgende items:
+Voor het configureren van Azure AD-integratie met Dome9 Arc hebt u het volgende nodig:
 
-- Een Azure AD-abonnement
-- Een Dome9 boog eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op Dome9 Arc waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving.
-Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-1. Dome9 boog uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+* Dome9 Arc ondersteunt door **SP** en **IDP** geïnitieerde eenmalige aanmelding
 
-## <a name="adding-dome9-arc-from-the-gallery"></a>Dome9 boog uit de galerie toe te voegen
+## <a name="adding-dome9-arc-from-the-gallery"></a>Dome9 Arc toevoegen vanuit de galerie
 
-Voor het configureren van de integratie van Dome9 boog in Azure AD, moet u Dome9 boog uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+Om de integratie van Dome9 Arc in Azure AD te configureren, moet u Dome9 Arc uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen Dome9 boog uit de galerie, moet u de volgende stappen uitvoeren:**
+**Voer de volgende stappen uit om Dome9 Arc toe te voegen vanuit de galerie:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![De Azure Active Directory-knop][1]
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-    ![De blade Enterprise-toepassingen][2]
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
 3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![De knop Nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-4. Typ in het zoekvak **Dome9 boog**, selecteer **Dome9 boog** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+4. Typ in het zoekvak **Dome9 Arc**, selecteer **Dome9 Arc** in het resultaatvenster en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-    ![Dome9 boog in de lijst met resultaten](./media/dome9arc-tutorial/tutorial_dome9arc_addfromgallery.png)
+     ![Dome9 Arc in de resultatenlijst](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Dome9 boog op basis van een testgebruiker 'Julia steen' genoemd.
+In dit gedeelte configureert en test u eenmalige aanmelding van Azure AD met Dome9 Arc op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Dome9 Arc tot stand is gebracht.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent Dome9 boog is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker Dome9 boog tot stand worden gebracht.
-
-Als u wilt configureren en testen van Azure AD eenmalige aanmelding met Dome9 boog, u nodig hebt voor de volgende bouwstenen:
+Voor het configureren en testen van Azure AD-eenmalige aanmelding met Dome9 Arc moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-3. **[Maak een testgebruiker Dome9 boog](#create-a-dome9-arc-test-user)**  : als u wilt een equivalent van Britta Simon Dome9 boog die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+2. **[Eenmalige aanmelding voor Dome9 Arc configureren](#configure-dome9-arc-single-sign-on)**: de instellingen voor eenmalige aanmelding aan de clientzijde configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+5. **[Testgebruiker voor Dome9 Arc maken](#create-dome9-arc-test-user)**: als u een tegenhanger van Britta Simon in Dome9 Arc wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Dome9 boog.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Dome9 boog, moet u de volgende stappen uitvoeren:**
+Ga als volgt te werk om Azure AD-eenmalige aanmelding met Dome9 Arc te configureren:
 
-1. In de Azure-portal op de **Dome9 boog** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. In de [Azure-portal](https://portal.azure.com/) selecteert u **Eenmalige aanmelding** op de integratiepagina van de toepassing **Dome9 Arc**.
 
-    ![Koppeling Eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/dome9arc-tutorial/tutorial_dome9arc_samlbase.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-3. Op de **Dome9 boog domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IDP** modus gestart:
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![Dome9 boog domein en URL's, eenmalige aanmelding informatie](./media/dome9arc-tutorial/tutorial_dome9arc_url.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    a. In de **id** tekstvak typt u de URL: `https://secure.dome9.com/`
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://secure.dome9.com/sso/saml/yourcompanyname`
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit als u de toepassing in de door **IDP** geïnitieerde modus wilt configureren:
+
+    ![Domein- en URL-gegevens voor eenmalige aanmelding bij Dome9 Arc](common/idp-intiated.png)
+
+    a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://secure.dome9.com/`
+
+    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://secure.dome9.com/sso/saml/yourcompanyname`
 
     > [!NOTE]
-    > De waarde van uw bedrijf naam selecteert u in de beheerportal dome9, die later in de zelfstudie wordt uitgelegd.
+    > U selecteert de waarde voor uw bedrijfsnaam in de beheerportal van Dome9, zoals later in de zelfstudie wordt uitgelegd.
 
-4. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
+5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
-    ![Dome9 boog domein en URL's, eenmalige aanmelding informatie](./media/dome9arc-tutorial/tutorial_dome9arc_url1.png)
+    ![Domein- en URL-gegevens voor eenmalige aanmelding bij Dome9 Arc](common/metadata-upload-additional-signon.png)
 
-    Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://secure.dome9.com/sso/saml/<yourcompanyname>`
- 
-    > [!NOTE] 
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de echte antwoord-URL en aanmeldings-URL. Neem contact op met [Dome9 boog Client ondersteuningsteam](https://dome9.com/about/contact-us/) om deze waarden te verkrijgen. 
+    In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://secure.dome9.com/sso/saml/<yourcompanyname>`
 
-5. De toepassing Dome9 boog Software wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de "**gebruikerskenmerken**" sectie op de pagina van de toepassing-integratie. In de volgende schermopname ziet u een voorbeeld hiervan.
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke antwoord-URL en aanmeldings-URL. Neem contact op met het [ondersteuningsteam van Dome9 Arc](mailto:support@dome9.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-    ![Single Sign-On attb configureren](./media/dome9arc-tutorial/tutorial_dome9arc_attribute.png)
+6. De Dome9 Arc-toepassing verwacht de SAML-asserties in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
 
-6. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de bovenstaande afbeelding en voer de volgende stappen uit:
-    
-    | Naam kenmerk  | Waarde kenmerk | 
-    | --------------- | --------------- | 
-    | memberOf | user.assignedroles |
-    
-    a. Klik op **kenmerk toevoegen** openen de **kenmerk toevoegen** dialoogvenster.
+    ![image](common/edit-attribute.png)
 
-    ![Configureren van eenmalige aanmelding attb toevoegen](./media/dome9arc-tutorial/tutorial_dome9_04.png)
+7. Bewerk in het gedeelte **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** de claims met het **pictogram Bewerken** of voeg de claims toe door met **Nieuwe claim toevoegen** het kenmerk van het SAML-token te configureren, zoals wordt weergegeven in de bovenstaande afbeelding. Hierna voert u de volgende stappen uit: 
 
-    ![Single Sign-On bewerken attb configureren](./media/dome9arc-tutorial/tutorial_attribute_05.png)
+    | Naam |  Bronkenmerk|
+    | ---------------| --------------- |
+    | memberof | user.assignedroles |
+
+    a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
+
+    ![image](common/new-save-attribute.png)
+
+    ![image](common/new-attribute-details.png)
 
     b. In het tekstvak **Naam** typt u de naam van het kenmerk die voor die rij wordt weergegeven.
 
-    c. Uit de **waarde** weergeven, typt u de waarde van het kenmerk wordt weergegeven voor die rij.
+    c. Laat **Naamruimte** leeg.
 
-    d. Klik op **OK**.
-    
-    > [!NOTE]
-    > Raadpleeg dit [koppeling](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) over het configureren en instellen van de functies voor de toepassing.
+    d. Selecteer Bron bij **Kenmerk**.
 
-7. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
+    e. Typ de kenmerkwaarde voor die rij in de lijst met **bronkenmerken**.
 
-    ![De link om het certificaat te downloaden](./media/dome9arc-tutorial/tutorial_dome9arc_certificate.png) 
+    f. Klik op **OK**.
 
-8. Klik op **opslaan** knop.
+    g. Klik op **Opslaan**.
 
-    ![De knop voor enkelvoudige aanmelding configureren](./media/dome9arc-tutorial/tutorial_general_400.png)
+8. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
-9. Op de **Dome9 boog configuratie** sectie, klikt u op **configureren Dome9 boog** openen **aanmelding configureren** venster. Kopiëren de **SAML entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
+    ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
-    ![Configuratie van Dome9 boog](./media/dome9arc-tutorial/tutorial_dome9arc_configure.png) 
+9. In de sectie **Dome9 Arc instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
 
-10. Meld u in een ander browservenster in uw bedrijf Dome9 boog site als beheerder.
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-11. Klik op de **profielinstellingen** in de rechterbovenhoek en vervolgens op **Accountinstellingen**. 
+    a. Aanmeldings-URL
 
-    ![Configuratie van Dome9 boog](./media/dome9arc-tutorial/configure1.png)
+    b. Azure AD-id
 
-12. Navigeer naar **SSO** en klik vervolgens op **inschakelen**.
+    c. Afmeldings-URL
 
-    ![Configuratie van Dome9 boog](./media/dome9arc-tutorial/configure2.png)
+### <a name="configure-dome9-arc-single-sign-on"></a>Dome9 Arc configureren voor eenmalige aanmelding
 
-13. In de sectie configuratie van eenmalige aanmelding kunt u de volgende stappen uitvoeren:
+1. Meld u in een ander browservenster aan als beheerder bij de Dome9 Arc-site van uw bedrijf.
 
-    ![Configuratie van Dome9 boog](./media/dome9arc-tutorial/configure3.png)
+2. Klik op **Profile Settings** in de rechterbovenhoek en vervolgens op **Account Settings**. 
 
-    a. Voer de bedrijfsnaam in de **Account-ID** tekstvak. Deze waarde is moet worden gebruikt in het antwoord op een dat URL vermeld in de Azure portal-URL-sectie.
+    ![Configuratie van Dome9 Arc](./media/dome9arc-tutorial/configure1.png)
 
-    b. In de **verlener** tekstvak, plak de waarde van **SAML entiteit-ID**, die u in Azure portal hebt gekopieerd.
+3. Navigeer naar **SSO** en klik vervolgens op **ENABLE**.
 
-    c. In de **Idp eindpunt-url** tekstvak, plak de waarde van **Single Sign-On Service URL voor SAML**, die u in Azure portal hebt gekopieerd.
+    ![Configuratie van Dome9 Arc](./media/dome9arc-tutorial/configure2.png)
 
-    d. Uw gedownloade Base64-gecodeerd certificaat openen in Kladblok, Kopieer de inhoud ervan in het Klembord en plakt u deze naar de **X.509-certificaat** tekstvak.
+4. Voer in de sectie SSO Configuration de volgende stappen uit:
+
+    ![Configuratie van Dome9 Arc](./media/dome9arc-tutorial/configure3.png)
+
+    a. Voer in het tekstvak **Account ID** de bedrijfsnaam in. Deze waarde moet worden gebruikt in de antwoord-URL die wordt genoemd in de sectie over de Azure-portal-URL.
+
+    b. Plak in het tekstvak **Issuer** de waarde van **Azure AD-id**, die u hebt gekopieerd uit de Azure-portal.
+
+    c. Plak in het tekstvak **Idp endpoint url** de waarde van **Aanmeldings-URL** die u hebt gekopieerd uit de Azure-portal.
+
+    d. Open in Kladblok het met Base64 gecodeerde certificaat dat u hebt gedownload, kopieer de inhoud ervan naar het Klembord en plak deze vervolgens in het tekstvak **X.509 certificate**.
 
     e. Klik op **Opslaan**.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-   ![Maak een testgebruiker Azure AD][100]
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![De Azure Active Directory-knop](./media/dome9arc-tutorial/create_aaduser_01.png)
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/dome9arc-tutorial/create_aaduser_02.png)
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    ![De knop toevoegen](./media/dome9arc-tutorial/create_aaduser_03.png)
-
-4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
-
-    ![Het dialoogvenster gebruiker](./media/dome9arc-tutorial/create_aaduser_04.png)
-
-    a. In de **naam** in het vak **BrittaSimon**.
-
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
 
-### <a name="create-a-dome9-arc-test-user"></a>Maak een testgebruiker Dome9 boog
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-Om Azure AD-gebruikers zich aanmelden bij Dome9 boog, moeten ze worden ingericht in de toepassing. Dome9 boog biedt ondersteuning voor just-in-time inrichting maar voor die goed te laten werken, gebruiker moet selecteren bepaalde **rol** en dezelfde toe te wijzen aan de gebruiker.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Dome9 Arc.
+
+1. Selecteer in Azure Portal **Bedrijfstoepassingen**, selecteer **Alle toepassingen** en selecteer vervolgens **Dome9 Arc**.
+
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+
+2. Selecteer in de lijst met toepassingen **Dome9 Arc**.
+
+    ![De koppeling Dome9 Arc in de lijst met toepassingen](common/all-applications.png)
+
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
+
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
+
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
+
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
+
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
+
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
+
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
+
+### <a name="create-dome9-arc-test-user"></a>Dome9 Arc-testgebruiker maken
+
+Als u wilt dat gebruikers van Azure AD zich kunnen aanmelden bij Dome9 Arc, moeten ze worden ingericht in de toepassing. Dome9 Arc ondersteunt just-in-time inrichting, maar om dat goed te laten werken, moet de gebruiker een bepaalde **Rol** selecteren en deze aan de gebruiker toewijzen.
 
    >[!Note]
-   >Voor **rol** maken en andere details Neem contact op met [Dome9 boog Client ondersteuningsteam](https://dome9.com/about/contact-us/).
+   >Neem voor het maken van een **Rol** en andere gegevens contact op met het [ondersteuningsteam van Dome9 Arc](https://dome9.com/about/contact-us/).
 
-**Voor het inrichten van handmatig een gebruikersaccount, moet u de volgende stappen uitvoeren:**
+**Voor het handmatig inrichten van een gebruikersaccount moet u de volgende stappen uitvoeren:**
 
-1. Meld u aan bij uw bedrijf Dome9 boog site aan als beheerder.
+1. Meld u bij de Dome9 Arc-site van uw bedrijf aan als beheerder.
 
-2. Klik op de **gebruikers en rollen** en klik vervolgens op **gebruikers**.
+2. Klik op **Users & Roles** en vervolgens op **Users**.
 
     ![Werknemer toevoegen](./media/dome9arc-tutorial/user1.png)
 
@@ -239,73 +259,31 @@ Om Azure AD-gebruikers zich aanmelden bij Dome9 boog, moeten ze worden ingericht
 
     ![Werknemer toevoegen](./media/dome9arc-tutorial/user2.png)
 
-4. In de **Create User** sectie, voert u de volgende stappen uit:
+4. Voer in de sectie **Create User** de volgende stappen uit:
 
     ![Werknemer toevoegen](./media/dome9arc-tutorial/user3.png)
 
-    a. In de **e** tekstvak, typ het e-mailadres van gebruiker, zoals Brittasimon@contoso.com.
+    a. Typ in het tekstvak **Email** het e-mailadres van de gebruiker, bijvoorbeeld Brittasimon@contoso.com.
 
-    b. In de **voornaam** tekstvak, type de voornaam van de gebruiker, zoals Julia.
+    b. Typ in het tekstvak **First Name** de voornaam van de gebruiker, bijvoorbeeld Britta.
 
-    c. In de **achternaam** tekstvak Achternaam van de gebruiker, zoals Simon type.
+    c. Typ in het tekstvak **Last Name** de achternaam van de gebruiker, bijvoorbeeld Simon.
 
-    d. Controleer **SSO gebruiker** als **op**.
+    d. Zet **SSO User** op **On**.
 
     e. Klik op **MAKEN**.
 
-### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Dome9 boog.
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-![De de gebruikersrol toewijzen][200] 
-
-**Als u wilt toewijzen Britta Simon Dome9 boog, moet u de volgende stappen uitvoeren:**
-
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
-
-    ![Gebruiker toewijzen][201] 
-
-2. Selecteer in de lijst met toepassingen, **Dome9 boog**.
-
-    ![De koppeling Dome9 boog in de lijst met toepassingen](./media/dome9arc-tutorial/tutorial_dome9arc_app.png)  
-
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
-
-    ![De koppeling 'Gebruikers en groepen'][202]
-
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
-
-    ![Het deelvenster toewijzing toevoegen][203]
-
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
-
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
-
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
-
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
-
-Wanneer u op de tegel Dome9 boog in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Dome9 boog.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
+Wanneer u in het toegangsvenster op de tegel Dome9 Arc klikt, zou u automatisch moeten worden aangemeld bij het exemplaar van Dome9 Arc waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-[1]: ./media/dome9arc-tutorial/tutorial_general_01.png
-[2]: ./media/dome9arc-tutorial/tutorial_general_02.png
-[3]: ./media/dome9arc-tutorial/tutorial_general_03.png
-[4]: ./media/dome9arc-tutorial/tutorial_general_04.png
-
-[100]: ./media/dome9arc-tutorial/tutorial_general_100.png
-
-[200]: ./media/dome9arc-tutorial/tutorial_general_200.png
-[201]: ./media/dome9arc-tutorial/tutorial_general_201.png
-[202]: ./media/dome9arc-tutorial/tutorial_general_202.png
-[203]: ./media/dome9arc-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

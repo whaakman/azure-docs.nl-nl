@@ -4,31 +4,28 @@ titleSuffix: Azure Cognitive Services
 description: "Met de Bing Afbeeldingen zoeken-API kunt u de cognitieve zoekfunctionaliteit voor afbeeldingen van Bing in uw toepassing gebruiken. Door gebruikerszoekquery's te verzenden met de API kunt u relevante en hoogwaardige afbeeldingen ophalen en weergeven die vergelijkbaar zijn met Bing: afbeeldingen."
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.assetid: 1446AD8B-A685-4F5F-B4AA-74C8E9A40BE9
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: overview
-ms.date: 10/11/2017
+ms.date: 02/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 4ae9c0c1fb6cd341e812f9e8b35eaff789637561
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: fa1e2e6ac6e85c431a759d8eb1c22923e86e40d4
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765643"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237311"
 ---
 # <a name="what-is-the-bing-image-search-api"></a>Wat is de Bing Afbeeldingen zoeken-API?
 
-Met de Bing Afbeeldingen zoeken-API kunt u de cognitieve zoekfunctionaliteit voor afbeeldingen van Bing in uw toepassing gebruiken. Door gebruikerszoekquery's te verzenden met de API kunt u relevante en hoogwaardige afbeeldingen ophalen en weergeven die vergelijkbaar zijn met [Bing - Afbeeldingen](https://www.bing.com/images).
+Met de Bing Afbeeldingen zoeken-API kunt u de zoekfunctionaliteit voor afbeeldingen van Bing in uw toepassing gebruiken. Door zoekquery's te verzenden naar de API kunt u hoogwaardige afbeeldingen ophalen die vergelijkbaar zijn met [bing.com/images](https://www.bing.com/images).
 
-Let erop dat met de Bing Afbeeldingen zoeken-API de resultaten alleen afbeeldingen bevatten. Gebruik de [Bing Webzoekopdrachten-API](../bing-web-search/search-the-web.md), [Video's zoeken-API](https://docs.microsoft.com/azure/cognitive-services/Bing-Video-Search) en [Nieuws zoeken-API](https://review.docs.microsoft.com/azure/cognitive-services/bing-news-search) voor andere typen webinhoud.
+Hoewel de Bing afbeeldingen zoeken-API alleen zoekresultaten met afbeeldingen genereert, kunt u de andere beschikbare [Bing zoeken-API's](../bing-web-search/bing-api-comparison.md) combineren of gebruiken om veel soorten inhoud te vinden op het web.
 
 ## <a name="bing-image-search-features"></a>Functies van Bing Afbeeldingen zoeken
-
-Hoewel met Bing Afbeeldingen zoeken vooral relevante afbeeldingen worden gezocht en geretourneerd op basis van een zoekquery, bevat de service ook diverse aanvullende functies waarmee intelligent en gericht afbeeldingen worden opgehaald op het web.
-
 
 | Functie                                                                                                                                                                                 | Beschrijving                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -60,10 +57,12 @@ Als u snel aan de slag wilt met uw eerste API-aanvraag, kunt u het volgende lere
 
 ## <a name="see-also"></a>Zie ook
 
-* De referentiesectie [Bing Afbeeldingen zoeken-API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) bevat definities en informatie over de eindpunten, headers, API-antwoorden en queryparameters waarmee u afbeeldingszoekresultaten kunt aanvragen.
+* [Prijsinformatie](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) voor Bing Zoek-API's. 
+
+* De referentiesectie [Bing Afbeeldingen zoeken-API versie 7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) bevat informatie over de API-eindpunten, headers, API-reacties en queryparameters.
 
 * In de [Bing-vereisten voor gebruik en weergave](./useanddisplayrequirements.md) staan het acceptabele gebruik van de inhoud en informatie die is verkregen via de Bing Zoeken-API's.
 
-* In het onderwerp [Afbeeldingen ophalen van internet met de Bing Afbeeldingen zoeken-API](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images) wordt beschreven hoe u afbeeldingen kunt zoeken en ophalen van internet.
+* In het artikel [Afbeeldingen ophalen van internet met de Bing Afbeeldingen zoeken-API](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images) wordt beschreven hoe u afbeeldingen kunt zoeken en ophalen van internet.
 
-* In het onderwerp [Zoekquery's verzenden en ermee werken](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) wordt beschreven hoe u zoekquery's kunt maken, aanpassen en draaien.
+* In het artikel [Zoekquery's verzenden en ermee werken](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) wordt beschreven hoe u zoekquery's kunt maken, aanpassen en draaien.

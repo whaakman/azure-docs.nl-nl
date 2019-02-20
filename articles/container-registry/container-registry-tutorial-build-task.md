@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: dd99a6b49894b3489d1cc01f1fcbc56d29247b41
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 763ff0d5f619d2808fb06c05d5b266160b3a7069
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756356"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868562"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Zelfstudie: builds van containerinstallatiekopieën in de cloud automatiseren bij het doorvoeren van broncode
 
@@ -51,6 +51,8 @@ ACR Tasks ondersteunt momenteel de volgende triggers:
 
 * Doorvoeren naar een Git-opslagplaats
 * Basisinstallatiekopieën bijwerken
+
+In deze zelfstudie wordt met uw ACR-taak één containerinstallatiekopie gemaakt en gepusht, die is opgegeven in een Dockerfile. Met ACR-taken kunnen ook [taken bestaande uit meerdere stappen](container-registry-tasks-multi-step.md) worden uitgevoerd (momenteel in preview). Hierbij wordt een YAML-bestand gebruikt om de stappen voor het bouwen, pushen en optioneel testen van meerdere containers te definiëren.
 
 ## <a name="create-a-build-task"></a>Een build-taak maken
 
@@ -99,7 +101,7 @@ az acr task create \
 > [!IMPORTANT]
 > Als u eerder taken hebt gemaakt tijdens de preview met de opdracht `az acr build-task`, moeten deze taken opnieuw worden gemaakt met de opdracht [az acr task][az-acr-task].
 
-Deze taak geeft aan dat elke keer dat code wordt doorgevoerd naar de *master*-vertakking in de opslagplaats zoals is opgegeven door `--context`, ACR Tasks dan de containerinstallatiekopie van de code in die vertakking bouwt. Er wordt gebruikgemaakt van het Dockerfile dat is opgegeven door `--file` vanuit de hoofdmap van de opslagplaats. Het argument `--image` geeft een parameterwaarde van `{{.Run.ID}}` aan voor het versiegedeelte van de tag van de installatiekopie, zodat de gebouwde installatiekopie correleert met een specifieke build en uniek is gelabeld.
+Deze taak geeft aan dat elke keer dat code wordt doorgevoerd naar de *master*-vertakking in de opslagplaats zoals is opgegeven door `--context`, ACR Tasks dan de containerinstallatiekopie van de code in die vertakking bouwt. Er wordt gebruik gemaakt van het Dockerfile dat is opgegeven door `--file` vanuit de hoofdmap. Het argument `--image` geeft een parameterwaarde van `{{.Run.ID}}` aan voor het versiegedeelte van de tag van de installatiekopie, zodat de gebouwde installatiekopie correleert met een specifieke build en uniek is gelabeld.
 
 De uitvoer van een geslaagde [az acr task create][az-acr-task-create]-opdracht is vergelijkbaar met het volgende:
 

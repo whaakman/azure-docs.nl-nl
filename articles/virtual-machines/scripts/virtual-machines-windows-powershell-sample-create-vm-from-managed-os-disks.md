@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 4e1695eb85988b74bf968ebe08602164c94f01dd
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 92a4560f35abe0a6da0ffd6f0536413f22d7289e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696054"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989575"
 ---
 # <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-powershell"></a>Een virtuele machine maken met behulp van een bestaande beheerde besturingssysteemschijf met PowerShell
 
@@ -30,9 +30,9 @@ Met dit script maakt u een virtuele machine door een bestaande beheerde schijf a
 * Een virtuele machine maken van een bestaande beheerde schijf die is gemaakt met behulp van een speciaal VHD-bestand 
 * Een virtuele machine maken van een bestaande beheerde schijf die is gemaakt aan de hand van een momentopname 
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="sample-script"></a>Voorbeeldscript
 
@@ -43,7 +43,7 @@ Met dit script maakt u een virtuele machine door een bestaande beheerde schijf a
 Gebruik de volgende opdracht om de resourcegroep, VM, en alle gerelateerde resources te verwijderen.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="script-explanation"></a>Uitleg van het script
@@ -52,17 +52,18 @@ Dit script gebruikt de volgende opdrachten voor het opvragen van de eigenschappe
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [Get-AzureRmDisk](/powershell/module/azurerm.compute/Get-AzureRmDisk) | Hiermee haalt u een schijfobject op dat is gebaseerd op de naam en de resourcegroep van een schijf. De eigenschap Id van het geretourneerde schijfobject wordt gebruikt om de schijf te koppelen aan een nieuwe VM |
-| [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) | Hiermee maakt u een VM-configuratie. Deze configuratie bevat informatie zoals de naam, het besturingssysteem en de beheerdersreferenties van de virtuele machine. De configuratie wordt gebruikt tijdens het maken van de virtuele machine. |
-| [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk) | Hiermee wordt een beheerde schijf met behulp van de eigenschap Id van de schijf gekoppeld als besturingssysteemschijf aan een nieuwe virtuele machine |
-| [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) | Hiermee maakt u een openbaar IP-adres. |
-| [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) | Hiermee maakt u een netwerkinterface. |
-| [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Hiermee maakt u een virtuele machine. |
-|[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Hiermee verwijdert u een resourcegroep en alle daarin opgenomen resources. |
+| [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/Get-AzDisk) | Hiermee haalt u een schijfobject op dat is gebaseerd op de naam en de resourcegroep van een schijf. De eigenschap Id van het geretourneerde schijfobject wordt gebruikt om de schijf te koppelen aan een nieuwe VM |
+| [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig) | Hiermee maakt u een VM-configuratie. Deze configuratie bevat informatie zoals de naam, het besturingssysteem en de beheerdersreferenties van de virtuele machine. De configuratie wordt gebruikt tijdens het maken van de virtuele machine. |
+| [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk) | Hiermee wordt een beheerde schijf met behulp van de eigenschap Id van de schijf gekoppeld als besturingssysteemschijf aan een nieuwe virtuele machine |
+| [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) | Hiermee maakt u een openbaar IP-adres. |
+| [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) | Hiermee maakt u een netwerkinterface. |
+| [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Hiermee maakt u een virtuele machine. |
+|[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Hiermee verwijdert u een resourcegroep en alle daarin opgenomen resources. |
 
-Gebruik voor marketplace-installatiekopieën [Set AzureRmVMPlan](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmplan?view=azurermps-6.7.0) om de plangegevens in te stellen
+Gebruik voor marketplace-installatiekopieën [Set AzVMPlan](https://docs.microsoft.com/powershell/module/az.compute/set-azvmplan?view=azurermps-6.7.0) om de plangegevens in te stellen.
+
 ```powershell
-Set-AzureRmVMPlan -VM $VirtualMachine -Publisher $Publisher -Product $Product -Name $Name
+Set-AzVMPlan -VM $VirtualMachine -Publisher $Publisher -Product $Product -Name $Bame
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

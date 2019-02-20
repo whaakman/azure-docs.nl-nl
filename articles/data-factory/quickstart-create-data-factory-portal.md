@@ -11,19 +11,20 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: fc4b1dce1b01d9294cf422c910f39d68cbd49c87
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 6f5a4e04c0d135e85624b04dbcdcda6b7d15a427
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018244"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989386"
 ---
-# <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Een gegevensfactory maken met de Azure Data Factory-UI
-> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
+# <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Quickstart: Een gegevensfactory maken met de Azure Data Factory-UI
+
+> [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
 > * [Versie 1:](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Huidige versie](quickstart-create-data-factory-portal.md)
 
-In deze quickstart wordt beschreven hoe u de Azure Data Factory-UI kunt gebruiken om een Azure-gegevensfactory te maken en te controleren. Met de pijplijn die u in deze data factory maakt, worden gegevens *gekopieerd* van één map naar een andere map in een Azure Blob-opslag. Zie [Zelfstudie: Gegevens transformeren met Spark](tutorial-transform-data-spark-portal.md) voor meer informatie over het *transformeren* van gegevens met Azure Data Factory.
+In deze quickstart wordt beschreven hoe u de Azure Data Factory-UI kunt gebruiken om een Azure-gegevensfactory te maken en te controleren. Met de pijplijn die u in deze data factory maakt, worden gegevens *gekopieerd* van één map naar een andere map in een Azure Blob-opslag. Meer informatie over het *transformeren* van gegevens met behulp van Azure Data Factory vindt u in [Zelfstudie: Gegevens transformeren met Apache Spark](tutorial-transform-data-spark-portal.md).
 
 > [!NOTE]
 > Als u niet bekend bent met Azure Data Factory, raadpleegt u eerst de [Inleiding voor Azure Data Factory](data-factory-introduction.md) voordat u deze quickstart uitvoert. 
@@ -117,7 +118,8 @@ In de instellingen voor de gekoppelde service hebt u het Azure Storage-account o
 
     ![Naar het invoerbestand bladeren](./media/quickstart-create-data-factory-portal/choose-file-folder.png)
     
-   d. (optioneel) Klik op **Gegevens vooraf bekijken** om een voorbeeld van de gegevens in het bestand emp.txt te bekijken.     
+    d. (optioneel) Klik op **Gegevens vooraf bekijken** om een voorbeeld van de gegevens in het bestand emp.txt te bekijken.     
+
 1. Herhaal de stappen om de uitvoergegevensset te maken:  
 
    a. Selecteer de knop **+** (plus) en vervolgens **Gegevensset**.

@@ -1,5 +1,5 @@
 ---
-title: Een Batch-account maken in Azure Portal | Microsoft Docs
+title: Een account maken in de Azure-portal - Azure Batch| Microsoft Docs
 description: Informatie over het maken van een Azure Batch-account in Azure Portal voor het uitvoeren van grootschalige parallelle workloads in de cloud
 services: batch
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/18/2018
+ms.date: 01/25/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 89e41dc8e27cf39d9d0e6168dc7352267c321623
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 04631431c03f6fdd378bfa99edb9b67f8d6a0cad
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460519"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56193914"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Een Batch-account maken met behulp van Azure Portal
 
@@ -58,9 +58,8 @@ Zie [Overzicht van de functies](batch-api-basics.md) voor achtergrondinformatie 
 
 1. Selecteer **Maken** om het account te maken.
 
-
-
 ## <a name="view-batch-account-properties"></a>Eigenschappen van Batch-account weergeven
+
 Zodra het account is gemaakt, selecteert u het account om naar de instellingen en eigenschappen te gaan. U hebt toegang tot alle eigenschappen en accountinstellingen via het linkermenu.
 
 ![Pagina Batch-account in Azure Portal][account_blade]
@@ -75,12 +74,12 @@ Zodra het account is gemaakt, selecteert u het account om naar de instellingen e
 
 * Als u wilt zien welke resourcequota van toepassing zijn op het Batch-account, selecteert u **Quota**. Zie [Quota en limieten voor Batch-service](batch-quota-limit.md) voor meer informatie.
 
-
 ## <a name="additional-configuration-for-user-subscription-mode"></a>Aanvullende configuratie voor de modus Gebruikersabonnement
 
 Als u ervoor kiest een Batch-account te maken in de modus Gebruikersabonnement, moet u de volgende aanvullende stappen uitvoeren voordat u het account gaat maken.
 
 ### <a name="allow-azure-batch-to-access-the-subscription-one-time-operation"></a>Azure Batch toegang geven tot het abonnement (eenmalige bewerking)
+
 Wanneer u uw eerste Batch-account maakt in de modus Gebruikersabonnement, moet u de volgende stappen uitvoeren om uw abonnement te registreren bij Batch. (Als u dit eerder hebt gedaan, gaat u naar de volgende sectie.)
 
 1. Meld u aan bij [Azure Portal][azure_portal].
@@ -98,13 +97,14 @@ Wanneer u uw eerste Batch-account maakt in de modus Gebruikersabonnement, moet u
 1. Selecteer op de pagina **Roltoewijzing toevoegen** de rol **Bijdrager** en zoek naar de Batch API. Zoek deze tekenreeksen totdat u de API hebt gevonden:
     1. **MicrosoftAzureBatch**.
     1. **Microsoft Azure Batch**. Nieuwere Azure AD-tenants kunnen deze naam gebruiken.
-    1. **ddbf3205-c6bd-46ae-8127-60eb93363864** is de id voor de Batch-API. 
+    1. **ddbf3205-c6bd-46ae-8127-60eb93363864** is de id voor de Batch-API.
 
 1. Als u de Batch-API hebt gevonden, selecteert u deze en selecteert u **Opslaan**.
 
     ![Batch-machtigingen toevoegen][add_permission]
 
 ### <a name="create-a-key-vault"></a>Een sleutelkluis maken
+
 In de modus Gebruikersabonnement is een Azure-sleutelkluis vereist die behoort tot dezelfde resourcegroep als het Batch-account dat moet worden gemaakt. Zorg ervoor dat de resourcegroep zich bevindt in een regio waarin Batch [beschikbaar](https://azure.microsoft.com/regions/services/) is en die uw abonnement ondersteunt.
 
 1. Selecteer in [Azure Portal][azure_portal] de optie **Nieuw** > **Beveiliging** > **Sleutelkluis**.
@@ -113,7 +113,18 @@ In de modus Gebruikersabonnement is een Azure-sleutelkluis vereist die behoort t
 
 Als u het Batch-account maakt in de modus Gebruikersabonnement, geeft u de resourcegroep op voor de sleutelkluis, geeft u **Gebruikersabonnement** op als de groepstoewijzingsmodus en selecteert u de sleutelkluis.
 
+### <a name="configure-subscription-quotas"></a>Abonnementquota configureren
+
+Kerngeheugenquota worden niet standaard ingesteld voor Batch-accounts van gebruikersabonnementen. Kerngeheugenquota moeten handmatig worden ingesteld, omdat gebruikelijke Batch-kerngeheugenquota niet van toepassing zijn voor accounts in de modus voor gebruikersabonnementen.
+
+1. Selecteer in de [Azure-portal][azure_portal] uw Batch-account in de modus voor gebruikersabonnementen om de instellingen en eigenschappen ervan weer te geven.
+
+1. Selecteer **Quota** in het linkermenu om de kerngeheugenquota die aan uw Batch-account zijn gekoppeld, te bekijken en configureren.
+
+Raadpleeg [Quota en limieten voor Batch-service](batch-quota-limit.md) voor meer informatie over kerngeheugenquota in de modus gebruikersabonnementen.
+
 ## <a name="other-batch-account-management-options"></a>Andere beheeropties voor uw Batch-account
+
 Naast het gebruik van Azure Portal kunt u met de volgende hulpprogramma's Batch-accounts maken en beheren:
 
 * [Batch-PowerShell-cmdlets](batch-powershell-cmdlets-get-started.md)
@@ -121,6 +132,7 @@ Naast het gebruik van Azure Portal kunt u met de volgende hulpprogramma's Batch-
 * [Batch Management .NET](batch-management-dotnet.md)
 
 ## <a name="next-steps"></a>Volgende stappen
+
 * Zie [Overzicht van Batch-functies](batch-api-basics.md) voor meer informatie over de concepten en functies van de Batch-service. In het artikel worden de primaire Batch-resources zoals pools, rekenknooppunten, jobs en taken besproken en vindt u een overzicht van de servicefuncties voor grootschalige rekenworkloads.
 * Lees de basisbeginselen van het ontwikkelen van een voor Batch geschikte toepassing met behulp van de [clientbibliotheek Batch .NET](quick-run-dotnet.md) of [Python](quick-run-python.md). Deze snelstarts leiden u stapsgewijs door een voorbeeldtoepassing die gebruikmaakt van de Batch-service voor het uitvoeren van een workload op meerdere rekenknooppunten. U vindt er ook informatie over het gebruik van Azure Storage voor het faseren en ophalen van een workloadbestand.
 
@@ -136,4 +148,3 @@ Naast het gebruik van Azure Portal kunt u met de volgende hulpprogramma's Batch-
 [subscription_access]: ./media/batch-account-create-portal/subscription_iam.png
 [add_permission]: ./media/batch-account-create-portal/add_permission.png
 [register_provider]: ./media/batch-account-create-portal/register_provider.png
-

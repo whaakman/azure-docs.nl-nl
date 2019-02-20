@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/30/2019
+ms.date: 02/08/2019
 ms.author: jdial
-ms.openlocfilehash: 5472878542078e2a2dbb900965b59844d6e3b4b3
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e145642a12db941d52c55081032e247b6d65d38b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488087"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997326"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP-adrestypen en toewijzingsmethoden in Azure
 
@@ -71,7 +71,7 @@ Alle openbare IP-adressen die zijn gemaakt vóór de introductie van SKU's zijn 
 Openbare IP-adressen van de standaard-SKU:
 
 - Gebruiken altijd de statische toewijzingsmethode.
-- Hebben een aanpasbare time-out voor inactiviteit van de stroom met inkomende en uitgaande gegevens van 4-66 minuten (de standaardwaarde is vier minuten).
+- Hebben een aanpasbare time-out voor inactiviteit van de stroom met inkomende en uitgaande gegevens van 4-30 minuten (de standaardwaarde is 4 minuten).
 - Zijn standaard veilig en gesloten voor binnenkomend verkeer. U moet toegestaan binnenkomend verkeer met behulp van een [netwerkbeveiligingsgroep](security-overview.md#network-security-groups) expliciet opnemen in een whitelist.
 - Worden toegewezen aan netwerkinterfaces, openbare Standard load balancers, toepassingsgateways of VPN-gateways. Meer informatie over Standard load balancers vindt u in [Overzicht van Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Zijn standaard zoneredundant en optioneel zonegebonden (kunnen zonegebonden en gegarandeerd worden gemaakt in een specifieke beschikbaarheidszone). Zie [Overzicht van beschikbaarheidszones in Azure](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) en [Standard-load balancer en beschikbaarheidszones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over beschikbaarheidszones.

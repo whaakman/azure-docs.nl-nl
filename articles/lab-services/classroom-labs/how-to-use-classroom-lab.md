@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/17/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 8ea1afbfb90a55ec1c34f5c59cf38ea5417118ff
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 387e59eccc7dd9b20142bd692a1fe361435d3d57
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390901"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965015"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Toegang tot een leslokaallab in Azure Lab Services
 In dit artikel wordt beschreven hoe u toegang krijgt tot een leslokaallab, hoe u verbinding maakt met de virtuele machine in het lab en hoe u de virtuele machine kunt stoppen. 
@@ -44,10 +44,8 @@ Als u zich voor de labs registreert, kunt u alle leslokaallabs weergeven door de
 
 ## <a name="connect-to-the-virtual-machine-in-a-classroom-lab"></a>Verbinding maken met de virtuele machine in een leslokaallab
 
-1. Selecteer **Start** om de virtuele machine te starten als deze nog niet is gestart.
+1. Selecteer **Start** op de tegel om de virtuele machine te starten als deze nog niet is gestart. 
 2. Selecteer **Verbinding maken** op de tegel van de virtuele machine van het lab dat u wilt openen. 
-
-    ![Alle labs weergeven](../media/how-to-use-classroom-lab/connect-button.png)
 3. Sla het RDP-bestand (voor een virtuele Windows-machine) op de harde schijf op en open het. 
 4. Gebruik de **gebruikersnaam** en het **wachtwoord** dat u van uw docent hebt gekregen om zich aan te melden bij de computer. 
 

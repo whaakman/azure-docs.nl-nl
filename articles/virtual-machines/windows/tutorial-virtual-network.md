@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 02/27/2018
+ms.date: 12/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1d07990abcceace81f718bcbac28ff372a784172
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 568631705b590bb2ee312b9519164be17c8443ab
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427709"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984236"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Zelfstudie: Virtuele Azure-netwerken voor virtuele Windows-machines maken en beheren met Azure PowerShell
 
@@ -34,9 +34,6 @@ Virtuele Azure-machines maken gebruik van Azure-netwerken voor interne en extern
 > * Netwerkverkeer beveiligen
 > * Een back-end virtuele machine maken
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
-
-Als u ervoor kiest om PowerShell lokaal te installeren en te gebruiken, moet u moduleversie 5.7.0 of hoger van Azure PowerShell gebruiken voor deze zelfstudie. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
 ## <a name="vm-networking-overview"></a>Overzicht van VM-netwerken
 
@@ -57,22 +54,27 @@ Tijdens het volgen van deze zelfstudie worden de volgende resources gemaakt:
 - *myBackendVM*: de virtuele machine die gebruikmaakt van poort 1433 om te communiceren met *myFrontendVM*.
 
 
-## <a name="create-a-virtual-network-and-subnet"></a>Een virtueel netwerk en een subnet maken
+## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell starten
+
+Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. 
+
+Als u Cloud Shell wilt openen, selecteert u **Proberen** in de rechterbovenhoek van een codeblok. U kunt Cloud Shell ook openen in een afzonderlijk browsertabblad door naar [https://shell.azure.com/powershell](https://shell.azure.com/powershell) te gaan. Klik op **Kopiëren** om de codeblokken te kopiëren, plak deze in Cloud Shell en druk vervolgens op Enter om de code uit te voeren.
+
+
+## <a name="create-subnet"></a>Subnet maken 
 
 Voor deze zelfstudie wordt één virtueel netwerk met twee subnetten gemaakt. Een front-endsubnet voor het hosten van een webtoepassing en een back-endsubnet voor het hosten van een databaseserver.
 
-Voordat u een virtueel netwerk kunt maken, moet u eerst een resourcegroep maken met [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). In het volgende voorbeeld wordt een resourcegroep met de naam *myRGNetwork* gemaakt op de locatie *EastUS*:
+Voordat u een virtueel netwerk kunt maken, moet u eerst een resourcegroep maken met [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). In het volgende voorbeeld wordt een resourcegroep met de naam *myRGNetwork* gemaakt op de locatie *EastUS*:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName myRGNetwork -Location EastUS
+New-AzResourceGroup -ResourceGroupName myRGNetwork -Location EastUS
 ```
 
-### <a name="create-subnet-configurations"></a>Subnetconfiguraties maken
-
-Maak een subnetconfiguratie genaamd *myFrontendSubnet* met [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig):
+Maak een subnetconfiguratie genaamd *myFrontendSubnet* met [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig):
 
 ```azurepowershell-interactive
-$frontendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
+$frontendSubnet = New-AzVirtualNetworkSubnetConfig `
   -Name myFrontendSubnet `
   -AddressPrefix 10.0.0.0/24
 ```
@@ -80,17 +82,17 @@ $frontendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
 En maak een subnetconfiguratie genaamd *myBackendSubnet*:
 
 ```azurepowershell-interactive
-$backendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
+$backendSubnet = New-AzVirtualNetworkSubnetConfig `
   -Name myBackendSubnet `
   -AddressPrefix 10.0.1.0/24
 ```
 
-### <a name="create-virtual-network"></a>Virtueel netwerk maken
+## <a name="create-virtual-network"></a>Virtueel netwerk maken
 
-Maak een VNET genaamd *myVNet* met *myFrontendSubnet* en *myBackendSubnet* met [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork):
+Maak een VNET genaamd *myVNet* met *myFrontendSubnet* en *myBackendSubnet* met [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork):
 
 ```azurepowershell-interactive
-$vnet = New-AzureRmVirtualNetwork `
+$vnet = New-AzVirtualNetwork `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
   -Name myVNet `
@@ -106,10 +108,10 @@ Met een openbaar IP-adres kunnen Azure-resources toegankelijk zijn via internet.
 
 De toewijzingsmethode kan worden ingesteld op statisch. Dit zorgt ervoor dat het IP-adres aan een virtuele machine toegewezen blijft, zelfs bij een status waarin de toewijzing ongedaan is gemaakt. Wanneer u een statisch toegewezen IP-adres gebruikt, kan het IP-adres zelf niet worden opgegeven. Dit wordt toegewezen uit een groep met beschikbare adressen.
 
-Maak een openbaar IP-adres met de naam *myPublicIPAddress* met behulp van [New-AzureRmPublicIpAddres](/powershell/module/azurerm.network/new-azurermpublicipaddress):
+Maak een openbaar IP-adres met de naam *myPublicIPAddress* met behulp van [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress):
 
 ```azurepowershell-interactive
-$pip = New-AzureRmPublicIpAddress `
+$pip = New-AzPublicIpAddress `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
   -AllocationMethod Dynamic `
@@ -120,10 +122,10 @@ U kunt de parameter - AllocationMethod wijzigen in `Static` om een statisch open
 
 ## <a name="create-a-front-end-vm"></a>Een front-end virtuele machine maken
 
-Voor communicatie in een virtueel netwerk heeft een VM een virtuele netwerkinterface (NIC) nodig. Maak een NIC met [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface):
+Voor communicatie in een virtueel netwerk heeft een VM een virtuele netwerkinterface (NIC) nodig. Maak een NIC met [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface):
 
 ```azurepowershell-interactive
-$frontendNic = New-AzureRmNetworkInterface `
+$frontendNic = New-AzNetworkInterface `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
   -Name myFrontend `
@@ -137,10 +139,10 @@ Stel met [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/mi
 $cred = Get-Credential
 ```
 
-Maak de VM's met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
+Maak de VM's met [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm).
 
 ```azurepowershell-interactive
-New-AzureRmVM `
+New-AzVM `
    -Credential $cred `
    -Name myFrontend `
    -PublicIpAddressName myPublicIPAddress `
@@ -167,10 +169,10 @@ Alle NSG's bevatten een set met standaardregels. De standaardregels kunnen niet 
 
 ### <a name="create-network-security-groups"></a>Netwerkbeveiligingsgroepen maken
 
-Maak een regel voor inkomend verkeer genaamd *myFrontendNSGRule* om inkomend webverkeer op *myFrontendVM* toe te staan met [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig):
+Maak een regel voor inkomend verkeer genaamd *myFrontendNSGRule* om inkomend webverkeer op *myFrontendVM* toe te staan met [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig):
 
 ```azurepowershell-interactive
-$nsgFrontendRule = New-AzureRmNetworkSecurityRuleConfig `
+$nsgFrontendRule = New-AzNetworkSecurityRuleConfig `
   -Name myFrontendNSGRule `
   -Protocol Tcp `
   -Direction Inbound `
@@ -185,7 +187,7 @@ $nsgFrontendRule = New-AzureRmNetworkSecurityRuleConfig `
 U kunt het interne verkeer beperken tot *myBackendVM* vanaf uitsluitend *myFrontendVM* door een NSG te maken voor de back-endsubnet. In het volgende voorbeeld wordt een NSG-regel met de naam *myBackendNSGRule* gemaakt:
 
 ```azurepowershell-interactive
-$nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
+$nsgBackendRule = New-AzNetworkSecurityRuleConfig `
   -Name myBackendNSGRule `
   -Protocol Tcp `
   -Direction Inbound `
@@ -197,20 +199,20 @@ $nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
   -Access Allow
 ```
 
-Voeg een netwerkbeveiligingsgroep toe genaamd *myFrontendNSG* met [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup):
+Voeg een netwerkbeveiligingsgroep toe genaamd *myFrontendNSG* met [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup):
 
 ```azurepowershell-interactive
-$nsgFrontend = New-AzureRmNetworkSecurityGroup `
+$nsgFrontend = New-AzNetworkSecurityGroup `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
   -Name myFrontendNSG `
   -SecurityRules $nsgFrontendRule
 ```
 
-Voeg nu een netwerkbeveiligingsgroep toe genaamd *myBackendNSG* met New-AzureRmNetworkSecurityGroup:
+Voeg nu een netwerkbeveiligingsgroep toe genaamd *myBackendNSG* met New-AzNetworkSecurityGroup:
 
 ```azurepowershell-interactive
-$nsgBackend = New-AzureRmNetworkSecurityGroup `
+$nsgBackend = New-AzNetworkSecurityGroup `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
   -Name myBackendNSG `
@@ -220,22 +222,22 @@ $nsgBackend = New-AzureRmNetworkSecurityGroup `
 Voeg de netwerkbeveiligingsgroepen toe aan de subnetten:
 
 ```azurepowershell-interactive
-$vnet = Get-AzureRmVirtualNetwork `
+$vnet = Get-AzVirtualNetwork `
   -ResourceGroupName myRGNetwork `
   -Name myVNet
 $frontendSubnet = $vnet.Subnets[0]
 $backendSubnet = $vnet.Subnets[1]
-$frontendSubnetConfig = Set-AzureRmVirtualNetworkSubnetConfig `
+$frontendSubnetConfig = Set-AzVirtualNetworkSubnetConfig `
   -VirtualNetwork $vnet `
   -Name myFrontendSubnet `
   -AddressPrefix $frontendSubnet.AddressPrefix `
   -NetworkSecurityGroup $nsgFrontend
-$backendSubnetConfig = Set-AzureRmVirtualNetworkSubnetConfig `
+$backendSubnetConfig = Set-AzVirtualNetworkSubnetConfig `
   -VirtualNetwork $vnet `
   -Name myBackendSubnet `
   -AddressPrefix $backendSubnet.AddressPrefix `
   -NetworkSecurityGroup $nsgBackend
-Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+Set-AzVirtualNetwork -VirtualNetwork $vnet
 ```
 
 ## <a name="create-a-back-end-vm"></a>Een back-end virtuele machine maken
@@ -245,7 +247,7 @@ De eenvoudigste manier om de back-end-VM te maken voor deze zelfstudie is met ee
 Maak *myBackendNic*:
 
 ```azurepowershell-interactive
-$backendNic = New-AzureRmNetworkInterface `
+$backendNic = New-AzNetworkInterface `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
   -Name myBackend `
@@ -261,7 +263,7 @@ $cred = Get-Credential
 Maak *myBackendVM*.
 
 ```azurepowershell-interactive
-New-AzureRmVM `
+New-AzVM `
    -Credential $cred `
    -Name myBackend `
    -ImageName "MicrosoftSQLServer:SQL2016SP1-WS2016:Enterprise:latest" `
@@ -271,7 +273,7 @@ New-AzureRmVM `
    -VirtualNetworkName myVNet
 ```
 
-Op de installatiekopie die wordt gebruikt is SQL Server geïnstalleerd, maar dit wordt niet in deze zelfstudie gebruikt. Het is opgenomen om u te laten zien hoe u een VM kunt configureren voor het verwerken van webverkeer en een VM voor het afhandelen van databasebeheer.
+Op de installatiekopie die in dit voorbeeld wordt gebruikt is SQL Server geïnstalleerd, maar dit wordt niet in deze zelfstudie gebruikt. Het is opgenomen om u te laten zien hoe u een VM kunt configureren voor het verwerken van webverkeer en een VM voor het afhandelen van databasebeheer.
 
 ## <a name="next-steps"></a>Volgende stappen
 

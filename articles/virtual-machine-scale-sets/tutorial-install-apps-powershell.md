@@ -16,14 +16,15 @@ ms.topic: tutorial
 ms.date: 11/08/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e70e392ef137dac8087a0a76ed17d93f7d7a6d0b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: f2097532284373763fcac21ecee00477527d6018
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886860"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979578"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-azure-powershell"></a>Zelfstudie: Toepassingen installeren in een virtuele-machineschaalset met Azure PowerShell
+
 Als u toepassingen wilt uitvoeren op de exemplaren van een virtuele machine (VM) in een schaalset, moet u eerst de toepassingsonderdelen en de vereiste bestanden installeren. In een vorige zelfstudie hebt u geleerd om een aangepaste VM-installatiekopie te maken en te gebruiken voor het implementeren van uw VM-exemplaren. Deze aangepaste installatiekopie bevat handmatige installaties van toepassingen en configuraties. U kunt de installatie van toepassingen op een schaalset ook automatiseren nadat elk VM-exemplaar is geïmplementeerd. Bovendien kunt u toepassingen bijwerken die al worden uitgevoerd in een schaalset. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
@@ -33,9 +34,9 @@ Als u toepassingen wilt uitvoeren op de exemplaren van een virtuele machine (VM)
 
 Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
 
-Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze zelfstudie versie 6.0.0 of hoger van de Azure PowerShell-module vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure. 
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
 
 ## <a name="what-is-the-azure-custom-script-extension"></a>Wat is de aangepaste scriptextensie van Azure?
@@ -47,10 +48,10 @@ Als u de aangepaste scriptextensie in actie wilt zien, maakt u een schaalset die
 
 
 ## <a name="create-a-scale-set"></a>Een schaalset maken
-Maak nu een virtuele-machineschaalset met [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). Om het verkeer te distribueren naar de verschillende VM-exemplaren, wordt er ook een load balancer gemaakt. De load balancer bevat regels voor het distribueren van verkeer op TCP-poort 80. Daarnaast is extern bureaubladverkeer op TCP-poort 3389 en externe communicatie met PowerShell op TCP-poort 5985 mogelijk. Wanneer u hierom wordt gevraagd, kunt u uw eigen beheerdersreferenties instellen voor de VM-exemplaren in de schaalset:
+Maak nu een virtuele-machineschaalset met behulp van [New-AzVmss](/powershell/module/az.compute/new-azvmss). Om het verkeer te distribueren naar de verschillende VM-exemplaren, wordt er ook een load balancer gemaakt. De load balancer bevat regels voor het distribueren van verkeer op TCP-poort 80. Daarnaast is extern bureaubladverkeer op TCP-poort 3389 en externe communicatie met PowerShell op TCP-poort 5985 mogelijk. Wanneer u hierom wordt gevraagd, kunt u uw eigen beheerdersreferenties instellen voor de VM-exemplaren in de schaalset:
 
 ```azurepowershell-interactive
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -VMScaleSetName "myScaleSet" `
   -Location "EastUS" `
@@ -74,16 +75,18 @@ $customConfig = @{
 }
 ```
 
-Pas nu de aangepaste scriptextensie toe met [AzureRmVmssExtension](/powershell/module/AzureRM.Compute/Add-AzureRmVmssExtension). Het eerder gedefinieerde configuratieobject wordt doorgegeven aan de extensie. Werk de extensie voor de VM-exemplaren bij en voer deze uit met [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss).
+
+Pas nu de aangepaste scriptextensie toe met [AzVmssExtension](/powershell/module/az.Compute/Add-azVmssExtension). Het eerder gedefinieerde configuratieobject wordt doorgegeven aan de extensie. Werk de extensie voor de VM-exemplaren bij en voer deze uit met [Update-AzVmss](/powershell/module/az.compute/update-azvmss).
+
 
 ```azurepowershell-interactive
 # Get information about the scale set
-$vmss = Get-AzureRmVmss `
+$vmss = Get-AzVmss `
           -ResourceGroupName "myResourceGroup" `
           -VMScaleSetName "myScaleSet"
 
 # Add the Custom Script Extension to install IIS and configure basic website
-$vmss = Add-AzureRmVmssExtension `
+$vmss = Add-AzVmssExtension `
   -VirtualMachineScaleSet $vmss `
   -Name "customScript" `
   -Publisher "Microsoft.Compute" `
@@ -92,7 +95,7 @@ $vmss = Add-AzureRmVmssExtension `
   -Setting $customConfig
 
 # Update the scale set and apply the Custom Script Extension to the VM instances
-Update-AzureRmVmss `
+Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Name "myScaleSet" `
   -VirtualMachineScaleSet $vmss
@@ -103,16 +106,16 @@ Elk VM-exemplaar in de schaalset downloadt het script vanuit GitHub en voert het
 
 ## <a name="allow-traffic-to-application"></a>Verkeer toestaan naar de toepassing
 
-Maak een netwerkbeveiligingsgroep met [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig) en [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) om toegang toe te staan tot de eenvoudige webtoepassing. Zie voor meer informatie [Netwerken voor schaalsets voor virtuele Azure-machines](virtual-machine-scale-sets-networking.md).
+Maak een netwerkbeveiligingsgroep met [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) en [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) om toegang toe te staan tot de eenvoudige webtoepassing. Zie voor meer informatie [Netwerken voor schaalsets voor virtuele Azure-machines](virtual-machine-scale-sets-networking.md).
 
 ```azurepowershell-interactive
 # Get information about the scale set
-$vmss = Get-AzureRmVmss `
+$vmss = Get-AzVmss `
             -ResourceGroupName "myResourceGroup" `
             -VMScaleSetName "myScaleSet"
 
 #Create a rule to allow traffic over port 80
-$nsgFrontendRule = New-AzureRmNetworkSecurityRuleConfig `
+$nsgFrontendRule = New-AzNetworkSecurityRuleConfig `
   -Name myFrontendNSGRule `
   -Protocol Tcp `
   -Direction Inbound `
@@ -124,28 +127,28 @@ $nsgFrontendRule = New-AzureRmNetworkSecurityRuleConfig `
   -Access Allow
 
 #Create a network security group and associate it with the rule
-$nsgFrontend = New-AzureRmNetworkSecurityGroup `
+$nsgFrontend = New-AzNetworkSecurityGroup `
   -ResourceGroupName  "myResourceGroup" `
   -Location EastUS `
   -Name myFrontendNSG `
   -SecurityRules $nsgFrontendRule
 
-$vnet = Get-AzureRmVirtualNetwork `
+$vnet = Get-AzVirtualNetwork `
   -ResourceGroupName  "myResourceGroup" `
   -Name myVnet
 
 $frontendSubnet = $vnet.Subnets[0]
 
-$frontendSubnetConfig = Set-AzureRmVirtualNetworkSubnetConfig `
+$frontendSubnetConfig = Set-AzVirtualNetworkSubnetConfig `
   -VirtualNetwork $vnet `
   -Name mySubnet `
   -AddressPrefix $frontendSubnet.AddressPrefix `
   -NetworkSecurityGroup $nsgFrontend
 
-Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+Set-AzVirtualNetwork -VirtualNetwork $vnet
 
 # Update the scale set and apply the Custom Script Extension to the VM instances
-Update-AzureRmVmss `
+Update-AzVmss `
     -ResourceGroupName "myResourceGroup" `
     -Name "myScaleSet" `
     -VirtualMachineScaleSet $vmss
@@ -154,10 +157,10 @@ Update-AzureRmVmss `
 
 
 ## <a name="test-your-scale-set"></a>Uw schaalset testen
-Als u de webserver in actie wilt zien, haalt u het openbare IP-adres van de load balancer met [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) op. In het volgende voorbeeld wordt het IP-adres weergegeven dat is gemaakt in de resourcegroep *myResourceGroup*:
+Als u de webserver in actie wilt zien, haalt u het openbare IP-adres van de load balancer op met [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress). In het volgende voorbeeld wordt het IP-adres weergegeven dat is gemaakt in de resourcegroep *myResourceGroup*:
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" | Select IpAddress
+Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select IpAddress
 ```
 
 Voer in een webbrowser het openbare IP-adres van de load balancer in. Via de load balancer wordt verkeer naar een van uw VM-instanties gedistribueerd, zoals wordt weergegeven in het volgende voorbeeld:
@@ -182,13 +185,13 @@ $customConfigv2 = @{
 Werk de configuratie van de aangepaste scriptextensie bij op de VM-exemplaren in uw schaalset. De definitie *customConfigv2* wordt gebruikt voor het toepassen van de bijgewerkte versie van de toepassing:
 
 ```azurepowershell-interactive
-$vmss = Get-AzureRmVmss `
+$vmss = Get-AzVmss `
           -ResourceGroupName "myResourceGroup" `
           -VMScaleSetName "myScaleSet"
  
 $vmss.VirtualMachineProfile.ExtensionProfile[0].Extensions[0].Settings = $customConfigv2
  
-Update-AzureRmVmss `
+Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Name "myScaleSet" `
   -VirtualMachineScaleSet $vmss
@@ -200,10 +203,10 @@ Alle VM-exemplaren in de schaalset worden automatisch bijgewerkt met de meest re
 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Als u de schaalset en aanvullende resources wilt verwijderen, verwijdert u de resourcegroep en alle bijbehorende resources met [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup). De parameter `-Force` bevestigt dat u de resources wilt verwijderen, zonder een extra prompt om dit te doen. De parameter `-AsJob` retourneert het besturingselement naar de prompt zonder te wachten totdat de bewerking is voltooid.
+Als u de schaalset en aanvullende resources wilt verwijderen, verwijdert u de resourcegroep en alle bijbehorende resources met [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). De parameter `-Force` bevestigt dat u de resources wilt verwijderen, zonder een extra prompt om dit te doen. De parameter `-AsJob` retourneert het besturingselement naar de prompt zonder te wachten totdat de bewerking is voltooid.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
+Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
 
 

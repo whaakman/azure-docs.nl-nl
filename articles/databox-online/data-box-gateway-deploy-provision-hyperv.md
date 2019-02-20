@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 3187c516ef22a97d2af89e08d5b99ad7a00d875d
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: cf47919ead890f0ad0e89646dde26276ebfb1127
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166454"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109738"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v-preview"></a>Zelfstudie: Azure Data Box Gateway inrichten in Hyper-V (preview)
 
@@ -66,7 +66,7 @@ Voordat u een apparaat implementeert, controleert u het volgende:
 
 Voordat u begint:
 
-- Controleer de netwerkvereisten voor het implementeren van een Data Box Gateway en configureer het netwerk van het datacenter aan de hand van die vereisten. Zie [Netwerkvereisten voor Data Box Gateway](data-box-gateway-system-requirements.md#networking-requirements) voor meer informatie.
+- Controleer de netwerkvereisten voor het implementeren van een Data Box Gateway en configureer het netwerk van het datacenter aan de hand van die vereisten. Zie [Netwerkvereisten voor Data Box Gateway](data-box-gateway-system-requirements.md#networking-port-requirements) voor meer informatie.
 - Voor een optimale werking van het apparaat heeft internet een minimale bandbreedte van 20 Mbps nodig.
 
 

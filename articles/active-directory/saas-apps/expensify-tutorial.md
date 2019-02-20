@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: c8d86cbcf4f5c5029f215cd6c327e05fb93f7144
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b31d22990b79cb37ea5b3b89c699b9511f8d87cf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453890"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211118"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expensify"></a>Zelfstudie: Azure Active Directory-integratie met Expensify
 
@@ -104,9 +105,12 @@ Voer de volgende stappen uit om eenmalige aanmelding met Azure AD bij Expensify 
 
     ![Domein- en URL-gegevens voor eenmalige aanmelding bij Expensify](common/sp-identifier.png)
 
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL: `https://www.expensify.com/authentication/saml/login`
+    a. In het tekstvak **Aanmeldings-URL** typt u de URL in met de volgende notatie: `https://www.expensify.com/authentication/saml/loginCallback?domain=[yourdomain]`
 
     b. Typ een URL in het vak **Id (Entiteits-id)**: `https://www.expensify.com`
+
+    > [!NOTE]
+    > De waarde van de aanmeldings-URL is niet echt. Werk deze waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [Expensify-ondersteuningsteam](mailto:help@expensify.com) om deze waarde op te halen.
 
 5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
@@ -125,18 +129,18 @@ Voer de volgende stappen uit om eenmalige aanmelding met Azure AD bij Expensify 
 ### <a name="configure-expensify-single-sign-on"></a>Eenmalige aanmelding bij Expensify configureren
 
 Als u SSO bij Expensify wilt inschakelen, moet u in de toepassing eerst **Domeincontrole** inschakelen. In de stappen die [hier](https://help.expensify.com/domain-control) worden vermeld, schakelt u Domeincontrole in. Voor extra ondersteuning richt u zich tot het [ondersteuningsteam van Expensify](mailto:help@expensify.com). Nadat u Domeincontrole hebt ingeschakeld, volgt u deze stappen:
-   
+
 ![Eenmalige aanmelding configureren](./media/expensify-tutorial/tutorial_expensify_51.png)
-    
+
 1. Meld u aan bij uw Expensify-toepassing.
-    
+
 2. Klik in het linkerdeelvenster op **Instellingen** en navigeer naar **SAML**.
-    
+
 3. Schakel de optie **SAML-aanmelding** in op **Ingeschakeld**.
-    
+
 4. Open de gedownloade federatiemetagegevens uit Azure AD in Kladblok, kopieer de inhoud en plak deze vervolgens in het tekstvak **Metagegevens identiteitsprovider**.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
@@ -191,7 +195,7 @@ In dit gedeelte geeft u Britta Simon toestemming voor het gebruik van eenmalige 
 
 In deze sectie maakt u in Expensify een gebruiker met de naam Britta Simon. Werk met het [Expensify-klantenondersteuningsteam](mailto:help@expensify.com) om de gebruikers toe te voegen in het Expensify-platform.
 
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
@@ -204,4 +208,3 @@ Wanneer u in het toegangsvenster op de tegel Expensify klikt, wordt u automatisc
 - [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

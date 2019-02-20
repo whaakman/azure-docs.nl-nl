@@ -1,6 +1,6 @@
 ---
-title: Een zelfstandige of gepoolde database beveiligen in Azure SQL Database | Microsoft Docs
-description: Informatie over technieken en functies voor het beveiligen van een zelfstandige of gepoolde database in Azure SQL-database.
+title: Een enkelvoudige of gepoolde database beveiligen in Azure SQL Database | Microsoft Docs
+description: Informatie over technieken en functies voor het beveiligen van een enkelvoudige of gepoolde database in Azure SQL-database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,17 +9,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/30/2019
-ms.openlocfilehash: 2ea87b36d8b489abf59ac4550121369a2ddf540f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/08/2019
+ms.openlocfilehash: b9141fcef8bda181cd7b679f58d22d4ba2895b14
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752514"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004578"
 ---
-# <a name="tutorial-secure-a-standalone-or-pooled-database"></a>Zelfstudie: Een zelfstandige of gepoolde database beveiligen
+# <a name="tutorial-secure-a-single-or-pooled-database"></a>Zelfstudie: Een enkelvoudige of gepoolde database beveiligen
 
-Azure SQL Database beveiligt gegevens in een zelfstandige of gepoolde database door:
+Azure SQL Database beveiligt gegevens in een enkelvoudige of gepoolde database door:
 
 - Toegang te beperken met behulp van firewallregels
 - Verificatiemechanismen die identiteit vereisen

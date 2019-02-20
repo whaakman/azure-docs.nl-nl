@@ -6,34 +6,34 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 550201e692bb79197d50c2f44017c43ab9ea2016
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4df8a12581b5d71a76964ca1e3d40c6c53185f67
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477320"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860317"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Doorvoer inrichten voor een Azure Cosmos-container
 
-In dit artikel wordt uitgelegd hoe u doorvoer inricht voor een container (collectie, graaf, tabel) in Azure Cosmos DB. U kunt de doorvoer inrichten voor één container of [inrichten voor een database](how-to-provision-database-throughput.md) en deze delen met de containers in de database. U kunt de doorvoer voor een container inrichten met behulp van de Azure-portal, Azure CLI of CosmosDB-SDK's.
+In dit artikel wordt uitgelegd hoe u doorvoer inricht voor een container (collectie, grafiek, tabel) in Azure Cosmos DB. U kunt de doorvoer inrichten voor één container of [inrichten voor een database](how-to-provision-database-throughput.md) en deze delen met de containers in de database. U kunt de doorvoer voor een container inrichten met behulp van de Azure Portal, Azure CLI of Cosmos DB-SDK's.
 
-## <a name="provision-throughput-using-azure-portal"></a>Doorvoer inrichten met behulp van de Azure-portal
+## <a name="provision-throughput-by-using-azure-portal"></a>Doorvoer inrichten met behulp van de Azure Portal
 
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com/).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-1. [Maak een nieuw Cosmos DB-account](create-sql-api-dotnet.md#create-a-database-account) of selecteer een bestaand account.
+1. [Maak een nieuw Azure Cosmos DB-account](create-sql-api-dotnet.md#create-a-database-account) of selecteer een bestaand account.
 
-1. Open het deelvenster **Data Explorer** en selecteer **Nieuwe verzameling**. Vul vervolgens de volgende details in het formulier in:
+1. Open het deelvenster **Data Explorer** en selecteer **Nieuwe verzameling**. Geef de volgende gegevens op:
 
-   * Maak een nieuwe database of gebruik een bestaande.
-   * Voer de id in van een collectie (of tabel, graaf).
-   * Voer een waarde voor de partitiesleutel in, bijvoorbeeld `/userid`.
-   * Voer een doorvoer in, bijvoorbeeld 1000 RU's.
+   * Geef aan of u een nieuwe database maakt of een bestaande database gebruikt.
+   * Voer de id in van een collectie (of tabel of grafiek).
+   * Voer een waarde voor de partitiesleutel in (bijvoorbeeld `/userid`).
+   * Voer een doorvoer in (bijvoorbeeld 1000 RU's).
    * Selecteer **OK**.
 
-![SQL API: doorvoer voor containers inrichten](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
+![Schermopname van Data Explorer met Nieuwe verzameling gemarkeerd](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
 
-## <a name="provision-throughput-using-azure-cli"></a>Doorvoer inrichten met behulp van Azure CLI
+## <a name="provision-throughput-by-using-azure-cli"></a>Doorvoer inrichten met behulp van Azure CLI
 
 ```azurecli-interactive
 # Create a container with a partition key and provision throughput of 1000 RU/s
@@ -46,9 +46,9 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-Als u de doorvoer inricht voor een Cosmos-account dat is geconfigureerd met de Azure Cosmos DB-API voor MongoDB, gebruikt u '/myShardKey' voor het partitiesleutelpad. Als u de doorvoer inricht voor een Cosmos-account dat is geconfigureerd voor de Cassandra-API, gebruikt u '/myPrimaryKey' voor het partitiesleutelpad.
+Als u de doorvoer inricht voor een Azure Cosmos DB-account dat is geconfigureerd met de Azure Cosmos DB-API voor MongoDB, gebruikt u `/myShardKey` voor het pad van de partitiesleutel. Als u de doorvoer inricht voor een Azure Cosmos DB-account dat is geconfigureerd voor de Cassandra-API, gebruikt u `/myPrimaryKey` voor het pad van de partitiesleutel.
 
-## <a name="provision-throughput-using-net-sdk"></a>Doorvoer inrichten met behulp van .NET SDK
+## <a name="provision-throughput-by-using-net-sdk"></a>Doorvoer inrichten met behulp van .NET SDK
 
 > [!Note]
 > Gebruik de SQL API voor het inrichten van doorvoer voor alle API's, met uitzondering van Cassandra-API.
@@ -79,7 +79,7 @@ session.Execute(CREATE TABLE myKeySpace.myTable(
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de volgende artikelen voor meer informatie over het inrichten van doorvoer in Cosmos DB:
+Zie de volgende artikelen voor meer informatie over het inrichten van doorvoer in Azure Cosmos DB:
 
 * [Doorvoer inrichten voor een database](how-to-provision-database-throughput.md)
 * [Aanvraageenheden en doorvoer in Azure Cosmos DB](request-units.md)

@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f08ef19e6829fc1563eced54ade1e4f59c0c33be
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 37bb0dcc2b9848d3fd3d49c78b52adbcd2dcc046
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728568"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106391"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Overzicht van virtuele Windows-machines in Azure
 
@@ -61,7 +61,7 @@ In deze tabel staan enkele manieren om een lijst met beschikbare locaties te ver
 | Methode | Beschrijving |
 | --- | --- |
 | Azure Portal |Selecteer een locatie in de lijst bij het maken van een VM. |
-| Azure PowerShell |Gebruik de opdracht [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation). |
+| Azure PowerShell |Gebruik de opdracht [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation). |
 | REST-API |Gebruik de bewerking [Locaties vermelden](https://docs.microsoft.com/rest/api/resources/subscriptions). |
 | Azure-CLI |Gebruik de bewerking [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest). |
 
@@ -83,7 +83,7 @@ In deze tabel ziet u een aantal manieren waarop u de gegevens voor een installat
 | Methode | Beschrijving |
 | --- | --- |
 | Azure Portal |De waarden worden automatisch opgegeven wanneer u een installatiekopie selecteert om te gebruiken. |
-| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagepublisher): -Location *locatie*<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimageoffer): -Location *locatie*, -Publisher *publisherName*<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku): -Location *locatie*, -Publisher *publisherName*, -Offer *offerName* |
+| Azure PowerShell |[Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) -Location *location*<BR>[Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
 | REST-API’s |[Uitgevers van installatiekopieën weergeven](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Aanbiedingen van installatiekopieën weergeven](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Installatiekopie-SKU's weergeven](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 | Azure-CLI |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) --locatie *location*<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) --location *locatie* --publisher *publisherName*<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest) --location *locatie* --publisher *publisherName* --offer *offerName*|
 

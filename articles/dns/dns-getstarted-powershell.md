@@ -7,14 +7,16 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 12/4/2018
 ms.author: victorh
-ms.openlocfilehash: db6ac089f11477ecdb1568195855fae00d3eac61
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 839c97ccccbc1ce2cf646afcd27894a190eda1b0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888355"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000883"
 ---
-# <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>Snelstart: Een Azure DNS-zone en -record maken met behulp van Azure PowerShell
+# <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>Quickstart: Een Azure DNS-zone en -record maken met behulp van Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 In deze snelstartgids maakt u uw eerste DNS-zone en -record met behulp van Azure PowerShell. U kunt deze stappen ook uitvoeren met [Azure Portal](dns-getstarted-portal.md) of de [Azure CLI](dns-getstarted-cli.md). 
 
@@ -31,23 +33,23 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 Voordat u de DNS-zone maakt, maakt u een resourcegroep die de DNS-zone gaat bevatten:
 
 ```powershell
-New-AzureRMResourceGroup -name MyResourceGroup -location "eastus"
+New-AzResourceGroup -name MyResourceGroup -location "eastus"
 ```
 
 ## <a name="create-a-dns-zone"></a>Een DNS-zone maken
 
-Een DNS-zone wordt gemaakt met de cmdlet `New-AzureRmDnsZone`. In het volgende voorbeeld maakt u een DNS-zone met de naam *contoso.com* in de resourcegroep *MyResourceGroup*. Gebruik het voorbeeld om een DNS-zone te maken door de waarden te vervangen door uw eigen waarden.
+Een DNS-zone wordt gemaakt met de cmdlet `New-AzDnsZone`. In het volgende voorbeeld maakt u een DNS-zone met de naam *contoso.com* in de resourcegroep *MyResourceGroup*. Gebruik het voorbeeld om een DNS-zone te maken door de waarden te vervangen door uw eigen waarden.
 
 ```powershell
-New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
+New-AzDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
 ```
 
 ## <a name="create-a-dns-record"></a>Een DNS-record maken
 
-U kunt recordsets maken met behulp van de cmdlet `New-AzureRmDnsRecordSet`. In het volgende voorbeeld maakt u een record met de relatieve naam 'www' in de DNS-zone 'contoso.com' in de resourcegroep 'MyResourceGroup'. De volledig gekwalificeerde naam van de recordset is 'www.contoso.com'. Het recordtype is 'A', met IP-adres '1.2.3.4', en de TTL is 3600 seconden.
+U kunt recordsets maken met behulp van de cmdlet `New-AzDnsRecordSet`. In het volgende voorbeeld maakt u een record met de relatieve naam 'www' in de DNS-zone 'contoso.com' in de resourcegroep 'MyResourceGroup'. De volledig gekwalificeerde naam van de recordset is 'www.contoso.com'. Het recordtype is 'A', met IP-adres '1.2.3.4', en de TTL is 3600 seconden.
 
 ```powershell
-New-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4")
+New-AzDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -IPv4Address "1.2.3.4")
 ```
 
 ## <a name="view-records"></a>Records weergeven
@@ -55,17 +57,17 @@ New-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceG
 Als u de DNS-records wilt weergeven in uw zone, gebruikt u:
 
 ```powershell
-Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyResourceGroup
+Get-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyResourceGroup
 ```
 
 ## <a name="update-name-servers"></a>Naamservers bijwerken
 
 Wanneer uw DNS-zone en -records correct zijn ingesteld, moet u uw domeinnaam configureren voor het gebruik van de Azure DNS-naamservers . Op die manier kunnen andere gebruikers op internet uw DNS-records vinden.
 
-De naamservers voor uw zone zijn gegeven door de cmdlet `Get-AzureRmDnsZone`:
+De naamservers voor uw zone zijn gegeven door de cmdlet `Get-AzDnsZone`:
 
 ```powershell
-Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
+Get-AzDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
 
 Name                  : contoso.com
 ResourceGroupName     : myresourcegroup
@@ -76,14 +78,14 @@ NumberOfRecordSets    : 3
 MaxNumberOfRecordSets : 5000
 ```
 
-Deze naamservers moeten worden geconfigureerd met de domeinnaamregistrar (waar u de domeinnaam hebt gekocht). Uw registrar zal u de mogelijkheid bieden om de naamservers voor het domein in te stellen. Zie [Zelfstudie: Uw domein in Azure DNS hosten](dns-delegate-domain-azure-dns.md#delegate-the-domain) voor meer informatie.
+Deze naamservers moeten worden geconfigureerd met de domeinnaamregistrar (waar u de domeinnaam hebt gekocht). Uw registrar zal u de mogelijkheid bieden om de naamservers voor het domein in te stellen. Zie [Zelfstudie: Uw domein hosten in Azure DNS](dns-delegate-domain-azure-dns.md#delegate-the-domain) voor meer informatie.
 
 ## <a name="delete-all-resources"></a>Alle resources verwijderen
 
 Als u ze niet langer nodig hebt, kunt u alle resources die u in deze snelstartgids hebt gemaakt verwijderen door de resourcegroep te verwijderen:
 
 ```powershell
-Remove-AzureRMResourceGroup -Name MyResourceGroup
+Remove-AzResourceGroup -Name MyResourceGroup
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

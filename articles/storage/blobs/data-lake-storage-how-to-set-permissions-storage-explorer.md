@@ -1,6 +1,6 @@
 ---
 title: Machtigingen instellen voor Data Lake Storage Gen2 met Azure Storage Explorer
-description: In deze instructie leert u hoe u machtigingen instelt met Azure Storage Explorer voor bestanden en mappen in uw voor Azure Data Lake Storage Gen2 (preview) geschikte opslagaccount.
+description: In deze instructie leert u hoe u machtigingen instelt met Azure Storage Explorer voor bestanden en mappen in uw voor Azure Data Lake Storage Gen2 geschikte opslagaccount.
 services: storage
 author: roygara
 ms.custom: mvc
@@ -9,16 +9,16 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: rogarana
-ms.openlocfilehash: fd4ca3946ed4c32a8fd2f08c1c242c33dbca2aaf
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b64b433920a5ce769122c7956c18997c28a3d11a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238310"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867049"
 ---
-# <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2-preview"></a>Machtigingen op bestands- en mapniveau instellen voor Azure Data Lake Storage Gen2 (preview) met behulp van Azure Storage Explorer
+# <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Machtigingen op bestands- en mapniveau instellen voor Azure Data Lake Storage Gen2 met behulp van Azure Storage Explorer
 
-Bestanden die zijn opgeslagen in Azure Data Lake Storage Gen2 (preview) bieden ondersteuning voor gedetailleerde machtigingen en ACL-beheer (ACL: Access Control List, toegangsbeheerlijst). Dankzij de combinatie van gedetailleerde machtigingen en ACL-beheer kunt u de toegang tot uw gegevens op een zeer gedetailleerd niveau beheren.
+Bestanden die zijn opgeslagen in Azure Data Lake Storage Gen2 bieden ondersteuning voor gedetailleerde machtigingen en ACL-beheer (ACL: Access Control List, toegangsbeheerlijst). Dankzij de combinatie van gedetailleerde machtigingen en ACL-beheer kunt u de toegang tot uw gegevens op een zeer gedetailleerd niveau beheren.
 
 In dit artikel leert u hoe u Azure Storage Explorer kunt gebruiken om:
 

@@ -8,12 +8,12 @@ ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 11384d1bbffb675bd322469d129464f58a48bb6b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 1cfe7dab907a332f1a38560c39d4f6476cee81aa
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311828"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004729"
 ---
 # <a name="what-is-azure-policy"></a>Wat is Azure Policy?
 
@@ -135,7 +135,7 @@ U hebt bijvoorbeeld de beleidsdefinitie *policyDefA* en u maakt deze met de init
 
 - Wanneer een initiatieftoewijzing wordt beoordeeld, worden alle beleidsregels in het initiatief ook beoordeeld. Als u een beleidsregel afzonderlijk wilt beoordelen, is het beter deze niet op te nemen in een initiatief.
 
-## <a name="video-overview"></a>Video met overzicht
+## <a name="video-overview"></a>Video-overzicht
 
 Het volgende overzicht van Azure Policy is afkomstig van build 2018. Voor het downloaden van dia's of video's, gaat u naar [Azure-omgeving beheren via Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) op Channel 9.
 

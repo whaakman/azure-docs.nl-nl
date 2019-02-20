@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Toegang tot Azure Data Lake Storage Gen2 Preview-gegevens met Azure Databricks met behulp van Spark | Microsoft Docs'
+title: 'Zelfstudie: Toegang tot Azure Data Lake Storage Gen2-gegevens met Azure Databricks met behulp van Apache Spark | Microsoft Docs'
 description: Deze zelfstudie bevat informatie over het uitvoeren van Spark-query's in een Azure Databricks-cluster voor toegang tot gegevens in een Azure Data Lake Storage Gen2-opslagaccount.
 services: storage
 author: dineshmurthy
@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: dineshm
-ms.openlocfilehash: 533665ebfa3d35ed5f03326cf5614e37056b7713
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: e448ef0de9ef5560c1b4ea0df5c02e8efd8c0ea9
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813599"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891654"
 ---
-# <a name="tutorial-access-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Zelfstudie: Toegang tot Data Lake Storage Gen2 Preview-gegevens met Azure Databricks met behulp van Spark
+# <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Zelfstudie: Toegang tot Data Lake Storage Gen2-gegevens met Azure Databricks met behulp van Apache Spark
 
-In deze zelfstudie ziet u hoe u een Azure Databricks-cluster kunt verbinden met gegevens die zijn opgeslagen in een Azure-opslagaccount waarvoor Azure Data Lake Storage Gen2 (preview) is ingeschakeld. Deze verbinding stelt u in staat om systeemeigen query’s en analyses van uw cluster uit te voeren op uw gegevens.
+In deze zelfstudie ziet u hoe u een Azure Databricks-cluster kunt verbinden met gegevens die zijn opgeslagen in een Azure-opslagaccount waarvoor Azure Data Lake Storage Gen2 is ingeschakeld. Deze verbinding stelt u in staat om systeemeigen query’s en analyses van uw cluster uit te voeren op uw gegevens.
 
 In deze zelfstudie leert u het volgende:
 
@@ -70,7 +70,7 @@ Er zijn een paar dingen die u moet doen terwijl u de stappen in het artikel uitv
 
 ## <a name="create-an-azure-databricks-service"></a>Een Azure Databricks-service maken
 
-In deze sectie gaat u een Azure Databricks-service maken met behulp van de Microsoft Azure-portal.
+In dit gedeelte gaat u een Azure Databricks-service maken met behulp van de Azure-portal.
 
 1. Selecteer in Azure Portal **Een resource maken** > **Analyse** > **Azure Databricks**.
 
@@ -96,7 +96,7 @@ In deze sectie gaat u een Azure Databricks-service maken met behulp van de Micro
 
 ## <a name="create-a-spark-cluster-in-azure-databricks"></a>Een Apache Spark-cluster in Azure Databricks maken
 
-1. Ga in de Microsoft Azure-portal naar de Databricks-service die u hebt gemaakt en selecteer **Werkruimte starten**.
+1. Ga in de Azure-portal naar de Databricks-service die u hebt gemaakt en selecteer **Werkruimte starten**.
 
 2. U wordt omgeleid naar de Azure Databricks-portal. Klik in de portal op **Cluster**.
 
@@ -145,7 +145,7 @@ In deze sectie maakt u een bestandssysteem en een map in uw opslagaccount.
     mount_point = "/mnt/flightdata",
     extra_configs = configs)
     ```
-18. In dit codeblok vervangt u de tijdelijke aanduidingen `storage-account-name`, `application-id`, `authentication-id` en `tenant-id` door de waarden die u hebt verkregen bij het uitvoeren van de stappen in de secties [Opslagaccountconfiguratie instellen](#config) en [Een service-principal maken](#service-principal) van dit artikel. Vervang de tijdelijke aanduiding `file-system-name` door de naam die u aan uw bestandssysteem wilt geven.
+18. In dit codeblok vervangt u de tijdelijke aanduidingen `storage-account-name`, `application-id`, `authentication-id` en `tenant-id` door de waarden die u hebt verkregen bij het uitvoeren van de stappen in de secties Opslagaccountconfiguratie instellen en [Een service-principal maken](#service-principal) van dit artikel. Vervang de tijdelijke aanduiding `file-system-name` door de naam die u aan uw bestandssysteem wilt geven.
 
 19. Druk op de toetsen **Shift + Enter** om de code in dit blok uit te voeren. 
 

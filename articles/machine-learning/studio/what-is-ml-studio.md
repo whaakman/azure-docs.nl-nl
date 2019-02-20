@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: bb01db14cec73b8c5668915a9eaab5e7728724df
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 77c69e7e655770ab912e6ee25183e760f972504d
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469110"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243685"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Wat is Azure Machine Learning Studio?
 Microsoft Azure Machine Learning Studio is een hulpprogramma met functionaliteit op basis van slepen en neerzetten, waarmee u in samenwerkingsverband predictive analytics-oplossingen voor uw gegevens kunt ontwikkelen, testen en implementeren. Machine Learning Studio publiceert modellen als webservices die eenvoudig kunnen worden gebruikt door aangepaste apps of BI-hulpprogramma's zoals Excel.
@@ -36,11 +36,6 @@ Wanneer u een predictive analytics-model ontwikkelt, gebruikt u doorgaans gegeve
 **Azure Machine Learning Studio** beschikt over een interactieve, visuele werkruimte om eenvoudig een predictive analytics-model te bouwen, te testen en te herhalen. U sleept ***gegevenssets*** en analyse***modules*** naar een interactief canvas en verbindt deze met elkaar om een ***experiment*** op te zetten, dat u vervolgens uitvoert in Machine Learning Studio. Als u het modelontwerp wilt herhalen, kunt u het experiment bewerken, desgewenst een kopie ervan opslaan en het opnieuw uitvoeren. Wanneer u klaar bent, kunt u het ***trainingsexperiment*** converteren naar een ***voorspellend experiment*** en dit vervolgens ***publiceren*** als webservice, zodat het model ook voor anderen toegankelijk is.
 
 U hoeft niets te programmeren. U hoeft alleen gegevenssets en modules visueel met elkaar te verbinden om een predictive analytics-model op te zetten.
-
-> [!TIP]
-> Zie [Overzichtsdiagram van de mogelijkheden van Azure Machine Learning Studio](studio-overview-diagram.md) als u een diagram wilt downloaden en afdrukken met een overzicht van de mogelijkheden van Machine Learning Studio.
->
->
 
 ![Azure Machine Learning Studio-diagram: Zet experimenten op, lees gegevens uit verschillende bronnen, schrijf beoordeelde gegevens weg, maak modellen.][ml-studio-overview]
 
@@ -66,7 +61,7 @@ Klik op **Studio**. U gaat dan naar de **Azure Machine Learning Studio**. U word
 * **SETTINGS**: een verzameling instellingen waarmee u uw account en resources kunt configureren
 
 ### <a name="gallery"></a>Gallery
-Klik op **Gallery** om de **[Azure AI Gallery](http://gallery.cortanaintelligence.com/)** te openen. In deze galerie deelt een community van gegevenswetenschappers en ontwikkelaars oplossingen die zijn gemaakt met onderdelen van de Cortana Intelligence Suite.
+Klik op **Gallery** om de **[Azure AI Gallery](http://gallery.azure.ai/)** te openen. In deze galerie deelt een community van gegevenswetenschappers en ontwikkelaars oplossingen die zijn gemaakt met onderdelen van de Cortana Intelligence Suite.
 
 Voor meer informatie over de Gallery raadpleegt u [Share and discover solutions in the Cortana Intelligence Gallery](gallery-how-to-use-contribute-publish.md) (Oplossingen in de Azure AI Gallery delen en ontdekken).
 
@@ -83,7 +78,7 @@ U kunt een geheel nieuw experiment maken, maar u kunt ook een bestaand voorbeeld
 
 Voor een voorbeeld van het maken van een eenvoudig experiment raadpleegt u [Create a simple experiment in Azure Machine Learning Studio](create-experiment.md) (Een eenvoudig experiment maken in Azure Machine Learning Studio).
 
-Voor de volledige procedure voor het maken van een predictive analytics-oplossing raadpleegt u [Develop a predictive solution with Azure Machine Learning](walkthrough-develop-predictive-solution.md) (Een predictive analytics-oplossing maken met Azure Machine Learning).
+Voor de volledige procedure voor het maken van een predictive analytics-oplossing raadpleegt u [Develop a predictive solution with Azure Machine Learning](tutorial-part1-credit-risk.md) (Een predictive analytics-oplossing maken met Azure Machine Learning).
 
 ### <a name="datasets"></a>Gegevenssets
 Een gegevensset bestaat uit gegevens die zijn geüpload naar Machine Learning Studio, zodat ze kunnen worden gebruikt in het modelleringsproces. In Machine Learning Studio is een aantal voorbeeldgegevenssets opgenomen waarmee u kunt experimenteren. U kunt meer gegevenssets uploaden als dat nodig is. Hier volgen enkele voorbeelden van opgenomen gegevenssets:
@@ -162,7 +157,7 @@ Nadat uw model is getraind, kunt u het met de resterende testgegevens evalueren.
 * **voorbeeld**: Een representatief gedeelte van een gegevensset. Steekproeven kunnen willekeurig worden geselecteerd, maar ook op basis van specifieke functies van de gegevensset.
 
 ## <a name="next-steps"></a>Volgende stappen
-U kunt zich de basiskennis van predictive analytics en machine learning eigen maken aan de hand van een [Stapsgewijze zelfstudie](create-experiment.md) en [door voorbeelden verder uit te werken](sample-experiments.md).
+U kunt zich de basiskennis van predictive analytics en machine learning eigen maken aan de hand van een [Stapsgewijze quickstart](create-experiment.md) en [door voorbeelden verder uit te werken](sample-experiments.md).
 
 
 <!-- Module References -->

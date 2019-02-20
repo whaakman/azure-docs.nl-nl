@@ -1,254 +1,225 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met 123ContactForm | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en 123ContactForm.
+description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en 123ContactForm.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 5211910a-ab96-4709-959a-524c4d57c43e
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/23/2017
+ms.topic: tutorial
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: b91a3e2a100c9c355dd3e47851f95c4d3884b51a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2a91c5c67706c648af7eacedbc8093d5db8c6a55
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195321"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172345"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-123contactform"></a>Zelfstudie: Azure Active Directory-integratie met 123ContactForm
 
-In deze zelfstudie leert u hoe u 123ContactForm integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u 123ContactForm integreert met Azure Active Directory (Azure AD).
+De integratie van 123ContactForm met Azure AD heeft de volgende voordelen:
 
-123ContactForm integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD beheren wie toegang heeft tot 123ContactForm.
+* U kunt inschakelen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij 123ContactForm (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot 123ContactForm heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij 123ContactForm inschakelen (Single Sign-On) met hun Azure AD-accounts
-- U kunt uw accounts in één centrale locatie - Azure portal beheren
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met 123ContactForm, moet u de volgende items:
+U hebt het volgende nodig om Azure AD-integratie met 123ContactForm te configureren:
 
-- Een Azure AD-abonnement
-- Een 123ContactForm eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op 123ContactForm waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. 123ContactForm uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-123contactform-from-the-gallery"></a>123ContactForm uit de galerie toe te voegen
-Voor het configureren van de integratie van 123ContactForm in Azure AD, moet u 123ContactForm uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* 123ContactForm biedt ondersteuning voor met **SP en IDP** geïnitieerde eenmalige aanmelding
+* 123ContactForm biedt ondersteuning voor **Just-In-Time**-inrichting van gebruikers
 
-**Als u wilt toevoegen 123ContactForm uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-123contactform-from-the-gallery"></a>123ContactForm toevoegen vanuit de galerie
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Als u de integratie van 123ContactForm met Azure AD wilt configureren, moet u 123ContactForm vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-    ![Active Directory][1]
+**Als u 123ContactForm wilt toevoegen vanuit de galerie, voert u de volgende stappen uit:**
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![Applicaties][2]
-    
+    ![De knop Azure Active Directory](common/select-azuread.png)
+
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
+
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+
 3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![Applicaties][3]
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-4. Typ in het zoekvak **123ContactForm**.
+4. Typ **123ContactForm** in het zoekvak, selecteer **123ContactForm** in het deelvenster met resultaten en klik op de knop **Toevoegen** om de app toe te voegen.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/123contactform-tutorial/tutorial_123contactform_search.png)
+     ![123ContactForm in de lijst met resultaten](common/search-new-app.png)
 
-5. Selecteer in het deelvenster resultaten **123ContactForm**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-    ![Het maken van een Azure AD-testgebruiker](./media/123contactform-tutorial/tutorial_123contactform_addfromgallery.png)
+In deze sectie configureert en test u eenmalige aanmelding van Azure AD met 123ContactForm op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in 123ContactForm tot stand is gebracht.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met 123ContactForm op basis van een testgebruiker met de naam "Britta Simon."
+Als u eenmalige aanmelding met Azure AD wilt configureren en testen met 123ContactForm, moet u aan de volgende vereisten voldoen:
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in 123ContactForm is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in 123ContactForm tot stand worden gebracht.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding voor 123ContactForm configureren](#configure-123contactform-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wilt configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker voor 123ContactForm maken](#create-123contactform-test-user)**: als u een tegenhanger van Britta Simon in 123ContactForm wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-In 123ContactForm, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met 123ContactForm, moet u de volgende bouwstenen voltooien:
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Het maken van een testgebruiker 123ContactForm](#creating-a-123contactform-test-user)**  : als u wilt een equivalent van Britta Simon in 123ContactForm die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+Voer de volgende stappen uit om eenmalige aanmelding van Azure AD met 123ContactForm te configureren:
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+1. In de [Azure-portal](https://portal.azure.com/) selecteert u **Eenmalige aanmelding** op de integratiepagina van de toepassing **123ContactForm**.
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing 123ContactForm.
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-**Voor het configureren van Azure AD eenmalige aanmelding met 123ContactForm, moet u de volgende stappen uitvoeren:**
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-1. In de Azure-portal op de **123ContactForm** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![Eenmalige aanmelding configureren][4]
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![Eenmalige aanmelding configureren](./media/123contactform-tutorial/tutorial_123contactform_samlbase.png)
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-3. Op de **123ContactForm domein en URL's** sectie, als u wilt configureren van de toepassing in **IDP gestart door modus**, voer de volgende stappen uit:
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit als u de toepassing in de door **IDP** geïnitieerde modus wilt configureren:
 
-    ![Eenmalige aanmelding configureren](./media/123contactform-tutorial/url1.png)
+    ![Informatie over eenmalige aanmelding voor 123ContactForm-domein en -URL's](common/idp-intiated.png)
 
-    a. Typ in het tekstvak **Id** een URL met het volgende patroon: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/metadata`
+    a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/metadata`
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/acs`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/acs`
 
-4. Als u wilt configureren van de toepassing in **SP geïnitieerde modus**, voer de volgende stappen uit:
+5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
-    ![Eenmalige aanmelding configureren](./media/123contactform-tutorial/url2.png)
+    ![Informatie over eenmalige aanmelding voor 123ContactForm-domein en -URL's](common/metadata-upload-additional-signon.png)
 
-    a. Klik op de **geavanceerde URL-instellingen weergeven** optie
+    In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/sso`
 
-    b. In de **aanmelding URL** tekstvak, een URL als: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/sso`
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke URL's en id, zoals later in de zelfstudie wordt uitgelegd.
 
-    > [!NOTE] 
-    > Dit zijn geen echte waarden. U moet deze waarde van de werkelijke URL's en -id die verderop in de zelfstudie wordt wordt bijgewerkt.
-    
-5. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+6. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
-    ![Eenmalige aanmelding configureren](./media/123contactform-tutorial/tutorial_123contactform_certificate.png) 
+    ![De link om het certificaat te downloaden](common/metadataxml.png)
 
-6. Klik op de knop **Save**.
+7. Kopieer in de sectie **123ContactForm instellen** de juiste URL('s) op basis van uw behoeften.
 
-    ![Eenmalige aanmelding configureren](./media/123contactform-tutorial/tutorial_general_400.png)
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-7. Het configureren van eenmalige aanmelding op **123ContactForm** aan clientzijde, gaat u naar [ https://www.123contactform.com/form-2709121/ ](https://www.123contactform.com/form-2709121/) en voer de volgende stappen uit:
+    a. Aanmeldings-URL
+
+    b. Azure AD-id
+
+    c. Afmeldings-URL
+
+### <a name="configure-123contactform-single-sign-on"></a>Eenmalige aanmelding configureren voor 123ContactForm
+
+1. Als u eenmalige aanmelding aan de zijde van **123ContactForm** wilt configureren, gaat u naar [https://www.123contactform.com/form-2709121/](https://www.123contactform.com/form-2709121/) en voert u de volgende stappen uit:
 
     ![Eenmalige aanmelding configureren](./media/123contactform-tutorial/submit.png) 
 
-    a. In de **e** tekstvak typt u het e-mailadres van de gebruiker Internet Explorer **BrittaSimon@Contoso.com**.
+    a. Typ in het tekstvak **Email** het e-mailadres van de gebruiker, bijvoorbeeld **BrittaSimon@Contoso.com**.
 
-    b. Klik op **uploaden** en blader naar het bestand Metadata XML, die u hebt gedownload vanuit Azure portal.
+    b. Klik op **Upload** en blader naar het gedownloade XML-bestand met metagegevens dat u hebt gedownload vanuit de Azure-portal.
 
-    c. Klik op **indienen formulier**.
+    c. Klik op **SUBMIT FORM**.
 
-8. Op de **instellingen configureren-App van Microsoft Azure AD eenmalige aanmelding -** de volgende stappen uitvoeren:
-    
+2. Voer in **Microsoft Azure AD - Eenmalige aanmelding - App-instellingen configureren** de volgende stappen uit:
+
     ![Eenmalige aanmelding configureren](./media/123contactform-tutorial/url3.png)
 
-    a. Als u wilt configureren van de toepassing in **IDP gestart door modus**, Kopieer de **id** voor uw exemplaar van de waarde en plak deze in **id** -tekstvak in  **123ContactForm domein en URL's** sectie in Azure portal.
-    
-    b. Als u wilt configureren van de toepassing in **IDP gestart door modus**, Kopieer de **antwoord-URL** voor uw exemplaar van de waarde en plak deze in **antwoord-URL** -tekstvak in  **123ContactForm domein en URL's** sectie in Azure portal.
+    a. Als u de toepassing wilt configureren in de **door IDP geïnitieerde modus**, kopieert u de waarde van **IDENTIFIER** voor uw exemplaar en plakt u deze in het tekstvak **Id** in de sectie **SAML-basisconfiguratie** van de Azure-portal.
 
-    c. Als u wilt configureren van de toepassing in **SP geïnitieerde modus**, kopiëren de **SIGN ON URL** voor uw exemplaar van de waarde en plak deze in **aanmelding URL** -tekstvak in  **123ContactForm domein en URL's** sectie in Azure portal.
+    b. Als u de toepassing wilt configureren in de **door IDP geïnitieerde modus**, kopieert u de waarde van **REPLY URL** voor uw exemplaar en plakt u deze in het tekstvak **Antwoord-URL** in de sectie **SAML-basisconfiguratie** van de Azure-portal.
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    c. Als u de toepassing wilt configureren in de **door SP geïnitieerde modus**, kopieert u de waarde van **SIGN ON URL** voor uw exemplaar en plakt u deze in het tekstvak **Aanmeldings-URL** in de sectie **SAML-basisconfiguratie** van de Azure-portal.
 
-### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-![Azure AD-gebruiker maken][100]
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/123contactform-tutorial/create_aaduser_01.png) 
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
-    
-    ![Het maken van een Azure AD-testgebruiker](./media/123contactform-tutorial/create_aaduser_02.png) 
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-3. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/123contactform-tutorial/create_aaduser_03.png) 
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/123contactform-tutorial/create_aaduser_04.png) 
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    a. In de **naam** tekstvak, type **BrittaSimon**.
-
-    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
-
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="creating-a-123contactform-test-user"></a>Het maken van een testgebruiker 123ContactForm
 
-De toepassing biedt ondersteuning voor just in time-gebruikersinrichting. Dit betekent dat gebruikers na verificatie automatisch worden aangemaakt in de toepassing.
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
+In deze sectie zorgt u ervoor dat Britta Simon eenmalige aanmelding met Azure kan gebruiken door haar toegang te geven tot 123ContactForm.
 
-In deze sectie maakt inschakelen u Britta Simon Azure eenmalige aanmelding gebruiken door het verlenen van toegang tot 123ContactForm.
+1. Selecteer **Bedrijfstoepassingen** in de Azure-portal, selecteer **Alle toepassingen** en selecteer vervolgens **123ContactForm**.
 
-![Gebruiker toewijzen][200] 
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-**Als u wilt Britta Simon aan 123ContactForm toewijst, moet u de volgende stappen uitvoeren:**
+2. Selecteer **123ContactForm** in de lijst met toepassingen.
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+    ![De koppeling naar 123ContactForm in de lijst met toepassingen](common/all-applications.png)
 
-    ![Gebruiker toewijzen][201] 
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-2. Selecteer in de lijst met toepassingen, **123ContactForm**.
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-    ![Eenmalige aanmelding configureren](./media/123contactform-tutorial/tutorial_123contactform_app.png) 
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-    ![Gebruiker toewijzen][202] 
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-    ![Gebruiker toewijzen][203]
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+### <a name="create-123contactform-test-user"></a>123ContactForm-testgebruiker maken
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+In deze sectie wordt een gebruiker met de naam Britta Simon gemaakt in 123ContactForm. 123ContactForm biedt ondersteuning voor Just-In-Time-inrichting van gebruikers. Dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Als een gebruiker nog niet bestaat in 123ContactForm, wordt er na verificatie een nieuwe gemaakt.
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-Wanneer u op de tegel 123ContactForm in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing 123ContactForm.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
+Wanneer u op de tegel 123ContactForm in het toegangsvenster klikt, wordt u automatisch aangemeld bij de instantie van 123ContactForm waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/123contactform-tutorial/tutorial_general_01.png
-[2]: ./media/123contactform-tutorial/tutorial_general_02.png
-[3]: ./media/123contactform-tutorial/tutorial_general_03.png
-[4]: ./media/123contactform-tutorial/tutorial_general_04.png
-
-[100]: ./media/123contactform-tutorial/tutorial_general_100.png
-
-[200]: ./media/123contactform-tutorial/tutorial_general_200.png
-[201]: ./media/123contactform-tutorial/tutorial_general_201.png
-[202]: ./media/123contactform-tutorial/tutorial_general_202.png
-[203]: ./media/123contactform-tutorial/tutorial_general_203.png
-
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 095d7cf43d071d3857160d05e721bf7ac165cba2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/12/2019
+ms.openlocfilehash: 5c5b32eaf3066abe4489d909e224d2aa65e884a7
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756781"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238025"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Snelstartgids: SQL Server Management Studio gebruiken om verbinding te maken en query's uit te voeren op een Azure SQL database
 
@@ -26,19 +26,35 @@ In deze snelstart gaat u [SQL Server Management Studio][ssms-install-latest-84g]
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor deze zelfstudie hebt u het volgende nodig:
+- Een Azure SQL-database. U kunt een van deze quickstarts gebruiken om een database te maken en vervolgens te configureren in Azure SQL Database:
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+  || Individuele database | Beheerd exemplaar |
+  |:--- |:--- |:---|
+  | Maken| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |
+  | Configureren | [IP-firewallregel op serverniveau](sql-database-server-level-firewall-rule.md)| [Connectiviteit vanaf een VM](sql-database-managed-instance-configure-vm.md)|
+  |||[Connectiviteit vanaf locatie](sql-database-managed-instance-configure-p2s.md)
+  |Gegevens laden|Adventure Works geladen volgens de quickstart|[Wide World Importers herstellen](sql-database-managed-instance-get-started-restore.md)
+  |||Adventure Works herstellen of importeren vanuit een [BACPAC](sql-database-import.md)-bestand uit [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||
 
-* Een geconfigureerde serverfirewallregel. Zie [Een serverfirewallregel maken](sql-database-server-level-firewall-rule.md) voor meer informatie.
+  > [!IMPORTANT]
+  > De scripts in dit artikel zijn geschreven voor gebruik met de Adventure Works-database. Met een beheerd exemplaar moet u de Adventure Works-database importeren in een exemplaardatabase of de scripts in dit artikel wijzigen zodat deze de Wide World Importers-database gebruiken.
 
 ## <a name="install-the-latest-ssms"></a>De nieuwste SSMS installeren
 
 Voordat u begint, controleert u of u de meest recente [SSMS][ssms-install-latest-84g] hebt geïnstalleerd. 
 
-## <a name="sql-server-connection-information"></a>SQL Server-verbindingsgegevens
+## <a name="get-sql-server-connection-information"></a>SQL Server-verbindingsgegevens ophalen
 
-[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
+Haal de verbindingsgegevens op die u nodig hebt om verbinding te maken met de Azure SQL-database. U hebt de volledig gekwalificeerde servernaam of hostnaam, databasenaam en aanmeldingsgegevens in de volgende procedures nodig.
+
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
+
+2. Navigeer naar de pagina **SQL-database** of **Met SQL beheerde exemplaren**.
+
+3. Bekijk op de pagina **Overzicht** de volledig gekwalificeerde servernaam naast **Servernaam** voor één database of de volledig gekwalificeerde servernaam naast **Host** voor een beheerd exemplaar. Als u de servernaam of hostnaam wilt kopiëren, plaatst u de muisaanwijzer erop en selecteert u het pictogram **Kopiëren**.
 
 ## <a name="connect-to-your-database"></a>Verbinding maken met uw database
 

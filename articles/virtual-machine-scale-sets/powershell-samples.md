@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c907af8e91a7463c74e0bb14b0d8e0862c4e0fa3
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 3727d2db375847c8df0a96d5721ea3135584eeec
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887254"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976245"
 ---
-# <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>Voorbeelden van Microsoft Azure PowerShell voor virtuele-machineschaalsets
+# <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>Voorbeelden van Microsoft Azure PowerShell voor virtuele-machineschaalsets.
 
 De volgende tabel bevat links naar bash-scripts die zijn gebouwd met behulp van Microsoft Azure PowerShell.
 
@@ -41,3 +41,6 @@ De volgende tabel bevat links naar bash-scripts die zijn gebouwd met behulp van 
 | [Een schaalset met één zone maken](scripts/powershell-sample-single-availability-zone-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Hiermee maakt u een virtuele-machineschaalset die gebruikmaakt van één beschikbaarheidszone. |
 | [Een zone-redundante schaalset maken](scripts/powershell-sample-zone-redundant-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Hiermee maakt u een virtuele-machineschaalset die gebruikmaakt van meerdere beschikbaarheidszones. |
 | | |
+
+
+[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]    

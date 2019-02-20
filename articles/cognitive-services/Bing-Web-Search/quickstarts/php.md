@@ -1,36 +1,34 @@
 ---
-title: 'Snelstartgids: Een zoekopdracht uitvoeren met PHP - Bing Webzoekopdrachten-API'
+title: 'Quickstart: Een zoekopdracht uitvoeren met PHP - Bing Webzoekopdrachten-API'
 titleSuffix: Azure Cognitive Services
-description: Gebruik deze snelstartgids om aanvragen naar de REST API van Bing Web Search te verzenden via PHP en een JSON-antwoord te ontvangen
+description: Gebruik deze quickstart om aanvragen naar de REST API van Bing Web Search te verzenden via PHP en een JSON-antwoord te ontvangen
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 8/16/2018
+ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 68d2542cb4f3ecafb942a0a60327bf7420bdc190
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1a02862d3ea2e17cfa25a2a2d96e1454699ae7f1
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193587"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56166280"
 ---
-# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Snelstartgids: PHP gebruiken voor het aanroepen van de Bing Webzoekopdrachten-API  
+# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Quickstart: PHP gebruiken voor het aanroepen van de Bing Webzoekopdrachten-API  
 
-Gebruik deze snelstart om voor het eerst de Bing Webzoekopdrachten-API aan te roepen en binnen tien minuten een JSON-antwoord te ontvangen.  
-
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
-
-Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Gebruik deze quickstart om voor het eerst de Bing Webzoekopdrachten-API aan te roepen en het JSON-antwoord te ontvangen. Deze Node.js-toepassing stuurt een zoekaanvraag naar de API en geeft het antwoord weer. Hoewel deze toepassing in JavaScript is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
 
 ## <a name="prerequisites"></a>Vereisten
 Voordat u verdergaat met deze snelstart moet u beschikken over:
 
 * [PHP 5.6.x](http://php.net/downloads.php) of later
 * Een abonnementssleutel  
+
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="enable-secure-http-support"></a>Beveiligde HTTP-ondersteuning inschakelen
 

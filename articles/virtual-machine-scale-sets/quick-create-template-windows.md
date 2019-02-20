@@ -16,21 +16,20 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/18
 ms.author: cynthn
-ms.openlocfilehash: 809c2b2fb58be77bb86443e096a58110f9c5279c
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 13f55876b25acf974880eaebf15bd5f398f21f93
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887917"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977589"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-azure-template"></a>Quickstart: Een virtuele-machineschaalset in Windows maken met een Azure-sjabloon
+
 Met een virtuele-machineschaalset kunt u een reeks identieke virtuele machines met automatisch schalen implementeren en beheren. U kunt het aantal VM’s in de schaalset handmatig schalen of regels voor automatisch schalen definiëren op basis van resourcegebruik zoals CPU, vraag naar geheugen, of netwerkverkeer. Een Azure load balancer verdeelt het verkeer vervolgens naar de VM-exemplaren in de schaalset. In deze snelstartgids gebruikt u een Azure Resource Manager-sjabloon om een schaalset voor virtuele machines te maken en een voorbeeldtoepassing te implementeren.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
-
-Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze zelfstudie versie 5.5.0 of later van de Azure PowerShell-module vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
 
 ## <a name="define-a-scale-set-in-a-template"></a>Een schaalset definiëren in een sjabloon
@@ -141,19 +140,19 @@ U kunt de sjabloon [ASP.NET MVC -toepassing in Windows](https://github.com/Azure
 
 [![Sjabloon implementeren in Azure](media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-windows-webapp-dsc-autoscale%2Fazuredeploy.json)
 
-U kunt ook Azure PowerShell gebruiken om de ASP.NET-toepassing in Windows te installeren met [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment). Dit doet u als volgt:
+U kunt ook Azure PowerShell gebruiken om de ASP.NET-toepassing in Windows te installeren met [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). Dit doet u als volgt:
 
 ```azurepowershell-interactive
 # Create a resource group
-New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 # Deploy template into resource group
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
     -ResourceGroupName myResourceGroup `
     -TemplateFile https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-windows-webapp-dsc-autoscale/azuredeploy.json
 
 # Update the scale set and apply the extension
-Update-AzureRmVmss `
+Update-AzVmss `
     -ResourceGroupName myResourceGroup `
     -VmScaleSetName myVMSS `
     -VirtualMachineScaleSet $vmssConfig
@@ -163,10 +162,10 @@ Geef de waarden op voor de naam van de schaalset en de beheerdersreferenties voo
 
 
 ## <a name="test-your-scale-set"></a>Uw schaalset testen
-U kunt de schaalset in actie zien door in een webbrowser naar de voorbeeldwebtoepassing te gaan. Gebruik [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) als volgt om het openbare IP-adres van uw load balancer op te vragen:
+U kunt de schaalset in actie zien door in een webbrowser naar de voorbeeldwebtoepassing te gaan. Gebruik [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) als volgt om het openbare IP-adres van uw load balancer op te vragen:
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
+Get-AzPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
 Voer het openbare IP-adres van de load balancer in een webbrowser in. Gebruik hiervoor de notatie *http://publicIpAddress/MyApp*. Via de load balancer wordt verkeer naar een van uw VM-instanties gedistribueerd, zoals wordt weergegeven in het volgende voorbeeld:
@@ -175,10 +174,10 @@ Voer het openbare IP-adres van de load balancer in een webbrowser in. Gebruik hi
 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-U kunt de opdracht [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) gebruiken om de resourcegroep, schaalset en alle gerelateerde resources te verwijderen wanneer u deze niet meer nodig hebt. De parameter `-Force` bevestigt dat u de resources wilt verwijderen, zonder een extra prompt om dit te doen. De parameter `-AsJob` retourneert het besturingselement naar de prompt zonder te wachten totdat de bewerking is voltooid.
+U kunt de opdracht [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) gebruiken om de resourcegroep, schaalset en alle gerelateerde resources te verwijderen wanneer u ze niet meer nodig hebt. De parameter `-Force` bevestigt dat u de resources wilt verwijderen, zonder een extra prompt om dit te doen. De parameter `-AsJob` retourneert het besturingselement naar de prompt zonder te wachten totdat de bewerking is voltooid.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
+Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
 
 

@@ -4,17 +4,17 @@ description: Gebruik Azure Blueprints om artefacten te maken, te definiëren en 
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 02/04/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 78ce7c1063623e0c002bb6084d8c18139b3f889f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d7b2e6848c88d9c3ac61f2eaf059e0836dc19903
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566950"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989963"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Een Azure Blueprint definiëren en toewijzen met REST API
 
@@ -329,6 +329,12 @@ De waarde voor `{BlueprintVersion}` is een reeks letters, cijfers en afbreekstre
 
 Nadat een blauwdruk is gepubliceerd met REST API, kan deze worden toegewezen aan een abonnement. Wijs de blauwdruk die u hebt gemaakt toe aan een van de abonnementen in uw beheergroephiërarchie. Als de blauwdruk is opgeslagen in een abonnement, kan deze alleen aan dat abonnement worden toegewezen. De **Aanvraagbody** geeft de op te geven blauwdruk op, evenals een naam en locatie voor resourcegroepen in de blauwdrukdefinitie en alle parameters die in de blauwdruk zijn gedefinieerd en die zijn gebruikt door een of meer gekoppelde artefacten.
 
+In elke REST API-URI zijn er verschillende variabelen die worden gebruikt en die u moet vervangen door uw eigen waarden:
+
+- Vervang `{tenantId}` door uw tenant-id
+- Vervang `{YourMG}` door de ID van uw beheergroep
+- Vervang `{subscriptionId}` door uw abonnements-ID
+
 1. Geef in de Azure Blueprint-service-principal de rol **Eigenaar** op in het doelabonnement. De AppId is statisch (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), maar de service-principal-ID verschilt per tenant. U kunt voor uw tenant details aanvragen met de volgende REST API. Deze gebruikt [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md), die een andere autorisatie heeft.
 
    - REST API-URI
@@ -387,6 +393,25 @@ Nadat een blauwdruk is gepubliceerd met REST API, kan deze worden toegewezen aan
          "location": "westus"
      }
      ```
+
+   - Door een gebruiker toegewezen beheerde identiteit
+
+     Een blauwdruktoewijzing kan ook gebruikmaken van een [door een gebruiker toegewezen beheerde identiteit](../../active-directory/managed-identities-azure-resources/overview.md). In dit geval wordt het **identiteitsgedeelte** van de aanvraagtekst als volgt gewijzigd.  Vervang de naam van de resourcegroep en de naam van de door een gebruiker toegewezen beheerde identiteit door respectievelijk `{yourRG}` en `{userIdentity}`.
+
+     ```json
+     "identity": {
+         "type": "userAssigned",
+         "tenantId": "{tenantId}",
+         "userAssignedIdentities": {
+             "/subscriptions/{subscriptionId}/resourceGroups/{yourRG}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userIdentity}": {}
+         }
+     },
+     ```
+
+     De **door een gebruiker toegewezen beheerde identiteit** kan in elk abonnement en in elke resourcegroep aanwezig zijn waarvoor de gebruiker die de blauwdruk toewijst, is gemachtigd.
+
+     > [!IMPORTANT]
+     > De door een gebruiker toegewezen beheerde identiteit wordt niet beheerd door blauwdrukken. Gebruikers zijn verantwoordelijk voor het toewijzen van voldoende rollen en machtigingen, anders mislukken de blauwdruktoewijzingen.
 
 ## <a name="unassign-a-blueprint"></a>De toewijzing van een blauwdruk ongedaan maken
 

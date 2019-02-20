@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/11/2018
-ms.openlocfilehash: 93249b7d274ce9d7928dfa46eb339da68c92b785
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 02/12/2019
+ms.openlocfilehash: c6b23038ad68492e1965e1ebf7ce5e7cf1d788f7
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163293"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236631"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Snelstartgids: Gebruik .NET (C#) en C# in Visual Studio om verbinding te maken met, en query's uit te voeren op, een Azure SQL-database
 
@@ -27,13 +27,33 @@ In deze snelstartgids ziet u hoe u het [.NET Framework](https://www.microsoft.co
 
 U hebt het volgende nodig om deze quickstart te voltooien:
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-  
+- Een Azure SQL-database. U kunt een van deze quickstarts gebruiken om een database te maken en vervolgens te configureren in Azure SQL Database:
+
+  || Individuele database | Beheerd exemplaar |
+  |:--- |:--- |:---|
+  | Maken| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |
+  | Configureren | [IP-firewallregel op serverniveau](sql-database-server-level-firewall-rule.md)| [Connectiviteit vanaf een VM](sql-database-managed-instance-configure-vm.md)|
+  |||[Connectiviteit vanaf een locatie](sql-database-managed-instance-configure-p2s.md)
+  |Gegevens laden|Adventure Works geladen per quickstart|[Wide World Importers herstellen](sql-database-managed-instance-get-started-restore.md)
+  |||Adventure Works herstellen of importeren vanuit een [BACPAC](sql-database-import.md)-bestand uit [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||
+
+  > [!IMPORTANT]
+  > De scripts in dit artikel worden geschreven voor gebruik met de Adventure Works-database. Met een beheerd exemplaar moet u de Adventure Works-database importeren in een exemplaardatabase of de scripts in dit artikel wijzigen voor gebruik van de Wide World Importers-database.
+
 - [Visual Studio 2017](https://www.visualstudio.com/downloads/) Community-, Professional- of Enterprise-editie.
 
 ## <a name="get-sql-server-connection-information"></a>SQL Server-verbindingsgegevens ophalen
 
-[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
+Haal de verbindingsgegevens op die u nodig hebt om verbinding te maken met de Azure SQL-database. U hebt de volledig gekwalificeerde servernaam of hostnaam, databasenaam en aanmeldingsgegevens in de volgende procedures nodig.
+
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
+
+2. Navigeer naar de pagina **SQL-database** of **Met SQL beheerde exemplaren**.
+
+3. Bekijk op de pagina **Overzicht** de volledig gekwalificeerde servernaam naast **Servernaam** voor een individuele database, of de volledig gekwalificeerde servernaam naast **Host** voor een beheerd exemplaar. Als u de servernaam of hostnaam wilt kopiëren, plaatst u de muisaanwijzer erop en selecteert u het pictogram **Kopiëren**. 
 
 ## <a name="create-code-to-query-the-sql-database"></a>Code maken om query's uit te voeren op de SQL-database
 

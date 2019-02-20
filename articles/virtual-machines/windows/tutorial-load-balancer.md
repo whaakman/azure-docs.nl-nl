@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 02/09/2018
+ms.date: 12/03/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 68ffa1280e6f23d75f6bd470042d25c5d768d0cf
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: fbb0f10c425a732b566431d90ae341122fe9a5f6
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884058"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977980"
 ---
 # <a name="tutorial-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application-with-azure-powershell"></a>Zelfstudie: Taakverdelingen maken voor virtuele Windows-machines in Azure om een maximaal beschikbare toepassing te maken met Azure PowerShell
 Taakverdeling zorgt voor een hogere beschikbaarheid door binnenkomende aanvragen te spreiden over meerdere virtuele machines. In deze zelfstudie leert u meer over de verschillende onderdelen van Azure Load Balancer die het verkeer verdelen en zorgen voor hoge beschikbaarheid. In deze zelfstudie leert u procedures om het volgende te doen:
@@ -35,11 +35,6 @@ Taakverdeling zorgt voor een hogere beschikbaarheid door binnenkomende aanvragen
 > * Een load balancer in actie zien
 > * VM's toevoegen aan en verwijderen uit een load balancer
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
-
-Als u ervoor kiest om PowerShell lokaal te installeren en te gebruiken, moet u moduleversie 5.7.0 of hoger van Azure PowerShell gebruiken voor deze zelfstudie. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
-
-
 ## <a name="azure-load-balancer-overview"></a>Overzicht van Azure Load Balancer
 Een Azure-load balancer is een Layer-4-load balancer (TCP, UDP) die zorgt voor hoge beschikbaarheid door inkomend verkeer te distribueren tussen correct werkende virtuele machines. Tijdens een statustest van een load balancer wordt een bepaalde poort op elke VM gecontroleerd en wordt verkeer alleen naar een werkende VM gedistribueerd.
 
@@ -49,21 +44,26 @@ Virtuele machines maken verbinding met een load balancer via hun virtuele netwer
 
 Om de verkeersstroom te regelen, definieert u load balancer-regels voor specifieke poorten en protocollen die aan uw VM's worden toegewezen.
 
+## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell starten
+
+Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. 
+
+Als u Cloud Shell wilt openen, selecteert u **Proberen** in de rechterbovenhoek van een codeblok. U kunt Cloud Shell ook openen in een afzonderlijk browsertabblad door naar [https://shell.azure.com/powershell](https://shell.azure.com/powershell) te gaan. Klik op **Kopiëren** om de codeblokken te kopiëren, plak deze in Cloud Shell en druk vervolgens op Enter om de code uit te voeren.
 
 ## <a name="create-azure-load-balancer"></a>Azure-load balancer maken
-In dit gedeelte wordt beschreven hoe u elk onderdeel van de load balancer kunt maken en configureren. Voordat u een load balancer kunt maken, moet u eerst een resourcegroep maken met [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupLoadBalancer* gemaakt op de locatie *VS Oost*:
+In dit gedeelte wordt beschreven hoe u elk onderdeel van de load balancer kunt maken en configureren. Voordat u een load balancer kunt maken, moet u eerst een resourcegroep maken met [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupLoadBalancer* gemaakt op de locatie *VS Oost*:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
   -ResourceGroupName "myResourceGroupLoadBalancer" `
   -Location "EastUS"
 ```
 
 ### <a name="create-a-public-ip-address"></a>Een openbaar IP-adres maken
-Om toegang te krijgen tot uw app op internet, hebt u een openbaar IP-adres nodig voor de load balancer. Maak een openbaar IP-adres met [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). In het volgende voorbeeld wordt een openbaar IP-adres met de naam *myPublicIP* gemaakt in de resourcegroep *myResourceGroupLoadBalancer*:
+Om toegang te krijgen tot uw app op internet, hebt u een openbaar IP-adres nodig voor de load balancer. Maak een openbaar IP-adres met [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress). In het volgende voorbeeld wordt een openbaar IP-adres met de naam *myPublicIP* gemaakt in de resourcegroep *myResourceGroupLoadBalancer*:
 
 ```azurepowershell-interactive
-$publicIP = New-AzureRmPublicIpAddress `
+$publicIP = New-AzPublicIpAddress `
   -ResourceGroupName "myResourceGroupLoadBalancer" `
   -Location "EastUS" `
   -AllocationMethod "Static" `
@@ -71,24 +71,25 @@ $publicIP = New-AzureRmPublicIpAddress `
 ```
 
 ### <a name="create-a-load-balancer"></a>Een load balancer maken
-Maak een front-end-IP-adresgroep met [New-AzureRmLoadBalancerFrontendIpConfig](/powershell/module/azurerm.network/new-azurermloadbalancerfrontendipconfig). In het volgende voorbeeld wordt een front-end-IP-groep met de naam *myFrontEndPool* gemaakt en wordt het adres *myPublicIP* eraan gekoppeld: 
+Maak een front-end-IP-pool met [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig). In het volgende voorbeeld wordt een front-end-IP-groep met de naam *myFrontEndPool* gemaakt en wordt het adres *myPublicIP* eraan gekoppeld: 
 
 ```azurepowershell-interactive
-$frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
+$frontendIP = New-AzLoadBalancerFrontendIpConfig `
   -Name "myFrontEndPool" `
   -PublicIpAddress $publicIP
 ```
 
-Maak een back-end-adresgroep met [New-AzureRmLoadBalancerBackendAddressPoolConfig](/powershell/module/azurerm.network/new-azurermloadbalancerbackendaddresspoolconfig). In de resterende stappen worden de VM’s aan deze back-end-groep gekoppeld. In het volgende voorbeeld wordt een back-end-adresgroep met de naam *myBackEndPool* gemaakt:
+Maak een back-end-adresgroep met [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig). In de resterende stappen worden de VM’s aan deze back-end-groep gekoppeld. In het volgende voorbeeld wordt een back-end-adresgroep met de naam *myBackEndPool* gemaakt:
 
 ```azurepowershell-interactive
-$backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "myBackEndPool"
+$backendPool = New-AzLoadBalancerBackendAddressPoolConfig `
+  -Name "myBackEndPool"
 ```
 
-Maak nu de load balancer met [New-AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer). In het volgende voorbeeld wordt een load balancer met de naam *myLoadBalancer* gemaakt met behulp van de front-end- en back-end-IP-adresgroepen die in de voorgaande stappen zijn gemaakt:
+Maak nu de load balancer met [New-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancer). In het volgende voorbeeld wordt een load balancer met de naam *myLoadBalancer* gemaakt met behulp van de front-end- en back-end-IP-adresgroepen die in de voorgaande stappen zijn gemaakt:
 
 ```azurepowershell-interactive
-$lb = New-AzureRmLoadBalancer `
+$lb = New-AzLoadBalancer `
   -ResourceGroupName "myResourceGroupLoadBalancer" `
   -Name "myLoadBalancer" `
   -Location "EastUS" `
@@ -101,10 +102,10 @@ U gebruikt een statustest om de load balancer de status van uw app te laten bewa
 
 In het volgende voorbeeld wordt een TCP-test gemaakt. U kunt ook aangepaste HTTP-tests maken voor meer fijnmazige statuscontroles. Wanneer u een aangepaste HTTP-test maakt, moet u de statustestpagina maken, zoals *healthcheck.aspx*. De test moet het antwoord **HTTP 200 OK** voor de load balancer retourneren om de host in rotatie te houden.
 
-U maakt een TCP-statustest met behulp van [Add-AzureRmLoadLoadBalancerProbeConfig](/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig). In het volgende voorbeeld wordt een statustest gemaakt met de naam *myHealthProbe*, die elke VM bewaakt op *TCP*-poort *80*:
+U maakt een TCP-statustest met behulp van [Add-AzLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/az.network/add-azloadbalancerprobeconfig). In het volgende voorbeeld wordt een statustest gemaakt met de naam *myHealthProbe*, die elke VM bewaakt op *TCP*-poort *80*:
 
 ```azurepowershell-interactive
-Add-AzureRmLoadBalancerProbeConfig `
+Add-AzLoadBalancerProbeConfig `
   -Name "myHealthProbe" `
   -LoadBalancer $lb `
   -Protocol tcp `
@@ -113,21 +114,21 @@ Add-AzureRmLoadBalancerProbeConfig `
   -ProbeCount 2
 ```
 
-Werk de load balancer bij met [Set-AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer) om de statustest toe te passen:
+Werk de load balancer bij met [Set-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/set-azloadbalancer) om de statustest toe te passen:
 
 ```azurepowershell-interactive
-Set-AzureRmLoadBalancer -LoadBalancer $lb
+Set-AzLoadBalancer -LoadBalancer $lb
 ```
 
 ### <a name="create-a-load-balancer-rule"></a>Een load balancer-regel maken
 Een load balancer-regel wordt gebruikt om de verdeling van het verkeer over de VM's te definiëren. U definieert de front-end-IP-configuratie voor het inkomende verkeer en de back-end-IP-groep om het verkeer te ontvangen, samen met de gewenste bron- en doelpoort. Om ervoor te zorgen dat alleen VM's met een goede status verkeer ontvangen, moet u ook de te gebruiken statustest definiëren.
 
-Maak een load balancer-regel met [Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig). In het volgende voorbeeld wordt een load balancer-regel met de naam *myLoadBalancerRule* gemaakt waarmee het verkeer op *TCP*-poort *80* wordt geregeld:
+Maak een load balancer-regel met [Add-AzLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/az.network/add-azloadbalancerruleconfig). In het volgende voorbeeld wordt een load balancer-regel met de naam *myLoadBalancerRule* gemaakt waarmee het verkeer op *TCP*-poort *80* wordt geregeld:
 
 ```azurepowershell-interactive
-$probe = Get-AzureRmLoadBalancerProbeConfig -LoadBalancer $lb -Name "myHealthProbe"
+$probe = Get-AzLoadBalancerProbeConfig -LoadBalancer $lb -Name "myHealthProbe"
 
-Add-AzureRmLoadBalancerRuleConfig `
+Add-AzLoadBalancerRuleConfig `
   -Name "myLoadBalancerRule" `
   -LoadBalancer $lb `
   -FrontendIpConfiguration $lb.FrontendIpConfigurations[0] `
@@ -138,26 +139,26 @@ Add-AzureRmLoadBalancerRuleConfig `
   -Probe $probe
 ```
 
-Werk de load balancer bij met [Set-AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer):
+Werk de load balancer bij met [Set-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/set-azloadbalancer):
 
 ```azurepowershell-interactive
-Set-AzureRmLoadBalancer -LoadBalancer $lb
+Set-AzLoadBalancer -LoadBalancer $lb
 ```
 
 ## <a name="configure-virtual-network"></a>Virtueel netwerk configureren
 Voordat u enkele VM's implementeert en uw balancer test, maakt u de ondersteunende virtuele-netwerkbronnen. Zie de zelfstudie [Manage Azure Virtual Networks](tutorial-virtual-network.md) (Virtuele Azure-netwerken beheren) voor meer informatie over virtuele netwerken.
 
 ### <a name="create-network-resources"></a>Netwerkbronnen maken
-Maak een virtueel netwerk met [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). In het volgende voorbeeld wordt een virtueel netwerk gemaakt met de naam *myVnet* met *mySubnet*:
+Maak een virtueel netwerk met [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork). In het volgende voorbeeld wordt een virtueel netwerk gemaakt met de naam *myVnet* met *mySubnet*:
 
 ```azurepowershell-interactive
 # Create subnet config
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+$subnetConfig = New-AzVirtualNetworkSubnetConfig `
   -Name "mySubnet" `
   -AddressPrefix 192.168.1.0/24
 
 # Create the virtual network
-$vnet = New-AzureRmVirtualNetwork `
+$vnet = New-AzVirtualNetwork `
   -ResourceGroupName "myResourceGroupLoadBalancer" `
   -Location "EastUS" `
   -Name "myVnet" `
@@ -165,12 +166,12 @@ $vnet = New-AzureRmVirtualNetwork `
   -Subnet $subnetConfig
 ```
 
-Er worden virtuele NIC’s gemaakt met [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). In het volgende voorbeeld worden drie virtuele NIC's gemaakt. (Eén virtuele NIC voor elke VM die u in de volgende stappen voor uw app maakt). U kunt op elk gewenst moment extra virtuele NIC's en VM's maken en toevoegen aan de load balancer:
+Er worden virtuele NIC’s gemaakt met [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface). In het volgende voorbeeld worden drie virtuele NIC's gemaakt. (Eén virtuele NIC voor elke VM die u in de volgende stappen voor uw app maakt). U kunt op elk gewenst moment extra virtuele NIC's en VM's maken en toevoegen aan de load balancer:
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 3; $i++)
 {
-   New-AzureRmNetworkInterface `
+   New-AzNetworkInterface `
      -ResourceGroupName "myResourceGroupLoadBalancer" `
      -Name myVM$i `
      -Location "EastUS" `
@@ -183,10 +184,10 @@ for ($i=1; $i -le 3; $i++)
 ## <a name="create-virtual-machines"></a>Virtuele machines maken
 Verbeter de hoge beschikbaarheid van uw app door uw VM's in een beschikbaarheidsset te plaatsen.
 
-Maak een beschikbaarheidsset met [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset). In het volgende voorbeeld wordt een beschikbaarheidsset met de naam *myAvailabilitySet* gemaakt:
+Maak een beschikbaarheidsset met [New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset). In het volgende voorbeeld wordt een beschikbaarheidsset met de naam *myAvailabilitySet* gemaakt:
 
 ```azurepowershell-interactive
-$availabilitySet = New-AzureRmAvailabilitySet `
+$availabilitySet = New-AzAvailabilitySet `
   -ResourceGroupName "myResourceGroupLoadBalancer" `
   -Name "myAvailabilitySet" `
   -Location "EastUS" `
@@ -201,12 +202,12 @@ Stel een beheerdersnaam en -wachtwoord voor de VM’s in met [Get-Credential](ht
 $cred = Get-Credential
 ```
 
-Nu kunt u de VM’s maken met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). In het volgende voorbeeld worden drie VM’s en de vereiste virtuele netwerkonderdelen gemaakt als deze nog niet bestaan:
+Nu kunt u de VM’s maken met [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). In het volgende voorbeeld worden drie VM’s en de vereiste virtuele netwerkonderdelen gemaakt als deze nog niet bestaan:
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 3; $i++)
 {
-    New-AzureRmVm `
+    New-AzVm `
         -ResourceGroupName "myResourceGroupLoadBalancer" `
         -Name "myVM$i" `
         -Location "East US" `
@@ -226,12 +227,12 @@ Door de parameter `-AsJob` wordt de VM gemaakt als achtergrondtaak, zodat u weer
 ### <a name="install-iis-with-custom-script-extension"></a>IIS installeren met Custom Script Extension
 In een eerdere zelfstudie over [Het aanpassen van een virtuele Windows-machine](tutorial-automate-vm-deployment.md) hebt u geleerd hoe u het aanpassen van VM’s kunt automatiseren met de Custom Script Extension voor Windows. U kunt dezelfde benadering gebruiken om IIS op uw VM’s te installeren en te configureren.
 
-Gebruik [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) om de aangepaste scriptextensie te installeren. De extensie voert `powershell Add-WindowsFeature Web-Server` uit om de IIS-webserver te installeren en werkt vervolgens de pagina *Default.htm* bij om de hostnaam van de VM weer te geven:
+Gebruik [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) om de aangepaste scriptextensie te installeren. De extensie voert `powershell Add-WindowsFeature Web-Server` uit om de IIS-webserver te installeren en werkt vervolgens de pagina *Default.htm* bij om de hostnaam van de VM weer te geven:
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 3; $i++)
 {
-   Set-AzureRmVMExtension `
+   Set-AzVMExtension `
      -ResourceGroupName "myResourceGroupLoadBalancer" `
      -ExtensionName "IIS" `
      -VMName myVM$i `
@@ -244,10 +245,10 @@ for ($i=1; $i -le 3; $i++)
 ```
 
 ## <a name="test-load-balancer"></a>Load balancer testen
-Haal het openbare IP-adres van uw load balancer op met [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). In het volgende voorbeeld wordt het IP-adres opgehaald voor het eerder gemaakte *myPublicIP*:
+Haal het openbare IP-adres van uw load balancer op met [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress). In het volgende voorbeeld wordt het IP-adres opgehaald voor het eerder gemaakte *myPublicIP*:
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIPAddress `
+Get-AzPublicIPAddress `
   -ResourceGroupName "myResourceGroupLoadBalancer" `
   -Name "myPublicIP" | select IpAddress
 ```
@@ -263,29 +264,29 @@ Als u wilt zien hoe de load balancer verkeer distribueert naar alle drie de VM's
 Het is mogelijk dat u onderhoud moet uitvoeren op de VM's waarop uw app wordt uitgevoerd, zoals het installeren van besturingssysteemupdates. U moet mogelijk extra VM's toevoegen vanwege toegenomen verkeer naar uw app. In dit gedeelte wordt beschreven hoe u een VM aan de load balancer toevoegt of ervan verwijdert.
 
 ### <a name="remove-a-vm-from-the-load-balancer"></a>Een VM van de load balancer verwijderen
-Haal de netwerkinterfacekaart op met [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) en stel de eigenschap *LoadBalancerBalancerBackendAddressPools* van de virtuele NIC in op *$null*. Werk tot slot de virtuele NIC bij:
+Haal de netwerkinterfacekaart op met [Get-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkinterface) en stel de eigenschap *LoadBalancerBackendAddressPools* van de virtuele NIC in op *$null*. Werk tot slot de virtuele NIC bij:
 
 ```azurepowershell-interactive
-$nic = Get-AzureRmNetworkInterface `
+$nic = Get-AzNetworkInterface `
     -ResourceGroupName "myResourceGroupLoadBalancer" `
     -Name "myVM2"
 $nic.Ipconfigurations[0].LoadBalancerBackendAddressPools=$null
-Set-AzureRmNetworkInterface -NetworkInterface $nic
+Set-AzNetworkInterface -NetworkInterface $nic
 ```
 
 Als u wilt zien hoe de load balancer verkeer distribueert naar de resterende twee VM's waarop uw app wordt uitgevoerd, kunt u vernieuwing van uw webbrowser afdwingen. U kunt nu onderhoud uitvoeren op de VM, zoals het installeren van updates voor het besturingssysteem of het opnieuw opstarten van de VM.
 
 ### <a name="add-a-vm-to-the-load-balancer"></a>Een VM toevoegen aan de load balancer
-Stel na het uitvoeren van VM-onderhoud, of als u capaciteit moet uitbreiden, de eigenschap *LoadBalancerBackendAddressPools* van het virtuele NIC in op de *BackendAddressPool* van [Get-AzureRMLoadBalancer](/powershell/module/azurerm.network/get-azurermloadbalancer):
+Stel na het uitvoeren van VM-onderhoud, of als u capaciteit moet uitbreiden, de eigenschap *LoadBalancerBackendAddressPools* van het virtuele NIC in op de *BackendAddressPool* van [Get-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/get-azloadbalancer):
 
 Haal de load balancer op:
 
 ```azurepowershell-interactive
-$lb = Get-AzureRMLoadBalancer `
+$lb = Get-AzLoadBalancer `
     -ResourceGroupName myResourceGroupLoadBalancer `
     -Name myLoadBalancer 
 $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$lb.BackendAddressPools[0]
-Set-AzureRmNetworkInterface -NetworkInterface $nic
+Set-AzNetworkInterface -NetworkInterface $nic
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

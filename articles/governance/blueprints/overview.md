@@ -4,17 +4,17 @@ description: Azure Blueprints is een service in Azure waarmee u artefacten kunt 
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 02/08/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 7803ed99a61a9b4ad819da882daf38cbfd6fffe9
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 29670b94450e9f145a96b737ef96970db40aeed8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563368"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998549"
 ---
 # <a name="what-is-azure-blueprints"></a>Wat is Azure Blueprints?
 
@@ -112,6 +112,12 @@ Alle bovenstaande machtigingen zijn opgenomen in de rol **Eigenaar**. De rol **I
 
 > [!NOTE]
 > De service-principal voor Azure Blueprint vereist de **Eigenaar**-rol op het toegewezen abonnement om implementatie mogelijk te maken. Als u de portal gebruikt, wordt deze rol automatisch verleend en ingetrokken voor de implementatie. Als u de REST API gebruikt, moet deze rol handmatig worden toegekend, maar wordt deze automatisch ingetrokken nadat de implementatie is voltooid.
+
+## <a name="video-overview"></a>Video-overzicht
+
+Het volgende overzicht van Azure Blueprints is afkomstig van Azure Fridays. Als u de video wilt downloaden, gaat u naar [Azure Fridays - An overview of Azure Blueprints](https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints) op Channel 9.
+
+> [!VIDEO https://www.youtube.com/embed/cQ9D-d6KkMY]
 
 ## <a name="next-steps"></a>Volgende stappen
 

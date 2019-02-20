@@ -4,7 +4,7 @@ description: In deze snelstartgids wordt beschreven hoe u een upgrade uitvoert n
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 8a0467a383e2c8e3efab685187c5a37d1549f664
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3442ced47e50485da1ffdd475d9649243b1c8583
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838155"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116691"
 ---
-# <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Snelstartgids: uw Azure-abonnement onboarden voor Security Center Standard
+# <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Quickstart: Uw Azure-abonnement onboarden voor Security Center Standard
 Azure Security Center biedt geïntegreerd beveiligingsbeheer en bedreigingsbeveiliging voor uw verschillende hybride cloudworkloads. De Gratis laag biedt beperkte beveiliging voor alleen uw Azure-resources, maar de prijscategorie Standard biedt deze mogelijkheden ook voor on-premises en andere clouds. Standard van Security Center helpt u beveiligingsproblemen te vinden en op te lossen, toegangs- en toepassingsbesturingselementen toe te passen om schadelijke activiteiten te blokkeren, bedreigingen te detecteren met behulp van analyses en gegevens en snel te reageren bij aanvallen. U kunt Security Center Standard kosteloos proberen. Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie.
 
 In dit artikel gaat u upgraden naar de prijscategorie Standard voor extra beveiliging en MMA installeren op uw virtuele machines om te controleren op beveiligingsproblemen en bedreigingen.
@@ -107,7 +107,7 @@ Als u automatisch inrichten wilt uitschakelen:
 In deze snelstartgids hebt u een upgrade naar de prijscategorie Standard uitgevoerd en de MMA ingericht voor geïntegreerd beveiligingsbeheer en bescherming tegen bedreigingen voor uw hybride cloudworkloads. Ga naar de snelstartgids voor het onboarden van Windows-computers die zich on-premises en in andere clouds bevinden voor meer informatie over hoe u Security Center kunt gebruiken.
 
 > [!div class="nextstepaction"]
-> [Snelstartgids: Windows-computers onboarden naar Azure Security Center](quick-onboard-windows-computer.md)
+> [Snelstart: Windows-computers onboarden naar Azure Security Center](quick-onboard-windows-computer.md)
 
 <!--Image references-->
 [2]: ./media/security-center-get-started/overview.png

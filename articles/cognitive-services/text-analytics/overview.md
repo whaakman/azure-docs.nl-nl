@@ -3,25 +3,25 @@ title: Wat is Text Analytics?
 titleSuffix: Azure Cognitive Services
 description: Text Analytics in Azure Cognitive Services voor sentimentanalyse, sleuteltermextractie, taaldetectie en entiteitskoppeling.
 services: cognitive-services
-author: ashmaka
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 10/01/2018
-ms.author: ashmaka
-ms.openlocfilehash: 73505064bf5cde4e97cd210698e21883cc9f5e38
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: 0de4e0d750d8ae3061ed0b80d706dec545338a90
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227876"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242923"
 ---
 # <a name="what-is-text-analytics"></a>Wat is Text Analytics?
 
 De Text Analytics-API is een op de cloud gebaseerde service die geavanceerde verwerking van natuurlijke taal biedt voor onbewerkte tekst. De service bevat vier hoofdfuncties: sentimentanalyse, sleuteltermextractie, taaldetectie en entiteitskoppeling.
 
-De API wordt ondersteund door resources [Microsoft Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), een verzameling van machine learning- en AI-algoritmen in de cloud, die direct kunnen worden gebruikt in uw ontwikkelprojecten.
+De API maakt deel uit van [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), een verzameling van machine learning- en AI-algoritmen in de cloud, die kunnen worden gebruikt in uw ontwikkelprojecten.
 
 ## <a name="capabilities-in-text-analytics"></a>Mogelijkheden in Text Analytics
 

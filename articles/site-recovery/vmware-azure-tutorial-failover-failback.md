@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e3687ac5941d4f4fda70f96fa9df1ec1904e102e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 783f8006ba19622761beef0ff931bcbb80edde46
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822473"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115892"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Failover- en failback-overschakeling uitvoeren van naar Azure gerepliceerde VMware-VM’s en fysieke servers
 
@@ -98,7 +98,7 @@ Volg de stappen die [hier](site-recovery-failover-to-azure-troubleshoot.md) word
 > [!IMPORTANT]
 > Als u een VPN-verbinding tussen uw on-premises omgeving en Azure hebt, moet u een Azure-VM instellen als een processerver om opnieuw te beveiligen en voor failback. Volg de instructies in [dit artikel](vmware-azure-set-up-process-server-azure.md) om een processerver in te stellen in Azure.
 
-Raadpleeg voor meer informatie over de vereisten voor opnieuw beveiligen en failback deze [sectie]] (vmware-azure-reprotect.md##before-you-begin). 
+Raadpleeg voor meer informatie over de vereisten voor opnieuw beveiligen en failback deze [sectie](vmware-azure-reprotect.md##before-you-begin). 
 
 ### <a name="configure-the-master-target-server"></a>De hoofddoelserver configureren
 

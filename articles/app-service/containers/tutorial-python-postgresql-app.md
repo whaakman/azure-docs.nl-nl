@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: beverst;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c70c7e8b893c511aae36f122c5983fd0958eac8e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 161778c921026547c532b05474a60dd0d3e9fa7a
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975386"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237797"
 ---
 # <a name="build-a-python-and-postgresql-app-in-azure-app-service"></a>Een Python- en PostgreSQL-app in Azure App Service maken
 
@@ -33,6 +33,9 @@ In deze zelfstudie leert u het volgende:
 > * De app implementeren in Azure
 > * Diagnostische logboeken weergeven
 > * De app in Azure Portal beheren
+
+> [!NOTE]
+> Kijk [hier](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores) voordat u een Azure Database for PostgreSQL gaat maken om te zien welke compute-generatie beschikbaar is in uw regio.
 
 U kunt de stappen in dit artikel volgen op macOS. De instructies voor Windows en Linux zijn meestal gelijk, maar de verschillen worden in deze zelfstudie niet uitgewerkt.
 

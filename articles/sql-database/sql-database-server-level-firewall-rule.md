@@ -1,6 +1,6 @@
 ---
 title: Een firewallregel op serverniveau maken - Azure SQL Database| Microsoft Docs
-description: Een firewallregel maken op SQL Database-serverniveau voor een individuele database of database in een pool
+description: Een firewallregel maken op SQL Database-serverniveau voor individuele en gepoolde databases
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,17 +11,17 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 2374707d3fdf4d389a7c96c18767d3c52a9efb2f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/11/2019
+ms.openlocfilehash: f708e5a3cd5bc0f11f8b0cfe79a791347c7a7a2b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757183"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108956"
 ---
-# <a name="quickstart-create-a-server-level-firewall-rule-in-azure-sql-database-using-the-azure-portal"></a>Quickstart: Een firewallregel op serverniveau maken in Azure SQL Database met behulp van de Azure-portal
+# <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Quickstart: Een firewallregel op serverniveau maken voor uw individuele en gepoolde databases met behulp van de Azure-portal
 
-Deze quickstart laat zien hoe u een firewallregel op serverniveau kunt maken in Azure SQL-database met behulp van de Azure-portal, zodat u er verbinding mee kunt maken vanuit een on-premises resource.
+Deze quickstart beschrijft hoe u een [firewallregel op serverniveau](sql-database-firewall-configure.md) maakt voor individuele en gepoolde databases in Azure SQL Database met behulp van de Azure-portal, zodat u verbinding kunt maken met databaseservers, individuele databases en elastische pools en de bijbehorende databases. Een firewallregel is vereist om verbinding te maken vanaf andere Azure-resources en vanaf on-premises bronnen.
 
 ## <a name="prerequisites"></a>Vereisten
 

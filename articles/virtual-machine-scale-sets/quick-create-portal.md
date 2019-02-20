@@ -17,12 +17,12 @@ ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 03/27/18
 ms.author: cynthn
-ms.openlocfilehash: 7644940418b7322e5ec4b02b793219b44ae3aa97
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: ed17d7cd887df6d8bd749ba4426d1a791b58d457
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885146"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56171227"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Quickstart: Een schaalset voor virtuele machines maken in Azure Portal
 Met een virtuele-machineschaalset kunt u een reeks identieke virtuele machines met automatisch schalen implementeren en beheren. U kunt het aantal VM’s in de schaalset handmatig schalen of regels voor automatisch schalen definiëren op basis van resourcegebruik zoals CPU, vraag naar geheugen, of netwerkverkeer. Een Azure load balancer verdeelt het verkeer vervolgens naar de VM-exemplaren in de schaalset. In deze snelstartgids gaat u in Azure Portal een schaalset voor virtuele machines maken.
@@ -46,11 +46,12 @@ U kunt een schaalset implementeren met een installatiekopie van Windows Server o
     - Een **wachtwoord** moet ten minste 12 tekens lang zijn en aan drie van de vier volgende complexiteitsvereisten voldoen: ten minste één kleine letter, één hoofdletter, één cijfer en één speciaal teken. Zie [Wat zijn de wachtwoordvereisten bij het maken van een virtuele machine?](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm) voor meer informatie.
     - Als u een installatiekopie voor een Linux-besturingssysteem selecteert, kunt u ook **Openbare SSH-sleutel** kiezen. Geef alleen de openbare sleutel op, zoals *~/.ssh/id_rsa.pub*. U kunt vanuit de portal de Azure Cloud-Shell gebruiken om [SSH-sleutels te maken en gebruiken](../virtual-machines/linux/mac-create-ssh-keys.md).
 
-7. Geef een **openbaar IP-adres** op, zoals *myPublicIP*.
-8. Voer een uniek **domeinnaamlabel** in, zoals *myuniquedns*. Dit DNS-label vormt de basis van de FQDN-naam voor de load balancer vóór de schaalset.
-9. Selecteer **Maken** om de opties voor de schaalset te bevestigen.
+    ![Basisgegevens om een virtuele-machineschaalset te maken in de Azure-portal](./media/virtual-machine-scale-sets-create-portal/create-scale-set-basic-details.png)
+1. Selecteer onder **Opties voor taakverdeling kiezen** een optie voor taakverdeling, zoals *Load balancer*. Voer de resterende gegevens in voor de optie voor uw taakverdeling. Voor bijvoorbeeld *Load balancer* dient u een **openbare IP-adresnaam** en een **domeinnaamlabel** in te voeren.
+1. Voer de gegevens voor het virtuele netwerk in onder **Virtuele netwerken configureren**. U kunt bijvoorbeeld een nieuw virtueel netwerk maken, *myVirtualNetwork* en een nieuw subnet, *default*.
+1. Selecteer **Maken** om de opties voor de schaalset te bevestigen.
+    ![Netwerkgegevens om een virtuele-machineschaalset te maken in de Azure-portal](./media/virtual-machine-scale-sets-create-portal/create-scale-set-networking-details.png)
 
-    ![Een schaalset voor virtuele machines maken in Azure Portal](./media/virtual-machine-scale-sets-create-portal/create-scale-set.png)
 
 
 ## <a name="connect-to-a-vm-in-the-scale-set"></a>Verbinding maken met een VM in de schaalset

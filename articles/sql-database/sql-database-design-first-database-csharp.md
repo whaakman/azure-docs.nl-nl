@@ -1,6 +1,6 @@
 ---
-title: Uw eerste Azure SQL database - C# ontwerpen | Microsoft Docs
-description: Informatie over het ontwerpen van uw eerste Azure SQL database en het verbinding maken met een C#-programma dat ADO.NET gebruikt.
+title: Uw eerste relationele database ontwerpen - C# - Azure SQL Database | Microsoft Docs
+description: Leer hoe u uw eerste relationele database in een individuele database in Azure SQL Database kunt ontwerpen met C# met behulp van ADO.NET.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -9,41 +9,103 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
 manager: craigg-msft
-ms.date: 12/10/2018
-ms.openlocfilehash: cf180f6e2970ac4435602f1cceeb98a4dd9e8724
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 02/08/2019
+ms.openlocfilehash: ce46a6b8d4e2bc57625f9202349718dfbaedc660
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727162"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995678"
 ---
-# <a name="tutorial-design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Zelfstudie: Een Azure SQL-database ontwerpen en verbinding maken met C&#x23; en ADO.NET
+# <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Zelfstudie: Een relationele database in een individuele database ontwerpen in Azure SQL Database C&#x23; en ADO.NET
 
 Azure SQL Database is een relationele DBaaS (database-as-a-service) in Microsoft Cloud (Azure). In deze zelfstudie leert u hoe u Azure Portal en ADO.NET met Visual Studio gebruikt voor de volgende taken:
 
 > [!div class="checklist"]
-> * Een database maken in Azure Portal
-> * Een serverfirewallregel instellen in Azure Portal
+> * Een individuele database maken met behulp van de Azure-portal*
+> * Een IP-firewallregel op serverniveau instellen met de Azure-portal
 > * Verbinding maken met de database met ADO.NET en Visual Studio
 > * Tabellen maken met ADO.NET
 > * Gegevens invoegen, bijwerken en verwijderen met ADO.NET
 > * Querygegevens ADO.NET
 
-Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
+*Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Een installatie van [Visual Studio 2017](https://www.visualstudio.com/downloads/)
 
-<!-- The following included .md, sql-database-tutorial-portal-create-firewall-connection-1.md, is long.
-And it starts with a ## H2.
--->
+## <a name="create-a-blank-single-database"></a>Een lege individuele database maken
 
-[!INCLUDE [sql-database-tutorial-portal-create-firewall-connection-1](../../includes/sql-database-tutorial-portal-create-firewall-connection-1.md)]
+Een individuele Azure SQL-database wordt gemaakt met een gedefinieerde set reken- en opslagresources. De database wordt gemaakt in een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) en wordt beheerd met een [databaseserver](sql-database-servers.md).
 
-<!-- The following included .md, sql-database-csharp-adonet-create-query-2.md, is long.
-And it starts with a ## H2.
--->
+Volg deze stappen om een lege individuele database te maken.
+
+1. Klik in de linkerbovenhoek van Azure Portal op **Een resource maken**.
+2. Selecteer op de pagina **Nieuw** **Databases** in de sectie Azure Marketplace en klik vervolgens op **SQL Database** in de sectie **Aanbevolen**.
+
+   ![lege database maken](./media/sql-database-design-first-database/create-empty-database.png)
+
+3. Vul het formulier **SQL Database** in met de volgende informatie, zoals in de voorgaande afbeelding wordt weergegeven:
+
+    | Instelling       | Voorgestelde waarde | Beschrijving |
+    | ------------ | ------------------ | ------------------------------------------------- |
+    | **Databasenaam** | *yourDatabase* | Zie [Database-id's](/sql/relational-databases/databases/database-identifiers) voor geldige databasenamen. |
+    | **Abonnement** | *yourSubscription*  | Zie [Abonnementen](https://account.windowsazure.com/Subscriptions) voor meer informatie over uw abonnementen. |
+    | **Resourcegroep** | *yourResourceGroup* | Zie [Naming conventions](/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige resourcegroepnamen. |
+    | **Bron selecteren** | Lege database | Hiermee geeft u aan dat er een lege database moet worden gemaakt. |
+
+4. Klik op **Server** als u een bestaande databaseserver wilt gebruiken of een nieuwe databaseserver wilt maken en configureren. Selecteer een bestaande server of klik op **Een nieuwe server maken** en vul het formulier **Nieuwe server** in met de volgende gegevens:
+
+    | Instelling       | Voorgestelde waarde | Beschrijving |
+    | ------------ | ------------------ | ------------------------------------------------- |
+    | **Servernaam** | Een wereldwijd unieke naam | Zie [Naming conventions](/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige servernamen. |
+    | **Aanmeldgegevens van serverbeheerder** | Een geldige naam | Zie [Database-id's](/sql/relational-databases/databases/database-identifiers) voor geldige aanmeldingsnamen. |
+    | **Wachtwoord** | Een geldig wachtwoord | Uw wachtwoord moet uit minstens acht tekens bestaan en moet tekens bevatten uit drie van de volgende categorieën: hoofdletters, kleine letters, cijfers en niet-alfanumerieke tekens. |
+    | **Locatie** | Een geldige locatie | Zie [Azure-regio's](https://azure.microsoft.com/regions/) voor informatie over regio's. |
+
+    ![database-server maken](./media/sql-database-design-first-database/create-database-server.png)
+
+5. Klik op **Selecteren**.
+6. Klik op **Prijscategorie** om de servicelaag, het aantal DTU's of vCores en de hoeveelheid opslag op te geven. U kunt de opties bekijken voor de hoeveelheid DTU's/vCores en opslag die voor elke servicelaag beschikbaar zijn.
+
+    Als u de servicelaag, het aantal DTU's of vCores en de hoeveelheid opslagruimte hebt geselecteerd, klikt u op **Toepassen**.
+
+7. Voer een **sortering** in voor de lege database (gebruik de standaardwaarde in deze zelfstudie). Zie [Collations](/sql/t-sql/statements/collations) (Sorteringen) voor meer informatie over sorteringen
+
+8. Nu u het **SQL Database**-formulier hebt ingevuld, klikt u op **Maken** om de individuele database in te richten. Deze stap kan enkele minuten duren.
+
+9. Klik op de werkbalk op **Meldingen** om het implementatieproces te bewaken.
+
+   ![melding](./media/sql-database-design-first-database/notification.png)
+
+## <a name="create-a-server-level-ip-firewall-rule"></a>Een IP-firewallregel op serverniveau maken
+
+De service SQL Database maakt een IP-firewall op serverniveau. De firewall voorkomt dat externe toepassingen en hulpprogramma's verbinding maken met de server of databases op de server, tenzij een firewallregel hun IP via de firewall toestaat. Als u externe connectiviteit voor uw individuele database wilt inschakelen, moet u eerst een IP-firewallregel voor uw IP-adres (of IP-adresbereik) toevoegen. Volg deze stappen als u een [IP-firewallregel op SQL Database-serverniveau](sql-database-firewall-configure.md) wilt maken.
+
+> [!IMPORTANT]
+> De service SQL Database communiceert via poort 1433. Als u verbinding met deze service probeert te maken vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 1433 mogelijk niet toegestaan door de firewall van uw netwerk. In dat geval kunt u geen verbinding maken met uw individuele database, tenzij de beheerder poort 1433 openstelt.
+
+1. Wanneer de implementatie is voltooid, klikt u op **SQL Databases** in het menu aan de linkerkant. Klik vervolgens op de pagina **SQL Databases** op *yourDatabase*. De overzichtspagina voor de database wordt geopend, met de volledig gekwalificeerde **servernaam** (bijvoorbeeld *yourserver.database.windows.net*) en opties voor verdere configuratie.
+
+2. Kopieer vanuit SQL Server Management Studio deze volledig gekwalificeerde servernaam om verbinding te maken met de server en de databases.
+
+   ![servernaam](./media/sql-database-design-first-database/server-name.png)
+
+3. Klik op de werkbalk op **Serverfirewall instellen**. De pagina **Firewallinstellingen** voor de SQL Database-server wordt geopend.
+
+   ![IP-firewallregel op serverniveau](./media/sql-database-design-first-database/server-firewall-rule.png)
+
+4. Klik op **IP van client toevoegen** op de werkbalk om uw huidige IP-adres aan een nieuwe IP-firewallregel toe te voegen. Een IP-firewallregel kan poort 1433 openen voor een afzonderlijk IP-adres of voor een aantal IP-adressen.
+
+5. Klik op **Opslaan**. Er wordt een IP-firewallregel op serverniveau gemaakt voor uw huidige IP-adres waarbij poort 1433 wordt geopend op de SQL Database-server.
+
+6. Klik op **OK** en sluit de pagina **Firewallinstellingen**.
+
+Uw IP-adres wordt niet meer geblokkeerd via de IP-firewall. U kunt nu verbinding maken met uw individuele database met SQL Server Management Studio of een ander hulpprogramma naar keuze. Gebruik het beheerdersaccount voor de server dat u eerder hebt gemaakt.
+
+> [!IMPORTANT]
+> Voor alle Azure-services is toegang via de IP-firewall van SQL Database standaard ingeschakeld. Klik op **UIT** op deze pagina om dit voor alle Azure-services uit te schakelen.
 
 [!INCLUDE [sql-database-csharp-adonet-create-query-2](../../includes/sql-database-csharp-adonet-create-query-2.md)]
 

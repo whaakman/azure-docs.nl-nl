@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 81cdde409841ad3f5952147a7d3ab2b1adbcbd59
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6a68deb2cb6de90c577f2d828e24a1747662c7e2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474187"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56162200"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-aha"></a>Zelfstudie: Azure Active Directory-integratie met Aha!
 
@@ -49,7 +50,7 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 ## <a name="adding-aha-from-the-gallery"></a>Aha! toevoegen vanuit de galerie
 
-Als u de integratie van Aha!  in Azure AD wilt configureren, moet u Aha! vanuit de galerie toevoegen  aan uw lijst met beheerde SaaS-apps.
+Om de integratie van Aha! te configureren in Azure AD, moet u Aha! vanuit de galerie  toevoegen aan de lijst met beheerde SaaS-apps.
 
 **Voer de volgende stappen uit als u Aha! vanuit de galerie wilt toevoegen:**
 
@@ -72,7 +73,7 @@ Als u de integratie van Aha!  in Azure AD wilt configureren, moet u Aha! vanuit 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
 In deze sectie gaat u eenmalige aanmelding van Azure AD met Aha! configureren en testen op basis van een gebruiker met de naam **Britta Simon**.
-Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Aha!  tot stand is gebracht.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Aha! tot stand is gebracht.
 
 Als u eenmalige aanmelding van Azure AD met Aha! wilt configureren en testen, moet u de volgende bouwstenen voltooien:
 
@@ -89,7 +90,7 @@ In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakel
 
 Voer de volgende stappen uit als u eenmalige aanmelding van Azure AD met Aha! wilt configureren:
 
-1. Ga naar de [Azure-portal](https://portal.azure.com/), en selecteer op de  integratiepagina van de Aha!-toepassing de optie **Eenmalige aanmelding**.
+1. In de [Azure-portal](https://portal.azure.com/) selecteert u op de pagina van toepassingsintegratie van**Aha!** **Eenmalige aanmelding**.
 
     ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
@@ -103,20 +104,20 @@ Voer de volgende stappen uit als u eenmalige aanmelding van Azure AD met Aha! wi
 
 4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-    ![Aha! Informatie over eenmalige aanmelding van domeinen en URL’s van Aha!](common/sp-identifier.png)
+    ![Aha! Domein- en URL-gegevens voor eenmalige aanmelding](common/sp-identifier.png)
 
     a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<companyname>.aha.io/session/new`
 
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<companyname>.aha.io`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id.  Neem contact op met het [klantondersteuningsteam van Aha!](https://www.aha.io/company/contact) om deze waarden op te halen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met het [Aha! -ondersteuningsteam](https://www.aha.io/company/contact) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
     ![De link om het certificaat te downloaden](common/metadataxml.png)
 
-6. On the <bpt id="p1">**</bpt>Set up Aha!<ept id="p1">**</ept> Kopieer in de sectie **Set up Aha!** de bijbehorende URL('s) op basis van uw behoeften.
+6. Kopieer in het gedeelte **Aha! instellen.** de juiste URL('s) op basis van uw behoeften.
 
     ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
@@ -128,7 +129,7 @@ Voer de volgende stappen uit als u eenmalige aanmelding van Azure AD met Aha! wi
 
 ### <a name="configure-aha-single-sign-on"></a>Aha! configureren Eenmalige aanmelding
 
-1. In a different web browser window, log in to your Aha! Meld u in een ander browservenster als administrator aan bij de bedrijfssite van Aha!
+1. Meld u in een ander browservenster bij de bedrijfssite van Aha! aan als beheerder.
 
 2. Klik in het menu aan de bovenkant op **Settings**.
 
@@ -193,7 +194,7 @@ In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige
 
 2. Selecteer **Aha!** in de lijst met toepassingen.
 
-    ![The Aha! De koppeling Aha! in de lijst Toepassingen](common/all-applications.png)
+    ![De koppeling naar Aha! in de lijst met toepassingen](common/all-applications.png)
 
 3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
@@ -209,15 +210,15 @@ In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige
 
 7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-### <a name="create-aha-test-user"></a>Aha!-testgebruiker maken test user
+### <a name="create-aha-test-user"></a>Testgebruiker voor Aha! maken
 
-In deze sectie wordt een gebruiker met de naam Britta Simon gemaakt in Aha! Aha!  biedt ondersteuning voor Just-In-Time-inrichting van gebruikers. Deze functie is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Als er nog geen gebruiker in Aha! bestaat, wordt er een nieuwe gemaakt nadat deze is geverifieerd.
+In deze sectie wordt een gebruiker met de naam Britta Simon gemaakt in Aha! Aha! biedt ondersteuning voor Just-In-Time-inrichting van gebruikers. Deze functie is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Als er nog geen gebruiker in Aha! bestaat, wordt er een nieuwe gemaakt nadat deze is geverifieerd.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-When you click the Aha! Wanneer u op de tegel Aha! in het toegangsvenster klikt, zou u automatisch moeten worden aangemeld bij de instantie van Aha! waarvoor u eenmalige aanmelding hebt ingesteld. for which you set up SSO. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
+Wanneer u op de tegel Aha! in het toegangsvenster klikt, wordt u automatisch aangemeld bij de instantie van Aha! waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

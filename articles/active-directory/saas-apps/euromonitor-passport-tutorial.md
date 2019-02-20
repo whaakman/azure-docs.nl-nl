@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/25/2019
+ms.date: 02/11/2019
 ms.author: jeedes
-ms.openlocfilehash: ca0bdc3b88109a8d8c46f0a6a09297b0ca197165
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ab9439cbf46fd77a24aa07cab1884e4e50720e43
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478877"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203757"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-euromonitor-passport"></a>Zelfstudie: Integratie van Azure Active Directory met Euromonitor Passport
 
@@ -66,7 +67,7 @@ Als u de integratie van Euromonitor Passport in Azure AD wilt configureren, moet
 
 4. Typ **Euromonitor Passport** in het zoekvak, selecteer **Euromonitor Passport** in het resultaatvenster en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-     ![Euromonitor Passport in de resultatenlijst](common/search-new-app.png)
+    ![Euromonitor Passport in de resultatenlijst](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
@@ -104,17 +105,17 @@ Als u eenmalige aanmelding van Azure AD met Euromonitor Passport wilt configurer
 
     ![Informatie over eenmalige aanmelding van domeinen en URL's van Euromonitor Passport](common/preintegrated.png)
 
-5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
+5. Als u de toepassing wilt configureren in **SP**-geïnitieerde modus, heeft u de aanmeldings-URL van het [Euromonitor Passport-ondersteuningsteam](mailto:passport.support@euromonitor.com) nodig. Nadat u de aanmeldings-URL van het Euromonitor Passport-ondersteuningsteam heeft opgehaald, klikt u op **Extra URL's instellen** en voert u de volgende stap uit:
 
     ![Informatie over eenmalige aanmelding van domeinen en URL's van Euromonitor Passport](common/metadata-upload-additional-signon.png)
 
-    In het tekstvak **Aanmeldings-URL** typt u een URL: `https://portal.euromonitor.com`
+    Plak de opgehaalde waarde van de aanmeldings-URL van het Euromonitor Passport-ondersteuningsteam in het tekstvak van de aanmeldings-URL.
 
 6. De Euromonitor Passport-toepassing verwacht dat de SAML-asserties een specifieke indeling hebben. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
 
     ![image](./media/euromonitor-passport-tutorial/attribute1.png)
 
-7. Bewerk in het gedeelte **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** de claims met het **pictogram Bewerken** of voeg de claims toe door met **Nieuwe claim toevoegen** het kenmerk van het SAML-token te configureren, zoals wordt weergegeven in de bovenstaande afbeelding. Hierna voert u de volgende stappen uit: 
+7. Bewerk in het gedeelte **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** de claims met het **pictogram Bewerken** of voeg de claims toe door met **Nieuwe claim toevoegen** het kenmerk van het SAML-token te configureren, zoals wordt weergegeven in de bovenstaande afbeelding. Hierna voert u de volgende stappen uit:
 
     | Naam | Bronkenmerk|
     | ---------------| --------- |

@@ -1,129 +1,122 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Egnyte | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Egnyte.
+description: Leer hoe u eenmalige aanmelding tussen Azure Active Directory en Egnyte configureert.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 8c2101d4-1779-4b36-8464-5c1ff780da18
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/15/2018
+ms.topic: tutorial
+ms.date: 2/4/2019
 ms.author: jeedes
-ms.openlocfilehash: e33fc71e0e43864d7d70495fc5056a8acaf4ad56
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b95c3dbbe08a152ed5d9265f04a5ec989e55275b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159008"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56167810"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-egnyte"></a>Zelfstudie: Azure Active Directory-integratie met Egnyte
 
-In deze zelfstudie leert u hoe u Egnyte integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Egnyte kunt integreren met Azure AD (Active Directory).
+De integratie van Egnyte met Azure AD heeft de volgende voordelen:
 
-Egnyte integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD bepalen wie er toegang heeft tot Egnyte.
+* U kunt instellen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Egnyte (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot Egnyte heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Egnyte (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Egnyte, moet u de volgende items:
+U hebt het volgende nodig om Azure AD-integratie te configureren met Egnyte:
 
-- Een Azure AD-abonnement
-- Een Egnyte eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op Egnyte waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-1. Egnyte uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+* Egnyte biedt ondersteuning voor met **SP** geïnitieerde eenmalige aanmelding
 
-## <a name="adding-egnyte-from-the-gallery"></a>Egnyte uit de galerie toe te voegen
+## <a name="adding-egnyte-from-the-gallery"></a>Egnyte toevoegen vanuit de galerie
 
-Voor het configureren van de integratie van Egnyte in Azure AD, moet u Egnyte uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+Om de integratie van Egnyte te configureren in Azure AD moet u Egnyte vanuit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen Egnyte uit de galerie, moet u de volgende stappen uitvoeren:**
+**Voer de volgende stappen uit om Egnyte toe te voegen vanuit de galerie:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![De Azure Active Directory-knop][1]
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-    ![De blade Enterprise-toepassingen][2]
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
 3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![De knop Nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-4. Typ in het zoekvak **Egnyte**, selecteer **Egnyte** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+4. Typ **Egnyte** in het zoekvak, selecteer **Egnyte** in het deelvenster met resultaten en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-    ![Egnyte in de lijst met resultaten](./media/egnyte-tutorial/tutorial_egnyte_addfromgallery.png)
+     ![Egnyte in de lijst met resultaten](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Egnyte op basis van een testgebruiker 'Julia steen' genoemd.
+In dit gedeelte configureert en test u eenmalige aanmelding van Azure AD met Egnyte op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Egnyte tot stand is gebracht.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Egnyte is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Egnyte tot stand worden gebracht.
+Als u eenmalige aanmelding van Azure AD wilt configureren en testen met Egnyte, moet u de volgende procedures uitvoeren:
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met Egnyte, moet u de volgende bouwstenen voltooien:
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Egnyte-eenmalige aanmelding configureren](#configure-egnyte-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wilt configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Egnyte-testgebruiker maken](#create-egnyte-test-user)**: als u een tegenhanger van Britta Simon in Egnyte wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Het maken van een testgebruiker Egnyte](#creating-an-egnyte-test-user)**  : als u wilt een equivalent van Britta Simon in Egnyte die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Egnyte.
+Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configureren met Egnyte:
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Egnyte, moet u de volgende stappen uitvoeren:**
+1. Selecteer in de [Azure-portal](https://portal.azure.com/), op de integratiepagina voor de toepassing **Egnyte**, de optie **Eenmalige aanmelding**.
 
-1. In de Azure-portal op de **Egnyte** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-    ![Koppeling Eenmalige aanmelding configureren][4]
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-2. Op de **selecteert u een methode voor eenmalige aanmelding** dialoogvenster, klikt u op **Selecteer** voor **SAML** modus voor eenmalige aanmelding inschakelen.
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![Eenmalige aanmelding configureren](common/tutorial_general_301.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-3. Op de **instellen van eenmalige aanmelding met SAML** pagina, klikt u op **bewerken** pictogram openen **SAML-basisconfiguratie** dialoogvenster.
-
-    ![Eenmalige aanmelding configureren](common/editconfigure.png)
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
 4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-    ![Egnyte domein en URL's, eenmalige aanmelding informatie](./media/egnyte-tutorial/tutorial_egnyte_url.png)
+    ![Gegevens voor domein en URL's voor eenmalige aanmelding van Egnyte](common/sp-signonurl.png)
 
-    Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<companyname>.egnyte.com`
+    In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<companyname>.egnyte.com`
 
-    > [!NOTE] 
-    > Deze waarde is niet echt. Deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [Egnyte Client ondersteuningsteam](https://www.egnyte.com/corp/contact_egnyte.html) deze waarde op te halen. 
+    > [!NOTE]
+    > De waarde is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met het [ondersteuningsteam van Egnyte](https://www.egnyte.com/corp/contact_egnyte.html) om de waarde op te vragen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-5. Op de **SAML-handtekeningcertificaat** pagina, in de **SAML-handtekeningcertificaat** sectie, klikt u op **downloaden** downloaden **certificaat (Base64)** en sla het certificaatbestand op uw computer.
+4. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
-    ![De link om het certificaat te downloaden](./media/egnyte-tutorial/tutorial_egnyte_certificate.png) 
+    ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
-6. Op de **Egnyte instellen** sectie, kopieert u de juiste URL aan de hand van uw behoeften.
+5. Kopieer in het gedeelte **Egnyte instellen** de juiste URL('s) op basis van wat u nodig hebt.
+
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
     a. Aanmeldings-URL
 
@@ -131,146 +124,138 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     c. Afmeldings-URL
 
-    ![Egnyte configuratie](common/configuresection.png)
+### <a name="configure-egnyte-single-sign-on"></a>Egnyte-eenmalige aanmelding configureren
 
-7. In een ander browservenster aanmelden bij uw bedrijf Egnyte site als beheerder.
+1. Meld u in een ander browservenster als een beheerder aan bij de bedrijfssite van Egnyte.
 
-8. Klik op **Instellingen**.
+2. Klik op **Instellingen**.
    
     ![Settings](./media/egnyte-tutorial/ic787819.png "Settings")
 
-9. In het menu, klikt u op **instellingen**.
+3. Klik in het menu op **Instellingen**.
 
     ![Settings](./media/egnyte-tutorial/ic787820.png "Settings")
 
-10. Klik op de **configuratie** tabblad en klik vervolgens op **Security**.
+4. Klik op het tabblad **Configuratie** en klik vervolgens op **Beveiliging**.
 
     ![Beveiliging](./media/egnyte-tutorial/ic787821.png "Beveiliging")
 
-11. In de **verificatie met eenmalige aanmelding** sectie, voert u de volgende stappen uit:
+5. Voer in de sectie **Verificatie voor eenmalige aanmelding** de volgende stappen uit:
 
-    ![Eenmalige aanmelding op verificatie](./media/egnyte-tutorial/ic787822.png "eenmalige aanmelding op verificatie")   
+    ![Verificatie voor eenmalige aanmelding](./media/egnyte-tutorial/ic787822.png "Verificatie voor eenmalige aanmelding")   
     
-    a. Als **verificatie met eenmalige aanmelding**, selecteer **SAML 2.0**.
+    a. Selecteer **SAML 2.0** als **Verificatie voor eenmalige aanmelding**.
    
-    b. Als **id-provider**, selecteer **AzureAD**.
+    b. Selecteer **AzureAD** als **Id-provider**.
    
-    c. Plakken **aanmeldings-URL** gekopieerd vanuit Azure portal in de **aanmeldings-URL van id-provider** tekstvak.
+    c. Plak de **Aanmeldings-URL** die u in de Azure-portal hebt gekopieerd, in het tekstvak **Aanmeldings-URL voor id-provider**.
    
-    d. Plakken **Azure AD-id** die u hebt gekopieerd vanuit Azure portal in de **Identity provider entiteit-ID** tekstvak.
+    d. Plak de **Azure AD-id** die u hebt gekopieerd in de Azure-portal, in het tekstvak **Entiteits-id van id-provider**.
       
-    e. Uw base-64 gecodeerde certificaat openen in Kladblok gedownload vanuit Azure portal, Kopieer de inhoud ervan in het Klembord en plakt u deze naar de **provider identiteitscertificaat** tekstvak.
+    e. Open in Kladblok het met Base64 gecodeerde certificaat dat u hebt gedownload uit de Azure-portal, kopieer de inhoud ervan naar het Klembord en plak deze vervolgens in het tekstvak **Id-providercertificaat**.
    
-    f. Als **standaard Gebruikerstoewijzing**, selecteer **e-mailadres**.
+    f. Selecteer **E-mailadres** als **Standaardgebruikerstoewijzing**.
    
-    g. Als **gebruiken domeinspecifieke uitgeverwaarde**, selecteer **uitgeschakeld**.
+    g. Selecteer **Uitgeschakeld** bij **Waarde voor domeinspecifieke verlener gebruiken**.
    
     h. Klik op **Opslaan**.
 
-### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
 1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-    ![Azure AD-gebruiker maken][100]
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-2. Selecteer **nieuwe gebruiker** aan de bovenkant van het scherm.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![Het maken van een Azure AD-testgebruiker](common/create_aaduser_01.png) 
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-3. In de eigenschappen van de gebruiker de volgende stappen uitvoeren.
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-    ![Het maken van een Azure AD-testgebruiker](common/create_aaduser_02.png)
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    a. Voer in het veld **Naam****Britta Simon** in.
+    a. Voer in het veld **Naam** **Britta Simon**in.
   
     b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
-    c. Selecteer **eigenschappen**, selecteer de **Show wachtwoord** selectievakje en noteer de waarde die wordt weergegeven in het wachtwoord.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
-    d. Selecteer **Maken**.
+    d. Klik op **Create**.
 
-### <a name="creating-an-egnyte-test-user"></a>Het maken van een testgebruiker Egnyte
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-Als u wilt dat Azure AD-gebruikers zich aanmelden bij Egnyte, moeten ze worden ingericht voor Egnyte. In het geval van Egnyte is inrichten een handmatige taak.
+In dit gedeelte geeft u Britta Simon de mogelijkheid om eenmalige aanmelding van Azure te gebruiken door haar toegang te geven tot Egnyte.
+
+1. Selecteer in de Azure-portal achtereenvolgens **Bedrijfstoepassingen**, **Alle toepassingen** en **Egnyte**.
+
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+
+2. Selecteer **Egnyte** in de lijst met toepassingen.
+
+    ![De koppeling naar Egnyte in de lijst met toepassingen](common/all-applications.png)
+
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
+
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
+
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
+
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
+
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
+
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
+
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
+
+### <a name="create-egnyte-test-user"></a>Egnyte-testgebruiker maken
+
+Als u wilt dat Azure AD-gebruikers zich kunnen aanmelden bij Egnyte, moeten ze worden ingericht in Egnyte. In het geval van Egnyte is het inrichten een handmatige taak.
 
 **Voer de volgende stappen uit om een gebruikersaccount in te richten:**
 
-1. Meld u aan bij uw **Egnyte** bedrijf site als administrator.
+1. Meld u als een beheerder aan bij de bedrijfssite van **Egnyte**.
 
-2. Ga naar **instellingen \> gebruikers en groepen**.
+2. Ga naar **Instellingen \> Gebruikers en groepen**.
 
-3. Klik op **Add New User**, en selecteer vervolgens het type van de gebruiker die u wilt toevoegen.
+3. Klik op **Nieuwe gebruiker toevoegen** en selecteer vervolgens het type gebruiker dat u wilt toevoegen.
    
     ![Gebruikers](./media/egnyte-tutorial/ic787824.png "Gebruikers")
 
-4. In de **nieuwe hoofdgebruiker** sectie, voert u de volgende stappen uit:
+4. Voer in de sectie **Nieuwe hoofdgebruiker** de volgende stappen uit:
     
-    ![Nieuwe standaardgebruiker](./media/egnyte-tutorial/ic787825.png "nieuwe standaardgebruiker")   
+    ![Nieuwe Standard-gebruiker](./media/egnyte-tutorial/ic787825.png "Nieuwe Standard-gebruiker")   
 
-    a. In **e** tekst vak, voer het e-mailadres van gebruiker, zoals **Brittasimon@contoso.com**.
+    a. Voer in het tekstvak **Email** het e-mailadres van de gebruiker in, zoals **Brittasimon@contoso.com**.
 
-    b. In **gebruikersnaam** tekst voert u de gebruikersnaam van gebruiker, zoals **Brittasimon**.
+    b. Voer in het tekstvak **Gebruikersnaam** de gebruikersnaam van een gebruiker zoals **Brittasimon**.
 
-    c. Selecteer **Single Sign-On** als **verificatietype**.
+    c. Selecteer als **Verificatietype** de optie **Eenmalige aanmelding**.
    
     d. Klik op **Opslaan**.
     
     >[!NOTE]
-    >De houder van Azure Active Directory-account ontvangt een e-mailmelding.
+    >De gebruiker van het Azure Active Directory-account ontvangt een e-mailmelding.
     >
 
 >[!NOTE]
->U kunt alle andere Egnyte gebruiker-account maken van hulpprogramma's of API's geleverd door Egnyte aan inrichten AAD-gebruikersaccounts.
-> 
+>U kunt ook andere API’s of hulpprogramma’s voor het maken van Egnyte-gebruikersaccounts die worden geleverd met Egnyte, gebruiken om AAD-gebruikersaccounts in te richten.
+>
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Egnyte.
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**.
-
-    ![Gebruiker toewijzen][201]
-
-2. Selecteer in de lijst met toepassingen, **Egnyte**.
-
-    ![Eenmalige aanmelding configureren](./media/egnyte-tutorial/tutorial_egnyte_app.png)
-
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
-
-    ![Gebruiker toewijzen][202]
-
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
-
-    ![Gebruiker toewijzen][203]
-
-5. In de **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst met gebruikers, en klik op de **Selecteer** knop aan de onderkant van het scherm.
-
-6. In de **toevoegen toewijzing** dialoogvenster Selecteer de **toewijzen** knop.
-
-### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
-
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
-
-Wanneer u op de tegel Egnyte in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Egnyte.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
+Wanneer u in het toegangsvenster op de tegel Egnyte klikt, wordt u automatisch aangemeld bij de instantie van Egnyte waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-[1]: common/tutorial_general_01.png
-[2]: common/tutorial_general_02.png
-[3]: common/tutorial_general_03.png
-[4]: common/tutorial_general_04.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: common/tutorial_general_100.png
-
-[201]: common/tutorial_general_201.png
-[202]: common/tutorial_general_202.png
-[203]: common/tutorial_general_203.png

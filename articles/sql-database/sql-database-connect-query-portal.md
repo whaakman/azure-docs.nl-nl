@@ -12,13 +12,13 @@ author: AyoOlubeko
 ms.author: ayolubek
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/19/2018
-ms.openlocfilehash: d00909eed037e4d2d414ef3121ce11f5ca489736
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.date: 02/12/2019
+ms.openlocfilehash: e16d68f8c30b54c24e091d1b0c7317bf74aadeba
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564762"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234574"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Snelstartgids: Gebruik de SQL-queryeditor van Azure Portal om verbinding te maken en query's op gegevens uit te voeren
 
@@ -28,7 +28,15 @@ De SQL-queryeditor is een Azure Portal-browsertool die een eenvoudige manier bie
 
 Voor deze zelfstudie hebt u het volgende nodig:
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+- Een Azure SQL-database. U kunt een van deze quickstarts gebruiken om een database te maken en vervolgens te configureren in Azure SQL Database:
+
+  || Individuele database |
+  |:--- |:--- |
+  | Maken| [Portal](sql-database-single-database-get-started.md) | 
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | 
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | 
+  | Configureren | [IP-firewallregel op serverniveau](sql-database-server-level-firewall-rule.md)| 
+  |||
 
 > [!NOTE]
 > Zorg ervoor dat de optie **Toegang tot Azure-services toestaan** is ingesteld op **AAN** in de firewall-instellingen van SQL Server. Met deze optie geeft de SQL-queryeditor toegang tot uw databases en datawarehouses.

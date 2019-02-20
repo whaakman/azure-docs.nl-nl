@@ -4,31 +4,28 @@ titleSuffix: Azure Cognitive Services
 description: In deze snelstart haalt u een lijst met ondersteunde talen op voor vertaling, transliteratie en opzoeken in woordenlijsten en voorbeelden met behulp van de Translator Text-API met Go.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 12/05/2018
+ms.date: 02/07/2019
 ms.author: erhopf
-ms.openlocfilehash: 45dcd87910e0dbfc57aa09751cbdaa7a043d7cf1
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f750bfb07ee273f7b1d355657bfd3c4808f84ef5
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226652"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891713"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-go"></a>Snelstartgids: De Translator Text-API gebruiken om een lijst met ondersteunde talen op te halen met Go
 
 In deze snelstartgids leert u hoe u een GET-aanvraag maakt waarmee u een lijst met ondersteunde talen kunt ophalen met behulp van Go en de Translator Text-REST API.
-
-Voor deze snelstart is een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met een Translator Text-resource vereist. Als u geen account hebt, kunt u de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/) gebruiken om een abonnementssleutel op te halen.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voor deze snelstart zijn de volgende zaken vereist:
 
 * [Go](https://golang.org/doc/install)
-* Een Azure-abonnementssleutel voor Translator Text
 
 ## <a name="create-a-project-and-import-required-modules"></a>Een project maken en de vereiste modules importeren
 
@@ -43,43 +40,32 @@ import (
     "log"
     "net/http"
     "net/url"
-    "os"
 )
 ```
 
 ## <a name="create-the-main-function"></a>De hoofdfunctie toevoegen
 
-In dit voorbeeld laat u de Translator Text-abonnementssleutel ophalen uit de omgevingsvariabele `TRANSLATOR_TEXT_KEY`. Als u niet bekend bent met omgevingsvariabelen, kunt u `subscriptionKey` als tekenreeks instellen en een opmerking plaatsen in de voorwaardelijke instructie.
+We maken de hoofdfunctie voor de toepassing. U ziet dat deze bestaat uit één regel code. Dat komt doordat we één functie maken voor het ophalen en afdrukken van de lijst met ondersteunde talen voor Translator Text.
 
 Kopieer deze code naar uw project:
 
 ```go
 func main() {
     /*
-     * Read your subscription key from an env variable.
-     * Please note: You can replace this code block with
-     * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
-     * want to use env variables.
-     */
-    subscriptionKey := os.Getenv("TRANSLATOR_TEXT_KEY")
-    if subscriptionKey == "" {
-       log.Fatal("Environment variable TRANSLATOR_TEXT_KEY is not set.")
-    }
-    /*
      * This calls our getLanguages function, which we'll
      * create in the next section. It takes a single argument,
      * the subscription key.
      */
-    getLanguages(subscriptionKey)
+    getLanguages()
 }
 ```
 
 ## <a name="create-a-function-to-get-a-list-of-supported-languages"></a>Een functie maken om een lijst van ondersteunde talen op te halen
 
-U gaat nu een functie maken om een lijst van ondersteunde talen op te halen. Met deze functie wordt één argument gebruikt, uw Translator Text-abonnementssleutel.
+U gaat nu een functie maken om een lijst van ondersteunde talen op te halen.
 
 ```go
-func getLanguages(subscriptionKey string) {
+func getLanguages() {
     /*  
      * In the next few sections, we'll add code to this
      * function to make a request and handle the response.
@@ -93,8 +79,9 @@ Kopieer deze code naar de functie `getLanguages`.
 
 ```go
 // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
-u, _ := url.Parse("https://api.cognitive.microsofttranslator.com/languages?api-version=3.0")
+u, _ := url.Parse("https://api.cognitive.microsofttranslator.com/languages")
 q := u.Query()
+q.Add("api-version", "3.0")
 u.RawQuery = q.Encode()
 ```
 
@@ -112,7 +99,6 @@ if err != nil {
     log.Fatal(err)
 }
 // Add required headers
-req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
 req.Header.Add("Content-Type", "application/json")
 
 // Call the Translator Text API

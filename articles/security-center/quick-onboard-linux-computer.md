@@ -4,7 +4,7 @@ description: Deze snelstartgids laat zien hoe u uw Linux-computers naar Security
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: 48a04bbe77a6fe836c282556709e13bb9cd9a337
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e6d2404e6f509c03d2d3965f34d8229de25df4b7
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848185"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114617"
 ---
-# <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Snelstartgids: Linux-computers naar Azure Security Center onboarden
+# <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Quickstart: Linux-computers naar Azure Security Center onboarden
 Nadat u de onboarding van uw Azure-abonnementen hebt uitgevoerd, kunt u Security Center inschakelen voor Linux-resources die buiten Azure worden uitgevoerd, bijvoorbeeld on-premises of in andere clouds, door de Linux-agent in te richten.
 
 Deze snelstartgids laat zien hoe u de Linux-agent op een Linux-computer kunt installeren.
@@ -85,7 +85,7 @@ De agent verwijderen:
 In deze snelstartgids hebt u de agent op een Linux-computer ingericht. Voor meer informatie over het gebruik van Security Center gaat u verder met de zelfstudie voor het configureren van een beveiligingsbeleid en het beoordelen van de beveiliging van uw resources.
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Beveiligingsbeleidsregels opstellen en beoordelen](tutorial-security-policy.md)
+> [Zelfstudie: Beveiligingsbeleid opstellen en beoordelen](tutorial-security-policy.md)
 
 <!--Image references-->
 [1]: ./media/quick-onboard-linux-computer/portal.png

@@ -1,61 +1,62 @@
 ---
-title: Berichten en verbindingen in Azure SignalR
-description: Een overzicht van de belangrijkste concepten met betrekking tot berichten en verbindingen in Azure SignalR Service.
+title: Berichten en verbindingen in Azure SignalR Service
+description: Een overzicht van de belangrijkste concepten over berichten en verbindingen in Azure SignalR Service.
 author: sffamily
 ms.service: signalr
 ms.topic: overview
 ms.date: 09/13/2018
 ms.author: zhshang
-ms.openlocfilehash: c2348df7a1a55584807a03216e294486ddadfc52
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: ce1542278303910837a69d3184c1de86a9237f8e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352594"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996233"
 ---
-# <a name="message-and-connection-in-azure-signalr-service"></a>Berichten en verbindingen in Azure SignalR Service
+# <a name="messages-and-connections-in-azure-signalr-service"></a>Berichten en verbindingen in Azure SignalR Service
 
-Het factureringsmodel van Azure SignalR Service is gebaseerd op het aantal verbindingen en het aantal berichten. Hieronder wordt uitgelegd hoe berichten en verbindingen worden gedefinieerd en geteld voor factureringsdoeleinden.
+Het factureringsmodel voor Azure SignalR Service is gebaseerd op het aantal verbindingen en het aantal berichten. In dit artikel wordt uitgelegd hoe berichten en verbindingen worden gedefinieerd en geteld voor factureringsdoeleinden.
 
-## <a name="message-formats-supported"></a>Ondersteunde berichtindelingen
 
-Azure SignalR Service ondersteunt dezelfde indelingen als ASP.NET Core SignalR: [JSON](https://www.json.org/) en [MessagePack](/aspnet/core/signalr/messagepackhubprotocol)
+## <a name="message-formats"></a>Berichtindelingen 
+
+Azure SignalR Service ondersteunt dezelfde indelingen als ASP.NET Core SignalR: [JSON](https://www.json.org/) en [MessagePack](/aspnet/core/signalr/messagepackhubprotocol).
 
 ## <a name="message-size"></a>Berichtgrootte
 
-Er is geen groottelimiet voor Azure SignalR Service.
+Azure SignalR Service heeft geen groottelimiet voor berichten.
 
-In de praktijk worden grote berichten opgesplitst in kleinere berichten van niet meer dan 2 kB per stuk, die als afzonderlijke berichten worden verzonden. Het splitsen en samenvoegen van berichten wordt afgehandeld via SDK's. Ontwikkelaars hoeven er niets voor te doen.
+Grote berichten worden opgesplitst in kleinere berichten van elke maximaal 2 kB, die als afzonderlijke berichten worden verzonden. Het splitsen en samenvoegen van berichten wordt afgehandeld via SDK's. Ontwikkelaars hoeven er niets voor te doen.
 
-Grote berichten hebben echter een negatief effect op de berichtprestaties. Gebruik indien mogelijk een kleinere berichtgrootte en voer tests uit om de optimale berichtgrootte voor elk gebruiksscenario te kiezen.
+Grote berichten hebben een negatieve invloed op de prestaties van de berichtenafhandeling. Gebruik, indien mogelijk, kleinere berichten en voer tests uit om de optimale berichtgrootte voor elk gebruiksscenario te bepalen.
 
-## <a name="how-to-count-messages-for-billing-purpose"></a>Hoe worden berichten geteld voor factureringsdoeleinden?
+## <a name="how-messages-are-counted-for-billing"></a>Hoe berichten worden meegeteld voor de facturering
 
-We tellen alleen de uitgaande berichten van SignalR Service en negeren de ping-berichten tussen clients en servers.
+Voor de facturering worden alleen uitgaande berichten van Azure SignalR Service meegeteld. Ping-berichten tussen clients en servers worden genegeerd.
 
-Een bericht groter dan 2 kB wordt beschouwd als meerdere berichten van 2 kB per stuk. De grafiek met het aantal berichten in Azure Portal wordt telkens elke 100 berichten per hub bijgewerkt.
+Een bericht dat groter is dan 2 kB, wordt beschouwd als meerdere berichten van elk 2 kB. De grafiek met het aantal berichten in de Azure-portal wordt elke 100 berichten per hub bijgewerkt.
 
-Stel u hebt drie clients en één toepassingsserver. Vanaf één client wordt een bericht van 4 kB verzonden dat door de server moet worden uitgezonden naar alle clients. Het aantal berichten is 8: één bericht van de service naar de toepassingsserver en drie berichten van de service naar clients, waarbij elk bericht wordt geteld als twee berichten van 2 kB.
+Stel u hebt drie clients en één toepassingsserver. Vanaf één client wordt een bericht van 4 kB verzonden dat via de server moet worden uitgezonden naar alle clients. Het aantal berichten is acht: één bericht van de service naar de toepassingsserver, en drie berichten van de service naar de clients. Elk bericht wordt geteld als twee berichten van 2 kB.
 
-Het aantal berichten dat in Azure Portal wordt weergegeven blijft 0 totdat het aantal boven de 100 komt.
+Het aantal berichten dat in de Azure-portal wordt weergegeven, blijft 0 totdat het aantal boven de 100 komt.
 
-## <a name="how-to-count-connections"></a>Hoe worden de verbindingen geteld?
+## <a name="how-connections-are-counted"></a>Hoe verbindingen worden geteld
 
-Er zijn serververbindingen en clientverbindingen. Standaard heeft elke toepassingsserver per hub vijf verbindingen met SignalR Service en heeft elke client één clientverbinding met SignalR Service.
+Er zijn serververbindingen en clientverbindingen. Standaard heeft elke toepassingsserver per hub vijf verbindingen met Azure SignalR Service en heeft elke client één clientverbinding met Azure SignalR Service.
 
-Het aantal verbindingen dat in Azure Portal wordt weergegeven, betreft zowel server- als clientverbindingen.
+Het aantal verbindingen dat in de Azure-portal wordt weergegeven, betreft zowel server- als clientverbindingen.
 
-Stel dat u twee toepassingsservers hebt en vijf hubs in codes definieert. Het aantal serververbindingen is 50: 2 toepassingsservers * 5 hubs * 5 verbindingen/hub.
+Stel dat u twee toepassingsservers hebt en dat u vijf hubs in code definieert. Het aantal serververbindingen is dan 50: 2 app-servers * 5 hubs * 5 verbindingen per hub.
 
-ASP.NET SignalR berekent serververbindingen op een andere manier. Het heeft naast door klanten gedefinieerde hubs één standaardhub. Elke toepassingsserver moet standaard vijf extra serververbindingen hebben. Het aantal verbindingen voor de standaardhub blijft in overeenstemming met andere hubs.
+ASP.NET SignalR berekent serververbindingen op een andere manier. Het bevat één standaardhub, naast de hubs die u definieert. Elke toepassingsserver moet standaard vijf extra serververbindingen hebben. Het aantal verbindingen voor de standaardhub blijft in overeenstemming met de andere hubs.
 
-## <a name="how-to-count-inbound-traffic--outbound-traffic"></a>Binnenkomend verkeer/uitgaand verkeer tellen
+## <a name="how-inboundoutbound-traffic-is-counted"></a>Hoe binnenkomend/uitgaand verkeer wordt geteld
 
-Binnenkomend/uitgaand is vanuit het perspectief van SignalR Service. het verkeer wordt geteld in bytes. Net zoals het aantal berichten, heeft het verkeer ook een samplefrequentie. De grafiek Binnenkomend/uitgaand in de Azure-portal wordt elke 100 kB per hub bijgewerkt.
+Het verschil tussen binnenkomend en uitgaand verkeer is gebaseerd op het perspectief van Azure SignalR Service. Verkeer wordt geteld in bytes. Net zoals het aantal berichten, heeft het verkeer ook een samplefrequentie. De grafiek met binnenkomend/uitgaand verkeer in de Azure-portal wordt elke 100 kB per hub bijgewerkt.
 
 ## <a name="related-resources"></a>Gerelateerde resources
 
-- [Aggregatietype in Azure Monitor](/azure/azure-monitor/platform/metrics-supported#microsoftsignalrservicesignalr )
+- [Aggregatietypen in Azure Monitor](/azure/azure-monitor/platform/metrics-supported#microsoftsignalrservicesignalr )
 - [ASP.NET Core SignalR-configuratie](/aspnet/core/signalr/configuration)
 - [JSON](https://www.json.org/)
 - [MessagePack](/aspnet/core/signalr/messagepackhubprotocol)

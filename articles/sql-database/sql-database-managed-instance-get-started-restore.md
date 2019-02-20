@@ -12,16 +12,16 @@ ms.author: srbozovi
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/14/2018
-ms.openlocfilehash: f75ea7bd728b16c91122119c3e14da2a1e123d45
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 9459aa9df74efa500109d7c281daad28355bd0d0
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452308"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895723"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Quickstart: Een database herstellen naar een beheerd exemplaar 
 
-In deze snelstart gebruikt u SQL Server Management Studio (SSMS) om een database (het standaardback-upbestand van Wide World Importers) te herstellen van Azure Blob Storage naar een [beheerd exemplaar](sql-database-managed-instance.md) voor Azure SQL Database. 
+In deze quickstart gebruikt u SQL Server Management Studio (SSMS) om een database (het standaardback-upbestand van Wide World Importers) te herstellen van Azure Blob Storage naar een [beheerd exemplaar](sql-database-managed-instance.md) voor Azure SQL Database. 
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 

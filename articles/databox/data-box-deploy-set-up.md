@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 02/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 79e2d33d1452eda35141b6ae80b46ab4eecd0909
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: e7c58978c7d6542887854c5a1996b15252fdb025
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902157"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982400"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Zelfstudie: De Azure Data Box bekabelen en aansluiten
 
@@ -40,7 +40,7 @@ Zorg voordat u begint voor het volgende:
     - Een verbinding bestaan met een netwerk met hoge snelheid. Het wordt aangeraden dat u beschikt over minstens één 10-GbE-verbinding. Als er geen 10-GbE-verbinding beschikbaar is, kan een 1-GbE-gegevensverbinding worden gebruikt. Dit heeft echter wel invloed op de kopieersnelheid. 
 6. U moet de beschikking hebben over een plat oppervlak waarop u de Data Box kunt plaatsen. Als u het apparaat op een plank van een standaardrek wilt plaatsen, moet het datacenterrek beschikken over een 7U-sleuf. U kunt het apparaat plat of rechtop in het rek plaatsen.
 7. U hebt de volgende kabels aangeschaft om de Data Box aan te sluiten op de hostcomputer.
-    - Twee koperen 10-GbE-kabels van het type SFP+ Twinax (te gebruiken met de netwerkinterfaces DATA 1 en DATA 2). Data Box heeft de Mellanox ConnectX®-3 Pro EN Dual Port 10GBASE-T Adapters met PCI Express 3.0 netwerkinterface. Kabels die compatibel zijn met deze interface moeten dus werken. Voor inhouse testen is een CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M-kabel gebruikt.
+    - Een of meer koperen 10-GbE-kabels van het type SFP+ Twinax of glasvezelkabels van het type SFP+ (te gebruiken met de netwerkinterfaces DATA 1 en DATA 2). Data Box heeft de Mellanox ConnectX®-3 Pro EN Dual Port 10GBASE-T Adapters met PCI Express 3.0 netwerkinterface. Kabels die compatibel zijn met deze interface moeten dus werken. Voor inhouse testen is een CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M-kabel gebruikt.
     - Eén RJ-45-netwerkkabel van het type CAT 6 (gebruiken met de MGMT-netwerkinterface)
     - Eén RJ-45-netwerkkabel van het type CAT 6A OF CAT 6 (gebruiken met DATA 3-netwerkinterface die is geconfigureerd als respectievelijk 10 Gbps of 1 Gbps)
 
@@ -57,7 +57,7 @@ Voer de volgende stappen uit om uw apparaat te bekabelen.
     1. Sluit de voedingskabel aan op de gelabelde stroomingang. Het andere uiteinde van de voedingskabel moet zijn verbonden met een stroomverdeler.
     2. Gebruik de RJ-45 CAT 6-kabel om de MGMT-poort aan het ene uiteinde en een laptop aan het andere uiteinde aan te sluiten.            
     3. Sluit het ene uiteinde van de RJ-45 CAT 6A-kabel aan op de DATA 3-poort. DATA 3 is geconfigureerd als 10 GbE als u de RJ-45 CAT 6A-kabel gebruikt en als 1 GbE als u de RJ-45 CAT 6-kabel gebruikt.
-    4. Gebruik de 10-GbE SFP + Twinax koperen kabels om respectievelijk de poorten DATA 1 en DATA 2 aan te sluiten. 
+    4. Afhankelijk van de netwerkinterfaces die u voor de gegevensoverdracht wilt verbinden, moet u maximaal twee koperen 10-GbE-kabels van het type SFP+ Twinax of glasvezelkabels van het type SFP+ gebruiken om respectievelijk verbinding te maken met de DATA 1 en DATA 2-poorten. 
     5. De andere uiteinden van de kabels van de gegevenspoorten worden op de hostcomputer aangesloten via een 10-GbE-switch.
 
 4. Zoek de aan/uit-knop op het bedieningspaneel aan de voorzijde van het apparaat. Schakel het apparaat in.

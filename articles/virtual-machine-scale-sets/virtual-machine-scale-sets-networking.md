@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: manayar
-ms.openlocfilehash: a939438ad657066805f0179eb06f829abf301763
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 9203e786f701929a25251066190f5d507eacac02
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740124"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982021"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Netwerken voor virtuele-machineschaalsets in Azure
 
 Wanneer u een virtuele-machineschaalset van Azure instelt via de portal, zijn bepaalde netwerkeigenschappen standaard ingesteld, bijvoorbeeld een Azure Load Balancer met binnenkomende NAT-regels. In dit artikel wordt beschreven hoe u een aantal van de meer geavanceerde netwerkfuncties gebruikt die u kunt configureren met schaalsets.
 
-U kunt alle functies die in dit artikel configureren met behulp van Azure Resource Manager-sjablonen. Er zijn ook Azure CLI- en PowerShell-voorbeelden toegevoegd voor bepaalde functies. Gebruik Azure CLI 2.0.10 of hoger en PowerShell 4.2.0 of hoger.
+U kunt alle functies die in dit artikel configureren met behulp van Azure Resource Manager-sjablonen. Er zijn ook Azure CLI- en PowerShell-voorbeelden toegevoegd voor bepaalde functies.
 
 ## <a name="accelerated-networking"></a>Versneld netwerken
 Versneld netwerken in Azure verbetert de prestaties van het netwerk door het inschakelen van I/O-virtualisatie met één hoofdmap (SR-IOV) bij een virtuele machine. Zie Versneld netwerken voor virtuele machines met [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) of [Linux](../virtual-network/create-vm-accelerated-networking-cli.md) voor meer informatie over het gebruik van Versneld netwerken. Als u versneld netwerken wilt gebruiken met schaalsets, stelt u enableAcceleratedNetworking in op **true** in de instelling networkInterfaceConfigurations van uw schaalset. Bijvoorbeeld:
@@ -164,19 +164,19 @@ Als u een schaalset maakt met een Azure-sjabloon, zorg er dan voor dat de API-ve
     }
 }
 ```
-Voorbeeldsjabloon: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
+Voorbeeld van sjabloon: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
 
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>Query’s uitvoeren op de openbare IP-adressen van de virtuele machines in een schaalset
 U kunt de openbare IP-adressen die zijn toegewezen aan de virtuele machines van de schaalset met de CLI in een lijst weergeven met de opdracht **az vmss list-instance-public-ips**.
 
-Gebruik de opdracht _Get-AzureRmPublicIpAddress_ om openbare IP-adressen voor schaalsets weer te geven met behulp van PowerShell. Bijvoorbeeld:
+Gebruik de opdracht _Get-AzPublicIpAddress_ om openbare IP-adressen voor schaalsets weer te geven met behulp van PowerShell. Bijvoorbeeld:
 ```PowerShell
-Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
+Get-AzPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
 U kunt ook query's uitvoeren op de openbare IP-adressen door rechtstreeks naar de resource-id van de openbare IP-adresconfiguratie te verwijzen. Bijvoorbeeld:
 ```PowerShell
-Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
+Get-AzPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
 
 U kunt ook de openbare IP-adressen die zijn toegewezen aan de virtuele machines in de schaalset weergeven door een query uit te voeren op [Azure Resource Explorer](https://resources.azure.com) of de REST API van Azure met versie **2017-03-30** of hoger.

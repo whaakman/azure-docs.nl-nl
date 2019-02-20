@@ -11,24 +11,27 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/15/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: c3d9b0660ab7803fc0c2696ded7bbffa90e07a5a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8a839d33d66ed434fe04b2c0df742606c11dff2c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211601"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217935"
 ---
 # <a name="azure-media-services-overview"></a>Overzicht van Azure Media Services 
 
-> [!div class="op_single_selector" title1="Selecteer de versie van Media Services die u gebruikt:"]
-> * [Versie 2](media-services-overview.md)
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
 > * [Versie 3](../latest/media-services-overview.md)
+> * [Versie 2](media-services-overview.md)
 
 Microsoft Azure Media Services (AMS) is een uitbreidbaar cloudplatform waarmee ontwikkelaars schaalbare toepassingen voor mediabeheer en -levering kunnen ontwikkelen. Media Services is gebaseerd op de REST API's waarmee u veilig video- of audio-inhoud kunt uploaden, opslaan, coderen en verpakken, zowel voor levering on demand als levering via livestreaming aan verschillende clients (bijvoorbeeld tv, pc en mobiele apparaten).
 
 U kunt end-to-end-werkstromen volledig met Media Services bouwen. U kunt er ook voor kiezen om onderdelen van derde partijen voor sommige onderdelen van uw werkstroom te gebruiken. U kunt bijvoorbeeld coderen met een coderingsprogramma van een derde partij. Vervolgens kunt u uploaden, beveiligen, verpakken en leveren met Media Services. U kunt uw inhoud live streamen of on-demand leveren. 
+
+> [!NOTE]
+> Er worden geen nieuwe functies of functionaliteit meer aan Media Services v2. toegevoegd. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -61,7 +64,7 @@ Als u Media Services-oplossingen wilt maken, kunt u het volgende gebruiken:
 
 ## <a name="code-samples"></a>Codevoorbeelden
 
-Zoeken naar meerdere codevoorbeelden in de galerie **Azure-codevoorbeelden**: [Azure Media Services-codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
+Zoeken naar meerdere codevoorbeelden in de galerie **Azure Code Samples**: [Azure Media Services-codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
 
 ## <a name="concepts"></a>Concepten
 

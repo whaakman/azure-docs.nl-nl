@@ -14,20 +14,21 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 70dfc03c37b2e7a93218ff7e710dbd22f622d418
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4e55a50a1a4ae1db995a6054cf9dc13382236b8e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813301"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189477"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Zelfstudie: Azure Active Directory-integratie met Keeper Password Manager & Digital Vault
 
-In deze zelfstudie leert u hoe u Keeper Password Manager & Digital Vault kunt integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Keeper Password Manager & Digital Vault kunt integreren met Azure AD (Active Directory).
 De integratie van Keeper Password Manager & Digital Vault met Azure AD heeft de volgende voordelen:
 
 * U kunt in Azure AD bepalen wie er toegang heeft tot Keeper Password Manager & Digital Vault.
-* U kunt instellen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Keeper Password Manager & Digital Vault (eenmalige aanmelding of SSO).
+* U kunt instellen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Keeper Password Manager & Digital Vault (eenmalige aanmelding).
 * U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
 Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
@@ -35,7 +36,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Om Azure AD-integratie te configureren met Keeper Password Manager & Digital Vault hebt u het volgende nodig:
+U hebt het volgende nodig om Azure AD-integratie te configureren met Keeper Password Manager & Digital Vault:
 
 * Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
 * Een abonnement op Keeper Password Manager & Digital Vault waarvoor eenmalige aanmelding is ingeschakeld
@@ -44,15 +45,15 @@ Om Azure AD-integratie te configureren met Keeper Password Manager & Digital Vau
 
 In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-* Keeper Password Manager & Digital Vault ondersteunt door **SP** geïnitieerde eenmalige aanmelding
+* Keeper Password Manager & Digital Vault biedt ondersteuning voor met **IDP** geïnitieerde eenmalige aanmelding
 
 * Keeper Password Manager & Digital Vault ondersteunt **just in time** inrichten van gebruikers
 
 ## <a name="adding-keeper-password-manager--digital-vault-from-the-gallery"></a>Keeper Password Manager & Digital Vault toevoegen vanuit de galerie
 
-Om de integratie van Keeper Password Manager & Digital Vault te configureren in Azure AD, moet u Keeper Password Manager & Digital Vault vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+Om de integratie van Keeper Password Manager & Digital Vault te configureren in Azure AD moet u Keeper Password Manager & Digital Vault vanuit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
 
-**Voer de volgende stappen uit om Keeper Password Manager & Digital Vault vanuit de galerie toe te voegen:**
+**Voer de volgende stappen uit om Keeper Password Manager & Digital Vault toe te voegen vanuit de galerie:**
 
 1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
@@ -75,10 +76,10 @@ Om de integratie van Keeper Password Manager & Digital Vault te configureren in 
 In dit gedeelte configureert en test u eenmalige aanmelding van Azure AD met Keeper Password Manager & Digital Vault op basis van een testgebruiker met de naam **Britta Simon**.
 Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Keeper Password Manager & Digital Vault tot stand is gebracht.
 
-Om eenmalige aanmelding van Azure AD met Keeper Password Manager & Digital Vault te configureren en testen, moet u de volgende procedures voltooien:
+Als u eenmalige aanmelding van Azure AD wilt configureren en testen met Keeper Password Manager & Digital Vault, moet u de volgende procedures uitvoeren:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Eenmalige aanmelding voor Keeper Password Manager & Digital Vault configureren](#configure-keeper-password-manager-&-digital-vault-single-sign-on)**: de instellingen voor eenmalige aanmelding aan de clientzijde configureren.
+2. **Eenmalige aanmelding configureren voor Keeper Password Manager & Digital Vault configureren**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wilt configureren.
 3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 5. **[Testgebruiker voor Keeper Password Manager & Digital Vault maken](#create-keeper-password-manager--digital-vault-test-user)**: als u een tegenhanger van Britta Simon in Keeper Password Manager & Digital Vault wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
@@ -104,7 +105,7 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
 4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-    ![Gegevens van domein en URL's voor eenmalige aanmelding van Keeper Password Manager & Digital Vault](common/sp-identifier-reply.png)
+    ![Gegevens voor domein en URL's voor eenmalige aanmelding van Keeper Password Manager & Digital Vault](common/sp-identifier-reply.png)
 
     a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://{SSO CONNECT SERVER}/sso-connect/saml/login`
 
@@ -149,7 +150,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    a. Voer in het veld **Naam****Britta Simon** in.
+    a. Voer in het veld **Naam** **Britta Simon**in.
   
     b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
     Bijvoorbeeld: BrittaSimon@contoso.com
@@ -186,7 +187,7 @@ In dit gedeelte geeft u Britta Simon de mogelijkheid om eenmalige aanmelding van
 
 ### <a name="create-keeper-password-manager--digital-vault-test-user"></a>Testgebruiker maken voor Keeper Password Manager & Digital Vault
 
-Als u wilt dat Azure AD-gebruikers zich kunnen aanmelden bij Keeper Password Manager & Digital Vault, moeten ze worden ingericht bij Keeper Password Manager & Digital Vault. De toepassing biedt ondersteuning voor just in time-gebruikersinrichting. Dit betekent dat gebruikers na verificatie automatisch worden aangemaakt in de toepassing. Neem contact op met [Keeper Support](https://keepersecurity.com/contact.html) als u de gebruikers handmatig wilt instellen.
+Als u wilt dat Azure AD-gebruikers zich kunnen aanmelden bij Keeper Password Manager & Digital Vault, moeten ze worden ingericht in Keeper Password Manager & Digital Vault. De toepassing biedt ondersteuning voor just in time-gebruikersinrichting. Dit betekent dat gebruikers na verificatie automatisch worden aangemaakt in de toepassing. Neem contact op met [Keeper Support](https://keepersecurity.com/contact.html) als u de gebruikers handmatig wilt instellen.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 

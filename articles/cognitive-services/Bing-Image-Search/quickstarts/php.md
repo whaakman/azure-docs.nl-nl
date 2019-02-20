@@ -5,19 +5,19 @@ description: Gebruik deze snelstartgids om aanvragen voor het zoeken van afbeeld
 services: cognitive-services
 documentationcenter: ''
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 9/07/2018
+ms.date: 2/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 7015d22222113c1b38c9fd43f218f243d9be7bbd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cca6fba401d8673cf97897c24a9d6de2329f19a4
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181534"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232486"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>Snelstartgids: Afbeeldingen zoeken met de REST API voor Bing Image Search en PHP
 
@@ -49,9 +49,9 @@ Volg deze stappen om deze toepassing uit te voeren.
     $accessKey = 'enter key here';
     $term = 'tropical ocean';
     ```
-## <a name="construct-and-perform-a-http-request"></a>Een HTTP-aanvraag compileren en uitvoeren
+## <a name="construct-and-perform-an-http-request"></a>Een HTTP-aanvraag compileren en uitvoeren
 
-1. Gebruik de variabelen in de vorige stap om een HTTP-aanvraag naar de Bing Image Search-API voor te bereiden.
+1. Gebruik de variabelen in de vorige stap om een HTTP-aanvraag naar de Image Search-API voor te bereiden.
 
     ```php
     $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
@@ -81,7 +81,7 @@ Verwerk en druk het geretourneerde JSON-antwoord af.
         return array($headers, $result);
     ```
 
-## <a name="sample-json-response"></a>Voorbeeld van een JSON-antwoord
+## <a name="example-json-response"></a>Voorbeeld van JSON-antwoord
 
 Antwoorden die afkomstig zijn van de Bing Afbeeldingen zoeken-API, worden geretourneerd in de JSON-indeling. Dit voorbeeldantwoord is ingekort zodat één resultaat wordt weergegeven.
 
@@ -125,7 +125,7 @@ Antwoorden die afkomstig zijn van de Bing Afbeeldingen zoeken-API, worden gereto
         },
         "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
         "accentColor":"0050B2"
-    }
+    }]
 }
 ```
 
@@ -137,7 +137,8 @@ Antwoorden die afkomstig zijn van de Bing Afbeeldingen zoeken-API, worden gereto
 ## <a name="see-also"></a>Zie ook
 
 * [Wat is Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Online interactieve demo proberen](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Online interactieve demo proberen](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
+* [Prijsinformatie](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) voor Bing Search-API's. 
 * [Gratis Cognitive Services-toegangssleutel ophalen](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Documentatie van Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
 * [Naslag voor Bing Afbeeldingen zoeken-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

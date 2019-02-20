@@ -1,23 +1,23 @@
 ---
-title: 'Snelstart: Teksttaal detecteren, Java - Translator Text-API'
+title: 'Quickstart: Teksttaal detecteren, Java - Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: In deze quickstart leert u hoe u de taal van opgegeven tekst kunt detecteren met behulp van Java en de Translator Text REST API.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 00ffb0eef5b7452894b27a00328dae4546d45c6f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: c40736bf22f53723a69a649215cdbb79a703e515
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208434"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964097"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-java"></a>Snelstart: De Translator Text-API gebruiken om de teksttaal te detecteren met Java
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-java"></a>Quickstart: De Translator Text-API gebruiken om de teksttaal te detecteren met Java
 
 In deze quickstart leert u hoe u de taal van opgegeven tekst kunt detecteren met behulp van Java en de Translator Text REST API.
 
@@ -171,6 +171,12 @@ Nu kunt u de voorbeeld-app gaan uitvoeren. Ga vanaf de opdrachtregel (of termina
 
 ```console
 gradle build
+```
+
+Wanneer de build is voltooid, voert u het volgende uit:
+
+```console
+gradle run
 ```
 
 ## <a name="sample-response"></a>Voorbeeldantwoord

@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: alkohli
-ms.openlocfilehash: b542ca2876149b9a60e5c5b9e3fa17284477864f
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: d94e2db66c8c5dac2b4d8551ae34a07cd68fd635
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241597"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106968"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Problemen met uw Azure Data Box Gateway oplossen 
 
@@ -103,6 +103,7 @@ Eventuele fouten die zich hebben voorgedaan tijdens de upload- en vernieuwingspr
     |    2006            |    ERROR_CLOUD_ACCOUNT_DISABLED                            |    Kan geen gegevens uploaden naar het account omdat het account of de share is uitgeschakeld.                                                                                                                                                            |
     |    2007            |    ERROR_CLOUD_ACCOUNT_PERMISSIONS                         |    Kan geen verbinding maken met de container omdat de accountmachtigingen onjuist zijn of zijn verlopen. Controleer uw toegang.                                                                                                               |
     |    2008            |    ERROR_CLOUD_CONTAINER_SIZE_LIMIT_REACHED                |    Kan geen nieuwe gegevens toevoegen omdat de container vol is. Controleer de Azure-specificaties voor de ondersteunde containergrootten op basis van type. Azure File bijvoorbeeld biedt ondersteuning voor een maximale bestandsgrootte van slechts 5 TB.                                     |
+    |    2997            |    ERROR_ITEM_CANCELED                                     |    Er is een onverwachte fout opgetreden. Dit is een tijdelijke fout die automatisch wordt opgelost.                                                                           |
     |    2998            |    ERROR_UNMAPPED_FAILURE                                  |    Er is een onverwachte fout opgetreden. Het is mogelijk dat de fout automatisch wordt opgelost, maar als het probleem zich langer dan 24 uur blijft voordoen, neem dan contact op met Microsoft Ondersteuning.                                                                                                     |
     |    16000           |    RefreshException                                        |    Kan dit bestand niet downloaden.                                                                                                                                                                                                        |
     |    16001           |    RefreshAlreadyExistsException                           |    Kan dit bestand niet downloaden omdat het al op uw lokale systeem bestaat.                                                                                                                                                         |

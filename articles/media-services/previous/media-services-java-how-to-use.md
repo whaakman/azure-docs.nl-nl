@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 09/18/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 6581c389cb7b1aa9c6ce6b9e84b56017264822f4
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 7ef7216b2d3adf99b0c1fd9ace84991169106529
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232950"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976262"
 ---
-# <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Aan de slag met de SDK voor Java-clients voor Azure Media Services
+# <a name="get-started-with-the-java-client-sdk-for-azure-media-services-legacy"></a>Aan de slag met de Java client SDK voor Azure Media Services (verouderd)
+
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 In deze zelfstudie wordt u begeleid bij het implementeren van een basisservice voor levering van video-inhoud met Azure Media Services via de SDK voor Java-clients.
@@ -34,7 +35,7 @@ Hieronder wordt aangegeven wat de vereisten zijn om deze zelfstudie te voltooien
 * Een Media Services-account. Zie [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie over het maken van een Media Services-account.
 * De huidige [Azure Media Services Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest)
 
-## <a name="how-to-import-the-azure-media-services-java-client-sdk-package"></a>Procedure: het pakket voor de Azure Media Services Java client SDK importeren
+## <a name="how-to-import-the-azure-media-services-java-client-sdk-package"></a>Procedure: Importeer het pakket voor de Azure Media Services Java client SDK
 
 Voeg een verwijzing naar de huidige versie (0.9.8) van het `azure-media`-pakket vanuit de [Azure Media Services Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest) toe om de Media Services SDK voor Java te gebruiken.
 
@@ -58,10 +59,10 @@ De volgende code geeft aan hoe u een asset maakt, een mediabestand naar de asset
 Stel een Media Services-account in voordat u deze code gebruikt. Zie [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie over het instellen van een account.
 
 De code maakt verbinding met de Azure Media Services API met behulp van service-principal-verificatie via Azure Active Directory. Maak een Azure Active Directory-toepassing en geef de waarden voor de volgende variabelen in de code op:
-* `tenant`: het Azure Active Directory-tenantdomein waarin de Azure Active Directory-toepassing zich bevindt
+* `tenant`: Het Azure Active Directory-tenantdomein waarin de Azure Active Directory-toepassing zich bevindt
 * `clientId`: De client-id van de Azure Active Directory-toepassing
 * `clientKey`: De client-sleutel van de Azure Active Directory-toepassing
-* `restApiEndpoint`: het REST API-eindpunt van het Azure Media Services-account
+* `restApiEndpoint`: Het REST API-eindpunt van het Azure Media Services-account
 
 U kunt een Azure Active Directory-toepassing maken en de voorgaande configuratiewaarden ophalen via Azure Portal. Zie het gedeelte **Service principal authentication** (Verificatie van service-principal) in [Getting started with Azure AD authentication using the Azure portal](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad) (Aan de slag met Azure Active Directory-verificatie via Azure Portal) voor meer informatie.
 

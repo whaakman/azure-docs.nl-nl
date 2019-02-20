@@ -16,28 +16,31 @@ ms.workload: na
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 20bf851cc9b2965a355286699e1ef255887d7650
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 22de937c33edc7c8ec6944acf657937a1ce604f7
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697085"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981891"
 ---
 # <a name="create-a-complete-virtual-machine-scale-set-with-powershell"></a>Een volledige virtuele-machineschaalset maken met PowerShell
-Met dit script maakt u een virtuele-machineschaalset waarop Windows Server 2016 wordt uitgevoerd. Afzonderlijke resources worden geconfigureerd en gemaakt; ze maken geen gebruik van de [ingebouwde opties voor het maken van resources die hier beschikbaar zijn in New-AzureRmVmss](powershell-sample-create-simple-scale-set.md). Nadat het script is uitgevoerd, hebt u via RDP toegang tot de virtuele machine.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+Met dit script maakt u een virtuele-machineschaalset waarop Windows Server 2016 wordt uitgevoerd. Afzonderlijke resources worden geconfigureerd en gemaakt. Deze maken geen gebruik van de [ingebouwde opties voor het maken van resources die hier beschikbaar zijn in New-AzVmss](powershell-sample-create-simple-scale-set.md). Nadat het script is uitgevoerd, hebt u via RDP toegang tot de virtuele machine.
+
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 ## <a name="sample-script"></a>Voorbeeldscript
+
 [!code-powershell[main](../../../powershell_scripts/virtual-machine-scale-sets/complete-scale-set/complete-scale-set.ps1 "Create a complete virtual machine scale set")]
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
 Gebruik de volgende opdracht om de resourcegroep, de schaalset en alle gerelateerde resources te verwijderen.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroupName
+Remove-AzResourceGroup -Name $resourceGroupName
 ```
 
 ## <a name="script-explanation"></a>Uitleg van het script
@@ -45,24 +48,24 @@ In dit script worden de volgende opdrachten gebruikt om de implementatie te make
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
-| [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) | Hiermee maakt u een subnetconfiguratie. Deze configuratie wordt gebruikt bij het maken van het virtueel netwerk. |
-| [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) | Hiermee maakt u een virtueel netwerk. |
-| [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) | Hiermee maakt u een openbaar IP-adres. |
-| [New-AzureRmLoadBalancerFrontendIpConfig](/powershell/module/azurerm.network/new-azurermloadbalancerfrontendipconfig) | Hiermee maakt u een front-endconfiguratie voor een IP-adres voor een load balancer. |
-| [New-AzureRmLoadBalancerBackendAddressPoolConfig](/powershell/module/azurerm.network/new-azurermloadbalancerbackendaddresspoolconfig) | Hiermee maakt u een back-endconfiguratie voor een adresgroep voor een load balancer. |
-| [New-AzureRmLoadBalancerInboundNatRuleConfig](/powershell/module/azurerm.network/new-azurermloadbalancerinboundnatruleconfig) | Hiermee maakt u binnenkomende NAT-regelconfiguratie voor een load balancer. |
-| [New-AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer) | Hiermee maakt u een load balancer. |
-| [Add-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/new-azurermloadbalancerprobeconfig) | Hiermee maakt u een testconfiguratie voor een load balancer. |
-| [Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/new-azurermloadbalancerruleconfig) | Hiermee maakt u een regelconfiguratie voor een load balancer. |
-| [Set-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/Set-AzureRmLoadBalancer) | Werk de load balancer bij met de opgegeven gegevens. |
-| [New-AzureRmVmssIpConfig](/powershell/module/AzureRM.Compute/New-AzureRmVmssIpConfig) | Maak een IP-configuratie voor de VM-exemplaren van de schaalset. De VM-exemplaren zijn verbonden met de back-endpool van de load balancer, de NAT-pool en het virtueel-netwerksubnet. |
-| [New-AzureRmVmssConfig](/powershell/module/AzureRM.Compute/New-AzureRmVmssConfig) | Hiermee wordt een schaalsetconfiguratie gemaakt. Deze configuratie bevat informatie zoals het aantal VM-exemplaren dat moet worden gemaakt, de VM-SKU (grootte) en de upgradebeleidsmodus. De configuratie wordt toegevoegd aan andere cmdlets en wordt gebruikt tijdens het maken van de schaalset. |
-| [Set-AzureRmVmssStorageProfile](/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile) | Definieer de installatiekopie die moet worden gebruikt voor de VM-exemplaren en voeg deze toe aan de schaalsetconfiguratie. |
-| [Set-AzureRmVmssOsProfile](/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile) | Definieer de gebruikersnaam- en wachtwoordreferenties van de beheerder en het VM-naamgevingsvoorvoegsel. Voeg deze waarden toe aan de schaalsetconfiguratie. |
-| [Add-AzureRmVmssNetworkInterfaceConfiguration](/powershell/module/AzureRM.Compute/Add-AzureRmVmssNetworkInterfaceConfiguration) | Voeg de virtuele-netwerkinterface toe aan de VM-exemplaren op basis van de IP-configuratie. Voeg deze waarden toe aan de schaalsetconfiguratie. |
-| [New-AzureRmVmss](/powershell/module/AzureRM.Compute/New-AzureRmVmss) | Maak de schaalaanpassingsset op basis van de informatie in de schaalsetconfiguratie. |
-| [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Hiermee verwijdert u een resourcegroep en alle daarin opgenomen resources. |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
+| [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Hiermee maakt u een subnetconfiguratie. Deze configuratie wordt gebruikt bij het maken van het virtueel netwerk. |
+| [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Hiermee maakt u een virtueel netwerk. |
+| [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Hiermee maakt u een openbaar IP-adres. |
+| [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) | Hiermee maakt u een front-endconfiguratie voor een IP-adres voor een load balancer. |
+| [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) | Hiermee maakt u een back-endconfiguratie voor een adresgroep voor een load balancer. |
+| [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) | Hiermee maakt u binnenkomende NAT-regelconfiguratie voor een load balancer. |
+| [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer) | Hiermee maakt u een load balancer. |
+| [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/new-azloadbalancerprobeconfig) | Hiermee maakt u een testconfiguratie voor een load balancer. |
+| [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerruleconfig) | Hiermee maakt u een regelconfiguratie voor een load balancer. |
+| [Set-AzLoadBalancer](/powershell/module/az.Network/Set-azLoadBalancer) | Werk de load balancer bij met de opgegeven gegevens. |
+| [New-AzVmssIpConfig](/powershell/module/az.Compute/New-azVmssIpConfig) | Maak een IP-configuratie voor de VM-exemplaren van de schaalset. De VM-exemplaren zijn verbonden met de back-endpool van de load balancer, de NAT-pool en het virtueel-netwerksubnet. |
+| [New-AzVmssConfig](/powershell/module/az.Compute/New-azVmssConfig) | Hiermee wordt een schaalsetconfiguratie gemaakt. Deze configuratie bevat informatie zoals het aantal VM-exemplaren dat moet worden gemaakt, de VM-SKU (grootte) en de upgradebeleidsmodus. De configuratie wordt toegevoegd aan andere cmdlets en wordt gebruikt tijdens het maken van de schaalset. |
+| [Set-AzVmssStorageProfile](/powershell/module/az.Compute/Set-azVmssStorageProfile) | Definieer de installatiekopie die moet worden gebruikt voor de VM-exemplaren en voeg deze toe aan de schaalsetconfiguratie. |
+| [Set-AzVmssOsProfile](/powershell/module/az.Compute/Set-azVmssStorageProfile) | Definieer de gebruikersnaam- en wachtwoordreferenties van de beheerder en het VM-naamgevingsvoorvoegsel. Voeg deze waarden toe aan de schaalsetconfiguratie. |
+| [Add-AzVmssNetworkInterfaceConfiguration](/powershell/module/az.Compute/Add-azVmssNetworkInterfaceConfiguration) | Voeg de virtuele-netwerkinterface toe aan de VM-exemplaren op basis van de IP-configuratie. Voeg deze waarden toe aan de schaalsetconfiguratie. |
+| [New-AzVmss](/powershell/module/az.Compute/New-azVmss) | Maak de schaalaanpassingsset op basis van de informatie in de schaalsetconfiguratie. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Hiermee verwijdert u een resourcegroep en alle daarin opgenomen resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over de Azure PowerShell-module de [documentatie van Azure PowerShell](/powershell/azure/overview).

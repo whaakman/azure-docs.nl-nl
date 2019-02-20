@@ -1,22 +1,22 @@
 ---
-title: Sleuteltermextractie in de Text Analytics REST API (Microsoft Cognitive Services in Azure) | Microsoft Docs
-description: Ontdek in deze zelfstudie hoe u sleuteltermen extraheert met behulp van de Text Analytics REST API in Microsoft Cognitive Services in Azure.
+title: Sleuteluitdrukkingen extraheren met behulp van de Text Analytics REST API | Microsoft Docs
+description: Sleuteluitdrukkingen extraheren met de Text Analytics REST API van Azure Cognitive Services.
 services: cognitive-services
-author: HeidiSteen
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 09/12/2018
-ms.author: heidist
-ms.openlocfilehash: bbca745da1fe657c1316d9e4e5fbeeeabfa5e1ef
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: bbf72847dd9d9a29bf1f2fa0574b83194d07a5c6
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216741"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245606"
 ---
-# <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>Voorbeeld: Sleuteltermen extraheren in Text Analytics
+# <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Voorbeeld: Sleuteltermen extraheren met behulp van Text Analytics
 
 De [Sleuteltermextractie API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) evalueert ongestructureerde tekst en retourneert voor elk JSON-document een lijst met sleuteltermen. 
 
@@ -29,13 +29,13 @@ Op dit moment ondersteunt Sleuteltermextractie Engels, Duits, Spaans en Japans. 
 
 ## <a name="preparation"></a>Voorbereiding
 
-Sleuteltermextractie werkt het beste wanneer u grotere segmenten tekst geeft. Dit is het tegenovergestelde van sentimentanalyse, wat beter presteert op kleinere blokken tekst. Overweeg dienovereenkomstig herstructurering van de invoer voor de beste resultaten uit beide bewerkingen.
+Sleuteltermextractie werkt het beste wanneer u grotere segmenten tekst opgeeft. Dit is het tegenovergestelde van sentimentanalyse, wat beter presteert op kleinere blokken tekst. Overweeg dienovereenkomstig herstructurering van de invoer voor de beste resultaten uit beide bewerkingen.
 
 U moet JSON-documenten in deze indeling hebben: id, tekst, taal
 
 De documentgrootte moet onder maximaal 5000 tekens per document zijn, en u kunt maximaal 1000 items (id's) per verzameling hebben. De verzameling is in de hoofdtekst van de aanvraag ingediend. Het volgende voorbeeld geeft de inhoud die u kunt indienen voor sleuteltermextractie.
 
-```
+```json
     {
         "documents": [
             {
@@ -96,7 +96,7 @@ Uitvoer wordt onmiddellijk geretourneerd. U kunt de resultaten streamen naar een
 
 Een voorbeeld van de uitvoer voor sleuteltermextractie:
 
-```
+```json
     "documents": [
         {
             "keyPhrases": [

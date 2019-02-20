@@ -1,22 +1,22 @@
 ---
-title: Taaldetectie in de Text Analytics REST API (Microsoft Cognitive Services in Azure) | Microsoft Docs
-description: Leer in deze stapsgewijze zelfstudie hoe u taal detecteert met behulp van de Text Analytics REST API in Microsoft Cognitive Services in Azure.
+title: Taal detecteren met de Text Analytics REST API | Microsoft Docs
+description: Taal detecteren met de Text Analytics REST API van Azure Cognitive Services.
 services: cognitive-services
-author: HeidiSteen
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 09/12/2018
-ms.author: heidist
-ms.openlocfilehash: e613652511a18f2234c82cce47f0beeb2d3bbdd6
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: 549ef0d073a740edf700c54d02a0d9ef247db0b7
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211947"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245084"
 ---
-# <a name="example-how-to-detect-language-in-text-analytics"></a>Voorbeeld: Taal detecteren in Text Analytics
+# <a name="example-how-to-detect-language-with-text-analytics"></a>Voorbeeld: Taal detecteren met Text Analytics
 
 De [Taaldetectie-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) evalueert tekstinvoer voor elk document en retourneert de taal-id's met een score die wijst op de sterkte van de analyse. Text Analytics herkent maximaal 120 talen.
 

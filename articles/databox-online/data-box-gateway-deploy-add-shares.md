@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 02/04/2019
 ms.author: alkohli
-ms.openlocfilehash: fa31397e0ecffbd245557a824bdd770724bbc91c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0ceff87cd3075d517ee1c0027e19dbf423e44f5c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249877"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108752"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>Zelfstudie: Gegevens overdragen met Azure Data Box Gateway (preview-versie)
 
@@ -121,13 +121,13 @@ Voer deze stappen uit op uw Linux-client die in verbinding staat met Data Box Ed
 
 2. Als de NFS-client is geïnstalleerd, gebruikt u de volgende opdracht om de NFS-share te koppelen die u op uw Data Box Gateway-apparaat hebt gemaakt:
 
-   `sudo mount <device IP>:/<NFS share on device> /home/username/<Folder on local Linux computer>`
+   `sudo mount -t nfs -o sec=sys,resvport <device IP>:/<NFS shares on device> /home/username/<Folder on local Linux computer>`
 
     Voordat u de koppelingen gaat instellen, controleert u of de mappen die als koppelpunten op uw lokale computer fungeren, al zijn gemaakt en geen bestanden of submappen bevatten.
 
     Het volgende voorbeeld toont hoe u via NFS verbinding maakt met een share op een Gateway-apparaat. Het IP-adres van het virtuele apparaat is `10.10.10.60`, de share `mylinuxshare2` wordt gekoppeld op de Ubuntu-VM, het koppelpunt is `/home/databoxubuntuhost/gateway`.
 
-    `sudo mount -t nfs 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/gateway`
+    `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/gateway`
 
 > [!NOTE] 
 > De volgende beperkingen zijn van toepassing op de preview-versie:

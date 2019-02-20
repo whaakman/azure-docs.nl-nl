@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 00415cab4d5c36c74cf78a10cb71682d97236517
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 604f135cc3dffdb9ac6533826eff6926ad5467df
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099155"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117745"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Zelfstudie: Azure Data Box Gateway inrichten in VMware (preview)
 
@@ -66,7 +66,7 @@ Voordat u een virtueel apparaat implementeert, controleert u of:
 
 Voordat u begint:
 
-- Controleer de netwerkvereisten voor het implementeren van een Data Box Gateway en configureer het netwerk van het datacenter aan de hand van die vereisten. Zie [Netwerkvereisten voor Data Box Gateway](data-box-gateway-system-requirements.md#networking-requirements) voor meer informatie.
+- Controleer de netwerkvereisten voor het implementeren van een Data Box Gateway en configureer het netwerk van het datacenter aan de hand van die vereisten. Zie [Netwerkvereisten voor Data Box Gateway](data-box-gateway-system-requirements.md#networking-port-requirements) voor meer informatie.
 - Voor een optimale werking van het apparaat heeft internet een minimale bandbreedte van 20 Mbps nodig.
 
 ## <a name="check-the-host-system"></a>Het hostsysteem controleren
@@ -77,7 +77,7 @@ Voor het maken van een virtueel apparaat hebt u het volgende nodig:
  
   * Minimaal 4 kerngeheugens.
   * Ten minste 8 GB RAM-geheugen. 
-  * Eén netwerkinterface die is verbonden met het netwerk en verkeer naar internet kan routeren. 
+  * Eén netwerkinterface die is verbonden met het netwerk en verkeer naar internet kan routeren.
   * Een besturingssysteemschijf van 250 GB
   * Een virtuele schijf van 2 TB voor gegevens
 * Een VMware vSphere-client op uw systeem voor het beheren van de ESXi-host.
@@ -89,7 +89,7 @@ Voer de volgende stappen uit voor het inrichten van een virtueel apparaat in de 
 
 1. Kopieer de installatiekopie van het virtuele apparaat naar uw systeem. U hebt deze virtuele-installatiekopie (twee bestanden) via de Azure-portal gedownload. Noteer de locatie waar u de installatiekopie naartoe hebt gekopieerd, want u hebt deze installatiekopie verderop in de procedure nodig.
 
-2. Meld u aan bij de ESXi-server met behulp van de vSphere-webclient. U moet beheerdersbevoegdheden hebben om een virtuele machine te kunnen maken.
+2. Meld u aan bij de ESXi-server via een browser op de volgende URL: `https://<IP address of the ESXi server>`. U moet beheerdersbevoegdheden hebben om een virtuele machine te kunnen maken.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image1.png)
   
@@ -149,20 +149,24 @@ Voer de volgende stappen uit voor het inrichten van een virtueel apparaat in de 
 
      ![](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
-    Schuif omlaag totdat u de **nieuwe vaste schijf** ziet en vouw deze uit om de instellingen te kunnen zien. Stel het **knooppunt van het virtuele apparaat** in op **IDE-controller 0**. Klik op **Volgende**.
+    Schuif omlaag totdat u de **nieuwe vaste schijf** ziet en vouw deze uit om de instellingen te kunnen zien. Stel het **knooppunt van het virtuele apparaat** in op **IDE-controller 0**.
 
      ![](./media/data-box-gateway-deploy-provision-vmware/image15.png)
 
-27. Op de pagina **Gereed om te voltooien** controleert u alle instellingen voor de nieuwe virtuele machine. Controleer of CPU 4 is, het geheugen 8192 MB is, de netwerkinterface 1 is en harde schijf 2 IDE-controller 0 is. Klik op **Voltooien**. 
+17. (Optioneel) *Voer deze stap alleen uit als u VMware ESXi-Server 6.7 gebruikt*. Op de pagina **Instellingen aanpassen** klikt u op **VM-opties**. Ga naar **Opstartopties > Firmware** en wijzig deze in **BIOS**. De waarde is standaard ingesteld op EFI. Klik op **Volgende**.
+
+    ![](./media/data-box-gateway-deploy-provision-vmware/image15a.png)
+
+18. Op de pagina **Gereed om te voltooien** controleert u alle instellingen voor de nieuwe virtuele machine. Controleer of CPU 4 is, het geheugen 8192 MB is, de netwerkinterface 1 is en harde schijf 2 IDE-controller 0 is. Klik op **Voltooien**.
    
     ![](./media/data-box-gateway-deploy-provision-vmware/image16.png)
     ![](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
-Uw virtuele machine is nu ingericht. U ziet als resultaat nu een melding dat de nieuwe virtuele machine is toegevoegd aan de lijst met virtuele machines. 
+Uw virtuele machine is nu ingericht. U ziet als resultaat nu een melding dat de nieuwe virtuele machine is toegevoegd aan de lijst met virtuele machines.
 
 ![](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
-De volgende stap is om deze machine te laten werken en om het IP-adres op te halen.
+De volgende stap is om deze virtuele machine in te schakelen en om het IP-adres op te halen.
 
 > [!NOTE]
 > Het wordt niet aanbevolen om VMware-hulpprogramma's op uw virtuele apparaat te installeren (zoals hierboven is ingericht). Als u VMware-hulpprogramma's installeert, leidt dat tot een niet-ondersteunde configuratie.

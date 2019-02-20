@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: be4549b8b9cca3f4aa48a21fb9377dbd203dde69
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 82e80b9dd4d20709fc8598e0fed3323046c21cfa
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751120"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189409"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Zelfstudie: Een infrastructuur voor ontwikkeling maken op een Linux-VM in Azure met Jenkins, GitHub en Docker
 
@@ -59,7 +59,7 @@ write_files:
         "hosts": ["fd://","tcp://127.0.0.1:2375"]
       }
 runcmd:
-  - apt install default-jre -y
+  - apt install openjdk-8-jre-headless -y
   - wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
   - sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
   - apt-get update && apt-get install jenkins -y
@@ -109,6 +109,21 @@ Uit veiligheidsoverwegingen moet u eerst het in initiële beheerderswachtwoord i
 ssh azureuser@<publicIps>
 ```
 
+Controleer of Jenkins wordt uitgevoerd met behulp van de opdracht `service`:
+
+```bash
+$ service jenkins status
+● jenkins.service - LSB: Start Jenkins at boot time
+   Loaded: loaded (/etc/init.d/jenkins; generated)
+   Active: active (exited) since Tue 2019-02-12 16:16:11 UTC; 55s ago
+     Docs: man:systemd-sysv-generator(8)
+    Tasks: 0 (limit: 4103)
+   CGroup: /system.slice/jenkins.service
+
+Feb 12 16:16:10 myVM systemd[1]: Starting LSB: Start Jenkins at boot time...
+...
+```
+
 Bekijk het `initialAdminPassword` voor uw Jenkins-installatie en kopieer het:
 
 ```bash
@@ -133,11 +148,13 @@ Voor het configureren van de integratie met GitHub opent u de [voorbeeld-app Nod
 
 Maak een webhook binnen de fork die u hebt gemaakt:
 
-- Selecteer **Instellingen**, selecteer daarna **Integraties en services** aan de linkerkant.
-- Kies **Service toevoegen**, voer dan *Jenkins* in het filtervak in.
-- Selecteer *Jenkins (GitHub-invoegtoepassing)*
-- Voor de **Jenkins hook-URL** voert u `http://<publicIps>:8080/github-webhook/` in. Zorg ervoor dat u de afsluitende / toevoegt
-- Selecteer **Service toevoegen**
+- Selecteer **Instellingen**, selecteer daarna **Webhooks** aan de linkerkant.
+- Kies **Webhook toevoegen**, voer dan *Jenkins* in het filtervak in.
+- Voer voor de **Payload-URL** `http://<publicIps>:8080/github-webhook/` in. Zorg ervoor dat u de afsluitende / toevoegt
+- Selecteer voor **Inhoudstype** *application/x-www-form-urlencoded*.
+- Voor **Met welke gebeurtenissen wilt u deze webhook activeren?** selecteert u *Alleen de push-gebeurtenis.*
+- Stel **Actief** in op ingeschakeld.
+- Klik op **Webhook toevoegen**.
 
 ![Voeg de GitHub-webhook toe aan uw gevorkte opslagplaats](media/tutorial-jenkins-github-docker-cicd/github_webhook.png)
 
@@ -166,7 +183,7 @@ response.end("Hello World!");
 
 Om uw wijzigingen door te voeren, selecteert u de knop **Wijzigingen doorvoeren** onderaan.
 
-Een nieuwe build begint in Jenkins, onder de sectie **Build-geschiedenis** in de linkerbenedenhoek van de pagina met taken. Kies de link voor het build-nummer en selecteer **Console-uitvoer** aan de linkerkant. U kunt de stappen bekijken die Jenkins neemt als uw code wordt opgehaald uit GitHub en de build-actie het bericht `Testing` naar de console uitvoert. Telkens wanneer een doorvoer wordt gemaakt in GitHub, zoekt de webhook Jenkins op en activeert op deze manier een nieuwe build.
+Een nieuwe build begint in Jenkins, onder de sectie **Build-geschiedenis** in de linkerbenedenhoek van de pagina met taken. Kies de link voor het build-nummer en selecteer **Console-uitvoer** aan de linkerkant. U kunt de stappen bekijken die Jenkins neemt als uw code wordt opgehaald uit GitHub en de build-actie het bericht `Test` naar de console uitvoert. Telkens wanneer een doorvoer wordt gemaakt in GitHub, zoekt de webhook Jenkins op en activeert op deze manier een nieuwe build.
 
 
 ## <a name="define-docker-build-image"></a>Afbeelding van Docker-build definiëren

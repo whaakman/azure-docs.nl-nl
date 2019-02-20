@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/20/2018
+ms.date: 02/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 55c1aa4a478031ebc49ec5ab7ea5744d9d980470
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3356d7425e692f248a3850e8bef7b80d4daba276
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825752"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56179940"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>Zelfstudie: Azure Active Directory-integratie met Atlassian Cloud
 
@@ -39,6 +40,7 @@ Voor het configureren van de Azure AD-integratie met Atlassian Cloud hebt u het 
 
 * Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
 * Abonnement op Atlassian Cloud waarvoor eenmalige aanmelding is ingeschakeld
+* Als u eenmalige aanmelding van Security Assertion Markup Language (SAML) wilt instellen voor Atlassian Cloud-producten, moet u Atlassian Access instellen. Meer informatie over [Atlassian Access]( https://www.atlassian.com/enterprise/cloud/identity-manager).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
@@ -124,29 +126,15 @@ Voer de volgende stappen uit om Azure AHD-eenmalige aanmelding te configureren v
     > [!NOTE]
     > De bovenstaande waarde voor de aanmeldings-URL is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met het [Atlassian Cloud-klantondersteuningsteam](https://support.atlassian.com/) om deze waarde te verkrijgen.
 
-6. In de Atlassian Cloud-toepassing worden de SAML-asserties in een specifieke indeling verwacht. Hiervoor moet u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van uw SAML-tokenkenmerken.
-
-    Standaard wordt de waarde **Gebruikers-id** toegewezen aan user.userprincipalname. Wijzig deze waarde zodat er wordt toegewezen aan user.mail. U kunt ook een andere geschikte waarde kiezen op basis van de werkwijze in uw organisatie, maar in de meeste gevallen is e-mail voldoende. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
+6. De Atlassian Cloud-toepassing verwacht SAML-asserties in een specifieke indeling. Hiervoor moet u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van uw SAML-tokenkenmerken. In de volgende schermafbeelding ziet u de lijst met standaardkenmerken, waarbij **nameidentifier** is toegewezen met **user.userprincipalname**. In de Atlassian Cloud-toepassing wordt verwacht dat **nameidentifier** is toegewezen aan **user.mail**. Daarom moet u de kenmerktoewijzing bewerken door op het pictogram **Bewerken** te klikken en de kenmerktoewijzing te wijzigen.
 
     ![image](common/edit-attribute.png)
 
-7. Voer in de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** de volgende stappen uit:
-
-    a. Klik op **Pictogram bewerken** om het dialoogvenster **Gebruikersclaims beheren** te openen.
-
-    ![image](./media/atlassian-cloud-tutorial/tutorial_usermail.png)
-
-    ![image](./media/atlassian-cloud-tutorial/tutorial_usermailedit.png)
-
-    b. Selecteer in de lijst **Bronkenmerk** de optie **user.mail**.
-
-    c. Klik op **Opslaan**.
-
-8. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
+7. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
     ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
-9. Kopieer in de sectie **Atlassian Cloud instellen** de juiste URL('s) overeenkomstig wat u nodig hebt.
+8. Kopieer in de sectie **Atlassian Cloud instellen** de juiste URL('s) overeenkomstig wat u nodig hebt.
 
     ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
@@ -205,7 +193,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    a. Voer in het veld **Naam****Britta Simon** in.
+    a. Voer in het veld **Naam** **Britta Simon**in.
   
     b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
     Bijvoorbeeld: BrittaSimon@contoso.com

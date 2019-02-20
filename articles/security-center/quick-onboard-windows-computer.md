@@ -4,7 +4,7 @@ description: In deze snelstart leert u hoe u Microsoft Monitoring Agent op een W
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 57560a035f4d0468625e4c8f3ad6b7a7e516590f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3cc6cdb84b2c77b15b79c7d6a04cc7c6ae0721e5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850669"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115858"
 ---
-# <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Snelstart: Windows-computers onboarden naar Azure Security Center
+# <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Quickstart: Windows-computers onboarden naar Azure Security Center
 Nadat u de onboarding van uw Azure-abonnementen hebt uitgevoerd, kunt u Security Center inschakelen voor resources die buiten Azure worden uitgevoerd, bijvoorbeeld on-premises of in andere clouds, door Microsoft Monitoring Agent in te richten.
 
 In deze snelstart ziet u hoe u Microsoft Monitoring Agent op een Windows-computer installeert.
@@ -30,7 +30,7 @@ In deze snelstart ziet u hoe u Microsoft Monitoring Agent op een Windows-compute
 ## <a name="prerequisites"></a>Vereisten
 U moet over een abonnement op Microsoft Azure beschikken om met Security Center aan de slag te gaan. Als u geen abonnement hebt, kunt u zich aanmelden voor een [gratis account](https://azure.microsoft.com/pricing/free-trial/).
 
-U moet u zich in de Standard-prijscategorie van Security Center bevinden voordat u aan deze snelstart kunt beginnen. Zie [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) (Uw Azure-abonnement registreren voor Security Center Standard) voor upgrade-instructies. U kunt Security Center Standard kosteloos proberen. Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie.
+U moet u zich in de Standard-prijscategorie van Security Center bevinden voordat u aan deze snelstart kunt beginnen. Zie [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) (Uw Azure-abonnement registreren voor Security Center Standard) voor upgrade-instructies. U kunt Security Center Standard kosteloos uitproberen. Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie.
 
 ## <a name="add-new-windows-computer"></a>Nieuwe Windows-computer toevoegen
 
@@ -100,7 +100,7 @@ De agent verwijderen:
 In deze snelstart richt u Microsoft Monitoring Agent in op een Windows-computer. Voor meer informatie over het gebruik van Security Center gaat u verder met de zelfstudie voor het configureren van een beveiligingsbeleid en het beoordelen van de beveiliging van uw resources.
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Beveiligingsbeleidsregels opstellen en beoordelen](tutorial-security-policy.md)
+> [Zelfstudie: Beveiligingsbeleid opstellen en beoordelen](tutorial-security-policy.md)
 
 <!--Image references-->
 [2]: ./media/quick-onboard-windows-computer/overview.png

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 49598eb8579e20dd20ca63d11529ba106a510102
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 71ddf1d70953b721911a7315ab6875dd41a9a4db
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170518"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894170"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Zelfstudie: Live streamen met Azure Media Services v3 met behulp van .NET
 
@@ -166,7 +166,7 @@ In de volgende code ziet u hoe u alle livegebeurtenissen uit uw account verwijde
 
 ## <a name="watch-the-event"></a>De gebeurtenis bekijken
 
-Als u de gebeurtenis wilt bekijken, kopieert u de streaming-URL die u hebt verkregen toen u de code uitvoerde, beschreven in [Create a Streaming Locator](#create-a-streaminglocator) (Een streaming-locator maken), en gebruikt u een speler van uw keuze. U kunt [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) gebruiken om uw stream te testen op http://ampdemo.azureedge.net. 
+Als u de gebeurtenis wilt bekijken, kopieert u de streaming-URL die u hebt verkregen toen u de code uitvoerde, beschreven in Een streaming-locator maken, en gebruikt u een speler van uw keuze. U kunt [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) gebruiken om uw stream te testen op http://ampdemo.azureedge.net. 
 
 De livegebeurtenis wordt automatisch geconverteerd naar inhoud op aanvraag wanneer deze wordt gestopt. Zelfs na het stoppen en verwijderen van de gebeurtenis kunnen gebruikers de gearchiveerde inhoud als video op aanvraag streamen, mits u de asset niet hebt verwijderd. Een asset kan niet worden verwijderd als deze wordt gebruikt door een gebeurtenis. U moet eerst de gebeurtenis verwijderen. 
 

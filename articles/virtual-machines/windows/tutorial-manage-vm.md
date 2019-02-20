@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 11/02/2018
+ms.date: 11/28/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b725713777eb6ca25c829d327f91921b28cd4203
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: a2e056baa2dd27ca0bf054d0dacf15d35e0ef384
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035965"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977917"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Zelfstudie: Windows-VM's maken en beheren met Azure PowerShell
 
@@ -42,12 +42,12 @@ Als u Cloud Shell wilt openen, selecteert u **Proberen** in de rechterbovenhoek 
 
 ## <a name="create-resource-group"></a>Een resourcegroep maken
 
-Maak een resourcegroep met de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup).
+Maak een resourcegroep met de opdracht [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup).
 
 Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Voordat een virtuele machine wordt gemaakt, moet een resourcegroep worden gemaakt. In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupVM* gemaakt in de regio *VS - Oost*:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
    -ResourceGroupName "myResourceGroupVM" `
    -Location "EastUS"
 ```
@@ -64,10 +64,10 @@ Stel met [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft
 $cred = Get-Credential
 ```
 
-Maak de VM met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
+Maak de VM met [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm).
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroupVM" `
     -Name "myVM" `
     -Location "EastUS" `
@@ -85,7 +85,7 @@ Wanneer de implementatie is voltooid, maakt u via een extern bureaublad verbindi
 Voer de volgende opdrachten uit om het openbare IP-adres van de VM te retourneren. Noteer dit IP-adres zodat u vanuit uw browser verbinding kunt maken met het adres om webverbindingen te testen.
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress `
+Get-AzPublicIpAddress `
    -ResourceGroupName "myResourceGroupVM"  | Select IpAddress
 ```
 
@@ -101,16 +101,18 @@ Selecteer in het venster **Windows-beveiliging** **Meer opties** en vervolgens *
 
 Azure Marketplace bevat vele installatiekopieën die kunnen worden gebruikt voor het maken van een nieuwe VM. In de vorige stappen is een VM gemaakt met behulp van de Windows Server 2016 Datacenter-installatiekopie. In deze stap wordt de PowerShell-module gebruikt om op de Marketplace te zoeken naar andere Windows-installatiekopieën, die ook als basis voor nieuwe virtuele machines kunnen worden gebruikt. Dit proces bestaat uit het vinden van de uitgever, aanbieding, SKU en eventueel een versienummer om de installatiekopie te [identificeren](cli-ps-findimage.md#terminology).
 
-Gebruik de opdracht [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) om een lijst met uitgevers van installatiekopieën te retourneren:
+Gebruik de opdracht [Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) om een lijst met uitgevers van installatiekopieën te retourneren:
 
 ```azurepowershell-interactive
-Get-AzureRmVMImagePublisher -Location "EastUS"
+Get-AzVMImagePublisher -Location "EastUS"
 ```
 
-Gebruik de opdracht [Get-AzureRmVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer) om een lijst met aanbiedingen van installatiekopieën te retourneren. Met deze opdracht wordt de geretourneerde lijst gefilterd op de opgegeven uitgever met de naam `MicrosoftWindowsServer`:
+Gebruik de opdracht [Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) om een lijst met aanbiedingen van installatiekopieën te retourneren. Met deze opdracht wordt de geretourneerde lijst gefilterd op de opgegeven uitgever met de naam `MicrosoftWindowsServer`:
 
 ```azurepowershell-interactive
-Get-AzureRmVMImageOffer -Location "EastUS" -PublisherName "MicrosoftWindowsServer"
+Get-AzVMImageOffer `
+   -Location "EastUS" `
+   -PublisherName "MicrosoftWindowsServer"
 ```
 
 De resultaten zien er ongeveer uit zoals in dit voorbeeld: 
@@ -123,10 +125,13 @@ WindowsServer     MicrosoftWindowsServer EastUS
 WindowsServer-HUB MicrosoftWindowsServer EastUS
 ```
 
-Met de opdracht [Get-AzureRmVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) wordt vervolgens gefilterd op de naam van de uitgever en de aanbieding, waarna een lijst met namen van installatiekopieën wordt geretourneerd.
+Met de opdracht [Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) wordt vervolgens gefilterd op de naam van de uitgever en de aanbieding, waarna een lijst met namen van installatiekopieën wordt geretourneerd.
 
 ```azurepowershell-interactive
-Get-AzureRmVMImageSku -Location "EastUS" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer"
+Get-AzVMImageSku `
+   -Location "EastUS" `
+   -PublisherName "MicrosoftWindowsServer" `
+   -Offer "WindowsServer"
 ```
 
 De resultaten zien er ongeveer uit zoals in dit voorbeeld: 
@@ -153,7 +158,7 @@ Skus                                      Offer         PublisherName          L
 Deze informatie kan worden gebruikt om een virtuele machine met een specifieke installatiekopie te implementeren. In dit voorbeeld wordt een VM geïmplementeerd met behulp van de nieuwste versie van Windows Server 2016 met Containers-installatiekopie.
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroupVM" `
     -Name "myVM2" `
     -Location "EastUS" `
@@ -170,7 +175,7 @@ Door de parameter `-AsJob` wordt de VM gemaakt als achtergrondtaak, zodat u weer
 
 ## <a name="understand-vm-sizes"></a>Inzicht in VM-grootten
 
-De grootte van een VM bepaalt de hoeveelheid rekenresources, zoals CPU, GPU en geheugen, die voor de VM beschikbaar zijn gesteld. Virtuele machines moeten worden gemaakt waarbij de grootte van de VM geschikt is voor de werkbelasting. Als een werkbelasting toeneemt, kan de grootte van een bestaande virtuele machine ook worden gewijzigd.
+De grootte van een VM bepaalt de hoeveelheid rekenresources, zoals CPU, GPU en geheugen, die voor de VM beschikbaar zijn gesteld. Virtuele machines moeten worden gemaakt met een grootte die geschikt is voor de werkbelasting. Als een werkbelasting toeneemt, kan de grootte van een bestaande virtuele machine ook worden gewijzigd.
 
 ### <a name="vm-sizes"></a>VM-grootten
 
@@ -186,69 +191,71 @@ In de volgende tabel zijn grootten gecategoriseerd in use-cases.
 
 ### <a name="find-available-vm-sizes"></a>Beschikbare VM-grootten zoeken
 
-Als u een lijst wilt weergeven met de VM-grootten die beschikbaar zijn in een bepaalde regio, gebruikt u de opdracht [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize).
+Als u een lijst wilt weergeven met de VM-grootten die beschikbaar zijn in een bepaalde regio, gebruikt u de opdracht [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize).
 
 ```azurepowershell-interactive
-Get-AzureRmVMSize -Location "EastUS"
+Get-AzVMSize -Location "EastUS"
 ```
 
 ## <a name="resize-a-vm"></a>De grootte van een virtuele machine wijzigen
 
 Nadat een virtuele machine is geïmplementeerd, kan de grootte ervan worden gewijzigd om meer of minder resources toe te wijzen.
 
-Voordat u de grootte van een virtuele machine wijzigt, moet u controleren of de gewenste grootte beschikbaar in het huidige VM-cluster. Met de opdracht [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) wordt een lijst met grootten geretourneerd.
+Voordat u de grootte van een virtuele machine wijzigt, moet u controleren of de grootte die u wenst, beschikbaar in het huidige VM-cluster. Met de opdracht [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) wordt een lijst met grootten geretourneerd.
 
 ```azurepowershell-interactive
-Get-AzureRmVMSize -ResourceGroupName "myResourceGroupVM" -VMName "myVM"
+Get-AzVMSize -ResourceGroupName "myResourceGroupVM" -VMName "myVM"
 ```
 
-Als de gewenste grootte beschikbaar is, kan de grootte van de virtuele machine worden gewijzigd terwijl de virtuele machine wordt uitgevoerd. De virtuele machine moet wel opnieuw worden opgestart tijdens de bewerking.
+Als de grootte beschikbaar is, kan de grootte van de virtuele machine worden gewijzigd terwijl de virtuele machine wordt uitgevoerd. De virtuele machine moet wel opnieuw worden opgestart tijdens de bewerking.
 
 ```azurepowershell-interactive
-$vm = Get-AzureRmVM -ResourceGroupName "myResourceGroupVM"  -VMName "myVM"
+$vm = Get-AzVM `
+   -ResourceGroupName "myResourceGroupVM"  `
+   -VMName "myVM"
 $vm.HardwareProfile.VmSize = "Standard_DS3_v2"
-Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroupVM"
+Update-AzVM `
+   -VM $vm `
+   -ResourceGroupName "myResourceGroupVM"
 ```
 
 Als de grootte die u zoekt niet beschikbaar is in het huidige cluster, moet de toewijzing van de VM ongedaan worden gemaakt voordat de grootte kan worden gewijzigd. Als de toewijzing van een VM ongedaan wordt gemaakt, worden alle gegevens op de tijdelijke schijf verwijderd en wordt het openbare IP-adres gewijzigd, tenzij een statisch IP-adres wordt gebruikt.
 
 ```azurepowershell-interactive
-Stop-AzureRmVM `
+Stop-AzVM `
    -ResourceGroupName "myResourceGroupVM" `
    -Name "myVM" -Force
-$vm = Get-AzureRmVM `
+$vm = Get-AzVM `
    -ResourceGroupName "myResourceGroupVM"  `
    -VMName "myVM"
 $vm.HardwareProfile.VmSize = "Standard_E2s_v3"
-Update-AzureRmVM -VM $vm `
+Update-AzVM -VM $vm `
    -ResourceGroupName "myResourceGroupVM"
-Start-AzureRmVM `
+Start-AzVM `
    -ResourceGroupName "myResourceGroupVM"  `
    -Name $vm.name
 ```
 
 ## <a name="vm-power-states"></a>Energiestatussen voor de virtuele machine
 
-Een Azure VM kan op een van de vele energiestatussen worden ingesteld. Deze status vertegenwoordigt de huidige status van de virtuele machine vanuit het oogpunt van de hypervisor.
+Een Azure VM kan op een van de vele energiestatussen worden ingesteld. 
 
-### <a name="power-states"></a>Energiestatussen
 
 | Energiestatus | Beschrijving
 |----|----|
-| Starten | Geeft aan dat de virtuele machine wordt gestart. |
-| In uitvoering | Geeft aan dat de virtuele machine wordt uitgevoerd. |
-| Stoppen | Geeft aan dat de virtuele machine wordt gestopt. |
-| Gestopt | Geeft aan dat de VM is gestopt. Virtuele machines met de status Gestopt genereren nog steeds rekenkosten.  |
-| Vrijgeven | Geeft aan dat de toewijzing van de VM ongedaan wordt gemaakt. |
+| Starten | De virtuele machine die wordt gestart. |
+| In uitvoering | De virtuele machine die wordt uitgevoerd. |
+| Stoppen | De virtuele machine die wordt gestopt. |
+| Gestopt | De virtuele machine is gestopt. Virtuele machines met de status Gestopt genereren nog steeds rekenkosten.  |
+| Vrijgeven | De VM waarvan de toewijzing ongedaan wordt gemaakt. |
 | Toewijzing ongedaan gemaakt | Geeft aan dat de VM is verwijderd uit de hypervisor, maar nog steeds beschikbaar is in het besturingsvenster. Virtuele machines met de status `Deallocated` genereren geen rekenkosten. |
-| - | Geeft aan dat de energiestatus van de VM onbekend is. |
+| - | De energiestatus van de VM is onbekend. |
 
-### <a name="find-power-state"></a>Energiestatus zoeken
 
-Als u de status van een bepaalde virtuele machine wilt ophalen, gebruikt u de opdracht [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm). Zorg ervoor dat u een geldige naam opgeeft voor een VM en een resourcegroep.
+Gebruik de opdracht [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) om de status van een bepaalde virtuele machine op te halen. Zorg ervoor dat u een geldige naam opgeeft voor een VM en een resourcegroep.
 
 ```azurepowershell-interactive
-Get-AzureRmVM `
+Get-AzVM `
     -ResourceGroupName "myResourceGroupVM" `
     -Name "myVM" `
     -Status | Select @{n="Status"; e={$_.Statuses[1].Code}}
@@ -268,10 +275,10 @@ Tijdens de levenscyclus van een VM wilt u wellicht beheertaken uitvoeren, zoals 
 
 ### <a name="stop-a-vm"></a>Een VM stoppen
 
-U kunt een VM stoppen en de toewijzing ervan ongedaan maken met de opdracht [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm):
+U kunt een VM stoppen en de toewijzing ervan ongedaan maken met de opdracht [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm):
 
 ```azurepowershell-interactive
-Stop-AzureRmVM `
+Stop-AzVM `
    -ResourceGroupName "myResourceGroupVM" `
    -Name "myVM" -Force
 ```
@@ -281,17 +288,17 @@ Als u wilt dat de VM de status Ingericht houdt, gebruikt u de parameter -StayPro
 ### <a name="start-a-vm"></a>Een VM starten
 
 ```azurepowershell-interactive
-Start-AzureRmVM `
+Start-AzVM `
    -ResourceGroupName "myResourceGroupVM" `
    -Name "myVM"
 ```
 
 ### <a name="delete-resource-group"></a>Resourcegroep verwijderen
 
-Als u een resourcegroep verwijdert, verwijdert u ook alle resources binnen de groep.
+Alles binnen een resourcegroep wordt verwijderd wanneer u de resourcegroep verwijdert.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup `
+Remove-AzResourceGroup `
    -Name "myResourceGroupVM" `
    -Force
 ```

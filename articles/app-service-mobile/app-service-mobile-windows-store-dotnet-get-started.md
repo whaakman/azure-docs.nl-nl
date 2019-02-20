@@ -1,5 +1,5 @@
 ---
-title: Een Universal Windows Platform-app (UWP) maken die gebruikmaakt van Mobile Apps | Microsoft Docs
+title: Een Universal Windows Platform-app (UWP) maken die gebruikmaakt van Azure Mobile Apps | Microsoft Docs
 description: Volg deze zelfstudie om aan de slag te gaan met back-ends voor mobiele apps van Azure voor Universal Windows Platform (UWP)-app-ontwikkeling in C#, Visual Basic of JavaScript.
 services: app-service\mobile
 documentationcenter: windows
@@ -14,14 +14,14 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/17/2018
 ms.author: crdun
-ms.openlocfilehash: c8bd6430b362fde81c3133c2c16cf369aa050103
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 00b635853d0dfad73a258ddc8ef9b168559fc5df
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999377"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098422"
 ---
-# <a name="create-a-windows-app"></a>Een Windows-app maken
+# <a name="create-a-windows-app-with-an-azure-backend"></a>Een Windows-app maken met een Azure-back-end
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
@@ -38,7 +38,9 @@ Het voltooien van deze zelfstudie is een vereiste voor alle andere zelfstudies o
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * Een actief Azure-account. Als u geen account hebt, kunt u zich aanmelden voor een proefversie van Azure en maximaal tien gratis mobiele apps krijgen die u ook na de proefperiode kunt blijven gebruiken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
+* Windows 10.
 * [Visual Studio Community 2017]
+* Bekendheid met UWP-app-ontwikkeling. Raadpleeg de [UWP-documentatie](https://docs.microsoft.com/windows/uwp/) voor meer informatie over de [configuratie](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) die u nodig hebt om UWP-apps te bouwen.
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>Een nieuwe back-end voor mobiele apps van Azure maken
 

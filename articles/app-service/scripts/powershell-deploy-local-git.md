@@ -15,20 +15,22 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: dcba93561f1f3488c8849ea419bd94765102f849
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 8103777b85d8e11416811c694103c58755f1a23a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53586324"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114430"
 ---
 # <a name="create-a-web-app-and-deploy-code-from-a-local-git-repository"></a>Een web-app maken en code implementeren vanuit een lokale Git-opslagplaats
 
 Met dit voorbeeldscript wordt er in App Service een web-app met bijbehorende resources gemaakt. Daarna wordt de code van de web-app geïmplementeerd vanuit een lokale Git-opslagplaats.
 
-Gebruik zo nodig de instructie in de [Azure PowerShell-handleiding](/powershell/azure/overview) om bij te werken naar de nieuwste Azure PowerShell, en voer `Connect-AzureRmAccount` uit om een verbinding te maken met Azure. Daarnaast moet de toepassingscode worden vastgelegd in een lokale Git-opslagplaats.
+Gebruik zo nodig de instructie in de [Azure PowerShell-handleiding](/powershell/azure/overview) om bij te werken naar de nieuwste Azure PowerShell, en voer `Connect-AzAccount` uit om een verbinding te maken met Azure. Daarnaast moet de toepassingscode worden vastgelegd in een lokale Git-opslagplaats.
 
 ## <a name="sample-script"></a>Voorbeeldscript
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/deploy-local-git/deploy-local-git.ps1?highlight=1 "Create a web app and deploy code from a local Git repository")]
 
@@ -37,7 +39,7 @@ Gebruik zo nodig de instructie in de [Azure PowerShell-handleiding](/powershell/
 Nadat het voorbeeldscript is uitgevoerd, kan de volgende opdracht worden gebruikt om de resourcegroep, web-app en alle gerelateerde resources te verwijderen.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $webappname -Force
+Remove-AzResourceGroup -Name $webappname -Force
 ```
 
 ## <a name="script-explanation"></a>Uitleg van het script
@@ -46,7 +48,7 @@ In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel 
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [New-AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | Hiermee maakt u een web-app met de nodig resourcegroep en App Service-groep. Wanneer de huidige map een Git-opslagplaats bevat, voeg dan ook een externe `azure` toe. |
+| [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Hiermee maakt u een web-app met de nodig resourcegroep en App Service-groep. Wanneer de huidige map een Git-opslagplaats bevat, voeg dan ook een externe `azure` toe. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

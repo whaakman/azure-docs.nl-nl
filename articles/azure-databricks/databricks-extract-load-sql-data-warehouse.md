@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 01/24/2019
-ms.openlocfilehash: c8b97ed5a1e1131e073783300a233ef72ef34110
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 57de2d9c63a4185997ac86056b9e3189ad66e478
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818648"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893127"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Zelfstudie: Gegevens extraheren, transformeren en laden met Azure Databricks
 
@@ -153,7 +153,7 @@ In deze sectie maakt u een notitieblok in de Azure Databricks-werkruimte en voer
    spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
    ```
 
-6. In dit codeblok vervangt u de tijdelijke aanduidingen `application-id`, `authentication-id` en `tenant-id` door de waarden die u hebt verkregen bij het uitvoeren van de stappen in [Configuratie opslagaccount instellen](#config). Vervang de waarde van de tijdelijke plaatsaanduiding `storage-account-name` door de naam van uw opslagaccount.
+6. In dit codeblok vervangt u de tijdelijke aanduidingen `application-id`, `authentication-id` en `tenant-id` door de waarden die u hebt verkregen bij het uitvoeren van de stappen in configuratie Opslagaccount reserveren. Vervang de waarde van de tijdelijke plaatsaanduiding `storage-account-name` door de naam van uw opslagaccount.
 
 7. Druk op de toetsen **Shift + Enter** om de code in dit blok uit te voeren.
 

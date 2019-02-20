@@ -5,27 +5,25 @@ description: Gebruik deze snelstartgids om aanvragen voor het zoeken van afbeeld
 services: cognitive-services
 documentationcenter: ''
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 8/20/2018
+ms.date: 02/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 31a0d092340ed161b8d8c7e7e23740c1fbf9318b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e7ff8fc10e8f714acac2dd77f8d8628f3a3ebf9e
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155269"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238185"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-nodejs"></a>Snelstartgids: Afbeeldingen zoeken met de REST API voor Bing Image Search en Node.js
 
-Gebruik deze snelstart om voor het eerst de Bing Afbeeldingen zoeken-API aan te roepen en een JSON-antwoord te ontvangen. Deze eenvoudige JavaScript-toepassing stuurt een zoekquery naar de API en toont de onbewerkte resultaten.
+Gebruik deze quickstart om zoekaanvragen naar de Bing Afbeeldingen zoeken-API te leren sturen. Deze JavaScript-toepassing verzendt een zoekquery naar de API en geeft de URL weer van de eerste afbeelding in de resultaten. Hoewel deze toepassing in JavaScript is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
 
-Hoewel deze toepassing in JavaScript is geschreven en wordt uitgevoerd in Node.js, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
-
-De broncode voor dit voorbeeld is beschikbaar [op GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingImageSearchv7Quickstart.js) met extra foutafhandeling en codeaantekeningen.
+De broncode voor dit voorbeeld is beschikbaar op [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingImageSearchv7Quickstart.js) met extra foutafhandeling en aantekeningen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -55,7 +53,7 @@ Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.mic
 
 ## <a name="construct-the-search-request-and-query"></a>Compileer de zoekopdracht en een query.
 
-1. Gebruik de variabelen uit de laatste stap om een zoek-URL voor de API-aanvraag te formatteren. Houd er rekening mee dat uw zoekterm URL-gecodeerd moet zijn voordat deze wordt verzonden naar de API.
+1. Gebruik de variabelen uit de laatste stap om een zoek-URL voor de API-aanvraag te formatteren. Uw zoekterm moet URL-gecodeerd zijn voordat deze wordt verzonden naar de API.
 
     ```javascript
     let request_params = {
@@ -76,7 +74,7 @@ Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.mic
 
 ## <a name="handle-and-parse-the-response"></a>Het antwoord verwerken en parseren
 
-1. definieer een functie met de naam `response_handler` en als parameter de HTTP-aanroep `response`. voer binnen deze functie de volgende stappen uit:
+1. definieer een functie met de naam `response_handler` en als parameter de HTTP-aanroep `response`. Voer binnen deze functie de volgende stappen uit:
 
     1. Definieer een variabele voor de hoofdtekst van het JSON-antwoord.  
         ```javascript
@@ -92,7 +90,7 @@ Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.mic
         });
         ```
 
-    3. Wanneer een **eind**vlag wordt gesignaleerd, kan de JSON worden verwerkt en kan de URL voor de afbeelding worden afgedrukt samen met het totale aantal geretourneerde afbeeldingen.
+    3. Wanneer een **finishvlag** wordt weergegeven, krijgt u het eerste resultaat vanuit het JSON-antwoord. Druk de URL van de eerste afbeelding af, samen met het totale aantal geretourneerde afbeeldingen.
 
         ```javascript
         response.on('end', function () {
@@ -103,7 +101,7 @@ Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.mic
          });
         ```
 
-## <a name="json-response"></a>JSON-antwoord
+## <a name="example-json-response"></a>Voorbeeld van JSON-antwoord
 
 Antwoorden die afkomstig zijn van de Bing Afbeeldingen zoeken-API, worden geretourneerd in de JSON-indeling. Dit voorbeeldantwoord is ingekort zodat één resultaat wordt weergegeven.
 
@@ -147,19 +145,20 @@ Antwoorden die afkomstig zijn van de Bing Afbeeldingen zoeken-API, worden gereto
         },
         "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
         "accentColor":"0050B2"
-    }
+    }]
 }
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Zelfstudie voor app met één pagina voor Bing Image Search](../tutorial-bing-image-search-single-page-app.md)
+> [Een app met één pagina maken](../tutorial-bing-image-search-single-page-app.md)
 
 ## <a name="see-also"></a>Zie ook
 
 * [Wat is Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Online interactieve demo proberen](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Online interactieve demo proberen](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
+* [Prijsinformatie](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) voor Bing Zoek-API's. 
 * [Gratis Cognitive Services-toegangssleutel ophalen](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Documentatie van Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
 * [Naslag voor Bing Afbeeldingen zoeken-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

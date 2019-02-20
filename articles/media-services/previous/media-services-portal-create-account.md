@@ -12,22 +12,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/31/2019
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 32e81b4c5c551f5fe7fd8ccda3e1b9a4e7d3b26f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d5b3af2b950dd33c797af874d56806de8049b358
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565935"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210676"
 ---
-# <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Een Azure Media Services-account maken met Azure Portal
+# <a name="create-a-media-services-account-using-the-azure-portal"></a>Een Media Services-account maken via de Azure-portal
 
 Azure Portal biedt een manier om snel een Azure Media Services-account (AMS) te maken. U kunt uw account gebruiken voor toegang tot Media Services waarmee u media-inhoud in Azure kunt opslaan, versleutelen, coderen, beheren en streamen. Op het moment dat u een Media Services-account maakt, maakt u ook een bijbehorend opslagaccount (of gebruikt u een bestaand account). Als u een Media Services-account verwijdert, worden de blobs in uw gerelateerde opslagaccount niet verwijderd.
 
 Als uw primaire opslagaccount kunt u Algemeen gebruik v1 of Algemeen gebruik v2 hebben. Op dit moment kunt u in Azure Portal alleen v1 kiezen, maar u kunt v2 toevoegen als u uw account maakt met behulp van de API of Powershell. Zie [Azure-opslagaccounts](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) voor meer informatie over opslagtypen.
 
-Het Media Services-account en alle gekoppelde opslagaccounts moeten zich in hetzelfde Azure-abonnement bevinden. Het is raadzaam om opslagaccounts te gebruiken die zich op dezelfde locatie bevinden als het Media Services-account.
+Het Media Services-account en alle gekoppelde opslagaccounts moeten zich in hetzelfde Azure-abonnement bevinden. Het wordt sterk aangeraden opslagaccounts te gebruiken op dezelfde locatie als het Media Services-account om aanvullende kosten voor latentie en uitgaande data te vermijden.
 
 In dit artikel wordt uitgelegd hoe u een Media Services-account maakt met de Azure Portal.
 

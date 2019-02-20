@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: b49c69a488402e593573e7f9e4fda81057519149
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: a4c3d952edd115748c6a63f031d9c8e115aedb1c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732444"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884457"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Snelstart: Een Azure Data Lake Storage Gen2-opslagaccount maken
 
@@ -93,7 +93,7 @@ Als u een v2-opslagaccount voor algemeen gebruik wilt maken in de Azure Portal, 
 6. Kies het abonnement waarin u het opslagaccount wilt maken.
 7. Selecteer **Volgende: Geavanceerd >**
 8. Laat u de waarden onder de velden **SECURITY** en **VIRTUAL NETWORKS** ingesteld op hun standaardwaarden.
-9. In de sectie **Data Lake Storage Gen2 (preview)** stelt u **Hiërarchische naamruimte** in op **Ingeschakeld**.
+9. In de sectie **Data Lake Storage Gen2** stelt u **Hiërarchische naamruimte** in op **Ingeschakeld**.
 10. Klik op **Beoordelen en maken** om het opslagaccount te maken.
 
     ![Schermopname van het maken van het opslagaccount in Azure Portal](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 5c7e6a4da9880677fbc4aad76b820ba596058bb6
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 1aca53c876b6cc982c141d74cdf727f9c966adfe
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025246"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233860"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Gegevens kopiëren van Azure Blob-opslag naar een SQL database met Azure Data Factory
 In deze zelfstudie maakt u een data factory met behulp van de Azure Data Factory-gebruikersinterface. Met de pijplijn in deze data factory worden gegevens gekopieerd van Azure Blob-opslag naar een SQL database. Het configuratiepatroon in deze zelfstudie geldt voor het kopiëren van een gegevensarchief op basis van bestanden naar een relationeel gegevensarchief. Zie de tabel [Ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) voor een lijst met gegevensarchieven die worden ondersteund als bron en als sink.
@@ -36,7 +36,7 @@ In deze zelfstudie voert u de volgende stappen uit:
 > * De uitvoering van de pijplijn en van de activiteit controleren.
 
 ## <a name="prerequisites"></a>Vereisten
-* **Azure-abonnement**. Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
+* **Azure-abonnement**. Als u nog geen abonnement op Azure hebt, maak dan een [gratis Azure-account](https://azure.microsoft.com/free/) aan voordat u begint.
 * **Azure-opslagaccount**. U gebruikt de blobopslag als *bron*-gegevensopslag. Als u geen opslagaccount hebt, raadpleegt u het artikel [Een opslagaccount maken](../storage/common/storage-quickstart-create-account.md) om een account te maken.
 * **Azure SQL-database**. U gebruikt de database als *sink*-gegevensopslag. Als u geen SQL database hebt, raadpleegt u het artikel [Een SQL-database maken](../sql-database/sql-database-get-started-portal.md) om een database te maken.
 
@@ -82,30 +82,30 @@ Voer nu de volgende stappen uit om uw blobopslag en SQL database voor te bereide
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 In deze stap maakt u een data factory en start u de Data Factory-gebruikersinterface om een pijplijn te maken in de data factory. 
 
-1. Open de webbrowser **Microsoft Edge** of **Google Chrome**. Op dit moment wordt de Data Factory-gebruikersinterface alleen ondersteund in de webbrowsers Microsoft Edge en Google Chrome.
-1. Selecteer in het linkermenu **Nieuw** > **Gegevens en analyses** > **Data Factory**. 
+1. Open **Microsoft Edge** of **Google Chrome**. Op dit moment wordt de Data Factory-gebruikersinterface alleen ondersteund in de webbrowsers Microsoft Edge en Google Chrome.
+2. Selecteer in het linkermenu **Een resource maken** > **Analyse** > **Data Factory**. 
   
    ![Nieuwe data factory maken](./media/tutorial-copy-data-portal/new-azure-data-factory-menu.png)
-1. Voer op de pagina **Nieuwe data factory** **ADFTutorialDataFactory** in bij **Naam**. 
+3. Voer op de pagina **Nieuwe data factory** **ADFTutorialDataFactory** in bij **Naam**. 
       
      ![Nieuwe data factory](./media/tutorial-copy-data-portal/new-azure-data-factory.png)
  
    De naam van de Azure-gegevensfactory moet *wereldwijd uniek* zijn. Als het volgende foutbericht wordt weergegeven voor het naamveld, wijzigt u de naam van de data factory (bijvoorbeeld uwnaamADFTutorialDataFactory). Zie [Data Factory naming rules](naming-rules.md) (Naamgevingsregels Data Factory) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
   
    ![Foutbericht](./media/tutorial-copy-data-portal/name-not-available-error.png)
-1. Selecteer het Azure-**abonnement** waarin u de data factory wilt maken. 
-1. Voer een van de volgende stappen uit voor **Resourcegroep**:
+4. Selecteer het Azure-**abonnement** waarin u de data factory wilt maken. 
+5. Voer een van de volgende stappen uit voor **Resourcegroep**:
      
     a. Selecteer **Bestaande gebruiken** en selecteer een bestaande resourcegroep in de vervolgkeuzelijst.
 
     b. Selecteer **Nieuwe maken** en voer de naam van een resourcegroep in. 
          
     Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie. 
-1. Selecteer **V2** onder **Versie**.
-1. Selecteer onder **Locatie** een locatie voor de data factory. In de vervolgkeuzelijst worden alleen ondersteunde locaties weergegeven. De gegevensarchieven (bijvoorbeeld Azure Storage en SQL Database) en berekenservices (bijvoorbeeld Azure HDInsight) die door de data factory worden gebruikt, kunnen zich in andere regio's bevinden.
-1. Selecteer **Vastmaken aan dashboard**. 
-1. Selecteer **Maken**. 
-1. Op het dashboard ziet u de volgende tegel met de status: **Data Factory implementeren**: 
+6. Selecteer **V2** onder **Versie**.
+7. Selecteer onder **Locatie** een locatie voor de data factory. In de vervolgkeuzelijst worden alleen ondersteunde locaties weergegeven. De gegevensarchieven (bijvoorbeeld Azure Storage en SQL Database) en berekenservices (bijvoorbeeld Azure HDInsight) die door de data factory worden gebruikt, kunnen zich in andere regio's bevinden.
+8. Selecteer **Vastmaken aan dashboard**. 
+9. Selecteer **Maken**. 
+10. Op het dashboard ziet u de volgende tegel met de status: **Data Factory implementeren**: 
 
     ![Tegel Data Factory implementeren](media/tutorial-copy-data-portal/deploying-data-factory.png)
 1. Na het maken ziet u de pagina **Data factory** zoals hieronder wordt weergegeven.
@@ -127,7 +127,7 @@ In deze zelfstudie begint u met het maken van de pijplijn. Vervolgens maakt u ge
    ![Pijplijn maken](./media/tutorial-copy-data-portal/create-pipeline-tile.png)
 1. Voer op het tabblad **Algemeen** voor de pijplijn **CopyPipeline** in voor de **Naam** van de pijplijn.
 
-1. Breid in de werkset **Activiteiten** de categorie **Gegevensstroom** uit. Sleep de **kopieeractiviteit** uit de werkset en zet deze neer op het ontwerpoppervlak voor pijplijnen. Geef **CopyFromBlobToSql** op bij **Naam**.
+1. Breid in de werkset **Activiteiten** de categorie **Verplaatsen en transformeren** uit. Sleep de activiteit **Gegevens kopiëren** uit de werkset en zet deze neer op het ontwerpoppervlak voor pijplijnen. Geef **CopyFromBlobToSql** op bij **Naam**.
 
     ![Kopieeractiviteit](./media/tutorial-copy-data-portal/drag-drop-copy-activity.png)
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
-ms.openlocfilehash: 978ac07037e1b7e29d83cc3258df01c6f902cd36
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 1bb116f2a2153515f3b61c050f0c952523c13528
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48045246"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976625"
 ---
 # <a name="exportcopy-the-vhd-of-a-managed-disk-to-a-storage-account-in-different-region-with-powershell"></a>VHD van een beheerde schijf met PowerShell exporteren/kopiëren naar een opslagaccount in een andere regio
 
@@ -29,6 +29,8 @@ Met dit script wordt de VHD van een beheerde schijf geëxporteerd naar een opsla
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="sample-script"></a>Voorbeeldscript
 
@@ -41,9 +43,9 @@ Dit script gebruikt de volgende opdrachten voor het genereren van de SAS-URI voo
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [Grant-AzureRmDiskAccess](/powershell/module/azurerm.compute/grant-azurermdiskaccess) | Hiermee genereert u de SAS-URI voor een beheerde schijf die wordt gebruikt voor het kopiëren van de onderliggende VHD naar een opslagaccount. |
-| [New-AzureStorageContext](/powershell/module/azure.storage/New-AzureStorageContext) | Hiermee maakt u de context voor een opslagaccount aan de hand van de accountnaam en de sleutel. Deze context kan worden gebruikt voor het uitvoeren van lees-/schrijfbewerkingen op het opslagaccount. |
-| [Start-AzureStorageBlobCopy](/powershell/module/azure.storage/Start-AzureStorageBlobCopy) | Hiermee kopieert u de onderliggende VHD van een momentopname naar een opslagaccount. |
+| [Grant-AzDiskAccess](https://docs.microsoft.com/powershell/module/az.compute/grant-azdiskaccess) | Hiermee genereert u de SAS-URI voor een beheerde schijf die wordt gebruikt voor het kopiëren van de onderliggende VHD naar een opslagaccount. |
+| [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/New-AzureStorageContext) | Hiermee maakt u de context voor een opslagaccount aan de hand van de accountnaam en de sleutel. Deze context kan worden gebruikt voor het uitvoeren van lees-/schrijfbewerkingen op het opslagaccount. |
+| [Start-AzureStorageBlobCopy](https://docs.microsoft.com/powershell/module/azure.storage/Start-AzureStorageBlobCopy) | Hiermee kopieert u de onderliggende VHD van een momentopname naar een opslagaccount. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

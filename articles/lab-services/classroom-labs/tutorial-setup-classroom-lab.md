@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/16/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 3b425af972b0983db076ab103a33c57f7a127210
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 96d5e94cb60888f7e098e31d7f06481a766cabd5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095750"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998515"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Zelfstudie: Een leslokaallab instellen 
 In deze zelfstudie stelt u een leslokaallab in met virtuele machines die worden gebruikt door studenten in het leslokaal.  
@@ -28,7 +28,7 @@ In deze zelfstudie voert u de volgende acties uit:
 
 > [!div class="checklist"]
 > * Een leslokaallab maken
-> * Het leslokaallab configureren
+> * Gebruikers toevoegen aan het lab
 > * Registratiekoppeling naar studenten verzenden
 
 ## <a name="prerequisites"></a>Vereisten
@@ -43,13 +43,12 @@ Een labeigenaar kan andere gebruikers toevoegen aan de rol **Labmaker**. Zo kan 
 2. Selecteer **Aanmelden** en voer uw referenties in. Azure Lab Services ondersteunt organisatieaccounts en Microsoft-accounts. 
 3. Voer in het venster **Nieuw lab** de volgende acties uit: 
     1. Geef een **naam** voor uw lab op. 
-    2. Geef het maximale **aantal gebruikers** op dat in het lab is toegestaan. 
+    2. Geef het maximale **aantal virtuele machines** in het lab op. U kunt het aantal virtuele machines vergroten of verkleinen na het maken van de testomgeving of in een bestaand lab. Zie voor meer informatie [Aantal virtuele machines in een testomgeving bijwerken](how-to-configure-student-usage.md#update-number-of-virtual-machines-in-lab)
     6. Selecteer **Opslaan**.
 
         ![Een leslokaallab maken](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. Voer op de pagina **Specificaties van virtuele machines selecteren** de volgende stappen uit:
     1. Selecteer een **grootte** voor virtuele machines (VM's) die in het lab worden gemaakt. 
-    2. Selecteer de **regio** waarin de virtuele machines moeten worden gemaakt. 
     3. Selecteer de **VM-installatiekopie** die moet worden gebruikt voor het maken van virtuele machines in het lab. 
     4. Selecteer **Volgende**.
 
@@ -69,17 +68,15 @@ Een labeigenaar kan andere gebruikers toevoegen aan de rol **Labmaker**. Zo kan 
 7. Nadat de configuratie van de sjabloon is voltooid, wordt de volgende pagina weergegeven: 
 
     ![Sjabloonpagina configureren nadat deze is voltooid](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
-8. In deze zelfstudie zijn de volgende stappen optioneel: 
+8. Voer de volgende stappen uit op de pagina **Sjabloon configureren**: Deze stappen zijn **optioneel** voor de zelfstudie.
     1. De sjabloon-VM starten door **Starten** te selecteren.
     2. De sjabloon-VM verbinden door **Verbinding maken** te selecteren. 
     3. Software installeren en configureren op uw sjabloon-VM. 
     4. **Stop** de virtuele machine.  
     5. Een **Beschrijving** voor de sjabloon invoeren
-
-        ![Volgende op de pagina Sjabloon configureren](../media/tutorial-setup-classroom-lab/configure-template-next.png)
 9. Selecteer **Volgende** op de sjabloonpagina. 
 10. Voer op de pagina **De sjabloon publiceren** de volgende acties uit. 
-    1. Als u de sjabloon onmiddellijk wilt publiceren, schakelt u het selectievakje in voor *Ik begrijp dat ik de sjabloon niet kan wijzigen nadat deze is gepubliceerd. Dit proces kan slechts één keer worden uitgevoerd en kan tot een uur duren*. Selecteer vervolgens **publiceren**.  
+    1. Als u de sjabloon onmiddellijk wilt publiceren, selecteert u **Publiceren**.  
 
         > [!WARNING]
         > Zodra u de sjabloon hebt gepubliceerd, kan dit niet ongedaan worden gemaakt. 
@@ -103,7 +100,9 @@ Een labeigenaar kan andere gebruikers toevoegen aan de rol **Labmaker**. Zo kan 
 
 1. Selecteer **Gebruikers** in het menu links. De optie **Toegang beperken** is standaard ingeschakeld. Wanneer deze instelling is ingeschakeld, kan een gebruiker zich niet registreren bij het lab, zelfs niet als deze de registratiekoppeling heeft, tenzij de gebruiker in de lijst met gebruikers staat. Alleen gebruikers in de lijst kunnen zich registreren bij het lab door de registratiekoppeling te gebruiken die u verzendt. In deze procedure kunt u gebruikers toevoegen aan de lijst. U kunt ook **Toegang beperken** uitschakelen, zodat gebruikers zich bij het lab kunnen registreren zolang ze de registratiekoppeling hebben. 
 2. Selecteer **Gebruikers toevoegen** op de werkbalk. 
-3. Op de pagina **Gebruikers toevoegen** voert u e-mailadressen van gebruikers in op afzonderlijke regels of op één regel gescheiden door puntkomma's. 
+
+    ![Knop Gebruikers toevoegen](../media/how-to-configure-student-usage/add-users-button.png)
+1. Op de pagina **Gebruikers toevoegen** voert u e-mailadressen van gebruikers in op afzonderlijke regels of op één regel gescheiden door puntkomma's. 
 
     ![E-mailadressen van gebruikers toevoegen](../media/how-to-configure-student-usage/add-users-email-addresses.png)
 4. Selecteer **Opslaan**. U ziet de e-mailadressen van gebruikers en hun status (al dan niet geregistreerd) in de lijst. 

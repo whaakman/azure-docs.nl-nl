@@ -16,12 +16,13 @@ ms.topic: overview
 ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: d6d0ee1c9a77006df2239f4e0e0457c0c0aa2c28
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c47b68cb173769eb677a5b1028d48c62f6edb4e9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493307"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56201632"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procedure: Verlopen apparaten beheren in Azure Active Directory
 
@@ -122,7 +123,7 @@ Azure AD opschonen:
 
 - **Windows 10-apparaten**: schakel Windows 10-apparaten uit in uw on-premises AD of verwijder ze, en laat Azure AD Connect de gewijzigde apparaatstatus synchroniseren naar Azure AD.
 
-- **Windows 7/8**: schakel Windows 10-apparaten uit in Azure AD of verwijder ze. U kunt Azure AD Connect niet gebruiken voor het uitschakelen of verwijderen van Windows 7/8-apparaten in Azure AD.
+- **Windows 7/8**: schakel Windows 7/8-apparaten uit in Azure AD of verwijder ze. U kunt Azure AD Connect niet gebruiken voor het uitschakelen of verwijderen van Windows 7/8-apparaten in Azure AD.
 
 
 

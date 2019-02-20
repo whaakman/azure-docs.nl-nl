@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: ''
 ms.topic: tutorial
-ms.date: 11/07/2018
+ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f4641125d15f159c6f50d2889e13b06ba954401b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 90c4db4ac481f3853ca4e8256ce8fdb4c4ae9bd4
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886811"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983251"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>Zelfstudie: Een virtuele-machineschaalset maken en een toepassing met hoge beschikbaarheid implementeren in Windows met Azure PowerShell
 Met een schaalset voor virtuele machines kunt u een reeks identieke virtuele machines met automatisch schalen implementeren en beheren. U kunt het aantal virtuele machines in de schaalset handmatig schalen. U kunt ook regels voor automatisch schalen definiëren op basis van resourcegebruik zoals CPU, vraag naar geheugen, of netwerkverkeer. In deze zelfstudie implementeert u een virtuele-machineschaalset in Azure en leert u het volgende:
@@ -33,10 +33,11 @@ Met een schaalset voor virtuele machines kunt u een reeks identieke virtuele mac
 > * Het aantal instanties in een schaalset vergroten of verkleinen
 > * Regels voor automatisch schalen maken
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell starten
 
-Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze zelfstudie versie 6.0.0 of hoger van de Azure PowerShell-module vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
+Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. 
 
+Als u Cloud Shell wilt openen, selecteert u **Proberen** in de rechterbovenhoek van een codeblok. U kunt Cloud Shell ook openen in een afzonderlijk browsertabblad door naar [https://shell.azure.com/powershell](https://shell.azure.com/powershell) te gaan. Klik op **Kopiëren** om de codeblokken te kopiëren, plak deze in Cloud Shell en druk vervolgens op Enter om de code uit te voeren.
 
 ## <a name="scale-set-overview"></a>Overzicht van schaalsets
 Met een schaalset voor virtuele machines kunt u een reeks identieke virtuele machines met automatisch schalen implementeren en beheren. Virtuele machines in een schaalset worden verdeeld over logische fout- en updatedomeinen in een of meer *plaatsingsgroepen*. Plaatsingsgroepen zijn groepen van op soortgelijke wijze geconfigureerde virtuele machines, vergelijkbaar met [beschikbaarheidssets](tutorial-availability-sets.md).
@@ -47,10 +48,10 @@ Schaalsets bieden ondersteuning voor maximaal 1000 VM’s wanneer u een Azure-pl
 
 
 ## <a name="create-a-scale-set"></a>Een schaalset maken
-Maak een schaalset met virtuele machines met behulp van [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). In het volgende voorbeeld wordt een schaalset met de naam *myScaleSet* gemaakt, die gebruikmaakt van de platforminstallatiekopie van *Windows Server 2016 Datacenter*. De Azure-netwerkresources voor het virtuele netwerk, het openbare IP-adres en de load balancer worden automatisch gemaakt. Wanneer u hierom wordt gevraagd, kunt u uw eigen beheerdersreferenties instellen voor de VM-exemplaren in de schaalset:
+Maak een schaalset met virtuele machines met behulp van [New-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss). In het volgende voorbeeld wordt een schaalset met de naam *myScaleSet* gemaakt, die gebruikmaakt van de platforminstallatiekopie van *Windows Server 2016 Datacenter*. De Azure-netwerkresources voor het virtuele netwerk, het openbare IP-adres en de load balancer worden automatisch gemaakt. Wanneer u hierom wordt gevraagd, kunt u uw eigen beheerdersreferenties instellen voor de VM-exemplaren in de schaalset:
 
 ```azurepowershell-interactive
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName "myResourceGroupScaleSet" `
   -Location "EastUS" `
   -VMScaleSetName "myScaleSet" `
@@ -77,37 +78,37 @@ $publicSettings = @{
 }
 
 # Get information about the scale set
-$vmss = Get-AzureRmVmss `
-            -ResourceGroupName "myResourceGroupScaleSet" `
-            -VMScaleSetName "myScaleSet"
+$vmss = Get-AzVmss `
+  -ResourceGroupName "myResourceGroupScaleSet" `
+  -VMScaleSetName "myScaleSet"
 
 # Use Custom Script Extension to install IIS and configure basic website
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
-    -Name "customScript" `
-    -Publisher "Microsoft.Compute" `
-    -Type "CustomScriptExtension" `
-    -TypeHandlerVersion 1.8 `
-    -Setting $publicSettings
+Add-AzVmssExtension -VirtualMachineScaleSet $vmss `
+  -Name "customScript" `
+  -Publisher "Microsoft.Compute" `
+  -Type "CustomScriptExtension" `
+  -TypeHandlerVersion 1.8 `
+  -Setting $publicSettings
 
 # Update the scale set and apply the Custom Script Extension to the VM instances
-Update-AzureRmVmss `
-    -ResourceGroupName "myResourceGroupScaleSet" `
-    -Name "myScaleSet" `
-    -VirtualMachineScaleSet $vmss
+Update-AzVmss `
+  -ResourceGroupName "myResourceGroupScaleSet" `
+  -Name "myScaleSet" `
+  -VirtualMachineScaleSet $vmss
 ```
 
 ## <a name="allow-traffic-to-application"></a>Verkeer toestaan naar de toepassing
 
-Maak een netwerkbeveiligingsgroep met [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig) en [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) om toegang toe te staan tot de eenvoudige webtoepassing. Zie voor meer informatie [Netwerken voor schaalsets voor virtuele Azure-machines](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md).
+Maak een netwerkbeveiligingsgroep met [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig) en [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup) om toegang toe te staan tot de eenvoudige webtoepassing. Zie voor meer informatie [Netwerken voor schaalsets voor virtuele Azure-machines](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md).
 
 ```azurepowershell-interactive
 # Get information about the scale set
-$vmss = Get-AzureRmVmss `
-            -ResourceGroupName "myResourceGroupScaleSet" `
-            -VMScaleSetName "myScaleSet"
+$vmss = Get-AzVmss `
+  -ResourceGroupName "myResourceGroupScaleSet" `
+  -VMScaleSetName "myScaleSet"
 
 #Create a rule to allow traffic over port 80
-$nsgFrontendRule = New-AzureRmNetworkSecurityRuleConfig `
+$nsgFrontendRule = New-AzNetworkSecurityRuleConfig `
   -Name myFrontendNSGRule `
   -Protocol Tcp `
   -Direction Inbound `
@@ -119,40 +120,40 @@ $nsgFrontendRule = New-AzureRmNetworkSecurityRuleConfig `
   -Access Allow
 
 #Create a network security group and associate it with the rule
-$nsgFrontend = New-AzureRmNetworkSecurityGroup `
+$nsgFrontend = New-AzNetworkSecurityGroup `
   -ResourceGroupName  "myResourceGroupScaleSet" `
   -Location EastUS `
   -Name myFrontendNSG `
   -SecurityRules $nsgFrontendRule
 
-$vnet = Get-AzureRmVirtualNetwork `
+$vnet = Get-AzVirtualNetwork `
   -ResourceGroupName  "myResourceGroupScaleSet" `
   -Name myVnet
 
 $frontendSubnet = $vnet.Subnets[0]
 
-$frontendSubnetConfig = Set-AzureRmVirtualNetworkSubnetConfig `
+$frontendSubnetConfig = Set-AzVirtualNetworkSubnetConfig `
   -VirtualNetwork $vnet `
   -Name mySubnet `
   -AddressPrefix $frontendSubnet.AddressPrefix `
   -NetworkSecurityGroup $nsgFrontend
 
-Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+Set-AzVirtualNetwork -VirtualNetwork $vnet
 
 # Update the scale set and apply the Custom Script Extension to the VM instances
-Update-AzureRmVmss `
-    -ResourceGroupName "myResourceGroupScaleSet" `
-    -Name "myScaleSet" `
-    -VirtualMachineScaleSet $vmss
+Update-AzVmss `
+  -ResourceGroupName "myResourceGroupScaleSet" `
+  -Name "myScaleSet" `
+  -VirtualMachineScaleSet $vmss
 ```
 
 ## <a name="test-your-scale-set"></a>Uw schaalset testen
-Als u de schaalset in actie wilt zien, achterhaalt u het openbare IP-adres van de load balancer met [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). In het volgende voorbeeld wordt het IP-adres voor *myPublicIP* weergegeven, dat is gemaakt als onderdeel van de schaalset:
+Als u de schaalset in actie wilt zien, achterhaalt u het openbare IP-adres van de load balancer met [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress). In het volgende voorbeeld wordt het IP-adres voor *myPublicIP* weergegeven, dat is gemaakt als onderdeel van de schaalset:
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIPAddress `
-    -ResourceGroupName "myResourceGroupScaleSet" `
-    -Name "myPublicIPAddress" | select IpAddress
+Get-AzPublicIPAddress `
+  -ResourceGroupName "myResourceGroupScaleSet" `
+  -Name "myPublicIPAddress" | select IpAddress
 ```
 
 Voer in een webbrowser het openbare IP-adres in. De web-app wordt weergegeven, inclusief de hostnaam van de virtuele machine waarnaar de load balancer verkeer heeft verdeeld:
@@ -166,10 +167,12 @@ Als u de schaalset in actie wilt zien, kunt u vernieuwing van uw webbrowser afdw
 Tijdens de levenscyclus van de schaalset moet u mogelijk een of meer beheertaken uitvoeren. Bovendien wilt u misschien scripts maken die verschillende levenscyclustaken automatiseren. Azure PowerShell biedt een snelle manier om deze taken uit te voeren. Hier volgen enkele algemene taken.
 
 ### <a name="view-vms-in-a-scale-set"></a>Virtuele machines weergeven in een schaalset
-Als u een overzicht wilt zien van de VM-exemplaren in een schaalset, gebruikt u [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) als volgt:
+Als u een overzicht wilt zien van de VM-exemplaren in een schaalset, gebruikt u [Get-AzVmssVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm) als volgt:
 
 ```azurepowershell-interactive
-Get-AzureRmVmssVM -ResourceGroupName "myResourceGroupScaleSet" -VMScaleSetName "myScaleSet"
+Get-AzVmssVM `
+  -ResourceGroupName "myResourceGroupScaleSet" `
+  -VMScaleSetName "myScaleSet"
 ```
 
 In de volgende voorbeelduitvoer ziet u dat de schaalset twee VM-exemplaren bevat:
@@ -181,33 +184,36 @@ MYRESOURCEGROUPSCALESET   myScaleSet_0   eastus Standard_DS1_v2          0      
 MYRESOURCEGROUPSCALESET   myScaleSet_1   eastus Standard_DS1_v2          1         Succeeded
 ```
 
-Als u extra informatie wilt weergeven over een specifiek VM-exemplaar, voegt u de parameter `-InstanceId` toe aan [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). In het volgende voorbeeld wordt informatie opgevraagd over het VM-exemplaar *1*:
+Als u extra informatie wilt weergeven over een specifiek VM-exemplaar, voegt u de parameter `-InstanceId` toe aan [Get-AzVmssVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm). In het volgende voorbeeld wordt informatie opgevraagd over het VM-exemplaar *1*:
 
 ```azurepowershell-interactive
-Get-AzureRmVmssVM -ResourceGroupName "myResourceGroupScaleSet" -VMScaleSetName "myScaleSet" -InstanceId "1"
+Get-AzVmssVM `
+  -ResourceGroupName "myResourceGroupScaleSet" `
+  -VMScaleSetName "myScaleSet" `
+  -InstanceId "1"
 ```
 
 
 ### <a name="increase-or-decrease-vm-instances"></a>VM-instanties vergroten of verkleinen
-Als u het aantal instanties wilt weergeven dat zich momenteel in een schaalset bevindt, gebruikt u [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) en voert u een query uit op *sku.capacity*:
+Als u het aantal instanties wilt weergeven dat zich momenteel in een schaalset bevindt, gebruikt u [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) en voert u een query uit op *sku.capacity*:
 
 ```azurepowershell-interactive
-Get-AzureRmVmss -ResourceGroupName "myResourceGroupScaleSet" `
-    -VMScaleSetName "myScaleSet" | `
-    Select -ExpandProperty Sku
+Get-AzVmss -ResourceGroupName "myResourceGroupScaleSet" `
+  -VMScaleSetName "myScaleSet" | `
+  Select -ExpandProperty Sku
 ```
 
-U kunt vervolgens het aantal virtuele machines in de schaalset handmatig vergroten of verkleinen met [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). In het volgende voorbeeld wordt het aantal VM's in uw schaal ingesteld op *3*:
+U kunt vervolgens het aantal virtuele machines in de schaalset handmatig vergroten of verkleinen met [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss). In het volgende voorbeeld wordt het aantal VM's in uw schaal ingesteld op *3*:
 
 ```azurepowershell-interactive
 # Get current scale set
-$scaleset = Get-AzureRmVmss `
+$scaleset = Get-AzVmss `
   -ResourceGroupName "myResourceGroupScaleSet" `
   -VMScaleSetName "myScaleSet"
 
 # Set and update the capacity of your scale set
 $scaleset.sku.capacity = 3
-Update-AzureRmVmss -ResourceGroupName "myResourceGroupScaleSet" `
+Update-AzVmss -ResourceGroupName "myResourceGroupScaleSet" `
     -Name "myScaleSet" `
     -VirtualMachineScaleSet $scaleset
 ```
@@ -220,14 +226,14 @@ In plaats van het aantal instanties in uw schaalset handmatig te schalen, defini
 
 ```azurepowershell-interactive
 # Define your scale set information
-$mySubscriptionId = (Get-AzureRmSubscription)[0].Id
+$mySubscriptionId = (Get-AzSubscription)[0].Id
 $myResourceGroup = "myResourceGroupScaleSet"
 $myScaleSet = "myScaleSet"
 $myLocation = "East US"
-$myScaleSetId = (Get-AzureRmVmss -ResourceGroupName $myResourceGroup -VMScaleSetName $myScaleSet).Id 
+$myScaleSetId = (Get-AzVmss -ResourceGroupName $myResourceGroup -VMScaleSetName $myScaleSet).Id 
 
 # Create a scale up rule to increase the number instances after 60% average CPU usage exceeded for a 5-minute period
-$myRuleScaleUp = New-AzureRmAutoscaleRule `
+$myRuleScaleUp = New-AzAutoscaleRule `
   -MetricName "Percentage CPU" `
   -MetricResourceId $myScaleSetId `
   -Operator GreaterThan `
@@ -240,7 +246,7 @@ $myRuleScaleUp = New-AzureRmAutoscaleRule `
   -ScaleActionValue 1
 
 # Create a scale down rule to decrease the number of instances after 30% average CPU usage over a 5-minute period
-$myRuleScaleDown = New-AzureRmAutoscaleRule `
+$myRuleScaleDown = New-AzAutoscaleRule `
   -MetricName "Percentage CPU" `
   -MetricResourceId $myScaleSetId `
   -Operator LessThan `
@@ -253,7 +259,7 @@ $myRuleScaleDown = New-AzureRmAutoscaleRule `
   -ScaleActionValue 1
 
 # Create a scale profile with your scale up and scale down rules
-$myScaleProfile = New-AzureRmAutoscaleProfile `
+$myScaleProfile = New-AzAutoscaleProfile `
   -DefaultCapacity 2  `
   -MaximumCapacity 10 `
   -MinimumCapacity 2 `
@@ -261,7 +267,7 @@ $myScaleProfile = New-AzureRmAutoscaleProfile `
   -Name "autoprofile"
 
 # Apply the autoscale rules
-Add-AzureRmAutoscaleSetting `
+Add-AzAutoscaleSetting `
   -Location $myLocation `
   -Name "autosetting" `
   -ResourceGroup $myResourceGroup `

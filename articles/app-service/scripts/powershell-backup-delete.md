@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 10/30/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: d8a3d8f890001138f0582a099021b4537227a337
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: dbe8417e8a26cb222fe52ac7c0284b3956ed65fb
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53586127"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106933"
 ---
 # <a name="delete-a-backup-for-a-web-using-azure-powershell"></a>Een back-up van een web-app verwijderen met Azure PowerShell
 
@@ -30,6 +30,8 @@ Als u dit script wilt uitvoeren, moet u een bestaande back-up voor een web-app h
 
 ## <a name="sample-script"></a>Voorbeeldscript
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/backup-delete/backup-delete.ps1?highlight=1-2,11 "Delete a backup for a web app")]
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie 
@@ -37,7 +39,7 @@ Als u dit script wilt uitvoeren, moet u een bestaande back-up voor een web-app h
 Nadat het voorbeeldscript is uitgevoerd, kan de volgende opdracht worden gebruikt om de resourcegroep, web-app en alle gerelateerde resources te verwijderen.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="script-explanation"></a>Uitleg van het script
@@ -46,8 +48,8 @@ In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel 
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [Get-AzureRmWebAppBackupList](/powershell/module/azurerm.websites/get-azurermwebappbackuplist) | Hiermee vraagt u een lijst met back-ups op voor een web-app. |
-| [Remove-AzureRmWebAppBackup](/powershell/module/azurerm.websites/remove-azurermwebappbackup) | Hiermee verwijdert u de opgegeven back-up van een web-app. |
+| [Get-AzWebAppBackupList](/powershell/module/az.websites/get-azwebappbackuplist) | Hiermee vraagt u een lijst met back-ups op voor een web-app. |
+| [Remove-AzWebAppBackup](/powershell/module/az.websites/remove-azwebappbackup) | Hiermee verwijdert u de opgegeven back-up van een web-app. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
