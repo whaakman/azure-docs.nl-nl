@@ -16,12 +16,12 @@ ms.date: 04/26/2018
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4714a4ee5f90194a3be47b1e5878dfa8e230f42b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4d239d372a514b24a4e022f62ceec2dfee94d187
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173484"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430400"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>AD FS bewaken met Azure AD Connect Health
 De volgende documentatie is specifiek voor het bewaken van uw Azure AD FS-infrastructuur met Azure AD Connect Health. Zie [Using Azure AD Connect Health for Sync](how-to-connect-health-sync.md) (Engelstalig) voor informatie over het bewaken van Azure AD Connect (synchronisatie) met Azure AD Connect Health. Zie ook [Azure AD Connect Health gebruiken met AD DS](how-to-connect-health-adds.md) voor informatie over het bewaken van Active Directory Domain Services met Azure AD Connect Health.
@@ -199,7 +199,7 @@ Privé-IP-adressen (<i>10.x.x.x, 172.x.x.x en 192.168.x.x</i>) en de Exchange-IP
 Als u load balancer IP-adressen ziet, is het zeer waarschijnlijk dat uw externe load balancer het client-IP-adres niet verzendt wanneer deze de aanvraag naar de proxyserver van de webtoepassing doorstuurt. Configureer de load balancer op een juiste manier om het client-IP-adres door te schakelen. 
 
 3. Hoe kan ik een IP-adres blokkeren?  <br />
-Voeg geïdentificeerde schadelijke IP-adressen toe aan de firewall of blokkeer deze in Exchange.   <br />
+Voeg geïdentificeerde schadelijke IP-adressen toe aan de firewall of blokkeer deze in Exchange. Voor AD FS 2016, kunt u het IP-adres rechtstreeks vanuit de uitgesloten IP-eigenschappen blokkeren. [Meer informatie](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection#banned-ip-addresses)   <br />
 
 4. Waarom zie ik geen items in dit rapport? <br />
    - Het aantal mislukte aanmeldactiviteiten is lager dan de ingestelde drempelwaarde. 

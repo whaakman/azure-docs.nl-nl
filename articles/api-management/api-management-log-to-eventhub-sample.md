@@ -1,6 +1,6 @@
 ---
-title: API's met Azure API Management, Eventhubs en Runscope bewaken | Microsoft Docs
-description: Voorbeeld van een toepassing demonstreren van het logboek naar Event hub-beleid door verbindende Azure API Management, Azure Event Hubs en Runscope voor HTTP-logboekregistratie en bewaking
+title: API's met Azure API Management, Eventhubs en Moesif bewaken | Microsoft Docs
+description: Voorbeeld van een toepassing demonstreren van het logboek naar Event hub-beleid door verbindende Azure API Management, Azure Event Hubs en Moesif voor HTTP-logboekregistratie en bewaking
 services: api-management
 documentationcenter: ''
 author: darrelmiller
@@ -14,14 +14,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: 3a868eb98121ff2e2a30657e301afba7b8618361
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 8358eceedbb9214e4adb73f055bcf0db7fecec76
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728467"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430383"
 ---
-# <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Uw API's met Azure API Management, Eventhubs en Runscope controleren
+# <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Uw API's met Azure API Management, Eventhubs en Moesif controleren
 De [API Management-service](api-management-key-concepts.md) biedt veel mogelijkheden voor het verbeteren van de verwerking van HTTP-aanvragen die worden verzonden op uw HTTP-API. Het bestaan van de aanvragen en antwoorden is echter tijdelijk. De aanvraag wordt gedaan en hiervandaan stroomt het via de API Management-service naar uw back-end-API. Uw API verwerkt de aanvraag en een antwoord doorloopt de consument API. De API Management-service houdt u enkele belangrijke statistische gegevens over de API's om weer te geven in de Azure portal-dashboard, maar ook buiten dat de gegevens verwijderd zijn.
 
 Met behulp van het logboek naar Event hub-beleid in de API Management-service, kunt u alle details verzenden vanuit de aanvraag en reactie op een [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Er zijn diverse redenen waarom u mogelijk wilt genereren van gebeurtenissen uit de HTTP-berichten worden verzonden naar uw API's. Enkele voorbeelden zijn audittrail van updates, gebruiksanalyse, uitzondering waarschuwingen en integratie van derden.
@@ -213,66 +213,99 @@ De `HttpMessage` -exemplaar bevat een `MessageId` GUID waarmee we verbinding mak
 De `HttpMessage` exemplaar wordt vervolgens doorgestuurd naar de implementatie van `IHttpMessageProcessor`, die een interface die ik heb gemaakt als u wilt loskoppelen van de ontvangen en de interpretatie van de gebeurtenis van Azure Event Hub en de daadwerkelijke verwerking van is.
 
 ## <a name="forwarding-the-http-message"></a>Doorsturen van de HTTP-bericht
-Voor dit voorbeeld, besloot het normaal zou zijn om de HTTP-aanvraag via het uiterste te interessante [Runscope](https://www.runscope.com). Runscope is een cloud-gebaseerde service die is gespecialiseerd in HTTP-foutopsporing, logboekregistratie en bewaking. Ze hebben een gratis laag, dus het is gemakkelijk om te proberen en deze maakt het mogelijk om te zien van de HTTP-aanvragen in realtime worden gebruikt met onze API Management-service.
+Voor dit voorbeeld, besloot het normaal zou zijn om de HTTP-aanvraag via het uiterste te interessante [Moesif API Analytics](https://www.moesif.com). Moesif is een cloudgebaseerde service die is gespecialiseerd in HTTP-analyse en foutopsporing. Ze hebben een gratis laag, dus het is gemakkelijk om te proberen en deze maakt het mogelijk om te zien van de HTTP-aanvragen in realtime-stromen via onze API Management-service.
 
 De `IHttpMessageProcessor` implementatie er als volgt uitzien,
 
 ```csharp
-public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
+public class MoesifHttpMessageProcessor : IHttpMessageProcessor
 {
-    private HttpClient _HttpClient;
+    private readonly string RequestTimeName = "MoRequestTime";
+    private MoesifApiClient _MoesifClient;
     private ILogger _Logger;
-    private string _BucketKey;
-    public RunscopeHttpMessageProcessor(HttpClient httpClient, ILogger logger)
+    private string _SessionTokenKey;
+    private string _ApiVersion;
+    public MoesifHttpMessageProcessor(ILogger logger)
     {
-        _HttpClient = httpClient;
-        var key = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-KEY", EnvironmentVariableTarget.User);
-        _HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", key);
-        _HttpClient.BaseAddress = new Uri("https://api.runscope.com");
-        _BucketKey = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-BUCKET", EnvironmentVariableTarget.User);
+        var appId = Environment.GetEnvironmentVariable("APIMEVENTS-MOESIF-APP-ID", EnvironmentVariableTarget.Process);
+        _MoesifClient = new MoesifApiClient(appId);
+        _SessionTokenKey = Environment.GetEnvironmentVariable("APIMEVENTS-MOESIF-SESSION-TOKEN", EnvironmentVariableTarget.Process);
+        _ApiVersion = Environment.GetEnvironmentVariable("APIMEVENTS-MOESIF-API-VERSION", EnvironmentVariableTarget.Process);
         _Logger = logger;
     }
 
     public async Task ProcessHttpMessage(HttpMessage message)
     {
-        var runscopeMessage = new RunscopeMessage()
-        {
-            UniqueIdentifier = message.MessageId
-        };
-
         if (message.IsRequest)
         {
-            _Logger.LogInfo("Sending HTTP request " + message.MessageId.ToString());
-            runscopeMessage.Request = await RunscopeRequest.CreateFromAsync(message.HttpRequestMessage);
-        }
-        else
-        {
-            _Logger.LogInfo("Sending HTTP response " + message.MessageId.ToString());
-            runscopeMessage.Response = await RunscopeResponse.CreateFromAsync(message.HttpResponseMessage);
+            message.HttpRequestMessage.Properties.Add(RequestTimeName, DateTime.UtcNow);
+            return;
         }
 
-        var messagesLink = new MessagesLink() { Method = HttpMethod.Post };
-        messagesLink.BucketKey = _BucketKey;
-        messagesLink.RunscopeMessage = runscopeMessage;
-        var runscopeResponse = await _HttpClient.SendAsync(messagesLink.CreateRequest());
-        _Logger.LogDebug("Request sent to Runscope");
+        EventRequestModel moesifRequest = new EventRequestModel()
+        {
+            Time = (DateTime) message.HttpRequestMessage.Properties[RequestTimeName],
+            Uri = message.HttpRequestMessage.RequestUri.OriginalString,
+            Verb = message.HttpRequestMessage.Method.ToString(),
+            Headers = ToHeaders(message.HttpRequestMessage.Headers),
+            ApiVersion = _ApiVersion,
+            IpAddress = null,
+            Body = message.HttpRequestMessage.Content != null ? System.Convert.ToBase64String(await message.HttpRequestMessage.Content.ReadAsByteArrayAsync()) : null,
+            TransferEncoding = "base64"
+        };
+
+        EventResponseModel moesifResponse = new EventResponseModel()
+        {
+            Time = DateTime.UtcNow,
+            Status = (int) message.HttpResponseMessage.StatusCode,
+            IpAddress = Environment.MachineName,
+            Headers = ToHeaders(message.HttpResponseMessage.Headers),
+            Body = message.HttpResponseMessage.Content != null ? System.Convert.ToBase64String(await message.HttpResponseMessage.Content.ReadAsByteArrayAsync()) : null,
+            TransferEncoding = "base64"
+        };
+
+        Dictionary<string, string> metadata = new Dictionary<string, string>();
+        metadata.Add("ApimMessageId", message.MessageId.ToString());
+
+        EventModel moesifEvent = new EventModel()
+        {
+            Request = moesifRequest,
+            Response = moesifResponse,
+            SessionToken = _SessionTokenKey != null ? message.HttpRequestMessage.Headers.GetValues(_SessionTokenKey).FirstOrDefault() : null,
+            Tags = null,
+            UserId = null,
+            Metadata = metadata
+        };
+
+        Dictionary<string, string> response = await _MoesifClient.Api.CreateEventAsync(moesifEvent);
+
+        _Logger.LogDebug("Message forwarded to Moesif");
+    }
+
+    private static Dictionary<string, string> ToHeaders(HttpHeaders headers)
+    {
+        IEnumerable<KeyValuePair<string, IEnumerable<string>>> enumerable = headers.GetEnumerator().ToEnumerable();
+        return enumerable.ToDictionary(p => p.Key, p => p.Value.GetEnumerator()
+                                                         .ToEnumerable()
+                                                         .ToList()
+                                                         .Aggregate((i, j) => i + ", " + j));
     }
 }
 ```
 
-Ik kan profiteren van een [bestaande-clientbibliotheek voor Runscope](https://www.nuget.org/packages/Runscope.net.hapikit/0.9.0-alpha) die kunt u eenvoudig pushmeldingen `HttpRequestMessage` en `HttpResponseMessage` omhoog in de service-exemplaren. Als u de API Runscope opent, moet u een account en een API-sleutel. Instructies voor het ophalen van een API-sleutel kunnen worden gevonden de [toepassingen maken voor toegang tot Runscope API](https://blog.runscope.com/posts/creating-applications-to-access-the-runscope-api) screencast.
+De `MoesifHttpMessageProcessor` maakt gebruik van een [ C# API-bibliotheek voor Moesif](https://www.moesif.com/docs/api?csharp#events) die kunt u eenvoudig pushmeldingen HTTP-gebeurtenisgegevens naar hun service. Als u wilt gegevens van HTTP naar de Moesif gegevensverzamelaar-API verzendt, moet u een account en een toepassings-id. U get een Moesif toepassings-Id ophalen met het maken van een account op [Moesif van website](https://www.moesif.com) en ga vervolgens naar de _Menu rechts van het hoogste_ -> _App-instelling_.
 
 ## <a name="complete-sample"></a>Compleet voorbeeld
-De [broncode](https://github.com/darrelmiller/ApimEventProcessor) en tests voor het voorbeeld op GitHub. U moet een [API Management-Service](get-started-create-service-instance.md), [een verbonden Event Hub](api-management-howto-log-event-hubs.md), en een [Opslagaccount](../storage/common/storage-create-storage-account.md) om uit te voeren van het voorbeeld voor uzelf.   
+De [broncode](https://github.com/dgilling/ApimEventProcessor) en tests voor het voorbeeld op GitHub. U moet een [API Management-Service](get-started-create-service-instance.md), [een verbonden Event Hub](api-management-howto-log-event-hubs.md), en een [Opslagaccount](../storage/common/storage-create-storage-account.md) om uit te voeren van het voorbeeld voor uzelf.   
 
-Het voorbeeld is slechts een eenvoudige consoletoepassing die luistert naar gebeurtenissen die afkomstig zijn van de Event Hub, converteert deze naar een `HttpRequestMessage` en `HttpResponseMessage` objecten en stuurt ze door u aan bij de API Runscope.
+Het voorbeeld is alleen een eenvoudige consoletoepassing die luistert naar gebeurtenissen die afkomstig zijn van de Event Hub, omgezet in een Moesif `EventRequestModel` en `EventResponseModel` objecten en stuurt ze door u aan bij de Moesif gegevensverzamelaar-API.
 
-In de volgende bewegende afbeelding ziet u een aanvraag aan een API in de Portal voor ontwikkelaars, de Console-toepassing met het bericht wordt ontvangen, verwerkt en doorgestuurd en vervolgens de aanvraag en antwoord weergegeven in de Runscope Traffic inspector gaan.
+In de volgende bewegende afbeelding ziet u een aanvraag aan een API in de Portal voor ontwikkelaars, de Console-toepassing met het bericht wordt ontvangen, verwerkt en doorgestuurd en vervolgens de aanvraag en antwoord weergegeven in de gebeurtenis Stream.
 
 ![Demonstratie van de aanvraag doorgestuurd naar de Runscope](./media/api-management-log-to-eventhub-sample/apim-eventhub-runscope.gif)
 
 ## <a name="summary"></a>Samenvatting
-Azure API Management-service biedt een ideale locatie voor het vastleggen van de HTTP-verkeer naar en van uw API's onderweg. Azure Event Hubs is een zeer schaalbare, goedkope oplossing voor het vastleggen van dat verkeer en deze in de van secundaire verwerkingssystemen voor logboekregistratie, bewaking en andere geavanceerde analyses uit. Verbinding maken met externe verkeer bewakingssystemen Runscope is net zo eenvoudig als enkele tientallen regels code.
+Azure API Management-service biedt een ideale locatie voor het vastleggen van de HTTP-verkeer naar en van uw API's onderweg. Azure Event Hubs is een zeer schaalbare, goedkope oplossing voor het vastleggen van dat verkeer en deze in de van secundaire verwerkingssystemen voor logboekregistratie, bewaking en andere geavanceerde analyses uit. Verbinding maken met externe verkeer bewakingssystemen Moesif is net zo eenvoudig als enkele tientallen regels code.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over Azure Event Hubs
