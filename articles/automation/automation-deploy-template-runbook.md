@@ -10,12 +10,12 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: powershell,  runbook, json, azure automation
-ms.openlocfilehash: d13f21da88ae3fb9dfa67b11285e0c3e984d5e5b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ef97d4e2fd0951e30a725e8f2f9603a73c61f1ca
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421808"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416112"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Een Azure Resource Manager-sjabloon implementeren in een Azure Automation-PowerShell-runbook
 
@@ -23,11 +23,11 @@ U kunt schrijven een [Azure Automation PowerShell-runbook](automation-first-runb
 
 Op deze manier kunt kunt u de implementatie van Azure-resources automatiseren. U kunt uw Resource Manager-sjablonen in een beveiligde centrale locatie zoals Azure Storage kunt onderhouden.
 
-In dit onderwerp maakt u een PowerShell-runbook dat gebruikmaakt van een Resource Manager-sjabloon die zijn opgeslagen in [Azure Storage](../storage/common/storage-introduction.md) implementeren van een nieuw Azure Storage-account.
+In dit artikel maakt u een PowerShell-runbook dat gebruikmaakt van een Resource Manager-sjabloon die zijn opgeslagen in [Azure Storage](../storage/common/storage-introduction.md) implementeren van een nieuw Azure Storage-account.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
+Voor deze zelfstudie, moet u de volgende items:
 
 * Azure-abonnement. Als u een nog geen hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) of [zich registreren voor een gratis account](https://azure.microsoft.com/free/).
 * [Automation-account](automation-sec-configure-azure-runas-account.md) om het runbook te bevatten en te verifiëren voor Azure-resources.  Dit account moet machtigingen hebben om de virtuele machine te starten en stoppen.
@@ -176,7 +176,7 @@ Sla het bestand lokaal op als `DeployTemplate.ps1`.
 ## <a name="import-and-publish-the-runbook-into-your-azure-automation-account"></a>Importeren en publiceren van het runbook bij uw Azure Automation-account
 
 Nu we PowerShell gebruiken voor het importeren van het runbook in uw Azure Automation-account en vervolgens het runbook te publiceren.
-Zie voor meer informatie over het importeren en publiceren van een runbook in Azure portal [maken of importeren van een runbook in Azure Automation](automation-creating-importing-runbook.md).
+Zie voor meer informatie over het importeren en publiceren van een runbook in Azure portal [runbooks in Azure Automation beheren](manage-runbooks.md).
 
 Voor het importeren van `DeployTemplate.ps1` in uw Automation-account als een PowerShell-runbook, voer de volgende PowerShell-opdrachten:
 

@@ -1,5 +1,5 @@
 ---
-title: Instellen van zich kunnen registreren en aanmelden met een Facebook-account met behulp van Azure Active Directory B2C | Microsoft Docs
+title: Instellen van zich kunnen registreren en aanmelden met een Facebook-account - Azure Active Directory B2C | Microsoft Docs
 description: Meld u aan en meld u bieden aan klanten met een Facebook-account in uw toepassingen met behulp van Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: ea1afb83c3e381c33b1c29c224d1ce0cc1d3d080
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 56534589c89fefb38f206f1c57da7996ae43e81d
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163038"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428496"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Instellen van zich kunnen registreren en aanmelden met een Facebook-account met behulp van Azure Active Directory B2C
 
 ## <a name="create-a-facebook-application"></a>Een Facebook-toepassing maken
 
-Voor het gebruik van een Facebook-account als id-provider in Azure Active Directory (Azure AD) B2C, moet u een toepassing maken in de tenant die aangeeft. Als u nog een Facebook-account hebt, kunt u krijgen via [ https://www.facebook.com/ ](https://www.facebook.com/).
+Gebruik van een Facebook-account als een [id-provider](active-directory-b2c-reference-oauth-code.md) in Azure Active Directory (Azure AD) B2C, moet u een toepassing maken in de tenant die aangeeft. Als u nog een Facebook-account hebt, kunt u krijgen via [ https://www.facebook.com/ ](https://www.facebook.com/).
 
 1. Aanmelden bij [Facebook voor ontwikkelaars](https://developers.facebook.com/) met de referenties van uw Facebook-account.
 2. Als u hebt nog niet gedaan, moet u registreren als een Facebook-ontwikkelaar. Om dit te doen, selecteert u **registreren** in de rechterbovenhoek van de pagina accepteren van Facebook-beleid en de registratie van stappen.
@@ -32,7 +32,7 @@ Voor het gebruik van een Facebook-account als id-provider in Azure Active Direct
 7. Kies een **categorie**, bijvoorbeeld `Business and Pages`. Deze waarde is vereist voor Facebook, maar niet voor Azure AD B2C gebruikt.
 8. Selecteer aan de onderkant van de pagina **Platform toevoegen**, en selecteer vervolgens **Website**.
 9. In **Site-URL**, voer `https://your-tenant-name.b2clogin.com/` vervangen `your-tenant-name` met de naam van uw tenant. Voer een URL voor de **URL privacybeleid**, bijvoorbeeld `http://www.contoso.com`. De beleids-URL is een pagina die u moet onderhouden voor privacy-informatie voor uw toepassing.
-10. Selecteer **wijzigingen opslaan**.
+10. Selecteer **Save changes**.
 11. Aan de bovenkant van de pagina, Kopieer de waarde van **App-ID**. 
 12. Klik op **weergeven** en kopieer de waarde van **Appgeheim**. U kunt van beide Facebook als id-provider configureren in uw tenant. **App-geheim** is een belangrijke beveiligingsreferentie.
 13. Selecteer **producten**, en selecteer vervolgens **instellen** onder **aanmelden via Facebook**.

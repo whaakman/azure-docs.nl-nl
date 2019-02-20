@@ -10,14 +10,14 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 02/19/2019
 ms.author: magoedte
-ms.openlocfilehash: 1dba84c686fbb873f044b4980990baa396a94c79
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 3f3de81197b05d4f025a3fd8638cffe4b07cecad
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237668"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429513"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Lever een geïntegreerde ervaring meerdere Azure Monitor Application Insights-resources 
 In dit artikel wordt beschreven hoe u query's uitvoeren en Bekijk alle uw Application Insights toepassing logboekgegevens op één plek, zelfs wanneer ze zich in verschillende Azure-abonnementen, als vervanging voor de afschaffing van de Application Insights-Connector. Het aantal resources Application Insights-resources die u in één query opnemen kunt is beperkt tot 100.  
@@ -68,6 +68,9 @@ De functiealias retourneert de samenvoeging van de aanvragen van de gedefinieerd
 
 ## <a name="query-across-application-insights-resources-and-workspace-data"></a>Query's uitvoeren voor Application Insights-resources en werkruimte gegevens 
 Wanneer u stopt de Connector en moet u query's uitvoeren op een tijdsbereik dat is verkleind door Application Insights-Gegevensretentie (90 dagen), moet u uitvoeren [query's voor meerdere bronnen](../../azure-monitor/log-query/cross-workspace-query.md) in de werkruimte en het Application Insights resources voor een tussenliggende periode. Dit is totdat de gegevens van uw toepassingen worden bij elkaar opgeteld per de nieuwe Application Insights-gegevens bewaren die hierboven worden vermeld. De query is bepaalde bewerkingen vereist omdat de schema's in de werkruimte en Application Insights verschillend zijn. Zie de tabel verderop in deze sectie de schemaverschillen markeren. 
+
+>[!NOTE]
+>[Meerdere bronnen query](../log-query/cross-workspace-query.md) in logboek waarschuwingen wordt ondersteund in de nieuwe [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Azure Monitor gebruikt standaard de [verouderde Log Analytics-waarschuwing API](../platform/api-alerts.md) voor het maken van nieuwe logboek waarschuwingsregels van Azure-portal, tenzij u van overschakelt [verouderde Log waarschuwingen API](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Na de switch, de nieuwe API wordt de standaardwaarde voor nieuwe regels voor waarschuwingen in Azure portal en u kunt meerdere bronnen query log regels waarschuwingen maken. U kunt maken [meerdere bronnen query](../log-query/cross-workspace-query.md) melden van regels voor waarschuwingen zonder dat de switch met behulp van de [ARM-sjabloon voor scheduledQueryRules API](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) –, maar deze waarschuwingsregel wordt al beheerd [ scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) en niet vanuit Azure portal.
 
 Bijvoorbeeld, als de connector is gestopt op 2018-11-01, werken wanneer u een query naar Logboeken in Application Insights-bronnen en toepassingen van gegevens in de werkruimte, kan de query zou worden samengesteld als in het volgende voorbeeld:
 

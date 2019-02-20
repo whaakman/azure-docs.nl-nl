@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: glenga
-ms.openlocfilehash: 9e85dbe21b98ce936ede09e741e83f59a865b73e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b39c8c19b494422d34bae7145d69e8e95cb16846
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999382"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416817"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Aan de slag met de Azure WebJobs-SDK voor verwerking op de achtergrond gebeurtenisgestuurde
 
@@ -431,7 +431,7 @@ In deze sectie maakt uitvoeren u de volgende taken voor het instellen van Applic
 
 1. Als u nog een Application Insights-resource die u gebruiken kunt, hebt [maakt u er een](../azure-monitor/app/create-new-resource.md ). Stel **toepassingstype** naar **algemene**, en overslaan van de volgende secties **de instrumentatiesleutel kopiëren**.
 
-1. Als u al een Application Insights-resource die u gebruiken wilt, [de instrumentatiesleutel kopiëren](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key).
+1. Als u al een Application Insights-resource die u gebruiken wilt, [de instrumentatiesleutel kopiëren](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key).
 
 ### <a name="configure-app-settings"></a>App-instellingen configureren 
 

@@ -1,5 +1,5 @@
 ---
-title: Instellen van zich kunnen registreren en aanmelden met een Google-account met behulp van Azure Active Directory B2C | Microsoft Docs
+title: Instellen van zich kunnen registreren en aanmelden met een Google-account - Azure Active Directory B2C | Microsoft Docs
 description: Meld u aan en meld u bieden aan klanten met een Google-account in uw toepassingen met behulp van Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: af8a727bf9733b744b1ed429420cd8fde6e3e6f1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 29b988beff0f25bc0d4abcc1c95a70bccf9ba1cb
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176128"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56427425"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Instellen van zich kunnen registreren en aanmelden met een Google-account met behulp van Azure Active Directory B2C
 
 ## <a name="create-a-google-application"></a>Een Google-toepassing maken
 
-Voor het gebruik van een Google-account als id-provider in Azure Active Directory (Azure AD) B2C, moet u een toepassing maken in de tenant die aangeeft. Als u nog een Google-account hebt kunt u krijgen via [ https://accounts.google.com/SignUp ](https://accounts.google.com/SignUp).
+Gebruik van een Google-account als een [id-provider](active-directory-b2c-reference-oauth-code.md) in Azure Active Directory (Azure AD) B2C, moet u een toepassing maken in de tenant die aangeeft. Als u nog een Google-account hebt kunt u krijgen via [ https://accounts.google.com/SignUp ](https://accounts.google.com/SignUp).
 
 1. Aanmelden bij de [Google ontwikkelaars Console](https://console.developers.google.com/) met de referenties van uw Google-account.
 2. Selecteer **project maken**, en klik vervolgens op **maken**. Als u projecten voordat u hebt gemaakt, selecteert u de projectlijst en selecteer vervolgens **nieuw Project**.

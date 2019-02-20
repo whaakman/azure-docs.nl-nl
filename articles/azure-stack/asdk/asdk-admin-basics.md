@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/19/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 79e031226f11d45121827795c34b0103235d8d79
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9a07a829aac9659ac7ab8d04b64a1ea1a9a2de78
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248160"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428054"
 ---
 # <a name="asdk-administration-basics"></a>Basisprincipes van beheer ASDK 
 Er zijn verschillende dingen die u weten moet als u geen ervaring met Azure Stack Development Kit (ASDK)-beheer. Deze handleiding biedt een overzicht van uw rol als Azure Stack-operators in de evaluatieomgeving en hoe kunt zorgen dat uw testgebruikers snel productiever kunt worden.

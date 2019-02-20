@@ -1,26 +1,19 @@
 ---
-title: Azure Backup probleemoplossingsgids voor SQL Server-VM's | Microsoft Docs
-description: Informatie over probleemoplossing voor back-ups van SQL Server-VM's naar Azure.
+title: Het oplossen van SQL Server-database te maken met Azure Backup | Microsoft Docs
+description: Informatie over probleemoplossing voor back-ups van SQL Server-databases die worden uitgevoerd op virtuele Azure-machines met Azure Backup.
 services: backup
-documentationcenter: ''
-author: rayne-wiselman
-manager: carmonm
-editor: ''
-keywords: ''
-ms.assetid: ''
+author: anuragm
+manager: shivamg
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/19/2018
+ms.date: 02/19/2019
 ms.author: anuragm
-ms.custom: ''
-ms.openlocfilehash: 0d910269a16223c610e4606cdd6660cc5d43947f
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0beb65d6ef7c036c8a294f53eeb3db327457ea84
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296118"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428616"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Maak een Back-up van SQL Server op Azure oplossen
 
@@ -28,11 +21,11 @@ Dit artikel bevat informatie over probleemoplossing voor het beveiligen van SQL 
 
 ## <a name="public-preview-limitations"></a>Beperkingen van openbare preview
 
-U wilt weergeven van de openbare Preview-beperkingen, Zie het artikel [maakt u een Back-up van SQL Server-database in Azure](backup-azure-sql-database.md#public-preview-limitations).
+U wilt weergeven van de openbare Preview-beperkingen, Zie het artikel [maakt u een Back-up van SQL Server-database in Azure](backup-azure-sql-database.md#preview-limitations).
 
 ## <a name="sql-server-permissions"></a>SQL Server-machtigingen
 
-Beveiliging voor een SQL Server-database configureren op een virtuele machine, de **AzureBackupWindowsWorkload** extensie moet worden geïnstalleerd op deze virtuele machine. Als u de foutmelding **UserErrorSQLNoSysadminMembership**, betekent dit dat uw SQL-exemplaar beschikt niet over de vereiste back-machtigingen. U kunt deze fout oplossen, volg de stappen in [machtigingen instellen voor niet-marketplace SQL-VM's](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms).
+Beveiliging voor een SQL Server-database configureren op een virtuele machine, de **AzureBackupWindowsWorkload** extensie moet worden geïnstalleerd op deze virtuele machine. Als u de foutmelding **UserErrorSQLNoSysadminMembership**, betekent dit dat uw SQL-exemplaar beschikt niet over de vereiste back-machtigingen. U kunt deze fout oplossen, volg de stappen in [machtigingen instellen voor niet-marketplace SQL-VM's](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
 
 ## <a name="troubleshooting-errors"></a>Het oplossen van problemen
 
@@ -56,13 +49,13 @@ De volgende tabellen worden geordend op foutcode.
 | Foutbericht | Mogelijke oorzaken | Aanbevolen actie |
 |---|---|---|
 | Deze SQL-database biedt geen ondersteuning voor de gevraagde type back-up. | Treedt op wanneer het herstelmodel van de database niet toegestaan om de gevraagde type back-up. De fout kan optreden in de volgende situaties: <br/><ul><li>Een database met behulp van een eenvoudig herstelmodel toelaat logboekback-up niet.</li><li>Differentiële en logboekback-ups zijn niet toegestaan voor een model database.</li></ul>Zie voor meer informatie de [SQL herstelmodellen](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server) documentatie. | Als de logboekback-up voor de database in het eenvoudige herstelmodel is mislukt, probeert u een van deze opties:<ul><li>Als de database zich in de modus voor eenvoudig herstel, schakelt u logboekback-ups.</li><li>Gebruik de [documentatie bij SQL](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) te wijzigen van het herstelmodel van de database naar een volledige of bulksgewijs geregistreerd. </li><li> Als u niet wilt dat om het herstelmodel te wijzigen, en u een standaardbeleid hebt voor back-up van meerdere databases die niet kunnen worden gewijzigd, kunt u de fout negeren. Uw volledige en differentiële back-ups werkt per schema. De logboekback-ups worden overgeslagen, die in dit geval wordt verwacht.</li></ul>Als het een Master-database en u hebt geconfigureerd differentiële of logboek back-up, gebruik een van de volgende stappen uit:<ul><li>Gebruik de portal voor het wijzigen van de planning van de back-upbeleid voor de Master-database, op volledig.</li><li>Als u een standaardbeleid hebt voor back-up van meerdere databases die niet kunnen worden gewijzigd, moet u de fout negeren. Uw volledige back-up werkt per schema. Differentiële of logboek back-ups niet uitgevoerd, die in dit geval wordt verwacht.</li></ul> |
-| Bewerking is geannuleerd omdat een conflicterende bewerking al werd uitgevoerd op dezelfde database. | Zie de [blogbericht over back-up en beperkingen bij het herstellen](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database) die gelijktijdig worden uitgevoerd.| [SQL Server Management Studio (SSMS) gebruiken voor het bewaken van de back-uptaken.](backup-azure-sql-database.md#manage-azure-backup-operations-for-sql-on-azure-vms) Zodra de conflicterende bewerking mislukt, start u de bewerking opnieuw.|
+| Bewerking is geannuleerd omdat een conflicterende bewerking al werd uitgevoerd op dezelfde database. | Zie de [blogbericht over back-up en beperkingen bij het herstellen](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database) die gelijktijdig worden uitgevoerd.| [SQL Server Management Studio (SSMS) gebruiken voor het bewaken van de back-uptaken.](manage-monitor-sql-database-backup.md) Zodra de conflicterende bewerking mislukt, start u de bewerking opnieuw.|
 
 ### <a name="usererrorsqlpodoesnotexist"></a>UserErrorSQLPODoesNotExist
 
 | Foutbericht | Mogelijke oorzaken | Aanbevolen actie |
 |---|---|---|
-| SQL-database bestaat niet. | De database is verwijderd of gewijzigd. | <ul><li>Controleer als de database per ongeluk zijn verwijderd of hernoemd.</li><li>Als de database per ongeluk is verwijderd, de database om door te gaan van de back-ups, herstellen naar oorspronkelijke locatie.</li><li>Als de database hebt verwijderd en niet moeten toekomstige back-ups, klikt u vervolgens in de Recovery Services-kluis op [back-up stoppen met 'Gegevens verwijderen/behouden'](backup-azure-sql-database.md#manage-azure-backup-operations-for-sql-on-azure-vms).</li>|
+| SQL-database bestaat niet. | De database is verwijderd of gewijzigd. | Controleer als de database per ongeluk zijn verwijderd of hernoemd.<br/><br/> Als de database per ongeluk is verwijderd, de database om door te gaan van de back-ups, herstellen naar oorspronkelijke locatie.<br/><br/> Als de database hebt verwijderd en niet moeten toekomstige back-ups, klikt u vervolgens in de Recovery Services-kluis op [back-up stoppen met 'Gegevens verwijderen/behouden'](manage-monitor-sql-database-backup.md).
 
 ### <a name="usererrorsqllsnvalidationfailure"></a>UserErrorSQLLSNValidationFailure
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: efce8379ecafe6e8e044b654a3c5b392ca8e9cea
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 5a9e3f63a484069bf8cd39f8a545d7c37f05c63c
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55506359"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417309"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Werken met virtual network gateway-SKU's (verouderde SKU's)
 
@@ -40,6 +40,8 @@ In dit artikel bevat informatie over het verouderde (oude) virtueel netwerkgatew
 
 ## <a name="resize"></a>Formaat van een gateway
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 U kunt het formaat van uw gateway op een gateway-SKU binnen dezelfde SKU-familie. Bijvoorbeeld, als u een standaard-SKU hebt, u kunt het formaat naar een HighPerformance-SKU. U kunt geen echter grootte van uw VPN-gateway tussen de oude SKU's en de nieuwe SKU-families. U kan geen bijvoorbeeld Ga van een standaard-SKU naar een VpnGw2-SKU of een basis-SKU naar VpnGw1.
 
 Als u wilt het formaat van een gateway voor het klassieke implementatiemodel, gebruik de volgende opdracht:
@@ -51,8 +53,8 @@ Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerfor
 Als u wilt het formaat van een gateway voor het Resource Manager-implementatiemodel met behulp van PowerShell, gebruik de volgende opdracht:
 
 ```powershell
-$gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
-Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
+$gw = Get-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
+Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 ```
 U kunt ook het formaat van een gateway in Azure portal.
 

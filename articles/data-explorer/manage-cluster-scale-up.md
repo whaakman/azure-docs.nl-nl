@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 9d265ec7f0ce2030874f38b99b07343f1d4a3f4d
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: bc3f97c798f5e040908e8103c00d3f015f8c824d
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408643"
+ms.locfileid: "56415331"
 ---
 # <a name="manage-cluster-scale-up-to-accommodate-changing-demand"></a>Cluster omhoog schalen om te voldoen aan veranderende vraag beheren
 
@@ -30,10 +30,7 @@ Formaat van een cluster op de juiste wijze is essentieel dat de prestaties van A
 1. Als uw SKU wijzigen, selecteert u de SKU die u wilt gebruiken en druk op de **Selecteer** knop.
 
 > [!NOTE]
-> De schaal van proces kan enkele minuten duren. Gedurende deze periode kan wordt uw cluster opgeschort.
->
-> Omlaag schalen, kan de clusterprestaties van uw beschadigen.
->
+> De schaal van proces kan enkele minuten duren en gedurende die tijd is uw cluster, worden opgeschort. Houd er rekening mee dat omlaag schalen schadelijk voor de clusterprestaties van uw zijn kan.
 
 U hebt nu een bewerking omhoog of omlaag schalen voor uw Azure Data Explorer-cluster uitgevoerd. U kunt ook doen [cluster van uitbreidbare](manage-cluster-scale-out.md), ook wel aangeduid als automatisch schalen om te schalen dynamisch op basis van metrische gegevens die u opgeeft.
 

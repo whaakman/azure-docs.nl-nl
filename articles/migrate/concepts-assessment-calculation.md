@@ -4,14 +4,14 @@ description: Biedt een overzicht van evaluatie van berekeningen in de Azure Migr
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 02/19/2019
 ms.author: raynew
-ms.openlocfilehash: ab4af59b71dada84fd99df0299aeccfd5662d474
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 62683aaf7dda048b5828e9494ba8cafe6c8b8f9f
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849170"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417936"
 ---
 # <a name="assessment-calculations"></a>Beoordelingsberekeningen
 
@@ -58,13 +58,13 @@ Windows Server 2012 R2 en alle SP 's | Azure biedt volledige ondersteuning. | Ge
 Windows Server 2012 & alle SP 's | Azure biedt volledige ondersteuning. | Gereed voor Azure
 Windows Server 2008 R2 met alle SP 's | Azure biedt volledige ondersteuning.| Gereed voor Azure
 WindowsServer 2008 (32-bits en 64-bits) | Azure biedt volledige ondersteuning. | Gereed voor Azure
-WindowsServer 2003, 2003 R2 | Deze besturingssystemen zijn geslaagd voor het einde van ondersteuning voor de datum en het moet een [Custom Support Agreement (CSA)](https://aka.ms/WSosstatement) voor ondersteuning in Azure. | Voorwaardelijk gereed voor Azure, kunt u het besturingssysteem te upgraden voordat u migreert naar Azure.
+Windows Server 2003, 2003 R2 | Deze besturingssystemen zijn geslaagd voor het einde van ondersteuning voor de datum en het moet een [Custom Support Agreement (CSA)](https://aka.ms/WSosstatement) voor ondersteuning in Azure. | Voorwaardelijk gereed voor Azure, kunt u het besturingssysteem te upgraden voordat u migreert naar Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | Deze besturingssystemen zijn geslaagd voor het einde van ondersteuning voor datum, mogelijk op de machine te starten in Azure, maar er is geen ondersteuning voor het besturingssysteem wordt geleverd door Azure. | Voorwaardelijk gereed voor Azure, het is raadzaam het besturingssysteem upgraden voordat u migreert naar Azure.
 Client voor Windows 7, 8 en 10 | Azure biedt ondersteuning voor met [Visual Studio-abonnement.](https://docs.microsoft.com/azure/virtual-machines/windows/client-images) | Voorwaardelijk gereed voor Azure
 Windows 10 Pro Desktop | Azure biedt ondersteuning voor met [Multitenant Hosting-rechten.](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) | Voorwaardelijk gereed voor Azure
 Windows Vista, XP Professional | Deze besturingssystemen zijn geslaagd voor het einde van ondersteuning voor datum, mogelijk op de machine te starten in Azure, maar er is geen ondersteuning voor het besturingssysteem wordt geleverd door Azure. | Voorwaardelijk gereed voor Azure, het is raadzaam het besturingssysteem upgraden voordat u migreert naar Azure.
 Linux | Azure ondersteunt deze [Linux-besturingssystemen](../virtual-machines/linux/endorsed-distros.md). Andere Linux-besturingssystemen mogelijk op te starten in Azure, maar het is raadzaam het besturingssysteem upgraden naar een onderschreven versie voordat u migreert naar Azure. | Gereed voor Azure als de versie is goedgekeurd.<br/><br/>Voorwaardelijk Gereed als de versie niet is goedgekeurd.
-Andere besturingssystemen<br/><br/> bijv, Oracle Solaris, Apple Mac OS enz., toegang tot FreeBSD, enzovoort. | Azure biedt geen enkele aanbeveling voor deze besturingssystemen. De computer mogelijk op te starten in Azure, maar er is geen ondersteuning voor het besturingssysteem wordt geleverd door Azure. | Voorwaardelijk gereed voor Azure, het wordt aanbevolen voor het installeren van een ondersteund besturingssysteem voordat u migreert naar Azure.  
+Andere besturingssystemen<br/><br/> e.g.,  Oracle Solaris, Apple Mac OS etc., FreeBSD, etc. | Azure biedt geen enkele aanbeveling voor deze besturingssystemen. De computer mogelijk op te starten in Azure, maar er is geen ondersteuning voor het besturingssysteem wordt geleverd door Azure. | Voorwaardelijk gereed voor Azure, het wordt aanbevolen voor het installeren van een ondersteund besturingssysteem voordat u migreert naar Azure.  
 Besturingssysteem opgegeven als **andere** in vCenter-Server | Azure Migrate identificeren in dit geval het besturingssysteem niet. | Gereedheid onbekend. Zorg ervoor dat het besturingssysteem die worden uitgevoerd binnen de virtuele machine in Azure wordt ondersteund.
 32-bits besturingssystemen | De computer mogelijk op te starten in Azure, maar Azure bieden volledige ondersteuning mogelijk niet. | Voorwaardelijk gereed voor Azure, kunt u een upgrade van het besturingssysteem van de machine van 32-bits besturingssystemen op 64-bits besturingssysteem voordat u migreert naar Azure.
 
@@ -89,12 +89,12 @@ Azure Migrate begint met de schijven die zijn gekoppeld aan de virtuele machine,
     - Als er meerdere in aanmerking komende schijven, selecteert u de categorie met de laagste kosten.
     - Als u prestatiegegevens voor schijven niet beschikbaar is, alle schijven zijn toegewezen aan standard-schijven in Azure.
 
-- **Netwerk**: Azure Migrate gezocht naar een Azure-VM die ondersteuning voor het aantal netwerkadapters die zijn gekoppeld aan de on-premises computer en de prestaties die zijn vereist voor deze netwerkadapters bieden.
+- **Netwerk**: Azure Migrate wordt gezocht naar een Azure-VM die ondersteuning voor het aantal netwerkadapters die zijn gekoppeld aan de on-premises computer en de prestaties die zijn vereist voor deze netwerkadapters bieden.
     - Als u de effectieve netwerkprestaties van de on-premises VM, Azure Migrate combineert de gegevens verzonden per seconde (MBps) buiten de machine (netwerk), op alle netwerkadapters en de comfortfactor is van toepassing. Dit nummer wordt gebruikt om een virtuele machine van Azure die ondersteuning voor de vereiste netwerkprestaties bieden vinden.
     - Samen met de prestaties van het netwerk, er ook rekening gehouden of de virtuele machine in Azure de vereiste ondersteunen het aantal netwerkadapters.
     - Als er geen prestatiegegevens netwerk beschikbaar is, kunnen alleen met het aantal netwerkadapters wordt beschouwd als de grootte van de virtuele machine instelt.
 
-- **COMPUTE**: nadat de vereisten voor appopslag en netwerken worden berekend, Azure Migrate acht CPU en geheugen vereisten voor het vinden van een geschikte grootte voor de virtuele machine in Azure.
+- **COMPUTE**: Nadat de vereisten voor appopslag en netwerken worden berekend, Azure Migrate rekening gehouden met vereisten voor CPU en geheugen aan een geschikte grootte voor de virtuele machine niet vinden in Azure.
     - Azure Migrate gekeken naar de gebruikte kernen en het geheugen en past de comfortfactor om op te halen van de effectieve kernen en geheugen. Op basis van dit getal, probeert het vinden van een geschikte grootte voor de virtuele machine in Azure.
     - Als er geen geschikte grootte wordt gevonden, wordt de machine gemarkeerd als niet geschikt voor Azure.
     - Als een geschikte grootte wordt gevonden, Azure Migrate is van toepassing de berekeningen van opslag en netwerken. Vervolgens wordt toegepast locatie en de instellingen, voor de uiteindelijke aanbeveling voor VM-grootte van de prijscategorie.
@@ -131,8 +131,8 @@ Als u de grootte instelt op basis van de prestaties, heeft Azure Migrate de gebr
 
 Nadat het formaat aanbevelingen zijn voltooid, berekent Azure Migrate na de migratie berekenings- en opslagkosten.
 
-- **COMPUTE-kosten**: de API van de facturering voor het berekenen van de maandelijkse kosten voor de virtuele machine met behulp van de aanbevolen grootte van de virtuele machine van Azure, Azure Migrate gebruikt. De berekening wordt het besturingssysteem, software assurance, gereserveerde instanties, VM uptime, locatie en valuta-instellingen rekening. Worden de kosten voor alle machines, voor het berekenen van de totale maandelijkse kosten.
-- **Opslagkosten**: de maandelijkse opslagkosten voor een virtuele machine wordt berekend door samenvoeging van de maandelijkse kosten van alle schijven die zijn gekoppeld aan de machine. Azure Migrate berekent de totale maandelijkse kosten voor opslag door samenvoeging van de kosten voor opslag van alle machines. De berekening nemen niet op dit moment biedt die zijn opgegeven in de instellingen voor evaluatie van in aanmerking.
+- **COMPUTE-kosten**: Met behulp van de aanbevolen grootte van de virtuele machine van Azure, Azure Migrate maakt gebruik van de facturering-API voor het berekenen van de maandelijkse kosten voor de virtuele machine. De berekening wordt het besturingssysteem, software assurance, gereserveerde instanties, VM uptime, locatie en valuta-instellingen rekening. Worden de kosten voor alle machines, voor het berekenen van de totale maandelijkse kosten.
+- **Opslagkosten**: De maandelijkse opslagkosten voor voor een virtuele machine wordt berekend door het samenvoegen van de maandelijkse kosten van alle schijven die zijn gekoppeld aan de machine. Azure Migrate berekent de totale maandelijkse kosten voor opslag door samenvoeging van de kosten voor opslag van alle machines. De berekening nemen niet op dit moment biedt die zijn opgegeven in de instellingen voor evaluatie van in aanmerking.
 
 Kosten worden weergegeven in de valuta die is opgegeven in de instellingen voor evaluatie.
 

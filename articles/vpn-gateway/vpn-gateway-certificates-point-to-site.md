@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: cherylmc
-ms.openlocfilehash: e635eddabe239268829d3a907df10392c7e1b6a3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e574759ff8af172841db9fc94ee860a19dd14200
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850955"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415362"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Genereren en exporteren van certificaten voor punt-naar-Site met behulp van PowerShell
 
@@ -47,7 +47,7 @@ De voorbeelden gebruiken de cmdlet New-SelfSignedCertificate voor het genereren 
 
 ### <a name="example-1"></a>Voorbeeld 1
 
-Dit voorbeeld wordt de variabele gedeclareerde '$cert' uit de vorige sectie. Als u de PowerShell-console gesloten nadat het zelfondertekende basiscertificaat hebt gemaakt, of zijn het maken van aanvullende certificaten in een nieuwe PowerShell-console-sessie, gebruikt u de stappen in [voorbeeld 2](#ex2).
+In dit voorbeeld gebruiken als u de PowerShell-console niet afgesloten nadat het zelfondertekende basiscertificaat hebt gemaakt. In dit voorbeeld blijft uit de vorige sectie en maakt gebruik van de gedeclareerde '$cert'-variabele. Als u de PowerShell-console gesloten nadat het zelfondertekende basiscertificaat hebt gemaakt, of zijn het maken van aanvullende certificaten in een nieuwe PowerShell-console-sessie, gebruikt u de stappen in [voorbeeld 2](#ex2).
 
 Wijzigen en voer het voorbeeld voor het genereren van een clientcertificaat. Als u het volgende voorbeeld uitvoert zonder het te wijzigen, is het resultaat een clientcertificaat met de naam 'P2SChildCert'.  Als u wilt de naam van het certificaat van de onderliggende iets anders, wijzigt u de CN-waarde. Wijzig de TextExtension niet bij het uitvoeren van dit voorbeeld. Het clientcertificaat dat u wordt automatisch geïnstalleerd in 'Certificaten - Huidige gebruiker\Persoonlijk\Certificaten' op uw computer.
 

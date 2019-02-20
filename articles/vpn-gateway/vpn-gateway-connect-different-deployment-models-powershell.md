@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: d515363e1413634d8222e043fff0b91aa464002c
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: b569a021dab5e6008dc61af3af8168585c5edc1b
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509318"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416238"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Virtuele netwerken van verschillende implementatiemodellen verbinden met PowerShell
 
@@ -165,6 +165,8 @@ U kunt de status van de gateway controleren met behulp van de **Get-AzureVNetGat
 
 ## <a name="creatermgw"></a>Sectie 2: de RM-VNet-gateway configureren
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 De vereisten wordt ervan uitgegaan dat u al hebt gemaakt een RM-VNet. In deze stap maakt maken u een VPN-gateway voor de RM-VNet. Deze stappen totdat niet worden gestart nadat u het openbare IP-adres voor het klassieke VNet-gateway hebt opgehaald. 
 
 1. Aanmelden bij uw Azure-account in de PowerShell-console. De volgende cmdlet vraagt u om de aanmeldingsreferenties voor uw Azure-Account. Na het aanmelden, worden instellingen van uw account gedownload zodat ze beschikbaar voor Azure PowerShell zijn. U kunt eventueel de functie 'Try It' Azure Cloud Shell in de browser te starten.
@@ -172,18 +174,18 @@ De vereisten wordt ervan uitgegaan dat u al hebt gemaakt een RM-VNet. In deze st
   Als u Azure Cloud Shell gebruikt, gaat u verder met de volgende cmdlet:
 
   ```azurepowershell
-  Connect-AzureRmAccount
+  Connect-AzAccount
   ``` 
   Om te controleren dat u van het juiste abonnement gebruikmaakt, moet u de volgende cmdlet uitvoeren:  
 
   ```azurepowershell-interactive
-  Get-AzureRmSubscription
+  Get-AzSubscription
   ```
    
   Als u meer dan één abonnement hebt, geeft u het abonnement dat u wilt gebruiken.
 
   ```azurepowershell-interactive
-  Select-AzureRmSubscription -SubscriptionName "Name of subscription"
+  Select-AzSubscription -SubscriptionName "Name of subscription"
   ```
 2. Maak een lokale netwerkgateway. In een virtueel netwerk verwijst de lokale netwerkgateway doorgaans naar uw on-premises locatie. In dit geval wordt de lokale netwerkgateway verwijst naar uw klassieke VNet. Geef deze een naam waarmee Azure hiernaar wordt verwezen, en ook het adresruimtevoorvoegsel opgeven. Azure gebruikt het IP-adresvoorvoegsel dat u opgeeft om te bepalen welk verkeer naar uw on-premises locatie moet worden verzonden. Als u de informatie hier later aanpassen moet voordat u de gateway maakt kunt u de waarden wijzigen en voert u het voorbeeld opnieuw uit.
    
@@ -192,7 +194,7 @@ De vereisten wordt ervan uitgegaan dat u al hebt gemaakt een RM-VNet. In deze st
    **-GatewayIpAddress** is het openbare IP-adres van het klassieke VNet-gateway. Zorg ervoor dat de volgende voorbeeldtekst "n.n.n.n" in overeenstemming met het juiste IP-adres.<br>
 
   ```azurepowershell-interactive
-  New-AzureRmLocalNetworkGateway -Name ClassicVNetLocal `
+  New-AzLocalNetworkGateway -Name ClassicVNetLocal `
   -Location "West US" -AddressPrefix "10.0.0.0/24" `
   -GatewayIpAddress "n.n.n.n" -ResourceGroupName RG1
   ```
@@ -201,7 +203,7 @@ De vereisten wordt ervan uitgegaan dat u al hebt gemaakt een RM-VNet. In deze st
   In deze stap wordt ook een variabele die wordt gebruikt in een latere stap instellen.
 
   ```azurepowershell-interactive
-  $ipaddress = New-AzureRmPublicIpAddress -Name gwpip `
+  $ipaddress = New-AzPublicIpAddress -Name gwpip `
   -ResourceGroupName RG1 -Location 'EastUS' `
   -AllocationMethod Dynamic
   ```
@@ -213,8 +215,8 @@ De vereisten wordt ervan uitgegaan dat u al hebt gemaakt een RM-VNet. In deze st
    **-ResourceGroupName** is de resourcegroep die het VNet is gekoppeld. Het gatewaysubnet moet al bestaan voor dit VNet en moet de naam *GatewaySubnet* goed te laten werken.<br>
 
   ```azurepowershell-interactive
-  $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet `
-  -VirtualNetwork (Get-AzureRmVirtualNetwork -Name RMVNet -ResourceGroupName RG1)
+  $subnet = Get-AzVirtualNetworkSubnetConfig -Name GatewaySubnet `
+  -VirtualNetwork (Get-AzVirtualNetwork -Name RMVNet -ResourceGroupName RG1)
   ``` 
 
 6. De configuratie van IP-adressering voor de gateway maken. De gatewayconfiguratie bepaalt welk subnet en openbaar IP-adres moeten worden gebruikt. Gebruik het volgende voorbeeld om de gatewayconfiguratie te maken.
@@ -222,14 +224,14 @@ De vereisten wordt ervan uitgegaan dat u al hebt gemaakt een RM-VNet. In deze st
   In deze stap is het **- SubnetId** en **- PublicIpAddressId** parameters moeten worden doorgegeven in de eigenschap id van het subnet en IP-adres-objecten, respectievelijk. U kunt een eenvoudige tekenreeks niet gebruiken. Deze variabelen worden ingesteld in de stap om aan te vragen van een openbaar IP-adres en de stap op te halen van het subnet.
 
   ```azurepowershell-interactive
-  $gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig `
+  $gwipconfig = New-AzVirtualNetworkGatewayIpConfig `
   -Name gwipconfig -SubnetId $subnet.id `
   -PublicIpAddressId $ipaddress.id
   ```
 7. Maak de virtuele netwerkgateway van Resource Manager met de volgende opdracht. De `-VpnType` moet *RouteBased*. Het kan duren voordat 45 minuten of langer voordat de gateway is gemaakt.
 
   ```azurepowershell-interactive
-  New-AzureRmVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1 `
+  New-AzVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1 `
   -Location "EastUS" -GatewaySKU Standard -GatewayType Vpn `
   -IpConfigurations $gwipconfig `
   -EnableBgp $false -VpnType RouteBased
@@ -237,7 +239,7 @@ De vereisten wordt ervan uitgegaan dat u al hebt gemaakt een RM-VNet. In deze st
 8. Kopieer het openbare IP-adres wanneer de VPN-gateway is gemaakt. U gebruikt deze bij het configureren van de lokale instellingen voor uw klassieke VNet. U kunt de volgende cmdlet gebruiken om op te halen van het openbare IP-adres. Het openbare IP-adres wordt vermeld in het rendement als *IpAddress*.
 
   ```azurepowershell-interactive
-  Get-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName RG1
+  Get-AzPublicIpAddress -Name gwpip -ResourceGroupName RG1
   ```
 
 ## <a name="localsite"></a>Sectie 3: de klassieke VNet lokale site-instellingen wijzigen
@@ -263,7 +265,7 @@ In deze sectie maakt werken u met het klassieke VNet. U kunt de tijdelijke aandu
 ## <a name="connect"></a>Sectie 4: Maak een verbinding tussen de gateways
 Het maken van een verbinding tussen de gateways is PowerShell vereist. Mogelijk moet u uw Azure-Account voor het gebruik van de klassieke versie van de PowerShell-cmdlets toevoegen. Om dit te doen, gebruik **Add-AzureAccount**.
 
-1. Stel uw gedeelde sleutel in de PowerShell-console. Raadpleeg voordat u de cmdlets uitvoert, het netwerkconfiguratiebestand dat u hebt gedownload voor de exacte namen die Azure verwacht om te zien. Bij het opgeven van de naam van een VNet die spaties bevat, gebruikt u enkele aanhalingstekens rond de waarde.<br><br>In het volgende voorbeeld **- VNetName** is de naam van het klassieke VNet en **- LocalNetworkSiteName** is de naam die u hebt opgegeven voor de lokale netwerksite. De **- SharedKey** is een waarde die u genereert en opgeven. In het voorbeeld hebben we 'abc123' gebruikt, maar u kunt genereren en ingewikkeldere gebruiken. Het belangrijkste is dat de waarde die u hier opgeeft, dezelfde waarde die u in de volgende stap opgeeft bij het maken van de verbinding moet zijn. Moet worden weergegeven in het rendement **Status: Successful**.
+1. Stel uw gedeelde sleutel in de PowerShell-console. Raadpleeg voordat u de cmdlets uitvoert, het netwerkconfiguratiebestand dat u hebt gedownload voor de exacte namen die Azure verwacht om te zien. Bij het opgeven van de naam van een VNet die spaties bevat, gebruikt u enkele aanhalingstekens rond de waarde.<br><br>In het volgende voorbeeld **- VNetName** is de naam van het klassieke VNet en **- LocalNetworkSiteName** is de naam die u hebt opgegeven voor de lokale netwerksite. De **- SharedKey** is een waarde die u genereert en opgeven. In het voorbeeld hebben we 'abc123' gebruikt, maar u kunt genereren en ingewikkeldere gebruiken. Het belangrijkste is dat de waarde die u hier opgeeft, dezelfde waarde die u in de volgende stap opgeeft bij het maken van de verbinding moet zijn. Moet worden weergegeven in het rendement **Status: Geslaagd**.
 
   ```azurepowershell
   Set-AzureVNetGatewayKey -VNetName ClassicVNet `
@@ -274,14 +276,14 @@ Het maken van een verbinding tussen de gateways is PowerShell vereist. Mogelijk 
   Stel de variabelen in.
 
   ```azurepowershell-interactive
-  $vnet01gateway = Get-AzureRmLocalNetworkGateway -Name ClassicVNetLocal -ResourceGroupName RG1
-  $vnet02gateway = Get-AzureRmVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1
+  $vnet01gateway = Get-AzLocalNetworkGateway -Name ClassicVNetLocal -ResourceGroupName RG1
+  $vnet02gateway = Get-AzVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1
   ```
    
   Maak de verbinding. U ziet dat de **- ConnectionType** IPsec, niet Vnet2Vnet is.
 
   ```azurepowershell-interactive
-  New-AzureRmVirtualNetworkGatewayConnection -Name RM-Classic -ResourceGroupName RG1 `
+  New-AzVirtualNetworkGatewayConnection -Name RM-Classic -ResourceGroupName RG1 `
   -Location "East US" -VirtualNetworkGateway1 `
   $vnet02gateway -LocalNetworkGateway2 `
   $vnet01gateway -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'

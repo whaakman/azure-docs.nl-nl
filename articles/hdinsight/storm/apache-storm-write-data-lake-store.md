@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: 53f81a06a0a10d4526816b5117eb12f01d75e25a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 301de81fc9b8bdb8b295700de33065d988379334
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819158"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428791"
 ---
 # <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>Schrijven naar Apache Hadoop HDFS van Apache Storm op HDInsight
 
@@ -50,15 +50,18 @@ U kunt de volgende omgevingsvariabelen instellen wanneer u Java en de JDK instal
 De HdfsBolt maakt gebruik van het bestand-schema dat u opgeeft als u wilt weten over het schrijven van HDFS. Met HDInsight, een van de volgende schema's te gebruiken:
 
 * `wasb://`: Met een Azure Storage-account gebruikt.
-* `adl://`: Met Azure Data Lake-opslag gebruikt.
+* `abfs://`: Gebruikt in combinatie met een Azure Data Lake Storage-Gen2.
+* `adl://`: Met Azure Data Lake Storage Gen1 gebruikt.
 
 De volgende tabel bevat voorbeelden van het gebruik van het bestand-schema voor verschillende scenario's:
 
 | Schema | Opmerkingen |
 | ----- | ----- |
 | `wasb:///` | Het standaardaccount voor opslag is een blob-container in een Azure Storage-account |
-| `adl:///` | Het standaardopslagaccount is een map in Azure Data Lake-opslag. Tijdens het maken geeft u de map in Data Lake Storage is de hoofdmap van het cluster HDFS. Bijvoorbeeld, de `/clusters/myclustername/` directory. |
+| `abfs:///` | Het standaardopslagaccount is een map in een Azure Data Lake Storage Gen2-account |
+| `adl:///` | Het standaardopslagaccount is een map in Azure Data Lake Storage Gen1. Tijdens het maken geeft u de map in Data Lake Storage is de hoofdmap van het cluster HDFS. Bijvoorbeeld, de `/clusters/myclustername/` directory. |
 | `wasb://CONTAINER@ACCOUNT.blob.core.windows.net/` | Een niet-standaard (Extra) Azure storage-account dat is gekoppeld aan het cluster. |
+| `abfs://CONTAINER@ACCOUNT.dfs.core.windows.net/` | Een niet-standaard (Extra) Azure storage-account dat is gekoppeld aan het cluster. |
 | `adl://STORENAME/` | De hoofdmap van Data Lake Storage gebruikt door het cluster. Dit schema kunt u toegang tot gegevens die zich buiten de map waarin het bestandssysteem van het cluster zich bevindt. |
 
 Zie voor meer informatie de [HdfsBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) verwijzing op Apache.org.
@@ -180,7 +183,7 @@ Zie voor meer informatie over het gebruik van dit script met uw cluster de [aanp
         hdfs.url: wasb:///
 
     > [!IMPORTANT]  
-    > In dit voorbeeld wordt ervan uitgegaan dat uw cluster maakt gebruik van een Azure Storage-account als de standaardopslag. Als uw cluster gebruikmaakt van Azure Data Lake Storage, gebruikt u `hdfs.url: adl:///` in plaats daarvan.
+    > In dit voorbeeld wordt ervan uitgegaan dat uw cluster maakt gebruik van een Azure Storage-account als de standaardopslag. Als uw cluster maakt gebruik van Azure Data Lake Storage Gen2, gebruikt u `hdfs.url: abfs:///` in plaats daarvan. Als uw cluster maakt gebruik van Azure Data Lake Storage Gen1, gebruikt u `hdfs.url: adl:///` in plaats daarvan.
     
     Gebruiken om het bestand hebt opgeslagen, __Ctrl + X__, klikt u vervolgens __Y__, en tot slot __Enter__. De waarden in dit bestand instellen de URL van de Data Lake-opslag en de naam van de map die gegevens worden geschreven naar.
 

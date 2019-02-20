@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/19/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: b8d13377b2fb1545ecf88645a5e19bf5eab24c74
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6b14f5e8967567030ce854d05c53a8d26027e9a6
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238132"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428836"
 ---
 # <a name="start-and-stop-azure-stack"></a>Starten en stoppen van de Azure Stack
-U moet de procedures in dit artikel voor het correct afsluiten en opnieuw opstarten van Azure Stack-services. Afsluiten wordt fysiek uit de gehele Azure Stack-omgeving aansturen. Opstarten bevoegdheden op alle functies van de infrastructuur en tenantresources stuurt naar de energiestatus die in het geval vóór afsluiten was.
+U moet de procedures in dit artikel voor het correct afsluiten en opnieuw opstarten van Azure Stack-services. Afsluiten wordt fysiek uit de gehele Azure Stack-omgeving aansturen. Bevoegdheden op alle functies van de infrastructuur worden opgestart en retourneert tenant resources naar de energiestatus die in het geval vóór afsluiten was.
 
 ## <a name="stop-azure-stack"></a>Stop Azure Stack 
 

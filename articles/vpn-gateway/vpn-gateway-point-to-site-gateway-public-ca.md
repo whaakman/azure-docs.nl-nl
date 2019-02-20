@@ -5,20 +5,24 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 02/19/2019
 ms.author: cherylmc
-ms.openlocfilehash: b89ba054040229d9925b9dbbc64d27eed171613e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: e5a75826730219adc643d7c6ca300a38c8640006
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339869"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428360"
 ---
-# <a name="transition-from-self-signed-to-public-ca-certificates-for-p2s-gateways"></a>Overgang van zelf-ondertekend naar openbare CA-certificaten voor P2S-gateways
+# <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Overgaan naar een openbaar CA-gatewaycertificaat voor een punt-naar-site-verbinding
 
 Azure VPN-Gateway wordt niet meer op Azure-niveau zelfondertekende certificaten geeft aan de gateways voor P2S-verbindingen. Uitgegeven certificaten zijn nu ondertekend door een openbare certificeringsinstantie (CA). Echter enkele van de oude gateways mogelijk nog steeds gebruik van zelfondertekende certificaten. Deze zelfondertekende certificaten zijn in de buurt van de vervaldatum en moeten worden overgezet naar een openbare CA-certificaten.
 
 De certificaten in deze context zijn een certificaat met aanvullende Azure-niveau. Ze zijn niet de certificaatketens die u gebruikt bij het genereren van uw eigen zelfondertekende basiscertificaten en clientcertificaten voor verificatie. Deze certificaten blijven ongewijzigd en vervalt op de datums dat u zo gegenereerd.
+
+>[!NOTE]
+> Zelfondertekende certificaten gebruikt voor verificatie van P2S-client worden niet beïnvloed door deze wijziging van het certificaat op Azure-niveau. U kunt blijven uitgeven en zelfondertekende certificaten als normale gebruiken.
+>
 
 Voorheen een zelfondertekend certificaat voor de gateway (uitgegeven achter de schermen door Azure) die nodig zijn voor elke 18 maanden worden bijgewerkt. VPN-clientconfiguratiebestanden moest vervolgens worden gegenereerd en wordt opnieuw geïmplementeerd op alle P2S-clients. Verplaatsen naar een openbare CA-certificaten wordt voorkomen dat deze beperking. Naast de overgang voor certificaten biedt deze wijziging ook platform verbeteringen, betere metrische gegevens en de stabiliteit is verbeterd.
 

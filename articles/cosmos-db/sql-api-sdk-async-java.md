@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 2/8/2019
 ms.author: moderakh
-ms.openlocfilehash: 88fcfec903dac9d939d658e5d06a51ab8ff1aba9
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 1a86ceefdc5c3b60dc4bca5a1ac659534653aa66
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979170"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416272"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK voor SQL-API: Opmerkingen bij de release en resources
 > [!div class="op_single_selector"]
@@ -45,13 +45,12 @@ De SQL-SDK voor Java-API asynchrone wijkt af van de Java-SDK van de SQL-API door
 ## <a name="release-notes"></a>Releaseopmerkingen
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
-* Directe algemene beschikbaarheid.
+* De modus direct connectiviteit is nu algemeen Available(GA). Zie voor een voorbeeld dat gebruikmaakt van de modus direct connectiviteit, [azure-cosmosdb-java](https://github.com/Azure/azure-cosmosdb-java) GitHub-opslagplaats.
 * Ondersteuning toegevoegd voor QueryMetrics.
-* De API's accepteren java.util.Collection waarvoor volgorde is belangrijk om te accepteren java.util.List in plaats daarvan gewijzigd.
-  Now ConnectionPolicy#getPreferredLocations(), JsonSerialization, and PartitionKey(.) accept List.
+* De API's accepteren java.util.Collection waarvoor volgorde is belangrijk om te accepteren java.util.List in plaats daarvan gewijzigd. Now ConnectionPolicy#getPreferredLocations(), JsonSerialization, and PartitionKey(.) accept List.
 
 ### <a name="a-name240-beta-1240-beta-1"></a><a name="2.4.0-beta-1"/>2.4.0-beta-1
-* Ondersteuning toegevoegd voor Direct.
+* Er is ondersteuning toegevoegd voor de modus direct connectiviteit.
 * De API's accepteren java.util.Collection waarvoor volgorde is belangrijk om te accepteren java.util.List in plaats daarvan gewijzigd.
   Now ConnectionPolicy#getPreferredLocations(), JsonSerialization, and PartitionKey(.) accept List.
 * Probleem opgelost een sessie voor document-query in de modus van de gateway.

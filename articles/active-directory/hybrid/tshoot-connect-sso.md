@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9eebd695cbbc1e29ea7d2647b5955bcc2e3cfe4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6a86ce8c061450fd66b31a81ec00e51f98a39646
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175911"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415643"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory naadloze eenmalige aanmelding oplossen
 
@@ -82,8 +82,8 @@ Gebruik de volgende controlelijst om problemen met naadloze eenmalige aanmelding
 - Zorg ervoor dat het gebruikersaccount is van een Active Directory-forest waarbij naadloze eenmalige aanmelding is ingesteld.
 - Zorg ervoor dat het apparaat is verbonden met het bedrijfsnetwerk bevinden.
 - Zorg ervoor dat de tijd van het apparaat is gesynchroniseerd met de tijd in Active Directory en de domeincontrollers en dat ze zich binnen vijf minuten van elkaar.
-- Zorg ervoor dat de `AZUREADSSOACCT` computeraccount in elk AD-forest dat u wilt dat naadloze eenmalige aanmelding ingeschakeld is aanwezig en ingeschakeld. Als het computeraccount is verwijderd of ontbreekt, kunt u [PowerShell-cmdlets](#manual-reset-of-the-feature) om opnieuw te maken.
-- Lijst van de bestaande Kerberos-tickets op het apparaat met behulp van de `klist` opdracht uit vanaf een opdrachtprompt. Zorg ervoor dat de tickets uitgegeven voor de `AZUREADSSOACCT` computeraccount aanwezig zijn. Gebruikers Kerberos-tickets zijn doorgaans geldig voor 10 uur. Mogelijk hebt u verschillende instellingen in Active Directory.
+- Zorg ervoor dat de `AZUREADSSOACC` computeraccount in elk AD-forest dat u wilt dat naadloze eenmalige aanmelding ingeschakeld is aanwezig en ingeschakeld. Als het computeraccount is verwijderd of ontbreekt, kunt u [PowerShell-cmdlets](#manual-reset-of-the-feature) om opnieuw te maken.
+- Lijst van de bestaande Kerberos-tickets op het apparaat met behulp van de `klist` opdracht uit vanaf een opdrachtprompt. Zorg ervoor dat de tickets uitgegeven voor de `AZUREADSSOACC` computeraccount aanwezig zijn. Gebruikers Kerberos-tickets zijn doorgaans geldig voor 10 uur. Mogelijk hebt u verschillende instellingen in Active Directory.
 - Als u uitgeschakeld en opnieuw ingeschakeld naadloze eenmalige aanmelding in uw tenant, krijgen gebruikers niet de ervaring voor eenmalige aanmelding tot hun Kerberos-tickets in de cache zijn verlopen.
 - Bestaande Kerberos-tickets van het apparaat verwijderen met behulp van de `klist purge` opdracht en probeer het opnieuw.
 - Bekijk de logboeken van de console van de browser om te bepalen of er problemen met betrekking tot de JavaScript zijn, (onder **hulpprogramma's voor ontwikkelaars**).
@@ -123,7 +123,7 @@ Als het oplossen van hebt gehad, kunt u de functie handmatig herstellen op uw te
     >[!NOTE]
     >We gebruiken de domeinbeheerder username, opgegeven in de User Principal namen (UPN) (johndoe@contoso.com) indeling of domein gekwalificeerde sam-account,-naam (contoso\janjansen of contoso.com\johndoe), om te vinden van de beoogde AD-forest. Als u de domeinnaam van de gekwalificeerde sam-account gebruikt, gebruiken we het domeingedeelte van de gebruikersnaam voor [vinden van de domeincontroller van de beheerder van het domein met behulp van DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Als u de UPN in plaats daarvan gebruiken we [vertaald in een domein gekwalificeerde sam-accountnaam](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) voordat het zoeken naar de desbetreffende domeincontroller.
 
-2. Bel `Disable-AzureADSSOForest -OnPremCredentials $creds`. Deze opdracht verwijdert u de `AZUREADSSOACCT` computeraccount van de lokale domeincontroller voor dit specifieke Active Directory-forest.
+2. Bel `Disable-AzureADSSOForest -OnPremCredentials $creds`. Deze opdracht verwijdert u de `AZUREADSSOACC` computeraccount van de lokale domeincontroller voor dit specifieke Active Directory-forest.
 3. Herhaal de voorgaande stappen voor elk Active Directory-forest waar u de functie hebt ingesteld.
 
 ### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>Stap 4: Naadloze eenmalige aanmelding inschakelen voor elk Active Directory-forest

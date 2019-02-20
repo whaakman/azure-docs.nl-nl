@@ -4,14 +4,14 @@ description: Veelgestelde vragen over Azure Migrate adressen
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 02/19/2019
 ms.author: snehaa
-ms.openlocfilehash: 1e60ee5060f5f292ed6d03cf0680d9801a0c04f4
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 9d1820215dd2b81edb694d71a1b9496237876d05
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746309"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416187"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - Asked Frequently Questions (FAQ)
 
@@ -118,6 +118,10 @@ De gegevens die zijn verzameld door de collector-apparaat is opgeslagen in de Az
 
 Als u agents op de virtuele machines installeren, wordt de gegevens die zijn verzameld door de agents van de afhankelijkheid voor visualisatie van afhankelijkheden opgeslagen in de Verenigde Staten in een Log Analytics-werkruimte hebt gemaakt in het abonnement van de gebruiker. Deze gegevens worden verwijderd wanneer u de Log Analytics-werkruimte in uw abonnement verwijdert. [Meer informatie](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
 
+### <a name="what-is-the-volume-of-data-which-is-uploaded-by-azure-migrate-in-the-case-of-continuous-profiling"></a>Wat is de hoeveelheid gegevens die door Azure Migrate is geüpload in het geval van continu profilering?
+
+De hoeveelheid gegevens die wordt verzonden naar de Azure Migrate zou variëren op basis van verschillende parameters zijn. Als u wilt een indicatieve nummer geven, zou een project met tien machines (met elk één schijf en één NIC in te stellen), ongeveer 50 MB per dag verzenden. Dit is een geschatte waarde en voor de NIC's en schijven (gegevens die worden verzonden of zou worden niet-lineaire als het aantal machines, NIC's of schijven verhogen) op basis van het aantal gegevenspunten wilt wijzigen. 
+
 ### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>De gegevens worden versleuteld in rust en onderweg zijn?
 
 Ja, de verzamelde gegevens worden versleuteld in rust en onderweg zijn. De metagegevens die zijn verzameld door het apparaat veilig verzonden naar de Azure Migrate-service via internet via https. De verzamelde metagegevens worden opgeslagen in [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) en [Azure blob-opslag](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) in een Microsoft-abonnement en in rust worden versleuteld.
@@ -130,7 +134,7 @@ Het collector-apparaat verbinding maakt met de vCenter-Server (poort 443) met be
 
 ### <a name="can-i-connect-the-same-collector-appliance-to-multiple-vcenter-servers"></a>Kan ik het dezelfde collector-apparaat verbinden met meerdere vCenter-servers?
 
-Ja, een enkel collector-apparaat kan worden gebruikt voor het detecteren van meerdere vCenter-Servers, maar niet gelijktijdig. U moet de detecties na elkaar uitgevoerd.
+Ja, een enkel collector-apparaat kan worden gebruikt voor het detecteren van meerdere vCenter-Servers, maar niet gelijktijdig. U moet de detectie uitvoeren na elkaar.
 
 ### <a name="is-the-ova-template-used-by-site-recovery-integrated-with-the-ova-used-by-azure-migrate"></a>Is het OVA-sjabloon die wordt gebruikt door Site Recovery geïntegreerd met het ova-bestand gebruikt door Azure Migrate?
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 4885be7547d404505b50c563036f260166cbc2cc
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6b980ae7539642e67609be802b2e31b287d09f72
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833819"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415262"
 ---
 # <a name="network-security-groups-with-azure-site-recovery"></a>Netwerkbeveiligingsgroepen met Azure Site Recovery
 
@@ -45,7 +45,7 @@ U ben er mogelijk niet altijd van op de hoogte wanneer netwerkbeveiligingsgroepe
 
 Azure Site Recovery maakt herstel na noodgevallen en migratie naar Azure voor on-premises [Hyper-V virtuele machines](hyper-v-azure-architecture.md), [virtuele VMware-machines](vmware-azure-architecture.md), en [fysieke servers](physical-azure-architecture.md). Replicatiegegevens worden voor alle on-premises naar Azure-scenario's, verzonden naar en opgeslagen in een Azure Storage-account. Tijdens de replicatie betaalt u geen kosten voor elke virtuele machine. Wanneer u een failover naar Azure uitvoert, maakt Site Recovery automatisch virtuele machines van Azure IaaS.
 
-Zodra VM's zijn gemaakt na een failover naar Azure, kunnen de nsg's worden gebruikt om te beperken van netwerkverkeer naar het virtuele netwerk en VM's. Site Recovery maakt geen nsg's als onderdeel van de failoverbewerking. Het is raadzaam om het maken van de vereiste Azure-NGSs voordat de failover wordt gestart. U kunt vervolgens nsg's koppelen aan virtuele machines automatisch failover tijdens de failover, met behulp van automatiseringsscripts met Site Recovery van krachtige [herstelplannen](site-recovery-create-recovery-plans.md).
+Zodra VM's zijn gemaakt na een failover naar Azure, kunnen de nsg's worden gebruikt om te beperken van netwerkverkeer naar het virtuele netwerk en VM's. Site Recovery maakt geen nsg's als onderdeel van de failoverbewerking. Het is raadzaam om de vereiste Azure nsg's maken voordat de failover wordt gestart. U kunt vervolgens nsg's koppelen aan virtuele machines automatisch failover tijdens de failover, met behulp van automatiseringsscripts met Site Recovery van krachtige [herstelplannen](site-recovery-create-recovery-plans.md).
 
 Bijvoorbeeld, als de configuratie van de virtuele machine na een failover is vergelijkbaar met de [voorbeeldscenario](concepts-network-security-group-with-site-recovery.md#using-network-security-groups) hierboven beschreven:
 -   U kunt maken **Contoso VNet** en **Contoso Subnet** als onderdeel van herstel na Noodgevallen plannen op de doel-Azure-regio.
@@ -61,7 +61,7 @@ Azure Site Recovery maakt herstel na noodgevallen van [virtuele Azure-machines](
 
 Zorg ervoor dat de NSG-regels op de bron-Azure-regio toestaan voor Azure VM-replicatie, [uitgaande connectiviteit](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges) voor replicatieverkeer. U kunt ook testen en controleren of deze vereiste regels via deze [NSG voorbeeldconfiguratie](azure-to-azure-about-networking.md#example-nsg-configuration).
 
-Site Recovery niet maken of repliceren nsg's als onderdeel van de failoverbewerking. Het is raadzaam om het maken van de vereiste NGSs op de doel-Azure-regio voordat de failover wordt gestart. U kunt vervolgens nsg's koppelen aan virtuele machines automatisch failover tijdens de failover, met behulp van automatiseringsscripts met Site Recovery van krachtige [herstelplannen](site-recovery-create-recovery-plans.md).
+Site Recovery niet maken of repliceren nsg's als onderdeel van de failoverbewerking. Het is raadzaam om het maken van de vereiste nsg's op de doel-Azure-regio voordat de failover wordt gestart. U kunt vervolgens nsg's koppelen aan virtuele machines automatisch failover tijdens de failover, met behulp van automatiseringsscripts met Site Recovery van krachtige [herstelplannen](site-recovery-create-recovery-plans.md).
 
 U overweegt de [voorbeeldscenario](concepts-network-security-group-with-site-recovery.md#using-network-security-groups) die eerder zijn beschreven:
 -   Site Recovery kunt maken van replica's van **Contoso VNet** en **Contoso Subnet** op de doel-Azure-regio wanneer replicatie is ingeschakeld voor de virtuele machine.

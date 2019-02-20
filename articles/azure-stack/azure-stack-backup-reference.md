@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: ac52e3b824efdbd5277982a7f1939e8aa0deeeb1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a7930ea86f7972a6e4abb939fb148d519ca924e9
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201785"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416714"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Documentatie over Backup-Service-infrastructuur
 
@@ -108,6 +108,23 @@ Infrastructuur voor back-up Controller worden back-up van gegevens op aanvraag. 
 > [!Note]  
 > Er zijn geen poorten voor inkomend verkeer moeten worden geopend.
 
+### <a name="encryption-requirements"></a>Vereisten voor gegevensversleuteling
+
+Vanaf 1901 biedt de infrastructuur voor back-up-service gebruikt een certificaat met een openbare sleutel (. CER) voor het versleutelen van back-upgegevens en een certificaat met de persoonlijke sleutel (. (PFX) voor het ontsleutelen van back-upgegevens tijdens het cloudherstel.   
+ - Het certificaat wordt gebruikt voor het transport van sleutels en wordt niet gebruikt om beveiligde geverifieerde communicatie tot stand brengen. Daarom kan het certificaat een zelf-ondertekend certificaat zijn. Azure Stack hoeft niet te controleren of root of trust voor dit certificaat, zodat externe toegang tot internet niet vereist is.
+ 
+De zelf-ondertekend certificaat bestaat uit twee delen, één met de openbare sleutel en één met de persoonlijke sleutel:
+ - Back-gegevens versleutelen: Het certificaat met de openbare sleutel (geëxporteerd naar. CER-bestand) wordt gebruikt voor het versleutelen van back-upgegevens
+ - Back-upgegevens ontsleutelen: Het certificaat met de persoonlijke sleutel (geëxporteerd naar. PFX-bestand) wordt gebruikt voor het ontsleutelen van back-upgegevens
+
+Het certificaat met de openbare sleutel (. CER) wordt niet beheerd door interne geheime draaien. Om terug te draaien het certificaat, moet u een nieuw zelfondertekend certificaat maken en bijwerken van back-upinstellingen met het nieuwe bestand (. CER).  
+ - Alle bestaande back-ups blijven versleuteld met behulp van de vorige openbare sleutel. Nieuwe back-ups wordt de nieuwe openbare sleutel gebruikt. 
+ 
+Het certificaat dat wordt gebruikt tijdens het cloudherstel met de persoonlijke sleutel (. (PFX) worden niet opgeslagen door Azure Stack uit veiligheidsoverwegingen. Dit bestand moet expliciet worden opgegeven tijdens het cloudherstel.  
+
+**Achterwaarts compatibiliteitsmodus** vanaf 1901 biedt ondersteuning voor de sleutel van de versleuteling is afgeschaft en wordt verwijderd in een toekomstige release. Als u van 1811 met de back-up is al ingeschakeld met behulp van een versleutelingssleutel gemaakt bijgewerkt, blijft Azure Stack gebruiken van de versleutelingssleutel. Achterwaarts wordt compatibiliteitsmodus ondersteund voor ten minste 3 release. Na deze periode wordt is een certificaat vereist. 
+ * Bijwerken van de versleutelingssleutel naar certificaten is een enkele bewerking.  
+ * Alle bestaande back-ups blijven versleuteld met behulp van de versleutelingssleutel. Nieuwe back-ups wordt het certificaat te gebruiken. 
 
 ## <a name="infrastructure-backup-limits"></a>Infrastructuur voor back-limieten
 

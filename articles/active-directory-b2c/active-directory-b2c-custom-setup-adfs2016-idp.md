@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7435a1879963b90bb05b6f1a617e9d1bc3de27a5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9a1bd45b9724c2533cfefd1e4b5d89f314177ba8
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203705"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417615"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>AD FS toevoegen als een SAML-id-provider met behulp van aangepaste beleidsregels in Azure Active Directory B2C
 
@@ -33,8 +33,8 @@ Dit artikel leest u hoe u aanmelden voor een gebruikersaccount van de AD FS insc
 U moet uw certificaat wordt opgeslagen in uw Azure AD B2C-tenant.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
-3. Kies **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **Azure AD B2C**.
+2. Zorg ervoor dat u de map gebruikt met uw Azure AD B2C-tenant door te klikken op het **Map- en abonnementsfilter** in het bovenste menu en de map te kiezen waarin uw tenant zich bevindt.
+3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 4. Selecteer op de pagina overzicht **Identiteitsfunctie: PREVIEW**.
 5. Selecteer **Beleidssleutels** en selecteer vervolgens **toevoegen**.
 6. Voor **opties**, kiest u `Upload`.
@@ -169,7 +169,7 @@ Open een browser en navigeer naar de URL. Controleer of u typt u de juiste URL e
 
     | LDAP-attrubute | Type uitgaande claim |
     | -------------- | ------------------- |
-    | User-Principal-Name | userPricipalName |
+    | User-Principal-Name | userPrincipalName |
     | Achternaam | family_name |
     | Given-Name | given_name |
     | E-Mail-adres | e-mail |
@@ -184,9 +184,9 @@ Open een browser en navigeer naar de URL. Controleer of u typt u de juiste URL e
 Communicatie met Azure AD B2c vindt plaats via een toepassing die u in uw tenant maakt. Deze sectie vindt u optionele stappen die u uitvoeren kunt voor het maken van een testtoepassing als u dat nog niet hebt gedaan.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
-3. Kies **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **Azure AD B2C**.
-4. Selecteer **toepassingen**, en selecteer vervolgens **toevoegen**.
+2. Zorg ervoor dat u de map gebruikt met uw Azure AD B2C-tenant door te klikken op het **Map- en abonnementsfilter** in het bovenste menu en de map te kiezen waarin uw tenant zich bevindt.
+3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
+4. Selecteer **Toepassingen** en vervolgens **Toevoegen**.
 5. Voer een naam voor de toepassing, bijvoorbeeld *testapp1*.
 6. Voor **Web-App / Web-API**, selecteer `Yes`, en voer vervolgens `https://jwt.ms` voor de **antwoord-URL**.
 7. Klik op **Create**.

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 58ee4b7d615c70845e1239d4ee98b086b2124c77
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f3ec10a970406cbb1bb6a1a52ffa8508e37fc516
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874177"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414164"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Profileer live Azure App Service-apps met Application Insights
 
@@ -25,8 +25,8 @@ Profiler werkt momenteel voor ASP.NET en ASP.NET Core-apps die worden uitgevoerd
 
 ## <a id="installation"></a> Profiler inschakelen voor uw app
 Als u wilt Profiler inschakelen voor een app, volg de onderstaande instructies. Als u een ander type Azure-service uitvoert, vindt hier u instructies voor het inschakelen van Profiler op andere ondersteunde platforms:
-* [Cloud Services](../../azure-monitor/app/profiler-cloudservice.md ?toc=/azure/azure-monitor/toc.json)
-* [Service Fabric-toepassingen](../../azure-monitor/app/profiler-servicefabric.md ?toc=/azure/azure-monitor/toc.json)
+* [Cloud Services](../../azure-monitor/app/profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Service Fabric-toepassingen](../../azure-monitor/app/profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Virtuele machines](../../azure-monitor/app/profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 Application Insights Profiler is vooraf geïnstalleerd als onderdeel van de runtime van de App-Services, maar u moet inschakelen om get-profielen voor uw App Service-app. Nadat u een app hebt geïmplementeerd, zelfs als u hebt de App Insights-SDK opgenomen in de broncode, volgt u de stappen hieronder om de profiler inschakelen.

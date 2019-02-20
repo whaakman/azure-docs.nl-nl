@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 02/17/2019
 ms.author: juliako
-ms.openlocfilehash: fa64d24d74a71981e3273fbdf5fa96b386a34685
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 4127b6b2b2601b640a6fda4ccb60960d1762ee81
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342436"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414741"
 ---
 # <a name="upload-and-index-your-videos"></a>Uw video's uploaden en indexeren  
 
@@ -29,10 +29,10 @@ In het artikel ziet u hoe u de API [Video uploaden](https://api-portal.videoinde
 Zodra uw video is geüpload, codeert Video Indexer, eventueel de video (besproken in het artikel). Wanneer u een Video Indexer-account maakt, kunt u kiezen uit een gratis proefversie (waarmee u een bepaald aantal gratis minuten indexering krijgt) of een betaalde optie (zonder quotumlimiet). Bij de gratis proefversie biedt Video Indexer websitegebruikers maximaal 600 minuten aan gratis indexering en API-gebruikers maximaal 2400 minuten gratis indexering. Met de betaalde versie maakt u een Video Indexer-account dat is [gekoppeld aan uw Azure-abonnement en een Azure Media Services-account](connect-to-azure.md). U betaalt zowel voor de geïndexeerde minuten als voor kosten verbonden aan het Media-account. 
 
 ## <a name="uploading-considerations"></a>Aandachtspunten voor uploaden
-    
+
 - Bij het uploaden van uw video op basis van de URL (aanbevolen) moet het eindpunt worden beveiligd met TLS 1.2 (of hoger)
 - De grootte voor het uploaden met de URL-optie is beperkt tot 25GB
-- De grootte voor het uploaden met de optie byte-matrix is beperkt tot 2GB 
+- De grootte voor het uploaden met de optie byte-matrix is beperkt tot 2GB
 - De optie van de matrix byte er een time-out na 30 minuten
 - De URL die is opgegeven in de parameter `videoURL`moet worden gecodeerd
 

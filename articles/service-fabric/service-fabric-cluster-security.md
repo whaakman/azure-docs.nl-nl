@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: 92914b26497634de1a0c61738c6aba37acb37c17
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6a568fa724d0d403833e938ae8b01556fe96cf1f
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109314"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428634"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric-clusterbeveiligingsscenario 's
 Een Azure Service Fabric-cluster is een resource waarvan u eigenaar bent. Het is uw verantwoordelijkheid voor het beveiligen van uw clusters om te voorkomen dat onbevoegde gebruikers verbinding maken met deze. Een beveiligd cluster is vooral belangrijk wanneer u bij het uitvoeren van productieworkloads op het cluster. Hoewel het mogelijk te maken van een niet-beveiligd cluster als-beheereindpunten met het openbare internet wordt aangegeven dat het cluster, anonieme gebruikers verbinding mee kunnen maken. Niet-beveiligde clusters worden niet ondersteund voor productieworkloads. 
@@ -73,7 +73,12 @@ Een Service Fabric-cluster biedt verschillende toegangspunten bij de management-
 Voor clusters die worden uitgevoerd op Azure kunt kunt u ook beveiligen de toegang tot eindpunten voor beheer met behulp van Azure Active Directory (Azure AD). Voor meer informatie over het maken van de vereiste Azure AD-artefacten en hoe u deze invullen bij het maken van het cluster, Zie [instellen van Azure AD om clients te verifiëren](service-fabric-cluster-creation-setup-aad.md).
 
 ## <a name="security-recommendations"></a>Aanbevelingen voor beveiliging
-Azure-clusters en voor de beveiliging van knooppunt-naar-knooppunt, wordt u aangeraden dat u Azure AD-beveiligingsgroep gebruiken om clients en -certificaten te verifiëren.
+Voor Service Fabric-clusters die zijn geïmplementeerd in een openbaar netwerk die wordt gehost op Azure, is de aanbeveling voor wederzijdse verificatie van client-naar-knooppunt:
+*   Azure Active Directory gebruiken voor de identiteit van de client
+*   Een certificaat voor de identiteit van server- en SSL-codering van http-communicatie
+
+Voor Service Fabric-clusters die zijn geïmplementeerd in een openbaar netwerk die wordt gehost op Azure, is de aanbeveling voor de beveiliging van knooppunt-naar-knooppunt knooppunten verifiëren met een clustercertificaat. 
+
 
 Voor zelfstandige clusters van WindowsServer, hebt u Windows Server 2012 R2 en Windows Active Directory, raden wij aan dat u Windows-beveiliging met beheerde serviceaccounts voor groepen. Gebruik anders Windows-beveiliging met Windows-accounts.
 

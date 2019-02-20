@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: a35bde6e89290fd2282ba6ec829f46cb4c6fc225
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 5242f31ff35e367211d48157fd4953751d1bb148
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103312"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416289"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>ExpressRoute en Site-naar-Site-verbindingen configureren met behulp van PowerShell
 > [!div class="op_single_selector"]
@@ -81,9 +81,9 @@ Er zijn twee verschillende procedures waaruit u kunt kiezen. Welke configuratiep
 ## <a name="new"></a>Een nieuw virtueel netwerk en naast elkaar bestaande verbindingen maken
 Deze procedure begeleidt u bij het maken van een VNet en van site-naar-site- en ExpressRoute-verbindingen die naast elkaar kunnen worden gebruikt.
 
-1. Installeer de meest recente versie van de Azure PowerShell-cmdlets. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor informatie over het installeren van de cmdlets. De cmdlets die u voor deze configuratie gebruikt, kunnen enigszins afwijken van de cmdlets waarmee u bekend bent. Zorg ervoor dat u de cmdlets gebruikt die in deze instructies worden vermeld.
+1. Installeer de meest recente versie van de Azure PowerShell-cmdlets. Zie [Azure PowerShell installeren en configureren](/powershell/azure/azurerm/overview) voor informatie over het installeren van de cmdlets. De cmdlets die u voor deze configuratie gebruikt, kunnen enigszins afwijken van de cmdlets waarmee u bekend bent. Zorg ervoor dat u de cmdlets gebruikt die in deze instructies worden vermeld.
 
-2. Aanmelden bij uw account en stel de omgeving.
+1. Aanmelden bij uw account en stel de omgeving.
 
   ```powershell
   Connect-AzureRmAccount

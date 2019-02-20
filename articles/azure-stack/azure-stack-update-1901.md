@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 02/20/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 94c7b5c81785c3d6fba31396f5812a1308817e33
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 2acc26fc473d0e8dcb93b1439de316fbef67ae98
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301108"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416510"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 update
 
@@ -292,7 +292,7 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 
    - Als het abonnement is gemaakt vóór de update 1808, een virtuele machine met Managed Disks kan mislukken met een interne fout. Los de fout op door deze stappen voor elk abonnement uit te voeren:
       1. Ga in de tenantportal naar **abonnementen** en zoek het abonnement. Selecteer **Resourceproviders**en selecteer vervolgens **Microsoft.Compute**, en klik vervolgens op **opnieuw registreren**.
-      2. Onder hetzelfde abonnement, gaat u naar **Access Control (IAM)**, en Controleer **Azure Stack – beheerde schijf** wordt vermeld.
+      2. Onder hetzelfde abonnement, gaat u naar **Access Control (IAM)**, en Controleer **AzureStack-DiskRP-Client** wordt vermeld.
    - Als u een omgeving met meerdere tenants hebt geconfigureerd, kan virtuele machines implementeren in een abonnement dat is gekoppeld aan een gast-map mislukken met een interne fout. Volg deze stappen om op te lossen de fout, [in dit artikel](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) opnieuw configureren van elk van de Gast-mappen.
 
 - Een Ubuntu-18.04 VM gemaakt met SSH-verificatie ingeschakeld kunt u de SSH-sleutels gebruiken om aan te melden. Als tijdelijke oplossing, gebruik van VM-toegang voor de Linux-extensie voor het implementeren van SSH-sleutels na het inrichten of verificatie op basis van wachtwoord gebruiken.

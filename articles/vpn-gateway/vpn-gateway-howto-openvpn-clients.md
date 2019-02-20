@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 1/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: cd84948b5895a628fc94cc2946156d9fa2284369
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 73f8b1323f6cd22ef215fba4ec45714f099032f6
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508671"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415830"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>OpenVPN clients configureren voor Azure VPN-Gateway (Preview)
 
@@ -24,12 +24,14 @@ Dit artikel helpt u bij het configureren van OpenVPN clients.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Controleer of dat u de stappen voor het configureren van OpenVPN voor uw VPN-gateway hebt voltooid. Zie voor meer informatie, [OpenVPN configureren voor Azure VPN-Gateway](vpn-gateway-howto-openvpn.md).
 
 ## <a name="windows"></a>Windows-clients
 
 1. Download en installeer de client OpenVPN via de officiële [OpenVPN website](https://openvpn.net/index.php/open-source/downloads.html).
-2. Download het VPN-profiel voor de gateway. Dit kan worden uitgevoerd vanaf het tabblad voor punt-naar-site-configuratie in Azure portal of 'New-AzureRmVpnClientConfiguration' in PowerShell.
+2. Download het VPN-profiel voor de gateway. Dit kan worden uitgevoerd vanaf het tabblad voor punt-naar-site-configuratie in Azure portal of 'New-AzVpnClientConfiguration' in PowerShell.
 3. Pak het profiel uit. Open vervolgens de *vpnconfig.ovpn* configuratiebestand op van de OpenVPN-map met Kladblok.
 4. [Exporteren](vpn-gateway-certificates-point-to-site.md#clientexport) de P2S-clients u hebt gemaakt en geüpload naar uw P2S-configuratie op de gateway van het certificaat.
 5. De persoonlijke sleutel en de vingerafdruk van het base64 uit te halen en de *pfx*. Er zijn meerdere manieren om dit te doen. Met behulp van OpenSSL op uw computer is één manier. De *profileinfo.txt* -bestand bevat de persoonlijke sleutel en de vingerafdruk voor de CA en het clientcertificaat. Zorg ervoor dat de vingerafdruk van het clientcertificaat gebruiken.
@@ -64,7 +66,7 @@ Controleer of dat u de stappen voor het configureren van OpenVPN voor uw VPN-gat
 ## <a name="mac"></a>Mac-clients
 
 1. Download en installeer een OpenVPN-client, zoals [TunnelBlik](https://tunnelblick.net/downloads.html). 
-2. Download het VPN-profiel voor de gateway. Dit kan worden uitgevoerd vanaf het tabblad punt-naar-site-configuratie in Azure portal of met behulp van 'New-AzureRmVpnClientConfiguration' in PowerShell.
+2. Download het VPN-profiel voor de gateway. Dit kan worden uitgevoerd vanaf het tabblad punt-naar-site-configuratie in Azure portal of met behulp van 'New-AzVpnClientConfiguration' in PowerShell.
 3. Pak het profiel uit. Open het configuratiebestand vpnconfig.ovpn vanuit de map OpenVPN in Kladblok.
 4. Vul het gedeelte P2S client certificate met de openbare P2S-clientcertificatcode in base64. In een certificaat met PEM-indeling kunt u gewoon het .cer-bestand openen en de base64-code tussen de headers van het certificaat kopiëren. Zie [Exporteer de openbare sleutel](vpn-gateway-certificates-point-to-site.md#cer) voor informatie over het exporteren van een certificaat om de gecodeerde openbare sleutel.
 5. Vul in het gedeelte voor de persoonlijke sleutel de persoonlijke P2S-clientcertificaatsleutel in Base64 in. Zie [uw persoonlijke sleutel exporteren](https://openvpn.net/community-resources/how-to/#pki) voor informatie over het ophalen van een persoonlijke sleutel.

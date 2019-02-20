@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/17/2019
 ms.author: juliako
-ms.openlocfilehash: d93e0de48fd10677ad30e002390dc2e8177cf2eb
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: fd93b84c251a0b2346550c79bcb8796161cb9116
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408473"
+ms.locfileid: "56417868"
 ---
 # <a name="transforms-and-jobs"></a>Transformaties en taken
  
@@ -52,6 +52,10 @@ Stel dat u wilt extraheren van het eerste beeld van al uw video's als een miniat
     2. Waar de miniatuurafbeelding van uitvoer schrijven. 
 
 Een **transformeren** helpt u bij het maken van één keer het recept (stap 1) en het verzenden van taken met behulp van deze recept (stap 2).
+
+## <a name="job-error-codes"></a>Foutcodes voor taak
+
+Zie [foutcodes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
 ## <a name="paging"></a>Zoekresultaten oproepen
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: c523dd98647a72ea8e2773d573d739a53ae0f005
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: ddbd77cbc199e78e74324c87d49155f27d6edeea
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328653"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417088"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -134,6 +134,7 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die niet worde
 * Azure Firewall
 * Azure Migrate
 * Certificaten - App Service-certificaten kunnen worden verplaatst, maar de geüploade certificaten hebben [beperkingen](#app-service-limitations).
+* Klassieke toepassingen
 * Container Instances
 * Container Service
 * Data Box

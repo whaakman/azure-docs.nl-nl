@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/13/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0afb8a09fa9780755bcfeef678b76e176f11b348
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: df4ae4b0c3f230947e0b9a5885070049f32a4b2f
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246031"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429859"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -189,6 +189,8 @@ Voor elke Linux-computer beheerde, wordt elke drie uur aan een scan uitgevoerd.
 
 Duurt tussen 30 minuten en 6 uur voor het dashboard bijgewerkte gegevens van beheerde computers worden weergegeven.
 
+Het gemiddelde gebruik van Log Analytics-gegevens voor een virtuele machine met updatebeheer is ongeveer 25MB per maand. Deze waarde is slechts een schatting en kan worden gewijzigd op basis van uw omgeving. Het raadzaam dat u uw omgeving om te zien van de exacte syntaxis die u hebt gecontroleerd.
+
 ## <a name="viewing-update-assessments"></a>Update-evaluaties weergeven
 
 Selecteer in uw Automation-account **updatebeheer** om de status van uw machines weer te geven.
@@ -335,7 +337,7 @@ Zie voor meer informatie over de poorten die vereist dat de Hybrid Runbook Worke
 
 Het is raadzaam om de adressen die worden vermeld bij het definiëren van uitzonderingen te gebruiken. Voor IP-adressen die u kunt downloaden de [Microsoft Azure Datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653). Dit bestand wordt wekelijks bijgewerkt, en weerspiegelt bereiken momenteel zijn geïmplementeerd en eventuele toekomstige wijzigingen in de IP-adresbereiken.
 
-## <a name="search-logs"></a>Zoeken in Logboeken
+## <a name="search-logs"></a>Logboeken zoeken
 
 Naast de details die beschikbaar zijn in Azure portal, kunt u zoeken op basis van de logboeken doen. Selecteer op de pagina's van de oplossing, **Log Analytics**. De **zoeken in logboeken** deelvenster wordt geopend.
 

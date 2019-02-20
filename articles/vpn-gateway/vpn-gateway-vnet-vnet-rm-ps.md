@@ -2,18 +2,17 @@
 title: 'Een Azure-netwerk verbinden met een ander VNet met behulp van een VNet-naar-VNet-verbinding: PowerShell | Microsoft Docs'
 description: Virtuele netwerken met elkaar verbinden met behulp van een VNet-naar-VNet-verbinding en PowerShell.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/14/2018
+ms.date: 02/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6624c28d686a584017d703889e57ef1a7126b16d
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 6da0511456f413924eee9d4cf622f50125b15833
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695503"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416561"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Een VPN-gatewayverbinding tussen VNets configureren met behulp van PowerShell
 
@@ -28,8 +27,6 @@ De stappen in dit artikel zijn van toepassing op het Resource Manager-implementa
 > * [Azure Portal (klassiek)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Verbinding maken tussen verschillende implementatiemodellen - Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Verbinding maken tussen verschillende implementatiemodellen - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
->
->
 
 ## <a name="about"></a>Over het verbinden van VNet's
 
@@ -80,7 +77,11 @@ Voor deze oefening kunt u configuraties combineren of alleen de configuratie kie
 
 ### <a name="before-you-begin"></a>Voordat u begint
 
-Installeer eerst de meest recente versie van de Azure Resource Manager PowerShell-cmdlets (versie 4.0 of hoger). Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor meer informatie over het installeren van de PowerShell-cmdlets.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+* Omdat het duurt maximaal 45 minuten om een gateway te maken, wordt Azure Cloud Shell time-out tijdens deze oefening regelmatig. U kunt Cloud Shell opnieuw starten door te klikken in de linkerbovenhoek van de terminal. Zorg ervoor dat eventuele variabelen die nieuwe wanneer u de terminal opnieuw start.
+
+* Als u in plaats van meest recente versie van de Azure PowerShell-module lokaal installeren wilt, Zie [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview).
 
 ### <a name="Step1"></a>Stap 1: De IP-adresbereiken plannen
 
@@ -122,10 +123,28 @@ In de voorbeelden worden de volgende waarden gebruikt:
 
 ### <a name="Step2"></a>Stap 2: TestVNet1 maken en configureren
 
-1. Declareer uw variabelen. In dit voorbeeld worden de variabelen gedeclareerd met de waarden voor deze oefening. In de meeste gevallen moet u de waarden vervangen door uw eigen waarden. U kunt deze variabelen echter gebruiken als u de stappen alleen wilt doorlopen om vertrouwd te raken met dit type configuratie. Wijzig de variabelen als dat nodig is en kopieer en plak ze vervolgens in uw PowerShell-console.
+1. Controleer de abonnementsinstellingen van uw.
 
-  ```powershell
-  $Sub1 = "Replace_With_Your_Subscription_Name"
+  Verbinding maken met uw account als u PowerShell lokaal op uw computer uitvoert. Als u Azure Cloud Shell gebruikt, bent u automatisch verbonden.
+
+  ```azurepowershell-interactive
+  Connect-AzAccount
+  ```
+
+  Controleer de abonnementen voor het account.
+
+  ```azurepowershell-interactive
+  Get-AzSubscription
+  ```
+
+  Als u meer dan één abonnement hebt, geeft u het abonnement dat u wilt gebruiken.
+
+  ```azurepowershell-interactive
+  Select-AzSubscription -SubscriptionName nameofsubscription
+  ```
+2. Declareer uw variabelen. In dit voorbeeld worden de variabelen gedeclareerd met de waarden voor deze oefening. In de meeste gevallen moet u de waarden vervangen door uw eigen waarden. U kunt deze variabelen echter gebruiken als u de stappen alleen wilt doorlopen om vertrouwd te raken met dit type configuratie. Wijzig de variabelen als dat nodig is en kopieer en plak ze vervolgens in uw PowerShell-console.
+
+  ```azurepowershell-interactive
   $RG1 = "TestRG1"
   $Location1 = "East US"
   $VNetName1 = "TestVNet1"
@@ -143,73 +162,57 @@ In de voorbeelden worden de volgende waarden gebruikt:
   $Connection14 = "VNet1toVNet4"
   $Connection15 = "VNet1toVNet5"
   ```
+3. Maak een resourcegroep.
 
-2. Maak verbinding met uw account. Gebruik het volgende voorbeeld als hulp bij het maken van de verbinding:
-
-  ```powershell
-  Connect-AzureRmAccount
-  ```
-
-  Controleer de abonnementen voor het account.
-
-  ```powershell
-  Get-AzureRmSubscription
-  ```
-
-  Geef het abonnement op dat u wilt gebruiken.
-
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName $Sub1
-  ```
-3. Maak een nieuwe resourcegroep.
-
-  ```powershell
-  New-AzureRmResourceGroup -Name $RG1 -Location $Location1
+  ```azurepowershell-interactive
+  New-AzResourceGroup -Name $RG1 -Location $Location1
   ```
 4. Maak de subnetconfiguraties voor TestVNet1. In dit voorbeeld wordt een virtueel netwerk gemaakt met de naam TestVNet1. Er worden ook drie subnetten gemaakt, GatewaySubnet, FrontEnd en BackEnd. Wanneer u de waarden vervangt, is het belangrijk dat u de juiste namen voor de gatewaysubnets gebruikt, in het bijzonder GatewaySubnet. Als u een andere naam kiest, mislukt het maken van de gateway.
 
   In het volgende voorbeeld worden de variabelen gebruikt die u eerder hebt ingesteld. In dit voorbeeld maakt het gatewaysubnet gebruik van een /27. Het is mogelijk om een klein gatewaysubnet van /29 te maken, maar we raden u aan een groter subnet met meer adressen te maken door ten minste /28 of /27 te selecteren. Hierdoor hebt u genoeg adressen voor mogelijke aanvullende toekomstige configuraties.
 
-  ```powershell
-  $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
-  $besub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
-  $gwsub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWSubPrefix1
+  ```azurepowershell-interactive
+  $fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
+  $besub1 = New-AzVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
+  $gwsub1 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWSubPrefix1
   ```
 5. Maak TestVNet1.
 
-  ```powershell
-  New-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 `
   -Location $Location1 -AddressPrefix $VNetPrefix11,$VNetPrefix12 -Subnet $fesub1,$besub1,$gwsub1
   ```
 6. Vraag om een openbaar IP-adres toe te wijzen aan de gateway die u voor uw VNet gaat maken. De toewijzingsmethode is Dynamisch. U kunt het IP-adres dat u wilt gebruiken niet zelf opgeven. Het wordt dynamisch toegewezen aan uw gateway. 
 
-  ```powershell
-  $gwpip1 = New-AzureRmPublicIpAddress -Name $GWIPName1 -ResourceGroupName $RG1 `
+  ```azurepowershell-interactive
+  $gwpip1 = New-AzPublicIpAddress -Name $GWIPName1 -ResourceGroupName $RG1 `
   -Location $Location1 -AllocationMethod Dynamic
   ```
 7. Maak de gatewayconfiguratie. De gatewayconfiguratie bepaalt welk subnet en openbaar IP-adres moeten worden gebruikt. Gebruik het voorbeeld om de gatewayconfiguratie te maken.
 
-  ```powershell
-  $vnet1 = Get-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
-  $subnet1 = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet1
-  $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 `
+  ```azurepowershell-interactive
+  $vnet1 = Get-AzVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
+  $subnet1 = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet1
+  $gwipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 `
   -Subnet $subnet1 -PublicIpAddress $gwpip1
   ```
 8. Maak de gateway voor TestVNet1. In deze stap maakt u de virtuele netwerkgateway TestVNet1. VNet-naar-VNet-configuraties vereisen een op route gebaseerd VpnType. Het maken van een gateway duurt vaak 45 minuten of langer, afhankelijk van de geselecteerde gateway-SKU.
 
-  ```powershell
-  New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
   -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn `
   -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
+Nadat u klaar bent met de opdrachten, duurt het maximaal 45 minuten om deze gateway te maken. Als u Azure Cloud Shell gebruikt, kunt u uw sessie door te klikken in de rechterbovenhoek links van de Cloud Shell terminal CloudShell opnieuw opstarten en vervolgens TestVNet4 configureert. U hoeft niet te wachten totdat de gateway voor TestVNet1 is voltooid.
+
 ### <a name="step-3---create-and-configure-testvnet4"></a>Stap 3: TestVNet4 maken en configureren
 
-Wanneer u TestVNet1 hebt geconfigureerd, maakt u TestVNet4. Volg de stappen hieronder en vervang de waarden door uw eigen waarden wanneer dat nodig is. Deze stap kan worden uitgevoerd binnen dezelfde PowerShell-sessie omdat deze tot hetzelfde abonnement behoort.
+Wanneer u TestVNet1 hebt geconfigureerd, maakt u TestVNet4. Volg de stappen hieronder en vervang de waarden door uw eigen waarden wanneer dat nodig is.
 
-1. Declareer uw variabelen. Zorg ervoor dat u de waarden vervangt door de waarden die u voor uw configuratie wilt gebruiken.
+1. Verbinding maken en uw variabelen declareren. Zorg ervoor dat u de waarden vervangt door de waarden die u voor uw configuratie wilt gebruiken.
 
-  ```powershell
+  ```azurepowershell-interactive
   $RG4 = "TestRG4"
   $Location4 = "West US"
   $VnetName4 = "TestVNet4"
@@ -226,64 +229,66 @@ Wanneer u TestVNet1 hebt geconfigureerd, maakt u TestVNet4. Volg de stappen hier
   $GWIPconfName4 = "gwipconf4"
   $Connection41 = "VNet4toVNet1"
   ```
-2. Maak een nieuwe resourcegroep.
+2. Maak een resourcegroep.
 
-  ```powershell
-  New-AzureRmResourceGroup -Name $RG4 -Location $Location4
+  ```azurepowershell-interactive
+  New-AzResourceGroup -Name $RG4 -Location $Location4
   ```
 3. Maak de subnetconfiguraties voor TestVNet4.
 
-  ```powershell
-  $fesub4 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName4 -AddressPrefix $FESubPrefix4
-  $besub4 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName4 -AddressPrefix $BESubPrefix4
-  $gwsub4 = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName4 -AddressPrefix $GWSubPrefix4
+  ```azurepowershell-interactive
+  $fesub4 = New-AzVirtualNetworkSubnetConfig -Name $FESubName4 -AddressPrefix $FESubPrefix4
+  $besub4 = New-AzVirtualNetworkSubnetConfig -Name $BESubName4 -AddressPrefix $BESubPrefix4
+  $gwsub4 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName4 -AddressPrefix $GWSubPrefix4
   ```
 4. Maak TestVNet4.
 
-  ```powershell
-  New-AzureRmVirtualNetwork -Name $VnetName4 -ResourceGroupName $RG4 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetwork -Name $VnetName4 -ResourceGroupName $RG4 `
   -Location $Location4 -AddressPrefix $VnetPrefix41,$VnetPrefix42 -Subnet $fesub4,$besub4,$gwsub4
   ```
 5. Vraag een openbaar IP-adres aan.
 
-  ```powershell
-  $gwpip4 = New-AzureRmPublicIpAddress -Name $GWIPName4 -ResourceGroupName $RG4 `
+  ```azurepowershell-interactive
+  $gwpip4 = New-AzPublicIpAddress -Name $GWIPName4 -ResourceGroupName $RG4 `
   -Location $Location4 -AllocationMethod Dynamic
   ```
 6. Maak de gatewayconfiguratie.
 
-  ```powershell
-  $vnet4 = Get-AzureRmVirtualNetwork -Name $VnetName4 -ResourceGroupName $RG4
-  $subnet4 = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet4
-  $gwipconf4 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName4 -Subnet $subnet4 -PublicIpAddress $gwpip4
+  ```azurepowershell-interactive
+  $vnet4 = Get-AzVirtualNetwork -Name $VnetName4 -ResourceGroupName $RG4
+  $subnet4 = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet4
+  $gwipconf4 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName4 -Subnet $subnet4 -PublicIpAddress $gwpip4
   ```
 7. Maak de TestVNet4-gateway. Het maken van een gateway duurt vaak 45 minuten of langer, afhankelijk van de geselecteerde gateway-SKU.
 
-  ```powershell
-  New-AzureRmVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4 `
   -Location $Location4 -IpConfigurations $gwipconf4 -GatewayType Vpn `
   -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
 ### <a name="step-4---create-the-connections"></a>Stap 4: de verbindingen maken
 
-1. Verkrijg beide gateways van het virtuele netwerk. Als beide gateways tot hetzelfde abonnement behoren, zoals in het voorbeeld, kunt u deze stap in dezelfde PowerShell-sessie voltooien.
+Wacht totdat beide gateways zijn voltooid. Opnieuw opstarten van uw Azure Cloud Shell-sessie en kopieer en plak de variabelen vanaf het begin van stap 2 en stap 3 in de console naar de nieuwe waarden.
 
-  ```powershell
-  $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
-  $vnet4gw = Get-AzureRmVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4
+1. Verkrijg beide gateways van het virtuele netwerk.
+
+  ```azurepowershell-interactive
+  $vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
+  $vnet4gw = Get-AzVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4
   ```
 2. Maak de verbinding tussen TestVNet1 en TestVNet4. In deze stap maakt u de verbinding van TestVNet1 naar TestVNet4. Hier ziet u een gedeelde sleutel waarnaar wordt verwezen in de voorbeelden. U kunt uw eigen waarden voor de gedeelde sleutel gebruiken. Het belangrijkste is dat de gedeelde sleutel voor beide verbindingen moet overeenkomen. Het kan even duren voordat de verbinding is gemaakt.
 
-  ```powershell
-  New-AzureRmVirtualNetworkGatewayConnection -Name $Connection14 -ResourceGroupName $RG1 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetworkGatewayConnection -Name $Connection14 -ResourceGroupName $RG1 `
   -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet4gw -Location $Location1 `
   -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
 3. Maak de verbinding tussen TestVNet4 en TestVNet1. Deze stap is vergelijkbaar met die hierboven, alleen maakt u de verbinding nu vanuit TestVNet4 naar TestVNet1. Zorg dat de gedeelde sleutels overeenkomen. De verbinding wordt na enkele minuten tot stand gebracht.
 
-  ```powershell
-  New-AzureRmVirtualNetworkGatewayConnection -Name $Connection41 -ResourceGroupName $RG4 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetworkGatewayConnection -Name $Connection41 -ResourceGroupName $RG4 `
   -VirtualNetworkGateway1 $vnet4gw -VirtualNetworkGateway2 $vnet1gw -Location $Location4 `
   -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
@@ -291,11 +296,15 @@ Wanneer u TestVNet1 hebt geconfigureerd, maakt u TestVNet4. Volg de stappen hier
 
 ## <a name="difsub"></a>VNets verbinden die tot verschillende abonnement behoren
 
-In dit scenario verbindt u TestVNet1 met TestVNet5. TestVNet1 en TestVNet5 bevinden zich in een verschillend abonnement. De abonnementen hoeven niet aan dezelfde Active Directory-tenant gekoppeld te zijn. Het verschil tussen deze stappen en de eerste set is dat een deel van de configuratiestappen moet worden uitgevoerd in een aparte PowerShell-sessie in de context van het tweede abonnement. Dit geldt met name wanneer de twee abonnementen tot verschillende organisaties behoren.
+In dit scenario verbindt u TestVNet1 met TestVNet5. TestVNet1 en TestVNet5 bevinden zich in verschillende abonnementen. De abonnementen hoeven niet aan dezelfde Active Directory-tenant gekoppeld te zijn.
+
+Het verschil tussen deze stappen en de eerste set is dat een deel van de configuratiestappen moet worden uitgevoerd in een aparte PowerShell-sessie in de context van het tweede abonnement. Dit geldt met name wanneer de twee abonnementen tot verschillende organisaties behoren.
+
+Vanwege de context van het abonnement in deze oefening wijzigt, wellicht vindt u het eenvoudiger te gebruiken PowerShell lokaal op uw computer, in plaats van met behulp van de Azure Cloud Shell, wanneer u naar stap 8.
 
 ### <a name="step-5---create-and-configure-testvnet1"></a>Stap 5: TestVNet1 maken en configureren
 
-U moet [Stap 1](#Step1) en [Stap 2](#Step2) van de vorige sessie uitvoeren om TestVNet1 en de VPN-gateway voor TestVNet1 te maken en te configureren. Voor deze configuratie is het niet vereist TestVNet4 uit de vorige sectie te maken. Als u deze wel maakt, levert dit geen problemen op met de volgende stappen. Nadat u stap 1 en stap 2 hebt voltooid, gaat u verder met stap 6 om TestVNet5 te maken. 
+U moet [Stap 1](#Step1) en [Stap 2](#Step2) van de vorige sessie uitvoeren om TestVNet1 en de VPN-gateway voor TestVNet1 te maken en te configureren. Voor deze configuratie is het niet vereist TestVNet4 uit de vorige sectie te maken. Als u deze wel maakt, levert dit geen problemen op met de volgende stappen. Nadat u stap 1 en stap 2 hebt voltooid, gaat u verder met stap 6 om TestVNet5 te maken.
 
 ### <a name="step-6---verify-the-ip-address-ranges"></a>Stap 6: de IP-adresbereiken controleren
 
@@ -322,7 +331,7 @@ Deze stap moet worden uitgevoerd in de context van het nieuwe abonnement. Dit de
 
 1. Declareer uw variabelen. Zorg ervoor dat u de waarden vervangt door de waarden die u voor uw configuratie wilt gebruiken.
 
-  ```powershell
+  ```azurepowershell-interactive
   $Sub5 = "Replace_With_the_New_Subscription_Name"
   $RG5 = "TestRG5"
   $Location5 = "Japan East"
@@ -342,56 +351,56 @@ Deze stap moet worden uitgevoerd in de context van het nieuwe abonnement. Dit de
   ```
 2. Maak verbinding met abonnement 5. Open de PowerShell-console en maak verbinding met uw account. Gebruik het volgende voorbeeld als hulp bij het maken van de verbinding:
 
-  ```powershell
-  Connect-AzureRmAccount
+  ```azurepowershell-interactive
+  Connect-AzAccount
   ```
 
   Controleer de abonnementen voor het account.
 
-  ```powershell
-  Get-AzureRmSubscription
+  ```azurepowershell-interactive
+  Get-AzSubscription
   ```
 
   Geef het abonnement op dat u wilt gebruiken.
 
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName $Sub5
+  ```azurepowershell-interactive
+  Select-AzSubscription -SubscriptionName $Sub5
   ```
 3. Maak een nieuwe resourcegroep.
 
-  ```powershell
-  New-AzureRmResourceGroup -Name $RG5 -Location $Location5
+  ```azurepowershell-interactive
+  New-AzResourceGroup -Name $RG5 -Location $Location5
   ```
 4. Maak de subnetconfiguraties voor TestVNet5.
 
-  ```powershell
-  $fesub5 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName5 -AddressPrefix $FESubPrefix5
-  $besub5 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName5 -AddressPrefix $BESubPrefix5
-  $gwsub5 = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName5 -AddressPrefix $GWSubPrefix5
+  ```azurepowershell-interactive
+  $fesub5 = New-AzVirtualNetworkSubnetConfig -Name $FESubName5 -AddressPrefix $FESubPrefix5
+  $besub5 = New-AzVirtualNetworkSubnetConfig -Name $BESubName5 -AddressPrefix $BESubPrefix5
+  $gwsub5 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName5 -AddressPrefix $GWSubPrefix5
   ```
 5. Maak TestVNet5.
 
-  ```powershell
-  New-AzureRmVirtualNetwork -Name $VnetName5 -ResourceGroupName $RG5 -Location $Location5 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetwork -Name $VnetName5 -ResourceGroupName $RG5 -Location $Location5 `
   -AddressPrefix $VnetPrefix51,$VnetPrefix52 -Subnet $fesub5,$besub5,$gwsub5
   ```
 6. Vraag een openbaar IP-adres aan.
 
-  ```powershell
-  $gwpip5 = New-AzureRmPublicIpAddress -Name $GWIPName5 -ResourceGroupName $RG5 `
+  ```azurepowershell-interactive
+  $gwpip5 = New-AzPublicIpAddress -Name $GWIPName5 -ResourceGroupName $RG5 `
   -Location $Location5 -AllocationMethod Dynamic
   ```
 7. Maak de gatewayconfiguratie.
 
-  ```powershell
-  $vnet5 = Get-AzureRmVirtualNetwork -Name $VnetName5 -ResourceGroupName $RG5
-  $subnet5  = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet5
-  $gwipconf5 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName5 -Subnet $subnet5 -PublicIpAddress $gwpip5
+  ```azurepowershell-interactive
+  $vnet5 = Get-AzVirtualNetwork -Name $VnetName5 -ResourceGroupName $RG5
+  $subnet5  = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet5
+  $gwipconf5 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName5 -Subnet $subnet5 -PublicIpAddress $gwpip5
   ```
 8. Maak de TestVNet5-gateway.
 
-  ```powershell
-  New-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5 -Location $Location5 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5 -Location $Location5 `
   -IpConfigurations $gwipconf5 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
@@ -399,15 +408,15 @@ Deze stap moet worden uitgevoerd in de context van het nieuwe abonnement. Dit de
 
 Omdat de gateways in dit voorbeeld tot verschillende abonnementen behoren, is deze stap opgesplitst in twee PowerShell-sessies, aangeduid als [Abonnement 1] en [Abonnement 5].
 
-1. **[Abonnement 1]** Verkrijg de gateway van het virtuele netwerk voor abonnement 1. Meld u aan bij en maak verbinding met abonnement 1 voordat u het volgende voorbeeld uitvoert:
+1. **[Abonnement 1]** Verkrijg de gateway van het virtuele netwerk voor abonnement 1. Meld u aan en maak verbinding met abonnement 1 voordat u het volgende voorbeeld uitvoert:
 
-  ```powershell
-  $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
+  ```azurepowershell-interactive
+  $vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
   ```
 
   Kopieer de uitvoer van de volgende elementen en stuur deze via e-mail of een andere manier naar de beheerder van abonnement 5.
 
-  ```powershell
+  ```azurepowershell-interactive
   $vnet1gw.Name
   $vnet1gw.Id
   ```
@@ -420,15 +429,15 @@ Omdat de gateways in dit voorbeeld tot verschillende abonnementen behoren, is de
   PS D:\> $vnet1gw.Id
   /subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroupsTestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
   ```
-2. **[Abonnement 5]** Verkrijg de gateway van het virtuele netwerk voor abonnement 5. Meld u aan bij en maak verbinding met abonnement 5 voordat u het volgende voorbeeld uitvoert:
+2. **[Abonnement 5]** Verkrijg de gateway van het virtuele netwerk voor abonnement 5. Meld u aan en maak verbinding met abonnement 5 voordat u het volgende voorbeeld uitvoert:
 
-  ```powershell
-  $vnet5gw = Get-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5
+  ```azurepowershell-interactive
+  $vnet5gw = Get-AzVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5
   ```
 
   Kopieer de uitvoer van de volgende elementen en stuur deze via e-mail of een andere manier naar de beheerder van Abonnement 1.
 
-  ```powershell
+  ```azurepowershell-interactive
   $vnet5gw.Name
   $vnet5gw.Id
   ```
@@ -445,23 +454,23 @@ Omdat de gateways in dit voorbeeld tot verschillende abonnementen behoren, is de
 
   Maak verbinding met abonnement 1 voordat u het volgende voorbeeld uitvoert:
 
-  ```powershell
+  ```azurepowershell-interactive
   $vnet5gw = New-Object -TypeName Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
   $vnet5gw.Name = "VNet5GW"
   $vnet5gw.Id   = "/subscriptions/66c8e4f1-ecd6-47ed-9de7-7e530de23994/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW"
   $Connection15 = "VNet1toVNet5"
-  New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet5gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
+  New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet5gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
 4. **[Abonnement 5]** Maak de verbinding tussen TestVNet5 en TestVNet1. Deze stap is vergelijkbaar met die hierboven, alleen maakt u de verbinding nu vanuit TestVNet5 naar TestVNet1. Hier moet op dezelfde manier een PowerShell-object worden gemaakt op basis van de waarden die zijn verkregen van Abonnement 1. Zorg in deze stap dat de gedeelde sleutels overeenkomen.
 
   Maak verbinding met abonnement 5 voordat u het volgende voorbeeld uitvoert:
 
-  ```powershell
+  ```azurepowershell-interactive
   $vnet1gw = New-Object -TypeName Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
   $vnet1gw.Name = "VNet1GW"
   $vnet1gw.Id = "/subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW "
   $Connection51 = "VNet5toVNet1"
-  New-AzureRmVirtualNetworkGatewayConnection -Name $Connection51 -ResourceGroupName $RG5 -VirtualNetworkGateway1 $vnet5gw -VirtualNetworkGateway2 $vnet1gw -Location $Location5 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
+  New-AzVirtualNetworkGatewayConnection -Name $Connection51 -ResourceGroupName $RG5 -VirtualNetworkGateway1 $vnet5gw -VirtualNetworkGateway2 $vnet1gw -Location $Location5 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
 
 ## <a name="verify"></a>Een verbinding controleren

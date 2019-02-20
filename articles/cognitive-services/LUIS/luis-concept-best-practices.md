@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: ba51da8b71406cb1bf7446bd66818a6a74e61317
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 4a06b30c209828e7ffd9f59d1b4ece06cfe6e2dd
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243413"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428904"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Aanbevolen procedures voor het bouwen van een language understanding-app met Cognitive Services
 Gebruik Apps kunt maken om uw LUIS-app te bouwen. 
@@ -77,23 +77,32 @@ Voor meer informatie:
 * Concept: [Cyclus voor uw LUIS-app ontwerpen](luis-concept-app-iteration.md)
 
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>Voeg woordgroep lijsten en -patronen in de volgende herhalingen
-[Lijsten met zin](luis-concept-feature.md) kunt u voor het definiëren van woordenlijsten van woorden met betrekking tot uw app-domein. Seed uw woordgroep lijst met een paar woorden en gebruik vervolgens de functie voorstellen zodat LUIS weet over meer woorden in de woordenlijst specifieke aan uw app. Elke woord niet worden toegevoegd aan het vocabulaire, omdat de woordgroepenlijst met niet een exacte overeenkomst. 
+
+Er is een best practice op deze procedures niet van toepassing voordat u uw app is getest. U moet begrijpen hoe het gedrag van de app voordat u een lijst met woorden en patronen toe te voegen. Als u inzicht in hoe uw app zonder dat deze zich gedraagt, add u elk van deze functies zoals ze voor uw app gelden. U hoeft niet naar het toevoegen van deze functies in elke [iteratie](luis-concept-app-iteration.md) of wijzigen van de functies bij elke versie. 
+
+Er kan geen kwaad om ze toe te voegen aan het begin van het modelontwerp van uw, maar het is eenvoudiger om te zien hoe elke functie resultaten verandert nadat het model is getest met uitingen. 
+
+Er is een best practice om te testen de [eindpunt](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) zodat u het voordeel van [actief leren](luis-concept-review-endpoint-utterances.md). De [interactieve testen deelvenster](luis-interactive-test.md) is ook een geldige test-methode. 
+ 
+
+### <a name="phrase-lists"></a>Woordgroepenlijsten
+
+[Lijsten met zin](luis-concept-feature.md) kunt u voor het definiëren van woordenlijsten van woorden met betrekking tot uw app-domein. Seed uw woordgroep lijst met een paar woorden en gebruik vervolgens de functie voorstellen zodat LUIS weet over meer woorden in de woordenlijst specifieke aan uw app. Een lijst woordgroep verbetert de intentie detectie en classificatie van de entiteit met versterking van het signaal dat is gekoppeld aan de woorden of zinsdelen die belangrijk om uw app zijn. 
+
+Elke woord niet worden toegevoegd aan het vocabulaire, omdat de woordgroepenlijst met niet een exacte overeenkomst. 
+
+Voor meer informatie:
+* Concept: [Woordgroep lijst met functies in uw LUIS-app](luis-concept-feature.md)
+* Uitleg: [Gebruik woordgroep lijsten moeten worden boost signaal van de lijst met woorden](luis-how-to-add-features.md)
+
+### <a name="patterns"></a>Patronen
 
 Real-user-uitingen van het eindpunt, vergelijkbaar met elkaar worden verbonden, waarschijnlijk patronen van word keuze en plaatsing. De [patroon](luis-concept-patterns.md) functie neemt dit woord keuze en plaatsing samen met de reguliere expressies voor het verbeteren van de nauwkeurigheid van de voorspelling. Een reguliere expressie in het patroon kan woorden en leestekens die u van plan bent om te negeren terwijl nog steeds die overeenkomt met het patroon. 
 
 Gebruikspatroon [optionele syntaxis](luis-concept-patterns.md) voor leestekens zodat interpunctie kan worden genegeerd. Gebruik de [expliciete lijst](luis-concept-patterns.md#explicit-lists) om te compenseren voor pattern.any syntaxis van de problemen. 
 
-Deze procedures niet van toepassing voordat u uw app heeft eindpunt aanvragen ontvangen. U moet begrijpen hoe het gedrag van de app voordat u een lijst met woorden en patronen toe te voegen. Als u inzicht in hoe uw app zonder dat deze zich gedraagt, add u elk van deze functies zoals ze voor uw app gelden. 
-
-Er kan geen kwaad om ze toe te voegen aan het begin van het modelontwerp van uw, maar het is eenvoudiger om te zien hoe elke functie resultaten verandert als u deze toevoegt nadat u de app met echte verkeer. 
-
-U hoeft niet te deze functies bij elke herhaling toevoegen of wijzigen van de functies bij elke versie. 
-
 Voor meer informatie:
-* Concept: [Cyclus voor uw LUIS-app ontwerpen](luis-concept-app-iteration.md)
-* Concept: [Woordgroep lijst met functies in uw LUIS-app](luis-concept-feature.md)
 * Concept: [Patronen verbeteren nauwkeurigheid](luis-concept-patterns.md)
-* Uitleg: [Gebruik woordgroep lijsten moeten worden boost signaal van de lijst met woorden](luis-how-to-add-features.md)
 * Uitleg: [Patronen voor het verbeteren van nauwkeurigheid toevoegen](luis-how-to-model-intent-pattern.md)
 
 ## <a name="balance-your-utterances-across-all-intents"></a>Alle intents worden uw uitingen verdeeld

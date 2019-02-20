@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/07/2018
+ms.date: 02/19/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 63d22aaa402c77b55591a15745b258cdd6f0ef0a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: bfbafea13f49ada59dae88e0336f926a8ad89d36
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244348"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430247"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Zelfstudie: Apps implementeren in Azure en Azure Stack
 
@@ -281,7 +281,7 @@ U kunt de instructies in [een Azure Resource Manager-serviceverbinding met een b
 
 U kunt een serviceverbinding maken met de volgende toewijzing:
 
-| Name | Voorbeeld | Beschrijving |
+| Name | Voorbeeld | Description |
 | --- | --- | --- |
 | Verbindingsnaam | Azure Stack Azure AD | De naam van de verbinding. |
 | Omgeving | AzureStack | De naam van uw omgeving. |
@@ -306,7 +306,7 @@ De meest recente update van Azure DevOps kunt maken van een serviceverbinding me
 
 U kunt een serviceverbinding maken met de volgende toewijzing:
 
-| Name | Voorbeeld | Beschrijving |
+| Name | Voorbeeld | Description |
 | --- | --- | --- |
 | Verbindingsnaam | Azure Stack ADFS | De naam van de verbinding. |
 | Omgeving | AzureStack | De naam van uw omgeving. |

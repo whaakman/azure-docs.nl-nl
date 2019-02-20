@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: b4829b0da656c648db732b2e7564de6db8fbf2eb
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 9e4b9d8cf3300f977824f95aeb14a614d8897abd
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312609"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430264"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Hoe worden verwerkt en extraheer informatie uit afbeeldingen in scenario's met cognitief zoeken
 
@@ -34,7 +34,7 @@ U uitschakelen normalisering van de installatiekopie niet. Genormaliseerde insta
 
 | Configuratieparameter | Description |
 |--------------------|-------------|
-| imageAction   | Ingesteld op 'none' als er is geen actie moet worden uitgevoerd wanneer de ingesloten afbeeldingen of afbeeldingen zijn opgetreden. <br/>Ingesteld op 'generateNormalizedImages' voor het genereren van een matrix van genormaliseerde installatiekopieën als onderdeel van het document kraken. Deze installatiekopieën worden weergegeven in de *normalized_images* veld. <br/>De standaardwaarde is 'none'. Deze configuratie is alleen relevant zijn voor blob-gegevensbronnen, als 'dataToExtract' is ingesteld op "contentAndMetadata." |
+| imageAction   | Ingesteld op 'none' als er is geen actie moet worden uitgevoerd wanneer de ingesloten afbeeldingen of afbeeldingen zijn opgetreden. <br/>Ingesteld op 'generateNormalizedImages' voor het genereren van een matrix van genormaliseerde installatiekopieën als onderdeel van het document kraken.<br/>Ingesteld op 'generateNormalizedImagePerPage' voor het genereren van een matrix van genormaliseerde afbeeldingen waar elke pagina voor PDF-bestanden in uw gegevensbron en wordt gerenderd in een afbeelding van de uitvoer.  De functionaliteit is hetzelfde als 'generateNormalizedImages' voor niet-PDF-bestandstypen.<br/>Een optie die geen 'none', de afbeeldingen weergegeven de *normalized_images* veld. <br/>De standaardwaarde is 'none'. Deze configuratie is alleen relevant zijn voor blob-gegevensbronnen, als 'dataToExtract' is ingesteld op "contentAndMetadata." |
 |  normalizedImageMaxWidth | De maximale breedte (in pixels) voor genormaliseerde installatiekopieën die worden gegenereerd. De standaardwaarde is 2000.|
 |  normalizedImageMaxHeight | De maximale hoogte (in pixels) voor genormaliseerde installatiekopieën die worden gegenereerd. De standaardwaarde is 2000.|
 
@@ -62,7 +62,7 @@ U geeft de imageAction in uw [definitie van indexeerfunctie](https://docs.micros
 }
 ```
 
-Wanneer de *imageAction* is ingesteld op 'generateNormalizedImages', de nieuwe *normalized_images* veld bevat een matrix van afbeeldingen. Elke installatiekopie is een complex type met de volgende leden:
+Wanneer de *imageAction* is ingesteld op een waarde andere vervolgens 'none', de nieuwe *normalized_images* veld bevat een matrix van afbeeldingen. Elke installatiekopie is een complex type met de volgende leden:
 
 | Lid van de installatiekopie       | Description                             |
 |--------------------|-----------------------------------------|

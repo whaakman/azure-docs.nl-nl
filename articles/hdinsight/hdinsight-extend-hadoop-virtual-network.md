@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: dfcbbacc5df394e0d2a515d557d655af0ea44d11
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: dbb94e0dbcb1dccf8ecbc60bca47b2cc3533297c
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169969"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429737"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight met behulp van een Azure-netwerk uitbreiden
 
@@ -220,8 +220,6 @@ Het netwerkverkeer in een virtuele Azure-netwerken kan worden beheerd met behulp
 * **Virtuele netwerkapparaten** repliceren van de functionaliteit van apparaten, zoals firewalls en routers. Zie voor meer informatie de [netwerkapparaten](https://azure.microsoft.com/solutions/network-appliances) document.
 
 Als een beheerde service HDInsight vereist onbeperkte toegang tot de HDinsight-status en beheer van services voor binnenkomende en uitgaande verkeer van het VNET. Wanneer u nsg's en udr's, moet u ervoor zorgen dat deze services nog steeds met HDInsight-cluster communiceren kunnen.
-
-HDInsight wordt aangegeven dat services op verschillende poorten. Wanneer u een virtueel apparaat firewall gebruikt, moet u verkeer op de poorten die voor deze services toestaan. Zie de sectie [vereiste poorten] voor meer informatie.
 
 ### <a id="hdinsight-ip"></a> HDInsight met netwerkbeveiligingsgroepen en de gebruiker gedefinieerde routes
 

@@ -10,15 +10,15 @@ ms.subservice: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: c9435ba10d69130a634e56992179f11399604fae
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 254d1faf0d846cc6a0e165b68db11ac0314eab33
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747489"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430570"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Back-up en herstel in Azure SQL Data Warehouse
-Meer informatie over hoe back-up en herstel werkt in Azure SQL Data Warehouse. Gebruik gegevens datawarehouse-momentopnamen voor herstel of uw datawarehouse kopiëren naar een vorige herstelpunt in de primaire regio. Gebruik datawarehouse-geografisch redundante back-ups om terug te zetten naar een andere geografische regio. 
+Meer informatie over hoe back-up en herstel werkt in Azure SQL Data Warehouse. Gebruik datawarehouse-herstelpunten te herstellen of uw datawarehouse kopiëren naar een eerdere status in de primaire regio. Gebruik datawarehouse-geografisch redundante back-ups om terug te zetten naar een andere geografische regio. 
 
 ## <a name="what-is-a-data-warehouse-snapshot"></a>Wat is een momentopname van een datawarehouse?
 Een *datawarehouse momentopname* een herstelpunt dat u kunt gebruiken om te herstellen of uw datawarehouse naar een eerdere status kopie wordt gemaakt.  Omdat SQL Data Warehouse een gedistribueerd systeem is, bestaat er een momentopname van een datawarehouse met veel bestanden die zich in Azure storage. Momentopnamen vastleggen incrementele wijzigingen van de gegevens die zijn opgeslagen in uw datawarehouse.

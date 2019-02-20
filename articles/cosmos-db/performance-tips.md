@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 68378342769618c2b0e1096fbf5a2d28d0cb4b0e
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 67bdabe24e789dc4d1f2020a7a7853eafaa607c3
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309892"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429363"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Tips voor betere prestaties voor Azure Cosmos DB en .NET
 
@@ -48,7 +48,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
     |Verbindingsmodus  |Ondersteunde protocollen  |Ondersteunde SDK 's  |API/Service-poort  |
     |---------|---------|---------|---------|
     |Gateway  |   HTTPS    |  Alle SDK 's    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(443), Graph(443)    |
-    |Rechtstreeks    |    HTTPS     |  .NET en Java-SDK    |    SQL(443)   |
+    |Rechtstreeks    |    HTTPS     |  .NET en Java-SDK    |   Poorten binnen het bereik van 10.000 20.000    |
     |Rechtstreeks    |     TCP    |  .Net SDK    | Poorten binnen het bereik van 10.000 20.000 |
 
     Azure Cosmos DB biedt een eenvoudige en open RESTful-programmeermodel via HTTPS. Daarnaast biedt deze een efficiënte TCP-protocol, dat is ook RESTful in het communicatiemodel en is beschikbaar via de .NET-client-SDK. Zowel Direct via TCP- en HTTPS gebruik van SSL voor initiële verificatie en versleuteling van verkeer. Gebruik indien mogelijk de TCP-protocol voor de beste prestaties.

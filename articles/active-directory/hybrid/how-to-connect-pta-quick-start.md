@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 02/19/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c27c32f19dac4e5394ca5e2f3e3722eccffb49b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a282ef88a5112593d4d8b9e304ec6ad03f44787c
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165107"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415864"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory Pass through-verificatie: Snel starten
 
@@ -54,7 +54,7 @@ Zorg ervoor dat de volgende vereisten voldaan is.
 3. Een of meer extra servers identificeren (met Windows Server 2012 R2 of hoger, met TLS 1.2 ingeschakeld) waar u de zelfstandige verificatie-Agents kunt uitvoeren. Deze extra servers er nodig zijn om te controleren of de hoge beschikbaarheid van aanvragen voor het aanmelden. De servers toevoegen aan hetzelfde Active Directory-forest als de gebruikers met wachtwoorden die u wilt valideren.
 
     >[!IMPORTANT]
-    >In een productieomgeving, wordt aangeraden dat u hebt een minimum van 3 verificatie-Agents die worden uitgevoerd op uw tenant. Er is een limiet van 12 verificatie-Agents per tenant. En als best practice, behandelt u alle servers met verificatie-Agents als laag 0-systemen (Zie [verwijzing](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
+    >In een productieomgeving, wordt aangeraden dat u hebt een minimum van 3 verificatie-Agents die worden uitgevoerd op uw tenant. Er is een limiet van 40 verificatie-Agents per tenant. En als best practice, behandelt u alle servers met verificatie-Agents als laag 0-systemen (Zie [verwijzing](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
 4. Als er een firewall tussen uw servers en Azure AD, configureert u de volgende items:
    - Zorg ervoor dat de verificatie-Agents kunt aanbrengen *uitgaande* aanvragen voor Azure AD via de volgende poorten:
@@ -109,7 +109,7 @@ In deze fase, kunnen gebruikers van de beheerde domeinen in uw tenant kunnen aan
 Als u van plan bent te Pass through-verificatie in een productieomgeving implementeert, moet u aanvullende zelfstandige verificatie-Agents installeren. Deze verificatie-agent (s) installeren op de server (s) _andere_ dan de één actief Azure AD Connect. Deze instelling biedt hoge beschikbaarheid voor gebruiker aanmeldingsaanvragen.
 
 >[!IMPORTANT]
->In een productieomgeving, wordt aangeraden dat u hebt een minimum van 3 verificatie-Agents die worden uitgevoerd op uw tenant. Er is een limiet van 12 verificatie-Agents per tenant. En als best practice, behandelt u alle servers met verificatie-Agents als laag 0-systemen (Zie [verwijzing](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
+>In een productieomgeving, wordt aangeraden dat u hebt een minimum van 3 verificatie-Agents die worden uitgevoerd op uw tenant. Er is een limiet van 40 verificatie-Agents per tenant. En als best practice, behandelt u alle servers met verificatie-Agents als laag 0-systemen (Zie [verwijzing](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
 Volg deze instructies om de verificatie-Agent-software te downloaden:
 

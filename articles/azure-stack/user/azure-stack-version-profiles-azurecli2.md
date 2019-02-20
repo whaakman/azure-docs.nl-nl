@@ -14,12 +14,12 @@ ms.date: 02/15/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 6d82410e07e725b13385f6ff2b57218c1146a80a
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 40973fbdd1965eb84776fc9365718c65fa0149a7
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329283"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416986"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>API-versieprofielen gebruiken met Azure CLI in Azure Stack
 
@@ -205,7 +205,7 @@ Gebruik de volgende stappen uit om te verbinden met Azure Stack:
       ```
 
       > [!NOTE]
-      > Als uw gebruikersaccount multi-factor authentication ingeschakeld heeft, kunt u de `az login command` zonder op te geven de `-u` parameter. Met deze opdracht geeft u een URL en een code die u gebruiken moet om te verifiëren.
+      > Als uw gebruikersaccount multi-factor authentication ingeschakeld heeft, kunt u de `az login` opdracht zonder op te geven de `-u` parameter. Met deze opdracht geeft u een URL en een code die u gebruiken moet om te verifiëren.
    
       * Meld u aan als een *service-principal*: Voordat u zich aanmeldt, [maken van een service-principal via de Azure-portal](azure-stack-create-service-principals.md) of CLI en een rol toewijzen. Nu aanmelden met behulp van de volgende opdracht uit:
 

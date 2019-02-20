@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 976976bc3e1913c8c3edb55dfc268a8d93afcd9f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d1f1ec45e1d4fc2fc6091a2f946caf6bc59441a9
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185325"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417054"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: De Azure AD Graph API gebruiken
 
@@ -62,7 +62,7 @@ Nu moet u uw toepassing configureren voor het ophalen van de vereiste machtiging
 U hebt nu een toepassing die gemachtigd om te maken is, lezen en bijwerken van gebruikers van uw B2C-tenant.
 
 > [!NOTE]
-> Machtigingen verlenen moeten volledig verwerken van een paar minuten duren.
+> Verlenen van machtigingen kan enkele minuten duren voor het volledig verwerken.
 > 
 > 
 

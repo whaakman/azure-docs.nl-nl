@@ -17,16 +17,16 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0b7515a5c22b98fb14499e07057ff52311fc6e67
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: acdd2f5cb345ca5c5462394ae5c6135ad43b2143
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744813"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415698"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Met behulp van Azure voor het hosten en uitvoeren van SAP-workloadscenario 's
 
-Door te kiezen voor Microsoft Azure bent u op betrouwbare wijze uw essentiële SAP workloads en scenario's uitvoeren op een schaalbaar, compatibel en zakelijk bewezen platform.  Ga voor de schaalbaarheid, flexibiliteit en kostenbesparingen van Azure. Met de uitgebreide samenwerking tussen Microsoft en SAP, SAP-toepassingen uitvoeren in dev/test- en productiescenario's in Azure - en volledig wordt ondersteund. Van SAP NetWeaver tot SAP S4/HANA, SAP BI, Linux tot Windows, SAP HANA tot SQL hebt u.
+Door te kiezen voor Microsoft Azure bent u op betrouwbare wijze uw essentiële SAP workloads en scenario's uitvoeren op een schaalbaar, compatibel en zakelijk bewezen platform.  Ga voor de schaalbaarheid, flexibiliteit en kostenbesparingen van Azure. Met de uitgebreide samenwerking tussen Microsoft en SAP, SAP-toepassingen uitvoeren in dev/test- en productiescenario's in Azure - en volledig wordt ondersteund. Van SAP NetWeaver tot SAP S/4HANA, SAP BI, Linux tot Windows, SAP HANA tot SQL, hebt u.
 
 Naast het hosten van SAP NetWeaver-scenario's met de verschillende DBMS-systemen in Azure, u kunt hosten verschillende andere SAP-workloadscenario's, zoals BI SAP op Azure. 
 

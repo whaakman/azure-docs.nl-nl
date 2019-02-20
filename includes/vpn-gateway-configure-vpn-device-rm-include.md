@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 02/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b5aea9d7fe54402693be095350f7c095334fd4b5
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
-ms.translationtype: HT
+ms.openlocfilehash: 886fa6c088f2fbabb3d3ba1cd0b15bbc488784f3
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "30198108"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56418278"
 ---
 **Om configuratiescripts voor VPN-apparaten te downloaden**
 
@@ -27,7 +27,7 @@ Afhankelijk van het VPN-apparaat dat u hebt, kunt u mogelijk een script van VPN-
 
 - Zie [Gevalideerde VPN-apparaten](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) voor koppelingen naar configuratie-instellingen. De koppelingen over apparaatconfiguratie worden naar beste vermogen geleverd. Het is altijd verstandig om de actuele configuratie-informatie op te vragen bij de fabrikant van uw apparaat. De lijst bevat de versies die we hebben getest. Als uw besturingssysteem niet op deze lijst staat, is het nog steeds mogelijk dat de versie compatibel is. Neem contact op met de fabrikant van uw apparaat om te controleren of de versie van het besturingssysteem compatibel is met uw VPN-apparaat.
 
-- Zie [Overview of 3rd party VPN device configurations](../articles/vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md) (Overzicht van VPN-apparaatconfiguraties van derden) voor een overzicht van VPN-apparaatconfiguraties.
+- Zie voor een overzicht van VPN-apparaatconfiguraties [overzicht van de configuratie van de VPN-apparaat](../articles/vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md).
 
 - Zie [Bewerkingsvoorbeelden](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#editing) voor voorbeelden van het bewerken van de apparaatconfiguratie.
 

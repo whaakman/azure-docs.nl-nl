@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 02/19/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 11/08/2018
-ms.openlocfilehash: 0e5d799a5128f578900e4fa326b2e129964d0873
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 92774592f86a71a8482fd3d44eca404fcf2d4e6e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243780"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429550"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Veelgestelde vragen over Azure Stack gebruiks-API
 
@@ -41,7 +41,7 @@ Gebruik wordt voor de volgende resourceproviders gerapporteerd:
 **Eenheid**: IP-adressen  
 **Opmerkingen bij de**: Aantal IP-adressen die worden gebruikt. Als u de API voor gebruik met een dagelijkse granulariteit aanroept, wordt de meter IP-adres vermenigvuldigd met het aantal uren.  
   
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Opslag
   
 **ID meten**: B4438D5D-453B-4EE1-B42A-DC72E377F1E4  
 **Meternaam**: TableCapacity  

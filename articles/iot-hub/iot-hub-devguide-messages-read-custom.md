@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.author: dobett
-ms.openlocfilehash: bbd5058be502839f83db484136d1c97bac4a3d79
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 1b0e99998aaf29c366cce1926f930174686cfee6
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585948"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414895"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Gebruik berichtroutes en aangepaste eindpunten voor apparaat-naar-cloud-berichten
 
@@ -34,7 +34,7 @@ Een enkel bericht mogelijk overeenkomt met de voorwaarde op meerdere Routering q
 
 Een IoT-hub is een standaard [ingebouwd eindpunt](iot-hub-devguide-messages-read-builtin.md). U kunt aangepaste eindpunten om berichten te routeren naar maken door andere services in uw abonnement koppelen aan de hub. IoT Hub ondersteunt momenteel Azure Storage-containers, Event Hubs, Service Bus-wachtrijen en Service Bus-onderwerpen als aangepaste eindpunten.
 
-Wanneer u Routering en aangepaste eindpunten, worden alleen berichten met het ingebouwde eindpunt geleverd als ze niet overeenkomen met elke query. Toevoegen een route waarmee berichten worden verzonden om berichten te leveren met het ingebouwde eindpunt evenals garantie voor een aangepast eindpunt, de **gebeurtenissen** eindpunt.
+Wanneer u Routering en aangepaste eindpunten, worden alleen berichten met het ingebouwde eindpunt geleverd als ze niet overeenkomen met elke query. Om berichten te leveren met het ingebouwde eindpunt evenals garantie voor een aangepast eindpunt, toevoegen een route waarmee berichten worden verzonden in de ingebouwde **gebeurtenissen** eindpunt.
 
 > [!NOTE]
 > * IoT Hub biedt alleen ondersteuning voor het schrijven van gegevens naar Azure Storage-containers als blobs.

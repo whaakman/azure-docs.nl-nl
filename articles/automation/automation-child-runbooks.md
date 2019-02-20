@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 37cf44e2c9d28b1aac8f2ab80ba29d126fb8651f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f52c9731b0289563037cbf065f3e22d652b40e74
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422965"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417428"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Onderliggende runbooks in Azure Automation
 
@@ -28,7 +28,7 @@ Als u een runbook inline aanroept, wordt deze uitgevoerd in dezelfde taak als he
 
 Wanneer een runbook wordt gepubliceerd, moeten alle onderliggende runbooks die daardoor worden aangeroepen al worden gepubliceerd. Dit is omdat Azure Automation een koppeling met onderliggende runbooks maakt wanneer een runbook wordt gecompileerd. Als ze niet, is het bovenliggende runbook publiceren correct wordt weergegeven, maar een uitzondering wordt gegenereerd wanneer deze wordt gestart. Als dit het geval is, kunt u het bovenliggende runbook voor het correct wordt verwezen naar de onderliggende runbooks opnieuw publiceren. U hoeft niet naar het bovenliggende runbook opnieuw publiceren als een van de onderliggende runbooks is gewijzigd, omdat de koppeling is al gemaakt.
 
-De parameters van een onderliggend runbook dat inline wordt aangeroepen, kunnen elk gegevenstype met inbegrip van complexe objecten zijn. Er is geen [JSON-serialisatie](automation-starting-a-runbook.md#runbook-parameters) omdat er bij het starten van het runbook met behulp van de Azure portal of met de cmdlet Start-AzureRmAutomationRunbook.
+De parameters van een onderliggend runbook dat inline wordt aangeroepen, kunnen elk gegevenstype met inbegrip van complexe objecten zijn. Er is geen [JSON-serialisatie](start-runbooks.md#runbook-parameters) omdat er bij het starten van het runbook met behulp van de Azure portal of met de cmdlet Start-AzureRmAutomationRunbook.
 
 ### <a name="runbook-types"></a>Runbooktypen
 
@@ -65,7 +65,7 @@ $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 > [!IMPORTANT]
 > Als u bij het aanroepen van een onderliggend runbook met de `Start-AzureRmAutomationRunbook` cmdlet met de `-Wait` switch en de resultaten van het onderliggende runbook is een object, kan er fouten optreden. Als tijdelijke oplossing voor de fout, Zie [onderliggende runbooks met uitvoer van object](troubleshoot/runbooks.md#child-runbook-object) voor informatie over het implementeren van de logica voor het peilen van de resultaten en gebruik de [Get-AzureRmAutomationJobOutputRecord](/powershell/module/azurerm.automation/get-azurermautomationjoboutputrecord)
 
-U kunt de [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) cmdlet een runbook starten, zoals beschreven in [een runbook starten met Windows PowerShell](automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell). Er zijn twee modi voor deze cmdlet.  De cmdlet retourneert de taak-id in de modus voor één, wanneer de onderliggende taak voor het onderliggende runbook is gemaakt.  In de andere modus, waarbij u door op te geven inschakelen de **-wacht** parameter, de cmdlet wordt er gewacht tot de onderliggende taak is voltooid en de uitvoer van het onderliggende runbook wordt.
+U kunt de [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) cmdlet een runbook starten, zoals beschreven in [een runbook starten met Windows PowerShell](start-runbooks.md#start-a-runbook-with-powershell). Er zijn twee modi voor deze cmdlet.  De cmdlet retourneert de taak-id in de modus voor één, wanneer de onderliggende taak voor het onderliggende runbook is gemaakt.  In de andere modus, waarbij u door op te geven inschakelen de **-wacht** parameter, de cmdlet wordt er gewacht tot de onderliggende taak is voltooid en de uitvoer van het onderliggende runbook wordt.
 
 De taak van een onderliggend runbook gestart met een cmdlet wordt uitgevoerd in een afzonderlijke taak van het bovenliggende runbook. Dit gedrag resulteert in meer taken dan het starten van de runbook-inline en zorgt ervoor dat ze moeilijker om bij te houden. De bovenliggende kunt meer dan één onderliggend runbook asynchroon starten zonder te wachten op elk om te voltooien. Voor dezelfde soort parallelle uitvoering de onderliggende runbooks inline aanroept, moet het bovenliggende runbook gebruiken de [parallelle sleutelwoord](automation-powershell-workflow.md#parallel-processing).
 
@@ -73,7 +73,7 @@ De uitvoer van de onderliggende runbooks worden niet geretourneerd naar het bove
 
 Als u niet dat het bovenliggende runbook wordt geblokkeerd op wachten wilt, kunt u beginnen het onderliggende runbook met behulp van `Start-AzureRmAutomationRunbook` cmdlet zonder de `-Wait` overschakelen. U moet gebruiken `Get-AzureRmAutomationJob` na afloop van de taak is voltooid, en `Get-AzureRmAutomationJobOutput` en `Get-AzureRmAutomationJobOutputRecord` om op te halen van de resultaten.
 
-Parameters voor een onderliggend runbook gestart met een cmdlet worden opgegeven als hashtabel, zoals beschreven in [Runbookparameters](automation-starting-a-runbook.md#runbook-parameters). Alleen eenvoudige gegevenstypen kunnen worden gebruikt. Als het runbook een parameter met een complex gegevenstype heeft, klikt u vervolgens het moet dit inline worden aangeroepen.
+Parameters voor een onderliggend runbook gestart met een cmdlet worden opgegeven als hashtabel, zoals beschreven in [Runbookparameters](start-runbooks.md#runbook-parameters). Alleen eenvoudige gegevenstypen kunnen worden gebruikt. Als het runbook een parameter met een complex gegevenstype heeft, klikt u vervolgens het moet dit inline worden aangeroepen.
 
 De context van het abonnement verloren zijn gegaan bij het starten van de onderliggende runbooks als afzonderlijke taken. In de volgorde voor het onderliggende runbook voor het uitvoeren van Azure RM-cmdlets op basis van een specifieke Azure-abonnement, moet het onderliggende runbook worden geverifieerd met dit abonnement onafhankelijk van het bovenliggende runbook.
 
@@ -120,6 +120,6 @@ De volgende tabel geeft een overzicht van de verschillen tussen de twee methoden
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Een runbook starten in Azure Automation](automation-starting-a-runbook.md)
+* [Een runbook starten in Azure Automation](start-runbooks.md)
 * [Runbookuitvoer en -berichten in Azure Automation](automation-runbook-output-and-messages.md)
 

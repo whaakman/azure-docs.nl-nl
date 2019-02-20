@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 921dfc12a7353725d3f9e05d7aa3245ec8ba6084
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 43094839c9da9b00c97d1dffd53f98a3acd119d5
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185987"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417139"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Kies een VM-grootte voor rekenknooppunten in een Azure Batch-pool
 
@@ -44,14 +44,16 @@ Batch-pools in de configuratie van de virtuele Machine ondersteuning voor alle V
 | B-serie | Alle |
 | DC-serie | Alle |
 | Extreme geoptimaliseerd voor geheugen | Alle |
-| Hb-series<sup>1</sup> | Alle |
-| Hc-series<sup>1</sup> | Alle |
+| HB-serie<sup>1,2</sup> | Alle |
+| Hc-series<sup>1,2</sup> | Alle |
 | Lsv2-serie | Alle |
-| NDv2-series<sup>1</sup> | Alle |
-| NVv2-serie | Alle |
+| NDv2-serie<sup>1,2</sup> | Alle |
+| NVv2-series<sup>1</sup> | Alle |
 | SAP HANA | Alle |
 
-<sup>1</sup> kan worden gebruikt door Batch-accounts in de gebruikersabonnementmodus; de gebruikersabonnementmodus Batch-account moet beschikken over het quotum voor kerngeheugens instellen. Zie [configuratie voor de gebruikersabonnementmodus](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode) voor meer informatie.
+
+<sup>1</sup> gepland voor ondersteuning.  
+<sup>2</sup> kan worden gebruikt door Batch-accounts in de gebruikersabonnementmodus; de gebruikersabonnementmodus Batch-account moet beschikken over het quotum voor kerngeheugens instellen. Zie [configuratie voor de gebruikersabonnementmodus](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode) voor meer informatie.
 
 De volgende VM-grootten worden alleen ondersteund voor knooppunten met lage prioriteit:
 

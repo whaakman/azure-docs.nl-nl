@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 77ada606412506e3d3d23189d8a5267e1f58a8f7
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 028b36cc442ccef8af4aa401846cbacdaaab35bf
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733073"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428479"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Hoe u gebeurtenissen registreren bij Azure Event Hubs in Azure API Management
 Azure Event Hubs is een zeer schaalbare service voor inkomende gegevens die miljoenen gebeurtenissen per seconde kan opnemen, voor verwerking en analyse van de enorme hoeveelheden gegevens die worden geproduceerd door verbonden apparaten en toepassingen. Eventhubs fungeert als de 'voordeur' van een gebeurtenispijplijn en zodra de gegevens zijn verzameld in een event hub, kunnen worden omgezet en opgeslagen met elke gewenste realtime analyseprovider of batching/opslagadapters. Event Hubs koppelt de productie van een gebeurtenissenstroom los van het gebruik van deze gebeurtenissen, zodat de consumenten ervan toegang hebben tot de gebeurtenissen op basis van hun eigen planning.
@@ -119,7 +119,7 @@ Klik op **opslaan** om op te slaan van de configuratie van het bijgewerkte belei
 * Meer informatie over de integratie van API Management en Event Hubs
   * [Verwijzing naar de Logger-entiteit](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
   * [documentatie voor log Event hub beleid](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#log-to-eventhub)
-  * [Uw API's met Azure API Management, Eventhubs en Runscope controleren](api-management-log-to-eventhub-sample.md)  
+  * [Uw API's met Azure API Management, Eventhubs en Moesif controleren](api-management-log-to-eventhub-sample.md)  
 * Meer informatie over [integratie met Azure Application Insights](api-management-howto-app-insights.md)
 
 [publisher-portal]: ./media/api-management-howto-log-event-hubs/publisher-portal.png

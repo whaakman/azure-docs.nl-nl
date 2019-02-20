@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4d5c7c592bae32586922531781803db6622e6515
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 9f9a6511d63e57c6cbfa5ee2453f8038bb259047
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310736"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428989"
 ---
 # <a name="setup-diagnostic-logging"></a>Registratie in diagnoselogboek instellen
 
@@ -158,7 +158,7 @@ Voor de diagnostische gegevens in Log Analytics-werkruimte opent **logboeken** i
 
 ![Opties voor het doorzoeken van logboekbestanden in de Azure-portal](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
-Vouw in de opbouwfunctie voor query's, **LogManagement** > **AzureDiagnostics**. AzureDiagnostics bevat-Engine en servicegebeurtenissen. U ziet dat een query is gemaakt op het begeven. De EventClass\_s veld bevat xEvent-namen, die bekend als u xEvents hebt gebruikt voor on-premises logboekregistratie kunnen zoeken. Klik op **EventClass\_s** of een van de gebeurtenisnamen en Log Analytics wordt voortgezet met het samenstellen van een query. Zorg ervoor dat u uw query's voor hergebruik.
+Vouw in de opbouwfunctie voor query's, **LogManagement** > **AzureDiagnostics**. AzureDiagnostics bevat-Engine en servicegebeurtenissen. U ziet dat een query is gemaakt op het begeven. De EventClass\_s veld bevat xEvent-namen, die bekend als u xEvents hebt gebruikt voor on-premises logboekregistratie kunnen zoeken. Klik op **EventClass\_s** of een van de gebeurtenisnamen en Log Analytics-werkruimte blijft met het samenstellen van een query. Zorg ervoor dat u uw query's voor hergebruik.
 
 ### <a name="example-query"></a>Voorbeeld van een query
 Deze query berekent en retourneert CPU voor elke query end/vernieuwen end-gebeurtenis voor een model-database en de server:

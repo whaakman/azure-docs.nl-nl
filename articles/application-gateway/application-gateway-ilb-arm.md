@@ -1,5 +1,5 @@
 ---
-title: Met behulp van Azure-toepassingsgateway met interne Load Balancer - PowerShell | Microsoft Docs
+title: Met behulp van Azure Application Gateway met interne Load Balancer - PowerShell | Microsoft Docs
 description: Op deze pagina vindt u instructies voor het maken, configureren, openen en verwijderen van een Azure-toepassingsgateway met een interne load balancer (ILB) voor Azure Resource Manager
 documentationcenter: na
 services: application-gateway
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2018
 ms.author: victorh
-ms.openlocfilehash: b9bdc3f4a0f7eb20b1c0cbc33fb257577da08c26
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 92d0e079f9fafbb6c000c6b1746f37a16add4cf7
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598484"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417344"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Een toepassingsgateway met een interne load balancer (ILB) maken
 
@@ -35,11 +35,11 @@ In dit artikel worden de stappen beschreven voor het configureren van een toepas
 
 ## <a name="what-is-required-to-create-an-application-gateway"></a>Wat is er vereist om een toepassingsgateway te maken?
 
-* **Back-endserverpool:** de lijst met IP-adressen van de back-endservers. De IP-adressen moeten ofwel deel uitmaken van het virtueel netwerk, maar zich bevinden in een ander subnet voor de toepassingsgateway, ofwel openbare IP-/VIP-adressen zijn.
-* **Back-endserverpoolinstellingen:** elke pool heeft instellingen, zoals voor de poort, het protocol en de op cookies gebaseerde affiniteit. Deze instellingen zijn gekoppeld aan een pool en worden toegepast op alle servers in de pool.
-* **Front-endpoort:** dit is de openbare poort die in de toepassingsgateway wordt geopend. Het verkeer komt binnen via deze poort en wordt vervolgens omgeleid naar een van de back-endservers.
-* **Listener:** de listener beschikt over een front-endpoort, een protocol (Http of Https; deze zijn hoofdlettergevoelig) en de SSL-certificaatnaam (als u SSL-offloading configureert).
-* **Regel:** de regel verbindt de listener met de back-endserverpool en definieert naar welke back-endserverpool het verkeer moet worden omgeleid wanneer dit bij een bepaalde listener aankomt. Momenteel wordt alleen de regel *basic* ondersteund. De regel *basic* is een vorm van round-robinbelastingverdeling.
+* **Back-endserverpool:** De lijst met IP-adressen van de back-endservers. De IP-adressen moeten ofwel deel uitmaken van het virtueel netwerk, maar zich bevinden in een ander subnet voor de toepassingsgateway, ofwel openbare IP-/VIP-adressen zijn.
+* **Instellingen van back-endserverpool:** Elke pool heeft instellingen, zoals voor de poort, het protocol en de op cookies gebaseerde affiniteit. Deze instellingen zijn gekoppeld aan een pool en worden toegepast op alle servers in de pool.
+* **Front-endpoort:** Dit is de openbare poort die in de toepassingsgateway wordt geopend. Het verkeer komt binnen via deze poort en wordt vervolgens omgeleid naar een van de back-endservers.
+* **Listener:** De listener beschikt over een front-endpoort, een protocol (Http of Https; deze zijn hoofdlettergevoelig), en de SSL-certificaatnaam (als SSL-offloading configureert).
+* **Regel:** De regel verbindt de listener met de back-endserverpool en definieert naar welke back-endserverpool het verkeer moet worden omgeleid wanneer dit bij een bepaalde listener aankomt. Momenteel wordt alleen de regel *basic* ondersteund. De regel *basic* is een vorm van round-robinbelastingverdeling.
 
 ## <a name="create-an-application-gateway"></a>Een toepassingsgateway maken
 
@@ -91,7 +91,7 @@ New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
 Azure Resource Manager vereist dat er voor alle resourcegroepen een locatie wordt opgegeven. Deze locatie wordt gebruikt als de standaardlocatie voor resources in die resourcegroep. Zorg ervoor dat bij alle opdrachten voor het maken van een toepassingsgateway dezelfde resourcegroep wordt gebruikt.
 
-In het vorige voorbeeld gemaakt we een resourcegroep 'appgw-rg' en de locatie ' West ' genoemd.
+In het voorgaande voorbeeld wordt een resourcegroep met de naam 'appgw-rg' en de locatie VS-West' gemaakt.
 
 ## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Een virtueel netwerk en een subnet maken voor de toepassingsgateway
 
@@ -103,7 +103,7 @@ In het volgende voorbeeld ziet u hoe u een virtueel netwerk maakt met Resource M
 $subnetconfig = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 ```
 
-Deze stap wijst het adresbereik 10.0.0.0/24 toe aan een variabele subnet dat wordt gebruikt om een virtueel netwerk maken.
+Deze stap wijst het netwerkadresbereik 10.0.0.0/24 toe aan een subnetvariabele om te worden gebruikt voor het maken van een virtueel netwerk.
 
 ### <a name="step-2"></a>Stap 2
 
@@ -111,7 +111,7 @@ Deze stap wijst het adresbereik 10.0.0.0/24 toe aan een variabele subnet dat wor
 $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
 ```
 
-Deze stap maakt een virtueel netwerk met de naam 'appgwvnet' in de resourcegroep 'appgw-rg' voor de regio VS-West is met het voorvoegsel 10.0.0.0/16 met het subnet 10.0.0.0/24.
+Deze stap maakt u een virtueel netwerk met de naam 'appgwvnet' in de resource group 'appgw-rg' voor de regio VS-West, waarbij het voorvoegsel 10.0.0.0/16 met het subnet 10.0.0.0/24.
 
 ### <a name="step-3"></a>Stap 3
 
@@ -129,7 +129,7 @@ Deze stap wijst u het subnetobject toe aan de variabele $subnet voor de volgende
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 ```
 
-Deze stap maakt toepassingsgateway een IP-configuratie met de naam 'gatewayIP01'. Wanneer de toepassingsgateway wordt geopend, wordt er een IP-adres opgehaald via het geconfigureerde subnet en wordt het netwerkverkeer omgeleid naar de IP-adressen in de back-end-IP-pool. Onthoud dat elk exemplaar één IP-adres gebruikt.
+Deze stap maakt u een toepassingsgateway IP-configuratie met de naam 'gatewayIP01'. Wanneer de toepassingsgateway wordt geopend, wordt er een IP-adres opgehaald via het geconfigureerde subnet en wordt het netwerkverkeer omgeleid naar de IP-adressen in de back-end-IP-pool. Onthoud dat elk exemplaar één IP-adres gebruikt.
 
 ### <a name="step-2"></a>Stap 2
 
@@ -137,7 +137,7 @@ Deze stap maakt toepassingsgateway een IP-configuratie met de naam 'gatewayIP01'
 $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.1.1.8,10.1.1.9,10.1.1.10
 ```
 
-Deze stap configureert u de backend-IP-adresgroep met de naam 'pool01' met IP-adressen '10.1.1.8, 10.1.1.9, 10.1.1.10'. Dit zijn de IP-adressen waardoor het netwerkverkeer van het front-end-IP-eindpunt binnenkomt. U vervangt de bovenstaande IP-adressen met de IP-adreseindpunten van uw eigen toepassing.
+Deze stap configureert u de back-end IP-adresgroep met de naam 'pool01' met IP-adressen '10.1.1.8, 10.1.1.9, 10.1.1.10'. Dit zijn de IP-adressen waardoor het netwerkverkeer van het front-end-IP-eindpunt binnenkomt. U vervangt de bovenstaande IP-adressen met de IP-adreseindpunten van uw eigen toepassing.
 
 ### <a name="step-3"></a>Stap 3
 
@@ -145,7 +145,7 @@ Deze stap configureert u de backend-IP-adresgroep met de naam 'pool01' met IP-ad
 $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 ```
 
-Deze stap configureert u application gateway-instelling 'poolsetting01' voor de load balanced netwerkverkeer in de groep back-end.
+Deze stap configureert u netwerkverkeer van application gateway-instelling 'poolsetting01' voor de belasting met gelijke taakverdeling in de back-endpool.
 
 ### <a name="step-4"></a>Stap 4
 
@@ -161,7 +161,7 @@ Deze stap configureert u de front-end-IP-poort met de naam 'frontendport01' voor
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -Subnet $subnet
 ```
 
-Deze stap maakt u de front-end-IP-configuratie 'fipconfig01' genoemd en koppelt u deze aan een particuliere IP-adres van het subnet van de huidige virtuele netwerk.
+Deze stap maakt u de front-end-IP-configuratie met de naam 'fipconfig01' en associeert deze met een privé-IP-adres van een subnet voor de huidige virtueel netwerk.
 
 ### <a name="step-6"></a>Stap 6
 
@@ -169,7 +169,7 @@ Deze stap maakt u de front-end-IP-configuratie 'fipconfig01' genoemd en koppelt 
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 ```
 
-Deze stap maakt de listener met de naam 'listener01' en koppelt u de front-endpoort aan de front-end-IP-configuratie.
+Deze stap maakt u een listener met de naam 'listener01' en koppelt u de front-endpoort aan de front-end-IP-configuratie.
 
 ### <a name="step-7"></a>Stap 7
 
@@ -177,7 +177,7 @@ Deze stap maakt de listener met de naam 'listener01' en koppelt u de front-endpo
 $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 ```
 
-Deze stap maakt de load balancer-routeringsregel genaamd 'rule01', waarmee het gedrag van de load balancer worden geconfigureerd.
+Deze stap maakt u de load balancer-routeringsregel met de naam 'rule01"waarmee het gedrag van de load balancer worden geconfigureerd.
 
 ### <a name="step-8"></a>Stap 8
 
@@ -188,7 +188,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 Deze stap configureert u de exemplaargrootte van de toepassingsgateway.
 
 > [!NOTE]
-> De standaardwaarde voor *InstanceCount* is 2 en de maximale waarde is 10. De standaardwaarde voor *GatewaySize* is Medium. U kunt kiezen tussen Standard_Small, Standard_Medium en Standard_Large.
+> De standaardwaarde voor de capaciteit is 2. Voor de Sku-naam, kunt u kiezen tussen Standard_Small, Standard_Medium en Standard_Large.
 
 ## <a name="create-an-application-gateway-by-using-new-azureapplicationgateway"></a>Een toepassingsgateway maken met behulp van New-AzureApplicationGateway
 
@@ -198,11 +198,11 @@ Hiermee maakt een toepassingsgateway met alle configuratie-items uit de bovensta
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
 
-Deze stap maakt een toepassingsgateway met alle configuratie-items uit de bovenstaande stappen. In dit voorbeeld heeft de toepassingsgateway de naam appgwtest.
+Deze stap maakt u een toepassingsgateway met alle configuratie-items uit de bovenstaande stappen. In dit voorbeeld heeft de toepassingsgateway de naam appgwtest.
 
 ## <a name="delete-an-application-gateway"></a>Een toepassingsgateway verwijderen
 
-Om een toepassingsgateway verwijderen, moet u de volgende stappen in volgorde uitvoeren:
+Als u wilt verwijderen van een application gateway, moet u de volgende stappen in volgorde uit:
 
 1. Gebruik de cmdlet `Stop-AzureRmApplicationGateway` om de gateway te stoppen.
 2. Gebruik de cmdlet `Remove-AzureRmApplicationGateway` om de gateway te verwijderen.
@@ -218,7 +218,7 @@ $getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw
 
 ### <a name="step-2"></a>Stap 2
 
-Gebruik `Stop-AzureRmApplicationGateway` om de toepassingsgateway te stoppen. Dit voorbeeld wordt de `Stop-AzureRmApplicationGateway` cmdlet uit op de eerste regel weergegeven, gevolgd door de uitvoer.
+Gebruik `Stop-AzureRmApplicationGateway` om de toepassingsgateway te stoppen. Dit voorbeeld laat zien de `Stop-AzureRmApplicationGateway` cmdlet uit op de eerste regel weergegeven, gevolgd door de uitvoer.
 
 ```powershell
 Stop-AzureRmApplicationGateway -ApplicationGateway $getgw  

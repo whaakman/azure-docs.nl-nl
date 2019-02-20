@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6493da0cfc86560fac8e69f4329804c628942806
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: bb9b90ca239ff03f44b76a7ee5754eb7872caa31
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328707"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415898"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Prestatierichtlijnen voor SQL Server in Azure Virtual Machines
 
@@ -88,11 +88,9 @@ Het station voor tijdelijke opslag, met het label de **D**: station, niet naar A
 
 Voor de D-serie, uit de Dv2-serie en G-serie VM's is het tijdelijke station op deze virtuele machines op basis van SSD. Als uw workload intensief gebruikgemaakt van TempDB (zoals tijdelijke objecten of complexe joins wordt) TempDB opslaan op de **D** station kan leiden tot hogere TempDB-doorvoer en lagere latentie voor TempDB. Zie voor een voorbeeldscenario de TempDB-discussie in het volgende blogbericht: [De richtlijnen voor opslag voor SQL Server op Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm).
 
-<<<<<<< HEAD voor VM's die ondersteuning bieden voor premium SSD's (DS-serie, DSv2-serie en GS-serie), het is raadzaam TempDB opslaan op een schijf die ondersteuning biedt voor premium SSD's met lees-caching ingeschakeld. Er is een uitzondering op deze aanbeveling; Als uw verbruik TempDB schrijven-intensieve is, u betere prestaties bereiken door TempDB opslaan op de lokale **D** station, die ook SSD-gebaseerde op deze machinegrootten.
-=== Voor VM's die ondersteuning bieden voor Premium Storage (DS-serie, DSv2-serie en GS-serie), wordt u aangeraden TempDB opslaan op een schijf die ondersteuning biedt voor Premium-opslag met lees-caching ingeschakeld. 
+Voor virtuele machines die ondersteuning bieden voor premium SSD's (DS-serie, DSv2-serie en GS-serie), wordt u aangeraden TempDB opslaan op een schijf die ondersteuning biedt voor premium SSD's met lees-caching ingeschakeld.
 
-Er is een uitzondering op deze aanbeveling: _als uw verbruik TempDB schrijven-intensieve is, u betere prestaties bereiken door TempDB opslaan op de lokale **D** station, die ook SSD-gebaseerde op deze machinegrootten._ 
->>>>>>> 4326ed494fad7ef7be29e2f4ba3301ec496acf76
+Er is een uitzondering op deze aanbeveling: _als uw verbruik TempDB schrijven-intensieve is, u betere prestaties bereiken door TempDB opslaan op de lokale **D** station, die ook SSD-gebaseerde op deze machinegrootten._
 
 ### <a name="data-disks"></a>Gegevensschijven
 

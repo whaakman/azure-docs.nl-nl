@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 1/18/2019
+ms.date: 2/19/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: dce158e600d3bf5dbcc552aff82959208d7b47f8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0319445f946a53ace5718dce1ad593d0a8225ecc
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249058"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428513"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>De installatiekopie van een virtuele machine beschikbaar maken in Azure Stack
 
 *Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-In Azure Stack, kunt u installatiekopieën van virtuele machines beschikbaar aan uw gebruikers. Deze installatiekopieën kunnen worden verwezen door Azure Resource Manager-sjablonen of kunt u ze toevoegen aan de gebruikersinterface van de Azure Marketplace als een Marketplace-item. U kunt ofwel een installatiekopie-formulier gebruiken de globale Azure Marketplace of uw eigen aangepaste installatiekopie toevoegen. U kunt een virtuele machine met behulp van de portal of Windows PowerShell kunt toevoegen.
+In Azure Stack, kunt u installatiekopieën van virtuele machines beschikbaar aan uw gebruikers. Deze installatiekopieën kunnen worden gebruikt door Azure Resource Manager-sjablonen. U kunt ze ook toevoegen aan de Azure Marketplace-UI als een Marketplace-item. Een afbeelding op formulier globale Azure Marketplace of uw eigen aangepaste installatiekopie gebruiken. De installatiekopie kan worden toegevoegd met behulp van de portal of Windows PowerShell.
 
 ## <a name="add-a-vm-image-through-the-portal"></a>Toevoegen van een VM-installatiekopie via de portal
 

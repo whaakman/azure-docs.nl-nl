@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4d2edeaf7423d3a46becf386294d2dd8c46e9ab7
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 9779885869666ffd1198afcda944823b99d52e5b
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508331"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417970"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Verbinding maken met virtuele netwerken van verschillende implementatiemodellen met behulp van de portal
 
@@ -30,6 +30,8 @@ Een klassieke VNet verbinden met een Resource Manager-VNet is vergelijkbaar met 
 Als u nog geen een virtuele netwerkgateway en niet wilt maken, kunt u in plaats daarvan daarmee verbinding maken met uw vnet's met behulp van VNet-Peering. Bij VNet-peering wordt geen VPN-gateway gebruikt. Zie het artikel [VNet-peering](../virtual-network/virtual-network-peering-overview.md) voor meer informatie.
 
 ### <a name="before"></a>Voordat u begint
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * Deze stappen wordt ervan uitgegaan dat beide Vnetten al zijn gemaakt. Als u in dit artikel bij wijze van oefening en geen vnet's hebt, moet u er koppelingen in de stappen voor het maken van deze zijn.
 * Controleer of dat de adresbereiken voor de VNets niet met elkaar overlappen, of met een van de bereiken voor andere verbindingen die de gateways kunnen worden verbonden overlapt met.
@@ -226,19 +228,19 @@ In deze stap configureert u de verbinding van het klassieke VNet naar het Resour
 Open de PowerShell-console met verhoogde rechten en meld u aan bij uw Azure-account. Na het aanmelden, worden instellingen van uw account gedownload zodat ze beschikbaar voor Azure PowerShell zijn. De volgende cmdlet vraagt u om de aanmeldingsreferenties voor uw Azure-Account voor het Resource Manager-implementatiemodel:
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Haal een lijst met uw Azure-abonnementen op.
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Als u meer dan één abonnement hebt, geeft u het abonnement dat u wilt gebruiken.
 
 ```powershell
-Select-AzureRmSubscription -SubscriptionName "Name of subscription"
+Select-AzSubscription -SubscriptionName "Name of subscription"
 ```
 
 Vervolgens Meld u aan bij de klassieke (Service Management) van de PowerShell-cmdlets gebruiken. Gebruik de volgende opdracht om toe te voegen van uw Azure-account voor het klassieke implementatiemodel:

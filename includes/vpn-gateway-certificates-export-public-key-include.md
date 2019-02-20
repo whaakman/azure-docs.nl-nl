@@ -5,19 +5,19 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 02/13/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 3c6485406c67bf84b9e0fdfb9f4683abe5062d6c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: afd4836229c60ebef1536d4fa1ca4206a492e56d
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53444075"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56418106"
 ---
 Na het maken van een zelfondertekend basiscertificaat, exporteer de openbare sleutel cer-basiscertificaatbestand (niet de persoonlijke sleutel). U wordt dit bestand later uploaden naar Azure. De volgende stappen kunt u het cer-bestand voor uw zelfondertekend basiscertificaat exporteren:
 
-1. Als u een CER-bestand wilt genereren van het certificaat, opent u **Gebruikerscertificaten beheren**. Zoek het zelfondertekende basiscertificaat, meestal in 'Certificaten - Huidige gebruiker\Persoonlijk\Certificaten', en klik er met de rechtermuisknop op. Klik op **Alle taken** en vervolgens op **Exporteren**. Hiermee opent u de **Wizard Certificaat exporteren**. Als u het certificaat in de huidige gebruiker\Persoonlijk\Certificaten niet vinden kan het zijn dat u certificaten Manager geopend voor de lokale computer-certificaten (titel zijn 'Certificaten - lokale Computer' als plaats van 'Certificaten - huidige gebruiker'). Certificaten Manager openen in huidige gebruikersbereik van starten vanuit de dezelfde PowerShell waar de certificaten zijn gemaakt door te typen ```certmgr```.
+1. Als u een CER-bestand wilt genereren van het certificaat, opent u **Gebruikerscertificaten beheren**. Zoek het zelfondertekende basiscertificaat, meestal in 'Certificaten - Huidige gebruiker\Persoonlijk\Certificaten', en klik er met de rechtermuisknop op. Klik op **Alle taken** en vervolgens op **Exporteren**. Hiermee opent u de **Wizard Certificaat exporteren**. Als u het certificaat in de huidige gebruiker\Persoonlijk\Certificaten niet vinden, mogelijk hebt u per ongeluk geopend 'Certificaten - lokale Computer, is' in plaats van 'Certificaten - huidige gebruiker'). Als u Certificate Manager openen in de huidige gebruikersbereik met behulp van PowerShell wilt, u typt *certmgr* in het consolevenster.
 
    ![Exporteren](./media/vpn-gateway-certificates-export-public-key-include/export.png)
 2. Klik in de wizard op **Volgende**.

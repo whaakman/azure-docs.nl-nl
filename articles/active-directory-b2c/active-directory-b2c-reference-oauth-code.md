@@ -1,5 +1,5 @@
 ---
-title: Autorisatiecodestroom in Azure Active Directory B2C | Microsoft Docs
+title: Autorisatiecodestroom - Azure Active Directory B2C | Microsoft Docs
 description: Meer informatie over het bouwen van web-apps met behulp van Azure AD B2C en OpenID Connect-verificatieprotocol.
 services: active-directory-b2c
 author: davidmu1
@@ -7,17 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: f1f372cd8fc5ea1e64fbe195fd15790cd0535347
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4ee67f07965036a71151d7b6a5092b9a76d94999
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164024"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428683"
 ---
-# <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: OAuth 2.0-autorisatiecodestroom
+# <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>OAuth 2.0-autorisatiecodestroom in Azure Active Directory B2C
+
 U kunt de OAuth 2.0-autorisatiecode verlenen in apps die zijn geïnstalleerd op een apparaat toegang te krijgen tot beveiligde bronnen, zoals web-API's. Met behulp van de Azure Active Directory B2C (Azure AD B2C)-implementatie van OAuth 2.0, kunt u registratie, aanmelding toevoegen en andere identiteitsbeheer taken naar uw mobiele en bureaublad-apps. In dit artikel is taalonafhankelijk. In het artikel wordt beschreven hoe u berichten verzenden en ontvangen HTTP zonder gebruik van een open source-bibliotheken.
 
 De OAuth 2.0-autorisatiecodestroom wordt beschreven in [sectie 4.1 van de OAuth 2.0-specificatie](https://tools.ietf.org/html/rfc6749). U kunt deze gebruiken voor verificatie en autorisatie in de meeste [toepassingstypen](active-directory-b2c-apps.md), met inbegrip van webtoepassingen en systeemeigen geïnstalleerde toepassingen. U kunt de OAuth 2.0-autorisatiecodestroom veilig toegangstokens verkrijgen en vernieuwen van tokens voor uw toepassingen, die kunnen worden gebruikt voor toegang tot resources die worden beveiligd door een [autorisatieserver](active-directory-b2c-reference-protocols.md).  Het vernieuwingstoken dat kan de client en nieuwe toegang verkrijgen (vernieuwen) tokens wanneer het toegangstoken is verlopen, doorgaans na een uur.
@@ -27,7 +28,7 @@ In dit artikel is gericht op de **openbare clients** OAuth 2.0-autorisatiecodest
 > [!NOTE]
 > Identiteitsbeheer toevoegen aan een web-app met behulp van Azure AD B2C, gebruikt u [OpenID Connect](active-directory-b2c-reference-oidc.md) in plaats van OAuth 2.0.
 
-Azure AD B2C breidt de standaard die OAuth 2.0 stromen hiervoor meer dan een eenvoudige verificatie en autorisatie. Het geeft de [gebruiker stroom parameter](active-directory-b2c-reference-policies.md). Met gebruikersstromen, kunt u OAuth 2.0 gebruiken om toe te voegen van gebruikerservaringen voor uw toepassing, zoals registratie, aanmelding en Profielbeheer. In dit artikel laten we zien u het gebruik van OAuth 2.0 en gebruiker stromen voor het implementeren van elk van deze ervaringen in uw systeemeigen toepassingen. We laten ook zien u hoe u aan de toegangstokens voor toegang tot web-API's.
+Azure AD B2C breidt de standaard die OAuth 2.0 stromen hiervoor meer dan een eenvoudige verificatie en autorisatie. Het geeft de [gebruiker stroom parameter](active-directory-b2c-reference-policies.md). Met gebruikersstromen, kunt u OAuth 2.0 gebruiken om toe te voegen van gebruikerservaringen voor uw toepassing, zoals registratie, aanmelding en Profielbeheer. Id-providers die gebruikmaken van de OAuth 2.0-protocol zijn [Amazon](active-directory-b2c-setup-amzn-app.md), [Azure Active Directory](active-directory-b2c-setup-oidc-azure-active-directory.md), [Facebook](active-directory-b2c-setup-fb-app.md), [GitHub](active-directory-b2c-setup-github-app.md), [ Google](active-directory-b2c-setup-goog-app.md), en [LinkedIn](active-directory-b2c-setup-li-app.md).
 
 In het voorbeeld van de HTTP-aanvragen in dit artikel gebruiken we ons voorbeeld van Azure AD B2C-directory **fabrikamb2c.onmicrosoft.com**. We gebruiken ook onze voorbeeld-toepassingen en -stromen. U kunt ook zelf de aanvragen proberen met behulp van deze waarden, of kunt u deze vervangen door uw eigen waarden.
 Meer informatie over het [ophalen van uw eigen Azure AD B2C-directory-, toepassings- en gebruiker stromen](#use-your-own-azure-ad-b2c-directory).
@@ -71,7 +72,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_edit_profile
 ```
 
-| Parameter | Vereist? | Beschrijving |
+| Parameter | Vereist? | Description |
 | --- | --- | --- |
 | client_id |Vereist |De toepassings-ID die is toegewezen aan uw app in de [Azure-portal](https://portal.azure.com). |
 | response_type |Vereist |Het reactietype, waaronder moet `code` voor de autorisatiecodestroom. |
@@ -94,7 +95,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...        // the auth
 &state=arbitrary_data_you_can_receive_in_the_response                // the value provided in the request
 ```
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | code |De autorisatiecode die de app heeft aangevraagd. De app kan de autorisatiecode gebruiken om aan te vragen van een toegangstoken voor een doelbron. Er worden autorisatiecodes zeer eenvoudige. Normaal gesproken verloopt deze na ongeveer 10 minuten. |
 | state |Zie de volledige beschrijving van de tabel in de voorgaande sectie. Als een `state` parameter is opgenomen in de aanvraag, dezelfde waarde moet worden weergegeven in het antwoord. De app moet controleren of de `state` waarden in de aanvraag en respons identiek zijn. |
@@ -108,7 +109,7 @@ error=access_denied
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | error |Een tekenreeks voor de foutcode die u gebruiken kunt voor het classificeren van de typen fouten die optreden. U kunt ook de tekenreeks gebruiken om te reageren op fouten. |
 | error_description |Een bericht specifieke fout die u kan helpen de hoofdoorzaak van een verificatiefout identificeren. |
@@ -126,7 +127,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 ```
 
-| Parameter | Vereist? | Beschrijving |
+| Parameter | Vereist? | Description |
 | --- | --- | --- |
 | p |Vereist |De gebruikersstroom die is gebruikt voor het verkrijgen van de autorisatiecode. U kunt een andere gebruikersstroom niet gebruiken in deze aanvraag. Houd er rekening mee dat u deze parameter toevoegen de *querytekenreeks*, dus niet in de hoofdtekst van het bericht. |
 | client_id |Vereist |De toepassings-ID die is toegewezen aan uw app in de [Azure-portal](https://portal.azure.com). |
@@ -147,7 +148,7 @@ Een geslaagde respons token ziet er als volgt:
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | not_before |De tijd waarop het token wordt beschouwd als geldig is, in epoche-tijd. |
 | token_type |De waarde van het type token. Het enige type die ondersteuning biedt voor Azure AD is Bearer. |
@@ -165,7 +166,7 @@ Foutberichten er als volgt:
 }
 ```
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | error |Een tekenreeks voor de foutcode die u gebruiken kunt voor het classificeren van de typen fouten die optreden. U kunt ook de tekenreeks gebruiken om te reageren op fouten. |
 | error_description |Een bericht specifieke fout die u kan helpen de hoofdoorzaak van een verificatiefout identificeren. |
@@ -190,7 +191,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&client_secret=JqQX2PNo9bpM0uEihUPzyrh&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
-| Parameter | Vereist? | Beschrijving |
+| Parameter | Vereist? | Description |
 | --- | --- | --- |
 | p |Vereist |De gebruikersstroom die is gebruikt om de oorspronkelijke vernieuwingstoken te verkrijgen. U kunt een andere gebruikersstroom niet gebruiken in deze aanvraag. Houd er rekening mee dat u deze parameter toevoegen de *querytekenreeks*, dus niet in de hoofdtekst van het bericht. |
 | client_id |Vereist |De toepassings-ID die is toegewezen aan uw app in de [Azure-portal](https://portal.azure.com). |
@@ -212,7 +213,7 @@ Een geslaagde respons token ziet er als volgt:
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | not_before |De tijd waarop het token wordt beschouwd als geldig is, in epoche-tijd. |
 | token_type |De waarde van het type token. Het enige type die ondersteuning biedt voor Azure AD is Bearer. |
@@ -230,7 +231,7 @@ Foutberichten er als volgt:
 }
 ```
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | error |Een tekenreeks voor de foutcode die u gebruiken kunt voor het classificeren van typen fouten die optreden. U kunt ook de tekenreeks gebruiken om te reageren op fouten. |
 | error_description |Een bericht specifieke fout die u kan helpen de hoofdoorzaak van een verificatiefout identificeren. |

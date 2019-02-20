@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 074f090d295ef5eafad48e57f68dad019bf7eab9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 23618b545814e89a7343d2db4664405855051c1b
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470032"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415439"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Geavanceerd automatisch schalen configureren met behulp van Resource Manager-sjablonen voor VM-Schaalsets
 U kunt in- en scale-out in Virtual Machine Scale Sets op basis van prestaties metrische drempels, door een terugkerend schema, of door een bepaalde datum. U kunt ook e-mail en webhook-meldingen voor schaalacties configureren. In dit scenario ziet u een voorbeeld van het configureren van al deze objecten met behulp van Resource Manager-sjabloon voor een VM-Schaalset.
@@ -48,9 +48,9 @@ In dit scenario gebruiken we [Azure Resource Explorer](https://resources.azure.c
 4. Hier volgt een hypothetische vergroten/verkleinen scenario die we voor deze procedure ook gebruiken.
 
     * **Belasting op basis van** -ik wil graag uit of in te schalen op basis van de belasting van mijn toepassing die wordt gehost op mijn set.* schaal
-    * **Grootte van de wachtrij bericht** -ik gebruik een Service Bus-wachtrij voor de binnenkomende berichten voor mijn toepassing. Ik gebruik het aantal berichten en de CPU-percentage van de wachtrij en een standaardprofiel voor het activeren van een schaalactie als een van het aantal berichten of CPU treffers in de threshold.* configureren
-    * **Tijd van de week en dag** -ik wil een wekelijks terugkerende 'tijd van de dag' op basis van profiel met de naam 'Doordeweekse dag's ochtends uur'. Op basis van historische gegevens, weet ik is het beter dat een bepaald aantal VM-exemplaren voor het afhandelen van mijn toepassing laden tijdens deze tijd.*
-    * **Speciale datums** -ik heb een profiel 'Product starten dag' toegevoegd. Ik plan vooruit voor specifieke datums, zodat mijn toepassing gereed om af te handelen van de belasting die verschuldigd marketing aankondigingen en is als we een nieuw product in de App.* plaatst
+    * **Grootte van de wachtrij bericht** -ik gebruik een Service Bus-wachtrij voor de binnenkomende berichten voor mijn toepassing. Ik gebruik van het aantal berichten en de CPU-percentage van de wachtrij en configureren van een standaardprofiel voor het activeren van een schaalactie als een van het aantal berichten of CPU treffers in de drempelwaarde.\*
+    * **Tijd van de week en dag** -ik wil een wekelijks terugkerende 'tijd van de dag' op basis van profiel met de naam 'Doordeweekse dag's ochtends uur'. Op basis van historische gegevens, ik weet dat is het beter dat een bepaald aantal VM-exemplaren voor het afhandelen van mijn toepassing laden tijdens deze periode.\*
+    * **Speciale datums** -ik heb een profiel 'Product starten dag' toegevoegd. Ik plan vooruit voor specifieke datums, zodat mijn toepassing gereed om de belasting die verschuldigd marketing aankondigingen en is wanneer we een nieuw product in de toepassing te verwerken.\*
     * *De laatste twee profielen kunnen ook andere prestaties metrische gegevens op basis van regels binnen deze hebben. In dit geval geen besloot en in plaats daarvan op basis van regels om te vertrouwen op de prestaties van standaardgegevens. Regels zijn optioneel voor de terugkerende en op basis van datum-profielen.*
 
     Prioriteitsaanduiding van de profielen en regels voor automatisch schalen-engine wordt ook vastgelegd in de [aanbevolen procedures voor automatisch schalen](autoscale-best-practices.md) artikel.

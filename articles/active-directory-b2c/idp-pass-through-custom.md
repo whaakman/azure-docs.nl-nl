@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: f21f835ea50563497b73fb6e4505f60411029406
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cd24d4ad026af7d8bce70902376c3a31d659a203
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882995"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56427868"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Een toegangstoken via een aangepast beleid doorgeven aan uw toepassing in Azure Active Directory B2C
 
@@ -24,11 +24,11 @@ ms.locfileid: "55882995"
 
 Een [aangepast beleid](active-directory-b2c-get-started-custom.md) in Azure Active Directory (Azure AD) B2C biedt gebruikers van uw toepassing de mogelijkheid om te registreren of aanmelden met een id-provider. Als dit gebeurt, Azure AD B2C ontvangt een [toegangstoken](active-directory-b2c-reference-tokens.md) van de id-provider. Azure AD B2C gebruikt dit token voor het ophalen van informatie over de gebruiker. U voegt een claimtype en de uitvoer claim naar het aangepaste beleid om het token door naar de toepassingen die u in Azure AD B2C registreert toe. 
 
-Azure AD B2C ondersteunt momenteel alleen het toegangstoken van doorgeven [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) id-providers, waaronder Facebook en [Google](active-directory-b2c-custom-setup-goog-idp.md). Voor alle andere id-providers, wordt de claim leeg geretourneerd.
+Azure AD B2C biedt ondersteuning voor het doorgeven van het toegangstoken van [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) en [OpenID Connect](active-directory-b2c-reference-oidc.md) id-providers. Voor alle andere id-providers, wordt de claim leeg geretourneerd.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Het aangepaste beleid is geconfigureerd met een OAuth 2.0-id-provider.
+- Het aangepaste beleid is geconfigureerd met een id-provider van OAuth 2.0 of OpenID Connect.
 
 ## <a name="add-the-claim-elements"></a>De claimelementen toevoegen 
 
@@ -87,8 +87,8 @@ Bij het testen van uw toepassingen in Azure AD B2C, kan het nuttig zijn om de Az
 ### <a name="upload-the-files"></a>De bestanden uploaden
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
-3. Kies **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **Azure AD B2C**.
+2. Zorg ervoor dat u de map gebruikt met uw Azure AD B2C-tenant door te klikken op het **Map- en abonnementsfilter** in het bovenste menu en de map te kiezen waarin uw tenant zich bevindt.
+3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 4. Selecteer **Identity-Ervaringsframework**.
 5. Klik op de pagina aangepast beleid **uploaden beleid**.
 6. Selecteer **het beleid overschrijven als deze bestaat**, en zoek en selecteer de *TrustframeworkExtensions.xml* bestand.

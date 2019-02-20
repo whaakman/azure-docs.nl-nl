@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: 6bcf096bd51990cf280784deceac19eea05d32b4
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 4dac40e9fad8361c0e6c8a8758028743f2506f56
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977118"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428088"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Uw ontwikkelomgeving instellen in Mac OS X
 > [!div class="op_single_selector"]
@@ -53,14 +53,14 @@ Als u een lokale Docker-container wilt instellen en daarop een Service Fabric-cl
         "fixed-cidr-v6": "fd00::/64"
     }
     ```
-    U kunt deze instellingen rechtstreeks in het bestand daemon.json in uw Docker-installatiepad bijwerken.
+    U kunt deze instellingen rechtstreeks in het bestand daemon.json in uw Docker-installatiepad bijwerken. U kunt de daemon-configuratie-instellingen in Docker rechtstreeks wijzigen. Selecteer de **Docker-pictogram**, en selecteer vervolgens **voorkeuren** > **Daemon** > **Geavanceerd**.
     
     >[!NOTE]
     >
-    >De locatie van het bestand daemon.json kan variëren per machine. Bijvoorbeeld, ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
+    >Wijzigen van de rechtstreeks in Docker-daemon is aanbevolen omdat de locatie van het bestand daemon.json per machine verschillen variëren kan. Bijvoorbeeld, ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
     >
-    >De aanbevolen aanpak is het direct aanpassen van de daemon-configuratie-instellingen in Docker. Selecteer de **Docker-pictogram**, en selecteer vervolgens **voorkeuren** > **Daemon** > **Geavanceerd**.
-    >
+
+    >[!TIP]
     >U wordt aangeraden tijdens het testen van grote toepassingen de resources te verhogen die aan Docker zijn toegewezen. U kunt dit doen door het **Docker-pictogram** te selecteren en vervolgens **Geavanceerd** om het aantal kernen en het geheugen aan te passen.
 
 2. Maak in een nieuwe map een bestand met de naam `Dockerfile` om uw Service Fabric Image te maken:
@@ -110,7 +110,7 @@ Als u een lokale Docker-container wilt instellen en daarop een Service Fabric-cl
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
     >
 
-5. Het duurt even voor het cluster is gestart. U kunt logboeken bekijken via de volgende opdracht of naar het dashboard gaan om de status van het cluster, [http://localhost:19080](http://localhost:19080), te bekijken:
+5. Het cluster duurt even om te starten. Wanneer deze wordt uitgevoerd, u kunt logboeken bekijken via de volgende opdracht of naar het dashboard gaan om de status van het cluster weer te geven [ http://localhost:19080 ](http://localhost:19080):
 
     ```bash 
     docker logs sftestcluster
@@ -118,7 +118,7 @@ Als u een lokale Docker-container wilt instellen en daarop een Service Fabric-cl
 
 
 
-6. Wanneer u klaar bent, stoppen en opschonen de container met de volgende opdracht:
+6. Om te stoppen en opschonen de container, gebruikt u de volgende opdracht. Echter, we gebruiken deze container in de volgende stap.
 
     ```bash 
     docker rm -f sftestcluster
@@ -173,6 +173,9 @@ Service Fabric biedt hulpprogramma's waarmee u vanuit de terminal een Service Fa
     brew cask install java
     brew install gradle
     ```
+
+    >[!TIP]
+    > Moet u controleren of dat u hebt de juiste versie van de JDK is geïnstalleerd. 
 
 ## <a name="deploy-your-application-on-your-mac-from-the-terminal"></a>Toepassingen implementeren op uw Mac vanuit de terminal
 

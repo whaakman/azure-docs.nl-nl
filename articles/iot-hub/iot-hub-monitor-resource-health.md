@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: kgremban
-ms.openlocfilehash: 3b56097f8805b4c6d95256ae1753daf5ded266fb
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 8c575c6d34543cbd8f692c64b43cf738b4c22617
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888393"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415626"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Controleer de status van Azure IoT Hub en snel problemen vaststellen
 
@@ -302,12 +302,118 @@ De categorie directe methoden houdt request response-interacties verzonden naar 
             "category": "DirectMethods",
             "level": "Information",
             "durationMs": "1",
-            "properties": "{\"deviceId\":\"<deviceId>\", \"RequestSize\": 1, \"ResponseSize\": 1, \"sdkVersion\": \"2017-07-11\"}", 
+            "properties": "{\"deviceId\":<messageSize>, \"RequestSize\": 1, \"ResponseSize\": 1, \"sdkVersion\": \"2017-07-11\"}", 
             "location": "Resource location"
         }
     ]
 }
 ```
+
+#### <a name="distributed-tracing-preview"></a>Gedistribueerde tracering (Preview)
+
+De categorie gedistribueerde tracering houdt de correlatie-id's voor berichten die de trace-context-header bevatten. Om deze logboeken, code aan de clientzijde worden bijgewerkt door het volgende [analyseren en onderzoeken van IoT-toepassingen end-to-end met IoT Hub gedistribueerde tracering (preview)](iot-hub-distributed-tracing.md).
+
+Houd er rekening mee dat `correlationId` en voldoet aan de [W3C Trace Context](https://github.com/w3c/trace-context) voorstel, waar deze bevat een `trace-id` , evenals een `span-id`. 
+
+##### <a name="iot-hub-d2c-device-to-cloud-logs"></a>Logboeken van IoT Hub D2C (apparaat-naar-cloud)
+
+IoT Hub registreert dit logboek wanneer een bericht weergegeven met de eigenschappen van geldige spoor op IoT-Hub aankomt. 
+
+```json
+{
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "DiagnosticIoTHubD2C",
+            "category": "DistributedTracing",
+            "correlationId": "00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01",
+            "level": "Information",
+            "resultType": "Success",
+            "resultDescription":"Receive message success",
+            "durationMs": "",
+            "properties": "{\"messageSize\": 1, \"deviceId\":\"<deviceId>\", \"callerLocalTimeUtc\": : \"2017-02-22T03:27:28.633Z\", \"calleeLocalTimeUtc\": \"2017-02-22T03:27:28.687Z\"}", 
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+Hier `durationMs` niet is berekend als de klok van de IoT Hub mogelijk niet gesynchroniseerd met de apparaatklok en een duur van de berekening kan dus misleidend. Het is raadzaam schrijven met behulp van logica voor de de tijdstempels in de `properties` sectie om vast te leggen van pieken in de latentie van apparaat-naar-cloud.
+
+| Eigenschap | Type | Description |
+|--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
+| **messageSize** | Geheel getal | De grootte van apparaat-naar-cloud bericht in bytes |
+| **deviceId** | Tekenreeks van ASCII-7-bits alfanumerieke tekens | De identiteit van het apparaat |
+| **callerLocalTimeUtc** | UTC timestamp | De aanmaaktijd van het bericht, zoals gemeld door de lokale klok van apparaat |
+| **calleeLocalTimeUtc** | UTC timestamp | De tijd van aankomst bericht bij de IoT-Hub gateway zoals gemeld door IoT Hub-service kant klok |
+
+##### <a name="iot-hub-ingress-logs"></a>IoT Hub inkomend Logboeken
+
+IoT Hub registreert dit logboek bij het bericht met geldige trace-eigenschappen worden geschreven naar interne of ingebouwde Event Hub.
+
+```json
+{
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "DiagnosticIoTHubIngress",
+            "category": "DistributedTracing",
+            "correlationId": "00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01",
+            "level": "Information",
+            "resultType": "Success",
+            "resultDescription":"Ingress message success",
+            "durationMs": "10",
+            "properties": "{\"isRoutingEnabled\": \"true\", \"parentSpanId\":\"0144d2590aacd909\"}", 
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+In de `properties` sectie, dit logboek bevat aanvullende informatie over bericht inkomend
+
+| Eigenschap | Type | Description |
+|--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
+| **isRoutingEnabled** | String | True of false, geeft u aan of Routering van berichten is ingeschakeld in de IoT-Hub |
+| **parentSpanId** | String | De [bereik-id](https://w3c.github.io/trace-context/#parent-id) van het bericht bovenliggende, die in dit geval de D2C message-tracering zijn |
+
+##### <a name="iot-hub-egress-logs"></a>IoT Hub-logboeken voor uitgaand verkeer
+
+IoT Hub records dit melden wanneer [routering](iot-hub-devguide-messages-d2c.md) is ingeschakeld en het bericht is geschreven naar een [eindpunt](iot-hub-devguide-endpoints.md). Als de routering niet is ingeschakeld, vastleggen geen IoT Hub dit logboek.
+
+```json
+{
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "DiagnosticIoTHubEgress",
+            "category": "DistributedTracing",
+            "correlationId": "00-8cd869a412459a25f5b4f31311223344-98ac3578922acd26-01",
+            "level": "Information",
+            "resultType": "Success",
+            "resultDescription":"Egress message success",
+            "durationMs": "10",
+            "properties": "{\"endpointType\": \"EventHub\", \"endpointName\": \"myEventHub\", \"parentSpanId\":\"349810a9bbd28730\"}", 
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+In de `properties` sectie, dit logboek bevat aanvullende informatie over bericht inkomend
+
+| Eigenschap | Type | Description |
+|--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
+| **endpointName** | String | De naam van het eindpunt van de routering |
+| **endpointType** | String | Het type van het eindpunt van de routering |
+| **parentSpanId** | String | De [bereik-id](https://w3c.github.io/trace-context/#parent-id) van de bovenliggende bericht dat de IoT Hub inkomend bericht tracering in dit geval zou zijn |
+
 
 ### <a name="read-logs-from-azure-event-hubs"></a>Lezen Logboeken uit Azure Event Hubs
 

@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c06e69dd9d1997500589659e936dc25ee01ed145
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 081352a23e6a0d8f9e2daa77eca1f8ac85172ff6
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "30196778"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56418225"
 ---
-Voor de huidige SKU's (VpnGw1, VpnGw2 en VPNGW3) die u wilt vergroten of verkleinen van uw gateway-SKU om bij te werken naar een krachtigere, kunt u de `Resize-AzureRmVirtualNetworkGateway` PowerShell-cmdlet. Ook kunt u de gateway-SKU-grootte die met deze cmdlet downgraden. Als u de standaard gateway-SKU, [gebruik in plaats daarvan deze instructies](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#resize) het formaat van uw gateway.
+Voor de huidige SKU's (VpnGw1, VpnGw2 en VPNGW3) die u wilt vergroten of verkleinen van de gateway-SKU om bij te werken naar een krachtigere, kunt u de `Resize-AzVirtualNetworkGateway` PowerShell-cmdlet. U kunt ook de gateway-SKU-grootte die met deze cmdlet downgraden. Als u van de Basic gateway-SKU gebruikmaakt, [gebruik in plaats daarvan deze instructies](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#resize) formaat van uw gateway.
 
-De volgende PowerShell-voorbeeld ziet u een gateway-SKU voor VpnGw2 wordt gewijzigd.
+De volgende PowerShell-voorbeeld ziet u een gateway-SKU wordt uitgebreid tot VpnGw2.
 
 ```powershell
-$gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
-Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku VpnGw2
+$gw = Get-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
+Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku VpnGw2
 ```
 
-U kunt ook de grootte van een gateway in de Azure portal door te gaan naar de **configuratie** pagina voor uw virtuele netwerkgateway en het selecteren van een andere SKU uit de vervolgkeuzelijst.
+U kunt ook het formaat van een gateway in Azure portal door te gaan naar de **configuratie** pagina voor de gateway van virtueel netwerk en u een andere SKU selecteert in de vervolgkeuzelijst.

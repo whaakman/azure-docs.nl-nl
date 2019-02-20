@@ -1,5 +1,5 @@
 ---
-title: Instellen van zich kunnen registreren en aanmelden met OpenID verbinding maken met behulp van Azure Active Directory B2C | Microsoft Docs
+title: Instellen van zich kunnen registreren en aanmelden met OpenID Connect - Azure Active Directory B2C | Microsoft Docs
 description: Instellen van zich kunnen registreren en aanmelden met OpenID verbinding maken met behulp van Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c609ac5ebb6c0516472f00a5625a26459f49d131
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: de0c866889f15f096bea26915f58cd4e268dfed3
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171691"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428752"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Instellen van zich kunnen registreren en aanmelden met OpenID verbinding maken met behulp van Azure Active Directory B2C
 
@@ -23,8 +23,7 @@ ms.locfileid: "55171691"
 > Deze functie is beschikbaar voor openbare preview. Gebruik de functie niet in een productieomgeving.
 
 
-[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) is een protocol voor verificatie, gebouwd op OAuth 2.0, die kan worden gebruikt om gebruikers veilig aanmelden. De meeste id-providers die gebruikmaken van dit protocol, zoals [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md), worden ondersteund in Azure AD B2C. In dit artikel wordt uitgelegd hoe u aangepaste OpenID Connect id-providers in uw gebruikersstromen kunt toevoegen.
-
+[OpenID Connect](active-directory-b2c-reference-oidc.md) is een protocol voor verificatie, gebouwd op OAuth 2.0, die kan worden gebruikt om gebruikers veilig aanmelden. De meeste id-providers die gebruikmaken van dit protocol worden ondersteund in Azure AD B2C. In dit artikel wordt uitgelegd hoe u aangepaste OpenID Connect id-providers in uw gebruikersstromen kunt toevoegen.
 
 ## <a name="add-the-identity-provider"></a>De id-provider toevoegen
 

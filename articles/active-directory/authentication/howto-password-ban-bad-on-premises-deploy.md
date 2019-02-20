@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a4a4b760652ce38e27e12e9eb73fbe7692eddbc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e8d39b614c373c63cf1405c5db0f64581c481d1f
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204369"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417195"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Preview: Azure AD-wachtwoord beveiliging implementeren
 
@@ -53,15 +53,18 @@ Dit gebeurt bij voorkeur volledig patches voor de machine via Windows Update. An
     |`https://login.microsoftonline.com`|Verificatieaanvragen|
     |`https://enterpriseregistration.windows.net`|Functionaliteit van Azure AD-wachtwoordbeveiliging|
 
+* Alle machines die als host fungeert voor de Azure AD-wachtwoord beveiliging Proxy-service moeten worden geconfigureerd voor het toestaan van uitgaande TLS 1.2 HTTP-verkeer.
 * Een globale beheerdersaccount voor de Azure AD-wachtwoord beveiliging Proxy-service en -forest registreren bij Azure AD.
 * Een account met Active Directory-domein administrator-bevoegdheden in het forest-hoofddomein het Windows Server Active Directory-forest registreren bij Azure AD.
 * Een Active Directory-domein met de DC agent-service-software gebruiken DFS-replicatie voor sysvol-replicatie.
 
 ## <a name="single-forest-deployment"></a>Implementatie met één forest
 
-Het volgende diagram toont hoe de basisonderdelen van Azure AD-wachtwoord Protection samenwerken in een on-premises Active Directory-omgeving.  
+Het volgende diagram toont hoe de basisonderdelen van Azure AD-wachtwoord Protection samenwerken in een on-premises Active Directory-omgeving.
 
 ![Hoe Azure AD-wachtwoord beveiliging onderdelen samenwerken](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
+
+Voorafgaand aan de implementatie is het een goed idee om te controleren hoe de software werkt; Raadpleeg [conceptueel overzicht van Azure AD-wachtwoordbeveiliging](concept-password-ban-bad-on-premises.md).
 
 ### <a name="download-the-software"></a>De software downloaden
 

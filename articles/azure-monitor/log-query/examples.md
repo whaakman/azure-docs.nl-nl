@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
-ms.openlocfilehash: c161a2fd8d1be670435d2b1a749749cea7d82bcf
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 2c35bc4026c81cbc8b95225e688a3922bc320554
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268438"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416646"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Azure Monitor log-queryvoorbeelden
 In dit artikel bevat verschillende voorbeelden van [query's](log-query-overview.md) met behulp van de [Kusto-querytaal](/azure/kusto/query/) om op te halen van verschillende soorten van logboekgegevens van Azure Monitor. Verschillende methoden worden gebruikt om te consolideren en analyseren van gegevens, zodat u deze voorbeelden gebruiken om verschillende strategieën die u voor uw eigen vereisten gebruiken kunt te identificeren.  
@@ -38,7 +38,7 @@ Event
 ```
 
 ### <a name="search-events-related-to-unmarshaling"></a>Search-gebeurtenissen met betrekking tot unmarshaling
-Tabellen zoeken **gebeurtenis** en **SecurityEvents** voor records die de vermelding _unmashaling_.
+Tabellen zoeken **gebeurtenis** en **SecurityEvents** voor records die de vermelding _unmarshaling_.
 
 ```Kusto
 search in (Event, SecurityEvent) "unmarshaling"

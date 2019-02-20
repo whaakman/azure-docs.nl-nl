@@ -1,5 +1,5 @@
 ---
-title: Web-aanmelding met OpenID verbinding maken in Azure Active Directory B2C | Microsoft Docs
+title: Web-aanmelding met OpenID Connect - Azure Active Directory B2C | Microsoft Docs
 description: Het bouwen van toepassingen met behulp van de Azure Active Directory-implementatie van de OpenID Connect-verificatieprotocol.
 services: active-directory-b2c
 author: davidmu1
@@ -7,24 +7,25 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c27be7da2aceea8581fd4a5baef96103faa0c1d4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: bd7ecf273d4e842909d88eeaa3683203d8d9e841
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107307"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429160"
 ---
-# <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: Webaanmelding met OpenID Connect
-OpenID Connect is een protocol voor verificatie, gebouwd op OAuth 2.0, die kan worden gebruikt om veilig gebruikers zich aanmelden voor webtoepassingen. Met behulp van de Azure Active Directory B2C (Azure AD B2C)-implementatie van OpenID Connect, u kunt uitbesteden gebruikersregistratie, aanmelding en andere identiteitsbeheer in uw web-apps aan Azure Active Directory (Azure AD). Deze handleiding wordt beschreven hoe u dit niet doet, op een taalonafhankelijke manier. Dit wordt beschreven hoe u berichten verzenden en ontvangen HTTP zonder onze open source-bibliotheken.
+# <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Web-aanmelding met OpenID verbinding maken in Azure Active Directory B2C
 
-[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) kunt u de OAuth 2.0 uitbreiden *autorisatie* protocol voor gebruik als een *verificatie* protocol. Hiermee kunt u om uit te voeren eenmalige aanmelding via OAuth. Dit introduceert het concept van een *ID-token*, dit is een beveiligingstoken dat kan de client de identiteit van de gebruiker en basisprofielgegevens informatie over de gebruiker te verkrijgen.
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) is een protocol voor verificatie, gebouwd op OAuth 2.0, die kan worden gebruikt om veilig gebruikers zich aanmelden voor webtoepassingen. Met behulp van de Azure Active Directory B2C (Azure AD B2C)-implementatie van OpenID Connect, u kunt uitbesteden gebruikersregistratie, aanmelding en andere identiteitsbeheer in uw web-apps aan Azure Active Directory (Azure AD). Deze handleiding wordt beschreven hoe u dit niet doet, op een taalonafhankelijke manier. Dit wordt beschreven hoe u berichten verzenden en ontvangen HTTP zonder onze open source-bibliotheken.
 
-Omdat deze kunt u OAuth 2.0 uitbreiden, kunt deze ook apps aan te schaffen veilig *toegangstokens*. U kunt access_tokens voor toegang tot resources die worden beveiligd door een [autorisatieserver](active-directory-b2c-reference-protocols.md#the-basics). We raden aan OpenID verbinding maken als u een webtoepassing die wordt gehost op een server en toegankelijk is via een browser. Als u toevoegen van identiteitsbeheer aan uw mobiele of bureaubladtoepassingen toepassingen wilt met behulp van Azure AD B2C, moet u [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) in plaats van de OpenID Connect.
+De OAuth 2.0 OpenID Connect breidt *autorisatie* protocol voor gebruik als een *verificatie* protocol. Hiermee kunt u om uit te voeren eenmalige aanmelding via OAuth. Dit introduceert het concept van een *ID-token*, dit is een beveiligingstoken dat kan de client de identiteit van de gebruiker en basisprofielgegevens informatie over de gebruiker te verkrijgen.
 
-Azure AD B2C breidt het standaard OpenID Connect-protocol om te doen meer dan een eenvoudige verificatie en autorisatie. Het geeft de [gebruiker stroom parameter](active-directory-b2c-reference-policies.md), waarmee u kunt OpenID Connect gebruikt om toe te voegen gebruikerservaringen--zoals aanmelden, aanmelding en Profielbeheer--aan uw app. Hier, we laten zien hoe u OpenID Connect en gebruiker stromen gebruiken voor het implementeren van elk van deze ervaringen in uw webtoepassingen. Ook leert u hoe u aan de toegangstokens voor toegang tot web-API's.
+Omdat deze kunt u OAuth 2.0 uitbreiden, kunt deze ook apps aan te schaffen veilig *toegangstokens*. U kunt toegangstokens gebruiken voor toegang tot resources die worden beveiligd door een [autorisatieserver](active-directory-b2c-reference-protocols.md#the-basics). We raden aan OpenID verbinding maken als u een webtoepassing die wordt gehost op een server en toegankelijk is via een browser. Als u toevoegen van identiteitsbeheer aan uw mobiele of bureaubladtoepassingen toepassingen wilt met behulp van Azure AD B2C, moet u [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) in plaats van de OpenID Connect.
+
+Azure AD B2C breidt het standaard OpenID Connect-protocol om te doen meer dan een eenvoudige verificatie en autorisatie. Het geeft de [gebruiker stroom parameter](active-directory-b2c-reference-policies.md), waarmee u kunt OpenID Connect gebruikt om toe te voegen gebruikerservaringen, zoals aanmelden, aanmelding en Profielbeheer aan uw app. Id-providers die gebruikmaken van de OpenID Connect-protocol zijn [Microsoft-account](active-directory-b2c-setup-msa-app.md) en andere [OpenID Connect-provider](active-directory-b2c-setup-oidc-idp.md).
 
 De voorbeeld-HTTP-aanvragen in de volgende sectie gebruik ons voorbeeld B2C-directory, fabrikamb2c.onmicrosoft.com, evenals in onze voorbeeldtoepassing https://aadb2cplayground.azurewebsites.net, en gebruikersstromen. U vrij om uit te proberen de aanvragen zelf met behulp van deze waarden, of kunt u deze vervangen door uw eigen.
 Meer informatie over het [ophalen van uw eigen B2C-tenant, de toepassing en de gebruiker stromen](#use-your-own-b2c-tenant).

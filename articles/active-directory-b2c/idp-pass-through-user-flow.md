@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 646d5a1aec7387d8f7ee632f5e46f988e1bc012c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: fd0f8241c07f603089b896dcfc9ece29f1e33d1c
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882213"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428201"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Een toegangstoken via een gebruikersstroom doorgeven aan uw toepassing in Azure Active Directory B2C
 
@@ -24,12 +24,12 @@ ms.locfileid: "55882213"
 
 Een [gebruikersstroom](active-directory-b2c-reference-policies.md) in Azure Active Directory (Azure AD) B2C biedt gebruikers van uw toepassing de mogelijkheid om te registreren of aanmelden met een id-provider. Wanneer het traject wordt gestart, Azure AD B2C ontvangt een [toegangstoken](active-directory-b2c-reference-tokens.md) van de id-provider. Azure AD B2C gebruikt dit token voor het ophalen van informatie over de gebruiker. U kunt een claim inschakelen in de gebruikersstroom om het token door naar de toepassingen die u in Azure AD B2C registreert.
 
-Azure AD B2C ondersteunt momenteel alleen het toegangstoken van doorgeven [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) id-providers, waaronder [Facebook](active-directory-b2c-setup-fb-app.md) en [Google](active-directory-b2c-setup-goog-app.md). Voor alle andere id-providers, wordt de claim leeg geretourneerd.
+Azure AD B2C biedt ondersteuning voor het doorgeven van het toegangstoken van [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) en [OpenID Connect](active-directory-b2c-reference-oidc.md) id-providers. Voor alle andere id-providers, wordt de claim leeg geretourneerd.
 
 ## <a name="prerequisites"></a>Vereisten
 
 - Uw toepassing moet gebruikmaken van een [v2 gebruikersstroom](user-flow-versions.md).
-- De gebruikersstroom is geconfigureerd met een OAuth 2.0-id-provider.
+- De gebruikersstroom is geconfigureerd met een id-provider van OAuth 2.0 of OpenID Connect.
 
 ## <a name="enable-the-claim"></a>De claim inschakelen
 

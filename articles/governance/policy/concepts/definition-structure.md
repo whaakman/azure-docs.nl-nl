@@ -4,17 +4,17 @@ description: Hierin wordt beschreven hoe resourcedefinitie beleid wordt gebruikt
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/11/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 5a16edcb702db21b357c437b920e870a65fb155a
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 9dc6407a222adb06f4139d9973c168911e0faca8
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270161"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429669"
 ---
 # <a name="azure-policy-definition-structure"></a>Structuur van Azure-beleidsdefinities
 
@@ -80,7 +80,7 @@ De **modus** bepaalt welke resourcetypen voor een beleid wordt geëvalueerd. De 
 
 We raden u aan **modus** naar `all` in de meeste gevallen. Alle beleidsdefinities die zijn gemaakt via de portal gebruiken de `all` modus. Als u PowerShell of Azure CLI gebruikt, kunt u opgeven de **modus** parameter handmatig. Als de beleidsdefinitie bevat geen een **modus** waarde, wordt standaard `all` in Azure PowerShell en in het `null` in de Azure CLI. Een `null` modus is hetzelfde als wanneer u `indexed` ter ondersteuning van achterwaartse compatibiliteit.
 
-`indexed` moet worden gebruikt bij het maken van beleid dat labels of locaties worden afgedwongen. Hoewel het niet vereist, voorkomt u dat resources die geen ondersteuning bieden voor labels en locaties worden weergegeven als niet-compatibel in de nalevingsresultaten van de. De uitzondering hierop is **resourcegroepen**. Voor die locatie of de tags voor een resourcegroep afdwingen moeten ingesteld **modus** naar `all` en een specifiek doel de `Microsoft.Resources/subscriptions/resourceGroup` type. Zie voor een voorbeeld [afdwingen groep resourcetags](../samples/enforce-tag-rg.md).
+`indexed` moet worden gebruikt bij het maken van beleid dat labels of locaties worden afgedwongen. Hoewel het niet vereist, voorkomt u dat resources die geen ondersteuning bieden voor labels en locaties worden weergegeven als niet-compatibel in de nalevingsresultaten van de. De uitzondering hierop is **resourcegroepen**. Voor die locatie of de tags voor een resourcegroep afdwingen moeten ingesteld **modus** naar `all` en een specifiek doel de `Microsoft.Resources/subscriptions/resourceGroups` type. Zie voor een voorbeeld [afdwingen groep resourcetags](../samples/enforce-tag-rg.md).
 
 ## <a name="parameters"></a>Parameters
 
@@ -245,15 +245,41 @@ De volgende velden worden ondersteund:
 - `identity.type`
   - Retourneert het type van [beheerde identiteit](../../../active-directory/managed-identities-azure-resources/overview.md) ingeschakeld op de bron.
 - `tags`
-- `tags.<tagName>`
+- `tags['<tagName>']`
+  - Deze syntaxis haakje ondersteunt tagnamen waarvoor leestekens zoals een afbreekstreepjes, punten of spaties.
   - Waar **\<tagName\>** is de naam van de code voor het valideren van de voorwaarde voor.
-  - Voorbeeld: `tags.CostCenter` waar **kostenplaats** is de naam van de tag.
-- `tags[<tagName>]`
-  - Deze syntaxis haakje ondersteunt tagnamen waarvoor een periode.
-  - Waar **\<tagName\>** is de naam van de code voor het valideren van de voorwaarde voor.
-  - Voorbeeld: `tags[Acct.CostCenter]` waar **Acct.CostCenter** is de naam van de tag.
-
+  - Voorbeelden: `tags['Acct.CostCenter']` waar **Acct.CostCenter** is de naam van de tag.
+- `tags['''<tagName>''']`
+  - Deze syntaxis haakje ondersteunt tagnamen waarvoor apostroffen erin door tussenuit met dubbele apostroffen.
+  - Waar **'\<tagName\>'** is de naam van de code voor het valideren van de voorwaarde voor.
+  - Voorbeeld: `tags['''My.Apostrophe.Tag''']` waar **'\<tagName\>'** is de naam van de tag.
 - de eigenschap aliassen - Zie voor een lijst [aliassen](#aliases).
+
+> [!NOTE]
+> `tags.<tagName>`, `tags[tagName]`, en `tags[tag.with.dots]` zijn nog steeds acceptabel manieren om een velden voor labels declareren.
+> De voorkeur expressies zijn echter die hierboven zijn vermeld.
+
+#### <a name="use-tags-with-parameters"></a>Tags gebruiken met parameters
+
+Een parameterwaarde kan worden doorgegeven aan een label-veld. Een parameter doorgeven aan een tagveld verhoogt de flexibiliteit van de beleidsdefinitie tijdens de toewijzing van configuratiebeleid.
+
+In het volgende voorbeeld `concat` wordt gebruikt om u te maken van een zoekveld tags voor de tag met de naam van de waarde van de **tagName** parameter. Als dit label niet bestaat, de **append** effect wordt gebruikt voor het toevoegen van de tag met behulp van de waarde van de dezelfde benoemde label instellen op de gecontroleerde bronnen bovenliggende-resourcegroep met behulp van de `resourcegroup()` opzoekfunctie.
+
+```json
+{
+    "if": {
+        "field": "[concat('tags[', parameters('tagName'), ']')]",
+        "exists": "false"
+    },
+    "then": {
+        "effect": "append",
+        "details": [{
+            "field": "[concat('tags[', parameters('tagName'), ']')]",
+            "value": "[resourcegroup().tags[parameters('tagName')]]"
+        }]
+    }
+}
+```
 
 ### <a name="value"></a>Value
 
@@ -353,7 +379,7 @@ Alle [Resource Manager-sjabloonfuncties](../../../azure-resource-manager/resourc
 
 Bovendien de `field` functie is beschikbaar voor de regels. `field` wordt voornamelijk gebruikt met **AuditIfNotExists** en **DeployIfNotExists** verwijzing velden op de resource die worden geëvalueerd. Een voorbeeld van het gebruik kan worden weergegeven de [DeployIfNotExists voorbeeld](effects.md#deployifnotexists-example).
 
-#### <a name="policy-function-examples"></a>Beleid voor voorbeelden
+#### <a name="policy-function-example"></a>Voorbeeld van beleid voor de functie
 
 In dit voorbeeld van beleid voor regel maakt gebruik van de `resourceGroup` resource-functie om op te halen de **naam** eigenschap in combinatie met de `concat` matrix- en -functie voor het bouwen een `like` voorwaarde dat de naam van de resource te starten met de naam van de resourcegroep.
 
@@ -367,24 +393,6 @@ In dit voorbeeld van beleid voor regel maakt gebruik van de `resourceGroup` reso
     },
     "then": {
         "effect": "deny"
-    }
-}
-```
-
-In dit voorbeeld van beleid voor regel maakt gebruik van de `resourceGroup` resource-functie om op te halen de **tags** matrix eigenschapswaarde van de **CostCenter** tag op de resourcegroep en toevoegen aan de **kostenplaats**  tag op de nieuwe resource.
-
-```json
-{
-    "if": {
-        "field": "tags.CostCenter",
-        "exists": "false"
-    },
-    "then": {
-        "effect": "append",
-        "details": [{
-            "field": "tags.CostCenter",
-            "value": "[resourceGroup().tags.CostCenter]"
-        }]
     }
 }
 ```

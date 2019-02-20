@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: douglasl
-ms.openlocfilehash: fdbae70718ad62f96dda85e2d9574c7ec2d5ef23
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: fd7355c342a075f7b0c2e1173717c0345f1f94ba
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561090"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428547"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Een trigger die een pijplijn in reactie op een gebeurtenis wordt uitgevoerd
 
@@ -87,7 +87,7 @@ Deze sectie bevat voorbeelden van triggerinstellingen voor de op basis van gebeu
 | **Blobpad begint met** | `/containername/blobs/foldername/` | Ontvangt u gebeurtenissen voor alle blobs in de `containername` container en `foldername` map. |
 | **Blobpad begint met** | `/containername/blobs/foldername/subfoldername/` | U kunt ook verwijzen naar een submap. |
 | **Blobpad begint met** | `/containername/blobs/foldername/file.txt` | Gebeurtenissen voor een blob met de naam ontvangt `file.txt` in de `foldername` map onder de `containername` container. |
-| **Het pad naar eindigt met** | `file.txt` | Gebeurtenissen voor een blob met de naam ontvangt `file.txt` ik een pad. |
+| **Het pad naar eindigt met** | `file.txt` | Gebeurtenissen voor een blob met de naam ontvangt `file.txt` in elk pad. |
 | **Het pad naar eindigt met** | `/containername/blobs/file.txt` | Gebeurtenissen voor een blob met de naam ontvangt `file.txt` onder de container `containername`. |
 | **Het pad naar eindigt met** | `foldername/file.txt` | Gebeurtenissen voor een blob met de naam ontvangt `file.txt` in `foldername` map onder elke container. |
 

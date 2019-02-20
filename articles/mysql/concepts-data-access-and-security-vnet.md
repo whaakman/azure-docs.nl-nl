@@ -7,12 +7,12 @@ manager: jhubbard
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: af067cabf312ec3c2556b84dc4d739e41ec0aacc
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: aef55660d07c8923a82baf7f8b6320abf3ccdd1d
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53535271"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430213"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Gebruik Virtual Network-service-eindpunten en regels voor Azure Database for MySQL
 
@@ -24,6 +24,7 @@ Het maken van een regel voor virtuele netwerken, er moet eerst worden een [virtu
 
 > [!NOTE]
 > Deze functie is beschikbaar in alle regio's van Azure waarop Azure Database for MySQL voor algemeen gebruik en geoptimaliseerd voor geheugen-servers wordt geïmplementeerd.
+> In het geval van VNet-peering wordt als verkeer via een gemeenschappelijke VNet-Gateway met service-eindpunten stroomt en moet worden overgebracht naar de peer, maak een ACL/VNet-regel voor het toestaan van Azure Virtual Machines in het VNet-Gateway voor toegang tot de Azure Database for MySQL-server.
 
 <a name="anch-terminology-and-description-82f" />
 

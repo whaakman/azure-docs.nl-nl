@@ -1,6 +1,6 @@
 ---
 title: Resourcelimieten voor Azure NetApp Files | Microsoft Docs
-description: Beperkingen voor Azure NetApp Files bronnen, met inbegrip van limieten voor capaciteit van toepassingen, volumes en het gedelegeerde subnet worden beschreven.
+description: Beperkingen voor Azure NetApp Files bronnen, met inbegrip van limieten voor NetApp accounts, pools capaciteit, volumes, momentopnamen en het gedelegeerde subnet worden beschreven.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -11,33 +11,29 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: reference
-ms.date: 01/03/2019
+ms.topic: concepts
+ms.date: 02/14/2019
 ms.author: b-juche
-ms.openlocfilehash: f34afb1df2ae38353f29a80bfb6798c16856dbeb
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 196d85917e0a9900e141d58bff171beeb8540409
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54056932"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430010"
 ---
-# <a name="resource-limits-for-azure-netapp-files"></a>Resourcelimieten voor Azure NetApp-bestanden
+# <a name="resource-limits-for-azure-netapp-files"></a>Resourcelimieten voor Azure NetApp Files
+
 Inzicht krijgen in resourcelimieten voor Azure NetApp-bestanden, kunt u de volumes beheren.
 
-## <a name="capacity_pools"></a>Capaciteitspools
-
+- Elk Azure-abonnement kan maximaal 10 NetApp-accounts hebben.
+- Elk account NetApp kan een maximum van 25 capaciteit groepen hebben.
+- Elke capaciteitspool kan deel uitmaken van slechts één NetApp-account.  
 - De minimumgrootte van één capaciteitspool is 4 TiB, de maximumgrootte is 500 TiB. 
-- Elke capaciteitspool kan deel uitmaken van slechts één NetApp-account. Er kunnen echter meerdere capaciteitspools binnen een NetApp-account bestaan.  
-
-## <a name="volumes"></a>Volumes
-
+- Elke capaciteit van toepassingen kan maximaal 500 volumes hebben.
 - De minimumgrootte van één volume is 100 GiB, de maximumgrootte is 92 TiB.
-- Het maximaal aantal volumes per Azure-abonnement per regio bedraagt honderd.  
+- Elk volume mag maximaal 255 momentopnamen hebben.
+- Elke Azure-netwerk (Vnet) kan slechts één subnet gedelegeerd naar Azure NetApp bestanden hebben.
 
-## <a name="delegated_subnet"></a>Gedelegeerde subnet 
-
-In elke Azure virtuele netwerk (Vnet) kan slechts één subnet worden overgedragen naar Azure NetApp bestanden.
-
-## <a name="next-steps"></a>Volgende stappen
+**Volgende stappen**
 
 [Inzicht in de hiërarchie van de opslag van Azure NetApp bestanden](azure-netapp-files-understand-storage-hierarchy.md)

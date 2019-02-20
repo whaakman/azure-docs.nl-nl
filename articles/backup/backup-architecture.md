@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 02/19/2019
 ms.author: raynew
-ms.openlocfilehash: 4f26c805c42f027409127232fcfef9840939e8d9
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 4be483994bd7bc5bd97b1e59df230f66e9b4e24e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329180"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430343"
 ---
 # <a name="azure-backup-architecture"></a>Azure Backup-architectuur
 
@@ -24,22 +24,27 @@ U kunt de [Azure Backup-service](backup-overview.md) gebruiken om een back-up va
 
 Azure Backup een back-up van gegevens, status van de machine en workloads die worden uitgevoerd op on-premises machines en virtuele Azure-machines. Er zijn een aantal scenario's voor Azure Backup.
 
+## <a name="how-does-azure-backup-work"></a>Hoe werkt Azure Backup?
+
+U kunt back-up van machines en gegevens met behulp van een aantal methoden.
+
 - **Maak een back-up van on-premises computers**:
-    - U kunt back-up van on-premises computers rechtstreeks naar Azure met Azure Backup.
-    - U kunt on-premises virtuele machines met System Center Data Protection Manager (DPM) of Microsoft Azure Backup-Server (MABS) beveiligen, en klik vervolgens op zijn beurt back-up van de beveiligde gegevens op DPM/MABS naar Azure met Azure Backup.
+    - U kunt back-up van on-premises Windows-computers rechtstreeks naar Azure met behulp van de Azure Backup Microsoft Azure Recovery Services agent (MARS). Linux-machines worden niet ondersteund.
+    - U kunt back-up on-premises machines naar een back-upserver (System Center Data Protection Manager (DPM) of Microsoft Azure Backup Server (MABS)) en klik vervolgens op zijn beurt back-up back-server naar een Azure Backup Recovery Services-kluis in Azure.
 - **Maak een back-up van virtuele Azure-machines**:
-    - U kunt back-up van Azure-VM's rechtstreeks met Azure Backup.
-    - U kunt virtuele machines van Azure met DPM- of MABS worden uitgevoerd in Azure beveiligen en klik vervolgens op zijn beurt back-up van de beveiligde gegevens op DPM/MABS-gegevens met Azure Backup.
+    - U kunt back-up van virtuele machines van Azure direct. Azure Backup installeert een Backup-extensie voor de Azure-VM-agent die wordt uitgevoerd op de virtuele machine om dit te doen. Dit back-ups van de hele virtuele machine.
+    - U kunt back-up van bepaalde bestanden en mappen op de virtuele machine van Azure door het uitvoeren van de MARS-agent.
+    - U kunt back-up van virtuele machines in Azure voor MABS worden uitgevoerd in Azure, en klik vervolgens op zijn beurt back-up MABS naar de kluis.
 
 Meer informatie over [wat u kunt back-up](backup-overview.md), en [back-upscenario's ondersteund](backup-support-matrix.md).
 
 
 ## <a name="where-is-data-backed-up"></a>Waar gegevens een back-up?
 
-Azure Backup-winkels back-upgegevens in Recovery Services-kluis. Een kluis is een online-opslagentiteit in Azure, die wordt gebruikt voor het opslaan van gegevens zoals back-ups, herstelpunten en back-upbeleid.
+Azure Backup-winkels back-upgegevens in Recovery Services-kluis. Een kluis is een online-opslagentiteit in Azure die wordt gebruikt voor het opslaan van gegevens zoals back-ups, herstelpunten en back-upbeleid.
 
-- Recovery Services-kluizen maken het eenvoudig om uw back-upgegevens te ordenen, terwijl de beheertaken minimaal zijn.
-- In elk Azure-abonnement, kunt u maximaal 500 Recovery Services-kluizen maken. 
+- Kluizen maken het eenvoudig is om te organiseren van uw back-upgegevens, terwijl de beheer-overhead worden geminimaliseerd.
+- In elk Azure-abonnement, kunt u maximaal 500 kluizen maken.
 - U kunt back-ups van items in een kluis, met inbegrip van virtuele machines van Azure en on-premises machines bewaken.
 - U kunt de toegang van de kluis met Azure beheren [op rollen gebaseerd toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 - U opgeven hoe de gegevens in de kluis worden gerepliceerd voor redundantie:
@@ -49,18 +54,6 @@ Azure Backup-winkels back-upgegevens in Recovery Services-kluis. Een kluis is ee
 
 
 
-## <a name="how-does-azure-backup-work"></a>Hoe werkt Azure Backup?
-
-Azure back-up wordt uitgevoerd back-uptaken op basis van een standaard of aangepast back-upbeleid. De manier waarop Azure Backup een back-up wordt, is afhankelijk van het scenario.
-
-**Scenario** | **Details** 
---- | ---
-**Rechtstreeks een back-up on-premises computers** | Azure Backup gebruikt om rechtstreeks back-up on-premises virtuele machines, de Microsoft Azure Recovery Services agent (MARS). De agent is geïnstalleerd op elke machine die u back wilt-up. <br/><br/> Dit type back-up is niet beschikbaar voor on-premises Linux-computers. 
-**Direct back-up van virtuele Azure-machines** | Direct back-ups van virtuele Azure-machines, is een Azure VM-extensie geïnstalleerd op de virtuele machine de eerste keer dat een back-up wordt uitgevoerd voor de virtuele machine. 
-**Back-up van machines en apps die zijn beveiligd door DPM of MABS** | In dit scenario wordt wordt de machine/app eerst back-ups op DPM- of MABS lokale opslag. Vervolgens de gegevens in DPM/MABS een back-up naar de kluis back-up van Azure. On-premises virtuele machines kunnen worden beveiligd door DPM/MABS on-premises uitgevoerd. Azure-VM's kunnen worden beveiligd door DPM/MABS worden uitgevoerd in Azure.
-
-[Bekijk een overzicht](backup-overview.md), en Zie [wat wordt ondersteund](backup-support-matrix.md) voor elk scenario.
-
 
 ### <a name="backup-agents"></a>Backup-agents
 
@@ -68,17 +61,26 @@ Azure Backup biedt verschillende agents, afhankelijk van het type back-up.
 
 **Agent** | **Details** 
 --- | --- 
-**Microsoft Azure Recovery Services agent (MARS)** | Deze agent wordt uitgevoerd op afzonderlijke on-premises Windows-Servers voor back-up van bestanden, mappen en de systeemstatus<br/><br/> Deze agent wordt uitgevoerd op DPM/MABS-servers voor back-up van de schijf van de lokale opslag DPM/MABS. Machines en apps zijn back-ups lokaal op deze schijf DPM/MABS.
-**Azure VM-extensie** | Als u wilt back-up van virtuele Azure-machines, wordt een back-upextensie toegevoegd aan de Azure-VM-agent die wordt uitgevoerd op de virtuele machines. 
+**Microsoft Azure Recovery Services agent (MARS)** | (1) wordt uitgevoerd op afzonderlijke on-premises Windows-Servers voor back-up van bestanden, mappen en de systeemstatus<br/><br/> 2) wordt uitgevoerd op virtuele Azure-machines naar back-up van bestanden, mappen en de systeemstatus.<br/><br/>  3) wordt uitgevoerd op DPM/MABS-servers voor back-up van de lokale DPM/MABS-opslagschijf in Azure. 
+**Azure VM-extensie** | Wordt uitgevoerd op virtuele Azure-machines naar back-up op een kluis.
 
 
 ## <a name="backup-types"></a>Back-uptypen
 
 **Type back-up** | **Details** | **Gebruik**
 --- | --- | ---
-**Volledige** | Een back-up bevat de hele gegevensbron.<br/><br/> Volledige back-up duurt meer netwerkbandbreedte. | Gebruikt voor de eerste back-up.
+**Volledige** | Een back-up bevat de hele gegevensbron. Volledige back-up duurt meer netwerkbandbreedte. | Gebruikt voor de eerste back-up.
 **Differentiële** |  Slaat de blokken die zijn gewijzigd sinds de eerste volledige back-up. Een kleinere hoeveelheid netwerk en opslag gebruikt en redundante exemplaren met ongewijzigde gegevens niet behouden.<br/><br/> Inefficiënt omdat de gegevensblokken die ongewijzigd tussen opeenvolgende back-ups zijn overgebracht en opgeslagen. | Niet gebruikt door Azure Backup.
 **Incrementele** | Hoge efficiëntie van opslag en netwerk. Alleen de blokken met gegevens die zijn gewijzigd sinds de vorige back-up worden opgeslagen. <br/><br/> U hoeft te met incrementele back-up, is het niet nodig om aan te vullen met volledige back-ups. | Gebruikt door DPM/MABS voor back-ups van schijf, en gebruikt in alle back-ups naar Azure.
+
+## <a name="sql-server-backup-types"></a>SQL Server-back-uptypen
+
+**Type back-up** | **Details** | **Gebruik**
+--- | --- | ---
+**Volledige back-up** | Bij een volledige back-up wordt er een back-up van de hele database gemaakt. Deze bevat alle gegevens in een specifieke database of een set bestandsgroepen of bestanden en voldoende Logboeken om die gegevens te herstellen. | U kunt maximaal één volledige back-up per dag activeren.<br/><br/> U kunt kiezen of u dagelijks of wekelijks een volledige back-up wilt uitvoeren.
+**Differentiële back-up** | Een differentiële back-up is gebaseerd op de meest recente, vorige volledige gegevensback-up.<br/><br/> Wordt alleen de gegevens die zijn gewijzigd nadat de volledige back-up vastgelegd. |  U kunt maximaal één differentiële back-up per dag activeren.<br/><br/> U kunt niet zowel een volledige back-up als een differentiële back-up configureren op dezelfde dag.
+**Transactielogboekback-up** | Met een logboekback-up kunt u herstel naar een bepaald tijdstip uitvoeren, tot op een specifieke seconde. | U kunt maximaal elke 15 minuten een back-up van het transactielogboek configureren.
+
 
 ### <a name="comparison"></a>Vergelijking
 
@@ -105,19 +107,7 @@ Back-up van ontdubbelde schijven | | | ![Gedeeltelijk][yellow]<br/><br/> Voor DP
 ![tabelsleutel](./media/backup-architecture/table-key.png)
 
 
-## <a name="architecture-direct-backup-of-on-premises-windows-machines"></a>Architectuur: Directe back-ups van on-premises Windows-machines
 
-1. Als u het scenario instelt, u downloaden en installeren van de Microsoft Azure Recovery Services agent (MARS) op de computer, selecteert u wat u moet een back-up, wanneer de back-ups wordt uitgevoerd en hoe lang ze gaat worden bewaard in Azure.
-2. De eerste back-up wordt uitgevoerd in overeenstemming met de instellingen van uw back-up.
-3. De MARS-agent maakt gebruik van de service Windows Volume Shadow Copy (VSS) om een point-in-time-momentopname van de volumes die zijn geselecteerd voor back-up.
-    - De MARS-agent gebruikt alleen de Windows-systeem schrijven om vast te leggen van de momentopname.
-    - De agent geen gebruik maakt van een toepassing VSS-schrijvers en dus app-consistente momentopnamen niet vastleggen.
-3. Na het maken van de momentopname met VSS, de MARS-agent maakt u een VHD in de cachemap die u hebt opgegeven tijdens het configureren van de back-up, en slaat controlesommen voor elke gegevensblokken. 
-4. Incrementele back-ups uitgevoerd volgens de planning die u opgeeft, tenzij u een ad-hoc back-up uitvoert.
-5. Gewijzigde bestanden worden geïdentificeerd in incrementele back-ups, en een nieuwe VHD is gemaakt. Het is gecomprimeerd en versleuteld en verzonden naar de kluis.
-6. Nadat de incrementele back-up is voltooid, wordt de nieuwe VHD wordt samengevoegd met de VHD gemaakt na de initiële replicatie, biedt de meest recente status om te worden gebruikt voor vergelijking van continue back-up. 
-
-![Back-up van on-premises Windows server met de MARS-agent](./media/backup-architecture/architecture-on-premises-mars.png)
 
 
 ## <a name="architecture-direct-backup-of-azure-vms"></a>Architectuur: Directe back-ups van virtuele Azure-machines
@@ -136,19 +126,33 @@ Back-up van ontdubbelde schijven | | | ![Gedeeltelijk][yellow]<br/><br/> Voor DP
     - Momentopname van de gegevens mogelijk niet direct worden gekopieerd naar de kluis. Het duurt enkele uren tijdens pieken. Totaal aantal back-uptijd voor een virtuele machine worden kleiner dat 24 uur voor dagelijkse back-upbeleid.
 5. Nadat gegevens zijn verzonden naar de kluis, de momentopname is verwijderd en een herstelpunt wordt gemaakt.
 
+Houd er rekening mee dat Azure-VM's nodig hebt voor toegang tot internet voor opdrachten voor het beheer. Als u een back-up voor werkbelastingen binnen de virtuele machine (bijvoorbeeld SQL Server back-up), moet deze gegevens ook toegang tot internet. 
 
 ![Back-up van virtuele machines in Azure](./media/backup-architecture/architecture-azure-vm.png)
 
+## <a name="architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders"></a>Architectuur: Directe back-ups van on-premises Windows-machines/Azure VM-bestanden/mappen
+
+1. Als u het scenario instelt, u downloaden en installeren van de Microsoft Azure Recovery Services agent (MARS) op de computer, selecteert u wat u moet een back-up, wanneer de back-ups wordt uitgevoerd en hoe lang ze gaat worden bewaard in Azure.
+2. De eerste back-up wordt uitgevoerd in overeenstemming met de instellingen van uw back-up.
+3. De MARS-agent maakt gebruik van de service Windows Volume Shadow Copy (VSS) om een point-in-time-momentopname van de volumes die zijn geselecteerd voor back-up.
+    - De MARS-agent gebruikt alleen de Windows-systeem schrijven om vast te leggen van de momentopname.
+    - De agent geen gebruik maakt van een toepassing VSS-schrijvers en dus app-consistente momentopnamen niet vastleggen.
+3. Na het maken van de momentopname met VSS, de MARS-agent maakt u een VHD in de cachemap die u hebt opgegeven tijdens het configureren van de back-up, en slaat controlesommen voor elke gegevensblokken. 
+4. Incrementele back-ups uitgevoerd volgens de planning die u opgeeft, tenzij u een ad-hoc back-up uitvoert.
+5. Gewijzigde bestanden worden geïdentificeerd in incrementele back-ups, en een nieuwe VHD is gemaakt. Het is gecomprimeerd en versleuteld en verzonden naar de kluis.
+6. Nadat de incrementele back-up is voltooid, wordt de nieuwe VHD wordt samengevoegd met de VHD gemaakt na de initiële replicatie, biedt de meest recente status om te worden gebruikt voor vergelijking van continue back-up. 
+
+![Back-up van on-premises Windows server met de MARS-agent](./media/backup-architecture/architecture-on-premises-mars.png)
 
 ## <a name="architecture-back-up-to-dpmmabs"></a>Architectuur: Back-up naar DPM/MABS
 
 1. U de DPM- of MABS-beveiligingsagent installeren op computers die u wilt beveiligen en de machines toevoegen aan een DPM-beveiligingsgroep.
     - Ter bescherming van on-premises computers, moet de DPM- of MABS-server zich op locatie.
-    - Ter bescherming van virtuele Azure-machines, moet de DPM- of MABS-server in Azure, die wordt uitgevoerd als een Azure-VM zich bevinden.
+    - Ter bescherming van virtuele Azure-machines, wordt de MABS-server moet zich in Azure, die wordt uitgevoerd als een Azure-VM.
     - Met behulp van DPM/MABS kunt u back-up van volumes, shares, bestanden en map beveiligen. U kunt machines system state/bare metal-beveiligen, en u kunt specifieke apps met app-bewuste back-upinstellingen beveiligen.
-2. Als u beveiliging voor een machine of een app in DPM instellen, selecteert u de back-up naar de lokale DPM-schijf voor kortdurende opslag en naar Azure (online beveiliging). U ook opgeven wanneer de back-up naar de lokale DPM/MABS-opslag moet worden uitgevoerd en wanneer de online back-up naar Azure moet worden uitgevoerd.
-3. De schijf van de beveiligde werkbelasting is back-ups naar de lokale DPM-schijven, en naar Azure, volgens de planning die u hebt opgegeven.
-4. De online back-up naar de kluis wordt verwerkt door de MARS-agent die wordt uitgevoerd op de DPM/MABS-server.
+2. Als u beveiliging voor een machine of een app in DPM/MABS instellen, selecteert u de back-up naar de lokale MABS/DPM-schijf voor kortdurende opslag en naar Azure (online beveiliging). U ook opgeven wanneer de back-up naar de lokale DPM/MABS-opslag moet worden uitgevoerd en wanneer de online back-up naar Azure moet worden uitgevoerd.
+3. De schijf van de beveiligde werkbelasting is back-ups op de lokale MABS/DPM-schijven, volgens de planning die u hebt opgegeven.
+4. De DPM/MABS-schijven worden ondersteund bij de kluis door de MARS-agent die wordt uitgevoerd op de DPM/MABS-server.
 
 ![Back-up van machines /-werkbelastingen beveiligd met DPM- of MABS](./media/backup-architecture/architecture-dpm-mabs.png)
 

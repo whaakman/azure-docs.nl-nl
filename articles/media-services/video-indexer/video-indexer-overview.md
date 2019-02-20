@@ -7,47 +7,59 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 02/17/2019
 ms.author: juliako
-ms.openlocfilehash: 78b362eb75ab4e0ca17045f8c32761a65897d449
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c1c81ba0f168759ab9cc05f3441e07ff03275e84
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000179"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417377"
 ---
 # <a name="what-is-video-indexer"></a>Wat is Video Indexer?
 
-Azure Video Indexer is een cloudtoepassing die is gebouwd met behulp van Azure Media Analytics, Azure Search, Cognitive Services (zoals de Face-API, Microsoft Translator, de Computer Vision-API en Custom Speech Service). Hiermee kunt u inzichten ophalen uit uw video's met Video Indexer-modellen die hieronder worden beschreven:
- 
+Azure Video Indexer is een cloudtoepassing die is gebouwd met behulp van Azure Media Analytics, Azure Search, Cognitive Services (zoals de Face-API, Microsoft Translator, de Computer Vision-API en Custom Speech Service). Hiermee kunt u de inzichten ophalen uit uw video's met Video Indexer-video en audio modellen die hieronder worden beschreven:
+  
+## <a name="video-insights"></a>Inzichten in video 's
+
+- **Gezichtsdetectie**: Detecteert en groepen gezichten worden weergegeven in de video.
+- **Beroemdheden identificatie**: Video Indexer identificeert automatisch meer dan 1 miljoen beroemdheden – zoals world-leiders, actoren en actresses, atleten, onderzoekers, zakelijke en technische leiders overal ter wereld. De gegevens van deze beroemdheden zijn ook beschikbaar op verschillende beroemde websites, zoals IMDB en Wikipedia.
+- **Op basis van een account gezichts-id**: Video Indexer traint een model voor een specifiek account. Vervolgens herkent de service gezichten in de video op basis van het model dat specifiek is getraind voor video's in dat account.
+- **Miniaturen extractie voor gezichten** ('beste face"): Automatisch de beste vastgelegde gezicht in elke groep van gezichten wordt uitgevoerd (gebaseerd op de kwaliteit, de grootte en positie van de voorzijde) identificeert en pak het uit als een afbeelding asset.
+- **Visual tekstherkenning** (OCR): Retourneert de tekst die visueel wordt weergegeven in de video.
+- **Visual inhoudstoezicht**: Detecteert volwassen en/of ongepaste visuele elementen.
+- **Identificatie van labels**: Hiermee geeft u visuele objecten en acties die worden weergegeven.
+- **Detectie van agenda**: Bepaalt wanneer een scène wordt gewijzigd in de video.
+- **Detectie van een zwarte**: Hiermee geeft u zwarte frames die zijn gepresenteerd in de video.
+- **Sleutelframes extractie**: Detecteert stabiel hoofdframes in een video.
+
+## <a name="audio-insights"></a>Audio insights
+
 - **Automatische taaldetectie**: Identificeert automatisch de dominante gesproken taal. De volgende talen worden ondersteund: Engels, Spaans, Frans, Duits, Italiaans, Chinees (vereenvoudigd), Japans, Russisch en Portugees (Brazilië). De taal wordt standaard ingesteld op het Engels als de taal niet kan worden gedetecteerd.
 - **Audiotranscriptie**: Converteert van spraak naar tekst in 12 talen waardoor nu extensies. Ondersteunde talen zijn Engels, Spaans, Frans, Duits, Italiaans, Chinees (Vereenvoudigd), Japans, Arabisch, Russisch, Portugees (Brazilië), Hindi en Koreaans.
 - **Ondertiteling**: Hiermee maakt u ondertiteling in drie indelingen hebben: VTT, TTML, SRT.
 - **Twee verwerking channel**: Automatisch detecteert, afzonderlijke transcript- en samengevoegd in één tijdlijn.
-- **Reductie van ruis**:  Hiermee schakelt u van de telephony-audio- of ruis opnamen (gebaseerd op Skype filters).
-- **Transcript customization (CRIS)**: Traint en uitgebreide aangepaste spraak-naar-tekst-modellen te maken van branchespecifieke Transcripten uitgevoerd.
-- **Sprekerherkenning-opsomming**:  Kaarten en begrijpt welke spreker spokenetwerktopologie welke woorden en wanneer.
+- **Reductie van ruis**: Hiermee schakelt u van de telephony-audio- of ruis opnamen (gebaseerd op Skype filters).
+- **Transcript customization** (CRIS): Traint en uitgebreide aangepaste spraak-naar-tekst-modellen te maken van branchespecifieke Transcripten uitgevoerd.
+- **Sprekerherkenning-opsomming**: Kaarten en begrijpt welke spreker spokenetwerktopologie welke woorden en wanneer.
 - **Statistieken van de spreker**: Voorziet in statistieken voor sprekers spraak ratio's.
-- **Visual tekstherkenning (OCR)**: Retourneert de tekst die visueel wordt weergegeven in de video.
-- **Sleutelframes extractie**: Detecteert stabiel hoofdframes in een video.
-- **Sentimentanalyse**: Hiermee geeft u positieve, negatieve en neutrale sentimenten uit visual tekst en spraak.
-- **Visual inhoudstoezicht**: Detecteert volwassen en/of ongepaste visuele elementen.
-- **Trefwoorden extraheren**: Extraheert trefwoorden uit de visual tekst en spraak.
-- **Identificatie van labels**: Hiermee geeft u visuele objecten en acties die worden weergegeven.
-- **Extractie merken**: Extraheert merken uit visual tekst en spraak.
-- **Gezichtsdetectie**: Detecteert en groepen gezichten worden weergegeven in de video.
-- **Miniaturen extractie voor gezichten ('beste face")**: Automatisch de beste vastgelegde gezicht in elke groep van gezichten wordt uitgevoerd (gebaseerd op de kwaliteit, de grootte en positie van de voorzijde) identificeert en pak het uit als een afbeelding asset.
-- **Beroemdheden identificatie**: Video Indexer identificeert automatisch meer dan 1 miljoen beroemdheden – zoals world-leiders, actoren en actresses, atleten, onderzoekers, zakelijke en technische leiders overal ter wereld. De gegevens van deze beroemdheden zijn ook beschikbaar op verschillende beroemde websites, zoals IMDB en Wikipedia.
-- **Op basis van een account gezichts-id**: Video Indexer traint een model voor een specifiek account. Vervolgens herkent de service gezichten in de video op basis van het model dat specifiek is getraind voor video's in dat account.
 - **Tekstuele inhoudstoezicht**: Expliciete tekst in de audiotranscript gedetecteerd.
-- **Detectie van agenda**: Bepaalt wanneer een scène wordt gewijzigd in de video.
-- **Detectie van een zwarte**: Hiermee geeft u zwarte frames die zijn gepresenteerd in de video.
 - **Audio-effecten**: Hiermee geeft u audio-effecten, zoals hand hiep, spraak en stilte.
-- **Onderwerp Deductie**: Deductie van de belangrijkste onderwerpen uit Transcripten maakt. De [IPTC](https://iptc.org/standards/media-topics/)-taxonomie van het eerste niveau is opgenomen.
 - **Detectie van emoties in**: Identificeert willekeurige emoties op basis van de spraak- en audio-hints. De emotie kan vreugde, verdriet, boosheid of angst zijn.
-- **Artefacten**: Extraheert de grote verscheidenheid aan 'volgende niveau van details' artefacten voor elk van de modellen.
 - **Vertaling**: Hiermee maakt u vertalingen van de audiotranscript aan 54 verschillende talen.
 
+## <a name="audio-and-video-insights-multi-channels"></a>Audio en video insights (meerdere kanalen)
+
+Tijdens het indexeren van een kanaal gedeeltelijke is resultaten voor deze modellen beschikbaar
+
+- **Trefwoorden extraheren**: Extraheert trefwoorden uit de visual tekst en spraak.
+- **Extractie merken**: Extraheert merken uit visual tekst en spraak.
+- **Onderwerp Deductie**: Deductie van de belangrijkste onderwerpen uit Transcripten maakt. Het niveau van de 1e IPTC taxonomie is opgenomen.
+- **Artefacten**: Extraheert de grote verscheidenheid aan 'volgende niveau van details' artefacten voor elk van de modellen.
+- **Sentimentanalyse**: Hiermee geeft u positieve, negatieve en neutrale sentimenten uit visual tekst en spraak.
+ 
+  
+ 
 Wanneer Video Indexer klaar is met de verwerking en analyse, kunt u de video-inzichten bekijken, cureren, doorzoeken en publiceren.
 
 De Video Indexer-service is geschikt voor een groot aantal toepassingen, ongeacht of u inhoudsbeheerder of ontwikkelaar bent. Inhoudsbeheerders kunnen de webportal van Video Indexer gebruiken om de voordelen van de service te benutten zonder één regel code te schrijven. Zie [deze zelfstudie over Video Indexer](video-indexer-get-started.md) om aan de slag te gaan met de website. Ontwikkelaars kunnen API's gebruiken om inhoud op schaal te verwerken. Zie [REST-API van Video Indexer gebruiken](video-indexer-use-apis.md) voor meer informatie. De service stelt klanten ook in staat om met behulp van widgets videostreams en geëxtraheerde inzichten te publiceren in hun eigen toepassingen. Zie [Video Indexer-widgets insluiten in uw toepassingen](video-indexer-embed-widgets.md) voor meer informatie.

@@ -6,16 +6,16 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/29/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e40cc3ac0fe17cd030717253f6093bbf8d63a5a2
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 07fd8c41e7817e232513ed9a260c3722a1fdac11
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487231"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429261"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Bijhouden van wijzigingen in uw omgeving met de oplossing wijzigingen bijhouden
 
@@ -181,6 +181,8 @@ De volgende tabel bevat de limieten bijgehouden item per machine voor het bijhou
 |Services|250||
 |Daemon|250||
 
+Het gemiddelde gebruik van Log Analytics-gegevens voor een virtuele machine met wijzigingen bijhouden en inventaris is ongeveer 40MB per maand. Deze waarde is slechts een schatting en kan worden gewijzigd op basis van uw omgeving. Het raadzaam dat u uw omgeving om te zien van de exacte syntaxis die u hebt gecontroleerd.
+
 ### <a name="windows-service-tracking"></a>Windows-service bijhouden
 
 De standaardfrequentie van de verzameling voor Windows-services is 30 minuten. Voor het configureren van de frequentie, gaat u naar **bijhouden**. Onder **instellingen bewerken** op de **Windows Services** tabblad, wordt er een schuifregelaar waarmee u de verzamelingsfrequentie voor Windows-services van zo snel tien seconden wijzigen voor zolang als de 30 minuten. De schuifregelaar verplaatsen naar de gewenste frequentie en wordt het automatisch opgeslagen.
@@ -257,7 +259,7 @@ De gedetailleerde informatie over deze wijziging wordt te klikken op een wijzigi
 
 ![afbeelding van het bijhouden van informatie](./media/automation-change-tracking/change-tracking-details.png)
 
-## <a name="search-logs"></a>Zoeken in Logboeken
+## <a name="search-logs"></a>Logboeken zoeken
 
 Naast de informatie die beschikbaar zijn in de portal kunnen zoekopdrachten worden gedaan op basis van de logboeken. Met de **bijhouden** pagina openen, klikt u op **Log Analytics**, Hiermee opent u de **zoeken in logboeken** pagina.
 

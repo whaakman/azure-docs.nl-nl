@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3010f4ec86b25c51fae2ce8f64238ec8815adca8
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: 7278eba1c9039c180f75cdd2dfd1e18a77baf423
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408677"
+ms.locfileid: "56416782"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Beheren van scripts voor vóór en na (Preview)
 
@@ -22,7 +22,7 @@ Scripts voor vóór en na kunnen u PowerShell-runbooks uitvoeren in uw Automatio
 
 ## <a name="runbook-requirements"></a>Runbook-vereisten
 
-Voor een runbook moet worden gebruikt als een script voor vóór of na, moet u het runbook worden geïmporteerd in uw automation-account en gepubliceerd. Zie voor meer informatie over dit proces, [een runbook publiceren](automation-creating-importing-runbook.md#publishing-a-runbook).
+Voor een runbook moet worden gebruikt als een script voor vóór of na, moet u het runbook worden geïmporteerd in uw automation-account en gepubliceerd. Zie voor meer informatie over dit proces, [een runbook publiceren](manage-runbooks.md#publish-a-runbook).
 
 ## <a name="using-a-prepost-script"></a>Met behulp van een vooraf/post-script
 

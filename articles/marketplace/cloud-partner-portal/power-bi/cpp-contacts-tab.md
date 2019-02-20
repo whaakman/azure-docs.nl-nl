@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 6ece83fe3011c4e94416e12231a3d093af79704e
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 191f58252aadf776465bb097207a7e76c0f92003
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666700"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415167"
 ---
-# <a name="power-bi-apps-contacts-tab"></a>Power BI-Apps contactpersonen tabblad
+# <a name="power-bi-app-contacts-tab"></a>Power BI-App Contacts tabblad
 
 Gebruik de **contactpersonen** tabblad van de **nieuwe aanbieding** pagina voor technische en gebruiker bronnen voor ondersteuning van uw aanbieding. Het is onderverdeeld in twee secties: **Technische** en **klantondersteuning**.
 
@@ -30,20 +30,20 @@ Gebruik de **contactpersonen** tabblad van de **nieuwe aanbieding** pagina voor 
 
 ## <a name="contacts-fields"></a>Contactpersonen velden 
 
-De volgende tabel beschrijft de naam en het doel van deze velden. 
+De volgende tabel beschrijft het doel van elk veld: 
 
 |   Veld               |   Description                                                            |
 |-----------------------|--------------------------------------------------------------------------|
-| *Technische contactpersoon* | Fungeert als een technische contactpersoon tussen AppSource en uw organisatie    |
-| **Naam**              | Naam van de persoon of groep die als technische/engineering-ondersteuning fungeert |
-| **E-mail**             | E-mailadres van deze technische contactpersoon                                  |
-| **Phone**             | Telefoonnummer voor technische ondersteuning                                       |
-| *Neem contact op met ondersteuning*     | Ontvangt ondersteuningstickets geopend door klanten in AppSource            |
-| **Naam**              | Naam van de persoon of groep die als klantondersteuning fungeert              |
-| **E-mail**             | E-mailadres van de klantenondersteuning                                        |
+| *Technische contactpersoon* | Fungeert als een technische contactpersoon tussen AppSource en uw organisatie.    |
+| **Naam**              | De naam van de persoon of groep die als technische of technische ondersteuning fungeert. |
+| **E-mail**             | Het e-mailadres van deze technische contactpersoon.                                  |
+| **Phone**             | Het telefoonnummer van de technische ondersteuning.                                       |
+| *Neem contact op met ondersteuning*     | Ondersteuningstickets geopend door klanten in AppSource ontvangt.            |
+| **Naam**              | De naam van de persoon of groep die als de klantondersteuning fungeert.              |
+| **E-mail**             | Het e-mailadres van de klantondersteuning.                                        |
 |  |  |
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nadat u de Power BI-App-aanbieding hebt voltooid, moet u bevestigen dat u hebt gemaakt alle de bijbehorende [technische activa](./cpp-create-technical-assets.md) voor deze aanbieding.
+Nadat u uw Power BI-App-aanbieding hebt voltooid, controleert u of dat u alle hebt de bijbehorende [technische activa](./cpp-create-technical-assets.md) voor de aanbieding.

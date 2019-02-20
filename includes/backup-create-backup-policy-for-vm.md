@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: raynew
 ms.openlocfilehash: b589c88e5b5c5991db43a9f3c10003e17094b2e1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54057370"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430869"
 ---
 ## <a name="defining-a-backup-policy"></a>Een back-upbeleid definiëren
 Een back-upbeleid definieert een matrix met wanneer de momentopnamen van de gegevens zijn gemaakt en hoe lang deze momentopnamen worden bewaard. Bij het definiëren van een beleid voor het maken van een back-up van een virtuele machine, kunt u ervoor zorgen dat er *eenmaal per dag* een back-uptaak wordt uitgevoerd. Wanneer u een nieuw beleid maakt, wordt dit toegepast op de kluis. De interface voor het back-upbeleid ziet er als volgt uit:

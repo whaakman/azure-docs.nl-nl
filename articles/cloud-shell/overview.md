@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 1ad85a57762ae4fba30e1699b38eaa52d45ab26e
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 4195016bb029d2cf8f5042a853fa591609bd486e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447204"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428530"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Overzicht van Azure Cloudshell
 Azure Cloud Shell is een interactieve, browser toegankelijke shell voor het beheren van Azure-resources.
@@ -53,7 +53,7 @@ Cloudshell wordt beheerd door Microsoft, zodat deze wordt geleverd met populaire
 Bekijk alle [lijst met hulpprogramma's zijn geïnstalleerd in de Cloud Shell.](features.md#tools)
 
 ### <a name="integrated-cloud-shell-editor"></a>Geïntegreerde Cloud Shell-editor
-Cloudshell biedt een geïntegreerde grafische teksteditor op basis van de open-source Monaco-Editor. Eenvoudig maken en bewerken van configuratiebestanden door uit te voeren `code .` voor de naadloze implementatie via Azure CLI 2.0 of Azure PowerShell.
+Cloudshell biedt een geïntegreerde grafische teksteditor op basis van de open-source Monaco-Editor. Eenvoudig maken en bewerken van configuratiebestanden door uit te voeren `code .` voor de naadloze implementatie via Azure CLI of Azure PowerShell.
 
 [Meer informatie over de Cloud Shell-editor](using-cloud-shell-editor.md).
 
@@ -68,7 +68,7 @@ Cloudshell is een flexibele hulpprogramma dat kan worden gebruikt vanuit:
 * [Azure CLI-documentatie](https://docs.microsoft.com/cli/azure)
 * [Documentatie voor Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 * [Mobiele Apps van Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
-* [VS Code Azure-accountextensie](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
+* [Visual Studio Code Azure-accountextensie](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### <a name="connect-your-microsoft-azure-files-storage"></a>Verbinding maken met uw Microsoft Azure File storage
 Cloud Shell machines zijn tijdelijk en vereisen een nieuwe of bestaande Azure-bestandsshare te koppelen als `clouddrive` om vast te leggen van de bestanden.

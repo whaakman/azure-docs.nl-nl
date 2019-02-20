@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 30388185c415346b298dbada715b17e631c66769
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: fc2cfcce57ad15d2bbad3242351492e184e7fd33
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096293"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415293"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Routefilters voor Microsoft-peering configureren: PowerShell
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.locfileid: "53096293"
 
 Met routefilters kunt u een subset van ondersteunde services gebruiken via Microsoft-peering. De stappen in dit artikel kunt u configureren en beheren van routefilters voor ExpressRoute-circuits.
 
-Dynamics 365-services en Office 365-services zoals Exchange Online, SharePoint Online en Skype voor bedrijven en openbare Azure-services, zoals storage en SQL-database zijn toegankelijk via Microsoft-peering. Openbare Azure-services kunnen worden geselecteerd op basis van de per regio en per openbare service kan niet worden gedefinieerd. 
+Dynamics 365-services en Office 365-services zoals Exchange Online, SharePoint Online en Skype voor bedrijven en openbare Azure-services, zoals storage en SQL-database zijn toegankelijk via Microsoft-peering. Openbare Azure-services kunnen worden geselecteerd op basis van de per regio en per openbare service kan niet worden gedefinieerd.
 
 Wanneer Microsoft-peering is geconfigureerd op een ExpressRoute-circuit en een routefilter is gekoppeld, worden alle voorvoegsels die zijn geselecteerd voor deze services worden geadverteerd via de BGP-sessies worden tot stand gebracht. Er wordt aan elk voorvoegsel een BGP-communitywaarde gekoppeld om de service te identificeren die via het voorvoegsel wordt aangeboden. Zie voor een lijst van de BGP-Communitywaarden en deze worden toegewezen aan services, [BGP-community's](expressroute-routing.md#bgp).
 
@@ -112,7 +112,7 @@ Get-AzureRmBgpServiceCommunity
 
 Maak een lijst van BGP-Communitywaarden die u wilt gebruiken in de routefilter. De BGP-communitywaarde voor Dynamics 365-services is een voorbeeld: 12076:5040.
 
-## <a name="filter"></a>Stap 2: Maak een routefilter en een filterregel
+## <a name="filter"></a>Stap 2: Een routefilter en een filterregel voor een maken
 
 Een routefilter kan slechts één regel, en de regel moet van het type 'Toestaan'. Deze regel kan een lijst met BGP-Communitywaarden die zijn gekoppeld aan deze hebben.
 

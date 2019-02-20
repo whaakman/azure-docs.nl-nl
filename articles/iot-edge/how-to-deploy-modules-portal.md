@@ -4,18 +4,18 @@ description: De Azure portal gebruiken voor het implementeren van modules in een
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/03/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 8b7327796cf29c8c234c0a750c90e0689f508f7e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 9d7729dce5419c5813de3c4dfce55c40098f5988
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969400"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430111"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Azure IoT Edge-modules van de Azure-portal implementeren
 
@@ -51,6 +51,7 @@ De Azure portal heeft een wizard waarmee wordt beschreven hoe u het manifest van
 
    * **IoT Edge-Module** -de standaardoptie.
    * **Azure Stream Analytics-Module** -alleen modules die zijn gegenereerd op basis van een Azure Stream Analytics-workload.
+   * **Azure Machine Learning-Module** -model voor alleen afbeeldingen die worden gegenereerd op basis van een Azure Machine Learning-werkruimte.
 
 1. Selecteer de **IoT Edge-Module**.
 
@@ -82,6 +83,29 @@ Lees de informatie van uw implementatie, en selecteer vervolgens **indienen**.
 ## <a name="view-modules-on-your-device"></a>Modules weergeven op uw apparaat
 
 Nadat u hebt modules geïmplementeerd op uw apparaat, vindt u alle mappen in de **Apparaatdetails** pagina van de portal. Deze pagina weergegeven de naam van elke geïmplementeerde module, evenals de nuttige informatie als de implementatie de status- en uitgiftemodules code.
+
+## <a name="deploy-modules-from-azure-marketplace"></a>Implementeren van modules in Azure Marketplace
+
+Azure Marketplace is een online-toepassingen en services waar u door een breed scala aan bedrijfstoepassingen en -oplossingen die zijn gecertificeerd en geoptimaliseerd bladeren kan voor het uitvoeren op Azure, met inbegrip van [IoT Edge-modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Azure Marketplace kan ook worden geopend via de Azure-portal onder **een Resource maken**.
+
+U kunt een IoT Edge-module installeren via Azure Marketplace of de Azure-portal:
+
+1. Zoek een module en met het implementatieproces begint.
+
+   * Azure Portal: Zoek een module en selecteer **maken**.
+
+   * Azure Marketplace:
+
+     1. Zoek een module en selecteer **nu downloaden**.
+     1. Bevestiging van de provider en de servicevoorwaarden en het privacybeleid door te selecteren **doorgaan**.
+
+1. Kies uw abonnement en de IoT-Hub waarop het doelapparaat is aangesloten.
+
+1. Kies **implementeren op een apparaat**.
+
+1. Voer de naam van het apparaat of selecteer **apparaat vinden** te zoeken tussen de apparaten die zijn geregistreerd bij de hub.
+
+1. Selecteer **maken** om door te gaan van het standaardproces van het configureren van een implementatie-manifest, zoals het toevoegen van andere modules indien gewenst. Details voor de nieuwe module zoals URI, installatiekopie opties maken en gewenste eigenschappen zijn vooraf gedefinieerd, maar kunnen worden gewijzigd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
