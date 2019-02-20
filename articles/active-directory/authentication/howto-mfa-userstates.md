@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbfffa94c76de2c7c4e9f4f2e67c9744e52f22c7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 39659df99951850ced07be14f81348ae9c1c1be5
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194186"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428599"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Hoe u verificatie in twee stappen vereist voor een gebruiker
 
@@ -96,7 +96,7 @@ De Module eerst installeren, met behulp van:
 > Vergeet niet om te verbinden via eerst **Connect-MsolService**
 
 
-Het inschakelen met behulp van PowerShell is een goede optie, wanneer u gebruikers bulksgewijs wilt inschakelen. Maak een PowerShell-script waarmee een lijst met gebruikers wordt doorgelopen en ingeschakeld:
+ In dit voorbeeld PowerShell-script kunt MFA voor een afzonderlijke gebruiker:
 
         Import-Module MSOnline
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
@@ -105,7 +105,7 @@ Het inschakelen met behulp van PowerShell is een goede optie, wanneer u gebruike
         $sta = @($st)
         Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
 
-Het volgende script is een voorbeeld:
+Met behulp van PowerShell is een goede optie wanneer u moet bulksgewijs gebruikers in staat. Als u bijvoorbeeld het volgende script doorloopt een lijst van gebruikers en, schakelt u MFA op hun accounts:
 
     $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
     foreach ($user in $users)
@@ -117,11 +117,11 @@ Het volgende script is een voorbeeld:
         Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
     }
     
-Naar uitgeschakelde MFA, gebruikt dit script:
+Als u wilt uitschakelen MFA, moet u dit script gebruiken:
 
     Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationRequirements @()
     
-of kan ook zijn kort aan:
+dat kan ook worden ingekort tot:
 
     Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
 

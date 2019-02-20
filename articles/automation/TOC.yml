@@ -81,28 +81,49 @@ items:
     - name: Op rollen gebaseerd toegangsbeheer beheren
       displayName: RBAC
       href: automation-role-based-access-control.md
-  - name: Runbooks maken
+  - name: Runbooks
     items:
+    - name: Runbooks beheren
+      href: manage-runbooks.md
     - name: Runbooktypen
       displayName: graphical, python, powershell, powershell workflow
       href: automation-runbook-types.md
-    - name: Runbooks maken en importeren
-      href: automation-creating-importing-runbook.md
-    - name: Een grafisch runbook maken
-      href: automation-first-runbook-graphical.md
-    - name: Een PowerShell-runbook maken
-      href: automation-first-runbook-textual-powershell.md
-    - name: Een PowerShell Workflow-runbook maken
-      href: automation-first-runbook-textual.md
-    - name: Een Python-runbook maken
-      href: automation-first-runbook-textual-python2.md
-    - name: Tekstrunbooks bewerken
-      displayName: powershell
-      href: automation-edit-textual-runbook.md
-    - name: Grafische runbooks bewerken
-      href: automation-graphical-authoring-intro.md
-    - name: Een runbook testen
-      href: automation-testing-runbook.md
+    - name: Runbooks maken
+      items:
+      - name: Grafisch runbook
+        href: automation-first-runbook-graphical.md
+      - name: PowerShell-runbook
+        href: automation-first-runbook-textual-powershell.md
+      - name: PowerShell-werkstroomrunbook
+        href: automation-first-runbook-textual.md
+      - name: Python-runbook
+        href: automation-first-runbook-textual-python2.md
+      - name: Runbooks maken met de SDK voor grafische runbooks
+        href: graphical-runbook-sdk.md
+    - name: Runbooks bewerken
+      items:
+      - name: Tekstrunbooks bewerken
+        displayName: powershell
+        href: automation-edit-textual-runbook.md
+      - name: Grafische runbooks bewerken
+        href: automation-graphical-authoring-intro.md
+    - name: Een runbook starten
+      href: start-runbooks.md
+    - name: Een runbook starten vanuit een webhook
+      href: automation-webhooks.md
+    - name: Invoerparameters voor runbook
+      displayName: input,json
+      href: runbook-input-parameters.md
+    - name: Foutafhandeling in grafische runbooks
+      href: automation-runbook-graphical-error-handling.md
+    - name: Een runbook-taak volgen
+      displayName: fair share, activity log
+      href: automation-runbook-execution.md
+    - name: Azure Automation-gegevens beheren
+      displayName: backup
+      href: automation-managing-data.md
+    - name: Python 2-pakketten beheren
+      href: python-packages.md
     - name: PowerShell-werkstroom leren
       href: automation-powershell-workflow.md
     - name: Onderliggende runbooks
@@ -116,28 +137,6 @@ items:
     - name: Integratie van bronbeheer - verouderd
       href: automation-source-control-integration-legacy.md
       displayname: github
-    - name: Runbooks maken met de SDK voor grafische runbooks
-      href: graphical-runbook-sdk.md
-  - name: Automatiseren
-    items:
-    - name: Een runbook starten
-      href: automation-starting-a-runbook.md
-    - name: Een runbook starten vanuit een webhook
-      href: automation-webhooks.md
-    - name: Invoerparameters voor een runbook configureren
-      href: automation-runbook-input-parameters.md
-    - name: Foutafhandeling in grafische runbooks
-      href: automation-runbook-graphical-error-handling.md
-    - name: Een runbook-taak volgen
-      displayName: fair share, activity log
-      href: automation-runbook-execution.md
-    - name: Azure Automation-gegevens beheren
-      displayName: backup
-      href: automation-managing-data.md
-    - name: Een JSON-object doorgeven aan een Azure Automation-runbook
-      href: automation-pass-json-string.md
-    - name: Python 2-pakketten beheren
-      href: python-packages.md
   - name: Hybrid Runbook Worker
     items:
     - name: Overzicht van Hybrid Runbook Worker
@@ -205,12 +204,6 @@ items:
       href: automation-create-alert-triggered-runbook.md
     - name: Een Amazon Web Service-VM maken
       href: automation-scenario-aws-deployment.md
-    - name: Integratie van broncodebeheer met GitHub Enterprise
-      displayName: CI, runbooks
-      href: automation-scenario-source-control-integration-with-github-ent.md
-    - name: Integratie van broncodebeheer met Azure DevOps
-      displayName: VSTS, CI, runbooks
-      href: automation-scenario-source-control-integration-with-VSTS.md
     - name: Een Azure Resource Manager-sjabloon implementeren in een Azure Automation-PowerShell-runbook
       href: automation-deploy-template-runbook.md
     - name: Azure Automation integreren met Event Grid en Microsoft-Teams
@@ -292,9 +285,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-automation
   - name: Video's
     href: https://azure.microsoft.com/documentation/videos/index/?services=automation
-ms.openlocfilehash: a5886c5af9db6945fe33efd8198b5527f580d297
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: e35c51bb1d82f2c5eda708ab8bce71c2bf5b69b7
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004568"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417020"

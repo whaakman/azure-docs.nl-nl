@@ -34,20 +34,30 @@ items:
     href: backup-rm-template-samples.md
 - name: Concepten
   items:
-  - name: Back-up maken van architectuur
-    href: backup-architecture.md
-  - name: Back-up maken van ondersteuningsmatrix
-    href: backup-support-matrix.md
+  - name: Ondersteuningsmatrices
+    items:
+    - name: Ondersteuningsmatrix voor Azure Backup
+      href: backup-support-matrix.md
+    - name: Ondersteuningsmatrix voor Azure VM Backup
+      href: backup-support-matrix-iaas.md
+    - name: Ondersteuningsmatrix voor DPM/Azure Backup Server (MABS)
+      href: backup-support-matrix-mabs-dpm.md
+    - name: Ondersteuningsmatrix voor MARS-agent
+      href: backup-support-matrix-mars-agent.md
   - name: Veelgestelde vragen
     items:
-    - name: Veelgestelde vragen over Recovery Services-kluis
+    - name: 'Veelgestelde vragen: Recovery Services-kluizen'
       href: backup-azure-backup-faq.md
-    - name: Veelgestelde vragen over Azure VM-back-ups
+    - name: 'Veelgestelde vragen: Azure VM Backup'
       href: backup-azure-vm-backup-faq.md
-    - name: Veelgestelde vragen over het maken van back-ups van bestandsmappen met behulp van de Azure Backup-agent
+    - name: 'Veelgestelde vragen: MARS-agent'
       href: backup-azure-file-folder-backup-faq.md
-    - name: Veelgestelde vragen over automatisch upgraden van back-upkluis
-      href: backup-upgrade-backup-vault.md
+    - name: 'Veelgestelde vragen: back-ups maken van Azure Files'
+      href: backup-azure-files-faq.md
+    - name: 'Veelgestelde vragen: back-ups maken van SQL Server-databases in virtuele Azure-machines'
+      href: faq-backup-sql-server.md
+  - name: Back-up maken van architectuur
+    href: backup-architecture.md
   - name: Op rollen gebaseerd toegangsbeheer
     href: backup-rbac-rs-vault.md
   - name: Beveiliging voor hybride back-ups
@@ -104,45 +114,39 @@ items:
     items:
     - name: Een backup maken van Azure-bestandsshares
       href: backup-azure-files.md
-    - name: Veelgestelde vragen over het maken van backups van Azure-bestandsshares
-      href: backup-azure-files-faq.md
-  - name: Azure-VM's
+  - name: Back-ups maken van Azure-VM's
     items:
-    - name: De virtuele machine voorbereiden
+    - name: Over Azure VM Backup
+      href: backup-azure-vms-introduction.md
+    - name: Back-ups van virtuele Azure-machines maken en herstellen met Azure Backup Instant Restore
+      href: backup-instant-restore-capability.md
+    - name: Back-ups maken van Azure-VM's
       items:
-      - name: Virtuele machines voorbereiden die zijn geïmplementeerd met Resource Manager
-        href: backup-azure-arm-vms-prepare.md
-      - name: Toepassingsconsistente back-ups van virtuele Linux-machines
-        href: backup-azure-linux-app-consistent.md
-    - name: Uw omgeving plannen
-      items:
-      - name: VM-back-upinfrastructuur plannen
-        href: backup-azure-vms-introduction.md
-    - name: Back-ups maken van virtuele machines
-      items:
-      - name: Back-ups maken van virtuele Azure-machines naar een Recovery Services-kluis
-        href: backup-azure-vms-first-look-arm.md
-      - name: Back-ups maken van versleutelde virtuele machines
-        href: backup-azure-vms-encryption.md
-      - name: VM-back-up inschakelen tijdens het maken van een virtuele machine
+      - name: Back-up inschakelen wanneer u een Azure-VM maakt
         href: backup-during-vm-creation.md
-    - name: Virtuele machines beheren en controleren
+      - name: Back-up maken van een Azure-VM via VM-instellingen
+        href: backup-azure-vms-first-look-arm.md
+      - name: Kluis instellen en back-up inschakelen voor Azure-VM's
+        href: backup-azure-arm-vms-prepare.md
+      - name: Back-ups maken van versleutelde Azure-VM's
+        href: backup-azure-vms-encryption.md
+      - name: App-consistente back-ups configureren voor Azure-VM's waarop Linux wordt uitgevoerd
+        href: backup-azure-linux-app-consistent.md
+    - name: Back-ups van Azure-VM's beheren en controleren
       items:
-      - name: Back-ups van virtuele Azure-machines beheren in Azure Portal
+      - name: Back-ups van Azure-VM's beheren
         href: backup-azure-manage-vms.md
       - name: Waarschuwingen voor virtuele Azure-machines controleren
         href: backup-azure-monitor-vms.md
-    - name: Gegevens van virtuele machines herstellen
+    - name: Azure-VM's herstellen
       items:
+      - name: Azure-VM's herstellen in de portal
+        href: backup-azure-arm-restore-vms.md
       - name: Bestanden herstellen vanuit back-ups van virtuele Azure-machines
         href: backup-azure-restore-files-from-vm.md
-      - name: Virtuele machines herstellen in Azure Portal
-        href: backup-azure-arm-restore-vms.md
-      - name: Mogelijkheid voor direct herstellen
-        href: backup-instant-restore-capability.md
       - name: Versleutelde virtuele machines herstellen
         href: backup-azure-vms-encryption.md
-      - name: Key Vault-sleutel en -geheim voor versleutelde virtuele machines terugzetten
+      - name: Sleutels en geheimen herstellen voor versleutelde virtuele machines
         href: backup-azure-restore-key-secret.md
   - name: Azure Backup-rapporten configureren
     items:
@@ -188,10 +192,14 @@ items:
       href: backup-azure-arm-userestapi-restoreazurevms.md
     - name: Azure Backup-taken beheren
       href: backup-azure-arm-userestapi-managejobs.md
-  - name: SQL op virtuele Azure-machines
+  - name: Back-ups maken van SQL Server-databases in virtuele Azure-machines
     items:
-    - name: Een back-up van SQL-database maken in Azure
+    - name: Back-ups maken van SQL Server-databases in virtuele Azure-machines
       href: backup-azure-sql-database.md
+    - name: SQL Server-databases herstellen vanuit back-up
+      href: restore-sql-database-azure-vm.md
+    - name: Back-ups van SQL Server-databases beheren
+      href: manage-monitor-sql-database-backup.md
   - name: Windows Server
     items:
     - name: Back-ups maken van Windows Server-bestanden en -mappen
@@ -262,9 +270,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=backup
   - name: Video's
     href: https://azure.microsoft.com/documentation/videos/index/?services=backup
-ms.openlocfilehash: ce83f8b6b1a0c7ccd9f00672f9aaf9bb33152fa8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 77f6bf8c4dd12c31f7461b273322b4ce41e3c58d
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997231"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428292"
