@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: bwren
 ms.subservice: alerts
-ms.openlocfilehash: c50c1a111f037b74176b5ca2cf8af518b2d3ffa0
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 53cd84d669a3f14d5ac028cc29ae483962860f72
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429380"
+ms.locfileid: "56447211"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Meld u waarschuwingsquery's in Azure Monitor
 [Waarschuwingsregels op basis van Azure Monitor logboeken](alerts-unified-log.md) met regelmatige tussenpozen uitvoeren, dus moet u ervoor zorgen dat ze worden geschreven naar de overhead en Latentie minimaliseren. In dit artikel bevat aanbevelingen voor het schrijven van efficiënte query's voor waarschuwingen en een proces voor het converteren van bestaande query's. 
@@ -31,16 +31,11 @@ Query's die met beginnen `search` of `union` kunt u zoeken in meerdere kolommen 
 
 ```Kusto
 search "Memory"
-
 search * | where == "Memory"
-
 search ObjectName: "Memory"
-
 search ObjectName == "Memory"
-
 union * | where ObjectName == "Memory"
 ```
- 
 
 Hoewel `search` en `union` zijn handig zijn tijdens het gegevensverkenning, voorwaarden zoeken in het hele gegevensmodel, ze zijn minder efficiënt dan het gebruik van een tabel, omdat ze tussen meerdere tabellen moeten scannen. Omdat de query's in de regels voor waarschuwingen met regelmatige tussenpozen worden uitgevoerd, kan dit resulteren in overmatige overhead latentie toe te voegen aan de waarschuwing. Vanwege deze overhead moeten altijd query's voor waarschuwingsregels in Azure beginnen met een tabel om een duidelijke bereik, wat zorgt voor betere prestaties van query's zowel de relevantie van de resultaten te definiëren.
 
