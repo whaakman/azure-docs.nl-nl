@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: b368ef3b5503d90b0eb928113e8154aabca9c04a
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 7a090a068984a71c917cf5c33761dd78ac1ad2c8
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157136"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453253"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Een toepassingsgateway maken met een firewall voor webtoepassingen met behulp van de Azure portal
 
@@ -130,7 +130,7 @@ In dit voorbeeld maakt u twee virtuele machines die worden gebruikt als back-end
 
 ## <a name="create-a-storage-account"></a>Create a storage account
 
-In deze zelfstudie gebruikt de toepassingsgateway een opslagaccount voor het opslaan van gegevens voor detectie- en preventiedoeleinden. U kunt ook Log Analytics of Event Hub gebruiken om gegevens vast te leggen.
+In deze zelfstudie gebruikt de toepassingsgateway een opslagaccount voor het opslaan van gegevens voor detectie- en preventiedoeleinden. U kunt ook logboeken van Azure Monitor of Event Hub gebruiken om vast te leggen van de gegevens.
 
 1. Klik op **nieuw** gevonden in de linkerbovenhoek van Azure portal.
 2. Selecteer **Storage** en selecteer vervolgens **Opslagaccount - blob, bestand, tabel, wachtrij**.
@@ -162,7 +162,7 @@ Configureer diagnostische gegevens om gegevens vast te leggen in de logboeken Ap
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u geleerd hoe u:
+In dit artikel hebt u het volgende geleerd:
 
 > [!div class="checklist"]
 > * Een toepassingsgateway maken met WAF ingeschakeld

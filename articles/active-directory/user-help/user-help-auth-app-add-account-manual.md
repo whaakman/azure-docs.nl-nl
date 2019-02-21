@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0d46fc8a152c4426832669ce22d4aa78ac640e6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0e82e8f6caafb38b758f552913def234a92a0d83
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173939"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454647"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Handmatig een account toevoegen aan de app.
 Als uw camera niet kan om vast te leggen van de QR-code, kunt u gegevens over uw account handmatig toevoegen aan de Microsoft Authenticator-app voor tweeledige verificatie. Dit werkt voor werk of schoolaccounts en niet-Microsoft-accounts.
@@ -29,7 +29,7 @@ De codes die is opgegeven voor uw accounts zijn niet hoofdlettergevoelig en spat
 
 ## <a name="add-your-work-or-school-account"></a>Uw werk- of schoolaccount toevoegen
 
-1. Op uw PC, houd er rekening mee de **Code** en **Url** informatie over de **mobiele app configureren** pagina. Houd deze pagina geopend zodat u de code en URL kunt zien.
+1. Op uw computer, houd er rekening mee de **Code** en **Url** informatie over de **mobiele app configureren** pagina. Houd deze pagina geopend zodat u de code en URL kunt zien.
     
     ![Scherm waarmee de QR-code](./media/user-help-auth-app-add-account-manual/auth-app-barcode.png)
 
@@ -47,7 +47,7 @@ De codes die is opgegeven voor uw accounts zijn niet hoofdlettergevoelig en spat
 
 ## <a name="add-your-google-account"></a>Uw Google-account toevoegen
 
-1. Selecteer op uw PC **SCANNEN IT CAN'T** van de **Authenticator instellen** pagina met de QR-code.
+1. Selecteer op de computer, **SCANNEN IT CAN'T** van de **Authenticator instellen** pagina met de QR-code.
 
     De **streepjescode kan niet scannen** pagina wordt weergegeven met de geheime code. Houd deze pagina geopend zodat u dat de geheime code zien kunt.
 
@@ -55,7 +55,7 @@ De codes die is opgegeven voor uw accounts zijn niet hoofdlettergevoelig en spat
 
 3. Voer een **accountnaam** (bijvoorbeeld, Google) en typ de **geheime sleutel** uit stap 1 en selecteer vervolgens **voltooien**.
 
-4. Op de **Authenticator instellen** pagina op uw PC, typt u de verificatiecode van zes cijfers beschikbaar in de app voor uw Google-account en selecteer vervolgens **controleren**.
+4. Op de **Authenticator instellen** pagina op uw computer, typt u de verificatiecode van zes cijfers beschikbaar in de app voor uw Google-account en selecteer vervolgens **controleren**.
 
     De **Accounts** scherm van de app ziet u de accountnaam van uw en een 6-cijferige verificatiecode. Voor extra beveiliging verandert de verificatiecode in die elke 30 seconden zo wordt voorkomen dat iemand met een code meerdere keren.
 
@@ -70,7 +70,7 @@ De codes die is opgegeven voor uw accounts zijn niet hoofdlettergevoelig en spat
 
 3. Voer een **accountnaam** (bijvoorbeeld Facebook) en typ de **geheime sleutel** uit stap 1 en selecteer vervolgens **voltooien**.
 
-4. Op de **tweeledige Authenticator** pagina op uw PC, typt u de verificatiecode van zes cijfers beschikbaar in de app voor uw Facebook-account en selecteer vervolgens **controleren**.
+4. Op de **tweeledige Authenticator** pagina op uw computer, typt u de verificatiecode van zes cijfers beschikbaar in de app voor uw Facebook-account en selecteer vervolgens **controleren**.
 
     De **Accounts** scherm van de app ziet u de accountnaam van uw en een 6-cijferige verificatiecode. Voor extra beveiliging verandert de verificatiecode in die elke 30 seconden zo wordt voorkomen dat iemand met een code meerdere keren.
 
@@ -80,7 +80,7 @@ De codes die is opgegeven voor uw accounts zijn niet hoofdlettergevoelig en spat
 ## <a name="add-your-amazon-account"></a>De Amazon-account toevoegen
 U kunt uw Amazon-account toevoegen door het inschakelen van tweeledige verificatie en het account vervolgens toe te voegen aan de app.
 
-1. Selecteer op uw PC **kan niet de streepjescode scannen** uit de **kiezen hoe u ontvangt codes** pagina met de QR-code.
+1. Selecteer op de computer, **kan niet de streepjescode scannen** uit de **kiezen hoe u ontvangt codes** pagina met de QR-code.
 
     De **kan niet de streepjescode scannen** bericht wordt weergegeven met de geheime code. Houd dit bericht geopend zodat u dat de geheime code zien kunt.
 
@@ -90,9 +90,9 @@ U kunt uw Amazon-account toevoegen door het inschakelen van tweeledige verificat
 
 4. Voltooi de rest van het aanmeldingsproces, waaronder het toevoegen van een back-verificatiemethode, zoals een SMS-bericht, en selecteer vervolgens **code naartoe sturen**.
 
-5. Op de **toevoegen van een back-verificatiemethode** pagina op uw PC, typ de 6-cijferige verificatiecode geleverd door uw back-verificatiemethode voor de Amazon-account en selecteer vervolgens **code controleren en doorgaan met**.
+5. Op de **toevoegen van een back-verificatiemethode** pagina op uw computer, typt u de verificatiecode van zes cijfers geleverd door uw back-verificatiemethode voor de Amazon-account en selecteer vervolgens **code controleren en doorgaan met**.
 
-6. Op de Almost uitgevoerd pagina, Bepaal of u wilt maken van uw PC een vertrouwd apparaat en selecteer vervolgens **inderdaad. Verificatie in twee stappen inschakelen**.
+6. Op de Almost uitgevoerd pagina, beslissen of u de computer een vertrouwd apparaat en selecteer vervolgens **inderdaad. Verificatie in twee stappen inschakelen**.
 
     De **Advanced Security Settings** pagina wordt weergegeven, waarin de gegevens van uw bijgewerkte tweeledige verificatie.
 

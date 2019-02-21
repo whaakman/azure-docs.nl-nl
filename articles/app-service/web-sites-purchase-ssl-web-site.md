@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 784cb5248dab2b9554c67347e1b9b848e1a9e985
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 29e6215358eaf544f32f585744ed36f30822d134
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820781"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446746"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Kopen en configureren van een SSL-certificaat voor Azure App Service
 
-Deze zelfstudie leert u hoe u uw web-app beveiligt door te maken (schaffen) een App Service-certificaat in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) en vervolgens te binden aan een App Service-app.
+Deze zelfstudie leert u over het beveiligen van uw [App Service-app](https://docs.microsoft.com/azure/app-service/) of [functie-app](https://docs.microsoft.com/azure/azure-functions/) door te maken (schaffen) een App Service-certificaat in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) en vervolgens te binden aan een App Service-app.
 
 > [!TIP]
 > App Service-certificaten kunnen worden gebruikt voor alle Azure of niet - Azure-Services en is niet beperkt tot de App-Services. Om dit te doen, moet u een lokaal PFX-exemplaar van een App Service-certificaat dat u kunt gebruiken waar die u wilt maken. Zie voor meer informatie, [het maken van een lokale kopie van het pfx-van een App Service Certificate](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
@@ -35,7 +35,7 @@ Deze zelfstudie leert u hoe u uw web-app beveiligt door te maken (schaffen) een 
 In deze gebruiksaanwijzing volgen:
 
 - [Een App Service-app maken](/azure/app-service/)
-- [Een domeinnaam toewijzen aan uw web-app](app-service-web-tutorial-custom-domain.md) of [kopen en configureren in Azure](manage-custom-dns-buy-domain.md)
+- [Een domeinnaam toewijzen aan uw app](app-service-web-tutorial-custom-domain.md) of [kopen en configureren in Azure](manage-custom-dns-buy-domain.md)
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 

@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodc18
 ms.date: 12/18/2017
-ms.openlocfilehash: 2db14056b6b5ccf16c8009c21bfcff00954a7802
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 78daf4534334d56c962d97e7a9aac8a7910db34c
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242888"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453593"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Downloadbare Infographic: Machine learning-basisbeginselen met algoritmevoorbeelden
 
@@ -33,7 +33,7 @@ Download dit overzicht infographic eenvoudig te begrijpen van de basisprincipes 
 
 ## <a name="more-help-with-algorithms-for-beginners-and-advanced-users"></a>Meer hulp bij algoritmen voor beginners en ervaren gebruikers
 
-* Zie voor een uitgebreidere bespreking van de verschillende soorten machine learning-algoritmen, hoe ze worden gebruikt en hoe u de juiste is voor uw oplossing te kiezen, [algoritmen kiezen voor Microsoft Azure Machine Learning](algorithm-choice.md).
+* Zie voor een uitgebreidere bespreking van de verschillende soorten machine learning-algoritmen, hoe ze worden gebruikt en hoe u de juiste is voor uw oplossing te kiezen, [algoritmen kiezen voor Microsoft Azure Machine Learning Studio](algorithm-choice.md).
 * Zie voor een lijst op categorie van alle de machine learning-algoritmen in Machine Learning Studio, [Initialize Model] [ initialize-model] in de algoritme voor Machine Learning Studio en de Module Help.
 * Zie voor een volledige alfabetische lijst van algoritmen en modules in Machine Learning Studio, [alfabetische lijst van Machine Learning Studio-modules] [ a-z-list] in de Module Help en algoritme voor Machine Learning Studio.
 * Zie voor een overzicht van de Azure AI Gallery en de vele community is opgesteld beschikbare resources, [Share en het detecteren van bronnen in de Azure AI Gallery](gallery-how-to-use-contribute-publish.md).

@@ -17,12 +17,12 @@ ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 09/18/2018
 ms.custom: mvc
-ms.openlocfilehash: ca0a6569dda89586c629cc46909862de4f27cf04
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4ab04fc69d29d9bb5386261f6453b2f47bfd66bc
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56160908"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446321"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Azure Stack-compute-capaciteitsplanning
 De [VM-grootten in Azure Stack ondersteund](./user/azure-stack-vm-sizes.md) vormen een subset van die worden ondersteund op Azure. Azure legt resourcebeperkingen langs veel vectoren om te voorkomen dat overmatig van resources (server-service op het niveau en lokale). Zonder enige beperkingen met betrekking tot tenantverbruik opleggen, afnemen de tenant-ervaringen wanneer andere tenants overconsume resources. Voor netwerken uitgaande verkeer van de virtuele machine zijn er bandbreedte limieten in plaats van Azure Stack die overeenkomen met de Azure-beperkingen. Storage-resources, opslag IOPs-limieten geïmplementeerd in Azure Stack om te voorkomen dat basic overmatig van resources door tenants voor toegang tot opslag.  
@@ -43,7 +43,7 @@ Als een server uitvalt, kunnen virtuele machines die worden gehost op de server 
 
 De volgende berekening resulteert in de totale beschikbare geheugen die kan worden gebruikt voor de tenant-VM-plaatsing. Deze capaciteit van het geheugen is voor het geheel van de Azure Stack-schaaleenheid.
 
-  Beschikbaar geheugen voor VM-plaatsing = totale Server – tolerantie Reserve – Azure Stack-infrastructuur geheugenoverhead <sup>1</sup>
+  Beschikbaar geheugen voor VM-plaatsing = Totaal servergeheugen – tolerantie Reserve – geheugen dat wordt gebruikt door het uitvoeren van VM's - Azure Stack-infrastructuur Overhead <sup>1</sup>
 
   Tolerantie reserve = H + R * (N-1) + V * (N-2)
 

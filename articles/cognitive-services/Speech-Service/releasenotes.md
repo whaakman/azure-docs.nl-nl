@@ -8,17 +8,70 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 2/20/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: a5b8cd7da465bc2dc58c2b89852903669c18bf4b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0f5452e3abbde40c247ef7e000b84fc3eb00c943
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871792"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446831"
 ---
 # <a name="release-notes"></a>Releaseopmerkingen
+
+## <a name="speech-sdk-130-2019-february-release"></a>Speech SDK 1.3.0: Release van februari 2019
+
+**Nieuwe functies**
+
+* De spraak-SDK biedt ondersteuning voor selectie van de invoer microfoon via de klasse AudioConfig. Hiermee audio om gegevens te streamen met de spraak-Service van een niet-standaard microfoon. Voor meer informatie, Zie de documentatie beschrijven [audio-invoer Apparaatselectie](how-to-select-audio-input-devices.md). Dit is nog niet beschikbaar is via JavaScript.
+* De spraak-SDK biedt nu ondersteuning voor Unity in een bètaversie. Geef feedback via de sectie probleem in de [voorbeeldopslagplaats in GitHub](https://aka.ms/csspeech/samples). Deze release biedt ondersteuning voor Unity op Windows x86 en x64 (desktop of Universal Windows Platform-toepassingen), en Android (ARM32/64, x86). Meer informatie vindt u in onze [Unity-snelstartgids](quickstart-csharp-unity.md).
+
+**Voorbeelden**
+
+De volgende nieuwe inhoud is beschikbaar in onze [voorbeeldopslagplaats](https://aka.ms/csspeech/samples):
+
+* Meer voorbeelden voor AudioConfig.FromMicrophoneInput.
+* Aanvullende voorbeelden van Python intentieherkenning en voor omzetting.
+* Als u meer voorbeelden voor het gebruik van het verbindingsobject in iOS.
+* Meer Java-voorbeelden voor vertaling met de audio-uitvoer.
+* Nieuwe voorbeeld voor het gebruik van de [Batch transcriptie REST-API](batch-transcription.md).
+
+**Verbeteringen / gewijzigd**
+
+* Python
+  * Verbeterde parameter verificatie en foutberichten in SpeechConfig.
+  * Ondersteuning toevoegen voor het verbindingsobject.
+  * Ondersteuning voor 32-bits Python (x86) op Windows.
+  * De spraak-SDK voor Python, valt buiten beta.
+* iOS
+  * De SDK is nu gebouwd op basis van de iOS SDK versie 12.1.
+  * De SDK biedt nu ondersteuning voor iOS versie 9.2 en hoger.
+  * Referentiedocumentatie voor verbeteren en op te lossen verschillende namen van eigenschappen.
+* Javascript
+  * Ondersteuning toevoegen voor het verbindingsobject.
+  * Type definitiebestanden voor gebundelde JavaScript toevoegen
+  * Eerste ondersteuning en de implementatie voor woordgroep hints.
+  * Eigenschappen van verzameling met JSON-service voor opname geretourneerd
+* Windows-DLL's bevat nu een versie-resource.
+
+**Oplossingen voor problemen**
+
+* Lege proxygebruikersnaam en wachtwoord voor proxy zijn niet correct verwerkt. Met deze release, als u de proxygebruikersnaam en wachtwoord voor proxy hebt ingesteld op een lege tekenreeks zullen ze niet worden verzonden bij het verbinden met de proxy.
+* De sessie-id die zijn gemaakt door de SDK zijn niet altijd volledig willekeurige voor sommige talen&nbsp;/ omgevingen. De initialisatie van de generator van willekeurige u kunt dit verhelpen toegevoegd.
+* De verwerking van de verificatietoken verbeteren. Als u een verificatietoken gebruiken wilt, Geef in het SpeechConfig en laat u de abonnementssleutel leeg. Vervolgens maakt u de herkenning zoals gebruikelijk.
+* In sommige gevallen de verbinding is niet correct object uitgebracht. Dit probleem is opgelost.
+* De JavaScript-voorbeeld is ter ondersteuning van de audio-uitvoer voor vertaling synthese ook op Safari opgelost.
+
+## <a name="speech-sdk-121"></a>Spraak SDK 1.2.1
+
+Dit is een alleen-JavaScript-versie. Er zijn geen functies zijn toegevoegd. De volgende oplossingen zijn aangebracht:
+
+* Einde van de stroom op turn.end, niet op de speech.end gestart.
+* Los de fout in audio pomp noodzakelijk dat geen gepland vervolgens verzonden heeft als de huidige is mislukt verzenden.
+* Herkenning van continue met-verificatietoken oplossen.
+* Opgelost probleem voor verschillende herkenning / eindpunten.
+* Verbeteringen in de documentatie bij.
 
 ## <a name="speech-sdk-120-2018-december-release"></a>Speech SDK 1.2.0: Release van December 2018
 

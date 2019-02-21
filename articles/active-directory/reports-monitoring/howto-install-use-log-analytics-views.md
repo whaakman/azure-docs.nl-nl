@@ -1,6 +1,6 @@
 ---
-title: Installeren en de Log Analytics-weergaven gebruiken voor Azure Active Directory (preview) | Microsoft Docs
-description: Meer informatie over het installeren en de Log Analytics-weergaven gebruiken voor Azure Active Directory (preview)
+title: Installeren en de log analytics-weergaven gebruiken voor Azure Active Directory (preview) | Microsoft Docs
+description: Meer informatie over het installeren en de log analytics-weergaven gebruiken voor Azure Active Directory (preview)
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -17,37 +17,37 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de2aa262dff54f2b8e535aa646e9a8cac7719567
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7220fc6b239d20e9f1fc81e7d18b4d7ca6f0ded5
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165260"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453627"
 ---
-# <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Installeren en de Log Analytics-weergaven gebruiken voor Azure Active Directory
+# <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Installeren en de log analytics-weergaven gebruiken voor Azure Active Directory
 
-De weergaven van de Azure Active Directory Log Analytics helpt u bij het analyseren en zoek de Azure AD-activiteitenlogboeken in uw Azure AD-tenant. Azure AD-activiteit logboeken bevatten:
+De Active Directory van Azure log analytics weergaven kunt die u analyseren en zoeken in die de Azure AD-in uw Azure AD-tenant activiteitenlogboeken. Azure AD-activiteit logboeken bevatten:
 
 * Auditlogboeken: De [activiteit audittrailrapporten](concept-audit-logs.md) krijgt u toegang tot de geschiedenis van elke taak die wordt uitgevoerd in uw tenant.
 * Meld u in Logboeken: Met de [rapport van aanmeldingsactiviteiten](concept-sign-ins.md), kunt u bepalen wie de taken die worden gerapporteerd in de auditlogboeken uitgevoerd.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor de Log Analytics-weergaven, hebt u het volgende nodig:
+Voor de log analytics-weergaven, hebt u het volgende nodig:
 
 * Een Log Analytics-werkruimte in uw Azure-abonnement. Meer informatie over het [een Log Analytics-werkruimte maken](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 * De stappen voor het eerst voltooid [route de Azure AD-activiteitenlogboeken aan uw Log Analytics-werkruimte](howto-integrate-activity-logs-with-log-analytics.md).
 * Downloaden van de weergaven van de [GitHub-opslagplaats](https://aka.ms/AADLogAnalyticsviews) naar uw lokale computer.
 
-## <a name="install-the-log-analytics-views"></a>Installeren van de Log Analytics-weergaven
+## <a name="install-the-log-analytics-views"></a>Installeren van de log analytics-weergaven
 
-1. Navigeer naar uw Log Analytics-werkruimte. Om dit te doen, en Ga eerst naar de [Azure-portal](https://portal.azure.com) en selecteer **alle services**. Type **Log Analytics** in het tekstvak in en selecteer **Log Analytics**. Selecteer de werkruimte die u de activiteitenlogboeken, doorgestuurd als onderdeel van de vereisten.
+1. Navigeer naar uw Log Analytics-werkruimte. Om dit te doen, en Ga eerst naar de [Azure-portal](https://portal.azure.com) en selecteer **alle services**. Type **Log Analytics** in het tekstvak in en selecteer **Log Analytics-werkruimten**. Selecteer de werkruimte die u de activiteitenlogboeken, doorgestuurd als onderdeel van de vereisten.
 2. Selecteer **Weergaveontwerper**, selecteer **importeren** en selecteer vervolgens **bestand kiezen** voor het importeren van de weergaven van uw lokale computer.
 3. Selecteer de weergaven die u hebt gedownload van de vereisten en selecteer **opslaan** om op te slaan van het importeren. Doe dit voor de **Azure AD-Account inrichten gebeurtenissen** weergeven en de **aanmeldingen gebeurtenissen** weergeven.
 
 ## <a name="use-the-views"></a>Gebruik de weergaven
 
-1. Navigeer naar uw Log Analytics-werkruimte. Om dit te doen, en Ga eerst naar de [Azure-portal](https://portal.azure.com) en selecteer **alle services**. Type **Log Analytics** in het tekstvak in en selecteer **Log Analytics**. Selecteer de werkruimte die u de activiteitenlogboeken, doorgestuurd als onderdeel van de vereisten.
+1. Navigeer naar uw Log Analytics-werkruimte. Om dit te doen, en Ga eerst naar de [Azure-portal](https://portal.azure.com) en selecteer **alle services**. Type **Log Analytics** in het tekstvak in en selecteer **Log Analytics-werkruimten**. Selecteer de werkruimte die u de activiteitenlogboeken, doorgestuurd als onderdeel van de vereisten.
 
 2. Bent u in de werkruimte, selecteert u **werkruimte overzicht**. Hier ziet u de volgende drie weergaven:
 
@@ -73,5 +73,5 @@ Voor de Log Analytics-weergaven, hebt u het volgende nodig:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Over het analyseren van activiteit-Logboeken in Log Analytics](howto-analyze-activity-logs-log-analytics.md)
-* [Aan de slag met Log Analytics in Azure portal](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal)
+* [Over het analyseren van activiteitenlogboeken met Azure Monitor-Logboeken](howto-analyze-activity-logs-log-analytics.md)
+* [Aan de slag met Azure Monitor-Logboeken in Azure portal](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal)

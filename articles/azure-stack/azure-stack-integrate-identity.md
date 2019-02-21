@@ -10,12 +10,12 @@ ms.date: 01/23/19
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 01/23/19
-ms.openlocfilehash: a7753280c0b84b21f44e52c303b96f11cd4cd8af
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: a71362f4d6a69f2eaed36dd549437bb5857d555f
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765787"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456993"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Datacenter-integratie Azure Stack - identiteit
 U kunt Azure Stack met behulp van Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS) implementeren als de id-providers. Voordat u Azure Stack implementeren, moet u de keuze maken. Implementatie met behulp van AD FS is ook aangeduid als Azure Stack implementeren in de niet-verbonden modus.
@@ -73,7 +73,7 @@ De volgende informatie is vereist als invoer voor de automation-parameters:
 
 Voor Active Directory-implementaties met meerdere sites, configureert u de dichtstbijzijnde Active Directory-Site naar uw Azure Stack-implementatie. De configuratie zo voorkomt u dat de Azure Stack Graph-service oplossen van query's met behulp van een globale catalogus-Server vanaf een externe site.
 
-Toevoegen van de Azure Stack [openbare VIP-netwerk](azure-stack-network.md#public-vip-network) subnet met de Azure AD-Site die het dichtst bij Azure Stack. Bijvoorbeeld, als uw Active Directory twee sites Seattle en Redmond met Azure Stack geïmplementeerd op de site Seattle heeft, zou u toevoegen het subnet van het Azure Stack openbare VIP-netwerk met de Azure AD-site voor Seattle.
+Toevoegen van de Azure Stack [openbare VIP-netwerk](azure-stack-network.md#public-vip-network) subnet aan de Active Directory-Site die het dichtst bij Azure Stack. Bijvoorbeeld, als uw Active Directory twee sites Seattle en Redmond met Azure Stack geïmplementeerd op de site Seattle heeft, zou u toevoegen het subnet van het Azure Stack openbare VIP-netwerk met de Active Directory-site voor Seattle.
 
 Zie voor meer informatie over Active Directory-Sites [de sitetopologie ontwerpen](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology).
 

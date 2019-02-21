@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/03/2018
-ms.openlocfilehash: f57f6bf93fce2526bdc478558551616ba1fa3c4c
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 4f474fd6ac2fa6a4f44aacf0eacb85a92fdf1de9
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496020"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456466"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Zijn gegevens gereed voor gegevenswetenschap?
 ## <a name="video-2-data-science-for-beginners-series"></a>Video 2: Gegevenswetenschap voor Beginners-serie
@@ -100,7 +100,7 @@ Als u meer gegevens toevoegt, wordt de afbeelding wordt duidelijker en u meer ge
 
 Met gegevens die relevant zijn, verbonden, nauwkeurige en genoeg, u hebt alle onderdelen nodig voor sommige gegevenswetenschap van hoge kwaliteit.
 
-Zorg ervoor dat uit de andere vier video's in te checken *Gegevenswetenschap voor Beginners* van Microsoft Azure Machine Learning.
+Zorg ervoor dat uit de andere vier video's in te checken *Gegevenswetenschap voor Beginners* van Microsoft Azure Machine Learning Studio.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Probeer een eerste gegevenswetenschapexperiment met Machine Learning Studio](create-experiment.md)

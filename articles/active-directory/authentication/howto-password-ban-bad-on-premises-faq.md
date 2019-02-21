@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b29e4f6e6e877a3d03ded9edd9e282e0960e177
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 4d3b0f7cdacfb781ba7925be8146c10919c5269b
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414626"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455531"
 ---
 # <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Preview: Azure AD wachtwoordbeveiliging on-premises - Veelgestelde vragen over
 
@@ -43,7 +43,7 @@ Nee, on-premises Azure AD-wachtwoord beveiliging wordt alleen ondersteund in de 
 
 **V: Hoe kan ik voordelen van Azure AD-wachtwoord beveiliging toepassen op een subset van mijn on-premises gebruikers?**
 
-Wordt niet ondersteund. Zodra de geïmplementeerd en ingeschakeld, beveiliging van Azure AD-wachtwoord geen onderscheid - ontvangen gelijk beveiligingsvoordelen van alle gebruikers.
+Wordt niet ondersteund. Eenmaal geïmplementeerd en ingeschakeld, beveiliging van Azure AD-wachtwoord niet onderscheid - ontvangen gelijk beveiligingsvoordelen van alle gebruikers.
 
 **V: Is dit dan ondersteund voor het installeren van Azure AD-wachtwoord bescherming naast andere producten op basis van wachtwoord-filter?**
 
@@ -69,7 +69,7 @@ Zie de volgende artikelen voor meer informatie:
 
 **V: Hoeveel schijfruimte vereist de functie op de sysvol-share van het domein?**
 
-Het gebruik van de precieze schijfruimte kan niet correct worden opgegeven omdat deze is afhankelijk van factoren zoals het aantal en de lengte van de tokens uitgesloten wachtwoorden in de lijst met uitgesloten wachtwoorden globale en de aangepaste per tenant lijst met wachtwoorden, plus de overhead van versleuteling verboden. De inhoud van deze lijsten zijn waarschijnlijk in de toekomst vergroten. Met die in rekening met is een redelijke huidige vuistregel dat de functie ten minste vijf (5) MB aan ruimte op de sysvol-share van het domein moet.
+Het gebruik van de precieze schijfruimte is nadat deze is afhankelijk van factoren zoals het aantal en de lengte van de uitgesloten tokens in de globale uitgesloten lijst met Microsoft en de aangepaste lijst per tenant plus versleuteling overhead. De inhoud van deze lijsten zijn waarschijnlijk in de toekomst vergroten. Met die in gedachten is een redelijke verwachting is dat de functie ten minste vijf (5) MB aan ruimte op de sysvol-share van het domein moet.
 
 **V: Waarom is opnieuw opstarten vereist om te installeren of upgraden van de DC-agentsoftware?**
 
@@ -77,33 +77,33 @@ Deze vereiste wordt veroorzaakt door core Windows gedrag.
 
 **V: Is er manier om een DC-agent voor het gebruik van een bepaalde proxyserver te configureren?**
 
-Nee. Houd er rekening mee dat omdat de proxyserver stateless, is het niet belangrijk welke specifieke proxy-server wordt gebruikt.
+Nee. Aangezien de proxyserver stateless is, is het niet belangrijk welke specifieke proxy-server wordt gebruikt.
 
-**V: Is het goed dat het implementeren van de Azure AD-wachtwoord beveiliging Proxy service side-by-side op een computer met andere services zoals Azure AD Connect?**
+**V: Is het goed dat het implementeren van de Azure AD-wachtwoord beveiliging-proxyservice naast andere services zoals Azure AD Connect?**
 
 Ja. De Azure AD-wachtwoord beveiliging Proxy-service en Azure AD Connect moet nooit rechtstreeks met elkaar conflicteren.
 
 **V: Ik moet over de prestaties op de domeincontrollers van het implementeren van deze functie is bereikt?**
 
-De Azure AD-wachtwoord DC Protection Agent-service is ontworpen om te worden zo efficiënt mogelijke en moet niet significant van invloed op prestaties van domeincontrollers in een bestaande Active Directory-implementatie die al voldoende resources wordt voorzien.
+De Azure AD-wachtwoord DC Protection Agent-service al dan niet mogen aanzienlijk invloed hebben op prestaties van domeincontrollers in een bestaande Active Directory-implementatie in orde.
 
-Dit is handig om te weten dat de wijzigingsbewerkingen voor voor de meeste implementaties van Active Directory-wachtwoord een klein deel van de algemene workload op een bepaalde domeincontroller zijn. Stel bijvoorbeeld dat Active Directory-domein met 10000 gebruikersaccounts en een MaxPasswordAge beleid ingesteld op 30 dagen. Gemiddeld, ziet dit domein 10000/30 = ~ 333 wachtwoordswijzigingen elke dag een klein aantal bewerkingen voor zelfs één domeincontroller is. Het voorbeeld in op een mogelijke ergste geval, pushen, stel deze ~-333 wachtwoordwijzigingen op een enkele DC via één uur zijn uitgevoerd (bijvoorbeeld: in dit scenario treedt op wanneer een groot aantal van alle werknemers worden geleverd om te werken op een maandagochtend); zelfs in dit geval we proberen nog steeds ~333/60 minuten = zes wachtwoordwijzigingen per minuut, zodat het is niet een aanzienlijke belasting.
+Voor de meeste implementaties van Active Directory-wachtwoord zijn wijzigingsbewerkingen een klein deel van de algemene workload op een bepaalde domeincontroller. Stel bijvoorbeeld dat Active Directory-domein met 10000 gebruikersaccounts en een MaxPasswordAge beleid ingesteld op 30 dagen. Gemiddeld, ziet dit domein 10000/30 = ~ 333 wachtwoordswijzigingen elke dag een klein aantal bewerkingen voor zelfs één domeincontroller is. Houd rekening met een mogelijke slechtste scenario: Stel deze ~-333 wachtwoordwijzigingen op een enkele DC via één uur zijn uitgevoerd. In dit scenario kan bijvoorbeeld optreden wanneer veel werknemers alle worden geleverd om te werken op een maandagochtend. Zelfs in dat geval we proberen nog steeds ~333/60 minuten = zes wachtwoordwijzigingen per minuut, zodat het is niet een aanzienlijke belasting.
 
-Basis hiervan dient als uw huidige domeincontrollers zijn al wordt uitgevoerd op het niveau van prestaties beperkt (bijvoorbeeld maximum is overschreden met betrekking tot CPU, schijfruimte, schijf-i/o, enzovoort), is het een goed idee om extra domeincontrollers implementeren en/of beschikbare schijf uitbreiden ruimte vóór de implementatie van Azure AD-wachtwoord beveiliging. Zie ook de vraag hierboven over sysvol schijfruimtegebruik hierboven.
+Als uw huidige domeincontrollers zijn al wordt uitgevoerd op het niveau van prestaties beperkt (bijvoorbeeld maximum is overschreden met betrekking tot CPU, schijfruimte, schijf-i/o, enzovoort), het is echter aangeraden toevoegen van extra domeincontrollers of beschikbare schijfruimte, uitvouwen voordat Deze functie wordt geïmplementeerd. Zie ook de vraag hierboven over sysvol schijfruimtegebruik hierboven.
 
 **V: Ik wil Azure AD-wachtwoord beveiliging op een paar DC's in Mijn domein testen. Is het mogelijk om af te dwingen de wachtwoordwijzigingen gebruiker deze specifieke DC's gebruiken?**
 
-Nee. Wanneer een gebruiker het wachtwoord wijzigt, wordt de domeincontroller die wordt gebruikt door het besturingssysteem van de Windows-client op basis van factoren, zoals Active Directory-site en elk subnet toewijzingen, omgevingsspecifieke netwerkconfiguratie, enzovoort geselecteerd. Beveiliging van Azure AD-wachtwoord niet van invloed zijn op of beheren van deze factoren en daarom kan niet van invloed zijn op welke domeincontroller voor een bepaalde gebruiker wachtwoordwijziging is geselecteerd.
+Nee. De Windows-clientbesturingssysteem bepaalt welke domeincontroller wordt gebruikt wanneer een gebruiker het wachtwoord wijzigt. De domeincontroller is geselecteerd op basis van factoren, zoals Active Directory-site en elk subnet toewijzingen, omgevingsspecifieke netwerkconfiguratie, enzovoort. Azure AD-wachtwoord Protection heeft geen controle over deze factoren en kan niet van invloed zijn op welke domeincontroller is geselecteerd voor het wijzigen van het wachtwoord van een gebruiker.
 
-Basis hiervan dient is een benadering die wordt geleverd dicht bij het simuleren van dit doel Azure AD-wachtwoord beveiliging op alle domeincontrollers in een bepaalde Active Directory-site implementeren. Deze benadering biedt redelijkerwijs alomtegenwoordige dekking voor de Windows-clients die zijn toegewezen aan die site, en dus ook voor de gebruikers die zijn aangemeld bij deze clients en hun wachtwoorden wijzigen.
+Een manier om dit doel gedeeltelijk bereiken zijn Azure AD-wachtwoord beveiliging op alle domeincontrollers in een bepaalde Active Directory-site implementeren. Deze benadering biedt redelijke dekking voor de Windows-clients die zijn toegewezen aan die site, en dus ook voor de gebruikers die zijn aangemeld bij deze clients en hun wachtwoorden wijzigen.
 
 **V: Als ik de Azure AD-wachtwoord DC Protection Agent-service op alleen de primaire domeincontroller (PDC) installeert, worden alle andere domeincontrollers in het domein ook worden beveiligd?**
 
-Nee. Als het wachtwoord van een gebruiker wordt gewijzigd op een domeincontroller voor bepaalde niet-primaire domeincontroller, wordt het wachtwoord niet-versleutelde tekst nooit naar de primaire domeincontroller (dit idee is een algemene profieltoewijzingen perceptie) verzonden. In plaats daarvan wanneer een nieuw wachtwoord wordt geaccepteerd op een domeincontroller die is opgegeven, die DC dat wachtwoord gebruikt voor het maken van de verschillende verificatie-protocol-specifieke-hashes van wachtwoord en klikt u vervolgens blijft bestaan die hashes in de map. De bijgewerkt hashes worden vervolgens gerepliceerd naar de PDC - maar Protection voor Azure AD-wachtwoord is niet betrokken bij dit proces. Wachtwoorden van gebruikers kunnen in sommige gevallen rechtstreeks op de PDC en wordt opnieuw, afhankelijk van verschillende factoren, zoals netwerktopologie en ontwerp voor Active Directory-site worden gewijzigd. (Zie de vorige vraag.)
+Nee. Als het wachtwoord van een gebruiker wordt gewijzigd op een domeincontroller voor bepaalde niet-primaire domeincontroller, wordt het wachtwoord niet-versleutelde tekst nooit naar de primaire domeincontroller (dit idee is een algemene profieltoewijzingen perceptie) verzonden. Zodra een nieuw wachtwoord wordt geaccepteerd op een domeincontroller die is opgegeven, wordt die DC dat wachtwoord gebruikt voor het maken van de verschillende verificatie-protocol-specifieke-hashes van wachtwoord en klikt u vervolgens blijft bestaan die hashes in de map. Het wachtwoord niet-versleutelde tekst is niet persistent. De bijgewerkte hashes worden vervolgens gerepliceerd naar de primaire domeincontroller. Wachtwoorden van gebruikers kunnen in sommige gevallen rechtstreeks op de PDC en wordt opnieuw, afhankelijk van verschillende factoren, zoals netwerktopologie en ontwerp voor Active Directory-site worden gewijzigd. (Zie de vorige vraag.)
 
-Om samen te vatten: implementatie van de service Azure AD wachtwoord-DC-beveiligingsagent op de PDC tot 100% dekking voor de beveiliging van de functie is vereist, maar dat op zichzelf biedt geen beveiliging voor Azure AD-wachtwoord de voordelen van beveiliging voor alle andere domeincontrollers in het domein.
+Kortom, is de implementatie van de Azure AD-wachtwoord DC Protection Agent-service op de PDC tot 100% dekking voor de beveiliging van de functie binnen het domein vereist. Implementeren van de functie op de PDC alleen beschikt niet over de voordelen van Azure AD-wachtwoord beveiliging beveiliging voor alle andere domeincontrollers in het domein.
 
-**V: Een managementpack van System Center Operations Manager (SCOM) is beschikbaar voor Azure AD-wachtwoord beveiliging?**
+**V: Een System Center Operations Manager managementpack beschikbaar is voor Azure AD-wachtwoord beveiliging?**
 
 Nee.
 
@@ -114,6 +114,10 @@ De volgende koppelingen kunnen maken geen deel uit van de belangrijkste document
 [E-Phishing Protection handleiding – deel 15: Implementeren van de beveiligingsservice voor Microsoft Azure AD-wachtwoord (voor On-Premises te!)](https://blogs.technet.microsoft.com/cloudready/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/)
 
 [Azure AD-wachtwoordbeveiliging en Smart Lockout bent nu in openbare Preview.](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-and-Smart-Lockout-are-now-in-Public/ba-p/245423#M529)
+
+## <a name="microsoft-premierunified-support-training-available"></a>Training voor Microsoft Premier\Unified het ondersteuningsteam beschikbaar
+
+Als u geïnteresseerd bent in meer informatie over de beveiliging van Azure AD-wachtwoord en deze in uw omgeving is geïmplementeerd, kunt u profiteren van een proactieve Microsoft service is beschikbaar voor klanten met een contract voor Premier Support- of Unified-ondersteuning. De service is met de naam Azure Active Directory: Wachtwoordbeveiliging. Neem contact op met uw Technical Account Manager voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

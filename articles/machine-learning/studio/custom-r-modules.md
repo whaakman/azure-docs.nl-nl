@@ -1,7 +1,7 @@
 ---
 title: Aangepaste R-modules definiëren
 titleSuffix: Azure Machine Learning Studio
-description: In dit onderwerp wordt beschreven hoe u voor het ontwerpen en implementeren van een aangepaste R-module in Azure Machine Learning. Hierin wordt uitgelegd wat aangepaste R-modules zijn en welke bestanden worden gebruikt om deze te bepalen.
+description: In dit onderwerp wordt beschreven hoe u voor het ontwerpen en implementeren van een aangepaste R-module in Azure Machine Learning Studio. Hierin wordt uitgelegd wat aangepaste R-modules zijn en welke bestanden worden gebruikt om deze te bepalen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 0da5456845b940ef88ac40ffed1f53e84fe54080
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 43691988e3f4f253c642702ad19272a5267c14cc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488302"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56457027"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Aangepaste R-modules voor Azure Machine Learning Studio definieert
 
@@ -24,9 +24,9 @@ In dit onderwerp wordt beschreven hoe u voor het ontwerpen en implementeren van 
 
 
 ## <a name="what-is-a-custom-r-module"></a>Wat is een aangepaste R-module?
-Een **aangepaste module** is een door de gebruiker gedefinieerde module die kan worden geüpload naar uw werkruimte en kan worden uitgevoerd als onderdeel van een Azure Machine Learning-experiment. Een **aangepaste R-module** is een aangepaste module die een door de gebruiker gedefinieerde R-functie wordt uitgevoerd. **R** is een programmeertaal voor statistische computing en afbeeldingen die veel door statistici en data scientists wordt gebruikt voor het implementeren van algoritmen. R is momenteel de enige ondersteunde in aangepaste modules, maar ondersteuning voor extra talen is gepland voor toekomstige versies taal.
+Een **aangepaste module** is een door de gebruiker gedefinieerde module die kan worden geüpload naar uw werkruimte en kan worden uitgevoerd als onderdeel van een Azure Machine Learning Studio-experiment. Een **aangepaste R-module** is een aangepaste module die een door de gebruiker gedefinieerde R-functie wordt uitgevoerd. **R** is een programmeertaal voor statistische computing en afbeeldingen die veel door statistici en data scientists wordt gebruikt voor het implementeren van algoritmen. R is momenteel de enige ondersteunde in aangepaste modules, maar ondersteuning voor extra talen is gepland voor toekomstige versies taal.
 
-Aangepaste modules zijn **eersteklas status** in Azure Machine Learning in de zin dat ze net als elke andere module kunnen worden gebruikt. Ze kunnen worden uitgevoerd met andere modules, die zijn opgenomen in de gepubliceerde experimenten of in visualisaties. Hebt u controle over de algoritme die is geïmplementeerd door de module, de invoer en uitvoerpoorten die worden gebruikt, de parameters modelleren en andere verschillende gedrag voor runtime. Een experiment met aangepaste modules kan ook worden gepubliceerd in de Azure AI Gallery delen.
+Aangepaste modules zijn **eersteklas status** in Azure Machine Learning Studio in de zin dat ze net als elke andere module kunnen worden gebruikt. Ze kunnen worden uitgevoerd met andere modules, die zijn opgenomen in de gepubliceerde experimenten of in visualisaties. Hebt u controle over de algoritme die is geïmplementeerd door de module, de invoer en uitvoerpoorten die worden gebruikt, de parameters modelleren en andere verschillende gedrag voor runtime. Een experiment met aangepaste modules kan ook worden gepubliceerd in de Azure AI Gallery delen.
 
 ## <a name="files-in-a-custom-r-module"></a>Bestanden in een aangepaste R-module
 Een aangepaste R-module is gedefinieerd door een ZIP-bestand dat ten minste twee bestanden bevat:
@@ -55,7 +55,7 @@ Bekijk het voorbeeld van een **rijen toevoegen van aangepaste** -module die Hier
     } 
 
 ### <a name="the-xml-definition-file"></a>De definitie van het XML-bestand
-Om beschikbaar te stellen deze `CustomAddRows` functie als een module voor Azure Machine Learning, definitie van een XML-bestand moet worden gemaakt om op te geven hoe de **rijen toevoegen van aangepaste** module moet hetzelfde uiterlijk en gedrag. 
+Om beschikbaar te stellen deze `CustomAddRows` functie als een module voor Azure Machine Learning Studio, definitie van een XML-bestand moet worden gemaakt om op te geven hoe de **rijen toevoegen van aangepaste** module moet hetzelfde uiterlijk en gedrag. 
 
     <!-- Defined a module using an R Script -->
     <Module name="Custom Add Rows">
@@ -105,7 +105,7 @@ De **rijen toevoegen van aangepaste** -module is nu klaar om te worden geopend d
 
 ## <a name="elements-in-the-xml-definition-file"></a>Elementen in het definitie van het XML-bestand
 ### <a name="module-elements"></a>Module-elementen
-De **Module** element wordt gebruikt voor het definiëren van een aangepaste module in het XML-bestand. Meerdere modules kunnen worden gedefinieerd in een XML-bestand meerdere **module** elementen. Elke module in uw werkruimte moet een unieke naam hebben. Een aangepaste module hebt geregistreerd met dezelfde naam als een bestaande aangepaste module en de bestaande module vervangt door de nieuwe. Aangepaste modules kunnen echter worden geregistreerd met dezelfde naam als een bestaande Azure Machine Learning-module. Als u dus ze worden weergegeven in de **aangepaste** categorie van het modulepalet.
+De **Module** element wordt gebruikt voor het definiëren van een aangepaste module in het XML-bestand. Meerdere modules kunnen worden gedefinieerd in een XML-bestand meerdere **module** elementen. Elke module in uw werkruimte moet een unieke naam hebben. Een aangepaste module hebt geregistreerd met dezelfde naam als een bestaande aangepaste module en de bestaande module vervangt door de nieuwe. Aangepaste modules kunnen echter worden geregistreerd met dezelfde naam als een bestaande Azure Machine Learning Studio-module. Als u dus ze worden weergegeven in de **aangepaste** categorie van het modulepalet.
 
     <Module name="Custom Add Rows" isDeterministic="false"> 
         <Owner>Microsoft Corporation</Owner>
@@ -330,7 +330,7 @@ Een module-parameter wordt gedefinieerd met behulp van de **func** onderliggend 
   * **standaard** -de waarde voor de eigenschap default moet overeenkomen met een id-waarde van een van de **Item** elementen.
 
 ### <a name="auxiliary-files"></a>Aanvullende bestanden
-Elk bestand dat wordt geplaatst in uw aangepaste module-ZIP-bestand is het verstandig om beschikbaar voor gebruik tijdens de uitvoeringstijd. Een directory-structuren aanwezig blijven behouden. Dit betekent dat bestand sourcing werkt hetzelfde lokaal en in Azure Machine Learning kan worden uitgevoerd. 
+Elk bestand dat wordt geplaatst in uw aangepaste module-ZIP-bestand is het verstandig om beschikbaar voor gebruik tijdens de uitvoeringstijd. Een directory-structuren aanwezig blijven behouden. Dit betekent dat bestand sourcing werkt hetzelfde lokaal en in de Azure Machine Learning Studio worden uitgevoerd. 
 
 > [!NOTE]
 > U ziet dat alle bestanden zijn uitgepakt naar de map 'src', zodat alle paden moet ' src /' voorvoegsel.

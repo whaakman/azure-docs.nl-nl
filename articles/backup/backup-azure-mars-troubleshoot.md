@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: saurse
-ms.openlocfilehash: 9180604b18224adace040c9eee5181b4cd4d8b92
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: ce6293e63e672df9683ab607a304f8c7275911c5
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339002"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446610"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>Microsoft Azure Recovery Services (MARS)-Agent oplossen
 
@@ -59,7 +59,8 @@ Hier wordt beschreven hoe u fouten u tijdens de configuratie, registratie, back-
 ## <a name="backups-dont-run-according-to-the-schedule"></a>Back-ups uitvoeren volgens het schema niet
 Als de geplande back-ups niet automatisch ophalen geactiveerd terwijl er een handmatige back-ups zonder problemen werkt, probeert u de volgende acties:
 
-- Ga naar **Configuratiescherm** > **Systeembeheer** > **Task Scheduler**. Vouw **Microsoft**, en selecteer **Online back-up**. Dubbelklik op **Microsoft OnlineBackup**, en Ga naar de **Triggers** tabblad. Zorg ervoor dat de status is ingesteld op **ingeschakeld**. Als dit niet, selecteer **bewerken**, en selecteer de **ingeschakeld** selectievakje. Op de **algemene** tabblad, Ga naar **beveiligingsopties**. Zorg ervoor dat het gebruikersaccount dat is geselecteerd voor het uitvoeren van de taak een is **SYSTEM** of **lokale beheerdersgroep** op de server.
+- Zorg ervoor dat Windows Server back-upschema niet in strijd is met Azure-bestanden en mappen back-upschema.
+- Ga naar **Configuratiescherm** > **Systeembeheer** > **Task Scheduler**. Vouw **Microsoft**, en selecteer **Online back-up**. Dubbelklik op **Microsoft OnlineBackup**, en Ga naar de **Triggers** tabblad. Zorg ervoor dat de status is ingesteld op **ingeschakeld**. Als dit niet, selecteer **bewerken**, en selecteer de **ingeschakeld** selectievakje in en klikt u op **OK**. Op de **algemene** tabblad, Ga naar **beveiligingsopties** en zorg ervoor dat het gebruikersaccount dat is geselecteerd voor het uitvoeren van de taak een **SYSTEM** of **lokale De beheerdersgroep** op de server.
 
 - Zie als PowerShell 3.0 of hoger is geïnstalleerd op de server. Voer de volgende opdracht uit om te controleren of de PowerShell-versie, en controleer de *belangrijke* versienummer is gelijk aan of groter is dan 3.
 

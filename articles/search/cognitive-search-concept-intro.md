@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: eb344d6da15a8faf8f05720ae9b1fd49bd42db2f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d2086f02cc981ad944c030ad40083d153c520359
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54808194"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447324"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Wat is 'cognitive search' in Azure Search?
 
@@ -96,18 +96,24 @@ Indexen zijn gegenereerd op basis van een indexschema waarin de velden, kenmerke
 
 + US - west-centraal
 + US - zuid-centraal
++ US - noord-centraal
 + US - oost
 + US - oost 2
 + US - west
 + US - west 2
++ US - centraal
 + Canada - midden
 + Europa -west
-+ Verenigd Koninkrijk Zuid
 + Europa - noord
++ Verenigd Koninkrijk Zuid
++ Frankrijk - centraal
 + Brazilië - zuid
 + Azië - oost
 + Azië - zuidoost
 + India - centraal
++ Japan - west
++ Japan - oost
++ Korea - centraal
 + Australië - oost
 
 **Stap 2: Praktische ervaring naar het hoofdniveau van de werkstroom**

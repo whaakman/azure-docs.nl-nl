@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7f5583bfd6089362aef51285643f5fc920005242
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 8a067474fb172d4ff7a7fdf7eb6d24536bd2d017
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56331194"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56443353"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Welke schijftypen zijn beschikbaar in Azure?
 
@@ -21,9 +21,9 @@ Azure-beheerde schijven biedt momenteel vier schijftypen, drie die algemeen besc
 
 ## <a name="disk-comparison"></a>Vergelijking van schijven
 
-De volgende tabel bevat een vergelijking van ultra schijven (preview), premium solid-state-schijven (SSD), standard-SSD, en standaard harde schijven (HDD) voor beheerde schijven om te bepalen wat u wilt gebruiken.
+De volgende tabel bevat een vergelijking van ultra solid-state-stations (SSD) (preview), premium SSD, standard-SSD en standaard harde schijven (HDD) voor beheerde schijven om te bepalen wat u wilt gebruiken.
 
-|   | Ultra-schijven (preview)   | Premium SSD   | Standard - SSD   | Standard HDD   |
+|   | Ultra SSD (preview)   | Premium SSD   | Standard - SSD   | Standard HDD   |
 |---------|---------|---------|---------|---------|
 |Schijftype   |SSD   |SSD   |SSD   |HDD   |
 |Scenario   |I/o-intensieve workloads zoals SAP HANA, databases van de bovenste laag (bijvoorbeeld SQL, Oracle) en andere transactie zware workloads.   |Productie- en prestatiegevoelige workloads   |Webservers, bedrijfstoepassingen weinig wordt gebruikt en ontwikkelen en testen   |Back-up, niet-kritieke, incidentele toegang   |
@@ -31,19 +31,19 @@ De volgende tabel bevat een vergelijking van ultra schijven (preview), premium s
 |Max. doorvoer   |2000 MiB/s (Preview)   |250 (GA) MiB/s, 750 MiB/s (Preview)   |60 MiB/s (GA), 500 MiB/s (Preview)   |60 Mib/s (GA), 500 MiB/s (Preview)   |
 |Max. IOP's   |160.000 (preview)   |(GA), 7500 20.000 (Preview)   |500 (GA), 2000 (Preview)   |500 (GA), 2000 (Preview)   |
 
-## <a name="ultra-disks-preview"></a>Ultra-schijven (preview)
+## <a name="ultra-ssd-preview"></a>Ultra SSD (preview)
 
-Azure ultra-schijven (preview) bieden hoge doorvoer, hoge IOPS en consistente lage latentie schijfopslag voor Azure IaaS VM's. Enkele aanvullende voordelen van ultra schijven zijn de mogelijkheid om de prestaties van de schijf, samen met uw workloads, zonder dat uw virtuele machines opnieuw moet worden dynamisch te wijzigen. Ultra-schijven zijn geschikt voor gegevensintensieve workloads, zoals SAP HANA, databases van de bovenste laag en transactie-zware workloads. Ultra schijven kunnen alleen worden gebruikt als gegevensschijven. We adviseren premium SSD's gebruiken als de OS-schijven.
+Azure ultra SSD (preview) bieden hoge doorvoer, hoge IOPS en consistente lage latentie schijfopslag voor Azure IaaS VM's. Enkele aanvullende voordelen van ultra SSD zijn de mogelijkheid om de prestaties van de schijf, samen met uw workloads, zonder dat uw virtuele machines opnieuw moet worden dynamisch te wijzigen. Ultra SSD zijn geschikt voor gegevensintensieve workloads, zoals SAP HANA, databases van de bovenste laag en transactie-zware workloads. Ultra SSD kan alleen worden gebruikt als gegevensschijven. We adviseren premium SSD's gebruiken als de OS-schijven.
 
 ### <a name="performance"></a>Prestaties
 
-Als u een ultra schijf inricht, kunt u de capaciteit en de prestaties van de schijf afzonderlijk configureren. Ultra-schijven zijn verkrijgbaar in verschillende vaste grootte, variërend van 4 GiB maximaal 64 TiB en voorzien van een flexibele prestaties configuratiemodel waarmee u IOPS en doorvoer onafhankelijk van elkaar te configureren.
+Als u een ultra schijf inricht, kunt u de capaciteit en de prestaties van de schijf afzonderlijk configureren. Ultra SSD zijn verkrijgbaar in verschillende vaste grootte, variërend van 4 GiB maximaal 64 TiB en voorzien van een flexibele prestaties configuratiemodel waarmee u IOPS en doorvoer onafhankelijk van elkaar te configureren.
 
-Er zijn enkele kernfuncties van Ultra schijven:
+Er zijn enkele kernfuncties van Ultra SSD:
 
-- Capaciteit van de schijf: Ultra schijven capaciteit varieert van 4 GiB maximaal 64 TiB.
-- Schijf-IOPS: Ultra schijven ondersteuning voor IOPS-limieten van 300 IOPS/GiB, tot een maximum van 160 kB IOPS per schijf. Zorg ervoor dat de geselecteerde schijf-IOPS kleiner dan de IOPS VM zijn voor het bereiken van de IOPS-waarde die u hebt ingericht. De minimale IOPS-schijf zijn 100 IOPS.
-- Schijfdoorvoer: Met ultra schijven, de doorvoerlimiet van één schijf is 256 KiB/s voor elke IOP's, tot een maximum van 2000 MBps per schijf ingericht (waarbij MBps = 10 ^ 6 Bytes per seconde). De schijfdoorvoer, met minimale is 1 MiB.
+- Capaciteit van de schijf: Ultra bereiken van SSD-capaciteit van 4 GiB maximaal 64 TiB.
+- Schijf-IOPS: Ultra SSD ondersteuning voor IOPS-limieten van 300 IOPS/GiB, tot een maximum van 160 kB IOPS per schijf. Zorg ervoor dat de geselecteerde schijf-IOPS kleiner dan de IOPS VM zijn voor het bereiken van de IOPS-waarde die u hebt ingericht. De minimale IOPS-schijf zijn 100 IOPS.
+- Schijfdoorvoer: Met de ultra SSD, de doorvoerlimiet van één schijf is 256 KiB/s voor elk IOP's, tot een maximum van 2000 MBps per schijf ingericht (waarbij MBps = 10 ^ 6 Bytes per seconde). De schijfdoorvoer, met minimale is 1 MiB.
 
 ### <a name="disk-size"></a>Schijfgrootte
 
@@ -61,7 +61,7 @@ Er zijn enkele kernfuncties van Ultra schijven:
 
 ### <a name="preview-scope-and-limitations"></a>Bereik van de Preview-versie en beperkingen
 
-Tijdens de preview, ultra schijven:
+Tijdens de preview, ultra SSD:
 
 - In VS-Oost 2 in één beschikbaarheidszone worden ondersteund  
 - Kan alleen worden gebruikt met beschikbaarheidszones (beschikbaarheidssets en één VM-implementaties buiten zones worden niet hebben de mogelijkheid om te koppelen van een ultra-schijf)
@@ -81,7 +81,7 @@ Azure premium SSD's bieden ondersteuning voor hoge prestaties en lage latentie s
 
 Grootten gemarkeerd met een sterretje zijn momenteel in preview.
 
-| Premium-SSD-grootten  | P4               | P6               | P10             | P15 | P20              | S30              | P40              | P50              | P60*              | P70*              | P80*              |
+| Premium-SSD-grootten  | P4               | P6               | P10             | P15 | P20              | P30              | P40              | P50              | P60*              | P70*              | P80*              |
 |---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
 | Schijfgrootte in GiB           | 32             | 64             | 128            | 256  | 512            | 1,024    | 2,048     | 4,095    | 8.192     | 16,384     | 32,767     |
 | IOP's per schijf       | Maximaal kunnen 120 | Tot 240              | Maximaal 500              | Maximaal 1100 | Maximaal 2300              | Maximaal 5.000              | Maximaal 7.500             | Maximaal 7.500              | Maximaal 12.500              | Maximaal 15.000              | Maximaal 20.000              |

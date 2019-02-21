@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: e780a78bb2cc341ef6b2f682cd51fedad3f08494
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: bfc1c419d5d58b4528b76dbed6fd0060f6b2833d
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310845"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446661"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - Veelgestelde vragen
 In dit artikel vindt u antwoorden op veelgestelde vragen over de Azure Backup-service.
@@ -39,7 +39,8 @@ Nee. Back-upgegevens die zijn opgeslagen in een kluis kan niet worden verplaatst
 Nee. Een Recovery Services-kluis kunt opslagopties alleen wijzigen voordat u een back-ups zijn opgeslagen.
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Kan ik een Item niveau herstellen (ILR) voor virtuele machines een back-up naar een Recovery Services-kluis?
-Nee, ILR wordt niet ondersteund.
+- ILR wordt ondersteund voor virtuele Azure-machines back-up gemaakt door Azure VM backup. Zie voor meer informatie, [artikel](backup-azure-restore-files-from-vm.md)
+- ILR wordt niet ondersteund voor online herstelpunten van on-premises virtuele machines een back-up door Azure Backup-Server of System Center DPM.
 
 
 ## <a name="azure-backup-agent"></a>Azure Backup-agent
@@ -90,7 +91,6 @@ Ja.
 - U back-up van Azure-VM's één keer per dag.
 
 ### <a name="what-operating-systems-are-supported-for-backup"></a>Welke besturingssystemen worden ondersteund voor back-up?
-
 Azure Backup biedt ondersteuning voor deze besturingssystemen voor back-ups van bestanden en mappen en apps die zijn beveiligd door Azure Backup Server en DPM.
 
 **Besturingssysteem**| **SKU** |**Details**
@@ -139,7 +139,7 @@ BMR/systeemstatus |Elke afzonderlijke kopie van de BMR of systeemstatus van de m
 Er is geen limiet voor de hoeveelheid gegevens die u kunt back-up met behulp van een Recovery Services-kluis.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Waarom is de grootte van de gegevens overgebracht naar de Recovery Services-kluis die kleiner is dan de gegevens die zijn geselecteerd voor back-up?
- Gegevens back-up van Azure Backup-Agent, DPM, en Azure Backup Server wordt gecomprimeerd en versleuteld voordat ze worden overgedragen. Met compressie en versleuteling wordt toegepast, de gegevens in de kluis is 30-40% kleiner.
+Gegevens back-up van Azure Backup-Agent, DPM, en Azure Backup Server wordt gecomprimeerd en versleuteld voordat ze worden overgedragen. Met compressie en versleuteling wordt toegepast, de gegevens in de kluis is 30-40% kleiner.
 
 ### <a name="can-i-delete-individual-files-from-a-recovery-point-in-the-vault"></a>Kan ik afzonderlijke bestanden vanaf een herstelpunt in de kluis verwijderen?
 Nee, Azure Backup ondersteunt niet verwijderen of permanent verwijderen van afzonderlijke items vanuit opgeslagen back-ups.

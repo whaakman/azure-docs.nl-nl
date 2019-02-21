@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 10c8c0043d04d99ad10e475f903979edb0ddcb70
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: fc63eb792e58d960ae67138b5e58e6b705945030
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266889"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446389"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Installeren en configureren van SAP HANA (grote instanties) op Azure
 
@@ -70,7 +70,7 @@ Specifiek, Controleer de volgende parameters en uiteindelijk aanpassen aan:
 
 Beginnen met SP1 SLES12 en RHEL 7.2, moeten deze parameters worden ingesteld in een configuratiebestand in de map /etc/sysctl.d. Bijvoorbeeld, moet een configuratiebestand met de naam 91-NetApp-HANA.conf worden gemaakt. Voor oudere versies van SLES en RHEL moet deze parameters set in/etc/sysctl.conf.
 
-Voor alle versies van de RHEL beginnen met SLES12, houd rekening met het volgende: 
+Voor alle versies van de RHEL beginnen met RHEL 6.3, houd rekening met het volgende: 
 - De sunrpc.tcp_slot_table_entries = 128 parameter in/etc/modprobe.d/sunrpc-local.conf moet worden ingesteld. Als het bestand niet bestaat, moet u eerst maken door de volgende vermelding toe te voegen: 
     - options sunrpc tcp_max_slot_table_entries=128
 
@@ -140,7 +140,7 @@ Er zijn enkele details over de netwerken van de afzonderlijke eenheden opgemerkt
 
 Zie voor meer informatie over Ethernet-details voor uw architectuur, de [HLI scenario's ondersteund](hana-supported-scenario.md).
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Opslag
 
 De opslagindeling voor SAP HANA op Azure (grote instanties) is geconfigureerd door SAP HANA op Azure-service-beheer via SAP aanbevolen richtlijnen. Deze richtlijnen worden beschreven in de [opslagvereisten voor SAP HANA](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) technisch document. 
 

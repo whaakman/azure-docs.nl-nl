@@ -1,6 +1,6 @@
 ---
-title: Analyseren van activiteitenlogboeken van Azure Active Directory met behulp van Log Analytics (preview) | Microsoft Docs
-description: Informatie over het analyseren van activiteitenlogboeken van Azure Active Directory met behulp van Log Analytics (preview)
+title: Analyseren van activiteitenlogboeken van Azure Active Directory met behulp van Azure Monitor-Logboeken (preview) | Microsoft Docs
+description: Informatie over het analyseren van activiteitenlogboeken van Azure Active Directory met behulp van Azure Monitor-Logboeken (preview)
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -17,16 +17,16 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ea13d08af924427b9e7dc5def72c19d560525b8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e2e565f5b9bcd9e3e79423c742b2c95c00abd97b
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188253"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454755"
 ---
-# <a name="analyze-azure-ad-activity-logs-with-log-analytics-preview"></a>Analyseren van Azure AD-activiteitenlogboeken met Log Analytics (preview)
+# <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs-preview"></a>Analyseren van Azure AD-activiteitenlogboeken met Azure Monitor-Logboeken (preview)
 
-Nadat u [integreren van Azure AD-activiteitenlogboeken met Log Analytics](howto-integrate-activity-logs-with-log-analytics.md), kunt u de kracht van Log Analytics voor inzicht in uw omgeving. U kunt ook installeren de [logboeken van Log Analytics-weergaven voor Azure AD-activiteit](howto-install-use-log-analytics-views.md) voor toegang tot vooraf gemaakte rapporten met betrekking tot controle en aanmeldingsgebeurtenissen in uw omgeving.
+Nadat u [integreren van Azure AD-activiteitenlogboeken met Azure Monitor logboeken](howto-integrate-activity-logs-with-log-analytics.md), kunt u de kracht van Azure Monitor-logboeken voor inzicht in uw omgeving. U kunt ook installeren de [analytics weergaven voor Azure AD-activiteit zich logboeken](howto-install-use-log-analytics-views.md) voor toegang tot vooraf gemaakte rapporten met betrekking tot controle en aanmeldingsgebeurtenissen in uw omgeving.
 
 In dit artikel leert u hoe u voor het analyseren van de Azure AD-activiteitenlogboeken in uw Log Analytics-werkruimte. 
 
@@ -78,10 +78,12 @@ AuditLogs
 
 U kunt ook waarschuwingen instellen voor uw query. Bijvoorbeeld, als u wilt configureren een waarschuwing wanneer meer dan 10 zijn toepassingen gebruikt in de afgelopen week:
 
-1. Selecteer in de werkruimte **waarschuwing instellen** openen de **maken regel** pagina. 
+1. Selecteer in de werkruimte **waarschuwing instellen** openen de **maken regel** pagina.
+
     ![waarschuwing instellen](./media/howto-analyze-activity-logs-log-analytics/setalert.png)
 
-2. Selecteer de standaard **waarschuwen criteria** gemaakt in de waarschuwing en werk de **drempelwaarde** in de metrische standaardgegevens tot en met 10. 
+2. Selecteer de standaard **waarschuwen criteria** gemaakt in de waarschuwing en werk de **drempelwaarde** in de metrische standaardgegevens tot en met 10.
+
     ![Waarschuwingscriteria](./media/howto-analyze-activity-logs-log-analytics/alertcriteria.png)
 
 3. Voer een naam en beschrijving voor de waarschuwing en kies het ernstniveau. In ons voorbeeld kunt we deze instellen op **ter informatie**.
@@ -92,17 +94,17 @@ U kunt ook waarschuwingen instellen voor uw query. Bijvoorbeeld, als u wilt conf
 
 ## <a name="install-and-use-pre-built-views-for-azure-ad-activity-logs"></a>Installeren en gebruiken van vooraf gemaakte weergaven voor Azure AD-activiteit Logboeken
 
-U kunt ook de vooraf gemaakte Log Analytics-weergaven voor Azure AD-activiteit downloaden Logboeken. De weergaven bieden verschillende rapporten met betrekking tot algemene scenario's met betrekking tot controle en aanmeldingsgebeurtenissen. U kunt ook met de waarschuwing bij een van de gegevens die zijn opgegeven in de rapporten met behulp van de stappen die worden beschreven in de vorige sectie.
+U kunt ook de weergaven van de vooraf gemaakte log analytics voor Azure AD-activiteit downloaden Logboeken. De weergaven bieden verschillende rapporten met betrekking tot algemene scenario's met betrekking tot controle en aanmeldingsgebeurtenissen. U kunt ook met de waarschuwing bij een van de gegevens die zijn opgegeven in de rapporten met behulp van de stappen die worden beschreven in de vorige sectie.
 
 * **Azure AD-Account ingericht gebeurtenissen**: Deze weergave toont rapporten met betrekking tot het controleren van inrichting activiteit, zoals het aantal nieuwe gebruikers die zijn ingericht en inrichtingsfouten, aantal gebruikers bijgewerkt en bijwerken van fouten en het aantal gebruikers niet ingericht en bijbehorende fouten.    
 * **Aanmeldingen gebeurtenissen**: Deze weergave toont de meest relevante rapporten met betrekking tot het controleren van de aanmelding, activiteit, zoals aanmeldingen per toepassing, gebruiker, apparaat, evenals een samenvatting weergegeven voor het bijhouden van het aantal aanmeldingen na verloop van tijd.
 * **Gebruikers uitvoeren van toestemming**: Deze weergave toont rapporten met betrekking tot toestemming van de gebruiker, zoals de toestemming verleent door de gebruiker, -aanmeldingen door gebruikers die toestemming verleend, evenals aanmeldingen per toepassing voor alle toepassingen op basis van toestemming. 
 
-Ontdek hoe u [Log Analytics-weergaven voor Azure AD-activiteitenlogboeken installeert en gebruikt](howto-install-use-log-analytics-views.md). 
+Meer informatie over het [installeren en gebruiken van log analytics-weergaven voor Azure AD-activiteit logboeken](howto-install-use-log-analytics-views.md). 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Aan de slag met query's in Log Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)
+* [Aan de slag met query's in Azure Monitor-Logboeken](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)
 * [Waarschuwing groepen in Azure portal maken en beheren](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)
-* [Installeren en de Log Analytics-weergaven gebruiken voor Azure Active Directory](howto-install-use-log-analytics-views.md)
+* [Installeren en de log analytics-weergaven gebruiken voor Azure Active Directory](howto-install-use-log-analytics-views.md)

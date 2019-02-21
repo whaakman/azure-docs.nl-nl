@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: 096f310b7c82718ea836d1b2048ca665a1e1e2f4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 49f045e8da5094f583c01c514bf92f6bf3fe1c09
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994945"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453355"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio"></a>Exporteren en verwijderen van gebruikersgegevens in het product van Azure Machine Learning Studio
 
@@ -70,8 +70,8 @@ Gebruikers kunnen ook hun hele werkruimte verwijderen:
 ![Verwijderen van een gratis werkruimte in Machine Learning Studio](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
  
 ## <a name="export-studio-data-with-powershell"></a>Studio-gegevens exporteren met PowerShell
-PowerShell gebruiken voor al uw gegevens exporteren naar een indeling die vanuit Azure Machine Learning Studio en gebruik van opdrachten. Zie voor meer informatie, de [PowerShell-module voor Azure Machine Learning](powershell-module.md) artikel.
+PowerShell gebruiken voor al uw gegevens exporteren naar een indeling die vanuit Azure Machine Learning Studio en gebruik van opdrachten. Zie voor meer informatie, de [PowerShell-module voor Azure Machine Learning Studio](powershell-module.md) artikel.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor documentatie die betrekking hebben op webservices en toezeggingsabonnement voor facturering, [naslaginformatie over REST-API van Azure Machine Learning](https://docs.microsoft.com/rest/api/machinelearning/). 
+Zie voor documentatie die betrekking hebben op webservices en toezeggingsabonnement voor facturering, [Azure Machine Learning Studio REST API-naslaginformatie](https://docs.microsoft.com/rest/api/machinelearning/). 

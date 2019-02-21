@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 2c6569d92913a3cff9ee51529dd381386ed2a792
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: df95329128c93f326b6f2c75fb7faef1a46029cc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818988"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456500"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Beveiligingsconcepten voor toepassingen en -clusters in Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ In dit artikel worden de belangrijkste concepten die beveiligen van uw toepassin
 - [Beveiliging van knooppunt](#node-security)
 - [Upgraden van clusters](#cluster-upgrades)
 - [Netwerkbeveiliging](#network-security)
-- Kubernetes Secrets
+- [Kubernetes Secrets](#kubernetes-secrets)
 
 ## <a name="master-security"></a>Beveiliging van master
 
@@ -36,9 +36,9 @@ Standaard is de Kubernetes API-server maakt gebruik van een openbaar IP-adres, e
 
 AKS-knooppunten zijn Azure virtuele machines die u beheren en onderhouden. De knooppunten draait een geoptimaliseerde Ubuntu Linux-distributie met de Docker container-runtime. Wanneer een AKS-cluster wordt gemaakt of uitgebreid, worden automatisch de knooppunten geïmplementeerd met de meest recente beveiligingsupdates OS en configuraties.
 
-OS-beveiligingspatches het Azure-platform automatisch toegepast op de knooppunten op basis van elke nacht. Als een update van het besturingssysteem beveiliging een host opnieuw worden opgestart vereist, wordt dat opnieuw opstarten niet automatisch uitgevoerd. U kunt handmatig opnieuw opstarten de knooppunten of een algemene aanpak is het gebruik [Kured][kured], een open-source opnieuw opstarten-daemon voor Kubernetes. Kured wordt uitgevoerd als een [DaemonSet] [aks-daemonset] en bewaakt elk knooppunt op de aanwezigheid van een bestand dat aangeeft dat een herstart vereist is. Opnieuw opstarten worden beheerd in het cluster met behulp van dezelfde [cordon en proces leegmaken](#cordon-and-drain) als de clusterupgrade van een.
+OS-beveiligingspatches het Azure-platform automatisch toegepast op de knooppunten op basis van elke nacht. Als een update van het besturingssysteem beveiliging een host opnieuw worden opgestart vereist, wordt dat opnieuw opstarten niet automatisch uitgevoerd. U kunt handmatig opnieuw opstarten de knooppunten of een algemene aanpak is het gebruik [Kured][kured], een open-source opnieuw opstarten-daemon voor Kubernetes. Kured wordt uitgevoerd als een [DaemonSet] [ aks-daemonsets] en bewaakt elk knooppunt op de aanwezigheid van een bestand dat aangeeft dat een herstart vereist is. Opnieuw opstarten worden beheerd in het cluster met behulp van dezelfde [cordon en proces leegmaken](#cordon-and-drain) als de clusterupgrade van een.
 
-Knooppunten worden geïmplementeerd in een subnet privé virtueel netwerk met geen openbare IP-adressen die zijn toegewezen. SSH is standaard ingeschakeld voor probleemoplossing en management-toepassing. Deze SSH-toegang is alleen beschikbaar via het interne IP-adres. Regels voor netwerkbeveiligingsgroepen Azure-netwerk kunnen worden gebruikt voor het verder beperken van toegang tot het bereik van IP-aan de AKS-knooppunten. De standaard SSH netwerkbeveiligingsgroepregel verwijderen en uitschakelen van de SSH-service op de knooppunten wordt voorkomen dat het Azure-platform van het uitvoeren van onderhoudstaken.
+Knooppunten worden geïmplementeerd in een subnet privé virtueel netwerk met geen openbare IP-adressen die zijn toegewezen. SSH is standaard ingeschakeld voor probleemoplossing en management-toepassing. Deze SSH-toegang is alleen beschikbaar via het interne IP-adres.
 
 De knooppunten gebruiken voor opslag, Azure Managed Disks. Dit zijn Premium-schijven ondersteund door hoogwaardige SSD's voor de meeste VM-grootten in knooppunt. De gegevens die zijn opgeslagen op beheerde schijven worden automatisch versleuteld in rust in het Azure-platform. Voor een betere redundantie, worden deze schijven ook veilig gerepliceerd binnen de Azure-datacenter.
 
@@ -46,7 +46,7 @@ Kubernetes-omgevingen in AKS of ergens anders, die momenteel zijn niet volledig 
 
 ## <a name="cluster-upgrades"></a>Upgraden van clusters
 
-Voor beveiliging en naleving, of de nieuwste functies te gebruiken, biedt Azure hulpprogramma's voor de organisatie van de upgrade van een AKS-cluster en -onderdelen. Deze upgrade orchestration bevat zowel de Kubernetes-hoofd- en agent de onderdelen. U kunt een lijst met beschikbare Kubernetes-versies weergeven voor uw AKS-cluster. Als u wilt het upgradeproces start, u een van deze versies beschikbaar. Azure en vervolgens veilig cordons en verkeer naar elk knooppunt AKS en de upgrade uitvoert.
+Voor beveiliging en naleving, of de nieuwste functies te gebruiken, biedt Azure hulpprogramma's voor de organisatie van de upgrade van een AKS-cluster en -onderdelen. Deze upgrade orchestration bevat zowel de Kubernetes-hoofd- en agent de onderdelen. U vindt een [lijst met beschikbare Kubernetes-versies](supported-kubernetes-versions.md) voor uw AKS-cluster. Als u wilt het upgradeproces start, u een van deze versies beschikbaar. Azure en vervolgens veilig cordons en verkeer naar elk knooppunt AKS en de upgrade uitvoert.
 
 ### <a name="cordon-and-drain"></a>Cordon en clusterbesturingssysteem
 
@@ -57,7 +57,7 @@ Tijdens het upgradeproces worden AKS-knooppunten afzonderlijk afgebakend uit het
 - Schillen zijn gepland om uit te voeren op deze opnieuw.
 - Het volgende knooppunt in het cluster wordt afgebakend en geleegd hetzelfde proces gebruiken totdat alle knooppunten worden bijgewerkt.
 
-Zie voor meer informatie, [Upgrade en AKS-cluster][aks-upgrade-cluster].
+Zie voor meer informatie, [een AKS-cluster upgraden][aks-upgrade-cluster].
 
 ## <a name="network-security"></a>Netwerkbeveiliging
 

@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2018
-ms.openlocfilehash: 79882fc895262f0fb607ec048e7912ae5f2efdd7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: e8e50aa49595addeab3369f74b618c31b7cf1625
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242665"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454375"
 ---
 # <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio"></a>Een sentiment-analyse-model maken in Azure Machine Learning Studio
 
-U kunt Azure Machine Learning gebruiken om te bouwen en operationeel tekstanalysemodel. Aan de hand van deze modellen kunnen u oplossen, bijvoorbeeld document classificatie of sentiment-analyse.
+U kunt Azure Machine Learning Studio gebruiken om te bouwen en operationeel tekstanalysemodel. Aan de hand van deze modellen kunnen u oplossen, bijvoorbeeld document classificatie of sentiment-analyse.
 
 In een tekst analyse-experiment zou u meestal:
 
@@ -66,7 +66,7 @@ Als een alternatieve methode voor het gebruik van de N-Gram-functies ophalen, ku
 ## <a name="step-3-train-classification-or-regression-model"></a>Stap 3: De classificatie- of regressiemodel model trainen
 Nu is de tekst is omgezet naar numerieke parameterkolommen. De gegevensset bevat nog steeds tekenreekskolommen van vorige fasen, we Select Columns in Dataset gebruiken uitsluit.
 
-Vervolgens gebruiken we [Two-Class Logistic Regression](https://msdn.microsoft.com/library/azure/dn905994.aspx) om te voorspellen ons doel: hoog of laag revisie score. De text analytics-probleem is op dit moment is omgezet in een reguliere regressieprobleem. De hulpprogramma's die beschikbaar zijn in Azure Machine Learning kunt u het model te verbeteren. Bijvoorbeeld, kunt u experimenteren met verschillende classificaties om erachter te komen hoe nauwkeurige resultaten ze geven of gebruik hyperparameter afstemmen om de nauwkeurigheid te verbeteren.
+Vervolgens gebruiken we [Two-Class Logistic Regression](https://msdn.microsoft.com/library/azure/dn905994.aspx) om te voorspellen ons doel: hoog of laag revisie score. De text analytics-probleem is op dit moment is omgezet in een reguliere regressieprobleem. U kunt de hulpprogramma's die beschikbaar zijn in Azure Machine Learning Studio gebruiken voor het verbeteren van het model. Bijvoorbeeld, kunt u experimenteren met verschillende classificaties om erachter te komen hoe nauwkeurige resultaten ze geven of gebruik hyperparameter afstemmen om de nauwkeurigheid te verbeteren.
 
 ![Train en Score](./media/text-analytics-module-tutorial/scoring-text.png)
 

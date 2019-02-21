@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 76db38a59d2239de79ebcdcfd454ac60a8f514be
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 9ce7a36f796716f48f6575b2391ac563eebf4530
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299875"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447817"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Data Warehouse Units (dwu's) en compute Data Warehouse Units (cDWUs)
 Aanbevelingen over het kiezen van het ideale aantal datawarehouse units (dwu's, cDWUs) om te optimaliseren prijs en prestaties en het wijzigen van het aantal eenheden. 
@@ -37,7 +37,9 @@ Steeds meer dwu's:
 - Verhoogt de maximum aantal gelijktijdige query's en gelijktijdigheidssleuven in beslag.
 
 ## <a name="service-level-objective"></a>Serviceniveaudoelstelling
-De Service Level Objective (SLO) is de schaalbaarheid-instelling die de kosten en prestaties van uw datawarehouse bepaalt. Het niveau van de service voor Gen2 worden gemeten in compute datawarehouse-eenheden (cDWU), bijvoorbeeld DW2000c. Gen1 serviceniveaus worden gemeten in dwu's, bijvoorbeeld DW2000. 
+De Service Level Objective (SLO) is de schaalbaarheid-instelling die de kosten en prestaties van uw datawarehouse bepaalt. Het niveau van de service voor Gen2 worden gemeten in compute datawarehouse-eenheden (cDWU), bijvoorbeeld DW2000c. Gen1 serviceniveaus worden gemeten in dwu's, bijvoorbeeld DW2000.
+  > [!NOTE]
+  > Azure SQL Data Warehouse Gen2 onlangs extra mogelijkheden voor ter ondersteuning van rekenlagen slechts 100 cDWU toegevoegd. Bestaande datawarehouses momenteel op Gen1 waarvoor de laagste compute lagen kunnen nu upgraden naar Gen2 in de regio's die momenteel beschikbaar voor zonder extra kosten zijn.  Als uw regio wordt nog niet ondersteund, kunt u nog steeds bijwerken naar een ondersteunde regio. Zie voor meer informatie [upgraden naar Gen2](upgrade-to-latest-generation.md).
 
 In T-SQL bepaalt de instelling SERVICE_OBJECTIVE het serviceniveau en de prestatielaag voor uw datawarehouse.
 

@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 87c3633bb3ed3537d1e258b9d8d50fd6d6356d81
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 02/20/2019
+ms.openlocfilehash: ced83fc31e9e4944f7392169b703056dc5b4fd98
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960020"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454834"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configureren en beheren van Azure Active Directory-verificatie met behulp van SQL
 
@@ -39,7 +39,7 @@ Zie [Uw on-premises identiteiten integreren met Azure Active Directory](../activ
 1. Koppelt uw Azure-abonnement met Azure Active Directory door de map een vertrouwde map voor het Azure-abonnement met de database. Zie voor meer informatie, [hoe Azure-abonnementen worden gekoppeld aan Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 2. Gebruik de directorywisselaar in Azure portal om te schakelen naar het abonnement dat is gekoppeld aan het domein.
 
-   **Aanvullende informatie:** elk Azure-abonnement heeft een vertrouwensrelatie met een Azure AD-instantie. Dit betekent dat er op die directory wordt vertrouwd voor het verifiëren van gebruikers, services en apparaten. Meerdere abonnementen kunnen dezelfde directory vertrouwen, maar een abonnement vertrouwt slechts één directory. De vertrouwensrelatie die een abonnement heeft met een directory is anders dan de relatie die een abonnement heeft met andere resources in Azure (websites, databases, enzovoort); deze resources lijken meer op onderliggende resources van een abonnement. Als een abonnement is verlopen, wordt toegang tot de andere resources die zijn gekoppeld aan het abonnement ook geblokkeerd. De directory blijft echter wel aanwezig in Azure, en u kunt er een ander abonnement aan koppelen om de directorygebruikers te blijven beheren. Zie voor meer informatie over resources [inzicht krijgen in resourcetoegang in Azure](../active-directory/active-directory-b2b-admin-add-users.md). Voor meer informatie over dit vertrouwde relatie Zie [koppelen of een Azure-abonnement toevoegen aan Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+   **Aanvullende informatie:** Voor elk Azure-abonnement is er een vertrouwensrelatie met een Azure AD-exemplaar. Dit betekent dat er op die directory wordt vertrouwd voor het verifiëren van gebruikers, services en apparaten. Meerdere abonnementen kunnen dezelfde directory vertrouwen, maar een abonnement vertrouwt slechts één directory. De vertrouwensrelatie die een abonnement heeft met een directory is anders dan de relatie die een abonnement heeft met andere resources in Azure (websites, databases, enzovoort); deze resources lijken meer op onderliggende resources van een abonnement. Als een abonnement is verlopen, wordt toegang tot de andere resources die zijn gekoppeld aan het abonnement ook geblokkeerd. De directory blijft echter wel aanwezig in Azure, en u kunt er een ander abonnement aan koppelen om de directorygebruikers te blijven beheren. Zie voor meer informatie over resources [inzicht krijgen in resourcetoegang in Azure](../active-directory/active-directory-b2b-admin-add-users.md). Voor meer informatie over dit vertrouwde relatie Zie [koppelen of een Azure-abonnement toevoegen aan Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="create-an-azure-ad-administrator-for-azure-sql-server"></a>Een Azure AD-beheerder voor Azure SQL-server maken
 
@@ -58,7 +58,7 @@ Wanneer u Azure Active Directory met geo-replicatie, moet de Azure Active Direct
 Het beheerde exemplaar moeten toegangsmachtigingen voor het lezen van Azure AD om uit te voeren is taken, zoals verificatie van gebruikers via het lidmaatschap van beveiligingsgroep of het maken van nieuwe gebruikers. Om dit te werken, moet u machtigingen verlenen voor beheerd exemplaar voor het lezen van Azure AD. Er zijn twee manieren om dit te doen: vanuit de Portal en PowerShell. De volgende stappen beide methoden.
 
 1. Selecteer de verbinding met de vervolgkeuzelijst een lijst van mogelijke Active Directory's in de rechterbovenhoek van de Azure Portal.
-2. Kies de juiste Active Directory als de standaard Azure AD.
+2. Kies de juiste Active Directory als de standaard-Azure AD.
 
    Deze stap koppelt u het abonnement dat is gekoppeld aan Active Directory met Managed Instance is ervoor te zorgen dat hetzelfde abonnement wordt gebruikt voor zowel Azure AD en het beheerde exemplaar.
 3. Navigeer naar Managed Instance en een resourcegroep selecteren die u wilt gebruiken voor Azure AD-integratie.
@@ -141,9 +141,9 @@ Het beheerde exemplaar moeten toegangsmachtigingen voor het lezen van Azure AD o
 
     ![opslaan](./media/sql-database-aad-authentication/save.png)
 
-    Het proces van het wijzigen van de beheerder kan enkele minuten duren. De nieuwe beheerder wordt vervolgens weergegeven in het vak van Active Directory-beheerder.
+    Het wijzigen van de beheerder kan enkele minuten duren. De nieuwe beheerder wordt vervolgens weergegeven in het vak van Active Directory-beheerder.
 
-Na het inrichten van een Azure AD-beheerder voor uw beheerde exemplaar kunt u beginnen met het maken van Azure AD-aanmeldingen (**openbare preview**) met de <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> syntaxis. Zie voor meer informatie, [beheerd exemplaar overzicht](sql-database-managed-instance.md#azure-active-directory-integration).
+Nadat u hebt een Azure AD-beheerder voor uw beheerde exemplaar wordt ingericht, kunt u beginnen met het maken van Azure AD server-principals (aanmeldingen) (**openbare preview**) met de <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> syntaxis. Zie voor meer informatie, [beheerd exemplaar overzicht](sql-database-managed-instance.md#azure-active-directory-integration).
 
 > [!TIP]
 > Als u later een beheerder, aan de bovenkant van de pagina Active Directory-beheerder selecteert **beheerder verwijderen**, en selecteer vervolgens **opslaan**.
@@ -157,11 +157,11 @@ De volgende twee procedures laten zien hoe u voor het inrichten van een Azure Ac
 
 ### <a name="azure-portal"></a>Azure Portal
 
-1. In de [Azure-portal](https://portal.azure.com/), selecteert u de verbinding met de vervolgkeuzelijst een lijst van mogelijke Active Directory's in de rechterbovenhoek. Kies de juiste Active Directory als de standaard Azure AD. Deze stap koppelt u Active Directory-abonnement is gekoppeld met Azure SQL-server te zorgen dat hetzelfde abonnement wordt gebruikt voor zowel Azure AD en SQL Server. (De Azure SQL-server kan worden gehost, Azure SQL Database of Azure SQL Data Warehouse.) ![Kies ad][8]
+1. Ga naar de [Azure-portal](https://portal.azure.com/) en selecteer in de rechterbovenhoek uw verbinding om een lijst met mogelijke Active Directories weer te geven. Kies de juiste Active Directory als de standaard-Azure AD. In deze stap wordt de aan het abonnement gekoppelde Active Directory gekoppeld aan de Azure SQL-server, zodat u zeker weet dat hetzelfde abonnement wordt gebruikt voor zowel Azure AD als SQL Server. (De Azure SQL-server kan worden gehost, Azure SQL Database of Azure SQL Data Warehouse.) ![Kies ad][8]
 
 2. Selecteer in de linker banner **alle services**, en in het filtertype in **SQL server**. Selecteer **Sql-Servers**.
 
-    ![sqlservers.PNG](media/sql-database-aad-authentication/sqlservers.png)
+    ![sqlservers.png](media/sql-database-aad-authentication/sqlservers.png)
 
     >[!NOTE]
     > Op deze pagina voordat u **SQL-servers**, kunt u de **star** naast de naam van de *favoriete* de categorie en voeg **SQL-servers**naar de linker navigatiebalk.
@@ -169,16 +169,16 @@ De volgende twee procedures laten zien hoe u voor het inrichten van een Azure Ac
 3. Op **SQL Server** weergeeft, schakelt **Active Directory-beheerder**.
 4. In de **Active Directory-beheerder** weergeeft, schakelt **beheerder instellen**.  ![active directory selecteren](./media/sql-database-aad-authentication/select-active-directory.png)  
 
-5. In de **beheerder toevoegen** pagina, een gebruiker zoeken, selecteert u de gebruiker of groep als beheerder en selecteer vervolgens **Selecteer**. (De pagina Active Directory-beheerder ziet u alle leden en groepen van uw Active Directory. Gebruikers of groepen die zijn lichter gekleurd kunnen niet worden geselecteerd omdat ze worden niet ondersteund als beheerders voor Azure AD. (Zie de lijst met ondersteunde beheerders in de **Azure AD-functies en beperkingen** sectie van [gebruik Azure Active Directory-verificatie voor verificatie bij SQL-Database of SQL Data Warehouse](sql-database-aad-authentication.md).) Op rollen gebaseerd toegangsbeheer (RBAC) geldt alleen voor de portal en niet is doorgegeven aan SQL Server.
-    ![Selecteer beheerder](./media/sql-database-aad-authentication/select-admin.png)  
+5. Zoek op de pagina **Beheerder toevoegen** een gebruiker. Selecteer de gebruiker of groep die beheerder moet zijn en selecteer **Selecteren**. (Op de pagina Active Directory-beheerder ziet u alle leden en groepen van uw Active Directory.) Gebruikers of groepen die grijs zijn gekleurd, kunnen niet worden geselecteerd omdat ze niet worden ondersteund als beheerders voor Azure AD. (Zie de lijst met ondersteunde beheerders in de sectie **Azure AD-functies en -beperkingen** van [Azure Active Directory-verificatie gebruiken voor verificatie met behulp van SQL Database of SQL Data Warehouse](sql-database-aad-authentication.md).) Op rollen gebaseerd toegangsbeheer (RBAC) is alleen van toepassing op de portal en wordt niet doorgegeven aan SQL Server.
+    ![beheerder selecteren](./media/sql-database-aad-authentication/select-admin.png)  
 
-6. Aan de bovenkant van de **Active Directory-beheerder** weergeeft, schakelt **opslaan**.
-    ![opslaan van beheerder](./media/sql-database-aad-authentication/save-admin.png)
+6. Selecteer boven aan de pagina **Active Directory-beheerder** de optie **Opslaan**.
+    ![beheerder opslaan](./media/sql-database-aad-authentication/save-admin.png)
 
-Het proces van het wijzigen van de beheerder kan enkele minuten duren. De nieuwe beheerder weergegeven in de **Active Directory-beheerder** vak.
+Het wijzigen van de beheerder kan enkele minuten duren. Vervolgens wordt de nieuwe beheerder weergegeven in het vak **Active Directory-beheerder**.
 
    > [!NOTE]
-   > Bij het instellen van de Azure AD-beheerder, kan niet nieuwe beheerdersnaam voor de (gebruiker of groep) al aanwezig zijn in de virtuele hoofddatabase als de gebruiker van een SQL Server-verificatie. Als deze aanwezig is, mislukt de installatie van Azure AD-beheerder; terugdraaien van het is gemaakt en wordt aangegeven dat deze een beheerder (naam) al bestaat. Omdat deze een SQL Server authentication-gebruiker geen deel uit van de Azure AD maakt, worden alle inspanningen verbinding maken met de server met behulp van Azure AD-verificatie mislukt.
+   > Als u de Azure AD-beheerder instelt, mag de naam van de beheerder (gebruiker of groep) niet al aanwezig zijn in de virtuele hoofddatabase als een gebruiker van SQL Server-verificatie. Indien wel aanwezig, mislukt het instellen van de Azure AD-beheerder, waarna het maken ervan wordt teruggedraaid en er wordt aangegeven dat deze beheerder (naam) al bestaat. Omdat een dergelijke gebruiker van SQL Server-verificatie geen deel uitmaakt van Azure AD, mislukt het verbinding maken met de server met Azure AD-verificatie.
 
 Later verwijderen van een beheerder, aan de bovenkant van de **Active Directory-beheerder** weergeeft, schakelt **beheerder verwijderen**, en selecteer vervolgens **opslaan**.
 
@@ -191,7 +191,7 @@ PowerShell-cmdlets, hebt u nodig hebt van Azure PowerShell installeren en uitvoe
 
 Cmdlets gebruikt voor het inrichten en beheren van Azure AD-beheerder:
 
-| Naam van cmdlet | Beschrijving |
+| Naam van cmdlet | Description |
 | --- | --- |
 | [Set-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/set-azurermsqlserveractivedirectoryadministrator) |Richt een Azure Active Directory-beheerder voor Azure SQL-server of Azure SQL Data Warehouse. (Moet zich in het huidige abonnement.) |
 | [Remove-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/remove-azurermsqlserveractivedirectoryadministrator) |Hiermee verwijdert u een Azure Active Directory-beheerder voor Azure SQL-server of Azure SQL Data Warehouse. |
@@ -238,7 +238,7 @@ U kunt ook Azure Active Directory-beheerder inrichten met behulp van de REST API
 ### <a name="cli"></a>CLI  
 
 U kunt ook een Azure AD-beheerder inrichten door het aanroepen van de volgende CLI-opdrachten:
-| Opdracht | Beschrijving |
+| Opdracht | Description |
 | --- | --- |
 |[AZ sql server ad-beheerder maken](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) |Richt een Azure Active Directory-beheerder voor Azure SQL-server of Azure SQL Data Warehouse. (Moet zich in het huidige abonnement.) |
 |[AZ sql server ad-beheerder verwijderen](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) |Hiermee verwijdert u een Azure Active Directory-beheerder voor Azure SQL-server of Azure SQL Data Warehouse. |
@@ -264,14 +264,14 @@ U kunt voldoen aan deze voorwaarden voldoet:
 ## <a name="create-contained-database-users-in-your-database-mapped-to-azure-ad-identities"></a>Maak ingesloten databasegebruikers in de database die is toegewezen aan Azure AD-identiteiten
 
 >[!IMPORTANT]
->Beheerd exemplaar biedt nu ondersteuning voor Azure AD-aanmeldingen (**preview-versie**), waarmee u kunt aanmeldingen kan maken van Azure AD-gebruikers, groepen of toepassingen. Azure AD-aanmeldingen biedt de mogelijkheid om te verifiëren met uw beheerde exemplaar zonder databasegebruikers moet worden gemaakt als een ingesloten databasegebruiker. Zie voor meer informatie, [beheerd exemplaar overzicht](sql-database-managed-instance.md#azure-active-directory-integration). Zie voor de syntaxis voor het maken van Azure AD-aanmeldingen, <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
+>Beheerd exemplaar biedt nu ondersteuning voor Azure AD server-principals (aanmeldingen) (**preview-versie**), waarmee u kunt aanmeldingen kan maken van Azure AD-gebruikers, groepen of toepassingen. Azure AD server-principals (aanmeldingen) biedt de mogelijkheid om te verifiëren met uw beheerde exemplaar zonder databasegebruikers moet worden gemaakt als een ingesloten databasegebruiker. Zie voor meer informatie, [beheerd exemplaar overzicht](sql-database-managed-instance.md#azure-active-directory-integration). Zie voor de syntaxis voor het maken van Azure AD server-principals (aanmeldingen), <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
 
-Azure Active Directory-verificatie vereist dat databasegebruikers moet worden gemaakt als ingesloten databasegebruikers. Een ingesloten databasegebruiker op basis van een Azure AD-identiteit is een databasegebruiker die heeft geen een aanmelding in de hoofddatabase en die verwijst naar een identiteit in de Azure AD-map die is gekoppeld aan de database. De identiteit van de Azure AD kan een individueel gebruikersaccount of een groep zijn. Zie voor meer informatie over ingesloten databasegebruikers [maken van ingesloten Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx).
+Voor verificatie met Azure Active Directory is vereist dat databasegebruikers als gebruikers van ingesloten databases worden gemaakt. Een gebruiker van een ingesloten database op basis van een Azure AD-identiteit is een databasegebruiker die zich niet kan aanmelden bij de hoofddatabase en die wordt verwezen naar een identiteit in de Azure AD-directory die aan de database is gekoppeld. De Azure AD-identiteit kan een individueel gebruikersaccount of een groep zijn. Zie [Contained Database Users- Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx) (Gebruikers van ingesloten databases: een draagbare database maken) voor meer informatie over gebruikers van ingesloten databases.
 
 > [!NOTE]
-> Gebruikers van de database (met uitzondering van beheerders) kunnen niet worden gemaakt met behulp van de Azure portal. RBAC-rollen worden niet doorgegeven aan SQL Server, SQL-Database of SQL Data Warehouse. Azure RBAC-rollen worden gebruikt voor het beheren van Azure-Resources, en niet van toepassing op de databasemachtigingen. Bijvoorbeeld, de **Inzender voor SQL Server** rol verleent toegang tot het verbinding maken met de SQL-Database of SQL Data Warehouse. De machtiging voor toegang moet worden verleend rechtstreeks in de database met behulp van Transact-SQL-instructies.
+> Databasegebruikers kunnen niet in de Azure-portal worden gemaakt (met uitzondering van beheerders). RBAC-rollen worden niet doorgegeven aan SQL Server, SQL Database of SQL Data Warehouse. Azure RBAC-rollen worden gebruikt voor het beheren van Azure-resources en zijn niet van toepassing op databasemachtigingen. Bijvoorbeeld: de rol **Inzender voor SQL Server** verleent geen toegang om verbinding te maken met SQL Database of SQL Data Warehouse. De toestemming tot het verlenen van toegang moet rechtstreeks plaatsvinden in de database met behulp van Transact-SQL-instructies.
 > [!WARNING]
-> Speciale tekens zoals dubbele punt `:` of en-teken `&` wanneer ze zijn opgenomen als gebruikersnamen in de T-SQL-aanmelding maken en CREATE USER-instructies worden niet ondersteund.
+> Speciale tekens als de dubbele punt `:` of de ampersand `&` worden niet ondersteund indien deze worden opgenomen als gebruikersnamen in de instructies T-SQL CREATE LOGIN of CREATE USER.
 
 Voor het maken van een Azure AD-gebruiker op basis van die database (met uitzondering van de beheerder van de server die eigenaar is van de database), verbinding maken met de database met een Azure AD-identiteit als een gebruiker met ten minste de **ALTER ANY USER** machtiging. Gebruik vervolgens de volgende Transact-SQL-syntaxis:
 
@@ -281,7 +281,7 @@ CREATE USER <Azure_AD_principal_name> FROM EXTERNAL PROVIDER;
 
 *Azure_AD_principal_name* mag de user principal name van een Azure AD-gebruiker of de weergavenaam voor een Azure AD-groep.
 
-**Voorbeelden:** te maken van een ingesloten database gebruiker een Azure AD representeren federatief of beheerd domeingebruiker:
+**Voorbeelden:** Een ingesloten database te maken gebruiker een Azure AD representeren federatief of beheerd domeingebruiker:
 
 ```sql
 CREATE USER [bob@contoso.com] FROM EXTERNAL PROVIDER;
@@ -314,7 +314,7 @@ Wanneer u een gebruiker van een database maakt, krijgt die gebruiker de **CONNEC
 Een federatief domein-gebruikersaccount dat is geïmporteerd in een beheerd domein als een externe gebruiker moet de identiteit van de beheerde domein gebruiken.
 
 > [!NOTE]
-> Azure AD-gebruikers zijn gemarkeerd in de metagegevens van een database met het type E (EXTERNAL_USER) en voor groepen met type X (EXTERNAL_GROUPS). Zie voor meer informatie, [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).
+> Azure AD-gebruikers worden in de metagegevens van de database gemarkeerd met het type E (EXTERNAL_USER) en voor groepen met het type X (EXTERNAL_GROUPS). Zie [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx) voor meer informatie.
 >
 
 ## <a name="connect-to-the-user-database-or-data-warehouse-by-using-ssms-or-ssdt"></a>Verbinding maken met de gebruiker database of het datawarehouse met behulp van SSMS of SSDT  
@@ -323,14 +323,11 @@ Als u wilt controleren of de Azure AD-beheerder correct is ingesteld, verbinding
 Verbinding maken met de database met een Azure AD-identiteit die toegang tot de database heeft voor het inrichten van een Azure AD-gebruiker op basis van die database (met uitzondering van de beheerder van de server die eigenaar is van de database).
 
 > [!IMPORTANT]
-> Ondersteuning voor Azure Active Directory-verificatie is beschikbaar met [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) en [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) in Visual Studio 2015. De release van augustus 2016 van SSMS biedt ook ondersteuning voor universele verificatie van Active Directory, zodat beheerders vereisen dat multi-factor Authentication met een telefonische oproep, SMS-bericht, smartcards en pincode of mobiele app-meldingen. Met behulp van Azure AD-aanmeldingen en gebruikers (**preview-versie**) met SSDT wordt momenteel niet ondersteund.
+> Ondersteuning voor Azure Active Directory-verificatie is beschikbaar met [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) en [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) in Visual Studio 2015. De release van augustus 2016 van SSMS biedt ook ondersteuning voor universele verificatie van Active Directory, zodat beheerders vereisen dat multi-factor Authentication met een telefonische oproep, SMS-bericht, smartcards en pincode of mobiele app-meldingen.
 
 ## <a name="using-an-azure-ad-identity-to-connect-using-ssms-or-ssdt"></a>Met behulp van een Azure AD-identiteit verbinding maken met behulp van SSMS of SSDT
 
 De volgende procedures laten zien hoe u verbinding maken met een SQL-database met een Azure AD-identiteit met behulp van SQL Server Management Studio of SQL Server-Database-hulpprogramma's.
-
->[!IMPORTANT]
->Met behulp van Azure AD-aanmeldingen en gebruikers (**preview-versie**) met SSDT wordt momenteel niet ondersteund.
 
 ### <a name="active-directory-integrated-authentication"></a>Geïntegreerde verificatie van Active Directory
 

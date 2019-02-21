@@ -10,20 +10,20 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 0f324dec9349b44252a85b2f9334a1b6d847faae
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 870345148b55bc6026202fbd433d8575e421faba
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247133"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456007"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>Parameters kiezen voor het optimaliseren van uw algoritmen in Azure Machine Learning Studio
 
-In dit onderwerp wordt beschreven hoe u de juiste hyperparameter instellen voor een Azure Machine Learning-algoritme kiezen. De meeste machine learning-algoritmen hebben parameters om in te stellen. Wanneer u een model te trainen, moet u waarden opgeven voor deze parameters. De effectiviteit van het getrainde model, is afhankelijk van de Modelparameters die u kiest. Het proces uit het vinden van de optimale set met parameters wordt ook wel *model selectie*.
+In dit onderwerp wordt beschreven hoe u kiest u de juiste hyperparameter instellen voor een algoritme in Azure Machine Learning Studio. De meeste machine learning-algoritmen hebben parameters om in te stellen. Wanneer u een model te trainen, moet u waarden opgeven voor deze parameters. De effectiviteit van het getrainde model, is afhankelijk van de Modelparameters die u kiest. Het proces uit het vinden van de optimale set met parameters wordt ook wel *model selectie*.
 
 
 
-Er zijn verschillende manieren om Modelleer selectie. Kruisvalidatie is een van de meest gebruikte methoden voor de modelselectie van het in machine learning, en is het standaardmechanisme voor het selecteren van model in Azure Machine Learning. Omdat Azure Machine Learning zowel R als Python ondersteunt, kunt u altijd eigen methoden van de selectie model implementeren met behulp van R of Python.
+Er zijn verschillende manieren om Modelleer selectie. Kruisvalidatie is een van de meest gebruikte methoden voor het modelselectie in machine learning, en is het standaardmechanisme voor het selecteren van model in Azure Machine Learning Studio. Omdat Azure Machine Learning Studio zowel R als Python ondersteunt, kunt u altijd eigen methoden van de selectie model implementeren met behulp van R of Python.
 
 Er zijn vier stappen van de beste parameterset zoeken:
 
@@ -32,7 +32,7 @@ Er zijn vier stappen van de beste parameterset zoeken:
 3. **De metrische gegevens definiëren**: Bepalen welke metrische gegevens te gebruiken voor het bepalen van de beste set parameters, zoals nauwkeurigheid, root mean squared fout, precisie, intrekken of f-score.
 4. **Trainen, evalueren en vergelijken**: Kruisvalidatie is voor elke unieke combinatie van de parameterwaarden die zijn uitgevoerd door en op basis van de fout meetwaarde definiëren. Na de evaluatie en vergelijking, kunt u het best presterende model kiezen.
 
-De volgende afbeelding ziet hoe u dit in Azure Machine Learning doen kunt wordt weergegeven.
+De volgende afbeelding ziet u hoe u dit in Azure Machine Learning Studio doen kunt bevat.
 
 ![De beste parameterset zoeken](./media/algorithm-parameters-optimize/fig1.png)
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 2e35afe996ec80411d2e0e339fd4d49adecd1239
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5c45918a2cdcdd0a848e392d125849953af976ea
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857937"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445114"
 ---
 # <a name="ship-an-application"></a>Verzenden van een toepassing
 
@@ -47,19 +47,19 @@ De vereiste spraak SDK-bestanden kunnen worden geïmplementeerd in dezelfde map 
 
 ## <a name="linux"></a>Linux
 
+De spraak-SDK ondersteunt momenteel de Ubuntu-16.04 en 18.04 distributies.
 Voor een systeemeigen toepassing, moet u voor het verzenden van de spraak-SDK-bibliotheek, `libMicrosoft.CognitiveServices.Speech.core.so`.
 Zorg ervoor dat u selecteert u de versie (x86, x64) die overeenkomt met uw toepassing. Afhankelijk van de Linux-versie moet u ook mogelijk om op te nemen van de volgende afhankelijkheden:
 
 * De gedeelde bibliotheken van de GNU C-bibliotheek (met inbegrip van de bibliotheek POSIX Threads Programming `libpthreads`)
 * De OpenSSL-bibliotheek (`libssl.so.1.0.0`)
-* De bibliotheek cURL (`libcurl.so.4`)
 * De gedeelde bibliotheek voor ALSA toepassingen (`libasound.so.2`)
 
-Op Ubuntu 16.04 of 18.04, bijvoorbeeld moeten de GNU C-bibliotheken al worden standaard geïnstalleerd. De laatste drie kan worden geïnstalleerd met behulp van deze opdrachten:
+Op Ubuntu, moeten de bibliotheken GNU C al standaard worden geïnstalleerd. De laatste drie kan worden geïnstalleerd met behulp van deze opdrachten:
 
 ```sh
 sudo apt-get update
-sudo apt-get install libssl1.0.0 libcurl3 libasound2 wget
+sudo apt-get install libssl1.0.0 libasound2 wget
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

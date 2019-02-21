@@ -1,6 +1,6 @@
 ---
-title: Beveiligingsgegevens ingesteld voor het gebruik van e - Azure Active Directory | Microsoft Docs
-description: Instellen van je beveiligingsgegevens te controleren of uw identiteit met uw werk of school-e-mailadres.
+title: Beveiligingsgegevens (preview) ingesteld voor het gebruik van uw e-mailadres - Azure Active Directory | Microsoft Docs
+description: Over het instellen van je beveiligingsgegevens om uw identiteit met behulp van uw e-mailadres te verifiëren.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,49 +9,72 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c18124286d78520e8b89a61c5d12760c9ad784c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7c6bf2c8ea6a2526f8548a785706e5ed3a7460ff
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197212"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455208"
 ---
-# <a name="set-up-security-info-to-use-email-preview"></a>Beveiligingsgegevens ingesteld voor het gebruik van e-mailadres (preview)
+# <a name="set-up-security-info-preview-to-use-your-email-address"></a>Beveiligingsgegevens (preview) ingesteld voor het gebruik van uw e-mailadres
+U kunt deze stappen om toe te voegen dat uw wachtwoord opnieuw instellen van methode. Nadat u hebt dit tijdens de eerste keer hebt ingesteld, kunt u terugkeren naar de **beveiligingsgegevens** pagina toevoegen, bijwerken of verwijderen van uw beveiligingsgegevens.
+
+Na het instellen van uw wachtwoord opnieuw instellen van methode, moet u ook instellen van uw tweeledige verificatiemethode, met behulp van een [authenticator-app](security-info-setup-auth-app.md), [SMS-berichten verzenden](security-info-setup-text-msg.md), of een [telefonische oproep](security-info-setup-phone-number.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-Instellen van je beveiligingsgegevens, moet u zich aanmelden bij uw werk of school-account en klikt u vervolgens het registratieproces te voltooien. Als u nooit je beveiligingsgegevens hebt ingesteld, wordt u gevraagd dit nu doen.
-
-## <a name="set-up-email"></a>E-mail instellen
-
-Afhankelijk van instellingen van uw organisatie, u mogelijk gevraagd een e-mailadres toevoegen aan je beveiligingsgegevens, wanneer u zich aanmeldt. Anders wordt om te beginnen met het instellen van e-mailadres in beveiligingsgegevens, volg de stappen in [je beveiligingsgegevens beheren](security-info-manage-settings.md).
+## <a name="set-up-your-email-address-from-the-security-info-page"></a>Instellen van uw e-mailadres van de pagina beveiligingsgegevens
+Afhankelijk van instellingen van uw organisatie, kunt u mogelijk uw e-mailadres gebruiken als een van de beveiligingsmethoden voor informatie.
 
 >[!Note]
->Het is raadzaam om met behulp van een e-mailaccount dat uw netwerkwachtwoord voor toegang tot niet nodig.<br>Als u de e-optie niet ziet, is het mogelijk dat uw organisatie niet kunt u een e-mailadres voor verificatie gebruiken. Als dit het geval is, moet u een andere methode kiezen of neem contact op met uw beheerder voor meer informatie.
+>Het is raadzaam om met behulp van een e-mailadres dat uw netwerkwachtwoord voor toegang tot niet nodig. Als u de e-optie niet ziet, is het mogelijk dat uw organisatie niet kunt u een e-mailadres voor verificatie gebruiken. Als dit het geval is, moet u een andere methode kiezen of neem contact op met uw beheerder voor meer informatie.
 
-### <a name="to-use-your-email-address"></a>Uw e-mailadres gebruiken
+### <a name="to-set-up-your-email-address"></a>Voor het instellen van uw e-mailadres
 
-1. Selecteer de **e** optie en typ uw e-mailadres in het vak. Dit e-mailadres mag niet uw e-mailadres werk- of schoolaccount.
+1. Meld u aan bij uw werk- of schoolaccount en gaat u naar uw https://myprofile.microsoft.com/ pagina.
 
-     ![Pagina beveiligingsgegevens, met invoervak voor e-mailadres](media/security-info/security-info-keep-secure-setup-email.png)
+    ![Mijn profiel-pagina, met gemarkeerde Security info koppelingen](media/security-info/securityinfo-myprofile.png)
 
-2. Controleren op een e-mailbericht van Microsoft voor uw organisatie, typt u de verificatiecode in opgenomen in de **Bevestig uw e-mailadres** vak en selecteer vervolgens **gedaan**.
+2. Selecteer **beveiligingsgegevens** vanuit het navigatiedeelvenster links in of via de koppeling in de **beveiligingsgegevens** blokkeren, en selecteer vervolgens **-methode toevoegen** uit de **beveiligingsgegevens**  pagina.
 
-     ![Pagina beveiligingsgegevens, met invoervak voor e-mailbericht verificatie code](media/security-info/security-info-verify-email.png)
+    ![Pagina beveiligingsgegevens met optie van de methode gemarkeerde toevoegen](media/security-info/securityinfo-myprofile-addmethod.png)
 
-    >[!Note]
-    >Als er geen een e-mailbericht van Microsoft namens uw organisatie, zorg ervoor dat u uw e-mailadres correct hebt ingevoerd en controleer vervolgens de map Ongewenste E-mail of Spam.
+3. Op de **toevoegen van een methode** weergeeft, schakelt **e** uit de vervolgkeuzelijst en selecteer vervolgens **toevoegen**.
 
-3. In de **je account blijft beveiligd** weergeeft, schakelt **gedaan**.
+    ![Vak methode toevoegen met e-mailadres geselecteerd](media/security-info/securityinfo-myprofile-addemail.png)
 
-    Je beveiligingsgegevens is bijgewerkt voor het gebruik van uw e-mailadres je identiteit te verifiëren bij het gebruik van wachtwoord opnieuw instellen.
+4. Op de **e** pagina, typt u uw e-mailadres (bijvoorbeeld alain@gmail.com), en selecteer vervolgens **volgende**.
 
-## <a name="additional-security-info-options"></a>Opties voor extra beveiliging info
+    ![Telefoonnummer toevoegen en kies telefoongesprekken](media/security-info/securityinfo-myprofile-emailaddress.png)
 
-Hebt u opties voor hoe uw organisatie contactpersonen u om te controleren of uw identiteit, afhankelijk van wat u probeert te doen. De opties zijn:
+    >[!Important]
+    >Dit e-mailadres mag niet uw e-mailadres werk- of schoolaccount.
+
+5. Typ de code verzonden naar uw opgegeven e-mailadres, en selecteer vervolgens **volgende**.
+
+    ![Telefoonnummer toevoegen en kiest u SMS-berichten](media/security-info/securityinfo-myprofile-emailcode.png)
+
+    Je beveiligingsgegevens wordt bijgewerkt en kunt u uw e-mailadres je identiteit te verifiëren bij het gebruik van wachtwoord opnieuw instellen.
+
+## <a name="delete-your-email-address-from-your-security-info-methods"></a>Uw e-mailadres van uw informatie beveiligingsmethoden verwijderen
+Als u niet meer gebruiken uw e-mailadres als een methode-info wilt, kunt u het verwijderen van de **beveiligingsgegevens** pagina.
+
+>[!Important]
+>Als u uw e-mailadres per ongeluk verwijdert, is er geen manier om deze ongedaan te maken. Hebt u op opnieuw, voegt u de methode volgens de stappen in de [instellen van uw e-mailadres](#set-up-your-email-address-from-the-security-info-page) sectie van dit artikel.
+
+### <a name="to-delete-your-email-address"></a>Uw e-mailadres verwijderen
+
+1. Op de **beveiligingsgegevens** weergeeft, schakelt de **verwijderen** koppelen naast de **e** optie.
+
+    ![Koppeling naar de telefoon-methode van beveiligingsgegevens verwijderen](media/security-info/securityinfo-myprofile-emaildelete.png)
+
+2. Selecteer **Ja** uit de bevestiging van verwijderen van de **e** account. Nadat het e-mailaccount wordt verwijderd, wordt deze verwijderd uit je beveiligingsgegevens en, verdwijnt het uit de **beveiligingsgegevens** pagina.
+
+## <a name="additional-security-info-methods"></a>Aanvullende informatie voor beveiligingsmethoden
+Hebt u extra opties voor hoe uw organisatie contactpersonen u om te controleren of uw identiteit, afhankelijk van wat u probeert te doen. De opties zijn:
 
 - **Authenticator-app.** Download en gebruik van een verificator-app voor een goedkeuringsmelding of een willekeurig gegenereerde goedkeuringscode voor verificatie in twee stappen verificatie of het wachtwoord opnieuw instellen. Zie voor stapsgewijze instructies over het instellen en gebruiken van de Microsoft Authenticator-app [beveiligingsgegevens ingesteld voor het gebruik van een verificator-app](security-info-setup-auth-app.md).
 
@@ -65,8 +88,6 @@ Hebt u opties voor hoe uw organisatie contactpersonen u om te controleren of uw 
     >Als sommige van deze opties ontbreekt, is het meest waarschijnlijk omdat uw organisatie niet toegestaan voor deze methoden. Als dit het geval is, moet u een methode voor beschikbaar of neem contact op met uw beheerder voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
-
-- Als u uw beveiligingsgegevens bijwerken wilt, volgt u de instructies in de [je beveiligingsgegevens beheren](security-info-manage-settings.md) artikel.
 
 - Uw wachtwoord opnieuw instellen als u hebt verloren of bent vergeten, uit de [portal voor wachtwoordherstel](https://passwordreset.microsoftonline.com/) of volg de stappen in de [uw werk- of schoolaccount wachtwoord opnieuw instellen](user-help-reset-password.md) artikel.
 

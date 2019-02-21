@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 82bfdfd7481b47c08f76d077585f85763e58b87b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 0d771f03f9f71151ef25140148d4dd4daf3d46ec
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56331188"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56443346"
 ---
 **Uitgaande gegevensoverdracht**: [Uitgaande gegevensoverdracht](https://azure.microsoft.com/pricing/details/bandwidth/) (gegevens die vanuit Azure-datacenters) worden gefactureerd voor bandbreedtegebruik.
 
@@ -25,8 +25,8 @@ Er zijn geen kosten verbonden voor transacties voor een premium-beheerde schijf.
 
 Zie voor gedetailleerde informatie over prijzen voor Managed Disks [Managed Disks-prijzen](https://azure.microsoft.com/pricing/details/managed-disks).
 
-### <a name="ultra-disks-vm-reservation-fee"></a>Ultra schijven VM reservering kosten
+### <a name="ultra-ssd-vm-reservation-fee"></a>Ultra SSD VM-kosten voor reservering
 
-Azure virtuele machines hebben de mogelijkheid om aan te geven als ze compatibel met ultra schijven zijn. Toegewezen bandbreedtecapaciteit tussen de compute-VM-exemplaar en de schaaleenheid voor opslag van blok op de prestaties te optimaliseren en verminder de latentie van een ultra schijf compatibele virtuele machine kan worden toegewezen. Deze mogelijkheid toevoegen op de resultaten van de virtuele machine in een reservering in rekening gebracht die alleen als u de mogelijkheid ultra schijf op de virtuele machine zonder een ultra schijf koppelen aan het ingeschakeld is opgelegd. Wanneer een ultra-schijf is gekoppeld naar de ultra schijf compatibele virtuele machine, deze kosten niet zouden worden toegepast. Deze kosten is per vCPU ingericht op de virtuele machine.
+Azure virtuele machines hebben de mogelijkheid om aan te geven als ze compatibel met ultra SSD zijn. Toegewezen bandbreedtecapaciteit tussen de compute-VM-exemplaar en de schaaleenheid voor opslag van blok op de prestaties te optimaliseren en verminder de latentie van een ultra schijf compatibele virtuele machine kan worden toegewezen. Deze mogelijkheid toevoegen op de resultaten van de virtuele machine in een reservering in rekening gebracht die alleen als u de mogelijkheid ultra schijf op de virtuele machine zonder een ultra schijf koppelen aan het ingeschakeld is opgelegd. Wanneer een ultra-schijf is gekoppeld naar de ultra schijf compatibele virtuele machine, deze kosten niet zouden worden toegepast. Deze kosten is per vCPU ingericht op de virtuele machine.
 
 Raadpleeg de [Azure Disks pagina met prijzen](https://azure.microsoft.com/pricing/details/managed-disks/) voor ultra schijf schijven prijsinformatie.

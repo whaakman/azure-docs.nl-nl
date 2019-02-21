@@ -10,19 +10,19 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: 67843efd87e0d1cdd1a392fdd24d29decae093e8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0940cb9e42588990e2109d02fda462f343443876
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997002"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456075"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Modelresultaten in Azure Machine Learning Studio interpreteren
 In dit onderwerp wordt uitgelegd hoe te visualiseren en te interpreteren voorspellingsresultaten in Azure Machine Learning Studio. Nadat u hebt een model wordt getraind en voorspellingen daarboven ("het model beoordeeld') wordt uitgevoerd, moet u om te begrijpen en interpreteren van het resultaat voorspelling.
 
 
 
-Er zijn vier belangrijke soorten machine learning-modellen in Azure Machine Learning:
+Er zijn vier belangrijke soorten machine learning-modellen in Azure Machine Learning Studio:
 
 * Classificatie
 * Clustering
@@ -35,11 +35,11 @@ De modules die worden gebruikt voor voorspelling boven op deze modellen zijn:
 * [Toewijzen aan Clusters] [ assign-to-clusters] -module voor clustering
 * [Score Matchbox Recommender] [ score-matchbox-recommender] voor aanbevelingssystemen
 
-Dit document wordt uitgelegd hoe u moet interpreteren voorspellingsresultaten voor elk van deze modules. Zie voor een overzicht van deze modules [hoe u parameters kiezen voor het optimaliseren van uw algoritmen in Azure Machine Learning](algorithm-parameters-optimize.md).
+Dit document wordt uitgelegd hoe u moet interpreteren voorspellingsresultaten voor elk van deze modules. Zie voor een overzicht van deze modules [hoe u parameters kiezen voor het optimaliseren van uw algoritmen in Azure Machine Learning Studio](algorithm-parameters-optimize.md).
 
-Dit onderwerp bevat voorspelling interpretatie, maar niet de evaluatie van het model. Zie voor meer informatie over het evalueren van uw model [hoe modelprestaties evalueren in Azure Machine Learning](evaluate-model-performance.md).
+Dit onderwerp bevat voorspelling interpretatie, maar niet de evaluatie van het model. Zie voor meer informatie over het evalueren van uw model [hoe modelprestaties evalueren in Azure Machine Learning Studio](evaluate-model-performance.md).
 
-Als u niet bekend bent met Azure Machine Learning en hulp krijgen bij het maken van een eenvoudig experiment aan de slag, raadpleeg dan [een eenvoudig experiment maken in Azure Machine Learning Studio](create-experiment.md) in Azure Machine Learning Studio.
+Als u niet bekend bent met Azure Machine Learning Studio en hulp krijgen bij het maken van een eenvoudig experiment aan de slag, raadpleeg dan [een eenvoudig experiment maken in Azure Machine Learning Studio](create-experiment.md) in Azure Machine Learning Studio.
 
 ## <a name="classification"></a>Classificatie
 Er zijn twee subcategorieën van classificatie problemen:
@@ -47,12 +47,12 @@ Er zijn twee subcategorieën van classificatie problemen:
 * Problemen met slechts twee klassen (twee klassen of binaire classificatie)
 * Problemen met meer dan twee klassen (ROC-indeling)
 
-Azure Machine Learning heeft andere modules te maken met elk van deze typen classificatie, maar de methoden voor het interpreteren van hun voorspellingsresultaten zijn vergelijkbaar.
+Azure Machine Learning Studio heeft andere modules te maken met elk van deze typen classificatie, maar de methoden voor het interpreteren van hun voorspellingsresultaten zijn vergelijkbaar.
 
 ### <a name="two-class-classification"></a>Classificatie van twee klassen
 **Voorbeeldexperiment**
 
-Een voorbeeld van een probleem met twee klassen classificatie is de indeling van de iris bloemen. De taak is het classificeren van iris bloemen op basis van hun functies. De Iris-gegevensset vindt u in Azure Machine Learning is een subset van de populaire [Iris-gegevensset](http://en.wikipedia.org/wiki/Iris_flower_data_set) exemplaren van die alleen de twee bloem soorten (klassen 0 en 1). Er zijn vier functies voor elke bloem (petal length, petal width petal length en petal width).
+Een voorbeeld van een probleem met twee klassen classificatie is de indeling van de iris bloemen. De taak is het classificeren van iris bloemen op basis van hun functies. De Iris-gegevensset vindt u in Azure Machine Learning Studio is een subset van de populaire [Iris-gegevensset](http://en.wikipedia.org/wiki/Iris_flower_data_set) exemplaren van die alleen de twee bloem soorten (klassen 0 en 1). Er zijn vier functies voor elke bloem (petal length, petal width petal length en petal width).
 
 ![Schermafbeelding van de iris-experiment](./media/interpret-model-results/1.png)
 
@@ -226,7 +226,7 @@ Voor recommender systemen, kunt u het probleem van de aanbeveling restaurant geb
 * Functie-klantgegevens
 * Gegevens van de functie restaurant
 
-Er zijn verschillende dingen die we met doen kunnen de [Train Matchbox Recommender] [ train-matchbox-recommender] module in Azure Machine Learning:
+Er zijn verschillende dingen die we met doen kunnen de [Train Matchbox Recommender] [ train-matchbox-recommender] module in Azure Machine Learning Studio:
 
 * Classificaties voor een bepaalde gebruiker en een item te voorspellen
 * Doe aanbevelingen voor artikelen aan een bepaalde gebruiker
@@ -237,7 +237,7 @@ U kunt kiezen wat u wilt doen door te selecteren in de vier opties in de **Recom
 
 ![Matchbox recommender](./media/interpret-model-results/19_1.png)
 
-Een typische Azure Machine Learning-experiment voor een systeem recommender eruit als afbeelding 20. Zie voor meer informatie over het gebruik van deze system aanbevelingsmodules [Train matchbox recommender] [ train-matchbox-recommender] en [Score matchbox recommender] [ score-matchbox-recommender].
+Een typische Azure Machine Learning Studio-experiment voor een systeem recommender eruit als afbeelding 20. Zie voor meer informatie over het gebruik van deze system aanbevelingsmodules [Train matchbox recommender] [ train-matchbox-recommender] en [Score matchbox recommender] [ score-matchbox-recommender].
 
 ![Recommender system experiment](./media/interpret-model-results/20.png)
 

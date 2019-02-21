@@ -15,24 +15,24 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
-ms.openlocfilehash: 87d15f7b351f2b8b6a8c010651d82faa66b28918
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: f8b0955afa1705dd8e3c01a943cc5e5d885f9c71
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276462"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456959"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>De versie 2 van Azure Custom Script-extensie gebruiken met virtuele Linux-machines
 De Custom Script Extension versie 2 downloads en scripts uitvoeren op Azure virtual machines. Deze uitbreiding is handig voor post-implementatieconfiguratie, software-installatie of een andere Configuratiebeheer /-taak. U kunt scripts downloaden via Azure Storage of een andere toegankelijke internetlocatie of u ze aan de extensie-runtime kunt leveren. 
 
-De aangepaste Scriptextensie kan worden geïntegreerd met Azure Resource Manager-sjablonen. U kunt deze ook uitvoeren met behulp van Azure CLI, PowerShell, Azure portal of de REST-API van Azure Virtual Machines.
+De aangepaste Scriptextensie kan worden geïntegreerd met Azure Resource Manager-sjablonen. U kunt deze ook uitvoeren met behulp van Azure CLI, PowerShell of de REST-API van Azure Virtual Machines.
 
 Dit artikel wordt uitgelegd hoe u de aangepaste Scriptextensie van Azure CLI, en hoe u de extensie uitvoert met behulp van een Azure Resource Manager-sjabloon. Dit artikel bevat ook stappen voor probleemoplossing voor Linux-systemen.
 
 
 Er zijn twee Custom Script-extensies van Linux:
-* Versie 1 - Microsoft.OSTCExtensions.CustomScriptForLinux
-* Versie 2 - Microsoft.Azure.Extensions.CustomScript
+* Version 1 - Microsoft.OSTCExtensions.CustomScriptForLinux
+* Version 2 - Microsoft.Azure.Extensions.CustomScript
 
 Schakel over nieuwe en bestaande implementaties voor het gebruik van de nieuwe versie 2 in plaats daarvan. De nieuwe versie is bedoeld als een vervangende drop-in. Daarom de migratie is net zo gemakkelijk als het wijzigen van de naam en versie, u hoeft niet te wijzigen van de configuratie van de extensie.
 
@@ -107,19 +107,19 @@ Deze items moeten worden beschouwd als vertrouwelijke gegevens en opgegeven in d
 
 ### <a name="property-values"></a>Waarden van eigenschappen
 
-| Naam | Waarde / voorbeeld | Gegevenstype | 
+| Name | Waarde / voorbeeld | Gegevenstype | 
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| Uitgever | Microsoft.Compute.Extensions | tekenreeks |
-| type | CustomScript | tekenreeks |
+| Uitgever | Microsoft.Compute.Extensions | string |
+| type | CustomScript | string |
 | typeHandlerVersion | 2.0 | int |
-| fileUris (bijvoorbeeld) | https://github.com/MyProject/Archive/MyPythonScript.py | matrix |
-| commandToExecute (bijvoorbeeld) | Python MyPythonScript.py < Mijn param1 > | tekenreeks |
-| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo = | tekenreeks |
+| fileUris (bijvoorbeeld) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
+| commandToExecute (bijvoorbeeld) | python MyPythonScript.py <my-param1> | string |
+| Script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
 | skipDos2Unix (bijvoorbeeld) | false | booleaans |
 | tijdstempel (bijvoorbeeld) | 123456789 | 32-bits geheel getal |
-| storageAccountName (bijvoorbeeld) | examplestorageacct | tekenreeks |
-| storageAccountKey (bijvoorbeeld) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | tekenreeks |
+| storageAccountName (bijvoorbeeld) | examplestorageacct | string |
+| storageAccountKey (bijvoorbeeld) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 ### <a name="property-value-details"></a>Details van eigenschap
 * `skipDos2Unix`: (optioneel, boolean) dos2unix conversie van URL's op basis van een script bestand of script overslaan.

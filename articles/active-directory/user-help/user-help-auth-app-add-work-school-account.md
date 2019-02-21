@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 775e6968282c94abec64fb410f2cc720ba0913e7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ad6dda9e41f1ea87439ffc315f020d4e3566e0c6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168430"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453542"
 ---
 # <a name="add-your-work-or-school-account"></a>Uw werk- of schoolaccount toevoegen
 Als uw organisatie gebruikmaakt van tweeledige verificatie, kunt u uw werk of school-account instellen om te gebruiken van de Microsoft Authenticator-app als een van de verificatiemethoden.
@@ -27,7 +27,7 @@ Als uw organisatie gebruikmaakt van tweeledige verificatie, kunt u uw werk of sc
 
 ## <a name="add-your-work-or-school-account"></a>Uw werk- of schoolaccount toevoegen
 
-1. Op uw PC, gaat u naar de [aanvullende beveiligingsverificatie](https://aka.ms/mfasetup) pagina.
+1. Op uw computer, gaat u naar de [aanvullende beveiligingsverificatie](https://aka.ms/mfasetup) pagina.
 
     >[!Note]
     >Als er geen de **aanvullende beveiligingsverificatie** pagina, is het mogelijk dat de beheerder de ervaring van de gegevens (preview) beveiliging is ingeschakeld. Als dit het geval is, moet u de instructies in de [beveiligingsgegevens ingesteld voor het gebruik van een verificator-app](security-info-setup-auth-app.md) sectie. Als dat niet het geval is, moet u contact op met de helpdesk van uw organisatie voor hulp. Zie voor meer informatie over beveiligingsgegevens [je beveiligingsgegevens beheren](security-info-manage-settings.md).
@@ -40,7 +40,7 @@ Als uw organisatie gebruikmaakt van tweeledige verificatie, kunt u uw werk of sc
 
 3. Open de Microsoft Authenticator-app, selecteer **account toevoegen** uit de **aanpassen en controle** pictogram in de rechterbovenhoek en selecteer vervolgens **werk- of schoolaccount**.
 
-4. De camera van uw apparaat gebruiken om te scannen van de QR-code uit de **mobiele app configureren** scherm op uw PC en kies vervolgens **gedaan**.
+4. De camera van uw apparaat gebruiken om te scannen van de QR-code uit de **mobiele app configureren** scherm op uw computer en kies vervolgens **gedaan**.
 
     >[!Note]
     >Als uw camera niet kan om vast te leggen van de QR-code, kunt u gegevens over uw account handmatig toevoegen aan de Microsoft Authenticator-app voor tweeledige verificatie. Zie voor meer informatie en hoe u dit doet, [handmatig toevoegen van uw account](user-help-auth-app-add-account-manual.md).

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9dc6407a222adb06f4139d9973c168911e0faca8
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 1c65ea47f7dd091ea326d9300a8ef09208a03951
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429669"
+ms.locfileid: "56447783"
 ---
 # <a name="azure-policy-definition-structure"></a>Structuur van Azure-beleidsdefinities
 
@@ -215,7 +215,9 @@ Een voorwaarde wordt geëvalueerd of een **veld** of de **waarde** accessor aan 
 - `"like": "value"`
 - `"notLike": "value"`
 - `"match": "value"`
+- `"matchInsensitively": "value"`
 - `"notMatch": "value"`
+- `"notMatchInsensitively": "value"`
 - `"contains": "value"`
 - `"notContains": "value"`
 - `"in": ["value1","value2"]`
@@ -227,7 +229,8 @@ Een voorwaarde wordt geëvalueerd of een **veld** of de **waarde** accessor aan 
 Wanneer u de **zoals** en **notlike zijn** voorwaarden bieden u een jokerteken `*` in de waarde.
 De waarde mag niet meer dan één jokerteken hebben `*`.
 
-Wanneer u de **overeenkomen met** en **notMatch** voorwaarden bieden `#` zodat deze overeenkomt met een cijfer `?` voor een letter, `.` zodat deze overeenkomt met alle tekens en een ander teken zodat deze overeenkomt met werkelijke teken. Zie voor voorbeelden van [toestaan verschillende bestandsnaampatronen](../samples/allow-multiple-name-patterns.md).
+Wanneer u de **overeenkomen met** en **notMatch** voorwaarden bieden `#` zodat deze overeenkomt met een cijfer `?` voor een letter, `.` zodat deze overeenkomt met alle tekens en een ander teken zodat deze overeenkomt met werkelijke teken.
+**overeenkomen met** en **notMatch** zijn hoofdlettergevoelig. Niet-hoofdlettergevoelige alternatieven zijn beschikbaar in **matchInsensitively** en **notMatchInsensitively**. Zie voor voorbeelden van [toestaan verschillende bestandsnaampatronen](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Velden
 

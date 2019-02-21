@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 02/20/2019
 ms.author: sogup
-ms.openlocfilehash: cc4f559efecec3f024ce995dcf8f8757eb9cb4fb
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 1a25a9c3e0d099349286476f0ae3791efee1642f
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55489684"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452811"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Ophalen van verbeterde back-up en herstellen van de prestaties met mogelijkheid Azure back-up direct herstellen
 
@@ -23,10 +23,11 @@ ms.locfileid: "55489684"
 Het nieuwe model voor direct terugzetten biedt de volgende verbeteringen:
 
 * De mogelijkheid om te gebruiken van momentopnamen die zijn gemaakt als onderdeel van een back-uptaak die is beschikbaar voor herstel zonder te wachten op voor de overdracht van gegevens naar de kluis om te voltooien. Beperkt het de wachttijd voor momentopnamen te kopiëren naar de kluis voordat het activeren van de herstelbewerking.
-* Vermindert back-up en herstel met behoud van momentopnamen, samen met de schijven voor de zeven dagen.
+* Vermindert back-up en herstel met behoud van momentopnamen lokaal voor standaard twee dagen. Deze kluis standaard worden geconfigureerd op een waarde tussen 1 tot 5 dagen.
 * Ondersteunt schijf de grootte van maximaal 4 TB.
 * Standard-SSD-schijven ondersteunt.
-* Mogelijkheid om te gebruiken van een niet-beheerde virtuele machine oorspronkelijk opslagaccounts (per schijf), bij het herstellen. Deze mogelijkheid bestaat, zelfs wanneer de virtuele machine heeft schijven die zijn verdeeld over de storage-accounts. Het downloadproces versneld herstelbewerkingen voor een groot aantal VM-configuraties.
+*   Mogelijkheid om te gebruiken van een niet-beheerde virtuele machine oorspronkelijk opslagaccounts (per schijf), bij het herstellen. Deze mogelijkheid bestaat, zelfs wanneer de virtuele machine heeft schijven die zijn verdeeld over de storage-accounts. Het downloadproces versneld herstelbewerkingen voor een groot aantal VM-configuraties
+
 
 
 ## <a name="whats-new-in-this-feature"></a>Wat is er nieuw in deze functie
@@ -47,6 +48,12 @@ Momentopnamen worden bewaard gedurende zeven dagen. Deze functie kunt er met dez
 * Momentopnamen worden opgeslagen samen met de schijven om herstelpunten te verbeteren en om herstelbewerkingen te versnellen. Als gevolg hiervan, ziet u kosten voor opslag die overeenkomen met de momentopnamen die zijn gemaakt tijdens deze periode.
 * Incrementele momentopnamen worden opgeslagen als pagina-blobs. Alle gebruikers met behulp van niet-beheerde schijven worden in rekening gebracht voor de momentopnamen die zijn opgeslagen in hun lokale storage-account. Omdat de restore-punt verzamelingen die worden gebruikt door beheerde VM-back-ups blob-momentopnamen op het opslagniveau van de onderliggende, voor beheerde schijven ziet u kosten die overeenkomt met blob-momentopname prijzen en ze zijn.
 * Voor premium storage-accounts de momentopnamen die voor instant recovery points aantal voor de limiet van 10 TB van toegewezen ruimte.
+* U krijgt een mogelijkheid voor het configureren van de momentopname bewaarperiode op basis van de behoeften van de herstelbewerking. Afhankelijk van het vereiste, kunt u de bewaarperiode momentopname instellen op minimaal één dag in de blade back-upbeleid zoals hieronder wordt uitgelegd. Hiermee kunt u kosten voor het bewaren van momentopname opslaan als u niet vaak herstelbewerkingen uitvoert.
+
+
+>[!NOTE]
+>Met deze direct een upgrade kan de bewaartermijn van de momentopname van alle klanten te herstellen (**nieuwe en bestaande beide worden opgenomen**) wordt ingesteld op een standaardwaarde van twee dagen. U kunt echter de duur instellen aan de hand van uw behoefte aan een waarde tussen 1 tot 5 dagen.
+
 
 ## <a name="cost-impact"></a>Kosten impact
 
@@ -56,17 +63,25 @@ De incrementele momentopnamen worden opgeslagen in de storage-account van de vir
 ## <a name="upgrading-to-instant-restore"></a>Een upgrade naar Instant Restore
 
 Als u de Azure-portal gebruikt, ziet u een melding op het kluisdashboard. Deze melding is gekoppeld aan ondersteuning voor grote schijven en verbeteringen in back-up en herstel snelheid.
+Als u wilt openen op een scherm voor het upgraden van direct herstellen, selecteert u de banner.
 
 ![Back-uptaak in VM-back-upstack Resource Manager-implementatiemodel--ondersteuning-melding](./media/backup-azure-vms/instant-rp-banner.png)
 
-Als u wilt openen op een scherm voor het upgraden van direct herstellen, selecteert u de banner.
+Klik op **Upgrade** zoals wordt weergegeven in de onderstaande schermafbeelding:
 
 ![Back-uptaak in VM-back-upstack Resource Manager-implementatiemodel--upgrade](./media/backup-azure-vms/instant-rp.png)
 
-U kunt ook gaat u naar **eigenschappen** pagina van de kluis om op te halen de **Upgrade** onder de optie **VM-back-upstack**.
+U kunt ook, gaat u naar **eigenschappen** pagina van de kluis om op te halen de **Upgrade** onder de optie **VM-back-upstack**.
 
 ![Back-uptaak in VM-back-upstack--pagina eigenschappen](./media/backup-azure-vms/instant-restore-capability-properties.png)
 
+
+## <a name="configure-snapshot-retention-using-azure-portal"></a>Momentopname bewaren met behulp van Azure portal configureren
+Deze optie is momenteel beschikbaar in West-Centraal VS, India-Zuid en Australië-Oost.
+
+Voor de bijgewerkte gebruikers in de Azure-portal ziet u een veld toegevoegd aan de **VM back-upbeleid** blade onder de **direct herstellen** sectie. Kunt u de bewaartermijn van de momentopname van de **VM back-upbeleid** blade voor alle virtuele machines die zijn gekoppeld aan de specifieke back-upbeleid.
+
+![Instant Restore-mogelijkheid](./media/backup-azure-vms/instant-restore-capability.png)
 
 ## <a name="upgrade-to-instant-restore-using-powershell"></a>Een upgrade uitvoert naar direct herstellen met behulp van PowerShell
 
@@ -145,13 +160,13 @@ Elke dag een nieuwe momentopname wordt gemaakt, worden er vijf afzonderlijke inc
 Momentopnamen die zijn gemaakt als onderdeel van de directe herstelfuncties zijn incrementele momentopnamen.
 
 ### <a name="how-can-i-calculate-the-approximate-cost-increase-due-to-instant-restore-feature"></a>Hoe kan ik de toename van de geschatte kosten vanwege de functie voor direct terugzetten berekenen?
-Dat hangt ervan af op het verloop van de virtuele machine. In geen stabiele status hebben, u kunt ervan uitgaan dat de toename van kosten momentopname is = bewaarperiode * dagelijks verloop per VM *-opslagkosten per GB.
+Dat hangt ervan af op het verloop van de virtuele machine. In geen stabiele status hebben, kunt u ervan uitgaan dat de toename van kosten is = momentopname retentie periode dagelijkse verloop per VM-opslagkosten per GB.
 
 ### <a name="if-the-recovery-type-for-a-restore-point-is-snapshot-and-vault-and-i-perform-a-restore-operation-which-recovery-type-will-be-used"></a>Als het hersteltype voor een herstelpunt is 'Momentopname en kluis' en ik een herstelbewerking uitvoeren, kunt u welk hersteltype wordt gebruikt?
 Als de recovery-type is 'momentopname en kluis', wordt de terugzetten automatisch worden uitgevoerd vanuit de lokale momentopname, die veel sneller wordt vergeleken met de herstelbewerking uitgevoerd vanaf de kluis.
 
 ### <a name="what-happens-if-i-select-retention-period-of-restore-point-tier-2-less-than-the-snapshot-tier1-retention-period"></a>Wat gebeurt er als ik de bewaarperiode van herstelpunt (laag 2) kleiner is dan de bewaarperiode van de momentopname (Tier1) Selecteer?
-Het nieuwe model is niet toegestaan voor het verwijderen van het herstelpunt (Tier2), tenzij de momentopname (Tier1) is verwijderd. Op dit moment bewaarperiode van zeven dagen voor het verwijderen van de momentopname (Tier1) wordt ondersteund, zodat het herstelpunt (Tier2) bewaarperiode voor minder dan zeven dagen niet wordt herkend. Het is raadzaam om de planning restore point (Tier2)-bewaarperiode groter zijn dan zeven dagen.
+Het nieuwe model is niet toegestaan voor het verwijderen van het herstelpunt (Tier2), tenzij de momentopname (Tier1) is verwijderd. Het is raadzaam om de planning restore point (Tier2)-bewaarperiode groter is dan de bewaarperiode van de momentopname.
 
 ### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>Waarom wordt mijn momentopname bestaande ook na de ingestelde bewaarperiode periode in back-upbeleid?
-Als het herstelpunt van de momentopname heeft en dat de meest recente RP beschikbaar is, wordt wel worden bewaard totdat de die er een volgende geslaagde back-up is. Dit is aan de hand van de ontworpen GC beleid vandaag dat ten minste één van de meest recente RP worden altijd aanwezig in het geval alle back-ups meer op vanwege een probleem in de virtuele machine mislukken stuurt. In normale scenario's worden RPs opgeschoond in maximaal 48 uur na de vervaldatum.
+Als het herstelpunt van de momentopname heeft en dat de meest recente RP beschikbaar is, wordt wel worden bewaard totdat de die er een volgende geslaagde back-up is. Dit is aan de hand van de ontworpen GC beleid vandaag dat ten minste één van de meest recente RP worden altijd aanwezig in het geval alle back-ups meer op vanwege een probleem in de virtuele machine mislukken stuurt. In normale scenario's worden RPs opgeschoond in maximaal 24 uur na de vervaldatum.

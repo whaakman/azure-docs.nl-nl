@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a995fd93fa8d538cd1a686ecc12fa69c718758c
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: cb136391610035911af3614f88f5ea823f86922d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313497"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456319"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Azure AD-activiteitenlogboeken in Azure Monitor (preview)
 
@@ -31,13 +31,13 @@ U kunt nu activiteitenlogboeken van Azure Active Directory (Azure AD) naar versc
 * Activiteitenlogboeken archiveren Azure AD naar Azure storage-account, de gegevens behouden gedurende een lange periode.
 * Activiteitenlogboeken naar een Azure event hub voor analyses, met behulp van populaire Security Information and Event Management (SIEM) hulpprogramma's, zoals Splunk en QRadar Stream Azure AD.
 * Azure AD integreren met uw eigen aangepaste logboek-oplossingen door ze te streamen naar een event hub-activiteitenlogboeken.
-* Verzenden van Azure AD-activiteitenlogboeken naar Log Analytics om in te schakelen uitgebreide visualisaties, bewaking en waarschuwingen voor de verbonden gegevens.
+* Verzenden van Azure AD-activiteitenlogboeken naar Logboeken van Azure Monitor om in te schakelen uitgebreide visualisaties, bewaking en waarschuwingen voor de verbonden gegevens.
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
 ## <a name="supported-reports"></a>Ondersteunde rapporten
 
-U kunt versturen Azure AD controleren logboeken en aanmelden logboeken naar uw Azure storage-account, de event hub, de Log Analytics of de aangepaste oplossing met behulp van deze functie. 
+U kunt versturen Azure AD controleren logboeken en aanmelden logboeken naar uw Azure storage-account, de event hub, de logboeken van Azure Monitor of de aangepaste oplossing met behulp van deze functie. 
 
 * **Auditlogboeken**: De [activiteit audittrailrapporten](concept-audit-logs.md) krijgt u toegang tot de geschiedenis van elke taak die wordt uitgevoerd in uw tenant.
 * **Meld u in logboeken**: Met de [rapport van aanmeldingsactiviteiten](concept-sign-ins.md), kunt u bepalen wie de taken die worden gerapporteerd in de auditlogboeken uitgevoerd.
@@ -60,7 +60,7 @@ Afhankelijk van waarnaar u uw auditlogboekgegevens wilt doorsturen, hebt u het v
 
 * Een Azure-opslagaccount waarop u *ListKeys*-machtigingen hebt. We raden u aan om een algemeen opslagaccount te gebruiken en geen Blob Storage-account. Raadpleeg de [Azure Storage-prijscalculator](https://azure.microsoft.com/pricing/calculator/?service=storage) voor opslagprijzen. 
 * Een Azure Event Hubs-naamruimte om te integreren met oplossingen van derden.
-* Een Azure Log Analytics-werkruimte om Logboeken te verzenden naar Log Analytics.
+* Een Azure Log Analytics-werkruimte om Logboeken te verzenden naar Azure Monitor-Logboeken.
 
 ## <a name="cost-considerations"></a>Kostenoverwegingen
 
@@ -94,9 +94,9 @@ De volgende tabel bevat een raming van de maandelijkse kosten voor een eenvoudig
 | Controleren | 1000 | 0.1 | 52 | 104 kB | 1 | 8640 | $ 10,80 |
 | Aanmeldingen | 1000 | 178 | 53.400 | 106,8&nbsp;MB | 418 | 3.611.520 | $ 11,06 |  
 
-### <a name="log-analytics-cost-considerations"></a>Log Analytics kostenoverwegingen
+### <a name="azure-monitor-logs-cost-considerations"></a>Azure Monitor logboeken kosten overwegingen met betrekking tot
 
-Kosten met betrekking tot de Log Analytics-werkruimte beheren, Zie [kosten beheren door het gegevensvolume en retentie in Log Analytics beheren](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
+Kosten met betrekking tot het beheren van de Azure Monitor-Logboeken, Zie [kosten beheren door te beheren gegevensvolume en retentie in Logboeken van Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
@@ -177,4 +177,4 @@ Deze sectie bevat antwoorden op veelgestelde vragen en bekende problemen met bet
 
 * [Activiteitenlogboeken in een opslagaccount archiveren](quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [Activiteitenlogboeken doorsturen naar een Event Hub](quickstart-azure-monitor-stream-logs-to-event-hub.md)
-* [Activiteitenlogboeken integreren in Log Analytics](howto-integrate-activity-logs-with-log-analytics.md)
+* [Activiteitenlogboeken integreren met Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md)

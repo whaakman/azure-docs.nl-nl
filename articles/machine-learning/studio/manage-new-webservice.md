@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 0ffa917aa6bcfb642cd672d0a51a70b13f041635
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 1bf9889f601795c1ba70abdd17f6e8c9a01785f1
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267560"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453865"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Een webservice met behulp van de portal van Azure Machine Learning Studio-webservices beheren
 U kunt beheren op uw Machine Learning nieuwe en klassieke webservices met behulp van de portal voor Microsoft Azure Machine Learning-webservices. Omdat klassieke webservices en nieuwe Web services zijn afhankelijk van verschillende onderliggende technologieën, hebt u iets anders beheermogelijkheden voor elk van deze.
@@ -39,7 +39,7 @@ Als de gebruiker beschikt niet over de juiste machtigingen voor toegang tot reso
 
 *Implementatie van de webservice is mislukt. Dit account beschikt niet over voldoende toegangsrechten voor het Azure-abonnement met de werkruimte. Als u wilt een webservice implementeert in Azure, hetzelfde account moet worden uitgenodigd voor de werkruimte en toegang krijgen tot het Azure-abonnement met de werkruimte.*
 
-Zie voor meer informatie over het maken van een werkruimte [maken en delen van een Azure Machine Learning-werkruimte](create-workspace.md).
+Zie voor meer informatie over het maken van een werkruimte [maken en delen van een Azure Machine Learning Studio-werkruimte](create-workspace.md).
 
 Zie voor meer informatie over toegangsmachtigingen instellen [toegang met RBAC en de Azure-portal beheren](../../role-based-access-control/role-assignments-portal.md).
 
@@ -108,7 +108,7 @@ Het dashboard plan bevat de volgende informatie:
 
 ## <a name="manage-classic-web-services"></a>Klassieke webservices beheren
 > [!NOTE]
-> De procedures in deze sectie zijn relevant zijn voor het beheer van klassieke webservices via de portal van Azure Machine Learning-webservices. Zie voor meer informatie over het beheren van klassieke webservices door middel van de Machine Learning Studio en de Azure-portal [een Azure Machine Learning-werkruimte beheren](manage-workspace.md).
+> De procedures in deze sectie zijn relevant zijn voor het beheer van klassieke webservices via de portal van Azure Machine Learning-webservices. Zie voor meer informatie over het beheren van klassieke webservices door middel van de Machine Learning Studio en de Azure-portal [een Azure Machine Learning Studio-werkruimte beheren](manage-workspace.md).
 > 
 > 
 

@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 280538c16f5a464f759eca74cce8ff6a97bfa4b2
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 40cb4b7969ec2272936d1361be8183db84f944d8
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244295"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455055"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>PowerShell gebruiken voor Studio-modellen en webservice-eindpunten van een experiment maken
 
@@ -25,9 +25,9 @@ Stel dat u een globale fiets verhuur franchise bedrijf de eigenaar bent. U wilt 
 
 U kunt uw model met één keer een samengevoegde versie van alle gegevenssets op alle locaties kan trainen. Echter elk van uw locaties heeft een unieke omgeving. Zo zou een betere benadering met het trainen van uw regressiemodel afzonderlijk met behulp van de gegevensset voor elke locatie. Op die manier kunnen elke getrainde model kan rekening mee dat de grootte van de andere archieven, volume, Geografie, populatie, verkeer fiets-vriendelijke omgeving en meer.
 
-Die mogelijk de beste benadering, maar u niet wilt dat 1000 training om experimenten te maken in Azure Machine Learning met elkaar die een unieke locatie vertegenwoordigt. Naast een enorme taak nog worden, ook lijkt inefficiënt omdat elke experiment allemaal dezelfde onderdelen, met uitzondering van de gegevensset training hebben zou.
+Die mogelijk de beste benadering, maar u niet wilt dat 1000 training om experimenten te maken in Azure Machine Learning Studio met elkaar die een unieke locatie vertegenwoordigt. Naast een enorme taak nog worden, ook lijkt inefficiënt omdat elke experiment allemaal dezelfde onderdelen, met uitzondering van de gegevensset training hebben zou.
 
-Gelukkig, u kunt dit doen met behulp van de [Azure Machine Learning retraining API](retrain-models-programmatically.md) en het automatiseren van de taak met de [Azure Machine Learning PowerShell](powershell-module.md).
+Gelukkig, u kunt dit doen met behulp van de [Azure Machine Learning Studio retraining API](retrain-models-programmatically.md) en het automatiseren van de taak met de [Azure Machine Learning Studio PowerShell](powershell-module.md).
 
 > [!NOTE]
 > Als u uw voorbeeld sneller worden uitgevoerd, verminderen het aantal locaties van 1000 tot en met 10. Maar dezelfde principes en procedures die zijn toegepast op 1000 locaties. Echter, als u wilt trainen van 1000 gegevenssets raadzaam om de volgende PowerShell-scripts parallel uit te voeren. Hoe dat valt buiten het bereik van dit artikel, maar u voorbeelden van PowerShell multithreading kunt vinden op het Internet.  

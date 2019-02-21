@@ -1,7 +1,7 @@
 ---
 title: De spraak-SDK - Speech Services oplossen
 titleSuffix: Azure Cognitive Services
-description: Dit artikel bevat informatie om u te helpen bij het oplossen van problemen die mogelijk optreden wanneer u de spraak-Service-SDK gebruiken.
+description: Dit artikel bevat informatie om u te helpen bij het oplossen van problemen die mogelijk optreden wanneer u de spraak-SDK gebruiken.
 services: cognitive-services
 author: wolfma61
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: dbcdfd117a39939491914ebddb717f404e07f09c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a3741cb351b11b8cfd7c5d38713bb71232cf010e
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859314"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446525"
 ---
-# <a name="troubleshoot-the-speech-service-sdk"></a>Oplossen van de Spraakservice-SDK
+# <a name="troubleshoot-the-speech-sdk"></a>Problemen met de Speech-SDK oplossen
 
-Dit artikel bevat informatie om u te helpen bij het oplossen van problemen die mogelijk optreden wanneer u de spraak-Service-SDK gebruiken.
+Dit artikel bevat informatie om u te helpen bij het oplossen van problemen die mogelijk optreden wanneer u de spraak-SDK gebruiken.
 
 ## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Fout: WebSocket-Upgrade is mislukt met een verificatiefout (403)
 

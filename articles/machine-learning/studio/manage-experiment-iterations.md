@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 503a93064b81e0db35c0477a11f2ee525680c854
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e41a669e3dcd14952077cbd21e7387184546de80
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488426"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454280"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Iteraties van experimenten beheren in Azure Machine Learning Studio
 Het ontwikkelen van een predictive Analytics-model is in een iteratief proces - als u de verschillende functies en parameters van uw experiment wijzigt, worden de resultaten geconvergeerd tot u tevreden bent u een getraind en doeltreffend model hebt. Sleutel voor dit proces is het bijhouden van de verschillende iteraties van uw experiment parameters en configuraties.
@@ -48,7 +48,7 @@ Stel bijvoorbeeld dat u een experiment met maakt de [lineaire regressie] [ linea
 
 Als u klikt op **VIEW RUN HISTORY**, ziet u een lijst van alle deze wordt uitgevoerd:
 
-![Voorbeeld van de geschiedenis uitvoeren][runhistory]
+![Voorbeeld van de geschiedenis uitvoeren](./media/manage-experiment-iterations/viewrunhistory.jpg)
 
 Klik op een van deze uitvoeringen om weer te geven van een momentopname van het experiment op het moment dat u deze hebt uitgevoerd. De configuratie, parameterwaarden, opmerkingen en resultaten blijven alle behouden zodat u een volledige gegevensrecord van deze uitvoering van uw experiment.
 
@@ -73,10 +73,6 @@ Stel bijvoorbeeld dat u het experiment uitvoeringsgeschiedenis wordt weergegeven
 5. Klik op **uitvoeren**.
 
 U kunt nu met de blijven om te wijzigen en uitvoeren van deze versie van uw experiment, het bouwen van een nieuwe uitvoeringsgeschiedenis om vast te leggen van uw werk.
-
-<!-- Images -->
-[runhistory]:./media/manage-experiment-iterations/viewrunhistory.jpg
-
 
 <!-- Module References -->
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/

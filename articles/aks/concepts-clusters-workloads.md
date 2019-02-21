@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: f5695e52528c3384c46c49c5c5ec2e451bd0be7c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7f964397b476d5a97ecdde0ae22bd6662a435e1a
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998093"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456517"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes-belangrijkste concepten voor Azure Kubernetes Service (AKS)
 
@@ -52,7 +52,7 @@ Het cluster-model bevat de volgende basisonderdelen voor Kubernetes:
 
 AKS biedt een cluster met één tenant-model, met een eigen API-server, Scheduler, enzovoort. U definieert het aantal en de grootte van de knooppunten en het Azure-platform configureert de veilige communicatie tussen de cluster-model en de knooppunten. Interactie met de cluster-master vindt plaats via Kubernetes APIs, zoals `kubectl` of het Kubernetes-dashboard.
 
-Dit model beheerd cluster betekent dat u niet wilt configureren van onderdelen, zoals een maximaal beschikbare *etcd* store, maar dit betekent ook dat u kan niet rechtstreeks toegang hebben tot de cluster-master. Upgrades naar Kubernetes worden beheerd via de Azure CLI of Azure portal, die de cluster-master en klik vervolgens op de knooppunten wordt bijgewerkt. Voor het oplossen van problemen, kunt u de cluster master logboeken via Azure Log Analytics bekijken.
+Dit model beheerd cluster betekent dat u niet wilt configureren van onderdelen, zoals een maximaal beschikbare *etcd* store, maar dit betekent ook dat u kan niet rechtstreeks toegang hebben tot de cluster-master. Upgrades naar Kubernetes worden beheerd via de Azure CLI of Azure portal, die de cluster-master en klik vervolgens op de knooppunten wordt bijgewerkt. Voor het oplossen van problemen, kunt u de cluster master logboeken via Azure Monitor logboeken bekijken.
 
 Als u wilt configureren van de cluster-master op een bepaalde manier of directe toegang nodig tot deze, kunt u uw eigen Kubernetes-cluster via te implementeren [aks-engine][aks-engine].
 
@@ -70,13 +70,13 @@ De Azure VM-grootte voor uw knooppunten definieert het aantal CPU's, hoeveel geh
 
 De VM-installatiekopie voor de knooppunten in het cluster is momenteel in AKS gebaseerd op Ubuntu Linux. Wanneer u een AKS-cluster maken of het aantal knooppunten opschalen, wordt het Azure-platform het aangevraagde aantal virtuele machines maakt en configureert u deze. Er is geen handmatige configuratie voor u om uit te voeren.
 
-Als u nodig hebt voor het gebruik van een andere host-besturingssysteem hebt, container-runtime, of aangepaste pakketten bevatten, kunt u uw eigen Kubernetes-cluster via implementeren [aks-engine][aks-engine]. De upstream `aks-engine` vrijgegeven functies en configuratieopties te leveren voordat ze officieel worden ondersteund in AKS-clusters. Bijvoorbeeld, als u gebruiken van Windows-containers of in een container runtime dan Docker wilt, kunt u `aks-engine` configureren en implementeren van een Kubernetes-cluster die voldoet aan de behoeften van uw huidige.
+Als u nodig hebt voor het gebruik van een andere host-besturingssysteem hebt, container-runtime, of aangepaste pakketten bevatten, kunt u uw eigen Kubernetes-cluster via implementeren [aks-engine][aks-engine]. De upstream `aks-engine` vrijgegeven functies en configuratieopties bevat voordat ze officieel worden ondersteund in AKS-clusters. Bijvoorbeeld, als u gebruiken van Windows-containers of in een container runtime dan Docker wilt, kunt u `aks-engine` configureren en implementeren van een Kubernetes-cluster die voldoet aan de behoeften van uw huidige.
 
 ### <a name="resource-reservations"></a>Resource-reserveringen
 
 U hoeft te beheren, de Kubernetes-basisonderdelen op elk knooppunt, zoals de *kubelet*, *kube-proxy*, en *kube-DNS-*, maar ze enkele van de beschikbare gebruiken COMPUTE-resources. Als u wilt behouden knooppunt prestaties en functionaliteit, zijn de volgende rekenresources gereserveerd op elk knooppunt:
 
-- **CPU** - 60ms
+- **CPU** - 60 ms
 - **Geheugen** -20% maximaal 4 GiB
 
 Deze reserveringen betekenen dat de hoeveelheid beschikbare CPU en geheugen voor uw toepassingen kan worden weergegeven kleiner is dan het knooppunt zelf bevat. Als er resourcebeperkingen vanwege het aantal toepassingen die u uitvoert, wordt deze reserveringen Zorg ervoor dat de CPU en geheugen blijft beschikbaar voor de belangrijkste onderdelen die Kubernetes. De resource-reserveringen kunnen niet worden gewijzigd.
@@ -99,7 +99,7 @@ Knooppunten met dezelfde configuratie zijn gegroepeerd tot *knooppuntgroepen*. E
 
 Wanneer u een AKS-cluster upgraden of schalen, wordt de actie wordt uitgevoerd op basis van de standaardgroep voor het knooppunt. Actieve containers worden gepland op andere knooppunten in het knooppunt van toepassingen voor upgrade-bewerkingen, totdat alle knooppunten worden bijgewerkt.
 
-## <a name="pods"></a>Schillen
+## <a name="pods"></a>Pods
 
 Maakt gebruik van Kubernetes *schillen* naar een exemplaar van uw toepassing wordt uitgevoerd. Een schil vertegenwoordigt één exemplaar van uw toepassing. Schillen hebben doorgaans een 1:1 toewijzing met een container, hoewel er worden geavanceerde scenario's waarbij een schil meerdere containers kan bevatten. Deze schillen meerdere containers samen op hetzelfde knooppunt worden gepland en toestaan dat containers om gerelateerde resources te delen.
 
@@ -203,7 +203,7 @@ Wanneer u een AKS-cluster maakt, zijn de volgende naamruimten zijn beschikbaar:
 
 - *standaard* -deze naamruimte is waarbij schillen en implementaties standaard gemaakt worden wanneer niets wordt opgegeven. U kunt toepassingen rechtstreeks in de standaard-naamruimte in kleinere omgevingen implementeren zonder dat er extra logische ontslag nemen. Wanneer u met de Kubernetes-API, werken zoals met `kubectl get pods`, de standaard-naamruimte wordt gebruikt wanneer niets is opgegeven.
 - *kube-systeem* -deze naamruimte is waar kernbronnen bestaat, zoals network-functies, zoals DNS- en proxy, of het Kubernetes-dashboard. U implementeren uw eigen toepassingen in deze naamruimte die doorgaans niet.
-- *kube-openbare* : deze naamruimte wordt normaal gesproken niet gebruikt, maar kan worden gebruikt voor resources zichtbaar zijn in het hele cluster, en door gebruikers kan worden weergegeven.
+- *kube-openbare* : deze naamruimte wordt normaal gesproken niet gebruikt, maar kan worden gebruikt voor resources zijn zichtbaar in het hele cluster, en kunnen worden weergegeven door een gebruiker.
 
 Zie voor meer informatie, [Kubernetes-naamruimten][kubernetes-namespaces].
 

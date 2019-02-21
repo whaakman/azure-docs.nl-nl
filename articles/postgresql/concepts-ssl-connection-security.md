@@ -1,17 +1,17 @@
 ---
 title: SSL-connectiviteit configureren in Azure Database for PostgreSQL
 description: Instructies en informatie voor het configureren van Azure Database for PostgreSQL en gekoppelde toepassingen gebruiken SSL-verbindingen.
-author: JasonMAnderson
-ms.author: janders
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: bcb6f1da78cfccb4914f1f4008609f002a7b8c2d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 13a1ed626e7741c90cf902c9ed01911985ca8424
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545430"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453440"
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>SSL-connectiviteit configureren in Azure Database for PostgreSQL
 Azure Database voor PostgreSQL verkiest het verbinden van uw clienttoepassingen met de PostgreSQL-service met Secure Sockets Layer (SSL). Het afdwingen van SSL-verbindingen tussen uw databaseserver en clienttoepassingen zorgt dat u bent beschermt tegen 'man in the middle'-aanvallen omdat de gegevensstroom tussen de server en uw toepassing wordt versleuteld.
@@ -53,7 +53,7 @@ Het certificaat nodig om te communiceren via SSL met uw Azure Database voor Post
 ### <a name="download-and-install-openssl-on-your-machine"></a>Download en installeer de OpenSSL op uw computer 
 Als u wilt decoderen het certificaatbestand dat nodig is voor uw toepassing veilig verbinding maken met uw databaseserver, moet u OpenSSL installeren op uw lokale computer.
 
-#### <a name="for-linux-os-x-or-unix"></a>Voor Linux, Unix of OS X
+#### <a name="for-linux-os-x-or-unix"></a>For Linux, OS X, or Unix
 De OpenSSL-bibliotheken zijn opgegeven in de broncode rechtstreeks vanuit de [OpenSSL Software Foundation](https://www.openssl.org). De volgende instructies leiden u door de benodigde stappen voor het OpenSSL installeren op uw Linux-computer. In dit artikel maakt gebruik van opdrachten om te werken op Ubuntu 12.04 bekende en hoger.
 
 Open een terminalsessie en downloaden van OpenSSL.

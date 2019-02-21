@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 80e8f0a627ea33881e21d45c8be0e8d1600e4e48
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c0e7f941f9845ed7531f3adf03fbca9fbeb2787d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008431"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456687"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database aanschaffen van modellen
 
@@ -50,9 +50,11 @@ De kosten zijn de totale compute-capaciteit die is ingericht voor de toepassing.
 
 ## <a name="storage-costs"></a>Opslagkosten
 
-Verschillende typen opslag worden anders gefactureerd. Voor opslag van gegevens in rekening gebracht voor de ingerichte opslag op basis van de database of pool maximumgrootte die u selecteert. De kosten wordt niet gewijzigd, tenzij u verlagen of te die maximaal verhogen. Back-upopslag hoort bij geautomatiseerde back-ups van uw exemplaar en dynamisch wordt toegewezen. Door de retentieperiode van uw back-ups te vergroten, zal er meer back-upopslag door uw exemplaar worden verbruikt. Er worden geen extra kosten in rekening gebracht voor back-upopslag voor maximaal 100% van uw totale ingerichte serveropslag. Voor aanvullend verbruik van back-upopslag wordt in rekening gebracht in GB per maand. Als u bijvoorbeeld een database-opslag van 100 GB hebt, krijgt u 100 GB aan back-upopslag, zonder extra kosten. Maar als de back-up 110 GB is, betaalt u voor de extra 10 GB.
+Verschillende typen opslag worden anders gefactureerd. Voor opslag van gegevens in rekening gebracht voor de ingerichte opslag op basis van de database of pool maximumgrootte die u selecteert. De kosten wordt niet gewijzigd, tenzij u verlagen of te die maximaal verhogen. Back-upopslag hoort bij geautomatiseerde back-ups van uw exemplaar en dynamisch wordt toegewezen. Door de retentieperiode van uw back-ups te vergroten, zal er meer back-upopslag door uw exemplaar worden verbruikt. 
 
-Voor back-upopslag van één database in rekening gebracht op het pro rata gefactureerd voor de opslag die is toegewezen aan de databaseback-ups minus de grootte van de database. Voor back-upopslag van een elastische pool in rekening gebracht op het pro rata gefactureerd voor de opslag die is toegewezen aan de databaseback-ups van alle databases in de groep minus de maximale grootte van de elastische pool. Een toename van de grootte van de database of elastische pool of een toename van de Transactiesnelheid meer opslag vereist en dus verhoogt uw back-upopslag-factuur.  Als u de maximale gegevensgrootte verhoogt, wordt deze nieuwe bedrag afgetrokken van de grootte van de back-upopslag worden gefactureerd.
+Zeven dagen aan geautomatiseerde back-ups van uw databases worden standaard naar RA-GRS-standaardblobopslag gekopieerd. De opslag wordt gebruikt voor wekelijkse volledige back-ups, dagelijkse differentiële back-ups en back-ups van transactielogboeken die om de vijf minuten worden gekopieerd. De grootte van het transactielogboek is afhankelijk van de wijzigingssnelheid van de database. U kunt gratis gebruik maken van opslagruimte ter waarde van 100% van de databasegrootte. Voor aanvullend verbruik van back-upopslag worden GB/maand berekend.
+
+Zie voor meer informatie over prijzen voor gegevensopslag, de [prijzen](https://azure.microsoft.com/pricing/details/sql-database/single/) pagina. 
 
 ## <a name="vcore-based-purchasing-model"></a>Op vCore gebaseerd aanschafmodel
 

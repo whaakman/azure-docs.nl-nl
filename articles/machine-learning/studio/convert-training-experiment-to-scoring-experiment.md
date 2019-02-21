@@ -9,12 +9,12 @@ ms.topic: article
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: 22cfdd22a8d2adacb5a5a5c817a628fe2c072755
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1d07ad7e60e1ee9ff3216767fcfc77405d557f44
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001694"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455106"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Over het voorbereiden van uw model voor implementatie in Azure Machine Learning Studio
 
@@ -50,11 +50,11 @@ Nadat u uw experiment uitvoeren (klikt u op **uitvoeren** aan de onderkant van h
 
 Het volgende experiment traint bijvoorbeeld een tweeklasse boosted decision tree model met voorbeeldgegevens telling:
 
-![Trainingsexperiment][figure1]
+![Trainingsexperiment](./media/convert-training-experiment-to-scoring-experiment/figure1.png)
 
 De modules in dit experiment uitvoeren in feite vier verschillende functies:
 
-![Module-functies][figure2]
+![Module-functies](./media/convert-training-experiment-to-scoring-experiment/figure2.png)
 
 Wanneer u deze trainingsexperiment naar een Voorspellend experiment converteren, sommige van deze modules zijn niet meer nodig hebt of ze nu een ander doel dienen:
 
@@ -70,7 +70,7 @@ Wanneer u deze trainingsexperiment naar een Voorspellend experiment converteren,
 
 Hier volgt hoe ons voorbeeld eruitziet nadat u hebt geklikt **webservice instellen**:
 
-![Geconverteerde Voorspellend experiment][figure3]
+![Geconverteerde Voorspellend experiment](./media/convert-training-experiment-to-scoring-experiment/figure3.png)
 
 Het werk dat door **webservice ingesteld** kan worden volstaan met het voorbereiden van uw experiment te worden geïmplementeerd als een webservice. U wilt echter enkele extra werk die specifiek zijn voor uw experiment doet.
 
@@ -79,7 +79,7 @@ In uw trainingsexperiment gebruikt van een set trainingsgegevens en vervolgens h
 
 Bijvoorbeeld standaard **webservice ingesteld** plaatst de **Web service invoer** module aan de bovenkant van de gegevensstroom, zoals wordt weergegeven in de bovenstaande afbeelding. Maar we handmatig kunt plaatsen de **Web service invoer** voorbij de gegevensverwerking-modules:
 
-![Het verplaatsen van de web service-invoer][figure4]
+![Het verplaatsen van de web service-invoer](./media/convert-training-experiment-to-scoring-experiment/figure4.png)
 
 De ingevoerde gegevens opgegeven via de webservice geeft nu rechtstreeks in de module Score Model zonder eventuele voorverwerking.
 
@@ -88,14 +88,14 @@ Echter, als u liever een ander resultaat, vervolgens kunt u toevoegen aanvullend
 
 Voeg bijvoorbeeld het volgende om terug te keren alleen de resultaten van de scoring- en niet de gehele vector van invoergegevens, een [Select Columns in Dataset] [ select-columns] module wilt uitsluiten van alle kolommen behalve de scoring resultaten. Verplaats de **Web service uitvoer** module aan de uitvoer van de [Select Columns in Dataset] [ select-columns] module. Het experiment ziet er als volgt:
 
-![Het verplaatsen van de web service-uitvoer][figure5]
+![Het verplaatsen van de web service-uitvoer](./media/convert-training-experiment-to-scoring-experiment/figure5.png)
 
 ### <a name="add-or-remove-additional-data-processing-modules"></a>Toevoegen of verwijderen van extra gegevensverwerkende modules
 Als er meer modules in uw experiment waarvan u weet niet meer nodig dat tijdens de score, kunnen deze worden verwijderd. Bijvoorbeeld, omdat we verplaatst de **Web service invoer** -module op een punt na de verwerking van data-modules, kunnen we verwijderen de [Clean Missing Data] [ clean-missing-data] module op basis van de Voorspellend experiment.
 
 Onze Voorspellend experiment ziet er nu als volgt uit:
 
-![Aanvullende module verwijderen][figure6]
+![Aanvullende module verwijderen](./media/convert-training-experiment-to-scoring-experiment/figure6.png)
 
 
 ### <a name="add-optional-web-service-parameters"></a>Toevoegen van optionele Parameters van de Web Service
@@ -116,16 +116,6 @@ Nu dat de Voorspellend experiment voldoende is voorbereid, kunt u deze kunt impl
 Zie voor meer informatie over het proces van de volledige [een Azure Machine Learning-webservice implementeren][deploy]
 
 [deploy]: publish-a-machine-learning-web-service.md
-
-
-<!-- Images -->
-[figure1]:./media/convert-training-experiment-to-scoring-experiment/figure1.png
-[figure2]:./media/convert-training-experiment-to-scoring-experiment/figure2.png
-[figure3]:./media/convert-training-experiment-to-scoring-experiment/figure3.png
-[figure4]:./media/convert-training-experiment-to-scoring-experiment/figure4.png
-[figure5]:./media/convert-training-experiment-to-scoring-experiment/figure5.png
-[figure6]:./media/convert-training-experiment-to-scoring-experiment/figure6.png
-
 
 <!-- Module References -->
 [clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/

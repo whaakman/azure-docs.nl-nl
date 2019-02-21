@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 79cf839a23d41058e0d9583a378dc063cd220136
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 1d7f58780819202eb02e3a48b4b5e0ac108a0432
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981754"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447460"
 ---
 # <a name="understand-cost-management-data"></a>Inzicht in gegevens van Cost Management
 
@@ -61,6 +61,8 @@ De volgende tabel ziet u niet-ondersteunde aanbiedingen.
 | **Ondersteuningsabonnementen** | Azure Government Standard Support | MS-AZR-USGOV-0041P |
 | **Ondersteuningsabonnementen** | Azure Government Pro-direct Support | MS-AZR-USGOV-0042P |
 | **Ondersteuningsabonnementen** | Azure gov-Developer Support | MS-AZR-USGOV-0043P |
+
+Voor klanten met categorieën van aanbieding voor betalen per gebruik, MSDN en Visual Studio is de gegevens beschikbaar in Cost Management vanaf 02-10-2018.
 
 Als er geen gegevens voor een abonnement en u bepalen wilt als het abonnement onder de ondersteunde biedt valt, kunt u valideren dat uw abonnement wordt ondersteund. Als u wilt valideren of een Azure-abonnement wordt ondersteund, aanmelden bij de [Azure-portal](https://portal.azure.com). Selecteer vervolgens **alle Services** in het menu links. Selecteer in de lijst met services, **abonnementen**. Klik op het abonnement dat u wilt controleren in het menu van de lijst met abonnementen. Uw abonnement wordt weergegeven op het tabblad Overzicht en ziet u de **bieden** en **aanbiedings-ID**. In de volgende afbeelding ziet u een voorbeeld.
 

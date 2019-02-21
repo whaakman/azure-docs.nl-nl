@@ -1,7 +1,7 @@
 ---
 title: Hoe een machine learning-model wordt een webservice
 titleSuffix: Azure Machine Learning Studio
-description: Een overzicht van het mechanisme van hoe de voortgang van uw Azure Machine Learning-model van een ontwikkeling met een ingezette webservice experimenteren.
+description: Een overzicht van het mechanisme van hoe de voortgang van uw Azure Machine Learning Studio-model van een ontwikkeling met een ingezette webservice experimenteren.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: 31005077c9c149f9aff055432d9577a63bac8e1c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 776f33e3e550ad9a711a90732c6c4526e647aa89
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992272"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456789"
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Hoe een model voor Machine Learning Studio wordt uitgevoerd van een experiment naar een ingezette-webservice
 Azure Machine Learning Studio biedt een interactief canvas waarmee u kunt ontwikkelen, te worden uitgevoerd, te testen en te herhalen een ***experimenteren*** vertegenwoordigt een predictive Analytics-model. Er zijn tal van modules die kunnen:
@@ -46,7 +46,7 @@ Hier volgen de stappen die een typische oplossing volgt bij het ontwikkelen en i
 *Afbeelding 1: fasen van een typische predictive Analytics-model*
 
 ### <a name="the-training-experiment"></a>Het trainingsexperiment
-De ***trainingsexperiment*** is de eerste fase van het ontwikkelen van uw webservice in Machine Learning Studio. Het doel van het trainingsexperiment is waarin u een plaats om te ontwikkelen, testen, herhalen en uiteindelijk een machine learning-model te trainen. U kunt zelfs trainen van meerdere modellen tegelijkertijd als u de beste oplossing zoekt, maar wanneer u klaar bent u experimenteren één getraind selecteert model en de rest van het experiment te elimineren. Zie voor een voorbeeld van het ontwikkelen van een predictive Analytics-experiment [predictive analytics-oplossing voor kredietrisicobeoordeling in Azure Machine Learning ontwikkelen](tutorial-part1-credit-risk.md).
+De ***trainingsexperiment*** is de eerste fase van het ontwikkelen van uw webservice in Machine Learning Studio. Het doel van het trainingsexperiment is waarin u een plaats om te ontwikkelen, testen, herhalen en uiteindelijk een machine learning-model te trainen. U kunt zelfs trainen van meerdere modellen tegelijkertijd als u de beste oplossing zoekt, maar wanneer u klaar bent u experimenteren één getraind selecteert model en de rest van het experiment te elimineren. Zie voor een voorbeeld van het ontwikkelen van een predictive Analytics-experiment [ontwikkelen van een predictive analytics-oplossing voor kredietrisicobeoordeling in Azure Machine Learning Studio](tutorial-part1-credit-risk.md).
 
 ### <a name="the-predictive-experiment"></a>De Voorspellend experiment
 Nadat u een getraind model in uw trainingsexperiment hebt, klikt u op **webservice ingesteld** en selecteer **voorspellende webservice** in Machine Learning Studio om het proces van het converteren van uw training initiëren om te experimenteren een ***Voorspellend experiment***. Het doel van de Voorspellend experiment is het gebruik van het getrainde model te scoren van nieuwe gegevens, met het doel van het uiteindelijk wordt geoperationaliseerd als een Azure-webservice.

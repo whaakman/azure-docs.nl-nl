@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: 8358eceedbb9214e4adb73f055bcf0db7fecec76
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: cdaaf5323543377d9c2b603ad7377d088710cde8
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430383"
+ms.locfileid: "56447740"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Uw API's met Azure API Management, Eventhubs en Moesif controleren
 De [API Management-service](api-management-key-concepts.md) biedt veel mogelijkheden voor het verbeteren van de verwerking van HTTP-aanvragen die worden verzonden op uw HTTP-API. Het bestaan van de aanvragen en antwoorden is echter tijdelijk. De aanvraag wordt gedaan en hiervandaan stroomt het via de API Management-service naar uw back-end-API. Uw API verwerkt de aanvraag en een antwoord doorloopt de consument API. De API Management-service houdt u enkele belangrijke statistische gegevens over de API's om weer te geven in de Azure portal-dashboard, maar ook buiten dat de gegevens verwijderd zijn.
@@ -293,7 +293,7 @@ public class MoesifHttpMessageProcessor : IHttpMessageProcessor
 }
 ```
 
-De `MoesifHttpMessageProcessor` maakt gebruik van een [ C# API-bibliotheek voor Moesif](https://www.moesif.com/docs/api?csharp#events) die kunt u eenvoudig pushmeldingen HTTP-gebeurtenisgegevens naar hun service. Als u wilt gegevens van HTTP naar de Moesif gegevensverzamelaar-API verzendt, moet u een account en een toepassings-id. U get een Moesif toepassings-Id ophalen met het maken van een account op [Moesif van website](https://www.moesif.com) en ga vervolgens naar de _Menu rechts van het hoogste_ -> _App-instelling_.
+De `MoesifHttpMessageProcessor` maakt gebruik van een [ C# API-bibliotheek voor Moesif](https://www.moesif.com/docs/api?csharp#events) die kunt u eenvoudig pushmeldingen HTTP-gebeurtenisgegevens naar hun service. Als u wilt gegevens van HTTP naar de Moesif gegevensverzamelaar-API verzendt, moet u een account en een toepassings-id. U een Moesif toepassings-Id ophalen met het maken van een account op [Moesif van website](https://www.moesif.com) en ga vervolgens naar de _Menu rechts van het hoogste_ -> _App-instelling_.
 
 ## <a name="complete-sample"></a>Compleet voorbeeld
 De [broncode](https://github.com/dgilling/ApimEventProcessor) en tests voor het voorbeeld op GitHub. U moet een [API Management-Service](get-started-create-service-instance.md), [een verbonden Event Hub](api-management-howto-log-event-hubs.md), en een [Opslagaccount](../storage/common/storage-create-storage-account.md) om uit te voeren van het voorbeeld voor uzelf.   

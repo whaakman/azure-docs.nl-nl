@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.openlocfilehash: 337e7a848b6aa141ecf4f96cd4f8f391be35a619
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5b216242b5c1c093c5f508adce04ef7b4bec4d1e
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475530"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453185"
 ---
 # <a name="use-azure-machine-learning-studio-web-service-parameters"></a>Azure Machine Learning Studio webserviceparameters gebruiken
 Een Azure Machine Learning-webservice wordt gemaakt door het publiceren van een experiment met modules met configureerbare parameters. In sommige gevallen kunt u het gedrag van de module niet wijzigen terwijl de webservice wordt uitgevoerd. *Web-Parameters van de Service* zodat u deze taak. 
@@ -57,7 +57,7 @@ Een voorbeeld: Stel dat we hebben een experiment met een [gegevens exporteren] [
 
 3. Klik op het pictogram aan de rechterkant van de **pad naar de blob die begint met de parameter container**. Het ziet er als volgt uit:
    
-   ![Web Service Parameter-pictogram][icon]
+   ![Web Service Parameter-pictogram](./media/web-service-parameters/icon.png)
    
    Selecteer 'Instellen als web Serviceparameter'.
    
@@ -65,7 +65,7 @@ Een voorbeeld: Stel dat we hebben een experiment met een [gegevens exporteren] [
 4. Wijzig de naam van de Web Service-Parameter, klikt u op de naam, typt u 'blobpad', en druk op de **Enter** sleutel. 
 5. Als u wilt een standaardwaarde opgeven voor de Web Service-Parameter, klik op het pictogram aan de rechterkant van de naam, selecteert u "Geef standaardwaarde", voer een waarde (bijvoorbeeld ' container1/output1.csv'), en druk op de **Enter** sleutel.
    
-   ![Web Service-Parameter][parameter]
+   ![Web Service-Parameter](./media/web-service-parameters/parameter.png)
 6. Klik op **Run**. 
 7. Klik op **webservice implementeren** en selecteer **webservice implementeren [klassieke]** of **Web Service implementeren [Nieuw]** om de webservice te implementeren.
 
@@ -78,11 +78,6 @@ De gebruiker van de webservice kan nu opgeven voor een nieuwe bestemming voor de
 Zie voor een uitgebreider voorbeeld de [Webserviceparameters](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) vermelding in de [Machine Learning Blog](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
 
 Zie voor meer informatie over het verkrijgen van toegang tot een Machine Learning-webservice [hoe u een Azure Machine Learning-webservice gebruiken](consume-web-services.md).
-
-<!-- Images -->
-[icon]: ./media/web-service-parameters/icon.png
-[parameter]: ./media/web-service-parameters/parameter.png
-
 
 <!-- Module References -->
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/

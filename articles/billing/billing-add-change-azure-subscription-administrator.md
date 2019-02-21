@@ -13,20 +13,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/10/2019
+ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: d3bdcc267c55434a71c915f7d4e575d47522986b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6cc965f8e775e02e9dec9f610516739a9a2c1936
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110571"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56448004"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Toevoegen of wijzigen van de beheerders van Azure-abonnement
 
 Om de toegang tot Azure-resources te beheren, moet u over de juiste beheerdersrol beschikken. Azure heeft een autorisatiesysteem met de naam op rollen gebaseerd toegangsbeheer (RBAC) met verschillende ingebouwde rollen die kunt u kiezen uit. U kunt deze rollen op verschillende niveaus, zoals de beheergroep, abonnement of resourcegroep toewijzen.
 
-Microsoft raadt u toegang tot resources met behulp van RBAC te beheren. Echter, als u nog steeds het klassieke implementatiemodel gebruikt, u moet een beheerder voor klassiek abonnement gebruiken. Zie voor meer informatie, [Azure Resource Manager en klassieke implementatie](../azure-resource-manager/resource-manager-deployment-model.md) en [beheerders van de klassieke Azure-abonnement](../role-based-access-control/classic-administrators.md).
+Microsoft raadt u toegang tot resources met behulp van RBAC te beheren. Echter, als u nog steeds met behulp van het klassieke implementatiemodel en het klassieke resources beheren met behulp van [PowerShell-Module voor Azure Service Management](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure), moet u een klassieke administrator gebruiken. 
+
+> [!TIP]
+> Als u alleen de Azure-portal gebruiken om de klassieke resources te beheren, hoeft u niet de klassieke administrator gebruiken.
+
+Zie voor meer informatie, [Azure Resource Manager en klassieke implementatie](../azure-resource-manager/resource-manager-deployment-model.md) en [beheerders van de klassieke Azure-abonnement](../role-based-access-control/classic-administrators.md).
 
 Dit artikel wordt beschreven hoe toevoegen of wijzigen van de beheerdersrol voor een gebruiker met RBAC op het abonnementsbereik.
 

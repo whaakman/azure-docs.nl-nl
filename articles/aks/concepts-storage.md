@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: c3a737bdd9978e6cb02e3e8b7a34407eb1dd8fb6
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: fd301967800f67d95c12f1689981b2dfd8eb2d80
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49381025"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452760"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opties voor opslag voor toepassingen in Azure Kubernetes Service (AKS)
 
@@ -29,7 +29,7 @@ In dit artikel worden de belangrijkste concepten die over de opslag die aan uw t
 
 ## <a name="volumes"></a>Volumes
 
-Toepassingen moeten vaak kunnen opslaan en ophalen van gegevens. Afzonderlijke schillen Kubernetes doorgaans behandelt als tijdelijke, beschikbare resources, zijn beschikbaar voor gebruik van toepassingen en behoud van gegevens naar behoefte verschillende benaderingen. Een *volume* vertegenwoordigt een manier opslaan, ophalen en behoud van gegevens tussen schillen en gedurende de levensduur van toepassingen.
+Toepassingen moeten vaak kunnen opslaan en ophalen van gegevens. Als afzonderlijke schillen Kubernetes doorgaans als tijdelijke, beschikbare resources behandelt, zijn verschillende methoden beschikbaar is voor toepassingen om te gebruiken en behoud van gegevens naar behoefte. Een *volume* vertegenwoordigt een manier opslaan, ophalen en behoud van gegevens tussen schillen en gedurende de levensduur van toepassingen.
 
 Traditionele volumes aan gegevens opslaan en ophalen worden als ondersteund door Azure Storage Kubernetes-resources gemaakt. U kunt handmatig maken van deze gegevensvolumes moet worden toegewezen aan schillen rechtstreeks of Kubernetes ze automatisch te maken hebben. Deze gegevensvolumes kunnen Azure-schijven of Azure Files gebruiken:
 
@@ -44,7 +44,7 @@ In Kubernetes, kunnen volumes bestaan uit meer dan alleen maar een traditionele 
 
 ## <a name="persistent-volumes"></a>Permanente volumes
 
-Volumes zijn gedefinieerd en gemaakt als onderdeel van de levenscyclus van de schil bestaan alleen totdat de schil wordt verwijderd. Schillen verwachten vaak dat de opslag om te blijven als een schil op een andere host is opnieuw gepland tijdens onderhoud, met name in StatefulSets. Een *permanent volume* (HW) is een opslagresource gemaakt en beheerd door de Kubernetes-API die buiten de levensduur van een afzonderlijke pod kan bestaan.
+Volumes die zijn gedefinieerd en gemaakt als onderdeel van de levenscyclus van de schil bestaan alleen totdat de schil wordt verwijderd. Schillen verwachten vaak dat de opslag om te blijven als een schil op een andere host is opnieuw gepland tijdens onderhoud, met name in StatefulSets. Een *permanent volume* (HW) is een opslagresource gemaakt en beheerd door de Kubernetes-API die buiten de levensduur van een afzonderlijke pod kan bestaan.
 
 Azure-schijven of bestanden worden gebruikt voor de PersistentVolume. Als in de vorige sectie op Volumes die u hebt genoteerd, wordt de keuze van de schijven of bestanden vaak bepaald door de noodzaak voor gelijktijdige toegang tot de gegevens of de prestatielaag.
 

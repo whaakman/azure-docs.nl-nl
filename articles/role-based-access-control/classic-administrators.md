@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/10/2019
+ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3274d753d33c759efa06b899a5511daf53aa9ec9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: f4838f688210f9017d691bd6a463217a75fc90d4
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338645"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447511"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Beheerders van de klassieke Azure-abonnement
 
@@ -30,7 +30,7 @@ Dit artikel wordt beschreven hoe u wilt toevoegen of wijzigen van de rollen Mede
 ## <a name="add-a-co-administrator"></a>Toevoegen van een CO-beheerder
 
 > [!TIP]
-> U hoeft alleen toe te voegen een CO-beheerder als de gebruiker nodig heeft voor het beheren van de klassieke Azure-implementaties. We raden u aan met het RBAC voor alle andere doeleinden.
+> U hoeft alleen het toevoegen van een CO-beheerder als de gebruiker nodig heeft voor het klassieke Azure-implementaties beheren met behulp van [PowerShell-Module voor Azure Service Management](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure). Als de gebruiker wordt alleen de Azure portal gebruikt om de klassieke resources te beheren, hoeft u niet om toe te voegen van de klassieke administrator voor de gebruiker.
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) als een Service-beheerder.
 

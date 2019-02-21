@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: b663177a07446b888bc7bf9e919bf180458d36bc
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e5c85451ca48aab8f980b89de41ebf40f1f97ff3
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487005"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453950"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio"></a>Hoe modelprestaties evalueren in Azure Machine Learning Studio
 
@@ -29,7 +29,7 @@ In dit artikel ziet u hoe u de prestaties van een model in Azure Machine Learnin
 
 Evaluatie van de prestaties van een model is een van de core-fasen in het data science process. Hiermee wordt aangegeven hoe succesvol de scoring (voorspellingen) van een gegevensset is door een getraind model. 
 
-Biedt ondersteuning voor Azure Machine Learning model evaluatie via twee van de belangrijkste machine learning-modules: [Model evalueren] [ evaluate-model] en [Kruisvalidatie Model][cross-validate-model]. Deze modules kunnen u zien hoe uw model in termen van een aantal metrische gegevens die vaak worden gebruikt in machine learning en statistische gegevens uitvoert.
+Azure Machine Learning Studio biedt ondersteuning voor de evaluatie model via twee van de belangrijkste machine learning-modules: [Model evalueren] [ evaluate-model] en [Kruisvalidatie Model][cross-validate-model]. Deze modules kunnen u zien hoe uw model in termen van een aantal metrische gegevens die vaak worden gebruikt in machine learning en statistische gegevens uitvoert.
 
 ## <a name="evaluation-vs-cross-validation"></a>Evaluatie van Visual Studio. Kruisvalidatie
 Beoordeling en validatie van kruislings zijn standaard manieren voor het meten van de prestaties van uw model. Ze beide evaluatie metrische gegevens die u kunt controleren of vergelijken met die van andere modellen genereren.
@@ -48,7 +48,7 @@ De volgende modules toevoegen aan uw werkruimte in Azure Machine Learning Studio
 
 * Auto's prijs data (Raw)
 * [Lineaire regressie][linear-regression]
-* [Train Model][train-model]
+* [Trainingsmodel][train-model]
 * [Score-Model][score-model]
 * [Model evalueren][evaluate-model]
 
@@ -83,14 +83,14 @@ Nadat het experiment is uitgevoerd, kunt u de resultaten van evaluatie van contr
 Afbeelding 4. Kruisvalidatie resultaten van een regressiemodel.
 
 ## <a name="evaluating-a-binary-classification-model"></a>Een binair classificeringsmodel evalueren
-In een scenario voor binaire classificatie, is de doelvariabele slechts twee mogelijke resultaten, bijvoorbeeld: {0, 1} of {false, true}, {negatieve, positieve}. Wordt ervan uitgegaan dat krijgt u een gegevensset van volwassenen werknemers met een aantal demografische en werkgelegenheid variabelen en u wordt gevraagd om te voorspellen van het niveau van inkomsten, een binaire variabele met de waarden {"< 50 K =", "> 50 K '}. Met andere woorden, de negatieve klasse vertegenwoordigt de werknemers die kleiner dan of gelijk aan 50 K per jaar en de positieve klasse alle andere werknemers. Zoals in het scenario regressie zouden we een model te trainen, bepaalde gegevens te beoordelen en evalueren van de resultaten. Het belangrijkste verschil is hier is de keuze van de metrische gegevens over die Azure Machine Learning worden berekend en uitvoer. Ter illustratie van het scenario voor het niveau voorspelling van inkomsten, gebruiken we de [volwassenen](http://archive.ics.uci.edu/ml/datasets/Adult) gegevensset naar een Azure Machine Learning-experiment maken en de prestaties van een model voor logistieke regressie van twee klassen, een veelgebruikte binair bestand evalueren classificatie.
+In een scenario voor binaire classificatie, is de doelvariabele slechts twee mogelijke resultaten, bijvoorbeeld: {0, 1} of {false, true}, {negatieve, positieve}. Wordt ervan uitgegaan dat krijgt u een gegevensset van volwassenen werknemers met een aantal demografische en werkgelegenheid variabelen en u wordt gevraagd om te voorspellen van het niveau van inkomsten, een binaire variabele met de waarden {"< 50 K =", "> 50 K '}. Met andere woorden, de negatieve klasse vertegenwoordigt de werknemers die kleiner dan of gelijk aan 50 K per jaar en de positieve klasse alle andere werknemers. Zoals in het scenario regressie zouden we een model te trainen, bepaalde gegevens te beoordelen en evalueren van de resultaten. Het belangrijkste verschil is hier is de keuze van de metrische gegevens over die Azure Machine Learning Studio worden berekend en uitvoer. Ter illustratie van het scenario voor het niveau voorspelling van inkomsten, gebruiken we de [volwassenen](http://archive.ics.uci.edu/ml/datasets/Adult) gegevensset een Studio-experiment maken en de prestaties van een model voor logistieke regressie van twee klassen, een veelgebruikte binaire classificatie evalueren.
 
 ### <a name="creating-the-experiment"></a>Het maken van het Experiment
 De volgende modules toevoegen aan uw werkruimte in Azure Machine Learning Studio:
 
 * Volwassenen telling inkomsten binaire classificatie-gegevensset
 * [Two-Class Logistic Regression][two-class-logistic-regression]
-* [Train Model][train-model]
+* [Trainingsmodel][train-model]
 * [Score-Model][score-model]
 * [Model evalueren][evaluate-model]
 
@@ -103,9 +103,9 @@ Afbeelding 5. Evaluatie van een binair classificeringsmodel.
 ### <a name="inspecting-the-evaluation-results"></a>De resultaten van evaluatie van inspecteren
 Nadat het experiment is uitgevoerd, kunt u klikken op de uitvoerpoort van de [Evaluate Model] [ evaluate-model] -module en selecteer *Visualize* om te zien van de evaluatieresultaten (afbeelding 7). De evaluatie van metrische gegevens beschikbaar voor binaire classificatie-modellen zijn: *Nauwkeurigheid*, *precisie*, *intrekken*, *F1 Score*, en *AUC*. Bovendien de module een verwarringsmatrix met het aantal echt positieven, false negatieven, fout-positieven en de waarde true negatieven levert, evenals *ROC*, *precisie/intrekken*, en  *Lift* curven.
 
-Nauwkeurigheid is gewoon de verhouding van correct ingedeeld exemplaren. Het is doorgaans de eerste metrische gegevens die u bekijkt bij het evalueren van een classificatie. Wanneer de testgegevens is echter niet-regelmatige (waar de meeste van de exemplaren die deel uitmaken van een van de klassen), of u meer geïnteresseerd bent in de prestaties op een van de klassen, nauwkeurigheid echt de effectiviteit van een classificatie niet vastleggen. In het scenario inkomsten niveau classificatie wordt ervan uitgegaan dat u wilt testen op sommige gegevens waar 99% van de exemplaren van mensen die kleiner dan of gelijk aan 50K per jaar verdienen vertegenwoordigen. Het is mogelijk om een 0.99 nauwkeurigheid door te voorspellen van de klasse ' < = 50K ' voor alle exemplaren. De classificatie in dat geval tot het uitvoeren van een algemene goed worden weergegeven, maar in werkelijkheid niet aan een van de hoog inkomen personen (de % 1) correct te classificeren.
+Nauwkeurigheid is gewoon de verhouding van correct ingedeeld exemplaren. Het is doorgaans de eerste metrische gegevens die u bekijkt bij het evalueren van een classificatie. Wanneer de testgegevens is echter niet-regelmatige (waar de meeste van de exemplaren die deel uitmaken van een van de klassen), of u meer geïnteresseerd bent in de prestaties op een van de klassen, nauwkeurigheid echt de effectiviteit van een classificatie niet vastleggen. In het scenario inkomsten niveau classificatie wordt ervan uitgegaan dat u wilt testen op sommige gegevens waar 99% van de exemplaren van mensen die kleiner dan of gelijk aan 50K per jaar verdienen vertegenwoordigen. Het is mogelijk om een 0.99 nauwkeurigheid door te voorspellen van de klasse ' < = 50K ' voor alle exemplaren. De classificatie in dat geval tot het uitvoeren van een algemene goed worden weergegeven, maar in werkelijkheid mislukt voor het classificeren van een van de hoog inkomen personen (de % 1) correct.
 
-Om die reden is het nuttig zijn voor het berekenen van aanvullende metrische gegevens die meer specifieke aspecten van de evaluatie vastleggen. Voordat u doorgaat op de details van deze metrische gegevens, is het belangrijk om te begrijpen van de verwarringsmatrix van de evaluatie van een binaire indeling. De klasse labels in de trainingsset kunnen uitvoeren op alleen 2 mogelijke waarden, dit is meestal als positief of negatief zijn. De positieve en negatieve-instanties die een classificatie correct voorspelt worden genoemd echt positieven (TP) en de waarde true negatieven (TN), respectievelijk. De onjuist ingedeeld exemplaren worden op dezelfde manier, fout-positieven (FP) en false negatieven (FN) genoemd. De verwarringsmatrix is gewoon een tabel met het aantal exemplaren die bij elk van deze 4 categorieën vallen. Azure Machine Learning bepaalt automatisch welke van de twee klassen in de gegevensset is de positieve klasse. Als de klasse labels Booleaanse waarde of gehele getallen zijn, worden de gelabelde exemplaren 'true' of '1' de positieve klasse toegewezen. Als de labels tekenreeksen zijn, zoals in het geval van de gegevensset inkomsten, de labels worden alfabetisch gesorteerd en het eerste niveau is gekozen als de negatieve klasse terwijl het tweede niveau de positieve klasse is.
+Om die reden is het nuttig zijn voor het berekenen van aanvullende metrische gegevens die meer specifieke aspecten van de evaluatie vastleggen. Voordat u doorgaat op de details van deze metrische gegevens, is het belangrijk om te begrijpen van de verwarringsmatrix van de evaluatie van een binaire indeling. De klasse labels in de trainingsset kunnen uitvoeren op alleen 2 mogelijke waarden, dit is meestal als positief of negatief zijn. De positieve en negatieve-instanties die een classificatie correct voorspelt worden genoemd echt positieven (TP) en de waarde true negatieven (TN), respectievelijk. De onjuist ingedeeld exemplaren worden op dezelfde manier, fout-positieven (FP) en false negatieven (FN) genoemd. De verwarringsmatrix is gewoon een tabel met het aantal exemplaren die bij elk van deze 4 categorieën vallen. Azure Machine Learning Studio bepaalt automatisch welke van de twee klassen in de gegevensset is de positieve klasse. Als de klasse labels Booleaanse waarde of gehele getallen zijn, worden de gelabelde exemplaren 'true' of '1' de positieve klasse toegewezen. Als de labels tekenreeksen zijn, zoals in het geval van de gegevensset inkomsten, de labels worden alfabetisch gesorteerd en het eerste niveau is gekozen als de negatieve klasse terwijl het tweede niveau de positieve klasse is.
 
 ![Binaire classificatie Verwarringsmatrix](./media/evaluate-model-performance/6a.png)
 
@@ -140,8 +140,8 @@ De volgende modules toevoegen aan uw werkruimte in Azure Machine Learning Studio
 
 * [Gegevens importeren][import-data]
 * [Beslissingsforest met multiklasse][multiclass-decision-forest]
-* [Split Data][split]
-* [Train Model][train-model]
+* [Gesplitste gegevens][split]
+* [Trainingsmodel][train-model]
 * [Score-Model][score-model]
 * [Model evalueren][evaluate-model]
 

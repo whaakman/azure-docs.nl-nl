@@ -10,19 +10,19 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: dd65988146d3738d8540ddf4e54ed57813e10c16
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: a00548bd5eb88c95ea83d492524e2ae10f274bba
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243532"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453984"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Analyseren traject van de klant met behulp van Azure Machine Learning Studio
 ## <a name="overview"></a>Overzicht
-In dit artikel geeft een referentie-implementatie van een klantverloop analysis-project dat is gebouwd met behulp van Azure Machine Learning. In dit artikel wordt besproken hoe gekoppelde algemene modellen voor het oplossen van het probleem van het verloop van industriële klanten zuinigste. We ook meet de nauwkeurigheid van modellen die zijn gebouwd met behulp van Machine Learning en richtlijnen voor de verdere ontwikkeling beoordelen.  
+In dit artikel geeft een referentie-implementatie van een klantverloop analysis-project dat is gebouwd met behulp van Azure Machine Learning Studio. In dit artikel wordt besproken hoe gekoppelde algemene modellen voor het oplossen van het probleem van het verloop van industriële klanten zuinigste. We ook meet de nauwkeurigheid van modellen die zijn gebouwd met behulp van Machine Learning en richtlijnen voor de verdere ontwikkeling beoordelen.  
 
 ### <a name="acknowledgements"></a>Bevestigingen
-Dit experiment is ontwikkeld en getest door Serge Berger, Gegevenswetenschapper Principal bij Microsoft en Roger Barga, voorheen Product Manager voor Microsoft Azure Machine Learning. De Azure-documentatieteam dank erkent hun ervaring en ze Bedankt voor het delen van deze whitepaper.
+Dit experiment is ontwikkeld en getest door Serge Berger, Gegevenswetenschapper Principal bij Microsoft en Roger Barga, voorheen Product Manager voor Microsoft Azure Machine Learning Studio. De Azure-documentatieteam dank erkent hun ervaring en ze Bedankt voor het delen van deze whitepaper.
 
 > [!NOTE]
 > De gegevens die worden gebruikt voor dit experiment is niet openbaar beschikbaar. Zie voor een voorbeeld van het bouwen van een machine learning-model voor verloop analyse: [Detailhandel verloop model sjabloon](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) in [Azure AI Gallery](http://gallery.azure.ai/)
@@ -54,11 +54,11 @@ Een algemene proces oplossen van problemen op te lossen klantverloop wordt weerg
 2. Een model tussenkomst van de kunt u overwegen hoe het niveau van de tussenkomst van invloed kan zijn op de kans van verloop en het bedrag van de klant levensduurwaarde (CLV).
 3. Deze analyse gepaard met een kwalitatieve analyse die een proactieve marketingcampagne die gericht is op klantsegmenten voor het leveren van de optimale aanbieding is geëscaleerd.  
 
-![][1]
+![Diagram waarin wordt getoond hoe tolerantie plus besluit risicomodellen resulteert in bruikbare inzichten](./media/azure-ml-customer-churn-scenario/churn-1.png)
 
 Deze vooruit uitziende aanpak is de beste manier om het verloop behandelen, maar wordt geleverd met complexiteit: we hebben een multi-modeldatabase archetype en tracering afhankelijkheden tussen de modellen te ontwikkelen. De interactie tussen modellen kan worden ingekapseld, zoals wordt weergegeven in het volgende diagram:  
 
-![][2]
+![Diagram van interactie verloop](./media/azure-ml-customer-churn-scenario/churn-2.png)
 
 *Afbeelding 4: Geïntegreerde multi-modeldatabase archetype*  
 
@@ -71,24 +71,24 @@ Hier een interessante toevoeging is analyse van big data. Vandaag telecommunicat
  
 
 ## <a name="implementing-the-modeling-archetype-in-machine-learning-studio"></a>De archetype modellen implementeren in Machine Learning Studio
-Het hierboven beschreven probleem wordt gegeven, wat is de beste manier om een geïntegreerde modelleren en scoring-aanpak te implementeren? In deze sectie wordt we laten zien hoe we dit doen met behulp van Azure Machine Learning Studio.  
+Gezien het probleem dat wordt beschreven, wat is de beste manier om een geïntegreerde modelleren en scoring-aanpak te implementeren? In deze sectie wordt we laten zien hoe we dit doen met behulp van Azure Machine Learning Studio.  
 
 De multi-modeldatabase aanpak is een moet bij het ontwerpen van een globale archetype voor verloop. Ook de scoring (voorspellende) deel van de aanpak moet meerdere modellen.  
 
 Het volgende diagram toont het prototype dat we hebben gemaakt, die de veiligheidsmaatregelen voor vier scoring algoritmen in Machine Learning Studio om te voorspellen verloop. De reden voor het gebruik van een multi-modeldatabase benadering is niet alleen voor het maken van een classificatie ensembles voor betere nauwkeurigheid, maar ook om te beveiligen tegen sprake van redundante aanpassing van labels en prescriptieve Functieselectie verbeteren.  
 
-![][3]
+![Schermafbeelding van een complexe Studio-werkruimte met veel onderling verbonden modules](./media/azure-ml-customer-churn-scenario/churn-3.png)
 
 *Afbeelding 5: Prototype van een benadering van modellering verloop*  
 
 De volgende secties vindt u meer informatie over het model scoren model dat wordt geïmplementeerd met behulp van Machine Learning Studio.  
 
 ### <a name="data-selection-and-preparation"></a>Gegevens selecteren en voorbereiden
-De gegevens die worden gebruikt om de modellen te bouwen en klanten van de score is verkregen van een verticale CRM-oplossing met de gegevens die zijn verborgen voor het beveiligen van de privacy van klanten. De gegevens bevat informatie over de 8000-abonnementen in de Verenigde Staten en drie bronnen worden gecombineerd: inrichten van gegevens (metagegevens van het abonnement), gegevens over gebruikersactiviteiten (gebruik van het systeem) en gegevens van de klant ondersteuning. De gegevens bevat geen elk bedrijf verwante informatie over de klanten; Deze omvatten bijvoorbeeld geen loyaliteit metagegevens of tegoed scores.  
+De gegevens die worden gebruikt om de modellen te bouwen en klanten van de score is verkregen van een verticale CRM-oplossing met de gegevens die zijn verborgen voor het beveiligen van de privacy van klanten. De gegevens bevat informatie over de 8000-abonnementen in de Verenigde Staten en drie bronnen worden gecombineerd: inrichten van gegevens (metagegevens van het abonnement), gegevens over gebruikersactiviteiten (gebruik van het systeem) en gegevens van de klant ondersteuning. De gegevens omvat niet alle bedrijfsgerelateerde gegevens over de klanten; Deze omvatten bijvoorbeeld geen loyaliteit metagegevens of tegoed scores.  
 
-Voor het gemak bent ETL en processen voor opschonen van gegevens buiten het bereik omdat we ervan uitgaan dat het voorbereiden van gegevens is al is klaar ergens anders.   
+Voor het gemak bent ETL en processen voor opschonen van gegevens buiten het bereik omdat we ervan uitgaan dat het voorbereiden van gegevens is al is klaar ergens anders.
 
-Functies selecteren voor het maken van modellering is gebaseerd op het voorlopige significante scoren van de set voorspellingsfactoren, opgenomen in het proces dat gebruikmaakt van de module willekeurige forest. We berekend voor de implementatie in Machine Learning Studio, het gemiddelde, mediaan en bereiken voor representatieve functies. We hebben toegevoegd bijvoorbeeld statistische functies voor de kwalitatieve gegevens, zoals de minimale en maximale waarden voor gebruikersactiviteit.    
+Functies selecteren voor het maken van modellering is gebaseerd op het voorlopige significante scoren van de set voorspellingsfactoren, opgenomen in het proces dat gebruikmaakt van de module willekeurige forest. We berekend voor de implementatie in Machine Learning Studio, het gemiddelde, mediaan en bereiken voor representatieve functies. We hebben toegevoegd bijvoorbeeld statistische functies voor de kwalitatieve gegevens, zoals de minimale en maximale waarden voor gebruikersactiviteit.
 
 We hebben ook vastgelegd tijdelijke gegevens voor de meest recente zes maanden. Gegevens geanalyseerd voor één jaar en wij tot stand gebracht, zelfs als er statistisch significant trends waren, wordt de gevolgen zijn voor verloop aanzienlijk verminderd na zes maanden.  
 
@@ -96,11 +96,11 @@ Het belangrijkste punt is dat het hele proces, zoals ETL, feature selection en m
 
 De volgende diagrammen ziet u de gegevens die is gebruikt.  
 
-![][4]
+![Schermopname van een voorbeeld van de gegevens die worden gebruikt met onbewerkte waarden](./media/azure-ml-customer-churn-scenario/churn-4.png)
 
 *Afbeelding 6: Fragment van een gegevensbron (verborgen)*  
 
-![][5]
+![Schermopname van statistische functies die zijn geëxtraheerd uit de gegevensbron](./media/azure-ml-customer-churn-scenario/churn-5.png)
 
 *Afbeelding 7: Functies die zijn geëxtraheerd uit de gegevensbron*
  
@@ -122,7 +122,7 @@ We de volgende vier machine learning-algoritmen gebruikt voor het bouwen van het
 
 Het volgende diagram illustreert een deel van het ontwerpvenster experiment, waarmee wordt aangegeven van de volgorde waarin de modellen zijn gemaakt:  
 
-![][6]  
+![Schermafbeelding van een klein gedeelte van de studio-experiment canvas](./media/azure-ml-customer-churn-scenario/churn-6.png)  
 
 *Afbeelding 8: Het maken van modellen in Machine Learning Studio*  
 
@@ -135,18 +135,18 @@ We ook verzonden de scoring gegevensset met een vergelijkbare model gebouwd met 
 In deze sectie geven we onze bevindingen over de nauwkeurigheid van de modellen, op basis van de scoring-gegevensset.  
 
 ### <a name="accuracy-and-precision-of-scoring"></a>Nauwkeurigheid en precisie van score
-De implementatie in Azure Machine Learning is over het algemeen achter SAS nauwkeurigheid met ongeveer 10-15% (gebied onder Curve of AUC).  
+De implementatie in Azure Machine Learning Studio is over het algemeen achter SAS nauwkeurigheid met ongeveer 10-15% (gebied onder Curve of AUC).  
 
 De belangrijkste metrische gegevens in verloop is echter de snelheid misclassification: dat wil zeggen, van de top N-churners als voorspelde door de classificatie, welke van deze daadwerkelijk is **niet** verloop, en nog speciale behandeling ontvangen? Het volgende diagram worden deze snelheid misclassification voor alle modellen vergeleken:  
 
-![][7]
+![Gebied onder de grafiek van de curve vergelijken de prestaties van 4 algoritmen](./media/azure-ml-customer-churn-scenario/churn-7.png)
 
 *Afbeelding 9: Passau prototype gebied onder curve*
 
 ### <a name="using-auc-to-compare-results"></a>Met behulp van AUC om resultaten te vergelijken
 Gebied onder Curve (AUC) is een metrische waarde die staat voor een globale maateenheid *Afscheidbaarheid* tussen de verdeling van scores voor positieve en negatieve populaties. Het is vergelijkbaar met de traditionele ontvanger Operator kenmerk (ROC)-grafiek, maar één belangrijk verschil is dat de metriek AUC vereist niet dat u een waarde voor drempel kiezen. In plaats daarvan het bevat een overzicht van de resultaten **alle** keuzemogelijkheden. Daarentegen de traditionele ROC-grafiek toont de-positief-ratio op de verticale as en de fout-positief-ratio op de horizontale as en is afhankelijk van de drempelwaarde voor classificatie.   
 
-AUC wordt doorgaans gebruikt als een meting van de waard is om voor verschillende algoritmen (of andere systemen) omdat deze kan modellen worden vergeleken met behulp van de waarden van hun AUC. Dit is een populaire benadering in branches zoals meteorologie en biosciences. Dus vertegenwoordigt AUC een populair hulpprogramma voor het beoordelen van de prestaties van de classificatie.  
+AUC wordt gebruikt als een meting van de waard is om voor verschillende algoritmen (of andere systemen), omdat hierdoor modellen worden vergeleken met behulp van de waarden van hun AUC. Dit is een populaire benadering in branches zoals meteorologie en biosciences. Dus vertegenwoordigt AUC een populair hulpprogramma voor het beoordelen van de prestaties van de classificatie.  
 
 ### <a name="comparing-misclassification-rates"></a>Vergelijking van de tarieven voor misclassification
 We vergeleken de misclassification tarieven op de gegevensset in kwestie met behulp van de CRM-gegevens van ongeveer 8.000 abonnementen.  
@@ -160,14 +160,14 @@ Evenzo, is nauwkeurigheid belangrijker dan de precisie omdat we voornamelijk ge�
 
 Het volgende diagram van Wikipedia ziet u de relatie in een afbeelding levendige, eenvoudig te begrijpen:  
 
-![][8]
+![Twee doelen. Toont één doel merken losjes gegroepeerd bereikt, maar in de buurt van de stieren-ogen gemarkeerd als ' laag nauwkeurigheid: goede juistheid, slechte precisie. Een ander doel nauw gegroepeerd maar ver ligt de stieren-ogen gemarkeerd als ' laag nauwkeurigheid: slechte juistheid, goede precisie "](./media/azure-ml-customer-churn-scenario/churn-8.png)
 
 *Afbeelding 10: Verhouding tussen de nauwkeurigheid en precisie*
 
 ### <a name="accuracy-and-precision-results-for-boosted-decision-tree-model"></a>Resultaten nauwkeurigheid en precisie voor boosted decision tree model
 Het volgende diagram wordt de onbewerkte resultaten van het scoring-met behulp van de Machine Learning-model voor de boosted decision tree-model, wat gebeurt er met de meest nauwkeurige tussen de vier modellen worden weergegeven:  
 
-![][9]
+![Tabel fragment van nauwkeurigheid, precisie, zoals eerder vermeld, F-Score, AUC, gemiddelde logboek verlies en Training Log gegevensverlies voor vier algoritmen](./media/azure-ml-customer-churn-scenario/churn-9.png)
 
 *Afbeelding 11: Boosted decision tree model kenmerken*
 
@@ -200,13 +200,13 @@ Observatie van dit belangrijk is vaak over het hoofd gezien in het bedrijfsleven
 
 De belofte van selfservice-analyses met behulp van Machine Learning Studio is echter dat de vier categorieën van informatie, ingedeeld in de afdeling een waardevolle bron voor machine learning over verloop geworden.  
 
-Een andere interessante mogelijkheden die afkomstig zijn in Azure Machine Learning is de mogelijkheid om een aangepaste module toevoegen aan de opslagplaats van de vooraf gedefinieerde modules die al beschikbaar zijn. Deze mogelijkheid maakt in feite een mogelijkheid voor het selecteren van bibliotheken en sjablonen maken voor verticale markten. Het is een belangrijk kenmerk van Azure Machine Learning op de markt.  
+Een andere interessante mogelijkheden die afkomstig zijn in Azure Machine Learning Studio is de mogelijkheid om een aangepaste module toevoegen aan de opslagplaats van de vooraf gedefinieerde modules die al beschikbaar zijn. Deze mogelijkheid maakt in feite een mogelijkheid voor het selecteren van bibliotheken en sjablonen maken voor verticale markten. Het is een belangrijk kenmerk van Azure Machine Learning Studio op de markt.  
 
 We hopen dat om door te gaan in dit onderwerp in de toekomst, met name met betrekking tot de analyse van big data.
   
 
 ## <a name="conclusion"></a>Conclusie
-Dit document beschrijft een functionele aanpak voor het aanpakken van het algemene probleem van klantverloop met behulp van een algemene framework. We beschouwd als een prototype voor het scoren van modellen en geïmplementeerd, met behulp van Azure Machine Learning. Ten slotte wordt de nauwkeurigheid en de prestaties van de oplossing prototype met betrekking tot vergelijkbare algoritmen in SAS beoordeeld.  
+Dit document beschrijft een functionele aanpak voor het aanpakken van het algemene probleem van klantverloop met behulp van een algemene framework. We beschouwd als een prototype voor het scoren van modellen en geïmplementeerd, met behulp van Azure Machine Learning Studio. Ten slotte wordt de nauwkeurigheid en de prestaties van de oplossing prototype met betrekking tot vergelijkbare algoritmen in SAS beoordeeld.  
 
  
 
@@ -223,17 +223,6 @@ Dit document beschrijft een functionele aanpak voor het aanpakken van het algeme
  
 
 ## <a name="appendix"></a>Bijlage
-![][10]
+![Momentopname van een presentatie op verloop prototype](./media/azure-ml-customer-churn-scenario/churn-10.png)
 
 *Afbeelding 12: Momentopname van een presentatie op verloop prototype*
-
-[1]: ./media/azure-ml-customer-churn-scenario/churn-1.png
-[2]: ./media/azure-ml-customer-churn-scenario/churn-2.png
-[3]: ./media/azure-ml-customer-churn-scenario/churn-3.png
-[4]: ./media/azure-ml-customer-churn-scenario/churn-4.png
-[5]: ./media/azure-ml-customer-churn-scenario/churn-5.png
-[6]: ./media/azure-ml-customer-churn-scenario/churn-6.png
-[7]: ./media/azure-ml-customer-churn-scenario/churn-7.png
-[8]: ./media/azure-ml-customer-churn-scenario/churn-8.png
-[9]: ./media/azure-ml-customer-churn-scenario/churn-9.png
-[10]: ./media/azure-ml-customer-churn-scenario/churn-10.png

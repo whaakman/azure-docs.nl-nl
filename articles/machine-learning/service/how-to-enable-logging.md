@@ -9,13 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
-ms.date: 02/11/2019
-ms.openlocfilehash: bff0feab7ce062c9e2515fa038d249838a809591
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.date: 02/20/2019
+ms.openlocfilehash: 08e83cdcadabdcf7234d0bbd0fb7e6d103c8369c
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101156"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447528"
 ---
 # <a name="enable-logging-in-azure-machine-learning-service"></a>Logboekregistratie inschakelen in Azure Machine Learning-service
 
@@ -112,7 +112,7 @@ logs = service.get_logs()
 U kunt zich ook aanmelden aangepaste stack-traces voor uw web-service door in te schakelen van Application Insights, waardoor u kunnen monitor aanvraag/reactietijden en foutpercentages uitzonderingen. Roep de `update()` functie op een bestaande webservice om in te schakelen van Application Insights.
 
 ```python
-service..update(enable_app_insights=True)
+service.update(enable_app_insights=True)
 ```
 
 Zie de [procedures](how-to-enable-app-insights.md#enable-and-disable-in-the-portal) voor meer informatie over het werken met Application Insights in Azure portal.

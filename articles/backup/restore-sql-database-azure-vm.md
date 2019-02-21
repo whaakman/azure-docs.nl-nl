@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2018
 ms.author: raynew
-ms.openlocfilehash: 3571eb2471f9b3f06eb509937fd11866b4e0caa8
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 9b741f8562ae2e81d297357afd3b0e0e3976a248
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430806"
+ms.locfileid: "56445437"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Herstellen van SQL Server-databases op Azure Virtual machines 
 
@@ -34,7 +34,7 @@ In dit artikel wordt beschreven hoe u SQL Server-databases te herstellen. Als u 
 Azure Backup kunt SQL Server-databases die worden uitgevoerd op virtuele Azure-machines als volgt herstellen:
 
 - Herstellen naar een bepaalde datum of tijd (voor de tweede), met behulp van transactielogboekback-ups. Azure Backup bepaalt automatisch de juiste volledige differentiële back-up en de keten van logboekback-ups, die nodig zijn om terug te zetten op basis van de geselecteerde tijd.
-- Herstellen van een een specifieke volledige of differentiële back-up te herstellen naar een specifiek herstelpunt, in plaats van een bepaald tijdstip.
+- Een specifieke volledige of differentiële back-up herstellen om te herstellen naar een specifiek herstelpunt, in plaats van een bepaald tijdstip.
 
 
 ### <a name="prerequisites"></a>Vereisten

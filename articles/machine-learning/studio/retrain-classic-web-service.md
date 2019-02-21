@@ -1,5 +1,5 @@
 ---
-title: Opnieuw trainen en een klassieke webservice implementeren
+title: Een klassieke webservice opnieuw trainen en implementeren
 titleSuffix: Azure Machine Learning Studio
 description: Informatie over het opnieuw trainen van een model en het bijwerken van een klassieke webservice voor het gebruik van het zojuist getrainde model in Azure Machine Learning Studio.
 services: machine-learning
@@ -10,12 +10,12 @@ author: peterlu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: e8fd3511eb7b718374bfbc608a35fb84740ed03c
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 4f3ca01ae44900e4d0ce22b79db44d7bfa84e56d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56331197"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456551"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-web-service"></a>Opnieuw trainen en implementeren van een klassieke Studio-webservice
 
@@ -60,7 +60,7 @@ Als u de juiste URL voor het vullen van de programmacode, de volgende stappen ui
 1. Voer de [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) voorbeeldcode.
 1. Uit de uitvoer van AddEndpoint, vinden de *HelpLocation* waarde en kopieer de URL.
 
-   ![HelpLocation in de uitvoer van het voorbeeld addEndpoint.][image2]
+   ![HelpLocation in de uitvoer van het voorbeeld addEndpoint.](./media/troubleshooting-retraining-a-model/addEndpoint-output.png)
 1. Plak de URL in een browser om te navigeren naar een pagina met help-koppelingen voor de webservice.
 1. Klik op de **resources bijwerken** koppeling om de patch help-pagina te openen.
 
@@ -81,7 +81,7 @@ Volg deze stappen voor het ophalen van de juiste URL vullen met behulp van de we
 
 De PATCH help-pagina bevat de vullen van de URL die u moet gebruiken en voorbeeldcode die u gebruiken kunt om aan te roepen van het biedt.
 
-![URL van de patch.][image5]
+![URL van de patch.](./media/troubleshooting-retraining-a-model/ml-help-page-patch-url.png)
 
 ### <a name="update-the-endpoint"></a>Het eindpunt bijwerken
 
@@ -149,6 +149,3 @@ Zie voor meer informatie over het beheren van webservices of bijhouden van meerd
 
 * [Maak kennis met de Web Services-portal](manage-new-webservice.md)
 * [Experimentherhalingen beheren](manage-experiment-iterations.md)
-
-[image2]: ./media/troubleshooting-retraining-a-model/addEndpoint-output.png
-[image5]: ./media/troubleshooting-retraining-a-model/ml-help-page-patch-url.png

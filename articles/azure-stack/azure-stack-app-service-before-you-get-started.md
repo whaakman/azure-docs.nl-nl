@@ -3,8 +3,8 @@ title: Voordat u App Service in Azure Stack implementeren | Microsoft Docs
 description: Stappen voor het voltooien voordat u App Service in Azure Stack implementeren
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
+author: jeffgilb
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2018
-ms.author: anwestg
+ms.author: jeffgilb
+ms.reviewer: anwestg
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 558fc7280af398f0037c33121f662649ba9c3506
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0be1814fd501824056bc80d4aeb561ff58735125
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251381"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447443"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Voordat u aan de slag met App Service in Azure Stack
 
@@ -74,7 +75,7 @@ Wanneer u de volgende PowerShell-opdracht uitvoert, hebt u voor het eindpunt van
 
 #### <a name="get-azurestackrootcertps1-script-parameters"></a>Get-AzureStackRootCert.ps1 script parameters
 
-| Parameter | Vereist of optioneel | Standaardwaarde | Beschrijving |
+| Parameter | Vereist of optioneel | Standaardwaarde | Description |
 | --- | --- | --- | --- |
 | PrivilegedEndpoint | Vereist | AzS-ERCS01 | Bevoegde eindpunt |
 | CloudAdminCredential | Vereist | AzureStack\CloudAdmin | Referenties van het domein account voor Azure Stack-cloud-beheerders |
@@ -99,7 +100,7 @@ Volg deze stappen voor het maken van de certificaten:
 
 #### <a name="create-appservicecertsps1-script-parameters"></a>Create-AppServiceCerts.ps1 script parameters
 
-| Parameter | Vereist of optioneel | Standaardwaarde | Beschrijving |
+| Parameter | Vereist of optioneel | Standaardwaarde | Description |
 | --- | --- | --- | --- |
 | pfxPassword | Vereist | Null | Wachtwoord dat helpt de persoonlijke sleutel van het certificaat te beschermen |
 | Domeinnaam | Vereist | local.azurestack.external | Azure Stack-achtervoegsel voor de regio en het domein |
@@ -346,7 +347,7 @@ Volg deze stappen:
     Create-AADIdentityApp.ps1
 ```
 
-| Parameter | Vereist of optioneel | Standaardwaarde | Beschrijving |
+| Parameter | Vereist of optioneel | Standaardwaarde | Description |
 | --- | --- | --- | --- |
 | DirectoryTenantName | Vereist | Null | Azure AD-tenant-ID. Geef de GUID of een tekenreeks. Een voorbeeld is myazureaaddirectory.onmicrosoft.com. |
 | AdminArmEndpoint | Vereist | Null | Eindpunt van Admin Azure Resource Manager. Een voorbeeld is adminmanagement.local.azurestack.external. |
@@ -382,7 +383,7 @@ Volg deze stappen:
     Create-ADFSIdentityApp.ps1
 ```
 
-| Parameter | Vereist of optioneel | Standaardwaarde | Beschrijving |
+| Parameter | Vereist of optioneel | Standaardwaarde | Description |
 | --- | --- | --- | --- |
 | AdminArmEndpoint | Vereist | Null | Eindpunt van Admin Azure Resource Manager. Een voorbeeld is adminmanagement.local.azurestack.external. |
 | PrivilegedEndpoint | Vereist | Null | Bevoegde eindpunt. Een voorbeeld is AzS-ERCS01. |

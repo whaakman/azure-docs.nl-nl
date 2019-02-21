@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/18/2019
-ms.openlocfilehash: 0bb7c047f6bd03a45aa6c5c6d07b8022ee59bec9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/20/2019
+ms.openlocfilehash: 4f8ee5a3a72fc143822a71bcb933f34e2f371019
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217167"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453134"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Azure Active Directory-verificatie gebruiken voor verificatie met behulp van SQL
 
@@ -101,16 +101,16 @@ Als u wilt een ingesloten databasegebruiker maken in Azure SQL Database Managed 
 
 ### <a name="manage-instances"></a>-Instanties beheren
 
-- Azure AD-aanmeldingen en gebruikers worden ondersteund als een preview-functie voor [beheerde instanties](sql-database-managed-instance.md).
-- Instellen van Azure AD-aanmeldingen die zijn toegewezen aan een Azure AD-groep als de eigenaar van database wordt niet ondersteund in [beheerde instanties](sql-database-managed-instance.md).
+- Azure AD server-principals (aanmeldingen) en gebruikers worden ondersteund als preview-functie voor [beheerde instanties](sql-database-managed-instance.md).
+- Instellen van Azure AD server-principals (aanmeldingen) toegewezen aan een Azure AD-groep als de eigenaar van database wordt niet ondersteund in [beheerde instanties](sql-database-managed-instance.md).
     - Een extensie hiervan is dat wanneer een groep wordt toegevoegd als onderdeel van de `dbcreator` serverfunctie, gebruikers van deze groep kunnen verbinding maken met het beheerde exemplaar en nieuwe databases maken, maar pas weer toegang tot de database. Dit komt doordat de nieuwe database-eigenaar SA, en niet de Azure AD-gebruiker is. Dit probleem heeft geen manifest als afzonderlijke gebruiker is toegevoegd aan de `dbcreator` serverfunctie.
-- Uitvoering van de beheer- en taken van de SQL Agent wordt ondersteund voor Azure AD-aanmeldingen.
-- Database-back-up en herstelbewerkingen kan worden uitgevoerd door Azure AD-aanmeldingen.
-- Controle van alle instructies met betrekking tot Azure AD-aanmelding en verificatiegebeurtenissen wordt ondersteund.
-- Exclusieve beheerdersverbinding voor Azure AD-aanmeldingen die lid van de serverrol sysadmin zijn wordt ondersteund.
+- Uitvoering van de beheer- en taken van de SQL Agent wordt ondersteund voor Azure AD server-principals (aanmeldingen).
+- Database-back-up en herstelbewerkingen kan worden uitgevoerd door Azure AD server-principals (aanmeldingen).
+- Controle van alle instructies met betrekking tot Azure AD server-principals (aanmeldingen) en verificatiegebeurtenissen wordt ondersteund.
+- Exclusieve beheerdersverbinding voor Azure AD server-principals (aanmeldingen) die lid van de serverrol sysadmin zijn wordt ondersteund.
     - Ondersteund via het hulpprogramma SQLCMD en SQL Server Management Studio.
-- Aanmeldingstriggers worden ondersteund voor aanmeldingsgebeurtenissen die afkomstig zijn van Azure AD-aanmeldingen.
-- Service Broker en DB e-mail kan de installatie met behulp van Azure AD-aanmelding zijn.
+- Aanmeldingstriggers worden ondersteund voor aanmeldingsgebeurtenissen die afkomstig zijn van Azure AD server-principals (aanmeldingen).
+- Service Broker en DB e-mail kan de installatie met behulp van een Azure AD-server-principal (aanmelden) zijn.
 
 
 ## <a name="connecting-using-azure-ad-identities"></a>Verbinding maken met behulp van Azure AD-identiteiten
@@ -121,7 +121,7 @@ Azure Active Directory-verificatie ondersteunt de volgende methoden voor het ver
 - Met behulp van een Azure AD-principal-naam en een wachtwoord
 - Met behulp van de toepassing tokenverificatie
 
-De volgende verificatiemethoden worden ondersteund voor Azure AD-aanmeldingen (**preview-versie**):
+De volgende verificatiemethoden voor Azure AD server-principals (aanmeldingen) worden ondersteund (**preview-versie**):
 
 - Azure Active Directory Password
 - Geïntegreerd met Azure Active Directory
@@ -133,7 +133,7 @@ De volgende verificatiemethoden worden ondersteund voor Azure AD-aanmeldingen (*
 
 - Ter verbetering van de beheerbaarheid, wordt aangeraden inrichten van een specifieke Azure AD als een beheerder een groep.   
 - Slechts één Azure AD-beheerder (een gebruiker of groep) kan worden geconfigureerd voor een Azure SQL Database-server of Azure SQL Data Warehouse op elk gewenst moment.
-  - Het toevoegen van Azure AD-aanmeldingen voor beheerde instanties (**openbare preview**) kunt u de mogelijkheid voor het maken van meerdere Azure AD-aanmeldingen die kunnen worden toegevoegd aan de `sysadmin` rol.
+  - Het toevoegen van Azure AD server-principals (aanmeldingen) voor beheerde instanties (**openbare preview**) kunt u de mogelijkheid voor het maken van meerdere Azure AD server-principals (aanmeldingen) die kunnen worden toegevoegd aan de `sysadmin` rol.
 - Alleen een Azure AD-beheerder voor SQL Server kan in eerste instantie verbinding maken met de Azure SQL Database-server, een beheerd exemplaar of een Azure SQL Data Warehouse met behulp van Azure Active Directory-account. De Active Directory-beheerder kunt de volgende Azure AD configureren gebruikers van de database.   
 - U wordt aangeraden de verbindingstime-out ingesteld op 30 seconden.   
 - Azure Active Directory-verificatie wordt ondersteund door SQL Server 2016 Management Studio en SQL Server Data Tools voor Visual Studio 2015 (versie 14.0.60311.1April 2016 of hoger). (Azure AD-verificatie wordt ondersteund door de **.NET Framework Data Provider Pro SqlServer**; ten minste versie .NET Framework 4.6). Daarom de nieuwste versies van deze hulpprogramma's en -gegevenslaagtoepassingen (DAC en. BACPAC) kunt Azure AD-verificatie gebruiken.   
@@ -147,12 +147,12 @@ De volgende verificatiemethoden worden ondersteund voor Azure AD-aanmeldingen (*
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie voor informatie over het maken en vullen van Azure AD en Azure AD configureren met Azure SQL Database of Azure SQL Data Warehouse, [configureren en beheren van Azure Active Directory-verificatie met SQL Database Managed Instance of SQL Data Warehouse ](sql-database-aad-authentication-configure.md).
-- Zie voor een zelfstudie van het gebruik van Azure AD-aanmeldingen met beheerde instanties [Azure AD-aanmeldingen met een beheerde instanties](sql-database-managed-instance-aad-security-tutorial.md)
+- Zie voor een zelfstudie van het gebruik van Azure AD server-principals (aanmeldingen) met beheerde instanties [Azure AD server-principals (aanmeldingen) met beheerde exemplaren](sql-database-managed-instance-aad-security-tutorial.md)
 - Zie [SQL Database-toegang en -beheer](sql-database-control-access.md) voor een overzicht van toegang en beheer in SQL Database.
 - Zie [Aanmeldingen, gebruikers en databaserollen](sql-database-manage-logins.md) voor een overzicht van aanmeldingen, gebruikers en databaserollen in SQL Database.
 - Zie [Principals](https://msdn.microsoft.com/library/ms181127.aspx) voor meer informatie over database-principals.
 - Zie [Databaserollen](https://msdn.microsoft.com/library/ms189121.aspx) voor meer informatie over databaserollen.
-- Zie voor de syntaxis voor het maken van Azure AD-aanmeldingen voor beheerde instanties, [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+- Zie voor de syntaxis voor het maken van Azure AD server-principals (aanmeldingen) voor beheerde instanties, [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 - Zie [SQL Database-firewallregels](sql-database-firewall-configure.md) voor meer informatie over de firewallregels in SQL Database.
 
 <!--Image references-->

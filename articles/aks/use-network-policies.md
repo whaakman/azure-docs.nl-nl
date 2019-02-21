@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: iainfou
-ms.openlocfilehash: ddc0f0f8cfd6c7d540d2a1de2f5ecb35cdfd234f
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 250c4fc6e51bacc68c965394b9fd430b1b75a52c
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417598"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447171"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Beveiliging van verkeer tussen schillen met behulp van beleid voor netwerken in Azure Kubernetes Service (AKS)
 
@@ -27,21 +27,7 @@ Dit artikel ziet u hoe u beleid voor netwerken gebruiken voor het beheren van de
 
 U moet de Azure CLI versie 2.0.56 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
 
-## <a name="overview-of-network-policy"></a>Overzicht van beleid voor netwerken
-
-Standaard kunnen alle schillen in een AKS-cluster verzonden en ontvangen van verkeer zonder beperkingen. U kunt regels waarmee de verkeersstroom definiëren voor een betere beveiliging. Bijvoorbeeld, back-endtoepassingen vaak alleen zichtbaar zijn voor de vereiste front-end-services of databaseonderdelen zijn alleen toegankelijk is voor de toepassingslagen die verbinding met deze maken.
-
-Beleid voor netwerken worden Kubernetes-resources die u kunnen de verkeersstroom tussen schillen beheren. U kunt toestaan of weigeren van verkeer op basis van de labels van de instellingen zoals die zijn toegewezen, naamruimte of verkeer poort. Beleid voor netwerken worden gedefinieerd als een YAML-manifesten, en kunnen worden opgenomen als onderdeel van een bredere manifest dat ook een implementatie of -service maakt.
-
-Beleid voor netwerken in actie, laten we zien maken en vouw vervolgens in een beleid dat verkeersstroom als volgt definieert:
-
-* Al het verkeer naar pod weigeren.
-* Toestaan van verkeer op basis van de schil labels.
-* Toestaan van verkeer op basis van de naamruimte.
-
-## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Een AKS-cluster maken en inschakelen van beleid voor netwerken
-
-Netwerkbeleid kan alleen worden ingeschakeld wanneer het cluster is gemaakt. U kunt beleid voor netwerken in een bestaand AKS-cluster niet inschakelen. Voor het maken van een AKS met beleid voor netwerken, moet u eerst een functievlag voor uw abonnement inschakelen. Om u te registreren de *EnableNetworkPolicy* vlag functie, gebruikt u de [az functie registreren] [ az-feature-register] opdracht zoals wordt weergegeven in het volgende voorbeeld:
+Voor het maken van een AKS met beleid voor netwerken, moet u eerst een functievlag voor uw abonnement inschakelen. Om u te registreren de *EnableNetworkPolicy* vlag functie, gebruikt u de [az functie registreren] [ az-feature-register] opdracht zoals wordt weergegeven in het volgende voorbeeld:
 
 ```azurecli-interactive
 az feature register --name EnableNetworkPolicy --namespace Microsoft.ContainerService
@@ -59,7 +45,25 @@ Wanneer u klaar bent, vernieuwt u de registratie van de *Microsoft.ContainerServ
 az provider register --namespace Microsoft.ContainerService
 ```
 
-Voor het gebruik van beleid voor netwerken met een AKS-cluster, moet u de [invoegtoepassing van Azure CNI] [ azure-cni] en uw eigen virtuele netwerk en subnetten definiëren. Zie voor meer informatie over het plannen van de vereiste subnet bereiken, [geavanceerde netwerken configureren][use-advanced-networking]. Het volgende voorbeeldscript:
+## <a name="overview-of-network-policy"></a>Overzicht van beleid voor netwerken
+
+Standaard kunnen alle schillen in een AKS-cluster verzonden en ontvangen van verkeer zonder beperkingen. U kunt regels waarmee de verkeersstroom definiëren voor een betere beveiliging. Bijvoorbeeld, back-endtoepassingen vaak alleen zichtbaar zijn voor de vereiste front-end-services of databaseonderdelen zijn alleen toegankelijk is voor de toepassingslagen die verbinding met deze maken.
+
+Beleid voor netwerken worden Kubernetes-resources die u kunnen de verkeersstroom tussen schillen beheren. U kunt toestaan of weigeren van verkeer op basis van de labels van de instellingen zoals die zijn toegewezen, naamruimte of verkeer poort. Beleid voor netwerken worden gedefinieerd als een YAML-manifesten, en kunnen worden opgenomen als onderdeel van een bredere manifest dat ook een implementatie of -service maakt.
+
+Beleid voor netwerken in actie, laten we zien maken en vouw vervolgens in een beleid dat verkeersstroom als volgt definieert:
+
+* Al het verkeer naar pod weigeren.
+* Toestaan van verkeer op basis van de schil labels.
+* Toestaan van verkeer op basis van de naamruimte.
+
+## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Een AKS-cluster maken en inschakelen van beleid voor netwerken
+
+Netwerkbeleid kan alleen worden ingeschakeld wanneer het cluster is gemaakt. U kunt beleid voor netwerken in een bestaand AKS-cluster niet inschakelen. 
+
+Voor het gebruik van beleid voor netwerken met een AKS-cluster, moet u de [invoegtoepassing van Azure CNI] [ azure-cni] en uw eigen virtuele netwerk en subnetten definiëren. Zie voor meer informatie over het plannen van de vereiste subnet bereiken, [geavanceerde netwerken configureren][use-advanced-networking].
+
+Het volgende voorbeeldscript:
 
 * Hiermee maakt u een virtueel netwerk en subnet.
 * Hiermee maakt u een Azure Active Directory (AD) service-principal voor gebruik met het AKS-cluster.
@@ -86,7 +90,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 
 # Create a service principal and read in the application ID
-read SP_ID=$(az ad sp create-for-rbac --password $SP_PASSWORD --skip-assignment --query [appId] -o tsv)
+SP_ID=$(az ad sp create-for-rbac --password $SP_PASSWORD --skip-assignment --query [appId] -o tsv)
 
 # Wait 15 seconds to make sure that service principal has propagated
 echo "Waiting for service principal to propagate..."

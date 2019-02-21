@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 02/19/2019
 ms.author: juliako
-ms.openlocfilehash: fd93b84c251a0b2346550c79bcb8796161cb9116
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: d621afd682e6040179777f4cd6d991ff31acb5a3
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417868"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445488"
 ---
 # <a name="transforms-and-jobs"></a>Transformaties en taken
  
@@ -61,6 +61,13 @@ Zie [foutcodes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)
 
 Zie [filteren, bestellen, voor het wisselbestand van Media Services-entiteiten](entities-overview.md).
 
+## <a name="configure-media-reserved-units"></a>Configureren van gereserveerde Media-eenheden
+
+Voor de analyse van Audio en Video Analysis-taken die worden geactiveerd door Media Services v3 of Video Indexer, is het raadzaam om in te richten van uw account met 10 S3 gereserveerde Media-eenheden (groepsbeleidsinstelling). Als u meer dan 10 S3 groepsbeleidsinstelling nodig hebt, opent u een ondersteuning ticket met de [Azure-portal](https://portal.azure.com/).
+
+Zie voor meer informatie, [met CLI mediaverwerking schalen](media-reserved-units-cli-how-to.md).
+
 ## <a name="next-steps"></a>Volgende stappen
 
-[Uploaden, coderen en streamen van video 's](stream-files-tutorial-with-api.md)
+- [Zelfstudie: Uploaden, coderen en streamen van video's met behulp van .NET](stream-files-tutorial-with-api.md)
+- [Zelfstudie: Analyseren van video's met Media Services v3 met behulp van .NET](analyze-videos-tutorial-with-api.md)

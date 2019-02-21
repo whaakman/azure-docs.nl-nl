@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 11/16/2018
 ms.author: amsriva
-ms.openlocfilehash: 71990244db859a61885968a502d9849a36d81dce
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9bccc9258a6bd9a6fef4956d0f32cb00dd3c542d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425159"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454256"
 ---
 # <a name="web-application-firewall-waf"></a>Web Application Firewall (WAF)
 
@@ -51,9 +51,9 @@ Dit zijn de belangrijkste voordelen van Application Gateway en Web Application F
 
 ## <a name="features"></a>Functies
 
-- Beveiliging van SQL-injectie
+- SQL injection protection
 - Cross-site scripting beveiliging
-- Algemene Web aanvallen beveiliging zoals opdracht injectie, HTTP-aanvraag smokkelen, HTTP-antwoorden en extern bestand opgenomen aanval
+- Common Web Attacks Protection such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion attack
 - Beveiliging tegen schendingen van de HTTP-protocol
 - Beveiliging tegen afwijkingen van de HTTP-protocol zoals ontbrekende gebruikersagent host en accept-headers
 - Beveiliging tegen bots, crawlers en scanners
@@ -78,9 +78,9 @@ Application Gateway ondersteunt twee regelsets, CRS 3.0 en CRS 2.2.9. Deze Core 
 
 Web Application Firewall is standaard geconfigureerd met CRS 3.0, maar u kunt ook versie 2.2.9 gebruiken. Het voordeel van CRS 3.0 is dat er minder fout-positieven worden geregistreerd dan met 2.2.9. U hebt de mogelijkheid om [regels aan uw behoeften aan te passen](application-gateway-customize-waf-rules-portal.md). Hieronder ziet u enkele voorbeelden van veelvoorkomende beveiligingsproblemen waartegen Web Application Firewall bescherming biedt:
 
-- Beveiliging van SQL-injectie
+- SQL injection protection
 - Cross-site scripting beveiliging
-- Algemene Web aanvallen beveiliging zoals opdracht injectie, HTTP-aanvraag smokkelen, HTTP-antwoorden en extern bestand opgenomen aanval
+- Common Web Attacks Protection such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion attack
 - Beveiliging tegen schendingen van de HTTP-protocol
 - Beveiliging tegen afwijkingen van de HTTP-protocol zoals ontbrekende gebruikersagent host en accept-headers
 - Beveiliging tegen bots, crawlers en scanners
@@ -93,7 +93,7 @@ Zie voor een gedetailleerde lijst van regels en waartegen ze beveiliging bieden,
 
 De Core Rule Set 3.0 bestaat uit de 13 regelgroepen uit de onderstaande tabel. Elk van deze regelgroepen bevat meerdere regels, die desgewenst kunnen worden uitgeschakeld.
 
-|Regelgroep|Beschrijving|
+|Regelgroep|Description|
 |---|---|
 |**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|Bevat regels om te Lockdown-methoden (PUT, PATCH)|
 |**[REQUEST-913-SCANNER-DETECTION](application-gateway-crs-rulegroups-rules.md#crs913)**| Bevat regels om te beveiligen tegen poort- en omgevingsscanners.|
@@ -111,7 +111,7 @@ De Core Rule Set 3.0 bestaat uit de 13 regelgroepen uit de onderstaande tabel. E
 
 De Core Rule Set 2.2.9 bestaat uit de 10 regelgroepen uit de onderstaande tabel. Elk van deze regelgroepen bevat meerdere regels, die desgewenst kunnen worden uitgeschakeld.
 
-|Regelgroep|Beschrijving|
+|Regelgroep|Description|
 |---|---|
 |**[crs_20_protocol_violations](application-gateway-crs-rulegroups-rules.md#crs20)**|Bevat regels om te beveiligen tegen protocolschendingen (ongeldige tekens, GET met een aanvraagtekst, enzovoort).|
 |**[crs_21_protocol_anomalies](application-gateway-crs-rulegroups-rules.md#crs21)**|Bevat regels om te beveiligen tegen onjuiste header-informatie.|
@@ -133,7 +133,7 @@ In Application Gateway WAF kunnen de volgende twee modi worden geconfigureerd:
 
 ### <a name="application-gateway-waf-reports"></a>Bewaking met WAF
 
-Het bewaken van de status van uw toepassingsgateway is belangrijk. De status van Web Application Firewall zelf, en van de toepassingen die ermee worden beveiligd, kan worden gecontroleerd via logboekregistratie en integratie met Azure Monitor, Azure Security Center en Log Analytics.
+Het bewaken van de status van uw toepassingsgateway is belangrijk. De status bewaken van uw web application firewall en de toepassingen die ermee worden beveiligd worden geleverd via logboekregistratie en integratie met Azure Monitor, Azure Security Center en Azure Monitor-Logboeken.
 
 ![diagnostische gegevens](./media/waf-overview/diagnostics.png)
 
@@ -149,7 +149,7 @@ Elke toepassingsgateway is geïntegreerd met [Azure Monitor](../monitoring-and-d
 
 #### <a name="logging"></a>Logboekregistratie
 
-Application Gateway WAF biedt gedetailleerde rapporten voor elke bedreiging die wordt gedetecteerd. Logboekregistratie is geïntegreerd met de logboeken van Azure Diagnostics en waarschuwingen worden vastgelegd in de JSON-indeling. Deze logboeken kunnen worden geïntegreerd met [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md).
+Application Gateway WAF biedt gedetailleerde rapporten voor elke bedreiging die wordt gedetecteerd. Logboekregistratie is geïntegreerd met de logboeken van Azure Diagnostics en waarschuwingen worden vastgelegd in de JSON-indeling. Deze logboeken kunnen worden geïntegreerd met [logboeken van Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md).
 
 ![imageURLroute](./media/waf-overview/waf2.png)
 

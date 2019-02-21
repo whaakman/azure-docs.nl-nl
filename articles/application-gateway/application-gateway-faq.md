@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: 81a84e1ff4a9ed974a69762ce35075780e8d1f96
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 040aeda10410cc164c3f68b6615ebfb12d45541e
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991528"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453484"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Veelgestelde vragen over Application Gateway
 
@@ -346,7 +346,7 @@ U kunt de PowerShell-cmdlet `Get-AzureRmApplicationGatewayBackendHealth` of stat
 
 ### <a name="what-is-the-retention-policy-on-the-diagnostics-logs"></a>Wat is het bewaarbeleid voor de diagnostische logboeken?
 
-Stroom voor diagnostische logboeken naar het opslagaccount voor klanten en klanten kunnen het bewaarbeleid op basis van hun voorkeur ingesteld. Logboeken met diagnostische gegevens kunnen ook worden verzonden naar een Event Hub of Log Analytics. Zie [Application Gateway Diagnostics](application-gateway-diagnostics.md) voor meer informatie.
+Stroom voor diagnostische logboeken naar het opslagaccount voor klanten en klanten kunnen het bewaarbeleid op basis van hun voorkeur ingesteld. Logboeken met diagnostische gegevens kunnen ook worden verzonden naar een Event Hub of Azure Monitor Logboeken. Zie [Application Gateway Diagnostics](application-gateway-diagnostics.md) voor meer informatie.
 
 ### <a name="how-do-i-get-audit-logs-for-application-gateway"></a>Hoe krijg ik auditlogboeken voor Application Gateway?
 
@@ -358,7 +358,7 @@ Ja, Application Gateway ondersteunt waarschuwingen. Waarschuwingen zijn over met
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>Hoe ik verkeer statistische gegevens analyseren voor Application Gateway?
 
-U kunt bekijken en analyseren van toegang tot logboeken via verschillende mechanismen zoals Azure Log Analytics, Excel, Power BI enzovoort.
+U kunt bekijken en analyseren van toegang tot logboeken via verschillende mechanismen zoals Azure Monitor-Logboeken, Excel, Power BI enzovoort.
 
 We hebben ook een Resource Manager-sjabloon die wordt geïnstalleerd en wordt uitgevoerd de populaire gepubliceerd [GoAccess](https://goaccess.io/) analyzer aanmelden voor Application Gateway toegang tot logboeken. GoAccess biedt waardevolle HTTP-verkeer-statistieken, zoals het unieke bezoekers, bestanden aangevraagd, Hosts, besturingssystemen, Browsers, HTTP-statuscodes en nog veel meer. Zie voor meer informatie de [Leesmij-bestand in de map met het Resource Manager-sjablonen in GitHub](https://aka.ms/appgwgoaccessreadme).
 

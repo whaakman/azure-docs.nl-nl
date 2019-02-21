@@ -10,21 +10,21 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/06/2017
-ms.openlocfilehash: 9fcdcc5f4e3e7a6aadb3749459562eb575deca2b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d4e267915338e8043138be0ca1a4922ac84d8eab
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822371"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456262"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Beknopte zelfstudie voor de programmeertaal R voor Azure Machine Learning Studio
 
 <!-- Stephen F Elston, Ph.D. -->
 
 ## <a name="introduction"></a>Inleiding
-In deze snelstartgids helpt u snel starten uit te breiden Azure Machine Learning met behulp van de R-programmeertaal. Volg deze programmeren R-zelfstudie voor het maken, testen en uitvoeren van R-code in Azure Machine Learning. Als u de zelfstudie doorloopt, maakt u een volledige prognose-oplossing met behulp van de R-taal in Azure Machine Learning.  
+In deze snelstartgids helpt u snel start Azure Machine Learning Studio uitbreiden met behulp van de R-programmeertaal. Volg deze programmeren R-zelfstudie voor het maken, testen en uitvoeren van R-code in Studio. Als u de zelfstudie doorloopt, maakt u een volledige prognose-oplossing met behulp van de R-taal in Studio.  
 
-Microsoft Azure Machine Learning bevat veel krachtige machine learning en manipulatie modules. De krachtige R-taal heeft als lingua franca van analytics zijn beschreven. Analyse- en manipuleren in Azure Machine Learning kan worden uitgebreid met behulp van R. Deze combinatie biedt van de schaalbaarheid en een eenvoudige implementatie van Azure Machine Learning met de flexibiliteit en diepgaande analyse van R.
+Microsoft Azure Machine Learning Studio bevat veel krachtige machine learning en manipulatie modules. De krachtige R-taal heeft als lingua franca van analytics zijn beschreven. Analyse- en manipuleren in Studio kan worden uitgebreid met behulp van R. Deze combinatie biedt van de schaalbaarheid en een eenvoudige implementatie van Studio met de flexibiliteit en diepgaande analyse van R.
 
 
 
@@ -38,23 +38,23 @@ In deze snelstartgids worden we werken met Californië zuivelproductie en gegeve
 De gegevens die worden gebruikt in dit artikel, samen met R-scripts, kunnen worden [hier gedownload](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/blob/master/studio-samples/cadairydata.csv). Deze gegevens oorspronkelijk is gemaakt van gegevens op de universiteit van Wisconsin op https://dairymarkets.com.
 
 ### <a name="organization"></a>Organisatie
-We zullen navigatie door de verschillende stappen als u meer informatie over het maken, testen en analyse- en bewerken van R-code uitvoeren in de Azure Machine Learning-omgeving.  
+We zullen navigatie door de verschillende stappen als u meer informatie over het maken, testen en analyse- en bewerken van R-code uitvoeren in de Azure Machine Learning Studio-omgeving.  
 
 * Eerst zullen we de basisprincipes van het gebruik van de R-taal in de Azure Machine Learning Studio-omgeving verkennen.
-* Vervolgens voortgang we bespreken van verschillende aspecten van i/o voor gegevens, R-code en afbeeldingen in de Azure Machine Learning-omgeving.
+* Vervolgens voortgang we bespreken van verschillende aspecten van i/o voor gegevens, R-code en afbeeldingen in de Azure Machine Learning Studio-omgeving.
 * We wordt vervolgens het eerste deel van onze prognoseoplossing maken door het maken van code voor het opschonen van gegevens en -transformaties.
 * Met onze voorbereid gaat een analyse van de correlatie tussen verschillende van de variabelen in onze gegevensset uitvoeren.
 * Ten slotte maken we een prognoses seizoensgebonden time series-model voor.
 
 ## <a id="mlstudio"></a>Communiceren met de programmeertaal R in Machine Learning Studio
-In deze sectie doorloopt u enkele basisprincipes van de interactie met de programmeertaal R in de Machine Learning Studio-omgeving. De R-taal biedt een krachtig hulpprogramma voor het maken van aangepaste analyses en gegevens manipuleren modules in de Azure Machine Learning-omgeving.
+In deze sectie doorloopt u enkele basisprincipes van de interactie met de programmeertaal R in de Machine Learning Studio-omgeving. De R-taal biedt een krachtig hulpprogramma voor het maken van aangepaste analyses en gegevens manipuleren modules in de Azure Machine Learning Studio-omgeving.
 
 Ik zal RStudio gebruiken om te ontwikkelen, testen en fouten opsporen in R-code op kleine schaal. Deze code wordt vervolgens knippen en plakken in een [R-Script uitvoeren] [ execute-r-script] module in Machine Learning Studio kan worden uitgevoerd.  
 
 ### <a name="the-execute-r-script-module"></a>De module R-Script uitvoeren
 In Machine Learning Studio, R-scripts worden uitgevoerd binnen de [R-Script uitvoeren] [ execute-r-script] module. Een voorbeeld van de [R-Script uitvoeren] [ execute-r-script] module in Machine Learning Studio wordt weergegeven in afbeelding 1.
 
- ![R-programmeertaal: De R-Script uitvoeren-module in Machine Learning Studio geselecteerd][1]
+ ![R-programmeertaal: De R-Script uitvoeren-module in Machine Learning Studio geselecteerd](./media/r-quickstart/fig1.png)
 
 *Afbeelding 1. De Machine Learning Studio-omgeving met de R-Script uitvoeren-module die is geselecteerd.*
 
@@ -66,20 +66,20 @@ Verwijzen naar afbeelding 1, laten we kijken enkele van de belangrijkste onderde
 
 We zullen natuurlijk worden besproken in hoeverre de [R-Script uitvoeren] [ execute-r-script] in meer detail in de rest van dit document.
 
-Als u werkt met complexe R-functies, ik u aan dat u bewerken, testen en fouten in RStudio opsporen. Net als bij de ontwikkeling van alle software, incrementeel uitbreiden van uw code en deze testen op kleine simpele testcases. Vervolgens knippen en plakken van uw functies in de R-script-venster van de [R-Script uitvoeren] [ execute-r-script] module. Deze aanpak kunt u gebruikmaken van zowel de RStudio integrated development environment (IDE) en de kracht van Azure Machine Learning.  
+Als u werkt met complexe R-functies, ik u aan dat u bewerken, testen en fouten in RStudio opsporen. Net als bij de ontwikkeling van alle software, incrementeel uitbreiden van uw code en deze testen op kleine simpele testcases. Vervolgens knippen en plakken van uw functies in de R-script-venster van de [R-Script uitvoeren] [ execute-r-script] module. Deze aanpak kunt u gebruikmaken van zowel de RStudio integrated development environment (IDE) en de kracht van Azure Machine Learning Studio.  
 
 #### <a name="execute-r-code"></a>R-code uitvoeren
 Alle R-code in de [R-Script uitvoeren] [ execute-r-script] module wordt uitgevoerd wanneer u het experiment uitvoert door te klikken op de **uitvoeren** knop. Wanneer de uitvoering is voltooid, een vinkje wordt weergegeven op de [R-Script uitvoeren] [ execute-r-script] pictogram.
 
 #### <a name="defensive-r-coding-for-azure-machine-learning"></a>Defensieve R coderen voor Azure Machine Learning
-Als u R-code voor bijvoorbeeld een web-service ontwikkelt met behulp van Azure Machine Learning, moet u zeker plannen hoe uw code wordt omgaan met een onverwachte invoer en uitzonderingen. Als u wilt behouden duidelijkheid, ik niet opgenomen veel heeft op het gebied controleren of de afhandeling van uitzonderingen in de meeste van de codevoorbeelden die wordt weergegeven. Echter, als we gaan ik krijgt u enkele voorbeelden van functies met behulp van de mogelijkheid voor het verwerken van de R-uitzondering.  
+Als u R-code voor bijvoorbeeld een web-service ontwikkelt met behulp van Azure Machine Learning Studio, moet u zeker plannen hoe uw code wordt omgaan met een onverwachte invoer en uitzonderingen. Als u wilt behouden duidelijkheid, ik niet opgenomen veel heeft op het gebied controleren of de afhandeling van uitzonderingen in de meeste van de codevoorbeelden die wordt weergegeven. Echter, als we gaan ik krijgt u enkele voorbeelden van functies met behulp van de mogelijkheid voor het verwerken van de R-uitzondering.  
 
 Als u nodig hebt voor een volledigere behandeling van de afhandeling van uitzonderingen R, ik raadzaam te lezen van de betreffende gedeelten van het boek door Wickham die worden vermeld in [bijlage B – verdere lezen](#appendixb).
 
 #### <a name="debug-and-test-r-in-machine-learning-studio"></a>Fouten opsporen en testen van R in Machine Learning Studio
 Samenvattend: ik u aan u testen en fouten opsporen in uw R-code op kleine schaal in RStudio. Er zijn echter gevallen waarin u wordt voor het opsporen van problemen met R-code in de [R-Script uitvoeren] [ execute-r-script] zelf. Bovendien is het verstandig om te controleren of de resultaten in Machine Learning Studio.
 
-Uitvoer van de uitvoering van uw R-code en op het Azure Machine Learning-platform is voornamelijk in uitvoer.log gevonden. Aanvullende informatie is zichtbaar in error.log.  
+Uitvoer van de uitvoering van uw R-code en op het platform van Azure Machine Learning Studio is voornamelijk in uitvoer.log gevonden. Aanvullende informatie is zichtbaar in error.log.  
 
 Als er een fout optreedt in Machine Learning Studio tijdens het uitvoeren van uw R-code, moet de eerste cursus van actie om te kijken naar error.log. Dit bestand kan handig zijn foutberichten om te begrijpen en corrigeer de fout bevatten. Als u wilt error.log weergeven, klikt u op **foutenlogboek weergeven** op de **eigenschappendeelvenster** voor de [R-Script uitvoeren] [ execute-r-script] met de fout.
 
@@ -90,7 +90,7 @@ Bijvoorbeeld: ik de volgende R-code wordt uitgevoerd met een niet-gedefinieerde 
 
 Deze code niet kan worden uitgevoerd, wat resulteert in een foutstatus. Te klikken op **foutenlogboek weergeven** op de **eigenschappendeelvenster** produceert de weergave wordt weergegeven in afbeelding 2.
 
-  ![Pop-upvenster foutbericht][2]
+  ![Pop-upvenster foutbericht](./media/r-quickstart/fig2.png)
 
 *Afbeelding 2. Foutbericht pop-upvenster.*
 
@@ -109,12 +109,12 @@ Dit bericht bevat geen verrassingen en duidelijk identificeert het probleem.
 Als u wilt controleren van de waarde van een object in R, kunt u deze waarden naar het bestand uitvoer.log afdrukken. De regels voor het onderzoeken van objectwaarden zijn in wezen hetzelfde als in een interactieve R-sessie. Bijvoorbeeld, als u de naam van een variabele op een regel typt, dan worden de waarde van het object naar het bestand uitvoer.log afgedrukt.  
 
 #### <a name="packages-in-machine-learning-studio"></a>Pakketten in Machine Learning Studio
-Azure Machine Learning wordt geleverd met meer dan 350 pakketten voor vooraf geïnstalleerde R-taal. U kunt de volgende code in de [R-Script uitvoeren] [ execute-r-script] module voor het ophalen van een lijst van de vooraf geïnstalleerde pakketten.
+Studio wordt gekenmerkt door meer dan 350 pakketten voor vooraf geïnstalleerde R-taal. U kunt de volgende code in de [R-Script uitvoeren] [ execute-r-script] module voor het ophalen van een lijst van de vooraf geïnstalleerde pakketten.
 
     data.set <- data.frame(installed.packages())
     maml.mapOutputPort("data.set")
 
-Als u niet weet de laatste regel van deze code op dit moment wat, lees dan verder. In de rest van dit document wordt uitvoerig besproken R gebruiken in de Azure Machine Learning-omgeving.
+Als u niet weet de laatste regel van deze code op dit moment wat, lees dan verder. In de rest van dit document wordt uitvoerig besproken R gebruiken in de Studio-omgeving.
 
 ### <a name="introduction-to-rstudio"></a>Inleiding tot RStudio
 RStudio is een veel gebruikte IDE voor R. Ik zal RStudio gebruiken voor het bewerken, testen en foutopsporing in enkele van de R-code die wordt gebruikt in deze snelstartgids. Zodra de R-code getest en klaar zijn is, u kunt gewoon knippen en plakken in de RStudio-editor naar een Machine Learning Studio [R-Script uitvoeren] [ execute-r-script] module.  
@@ -157,14 +157,14 @@ Nu dat we enkele gegevens in Machine Learning Studio hebben, moeten we het maken
 
 Op dit moment ziet uw experiment er ongeveer als in afbeelding 3.
 
-![De CA Zuivel analyse experimenteren met de gegevensset en het uitvoeren van R-Script-module][3]
+![De CA Zuivel analyse experimenteren met de gegevensset en het uitvoeren van R-Script-module](./media/r-quickstart/fig3.png)
 
 *Afbeelding 3. De CA Zuivel analyse experimenteren met de gegevensset en het uitvoeren van R-Script-module.*
 
 #### <a name="check-on-the-data"></a>Controleer op de gegevens
 We hebben een overzicht van de gegevens die we in onze experiment hebben geladen. Klik in het experiment op in de uitvoer van de **cadairydata.csv gegevensset** en selecteer **visualiseren**. U ziet er ongeveer als afbeelding 4.  
 
-![Samenvatting van de gegevensset cadairydata.csv][4]
+![Samenvatting van de gegevensset cadairydata.csv](./media/r-quickstart/fig4.png)
 
 *Afbeelding 4. Samenvatting van de gegevensset cadairydata.csv.*
 
@@ -200,7 +200,7 @@ De Script-bundel invoer zodat u de inhoud van een zip-bestand in [R-Script uitvo
     load("src/yourData.rdata") # Reads a zipped R data file
 
 > [!NOTE]
-> Azure Machine Learning-bestanden in het ZIP-bestand worden behandeld alsof ze zich in de src / map, dus moet u het voorvoegsel van de bestandsnamen van uw met de naam van deze map. Bijvoorbeeld, als het ZIP-bestand bevat de bestanden `yourfile.R` en `yourData.rdata` in de hoofdmap van het ZIP-bestand, wilt u deze als oplossen `src/yourfile.R` en `src/yourData.rdata` bij het gebruik van `source` en `load`.
+> Azure Machine Learning Studio-bestanden in het ZIP-bestand worden behandeld alsof ze zich in de src / map, dus moet u het voorvoegsel van de bestandsnamen van uw met de naam van deze map. Bijvoorbeeld, als het ZIP-bestand bevat de bestanden `yourfile.R` en `yourData.rdata` in de hoofdmap van het ZIP-bestand, wilt u deze als oplossen `src/yourfile.R` en `src/yourData.rdata` bij het gebruik van `source` en `load`.
 > 
 > 
 
@@ -227,7 +227,7 @@ We gegevenssets laden in de eerder besproken [het laden van de gegevensset](#loa
 
 Als deze stappen voltooid zijn, de [R-Script uitvoeren] [ execute-r-script] module wordt het R-script uitgevoerd in het zip-bestand wanneer het experiment wordt uitgevoerd. Op dit moment ziet uw experiment er ongeveer als afbeelding 5.
 
-![Experimenteer met behulp van ZIP R-script][6]
+![Experimenteer met behulp van ZIP R-script](./media/r-quickstart/fig6.png)
 
 *Afbeelding 5. Experimenteer met behulp van ZIP R-script.*
 
@@ -289,7 +289,7 @@ U kunt de inhoud van een R-dataframe uitvoer als een rechthoekig tabel via de po
 
 Nadat het experiment is uitgevoerd, klikt u op de uitvoerpoort Dataset1 resultaat en klik vervolgens op **Visualize**. U ziet er ongeveer als afbeelding 6.
 
-![De visualisatie van de uitvoer van de melkkoeien Californië-gegevens][7]
+![De visualisatie van de uitvoer van de melkkoeien Californië-gegevens](./media/r-quickstart/fig7.png)
 
 *Afbeelding 6. De visualisatie van de uitvoer van de melkkoeien Californië-gegevens.*
 
@@ -300,13 +300,13 @@ De uitvoer van het apparaat van de [R-Script uitvoeren] [ execute-r-script] -mod
 
 De R-apparaat als uitvoer wilt bekijken, klikt u op de poort en klik vervolgens op **Visualize**. Ziet u de standaarduitvoer en de standaardfout van de R-script in afbeelding 7.
 
-![Standaarduitvoer en de standaardfout van de poort-R-apparaat][8]
+![Standaarduitvoer en de standaardfout van de poort-R-apparaat](./media/r-quickstart/fig8.png)
 
 *Afbeelding 7. Standaarduitvoer en de standaardfout van de poort-R-apparaat.*
 
 We bladeren ziet de uitvoer van de afbeeldingen van onze R-script in afbeelding 8.  
 
-![Grafische uitvoer van de poort-R-apparaat][9]
+![Grafische uitvoer van de poort-R-apparaat](./media/r-quickstart/fig9.png)
 
 *Afbeelding 8. Grafische uitvoer van de poort-R-apparaat.*  
 
@@ -689,7 +689,7 @@ Laten we enkele van de variabelen in deze gegevensset verkennen. Een matrix test
 
 Deze code uitvoeren en kijken wat er gebeurt. De grafiek die worden geproduceerd op de poort-R-apparaat moet eruitzien als afbeelding 16.
 
-![Matrix van de geselecteerde variabelen Teststappen][17]
+![Matrix van de geselecteerde variabelen Teststappen](./media/r-quickstart/fig17.png)
 
 *Afbeelding 16. Teststappen matrix van de geselecteerde variabelen.*
 
@@ -753,7 +753,7 @@ Eenmaal `ts.detrend()` is gedefinieerd wordt toegepast op de variabelen van bela
 
 De laatste regel van de code maakt een pairwise teststappen. Na het uitvoeren van de R-code, worden de resultaten van de teststappen weergegeven in afbeelding 17.
 
-![Pairwise teststappen van ongedaan maken trendanalyse en gestandaardiseerde tijdreeks][18]
+![Pairwise teststappen van ongedaan maken trendanalyse en gestandaardiseerde tijdreeks](./media/r-quickstart/fig18.png)
 
 *Afbeelding 17. Pairwise teststappen van ongedaan maken trendanalyse en gestandaardiseerde tijdreeks.*
 
@@ -856,7 +856,7 @@ De volgende code haalt de waarden van de vertraging in de lijst van ccf objecten
 
 
     ## WARNING!
-    ## The following line works only in Azure Machine Learning
+    ## The following line works only in Azure Machine Learning Studio
     ## When running in RStudio, this code will result in an error
     #maml.mapOutputPort('outframe')
 
@@ -870,7 +870,7 @@ Houd er rekening mee dat de rijnamen van de in een kolom van het gegevensframe z
 
 De code wordt uitgevoerd, wordt de uitvoer die wordt weergegeven in afbeelding 19 gegenereerd wanneer ik **Visualize** de uitvoer op de resultaat-gegevensset-poort. De rijnamen van de zijn in de eerste kolom, zoals bedoeld.
 
-![Uitvoer van de resultaten van de correlatieanalyse][20]
+![Uitvoer van de resultaten van de correlatieanalyse](./media/r-quickstart/fig20.png)
 
 *Figure 19. Resultaten uitvoer van de correlatieanalyse.*
 
@@ -884,7 +884,7 @@ De volledige R-code voor deze sectie is in het zip-bestand dat u eerder hebt ged
 ### <a name="creating-the-dataframe-for-analysis"></a>Het maken van het dataframe voor analyse
 Begin met het toevoegen van een **nieuwe** [R-Script uitvoeren] [ execute-r-script] module naar het experimentcanvas. Verbinding maken met de **resultaat gegevensset** uitvoer van de bestaande [R-Script uitvoeren] [ execute-r-script] module aan de **Dataset1** invoer van de nieuwe module. Het resultaat ziet er ongeveer als afbeelding 20.
 
-![Het experiment met de nieuwe R-Script uitvoeren-module toegevoegd][21]
+![Het experiment met de nieuwe R-Script uitvoeren-module toegevoegd](./media/r-quickstart/fig21.png)
 
 *Afbeelding 20. Het experiment met de nieuwe R-Script uitvoeren-module toegevoegd.*
 
@@ -954,7 +954,7 @@ De code uitvoeren, produceert de reeks tijd reeks die zichtbaar zijn in de uitvo
 ### <a name="a-trend-model"></a>Een trend-model
 Een time series-object en een overzicht van de gegevens heeft gehad gemaakt, laten we beginnen om een model trend van de productiegegevens Californië melk samen te stellen. We kunnen dit doen met een reeks tijd regressie. Het is echter duidelijk van de grafiek die we meer dan een helling nodig hebt en voor het modelleren van de geobserveerde trend in de trainingsgegevens nauwkeurig worden onderschept.
 
-De kleine schaal van de gegevens worden gegeven, wordt ik het model voor de trend in RStudio bouwen en knip en plak vervolgens de resulterende model in Azure Machine Learning. RStudio biedt een interactieve omgeving voor dit type interactieve analyses.
+De kleine schaal van de gegevens worden gegeven, wordt ik het model voor de trend in RStudio bouwen en knip en plak vervolgens de resulterende model in Azure Machine Learning Studio. RStudio biedt een interactieve omgeving voor dit type interactieve analyses.
 
 Als een eerste poging wordt ik probeer een polynomiale regressie met bevoegdheden maximaal 3. Er is een echte gevaar te veel geschikt zijn voor dit soort modellen. Het is daarom raadzaam om te voorkomen dat hoge voorwaarden. De `I()` functie belemmert interpretatie van de inhoud (interpreteert de inhoud, zoals is') en kunt u een letterlijk geïnterpreteerde functie schrijven in een regressievergelijking.
 
@@ -1014,7 +1014,7 @@ Hiermee wordt het volgende gegenereerd.
 
 Dit ziet er beter uit. Alle voorwaarden zijn van belang. De waarde van de 2e-16 is echter een standaardwaarde, en niet te serieus nemen moet worden genomen.  
 
-Als een test sanity laten we een diagram van de reeks tijd van de gegevens van de zuivelproductie Californië met de trend-curve wordt weergegeven. Ik heb de volgende code hebt toegevoegd in de Azure Machine Learning [R-Script uitvoeren] [ execute-r-script] -model (niet RStudio) voor het maken van het model en een grafiek. Het resultaat wordt weergegeven in afbeelding 23.
+Als een test sanity laten we een diagram van de reeks tijd van de gegevens van de zuivelproductie Californië met de trend-curve wordt weergegeven. Ik heb de volgende code hebt toegevoegd in de Azure Machine Learning Studio [R-Script uitvoeren] [ execute-r-script] -model (niet RStudio) voor het maken van het model en een grafiek. Het resultaat wordt weergegeven in afbeelding 23.
 
     milk.lm <- lm(Milk.Prod ~ Time + I(Month.Count^3), data = cadairytrain)
 
@@ -1071,14 +1071,14 @@ Hiermee wordt het volgende gegenereerd.
 
 We zien dat het model niet meer een term intercept is en 12 maand belangrijke factoren heeft. Dit is precies wat we wilden om te zien.
 
-Laten we een andere tijd reeks diagram van de gegevens van de zuivelproductie Californië om te zien hoe goed het seizoensgebonden model werkt. Ik heb de volgende code hebt toegevoegd in de Azure Machine Learning [R-Script uitvoeren] [ execute-r-script] maken van het model en een grafiek.
+Laten we een andere tijd reeks diagram van de gegevens van de zuivelproductie Californië om te zien hoe goed het seizoensgebonden model werkt. Ik heb de volgende code hebt toegevoegd in de Azure Machine Learning Studio [R-Script uitvoeren] [ execute-r-script] maken van het model en een grafiek.
 
     milk.lm2 <- lm(Milk.Prod ~ Time + I(Month.Count^3) + Month - 1, data = cadairytrain)
 
     plot(cadairytrain$Time, cadairytrain$Milk.Prod, xlab = "Time", ylab = "Log CA Milk Production 1000s lb", type = "l")
     lines(cadairytrain$Time, predict(milk.lm2, cadairytrain), lty = 2, col = 2)
 
-Deze code uitvoeren in Azure Machine Learning levert het diagram wordt weergegeven in afbeelding 24 uur per dag.
+Deze code uitvoeren in Azure Machine Learning Studio maakt het diagram wordt weergegeven in afbeelding 24 uur per dag.
 
 ![Californië melkproductie met model inclusief seizoensgebonden effecten](./media/r-quickstart/unnamed-chunk-20.png)
 
@@ -1198,7 +1198,7 @@ Uitgerust met een functie voor het meten van de RMS-fout, laten we bouwen en uit
 
 Deze code wordt uitgevoerd, wordt de uitvoer die wordt weergegeven in afbeelding 27 op de uitvoerpoort resultaat gegevensset gegenereerd.
 
-![Vergelijking van RMS-fouten voor de modellen][26]
+![Vergelijking van RMS-fouten voor de modellen](./media/r-quickstart/fig26.png)
 
 *Afbeelding 27. Vergelijking van RMS-fouten voor de modellen.*
 
@@ -1246,31 +1246,6 @@ Sommige fantastische resources op internet:
 * Een snelle zelfstudie R door Kelly Black van Clarkson University http://www.cyclismo.org/tutorial/R/
 * Meer dan 60 R-resources zoals beschreven in http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
 
-<!--Image references-->
-[1]: ./media/r-quickstart/fig1.png
-[2]: ./media/r-quickstart/fig2.png
-[3]: ./media/r-quickstart/fig3.png
-[4]: ./media/r-quickstart/fig4.png
-[5]: ./media/r-quickstart/fig5.png
-[6]: ./media/r-quickstart/fig6.png
-[7]: ./media/r-quickstart/fig7.png
-[8]: ./media/r-quickstart/fig8.png
-[9]: ./media/r-quickstart/fig9.png
-[10]: ./media/r-quickstart/fig10.png
-[11]: ./media/r-quickstart/fig11.png
-[12]: ./media/r-quickstart/fig12.png
-[13]: ./media/r-quickstart/fig13.png
-[14]: ./media/r-quickstart/fig14.png
-[15]: ./media/r-quickstart/fig15.png
-[16]: ./media/r-quickstart/fig16.png
-[17]: ./media/r-quickstart/fig17.png
-[18]: ./media/r-quickstart/fig18.png
-[19]: ./media/r-quickstart/fig19.png
-[20]: ./media/r-quickstart/fig20.png
-[21]: ./media/r-quickstart/fig21.png
-[22]: ./media/r-quickstart/fig22.png
-
-[26]: ./media/r-quickstart/fig26.png
 
 <!--links-->
 [appendixa]: #appendixa

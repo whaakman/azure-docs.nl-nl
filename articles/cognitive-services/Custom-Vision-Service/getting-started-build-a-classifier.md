@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: cd6f533bcd32a307facc781c3b2207a337fc8a34
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: d91d62c387fc7bcaef8b7f2cb7e8d865c882aeed
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309162"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445454"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Over het bouwen van een classificatie met Custom Vision
 
@@ -23,26 +23,28 @@ Voor het gebruik van de Custom Vision Service voor classificatie van afbeeldinge
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Een geldige [Microsoft-account](https://account.microsoft.com/account) of een Azure Active Directory (AAD)-account ('werk of school-account').
-
-    > [!IMPORTANT] 
-    > De aanmelding voor AAD-gebruikers uit [Microsoft nationale Clouds](https://www.microsoft.com/en-us/trustcenter/cloudservices/nationalcloud) wordt momenteel niet ondersteund.
+- Een geldig Azure-abonnement. [Maak een account](https://azure.microsoft.com/free/) gratis.
 - Een set waarmee u uw classificatie trainen. Hieronder vindt u tips over het kiezen van afbeeldingen.
-- (Optioneel): Een Azure-abonnement is gekoppeld aan uw Microsoft-account of de AAD-account. Als u geen Azure-abonnement hebt, kunt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint. Zonder een Azure-abonnement, kunt u alleen zich op twee __beperkte proefversie__ projecten.
+
+
+## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Custom Vision resources maken in Azure Portal
+Voor het gebruik van Custom Vision Service, moet u maken van aangepaste Vision trainen en voorspellen resources in de in de [Azure-portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). Hiermee maakt u een Training- en Voorspellingsgegevens resource. 
 
 ## <a name="create-a-new-project"></a>Een nieuw project maken
 
-Navigeer in uw webbrowser naar de [Custom Vision webpagina](https://customvision.ai) en selecteer __aanmelden__.
+Navigeer in uw webbrowser naar de [Custom Vision webpagina](https://customvision.ai) en selecteer __aanmelden__. Meld u aan met hetzelfde account waarmee u zich bij de Azure-Portal.
 
 ![Afbeelding van de aanmeldingspagina opgeven](./media/browser-home.png)
 
-Als u een Azure-account hebt, wordt u gevraagd om te maken van Custom Vision Service trainen en voorspellen resources in de [Azure-portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision) tijdens het maken van het project.
 
 1. Voor het maken van uw eerste project, selecteer **nieuw Project**. De **nieuw project maken** in het dialoogvenster wordt weergegeven.
 
     ![Het dialoogvenster Nieuw project bevat de velden voor de naam, beschrijving en domeinen.](./media/getting-started-build-a-classifier/new-project.png)
 
-1. Voer een naam en een beschrijving op voor het project. Selecteer vervolgens een resourcegroep. Als uw aangemelde account gekoppeld aan een Azure-account is, worden alle van uw Azure-resourcegroepen die een Resource Custom Vision Service bevatten door de resourcegroep vervolgkeuzelijst weergegeven. In beide gevallen moet u kunt ook selecteren __beperkte proefversie__ in deze vervolgkeuzelijst.
+1. Voer een naam en een beschrijving op voor het project. Selecteer vervolgens een resourcegroep. Als uw aangemelde account gekoppeld aan een Azure-account is, worden alle van uw Azure-resourcegroepen die een Resource Custom Vision Service bevatten door de resourcegroep vervolgkeuzelijst weergegeven. 
+
+> [!NOTE]
+> Als er is geen resourcegroep beschikbaar is, Controleer of dat u hebt aangemeld bij [customvision.ai](https://customvision.ai) met hetzelfde account als u gebruikt voor aanmelding bij de [Azure Portal](https://portal.azure.com/). Ook het geval is, Controleer of dat u hebt dezelfde "map' in de portal voor Custom Vision geselecteerd als de map in de Azure-portal waar uw aangepaste Vision resources zich bevinden. Op beide locaties, kunt u uw directory selecteren in de vervolgkeuzelijst account in de rechterbovenhoek van het scherm. 
 
 1. Selecteer __classificatie__ onder __projecttypen__. Klik vervolgens onder __Classificatietypen__, kiest u **Multilabel** of **Multiklasse**, afhankelijk van uw situatie. Multilabel classificatie geldt een willekeurig aantal uw tags op een installatiekopie (nul of meer), terwijl multiklassen classificatie afbeeldingen in enkele categorieën sorteert (elke afbeelding die u indient worden gesorteerd in de meest waarschijnlijke tag). U kunt zich later het type classificatie wijzigen als u wenst.
 

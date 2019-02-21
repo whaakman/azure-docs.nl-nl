@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/05/2018
-ms.openlocfilehash: 194f92b84b17fc2f2c9bc8f3aca6f6ad05f65d30
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 821ee126350d18102ec92de04436a76050734dc4
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241441"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456823"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Werk van anderen kopiëren om gegevenswetenschap uit te voeren
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Gegevenswetenschap voor Beginners-serie
@@ -52,7 +52,7 @@ Een van de handelsgeheimen van gegevenswetenschap is ophalen van andere gebruike
 
 Microsoft heeft een cloud-gebaseerde service met de naam [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) dat kunt u gratis te proberen. Het biedt u aan een werkruimte waar u kunt experimenteren met verschillende machine learning-algoritmen, en wanneer u uw oplossing uitstekend hebt, kunt u deze starten als een webservice.
 
-Een deel van deze service is iets met de naam de  **[Azure AI Gallery](https://gallery.azure.ai/)**. Het bevat resources, met inbegrip van een verzameling van Azure Machine Learning-experimenten of modellen die mensen hebben gemaakt en heeft bijgedragen zodat anderen deze kunnen gebruiken. Deze experimenten zijn een uitstekende manier om gebruikmaken van de gedachte en harde werk van anderen aan de slag te gaan op uw eigen oplossingen. Iedereen is Welkom bij bladert.
+Een deel van deze service is iets met de naam de  **[Azure AI Gallery](https://gallery.azure.ai/)**. Het bevat resources, met inbegrip van een verzameling van Azure Machine Learning Studio-experimenten of modellen die mensen hebben gemaakt en heeft bijgedragen zodat anderen deze kunnen gebruiken. Deze experimenten zijn een uitstekende manier om gebruikmaken van de gedachte en harde werk van anderen aan de slag te gaan op uw eigen oplossingen. Iedereen is Welkom bij bladert.
 
 ![Azure AI-galerie](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
@@ -88,8 +88,8 @@ Er zijn andere experimenten in de [Azure AI Gallery](https://gallery.azure.ai) d
 
 [Azure AI Gallery](https://gallery.azure.ai) is een plek om te zoeken naar experimenten van werken die u als uitgangspunt voor uw eigen oplossingen gebruiken kunt.
 
-Zorg ervoor dat de andere video's in 'Data Science voor Beginners"van Microsoft Azure Machine Learning uitchecken.
+Zorg ervoor dat de andere video's in 'Data Science voor Beginners"van Microsoft Azure Machine Learning Studio uitchecken.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Probeer uw eerste gegevenswetenschapexperiment met Azure Machine Learning](create-experiment.md)
+* [Uw eerste gegevenswetenschapexperiment met Azure Machine Learning Studio proberen](create-experiment.md)
 * [Maak kennis met Machine Learning op Microsoft Azure](what-is-machine-learning.md)

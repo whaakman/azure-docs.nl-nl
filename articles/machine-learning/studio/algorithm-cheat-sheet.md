@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 83a8a7f927e78f3524128338d874334ebf0b3df1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 77cd485b7ca7f9965a8baf9026b68060067d6ebe
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883998"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453933"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Machine learning-overzichtskaart voor Azure Machine Learning Studio
 
-De **Azure Machine Learning Algorithm Cheat Sheet** helpt u bij het kiezen van het juiste algoritme voor een predictive analytics-model.
+De **Azure Machine Learning Studio Algorithm Cheat Sheet** helpt u bij het kiezen van het juiste algoritme voor een predictive analytics-model.
 
 [Azure Machine Learning Studio](https://studio.azureml.net/) heeft een grote bibliotheek met algoritmen van de ***regressie***, ***classificatie***, ***clustering***, en  ***detectie van afwijkingen*** families. Elk is erop gericht om een ander type machine learning-probleem.
 
@@ -27,14 +27,12 @@ De **Azure Machine Learning Algorithm Cheat Sheet** helpt u bij het kiezen van h
 
 **Het referentiemateriaal voor hier downloaden: [Machine Learning-overzichtskaart (11 x 17.)](https://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)**
 
-![Machine learning-overzichtskaart algoritmen: Leer hoe u een Machine Learning-algoritme kiezen.][cheat-sheet]
-
-[cheat-sheet]: ./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
+![Machine learning-overzichtskaart algoritmen: Leer hoe u een Machine Learning-algoritme kiezen.](./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png)
 
 Downloaden en afdrukken van het Machine Learning Studio-algoritme referentiemateriaal blad in a3-grootte voor het houden bij de hand en hulp bij het kiezen van een algoritme.
 
 > [!NOTE]
-> Zie voor meer informatie over het gebruik van deze overzichtskaart voor het kiezen van het juiste algoritme, plus een uitgebreidere bespreking van de verschillende soorten machine learning-algoritmen en hoe ze worden gebruikt, [algoritmen kiezen voor Microsoft Azure Machine Learning](algorithm-choice.md).
+> Zie voor meer informatie over het gebruik van deze overzichtskaart voor het kiezen van het juiste algoritme, plus een uitgebreidere bespreking van de verschillende soorten machine learning-algoritmen en hoe ze worden gebruikt, [algoritmen kiezen voor Microsoft Azure Machine Learning Studio](algorithm-choice.md).
 
 ## <a name="notes-and-terminology-definitions-for-the-machine-learning-studio-algorithm-cheat-sheet"></a>Notities en termen die voor het algoritme voor Machine Learning Studio Cheatsheet
 
@@ -44,7 +42,7 @@ Downloaden en afdrukken van het Machine Learning Studio-algoritme referentiemate
 
 * Er zijn drie hoofdcategorieën van machine learning: **onder supervisie learning**, **leren zonder supervisie**, en **bekrachtigingen**.
 
-  * In **onder supervisie learning**, elk gegevenspunt is met het label of die zijn gekoppeld aan een categorie of de waarde van belang zijn.  Een voorbeeld van een categorische label met het toewijzen van een afbeelding als een 'cat' of een 'hond'.  Een voorbeeld van een label voor waarde is de verkoopprijs die zijn gekoppeld aan een gebruikte auto. Het doel van leren met supervisie is om te bestuderen veel gelabelde voorbeelden zoals deze, en vervolgens te kunnen maken van voorspellingen over toekomstig gegevenspunten. Bijvoorbeeld, een nieuwe foto's identificeren met de juiste dieren of nauwkeurige verkoopprijzen toewijzen aan andere gebruikte auto's. Dit is een populaire en nuttige type machine learning. Zijn alle modules in Azure Machine Learning-algoritmen, behalve voor leren met supervisie [K-Means Clustering][k-means-clustering].
+  * In **onder supervisie learning**, elk gegevenspunt is met het label of die zijn gekoppeld aan een categorie of de waarde van belang zijn.  Een voorbeeld van een categorische label met het toewijzen van een afbeelding als een 'cat' of een 'hond'.  Een voorbeeld van een label voor waarde is de verkoopprijs die zijn gekoppeld aan een gebruikte auto. Het doel van leren met supervisie is om te bestuderen veel gelabelde voorbeelden zoals deze, en vervolgens te kunnen maken van voorspellingen over toekomstig gegevenspunten. Bijvoorbeeld, een nieuwe foto's identificeren met de juiste dieren of nauwkeurige verkoopprijzen toewijzen aan andere gebruikte auto's. Dit is een populaire en nuttige type machine learning. Zijn alle modules in Azure Machine Learning Studio-algoritmen, behalve voor leren met supervisie [K-Means Clustering][k-means-clustering].
 
   * In **leren zonder supervisie**, gegevenspunten hebben geen labels worden gekoppeld. In plaats daarvan is het doel van een algoritme zonder supervisie learning om de gegevens op een bepaalde manier te ordenen of om te beschrijven van de structuur. Dit kan betekenen dat groeperen in clusters, zoals K-means of kijken naar complexe gegevens zodat deze wordt weergegeven eenvoudiger op verschillende manieren vinden.
 

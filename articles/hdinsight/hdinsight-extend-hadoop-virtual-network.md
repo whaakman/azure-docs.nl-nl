@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: dbb94e0dbcb1dccf8ecbc60bca47b2cc3533297c
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 5862c6ef3c420c1722ddfbc1238be4e2bf43a507
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429737"
+ms.locfileid: "56447413"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight met behulp van een Azure-netwerk uitbreiden
 
@@ -303,8 +303,6 @@ Als u netwerkbeveiligingsgroepen gebruikt, moet u verkeer van de Azure status en
 3. U moet ook zodat toegang vanaf __168.63.129.16__. Dit adres is van het Azure-recursieve naamomzetting. Zie voor meer informatie de [naamomzetting voor virtuele machines en de rol exemplaren](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
 
 Zie voor meer informatie de [netwerkverkeer beheren](#networktraffic) sectie.
-
-Voor uitgaande NSG-regels, kunt u verkeer van elke bron binnen het VNET-naar-bereiken van de bovenstaande adressen als ' Desitnation IP-adressen.
 
 Als u de gebruiker gedefinieerde routes(UDRs) gebruikt, moet u een route opgeven en toegestaan uitgaand verkeer van het VNET naar de bovenstaande IP-adressen met de volgende hop is ingesteld op 'Internet'.
     

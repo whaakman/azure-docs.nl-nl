@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/20/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.lastreviewed: 09/18/2018
-ms.openlocfilehash: 29244c20bb4bbad8077788abbc29e6267f701d2e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.lastreviewed: 02/20/2019
+ms.openlocfilehash: 32e6e8ff4c37554a0c3fa50e243b241eed2953cf
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176343"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445998"
 ---
 # <a name="azure-stack-storage-capacity-planning"></a>Azure Stack opslag-capaciteitsplanning
 De volgende secties bieden Azure Stack opslagcapaciteit informatie over de planning om u te helpen bij het plannen voor de opslagbehoeften van de oplossingen.
@@ -38,7 +38,9 @@ Operators kunnen kiezen tussen een flash-alle of een hybride opslag-configuratie
 
 ![Capaciteitsplanning voor Azure-opslag](media/azure-stack-capacity-planning/storage.png)
 
-In de configuratie van alle flash, wordt in de cache NVMe is met een keuze uit SATA SSD of NVMe voor capaciteit. De cache is een keuze tussen NVMe en SATA SSD in de configuratie van de hybride, terwijl de capaciteit harde schijf is.
+In de configuratie van alle flash, kan de configuratie van een configuratie met twee lagen of één laag zijn.  Als de configuratie één laag is, worden alle capaciteitsapparaten van hetzelfde type (bijvoorbeeld NVMe of SATA SSD of SAS SSD) en cache-apparaten worden niet gebruikt. In een alle twee lagen flash configuratie, de standaardconfiguratie NVMe is als de cache-apparaten en vervolgens een van beide SATA of SAS SSD's als de capaciteitsapparaten.
+
+In de hybride, configuratie van de twee lagen, wordt in de cache is dat een keuze tussen NVMe, SATA of SAS SSD en de capaciteit is harde schijf. 
 
 Een korte samenvatting van de opslagruimten Direct en Azure Stack-opslagconfiguratie is als volgt:
 - Opslagruimten van één opslaggroep per schaaleenheid (alle opslagapparaten in één groep zijn geconfigureerd)

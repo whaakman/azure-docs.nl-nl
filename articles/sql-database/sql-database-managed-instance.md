@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: d8959e25280a9d1dd62549c698f7b2b6b98d6154
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.date: 02/20/2019
+ms.openlocfilehash: d19dabb4e74e7a108ae769f55cd65ef108019fdc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964148"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454738"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Geavanceerde beveiliging van gegevens met virtuele netwerken en in de buurt van 100% compatibiliteit van SQL-Database gebruiken
 
@@ -47,7 +47,7 @@ Beheerd exemplaar combineert het beste functies die beschikbaar zijn in Azure SQ
 | --- | --- |
 |Er is geen aanschaffen van hardware en het beheer <br>Er is geen management overhead voor het beheren van de onderliggende infrastructuur <br>Snel inrichten en schalen van service <br>Automatische patching en versie-upgrade <br>Integratie met andere PaaS-services voor gegevens |uptime van 99,99% SLA  <br>Ingebouwde [hoge beschikbaarheid](sql-database-high-availability.md) <br>Gegevens die worden beveiligd met [geautomatiseerde back-ups](sql-database-automated-backups.md) <br>Klanten kunnen worden geconfigureerd back-up bewaarperiode <br>De gebruiker geïnitieerde [back-ups](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Punt in tijd database terugzetten](sql-database-recovery-using-backups.md#point-in-time-restore) mogelijkheid |
 |**Beveiliging en naleving** | **Beheer**|
-|Geïsoleerde omgeving ([VNet-integratie](sql-database-managed-instance-connectivity-architecture.md), één service, speciale berekenings- en tenant) <br>[TDE (Transparent Data Encryption)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD-verificatie](sql-database-aad-authentication.md), eenmalige aanmelding <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD-aanmeldingen</a> (**preview-versie**) <br>Voldoet aan de standaarden voor compliance hetzelfde als Azure SQL-database <br>[SQL-controle](sql-database-managed-instance-auditing.md) <br>[Detectie van bedreigingen](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager-API voor het automatiseren van service inrichten en schalen <br>Functionaliteit voor handmatige service inrichten en schalen van Azure portal <br>Data migratieservice
+|Geïsoleerde omgeving ([VNet-integratie](sql-database-managed-instance-connectivity-architecture.md), één service, speciale berekenings- en tenant) <br>[TDE (Transparent Data Encryption)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD-verificatie](sql-database-aad-authentication.md), eenmalige aanmelding <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD server-principals (aanmeldingen)</a> (**preview-versie**) <br>Voldoet aan de standaarden voor compliance hetzelfde als Azure SQL-database <br>[SQL-controle](sql-database-managed-instance-auditing.md) <br>[Detectie van bedreigingen](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager-API voor het automatiseren van service inrichten en schalen <br>Functionaliteit voor handmatige service inrichten en schalen van Azure portal <br>Data migratieservice
 
 De belangrijkste functies van beheerde exemplaren worden weergegeven in de volgende tabel:
 
@@ -150,9 +150,9 @@ Migratie van een versleutelde database naar een beheerd exemplaar wordt via de A
 
 ## <a name="azure-active-directory-integration"></a>Integratie van Azure Active Directory
 
-De Implementatieoptie voor beheerd exemplaar biedt ondersteuning voor traditionele SQL server Database engine-aanmeldingen en aanmeldingen die zijn geïntegreerd met Azure Active Directory (AAD). AAD-aanmeldingen (**preview-versie**) zijn Azure-cloud-versie van on-premises Databaseaanmeldingen die u in uw on-premises omgeving gebruikt. AAD-aanmeldingen, kunt u om op te geven van gebruikers en groepen uit uw Azure Active Directory-tenant ' True ' op binnen het bereik van exemplaar-principals, staat uit te voeren een bewerking op exemplaarniveau, met inbegrip van query's tussen meerdere databases binnen dezelfde beheerde instantie.
+De Implementatieoptie voor beheerd exemplaar biedt ondersteuning voor traditionele SQL server Database engine-aanmeldingen en aanmeldingen die zijn geïntegreerd met Azure Active Directory (AAD). Azure AD server-principals (aanmeldingen) (**preview-versie**) zijn Azure-cloud-versie van on-premises Databaseaanmeldingen die u in uw on-premises omgeving gebruikt. Azure AD server-principals (aanmeldingen) kunt u om op te geven van gebruikers en groepen uit uw Azure Active Directory ' True ' op binnen het bereik van exemplaar-principals, geschikt voor het uitvoeren van een bewerking op exemplaarniveau, met inbegrip van query's tussen meerdere databases binnen dezelfde tenant beheerd exemplaar.
 
-Een nieuwe syntaxis is geïntroduceerd voor het maken van AAD-aanmeldingen (**openbare preview**), **van externe PROVIDER**. Zie voor meer informatie over de syntaxis van de <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>, en bekijk de [inrichten van een Azure Active Directory-beheerder voor uw beheerde exemplaar](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) artikel.
+Een nieuwe syntaxis is geïntroduceerd voor het maken van Azure AD server-principals (aanmeldingen) (**openbare preview**), **van externe PROVIDER**. Zie voor meer informatie over de syntaxis van de <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>, en bekijk de [inrichten van een Azure Active Directory-beheerder voor uw beheerde exemplaar](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) artikel.
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory-integratie en meervoudige verificatie
 

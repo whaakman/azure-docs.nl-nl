@@ -1,25 +1,22 @@
 ---
-title: Een toepassingsgateway die als host fungeert voor meerdere web sites - Azure portal maken | Microsoft Docs
+title: Een toepassingsgateway die als host fungeert voor meerdere web sites - Azure portal maken
 description: Informatie over het maken van een application gateway die als host fungeert voor meerdere sites met behulp van de Azure portal.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 12/28/2017
+ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: fc418f58b299dcba08fda65000c5356c51f471e6
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 09bb81b0382f18c9cb94e5e4d0932dc6597ae73c
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993319"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454289"
 ---
 # <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Maken en configureren van een toepassingsgateway voor het hosten van meerdere websites met behulp van de Azure-portal
 
-U kunt de Azure portal gebruiken om [configureren met het hosten van meerdere websites](multiple-site-overview.md) bij het maken van een [toepassingsgateway](overview.md). In deze zelfstudie definieert u de back-end-adresgroepen met behulp van virtuele machines. Vervolgens configureert u listeners en regels op basis van domeinen waarvan u eigenaar bent om er zeker van te zijn dat webverkeer bij de juiste servers in de pools binnenkomen. In deze zelfstudie wordt ervan uitgegaan dat u eigenaar bent van meerdere domeinen en voorbeelden gebruikt van *www.contoso.com* en *www.fabrikam.com*.
+U kunt de Azure portal gebruiken om [configureren met het hosten van meerdere websites](multiple-site-overview.md) bij het maken van een [toepassingsgateway](overview.md). In dit artikel definieert u de back-end-adresgroepen met behulp van virtuele machines. Vervolgens configureert u listeners en regels op basis van domeinen waarvan u eigenaar bent om er zeker van te zijn dat webverkeer bij de juiste servers in de pools binnenkomen. In dit artikel wordt ervan uitgegaan dat u voorbeelden van meerdere domeinen en maakt gebruik van de eigenaar bent *www.contoso.com* en *www.fabrikam.com*.
 
 In dit artikel leert u het volgende:
 
@@ -35,9 +32,9 @@ In dit artikel leert u het volgende:
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Aanmelden bij Azure Portal op [https://portal.azure.com](https://portal.azure.com)
+Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.com)
 
 ## <a name="create-an-application-gateway"></a>Een toepassingsgateway maken
 
@@ -141,6 +138,8 @@ In dit voorbeeld maakt u twee virtuele machines die worden gebruikt als back-end
 3. Klik op **OK**.
 4. Maak een tweede listener met de naam van *fabrikamListener* en de naam van het tweede domein gebruiken. In dit voorbeeld *www.fabrikam.com* wordt gebruikt.
 
+![mult-site-listeners](media/create-multiple-sites-portal/be-listeners.png)
+
 ## <a name="create-routing-rules"></a>Routeringsregels maken
 
 Regels worden afgehandeld in de volgorde waarop ze staan vermeld. Verkeer wordt omgeleid volgens de eerste regel die overeenkomt, ongeacht de specificiteit. Als u bijvoorbeeld een regel hebt die van een basislistener gebruikmaakt en een regel die via dezelfde poort van een listener voor meerdere sites gebruikmaakt, moet de regel voor de listener voor meerdere sites vermeld worden vóór de regel met de basislistener, opdat de regel voor meerdere sites kan functioneren zoals het hoort. 
@@ -180,12 +179,4 @@ Als de toepassingsgateway met het bijbehorende openbare IP-adres is gemaakt, kun
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u geleerd hoe u:
-
-> [!div class="checklist"]
-> * Een toepassingsgateway maken
-> * Virtuele machines voor back-endservers maken
-> * Back-endpools maken met de back-endservers
-> * Back-endlisteners maken
-> * Routeringsregels maken
-> * Een CNAME-record in uw domein maken
+[App Service configureren met Application Gateway](create-web-app.md)

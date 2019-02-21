@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0369a7792f0d9c97aa3d943708dfcc07228effa2
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 972a538fab8a2aa84f6a12df48422abb40baac82
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330929"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56443283"
 ---
-# <a name="enabling-azure-ultra-disks"></a>Inschakelen van Azure ultra-schijven
+# <a name="enabling-azure-ultra-ssd"></a>Inschakelen van Azure ultra SSD
 
-Azure ultra-schijven bieden hoge doorvoer, hoge IOPS en consistente lage latentie schijfopslag voor Azure IaaS VM's. Deze nieuwe aanbieding biedt boven aan de prestaties van de regel op het niveau van de dezelfde beschikbaarheid als onze bestaande schijven-aanbiedingen. Extra voordelen van ultra schijven zijn de mogelijkheid om de prestaties van de schijf, samen met uw workloads zonder dat uw virtuele machines opnieuw moet worden dynamisch te wijzigen. Ultra-schijven zijn geschikt voor gegevensintensieve workloads, zoals SAP HANA, databases van de bovenste laag en transactie-zware workloads.
+Azure ultra SSD bieden hoge doorvoer, hoge IOPS en consistente lage latentie schijfopslag voor Azure IaaS VM's. Deze nieuwe aanbieding biedt boven aan de prestaties van de regel op het niveau van de dezelfde beschikbaarheid als onze bestaande schijven-aanbiedingen. Extra voordelen van ultra SSD omvatten de mogelijkheid om de prestaties van de schijf, samen met uw workloads zonder dat uw virtuele machines opnieuw moet worden dynamisch te wijzigen. Ultra SSD zijn geschikt voor gegevensintensieve workloads, zoals SAP HANA, databases van de bovenste laag en transactie-zware workloads.
 
-Op dit moment ultra schijven zijn in preview en moet u [inschrijven](https://aka.ms/UltraSSDPreviewSignUp) in de Preview-versie om ze toegang te krijgen.
+Op dit moment ultra SSD zijn beschikbaar als preview en moet u [inschrijven](https://aka.ms/UltraSSDPreviewSignUp) in de Preview-versie om ze toegang te krijgen.
 
 Na goedkeuring, voert u een van de volgende opdrachten om te bepalen welke zone in VS-Oost 2 de ultra schijf om te implementeren:
 
@@ -35,12 +35,12 @@ Het antwoord is vergelijkbaar met het onderstaande formulier, waarbij X staat vo
 
 Als er geen reactie van de opdracht is, betekent dit dat uw registratie voor de functie is nog steeds in behandeling of niet goedgekeurd nog.
 
-Nu dat u weet welke zone om in te implementeren, volgt u de implementatiestappen in dit artikel om op te halen van uw eerste virtuele machines geïmplementeerd met ultra schijven.
+Nu dat u weet welke zone om in te implementeren, volgt u de implementatiestappen in dit artikel om op te halen van uw eerste virtuele machines geïmplementeerd met de ultra SSD.
 
-## <a name="deploying-an-ultra-disk"></a>Implementatie van een ultra-schijf
+## <a name="deploying-an-ultra-ssd"></a>Implementatie van een ultra SSD
 
 Bepaal eerst de VM-grootte te implementeren. Als onderdeel van deze Preview-versie, worden alleen DsV3 en de EsV3-VM-families ondersteund. Raadpleeg de tweede tabel op deze [blog](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) voor meer informatie over deze VM-grootten.
-Ook verwijzen naar het voorbeeld [een virtuele machine maken met meerdere ultra schijven](https://aka.ms/UltraSSDTemplate), laat zien hoe u een virtuele machine maken met meerdere ultra schijven.
+Ook verwijzen naar het voorbeeld [een virtuele machine maken met meerdere ultra SSD](https://aka.ms/UltraSSDTemplate), laat zien hoe u een virtuele machine maken met meerdere ultra SSD.
 
 Hieronder vindt u informatie nieuwe/gewijzigd Resource Manager wijzigingen in de sjabloon: **apiVersion** voor `Microsoft.Compute/virtualMachines` en `Microsoft.Compute/Disks` moet worden ingesteld als `2018-06-01` (of hoger).
 
@@ -77,11 +77,11 @@ Een aanvullende mogelijkheden toevoegen aan de eigenschappen van de virtuele mac
 
 Zodra de virtuele machine is ingericht, kunt u partitioneren en formatteren van de gegevensschijven en configureert deze voor uw workloads.
 
-## <a name="additional-ultra-disk-scenarios"></a>Scenario's voor extra ultra-schijf
+## <a name="additional-ultra-ssd-scenarios"></a>Aanvullende ultra SSD-scenario 's
 
-- Tijdens het maken van virtuele machine ultra schijven kunnen worden impliciet gemaakt ook. Deze schijven ontvangt echter standaard de waarde voor IOPS (500) en doorvoer (8 MiB/s).
-- Extra ultra schijven kunnen worden gekoppeld aan compatibele virtuele machines.
-- Ultra schijven ondersteuning voor aanpassen van de kenmerken van de prestaties van schijf (IOPS en doorvoer) tijdens runtime zonder dat de schijf loskoppelen van de virtuele machine. Zodra een schijfbewerking voor de grootte van prestaties is verleend op een schijf, het kan een uur duren voor de wijziging daadwerkelijk pas van kracht.
+- Tijdens het maken van virtuele machine kan ultra SSD worden impliciet gemaakt ook. Deze schijven ontvangt echter standaard de waarde voor IOPS (500) en doorvoer (8 MiB/s).
+- Aanvullende ultra SSD kan worden gekoppeld aan compatibele virtuele machines.
+- Ultra SSD ondersteuning voor aanpassen van de kenmerken van de prestaties van schijf (IOPS en doorvoer) tijdens runtime zonder loskoppelen van de schijf van de virtuele machine. Zodra een schijfbewerking voor de grootte van prestaties is verleend op een schijf, het kan een uur duren voor de wijziging daadwerkelijk pas van kracht.
 - Groei van de schijfcapaciteit is vereist voor een virtuele machine ongedaan worden gemaakt.
 
 ## <a name="next-steps"></a>Volgende stappen

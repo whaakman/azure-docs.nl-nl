@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: bfdea1d5380750ec23964cd8564db9b3a9539f15
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: f8804a157c21f3c90c667646689eec0968bc9027
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754638"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452998"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Automatisch schalen van een cluster om te voldoen aan de eisen van de toepassing in Azure Kubernetes Service (AKS)
 
@@ -27,7 +27,9 @@ Dit artikel laat u het inschakelen en beheren van het cluster automatisch schale
 
 In dit artikel is vereist dat u de Azure CLI versie 2.0.55 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
 
-AKS-clusters die ondersteuning bieden voor het cluster automatisch schalen moeten het gebruik van virtuele-machineschaalsets en Kubernetes-versie uitvoeren *1.12.4* of hoger. Deze scale set-ondersteuning is in preview. Aanmelden en maken van clusters met schaalsets gebruiken, installeert de *aks-preview* Azure CLI-extensie met de [az-extensie toevoegen] [ az-extension-add] opdracht, zoals wordt weergegeven in het volgende voorbeeld:
+### <a name="install-aks-preview-cli-extension"></a>Aks-preview CLI-extensie installeren
+
+AKS-clusters die ondersteuning bieden voor het cluster automatisch schalen moeten het gebruik van virtuele-machineschaalsets en Kubernetes-versie uitvoeren *1.12.4* of hoger. Deze scale set-ondersteuning is in preview. Aanmelden en maken van clusters met schaalsets gebruiken, installeert u eerst de *aks-preview* Azure CLI-extensie met de [az-extensie toevoegen] [ az-extension-add] opdracht, zoals wordt weergegeven in de volgende Voorbeeld:
 
 ```azurecli-interactive
 az extension add --name aks-preview
@@ -35,6 +37,26 @@ az extension add --name aks-preview
 
 > [!NOTE]
 > Wanneer u installeert de *aks-preview* extensie, elke AKS-cluster dat u gebruikt het scale set preview-implementatiemodel. Als u wilt zich afmelden en regular, volledig ondersteunde clusters maken, de extensie verwijderen met `az extension remove --name aks-preview`.
+
+### <a name="register-scale-set-feature-provider"></a>Scale set functie provider registreren
+
+Voor het maken van een AKS die gebruikmaakt van de schaal wordt ingesteld, moet u ook een functievlag inschakelen voor uw abonnement. Om u te registreren de *VMSSPreview* vlag functie, gebruikt u de [az functie registreren] [ az-feature-register] opdracht zoals wordt weergegeven in het volgende voorbeeld:
+
+```azurecli-interactive
+az feature register --name VMSSPreview --namespace Microsoft.ContainerService
+```
+
+Het duurt enkele minuten duren voordat de status om weer te geven *geregistreerde*. U kunt controleren op de registratie van status met behulp van de [az Functielijst] [ az-feature-list] opdracht:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
+```
+
+Wanneer u klaar bent, vernieuwt u de registratie van de *Microsoft.ContainerService* resourceprovider met behulp van de [az provider register] [ az-provider-register] opdracht:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
 
 ## <a name="about-the-cluster-autoscaler"></a>Over het cluster automatisch schalen
 
@@ -149,6 +171,9 @@ In dit artikel laat zien hoe u het aantal AKS-knooppunten automatisch schalen. U
 [aks-scale-apps]: tutorial-kubernetes-scale.md
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-scale]: /cli/azure/aks#az-aks-scale
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
 
 <!-- LINKS - external -->
 [az-aks-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview

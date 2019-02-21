@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: victorh
-ms.openlocfilehash: 880a6fc9d5636ff0ac67d24d0ef66c8f48ae22fb
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: bc1176ea97d1c2d4fc17487c0589fb4235163b46
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743647"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446508"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Automatisch schalen en zoneredundante toepassingsgateway (openbare Preview)
 
@@ -45,7 +45,7 @@ Er zijn geen kosten tijdens Preview-versie. U wordt gefactureerd voor andere res
 |Probleem|Details|
 |--|--|
 |Certificaat voor clientverificatie|Wordt niet ondersteund.<br>Zie voor meer informatie, [overzicht van end-to-end SSL met Application Gateway](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
-|Met een combinatie van Standard_v2 en Standard Application Gateway in hetzelfde subnet|Wordt niet ondersteund.<br>Als automatisch schalen is ingeschakeld, kan één subnet bovendien slechts één application gateway hebben.|
+|Met een combinatie van Standard_v2 en Standard Application Gateway in hetzelfde subnet|Niet ondersteund|
 |Gebruiker gedefinieerde Route (UDR) op Application Gateway-subnet|Niet ondersteund|
 |NSG voor binnenkomende poortbereik| -65200 tot en met 65535 voor Standard_v2 SKU<br>-65503 tot 65534 voor standaard-SKU.<br>Zie voor meer informatie de [Veelgestelde vragen over](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Prestatielogboeken in Azure diagnostics|Wordt niet ondersteund.<br>Metrische gegevens van Azure moet worden gebruikt.|

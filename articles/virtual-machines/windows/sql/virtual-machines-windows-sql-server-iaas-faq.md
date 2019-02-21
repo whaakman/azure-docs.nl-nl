@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 53c22222682e2a017f55cbd5af89671edb3eddaf
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 46d51e787a388f0963788c6419a2d9e3af89bc4f
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767335"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456653"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Veelgestelde vragen over SQL Server wordt uitgevoerd op Windows-machines in Azure
 
@@ -88,6 +88,9 @@ In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoer
 
    Ja. U kunt eenvoudig verplaatsen tussen de twee licentiemodellen verplaatsen als u oorspronkelijk hebt gestart met de installatiekopie van een galerie met betalen per gebruik. Echter niet mogelijk om over te schakelen van uw licentie te betalen per gebruik als u in eerste instantie met een BYOL-installatiekopie is gestart. Zie voor meer informatie, [de licentiemodel voor een virtuele machine van SQL Server wijzigen](virtual-machines-windows-sql-ahb.md).
 
+   > [!Note]
+   > Deze functie is op dit moment alleen beschikbaar voor klanten van de openbare Cloud.
+
 1. **Moet ik BYOL-installatiekopieën of SQL VM RP gebruiken om nieuwe SQL-VM te maken?**
 
    Bring-your-own-license (BYOL)-installatiekopieën zijn alleen beschikbaar voor EA-klanten. Andere klanten met Software Assurance moeten de SQL-VM-resourceprovider gebruiken om te maken van een SQL-VM met [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/licensing-faq/). 
@@ -142,11 +145,11 @@ In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoer
 
 1. **Hoe voer ik een upgrade naar een nieuwe versie/editie van SQL Server in een Azure VM?**
 
-   Er is momenteel geen in-place upgrade voor SQL Server in een Azure-VM wordt uitgevoerd. Een nieuwe Azure-machine maken met de gewenste versie/editie van SQL Server en migreer de databases naar de nieuwe server met behulp van standaard [gegevensmigratietechnieken](virtual-machines-windows-migrate-sql.md).
+   er wordt momenteel geen upgrade uitgevoerd voor SQL Server in een virtuele machine van Azure. Een nieuwe Azure-machine maken met de gewenste versie/editie van SQL Server en migreer de databases naar de nieuwe server met behulp van standaard [gegevensmigratietechnieken](virtual-machines-windows-migrate-sql.md).
 
 1. **Hoe worden updates en servicepacks toegepast op een SQL Server-VM?**
 
-   Virtuele machines geven u controle over de hostmachine, inclusief wanneer en hoe u updates wilt toepassen. Voor het besturingssysteem, kunt u windows-updates handmatig toepassen of u kunt de planningsservice inschakelen [automatisch patchen](virtual-machines-windows-sql-automated-patching.md). Automated Patching installeert alle updates die als belangrijk zijn aangeduid, met inbegrip van SQL Server-updates in deze categorie. Overige optionele updates voor SQL Server moeten handmatig worden geïnstalleerd.
+   virtuele machines geven u controle over de hostmachine, inclusief wanneer en hoe u updates wilt toepassen. Voor het besturingssysteem, kunt u windows-updates handmatig toepassen of u kunt de planningsservice inschakelen [automatisch patchen](virtual-machines-windows-sql-automated-patching.md). Automated Patching installeert alle updates die als belangrijk zijn aangeduid, met inbegrip van SQL Server-updates in deze categorie. Overige optionele updates voor SQL Server moeten handmatig worden geïnstalleerd.
 
 ## <a name="general"></a>Algemeen
 

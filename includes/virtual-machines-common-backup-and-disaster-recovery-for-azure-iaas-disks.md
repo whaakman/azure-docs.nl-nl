@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: luywang
 ms.custom: include file
-ms.openlocfilehash: 59a04ca5a546fff1043e1e157491b218f693d0f0
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: efa43d7faf9d048ff963a74d8c69618ee535654c
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56333825"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56443297"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Back-up en herstel na noodgevallen voor Azure IaaS-schijven
 
@@ -170,7 +170,7 @@ Als u wilt herstellen of opnieuw opbouwen van een virtuele machine, kunt u de vi
 
 Zie voor meer informatie de instructies voor het [de Azure portal gebruiken voor virtuele machines herstellen](../articles/backup/backup-azure-arm-restore-vms.md). Dit document worden ook de specifieke stappen beschreven voor het herstellen van back-up VM's naar een gekoppeld datacenter met behulp van uw geografisch redundante back-upkluis als er een ramp in het primaire datacenter. In dat geval Azure Backup maakt gebruik van de Compute-service van de secundaire regio te maken van de herstelde virtuele machine.
 
-U kunt ook PowerShell voor [herstellen van een virtuele machine](../articles/backup/backup-azure-arm-restore-vms.md#restore-a-vm-during-an-azure-datacenter-disaster) of voor [het maken van een nieuwe VM op basis van schijven hersteld](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+U kunt ook PowerShell voor [het maken van een nieuwe VM op basis van schijven hersteld](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
 ## <a name="alternative-solution-consistent-snapshots"></a>Alternatieve oplossing: Toepassingsconsistente momentopnamen
 

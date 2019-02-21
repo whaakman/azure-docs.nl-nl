@@ -10,17 +10,18 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/03/2017
+ms.date: 02/19/2019
 ms.author: mbullwin
-ms.openlocfilehash: 5c809153b3b86a5460bd2c235d9f6226fb50a024
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: f89eca6fb8893210f4c65adc42598ab0e0b531f4
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118792"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454304"
 ---
-# <a name="explore-net-trace-logs-in-application-insights"></a>.NET-traceerlogboeken in Application Insights verkennen
-Als u NLog, log4Net of System.Diagnostics.Trace voor diagnostische tracering in uw ASP.NET-toepassing, kunt u uw logboeken zijn verzonden naar hebben [Azure Application Insights][start], waar u kunt verkennen en zoeken ze. Uw logboeken wordt samengevoegd met de andere telemetrie die afkomstig zijn van uw toepassing, zodat u kunt de traces die zijn gekoppeld aan het onderhoud van elke gebruikersaanvraag identificeren en correlaties met andere gebeurtenissen en uitzonderingenrapporten.
+# <a name="explore-netnet-core-trace-logs-in-application-insights"></a>.NET/.NET Core in Application Insights traceerlogboeken verkennen
+
+Als u in uw toepassing ASP.NET/ASP.NET Core ILogger, NLog, log4Net of System.Diagnostics.Trace voor diagnostische tracering gebruikt, kunt u uw logboeken zijn verzonden om te laten [Azure Application Insights][start], waarbij u kunt verkennen en de logboeken doorzoeken. Uw logboeken wordt samengevoegd met de andere telemetrie die afkomstig zijn van uw toepassing, zodat u kunt de traces die zijn gekoppeld aan het onderhoud van elke gebruikersaanvraag identificeren en correlaties met andere gebeurtenissen en uitzonderingenrapporten.
 
 > [!NOTE]
 > Moet u de module toepassingslogboek vastleggen? Het is een handig adapter voor 3rd derden kunt, maar als u niet al gebruikt NLog, log4Net of System.Diagnostics.trace werkt, kunt u overwegen alleen aanroepende [Application Insights TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) rechtstreeks.
@@ -30,23 +31,18 @@ Als u NLog, log4Net of System.Diagnostics.Trace voor diagnostische tracering in 
 ## <a name="install-logging-on-your-app"></a>Logboekregistratie op uw app installeren
 Installeer het framework voor uw gekozen logboekregistratie in uw project. Dit moet resulteren in een vermelding in het app.config- of web.config.
 
-Als u van System.Diagnostics.Trace gebruikmaakt, moet u een vermelding toevoegen aan web.config:
-
 ```XML
-
     <configuration>
-     <system.diagnostics>
-       <trace autoflush="false" indentsize="4">
-         <listeners>
-           <add name="myListener"
-             type="System.Diagnostics.TextWriterTraceListener"
-             initializeData="TextWriterOutput.log" />
-           <remove name="Default" />
-         </listeners>
-       </trace>
-     </system.diagnostics>
+      <system.diagnostics>
+    <trace autoflush="true" indentsize="0">
+      <listeners>
+        <add name="myAppInsightsListener" type="Microsoft.ApplicationInsights.TraceListener.ApplicationInsightsTraceListener, Microsoft.ApplicationInsights.TraceListener" />
+      </listeners>
+    </trace>
+  </system.diagnostics>
    </configuration>
 ```
+
 ## <a name="configure-application-insights-to-collect-logs"></a>Application Insights configureren voor het verzamelen van Logboeken
 **[Application Insights toevoegen aan uw project](../../azure-monitor/app/asp-net.md)**  als u dat nog niet hebt gedaan. Hier ziet u een optie om op te nemen van de logboekverzamelaar.
 
@@ -60,15 +56,28 @@ Gebruik deze methode als uw projecttype wordt niet ondersteund door de Applicati
 1. Als u van plan bent om log4Net of NLog te gebruiken, installeert u deze in uw project.
 2. Klik in Solution Explorer met de rechtermuisknop op uw project en kies **NuGet-pakketten beheren**.
 3. Naar Application Insights zoeken
-4. Selecteer het juiste pakket - een van:
+4. Selecteer een van de volgende pakketten:
 
-   * Microsoft.ApplicationInsights.TraceListener (om vast te leggen aanroepen van System.Diagnostics.Trace)
-   * Microsoft.ApplicationInsights.EventSourceListener (om vast te leggen EventSource gebeurtenissen)
-   * Microsoft.ApplicationInsights.EtwCollector (om vast te leggen ETW-gebeurtenissen)
-   * Microsoft.ApplicationInsights.NLogTarget
-   * Microsoft.ApplicationInsights.Log4NetAppender
+   - Voor ILogger: [Microsoft.Extensions.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
+[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.Extensions.Logging.ApplicationInsights.svg)](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
+   - Voor NLog: [Microsoft.ApplicationInsights.NLogTarget](http://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
+[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.NLogTarget.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
+   - Voor Log4Net: [Microsoft.ApplicationInsights.Log4NetAppender](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
+[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.Log4NetAppender.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
+   - Voor System.Diagnostics: [Microsoft.ApplicationInsights.TraceListener](http://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
+[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.TraceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
+   - [Microsoft.ApplicationInsights.DiagnosticSourceListener](http://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
+[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.DiagnosticSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
+   - [Microsoft.ApplicationInsights.EtwCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
+[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EtwCollector.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
+   - [Microsoft.ApplicationInsights.EventSourceListener](http://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
+[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EventSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
 
-Het NuGet-pakket installeert de benodigde assembly's en past tevens web.config of app.config.
+Het NuGet-pakket installeert de benodigde assembly's en indien van toepassing past de web.config of app.config.
+
+## <a name="ilogger"></a>ILogger
+
+Voor voorbeelden van het gebruik van de Application Insights-ILogger implementatie met consoletoepassingen en ASP.NET Core Bekijk deze [artikel](ilogger.md).
 
 ## <a name="insert-diagnostic-log-calls"></a>Diagnostische logboeken aanroepen invoegen
 Als u gebruikmaakt van System.Diagnostics.Trace, zou een typische aanroep:
@@ -185,7 +194,7 @@ Gebruik de [Java log adapters](../../azure-monitor/app/java-trace-logs.md).
 ### <a name="emptykey"></a>Ik krijg de foutmelding 'instrumentatiesleutel mag niet leeg zijn'
 Hebt u de logboekregistratie adapter Nuget-pakket geïnstalleerd zonder de installatie van Application Insights.
 
-Klik in Solution Explorer met de rechtermuisknop op `ApplicationInsights.config` en kies **Update Application Insights**. U krijgt een dialoogvenster waarin u zich aanmeldt bij Azure uitnodigt en maak een Application Insights-resource, of gebruik een bestaande resourcegroep. Dat het probleem moet oplossen.
+Klik in Solution Explorer met de rechtermuisknop op `ApplicationInsights.config` en kies **Update Application Insights**. U krijgt een dialoogvenster waarin u zich aanmeldt bij Azure uitnodigt en maak een Application Insights-resource, of een bestaande resourcegroep gebruiken. Dat het probleem moet oplossen.
 
 ### <a name="i-can-see-traces-in-diagnostic-search-but-not-the-other-events"></a>Ik kan zien traceringen in het doorzoeken van diagnostische gegevens, maar niet de andere gebeurtenissen
 Soms duurt het even voor alle gebeurtenissen en aanvragen voor het ophalen via de pijplijn.

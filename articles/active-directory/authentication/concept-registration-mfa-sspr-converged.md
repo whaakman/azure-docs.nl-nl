@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66d4dc7e6fc1545e1de1e3b50887585c4156b4c0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1923a34c5c49f16b32ed5b5d0913a65ce0b1ea21
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208776"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453365"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Geconvergeerde registratie voor self-service voor wachtwoord opnieuw instellen en Azure multi-factor Authentication (openbare preview)
 
@@ -78,7 +78,7 @@ Auditlogboeken voor deze nieuwe ervaring bestaan onder de categorie verificatiem
 
 **Standaardmethode voor MFA is ingesteld op telefonische oproep wanneer een gebruiker een telefoon registreert met behulp van de SMS-bericht**
 
-   * Sommige gebruikers hebben gemerkt dat de standaardmethode voor MFA is ingesteld op telefonische oproep nadat ze hun telefoonnummer registreren met behulp van de SMS-bericht. Gebruikers kunnen dit probleem oplossen door het veranderen van de standaard-methode door de instructies in het artikel [beheren van je beveiligingsgegevens (preview)](../user-help/security-info-manage-settings.md#change-your-info).
+   * Sommige gebruikers hebben gemerkt dat de standaardmethode voor MFA is ingesteld op telefonische oproep nadat ze hun telefoonnummer registreren met behulp van de SMS-bericht. Gebruikers kunnen dit probleem oplossen door de instructies in de artikelen waarnaar wordt verwezen door het wijzigen van de standaardmethode voor [overzicht over het wijzigen van je beveiligingsgegevens (preview)](../user-help/security-info-add-update-methods-overview.md).
 
 **Gebruiker heeft geen toegang tot de nieuwe ervaring voor inschrijving nadat een beheerder de standaardmethode voor uitgeschakeld**
 

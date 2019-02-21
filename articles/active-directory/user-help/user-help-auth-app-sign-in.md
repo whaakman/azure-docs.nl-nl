@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 120e0f3c7e6af22210ba04565b86b8098851b26d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3974d1de2bd90049541dcc249f18346c9e48fd3d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186893"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456024"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Aanmelden bij uw accounts met behulp van de Microsoft Authenticator-app
 Met de Microsoft Authenticator-app kunt u zich aanmelden bij uw accounts als u gebruikmaakt van verificatie in twee stappen. Verificatie in twee stappen helpt u veiliger toegang te krijgen tot uw accounts, vooral als u gevoelige informatie bekijkt. Omdat wachtwoorden kunnen worden vergeten, gestolen of gewijzigd, is verificatie in twee stappen een extra beveiligingsstap waarmee u uw account beschermt door het voor anderen lastiger te maken om in te breken.
@@ -62,9 +62,9 @@ Nadat u op aanmelden via telefoon inschakelen, kunt u met behulp van de Microsof
 
     Nadat u hebt ingevoerd van uw gebruikersnaam en een **aanmelding goedkeuren** scherm wordt weergegeven waarin u een getal van twee cijfers en of u wilt aanmelden via de Microsoft Authenticator-app. Als u niet dat dit teken in de methode gebruiken wilt, kunt u **uw wachtwoord gebruiken in plaats daarvan**, en meld u aan met uw wachtwoord.
 
-    ![Box-aanmelding op een PC goedkeuren](media/user-help-auth-app-sign-in/microsoft-auth-app-sign-in.png)
+    ![Aanmelden in op computer goedkeuren](media/user-help-auth-app-sign-in/microsoft-auth-app-sign-in.png)
 
-2. Open de melding of de Microsoft Authenticator-app op uw apparaat en tik vervolgens op het getal dat overeenkomt met het nummer dat u op uw PC's zien **aanmelding goedkeuren** scherm.
+2. Open de melding of de Microsoft Authenticator-app op uw apparaat en tik vervolgens op het getal dat overeenkomt met het aantal ziet u op de computer **aanmelding goedkeuren** scherm.
 
     ![-In-vak op apparaat goedkeuren](media/user-help-auth-app-sign-in/microsoft-auth-app-sign-in-numbers.png)
 
@@ -113,7 +113,7 @@ Voor de stappen die nodig zijn om aan te melden bij uw werk of school of je pers
 |**Wat gebeurt er als ik mijn telefoon verlies of deze nog niet met mij? Hoe krijg ik toegang tot mijn account?**| U kunt altijd een wachtwoord in plaats daarvan een koppeling op de aanmeldingspagina wilt terugkeren naar het met het wachtwoord gebruikt selecteren. Echter, als u verificatie in twee stappen gebruikt u nog steeds moet een tweede verificatiemethode gebruiken om uw identiteit te verifiëren.<br><br>**Belangrijk**<br>We raden u om ervoor te zorgen dat u hebt meer dan één, up-to-date zijn, verificatiemethode die is gekoppeld aan uw account.<br><br>U kunt beheren van uw verificatiemethoden voor persoonlijke accounts van uw [beveiligingsinstellingen](https://account.live.com/proofs/manage) pagina. Voor accounts voor werk- of schoolaccount, gaat u naar uw organisatie [aanvullende beveiligingsverificatie](https://aka.ms/MFASetup) pagina of het **je account blijft beveiligd** pagina als de beheerder de beveiligingsgegevens is ingeschakeld. Zie voor meer informatie over beveiligingsgegevens [je beveiligingsgegevens beheren](security-info-manage-settings.md).<br><br>Als u niet uw verificatiemethoden beheren, moet u contact op met uw beheerder.|
 |**Hoe kan ik stoppen met het gebruik van deze functie en gaat u terug naar mijn wachtwoord gebruiken?**|Voor persoonlijke accounts, selecteert u de **in plaats daarvan gebruik van een wachtwoord** koppeling tijdens het aanmelden. Uw meest recente keuze is onthouden en aangeboden standaard de volgende keer dat u zich aanmeldt. Als u ooit terugkeren wilt naar de met behulp van aanmelden via telefoon, selecteer de **gebruik van een app in plaats daarvan** koppeling tijdens het aanmelden.<br><br>Voor werk of school-accounts, moet u naar de pagina extra beveiliging met verificatie (zoals https://aka.ms/MFASetup) en verwijderen van de Microsoft Authenticator-app.|
 |**Waarom kan ik meer dan één account voor werk of school niet gebruiken voor aanmelding via telefoon?**| Een telefoon moet worden geregistreerd in één werk- of schoolaccount. Als u wilt inschakelen op aanmelden via telefoon voor een ander werk- of schoolaccount, moet u eerst het oude apparaat via registratie de **instellingen** pagina.|
-|**Kan ik me aanmelden met mijn PC met behulp van mijn telefoon?**| Voor uw PC, is het beste aanmelden met Windows Hello op Windows 10. Windows Hello kunt u uw face, vingerafdruk of PINCODE gebruikt om te melden.|
+|**Kan ik me aanmelden op mijn computer met behulp van mijn telefoon?**| Voor de computer, wordt u aangeraden aanmelden met Windows Hello op Windows 10. Windows Hello kunt u uw face, vingerafdruk of PINCODE gebruikt om te melden.|
 
 ## <a name="next-steps"></a>Volgende stappen
 - Als u meer algemene vragen over de app hebt, raadpleegt u de [Veelgestelde vragen over de Microsoft Authenticator](user-help-auth-app-faq.md)

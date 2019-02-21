@@ -12,19 +12,20 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d95f7eb971f7da229c7d66d586598697ab0a2d8b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2aca321ac0902d115f4fc7622992d29183c1d35c
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209392"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452590"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Meld u aan met behulp van verificatie of verificatie in twee stappen de beveiligingsgegevens
-
 Na het instellen van verificatie in twee stappen of -beveiligingsgegevens, kunt u moet zich aanmelden bij uw account met behulp van de opgegeven verificatiemethode.
 
 >[!Note]
->Als u nog steeds de verificatie-ervaring voor verificatie in twee stappen, moet u uw verificatiemethoden instellen door de instructies in de [instellen van mijn account voor verificatie in twee stappen](multi-factor-authentication-end-user-first-time.md) artikel. Als de beheerder de ervaring van de informatie over beveiliging is ingeschakeld, moet u uw verificatiemethoden met behulp van deze stapsgewijze instructies instellen:<ul><li>[Beveiligingsgegevens ingesteld voor het gebruik van een verificatie-app](security-info-setup-auth-app.md)</li><li>[Beveiligingsgegevens instellen om sms-berichten te gebruiken](security-info-setup-text-msg.md)</li><li>[Beveiligingsgegevens ingesteld voor het gebruik van een telefonische oproep](security-info-setup-phone-number.md)</li></ul>
+>Als u nog steeds de verificatie-ervaring voor verificatie in twee stappen, moet u uw verificatiemethoden instellen door de instructies in de [instellen van mijn account voor verificatie in twee stappen](multi-factor-authentication-end-user-first-time.md) artikel.
+
+>Als de beheerder de ervaring van de informatie over beveiliging is ingeschakeld, moet u uw verificatiemethoden met behulp van deze stapsgewijze artikelen instellen:<ul><li>[Beveiligingsgegevens ingesteld voor het gebruik van een verificatie-app](security-info-setup-auth-app.md)</li><li>[Beveiligingsgegevens instellen om sms-berichten te gebruiken](security-info-setup-text-msg.md)</li><li>[Beveiligingsgegevens ingesteld voor het gebruik van een telefonische oproep](security-info-setup-phone-number.md)</li></ul>
 
 ## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>Meld u aan met behulp van een verificator-app-melding op uw mobiele apparaat
 
@@ -55,9 +56,6 @@ Na het instellen van verificatie in twee stappen of -beveiligingsgegevens, kunt 
 
 
 ## <a name="next-steps"></a>Volgende stappen
-
-- Bewerken van je beveiligingsgegevens wilt toevoegen of wijzigen van uw verificatiemethoden in de [je beveiligingsgegevens beheren](security-info-manage-settings.md) artikel. 
-
 - Meer informatie over beveiligingsgegevens in de [info (preview) beveiligingsoverzicht](user-help-security-info-overview.md) artikel.
 
 - Meer informatie over verificatie in twee stappen in de [overzicht van de verificatie in twee stappen](user-help-two-step-verification-overview.md) artikel. 

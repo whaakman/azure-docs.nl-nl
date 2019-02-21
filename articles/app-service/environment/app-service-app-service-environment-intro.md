@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 205e61634a902ef052f665c65f2b67a66e6fe598
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2bb1a9c3922f435b6be78614aacff6e85bf475ff
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728224"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454239"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>Inleiding tot App Service Environment v1
 
 > [!NOTE]
 > In dit artikel gaat over de App Service Environment v1.  Er is een nieuwere versie van de App Service Environment die gebruiksvriendelijker en wordt uitgevoerd op een krachtigere infrastructuur. Voor meer informatie over de nieuwe versie begin met het [Inleiding tot App Service Environment](intro.md).
-> 
 
 ## <a name="overview"></a>Overzicht
+
 Een App Service Environment is een [Premium] [ PremiumTier] service-plan-optie van [Azure App Service](../overview.md) die zorgt voor een volledig geïsoleerde en toegewezen omgeving voor het veilig uitvoeren Azure App Service-apps op grote schaal, met inbegrip van Web-Apps, Mobile Apps en API Apps.  
 
 App Service-omgevingen zijn ideaal voor toepassingsworkloads die waarvoor nodig:
@@ -46,16 +46,17 @@ Voor een uitgebreide voor horizontaal schalen met behulp van meerdere App Servic
 
 Als u wilt zien hoe de beveiligingsarchitectuur in AzureCon Deep Dive is geconfigureerd, ziet u het artikel over het implementeren van een [gelaagde beveiligingsarchitectuur](app-service-app-service-environment-layered-security.md) met App Service-omgevingen.
 
-Apps die worden uitgevoerd op App Service-omgevingen hebben hun toegang vergrendeld met upstream-apparaten, zoals web application Firewall (WAF).  In het artikel over [een WAF configureren voor App Service-omgevingen](app-service-app-service-environment-web-application-firewall.md) bevat informatie over dit scenario. 
+Apps die worden uitgevoerd op App Service-omgevingen hebben hun toegang vergrendeld met upstream-apparaten, zoals web application Firewall (WAF).  In het artikel over [een WAF configureren voor App Service-omgevingen](app-service-app-service-environment-web-application-firewall.md) bevat informatie over dit scenario.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="dedicated-compute-resources"></a>Toegewezen Compute-Resources
+
 Alle van de compute-resources in een App Service Environment zijn exclusief toegewezen aan één abonnement en een App Service Environment kan worden geconfigureerd met maximaal vijftig (50) compute-resources voor exclusief gebruik door één toepassing.
 
-Een App Service-omgeving bestaat uit een front-compute-resourcegroep, evenals één tot drie worker compute-resourcegroepen. 
+Een App Service-omgeving bestaat uit een front-compute-resourcegroep, evenals één tot drie worker compute-resourcegroepen.
 
-De front-end-pool bevat rekenresources die verantwoordelijk is voor SSL-beëindiging als ook automatische taakverdeling van app-aanvragen in een App Service Environment. 
+De front-end-pool bevat rekenresources die verantwoordelijk is voor SSL-beëindiging als ook automatische taakverdeling van app-aanvragen in een App Service Environment.
 
 Elke groep met werkrollen bevat rekenresources die zijn toegewezen aan [App Service-abonnementen][AppServicePlan], die een of meer Azure App Service-apps op zijn beurt bevatten.  Omdat er maximaal drie verschillende werknemersgroepen aanwezig in een App Service Environment zijn kunnen, hebt u de flexibiliteit om verschillende compute-resources voor elke workergroep kiezen.  
 
@@ -66,6 +67,7 @@ Zie voor meer informatie over de hoeveelheid rekenresources die beschikbaar zijn
 Voor meer informatie over de beschikbare compute resource grootten die worden ondersteund in een App Service Environment, moet u de [prijzen voor App Service] [ AppServicePricing] pagina en bekijk de beschikbare opties voor App Service-omgevingen in de De prijscategorie Premium.
 
 ## <a name="virtual-network-support"></a>Virtual Network-ondersteuning
+
 Een App Service Environment kan worden gemaakt in **beide** een virtueel netwerk van Azure Resource Manager, **of** een klassieke implementatie model virtueel netwerk ([meer informatie over virtuele netwerken] [MoreInfoOnVirtualNetworks]).  Aangezien een App Service-omgeving altijd in een virtueel netwerk bestaat en nauwkeuriger binnen een subnet van een virtueel netwerk, kunt u gebruikmaken van de beveiligingsfuncties van virtuele netwerken voor het beheren van zowel binnenkomende en uitgaande netwerkcommunicatie.  
 
 Een App Service-omgeving kan een van beide internetgerichte met een openbaar IP-adres of interne geconfronteerd met alleen een Azure interne Load Balancer (ILB)-adres zijn.
@@ -77,6 +79,7 @@ Apps hebben ook vaak toegang nodig tot bedrijfsresources zoals interne databases
 Voor meer informatie over de werking van App Service-omgevingen met virtuele netwerken en on-premises netwerken raadpleegt u de volgende artikelen op [netwerkarchitectuur][NetworkArchitectureOverview], [inkomende beheren Verkeer][ControllingInboundTraffic], en [veilig maken van verbinding met back-ends][SecurelyConnectingToBackends]. 
 
 ## <a name="getting-started"></a>Aan de slag
+
 Als u wilt aan de slag met App Service-omgevingen, Zie [hoe om te maken van een App Service-omgeving][HowToCreateAnAppServiceEnvironment]
 
 Zie voor een overzicht van de netwerkarchitectuur van App Service-omgeving, de [overzicht van netwerkarchitectuur] [ NetworkArchitectureOverview] artikel.
@@ -104,5 +107,3 @@ Zie voor meer informatie over het gebruik van een App Service Environment met Ex
 [AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/ 
 
 <!-- IMAGES -->
-
-

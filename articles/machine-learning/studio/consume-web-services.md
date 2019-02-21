@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: 4af7af6616b5415cd13abacd6aca13bd412d4ad8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4a05b99cf0e40e63c01aee27bd745dd165dc23b8
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998077"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452692"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Het gebruik van een Azure Machine Learning Studio-webservice
 
-Wanneer u een Voorspellend model van Azure Machine Learning als een webservice implementeert, kunt u een REST-API gegevens verzenden en ophalen van voorspellingen. U kunt de gegevens verzenden in realtime of in de batchmodus.
+Wanneer u een Voorspellend model van Azure Machine Learning Studio als een webservice implementeert, kunt u een REST-API gegevens verzenden en ophalen van voorspellingen. U kunt de gegevens verzenden in realtime of in de batchmodus.
 
 U kunt meer informatie over het maken en implementeren van een Machine Learning-webservice met behulp van de Machine Learning Studio hier vinden:
 
@@ -32,14 +32,14 @@ U kunt meer informatie over het maken en implementeren van een Machine Learning-
 ## <a name="overview"></a>Overzicht
 Met de webservice Azure Machine Learning communiceert een externe toepassing met een Machine Learning scoremodel werkstromen in realtime. Aanroep van een Machine Learning-webservice retourneert voorspellingsresultaten naar een externe toepassing. Als u een Machine Learning-webservice aanroepen, moet u een API-sleutel die wordt gemaakt wanneer u een voorspelling implementeert doorgeven. De Machine Learning-webservice is gebaseerd op REST, een populaire architectuur voor webprogrammering.
 
-Azure Machine Learning heeft twee soorten services:
+Azure Machine Learning Studio heeft twee soorten services:
 
 * Request Response-Service (RRS): een lage latentie en zeer schaalbare service die voorziet in een interface te creëren voor staatloze modellen die zijn gemaakt en geïmplementeerd vanuit Machine Learning Studio.
 * Batchuitvoeringsservice (BES): een asynchrone service die scores een batch voor gegevensrecords.
 
 Zie voor meer informatie over Machine Learning-webservices, [een Machine Learning-webservice implementeren](publish-a-machine-learning-web-service.md).
 
-## <a name="get-an-azure-machine-learning-authorization-key"></a>Een Azure Machine Learning-autorisatie-sleutel ophalen
+## <a name="get-an-azure-machine-learning-studio-authorization-key"></a>Een Azure Machine Learning Studio autorisatie-sleutel ophalen
 Wanneer u uw experiment implementeert, wordt API-sleutels worden gegenereerd voor de webservice. U kunt de sleutels ophalen vanaf verschillende locaties.
 
 ### <a name="from-the-microsoft-azure-machine-learning-web-services-portal"></a>Vanuit de portal voor Microsoft Azure Machine Learning-webservices
@@ -103,7 +103,7 @@ Verbinding maken met een Machine Learning-webservice, het **Microsoft.AspNet.Web
 **Het codevoorbeeld uitvoeren**
 
 1. Publiceren ' voorbeeld 1: Gegevensset van UCI downloaden: Gegevensset van de klasse 2 volwassene"experiment, onderdeel van de Machine Learning-voorbeeld-verzameling.
-2. ApiKey toewijzen met de sleutel van een webservice. Zie **ophalen van een Azure Machine Learning-autorisatiesleutel** hierboven.
+2. ApiKey toewijzen met de sleutel van een webservice. Zie **ophalen van een Azure Machine Learning Studio-autorisatiesleutel** hierboven.
 3. Toewijzen serviceUri aan de aanvraag-URI.
 
 **Hier volgt een volledige aanvraag bekijken.**
@@ -199,7 +199,7 @@ Voor verbinding met een Machine Learning-webservice, gebruikt u de **urllib2** -
 **Het codevoorbeeld uitvoeren**
 
 1. Implementeren "voorbeeld 1: Gegevensset van UCI downloaden: Gegevensset van de klasse 2 volwassene"experiment, onderdeel van de Machine Learning-voorbeeld-verzameling.
-2. ApiKey toewijzen met de sleutel van een webservice. Zie de **ophalen van een Azure Machine Learning-autorisatiesleutel** sectie in de buurt van het begin van dit artikel.
+2. ApiKey toewijzen met de sleutel van een webservice. Zie de **ophalen van een Azure Machine Learning Studio-autorisatiesleutel** sectie in de buurt van het begin van dit artikel.
 3. Toewijzen serviceUri aan de aanvraag-URI.
 
 **Hier volgt een volledige aanvraag bekijken.**

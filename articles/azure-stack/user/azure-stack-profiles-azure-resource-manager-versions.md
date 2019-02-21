@@ -14,12 +14,12 @@ ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 6866c6d208468e53b04ede1b5e596f0ea625c49d
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f7d82b8cb609b390275617509946d640720f2dda
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248466"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456942"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Resource provider API-versies ondersteund door de profielen in Azure Stack
 
@@ -57,28 +57,6 @@ Zie voor een uitleg van de API-profielen en -versie worden uitgerold voor Azure 
 | Abonnementen | 2016-10-01 |
 
 Zie voor meer een lijst van de versies voor elk resourcetype voor de providers in het API-profiel, [Details voor de 2018-03-01-hybride](#details-for-the-2018-03-01-hybrid) profiel.
-
-## <a name="overview-of-2018-03-01-hybrid"></a>Overzicht van 2018-03-01-hybride
-
-| Resourceprovider | API-versie |
-|------------------------------------------------|------------------------------|
-| Microsoft.Compute | 30-03-2016 |
-| Microsoft.Network | 2015-06-15 |
-| Microsoft.Storage (Data Plane) | 2015-04-05  |
-| Microsoft.Storage (Controlelaag) | 2016-01-01   |
-| Microsoft.Websites | 2016-01-01 |
-| Microsoft.KeyVault | 2016-10-01<br>(Niet wijzigen) |
-| Microsoft.Resources<br>(Azure Resource Manager zelf) | 2016-02-01 |
-| Microsoft.Authorization<Br>(bewerkingen voor beleid) | 2015-11-01 |
-| Microsoft.Insights | 2015-11-01 |
-| Microsoft.Keyvault | 2016-10-01 |
-| Beleid | 2015-10-01-preview |
-| Resources | 2016-02-01 |
-| Resources_Links | 2016-09-01 |
-| Resources_Locks | 2016-09-01 |
-| Abonnementen | 2016-06-1 |
-
-Voor een lijst van de versies van elk resourcetype voor de providers in het API-profiel, Zie de volgende sectie.
 
 ## <a name="details-for-the-2018-03-01-hybrid"></a>Details van de 2018-03-01-hybride
 

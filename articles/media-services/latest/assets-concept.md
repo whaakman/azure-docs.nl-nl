@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 02/19/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 72229a723247d6f0d68341771b073d0626ab2edb
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 2ec2ddbac5d0368aaf1b46208c9ebb44bf12a622
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745993"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447307"
 ---
 # <a name="assets"></a>Assets
 
@@ -48,8 +48,7 @@ Een van de meestvoorkomende werkstromen zijn Media Services is om te uploaden, c
 4. Media Services v3 API's gebruiken om een transformatie en een taak voor het verwerken van uw "tekstinvoer" Asset te maken. Zie [Transformaties en taken](transform-concept.md) voor meer informatie.
 5. De inhoud van de ' uitvoerasset ' Stream.
 
-> [!TIP]
-> Voor een volledig .NET-voorbeeld laat zien hoe u: maken van de Asset, een beschrijfbare SAS-URL ophalen van de Asset-container in de opslag, het bestand uploaden naar de container in storage met behulp van de SAS-URL, Zie [de Taakinvoer van een maken vanuit een lokaal bestand](job-input-from-local-file-how-to.md).
+Voor een volledig .NET-voorbeeld laat zien hoe u: maken van de Asset, een beschrijfbare SAS-URL ophalen van de Asset-container in de opslag, het bestand uploaden naar de container in storage met behulp van de SAS-URL, Zie [de Taakinvoer van een maken vanuit een lokaal bestand](job-input-from-local-file-how-to.md).
 
 ### <a name="create-a-new-asset"></a>Een nieuwe asset maken
 

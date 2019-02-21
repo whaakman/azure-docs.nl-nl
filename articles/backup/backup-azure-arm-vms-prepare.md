@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: 0f522897f3d3b3261045f1c14387af53ebf4ad9d
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: e782afb971f95a654119d9817edeef02642bee9e
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429584"
+ms.locfileid: "56447562"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Back-up van virtuele Azure-machines in een Recovery Services-kluis
 
@@ -108,7 +108,7 @@ Als u een systeemproxy-account hebt, stelt een als volgt:
 1. Download [PsExec](https://technet.microsoft.com/sysinternals/bb897553).
 
 2. Voer **PsExec.exe -i -s cmd.exe** naar de opdrachtprompt met een systeemaccount worden uitgevoerd.
-3. De browser wordt uitgevoerd in de systeemcontext. Bijvoorbeeld: **PROGRAMFILES%\Internet Explorer\iexplore.exe** for Internet Explorer.  
+3. De browser wordt uitgevoerd in de systeemcontext. Bijvoorbeeld: **%PROGRAMFILES%\Internet Explorer\iexplore.exe** voor Internet Explorer.  
 4. Definieer de proxyinstellingen.
     - Op Linux-machines:
         - Deze regel toe te voegen de **/etc/omgeving** bestand:
@@ -117,7 +117,7 @@ Als u een systeemproxy-account hebt, stelt een als volgt:
             - **HttpProxy.Host=proxy IP-adres**
             - **HttpProxy.Port=proxy port**
     - Opgeven dat een proxy moet worden gebruikt op Windows-machines in de browserinstellingen. Als u momenteel een proxy voor een gebruikersaccount gebruikt, kunt u dit script gebruiken om toe te passen van de instelling op het niveau van het systeem-account.
-        ```
+        ```powershell
        $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
        Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name DefaultConnectionSettings -Value $obj.DefaultConnectionSettings
        Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name SavedLegacySettings -Value $obj.SavedLegacySettings
@@ -145,7 +145,7 @@ Op de NSG **NSF-lockdown**, verkeer van een willekeurige poort op 10.0.0.5 naar 
 - De volgende PowerShell-script toont een voorbeeld van het verkeer wordt toegestaan.
 - In plaats van toegestaan uitgaand naar alle openbare internet-adressen, kunt u een IP-adresbereik (-DestinationPortRange), of gebruik de servicetag storage.region.   
 
-    ```
+    ```powershell
     Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
     Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
     ```
@@ -237,7 +237,7 @@ VM's detecteren in het abonnement en back-up configureren.
 
 Na het inschakelen van back-up:
 
-- Een eerste back-back-up wordt uitgevoerd in overeenstemming met uw back-upschema.
+- Een eerste back-up wordt uitgevoerd in overeenstemming met uw back-upschema.
 - De Backup-service installeert de back-upextensie, ongeacht of de virtuele machine wordt uitgevoerd of niet.
     - Bij een actieve VM is de kans het grootst dat een toepassingsconsistent herstelpunt wordt verkregen.
     -  Echter, de virtuele machine is back-ups, zelfs als deze uitgeschakeld en de extensie kan niet worden geïnstalleerd. Dit staat bekend als *offline VM*. In dit geval is het herstelpunt *crashconsistent*.

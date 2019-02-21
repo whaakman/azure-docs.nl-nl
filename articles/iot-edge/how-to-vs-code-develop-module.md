@@ -6,15 +6,15 @@ keywords: ''
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 01/12/2019
+ms.date: 02/20/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 5abc13a39db3f1061e3df76857645d8075feade5
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 1a15600889a3c5a3c0ca587c78499f32be0ab8ed
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245749"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456704"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio Code gebruiken om te ontwikkelen en fouten opsporen in modules voor Azure IoT Edge
 
@@ -31,7 +31,7 @@ Voor modules die zijn geschreven C#, Node.js of Java, er zijn twee manieren om f
 
 Installeer [Visual Studio Code](https://code.visualstudio.com/) eerste en voeg de volgende extensies:
 
-- [Hulpprogramma's voor Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+- [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 - [Docker-extensie](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 - Visual Studio extensie (s) specifiek zijn voor de taal die u ontwikkelt in:
   - C#, met inbegrip van Azure Functions: [C#-extensie](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
@@ -262,6 +262,7 @@ Wanneer foutopsporing modules met behulp van deze methode, uw modules worden uit
       import ptvsd
       ptvsd.enable_attach(('0.0.0.0',  5678))
       ```
+
    - De volgende één regel code toevoegen aan de callback die u fouten wilt opsporen:
 
       ```python
@@ -350,6 +351,12 @@ U kunt in deze sectie overslaan als de modules worden uitgevoerd op dezelfde com
 
 > [!NOTE]
 > Het vorige voorbeeld laat zien hoe fouten opsporen in IoT Edge-modules voor containers. Deze blootgestelde poorten toegevoegd aan de container van de module `createOptions` instellingen. Nadat u klaar bent met het opsporen van fouten in uw modules, wordt u aangeraden verwijderen van deze blootgestelde poorten voor de IoT Edge-modules gereed is voor productie.
+
+## <a name="build-and-debug-a-module-remotely"></a>Bouwen en op afstand fouten opsporen in een module
+
+Recente wijzigingen in de Docker- en Moby-engines van SSH-verbindingen te ondersteunen en een nieuwe instelling in Azure IoT-hulpprogramma's waarmee injecteren van omgevingsinstellingen in het opdrachtenpalet van Visual Studio Code en Azure IoT Edge terminals, kunt u nu bouwen en fouten opsporen modules op externe apparaten.
+
+Raadpleeg deze [IoT Developer-blogbericht](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/) voor meer informatie en stapsgewijze instructies.
 
 ## <a name="next-steps"></a>Volgende stappen
 

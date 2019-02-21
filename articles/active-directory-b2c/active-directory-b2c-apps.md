@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7ea179ff7e4b525e86003faadfb92e090476bd81
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 116abd259d11e66be2dc158d833c569f06aaa923
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172643"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446372"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Typen toepassingen die kunnen worden gebruikt in Active Directory B2C
 
@@ -91,10 +91,10 @@ De web-API kan het token vervolgens gebruiken om de identiteit van de API-aanroe
 Een web-API kan tokens ontvangen van tal van clients, waaronder webtoepassingen, desktop en mobiele toepassingen, één pagina toepassingen, server-side-daemons en andere web-API's. Hier volgt een voorbeeld van de volledige stroom voor een webtoepassing die een web-API aanroept:
 
 1. De web-App wordt uitgevoerd een beleid en de gebruikerservaring door de gebruiker is voltooid.
-2. Azure AD B2C retourneert een `access_token` en een autorisatiecode naar de browser.
-3. De berichten van de browser de `access_token` en autorisatiecode op de omleidings-URI.
-4. De webserver valideert de `access token` en een sessiecookie ingesteld.
-5. De `access_token` aan Azure AD B2C wordt geleverd bij de autorisatiecode, client-ID van toepassing, en de referenties.
+2. Azure AD B2C retourneert een (OpenID Connect) `id_token` en een autorisatiecode naar de browser.
+3. De berichten van de browser de `id_token` en autorisatiecode op de omleidings-URI.
+4. De webserver valideert de `id_token` en een sessiecookie ingesteld.
+5. Azure AD B2C voor door de webserver wordt gevraagd een `access_token` door met de autorisatiecode, de toepassingsclient-ID en de clientreferenties.
 6. De `access_token` en `refresh_token` keert terug naar de webserver.
 7. De web-API wordt aangeroepen met de `access_token` in een autorisatie-header.
 8. De web-API valideert het token.

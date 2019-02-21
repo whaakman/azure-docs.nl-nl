@@ -1,5 +1,5 @@
 ---
-title: Over Azure VM backup
+title: Over Azure VM Backup
 description: Meer informatie over Azure VM backup en houd er rekening mee enkele aanbevolen procedures.
 services: backup
 author: rayne-wiselman
@@ -8,14 +8,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: c331c3617f421c913abbc3554aa5ba17e86cb978
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: c38c457bbf428d7252cf57168685201a2ca227ba
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429174"
+ms.locfileid: "56446797"
 ---
-# <a name="about-azure-vm-backup"></a>Over Azure VM backup
+# <a name="about-azure-vm-backup"></a>Over Azure VM Backup
 
 Dit artikel wordt beschreven hoe u de [Azure Backup-service](backup-introduction-to-azure-backup.md) back-ups van virtuele Azure-machines.
 
@@ -48,7 +48,7 @@ Wanneer u back-up van virtuele Azure-machines met Azure Backup, worden virtuele 
 
 **Versleuteling** | **Details** | **Ondersteuning**
 --- | --- | ---
-**ADE** | ADE versleutelt codeert zowel besturingssysteem en gegevensschijven voor virtuele Azure-machines.<br/><br/> ADE kan worden geïntegreerd met BitLocker-versleutelingssleutels (BEK) beveiligd in een key vault als geheimen, of met Azure Key Vault-sleutel-versleutelingssleutels (KEK-sleutel). | Azure Backup biedt ondersteuning voor back-up van beheerde en niet-beheerde Azure-VM's met BEK alleen of met de BEK samen met de KEK versleuteld.<br/><br/> Beide BEK en een back-up en versleuteld.<br/><br/> Sinds de KEK-sleutel en BEK back-ups, indien nodig gebruikers met machtigingen kunt herstellen van sleutels en geheimen terug naar de key vault en de versleutelde VM herstellen.<br/><br/> Versleutelde sleutels en geheimen kunnen niet worden gelezen door onbevoegde gebruikers, of door Azure.
+**ADE** | ADE versleutelt zowel besturingssysteem en gegevensschijven voor virtuele Azure-machines.<br/><br/> ADE kan worden geïntegreerd met BitLocker-versleutelingssleutels (BEK) beveiligd in een key vault als geheimen, of met Azure Key Vault-sleutel-versleutelingssleutels (KEK-sleutel). | Azure Backup biedt ondersteuning voor back-up van beheerde en niet-beheerde Azure-VM's met BEK alleen of met de BEK samen met de KEK versleuteld.<br/><br/> Beide BEK en een back-up en versleuteld.<br/><br/> Sinds de KEK-sleutel en BEK back-ups, indien nodig gebruikers met machtigingen kunt herstellen van sleutels en geheimen terug naar de key vault en de versleutelde VM herstellen.<br/><br/> Versleutelde sleutels en geheimen kunnen niet worden gelezen door onbevoegde gebruikers, of door Azure.
 **SSE** | Met SSE, Azure storage biedt versleuteling ' at rest ' door het versleutelen van gegevens automatisch voordat u opslaat en ontsleutelt deze voordat ophalen. | Azure Backup gebruikt SSE voor versleuteling bij rust virtuele Azure-machines.
 
 - Back-up van virtuele machines die zijn versleuteld met BitLocker-versleuteling sleutel (BEK) alleen en BEK samen met Key(KEK) voor Key-versleuteling wordt ondersteund voor beheerde en niet-beheerde Azure-VM's.

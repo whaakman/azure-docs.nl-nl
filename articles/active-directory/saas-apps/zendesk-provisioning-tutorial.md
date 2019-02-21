@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e56cc5a893c5a88a5b64466d6feceb20ccd8cdc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8fb6108855cf3237af230f3356f0afb68e2b1ec4
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167844"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445539"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Zelfstudie: Zendesk voor het automatisch inrichten van gebruikers configureren
 
@@ -118,7 +118,8 @@ Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-inricht
     *   In de **domein** veld, vullen het subdomein van uw Zendesk-tenant.
     Voorbeeld: Voor een account met een tenant-URL van https://my-tenant.zendesk.com, zou uw subdomein **mijn tenant**.
 
-6. De **geheim Token** voor uw Zendesk-account zich bevindt in **Admin > API > instellingen**. 
+6. De **geheim Token** voor uw Zendesk-account zich bevindt in **Admin > API > instellingen**.
+   Zorg ervoor dat **tokentoegang** is ingesteld op **ingeschakeld**.
 
     ![Het inrichten van Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk4.png) ![Zendesk inrichten](./media/zendesk-provisioning-tutorial/ZenDesk2.png)
 

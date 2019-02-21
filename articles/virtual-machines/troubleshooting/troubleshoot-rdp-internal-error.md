@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: dd75d5a3186bbb6ba82e2deb83a7e8429e32a3f2
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 4476e4732dfcf8d79c9678a7ff4719eba10e48f3
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134519"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445778"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Een interne fout treedt op wanneer u probeert verbinding maken met een Azure-VM via Extern bureaublad
 
@@ -65,23 +65,25 @@ Verbinding maken met [seriële Console en open PowerShell exemplaar](./serial-co
 
     1. Stop de service voor de toepassing die van de 3389-service gebruikmaakt:
 
-        Stop-Service - naam <ServiceName>
+            Stop-Service -Name <ServiceName> -Force
 
     2. Start de terminal service:
 
-        Start-Service - naam van de Terminal Server
+            Start-Service -Name Termservice
 
 2. Als de toepassing kan niet worden gestopt of als deze methode geldt niet voor u, wijzigt u de poort voor RDP:
 
     1. Wijzig de poort:
 
-        Set-ItemProperty-pad 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp'-naam PortNumber-waarde <Hexportnumber>
+            Set-ItemProperty -Path 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name PortNumber -value <Hexportnumber>
 
-        Stop-Service - naam van de Terminal Server Start-Service-naam van de Terminal Server
+            Stop-Service -Name Termservice -Force
+            
+            Start-Service -Name Termservice 
 
     2. Stel de firewall voor de nieuwe poort:
 
-        Set-NetFirewallRule-naam 'RemoteDesktop-gebruikersmodus-In-TCP-' - LocalPort < nieuw-poort (decimaal) >
+            Set-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP" -LocalPort <NEW PORT (decimal)>
 
     3. [Bijwerken van de netwerkbeveiligingsgroep voor de nieuwe poort](../../virtual-network/security-overview.md) in de Azure portal RDP-poort.
 
@@ -89,7 +91,13 @@ Verbinding maken met [seriële Console en open PowerShell exemplaar](./serial-co
 
 1.  Voer de volgende opdrachten één voor één om de zelf-ondertekend RDP-certificaat te vernieuwen in een PowerShell-exemplaar:
 
-        Import-Module PKI Set-Location Cert:\LocalMachine $RdpCertThumbprint = 'Cert:\LocalMachine\Remote Desktop\'+((Get-ChildItem -Path 'Cert:\LocalMachine\Remote Desktop\').thumbprint) Remove-Item -Path $RdpCertThumbprint
+        Import-Module PKI 
+    
+        Set-Location Cert:\LocalMachine 
+        
+        $RdpCertThumbprint = 'Cert:\LocalMachine\Remote Desktop\'+((Get-ChildItem -Path 'Cert:\LocalMachine\Remote Desktop\').thumbprint) 
+        
+        Remove-Item -Path $RdpCertThumbprint
 
         Stop-Service -Name "SessionEnv"
 
@@ -112,7 +120,9 @@ Verbinding maken met [seriële Console en open PowerShell exemplaar](./serial-co
 
         md c:\temp
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt takeown /f "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
+        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt 
+        
+        takeown /f "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
 
         icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\System:(F)"
 
@@ -120,11 +130,13 @@ Verbinding maken met [seriële Console en open PowerShell exemplaar](./serial-co
 
         icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "BUILTIN\Administrators:(F)"
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\AfterScript_permissions.txt Restart-Service TermService -Force
+        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\AfterScript_permissions.txt 
+        
+        Restart-Service TermService -Force
 
 4. Start de VM opnieuw op en probeer het vervolgens Start een extern-bureaubladverbinding met de virtuele machine. Als de fout zich blijft voordoen, gaat u naar de volgende stap.
 
-Stap 3: Alle ondersteunde TLS-versies inschakelen
+Stap 3: Inschakelen van alle ondersteunde TLS-versies
 
 De RDP-client maakt gebruik van TLS 1.0 als het standaard-protocol. Dit kan echter worden gewijzigd in TLS 1.1, waarvan de nieuwe standaard is geworden. Als TLS 1.1 op de virtuele machine is uitgeschakeld, mislukt de verbinding.
 1.  In een CMD-instantie, schakelt u het TLS-protocol:
@@ -161,7 +173,7 @@ Om in te schakelen dump logboek- en seriële Console, voer het volgende script.
 
     In dit script, we gaan ervan uit dat de stationsletter die is toegewezen aan de gekoppelde besturingssysteemschijf F. vervangen deze stationsletter door de juiste waarde voor uw virtuele machine.
 
-    ```powershell
+    ```
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
 
     REM Enable Serial Console
@@ -191,6 +203,7 @@ Om in te schakelen dump logboek- en seriële Console, voer het volgende script.
         Md F:\temp
 
         icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt
+        
         takeown /f "F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
 
         icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\System:(F)"

@@ -1,6 +1,6 @@
 ---
-title: Appwachtwoorden met beveiligingsgegevens - Azure Active Directory instellen | Microsoft Docs
-description: Instellen van de automatisch gegenereerde wachtwoorden (app-wachtwoorden) voor gebruik met elke niet-browser-app te scheiden van een normaal wachtwoord, met beveiligingsgegevens.
+title: App-wachtwoorden instellen vanuit de pagina beveiligingsgegevens (preview) - Azure Active Directory | Microsoft Docs
+description: Automatisch gegenereerde wachtwoorden instellen (app-wachtwoorden) voor gebruik met een niet-browser-app of een andere app die geen ondersteuning voor tweeledige verificatie bieden, in uw organisatie. Dit app-wachtwoord is gescheiden van een normaal wachtwoord en kan worden ingesteld van de pagina beveiligingsgegevens.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,21 +9,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62dcdfe3aef40942dd61fe604e179b61dbdd747c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fcf0e421572a9a698bcc68af47d8950795ac8791
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211883"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456806"
 ---
-# <a name="manage-app-passwords-using-security-info-preview"></a>Beheren van app-wachtwoorden met beveiligingsgegevens (preview)
+# <a name="manage-app-passwords-from-your-security-info-preview-page"></a>App-wachtwoorden beheren vanaf de pagina beveiligingsgegevens (preview)
+Bepaalde apps, zoals Outlook 2010, bieden geen ondersteuning voor verificatie in twee stappen. Dit gebrek aan ondersteuning betekent dat als u verificatie in twee stappen in uw organisatie, de app werkt niet. Als u lost dit probleem, kunt u een automatisch gegenereerd wachtwoord gebruiken met elke niet-browser-app, los van uw normale wachtwoord maken.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-Bepaalde niet-browsertoepassingen, zoals Outlook 2010, biedt geen ondersteuning voor verificatie in twee stappen. Dit gebrek aan ondersteuning betekent dat als u verificatie in twee stappen, de app werkt niet. Als u lost dit probleem, kunt u een automatisch gegenereerd wachtwoord gebruiken met elke niet-browser-app, los van uw normale wachtwoord maken.
+>[!Important]
+>Uw beheerder mogelijk niet kunt u app-wachtwoorden gebruiken. Als er geen **App-wachtwoorden** als optie niet beschikbaar zijn in uw organisatie.
 
 Wanneer u app-wachtwoorden, is het belangrijk om te onthouden:
 
@@ -36,52 +38,48 @@ Wanneer u app-wachtwoorden, is het belangrijk om te onthouden:
     >[!Note]
     >Nieuwe verificatieprotocollen worden ondersteund door Office 2013 clients (inclusief Outlook) en kan worden gebruikt met verificatie in twee stappen. Deze ondersteuning betekent dat na verificatie in twee stappen is ingeschakeld, niet meer u app-wachtwoorden voor Office 2013 clients moet. Zie voor meer informatie de [hoe moderne verificatie werkt voor client-apps voor Office 2013 en Office 2016](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517) artikel.
 
-## <a name="create-and-delete-app-passwords-using-security-info"></a>Maken en verwijderen van app-wachtwoorden met beveiligingsgegevens
+## <a name="create-new-app-passwords"></a>Nieuwe app-wachtwoorden maken
+Als u verificatie in twee stappen met uw werk of school-account gebruiken en de beheerder de ervaring van de informatie over beveiliging is ingeschakeld, kunt u maken en verwijderen van uw app-wachtwoorden met behulp van de **beveiligingsgegevens** pagina.
 
-Als u verificatie in twee stappen met uw werk gebruiken of school-account en de beheerder de ervaring van de informatie over beveiliging is ingeschakeld, kunt u maken en verwijderen van uw app-wachtwoorden met behulp van de portal mijn Apps.
+>[!Note]
+>Als de beheerder nog niet is ingeschakeld op de ervaring van de informatie over beveiliging, moet u Volg de instructies en informatie in de [beheren van app-wachtwoorden voor verificatie in twee stappen](multi-factor-authentication-end-user-app-passwords.md) sectie.
 
-Als de beheerder nog niet is ingeschakeld op de ervaring van de informatie over beveiliging, moet u Volg de instructies en informatie in de [beheren van app-wachtwoorden voor verificatie in twee stappen](multi-factor-authentication-end-user-app-passwords.md) sectie.
+### <a name="to-create-a-new-app-password"></a>Een nieuw appwachtwoord maken
+1. Meld u aan bij uw werk- of schoolaccount en gaat u naar uw https://myprofile.microsoft.com/ pagina.
 
-### <a name="to-create-app-passwords-using-the-my-apps-portal"></a>Met behulp van de portal mijn Apps van appwachtwoorden te maken
+    ![Mijn profiel-pagina, met gemarkeerde Security info koppelingen](media/security-info/securityinfo-myprofile.png)
 
-1. Meld u aan bij uw werk- of schoolaccount.
+2. Selecteer **beveiligingsgegevens** vanuit het navigatiedeelvenster links in of via de koppeling in de **beveiligingsgegevens** blokkeren, en selecteer vervolgens **-methode toevoegen** uit de **beveiligingsgegevens**  pagina.
 
-2. Ga naar myapps.microsoft.com, selecteert uw naam in de rechterbovenhoek van de pagina en selecteer vervolgens **profiel**.
+    ![Pagina beveiligingsgegevens met optie van de methode gemarkeerde toevoegen](media/security-info/securityinfo-myprofile-addmethod.png)
 
-3. In de **-account beheren** gedeelte **beveiligingsgegevens bewerken**.
+3. Op de **toevoegen van een methode** weergeeft, schakelt **appwachtwoord** uit de vervolgkeuzelijst en selecteer vervolgens **toevoegen**.
 
-    ![Scherm profiel met de koppeling bewerken security info gemarkeerd](media/security-info/security-info-profile.png)
+    ![Methode vak met de geselecteerde App-wachtwoord toevoegen](media/security-info/securityinfo-myprofile-addpassword.png)
 
-4. In de **je account blijft beveiligd** scherm, selecteer **toevoegen van beveiligingsgegevens**.
+4. Typ de naam van de app waarvoor het app-wachtwoord en selecteer vervolgens **volgende**.
 
-    ![Security info scherm met bestaande, bewerkbare info](media/security-info/security-info-edit-add-info.png)
+    ![Pagina App-wachtwoorden, met de naam van app](media/security-info/securityinfo-myprofile-password-appname.png)
 
-5. In de **toevoegen van beveiligingsgegevens** scherm, selecteer **App-wachtwoord**.
+5. Kopieer de tekst van de **wachtwoord** vak, plak het wachtwoord in het gebied van het wachtwoord van de app (in dit voorbeeld Outlook 2010) en selecteer vervolgens **gedaan**.
 
-6. In de **uw app-wachtwoord maken** scherm, typt u een naam voor uw app-wachtwoord en selecteer vervolgens **volgende**.
-
-    ![Scherm waar u uw app-wachtwoord naam](media/security-info/security-info-name-app-password.png)
-
-7. Selecteer **kopie** moet het wachtwoord naar Klembord kopiëren en selecteer vervolgens **volgende**.
-
-    ![Met app-wachtwoord voor het kopiëren van het scherm](media/security-info/security-info-create-app-password.png)
+    ![Pagina App-wachtwoorden, met de naam van app](media/security-info/securityinfo-myprofile-password-copytext.png)
     
-8. Zorg ervoor dat het app-wachtwoord wordt weergegeven op de **je account blijft beveiligd** scherm.
+    Het wachtwoord is toegevoegd en u met succes kunt aanmelden bij uw app gaan.
 
-    ![Beveiligde scherm, met app-wachtwoord houden](media/security-info/security-info-keep-secure-app-password.png)
+## <a name="delete-your-app-passwords"></a>Uw app-wachtwoorden verwijderen
+Als u niet meer nodig om een app waarvoor een app-wachtwoord te gebruiken, kunt u het bijbehorende app-wachtwoord kunt verwijderen. Verwijderen van het app-wachtwoord maakt u een van de beschikbare app-wachtwoord-punten voor gebruik in de toekomst.
 
-### <a name="to-delete-app-passwords-using-the-my-apps-portal"></a>Met behulp van de portal mijn Apps van app-wachtwoorden verwijderen
+>[!Important]
+>Als u een app-wachtwoord per ongeluk verwijdert, is er geen manier om deze ongedaan te maken. U hebt te maken van een nieuw app-wachtwoord opnieuw invoeren in de app, de stappen in de [nieuwe app-wachtwoorden maken](#create-new-app-passwords) sectie van dit artikel.
 
-1. Op de **je account blijft beveiligd** scherm, selecteer de **X** naast het app-wachtwoord om te verwijderen.
+### <a name="to-delete-an-app-password"></a>Verwijderen van een app-wachtwoord
 
-    ![Scherm veilig te houden, verwijdert u app-wachtwoord](media/security-info/security-info-keep-secure-delete-app-password.png)
+1. Op de **beveiligingsgegevens** weergeeft, schakelt de **verwijderen** koppelen naast de **App-wachtwoord** optie voor de specifieke app.
 
-2. In de **verwijderen toepassingswachtwoord** scherm, selecteer **verwijderen**.
+    ![Koppeling naar de methode van de app-wachtwoord van beveiligingsgegevens verwijderen](media/security-info/securityinfo-myprofile-password-appdelete.png)
 
-    ![Scherm app-wachtwoord verwijderen](media/security-info/security-info-keep-secure-delete-app-password2.png)
+2. Selecteer **Ja** uit de bevestiging van verwijderen van de **App-wachtwoord**. Nadat de app-wachtwoord wordt verwijderd, wordt deze verwijderd uit je beveiligingsgegevens en, verdwijnt het uit de **beveiligingsgegevens** pagina.
 
-## <a name="next-steps"></a>Volgende stappen
-
-- Als u uw beveiligingsgegevens bijwerken wilt, volgt u de instructies in de [je beveiligingsgegevens beheren](security-info-manage-settings.md) artikel.
-
-- Zie voor meer algemene informatie over beveiligingsgegevens en kunt u doen [info beveiligingsoverzicht](user-help-security-info-overview.md) 
+## <a name="for-more-information"></a>Voor meer informatie
+- Voor meer informatie over de **beveiligingsgegevens** pagina en hoe u deze instellen, Zie [info beveiligingsoverzicht](user-help-security-info-overview.md)

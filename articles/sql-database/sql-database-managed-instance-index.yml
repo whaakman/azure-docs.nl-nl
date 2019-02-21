@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: c9d8b875d7e5a831af52eae8abc642632cb5f635
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 287e4d63ca60200340a88dd45d6b8912a62b74cd
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238382"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454686"
 documentType: LandingData
 title: Azure SQL Database Managed Instance
 metadata:
@@ -75,7 +75,7 @@ sections:
     style: unordered
     items:
     - html: <a href="sql-database-managed-instance#business-critical-service-tier">Kritieke-bedrijfslaag</a> is nu in <a href="https://azure.microsoft.com/blog/migrate-mission-critical-sql-workloads-to-the-most-economical-cloud-destination/">algemene beschikbaarheid (GA)</a>.
-    - html: (Preview) Maak <a href="https://aka.ms/managed-instance-aadlogins">Instance-level Azure AD-aanmeldingen</a> met behulp van <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">maken van externe PROVIDER voor de aanmelding</a> .
+    - html: (Preview) Maak <a href="https://aka.ms/managed-instance-aadlogins">Instance-level principals met Azure AD-server (aanmeldingen)</a> met behulp van <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">maken van externe PROVIDER voor de aanmelding</a> .
     - html: (Preview) Maken van instanties met <a href="https://aka.ms/managed-instance-collation">sortering van uw keuze op serverniveau</a>.
     - html: <a href="https://aka.ms/managed-instance-configurable-backup-retention">Configureren van back-upretentie van 35 dagen</a> voor Point-in-time restore. Houd er rekening mee dat langetermijnretentie (maximaal 10 jaar) nog niet is ingeschakeld, zodat u kunt <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">kopie-alleen back-ups</a> als alternatief.
     - html: (Preview) Gebruik <a href="https://aka.ms/managed-instance-failover-groups">geografisch gedistribueerde failovergroepen</a> Bewaar een kopie van het exemplaar in een andere regio en ervoor zorgen dat uw gegevens beschikbaar zijn, zelfs in het scenario regionale na noodgevallen zijn.
