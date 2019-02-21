@@ -13,16 +13,14 @@ ms.devlang: na
 ms.date: 12/19/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 99d4f3b6cf42ee21c34809b5604c4603da784e7b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: cf1894a218af35459e0d0dc432c5813169856cca
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107817"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267697"
 ---
 # <a name="tutorial-move-azure-resources-to-another-resource-group-or-subscription"></a>Zelfstudie: Azure-resources verplaatsen naar een andere resourcegroep of een ander abonnement
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Informatie over het verplaatsen van Azure-resources van de ene naar de andere resourcegroep. U kunt Azure-resources ook verplaatsen van het ene naar het andere Azure-abonnement. In deze zelfstudie gebruikt u een resourcemanagerssjabloon om twee resourcegroepen en één opslagaccount te implementeren. Vervolgens verplaatst u het opslagaccount van de ene naar de andere resourcegroep.
 
@@ -37,8 +35,6 @@ Deze zelfstudie bestaat uit de volgende taken:
 > * Resources opschonen.
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prepare-the-resources"></a>De resources voorbereiden
 
@@ -98,6 +94,8 @@ Met de bewerking voor het valideren van de verplaatsing kunt u het verplaatsings
 ## <a name="move-the-resource"></a>De resource verplaatsen
 
 Het opslagaccount bevindt zich binnen in de bronresourcegroep (rg1). Voer het volgende PowerShell-script uit om de resource naar de doelresourcegroep (rg2) te verplaatsen. Gebruik dezelfde projectnaam die u hebt gebruikt bij het implementeren van de resources.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ```azurepowershell-interactive
 $projectName = Read-Host -prompt "Enter a project name"

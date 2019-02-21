@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: e7d271ce37209a49e1c75d6114ed07b11558df44
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c8aafa2dc2798aee5576dab4781b42d4aa67ddd9
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104989"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269260"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager versus klassieke implementatie: begrip van implementatiemodellen en de status van uw resources
 
@@ -48,8 +48,6 @@ In 2014 werd Azure Resource Manager geïntroduceerd, en daarmee het concept van 
 Op het moment dat Resource Manager werd toegevoegd, werden alle resources met terugwerkende kracht toegevoegd aan standaardresourcegroepen. Als u nu een resource maakt via klassieke implementatie, wordt de resource automatisch gemaakt binnen een standaardresourcegroep voor de service, zelfs als u de resourcegroep niet hebt opgegeven bij de implementatie. Het feit dat de resource deel uitmaakt van een resourcegroep betekent echter niet dat de resource is geconverteerd naar het Resource Manager-model.
 
 ## <a name="understand-support-for-the-models"></a>Ondersteuning voor de modellen begrijpen
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Er zijn drie mogelijke scenario's:
 
