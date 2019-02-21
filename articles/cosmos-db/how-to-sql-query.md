@@ -3,15 +3,15 @@ title: SQL-query's voor Azure Cosmos DB
 description: Meer informatie over SQL-syntaxis, database-concepten en SQL-query's voor Azure Cosmos DB. SQL kan worden gebruikt als een JSON-querytaal in Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: f8b23533127b9798e5a677f646f94ae0a53fcde8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 185ff9c7f50fa08ba952f1519bf406d9017982e0
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822405"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455956"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>SQL-queryvoorbeelden voor Azure Cosmos DB
 
@@ -367,7 +367,7 @@ De volgende binaire operatoren worden momenteel ondersteund en kunnen worden geb
 |Bitsgewijs    | \|, &, ^, <<, >>, >>> (opvulling met nullen shift-rechts) |
 |Logisch    | EN, OF, NIET      |
 |Vergelijking | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
-|Tekenreeks     |  \|\| (samenvoegen) |
+|String     |  \|\| (samenvoegen) |
 
 Laten we eens enkele query's met binaire operatoren bekijken.
 
@@ -820,7 +820,7 @@ U kunt ook statistische functies uitvoeren in combinatie met filters. De volgend
 
 De volgende tabel bevat de lijst met ondersteunde statistische functies in de SQL-API. `SUM` en `AVG` worden uitgevoerd op numerieke waarden, terwijl `COUNT`, `MIN`, en `MAX` kunnen worden uitgevoerd op getallen, tekenreeksen, Booleaanse waarden en null-waarden.
 
-| Gebruik | Beschrijving |
+| Gebruik | Description |
 |-------|-------------|
 | COUNT | Retourneert het aantal items in de expressie. |
 | SUM   | Retourneert de som van alle waarden in de expressie. |
@@ -1363,19 +1363,19 @@ Als u momenteel een door de gebruiker gedefinieerde functie (UDF) gebruikt waarv
 
 Met elke wiskundige functie wordt een berekening op basis van de opgegeven invoerwaarden uitgevoerd en een numerieke waarde geretourneerd. Dit is een tabel met ondersteunde ingebouwde wiskundige functies.
 
-| Gebruik | Beschrijving |
+| Gebruik | Description |
 |----------|--------|
 | [ABS (num_expr) | Retourneert de absolute (positieve) waarde van de opgegeven numerieke expressie. |
 | CEILING (num_expr) | Retourneert het kleinste gehele getal dat groter is dan of gelijk is aan de opgegeven numerieke expressie. |
 | FLOOR (num_expr) | Retourneert het grootste gehele getal dat kleiner is dan of gelijk is aan de opgegeven numerieke expressie. |
 | EXP (num_expr) | Retourneert de exponent van de opgegeven numerieke expressie. |
-| [LOG (num_expr [, grondtal])](#bk_log) | Retourneert de natuurlijke logaritme van de opgegeven numerieke expressie, of de logaritme met behulp van het opgegeven grondtal |
+| LOG (num_expr ,base) | Retourneert de natuurlijke logaritme van de opgegeven numerieke expressie, of de logaritme met behulp van het opgegeven grondtal |
 | LOG10 (num_expr) | Retourneert de waarde van de logaritme met het grondtal 10 van de opgegeven numerieke expressie. |
 | ROUND (num_expr) | Retourneert een numerieke waarde, afgerond naar het dichtstbijzijnde gehele getal. |
 | TRUNC (num_expr) | Retourneert een numerieke waarde, afgekapt tot het dichtstbijzijnde gehele getal. |
 | SQRT (num_expr) | Retourneert de vierkantswortel van de opgegeven numerieke expressie. |
 | SQUARE (num_expr) | Retourneert het kwadraat van de opgegeven numerieke expressie. |
-| [POWER (num_expr, num_expr)](#bk_power) | Retourneert de machtsverheffing met de opgegeven waarde van de opgegeven numerieke expressie. |
+| POWER (num_expr, num_expr) | Retourneert de machtsverheffing met de opgegeven waarde van de opgegeven numerieke expressie. |
 | SIGN (num_expr) | Retourneert de waarde voor het teken (-1, 0, 1) van de opgegeven numerieke expressie. |
 | ACOS (num_expr) | Retourneert de hoek, in radialen, waarvan de cosinus de opgegeven numerieke expressie is. Dit wordt ook wel de arccosinus genoemd. |
 | ASIN (num_expr) | Retourneert de hoek, in radialen, waarvan de sinus de opgegeven numerieke expressie is. Deze functie wordt ook wel de arcsinus genoemd. |
@@ -1438,7 +1438,7 @@ Met deze functies kunt u nu bijvoorbeeld query's uitvoeren zoals die in het volg
 
 Met de volgende scalaire functies wordt een bewerking op een tekenreeksinvoerwaarde uitgevoerd en een tekenreeks, numerieke waarde of Booleaanse waarde geretourneerd. Hier volgt een tabel met ingebouwde tekenreeksfuncties:
 
-| Gebruik | Beschrijving |
+| Gebruik | Description |
 | --- | --- |
 | [LENGTH (str_expr)](sql-api-query-reference.md#bk_length) | Retourneert het aantal tekens van de opgegeven tekenreeksexpressie |
 | [CONCAT (str_expr, str_expr [, str_expr])](sql-api-query-reference.md#bk_concat) | Retourneert een tekenreeks die het resultaat is van het samenvoegen van twee of meer tekenreekswaarden. |
@@ -1520,7 +1520,7 @@ Tekenreeksfuncties kunnen ook in de WHERE-component worden gebruikt om resultate
 
 Met de volgende scalaire functies wordt een bewerking op een matrixinvoerwaarde uitgevoerd en een numerieke waarde, Booleaanse waarde of matrixwaarde geretourneerd. Hier volgt een tabel met ingebouwde matrixfuncties:
 
-| Gebruik | Beschrijving |
+| Gebruik | Description |
 | --- | --- |
 | [ARRAY_LENGTH (arr_expr)](sql-api-query-reference.md#bk_array_length) |Retourneert het aantal elementen van de opgegeven matrixexpressie. |
 | [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](sql-api-query-reference.md#bk_array_concat) |Retourneert een matrix die het resultaat is van het samenvoegen van twee of meer matrixwaarden. |
@@ -1589,7 +1589,7 @@ Hier volgt nog een voorbeeld waarin ARRAY_LENGTH wordt gebruikt om het aantal ki
 
 Cosmos DB biedt ondersteuning voor de volgende ingebouwde OGC-functies (Open Geospatial Consortium) voor georuimtelijke query's. 
 
-| Gebruik | Beschrijving |
+| Gebruik | Description |
 | --- | --- |
 | ST_DISTANCE (point_expr, point_expr) | Retourneert de afstand tussen de twee GeoJSON Point-, Polygon- of LineString-expressies. |
 | T_WITHIN (point_expr, polygon_expr) | Retourneert een Booleaanse expressie die aangeeft of het eerste GeoJSON-object (Point, Polygon of LineString) zich bevindt in het tweede GeoJSON-object (punt, Polygon of LineString). |
