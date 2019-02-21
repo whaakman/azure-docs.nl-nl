@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 46457711c1611e614f89a813b1856687beb27ac7
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 372d3d88c0a160c1f294f07e58c5e11dbf5eac5e
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311429"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456602"
 documentType: LandingData
 title: Documentatie over Azure Machine Learning-service
 metadata:
   title: Documentatie voor de Azure Machine Learning-service - zelfstudies, API-verwijzing | Microsoft Docs
-  description: Azure Machine Learning-service biedt een omgeving in de cloud die u kunt gebruiken om machine learning-modellen te ontwikkelen, trainen, testen, implementeren, beheren en volgen. De Azure Machine Learning-service biedt volledige ondersteuning voor opensourcetechnologieën zoals Scikit-learn, Tensorflow, Pytorch en andere op Python gebaseerde frameworks. Leer aan de hand van onze quickstarts en zelfstudies hoe u de Azure Machine Learning-service gebruikt voor uw machine learning-werkstromen.
+  description: De Azure Machine Learning-service biedt SDK's en services waarmee u snel gegevens voorbereidt, en Machine Learning-modellen traint en implementeert. Verhoog de productiviteit en verlaag de kosten met automatische aanpassing van de rekenbehoefte en de pijplijnen. Gebruik deze mogelijkheden via open-source Python-frameworks, zoals PyTorch, TensorFlow en scikit-learn. Ga aan de slag met onze quickstarts en zelfstudies.
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -17,12 +17,21 @@ metadata:
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 2/15/2019
+  ms.date: 2/19/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: De Azure Machine Learning-service biedt een cloudomgeving waarin u snel gegevens voorbereidt, en Machine Learning-modellen traint en implementeert. Gebruik geautomatiseerde machine learning om algoritmen te identificeren en sneller hyperparameters af te stemmen. Verhoog de productiviteit en verlaag de kosten met automatische aanpassing van de rekenbehoefte en de pijplijnen. U kunt van deze mogelijkheden gebruikmaken via open-source Python-frameworks, zoals PyTorch, TensorFlow en scikit-learn, in combinatie met de SDK's van de service. Ga aan de slag met onze quickstarts en zelfstudies.
+  description: De Azure Machine Learning-service biedt SDK's en services waarmee u snel gegevens voorbereidt, en Machine Learning-modellen traint en implementeert. Verhoog de productiviteit en verlaag de kosten met automatische aanpassing van de rekenbehoefte en de pijplijnen. Gebruik deze mogelijkheden via open-source Python-frameworks, zoals PyTorch, TensorFlow en scikit-learn. Ga aan de slag met onze quickstarts en zelfstudies.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/index/video.png
+      width: 250
+    title: Bekijk de video (9:58)
+    href: https://www.youtube.com/watch?v=GBDSBInvz08
+    width: 250
 sections:
 - title: QuickStarts van vijf minuten
   items:
@@ -51,9 +60,9 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="https://aka.ms/aml-sdk">Hoofd-SDK (Python)</a>
-    - html: <a href="https://aka.ms/data-prep-sdk">Gegevensvoorbereidings-SDK (Python)</a>
-    - html: <a href="https://aka.ms/aml-monitoring-sdk">Bewakings-SDK (Python)</a>
+    - html: '<a href="https://aka.ms/aml-sdk">Centrale Python-SDK</a>: de belangrijkste functionaliteit, geautomatiseerde machine learning, pijplijnen en meer'
+    - html: '<a href="https://aka.ms/data-prep-sdk">Python SDK voor gegevensvoorbereiding</a>: uw gegevens voorbereiden en transformeren'
+    - html: '<a href="https://aka.ms/aml-monitoring-sdk">Python SDK voor bewaking</a>: gegevens verzamelen over geïmplementeerde webservices'
 - title: Andere Azure Machine Learning-technologieën
   items:
   - type: list

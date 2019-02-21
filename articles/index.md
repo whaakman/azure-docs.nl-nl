@@ -2,16 +2,10 @@
 layout: HubPage
 hide_bc: true
 title: Documentatie voor Microsoft Azure
-description: Leer hoe u krachtige toepassingen maakt en beheert met Microsoft Azure Cloud Services. Documentatie, voorbeeldcode, zelfstudies en meer bekijken.
+description: 'Leer hoe u krachtige toepassingen maakt en beheert met Microsoft Azure Cloud Services. Documentatie, voorbeeldcode, zelfstudies en meer bekijken.'
 ms.topic: hub-page
 featureFlags:
-- clicktale
-ms.openlocfilehash: 4ae03eedb96ecd1b460b06df3a80a7349c04e099
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330712"
+  - clicktale
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -195,6 +189,7 @@ Go</a>
                                                 <h4>Relationele databases</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/sql-database/">SQL Database as a Service</a></li>
+                                                    <li><a class="barLink" href="/azure/virtual-machines/windows/sql/">SQL Server in een Azure-VM</a></li>
                                                     <li><a class="barLink" href="/azure/sql-data-warehouse/">SQL Data Warehouse as a Service</a></li>
                                                     <li><a class="barLink" href="/azure/postgresql/">PostgreSQL Database as a Service</a></li>
                                                     <li><a class="barLink" href="/azure/mysql/">MySQL Database as a Service</a></li>

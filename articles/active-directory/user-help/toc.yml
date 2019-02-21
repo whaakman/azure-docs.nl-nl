@@ -23,26 +23,6 @@ items:
     href: active-directory-passwords-reset-register.md
   - name: Uw wachtwoord opnieuw instellen
     href: user-help-reset-password.md
-- name: Hulp bij beveiligingsgegevens (preview)
-  items:
-  - name: Overzicht
-    href: user-help-security-info-overview.md
-  - name: Een verificator-app instellen
-    href: security-info-setup-auth-app.md
-  - name: Sms-berichten instellen
-    href: security-info-setup-text-msg.md
-  - name: Telefoongesprekken instellen
-    href: security-info-setup-phone-number.md
-  - name: E-mail instellen
-    href: security-info-setup-email.md
-  - name: Beveiligingsvragen instellen
-    href: security-info-setup-questions.md
-  - name: App-wachtwoorden beheren
-    href: security-info-app-passwords.md
-  - name: Uw beveiligingsgegevens beheren
-    href: security-info-manage-settings.md
-  - name: Aanmelden
-    href: user-help-sign-in.md?toc=./toc.json
 - name: Hulp bij Microsoft Authenticator-app
   items:
   - name: Overzicht
@@ -60,21 +40,49 @@ items:
       href: user-help-auth-app-add-non-ms-account.md
     - name: Handmatig een account toevoegen
       href: user-help-auth-app-add-account-manual.md
-    expanded: true
   - name: Aanmelden met de Microsoft Authenticator-app
     href: user-help-auth-app-sign-in.md
   - name: Een back-up maken van uw accounts en deze herstellen
     href: user-help-auth-app-backup-recovery.md
   - name: Veelgestelde vragen
     href: user-help-auth-app-faq.md
-- name: Hulp bij Mijn Apps-portal
+- name: Hulp met Mijn profiel-portal (preview)
   items:
   - name: Overzicht
-    href: user-help-my-apps-overview.md
-  - name: Wat is de Mijn Apps-portal?
-    href: active-directory-saas-access-panel-introduction.md
-  - name: Problemen oplossen
-    href: active-directory-saas-access-panel-user-help.md
+    href: myprofile-portal-overview.md
+  - name: Uw beveiligingsgegevens beheren
+    href: user-help-security-info-overview.md
+  - name: Uw aanmeldingsactiviteiten bekijken
+    href: myprofile-portal-recent-activity-page.md
+  - name: Uw organisaties beheren
+    href: myprofile-portal-organizations-page.md
+  - name: Uw verbonden apparaten beheren
+    href: myprofile-portal-devices-page.md
+  - name: Uw aan privacy gerelateerde informatie bekijken
+    href: myprofile-portal-privacy-page.md
+- name: Hulp bij beveiligingsgegevens (preview)
+  items:
+  - name: Overzicht
+    href: user-help-security-info-overview.md
+  - name: Beveiligingsgegevens toevoegen tijdens aanmelding
+    href: security-info-setup-signin.md
+  - name: Overzicht van methoden om beveiligingsgegevens toe te voegen of bij te werken
+    href: security-info-add-update-methods-overview.md
+    items:
+    - name: Een verificator-app instellen
+      href: security-info-setup-auth-app.md
+    - name: Sms-berichten instellen
+      href: security-info-setup-text-msg.md
+    - name: Telefoongesprekken instellen
+      href: security-info-setup-phone-number.md
+    - name: E-mail instellen
+      href: security-info-setup-email.md
+    - name: Beveiligingsvragen instellen
+      href: security-info-setup-questions.md
+  - name: App-wachtwoorden beheren
+    href: security-info-app-passwords.md
+  - name: Aanmelden
+    href: user-help-sign-in.md?toc=./toc.json
 - name: Hulp bij apparaten beheren
   items:
   - name: Overzicht
@@ -85,9 +93,17 @@ items:
     href: user-help-register-device-on-network.md
   - name: Problemen in het bericht 'U kunt daar niet komen' oplossen
     href: user-help-device-remediation.md
-ms.openlocfilehash: 604b2c204f893bf0abaaec86f85e2159c17a8656
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+- name: Hulp bij Mijn Apps-portal
+  items:
+  - name: Overzicht
+    href: user-help-my-apps-overview.md
+  - name: Wat is de Mijn Apps-portal?
+    href: active-directory-saas-access-panel-introduction.md
+  - name: Problemen oplossen
+    href: active-directory-saas-access-panel-user-help.md
+ms.openlocfilehash: b7d8c297559736c9f22b118d50423f980302018d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816047"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452571"
