@@ -1,5 +1,7 @@
 # <a name="microsoft-azure-documentation"></a>Documentatie voor Microsoft Azure
 
+> Tussen 5 en 9 maart 2019 wordt de opslagplaats MicrosoftDocs/azure-docs gemigreerd van zijn huidige Markdown-engine naar de markdown-engine [Markdig](https://github.com/lunet-io/markdig). Gedurende deze tijd schakelen we de mogelijkheid uit om samenvoegingen van openbare pull-aanvragen te onderbreken, zodat we de migratie kunnen voltooien.
+
 Welkom bij de open source-[documentatie](https://docs.microsoft.com/azure) van [Microsoft Azure](https://azure.microsoft.com). Raadpleeg dit LEESMIJ-bestand om erachter te komen hoe u kunt bijdragen aan de documentatie van Microsoft Azure.
 
 ## <a name="getting-started"></a>Aan de slag
