@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: fab8ec5a6ca94d2f30ec47da390885339adf8b43
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 96389e9aa5758ea51448affa389c90eaa8e5842d
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192214"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588599"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Proxy- en firewallinstellingen van Azure File Sync
 Azure File Sync verbindt uw on-premises servers naar Azure Files, synchronisatie van meerdere locaties en cloud-opslaglagen functies inschakelen. Als zodanig moet een on-premises server worden verbonden met internet. IT-beheerder nodig heeft om te bepalen van het beste pad voor de server te bereiken in Azure cloudservices.
@@ -100,7 +100,7 @@ De volgende tabel beschrijft de vereiste domeinen voor de communicatie:
 | **Azure Active Directory** | https://graph.windows.net/ | Als onderdeel van de implementatie van Azure File Sync, wordt een service-principal in van het abonnement Azure Active Directory gemaakt. Deze URL wordt gebruikt voor die. Deze principal wordt gebruikt voor het overdragen van een minimale set rechten voor de Azure File Sync-service. De gebruiker die de eerste installatie van Azure File Sync uitvoert moet een geverifieerde gebruiker met bevoegdheden voor het abonnement eigenaren. |
 | **Azure Storage** | &ast;.core.windows.net | Wanneer de server een bestand downloadt, klikt u vervolgens de server uitvoert die gegevensverplaatsing efficiënter bij het bespreken van rechtstreeks naar de Azure-bestandsshare in de Storage-Account. De server heeft een SAS-sleutel die alleen voor de betreffende bestandsshare-toegang toestaat. |
 | **Azure File Sync** | &ast;.one.microsoft.com | Na de registratie van de eerste server ontvangt de server een regionale URL voor de Azure File Sync-service-exemplaar in deze regio. De server kan de URL gebruiken om te communiceren rechtstreeks en efficiënt met het verwerken van de synchronisatie-exemplaar. |
-| **Microsoft PKI** | https://www.microsoft.com/pki/mscorp<br>http://ocsp.msocsp.com | Nadat de Azure File Sync-agent is geïnstalleerd, wordt de PKI-URL wordt gebruikt voor het downloaden van tussenliggende certificaten nodig zijn voor communicatie met de Azure File Sync-service en Azure-bestandsshare. De OCSP-URL wordt gebruikt om de status van een certificaat te controleren. |
+| **Microsoft PKI** | `https://www.microsoft.com/pki/mscorp`<br>http://ocsp.msocsp.com | Nadat de Azure File Sync-agent is geïnstalleerd, wordt de PKI-URL wordt gebruikt voor het downloaden van tussenliggende certificaten nodig zijn voor communicatie met de Azure File Sync-service en Azure-bestandsshare. De OCSP-URL wordt gebruikt om de status van een certificaat te controleren. |
 
 > [!Important]
 > Wanneer het verkeer naar &ast;. one.microsoft.com, verkeer naar meer dan alleen de sync-service is mogelijk van de server. Er zijn veel meer Microsoft-services beschikbaar onder subdomeinen.

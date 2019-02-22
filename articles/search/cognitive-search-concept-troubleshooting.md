@@ -12,11 +12,11 @@ ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: 5f21fe3c65e37d3fee4043526762a7fafdea5cc4
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316291"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593961"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>Tips voor probleemoplossing voor cognitief zoeken
 
@@ -104,7 +104,7 @@ Voor [parallelle indexeren](search-howto-large-index.md), plaatst u uw gegevens 
 Zie voor meer informatie, [grote gegevenssets indexeren](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
 
 ## <a name="see-also"></a>Zie ook
-+ [Snelstartgids: In de portal maakt een pijplijn cognitief zoeken](cognitive-search-quickstart-blob.md)
++ [Snelstart: In de portal maakt een pijplijn cognitief zoeken](cognitive-search-quickstart-blob.md)
 + [Zelfstudie: Informatie over cognitive search REST-API 's](cognitive-search-tutorial-blob.md)
 + [Referenties van de gegevensbron op te geven](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
 + [Indexeren van grote gegevenssets](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)

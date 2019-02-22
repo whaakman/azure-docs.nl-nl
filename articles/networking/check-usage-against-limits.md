@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jdial
-ms.openlocfilehash: 0b15861f663c98d3b873f95a0ea6c485ada91fb6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 8546897de029a1df4563a9d2a3353762d5495096
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421603"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652311"
 ---
 # <a name="check-resource-usage-against-limits"></a>Brongebruik op basis van limieten controleren
 
@@ -47,12 +47,14 @@ In dit artikel leert u hoe u om te zien van het aantal van elk resourcetype die 
 
 ## <a name="powershell"></a>PowerShell
 
-U kunt de opdrachten die volgen in uitvoeren de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. De Azure Cloud Shell is een gratis interactieve shell. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Als u PowerShell vanaf uw computer uitvoeren, moet u de *AzureRM* PowerShell-module, versie 6.0.1 of hoger. Voer `Get-Module -ListAvailable AzureRM` op uw computer, de geïnstalleerde versie te vinden. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook om uit te voeren `Login-AzureRmAccount` aanmelden bij Azure.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Uw gebruik op basis van limieten met bekijken [Get-AzureRmNetworkUsage](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.8.0). Het volgende voorbeeld wordt het gebruik van resources waarop ten minste één resource wordt geïmplementeerd op de locatie VS-Oost:
+U kunt de opdrachten die volgen in uitvoeren de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. De Azure Cloud Shell is een gratis interactieve shell. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Als u PowerShell vanaf uw computer uitvoeren, moet u de Azure PowerShell-module, versie 1.0.0 of hoger. Voer `Get-Module -ListAvailable Az` op uw computer, de geïnstalleerde versie te vinden. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-az-ps). Als u PowerShell lokaal uitvoert, moet u ook om uit te voeren `Login-AzAccount` aanmelden bij Azure.
+
+Uw gebruik op basis van limieten met bekijken [Get-AzNetworkUsage](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkusage). Het volgende voorbeeld wordt het gebruik van resources waarop ten minste één resource wordt geïmplementeerd op de locatie VS-Oost:
 
 ```azurepowershell-interactive
-Get-AzureRmNetworkUsage `
+Get-AzNetworkUsage `
   -Location eastus `
   | Where-Object {$_.CurrentValue -gt 0} `
   | Format-Table ResourceType, CurrentValue, Limit

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: ramamill
-ms.openlocfilehash: b7454226b96ff2f6a76285d708a7ce2ad1c3a6de
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 4260aaf814b344c1a30106651959d4e4e9ad2335
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235883"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594216"
 ---
 # <a name="deploy-a-configuration-server"></a>Een configuratieserver implementeren
 
@@ -31,6 +31,25 @@ Configuratieserver moet worden ingesteld als een maximaal beschikbare VMware-VM 
 Minimale hardwarevereisten voor een configuratieserver worden samengevat in de volgende tabel.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
+
+## <a name="azure-active-directory-permission-requirements"></a>Azure Active Directory-vereisten voor installatiemachtiging
+
+U moet een gebruiker met **een van de volgende** machtigingen zijn ingesteld in AAD (Azure Active Directory) op de configuratieserver registreren bij Azure Site Recovery-services.
+
+1. Gebruiker moet 'Toepassingsontwikkelaar' rol maken van toepassing hebben.
+   1. Als u wilt controleren, moet u zich aanmelden bij Azure portal</br>
+   1. Ga naar Azure Active Directory > rollen en beheerders</br>
+   1. Controleer of als 'Toepassingsontwikkelaar'-rol wordt toegewezen aan de gebruiker. Als dit niet het geval is, gebruikt u een gebruiker met deze machtiging of contact opnemen met [beheerder voor de machtiging](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
+    
+1. Als de rol 'Toepassingsontwikkelaar' kan niet worden toegewezen, moet u controleren of 'Gebruiker kunt toepassing registreren'-vlag is ingesteld als waar gebruiker-id maken. Om in te schakelen boven machtigingen
+   1. Meld u aan bij Azure Portal
+   1. Ga naar Azure Active Directory > gebruikersinstellingen
+   1. Onder ** App-registraties ', 'Gebruikers kunnen toepassingen registreren' als 'Ja' worden gekozen.
+
+    ![AAD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
+
+> [!NOTE]
+> Active Directory Federation Services(ADFS) is **niet ondersteund**. Gebruik een account dat wordt beheerd via [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
 
 ## <a name="capacity-planning"></a>Capaciteitsplanning
 
@@ -94,31 +113,35 @@ Als u toevoegen van een extra NIC aan de configuratieserver wilt, moet u het toe
 3. Meld u nadat de installatie is voltooid bij de virtuele machine aan als de administrator.
 4. De eerste keer dat u zich aanmeldt, binnen een paar seconden de Azure Site Recovery Configuration Tool wordt gestart.
 5. Voer een naam in die wordt gebruikt voor het registreren van de configuratieserver bij Site Recovery. Selecteer vervolgens **Volgende**.
-6. Het hulpprogramma controleert of de VM verbinding kan maken met Azure. Nadat de verbinding tot stand is gebracht, selecteert u **Aanmelden** om u aan te melden bij uw Azure-abonnement. De referenties moeten toegang hebben tot de kluis waarin u de configuratieserver wilt registreren.
+6. Het hulpprogramma controleert of de VM verbinding kan maken met Azure. Nadat de verbinding tot stand is gebracht, selecteert u **Aanmelden** om u aan te melden bij uw Azure-abonnement.
+    a. De referenties moeten toegang hebben tot de kluis waarin u de configuratieserver wilt registreren.
+    b. Zorg ervoor dat gekozen gebruikersaccount machtigingen voor het maken van een toepassing in Azure heeft. Om in te schakelen vereiste machtigingen, richtlijnen gegeven [hier](#azure-active-directory-permission-requirements).
 7. Het hulpprogramma voert enkele configuratietaken uit en start opnieuw op.
 8. Meld u opnieuw aan bij de machine. Start de wizard voor het beheer configuratie **automatisch** in enkele seconden.
 
 ### <a name="configure-settings"></a>Instellingen configureren
 
 1. Selecteer in de wizard voor het beheer van de configuratieserver **Connectiviteit instellen** en selecteer vervolgens de NIC die door de processerver wordt gebruikt voor het ontvangen van replicatieverkeer van VM's. Selecteer vervolgens **Opslaan**. U kunt deze instelling niet wijzigen nadat deze is geconfigureerd. Het wordt sterk aanbevolen de IP-adres van een configuratieserver niet wijzigen. Zorg ervoor dat IP-adres toegewezen aan de configuratieserver is statisch IP-adres en niet DHCP IP.
-2. In **Selecteer Recovery Services-kluis**, zich aanmelden bij Microsoft Azure, selecteer uw Azure-abonnement en de relevante resourcegroep en kluis.
+2. In **Selecteer Recovery Services-kluis**, aanmelden bij Microsoft Azure met de referenties die worden gebruikt **stap 6** van '[configuratieserver registreren met Azure Site Recovery Services](#register-the-configuration-server-with-azure-site-recovery-services)" .
+3. Na het aanmelden, selecteer uw Azure-abonnement en de relevante resourcegroep en kluis.
 
     > [!NOTE]
     > Zodra geregistreerd, is er geen flexibiliteit om te wijzigen van de recovery services-kluis.
+    > Wisselende recovery services-kluis moet loskoppelen van de configuratieserver in de huidige kluis en de replicatie van alle beveiligde virtuele machines onder de configuratieserver is gestopt. [Meer](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) informatie.
 
-3. In **software van derden installeren**,
+4. In **software van derden installeren**,
 
     |Scenario   |Stappen om te volgen  |
     |---------|---------|
     |Kan ik downloaden en handmatig installeren van MySQL?     |  Ja. MySQL-toepassing downloaden en plaats deze in de map **C:\Temp\ASRSetup**, installeert u vervolgens handmatig. Nu, wanneer u de voorwaarden accepteert > Klik op **downloaden en installeren**, de portal zegt *al geïnstalleerd*. U kunt doorgaan met de volgende stap.       |
     |Kan ik voorkomen downloaden van MySQL online?     |   Ja. Plaats uw MySQL-installer-toepassing in de map **C:\Temp\ASRSetup**. Accepteer de voorwaarden > Klik op **Download en installeer**, de portal wordt gebruikt het installatieprogramma die u hebt toegevoegd en de toepassing wordt geïnstalleerd. U kunt doorgaan met de volgende stap na de installatie.    |
     |Ik wil downloaden en installeren van MySQL via Azure Site Recovery     |  Accepteer de gebruiksrechtovereenkomst en klik op **Download en installeer**. U kunt vervolgens doorgaan met de volgende stap na de installatie.       |
-4. In **De configuratie van het apparaat valideren** worden de vereisten gecontroleerd voordat u doorgaat.
-5. In **vCenter Server vSphere/ESXi-server configureren** voert u de FQDN of het IP-adres van de vCenter-server, of vSphere-host, in waar de VM's die u wilt repliceren zich bevinden. Voer de poort in waarop de server luistert. Voer een beschrijvende naam in voor de VMware-server in de kluis.
-6. Voer referenties in die door de configuratieserver moeten worden gebruikt voor verbinding met de VMware-server. Site Recovery gebruikt deze referenties voor het automatisch detecteren van VMware-VM’s die beschikbaar zijn voor replicatie. Selecteer **toevoegen**, en vervolgens **blijven**. De referenties die u hier opgeeft, worden lokaal opgeslagen.
-7. In **referenties voor virtuele machine configureren**, voer de gebruikersnaam en het wachtwoord van de Mobility-Service automatisch te installeren tijdens de replicatie voor virtuele machines. Voor **Windows** machines, het account moet lokale beheerrechten heeft op de machines die u wilt repliceren. Voor **Linux**, Geef details op voor het root-account.
-8. Selecteer **Configuratie voltooien** om de registratie te voltooien.
-9. Nadat de registratie is voltooid, opent u Azure portal, controleert u of de configuratieserver en de VMware-server worden weergegeven op **Recovery Services-kluis** > **beheren**  >  **Infrastructuur voor site Recovery** > **configuratieservers**.
+5. In **De configuratie van het apparaat valideren** worden de vereisten gecontroleerd voordat u doorgaat.
+6. In **vCenter Server vSphere/ESXi-server configureren** voert u de FQDN of het IP-adres van de vCenter-server, of vSphere-host, in waar de VM's die u wilt repliceren zich bevinden. Voer de poort in waarop de server luistert. Voer een beschrijvende naam in voor de VMware-server in de kluis.
+7. Voer referenties in die door de configuratieserver moeten worden gebruikt voor verbinding met de VMware-server. Site Recovery gebruikt deze referenties voor het automatisch detecteren van VMware-VM’s die beschikbaar zijn voor replicatie. Selecteer **toevoegen**, en vervolgens **blijven**. De referenties die u hier opgeeft, worden lokaal opgeslagen.
+8. In **referenties voor virtuele machine configureren**, voer de gebruikersnaam en het wachtwoord van de Mobility-Service automatisch te installeren tijdens de replicatie voor virtuele machines. Voor **Windows** machines, het account moet lokale beheerrechten heeft op de machines die u wilt repliceren. Voor **Linux**, Geef details op voor het root-account.
+9. Selecteer **Configuratie voltooien** om de registratie te voltooien.
+10. Nadat de registratie is voltooid, opent u Azure portal, controleert u of de configuratieserver en de VMware-server worden weergegeven op **Recovery Services-kluis** > **beheren**  >  **Infrastructuur voor site Recovery** > **configuratieservers**.
 
 ## <a name="upgrade-the-configuration-server"></a>De configuratieserver upgraden
 

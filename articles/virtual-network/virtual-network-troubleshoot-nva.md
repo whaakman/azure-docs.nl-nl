@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 0d5b345936f6c931f4210e6dc50f94544a52f571
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 40e034a563074e10a2dfbee36b6792a095022057
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700567"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649626"
 ---
-#  <a name="network-virtual-appliance-issues-in-azure"></a>Virtueel apparaat netwerkproblemen in Azure
+# <a name="network-virtual-appliance-issues-in-azure"></a>Virtueel apparaat netwerkproblemen in Azure
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Mogelijk is uw virtuele machine of problemen met VPN-connectiviteit en fouten bij het gebruik van een derde partij Network Virtual Appliance (NVA) in Microsoft Azure. In dit artikel biedt eenvoudige stappen om te kunnen valideren basisvereisten voor Azure-Platform voor de NVA-configuraties.
 
-Technische ondersteuning voor NVA's van derden en de integratie met de Azure-platform wordt geleverd door de leverancier van de NVA. 
+Technische ondersteuning voor NVA's van derden en de integratie met de Azure-platform wordt geleverd door de leverancier van de NVA.
 
 > [!NOTE]
 > Als u een verbinding of een routeringsprobleem dat betrekking heeft op een NVA hebt, moet u [Neem contact op met de leverancier van de NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) rechtstreeks.
@@ -40,7 +42,7 @@ Technische ondersteuning voor NVA's van derden en de integratie met de Azure-pla
 - Udr's op subnetten van het virtuele netwerk dat verkeer van de NVA leiden
 - Routering tabellen en regels binnen het NVA (bijvoorbeeld van NIC1 naar NIC2)
 - Tracering op NVA-NIC's om te controleren of ontvangen en verzenden van netwerkverkeer
-- Wanneer u een standaard-SKU en openbare IP-adressen moet er een NSG die is gemaakt en een expliciete regel het verkeer toe te staan om te worden gerouteerd naar de NVA.
+- Wanneer u een standaard-SKU en openbare IP-adressen, moet er een NSG die is gemaakt en een expliciete regel het verkeer toe te staan om te worden gerouteerd naar de NVA.
 
 ## <a name="basic-troubleshooting-steps"></a>Basisstappen voor het oplossen van problemen
 
@@ -56,29 +58,23 @@ Elke NVA heeft basisconfiguratie vereisten goed te laten functioneren op Azure. 
 
 Azure Portal gebruiken
 
-1.  Zoek de NVA-resource in de [Azure-portal](https://portal.azure.com), selecteert u netwerken, en selecteer vervolgens de netwerkinterface.
-2.  Selecteer op de pagina Network interface-IP-configuratie.
-3.  Zorg ervoor dat doorsturen via IP is ingeschakeld.
+1. Zoek de NVA-resource in de [Azure-portal](https://portal.azure.com), selecteert u netwerken, en selecteer vervolgens de netwerkinterface.
+2. Selecteer op de pagina Network interface-IP-configuratie.
+3. Zorg ervoor dat doorsturen via IP is ingeschakeld.
 
 PowerShell gebruiken
 
 1. Open PowerShell en meldt u zich aan bij uw Azure-account.
 2. Voer de volgende opdracht uit (Vervang de tussen haakjes waarden door uw gegevens):
 
-        Get-AzureRmNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>  
+   Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>  
 
 3. Controleer de **EnableIPForwarding** eigenschap.
- 
 4. Als doorsturen via IP is niet ingeschakeld, moet u de volgende opdrachten te kunnen uitvoeren:
 
-          $nic2 = Get-AzureRmNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>
-          $nic2.EnableIPForwarding = 1
-          Set-AzureRmNetworkInterface -NetworkInterface $nic2
-          Execute: $nic2 #and check for an expected output:
-          EnableIPForwarding   : True
-          NetworkSecurityGroup : null
+   $nic2 = Get-AzNetworkInterface - ResourceGroupName <ResourceGroupName> -naam <NicName> $nic2. EnableIPForwarding = 1 ingesteld AzNetworkInterface - NetworkInterface $nic2 uitvoeren: $nic2 #and controleren op een verwachte uitvoer: EnableIPForwarding: True NetworkSecurityGroup : null
 
-**Controleer voor NSG bij het gebruik van standaard SKU en openbare IP** bij gebruik van een standaard-SKU en openbare IP-adressen moet er een NSG die is gemaakt en een expliciete regel het verkeer naar de NVA toe te staan.
+**Controleer voor NSG bij het gebruik van standaard SKU Pubilc IP** wanneer u een standaard-SKU en openbare IP-adressen, moet er een NSG die is gemaakt en een expliciete regel het verkeer naar de NVA toe te staan.
 
 **Controleer of het verkeer kan worden gerouteerd naar de NVA**
 
@@ -88,13 +84,13 @@ PowerShell gebruiken
 
 **Controleer of het verkeer de NVA kan bereiken**
 
-1.  In [Azure-portal](https://portal.azure.com)Open **Network Watcher**, en selecteer vervolgens **IP-stroom controleren**. 
-2.  Geef de virtuele machine en het IP-adres van de NVA en controleer of het verkeer wordt geblokkeerd door een netwerkbeveiligingsgroepen (NSG).
-3.  Als er een NSG-regel waarmee het verkeer wordt geblokkeerd, zoek de NSG in **effectieve** regels en werk vervolgens het toestaan van verkeer om door te geven. Voer **IP-stroom controleren** opnieuw en gebruik **probleemoplossing voor verbindingen** voor het testen van TCP-communicatie van VM naar uw intern of extern IP-adres.
+1. In [Azure-portal](https://portal.azure.com)Open **Network Watcher**, en selecteer vervolgens **IP-stroom controleren**. 
+2. Geef de virtuele machine en het IP-adres van de NVA en controleer of het verkeer wordt geblokkeerd door een netwerkbeveiligingsgroepen (NSG).
+3. Als er een NSG-regel waarmee het verkeer wordt geblokkeerd, zoek de NSG in **effectieve** regels en werk vervolgens het toestaan van verkeer om door te geven. Voer **IP-stroom controleren** opnieuw en gebruik **probleemoplossing voor verbindingen** voor het testen van TCP-communicatie van VM naar uw intern of extern IP-adres.
 
 **Controleer of NVA en virtuele machines voor het verwachte verkeer luisteren**
 
-1.  Verbinding maken met de NVA met behulp van RDP of SSH en voer de volgende opdracht:
+1. Verbinding maken met de NVA met behulp van RDP of SSH en voer de volgende opdracht:
 
     Voor Windows:
 
@@ -103,15 +99,15 @@ PowerShell gebruiken
     Voor Linux:
 
         netstat -an | grep -i listen
-2.  Als u de TCP-poort die wordt gebruikt door de NVA-software die wordt vermeld in de resultaten niet ziet, moet u de toepassing configureren op de NVA en de virtuele machine om te luisteren naar en reageren op verkeer die geschikt is voor deze poorten. [Neem contact op met de leverancier van de NVA behoefte](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+2. Als u de TCP-poort die wordt gebruikt door de NVA-software die wordt vermeld in de resultaten niet ziet, moet u de toepassing configureren op de NVA en de virtuele machine om te luisteren naar en reageren op verkeer die geschikt is voor deze poorten. [Neem contact op met de leverancier van de NVA behoefte](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
 
 ## <a name="check-nva-performance"></a>NVA-prestaties controleren
 
 ### <a name="validate-vm-cpu"></a>Valideren van de VM-CPU
 
-Als het CPU-gebruik afkomstig bijna 100 procent is, kunt u probleem die invloed hebben op network pakket val kan optreden. Uw rapporten VM het gemiddelde CPU-voor een bepaalde periode in de Azure-portal. Tijdens een piek CPU onderzoek welk proces op de Gast-VM wordt veroorzaakt door de hoge CPU en, indien mogelijk beperken. U mogelijk ook om de grootte van de virtuele machine naar een grotere SKU-grootte of, voor virtuele-machineschaalset, het aantal instanties verhogen of ingesteld op automatisch schalen op CPU-gebruik. Voor een van deze problemen [voor hulp contact op met de leverancier van de NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines), indien nodig.
+Als het CPU-gebruik afkomstig bijna 100 procent is, u ondervindt mogelijk problemen die invloed hebben op network pakket val. Uw rapporten VM het gemiddelde CPU-voor een bepaalde periode in de Azure-portal. Tijdens een piek CPU onderzoek welk proces op de Gast-VM wordt veroorzaakt door de hoge CPU en, indien mogelijk beperken. U mogelijk ook om de grootte van de virtuele machine naar een grotere SKU-grootte of, voor virtuele-machineschaalset, het aantal instanties verhogen of ingesteld op automatisch schalen op CPU-gebruik. Voor een van deze problemen [voor hulp contact op met de leverancier van de NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines), indien nodig.
 
-### <a name="validate-vm-network-statistics"></a>Statistieken van de VM-netwerk valideren 
+### <a name="validate-vm-network-statistics"></a>Statistieken van de VM-netwerk valideren
 
 Als het VM-netwerk met pieken of perioden met een hoog gebruik, ziet dat u mogelijk ook om de grootte van de SKU van de virtuele machine voor hogere doorvoer die kenmerkend zijn. U kunt ook de virtuele machine opnieuw implementeren door te laten versnelde netwerken ingeschakeld. Om te controleren of de NVA ondersteuning biedt voor versnelde netwerken functie [voor hulp contact op met de leverancier van de NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines), indien nodig.
 
@@ -122,16 +118,15 @@ Een gelijktijdige netwerktracering op de bron-VM, de NVA en de doel-VM vastlegge
 
 1. Voor het vastleggen van een gelijktijdige netwerktracering, voer de volgende opdracht:
 
-    Voor Windows:
+   **Voor Windows**
 
-        netsh trace start capture=yes tracefile=c:\server_IP.etl scenario=netconnection
+   Netsh trace start capture = yes tracefile=c:\server_IP.etl scenario = netconnection
 
-    Voor Linux:
+   **For Linux**
 
-        sudo tcpdump -s0 -i eth0 -X -w vmtrace.cap
+   sudo tcpdump-s0 -i eth0 -X -w vmtrace.cap
 
 2. Gebruik **PsPing** of **Nmap** uit de bron-VM naar de bestemming VM (bijvoorbeeld: `PsPing 10.0.0.4:80` of `Nmap -p 80 10.0.0.4`).
-
 3. Open de netwerktracering van de doel-VM met behulp van [Network Monitor](https://www.microsoft.com/download/details.aspx?id=4865) of tcpdump. Pas een weergavefilter toe voor de IP-adres van de bron-VM die u hebt uitgevoerd **PsPing** of **Nmap** uit, zoals `IPv4.address==10.0.0.4 (Windows netmon)` of `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4` (Linux).
 
 ### <a name="analyze-traces"></a>Traceringen analyseren
@@ -139,4 +134,3 @@ Een gelijktijdige netwerktracering op de bron-VM, de NVA en de doel-VM vastlegge
 Als u de inkomende pakketten van de tracering van de back-end-VM niet ziet, er is waarschijnlijk een NSG of UDR onderbreekt of de NVA-routeringstabellen zijn onjuist.
 
 Als de inkomende pakketten wel worden weergegeven, maar er geen antwoord is, moet u mogelijk een probleem met een VM-toepassing of firewall oplossen. Voor een van deze problemen [Neem contact op met de leverancier van de NVA behoefte](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
-

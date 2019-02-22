@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 194f43a0005f17a22b3a60d6decd049444e56c20
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 02d3cd3688f3b34c92422168b79cb4da5a93d970
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745773"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587987"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Verifiëren van Stream Analytics voor Azure Data Lake Storage Gen1 met behulp van beheerde identiteiten (Preview)
 
@@ -29,7 +29,7 @@ In dit artikel ziet u drie manieren om in te schakelen beheerde identiteit voor 
 
    ![Configureren van de Preview-versie van Stream Analytics beheerde identiteit](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
 
-2. Selecteer **gebruik door het systeem toegewezen beheerde identiteit (preview)** in het venster dat wordt weergegeven aan de rechterkant. Klik op **opslaan** een service-principal voor de identiteit van de Stream Analytics-taak maken in Azure Active Directory. De levenscyclus van de identiteit van de zojuist gemaakte worden beheerd door Azure. Wanneer de Stream Analytics-taak wordt verwijderd, wordt de identiteit van de bijbehorende (dat wil zeggen, de service-principal) wordt automatisch verwijderd door Azure.
+2. Selecteer **gebruik door het systeem toegewezen beheerde identiteit (preview)** in het venster dat wordt weergegeven aan de rechterkant. Klik op **opslaan** aan een service-principal voor de identiteit van de Stream Analytics-taak in Azure Active Directory. De levenscyclus van de identiteit van de zojuist gemaakte worden beheerd door Azure. Wanneer de Stream Analytics-taak wordt verwijderd, wordt de identiteit van de bijbehorende (dat wil zeggen, de service-principal) wordt automatisch verwijderd door Azure.
 
    Wanneer de configuratie is opgeslagen, wordt de Object-ID (OID) van de service-principal wordt vermeld als de Principal-ID, zoals hieronder weergegeven:
 
@@ -171,6 +171,14 @@ In dit artikel ziet u drie manieren om in te schakelen beheerde identiteit voor 
    ```
 
    Raadpleeg voor meer informatie over de bovenstaande PowerShell-opdracht, de [Set AzureRmDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/azurerm.datalakestore/set-azurermdatalakestoreitemaclentry?view=azurermps-6.8.1&viewFallbackFrom=azurermps-4.2.0#optional-parameters) documentatie.
+
+## <a name="limitations"></a>Beperkingen
+Deze functie biedt geen ondersteuning voor het volgende:
+
+1.  **Toegang voor meerdere tenants**: De Service-principal gemaakt voor een bepaalde Stream Analytics-taak wordt opgeslagen op de Azure Active Directory-tenant waarvoor de taak is gemaakt en kan niet worden gebruikt voor een resource die zich op een andere Azure Active Directory-tenant bevinden. U kunt daarom alleen MSI gebruiken voor ADLS Gen 1-resources die zich binnen dezelfde Azure Active Directory-tenant als uw Azure Stream Analytics-taak. 
+
+2.  **[Gebruiker toegewezen identiteit](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview#how-does-the-managed-identities-for-azure-resources-worka-namehow-does-it-worka/)**: wordt niet ondersteund dit betekent dat de gebruiker is niet de eigen service-principal moet worden gebruikt door de Stream Analytics-taak invoeren. De service-principal wordt gegenereerd door Azure Stream Analytics. 
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

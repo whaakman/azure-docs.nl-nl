@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 02/14/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 62fde78cce05e62489931868da3d21c8b2e16928
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.lastreviewed: 02/14/2019
+ms.openlocfilehash: ebf8066139df93aefe1cfa21f2dc80ab57ca84bb
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430333"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652447"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack registreren bij Azure
 
@@ -53,11 +53,13 @@ Voordat u registreert Azure Stack met Azure, moet u het volgende hebben:
 
 - De gebruikersnaam en wachtwoord voor een account dat eigenaar van het abonnement.
 
-- Het gebruikersaccount moet toegang hebben tot het Azure-abonnement en machtigingen hebben voor het maken van toepassingen met identiteit en service-principals in de map die is gekoppeld aan dat abonnement. Wordt u aangeraden dat u Azure Stack registreren bij Azure-beheer met minimale bevoegdheden [het maken van een service-account moet worden gebruikt voor registratie](azure-stack-registration-role.md) in plaats van met de referenties van de globale beheerder.
+- Het gebruikersaccount moet toegang hebben tot het Azure-abonnement en machtigingen hebben voor het maken van toepassingen met identiteit en service-principals in de map die is gekoppeld aan dat abonnement. Wordt u aangeraden dat u Azure Stack registreren bij Azure beheer van minimale bevoegdheden. Zie voor meer informatie over het maken van een aangepaste roldefinitie die de toegang tot uw abonnement voor registratie beperkt [maakt u een rol registratie voor Azure Stack](azure-stack-registration-role.md).
 
 - De Azure Stack-resourceprovider geregistreerd (Zie de volgende sectie van de Azure Stack-Resourceprovider registreren voor meer informatie).
 
 Na de registratie is Azure Active Directory-globale beheerder toestemming niet vereist. Bepaalde bewerkingen is echter mogelijk de referentie van de globale beheerder. Bijvoorbeeld, een resource provider installatieprogramma script of een nieuwe functie die een machtiging worden verleend. U kunt tijdelijk reactiveren van het account algemeen beheerder-bevoegdheden of gebruik een afzonderlijke globale beheerder-account dat is eigenaar van de *providerabonnement standaard*.
+
+De gebruiker die Azure Stack registreert is de eigenaar van de service-principal in Azure Active Directory. Alleen de gebruiker die zich hebben geregistreerd van Azure Stack kunt wijzigen van de registratie van de Azure Stack. Als een gebruiker niet-beheerders die geen eigenaar van de van registratieservice-principal probeert te registreren of Azure Stack opnieuw te registreren, kunnen ze een 403-antwoord optreden. Een 403-antwoord geeft aan dat de gebruiker heeft onvoldoende machtigingen om de bewerking te voltooien.
 
 Als u geen Azure-abonnement dat aan deze vereisten voldoet, kunt u [maken van een gratis Azure-account hier](https://azure.microsoft.com/free/?b=17.06). Registreren van Azure Stack maakt geen kosten op uw Azure-abonnement.
 
@@ -479,6 +481,13 @@ Get-AzsRegistrationToken genereert een registratietoken van de invoerparameters.
 | UsageReportingEnabled | Waar/onwaar | Azure Stack-standaard metrische gegevens over gebruik rapporten. Operators met een capaciteit gebruikt of ondersteunen van een niet-verbonden omgeving moet uitschakelen rapportage over het gebruik. Toegestane waarden voor deze parameter zijn: Waar, ONWAAR. |
 | AgreementNumber | String |  |
 
+## <a name="registration-failures"></a>Registratiefouten
+
+Mogelijk ziet u een van de onderstaande fouten tijdens het registreren van uw Azure Stack:
+1. Kan de verplichte hardware-informatie voor $hostName niet ophalen. Controleer de fysieke host en connectiviteit en probeer het opnieuw uitvoeren registratie.
+2. Kan geen verbinding maken met $hostName naar informatie over hardware -. fysieke host en -connectiviteit controleren en probeer het opnieuw uitvoeren registratie.
+
+Oorzaak: Dit is meestal omdat we proberen te verkrijgen van hardware-informatie zoals de UUID, Bios CPU van hosts en de poging tot activering en kon niet worden vanwege het feit dat verbinding maakt met de fysieke host.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: 7359be235135098779478eebc8a8927e34904ac1
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 8f1bf9b9070f2db2376de9cb0a0602eaea98b47e
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54197790"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592924"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Taakverdeling tussen VM's in alle beschikbaarheidszones met Azure CLI
 
@@ -49,7 +49,7 @@ az group create \
 ```
 
 ## <a name="create-a-zone-redundant-public-ip-standard"></a>Maak een zone zoneredundante, openbare IP-Standard
-Om toegang te krijgen tot uw app op internet, hebt u een openbaar IP-adres nodig voor de load balancer. Een zone-redundante front-end wordt bediend door alle beschikbaarheidszones in een regio tegelijk. Een zone redundant openbare IP-adres maken met [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Wanneer u een standaard, openbaar IP-adres hebt gemaakt, is het zone-redundant standaard.
+Om toegang te krijgen tot uw app op internet, hebt u een openbaar IP-adres nodig voor de load balancer. Een zone-redundante front-end wordt bediend door alle beschikbaarheidszones in een regio tegelijk. Een zone redundant openbare IP-adres maken met [az network public-ip maken](/cli/azure/network/public-ip#az-network-public-ip-create). Wanneer u een standaard, openbaar IP-adres hebt gemaakt, is het zone-redundant standaard.
 
 Het volgende voorbeeld wordt een zone redundant openbare IP-adres met de naam *myPublicIP* in de *myResourceGroupLoadBalancer* resourcegroep.
 

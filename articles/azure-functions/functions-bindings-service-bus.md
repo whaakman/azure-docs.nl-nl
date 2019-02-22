@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: cda183878467dbcd30f0e89d88da55c20b6b130f
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: e75b282d2190654c14c4885861e52b96fdced4c5
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268631"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586933"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Service Bus-bindingen voor Azure Functions
 
@@ -285,7 +285,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**queueName**|**Wachtrijnaam**|Naam van de wachtrij om te controleren.  Alleen ingesteld als bewaking van een wachtrij, niet voor een onderwerp.
 |**topicName**|**topicName**|Naam van het onderwerp om te controleren. Alleen ingesteld als een onderwerp, voor een wachtrij niet controleren.|
 |**subscriptionName**|**subscriptionName**|De naam van het abonnement om te controleren. Alleen ingesteld als een onderwerp, voor een wachtrij niet controleren.|
-|**verbinding**|**verbinding**|De naam van een app-instelling met de Service Bus-verbindingsreeks moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam opgeven. Als u bijvoorbeeld `connection` naar 'MyServiceBus', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyServiceBus." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de standaard Service Bus-verbindingsreeks in de app-instelling met de naam 'AzureWebJobsServiceBus'.<br><br>Als u een verbindingsreeks, volgt u de stappen die wordt weergegeven op [de beheerreferenties ophalen](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#get-the-management-credentials). De verbindingsreeks moet voor een Service Bus-naamruimte, niet beperkt tot een specifieke wachtrij of onderwerp. |
+|**verbinding**|**verbinding**|De naam van een app-instelling met de Service Bus-verbindingsreeks moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam opgeven. Als u bijvoorbeeld `connection` naar 'MyServiceBus', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyServiceBus." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de standaard Service Bus-verbindingsreeks in de app-instelling met de naam 'AzureWebJobsServiceBus'.<br><br>Als u een verbindingsreeks, volgt u de stappen die wordt weergegeven op [de beheerreferenties ophalen](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#get-the-connection-string). De verbindingsreeks moet voor een Service Bus-naamruimte, niet beperkt tot een specifieke wachtrij of onderwerp. |
 |**accessRights**|**Toegang**|Toegangsrechten voor de verbindingsreeks. Beschikbare waarden zijn `manage` en `listen`. De standaardwaarde is `manage`, waarmee wordt aangegeven dat de `connection` heeft de **beheren** machtiging. Als u een verbindingsreeks die u niet beschikt over de **beheren** , machtigingenset `accessRights` ' luisteren '. Anders wordt het Functions runtime mislukken probeert uit te voeren bewerkingen uit waarbij rechten beheren. In Azure Functions versie 2.x gebruikt, deze eigenschap is niet beschikbaar omdat de nieuwste versie van de Storage-SDK biedt geen ondersteuning voor bewerkingen beheren.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -571,7 +571,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**De naam** | N.v.t. | De naam van de variabele die staat voor de wachtrij of onderwerp in de functiecode aan te geven. Ingesteld op '$return' om te verwijzen naar de geretourneerde waarde van de functie. | 
 |**queueName**|**Wachtrijnaam**|Naam van de wachtrij.  Alleen ingesteld als Wachtrijberichten, niet voor een onderwerp te verzenden.
 |**topicName**|**topicName**|Naam van het onderwerp om te controleren. Alleen ingesteld als onderwerp verzonden, niet voor een wachtrij.|
-|**verbinding**|**verbinding**|De naam van een app-instelling met de Service Bus-verbindingsreeks moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam opgeven. Als u bijvoorbeeld `connection` naar 'MyServiceBus', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyServiceBus." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de standaard Service Bus-verbindingsreeks in de app-instelling met de naam 'AzureWebJobsServiceBus'.<br><br>Als u een verbindingsreeks, volgt u de stappen die wordt weergegeven op [de beheerreferenties ophalen](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#get-the-management-credentials). De verbindingsreeks moet voor een Service Bus-naamruimte, niet beperkt tot een specifieke wachtrij of onderwerp.|
+|**verbinding**|**verbinding**|De naam van een app-instelling met de Service Bus-verbindingsreeks moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam opgeven. Als u bijvoorbeeld `connection` naar 'MyServiceBus', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyServiceBus." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de standaard Service Bus-verbindingsreeks in de app-instelling met de naam 'AzureWebJobsServiceBus'.<br><br>Als u een verbindingsreeks, volgt u de stappen die wordt weergegeven op [de beheerreferenties ophalen](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#get-the-connection-string). De verbindingsreeks moet voor een Service Bus-naamruimte, niet beperkt tot een specifieke wachtrij of onderwerp.|
 |**accessRights**|**Toegang**|Toegangsrechten voor de verbindingsreeks. Beschikbare waarden zijn `manage` en `listen`. De standaardwaarde is `manage`, waarmee wordt aangegeven dat de `connection` heeft de **beheren** machtiging. Als u een verbindingsreeks die u niet beschikt over de **beheren** , machtigingenset `accessRights` ' luisteren '. Anders wordt het Functions runtime mislukken probeert uit te voeren bewerkingen uit waarbij rechten beheren. In Azure Functions versie 2.x gebruikt, deze eigenschap is niet beschikbaar omdat de nieuwste versie van de Storage-SDK biedt geen ondersteuning voor bewerkingen beheren.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

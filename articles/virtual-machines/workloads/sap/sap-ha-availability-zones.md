@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d98a5ab13c2aecd3b3cef590526031f5bdee594
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: a8e20d617da12aea857308f4020fbd0cfe711430
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268308"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651308"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configuraties van SAP-werkbelasting met Azure-Beschikbaarheidszones
 [Azure-Beschikbaarheidszones](https://docs.microsoft.com/azure/availability-zones/az-overview) is een van de functies voor hoge beschikbaarheid die Azure biedt. De algemene beschikbaarheid van SAP-workloads op Azure met Beschikbaarheidszones worden verbeterd. Deze functie is al beschikbaar in bepaalde [Azure-regio's](https://azure.microsoft.com/global-infrastructure/regions/). In de toekomst, is deze beschikbaar in meer regio's.
@@ -123,7 +123,7 @@ Als u een acceptabele verschillen tussen de netwerklatentie binnen een zone en d
 
 De eenvoudige indeling van de architectuur ziet er als volgt:
 
-![Actief/passief-zone-implementatie](./media/sap-ha-availability-zones/active_active_zones_deployment.png)
+![Actief/passief-zone-implementatie](./media/sap-ha-availability-zones/active_passive_zones_deployment.png)
 
 De volgende overwegingen zijn van toepassing voor deze configuratie:
 

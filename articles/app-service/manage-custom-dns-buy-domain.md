@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d47c560515a13efa8346974e828f14f9a15f0e4a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c2bee4d35fe857d5ad3bf26dc1145b8721c85df4
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731049"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594233"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Een aangepaste domeinnaam voor Azure App Service kopen
 
@@ -126,7 +126,7 @@ Selecteer vervolgens de gewenste opties voor uw domein. Zie de volgende tabel vo
 Klik op **juridische voorwaarden** aan de voorwaarden en de kosten controleren en klik vervolgens op **kopen**.
 
 > [!NOTE]
-> App Service-domeinen Azure DNS gebruiken voor het hosten van de domeinen. Van toepassing naast de kosten van de registratie van domein gebruikskosten voor Azure DNS. Zie voor meer informatie, [prijzen voor Azure DNS](https://azure.microsoft.com/pricing/details/dns/).
+> App Service-domeinen worden GoDaddy voor domeinregistratie en Azure DNS gebruiken voor het hosten van de domeinen. Van toepassing naast de kosten van de registratie van domein gebruikskosten voor Azure DNS. Zie voor meer informatie, [prijzen voor Azure DNS](https://azure.microsoft.com/pricing/details/dns/).
 >
 >
 
@@ -223,7 +223,7 @@ Als u wilt uw domein handmatig vernieuwen, selecteert u **vernieuwen domein**. D
 
 In Azure, DNS-records voor een App Service-domein worden beheerd met behulp van [Azure DNS](https://azure.microsoft.com/services/dns/). U kunt toevoegen, verwijderen, en DNS-records bijwerken, net als voor een extern aangeschafte domein.
 
-### <a name="open-app-service-domain"></a>Open App Service-domein
+### <a name="open-app-service-domain"></a>Open App Service Domain
 
 Selecteer in de Azure portal, in het menu links **alle services** > **App Service-domeinen**.
 
@@ -243,7 +243,7 @@ Deze actie opent u de [DNS-zone](../dns/dns-zones-records.md) pagina van uw App 
 
 Als u de App Service-domein kopen, hebt u vijf dagen om uw aankoop voor een volledige terugbetaling te annuleren. Na vijf dagen, kunt u de App Service-domein kunt verwijderen, maar kan niet een restitutie ontvangen.
 
-### <a name="open-app-service-domain"></a>Open App Service-domein
+### <a name="open-app-service-domain"></a>Open App Service Domain
 
 Selecteer in de Azure portal, in het menu links **alle services** > **App Service-domeinen**.
 

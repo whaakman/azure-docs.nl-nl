@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: ff5890dcaf642d51c53b054e986689290be773ca
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: d84e3f834bd598bbd2cf84dfc46f6cd5507f6d8b
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699241"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587120"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database voor MySQL Prijscategorieën
 
@@ -42,6 +42,9 @@ COMPUTE-resources worden verstrekt als vCores, die staan voor de logische CPU va
 
 > [!IMPORTANT]
 > Vanaf 12 December 2018, is nieuwe klanten niet mogelijk om in te richten compute generatie 4 servers in Brazilië-Zuid, Canada-centraal, Canada-Oost, Zuidoost-Azië, VS-Oost 2, centraal-India, West-India, Japan-West, Noord-centraal VS, VS-West. Bewerking voor compute 4 servers worden gemigreerd om de bewerking 5 vanaf 1 februari 2019 in deze regio's voor compute eerder hebt gemaakt.
+>
+> [!IMPORTANT]
+> Vanaf 15 februari 2019, is nieuwe klanten niet mogelijk om in te richten compute generatie 4 servers in VS-midden, VS-Oost, Japan-Oost, Noord-Europa, Zuid-centraal VS, Zuidoost-Azië, West-Europa. Bewerking voor compute 4 servers worden gemigreerd om de bewerking 5 vanaf 1 April 2019 in deze regio's voor compute eerder hebt gemaakt.
 
 | **Azure-regio** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
@@ -84,7 +87,7 @@ COMPUTE-resources worden verstrekt als vCores, die staan voor de logische CPU va
 | VS (overheid) - Texas |  | X |
 | VS (overheid) - Virginia |  | X |
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Opslag
 
 De opslag die u inricht is de hoeveelheid opslagcapaciteit beschikbaar zijn voor uw Azure Database voor MySQL-server. De opslag wordt gebruikt voor de databasebestanden, tijdelijke bestanden transactielogboeken en de MySQL-server zich aanmeldt. De totale hoeveelheid opslag die u inricht definieert ook de i/o-capaciteit beschikbaar voor uw server.
 

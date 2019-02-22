@@ -4,24 +4,20 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/27/2018
 ms.author: iainfou
-ms.openlocfilehash: bb42891d3ca636dcb2415b2be8ce69e19575c408
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: c7a34256bff46247ed6c97bc2931942f631bbf09
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002222"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56589468"
 ---
 > [!WARNING]
->  **De Azure Container Service (ACS) is afgeschaft. Er zijn geen nieuwe functies of functionaliteit worden aan ACS toegevoegd. Alle van de API's, portal-ervaring, CLI-opdrachten en documentatie zijn gemarkeerd als afgeschaft.**
+>  **Azure Container Service (ACS) wordt afgeschaft. Er worden geen nieuwe functies of functionaliteit meer aan ACS toegevoegd. Alles van de API's, portal, CLI-opdrachten en documentatie is gemarkeerd als afgeschaft.**
 >
-> Zie voor meer informatie de [aankondiging voor Azure Container Service-afschaffing op Azure.com](https://azure.microsoft.com/updates/azure-container-service-will-retire-on-january-31-2020/).
+> Zie voor meer informatie de [aankondiging over de afschaffing van Azure Container Service op Azure.com](https://azure.microsoft.com/updates/azure-container-service-will-retire-on-january-31-2020/).
 >
 > U wordt aangeraden dat u een van de volgende Azure Marketplace-oplossingen implementeren:
 >
-> * Docker EE voor Azure
->   * [Standard/Enterprise edition](https://azuremarketplace.microsoft.com/marketplace/apps/docker.dockerdatacenter?tab=Overview)
->   * [Basic-editie](https://azuremarketplace.microsoft.com/marketplace/apps/docker.docker4azure-st?tab=Overview)
->  
 > * Mesosphere DC/OS
 >   * [Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/mesosphere.enterprise-dcos?tab=Overview)
 >   * [Open Source edition](https://azuremarketplace.microsoft.com/marketplace/apps/mesosphere.dcos?tab=overview)

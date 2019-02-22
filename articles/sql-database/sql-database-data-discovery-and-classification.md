@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 3c5f087ed44c252737e7f45fde12a4b509637499
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 7f38ef5076472954672cb721874891539802e7f1
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892878"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593264"
 ---
 # <a name="azure-sql-database-data-discovery--classification"></a>Azure SQL Database-gegevensdetectie en classificatie
 
@@ -144,7 +144,7 @@ U kunt ook REST-API's gebruiken voor het programmatisch beheren van classificati
 - [Verwijder](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) -Hiermee verwijdert u de gevoeligheid, label van een bepaalde kolom
 - [Ophalen](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) -haalt de gevoeligheid, label van een bepaalde kolom
 - [Lijst met huidige door Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) -haalt de huidige gevoeligheidslabels van een bepaalde database
-- [Lijst met aanbevolen door Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) -haalt de huidige gevoeligheidslabels van een bepaalde database
+- [Lijst met aanbevolen door Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) -haalt de van aanbevolen gevoeligheidslabels van een bepaalde database
 
 ## <a id="subheading-5"></a>Volgende stappen
 

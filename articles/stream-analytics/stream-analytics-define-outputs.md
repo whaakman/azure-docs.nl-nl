@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8ae55028bbc44a9383be6723f9bc6d39787cca45
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 01aa3d45d3b168c67603861a0a947026d4f2e08c
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767300"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650883"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Inzicht in de uitvoer van Azure Stream Analytics
 Dit artikel beschrijft de verschillende typen uitvoer beschikbaar voor een Azure Stream Analytics-taak. Uitvoer kunnen u opslaan en sla de resultaten van de Stream Analytics-taak. De uitvoergegevens die worden gebruikt, kunt u doen verdere bedrijfsanalyses en datawarehousing van uw gegevens.
@@ -56,7 +56,7 @@ Azure Data Lake Store-uitvoer van Stream Analytics is momenteel niet beschikbaar
 | Indeling | Alleen van toepassing op JSON-serialisatie. Lijn gescheiden geeft aan dat de uitvoer is geformatteerd met elk JSON-object dat is gescheiden door een nieuwe regel. Matrix geeft aan dat de uitvoer wordt opgemaakt als een matrix met JSON-objecten. Deze matrix wordt gesloten wanneer de taak stopt of Stream Analytics is verplaatst op naar de volgende periode. In het algemeen is het beter gebruik van de regel gescheiden JSON, omdat er geen speciale verwerking niet vereist, terwijl het uitvoerbestand is nog steeds worden geschreven naar.|
 
 ### <a name="renew-data-lake-store-authorization"></a>Vernieuw de autorisatie van Data Lake Store
-U moet uw Data Lake Store-account te verifiëren als het wachtwoord is gewijzigd sinds de taak is gemaakt of laatst geverifieerd. Als u niet opnieuw worden geverifieerd, wordt de taak produceert geen uitvoer resultaten en ziet u een foutbericht met de noodzaak van opnieuw te autoriseren in de logboeken voor bewerkingen. Er is momenteel beperkt tot waar het verificatietoken moet worden handmatig vernieuwd om de 90 dagen voor alle taken met Data Lake Store-uitvoer.
+U moet uw Data Lake Store-account te verifiëren als het wachtwoord is gewijzigd sinds de taak is gemaakt of laatst geverifieerd. Als u niet opnieuw worden geverifieerd, wordt de taak produceert geen uitvoer resultaten en ziet u een foutbericht met de noodzaak van opnieuw te autoriseren in de logboeken voor bewerkingen. Er is momenteel beperkt tot waar het verificatietoken moet worden handmatig vernieuwd om de 90 dagen voor alle taken met Data Lake Store-uitvoer. Echter, u kunt strijden tegen deze beperking door [verifiëren met behulp van beheerde identiteiten (preview)](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-managed-identities-adls).
 
 Autorisatie vernieuwen **stoppen** uw taak > Ga naar de uitvoer van uw Data Lake Store > klikt u op de **autorisatie vernieuwen** koppelen en gedurende een korte periode een pagina weergegeven die wijzen op **omleiden naar autorisatie...** . Automatisch wordt gesloten en als dit lukt, geeft u aan de pagina **autorisatie is vernieuwd**. Vervolgens moet u klikken op **opslaan** aan de onderkant van de pagina, en u kunt doorgaan door de taak opnieuw te starten de **gestopt laatst** om gegevensverlies te voorkomen.
 

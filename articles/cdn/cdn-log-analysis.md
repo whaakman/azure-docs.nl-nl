@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: magattus
-ms.openlocfilehash: 45b3698dd77bda815218b43405d64819c3e4789f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ef713c954d6eab05259547a277db12a1e9036bcf
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091263"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650543"
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Gebruikspatronen van Azure CDN analyseren
 
@@ -27,7 +27,7 @@ Nadat u CDN voor uw toepassing inschakelt, kunt u CDN-gebruik controleren, contr
 
 ## <a name="core-analytics-via-azure-diagnostic-logs"></a>Basisanalyse via diagnostische logboeken in Azure
 
-Core analytics is beschikbaar voor CDN-eindpunten voor alle Prijscategorieën. Diagnostische logboeken van Azure kunnen basisanalyse worden geëxporteerd naar Azure storage, eventhubs of Azure Log Analytics. Azure Log Analytics biedt een oplossing met grafieken die kunnen worden geconfigureerd met een gebruiker en kan worden aangepast. Zie voor meer informatie over diagnostische logboeken in Azure, [diagnostische logboeken in Azure](cdn-azure-diagnostic-logs.md).
+Core analytics is beschikbaar voor CDN-eindpunten voor alle Prijscategorieën. Diagnostische logboeken van Azure core analytics worden geëxporteerd naar Azure storage, eventhubs, toestaan of Azure Monitor-Logboeken. Logboeken in Azure Monitor biedt een oplossing met grafieken die kunnen worden geconfigureerd met een gebruiker en kan worden aangepast. Zie voor meer informatie over diagnostische logboeken in Azure, [diagnostische logboeken in Azure](cdn-azure-diagnostic-logs.md).
 
 ## <a name="verizon-core-reports"></a>Verizon core rapporten
 

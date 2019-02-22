@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/15/2016
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c05a2ceb7cc515691af91652c968b73c72029db4
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 86f8eebb8e174b4a4d4dbdc9def516e23b79a131
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313459"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56591642"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Uw Azure Search-service met PowerShell beheren
 > [!div class="op_single_selector"]
@@ -29,12 +29,15 @@ Dit onderwerp beschrijft de PowerShell-opdrachten uit te voeren veel van de behe
 Deze opdrachten parallel lopen aan het van beschikbare beheeropties in de [Management REST API van Azure Search](https://docs.microsoft.com/rest/api/searchmanagement).
 
 ## <a name="prerequisites"></a>Vereisten
-* U moet Azure PowerShell 1.0 of hoger hebben. Zie voor instructies [installeren en configureren van Azure PowerShell](/powershell/azure/overview).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+* Hebt u Azure PowerShell. Zie [ Azure PowerShell installeren](/powershell/azure/overview) voor installatie-instructies.
 * U moet zijn aangemeld met uw Azure-abonnement in PowerShell, zoals hieronder wordt beschreven.
 
 Eerst moet u aanmelden bij Azure met de volgende opdracht:
 
-    Connect-AzureRmAccount
+    Connect-AzAccount
 
 Geef het e-mailadres van uw Azure-account en het bijbehorende wachtwoord in het dialoogvenster voor aanmelding van Microsoft Azure.
 
@@ -42,28 +45,28 @@ U kunt ook [Meld u aan niet-interactief met een service-principal](../active-dir
 
 Als u meerdere Azure-abonnementen hebt, moet u uw Azure-abonnement instellen. Een lijst van uw huidige abonnementen wilt bekijken, moet u deze opdracht uitvoeren.
 
-    Get-AzureRmSubscription | sort SubscriptionName | Select SubscriptionName
+    Get-AzSubscription | sort SubscriptionName | Select SubscriptionName
 
 Als u het abonnement, moet u de volgende opdracht uitvoeren. In het volgende voorbeeld wordt de naam van het abonnement is `ContosoSubscription`.
 
-    Select-AzureRmSubscription -SubscriptionName ContosoSubscription
+    Select-AzSubscription -SubscriptionName ContosoSubscription
 
 ## <a name="commands-to-help-you-get-started"></a>Opdrachten om u te helpen aan de slag
     $serviceName = "your-service-name-lowercase-with-dashes"
     $sku = "free" # or "basic" or "standard" for paid services
     $location = "West US"
     # You can get a list of potential locations with
-    # (Get-AzureRmResourceProvider -ListAvailable | Where-Object {$_.ProviderNamespace -eq 'Microsoft.Search'}).Locations
+    # (Get-AzResourceProvider -ListAvailable | Where-Object {$_.ProviderNamespace -eq 'Microsoft.Search'}).Locations
     $resourceGroupName = "YourResourceGroup" 
     # If you don't already have this resource group, you can create it with 
-    # New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    # New-AzResourceGroup -Name $resourceGroupName -Location $location
 
     # Register the ARM provider idempotently. This must be done once per subscription
-    Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Search"
+    Register-AzResourceProvider -ProviderNamespace "Microsoft.Search"
 
     # Create a new search service
     # This command will return once the service is fully created
-    New-AzureRmResourceGroupDeployment `
+    New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -TemplateUri "https://gallery.azure.com/artifact/20151001/Microsoft.Search.1.0.9/DeploymentTemplates/searchServiceDefaultTemplate.json" `
         -NameFromTemplate $serviceName `
@@ -73,7 +76,7 @@ Als u het abonnement, moet u de volgende opdracht uitvoeren. In het volgende voo
         -ReplicaCount 1
 
     # Get information about your new service and store it in $resource
-    $resource = Get-AzureRmResource `
+    $resource = Get-AzResource `
         -ResourceType "Microsoft.Search/searchServices" `
         -ResourceGroupName $resourceGroupName `
         -ResourceName $serviceName `
@@ -83,13 +86,13 @@ Als u het abonnement, moet u de volgende opdracht uitvoeren. In het volgende voo
     $resource
 
     # Get the primary admin API key
-    $primaryKey = (Invoke-AzureRmResourceAction `
+    $primaryKey = (Invoke-AzResourceAction `
         -Action listAdminKeys `
         -ResourceId $resource.ResourceId `
         -ApiVersion 2015-08-19).PrimaryKey
 
     # Regenerate the secondary admin API Key
-    $secondaryKey = (Invoke-AzureRmResourceAction `
+    $secondaryKey = (Invoke-AzResourceAction `
         -ResourceType "Microsoft.Search/searchServices/regenerateAdminKey" `
         -ResourceGroupName $resourceGroupName `
         -ResourceName $serviceName `
@@ -98,7 +101,7 @@ Als u het abonnement, moet u de volgende opdracht uitvoeren. In het volgende voo
 
     # Create a query key for read only access to your indexes
     $queryKeyDescription = "query-key-created-from-powershell"
-    $queryKey = (Invoke-AzureRmResourceAction `
+    $queryKey = (Invoke-AzResourceAction `
         -ResourceType "Microsoft.Search/searchServices/createQueryKey" `
         -ResourceGroupName $resourceGroupName `
         -ResourceName $serviceName `
@@ -109,7 +112,7 @@ Als u het abonnement, moet u de volgende opdracht uitvoeren. In het volgende voo
     $queryKey
 
     # Delete query key
-    Remove-AzureRmResource `
+    Remove-AzResource `
         -ResourceType "Microsoft.Search/searchServices/deleteQueryKey/$($queryKey)" `
         -ResourceGroupName $resourceGroupName `
         -ResourceName $serviceName `
@@ -120,11 +123,11 @@ Als u het abonnement, moet u de volgende opdracht uitvoeren. In het volgende voo
     # This command will not return until the operation is finished
     # It can take 15 minutes or more to provision the additional resources
     $resource.Properties.ReplicaCount = 2
-    $resource | Set-AzureRmResource
+    $resource | Set-AzResource
 
     # Delete your service
     # Deleting your service will delete all indexes and data in the service
-    $resource | Remove-AzureRmResource
+    $resource | Remove-AzResource
 
 ## <a name="next-steps"></a>Volgende stappen
 Nu dat uw service is gemaakt, kunt u de volgende stappen uitvoeren: bouw een [index](search-what-is-an-index.md), [query uitvoeren in een index](search-query-overview.md), en ten slotte maken en beheren van uw eigen-zoektoepassing die gebruikmaakt van Azure Search.
