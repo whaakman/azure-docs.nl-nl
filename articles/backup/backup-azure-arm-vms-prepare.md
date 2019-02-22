@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: e782afb971f95a654119d9817edeef02642bee9e
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: effb00a4ebde857e06e34e5f83ca01fc5d74017b
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447562"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594182"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Back-up van virtuele Azure-machines in een Recovery Services-kluis
 
@@ -63,7 +63,7 @@ De back-up-extensie die wordt uitgevoerd op de virtuele machine moet uitgaande t
 - Er is geen expliciete uitgaande toegang is vereist voor virtuele Azure-machine om te communiceren met Azure Backup-Service.
 - Echter bepaalde oudere virtuele machines mogelijk ervaart mogelijk problemen en mislukt met de fout **ExtensionSnapshotFailedNoNetwork** bij een poging om verbinding te maken. In dit geval, gebruik een van de volgende opties zodat de back-upextensie met Azure openbare IP-adressen voor back-upverkeer communiceren kan.
 
-   **Optie** | **Actie** ** | **Voordelen** | **Nadelen**
+   **Optie** | **Actie** | **Voordelen** | **Nadelen**
    --- | --- | --- | ---
    **Instellen van NSG-regels** | Toestaan dat de [Azure datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653).<br/><br/>  U kunt een regel waarmee toegang tot de Azure Backup-service met behulp toevoegen een [servicetag](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure), in plaats van afzonderlijk zodat en beheren van elk-adresbereik. [Meer informatie](../virtual-network/security-overview.md#service-tags) over service-tags. | Geen extra kosten. Eenvoudig te beheren met servicetags
    **Een proxy implementeren** | Implementeer een HTTP-proxy-server voor het routeren van verkeer. | Biedt toegang tot het geheel van Azure en niet alleen opslag. Nauwkeurige controle over de URL's voor opslag is toegestaan.<br/><br/> Toegang tot één punt van internet voor VM's.<br/><br/> Extra kosten voor de proxy.<br/><br/> 

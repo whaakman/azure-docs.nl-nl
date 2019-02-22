@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 3edd70d3012840bd66460219c32135666619a3bf
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 42e5fd713f6353a2a939236f34463e9ba4195e29
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313565"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650203"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum proof-of-authority consortium
 
@@ -285,14 +285,14 @@ Een voorbeeldimplementatie wordt hieronder weergegeven: ![ethereum-instellingen]
 
 #### <a name="monitoring"></a>Bewaking
 
-De blade controle kunt u een Log Analytics-resource voor het netwerk configureren. De monitoring agent worden verzameld en surface nuttig metrische gegevens en logboeken van uw netwerk, biedt de mogelijkheid om snel te controleren de netwerkstatus of foutopsporing problemen.
+De blade controle kunt u een resource van Azure Monitor-logboeken voor uw netwerk te configureren. De monitoring agent worden verzameld en surface nuttig metrische gegevens en logboeken van uw netwerk, biedt de mogelijkheid om snel te controleren de netwerkstatus of foutopsporing problemen.
 
   Parameternaam|Description|Toegestane waarden|Standaardwaarden
   ---|---|---|---
 Bewaking|Optie voor het inschakelen van bewaking|In- of uitschakelen|Inschakelen
-Verbinding maken met bestaande Log Analytics|Maak een nieuw exemplaar van de Log Analytics of Word lid van een bestaand exemplaar|Maak een nieuwe of bestaande koppelen|Nieuwe maken
-Locatie controleren (verbinding maken met bestaande Log Analytics maken nieuwe =)|De regio waarin het nieuwe exemplaar van de Log Analytics worden geïmplementeerd|Alle regio's voor Log Analytics|N.v.t.
-Bestaande Log Analytics-werkruimte-Id (verbinding maken met bestaande Log Analytics = bestaande Join)|Werkruimte-ID van de bestaande Log Analytics-instantie||N.v.t.
+Verbinding maken met bestaande Azure Monitor-Logboeken|Maak een nieuw exemplaar van Azure Monitor Logboeken of Word lid van een bestaand exemplaar|Maak een nieuwe of bestaande koppelen|Nieuwe maken
+Locatie controleren (verbinding maken met bestaande Azure Monitor-logboeken = maken nieuw)|De regio waar de nieuwe Azure Monitor-exemplaar Logboeken wordt geïmplementeerd|Monitor voor alle Azure-regio's Logboeken|N.v.t.
+Bestaande Log Analytics-werkruimte-Id (verbinding maken met bestaande Azure Monitor-logboeken = bestaande Join)|Werkruimte-ID van de bestaande Azure Monitor-logboeken exemplaar||N.v.t.
 Primaire sleutel van bestaande Log Analytics (verbinding maken met bestaande Log Analytics = bestaande Join)|De primaire sleutel gebruikt voor verbinding met de bestaande Log Analytics-instantie||N.v.t.
 
 
@@ -425,7 +425,7 @@ Selecteren **netwerk statistieken** leidt u Ethereum netwerkstatistieken weergev
 
 ![netwerk-statistieken](./media/ethereum-poa-deployment/network-stats.png)
 
-#### <a name="sample-log-analytics-queries"></a>Voorbeeldquery voor Log Analytics
+#### <a name="sample-kusto-queries"></a>Voorbeeld Kusto-query 's
 
 Is een set waarop ruwe logboeken achter deze dashboards. Deze onbewerkte Logboeken kunt u pas de dashboards, mislukte pogingen onderzoeken of drempelwaarde voor waarschuwingen instellen. Hieronder vindt u een aantal voorbeelden van query's die kunnen worden uitgevoerd in het hulpprogramma voor zoeken in Logboeken:
 

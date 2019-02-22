@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/21/2019
 ms.author: patricka
 ms.reviewer: unknown
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 7ecffacee03650adc709a055ba942ef182da5fb8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/21/2019
+ms.openlocfilehash: 1b47739200c79317273ea0c788f21a7ee4a3b818
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239976"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56648503"
 ---
 # <a name="add-azure-stack-users-in-ad-fs"></a>Azure Stack-gebruikers toevoegen in AD FS
 U kunt de **Active Directory: gebruikers en Computers** module Extra gebruikers toevoegen aan een Azure Stack-omgeving gebruik te maken van AD FS als de id-provider.
@@ -29,12 +29,13 @@ U kunt de **Active Directory: gebruikers en Computers** module Extra gebruikers 
 > [!TIP]
 > In dit voorbeeld gebruikt de standaard azurestack.local ASDK active directory. 
 
-1.  Meld u aan bij een computer met een account om toegang tot de Windows-beheerprogramma's en open een nieuwe Microsoft Management Console (MMC).
-2.  Klik op **bestand > toevoegen of verwijderen-module**.
-3.  Selecteer **Active Directory: gebruikers en Computers** > **AzureStack.local** > **gebruikers**.
-4.  Klik op **actie** > **nieuwe** > **gebruiker**.
-5.  Typ in het nieuw Object – gebruiker venster, en een wachtwoord te bevestigen
-6.  Klik op **volgende** om te voltooien van de waarden en klik op Voltooien om de gebruiker te maken.
+1. Meld u aan bij een computer met een account om toegang tot de Windows-beheerprogramma's en open een nieuwe Microsoft Management Console (MMC).
+2. Selecteer **bestand > toevoegen of verwijderen-module**.
+3. Selecteer **Active Directory: gebruikers en Computers** > **AzureStack.local** > **gebruikers**.
+4. Selecteer **actie** > **nieuwe** > **gebruiker**.
+5. Nieuw object – gebruiker, bieden gebruikersgegevens. Selecteer **Volgende**.
+6. Geef en bevestig een wachtwoord.
+7. Selecteer **volgende** voor het voltooien van de waarden. Selecteer **voltooien** om de gebruiker te maken.
 
 
 ## <a name="next-steps"></a>Volgende stappen

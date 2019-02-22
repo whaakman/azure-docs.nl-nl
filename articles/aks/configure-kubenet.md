@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 6d2b6ce2804fce35af9c184c4a7c72c0b332f6fb
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 7975516e80576a9d79b35da816d049f47ebc7d3a
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701734"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650186"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Gebruik van kubenet netwerken met uw eigen IP-adresbereiken in Azure Kubernetes Service (AKS)
 
@@ -126,7 +126,7 @@ VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-Nu toewijzen aan de service-principal voor uw AKS-cluster *Inzender* machtigingen voor het virtuele netwerk met de [az roltoewijzing maken] [ az-role-assignment-create] opdracht. Geef uw eigen */ <appId/>* zoals wordt weergegeven in de uitvoer van de vorige opdracht om de serviceprincipal te maken:
+Nu toewijzen aan de service-principal voor uw AKS-cluster *Inzender* machtigingen voor het virtuele netwerk met de [az roltoewijzing maken] [ az-role-assignment-create] opdracht. Geef uw eigen  *\<appId >* zoals wordt weergegeven in de uitvoer van de vorige opdracht om de serviceprincipal te maken:
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
@@ -134,7 +134,7 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Een AKS-cluster maken in het virtuele netwerk
 
-U hebt nu een virtueel netwerk en subnet, gemaakt en die zijn gemaakt en toegewezen machtigingen voor een service-principal die netwerkbronnen gebruiken. Nu een AKS-cluster maken in uw virtuele netwerk en subnet met behulp van de [az aks maken] [ az-aks-create] opdracht. Definieer uw eigen service-principal */ <appId/>* en */ <password/>*, zoals wordt weergegeven in de uitvoer van de vorige opdracht om de serviceprincipal te maken.
+U hebt nu een virtueel netwerk en subnet, gemaakt en die zijn gemaakt en toegewezen machtigingen voor een service-principal die netwerkbronnen gebruiken. Nu een AKS-cluster maken in uw virtuele netwerk en subnet met behulp van de [az aks maken] [ az-aks-create] opdracht. Definieer uw eigen service-principal  *\<appId >* en  *\<wachtwoord >*, zoals wordt weergegeven in de uitvoer van de vorige opdracht om de serviceprincipal te maken.
 
 De volgende IP-adresbereiken zijn ook worden gedefinieerd als onderdeel van het cluster proces maken:
 

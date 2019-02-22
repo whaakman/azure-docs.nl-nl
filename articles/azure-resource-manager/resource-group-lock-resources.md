@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 02/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6d2ae1d1846506424aa14cca0f597c8888eb903d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 83518825c91cdd727b3d4fb9ecc86d51dea8fc26
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341025"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649166"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Resources vergrendelen om onverwachte wijzigingen te voorkomen 
 
@@ -36,7 +36,7 @@ Wanneer u een vergrendeling op een overkoepelend bereik toepast, nemen alle reso
 
 In tegenstelling tot de op rollen gebaseerd toegangsbeheer gebruikt u beheervergrendelingen voor het toepassen van een beperking voor alle gebruikers en rollen. Zie voor meer informatie over het instellen van machtigingen voor gebruikers en rollen, [Azure Role-based Access Control](../role-based-access-control/role-assignments-portal.md).
 
-Resource Manager-vergrendelingen gelden alleen voor bewerkingen die in de beheerlaag, die uit bewerkingen die worden verzonden optreden bestaat naar `https://management.azure.com`. De vergrendelingen beperken niet hoe resources hun eigen functies uitvoeren. Wijzigingen van resources zijn beperkt, maar de bewerkingen van resources zijn niet beperkt. Bijvoorbeeld, een alleen-lezenvergrendeling op een SQL-Database wordt voorkomen dat u verwijderen of aanpassen van de database, maar voorkomt niet dat u uit het maken, bijwerken of verwijderen van gegevens in de database. Gegevenstransacties zijn toegestaan, omdat deze bewerkingen niet naar verzonden worden `https://management.azure.com`.
+Resource Manager-vergrendelingen gelden alleen voor bewerkingen die in de beheerlaag, die uit bewerkingen die worden verzonden optreden bestaat naar `https://management.azure.com`. De vergrendelingen beperken niet hoe resources hun eigen functies uitvoeren. Wijzigingen van resources zijn beperkt, maar de bewerkingen van resources zijn niet beperkt. Bijvoorbeeld, een alleen-lezenvergrendeling op een SQL-Database wordt voorkomen dat u verwijderen of aanpassen van de database, maar deze niet te voorkomen dat u het maken, bijwerken of verwijderen van gegevens in de database. Gegevenstransacties zijn toegestaan, omdat deze bewerkingen worden niet naar verzonden `https://management.azure.com`.
 
 Toepassen van **ReadOnly** kan leiden tot onverwachte resultaten omdat bepaalde bewerkingen die kunnen worden gelezen bewerkingen daadwerkelijk extra acties vereist. Bijvoorbeeld, als u plaatst een **ReadOnly** vergrendeling op een storage-account wordt voorkomen dat alle gebruikers van de aanbieding van de sleutels. De lijst met sleutels bewerking via een POST-aanvraag wordt verwerkt, omdat de geretourneerde sleutels zijn beschikbaar voor schrijfbewerkingen. Voor een ander voorbeeld: als u plaatst een **alleen-lezen** vergrendeling op een App Service-resource voorkomt dat Visual Studio Server Explorer weergeven van bestanden voor de resource omdat die interactie schrijftoegang is vereist.
 
@@ -47,6 +47,19 @@ Als u wilt maken of verwijderen van beheervergrendelingen, u moet toegang hebben
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
 ## <a name="template"></a>Template
+
+Wanneer u een Resource Manager-sjabloon voor het implementeren van een vergrendeling, kunt u verschillende waarden gebruiken voor de naam en type afhankelijk van het bereik van de vergrendeling.
+
+Bij het toepassen van een vergrendeling op een **resource**, gebruikt u de volgende indelingen:
+
+* naam: `{resourceName}/Microsoft.Authorization/{lockName}`
+* type- `{resourceProviderNamespace}/{resourceType}/providers/locks`
+
+Bij het toepassen van een vergrendeling op een **resourcegroep** of **abonnement**, gebruikt u de volgende indelingen:
+
+* naam: `{lockName}`
+* type- `Microsoft.Authorization/locks`
+
 Het volgende voorbeeld ziet een sjabloon die wordt gemaakt van een app service-plan, een website en een vergrendeling op de website. Het brontype van de vergrendeling is het brontype van de resource moet worden vergrendeld en **/providers/vergrendelingen**. De naam van de vergrendeling is gemaakt door de resourcenaam van de met **/Microsoft.Authorization/** en de naam van de vergrendeling.
 
 ```json
@@ -104,19 +117,7 @@ Het volgende voorbeeld ziet een sjabloon die wordt gemaakt van een app service-p
 }
 ```
 
-In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
-
-```azurepowershell-interactive
-New-AzResourceGroup -Name sitegroup -Location southcentralus
-New-AzResourceGroupDeployment -ResourceGroupName sitegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json -hostingPlanName plan0103
-```
-
-In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
-
-```azurecli
-az group create --name sitegroup --location southcentralus
-az group deployment create --resource-group sitegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json --parameters hostingPlanName=plan0103
-```
+Zie voor een voorbeeld van het instellen van een vergrendeling op een resourcegroep, [een resourcegroep maken en een vergrendeling van het](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment).
 
 ## <a name="powershell"></a>PowerShell
 U vergrendeling geïmplementeerde resources met Azure PowerShell met behulp van de [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock) opdracht.
@@ -206,7 +207,7 @@ Voer het volgende voor het maken van een vergrendeling:
 
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
 
-Het bereik wordt mogelijk een abonnement, resourcegroep of resource. De naam van de vergrendeling is wat u wilt aanroepen van de vergrendeling. Gebruik voor api-versie, **01-01-2015**.
+Het bereik wordt mogelijk een abonnement, resourcegroep of resource. De naam van de vergrendeling is wat u wilt aanroepen van de vergrendeling. Gebruik voor api-versie, **2016-09-01**.
 
 Opnemen in de aanvraag, een JSON-object dat Hiermee geeft u de eigenschappen van de vergrendeling.
 
@@ -219,7 +220,6 @@ Opnemen in de aanvraag, een JSON-object dat Hiermee geeft u de eigenschappen van
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie voor meer informatie over het organiseren van uw resources logisch, [tags gebruiken om uw resources te organiseren](resource-group-using-tags.md)
-* Als u wilt wijzigen welke resource bevindt zich in resourcegroep, Zie [resources verplaatsen naar een nieuwe resourcegroep](resource-group-move-resources.md)
 * U kunt beperkingen en conventies toepassen voor uw abonnement met aangepast beleid. Zie [Wat is Azure Policy?](../governance/policy/overview.md) voor meer informatie.
 * Voor begeleiding bij de manier waarop ondernemingen Resource Manager effectief kunnen gebruiken voor het beheer van abonnementen, gaat u naar [Azure enterprise-platform - Prescriptieve abonnementsgovernance](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 6a652b3fa834c2f29f5063f9ba72a3e3d4e75f58
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: cd0493d4fd126175acafce050394e65a47e9bda9
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512445"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650016"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Maak een virtueel-netwerkpeering - verschillende implementatiemodellen en -abonnementen
 
@@ -180,7 +180,7 @@ In deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement.
 
 In deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement. Als u een account met voor beide abonnementen toegangsmachtigingen gebruikt, kunt u hetzelfde account gebruiken voor alle stappen, slaat u de stappen voor de logboekregistratie van Azure kunt benutten en de regels van het script waarmee gebruiker roltoewijzingen verwijderen. Vervang UserA@azure.com en UserB@azure.com in alle van de volgende scripts met de gebruikersnamen die u om UserA en UserB gebruikt. 
 
-1. Installeer de nieuwste versie van de PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) en [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) modules. Zie [Overzicht van Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) als u nog geen ervaring hebt met Azure PowerShell.
+1. Installeer de nieuwste versie van de PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) en [Az](https://www.powershellgallery.com/packages/Az) modules. Zie [Overzicht van Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) als u nog geen ervaring hebt met Azure PowerShell.
 2. Start een PowerShell-sessie.
 3. In PowerShell, meld u aan bij UserB van abonnement als de gebruiker b door in te voeren de `Add-AzureAccount` opdracht. Het account dat u zich aan met moet de vereiste machtigingen om het maken van een virtueel netwerk-peering hebben. Zie voor een lijst van machtigingen, [machtigingen voor peering](virtual-network-manage-peering.md#permissions).
 4. Voor het maken van een virtueel netwerk (klassiek) met PowerShell, moet u een nieuwe maken of wijzigen van een bestaand, netwerk-configuratiebestand. Meer informatie over het [exporteren en importeren van netwerk-configuratiebestanden bijwerken](virtual-networks-using-network-configuration-file.md). Het bestand moet zijn onder andere de volgende **VirtualNetworkSite** -element voor het virtuele netwerk in deze zelfstudie gebruikt:
@@ -201,17 +201,17 @@ In deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement.
     > [!WARNING]
     > Een gewijzigde netwerkconfiguratiebestand importeren kan leiden tot wijzigingen in bestaande virtuele netwerken (klassiek) in uw abonnement. Zorg ervoor dat u alleen de vorige virtueel netwerk toevoegen en u niet wijzigen of verwijderen van een bestaande virtuele netwerken van uw abonnement. 
 
-5. Meld u aan bij de gebruiker b van abonnement als UserB met Resource Manager-opdrachten door te voeren de `Connect-AzureRmAccount` opdracht.
-6. Gebruiker a machtigingen toewijzen aan virtueel netwerk b kopiëren in het volgende script naar een teksteditor op uw PC en vervang `<SubscriptionB-id>` met de ID van abonnement B. Als u de abonnements-Id niet weet, voert u de `Get-AzureRmSubscription` opdracht weer te geven. De waarde voor **Id** in de resulterende uitvoer wordt uw abonnement-ID. Azure hebt gemaakt voor het virtuele netwerk (klassiek) die u hebt gemaakt in stap 4 in een resourcegroep met de naam *standaard-netwerk*. Voor het uitvoeren van het script het gewijzigde script kopiëren, plak deze in op PowerShell en druk vervolgens op `Enter`.
+5. Meld u aan bij de gebruiker b van abonnement als UserB met Resource Manager-opdrachten door te voeren de `Connect-AzAccount` opdracht.
+6. Gebruiker a machtigingen toewijzen aan virtueel netwerk b kopiëren in het volgende script naar een teksteditor op uw PC en vervang `<SubscriptionB-id>` met de ID van abonnement B. Als u de abonnements-Id niet weet, voert u de `Get-AzSubscription` opdracht weer te geven. De waarde voor **Id** in de resulterende uitvoer wordt uw abonnement-ID. Azure hebt gemaakt voor het virtuele netwerk (klassiek) die u hebt gemaakt in stap 4 in een resourcegroep met de naam *standaard-netwerk*. Voor het uitvoeren van het script het gewijzigde script kopiëren, plak deze in op PowerShell en druk vervolgens op `Enter`.
     
     ```powershell 
-    New-AzureRmRoleAssignment `
+    New-AzRoleAssignment `
       -SignInName UserA@azure.com `
       -RoleDefinitionName "Classic Network Contributor" `
       -Scope /subscriptions/<SubscriptionB-id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
     ```
 
-7. Meld u af bij Azure als UserB en meld u aan bij de gebruiker van de a-abonnement als UserA door in te voeren de `Connect-AzureRmAccount` opdracht. Het account dat u zich aan met moet de vereiste machtigingen om het maken van een virtueel netwerk-peering hebben. Zie voor een lijst van machtigingen, [machtigingen voor peering](virtual-network-manage-peering.md#permissions).
+7. Meld u af bij Azure als UserB en meld u aan bij de gebruiker van de a-abonnement als UserA door in te voeren de `Connect-AzAccount` opdracht. Het account dat u zich aan met moet de vereiste machtigingen om het maken van een virtueel netwerk-peering hebben. Zie voor een lijst van machtigingen, [machtigingen voor peering](virtual-network-manage-peering.md#permissions).
 8. Maken van het virtuele netwerk (Resource Manager) door het volgende script kopiëren, te plakken in PowerShell en drukt u op `Enter`:
 
     ```powershell
@@ -220,22 +220,22 @@ In deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement.
       $location='eastus'
 
     # Create a resource group.
-    New-AzureRmResourceGroup `
+    New-AzResourceGroup `
       -Name $rgName `
       -Location $location
 
     # Create virtual network A.
-    $vnetA = New-AzureRmVirtualNetwork `
+    $vnetA = New-AzVirtualNetwork `
       -ResourceGroupName $rgName `
       -Name 'myVnetA' `
       -AddressPrefix '10.0.0.0/16' `
       -Location $location
     ```
 
-9. Verleent machtigingen toewijzen aan myVnetA. Kopieer het volgende script naar een teksteditor op uw PC en vervang `<SubscriptionA-Id>` met de ID van abonnement A. Als u de abonnements-Id niet weet, voert u de `Get-AzureRmSubscription` opdracht weer te geven. De waarde voor **Id** in de resulterende uitvoer wordt uw abonnement-ID. Plak de gewijzigde versie van het script in PowerShell en druk vervolgens op `Enter` uitvoeren.
+9. Verleent machtigingen toewijzen aan myVnetA. Kopieer het volgende script naar een teksteditor op uw PC en vervang `<SubscriptionA-Id>` met de ID van abonnement A. Als u de abonnements-Id niet weet, voert u de `Get-AzSubscription` opdracht weer te geven. De waarde voor **Id** in de resulterende uitvoer wordt uw abonnement-ID. Plak de gewijzigde versie van het script in PowerShell en druk vervolgens op `Enter` uitvoeren.
 
     ```powershell
-    New-AzureRmRoleAssignment `
+    New-AzRoleAssignment `
       -SignInName UserB@azure.com `
       -RoleDefinitionName "Network Contributor" `
       -Scope /subscriptions/<SubscriptionA-Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/VirtualNetworks/myVnetA
@@ -244,7 +244,7 @@ In deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement.
 10. Kopieer het volgende script naar een teksteditor op uw PC en vervang `<SubscriptionB-id>` met de ID van abonnement B. MyVnetA naar myVNetB koppelen, het gewijzigde script kopiëren, plak deze in op PowerShell en druk vervolgens op `Enter`.
 
     ```powershell
-    Add-AzureRmVirtualNetworkPeering `
+    Add-AzVirtualNetworkPeering `
       -Name 'myVnetAToMyVnetB' `
       -VirtualNetwork $vnetA `
       -RemoteVirtualNetworkId /subscriptions/<SubscriptionB-id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
@@ -253,7 +253,7 @@ In deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement.
 11. De status van de peering van myVnetA weergeven door het volgende script kopiëren, plakken in PowerShell en drukken `Enter`.
 
     ```powershell
-    Get-AzureRmVirtualNetworkPeering `
+    Get-AzVirtualNetworkPeering `
       -ResourceGroupName $rgName `
       -VirtualNetworkName myVnetA `
       | Format-Table VirtualNetworkName, PeeringState
@@ -299,7 +299,7 @@ Wanneer u deze zelfstudie hebt voltooid, is het raadzaam om de resources die u i
 1. Voer op de PowerShell-opdrachtprompt de volgende opdracht voor het verwijderen van het virtuele netwerk (Resource Manager):
 
    ```powershell
-   Remove-AzureRmResourceGroup -Name myResourceGroupA -Force
+   Remove-AzResourceGroup -Name myResourceGroupA -Force
    ```
 
 2. Als u wilt verwijderen van het virtuele netwerk (klassiek) met PowerShell, wijzigt u een bestaand configuratiebestand van het netwerk. Meer informatie over het [exporteren en importeren van netwerk-configuratiebestanden bijwerken](virtual-networks-using-network-configuration-file.md). Verwijder de volgende VirtualNetworkSite-element voor het virtuele netwerk in deze zelfstudie gebruikt:

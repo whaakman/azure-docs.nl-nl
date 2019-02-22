@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 7612e9d6444b61210da5d642530d99423220c0a4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 753c5312987cc541456b2f7415bb7dc9d4770d05
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076837"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593349"
 ---
 # <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Apache Kafka voor Event Hubs-gebeurtenissen verwerken met behulp van Stream Analytics 
 In dit artikel laat zien hoe gegevens streamen naar Event Hubs waarvoor Kafka is ingeschakeld en met Azure Stream Analytics te verwerken. Dit leidt u door de volgende stappen uit: 
@@ -133,7 +133,7 @@ De query in de Stream Analytics-taak wordt doorgegeven via de gegevens zonder de
 
 ### <a name="configure-job-input"></a>Taakinvoer configureren
 
-1. Selecteer in het meldingsbericht ** gaat u naar resource ** om te zien de **Stream Analytics-taak** pagina. 
+1. Selecteer in het meldingsbericht **naar de resource gaan** om te zien de **Stream Analytics-taak** pagina. 
 2. Selecteer **invoer** in de **TAAKTOPOLOGIE** sectie in het menu links.
 3. Selecteer **Stroominvoer toevoegen**, en selecteer vervolgens **Event Hub**. 
 

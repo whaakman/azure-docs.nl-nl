@@ -1,5 +1,5 @@
 ---
-title: Beveiligingsgegevens (preview) gebruiken een SMS-berichten verzenden - Azure Active Directory instellen | Microsoft Docs
+title: Beveiligingsgegevens (preview) gebruiken de SMS-berichten verzenden - Azure Active Directory instellen | Microsoft Docs
 description: Over het instellen van je beveiligingsgegevens om uw identiteit met behulp van SMS-berichten verzenden en uw mobiele apparaat te verifiëren.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a130113c7e6052befdc61927589c1151a062bdb9
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 00236a810fb85be6af914021acec2d2b87698e1d
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456092"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588582"
 ---
 # <a name="set-up-security-info-preview-to-use-text-messaging"></a>Beveiligingsgegevens (preview) instellen voor het gebruik van SMS-berichten verzenden
 U kunt deze stappen om toe te voegen uw tweeledige verificatie en methoden voor wachtwoord opnieuw instellen. Nadat u hebt dit tijdens de eerste keer hebt ingesteld, kunt u terugkeren naar de **beveiligingsgegevens** pagina toevoegen, bijwerken of verwijderen van uw beveiligingsgegevens.

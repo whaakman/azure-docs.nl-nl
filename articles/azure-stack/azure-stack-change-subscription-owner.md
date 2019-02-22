@@ -12,53 +12,53 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 10/19/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: shnatara
 ms.lastreviewed: 10/19/2018
-ms.openlocfilehash: c9288d47dc9df8604c7eb676ba5d93f91a6b0063
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: de5c20cf2113bcd6ce902a05d4613376145a4da3
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245681"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649404"
 ---
 # <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Wijzig de eigenaar voor een Azure Stack-gebruikersabonnement
 
-Azure Stack-operators kunnen PowerShell gebruiken om te wijzigen van de eigenaar van de facturering van het gebruikersabonnement van een. Reden voor het wijzigen van de eigenaar wordt bijvoorbeeld vervangen door een gebruiker die uw organisatie verlaat.   
+Azure Stack-operators kunnen PowerShell gebruiken om te wijzigen van de eigenaar van de facturering van het gebruikersabonnement van een. Reden voor het wijzigen van de eigenaar wordt bijvoorbeeld vervangen door een gebruiker die uw organisatie verlaat.
 
 Er zijn twee soorten *eigenaren* die zijn toegewezen aan een abonnement:
 
-- **De eigenaar van de facturering**: De eigenaar van de facturering is standaard, het gebruikersaccount dat wordt opgehaald van het abonnement van een aanbieding en vervolgens is eigenaar van de facturering regelen voor dat abonnement. Dit account is ook een beheerder van het abonnement. Slechts één gebruikersaccount kan deze aanwijzing van een abonnement hebben. De eigenaar van een facturering is vaak een lead organisatie of team. 
+- **De eigenaar van de facturering**: De eigenaar van de facturering is standaard, het gebruikersaccount dat wordt opgehaald van het abonnement van een aanbieding en vervolgens is eigenaar van de facturering regelen voor dat abonnement. Dit account is ook een beheerder van het abonnement. Slechts één gebruikersaccount kan deze aanwijzing van een abonnement hebben. De eigenaar van een facturering is vaak een lead organisatie of team.
 
-  U de PowerShell-cmdlet gebruikt de [Set AzsUserSubscription](/powershell/module/azs.subscriptions.admin/set-azsusersubscription) te wijzigen van de eigenaar van de facturering.  
+  U kunt de PowerShell-cmdlet [Set AzsUserSubscription](/powershell/module/azs.subscriptions.admin/set-azsusersubscription) te wijzigen van de eigenaar van de facturering.  
 
-- **Eigenaren toevoegen via RBAC-rollen** – extra gebruikers kunnen worden verleend de **eigenaar** rol met behulp van de [rollen gebaseerd toegangsbeheer](azure-stack-manage-permissions.md) system (RBAC). Een willekeurig aantal aanvullende gebruikersaccounts kan worden toegevoegd als eigenaren aan een fraaie aanvulling in de eigenaar van de facturering. Aanvullende eigenaren zijn ook beheerders van het abonnement en hebben alle bevoegdheden voor het abonnement, met uitzondering van de machtiging voor het verwijderen van de eigenaar van de facturering. 
+- **Eigenaren toevoegen via RBAC-rollen** – extra gebruikers kunnen worden verleend de **eigenaar** rol met behulp van de [rollen gebaseerd toegangsbeheer](azure-stack-manage-permissions.md) system (RBAC). Een willekeurig aantal aanvullende gebruikersaccounts kan worden toegevoegd als eigenaren aan een fraaie aanvulling in de eigenaar van de facturering. Aanvullende eigenaren zijn ook beheerders van het abonnement en hebben alle bevoegdheden voor het abonnement, met uitzondering van de machtiging voor het verwijderen van de eigenaar van de facturering.
 
-  U kunt PowerShell gebruiken voor aanvullende eigenaren beheren, Zie [Azure PowerShell voor het beheren van op rollen gebaseerd toegangsbeheer](/azure/role-based-access-control/role-assignments-powershell).
+  U kunt PowerShell gebruiken voor het beheren van extra eigenaren. Raadpleeg [dit artikel](/azure/role-based-access-control/role-assignments-powershell) voor meer informatie.
 
 ## <a name="change-the-billing-owner"></a>De eigenaar van de facturering wijzigen
 
-Voer het volgende script als u wilt wijzigen van de eigenaar van de facturering van het gebruikersabonnement van een. De computer die u gebruikt om uit te voeren van het script moet verbinding maken met Azure Stack en uitvoeren van de Azure Stack-PowerShell-module 1.3.0 of hoger. Zie voor meer informatie, [PowerShell voor Azure Stack installeren](azure-stack-powershell-install.md). 
+Voer het volgende script als u wilt wijzigen van de eigenaar van de facturering van het gebruikersabonnement van een. De computer die u gebruikt om uit te voeren van het script moet verbinding maken met Azure Stack en uitvoeren van de Azure Stack-PowerShell-module 1.3.0 of hoger. Zie voor meer informatie, [PowerShell voor Azure Stack installeren](azure-stack-powershell-install.md).
 
-> [!Note]
->  In een multitenant Azure Stack, moet de nieuwe eigenaar zich in dezelfde map als de eigenaar van de bestaande. Voordat u de eigendom van het abonnement aan een gebruiker die zich in een andere map bieden kunt, moet u eerst [die gebruiker als gast uitnodigen in uw directory](../active-directory/b2b/add-users-administrator.md). 
+>[!NOTE]
+>In een multitenant Azure Stack, moet de nieuwe eigenaar zich in dezelfde map als de eigenaar van de bestaande. Voordat u de eigendom van het abonnement aan een gebruiker die zich in een andere map bieden kunt, moet u eerst [die gebruiker als gast uitnodigen in uw directory](../active-directory/b2b/add-users-administrator.md).
 
-Vervang de volgende waarden in het script voordat deze wordt uitgevoerd: 
- 
-- **$ArmEndpoint**: Geef het Resource Manager-eindpunt voor uw omgeving.  
-- **$TenantId**: Geef uw Tenant-ID. 
-- **$SubscriptionId**: Geef uw abonnements-ID.
-- **$OwnerUpn**: Geef een account op als **user@example.com** om toe te voegen als de eigenaar van de nieuwe facturering.  
+Vervang de volgende waarden in het script voordat deze wordt uitgevoerd:
 
-```PowerShell   
+- **$ArmEndpoint**: Het Resource Manager-eindpunt voor uw omgeving.
+- **$TenantId**: Uw Tenant-ID.
+- **$SubscriptionId**: Uw abonnements-ID.
+- **$OwnerUpn**: Een account, bijvoorbeeld **user@example.com**om toe te voegen als de eigenaar van de nieuwe facturering.
+
+```powershell
 # Set up Azure Stack admin environment
 Add-AzureRmEnvironment -ARMEndpoint $ArmEndpoint -Name AzureStack-admin
 Add-AzureRmAccount -Environment AzureStack-admin -TenantId $TenantId
 
 # Select admin subscription
 $providerSubscriptionId = (Get-AzureRmSubscription -SubscriptionName "Default Provider Subscription").Id
-Write-Output "Setting context to the Default Provider Subscription: $providerSubscriptionId" 
+Write-Output "Setting context to the Default Provider Subscription: $providerSubscriptionId"
 Set-AzureRmContext -Subscription $providerSubscriptionId
 
 # Change user subscription owner
@@ -69,4 +69,4 @@ Set-AzsUserSubscription -InputObject $subscription
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Toegangsbeheer op basis van rollen beheren](azure-stack-manage-permissions.md)
+- [Toegangsbeheer op basis van rollen beheren](azure-stack-manage-permissions.md)

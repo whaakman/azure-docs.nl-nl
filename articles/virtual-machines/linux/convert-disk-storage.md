@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 10dc7a2c7e4de44979ec72b1d292c69866e1faae
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 6b78027191d72c10b20c9d09a92c82be4a9e3e05
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326405"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650798"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Converteren van Azure managed disks-opslag van standard naar premium, en vice versa
 
@@ -134,17 +134,20 @@ az disk update --sku $sku --name $diskName --resource-group $rgName
 az vm start --ids $vmId 
 ```
 
-## <a name="convert-using-the-azure-portal"></a>Converteren met behulp van de Azure-portal
+## <a name="convert-managed-disks-between-standard-and-premium-in-azure-portal"></a>Converteren van beheerde schijven naast standaard en premium in Azure portal
 
-U kunt ook niet-beheerde schijven converteren naar managed disks met behulp van de Azure portal.
+U kunt beheerde schijven naast standaard en premium in de Azure-portal kunt converteren.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Selecteer de virtuele machine uit de lijst met virtuele machines in de portal.
+2. Selecteer de virtuele machine uit de lijst met **virtuele machines** in de portal.
+3. Als de virtuele machine niet gestopt is, klikt u op **stoppen** boven aan de blade overzicht van de virtuele machine en wacht tot de virtuele machine te stoppen.
 3. Selecteer in de blade voor de virtuele machine, **schijven** in het menu.
-4. Aan de bovenkant van de **schijven** Selecteer **migreren naar managed disks**.
-5. Als uw virtuele machine zich in een beschikbaarheidsset, worden er een waarschuwing weergegeven op de **migreren naar managed disks** blade die u moet eerst de beschikbaarheidsset converteren. De waarschuwing moet een koppeling die u kunt klikken op als u wilt converteren van de beschikbaarheidsset. Zodra de beschikbaarheidsset is geconverteerd, of als uw virtuele machine zich niet in een beschikbaarheidsset, klikt u op **migreren** om het proces van de migratie van uw schijven naar beheerde schijven te starten. 
+4. Selecteer de schijf die u wilt converteren.
+5. Selecteer **configuratie** in het menu.
+6. Wijziging de **accounttype** van **Standard HDD** naar **Premium SSD**, en vice versa.
+7. Klik op **opslaan** en sluit de blade van de schijf.
 
-De virtuele machine worden gestopt en opnieuw opgestart nadat de migratie is voltooid.
+Het bijwerken van het schijftype is effectief onmiddellijk. U kunt uw virtuele machine opnieuw opstarten na de conversie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

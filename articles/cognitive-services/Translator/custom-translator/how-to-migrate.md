@@ -9,12 +9,12 @@ ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: b8347a8c34cf5a0585e9bb6c247102207a70015a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 11cf66d9335315048fd505b3cd9e4c73b244e95a
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55225615"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586270"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Hub-werkruimte en projecten migreren naar aangepaste Translator
 
@@ -125,7 +125,7 @@ Als u dat meer gedetailleerde migratierapport over uw projecten, trainingen en d
 ## <a name="implementation-notes"></a>Opmerkingen bij de implementatie
 * Migreren van een project van de Hub met aangepaste Translator hebben geen invloed op uw Hub trainingen of projecten. We niet verwijderen-projecten of documenten van Hub tijdens een migratie en we modellen kan niet worden geïmplementeerd.
 * Alleen is toegestaan voor het migreren van één keer per project. Als u herhalen van een migratie van een project wilt, neem dan contact met ons.
-* Op dit moment de aangepaste Translator ondersteunt 36 talen vertalen van en naar het Engels en we werken er hard aan extra talen toevoegen. Hub vereist geen basislijn modellen en daarom enkele duizenden talen worden ondersteund. Maar we alleen de migratie van documenten en definities van project, kunt u een sleutelpaar met een niet-ondersteunde taal migreren. Er is niet mogelijk naar het nieuwe model te trainen. Bovendien deze documenten en projecten worden weergegeven als inactief om aan te geven dat ze op dit moment niet worden gebruikt. Als er is ondersteuning toegevoegd voor deze projecten en/of de documenten, worden ze actief is en trainable.
+* Aangepaste Translator ondersteunt NMT taal paren van en naar het Engels. [De volledige lijst van ondersteunde talen weergeven](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization). Hub vereist geen basislijn modellen en daarom enkele duizenden talen worden ondersteund. Maar we alleen de migratie van documenten en definities van project, kunt u een sleutelpaar met een niet-ondersteunde taal migreren. Er is niet mogelijk naar het nieuwe model te trainen. Bovendien deze documenten en projecten worden weergegeven als inactief om aan te geven dat ze op dit moment niet worden gebruikt. Als er is ondersteuning toegevoegd voor deze projecten en/of de documenten, worden ze actief is en trainable.
 * Aangepaste Translator ondersteunt momenteel geen ééntalig trainingsgegevens. Als niet-ondersteunde taal paren, kunt u ééntalig documenten migreren, maar ze worden weergegeven als inactief totdat ééntalig wordt ondersteund.
 * Aangepaste Translator vereist 10 k parallelle zinnen om te kunnen trainen. Microsoft Hub kunnen trainen op een kleiner aantal gegevens. Als een training is gemigreerd die niet aan deze vereiste voldoet, wordt deze niet getraind.
 

@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: aschhab
-ms.openlocfilehash: cd2d5812d1b61e1d8fcc00fbc824be8ceac696de
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 1cdd0a3bd7e0d647e2f67d4c92b5a2167d5d21ad
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849954"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585216"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Service Bus-onderwerpen en abonnementen gebruiken met Java
 
@@ -46,46 +46,9 @@ Tegenstelling tot het Service Bus-wachtrijen, waarin elk bericht wordt verwerkt 
 
 Service Bus-onderwerpen en abonnementen kunnen u schalen voor het verwerken van een groot aantal berichten over een groot aantal gebruikers en toepassingen.
 
-## <a name="create-a-service-bus-namespace"></a>Een Service Bus-naamruimte maken
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-Een Service Bus-berichtennaamruimte biedt een unieke scoping container, waarnaar wordt verwezen met de [volledig gekwalificeerde domeinnaam](https://wikipedia.org/wiki/Fully_qualified_domain_name) (FQDN), waarin u een of meer wachtrijen, onderwerpen en abonnementen maakt. In het volgende voorbeeld wordt een Service Bus-berichtennaamruimte in een nieuwe of bestaande [resourcegroep](/azure/azure-resource-manager/resource-group-portal) gemaakt:
-
-1. Klik in het linkernavigatievenster van de portal achtereenvolgens op **+ Een resource maken**, **Bedrijfsintegratie** en **Service Bus**.
-2. Voer in het dialoogvenster **Naamruimte maken** een naam in voor de naamruimte. In het systeem wordt onmiddellijk gecontroleerd of de naam beschikbaar is.
-3. Nadat u hebt gecontroleerd of de naam van de naamruimte beschikbaar is, kiest u de prijscategorie (Standard of Premium).
-4. Kies in het veld **Abonnement** een Azure-abonnement waarin u de naamruimte maakt.
-5. In de **resourcegroep** veld, kiest u een bestaande resourcegroep waarin de naamruimte zich bevinden of een nieuwe maken.      
-6. Kies in **Locatie** het land of regio waarin uw naamruimte moet worden gehost.
-7. Klik op **Create**. Uw naamruimte wordt nu gemaakt en ingeschakeld. U moet wellicht enkele minuten wachten terwijl de resources voor uw account worden ingericht.
-
-  ![naamruimte](./media/service-bus-tutorial-topics-subscriptions-portal/create-namespace.png)
-
-### <a name="obtain-the-management-credentials"></a>De beheerreferenties ophalen
-
-Bij het maken van een nieuwe naamruimte wordt automatisch een eerste SAS-regel (Shared Access Signature) gegenereerd met een bijbehorende primaire en secundaire sleutel die elk volledige controle over alle aspecten van de naamruimte bieden. Volg deze stappen om de eerste regel te kopiëren:
-
-1. Klik op **Alle resources** en klik vervolgens op de zojuist gemaakte naam voor de naamruimte.
-2. Klik in het venster van de naamruimte op **Beleid voor gedeelde toegang**.
-3. Klik in het scherm **Beleid voor gedeelde toegang** op **RootManageSharedAccessKey**.
-4. Klik in het venster **Beleid: RootManageSharedAccessKey** op de knop **Kopiëren** naast **Primaire verbindingsreeks** om de verbindingsreeks naar het klembord te kopiëren voor later gebruik. Plak deze waarde in Kladblok of een andere tijdelijke locatie.
-
-    ![connection-string](./media/service-bus-tutorial-topics-subscriptions-portal/connection-string.png)
-5. Herhaal de vorige stap: het kopiëren en plakken van de waarde voor de **Primaire sleutel** voor een tijdelijke locatie zodat u deze later kunt gebruiken.
-
-## <a name="create-a-topic"></a>Een onderwerp maken 
-Als u een Service Bus-wachtrij wilt maken, moet u de naamruimte opgeven waarin u de wachtrij wilt maken. Het volgende voorbeeld laat zien hoe u in de portal een wachtrij maakt:
-
-1. Klik in het navigatiedeelvenster links in de portal op **Service Bus** (als u geen **Service Bus** ziet, klik dan op **Alle services**).
-2. Klik op de naamruimte waarin u het onderwerp wilt maken.
-3. Klik in het venster voor de naamruimte op **Onderwerpen** en klik vervolgens in het venster **Onderwerpen** op **+ Onderwerpen**.
-4. Voer **BasicTopic** voor het onderwerp **naam**, en laat de andere waarden de standaardinstellingen.
-5. Klik onder aan het venster op **Maken**.
-
-
-## <a name="create-subscriptions-for-the-topic"></a>Abonnementen voor het onderwerp maken
-1. Selecteer de **onderwerp** u hebt gemaakt.
-2. Klik op **+ abonnement**, voer de naam van het abonnement **Subscription1**, en laat alle andere waarden de standaardinstellingen.
-3. Herhaal de vorige stap twee keer meer, het maken van abonnementen met de naam **Subscription2** en **Subscription3**.
+[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
 
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Uw toepassing configureren voor het gebruik van Service Bus

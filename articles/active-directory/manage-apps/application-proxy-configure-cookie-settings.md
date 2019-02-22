@@ -12,12 +12,12 @@ ms.date: 01/16/2019
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1d97e2542200703201b1c20738581a938ba209e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: dfcd7f10952a883552cd30d6cacf03095492dd38
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165991"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649744"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Cookie-instellingen voor toegang tot on-premises toepassingen in Azure Active Directory
 
@@ -43,21 +43,19 @@ Om in te stellen de cookie-instellingen met behulp van de Azure-portal:
 5. Onder **extra instellingen**, de cookie instelt op **Ja** of **Nee**.
 6. Klik op **opslaan** de wijzigingen worden toegepast. 
 
-<!---
+## <a name="view-current-cookie-settings---powershell"></a>Huidige cookie-instellingen - PowerShell weergeven
 
-## View current cookie settings - PowerShell
-
-To see the current cookie settings for the application, use this PowerShell command:  
+Als de huidige cookie-instellingen voor de toepassing weergeven, gebruikt u deze PowerShell-opdracht:  
 
 ```PowerShell
 Get-AzureADApplicationProxyApplication -ObjectId <ObjectId> | fl * 
 ```
 
-## Set cookie settings - PowerShell
+## <a name="set-cookie-settings---powershell"></a>Cookie-instellingen - PowerShell instellen
 
-In the following PowerShell commands, ```<ObjectId>``` is the ObjectId of the application. 
+In de volgende PowerShell-opdrachten, ```<ObjectId>``` de object-id van de toepassing is. 
 
-**Http-Only Cookie** 
+**Alleen HTTP-Cookie** 
 
 ```PowerShell
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsHttpOnlyCookieEnabled $true 
@@ -71,11 +69,9 @@ Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsSecureCookieEnabl
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsSecureCookieEnabled $false 
 ```
 
-**Persistent Cookies**
+**Permanente Cookies**
 
 ```PowerShell
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsPersistentCookieEnabled $true 
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsPersistentCookieEnabled $false 
 ```
-
--->

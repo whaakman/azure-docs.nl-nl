@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: 7d8047e569d3506f9ebb798b4f8c31ff94204fa4
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 98b2c0bc27336e9ee5fe9aaf6332d9854e9af4de
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694054"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650288"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Veelgestelde vragen (FAQ) over virtuele Azure-netwerk
 
@@ -221,7 +221,7 @@ Ja. U kunt de REST-API's gebruiken voor vnet's in de [Azure Resource Manager](/r
 ### <a name="is-there-tooling-support-for-vnets"></a>Is er ondersteuning voor hulpprogramma's voor VNets?
 Ja. Meer informatie over het gebruik van:
 - De Azure portal om te implementeren VNets via de [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) en [klassieke](virtual-networks-create-vnet-classic-pportal.md) implementatiemodellen.
-- PowerShell voor het beheren van VNets die zijn geïmplementeerd via de [Resource Manager](/powershell/module/azurerm.network) en [klassieke](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0) implementatiemodellen.
+- PowerShell voor het beheren van VNets die zijn geïmplementeerd via de [Resource Manager](/powershell/module/az.network) en [klassieke](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0) implementatiemodellen.
 - De Azure-opdrachtregelinterface (CLI) te implementeren en beheren van de VNets die zijn geïmplementeerd via de [Resource Manager](/cli/azure/network/vnet) en [klassieke](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources) implementatiemodellen.  
 
 ## <a name="vnet-peering"></a>VNet-peering

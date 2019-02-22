@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 11/16/2018
 ms.author: amsriva
-ms.openlocfilehash: 9bccc9258a6bd9a6fef4956d0f32cb00dd3c542d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 014353bafa31b1c4e924cba8335dbd30a48c2d11
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454256"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651427"
 ---
 # <a name="web-application-firewall-waf"></a>Web Application Firewall (WAF)
 
@@ -130,6 +130,16 @@ In Application Gateway WAF kunnen de volgende twee modi worden geconfigureerd:
 
 * **Detectiemodus** : bij deze configuratie om uit te voeren in de modus voor detectie, Application Gateway WAF gecontroleerd en alle bedreigingswaarschuwingen naar een logboekbestand. Diagnostische logboekregistratie voor Application Gateway kunt u inschakelen via de sectie **Diagnostische gegevens**. U moet er ook voor zorgen dat het WAF-logboek is geselecteerd en ingeschakeld. In de detectiemodus worden binnenkomende verzoeken niet geblokkeerd door Web Application Firewall.
 * **Preventiemodus**: bij deze configuratie worden indringers en aanvallen die worden gedetecteerd door de van toepassing zijnde regels actief door Application Gateway geblokkeerd. De aanvaller krijgt een 403-foutmelding voor onbevoegde toegang en de verbinding wordt verbroken. De preventiemodus blijft dergelijke aanvallen registreren in de WAF-logboeken.
+
+### <a name="anomaly-scoring-mode"></a>Anomaliedetectie Scoring-modus 
+ 
+OWASP heeft twee modi voor het bepalen of verkeer blokkeert of niet. Er is een traditionele, en een Scoring-Anomaliedetectie modus. In de traditionele modus, wordt beschouwd als een regel die overeenkomt met verkeer onafhankelijk of andere regels te zijn gekoppeld. Hoewel gemakkelijker te begrijpen, wordt het ontbreken van informatie over het aantal regels zijn geactiveerd door een specifieke aanvraag is een van de beperkingen van deze modus. Daarom de Scoring-Anomaliedetectie-modus werd geïntroduceerd, dat is, worden de standaardinstellingen met OWASP 3.x. 
+
+In de Anomaliedetectie Scoring-modus betekent het feit dat een van de regels die in de vorige sectie zijn beschreven op het verkeer overeenkomt met onmiddellijk niet dat het verkeer worden geblokkeerd gaat, ervan uitgaande dat de firewall wordt in de modus te voorkomen. Regels voor een bepaalde ernst (kritiek, fout, waarschuwing en u ziet dat) hebben en, afhankelijk van de ernst van dat ze een numerieke waarde voor de aanvraag met de naam de Anomaliedetectie-Score wordt verhoogd. Bijvoorbeeld, een overeenkomende regel in de waarschuwing wordt een waarde van 3 bijdragen, maar één overeenkomende kritieke regel wordt een waarde van 5 bijdragen. 
+
+Er is een drempelwaarde voor de Anomaliedetectie-Score waarmee verkeer niet wordt verwijderd, deze drempelwaarde wordt ingesteld op 5. Dit betekent dat, één kritieke overeenkomende regel is dit voldoende zodat Azure WAF blokkeert een aanvraag in preventiemodus (omdat de kritieke regel wordt de anomaliedetectie-score verhoogd met 5, op basis van de vorige alinea). Echter een overeenkomende regel met een niveau van de waarschuwing wordt alleen vergroten de anomalie score door 3. Aangezien 3 nog steeds lager is dan de drempelwaarde 5 is, wordt geen verkeer geblokkeerd, zelfs als de WAF in preventiemodus. 
+
+Houd er rekening mee dat het bericht wordt geregistreerd wanneer een WAF-regels komt overeen met verkeer bevat het veld action_s als 'Geblokkeerd', maar dat hoeft niet te betekenen dat het verkeer daadwerkelijk is geblokkeerd. Een score van afwijkingen van 5 of hoger is vereist voor het verkeer niet daadwerkelijk worden geblokkeerd.  
 
 ### <a name="application-gateway-waf-reports"></a>Bewaking met WAF
 

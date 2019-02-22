@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: c76c7bdb398184cc297831c9395063e7bf0f6bdc
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: cc5c4310d5f9886518bee6612113fba174130bec
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492535"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56648713"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Service verlagen met behulp van Azure Advisor
 
@@ -21,7 +21,7 @@ Advisor helpt u te optimaliseren en uw totale Azure verminderen besteden door ni
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>Optimaliseer virtuele machine uitgaven per vergroten of verkleinen of weinig gebruikte exemplaren afsluiten 
 
-Hoewel bepaalde toepassingsscenario's in laag gebruik standaard resulteren kunnen, kunt u vaak geld besparen door het beheer van de grootte en het nummer van uw virtuele machines. Advisor bewaakt uw gebruik van virtuele machines gedurende 14 dagen en vervolgens laag gebruik virtuele machines identificeert. Virtuele machines waarvan CPU-gebruik 5 is % of minder en netwerkgebruik is 7 MB of minder voor vier of meer dagen worden beschouwd als laag gebruik virtuele machines.
+Hoewel bepaalde toepassingsscenario's in laag gebruik standaard resulteren kunnen, kunt u vaak geld besparen door het beheer van de grootte en het nummer van uw virtuele machines. Advisor bewaakt het gebruik van uw virtuele machine 7 dagen en identificeert het vervolgens laag gebruik virtuele machines. Virtuele machines worden beschouwd als laag-gebruik als het CPU-gebruik 5 is % of minder en hun netwerkgebruik is minder dan 2% of als de huidige werkbelasting kan worden aangepast door een kleinere virtuele machine.
 
 Advisor geeft u de geschatte kosten van u verdergaat met het uitvoeren van uw virtuele machine, zodat u kunt deze wordt afgesloten of wijzig de grootte ervan.
 

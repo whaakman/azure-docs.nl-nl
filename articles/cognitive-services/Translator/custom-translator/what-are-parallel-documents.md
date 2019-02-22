@@ -9,17 +9,24 @@ ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: d7f479bbacef7270807d9292e7b91fe835485647
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: aaad6838b47b812833af8960d24e9e15c0067a15
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217370"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585998"
 ---
 # <a name="what-are-parallel-documents"></a>Wat zijn parallelle documenten?
 
 Parallelle documenten bestaan uit paren van documenten is, de vertaling van de andere. Een document in het paar zinnen in de source-taal bevat en het andere document bevat deze zinnen vertaald naar de doel-taal.
 Het maakt niet uit welke taal is gemarkeerd als 'bron' en welke taal is gemarkeerd als 'target': een parallelle document kan worden gebruikt voor het trainen van een vertaalsysteem in beide richtingen.
+
+## <a name="requirements"></a>Vereisten
+
+U moet minimaal 10.000 parallelle zinnen met het trainen van een systeem. Als een best practice, kunt u continu meer parallelle inhoud toevoegen en retrain, voor het verbeteren van de kwaliteit van uw vertaalsysteem.
+
+Microsoft vereist dat documenten die zijn geüpload naar de Translator aangepaste eigenschappen voor het auteursrecht of intellectueel eigendom van een derde partij niet schenden. Zie voor meer informatie de [gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/cognitive-services-terms/).
+Uploaden van een document met behulp van de portal, wordt het eigendom van het intellectueel eigendom in het document zelf niet gewijzigd.
 
 ## <a name="use-of-parallel-documents"></a>Gebruik van parallelle documenten
 
@@ -31,16 +38,11 @@ Parallelle documenten worden gebruikt door het systeem:
 
 Als een best practice, zorg ervoor dat er een zin 1:1-correspondentie tussen de bron en doel taalversies van de documenten.
 
-Documenten uploaden zijn exclusief zijn voor elke werkruimte en kunnen worden gebruikt in zo veel projecten of u kunt als u wilt. Zinnen geëxtraheerd uit uw documenten afzonderlijk worden opgeslagen in uw opslagplaats als gewone Unicode-tekstbestanden en zijn beschikbaar voor u verwijderen. Gebruik de aangepaste Translator niet als een document-opslagplaats, kunt u zich niet kunnen downloaden van de documenten die u hebt geüpload in de indeling u deze hebt geüpload.
-
-## <a name="recommendations"></a>Aanbevelingen
-
 Als uw project domein (categorie), moeten uw documenten in de terminologie binnen die categorie consistent zijn. De kwaliteit van de resulterende vertaalsysteem, is afhankelijk van het aantal zinnen in uw document instellen en de kwaliteit van de zinnen. Meer voorbeelden uw documenten met diverse toepassingen voor een specifiek zijn voor de categorie woord bevatten, de betere taak het systeem kunt doen tijdens de conversie.
 
-U moet minimaal 10.000 parallelle zinnen met het trainen van een systeem. Als een best practice, kunt u continu meer parallelle inhoud toevoegen en retrain, voor het verbeteren van de kwaliteit van uw vertaalsysteem.
+Documenten uploaden zijn exclusief zijn voor elke werkruimte en kunnen worden gebruikt in zo veel projecten of u kunt als u wilt. Zinnen geëxtraheerd uit uw documenten afzonderlijk worden opgeslagen in uw opslagplaats als gewone Unicode-tekstbestanden en zijn beschikbaar voor u verwijderen. Gebruik de aangepaste Translator niet als een document-opslagplaats, kunt u zich niet kunnen downloaden van de documenten die u hebt geüpload in de indeling u deze hebt geüpload.
 
-Microsoft vereist dat documenten die zijn geüpload naar de Translator aangepaste eigenschappen voor het auteursrecht of intellectueel eigendom van een derde partij niet schenden. Zie voor meer informatie de [gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/cognitive-services-terms/).
-Uploaden van een document met behulp van de portal, wordt het eigendom van het intellectueel eigendom in het document zelf niet gewijzigd.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 1daae81f0f642275e1ded20eb29f1e3145463db8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 73d4bfc3aaeb86568e3f7a3555a664a8815e3280
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990169"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586168"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Gegevens weergeven vanuit Azure Monitor
 In dit artikel bevat een samenvatting van de beschikbare methoden voor het visualiseren van logboek- en metrische gegevens die zijn opgeslagen in Azure Monitor.
@@ -34,7 +34,7 @@ Visualisaties, zoals diagrammen en grafieken kunt u bij het analyseren van uw ge
 ### <a name="advantages"></a>Voordelen
 - Diepe integratie in Azure. Visualisaties kunnen worden vastgemaakt aan dashboards vanuit meerdere Azure pagina's, met inbegrip van metrics explorer, log analytics en Application Insights.
 - Biedt ondersteuning voor metrische gegevens en Logboeken.
-- Combineer gegevens uit meerdere bronnen, met inbegrip van de uitvoer van [metrics explorer](platform/metrics-charts.md), [query's bijgehouden](log-query/log-query-overview.md), en [toegewezen](app/app-map.md) en [beschikbaarheid]() in Application Insights.
+- Combineer gegevens uit meerdere bronnen, met inbegrip van de uitvoer van [metrics explorer](platform/metrics-charts.md), [query's bijgehouden](log-query/log-query-overview.md), en [toegewezen](app/app-map.md) en beschikbaarheid in Application Insights.
 - De optie voor persoonlijke of gedeelde dashboards. Geïntegreerd met Azure [verificatie op basis van rollen (RBAC)](../role-based-access-control/overview.md).
 - Automatische vernieuwing. Metrische gegevens over Gegevensvernieuwing is afhankelijk van tijdsbereik met ten minste vijf minuten. Logboeken vernieuwen op één minuut.
 - Constructorreeks mag metrische gegevens over dashboards met tijdstempel en aangepaste parameters.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 0ef11355d7a65bd2c9b7ddfb6c4db2ba02538062
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: f18a1c90d3378831824542fabb884d36d12bddd4
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270365"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652107"
 ---
 # <a name="azure-monitor-overview"></a>Overzicht van Azure Monitor
 
@@ -130,7 +130,7 @@ Automatisch schalen kunt u de juiste hoeveelheid resources die worden uitgevoerd
 Vaak hebt u de vereiste Azure Monitor worden geïntegreerd met andere systemen en om aangepaste oplossingen die gebruikmaken van uw bewakingsgegevens te maken. Andere Azure-services werken met Azure Monitor om deze integratie te bieden.
 
 ### <a name="event-hub"></a>Event Hub
-[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) is van een streaming-platform en een gebeurtenisopneemservice die kunt transformeren en opslaan van gegevens met behulp van een realtime-analyseprovider of batching/opslagadapters. Event Hubs te gebruiken [stream logboekgegevens van Azure Monitor](platform/stream-monitoring-data-event-hubs.md) naar SIEM- en controlehulpprogramma's van partners.
+[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) is van een streaming-platform en een gebeurtenisopneemservice die kunt transformeren en opslaan van gegevens met behulp van een realtime-analyseprovider of batching/opslagadapters. Event Hubs te gebruiken [Azure Monitor gegevens streamen](platform/stream-monitoring-data-event-hubs.md) naar SIEM- en controlehulpprogramma's van partners.
 
 > [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 

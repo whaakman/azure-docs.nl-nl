@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 29e6215358eaf544f32f585744ed36f30822d134
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: b569165153ce713846be5e836a26f48e500be1fc
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446746"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594131"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Kopen en configureren van een SSL-certificaat voor Azure App Service
 
@@ -54,7 +54,7 @@ Gebruik de volgende tabel om u te helpen u bij het configureren van het certific
 | Abonnement | Het datacenter waar de web-app wordt gehost. |
 | Resourcegroep | De resourcegroep die het certificaat bevat. U kunt een nieuwe resourcegroep gebruiken of u kunt bijvoorbeeld dezelfde resourcegroep bevinden als uw App Service-app selecteren. |
 | Certificaat-SKU | Bepaalt het type certificaat te maken, of een standaard-certificaat of een [jokertekencertificaat](https://wikipedia.org/wiki/Wildcard_certificate). |
-| Juridische voorwaarden | Klik om te bevestigen dat u akkoord met de juridische bepalingen gaat. |
+| Juridische voorwaarden | Klik om te bevestigen dat u akkoord met de juridische bepalingen gaat. De certificaten worden verkregen via godaddy is gekocht. |
 
 ## <a name="store-in-azure-key-vault"></a>Store in Azure Key Vault
 

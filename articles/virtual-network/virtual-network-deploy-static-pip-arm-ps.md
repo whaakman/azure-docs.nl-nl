@@ -15,32 +15,34 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: jdial
-ms.openlocfilehash: f5ddc4a85148cee3e8c8b4d2bf1955f233ebdbc1
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 929378f0eea66d7f2ad7846e50bab7ab4014c010
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426519"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652863"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-powershell"></a>Een virtuele machine maken met een statisch openbaar IP-adres met behulp van PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 U kunt een virtuele machine maken met een statisch openbaar IP-adres. Een openbaar IP-adres kunt u communiceren met een virtuele machine via internet. Toewijzen van een statisch openbaar IP-adres, in plaats van een dynamisch adres, om ervoor te zorgen dat het adres nooit verandert. Meer informatie over [statische openbare IP-adressen](virtual-network-ip-addresses-overview-arm.md#allocation-method). Een openbaar IP-adres toegewezen aan een bestaande virtuele machine van dynamisch in statisch of om te werken met particuliere IP-adressen, Zie [toevoegen, wijzigen of verwijderen-IP-adressen](virtual-network-network-interface-addresses.md). Openbare IP-adressen hebben een [nominale kosten in rekening gebracht](https://azure.microsoft.com/pricing/details/ip-addresses), en er is een [limiet](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) aan het aantal openbare IP-adressen die u per abonnement kunt.
 
 ## <a name="create-a-virtual-machine"></a>Een virtuele machine maken
 
-U kunt de volgende stappen uitvoeren vanaf uw lokale computer of met behulp van de Azure Cloud Shell. Voor het gebruik van uw lokale computer, zorg ervoor dat u hebt de [Azure PowerShell is geïnstalleerd](/powershell/azure/azurerm/install-azurerm-ps?toc=%2fazure%2fvirtual-network%2ftoc.json). Selecteer voor het gebruik van de Azure Cloud Shell, **uitproberen** in de rechterbovenhoek van een willekeurige opdracht box die volgt. De Cloud Shell meldt u zich bij Azure.
+U kunt de volgende stappen uitvoeren vanaf uw lokale computer of met behulp van de Azure Cloud Shell. Voor het gebruik van uw lokale computer, zorg ervoor dat u hebt de [Azure PowerShell is geïnstalleerd](/powershell/azure/install-az-ps?toc=%2fazure%2fvirtual-network%2ftoc.json). Selecteer voor het gebruik van de Azure Cloud Shell, **uitproberen** in de rechterbovenhoek van een willekeurige opdracht box die volgt. De Cloud Shell meldt u zich bij Azure.
 
-1. Als de Cloud Shell gebruikt, gaat u verder met stap 2. Open een sessie en meld u in Azure met `Connect-AzureRmAccount`.
-2. Maak een resourcegroep met de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Het volgende voorbeeld wordt een resourcegroep gemaakt in de regio Oost VS Azure:
+1. Als de Cloud Shell gebruikt, gaat u verder met stap 2. Open een sessie en meld u in Azure met `Connect-AzAccount`.
+2. Maak een resourcegroep met de opdracht [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Het volgende voorbeeld wordt een resourcegroep gemaakt in de regio Oost VS Azure:
 
    ```azurepowershell-interactive
-   New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+   New-AzResourceGroup -Name myResourceGroup -Location EastUS
    ```
 
-3. Maak een virtuele machine met de [New-AzureRmVM](/powershell/module/AzureRM.Compute/New-AzureRmVM) opdracht. De `-AllocationMethod "Static"` optie wordt een statisch openbaar IP-adres toegewezen aan de virtuele machine. Het volgende voorbeeld wordt een Windows Server-machine met een statisch, basic SKU openbaar IP-adres met de naam *myPublicIpAddress*. Geef desgevraagd een gebruikersnaam en wachtwoord moet worden gebruikt als de aanmelding referenties voor de virtuele machine:
+3. Maak een virtuele machine met de [New-AzVM](/powershell/module/az.Compute/New-azVM) opdracht. De `-AllocationMethod "Static"` optie wordt een statisch openbaar IP-adres toegewezen aan de virtuele machine. Het volgende voorbeeld wordt een Windows Server-machine met een statisch, basic SKU openbaar IP-adres met de naam *myPublicIpAddress*. Geef desgevraagd een gebruikersnaam en wachtwoord moet worden gebruikt als de aanmelding referenties voor de virtuele machine:
 
    ```azurepowershell-interactive
-   New-AzureRmVm `
+   New-AzVm `
      -ResourceGroupName "myResourceGroup" `
      -Name "myVM" `
      -Location "East US" `
@@ -50,10 +52,10 @@ U kunt de volgende stappen uitvoeren vanaf uw lokale computer of met behulp van 
 
    Als het openbare IP-adres een standaard-SKU moet, hebt u [een openbaar IP-adres maken](virtual-network-public-ip-address.md#create-a-public-ip-address), [maken van een netwerkinterface](virtual-network-network-interface.md#create-a-network-interface), [het openbare IP-adres toewijzen aan de netwerkinterface](virtual-network-network-interface-addresses.md#add-ip-addresses), en vervolgens [een virtuele machine maken met de netwerkinterface](virtual-network-network-interface-vm.md#add-existing-network-interfaces-to-a-new-vm)in afzonderlijke stappen. Meer informatie over [openbaar IP-adres SKU's](virtual-network-ip-addresses-overview-arm.md#sku). Als de virtuele machine wordt toegevoegd aan de groep back-end van een openbare Azure Load Balancer, de SKU van het openbare IP-adres van de virtuele machine, moet overeenkomen met de SKU van het openbare IP-adres van de load balancer. Zie voor meer informatie, [Azure Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#skus).
 
-4. Het openbare IP-adres dat is toegewezen en Bevestig dat het als een statisch adres is gemaakt met [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress):
+4. Het openbare IP-adres dat is toegewezen en Bevestig dat het als een statisch adres is gemaakt met [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress):
 
    ```azurepowershell-interactive
-   Get-AzureRmPublicIpAddress `
+   Get-AzPublicIpAddress `
      -ResourceGroupName "myResourceGroup" `
      -Name "myPublicIpAddress" `
      | Select "IpAddress", "PublicIpAllocationMethod" `
@@ -67,10 +69,10 @@ De instellingen voor het IP-adres binnen het besturingssysteem van de virtuele m
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-U kunt de opdracht [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) gebruiken om de resourcegroep en alle resources die deze bevat te verwijderen:
+Wanneer u niet meer nodig hebt, kunt u [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) om de resourcegroep en alle resources die deze bevat te verwijderen:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

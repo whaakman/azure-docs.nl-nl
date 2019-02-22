@@ -12,16 +12,16 @@ manager: cgronlun
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 136a83c586b2f797269beff3cdd0afb9973cb7c8
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: b5109c9c93947118397c383cab3df90c02016ce3
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340515"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651995"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Een ontwikkelomgeving configureren voor Azure Machine Learning
 
-In dit artikel leert u hoe u een ontwikkelomgeving, zodat het werken met Azure Machine Learning-service configureren. Machine Learning-service is een platform-agnostische. 
+In dit artikel leert u hoe u een ontwikkelomgeving, zodat het werken met Azure Machine Learning-service configureren. Machine Learning-service is een platform-agnostische.
 
 De enige vereisten voor uw ontwikkelomgeving zijn Python 3, Conda (voor geïsoleerde omgevingen) en een configuratiebestand met gegevens over uw Azure Machine Learning-werkruimte.
 
@@ -110,7 +110,7 @@ Voor het gebruik van de DSVM als een ontwikkelomgeving, het volgende doen:
             # create a Windows Server 2016 DSVM in your resource group
             # note you need to be at least a contributor to the resource group in order to execute this command successfully
             az vm create --resource-group YOUR-RESOURCE-GROUP-NAME --name YOUR-VM-NAME --image microsoft-dsvm:dsvm-windows:server-2016:latest --admin-username YOUR-USERNAME --admin-password YOUR-PASSWORD --authentication-type password
-            ```    
+            ```
 
 2. De SDK van Azure Machine Learning is al geïnstalleerd op de DSVM. Als u de Conda-omgeving met de SDK, gebruikt u een van de volgende opdrachten:
 
@@ -141,13 +141,12 @@ Zie voor meer informatie, [virtuele Machines voor Datatechnologie](https://azure
 
 Wanneer u een lokale computer (die mogelijk ook een externe virtuele machine), een Conda-omgeving maken en installeer de SDK door het volgende te doen:
 
-1. Open een opdrachtprompt of de shell.
+1. Download en installeer [Anaconda](https://www.anaconda.com/distribution/#download-section) (Python 3.7-versie) als u nog geen hebt.
 
-1. Een Conda-omgeving maken met de volgende opdrachten:
+1. Open een opdrachtprompt Anaconda en een omgeving maken met de volgende opdrachten:
 
     ```shell
-    # create a new Conda environment with Python 3.6, NumPy, and Cython
-    conda create -n myenv Python=3.6 cython numpy
+    conda create -n myenv python=3.6.5
 
     # activate the Conda environment
     conda activate myenv
@@ -156,12 +155,32 @@ Wanneer u een lokale computer (die mogelijk ook een externe virtuele machine), e
     source activate myenv
     ```
 
-    Het duurt enkele minuten om te maken van de omgeving als Python 3.6 en andere onderdelen moeten worden gedownload.
+    Dit voorbeeld maakt u een omgeving met behulp van python 3.6.5, maar specifieke subversions kunnen worden gekozen. Compatibiliteit van de SDK kan niet worden gegarandeerd met bepaalde primaire versies (3.5 + wordt aanbevolen), en het is raadzaam om te proberen een verschillende versie/subversion in uw omgeving Anaconda als u fouten ondervindt. Het duurt enkele minuten voor het maken van de omgeving, terwijl onderdelen en -pakketten zijn gedownload.
 
-1. Installeer de SDK van Azure Machine Learning met extra's laptop en de SDK van de voorbereiding van gegevens met behulp van de volgende opdracht uit:
+1. Voer de volgende opdrachten in uw nieuwe omgeving om in te schakelen omgevingsspecifieke ipython-kernels. Dit zorgt ervoor dat het verwachte kernel en pakket importeren gedrag bij het werken met Jupyter-Notebooks in Anaconda omgevingen:
+
+    ```shell
+    conda install notebook ipykernel
+    ```
+
+    Voer de volgende opdracht om te maken van de kernel:
+
+    ```shell
+    ipython kernel install --user
+    ```
+
+1. Gebruik de volgende opdrachten om pakketten te installeren:
+
+    Deze opdracht wordt de basis Azure Machine Learning-SDK geïnstalleerd met de notebook en automl extra's. De `automl` extra is een grote installeren en kan worden verwijderd uit de vierkante haken als u niet van plan bent om uit te voeren van geautomatiseerde machine learning-experimenten. De `automl` extra bevat ook de Azure Machine Learning Data Prep SDK standaard als een afhankelijkheid.
 
      ```shell
-    pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep
+    pip install azureml-sdk[notebooks,automl]
+    ```
+
+    Deze opdracht gebruiken om de Azure Machine Learning Data Prep SDK installeren op een eigen:
+
+    ```shell
+    pip install azureml-dataprep
     ```
 
    > [!NOTE]
@@ -171,45 +190,50 @@ Wanneer u een lokale computer (die mogelijk ook een externe virtuele machine), e
 
    Het duurt enkele minuten de SDK te installeren.
 
-1. Voor uw machine learning experimenten-pakketten installeren. Gebruik de volgende opdracht en vervangen  *\<nieuw pakket >* aan het pakket dat u wilt installeren:
+1. Installatie van andere pakketten voor uw machine learning experimenten.
+
+    Gebruik een van de volgende opdrachten en vervang  *\<nieuw pakket >* aan het pakket dat u wilt installeren. Het installeren van pakketten via `conda install` vereist dat het pakket deel uit van de huidige kanalen maakt (nieuwe kanalen kunnen worden toegevoegd in de Cloud Anaconda).
 
     ```shell
     conda install <new package>
     ```
 
-1. Als u wilt controleren of de SDK is geïnstalleerd, moet u de volgende Python-code gebruiken:
+    U kunt ook installeren pakketten via `pip`.
 
-    ```python
-    import azureml.core
-    azureml.core.VERSION
+    ```shell
+    pip install <new package>
     ```
 
 ### <a id="jupyter"></a>Jupyter-Notebooks
 
 Jupyter-notitieblokken maken deel uit van de [Jupyter Project](https://jupyter.org/). Ze bieden een interactieve ervaring met codering waar het maken van documenten die live code met verhalende tekst en afbeeldingen combineren. Jupyter-Notebooks zijn ook een uitstekende manier om uw resultaten delen met anderen, omdat u de uitvoer van de Codesecties van uw kunt opslaan in het document. U kunt Jupyter-Notebooks installeren op een aantal verschillende platformen.
 
-De procedure in de [lokale computer](#local) sectie optionele onderdelen worden geïnstalleerd voor de Jupyter-Notebooks. Om in te schakelen deze onderdelen in uw omgeving Jupyter-Notebook, het volgende doen:
+De procedure in de [lokale computer](#local) sectie vereiste onderdelen voor het uitvoeren van Jupyter Notebooks in een omgeving Anaconda wordt geïnstalleerd. Om in te schakelen deze onderdelen in uw omgeving Jupyter-Notebook, het volgende doen:
 
-1. Open een opdrachtprompt of de shell.
-
-1. Als u wilt installeren een Conda-bewuste Jupyter Notebook-Server, gebruik de volgende opdracht:
+1. Open een opdrachtprompt Anaconda en activeer uw omgeving.
 
     ```shell
-    # install Jupyter
-    conda install nb_conda
+    conda activate myenv
     ```
 
-1. Jupyter Notebook openen met de volgende opdracht:
+1. Start de Jupyter-Notebook-server met de volgende opdracht:
 
     ```shell
     jupyter notebook
     ```
 
-1. Selecteer om te controleren dat Jupyter-Notebook kunt gebruiken van de SDK, opent u een nieuwe notebook, **myenv** als de kernel en voer de volgende opdracht in een cel laptop:
+1. Om te controleren dat de SDK door Jupyter-Notebook kunt gebruiken, maakt u een **nieuw** laptop, selecteer **Python 3** als de kernel en voer de volgende opdracht in een cel laptop:
 
     ```python
     import azureml.core
     azureml.core.VERSION
+    ```
+
+1. Als u problemen bij het importeren van modules en ontvangt een `ModuleNotFoundError`, zorg ervoor dat uw Jupyter-kernel is verbonden met het juiste pad voor uw omgeving door het uitvoeren van de volgende code in een cel Notebook.
+
+    ```python
+    import sys
+    sys.path
     ```
 
 1. Als u wilt de Jupyter-Notebook voor het gebruik van de werkruimte van uw Azure Machine Learning-service configureren, gaat u naar de [maken van een configuratiebestand werkruimte](#workspace) sectie.
@@ -222,8 +246,8 @@ Voor het gebruik van Visual Studio Code voor de ontwikkeling, het volgende doen:
 
 1. Zie voor meer informatie over het gebruik van Visual Studio Code voor Python-ontwikkeling, [aan de slag met Python vscode](https://code.visualstudio.com/docs/python/python-tutorial).
 
-1. Schakel de Conda-omgeving, opent u VS Code en selecteer vervolgens Ctrl + Shift + P (Linux en Windows) of Command + Shift + P (Mac).  
-    De __opdracht palet__ wordt geopend. 
+1. Schakel de Conda-omgeving, opent u VS Code en selecteer vervolgens Ctrl + Shift + P (Linux en Windows) of Command + Shift + P (Mac).
+    De __opdracht palet__ wordt geopend.
 
 1. Voer __Python: Selecteer Interpreter__, en selecteer vervolgens de Conda-omgeving.
 
@@ -256,32 +280,32 @@ Voorbereiden van uw Databricks-cluster en voorbeeldnotitieblokken ophalen:
     | Medewerkers | 2 of hoger |
 
     Gebruik deze instellingen alleen als u automatische machine learning met op Databricks:
-    
+
     |   Instelling | Value |
     |----|---|
     | VM-typen voor worker-knooppunt | Virtuele machine bij voorkeur is geoptimaliseerd voor geheugen |
     | Automatisch schalen inschakelen | Schakel het selectievakje |
-    
-    Het aantal worker-knooppunten in uw Databricks-cluster bepaalt het maximum aantal gelijktijdige iteraties in geautomatiseerde ML-instellingen.  
+
+    Het aantal worker-knooppunten in uw Databricks-cluster bepaalt het maximum aantal gelijktijdige iteraties in geautomatiseerde ML-instellingen.
 
     Het duurt enkele minuten om het cluster te maken. Wacht totdat het cluster wordt uitgevoerd voordat u doorgaat.
 
-1. Installeren en het Azure Machine Learning-SDK-pakket te koppelen aan uw cluster.  
+1. Installeren en het Azure Machine Learning-SDK-pakket te koppelen aan uw cluster.
 
     * [Maken van een bibliotheek](https://docs.databricks.com/user-guide/libraries.html#create-a-library) met een van deze instellingen (_slechts één van deze opties kiest_):
-    
+
         * Azure Machine Learning-SDK installeren _zonder_ geautomatiseerde van machine learning-mogelijkheden:
             | Instelling | Value |
             |----|---|
             |Bron | Uploaden van Python EI of PyPI
             |De naam van de PyPi | azureml-sdk[databricks]
-    
+
         * Azure Machine Learning-SDK installeren _met_ geautomatiseerde van machine learning:
             | Instelling | Value |
             |----|---|
             |Bron | Uploaden van Python EI of PyPI
             |De naam van de PyPi | azureml-sdk[automl_databricks]
-    
+
     * Schakel niet **automatisch koppelen aan alle clusters**
 
     * Selecteer **Attach** naast de clusternaam van uw
@@ -298,9 +322,9 @@ Voorbereiden van uw Databricks-cluster en voorbeeldnotitieblokken ophalen:
 
    Als deze stap mislukt, start u uw cluster opnieuw door het volgende te doen:
 
-   a. Selecteer in het linkerdeelvenster **Clusters**. 
-   
-   b. Selecteer de clusternaam van uw in de tabel. 
+   a. Selecteer in het linkerdeelvenster **Clusters**.
+
+   b. Selecteer de clusternaam van uw in de tabel.
 
    c. Op de **bibliotheken** tabblad **opnieuw**.
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 3f08e2b2fab03ed7f2cccfe251e125033d55b30a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 16bff038b21658d29f3ab5a4b135af7f8a9e640c
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860623"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593927"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Een entiteit toevoegen aan de voorbeeld-uitingen 
 
@@ -35,21 +35,17 @@ Bepaalde Entiteitstypen, zoals de vooraf gemaakte entiteiten en entiteiten regul
 In de volgende procedure maakt u maakt en een aangepaste entiteit in de volgende utterance tag op de intentie pagina:
 
 ```text
-Does John Smith work in Seattle?
+Are there any SQL server jobs?
 ```
 
-1. Selecteer `Seattle` in de utterance label als een enkele entiteit.
+1. Selecteer `SQL server` in de utterance label als een enkele entiteit. In het vak van de entiteit vervolgkeuzelijst die wordt weergegeven, kunt u een bestaande entiteit selecteren of een nieuwe entiteit toevoegen. Als u wilt een nieuwe entiteit toevoegen, typt u de naam `Job` in het tekstvak in en selecteer vervolgens **nieuwe entiteit maken**.
 
-    [![Schermafbeelding van het selecteren van tekst in utterance voor eenvoudige entiteit](./media/luis-how-to-add-example-utterances/hr-create-simple-1.png)](./media/luis-how-to-add-example-utterances/hr-create-simple-1.png)
+    ![Schermafbeelding van het invoeren van de naam van de entiteit](./media/luis-how-to-add-example-utterances/create-simple-entity.png)
 
     > [!NOTE]
     > Bij het selecteren van woorden op tag als entiteiten:
     > * Selecteer op van één woord. 
     > * Selecteer voor een set van twee of meer woorden, aan het begin en vervolgens aan het einde van de set.
-
-1. In het vak van de entiteit vervolgkeuzelijst die wordt weergegeven, kunt u een bestaande entiteit selecteren of een nieuwe entiteit toevoegen. Als u wilt een nieuwe entiteit toevoegen, typt u de naam in het tekstvak in en selecteer vervolgens **nieuwe entiteit maken**. 
-
-    ![Schermafbeelding van het invoeren van de naam van de entiteit](./media/luis-how-to-add-example-utterances/hr-create-simple-2.png)
 
 1. In de **welk type entiteit wilt u maken?** pop-vak, Controleer of de naam van de entiteit en selecteer de **eenvoudige** entiteitstype en selecteer vervolgens **gedaan**.
 
@@ -57,14 +53,11 @@ Does John Smith work in Seattle?
 
 ## <a name="add-a-list-entity"></a>Een lijst met entiteit toevoegen
 
-Lijst met entiteiten vertegenwoordigen een vaste en gesloten set (exact overeenkomende tekst overeenkomt met) Verwante woorden in uw systeem. 
+Lijst met entiteiten vertegenwoordigen een set exact overeenkomende tekst komt overeen met van verwante woorden in uw systeem. 
 
 Lijst van de afdeling van een bedrijf, u kunt hebben genormaliseerd waarden: `Accounting` en `Human Resources`. De naam van elke genormaliseerde heeft synoniemen. Voor een afdeling, kunnen deze synoniemen elke afdeling acroniemen, getallen of slang bevatten. U hoeft niet te weten van alle waarden bij het maken van de entiteit. U kunt meer toevoegen nadat u hebt bekeken real-user-uitingen door synoniemen.
 
-1. Selecteer het woord of woordgroep die u wilt dat in de nieuwe lijst in het voorbeeld utterance-lijst, voor een specifieke utterance. Vervolgens voert u de naam van de lijst in het bovenste tekstvak in en selecteert **nieuwe entiteit maken**.   
-
-    ![Schermafbeelding van het invoeren van de lijst met de naam van entiteit](./media/luis-how-to-add-example-utterances/hr-create-list-1.png)
-
+1. In een utterance voorbeeld op de **Intents** pagina, selecteert u het woord of woordgroep die u wilt dat in de nieuwe lijst. Wanneer de entiteit vervolgkeuzelijst wordt weergegeven, voert u de naam voor de nieuwe entiteit in de lijst in het bovenste tekstvak in en selecteert **nieuwe entiteit maken**.   
 
 1. In de **welk type entiteit wilt u maken?** pop-, de naam van de entiteit en selecteert u **lijst** als het type. Synoniemen van dit item in de lijst toevoegen, en selecteer vervolgens **gedaan**. 
 
@@ -76,21 +69,15 @@ Lijst van de afdeling van een bedrijf, u kunt hebben genormaliseerd waarden: `Ac
 
 Samengestelde entiteiten zijn gemaakt op basis van bestaande **entiteiten** in een bovenliggende entiteit. 
 
-Ervan uitgaande dat de utterance `Does John Smith work in Seattle?`, een samengestelde utterance entiteit informatie van de naam van de werknemer, en de locatie in een enkel bovenliggend object kunt terugkeren. 
+Ervan uitgaande dat de utterance `Does John Smith work in Seattle?`, een samengestelde utterance entiteit informatie van de naam van de werknemer kunt terugkeren `John Smith`, en de locatie `Seattle` in een samengestelde entiteit. De onderliggende entiteiten moeten al bestaan in de app en worden gemarkeerd in het voorbeeld utterance voordat u de samengestelde entiteit maakt.
 
-De naam van de werknemer, John Smith, is een vooraf gedefinieerde [personName](luis-reference-prebuilt-person.md) entiteit. De locatie, Seattle, is een eenvoudige aangepaste entiteit. Zodra deze twee entiteiten zijn gemaakt en een voorbeeld-utterance getagged, kunnen deze entiteiten worden verpakt in een samengestelde entiteit. 
+1. Als u wilt de onderliggende entiteiten in een samengestelde entiteit, selecteer de **eerste** gelabeld entiteit (meest linkse) in de utterance voor de samengestelde entiteit. Een vervolgkeuzelijst wordt weergegeven om de opties voor deze selectie weer te geven.
 
-1. Als u wilt de afzonderlijke entiteiten in een samengestelde, selecteer de **eerste** gelabeld entiteit (meest linkse) in de utterance voor de samengestelde entiteit. Een vervolgkeuzelijst wordt weergegeven met de opties voor deze selectie.
+1. Selecteer **verpakken in samengestelde entiteit** uit de vervolgkeuzelijst. 
 
-1. Selecteer **verpakken samengestelde entiteit** uit de vervolgkeuzelijst. 
-
-    ![Schermafbeelding van kiezen 'Terugloop in samengestelde entiteit'](./media/luis-how-to-add-example-utterances/hr-create-composite-1.png)
-
-1. Selecteer het laatste woord van de samengestelde entiteit (meest rechtse). U ziet dat een groene lijn volgt de samengestelde entiteit.
+1. Selecteer het laatste woord van de samengestelde entiteit (meest rechtse). U ziet dat een groene lijn volgt de samengestelde entiteit. Dit is de visuele indicator voor een samengestelde entiteit en moet worden opgenomen in alle woorden in de samengestelde entiteit op basis van de meest linkse onderliggende entiteit naar de meest rechtse onderliggende entiteit.
 
 1. Voer de naam van de samengestelde entiteit in de vervolgkeuzelijst.
-
-    ![Schermafbeelding van de samengestelde entiteit invoeren in de vervolgkeuzelijst](./media/luis-how-to-add-example-utterances/hr-create-composite-2.png)
 
     Wanneer u de entiteiten correct inpakt, is er een groene lijn onder de volledige woordgroep.
 
@@ -110,15 +97,11 @@ In de utterance `Move John Smith from Seattle to Cairo`, Seattle, is de verzendi
 
 1. Selecteer op de intentie pagina, in de utterance `Seattle`, voert u de naam van de entiteit `Location`, en selecteer vervolgens op Enter.
 
-    ![Schermafbeelding van maken hiërarchische entiteit labels in het dialoogvenster](./media/luis-how-to-add-example-utterances/hr-hier-1.png)
-
 1. In de **welk type entiteit wilt u maken?** pop-Schakel _hiërarchische_ voor **entiteitstype**, voeg deze `Origin` en `Destination` als onderliggende items, en selecteer vervolgens **gedaan**.
 
     ![Schermafbeelding van de intenties pagina, met ToLocation entiteit is gemarkeerd](./media/luis-how-to-add-example-utterances/create-location-hierarchical-entity.png)
 
 1. Het woord in de utterance is gelabeld met de bovenliggende hiërarchische entiteit. U moet het woord toewijzen aan een onderliggende entiteit. Ga terug naar de utterance op de detailpagina van de intentie. Selecteert u het woord en kies de naam van de entiteit die u hebt gemaakt in de vervolgkeuzelijst en volgt u het menu aan de rechterkant de juiste onderliggende entiteit kiezen.
-
-    ![Schermafbeelding van de intenties detailpagina, waar u moet het woord toewijzen aan een onderliggende entiteit](./media/luis-how-to-add-example-utterances/hr-hier-3.png)
 
     >[!CAUTION]
     >Namen van de onderliggende entiteiten moeten uniek zijn in alle entiteiten in een enkele app. Twee entiteiten met verschillende hiërarchische mag geen onderliggende entiteiten met dezelfde naam bevatten. 
@@ -135,7 +118,7 @@ Selecteer de woorden die zijn onderstreept in rood in de utterance.
 
 Het van de entiteit wordt weergegeven de **entiteit status** met een rood uitroepteken als er een discrepantie voorspelling. De status van de entiteit met informatie over het verschil tussen entiteiten met het label en voorspelde Selecteer **entiteit status** Selecteer vervolgens het item aan de rechterkant.
 
-![Schermafbeelding van het juiste artikel om op te lossen voorspelling discrepantie selecteren](./media/luis-how-to-add-example-utterances/entity-status.png)
+![Schermafbeelding van de entiteit status selecteren](./media/luis-how-to-add-example-utterances/entity-prediction-error-correction.png)
 
 De rode-regel kan worden weergegeven op een van de volgende tijden:
 
@@ -153,6 +136,9 @@ De volgende oplossingen helpen bij het oplossen van de entiteit voorspelling afw
 |Correct gelabelde tekst|blauwe entiteit wilt markeren, rood onderstreept|Onjuiste voorspelling|Geef meer uitingen aan de correct gelabelde entiteit op verschillende locaties en het gebruik. De huidige uitingen zijn niet voldoende is om te leren van LUIS dat dit is de entiteit is of vergelijkbare entiteiten worden weergegeven in de context. Vergelijkbare entiteit moet worden gecombineerd in één enkele entiteit zodat LUIS is niet worden verward. Een andere oplossing is het toevoegen van een woordgroepenlijst om te verbeteren van de betekenis van de woorden. |
 |Onjuist gelabelde tekst|blauwe entiteit wilt markeren, rood onderstreept|Juiste voorspelling| Geef meer uitingen aan de correct gelabelde entiteit op verschillende locaties en het gebruik. 
 
+> [!Note]
+> Wanneer een rood kader rond de gelabelde intentie in de rij van de utterance voorbeeld is een [intentie voorspelling fout](luis-how-to-add-intents.md#intent-prediction-discrepancy-errors) is opgetreden. U moet deze corrigeren. 
+
 ## <a name="other-actions"></a>Andere acties
 
 U kunt acties uitvoeren op de voorbeeld-uitingen als een geselecteerde groep of als een afzonderlijk item. Groepen van voorbeeld van de geselecteerde uitingen veranderen de contextafhankelijke menu boven de lijst. Enkele items kunnen gebruikmaken van het contextafhankelijke menu boven de lijst en de afzonderlijke contextuele weglatingsteken aan het einde van elke rij utterance. 
@@ -162,8 +148,6 @@ U kunt acties uitvoeren op de voorbeeld-uitingen als een geselecteerde groep of 
 U kunt machine geleerd entiteit labels verwijderen uit een utterance op de pagina intentie. Als de entiteit niet machine geleerd, kan deze kan niet worden verwijderd uit een utterance. Als u een niet-machine-geleerd entiteit verwijderen uit de utterance moet, moet u de entiteit verwijderen uit de hele app. 
 
 Als een label hebt geleerd van een machine entiteit uit een utterance verwijderen, selecteert u de entiteit in de utterance. Selecteer vervolgens **Label verwijderen** in de entiteit vervolgkeuzelijst die wordt weergegeven.
-
-![Schermafbeelding van de intenties detailpagina, met verwijdert Label gemarkeerd](./media/luis-how-to-add-example-utterances/remove-label.png) 
 
 ### <a name="add-prebuilt-entity-label"></a>Vooraf gedefinieerde entiteit label toevoegen
 

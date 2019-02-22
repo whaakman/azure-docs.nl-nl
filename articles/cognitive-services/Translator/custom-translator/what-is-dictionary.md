@@ -9,18 +9,18 @@ ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: bc297fd4cdda8cdb3dc618b73e91d2f4e31e8b6a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 87ea4edd9bb548701d6bcf63dd542ed6e35d9f7f
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212406"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585541"
 ---
 # <a name="what-is-a-dictionary"></a>Wat is een woordenlijst?
 
 Een woordenlijst is een uitgelijnde twee documenten die Hiermee geeft u een lijst van zinnen of zinnen en de bijbehorende vertalingen. Gebruik een woordenlijst in uw training, als u wilt dat Microsoft Translator altijd alle exemplaren van de bron woordgroep of zin vertalen met behulp van de vertaling die u hebt opgegeven in de woordenlijst. Woordenboeken worden soms glossaria of term bases genoemd. U kunt de woordenlijst zien als een brute force 'kopiëren en vervang' voor alle bepalingen in de lijst.
 
-Woordenboeken kan uitsluitend worden gebruikt voor projecten in de taal-paren die beschikken over een volledig ondersteunde Microsoft neurale machinevertalingen (NMT) achter deze. Zie http://www.aka.ms/translatorlanguages voor een volledige lijst met talen.
+Woordenboeken kan uitsluitend worden gebruikt voor projecten in de taal-paren die beschikken over een volledig ondersteunde Microsoft neurale machinevertalingen (NMT) achter deze. [De volledige lijst met talen weergeven](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
 
 ## <a name="phrase-dictionary"></a>Woordgroep woordenlijst 
 Wanneer u een woordenlijst woordgroep opneemt in uw model te trainen, wordt een woord of zinsdeel vermeld omgezet in de manier waarop die u hebt opgegeven. De rest van de zin wordt zoals gewoonlijk omgezet. U kunt een woordgroep-woordenlijst gebruiken om op te geven die mag niet worden vertaald door te geven van de dezelfde niet-vertaalde zin in de bron en doel-bestand in de woordenlijst.

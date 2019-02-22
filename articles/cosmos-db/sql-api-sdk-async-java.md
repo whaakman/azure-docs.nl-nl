@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 2/8/2019
+ms.date: 2/20/2019
 ms.author: moderakh
-ms.openlocfilehash: 1a86ceefdc5c3b60dc4bca5a1ac659534653aa66
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: a090f40bcbc0dab1f685c02308243aff8fbac9fd
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416272"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588463"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK voor SQL-API: Opmerkingen bij de release en resources
 > [!div class="op_single_selector"]
@@ -43,6 +43,11 @@ De SQL-SDK voor Java-API asynchrone wijkt af van de Java-SDK van de SQL-API door
 | **Minimaal ondersteunde runtime**|[JDK 8](https://aka.ms/azure-jdks) | 
 
 ## <a name="release-notes"></a>Releaseopmerkingen
+
+### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
+* Enkele fouten opgelost in de directe modus.
+* Dankzij de verbeterde logboekregistratie in de directe modus.
+* Beheer van de verbeterde verbinding.
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 * De modus direct connectiviteit is nu algemeen Available(GA). Zie voor een voorbeeld dat gebruikmaakt van de modus direct connectiviteit, [azure-cosmosdb-java](https://github.com/Azure/azure-cosmosdb-java) GitHub-opslagplaats.
@@ -135,6 +140,7 @@ Een aanvraag voor het Cosmos DB met behulp van een buiten gebruik gestelde SDK w
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [2.4.1](#2.4.1) |20 februari 2019|--- |
 | [2.4.0](#2.4.0) |8 februari 2019|--- |
 | [2.4.0-beta-1](#2.4.0-beta-1) |4 februari 2019|--- |
 | [2.3.1](#2.3.1) |15 januari 2019|--- |

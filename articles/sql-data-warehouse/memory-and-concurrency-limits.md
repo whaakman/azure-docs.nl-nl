@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 10/04/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 802408f6ccd0a1cc0ed4f4d87d54a11760cd70fe
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: cc42a0289316116b843696c984f9fc3c2114eb6c
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473439"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592890"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Limieten voor geheugen en gelijktijdigheid voor Azure SQL Data Warehouse
 Bekijk de limieten voor geheugen en gelijktijdigheid toegewezen aan de verschillende prestatieniveaus en resourceklassen in Azure SQL Data Warehouse. Zie voor meer informatie en om toe te passen van deze mogelijkheden voor uw abonnement van de management workload [resourceklassen voor het beheer van de werkbelasting](resource-classes-for-workload-management.md). 
@@ -78,7 +78,7 @@ Om ervoor te zorgen voor dat elke query heeft onvoldoende bronnen voor het effic
 
 De volgende tabel ziet u het maximum aantal gelijktijdige query's en gelijktijdigheidssleuven voor elk [statische resourceklasse](resource-classes-for-workload-management.md).  
 
-| Servicelaag | Maximum aantal gelijktijdige query 's | Gelijktijdigheidssleuven beschikbaar |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| Servicelaag | Maximum aantal gelijktijdige query 's | Gelijktijdigheidssleuven beschikbaar | Sleuven die worden gebruikt door staticrc10 | Sleuven die worden gebruikt door staticrc20 | Sleuven die worden gebruikt door staticrc30 | Sleuven die worden gebruikt door staticrc40 | Sleuven die worden gebruikt door staticrc50 | Sleuven die worden gebruikt door staticrc60 | Sleuven die worden gebruikt door staticrc70 | Sleuven die worden gebruikt door staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
 | DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
@@ -133,7 +133,7 @@ Statische resourceklassen
 
 De volgende tabel ziet u het maximum aantal gelijktijdige query's en gelijktijdigheidssleuven voor elk [statische resourceklasse](resource-classes-for-workload-management.md) op **Gen1**.
 
-| Serviceniveau | Maximum aantal gelijktijdige query 's | Maximum aantal gelijktijdige plekken gebruiken |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| Serviceniveau | Maximum aantal gelijktijdige query 's | Maximum aantal gelijktijdige plekken gebruiken | Sleuven die worden gebruikt door staticrc10 | Sleuven die worden gebruikt door staticrc20 | Sleuven die worden gebruikt door staticrc30 | Sleuven die worden gebruikt door staticrc40 | Sleuven die worden gebruikt door staticrc50 | Sleuven die worden gebruikt door staticrc60 | Sleuven die worden gebruikt door staticrc70 | Sleuven die worden gebruikt door staticrc80 |
 |:-------------:|:--------------------------:|:-------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100         | 4                          |   4                       | 1         | 2          | 4          | 4          |  4         |  4         |  4         |   4        |
 | DW200         | 8                          |   8                       | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
@@ -156,7 +156,7 @@ Dynamische resourceklassen
 
 De volgende tabel ziet u het maximum aantal gelijktijdige query's en gelijktijdigheidssleuven voor elk [dynamische resourceklasse](resource-classes-for-workload-management.md) op **Gen1**.
 
-| Serviceniveau | Maximum aantal gelijktijdige query 's | Gelijktijdigheidssleuven beschikbaar | smallrc | mediumrc | largerc | xlargerc |
+| Serviceniveau | Maximum aantal gelijktijdige query 's | Gelijktijdigheidssleuven beschikbaar | Sleuven die worden gebruikt door smallrc | Sleuven die worden gebruikt door mediumrc | Sleuven die worden gebruikt door largerc | Sleuven die worden gebruikt door xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:-------:|:--------:|:-------:|:--------:|
 | DW100         |  4                         |   4                         | 1       |  1       |  2      |   4      |
 | DW200         |  8                         |   8                         | 1       |  2       |  4      |   8      |

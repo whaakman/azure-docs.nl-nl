@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d3b0f7cdacfb781ba7925be8146c10919c5269b
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: adbfb0e42bc7057313c7652402fce2b2ede47735
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455531"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592499"
 ---
 # <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Preview: Azure AD wachtwoordbeveiliging on-premises - Veelgestelde vragen over
 
@@ -44,6 +44,14 @@ Nee, on-premises Azure AD-wachtwoord beveiliging wordt alleen ondersteund in de 
 **V: Hoe kan ik voordelen van Azure AD-wachtwoord beveiliging toepassen op een subset van mijn on-premises gebruikers?**
 
 Wordt niet ondersteund. Eenmaal geïmplementeerd en ingeschakeld, beveiliging van Azure AD-wachtwoord niet onderscheid - ontvangen gelijk beveiligingsvoordelen van alle gebruikers.
+
+**V: Wat is het verschil tussen een wachtwoordwijziging en een wachtwoorden in te stellen (of opnieuw instellen)?**
+
+Een wachtwoordwijziging is wanneer een gebruiker ervoor een nieuw wachtwoord kiest na waaruit blijkt dat zij hebben kennis van het oude wachtwoord. Bijvoorbeeld: dit is wat er gebeurt wanneer een gebruiker meldt zich aan bij Windows en wordt vervolgens gevraagd om een nieuw wachtwoord.
+
+Een wachtwoord instellen (ook wel een wachtwoord opnieuw instellen) is als een beheerder wordt vervangen door het wachtwoord voor een account met een nieuw wachtwoord, bijvoorbeeld met behulp van het hulpprogramma Active Directory: gebruikers en Computers. Voor deze bewerking moet een hoge mate van bevoegdheden (meestal Domain Admin) en de persoon die meestal uitvoeren van de bewerking heeft geen kennis van het oude wachtwoord. Helpdesk scenario's dit vaak doen, bijvoorbeeld wanneer een gebruiker die is het wachtwoord vergeten te assisteren. U ziet ook wachtwoord ingesteld gebeurtenissen wanneer een nieuwe gebruikersaccount wordt gemaakt voor het eerst met een wachtwoord.
+
+Het wachtwoordbeleid voor validatie gedraagt zich hetzelfde, ongeacht of een wachtwoord wijzigen of een set is dat wordt uitgevoerd. De Azure AD-wachtwoord DC Protection Agent-service verschillende gebeurtenissen, zodat u op de hoogte of een wachtwoordwijziging aanmelden of set-bewerking is uitgevoerd.  Zie [Azure AD-wachtwoord beveiliging, controle en logboekregistratie](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
 
 **V: Is dit dan ondersteund voor het installeren van Azure AD-wachtwoord bescherming naast andere producten op basis van wachtwoord-filter?**
 

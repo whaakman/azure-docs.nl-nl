@@ -5,27 +5,27 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 02/20/2019
 ms.author: danlep
-ms.openlocfilehash: a4b9b382755e73b6218432624c471346e9698752
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0148894bb013dc9f8cce595f14919f87d6292df8
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193387"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593621"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry-rollen en machtigingen
 
 De Azure Container Registry-service ondersteunt een aantal Azure-rollen die verschillende niveaus van machtigingen aan een Azure container registry bieden. Gebruik Azure [op rollen gebaseerd toegangsbeheer](../role-based-access-control/index.yml) (RBAC) voor specifieke machtigingen toewijzen aan gebruikers of service-principals die moeten communiceren met een register.
 
-| Rolmachtiging /       | [Access Resource Manager](#access-resource-manager)| [Register maken/verwijderen](#create-and-delete-registry) | [Installatiekopie pushen](#push-image) | [Pull-afbeelding](#pull-image) | [Beleid wijzigen](#change-policies) |   [Meld u afbeeldingen](#sign-images)  |
-| ---------| --------- | --------- | --------- | --------- | --------- | --------- |
-| Eigenaar | X | X | X | X | X |  |  
-| Inzender | X | X | X | X | X |  |  
-| Lezer | X |  |  | X |  |  | 
-| AcrPush |  |  | X | X |  |  |  
-| AcrPull |  |  |  | X |  |  |  
-| AcrImageSigner |  |  |  |  |  | X |
+| Rolmachtiging /       | [Access Resource Manager](#access-resource-manager) | [Register maken/verwijderen](#create-and-delete-registry) | [Installatiekopie pushen](#push-image) | [Pull-afbeelding](#pull-image) | [Image-gegevens verwijderen](#delete-image-data) | [Beleid wijzigen](#change-policies) |   [Meld u afbeeldingen](#sign-images)  |
+| ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
+| Eigenaar | X | X | X | X | X | X |  |  
+| Inzender | X | X | X |  X | X | X |  |  
+| Lezer | X |  |  | X |  |  |  |
+| AcrPush |  |  | X | X | X |  |  |  
+| AcrPull |  |  |  | X |  |  |  |  
+| AcrImageSigner |  |  |  |  |  |  | X |
 
 ## <a name="differentiate-users-and-services"></a>Onderscheid maken tussen gebruikers en services
 
@@ -58,6 +58,10 @@ De mogelijkheid om te `docker push` een installatiekopie of een andere push [ond
 ## <a name="pull-image"></a>Pull-afbeelding
 
 De mogelijkheid om te `docker pull` een niet-quarantaine installatiekopie of een andere pull [ondersteund artefact](container-registry-image-formats.md) , zoals een Helm-diagram van een register. Vereist [verificatie](container-registry-authentication.md) met het register met de identiteit van de gemachtigde.
+
+## <a name="delete-image-data"></a>Image-gegevens verwijderen
+
+De mogelijkheid om te [containerinstallatiekopieën of opslagplaatsen verwijderen](container-registry-delete.md).
 
 ## <a name="change-policies"></a>Beleid wijzigen
 

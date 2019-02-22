@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 460edc7f092764cce3584c81371db4801fbd69bc
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c866bb1ff5603f08377ed96ddd81eedf71e243bf
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240009"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593231"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Zelfstudie: Resources voor validatie als een Service instellen
 
@@ -50,7 +50,7 @@ Een tenant maken specifiek voor gebruik met VaaS met een beschrijvende naam, bij
  
     Toestaan dat gebruikers in uw tenant om uit te voeren van acties in VaaS door toe te wijzen op een van de volgende rollen:
 
-    | Naam van rol | Beschrijving |
+    | Naam van rol | Description |
     |---------------------|------------------------------------------|
     | Eigenaar | Heeft volledige toegang tot alle resources. |
     | Lezer | Alle resources weergeven, maar niet maken of te beheren. |
@@ -72,7 +72,7 @@ Dit proces wordt geautoriseerd voor uw tenant met de **Azure Stack-validatieserv
 
 1. De volgende informatie over de tenant verzenden naar Microsoft op [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com).
 
-    | Gegevens | Beschrijving |
+    | Gegevens | Description |
     |--------------------------------|---------------------------------------------------------------------------------------------|
     | Naam van organisatie | De naam van de officiële organisatie. |
     | De naam van de map Azure AD-Tenant | De naam van de Azure AD-Tenant-map wordt geregistreerd. |
@@ -92,7 +92,7 @@ Als de Azure AD-beheerder, geven de VaaS Azure AD-toepassing de vereiste machtig
 
 ## <a name="create-an-azure-storage-account"></a>Een Azure Storage-account maken
 
-Tijdens het uitvoeren van test voert VaaS diagnostische logboeken naar een Azure Storage-account. Naast het test-Logboeken, kan het storage-account ook worden gebruikt om het uploaden van de OEM-extensiepakketten voor de werkstroom voor validatie van de oplossing.
+Tijdens het uitvoeren van test voert VaaS diagnostische logboeken naar een Azure Storage-account. Naast het test-Logboeken, kan het storage-account ook worden gebruikt om het uploaden van de OEM-extensiepakketten voor de werkstroom voor validatie van het pakket.
 
 De Azure Storage-account wordt gehost in de openbare cloud van Azure, niet op uw Azure Stack-omgeving.
 

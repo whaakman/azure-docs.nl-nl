@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 9d11a34c499029550de12e8a47f7de0b1beac7b6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 596ac871067886ee3124c0f21beb35cb3b8fe1ae
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235034"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593808"
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>Ondersteuning voor Azure Resource Manager gebruiken met Azure Load Balancer
 
@@ -30,9 +30,9 @@ Met Resource Manager, Azure Load Balancer bevat de volgende onderliggende bronne
 
 * Front-end-IP-configuratie: een Load balancer kan een of meer front-end IP-adressen, ook bekend als een virtueel IP-adressen (VIP's) bevatten. Deze IP-adressen fungeren als ingang voor het verkeer.
 * Back-end-adresgroep: dit zijn IP-adressen die zijn gekoppeld met de virtuele machine netwerk netwerkkaart (NIC) waarop taakverdeling wordt gedistribueerd.
-* Taakverdelingsregels: een voor de regeleigenschap wijst een bepaalde frontend-IP en poort naar een set van back-end-IP-adressen en poort. Een enkele load balancer kan meerdere regels voor taakverdeling bevatten. Elke regel is een combinatie van een front-end-IP en poort en back-end IP en poort die is gekoppeld aan virtuele machines.
+* Taakverdelingsregels: een voor de regeleigenschap wijst een bepaalde frontend-IP en poort op een set back-end IP-adressen en poort. Een enkele load balancer kan meerdere regels voor taakverdeling bevatten. Elke regel is een combinatie van een front-end-IP en poort en back-end IP en poort die is gekoppeld aan virtuele machines.
 * Tests: tests kunnen u de status van VM-exemplaren bij te houden. Als een statustest mislukt, wordt het VM-exemplaar automatisch uit rotatie gehaald.
-* Inkomende NAT-regels, NAT-regels definiëren het inkomende verkeer worden gebruikt met de frontend-IP en gedistribueerd naar de back-end-IP-adres.
+* Inkomende NAT-regels, NAT-regels definiëren van het binnenkomende verkeer via de frontend-IP en gedistribueerd naar het back-end-IP-adres.
 
 ![](./media/load-balancer-arm/load-balancer-arm.png)
 
@@ -58,7 +58,7 @@ Voorbeelden van sjablonen:
 
 Aan de slag met Azure Resource Manager-cmdlets, opdrachtregelprogramma's en REST-API 's
 
-* [Azure-netwerken Cmdlets](https://docs.microsoft.com/powershell/module/azurerm.network#networking) kan worden gebruikt voor het maken van een Load Balancer.
+* [Azure-netwerken Cmdlets](https://docs.microsoft.com/powershell/module/az.network#networking) kan worden gebruikt voor het maken van een Load Balancer.
 * [Over het maken van een load balancer met behulp van Azure Resource Manager](load-balancer-get-started-ilb-arm-ps.md)
 * [De Azure CLI gebruiken met Azure Resource Manager](../xplat-cli-azure-resource-manager.md)
 * [Load Balancer REST-API 's](https://msdn.microsoft.com/library/azure/mt163651.aspx)

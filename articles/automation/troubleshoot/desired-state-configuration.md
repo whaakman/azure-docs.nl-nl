@@ -9,18 +9,38 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 997f332e14fd1accf32d8cc3f51557fe005acab5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a34dea7e1eb53531db55dc62df8fbad8541f7a35
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421639"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586797"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Troubleshoot Desired State Configuration (DSC)
 
 In dit artikel bevat informatie over het oplossen van problemen met Desired State Configuration (DSC).
 
 ## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>Veelvoorkomende fouten bij het werken met Desired State Configuration (DSC)
+
+### <a name="unsupported-characters"></a>Scenario: Een configuratie met speciale tekens kan niet worden verwijderd uit de portal
+
+#### <a name="issue"></a>Probleem
+
+Wanneer u probeert een DSC-configuratie verwijderen uit de portal, ziet u de volgende fout:
+
+```
+An error occured while deleteing the DSC configuration '<name>'.  Error-details: The arguement configurationName with the value <name> is not valid.  Valid configuration names can contain only letters,  numbers, and underscores.  The name must start with a letter.  The length of the name must be between 1 and 64 characters.
+```
+
+#### <a name="cause"></a>Oorzaak
+
+Dit is een tijdelijk probleem dat is gepland om te worden omgezet.
+
+#### <a name="resolution"></a>Oplossing
+
+* Gebruik de Az-Cmdlet "Remove-AzAutomationDscConfiguration" te verwijderen van de configuratie.
+* De documentatie voor deze cmdlet is nog niet bijgewerkt.  Raadpleeg de documentatie voor de AzureRM-module tot die tijd.
+  * [Remove-AzureRmAutomationDSCConfiguration](https://docs.microsoft.com/en-us/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration?view=azurermps-6.13.0)
 
 ### <a name="failed-not-found"></a>Scenario: Knooppunt zich in de status mislukt met een 'Niet gevonden'-fout
 

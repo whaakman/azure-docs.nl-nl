@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: a3ba80ce7b5abcb2f112880c4fef5ed3f067f691
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 051aa6b6ca8571fe948fa30e1e4a4320bb564a52
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563215"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593315"
 ---
 # <a name="split-merge-security-configuration"></a>Beveiligingsconfiguratie splitsen en samenvoegen
 
@@ -121,24 +121,29 @@ De standaardconfiguratie wordt alle toegang tot het HTTP-eindpunt geweigerd. Dit
 Standaard kan alle toegang tot het HTTPS-eindpunt. Deze instelling kan verder worden beperkt.
 
 ### <a name="changing-the-configuration"></a>Wijzigen van de configuratie
-De groep van de regels van de access control die betrekking hebben op en het eindpunt zijn geconfigureerd in de **<EndpointAcls>** sectie de **serviceconfiguratiebestand**.
+De groep van de regels van de access control die betrekking hebben op en het eindpunt zijn geconfigureerd in de  **\<EndpointAcls >** sectie de **serviceconfiguratiebestand**.
 
-    <EndpointAcls>
-      <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
-      <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="AllowAll" />
-    </EndpointAcls>
+```xml
+<EndpointAcls>
+    <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
+    <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="AllowAll" />
+</EndpointAcls>
+```
 
-De regels in een groep access control zijn geconfigureerd in een <AccessControl name=""> gedeelte van het configuratiebestand van de service. 
+De regels in een groep access control zijn geconfigureerd in een \<AccessControl name = "" > gedeelte van het configuratiebestand van de service. 
 
 De indeling wordt in Network Access Control Lists documentatie uitgelegd.
 Bijvoorbeeld, om toe te staan alleen IP-adressen in het bereik 100.100.0.0-100.100.255.255 voor toegang tot het HTTPS-eindpunt, zou de regels er als volgt:
 
-    <AccessControl name="Retricted">
-      <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
-      <Rule action="deny" description="None" order="2" remoteSubnet="0.0.0.0/0" />
-    </AccessControl>
-    <EndpointAcls>
+```xml
+<AccessControl name="Retricted">
+    <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
+    <Rule action="deny" description="None" order="2" remoteSubnet="0.0.0.0/0" />
+</AccessControl>
+<EndpointAcls>
     <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="Restricted" />
+</EndpointAcls>
+```
 
 ## <a name="denial-of-service-prevention"></a>Denial of service om te voorkomen
 Er zijn twee verschillende mechanismen voor het opsporen en voorkomen van denial of Service-aanvallen worden ondersteund:
@@ -154,22 +159,29 @@ Deze zijn gebaseerd op de functies die nader beschreven in de dynamische IP-beve
 ## <a name="restricting-number-of-concurrent-accesses"></a>Het aantal gelijktijdige toegang beperken
 De instellingen die voor het configureren van dit probleem zijn:
 
-    <Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
-    <Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
+```xml
+<Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
+<Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
+```
 
 Wijzig DynamicIpRestrictionDenyByConcurrentRequests in waar deze beveiliging in te schakelen.
 
 ## <a name="restricting-rate-of-access"></a>Snelheid van toegang beperken
 De instellingen die voor het configureren van dit probleem zijn:
 
-    <Setting name="DynamicIpRestrictionDenyByRequestRate" value="true" />
-    <Setting name="DynamicIpRestrictionMaxRequests" value="100" />
-    <Setting name="DynamicIpRestrictionRequestIntervalInMilliseconds" value="2000" />
+```xml
+<Setting name="DynamicIpRestrictionDenyByRequestRate" value="true" />
+<Setting name="DynamicIpRestrictionMaxRequests" value="100" />
+<Setting name="DynamicIpRestrictionRequestIntervalInMilliseconds" value="2000" />
+```
 
 ## <a name="configuring-the-response-to-a-denied-request"></a>Het antwoord op een niet-toegestane aanvraag configureren
 De volgende instelling configureert u het antwoord op een niet-toegestane aanvraag:
 
-    <Setting name="DynamicIpRestrictionDenyAction" value="AbortRequest" />
+```xml
+<Setting name="DynamicIpRestrictionDenyAction" value="AbortRequest" />
+```
+
 Raadpleeg de documentatie voor dynamische IP-beveiliging in IIS voor andere ondersteunde waarden.
 
 ## <a name="operations-for-configuring-service-certificates"></a>Bewerkingen voor het configureren van service-certificaten
@@ -232,12 +244,16 @@ Alleen client certificaten gebaseerde verificatie wordt ondersteund en u dit uit
 
 U kunt deze instellingen wijzigen op false in het configuratiebestand van de service aan de functie uit te schakelen:
 
-    <Setting name="SetupWebAppForClientCertificates" value="false" />
-    <Setting name="SetupWebserverForClientCertificates" value="false" />
+```xml
+<Setting name="SetupWebAppForClientCertificates" value="false" />
+<Setting name="SetupWebserverForClientCertificates" value="false" />
+```
 
 Kopieer vervolgens de vingerafdruk van het hetzelfde als het SSL-certificaat in de instelling van de CA-certificaat:
 
-    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```xml
+<Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 ## <a name="create-a-self-signed-certification-authority"></a>Maak een zelf-ondertekend certificeringsinstantie (CA)
 Voer de volgende stappen uit voor het maken van een zelfondertekend certificaat om te fungeren als een certificeringsinstantie (CA):
@@ -280,11 +296,15 @@ Uploaden van het certificaat met de bestaande of gegenereerd. CER-bestand met de
 ## <a name="update-ca-certificate-in-service-configuration-file"></a>Update-CA-certificaat in het configuratiebestand
 Werk de vingerafdrukwaarde van de volgende instelling in het configuratiebestand van de service met de vingerafdruk van het certificaat dat is geüpload naar de cloudservice:
 
-    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```xml
+<Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 De waarde van de volgende instelling bijwerken met dezelfde vingerafdruk:
 
-    <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
+```xml
+<Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
+```
 
 ## <a name="issue-client-certificates"></a>Certificaten van de client
 Elke persoon die toegang hebben tot de service moet een clientcertificaat dat is uitgegeven voor eigen gebruik hebben en hun eigen sterk wachtwoord voor het beveiligen van de persoonlijke sleutel moet kiezen. 
@@ -338,17 +358,23 @@ Elke gebruiker voor wie een clientcertificaat is verleend, moet deze stappen vol
 * In het dialoogvenster van het certificaat dat wordt geopend, selecteert u het tabblad met Details
 * Zorg ervoor dat weergeven alle wordt weergegeven
 * Selecteer het veld met de naam van de vingerafdruk in de lijst
-* Kopieer de waarde van de vingerafdruk van het ** niet-zichtbare Unicode-tekens in het zicht van het eerste getal verwijderen ** verwijdert alle spaties
+* Kopieer de waarde van de vingerafdruk
+  * Niet-zichtbare Unicode-tekens in het zicht van het eerste getal verwijderen
+  * Verwijdert alle spaties
 
 ## <a name="configure-allowed-clients-in-the-service-configuration-file"></a>Toegestane clients in het configuratiebestand van de service configureren
 Werk de waarde van de volgende instelling in het configuratiebestand van de service met een door komma's gescheiden lijst met de vingerafdrukken van de clientcertificaten die toegang hebben tot de service:
 
-    <Setting name="AllowedClientCertificateThumbprints" value="" />
+```xml
+<Setting name="AllowedClientCertificateThumbprints" value="" />
+```
 
 ## <a name="configure-client-certificate-revocation-check"></a>Controle van certificaatintrekking client configureren
 De standaardinstelling wordt niet gecontroleerd met de certificeringsinstantie voor de clientstatus certificaat intrekken. Als u wilt inschakelen op de controles, als de certificeringsinstantie die certificaten in de client deze controles ondersteunt, door de volgende instelling te wijzigen met een van de waarden die zijn gedefinieerd in de opsomming X509RevocationMode:
 
-    <Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
+```xml
+<Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
+```
 
 ## <a name="create-pfx-file-for-self-signed-encryption-certificates"></a>PFX-bestand voor de zelf-ondertekend versleutelingscertificaten maken
 Voor een versleutelingscertificaat uitvoeren:
@@ -381,7 +407,9 @@ Uploaden van het certificaat met de bestaande of gegenereerd. PFX-bestand met he
 ## <a name="update-encryption-certificate-in-service-configuration-file"></a>Versleutelingscertificaat in het configuratiebestand bijwerken
 Werk de vingerafdrukwaarde van de volgende instellingen in het configuratiebestand van de service met de vingerafdruk van het certificaat dat is geüpload naar de cloudservice:
 
-    <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+```xml
+<Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 ## <a name="common-certificate-operations"></a>Algemene certificaatbewerkingen
 * Het SSL-certificaat configureren
@@ -452,7 +480,9 @@ In [Azure Portal](https://portal.azure.com/)
 ## <a name="other-security-considerations"></a>Andere beveiligingsoverwegingen
 De SSL-instellingen die worden beschreven in dit document versleutelen van communicatie tussen de service en de clients wanneer het HTTPS-eindpunt wordt gebruikt. Dit is belangrijk omdat de referenties voor toegang tot de database en andere gevoelige gegevens zijn opgenomen in de communicatie. Merk echter op dat de service zich blijft interne status voordoen, met inbegrip van referenties in de interne tabellen in de Microsoft Azure SQL-database die u hebt opgegeven voor de opslag van de metagegevens van uw abonnement op Microsoft Azure. Deze database is gedefinieerd als onderdeel van de volgende instelling in uw serviceconfiguratiebestand (. CSCFG-bestand): 
 
-    <Setting name="ElasticScaleMetadata" value="Server=…" />
+```xml
+<Setting name="ElasticScaleMetadata" value="Server=…" />
+```
 
 Referenties die zijn opgeslagen in deze database worden versleuteld. Echter, als een best practice, zorg ervoor dat zowel web- en werkrollen rollen van uw service-implementaties up-to-date gehouden worden en veilig zijn als ze beide toegang tot de database met metagegevens en het certificaat dat wordt gebruikt voor versleuteling en ontsleuteling van de opgeslagen referenties hebben. 
 

@@ -9,12 +9,12 @@ ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 922f64f3e9588b3bfcfeedf7602df781c8ee6172
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f91ac8e8a6a71f2a5eb5c686aa5bc5b83be36545
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226601"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586607"
 ---
 # <a name="search-edit-and-delete-projects"></a>Zoeken, bewerken en verwijderen van projecten
 
@@ -39,7 +39,7 @@ Het filter-hulpprogramma kunt u zoeken naar projecten met verschillende filtervo
 
 ## <a name="edit-a-project"></a>Een project bewerken
 
-Aangepaste Translator biedt de mogelijkheid om de naam van en de beschrijving van een project te bewerken. Andere project metagegevens, zoals categorie, bron, doeltaal zijn niet beschikbaar om te bewerken. Onderstaande stappen wordt beschreven hoe u een project bewerken.
+Aangepaste Translator biedt u de mogelijkheid om te bewerken van de naam en beschrijving van een project. Andere metagegevens van het project, zoals de categorie, source-taal en doeltaal zijn niet beschikbaar voor bewerken. De onderstaande stappen wordt beschreven hoe u een project bewerken.
 
 1.  Klik op het potloodpictogram die wordt weergegeven wanneer u de muisaanwijzer over een project.
 

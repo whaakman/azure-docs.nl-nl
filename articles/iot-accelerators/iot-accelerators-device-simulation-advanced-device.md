@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
-ms.openlocfilehash: 7e680e3cd8a3d7056141814c5e7d4539b72073b4
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.openlocfilehash: a97afe64992db6b48558561ba958b513c8416494
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50757210"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592822"
 ---
 # <a name="create-an-advanced-device-model"></a>Maak een geavanceerde Apparaatmodel
 
@@ -26,11 +26,11 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 Als u wilt volgen de stappen in deze handleiding, moet u een geïmplementeerd exemplaar van Apparaatsimulatie in uw Azure-abonnement.
 
-Als u dit nog niet hebt geïmplementeerd Apparaatsimulatie nog, moet u uitvoeren de [implementeren en voer de simulatie van een IoT-apparaat in Azure](quickstart-device-simulation-deploy.md) Quick Start.
+Als u Apparaatsimulatie nog niet hebt geïmplementeerd, moet u de snelstart [Een IoT-apparaatsimulatie in Azure implementeren en uitvoeren](quickstart-device-simulation-deploy.md) voltooien.
 
-### <a name="open-device-simulation"></a>Open Apparaatsimulatie
+### <a name="open-device-simulation"></a>Apparaatsimulatie openen
 
-Als u wilt uitvoeren Apparaatsimulatie in uw browser, Ga eerst naar [Microsoft Azure IoT-oplossingsversnellers](https://www.azureiotsolutions.com).
+Als u Apparaatsimulatie in uw browser wilt uitvoeren, gaat u eerst naar [Oplossingsverbeteringen van Microsoft Azure IoT](https://www.azureiotsolutions.com).
 
 Mogelijk wordt u gevraagd u aan te melden met de referenties van uw Azure-abonnement.
 
@@ -56,7 +56,7 @@ Een typische Apparaatmodel heeft:
 Elk apparaat definitie-bestand bevat de details van een gesimuleerde apparaat-model, met inbegrip van de volgende informatie:
 
 * De naam van de apparaat-model: tekenreeks.
-* -Protocol: AMQP | MQTT | HTTP.
+* Protocol: AMQP | MQTT | HTTP.
 * De status van het eerste apparaat.
 * Hoe vaak u wilt vernieuwen van de apparaatstatus.
 * Welke JavaScript-bestand gebruiken om te vernieuwen van de apparaatstatus.
@@ -83,7 +83,7 @@ De volgende eigenschappen beschrijven het Apparaatmodel. Elk type heeft een unie
 "Description": "Chiller with external temperature and humidity sensors."
 ```
 
-### <a name="iot-protocol"></a>IoT-Protocol
+### <a name="iot-protocol"></a>IoT Protocol
 
 IoT-apparaten kunnen verbinding maken met behulp van verschillende protocollen. De simulatie kunt u een **AMQP**, **MQTT**, of **HTTP**:
 
@@ -160,11 +160,11 @@ Het schema biedt ondersteuning voor JSON-indeling, kunt u eenvoudig parseren, tr
 De velden die worden vermeld in het schema kunnen van de volgende typen zijn:
 
 * Object - geserialiseerd met de JSON
-* Binair - geserialiseerd met de met base64
+* Binary - serialized using base64
 * Tekst
 * Booleaans
 * Geheel getal
-* Double-waarde
+* Double
 * DateTime
 
 ### <a name="supported-methods"></a>Ondersteunde methoden
@@ -255,7 +255,7 @@ De JavaScript-bestanden moeten hebben een **belangrijkste** -functie, die twee p
 
 * Een **context** object dat drie eigenschappen bevat:
     * **currentTime** als een tekenreeks met de indeling **jjjj-MM-dd'T'HH:mm:sszzz**.
-    * **apparaat-id**. Bijvoorbeeld, **Simulated.Elevator.123**.
+    * **deviceId**. Bijvoorbeeld, **Simulated.Elevator.123**.
     * **deviceModel**. Bijvoorbeeld, **lift**.
 * Een **status** -object dat is de waarde die is geretourneerd door de functie in de vorige aanroep. Deze status van het apparaat wordt onderhouden door de service simulatie en gebruikt voor het genereren van berichten over telemetrie.
 
@@ -494,11 +494,11 @@ function main(context, state) {
 
 Voor het implementeren van de geavanceerde Apparaatmodel, uploadt u de bestanden de Apparaatsimulatie-exemplaar:
 
-Selecteer **apparaatmodellen** in de menubalk. De **apparaatmodellen** pagina geeft een lijst van de apparaatmodellen die beschikbaar zijn in dit exemplaar van Apparaatsimulatie:
+Selecteer **Apparaatmodellen** in de menubalk. De **apparaatmodellen** pagina geeft een lijst van de apparaatmodellen die beschikbaar zijn in dit exemplaar van Apparaatsimulatie:
 
 ![Apparaatmodellen](media/iot-accelerators-device-simulation-advanced-device/devicemodelnav.png)
 
-Klik op **+ toevoegen Apparaatmodellen** in de rechterbovenhoek van de pagina:
+Klik op **+ Apparaatmodellen toevoegen** in de rechterbovenhoek van de pagina:
 
 ![Apparaatmodel toevoegen](media/iot-accelerators-device-simulation-advanced-device/devicemodels.png)
 
@@ -516,4 +516,4 @@ Als uw bestanden gevalideerd worden, klikt u op **opslaan** en het Apparaatmodel
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze handleiding, hebt u geleerd over de model-bestanden van het apparaat wordt gebruikt voor Apparaatsimulatie en over het maken van een geavanceerde Apparaatmodel. Vervolgens kunt u bekijken hoe u [gebruik Time Series Insights voor het visualiseren van telemetrie verzonden vanaf de oplossingsverbetering voor Apparaatsimulatie](about-iot-accelerators.md).
+In deze handleiding, hebt u geleerd over de model-bestanden van het apparaat wordt gebruikt voor Apparaatsimulatie en over het maken van een geavanceerde Apparaatmodel. Vervolgens kunt u bekijken hoe u [gebruik Time Series Insights voor het visualiseren van telemetrie verzonden vanaf de oplossingsverbetering voor Apparaatsimulatie](https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-device-simulation-time-series-insights).

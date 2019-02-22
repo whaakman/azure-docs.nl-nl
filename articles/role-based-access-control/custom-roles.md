@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6307c57f32700c0c2dd2e5da15b98a2a54dbe9c4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 71d49edc3fa52cce5d128b94d42098150aa5f3a3
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339325"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585080"
 ---
 # <a name="custom-roles-for-azure-resources"></a>Aangepaste rollen voor Azure-resources
 
@@ -43,6 +43,7 @@ Hieronder ziet u een aangepaste rol eruit zoals weergegeven in de JSON-indeling.
     "Microsoft.Compute/virtualMachines/start/action",
     "Microsoft.Compute/virtualMachines/restart/action",
     "Microsoft.Authorization/*/read",
+    "Microsoft.ResourceHealth/availabilityStatuses/read",
     "Microsoft.Resources/subscriptions/resourceGroups/read",
     "Microsoft.Insights/alertRules/*",
     "Microsoft.Insights/diagnosticSettings/*",
@@ -65,16 +66,20 @@ Wanneer u een aangepaste rol maakt, wordt deze weergegeven in de Azure-portal me
 
 ## <a name="steps-to-create-a-custom-role"></a>Stappen voor het maken van een aangepaste rol
 
+1. Bepalen hoe u de aangepaste rol maken
+
+    U kunt aangepaste rollen met behulp van maken [Azure PowerShell](custom-roles-powershell.md), [Azure CLI](custom-roles-cli.md), of de [REST-API](custom-roles-rest.md).
+
 1. De machtigingen die u moet bepalen
 
     Wanneer u een aangepaste rol maakt, moet u weten de resource provider-bewerkingen die beschikbaar zijn voor het definiëren van uw machtigingen. Als u wilt weergeven in de lijst met bewerkingen, kunt u de [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) of [az provider Bewerkingslijst](/cli/azure/provider/operation#az-provider-operation-list) opdrachten.
-    Als u de machtigingen voor uw aangepaste rol, u de bewerkingen zijn toevoegen de `Actions` of `NotActions` eigenschappen van de [roldefinitie](role-definitions.md). Hebt u gegevensbewerkingen, u deze toevoegen aan de `DataActions` of `NotDataActions` eigenschappen.
+    Voegt u de bewerkingen zijn de `Actions` of `NotActions` eigenschappen van de [roldefinitie](role-definitions.md). Als u gegevens hebt, voegt u toe dat deze de `DataActions` of `NotDataActions` eigenschappen.
 
-2. De aangepaste rol maken
+1. De aangepaste rol maken
 
-    U kunt Azure PowerShell of Azure CLI gebruiken om de aangepaste rol te maken. Normaal gesproken u beginnen met een bestaande ingebouwde rol en wijzig vervolgens het voor uw behoeften. Vervolgens u gebruikt de [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) of [az roldefinitie maken](/cli/azure/role/definition#az-role-definition-create) opdrachten voor het maken van de aangepaste rol. Voor het maken van een aangepaste rol, moet u de `Microsoft.Authorization/roleDefinitions/write` machtiging op alle `AssignableScopes`, zoals [eigenaar](built-in-roles.md#owner) of [Administrator voor gebruikerstoegang](built-in-roles.md#user-access-administrator).
+    Normaal gesproken u beginnen met een bestaande ingebouwde rol en wijzig vervolgens het voor uw behoeften. Vervolgens u gebruikt de [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) of [az roldefinitie maken](/cli/azure/role/definition#az-role-definition-create) opdrachten voor het maken van de aangepaste rol. Voor het maken van een aangepaste rol, moet u de `Microsoft.Authorization/roleDefinitions/write` machtiging op alle `AssignableScopes`, zoals [eigenaar](built-in-roles.md#owner) of [Administrator voor gebruikerstoegang](built-in-roles.md#user-access-administrator).
 
-3. De aangepaste rol testen
+1. De aangepaste rol testen
 
     Nadat u uw aangepaste rol hebt, hebt u testen om te controleren of deze werkt zoals verwacht. Als u wilt de wijzigingen later aanbrengen, kunt u de aangepaste rol bijwerken.
 

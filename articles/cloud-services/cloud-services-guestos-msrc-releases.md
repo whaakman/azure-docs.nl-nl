@@ -11,17 +11,72 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/5/2019
+ms.date: 2/20/2019
 ms.author: raiye
-ms.openlocfilehash: 4c1b1b376493c77ae0f197d800ee0d00434b19c6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: b39a365e077f8c51b322f0849b373b500cb2d905
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752106"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594284"
 ---
 # <a name="azure-guest-os"></a>Azure-Gastbesturingssysteem
 De volgende tabellen tonen de updates van de Microsoft Security Response Center (MSRC) toegepast op de Azure-Gastbesturingssysteem. Zoeken in dit artikel om te bepalen als een bepaalde update van toepassing op de Gast-besturingssysteem dat u gebruikt. Updates altijd overdragen voor de betreffende [familie] [ family-explain] ze zijn geïntroduceerd in.
+
+## <a name="february-2019-guest-os"></a>Februari 2019 Guest OS
+
+>[!NOTE]
+>Het Gastbesturingssysteem februari wordt momenteel geïmplementeerd voor Cloud Service-VM's die zijn geconfigureerd voor automatische updates. Wanneer de implementatie voltooid is, wordt deze versie beschikbaar voor het handmatig bijwerken via de Azure portal en -configuratiebestanden worden gemaakt. De volgende patches worden opgenomen in het Gastbesturingssysteem februari. Deze lijst is onderhevig aan wijzigingen.
+
+| Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
+| --- | --- | --- | --- | --- |
+| Rel 19-02 | [4486474] | Internet Explorer | 2.83, 3.70, 4.63 | 12 februari 2019 |
+| Rel 19-02 | [4487038] | Flash | 3.70, 4.63, 5.28, 6.4 | 12 februari 2019 |
+| Rel 19-02 | [4486564] | Windows-beveiliging | 2.83 | 12 februari 2019 |
+| Rel 19-02 | [4483483] | .NET 3.5.1 Security | 2.83 | 12 februari 2019 |
+| Rel 19-02 | [4483474] | .NET 4.5.2 Security | 2.83 | 12 februari 2019 |
+| Rel 19-02 | [4486993] | Windows-beveiliging | 3.70 | 12 februari 2019 |
+| Rel 19-02 | [4483481] | .NET 3.5 Security | 3.70 | 12 februari 2019 |
+| Rel 19-02 | [4483473] | .NET 4.5.2 Security | 3.70 | 12 februari 2019 |
+| Rel 19-02 | [4487028] | Windows-beveiliging | 4.63 | 12 februari 2019 |
+| Rel 19-02 | [4483484] | .NET 3.5 Security | 4.63 | 12 februari 2019 |
+| Rel 19-02 | [4483472] | .NET 4.5.2 Security | 4.63 | 12 februari 2019 |
+| Rel 19-02 | [4487026] | Windows-beveiliging | 5.28 | 12 februari 2019 |
+| Rel 19-02 | [4487044] | Windows-beveiliging | 6.4 | 12 februari 2019 |
+| Rel 19-02 | [4483452] | .NET 3.5, 4.7.2 beveiliging | 6.4 | 12 februari 2019 |
+| N/A | [4480970] | Updatepakket van januari niet voor beveiliging | 2.83 | 8 januari 2019 |
+| N/A | [4483483] | Januari niet voor beveiliging updatepakket .NET 3.5.1  | 2.83 | 8 januari 2019 |
+| N/A | [4480059] | Januari niet voor beveiliging updatepakket .NET 4.5.2  | 2.83 | 8 januari 2019 |
+| N/A | [4480975] | Updatepakket van januari niet voor beveiliging | 3.70 | 8 januari 2019 |
+| N/A | [4480061] | Januari niet voor beveiliging updatepakket .NET 3.5 | 3.70 | 8 januari 2019 |
+| N/A | [4480058] | Januari niet voor beveiliging updatepakket .NET 4.5.2 | 3.70 | 8 januari 2019 |
+| N/A | [4480963] | Updatepakket van januari niet voor beveiliging | 4.63 | 8 januari 2019 |
+| N/A | [4480064] | Januari niet voor beveiliging updatepakket .NET 3.5 | 4.63 | 8 januari 2019 |
+| N/A | [4480057] | Januari niet voor beveiliging updatepakket .NET 4.5.2 | 4.63 | 8 januari 2019 |
+
+[4486474]: http://support.microsoft.com/kb/4486474
+[4487038]: http://support.microsoft.com/kb/4487038
+[4486564]: http://support.microsoft.com/kb/4486564
+[4483483]: http://support.microsoft.com/kb/4483483
+[4483474]: http://support.microsoft.com/kb/4483474
+[4486993]: http://support.microsoft.com/kb/4486993
+[4483481]: http://support.microsoft.com/kb/4483481
+[4483473]: http://support.microsoft.com/kb/4483473
+[4487028]: http://support.microsoft.com/kb/4487028
+[4483484]: http://support.microsoft.com/kb/4483484
+[4483472]: http://support.microsoft.com/kb/4483472
+[4487026]: http://support.microsoft.com/kb/4487026
+[4487044]: http://support.microsoft.com/kb/4487044
+[4483452]: http://support.microsoft.com/kb/4483452
+[4480970]: http://support.microsoft.com/kb/4480970
+[4483483]: http://support.microsoft.com/kb/4483483
+[4480059]: http://support.microsoft.com/kb/4480059
+[4480975]: http://support.microsoft.com/kb/4480975
+[4480061]: http://support.microsoft.com/kb/4480061
+[4480058]: http://support.microsoft.com/kb/4480058
+[4480963]: http://support.microsoft.com/kb/4480963
+[4480064]: http://support.microsoft.com/kb/4480064
+[4480057]: http://support.microsoft.com/kb/4480057
 
 ## <a name="january-2019-guest-os"></a>Januari 2019 Guest OS
 

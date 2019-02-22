@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c7d643f0c7885e64636a107d22ce332b1ba9371c
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: ea3f26d70c4a4ce07c988612890687504a4cf5ac
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809456"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594675"
 ---
 <a name="go-live"></a>Go Live
 =======
@@ -33,18 +33,18 @@ Deze API begint het proces voor het pushen van een app naar productie. Met deze 
 
 |  **Naam**      |   **Beschrijving**                                                           | **Gegevenstype** |
 |  --------      |   ---------------                                                           | ------------- |
-| publisherId    | Uitgever-ID voor de aanbieding moet worden opgehaald, bijvoorbeeld `contoso`       |  Reeks       |
-| offerId        | Id van de aanbieding om op te halen bieden                                   |  Reeks       |
+| publisherId    | Uitgever-ID voor de aanbieding moet worden opgehaald, bijvoorbeeld `contoso`       |  String       |
+| offerId        | Id van de aanbieding om op te halen bieden                                   |  String       |
 | API-versie    | Meest recente versie van de API                                                   |  Date         |
 |  |  |  |
 
 
-<a name="header"></a>Koptekst
+<a name="header"></a>Header
 ------
 
 |  **Naam**       |     **Waarde**       |
 |  ---------      |     ----------      |
-| Inhoudstype    | `application/json`  |
+| Content-Type    | `application/json`  |
 | Autorisatie   | `Bearer YOUR_TOKEN` |
 |  |  |
 
@@ -61,13 +61,13 @@ Deze API begint het proces voor het pushen van een app naar productie. Met deze 
 
 |  **Naam**             |      **Waarde**                                                            |
 |  --------             |      ----------                                                           |
-| Bewerking-locatie    |  URL naar de query om te bepalen van de huidige status van de bewerking            |
+| Operation-Location    |  URL naar de query om te bepalen van de huidige status van de bewerking            |
 |  |  |
 
 
 ### <a name="response-status-codes"></a>Antwoord-statuscodes
 
-| **Code** |  ** Beschrijving **                                                                        |
+| **Code** |  **Beschrijving**                                                                        |
 | -------- |  ----------------                                                                        |
 |  202     | `Accepted` -De aanvraag is geaccepteerd. Het antwoord bevat een locatie voor het volgen van de status van de bewerking. |
 |  400     | `Bad/Malformed request` -Aanvullende foutinformatie vindt u in de hoofdtekst van de reactie. |

@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: b57dd40c8610953563a3d5b8861e144d775b4eb7
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 9a43a382c1f45f0bf0fb7e93322fcbeef58cb99d
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330508"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651172"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Opnieuw trainen en implementeren van een machine learning-model
 
@@ -42,7 +42,7 @@ Gebruik de volgende stappen uit om een retraining webservice te implementeren:
 
     Na het uitvoeren van uw experiment, moet de resulterende werkstroom zijn vergelijkbaar met de volgende afbeelding:
 
-    ![Resulterende werkstroom](media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE04.png)
+    ![Resulterende werkstroom](media/retrain-machine-learning/machine-learning-retrain-models-programmatically-IMAGE04.png)
 
     Nu implementeren u de trainingsexperiment als een retraining webservice die een getraind model en de resultaten van evaluatie van model weergeeft.
 
@@ -68,7 +68,7 @@ NuGet-pakket Microsoft.AspNet.WebApi.Client, zoals opgegeven in de opmerkingen t
 
 De volgende schermafbeelding ziet u de **verbruiken** pagina in de portal voor Azure Machine Learning-webservices.
 
-![Pagina gebruiken](media/retrain-existing-arm-web-service/machine-learning-retrain-models-consume-page.png)
+![Pagina gebruiken](media/retrain-machine-learning/machine-learning-retrain-models-consume-page.png)
 
 ### <a name="update-the-apikey-declaration"></a>De declaratie apikey bijwerken
 
@@ -114,7 +114,7 @@ Wanneer u de uitvoerlocatie opgeeft in de nettolading aanvragen, de uitbreiding 
 
 Hier volgt een voorbeeld van retraining uitvoer:
 
-![Uitvoer opnieuw trainen](media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE06.png)
+![Uitvoer opnieuw trainen](media/retrain-machine-learning/machine-learning-retrain-models-programmatically-IMAGE06.png)
 
 ### <a name="evaluate-the-retraining-results"></a>De retraining resultaten evalueren
 

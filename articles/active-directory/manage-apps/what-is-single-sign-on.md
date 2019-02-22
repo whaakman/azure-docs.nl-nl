@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 02/21/2019
 ms.author: celested
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6984307dda58aeba840f2b6d08e84fb4f60cacc8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 93d5a08d08a67a14d2e78f414fc40e7391653951
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163067"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593689"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Eenmalige aanmelding voor toepassingen in Azure Active Directory
 Eenmalige aanmelding (SSO) voegt beveiliging en gemak wanneer gebruikers zich aanmelden bij toepassingen in Azure Active Directory (Azure AD). Dit artikel beschrijft de methoden voor eenmalige aanmelding en helpt u bij het kiezen van de meest geschikte methode voor eenmalige aanmelding bij het configureren van uw toepassingen.
@@ -69,7 +69,9 @@ SAML gebaseerde eenmalige aanmelding wordt ondersteund voor toepassingen die geb
 - SAML 2.0
 - Webservices-federatie
 
-Zie configureren van een toepassing voor SAML gebaseerde eenmalige aanmelding [configureren SAML gebaseerde eenmalige aanmelding](configure-single-sign-on-portal.md). Ook veel Software als een Service (SaaS)-toepassingen hebben een [toepassingsspecifieke zelfstudie](../saas-apps/tutorial-list.md) die doorloopt u de configuratie voor SAML gebaseerde eenmalige aanmelding. 
+Zie configureren van een toepassing voor SAML gebaseerde eenmalige aanmelding [configureren SAML gebaseerde eenmalige aanmelding](configure-single-sign-on-portal.md). Ook veel Software als een Service (SaaS)-toepassingen hebben een [toepassingsspecifieke zelfstudie](../saas-apps/tutorial-list.md) die doorloopt u de configuratie voor SAML gebaseerde eenmalige aanmelding.
+
+Voor het configureren van een toepassing voor de WS-Federation, volgt u de dezelfde instructies toepassing configureren voor SAML gebaseerde eenmalige aanmelding, raadpleeg dan [configureren SAML gebaseerde eenmalige aanmelding](configure-single-sign-on-portal.md). In de stap voor het configureren van de toepassing Azure AD gebruiken, moet u ter vervanging van de Azure AD-aanmeldings-URL voor het eindpunt voor WS-Federation `https://login.microsoftonline.com/<tenant-ID>/wsfed`.
 
 Zie voor meer informatie over het SAML-protocol, [eenmalige aanmelding in de SAML-protocol](../develop/single-sign-on-saml-protocol.md).
 

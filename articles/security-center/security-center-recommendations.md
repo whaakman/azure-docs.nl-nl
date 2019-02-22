@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2018
 ms.author: rkarlin
-ms.openlocfilehash: a5ca8efd43244825eef412cf3c05c8df20094112
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 8535a77c9f44a4dafca34ef24414f90741a9133e
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109536"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652727"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Aanbevelingen voor beveiliging in Azure Security Center beheren
 Dit document helpt u bij het gebruik van de aanbevelingen in Azure Security Center kunt u uw Azure-resources beveiligen.
@@ -53,21 +53,25 @@ De details van elke aanbeveling, selecteer de **aanbevelingen tegel** onder **ov
 
 U kunt filteren, aanbevelingen. Als u wilt de aanbevelingen filteren, selecteert u **Filter** op de **aanbevelingen** blade. De **Filter** blade wordt geopend en selecteert u de ernst en status waarden die u wilt zien.
 
-De aanbevelingen worden weergegeven in tabelindeling, waarbij elke regel één bepaalde aanbeveling vertegenwoordigt. De kolommen van deze tabel zijn:
 
-* **BESCHRIJVING**: Verklaart de aanbeveling en wat er moet gebeuren om deze op te lossen.
+* **AANBEVELINGEN**: De aanbeveling.
+* **BEVEILIGDE SCORE IMPACT**:
 * **RESOURCE**: Geeft een lijst van de resources die deze aanbeveling van toepassing is.
-* **STATUS**: Beschrijving van de huidige status van de aanbeveling:
-  * **Open**: De aanbeveling niet is nog opgelost.
-  * **Bezig**: De aanbeveling wordt momenteel toegepast op de resources en er is geen actie te ondernemen.
-  * **Opgelost**: De aanbeveling is al voltooid (in dit geval wordt de regel is lichter gekleurd).
-* **ERNST**: Hierin wordt de ernst van deze bepaalde aanbeveling beschreven:
-  * **Hoge**: Een beveiligingslek in de bestaat een belangrijke resource (zoals een toepassing, een virtuele machine of een netwerkbeveiligingsgroep) en aandacht vereist.
-  * **Gemiddeld**: Een beveiligingslek en niet-kritieke of extra stappen zijn vereist om dit te dichten of om een proces te voltooien.
-  * **Lage**: Een beveiligingslek dat moet worden opgelost, maar geen onmiddellijke aandacht vereist. (Standaard lage aanbevelingen worden niet weergegeven, maar u kunt filteren op lage aanbevelingen als u wilt zien.)
+* **STATUS STAVEN**:  Hierin wordt de ernst van deze bepaalde aanbeveling beschreven:
+   * **Hoog (rood)**: Een beveiligingslek in de bestaat een belangrijke resource (zoals een toepassing, een virtuele machine of een netwerkbeveiligingsgroep) en aandacht vereist.
+   * **Gemiddeld (oranje)**: Een beveiligingslek en niet-kritieke of extra stappen zijn vereist om dit te dichten of om een proces te voltooien.
+   * **Laag (blauw)**: Een beveiligingslek dat moet worden opgelost, maar geen onmiddellijke aandacht vereist. (Standaard lage aanbevelingen worden niet weergegeven, maar u kunt filteren op lage aanbevelingen als u wilt zien.) 
+   * **In orde (groen)**:
+   * **Niet beschikbaar (grijs)**:
+ <!-- * **DESCRIPTION**: Explains the recommendation and what needs to be done to address it.
+**STATE**: Describes the current state of the recommendation:
+   * **Open**: The recommendation hasn't been addressed yet.
+    * **In Progress**: The recommendation is currently being applied to the resources, and no action is required by you.
+   * **Resolved**: The recommendation has already been completed (in this case, the line is grayed out).
+    -->
 
 Gebruik de onderstaande tabel als referentie om te begrijpen van de beschikbare aanbevelingen en wat elke doet als u deze toepast.
-
+<!-- There is no table below -->
 > [!NOTE]
 > Wilt u inzicht in de [klassieke en Resource Manager-implementatiemodel](../azure-classic-rm.md) voor Azure-resources.
 >

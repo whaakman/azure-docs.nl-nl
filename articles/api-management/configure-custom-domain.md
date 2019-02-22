@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: apimpm
-ms.openlocfilehash: f613995dbdd787d0a031cb2c24d67c682b2d7cec
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: cb7ccc665cdf9867232580fd8b687b344e43116d
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446366"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587273"
 ---
 # <a name="configure-a-custom-domain-name"></a>Een aangepaste domeinnaam configureren 
 
@@ -42,9 +42,9 @@ Als u de stappen in dit artikel, moet u het volgende hebben:
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>Gebruik de Azure portal voor het instellen van een aangepaste domeinnaam
 
 1. Navigeer naar de APIM-instantie in de [Azure-portal](https://portal.azure.com/).
-2. Selecteer **aangepaste domeinen en SSL**.
+1. Selecteer **aangepaste domeinen en SSL**.
     
-    Er is een aantal eindpunten waarop u een aangepaste domeinnaam kunt toewijzen. De volgende eindpunten zijn momenteel beschikbaar: 
+    Er zijn een aantal eindpunten waarop u een aangepaste domeinnaam kunt toewijzen. De volgende eindpunten zijn momenteel beschikbaar: 
     + **Proxy** (standaard: `<apim-service-name>.azure-api.net`), 
     + **Portal** (standaard: `<apim-service-name>.portal.azure-api.net`),     
     + **Management** (standaard: `<apim-service-name>.management.azure-api.net`), 
@@ -52,12 +52,16 @@ Als u de stappen in dit artikel, moet u het volgende hebben:
 
     >[!NOTE]
     > U kunt alle van de eindpunten of een deel van deze bijwerken. Normaal gesproken klanten bijwerken **Proxy** (deze URL wordt gebruikt voor het aanroepen van de API die toegankelijk is via API Management) en **Portal** (de ontwikkelaarsportal URL). **Management** en **SCM** eindpunten wordt intern gebruikt door APIM-klanten en dus minder vaak een aangepaste domeinnaam toegewezen.
-3. Selecteer het eindpunt dat u wilt bijwerken. 
-4. Klik in het venster aan de rechterkant, **aangepaste**.
 
-    + In de **aangepaste domeinnaam**, geef de naam die u wilt gebruiken. Bijvoorbeeld `api.contoso.com`. <br/>Domeinnamen van het jokerteken (bijvoorbeeld *. domein.com) worden ook ondersteund.
-    + In de **certificaat**, Geef een geldige. PFX-bestand dat u wilt uploaden. 
-    + Als het certificaat een wachtwoord heeft, voert u deze in de **wachtwoord** veld.
+1. Selecteer het eindpunt dat u wilt bijwerken. 
+1. Klik in het venster aan de rechterkant, **aangepaste**.
+
+    + In de **aangepaste domeinnaam**, geef de naam die u wilt gebruiken. Bijvoorbeeld `api.contoso.com`. Domeinnamen van het jokerteken (bijvoorbeeld *. domein.com) worden ook ondersteund.
+    + In de **certificaat**, selecteert u een certificaat uit Key Vault. U kunt ook een geldige uploaden. PFX-bestand en geef de **wachtwoord**, als het certificaat is beveiligd met een wachtwoord.
+
+    > [!TIP]
+    > Als u Azure Key Vault gebruikt voor het beheren van het SSL-certificaat van het aangepaste domein, controleert u of het certificaat wordt ingevoegd in Key Vault [als een *certificaat*](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), niet een *geheim*. Als het certificaat is ingesteld op autorotate, pikken API Management de nieuwste versie automatisch.
+
 1. Klik op toepassen.
 
     >[!NOTE]

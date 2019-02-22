@@ -3,7 +3,7 @@ title: Onboarding van Azure Security Center Standard voor verbeterde beveiliging
 description: " Informatie over hoe om te onboarden naar Azure Security Center Standard voor verbeterde beveiliging. "
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2018
-ms.author: rkarlin
-ms.openlocfilehash: 9d95503e4b17124d1d027a90a21869ef65831654
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.date: 19/02/2019
+ms.author: monhaber
+ms.openlocfilehash: ab99116cabc14c70698a962c803adb87394e1796
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114413"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651101"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Onboarding van Azure Security Center Standard voor verbeterde beveiliging
 Upgrade uitvoeren naar Security Center Standard om te profiteren van verbeterde beveiligingsbeheer en bedreigingsbeveiliging voor uw hybride cloudworkloads.  U kunt de standaard gratis proberen. Zie het Security Center [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie.
@@ -33,7 +33,7 @@ Standard van Security Center bevat:
 ## <a name="detecting-unprotected-resources"></a>Niet-beveiligde resources detecteren     
 Security Center detecteert automatisch alle Azure-abonnementen of werkruimten die niet zijn ingeschakeld voor Security Center Standard. Hiertoe behoren Azure-abonnementen die Security Center Free gebruiken en werkruimten waarvoor de Security-oplossing niet is ingeschakeld.
 
-U kunt een hele Azure-abonnement upgraden naar de Standard-laag, die is overgenomen door alle resources binnen het abonnement, of u kunt een uniek beleid om bij te werken alleen een specifieke resourcegroep definiëren. Als de beleidsinstellingen van de resourcegroep unieke zijn, overschrijft Security Center niet de prijsbeleid wanneer u het abonnement naar de Standard-laag upgraden. Toepassen van de standaard-laag een abonnement is alleen van toepassing op de virtuele machines in het abonnement die aan werkruimten die zijn gemaakt door Security Center rapporteren. Toepassen van de standaard laag naar de werkruimte is van toepassing op alle resources die rapporteren aan de werkruimte.
+U kunt een hele Azure-abonnement upgraden naar de Standard-laag, die is overgenomen door alle resources binnen het abonnement, of u kunt een uniek beleid om bij te werken alleen een specifieke resourcegroep definiëren. Als de beleidsinstellingen van de resourcegroep unieke zijn, overschrijft Security Center niet de prijsbeleid wanneer u het abonnement naar de Standard-laag upgraden. Toepassen van de standaard-laag een abonnement is van toepassing op alle ondersteunde resources in het abonnement. Toepassen van de standaard-laag een werkruimte is van toepassing op alle resources die rapporteren aan de werkruimte.
 
 > [!NOTE]
 > Mogelijk wilt uw kosten beheren en beperken van de hoeveelheid gegevens die worden verzameld voor een oplossing door deze te beperken tot een bepaalde set van agents. [Oplossingstargeting](../operations-management-suite/operations-management-suite-solution-targeting.md) kunt u een bereik toepassen op de oplossing en gericht op een subset van computers in de werkruimte.  Als u gebruikmaakt van oplossing die gericht is op, geeft de werkruimte niet dat een oplossing voor een lijst van Security Center.
@@ -53,7 +53,7 @@ Een abonnement of een werkruimte upgraden naar Standard:
 
 
    > [!NOTE]
-   > Gratis mogelijkheden van Security Center worden toegepast op uw Azure-VM's alleen. De gratis mogelijkheden worden niet toegepast op uw niet-Azure-computers. Als u standaard selecteert, wordt het Standard-uitvoering worden toegepast op alle Azure-VM's en niet-Azure-computers die rapporteren aan de werkruimte. Het is raadzaam dat u van toepassing standaard zijn voor geavanceerde beveiliging voor uw Azure- en niet-Azure-resources.
+   > Gratis mogelijkheden van Security Center worden alleen toegepast op uw virtuele Azure-machines en VMSS. De gratis mogelijkheden worden niet toegepast op uw niet-Azure-computers. Als u standaard selecteert, wordt het Standard-uitvoering worden toegepast op alle Azure-VM's, schaalsets van virtuele machines en niet-Azure-computers die rapporteren aan de werkruimte. Het is raadzaam dat u van toepassing standaard zijn voor geavanceerde beveiliging voor uw Azure- en niet-Azure-resources.
    >
    >
 

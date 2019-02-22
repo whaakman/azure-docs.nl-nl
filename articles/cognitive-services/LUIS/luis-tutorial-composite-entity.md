@@ -1,5 +1,5 @@
 ---
-title: Samengestelde entiteit'
+title: Zelfstudie voor samengestelde entiteit
 titleSuffix: Azure Cognitive Services
 description: Voeg een samengestelde entiteit die u wilt de opgehaalde gegevens van verschillende typen te bundelen in een enkele containerentiteit. De clienttoepassing kan door de gegevens bundeling, gerelateerde gegevens in verschillende gegevenstypen eenvoudig extraheren.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 0d78c365b171ea80d208c447f4746fe80b965ef2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2da007d0e97f55432282fbc52c38ef3f50a2e5f4
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883301"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593570"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Zelfstudie: Gerelateerde gegevens groeperen en herkennen
 In deze zelfstudie voegt u een samengestelde entiteit die u wilt de opgehaalde gegevens van verschillende typen in een enkele containerentiteit bundelen. De clienttoepassing kan door de gegevens bundeling, gerelateerde gegevens in verschillende gegevenstypen eenvoudig extraheren.
@@ -85,18 +85,19 @@ LUIS biedt verschillende vooraf gemaakte entiteiten voor het ophalen van algemen
 
 1. Selecteer **TransferEmployeeToDepartment** in de lijst intents.
 
-1. Selecteer in de eerste utterance, de entiteit personName `John Jackson`en selecteer vervolgens **Start samengestelde entiteit wrapping** in de lijst met het pop-upmenu voor de volgende utterance:
+1. In de utterance `place John Jackson in engineering`, selecteer de entiteit personName `John Jackson`en selecteer vervolgens **verpakken in samengestelde entiteit** in de lijst met het pop-upmenu voor de volgende utterance. 
 
-    `place John Jackson in engineering`
+    ![Schermafbeelding van het selecteren van samengestelde terugloop in het dialoogvenster voor vervolgkeuzelijst](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
 
 1. Selecteer vervolgens de laatste entiteit onmiddellijk `engineering` in de utterance. Een groene menubalk wordt onder de geselecteerde woorden die wijzen op een samengestelde entiteit getekend. Voer in het pop-upmenu, de naam van de samengestelde `TransferEmployeeInfo` en selecteer enter. 
 
-1. In **welk type entiteit wilt u maken?**, de velden die vereist zijn in de lijst: `personName` en `Department`. Selecteer **Done**. 
+    ![Schermafbeelding van het samengestelde naam invoeren in de vervolgkeuzelijst van dialoogvenster](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
 
-    U ziet dat de vooraf gedefinieerde entiteit, personName, is toegevoegd aan de samengestelde entiteit. Als u een vooraf gedefinieerde entiteit weergegeven tussen het begin en einde van de tokens van een samengestelde entiteit hebt kan, moet de samengestelde entiteit die vooraf gemaakte entiteiten bevatten. Als de vooraf gemaakte entiteiten niet opgenomen zijn, de samengestelde entiteit niet correct wordt voorspeld, maar elk afzonderlijk element is.
+1. In **welk type entiteit wilt u maken?**, de velden die vereist zijn in de lijst: `personName` en `Department`. Selecteer **Done**. U ziet dat de vooraf gedefinieerde entiteit, personName, is toegevoegd aan de samengestelde entiteit. Als u een vooraf gedefinieerde entiteit weergegeven tussen het begin en einde van de tokens van een samengestelde entiteit hebt kan, moet de samengestelde entiteit die vooraf gemaakte entiteiten bevatten. Als de vooraf gemaakte entiteiten niet opgenomen zijn, de samengestelde entiteit niet correct wordt voorspeld, maar elk afzonderlijk element is.
+
+    ![Schermafbeelding van het samengestelde naam invoeren in de vervolgkeuzelijst van dialoogvenster](./media/luis-tutorial-composite-entity/hr-create-composite-entity-3.png)
 
 ## <a name="label-example-utterances-with-composite-entity"></a>Label voorbeeld uitingen met samengestelde entiteit
-
 
 1. Selecteer de meest linkse-entiteit die in de samengestelde worden moet in elke utterance voorbeeld. Selecteer vervolgens **verpakken in samengestelde entiteit**.
 

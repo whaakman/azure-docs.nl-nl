@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 11ef6f2f09aacc175f095f7118ddb26ec77b2446
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 5ce816c9e8bec716de840cc5f6fdd546b6abd298
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268359"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649778"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Maak een virtueel-netwerkpeering - Resource Manager, verschillende abonnementen
 
@@ -106,7 +106,7 @@ De volgende scripts:
 - Gebruikmaken van Azure CLI versie 2.0.4 of hoger. Voer `az --version` uit om de versie te bekijken. Als u upgraden wilt, raadpleegt u [Azure CLI installeren](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Werkt in een Bash-shell. Zie [De Azure CLI installeren in Windows](/cli/azure/install-azure-cli-windows) voor opties voor het uitvoeren van Azure CLI-scripts in de Windows-client.
 
-In plaats van de CLI en de bijbehorende afhankelijkheden installeren, kunt u de Azure Cloud Shell. De Azure Cloud Shell is een gratis Bash-shell die u rechtstreeks in Azure Portal kunt uitvoeren. In deze shell is de Azure CLI vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Selecteer de **uitproberen** knop in het script dat volgt, die een Cloud-Shell die u bij uw Azure-account met aanmelden kunt aanroept. 
+In plaats van de CLI en de bijbehorende afhankelijkheden installeren, kunt u de Azure Cloud Shell. De Azure Cloud Shell is een gratis Bash-shell die u rechtstreeks in Azure Portal kunt uitvoeren. In deze shell is de Azure CLI vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Selecteer de **uitproberen** knop in het script dat volgt, die een Cloud-Shell die u bij uw Azure-account met aanmelden kunt aanroept.
 
 1. Open een CLI-sessie en meld u aan bij Azure als het gebruik van gebruiker a de `azure login` opdracht. Het account dat u zich aan met moet de vereiste machtigingen om het maken van een virtueel netwerk-peering hebben. Zie voor een lijst van machtigingen, [machtigingen voor peering](virtual-network-manage-peering.md#permissions).
 2. Kopieer het volgende script naar een teksteditor op uw PC, vervangt `<SubscriptionA-Id>` met de ID van SubscriptionA, moet u vervolgens het gewijzigde script kopiëren, plak deze in uw CLI-sessie en druk op `Enter`. Als u uw abonnements-Id niet weet, voert u de opdracht 'az account show'. De waarde voor **id** is in de uitvoer van uw abonnements-id.
@@ -130,9 +130,9 @@ In plaats van de CLI en de bijbehorende afhankelijkheden installeren, kunt u de 
       --role "Network Contributor" \
       --scope /subscriptions/<SubscriptionA-Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/VirtualNetworks/myVnetA
     ```
-    
+
 3. Meld u af bij Azure als het gebruik van gebruiker a de `az logout` opdracht en meld u aan bij Azure als gebruiker b. Het account dat u zich aan met moet de vereiste machtigingen om het maken van een virtueel netwerk-peering hebben. Zie voor een lijst van machtigingen, [machtigingen voor peering](virtual-network-manage-peering.md#permissions).
-4. MyVnetB maken. Kopieer de inhoud van het script in stap 2 naar een teksteditor op uw PC. Vervang `<SubscriptionA-Id>` met de ID van SubscriptionB. Wijziging 10.0.0.0/16 10.1.0.0/16, wijziging alle over B en alle Bs naar A. kopie het gewijzigde script, plak deze in uw CLI-sessie en druk op `Enter`. 
+4. MyVnetB maken. Kopieer de inhoud van het script in stap 2 naar een teksteditor op uw PC. Vervang `<SubscriptionA-Id>` met de ID van SubscriptionB. Wijziging 10.0.0.0/16 10.1.0.0/16, wijziging alle over B en alle Bs naar A. kopie het gewijzigde script, plak deze in uw CLI-sessie en druk op `Enter`.
 5. Meld u af bij Azure als UserB en meld u aan bij Azure als gebruiker a.
 6. Een virtueel netwerk-peering van myVnetA tot myVnetB maken. Kopieer de inhoud van het volgende script naar een teksteditor op uw PC. Vervang `<SubscriptionB-Id>` met de ID van SubscriptionB. Voor het uitvoeren van het script het gewijzigde script kopiëren, plak deze in de CLI-sessie en druk op Enter.
 
@@ -174,33 +174,36 @@ In plaats van de CLI en de bijbehorende afhankelijkheden installeren, kunt u de 
 12. **Optioneel**: Als u wilt verwijderen van de resources die u in deze zelfstudie maakt, u de stappen in [resources verwijderen](#delete-cli) in dit artikel.
 
 Alle Azure-resources die u in beide virtuele netwerken maakt zijn nu kan communiceren met elkaar via hun IP-adressen. Als u standaard Azure-naamomzetting voor virtuele netwerken, zijn niet de resources in de virtuele netwerken kunnen omzetten van namen voor de virtuele netwerken. Als u omzetten van namen tussen virtuele netwerken wilt in een peering, moet u uw eigen DNS-server maken. Meer informatie over het instellen van [naamomzetting met uw eigen DNS-server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
- 
+
 ## <a name="powershell"></a>Maken van de peering - PowerShell
 
-In deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement. Als u een account met voor beide abonnementen toegangsmachtigingen gebruikt, kunt u hetzelfde account gebruiken voor alle stappen, slaat u de stappen voor de logboekregistratie van Azure kunt benutten en de regels van het script waarmee gebruiker roltoewijzingen verwijderen. Vervang UserA@azure.com en UserB@azure.com in alle van de volgende scripts met de gebruikersnamen die u om UserA en UserB gebruikt. Als de virtuele netwerken zich in verschillende abonnementen en de abonnementen gekoppeld aan andere Azure Active Directory-tenants zijn, moet u de volgende stappen uitvoeren voordat u doorgaat:
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+In deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement. Als u een account met voor beide abonnementen toegangsmachtigingen gebruikt, kunt u hetzelfde account gebruiken voor alle stappen, slaat u de stappen voor de logboekregistratie van Azure kunt benutten en de regels van het script waarmee gebruiker roltoewijzingen verwijderen. Vervang UserA@azure.com en UserB@azure.com in alle van de volgende scripts met de gebruikersnamen die u om UserA en UserB gebruikt.
+Als de virtuele netwerken zich in verschillende abonnementen en de abonnementen gekoppeld aan andere Azure Active Directory-tenants zijn, moet u de volgende stappen uitvoeren voordat u doorgaat:
  - De gebruiker toevoegen vanuit elke Active Directory-tenant als een [gastgebruiker](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) in de tegengestelde Azure Active Directory-tenant.
  - Elke gebruiker heeft de uitnodiging Gast gebruiker van de tegengestelde Active Directory-tenant te accepteren.
 
-1. Controleer of u versie 6.5.0 hebben of hoger. U kunt dit doen door het uitvoeren van de `Get-Module -Name AzureRm` het beste installeren de nieuwste versie van de PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. Zie [Overzicht van Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) als u nog geen ervaring hebt met Azure PowerShell. 
+1. Bevestigen dat u Azure PowerShell versie 1.0.0 hebt of hoger. U kunt dit doen door het uitvoeren van de `Get-Module -Name Az` het beste installeren de nieuwste versie van de PowerShell [Az module](/powershell/azure/install-az-ps). Zie [Overzicht van Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) als u nog geen ervaring hebt met Azure PowerShell. 
 2. Start een PowerShell-sessie.
-3. In PowerShell, meld u aan bij Azure als UserA door in te voeren de `Connect-AzureRmAccount` opdracht. Het account dat u zich aan met moet de vereiste machtigingen om het maken van een virtueel netwerk-peering hebben. Zie voor een lijst van machtigingen, [machtigingen voor peering](virtual-network-manage-peering.md#permissions).
-4. Maak een resourcegroep en een virtueel netwerk a kopiëren in het volgende script naar een teksteditor op uw PC. Vervang `<SubscriptionA-Id>` met de ID van SubscriptionA. Als u uw abonnements-Id niet weet, voert u de `Get-AzureRmSubscription` opdracht weer te geven. De waarde voor **Id** in de resulterende uitvoer wordt uw abonnement-ID. Voor het uitvoeren van het script het gewijzigde script kopiëren, plak deze in op PowerShell en druk vervolgens op `Enter`.
+3. In PowerShell, meld u aan bij Azure als UserA door in te voeren de `Connect-AzAccount` opdracht. Het account dat u zich aan met moet de vereiste machtigingen om het maken van een virtueel netwerk-peering hebben. Zie voor een lijst van machtigingen, [machtigingen voor peering](virtual-network-manage-peering.md#permissions).
+4. Maak een resourcegroep en een virtueel netwerk a kopiëren in het volgende script naar een teksteditor op uw PC. Vervang `<SubscriptionA-Id>` met de ID van SubscriptionA. Als u uw abonnements-Id niet weet, voert u de `Get-AzSubscription` opdracht weer te geven. De waarde voor **Id** in de resulterende uitvoer wordt uw abonnement-ID. Voor het uitvoeren van het script het gewijzigde script kopiëren, plak deze in op PowerShell en druk vervolgens op `Enter`.
 
     ```powershell
     # Create a resource group.
-    New-AzureRmResourceGroup `
+    New-AzResourceGroup `
       -Name MyResourceGroupA `
       -Location eastus
 
     # Create virtual network A.
-    $vNetA = New-AzureRmVirtualNetwork `
+    $vNetA = New-AzVirtualNetwork `
       -ResourceGroupName MyResourceGroupA `
       -Name 'myVnetA' `
       -AddressPrefix '10.0.0.0/16' `
       -Location eastus
 
     # Assign UserB permissions to myVnetA.
-    New-AzureRmRoleAssignment `
+    New-AzRoleAssignment `
       -SignInName UserB@azure.com `
       -RoleDefinitionName "Network Contributor" `
       -Scope /subscriptions/<SubscriptionA-Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/VirtualNetworks/myVnetA
@@ -210,20 +213,20 @@ In deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement.
 6. Kopieer de inhoud van het script in stap 4 in een teksteditor op uw PC. Vervang `<SubscriptionA-Id>` met de ID voor het abonnement 10.0.0.0/16 B. wijzigen naar 10.1.0.0/16. Wijzig alle over B en alle Bs naar A. Voor het uitvoeren van het script het gewijzigde script kopiëren, plakken in PowerShell en druk vervolgens op `Enter`.
 7. Meld u af UserB van Azure en meld u in gebruiker a.
 8. Maak de peering vanuit myVnetA naar myVnetB. Kopieer het volgende script naar een teksteditor op uw PC. Vervang `<SubscriptionB-Id>` met de ID van abonnement B. Voor het uitvoeren van het script het gewijzigde script kopiëren, plakken PowerShell en druk vervolgens op `Enter`.
- 
-    ```powershell
-    # Peer myVnetA to myVnetB.
-    $vNetA=Get-AzureRmVirtualNetwork -Name myVnetA -ResourceGroupName myResourceGroupA
-    Add-AzureRmVirtualNetworkPeering `
-      -Name 'myVnetAToMyVnetB' `
-      -VirtualNetwork $vNetA `
-      -RemoteVirtualNetworkId "/subscriptions/<SubscriptionB-Id>/resourceGroups/myResourceGroupB/providers/Microsoft.Network/virtualNetworks/myVnetB"
-    ```
+
+   ```powershell
+   # Peer myVnetA to myVnetB.
+   $vNetA=Get-AzVirtualNetwork -Name myVnetA -ResourceGroupName myResourceGroupA
+   Add-AzVirtualNetworkPeering `
+     -Name 'myVnetAToMyVnetB' `
+     -VirtualNetwork $vNetA `
+     -RemoteVirtualNetworkId "/subscriptions/<SubscriptionB-Id>/resourceGroups/myResourceGroupB/providers/Microsoft.Network/virtualNetworks/myVnetB"
+   ```
 
 9. De status van de peering van myVnetA weergeven.
 
     ```powershell
-    Get-AzureRmVirtualNetworkPeering `
+    Get-AzVirtualNetworkPeering `
       -ResourceGroupName myResourceGroupA `
       -VirtualNetworkName myVnetA `
       | Format-Table VirtualNetworkName, PeeringState
@@ -233,7 +236,7 @@ In deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement.
 
 10. Meld u af GebruikerA van Azure en meld u in gebruiker b.
 11. Maak de peering vanuit myVnetB naar myVnetA. Kopieer de inhoud van het script in stap 8 naar een teksteditor op uw PC. Vervang `<SubscriptionB-Id>` met de ID van abonnement A en wijzig alle over B en alle Bs naar A. Voor het uitvoeren van het script het gewijzigde script kopiëren, plak deze in op PowerShell en druk vervolgens op `Enter`.
-12. De status van de peering van myVnetB weergeven. Inhoud van het script in stap 9 kopiëren naar een teksteditor op uw PC. Wijziging A naar B voor de resourcegroep en de namen van virtueel netwerk. Voor het uitvoeren van het script, plak het gewijzigde script in PowerShell en druk vervolgens op `Enter`. De status is **verbonden**. De status van de peering van **myVnetA** wordt gewijzigd in **verbonden** nadat u hebt gemaakt met de peering vanuit **myVnetB** naar **myVnetA**. U kunt zich aanmelden gebruiker a terug in op Azure en volledig stap 9 opnieuw uit om te controleren of de status van de peering van myVnetA. 
+12. De status van de peering van myVnetB weergeven. Inhoud van het script in stap 9 kopiëren naar een teksteditor op uw PC. Wijziging A naar B voor de resourcegroep en de namen van virtueel netwerk. Voor het uitvoeren van het script, plak het gewijzigde script in PowerShell en druk vervolgens op `Enter`. De status is **verbonden**. De status van de peering van **myVnetA** wordt gewijzigd in **verbonden** nadat u hebt gemaakt met de peering vanuit **myVnetB** naar **myVnetA**. U kunt zich aanmelden gebruiker a terug in op Azure en volledig stap 9 opnieuw uit om te controleren of de status van de peering van myVnetA.
 
     > [!NOTE]
     > De peering is niet tot stand gebracht totdat de status van de peering is **verbonden** voor beide virtuele netwerken.
@@ -248,12 +251,12 @@ In deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement.
 Als de virtuele netwerken zich in verschillende abonnementen en de abonnementen gekoppeld aan andere Azure Active Directory-tenants zijn, moet u de volgende stappen uitvoeren voordat u doorgaat:
  - De gebruiker toevoegen vanuit elke Active Directory-tenant als een [gastgebruiker](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) in de tegengestelde Azure Active Directory-tenant.
  - Elke gebruiker heeft de uitnodiging Gast gebruiker van de tegengestelde Active Directory-tenant te accepteren.
- 
+
 1. Een virtueel netwerk maken en toewijzen aan de juiste [machtigingen](virtual-network-manage-peering.md#permissions), de stappen in de [Portal](#portal), [Azure CLI](#cli), of [PowerShell](#powershell)secties van dit artikel.
 2. Sla de tekst die naar een bestand op uw lokale computer volgt. Vervang `<subscription ID>` door gebruiker a de abonnement-ID. U kunt bijvoorbeeld het bestand opslaan als vnetpeeringA.json.
 
-    ```json
-    {
+   ```json
+   {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
@@ -277,13 +280,13 @@ Als de virtuele netwerken zich in verschillende abonnementen en de abonnementen 
             }
             }
         ]
-    }
-    ```
+   }
+   ```
 
 3. Meld u aan bij Azure als UserA en implementeer de sjabloon met behulp van de [portal](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-templates-stored-locally), of de [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template). Geef de naam van het bestand dat u de voorbeeld-json-tekst in stap 2 opgeslagen.
 4. De voorbeeld-json uit stap 2 naar een bestand op uw computer kopiëren en wijzigingen aanbrengen aan de regels die met beginnen:
-    - **name**: Wijziging *myVnetA/myVnetAToMyVnetB* naar *myVnetB/myVnetBToMyVnetA*.
-    - **id**: Vervang `<subscription ID>` met de abonnements-ID en het wijzigen van de gebruiker b *myVnetB* naar *myVnetA*.
+   - **name**: Wijziging *myVnetA/myVnetAToMyVnetB* naar *myVnetB/myVnetBToMyVnetA*.
+   - **id**: Vervang `<subscription ID>` met de abonnements-ID en het wijzigen van de gebruiker b *myVnetB* naar *myVnetA*.
 5. Stap 3 van de volledige opnieuw aangemeld bij Azure als gebruiker b.
 6. **Optioneel**: Hoewel het maken van virtuele machines wordt niet behandeld in deze zelfstudie, kunt u een virtuele machine maken in elk virtueel netwerk en verbinding maken van een virtuele machine met de andere, te valideren.
 7. **Optioneel**: Als u wilt verwijderen van de resources die u in deze zelfstudie maakt, u de stappen in de [resources verwijderen](#delete) sectie van dit artikel, met behulp van de Azure-portal, PowerShell of Azure CLI.
@@ -304,30 +307,31 @@ Wanneer u deze zelfstudie hebt voltooid, is het raadzaam om de resources die u i
 
 1. Meld u aan bij Azure als gebruiker a en voer de volgende opdracht uit:
 
-    ```azurecli-interactive
-    az group delete --name myResourceGroupA --yes
-    ```
+   ```azurecli-interactive
+   az group delete --name myResourceGroupA --yes
+   ```
+
 2. Meld u af bij Azure als UserA en aanmelden als gebruiker b.
 3. Voer de volgende opdracht uit:
 
-    ```azurecli-interactive
-    az group delete --name myResourceGroupB --yes
-    ```
+   ```azurecli-interactive
+   az group delete --name myResourceGroupB --yes
+   ```
 
 ### <a name="delete-powershell"></a>PowerShell
 
 1. Meld u aan bij Azure als gebruiker a en voer de volgende opdracht uit:
 
-    ```powershell
-    Remove-AzureRmResourceGroup -Name myResourceGroupA -force
-    ```
+   ```powershell
+   Remove-AzResourceGroup -Name myResourceGroupA -force
+   ```
 
 2. Meld u af bij Azure als UserA en aanmelden als gebruiker b.
 3. Voer de volgende opdracht uit:
 
-    ```powershell
-    Remove-AzureRmResourceGroup -Name myResourceGroupB -force
-    ```
+   ```powershell
+   Remove-AzResourceGroup -Name myResourceGroupB -force
+   ```
 
 ## <a name="next-steps"></a>Volgende stappen
 

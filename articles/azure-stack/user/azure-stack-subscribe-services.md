@@ -13,25 +13,25 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 66c462dee3a2940a7a090101ffb9cec7e4ff1e7c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 431c31b39103e5ef21cb83b388167cab57e0c129
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981279"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649081"
 ---
 # <a name="tutorial-create-and-test-a-subscription"></a>Zelfstudie: maken en testen van een abonnement
 
-Deze zelfstudie leert u hoe u een abonnement met een aanbieding maakt en test het vervolgens. Voor de test u aanmelden bij de gebruikersportal van Azure Stack als een cloudbeheerder Abonneer u op de aanbieding en maak vervolgens een virtuele machine.
+Deze zelfstudie laat zien hoe u een abonnement met een aanbieding maakt en test het vervolgens. Voor de test u aanmelden bij de gebruikersportal van Azure Stack als een cloudbeheerder Abonneer u op de aanbieding en maak vervolgens een virtuele machine.
 
 > [!TIP]
-> Voor meer een meer geavanceerde evaluatie-ervaring, kunt u [maken van een abonnement voor een bepaalde gebruiker](../azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator) en meld u vervolgens als die gebruiker in de gebruikersportal. 
+> Voor meer een meer geavanceerde evaluatie-ervaring, kunt u [maken van een abonnement voor een bepaalde gebruiker](../azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator) en meld u vervolgens als die gebruiker in de gebruikersportal.
 
-Deze zelfstudie leert u hoe u zich kunt abonneren op een Azure Stack-aanbieding.
+Deze zelfstudie laat zien hoe u zich kunt abonneren op een Azure Stack-aanbieding.
 
 Wat u leert:
 
@@ -60,10 +60,10 @@ Om u te abonneren op een aanbieding als een gebruiker, aanmelden u bij de gebrui
 
 ## <a name="test-the-offer"></a>Testen van de aanbieding
 
-Terwijl u bent aangemeld bij de gebruikersportal aanmeldt, kunt u de aanbieding kunt testen door een virtuele machine met behulp van de nieuwe mogelijkheden voor het abonnement in te richten. 
+Terwijl u bent aangemeld bij de gebruikersportal aanmeldt, kunt u de aanbieding kunt testen door een virtuele machine met behulp van de nieuwe mogelijkheden voor het abonnement in te richten.
 
 > [!NOTE]
-> Deze test is vereist dat een virtuele machine met Windows Server 2016 Datacenter eerst is toegevoegd aan de Azure Stack marketplace. 
+> Deze test is vereist dat een virtuele machine met Windows Server 2016 Datacenter eerst is toegevoegd aan de Azure Stack marketplace.
 
 1. Meld u aan bij de gebruikersportal aanmeldt.
 
@@ -84,7 +84,6 @@ Terwijl u bent aangemeld bij de gebruikersportal aanmeldt, kunt u de aanbieding 
 > [!NOTE]
 > Implementatie van de virtuele machine duurt een paar minuten om te voltooien.
 
-
 ## <a name="next-steps"></a>Volgende stappen
 
 Wat u hebt geleerd in deze zelfstudie:
@@ -92,7 +91,6 @@ Wat u hebt geleerd in deze zelfstudie:
 > [!div class="checklist"]
 > * Abonneren op een aanbieding 
 > * Testen van de aanbieding
-
 
 > [!div class="nextstepaction"]
 > [Een virtuele machine maken van een communitysjabloon](azure-stack-create-vm-template.md)

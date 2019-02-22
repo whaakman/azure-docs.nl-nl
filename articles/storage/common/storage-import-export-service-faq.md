@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e52d5f3b30490227541e99e067c096a7df6dd911
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 6706da978195cff65a3454e6b2d71dfea3b414c4
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566185"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651410"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure Import/Export-service: veelgestelde vragen 
 Hier volgen vragen en antwoorden die u hebt wanneer u uw Azure Import/Export-service voor het overbrengen van gegevens naar Azure storage. De vragen en antwoorden zijn in de volgende categorieën onderverdeeld:
@@ -87,8 +87,18 @@ U kunt schijven in de Azure-datacenter met behulp van alle bekende mobiele provi
 - Een getal van de account FedEx in de Verenigde Staten en de Europese Unie, of
 - Een DHL nummer in de regio Azië en Australië.
 
+> [!NOTE]
+> De datacenters in India moet een letter declaratie op uw Briefhoofd (levering challan) om te retourneren van de stations. Als u wilt de vereiste vermelding pas rangschikken, moet u ook het kiezen van het adresboek met de geselecteerde provider en de gegevens delen met het datacenter.
+
 ### <a name="are-there-any-restrictions-with-shipping-my-drive-internationally"></a>Zijn er beperkingen met mijn station internationaal verzenden?
 Houd er rekening mee dat de fysieke media die u moet mogelijk cross-internationale grenzen heen. U bent verantwoordelijk om ervoor te zorgen dat uw fysieke media en de gegevens zijn geïmporteerd en/of geëxporteerd in overeenstemming met de van toepassing zijnde wetten. Voordat u de fysieke media levert, contact op met uw adviseurs om te controleren of dat uw media en de gegevens legaal naar het geïdentificeerde Datacenter kunnen worden verzonden. Dit helpt om ervoor te zorgen dat het Microsoft tijdig bereikt.
+
+### <a name="are-there-any-special-requirements-for-delivering-my-disks-to-a-datacenter"></a>Zijn er speciale vereisten voor het leveren van mijn schijven naar een datacenter?
+
+De vereisten, is afhankelijk van de specifieke Azure-datacenter-beperkingen.
+- Er zijn enkele klasse C-sites (bijvoorbeeld, Frankfurt), waarvoor een Microsoft-datacentrum inkomende ID-nummer van het pakket uit veiligheidsoverwegingen worden geschreven. Voordat u uw stations of schijven naar het datacenter te verzenden, neem dan contact op met de Azure DataBox bewerkingen (adbops@microsoft.com) om dit nummer. Zonder dit nummer, worden het pakket geweigerd.
+- De datacenters in India vereisen dat de persoonlijke gegevens van het stuurprogramma, zoals de overheid id-kaart of bewijs Nee. plaat getal in om een vermelding gate pass (bijvoorbeeld PANNEN, AADHAR, DL), met de naam en neem contact op met de auto. Om te voorkomen dat een vertraging bij de levering, door de provider te informeren over deze vereisten.
+
 
 ### <a name="when-creating-a-job-the-shipping-address-is-a-location-that-is-different-from-my-storage-account-location-what-should-i-do"></a>Wanneer u een taak maakt, is het verzendadres een locatie die verschilt van de locatie van het opslagaccount. Wat moet ik doen?
 

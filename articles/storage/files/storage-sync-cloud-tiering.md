@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: sikoo
 ms.subservice: files
-ms.openlocfilehash: e73a11d7849d6e304be0844a55ddad46e6966f6e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fe363bd6d16d7beea1c8f1e6ec17710975a80924
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470447"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652557"
 ---
 # <a name="cloud-tiering-overview"></a>Warmtemeting overzicht van cloud
 Cloud tiering is een optionele functie van Azure File Sync waarin vaak gebruikte bestanden in de cache lokaal op de server opgeslagen terwijl alle andere bestanden naar Azure Files op basis van beleidsinstellingen worden geschakeld. Wanneer een bestand is gelaagd, vervangen het bestandssysteemfilter van Azure File Sync (StorageSync.sys) het bestand lokaal door een wijzer, of een reparsepunt. Het reparsepunt vertegenwoordigt een URL naar het bestand in Azure Files. Een gelaagd bestand is zowel het kenmerk 'offline' als het FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS-kenmerk in NTFS zo instellen dat toepassingen van derden kunnen gelaagde bestanden veilig kan identificeren.
@@ -21,9 +21,12 @@ Cloud tiering is een optionele functie van Azure File Sync waarin vaak gebruikte
 Wanneer een gebruiker een gelaagd bestand opent, roept Azure File Sync naadloos de bestandsgegevens van Azure Files zonder de gebruiker hoeft te weten dat het bestand daadwerkelijk is opgeslagen in Azure. 
  
  > [!Important]  
-    > Belangrijk: Cloud tiering wordt niet ondersteund voor servereindpunten op de volumes van Windows-systeem, en alleen bestanden die groter zijn dan 64 KiB in grootte kunnen worden lagen naar Azure Files.
+ > Cloud tiering wordt niet ondersteund voor servereindpunten op de volumes van Windows-systeem, en alleen bestanden die groter zijn dan 64 KiB in grootte kunnen worden lagen naar Azure Files.
     
 Azure File Sync biedt geen ondersteuning voor cloudlagen bestanden die kleiner zijn dan 64 KiB zoals de noodzaak van de prestaties van opslaglagen en terughalen van dergelijke kleine bestanden zouden opwegen tegen de ruimtebesparing.
+
+ > [!Important]  
+ > Om in te trekken van bestanden die zijn is gelaagd, moet de netwerkbandbreedte ten minste 1 Mbps. Als de netwerkbandbreedte minder dan 1 Mbps is, mislukken bestanden aan de hand met een time-outfout.
 
 ## <a name="cloud-tiering-faq"></a>Warmtemeting Veelgestelde vragen over de cloud
 

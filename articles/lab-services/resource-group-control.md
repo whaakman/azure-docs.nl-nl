@@ -12,40 +12,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 94e5f5b29e93409df2373cf6c56e8185dc5373a2
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: e4e2a01bbac7aebb70852b93c51c32933cc75eec
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312971"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652175"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Geef een resourcegroep voor de virtuele machines in Azure DevTest Labs
-Als de eigenaar van een lab, kunt u uw lab-virtuele machines worden gemaakt in een specifieke resourcegroep configureren. Deze functie kunt u in de volgende scenario's: 
+
+Als de eigenaar van een lab, kunt u uw lab-virtuele machines worden gemaakt in een specifieke resourcegroep configureren. Deze functie kunt u in de volgende scenario's:
 
 - Minder resourcegroepen die zijn gemaakt door labs in uw abonnement hebt.
-- Uw labs werken binnen een vaste set van resourcegroepen die zijn geconfigureerd met u hebben
+- Zijn uw labs werken binnen een vaste set van resourcegroepen die u configureert.
 - Tijdelijke oplossing voor beperkingen en -goedkeuringen vereist voor het maken van resourcegroepen binnen uw Azure-abonnement.
-- Consolideren van uw labresources binnen een enkele resourcegroep voor het vereenvoudigen van deze resources tracking en toepassen van [beleid](../governance/policy/overview.md) moeten worden beheerd op het niveau van de resource.
+- Consolideren van uw labresources binnen een enkele resourcegroep voor het vereenvoudigen van deze resources tracking en toepassen van [beleid](../governance/policy/overview.md) om resources op het niveau van de resource te beheren.
 
-Met deze functie kunt u een script om op te geven van een nieuwe of een bestaande resourcegroep gebruiken binnen uw Azure-abonnement voor alle uw lab VM's. DevTest Labs ondersteunt momenteel deze functie via een API. 
+Met deze functie kunt u een script gebruiken om op te geven van een nieuwe of bestaande resourcegroep in uw Azure-abonnement voor alle uw lab VM's. Azure DevTest Labs ondersteunt momenteel deze functie via een API.
 
-## <a name="api-to-configure-a-resource-group-for-lab-virtual-machines"></a>API voor het configureren van een resourcegroep voor de virtuele machines
-Nu gaan we stapsgewijs door de opties die u als de eigenaar van een lab hebt tijdens het gebruik van deze API: 
+## <a name="api-to-configure-a-resource-group-for-lab-vms"></a>API voor het configureren van een resourcegroep voor lab-virtuele machines
+U hebt de volgende opties als de eigenaar van een lab bij het gebruik van deze API:
 
-- U kunt ervoor kiezen de **lab van resourcegroep** voor alle virtuele machines.
-- U kunt ervoor kiezen een **bestaande resourcegroep** dan de resourcegroep van de testomgeving voor alle virtuele machines.
-- U kunt een **nieuwe resourcegroep** naam voor alle virtuele machines.
-- U kunt doorgaan met het bestaande gedrag, dat wil zeggen, een resourcegroep is gemaakt voor elke virtuele machine in het lab.
+- Kies de **lab van resourcegroep** voor alle virtuele machines.
+- Kies een **bestaande resourcegroep** dan de resourcegroep van de testomgeving voor alle virtuele machines.
+- Voer een **nieuwe resourcegroep** naam voor alle virtuele machines.
+- Ga door met behulp van het bestaande gedrag, waarin een resourcegroep is gemaakt voor elke virtuele machine in het lab.
  
-Deze instelling is van toepassing op nieuwe virtuele machines die zijn gemaakt in het lab. Oudere VM's in uw testomgeving die zijn gemaakt in hun eigen resourcegroepen blijven ongewijzigd blijven. Omgevingen die zijn gemaakt in uw testomgeving gaan om te blijven in hun eigen resourcegroepen.
+Deze instelling is van toepassing op nieuwe virtuele machines die zijn gemaakt in het lab. Oudere VM's in uw testomgeving die zijn gemaakt in hun eigen resourcegroepen blijven ongewijzigd. Omgevingen die zijn gemaakt in uw testomgeving gaan om te blijven in hun eigen resourcegroepen.
 
-### <a name="how-to-use-this-api"></a>Het gebruik van deze API:
-- Gebruik de API-versie **2018_10_15_preview** tijdens het gebruik van deze API. 
-- Als u een nieuwe resourcegroep opgeeft, zorgt u ervoor dat u hebt **schrijfmachtigingen op resourcegroepen** binnen uw abonnement. Zonder schrijfmachtigingen, het maken van nieuwe virtuele machines in het resultaat van de groep opgegeven bron in een fout. 
-- Tijdens het gebruik van de API, doorgeven de **volledige resourcegroep-ID**. Bijvoorbeeld: `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>`. Zorg ervoor dat de resourcegroep bevindt zich in hetzelfde abonnement als die van het testlab. 
+Het gebruik van deze API:
+- Gebruik API-versie **2018_10_15_preview**.
+- Als u een nieuwe resourcegroep opgeeft, zorgt u ervoor dat u hebt **schrijfmachtigingen op resourcegroepen** in uw abonnement. Als u schrijfmachtigingen ontbreken, mislukken het maken van nieuwe virtuele machines in de opgegeven resourcegroep.
+- Tijdens het gebruik van de API, doorgeven de **volledige resourcegroep-ID**. Bijvoorbeeld: `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>`. Zorg ervoor dat de resourcegroep bevindt zich in hetzelfde abonnement bevinden als het lab. 
 
 ## <a name="use-powershell"></a>PowerShell gebruiken 
-Volgende voorbeeld wordt beschreven hoe u alle virtuele machines maken in een nieuwe resourcegroep met behulp van een PowerShell-script.
+Het volgende voorbeeld ziet hoe u een PowerShell-script gebruiken om te maken van alle virtuele machines in een nieuwe resourcegroep.
 
 ```PowerShell
 [CmdletBinding()]
@@ -69,14 +70,14 @@ az resource update -g $labRg -n $labName --resource-type "Microsoft.DevTestLab/l
 "Done. New virtual machines will now be created in the resource group '$vmRg'."
 ```
 
-Het script met de volgende opdracht (ResourceGroup.ps1 is het bestand met de voorgaande script) aanroepen: 
+Het script worden aangeroepen met behulp van de volgende opdracht uit. ResourceGroup.ps1 is het bestand dat het vorige script bevat:
 
 ```PowerShell
 .\ResourceGroup.ps1 -subId <subscriptionID> -labRg <labRGNAme> -labName <LanName> -vmRg <RGName> 
 ```
 
-## <a name="use-azure-resource-manager-template"></a>Azure Resource Manager-sjabloon gebruiken
-Als u van Azure Resource Manager-sjabloon gebruikmaakt om een lab te maken, gebruikt u de **vmCreationResourceGroupId** eigenschap in het gedeelte lab eigenschappen van de Resource Manager-sjabloon zoals in het volgende voorbeeld:
+## <a name="use-an-azure-resource-manager-template"></a>Een Azure Resource Manager-sjabloon gebruiken
+Als u een Azure Resource Manager-sjabloon gebruikt om een lab te maken, gebruikt u de **vmCreationResourceGroupId** eigenschap in het gedeelte lab eigenschappen van uw sjabloon, zoals wordt weergegeven in het volgende voorbeeld:
 
 ```json
         {

@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=haining, previous-author=hning86
 ms.date: 10/27/2016
-ms.openlocfilehash: 26e469076e16f57300cf3e385620a723ddf51a4c
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 1b57fefad726f8fb21f23fa9eef9e71643a3f51b
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510721"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588395"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Application Lifecycle Management in Azure Machine Learning Studio
 Azure Machine Learning Studio is een hulpprogramma voor het ontwikkelen van machine learning-experimenten die zijn geoperationaliseerd in het Azure-cloud-platform. Het is, zoals de Visual Studio IDE en schaalbare cloudservice samengevoegd in één platform. U kunt op verschillende activa implementatie en uitvoering van geautomatiseerde standaardprocedures Application Lifecycle Management (ALM) van versiebeheer opnemen in Azure Machine Learning Studio. In dit artikel komen enkele van de opties en benaderingen.
@@ -42,7 +42,7 @@ De uitvoeringsgeschiedenis momentopnamen Houd een onveranderbare versie van het 
 Het JSON-bestand is een tekstuele weergave genereren van de experimentgrafiek, waaronder een verwijzing naar assets in de werkruimte, zoals een gegevensset of een getraind model mogelijk. Deze bevat geen een geserialiseerde versie van de asset. Als u probeert te importeren van het JSON-document terug in de werkruimte, wordt de waarnaar wordt verwezen, assets moeten al bestaan met de dezelfde asset-id's waarnaar wordt verwezen in het experiment. U geen anders toegang tot het geïmporteerde experiment.
 
 ## <a name="versioning-trained-model"></a>Het getrainde model versiebeheer
-Een getraind model in Azure Machine Learning is geserialiseerd in een indeling die bekend staat als een iLearner-bestand (`.iLearner`), en wordt opgeslagen in de Azure Blob storage-account dat is gekoppeld aan de werkruimte. Er is één manier om een kopie van het iLearner-bestand via de retraining API. [In dit artikel](retrain-models-programmatically.md) wordt uitgelegd hoe de retraining API gebruikt. De stappen op hoog niveau:
+Een getraind model in Azure Machine Learning Studio is geserialiseerd in een indeling die bekend staat als een iLearner-bestand (`.iLearner`), en wordt opgeslagen in de Azure Blob storage-account dat is gekoppeld aan de werkruimte. Er is één manier om een kopie van het iLearner-bestand via de retraining API. [In dit artikel](retrain-models-programmatically.md) wordt uitgelegd hoe de retraining API gebruikt. De stappen op hoog niveau:
 
 1. Instellen van uw trainingsexperiment.
 2. De uitvoerpoort van een web-service toevoegen aan de module Train Model of de module die het getrainde model, zoals Model Hyperparameter af te stemmen of R-Model maken produceert.
@@ -57,7 +57,7 @@ Nadat u het iLearner-bestand met het getrainde model hebt, kunt u uw eigen strat
 Het opgeslagen iLearner-bestand kan vervolgens worden gebruikt voor het scoren via geïmplementeerde webservices.
 
 ## <a name="versioning-web-service"></a>Versiebeheer-webservice
-U kunt twee soorten webservices uit een Azure Machine Learning-experiment implementeren. De klassieke webservice is nauw gekoppeld met het experiment, evenals de werkruimte. De nieuwe webservice gebruikmaakt van het Azure Resource Manager-framework, en deze niet meer is gekoppeld aan het oorspronkelijke experiment of de werkruimte.
+U kunt twee soorten web services van een Azure Machine Learning Studio-experiment implementeren. De klassieke webservice is nauw gekoppeld met het experiment, evenals de werkruimte. De nieuwe webservice gebruikmaakt van het Azure Resource Manager-framework, en deze niet meer is gekoppeld aan het oorspronkelijke experiment of de werkruimte.
 
 ### <a name="classic-web-service"></a>Klassieke webservice
 Naar een klassieke webservice-versie, kunt u profiteren van web service-eindpunt om voor te bereiden. Hier volgt een typische stroom:
@@ -79,7 +79,7 @@ Als u een nieuwe Azure Resource Manager gebaseerde webservice maakt, is om voor 
 Nadat u het geëxporteerde WSD-bestand en besturing van het versie hebt, kunt u ook de WSD als een nieuwe webservice implementeren in een andere webservice-abonnement in een andere Azure-regio. Zorg ervoor dat u opgeeft de configuratie van het juiste storage-account, evenals de nieuwe web service-plan-ID. Om aan te vullen in verschillende iLearner-bestanden, kunt u het WSD-bestand te wijzigen en bijwerken van de referentie van de locatie van het getrainde model en als een nieuwe webservice implementeren.
 
 ## <a name="automate-experiment-execution-and-deployment"></a>De uitvoering van het experiment en implementatie automatiseren
-Een belangrijk aspect van ALM is het mogelijk om de uitvoering en het implementatieproces van de toepassing te automatiseren. In Azure Machine Learning, u kunt dit doen met behulp van de [PowerShell-module](https://aka.ms/amlps). Hier volgt een voorbeeld van end-to-end-stappen die relevant voor een standaard ALM zijn uitvoering/implementatie geautomatiseerd met behulp van de [Azure Machine Learning Studio PowerShell-module](https://aka.ms/amlps). Elke stap is gekoppeld aan een of meer PowerShell-commandlets die u gebruiken kunt om uit te voeren van deze stap.
+Een belangrijk aspect van ALM is het mogelijk om de uitvoering en het implementatieproces van de toepassing te automatiseren. In Azure Machine Learning Studio, u kunt dit doen met behulp van de [PowerShell-module](https://aka.ms/amlps). Hier volgt een voorbeeld van end-to-end-stappen die relevant voor een standaard ALM zijn uitvoering/implementatie geautomatiseerd met behulp van de [Azure Machine Learning Studio PowerShell-module](https://aka.ms/amlps). Elke stap is gekoppeld aan een of meer PowerShell-commandlets die u gebruiken kunt om uit te voeren van deze stap.
 
 1. [Uploaden van een gegevensset](https://github.com/hning86/azuremlps#upload-amldataset).
 2. Een opleidingsexperiment kopiëren naar de werkruimte van een [werkruimte](https://github.com/hning86/azuremlps#copy-amlexperiment) of [galerie](https://github.com/hning86/azuremlps#copy-amlexperimentfromgallery), of [importeren](https://github.com/hning86/azuremlps#import-amlexperimentgraph) een [geëxporteerd](https://github.com/hning86/azuremlps#export-amlexperimentgraph) experiment vanuit lokale opslag schijf.

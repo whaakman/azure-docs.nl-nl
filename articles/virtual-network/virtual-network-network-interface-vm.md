@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: jdial
-ms.openlocfilehash: 3daea64d9c9c94b334a57b81c47dd298f7ae4d78
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: cf856a680601edd950cd0a5fddbc1241782478e2
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658060"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56648894"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Netwerkinterfaces toevoegen of verwijderen van netwerkinterfaces van virtuele machines
 
@@ -30,11 +30,13 @@ Als u nodig hebt om toe te voegen, wijzigen of verwijderen van IP-adressen voor 
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Voer de volgende taken voordat u de stappen in elke sectie van dit artikel:
 
 - Als u nog een Azure-account hebt, kunt u zich aanmelden voor een [gratis proefaccount](https://azure.microsoft.com/free).
 - Als u de portal gebruikt, opent u https://portal.azure.com, en meld u aan met uw Azure-account.
-- Als u PowerShell-opdrachten gebruikt om taken in dit artikel te voltooien, hetzij de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. In deze zelfstudie moduleversie 5.2.0 van Azure PowerShell vereist of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
+- Als u PowerShell-opdrachten gebruikt om taken in dit artikel te voltooien, hetzij de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. In deze zelfstudie vereist de Azure PowerShell-moduleversie 1.0.0 of hoger. Voer `Get-Module -ListAvailable Az` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-az-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzAccount` uitvoeren om verbinding te kunnen maken met Azure.
 - Als u Azure-opdrachtregelinterface (CLI)-opdrachten voor taken in dit artikel uit te voeren, hetzij de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de CLI van de computer. In deze zelfstudie gebruikmaken van Azure CLI versie 2.0.26 of hoger. Voer `az --version` uit om te kijken welke versie is geïnstalleerd. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren. Als u de Azure CLI lokaal uitvoert, moet u ook om uit te voeren `az login` voor het maken van een verbinding met Azure.
 
 ## <a name="add-existing-network-interfaces-to-a-new-vm"></a>Bestaande netwerkinterfaces toevoegen aan een nieuwe virtuele machine
@@ -48,29 +50,30 @@ Voordat u de virtuele machine maakt, maakt u een netwerkinterface met behulp van
 |Hulpprogramma|Opdracht|
 |---|---|
 |CLI|[az vm create](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-|PowerShell|[New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[New-AzVM](/powershell/module/az.compute/new-azvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-add-nic"></a>Een netwerkinterface toevoegen aan een bestaande virtuele machine
 
 1. Meld u aan bij Azure Portal.
 2. Typ de naam van de virtuele machine die u wilt de netwerkinterface toevoegen of bladert u naar de virtuele machine door te selecteren in het zoekvak boven aan de portal, **alle services**, en vervolgens **virtuele machines**. Nadat u de virtuele machine hebt gevonden, selecteert u dit. De virtuele machine moet ondersteuning voor het aantal netwerkinterfaces dat u wilt toevoegen. Om erachter te komen hoeveel netwerkinterfaces elke VM-grootte ondersteunt, Zie [grootten voor virtuele Linux-machines in Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [grootten voor Windows virtuele machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
-3. Selecteer **overzicht**onder **instellingen**. Selecteer **stoppen**, en wacht totdat de **Status** van de virtuele machine wordt gewijzigd in **gestopt (toewijzing opgeheven)**. 
+3. Selecteer **overzicht**onder **instellingen**. Selecteer **stoppen**, en wacht totdat de **Status** van de virtuele machine wordt gewijzigd in **gestopt (toewijzing opgeheven)**.
 4. Selecteer **netwerken**onder **instellingen**.
-5. Selecteer **koppelen aan de netwerkinterface**. Selecteer in de lijst met netwerkinterfaces die momenteel niet worden gekoppeld aan een andere virtuele machine, die u wilt koppelen. 
+5. Selecteer **koppelen aan de netwerkinterface**. Selecteer in de lijst met netwerkinterfaces die momenteel niet worden gekoppeld aan een andere virtuele machine, die u wilt koppelen.
 
-    >[!NOTE]
-    De netwerkinterface die u selecteert kan niet hebben versnelde netwerken ingeschakeld, kan niet een IPv6-adres is toegewezen hebben en moet zich in hetzelfde virtuele netwerk als het account dat met de netwerkinterface die is momenteel gekoppeld aan de virtuele machine. 
+   >[!NOTE]
+   >De netwerkinterface die u selecteert kan niet hebben versnelde netwerken ingeschakeld, kan niet een IPv6-adres is toegewezen hebben en moet zich in hetzelfde virtuele netwerk als het account dat met de netwerkinterface die is momenteel gekoppeld aan de virtuele machine.
 
-    Als u een bestaande netwerkinterface niet hebt, moet u eerst een maken. Om dit te doen, selecteert u **netwerkinterface maken**. Zie voor meer informatie over het maken van een netwerkinterface, [maken van een netwerkinterface](virtual-network-network-interface.md#create-a-network-interface). Zie voor meer informatie over aanvullende beperkingen bij het toevoegen van netwerkinterfaces op virtuele machines, [beperkingen](#constraints).
+   Als u een bestaande netwerkinterface niet hebt, moet u eerst een maken. Om dit te doen, selecteert u **netwerkinterface maken**. Zie voor meer informatie over het maken van een netwerkinterface, [maken van een netwerkinterface](virtual-network-network-interface.md#create-a-network-interface). Zie voor meer informatie over aanvullende beperkingen bij het toevoegen van netwerkinterfaces op virtuele machines, [beperkingen](#constraints).
 
 6. Selecteer **OK**.
 7. Selecteer **overzicht**onder **instellingen**, en vervolgens **Start** de virtuele machine te starten.
 8. Het besturingssysteem van de virtuele machine voor het gebruik van meerdere netwerkinterfaces correct configureren. Meer informatie over het configureren van [Linux](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) of [Windows](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) voor meerdere netwerkinterfaces.
 
+### <a name="commands"></a>Opdrachten
 |Hulpprogramma|Opdracht|
 |---|---|
-|CLI|[AZ vm nic toevoegen](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json) (verwijzing) of [gedetailleerde stappen](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
-|PowerShell|[Toevoegen-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (verwijzing) of [gedetailleerde stappen](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
+|CLI|[AZ vm nic toevoegen](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_nic_add) (verwijzing) of [gedetailleerde stappen](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
+|PowerShell|[Voeg AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (verwijzing) of [gedetailleerde stappen](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
 
 ## <a name="view-network-interfaces-for-a-vm"></a>Weergave-netwerkinterfaces voor een virtuele machine
 
@@ -85,27 +88,27 @@ U kunt de netwerkinterfaces die momenteel is gekoppeld aan een virtuele machine 
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|CLI|[az vm show](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-|PowerShell|[Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|CLI|[az vm show](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_show)|
+|PowerShell|[Get-AzVM](/powershell/module/az.compute/get-azvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="remove-a-network-interface-from-a-vm"></a>Een netwerkinterface van een virtuele machine verwijderen
 
 1. Meld u aan bij Azure Portal.
 2. Zoek in het zoekvak boven aan de portal, de naam van de virtuele machine die u wilt verwijderen (loskoppelen) de netwerkinterface van, of blader voor de virtuele machine door het selecteren van **alle services**, en vervolgens **virtuele machines**. Nadat u de virtuele machine hebt gevonden, selecteert u dit.
-3. Selecteer **overzicht**onder **instellingen**, en vervolgens **stoppen**. Wacht totdat de **Status** van de virtuele machine wordt gewijzigd in **gestopt (toewijzing opgeheven)**. 
+3. Selecteer **overzicht**onder **instellingen**, en vervolgens **stoppen**. Wacht totdat de **Status** van de virtuele machine wordt gewijzigd in **gestopt (toewijzing opgeheven)**.
 4. Selecteer **netwerken**onder **instellingen**.
-5. Selecteer **netwerkinterface ontkoppelen**. Selecteer in de lijst met netwerkinterfaces die momenteel zijn gekoppeld aan de virtuele machine, de netwerkinterface die u wilt loskoppelen. 
+5. Selecteer **netwerkinterface ontkoppelen**. Selecteer in de lijst met netwerkinterfaces die momenteel zijn gekoppeld aan de virtuele machine, de netwerkinterface die u wilt loskoppelen.
 
-    >[!NOTE]
-    Als er slechts één netwerkinterface wordt weergegeven, loskoppelen u niet, omdat een virtuele machine altijd ten minste één netwerkinterface is gekoppeld moet.
+   >[!NOTE]
+   >Als er slechts één netwerkinterface wordt weergegeven, loskoppelen u niet, omdat een virtuele machine altijd ten minste één netwerkinterface is gekoppeld moet.
 6. Selecteer **OK**.
 
 ### <a name="commands"></a>Opdrachten
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|CLI|[AZ vm nic verwijderen](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json) (verwijzing) of [gedetailleerde stappen](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
-|PowerShell|[Remove-AzureRMVMNetworkInterface](/powershell/module/azurerm.compute/remove-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (verwijzing) of [gedetailleerde stappen](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
+|CLI|[AZ vm nic verwijderen](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_nic_remove) (verwijzing) of [gedetailleerde stappen](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
+|PowerShell|[Remove-AzVMNetworkInterface](/powershell/module/az.compute/remove-azvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (verwijzing) of [gedetailleerde stappen](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
 
 ## <a name="constraints"></a>Beperkingen
 
@@ -123,14 +126,10 @@ U kunt de netwerkinterfaces die momenteel is gekoppeld aan een virtuele machine 
 - Net als bij IPv6, kunt u een netwerkinterface niet koppelen met versneld netwerkondersteuning ingeschakeld met een virtuele machine nadat u dit hebt gemaakt. Bovendien is om te profiteren van versneld netwerken, moet u ook stappen binnen de VM-besturingssysteem. Meer informatie over versneld netwerken en andere beperkingen bij het gebruik van deze voor [Windows](create-vm-accelerated-networking-powershell.md) of [Linux](create-vm-accelerated-networking-cli.md) virtuele machines.
 
 ## <a name="next-steps"></a>Volgende stappen
-Voor het maken van een virtuele machine met meerdere netwerkinterfaces of IP-adressen, lees de volgende artikelen:
-
-### <a name="commands"></a>Opdrachten
+Voor het maken van een virtuele machine met meerdere netwerkinterfaces of IP-adressen, Zie de volgende artikelen:
 
 |Taak|Hulpprogramma|
 |---|---|
 |Een virtuele machine met meerdere NIC's maken|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |Een enkel NIC-VM maken met meerdere IPv4-adressen|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
 |Een enkel NIC-VM maken met een privé-IPv6-adres (achter een Load Balancer van Azure)|[CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Azure Resource Manager-sjabloon](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-
-

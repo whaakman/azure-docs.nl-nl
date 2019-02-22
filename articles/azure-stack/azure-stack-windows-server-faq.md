@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: 03a6f649f15f6a4905433d6e2ec292a901340929
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b498283ee117935438c55e5162e92acdb0f5ebfe
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249677"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649897"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Windows-Server in Azure Stack Marketplace Veelgestelde vragen
 
@@ -38,7 +38,7 @@ Vervolgens als een virtuele-Machineschaalsets naar een specifieke versie verwijs
 
 Microsoft biedt twee versies van Windows Server-installatiekopieën via de Azure Stack Marketplace:
 
-- **Betalen naarmate u**: Deze installatiekopieën worden uitgevoerd met de volledige prijs Windows-meters. 
+- **Betalen naarmate u**: Deze installatiekopieën worden uitgevoerd met de volledige prijs Windows-meters.
    Wie moet gebruiken: Enterprise Agreement (EA)-klanten die gebruikmaken van de *verbruik factureringsmodel*; CSP's die niet willen gebruiken SPLA-licentieverlening.
 - **Bring Your Own License (BYOL)**: Deze installatiekopieën basic meters worden uitgevoerd.
    Wie moet gebruiken: EA-klanten met een Windows Server-licentie; CSP's die gebruikmaken van SPLA-licentieverlening.
@@ -74,23 +74,23 @@ Voor het activeren van een Windows Server virtuele machine in Azure Stack, moete
 
 ### <a name="how-can-i-verify-that-my-virtual-machine-is-activated"></a>Hoe kan ik verifiëren dat mijn virtuele machine is geactiveerd?
 
-Voer de volgende opdracht vanaf een opdrachtprompt met verhoogde bevoegdheid: 
+Voer de volgende opdracht vanaf een opdrachtprompt met verhoogde bevoegdheid:
 
 ```shell
 slmgr /dlv
-``` 
+```
 
 Als het goed is geactiveerd, u deze duidelijk aangegeven ziet en de hostnaam van de weergegeven de `slmgr` uitvoer. Niet afhankelijk van watermerken worden weergegeven als ze niet bijgewerkt worden mogelijk, of vanaf een andere virtuele machine achter uw worden weergegeven.
 
 ### <a name="my-vm-is-not-set-up-to-use-avma-how-can-i-fix-it"></a>Mijn virtuele machine is niet ingesteld voor het gebruik van AVMA, hoe kan ik doen?
 
-Voer de volgende opdracht vanaf een opdrachtprompt met verhoogde bevoegdheid: 
+Voer de volgende opdracht vanaf een opdrachtprompt met verhoogde bevoegdheid:
 
 ```shell
-slmgr /ipk <AVMA key> 
+slmgr /ipk <AVMA key>
 ```
 
-Zie het artikel [automatische activering van virtuele machines](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) voor de sleutels voor uw installatiekopie.
+Zie de [automatische activering van virtuele machines](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) artikel voor de sleutels voor uw installatiekopie.
 
 ### <a name="i-create-my-own-windows-server-images-how-can-i-make-sure-they-use-avma"></a>Maak ik mijn eigen installatiekopieën van Windows Server, hoe kan ik ervoor zorgen dat ze AVMA gebruiken?
 

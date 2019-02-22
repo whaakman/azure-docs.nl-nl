@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 412f27c572953b3f44ddca54a99f75895f438f21
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: d48a1a1c9e220690649bbf60e9909a38d575c156
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53559073"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651955"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Best practices voor beveiliging van de schil in Azure Kubernetes Service (AKS)
 
@@ -70,7 +70,7 @@ Met uw cluster operator om te bepalen welke beveiliging context-instellingen die
 
 Als u wilt beperken het risico van referenties die worden weergegeven in de code van uw toepassing, te voorkomen dat het gebruik van vaste of gedeelde referenties. Referenties of sleutels mag niet rechtstreeks in uw code worden opgenomen. Als deze referenties worden weergegeven, wordt de toepassing moet worden bijgewerkt en opnieuw geïmplementeerd. Er is een betere benadering schillen geven hun eigen identiteit en de manier om te verifiëren zelf of referenties automatisch worden opgehaald uit een digitale-kluis.
 
-AKS bevat twee manieren om te verifiëren automatisch schillen of referenties van de aanvraag en sleutels uit een digitale vault:
+De volgende [gekoppeld AKS open source-projecten] [ aks-associated-projects] kunt u automatisch een verificatie schillen of referenties van de aanvraag en sleutels uit een digitale vault:
 
 * Identiteiten voor een Azure-resources, beheerde en
 * Azure Key Vault FlexVol-stuurprogramma
@@ -83,7 +83,7 @@ Een beheerde identiteit voor Azure-resources kunt een schil zelf worden geverifi
 
 Met een beheerde identiteit hoeft de code van uw toepassing niet te zijn referenties voor toegang tot een service, zoals Azure Storage. Omdat elke pod wordt geverifieerd met een eigen identiteit, dus u kunt controleren en toegang beoordelen. Als uw toepassing verbinding met andere Azure-services maakt, gebruik van beheerde identiteiten limiet referentie hergebruik en beveiligingsrisico wordt beperkt.
 
-Zie voor meer informatie over pod identiteiten [configureren van een AKS-cluster voor het gebruik van pod beheerde identiteiten] [ aad-pod-identity] en [toewijzen en u de schil beheerde identiteiten in uw code] [ aad-pod-identity].
+Zie voor meer informatie over pod identiteiten [configureren van een AKS-cluster voor het gebruik van pod beheerde identiteiten en met uw toepassingen][aad-pod-identity]
 
 ### <a name="use-azure-key-vault-with-flexvol"></a>Azure Key Vault gebruiken met FlexVol
 
@@ -107,6 +107,7 @@ In dit artikel is gericht op over het beveiligen van uw schillen. Voor het imple
 [aks-keyvault-flexvol]: https://github.com/Azure/kubernetes-keyvault-flexvol
 [linux-capabilities]: http://man7.org/linux/man-pages/man7/capabilities.7.html
 [selinux-labels]: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#selinuxoptions-v1-core
+[aks-associated-projects]: https://github.com/Azure/AKS/blob/master/previews.md#associated-projects
 
 <!-- INTERNAL LINKS -->
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md

@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: c83342e5eb0e6c1f45daa54ea3c4f3c602ff7a39
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7d5bfba10fe68c4d29a66fe39a386aec975b978f
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878609"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651529"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementeer modellen met de Azure Machine Learning-service
 
@@ -29,10 +29,11 @@ U kunt modellen implementeren op de volgende compute-doelen:
 
 | COMPUTE-doel | Implementatietype | Description |
 | ----- | ----- | ----- |
-| [Azure Container Instances (ACI)](#aci) | Webservice | Snelle implementatie. Goed voor ontwikkeling en testen. |
-| [Azure Kubernetes Service (AKS)](#aks) | Webservice | Geschikt voor grootschalige productie-implementaties. Biedt automatisch schalen en snelle responstijden. |
-| [Azure IoT Edge](#iotedge) | IoT-module | Implementeer modellen op IoT-apparaten. Inferentietaken gebeurt op het apparaat. |
-| [Veld-programmable gate array (FPGA)](#fpga) | Webservice | Zeer lage latentie voor realtime inferentietaken. |
+| [Azure Kubernetes Service (AKS)](#aks) | Realtime Deductie | Geschikt voor grootschalige productie-implementaties. Biedt automatisch schalen en snelle responstijden. |
+| [Azure ML Compute](#amlcompute) | Batch Deductie | Voorspelling van de batch worden uitgevoerd op serverless Computing. Biedt ondersteuning voor normale en lage prioriteit VM's. |
+| [Azure Container Instances (ACI)](#aci) | Testen | Goed voor ontwikkeling en testen. **Niet geschikt voor werkbelastingen voor productie.** |
+| [Azure IoT Edge](#iotedge) | (Preview) IoT-module | Implementeer modellen op IoT-apparaten. Inferentietaken gebeurt op het apparaat. |
+| [Veld-programmable gate array (FPGA)](#fpga) | (Preview) Webservice | Zeer lage latentie voor realtime inferentietaken. |
 
 Het proces voor het implementeren van een model is vergelijkbaar voor alle compute-doelen:
 
@@ -225,7 +226,7 @@ Wanneer u op de implementatie, is het proces enigszins verschillen afhankelijk v
 >
 > De voorbeelden in dit document gebruiken `deploy_from_image`.
 
-### <a id="aci"></a> Implementeren in Azure Container Instances
+### <a id="aci"></a> Implementeren in Azure Container Instances (DEVTEST)
 
 Gebruik Azure Container Instances voor het implementeren van uw modellen als een webservice die als één of meer van de volgende voorwaarden is waar:
 
@@ -246,7 +247,7 @@ Als u wilt implementeren in Azure Container Instances, gebruikt u de volgende st
 
 Zie voor meer informatie de documentatie bij de [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) en [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) klassen.
 
-### <a id="aks"></a> Implementeren in Azure Kubernetes Service
+### <a id="aks"></a> Implementeren in Azure Kubernetes Service (productie)
 
 Gebruik voor het implementeren van uw modellen vervolgens als een webservice schalen-productie, Azure Kubernetes Service (AKS). U kunt een bestaand AKS-cluster gebruiken of een nieuwe maken met behulp van de SDK van Azure Machine Learning, CLI of Azure portal.
 
@@ -332,6 +333,13 @@ print(service.state)
 **Geschatte tijd**: Ongeveer 3 minuten.
 
 Zie voor meer informatie de documentatie bij de [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) en [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) klassen.
+
+### <a id="fpga"></a> Deductie met Azure ML Compute
+
+Azure ML compute-doelen worden gemaakt en beheerd door de Azure Machine Learning-service. Ze kunnen worden gebruikt voor batch voorspelling van Azure ML-pijplijnen.
+
+Lees voor een overzicht van batch Deductie met Azure ML Compute, de [hoe u Batch voorspellingen uitvoeren](how-to-run-batch-predictions.md) document.
+
 
 ### <a id="fpga"></a> Implementeren naar het veld-programmable gate arrays (FPGA)
 

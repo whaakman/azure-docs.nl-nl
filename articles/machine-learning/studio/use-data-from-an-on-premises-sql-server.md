@@ -10,18 +10,18 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 61feb1365a5007a55d18f0f4366bd5c69148e88d
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 0d7b7ce4d79b078b389ff80727f2b233afe0da5a
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511153"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587290"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-using-an-on-premises-sql-server-database"></a>Analyses uitvoeren met Azure Machine Learning Studio en gebruik van een on-premises SQL Server-database
 
-Vaak ondernemingen die met on-premises gegevens werken wilt profiteren van de schaal en flexibiliteit van de cloud voor de machine learning-werkbelastingen uitvoeren. Maar ze niet willen hun huidige bedrijfsprocessen en werkstromen worden onderbroken door het verplaatsen van hun on-premises gegevens naar de cloud. Azure Machine Learning biedt nu ondersteuning voor lezen van uw gegevens vanuit een on-premises SQL Server-database en vervolgens training en scoren van een model met deze gegevens. U hebt niet meer handmatig kopiëren en synchroniseren van gegevens tussen de cloud en uw on-premises server. In plaats daarvan de **importgegevens** module in Azure Machine Learning Studio nu rechtstreeks vanuit uw on-premises SQL Server-database voor uw training en scoren van taken kan lezen.
+Vaak ondernemingen die met on-premises gegevens werken wilt profiteren van de schaal en flexibiliteit van de cloud voor de machine learning-werkbelastingen uitvoeren. Maar ze niet willen hun huidige bedrijfsprocessen en werkstromen worden onderbroken door het verplaatsen van hun on-premises gegevens naar de cloud. Azure Machine Learning Studio biedt nu ondersteuning voor uw gegevens leest uit een on-premises SQL Server-database en vervolgens training en scoren van een model met deze gegevens. U hebt niet meer handmatig kopiëren en synchroniseren van gegevens tussen de cloud en uw on-premises server. In plaats daarvan de **importgegevens** module in Azure Machine Learning Studio nu rechtstreeks vanuit uw on-premises SQL Server-database voor uw training en scoren van taken kan lezen.
 
-In dit artikel biedt een overzicht van hoe u inkomend verkeer on-premises SQL server-gegevens in Azure Machine Learning Studio. Hierbij wordt ervan uitgegaan dat u bekend met Azure Machine Learning-concepten, zoals werkruimten, modules, gegevenssets, experimenten bent, *enzovoort*.
+In dit artikel biedt een overzicht van hoe u inkomend verkeer on-premises SQL server-gegevens in Azure Machine Learning Studio. Hierbij wordt ervan uitgegaan dat u bekend met concepten, zoals werkruimten, modules, gegevenssets, experimenten, Studio bent *enzovoort*.
 
 > [!NOTE]
 > Deze functie is niet beschikbaar voor gratis werkruimten. Zie voor meer informatie over Machine Learning-prijzen en lagen [Azure Machine Learning-prijzen](https://azure.microsoft.com/pricing/details/machine-learning/).
@@ -33,7 +33,7 @@ In dit artikel biedt een overzicht van hoe u inkomend verkeer on-premises SQL se
 
 
 ## <a name="install-the-data-factory-self-hosted-integration-runtime"></a>De Data Factory zelf-hostende Integratieruntime installeren
-Voor toegang tot een on-premises SQL Server-database in Azure Machine Learning, die u wilt downloaden en installeren van de Data Factory zelfgehoste Integration Runtime, voorheen bekend als de Data Management Gateway. Wanneer u de verbinding in Machine Learning Studio configureren, hebt u de mogelijkheid om te downloaden en installeer de Integration Runtime (IR) met de **downloaden en registreer gegevensgateway** dialoogvenster die hieronder worden beschreven.
+Voor toegang tot een on-premises SQL Server-database in Azure Machine Learning Studio, die u wilt downloaden en installeren van de Data Factory zelfgehoste Integration Runtime, voorheen bekend als de Data Management Gateway. Wanneer u de verbinding in Machine Learning Studio configureren, hebt u de mogelijkheid om te downloaden en installeer de Integration Runtime (IR) met de **downloaden en registreer gegevensgateway** dialoogvenster die hieronder worden beschreven.
 
 
 U kunt de IR tevoren ook installeren door te downloaden en uitvoeren van het MSI-installatiepakket van de [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Het MSI-bestand kan ook worden gebruikt om een bestaande IR upgraden naar de nieuwste versie, met alle instellingen behouden.
@@ -54,13 +54,13 @@ Overweeg het volgende bij het instellen en gebruiken van een Data Factory zelfge
 * U configureert een IRs voor slechts één werkruimte tegelijk. Op dit moment kan niet IRs worden gedeeld tussen werkruimten.
 * U kunt meerdere IRs voor één werkruimte configureren. U wilt bijvoorbeeld gebruik van een IR die verbonden met uw gegevensbronnen test tijdens de ontwikkeling en een productie-IR wanneer u bent klaar om in te zetten.
 * De IR hoeft niet te worden op dezelfde computer als de gegevensbron. Maar dichter bij de gegevensbron blijft verkort de termijn voor de gateway verbinding maken met de gegevensbron. Het is raadzaam dat u de IR op een computer die verschilt van de map die als host fungeert voor de on-premises gegevensbron installeren zodat de gateway en de gegevensbron niet concurreren om bronnen.
-* Als u al een IR geïnstalleerd op uw computer voor scenario's met Power BI of Azure Data Factory, een afzonderlijke IR installeren voor Azure Machine Learning op een andere computer.
+* Als u al een IR geïnstalleerd op uw computer voor scenario's met Power BI of Azure Data Factory, een afzonderlijke IR installeren voor Azure Machine Learning Studio op een andere computer.
 
   > [!NOTE]
   > U kunt Data Factory zelfgehoste Integration Runtime en Power BI Gateway niet uitvoeren op dezelfde computer.
   >
   >
-* U moet de Data Factory zelfgehoste Integration Runtime gebruiken voor Azure Machine Learning, zelfs als u Azure ExpressRoute voor andere gegevens gebruikt. U moet uw gegevensbron behandelen als een on-premises gegevensbron (die zich achter een firewall bevindt), zelfs als u ExpressRoute gebruikt. De Data Factory zelfgehoste Integration Runtime gebruiken om verbinding tussen de Machine Learning en de gegevensbron te maken.
+* U moet de Data Factory zelfgehoste Integration Runtime gebruiken voor Azure Machine Learning Studio, zelfs als u Azure ExpressRoute voor andere gegevens gebruikt. U moet uw gegevensbron behandelen als een on-premises gegevensbron (die zich achter een firewall bevindt), zelfs als u ExpressRoute gebruikt. De Data Factory zelfgehoste Integration Runtime gebruiken om verbinding tussen de Machine Learning en de gegevensbron te maken.
 
 U vindt gedetailleerde informatie over vereisten voor de installatie, installatiestappen en tips voor probleemoplossing in het artikel [Integratieruntime in Gegevensfactory](../../data-factory/concepts-integration-runtime.md).
 
@@ -115,17 +115,17 @@ De eerste stap is het maken en de gateway instellen voor toegang tot uw on-premi
 
     ![Uitgebreide logboekregistratie inschakelen](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-verbose-logging.png)
 
-Dit is het installatieproces van de gateway in Azure Machine Learning.
+Dit is het installatieproces van de gateway in Azure Machine Learning Studio.
 U bent nu klaar voor gebruik van uw on-premises gegevens.
 
-U kunt maken en instellen van meerdere gateways in Studio voor elke werkruimte. Bijvoorbeeld, u mogelijk een gateway die u wilt verbinding maken met uw gegevensbronnen test tijdens de ontwikkeling en een andere gateway voor uw productie-gegevensbronnen. Azure Machine Learning biedt u de flexibiliteit voor het instellen van meerdere gateways, afhankelijk van uw zakelijke omgeving. Op dit moment kunt u een gateway tussen werkruimten niet delen en slechts één gateway kan worden geïnstalleerd op een enkele computer. Zie voor meer informatie, [gegevens verplaatsen tussen on-premises bronnen en de cloud met Data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md).
+U kunt maken en instellen van meerdere gateways in Studio voor elke werkruimte. Bijvoorbeeld, u mogelijk een gateway die u wilt verbinding maken met uw gegevensbronnen test tijdens de ontwikkeling en een andere gateway voor uw productie-gegevensbronnen. Azure Machine Learning Studio biedt u de flexibiliteit voor het instellen van meerdere gateways, afhankelijk van uw zakelijke omgeving. Op dit moment kunt u een gateway tussen werkruimten niet delen en slechts één gateway kan worden geïnstalleerd op een enkele computer. Zie voor meer informatie, [gegevens verplaatsen tussen on-premises bronnen en de cloud met Data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md).
 
 ### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>Stap 2: De gateway gebruiken om te lezen van gegevens van een on-premises gegevensbron
 Nadat u de gateway hebt ingesteld, kunt u toevoegen een **importgegevens** module aan een experiment dat invoer van de gegevens van on-premises SQL Server-database.
 
 1. In Machine Learning Studio, selecteer de **EXPERIMENTEN** tabblad **+ nieuw** in de linkerbenedenhoek en selecteer **leeg Experiment** (of Selecteer een van verschillende voorbeeld experimenten beschikbaar).
 2. Zoek en sleep de **importgegevens** module naar het experimentcanvas.
-3. Klik op **opslaan als** onder het canvas. Voer 'Azure Machine Learning On-Premises SQL Server-zelfstudie' voor de naam van het experiment, selecteert u de werkruimte en klik op de **OK** selectievakje is ingeschakeld.
+3. Klik op **opslaan als** onder het canvas. Voer 'Azure Machine Learning Studio On-Premises SQL Server-zelfstudie' voor de naam van het experiment, selecteert u de werkruimte en klik op de **OK** selectievakje is ingeschakeld.
 
    ![Experiment met een nieuwe naam opslaan](./media/use-data-from-an-on-premises-sql-server/experiment-save-as.png)
 4. Klik op de **importgegevens** module om deze te selecteren, klikt u vervolgens de **eigenschappen** deelvenster aan de rechterkant van het canvas, selecteert u 'On-Premises SQL-Database' in de **gegevensbron** vervolgkeuzelijst.
@@ -137,7 +137,7 @@ Nadat u de gateway hebt ingesteld, kunt u toevoegen een **importgegevens** modul
 
    ![Voer de referenties van database](./media/use-data-from-an-on-premises-sql-server/database-credentials.png)
 
-   Het bericht 'values vereist' wordt overgeschakeld naar 'set waarden' met een groen vinkje. U moet slechts één keer de referenties invoert, tenzij de database-informatie of het wachtwoord wordt gewijzigd. Azure Machine Learning maakt gebruik van het certificaat dat u hebt opgegeven tijdens de installatie van de gateway voor het versleutelen van de referenties in de cloud. Azure slaat nooit on-premises referenties zonder versleuteling.
+   Het bericht 'values vereist' wordt overgeschakeld naar 'set waarden' met een groen vinkje. U moet slechts één keer de referenties invoert, tenzij de database-informatie of het wachtwoord wordt gewijzigd. Azure Machine Learning Studio maakt gebruik van het certificaat dat u hebt opgegeven tijdens de installatie van de gateway voor het versleutelen van de referenties in de cloud. Azure slaat nooit on-premises referenties zonder versleuteling.
 
    ![Eigenschappen van de module gegevens importeren](./media/use-data-from-an-on-premises-sql-server/import-data-properties-entered.png)
 8. Klik op **uitvoeren** om uit te voeren van het experiment.

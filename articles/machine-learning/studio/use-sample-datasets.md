@@ -10,17 +10,17 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: 55cf124baf7614813620602212856cc586b721df
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: a4cda4384a4290abe100a2135f266ba4e288e962
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244331"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586984"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>De voorbeeldgegevenssets in Azure Machine Learning Studio gebruiken
 [top]: #machine-learning-sample-datasets
 
-Wanneer u een nieuwe werkruimte in Azure Machine Learning maken, worden een aantal voorbeeldgegevenssets en experimenten standaard opgenomen. Veel van deze voorbeelden van gegevenssets worden gebruikt door de voorbeeld-modellen in de [Azure AI Gallery](http://gallery.azure.ai/). Andere resources zijn opgenomen als voorbeelden van verschillende typen gegevens meestal gebruikt in machine learning.
+Wanneer u een nieuwe werkruimte in Azure Machine Learning Studio maken, worden een aantal voorbeeldgegevenssets en experimenten standaard opgenomen. Veel van deze voorbeelden van gegevenssets worden gebruikt door de voorbeeld-modellen in de [Azure AI Gallery](http://gallery.azure.ai/). Andere resources zijn opgenomen als voorbeelden van verschillende typen gegevens meestal gebruikt in machine learning.
 
 Sommige van deze gegevenssets zijn beschikbaar in Azure Blob-opslag. Voor deze gegevenssets moet bevat de volgende tabel een directe koppeling. U kunt deze gegevenssets in uw experimenten gebruiken met behulp van de [importgegevens] [ import-data] module.
 

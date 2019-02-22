@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d49ab32ace1ad0900c4867a41aba56900ef2bcaa
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f2c6f45081b78d330033570ff322f90cd06e50dd
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423405"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594267"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>DSC-configuraties in Azure Automation-staat configuratie compileren
 
@@ -284,6 +284,14 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 > [!NOTE]
 > Als de compilatie is voltooid krijgt u mogelijk een foutbericht weergegeven: **De module 'Microsoft.PowerShell.Management' is niet geïmporteerd omdat de module 'Microsoft.PowerShell.Management' is al geïmporteerd.** Deze waarschuwing kan veilig worden genegeerd.
+
+## <a name="partial-configuration"></a>Gedeeltelijke configuratie
+
+Status van Azure Automation-configuratie biedt ondersteuning voor het gebruik van [gedeeltelijke configuraties](https://docs.microsoft.com/en-us/powershell/dsc/pull-server/partialconfigs).
+In dit scenario, DSC is geconfigureerd voor het beheren van configuraties met meerdere onafhankelijk van elkaar en elke configuratie is retreieved van Azure Automation.
+Slechts één configuratie kan echter worden toegewezen aan een knooppunt per automation-account.
+Dit betekent dat als u twee configuraties voor een knooppunt moet u twee automation-accounts.
+Zie voor meer informatie over de manier waarop teams kunnen werken samen samen om servers te beheren met behulp van de configuratie als code [van informatie over DSC-rol in een CI/CD-pijplijn](https://docs.microsoft.com/en-us/powershell/dsc/overview/authoringadvanced).
 
 ## <a name="importing-node-configurations"></a>Knooppuntconfiguraties importeren
 

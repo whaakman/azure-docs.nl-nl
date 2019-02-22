@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/4/2019
-ms.author: rkarlin
-ms.openlocfilehash: c31510b0d5ca2afcd6a52cf4301e5e5eaae7da5b
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.date: 2/17/2019
+ms.author: monhaber
+ms.openlocfilehash: 7931caa985bc5dea98ca36bd15e0e634855ab2c5
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343507"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650628"
 ---
 # <a name="working-with-security-policies"></a>Werken met beveiligingsbeleid
 
@@ -99,6 +99,20 @@ U kunt het standaardbeveiligingsbeleid voor elk van uw Azure-abonnementen en beh
 Zie voor instructies over het bewerken van een beveiligingsbeleid in Azure Policy en [maken en beheren van beleidsregels voor het afdwingen van naleving](../governance/policy/tutorials/create-and-manage.md).
 
 U kunt beveiligingsbeleid via de portal van Azure Policy, via de REST-API of met behulp van Windows PowerShell bewerken. Het volgende voorbeeld vindt u instructies voor het bewerken met behulp van REST-API.
+
+
+## <a name="disable-security-policies"></a>Beveiligingsbeleidsregels voor uitschakelen
+Als het standaardbeveiligingsbeleid een aanbeveling die niet relevant is voor uw omgeving genereert, kunt u deze kunt stoppen door het uitschakelen van de beleidsdefinitie waarmee de aanbeveling wordt verzonden. Dit wordt gedaan via de portal voor Azure Policy (en niet de portal van Security Center), zoals hier wordt beschreven.
+Zie voor meer informatie over aanbevelingen [aanbevelingen voor beveiliging beheren](security-center-recommendations.md). 
+1. Ga naar Azure Policy en klikt u op **toewijzingen**.
+2. In de **ASC standaard** rij, klikt u op de drie puntjes en klikt u op **definitie**. De **Initiatiefdefinitie** pagina wordt geopend.
+   ![definitie weergeven](./media/tutorial-security-policy/view-definition.png)
+3. Klik op **intitiative bewerken**. De **Initiatiefdefinitie bewerken** pagina wordt geopend.
+   ![initiatief bewerken](./media/tutorial-security-policy/edit-initiative.png)
+4. In de **BELEIDSREGELS en PARAMETERS** sectie zoeken voor het beleid dat roept de bevelen aan dat u wilt uitschakelen, en in de vervolgkeuzelijst, selecteer **uitgeschakelde**.
+   ![Beleid uitschakelen](./media/tutorial-security-policy/disable-policy.png)
+1. Klik op **opslaan** (te vinden onder aan de pagina).
+
 
 ### <a name="configure-a-security-policy-using-the-rest-api"></a>Een beveiligingsbeleid op basis van de REST-API configureren
 

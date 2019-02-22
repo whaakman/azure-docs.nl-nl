@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: v-jansko
-ms.openlocfilehash: c2ff97c61cee1f2f773710103ac422fc6f1d8714
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3fcc8f0c2c0ed897b1c5296eea694cd56144498b
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876059"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585845"
 ---
 # <a name="customize-your-text-translations"></a>Pas uw tekstomzettingen
 
@@ -42,7 +42,8 @@ Meer informatie over de verschillende niveaus van aanpassen op basis van beschik
 
 ## <a name="microsoft-translator-hub"></a>Microsoft Translator Hub
 
-De verouderde Microsoft Translator-Hub kan worden gebruikt voor de statistische automatische omzetting. [Meer informatie](https://www.microsoft.com/en-us/translator/hub.aspx)
+> [!NOTE]
+> De verouderde Microsoft Translator-Hub wordt buiten gebruik gesteld op 30 April 2019. [Migratie van belangrijke informatie en datums weergeven](https://www.microsoft.com/translator/business/hub/).  
 
 ## <a name="custom-translator-versus-hub"></a>Aangepaste Translator ten opzichte van de Hub
 

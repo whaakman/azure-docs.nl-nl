@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 02/13/2019
 ms.author: patricka
 ms.reviewer: rtiberiu
-ms.lastreviewed: 01/10/2019
-ms.openlocfilehash: 80caa470675a78a9c2e3d4c055333719f54fe64a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/13/2019
+ms.openlocfilehash: 4858e33023ff0f94bb9fb879b01846184df2491e
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247881"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652141"
 ---
 # <a name="create-a-registration-role-for-azure-stack"></a>Een registratie-rol maken voor Azure Stack
 
@@ -33,7 +33,7 @@ Voor scenario's waarin u eigenaarsmachtigingen geven in het Azure-abonnement nie
 
 Bij het registreren van Azure Stack, is het registratie-account vereist de volgende Azure Active Directory-machtigingen en de machtigingen van de Azure-abonnement:
 
-* **Registratie-machtigingen van de toepassing in uw Azure Active Directory-tenant:** Beheerders hebben machtigingen van de registratie van de toepassing. De machtiging voor gebruikers is een algemene instelling voor alle gebruikers in de tenant. Weergeven of wijzigen van de instelling Zie [maken van een Azure AD-toepassing en service-principal die toegang hebben tot resources](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+* **Registratie-machtigingen van de toepassing in uw Azure Active Directory-tenant:** Beheerders hebben machtigingen van de registratie van de toepassing. De machtiging voor gebruikers is een algemene instelling voor alle gebruikers in de tenant. Als u wilt weergeven of wijzigen van de instelling, Zie [maken van een Azure AD-toepassing en service-principal die toegang hebben tot resources](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
     De *gebruikers kan toepassingen registreren* instelling moet worden ingesteld op **Ja** voor u om in te schakelen van een gebruikersaccount voor het registreren van Azure Stack. Als de instelling app-registraties is ingesteld op **Nee**, u een gebruikersaccount kan niet worden gebruikt en moet een globale beheerdersaccount gebruiken voor het registreren van Azure Stack.
 

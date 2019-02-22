@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7763807fdb5fcff7e93d54bf5a851cd4443427d3
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 8b2e42759ba2bffef28e1bf74e07bc149027ab7a
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107188"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651757"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Incidenten en waarschuwingen onderzoeken in Azure Security Center (Preview)
 In dit document wordt uitgelegd hoe u de onderzoeksfunctie van Azure Security Center gebruikt voor het onderzoeken van beveiligingsincidenten en waarschuwingen.
@@ -29,8 +29,10 @@ Met de onderzoeksfunctie in Security Center kunt u potentiële [beveiligingsinci
 
 De bedoeling is om het onderzoek te vereenvoudigen door alle entiteiten ([beveiligingswaarschuwingen](https://docs.microsoft.com/azure/security-center/security-center-alerts-type), gebruikers, computers en incidenten) weer te geven die op een of andere manier betrokken zijn bij het incident dat u onderzoekt.  Dit kan door relevante gegevens te correleren met betrokken entiteiten en deze correlatie inzichtelijk te maken met behulp van een live grafiek waarmee u door de objecten kunt navigeren en relevante informatie kunt visualiseren.
 
+
 > [!NOTE]
-> [Aangepaste waarschuwingen](security-center-custom-alert.md) worden niet ondersteund in de onderzoeksfunctie van Security Center bevinden.
+    > * [Aangepaste waarschuwingen](security-center-custom-alert.md) worden niet ondersteund in de onderzoeksfunctie van Security Center bevinden.
+    > * Onderzoek wordt alleen ondersteund voor waarschuwingen op basis van gegevens die worden verzameld van Windows-servers.
 >
 >
 

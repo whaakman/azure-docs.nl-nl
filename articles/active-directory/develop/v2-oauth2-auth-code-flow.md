@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e2115ad1a88c819e0ee1da34d9d332a0b013b96
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cb2329a2a67e2e54084d2289cb8cb1a18663b329
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174347"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593672"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0-protocollen - OAuth 2.0-autorisatiecodestroom
 
@@ -319,6 +319,6 @@ Een geslaagde respons token ziet er als:
 | `error_codes` |Een lijst van de STS-specifieke foutcodes die bij het diagnostische gegevens helpen. |
 | `timestamp` | De tijd waarop de fout is opgetreden. |
 | `trace_id` | Een unieke id voor de aanvraag die bij het diagnostische gegevens helpen. |
-| c`orrelation_id` | Een unieke id voor de aanvraag die bij het diagnostische gegevens voor onderdelen helpen. |
+| `correlation_id` | Een unieke id voor de aanvraag die bij het diagnostische gegevens voor onderdelen helpen. |
 
 Zie voor een beschrijving van de foutcodes en de aanbevolen clientactie [foutcodes voor token-eindpunt fouten](#error-codes-for-token-endpoint-errors).

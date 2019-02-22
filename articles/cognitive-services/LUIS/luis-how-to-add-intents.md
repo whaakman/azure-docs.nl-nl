@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/19/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: e6ab51d568c950ca7fd503150557df288d84174f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0d6813c11b5b9ed4aef666f5eb3dc75d8c9de770
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867729"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593419"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Intents om te bepalen van de gebruiker de bedoeling uitingen toevoegen
 
@@ -50,21 +50,14 @@ Een utterance in een doel kan een voorspelling van intentie verschil tussen het 
 
 Selecteer in de bovenste navigatiebalk **Train**. Het verschil voorspellen is nu verdwenen.
 
+> [!Note]
+> Wanneer een rode lijn onder een woord of zinsdeel in de utterance voorbeeld is een [entiteit voorspelling fout](luis-how-to-add-example-utterances.md#entity-status-predictions) is opgetreden. U moet deze corrigeren. 
+
 ## <a name="add-a-custom-entity"></a>Een aangepaste entiteit toevoegen
 
 Zodra een utterance wordt toegevoegd aan een doel, kunt u tekst uit de utterance om een aangepaste entiteit te maken. Een aangepaste entiteit is een manier om de labeltekst voor uitpakken, samen met de juiste intentie. 
 
-1. Selecteer het woord `Seattle`, in de utterance. Vierkante haken worden getekend rondom de tekst en een vervolgkeuzelijst wordt weergegeven. 
-
-    ![Schermafbeelding van de intenties de detailpagina van het maken van aangepaste entiteit](./media/luis-how-to-add-intents/create-custom-entity.png) 
-
-    In het volgende voorbeeld wordt één woord om te markeren als een entiteit. U kunt één werkt en zinnen markeren als entiteiten.
-
-1. Voer in het bovenste tekstvak-van het menu, `Location`en selecteer vervolgens **nieuwe entiteit maken**. 
-
-    ![Schermafbeelding van de intenties detailpagina, naam van de aangepaste entiteit maken](./media/luis-how-to-add-intents/create-custom-entity-name.png) 
-
-1. In de **welk type entiteit wilt u maken?** pop-upvenster voor het maken van een entiteit, Controleer of de **entiteitnaam** is _locatie_, en de **entiteitstype**  is _eenvoudige_. Selecteer **Done**.
+Zie [entiteit toevoegen aan utterance](luis-how-to-add-example-utterances.md) voor meer informatie.
 
 ## <a name="entity-prediction-discrepancy-errors"></a>Entiteit voorspelling discrepantie fouten 
 
@@ -80,7 +73,7 @@ Zie voor meer informatie, [vooraf gedefinieerde entiteit](luis-how-to-add-entiti
 
 ## <a name="using-the-contextual-toolbar"></a>Met behulp van de contextuele werkbalk
 
-Wanneer een of meer voorbeeld uitingen is geselecteerd in de lijst het selectievakje aan de linkerkant van een utterance, wordt de werkbalk boven de lijst met utterance kunt u de volgende acties uitvoeren:
+Wanneer u een of meer voorbeeld uitingen hebt geselecteerd in de lijst het selectievakje aan de linkerkant van een utterance wordt de werkbalk boven de lijst met utterance kunt u de volgende acties uitvoeren:
 
 * Opnieuw toewijzen van doel: utterance(s) verplaatsen naar een ander doel
 * Utterance(s) verwijderen

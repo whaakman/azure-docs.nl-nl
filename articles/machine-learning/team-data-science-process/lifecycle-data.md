@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c4acb3b779821193949c69d440edaafec5e3d803
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d65704f7037eb4152b4f91d4cbe68ceaad2cea48
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474051"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650221"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Gegevens verzamelen en begrijpen fase van het Team Data Science Process
 
@@ -66,7 +66,7 @@ In deze fase moet u een architectuur van de pijplijn-oplossing ontwikkelen. Ontw
 ## <a name="artifacts"></a>Artefacten
 Hier volgen de producten in deze fase:
 
-   * [Kwaliteitsrapport](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/DataSummaryReport.md): Dit rapport bevat overzichten van de gegevens, worden de relaties tussen elk kenmerk en het doel, variabele rangorde en nog veel meer. De [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) hulpprogramma meegeleverd als onderdeel van de TDSP kunt dit rapport op een set van gegevens in tabelvorm, zoals een CSV-bestand of een relationele tabel snel genereren. 
+   * [Kwaliteitsrapport](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): Dit rapport bevat overzichten van de gegevens, worden de relaties tussen elk kenmerk en het doel, variabele rangorde en nog veel meer. De [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) hulpprogramma meegeleverd als onderdeel van de TDSP kunt dit rapport op een set van gegevens in tabelvorm, zoals een CSV-bestand of een relationele tabel snel genereren. 
    * **Oplossingsarchitectuur**: De oplossingsarchitectuur kan een diagram of de beschrijving van de pijplijn die u gebruikt om uit te voeren scoren of voorspellingen op nieuwe gegevens zijn nadat u een model hebt gemaakt. Het bevat ook de pijplijn opnieuw trainen van uw model op basis van nieuwe gegevens. Store van het document in de [Project](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) directory wanneer u de sjabloon TDSP directory-structuur.
    * **Controlepunt besluit**: Voordat u begint met volledige-feature-engineering en modellen bouwen, kunt u het project om te bepalen of de verwachte waarde is voldoende om door te gaan met deze in het kader Evalueer. U kan bijvoorbeeld zijn klaar om door te gaan, moet meer gegevens verzamelen, of het project afbreken als de gegevens niet bestaat als u wilt de vraag worden beantwoord.
 

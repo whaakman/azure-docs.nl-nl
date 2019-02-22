@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/30/2019
+ms.date: 02/15/2019
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 855b9db645721c63abae34422ae6461cea3daab2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5622c179b6eb767f4c608e8c36c2ba154aac0906
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189817"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594692"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Procedure: Uw toepassing weergeven in de Azure Active Directory-toepassingsgalerie
 
@@ -47,6 +47,9 @@ ms.locfileid: "56189817"
 - SSO-wachtwoord, zorg ervoor dat uw toepassing ondersteuning biedt voor formulierverificatie zodat wachtwoordkluis kan worden gedaan om op te halen van eenmalige aanmelding werken zoals verwacht.
 
 - Voor automatische inrichting van gebruikers aanvragen voor moet toepassing worden vermeld in de galerie met eenmalige aanmelding ingeschakeld met behulp van SAML 2.0/WS-Federation. U kunt aanvragen voor eenmalige aanmelding en gebruiker samen in de portal wordt ingericht als deze nog niet wordt weergegeven.
+
+>[!NOTE]
+>We worden uitgevoerd met een groot aantal aanvragen van de connector SCIM, zodat we het maken van nieuwe aanvragen op onze portal hebt gestopt. Wacht op uw verzoeken tot nadere kennisgeving. We zeer voor deze vertraging en enig ongemak die hebt ondervonden.
 
 ## <a name="submit-the-request-in-the-portal"></a>Dien de aanvraag in de portal
 
@@ -108,6 +111,16 @@ Als u wilt bijwerken of verwijderen van een bestaande toepassing in de galerie v
     * Als u verwijderen van een bestaande toepassing in de Azure AD-galerie wilt, selecteert u **verwijderen van de bestaande toepassing aanbieding**.
     * Als u problemen met betrekking tot toegang hebt, neem dan contact op met de [Team van Azure AD-eenmalige aanmelding integratie](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
+## <a name="listing-requests-by-customers"></a>Aanvragen van de aanbieding door klanten
+
+Klanten kunnen dien de aanvraag van de aanbieding van een toepassing door te klikken op **App aanvragen door klanten** -> **nieuwe aanvraag verzenden**.
+
+![Klant aangevraagde apps tegel](./media/howto-app-gallery-listing/customer-submit-request.png)
+
+Hieronder vindt u dat de stroom van de klant aangevraagd toepassingen:
+
+![Klant apps stroom aangevraagd](./media/howto-app-gallery-listing/customer-request.png)
+
 ## <a name="timelines"></a>Tijdlijnen
 
 De tijdlijn voor het proces van de aanbieding van een SAML 2.0 of WS-Federation-toepassing in de galerie is 7-10 werkdagen.
@@ -117,10 +130,6 @@ De tijdlijn voor het proces van de aanbieding van een SAML 2.0 of WS-Federation-
 De tijdlijn voor het proces van de aanbieding van een toepassing OpenID Connect in de galerie is 2 tot 5 dagen terugbetaald.
 
    ![Tijdlijn van saml-toepassing in de galerie vermelden](./media/howto-app-gallery-listing/timeline2.png)
-
-De tijdlijn voor het proces van de aanbieding van de toepassing in de galerie met ondersteuning voor gebruikersinrichting is 40-45 dagen.
-
-   ![Tijdlijn van saml-toepassing in de galerie vermelden](./media/howto-app-gallery-listing/provisioningtimeline.png)
 
 ## <a name="escalations"></a>Escalaties
 

@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: bce28a2498793b7a1edb8aa0437a7d7c75a45ae9
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 02c786209c81e755b05cc3875778f98faf8a1ae1
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911945"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650934"
 ---
 # <a name="content-protection-overview"></a>Overzicht van de beveiliging van inhoud
 
@@ -33,23 +33,36 @@ De volgende afbeelding ziet u de Media Services content protection-werkstroom:
 
 In dit artikel wordt uitgelegd concepten en terminologie die relevant zijn voor informatie over de beveiliging van inhoud met Media Services. Het artikel heeft ook de [Veelgestelde vragen over](#faq) sectie en vindt u koppelingen naar artikelen die laten zien hoe om inhoud te beveiligen. 
 
-## <a name="main-components-of-the-content-protection-system"></a>Belangrijkste onderdelen van het systeem voor de beveiliging van inhoud
+## <a name="main-components-of-a-content-protection-system"></a>Belangrijkste onderdelen van een systeem voor de beveiliging van inhoud
 
 Als u wilt uw systeem-/ toepassingsontwerp 'content protection' is voltooid, moet u volledig inzicht in het bereik van de inspanningen. De volgende lijst biedt een overzicht van de drie onderdelen die u moet implementeren. 
 
 1. Azure Media Services-code
   
-  * Licentie sjablonen configureren voor PlayReady, Widevine en/of FairPlay. De sjablonen kunnen u rechten en machtigingen voor elk van de gebruikte DRM's configureren.
-  * Definieer license delivery autorisatie, de logica van autorisatie-controle op basis van claims in JWT op te geven.
-  * DRM-codering configureren door inhoud sleutels op te geven en protocollen die moeten worden gebruikt voor streaming.
+  De [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) voorbeeld ziet u het implementeren van multi-DRM-systeem met Media Services v3 en Media Services-service voor het leveren van licentiesleutel/ook gebruiken. U kunt elke asset met meerdere versleutelingstypen versleutelen (AES-128, PlayReady, Widevine, FairPlay). Zie [Streamingprotocollen en versleutelingstypen](#streaming-protocols-and-encryption-types) voor nuttige combinaties.
+  
+  Het voorbeeld wordt getoond hoe u:
 
-  > [!NOTE]
-  > U kunt elke asset met meerdere versleutelingstypen versleutelen (AES-128, PlayReady, Widevine, FairPlay). Zie [Streamingprotocollen en versleutelingstypen](#streaming-protocols-and-encryption-types) voor nuttige combinaties.
-  
-  De volgende artikelen weergeven stappen voor het versleutelen van inhoud met AES en/of DRM: 
-  
-  * [Beveiligen met AES-versleuteling](protect-with-aes128.md)
-  * [Beveiligen met DRM](protect-with-drm.md)
+  1. Maak en configureer ContentKeyPolicies.
+
+    * Definieer license delivery autorisatie, de logica van autorisatie-controle op basis van claims in JWT op te geven.
+    * DRM-codering configureren door de inhoudssleutel op te geven.
+    * Configureer [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), en [FairPlay](fairplay-license-overview.md) licenties. De sjablonen kunnen u rechten en machtigingen voor elk van de gebruikte DRM's configureren.
+
+        ```
+        ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
+        ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
+        ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
+        ```
+  2. Maak een StreamingLocator die is geconfigureerd voor het streamen van een gecodeerde asset. 
+
+    U kunt bijvoorbeeld StreamingLocator.StreamingPolicyName instellen voor het beleid 'Predefined_MultiDrmCencStreaming'. Dit beleid geeft aan dat u wilt dat er twee inhoudssleutels (envelop en CENC) worden gegenereerd en ingesteld voor de locator. Er worden dan de envelop-, PlayReady- en Widevine-coderingen toegepast (de sleutel wordt aan de afspeelclient geleverd op basis van de geconfigureerde DRM-licenties). Als u wilt dat uw stream ook met CBCS (FairPlay) wordt versleuteld, gebruikt u Predefined_MultiDrmStreaming.
+  3. Maken van een test-token.
+
+    De **GetTokenAsync** methode geeft over het maken van een test-token.
+  4. De streaming-URL maken.
+
+    De **GetDASHStreamingUrlAsync** methode laat zien hoe u de streaming-URL maken. In dit geval wordt de URL-stromen de **DASH** inhoud.
 
 2. De speler met AES of DRM-client. Een videospeler-app op basis van een player SDK (systeemeigen of browsergebaseerde) moet voldoen aan de volgende vereisten:
   * Windows media player SDK biedt ondersteuning voor de benodigde DRM-clients
@@ -128,71 +141,11 @@ Met een tokenbeperking content key-beleid, is de inhoudssleutel alleen verzonden
 
 Wanneer u beleid met de tokenbeperking configureert, moet u de primaire verificatiesleutel, uitgever en doelgroep parameters opgeven. De primaire verificatiesleutel bevat de sleutel die het token is ondertekend. De uitgever wordt de secure token service die de token uitgeeft. De doelgroep, ook wel genoemd bereik, het doel van het token wordt beschreven of de resource voor het token wordt toegang tot geautoriseerd. De Media Services-sleutelleveringsservice valideert dat deze waarden in het token overeenkomen met de waarden in de sjabloon.
 
-## <a name="a-idfaqfrequently-asked-questions"></a><a id="faq"/>Veelgestelde vragen
-
-### <a name="question"></a>Vraag
-
-Het implementeren van multi-DRM (PlayReady, Widevine en FairPlay) systeem met behulp van Azure Media Services (AMS) v3 en ook AMS licentiesleutel/levering-service gebruiken?
-
-### <a name="answer"></a>Antwoord
-
-Zie voor end-to-end-scenario, de [volgende codevoorbeeld](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs). 
-
-Het voorbeeld wordt getoond hoe u:
-
-1. Maak en configureer ContentKeyPolicies.
-
-  Het voorbeeld bevat functies die configureren [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), en [FairPlay](fairplay-license-overview.md) licenties.
-
-    ```
-    ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
-    ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
-    ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
-    ```
-
-2. Maak een StreamingLocator die is geconfigureerd voor het streamen van een gecodeerde asset. 
-
-  U kunt bijvoorbeeld StreamingLocator.StreamingPolicyName instellen voor het beleid 'Predefined_MultiDrmCencStreaming'. Dit beleid geeft aan dat u wilt dat er twee inhoudssleutels (envelop en CENC) worden gegenereerd en ingesteld voor de locator. Er worden dan de envelop-, PlayReady- en Widevine-coderingen toegepast (de sleutel wordt aan de afspeelclient geleverd op basis van de geconfigureerde DRM-licenties). Als u wilt dat uw stream ook met CBCS (FairPlay) wordt versleuteld, gebruikt u Predefined_MultiDrmStreaming.
-
-3. Maken van een test-token.
-
-  De **GetTokenAsync** methode geeft over het maken van een test-token.
-  
-4. De streaming-URL maken.
-
-  De **GetDASHStreamingUrlAsync** methode laat zien hoe u de streaming-URL maken. In dit geval wordt de URL-stromen de **DASH** inhoud.
-
-### <a name="question"></a>Vraag
-
-Hoe en waar u kunt JWT-token ophalen om de aanvraag-licentie of sleutel u?
-
-### <a name="answer"></a>Antwoord
-
-1. Voor de productie moet u een beveiligde Token Services (STS) (webservice) geeft JWT-token van een HTTPS-aanvraag hebt. Voor testen, kunt u de code die wordt weergegeven **GetTokenAsync** methode die is gedefinieerd [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
-2. Player moet een aanvraag maken nadat een gebruiker is geverifieerd, naar de STS voor dergelijke een token en wijs deze toe aan de waarde van het token. U kunt de [API van Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/).
-
-* Zie voor een voorbeeld van het uitvoeren van de STS, symmetrische en asymmetrische sleutel [ http://aka.ms/jwt ](https://aka.ms/jwt). 
-* Zie voor een voorbeeld van een-op basis van Azure Media Player met behulp van dergelijke JWT-token speler [ http://aka.ms/amtest ](https://aka.ms/amtest) ('player_settings' koppeling om te zien van de token invoer uitvouwen).
-
-### <a name="question"></a>Vraag
-
-Hoe autoriseert u aanvragen voor stream-video's met AES-versleuteling
-
-### <a name="answer"></a>Antwoord
-
-De juiste aanpak is het gebruikmaken van de STS (Secure Token Service):
-
-STS, afhankelijk van het gebruikersprofiel, voeg verschillende claims (zoals 'Premium-gebruiker', 'Basic gebruiker', 'Gratis proefversie van gebruiker'). Met andere claims in een JWT ziet de gebruiker andere inhoud. Voor andere inhoud/asset, wordt de ContentKeyPolicyRestriction beschikken over de bijbehorende RequiredClaims.
-
-Gebruik Azure Media Services-API's voor het configureren van/licentiesleutel levering en uw activa versleutelen (zoals wordt weergegeven in [in dit voorbeeld](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs).
-
 ## <a name="next-steps"></a>Volgende stappen
 
-Raadpleeg de volgende artikelen:
-
-  * [Beveiligen met AES-versleuteling](protect-with-aes128.md)
-  * [Beveiligen met DRM](protect-with-drm.md)
-
-Als u meer informatie vindt u [multi-drm beveiligde inhoud systeem met toegangsbeheer ontwerpen](design-multi-drm-system-with-access-control.md)
+* [Beveiligen met AES-versleuteling](protect-with-aes128.md)
+* [Beveiligen met DRM](protect-with-drm.md)
+* [Multi-drm beveiligde inhoud systeem met toegangsbeheer ontwerpen](design-multi-drm-system-with-access-control.md)
+* [Veelgestelde vragen](frequently-asked-questions.md)
 
 

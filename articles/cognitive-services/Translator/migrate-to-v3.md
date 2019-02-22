@@ -10,17 +10,19 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 04d7bfcf0527b490bc18f6d85977d899823d5e69
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: a6aab8fda2459804b38afc113be58db7c31b54c5
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301873"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586848"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text-API V2 naar V3-migratie
 
 > [!NOTE]
 > V2 op 30 April 2018 is afgeschaft en zal worden buiten gebruik gesteld op 30 April 2019.
+
+> De Microsoft Translator-Hub wordt buiten gebruik gesteld op 30 April 2019. [Migratie van belangrijke informatie en datums weergeven](https://www.microsoft.com/translator/business/hub/).  
 
 Het team van Microsoft Translator is uitgebracht van versie 3 (V3) van de Translator Text-API. Deze versie bevat nieuwe functies, afgeschafte methoden en een nieuwe indeling voor het verzenden naar en ontvangen van gegevens uit de Microsoft Translator-Service. Dit document bevat informatie over het wijzigen van toepassingen kunnen gebruikmaken van V3. 
 
@@ -49,8 +51,8 @@ De volgende lijst met methoden V2 en V3 identificeert de API's waarmee u de func
 | `Speak`     | [Microsoft Speech-Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
 | `Detect`     | [Detecteren](reference/v3-0-detect.md)         |
 | `DetectArray`     | [Detecteren](reference/v3-0-detect.md)         |
-| `AddTranslation`     | [Hub van Microsoft Translator-API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
-| `AddTranslationArray`    | [Hub van Microsoft Translator-API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
+| `AddTranslation`     | Functie is niet meer ondersteund.       |
+| `AddTranslationArray`    | Functie is niet meer ondersteund.          |
 | `BreakSentences`      | [BreakSentence](reference/v3-0-break-sentence.md)       |
 | `GetTranslations`      | Functie is niet meer ondersteund.         |
 | `GetTranslationsArray`      | Functie is niet meer ondersteund.         |
@@ -105,6 +107,10 @@ Wereldwijd
 [`Dictionary/example`](reference/v3-0-dictionary-examples.md)
 
 ## <a name="compatibility-and-customization"></a>Compatibiliteit en aanpassen
+
+> [!NOTE] 
+
+> De Microsoft Translator-Hub wordt buiten gebruik gesteld op 30 April 2019. [Migratie van belangrijke informatie en datums weergeven](https://www.microsoft.com/translator/business/hub/).   
 
 Microsoft Translator V3 maakt standaard gebruik van neurale machinevertalingen. Deze kunnen daarom niet worden gebruikt met de Microsoft Translator-Hub. De Translator-Hub biedt alleen ondersteuning voor verouderde statistische machinevertalingen. Aanpassing voor neurale vertalingen is nu beschikbaar met de aangepaste Translator. [Meer informatie over het aanpassen van neurale machinevertalingen](custom-translator/overview.md)
 

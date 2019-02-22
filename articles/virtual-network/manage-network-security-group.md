@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 21a3efb67f837a05f3c070d0805aa033f86efbd5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 11c8bf0b40920f6828ac8603c3c7ea7c954f08e7
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822439"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651002"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Maken, wijzigen of verwijderen van een netwerkbeveiligingsgroep
 
@@ -25,11 +25,13 @@ Beveiligingsregels in netwerkbeveiligingsgroepen kunnen u voor het filteren van 
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Voer de volgende taken voordat u de stappen in elke sectie van dit artikel:
 
 - Als u nog een Azure-account hebt, kunt u zich aanmelden voor een [gratis proefaccount](https://azure.microsoft.com/free).
 - Als u de portal gebruikt, opent u https://portal.azure.com, en meld u aan met uw Azure-account.
-- Als u PowerShell-opdrachten gebruikt om taken in dit artikel te voltooien, hetzij de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. In deze zelfstudie vereist de Azure PowerShell-moduleversie 5.4.1 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
+- Als u PowerShell-opdrachten gebruikt om taken in dit artikel te voltooien, hetzij de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. In deze zelfstudie vereist de Azure PowerShell-moduleversie 1.0.0 of hoger. Voer `Get-Module -ListAvailable Az` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-az-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzAccount` uitvoeren om verbinding te kunnen maken met Azure.
 - Als u Azure-opdrachtregelinterface (CLI)-opdrachten voor taken in dit artikel uit te voeren, hetzij de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de CLI van de computer. In deze zelfstudie gebruikmaken van Azure CLI versie 2.0.28 of hoger. Voer `az --version` uit om te kijken welke versie is geïnstalleerd. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren. Als u de Azure CLI lokaal uitvoert, moet u ook om uit te voeren `az login` voor het maken van een verbinding met Azure.
 
 Het account dat u zich aanmelden bij of verbinding maken met Azure met moet worden toegewezen aan de [Inzender voor netwerken](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rol of een [aangepaste rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) die is toegewezen de nodige acties die worden vermeld in [machtigingen ](#permissions).
@@ -49,7 +51,7 @@ Er is een limiet aan het aantal netwerkbeveiligingsgroepen die kunt u per Azure-
 **Opdrachten**
 
 - Azure CLI: [az network nsg maken](/cli/azure/network/nsg#az-network-nsg-create)
-- PowerShell: [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup)
+- PowerShell: [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup)
 
 ### <a name="view-all-network-security-groups"></a>Alle netwerkbeveiligingsgroepen weergeven
 
@@ -58,7 +60,7 @@ Voer in het zoekvak boven aan de portal, *netwerkbeveiligingsgroepen*. Wanneer *
 **Opdrachten**
 
 - Azure CLI: [az network nsg list](/cli/azure/network/nsg#az-network-nsg-list)
-- PowerShell: [Get-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermnetworksecuritygroup)
+- PowerShell: [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup)
 
 ### <a name="view-details-of-a-network-security-group"></a>Details van een netwerkbeveiligingsgroep weergeven
 
@@ -74,7 +76,7 @@ Voer in het zoekvak boven aan de portal, *netwerkbeveiligingsgroepen*. Wanneer *
 **Opdrachten**
 
 - Azure CLI: [az network nsg show](/cli/azure/network/nsg#az-network-nsg-show)
-- PowerShell: [Get-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermnetworksecuritygroup)
+- PowerShell: [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup)
 
 ### <a name="change-a-network-security-group"></a>Een netwerkbeveiligingsgroep wijzigen
 
@@ -84,7 +86,7 @@ Voer in het zoekvak boven aan de portal, *netwerkbeveiligingsgroepen*. Wanneer *
 **Opdrachten**
 
 - Azure CLI: [az network nsg update](/cli/azure/network/nsg#az-network-nsg-update)
-- PowerShell: [Set-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/set-azurermnetworksecuritygroup)
+- PowerShell: [Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup)
 
 ### <a name="associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface"></a>Koppelen of ontkoppelen van een netwerkbeveiligingsgroep naar of van een subnet of netwerkinterface
 
@@ -101,7 +103,7 @@ Als een netwerkbeveiligingsgroep gekoppeld aan subnetten of netwerkinterfaces is
 **Opdrachten**
 
 - Azure CLI: [az network nsg verwijderen](/cli/azure/network/nsg#az-network-nsg-delete)
-- PowerShell: [Remove-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/remove-azurermnetworksecuritygroup) 
+- PowerShell: [Remove-AzNetworkSecurityGroup](/powershell/module/az.network/remove-aznetworksecuritygroup)
 
 ## <a name="work-with-security-rules"></a>Werken met beveiligingsregels
 
@@ -131,7 +133,7 @@ Er is een limiet aan het aantal regels per netwerkbeveiligingsgroep per Azure-lo
 **Opdrachten**
 
 - Azure CLI: [az network nsg-regel maken](/cli/azure/network/nsg/rule#az-network-nsg-rule-create)
-- PowerShell: [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig)
+- PowerShell: [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig)
 
 ### <a name="view-all-security-rules"></a>Alle regels weergeven
 
@@ -146,7 +148,7 @@ De lijst bevat alle regels die u hebt gemaakt en de netwerkbeveiligingsgroep [st
 **Opdrachten**
 
 - Azure CLI: [lijst az network nsg-regel](/cli/azure/network/nsg/rule#az-network-nsg-rule-list)
-- PowerShell: [Get-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/get-azurermnetworksecurityruleconfig)
+- PowerShell: [Get-AzNetworkSecurityRuleConfig](/powershell/module/az.network/get-aznetworksecurityruleconfig)
 
 ### <a name="view-details-of-a-security-rule"></a>Details van een beveiligingsregel weergeven
 
@@ -158,7 +160,7 @@ De lijst bevat alle regels die u hebt gemaakt en de netwerkbeveiligingsgroep [st
 **Opdrachten**
 
 - Azure CLI: [az network nsg-regel weergeven](/cli/azure/network/nsg/rule#az-network-nsg-rule-show)
-- PowerShell: [Get-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/get-azurermnetworksecurityruleconfig)
+- PowerShell: [Get-AzNetworkSecurityRuleConfig](/powershell/module/az.network/get-aznetworksecurityruleconfig)
 
 ### <a name="change-a-security-rule"></a>Wijzigen van een beveiligingsregel
 
@@ -168,7 +170,7 @@ De lijst bevat alle regels die u hebt gemaakt en de netwerkbeveiligingsgroep [st
 **Opdrachten**
 
 - Azure CLI: [az network nsg-regel update](/cli/azure/network/nsg/rule#az-network-nsg-rule-update)
-- PowerShell: [Set-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/set-azurermnetworksecurityruleconfig)
+- PowerShell: [Set-AzNetworkSecurityRuleConfig](/powershell/module/az.network/set-aznetworksecurityruleconfig)
 
 ### <a name="delete-a-security-rule"></a>Een beveiligingsregel verwijderen
 
@@ -178,13 +180,13 @@ De lijst bevat alle regels die u hebt gemaakt en de netwerkbeveiligingsgroep [st
 **Opdrachten**
 
 - Azure CLI: [az network nsg-regel verwijderen](/cli/azure/network/nsg/rule#az-network-nsg-rule-delete)
-- PowerShell: [Remove-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/remove-azurermnetworksecurityruleconfig)
+- PowerShell: [Remove-AzNetworkSecurityRuleConfig](/powershell/module/az.network/remove-aznetworksecurityruleconfig)
 
 ## <a name="work-with-application-security-groups"></a>Werken met beveiligingsgroepen voor toepassing
 
 Een toepassingsbeveiligingsgroep bevat nul of meer netwerkinterfaces. Zie voor meer informatie, [toepassingsbeveiligingsgroepen](security-overview.md#application-security-groups). Alle netwerkinterfaces in een toepassingsbeveiligingsgroep moeten zich in hetzelfde virtuele netwerk. Zie voor meer informatie over een netwerkinterface toevoegen aan een toepassingsbeveiligingsgroep, [een netwerkinterface toevoegen aan een toepassingsbeveiligingsgroep](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups).
 
-### <a name="create-an-application-security-group"></a>Maak een toepassingsbeveiligingsgroep
+### <a name="create-an-application-security-group"></a>Een toepassingsbeveiligingsgroep maken
 
 1. Selecteer **+ Een resource maken** in de linkerbovenhoek van Azure Portal.
 2. Voer *Toepassingsbeveiligingsgroep* in het vak **In Marketplace zoeken** in. Wanneer **Toepassingsbeveiligingsgroep** wordt weergegeven in de zoekresultaten, selecteert u deze optie. Vervolgens selecteert u onder **Alles** opnieuw **Toepassingsbeveiligingsgroep** en selecteert u **Maken**.
@@ -200,7 +202,7 @@ Een toepassingsbeveiligingsgroep bevat nul of meer netwerkinterfaces. Zie voor m
 **Opdrachten**
 
 - Azure CLI: [az netwerk asg maken](/cli/azure/network/asg#az-network-asg-create)
-- PowerShell: [New-AzureRmApplicationSecurityGroup](/powershell/module/azurerm.network/new-azurermapplicationsecuritygroup)
+- PowerShell: [New-AzApplicationSecurityGroup](/powershell/module/az.network/new-azapplicationsecuritygroup)
 
 ### <a name="view-all-application-security-groups"></a>Alle beveiligingsgroepen voor toepassing weergeven
 
@@ -210,7 +212,7 @@ Een toepassingsbeveiligingsgroep bevat nul of meer netwerkinterfaces. Zie voor m
 **Opdrachten**
 
 - Azure CLI: [az netwerk asg lijst](/cli/azure/network/asg#az-network-asg-list)
-- PowerShell: [Get-AzureRmApplicationSecurityGroup](/powershell/module/azurerm.network/get-azurermapplicationsecuritygroup)
+- PowerShell: [Get-AzApplicationSecurityGroup](/powershell/module/az.network/get-azapplicationsecuritygroup)
 
 ### <a name="view-details-of-a-specific-application-security-group"></a>Details van de beveiligingsgroep van een specifieke toepassing weergeven
 
@@ -221,7 +223,7 @@ Een toepassingsbeveiligingsgroep bevat nul of meer netwerkinterfaces. Zie voor m
 **Opdrachten**
 
 - Azure CLI: [az netwerk asg weergeven](/cli/azure/network/asg#az-network-asg-show)
-- PowerShell: [Get-AzureRmApplicationSecurityGroup](/powershell/module/azurerm.network/get-azurermapplicationsecuritygroup)
+- PowerShell: [Get-AzApplicationSecurityGroup](/powershell/module/az.network/get-azapplicationsecuritygroup)
 
 ### <a name="change-an-application-security-group"></a>Een toepassingsbeveiligingsgroep wijzigen
 
@@ -244,7 +246,7 @@ U kunt een toepassingsbeveiligingsgroep niet verwijderen als er netwerkinterface
 **Opdrachten**
 
 - Azure CLI: [az netwerk asg verwijderen](/cli/azure/network/asg#az-network-asg-delete)
-- PowerShell: [Remove-AzureRmApplicationSecurityGroup](/powershell/module/azurerm.network/remove-azurermapplicationsecuritygroup)
+- PowerShell: [Remove-AzApplicationSecurityGroup](/powershell/module/az.network/remove-azapplicationsecuritygroup)
 
 ## <a name="permissions"></a>Machtigingen
 
@@ -256,7 +258,7 @@ Om uit te voeren taken van netwerkbeveiligingsgroepen, beveiligingsregels en bev
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/read                  |   Netwerkbeveiligingsgroep ophalen                                          |
 | Microsoft.Network/networkSecurityGroups/write                 |   Maken of bijwerken van netwerkbeveiligingsgroep                             |
-| Microsoft.Network/networkSecurityGroups/delete                |   Netwerkbeveiligingsgroep verwijderen                                       |
+| Microsoft.Network/networkSecurityGroups/delete                |   De netwerkbeveiligingsgroep verwijderen                                       |
 | Microsoft.Network/networkSecurityGroups/join/action           |   Een netwerkbeveiligingsgroep aan een subnet of netwerkinterface koppelen 
 
 

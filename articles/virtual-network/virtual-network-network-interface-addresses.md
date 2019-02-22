@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 4fae4486e6cf47892ba2133885ec864969f66001
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 716c229fbd906798d39bf4ef54ba1f47cd5bd980
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663601"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651036"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Toevoegen, wijzigen of verwijderen van IP-adressen voor een Azure-netwerk-interface
 
@@ -30,11 +30,13 @@ Als u nodig hebt voor het maken, wijzigen of verwijderen van een netwerkinterfac
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Voer de volgende taken voordat u de stappen in elke sectie van dit artikel:
 
 - Als u nog een Azure-account hebt, kunt u zich aanmelden voor een [gratis proefaccount](https://azure.microsoft.com/free).
 - Als u de portal gebruikt, opent u https://portal.azure.com, en meld u aan met uw Azure-account.
-- Als u PowerShell-opdrachten gebruikt om taken in dit artikel te voltooien, hetzij de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Voor deze zelfstudie is moduleversie 5.7.0 of hoger van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
+- Als u PowerShell-opdrachten gebruikt om taken in dit artikel te voltooien, hetzij de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. In deze zelfstudie vereist de Azure PowerShell-moduleversie 1.0.0 of hoger. Voer `Get-Module -ListAvailable Az` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-az-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzAccount` uitvoeren om verbinding te kunnen maken met Azure.
 - Als u Azure-opdrachtregelinterface (CLI)-opdrachten voor taken in dit artikel uit te voeren, hetzij de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de CLI van de computer. In deze zelfstudie gebruikmaken van Azure CLI versie 2.0.31 of hoger. Voer `az --version` uit om te kijken welke versie is geïnstalleerd. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren. Als u de Azure CLI lokaal uitvoert, moet u ook om uit te voeren `az login` voor het maken van een verbinding met Azure.
 
 Het account dat u zich aanmelden bij of verbinding maken met Azure, moet worden toegewezen aan de [Inzender voor netwerken](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rol of een [aangepaste rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) die is toegewezen de nodige acties die worden vermeld in [netwerk interface-machtigingen](virtual-network-network-interface.md#permissions).
@@ -49,20 +51,20 @@ U kunt toevoegen als veel [persoonlijke](#private) en [openbare](#public) [IPv4]
 4. Onder **IP-configuraties**, selecteer **+ toevoegen**.
 5. Geef het volgende, en selecteer vervolgens **OK**:
 
-    |Instelling|Vereist?|Details|
-    |---|---|---|
-    |Name|Ja|Moet uniek zijn voor de netwerkinterface|
-    |Type|Ja|Nadat u een IP-configuratie aan een bestaande netwerkinterface toevoegt, en elke netwerkinterface moet een [primaire](#primary) IP-configuratie, de enige mogelijkheid is **secundaire**.|
-    |Methode voor het privé-IP-adres toewijzen|Ja|[**Dynamische**](#dynamic): Azure wijst het eerstvolgende beschikbare adres voor het adresbereik van het subnet dat in de netwerkinterface is geïmplementeerd. [**Statische**](#static): U toewijzen een niet-gebruikte adres voor het adresbereik van het subnet dat in de netwerkinterface is geïmplementeerd.|
-    |Openbaar IP-adres|Nee|**Uitgeschakeld:** Er zijn geen openbare IP-adresresource is momenteel gekoppeld aan de IP-configuratie. **Ingeschakeld:** Selecteer een bestaande openbare IPv4-adres of een nieuwe maken. Lees voor meer informatie over het maken van een openbaar IP-adres, de [openbare IP-adressen](virtual-network-public-ip-address.md#create-a-public-ip-address) artikel.|
+   |Instelling|Vereist?|Details|
+   |---|---|---|
+   |Name|Ja|Moet uniek zijn voor de netwerkinterface|
+   |Type|Ja|Nadat u een IP-configuratie aan een bestaande netwerkinterface toevoegt, en elke netwerkinterface moet een [primaire](#primary) IP-configuratie, de enige mogelijkheid is **secundaire**.|
+   |Methode voor het privé-IP-adres toewijzen|Ja|[**Dynamische**](#dynamic): Azure wijst het eerstvolgende beschikbare adres voor het adresbereik van het subnet dat in de netwerkinterface is geïmplementeerd. [**Statische**](#static): U toewijzen een niet-gebruikte adres voor het adresbereik van het subnet dat in de netwerkinterface is geïmplementeerd.|
+   |Openbaar IP-adres|Nee|**Uitgeschakeld:** Er zijn geen openbare IP-adresresource is momenteel gekoppeld aan de IP-configuratie. **Ingeschakeld:** Selecteer een bestaande openbare IPv4-adres of een nieuwe maken. Lees voor meer informatie over het maken van een openbaar IP-adres, de [openbare IP-adressen](virtual-network-public-ip-address.md#create-a-public-ip-address) artikel.|
 6. Secundaire privé IP-adressen handmatig toevoegen aan het besturingssysteem van de virtuele machine door te voeren van de instructies in de [meerdere IP-adressen toewijzen aan virtuele machine besturingssystemen](virtual-network-multiple-ip-addresses-portal.md#os-config) artikel. Zie [persoonlijke](#private) IP-adressen voor speciale overwegingen voor het handmatig toevoegen van IP-adressen aan het besturingssysteem van een virtuele machine. Voeg geen openbare IP-adressen toe aan het besturingssysteem van de virtuele machine.
 
 **Opdrachten**
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config)|
-|PowerShell|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/add-azurermnetworkinterfaceipconfig)|
+|CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_create)|
+|PowerShell|[Add-AzNetworkInterfaceIpConfig](/powershell/module/az.network/add-aznetworkinterfaceipconfig)|
 
 ## <a name="change-ip-address-settings"></a>Instellingen voor IP-adres wijzigen
 
@@ -82,8 +84,8 @@ U mogelijk nodig om te wijzigen van de methode voor het toewijzen van een IPv4-a
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|CLI|[AZ network nic ip-config update](/cli/azure/network/nic/ip-config)|
-|PowerShell|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig)|
+|CLI|[AZ network nic ip-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update)|
+|PowerShell|[Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig)|
 
 ## <a name="remove-ip-addresses"></a>IP-adressen verwijderen
 
@@ -98,8 +100,8 @@ U kunt verwijderen [persoonlijke](#private) en [openbare](#public) IP-adressen u
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|CLI|[AZ network nic ip-config delete](/cli/azure/network/nic/ip-config)|
-|PowerShell|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/remove-azurermnetworkinterfaceipconfig)|
+|CLI|[AZ network nic ip-config delete](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_delete)|
+|PowerShell|[Remove-AzNetworkInterfaceIpConfig](/powershell/module/az.network/remove-aznetworkinterfaceipconfig)|
 
 ## <a name="ip-configurations"></a>IP-configuraties
 
@@ -118,10 +120,10 @@ Naast een primaire IP-configuratie mogelijk een netwerkinterface nul of meer sec
 
 - Er moet een particulier IPv4- of IPv6-adres toegewezen aan deze. Als het adres IPv6 is, kan de netwerkinterface slechts één secundaire IP-configuratie hebben. Als het adres IPv4 is, is de netwerkinterface mogelijk meerdere secundaire IP-configuraties zijn toegewezen. Zie voor meer informatie over hoeveel persoonlijke en openbare IPv4-adressen kunnen worden toegewezen aan een netwerkinterface, de [Azure-limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) artikel.
 - Ook kan hebt een openbaar IPv4-adres toegewezen, als het privé IP-adres IPv4 is. Als het privé IP-adres IPv6 is, kunt u een openbaar IPv4- of IPv6-adres niet toewijzen aan de IP-configuratie. Meerdere IP-adressen toewijzen aan een netwerkinterface is nuttig in scenario's zoals:
-    - Het hosten van meerdere websites of services met verschillende IP-adressen en SSL-certificaten op één server.
-    - Een virtuele machine fungeert als een virtueel netwerkapparaat, zoals een firewall of load balancer.
-    - De mogelijkheid om een van de persoonlijke IPv4-adressen voor het gebruik van de netwerkinterfaces toevoegen aan een Azure Load Balancer-back-end-pool. In het verleden kan alleen de primaire IPv4-adres voor de primaire netwerkinterface worden toegevoegd aan een back-end-groep. Zie voor meer informatie over het Verdeel de belasting van configuraties met meerdere IPv4, de [taakverdeling meerdere IP-configuraties](../load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artikel. 
-    - De functie voor taakverdeling in evenwicht één IPv6-adres toegewezen aan een netwerkinterface. Zie voor meer informatie over hoe u taakverdeling op een privé-IPv6-adres, de [verdelen IPv6-adressen](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artikel.
+  - Het hosten van meerdere websites of services met verschillende IP-adressen en SSL-certificaten op één server.
+  - Een virtuele machine fungeert als een virtueel netwerkapparaat, zoals een firewall of load balancer.
+  - De mogelijkheid om een van de persoonlijke IPv4-adressen voor het gebruik van de netwerkinterfaces toevoegen aan een Azure Load Balancer-back-end-pool. In het verleden kan alleen de primaire IPv4-adres voor de primaire netwerkinterface worden toegevoegd aan een back-end-groep. Zie voor meer informatie over het Verdeel de belasting van configuraties met meerdere IPv4, de [taakverdeling meerdere IP-configuraties](../load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artikel. 
+  - De functie voor taakverdeling in evenwicht één IPv6-adres toegewezen aan een netwerkinterface. Zie voor meer informatie over hoe u taakverdeling op een privé-IPv6-adres, de [verdelen IPv6-adressen](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artikel.
 
 ## <a name="address-types"></a>-Adrestypen
 

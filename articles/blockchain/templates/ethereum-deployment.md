@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: 266e2be2775a6f9b74c714bd9112e38837bb6a6c
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 6530e86f59124e324953e4ca082c247ebec3bc91
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098335"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650917"
 ---
 # <a name="ethereum-proof-of-work-consortium-solution-template"></a>Ethereum bewijs van werk consortium-oplossingssjabloon
 
@@ -43,9 +43,9 @@ Lid van een consortium heeft ook een set met load balancing transactie-knooppunt
 
 Transactie-knooppunten zijn taakverdeling binnen een beschikbaarheidsset om hoge beschikbaarheid te houden. De sjabloon biedt ondersteuning voor maximaal vijf transactie knooppunten die zijn ingericht met behulp van schaalsets voor virtuele machines.
 
-### <a name="log-analytics-details"></a>Details van log analytics
+### <a name="azure-monitor-logs-details"></a>Details van Azure Monitor-Logboeken
 
-Elke implementatie maakt een nieuw exemplaar van Log analytics is ook of kan deelnemen aan een bestaand exemplaar. Log analytics kunt de bewaking van verschillende maatstaven voor prestaties van elke virtuele machine die het geïmplementeerde netwerk vormt.
+Elke implementatie maakt een nieuw exemplaar van Azure Monitor Logboeken ook of kan deelnemen aan een bestaand exemplaar. Logboeken in Azure Monitor kunt u het bewaken van verschillende maatstaven voor prestaties van elke virtuele machine die het geïmplementeerde netwerk vormt.
 
 ## <a name="deployment-architecture"></a>Implementatie-architectuur
 
@@ -96,7 +96,7 @@ Operations Management Suite (OMS) kunt u een OMS-resource voor het netwerk confi
 
 Parameternaam|Description| Toegestane waarden|Standaardwaarden
 ---|---|---|---
-Verbinding maken met bestaande OMS|Maak een nieuw exemplaar van de Log Analytics of Word lid van een bestaand exemplaar|Nieuwe Join bestaande maken|Nieuwe locatie van de Log Analytics maken|De regio waarin de nieuwe met Log Analytics worden geïmplementeerd (weergegeven indien *nieuw* is geselecteerd)
+Verbinding maken met bestaande OMS|Maak een nieuw exemplaar van Azure Monitor Logboeken of Word lid van een bestaand exemplaar|Nieuwe Join bestaande maken|Nieuwe locatie van de Azure Monitor logboeken maken|De regio waarin de nieuwe Azure Monitor-logboeken worden geïmplementeerd (weergegeven indien *nieuw* is geselecteerd)
 Bestaande OMS-werkruimte-Id|Werkruimte-ID van het bestaande exemplaar (weergegeven indien *deelnemen aan bestaande* is geselecteerd) categorie OMS-Service|Kies de prijscategorie voor het nieuwe exemplaar. Meer informatie op https://azure.microsoft.com/pricing/details/log-analytics/ (weergegeven indien *deelnemen aan bestaande* is geselecteerd)|Gratis zelfstandige Per knooppunt|Gratis
 Bestaande OMS-primaire sleutel|De primaire sleutel gebruikt voor verbinding met de bestaande OMS-instantie (weergegeven indien *deelnemen aan bestaande* is geselecteerd)
 

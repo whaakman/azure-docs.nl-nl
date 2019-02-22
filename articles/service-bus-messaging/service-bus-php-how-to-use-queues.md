@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: aschhab
-ms.openlocfilehash: c320e06881c73feb228b9d5f49243d7e1d321f52
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 996fcbe350f14bb22b8927d9d19f63636b1d7894
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847558"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585506"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>Over het gebruik van Service Bus-wachtrijen met PHP
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -27,6 +27,8 @@ ms.locfileid: "54847558"
 Deze handleiding wordt beschreven hoe u Service Bus-wachtrijen. De voorbeelden zijn geschreven in PHP en gebruik de [Azure SDK voor PHP](../php-download-sdk.md). De behandelde scenario's zijn **maken van wachtrijen**, **verzenden en ontvangen van berichten**, en **verwijderen van wachtrijen**.
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-php-application"></a>Een PHP-toepassing maken
 De enige vereiste voor het maken van een PHP-toepassing die toegang heeft tot de Azure Blob-service is de verwijzing naar klassen in de [Azure SDK voor PHP](../php-download-sdk.md) uit vanuit uw code. Alle hulpprogramma's voor ontwikkeling kunt u maken van uw toepassing of Kladblok.

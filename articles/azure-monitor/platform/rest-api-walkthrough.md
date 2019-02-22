@@ -8,21 +8,23 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
 ms.subservice: ''
-ms.openlocfilehash: 91b4d96caf59a8be67381aa6b420a3f759220025
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 707c04c22e54220f3020b5897c364318b427267b
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472956"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586590"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST-API-overzicht
-In dit artikel laat zien hoe verificatie uitvoeren zodat uw code kunt u de [Microsoft Azure Monitor REST API-verwijzing](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
+
+In dit artikel laat zien hoe verificatie uitvoeren zodat uw code kunt u de [Microsoft Azure Monitor REST API-verwijzing](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
 De Azure Monitor-API maakt het mogelijk is om op te halen via een programma de metrische definities van de beschikbare standaardregels, granulariteit en metrische waarden. De gegevens kunnen worden opgeslagen in een afzonderlijk gegevensarchief zoals Azure SQL Database, Azure Cosmos DB of Azure Data Lake. Van daaruit kan zo nodig extra analyses worden uitgevoerd.
 
 Naast het werken met verschillende metrische gegevenspunten, maakt de API van de Monitor ook het mogelijk aan de lijst met regels voor waarschuwingen, activiteitenlogboeken bekijken en nog veel meer. Zie voor een volledige lijst van beschikbare bewerkingen, de [Microsoft Azure Monitor REST API-verwijzing](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
 ## <a name="authenticating-azure-monitor-requests"></a>Verificatie van Azure Monitor-aanvragen
+
 De eerste stap is om te verifiëren van de aanvraag.
 
 Alle taken die worden uitgevoerd voor de API van Azure Monitor gebruiken de Azure Resource Manager-verificatiemodel. Daarom moeten alle aanvragen worden geverifieerd bij Azure Active Directory (Azure AD). Eén mogelijke benadering voor het verifiëren van de clienttoepassing is op een Azure AD-service-principal maken en op te halen van het verificatietoken (JWT). Het script in het volgende voorbeeld ziet u een Azure AD-service-principal via PowerShell maken. Voor meer gedetailleerde stapsgewijze instructies, Raadpleeg de documentatie op [met Azure PowerShell om te maken van een service-principal toegang krijgen tot bronnen](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). Het is ook mogelijk om te [maken van een service-principal via de Azure-portal](../../active-directory/develop/howto-create-service-principal-portal.md).
@@ -66,9 +68,9 @@ $tenantId = $subscription.TenantId
 $authUrl = "https://login.microsoftonline.com/${tenantId}"
 
 $AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext]$authUrl
-$cred = New-Object -TypeName Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential -ArgumentList ($clientId, $secureStringPassword)
+$cred = New-Object -TypeName Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential -ArgumentList ($clientId, $pwd)
 
-$result = $AuthContext.AcquireToken("https://management.core.windows.net/", $cred)
+$result = $AuthContext.AcquireTokenAsync("https://management.core.windows.net/", $cred).GetAwaiter().GetResult()
 
 # Build an array of HTTP header values
 $authHeader = @{
@@ -82,6 +84,11 @@ Na verificatie, kunnen vervolgens query's worden uitgevoerd voor de Azure Monito
 
 1. Lijst van de metrische definities voor een resource
 2. De metrische waarden ophalen
+
+> [!NOTE]
+> Raadpleeg voor meer informatie over verificatie met de Azure REST API, de [Azure REST API-verwijzing](https://docs.microsoft.com/rest/api/azure/).
+>
+>
 
 ## <a name="retrieve-metric-definitions-multi-dimensional-api"></a>Metrische definities (Multi-dimensionale API) ophalen
 
@@ -103,6 +110,7 @@ Invoke-RestMethod -Uri $request `
                   -Verbose
 
 ```
+
 > [!NOTE]
 > Als u wilt ophalen van de metrische definities met behulp van de multi-dimensionale metrische met Azure Monitor REST-API, '2018-01-01' als de API-versie te gebruiken.
 >
@@ -220,6 +228,7 @@ De hoofdtekst van het resulterende JSON-antwoord is vergelijkbaar met het volgen
 ```
 
 ## <a name="retrieve-dimension-values-multi-dimensional-api"></a>Ophalen van dimensiewaarden (Multi-dimensionale API)
+
 Zodra de beschikbare metrische definities bekend zijn, kunnen er bepaalde metrische gegevens die dimensies hebben. Voordat u query's uitvoeren voor de metrische gegevens die om te ontdekken welke het bereik van waarden kunt u is een dimensie. Op basis van deze dimensiewaarden die u er vervolgens voor kiezen kunt om te filteren of segment de metrische gegevens op basis van dimensiewaarden tijdens het opvragen van metrische gegevens.  Gebruik de [REST-API van Azure Monitor Metrics](https://docs.microsoft.com/rest/api/monitor/metrics) om dit te bereiken.
 
 Gebruik van de metrische gegevens de naam 'value' (niet de ' localizedValue') voor geen filtering aanvragen. Als er geen filters zijn opgegeven, wordt de metrische standaardgegevens geretourneerd. Het gebruik van deze API kan slechts één dimensie hebben een wildcard-filter.
@@ -244,6 +253,7 @@ Invoke-RestMethod -Uri $request `
     -OutFile ".\contosostorage-dimension-values.json" `
     -Verbose
 ```
+
 De hoofdtekst van het resulterende JSON-antwoord is vergelijkbaar met het volgende voorbeeld:
 
 ```JSON
@@ -282,7 +292,7 @@ De hoofdtekst van het resulterende JSON-antwoord is vergelijkbaar met het volgen
           ]
         },
         ...
-      ]    
+      ]
     }
   ],
   "namespace": "Microsoft.Storage/storageAccounts",
@@ -291,6 +301,7 @@ De hoofdtekst van het resulterende JSON-antwoord is vergelijkbaar met het volgen
 ```
 
 ## <a name="retrieve-metric-values-multi-dimensional-api"></a>Ophalen van metrische waarden (Multi-dimensionale API)
+
 Zodra de beschikbare metrische definities en mogelijke dimensiewaarden bekend zijn, is het vervolgens mogelijk om op te halen van de gerelateerde metrische waarden.  Gebruik de [REST-API van Azure Monitor Metrics](https://docs.microsoft.com/rest/api/monitor/metrics) om dit te bereiken.
 
 Gebruik van de metrische gegevens de naam 'value' (niet de ' localizedValue') voor geen filtering aanvragen. Als er geen dimensiefilters zijn opgegeven, wordt de samengevouwen samengevoegde metrische gegevens geretourneerd. Als een query voor metrische gegevens meerdere timeseries retourneert, kunt u de parameters van de query 'Top' en 'OrderBy' gebruiken om een beperkte geordende lijst timeseries te retourneren.
@@ -315,6 +326,7 @@ Invoke-RestMethod -Uri $request `
     -OutFile ".\contosostorage-metric-values.json" `
     -Verbose
 ```
+
 De hoofdtekst van het resulterende JSON-antwoord is vergelijkbaar met het volgende voorbeeld:
 
 ```JSON
@@ -375,6 +387,7 @@ De hoofdtekst van het resulterende JSON-antwoord is vergelijkbaar met het volgen
 ```
 
 ## <a name="retrieve-metric-definitions"></a>Metrische definities ophalen
+
 Gebruik de [definities voor metrische gegevens van Azure Monitor REST-API](https://msdn.microsoft.com/library/mt743621.aspx) voor toegang tot de lijst met metrische gegevens die beschikbaar voor een service zijn.
 
 **Methode**: GET
@@ -392,12 +405,14 @@ Invoke-RestMethod -Uri $request `
                   -OutFile ".\contosotweets-metricdef-results.json" `
                   -Verbose
 ```
+
 > [!NOTE]
 > Als u wilt ophalen van de metrische definities van de Azure Monitor REST API, '2016-03-01' als de API-versie te gebruiken.
 >
 >
 
 De hoofdtekst van het resulterende JSON-antwoord is vergelijkbaar met het volgende voorbeeld:
+
 ```JSON
 {
   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricdefinitions",
@@ -440,6 +455,7 @@ De hoofdtekst van het resulterende JSON-antwoord is vergelijkbaar met het volgen
 Zie voor meer informatie de [lijst van de metrische definities voor een resource in Azure Monitor REST API](https://msdn.microsoft.com/library/azure/mt743621.aspx) documentatie.
 
 ## <a name="retrieve-metric-values"></a>Metrische waarden ophalen
+
 Zodra de beschikbare metrische definities bekend zijn, is het vervolgens mogelijk om op te halen van de gerelateerde metrische waarden. Van de metrische gegevens de naam 'value' (niet de ' localizedValue') gebruiken voor alle aanvragen filteren (bijvoorbeeld de metrische gegevens 'CpuTime' en 'Aanvragen' herstelpunten ophalen). Als er geen filters zijn opgegeven, wordt de metrische standaardgegevens geretourneerd.
 
 > [!NOTE]
@@ -510,6 +526,7 @@ Invoke-RestMethod -Uri $request `
     -OutFile ".\contosotweets-metrics-multiple-results.json" `
     -Verbose
 ```
+
 De hoofdtekst van het resulterende JSON-antwoord is vergelijkbaar met het volgende voorbeeld:
 
 ```JSON
@@ -562,6 +579,7 @@ De hoofdtekst van het resulterende JSON-antwoord is vergelijkbaar met het volgen
 ```
 
 ### <a name="use-armclient"></a>Gebruik ARMClient
+
 Een aanvullende methode is het gebruik van [ARMClient](https://github.com/projectkudu/armclient) op uw Windows-computer. ARMClient verwerkt automatisch de Azure AD-verificatie (en de resulterende JWT-token). De volgende stappen beschrijven het gebruik van ARMClient voor het ophalen van metrische gegevens:
 
 1. Installeer [Chocolatey](https://chocolatey.org/) en [ARMClient](https://github.com/projectkudu/armclient).
@@ -570,12 +588,13 @@ Een aanvullende methode is het gebruik van [ARMClient](https://github.com/projec
 4. Type *armclient GET [your_resource_id]/providers/microsoft.insights/metrics?api-version=2016-09-01*
 
 Bijvoorbeeld, om op te halen van de metrische definities voor een specifieke logische App, voert u de volgende opdracht uit:
+
 ```
 armclient GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricDefinitions?api-version=2016-03-01
 ```
 
-
 ## <a name="retrieve-the-resource-id"></a>De resource-ID ophalen
+
 Met behulp van de REST-API kunt echt te begrijpen van de beschikbare metrische definities, het granulariteit en de bijbehorende waarden. Informatie is nuttig bij het gebruik van de [Azure Management-bibliotheek](https://msdn.microsoft.com/library/azure/mt417623.aspx).
 
 Voor de bovenstaande code is de resource-ID voor het gebruik van het volledige pad naar de gewenste Azure-resource. Om te vragen op basis van een Azure-Web-App, kan de resource-ID zou zijn:
@@ -595,16 +614,19 @@ De volgende lijst bevat enkele voorbeelden van resource-ID-notaties voor verschi
 Er zijn alternatieve methoden voor het ophalen van de resource-ID, inclusief het gebruik van Azure Resource Explorer, de gewenste resource weergeven in Azure portal en via PowerShell of Azure CLI.
 
 ### <a name="azure-resource-explorer"></a>Azure Resource Explorer
+
 U vindt de resource-ID voor een gewenste resource, een handige methode is het gebruik van de [Azure Resource Explorer](https://resources.azure.com) hulpprogramma. Navigeer naar de gewenste resource en zoek vervolgens naar de ID die wordt weergegeven, zoals in de volgende schermafbeelding:
 
 ![ALT "Azure Resource Explorer"](./media/rest-api-walkthrough/azure_resource_explorer.png)
 
 ### <a name="azure-portal"></a>Azure Portal
+
 De resource-ID kan ook worden verkregen vanuit de Azure-portal. Om dit te doen, gaat u naar de gewenste resource en klik op Eigenschappen. De Resource-ID wordt weergegeven in de sectie met eigenschappen, zoals weergegeven in de volgende schermafbeelding:
 
 ![ALT "Resource-ID weergegeven op de blade eigenschappen in de Azure-portal'](./media/rest-api-walkthrough/resourceid_azure_portal.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
+
 De resource-ID kan worden opgehaald met behulp van Azure PowerShell-cmdlets. Bijvoorbeeld, als u de resource-ID voor een logische App van Azure, voert u de cmdlet Get-AzureLogicApp, zoals in het volgende voorbeeld:
 
 ```PowerShell
@@ -612,6 +634,7 @@ Get-AzureRmLogicApp -ResourceGroupName azmon-rest-api-walkthrough -Name contosot
 ```
 
 Het resultaat moeten vergelijkbaar met het volgende voorbeeld:
+
 ```
 Id             : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets
 Name           : ContosoTweets
@@ -630,8 +653,8 @@ PlanId         :
 Version        : 08586982649483762729
 ```
 
-
 ### <a name="azure-cli"></a>Azure-CLI
+
 Om op te halen van de resource-ID voor een Azure Storage-account met de Azure CLI, voert u de opdracht 'az storage account show' uit zoals wordt weergegeven in het volgende voorbeeld:
 
 ```
@@ -639,6 +662,7 @@ az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017
 ```
 
 Het resultaat moeten vergelijkbaar met het volgende voorbeeld:
+
 ```JSON
 {
   "accessTier": null,
@@ -681,6 +705,7 @@ Het resultaat moeten vergelijkbaar met het volgende voorbeeld:
 >
 
 ## <a name="retrieve-activity-log-data"></a>Ophalen van gegevens van een activiteitenlogboek
+
 Naast de metrische definities en bijbehorende waarden is het ook mogelijk met gebruik van de Azure Monitor REST API om op te halen van andere interessante inzichten met betrekking tot Azure-resources. Bijvoorbeeld: het is mogelijk om query [activiteitenlogboek](https://msdn.microsoft.com/library/azure/dn931934.aspx) gegevens. Het volgende voorbeeld ziet u de Azure Monitor REST API om gegevens van een activiteitenlogboek query binnen een bepaald datumbereik te gebruiken voor een Azure-abonnement:
 
 ```PowerShell
@@ -694,8 +719,8 @@ Invoke-RestMethod -Uri $request `
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
+
 * Controleer de [overzicht van de bewaking](../../azure-monitor/overview.md).
 * Weergave de [ondersteunde metrische gegevens met Azure Monitor](metrics-supported.md).
 * Controleer de [Microsoft Azure REST API-verwijzing bewaken](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 * Controleer de [Azure Management-bibliotheek](https://msdn.microsoft.com/library/azure/mt417623.aspx).
-

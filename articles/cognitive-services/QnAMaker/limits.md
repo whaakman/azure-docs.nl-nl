@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 6f36000eb5a17e58d1450a064897dd9caef89bad
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 424aa7038fecba7a11c1ccaa07053cf2e1606835
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859348"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651124"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker kennisdatabase limieten en grenzen
 Uitgebreide lijst met limieten voor QnA Maker.
@@ -71,6 +71,6 @@ Dit zijn de limieten voor elke update-actie. dat wil zeggen, te klikken op *opsl
 
 Informatie over wanneer en hoe u Servicelagen wijzigen:
 
-* [QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku): wanneer u nodig hebt om meer vragen en antwoorden in uw knowledge base, buiten de huidige laag upgrade uw prijscategorie QnA Maker-service.
-* [Search](how-to/upgrade-qnamaker-service.md#upgrade-app-service) : wanneer uw knowledge base moet fungeren meer aanvragen van uw client-app, upgrade van uw appservice-prijscategorie.
-* [Appservice](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service): wanneer u van plan bent om veel knowledge bases, upgrade van uw Azure Search-service prijscategorie.
+* [QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku): Wanneer u moet beschikken over meer bronbestanden of grotere documenten in uw knowledge base, buiten de huidige laag upgrade uw prijscategorie QnA Maker-service.
+* [App Service](how-to/upgrade-qnamaker-service.md#upgrade-app-service): Wanneer uw knowledge base fungeren meer aanvragen van uw client-app moet, moet u uw app-service prijscategorie bijwerken.
+* [Azure Search](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service): Wanneer u van plan bent om veel knowledge bases, upgrade van uw Azure Search-service prijscategorie.

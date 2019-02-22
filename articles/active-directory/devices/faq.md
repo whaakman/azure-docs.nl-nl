@@ -16,12 +16,12 @@ ms.date: 02/14/2019
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31e380379b5237f6b1a72b3427eb857f64d55c2e
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 5618d9cc14819a15a0396b0dd4fcbf1d0319bbbf
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269056"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651155"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Apparaatbeheer via Azure Active Directory Veelgestelde vragen
 
@@ -86,6 +86,12 @@ Voor versies van het eerdere Windows-besturingssysteem die zich on-premises Acti
 -   Automatische registratie wordt een nieuwe record van apparaat voor downlevel Windows OS-versies die on-premises Azure Directory-domein is gekoppeld, gemaakt met dezelfde naam voor elke domeingebruiker die zich aanmeldt bij het apparaat. 
 
 -   Een Azure AD is toegevoegd aan virtuele machine die is gewist, opnieuw geïnstalleerd en deze met dezelfde naam wordt weergegeven als een andere record met dezelfde naam van het apparaat.
+
+---
+
+**V: Ondersteunt Windows 10 device Registration service in Azure AD TPM's in de FIPS-modus?**
+
+**A:** Nee, momenteel device Registration service in Windows 10 voor alle apparaatstatussen - Hybrid Azure AD join, Azure AD join en geregistreerd bij Azure AD - ondersteunt geen TPM's in de FIPS-modus. Als u wilt toevoegen of registreren bij Azure AD, moet FIPS-modus worden uitgeschakeld voor de TPM's op die apparaten
 
 ---
 

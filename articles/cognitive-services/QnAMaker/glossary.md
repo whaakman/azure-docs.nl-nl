@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: c280f6ef99678b77edcb251ead685be88265f825
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bb3b262f3bde0599cb6dea009d0fbbeafb1c529a
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871010"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649438"
 ---
 # <a name="glossary-for-qna-maker-knowledge-base-and-service"></a>Verklarende woordenlijst voor QnA Maker knowledge base en service
 
@@ -42,4 +42,4 @@ De aanvraag voor een gebruiker is de vraag of de eindgebruiker of tester vraagt 
 Het antwoord is het antwoord van de knowledge base, op basis van het meest geschikt is voor de query voor een bepaalde gebruiker opgehaald.
 
 ## <a name="confidence-score"></a>Betrouwbaarheidsscore
-De betrouwbaarheidsscore van het antwoord is een numerieke waarde tussen 0 en 100, 100 wordt een exacte query overeenkomst tussen gebruiker en een vraag in de knowledge base, die het antwoord is het antwoord juist, geschikt voor een bepaalde gebruiker-query. Antwoorden zijn doorgaans gerangschikt op de betrouwbaarheidsscore en de categorie met de hogere betrouwbaarheidsscore wordt behandeld als het standaardantwoord.
+De betrouwbaarheidsscore van het antwoord is een numerieke waarde tussen 0 en 100, 100 wordt een exacte query overeenkomst tussen gebruiker en een vraag in de knowledge base, die het antwoord is het antwoord juist, geschikt voor een bepaalde gebruiker-query. Antwoorden zijn doorgaans gerangschikt op de betrouwbaarheidsscore en de categorie met de hogere betrouwbaarheidsscore wordt behandeld als de [Standaardantwoord](concepts/confidence-score.md#change-default-answer).

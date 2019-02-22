@@ -16,20 +16,24 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: e5e134fa7dd08bad4220866dd4f5bd9b788e624e
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 2bdd3cd05f78503962461abfcc85320c25350e69
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980598"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593128"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Inleiding tot de handler Azure Desired State Configuration-extensie
 
 De Azure VM-Agent en de bijbehorende extensies zijn onderdeel van Microsoft Azure infrastructuurservices. VM-extensies zijn software-onderdelen die breiden de functionaliteit van de virtuele machine en verschillende bewerkingen voor VM-beheer te vereenvoudigen.
 
-De primaire use-case voor de extensie Azure Desired State Configuration (DSC) is een virtuele machine opstarten de [service van Azure Automation DSC](../../automation/automation-dsc-overview.md). Opstarten van een virtuele machine biedt [voordelen](/powershell/dsc/metaconfig#pull-service) die voortdurend beheer van de VM-configuratie en integratie met andere operationele's, zoals Azure Monitoring bevatten.
+De primaire use-case voor de extensie Azure Desired State Configuration (DSC) is een virtuele machine opstarten de [Azure Automation State Configuration (DSC) service](../../automation/automation-dsc-overview.md).
+De service biedt [voordelen](/powershell/dsc/metaconfig#pull-service) die voortdurend beheer van de VM-configuratie en integratie met andere operationele's, zoals Azure Monitoring bevatten.
+Met de extensie voor het registreren van de virtuele machine met de service biedt een flexibele oplossing die ook geschikt is voor Azure-abonnementen.
 
-U kunt de DSC-extensie onafhankelijk van de service Automation DSC kunt gebruiken. Dit omvat echter een enkel actie op die tijdens de implementatie plaatsvindt. Er zijn geen doorlopende rapport of Configuratiebeheer is beschikbaar, anders dan lokaal in de virtuele machine.
+U kunt de DSC-extensie onafhankelijk van de service Automation DSC kunt gebruiken.
+Dit wordt echter alleen een configuratie push naar de virtuele machine.
+Er is geen continue rapportage is beschikbaar, anders dan lokaal in de virtuele machine.
 
 In dit artikel bevat informatie over beide scenario's: de DSC-extensie gebruiken voor het voorbereiden van Automation en de DSC-extensie gebruiken als een hulpprogramma voor het toewijzen van configuraties aan virtuele machines met behulp van de Azure SDK.
 
@@ -120,6 +124,34 @@ $storageName = 'demostorage'
 Publish-AzVMDscConfiguration -ConfigurationPath .\iisInstall.ps1 -ResourceGroupName $resourceGroup -StorageAccountName $storageName -force
 #Set the VM to run the DSC configuration
 Set-AzVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName 'iisInstall.ps1.zip' -AutoUpdate $true -ConfigurationName 'IISInstall'
+```
+
+## <a name="azure-cli-deployment"></a>Azure CLI-implementatie
+
+De Azure CLI kan worden gebruikt voor het implementeren van de DSC-extensie op een bestaande virtuele machine.
+
+Voor een virtuele machine waarop Windows wordt uitgevoerd:
+
+```azurecli
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name Microsoft.Powershell.DSC \
+  --publisher Microsoft.Powershell \
+  --version 2.77 --protected-settings '{}' \
+  --settings '{}'
+```
+
+Voor een virtuele mchine waarop Linux wordt uitgevoerd:
+
+```azurecli
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name DSCForLinux \
+  --publisher Microsoft.OSTCExtensions \
+  --version 2.7 --protected-settings '{}' \
+  --settings '{}'
 ```
 
 ## <a name="azure-portal-functionality"></a>Functionaliteit van Azure portal

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2019
 ms.author: monhaber
-ms.openlocfilehash: 8dcaa9b98292e66d81daf3d115159b0c0c1124af
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 0b548acc92ab1efedab963e9bd3318e8525ffee4
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106717"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649557"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Beveiligen van uw computers en toepassingen in Azure Security Center
 Azure Security Center analyseert de beveiligingsstatus van uw Azure-resources. Wanneer Security Center potentiële beveiligingsproblemen worden geïdentificeerd, worden er aanbevelingen die u bij het proces begeleiden van het configureren van de benodigde besturingselementen. Aanbevelingen zijn van toepassing op Azure-resource-typen: virtuele machines (VM's) en computers, toepassingen, netwerken, SQL, en de identiteit en toegang.
@@ -159,6 +159,24 @@ Er zijn drie soorten pictogrammen weergegeven in deze lijst:
  -  Selecteer een evaluatie van de doorgegeven in de lijst voor een beschrijving van de evaluatie, een lijst met resources niet in orde en in orde is en een lijst met niet-gescande resources. Er is een tabblad voor de resources niet in orde, maar deze lijst is altijd leeg omdat de evaluatie van de doorgegeven.
 
     ![App Service-herstel](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
+
+## <a name="virtual-machine-scale-sets"></a>Virtuele-machineschaalsets
+Security Center detecteert automatisch of u ingesteld voor schalen hebt en raadt u aan de Microsoft Monitoring Agent installeren op deze scale sets. 
+
+De Microsoft Monitoring Agent installeren: 
+
+1. Selecteer de aanbeveling **monitoring agent installeren op virtuele-machineschaalset**. U ophalen een lijst van niet-bewaakte schaalsets.
+2. Selecteer een schaalset niet in orde. Volg de instructies voor het installeren van de bewakingsagent met behulp van een bestaande ingevuld werkruimte of maak een nieuwe. Zorg ervoor dat u de werkruimte [prijscategorie](security-center-pricing.md) als deze niet ingesteld.
+
+ ![MMS installeren](./media/security-center-virtual-machine-recommendations/install-mms.png)
+
+Als u wilt instellen schaalsets nieuwe automatisch de Microsoft Monitoring Agent wilt installeren:
+1. Ga naar Azure Policy en klikt u op **definities**.
+2. Zoeken naar het beleid **implementeren Log Analytics-agent voor Windows-VM-schaalsets** en klik erop.
+3. Klik op **Toewijzen**.
+4. Stel de **bereik** en **Log Analytics-werkruimte** en klikt u op **toewijzen**.
+
+Als u wilt instellen, alle bestaande schaalsets voor het installeren van Microsoft Monitoring Agent, in de Azure-beleid, gaat u naar **herstel** en het bestaande beleid toepassen op bestaande schaalsets.
 
 
 ## <a name="compute-and-app-recommendations"></a>Reken- en app-aanbevelingen

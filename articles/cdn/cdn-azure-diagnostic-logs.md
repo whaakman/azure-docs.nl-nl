@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: 2b73deb18b518f257e1de6125ef6d4e35eb0e7b7
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 6ce10cd9947acbb74807a5288fc1753e794e69c7
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236275"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652294"
 ---
 # <a name="azure-diagnostic-logs"></a>Diagnostische logboeken in Azure
 
@@ -35,7 +35,7 @@ Diagnostische logboeken van Azure kunnen u eenvoudige metrische gegevens exporte
 
 - Exporteer gegevens voor blob-opslag, exporteren naar CSV en grafieken in Excel te genereren.
 - Gegevens exporteren naar Event Hubs en correleren met gegevens uit andere Azure-services.
-- Gegevens exporteren naar Log Analytics en de weergave gegevens in uw eigen werkruimte van Log Analytics
+- Gegevens exporteren naar Azure Monitor-logboeken en gegevens in uw eigen Log Analytics-werkruimte weergeven
 
 Het volgende diagram toont een typische CDN core analytics-weergave van gegevens.
 
@@ -85,15 +85,15 @@ Als u een opslagaccount wilt opslaan van de logboeken, de volgende stappen uit:
 
 5. Nadat u uw instellingen voor diagnostische logboeken hebt aangebracht, selecteert u **opslaan**.
 
-### <a name="logging-with-log-analytics"></a>Logboekregistratie met Log Analytics
+### <a name="logging-with-azure-monitor"></a>Logboekregistratie met Azure Monitor
 
-Aan de Log Analytics gebruiken voor het opslaan van de logboeken, als volgt te werk:
+Voor het gebruik van Azure Monitor voor het opslaan van de logboeken, de volgende stappen uit:
 
 1. Uit de **diagnoselogboeken** weergeeft, schakelt **verzenden naar Log Analytics**. 
 
     ![Portal - logboeken met diagnostische gegevens](./media/cdn-diagnostics-log/05_Ready-to-Configure.png)    
 
-2. Selecteer **configureren** Log Analytics-logboekregistratie configureren. 
+2. Selecteer **configureren** Azure Monitor-logboekregistratie configureren. 
 
    De **Log Analytics-werkruimten** pagina wordt weergegeven.
 
@@ -133,7 +133,7 @@ Aan de Log Analytics gebruiken voor het opslaan van de logboeken, als volgt te w
 
     ![Portal - logboeken met diagnostische gegevens](./media/cdn-diagnostics-log/cdn-core-analytics-page.png) 
 
-    Werkruimte van Log Analytics is nu klaar om gegevens te registreren. Om die gegevens gebruiken, moet u een [Log Analytics-oplossing](#consuming-diagnostics-logs-from-a-log-analytics-workspace), bedekt verderop in dit artikel.
+    Werkruimte van Log Analytics is nu klaar om gegevens te registreren. Om die gegevens gebruiken, moet u een [Azure Monitor-logboeken oplossing](#consuming-diagnostics-logs-from-a-log-analytics-workspace), bedekt verderop in dit artikel.
 
 Zie voor meer informatie over het logboek gegevens vertragingen [zich gegevens vertragingen](#log-data-delays).
 
@@ -211,9 +211,9 @@ Dit is hoe u het hulpprogramma kunt gebruiken:
 5.  Het resulterende CSV-bestand bevat de analytics-gegevens in een eenvoudige, platte hiërarchie.
 
 ## <a name="consuming-diagnostics-logs-from-a-log-analytics-workspace"></a>Diagnostische logboeken van Log Analytics-werkruimte gebruiken
-Log Analytics is een Azure-service die uw cloud en on-premises omgevingen voor het onderhouden van hun beschikbaarheid en prestaties. De service verzamelt gegevens afkomstig van resources in uw cloud- en on-premises omgevingen en van andere bewakingsprogramma's om analyse over meerdere resources aan te bieden. 
+Azure Monitor is een Azure-service die uw cloud en on-premises omgevingen voor het onderhouden van hun beschikbaarheid en prestaties. De service verzamelt gegevens afkomstig van resources in uw cloud- en on-premises omgevingen en van andere bewakingsprogramma's om analyse over meerdere resources aan te bieden. 
 
-Voor het gebruik van Log Analytics, moet u [logboekregistratie inschakelen](#enable-logging-with-azure-storage) naar de Azure Log Analytics-werkruimte, die eerder in dit artikel wordt besproken.
+Voor het gebruik van Azure Monitor, moet u [logboekregistratie inschakelen](#enable-logging-with-azure-storage) naar de Azure Log Analytics-werkruimte, die eerder in dit artikel wordt besproken.
 
 ### <a name="using-the-log-analytics-workspace"></a>Met behulp van de Log Analytics-werkruimte
 
@@ -227,9 +227,9 @@ U kunt de gegevens op verschillende manieren weergeven met behulp van oplossinge
 
 U kunt oplossingen voor installeren via Azure marketplace door te selecteren de **nu downloaden** koppelen aan de onderkant van elke oplossing.
 
-### <a name="add-a-log-analytics-cdn-management-solution"></a>Een beheeroplossing voor Log Analytics-CDN toevoegen
+### <a name="add-a-azure-monitor-cdn-management-solution"></a>Toevoegen van een beheeroplossing voor CDN van Azure Monitor
 
-Volg deze stappen voor het toevoegen van een beheeroplossing voor Log Analytics:
+Volg deze stappen voor het toevoegen van een oplossing voor Azure Monitor:
 
 1.   Aanmelden bij Azure portal met uw Azure-abonnement en Ga naar uw dashboard.
     ![Azure-dashboard](./media/cdn-diagnostics-log/13_Azure-dashboard.png)
@@ -443,7 +443,7 @@ Van de Voorbeeldeigenschappen:
 
 * [Diagnostische logboeken in Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Core analytics via de aanvullende portal van Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Logboeken in Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 * [Azure Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics)
 
 

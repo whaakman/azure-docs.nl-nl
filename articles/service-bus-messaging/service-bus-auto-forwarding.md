@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 8b51a4b8690d2184223bf33c7e863287de431d62
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 85ab5e3bb963ee692e5b70af3eb90cc68cec361f
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853150"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593383"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Service Bus-entiteiten met autoforwarding-koppeling
 
-De Service Bus *autoforwarding* functie kunt u een wachtrij of abonnement naar een andere wachtrij of onderwerp die deel uitmaakt van dezelfde naamruimte keten. Wanneer autoforwarding is ingeschakeld, wordt Service Bus automatisch worden berichten die worden geplaatst in de eerste wachtrij of abonnement (bron) verwijderd en worden de tegels in de tweede wachtrij of onderwerp (doel). Het is nog steeds mogelijk rechtstreeks een bericht verzenden naar de doelentiteit. Het is ook niet mogelijk om te koppelen van een subwachtrij opgehaald, zoals een wachtrij voor onbestelbare transactieberichten, naar een andere wachtrij of onderwerp.
+De Service Bus *autoforwarding* functie kunt u een wachtrij of abonnement naar een andere wachtrij of onderwerp die deel uitmaakt van dezelfde naamruimte keten. Wanneer autoforwarding is ingeschakeld, wordt Service Bus automatisch worden berichten die worden geplaatst in de eerste wachtrij of abonnement (bron) verwijderd en worden de tegels in de tweede wachtrij of onderwerp (doel). Het is nog steeds mogelijk rechtstreeks een bericht verzenden naar de doelentiteit.
 
 ## <a name="using-autoforwarding"></a>Met behulp van autoforwarding
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/04/2018
 ms.author: ramankum
 ms.subservice: disks
-ms.openlocfilehash: 18258bf8ac9d241fd8a01957d903b1db882c2d36
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 14b6559420fad22cfc2294817cbefd23a6c47a70
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326871"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650101"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Het opslagtype van een beheerde schijf bijwerken
 
@@ -118,6 +118,21 @@ Update-AzDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
 
 Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ```
+
+## <a name="convert-managed-disks-from-standard-to-premium-in-azure-portal"></a>Beheerde schijven converteren van standard naar premium in Azure portal
+
+U kunt een beheerde schijf converteren van standard naar premium in de Azure-portal.
+
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Selecteer de virtuele machine uit de lijst met **virtuele machines** in de portal.
+3. Als de virtuele machine niet gestopt is, klikt u op **stoppen** boven aan de blade overzicht van de virtuele machine en wacht tot de virtuele machine te stoppen.
+3. Selecteer in de blade voor de virtuele machine, **schijven** in het menu.
+4. Selecteer de schijf die u wilt converteren.
+5. Selecteer **configuratie** in het menu.
+6. Wijziging de **accounttype** van **Standard HDD** naar **Premium SSD**.
+7. Klik op **opslaan** en sluit de blade van de schijf.
+
+De update van het schijftype is effectief onmiddellijk. U kunt uw virtuele machine opnieuw opstarten na de conversie.
 
 ## <a name="convert-a-managed-disk-from-standard-hdd-to-standard-ssd"></a>Een beheerde schijf converteren van standard HDD naar standard-SSD
 

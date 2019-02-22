@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e9240949c589717303fe00205c5374b5e3a6a791
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c3f46e40dfaf0d1ba2ab393b593cdd479c48c45d
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008256"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585059"
 ---
 # <a name="az-module-support-in-azure-automation"></a>AZ-module-ondersteuning in Azure Automation
 
@@ -31,7 +31,7 @@ Importeren van een `Az` module in uw Automation-Account niet automatisch importe
 * Wanneer een andere module, afhankelijk van de module wordt geïmporteerd in een PowerShell-sessie
 
 > [!IMPORTANT]
-> Het is belangrijk om ervoor te zorgen dat runbooks in een Automation-Account dat u alleen importeren `Az` of `AzureRM` modules in de PowerShell-sessies die worden gebruikt door runbooks en niet voor beide. Als `Az` wordt geïmporteerd voordat `AzureRM` in een runbook, het runbook wordt voltooid, maar een [fout verwijst naar de methode get_SerializationSettings](/troubleshoot/runbooks.md#get-serializationsettings) wordt weergegeven in de taakstromen en cmdlets mogelijk zijn niet correct uitgevoerd. Als u importeert `AzureRM` en vervolgens `Az` uw runbook nog steeds voltooid, wordt er een fout in de taakstromen met de mededeling dat beide `Az` en `AzureRM` kan niet worden geïmporteerd in dezelfde sessie of in hetzelfde runbook gebruikt.
+> Het is belangrijk om ervoor te zorgen dat runbooks in een Automation-Account dat u alleen importeren `Az` of `AzureRM` modules in de PowerShell-sessies die worden gebruikt door runbooks en niet voor beide. Als `Az` wordt geïmporteerd voordat `AzureRM` in een runbook, het runbook wordt voltooid, maar een [fout verwijst naar de methode get_SerializationSettings](troubleshoot/runbooks.md#get-serializationsettings) wordt weergegeven in de taakstromen en cmdlets mogelijk zijn niet correct uitgevoerd. Als u importeert `AzureRM` en vervolgens `Az` uw runbook nog steeds voltooid, wordt er een fout in de taakstromen met de mededeling dat beide `Az` en `AzureRM` kan niet worden geïmporteerd in dezelfde sessie of in hetzelfde runbook gebruikt.
 
 ## <a name="migrating-to-az-modules"></a>Migreren naar Az-modules
 

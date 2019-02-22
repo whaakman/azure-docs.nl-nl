@@ -1,7 +1,7 @@
 ---
-title: Trainen van modellen met TensorFlow
+title: Trainen van modellen met TensorFlow & Keras
 titleSuffix: Azure Machine Learning service
-description: Meer informatie over het uitvoeren van één knooppunt en gedistribueerde modellen TensorFlow-training met de TensorFlow estimator
+description: Meer informatie over het uitvoeren van één knooppunt en gedistribueerde TensorFlow- en Keras-modellen-training met de loopt TensorFlow en Keras
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 12/04/2018
+ms.date: 02/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: c76a94695114888ca8946106528fe179ff81c811
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b1ee41c6d543ac4f52b537ebc8054f2986c4217c
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244722"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649577"
 ---
-# <a name="train-tensorflow-models-with-azure-machine-learning-service"></a>TensorFlow-modellen met Azure Machine Learning-service trainen
+# <a name="train-tensorflow-and-keras-models-with-azure-machine-learning-service"></a>Train TensorFlow en Keras-modellen met Azure Machine Learning-service
 
 Azure Machine Learning biedt voor deep neural network (DNN) training over het gebruik van TensorFlow, een aangepaste `TensorFlow` klasse van de `Estimator`. De Azure SDK `TensorFlow` estimator (niet te worden conflated met de [ `tf.estimator.Estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator) klasse) kunt u eenvoudig TensorFlow-trainingstaken voor één knooppunt en het gedistribueerde wordt uitgevoerd op Azure-rekenen indienen.
 
@@ -39,7 +39,7 @@ tf_est = TensorFlow(source_directory='./my-tf-proj',
                     script_params=script_params,
                     compute_target=compute_target,
                     entry_script='train.py',
-                    conda_packages=['scikit-learn'],
+                    conda_packages=['scikit-learn'], # in case you need scikit-learn in train.py
                     use_gpu=True)
 ```
 
@@ -60,6 +60,21 @@ Vervolgens verzenden van de taak TensorFlow:
 ```Python
 run = exp.submit(tf_est)
 ```
+
+## <a name="keras-support"></a>Ondersteuning van Keras
+[Keras](https://keras.io/) is een populaire op hoog niveau DNN Python API die ondersteuning biedt voor TensorFlow, CNTK of Theano als back-ends. Als u TensorFlow als back-end gebruikt, kunt u eenvoudig de estimator TensFlow gebruiken op een Keras-model te trainen. Hier volgt een voorbeeld van een estimator TensorFlow met Keras toegevoegd:
+
+```Python
+from azureml.train.dnn import TensorFlow
+
+keras_est = TensorFlow(source_directory='./my-keras-proj',
+                       script_params=script_params,
+                       compute_target=compute_target,
+                       entry_script='keras_train.py',
+                       conda_packages=['keras'], # just add keras through conda
+                       use_gpu=True)
+```
+Azure Machine Learning-service voor het installeren van Keras via Conda op de uitvoeringsomgeving Hiermee geeft u de bovenstaande TensorFlow estimator-constructor. En uw `keras_train.py` Keras-API als u wilt een Keras-model te trainen kunt importeren. Voor een compleet voorbeeld verkennen [deze Jupyter-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb).
 
 ## <a name="distributed-training"></a>Gedistribueerde training
 De TensorFlow Estimator kunt u uw modellen op schaal te trainen voor CPU en GPU-clusters virtuele Azure-machines. U kunt eenvoudig gedistribueerde TensorFlow-training uitvoeren met een aantal API-aanroepen, terwijl Azure Machine Learning achter de schermen beheert de infrastructuur en orchestration die nodig zijn voor het uitvoeren van deze werkbelastingen.
@@ -96,7 +111,7 @@ Parameter | Description | Standaard
 
 Het bovenstaande voorbeeld wordt gedistribueerd training worden uitgevoerd met twee werkrollen één werknemer per knooppunt.
 
-Horovod en de bijbehorende afhankelijkheden wordt geïnstalleerd, zodat u deze eenvoudig in uw trainingsscript importeren kunt `train.py` als volgt:
+Horovod en de bijbehorende afhankelijkheden wordt geïnstalleerd, zodat u deze in uw trainingsscript importeren kunt `train.py` als volgt:
 
 ```Python
 import tensorflow as tf
@@ -150,7 +165,7 @@ TF_CONFIG='{
 }'
 ```
 
-Als u TensorFlow op hoog niveau de [ `tf.estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator) API, TensorFlow parseren dit `TF_CONFIG` variabele en het buildnummer van het cluster specificaties voor u. 
+Als u van hoog niveau van TensorFlow gebruikmaakt [ `tf.estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator) API, TensorFlow parseren dit `TF_CONFIG` variabele en het buildnummer van het cluster specificaties voor u. 
 
 Als u in plaats daarvan TensorFlow van lager niveau core API's voor training gebruikt, moet u parseren de `TF_CONFIG` variabele en bouwen de `tf.train.ClusterSpec` zelf in uw trainingen-code. In [in dit voorbeeld](https://aka.ms/aml-notebook-tf-ps), doet u dit in **uw trainingsscript** als volgt:
 
@@ -173,8 +188,7 @@ run = exp.submit(tf_est)
 
 ## <a name="examples"></a>Voorbeelden
 
-Voor laptops op gedistribueerde deep learning, Zie:
-* [How-to-use-azureml/training-with-deep-Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
+Verken verschillende [notitieblokken op gedistribueerde deep learning op Github](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

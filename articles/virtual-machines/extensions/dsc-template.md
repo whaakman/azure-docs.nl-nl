@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: d55f6097e3e1eed508580676edcf008b0739034c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e62bc0fff054f0392cd4f437565b5f4dae9cbfb7
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230973"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594420"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration-extensie met Azure Resource Manager-sjablonen
 
@@ -36,33 +36,46 @@ Zie voor meer informatie, [VirtualMachineExtension klasse](/dotnet/api/microsoft
 
 ```json
 {
-    "type": "Microsoft.Compute/virtualMachines/extensions",
-    "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
-    "apiVersion": "2018-04-01",
-    "location": "[resourceGroup().location]",
-    "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
-    ],
-    "properties": {
-        "publisher": "Microsoft.Powershell",
-        "type": "DSC",
-        "typeHandlerVersion": "2.76",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-            "configurationArguments": {
-                "RegistrationUrl" : "registrationUrl",
-                "NodeConfigurationName" : "nodeConfigurationName"
-            }
+  "type": "Microsoft.Compute/virtualMachines/extensions",
+  "name": "Microsoft.Powershell.DSC",
+  "apiVersion": "2018-06-30",
+  "location": "[parameters('location')]",
+  "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
+  ],
+  "properties": {
+    "publisher": "Microsoft.Powershell",
+    "type": "DSC",
+    "typeHandlerVersion": "2.77",
+    "autoUpgradeMinorVersion": true,
+    "protectedSettings": {
+      "Items": {
+        "registrationKeyPrivate": "[listKeys(resourceId('Microsoft.Automation/automationAccounts/', parameters('automationAccountName')), '2018-06-30').Keys[0].value]"
+      }
+    },
+    "settings": {
+      "Properties": [
+        {
+          "Name": "RegistrationKey",
+          "Value": {
+            "UserName": "PLACEHOLDER_DONOTUSE",
+            "Password": "PrivateSettingsRef:registrationKeyPrivate"
+          },
+          "TypeName": "System.Management.Automation.PSCredential"
         },
-        "protectedSettings": {
-            "configurationArguments": {
-                "RegistrationKey": {
-                    "userName": "NOT_USED",
-                    "Password": "registrationKey"
-                }
-            }
+        {
+          "Name": "RegistrationUrl",
+          "Value": "[reference(concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))).registrationUrl]",
+          "TypeName": "System.String"
+        },
+        {
+          "Name": "NodeConfigurationName",
+          "Value": "[parameters('nodeConfigurationName')]",
+          "TypeName": "System.String"
         }
+      ]
     }
+  }
 }
 ```
 
@@ -77,37 +90,44 @@ Zie voor meer informatie, [VirtualMachineScaleSetExtension klasse](/dotnet/api/m
 ```json
 "extensionProfile": {
     "extensions": [
-        {
-            "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
-            "apiVersion": "2018-04-01",
-            "location": "[resourceGroup().location]",
-            "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
-            ],
-            "properties": {
-                "publisher": "Microsoft.Powershell",
-                "type": "DSC",
-                "typeHandlerVersion": "2.76",
-                "autoUpgradeMinorVersion": true,
-                "settings": {
-                    "configurationArguments": {
-                        "RegistrationUrl" : "registrationUrl",
-                        "NodeConfigurationName" : "nodeConfigurationName"
-                    }
-                },
-                "protectedSettings": {
-                    "configurationArguments": {
-                        "RegistrationKey": {
-                            "userName": "NOT_USED",
-                            "Password": "registrationKey"
-                        }
-                    }
-                }
+      {
+        "name": "Microsoft.Powershell.DSC",
+        "properties": {
+          "publisher": "Microsoft.Powershell",
+          "type": "DSC",
+          "typeHandlerVersion": "2.77",
+          "autoUpgradeMinorVersion": true,
+          "protectedSettings": {
+            "Items": {
+              "registrationKeyPrivate": "[listKeys(resourceId('Microsoft.Automation/automationAccounts/', parameters('automationAccountName')), '2018-06-30').Keys[0].value]"
             }
+          },
+          "settings": {
+            "Properties": [
+              {
+                "Name": "RegistrationKey",
+                "Value": {
+                  "UserName": "PLACEHOLDER_DONOTUSE",
+                  "Password": "PrivateSettingsRef:registrationKeyPrivate"
+                },
+                "TypeName": "System.Management.Automation.PSCredential"
+              },
+              {
+                "Name": "RegistrationUrl",
+                "Value": "[reference(concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))).registrationUrl]",
+                "TypeName": "System.String"
+              },
+              {
+                "Name": "NodeConfigurationName",
+                "Value": "[parameters('nodeConfigurationName')]",
+                "TypeName": "System.String"
+              }
+            ]
+          }
         }
+      }
     ]
-}
+  }
 ```
 
 ## <a name="detailed-settings-information"></a>Instellingen voor gedetailleerde informatie
@@ -158,35 +178,35 @@ Zie voor een lijst van de argumenten die beschikbaar voor een script voor de con
 
 ## <a name="details"></a>Details
 
-| Naam van eigenschap | Type | Beschrijving |
+| Naam van eigenschap | Type | Description |
 | --- | --- | --- |
-| settings.wmfVersion |tekenreeks |Hiermee geeft u de versie van Windows Management Framework (WMF) die moet worden geïnstalleerd op de virtuele machine. Als deze eigenschap instelt op **nieuwste** installeert de meest recente versie van WMF. Op dit moment de enige mogelijke waarden voor deze eigenschap zijn **4.0**, **5.0**, **5.1**, en **nieuwste**. Deze mogelijke waarden zijn afhankelijk van updates. De standaardwaarde is **nieuwste**. |
-| settings.configuration.url |tekenreeks |Hiermee geeft u de URL-locatie van waaruit het ZIP-bestand van uw DSC-configuratie gedownload. Als de opgegeven URL is een SAS-token voor toegang vereist, stelt u de **protectedSettings.configurationUrlSasToken** eigenschap met de waarde van uw SAS-token. Deze eigenschap is vereist als **settings.configuration.script** of **settings.configuration.function** zijn gedefinieerd. Als er geen waarde is opgegeven voor deze eigenschappen, de extensie roept de standaard-configuratiescript voor het instellen van de metagegevens van de locatie van Configuration Manager (LCM) en moeten worden opgegeven als argumenten. |
-| settings.configuration.script |tekenreeks |Hiermee geeft u de bestandsnaam van het script dat de definitie van de DSC-configuratie bevat. Met dit script moet zich in de hoofdmap van het ZIP-bestand dat moet worden gedownload vanaf de URL die is opgegeven door de **settings.configuration.url** eigenschap. Deze eigenschap is vereist als **settings.configuration.url** of **settings.configuration.script** zijn gedefinieerd. Als er geen waarde is opgegeven voor deze eigenschappen, de extensie roept de standaard-configuratiescript om in te stellen LCM metagegevens en moeten worden opgegeven als argumenten. |
-| settings.configuration.function |tekenreeks |Hiermee geeft u de naam van de DSC-configuratie. De configuratie met de naam moet worden opgenomen in het script dat **settings.configuration.script** definieert. Deze eigenschap is vereist als **settings.configuration.url** of **settings.configuration.function** zijn gedefinieerd. Als er geen waarde is opgegeven voor deze eigenschappen, de extensie roept de standaard-configuratiescript om in te stellen LCM metagegevens en moeten worden opgegeven als argumenten. |
+| settings.wmfVersion |string |Hiermee geeft u de versie van Windows Management Framework (WMF) die moet worden geïnstalleerd op de virtuele machine. Als deze eigenschap instelt op **nieuwste** installeert de meest recente versie van WMF. Op dit moment de enige mogelijke waarden voor deze eigenschap zijn **4.0**, **5.0**, **5.1**, en **nieuwste**. Deze mogelijke waarden zijn afhankelijk van updates. De standaardwaarde is **nieuwste**. |
+| settings.configuration.url |string |Hiermee geeft u de URL-locatie van waaruit het ZIP-bestand van uw DSC-configuratie gedownload. Als de opgegeven URL is een SAS-token voor toegang vereist, stelt u de **protectedSettings.configurationUrlSasToken** eigenschap met de waarde van uw SAS-token. Deze eigenschap is vereist als **settings.configuration.script** of **settings.configuration.function** zijn gedefinieerd. Als er geen waarde is opgegeven voor deze eigenschappen, de extensie roept de standaard-configuratiescript voor het instellen van de metagegevens van de locatie van Configuration Manager (LCM) en moeten worden opgegeven als argumenten. |
+| settings.configuration.script |string |Hiermee geeft u de bestandsnaam van het script dat de definitie van de DSC-configuratie bevat. Met dit script moet zich in de hoofdmap van het ZIP-bestand dat moet worden gedownload vanaf de URL die is opgegeven door de **settings.configuration.url** eigenschap. Deze eigenschap is vereist als **settings.configuration.url** of **settings.configuration.script** zijn gedefinieerd. Als er geen waarde is opgegeven voor deze eigenschappen, de extensie roept de standaard-configuratiescript om in te stellen LCM metagegevens en moeten worden opgegeven als argumenten. |
+| settings.configuration.function |string |Hiermee geeft u de naam van de DSC-configuratie. De configuratie met de naam moet worden opgenomen in het script dat **settings.configuration.script** definieert. Deze eigenschap is vereist als **settings.configuration.url** of **settings.configuration.function** zijn gedefinieerd. Als er geen waarde is opgegeven voor deze eigenschappen, de extensie roept de standaard-configuratiescript om in te stellen LCM metagegevens en moeten worden opgegeven als argumenten. |
 | settings.configurationArguments |Verzameling |Hiermee definieert u de parameters die u wilt doorgeven aan uw DSC-configuratie. Deze eigenschap is niet versleuteld. |
-| settings.configurationData.url |tekenreeks |Geeft de URL waaruit u uw gegevens (.psd1)-configuratiebestand te downloaden om te gebruiken als invoer voor uw DSC-configuratie. Als de opgegeven URL is een SAS-token voor toegang vereist, stelt u de **protectedSettings.configurationDataUrlSasToken** eigenschap met de waarde van uw SAS-token. |
-| settings.privacy.dataCollection |tekenreeks |Hiermee of verzamelen van telemetriegegevens uitgeschakeld. De enige mogelijke waarden voor deze eigenschap zijn **inschakelen**, **uitschakelen**, **''**, of **$null**. Deze eigenschap verlaten leeg of null zijn, kunt telemetrie. De standaardwaarde is **''**. Zie voor meer informatie, [Azure DSC-extensie gegevensverzameling](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
+| settings.configurationData.url |string |Geeft de URL waaruit u uw gegevens (.psd1)-configuratiebestand te downloaden om te gebruiken als invoer voor uw DSC-configuratie. Als de opgegeven URL is een SAS-token voor toegang vereist, stelt u de **protectedSettings.configurationDataUrlSasToken** eigenschap met de waarde van uw SAS-token. |
+| settings.privacy.dataCollection |string |Hiermee of verzamelen van telemetriegegevens uitgeschakeld. De enige mogelijke waarden voor deze eigenschap zijn **inschakelen**, **uitschakelen**, **''**, of **$null**. Deze eigenschap verlaten leeg of null zijn, kunt telemetrie. De standaardwaarde is **''**. Zie voor meer informatie, [Azure DSC-extensie gegevensverzameling](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
 | settings.advancedOptions.downloadMappings |Verzameling |Hiermee definieert u alternatieve locaties van waaruit WMF gedownload. Zie voor meer informatie, [Azure DSC-extensie 2.8 en downloaden van de extensie afhankelijkheden toewijzen aan uw eigen locatie](https://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx). |
 | protectedSettings.configurationArguments |Verzameling |Hiermee definieert u de parameters die u wilt doorgeven aan uw DSC-configuratie. Deze eigenschap is versleuteld. |
-| protectedSettings.configurationUrlSasToken |tekenreeks |Hiermee geeft u de SAS-token gebruiken voor toegang tot de URL die **settings.configuration.url** definieert. Deze eigenschap is versleuteld. |
-| protectedSettings.configurationDataUrlSasToken |tekenreeks |Hiermee geeft u de SAS-token gebruiken voor toegang tot de URL die **settings.configurationData.url** definieert. Deze eigenschap is versleuteld. |
+| protectedSettings.configurationUrlSasToken |string |Hiermee geeft u de SAS-token gebruiken voor toegang tot de URL die **settings.configuration.url** definieert. Deze eigenschap is versleuteld. |
+| protectedSettings.configurationDataUrlSasToken |string |Hiermee geeft u de SAS-token gebruiken voor toegang tot de URL die **settings.configurationData.url** definieert. Deze eigenschap is versleuteld. |
 
 ## <a name="default-configuration-script"></a>Standaard-configuratiescript
 
 Zie voor meer informatie over de volgende waarden [Local Configuration Manager-basisinstellingen](/powershell/dsc/metaconfig#basic-settings).
 U kunt de DSC-extensie standaard-configuratiescript gebruiken alleen de LCM om eigenschappen te configureren die worden vermeld in de volgende tabel.
 
-| Naam van eigenschap | Type | Beschrijving |
+| Naam van eigenschap | Type | Description |
 | --- | --- | --- |
 | protectedSettings.configurationArguments.RegistrationKey |PSCredential |De vereiste eigenschap. Hiermee geeft u de sleutel die wordt gebruikt om een knooppunt te registreren bij Azure Automation-service als het wachtwoord van een PowerShell-referentieobject. Deze waarde automatisch worden gedetecteerd met behulp van de **listkeys** methode op basis van het Automation-account.  Zie de [voorbeeld](#example-using-referenced-azure-automation-registration-values). |
-| settings.configurationArguments.RegistrationUrl |tekenreeks |De vereiste eigenschap. Hiermee geeft u de URL van het Automation-eindpunt waar het knooppunt probeert te registreren. Deze waarde automatisch worden gedetecteerd met behulp van de **verwijzing** methode op basis van het Automation-account. |
-| settings.configurationArguments.NodeConfigurationName |tekenreeks |De vereiste eigenschap. Hiermee geeft u de configuratie van de knooppunten in het Automation-account om toe te wijzen aan het knooppunt. |
-| settings.configurationArguments.ConfigurationMode |tekenreeks |Hiermee geeft u de modus voor LCM. Geldige opties zijn onder andere **ApplyOnly**, **ApplyandMonitor**, en **ApplyandAutoCorrect**.  De standaardwaarde is **ApplyandMonitor**. |
-| settings.configurationArguments.RefreshFrequencyMins | UInt32 | Hiermee geeft u op hoe vaak LCM probeert om te controleren met de Automation-account voor updates.  Standaardwaarde is **30**.  De minimumwaarde is **15**. |
-| settings.configurationArguments.ConfigurationModeFrequencyMins | UInt32 | Hiermee geeft u op hoe vaak LCM valideert de huidige configuratie. Standaardwaarde is **15**. De minimumwaarde is **15**. |
+| settings.configurationArguments.RegistrationUrl |string |De vereiste eigenschap. Hiermee geeft u de URL van het Automation-eindpunt waar het knooppunt probeert te registreren. Deze waarde automatisch worden gedetecteerd met behulp van de **verwijzing** methode op basis van het Automation-account. |
+| settings.configurationArguments.NodeConfigurationName |string |De vereiste eigenschap. Hiermee geeft u de configuratie van de knooppunten in het Automation-account om toe te wijzen aan het knooppunt. |
+| settings.configurationArguments.ConfigurationMode |string |Hiermee geeft u de modus voor LCM. Geldige opties zijn onder andere **ApplyOnly**, **ApplyandMonitor**, en **ApplyandAutoCorrect**.  De standaardwaarde is **ApplyandMonitor**. |
+| settings.configurationArguments.RefreshFrequencyMins | uint32 | Hiermee geeft u op hoe vaak LCM probeert om te controleren met de Automation-account voor updates.  Standaardwaarde is **30**.  De minimumwaarde is **15**. |
+| settings.configurationArguments.ConfigurationModeFrequencyMins | uint32 | Hiermee geeft u op hoe vaak LCM valideert de huidige configuratie. Standaardwaarde is **15**. De minimumwaarde is **15**. |
 | settings.configurationArguments.RebootNodeIfNeeded | booleaans | Hiermee geeft u op of een knooppunt worden automatisch opnieuw opgestart kan als een bewerking DSC om vraagt. Standaardwaarde is **false**. |
-| settings.configurationArguments.ActionAfterReboot | tekenreeks | Hiermee geeft u op wat gebeurt er na een opnieuw opstarten bij het toepassen van een configuratie. Geldige opties zijn **ContinueConfiguration** en **de StopConfiguration**. Standaardwaarde is **ContinueConfiguration**. |
+| settings.configurationArguments.ActionAfterReboot | string | Hiermee geeft u op wat gebeurt er na een opnieuw opstarten bij het toepassen van een configuratie. Geldige opties zijn **ContinueConfiguration** en **de StopConfiguration**. Standaardwaarde is **ContinueConfiguration**. |
 | settings.configurationArguments.AllowModuleOverwrite | booleaans | Hiermee geeft u op of LCM bestaande modules op het knooppunt overschrijft. Standaardwaarde is **false**. |
 
 ## <a name="settings-vs-protectedsettings"></a>instellingen voor versus protectedSettings
@@ -310,15 +330,15 @@ Hier ziet u hoe de vorige indeling worden aangepast aan de huidige indeling:
 
 | Huidige naam van eigenschap | Vorige schema equivalent |
 | --- | --- |
-| settings.wmfVersion |Instellingen. WMFVersion |
+| settings.wmfVersion |settings.WMFVersion |
 | settings.configuration.url |settings.ModulesUrl |
 | settings.configuration.script |Eerste deel van de instellingen. ConfigurationFunction (vóór \\ \\) |
 | settings.configuration.function |Tweede deel van de instellingen. ConfigurationFunction (nadat \\ \\) |
-| Settings.Configuration.module.name | Instellingen. ModuleSource |
-| Settings.Configuration.module.Version | Instellingen. ModuleVersion |
-| settings.configurationArguments |Instellingen. Eigenschappen |
+| settings.configuration.module.name | settings.ModuleSource |
+| settings.configuration.module.version | settings.ModuleVersion |
+| settings.configurationArguments |settings.Properties |
 | settings.configurationData.url |protectedSettings.DataBlobUri (zonder de SAS-token) |
-| settings.privacy.dataCollection |Instellingen. Privacy.dataCollection |
+| settings.privacy.dataCollection |settings.Privacy.dataCollection |
 | settings.advancedOptions.downloadMappings |settings.AdvancedOptions.DownloadMappings |
 | protectedSettings.configurationArguments |protectedSettings.Properties |
 | protectedSettings.configurationUrlSasToken |settings.SasToken |
@@ -335,7 +355,7 @@ De enige mogelijke waarden zijn ", 'Inschakelen' en 'Disable'".
 "WmfVersion is '{0}'.
 Alleen de mogelijke waarden zijn... en de 'nieuwste' ".
 
-**Probleem**: een opgegeven waarde is niet toegestaan.
+**Probleem**: Een opgegeven waarde is niet toegestaan.
 
 **Oplossing**: Wijzig de ongeldige waarde in een geldige waarde.
 Voor meer informatie, Zie de tabel in [Details](#details).
@@ -344,7 +364,7 @@ Voor meer informatie, Zie de tabel in [Details](#details).
 
 "ConfigurationData.url is '{0}'. Dit is geen geldige URL' ' DataBlobUri is '{0}'. Dit is geen geldige URL' ' Configuration.url is '{0}'. Dit is geen geldige URL'
 
-**Probleem**: een opgegeven URL is niet geldig.
+**Probleem**: Een opgegeven URL is niet geldig.
 
 **Oplossing**: Controleer de opgegeven URL's.
 Zorg ervoor dat alle URL's omgezet in geldige locaties dat de extensie op de externe computer openen kunt.
@@ -353,7 +373,7 @@ Zorg ervoor dat alle URL's omgezet in geldige locaties dat de extensie op de ext
 
 "Ongeldig type voor parameter RegistrationKey van het type PSCredential."
 
-**Probleem**: de *RegistrationKey* waarde in protectedSettings.configurationArguments kan niet worden opgegeven als een ander type heeft dan een PSCredential.
+**Probleem**: De *RegistrationKey* waarde in protectedSettings.configurationArguments kan niet worden opgegeven als een ander type heeft dan een PSCredential.
 
 **Oplossing**: Wijzig uw inzending protectedSettings.configurationArguments voor RegistrationKey in een PSCredential-type met de volgende notatie:
 
@@ -370,7 +390,7 @@ Zorg ervoor dat alle URL's omgezet in geldige locaties dat de extensie op de ext
 
 "Ongeldige configurationArguments type {0}"
 
-**Probleem**: de *ConfigurationArguments* eigenschap kan niet worden omgezet naar een **Hash-tabel** object.
+**Probleem**: De *ConfigurationArguments* eigenschap kan niet worden omgezet naar een **Hash-tabel** object.
 
 **Oplossing**: Controleer uw *ConfigurationArguments* eigenschap een **Hash-tabel**.
 Ga als volgt de indeling die is opgegeven in de voorgaande voorbeelden. Bekijk voor offertes, komma's en accolades.
@@ -379,7 +399,7 @@ Ga als volgt de indeling die is opgegeven in de voorgaande voorbeelden. Bekijk v
 
 "Gevonden dubbele argumenten{0}' in zowel openbare als beveiligde configurationArguments"
 
-**Probleem**: de *ConfigurationArguments* in de openbare-instellingen en de *ConfigurationArguments* in beveiligde instellingen eigenschappen met dezelfde naam hebben.
+**Probleem**: De *ConfigurationArguments* in de openbare-instellingen en de *ConfigurationArguments* in beveiligde instellingen eigenschappen met dezelfde naam hebben.
 
 **Oplossing**: Verwijder een van de dubbele eigenschappen.
 
@@ -397,7 +417,7 @@ Ga als volgt de indeling die is opgegeven in de voorgaande voorbeelden. Bekijk v
 
 "protectedSettings.ConfigurationDataUrlSasToken vereist dat settings.configurationData.url is opgegeven."
 
-**Probleem**: een gedefinieerde eigenschap moet een andere eigenschap ontbreekt.
+**Probleem**: Een gedefinieerde eigenschap moet een andere eigenschap ontbreekt.
 
 **Oplossingen**:
 

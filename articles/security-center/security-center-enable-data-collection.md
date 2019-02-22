@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: a11a72bf2121bb36203002b69f06c74ca3e8a2d0
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: cdbce2073213906dbb82b0684f8ef4e3528f6cf4
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107852"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652693"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Verzamelen van gegevens in Azure Security Center
-Security Center verzamelt gegevens van uw virtuele Azure-machines (VM's) en niet-Azure-computers om te controleren op beveiligingsproblemen en bedreigingen. De gegevens worden verzameld met behulp van de MMA, die verschillende configuraties en gebeurtenislogboeken met betrekking tot beveiliging van de machine leest en de gegevens kopieert naar uw werkruimte voor analyse. Voorbeelden van dergelijke gegevens zijn: besturingssysteem systeemtype en versie, besturingssysteemlogboeken (Windows-gebeurtenislogboeken), actieve processen, computernaam, IP-adressen en aangemelde gebruiker. De Microsoft Monitoring Agent kopieert ook crashdumpbestanden naar uw werkruimte.
+Security Center verzamelt gegevens van uw virtuele Azure-machines (VM's) en niet-Azure-computers om te controleren op beveiligingsproblemen en bedreigingen. Gegevens worden verzameld met behulp van de Log Analytics-agent, die verschillende beveiliging gerelateerde configuraties en gebeurtenislogboeken van de machine leest en de gegevens worden gekopieerd naar uw werkruimte voor analyse. Voorbeelden van dergelijke gegevens zijn: besturingssysteem systeemtype en versie, besturingssysteemlogboeken (Windows-gebeurtenislogboeken), actieve processen, computernaam, IP-adressen en aangemelde gebruiker. De Log Analytics-agent kopieert ook crashdumpbestanden naar uw werkruimte.
 
 Het verzamelen van gegevens is vereist om aan te bieden inzicht in de ontbrekende updates, onjuist geconfigureerde OS-beveiligingsinstellingen, endpoint protection inschakelen en status- en bedreigingsbeveiliging detecties. 
 
-Dit artikel bevat richtlijnen over hoe u Microsoft Monitoring Agent installeren en instellen van een werkruimte voor logboekanalyse voor het opslaan van de verzamelde gegevens. Beide bewerkingen zijn vereist om gegevens te verzamelen. 
+Dit artikel bevat richtlijnen over hoe u een Log Analytics-agent installeren en instellen van een werkruimte voor logboekanalyse voor het opslaan van de verzamelde gegevens. Beide bewerkingen zijn vereist om gegevens te verzamelen. 
 
 > [!NOTE]
 > - Het verzamelen van gegevens is alleen nodig voor de Compute-resources (virtuele machines en niet-Azure-computers). U kunt profiteren van Azure Security Center, zelfs als u agents; niet inrichten echter, u hebt beperkte beveiliging en bovenstaande functies worden niet ondersteund.  
@@ -34,19 +34,19 @@ Dit artikel bevat richtlijnen over hoe u Microsoft Monitoring Agent installeren 
 > - Verzamelen van gegevens voor virtuele-machineschaalset is momenteel niet ondersteund.
 
 
-## Automatische inrichting van Microsoft Monitoring Agent inschakelen <a name="auto-provision-mma"></a>
+## Automatische inrichting van Log Analytics-agent inschakelen <a name="auto-provision-mma"></a>
 
-Het verzamelen van de gegevens van de machines die u moet beschikken over de Microsoft Monitoring Agent is geïnstalleerd.  Installatie van de agent automatisch kan worden (aanbevolen) of u kunt de agent handmatig installeren.  
+Voor het verzamelen van de gegevens van de machines hebt u de Log Analytics-agent is geïnstalleerd.  Installatie van de agent automatisch kan worden (aanbevolen) of u kunt de agent handmatig installeren.  
 
 >[!NOTE]
 > Automatische inrichting is standaard uitgeschakeld. Als u wilt instellen in Security Center voor het installeren van automatische inrichting standaard, ingesteld op **op**.
 >
 
-Als automatisch inrichten ingeschakeld is, ondersteund levert Security Center de Microsoft Monitoring Agent op alle Azure-VM's en een nieuwe VM's die worden gemaakt. Automatische inrichting wordt sterk aanbevolen, maar handmatige agentinstallatie is ook beschikbaar. [Informatie over het installeren van de Microsoft Monitoring Agent-extensie](#manualagent).
+Als automatisch inrichten ingeschakeld is, richt Security Center de Log Analytics-agent op alle ondersteunde Azure-VM's en een nieuwe VM's die worden gemaakt. Automatische inrichting wordt sterk aanbevolen, maar handmatige agentinstallatie is ook beschikbaar. [Informatie over het installeren van de Log Analytics-agent-extensie](#manualagent).
 
 
 
-Automatische inrichting van de MMA inschakelen:
+Inschakelen van automatische inrichting van de Log Analytics-agent:
 1. Selecteer in het hoofdmenu van Security Center de optie **beveiligingsbeleid**.
 2. Klik op **instellingen bewerken** in de kolom met de instellingen van het gewenste abonnement in de lijst.
 
@@ -60,7 +60,7 @@ Automatische inrichting van de MMA inschakelen:
 
 >[!NOTE]
 > - Zie voor instructies over het inrichten van een bestaande installatie [automatische inrichting in geval van een bestaande installatie van de agent](#preexisting).
-> - Zie voor instructies over het inrichten van handmatige [handmatig installeren van de Microsoft Monitoring Agent-extensie](#manualagent).
+> - Zie voor instructies over het inrichten van handmatige [handmatig installeren van de Log Analytics-agent-extensie](#manualagent).
 > - Zie voor instructies voor automatische inrichting uitschakelen, [automatische inrichting uitschakelen](#offprovisioning).
 > - Voor instructies over hoe onboarding Security Center met behulp van PowerShell, Zie [automatiseren onboarding van Azure Security Center met behulp van PowerShell](security-center-powershell-onboarding.md).
 >
@@ -147,7 +147,7 @@ Wanneer u een werkruimte waarin u uw gegevens kunt opslaan selecteert, worden al
 
 
 ## <a name="data-collection-tier"></a>Verzameling gegevenslaag
-Een verzameling gegevenslaag selecteren in Azure Security Center heeft alleen invloed op de opslag van beveiligingsgebeurtenissen in uw Log Analytics-werkruimte. De Microsoft Monitoring Agent wordt nog steeds verzamelen en analyseren van de beveiligingsgebeurtenissen die vereist zijn voor Azure Security Center bedreigingen detecties, ongeacht welke laag van beveiligingsgebeurtenissen die u kiest voor het opslaan in uw Log Analytics-werkruimte (indien aanwezig). Voor het opslaan van beveiligingsgebeurtenissen in uw werkruimte te kiezen kunt voor onderzoek, zoeken en controle van de gebeurtenissen die in uw werkruimte. 
+Een verzameling gegevenslaag selecteren in Azure Security Center heeft alleen invloed op de opslag van beveiligingsgebeurtenissen in uw Log Analytics-werkruimte. De Log Analytics-agent wordt nog steeds verzamelen en analyseren van de beveiligingsgebeurtenissen die vereist zijn voor Azure Security Center bedreigingen detecties, ongeacht welke laag van beveiligingsgebeurtenissen die u kiest voor het opslaan in uw Log Analytics-werkruimte (indien aanwezig). Voor het opslaan van beveiligingsgebeurtenissen in uw werkruimte te kiezen kunt voor onderzoek, zoeken en controle van de gebeurtenissen die in uw werkruimte. 
 > [!NOTE]
 > Opslaan van gegevens in Log Analytics mogelijk extra kosten voor gegevensopslag, Zie de pagina met prijzen voor meer informatie.
 >
@@ -202,8 +202,8 @@ Uw filterbeleid kiezen:
 
 De volgende gevallen gebruik opgeven hoe automatische inrichting in gevallen wanneer er al een agent of -extensie is geïnstalleerd. 
 
-- Microsoft Monitoring Agent is geïnstalleerd op de computer, maar niet als een uitbreiding<br>
-Als de Microsoft Monitoring Agent rechtstreeks op de virtuele machine (en niet als een Azure-extensie) is geïnstalleerd, wordt in Security Center de Microsoft Monitoring Agent niet installeren. U kunt automatische inrichting inschakelen en selecteert u de betreffende gebruikerswerkruimte in Security Center de automatische inrichting van de configuratie. Als u ervoor de dezelfde werkruimte van die de virtuele machine al met de bestaande agent verbonden is zal worden verpakt met de extensie van de Microsoft Monitoring Agent kiest. 
+- Log Analytics-agent is geïnstalleerd op de computer, maar niet als een uitbreiding<br>
+Als de Log Analytics-agent rechtstreeks op de virtuele machine (en niet als een Azure-extensie) is geïnstalleerd, wordt de Log Analytics-agent niet geïnstalleerd door Security Center. U kunt automatische inrichting inschakelen en selecteert u de betreffende gebruikerswerkruimte in Security Center de automatische inrichting van de configuratie. Als u ervoor de dezelfde werkruimte van die de virtuele machine al met de bestaande agent verbonden is in een Log Analytics-agent-extensie wordt ingepakt kiest. 
 
 > [!NOTE]
 > Als u SCOM 2012-versie van de agent is geïnstalleerd, **niet** automatisch inrichten op. 
@@ -212,8 +212,8 @@ Zie voor meer informatie, [wat gebeurt er als een SCOM of OMS directe agent al i
 
 -   Een bestaande VM-extensie is aanwezig<br>
     - Security center biedt ondersteuning voor bestaande installaties van de extensie en wordt de bestaande verbindingen niet overschreven. Security Center worden gegevens van de virtuele machine in de werkruimte al verbonden en beveiliging op basis van de oplossingen die zijn ingeschakeld op de werkruimte biedt opgeslagen.   
-    - Om te zien op welke werkruimte de bestaande extensie verzendt gegevens naar de test uit te voeren [connectiviteit met Azure Security Center valideren](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). U kunt ook Log analytics openen, selecteer een werkruimte, selecteert u de virtuele machine en kijken naar de Microsoft Monitoring Agent-verbinding. 
-    - Als u een omgeving waar de Microsoft Monitoring Agent is geïnstalleerd op werkstations en rapporteren aan een bestaande Log Analytics-werkruimte, bekijk de lijst [besturingssystemen die worden ondersteund door Azure Security Center](security-center-os-coverage.md) naar Zorg ervoor dat het besturingssysteem wordt ondersteund, en Zie [bestaande Log Analytics-klanten](security-center-faq.md#existingloganalyticscust) voor meer informatie.
+    - Om te zien op welke werkruimte de bestaande extensie verzendt gegevens naar de test uit te voeren [connectiviteit met Azure Security Center valideren](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). U kunt ook Log analytics openen, selecteer een werkruimte, selecteert u de virtuele machine en kijken naar de verbinding van Log Analytics-agent. 
+    - Als u een omgeving waar de Log Analytics-agent is geïnstalleerd op werkstations en rapporteren aan een bestaande Log Analytics-werkruimte, bekijk de lijst [besturingssystemen die worden ondersteund door Azure Security Center](security-center-os-coverage.md) om ervoor te zorgen het besturingssysteem wordt ondersteund, en Zie [bestaande Log Analytics-klanten](security-center-faq.md#existingloganalyticscust) voor meer informatie.
  
 ### Automatische inrichting uitschakelen <a name="offprovisioning"></a>
 U kunt automatische inrichting van resources op elk gewenst moment door het uitschakelen van deze instelling in het beveiligingsbeleid uitschakelen. 

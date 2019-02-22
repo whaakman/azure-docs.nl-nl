@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/20/2019
 ms.author: juliako
-ms.openlocfilehash: a447c359c38c2173ea42b6d717067fc8b3a88f9a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a815d03dd4e7163d4d9f00ce8f9c16f1b3055ce9
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875488"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652328"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Veelgestelde vragen over Azure Media Services v3
 
@@ -32,7 +32,7 @@ Zie voor meer informatie, [met CLI mediaverwerking schalen](media-reserved-units
 
 ### <a name="what-is-the-recommended-method-to-process-videos"></a>Wat is de aanbevolen methode voor het proces video's?
 
-Het is raadzaam dat u met behulp van een HTTP (s)-URL die verwijst naar de video-taken verzenden. Voor meer informatie, [HTTP (s) opnemen](job-input-from-http-how-to.md). U bent niet verplicht een Asset te maken met de invoervideo voordat deze kan worden verwerkt.
+Gebruik [transformeert](https://docs.microsoft.com/rest/api/media/transforms) het configureren van algemene taken voor het coderen of video's analyseren. Elke **transformeren** beschrijft een recept of een workflow van taken voor het verwerken van uw video- of audio-bestanden. Een [taak](https://docs.microsoft.com/rest/api/media/jobs) is van de werkelijke aanvraag voor het Media Services om toe te passen de **transformeren** aan een bepaalde invoer video of audio-inhoud. Zodra de transformatie is gemaakt, kunt u taken met behulp van Media Services-API's of een van de gepubliceerde SDK's kunt indienen. Zie [Transformaties en taken](transforms-jobs-concept.md) voor meer informatie.
 
 ### <a name="how-does-pagination-work"></a>Hoe werkt de paginering?
 
@@ -45,6 +45,29 @@ Wanneer u paginering, moet u altijd de volgende koppeling voor het opsommen van 
 Live encoding van Media Services v3 nog ondersteunt geen invoegen video- of afbeeldingsbestanden slates tijdens live stream. 
 
 U kunt een [on-premises coderingsprogramma live](recommended-on-premises-live-encoders.md) om over te schakelen de bronvideo. Veel apps bieden de mogelijkheid om over te schakelen van bronnen, met inbegrip van Telestream Wirecast, schakelbaar Studio (op iOS), IB-Studio (gratis app) en nog veel meer.
+
+## <a name="content-protection"></a>Inhoudsbeveiliging
+
+### <a name="how-and-where-to-get-jwt-token-before-using-it-to-request-license-or-key"></a>Hoe en waar u kunt JWT-token ophalen om de aanvraag-licentie of sleutel u?
+
+1. Voor de productie moet u een beveiligde Token Services (STS) (webservice) geeft JWT-token van een HTTPS-aanvraag hebt. Voor testen, kunt u de code die wordt weergegeven **GetTokenAsync** methode die is gedefinieerd [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
+2. Player moet een aanvraag maken nadat een gebruiker is geverifieerd, naar de STS voor dergelijke een token en wijs deze toe aan de waarde van het token. U kunt de [API van Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/).
+
+* Zie voor een voorbeeld van het uitvoeren van de STS, symmetrische en asymmetrische sleutel [ http://aka.ms/jwt ](https://aka.ms/jwt). 
+* Zie voor een voorbeeld van een-op basis van Azure Media Player met behulp van dergelijke JWT-token speler [ http://aka.ms/amtest ](https://aka.ms/amtest) ('player_settings' koppeling om te zien van de token invoer uitvouwen).
+
+### <a name="how-do-you-authorize-requests-to-stream-videos-with-aes-encryption"></a>Hoe autoriseert u aanvragen voor stream-video's met AES-versleuteling
+
+De juiste aanpak is het gebruikmaken van de STS (Secure Token Service):
+
+STS, afhankelijk van het gebruikersprofiel, voeg verschillende claims (zoals 'Premium-gebruiker', 'Basic gebruiker', 'Gratis proefversie van gebruiker'). Met andere claims in een JWT ziet de gebruiker andere inhoud. Voor andere inhoud/asset, wordt de ContentKeyPolicyRestriction beschikken over de bijbehorende RequiredClaims.
+
+Gebruik Azure Media Services-API's voor het configureren van/licentiesleutel levering en uw activa versleutelen (zoals wordt weergegeven in [in dit voorbeeld](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs).
+
+Zie voor meer informatie:
+
+- [Overzicht van de beveiliging van inhoud](content-protection-overview.md)
+- [Ontwerp van een multi-DRM-beveiliging van inhoud-systeem met toegangsbeheer](design-multi-drm-system-with-access-control.md)
 
 ## <a name="media-services-v2-vs-v3"></a>Media Services v2 vs v3 
 

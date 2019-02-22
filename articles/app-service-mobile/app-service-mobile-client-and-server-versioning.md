@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: dfdabed95d89e02b5a4b23ba23949cd0aaf838f3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 56c5e0582afe55dcd63aa056817898d3d4942419
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959391"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594063"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Versiebeheer voor client en server in Mobile Apps en Mobile Services
 De meest recente versie van Azure Mobile Services is de **Mobile Apps** functie van Azure App Service.
@@ -38,7 +38,7 @@ Bijvoorbeeld:
 
 TOEVOEGEN https://service.azurewebsites.net/tables/TodoItem
 
-HEADERS: ZUMO-API-VERSION: 2.0.0
+HEADERS: ZUMO-API-VERSIE: 2.0.0
 
 VERZENDEN https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
@@ -80,7 +80,7 @@ Opmerking: de Mobile Services-client SDK's *niet* een headerwaarde verzenden voo
 ### <a name="mobile-services-server-sdks"></a>Mobiele *Services* server-SDK's
 | Server-platform | Versie | Geaccepteerde versie-header |
 | --- | --- | --- |
-| .NET |[WindowsAzure.MobileServices.Backend.* Version 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |** Er zijn geen versiekop ** |
+| .NET |[WindowsAzure.MobileServices.Backend.* Version 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |**Er is geen versie-header** |
 | Node.js |(binnenkort beschikbaar) |**Er is geen versie-header** |
 
 <!-- TODO: add Node npm version -->

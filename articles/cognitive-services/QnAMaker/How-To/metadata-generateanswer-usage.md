@@ -8,20 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 02/21/2019
 ms.author: tulasim88
-ms.openlocfilehash: 1294b714c217178d53ed69cc886cd89f23620274
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9cb16842e0bc80a1fcbd066bea44c5b9701bb6d5
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859484"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651206"
 ---
-# <a name="using-metadata-and-the-generateanswer-api"></a>Met behulp van metagegevens en de GenerateAnswer-API
+# <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Een antwoord kennis met de GenerateAnswer API en metagegevens
+
+Als u het voorspelde antwoord op de vraag van een gebruiker, gebruikt u de GenerateAnswer-API. Wanneer u een kennisdatabase publiceert, wordt deze informatie over het gebruik van deze API wordt weergegeven op de pagina publiceren. U kunt ook de API om te antwoorden op basis van metagegevenstags filteren configureren en testen van de knowledge base van het eindpunt met de test queryreeks-parameter.
 
 QnA Maker kunt u metagegevens in de vorm van sleutel / waarde-paren, toevoegen aan uw vraag/antwoord-sets. Deze informatie kan worden gebruikt voor het filteren van resultaten voor query's van gebruikers en voor het opslaan van aanvullende informatie die kan worden gebruikt in follow-up conversaties. Zie voor meer informatie, [Knowledge base](../Concepts/knowledge-base.md).
 
-## <a name="qna-entity"></a>QnA-entiteit
+<a name="qna-entity"></a>
+
+## <a name="storing-questions-and-answers-with-a-qna-entity"></a>Vragen en antwoorden met een entiteit QnA opslaan
 
 Eerst is het belangrijk om te begrijpen hoe QnA Maker de vraag/antwoord-gegevens opslaat. De volgende afbeelding ziet u een entiteit QnA:
 
@@ -29,95 +33,124 @@ Eerst is het belangrijk om te begrijpen hoe QnA Maker de vraag/antwoord-gegevens
 
 Elke entiteit QnA heeft een unieke en permanente-ID. De ID kan worden gebruikt om updates voor een bepaalde QnA-entiteit maken.
 
-## <a name="generateanswer-api"></a>GenerateAnswer API
+<a name="generateanswer-api"></a>
+
+## <a name="get-answer-predictions-with-the-generateanswer-api"></a>De voorspellingen antwoord met de API GenerateAnswer ophalen
 
 In dat geval gebruikt u de API GenerateAnswer in uw Bot of toepassing in om op te vragen uw knowledge base met een vraag gebruikers om op te halen van de beste overeenkomst van de vraag/antwoord-sets.
 
-### <a name="generateanswer-endpoint"></a>GenerateAnswer eindpunt
+<a name="generateanswer-endpoint"></a>
+
+## <a name="publish-to-get-generateanswer-endpoint"></a>Publiceren GenerateAnswer-eindpunt ophalen 
 
 Nadat u uw knowledge base, via de [QnA Maker portal](https://www.qnamaker.ai), of met behulp van de [API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff), krijgt u de details van uw eindpunt GenerateAnswer.
 
 Uw eindpunt om informatie te krijgen:
 1. Meld u aan bij [ https://www.qnamaker.ai ](https://www.qnamaker.ai).
-2. In **mijn knowledge bases**, klikt u op **Code weergeven** voor uw knowledge base.
-![Mijn knowledge bases](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
-3. De details van uw GenerateAnswer-eindpunt ophalen.
+1. In **mijn knowledge bases**, klikt u op **Code weergeven** voor uw knowledge base.
+    ![Mijn knowledge bases](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
+1. De details van uw GenerateAnswer-eindpunt ophalen.
 
-![details van eindpunt](../media/qnamaker-how-to-metadata-usage/view-code.png)
+    ![details van eindpunt](../media/qnamaker-how-to-metadata-usage/view-code.png)
 
 U krijgt ook de details van het eindpunt van de **instellingen** tabblad van de knowledge base.
 
-### <a name="generateanswer-request"></a>GenerateAnswer aanvraag
+<a name="generateanswer-request"></a>
+
+## <a name="generateanswer-request-configuration"></a>Configuratie van de aanvraag GenerateAnswer
 
 U aanroepen GenerateAnswer met een HTTP POST-aanvraag. Voorbeeld van code die laat zien hoe u aan te roepen GenerateAnswer, Zie de [snelstartgidsen](../quickstarts/csharp.md).
 
-- **Aanvraag-URL**: https://{QnA Maker eindpunt} /knowledgebases/ {knowledge base-ID} / generateAnswer
+De **aanvraag-URL** heeft de volgende indeling: 
 
-- **Aanvraagparameters**: 
-    - **Knowledge base-ID** (tekenreeks): De GUID voor uw knowledge base.
-    - **QnAMaker eindpunt** (tekenreeks): De hostnaam van het eindpunt dat is geïmplementeerd in uw Azure-abonnement.
-- **Aanvraagheaders**
-    - **Content-Type** (tekenreeks): Het mediatype van de hoofdtekst van het verzonden naar de API.
-    - **Autorisatie** (tekenreeks): De eindpuntsleutel van uw (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).
-- **Aanvraagtekst**
-    - **vraag** (tekenreeks): Een vraag van de gebruiker moet worden gezocht op basis van uw knowledge base.
-    - **Top** (optioneel, geheel getal): Het aantal gerangschikte resultaten om op te nemen in de uitvoer. De standaardwaarde is 1.
-    - **gebruikers-id** (optioneel, string): Een unieke ID voor het identificeren van de gebruiker. Deze ID wordt geregistreerd in de chat-Logboeken.
-    - **strictFilters** (optioneel, string): Indien opgegeven, wordt aan de QnA Maker om terug te keren alleen de antwoorden die de opgegeven metagegevens zijn. Zie hieronder voor meer informatie.
-    ```json
+```
+https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer?isTest=true
+```
+
+|De eigenschap van de HTTP-aanvraag|Name|Type|Doel|
+|--|--|--|--|
+|URL-parameter voor route|Knowledge base-ID|string|De GUID voor uw knowledge base.|
+|URL-parameter voor route|Host van het eindpunt QnAMaker|string|De hostnaam van het eindpunt dat is geïmplementeerd in uw Azure-abonnement. Dit is beschikbaar op de pagina instellingen nadat u de knowledge base hebt gepubliceerd. |
+|Header|Content-Type|string|Het mediatype van de hoofdtekst van het verzonden naar de API. Standaardwaarde: ''|
+|Header|Autorisatie|string|De eindpuntsleutel van uw (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Hoofdtekst van bericht|JSON-object|JSON|De vraag met instellingen|
+|Queryreeks-parameter (optioneel)|`isTest`|booleaans|Indien ingesteld op true, retourneert resultaten van `testkb` Search-index in plaats van gepubliceerde index.|
+
+De hoofdtekst van de JSON bevat verschillende instellingen:
+
+|JSON-hoofdtekst van de eigenschap|Vereist|Type|Doel|
+|--|--|--|--|
+|`question`|vereist|string|Een vraag van de gebruiker moet worden verzonden naar uw knowledge base.|
+|`top`|optioneel|geheel getal|Het aantal gerangschikte resultaten om op te nemen in de uitvoer. De standaardwaarde is 1.|
+|`userId`|optioneel|string|Een unieke ID voor het identificeren van de gebruiker. Deze ID wordt geregistreerd in de chat-Logboeken.|
+|`strictFilters`|optioneel|string|Indien opgegeven, wordt aan de QnA Maker om terug te keren alleen de antwoorden die de opgegeven metagegevens zijn.|
+
+Een voorbeeld-JSON-hoofdtekst ziet eruit zoals:
+
+```json
+{
+    "question": "qna maker and luis",
+    "top": 6,
+    "strictFilters": [
     {
-        "question": "qna maker and luis",
-        "top": 6,
-        "strictFilters": [
+        "name": "category",
+        "value": "api"
+    }],
+    "userId": "sd53lsY="
+}
+```
+
+<a name="generateanswer-response"></a>
+
+## <a name="generateanswer-response-properties"></a>GenerateAnswer response-eigenschappen
+
+Een geslaagde respons retourneert een status van 200 en een JSON-antwoord. 
+
+|Antwoorden eigenschap (gesorteerd op score)|Doel|
+|--|--|
+|score|Een rangorde tussen 0 en 100 liggen.|
+|Id|Een unieke ID die is toegewezen aan het antwoord.|
+|Vragen|De vragen die is opgegeven door de gebruiker.|
+|Antwoord|Het antwoord op de vraag.|
+|source|De naam van de bron van waaruit het antwoord is uitgepakt of opgeslagen in het knowledge base.|
+|metagegevens|De metagegevens die zijn gekoppeld aan het antwoord.|
+|metadata.name|Naam voor de metagegevens. (string, maximumlengte: 100, vereist)|
+|metadata.value: De waarde van de metagegevens. (string, maximumlengte: 100, vereist)|
+
+
+```json
+{
+    "answers": [
         {
-            "name": "category",
-            "value": "api"
-        }],
-        "userId": "sd53lsY="
-    }
-    ```
+            "score": 28.54820341616869,
+            "Id": 20,
+            "answer": "There is no direct integration of LUIS with QnA Maker. But, in your bot code, you can use LUIS and QnA Maker together. [View a sample bot](https://github.com/Microsoft/BotBuilder-CognitiveServices/tree/master/Node/samples/QnAMaker/QnAWithLUIS)",
+            "source": "Custom Editorial",
+            "questions": [
+                "How can I integrate LUIS with QnA Maker?"
+            ],
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "api"
+                }
+            ]
+        }
+    ]
+}
+```
 
-### <a name="generateanswer-response"></a>GenerateAnswer antwoord
+<a name="metadata-example"></a>
 
-- **Antwoord 200** -een geslaagde aanroep retourneert het resultaat van de vraag. Het antwoord bevat de volgende velden:
-    - **antwoorden** -een lijst met antwoorden voor de gebruikersquery, gesorteerd in aflopende volgorde van de volgorde van score.
-        - **score**: Een rangorde tussen 0 en 100 liggen.
-        - **vragen over**: De vragen die is opgegeven door de gebruiker.
-        - **antwoord**: Het antwoord op de vraag.
-        - **source**: De naam van de bron van waaruit het antwoord is uitgepakt of opgeslagen in het knowledge base.
-        - **metadata**: De metagegevens die zijn gekoppeld aan het antwoord.
-            - Naam: Naam voor de metagegevens. (string, maximumlengte: 100, vereist)
-            - Waarde: De waarde van de metagegevens. (string, maximumlengte: 100, vereist)
-        - **Id**: Een unieke ID die is toegewezen aan het antwoord.
-    ```json
-    {
-        "answers": [
-            {
-                "score": 28.54820341616869,
-                "Id": 20,
-                "answer": "There is no direct integration of LUIS with QnA Maker. But, in your bot code, you can use LUIS and QnA Maker together. [View a sample bot](https://github.com/Microsoft/BotBuilder-CognitiveServices/tree/master/Node/samples/QnAMaker/QnAWithLUIS)",
-                "source": "Custom Editorial",
-                "questions": [
-                    "How can I integrate LUIS with QnA Maker?"
-                ],
-                "metadata": [
-                    {
-                        "name": "category",
-                        "value": "api"
-                    }
-                ]
-            }
-        ]
-    }
-    ```
+## <a name="using-metadata-allows-you-to-filter-answers-by-custom-metadata-tags"></a>Met behulp van metagegevens kunt u antwoorden op aangepaste metagegevenstags filteren
 
-## <a name="metadata-example"></a>Voorbeeld van de metagegevens
-
-Houd rekening met de onderstaande veelgestelde vragen over gegevens. Metagegevens toevoegen aan uw knowledge base door te klikken op het pictogram van de metagegevens.
+Metagegevens toe te voegen, kunt u de antwoorden op deze metagegevenstags filteren. Houd rekening met de onderstaande veelgestelde vragen over gegevens. Metagegevens toevoegen aan uw knowledge base door te klikken op het pictogram van de metagegevens.
 
 ![metagegevens toevoegen](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 
-### <a name="filter-results-with-strictfilters-for-metadata-tags"></a>Resultaten met strictFilters voor metagegevenstags filteren
+<a name="filter-results-with-strictfilters-for-metadata-tags"></a>
+
+## <a name="filter-results-with-strictfilters-for-metadata-tags"></a>Resultaten met strictFilters voor metagegevenstags filteren
 
 Houd rekening met de vraag van de gebruiker "Wanneer wordt deze hotel sluiten?" Wanneer de bedoeling is impliciet voor het restaurant "Paradise."
 
@@ -135,8 +168,11 @@ Omdat de resultaten zijn alleen vereist voor het restaurant "Paradise", kunt u e
 }
 ```
 
-### <a name="keep-context"></a>Context behouden
-Het antwoord op de GenerateAnswer bevat de bijbehorende metagegevens van de overeenkomende vraag/antwoord is ingesteld, als volgt.
+<name="keep-context"></a>
+
+## <a name="use-question-and-answer-results-to-keep-conversation-context"></a>Vraag en antwoord resultaten te houden van de conversatie-context gebruiken
+
+Het antwoord op de GenerateAnswer bevat de bijbehorende metagegevens van de set overeenkomende vraag/antwoord. Deze informatie kan worden gebruikt in uw clienttoepassing voor het opslaan van de context van het vorige gesprek voor gebruik in latere conversaties. 
 
 ```json
 {
@@ -163,8 +199,6 @@ Het antwoord op de GenerateAnswer bevat de bijbehorende metagegevens van de over
     ]
 }
 ```
-
-Deze informatie kan worden gebruikt om vast te leggen van de context van het vorige gesprek voor gebruik in latere conversaties. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -4,48 +4,38 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 9a39abf77a7396302f93e5a423271402b7c3edb3
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: a8979edf94c0dd0271293feb28c18530faeba09c
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54084001"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56660009"
 ---
-Sleutel transacties (maximum aantal transacties dat is toegestaan in 10 seconden kluis per regio<sup>1</sup>):
+## <a name="key-transactions-max-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Sleutel transacties (maximum aantal transacties dat is toegestaan in 10 seconden kluis per regio<sup>1</sup>):
 
 |Type sleutel|HSM-sleutel<br>Sleutel maken|HSM-sleutel<br>Alle andere transacties|Software-key<br>Sleutel maken|Software-key<br>Alle andere transacties|
 |:---|---:|---:|---:|---:|
 |RSA 2048-bits|5|1000|10|2000|
 |RSA 3072-bit|5|250|10|500|
-|RSA 4096-bits|5|125|10|250|
-|ECC-P-256|5|1000|10|2000|
-|ECC-P-384|5|1000|10|2000|
-|ECC-P-521|5|1000|10|2000|
-|ECC-SECP256K1|5|1000|10|2000|
-|
+|RSA 4096-bit|5|125|10|250|
+|ECC P-256|5|1000|10|2000|
+|ECC P-384|5|1000|10|2000|
+|ECC P-521|5|1000|10|2000|
+|ECC SECP256K1|5|1000|10|2000|
 
 > [!NOTE]
-> De bovenstaande drempelwaarden worden gewogen en afdwingen op hun som is. U kunt doen 125 RSA-HSM - 4k-bewerkingen en 0 RSA-HSM - 2k, of 124 RSA-HSM - 4k en 16 RSA-HSM - 2 kB. Daarna wordt in het hetzelfde interval op 10 seconden, een andere bewerking zorgt ervoor dat een uitzondering van de client AKV.
+> In de bovenstaande tabel ziet u dat voor RSA 2048-bits-software-sleutels, we 2000 GET transacties per 10 seconden toestaan en dat voor RSA 2048-bits-HSM-sleutels, we 1000 GET transacties per 10 seconden toestaan.
+>
+> Houd er rekening mee dat de drempelwaarden voor regeling worden gewogen en afdwingen op hun som is. Bijvoorbeeld in de bovenstaande tabel kunt zien we dat bij het uitvoeren van GET-bewerkingen op RSA HSM-sleutels, het is 8 keer duurder 4096-bits sleutels in vergelijking met 2048-bits sleutels te gebruiken (sinds 1000/125 = 8). Dus in een bepaald interval van 10 seconden, een AKV-client kan doen exact één van de volgende zonder een `429` beperking van HTTP-statuscode:
+> - 2000 RSA 2048-bits sleutel software GET transacties, **of**
+> - 1000 RSA 2048-bits-HSM-sleutel ophalen transacties **of**
+> - RSA 4096-bits HSM-sleutel GET-transacties, 125, **of**
+> - 124 RSA 4096-bits HSM-sleutel ophalen-transacties en transacties van 8 RSA 2048-bits HSM-sleutel ophalen.
 
-> [!NOTE]
-> Als u de onderstaande tabel bekijkt, ziet u dat voor software-back-sleutels is het mogelijk toe 2000 transacties per 10 seconden en voor HSM back sleutels is mogelijk om 1000 transacties per 10 seconden toe. De verhouding van software-back-transacties voor sleutels van 3072 2048 sleutels is 500/2000 of 0.4. Dit betekent dat als een klant kiest, wordt er 500 3072 sleutel transacties over 10 seconden, ze hun maximale limiet is bereikt en andere sleutelbewerkingen niet doen. 
-   
-|Type sleutel  | Softwaresleutel |HSM-sleutel  |
-|---------|---------|---------|
-|RSA 2048-bits     |    2000     |   1000    |
-|RSA 3072-bit     |     500    |    250     |
-|RSA 4096-bits     |    125     |    250     |
-|ECC-P-256     |    2000     |  1000     |
-|ECC-P-384     |    2000     |  1000     |
-|ECC-P-521     |    2000     |  1000     |
-|ECC-SECP256K1     |    2000     |  1000     |
-
-
-Geheimen, door beheerde Opslagaccountsleutels en vault-transacties:
+## <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>Geheimen, door beheerde Opslagaccountsleutels en vault-transacties:
 | Type transacties | Maximum aantal transacties dat is toegestaan in 10 seconden kluis per regio<sup>1</sup> |
 | --- | --- |
 | Alle transacties |2000 |
-|
 
 Zie [Azure Key Vault-beperkingsrichtlijnen](../articles/key-vault/key-vault-ovw-throttling.md) voor meer informatie over het verwerken van beperkingen wanneer deze limieten worden overschreden.
 

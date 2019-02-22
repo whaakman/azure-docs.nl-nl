@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ca7a1913e94242af46e777be308ef92fc5a5abb3
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a63155e65460f9e2193c121bb49849940104eff1
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427063"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649222"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Overzicht van Azure Automation-status
 
@@ -41,9 +41,41 @@ Vanuit Azure portal of PowerShell, kunt u alle uw DSC-configuraties, resources e
 
 Gedetailleerde status rapportagegegevens verzenden knooppunten die worden beheerd met Azure Automation State Configuration naar de ingebouwde pull-server. U kunt Azure Automation State Configuration voor het verzenden van deze gegevens aan uw Log Analytics-werkruimte configureren. Zie voor meer informatie over het verzenden van gegevens over de toepassingsstatus State Configuration naar uw Log Analytics-werkruimte, [doorsturen Azure Automation State Configuration rapportagegegevens met Log Analytics](automation-dsc-diagnostics.md).
 
-## <a name="network-planning"></a>Het netwerk configureren
+## <a name="prerequisites"></a>Vereisten
 
-De volgende poort en URL's zijn vereist voor State Configuration (DSC) om te communiceren met Automation:
+Houd rekening met de volgende vereisten bij het gebruik van Azure Automation State Configuration (DSC).
+
+### <a name="operating-system-requirements"></a>Vereisten voor besturingssysteem
+
+Voor de knooppunten waarop Windows wordt uitgevoerd, zijn de volgende versies worden ondersteund:
+
+- Windows Server 2019
+- Windows Server 2016
+- Windows Server 2012R2
+- Windows Server 2012
+- Windows Server 2008 R2 SP1
+- Windows 10
+- Windows 8.1
+- Windows 7
+
+Voor de knooppunten waarop Linux wordt uitgevoerd, zijn de volgende distributies/versies worden ondersteund:
+
+De DSC-Linux-extensie biedt ondersteuning voor alle Linux-distributies [goedgekeurd op Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) , met uitzondering:
+
+Distributie | Versie
+-|-
+Debian  | Alle versies
+Ubuntu  | 18.04
+
+### <a name="dsc-requirements"></a>DSC-vereisten
+
+Voor alle Windows-knooppunten die worden uitgevoerd in Azure, [WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure) wordt geïnstalleerd tijdens onboarding.  Knooppunten met Windows Server 2012 en Windows 7, [WinRM wordt ingeschakeld](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
+
+Voor alle Linux-knooppunten die worden uitgevoerd in Azure, [PowerShell DSC voor Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) wordt geïnstalleerd tijdens onboarding.
+
+### <a name="network-planning"></a>Particuliere netwerken configureren
+
+Als uw knooppunten zich in een particulier netwerk bevinden, zijn de volgende poort en URL's vereist voor State Configuration (DSC) om te communiceren met Automation:
 
 * Poort: Alleen TCP 443 is vereist voor uitgaande toegang tot internet.
 * Algemene URL: *.azure-automation.net
@@ -85,7 +117,7 @@ Wilt u liever kijken dan lezen? Bekijk de volgende video van mei 2015 wanneer Az
 > [!NOTE]
 > Hoewel de concepten en de levenscyclus van die in deze video worden besproken correct zijn, Azure Automation State Configuration heeft veel vooruitgang geboekt met sinds deze video is opgenomen. Het is nu algemeen beschikbaar, heeft een veel uitgebreidere gebruikersinterface in Azure portal en biedt ondersteuning voor veel extra mogelijkheden.
 
-[!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
+<iframe src="https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
 ## <a name="next-steps"></a>Volgende stappen
 

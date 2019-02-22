@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 01/14/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4e6f5a17544c1419eb6101acdd6590f034ea4aa3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b7fa03cdf52fc3218e9556c9664daafdc60243f3
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241455"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593214"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Valideren van software-updates van Microsoft
 
@@ -28,25 +28,35 @@ ms.locfileid: "55241455"
 
 Microsoft brengt regelmatig updates voor de Azure Stack-software. Deze updates zijn bedoeld om Azure Stack coengineering partners. De updates zijn opgegeven in vooraf van openbaar beschikbaar. U kunt de updates op basis van uw oplossing controleren en feedback naar Microsoft.
 
-[!INCLUDE [azure-stack-vaas-workflow-validation-completion](includes/azure-stack-vaas-workflow-validation-completion.md)]
+Software-updates van Microsoft met Azure Stack worden aangeduid met behulp van een naamconventie geldt, bijvoorbeeld voor maart 2018 1803 die wijzen op de update is. Voor meer informatie over het beleid voor Azure Stack update uitgebracht en release-opmerkingen beschikbaar zijn, Zie [Azure Stack servicebeleid](https://docs.microsoft.com/azure/azure-stack/azure-stack-servicing-policy).
 
-## <a name="apply-monthly-update"></a>Maandelijkse update van toepassing
+## <a name="prerequisites"></a>Vereisten
 
-[!INCLUDE [azure-stack-vaas-workflow-section_update-azs](includes/azure-stack-vaas-workflow-section_update-azs.md)]
+Voordat u zich op de maandelijkse updateproces in VaaS, moet u bekend bent met de volgende items zijn:
 
-## <a name="create-a-workflow"></a>Een werkstroom maken
+- [Validatie uit als een Service-belangrijkste concepten](azure-stack-vaas-key-concepts.md)
+- [Functie voor interactieve verificatie testen](azure-stack-vaas-interactive-feature-verification.md)
 
-Update validaties gebruiken dezelfde werkstroom als **oplossing validatie**.
+## <a name="required-tests"></a>Vereiste tests
 
-## <a name="run-tests"></a>Tests uitvoeren
+De volgende tests moeten worden uitgevoerd in de volgende volgorde voor maandelijkse software-validatie:
 
-1. Update validaties gebruiken dezelfde werkstroom als **oplossing validatie**. 
+1. Maandelijks Azure Stack-Update-verificatie
+2. Engine voor cloud-simulatie
 
-2. Volg de instructies op [oplossing validatie uitvoeren test](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests). Selecteer in plaats daarvan de volgende tests:
-    - Maandelijks Azure Stack-Update-verificatie
-    - Engine voor cloud-simulatie
+## <a name="validating-software-updates"></a>Het valideren van software-updates
 
-U hoeft niet te pakket zich voor validaties update aanvragen.
+1. Maak een nieuwe **validatie van het pakket** werkstroom.
+1. Volg de instructies uit voor de bovenstaande vereiste tests [test van het pakket niet valideren uitvoeren](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests). Zie de sectie hieronder voor meer informatie over de **maandelijkse Update verificatie van de Azure Stack** testen.
+
+### <a name="apply-the-monthly-update"></a>De maandelijkse update van toepassing
+
+1. Selecteer een agent voor het uitvoeren van tests tegen.
+1. Planning **maandelijkse Azure Stack Update verificatie**.
+1. Geef de locatie voor het OEM-uitbreidingspakket die momenteel zijn geïmplementeerd op het stempel en de locatie voor het pakket met de uitbreiding OEM die worden toegepast tijdens het bijwerken. Zie configureren van de URL's voor deze pakketten [beheren van pakketten voor validatie](azure-stack-vaas-validate-oem-package.md#managing-packages-for-validation).
+1. Volg de stappen in de gebruikersinterface van de geselecteerde agent.
+
+Als u vragen of opmerkingen hebt, kunt u contact op met [VaaS Help](mailto:vaashelp@microsoft.com).
 
 ## <a name="next-steps"></a>Volgende stappen
 

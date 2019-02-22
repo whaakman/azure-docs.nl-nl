@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 02/09/2019
-ms.openlocfilehash: a3ec74d0b22bfafb4353eca400b389b07a58ba39
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 8dbe282b919c988d5cb997a66914d81ce1981f88
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246350"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592414"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Uw datawarehouse een upgrade uitvoert naar Gen2
 Microsoft helpt oppervlaktegebied de op instapniveau kosten van het uitvoeren van een datawarehouse kan verwerken, query's door toe te voegen lagere rekenlagen voor Azure SQL Data Warehouse To veeleisende Lees de volledige aankondiging over [kleine compute laag ondersteuning voor Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). De nieuwe aanbieding is al beschikbaar in de regio's die u hebt genoteerd in de onderstaande tabel. Voor ondersteunde regio's, kunnen bestaande Gen1 datawarehouses worden bijgewerkt naar Gen2 via een:
@@ -29,8 +29,6 @@ De volgende tabel geeft een overzicht van per regio als de lagere Gen2 compute-l
 
 | **Regio** | **Lagere Gen2 beschikbaar** | **Beginnen met automatische upgrades** |
 |:--- |:--- |:--- |
-| Australië, midden 1 |1 maart 2019 |15 juni 2019 |
-| Australië - centraal 2 |1 maart 2019 |15 juni 2019 |
 | Australië - oost |Beschikbaar |1 mei 2019 |
 | Australië - zuidoost |1 maart 2019 |15 juni 2019 |
 | Brazilië - zuid |\* |\* |

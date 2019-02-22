@@ -8,15 +8,15 @@ manager: pchoudh
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 757ef07c1268cbf159ce98dfb8ba1980616e4a3a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: f144262f43396ac5d4f37939d35fca2645acc4bd
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245130"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650169"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Betrouwbaarheidsscore van een kennisdatabase QnA Maker
 Wanneer de aanvraag voor een gebruiker wordt vergeleken met een knowledge base, retourneert de QnA Maker relevante antwoorden, samen met een betrouwbaarheidsscore. Deze score geeft aan dat het vertrouwen dat het antwoord de juiste overeenkomst voor de opgegeven gebruiker-query is. 
@@ -72,9 +72,9 @@ Als u een knowledge base in verschillende regio's hebt, gebruikt elke regio een 
 
 
 ## <a name="no-match-found"></a>Er is geen overeenkomst gevonden
-Wanneer er geen goede overeenkomst is gevonden door de kerntechnologie, wordt de betrouwbaarheidsscore van 0,0 of 'Geen' wordt geretourneerd en wordt het standaardantwoord is 'Geen goede treffer gevonden in de KB'. U kunt deze reactie standaard in de bot of toepassing code aanroepen van het eindpunt overschrijven. U kunt ook u kunt ook het antwoord voor overschrijven instellen in Azure en Hiermee wordt de standaardwaarde voor alle knowledge bases geïmplementeerd in een bepaalde QnA Maker-service gewijzigd.
+Wanneer er geen goede overeenkomst is gevonden door de kerntechnologie, wordt de betrouwbaarheidsscore van 0,0 of 'Geen' wordt geretourneerd en wordt het standaardantwoord is 'Geen goede treffer gevonden in de KB'. U kunt dit opheffen [Standaardantwoord](#change-default-answer) in de bot of toepassing code aanroepen van het eindpunt. U kunt ook u kunt ook het antwoord voor overschrijven instellen in Azure en Hiermee wordt de standaardwaarde voor alle knowledge bases geïmplementeerd in een bepaalde QnA Maker-service gewijzigd.
 
-### <a name="change-default-answer"></a>Standaard antwoord wijzigen
+## <a name="change-default-answer"></a>Standaard antwoord wijzigen
 
 1. Ga naar de [Azure-portal](https://portal.azure.com) en navigeer naar de resourcegroep die de QnA Maker-service die u hebt gemaakt.
 
@@ -94,5 +94,4 @@ Wanneer er geen goede overeenkomst is gevonden door de kerntechnologie, wordt de
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]
 > [Gegevensbronnen die worden ondersteund](./data-sources-supported.md)
-## <a name="see-also"></a>Zie ook 
-[Overzicht van QnA Maker](../Overview/overview.md)
+

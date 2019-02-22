@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 18e5e9ff299cb645e2b5b47d327ee93e27da82df
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: fabec317370f5a45b16ac3e6dd3422eceb9621c3
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699991"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592789"
 ---
 #  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>Een Standard Load Balancer maken met zonegebonden frontend met behulp van Azure CLI
 
@@ -51,7 +51,7 @@ az group create \
 ## <a name="create-a-zonal-public-ip-standard"></a>Een zonegebonden openbare IP-standaard maken
 Om toegang te krijgen tot uw app op internet, hebt u een openbaar IP-adres nodig voor de load balancer. Een openbaar IP-adres dat is gemaakt in een specifieke zone altijd bestaat alleen in deze zone. Het is niet mogelijk om te wijzigen van de zone van een openbaar IP-adres.
 
-Maak een openbaar IP-adres met [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Het volgende voorbeeld wordt een zonegebonden openbare IP-adres met de naam *myPublicIP* in de *myResourceGroupLoadBalancer* resourcegroep in zone 1.
+Maak een openbaar IP-adres met [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create). Het volgende voorbeeld wordt een zonegebonden openbare IP-adres met de naam *myPublicIP* in de *myResourceGroupLoadBalancer* resourcegroep in zone 1.
 
 ```azurecli-interactive
 az network public-ip create \

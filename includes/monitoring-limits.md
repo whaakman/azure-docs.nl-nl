@@ -1,22 +1,19 @@
 ---
 title: bestand opnemen
 description: bestand opnemen
-services: monitoring-and-diagnostics
+services: azure-monitor
 author: rboucher
-manager: carmonm
 tags: azure-service-management
-ms.service: monitoring-and-diagnostics
-ms.devlang: dotnet
 ms.topic: include
-ms.date: 09/13/2018
+ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 3901ad2ce883f8257a74ddd2a931947624977184
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 29550581bbc395126d820d93b608e14ea318e268
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45637087"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56653636"
 ---
 | Resource | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |
@@ -25,3 +22,14 @@ ms.locfileid: "45637087"
 | Metrische waarschuwingen |100 actieve waarschuwingsregels per abonnement | Contact opnemen met ondersteuning |
 | Actiegroepen |2000 actiegroepen per abonnement | Contact opnemen met ondersteuning |
 
+**Actiegroep bepaalde limieten**
+| Resource | Standaardlimiet | Maximumaantal |
+| --- | --- | --- |
+| Azure app-Push | 10 Apps van azure-acties per actiegroep | Contact opnemen met ondersteuning |
+| Email | 1000 e-acties in een actiegroep. Zie ook de [snelheidsbeperking informatie](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Contact opnemen met ondersteuning |
+| ITSM | 10 ITSM-acties in een actiegroep | Contact opnemen met ondersteuning | 
+| Logische apps | 10 acties van logische App in een actiegroep | Contact opnemen met ondersteuning |
+| Runbook | 10 Runbook-acties in een actiegroep | Contact opnemen met ondersteuning |
+| Sms | 10 SMS-acties in een actiegroep. Zie ook de [snelheidsbeperking informatie](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Contact opnemen met ondersteuning |
+| Spraak | 10 voice-acties in een actiegroep. Zie ook de [snelheidsbeperking informatie](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Contact opnemen met ondersteuning |
+| Webhook | 10 Webhook-acties in een actiegroep. Andere beperkingen die beschikbaar zijn op [actie specifieke informatie](../articles/azure-monitor/platform/action-groups.md#action-specific-information).  | Contact opnemen met ondersteuning |
