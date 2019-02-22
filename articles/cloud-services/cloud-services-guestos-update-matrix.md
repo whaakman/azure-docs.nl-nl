@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/5/2019
+ms.date: 2/20/2019
 ms.author: raiye
-ms.openlocfilehash: 76009115f855a840c81e79d0c864187c8410aa23
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 063834af9b56e9959883c00bb58c70f0d333c455
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751511"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588565"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure Guest OS releases en SDK compatibiliteitsmatrix
 Biedt dat u met actuele informatie over de meest recente Azure Guest OS releases voor Cloud Services. Deze informatie helpt u bij het plannen van uw upgradepad voordat een Gastbesturingssysteem wordt uitgeschakeld. Als u uw rollen gebruiken configureert *automatische* Guest OS-updates zoals beschreven in [Azure Gast OS Update-instellingen][Azure Guest OS Update Settings], niet is het essentieel dat u deze pagina hebt gelezen.
@@ -77,6 +77,15 @@ Het Gastbesturingssysteem juli is uitgebracht.
 > [!NOTE]
 > De Windows Azure SDK voor .NET - 3.0 kan worden gedownload [hier][Windows Azure SDK].
 >
+>De stappen van de installatie:
+>1. Verwijder alle oudere versies van MicrosoftAzureAuthoringTools*.msi
+>2. Installeer de [Azure SDK voor .NET - 3.0][Windows Azure SDK]
+>3. Start uw computer opnieuw op
+>4. Een nieuw project voor een Cloudservice maken en toevoegen van een enkele Werkrol
+>5. Wijzigen van het type besturingssysteem op 6 en bouwen van een pakket
+>6. Het pakket implementeren op Azure met behulp van de Azure portal of Visual Studio
+>
+
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen |
 | --- | --- | --- |
@@ -92,6 +101,7 @@ Het Gastbesturingssysteem juli is uitgebracht.
 > [!NOTE]
 > De RDP-wachtwoord voor de OS-familie 5 moet minimaal 10 tekens.
 >
+
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen |
 | --- | --- | --- |
