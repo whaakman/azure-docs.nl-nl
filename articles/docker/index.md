@@ -11,12 +11,6 @@ ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
 ms.author: carolz
-ms.openlocfilehash: fa2cce2314b3df0d9d32d9d8d6ede5a70520a7d4
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647238"
 ---
 <div class="content">
    <h1>Docker op Azure</h1>   
@@ -28,7 +22,7 @@ Docker is een populair platform voor containerbeheer en beeldbewerking waarmee u
     </div>
 <h2>QuickStarts van vijf minuten</h2>
 <p>Meer informatie over het implementeren van Docker op Azure:</p>
-<a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS">Docker implementeren in Ubuntu Quickstart-sjabloon</a><br/>
+<a href="https://azure.microsoft.com/resources/templates/docker-simple-on-ubuntu/">Docker implementeren in Ubuntu Quickstart-sjabloon</a><br/>
 <h2>Zelfstudies met stapsgewijze instructies</h2>
 <p>Meer informatie over het gebruik van Docker in uw toepassing en als onderdeel van uw CI/CD-pijplijn:</p>
 <ol>

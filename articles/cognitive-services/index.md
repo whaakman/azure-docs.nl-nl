@@ -1,21 +1,16 @@
 ---
 layout: HubPage
 title: Documentatie over Azure Cognitive Services
-description: Ontdek hoe u intelligente algoritmen kunt compileren voor apps, websites en bots zodat deze kunnen zien, horen, spreken en begrijpen en de behoeften van uw gebruikers kunnen interpreteren via natuurlijke communicatiemethoden. Aan de hand van zelfstudies, snelstarts, API-verwijzingen en voorbeelden leert u hoe u de API's gebruikt.
+description: 'Ontdek hoe u intelligente algoritmen kunt compileren voor apps, websites en bots zodat deze kunnen zien, horen, spreken en begrijpen en de behoeften van uw gebruikers kunnen interpreteren via natuurlijke communicatiemethoden. Aan de hand van zelfstudies, snelstarts, API-verwijzingen en voorbeelden leert u hoe u de API''s gebruikt.'
 services: cognitive-services
 author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 02/15/2019
+ms.date: 02/21/2019
 ms.topic: hub-page
-ms.openlocfilehash: 12957121d386afdc911bb0be954c0066d580e83e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338033"
 ---
+
 <h1>Documentatie over Azure Cognitive Services</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Ontdek hoe u intelligente algoritmen kunt compileren voor apps, websites en bots zodat deze kunnen zien, horen en spreken en de behoeften van uw gebruikers kunnen begrijpen via natuurlijke communicatiemethoden. Aan de hand van zelfstudies, snelstarts, API-verwijzingen en voorbeelden leert u hoe.</p>
 
@@ -77,7 +72,6 @@ ms.locfileid: "56338033"
                 </div>
             </a>
         </li>
-
         <li>
             <a href="/azure/cognitive-services/language-support/">
                 <div class="cardSize">
@@ -133,7 +127,7 @@ ms.locfileid: "56338033"
                         <p><a href="/azure/cognitive-services/Computer-vision/quickstarts-sdk/csharp-analyze-sdk">C# gebruiken</a></p>
                         <p><a href="/azure/cognitive-services/bing-visual-search/quickstarts/java">Java gebruiken</a></p>
                         <p><a href="/azure/cognitive-services/Computer-vision/Quickstarts/node-analyze">Node.js gebruiken</a></p>
-                        <p><a href="/azure/cognitive-services/Computer-vision/quickstarts-sdk/python-sdk#analyze-an-image">Python gebruiken</a></p>
+                        <p><a href="/azure/cognitive-services/Computer-vision/quickstarts-sdk/python-sdk">Python gebruiken</a></p>
                     </div>
                 </div>
             </div>
@@ -151,10 +145,9 @@ ms.locfileid: "56338033"
                     <div class="cardText">
                         <h3>Spraak herkennen met behulp van Speech Service</h3>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-csharp-windows/">C# gebruiken</a></p>
-                        <p><a href="/azure/cognitive-services/speech-service/quickstart-java-jre">Java gebruiken</a></p>
-                        <p><a href="/azure/cognitive-services/speech-service/quickstart-objectivec-ios">Objective-C gebruiken</a></p>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-js-browser">JavaScript gebruiken</a></p>
-                        <p><a href="/azure/cognitive-services/speech-service/quickstart-cpp-windows">C++ gebruiken</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service/quickstart-python">Python gebruiken</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service/quickstart-java-jre">Java gebruiken</a></p>
                     </div>
                 </div>
             </div>
@@ -214,7 +207,7 @@ ms.locfileid: "56338033"
                         <p><a href="/azure/cognitive-services/bing-web-search/quickstarts/csharp">C# gebruiken</a></p>
                         <p><a href="/azure/cognitive-services/bing-web-search/quickstarts/java">Java gebruiken</a></p>
                         <p><a href="/azure/cognitive-services/bing-web-search/quickstarts/nodejs">Node.js gebruiken</a></p>
-                        <p><a href="/azure/cognitive-services/bing-web-search/quickstarts/python">Python gebruiken</a></p>
+                        <p><a href="/azure/cognitive-services/bing-web-search/web-sdk-python-quickstart">Python gebruiken</a></p>
                     </div>
                 </div>
             </div>
@@ -234,7 +227,7 @@ ms.locfileid: "56338033"
                         <p><a href="/azure/cognitive-services/bing-image-search/quickstarts/csharp">C# gebruiken</a></p>
                         <p><a href="/azure/cognitive-services/bing-image-search/quickstarts/java">Java gebruiken</a></p>
                         <p><a href="/azure/cognitive-services/bing-image-search/quickstarts/nodejs">Node.js gebruiken</a></p>
-                        <p><a href="/azure/cognitive-services/bing-image-search/quickstarts/python">Python gebruiken</a></p>
+                        <p><a href="/azure/cognitive-services/bing-image-search/image-sdk-python-quickstart">Python gebruiken</a></p>
                     </div>
                 </div>
             </div>
