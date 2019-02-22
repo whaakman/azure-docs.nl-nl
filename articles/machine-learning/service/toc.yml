@@ -6,15 +6,9 @@ items:
   - name: Wat is de Azure Machine Learning-service?
     displayName: AML services overview
     href: overview-what-is-azure-ml.md
-  - name: De werking van de service
-    displayName: architecture concepts definitions
-    href: concept-azure-machine-learning-architecture.md
   - name: Wat is er gebeurd met Workbench?
     displayName: desktop ui Workbench upgrade update transfer
     href: overview-what-happened-to-workbench.md
-  - name: Releaseopmerkingen
-    displayName: what's new issues bugs
-    href: azure-machine-learning-release-notes.md
   expanded: true
 - name: Snelstartgidsen
   items:
@@ -46,6 +40,9 @@ items:
   href: samples-notebooks.md
 - name: Concepten
   items:
+  - name: De werking van de service
+    displayName: architecture concepts definitions
+    href: concept-azure-machine-learning-architecture.md
   - name: Geautomatiseerde Machine Learning
     displayName: automl, auto ml
     href: concept-automated-ml.md
@@ -64,6 +61,8 @@ items:
       href: how-to-manage-workspace.md
     - name: Een Resource Manager-sjabloon gebruiken
       href: how-to-create-workspace-template.md
+    - name: Gebruikers en rollen beheren
+      href: how-to-assign-roles.md
   - name: De ontwikkelomgeving instellen 
     items:
     - name: Ontwikkelaaromgevingen configureren
@@ -97,7 +96,7 @@ items:
       href: how-to-train-ml-models.md
     - name: PyTorch gebruiken
       href: how-to-train-pytorch.md
-    - name: Tensorflow gebruiken
+    - name: TensorFlow en Keras gebruiken
       href: how-to-train-tensorflow.md
     - name: Hyperparameters afstemmen
       displayName: parameter
@@ -172,6 +171,9 @@ items:
     href: https://aka.ms/aml-monitoring-sdk
 - name: Resources
   items:
+  - name: Releaseopmerkingen
+    displayName: what's new issues bugs
+    href: azure-machine-learning-release-notes.md
   - name: Azure-roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Prijzen
@@ -185,9 +187,9 @@ items:
     href: support-for-aml-services.md
   - name: Onze ML-producten vergelijken
     href: overview-more-machine-learning.md
-ms.openlocfilehash: 041a4b0f3ebecdaedb041ceb25f426a6e1825292
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 5743da7a23f53fee32f1fe81ecc09212fccab7c5
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338090"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650079"

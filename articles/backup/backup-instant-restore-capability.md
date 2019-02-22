@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: sogup
-ms.openlocfilehash: 1a25a9c3e0d099349286476f0ae3791efee1642f
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 566faaef4e91237bd0a0f915ea39f4bd389120d8
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452811"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593077"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Ophalen van verbeterde back-up en herstellen van de prestaties met mogelijkheid Azure back-up direct herstellen
 
@@ -37,11 +37,11 @@ Op dit moment bestaat de back-uptaak uit twee fasen:
 1.  Maken van een VM-momentopname.
 2.  Een momentopname van een virtuele machine worden overgebracht naar de Azure Recovery Services-kluis.
 
-Een herstelpunt wordt beschouwd als gemaakt nadat fasen 1 en 2 zijn voltooid. Als onderdeel van deze upgrade, wordt een herstelpunt gemaakt als u de momentopname is voltooid en dit herstelpunt van het type van de momentopname kan worden gebruikt om uit te voeren van een herstelpunt met behulp van dezelfde stroom terugzetten. U kunt dit herstelpunt in Azure portal met behulp van 'snapshot' als het type herstelpunt identificeren en nadat de momentopname worden overgedragen naar de kluis, het type herstelpunt gewijzigd in "momentopname en kluis."
+Een herstelpunt wordt beschouwd als gemaakt nadat fasen 1 en 2 zijn voltooid. Als onderdeel van deze upgrade, wordt een herstelpunt gemaakt als u de momentopname is voltooid en dit herstelpunt van het type van de momentopname kan worden gebruikt om uit te voeren van een herstelpunt met behulp van dezelfde stroom terugzetten. U kunt dit herstelpunt in Azure portal met behulp van 'snapshot' als het type herstelpunt identificeren en nadat de momentopname worden overgedragen naar de kluis, het type herstelpunt gewijzigd in 'momentopname en kluis'.
 
 ![Back-uptaak in VM-back-upstack Resource Manager-implementatiemodel, opslag en de kluis](./media/backup-azure-vms/instant-rp-flow.png)
 
-Momentopnamen worden bewaard gedurende zeven dagen. Deze functie kunt er met deze momentopnamen herstelbewerkingen bewerking te knippen uitvaltijden het terugzetten. Dit vermindert de tijd die nodig is om te transformeren en gegevens van de kluis naar storage-account van de gebruiker voor niet-beheerde schijf-scenario's voor gebruikers van de beheerde schijf kopiëren, maakt deze beheerde schijven te maken van de back-upgegevens.
+Momentopnamen worden standaard gedurende twee dagen bewaard. Deze functie kunt er met deze momentopnamen herstelbewerkingen bewerking te knippen uitvaltijden het terugzetten. Dit vermindert de tijd die nodig is om te transformeren en gegevens van de kluis naar storage-account van de gebruiker voor niet-beheerde schijf-scenario's voor gebruikers van de beheerde schijf kopiëren, worden er beheerde schijven te maken van de Recovery Services-gegevens gemaakt.
 
 ## <a name="feature-considerations"></a>Functie-overwegingen
 

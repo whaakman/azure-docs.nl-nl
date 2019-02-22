@@ -17,12 +17,12 @@ ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17b7f7fa4889742989a61f8cc076224d46f8eac2
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 4d2e3ad4015df74ea3adb98eae4d98e30f2948ce
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234099"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649183"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedure: Uw hybride Azure Active Directory join-implementatie plannen
 
@@ -92,7 +92,7 @@ U moet als eerste stap planning uw omgeving controleren en bepalen of u nodig he
 
 U kunt een hybride Azure AD join niet gebruiken als uw omgeving bestaat uit één forest die identiteitsgegevens in meer dan één Azure AD-tenant gesynchroniseerd.
 
-Als u het hulpprogramma voor systeemvoorbereiding (Sysprep) zijn afhankelijk, zorg er dan voor dat u installatiekopieën maken van een installatie van Windows die niet is geconfigureerd voor de hybride Azure AD join.
+Als u het hulpprogramma voor systeemvoorbereiding (Sysprep) zijn afhankelijk, zorg ervoor dat installatiekopieën die zijn gemaakt op basis van een installatie van Windows 10-1803 of eerder zijn niet geconfigureerd voor de hybride Azure AD join.
 
 Als u al op de momentopname van een virtuele Machine (VM vertrouwen,) te maken van aanvullende virtuele machines, zorg er dan voor dat u een momentopname van een virtuele machine die niet is geconfigureerd voor de hybride Azure AD join.
 
@@ -116,6 +116,7 @@ Als uw Windows 10 domein apparaten al zijn [geregistreerd bij Azure AD](https://
  - Eventuele bestaande geregistreerd bij Azure AD-status zou worden automatisch verwijderd nadat het apparaat is toegevoegd aan Hybrid Azure AD. 
  - U kunt voorkomen dat uw apparaat dat lid is domein wordt Azure AD geregistreerd door toe te voegen deze registersleutel - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" = dword: 00000001
 
+FIPS-compatibele TPM's worden niet ondersteund voor hybride Azure AD join. Als uw apparaten FIPS-compatibele TPM's hebt, moet u deze uitschakelen voordat u doorgaat met Hybrid Azure AD join.
 
 ## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Lees hoe u de hybride Azure AD join van uw apparaten beheren
 

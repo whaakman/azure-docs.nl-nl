@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 877393de20788b0aa1c76084b121a82f12715cd3
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 1d8d78ceb9cdb5e5dd205306eac00c8ca89e8d4a
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118068"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587936"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Azure Maps Map Control gebruiken
 
@@ -68,7 +68,7 @@ U kunt een kaart insluiten in webpagina's met behulp van de Map Control-client-s
     </body>
     ```
 
-5. Voor het initialiseren van het kaartbesturingselement, definieert een nieuwe sectie in de HTML-tekst en een script maken. Uw eigen sleutel voor Azure kaarten-account of Azure Active Directory (AAD)-referenties gebruiken om te verifiëren van de kaart met behulp [verificatieopties](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.atlas.authenticationoptions). Als u nodig hebt voor het maken van een account of het vinden van uw sleutel, Zie [over het beheren van uw Azure kaarten-account en sleutels](how-to-manage-account-keys.md). De **taal** optie geeft u de taal die moet worden gebruikt voor Kaartlabels en besturingselementen. Zie voor meer informatie over ondersteunde talen [ondersteunde talen](supported-languages.md). Als een abonnementssleutel voor verificatie.
+5. Voor het initialiseren van het kaartbesturingselement, definieert een nieuwe sectie in de HTML-tekst en een script maken. Uw eigen sleutel voor Azure kaarten-account of Azure Active Directory (AAD)-referenties gebruiken om te verifiëren van de kaart met behulp [verificatieopties](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). Als u nodig hebt voor het maken van een account of het vinden van uw sleutel, Zie [over het beheren van uw Azure kaarten-account en sleutels](how-to-manage-account-keys.md). De **taal** optie geeft u de taal die moet worden gebruikt voor Kaartlabels en besturingselementen. Zie voor meer informatie over ondersteunde talen [ondersteunde talen](supported-languages.md). Als een abonnementssleutel voor verificatie.
 
     ```html
     <script type='text/javascript'>

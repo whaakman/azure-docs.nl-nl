@@ -25,8 +25,8 @@ items:
   items:
   - name: Verificatiemethoden
     href: concept-authentication-methods.md
-  - name: Geconvergeerde registratie
-    href: concept-registration-mfa-sspr-converged.md
+  - name: Gecombineerde registratie
+    href: concept-registration-mfa-sspr-combined.md
   - name: Wachtwoord opnieuw instellen
     items:
     - name: Hoe het opnieuw instellen van het wachtwoord werkt
@@ -104,6 +104,12 @@ items:
         href: howto-mfa-nps-extension-rdg.md
       - name: VPN
         href: howto-mfa-nps-extension-vpn.md
+  - name: Gecombineerde registratie
+    items:
+    - name: Gecombineerde registratie inschakelen
+      href: howto-registration-mfa-sspr-combined.md
+    - name: Problemen met gecombineerde registratie oplossen
+      href: howto-registration-mfa-sspr-combined-troubleshoot.md
   - name: Wachtwoordbeveiliging in Azure AD
     items:
     - name: De lijst met verboden wachtwoorden configureren
@@ -191,8 +197,6 @@ items:
         href: howto-mfa-nps-extension-errors.md
   - name: Problemen oplossen
     items:
-    - name: Geconvergeerde registratie uitschakelen
-      href: howto-registration-mfa-sspr-converged-troubleshoot.md
     - name: Problemen oplossen met selfservice voor wachtwoordherstel
       href: active-directory-passwords-troubleshoot.md
     - name: Veelgestelde vragen over selfservice voor wachtwoordherstel
@@ -225,9 +229,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-active-directory
   - name: Video's
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: d834bcd12f4f8af44c467233230744571dd9b23c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 99d21cd59b7281dbb6a34c2e3cdc9026c9955622
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660048"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585981"

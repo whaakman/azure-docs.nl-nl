@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 02/19/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: 5252eed66018cd2028545567dfe62ca7ba17be7e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/19/2019
+ms.openlocfilehash: 884c87501a54a582177cba99596fe6f0b4cccf36
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247813"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593332"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Opmerkingen bij de release voor validatie als een Service
 
@@ -28,14 +28,13 @@ ms.locfileid: "55247813"
 In dit artikel heeft de opmerkingen bij de release voor Azure Stack-validatie als een Service.
 
 ## <a name="version-405"></a>Versie 4.0.5
+
 2019 17 januari
 
--  Test van schijf-ID bijgewerkt naar adres storage pool inconsistenties. Versie: 5.1.14.0  -> 5.1.15.0
--  Azure Stack maandelijkse Update verificatie bijgewerkt naar adres goedgekeurde software en inhoud validatie inconsistenties. Versie: 5.1.14.0  -> 5.1.15.0
--  OEM-extensie pakket verificatie bijgewerkt Voer vereiste controles uit *voordat* de stap van de update Azure Stack. Versie: 5.1.14.0  -> 5.1.15.0
--  Interne oplossingen voor problemen
-
-
+- Test van schijf-ID bijgewerkt naar adres storage pool inconsistenties. Versie: 5.1.14.0 -> 5.1.15.0
+- Azure Stack maandelijkse Update verificatie bijgewerkt naar adres goedgekeurde software en inhoud validatie inconsistenties. Versie: 5.1.14.0 -> 5.1.17.0
+- OEM-extensie pakket verificatie bijgewerkt en voer de vereiste controles vóór de stap van de update Azure Stack. Versie: 5.1.14.0 -> 5.1.16.0
+- Interne oplossingen voor problemen
 
 ## <a name="version-402"></a>Versie 4.0.2
 
@@ -77,7 +76,7 @@ En met 30 November 2018
 
 - VaaS vereisten en de VHD-updates
 
-    `Install-VaaSPrerequisites` nu vereist dat cloud-beheerdersreferenties voor het oplossen van een probleem tijdens de validatie van de oplossing. De documentatie op [Download en installeer de agent](azure-stack-vaas-local-agent.md#download-and-install-the-agent) is bijgewerkt met het volgende:
+    `Install-VaaSPrerequisites` nu vereist dat cloud-beheerdersreferenties voor het oplossen van een probleem tijdens de validatie van het pakket. De documentatie op [Download en installeer de agent](azure-stack-vaas-local-agent.md#download-and-install-the-agent) is bijgewerkt met het volgende:
 
     ```PowerShell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -104,7 +103,7 @@ En met 30 November 2018
 
   - Pakket voor het ondertekenen van meldingen
 
-    Als een OEM-aanpassing-pakket wordt verzonden als onderdeel van de werkstroom voor validatie van de oplossing, wordt de indeling van het pakket worden gevalideerd om ervoor te zorgen dat deze de gepubliceerde specificatie volgt. Als het pakket niet voldoet, wordt de uitvoering mislukt. E-mailmeldingen worden worden verzonden naar het e-mailadres van de geregistreerde Azure Active Directory-contactpersoon voor de tenant.
+    Als een OEM-aanpassing-pakket wordt verzonden als onderdeel van de werkstroom voor validatie van het pakket, wordt de indeling van het pakket worden gevalideerd om ervoor te zorgen dat deze de gepubliceerde specificatie volgt. Als het pakket niet voldoet, wordt de uitvoering mislukt. E-mailmeldingen worden worden verzonden naar het e-mailadres van de geregistreerde Azure Active Directory-contactpersoon voor de tenant.
 
   - Interactieve test categorie
 
