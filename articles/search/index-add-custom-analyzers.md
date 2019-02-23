@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: cb2f06bf2a05e2642eb688a48006d0df5fa4fc2c
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 82b2910a1654461cade853b71e6d57a674bb849e
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587817"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733194"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Analysevoorzieningen aanpassen aan een Azure Search-index toevoegen
 
@@ -189,7 +189,7 @@ U kunt de **Test Analyzer bewerking** in de [REST-API](https://docs.microsoft.co
   }
 ```
 
- ## <a name="update-custom-analyzers"></a>Analysevoorzieningen bijwerken
+## <a name="update-custom-analyzers"></a>Analysevoorzieningen bijwerken
 
 Zodra een analyzer, een tokenizer, een token filter of een char-filter is gedefinieerd, kan niet worden gewijzigd. Nieuwe waarden kunnen worden toegevoegd aan een bestaande index alleen als de `allowIndexDowntime` vlag is ingesteld op ' True ' in de aanvraag van de update index:
 
@@ -205,7 +205,7 @@ Met deze bewerking duurt voordat uw index offline ten minste een paar seconden, 
 
 De onderstaande tabellen lijst van de configuratie-eigenschappen voor de analyzers, tokenizers, token filters en char filter-sectie van de indexdefinitie van een. De structuur van een analyzer, tokenizer, of -filter in de index is samengesteld uit deze kenmerken. Zie voor meer informatie de toewijzing van waarde de [eigenschapverwijzing](#PropertyReference).
 
- ### <a name="analyzers"></a>Analyses
+### <a name="analyzers"></a>Analyses
 
 Voor analyse, indexkenmerken variëren, afhankelijk van of u vooraf gedefinieerde of aangepaste analyse.
 
@@ -229,7 +229,7 @@ Voor analyse, indexkenmerken variëren, afhankelijk van of u vooraf gedefinieerd
 
 <a name="CharFilter"></a>
 
- ### <a name="char-filters"></a>CHAR-Filters
+### <a name="char-filters"></a>CHAR-Filters
 
  Een char-filter wordt gebruikt om voor te bereiden invoertekst voordat deze wordt verwerkt door het tokenizer. Ze kunnen bijvoorbeeld bepaalde tekens of symbolen vervangen. U kunt meerdere char filters in een aangepaste analysefunctie hebben. CHAR filters die worden uitgevoerd in de volgorde waarin ze worden weergegeven.  
 
@@ -239,7 +239,7 @@ Voor analyse, indexkenmerken variëren, afhankelijk van of u vooraf gedefinieerd
 |Type|CHAR filtertype in de lijst van ondersteunde char filters. Zie **char_filter_type** kolom in de [Char Filters](#CharFilter) in de volgende tabel.|  
 |Opties|Moet geldige opties van een bepaalde [Char Filters](#CharFilter) type.|  
 
- ### <a name="tokenizers"></a>Tokenizers
+### <a name="tokenizers"></a>Tokenizers
 
  Een tokenizer verdeelt doorlopende tekst in een reeks van tokens, zoals het analyseren van een zin in woorden.  
 
@@ -252,7 +252,7 @@ Een aangepaste analysefunctie kunt u een vooraf gedefinieerde tokenizer gebruike
 |Type|De naam van de tokenizer uit de lijst met ondersteunde tokenizers. Zie **tokenizer_type** kolom in de [Tokenizers](#Tokenizers) in de volgende tabel.|  
 |Opties|Moet geldige opties van een bepaalde tokenizer type die worden vermeld in de [Tokenizers](#Tokenizers) in de volgende tabel.|  
 
- ### <a name="token-filters"></a>Token filters
+### <a name="token-filters"></a>Token filters
 
  Een token filter wordt gebruikt om te filteren of wijzigen van de tokens die worden gegenereerd door een tokenizer. Bijvoorbeeld, kunt u een kleine filter dat alle tekens converteert naar kleine letters.   
 U kunt meerdere token filters in een aangepaste analysefunctie hebben. Token filters uitgevoerd in de volgorde waarin ze worden weergegeven.  

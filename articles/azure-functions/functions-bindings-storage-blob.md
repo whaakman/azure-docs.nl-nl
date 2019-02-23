@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: 33f79569a2478c7e234b04ba2dee4e9b8883abae
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 16899c833d996902cf7a0a3f7ab57479869fbdd9
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895887"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737778"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindingen voor Azure Functions
 
@@ -95,7 +95,7 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-De tekenreeks `{name}` in het pad van de trigger blob `samples-workitems/{name}` maakt een [binding expressie](functions-triggers-bindings.md#binding-expressions-and-patterns) die u in de functiecode gebruiken kunt voor toegang tot de bestandsnaam van de activerende blob. Zie voor meer informatie, [Blob-naam patronen](#trigger---blob-name-patterns) verderop in dit artikel.
+De tekenreeks `{name}` in het pad van de trigger blob `samples-workitems/{name}` maakt een [binding expressie](./functions-bindings-expressions-patterns.md) die u in de functiecode gebruiken kunt voor toegang tot de bestandsnaam van de activerende blob. Zie voor meer informatie, [Blob-naam patronen](#trigger---blob-name-patterns) verderop in dit artikel.
 
 Voor meer informatie over de `BlobTrigger` kenmerk, Zie [Trigger - kenmerken](#trigger---attributes).
 
@@ -120,7 +120,7 @@ Hier volgt de binding-gegevens de *function.json* bestand:
 }
 ```
 
-De tekenreeks `{name}` in het pad van de trigger blob `samples-workitems/{name}` maakt een [binding expressie](functions-triggers-bindings.md#binding-expressions-and-patterns) die u in de functiecode gebruiken kunt voor toegang tot de bestandsnaam van de activerende blob. Zie voor meer informatie, [Blob-naam patronen](#trigger---blob-name-patterns) verderop in dit artikel.
+De tekenreeks `{name}` in het pad van de trigger blob `samples-workitems/{name}` maakt een [binding expressie](./functions-bindings-expressions-patterns.md) die u in de functiecode gebruiken kunt voor toegang tot de bestandsnaam van de activerende blob. Zie voor meer informatie, [Blob-naam patronen](#trigger---blob-name-patterns) verderop in dit artikel.
 
 Voor meer informatie over *function.json* eigenschappen van het bestand, raadpleegt u de [configuratie](#trigger---configuration) sectie wordt uitgelegd dat deze eigenschappen.
 
@@ -167,7 +167,7 @@ Hier volgt de *function.json* bestand:
 }
 ```
 
-De tekenreeks `{name}` in het pad van de trigger blob `samples-workitems/{name}` maakt een [binding expressie](functions-triggers-bindings.md#binding-expressions-and-patterns) die u in de functiecode gebruiken kunt voor toegang tot de bestandsnaam van de activerende blob. Zie voor meer informatie, [Blob-naam patronen](#trigger---blob-name-patterns) verderop in dit artikel.
+De tekenreeks `{name}` in het pad van de trigger blob `samples-workitems/{name}` maakt een [binding expressie](./functions-bindings-expressions-patterns.md) die u in de functiecode gebruiken kunt voor toegang tot de bestandsnaam van de activerende blob. Zie voor meer informatie, [Blob-naam patronen](#trigger---blob-name-patterns) verderop in dit artikel.
 
 Voor meer informatie over *function.json* eigenschappen van het bestand, raadpleegt u de [configuratie](#trigger---configuration) sectie wordt uitgelegd dat deze eigenschappen.
 
@@ -202,7 +202,7 @@ Hier volgt de *function.json* bestand:
 }
 ```
 
-De tekenreeks `{name}` in het pad van de trigger blob `samples-workitems/{name}` maakt een [binding expressie](functions-triggers-bindings.md#binding-expressions-and-patterns) die u in de functiecode gebruiken kunt voor toegang tot de bestandsnaam van de activerende blob. Zie voor meer informatie, [Blob-naam patronen](#trigger---blob-name-patterns) verderop in dit artikel.
+De tekenreeks `{name}` in het pad van de trigger blob `samples-workitems/{name}` maakt een [binding expressie](./functions-bindings-expressions-patterns.md) die u in de functiecode gebruiken kunt voor toegang tot de bestandsnaam van de activerende blob. Zie voor meer informatie, [Blob-naam patronen](#trigger---blob-name-patterns) verderop in dit artikel.
 
 Voor meer informatie over *function.json* eigenschappen van het bestand, raadpleegt u de [configuratie](#trigger---configuration) sectie wordt uitgelegd dat deze eigenschappen.
 
@@ -348,7 +348,7 @@ Toegang tot de invoerblob gegevens in JavaScript, `context.bindings.<name from f
 
 ## <a name="trigger---blob-name-patterns"></a>Trigger - patronen voor blob-naam
 
-U kunt opgeven dat een patroon voor de blob in de `path` eigenschap in *function.json* of in de `BlobTrigger` kenmerkconstructie. Het naampatroon mag een [expressie van het filter of binding](functions-triggers-bindings.md#binding-expressions-and-patterns). De volgende secties vindt u voorbeelden.
+U kunt opgeven dat een patroon voor de blob in de `path` eigenschap in *function.json* of in de `BlobTrigger` kenmerkconstructie. Het naampatroon mag een [expressie van het filter of binding](./functions-bindings-expressions-patterns.md). De volgende secties vindt u voorbeelden.
 
 ### <a name="get-file-name-and-extension"></a>Naam en extensie ophalen
 

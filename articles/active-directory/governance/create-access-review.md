@@ -1,6 +1,6 @@
 ---
-title: Een toegangsbeoordeling maken voor leden van een groep of gebruikers met toegang tot een toepassing met Azure AD | Microsoft Docs
-description: Informatie over het maken van een toegangscontrole voor leden van een groep of gebruikers met toegang tot een toepassing.
+title: Een toegangsbeoordeling van groepen of toepassingen maken in Azure AD-Toegangsbeoordelingen | Microsoft Docs
+description: Informatie over het maken van een toegangscontrole van leden van beveiligingsgroep of toegang tot toepassingen in Azure AD-Toegangsbeoordelingen.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -11,29 +11,29 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 11/15/2018
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1616230e3cad765246bcf03d59fb517c99d9b044
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6ca27e89ad67b0f0755a7dda50572f3dcd857189
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176914"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733926"
 ---
-# <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Een toegangsbeoordeling van leden van beveiligingsgroep of toegang tot toepassingen maken met Azure AD
+# <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Een toegangsbeoordeling van groepen of toepassingen maken in Azure AD-Toegangsbeoordelingen
 
 Toegang tot groepen en toepassingen voor werknemers en gasten gewijzigd na verloop van tijd. Beheerders kunnen Azure Active Directory (Azure AD) gebruiken voor het maken van toegangsbeoordelingen voor groepsleden of toegang tot toepassingen, verminderen het risico dat samenhangt met verouderde toegangstoewijzingen. Als u regelmatig toegang beoordelen wilt, kunt u ook terugkerende toegangsbeoordelingen te maken. Zie voor meer informatie over deze scenario's, [gebruikerstoegang beheren](manage-user-access-with-access-reviews.md) en [beheren van toegang voor gasten](manage-guest-access-with-access-reviews.md).
 
-In dit artikel wordt beschreven hoe u een nieuwe toegangsbeoordeling maken voor leden van beveiligingsgroep of toegang tot toepassingen.
+In dit artikel wordt beschreven hoe u een of meer toegangsbeoordelingen voor groepsleden of toegang tot toepassingen maken.
 
 ## <a name="prerequisites"></a>Vereisten
 
 - [Toegangsbeoordelingen ingeschakeld](access-reviews-overview.md)
-- Globale beheerder of accountbeheerder
+- Globale beheerder of beheerder van gebruikersaccounts
 
-## <a name="create-an-access-review"></a>Een toegangsbeoordeling maken
+## <a name="create-one-or-more-access-reviews"></a>Maken van een of meer toegangsbeoordelingen
 
 1. Aanmelden bij Azure portal en open de [Toegangsbeoordelingen pagina](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
@@ -58,6 +58,20 @@ In dit artikel wordt beschreven hoe u een nieuwe toegangsbeoordeling maken voor 
 1. In de **gebruikers** sectie, geeft u de gebruikers die toegang tot revisie van toepassing op. Met toegangsbeoordelingen kunnen zich voor de leden van een groep of voor gebruikers die zijn toegewezen aan een toepassing. U kunt de toegang verder bereik bekijken om te bekijken alleen de gastgebruikers die lid zijn (of toegewezen aan de toepassing), in plaats van het controleren van alle gebruikers die lid zijn of die toegang tot de toepassing hebben.
 
     ![Een toegangsbeoordeling - gebruikers maken](./media/create-access-review/users.png)
+
+1. In de **groepen** sectie, selecteer een of meer groepen die u wilt controleren van het lidmaatschap van.
+
+    > [!NOTE]
+    > Selecteer meer dan één groep maakt meerdere toegangsbeoordelingen. Bijvoorbeeld, u vijf afzonderlijke toegangsbeoordelingen maken vijf groepen te selecteren.
+    
+    ![Een toegangsbeoordeling - groep maken](./media/create-access-review/select-group.png)
+
+1. In de **toepassingen** sectie (als u hebt geselecteerd **toegewezen aan een toepassing** in stap 8), selecteer de toepassingen die u wilt toegang te beoordelen.
+
+    > [!NOTE]
+    > Meer dan één toepassing selecteert, maakt meerdere toegangsbeoordelingen. Bijvoorbeeld, u vijf afzonderlijke toegangsbeoordelingen maken vijf toepassingen selecteren.
+    
+    ![Maken van een toegangscontrole - toepassing selecteren](./media/create-access-review/select-application.png)
 
 1. In de **revisoren** sectie, selecteer een of meer mensen te bekijken van alle gebruikers in het bereik. Of u kunt selecteren om de leden hun eigen toegang beoordelen. Als de resource een groep is, kunt u vragen de eigenaren van groepen om te controleren. Ook kunt u vereisen dat de revisoren een reden opgeven wanneer ze toegang goedkeuren.
 
@@ -100,7 +114,7 @@ In dit artikel wordt beschreven hoe u een nieuwe toegangsbeoordeling maken voor 
 
 Nadat u de instellingen voor een overzicht van access hebt opgegeven, klikt u op **Start**.
 
-Standaard verzendt Azure AD een e-mailbericht naar de revisors kort nadat de evaluatie wordt gestart. Als u geen Azure AD-tenant het e-mailbericht verzenden, zorg er dan voor dat laten weten de revisoren een toegangsbeoordeling wordt gewacht om uit te voeren. U ze kunt weergeven, kunt u de instructies voor het [toegang beoordelen](perform-access-review.md). Als uw beoordeling voor gasten op hun eigen toegang beoordelen, geven ze de instructies voor het [uw eigen toegang beoordelen](perform-access-review.md).
+Standaard verzendt Azure AD een e-mailbericht naar de revisors kort nadat de evaluatie wordt gestart. Als u geen Azure AD-tenant het e-mailbericht verzenden, zorg er dan voor dat laten weten de revisoren een toegangsbeoordeling wordt gewacht om uit te voeren. U ze kunt weergeven, kunt u de instructies voor het [toegang met groepen of toepassingen beoordelen](perform-access-review.md). Als uw beoordeling voor gasten op hun eigen toegang beoordelen, geven ze de instructies voor het [toegang beoordelen zelf aan groepen of toepassingen](review-your-access.md).
 
 Als sommige van de revisoren gasten, gasten krijgt een melding via e-mail alleen als ze al hun uitnodiging hebt geaccepteerd.
 
@@ -108,7 +122,7 @@ Als sommige van de revisoren gasten, gasten krijgt een melding via e-mail alleen
 
 U kunt de voortgang volgen als de revisoren voltooid hun beoordelingen in het dashboard Azure AD in de **Toegangsbeoordelingen** sectie. Er is geen toegangsrechten worden gewijzigd in de map tot [de beoordeling is voltooid](complete-access-review.md).
 
-Als dit een eenmalige beoordeling, klikt u vervolgens of de beheerder van de toegangsbeoordeling, stopt de periode van de toegangsbeoordeling is via de stappen in [een toegangscontrole voltooien](complete-access-review.md) om te zien en de resultaten van toepassing.  
+Als dit een eenmalige beoordeling, klikt u vervolgens of de beheerder van de toegangsbeoordeling, stopt de periode van de toegangsbeoordeling is via de stappen in [een toegangscontrole van groepen of toepassingen voltooien](complete-access-review.md) om te zien en de resultaten van toepassing.  
 
 Voor het beheren van een reeks toegangsbeoordelingen, gaat u naar de toegangsbeoordeling van **besturingselementen**, en u toekomstige voorvallen niet vinden in de geplande beoordelingen, en de einddatum bewerken of toevoegen/verwijderen revisoren dienovereenkomstig. 
 
@@ -120,5 +134,6 @@ U kunt ook toegangsbeoordelingen met behulp van API's maken. Wat u doet voor het
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Een toegangscontrole starten met Azure AD-Toegangsbeoordelingen](perform-access-review.md)
-- [Een toegangscontrole van leden van een groep of gebruikers toegang tot een toepassing in Azure AD voltooien](complete-access-review.md)
+- [Toegang tot groepen of toepassingen controleren](perform-access-review.md)
+- [Toegang beoordelen zelf aan groepen of toepassingen](review-your-access.md)
+- [Een toegangscontrole van groepen of toepassingen voltooien](complete-access-review.md)

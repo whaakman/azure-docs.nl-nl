@@ -17,12 +17,12 @@ ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6b1e1c103c37874365f7e8d0b893985c9a6469c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 66506a8abf130f27950fd958ba1a7c291e55a5a5
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171074"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674184"
 ---
 # <a name="control-the-hybrid-azure-ad-join-of-your-devices"></a>De hybride Azure AD-deelname van uw apparaten beheren
 
@@ -82,7 +82,7 @@ Om in te stellen het groepsbeleidsobject:
 8.  Met de rechtermuisknop op **Domeincomputers registreren als apparaten**, en selecteer vervolgens **bewerken**.
 
     > [!NOTE] 
-    > Deze sjabloon Groepsbeleid is gewijzigd van eerdere versies van de console Groepsbeleidsbeheer. Als u een eerdere versie van de-console gebruikt, gaat u naar **Computerconfiguratie** > **beleid** > **Beheersjablonen**  >  **Windows-onderdelen** > **Workplace Join** > **automatisch workplace join-clientcomputers**. 
+    > Deze sjabloon Groepsbeleid is gewijzigd van eerdere versies van de console Groepsbeleidsbeheer. Als u een eerdere versie van de-console gebruikt, gaat u naar **Computerconfiguratie** > **beleid** > **Beheersjablonen**  >  **Windows-onderdelen** > **Device Registration service** > **computer als apparaat van een domein registreren**. 
 
 9.  Selecteer een van de volgende instellingen en selecteer vervolgens **toepassen**:
 

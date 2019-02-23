@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0c7f248023a97bdad09c2c51e9e9a28073def086
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 24b0bc01b5cb4f1d2696a7c9526d586c9b42d0fc
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300122"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674579"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diepe diagnostische gegevens voor web-apps en services met Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Waarom moet ik Application Insights?
@@ -166,7 +166,7 @@ Wanneer een waarschuwing wordt gegenereerd, kan Application Insights automatisch
 ## <a name="next-steps"></a>Volgende stappen
 Aan de slag met Application Insights is eenvoudig. De belangrijkste opties zijn:
 
-* Instrumenteer een web-app al actief. Dit biedt u alle telemetrie van de ingebouwde prestatiecontrole. Het is beschikbaar voor [Java](../../azure-monitor/app/java-live.md) en [IIS-servers](../../azure-monitor/app/monitor-performance-live-website-now.md), en ook voor [Azure App Service](../../azure-monitor/app/app-insights-overview.md).
+* [IIS-servers](../../azure-monitor/app/monitor-performance-live-website-now.md), en ook voor [Azure App Service](../../azure-monitor/app/app-insights-overview.md).
 * Instrumenteer uw project tijdens de ontwikkeling. U kunt dit doen voor [ASP.NET](../../azure-monitor/app/asp-net.md) of [Java](../../azure-monitor/app/java-get-started.md) apps, evenals [Node.js](../../azure-monitor/app/nodejs.md) en een groot aantal [andere typen](../../azure-monitor/app/platforms.md). 
 * Instrument [elke webpagina](../../azure-monitor/app/javascript.md) door een korte codefragment toe te voegen.
 

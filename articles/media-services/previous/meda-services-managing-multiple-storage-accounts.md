@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: b538e1b2d37c92e1712da517ab5f3c46f5e2c3a3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: e25da238648b32edcbfaefbdcf1a6240df97916f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992177"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728315"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Media Services-activa beheren voor meerdere opslagaccounts  
 
@@ -27,7 +27,9 @@ U kunt meerdere opslagaccounts koppelen aan een enkel Media Services-account. Mo
 * De taakverdeling van uw activa voor meerdere opslagaccounts.
 * Vergroten/verkleinen Media Services voor grote hoeveelheden inhoud verwerken (zoals een enkel opslagaccount heeft een maximale limiet van 500 TB). 
 
-In dit artikel ziet u hoe u meerdere opslagaccounts koppelen aan een Media Services-account met [Azure Resource Manager-API's](/rest/api/media/operations/azure-media-services-rest-api-reference) en [Powershell](/powershell/module/azurerm.media). U ziet ook hoe u kunt verschillende opslagaccounts opgeven bij het maken van assets met behulp van de Media Services SDK. 
+In dit artikel ziet u hoe u meerdere opslagaccounts koppelen aan een Media Services-account met [Azure Resource Manager-API's](/rest/api/media/operations/azure-media-services-rest-api-reference) en [Powershell](/powershell/module/az.media). U ziet ook hoe u kunt verschillende opslagaccounts opgeven bij het maken van assets met behulp van de Media Services SDK. 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="considerations"></a>Overwegingen
 
@@ -44,7 +46,7 @@ Media Services wordt de waarde van de **IAssetFile.Name** eigenschap bij het bou
 
 ## <a name="to-attach-storage-accounts"></a>Storage-accounts koppelen  
 
-Gebruiken om de storage-accounts aan uw AMS-account koppelt, [Azure Resource Manager-API's](/rest/api/media/operations/azure-media-services-rest-api-reference) en [Powershell](/powershell/module/azurerm.media), zoals wordt weergegeven in het volgende voorbeeld:
+Gebruiken om de storage-accounts aan uw AMS-account koppelt, [Azure Resource Manager-API's](/rest/api/media/operations/azure-media-services-rest-api-reference) en [Powershell](/powershell/module/az.media), zoals wordt weergegeven in het volgende voorbeeld:
 
     $regionName = "West US"
     $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
@@ -54,11 +56,11 @@ Gebruiken om de storage-accounts aan uw AMS-account koppelt, [Azure Resource Man
     $storageAccount2Name = "skystorage2"
     $storageAccount1Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount1Name"
     $storageAccount2Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount2Name"
-    $storageAccount1 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount1Id -IsPrimary
-    $storageAccount2 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount2Id
+    $storageAccount1 = New-AzMediaServiceStorageConfig -StorageAccountId $storageAccount1Id -IsPrimary
+    $storageAccount2 = New-AzMediaServiceStorageConfig -StorageAccountId $storageAccount2Id
     $storageAccounts = @($storageAccount1, $storageAccount2)
     
-    Set-AzureRmMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
+    Set-AzMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
 
 ### <a name="support-for-cool-storage"></a>Ondersteuning voor ' Cool ' opslag
 

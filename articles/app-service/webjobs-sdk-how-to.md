@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/19/2019
 ms.author: glenga
-ms.openlocfilehash: ab502c25a632977065e55d2eeafd684203636b14
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: a2e07f9022d7404d037903fda627649918134cb7
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109908"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732735"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Over het gebruik van de Azure WebJobs SDK voor verwerking op de achtergrond gebeurtenisgestuurde
 
@@ -212,7 +212,7 @@ static void Main(string[] args)
 
 Invoerbindingen bieden een declaratieve manier om gegevens vanuit Azure of services van derden beschikbaar te maken voor uw code. Uitvoerbindingen bieden een manier om gegevens te werken. De [Get de slag-artikel](webjobs-sdk-get-started.md) toont een voorbeeld van elk.
 
-U kunt de geretourneerde waarde van een methode voor een Uitvoerbinding gebruiken door het kenmerk toe te passen op de geretourneerde waarde van de methode. Zie het voorbeeld in de Azure-Functions [Triggers en bindingen](../azure-functions/functions-triggers-bindings.md#using-the-function-return-value) artikel.
+U kunt de geretourneerde waarde van een methode voor een Uitvoerbinding gebruiken door het kenmerk toe te passen op de geretourneerde waarde van de methode. Zie het voorbeeld in de Azure-Functions [Triggers en bindingen](../azure-functions/functions-bindings-return-value.md) artikel.
 
 ## <a name="binding-types"></a>Bindingstypen
 
@@ -445,7 +445,7 @@ public static void CreateThumbnail(
 }
 ```
 
-Zie voor meer informatie over de expressies voor gegevensbinding [bindende expressies en patronen](../azure-functions/functions-triggers-bindings.md#binding-expressions-and-patterns) in de documentatie van Azure Functions.
+Zie voor meer informatie over de expressies voor gegevensbinding [bindende expressies en patronen](../azure-functions/functions-bindings-expressions-patterns.md) in de documentatie van Azure Functions.
 
 ### <a name="custom-binding-expressions"></a>Aangepaste binding expressies
 

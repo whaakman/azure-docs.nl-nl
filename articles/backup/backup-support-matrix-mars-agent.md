@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 9d0f751e8d0bc0275cc5fd2c47aaba7a6058931c
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: b579816a4367537a7da4aa0f68c8776465295448
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430785"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670749"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Ondersteuningsmatrix voor de back-up met de Microsoft Azure Recovery Services agent (MARS)
 
@@ -148,7 +148,7 @@ Azure Backup biedt ondersteuning voor 'offline-seeding' om over te dragen van ee
 
 ## <a name="support-for-restore"></a>Ondersteuning voor herstel
 
-- De nieuwe [instant restore](/backup-instant-restore-capability.md) versie van Azure Backup kunt u voor het terugzetten van gegevens voordat deze is gekopieerd naar de kluis.<br/><br/> Deze functie wilt gebruiken de machine back-up moet worden uitgevoerd .NET Framework 4.5.2 of hoger.
+- De nieuwe [instant restore](backup-instant-restore-capability.md) versie van Azure Backup kunt u voor het terugzetten van gegevens voordat deze is gekopieerd naar de kluis.<br/><br/> Deze functie wilt gebruiken de machine back-up moet worden uitgevoerd .NET Framework 4.5.2 of hoger.
 - Back-ups kunnen niet worden hersteld naar een doel-VM met een eerdere versie van het besturingssysteem. Bijvoorbeeld, kan een back-up van een computer met Windows 7 worden hersteld op Windows 8 of hoger. Echter, een back-up van een computer met Windows 8 kan niet worden hersteld naar een computer met Windows 7.
 
 

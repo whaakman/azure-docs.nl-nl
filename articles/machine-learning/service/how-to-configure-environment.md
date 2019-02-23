@@ -12,18 +12,18 @@ manager: cgronlun
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: b5109c9c93947118397c383cab3df90c02016ce3
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 61c380ee3427afdf40427ed82ed0fd5c4f1b49fd
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651995"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729012"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Een ontwikkelomgeving configureren voor Azure Machine Learning
 
 In dit artikel leert u hoe u een ontwikkelomgeving, zodat het werken met Azure Machine Learning-service configureren. Machine Learning-service is een platform-agnostische.
 
-De enige vereisten voor uw ontwikkelomgeving zijn Python 3, Conda (voor geïsoleerde omgevingen) en een configuratiebestand met gegevens over uw Azure Machine Learning-werkruimte.
+De enige vereisten voor uw ontwikkelomgeving zijn Python 3, Anaconda (voor geïsoleerde omgevingen) en een configuratiebestand met gegevens over uw Azure Machine Learning-werkruimte.
 
 In dit artikel is gericht op de volgende omgevingen en hulpprogramma's:
 
@@ -139,20 +139,22 @@ Zie voor meer informatie, [virtuele Machines voor Datatechnologie](https://azure
 
 ## <a id="local"></a>Lokale computer
 
-Wanneer u een lokale computer (die mogelijk ook een externe virtuele machine), een Conda-omgeving maken en installeer de SDK door het volgende te doen:
+Wanneer u een lokale computer (die mogelijk ook een externe virtuele machine), een Anaconda-omgeving maken en installeer de SDK door het volgende te doen:
 
 1. Download en installeer [Anaconda](https://www.anaconda.com/distribution/#download-section) (Python 3.7-versie) als u nog geen hebt.
 
 1. Open een opdrachtprompt Anaconda en een omgeving maken met de volgende opdrachten:
 
+    Voer de volgende opdracht om de omgeving te maken.
+
     ```shell
     conda create -n myenv python=3.6.5
+    ```
 
-    # activate the Conda environment
+    Vervolgens activeert u de omgeving.
+
+    ```shell
     conda activate myenv
-
-    # On macOS run
-    source activate myenv
     ```
 
     Dit voorbeeld maakt u een omgeving met behulp van python 3.6.5, maar specifieke subversions kunnen worden gekozen. Compatibiliteit van de SDK kan niet worden gegarandeerd met bepaalde primaire versies (3.5 + wordt aanbevolen), en het is raadzaam om te proberen een verschillende versie/subversion in uw omgeving Anaconda als u fouten ondervindt. Het duurt enkele minuten voor het maken van de omgeving, terwijl onderdelen en -pakketten zijn gedownload.
@@ -188,7 +190,7 @@ Wanneer u een lokale computer (die mogelijk ook een externe virtuele machine), e
    >
    > `pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep --ignore-installed PyYAML`
 
-   Het duurt enkele minuten de SDK te installeren.
+   Het duurt enkele minuten de SDK te installeren. Zie de [installatiehandleiding](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) voor meer informatie over opties voor de installatie.
 
 1. Installatie van andere pakketten voor uw machine learning experimenten.
 
@@ -286,7 +288,7 @@ Voorbereiden van uw Databricks-cluster en voorbeeldnotitieblokken ophalen:
     | VM-typen voor worker-knooppunt | Virtuele machine bij voorkeur is geoptimaliseerd voor geheugen |
     | Automatisch schalen inschakelen | Schakel het selectievakje |
 
-    Het aantal worker-knooppunten in uw Databricks-cluster bepaalt het maximum aantal gelijktijdige iteraties in geautomatiseerde ML-instellingen.
+    Het aantal worker-knooppunten in uw Databricks-cluster bepaalt het maximum aantal gelijktijdige iteraties in geautomatiseerde machine learning-configuratie.
 
     Het duurt enkele minuten om het cluster te maken. Wacht totdat het cluster wordt uitgevoerd voordat u doorgaat.
 

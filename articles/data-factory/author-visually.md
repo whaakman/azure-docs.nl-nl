@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: shlo
-ms.openlocfilehash: 323d22363ee52ff6ccf7575b00c6b8b31a0fa156
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: e934c8bdc851f8c550e8b87a923215df3f95e389
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188491"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728249"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visueel ontwerpen in Azure Data Factory
 De Azure Data Factory gebruikersinterface gebruikerservaring (UX) kunt u visueel ontwerpen en resources van uw gegevensfactory implementeren zonder code te schrijven. U kunt slepen van activiteiten op een pijplijncanvas, testuitvoeringen uitvoeren, iteratief, fouten en implementeren en uw pijplijnuitvoeringen controleren. Er zijn twee benaderingen voor het gebruik van de UX om uit te voeren visueel ontwerpen:
@@ -58,7 +58,7 @@ De **instellingen opslagplaats** configuratie deelvenster wordt weergegeven:
 
 Het deelvenster ziet u de volgende code in de Azure-opslagplaatsen instellingen opslagplaats:
 
-| Instelling | Description | Waarde |
+| Instelling | Description | Value |
 |:--- |:--- |:--- |
 | **Type opslagplaats** | Het type van de codeopslagplaats Azure-opslagplaatsen.<br/>**Opmerking**: GitHub wordt momenteel niet ondersteund. | Azure-opslagplaatsen Git |
 | **Azure Active Directory** | De naam van uw Azure AD-tenant. | <your tenant name> |
@@ -221,7 +221,7 @@ Een configuratie-deelvenster wordt weergegeven. Zie voor meer informatie over de
 
 U kunt een opslagplaats met GitHub Enterprise configureren met een data factory via twee methoden.
 
- #### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>Van configuratiemethode 1 (Enterprise-opslagplaats): Pagina Aan de slag
+#### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>Van configuratiemethode 1 (Enterprise-opslagplaats): Pagina Aan de slag
 
 In Azure Data Factory, gaat u naar de **aan de slag** pagina. Selecteer **Codeopslagplaats configureren**:
 
@@ -237,7 +237,7 @@ Het deelvenster ziet u de volgende code in de Azure-opslagplaatsen instellingen 
 |----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
 | **Type opslagplaats**                                      | Het type van de codeopslagplaats Azure-opslagplaatsen.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
 | **Gebruik GitHub Enterprise**                                | Selectievakje te selecteren van GitHub Enterprise                                                                                                                                                                                                                                                                                                                                                                                              |                    |
-| **URL voor GitHub Enterprise**                                | De GitHub Enterprise basis-URL. Bijvoorbeeld: https://github.mydomain.com                                                                                                                                                                                                                                                                                                                                                          |                    |
+| **GitHub Enterprise URL**                                | De GitHub Enterprise basis-URL. Bijvoorbeeld: https://github.mydomain.com                                                                                                                                                                                                                                                                                                                                                          |                    |
 | **GitHub-account**                                       | De naam van uw GitHub-account. Deze naam kunt u vinden in https://github.com/{account naam} / {naam van de opslagplaats}. Navigeren naar deze pagina, vraagt u om in te voeren van GitHub OAuth-referenties aan uw GitHub-account.                                                                                                                                                                                                                                               |                    |
 | **RepositoryName**                                       | De naam van de opslagplaats in de GitHub-code. GitHub-accounts bevatten Git-opslagplaatsen voor het beheren van uw broncode. U kunt een nieuwe opslagplaats maken of een bestaande opslagplaats, die al in uw account.                                                                                                                                                                                                                              |                    |
 | **Samenwerking vertakking**                                 | De vertakking van uw GitHub-samenwerking die wordt gebruikt voor het publiceren. Standaard is het model. Deze instelling wijzigen in het geval u wilt publiceren van bronnen van een andere vertakking.                                                                                                                                                                                                                                                               |                    |

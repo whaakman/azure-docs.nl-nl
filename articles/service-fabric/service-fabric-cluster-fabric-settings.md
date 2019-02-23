@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: a919d10bbb7def8f81e68d95c03d95309483df59
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: c8cfa0174d3e3300bdc3cfbc68ca416d9b736300
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210376"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674902"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Instellingen voor Service Fabric-cluster aanpassen
 In dit artikel beschrijft de verschillende fabric-instellingen voor uw Service Fabric-cluster die u kunt aanpassen. Voor clusters die worden gehost in Azure, kunt u instellingen via de [Azure-portal](https://portal.azure.com) of met behulp van een Azure Resource Manager-sjabloon. Zie voor meer informatie, [Upgrade van de configuratie van een Azure-cluster](service-fabric-cluster-config-upgrade-azure.md). Voor zelfstandige clusters kunt u instellingen aanpassen door het bijwerken van de *ClusterConfig.json* bestands- en een configuratie uit te voeren een upgrade uitvoeren op uw cluster. Zie voor meer informatie, [Upgrade van de configuratie van een zelfstandige cluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -122,13 +122,13 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |AppDiagnosticStoreAccessRequiresImpersonation |BOOL, de standaardinstelling is true | Dynamisch |Imitatie is wel of niet vereist wanneer toegang tot diagnostische namens de toepassing opslaat. |
 |AppEtwTraceDeletionAgeInDays |Int, de standaardwaarde is 3 | Dynamisch |Aantal dagen waarna we oude ETL-bestanden met toepassing ETW-traceringen wilt verwijderen. |
 |ApplicationLogsFormatVersion |int, standaard is 0 | Dynamisch |Versie voor de toepassing registreert indeling. Ondersteunde waarden zijn 0 en 1. Versie 1 bevat meer velden uit de record van de ETW-gebeurtenis dan de versie van 0. |
-|ClusterId |Reeks | Dynamisch |De unieke id van het cluster. Dit wordt gegenereerd wanneer het cluster is gemaakt. |
-|ConsumerInstances |Reeks | Dynamisch |De lijst van DCA consumentexemplaren. |
+|ClusterId |String | Dynamisch |De unieke id van het cluster. Dit wordt gegenereerd wanneer het cluster is gemaakt. |
+|ConsumerInstances |String | Dynamisch |De lijst van DCA consumentexemplaren. |
 |DiskFullSafetySpaceInMB |Int, standaard is 1024 | Dynamisch |Resterende schijfruimte in MB te beschermen tegen door DCA worden gebruikt. |
 |EnableCircularTraceSession |BOOL, de standaardinstelling is false | Statisch |Vlag geeft aan of cirkelvormige trace-sessies moeten worden gebruikt. |
 |EnableTelemetry |BOOL, de standaardinstelling is true | Dynamisch |Dit gaat in- of uitschakelen telemetrie. |
 |MaxDiskQuotaInMB |Int, de standaardwaarde is 65536 | Dynamisch |Schijfquotum in MB voor Windows Fabric-logboekbestanden. |
-|ProducerInstances |Reeks | Dynamisch |De lijst met instanties van DCA-producent. |
+|ProducerInstances |String | Dynamisch |De lijst met instanties van DCA-producent. |
 
 ## <a name="dnsservice"></a>DnsService
 | **Parameter** | **Toegestane waarden** |**Upgradebeleid**| **Richtlijnen of korte beschrijving** |
@@ -280,7 +280,8 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 ## <a name="healthmanager"></a>HealthManager
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
-| EnableApplicationTypeHealthEvaluation |BOOL, de standaardinstelling is false |Statisch|Beleid voor evaluatie van status van cluster: inschakelen per toepassing type evalueren. |
+|EnableApplicationTypeHealthEvaluation |BOOL, de standaardinstelling is false |Statisch|Beleid voor evaluatie van status van cluster: inschakelen per toepassing type evalueren. |
+|MaxSuggestedNumberOfEntityHealthReports|Int, de standaardwaarde is 500 |Dynamisch|Het maximum aantal status rapporteert dat een entiteit hebben kunt voordat het verhogen van de bezorgdheid over reporting logica van de watchdog-status. Elke entiteit status moet een relatief klein aantal statusrapporten. Als het aantal rapport dan dit aantal gaat. Er zijn mogelijk problemen met implementatie van de watchdog. Een entiteit met te veel rapporten is gemarkeerd via een statusrapport van de waarschuwing als de entiteit wordt geëvalueerd. |
 
 ## <a name="healthmanagerclusterhealthpolicy"></a>HealthManager/ClusterHealthPolicy
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
@@ -451,7 +452,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 ## <a name="performancecounterlocalstore"></a>PerformanceCounterLocalStore
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
-|Prestatiemeteritems |Reeks | Dynamisch |Door komma's gescheiden lijst met te verzamelen prestatiemeteritems. |
+|Prestatiemeteritems |String | Dynamisch |Door komma's gescheiden lijst met te verzamelen prestatiemeteritems. |
 |IsEnabled |BOOL, de standaardinstelling is true | Dynamisch |Vlag geeft aan of het verzamelen van prestatiemeteritems op het lokale knooppunt is ingeschakeld. |
 |MaxCounterBinaryFileSizeInMB |int, standaard is 1 | Dynamisch |Maximale grootte (in MB) voor elk prestaties teller binaire bestand. |
 |NewCounterBinaryFileCreationIntervalInMinutes |Int, de standaardwaarde is 10 | Dynamisch |Maximaal interval (in seconden) waarna een nieuw prestaties teller binaire bestand is gemaakt. |
@@ -756,10 +757,10 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 | --- | --- | --- | --- |
 |ContainerNetworkName|tekenreeks, standaardwaarde is ""| Statisch |De naam van het netwerk te gebruiken bij het instellen van een netwerk container.|
 |ContainerNetworkSetup|BOOL, standaard is ingesteld op FALSE| Statisch |Hiermee geeft u op of u voor het instellen van een netwerk container.|
-|FabricDataRoot |Reeks | Niet toegestaan |Hoofdmap voor service Fabric-gegevens. Standaard voor Azure d:\svcfab is |
-|FabricLogRoot |Reeks | Niet toegestaan |Service fabric log-hoofdmap. Dit is waar de SF-logboeken en traceringen worden geplaatst. |
+|FabricDataRoot |String | Niet toegestaan |Hoofdmap voor service Fabric-gegevens. Standaard voor Azure d:\svcfab is |
+|FabricLogRoot |String | Niet toegestaan |Service fabric log-hoofdmap. Dit is waar de SF-logboeken en traceringen worden geplaatst. |
 |NodesToBeRemoved|tekenreeks, standaardwaarde is ""| Dynamisch |De knooppunten die moeten worden verwijderd als onderdeel van de upgrade van de configuratie. (Alleen voor implementaties van de zelfstandige versie)|
-|ServiceRunAsAccountName |Reeks | Niet toegestaan |De accountnaam waaronder fabric host-service uit te voeren. |
+|ServiceRunAsAccountName |String | Niet toegestaan |De accountnaam waaronder fabric host-service uit te voeren. |
 |SkipContainerNetworkResetOnReboot|BOOL, standaard is ingesteld op FALSE|NotAllowed|Hiermee geeft u op of u moet worden overgeslagen bij het opnieuw instellen container netwerk bij het opnieuw opstarten.|
 |SkipFirewallConfiguration |BOOL, de standaardinstelling is false | Niet toegestaan |Hiermee geeft u als de firewall-instellingen moeten worden ingesteld door het systeem of niet. Dit geldt alleen als u windows firewall. Als u firewalls van derden gebruikt, moet klikt u vervolgens u de poorten openen voor het systeem en de toepassingen te gebruiken |
 

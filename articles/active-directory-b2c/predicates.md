@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9bd015076cdbd70768b1359fac0cfc893d871513
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 360fd8e7ab0f7a85dbeed2bdbc7da379cbcfe91a
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149591"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737022"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predikaten en PredicateValidations
 
@@ -33,33 +33,33 @@ De **predicaat** element definieert een basisvalidatie om te controleren of de w
 
 De **predikaten** element bevat het volgende element:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | Predicaat | 1: n | Een lijst met predicaten. | 
 
 De **predicaat** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | Id | Ja | Een id die wordt gebruikt voor het predicaat. Andere elementen kunt deze id in het beleid. |
 | Methode | Ja | De methode dat moet worden gebruikt voor validatie. Mogelijke waarden: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters**, of **IsDateRange**. De **IsLengthRange** waarde wordt gecontroleerd of de lengte van de waarde van een tekenreeks-claim binnen het bereik van de minimale en maximale parameters opgegeven is. De **MatchesRegex** waarde wordt gecontroleerd of de waarde van een tekenreeks-claim overeenkomt met een reguliere expressie. De **IncludesCharacters** waarde gecontroleerd of de waarde van een tekenreeks-claim een tekenset bevat. De **IsDateRange** waarde wordt gecontroleerd of de waarde van een datum-claim tussen een scala aan de minimale en maximale parameters die zijn opgegeven is. |
 
 De **predicaat** element bevat de volgende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 | Een foutbericht weergegeven voor gebruikers als de controle is mislukt. Deze tekenreeks kan worden gelokaliseerd met behulp van de [taalaanpassing](localization.md) |
 | Parameters | 1:1 | De parameters voor het type van de validatie van de tekenreeks. | 
 
 De **Parameters** element bevat de volgende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | Parameter | 1: n | De parameters voor het type van de validatie van de tekenreeks. | 
 
 De **Parameter** element bevat de volgende kenmerken:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | Id | 1:1 | De id van de parameter. |
 
@@ -132,56 +132,56 @@ Terwijl de predicaten definiëren de validatie om te controleren op basis van ee
 
 De **PredicateValidations** element bevat het volgende element:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | PredicateValidation | 1: n | Een lijst van predikaat validatie. | 
 
 De **PredicateValidation** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | Id | Ja | Een id die wordt gebruikt voor de validatie van het predicaat. De **ClaimType** element gebruikt deze id in het beleid. |
 
 De **PredicateValidation** element bevat het volgende element:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | PredicateGroups | 1: n | Een lijst van predikaat groepen. | 
 
 De **PredicateGroups** element bevat het volgende element:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | PredicateGroup | 1: n | Een lijst met predicaten. | 
 
 De **PredicateGroup** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | Id | Ja | Een id die wordt gebruikt voor het predicaat groep.  |
 
 De **PredicateGroup** element bevat de volgende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 |  Een beschrijving van het predikaat die kan nuttig zijn voor gebruikers om te weten welke waarde ze moeten typen. | 
 | PredicateReferences | 1: n | Een lijst met predicaatverwijzingen. | 
 
 De **PredicateReferences** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | MatchAtLeast | Nee | Hiermee geeft u op dat de waarde moet overeenkomen met ten minste dat veel definities voor de invoer predikaat moet zijn geaccepteerd. |
 
 De **PredicateReferences** element bevat de volgende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | PredicateReference | 1: n | Een verwijzing naar een predicaat. | 
 
 De **PredicateReference** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | Id | Ja | Een id die wordt gebruikt voor de validatie van het predicaat.  |
 
@@ -350,7 +350,7 @@ Hieronder ziet u hoe de elementen zijn ingedeeld als Azure AD B2C een foutmeldin
 
 ![Predikaat proces](./media/predicates/predicates-pass.png)
 
- ## <a name="configure-a-date-range"></a>Configureren van een bepaalde periode
+## <a name="configure-a-date-range"></a>Configureren van een bepaalde periode
 
 Met de **predikaten** en **PredicateValidations** elementen kunt u de minimale en maximale datumwaarden van bepalen de **UserInputType** met behulp van een `DateTimeDropdown`. Om dit te doen, maakt u een **predicaat** met de `IsDateRange` methode en de minimale en maximale parameters.
 

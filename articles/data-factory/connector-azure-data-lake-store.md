@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 02/22/2019
 ms.author: jingwang
-ms.openlocfilehash: d148b43750b4e57ff650f8e96bfda1fb5c57dd4b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: ac0a4bf6f332095bd75a6be83d7a1cd3d37c8e1c
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657328"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674545"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Data Lake Storage Gen1 met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -113,15 +113,15 @@ De volgende eigenschappen worden ondersteund:
 
 ### <a name="managed-identity"></a> Gebruik van beheerde identiteiten voor verificatie van de Azure-resources
 
-Een data factory kan worden gekoppeld aan een [beheerde identiteit voor de Azure-resources](data-factory-service-identity.md), die staat voor deze specifieke data factory. U kunt deze service-identiteit rechtstreeks gebruiken voor verificatie met Data Lake Store, vergelijkbaar met het gebruik van uw eigen service-principal. Kan deze aangewezen factory toegang en Kopieer gegevens naar of van Data Lake Store.
+Een data factory kan worden gekoppeld aan een [beheerde identiteit voor de Azure-resources](data-factory-service-identity.md), die staat voor deze specifieke data factory. U kunt deze beheerde identiteit rechtstreeks gebruiken voor verificatie met Data Lake Store, vergelijkbaar met het gebruik van uw eigen service-principal. Kan deze aangewezen factory toegang en Kopieer gegevens naar of van Data Lake Store.
 
 Beheerde om identiteiten te gebruiken voor verificatie van de Azure-resources:
 
-1. [Ophalen van de data factory-service-identiteit](data-factory-service-identity.md#retrieve-service-identity) door de waarde van de Service-identiteit toepassings-ID"gegenereerd samen met uw factory kopiëren.
-2. De service-identiteit toegang verlenen tot Data Lake Store, de dezelfde manier als voor service-principal, deze opmerkingen te volgen.
+1. [Ophalen van de identiteitsgegevens van de data factory beheerd](data-factory-service-identity.md#retrieve-managed-identity) door de waarde van de Service-identiteit toepassings-ID"gegenereerd samen met uw factory kopiëren.
+2. De beheerde identiteit toegang verlenen tot Data Lake Store, de dezelfde manier als voor service-principal, deze opmerkingen te volgen.
 
 >[!IMPORTANT]
-> Zorg ervoor dat u de data factory-service-identiteit juiste machtigingen in Data Lake Store verlenen:
+> Zorg ervoor dat u de data factory beheerde identiteit juiste machtiging verlenen in Data Lake Store:
 >- **Als bron**: In **Data explorer** > **toegang**, ten minste verlenen **lees- en uitvoeringsmachtigingen** toestemming voor het weergeven en kopieer de bestanden in mappen en submappen. Of u kunt verlenen **lezen** machtiging voor het kopiëren van een enkel bestand. U kunt kiezen om toe te voegen aan **deze map en alle onderliggende** voor recursieve, en toevoegen als **een toegangsmachtiging en een standaardmachtiging**. Er is geen vereiste op account niveau toegangsbeheer (IAM).
 >- **Als sink**: In **Data explorer** > **toegang**, ten minste verlenen **schrijven + uitvoeren** machtiging voor het maken van onderliggende items in de map. U kunt kiezen om toe te voegen aan **deze map en alle onderliggende** voor recursieve, en toevoegen als **een toegangsmachtiging en een standaardmachtiging**. Als u Azure-integratie-runtime gebruiken om te kopiëren (bron en sink zijn in de cloud), verleen in IAM, ten minste de **lezer** rol om te kunnen detecteren van de regio voor Data Lake Store met Data Factory. Als u wilt om te voorkomen dat deze rol IAM expliciet [maken van een Azure integratieruntime](create-azure-integration-runtime.md#create-azure-ir) door de locatie van Data Lake Store. Koppel deze in de Data Lake Store gekoppelde service als in het volgende voorbeeld.
 

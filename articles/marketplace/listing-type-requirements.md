@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: 8232a197b7916c069ef17393e44a4f9a512a7598
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: f88c7b9350d104241524284950865e1f2ca6f559
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818529"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729403"
 ---
 # <a name="requirements-by-listing-type"></a>Vereisten van het Type aanbieding  
 De technische en marketingmateriaal inhoud vereisten variëren per winkel, aanbiedingtype en het type van de aanbieding. Bekijk de volgende specificaties om te controleren of de naleving.  
@@ -85,7 +85,7 @@ De lijst met type aanbieding bevat de volgende typen op de storefronts in de mar
 
 <!-- #### Requirements: Azure Marketplace: List: Contact Me -->
 
----   
+---
 
 ### <a name="trial"></a>Proefversie  
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 213a695d99c50cea5962237c6210e6efcdbc5f6a
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 8f253d150a5073d2d19daf51c12180c9f7b3660b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411676"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734520"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services-uitschalen
 
@@ -87,11 +87,13 @@ Gebruik de **synchronisatie** bewerking.
 
 ### <a name="powershell"></a>PowerShell
 
-Voordat u met behulp van PowerShell, [installeren of bijwerken van de meest recente AzureRM-module](https://github.com/Azure/azure-powershell/releases). 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Als u wilt dat het aantal query's, gebruikt u [Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver). Geef de optionele `-ReadonlyReplicaCount` parameter.
+Voordat u met behulp van PowerShell, [installeren of bijwerken van de meest recente Azure PowerShell-module](/powershell/azure/install-az-ps). 
 
-Gebruiken om uit te voeren synchronisatie, [synchronisatie AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
+Als u wilt dat het aantal query's, gebruikt u [Set AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Geef de optionele `-ReadonlyReplicaCount` parameter.
+
+Gebruiken om uit te voeren synchronisatie, [synchronisatie AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance).
 
 ## <a name="connections"></a>Verbindingen
 

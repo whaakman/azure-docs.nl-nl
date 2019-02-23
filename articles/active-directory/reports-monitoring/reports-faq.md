@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6b8587313a4e98bfefa6489d9698052d312a6d3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c51f1d47a5412e77b7113fccfd2e9a54e1d2ff7f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194543"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730202"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Veelgestelde vragen over Azure Active Directory-rapporten
 
@@ -33,13 +33,13 @@ In dit artikel bevat antwoorden op veelgestelde vragen over Azure Active Directo
 
 **A:** Controleren of de [API-verwijzing](https://developer.microsoft.com/graph/) om te zien hoe u kunt [de API's gebruiken voor toegang tot activiteitenrapporten](concept-reporting-api.md). Dit eindpunt heeft twee rapporten (**Audit** en **aanmeldingen**) Hier vindt u alle gegevens die u hebt verkregen in het oude API-eindpunt. Dit nieuwe eindpunt heeft ook een rapport-aanmeldingen met de Azure AD Premium-licentie die u gebruiken kunt om app-gebruik, gebruik van het apparaat en aanmelding bij gebruikersgegevens te verkrijgen.
 
---- 
+---
 
 **V: Ik momenteel gebruiken de https://graph.windows.net/&lt; tenant-naam&gt;/reports/ eindpunt API's voor het ophalen van Azure AD-beveiligingsrapporten (specifieke typen detectie, zoals de referenties zijn gelekt of aanmeldingen vanaf anonieme IP-adressen) in onze reporting systemen via een programma. Wat moet ik overschakelen naar?**
 
 **A:** U kunt de [risicogebeurtenissen Identity Protection API](../identity-protection/graph-get-started.md) naar beveiligingsdetecties toegang via Microsoft Graph. Deze nieuwe indeling biedt meer flexibiliteit in hoe u van gegevens, met Geavanceerd filteren, mapselectie en meer opvragen kunt, en risicogebeurtenissen standaardiseert in één type voor eenvoudiger integratie met siem's en andere hulpmiddelen voor het verzamelen van gegevens. Omdat de gegevens zich in een andere indeling, kunt u een nieuwe query voor uw oude query's niet vervangen. Echter, [de nieuwe API maakt gebruik van Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), dit is de Microsoft-standaard voor deze API's als Office 365 of Azure AD. U begint de overgang naar deze nieuwe standard-platform, zodat het werk vereist kunt uitbreiden van uw huidige investeringen in MS Graph of de help.
 
---- 
+---
 
 **V: Hoe krijg ik een premium-licentie?**
 
@@ -79,7 +79,7 @@ In dit artikel bevat antwoorden op veelgestelde vragen over Azure Active Directo
 | Aanmeldingen               | N/A           | 30 dagen             | 30 dagen             |
 | Azure MFA Usage        | 30 dagen       | 30 dagen             | 30 dagen             |
 
---- 
+---
 
 **V: Hoe lang duurt het tot ik de activiteitsgegevens zien kan nadat ik mijn taak hebt voltooid?**
 

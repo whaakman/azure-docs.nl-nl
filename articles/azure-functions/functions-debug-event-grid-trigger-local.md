@@ -11,14 +11,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: 7a3468d9a0d128bd51ae742189e60bb8e2af6c0e
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 96d88fafd6824ed85f1d91bab59374b3490a55b2
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50097862"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736495"
 ---
-# <a name="azure-function-event-grid-trigger-local-debugging"></a>Azure-functie Event Grid Trigger lokale foutopsporing
+# <a name="azure-function-event-grid-trigger-local-debugging"></a>Azure Function Event Grid Trigger Local Debugging
 
 In dit artikel ziet u hoe u fouten opsporen in een lokale functie die verantwoordelijk is voor een Azure Event Grid-gebeurtenis die worden gegenereerd door een storage-account. 
 
@@ -62,7 +62,7 @@ Als het hulpprogramma is ingesteld, is het opdrachtvenster ziet die vergelijkbaa
 
 Kopieer de **HTTPS** URL gegenereerd wanneer *ngrok* wordt uitgevoerd. Deze waarde wordt gebruikt bij het configureren van het eindpunt van de event grid-gebeurtenis.
 
- ## <a name="add-a-storage-event"></a>Een opslag-gebeurtenis toevoegen
+## <a name="add-a-storage-event"></a>Een opslag-gebeurtenis toevoegen
 
 Open de Azure-portal en gaat u naar een opslagaccount en klik op de **gebeurtenissen** optie.
 

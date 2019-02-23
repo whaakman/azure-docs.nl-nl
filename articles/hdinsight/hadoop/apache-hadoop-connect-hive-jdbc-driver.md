@@ -7,45 +7,39 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 04/02/2018
+ms.date: 02/14/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1d57b6edcff5222bb411a74cc86afbbd7819f9d3
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: dba7fbe026725510cc357fecbc7d3251849f6af8
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970828"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675072"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Apache Hive query via het JDBC-stuurprogramma in HDInsight
 
 [!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-Informatie over het gebruiken van het JDBC-stuurprogramma van een Java-toepassing voor het indienen van Apache Hive-query's op Apache Hadoop in Azure HDInsight. De informatie in dit document laat zien hoe u verbinding maakt via een programma en van de SQuirrel SQL-client.
+Informatie over het gebruiken van het JDBC-stuurprogramma van een Java-toepassing voor het indienen van Apache Hive-query's op Apache Hadoop in Azure HDInsight. De informatie in dit document laat zien hoe u verbinding maakt via een programma, en van de SQuirreL SQL-client.
 
 Zie voor meer informatie over het Hive JDBC-Interface, [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een Hadoop op HDInsight-cluster.
-
-  > [!IMPORTANT]
-  > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie voor meer informatie, [HDInsight 3.3 buiten gebruik stellen](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
+* Een HDInsight Hadoop-cluster. Zie voor het maken van een [aan de slag met Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md).
+* De [Java Developer Kit (JDK) versie 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html) of hoger.
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL is een JDBC-clienttoepassing.
 
-* De [Java Developer Kit (JDK) versie 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) of hoger.
-
-* [Apache Maven](https://maven.apache.org). Maven is een project gemaakt systeem voor Java-projecten die door het project dat is gekoppeld aan dit artikel wordt gebruikt.
 
 ## <a name="jdbc-connection-string"></a>JDBC-verbindingsreeks
 
-JDBC-verbindingen met een HDInsight-cluster op Azure meer dan 443 zijn gemaakt en het verkeer dat is beveiligd met SSL. De openbare gateway die de clusters bevinden zich achter leidt het verkeer naar de poort die HiveServer2 daadwerkelijk luistert. De volgende verbindingsreeks ziet u de indeling moet worden gebruikt voor HDInsight:
+JDBC-verbindingen met een HDInsight-cluster in Azure worden gemaakt via poort 443 en het verkeer dat is beveiligd met SSL. De openbare gateway die de clusters bevinden zich achter leidt het verkeer naar de poort die HiveServer2 daadwerkelijk luistert. De volgende verbindingsreeks ziet u de indeling moet worden gebruikt voor HDInsight:
 
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
 
 Vervang `CLUSTERNAME` door de naam van uw HDInsight-cluster.
 
-## <a name="authentication"></a>Verificatie
+## <a name="authentication"></a>Authentication
 
 Bij het maken van de verbinding, moet u de naam van de beheerder HDInsight-cluster en het wachtwoord voor de verificatie bij de gateway van het cluster. Bij het verbinden van clients, zoals SQuirreL SQL JDBC, moet u de naam van de beheerder en het wachtwoord invoeren in de clientinstellingen.
 
@@ -59,24 +53,23 @@ DriverManager.getConnection(connectionString,clusterAdmin,clusterPassword);
 
 SQuirreL SQL is een JDBC-client die kan worden gebruikt voor het extern uitvoeren van Hive-query's met uw HDInsight-cluster. De volgende stappen wordt ervan uitgegaan dat u SQuirreL SQL al hebt geïnstalleerd.
 
-1. Maak een map die de bestanden bevat. Bijvoorbeeld `mkdir hivedriver`.
+1. Maak een map bepaalde bestanden moeten worden gekopieerd van het cluster bevatten.
 
-2. Gebruik de volgende opdrachten om te kopiëren van de bestanden van het HDInsight-cluster vanaf een opdrachtregel:
+2. Vervang in het volgende script `sshuser` met de accountnaam van de SSH-gebruiker voor het cluster.  Vervang `CLUSTERNAME` met de naam van het HDInsight-cluster.  Voer de volgende opdracht om bestanden te kopiëren vanuit een HDInsight-cluster vanaf een opdrachtregel:
 
     ```bash
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-common.jar .
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/lib/log4j-*.jar .
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/lib/slf4j-*.jar .
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/hive-*-1.2*.jar .
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/httpclient-*.jar .
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/httpcore-*.jar .
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/libthrift-*.jar .
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/libfb*.jar .
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/commons-logging-*.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/hadoop-common.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/lib/log4j-*.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/lib/slf4j-*.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/commons-codec*.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/commons-logging-*.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/hive-*-1.2*.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/httpclient-*.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/httpcore-*.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/libfb*.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/libthrift-*.jar .
     ```
-
-    Vervang `USERNAME` met de accountnaam van de SSH-gebruiker voor het cluster. Vervang `CLUSTERNAME` met de naam van het HDInsight-cluster.
 
 3. De SQuirreL SQL-toepassing te starten. Selecteer in de linkerkant van het venster **stuurprogramma's**.
 
@@ -95,9 +88,9 @@ SQuirreL SQL is een JDBC-client die kan worden gebruikt voor het extern uitvoere
 
    ![stuurprogramma-dialoogvenster toevoegen](./media/apache-hadoop-connect-hive-jdbc-driver/adddriver.png)
 
-   Klik op **OK** deze instellingen op te slaan.
+   Selecteer **OK** deze instellingen op te slaan.
 
-6. Selecteer aan de linkerkant van het SQuirreL SQL-venster, **aliassen**. Klik vervolgens op de **+** pictogram van de alias van een verbinding maken.
+6. Selecteer aan de linkerkant van het SQuirreL SQL-venster, **aliassen**. Selecteer vervolgens de **+** pictogram van de alias van een verbinding maken.
 
     ![nieuwe alias toevoegen](./media/apache-hadoop-connect-hive-jdbc-driver/aliases.png)
 
@@ -105,7 +98,7 @@ SQuirreL SQL is een JDBC-client die kan worden gebruikt voor het extern uitvoere
 
     * **Naam**: Hive in HDInsight
 
-    * **Stuurprogramma**: Gebruik de vervolgkeuzelijst selecteert het **Hive** stuurprogramma
+    * **Stuurprogramma**: Gebruik de vervolgkeuzelijst om te selecteren de **Hive** stuurprogramma
 
     * **URL**: `jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`
 
@@ -126,9 +119,11 @@ SQuirreL SQL is een JDBC-client die kan worden gebruikt voor het extern uitvoere
 
     ![het dialoogvenster verbinding](./media/apache-hadoop-connect-hive-jdbc-driver/connect.png)
 
-9. Eenmaal verbinding hebben, voert u de volgende query in het dialoogvenster van de SQL-query's, en selecteer vervolgens de **uitvoeren** pictogram. De resultaten van de query moet worden weergegeven in het resultatengebied.
+9. Eenmaal verbinding hebben, voert u de volgende query in het dialoogvenster van de SQL-query's, en selecteer vervolgens de **uitvoeren** pictogram (een persoon die uitgevoerd). De resultaten van de query moet worden weergegeven in het resultatengebied.
 
-        select * from hivesampletable limit 10;
+    ```hql
+    select * from hivesampletable limit 10;
+    ```
 
     ![dialoogvenster voor SQL query's, met inbegrip van resultaten](./media/apache-hadoop-connect-hive-jdbc-driver/sqlquery.png)
 
@@ -150,15 +145,11 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 **Oorzaak**: Deze fout wordt veroorzaakt door een oudere versie commons codec.jar-bestand met SQuirreL opgenomen.
 
-**Resolutie**: U kunt deze fout oplossen, gebruik de volgende stappen uit:
+**Oplossing**: U kunt deze fout oplossen, gebruik de volgende stappen uit:
 
-1. Download het commons codec jar-bestand van het HDInsight-cluster.
+1. SQuirreL afsluiten en gaat u naar de map waar SQuirreL is geïnstalleerd op uw systeem. In de map SquirreL onder de `lib` directory, vervangen de bestaande commons codec.jar met de versie die is gedownload van het HDInsight-cluster.
 
-        scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/commons-codec*.jar ./commons-codec.jar
-
-2. SQuirreL afsluiten en gaat u naar de map waar SQuirreL is geïnstalleerd op uw systeem. In de map SquirreL onder de `lib` directory, vervangen de bestaande commons codec.jar met de versie die is gedownload van het HDInsight-cluster.
-
-3. SQuirreL opnieuw. De fout kan niet meer optreden bij het verbinden met Hive in HDInsight.
+2. SQuirreL opnieuw. De fout kan niet meer optreden bij het verbinden met Hive in HDInsight.
 
 ## <a name="next-steps"></a>Volgende stappen
 

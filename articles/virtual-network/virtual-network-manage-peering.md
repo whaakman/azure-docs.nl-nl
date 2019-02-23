@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 02/21/2019
 ms.author: jdial;anavin
-ms.openlocfilehash: 0cc85425742fbf3ee4825e13349d2b8b2c9ca6c4
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: a2d799a85932f8b7fdf1f6ae53dc50579c266311
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649319"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674510"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Maken, wijzigen of een virtueel netwerk-peering verwijderen
 
@@ -114,10 +114,10 @@ Als u virtuele netwerken om te communiceren soms, maar niet altijd, in plaats va
 ## <a name="requirements-and-constraints"></a>Vereisten en beperkingen
 
 - <a name="cross-region"></a>U kunt virtuele netwerken in de dezelfde regio bevinden, of verschillende regio's koppelen. Peering van virtuele netwerken in verschillende regio's wordt ook aangeduid als *wereldwijde peering*.
-- Bij het maken van een wereldwijde peering, kunnen de gekoppelde virtuele netwerken bestaan in andere openbare cloud van Azure-regio's of regio's China-cloud, maar niet in Government cloud-regio's. U kunt alleen peering van virtuele netwerken in dezelfde regio in Azure Government cloud-regio's.
+- Bij het maken van een wereldwijde peering, worden de gekoppelde virtuele netwerken kunnen bestaan in een openbare cloud van Azure-regio, China-cloud-regio's of Government cloud-regio's. U kunt niet koppelen tussen clouds.
 - Resources in een virtueel netwerk kunnen niet communiceren met de front-end-IP-adres van een interne Azure load balancer in een wereldwijd gekoppelde virtuele netwerk. De load balancer en de resources die met deze communiceren moeten zich in een virtueel netwerk in dezelfde regio. Als de gekoppelde virtuele netwerken zich echter in dezelfde regio bevinden, kunnen resources in beide virtuele netwerken communiceren met de front-end-IP-adres van een interne Azure load balancer in beide virtuele netwerken in de peering.
 - U kunt geen externe gateways gebruiken of gatewayoverdracht toestaan in wereldwijd gekoppelde virtuele netwerken. Als u externe gateways gebruiken of gatewayoverdracht toestaan, moet de gekoppelde virtuele netwerken in dezelfde regio.
-- De virtuele netwerken kunnen zich in de dezelfde of verschillende abonnementen behoren. Wanneer u virtuele netwerken in verschillende abonnementen koppelen, kunnen beide abonnementen worden gekoppeld aan dezelfde of verschillende Azure Active Directory-tenant. Als u nog een AD-tenant hebt, kunt u snel [maakt u er een](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). Ondersteuning voor peering tussen virtuele netwerken van abonnementen die zijn gekoppeld aan andere Azure Active Directory-tenants is niet beschikbaar in de Portal. U kunt de CLI, PowerShell of sjablonen gebruiken.
+- De virtuele netwerken kunnen zich in de dezelfde of verschillende abonnementen behoren. Wanneer u virtuele netwerken in verschillende abonnementen koppelen, kunnen beide abonnementen worden gekoppeld aan dezelfde of verschillende Azure Active Directory-tenant. Als u nog een AD-tenant hebt, kunt u [maakt u er een](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). Ondersteuning voor peering tussen virtuele netwerken van abonnementen die zijn gekoppeld aan andere Azure Active Directory-tenants is niet beschikbaar in de Portal. U kunt de CLI, PowerShell of sjablonen gebruiken.
 - De virtuele netwerken die u op hetzelfde niveau moeten niet-overlappende IP-adresruimten hebben.
 - U kan niet-adresbereiken aan toevoegen of verwijderen-adresbereiken in de adresruimte van een virtueel netwerk van wanneer een virtueel netwerk is gekoppeld aan een ander virtueel netwerk. Als u wilt toevoegen of verwijderen-adresbereiken, de peering verwijderen, toevoegen of verwijderen van de adresbereiken, maakt u opnieuw de peering. -Adresbereiken aan toevoegen of verwijderen-adresbereiken van virtuele netwerken, Zie [virtuele netwerken beheren](manage-virtual-network.md).
 - U kunt twee virtuele netwerken die zijn geïmplementeerd via Resource Manager of een virtueel netwerk dat is geïmplementeerd via Resource Manager met een virtueel netwerk dat is geïmplementeerd via het klassieke implementatiemodel kunt koppelen. U kunt geen peer-twee virtuele netwerken die zijn gemaakt via het klassieke implementatiemodel. Als u niet bekend met Azure-implementatiemodellen bent, leest de [Azure-implementatiemodellen begrijpen](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artikel. U kunt [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) gebruiken om twee virtuele netwerken te koppelen die zijn gemaakt via het klassieke implementatiemodel.

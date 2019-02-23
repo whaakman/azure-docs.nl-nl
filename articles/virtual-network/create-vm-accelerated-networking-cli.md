@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 8c913d618313a72f6fb05ea45847a220f6070d42
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 4adc4bc743192832689d5bf6ff8448ed679775fd
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765735"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728502"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Een Linux-machine maken met versnelde netwerken
 
@@ -71,9 +71,14 @@ Een ondersteunde VM-grootte zonder versneld netwerkondersteuning ingeschakeld ka
 Virtuele machines (klassiek) kan niet worden geïmplementeerd met versnelde netwerken.
 
 ## <a name="create-a-linux-vm-with-azure-accelerated-networking"></a>Een virtuele Linux-machine maken met Azure-versnelde netwerken
+## <a name="portal-creation"></a>Maken van de portal
+Hoewel dit artikel stappen bevat voor het maken van een virtuele machine met versneld netwerken met de Azure CLI, kunt u ook [maken van een virtuele machine met versneld netwerken met behulp van de Azure-portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Bij het maken van een virtuele machine in de portal in de **maken van een virtuele machine** blade, kiest u de **netwerken** tabblad.  Op dit tabblad is een optie voor **versnelde netwerken**.  Als u hebt ervoor gekozen een [ondersteund besturingssysteem](#supported-operating-systems) en [VM-grootte](#supported-vm-instances), deze optie wordt automatisch gevuld op 'Op'.  Zo niet, wordt de optie "Uitgeschakeld" voor versnelde netwerken vullen en geef de gebruiker een reden op waarom is het niet worden ingeschakeld.   
 
-Hoewel dit artikel stappen bevat voor het maken van een virtuele machine met versneld netwerken met de Azure CLI, kunt u ook [maken van een virtuele machine met versneld netwerken met behulp van de Azure-portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Bij het maken van een virtuele machine in de portal, onder **instellingen**, selecteer **ingeschakeld**onder **versnelde netwerken**. De optie voor het inschakelen van versneld netwerken niet wordt weergegeven in de portal, tenzij u hebt geselecteerd een [ondersteund besturingssysteem](#supported-operating-systems) en [VM-grootte](#supported-vm-instances). Nadat de virtuele machine is gemaakt, moet u Volg de instructies in [bevestigen dat versneld netwerken is ingeschakeld](#confirm-that-accelerated-networking-is-enabled).
+* *Opmerking:* Alleen ondersteunde besturingssystemen kan worden ingeschakeld via de portal.  Als u een aangepaste installatiekopie gebruikt en uw installatiekopie versnelde netwerken ondersteunt, maakt u uw virtuele machine met CLI of Powershell. 
 
+Nadat de virtuele machine is gemaakt, kunt u bevestigen versnelde netwerken is ingeschakeld door de instructies in de [bevestigen dat versneld netwerken is ingeschakeld](#confirm-that-accelerated-networking-is-enabled).
+
+## <a name="cli-creation"></a>Het maken van CLI
 ### <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
 
 Installeer de meest recente [Azure CLI](/cli/azure/install-azure-cli) en aan te melden bij een Azure-account met [az login](/cli/azure/reference-index). In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld van de parameternamen opgenomen *myResourceGroup*, *myNic*, en *myVm*.

@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 79ed6f1d2dc5495994d2522abf5af391cc79b705
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 0f445d1fff48ee7a04c0b1c1d64c808f87d824b7
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226040"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673161"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>Quickstart: Gebruik de Bing Speech-service-bibliotheek voor opname in C&#35; voor .NET Windows
 
@@ -119,7 +120,7 @@ Nadat de aanvraag is voltooid, wordt de taak die wordt geretourneerd door Recogn
 
 Deze gebeurtenis wordt aangeroepen wanneer Spraakservice wat u mogelijk worden zeggen voorspelt, voordat u klaar bent met het spreken (als u `MicrophoneRecognitionClient`) of u klaar bent met het verzenden van gegevens (als u `DataRecognitionClient`). U kunt zich abonneren op de gebeurtenis met behulp van `SpeechClient.SubscribeToPartialResult()`. Of u kunt de algemene gebeurtenissen abonnementsmethode `SpeechClient.SubscribeTo<RecognitionPartialResult>()`.
 
-**Resultaat opmaken** | Beschrijving |
+**Resultaat opmaken** | Description |
 ------|------
 **LexicalForm** | Dit formulier is optimaal is voor gebruik door toepassingen waarvoor herkenningsresultaten ruwe, niet-verwerkte spraak.
 **DisplayText** | De herkende woordgroep met tekst omkeren normalisering, hoofdletters, interpunctie en grof taalgebruik maskering toegepast. Grof taalgebruik wordt gemaskeerd met sterretjes na het eerste teken, bijvoorbeeld, "d ***." Dit formulier is geoptimaliseerd voor gebruik door toepassingen die de resultaten van de spraak-herkenning aan een gebruiker worden weergegeven.
@@ -130,7 +131,7 @@ Deze gebeurtenis wordt aangeroepen wanneer Spraakservice wat u mogelijk worden z
 #### <a name="result-event"></a>Resultaat van gebeurtenis
 Als u klaar bent met het spreken (in `ShortPhrase` modus), deze gebeurtenis wordt genoemd. U krijgt met n-beste keuzen voor het resultaat. In `LongDictation` modus wordt de gebeurtenis kan worden aangeroepen meerdere keren op basis van waar de server pauzes in zinnen aangeeft. U kunt zich abonneren op de gebeurtenis met behulp van `SpeechClient.SubscribeToRecognitionResult()`. Of u kunt de algemene gebeurtenissen abonnementsmethode `SpeechClient.SubscribeTo<RecognitionResult>()`.
 
-**Resultaat opmaken** | Beschrijving |
+**Resultaat opmaken** | Description |
 ------|------|
 **RecognitionStatus** | De status op hoe de opname is gemaakt. Bijvoorbeeld, is deze gemaakt als gevolg van geslaagde opname of als gevolg van het annuleren van de verbinding, enzovoort.
 **Phrases** | De set met n-beste herkende zinnen met de opname-vertrouwen.
@@ -151,7 +152,7 @@ Voorbeeld van spraak-antwoord:
 ---what's the weather like  
 ---***** Phrase Recognition Status = [Success]   
 ***What's the weather like? (Confidence:High)  
-What's the weather like? (Confidence:High) 
+What's the weather like? (Confidence:High)
 ```
 
 ## <a name="connection-management"></a>Verbindingsbeheer

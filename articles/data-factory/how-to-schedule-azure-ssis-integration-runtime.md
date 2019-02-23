@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 9f1ee309156a39078ffdfeed2c75d86476ac8b48
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 2f08d5b8548b8b7af282356d41c26442edd145b0
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158649"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669578"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Het starten en stoppen van Azure-SSIS Integration Runtime volgens een schema
 In dit artikel wordt beschreven hoe u het starten en stoppen van de Azure-SSIS Integration Runtime (IR) plannen met behulp van Azure Data Factory (ADF). Azure-SSIS IR is ADF compute resource toegewezen voor het uitvoeren van pakketten van SQL Server Integration Services (SSIS). Uitvoeren van Azure-SSIS IR is een kosten die gepaard gaan met het. Daarom wilt u doorgaans om uit te voeren van uw IR alleen als u wilt uitvoeren van SSIS-pakketten in Azure en uw IR stopt wanneer u hebt u het niet meer nodig. U kunt ADF gebruikersinterface (UI) / app of Azure PowerShell met [handmatig starten of stoppen van de IR](manage-azure-ssis-integration-runtime.md)).
@@ -92,7 +92,7 @@ Als u een derde trigger die is gepland voor uitvoering elke dag om middernacht m
   
     2. Voor **methode**, selecteer **POST**. 
     3. Voor **hoofdtekst**, voer `{"message":"Start my IR"}`. 
-    4. Voor **verificatie**, selecteer **MSI** voor het gebruik van de beheerde identiteit voor uw ADF, Zie [Azure Data Factory-service-identiteit](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) artikel voor meer informatie.
+    4. Voor **verificatie**, selecteer **MSI** voor het gebruik van de beheerde identiteit voor uw ADF, Zie [beheerde identiy voor Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) artikel voor meer informatie.
     5. Voor **Resource**, voer `https://management.azure.com/`.
     
        ![ADF Web activiteitenplanning SSIS-IR](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png)
@@ -175,7 +175,7 @@ Nu uw pijplijnen werken als u verwacht, kunt u triggers om ze uit te voeren op d
 
 2. Als u wilt weergeven die zijn gekoppeld aan een pijplijnuitvoering uitvoeringen van activiteit, selecteert u de eerste koppeling (**uitvoeringen van activiteit weergeven**) in **acties** kolom. De derde pipeline, ziet u drie activiteit wordt uitgevoerd, één voor elke gekoppelde activiteit in de pijplijn (activiteit Web om te beginnen uw IR, Stored Procedure-activiteit uitvoeren van het pakket en Web-activiteit als u wilt stoppen van de IR). Om weer te geven van de pijplijn opnieuw wordt uitgevoerd, selecteert u **pijplijnen** koppelen aan de bovenkant.
 
-   ![Uitvoeringen van activiteit](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
+   ![Uitvoering van activiteiten](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
 
 3. Als u de trigger wordt uitgevoerd, selecteert u **Triggeruitvoeringen** uit de vervolgkeuzelijst onder **Pijplijnuitvoeringen** aan de bovenkant. 
 

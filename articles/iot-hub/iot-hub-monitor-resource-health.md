@@ -2,39 +2,39 @@
 title: Controleer de status van uw Azure IoT Hub | Microsoft Docs
 description: Azure Monitor en Azure Resource Health gebruiken om te controleren van uw IoT-Hub en snel problemen vaststellen
 author: kgremban
-manager: timlt
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 86e690e5ff437d924b9c548c2d75afb1866b14aa
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 4ecea0efdc7163b4738756d1b54726caf7e96665
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446780"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673083"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Controleer de status van Azure IoT Hub en snel problemen vaststellen
 
-Bedrijven die Azure IoT Hub implementeren verwachten betrouwbare prestaties van hun resources. Voor hulp bij het onderhouden van een sluiten controle over uw bewerkingen, IoT-Hub volledig is geïntegreerd met [Azure Monitor] [ lnk-AM] en [Azure Resource Health] [ lnk-ARH]. Deze twee services werken samen om te voorzien van de gegevens die u nodig hebt om uw IoT-oplossingen en die worden uitgevoerd in een status in orde te houden. 
+Bedrijven die Azure IoT Hub implementeren verwachten betrouwbare prestaties van hun resources. Voor hulp bij het onderhouden van een sluiten controle over uw bewerkingen, IoT-Hub volledig is geïntegreerd met [Azure Monitor](../azure-monitor/index.yml) en [Azure Resource Health](../service-health/resource-health-overview.md). Deze twee services werken zodat u de gegevens die u nodig hebt om uw IoT-oplossingen en die worden uitgevoerd in een status in orde te houden. 
 
 Azure Monitor is één bron van controle en registratie voor uw Azure-services. U kunt de diagnostische logboeken die Azure Monitor genereert verzenden naar Log Analytics, Event Hubs of Azure Storage voor de verwerking van aangepaste. Instellingen voor het metrische en diagnostische gegevens van Azure Monitor kunnen u inzicht in de prestaties van uw resources. Doorgaan met het lezen van dit artikel voor meer informatie over hoe u [gebruikt Azure Monitor](#use-azure-monitor) met uw IoT-hub. 
 
 > [!IMPORTANT]
 > De gebeurtenissen die zijn gegenereerd door de IoT Hub-service met behulp van Azure Monitor logboeken met diagnostische gegevens zijn niet gegarandeerd betrouwbaar of geordende. Sommige gebeurtenissen kunnen verloren of die niet de juiste volgorde worden geleverd. Logboeken met diagnostische gegevens ook zijn niet bedoeld om te worden realtime en het duurt enkele minuten voor gebeurtenissen naar uw keuze van de bestemming wordt geschreven.
 
-Azure Resource Health helpt u bij het diagnosticeren en ondersteuning krijgen wanneer een Azure-probleem gevolgen heeft voor uw resources. Huidige en eerdere status van biedt een gepersonaliseerd dashboard voor uw IoT-Hubs. Doorgaan met het lezen van dit artikel voor meer informatie over hoe u [gebruik Azure Resource Health](#use-azure-resource-health) met uw IoT-hub. 
+Azure Resource Health helpt u bij het diagnosticeren en ondersteuning krijgen wanneer een Azure-probleem gevolgen heeft voor uw resources. Huidige en eerdere status van geeft een dashboard voor elk van uw IoT-hubs. Ga verder met de sectie onder aan dit artikel voor meer informatie over het [gebruik Azure Resource Health](#use-azure-resource-health) met uw IoT-hub. 
 
-IoT Hub biedt ook een eigen metrische gegevens die u gebruiken kunt om te begrijpen van de status van uw IoT-resources. Zie voor meer informatie, [metrische gegevens van IoT-Hub begrijpen][lnk-metrics].
+IoT Hub biedt ook een eigen metrische gegevens die u gebruiken kunt om te begrijpen van de status van uw IoT-resources. Zie voor meer informatie, [metrische gegevens van IoT-Hub begrijpen](iot-hub-metrics.md).
 
 ## <a name="use-azure-monitor"></a>Azure Monitor gebruiken
 
 Azure Monitor biedt diagnostische gegevens voor Azure-resources, wat betekent dat bewerkingen die binnen uw IoT-hub plaatsvinden te bewaken. 
 
-Azure Monitor diagnostische instellingen vervangt de IoT Hub-bewerkingen bewaken. Als u momenteel gebruikmaakt van bewerkingen controleren, moet u uw werkstromen migreren. Zie voor meer informatie, [migreren uit bewerkingen voor controle-instellingen voor diagnostische gegevens][lnk-migrate].
+Azure Monitor diagnostische instellingen vervangt de IoT Hub-bewerkingen bewaken. Als u momenteel gebruikmaakt van bewerkingen controleren, moet u uw werkstromen migreren. Zie voor meer informatie, [migreren uit bewerkingen voor controle-instellingen voor diagnostische gegevens over](iot-hub-migrate-to-diagnostics-settings.md).
 
-Zie voor meer informatie over de specifieke metrische gegevens en gebeurtenissen die Azure Monitor bewaakt, [ondersteunde metrische gegevens met Azure Monitor] [ lnk-AM-metrics] en [ondersteunde services, schema's en categorieën voor Azure Diagnostische logboeken][lnk-AM-schemas].
+Zie voor meer informatie over de specifieke metrische gegevens en gebeurtenissen die Azure Monitor bewaakt, [ondersteunde metrische gegevens met Azure Monitor](../azure-monitor/platform/metrics-supported.md) en [ondersteunde services, schema's en categorieën voor diagnostische logboeken van Azure](../azure-monitor/platform/diagnostic-logs-schema.md).
 
 [!INCLUDE [iot-hub-diagnostics-settings](../../includes/iot-hub-diagnostics-settings.md)]
 
@@ -47,7 +47,7 @@ Azure Monitor houdt bij of verschillende bewerkingen die zich in IoT Hub voordoe
 De verbindingen categorie nummers apparaat verbinding maken en gebeurtenissen loskoppelen van een IoT-hub, evenals fouten. Deze categorie is handig voor het identificeren van niet-geautoriseerde verbindingspogingen en of waarschuwingen wanneer u verbinding met de apparaten kwijtraken.
 
 > [!NOTE]
-> Voor betrouwbare verbindingsstatus van apparaten controleren [apparaat heartbeat][lnk-devguide-heartbeat].
+> Voor betrouwbare verbindingsstatus van apparaten controleren [apparaat heartbeat](iot-hub-devguide-identity-registry.md#device-heartbeat).
 
 
 ```json
@@ -311,9 +311,9 @@ De categorie directe methoden houdt request response-interacties verzonden naar 
 
 #### <a name="distributed-tracing-preview"></a>Gedistribueerde tracering (Preview)
 
-De categorie gedistribueerde tracering houdt de correlatie-id's voor berichten die de trace-context-header bevatten. Om deze logboeken, code aan de clientzijde worden bijgewerkt door het volgende [analyseren en onderzoeken van IoT-toepassingen end-to-end met IoT Hub gedistribueerde tracering (preview)](iot-hub-distributed-tracing.md).
+De categorie gedistribueerde tracering houdt de correlatie-id's voor berichten die de trace-context-header bevatten. Om deze logboeken, client-side-code moet worden bijgewerkt door [analyseren en onderzoeken van IoT-toepassingen end-to-end met IoT Hub gedistribueerde tracering (preview)](iot-hub-distributed-tracing.md).
 
-Houd er rekening mee dat `correlationId` en voldoet aan de [W3C Trace Context](https://github.com/w3c/trace-context) voorstel, waar deze bevat een `trace-id` , evenals een `span-id`. 
+Houd er rekening mee dat `correlationId` voldoet aan de [W3C Trace Context](https://github.com/w3c/trace-context) voorstel, waar deze bevat een `trace-id` , evenals een `span-id`. 
 
 ##### <a name="iot-hub-d2c-device-to-cloud-logs"></a>Logboeken van IoT Hub D2C (apparaat-naar-cloud)
 
@@ -487,28 +487,18 @@ class Program 
 
 Gebruik Azure Resource Health om te controleren of uw IoT-hub actief en werkend is. U kunt ook meer informatie of een regionale storing is die invloed hebben op de status van uw IoT-hub. Voor meer informatie over specifieke details over de status van uw Azure-IoT-Hub, raden wij aan dat u [gebruikt Azure Monitor](#use-azure-monitor). 
 
-Azure IoT Hub geeft aan dat de status op het niveau van een regionale. Als een regionale storing van invloed is op uw IoT-hub, de status wordt weergegeven als **onbekende**. Zie voor meer informatie, [resourcetypen en statuscontroles in Azure resource health][lnk-ARH-checks].
+Azure IoT Hub geeft aan dat de status op het niveau van een regionale. Als een regionale storing van invloed is op uw IoT-hub, de status wordt weergegeven als **onbekende**. Zie voor meer informatie, [resourcetypen en statuscontroles in Azure resource health](../service-health/resource-health-checks-resource-types.md).
 
 Om te controleren of de status van uw IoT-hubs, de volgende stappen uit:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 1. Navigeer naar **servicestatus** > **resourcestatus**.
-1. Selecteer uw abonnement in de vervolgkeuzelijsten en **IoT-Hub**.
+1. Selecteer uw abonnement in de vervolgkeuzelijsten en selecteer vervolgens **IoT-Hub** als het resourcetype.
 
-Zie voor meer informatie over het interpreteren van de van gezondheidsgegevens, [overzicht van Azure resource health][lnk-ARH]
+Zie voor meer informatie over het interpreteren van de van gezondheidsgegevens, [overzicht van Azure resource health](../service-health/resource-health-overview.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Informatie over metrische gegevens van IoT Hub][lnk-metrics]
-- [Externe controle IoT en meldingen met Azure Logic Apps die gebruikmaken van uw IoT-hub en Postvak][lnk-monitoring-notifications]
+- [Informatie over metrische gegevens van IoT Hub](iot-hub-metrics.md)
+- [Externe controle IoT en meldingen met Azure Logic Apps die gebruikmaken van uw IoT-hub en Postvak](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
-
-[lnk-AM]: ../azure-monitor/index.yml
-[lnk-ARH]: ../service-health/resource-health-overview.md
-[lnk-metrics]: iot-hub-metrics.md
-[lnk-migrate]: iot-hub-migrate-to-diagnostics-settings.md
-[lnk-AM-metrics]: ../azure-monitor/platform/metrics-supported.md
-[lnk-AM-schemas]: ../azure-monitor/platform/diagnostic-logs-schema.md
-[lnk-ARH-checks]: ../service-health/resource-health-checks-resource-types.md
-[lnk-monitoring-notifications]: iot-hub-monitoring-notifications-with-azure-logic-apps.md
-[lnk-devguide-heartbeat]: iot-hub-devguide-identity-registry.md#device-heartbeat

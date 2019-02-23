@@ -2,17 +2,18 @@
 title: Azure IoT Hub migreren naar diagnostische instellingen | Microsoft Docs
 description: Het bijwerken van Azure IoT Hub voor het gebruik van Azure diagnostics-instellingen in plaats van bewerkingen voor het controleren van de status van bewerkingen op uw IoT-hub in realtime controleren.
 author: kgremban
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/19/2018
+ms.date: 02/19/2019
 ms.author: kgremban
-ms.openlocfilehash: 4a1517c1d5bb0f34c0f1b0ec81d074f8ec39aff5
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d54b109cd5ef41665e595e7b878c077732536297
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546572"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674239"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>Migreren van uw IoT-Hub van bewerkingen controleren naar diagnostische instellingen
 
@@ -28,7 +29,7 @@ Voor het bijwerken van uw IoT-Hub in Azure portal, eerst de diagnostische instel
 
 ### <a name="turn-off-operations-monitoring"></a>Bewerkingen controleren uitschakelen
 
-Nadat u de nieuwe instellingen voor diagnostische gegevens over uw werkstroom getest hebt, kunt u de bewerkingen controleren van functie uitschakelen. 
+Nadat u de nieuwe instellingen voor diagnostische gegevens in uw werkstroom hebt getest, kunt u de bewerkingen controleren van functie uitschakelen. 
 
 1. Selecteer in uw IoT Hub-menu **bewerkingen controleren**.
 
@@ -40,7 +41,7 @@ Nadat u de nieuwe instellingen voor diagnostische gegevens over uw werkstroom ge
 
 De schema's voor bewerkingen controleren en instellingen voor diagnostische gegevens afwijken enigszins. Het is belangrijk dat u de toepassingen die gebruikmaken van bewerkingen controleren vandaag om toe te wijzen aan het schema dat wordt gebruikt door de diagnostische instellingen bijwerken. 
 
-Ook diagnostische instellingen aanbiedingen bijhouden voor vijf nieuwe categorieën. Na het bijwerken van toepassingen voor de bestaande schema's, evenals de nieuwe categorieën worden toegevoegd:
+Diagnostische instellingen biedt ook vijf nieuwe categorieën voor het bijhouden. Na het bijwerken van toepassingen voor de bestaande schema's, evenals de nieuwe categorieën worden toegevoegd:
 
 * Cloud-naar-apparaat dubbele bewerkingen
 * Dubbele apparaat-naar-cloud-bewerkingen
@@ -56,4 +57,4 @@ Voor het bewaken van apparaat verbinding maakt en disconnect-gebeurtenissen, wor
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [De status van Azure IoT Hub bewaken en snel problemen vaststellen](iot-hub-monitor-resource-health.md)
+[De status van Azure IoT Hub bewaken en snel problemen vaststellen](iot-hub-monitor-resource-health.md)

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 164f3b8ef42d07606d98d200fa9bebcd0add3d38
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: f5d25232ebbdb6f8cf07839cc51485dd53381cd9
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319571"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733840"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>IoT Hub-berichten maken en lezen
 
@@ -31,7 +31,7 @@ Een IoT Hub-bericht bestaat uit:
 
 * Een ondoorzichtige binaire hoofdtekst.
 
-Namen van eigenschappen en -waarden mag alleen alfanumerieke ASCII-tekens, plus `{'!', '#', '$', '%, '&', ''', '*', '+', '-', '.', '^', '_', '`', ' |', ' ~'} ' bij het verzenden van apparaat-naar-cloud-berichten met behulp van de HTTPS-protocol of cloud-naar-apparaat-berichten te verzenden.
+Namen van eigenschappen en -waarden mag alleen alfanumerieke ASCII-tekens, plus ``{'!', '#', '$', '%, '&', ''', '*', '+', '-', '.', '^', '_', '`', '|', '~'}`` wanneer het verzenden van apparaat-naar-cloud-berichten met behulp van de HTTPS-protocol of cloud-naar-apparaat-berichten te verzenden.
 
 Apparaat-naar-cloud-berichten met IoT Hub heeft de volgende kenmerken:
 
@@ -47,21 +47,21 @@ Zie voor meer informatie over het coderen en decoderen van berichten met verschi
 
 De volgende tabel wordt de lijst met Systeemeigenschappen in IoT Hub-berichten.
 
-| Eigenschap | Beschrijving | Kan de gebruiker worden ingesteld? |
+| Eigenschap | Description | Kan de gebruiker worden ingesteld? |
 | --- | --- | --- |
 | bericht-id |Een gebruiker instelbare id voor het bericht dat wordt gebruikt voor aanvraag / antwoord-patronen. Indeling: Een hoofdlettergevoelige tekenreeks (maximaal 128 tekens lang) van ASCII-7-bits alfanumerieke tekens + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. | Ja |
 | volgnummer: |Een aantal (uniek per apparaat-wachtrij) door IoT Hub is toegewezen aan elk cloud-naar-apparaat-bericht. | Nee voor C2D-berichten; anders Ja. |
 | tot |Een doel dat is opgegeven in [Cloud-naar-apparaat](iot-hub-devguide-c2d-guidance.md) berichten. | Nee voor C2D-berichten; anders Ja. |
-| absolute verlooptijd |Datum en tijd van verlopen van berichten. | Ja |
+| absolute-expiry-time |Datum en tijd van verlopen van berichten. | Ja |
 | iothub-enqueuedtime |Datum en tijd waarop de [Cloud-naar-apparaat](iot-hub-devguide-c2d-guidance.md) bericht is ontvangen door de IoT Hub. | Nee voor C2D-berichten; anders Ja. |
 | correlatie-id |Een string-eigenschap in een antwoordbericht die normaal gesproken de MessageId van de aanvraag, in de aanvraag / antwoord-patronen bestaat. | Ja |
 | gebruikers-id |Een ID die wordt gebruikt om op te geven van de oorsprong van berichten. Wanneer berichten worden gegenereerd door de IoT Hub, dat is ingesteld op `{iot hub name}`. | Nee |
 | iothub-ack |De generator van een feedback-bericht. Deze eigenschap wordt gebruikt in de cloud-naar-apparaat-berichten om aan te vragen van IoT Hub voor het genereren van Feedbackberichten als gevolg van het verbruik van het bericht door het apparaat. Mogelijke waarden: **geen** (standaard): Er is geen Feedbackbericht wordt gegenereerd, **positieve**: een feedbackbericht ontvangen als het bericht is voltooid, **negatieve**: ontvangen een feedback wordt weergegeven als het bericht is verlopen (of maximum aantal bezorgingen is bereikt) zonder wordt voltooid door het apparaat of **volledige**: positieve en negatieve. 
 <!-- robinsh For more information, see [Message feedback][lnk-feedback].--> | Ja |
 | iothub-verbinding-apparaat-id |Een ID die is ingesteld door IoT Hub apparaat-naar-cloud-berichten. Deze bevat de **deviceId** van het apparaat dat het bericht heeft verzonden. | Nee voor D2C berichten; anders Ja. |
-| iothub-verbinding-auth-generatie-id |Een ID die is ingesteld door IoT Hub apparaat-naar-cloud-berichten. Deze bevat de **generationId** (volgens [identiteit apparaateigenschappen](iot-hub-devguide-identity-registry.md#device-identity-properties)) van het apparaat dat het bericht heeft verzonden. | Nee voor D2C berichten; anders Ja. |
+| iothub-connection-auth-generation-id |Een ID die is ingesteld door IoT Hub apparaat-naar-cloud-berichten. Deze bevat de **generationId** (volgens [identiteit apparaateigenschappen](iot-hub-devguide-identity-registry.md#device-identity-properties)) van het apparaat dat het bericht heeft verzonden. | Nee voor D2C berichten; anders Ja. |
 | iothub-verbinding-auth-methode |Een verificatiemethode is ingesteld door de IoT Hub apparaat-naar-cloud-berichten. Deze eigenschap bevat informatie over de verificatiemethode die wordt gebruikt om het verzenden van het bericht apparaat te verifiëren. <!-- ROBINSH For more information, see [Device to cloud anti-spoofing][lnk-antispoofing].--> | Nee voor D2C berichten; anders Ja. |
-| iothub-maken-time-utc | De datum en tijd waarop die het bericht is gemaakt op een apparaat. Een apparaat moet deze waarde expliciet ingesteld. | Ja |
+| iothub-creation-time-utc | De datum en tijd waarop die het bericht is gemaakt op een apparaat. Een apparaat moet deze waarde expliciet ingesteld. | Ja |
 
 ## <a name="message-size"></a>Berichtgrootte
 
@@ -77,8 +77,8 @@ Namen van eigenschappen en waarden zijn beperkt tot ASCII-tekens, zodat de lengt
 
 Om te voorkomen dat apparaat adresvervalsing (spoofing) in apparaat-naar-cloud-berichten, IoT-Hub stempels alle berichten met de volgende eigenschappen:
 
-* **iothub-verbinding-apparaat-id**
-* **iothub-verbinding-auth-generatie-id**
+* **iothub-connection-device-id**
+* **iothub-connection-auth-generation-id**
 * **iothub-verbinding-auth-methode**
 
 De eerste twee bevatten de **deviceId** en **generationId** van het oorspronkelijke apparaat volgens [identiteit apparaateigenschappen](iot-hub-devguide-identity-registry.md#device-identity-properties).

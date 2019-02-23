@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: seodec18
-ms.date: 02/11/2019
+ms.date: 02/21/2019
 ms.author: juliako
-ms.openlocfilehash: 919dbd057f2fa1d762775ed799505796a420864a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: bbd57933993e22dd32b84f1d44175bb3b3d749c9
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109245"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672422"
 ---
 # <a name="azure-cli-examples-for-azure-media-services"></a>Azure CLI-voorbeelden voor Azure Media Services
 
@@ -30,7 +30,7 @@ De volgende tabel bevat koppelingen naar de Azure CLI-voorbeelden voor Azure Med
 |**Schalen**||
 | [Gereserveerde schaal Media-eenheden](media-reserved-units-cli-how-to.md)|Voor de analyse van Audio en Video Analysis-taken die worden geactiveerd door Media Services v3 of Video Indexer, is het raadzaam om in te richten van uw account met 10 S3 groepsbeleidsinstelling. <br/>Het script laat zien hoe CLI gebruiken om te schalen van gereserveerde Media-eenheden (groepsbeleidsinstelling).|
 |**Account**||
-| [Een Media Services-account maken](./scripts/cli-create-account.md) | Hiermee maakt u een Azure Media Services-account. Bovendien maakt een service-principal die toegang tot API's voor het programmatisch beheren van het account kan worden gebruikt. |
+| [Een Media Services-account maken](create-account-cli-how-to.md) | Hiermee maakt u een Azure Media Services-account. Bovendien maakt een service-principal die toegang tot API's voor het programmatisch beheren van het account kan worden gebruikt. |
 | [Opnieuw instellen van accountreferenties](./scripts/cli-reset-account-credentials.md)|Hiermee stelt u referenties voor uw account en de instellingen app.config terug worden opgehaald.|
 |**Activa**||
 | [Activa maken](./scripts/cli-create-asset.md)|Hiermee maakt u een Media Services-Asset om inhoud te uploaden.|
@@ -45,4 +45,5 @@ De volgende tabel bevat koppelingen naar de Azure CLI-voorbeelden voor Azure Med
 
 ## <a name="see-also"></a>Zie ook
 
-[Azure-CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+- [Azure-CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+- [Snelstart: Stream-video's - CLI](stream-files-cli-quickstart.md)

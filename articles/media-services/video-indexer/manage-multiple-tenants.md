@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 02/10/2019
 ms.author: ikbarmen
-ms.openlocfilehash: 3b6daa60e8c8945d49170a00da5bd3ffb57b48ac
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: e98cf44db01de1f99836e247066ba01006eac97b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000111"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733296"
 ---
 # <a name="manage-multiple-tenants"></a>Meerdere tenants beheren
 
@@ -56,7 +56,7 @@ Met deze optie kunnen aanpassing modellen (persoon, taal en merken) worden gedee
 
 Wanneer [video's uploaden](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?), kunt u een andere partitie kenmerk per tenant. Hierdoor kunnen isolatie in de [zoeken-API](https://api-portal.videoindexer.ai/docs/services/operations/operations/Search-videos?). Door het kenmerk partitie op te geven in de search-API wordt u alleen de resultaten van de opgegeven partitie ophalen. 
 
- ### <a name="considerations"></a>Overwegingen
+### <a name="considerations"></a>Overwegingen
 
 * De mogelijkheid voor het delen van inhoud en aanpassing modellen tussen tenants.
 * Een tenant heeft gevolgen voor de prestaties van andere tenants.

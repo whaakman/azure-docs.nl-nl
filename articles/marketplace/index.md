@@ -1,25 +1,20 @@
 ---
 title: Documentatie voor Azure Marketplace | Microsoft Docs
 description: Meer informatie over Azure Marketplace.
-services: Azure, marketplace
+services: 'Azure, marketplace'
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
+editor: null
 layout: LandingPage
-ms.assetid: ''
+ms.assetid: null
 ms.service: marketplace
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: e93d1b926b78a352e65a68fc71b07f7631d0b1af
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830019"
 ---
+
 # <a name="azure-marketplace-documentation"></a>Documentatie voor Azure Marketplace
 
 Meer informatie over Azure Marketplace, een onlinemarktplaats voor toepassingen en services waar iedereen, van beginnende en onafhankelijke softwareleveranciers tot grote bedrijven, oplossingen kunnen aanbieden aan klanten over de hele wereld.

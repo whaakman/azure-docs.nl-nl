@@ -13,21 +13,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: d56e96ca1fbc96261f6f526c792b0a53c74718ef
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 7fbf157152bd5c2c35c496b1fd8e707884d0f3da
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063657"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731460"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Azure VM starten is vastgelopen bij Windows update
 
 Dit artikel helpt bij uw virtuele Machine (VM) in de fase van de Windows Update is vastgelopen tijdens het opstarten van het probleem is opgelost. 
 
 > [!NOTE] 
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en klassieke](../../azure-resource-manager/resource-manager-deployment-model.md). In dit artikel bevat informatie over het Resource Manager-implementatiemodel. U wordt aangeraden dat u dit model gebruikt voor nieuwe implementaties in plaats van het klassieke implementatiemodel.
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../../azure-resource-manager/resource-manager-deployment-model.md). In dit artikel bevat informatie over het Resource Manager-implementatiemodel. U wordt aangeraden dat u dit model gebruikt voor nieuwe implementaties in plaats van het klassieke implementatiemodel.
 
- ## <a name="symptom"></a>Symptoom
+## <a name="symptom"></a>Symptoom
 
  Een Windows-VM niet wordt gestart. Wanneer u de schermafbeeldingen controleren in de [diagnostische gegevens over opstarten](../troubleshooting/boot-diagnostics.md) venster ziet u dat het opstarten van het updateproces is vastgelopen. Hier volgen enkele voorbeelden van berichten die kunnen worden weergegeven:
 

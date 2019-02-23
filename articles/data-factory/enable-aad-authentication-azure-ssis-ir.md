@@ -12,18 +12,18 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 2/19/2019
 ms.author: douglasl
-ms.openlocfilehash: b672264e1cb3cd415532cf4bcfbbd268afffa70d
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 77ee2a0649d5c815fb68a4a40106455839030695
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415934"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671519"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Azure Active Directory-verificatie inschakelen voor Azure-SSIS Integration Runtime
 
 Dit artikel leest u hoe u Azure Active Directory (Azure AD)-verificatie met de beheerde identiteit voor uw Azure Data Factory (ADF) inschakelen en gebruiken in plaats van SQL-verificatie om te maken van een Azure-SSIS Integration Runtime (IR) die op zijn beurt SSIS maken catalogusdatabase (SSISDB) in Azure SQL Database-server/beheerd exemplaar uit uw naam.
 
-Zie voor meer informatie over de beheerde identiteit voor uw ADF [Azure Data Factory-service-identiteit](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
+Zie voor meer informatie over de beheerde identiteit voor uw ADF [beheerde identiy voor Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
 
 > [!NOTE]
 > Als u al een Azure-SSIS IR hebt gemaakt met behulp van SQL-verificatie, kunt u niet opnieuw configureren uw IR voor het gebruik van Azure AD-verificatie met PowerShell op dit moment maar u kunt dit doen in Azure portal/ADF-app. 
@@ -57,7 +57,7 @@ U kunt een bestaande Azure AD-groep of maak een nieuwe Azure AD PowerShell gebru
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  De beheerde identiteit voor uw ADF toevoegen aan de groep. U kunt het artikel volgen [Azure Data Factory-service-identiteit](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) om op te halen van de principal-SERVICE-identiteit-ID (bijvoorbeeld 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, maar gebruik geen SERVICE-identiteit TOEPASSINGS-ID voor dit doel).
+3.  De beheerde identiteit voor uw ADF toevoegen aan de groep. U kunt het artikel volgen [beheerde identiy voor Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) om op te halen van de principal-SERVICE-identiteit-ID (bijvoorbeeld 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, maar gebruik geen SERVICE-identiteit TOEPASSINGS-ID voor dit doel).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -167,7 +167,7 @@ Voor deze stap moet u [Microsoft SQL Server Management Studio](https://docs.mic
 
 4.  Met de rechtermuisknop op **master** database en selecteer **nieuwe query**.
 
-5.  Haal de beheerde identiteit voor uw ADF. U kunt het artikel volgen [Azure Data Factory-service-identiteit](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) naar de principal-SERVICE-identiteit TOEPASSINGS-ID ophalen (maar geen ID van de SERVICE-identiteit gebruiken voor dit doel).
+5.  Haal de beheerde identiteit voor uw ADF. Kunt u het artikel volgen [beheerde identiy voor Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) naar de principal-SERVICE-identiteit TOEPASSINGS-ID ophalen (maar geen ID van de SERVICE-identiteit gebruiken voor dit doel).
 
 6.  Voer in het queryvenster de volgende T-SQL-script als u wilt converteren van de beheerde identiteit voor uw ADF in binaire type:
 

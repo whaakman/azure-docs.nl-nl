@@ -6,15 +6,15 @@ author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: 6fabbb57538f5e10e6cd91ebc109707045e54033
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.topic: conceptual
+ms.openlocfilehash: bbec2205fc6b29476cf531c071b5c2ac4c014bcb
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227077"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732512"
 ---
 # <a name="how-to-manage-settings"></a>Over het beheren van instellingen
 
@@ -45,7 +45,7 @@ Als u geen abonnement hebt, volgt u de volgende stappen uit:
     ![Abonnementssleutel toevoegen](media/how-to/how-to-add-subscription-key.png)
 
 3. Voer de sleutel voor uw abonnement op translator in het dialoogvenster en klik op de knop 'Toevoegen'.
- 
+
     ![Abonnementssleutel toevoegen](media/how-to/how-to-add-subscription-key-dialog.png)
 4.  Nadat u een sleutel hebt toegevoegd, kunt u wijzigen of verwijderen van de sleutel op elk gewenst moment.
 
@@ -53,29 +53,29 @@ Als u geen abonnement hebt, volgt u de volgende stappen uit:
 
 ## <a name="manage-your-workspace"></a>Uw werkruimte beheren
 
-Een werkruimte is een werkgebied voor samenstellen en het bouwen van uw aangepaste vertaalsysteem. Een werkruimte kan bevatten meerdere projecten, modellen en documenten. 
+Een werkruimte is een werkgebied voor samenstellen en het bouwen van uw aangepaste vertaalsysteem. Een werkruimte kan bevatten meerdere projecten, modellen en documenten.
 
-Als ander deel van uw werk worden gedeeld met andere mensen moet, kan het maken van meerdere werkruimten nuttig zijn. 
+Als ander deel van uw werk worden gedeeld met andere mensen moet, kan het maken van meerdere werkruimten nuttig zijn.
 
 ## <a name="create-a-new-workspace"></a>Een nieuwe werkruimte maken
 
 1.  Navigeer naar de pagina van de werkruimte 'Instellingen'.
 2.  Klik op de 'nieuwe werkruimte"knop in de sectie 'Nieuwe werkruimte maken'.
-    
+
     ![Nieuwe werkruimte maken](media/how-to/create-new-workspace.png)
 
 4.  Voer de naam van de nieuwe werkruimte in het dialoogvenster.
 5.  Klik op 'Maken'.
-    
+
     ![Dialoogvenster voor een nieuwe werkruimte maken](media/how-to/create-new-workspace-dialog.png)
 
 ## <a name="share-your-workspace"></a>Delen van uw werkruimte
 
-In aangepaste Translator kunt u uw werkruimte delen met anderen, als ander deel van uw werk moet worden gedeeld met andere mensen. 
+In aangepaste Translator kunt u uw werkruimte delen met anderen, als ander deel van uw werk moet worden gedeeld met andere mensen.
 
 1.  Navigeer naar de pagina van de werkruimte 'Instellingen'.
 2.  Klik op de knop 'Delen' in de sectie 'Instellingen voor delen'.
-    
+
     ![Werkruimte voor delen](media/how-to/share-workspace.png)
 
 3.  Voer een door komma's gescheiden lijst met e-mailadressen die u wilt dat deze werkruimte gedeeld met in het dialoogvenster. Zorg ervoor dat u wilt delen met het e-mailadres dat deze persoon zich aanmeldt bij aangepaste Translator met gebruikt. Selecteer vervolgens het juiste niveau van de machtiging voor delen.
@@ -85,7 +85,7 @@ In aangepaste Translator kunt u uw werkruimte delen met anderen, als ander deel 
 
 ## <a name="sharing-permissions"></a>Machtigingen voor delen
 
-1.  **Lezer:** Een lezer in de werkruimte is mogelijk om alle gegevens in de werkruimte weer te geven. 
+1.  **Lezer:** Een lezer in de werkruimte is mogelijk om alle gegevens in de werkruimte weer te geven.
 
 2.  **Editor:** Een editor in de werkruimte zich documenten toevoegen, het trainen van modellen en het verwijderen van documenten en projecten. Ze kunnen een abonnementssleutel toevoegen, maar kan niet wijzigen die de werkruimte wordt gedeeld met, verwijderen van de werkruimte of wijzig de Werkruimtenaam van de.
 

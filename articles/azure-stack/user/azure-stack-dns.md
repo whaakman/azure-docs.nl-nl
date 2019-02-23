@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 822fd40b2fc707efe34d4081c3c49e5f71621cdb
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3a4efb6282a0aca8173403009fd58e9154a91b2b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245538"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728946"
 ---
 # <a name="using-dns-in-azure-stack"></a>Met behulp van DNS in Azure Stack
 
@@ -43,7 +43,7 @@ Zie voor meer informatie over naamomzetting, de [DNS-omzetting](../../dns/dns-fo
 
 De volgende schermafbeelding ziet u de **openbare IP-adres maken** dialoogvenster voor het maken van een openbaar IP-adres met behulp van de portal:
 
-![Openbare IP-adres maken](media/azure-stack-whats-new-dns/image01.png)
+![Openbaar IP-adres maken](media/azure-stack-dns/image01.png)
 
 ### <a name="example-scenario"></a>Voorbeeldscenario
 

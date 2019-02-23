@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/21/2019
 ms.author: juliako
-ms.openlocfilehash: d49d056ab84b60389df8bcaf1c75d6224633863d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 471bc34272b8e141c8640bd218bdafd840850d24
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337854"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672267"
 ---
-# <a name="cloud-upload-and-storage"></a>Uploaden van de cloud en opslag
+# <a name="cloud-upload-and-storage"></a>Uploaden naar en opslaan in de cloud
 
 Als u wilt beheren, coderen, codering, analyseren en streaming van media-inhoud in Azure starten, moet u een Media Services-account maken. Als u een Media Services-account gaat maken, moet u de naam van een Azure Storage-accountresource opgeven. De opgegeven opslagaccount wordt gekoppeld aan uw Media Services-account. 
 
@@ -30,6 +30,8 @@ U kunt maar één **primaire** opslagaccount koppelen aan uw Media Services-acco
 > Blob-accounts kunt u niet instellen als **primaire** account. 
 
 We raden u aan gpv2-Opslagaccounts te gebruiken, zodat u kunt profiteren van het kiezen tussen hot en cool storage-lagen. Zie voor meer informatie over de storage-accounts, [overzicht van Azure Storage-account](../../storage/common/storage-account-overview.md). 
+
+Er zijn verschillende SKU's u voor uw storage-account kiezen kunt. Zie voor meer informatie, [opslagaccounts](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest). Als u experimenteren met de storage-accounts wilt, gebruikt u `--sku Standard_LRS`. Echter tijdens het selecteren van een SKU voor de productie kunt u overwegen, `--sku Standard_RAGRS`, waarmee u geografische replicatie voor bedrijfscontinuïteit. 
 
 ## <a name="assets-in-a-storage-account"></a>Assets in een storage-account
 

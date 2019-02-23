@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: ff2031bd4c4fdc3d3ed8447a08ef29f0f89ea1d8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 7aebdace6b6200f400d0c642c8cbdc6d31544752
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818019"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733024"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Voldoen aan de vereisten voor het maken van AlwaysOn-beschikbaarheidsgroepen op Azure virtual machines
 
@@ -308,7 +308,7 @@ Nadat de server klaar is met de wijzigingen in de configuratie, moet u de server
 
 In Azure portal, onder het virtuele netwerk, de DNS-Server zodanig dat het IP-adres van de secundaire domeincontroller te wijzigen. Deze instelling kunt de DNS-serviceredundantie.
 
-### <a name=DomainAccounts></a> De domeinaccounts configureren
+### <a name="DomainAccounts"></a> De domeinaccounts configureren
 
 In de volgende stappen configureert u de Active Directory-accounts. De volgende tabel ziet u de accounts:
 

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 1/30/2019
 ms.author: yizhon
-ms.openlocfilehash: 0bfba7f923ca394aa29dd907db1b8b1284a605d8
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: e5b075a457c646eb03810b2c51af1a1181ee96ed
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981669"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670250"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Ontwikkelen voor Android dingen platform met Azure IoT SDK 's
 [Azure IoT Hub SDK's](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) eerste laag ondersteuning bieden voor populaire platforms zoals Windows, Linux, OSX, MBED en mobiele platforms, zoals Android en iOS.  Als onderdeel van onze inzet om in te schakelen meer keuze en flexibiliteit in IoT-implementaties, de Java-SDK biedt ook ondersteuning voor [Android dingen](https://developer.android.com/things/) platform.  Ontwikkelaars kunnen gebruikmaken van de voordelen van het besturingssysteem Android dingen aan het apparaat tijdens het gebruik van [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) als het bericht centrale hub die kan worden geschaald naar miljoenen gelijktijdig verbonden apparaten. 
@@ -69,7 +69,6 @@ Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan m
     ```
 4.  Open in '\azure-iot-samples-java\iot-hub\Samples\device\AndroidSample' bevindt zich in de Android-Project in Android Studio.
 5.  Open gradle.properties bestand en vervang 'Device_connection_string' met de apparaatverbindingsreeks die u eerder hebt genoteerd.
-    ![Schermafbeelding van de master-vertakking van de opslagplaats](./media/how-to-android-things/connection-string.png)
 6.  Klik op uitvoeren - fouten opsporen en selecteer uw apparaat voor het implementeren van deze code naar uw zaken op Android-apparaten.
 7.  Wanneer de toepassing wordt gestart, ziet u een toepassing die wordt uitgevoerd op uw apparaat Android dingen.  Deze voorbeeldtoepassing wordt verzonden, serverlogs, willekeurig gegenereerde temperatuur.
 

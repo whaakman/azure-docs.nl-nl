@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: cc4893837feeec6116750a7e37e7621af11ab0a4
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 2770c6a31f0117b96e08eb8a03986f37ebdb7098
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453916"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733738"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Azure API Management gebruiken met virtuele netwerken
 Azure-netwerken (VNETs) kunt u een van uw Azure-resources in een niet-internet routeerbare netwerk dat u toegang tot te plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met behulp van verschillende VPN-technologieën. Voor meer informatie over Azure Virtual Networks beginnen met de informatie hier: [Overzicht van Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -27,6 +27,8 @@ Met Azure API Management kunnen worden geïmplementeerd in het virtuele netwerk 
 
 > [!NOTE]
 > Met Azure API Management biedt ondersteuning voor zowel klassieke als Azure Resource Manager VNets.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
@@ -85,9 +87,9 @@ Als u de stappen in dit artikel, moet u het volgende hebben:
 ## <a name="enable-vnet-powershell"> </a>Inschakelen van VNET-verbinding met behulp van PowerShell-cmdlets
 U kunt ook inschakelen met VNET-connectiviteit met de PowerShell-cmdlets
 
-* **Een API Management-service binnen een VNET maken**: Gebruik de cmdlet [New-AzureRmApiManagement](/powershell/module/azurerm.apimanagement/new-azurermapimanagement) om een Azure API Management-service binnen een VNET te maken.
+* **Een API Management-service binnen een VNET maken**: Gebruik de cmdlet [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) om een Azure API Management-service binnen een VNET te maken.
 
-* **Een bestaande API Management-service binnen een VNET implementeert**: Gebruik de cmdlet [Update AzureRmApiManagementDeployment](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment) te verplaatsen van een bestaande Azure API Management-service binnen een Virtueelnetwerk.
+* **Een bestaande API Management-service binnen een VNET implementeert**: Gebruik de cmdlet [Update AzApiManagementDeployment](/powershell/module/az.apimanagement/update-azapimanagementdeployment) te verplaatsen van een bestaande Azure API Management-service binnen een Virtueelnetwerk.
 
 ## <a name="connect-vnet"> </a>Verbinding maken met een webservice die worden gehost in een virtueel netwerk
 Nadat uw API Management-service is verbonden met het VNET, is het niet anders dan toegang tot openbare services om toegang tot endservices in het back. Typ in het lokale IP-adres of de hostnaam (als een DNS-server is geconfigureerd voor het VNET) van de webservice in de **webservice-URL** veld bij het maken van een nieuwe API of een bestaande bewerkt.

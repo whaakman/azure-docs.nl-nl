@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 479278400aa056a7cebcefaa2eedee3d98bc9a15
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 549f37c1287373fe8bf4c10dc64e6e778b37be02
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815232"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730134"
 ---
 # <a name="register-in-dev-center"></a>Registreren in Dev Center  
 Om te controleren of u bent niet aangemeld bij een account persoonlijke browser, open een nieuw InPrivate van Internet Explorer of Chrome Incognito browsersessie.  
@@ -82,7 +82,7 @@ Om te controleren of u bent niet aangemeld bij een account persoonlijke browser,
 
     *   Een voorbeeld van een commerciële aanbieding is een VM-aanbieding met een uurtarief in rekening facturering model.  
 
----  
+---
 
 ## <a name="get-help-with-dev-center-registration"></a>Hulp bij het Dev Center-registratie  
 Als u problemen met de registratie van het Dev Center hebt, voert u deze stappen voor het indienen van een ondersteuningsticket.  
@@ -125,7 +125,7 @@ De bank en btw-informatie is vereist voor alle commerciële aanbiedingen met beh
 
 4.  Klik op de knop Volgende. 
 
----   
+---
 
 ## <a name="add-tax-information"></a>BTW-gegevens toevoegen  
 1.  Meld u aan bij Dev Center met uw Microsoft-ID.  
@@ -195,4 +195,4 @@ Toegang tot ondersteuning, gaat u naar de pagina voor developer-ondersteuning te
 ## <a name="next-steps"></a>Volgende stappen
 *   Ga naar de [Azure Marketplace en AppSource Uitgevershandleiding voor](./marketplace-publishers-guide.md) pagina.  
  
----  
+---

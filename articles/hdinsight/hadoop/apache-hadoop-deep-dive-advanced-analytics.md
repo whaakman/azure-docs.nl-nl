@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 0e17fa877bc2e1e4f72891315d940546a11e674d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 893273fc325eaf878814c07eb095c67f5ea3c3f1
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812492"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675055"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Deep dive - geavanceerde analyses
 
@@ -110,7 +110,7 @@ De gegevensset is in een trainingsset van 50.000 installatiekopieën en een test
 * Cognitive Toolkit laden van het model en score de vooraf verwerkte afbeeldingen op elk knooppunt.
 * Jupyter-Notebooks om uit te voeren van de PySpark-script, samenvoegen van de resultaten en gebruik [Matplotlib](https://matplotlib.org/) voor het visualiseren van de modelprestaties.
 
-Voor het hele voorverwerking/scoren van 10.000 afbeeldingen, duurt minder dan één minuut op een cluster met 4 worker-knooppunten. Het model voorspelt nauwkeurig de labels van installatiekopieën van ~ 9,100 (91%). Een verwarringsmatrix ziet u de meest voorkomende classificatiefouten. De matrix ziet u bijvoorbeeld dat honden als katten en vice versa etikettering optreedt meer vaak dan voor andere paren met een label.
+Voor het hele voorverwerking/scoren van 10.000 afbeeldingen, duurt minder dan één minuut op een cluster met 4 worker-knooppunten. Het model voorspelt nauwkeurig de labels van ~ 9,100 (91%) afbeeldingen. Een verwarringsmatrix ziet u de meest voorkomende classificatiefouten. De matrix ziet u bijvoorbeeld dat honden als katten en vice versa etikettering optreedt meer vaak dan voor andere paren met een label.
 
 ![Resultaten](./media/apache-hadoop-deep-dive-advanced-analytics/ml-results.png)
 
@@ -133,6 +133,5 @@ Apache Spark and MLLib
 
 Deep Learning, Cognitive Toolkit en anderen
 
-* [Perfect parallel afbeeldingsclassificatie, met behulp van Cognitive Toolkit en TensorFlow op Azure HDInsight Spark](https://blogs.technet.microsoft.com/machinelearning/2017/04/12/embarrassingly-parallel-image-classification-using-cognitive-toolkit-tensorflow-on-azure-hdinsight-spark/)
 * [Data Science virtuele Machine van Azure](../../machine-learning/data-science-virtual-machine/overview.md)
 * [Maak kennis met H2O.ai op Azure HDInsight](https://azure.microsoft.com/blog/introducing-h2o-ai-with-on-azure-hdinsight-to-bring-the-most-robust-ai-platform-for-enterprises/)

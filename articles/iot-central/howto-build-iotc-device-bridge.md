@@ -8,12 +8,12 @@ ms.author: viviali
 ms.date: 12/4/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 9c774a463264a3df859ac097dce4aa21df1c1dd8
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 6133a7441459072d0c7da1841161da563a28aa31
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163358"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730321"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>Bouw de IoT Central apparaat bridge andere clouds IoT verbinden met IoT Central
 
@@ -26,7 +26,9 @@ De apparaat-brug IoT Central is een open-source-oplossing in GitHub. Het is klaa
 -   Azure Functions-app
 -   Azure Storage-account
 -   Verbruiksabonnement
--   Azure Key Vault de functie-app is het cruciaal onderdeel van de brug apparaat. Wordt een HTTP POST-aanvragen ontvangen van andere IoT-platformen of alle aangepaste platforms via een eenvoudige webhook-integratie. Er zijn voorbeelden die laten zien hoe u verbinding maken met Sigfox, Particle en TTN clouds beschikbaar. Deze oplossing voor het verbinding maken met uw aangepaste IoT-cloud als uw platform HTTP POST-aanvragen naar uw functie-app verzenden kunt kunt u gemakkelijk uitbreiden.
+-   Azure Key Vault
+
+De functie-app is het cruciaal onderdeel van de brug apparaat. Wordt een HTTP POST-aanvragen ontvangen van andere IoT-platformen of alle aangepaste platforms via een eenvoudige webhook-integratie. Er zijn voorbeelden die laten zien hoe u verbinding maken met Sigfox, Particle en TTN clouds beschikbaar. Deze oplossing voor het verbinding maken met uw aangepaste IoT-cloud als uw platform HTTP POST-aanvragen naar uw functie-app verzenden kunt kunt u gemakkelijk uitbreiden.
 De functie-app de gegevens worden getransformeerd in een indeling die door IoT Central geaccepteerd en stuurt het langs via DPS-API's.
 
 ![Schermopname van Azure functions](media/howto-build-iotc-device-bridge/azfunctions.png)

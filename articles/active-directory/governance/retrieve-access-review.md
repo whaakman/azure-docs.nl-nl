@@ -1,6 +1,6 @@
 ---
-title: Resultaten van Azure AD-toegangsbeoordeling ophalen | Microsoft Docs
-description: Hoe u de resultaten van Azure Active Directory-toegangsbeoordelingen ophaalt.
+title: Ophalen van de resultaten van de toegangsbeoordeling voor groepen of toepassingen in Azure AD-Toegangsbeoordelingen | Microsoft Docs
+description: Informatie over het ophalen van resultaten van de toegangsbeoordeling voor leden van beveiligingsgroep of toegang tot toepassingen in Azure AD-Toegangsbeoordelingen.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dccacb82b34e7e257fcee9632045f12839b5425
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f5a422f619c4ef63da59516ff2748683eb0f7f70
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210795"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56726684"
 ---
-# <a name="retrieve-access-review-results"></a>Resultaten van toegangsbeoordeling ophalen
+# <a name="retrieve-access-review-results-for-groups-or-applications-in-azure-ad-access-reviews"></a>Ophalen van de resultaten van de toegangsbeoordeling voor groepen of toepassingen in Azure AD-Toegangsbeoordelingen
 
 Beheerders kunnen Azure Active Directory (Azure AD) gebruiken om een [toegangsbeoordeling](create-access-review.md) te maken voor groepsleden of gebruikers die zijn toegewezen aan een toepassing.  Een gebruiker met de rol **Globale beheerder**, **Gebruikersaccountbeheerder**, **Beveiligingsbeheerder** of **Beveiligingslezer** kan de resultaten van een toegangsbeoordeling ook lezen.  Om gebruikers toe te wijzen aan een van deze rollen, kan een Beheerder met bevoorrechte rol Azure AD PIM gebruiken om een ​​gebruiker in aanmerking te laten komen voor het activeren van de rol, of kan een Globale beheerder [een gebruiker permanent toewijzen aan de rol](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 
@@ -55,7 +55,7 @@ Standaard geldt dat een verwijderde gebruiker gedurende dertig dagen in Azure AD
 - [Gebruikerstoegang beheren met Azure AD-toegangsbeoordelingen](manage-user-access-with-access-reviews.md)
 - [Gasttoegang beheren met Azure AD-toegangsbeoordelingen](manage-guest-access-with-access-reviews.md)
 - [Programma's en controles voor Azure AD-toegangsbeoordelingen beheren](manage-programs-controls.md)
-- [Een toegangsbeoordeling maken voor leden van een groep of toegang tot een toepassing](create-access-review.md)
+- [Een toegangsbeoordeling van groepen of toepassingen maken](create-access-review.md)
 - [Een toegangsbeoordeling maken van gebruikers met een Azure AD-beheerderrol](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 

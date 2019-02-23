@@ -6,15 +6,15 @@ author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: 87ea4edd9bb548701d6bcf63dd542ed6e35d9f7f
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.topic: conceptual
+ms.openlocfilehash: 2b7e709a06797323cc99bfd636ee26e9bfb8026d
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585541"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731851"
 ---
 # <a name="what-is-a-dictionary"></a>Wat is een woordenlijst?
 
@@ -22,7 +22,7 @@ Een woordenlijst is een uitgelijnde twee documenten die Hiermee geeft u een lijs
 
 Woordenboeken kan uitsluitend worden gebruikt voor projecten in de taal-paren die beschikken over een volledig ondersteunde Microsoft neurale machinevertalingen (NMT) achter deze. [De volledige lijst met talen weergeven](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
 
-## <a name="phrase-dictionary"></a>Woordgroep woordenlijst 
+## <a name="phrase-dictionary"></a>Woordgroep woordenlijst
 Wanneer u een woordenlijst woordgroep opneemt in uw model te trainen, wordt een woord of zinsdeel vermeld omgezet in de manier waarop die u hebt opgegeven. De rest van de zin wordt zoals gewoonlijk omgezet. U kunt een woordgroep-woordenlijst gebruiken om op te geven die mag niet worden vertaald door te geven van de dezelfde niet-vertaalde zin in de bron en doel-bestand in de woordenlijst.
 
 ## <a name="sentence-dictionary"></a>Zin woordenlijst
@@ -36,9 +36,9 @@ U kunt een model met behulp van alleen de gegevens van de woordenlijst trainen. 
 
 ## <a name="recommendations"></a>Aanbevelingen
 
-- Woordenboeken zijn geen vervanging voor een getraind model met trainingsgegevens.  Woordenboeken wordt in feite zoeken en vervangen woorden of zinnen.  Laat het systeem meer uit uw trainingsmateriaal in volledige zinnen is doorgaans een betere keuze dan het gebruik van een woordenlijst. 
+- Woordenboeken zijn geen vervanging voor een getraind model met trainingsgegevens.  Woordenboeken wordt in feite zoeken en vervangen woorden of zinnen.  Laat het systeem meer uit uw trainingsmateriaal in volledige zinnen is doorgaans een betere keuze dan het gebruik van een woordenlijst.
 - De woordgroep woordenlijst moet spaarzaam worden gebruikt. Als een woord in een zin wordt vervangen, wordt de context in die zin verloren gaan of die beperkt zijn voor het omzetten van de rest van de zin. Het resultaat is dat terwijl de woordgroep of woord in de zin op basis van de woordenlijst woordgroep wordt vertaald, vaak heeft nadelige gevolgen voor de kwaliteit van de algehele vertaling van de zin.
-- De woordgroep woordenlijst werkt goed voor samenstellingen zoals productnamen ('Microsoft SQL Server'), juiste namen ("plaats van Hamburg") of functies van het product ("Draaitabel'). Werkt niet net zo goed voor termen of bijvoeglijke naamwoorden omdat deze zijn meestal sterk verbogen in de bron of in de doel-taal. Vermijd woordgroep dictionary-vermeldingen voor andere waarde dan samenstellingen. 
+- De woordgroep woordenlijst werkt goed voor samenstellingen zoals productnamen ('Microsoft SQL Server'), juiste namen ("plaats van Hamburg") of functies van het product ("Draaitabel'). Werkt niet net zo goed voor termen of bijvoeglijke naamwoorden omdat deze zijn meestal sterk verbogen in de bron of in de doel-taal. Vermijd woordgroep dictionary-vermeldingen voor andere waarde dan samenstellingen.
 - Wanneer u een woordenlijst, weer hoofdletters en leestekens in uw vertalingen hoofdlettergebruik en leestekens die zijn opgegeven in het doelbestand. Gebruik van hoofdletters en leestekens worden genegeerd bij het identificeren van overeenkomsten tussen uw invoer zin en de bron-zinnen in de woordenlijstbestand. Stel dat we een Engels, Spaans systeem waarmee een woordenlijst getraind die opgegeven "plaats Hamburg" in het bronbestand en "Ciudad de hamburg" in het doelbestand. Als ik de vertaling van een zin die de zin "plaats Hamburg" opgenomen aangevraagd, vervolgens "plaats Hamburg" wordt gezocht naar Mijn woordenlijstbestand voor de vermelding "Plaats Hamburg", en zou toewijzen aan "Ciudad de hamburg" in de laatste vertaling.
 - Als een woord wordt meer dan één keer in een woordenlijstbestand weergegeven, gebruik het systeem altijd de laatste post opgegeven. De woordenlijst mag niet meerdere vertalingen van hetzelfde woord bevatten.
 

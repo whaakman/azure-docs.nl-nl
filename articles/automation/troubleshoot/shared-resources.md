@@ -4,16 +4,16 @@ description: Meer informatie over het oplossen van problemen met Azure Automatio
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/3/2018
+ms.date: 02/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 911f592c43865ea8bdfe85c1ad1071c7112ae9b6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: abce40958f8d775e0a579a18cf8d1351740031ff
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475438"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671060"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Problemen oplossen met gedeelde bronnen
 
@@ -38,6 +38,24 @@ U lost dit probleem, moet u de module die is vastgelopen in de **importeren** st
 ```azurepowershell-interactive
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
+
+### <a name="update-azure-modules-importing"></a>Scenario: AzureRM-modules zijn vastgelopen na het bijwerken van deze importeren
+
+#### <a name="issue"></a>Probleem
+
+Een banner met het volgende bericht blijft in uw account na het bijwerken van de AzureRM-modules:
+
+```
+Azure modules are being updated
+```
+
+#### <a name="cause"></a>Oorzaak
+
+Er is een bekend probleem met het bijwerken van de AzureRM-modules in een Automation-Account dat in een resourcegroep gemaakt met een numerieke naam die met 0 begint.
+
+#### <a name="resolution"></a>Oplossing
+
+Voor het bijwerken van uw Azure-modules in uw Automation-Account, moet deze zich in een resourcegroep met een alfanumerieke naam. Resourcegroepen met numerieke namen die beginnen met 0 zijn kan niet worden bijgewerkt AzureRM-modules op dit moment.
 
 ### <a name="module-fails-to-import"></a>Scenario: Module niet kan worden geïmporteerd of cmdlets kan niet worden uitgevoerd na het importeren
 

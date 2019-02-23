@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 6da222086f29c4b492652d924b4d98e9780eaa53
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7ace4c1827b340f6247d69902538fdaaf1243106
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434594"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727788"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>Maken van een IoT-hub met behulp van de resourceprovider REST-API (.NET)
 
@@ -24,6 +24,8 @@ U kunt de [REST API voor IoT Hub-resourceprovider] [ lnk-rest-api] maken en behe
 
 > [!NOTE]
 > Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources:  [Azure Resource Manager en klassieke](../azure-resource-manager/resource-manager-deployment-model.md).  In dit artikel bevat informatie over het Azure Resource Manager-implementatiemodel.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
@@ -164,10 +166,10 @@ U kunt de toepassing nu uitvoeren door het aanroepen van de **CreateIoTHub** met
 
 3. Klik op **Debug** en vervolgens **Start Debugging** de toepassing uit te voeren. Het duurt enkele minuten voor de implementatie om uit te voeren.
 
-4. Als u wilt controleren of uw toepassing de nieuwe IoT hub toegevoegd, gaat u naar de [Azure-portal] [ lnk-azure-portal] en uw lijst met resources weer te geven. U kunt ook de **Get-AzureRmResource** PowerShell-cmdlet.
+4. Als u wilt controleren of uw toepassing de nieuwe IoT hub toegevoegd, gaat u naar de [Azure-portal] [ lnk-azure-portal] en uw lijst met resources weer te geven. U kunt ook de **Get-AzResource** PowerShell-cmdlet.
 
 > [!NOTE]
-> In dit voorbeeld van de toepassing wordt toegevoegd een Standard IoT-Hub van S1, die in rekening worden gebracht. Wanneer u klaar bent, kunt u de IoT-hub via verwijderen de [Azure-portal] [ lnk-azure-portal] of met behulp van de **Remove-AzureRmResource** PowerShell-cmdlet als u klaar bent.
+> In dit voorbeeld van de toepassing wordt toegevoegd een Standard IoT-Hub van S1, die in rekening worden gebracht. Wanneer u klaar bent, kunt u de IoT-hub via verwijderen de [Azure-portal] [ lnk-azure-portal] of met behulp van de **Remove-AzResource** PowerShell-cmdlet als u klaar bent.
 
 ## <a name="next-steps"></a>Volgende stappen
 Nu u een IoT-hub met behulp van de resourceprovider REST-API hebt geïmplementeerd, kunt u verder te verkennen:
@@ -188,7 +190,7 @@ Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-status]: https://azure.microsoft.com/status/
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
+[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-Az-ps
 [lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 

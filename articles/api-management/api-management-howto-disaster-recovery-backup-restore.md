@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 7da97b763c532a2189ef058cbb8ffb14c5b150f9
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 56d0b8ced4a0eed3c2bf215ed0e5fc77c343f7fd
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968370"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728638"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Herstel na noodgeval met behulp van back-up van de service implementeren en te herstellen in Azure API Management
 
@@ -32,6 +32,8 @@ Deze handleiding wordt beschreven hoe u om Azure Resource Manager-aanvragen te v
 > Het proces voor het back-up en herstellen van een exemplaar van API Management-service voor herstel na noodgevallen kan ook worden gebruikt voor het repliceren van API Management service-exemplaren voor scenario's zoals fasering.
 >
 > Elke back-up verloopt na 30 dagen. Als u probeert te herstellen van een back-up nadat de verloopperiode van 30 dagen is verlopen, wordt het herstellen mislukken met een `Cannot restore: backup expired` bericht.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -56,7 +58,7 @@ Alle taken die u doen op resources met behulp van Azure Resource Manager moeten 
 3. Klik op **Nieuwe toepassing registreren**.
 
     De **maken** venster wordt weergegeven aan de rechterkant. Dat is waar u de relevante informatie voor AAD-app.
-4. Voer een naam voor de toepassing.
+4. Voer een naam in voor de toepassing.
 5. Selecteer voor het toepassingstype **systeemeigen**.
 6. Voer de URL van een tijdelijke aanduiding zoals `http://resources` voor de **omleidings-URI**, zoals het is een verplicht veld, maar de waarde later wordt niet gebruikt. Klik op het selectievakje in om op te slaan van de toepassing.
 7. Klik op **Create**.
@@ -207,7 +209,7 @@ Terugzetten is een langdurige bewerking die op meer dan 30 minuten duren kan om 
 <!-- Dummy comment added to suppress markdown lint warning -->
 
 > [!NOTE]
-> Back-up en herstelbewerkingen kunnen ook worden uitgevoerd met PowerShell *back-up-AzureRmApiManagement* en *Restore-AzureRmApiManagement* respectievelijk-opdrachten.
+> Back-up en herstelbewerkingen kunnen ook worden uitgevoerd met PowerShell *back-up-AzApiManagement* en *terugzetten AzApiManagement* respectievelijk-opdrachten.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -1,6 +1,6 @@
 ---
-title: Uw toegang controleren | Microsoft Docs
-description: Uw toegang met Azure Active Directory controleren
+title: Toegang beoordelen voor uzelf met groepen of toepassingen in Azure AD-Toegangsbeoordelingen | Microsoft Docs
+description: Leer hoe u uw eigen toegang met groepen of toepassingen in Azure Active Directory-Toegangsbeoordelingen kunnen beoordelen.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -11,47 +11,74 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/16/2018
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3cc807a5693b363445f85d0b45a70681f58c5275
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 76f90a5aa3f201fa5d1578ac63526be26377aedf
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198625"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731205"
 ---
-# <a name="review-your-access"></a>Uw toegang beoordelen
+# <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Toegang beoordelen voor uzelf met groepen of toepassingen in Azure AD-Toegangsbeoordelingen
 
-Azure Active Directory (Azure AD) vereenvoudigt de manier waarop ondernemingen toegang tot toepassingen en leden van groepen beheren in Azure AD en andere Microsoft Online Services met een functie met de naam van de toegang beoordeelt. U kunt mogelijk geen e-mail ontvangen van Microsoft waarmee u wordt gevraagd te toegang beoordelen voor leden van een groep of gebruikers met toegang tot een toepassing. 
+Azure Active Directory (Azure AD) vereenvoudigt de manier waarop ondernemingen toegang tot groepen of toepassingen beheren in Azure AD en andere Microsoft Online Services met een functie voor Azure AD-Toegangsbeoordelingen.
 
-## <a name="open-an-access-review"></a>Een toegangsbeoordeling openen
+In dit artikel wordt beschreven hoe u uw eigen toegang tot een groep of een toepassing bekijken.
 
-De in behandeling zijnde om beoordelingen te bekijken, klikt u op de koppeling voor de controle-toegang in het e-mailbericht. Vanaf augustus 2018, hebben de e-mailmeldingen voor Azure AD-rollen voor het ontwerp van een bijgewerkte. Hieronder ziet u een voorbeeld van de e-mailbericht wordt verzonden wanneer een gebruiker is uitgenodigd om te worden van een revisor.
+## <a name="open-the-access-review"></a>Open de toegangsbeoordeling
 
-![Controleer toegang tot e-mail](./media/review-your-access/new-ar-email.png)
+De eerste stap bij het uitvoeren van een toegangsbeoordeling is om te zoeken en openen van de toegangsbeoordeling.
 
-Als u het e-mailbericht niet hebt, kunt u de toegangsbeoordelingen vinden door de volgende stappen:
+1. Zoek naar een e-mailbericht van Microsoft waarmee u wordt gevraagd te toegang beoordelen. Hier volgt een voorbeeld van de e-mail om te controleren van de toegang tot een groep.
 
-1. Meld u bij de [Azure AD-toegangspaneel](https://myapps.microsoft.com).
+    ![Controleer toegang tot e-mail](./media/review-your-access/access-review-email.png)
 
-2. Selecteer het symbool gebruiker in de rechterbovenhoek van de pagina, die uw organisatie naam en het standaard weergegeven. Als meer dan één organisatie wordt weergegeven, selecteert u de organisatie die een toegangsbeoordeling aangevraagd.
+1. Klik op de **toegang beoordelen** koppeling naar het openen van de toegangsbeoordeling.
 
-3. Als een tegel met het label **Toegangsbeoordelingen** is aan de rechterkant van de pagina, selecteer het. Als de tegel niet zichtbaar is, er zijn geen toegangsbeoordelingen om uit te voeren voor deze organisatie en is er op dit moment geen actie nodig.
+Als u het e-mailbericht niet hebt, kunt u uw in behandeling zijnde toegangsbeoordelingen door de volgende stappen kunt vinden.
 
-## <a name="fill-out-an-access-review"></a>Vul een toegangsbeoordeling
+1. Meld u aan bij de MyApps-portal op [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
 
-Wanneer u een toegangscontrole uit de lijst selecteert, ziet u de toegang. Selecteer de rij en kiest u of u wilt goedkeuren of weigeren van uw behoeften voor blijvende toegang.
+    ![MyApps-portal](./media/review-your-access/myapps-access-panel.png)
 
-De revisor mogelijk dat u een reden voor het goedkeuren van blijvende toegang opgeven.
+1. Klik op het symbool gebruiker, die uw organisatie naam en een standaardwaarde weergegeven in de rechterbovenhoek van de pagina. Als meer dan één organisatie wordt weergegeven, selecteert u de organisatie die een toegangsbeoordeling aangevraagd.
+
+1. Aan de rechterkant van de pagina, klikt u op de **Toegangsbeoordelingen** tegel voor een overzicht van de in behandeling zijnde toegangsbeoordelingen.
+
+    Als de tegel niet zichtbaar is, er zijn geen toegangsbeoordelingen om uit te voeren voor deze organisatie en is er op dit moment geen actie nodig.
+
+    ![Lijst met toegangsbeoordelingen](./media/review-your-access/access-reviews-list.png)
+
+1. Klik op de **controle beginnen** koppeling voor de toegangsbeoordeling die u wilt uitvoeren.
+
+## <a name="perform-the-access-review"></a>De toegangscontrole uitvoeren
+
+Nadat u de toegangsbeoordeling hebt geopend, ziet u de toegang.
+
+1. Uw toegang controleren en beslissen of u nog steeds toegang nodig.
+
+    Als de aanvraag om te controleren van toegang voor anderen, ziet de pagina er anders. Zie voor meer informatie, [toegang met groepen of toepassingen beoordelen](perform-access-review.md).
+
+    ![Toegangscontrole uitvoeren](./media/review-your-access/perform-access-review.png)
+
+1. Klik op **Ja** te houden van uw toegang of klik op **geen** om de toegang te verwijderen.
+
+1. Als u klikt op **Ja**, moet u mogelijk Geef een reden in de **reden** vak.
+
+    ![Toegangscontrole uitvoeren](./media/review-your-access/perform-access-review-submit.png)
+
+1. Klik op **Submit**
+
+    Uw selectie wordt verzonden en keert u terug naar de MyApps-portal.
+
+    Als u wijzigen van uw antwoord wilt, de toegang tot beoordelingen pagina opnieuw openen en bijwerken van uw antwoord. U kunt uw antwoord wijzigen op elk gewenst moment totdat de toegangsbeoordeling is beëindigd.
+
+    > [!NOTE]
+    > Als u hebt aangegeven dat u toegang niet meer nodig hebt, worden niet u onmiddellijk verwijderd. U worden verwijderd wanneer de beoordeling is voltooid of wanneer een beheerder de controle wordt gestopt.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De toegang is geweigerd, wordt niet onmiddellijk verwijderd. Als u wilt wijzigen van het antwoord en goedkeuren, opnieuw instellen van het antwoord en selecteert u een nieuw antwoord. U kunt deze stap kunt doen, totdat de toegangsbeoordeling is voltooid.
-
-
-
-
-
-
+- [Een toegangscontrole van groepen of toepassingen voltooien](complete-access-review.md)

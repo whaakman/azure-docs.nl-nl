@@ -7,19 +7,19 @@ author: dkkapur
 manager: timlt
 editor: ''
 ms.assetid: ae0e8f99-69ab-4d45-896d-1fa80ed45659
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
-ms.openlocfilehash: 38df214cad01062100c9ae5c045f9d2589b0041a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f9ec807f951bbaec0be3f1729ba2a7246ef37c62
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234830"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738025"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Diagnosefunctionaliteit voor Stateful Reliable Services
 De Azure Service Fabric Stateful Reliable Services StatefulServiceBase-klasse verzendt [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) gebeurtenissen die kunnen worden gebruikt voor fouten opsporen in de service bieden inzicht in hoe de runtime is functioneren en kunnen oplossen.
@@ -50,7 +50,7 @@ StatefulRunAsyncSlowCancellation wordt verzonden wanneer een aanvraag voor annul
 ## <a name="performance-counters"></a>Prestatiemeteritems
 De runtime van Reliable Services definieert de volgende categorieën voor prestatiemeteritems:
 
-| Categorie | Beschrijving |
+| Categorie | Description |
 | --- | --- |
 | Transactionele replicator voor Service Fabric |Prestatiemeteritems specifiek voor de transactionele Replicator voor Azure Service Fabric |
 | Service Fabric TStore |Prestatiemeteritems specifiek voor de Azure Service Fabric TStore |
@@ -102,7 +102,7 @@ In het voorgaande voorbeeld `00d0126d-3e36-4d68-98da-cc4f7195d85e` is van de tek
 
 De Reliable Services-runtime verzendt de volgende gebeurtenissen onder de `Service Fabric Transactional Replicator` categorie
 
- Naam van het prestatiemeteritem | Beschrijving |
+ Naam van het prestatiemeteritem | Description |
 | --- | --- |
 | Transactiebewerkingen starten/sec | Het aantal nieuwe schrijven transacties per seconde worden gemaakt.|
 | Transactiebewerkingen/sec | Het aantal bewerkingen toevoegen/bijwerken/verwijderen die worden uitgevoerd op een betrouwbare verzamelingen per seconde.|
@@ -115,7 +115,7 @@ De Reliable Services-runtime verzendt de volgende gebeurtenissen onder de `Servi
 
 De Reliable Services-runtime verzendt de volgende gebeurtenissen onder de `Service Fabric TStore` categorie
 
- Naam van het prestatiemeteritem | Beschrijving |
+ Naam van het prestatiemeteritem | Description |
 | --- | --- |
 | Aantal items | Het aantal items in de store.|
 | Schijfgrootte | De totale schijfgrootte in bytes, van controlepuntbestanden voor de store.|

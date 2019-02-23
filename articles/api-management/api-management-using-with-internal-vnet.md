@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: acaf73c2d981761b0bc57cfccbbf6c6a48e5e0c2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 21175e74bd40d0d4aeaf1c0a1e677f1c8113e80a
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446500"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738008"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Met behulp van Azure API Management-service met een intern virtueel netwerk
 Met virtuele netwerken van Azure beheren Azure API Management API's die niet toegankelijk is via internet. Een aantal VPN-technologieën zijn beschikbaar voor het maken van de verbinding. API Management kan worden geïmplementeerd in twee belangrijke modi binnen een virtueel netwerk:
@@ -67,11 +67,14 @@ Nadat de implementatie is gelukt, ziet u de interne virtuele IP-adres van uw ser
 > De Test-console beschikbaar zijn in de Azure Portal werkt niet voor **intern** VNET service hebt geïmplementeerd als de Url van de Gateway is niet geregistreerd op de openbare DNS-server. U moet in plaats daarvan gebruikt u de Test-Console die is opgegeven op de **ontwikkelaarsportal**.
 
 ### <a name="enable-a-virtual-network-connection-by-using-powershell-cmdlets"></a>Inschakelen van de verbinding van een virtueel netwerk met behulp van PowerShell-cmdlets
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 U kunt ook verbinding met het virtuele netwerk inschakelen met behulp van PowerShell-cmdlets.
 
-* Een API Management-service binnen een virtueel netwerk maken: Gebruik de cmdlet [New-AzureRmApiManagement](/powershell/module/azurerm.apimanagement/new-azurermapimanagement) naar een Azure API Management-service binnen een virtueel netwerk maken en configureren voor het gebruik van het type intern virtueel netwerk.
+* Een API Management-service binnen een virtueel netwerk maken: Gebruik de cmdlet [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) naar een Azure API Management-service binnen een virtueel netwerk maken en configureren voor het gebruik van het type intern virtueel netwerk.
 
-* Een bestaande API Management-service binnen een virtueel netwerk implementeert: Gebruik de cmdlet [Update AzureRmApiManagementDeployment](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment) te verplaatsen van een bestaande API Management-service binnen een virtueel netwerk en configureer deze voor het gebruik van de interne type virtuele netwerk.
+* Een bestaande API Management-service binnen een virtueel netwerk implementeert: Gebruik de cmdlet [Update AzApiManagementDeployment](/powershell/module/az.apimanagement/update-azapimanagementdeployment) te verplaatsen van een bestaande API Management-service binnen een virtueel netwerk configureren voor het gebruik van het type intern virtueel netwerk.
 
 ## <a name="apim-dns-configuration"></a>DNS-configuratie
 Wanneer er is een API Management in de modus voor extern virtueel netwerk, worden de DNS-server wordt beheerd door Azure. U hebt voor het beheren van uw eigen routering voor de modus intern virtueel netwerk.
@@ -94,7 +97,7 @@ Voor toegang tot deze API Management service-eindpunten, kunt u een virtuele mac
 
    * 10.0.0.5 contoso.azure-api.net
 
-   * 10.0.0.5 contoso.portal.azure-api.net
+   * 10.0.0.5     contoso.portal.azure-api.net
 
    * 10.0.0.5 contoso.management.azure-api.net
 
@@ -110,7 +113,7 @@ U kunt vervolgens toegang tot alle service-eindpunten van de virtuele machine di
 
    2. Vervolgens maakt u records in de DNS-server toegang hebben tot de eindpunten die alleen toegankelijk vanuit uw virtuele netwerk zijn.
 
-## <a name="routing"> </a> Routering
+## <a name="routing"> </a> Routing
 + Een gelijke persoonlijke virtuele IP-adres uit het subnetbereik wordt gereserveerd en gebruikt voor toegang tot de API Management service-eindpunten van binnen het vnet.
 + Een gelijke openbare IP-adres (VIP) wordt ook worden gereserveerd voor toegang tot het beheer van service-eindpunt alleen via poort 3443.
 + Een IP-adres van een subnet-IP-adresbereik (DIP) wordt gebruikt voor toegang tot resources binnen het vnet en een openbare IP-adres (VIP) wordt gebruikt voor toegang tot bronnen buiten het vnet.

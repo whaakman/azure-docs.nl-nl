@@ -3,7 +3,7 @@ title: Wederzijdse TLS-verificatie - Azure App Service configureren
 description: Informatie over het configureren van uw app voor het gebruik van verificatie van clientcertificaten op TLS.
 services: app-service
 documentationcenter: ''
-author: naziml
+author: cephalin
 manager: erikre
 editor: jimbe
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
@@ -12,54 +12,43 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
-ms.author: naziml
+ms.date: 02/22/2019
+ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d441329bc3f279e95b2ee302db53d78f786c3470
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 5702362add6a50f2f4525afbd3649f083f34b6fc
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53650394"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671961"
 ---
-# <a name="how-to-configure-tls-mutual-authentication-for-azure-app-service"></a>Wederzijdse TLS-verificatie voor Azure App Service configureren
-## <a name="overview"></a>Overzicht
-U kunt toegang tot uw Azure App Service-app beperken door in te schakelen van verschillende soorten verificatie voor deze. Een manier om dit te doen is om te verifiëren met behulp van een clientcertificaat als de aanvraag via TLS/SSL is. Dit mechanisme wordt TLS wederzijdse verificatie of verificatie en in dit artikel wordt beschreven hoe u uw app ingesteld voor het gebruik van verificatie van clientcertificaten clientcertificaat genoemd.
+# <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Wederzijdse TLS-verificatie voor Azure App Service configureren
 
-> **Opmerking:** Als u toegang uw site via HTTP en niet HTTPS tot, ontvangt u geen een clientcertificaat. Dus als uw toepassing clientcertificaten vereist moet u niet toestaan aanvragen voor uw toepassing via HTTP.
-> 
-> 
+U kunt toegang tot uw Azure App Service-app beperken door in te schakelen van verschillende soorten verificatie voor deze. Een manier om dit te doen is om te vragen van een clientcertificaat als de clientaanvraag via TLS/SSL is en het certificaat te valideren. Dit mechanisme wordt TLS wederzijdse verificatie of verificatie van clientcertificaten genoemd. In dit artikel laat zien hoe uw app ingesteld voor het gebruik van verificatie van clientcertificaten.
 
-## <a name="configure-app-service-for-client-certificate-authentication"></a>App Service configureren voor verificatie van clientcertificaten
-Als u uw app instelt om clientcertificaten te vereisen, moet u de instelling van de site clientCertEnabled voor uw app toevoegen en stel deze in op true. Deze instelling kan ook worden geconfigureerd in Azure portal onder de blade van de SSL-certificaten.
+> [!NOTE]
+> Als u toegang uw site via HTTP en niet HTTPS tot, ontvangt u geen een clientcertificaat. Dus als uw toepassing clientcertificaten vereist, moet u niet toestaan aanvragen voor uw toepassing via HTTP.
+>
 
-U kunt de [ARMClient hulpprogramma](https://github.com/projectkudu/ARMClient) om eenvoudig de REST-API-aanroep ze moesten maken. Nadat u zich met het hulpprogramma aanmeldt, moet u de volgende opdracht:
+## <a name="enable-client-certificates"></a>Clientcertificaten inschakelen
 
-    ARMClient PUT subscriptions/{Subscription Id}/resourcegroups/{Resource Group Name}/providers/Microsoft.Web/sites/{Website Name}?api-version=2015-04-01 @enableclientcert.json -verbose
+Als u uw app instelt om clientcertificaten te vereisen, moet u instellen de `clientCertEnabled` instellen voor uw app naar `true`. Als u wilt instellen, kunt u de volgende opdracht uitvoeren de [Cloud Shell](https://shell.azure.com).
 
-vervangen van alles in {} met informatie voor uw app en het maken van een bestand met de naam enableclientcert.json met de volgende JSON-inhoud:
+```azurecli-interactive
+az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
+```
 
-    {
-        "location": "My App Location",
-        "properties": {
-            "clientCertEnabled": true
-        }
-    }
+## <a name="access-client-certificate"></a>Clientcertificaat voor toegang
 
-Zorg ervoor dat u de waarde van "locatie" wijzigen waar uw app bevindt zich bijvoorbeeld Noord-centraal VS of Westelijke VS enzovoort.
+In App Service gebeurt de SSL-beëindiging van de aanvraag bij de frontend load balancer. Wanneer de aanvraag naar de code van de app met [clientcertificaten ingeschakeld](#enable-client-certificates), App Service injects een `X-ARR-ClientCert` aanvraagheader met het clientcertificaat. App Service doet iets met dit clientcertificaat dan doorgestuurd naar uw app. Code van de app is verantwoordelijk voor het valideren van het clientcertificaat.
 
-U kunt ook https://resources.azure.com aan of de `clientCertEnabled` eigenschap `true`.
+Voor ASP.NET-, certificaat van de client is beschikbaar via de **HttpRequest.ClientCertificate** eigenschap.
 
-> **Opmerking:** Als u ARMClient vanuit Powershell uitvoert, moet u als escape voor de \@ symbool voor het JSON-bestand met een vorige tick '.
-> 
-> 
+Voor andere toepassingsstacks (Node.js, PHP, enzovoort), het clientcertificaat is beschikbaar in uw app met een met base64 gecodeerde waarde in de `X-ARR-ClientCert` aanvraagheader.
 
-## <a name="accessing-the-client-certificate-from-app-service"></a>Toegang tot het certificaat vanuit App Service
-Als u van ASP.NET gebruikmaakt en uw app configureren voor het gebruik van verificatie van clientcertificaten, het certificaat zijn beschikbaar via de **HttpRequest.ClientCertificate** eigenschap. Voor andere toepassingsstacks is het clientcertificaat beschikbaar in uw app met een met base64 gecodeerde waarde in de aanvraagheader "X-ARR-ClientCert". Uw toepassing kunt maken van een certificaat van deze waarde en vervolgens worden gebruikt voor verificatie en autorisatie in uw toepassing.
+## <a name="aspnet-sample"></a>ASP.NET-voorbeeld
 
-## <a name="special-considerations-for-certificate-validation"></a>Speciale overwegingen voor validatie van het servercertificaat
-Het clientcertificaat dat wordt verzonden naar de toepassing gaat niet via een validatie met het Azure App Service-platform. Dit certificaat wordt gevalideerd, is de verantwoordelijkheid van de app. Hier volgt een ASP.NET-voorbeeldcode die eigenschappen voor certificaat voor verificatiedoeleinden wordt gebruikt valideert.
-
+```csharp
     using System;
     using System.Collections.Specialized;
     using System.Security.Cryptography.X509Certificates;
@@ -175,22 +164,53 @@ Het clientcertificaat dat wordt verzonden naar de toepassing gaat niet via een v
                 // 4. Check thumprint of certificate
                 if (String.Compare(certificate.Thumbprint.Trim().ToUpper(), "30757A2E831977D8BD9C8496E4C99AB26CB9622B") != 0) return false;
 
-                // If you also want to test if the certificate chains to a Trusted Root Authority you can uncomment the code below
-                //
-                //X509Chain certChain = new X509Chain();
-                //certChain.Build(certificate);
-                //bool isValidCertChain = true;
-                //foreach (X509ChainElement chElement in certChain.ChainElements)
-                //{
-                //    if (!chElement.Certificate.Verify())
-                //    {
-                //        isValidCertChain = false;
-                //        break;
-                //    }
-                //}
-                //if (!isValidCertChain) return false;
-
                 return true;
             }
         }
     }
+```
+
+## <a name="nodejs-sample"></a>Node.js-voorbeeld
+
+De volgende Node.js-voorbeeldcode wordt de `X-ARR-ClientCert` kop- en maakt gebruik van [knooppunt forge](https://github.com/digitalbazaar/forge) naar de PEM base64-gecodeerde tekenreeks converteren naar een certificaatobject en te valideren:
+
+```javascript
+import { NextFunction, Request, Response } from 'express';
+import { pki, md, asn1 } from 'node-forge';
+
+export class AuthorizationHandler {
+    public static authorizeClientCertificate(req: Request, res: Response, next: NextFunction): void {
+        try {
+            // Get header
+            const header = req.get('X-ARR-ClientCert');
+            if (!header) throw new Error('UNAUTHORIZED');
+
+            // Convert from PEM to pki.CERT
+            const pem = `-----BEGIN CERTIFICATE-----${header}-----END CERTIFICATE-----`;
+            const incomingCert: pki.Certificate = pki.certificateFromPem(pem);
+
+            // Validate certificate thumbprint
+            const fingerPrint = md.sha1.create().update(asn1.toDer((pki as any).certificateToAsn1(incomingCert)).getBytes()).digest().toHex();
+            if (fingerPrint.toLowerCase() !== 'abcdef1234567890abcdef1234567890abcdef12') throw new Error('UNAUTHORIZED');
+
+            // Validate time validity
+            const currentDate = new Date();
+            if (currentDate < incomingCert.validity.notBefore || currentDate > incomingCert.validity.notAfter) throw new Error('UNAUTHORIZED');
+
+            // Validate issuer
+            if (incomingCert.issuer.hash.toLowerCase() !== 'abcdef1234567890abcdef1234567890abcdef12') throw new Error('UNAUTHORIZED');
+
+            // Validate subject
+            if (incomingCert.subject.hash.toLowerCase() !== 'abcdef1234567890abcdef1234567890abcdef12') throw new Error('UNAUTHORIZED');
+
+            next();
+        } catch (e) {
+            if (e instanceof Error && e.message === 'UNAUTHORIZED') {
+                res.status(401).send();
+            } else {
+                next(e);
+            }
+        }
+    }
+}
+```

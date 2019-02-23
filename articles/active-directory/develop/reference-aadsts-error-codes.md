@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4ad41992b2ac0dfc98303601060ed299e75ddfc
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: a80ed6af005f04ec48729e918543b2de67810eba
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234285"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738586"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Codes van verificatie- en autorisatiefouten
 
@@ -255,6 +255,7 @@ Zoek naar informatie over de AADSTS foutcodes die zijn geretourneerd door de sec
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource - de resource is niet geconfigureerd voor het apparaat alleen-lezen-tokens accepteren. |
 | AADSTS240001 | BulkAADJTokenUnauthorized - de gebruiker is niet geautoriseerd voor het registreren van apparaten in Azure AD. |
 | AADSTS240002 | RequiredClaimIsMissing - de id_token kan niet worden gebruikt als `urn:ietf:params:oauth:grant-type:jwt-bearer` verlenen.|
+| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy - tenant-beheerder heeft geconfigureerd een beveiligingsbeleid waarmee deze aanvraag wordt geblokkeerd. Controleer de beleidsregels voor veiligheid die zijn gedefinieerd op het tenantniveau van de om te bepalen of uw aanvraag voldoet aan de beleidsvereisten. |
 | AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest - de toepassing is niet gevonden in de map/tenant. Dit kan gebeuren als de toepassing niet is geïnstalleerd door de beheerder van de tenant of toegestaan door een gebruiker in de tenant. U mogelijk de id-waarde voor de toepassing onjuist geconfigureerd of de verificatieaanvraag naar de verkeerde tenant verzonden. |
 | AADSTS700020 | InteractionRequired - interactie is vereist door het verlenen van toegang. |
 | AADSTS700022 | InvalidMultipleResourcesScope - de opgegeven waarde voor het bereik van de invoerparameter is niet geldig omdat deze meer dan één resource bevat. |

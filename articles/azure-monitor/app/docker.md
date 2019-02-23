@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3ea7d6562965debda2c146fedab2ea9ab19f6cc8
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 0c31d895c453a8272c337b78f01dc8342a4d0765
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077450"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672505"
 ---
 # <a name="monitor-docker-applications-in-application-insights"></a>Docker-toepassingen bewaken in Application Insights
 
@@ -29,7 +29,7 @@ Bij het uitvoeren van de [Application Insights-installatiekopie](https://hub.doc
 
 * Levenscyclus van telemetrie over alle containers die worden uitgevoerd op de host - starten, stoppen, enzovoort.
 * Prestatiemeteritems voor alle containers. CPU, geheugen, netwerkgebruik en meer.
-* Als u [geïnstalleerd van Application Insights-SDK voor Java](../../azure-monitor/app/java-live.md) in de apps die worden uitgevoerd in de containers, de telemetrie van deze apps hebben extra eigenschappen voor het identificeren van de container en host-machine. Als u exemplaren van een app die wordt uitgevoerd in meer dan één host hebt, kunt u bijvoorbeeld eenvoudig de telemetrie van uw app door de host filteren.
+* Als u [geïnstalleerd van Application Insights-SDK voor Java](../../azure-monitor/app/java-get-started.md) in de apps die worden uitgevoerd in de containers, de telemetrie van deze apps hebben extra eigenschappen voor het identificeren van de container en host-machine. Als u exemplaren van een app die wordt uitgevoerd in meer dan één host hebt, kunt u bijvoorbeeld eenvoudig de telemetrie van uw app door de host filteren.
 
 > [!NOTE]
 > Deze oplossing is afgeschaft. Voor meer informatie over onze huidige investeringen in de containerbewaking aangeraden uitchecken [Azure Monitor voor containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
@@ -40,7 +40,7 @@ Bij het uitvoeren van de [Application Insights-installatiekopie](https://hub.doc
    
     *Welke resource moet ik gebruiken?* Als de apps die u op de host uitvoert zijn ontwikkeld door iemand anders, dan u moet [Maak een nieuwe Application Insights-resource](../../azure-monitor/app/create-new-resource.md ). Dit is waar u weergeven en analyseren van de telemetrie. (Selecteer 'Algemeen' voor het app-type.)
    
-    Maar als u de ontwikkelaar van de apps bent en we hopen u dat [Application Insights-SDK toegevoegd](../../azure-monitor/app/java-live.md) aan elk van deze. Als ze alle echt onderdelen van een enkele business-toepassing, wordt u al deze telemetrie verzenden naar één resource configureren en kunt u die dezelfde resource om de Docker-levenscyclus en prestaties van gegevens weer te geven mogelijk. 
+    Maar als u de ontwikkelaar van de apps bent en we hopen u dat [Application Insights-SDK toegevoegd](../../azure-monitor/app/java-get-started.md) aan elk van deze. Als ze alle echt onderdelen van een enkele business-toepassing, wordt u al deze telemetrie verzenden naar één resource configureren en kunt u die dezelfde resource om de Docker-levenscyclus en prestaties van gegevens weer te geven mogelijk. 
    
     Een derde scenario is dat u de meeste van de apps ontwikkeld, maar u afzonderlijke resources worden gebruikt om de telemetrie weer te geven. In dat geval kunt u waarschijnlijk ook wilt maken van een afzonderlijke resource voor de Docker-gegevens.
 

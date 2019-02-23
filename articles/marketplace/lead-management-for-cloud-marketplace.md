@@ -7,19 +7,19 @@ author: yijenj
 manager: nunoc
 editor: ''
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
-ms.service: Marketplace
+ms.service: marketplace
 ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: abaad7eabf92b6f3f53d7807af132959533552b9
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 810298fc45becf132da6f082df7ad33e7af828aa
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076957"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56735538"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Beheer voor cloud-marketplace leiden
 
@@ -150,7 +150,7 @@ titel MSFT_TEST_636573304831318844 =
 
 **Ik heb een live-aanbieding, maar ik zie niet alle leads?**
 
-Elke lead gegevens die worden doorgegeven in de velden in de geselecteerde lead bestemming hebben, de potentiële klanten komen in deze indeling: **Bron-Action | Aanbieding** 
+Elke lead gegevens die worden doorgegeven in de velden in de geselecteerde lead bestemming hebben, de potentiële klanten komen in deze indeling: **Source-Action|Offer** 
 
   *Bronnen:*
 

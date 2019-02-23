@@ -7,19 +7,19 @@ author: tylermsft
 manager: jeanpaul.connock
 editor: ''
 ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/12/2019
+ms.date: 02/22/2019
 ms.author: twhitney
-ms.openlocfilehash: e7f0219919fe0569633cc85b89a1a91b1704b269
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 9e542143810745712fb148e0b5ebe126cc8a93bf
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114821"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727877"
 ---
 # <a name="working-with-reliable-collections"></a>Werken met betrouwbare verzamelingen
 Service Fabric biedt een stateful programmeermodel beschikbaar voor .NET-ontwikkelaars via betrouwbare verzamelingen. Specifiek, biedt Service Fabric betrouwbare dictionary en betrouwbare wachtrij klassen. Wanneer u deze klassen, uw status is gepartitioneerd (voor schaalbaarheid), gerepliceerd (voor beschikbaarheid) en transactionele binnen een partitie (voor ACID-semantiek). Laten we kijken naar een typische gebruik van een betrouwbare dictionary-object en zien wat er daadwerkelijk doet.
@@ -207,8 +207,7 @@ Bovendien is de servicecode bijgewerkte één upgradedomein tegelijk. Daarom, ti
 
 > [!WARNING]
 > Terwijl u het schema van een sleutel wijzigen kunt, moet u ervoor zorgen dat de hash-code van uw sleutel en is gelijk aan-algoritmen stabiel zijn. Als u hoe een van deze algoritmen werken wijzigen, wordt het niet mogelijk om te controleren of de sleutel in de betrouwbare dictionary ooit opnieuw.
->
->
+> .NET-tekenreeksen kunnen worden gebruikt als een sleutel, maar gebruik de tekenreeks zelf als de sleutel--gebruik niet het resultaat van String.GetHashCode als de sleutel.
 
 U kunt ook uitvoeren wat wordt meestal aangeduid als een upgrade van twee. Met de upgrade van een in twee fasen, u uw service upgraden van V1 in V2: V2 bevat de code die weet hoe u omgaat met de nieuwe schemawijziging, maar deze code wordt uitgevoerd. Wanneer de code V2 V1 gegevens leest, is van invloed op deze en V1-gegevens worden geschreven. Vervolgens, nadat de upgrade voltooid voor alle upgrade-domeinen is, u kunt op een signaal verzenden naar de V2-exemplaren die worden uitgevoerd dat de upgrade voltooid is. (Eén manier om het signaal is dit een upgrade van een configuratie worden uitgerold; dit is wat is dit een upgrade van een in twee fasen.) Nu kunnen de V2-exemplaren V1-gegevens lezen, converteren naar een V2-gegevens worden uitgevoerd en schrijf deze als V2-gegevens. Wanneer andere exemplaren V2 gegevens leest, ze hoeven niet te converteren, ze alleen worden uitgevoerd en V2-gegevens schrijven.
 

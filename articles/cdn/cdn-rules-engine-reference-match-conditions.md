@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 44182d686548fa5b6363a87be0ce7851829e20ab
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 3ebc4d94e0bbf24895be0aeba9fef1cc7aacd6b9
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820553"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736709"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Voldoen aan de Azure CDN-regelengine 
 Dit artikel vindt u gedetailleerde beschrijvingen van de criteria voor het Azure Content Delivery Network (CDN) voor de beschikbare overeenkomst [regels-engine](cdn-rules-engine.md).
@@ -233,7 +233,7 @@ Belangrijke informatie:
 
 </br>
 
---- 
+---
 ### <a name="country"></a>Land/regio
 U kunt een land/regio via de landcode. 
 
@@ -388,7 +388,7 @@ Belangrijke informatie:
 
 </br>
 
----  
+---
 ### <a name="request-header-literal"></a>Aanvraag-Header letterlijke waarde
 De **komt overeen met**/**komt niet overeen met** optie bepaalt u de voorwaarden waaronder de aanvraag-Header letterlijke overeenkomen met de voorwaarde is voldaan.
 - **Komt overeen met**: Vereist dat de aanvraag voor de opgegeven header bevatten. De waarde moet overeenkomen met de optie die gedefinieerd in deze voorwaarde voor overeenkomst.
@@ -409,7 +409,7 @@ Belangrijke informatie:
 
 </br>
 
----  
+---
 ### <a name="request-header-regex"></a>Aanvraag-Header reguliere expressie
 De **komt overeen met**/**komt niet overeen met** optie bepaalt u de voorwaarden waaronder de Regex-Header aanvraag overeenkomen met de voorwaarde is voldaan.
 - **Komt overeen met**: Vereist dat de aanvraag voor de opgegeven header bevatten. De waarde moet overeenkomen met het patroon dat gedefinieerd in de opgegeven [reguliere expressie](cdn-rules-engine-reference.md#regular-expressions).

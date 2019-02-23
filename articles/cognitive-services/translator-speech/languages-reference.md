@@ -8,14 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: conceptual
-ms.date: 05/18/18
+ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: 12f989137c3aea57bdcde0d50315ad157898cd28
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 111adad627ffd830d69efc61bc7a06a99fee30f3
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862748"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673321"
 ---
 # <a name="translator-speech-api-languages"></a>Translator Speech-API: Languages
 
@@ -27,7 +28,7 @@ Voorbeelden van code aan te tonen gebruik van de API om op te halen van de besch
 
 ## <a name="implementation-notes"></a>Opmerkingen bij de implementatie
 
-### <a name="get-languages"></a>/Languages ophalen 
+### <a name="get-languages"></a>/Languages ophalen
 
 Een groot aanbod van talen is beschikbaar voor spraak, de getranscribeerde tekst vertalen, en voor het produceren van kunstmatige spraak van de vertaling transcriberen.
 
@@ -125,7 +126,7 @@ De service retourneert alle namen in de taal van de header 'Accept-Language' voo
 ### <a name="response-class-status-200"></a>Antwoord-klasse (Status 200)
 Object met een beschrijving van de set met ondersteunde talen.
 
-ModelExample waarde: 
+ModelExample waarde:
 
 Langagues {spraak (object, optioneel), tekst (object, optioneel), tts (object, optioneel)}
 
@@ -143,7 +144,7 @@ X-RequestId|Waarde die worden gegenereerd door de server voor het identificeren 
 |scope  |Sets met ondersteunde talen of stemmen om terug te keren naar de client. Deze parameter is opgegeven als een door komma's gescheiden lijst met trefwoorden. De volgende trefwoorden zijn beschikbaar:<ul><li>`speech`: Biedt de talen die worden ondersteund voor spraak transcriberen.</li><li>`tts`: Biedt de stemmen voor tekst-speech conversie wordt ondersteund.</li><li>`text`: Biedt de talen die worden ondersteund voor het omzetten van tekst.</li></ul>Als een waarde niet opgegeven is, de waarde van `scope` standaard ingesteld op `text`.|query|string|
 |X-ClientTraceId    |Een client gegenereerde GUID gebruikt voor het traceren van een aanvraag. Om te kunnen oplossen van problemen met, moeten clients voorzien van elke aanvraag een nieuwe waarde en aangemeld.|koptekst|string|
 |Accept-Language    |Enkele van de velden in het antwoord zijn namen van talen of regio's. Gebruik deze parameter voor het definiëren van de taal waarin de namen worden geretourneerd. De taal die is opgegeven door op te geven van een opgemaakte BCP-47-taalcode. Selecteer een label in de lijst van taal-id's die zijn geretourneerd met de `text` bereik. Voor niet-ondersteunde talen vindt u de namen in het Engels.<br/>Gebruik bijvoorbeeld de waarde `fr` aan te vragen van namen in het Frans of gebruikt u de waarde `zh-Hant` naar namen van de aanvraag in een traditioneel Chinees.|koptekst|string|
-    
+
 ### <a name="response-messages"></a>Berichten met reacties
 
 |HTTP-statuscode|Reden|

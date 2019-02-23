@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: cd80adaa5d8bb05ce3494966cabbaf076785425c
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: e8a94fdae74c5a30ba75e9143b298c3372b886d7
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56647444"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733007"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Een artefactopslagplaats toevoegen aan uw lab in DevTest Labs
 DevTest Labs kunt u opgeven van een artefact dat moet worden toegevoegd aan een virtuele machine op het moment van de VM is gemaakt of nadat de virtuele machine is gemaakt. Dit artefact is mogelijk een hulpprogramma of een toepassing die u wilt installeren op de virtuele machine. Artefacten worden gedefinieerd in een JSON-bestand geladen vanuit een GitHub- of VSTS Git-opslagplaats. 
@@ -26,6 +26,8 @@ DevTest Labs kunt u opgeven van een artefact dat moet worden toegevoegd aan een 
 De [openbare artefactenopslag](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), onderhouden door DevTest Labs, biedt veel algemene hulpprogramma's voor zowel Windows als Linux. Een koppeling naar deze opslagplaats wordt automatisch toegevoegd aan uw testomgeving. U kunt uw eigen artefactopslagplaats maken met specifieke hulpprogramma's die niet beschikbaar zijn in de openbare artefactenopslag. Zie voor meer informatie over het maken van aangepaste artefacten, [maken van aangepaste artefacten](devtest-lab-artifact-author.md).
 
 In dit artikel bevat informatie over het toevoegen van uw aangepaste artefactopslagplaats met behulp van Azure portal, Azure Resource Management-sjablonen en Azure PowerShell. U kunt u automatisch een artefactopslagplaats toe te voegen aan een lab door PowerShell of CLI-scripts te schrijven. 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 Een opslagplaats toevoegen aan uw testomgeving, moet u eerst, belangrijke informatie ophalen uit uw opslagplaats. De volgende secties wordt beschreven hoe u aan de vereiste gegevens voor opslagplaatsen die worden gehost op **GitHub** of **Azure DevOps**.
@@ -170,25 +172,25 @@ Er zijn een paar manieren om de sjabloon implementeren in Azure en de resource g
 - [Resources implementeren met Resource Manager-sjablonen en Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
 - [Resources implementeren met Resource Manager-sjablonen en Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
-Laten we doorgaan en informatie over het implementeren van de sjabloon in PowerShell. Cmdlets die worden gebruikt om de sjabloon te implementeren zijn contextspecifiek, zodat de huidige tenant en het huidige abonnement worden gebruikt. Gebruik [Set-AzureRMContext](/powershell/module/azurerm.profile/set-azurermcontext?view=azurermps-6.13.0) voordat u de sjabloon implementeert, indien nodig, context wijzigen.
+Laten we doorgaan en informatie over het implementeren van de sjabloon in PowerShell. Cmdlets die worden gebruikt om de sjabloon te implementeren zijn contextspecifiek, zodat de huidige tenant en het huidige abonnement worden gebruikt. Gebruik [Set AzContext](/powershell/module/az.profile/set-azcontext) voordat u de sjabloon implementeert, indien nodig, context wijzigen.
 
-Maak eerst een resource-groep met [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-6.13.0). Als de resourcegroep die u wilt gebruiken al bestaat, moet u deze stap overslaan.
+Maak eerst een resource-groep met [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Als de resourcegroep die u wilt gebruiken al bestaat, moet u deze stap overslaan.
 
 ```powershell
-New-AzureRmResourceGroup -Name MyLabResourceGroup1 -Location westus
+New-AzResourceGroup -Name MyLabResourceGroup1 -Location westus
 ```
 
-Maak vervolgens een implementatie met de resource-group via [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment?view=azurermps-6.13.0). Deze cmdlet geldt de wijzigingen van resources voor Azure. Aantal resource-implementaties kunnen worden gemaakt naar een bepaalde resourcegroep. Als u meerdere keren naar dezelfde resourcegroep implementeert, zorg er dan voor dat de naam van elke implementatie is uniek.
+Maak vervolgens een implementatie met de resource-group via [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). Deze cmdlet geldt de wijzigingen van resources voor Azure. Aantal resource-implementaties kunnen worden gemaakt naar een bepaalde resourcegroep. Als u meerdere keren naar dezelfde resourcegroep implementeert, zorg er dan voor dat de naam van elke implementatie is uniek.
 
 ```powershell
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
     -Name MyLabResourceGroup-Deployment1 `
     -ResourceGroupName MyLabResourceGroup1 `
     -TemplateFile azuredeploy.json `
     -TemplateParameterFile azuredeploy.parameters.json
 ```
 
-Nadat u New-AzureRmResourceGroupDeployment is uitgevoerd, voert de opdracht belangrijke informatie zoals de Inrichtingsstatus (moet is geslaagd) en uitvoer voor de sjabloon.
+Nadat u New-AzResourceGroupDeployment is uitgevoerd, voert de opdracht belangrijke informatie zoals de Inrichtingsstatus (moet is geslaagd) en uitvoer voor de sjabloon.
  
 ## <a name="use-azure-powershell"></a>Azure PowerShell gebruiken 
 Deze sectie bevat een voorbeeld van PowerShell-script dat kan worden gebruikt om een artefactopslagplaats toevoegen aan een lab. Als u geen Azure PowerShell, raadpleegt u [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview?view=azps-1.2.0) voor gedetailleerde instructies om deze te installeren.
@@ -236,11 +238,11 @@ See https://azure.microsoft.com/en-us/documentation/articles/devtest-lab-add-art
 Whether artifact is VSOGit or GitHub repository.
 
 .EXAMPLE
-Set-AzureRMContext -SubscriptionId 11111111-1111-1111-1111-111111111111
+Set-AzContext -SubscriptionId 11111111-1111-1111-1111-111111111111
 .\New-DevTestLabArtifactRepository.ps1 -LabName "mydevtestlab" -LabResourceGroupName "mydtlrg" -ArtifactRepositoryName "MyTeam Repository" -RepositoryUri "https://github.com/<myteam>/<nameofrepo>.git" -PersonalAccessToken "1111...." -SourceType "GitHub"
 
 .NOTES
-Script uses the current AzureRm context. To set the context, use the Set-AzureRMContext cmdlet
+Script uses the current Az context. To set the context, use the Set-AzContext cmdlet
 
 #>
 
@@ -278,11 +280,11 @@ if ($ArtifactRepositoryName -eq $null){
 }
 
 # Sign in to Azure
-Connect-AzureRmAccount
+Connect-AzAccount
 
 
 #Get Lab Resource
-$LabResource = Get-AzureRmResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceName $LabName -ResourceGroupName $LabResourceGroupName
+$LabResource = Get-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceName $LabName -ResourceGroupName $LabResourceGroupName
 
 Write-Verbose "Lab Name: $($LabResource.Name)"
 Write-Verbose "Lab Resource Group Name: $($LabResource.ResourceGroupName)"
@@ -290,7 +292,7 @@ Write-Verbose "Lab Resource Location: $($LabResource.Location)"
 
 Write-Verbose "Artifact Repository Internal Name: $ArtifactRepositoryName"
 
-#Prepare properties object for call to New-AzureRMResource
+#Prepare properties object for call to New-AzResource
 $propertiesObject = @{
     uri = $RepositoryUri;
     folderPath = $FolderPath;
@@ -301,24 +303,24 @@ $propertiesObject = @{
     status = 'Enabled'
 }
 
-Write-Verbose @"Properties to be passed to New-AzureRMResource:$($propertiesObject | Out-String)"@
+Write-Verbose @"Properties to be passed to New-AzResource:$($propertiesObject | Out-String)"@
 
 #Resource will be added to current subscription.
 $resourcetype = 'Microsoft.DevTestLab/labs/artifactSources'
 $resourceName = $LabName + '/' + $ArtifactRepositoryName
-Write-Verbose "AzureRM ResourceType: $resourcetype"
-Write-Verbose "AzureRM ResourceName: $resourceName"
+Write-Verbose "Az ResourceType: $resourcetype"
+Write-Verbose "Az ResourceName: $resourceName"
  
 Write-Verbose "Creating artifact repository '$ArtifactRepositoryDisplayName'..."
-$result = New-AzureRmResource -Location $LabResource.Location -ResourceGroupName $LabResource.ResourceGroupName -properties $propertiesObject -ResourceType $resourcetype -ResourceName $resourceName -ApiVersion 2016-05-15 -Force
+$result = New-AzResource -Location $LabResource.Location -ResourceGroupName $LabResource.ResourceGroupName -properties $propertiesObject -ResourceType $resourcetype -ResourceName $resourceName -ApiVersion 2016-05-15 -Force
 
 
 #Alternate implementation:
 # Use resourceId rather than resourcetype and resourcename parameters.
 # Using resourceId allows you to specify the $SubscriptionId rather than using the
-# subscription id of Get-AzureRmContext.
+# subscription id of Get-AzContext.
 #$resourceId = "/subscriptions/$SubscriptionId/resourceGroups/$($LabResource.ResourceGroupName)/providers/Microsoft.DevTestLab/labs/$LabName/artifactSources/$ArtifactRepositoryName"
-#$result = New-AzureRmResource -properties $propertiesObject -ResourceId $resourceId -ApiVersion 2016-05-15 -Force
+#$result = New-AzResource -properties $propertiesObject -ResourceId $resourceId -ApiVersion 2016-05-15 -Force
 
 
 # Check the result
@@ -337,7 +339,7 @@ return $result
 Het volgende voorbeeld ziet u hoe u het script uit te voeren: 
 
 ```powershell
-Set-AzureRMContext -SubscriptionId <Your Azure subscription ID>
+Set-AzContext -SubscriptionId <Your Azure subscription ID>
 
 .\New-DevTestLabArtifactRepository.ps1 -LabName "mydevtestlab" -LabResourceGroupName "mydtlrg" -ArtifactRepositoryName "MyTeam Repository" -RepositoryUri "https://github.com/<myteam>/<nameofrepo>.git" -PersonalAccessToken "1111...." -SourceType "GitHub"
 ```
@@ -357,7 +359,7 @@ De PowerShell-voorbeeldscript in dit artikel worden de volgende parameters:
 | PersonalAccessToken | Het beveiligingstoken voor toegang tot de opslagplaats met GitHub of VSOGit. Zie de sectie vereisten voor instructies voor het persoonlijke toegangstoken ophalen |
 | sourceType | Of is artefact VSOGit of GitHub-opslagplaats. |
 
-De opslagplaats zelf moet een interne naam voor het identificeren, die afwijkt van die de weergavenaam die wordt weergegeven in de Azure-portal. Ziet u niet de interne naam met behulp van de Azure portal, maar u deze zien bij het gebruik van Azure REST API's of AzureRM PowerShell-Cmdlets. Het script geeft een naam, als deze niet is opgegeven door de gebruiker van het script.
+De opslagplaats zelf moet een interne naam voor het identificeren, die afwijkt van die de weergavenaam die wordt weergegeven in de Azure-portal. Ziet u niet de interne naam met behulp van de Azure portal, maar u deze zien bij het gebruik van Azure REST API's of Azure PowerShell. Het script geeft een naam, als deze niet is opgegeven door de gebruiker van het script.
 
 ```powershell
 #Set artifact repository name, if not set by user
@@ -370,10 +372,10 @@ if ($ArtifactRepositoryName -eq $null){
 
 | PowerShell-opdracht | Opmerkingen |
 | ------------------ | ----- |
-| [Get-AzureRMResource](/powershell/module/azurerm.resources/get-azurermresource?view=azurermps-6.13.0) | Met deze opdracht wordt gebruikt voor meer informatie over het lab, zoals de locatie. |
-| [New-AzureRMResource](/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-6.13.0) | Er is geen specifieke opdracht voor het toevoegen van artefact opslagplaatsen. De algemene [New-AzureRMResource](/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-5.7.0) cmdlet wordt de taak. Deze cmdlet moet ofwel de **ResourceId** of de **ResourceName** en **ResourceType** paar om te weten welk type resource die u wilt maken. Met dit voorbeeldscript maakt gebruik van de resourcenaam en de resource-type-paar. <br/><br/>U ziet dat het maken van de bron van de opslagplaats artefact op dezelfde locatie en in dezelfde resourcegroep bevinden als het lab.|
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Met deze opdracht wordt gebruikt voor meer informatie over het lab, zoals de locatie. |
+| [New-AzResource](/powershell/module/az.resources/new-azresource) | Er is geen specifieke opdracht voor het toevoegen van artefact opslagplaatsen. De algemene [New-AzResource](/powershell/module/az.resources/new-azresource) cmdlet wordt de taak. Deze cmdlet moet ofwel de **ResourceId** of de **ResourceName** en **ResourceType** paar om te weten welk type resource die u wilt maken. Met dit voorbeeldscript maakt gebruik van de resourcenaam en de resource-type-paar. <br/><br/>U ziet dat het maken van de bron van de opslagplaats artefact op dezelfde locatie en in dezelfde resourcegroep bevinden als het lab.|
 
-Het script voegt een nieuwe resource toe aan het huidige abonnement. Gebruik [Get-AzureRMContext](/powershell/module/azurerm.profile/get-azurermcontext?view=azurermps-6.13.0) om deze informatie te bekijken. Gebruik [Set-AzureRMContext](/powershell/module/azurerm.profile/set-azurermcontext?view=azurermps-6.13.0) om in te stellen de huidige tenant en hetzelfde abonnement.
+Het script voegt een nieuwe resource toe aan het huidige abonnement. Gebruik [Get-AzContext](/powershell/module/az.profile/get-azcontext) om deze informatie te bekijken. Gebruik [Set AzContext](/powershell/module/az.profile/set-azcontext) om in te stellen de huidige tenant en hetzelfde abonnement.
 
 De beste manier voor het detecteren van de resourcenaam van de en resource-informatie is met de [Test Drive Azure REST-API's](https://azure.github.io/projects/apis/) website. Bekijk de [DevTest Labs-15-05-2016](http://aka.ms/dtlrestapis) provider om te controleren van de beschikbare REST-API's voor de DevTest Labs-provider. De scriptgebruikers de volgende resource-ID. 
 

@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 956cd0b8-b6e3-4436-a224-8766320e8cd7
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7a1bab75521730f7e80e5b86112bbb0aed129f88
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: a51593753cab8a6b07d99df46560808de5400047
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917871"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737923"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Cluster resource manager-integratie met beheer van Service Fabric-clusters
 De Service Fabric Cluster Resource Manager biedt geen upgrades station in Service Fabric, maar het is betrokken. De eerste manier die met Cluster Resource Manager met management is door bij te houden van de gewenste status van het cluster en de services binnen het. Cluster Resource Manager verzendt statusrapporten wanneer deze het cluster kan niet in de gewenste configuratie. Bijvoorbeeld, als er onvoldoende capaciteit is verzendt met Cluster Resource Manager waarschuwingen en fouten die wijzen op het probleem. Een ander deel van de integratie van heeft te maken met de werking van upgrades. Cluster Resource Manager verandert het gedrag van het iets tijdens upgrades.  
@@ -73,11 +73,11 @@ HealthEvents          :
 
 Dit is wat deze health-bericht is laat ons weten dat is:
 
-1. Alle replica's zelf in orde zijn: elk AggregatedHealthState heeft: Ok
+1. Alle replica's zelf zijn in orde: Elk heeft AggregatedHealthState: OK
 2. De beperking van het upgraden van domein distributie wordt op dit moment wordt geschonden. Dit betekent dat een bepaald domein voor Upgrade heeft meer replica's van deze partitie dan nodig.
 3. Welk knooppunt bevat de replica de schending veroorzaakt. In dit geval is het knooppunt met de naam "Node.8"
 4. Of een upgrade op dat moment plaatsvindt voor deze partitie ("momenteel upgraden--onwaar")
-5. Het distributiebeleid voor deze service: 'Distributie beleid--Packing'. Dit is onderhevig aan de `RequireDomainDistribution` [plaatsing beleid](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). 'Verpakking' geeft aan dat in dit geval DomainDistribution _niet_ vereist, zodat we weten dat het beleid voor plaatsing is niet opgegeven voor deze service. 
+5. Het distributiebeleid voor deze service: 'Distributiebeleid--verpakken'. Dit is onderhevig aan de `RequireDomainDistribution` [plaatsing beleid](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). 'Verpakking' geeft aan dat in dit geval DomainDistribution _niet_ vereist, zodat we weten dat het beleid voor plaatsing is niet opgegeven voor deze service. 
 6. Wanneer het rapport is er gebeurd - 8-10-2015 19:13:02 uur
 
 Informatie, zoals deze bevoegdheden waarschuwingen die worden geactiveerd in productie te laten u weten dat er iets is iets verkeerd gegaan en wordt ook gebruikt om te detecteren en onjuiste upgrades stoppen. In dit geval gaan we bekijken als we waarom de Resource Manager achterhalen kunt om de replica's in het domein Upgrade had. Meestal verpakken is tijdelijk omdat de knooppunten in de andere Upgrade domeinen, bijvoorbeeld zijn.
@@ -92,12 +92,12 @@ In dergelijke gevallen kunnen statusrapporten van Cluster Resource Manager u bep
 ## <a name="constraint-types"></a>Beperkingstypen
 Laten we eens over elk van de verschillende beperkingen in deze health-rapporten. Hier ziet u de gezondheid van berichten met betrekking tot deze beperkingen als replica's kunnen niet worden geplaatst.
 
-* **ReplicaExclusionStatic** en **ReplicaExclusionDynamic**: deze beperkingen geeft aan dat een oplossing is geweigerd, omdat twee serviceobjecten van dezelfde partitie zou hebben op hetzelfde knooppunt worden geplaatst. Dit is niet toegestaan omdat en uitval van dat knooppunt overmatig gevolgen zou hebben voor deze partitie. ReplicaExclusionStatic en ReplicaExclusionDynamic zijn bijna dezelfde regel en de verschillen niet echt toe doen. Als er een beperking opheffing reeks die de ReplicaExclusionStatic of ReplicaExclusionDynamic beperking bevat, met Cluster Resource Manager u denkt dat er niet voldoende knooppunten. Hiervoor moet de resterende oplossingen voor het gebruik van deze ongeldige plaatsingen die zijn niet toegestaan. De andere beperkingen in de reeks wordt meestal Vertel ons waarom knooppunten in de eerste plaats worden worden geëlimineerd.
-* **PlacementConstraint**: als u dit bericht ziet, betekent dit dat we sommige knooppunten verwijderd, omdat ze niet overeenkomen met de plaatsingsbeperkingen van de service. We traceren van de momenteel geconfigureerde plaatsingsbeperkingen als onderdeel van dit bericht. Dit is normaal als er een plaatsing-beperking gedefinieerd. Echter, als de beperking van de plaatsing van onjuist wordt veroorzaakt door te veel knooppunten die moeten worden uitgesloten dit is hoe u ziet.
-* **NodeCapacity**: deze beperking betekent dat de Cluster Resource Manager de replica's op de aangegeven knooppunten kan niet worden plaatsen omdat dat ze over capaciteit plaatst.
-* **Affiniteit**: deze beperking geeft aan dat we de replica kan niet plaats op de betrokken knooppunten omdat dit leiden een schending van de beperking affiniteit tot zou. Meer informatie over de affiniteit is in [in dit artikel](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-* **FaultDomain** en **UpgradeDomain**: deze beperking wordt voorkomen dat knooppunten als het plaatsen van de replica op de aangegeven knooppunten zou veroorzaken verpakken in een specifieke fout of een upgradedomein. Enkele voorbeelden bespreken van deze beperking worden weergegeven in het onderwerp op [fout- en beperkingen van domein en het resulterende gedrag](service-fabric-cluster-resource-manager-cluster-description.md)
-* **PreferredLocation**: U normaal gesproken deze beperking verwijderen van knooppunten van de oplossing, omdat deze wordt uitgevoerd als een optimalisatie standaard al dan niet mogen zien. De beperking van de gewenste locatie is ook aanwezig zijn tijdens de upgrade. Tijdens de upgrade wordt gebruikt voor services verplaatsen naar waar ze zijn wanneer de upgrade wordt gestart.
+* **ReplicaExclusionStatic** en **ReplicaExclusionDynamic**: Deze beperkingen geeft aan dat een oplossing is geweigerd, omdat twee serviceobjecten van dezelfde partitie zou hebben op hetzelfde knooppunt worden geplaatst. Dit is niet toegestaan omdat en uitval van dat knooppunt overmatig gevolgen zou hebben voor deze partitie. ReplicaExclusionStatic en ReplicaExclusionDynamic zijn bijna dezelfde regel en de verschillen niet echt toe doen. Als er een beperking opheffing reeks die de ReplicaExclusionStatic of ReplicaExclusionDynamic beperking bevat, met Cluster Resource Manager u denkt dat er niet voldoende knooppunten. Hiervoor moet de resterende oplossingen voor het gebruik van deze ongeldige plaatsingen die zijn niet toegestaan. De andere beperkingen in de reeks wordt meestal Vertel ons waarom knooppunten in de eerste plaats worden worden geëlimineerd.
+* **PlacementConstraint**: Als u dit bericht ziet, betekent dit dat we sommige knooppunten verwijderd, omdat ze niet overeenkomen met de plaatsingsbeperkingen van de service. We traceren van de momenteel geconfigureerde plaatsingsbeperkingen als onderdeel van dit bericht. Dit is normaal als er een plaatsing-beperking gedefinieerd. Echter, als de beperking van de plaatsing van onjuist wordt veroorzaakt door te veel knooppunten die moeten worden uitgesloten dit is hoe u ziet.
+* **NodeCapacity**: Deze beperking betekent dat de Cluster Resource Manager de replica's op de aangegeven knooppunten kan niet worden plaatsen omdat dat ze over capaciteit plaatst.
+* **Affiniteit**: Deze beperking geeft aan dat we de replica kan niet plaats op de betrokken knooppunten omdat dit leiden een schending van de beperking affiniteit tot zou. Meer informatie over de affiniteit is in [in dit artikel](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
+* **FaultDomain** en **UpgradeDomain**: Deze beperking wordt voorkomen dat knooppunten als het plaatsen van de replica op de aangegeven knooppunten zou veroorzaken verpakken in een specifieke fout of een upgradedomein. Enkele voorbeelden bespreken van deze beperking worden weergegeven in het onderwerp op [fout- en beperkingen van domein en het resulterende gedrag](service-fabric-cluster-resource-manager-cluster-description.md)
+* **PreferredLocation**: U mag niet normaal gesproken deze beperking verwijderen van knooppunten van de oplossing, omdat deze wordt uitgevoerd als een optimalisatie standaard zien. De beperking van de gewenste locatie is ook aanwezig zijn tijdens de upgrade. Tijdens de upgrade wordt gebruikt voor services verplaatsen naar waar ze zijn wanneer de upgrade wordt gestart.
 
 ## <a name="blocklisting-nodes"></a>Blocklisting knooppunten
 Een andere health-bericht is de Cluster Resource Manager-rapporten wanneer knooppunten zijn blocklisted. U kunt blocklisting beschouwen als een tijdelijke beperking die automatisch voor u is toegepast. Knooppunten ontvangen blocklisted wanneer ze herhaalde fouten optreden bij het starten van exemplaren van het type van die service. Knooppunten zijn blocklisted op basis van de per-service-type. Een knooppunt is mogelijk blocklisted voor één servicetype maar niet nog een. 

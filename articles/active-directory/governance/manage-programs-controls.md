@@ -1,6 +1,6 @@
 ---
-title: Beheren van programma's en besturingselementen voor Azure AD-toegangsbeoordelingen | Microsoft Docs
-description: U kunt aanvullende programma's die voor elke governance, risicobeheer en naleving initiatief maken in uw organisatie kunt verzamelen en ordenen van Azure Active Directory-toegangsbeoordelingen als besturingselementen.
+title: Programma's en besturingselementen beheren voor Azure AD-Toegangsbeoordelingen | Microsoft Docs
+description: Informatie over het maken van aanvullende programma's die voor elke governance, risicobeheer en naleving initiatief in uw organisatie kunt verzamelen en ordenen van Azure Active Directory-Toegangsbeoordelingen als besturingselementen.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78f4c978a04a7589e71ba39676e06ca5cc37f579
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0ea210c79833ad9e070253a9511cae539730a8d5
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170666"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731409"
 ---
-# <a name="manage-programs-and-their-controls"></a>Programma's en de bijbehorende besturingselementen beheren 
+# <a name="manage-programs-and-controls-for-azure-ad-access-reviews"></a>Programma's en besturingselementen voor Azure AD-Toegangsbeoordelingen beheren
 
 Azure Active Directory (Azure AD) bevat toegangsbeoordelingen van groepsleden en toegang tot toepassingen. Deze voorbeelden van besturingselementen zorgen toezicht voor wie toegang tot de groepslidmaatschappen van uw organisatie en toepassingen heeft. Organisaties kunnen deze besturingselementen gebruiken om efficiënt hun governance, risicobeheer en nalevingsvereisten.
 
@@ -38,5 +38,5 @@ Als u een programma niet meer nodig hebt en dit niet alle besturingselementen di
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Een toegangsbeoordeling maken voor leden van een groep of toegang tot een toepassing](create-access-review.md)
-- [De resultaten van een toegangscontrole ophalen](retrieve-access-review.md)
+- [Een toegangsbeoordeling van groepen of toepassingen maken](create-access-review.md)
+- [Resultaten van de toegangsbeoordeling voor groepen of toepassingen ophalen](retrieve-access-review.md)

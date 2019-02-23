@@ -7,19 +7,19 @@ author: sumukhs
 manager: timlt
 editor: ''
 ms.assetid: 79b48ffa-2474-4f1c-a857-3471f9590ded
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: 13cf9c148e36201bd8ee81d4072d8b8cd8660bd1
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 186305083d3e952d87a67b890a88e52eacc2b361
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053145"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734537"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Reliable Actors--ReliableDictionaryActorStateProvider configureren
 U kunt de standaardconfiguratie van ReliableDictionaryActorStateProvider wijzigen door het veranderen van de settings.xml-bestand gegenereerd in de hoofdmap van het Visual Studio-pakket in de Config-map voor de opgegeven actor.
@@ -39,7 +39,7 @@ De globale configuratie is opgegeven in het clustermanifest voor het cluster ond
 Het clustermanifest is een XML-bestand waarin de instellingen en configuraties die van toepassing op alle knooppunten en services in het cluster zijn. Het bestand wordt doorgaans ClusterManifest.xml genoemd. U kunt zien dat het cluster het manifest van uw cluster met behulp van de powershell-opdracht Get-ServiceFabricClusterManifest.
 
 ### <a name="configuration-names"></a>Configuratienamen
-| Naam | Eenheid | Standaardwaarde | Opmerkingen |
+| Name | Eenheid | Standaardwaarde | Opmerkingen |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Kilobytes |8388608 |Minimum aantal KB in de kernelmodus voor de logger schrijven bufferpool geheugen toewijzen. Deze geheugengroep wordt gebruikt voor het opslaan van informatie over de status voor schrijven naar schijf. |
 | WriteBufferMemoryPoolMaximumInKB |Kilobytes |Geen limiet |Maximale grootte waarvoor het logboek schrijven buffergroep geheugen te vergroten. |
@@ -84,7 +84,7 @@ De standaardconfiguratie wordt gegenereerd door de sjabloon voor Visual Studio e
 &lt;ActorName&gt;ServiceReplicatorConfig
 
 ### <a name="configuration-names"></a>Configuratienamen
-| Naam | Eenheid | Standaardwaarde | Opmerkingen |
+| Name | Eenheid | Standaardwaarde | Opmerkingen |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Seconden |0.015 |De periode waarvoor de replicatie op de secundaire Wacht na de ontvangst van een bewerking voor het verzenden van een bevestiging terug naar de primaire. Alle andere bevestigingen voor bewerkingen die worden verwerkt binnen dit interval worden verzonden als één antwoord verzonden. |
 | ReplicatorEndpoint |N/A |Er is geen standaard--de vereiste parameter |IP-adres en poort op die de primaire/secundaire replicatie wordt gebruikt om te communiceren met andere distributeurs in de replica instellen. Dit moet verwijzen naar een TCP-resource-eindpunt in het servicemanifest. Raadpleeg [servicemanifest-resources](service-fabric-service-manifest-resources.md) voor meer informatie over het definiëren van eindpunt resources in het servicemanifest. |

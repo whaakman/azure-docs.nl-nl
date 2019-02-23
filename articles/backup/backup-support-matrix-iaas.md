@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: b99d6285942bafe5467827c30b5ba2e42094fdf3
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 2bd499c3afc423047dda9ff3ad657d110dab282a
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430883"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673644"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Ondersteuningsmatrix voor Azure VM backup
 U kunt de [Azure Backup-service](backup-overview.md) back-up on-premises computers en werkbelastingen en virtuele Azure-machines. In dit artikel bevat een overzicht van instellingen voor de ondersteuning en beperkingen bij het back-ups van Azure virtual machines (VM's) met Azure Backup.
@@ -37,7 +37,7 @@ Hier volgt hoe u een back-up en herstellen van virtuele Azure-machines met de Az
 **Directe back-ups van virtuele Azure-machines (alleen Windows)** | Back-up van bepaalde bestanden/mappen/volume | Installeer de [Microsoft Azure Recovery Services agent (MARS)](backup-azure-file-folder-backup-faq.md).<br/><br/> U kunt de MARS-agent samen met de Backup-extensie voor de Azure VM-agent back-up van de virtuele machine op het niveau van bestanden/mappen kunt uitvoeren. | Specifieke mappen/bestanden herstellen.
 **Back-up van virtuele Azure-machines naar back-upserver** |  Back-up van bestanden/mappen/volumes. systeemstatus/bare metal systeembestanden. App-gegevens naar System Center DPM of Microsoft Azure Backup Server (Microsoft Azure Backup server).<br/><br/> DPM/MABS vervolgens back-ups van naar de back-upkluis | Installeer de MABS/DPM-beveiligingsagent op de virtuele machine. De MARS-agent is geïnstalleerd op de DPM/MABS.| Herstellen van bestanden/mappen/volumes. systeemstatus/bare metal systeembestanden. App-gegevens. 
 
-Meer informatie over back-up met behulp van een back-up server(backup-architecture.md#architecture-back-up-to-dpmmabs) en [ondersteuningsvereisten](backup-support-matrix-mabs-dpm.md).
+Meer informatie over back-up [met behulp van een back-upserver](backup-architecture.md#architecture-back-up-to-dpmmabs), en [ondersteuningsvereisten](backup-support-matrix-mabs-dpm.md).
 
 
 ## <a name="supported-backup-actions"></a>Ondersteunde back-acties
@@ -189,7 +189,7 @@ Virtuele machines met openbare IP-adressen    | Ondersteund.<br/><br/> U moet ee
 Netwerkbeveiligingsgroep (NSG) op de NIC/subnet. |   Ondersteund.
 Gereserveerde IP-adressen (statisch) | Niet ondersteund.<br/><br/> U kunt geen back-up van een virtuele machine met een gereserveerd IP-adres en geen gedefinieerde eindpunt.
 Dynamisch IP-adres |    Ondersteund.<br/><br/> Als de NIC op de bron-VM gebruikmaakt van dynamische IP-adressering, standaard wordt de NIC op de herstelde virtuele machine ook.
-Traffic Manager | Ondersteund<br/><br/>. Als de back-ups van virtuele machine in Traffic Manager wordt, moet u handmatig de herstelde virtuele machine toevoegen aan de dezelfde Traffic Manager. 
+Traffic Manager | Ondersteund<br/><br/> Als de back-ups van virtuele machine in Traffic Manager wordt, moet u handmatig de herstelde virtuele machine toevoegen aan de dezelfde Traffic Manager. 
 Azure DNS | Ondersteund.
 Aangepaste DNS |    Ondersteund.
 Uitgaande connectiviteit via een HTTP-proxy | Ondersteund.<br/><br/> Een geverifieerde proxyserver wordt niet ondersteund. 

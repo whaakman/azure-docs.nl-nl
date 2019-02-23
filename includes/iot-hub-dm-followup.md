@@ -5,15 +5,15 @@ services: iot-hub
 ms.service: iot-hub
 author: dominicbetts
 ms.topic: include
-ms.date: 05/17/2018
+ms.date: 02/17/2019
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 3cdfa74c5f124e57b125399e39b7981b1dfb6d09
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 69fdc6cf678107ef64ea1fe7b819738fd4a4ff4f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43096378"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56740793"
 ---
 ## <a name="customize-and-extend-the-device-management-actions"></a>Aanpassen en uitbreiden van het apparaat beheeracties
 
@@ -27,10 +27,6 @@ Meestal configureert u apparaten bewerkingen uit te voeren op een tijdstip dat o
 
 In deze zelfstudie gebruikt u een rechtstreekse methode voor het activeren van een extern opnieuw opstarten op een apparaat. U gebruikt de gerapporteerde eigenschappen voor het rapporteren van de laatste keer opnieuw opstarten van het apparaat en query uitgevoerd op het dubbele apparaat voor het detecteren van de laatste keer opnieuw opstarten van het apparaat vanuit de cloud.
 
-Zie het volgende om door te gaan aan de slag met IoT Hub en patronen voor Apparaatbeheer zoals het op afstand via de lucht firmware-update:
+Om door te gaan aan de slag met IoT Hub en patronen voor Apparaatbeheer zoals het op afstand via de lucht firmware-update [hoe u doet een firmware-update](../articles/iot-hub/tutorial-firmware-update.md)
 
-[Zelfstudie: Hoe u doet een firmware-update](../articles/iot-hub/tutorial-firmware-update.md)
-
-Zie voor informatie over het uitbreiden van uw IoT-oplossing en schema-methode op meerdere apparaten roept, de [taken plannen en uitzenden](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md) zelfstudie.
-
-Om door te gaan aan de slag met IoT Hub [aan de slag met IoT Edge](../articles/iot-edge/tutorial-simulate-device-linux.md).
+Zie voor informatie over het uitbreiden van uw IoT-oplossing en schema-methode op meerdere apparaten roept, [taken plannen en uitzenden](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md).

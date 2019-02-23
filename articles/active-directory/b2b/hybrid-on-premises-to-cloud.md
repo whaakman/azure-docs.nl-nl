@@ -1,5 +1,5 @@
 ---
-title: Lokaal beheerde partneraccounts toegang tot cloudbronnen als Azure AD B2B-gebruikers | Microsoft Docs
+title: Lokale partner-accounts naar de cloud als gebruikers van B2B - Azure Active Directory synchroniseren | Microsoft Docs
 description: Geef externe partners lokaal beheerde toegang tot lokale en cloudresources met dezelfde referenties met Azure AD B2B-samenwerking.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29f5deb8bd06d4001f1776765ea6824da9bd9802
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b28b9404ca45697f6afe43bb33eca78302122c87
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163781"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672216"
 ---
 # <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Verleen partner lokaal beheerde accounts toegang bronnen in de cloud met behulp van Azure AD B2B-samenwerking
 

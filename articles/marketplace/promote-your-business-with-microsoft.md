@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: b02ab403c82fd781af72c3b1f08e843c3fc770e3
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 3bd2361547a8210ae287eabaa67b60e8ba1f26e3
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094940"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738144"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Promoot uw bedrijf met Microsoft  
 Microsoft heeft het doel om ondersteuning voor partners (u) te vereenvoudigen de verkoop van uw app of in de storefronts op marketplace bieden. Door de aanbieding op marketplace, u toegang tot de programma's en bronnen op de marketplace. 
@@ -40,4 +40,4 @@ Gebruik de volgende tabel voor toegang tot meer voordelen en bronnen ter bevorde
 | Uw competentie voor het Cloudplatform behalen | Een competentie voor het verdienen, kunt u zelf te onderscheiden van andere Microsoft-partners. Verdienen een competentie helpt u bij gebruik van de technische expertise en klantsucces op de markt. Competentie is een vereiste voor veel belangrijke partner-programma's zoals gezamenlijke verkoop.<ul> <li>Voor meer informatie over Cloud Platform-competentie, gaat u naar de Platform-competentie voor het pagina zich bevindt op [partner.microsoft.com/membership/cloud-platform-competency](https://partner.microsoft.com/membership/cloud-platform-competency).</li> </ul> |  
 | CO-sell Ready geworden | Het CO-sell Ready-programma, kunt u rechtstreeks kunt samenwerken met Microsoft-verkopers en andere partners op verkoopkansen doel en het plannen van de account. Uw oplossing zichtbaar voor Microsoft-verkopers in de catalogus van de oplossing verkoper. Microsoft-verkopers worden beloond voor samenwerken en het verschil maken met u.<ul> <li>Voor meer informatie over de gereedheid voor gezamenlijke verkoop, gaat u naar de pagina te op het vinden niveau verhogen uw bedrijf [partner.microsoft.com/reach-customers/promote-your-business](https://partner.microsoft.com/reach-customers/promote-your-business).</li> </ul> |  
 
----  
+---

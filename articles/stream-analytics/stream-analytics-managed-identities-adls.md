@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 02d3cd3688f3b34c92422168b79cb4da5a93d970
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 4537d15f88732d4b0c3c3cf514d6b8528af10f81
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587987"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737464"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Verifiëren van Stream Analytics voor Azure Data Lake Storage Gen1 met behulp van beheerde identiteiten (Preview)
 
@@ -22,6 +22,8 @@ Azure Stream Analytics biedt ondersteuning voor verificatie met Azure Data Lake 
 Ga naar de [acht nieuwe functies in Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) blogbericht om u te registreren voor deze Preview-versie en lees meer over nieuwe functies.
 
 In dit artikel ziet u drie manieren om in te schakelen beheerde identiteit voor een Azure Stream Analytics-taak die op een Azure Data Lake Storage Gen1 via de Azure portal, de sjabloonimplementatie van Azure Resource Manager-en de Azure Stream Analytics-hulpprogramma's voor Visual Studio uitvoert.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -158,7 +160,7 @@ In dit artikel ziet u drie manieren om in te schakelen beheerde identiteit voor 
 2. Biedt toegang tot de service-principal met behulp van PowerShell. Als u wilt toegang verleent tot de service-principal via PowerShell, voert u de volgende opdracht uit:
 
    ```powershell
-   Set-AzureRmDataLakeStoreItemAclEntry -AccountName <accountName> -Path <Path> -AceType User -Id <PrinicpalId> -Permissions <Permissions>
+   Set-AzDataLakeStoreItemAclEntry -AccountName <accountName> -Path <Path> -AceType User -Id <PrinicpalId> -Permissions <Permissions>
    ```
 
    De **PrincipalId** is de Object-ID van de service-principal en op het scherm wordt weergegeven wanneer de service-principal is gemaakt. Als u de taak met behulp van de sjabloonimplementatie van een Resource Manager-hebt gemaakt, wordt de Object-ID wordt weergegeven in de identiteitseigenschap van de reactie van de taak.
@@ -166,11 +168,11 @@ In dit artikel ziet u drie manieren om in te schakelen beheerde identiteit voor 
    **Voorbeeld**
 
    ```powershell
-   PS > Set-AzureRmDataLakeStoreItemAclEntry -AccountName "adlsmsidemo" -Path / -AceType
+   PS > Set-AzDataLakeStoreItemAclEntry -AccountName "adlsmsidemo" -Path / -AceType
    User -Id 14c6fd67-d9f5-4680-a394-cd7df1f9bacf -Permissions WriteExecute
    ```
 
-   Raadpleeg voor meer informatie over de bovenstaande PowerShell-opdracht, de [Set AzureRmDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/azurerm.datalakestore/set-azurermdatalakestoreitemaclentry?view=azurermps-6.8.1&viewFallbackFrom=azurermps-4.2.0#optional-parameters) documentatie.
+   Raadpleeg voor meer informatie over de bovenstaande PowerShell-opdracht, de [Set AzDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry#optional-parameters) documentatie.
 
 ## <a name="limitations"></a>Beperkingen
 Deze functie biedt geen ondersteuning voor het volgende:

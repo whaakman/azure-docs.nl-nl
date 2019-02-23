@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/10/2017
+ms.date: 2/21/2019
 ms.author: dekapur
-ms.openlocfilehash: 321a69768935a9cb220bf5c2ae96c30274dc590d
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 9c59da35f5dafcdcf62901689814e696dce3cd20
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159449"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674169"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Een zelfstandige cluster uitgevoerd op Windows Server maken
 Azure Service Fabric kunt u Service Fabric-clusters maken op elke virtuele machine of computers met Windows Server. Dit betekent dat u kunt implementeren en Service Fabric-toepassingen uitvoeren in een omgeving die een set met elkaar verbonden computers met Windows Server bevat, worden deze on-premises of met elke andere cloudprovider. Service Fabric biedt een installatiepakket voor het maken van het zelfstandige pakket voor Windows Server met de naam van Service Fabric-clusters.
@@ -44,12 +44,12 @@ In dit artikel leidt u door de stappen voor het maken van een zelfstandige Servi
 
 ## <a name="download-the-service-fabric-for-windows-server-package"></a>Het pakket Service Fabric voor Windows Server downloaden
 Voor het maken van het cluster, gebruikt u de Service Fabric voor Windows Server-pakket (Windows Server 2012 R2 en hoger) is hier beschikbaar: <br>
-[Link - pakket met Service Fabric zelfstandige - Windows-Server downloaden](https://go.microsoft.com/fwlink/?LinkId=730690)
+[Download Link - Service Fabric Standalone Package - Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690)
 
 Lees informatie over de inhoud van het pakket [hier](service-fabric-cluster-standalone-package-contents.md).
 
 Het Service Fabric-runtimepakket wordt automatisch gedownload tijdens het maken van clusters. Als een implementatie van een virtuele machine niet is verbonden met internet, download u de runtime-pakket buiten-band hier: <br>
-[Link - Service Fabric-Runtime - Windows-Server downloaden](https://go.microsoft.com/fwlink/?linkid=839354)
+[Download Link - Service Fabric Runtime - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354)
 
 Voorbeelden op zelfstandige clusterconfiguratie zoeken: <br>
 [Voorbeelden van configuraties voor zelfstandige Cluster](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
@@ -61,7 +61,9 @@ Met het installatiepakket worden diverse voorbeelden van clusterconfiguraties ge
 
 Het cluster hebt gemaakt in dit artikel is onveilig.  Iedereen kan anoniem verbinding maken en beheerbewerkingen uitvoeren. Productieclusters moeten dus altijd worden beveiligd met X.509-certificaten of Windows-beveiliging.  Beveiliging kan alleen worden geconfigureerd tijdens het maken van het cluster. Het is niet mogelijk beveiliging in te schakelen nadat het cluster is gemaakt. Update het configuratiebestand inschakelen [beveiliging van het certificaat](service-fabric-windows-cluster-x509-security.md) of [Windows security](service-fabric-windows-cluster-windows-security.md). Lees [Een cluster beveiligen](service-fabric-cluster-security.md) voor meer informatie over de beveiliging van Service Fabric-clusters.
 
-### <a name="step-1a-create-an-unsecured-local-development-cluster"></a>Stap 1A: Maak een niet-beveiligde lokaal ontwikkelcluster
+### <a name="step-1-create-the-cluster"></a>Stap 1: Het cluster maken
+
+#### <a name="scenario-a-create-an-unsecured-local-development-cluster"></a>Scenario A: Maak een niet-beveiligde lokaal ontwikkelcluster
 Service Fabric kunnen worden geïmplementeerd op een ontwikkelingscluster met een machine met behulp van de *ClusterConfig.Unsecure.DevCluster.json* -bestand in [voorbeelden](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
 
 Pak het zelfstandige pakket naar uw computer, de config-voorbeeldbestand kopiëren naar de lokale computer en voer vervolgens de *CreateServiceFabricCluster.ps1* script via een PowerShell-sessie, uit het zelfstandige pakketmap .
@@ -74,7 +76,7 @@ Zie de sectie omgeving instellen op [plannen en voorbereiden van de implementati
 
 Als u actieve ontwikkelscenario's hebt voltooid, kunt u de Service Fabric-cluster van de computer verwijderen door te verwijzen naar de stappen in de sectie '[verwijderen van een cluster](#removecluster_anchor)'. 
 
-### <a name="step-1b-create-a-multi-machine-cluster"></a>Stap 1B: Maken van een cluster met meerdere machines
+#### <a name="scenario-b-create-a-multi-machine-cluster"></a>Scenario B: Maken van een cluster met meerdere machines
 Nadat u hebt doorlopen de planning en voorbereidingsstappen beschreven aan [plannen en voorbereiden van de implementatie van uw cluster](service-fabric-cluster-standalone-deployment-preparation.md), bent u klaar om uw productiecluster met behulp van het configuratiebestand van uw cluster te maken.
 
 De clusterbeheerder die het cluster implementeert en configureert, moet administratorbevoegdheden hebben op de computer. U kunt Service Fabric niet installeren op een domeincontroller.
@@ -114,7 +116,7 @@ De clusterbeheerder die het cluster implementeert en configureert, moet administ
 > 
 > 
 
-### <a name="step-1c-create-an-offline-internet-disconnected-cluster"></a>Stap 1C: Een offline (internet verbroken)-cluster maken
+#### <a name="scenario-c-create-an-offline-internet-disconnected-cluster"></a>Scenario C: Een offline (internet verbroken)-cluster maken
 Het Service Fabric-runtimepakket wordt automatisch gedownload bij het maken van clusters. Wanneer u een cluster implementeert op computers die niet zijn verbonden met internet, moet u het Service Fabric-runtimepakket afzonderlijk te downloaden en geef het pad naar het bij het maken van clusters.
 De runtime-pakket kan afzonderlijk worden gedownload vanaf een andere computer is verbonden met internet, op [koppeling downloaden - Service Fabric-Runtime - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354). Kopieer de runtime-pakket naar waar u de offline cluster op basis van implementeert en maken van het cluster door uit te voeren `CreateServiceFabricCluster.ps1` met de `-FabricRuntimePackagePath` parameter opgenomen, zoals wordt weergegeven in dit voorbeeld: 
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 867af6de05d1d9ab54cf8a4bf02221acc43a2b28
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: dba2582b29d1fc81a39387f5297852245233b708
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075631"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731086"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Azure Marketplace commercieel transactiemogelijkheden en aandachtspunten
 
@@ -68,7 +68,7 @@ Afhankelijk van de transactieoptie gebruikt, kunnen de kosten voor de softwareli
 
 * Breng uw eigen license (BYOL): Van toepassing worden kosten voor softwarelicenties worden rechtstreeks tussen de uitgever en de klant beheerd. Microsoft geeft alleen via gebruikskosten voor Azure-infrastructuur. (Virtuele Machines en Azure alleen-toepassingen.)
 
-* Betalen naar gebruik: Kosten voor de softwarelicentie worden weergegeven als een per uur, per kern (vCPU) dat is gebaseerd op de Azure-infrastructuur gebruikt prijzen. Dit is alleen van toepassing op virtuele Machines en Azure-toepassingen.
+* Pay-as-you-go: Kosten voor de softwarelicentie worden weergegeven als een per uur, per kern (vCPU) dat is gebaseerd op de Azure-infrastructuur gebruikt prijzen. Dit is alleen van toepassing op virtuele Machines en Azure-toepassingen.
 
 * Abonnement prijzen (site-gebaseerde): Kosten voor de softwarelicentie worden weergegeven als maandelijkse, terugkerende kosten.  Dit geldt alleen voor SaaS-Apps en -toepassingen in Azure-beheerde Apps.
 
@@ -186,9 +186,9 @@ Als de klant koopt met behulp van een Enterprise Agreement:
 |Factuurdatum | 15 oktober 2018 |
 |Zodat bewaard periode (creditcards te accepteren, 30 dagen) | N.v.t. |
 |Begintijd van de verzameling periode | 15 oktober 2018 |
-|Verzameling periode einde (maximaal 90 dagen) | 15 januari 2018 |
+|Verzameling periode einde (maximaal 90 dagen) | 15 januari 2019 |
 |Klant-betaaldatum | En met 30 december 2018 |
-|Payout berekeningsdatum (elke maand op de 15e) | 15 januari 2018 |
+|Payout berekeningsdatum (elke maand op de 15e) | 15 januari 2019 |
 |Betalings-datum | 15 februari 2019 |
 
 **Gratis tegoed en monetaire toezegging** 
@@ -226,7 +226,7 @@ De transact-vereisten voor verschillende typen worden behandeld in deze sectie.
 
 * Zowel een Dev Center en een Microsoft-account zijn vereist voor de optie, ongeacht de aanbieding publiceren transact het prijsmodel.
 * Het Dev Center-account bevat alle relevante financiële gegevens nodig is voor Microsoft voor het verzamelen van de kosten van de klant voor andere gebruikers van de uitgever en betalen van de uitgever.
-* Hoewel u de dezelfde organisatie of details van aanmelding bij Microsoft voor beide accounts gebruiken mogelijk, is Dev Center een afzonderlijk account van de Publicatieportal van Cloud-account. Voor het gebruik van de transact-publicatieoptie, moet de uitgever van het Dev Center-account aanmeldingsproces geleid, naast het registreren voor toegang tot de Cloud Partner-Portal voltooien.
+* Hoewel u de dezelfde organisatie of details van aanmelding bij Microsoft voor beide accounts gebruiken mogelijk, is Dev Center een afzonderlijk account van de Cloud Partner-Portal-account. Voor het gebruik van de transact-publicatieoptie, moet de uitgever van het Dev Center-account aanmeldingsproces geleid, naast het registreren voor toegang tot de Cloud Partner-Portal voltooien.
 
 *Zie voor meer informatie over het instellen van deze accounts [geworden van een Cloud-Marketplace-uitgever](https://docs.microsoft.com/azure/marketplace/become-publisher).*
 

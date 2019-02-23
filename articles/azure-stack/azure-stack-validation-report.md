@@ -16,17 +16,17 @@ ms.date: 10/23/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 1545fa3c1c94edc98e53b3579e5617a6bf16461c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0f6230dd3fe59e2aa34e358bfa9133f736d17f36
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238854"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732446"
 ---
 # <a name="azure-stack-validation-report"></a>Azure Stack-validatierapport
 Het hulpprogramma Azure Stack-gereedheid van de Registercontrole voor validaties die ondersteuning bieden voor implementatie en het onderhoud van een Azure Stack-omgeving gebruiken. Het hulpprogramma schrijft de resultaten naar een .json-rapportbestand. Het rapport bevat gedetailleerde en samengevatte gegevens over de status van de vereisten voor de implementatie van Azure Stack. Het rapport bevat ook informatie over geheimen, rotatie voor bestaande Azure Stack-implementaties.  
 
- ## <a name="where-to-find-the-report"></a>Waar vind ik het rapport
+## <a name="where-to-find-the-report"></a>Waar vind ik het rapport
 Wanneer het hulpprogramma wordt uitgevoerd, registreert hij de resultaten naar **AzsReadinessCheckerReport.json**. Het hulpprogramma maakt ook een logboek met de naam **AzsReadinessChecker.log**. De locatie van deze bestanden wordt weergegeven met de validatieresultaten in PowerShell.
 
 ![Run-validatie](./media/azure-stack-validation-report/validation.png)

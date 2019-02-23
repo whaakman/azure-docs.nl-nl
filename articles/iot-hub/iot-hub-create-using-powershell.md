@@ -8,14 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: robinsh
-ms.openlocfilehash: 7ecd35ba33d2860ba052aa27286c69985c2f7dd9
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 6462673f6c3992aacbaee168eafc6bdb1b2fa944
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190227"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733467"
 ---
-# <a name="create-an-iot-hub-using-the-new-azurermiothub-cmdlet"></a>Een IoT-hub met behulp van de cmdlet New-AzureRmIotHub maken
+# <a name="create-an-iot-hub-using-the-new-aziothub-cmdlet"></a>Een IoT-hub met behulp van de cmdlet New-AzIotHub maken
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
@@ -25,6 +25,8 @@ U kunt Azure PowerShell-cmdlets gebruiken om te maken en beheren van Azure IoT-h
 
 Als u wilt deze procedures hebt voltooid, moet u een Azure-abonnement. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="connect-to-your-azure-subscription"></a>Verbinding maken met uw Azure-abonnement
@@ -33,25 +35,25 @@ Als u van de Cloud Shell gebruikmaakt, bent u al aangemeld bij uw abonnement. Al
 
 ```powershell
 # Log into Azure account.
-Login-AzureRMAccount
+Login-AzAccount
 ```
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
 U moet een resourcegroep maken voor het implementeren van een IoT-hub. U kunt een bestaande resourcegroep gebruiken of een nieuwe maken.
 
-Gebruik voor het maken van een resourcegroep voor uw IoT-hub de [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup) opdracht. In dit voorbeeld maakt u een resourcegroep met de naam **MyIoTRG1** in de **VS-Oost** regio:
+Gebruik voor het maken van een resourcegroep voor uw IoT-hub de [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.Resources/New-azResourceGroup) opdracht. In dit voorbeeld maakt u een resourcegroep met de naam **MyIoTRG1** in de **VS-Oost** regio:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
+New-AzResourceGroup -Name MyIoTRG1 -Location "East US"
 ```
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
-Voor het maken van een IoT-hub in de resourcegroep die u in de vorige stap hebt gemaakt, gebruikt u de [New-AzureRmIotHub](https://docs.microsoft.com/powershell/module/AzureRM.IotHub/New-AzureRmIotHub) opdracht. Dit voorbeeld maakt u een **S1** hub met de naam **MyTestIoTHub** in de **VS-Oost** regio:
+Voor het maken van een IoT-hub in de resourcegroep die u in de vorige stap hebt gemaakt, gebruikt u de [New-AzIotHub](https://docs.microsoft.com/powershell/module/az.IotHub/New-azIotHub) opdracht. Dit voorbeeld maakt u een **S1** hub met de naam **MyTestIoTHub** in de **VS-Oost** regio:
 
 ```azurepowershell-interactive
-New-AzureRmIotHub `
+New-AzIotHub `
     -ResourceGroupName MyIoTRG1 `
     -Name MyTestIoTHub `
     -SkuName S1 -Units 1 `
@@ -62,33 +64,33 @@ De naam van de IoT-hub moet globaal uniek zijn.
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
-U kunt alle IoT-hubs weergeven in uw abonnement met de [Get-AzureRmIotHub](https://docs.microsoft.com/powershell/module/AzureRM.IotHub/Get-AzureRmIotHub) opdracht:
+U kunt alle IoT-hubs weergeven in uw abonnement met de [Get-AzIotHub](https://docs.microsoft.com/powershell/module/az.IotHub/Get-azIotHub) opdracht:
 
 ```azurepowershell-interactive
-Get-AzureRmIotHub
+Get-AzIotHub
 ```
 
 Dit voorbeeld toont de S1 Standard IoT-Hub die u in de vorige stap hebt gemaakt.
 
-U kunt verwijderen met de IoT hub met behulp van de [Remove-AzureRmIotHub](https://docs.microsoft.com/powershell/module/azurerm.iothub/remove-azurermiothub) opdracht:
+U kunt verwijderen met de IoT hub met behulp van de [Remove-AzIotHub](https://docs.microsoft.com/powershell/module/az.iothub/remove-aziothub) opdracht:
 
 ```azurepowershell-interactive
-Remove-AzureRmIotHub `
+Remove-AzIotHub `
     -ResourceGroupName MyIoTRG1 `
     -Name MyTestIoTHub
 ```
 
-U kunt ook kunt u een resourcegroep en alle resources die deze bevat met behulp van de [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Remove-AzureRmResourceGroup) opdracht:
+U kunt ook kunt u een resourcegroep en alle resources die deze bevat met behulp van de [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.Resources/Remove-azResourceGroup) opdracht:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name MyIoTRG1
+Remove-AzResourceGroup -Name MyIoTRG1
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
 
 U hebt nu een IoT-hub met behulp van een PowerShell-cmdlet geïmplementeerd als u wilt verder te verkennen, kunt u de volgende artikelen:
 
-* [PowerShell-cmdlets voor het werken met uw IoT-hub](https://docs.microsoft.com/powershell/module/azurerm.iothub/).
+* [PowerShell-cmdlets voor het werken met uw IoT-hub](https://docs.microsoft.com/powershell/module/az.iothub/).
 
 * [REST-API voor IoT Hub-resourceprovider](https://docs.microsoft.com/rest/api/iothub/iothubresource).
 

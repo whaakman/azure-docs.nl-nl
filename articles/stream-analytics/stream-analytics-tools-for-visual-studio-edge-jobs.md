@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 886cae572ee651efd217e9a87b935918eebe8b13
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 684690baa63f5ccd65c69e3a1b7e310c2f809e59
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558818"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56735555"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Stream Analytics Edge-taken met behulp van Visual Studio-hulpprogramma's ontwikkelen
 
@@ -69,7 +69,7 @@ Stream Analytics-taken geïmplementeerd in de Edge-omgevingen ondersteunen de me
 |**Categorie**  | **Opdracht**  |
 |---------|---------|
 |Georuimtelijke operators |<ul><li>CreatePoint</li><li>CreatePolygon</li><li>CreateLineString</li><li>ST_DISTANCE</li><li>ST_WITHIN</li><li>ST_OVERLAPS</li><li>ST_INTERSECTS</li></ul> |
-|Andere operatoren | <ul><li>PARTITION BY</li><li>TIJDSTEMPEL DOOR VIA</li><li>AFZONDERLIJKE</li><li>De expressieparameter in de COUNT-operator</li><li>Wachttijden van microseconden in datum- en tijdfuncties</li><li>JavaScript-UDA (deze functie is nog in preview voor taken die zijn geïmplementeerd in de cloud)</li></ul>   |
+|Andere operatoren | <ul><li>PARTITION BY</li><li>TIJDSTEMPEL DOOR VIA</li><li>DISTINCT</li><li>De expressieparameter in de COUNT-operator</li><li>Wachttijden van microseconden in datum- en tijdfuncties</li><li>JavaScript-UDA (deze functie is nog in preview voor taken die zijn geïmplementeerd in de cloud)</li></ul>   |
 
 Wanneer u een Edge-taak in de portal maakt, waarschuwt de compiler automatisch u als u geen van een ondersteunde operator gebruikmaakt.
 

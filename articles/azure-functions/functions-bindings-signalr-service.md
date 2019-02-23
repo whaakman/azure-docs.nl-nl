@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/23/2018
 ms.author: cshoe
-ms.openlocfilehash: 7a7063b9177774c5207746283dc7cd25e3dd5793
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 73fd388ad8d35543138c06b413cd40d7052806a7
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721883"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56735641"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>SignalR-servicebindingen voor Azure Functions
 
@@ -64,7 +64,7 @@ public static SignalRConnectionInfo GetSignalRInfo(
 
 Als de functie wordt geactiveerd door een geverifieerde client, kunt u een gebruiker-ID claim naar het gegenereerde token toevoegen. U kunt eenvoudig verificatie toevoegen aan een functie-app met behulp van [App Service-verificatie] (.. /App-Service/Overview-Authentication-Authorization.MD).
 
-App Service-verificatie wordt ingesteld met de naam van HTTP-headers `x-ms-client-principal-id` en `x-ms-client-principal-name` die respectievelijk de principal-ID van client en de naam, de geverifieerde gebruiker bevatten. U kunt instellen dat de `UserId` eigenschap van de binding met de waarde van de koptekst met behulp van een [binding expressie](functions-triggers-bindings.md#binding-expressions-and-patterns): `{headers.x-ms-client-principal-id}` of `{headers.x-ms-client-principal-name}`. 
+App Service-verificatie wordt ingesteld met de naam van HTTP-headers `x-ms-client-principal-id` en `x-ms-client-principal-name` die respectievelijk de principal-ID van client en de naam, de geverifieerde gebruiker bevatten. U kunt instellen dat de `UserId` eigenschap van de binding met de waarde van de koptekst met behulp van een [binding expressie](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` of `{headers.x-ms-client-principal-name}`. 
 
 ```cs
 [FunctionName("GetSignalRInfo")]
@@ -110,7 +110,7 @@ module.exports = function (context, req, connectionInfo) {
 
 Als de functie wordt geactiveerd door een geverifieerde client, kunt u een gebruiker-ID claim naar het gegenereerde token toevoegen. U kunt eenvoudig verificatie toevoegen aan een functie-app met behulp van [App Service-verificatie] (.. /App-Service/Overview-Authentication-Authorization.MD).
 
-App Service-verificatie wordt ingesteld met de naam van HTTP-headers `x-ms-client-principal-id` en `x-ms-client-principal-name` die respectievelijk de principal-ID van client en de naam, de geverifieerde gebruiker bevatten. U kunt instellen dat de `userId` eigenschap van de binding met de waarde van de koptekst met behulp van een [binding expressie](functions-triggers-bindings.md#binding-expressions-and-patterns): `{headers.x-ms-client-principal-id}` of `{headers.x-ms-client-principal-name}`. 
+App Service-verificatie wordt ingesteld met de naam van HTTP-headers `x-ms-client-principal-id` en `x-ms-client-principal-name` die respectievelijk de principal-ID van client en de naam, de geverifieerde gebruiker bevatten. U kunt instellen dat de `userId` eigenschap van de binding met de waarde van de koptekst met behulp van een [binding expressie](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` of `{headers.x-ms-client-principal-name}`. 
 
 Voorbeeld van de function.json:
 
@@ -248,8 +248,8 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**type**|| Moet worden ingesteld op `signalRConnectionInfo`.|
 |**direction**|| Moet worden ingesteld op `in`.|
 |**De naam**|| Naam van de variabele in functiecode gebruikt voor de connection-info-object. |
-|**HubName**|**HubName**| Deze waarde moet worden ingesteld op de naam van het SignalR-hub waarvoor de verbindingsgegevens is gegenereerd.|
-|**Gebruikers-id**|**Gebruikers-id**| Optioneel: De waarde van de gebruikers-id claim moet worden ingesteld in het toegangstoken van de sleutel. |
+|**hubName**|**HubName**| Deze waarde moet worden ingesteld op de naam van het SignalR-hub waarvoor de verbindingsgegevens is gegenereerd.|
+|**userId**|**UserId**| Optioneel: De waarde van de gebruikers-id claim moet worden ingesteld in het toegangstoken van de sleutel. |
 |**connectionStringSetting**|**connectionStringSetting**| De naam van de app-instelling met de verbindingsreeks SignalR-Service (standaard ingesteld op "AzureSignalRConnectionString") |
 
 ### <a name="signalr"></a>SignalR
@@ -261,7 +261,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**type**|| Moet worden ingesteld op `signalR`.|
 |**direction**|| Moet worden ingesteld op `out`.|
 |**De naam**|| Naam van de variabele in functiecode gebruikt voor de connection-info-object. |
-|**HubName**|**HubName**| Deze waarde moet worden ingesteld op de naam van het SignalR-hub waarvoor de verbindingsgegevens is gegenereerd.|
+|**hubName**|**HubName**| Deze waarde moet worden ingesteld op de naam van het SignalR-hub waarvoor de verbindingsgegevens is gegenereerd.|
 |**connectionStringSetting**|**connectionStringSetting**| De naam van de app-instelling met de verbindingsreeks SignalR-Service (standaard ingesteld op "AzureSignalRConnectionString") |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

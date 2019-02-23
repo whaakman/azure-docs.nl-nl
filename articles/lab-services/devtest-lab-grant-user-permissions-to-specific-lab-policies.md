@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 2b81c23b5cf9ea5d4bfc47d36ae251f762ffad11
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 70469a9e8737a9df18628951a061c97081c74080
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38539687"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56735098"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Gebruikersmachtigingen verlenen aan specifieke lab-beleid
 ## <a name="overview"></a>Overzicht
@@ -30,12 +30,12 @@ Zoals beschreven in de [Azure Role-based Access Control](../role-based-access-co
 
 In DevTest Labs, een beleid is een resourcetype waarmee de RBAC-actie **Microsoft.DevTestLab/labs/policySets/policies/**. Elk lab-beleid is een resource in het resourcetype en kan worden toegewezen als een bereik aan een RBAC-rol.
 
-Bijvoorbeeld, om te kunnen gebruikers lezen/schrijven toestemming te geven de **toegestaan VM-grootten** beleid, maakt u een aangepaste rol die geschikt is voor de **Microsoft.DevTestLab/labs/policySets/policies/*** actie, en vervolgens de juiste gebruikers toewijzen aan deze aangepaste rol binnen het bereik van **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
+Bijvoorbeeld, om te kunnen gebruikers lezen/schrijven toestemming te geven de **toegestaan VM-grootten** beleid, maakt u een aangepaste rol die geschikt is voor de **Microsoft.DevTestLab/labs/policySets/policies/** actie , en vervolgens de juiste gebruikers toewijzen aan deze aangepaste rol binnen het bereik van **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
 Zie voor meer informatie over aangepaste rollen in RBAC, de [toegangsbeheer voor aangepaste rollen](../role-based-access-control/custom-roles.md).
 
 ## <a name="creating-a-lab-custom-role-using-powershell"></a>Het maken van een aangepaste lab-rol met behulp van PowerShell
-Als u wilt beginnen, moet u het volgende artikel, waarin wordt uitgelegd hoe u het installeren en configureren van de Azure PowerShell-cmdlets lezen: [ https://azure.microsoft.com/blog/azps-1-0-pre ](https://azure.microsoft.com/blog/azps-1-0-pre).
+Als u wilt beginnen, moet u [Installeer Azure PowerShell](/powershell/azure/install-az-ps). 
 
 Nadat u de Azure PowerShell-cmdlets hebt ingesteld, kunt u de volgende taken uitvoeren:
 
@@ -46,35 +46,35 @@ Nadat u de Azure PowerShell-cmdlets hebt ingesteld, kunt u de volgende taken uit
 De volgende PowerShell-script ziet u voorbeelden van hoe u deze taken uitvoert:
 
     ‘List all the operations/actions for a resource provider.
-    Get-AzureRmProviderOperation -OperationSearchString "Microsoft.DevTestLab/*"
+    Get-AzProviderOperation -OperationSearchString "Microsoft.DevTestLab/*"
 
     ‘List actions in a particular role.
-    (Get-AzureRmRoleDefinition "DevTest Labs User").Actions
+    (Get-AzRoleDefinition "DevTest Labs User").Actions
 
     ‘Create custom role.
-    $policyRoleDef = (Get-AzureRmRoleDefinition "DevTest Labs User")
+    $policyRoleDef = (Get-AzRoleDefinition "DevTest Labs User")
     $policyRoleDef.Id = $null
     $policyRoleDef.Name = "Policy Contributor"
     $policyRoleDef.IsCustom = $true
     $policyRoleDef.AssignableScopes.Clear()
     $policyRoleDef.AssignableScopes.Add("/subscriptions/<SubscriptionID> ")
     $policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/policySets/policies/*")
-    $policyRoleDef = (New-AzureRmRoleDefinition -Role $policyRoleDef)
+    $policyRoleDef = (New-AzRoleDefinition -Role $policyRoleDef)
 
 ## <a name="assigning-permissions-to-a-user-for-a-specific-policy-using-custom-roles"></a>Machtigingen toewijzen aan een gebruiker voor een specifiek beleid met behulp van aangepaste rollen
-Als u uw aangepaste rollen hebt gedefinieerd, kunt u ze toewijzen aan gebruikers. Als u wilt een aangepaste rol toewijzen aan een gebruiker, moet u eerst aanvragen de **ObjectId** die aangeeft dat de gebruiker. Om dit te doen, gebruikt u de **Get-AzureRmADUser** cmdlet.
+Als u uw aangepaste rollen hebt gedefinieerd, kunt u ze toewijzen aan gebruikers. Als u wilt een aangepaste rol toewijzen aan een gebruiker, moet u eerst aanvragen de **ObjectId** die aangeeft dat de gebruiker. Om dit te doen, gebruikt u de **Get-AzADUser** cmdlet.
 
 In het volgende voorbeeld wordt de **ObjectId** van de *SomeUser* gebruiker 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 is.
 
-    PS C:\>Get-AzureRmADUser -SearchString "SomeUser"
+    PS C:\>Get-AzADUser -SearchString "SomeUser"
 
     DisplayName                    Type                           ObjectId
     -----------                    ----                           --------
     someuser@hotmail.com                                          05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3
 
-Zodra u hebt de **ObjectId** voor de gebruiker en de naam van een aangepaste rol, kunt u die rol toewijzen aan de gebruiker met de **New-AzureRmRoleAssignment** cmdlet:
+Zodra u hebt de **ObjectId** voor de gebruiker en de naam van een aangepaste rol, kunt u die rol toewijzen aan de gebruiker met de **New-AzRoleAssignment** cmdlet:
 
-    PS C:\>New-AzureRmRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/default/policies/AllowedVmSizesInLab
+    PS C:\>New-AzRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/default/policies/AllowedVmSizesInLab
 
 In het vorige voorbeeld de **AllowedVmSizesInLab** beleid wordt gebruikt. U kunt een van de volgende beleid:
 

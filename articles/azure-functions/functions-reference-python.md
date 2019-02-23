@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: dadb645067a0f6cac436d638a829ac4c0937bd60
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 8fa093d629eb7c655ea277b1d57f35193394f722
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304367"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729998"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Handleiding voor ontwikkelaars van Azure Functions-Python
 
@@ -109,7 +109,7 @@ Gedeelde code moet worden opgeslagen in een afzonderlijke map. Als u wilt verwij
 from ..SharedCode import myFirstHelperFunction
 ```
 
-Bindinguitbreidingen die worden gebruikt door de Functions-runtime worden gedefinieerd de `extensions.csproj` bestand met de werkelijke dll-bestanden in de `bin` map. Als u lokaal ontwikkelt, moet u [bindinguitbreidingen registreren](functions-triggers-bindings.md#local-development-azure-functions-core-tools) met behulp van Azure Functions Core Tools. 
+Bindinguitbreidingen die worden gebruikt door de Functions-runtime worden gedefinieerd de `extensions.csproj` bestand met de werkelijke dll-bestanden in de `bin` map. Als u lokaal ontwikkelt, moet u [bindinguitbreidingen registreren](./functions-bindings-register.md#local-development-azure-functions-core-tools) met behulp van Azure Functions Core Tools. 
 
 Wanneer een Functions-project naar uw functie-app in Azure implementeert, moet de volledige inhoud van de map FunctionApp worden opgenomen in het pakket, maar niet de map zelf.
 

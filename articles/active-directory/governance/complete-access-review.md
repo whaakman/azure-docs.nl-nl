@@ -1,6 +1,6 @@
 ---
-title: Een toegangscontrole van leden van een groep of gebruikers toegang tot een toepassing met Azure AD voltooien | Microsoft Docs
-description: Leer hoe u een toegangscontrole voltooien voor leden van een groep of gebruikers met toegang tot een toepassing in Azure Active Directory.
+title: Een toegangscontrole van groepen of toepassingen in Azure AD-Toegangsbeoordelingen voltooien | Microsoft Docs
+description: Leer hoe u een toegangscontrole van leden van beveiligingsgroep of toegang tot toepassingen in Azure AD-Toegangsbeoordelingen voltooien.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,16 +16,16 @@ ms.date: 05/02/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2da3b7f8b7ed60344978fb255696980ec620fd2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cc5dbee47bd6a621b14b39858132ce229663481b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192265"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729607"
 ---
-# <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>Een toegangscontrole van leden van een groep of gebruikers toegang tot een toepassing in Azure AD voltooien
+# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Een toegangscontrole van groepen of toepassingen in Azure AD-Toegangsbeoordelingen voltooien
 
-Beheerders kunnen Azure Active Directory (Azure AD) gebruiken om een [toegangsbeoordeling](create-access-review.md) te maken voor groepsleden of gebruikers die zijn toegewezen aan een toepassing. Azure AD stuurt revisoren automatisch een e-mailbericht waarin wordt gevraagd om ze toegang beoordelen. Als een gebruiker een e-mailbericht niet hebt, kunt u ze de instructies in verzenden [uw toegang controleren](perform-access-review.md). (Houd er rekening mee dat gasten die zijn toegewezen als beoordelaar, maar niet de uitnodiging hebt geaccepteerd niet een e-mailbericht wordt ontvangen van toegangsbeoordelingen, als ze moeten eerst akkoord gaan met een uitnodiging voordat bekijken.) Nadat de periode van de toegangsbeoordeling voltooid is, of als een beheerder de toegangsbeoordeling stopt, volg de stappen in dit artikel om te zien en de resultaten van toepassing.
+Beheerders kunnen Azure Active Directory (Azure AD) gebruiken om een [toegangsbeoordeling](create-access-review.md) te maken voor groepsleden of gebruikers die zijn toegewezen aan een toepassing. Azure AD stuurt revisoren automatisch een e-mailbericht waarin wordt gevraagd om ze toegang beoordelen. Als een gebruiker een e-mailbericht niet hebt, kunt u ze de instructies in verzenden [toegang met groepen of toepassingen beoordelen](perform-access-review.md). (Houd er rekening mee dat gasten die zijn toegewezen als beoordelaar, maar niet de uitnodiging hebt geaccepteerd niet een e-mailbericht wordt ontvangen van toegangsbeoordelingen, als ze moeten eerst akkoord gaan met een uitnodiging voordat bekijken.) Nadat de periode van de toegangsbeoordeling voltooid is, of als een beheerder de toegangsbeoordeling stopt, volg de stappen in dit artikel om te zien en de resultaten van toepassing.
 
 ## <a name="view-an-access-review-in-the-azure-portal"></a>Een toegangsbeoordeling weergeven in Azure portal
 
@@ -62,5 +62,5 @@ Als u niet meer geïnteresseerd in het onderzoek bent, kunt u deze kunt verwijde
 - [Gebruikerstoegang beheren met Azure AD-toegangsbeoordelingen](manage-user-access-with-access-reviews.md)
 - [Gasttoegang beheren met Azure AD-toegangsbeoordelingen](manage-guest-access-with-access-reviews.md)
 - [Programma's en controles voor Azure AD-toegangsbeoordelingen beheren](manage-programs-controls.md)
-- [Een toegangsbeoordeling maken voor leden van een groep of toegang tot een toepassing](create-access-review.md)
+- [Een toegangsbeoordeling van groepen of toepassingen maken](create-access-review.md)
 - [Een toegangsbeoordeling maken van gebruikers met een Azure AD-beheerderrol](../privileged-identity-management/pim-how-to-start-security-review.md)

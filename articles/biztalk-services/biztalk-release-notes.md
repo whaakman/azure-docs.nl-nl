@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 10e790c2edb22b3c7926216535d76c50261589f3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 722159b82845eff08e0c302eafd503459941ebe7
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260318"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734758"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Opmerkingen bij de release voor Azure BizTalk Services
 
@@ -47,7 +47,8 @@ De opmerkingen bij de release voor Microsoft Azure BizTalk Services bevatten de 
 * U kunt nu verschillende scheidingsteken ingesteld voor elk schema opgeven voor de overeenkomst verzenden aan clientzijde. Deze configuratie is opgegeven onder protocolinstellingen voor verzenden aan clientzijde overeenkomst. Zie voor meer informatie, [maken een X12 overeenkomst in de Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689847.aspx) en [een EDIFACT-overeenkomst Maak in Azure BizTalk Services](https://msdn.microsoft.com/library/azure/dn606267.aspx). Twee nieuwe entiteiten worden ook toegevoegd aan de TPM-Operations Manager-API voor hetzelfde doel. Zie [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) en [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx).  
 * Standard XSD-constructs, met inbegrip van afgeleide typen, worden nu ondersteund. Zie [Gebruik standaard XSD constructs kaarten](https://msdn.microsoft.com/library/azure/dn793987.aspx) en [gebruik afgeleide typen in de toewijzing van scenario's en voorbeelden](https://msdn.microsoft.com/library/azure/dn793997.aspx).  
 * AS2 biedt ondersteuning voor nieuwe MIC-algoritmen voor het ondertekenen van berichten en nieuwe versleutelingsalgoritmen. Zie [een AS2-overeenkomst Maak in Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689890.aspx).  
-  ## <a name="know-issues"></a>Bekende problemen
+
+## <a name="known-issues"></a>Bekende problemen
 
 ### <a name="connectivity-issues-after-biztalk-services-portal-update"></a>Problemen met de netwerkverbinding nadat BizTalk Services-Portal-Update
   Als u de BizTalk Services-Portal openen terwijl BizTalk Services is bijgewerkt om te draaien in wijzigingen aan de service hebt, kunt u problemen met de netwerkverbinding met de BizTalk Services-Portal kan tegenkomen.  

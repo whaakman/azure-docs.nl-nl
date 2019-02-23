@@ -1,5 +1,5 @@
 ---
-title: Google toevoegen als een id-provider voor Azure Active Directory B2B | Microsoft Docs
+title: Google toevoegen als een id-provider voor B2B - Azure Active Directory | Microsoft Docs
 description: Federeren met Google om in te schakelen gastgebruikers ook kunnen aanmelden bij uw Azure AD-apps met hun eigen Gmail-account
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d565d2215ac84d42b6682f4c4a52dd87278a70a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 283cf8d13260531a12fa6c860d1a4e7b6207d22e
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206834"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674613"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Google als id-provider voor B2B-gastgebruikers toevoegen
 
@@ -78,7 +78,7 @@ Nu hebt u ingesteld de Google-client-ID en clientgeheim, door te voeren in de Az
 1. Ga naar de [Azure Portal](https://portal.azure.com). Selecteer de knop **Azure Active Directory** in het linkerdeelvenster. 
 2. Selecteer **organisatie relaties**.
 3. Selecteer **id-providers**, en klik vervolgens op de **Google** knop.
-4. Voer een naam. Voer vervolgens de client-ID en clientgeheim die u eerder hebt verkregen. Selecteer **Opslaan**. 
+4. Voer een naam in. Voer vervolgens de client-ID en clientgeheim die u eerder hebt verkregen. Selecteer **Opslaan**. 
 
    ![Google-id-provider toevoegen](media/google-federation/google-identity-provider.png)
 

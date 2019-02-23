@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: b5e6853653bab96cd11196ba03fbeadbdc6b337f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: c114c726bea34465972a282acac6b8acbbf9a80f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816206"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670415"
 ---
 # <a name="basic-concepts"></a>Basisbegrippen
 
@@ -198,7 +199,7 @@ De `detailed` indeling bevat [N-beste waarden](#n-best-values), naast `Recogniti
 
 ### <a name="n-best-values"></a>N-beste waarden
 
-Listeners, of mens of machine, kunnen nooit worden bepaalde ze gehoord *precies* wat er is gezegd. Een listener kunt toewijzen een *kans* alleen voor een bepaalde interpretatie van een utterance. 
+Listeners, of mens of machine, kunnen nooit worden bepaalde ze gehoord *precies* wat er is gezegd. Een listener kunt toewijzen een *kans* alleen voor een bepaalde interpretatie van een utterance.
 
 In normale omstandigheden, als andere gebruikers met wie ze vaak communiceren, hebben personen een hoge waarschijnlijkheid herkent de woorden die gesproken zijn. Op basis van machine spraak listeners streven ernaar om vergelijkbare niveaus van nauwkeurigheid en de juiste voorwaarden [zij pariteit met mensen bereiken](https://blogs.microsoft.com/next/2016/10/18/historic-achievement-microsoft-researchers-reach-human-parity-conversational-speech-recognition/#sm.001ykosqs14zte8qyxj2k9o28oz5v).
 
@@ -308,7 +309,7 @@ De Service Microsoft Speech herkent alle vormen van menselijke spraak, met inbeg
 
 | *Grof taalgebruik* waarde | Description |
 | - | - |
-| `masked` | Maskeert grof taalgebruik met een sterretje. Dit gedrag is de standaardinstelling. | 
+| `masked` | Maskeert grof taalgebruik met een sterretje. Dit gedrag is de standaardinstelling. |
 | `removed` | Hiermee verwijdert u grof taalgebruik uit alle resultaten. |
 | `raw` | Herkent en grof taalgebruik in alle resultaten geretourneerd. |
 
@@ -322,7 +323,7 @@ Wanneer de *grof taalgebruik* query heeft de waarde van parameter *verwijderd*, 
 
 #### <a name="profanity-only-utterances"></a>Alleen-grof taalgebruik uitingen
 
-Een gebruiker kan spreken *alleen* grof taalgebruik wanneer een toepassing heeft de service te verwijderen van grof taalgebruik hebt geconfigureerd. Voor dit scenario, als de opname-modus is *dicteren* of *conversatie*, de service retourneert een *speech.result*. Als de opname-modus is *interactieve*, de service geeft als resultaat een *speech.result* met de statuscode *NoMatch*. 
+Een gebruiker kan spreken *alleen* grof taalgebruik wanneer een toepassing heeft de service te verwijderen van grof taalgebruik hebt geconfigureerd. Voor dit scenario, als de opname-modus is *dicteren* of *conversatie*, de service retourneert een *speech.result*. Als de opname-modus is *interactieve*, de service geeft als resultaat een *speech.result* met de statuscode *NoMatch*.
 
 ### <a name="profanity-value-raw"></a>Grof taalgebruik waarde `Raw`
 

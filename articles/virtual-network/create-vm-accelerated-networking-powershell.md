@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
-ms.openlocfilehash: 7f056ab79bbd2d2b66e40546a6df7677ffe75a21
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: a5f32504fc7d8fe0faa17d469aec017d39a6b1ce
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649455"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737141"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Een Windows-machine maken met versnelde netwerken
 
@@ -62,9 +62,13 @@ Een ondersteunde VM-grootte zonder versneld netwerkondersteuning ingeschakeld ka
 Virtuele machines (klassiek) kan niet worden geïmplementeerd met versnelde netwerken.
 
 ## <a name="create-a-windows-vm-with-azure-accelerated-networking"></a>Een Windows VM maken met Azure-versnelde netwerken
+## <a name="portal-creation"></a>Maken van de portal
+Hoewel dit artikel stappen bevat voor het maken van een virtuele machine met versneld netwerken met behulp van Azure Powershell, kunt u ook [maken van een virtuele machine met versneld netwerken met behulp van de Azure-portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Bij het maken van een virtuele machine in de portal in de **maken van een virtuele machine** blade, kiest u de **netwerken** tabblad.  Op dit tabblad is een optie voor **versnelde netwerken**.  Als u hebt ervoor gekozen een [ondersteund besturingssysteem](#supported-operating-systems) en [VM-grootte](#supported-vm-instances), deze optie wordt automatisch gevuld op 'Op'.  Zo niet, wordt de optie "Uitgeschakeld" voor versnelde netwerken vullen en geef de gebruiker een reden op waarom is het niet worden ingeschakeld.   
+* *Opmerking:* Alleen ondersteunde besturingssystemen kan worden ingeschakeld via de portal.  Als u een aangepaste installatiekopie gebruikt en uw installatiekopie versnelde netwerken ondersteunt, maakt u uw virtuele machine met CLI of Powershell. 
 
-Hoewel dit artikel stappen bevat voor het maken van een virtuele machine met versneld netwerken met behulp van Azure PowerShell, kunt u ook [maken van een virtuele machine met versneld netwerken met behulp van de Azure-portal](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Bij het maken van een virtuele machine in de portal, onder **instellingen**, selecteer **ingeschakeld**onder **versnelde netwerken**. De optie voor het inschakelen van versneld netwerken niet wordt weergegeven in de portal, tenzij u hebt geselecteerd een [ondersteund besturingssysteem](#supported-operating-systems) en [VM-grootte](#supported-vm-instances). Nadat de virtuele machine is gemaakt, moet u Volg de instructies in [controleert u of het stuurprogramma in het besturingssysteem is geïnstalleerd](#confirm-the-driver-is-installed-in-the-operating-system).
+Nadat de virtuele machine is gemaakt, kunt u bevestigen versnelde netwerken is ingeschakeld door de instructies in de [bevestigen dat versneld netwerken is ingeschakeld](#confirm-that-accelerated-networking-is-enabled).
 
+## <a name="powershell-creation"></a>Het maken van PowerShell
 ## <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

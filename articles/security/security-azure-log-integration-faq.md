@@ -4,7 +4,7 @@ description: In dit artikel vindt u antwoorden op vragen over Azure-Logboekinteg
 services: security
 documentationcenter: na
 author: TomShinder
-manager: barbkess
+manager: MBaldwin
 editor: TerryLanfear
 ms.assetid: d06d1ac5-5c3b-49de-800e-4d54b3064c64
 ms.service: security
@@ -15,12 +15,12 @@ ms.workload8: na
 ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: f1b809e52cc532d13be85776f73aba4465fa2140
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: fc94208ef01e52207b6efbf88223119cf58ddb7f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114923"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727159"
 ---
 # <a name="azure-log-integration-faq"></a>Azure-Logboekintegratie Veelgestelde vragen
 
@@ -32,6 +32,8 @@ In dit artikel vindt u antwoorden op veelgestelde vragen (FAQ) over Azure-Logboe
 Azure-Logboekintegratie is een service voor het besturingssysteem van Windows die u gebruiken kunt om te integreren met uw on-premises security information en event management (SIEM) systemen onbewerkte logboeken van uw Azure-resources. Deze integratie biedt via het uniforme dashboard voor al uw activa, on-premises of in de cloud. U kunt vervolgens aggregeren, correleren, analyseren en ontvang een waarschuwing voor beveiligingsgebeurtenissen die zijn gekoppeld aan uw toepassingen.
 
 De aanbevolen methode voor het integreren van Logboeken in Azure wordt met behulp van de leverancier van uw SIEM-connector voor Azure Monitor en volgende [instructies](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). Echter, als de leverancier van uw SIEM niet een connector voor Azure Monitor biedt, u mogelijk gebruik van Azure-Logboekintegratie als tijdelijke oplossing (als uw SIEM wordt ondersteund door Azure-Logboekintegratie) totdat deze een connector beschikbaar is.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="is-the-azure-log-integration-software-free"></a>Is de Azure-Logboekintegratie software gratis?
 
@@ -118,8 +120,8 @@ Zie voor meer informatie over het ophalen, wijzigen en stel de configuratie van 
 
 Het volgende voorbeeld wordt de configuratie van de Azure Diagnostics:
 
-    -AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient
-    $publicsettings = (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient).PublicSettings
+    Get-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient
+    $publicsettings = (Get-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient).PublicSettings
     $encodedconfig = (ConvertFrom-Json -InputObject $publicsettings).xmlCfg
     $xmlconfig = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encodedconfig))
     Write-Host $xmlconfig
@@ -136,7 +138,7 @@ Het volgende voorbeeld wijzigt u de Azure Diagnostics-configuratie. In deze conf
 Het volgende voorbeeld wordt de configuratie van de Azure Diagnostics:
 
     $diagnosticsconfig_path = "d:\WADConfig.xml"
-    Set-AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName log3121 -StorageAccountKey <storage key>
+    Set-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName log3121 -StorageAccountKey <storage key>
 
 Nadat u wijzigingen aanbrengt, controleert u de storage-account om ervoor te zorgen dat de juiste gebeurtenissen worden verzameld.
 

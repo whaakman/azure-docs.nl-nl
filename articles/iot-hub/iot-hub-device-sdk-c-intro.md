@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: d1d7c5df1b49a1f8c2fe4fbae4d8c8fdbd481e0e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 7734a273f6e07290ec7124def5cb3b095f7f067b
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053905"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674131"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT device-SDK voor C
 
@@ -111,7 +111,7 @@ Dit tabblad is waar u de apparaten die zijn geregistreerd in uw IoT-hub beheren.
 
 1. Als u ervoor kiest **Kopieer de verbindingsreeks voor het geselecteerde apparaat**, de verbindingsreeks naar het Klembord is gekopieerd. Bewaar een kopie van de verbindingsreeks van het apparaat. U hebt deze nodig bij het uitvoeren van de voorbeeldtoepassingen die worden beschreven in de volgende secties.
 
-Wanneer u de bovenstaande stappen hebt voltooid, bent u klaar om te beginnen met het uitvoeren van code. De meeste voorbeelden hebben een constante aan de bovenkant van de belangrijkste bron-bestand waarmee u een verbindingsreeks invoeren. Bijvoorbeeld, de bijbehorende regel van de **iothub\_client\_voorbeeld\_mqtt** toepassing als volgt wordt weergegeven.
+Wanneer u de bovenstaande stappen hebt voltooid, bent u klaar om te beginnen met het uitvoeren van code. De meeste voorbeelden hebben een constante aan de bovenkant van de belangrijkste bron-bestand waarmee u een verbindingsreeks invoeren. Bijvoorbeeld, de bijbehorende regel van de **iothub_client\_voorbeelden\_iothub_convenience_sample** toepassing als volgt wordt weergegeven.
 
 ```c
 static const char* connectionString = "[device connection string]";
@@ -121,7 +121,7 @@ static const char* connectionString = "[device connection string]";
 
 Binnen de **iothub\_client** map in de [azure-iot-sdk-c](https://github.com/azure/azure-iot-sdk-c) opslagplaats, er is een **voorbeelden** map met een toepassing met de naam **iothub\_client\_voorbeeld\_mqtt**.
 
-De Windows-versie van de **iothub\_client\_voorbeeld\_mqtt** toepassing bevat de volgende Visual Studio-oplossing:
+De Windows-versie van de **iothub_client\_voorbeelden\_iothub_convenience_sample** toepassing bevat de volgende Visual Studio-oplossing:
 
   ![Visual Studio Solution Explorer](./media/iot-hub-device-sdk-c-intro/iothub-client-sample-mqtt.png)
 
@@ -137,7 +137,7 @@ Deze oplossing bevat een enkel project. Er zijn vier NuGet-pakketten geïnstalle
 
 Moet u altijd de **Microsoft.Azure.C.SharedUtility** pakket wanneer u met de SDK werkt. In dit voorbeeld wordt het MQTT-protocol, dus u moet bevatten de **Microsoft.Azure.umqtt** en **Microsoft.Azure.IoTHub.MqttTransport** pakketten (Er zijn gelijkwaardig pakketten voor AMQP- en HTTPS). Omdat in het voorbeeld wordt de **IoTHubClient** bibliotheek, moet u ook de **Microsoft.Azure.IoTHub.IoTHubClient** -pakket in uw oplossing.
 
-U vindt de implementatie voor de voorbeeldtoepassing in de **iothub\_client\_voorbeeld\_mqtt.c** bronbestand.
+U vindt de implementatie voor de voorbeeldtoepassing in de **iothub_client\_voorbeelden\_iothub_convenience_sample** bronbestand.
 
 De volgende stappen gebruikt deze voorbeeldtoepassing om te zien hoe u wat is vereist voor het gebruik van de **IoTHubClient** bibliotheek.
 
@@ -351,7 +351,7 @@ Net als bij het vorige voorbeeld bevat deze een enkele NuGet-pakketten:
 
 U kunt de meeste van deze pakketten in het vorige voorbeeld hebt gezien, maar **Microsoft.Azure.IoTHub.Serializer** is er nieuw. Dit pakket is vereist wanneer u de **serializer** bibliotheek.
 
-U vindt de implementatie van de voorbeeldtoepassing in de **simplesample\_mqtt.c** bestand.
+U vindt de implementatie van de voorbeeldtoepassing in de ***iothub_client\_voorbeelden\_iothub_convenience_sample** bestand.
 
 De volgende secties helpen u via de belangrijkste onderdelen van dit voorbeeld.
 
@@ -392,7 +392,7 @@ Roep ten slotte de **maken\_MODEL\_exemplaar** functie. **WeatherStation** is de
 
 ### <a name="define-the-model"></a>Het model definiëren
 
-Een model in de **serializer** bibliotheek definieert de berichten die uw apparaat naar IoT Hub verzenden kunt en de berichten, zogenaamde *acties* in de modelleertaal, die kan ontvangen. U definieert een model met behulp van een set van C-macro's als in de **simplesample\_mqtt** voorbeeldtoepassing:
+Een model in de **serializer** bibliotheek definieert de berichten die uw apparaat naar IoT Hub verzenden kunt en de berichten, zogenaamde *acties* in de modelleertaal, die kan ontvangen. U definieert een model met behulp van een set van C-macro's als in de **iothub_client\_voorbeelden\_iothub_convenience_sample** voorbeeldtoepassing:
 
 ```c
 BEGIN_NAMESPACE(WeatherStation);

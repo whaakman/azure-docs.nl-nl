@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 02/22/2010
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 0ac20ee9f6197a8322bb741020aee813c690847e
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 839fa7fe8374f1f85b019178d4c3fe53f7137372
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445880"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729641"
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>App Service op Azure Stack: Meer functies voor infrastructuur- of werkrollen toevoegen
 
@@ -37,11 +37,6 @@ App Service in Azure Stack, standaard, biedt ondersteuning voor gratis en gedeel
 Als u niet zeker weet wat is geïmplementeerd met de standaard-App Service op Azure Stack-installatie, kunt u aanvullende informatie in controleren de [App Service op Azure Stack-overzicht](azure-stack-app-service-overview.md).
 
 Azure App Service in Azure Stack implementeert alle rollen met behulp van Virtual Machine Scale Sets en daarom profiteert van de schalingsmogelijkheden van deze workload. Daarom wordt alle schalen van de werkrolniveaus uitgevoerd via de App Service-beheerder.
-
-> [!IMPORTANT]
-> Het is momenteel niet mogelijk om te schalen van virtuele-machineschaalsets in de portal zoals vermeld in de opmerkingen bij de release van de Azure Stack, dus het PowerShell-voorbeeld gebruiken om uit te schalen.
->
->
 
 ## <a name="add-additional-workers-with-powershell"></a>Toevoegen van extra werkrollen met PowerShell
 
@@ -80,7 +75,7 @@ Azure App Service in Azure Stack implementeert alle rollen met behulp van Virtua
 
 3. Bewaakt de status van de nieuwe rolinstanties in de App Service-beheer, om te controleren of de status van een afzonderlijke rolinstantie klikt u op het Roltype in de lijst.
 
-## <a name="add-additional-workers-directly-within-the-app-service-resource-provider-admin"></a>Toevoegen van extra werkrollen rechtstreeks in de App Service-beheerder met Resource-Provider.
+## <a name="add-additional-workers-using-the-administration-portal"></a>Toevoegen van extra workers met behulp van de beheerportal
 
 1. Meld u aan de Azure Stack-beheerportal als de service-beheerder.
 

@@ -1,5 +1,5 @@
 ---
-title: SaaS-apps voor B2B-samenwerking in Azure Active Directory configureren | Microsoft Docs
+title: 'SaaS-toepassingen voor B2B-samenwerking: Azure Active Directory configureren | Microsoft Docs'
 description: Code- en PowerShell-voorbeelden voor Azure Active Directory B2B-samenwerking
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a2f4ecbe8a183636bfc4e463e4c074ab94e2d01
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 98126c6459c77ec4580665b0d157d532a1fe636c
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182813"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672250"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Configureren van SaaS-apps voor B2B-samenwerking
 

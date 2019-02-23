@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 74b6d953939a569a3240c9d64134d143dc4f179e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 0544782763bebac42b4b68fda42cff80b18ff067
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430848"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670731"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-serversystem-center-dpm"></a>Ondersteuningsmatrix voor de back-up met Microsoft Azure Backup Server/System Center DPM
 
@@ -75,7 +75,7 @@ Azure Backup een back-up MABS/DPM uit te voeren op een van de volgende besturing
 --- | --- 
 **MABS op een Azure-VM** | Windows Server 2012 R2<br/><br/> Windows 2016 Datacenter<br/><br/> Windows 2019 Datacenter<br/><br/> U wordt aangeraden dat u begint met een installatiekopie van de marketplace.<br/><br/> Minimale A2 Standard met twee kernen en 3,5 GB RAM-geheugen. 
 **DPM op een Azure-VM** | System Center 2012 R2 met Update 3 of hoger.<br/><br/> Windows-besturingssysteem als [vereist voor System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> U wordt aangeraden dat u begint met een installatiekopie van de marketplace.<br/><br/> Minimale A2 Standard met twee kernen en 3,5 GB RAM-geheugen. 
-**MABS on-premises** | 64-bits besturingssystemen ondersteund:<br/><br/> -MABS v3 en hoger: WindowsServer 2019 (Standard, Datacenter, Essentials) <br/><br/> MABS v2 en hoger: WindowsServer 2016 (Standard, Datacenter, Essentials)<br/><br/> Alle MABS-versies: Windows Server 2012 R2/2012 (Standard, Datacenter, Foundation)<br/><br/>Alle MABS-versies: Windows Storage Server 2012 R2/2012 (Standard/Workgroup)
+**MABS on-premises** | 64-bits besturingssystemen ondersteund:<br/><br/> MABS v3 en hoger: WindowsServer 2019 (Standard, Datacenter, Essentials) <br/><br/> MABS v2 en hoger: WindowsServer 2016 (Standard, Datacenter, Essentials)<br/><br/> Alle MABS-versies: Windows Server 2012 R2/2012 (Standard, Datacenter, Foundation)<br/><br/>Alle MABS-versies: Windows Storage Server 2012 R2/2012 (Standard/Workgroup)
 **DPM on-premises** | Fysieke server/Hyper-V virtuele machine: System Center 2012 SP1 of hoger.<br/><br/> Virtuele VMware-machine: System Center 2012 R2 met Update 5 of hoger. 
 
 
@@ -106,7 +106,7 @@ U kunt MABS op een virtuele machine van Azure Stack kunt implementeren, zodat u 
 .NET framework voor MABS | De VM MABS moet .NET Framework 3.3 SP1 of hoger is geïnstalleerd.
 **MABS-domein** | De VM MABS moet worden toegevoegd aan een domein. Een gebruiker met beheerdersbevoegdheden moet MABS installeren op de virtuele machine.
 **Azure Stack VM gegevensback-up** | U kunt back-up van bestanden, mappen en apps.
-**Ondersteunde back-up** | Deze besturingssystemen worden ondersteund voor virtuele machines die u back wilt-up:<br/><br/> -Windows Server semi-Annual-kanaal (Enterprise-Datacenter/Standard)<br/><br/> Windows Server 2016/2012 R2/2012/2008 R2.
+**Ondersteunde back-up** | Deze besturingssystemen worden ondersteund voor virtuele machines die u back wilt-up:<br/><br/> Windows Server semi-Annual-kanaal (Enterprise-Datacenter/Standard)<br/><br/> Windows Server 2016/2012 R2/2012/2008 R2.
 **SQL-ondersteuning voor Azure Stack-VM 's** | Back-up van SQL Server 2016/2014/2012 SP1.<br/><br/> Back-up en herstel de database.
 **SharePoint-ondersteuning voor Azure Stack-VM 's** | SharePoint 2016/2013/2010.<br/><br/> Back-up en herstellen van de farm, database, front-end, webserver.
 **Netwerkvereisten voor back-ups van virtuele machines** | Alle virtuele machines in Azure Stack-werkbelasting moeten met hetzelfde VNet en tot hetzelfde abonnement behoren.
@@ -220,4 +220,4 @@ De volgende tabel geeft een overzicht van wat kan een back-up aan DPM van de on-
 - [Meer informatie](backup-architecture.md#architecture-back-up-to-dpmmabs) over de architectuur van MABS.
 - [Beoordeling](backup-support-matrix-mars-agent.md) wat wordt ondersteund voor de MARS-agent.
 - [Instellen van](backup-azure-microsoft-azure-backup.md) een MABS-server.
-- [Set up] (https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-180
+- [DPM instellen](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-180)

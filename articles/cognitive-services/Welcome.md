@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: nitinme
-ms.openlocfilehash: d9271b32f6254b032fab9e93aaf82ab39e7f1932
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 38ad921c7c4b2fef9d325c2e2c9eea25bd3c913b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876280"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734673"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Wat is Azure Cognitive Services?
 
@@ -94,7 +94,7 @@ Op zoek naar een regio wordt niet ondersteund nog? Laat het ons weten door het i
 
  Cognitive Services biedt ondersteuning voor een breed scala aan culturele talen op het serviceniveau van de. U vindt de beschikbare talen voor elke API in de [lijst met talen ondersteund](language-support.md).
 
- ## <a name="container-support"></a>Ondersteuning voor containers
+## <a name="container-support"></a>Ondersteuning voor containers
 
  Cognitive Services biedt containers voor de implementatie in de Azure-cloud of on-premises. Meer informatie over [Cognitive Services-Containers](cognitive-services-container-support.md).
 

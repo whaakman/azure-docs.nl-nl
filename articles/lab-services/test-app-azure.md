@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
-ms.openlocfilehash: a58ebe14749add30deb229f1b7e30fbb6e9921d7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9ca1c4a1ed1841f82bc386cff48315dd15ef91bb
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814884"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730406"
 ---
 # <a name="test-your-app-in-azure"></a>Uw app in Azure testen 
 Dit artikel bevat stappen voor het testen van uw toepassing in Azure met DevTest Labs. Eerst een bestandsshare in een lab instellen en deze koppelen als een station op uw lokale ontwikkelcomputer en een virtuele machine in een testomgeving. Daarna gebruikt u Visual Studio 2017 aan uw app implementeren in de bestandsshare, zodat u de app op de virtuele machine in het lab uitvoeren kunt.  
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Vereisten 
 1. [Maak een Azure-abonnement](https://azure.microsoft.com/free/) als u niet al hebt en meld u aan bij [Azure-portal](https://portal.azure.com).
@@ -56,7 +58,7 @@ Dit artikel bevat stappen voor het testen van uw toepassing in Azure met DevTest
 
     ![Selecteer in het lab VM](media/test-app-in-azure/select-lab-vm.png)
 2. Selecteer **Connect** op de werkbalk om verbinding maken met de virtuele machine. 
-3. [Installeer Azure PowerShell](https://azure.microsoft.com/downloads/) met behulp van de **Windows installeren** herstelkoppeling in de **opdrachtregelprogramma's** sectie. Zie voor andere manieren van Azure PowerShell, [in dit artikel](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.8.1).
+3. [Installeer Azure PowerShell](/powershell/azure/install-az-ps).
 4. Volg de instructies in het koppelpunt de sectie van de bestandsshare. 
 
 ## <a name="publish-your-app-from-visual-studio"></a>Publiceer uw app vanuit Visual Studio

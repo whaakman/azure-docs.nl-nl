@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: fb12fe381cb4df6139fae7289279220f72984484
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 145c6ac01cce9a70f3753b54a46638bf9d9c23b4
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078011"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729743"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Richtlijnen voor Azure Marketplace-vermelding
 
@@ -77,7 +77,7 @@ Alle aanbiedingen moeten voldoen aan de [alle vereisten van de aanbieding](https
 |1 |Aanbiedingsinstellingen | <br>• Aanbiedings-ID: Maximaal 50 tekens <br>• Uitgevers-ID: Selecteer in vervolgkeuzelijst <br>• Naam: Maximaal 50 tekens | Extreem lange titels mirrors niet wilt dat de van al beschikbaar in de beschrijving - titelstijl. | 
 | 2 | Voorraadeenheden | Partners klikken op de nieuwe SKU 's| Extreem lange titels mirrors niet wilt dat de van al beschikbaar in de beschrijving - titelstijl.  |  |
 | 3 | Marketplace-artefacten | Logo's weergegeven correct |<br>• Logo bevat 'hero installatiekopie,' dit de installatiekopie van de grote-indeling in de Azure Portal is <br>• Logo's: Klein (48 x 48) en grote (216 x 216) zijn vereisten <br>• Hero afbeeldingsvereisten: https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish<br>• Schermafbeelding (maximaal 5):  CPP moet een PNG-afbeelding met een resolutie van 1280 x 720.|
-| 4 | Leads beheren |<br>• Lead Management: Selecteer het systeem waar de leads worden opgeslagen. <br>• Meer informatie over het verbinding maken met uw CRM-systeem [hier](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) | |
+| 4 | Leads beheren |<br>•    Lead Management: Selecteer het systeem waar de leads worden opgeslagen. <br>• Meer informatie over het verbinding maken met uw CRM-systeem [hier](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) | |
 
 ----
 
@@ -88,11 +88,11 @@ Alle aanbiedingen moeten voldoen aan de [alle vereisten van de aanbieding](https
 | 2 | Beschrijving van aanbieding  |<br>• Zorg ervoor dat het juiste gebruik van [namen van de Microsoft-producten](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/en-us.aspx) <br>• Biedt gemarkeerd als prijs: Geschatte moet hebben een opmerking op de bovenste of onderste van de aanbieding om uit te leggen van de veranderlijkheid (reis naar de client, het aantal servers dat wordt gemigreerd, enz.) <br>• Elk aanbiedingtype gelden beschrijving vereisten als volgt te werk: <ul><br>o Briefings moet ten minste 4 en 5 opsommingstekens met informatie over onderwerpen aan bod in briefing </ul> <ul><br>o alle workshops moeten agenda </ul><ul><br>o die alle agenda's moeten worden opgedeeld per dag of week, afhankelijk van de duur van de workshop </ul><ul><br>o evaluatie, POC, niet-training workshops, aanbiedingen van de implementatie moeten producten </ul><ul><br>o trainingsworkshops producten niet nodig, maar ze moeten een meer gedetailleerde agenda met onderwerpen die zullen worden behandeld. | <br>• Een aanbieding heeft agenda en producten <br>• Aanbieding omvat een lid met de context van het bedrijf leveren van de service in het bovenste gedeelte <br>• Aanbieding omvat een lid van de waarde van de service zelf als een bovenste gedeelte |
 | 3 | Markdown-opmaak  | Alle aanbiedingen moeten gebruiken Markdown-opmaak zodat de aanbieding correct wordt weergegeven wanneer het wordt geconverteerd naar HTML  |  |
 | 4 | Categorieën & bedrijfstakken | Categorieën die niet relevant zijn |  | 
-| 5 | Lijst met de Status (aanzetten tot actie) | Automatisch vermeld als Contact opnemen |  | 
+| 5 | List Status (CTA) | Automatisch vermeld als Contact opnemen |  | 
 | 6 | Ondersteuning van de oplossing en Help-informatie  | Ondersteuning en Help-informatie niet vereist  | | 
 | 7 | Privacybeleid & gebruiksvoorwaarden beschikbaar  |  Beleidsregels of voorwaarden die niet vereist  | | 
 | 8 | Servicetypen | Zorg ervoor dat het servicetype komt overeen met de titel | |
-| 9 | Competenties |<br>• Moet ten minste een van de volgende opties:<br>• Toepassingsontwikkeling <br>• Application Integration <br>• Application Lifecycle Management <br>• Cloudplatform <br>• Data Analytics <br>• Data Center <br>• Data Platform <br>• DevOps |
+| 9 | Competenties |<br>• Moet ten minste een van de volgende opties:<br>• Toepassingsontwikkeling <br>• Application Integration <br>• Application Lifecycle Management <br>• Cloud Platform <br>• Data Analytics <br>• Data Center <br>• Data Platform <br>• DevOps |
 | 10 | Producten | Azure moet worden | |
 | 11 | Land/regio | Zorg ervoor dat land en regio overeenkomsten gekozen valuta | |
 | 12 | Meer informatie  | <br>• Koppelingen aan de onderkant (onder de beschrijving, niet de marketplace-koppelingen aan de linkerkant) leidt tot meer informatie over de oplossing en openbaar beschikbaar en weer te geven correct zijn. <br>• Koppelingen moet een 'beschrijvende naam"hebben en niet worden weergegeven als de bestandsnaam van alle downloads | |
@@ -103,4 +103,4 @@ Alle aanbiedingen moeten voldoen aan de [alle vereisten van de aanbieding](https
 *   [Bepaalt het type aanbieding voor uw oplossing](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
 
  
----  
+---

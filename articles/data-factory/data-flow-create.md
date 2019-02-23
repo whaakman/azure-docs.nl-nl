@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: b706e229bed48c821d5ca772450df320fd7e0b7f
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: bb6ae9f97d681625218118b8adca116de1c0fb21
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56271721"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728230"
 ---
 # <a name="create-azure-data-factory-data-flow"></a>Gegevensstroom van Azure Data Factory maken
 
@@ -34,7 +34,12 @@ U wordt gevraagd om in te voeren van de gegevens van uw Azure Blob Storage-accou
 
 [De gegevens die worden gebruikt voor deze voorbeelden vindt u hier](https://github.com/kromerm/adfdataflowdocs/tree/master/sampledata). De voorbeeldgegevens downloaden en opslaan van de bestanden in uw Azure Blob storage-accounts, zodat u kunt de voorbeelden uitvoeren.
 
+## <a name="create-new-data-flow"></a>Nieuwe gegevensstroom te maken
+
 Gebruik de Resource maken "plusteken" knop in de UI ADF gegevens stromen maken
 
 ![Opties voor Flow](media/data-flow/newresource.png "nieuwe Resource")
 
+## <a name="next-steps"></a>Volgende stappen
+
+Begin met het maken van de gegevenstransformatie van uw met een [bron transformatie](data-flow-source.md).

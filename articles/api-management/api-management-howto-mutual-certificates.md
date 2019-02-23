@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: b8f8d0a089a74334a908e3dad65c63231bbe5975
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 13a2eb080c6822a8a6786be1952bc588fa8afd80
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098932"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729199"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Over het beveiligen van back-endservices met behulp van client-certificaatverificatie in Azure API Management
 
@@ -27,6 +27,8 @@ API Management kunnen voor het beveiligen van toegang tot de back-end-service va
 Zie voor meer informatie over het beheren van certificaten met behulp van de API Management REST API <a href="https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity">Azure API Management REST API-Beheercertificaat entiteit</a>.
 
 ## <a name="prerequisites"> </a>Vereisten
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Deze handleiding laat zien hoe u uw API Management service-exemplaar voor het gebruik van verificatie van clientcertificaten voor toegang tot de back-end-service voor een API configureren. Voordat u de stappen in dit artikel te volgen, moet u uw back-endservice geconfigureerd voor verificatie van clientcertificaten ([certificaatverificatie in Azure WebSites configureren Raadpleeg dit artikel] [ to configure certificate authentication in Azure WebSites refer to this article]). In dat geval moet u toegang tot het certificaat en het wachtwoord in voor het uploaden naar de API Management-service.
 
@@ -81,11 +83,11 @@ Als het certificaat gebruikt door een API, wordt en vervolgens een waarschuwing 
 
 ## <a name="self-signed-certificates"></a>Zelfondertekende certificaten
 
-Als u zelfondertekende certificaten gebruikt, moet u in de volgorde voor API Management om te communiceren met het systeem back-end-validatie van certificaatketen uitschakelen. Anders wordt een 500 foutcode geretourneerd. Als u wilt dit configureren, kunt u de [ `New-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (voor de nieuwe back-end) of [ `Set-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (voor bestaande back-end) PowerShell-cmdlets en stel de `-SkipCertificateChainValidation` parameter `True`.
+Als u zelfondertekende certificaten gebruikt, moet u in de volgorde voor API Management om te communiceren met het systeem back-end-validatie van certificaatketen uitschakelen. Anders wordt een 500 foutcode geretourneerd. Als u wilt dit configureren, kunt u de [ `New-AzApiManagementBackend` ](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (voor de nieuwe back-end) of [ `Set-AzApiManagementBackend` ](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (voor bestaande back-end) PowerShell-cmdlets en stel de `-SkipCertificateChainValidation` parameter `True`.
 
 ```powershell
-$context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
-New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
+$context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
+New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```
 
 [How to add operations to an API]: api-management-howto-add-operations.md

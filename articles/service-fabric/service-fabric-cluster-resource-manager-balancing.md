@@ -1,44 +1,44 @@
 ---
-title: Een balans vinden tussen uw Azure Service Fabric-cluster | Microsoft Docs
-description: Een inleiding tot het cluster met Service Fabric Cluster Resource Manager netwerktaakverdeling.
+title: Uw Azure Service Fabric-cluster in balans brengen | Microsoft Docs
+description: Een inleiding tot de taakverdeling van uw cluster met de Service Fabric Cluster Resource Manager.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 030b1465-6616-4c0b-8bc7-24ed47d054c0
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 5d2f195c50750a5c7685f62c909f77b2960613e6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 534a9584427efd15b8119f8421fb041199b97fbf
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213143"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731579"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Taakverdeling van uw service fabric-cluster
-De Service Fabric Cluster Resource Manager biedt ondersteuning voor wijzigingen van de dynamische belasting, reageren op toevoegingen of verwijderingen van knooppunten of services. Deze functie ook automatisch gecorrigeerd schendingen van plaatsingsbeperkingen en proactief rebalances het cluster. Maar hoe vaak deze acties worden uitgevoerd en wat ze activeert?
+De Service Fabric Cluster Resource Manager biedt ondersteuning voor dynamische belasting verandert, reageren op toevoegingen of verwijderingen van knooppunten of services. Het wordt ook automatisch gecorrigeerd schendingen van plaatsingsbeperkingen en proactief rebalances de cluster. Maar hoe vaak deze acties worden uitgevoerd, en wat ze activeert?
 
-Er zijn drie verschillende categorieën van het werk dat de Cluster Resource Manager uitvoert. Dit zijn:
+Er zijn drie verschillende categorieën van werk dat de Cluster Resource Manager wordt uitgevoerd. Dit zijn:
 
-1. Plaatsing: deze fase omgaat met de plaatsing van een stateful replica's of stateless exemplaren die ontbreken. Plaatsing bevat nieuwe services en de afhandeling van stateful replica's of stateless exemplaren die zijn mislukt. Verwijderen en het verwijderen van replica's of exemplaren worden hier afgehandeld.
-2. Beperking controleert: deze fase controleert en corrigeert schendingen van de verschillende plaatsingsbeperkingen (regels) in het systeem. Voorbeelden van regels zijn bijvoorbeeld ervoor te zorgen dat knooppunten niet overbelast zijn en dat de plaatsingsbeperkingen voor een service is voldaan.
-3. Netwerktaakverdeling: deze fase wordt gecontroleerd om te zien als herverdeling nodig op basis van het geconfigureerde gewenste niveau van verdelen voor een andere metrische gegevens is. Als dit het geval probeert een rangschikking in het cluster dat is meer in evenwicht te vinden.
+1. Plaatsing: deze fase worden behandeld met een stateful replica's of stateless exemplaren die ontbreken. Plaatsing bevat nieuwe services en verwerken van stateful replica's of stateless exemplaren die zijn mislukt. Verwijderen en het verwijderen van replica's of -exemplaren worden hier verwerkt.
+2. Beperking wordt gecontroleerd: deze fase controleert en corrigeert schendingen van de verschillende plaatsingsbeperkingen (regels) binnen het systeem. Voorbeelden van regels zijn dingen als u ervoor te zorgen dat knooppunten niet overbelast zijn en dat de plaatsingsbeperkingen van een service is voldaan.
+3. Netwerktaakverdeling: deze fase wordt gecontroleerd om te zien of herverdeling nodig op basis van het geconfigureerde gewenste niveau saldo voor verschillende metrische gegevens. Als dit het geval wordt geprobeerd een rangschikking vinden in het cluster dat is meer met gelijke taakverdeling.
 
-## <a name="configuring-cluster-resource-manager-timers"></a>Cluster Resource Manager Timers configureren
-De eerste set besturingselementen rond de taakverdeling van een reeks timers zijn. Deze timers bepalen hoe vaak de Cluster Resource Manager onderzoekt het cluster en neemt corrigerende maatregelen.
+## <a name="configuring-cluster-resource-manager-timers"></a>Cluster Resource Manager-Timers configureren
+De eerste set besturingselementen om netwerktaakverdeling zijn een set van timers. Deze timers bepalen hoe vaak met Cluster Resource Manager onderzoekt van het cluster en voert corrigerende acties uit.
 
-Elk van deze andere typen van de Cluster Resource Manager kunt aanbrengen correcties wordt beheerd door een andere timer die de frequentie bepaalt. Wanneer elke timer wordt gestart, wordt de taak is gepland. Standaard de Resource Manager:
+Elk van deze soorten correcties met Cluster Resource Manager maken kunt wordt bepaald door een andere timer die geldt voor de frequentie ervan. Wanneer de timer wordt geactiveerd, wordt de taak is gepland. Standaard de Resource Manager:
 
-* de status wordt gescand en past updates (zoals opname die een knooppunt niet actief is) elke 1/10 van een seconde
-* stelt de vlag voor plaatsing selectievakje 
-* stelt de vlag voor het controleren van beperking per seconde
-* stelt de vlag voor taakverdeling om de vijf seconden.
+* controleert de status en past updates (zoals de opnamen die een knooppunt niet beschikbaar is) op elke 1/10e van een seconde
+* Hiermee stelt u de plaatsing van controle-vlag 
+* Hiermee stelt u de beperking check-vlag per seconde
+* Hiermee stelt u de vlag voor taakverdeling om de vijf seconden.
 
 Voorbeelden van de configuratie van deze timers bestuur zijn hieronder:
 
@@ -53,7 +53,7 @@ ClusterManifest.xml:
         </Section>
 ```
 
-gehoste clusters via ClusterConfig.json voor zelfstandige implementaties of Template.json voor Azure:
+via ClusterConfig.json voor implementaties met zelfstandige of Template.json voor Azure die worden gehost clusters:
 
 ```json
 "fabricSettings": [
@@ -81,16 +81,16 @@ gehoste clusters via ClusterConfig.json voor zelfstandige implementaties of Temp
 ]
 ```
 
-Vandaag voert de Cluster Resource Manager alleen een van deze acties op een tijdstip sequentieel worden verwerkt. Daarom is deze timers als 'minimale intervallen' en de acties die ophalen uitgevoerd wanneer de timers uitschakelen als 'instelling vlaggen gaat'. Bijvoorbeeld, zorgt de Cluster Resource Manager voor in behandeling zijnde aanvragen voor het maken van services voordat het cluster verdelen. Zoals u door de standaard tijdsintervallen opgegeven zien kunt, wordt de Cluster Resource Manager voor alles moet worden regelmatig scant. Dit betekent doorgaans dat de set wijzigingen die zijn aangebracht tijdens elke stap klein is. Kleine wijzigingen vaak maken, kunt de Cluster Resource Manager worden reageren als er dingen optreden in het cluster. De standaard timers bieden sommige batchverwerking omdat veel van dezelfde typen gebeurtenissen meestal tegelijkertijd optreden. 
+Vandaag nog met Cluster Resource Manager voert alleen uit een van deze acties op een tijdstip sequentieel worden verwerkt. Dit is de reden waarom we naar deze timers als 'minimale intervallen' en de acties die u uitgevoerd verwijzen wanneer de timers uitschakelen als 'vlaggen voor instelling gaat'. Bijvoorbeeld, zorgt met Cluster Resource Manager in behandeling zijnde aanvragen voor het maken van services voordat u Netwerktaakverdeling van het cluster. Zoals u door de standaard-tijdsintervallen die is opgegeven ziet, wordt de Cluster Resource Manager scant voor alles wat nodig is om u te vaak doen. Dit betekent doorgaans dat de set wijzigingen tijdens elke stap klein is. Kleine wijzigingen vaak maken, kunt de Cluster Resource Manager niet meer reageert wanneer dingen in het cluster gebeuren. De standaard-timers bieden via batchverwerking uitvoeren omdat er veel van dezelfde typen gebeurtenissen meestal tegelijk worden uitgevoerd. 
 
-Bijvoorbeeld, wanneer knooppunten uitvallen ze dus hele domeinen met fouten per keer kunnen doen. Alle deze fouten worden vastgelegd tijdens de volgende status bijwerken nadat u hebt de *PLBRefreshGap*. De correcties zijn vastgelegd tijdens de plaatsing van volgende check-beperking, en Netwerktaakverdeling wordt uitgevoerd. De Cluster Resource Manager is niet standaard scannen via uren van wijzigingen in het cluster en probeert om alle wijzigingen in één keer. In dat geval zou leiden tot lichtflitsen verloop.
+Bijvoorbeeld, als knooppunten uitvallen, ze kunnen dus hele domeinen met fouten doen op een tijdstip. Al deze fouten worden vastgelegd tijdens de volgende status bijwerken nadat u hebt de *PLBRefreshGap*. De correcties zijn vastgelegd tijdens de volgende plaatsing, check-beperking, en taakverdeling wordt uitgevoerd. Cluster Resource Manager is niet standaard scannen via de uren van wijzigingen in het cluster en probeert om alle wijzigingen in één keer. In dat geval zou leiden tot pieken van het verloop.
 
-De Cluster Resource Manager moet ook aanvullende informatie om te bepalen of het cluster imbalanced. Voor die we hebben twee andere delen van configuratie: *BalancingThresholds* en *ActivityThresholds*.
+Cluster Resource Manager moet ook aanvullende informatie om te bepalen of het cluster imbalanced. Voor die we hebben twee andere onderdelen van de configuratie: *BalancingThresholds* en *ActivityThresholds*.
 
 ## <a name="balancing-thresholds"></a>Drempelwaarden voor netwerktaakverdeling
-Een drempelwaarde Balancing is het belangrijkste besturingselement voor activering van herverdeling. De drempelwaarde voor taakverdeling voor een metriek is een _verhouding_. Als de belasting voor een metriek op het meest geladen knooppunt gedeeld door de hoeveelheid belasting op het knooppunt minste geladen groter is dan deze metriek *BalancingThreshold*, dan is het cluster imbalanced. Als gevolg hiervan balancing, wordt de volgende keer dat de Cluster Resource Manager controleert geactiveerd. De *MinLoadBalancingInterval* timer definieert hoe vaak de Cluster Resource Manager moet controleren als herverdeling nodig is. Controleren betekent niet dat iets gebeurt. 
+Een drempel voor netwerktaakverdeling is het belangrijkste besturingselement voor het activeren van herverdelen. De drempelwaarde voor taakverdeling voor een metrische waarde is een _verhouding_. Als de belasting voor metrische gegevens op het meest geladen knooppunt gedeeld door de hoeveelheid belasting op het minste geladen knooppunt groter is dan van dat metriek *BalancingThreshold*, en vervolgens het cluster imbalanced is. Als gevolg hiervan taakverdeling, wordt de volgende keer dat de Cluster Resource Manager controleert geactiveerd. De *MinLoadBalancingInterval* timer wordt gedefinieerd hoe vaak met Cluster Resource Manager moet controleren als herverdeling nodig is. Controle van betekent niet dat er iets gebeurt. 
 
-Drempelwaarden voor taakverdeling worden gedefinieerd op basis van per metriek als onderdeel van de definitie van de cluster. Bekijk voor meer informatie over metrische gegevens [in dit artikel](service-fabric-cluster-resource-manager-metrics.md).
+Taakverdeling drempelwaarden zijn gedefinieerd op basis van per metrische gegevens als onderdeel van de clusterdefinitie van de. Bekijk voor meer informatie over metrische gegevens [in dit artikel](service-fabric-cluster-resource-manager-metrics.md).
 
 ClusterManifest.xml
 
@@ -101,7 +101,7 @@ ClusterManifest.xml
     </Section>
 ```
 
-gehoste clusters via ClusterConfig.json voor zelfstandige implementaties of Template.json voor Azure:
+via ClusterConfig.json voor implementaties met zelfstandige of Template.json voor Azure die worden gehost clusters:
 
 ```json
 "fabricSettings": [
@@ -122,33 +122,33 @@ gehoste clusters via ClusterConfig.json voor zelfstandige implementaties of Temp
 ```
 
 <center>
-![Voorbeeld van taakverdeling drempelwaarde][Image1]
+![Voorbeeld van de drempelwaarde voor netwerktaakverdeling][Image1]
 </center>
 
-In dit voorbeeld wordt elke service één eenheid van sommige metriek verbruikt. In het bovenste voorbeeld wordt de maximale belasting van een knooppunt is vijf en de minimale is twee. Stel de drempelwaarde voor taakverdeling voor deze metriek is drie. Aangezien de verhouding in het cluster is 5/2 = 2,5 en dat is kleiner dan de opgegeven drempelwaarde van drie, het cluster is taakverdeling. Er is geen balancing wordt geactiveerd wanneer de Cluster Resource Manager controleert.
+In dit voorbeeld wordt elke service sommige metrische gegevens voor één eenheid verbruikt. In het bovenste voorbeeld wordt de maximale belasting van een knooppunt is vijf en de minimumwaarde is twee. Stel de drempelwaarde voor taakverdeling voor deze metrische gegevens is drie. Omdat de verhouding in het cluster is 5/2 = 2,5 en dat is minder dan de opgegeven drempelwaarde van drie, het cluster is taakverdeling. Er zijn geen taakverdeling wordt geactiveerd wanneer de Cluster Resource Manager controleert.
 
-De maximale belasting van een knooppunt is in het voorbeeld onder 10, terwijl de minimaal twee, wat resulteert in een ratio van vijf. Vijf is groter dan de drempelwaarde voor aangewezen taakverdeling van drie voor deze metrische gegevens. Als gevolg hiervan zijn een herverdeling uitvoeren geplande zodra de taakverdeling timer wordt geactiveerd. In een dergelijke situatie wordt meestal sommige load gedistribueerd naar Knooppunt3. Omdat de Service Fabric Cluster Resource Manager biedt geen een greedy benadering gebruiken, kan sommige load ook worden gedistribueerd naar knooppunt2. 
+In het voorbeeld onder is de maximale belasting van een knooppunt 10, terwijl de minimumwaarde twee is, wat resulteert in een ratio van vijf. Vijf is groter dan de aangewezen drempelwaarde voor taakverdeling van drie voor deze metrische gegevens. Als gevolg hiervan zijn een herverdeling uitvoeren geplande zodra de taakverdeling timer wordt geactiveerd. In een dergelijke situatie wordt meestal enkele load gedistribueerd naar Knooppunt3. Omdat de Service Fabric Cluster Resource Manager biedt geen een greedy benadering gebruiken, kan sommige load ook worden gedistribueerd naar knooppunt2. 
 
 <center>
 ![Taakverdeling drempelwaarde voorbeeld acties][Image2]
 </center>
 
 > [!NOTE]
-> Twee verschillende strategieën voor het beheren van laden in het cluster 'Balancing' worden verwerkt. De standaard-strategie die gebruikmaakt van de Cluster Resource Manager is om te verdelen over de knooppunten in het cluster. De andere strategie is [defragmentatie](service-fabric-cluster-resource-manager-defragmentation-metrics.md). Defragmentatie wordt uitgevoerd tijdens de dezelfde verdeling. De strategieën taakverdeling en defragmentatie kunnen worden gebruikt voor andere metrische gegevens in hetzelfde cluster. Een service kunt taakverdeling en defragmentatie metrische gegevens hebben. Voor defragmentatie metrische gegevens en de verhouding van de belasting in het cluster activeert wanneer deze herverdeling _hieronder_ de drempelwaarde voor taakverdeling. 
+> "Balancing" twee verschillende strategieën voor het beheren van laden in het cluster worden verwerkt. De standaardstrategie die gebruikmaakt van Cluster Resource Manager is verdelen over de knooppunten in het cluster. De andere strategie bestaat uit [defragmentatie](service-fabric-cluster-resource-manager-defragmentation-metrics.md). Defragmentatie wordt uitgevoerd tijdens de dezelfde balancing. De taakverdeling en defragmentatie strategieën kunnen worden gebruikt voor verschillende metrische gegevens binnen hetzelfde cluster. Een service kan metrische gegevens over taakverdeling en defragmentatie hebben. Voor defragmentatie metrische gegevens, de verhouding van het laden in het cluster wordt geactiveerd wanneer het herverdelen _hieronder_ de drempel voor taakverdeling. 
 >
 
-Onder de drempel van taakverdeling ophalen is niet een expliciete doel. Taakverdeling drempelwaarden zijn slechts een *trigger*. De taakverdeling wordt uitgevoerd, bepaalt de Cluster Resource Manager welke verbeteringen in deze maken kan, indien van toepassing. Omdat een taakverdeling zoekopdracht is gestarte betekent niet dat alles wordt verplaatst. Soms is het cluster imbalanced maar te beperkte om op te lossen. U kunt ook de verbeteringen verplaatsingen die te zijn vereisen [kostbare](service-fabric-cluster-resource-manager-movement-cost.md)).
+Onder de drempel van taakverdeling ophalen is niet een expliciete doel. Taakverdeling drempelwaarden zijn slechts een *trigger*. De taakverdeling wordt uitgevoerd, bepaalt de Cluster Resource Manager welke verbeteringen die kan worden gemaakt, indien van toepassing. Alleen omdat een taakverdeling zoekopdracht wordt gestart betekent niet dat alles wordt verplaatst. Het cluster is soms imbalanced, maar ook beperkte om op te lossen. U kunt ook de verbeteringen verplaatsingen die te zijn vereisen [kostbare](service-fabric-cluster-resource-manager-movement-cost.md)).
 
-## <a name="activity-thresholds"></a>Drempelwaarden voor de activiteit
-Soms, hoewel de knooppunten zijn relatief imbalanced de *totale* hoeveelheid laden in het cluster is laag. Het ontbreken van de belasting kan een tijdelijke dip, of omdat het cluster nieuw en net ophalen is bootstrap uitvoert. In beide gevallen kunt u niet wilt laten Netwerktaakverdeling van het cluster, omdat er te weinig tijd te besteden aan. Als het cluster twee balancing, zou u netwerk hoeven te besteden aan en rekenresources objecten verplaatsen zonder dat een grote *absolute* verschil. Om te voorkomen dat onnodige wordt verplaatst, er is een ander besturingselement activiteit drempelwaarden genoemd. Drempelwaarden voor de activiteit kunt u sommige absolute ondergrens voor de activiteit opgeven. Als er geen knooppunt boven deze drempelwaarde, is niet balancing geactiveerd, zelfs als de drempelwaarde Balancing wordt voldaan.
+## <a name="activity-thresholds"></a>Activiteit drempelwaarden
+Soms, hoewel er knooppunten zijn relatief imbalanced de *totale* hoeveelheid laden in het cluster is laag. Het ontbreken van load kan een tijdelijke dip, of omdat het cluster is er nieuw en alleen ophalen er wordt opnieuw opgestart. In beide gevallen moet u mogelijk niet wilt taakverdeling van het cluster, omdat er weinig worden verkregen. Als het cluster twee taakverdeling, zou u uitgaven netwerk en rekenresources zaken herinrichten zonder dat een grote *absolute* verschil. Om te voorkomen dat onnodige wordt verplaatst, wordt er een ander besturingselement bekend als activiteit drempelwaarden. Drempelwaarden voor activiteit kunt u sommige absolute ondergrens voor activiteit opgeven. Als er geen knooppunt boven deze drempelwaarde, wordt niet taakverdeling geactiveerd, zelfs als de drempelwaarde voor netwerktaakverdeling wordt voldaan.
 
-Stel dat we onze drempelwaarde Balancing van drie voor deze metrische gegevens behouden. Stel ook dat we hebben een drempel voor de activiteit van 1536. In het eerste geval terwijl het cluster is imbalanced per de drempelwaarde Balancing er is geen knooppunt voldoet aan deze drempelwaarde activiteit zodat er niets gebeurt. In het voorbeeld onder is knooppunt1 hoger dan de drempelwaarde voor de activiteit. Omdat zowel de drempelwaarde voor netwerktaakverdeling en de activiteit drempelwaarde voor de metriek zijn overschreden, is balancing gepland. Een voorbeeld: Bekijk het volgende diagram: 
+Stel dat we onze drempelwaarde Balancing drie voor deze metrische gegevens bewaren. Ook Stel dat we hebben een drempel voor de activiteit van 1536. In het eerste geval is, terwijl de cluster is imbalanced per de netwerktaakverdeling drempelwaarde er kan geen knooppunt voor voldoet aan deze drempelwaarde activiteit, zodat er niets gebeurt. In het voorbeeld onder is knooppunt1 hoger dan de drempelwaarde voor de activiteit. Omdat zowel de drempel voor taakverdeling en de activiteit drempelwaarde voor de metrische gegevens zijn overschreden, is taakverdeling gepland. Een voorbeeld: Bekijk het volgende diagram: 
 
 <center>
 ![Voorbeeld van de activiteit drempelwaarde][Image3]
 </center>
 
-Net als de drempelwaarden voor netwerktaakverdeling zijn activiteit drempelwaarden gedefinieerde per-meetwaarde via de definitie van het cluster:
+Net zoals Netwerktaakverdeling drempelwaarden, drempels activiteit per-rekenmodel via de clusterdefinitie van de zijn:
 
 ClusterManifest.xml
 
@@ -158,7 +158,7 @@ ClusterManifest.xml
     </Section>
 ```
 
-gehoste clusters via ClusterConfig.json voor zelfstandige implementaties of Template.json voor Azure:
+via ClusterConfig.json voor implementaties met zelfstandige of Template.json voor Azure die worden gehost clusters:
 
 ```json
 "fabricSettings": [
@@ -174,41 +174,41 @@ gehoste clusters via ClusterConfig.json voor zelfstandige implementaties of Temp
 ]
 ```
 
-Taakverdeling en activiteit drempelwaarden zijn beide gekoppeld aan een specifieke metric - balancing alleen als de drempelwaarde voor netwerktaakverdeling en de activiteit drempelwaarde is overschreden voor dezelfde metric wordt geactiveerd.
+Drempelwaarden voor taakverdeling en activiteit zijn beide gekoppeld aan een bepaalde meetwaarde - balancing alleen als de drempelwaarde voor taakverdeling en de activiteit drempelwaarde is overschreden voor de dezelfde metrische gegevens wordt geactiveerd.
 
 > [!NOTE]
-> Wanneer niet wordt opgegeven, is de netwerktaakverdeling drempelwaarde voor een metriek 1 en de drempelwaarde voor de activiteit is 0. Dit betekent dat de Cluster Resource Manager wordt geprobeerd te houden die metriek perfect met gelijke taakverdeling voor een bepaalde belasting. Als u van aangepaste metrische gegevens gebruikmaakt is het raadzaam om uw eigen drempelwaarden voor taakverdeling en activiteit expliciet te definiëren voor de metrische gegevens van uw. 
+> Als niet is opgegeven, is de drempel voor taakverdeling voor een metrische waarde 1, en de drempelwaarde voor de activiteit is ingesteld op 0. Dit betekent dat Cluster Resource Manager wordt geprobeerd om te houden die perfect evenwicht voor een elke belasting door bepaalde meetwaarde. Als u aangepaste metrische gegevens is het aanbevolen dat u uw eigen drempelwaarden voor taakverdeling en activiteit expliciet voor uw metrische gegevens definieert. 
 >
 
-## <a name="balancing-services-together"></a>Services Netwerktaakverdeling samen
-Hiermee wordt aangegeven of het cluster imbalanced is of niet is een beslissing gehele cluster. De manier waarop wij gaat over het oplossen van het is echter afzonderlijke service replica's en -exemplaren rond verplaatsen. Dit klinkt logisch, toch? Als het geheugen is up gestapelde op één knooppunt, meerdere replica's of exemplaren kunnen een bijdrage leveren aan het. De onbalans is hersteld nodig zijn de stateful-replica's of stateless exemplaren die gebruikmaken van de imbalanced metrische gegevens te verplaatsen.
+## <a name="balancing-services-together"></a>Samen Balancing-services
+Of het cluster imbalanced is of niet is een beslissing brede, door het cluster. De manier waarop we gaat over het oplossen van het is echter afzonderlijke service-replica's en exemplaren rond verplaatsen. Dit klinkt logisch, toch? Als geheugen is op één knooppunt van gestapeld, meerdere replica's of exemplaren kunnen een bijdrage leveren aan deze. De imbalance vaststelling nodig verplaatsen van een van de stateful replica's of stateless exemplaren die gebruikmaken van de imbalanced metrische gegevens.
 
-Tijd tot tijd al een service die is niet van zichzelf imbalanced opgehaald verplaatst (Vergeet niet de bespreking van de lokale en globale gewicht eerder). Waarom zou een service verplaatst wanneer alle metrische gegevens van de service zijn verdeeld? We bekijken een voorbeeld:
+Af en toe als een service die is niet van zichzelf imbalanced opgehaald verplaatst (Houd er rekening mee de discussie van lokale en globale gewicht eerder). Waarom zou een service ophalen verplaatst wanneer alle metrische gegevens van de service zijn verdeeld? We bekijken een voorbeeld:
 
-- Stel dat er zijn vier services, Service1, Service2 Service3 en Service4. 
-- Service1 rapporten metrische gegevens Metric1 en Metric2. 
-- Service2 rapporten metrische gegevens Metric2 en Metric3. 
-- Service3 rapporteert metrische gegevens Metric3 en Metric4.
+- Stel dat er zijn vier services, Service1, Service2, Service3 en Service4. 
+- Metrische gegevens Metric1 en Metric2 Service1-rapporten. 
+- Metrische gegevens Metric2 en Metric3 Service2-rapporten. 
+- Metrische gegevens Metric3 en Metric4 Service3-rapporten.
 - Service4 metrische Metric99 rapporteert. 
 
-U kunt nietwaar zien waar gaan we hier: Er is een keten! Er zijn momenteel geen echt vier onafhankelijke services, hebben we drie services die zijn gerelateerd en één die is uitgeschakeld op zichzelf.
+U kunt staren zien waar we hier gaan: Er is een keten. Er zijn geen echt vier onafhankelijke services, er zijn drie services die zijn gekoppeld en dat is uitgeschakeld op een eigen.
 
 <center>
-![Services Netwerktaakverdeling samen][Image4]
+![Samen Balancing-Services][Image4]
 </center>
 
-Vanwege deze keten is het mogelijk dat een onbalans in metrics 1-4 ertoe leiden dat replica's of exemplaren die horen bij services 1-3 om te navigeren. We ook weten dat een onbalans in Metrics 1, 2 of 3 verplaatsingen van het type kan niet in Service4 veroorzaken. Er zijn geen punt sinds het verplaatsen van de replica's of exemplaren die horen bij Service4 rond helemaal geen invloed op het saldo van metrische gegevens 1-3 kunnen doen.
+Vanwege deze keten is het mogelijk dat een uit balans zijn metrische gegevens over 1-4 ervoor zorgen dat replica's of -exemplaren die behoren tot de services 1-3 om te navigeren. Ook weten dat een uit balans zijn metrische gegevens over 1, 2 of 3 verplaatsingen van het type niet kan in Service4 veroorzaken. Er is geen punt sinds het verplaatsen van de replica's of instanties die behoren tot Service4 rond helemaal geen invloed hebben op het saldo van metrische gegevens over 1-3 kunnen doen.
 
-De Cluster Resource Manager automatisch weten welke services zijn gerelateerd te achterhalen. Toevoegen, verwijderen of wijzigen van de metrische gegevens voor services kan invloed hebben op hun relaties. Bijvoorbeeld, tussen twee uitvoert balancing Service2 mogelijk zijn bijgewerkt voor het verwijderen van Metric2. Hiermee wordt de keten tussen Service1 en Service2 verbroken. In plaats van twee groepen van gerelateerde services zijn er nu drie:
+Cluster Resource Manager wordt automatisch zoekt uit welke services zijn gerelateerd. Toe te voegen, te verwijderen of wijzigen van de metrische gegevens voor services kan invloed hebben op hun relaties. Bijvoorbeeld, tussen twee uitvoeringen van netwerktaakverdeling Service2 mogelijk zijn bijgewerkt als u wilt verwijderen van Metric2. Hiermee wordt de keten tussen Service1 en Service2 verbroken. In plaats van twee groepen met gerelateerde services zijn er nu drie:
 
 <center>
-![Services Netwerktaakverdeling samen][Image5]
+![Samen Balancing-Services][Image5]
 </center>
 
 ## <a name="next-steps"></a>Volgende stappen
-* Metrische gegevens zijn hoe de Service Fabric-Cluster Resource Manager beheert gebruiks- en capaciteit in het cluster. Bekijk voor meer informatie over metrische gegevens en het configureren ervan [in dit artikel](service-fabric-cluster-resource-manager-metrics.md)
-* Verplaatsingskosten is één manier om de Cluster Resource Manager-signalering dat bepaalde services zijn duurder dan de andere verplaatsen. Raadpleeg voor meer informatie over verplaatsingskosten, [in dit artikel](service-fabric-cluster-resource-manager-movement-cost.md)
-* De Cluster Resource Manager bevat verschillende vertragingen die u configureren kunt voor het verloop in het cluster vertragen. Ze dat niet normaal gesproken nodig zijn, maar als u deze nodig hebt vindt u meer informatie hierover [hier](service-fabric-cluster-resource-manager-advanced-throttling.md)
+* Metrische gegevens zijn hoe gebruiks- en capaciteit in het cluster worden beheerd door de Service Fabric-Cluster Resource Manager. Bekijk voor meer informatie over metrische gegevens en hoe u ze configureert, [in dit artikel](service-fabric-cluster-resource-manager-metrics.md)
+* Kosten voor gegevensverplaatsing is één manier om naar de Cluster Resource Manager-signalering dat bepaalde services zijn duurder dan de andere verplaatsen. Raadpleeg voor meer informatie over de kosten voor gegevensverplaatsing, [in dit artikel](service-fabric-cluster-resource-manager-movement-cost.md)
+* Cluster Resource Manager heeft verschillende beperkingen die u configureren kunt voor het verloop in het cluster vertragen. Ze zijn niet normaal gesproken nodig, maar als u deze nodig hebt vindt u informatie over deze [hier](service-fabric-cluster-resource-manager-advanced-throttling.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
 [Image2]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-threshold-triggered-results.png

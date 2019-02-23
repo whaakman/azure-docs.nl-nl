@@ -11,18 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/22/2019
 ms.author: juliako
-ms.openlocfilehash: 09de372ffdb48c00fde9a43c07f8f8b574462d1f
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 18e629571a45046e5cf54996cd38b425c999ee36
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56405714"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737634"
 ---
 # <a name="define-account-filters-and-asset-filters"></a>Accountfilters en asset filters definiëren  
 
-Wanneer uw inhoud levert aan klanten (streaming Live gebeurtenissen of Video on Demand) is de client mogelijk meer flexibiliteit dan wat wordt beschreven in het manifestbestand van de standaard-asset. Azure Media Services kunt u accountfilters en filters actief voor uw inhoud definiëren. 
+Wanneer uw inhoud levert aan klanten (Live Streaming-gebeurtenissen of Video on Demand) is de client mogelijk meer flexibiliteit dan wat wordt beschreven in het manifestbestand van de standaard-asset. Azure Media Services kunt u accountfilters en filters actief voor uw inhoud definiëren. 
 
 Filters zijn serverzijde regels waarmee uw klanten voor handelingen zoals: 
 
@@ -38,8 +38,7 @@ De volgende tabel ziet u enkele voorbeelden van URL's met filters:
 
 |Protocol|Voorbeeld|
 |---|---|
-|HLS V4-PROCESSORS|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl,filter=myAccountFilter)`|
-|HLS V3|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,filter=myAccountFilter)`|
+|HLS|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl,filter=myAccountFilter)`<br/>Gebruik voor HLS-v3: `format=m3u8-aapl-v3`.|
 |MPEG DASH|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=myAssetFilter)`|
 |Smooth Streaming|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=myAssetFilter)`|
 
@@ -62,22 +61,22 @@ U de volgende eigenschappen voor het beschrijven van de filters gebruiken.
 |presentationTimeRange|Het tijdsbereik van de presentatie. Deze eigenschap wordt gebruikt voor het filteren van manifest start/eindpunten, de lengte van de presentatie-venster en de beginpositie van live. <br/>Zie voor meer informatie, [PresentationTimeRange](#PresentationTimeRange).|
 |sporen te wissen|De voorwaarden van de nummers selectie. Zie voor meer informatie, [sporen te wissen](#tracks)|
 
-### <a name="presentationtimerange"></a>PresentationTimeRange
+### <a name="presentationtimerange"></a>presentationTimeRange
 
 Gebruik deze eigenschap met **Asset Filters**. Het is niet raadzaam om in te stellen de eigenschap met de **Accountfilters**.
 
 |Name|Description|
 |---|---|
-|**endTimestamp**|De grens van de absolute end-tijd. Van toepassing op Video on Demand (VoD). Voor de Live presentatie, wordt deze op de achtergrond genegeerd en toegepast wanneer de presentatie-ends en de stroom wordt weergegeven als VoD.<br/><br/>De waarde vertegenwoordigt een absolute eindpunt van de stroom. Dit wordt afgerond naar de dichtstbijzijnde volgende GOP starten.<br/><br/>Gebruik StartTimestamp en EndTimestamp waaruit de afspeellijst (manifest). Bijvoorbeeld, StartTimestamp = 40000000 en EndTimestamp = 100000000 een afspeellijst met media tussen StartTimestamp en EndTimestamp wordt gegenereerd. Als een fragment de grens gevestigd, wordt het hele fragment worden opgenomen in het manifest.<br/><br/>Zie ook de **forceEndTimestamp** definitie die volgt.|
-|**forceEndTimestamp**|Van toepassing op actieve filters.<br/><br/>**forceEndTimestamp** is de Booleaanse waarde die aangeeft of **endTimestamp** is ingesteld op een geldige waarde. <br/><br/>Als de waarde **waar**, wordt de **endTimestamp** waarde moet worden opgegeven. Als deze niet is opgegeven, wordt een onjuiste aanvraag geretourneerd.<br/><br/>Als bijvoorbeeld, u wilt definiëren van een filter op dat bij 5 minuten in de video-invoer begint en duurt tot het einde van de stroom, u stelt **forceEndTimestamp** op onwaar en laat de instelling **endTimestamp**.|
-|**liveBackoffDuration**|Geldt alleen voor Live. De eigenschap wordt gebruikt voor het afspelen van live positie definiëren. Deze regel gebruikt, kunt u live afspelen positie vertraging en maken van een buffer-serverzijde voor spelers. LiveBackoffDuration is ten opzichte van de live positie. De duur van de maximale live uitstel is 300 seconden.|
-|**presentationWindowDuration**|Van toepassing op Live. Gebruik **presentationWindowDuration** een sliding window toepassen op de afspeellijst. Bijvoorbeeld, stel presentationWindowDuration = 1200000000 om toe te passen een sliding window van twee minuten. Media binnen twee minuten van de rand van het live worden opgenomen in de afspeellijst. Als een fragment de grens gevestigd, wordt het hele fragment worden opgenomen in de afspeellijst. De duur van het venster minimale presentatie is 60 seconden.|
-|**startTimestamp**|Geldt voor VoD- of Live streams. De waarde vertegenwoordigt een absolute beginpunt van de stroom. De waarde wordt afgerond naar de dichtstbijzijnde volgende GOP starten.<br/><br/>Gebruik **startTimestamp** en **endTimestamp** waaruit de afspeellijst (manifest). Bijvoorbeeld, startTimestamp = 40000000 en endTimestamp = 100000000 een afspeellijst met media tussen StartTimestamp en EndTimestamp wordt gegenereerd. Als een fragment de grens gevestigd, wordt het hele fragment worden opgenomen in het manifest.|
-|**timescale**|Geldt voor VoD- of Live streams. De tijdschaal die worden gebruikt door de tijdstempels en de hierboven opgegeven duur. De standaard-tijdschaal is 10000000. Een alternatieve tijdschaal kan worden gebruikt. De standaardwaarde is 10000000 HNS (100 nanoseconden).|
+|**endTimestamp**|Van toepassing op Video on Demand (VoD).<br/>Voor de presentatie Live Streaming, wordt deze op de achtergrond genegeerd en toegepast wanneer de presentatie-ends en de stroom wordt weergegeven als VoD.<br/>Dit is een long-waarde die een absolute eindpunt van de presentatie, afgerond op het dichtstbijzijnde volgende GOP begin vertegenwoordigt. De eenheid is de tijdschaal, dus een endTimestamp van 1800000000 voor de 3 minuten is.<br/>Gebruik startTimestamp en endTimestamp waaruit de fragmenten die weergegeven in de afspeellijst (manifest worden).<br/>Bijvoorbeeld, startTimestamp = 40000000 en endTimestamp 100000000 = een afspeellijst met fragmenten tussen 4 seconden en 10 seconden van de presentatie VoD met behulp van de standaard-tijdschaal wordt gegenereerd. Als een fragment de grens gevestigd, wordt het hele fragment worden opgenomen in het manifest.|
+|**forceEndTimestamp**|Is van toepassing alleen Live streamen.<br/>Geeft aan of de eigenschap endTimestamp aanwezig zijn moet. Indien waar, endTimestamp moet worden opgegeven of een onjuiste aanvraagcode wordt geretourneerd.<br/>Toegestane waarden: false, true.|
+|**liveBackoffDuration**|Is van toepassing alleen Live streamen.<br/> Deze waarde bepaalt de meest recente live positie aan die een client kan worden gezocht tot.<br/>Deze eigenschap gebruikt, kunt u live afspelen positie vertraging en maken van een buffer-serverzijde voor spelers.<br/>De eenheid voor deze eigenschap is tijdschaal (Zie hieronder).<br/>Het maximum live uitstel duur is 300 seconden (3000000000).<br/>Bijvoorbeeld: een waarde van 2000000000 betekent dat de meest recente inhoud 20 seconden vertraagd ten opzichte van de rand van het werkelijke live is.|
+|**presentationWindowDuration**|Is van toepassing alleen Live streamen.<br/>Gebruik presentationWindowDuration om toe te passen een sliding window van fragmenten om op te nemen in een afspeellijst vindt.<br/>De eenheid voor deze eigenschap is tijdschaal (Zie hieronder).<br/>Bijvoorbeeld, stel presentationWindowDuration = 1200000000 om toe te passen een sliding window van twee minuten. Media binnen twee minuten van de rand van het live worden opgenomen in de afspeellijst. Als een fragment de grens gevestigd, wordt het hele fragment worden opgenomen in de afspeellijst. De duur van het venster minimale presentatie is 60 seconden.|
+|**startTimestamp**|Van toepassing op Video on Demand (VoD) of Live Streaming.<br/>Dit is een long-waarde die een absolute beginpunt van de stroom vertegenwoordigt. De waarde wordt afgerond naar de dichtstbijzijnde volgende GOP starten. De eenheid is de tijdschaal, dus een startTimestamp van 150000000 15 seconden is.<br/>Gebruik startTimestamp en endTimestampp waaruit de fragmenten die weergegeven in de afspeellijst (manifest worden).<br/>Bijvoorbeeld, startTimestamp = 40000000 en endTimestamp 100000000 = een afspeellijst met fragmenten tussen 4 seconden en 10 seconden van de presentatie VoD met behulp van de standaard-tijdschaal wordt gegenereerd. Als een fragment gevestigd de grens, worden de hele fragment opgenomen in het manifest|
+|**timescale**|Het is van toepassing op alle tijdstempels en de duur in het tijdsbereik van een presentatie, opgegeven als het aantal stappen in één seconde.<br/>Standaard is 10000000 - tien miljoen stappen in één seconde, waarbij elke incrementele eenheden van 100 nanoseconden lang kan worden.<br/>Bijvoorbeeld, als u een startTimestamp ingesteld op 30 seconden wilt, zou u een waarde van 300000000 bij het gebruik van de standaard-tijdschaal.|
 
 ### <a name="tracks"></a>sporen te wissen
 
-U geeft een lijst met filter bijhouden Eigenschapvoorwaarden (FilterTrackPropertyConditions) op basis van waarop de nummers van uw stream (Live of Video on Demand) moeten worden opgenomen in de dynamisch gemaakte manifest. De filters worden gecombineerd met behulp van een logische **en** en **of** bewerking.
+U geeft een lijst met filter bijhouden Eigenschapvoorwaarden (FilterTrackPropertyConditions) op basis van waarop de nummers van uw stream (Live streamen of Video on Demand) moeten worden opgenomen in de dynamisch gemaakte manifest. De filters worden gecombineerd met behulp van een logische **en** en **of** bewerking.
 
 Eigenschap van de filtervoorwaarden bijhouden beschrijven tracktypen, waarden (in de volgende tabel beschreven) en bewerkingen (gelijk, NotEqual). 
 

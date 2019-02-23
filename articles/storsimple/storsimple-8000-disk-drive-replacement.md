@@ -1,6 +1,6 @@
 ---
-title: Vervangen van een harde schijf op een apparaat van de serie StorSimple 8000 | Microsoft Docs
-description: Legt uit hoe u een harde schijf op een primaire behuizing StorSimple of een behuizing EBOD vervangen.
+title: Vervangen van een schijf op een apparaat StorSimple 8000-reeks | Microsoft Docs
+description: Wordt uitgelegd hoe u een schijf op een primaire behuizing StorSimple of een behuizing EBOD vervangt.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -12,102 +12,102 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 073/2017
+ms.date: 8/25/2017
 ms.author: alkohli
-ms.openlocfilehash: a8616eb51b177a9447a7c466c9d934b9139afedf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d6ef22e4df36996d68194589f43ea0f57def22c
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23874890"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673919"
 ---
-# <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Vervangen van een harde schijf op uw StorSimple 8000 series apparaat
+# <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Vervang een schijfstation op de StorSimple 8000-apparaat
 
 ## <a name="overview"></a>Overzicht
-Deze zelfstudie wordt uitgelegd hoe u kunt verwijderen en vervangen door een slecht werkende of mislukte harde schijf op een Microsoft Azure StorSimple-apparaat. Ter vervanging van een harde schijf, moet u:
+In deze zelfstudie wordt uitgelegd hoe u kunt verwijderen en vervangen door een niet-functionerende of mislukte harde schijf op een Microsoft Azure StorSimple-apparaat. Ter vervanging van een schijf, moet u naar:
 
-* Werking stellen van de antitamper vergrendeling
+* De antitamper vergrendeling ontworpen
 * De schijf verwijderen
 * De vervangende schijf installeren
 
 > [!IMPORTANT]
-> Voordat verwijderen en een schijf vervangen Lees de veiligheidsinformatie in [StorSimple onderdeel Hardwarevervanging](storsimple-8000-hardware-component-replacement.md).
+> Voordat verwijderen en het vervangen van een schijf, lees de veiligheidsinformatie in [StorSimple onderdeel Hardwarevervanging](storsimple-8000-hardware-component-replacement.md).
  
 
-## <a name="disengage-the-antitamper-lock"></a>Werking stellen van de antitamper vergrendeling
-Deze procedure wordt uitgelegd hoe de antitamper vergrendelingen op uw StorSimple-apparaat kunnen worden in- of uitgeschakeld wanneer u de schijfstations vervangt. De antitamper vergrendelingen zijn aangebracht in het station carrier verwerkt en ze toegankelijk zijn via een kleine opening in de sectie vergrendeling van de greep. Schijven worden geleverd met vergrendelingen zijn ingesteld op de vergrendeling.
+## <a name="disengage-the-antitamper-lock"></a>De antitamper vergrendeling ontworpen
+Deze procedure wordt uitgelegd hoe de antitamper vergrendelingen op uw StorSimple-apparaat kunnen worden ingeschakeld of uitgeschakeld wanneer u de schijfstations vervangen. De antitamper vergrendelingen zijn aangebracht in het station carrier verwerkt en ze toegankelijk zijn via een kleine lensopening in de sectie vergrendeling van de greep. Schijven worden geleverd met de vergrendelingen ingesteld op de vergrendeling.
 
 #### <a name="to-unlock-the-antitamper-lock"></a>Voor het ontgrendelen van de antitamper vergrendeling
-1. In de ruimte in de greep en in een socket, invoegen zorgvuldig de LOCK (een 'tamperproof' T10 draai die Microsoft opgegeven). 
+1. In de ruimte in de kunnen worden verwerkt en in een socket, invoegen zorgvuldig de LOCK (een "tamperproof" T10 draai die Microsoft heeft verstrekt). 
    
-   Als de antitamper vergrendeling is geactiveerd, is de rode indicator is zichtbaar in de ruimte.
+   Als de antitamper vergrendeling is ingeschakeld, is de rode indicator is zichtbaar in de ruimte.
   
     ![Vergrendelde schijfstation](./media/storsimple-disk-drive-replacement/IC741056.png)
    
-    **Afbeelding 1** antivirusprogramma draagbare vergrendeling is ingeschakeld
+    **Afbeelding 1** tegen onrechtmatige wijzigingen vergrendeling is ingeschakeld
    
-   | Label | Beschrijving |
+   | Label | Description |
    |:--- |:--- |
-   | 1 |Indicator opening |
+   | 1 |Indicator scherpstelling |
    | 2 |Antitamper vergrendelen |
-2. De sleutel in een Linksomdraaiend richting draaien totdat de rode indicator niet zichtbaar in de opening boven de sleutel is.
+2. De sleutel in de richting van een linksom draaien totdat de rode indicator niet weergegeven in de opening boven de sleutel wordt.
 3. Verwijder de sleutel.
    
     ![Niet-vergrendelde schijfstation](./media/storsimple-disk-drive-replacement/IC741057.png)
    
     **Afbeelding 2** ontgrendeld harde schijf
-4. De harde schijf kan nu worden verwijderd.
+4. De schijf kan nu worden verwijderd.
 
-Volg de stappen in omgekeerde volgorde de vergrendeling bezighouden.
+Volg de stappen in omgekeerde volgorde contact opnemen met de vergrendeling.
 
 ## <a name="remove-the-disk-drive"></a>De schijf verwijderen
-Uw StorSimple-apparaat ondersteunt een RAID 10-achtige spaties opslagconfiguratie. Dit betekent dat het normaal gesproken met een mislukte schijf SSD-schijf (SSD werken kan) of harde schijf drive (HDD).
+Een RAID 10-achtige configuratie van opslagruimten biedt ondersteuning voor uw StorSimple-apparaat. Dit betekent dat het normaal gesproken kan werken met een niet-werkende schijf, SSD (solid-state drive), of harde schijf drive (HDD).
 
 > [!IMPORTANT]
-> * Als uw systeem meer dan één niet-werkende schijf heeft, verwijder niet meer dan één SSD of harde schijf uit het systeem op elk punt in tijd. Dit kan leiden tot verlies van gegevens.
-> * Zorg ervoor dat u een vervangende SSD plaatsen in een sleuf dat eerder een SSD bevatte. Plaats een vervangende harde schijf op dezelfde manier in een sleuf dat eerder een harde schijf bevatte.
-> * Sleuven zijn in de Azure portal genummerd van 0 – 11. Daarom als de portal ziet u een schijf in de sleuf 2 is mislukt, op het apparaat, zoekt de defecte schijf in de derde sleuf vanaf de bovenkant links.
+> * Als uw systeem meer dan één niet-werkende schijf heeft, verwijder niet meer dan één SSD of HDD uit het systeem op elk gewenst moment in-time. In dat geval kan leiden tot verlies van gegevens.
+> * Zorg ervoor dat u een vervangende SSD plaatsen in een sleuf die eerder een SSD. Op dezelfde manier een vervangende harde schijf in een site die eerder deel uitmaakt van een harde schijf plaatsen.
+> * In de Azure-portal sleuven, krijgen een nummer tussen 0 en 11. Dus als de portal ziet u dat een schijf in sleuf 2 is mislukt, klikt u op het apparaat, zoek naar de niet-werkende schijf in de derde sleuf uit links bovenin.
 > 
 > 
 
-Schijven worden verwijderd en vervangen terwijl het systeem werkt.
+Schijven kunnen worden verwijderd en vervangen terwijl het systeem wordt uitgevoerd.
 
-#### <a name="to-remove-a-drive"></a>Een station verwijderen
-1. Om te identificeren van de defecte schijf, in de Azure portal, gaat u naar het apparaat **instellingen > Hardware health**. Omdat een schijf kan niet in de primaire behuizing en/of een behuizing EBOD (als u van een model 8600 gebruikmaakt), kijk naar de status van de schijven onder **gedeelde onderdelen** en klikt u onder **EBOD gedeelde onderdelen**. Een niet-werkende schijf in de behuizing worden weergegeven met een rode status.
-2. Zoek de stations vooraan in de primaire behuizing of de EBOD behuizing. 
-3. Als de schijf ontgrendeld is, gaat u verder met de volgende stap. Als de schijf is vergrendeld, ontgrendelt u het via de volgende procedure in [werking stellen van de vergrendeling antitamper](#disengage-the-antitamper-lock).
-4. Druk op de zwarte vergrendeling op de schijf carrier module en pull-de ingang van station carrier af en opslag van het begin van het chassis.
+#### <a name="to-remove-a-drive"></a>Om een station te verwijderen
+1. Voor het identificeren van de niet-werkende schijf, in de Azure-portal, gaat u naar uw apparaat **instellingen > hardwarestatus**. Omdat een schijf kan niet in de primaire behuizing en/of in een EBOD-behuizing (als u van een model 8600 gebruikmaakt), kijk naar de status van de schijven onder **gedeelde onderdelen** en klikt u onder **gedeelde EBOD-onderdelen**. Een niet-werkende schijf in een van beide behuizing wordt weergegeven met een rode status.
+2. Zoek de schijven vooraan in de primaire behuizing of de EBOD-behuizing. 
+3. Als de schijf ontgrendeld is, gaat u verder met de volgende stap. Als de schijf is vergrendeld, ontgrendelt u deze via de volgende procedure in [werking stellen de antitamper vergrendeling](#disengage-the-antitamper-lock).
+4. Druk op de zwarte vergrendeling op het station provider-module en pull-de ingang van de provider station uit en opgeslagen uit het voorste deel van het chassis.
    
-    ![Schijfstation ingang vrijgeven](./media/storsimple-disk-drive-replacement/IC741051.png)
+    ![Vrijgeven van schijf-ingang](./media/storsimple-disk-drive-replacement/IC741051.png)
    
-    **Afbeelding 3** vrijgave van de ingang station
-5. Wanneer de ingang van de provider station volledig is uitgebreid, schuif de drager station buiten het chassis. 
+    **Afbeelding 3** vrijgeven van de greep station
+5. Wanneer de provider station ingang volledig is uitgebreid, schuift u de provider station buiten het chassis. 
    
-    ![Schijf buiten het schijfstation Verschuivend](./media/storsimple-disk-drive-replacement/IC741052.png)
+    ![Sliding schijf op basis van schijf](./media/storsimple-disk-drive-replacement/IC741052.png)
    
-    **Afbeelding 4** Verschuivend het schijfstation buiten de provider
+    **Afbeelding 4** Verschuivend van de schijf uit de provider
 
 ## <a name="install-the-replacement-disk-drive"></a>De vervangende schijf installeren
-Wanneer een station in uw StorSimple-apparaat is mislukt en u deze hebt verwijderd, volgt u deze procedure wilt vervangen door een nieuwe schijf.
+Nadat een station is mislukt in uw StorSimple-apparaat en u deze hebt verwijderd, voert u deze procedure voor het vervangen door een nieuw station.
 
-#### <a name="to-insert-a-drive"></a>Invoegen van een station
-1. Zorg ervoor dat de ingang van de provider station volledig is uitgebreid, zoals wordt weergegeven in de volgende afbeelding.
+#### <a name="to-insert-a-drive"></a>Een station invoegen
+1. Zorg ervoor dat de provider station ingang volledig is uitgebreid, zoals wordt weergegeven in de volgende afbeelding.
    
     ![Harde schijf met de ingang uitgebreid](./media/storsimple-disk-drive-replacement/IC741044.png)
    
     **Afbeelding 5** station met de ingang uitgebreid
-2. De provider station de schuifregelaar helemaal in het chassis.
+2. De provider station dia helemaal naar het chassis.
    
-    ![Schijf naar schijf carrier Verschuivend](./media/storsimple-disk-drive-replacement/IC741045.png)
+    ![Schijf naar schijf carrier schuiven](./media/storsimple-disk-drive-replacement/IC741045.png)
    
-    **Afbeelding 6** Verschuivend de station-provider in het chassis
-3. Met de drager station is geplaatst, sluit u de ingang van station carrier terwijl u de provider station in het chassis push totdat de schijf carrier ingang in een vergrendelde positie uitlijnen.
-4. Gebruik de LOCK die werd geleverd door Microsoft (tamperproof Torx draai) de ingang carrier op hun plaats door in te schakelen de installatie van de vergrendeling inschakelen van een kwartaal rechtsom.
-5. Controleer of de vervanging is gelukt en het station operationeel is. Toegang tot de Azure-portal en navigeer naar **apparaatinstellingen** > **Hardware health**. Onder **gedeelde onderdelen** of **EBOD gedeelde onderdelen**, de stationsstatus moet groen, die aangeeft of dit in orde is.
+    **Afbeelding 6** schuiven de station-provider in het chassis
+3. Met de provider voor station ingevoegd, sluit u de ingang van de provider station terwijl u verdergaat met het pushen van de vervoerder station naar het chassis, totdat de ingang van de provider station in een vergrendelde positie uitlijnen.
+4. Gebruik de LOCK die is geleverd door Microsoft (tamperproof Torx draai) voor het beveiligen van de provider-ingang in plaats door in te schakelen de installatie van de vergrendeling per kwartaal inschakelen met de klok mee.
+5. Controleer of de vervanging is geslaagd en het station operationeel is. Toegang tot de Azure portal en Ga naar **apparaatinstellingen** > **hardwarestatus**. Onder **gedeelde onderdelen** of **gedeelde EBOD-onderdelen**, de stationsstatus moet groen, waarmee wordt aangegeven dat deze in orde is.
 
    
    > [!NOTE]
-   > Het duurt enkele uren groen inschakelen na de vervanging van de schijfstatus van de.
+   > Het duurt enkele uren voor de status groen inschakelen na de vervanging.
   
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over [StorSimple onderdeel Hardwarevervanging](storsimple-8000-hardware-component-replacement.md).

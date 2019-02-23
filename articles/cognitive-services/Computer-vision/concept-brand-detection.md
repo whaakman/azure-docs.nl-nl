@@ -6,20 +6,20 @@ services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: pafarley
-ms.openlocfilehash: a5cf4a2b0f5e2e2c83e9fe6aa9237c943fa23ed9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7bfda764c418258a7bc555697530214240a5f0d3
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864798"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734316"
 ---
 # <a name="brand-detection"></a>Merk-detectie
 
-Merk-detectie is een speciale modus van [object detectie](concept-object-detection.md) die gebruikmaakt van een database van duizenden globale logo's voor het identificeren van commerciële merken in afbeeldingen en video. U kunt deze functie bijvoorbeeld gebruiken om te ontdekken welke merken zijn meest populaire op sociale media of de meest voorkomende in plaatsing van producten voor media.
+Merk-detectie is een speciale modus van [object detectie](concept-object-detection.md) die gebruikmaakt van een database van duizenden globale logo's voor het identificeren van commerciële merken in afbeeldingen en video. U kunt deze functie bijvoorbeeld gebruiken om te ontdekken welke merken het populairst zijn op sociale media of het meest voorkomen in productplaatsing in de media.
 
 De Computer Vision-service detecteert of er nog merk logo's in een bepaalde afbeelding. Als dit het geval is, wordt de merknaam, een betrouwbaarheidsscore en de coördinaten van een vak rond het logo.
 

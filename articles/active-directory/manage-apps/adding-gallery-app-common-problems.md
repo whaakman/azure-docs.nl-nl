@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89d587a71eeb75f7be567cbc29a4d77ac371e3dc
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: fe781802309ad0945eaee23c35dda1617e47ae06
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237866"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727346"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Probleem met het toevoegen van een toepassing in Azure AD-galerie
 
@@ -38,7 +38,7 @@ Soms vanwege problemen van voorbijgaande aard, netwerkproblemen of een bug mislu
 
 Als u er een fout optreedt wanneer u op de **toevoegen** knop, ziet u een **melding** in een **fout** staat. Als u meer informatie over de fout voor meer informatie op of delen met een ondersteuningsmedewerker wilt, kunt u meer informatie over de fout zien met de volgende stappen in de [hoe ziet u de details van een portalmelding](#how-to-see-the-details-of-a-portal-notification) sectie.
 
- ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Ik weet niet hoe ik het instellen van mijn toepassing nadat ik deze heb toegevoegd
+## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Ik weet niet hoe ik het instellen van mijn toepassing nadat ik deze heb toegevoegd
 
 Als u informatie over toepassingen, moet de [lijst met zelfstudies over het SaaS-Apps integreren met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) artikel is een goede plaats om te starten.
 

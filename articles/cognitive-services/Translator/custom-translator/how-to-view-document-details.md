@@ -6,15 +6,15 @@ author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: how to edit a model
-ms.openlocfilehash: e656c6dd7050851eb9885fe253ab29f4e3675216
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.topic: conceptual
+ms.openlocfilehash: ed872a00cd35fcef74ab0b578a86cdb6cd2ec8c7
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219801"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727567"
 ---
 # <a name="view-document-details"></a>Documentgegevens weergeven
 
@@ -22,7 +22,7 @@ De pagina met de lijst ziet u de eerste 10 document in uw werkruimte. Voor elk v
 
 Klik op een afzonderlijke document om de pagina met details van het document weer te geven. De pagina met details van het document wordt weergegeven de lijst met geëxtraheerde zinnen uit het document.
 
-- Standaard de 'bron' de taal in het veld vervolgkeuzelijst is geselecteerd, maar u kunt schakelen als u wilt weergeven van zinnen in de doel-taal. 
+- Standaard de 'bron' de taal in het veld vervolgkeuzelijst is geselecteerd, maar u kunt schakelen als u wilt weergeven van zinnen in de doel-taal.
 - 20 zinnen worden standaard per pagina weergegeven. U kunt het besturingselement paginering gebruiken om te navigeren tussen pagina's.
 
 ![Documentdetails](media/how-to/how-to-view-document-details.png)

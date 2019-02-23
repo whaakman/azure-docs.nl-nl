@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: 76239f80076cbe0f86d6e091a29b008a5a5d06c1
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 7f09db1f37617519926955daf0c29c13993dbf80
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116640"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728451"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Tenant-brede inzicht voor Azure Security Center
 Dit artikel helpt u aan de slag met het uitvoeren van verschillende acties die de Azure Security Center biedt voordelen maximaliseren. Deze acties worden uitgevoerd, kunt u inzicht op alle Azure-abonnementen die zijn gekoppeld aan uw Azure Active Directory-tenant en effectief beheren van de beveiligingsstatus van uw organisatie op schaal door het toepassen van beveiligingsbeleid voor meerdere krijgen abonnementen op een aggregative manier.
@@ -108,15 +108,15 @@ Voor meer zichtbaarheid voor alle abonnementen, moeten tenantbeheerders de juist
 
 
 #### <a name="assign-rbac-roles-to-users-with-powershell"></a>RBAC-rollen toewijzen aan gebruikers met PowerShell: 
-1. Installeer [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+1. Installeer [Azure PowerShell](/powershell/azure/install-az-ps).
 2. Voer de volgende opdrachten uit: 
 
     ```azurepowershell
-    # Install Management Groups Powershell module
-    Install-Module AzureRM.Resources
-    
     # Login to Azure as a Global Administrator user
-    Login-AzureRmAccount
+    Connect-AzAccount
     ```
 
 3. Wanneer u hierom wordt gevraagd, meldt u zich aan met de referenties van de globale beheerder. 
@@ -128,12 +128,12 @@ Voor meer zichtbaarheid voor alle abonnementen, moeten tenantbeheerders de juist
     ```azurepowershell
     # Add Reader role to the required user on the Root Management Group
     # Replace "user@domian.com” with the user to grant access to
-    New-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/"
+    New-AzRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/"
     ```
 5. Als u wilt verwijderen van de rol, gebruik de volgende opdracht: 
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
+    Remove-AzRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
     ```
 
 ### <a name="open-or-refresh-security-center"></a>Open of vernieuwen van Security Center
@@ -141,11 +141,16 @@ Als u toegang hebt uitgebreid, openen of vernieuwen van Azure Security Center om
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com). 
 2. Zorg ervoor dat u alle abonnementen in de lijst met abonnementen die u wilt weergeven in Security Center.
+
     ![Schermafbeelding van de abonnement-selector](./media/security-center-management-groups/subscription-selector.png)
+
 1. Selecteer **alle services** onder het Azure-hoofdmenu Selecteer **Security Center**.
-2. In de **overzicht**, bevindt zich een diagram van de dekking voor abonnement. 
+2. In de **overzicht**, bevindt zich een diagram van de dekking voor abonnement.
+
     ![Schermafbeelding van abonnement dekking grafiek](./media/security-center-management-groups/security-center-subscription-coverage.png)
+
 3. Klik op **dekking** om te zien van de lijst met abonnementen gedekt. 
+
     ![Schermafbeelding van de lijst met abonnement dekking](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="remove-elevated-access"></a>Toegang met verhoogde bevoegdheid verwijderen 

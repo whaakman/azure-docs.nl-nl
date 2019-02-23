@@ -1,7 +1,7 @@
 ---
 title: Ondersteuning voor Java Enterprise op Linux - Azure App Service | Microsoft Docs
 description: Developer's guide voor het implementeren van Java Enterprise-apps met behulp van Wildfly met Azure App Service on Linux.
-keywords: Azure appservice, web-app, linux, oss, java, wildfly, enterprise
+keywords: Azure appservice, web-app, linux, oss, java, wildfly, enterprise, java ee, jee, javaee
 services: app-service
 author: rloutlaw
 manager: angerobe
@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 408141650a11a81f0c6000c6e7927af8333e2afe
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 6618e5317db1a7a4332a35b7ee9cd74934c8a787
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548473"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737889"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Java ondernemingsgids voor App Service onder Linux
 
-Azure App Service on Linux kunnen Java-ontwikkelaars voor het bouwen, implementeren en schalen van toepassingen voor JEE (Java Enterprise) op een volledig beheerde service op basis van Linux.  De onderliggende Java Enterprise runtime-omgeving is de open-source [Wildfly](https://wildfly.org/) -toepassingsserver.
+Azure App Service on Linux kunnen Java-ontwikkelaars voor het bouwen, implementeren en schalen van Java-bedrijfstoepassingen (Java EE) op een volledig beheerde service op basis van Linux.  De onderliggende Java Enterprise runtime-omgeving is de open-source [Wildfly](https://wildfly.org/) -toepassingsserver.
 
 Deze handleiding bevat de belangrijkste concepten en instructies voor het Java-ontwikkelaars voor Linux in App Service gebruiken. Als u Java-toepassingen met Azure App Service voor Linux nooit hebt geïmplementeerd, moet u uitvoeren de [Java-quickstart](quickstart-java.md) eerste. Vragen over App Service voor Linux die niet specifiek zijn voor Java Enterprise worden beantwoord het [Java developer's guide](app-service-linux-java.md) en de [Veelgestelde vragen over App Service Linux](app-service-linux-faq.md).
 

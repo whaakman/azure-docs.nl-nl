@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: glenga
-ms.openlocfilehash: b39c8c19b494422d34bae7145d69e8e95cb16846
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 390d9dcda18e10c21db8165653faec7880863ba1
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416817"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734469"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Aan de slag met de Azure WebJobs-SDK voor verwerking op de achtergrond gebeurtenisgestuurde
 
@@ -656,7 +656,7 @@ Invoerbindingen vereenvoudigen code die gegevens leest. Bericht uit de wachtrij 
    }
    ```
 
-   In deze code `queueTrigger` is een [binding expressie](../azure-functions/functions-triggers-bindings.md#binding-expressions-and-patterns), wat betekent dat deze wordt omgezet naar een andere waarde tijdens runtime.  Tijdens runtime heeft de inhoud van het bericht uit de wachtrij.
+   In deze code `queueTrigger` is een [binding expressie](../azure-functions/functions-bindings-expressions-patterns.md), wat betekent dat deze wordt omgezet naar een andere waarde tijdens runtime.  Tijdens runtime heeft de inhoud van het bericht uit de wachtrij.
 
 1. Voeg een `using`:
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2B-samenwerking oplossen | Microsoft Docs
+title: 'B2B-samenwerking: Azure Active Directory oplossen | Microsoft Docs'
 description: Oplossingen voor veelvoorkomende problemen met Azure Active Directory B2B-samenwerking
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f69bad355bf5644988416958c4b4f32ed66714d9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f772c14f414e4e1c5401e3c85de7009355453c98
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186400"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56668527"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Oplossen van problemen met Azure Active Directory B2B-samenwerking
 
@@ -37,7 +37,7 @@ U kunt deze functie inschakelen met behulp van de instelling 'ShowPeoplePickerSu
 
 Als u een bericht dat u bent niet gemachtigd om uit te nodigen van gebruikers, moet u controleren dat uw gebruikersaccount is gemachtigd om uit te nodigen externe gebruikers onder gebruikersinstellingen:
 
-![](media/troubleshoot/external-user-settings.png)
+![Instellingen voor externe gebruikers](media/troubleshoot/external-user-settings.png)
 
 Als u deze instellingen onlangs hebt gewijzigd of de rol Gastuitnodiging toegewezen aan een gebruiker, is er mogelijk een vertraging van 15 tot 60 minuut voordat de wijzigingen van kracht.
 
@@ -49,7 +49,7 @@ Veelvoorkomende fouten zijn onder andere:
 
 Wanneer gebruikers uitnodigen waarvan organisatie gebruikmaakt van Azure Active Directory, maar waarbij de specifieke gebruikersaccount niet bestaat (bijvoorbeeld, de gebruiker bestaat niet in Azure AD-contoso.com). De beheerder van contoso.com kan beschikken over een beleid te voorkomen dat gebruikers worden gemaakt. De gebruiker moet contact op met de beheerder om te bepalen als externe gebruikers zijn toegestaan. De beheerder van de externe gebruiker wilt toestaan dat gebruikers e-mailadres geverifieerd in een domein (Zie dit [artikel](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) op zodat gebruikers een e-mailadres geverifieerd).
 
-![](media/troubleshoot/allow-email-verified-users.png)
+![Foutmelding aan dat deze tenant is niet toegestaan voor e-mailadres geverifieerde gebruikers worden toegevoegd](media/troubleshoot/allow-email-verified-users.png)
 
 ### <a name="external-user-does-not-exist-already-in-a-federated-domain"></a>Externe gebruiker bestaat niet al in een federatief domein
 

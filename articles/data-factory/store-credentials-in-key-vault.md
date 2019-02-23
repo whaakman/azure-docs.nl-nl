@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 02/22/2019
 ms.author: jingwang
-ms.openlocfilehash: ff070adbda2a36261ca24eb0cc993ca22eada1c7
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: fcd3af6c000debb8da6200205a9aa2ae61feac58
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661238"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675412"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Store-referentie in Azure Key Vault
 
@@ -26,14 +26,14 @@ Deze functie wordt op dit moment ondersteund door alle activiteitstypen, met uit
 
 ## <a name="prerequisites"></a>Vereisten
 
-Deze functie is afhankelijk van de data factory-service-identiteit. Ontdek hoe het werkt vanuit [Data factory-service-identiteit](data-factory-service-identity.md) en zorg ervoor dat uw data factory hebben een gekoppeld.
+Deze functie is afhankelijk van de identiteit van de data factory die worden beheerd. Ontdek hoe het werkt vanuit [beheerde identiteit voor de Data factory](data-factory-service-identity.md) en zorg ervoor dat uw data factory hebben een gekoppeld.
 
 ## <a name="steps"></a>Stappen
 
 Als u wilt verwijzen naar een referenties die zijn opgeslagen in Azure Key Vault, moet u naar:
 
-1. **Ophalen van data factory-service-identiteit** door de waarde van "SERVICE-identiteit TOEPASSINGS-ID gegenereerd samen met uw factory kopiëren. Als u gebruikmaakt van ADF ontwerpen van de service-identiteit ID wordt weergegeven in het venster van Azure Key Vault gekoppelde service maken;-gebruikersinterface u kunt ook het ophalen van Azure-portal verwijzen naar [ophalen van data factory-service-identiteit](data-factory-service-identity.md#retrieve-service-identity).
-2. **De service-identiteit toegang verlenen aan uw Azure Key Vault.** In uw key vault -> beleid -> toegang toevoegen -> nieuwe zoekopdracht deze servicetoepassing voor identiteit-ID te verlenen **ophalen** machtiging in de vervolgkeuzelijst geheime machtigingen. Hiermee kunt deze aangewezen factory voor toegang tot geheim in de sleutelkluis.
+1. **Ophalen van data factory beheerde identiteit** door de waarde van "SERVICE-identiteit TOEPASSINGS-ID gegenereerd samen met uw factory kopiëren. Als u ADF gebruikersinterface ontwerpen, wordt de beheerde identiteit toepassings-ID weergegeven in het venster van Azure Key Vault gekoppelde service maken. u kunt ook het ophalen van Azure-portal verwijzen naar [ophalen gegevensfactory beheerde identiteit](data-factory-service-identity.md#retrieve-managed-identity).
+2. **De beheerde identiteit toegang verlenen tot uw Azure Key Vault.** In uw key vault -> beleid -> toegang toevoegen -> nieuwe zoekopdracht dit beheerde identiteit toepassings-ID te verlenen **ophalen** machtiging in de vervolgkeuzelijst geheime machtigingen. Hiermee kunt deze aangewezen factory voor toegang tot geheim in de sleutelkluis.
 3. **Een gekoppelde service die verwijst naar uw Azure Key Vault maken.** Raadpleeg [gekoppelde service van Azure Key Vault](#azure-key-vault-linked-service).
 4. **Data store gekoppelde service, in welke verwijzing naar de bijbehorende geheime sleutel opgeslagen in kluis maken.** Raadpleeg [verwijzing geheim is opgeslagen in key vault](#reference-secret-stored-in-key-vault).
 

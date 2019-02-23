@@ -4,14 +4,14 @@ description: In dit artikel bevat een overzicht van de web application firewall 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 11/16/2018
+ms.date: 2/22/2019
 ms.author: amsriva
-ms.openlocfilehash: 014353bafa31b1c4e924cba8335dbd30a48c2d11
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: e53dde549034e8029fdb7f9c780a7880a1ca515d
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651427"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733823"
 ---
 # <a name="web-application-firewall-waf"></a>Web Application Firewall (WAF)
 
@@ -58,19 +58,8 @@ Dit zijn de belangrijkste voordelen van Application Gateway en Web Application F
 - Beveiliging tegen afwijkingen van de HTTP-protocol zoals ontbrekende gebruikersagent host en accept-headers
 - Beveiliging tegen bots, crawlers en scanners
 - Detectie van veelvoorkomende onjuiste configuraties van toepassingen (bijvoorbeeld Apache, IIS, enzovoort)
-
-### <a name="public-preview-features"></a>Openbare preview-functies
-
-De huidige WAF openbare preview SKU omvat de volgende functies:
-
-- **Grootte aanvraaglimieten** -Web Application Firewall kunnen gebruikers grootte aanvraaglimieten in kleine en bovengrens instellen.
-- **Uitsluitingslijsten** -WAF uitsluitingslijsten toestaan dat gebruikers bepaalde kenmerken van een evaluatie WAF weglaten. Een veelvoorkomend voorbeeld is de dat Active Directory-tokens die worden gebruikt voor verificatie of wachtwoordvelden ingevoegd.
-
-Zie voor meer informatie over de openbare preview van WAF, [Web application firewall aanvraaglimieten grootte en uitsluitingslijsten (openbare Preview)](application-gateway-waf-configuration.md).
-
-
-
-
+- Maximale grootte - aanvragen Web Application Firewall kunnen gebruikers grootte aanvraaglimieten in kleine en bovengrens instellen.
+- Uitsluitingslijsten - uitsluitingslijsten WAF kunnen gebruikers bepaalde kenmerken van een evaluatie WAF weglaten. Een veelvoorkomend voorbeeld is de dat Active Directory-tokens die worden gebruikt voor verificatie of wachtwoordvelden ingevoegd.
 
 ### <a name="core-rule-sets"></a>Core Rule Sets
 
@@ -87,7 +76,6 @@ Web Application Firewall is standaard geconfigureerd met CRS 3.0, maar u kunt oo
 - Detectie van veelvoorkomende onjuiste configuraties van toepassingen (bijvoorbeeld Apache, IIS, enzovoort)
 
 Zie voor een gedetailleerde lijst van regels en waartegen ze beveiliging bieden, [Core rule set](#core-rule-sets).
-
 
 #### <a name="owasp30"></a>OWASP_3.0
 

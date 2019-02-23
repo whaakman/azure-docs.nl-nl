@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: hrasheed
-ms.openlocfilehash: 84ce13f78a9c597c780cb0dfa0fa5d16e6175b1c
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: fc7c957b766c1c95ea247ccb63cad5bedec6feec
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077723"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56668991"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Machine learning in HDInsight
 
@@ -63,5 +63,6 @@ Om te gaan van een eigen werk in deep learning, Microsoft ontwikkelde de gratis,
 
 ### <a name="deep-learning-resources"></a>Deep learning-resources
 
-* [Geavanceerde Toolkit met Apache Spark](https://blogs.technet.microsoft.com/machinelearning/2017/04/25/using-microsofts-deep-learning-toolkit-with-spark-on-azure-hdinsight-clusters/)
-* [Afbeeldingsclassificatie met Cognitive toolkit + Tensorflow op Apache Spark perfect parallel](https://blogs.technet.microsoft.com/machinelearning/2017/04/12/embarrassingly-parallel-image-classification-using-cognitive-toolkit-tensorflow-on-azure-hdinsight-spark/)
+* [Microsoft Cognitive Toolkit deep learning-model met Azure HDInsight Spark-cluster gebruiken](spark/apache-spark-microsoft-cognitive-toolkit.md)
+* [Caffe gebruiken op Azure HDInsight Spark voor gedistribueerde deep learning](spark/apache-spark-deep-learning-caffe.md)
+* [Deep Learning en AI-frameworks op de Data Science Virtual Machine (DSVM)](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks)

@@ -1,5 +1,5 @@
 ---
-title: Gebruikers van B2B-samenwerking met Azure Active Directory toevoegen zonder uitnodiging | Microsoft Docs
+title: Gebruikers van B2B-samenwerking zonder uitnodiging - Azure Active Directory toevoegen | Microsoft Docs
 description: U kunt een gastgebruiker andere gastgebruikers toevoegen aan uw Azure AD zonder het inwisselen van een uitnodiging in Azure Active Directory B2B-samenwerking.
 services: active-directory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90e156f1d1d7bbbb6c4f65a4762977d28a5a0b89
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a75656eec8e2c79c48ab48bd96a504d6e5dbac3a
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182592"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672233"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation"></a>B2B-samenwerking gastgebruikers toevoegen zonder uitnodiging
 

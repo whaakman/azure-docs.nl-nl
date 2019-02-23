@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: f7d7b7f470f43d8a7a1cd94b4b1ce79503f0dfca
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 66410a0586fcdd10f7c350bd4bad5211be61a79a
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301023"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669343"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Web-apps instrumenteren tijdens runtime met Application Insights Status Monitor
 
@@ -27,7 +27,7 @@ Statusmonitor wordt gebruikt voor het instrumenteren van een .NET-toepassing die
 
 - Als uw app is geïmplementeerd in Azure app services, voert u de [deze instructies](azure-web-apps.md).
 - Als uw app is geïmplementeerd in een Azure VM, kunt u overschakelen op de Application Insights-bewaking van het Configuratiescherm van Azure.
-- (Er zijn ook afzonderlijke artikelen over het instrumenteren van [live web-apps voor Java EE](java-live.md) en [Azure Cloud Services](../../azure-monitor/app/cloudservices.md).)
+- (Er zijn ook afzonderlijke artikelen over het instrumenteren van [Azure Cloud Services](../../azure-monitor/app/cloudservices.md).)
 
 
 ![Schermopname van App Insights-overzicht grafieken met informatie over mislukte aanvragen, serverreactietijd en serveraanvragen](./media/monitor-performance-live-website-now/overview-graphs.png)

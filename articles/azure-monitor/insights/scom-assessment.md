@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 7ae87763d280e129bab96c604f9118ecf088ea2f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4d6838ecdbf1a33a4f3ee1562f26db7952fdfb83
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819855"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734231"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimalisatie van uw omgeving met de oplossing System Center Operations Manager Health Check (Preview)
 
@@ -40,7 +40,7 @@ Nadat u de oplossing hebt toegevoegd en een evaluatie uitgevoerd, samenvattende 
 
 ## <a name="installing-and-configuring-the-solution"></a>Installeren en configureren van de oplossing
 
-De oplossing werkt met Microsoft System Operations Manager 2012 Service Pack (SP) 1 en 2012 R2.
+De oplossing werkt met Microsoft System Center 2012 Operations Manager Service Pack 1, Microsoft System Center 2012 R2 Operations Manager, Microsoft System Center 2016 Operations Manager, Microsoft System Center 2016 Operations Manager en Microsoft System Center Operations Manager 1807
 
 Gebruik de volgende informatie om de oplossing te installeren en configureren.
 
@@ -57,9 +57,9 @@ Gebruik de volgende informatie om de oplossing te installeren en configureren.
 1. [Uitvoeren als-account instellen voor System Center Operations Manager Health Check](#operations-manager-run-as-accounts-for-log-analytics)  
 2. De System Center Operations Manager Health Check regel configureren
 
-## <a name="system-center-operations-manager-assessment-data-collection-details"></a>Details van System Center Operations Manager-evaluatie gegevens verzameling
+## <a name="system-center-operations-manager-health-check-data-collection-details"></a>Details van System Center Operations Manager Health Check gegevens verzamelen
 
-De evaluatie van de System Center Operations Manager verzamelt gegevens uit de volgende bronnen:
+De oplossing System Center Operations Manager Health Check verzamelt gegevens uit de volgende bronnen:
 
 * Register
 * Windows Management Instrumentation (WMI)
@@ -97,7 +97,7 @@ Nu dat de Run As-account is gemaakt, moet de doel-beheerservers in de beheergroe
 2. Op de **distributie** tabblad **toevoegen** voor de **selecteerde computers** en toe te voegen van de beheerserver voor het distribueren van het account.  Klik op **OK** tweemaal de wijzigingen wilt opslaan.
 3. Onder **Run As-configuratie**, klikt u op **profielen**.
 4. Zoek de *SCOM-evaluatie profiel*.
-5. Naam van het profiel moet zijn: *SCOM-evaluatie voor Microsoft System Center Advisor Run As-profiel*.
+5. Naam van het profiel moet zijn: *Microsoft System Center Operations Manager Health Check Run As-profiel*.
 6. Met de rechtermuisknop op en de eigenschappen ervan bijwerken en toevoegen van de onlangs gemaakte uitvoeren als-Account u eerder hebt gemaakt.
 
 ### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>SQL-script om gedetailleerde machtigingen voor het uitvoeren als-account te verlenen
@@ -152,13 +152,13 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 ### <a name="configure-the-health-check-rule"></a>De regel voor het selectievakje health configureren
 
-De System Center Operations Manager Health Check solution managementpack bevat een regel met de naam *Microsoft System Center Advisor SCOM-evaluatie evaluatie van de regel uitvoeren*. Deze regel is verantwoordelijk voor het uitvoeren van de statuscontrole. De regel in te schakelen en configureer de frequentie, gebruik de onderstaande procedures.
+De System Center Operations Manager Health Check solution managementpack bevat een regel met de naam *Microsoft System Center Operations Manager Health controleren regel uitvoeren*. Deze regel is verantwoordelijk voor het uitvoeren van de statuscontrole. De regel in te schakelen en configureer de frequentie, gebruik de onderstaande procedures.
 
-De Microsoft System Center Advisor SCOM beoordeling uitvoeren evaluatie van de regel is standaard uitgeschakeld. Als u wilt de statuscontrole uitvoeren, moet u de regel op een beheerserver inschakelen. Gebruik de volgende stappen.
+De Microsoft System Center Operations Manager Health controleren regel uitvoeren is standaard uitgeschakeld. Als u wilt de statuscontrole uitvoeren, moet u de regel op een beheerserver inschakelen. Gebruik de volgende stappen.
 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>De regel voor een specifieke beheerserver inschakelen
 
-1. In de **ontwerpen** werkruimte van de Operations Manager Operations-console, zoekt u de regel *Microsoft System Center Advisor SCOM-evaluatie evaluatie van de regel uitvoeren* in de **regels** deelvenster.
+1. In de **ontwerpen** werkruimte van de Operations Manager Operations-console, zoekt u de regel *Microsoft System Center Operations Manager Health controleren regel uitvoeren* in de **regels** deelvenster.
 2. In de lijst met zoekresultaten de optie met de tekst *Type: Management Server*.
 3. Met de rechtermuisknop op de regel en klik vervolgens op **onderdrukkingen** > **voor een specifiek object van klasse: Management Server**.
 4.  Selecteer in de beschikbare lijst met beheerservers, de beheerserver waar de regel moet worden uitgevoerd.  Dit moet u eerder hebt geconfigureerd om te koppelen van de uitvoeren als-account met dezelfde beheerserver.
@@ -170,7 +170,7 @@ De Microsoft System Center Advisor SCOM beoordeling uitvoeren evaluatie van de r
 
 De evaluatie is standaard geconfigureerd voor het uitvoeren van elke 10.080 minuten (of zeven dagen). De waarde moet een minimumwaarde van 1440 minuten (of één dag), kunt u negeren. De waarde vertegenwoordigt de minimumtijd kloof tussen opeenvolgende evaluatie wordt uitgevoerd. Als u wilt overschrijven het interval, gebruik de volgende stappen.
 
-1. In de **ontwerpen** werkruimte van de Operations Manager-console, zoekt u de regel *Microsoft System Center Advisor SCOM-evaluatie evaluatie van de regel uitvoeren* in de **regels** de sectie.
+1. In de **ontwerpen** werkruimte van de Operations Manager-console, zoekt u de regel *Microsoft System Center Operations Manager Health controleren regel uitvoeren* in de **regels** de sectie.
 2. In de lijst met zoekresultaten de optie met de tekst *Type: Management Server*.
 3. Met de rechtermuisknop op de regel en klik vervolgens op **de regel onderdrukken** > **voor alle objecten van klasse: Management Server**.
 4. Wijzig de **Interval** parameterwaarde uw gewenste intervalwaarde. In het onderstaande voorbeeld is de waarde ingesteld op 1440 minuten (één dag).<br><br> ![interval voor parameter](./media/scom-assessment/interval.png)<br>  
@@ -277,7 +277,7 @@ Als u aanbevelingen die u wilt negeren hebt, kunt u een tekstbestand met Log Ana
 
 *Is er een manier om te configureren hoe vaak de controle wordt uitgevoerd?* Ja. Zie [configureren van de run frequentie](#configure-the-run-frequency).
 
-*Als een andere server wordt gedetecteerd nadat ik de oplossing System Center Operations Manager-evaluatie hebt toegevoegd, wordt deze gecontroleerd?* Ja, na de detectie wordt deze gecontroleerd vanaf standaard elke zeven dagen.
+*Als een andere server wordt gedetecteerd nadat ik de oplossing System Center Operations Manager Health Check hebt toegevoegd, wordt deze gecontroleerd?* Ja, na de detectie wordt deze gecontroleerd vanaf standaard elke zeven dagen.
 
 *Wat is de naam van het proces dat het verzamelen van gegevens wordt?* AdvisorAssessment.exe
 

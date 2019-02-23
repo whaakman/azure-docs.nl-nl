@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 55f8ab37-9399-4c9a-9e6c-d2d859de6766
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 64f02b1165d014a0eaa89dae64a7d9aa283cac32
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 7be10f03d65e53b51c3916849dc12feb4de9c919
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834584"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737651"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Met een beschrijving van een service fabric-cluster
 De Service Fabric Cluster Resource Manager biedt verschillende mechanismen voor het beschrijven van een cluster. Cluster Resource Manager wordt tijdens runtime gebruikgemaakt van deze informatie om hoge beschikbaarheid van de services die in het cluster wordt uitgevoerd. Tijdens het afdwingen van deze belangrijke regels, probeert deze ook aan het Optimaliseer het gebruik van resources binnen het cluster.
@@ -28,7 +28,7 @@ De Service Fabric Cluster Resource Manager biedt verschillende mechanismen voor 
 Cluster Resource Manager biedt ondersteuning voor verschillende functies die een cluster beschrijven:
 
 * Domeinen met fouten
-* Upgrade-domeinen
+* Upgrade Domains
 * Eigenschappen van het knooppunt
 * Knooppuntcapaciteiten
 
@@ -54,7 +54,7 @@ Tijdens runtime, de Service Fabric Cluster Resource Manager rekening gehouden me
 
 Het aantal lagen er in de hiërarchie Foutdomein zijn zorgt niet dat er van service Fabric Cluster Resource Manager. Echter, wordt geprobeerd om ervoor te zorgen dat het verlies van gegevens van elk één deel van de hiërarchie van dit geen invloed op services die erin worden uitgevoerd. 
 
-Het is raadzaam als er hetzelfde aantal knooppunten op elk niveau van de diepte in de hiërarchie van het domein met fouten. Als de "structuur" van domeinen met fouten dat niet in balans in het cluster is, moeilijker wordt het wordt voor het Cluster Resource Manager om de beste toewijzing van services te achterhalen. Imbalanced Foutdomeinen indelingen betekenen dat het verlies van sommige domeinen impact de beschikbaarheid van services die meer dan andere domeinen. Als gevolg hiervan met Cluster Resource Manager gegevenskanaal tussen twee doelen: het bedrijf wil gebruiken de machines in dat domein 'dikke' door het plaatsen van services op deze en het bedrijf wil plaatsen van services in andere domeinen, zodat het verlies van gegevens van een domein geen problemen veroorzaken. 
+Het is raadzaam als er hetzelfde aantal knooppunten op elk niveau van de diepte in de hiërarchie van het domein met fouten. Als de "structuur" van domeinen met fouten dat niet in balans in het cluster is, moeilijker wordt het wordt voor het Cluster Resource Manager om de beste toewijzing van services te achterhalen. Imbalanced Foutdomeinen indelingen betekenen dat het verlies van sommige domeinen impact de beschikbaarheid van services die meer dan andere domeinen. Als gevolg hiervan wordt de Cluster Resource Manager gegevenskanaal tussen twee doelen: Het bedrijf wil gebruiken de machines in dat domein 'dikke' door het plaatsen van services op deze en het bedrijf wil plaatsen van services in andere domeinen, zodat het verlies van gegevens van een domein geen problemen veroorzaken. 
 
 Wat imbalanced domeinen eruit? In het onderstaande diagram laten we zien twee verschillende cluster-indelingen. De knooppunten worden in het eerste voorbeeld, gelijkmatig verdeeld over de domeinen met fouten. In het tweede voorbeeld heeft één Foutdomein veel meer knooppunten dan de andere Foutdomeinen. 
 
@@ -64,7 +64,7 @@ Wat imbalanced domeinen eruit? In het onderstaande diagram laten we zien twee ve
 
 De keuze van dat domein met fouten een knooppunt bevat wordt in Azure, voor u beheerd. Echter, afhankelijk van het aantal knooppunten die u inricht u kunt nog steeds uiteindelijk domeinen met fouten met meer knooppunten in deze dan andere. Stel dat u hebt vijf domeinen met fouten in het cluster, maar zeven knooppunten in te richten voor een bepaalde NodeType. In dit geval wordt uiteindelijk de eerste twee Foutdomeinen meer knooppunten. Als u nog meer NodeTypes met slechts een paar exemplaren implementeren, wordt het probleem slechter opgehaald. Type is om deze reden het aanbeveling dat het aantal knooppunten in elk knooppunt verdient een veelvoud zijn van het aantal Foutdomeinen.
 
-## <a name="upgrade-domains"></a>Upgrade-domeinen
+## <a name="upgrade-domains"></a>Upgrade domains
 Upgradedomeinen zijn een andere functie waarmee de Service Fabric Cluster Resource Manager te begrijpen van de indeling van het cluster. Upgradedomeinen definiëren sets met knooppunten die zijn bijgewerkt op hetzelfde moment. Upgradedomeinen helpen met Cluster Resource Manager te begrijpen en bewerkingen, zoals upgrades indelen.
 
 Upgradedomeinen zijn veel zoals domeinen met fouten, maar met enkele belangrijke verschillen. Eerst definieert u gebieden van gecoördineerde hardwarefouten domeinen met fouten. Upgradedomeinen, aan de andere kant zijn gedefinieerd door het beleid. U krijgt om te bepalen hoeveel u kunt in plaats van deze wordt bepaald door de omgeving. U kunt zoveel Upgrade-domeinen zoals u dat wel knooppunten doet hebben. Een ander verschil tussen Foutdomeinen en Upgrade-domeinen is dat Upgrade-domeinen niet hiërarchisch zijn. Ze zijn in plaats daarvan meer, zoals een eenvoudige label. 
@@ -97,7 +97,7 @@ Het meest voorkomende model is de matrix FD en UD, waarbij de Foutdomeinen en Up
 
 ## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>Beperkingen voor fouttolerantie en upgraden van domein en het resulterende gedrag
 ### <a name="default-approach"></a>*Standaard-benadering*
-Cluster Resource Manager houdt standaard services die zijn verdeeld over Foutdomeinen en Upgrade-domeinen. Dit is gemodelleerd als een [beperking](service-fabric-cluster-resource-manager-management-integration.md). De statussen van de beperking domeinen met fouten en het upgraden van domein: 'voor de partitie van een bepaalde service, moet nooit er een verschil meer dan één in het aantal service-objecten (stateless service-exemplaren of stateful service-replica's) tussen twee willekeurige domeinen op hetzelfde niveau van de hiërarchie'. Stel dat deze beperking biedt de zekerheid 'maximale verschil'. De beperking voor domeinen met fouten en het upgraden van domein wordt voorkomen dat bepaalde verplaatst of regelingen die strijdig zijn met de bovenstaande regel. 
+Cluster Resource Manager houdt standaard services die zijn verdeeld over Foutdomeinen en Upgrade-domeinen. Dit is gemodelleerd als een [beperking](service-fabric-cluster-resource-manager-management-integration.md). De domeinen met fouten en het upgraden van domein beperking statussen: 'Voor de partitie van een bepaalde service, moet nooit er een verschil meer dan één in het aantal service-objecten (stateless service-exemplaren of stateful service-replica's) tussen twee willekeurige domeinen op hetzelfde niveau van de hiërarchie'. Stel dat deze beperking biedt de zekerheid 'maximale verschil'. De beperking voor domeinen met fouten en het upgraden van domein wordt voorkomen dat bepaalde verplaatst of regelingen die strijdig zijn met de bovenstaande regel. 
 
 We bekijken een voorbeeld. Stel dat we beschikken over een cluster met zes knooppunten zijn geconfigureerd met vijf Foutdomeinen en vijf Upgrade-domeinen.
 
@@ -176,7 +176,7 @@ Deze aanpak kan aan de andere kant worden te strikt en kan het cluster gebruikma
 
 ### <a name="alternative-approach"></a>*Alternatieve methode*
 
-Cluster Resource Manager biedt ondersteuning voor een andere versie van de domeinen met fouten en het upgraden van domein beperking waardoor plaatsing terwijl nog steeds een minimaal niveau van de veiligheid te garanderen. De alternatieve domeinen met fouten en het upgraden van domein beperking kunt als volgt worden opgegeven: 'Voor de partitie van een bepaalde service, distributie van de replica in meerdere domeinen moet ervoor zorgen dat de partitie niet ten koste gaan een quorumverlies'. Stel dat deze beperking biedt de zekerheid 'quorum veilige'. 
+Cluster Resource Manager biedt ondersteuning voor een andere versie van de domeinen met fouten en het upgraden van domein beperking waardoor plaatsing terwijl nog steeds een minimaal niveau van de veiligheid te garanderen. De alternatieve domeinen met fouten en het upgraden van domein beperking kunt als volgt worden vermeld: 'Voor de partitie van een bepaalde service, distributie van de replica in meerdere domeinen moet ervoor zorgen dat de partitie niet ten koste gaan een quorumverlies'. Stel dat deze beperking biedt de zekerheid 'quorum veilige'. 
 
 > [!NOTE]
 >Voor een stateful service, definiëren we *quorumverlies* in een situatie wanneer een meerderheid van de partitiereplica's zijn niet actief op hetzelfde moment. Bijvoorbeeld, als TargetReplicaSetSize vijf is, vertegenwoordigt een set met alle drie replica's quorum. Op dezelfde manier als TargetReplicaSetSize 6, zijn vier replica's nodig voor het quorum. In beide gevallen niet meer dan twee replica's niet beschikbaar mag zijn op hetzelfde moment als de partitie wil gaan normaal functioneren. Voor een stateless service is niet goed als *quorumverlies* zoals stateless services normaal functioneren blijft, zelfs als een meerderheid van de instanties omlaag gaan op hetzelfde moment. Daarom kan de nadruk op stateful services in de rest van de tekst.
@@ -192,7 +192,7 @@ Omdat beide van de methoden sterke en zwakke punten hebben, hebben we een adapti
 > [!NOTE]
 >Dit is het standaardgedrag beginnen met Service Fabric versie 6.2. 
 >
-De aanpak van adaptieve maakt standaard gebruik van de logica 'maximale verschil' en schakelt over naar de logica 'quorum veilige' alleen indien nodig. Cluster Resource Manager wordt automatisch zoekt uit welke strategie nodig is door te kijken hoe het cluster en de services zijn geconfigureerd. Voor een bepaalde service: *als de TargetReplicaSetSize deelbaar is door het aantal domeinen met fouten en het aantal domeinen upgraden **en** het aantal knooppunten is kleiner dan of gelijk zijn aan de (aantal Foutdomeinen) * (de het aantal domeinen upgraden), de 'quorum op basis van'-logica voor de service moet gebruikmaken van Cluster Resource Manager.* Houd er rekening mee dat met Cluster Resource Manager gebruikt deze benadering voor staatloze en stateful services, ondanks quorumverlies niet meer relevant is voor stateless services.
+De aanpak van adaptieve maakt standaard gebruik van de logica 'maximale verschil' en schakelt over naar de logica 'quorum veilige' alleen indien nodig. Cluster Resource Manager wordt automatisch zoekt uit welke strategie nodig is door te kijken hoe het cluster en de services zijn geconfigureerd. Voor een bepaalde service: *Als de TargetReplicaSetSize deelbaar is door het aantal domeinen met fouten en het aantal domeinen upgraden **en** het aantal knooppunten is kleiner dan of gelijk zijn aan de (aantal Foutdomeinen) * (het aantal domeinen upgraden), het Cluster Resource Manager moeten gebruikmaken van de logica 'quorum op basis van' voor die service.* Houd er rekening mee dat met Cluster Resource Manager gebruikt deze benadering voor staatloze en stateful services, ondanks quorumverlies niet meer relevant is voor stateless services.
 
 We gaan terug naar het vorige voorbeeld en wordt ervan uitgegaan dat een cluster heeft nu 8 knooppunten (Er is nog steeds het cluster met vijf Foutdomeinen en vijf domeinen upgraden en de TargetReplicaSetSize van een service die wordt gehost op dat cluster blijft vijf geconfigureerd). 
 
@@ -373,7 +373,7 @@ De waarde die is opgegeven in de eigenschap van het knooppunt kan een string, bo
 | Verklaring | Syntaxis |
 | --- |:---:|
 | 'en' | "&&" |
-| 'of' | "&#124;&#124;" |
+| "or" | "&#124;&#124;" |
 | "niet" | "!" |
 | "als één instructie een groep" | "()" |
 

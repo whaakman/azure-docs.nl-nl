@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 43992d25590a58b24c48aad8bfbf6f91b17699ee
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: b60861b4daced5e3d292feec54f8a54839a80b8f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098078"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728910"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Ontwikkel Azure Functions met Visual Studio  
 
@@ -143,7 +143,7 @@ Net als bij triggers, invoer- en uitvoerbindingen toegevoegd aan de functie als 
 
 1. Zorg ervoor dat u hebt [geconfigureerd van het project voor lokale ontwikkeling](#configure-the-project-for-local-development).
 
-2. Het juiste NuGet-uitbreidingspakket voor de specifieke binding toevoegen. Zie voor meer informatie, [lokale C#-ontwikkeling met behulp van Visual Studio](functions-triggers-bindings.md#local-csharp) in het artikel Triggers en bindingen. De binding-specifieke NuGet-pakket vereisten vindt u in het artikel verwijzing voor de binding. Pakket-vereisten voor de trigger van Event Hubs in bijvoorbeeld vindt u de [naslagartikel voor Event Hubs-binding](functions-bindings-event-hubs.md).
+2. Het juiste NuGet-uitbreidingspakket voor de specifieke binding toevoegen. Zie voor meer informatie, [lokale C#-ontwikkeling met behulp van Visual Studio](./functions-bindings-register.md#local-csharp) in het artikel Triggers en bindingen. De binding-specifieke NuGet-pakket vereisten vindt u in het artikel verwijzing voor de binding. Pakket-vereisten voor de trigger van Event Hubs in bijvoorbeeld vindt u de [naslagartikel voor Event Hubs-binding](functions-bindings-event-hubs.md).
 
 3. Als er appinstellingen die de binding nodig heeft, voeg deze toe aan de **waarden** verzameling in de [lokale instellingenbestand](functions-run-local.md#local-settings-file). Deze waarden worden gebruikt wanneer de functie lokaal wordt uitgevoerd. Wanneer de functie wordt uitgevoerd in de functie-app in Azure, de [functie app-instellingen](#function-app-settings) worden gebruikt.
 

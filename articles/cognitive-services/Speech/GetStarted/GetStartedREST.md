@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: fc40f20349e3424dbcf50f5ca0395b06a818566f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 9ee0abdf722d3dc6d0d332f3894943bd3a03a877
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224051"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671911"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Quickstart: De Bing-spraakherkenning REST-API gebruiken
 
@@ -32,7 +33,7 @@ De spraak-API maakt deel uit van Cognitive Services (eerder Project Oxford). U k
 > [!IMPORTANT]
 >* De abonnementssleutel van een ophalen. Voordat u krijgt de REST-API tot toegang, moet u beschikken over een [abonnementssleutel](https://azure.microsoft.com/try/cognitive-services/).
 >
->* Gebruik uw abonnement. In de volgende REST-voorbeelden, kunt u YOUR_SUBSCRIPTION_KEY vervangen door uw eigen abonnementssleutel. 
+>* Gebruik uw abonnement. In de volgende REST-voorbeelden, kunt u YOUR_SUBSCRIPTION_KEY vervangen door uw eigen abonnementssleutel.
 >
 >* Raadpleeg de [verificatie](../how-to/how-to-authentication.md) pagina voor het ophalen van de abonnementssleutel van een.
 

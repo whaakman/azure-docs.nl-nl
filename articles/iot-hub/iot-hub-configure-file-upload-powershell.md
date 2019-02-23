@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: e8f37adc07bffb8a1e770085ecee6f813d3c2932
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7d63cc4e57ba3c1b962c893bf8c8bd03664dac6f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425608"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729251"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>IoT Hub-bestand wordt geüpload met behulp van PowerShell configureren
 
@@ -20,36 +20,38 @@ ms.locfileid: "54425608"
 
 Gebruik de [bestand functionaliteit voor het uploaden van IoT-Hub](iot-hub-devguide-file-upload.md), moet u eerst een Azure storage-account koppelen met uw IoT-hub. U kunt een bestaand opslagaccount gebruiken of een nieuwe maken.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * Een actief Azure-account. Als u geen account hebt, kunt u een [gratis account](https://azure.microsoft.com/pricing/free-trial/) binnen een paar minuten.
 
-* [Azure PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
+* [Azure PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
-* Een Azure IoT-hub. Als u een IoT-hub hebt, kunt u de [cmdlet New-AzureRmIoTHub](https://docs.microsoft.com/powershell/module/azurerm.iothub/new-azurermiothub) te maken of de portal gebruiken om [maken van een IoT-hub](iot-hub-create-through-portal.md).
+* Een Azure IoT-hub. Als u een IoT-hub hebt, kunt u de [cmdlet New-AzIoTHub](https://docs.microsoft.com/powershell/module/az.iothub/new-aziothub) te maken of de portal gebruiken om [maken van een IoT-hub](iot-hub-create-through-portal.md).
 
-* Een Azure Storage-account. Als u geen Azure storage-account hebt, kunt u de [Azure PowerShell-cmdlets Storage](https://docs.microsoft.com/powershell/module/azurerm.storage/) te maken of de portal gebruiken om [een opslagaccount maken](../storage/common/storage-create-storage-account.md)
+* Een Azure Storage-account. Als u geen Azure storage-account hebt, kunt u de [Azure PowerShell-cmdlets Storage](https://docs.microsoft.com/powershell/module/az.storage/) te maken of de portal gebruiken om [een opslagaccount maken](../storage/common/storage-create-storage-account.md)
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Meld u aan en stel uw Azure-account
 
 Meld u aan bij uw Azure-account en selecteer uw abonnement.
 
-1. Voer bij de PowerShell-prompt de **Connect-AzureRmAccount** cmdlet:
+1. Voer bij de PowerShell-prompt de **Connect AzAccount** cmdlet:
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
 2. Als u meerdere Azure-abonnementen hebt, u aanmelden bij Azure in, hebt u toegang tot alle de Azure-abonnementen die zijn gekoppeld aan uw referenties. Gebruik de volgende opdracht om de Azure-abonnementen beschikbaar voor gebruik weer te geven:
 
     ```powershell
-    Get-AzureRMSubscription
+    Get-AzSubscription
     ```
 
     Gebruik de volgende opdracht om het abonnement dat u wilt gebruiken voor het uitvoeren van de opdrachten voor het beheren van uw IoT-hub te selecteren. U kunt de naam van het abonnement of de id van de uitvoer van de vorige opdracht gebruiken:
 
     ```powershell
-    Select-AzureRMSubscription `
+    Select-AzSubscription `
         -SubscriptionName "{your subscription name}"
     ```
 
@@ -60,7 +62,7 @@ De volgende stappen wordt ervan uitgegaan dat u hebt gemaakt uw storage-account 
 Voor het configureren van het uploaden van bestanden van uw apparaten, moet u de verbindingsreeks voor een Azure storage-account. Het opslagaccount moet zich in hetzelfde abonnement als uw IoT-hub. U moet ook de naam van een blob-container in het opslagaccount. Gebruik de volgende opdracht om op te halen van de sleutels van uw storage-account:
 
 ```powershell
-Get-AzureRmStorageAccountKey `
+Get-AzStorageAccountKey `
   -Name {your storage account name} `
   -ResourceGroupName {your storage account resource group}
 ```
@@ -72,19 +74,19 @@ U kunt een bestaande blobcontainer gebruiken voor het uploaden van uw bestanden 
 * Als u de bestaande blob-containers in uw opslagaccount, gebruikt u de volgende opdrachten:
 
     ```powershell
-    $ctx = New-AzureStorageContext `
+    $ctx = New-AzStorageContext `
         -StorageAccountName {your storage account name} `
         -StorageAccountKey {your storage account key}
-    Get-AzureStorageContainer -Context $ctx
+    Get-AzStorageContainer -Context $ctx
     ```
 
 * Voor het maken van een blob-container in uw opslagaccount, gebruikt u de volgende opdrachten:
 
     ```powershell
-    $ctx = New-AzureStorageContext `
+    $ctx = New-AzStorageContext `
         -StorageAccountName {your storage account name} `
         -StorageAccountKey {your storage account key}
-    New-AzureStorageContainer `
+    New-AzStorageContainer `
         -Name {your new container name} `
         -Permission Off `
         -Context $ctx
@@ -109,7 +111,7 @@ De configuratie moet de volgende waarden:
 Gebruik de volgende PowerShell-cmdlet voor het configureren van het bestand uploaden-instellingen op uw IoT-hub:
 
 ```powershell
-Set-AzureRmIotHub `
+Set-AzIotHub `
     -ResourceGroupName "{your iot hub resource group}" `
     -Name "{your iot hub name}" `
     -FileUploadNotificationTtl "01:00:00" `

@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 4cae2370-77b3-49ce-bf40-030400c4260d
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: c8bab609212c837802be6f70e7fc74df6b5eaf2e
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: e4f446ff67408ef390ba817de935c286c5b2a47e
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346250"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727601"
 ---
 # <a name="introduction-to-application-groups"></a>Inleiding tot toepassingsgroepen
 De service Fabric Cluster Resource Manager beheert doorgaans de clusterbronnen door de belasting te spreiden (vertegenwoordigd [metrische gegevens](service-fabric-cluster-resource-manager-metrics.md)) gelijkmatig in het cluster. Service Fabric beheert de capaciteit van de knooppunten in het cluster en het cluster als geheel via [capaciteit](service-fabric-cluster-resource-manager-cluster-description.md). Metrische gegevens en -capaciteit werken ideaal voor veel werkbelastingen, maar de patronen die intensief gebruik van verschillende exemplaren van Service Fabric-toepassing soms binnenhalen van de aanvullende vereisten. U kunt bijvoorbeeld op:
@@ -107,7 +107,7 @@ Reserveren van ruimte in het cluster voor de toepassing onmiddellijk gebeurt ook
 - het aantal services binnen het toepassingsexemplaar verandert telkens wanneer 
 - de services aanwezig zijn, maar worden niet de resources verbruikt 
 
-Resources worden gereserveerd voor een exemplaar van de toepassing vereist twee extra parameters op te geven: *MinimumNodes* en *NodeReservationCapacity*
+Reserveren van resources voor het exemplaar van een toepassing, moet twee extra parameters op te geven: *MinimumNodes* en *NodeReservationCapacity*
 
 - **MinimumNodes** -definieert het minimum aantal knooppunten dat exemplaar van de toepassing moet worden uitgevoerd op.  
 - **NodeReservationCapacity** -deze instelling is per metrisch gegeven voor de toepassing. De waarde is de hoeveelheid die gereserveerd voor de toepassing op een willekeurig knooppunt metriek waar die de services in die toepassing worden uitgevoerd.
@@ -178,10 +178,10 @@ foreach (ApplicationLoadMetricInformation metric in metrics)
 
 De query ApplicationLoad retourneert de algemene informatie over de capaciteit van een toepassing die is opgegeven voor de toepassing. Deze informatie omvat de gegevens van de knooppunten van de Minimum en maximum aantal knooppunten en het getal dat de toepassing is momenteel bezet. Het bevat ook informatie over metrische gegevens laden van elke toepassing met inbegrip van:
 
-* Naam van de meetwaarde: Naam van de metrische gegevens.
+* Naam van de metrische gegevens: De naam van de metrische gegevens.
 * Capaciteit van de reservering: Clustercapaciteit die in het cluster is gereserveerd voor deze toepassing.
 * Belasting van toepassing: Totale belasting van deze toepassing onderliggende replica's.
-* Capaciteit van een toepassing: De maximaal toegestane waarde van de belasting van toepassing.
+* Capaciteit van een toepassing: Maximale toegestane waarde van de belasting van toepassing.
 
 ## <a name="removing-application-capacity"></a>Capaciteit van een toepassing verwijderen
 Wanneer de capaciteit van een toepassing-parameters zijn ingesteld voor een toepassing, kunnen ze worden verwijderd met behulp van de Update-toepassing-API's of PowerShell-cmdlets. Bijvoorbeeld:

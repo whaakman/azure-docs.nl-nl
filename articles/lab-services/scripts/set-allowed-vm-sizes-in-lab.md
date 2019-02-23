@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 559e74675a5d113584dca21979c20462c9cdf19c
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 126377de6bf01e76794e3727f74cc497df7ba08a
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054703"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737872"
 ---
 # <a name="use-powershell-to-set-allowed-vm-sizes-in-azure-lab-services"></a>Gebruik PowerShell om in te stellen toegestaan VM-grootten in Azure Lab Services
 
 Met dit PowerShell-voorbeeldscript stelt grootten van toegestane virtuele machines (VM) in Azure Lab-Services.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 * **Een lab**. Het script moet u een bestaande lab hebben. 
@@ -38,10 +40,10 @@ In dit script worden de volgende opdrachten gebruikt:
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) | Zoekt naar resources op basis van de opgegeven parameters. |
-| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | -Resources ophaalt. |
-| [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) | Hiermee wijzigt u een resource. |
-| [New-AzureRmResource](/powershell/module/azurerm.resources/new-azurermresource) | Een resource maken. |
+| [Find-AzResource](/powershell/module/az.resources/find-azresource) | Zoekt naar resources op basis van de opgegeven parameters. |
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | -Resources ophaalt. |
+| [Set-AzResource](/powershell/module/az.resources/set-azresource) | Hiermee wijzigt u een resource. |
+| [New-AzResource](/powershell/module/az.resources/new-azresource) | Een resource maken. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -10,18 +10,19 @@ ms.subservice: translator-speech
 ms.topic: conceptual
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: 482968af53694f7d40a7077435d33a83884c8808
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 63592a0afc7e5da0a37c25c226b92b587aa5f886
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873039"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673695"
 ---
 # <a name="languages-supported-by-the-translator-speech-api"></a>Talen die worden ondersteund door de Translator Speech-API
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
-De volgende talen worden ondersteund voor spraakomzetting. Is beschikbaar als beide talen worden ondersteund voor spraakomzetting, spraak-naar-spraak of spraak naar tekst. Als de doel-taal voor vertaling van gesproken tekst niet wordt ondersteund, vindt u alleen spraak naar tekst. 
+De volgende talen worden ondersteund voor spraakomzetting. Is beschikbaar als beide talen worden ondersteund voor spraakomzetting, spraak-naar-spraak of spraak naar tekst. Als de doel-taal voor vertaling van gesproken tekst niet wordt ondersteund, vindt u alleen spraak naar tekst.
 
 | Taal voor spraakherkenning    |
 |:----------- |
@@ -34,9 +35,9 @@ De volgende talen worden ondersteund voor spraakomzetting. Is beschikbaar als be
 | Japans      |
 | Portugees (Brazilië)     |
 | Russisch      |
-| Spaans      | 
+| Spaans      |
 
-De Translator Speech-API ondersteunt de volgende talen als een doeltaal voor spraak-naar-tekst. 
+De Translator Speech-API ondersteunt de volgende talen als een doeltaal voor spraak-naar-tekst.
 
 | Taal van de tekst    | Taalcode |
 |:----------- |:-------------:|
@@ -47,7 +48,7 @@ De Translator Speech-API ondersteunt de volgende talen als een doeltaal voor spr
 | Bulgaars      | `bg`          |
 | Kantonees (Traditioneel)      | `yue`          |
 | Catalaans      | `ca`          |
-| Vereenvoudigd Chinees      | `zh-Hans`          | 
+| Vereenvoudigd Chinees      | `zh-Hans`          |
 | Traditioneel Chinees      | `zh-Hant`          |
 | Kroatisch      | `hr`          |
 | Tsjechisch      | `cs`          |
@@ -116,4 +117,4 @@ De resource talen retourneert de lijst met ondersteunde talen voor spraak-, teks
 
 Voor een kort overzicht van de talen ziet u de website van Microsoft Translator-alle talen die worden ondersteund door de Translator tekst en spraak-API's. Deze lijst bevat geen developer-specifieke informatie zoals taalcodes.
 
-[Zie de lijst met talen](https://www.microsoft.com/translator/languages.aspx) 
+[Zie de lijst met talen](https://www.microsoft.com/translator/languages.aspx)

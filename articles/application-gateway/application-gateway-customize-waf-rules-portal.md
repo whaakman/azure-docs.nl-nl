@@ -1,40 +1,26 @@
 ---
-title: Regels voor web application firewall in Azure Application Gateway - Azure-portal aanpassen | Microsoft Docs
+title: Regels voor web application firewall in Azure Application Gateway - Azure-portal aanpassen
 description: In dit artikel bevat informatie over het aanpassen van web application firewall-regels in Application Gateway met Azure portal.
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-ms.assetid: 1159500b-17ba-41e7-88d6-b96986795084
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.custom: ''
-ms.workload: infrastructure-services
-ms.date: 03/28/2017
+ms.date: 2/22/2019
 ms.author: victorh
-ms.openlocfilehash: 30df26dc3a9697d3435779f91c32b2d99a747b88
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b18c9666e58925746a3b61740db6fb5118c2010b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990464"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733713"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>Regels voor web application firewall via de Azure-portal aanpassen
-
-> [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-customize-waf-rules-portal.md)
-> * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
-> * [Azure-CLI](application-gateway-customize-waf-rules-cli.md)
 
 De Azure Application Gateway web application firewall (WAF) biedt beveiliging voor webtoepassingen. Deze beveiligingen worden geleverd door de Open Web Application Security Project (OWASP) Core regel ingesteld (CRS). Sommige regels kunnen fout-positieven en echte verkeer blokkeert. Om deze reden biedt Application Gateway de mogelijkheid om aan te passen regelgroepen en -regels. Zie voor meer informatie over de specifieke regelgroepen en regels [lijst met web application firewall CRS-regelgroepen en -regels](application-gateway-crs-rulegroups-rules.md).
 
 >[!NOTE]
 > Als uw application gateway niet voor de WAF-laag gebruikt wordt, wordt de optie voor het upgraden van de application gateway naar de WAF-laag wordt weergegeven in het rechter deelvenster. 
 
-![WAF inschakelen][fig1]
+![Enable WAF][fig1]
 
 ## <a name="view-rule-groups-and-rules"></a>Weergave-regelgroepen en -regels
 
@@ -53,7 +39,7 @@ De **Web application firewall-instellingen** blade biedt de mogelijkheid voor he
 
 ## <a name="disable-rule-groups-and-rules"></a>Regels en regelgroepen uitschakelen
 
-Wanneer uw bent uitschakelen regels, kunt u een volledige regelgroep of uitschakelen specifieke regels onder een of meer regelgroepen. 
+Wanneer u regels uitschakelen wilt, kunt u een volledige regelgroep of specifieke regels onder een of meer regelgroepen uitschakelen. 
 
 **Regelgroepen of specifieke regels uit te schakelen**
 
@@ -62,6 +48,19 @@ Wanneer uw bent uitschakelen regels, kunt u een volledige regelgroep of uitschak
    2. Selecteer **Opslaan**. 
 
 ![Wijzigingen opslaan][3]
+
+## <a name="mandatory-rules"></a>Verplichte regels
+
+De volgende lijst bevat de voorwaarden die ertoe leiden dat het WAF moet worden geblokkeerd dat de aanvraag in de Preventiemodus (in de detectiemodus die ze zijn aangemeld als uitzonderingen). Deze kunnen niet worden geconfigureerd of uitgeschakeld:
+
+* Fout bij parseren van de hoofdtekst van de aanvraag resulteert in de aanvraag wordt geblokkeerd, tenzij de hoofdtekst van de controle is uitgeschakeld (XML, JSON, formuliergegevens)
+* Gegevenslengte aanvraag-instantie (met geen bestanden) is groter dan de geconfigureerde limiet
+* De aanvraag hoofdtekst (met inbegrip van bestanden) is groter dan de limiet
+* Er is een interne fout opgetreden in de WAF-engine
+
+CRS 3.x specifieke:
+
+* Inkomende anomaliedetectie score overschreden drempelwaarde
 
 ## <a name="next-steps"></a>Volgende stappen
 

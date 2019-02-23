@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: rangv
-ms.openlocfilehash: 1e96029b75c8168189dacdc420117e82387228d9
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 3a4fbac0000569a17a9916bd1d84dd140576c9ee
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327239"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672063"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Raspberry Pi verbinden met Azure IoT Hub (C)
 
@@ -82,7 +82,7 @@ De volgende items zijn optioneel:
 Bereid de microSD-kaart voor de installatie van de installatiekopie van het Raspbian.
 
 1. Download Raspbian.
-   1. [Download Raspbian Jessie met Desktop](https://www.raspberrypi.org/downloads/raspbian/) (het ZIP-bestand).
+   1. [Download Raspbian Stretch met Desktop](https://www.raspberrypi.org/downloads/raspbian/) (het ZIP-bestand).
    1. Pak de installatiekopie van het Raspbian naar een map op uw computer.
 1. Installeer Raspbian naar de microSD-kaart.
    1. [Download en installeer het hulpprogramma Etcher SD-kaart brander](https://etcher.io/).

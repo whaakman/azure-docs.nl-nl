@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 11/19/2018
+ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 338ae760aae90131a7353f990e1014aa714faa0f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 419a07ff6d423f363d6973da3df00fd4aa3f6278
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177900"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727261"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Wat zijn Azure AD-Toegangsbeoordelingen?
 
@@ -68,7 +68,7 @@ Voor het gebruik van toegangsbeoordelingen, moet u een van de volgende licenties
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5 license
 
-Zie voor meer informatie, [het: Aanmelden voor Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) of [Enterprise Mobility + Security E5-proefversie](https://aka.ms/emse5trial).
+Zie voor meer informatie [Procedure: Aanmelden voor Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) of [Enterprise Mobility + Security E5-proefversie](https://aka.ms/emse5trial).
 
 ## <a name="get-started-with-access-reviews"></a>Aan de slag met toegangsbeoordelingen
 
@@ -88,23 +88,25 @@ Volg deze stappen zodat toegangsbeoordelingen.
 
 1. Klik op **alle services** en zoek de toegang tot de service beoordeelt.
 
-    ![Alle services - Toegangsbeoordelingen](./media/access-reviews-overview/all-services-access-reviews.png)
-
 1. Klik op **Toegangsbeoordelingen**.
 
-    ![Toegangsbeoordelingen onboarden](./media/access-reviews-overview/onboard-button.png)
+    ![Alle services - Toegangsbeoordelingen](./media/access-reviews-overview/all-services-access-reviews.png)
 
 1. Klik in de navigatielijst **Onboard** openen de **toegangsbeoordelingen Onboarden** pagina.
 
+    ![Toegangsbeoordelingen onboarden](./media/access-reviews-overview/onboard-button.png)
+
+1. Klik op **maken** controleert om toegang te krijgen in de huidige map.
+
     ![Toegangsbeoordelingen onboarden](./media/access-reviews-overview/onboard-access-reviews.png)
 
-1. Klik op **maken** controleert om toegang te krijgen in de huidige map. De volgende keer start van toegangsbeoordelingen, worden de opties ingeschakeld.
+    De volgende keer dat u access start bekijkt, de opties voor de beoordeling wordt ingeschakeld.
 
     ![Toegangsbeoordelingen ingeschakeld](./media/access-reviews-overview/access-reviews-enabled.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Een toegangsbeoordeling maken voor leden van een groep of toegang tot een toepassing](create-access-review.md)
+- [Een toegangsbeoordeling van groepen of toepassingen maken](create-access-review.md)
 - [Een toegangsbeoordeling maken van gebruikers met een Azure AD-beheerderrol](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)
-- [Een toegangscontrole met Azure AD-Toegangsbeoordelingen uitvoeren](perform-access-review.md)
-- [Een toegangscontrole van leden van een groep of gebruikers toegang tot een toepassing in Azure AD voltooien](complete-access-review.md)
+- [Toegang tot groepen of toepassingen controleren](perform-access-review.md)
+- [Een toegangscontrole van groepen of toepassingen voltooien](complete-access-review.md)

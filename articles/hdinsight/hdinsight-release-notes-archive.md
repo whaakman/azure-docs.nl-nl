@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: 19a842eacb00e877d31712febeeebc72cbdd25a0
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: ed7f18d1a40e0b766a2f10cce99aa735d51b4110
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743167"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672547"
 ---
 # <a name="archived-release-notes-for-azure-hdinsight"></a>Gearchiveerde release-opmerkingen voor Azure HDInsight
 
@@ -42,7 +42,7 @@ Hier volgen de belangrijkste punten. Voor de gedetailleerde releaseopmerkingen f
 
 | Titel | Description | Betrokken gebied  | Clustertype  | 
 | --- | --- | --- | --- | --- |
-| Release van Microsoft R Server 9.1 op HDInsight |HDInsight biedt nu ondersteuning voor inrichting clusters voor R Server 9.1 op HDInsight. Zie voor meer informatie over Microsoft R Server 9.1 release [deze blog](https://blogs.technet.microsoft.com/dataplatforminsider/2017/04/19/introducing-microsoft-r-server-9-1-release/). |Service |R Server |
+| Release van Microsoft R Server 9.1 op HDInsight |HDInsight biedt nu ondersteuning voor inrichting clusters voor R Server 9.1 op HDInsight. |Service |R Server |
 | HDInsight 3.6 bevat nu nieuwere versies van de Hadoop-stack|<ul><li>Zie voor een gedetailleerde lijst met bijgewerkte versies, [Apache Hadoop component versies beschikbaar zijn in HDInsight](hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).</li><li>Zie voor een lijst van fouten die zijn verholpen in de meest recente versies van de Hadoop-stack, [informatie over de Apache beveiligingspatch](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/patch_parent.html).</li><li>Zie voor een lijst met belangrijke wijzigingen tussen HDP 2.6.1 (dit is nu beschikbaar in HDInsight 3.6), [ https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html ](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html).</li><li>Zie voor een lijst van bekende problemen in HDP 2.6.1, [bekende problemen](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/known_issues.html).</li></ul> |Service |Alle |N/A |
 | Updates voor clusters Interactive Hive (Preview) |<ul><li><b>Verbetering van de functie.</b> Implementatie van in de cache metastore en vermindert de belasting van de back-end SQL door de metagegevens van de cache te plaatsen en verbetert de prestaties voor alle bewerkingen voor metagegevens.  Deze verbetering is nu een standaard op alle interactieve Apache Hive-clusters. Zie voor meer informatie, [ https://issues.apache.org/jira/browse/HIVE-16520 ](https://issues.apache.org/jira/browse/HIVE-16520).</li><li><b>Verbetering van de functie.</b> Het laden van dynamische partitie is geoptimaliseerd. Zie voor meer informatie, [ https://issues.apache.org/jira/browse/HIVE-14204 ](https://issues.apache.org/jira/browse/HIVE-14204).</li><li><b>Verbetering van de functie.</b> De optimalisatie van de configuratie voor HDInsight op Linux.</li><li><b>Opgelost probleem.</b> `CredentialProviderFactory$getProviders` is niet thread-veilig. Nu is dit probleem opgelost. Zie voor meer informatie, [ https://issues.apache.org/jira/browse/HADOOP-14195 ](https://issues.apache.org/jira/browse/HADOOP-14195).</li><li><b>Opgelost probleem.</b> Hoog CPU-verbruik met WASB-stuurprogramma `liststatus` API, wat resulteert in onjuiste ATS-prestaties. Nu is dit probleem opgelost. Zie voor meer informatie, [ https://github.com/Azure/azure-storage-java/pull/154 ](https://github.com/Azure/azure-storage-java/pull/154).</li></ul> |Service |Interactive Hive (Preview) |
 | Updates voor Hadoop-clusters |Betrouwbaarheid van de bewerking Templeton taken is verbeterd. Zie voor meer informatie [https://issues.apache.org/jira/browse/HIVE-15947](https://issues.apache.org/jira/browse/HIVE-15947) |Service |Hadoop |

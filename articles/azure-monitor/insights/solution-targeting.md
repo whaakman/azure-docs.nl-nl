@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: d1d2dd689cb389b6adfe1dd534e7c73e17f755f5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4beb9811a57ecd0a1eada5b36bd65b67851d2564
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989182"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731970"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Die gericht is op bewakingsoplossingen in Azure Monitor (Preview)
 Wanneer u een oplossing voor bewaking aan uw abonnement toevoegt, wordt deze automatisch geïmplementeerd standaard voor alle Windows en Linux-agents die zijn verbonden met uw Log Analytics-werkruimte.  Mogelijk wilt uw kosten beheren en beperken van de hoeveelheid gegevens die worden verzameld voor een oplossing door deze te beperken tot een bepaalde set van agents.  In dit artikel wordt beschreven hoe u **Oplossingstargeting** dit is een functie waarmee u een bereik toepassen op uw oplossingen.
@@ -35,7 +35,7 @@ U opgeven dat de computers die u opnemen in een bereik wilt met het maken van ee
 U hebt één keer groep op de computer in uw werkruimte hebt gemaakt en u zult deze opnemen in de configuratie van een scope die kan worden toegepast op een of meer oplossingen.
  
  
- ### <a name="2-create-a-scope-configuration"></a>2. Een scopeconfiguratie maken
+### <a name="2-create-a-scope-configuration"></a>2. Een scopeconfiguratie maken
  Een **scopeconfiguratie** bevat een of meer computergroepen en kan worden toegepast op een of meer oplossingen. 
  
  De configuratie van een bereik met behulp van het volgende proces maken.  
@@ -49,7 +49,7 @@ U hebt één keer groep op de computer in uw werkruimte hebt gemaakt en u zult d
  6. Klik op **OK** de scopeconfiguratie maken. 
 
 
- ### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. Configuratie van het bereik van toepassing op een oplossing.
+### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. Configuratie van het bereik van toepassing op een oplossing.
 Zodra u een bereik-configuratie hebt, kunt klikt u vervolgens u deze toepassen op een of meer oplossingen.  Houd er rekening mee dat tijdens de configuratie van een enkel bereik kan worden gebruikt met meerdere oplossingen, elke oplossing alleen één scopeconfiguratie gebruiken kunt.
 
 De configuratie van een bereik met behulp van het volgende proces toepassen.  

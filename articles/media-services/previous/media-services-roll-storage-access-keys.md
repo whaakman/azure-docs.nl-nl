@@ -14,18 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: milanga;cenkdin;juliako
-ms.openlocfilehash: 419e7b1ae05f92b5b97f5317c0315a71958eff9e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: cdf644ab37d7f2e15cb35a3234786900a1a64ec1
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005162"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733500"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Media Services bijwerken na gebruik toegangssleutels voor opslag 
 
 Wanneer u een nieuwe Azure Media Services (AMS)-account maakt, kunt u wordt ook gevraagd om te selecteren van een Azure Storage-account dat wordt gebruikt voor het opslaan van uw media-inhoud. U kunt meer dan één storage-accounts toevoegen aan uw Media Services-account. In dit artikel laat zien hoe opslagsleutels draaien. U ziet ook hoe u storage-accounts toevoegen aan een media-account. 
 
-Als u wilt de in dit artikel beschreven acties uitvoeren, moet u [Azure Resource Manager-API's](/rest/api/media/operations/azure-media-services-rest-api-reference) en [Powershell](https://docs.microsoft.com/powershell/module/azurerm.media).  Zie voor meer informatie, [over het beheren van Azure-resources met PowerShell en Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md).
+Als u wilt de in dit artikel beschreven acties uitvoeren, moet u [Azure Resource Manager-API's](/rest/api/media/operations/azure-media-services-rest-api-reference) en [Powershell](https://docs.microsoft.com/powershell/module/az.media).  Zie voor meer informatie, [over het beheren van Azure-resources met PowerShell en Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Overzicht
 
@@ -42,15 +44,15 @@ Media Services is afhankelijk van een storage-sleutel opgegeven. De locators die
 ## <a name="steps-to-rotate-storage-keys"></a>Stappen voor het opslagsleutels draaien 
  
  1. Wijzigen van de primaire sleutel uit de storage-account via de powershell-cmdlet of [Azure](https://portal.azure.com/) portal.
- 2. Aanroepen van de cmdlet Sync-AzureRmMediaServiceStorageKeys met de juiste parameters om af te dwingen van media-account om op te halen opslagaccountsleutels
+ 2. Aanroepen van de cmdlet Sync-AzMediaServiceStorageKeys met de juiste parameters om af te dwingen van media-account om op te halen opslagaccountsleutels
  
     Het volgende voorbeeld laat zien hoe om te synchroniseren van sleutels voor storage-accounts.
   
-         Sync-AzureRmMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
+         Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
   
  3. Wacht een uur. Controleer of dat de streaming-scenario's werken.
  4. Secundaire sleutel van het opslagaccount via de powershell-cmdlet of Azure-portal wijzigen.
- 5. Synchronisatie-AzureRmMediaServiceStorageKeys powershell met de juiste parameters om af te dwingen van media-account om op te halen nieuwe opslagaccountsleutels aanroepen. 
+ 5. Synchronisatie-AzMediaServiceStorageKeys powershell met de juiste parameters om af te dwingen van media-account om op te halen nieuwe opslagaccountsleutels aanroepen. 
  6. Wacht een uur. Controleer of dat de streaming-scenario's werken.
  
 ### <a name="a-powershell-cmdlet-example"></a>Een powershell-cmdlet-voorbeeld 
@@ -63,7 +65,7 @@ Het volgende voorbeeld laat zien hoe u het opslagaccount ophaalt en deze synchro
     $storageAccountName = "skystorage"
     $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
-    Sync-AzureRmMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
+    Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
 
  
 ## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>Stappen voor het storage-accounts toevoegen aan uw AMS-account

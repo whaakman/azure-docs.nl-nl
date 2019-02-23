@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: artek
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: f1f4cb036f4df226d651f8f4d0f5c7492f453a0a
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 167c8b4dff2e6f392dd6608d20d8924d446f95aa
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269737"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729930"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>De HDFS-CLI gebruiken met Data Lake Storage Gen2
 
@@ -30,7 +30,7 @@ HDInsight biedt toegang tot het Distributed File System dat lokaal wordt gekoppe
 
     hdfs dfs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/
 
-* Vervang de `<file-system-name>` tijdelijke aanduiding door de naam die u wilt geven uw bestandssysteem.
+* Vervang de tijdelijke aanduiding `<file-system-name>` door de naam die u aan uw bestandssysteem wilt geven.
 
 * Vervang de tijdelijke plaatsaanduiding `<storage-account-name>` door de naam van uw opslagaccount.
 
@@ -77,10 +77,6 @@ Zie voor meer informatie over de CLI HDFS, de [officiële documentatie](https://
 ## <a name="hdfs-cli-with-azure-databricks"></a>HDFS-CLI met Azure Databricks
 
 De Databricks biedt een eenvoudig te gebruiken CLI gebaseerd op het Databricks-REST-API. De open source-project wordt gehost op [GitHub](https://github.com/databricks/databricks-cli). Hieronder vindt u de meest gebruikte opdrachten.
-
-### <a name="create-a-file-system"></a>Een bestandssysteem maken
-
-Plaats hier de richtlijnen.
 
 ### <a name="get-a-list-of-files-or-directories"></a>Haal een lijst van bestanden of mappen
 

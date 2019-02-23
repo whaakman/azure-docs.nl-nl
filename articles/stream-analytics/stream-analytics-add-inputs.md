@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/25/2018
-ms.openlocfilehash: 0475318ce983b98951fb9cd5d24a5bc4452b1f1e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a6b6b548f1e5a9fa1e92b5fdbd714117758d75b4
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970107"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737073"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Meer informatie over invoer voor Azure Stream Analytics
 
@@ -27,7 +27,7 @@ Stream Analytics is een uitstekende integratie uit drie soorten resources als in
 
 Deze invoer resources kunnen bevinden zich in hetzelfde Azure-abonnement als uw Stream Analytics-taak, of vanuit een ander abonnement.
 
-U kunt de [Azure-portal](stream-analytics-quick-create-portal.md#configure-job-input), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/New-AzureRmStreamAnalyticsInput), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST-API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input), en [Visual Studio](stream-analytics-tools-for-visual-studio-install.md)maken, bewerken en testen van de invoer van Stream Analytics.
+U kunt de [Azure-portal](stream-analytics-quick-create-portal.md#configure-job-input), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST-API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input), en [Visual Studio](stream-analytics-tools-for-visual-studio-install.md)maken, bewerken en testen van de invoer van Stream Analytics.
 
 ## <a name="stream-and-reference-inputs"></a>Stream en referentie-invoer
 Wanneer er gegevens binnenkomen met een gegevensbron, heeft die worden gebruikt door de Stream Analytics-taak en verwerkt in realtime. Invoer worden onderverdeeld in twee typen: gegevens streamen van invoer en verwijzen naar gegevensinvoer.
@@ -44,4 +44,4 @@ Zie voor meer informatie over het verwijzen naar gegevensinvoer [met referentieg
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]
-> [Snelstart: Een Stream Analytics-taak maken met behulp van de Azure-portal](stream-analytics-quick-create-portal.md)
+> [Snelstart: Een Stream Analytics-taak maken met behulp van Azure portal](stream-analytics-quick-create-portal.md)

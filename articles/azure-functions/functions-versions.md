@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: glenga
-ms.openlocfilehash: f2f1313461fcb58ea48af99aeda2f7005534fe34
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: cc19a2d7641b20a413bbc39efe0d1c5ede362e6d
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885184"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734452"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Overzicht van Azure Functions runtime-versies
 
@@ -37,7 +37,7 @@ Experimentele talen van Azure Functions 1.x worden niet bijgewerkt voor het gebr
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
-Zie voor meer informatie, [ondersteunde talen](supported-languages.md).
+Zie voor meer informatie [Ondersteunde talen](supported-languages.md).
 
 ## <a name="creating-1x-apps"></a>Uitvoeren op versie 1.x
 
@@ -49,7 +49,7 @@ U kunt ervoor kiezen om een bestaande app die gebruikmaakt van de versie 1.x-run
 
 ### <a name="changes-in-triggers-and-bindings"></a>Wijzigingen in de triggers en bindingen
 
-Versie 2.x vereist dat u de extensies voor specifieke triggers en bindingen die worden gebruikt door de functies in uw app installeert. De enige uitzondering hierop zijn HTTP- en timer-triggers, die geen extensie vereisen.  Zie voor meer informatie, [registreren en installeer binding extensies](./functions-triggers-bindings.md#register-binding-extensions).
+Versie 2.x vereist dat u de extensies voor specifieke triggers en bindingen die worden gebruikt door de functies in uw app installeert. De enige uitzondering hierop zijn HTTP- en timer-triggers, die geen extensie vereisen.  Zie voor meer informatie, [registreren en installeer binding extensies](./functions-bindings-expressions-patterns.md).
 
 Er zijn tussen de versies ook enkele veranderingen in de `function.json` of kenmerken van de functie. Bijvoorbeeld, de Event Hub `path` eigenschap is nu `eventHubName`. Zie de [bestaande binding tabel](#bindings) voor koppelingen naar documentatie voor elke binding.
 
@@ -121,7 +121,7 @@ De runtime versie 2.x maakt gebruik van een nieuw [binding uitbreidingsmodel](ht
 
 * Een lichtere uitvoeringsomgeving, waarbij alleen de bindingen die in gebruik zijn door de runtime bekend worden en geladen.
 
-Met uitzondering van de HTTP- en timer-triggers, moeten alle bindingen expliciet worden toegevoegd aan het functie-app-project en geregistreerd in de portal. Zie voor meer informatie, [bindinguitbreidingen registreren](functions-triggers-bindings.md#register-binding-extensions).
+Met uitzondering van de HTTP- en timer-triggers, moeten alle bindingen expliciet worden toegevoegd aan het functie-app-project en geregistreerd in de portal. Zie voor meer informatie, [bindinguitbreidingen registreren](./functions-bindings-expressions-patterns.md).
 
 In de volgende tabel ziet u welke bindingen worden ondersteund in elke runtimeversie.
 

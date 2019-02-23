@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 0d622ea6-a7c7-4bef-886b-06e6b85a97fb
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7a7d3ad59d743287e5fe13c52c6c6a1a115d53f3
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 2d1818f42cb2bcb19f979f25962a6c9bdea10155
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053309"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728009"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Beheren van resourceverbruik en laden in Service Fabric met metrische gegevens
 *Metrische gegevens* zijn de resources die uw care services over en die worden geleverd door de knooppunten in het cluster. Een metrische waarde is alles wat u wilt beheren om te verbeteren of de prestaties van uw services controleren. U kunt bijvoorbeeld geheugenverbruik als u wilt weten als uw service is overbelast bekijken. Een andere toepassing is om te achterhalen of de service elders waar geheugen dat minder beperkt is om betere prestaties kan verplaatsen.
@@ -56,7 +56,7 @@ Dingen om te weten:
 
 Goede!
 
-De standaard metrische gegevens werkt uitstekend als een begin. Echter, de standaard metrische gegevens alleen hebben u tot nu toe. Bijvoorbeeld: Wat is de kans dat het partitioneren van u-schema resultaten opgehaald in perfect zelfs-gebruik door alle partities? Wat is de kans dat de belasting voor een bepaalde service constant na verloop van tijd is, of zelfs dezelfde over meerdere partities nu?
+De standaard metrische gegevens werkt uitstekend als een begin. Echter, de standaard metrische gegevens alleen hebben u tot nu toe. Bijvoorbeeld: Wat is de kans dat het partitioneren van u-schema opgenomen resultaten in perfect zelfs-gebruik door alle partities? Wat is de kans dat de belasting voor een bepaalde service constant na verloop van tijd is, of zelfs dezelfde over meerdere partities nu?
 
 U kunt uitvoeren met alleen de standaard metrische gegevens. Echter meestal doen betekent dat uw clustergebruik lager en meer ongelijke dan u wilt. Dit is omdat de standaard metrische gegevens worden niet adaptieve en wordt ervan uitgegaan dat alles is gelijk. Bijvoorbeeld, bijdragen een primaire die bezig is en één die niet beide "1" in de metriek PrimaryCount. In het ergste geval, met behulp van alleen de standaard metrische gegevens kan ook leiden tot overscheduled knooppunten leidt tot prestatieproblemen. Als u geïnteresseerd bent in het cluster optimaal te benutten en prestatieproblemen voorkomen, moet u het gebruik van aangepaste metrische gegevens en dynamische werkbelastingsrapportage.
 
@@ -65,13 +65,13 @@ Metrische gegevens zijn geconfigureerd op basis van de per-met de naam-service-e
 
 Elke meetwaarde heeft enkele eigenschappen die het beschrijven: een naam, een gewicht en een standaard-belasting.
 
-* Naam van de meetwaarde: De naam van de metrische gegevens. De naam van de meetwaarde is een unieke id voor de metrische gegevens in het cluster op basis van de Resource Manager-perspectief.
+* Naam van de metrische gegevens: De naam van de metrische gegevens. De naam van de meetwaarde is een unieke id voor de metrische gegevens in het cluster op basis van de Resource Manager-perspectief.
 * Gewicht: Gewicht van de metrische definieert hoe belangrijk met deze metriek is ten opzichte van de andere metrische gegevens voor deze service.
 * Werklast (standaard): De standaard-belasting is anders, afhankelijk van de service stateless of stateful weergegeven.
   * Voor stateless services heeft alle gegevens één eigenschap met de naam DefaultLoad
   * U definieert voor stateful services:
-    * PrimaryDefaultLoad: De standaardhoeveelheid met deze metriek deze service worden verbruikt wanneer het een primaire
-    * SecondaryDefaultLoad: De standaardhoeveelheid met deze metriek deze service worden verbruikt wanneer deze een secundair
+    * PrimaryDefaultLoad: De standaardinstelling van deze metrische gegevens van deze service verbruikt wanneer het een primaire
+    * SecondaryDefaultLoad: De standaardinstelling van deze metrische gegevens van deze service verbruikt wanneer deze een secundair
 
 > [!NOTE]
 > Als u aangepaste metrische gegevens definieert en u wilt _ook_ gebruiken de standaard metrische gegevens, moet u _expliciet_ de standaard metrische gegevens back-ups maken en gewicht en -waarden definiëren voor deze toevoegen. Dit komt doordat moet u de relatie tussen de standaard metrische gegevens en uw aangepaste metrische gegevens definiëren. Bijvoorbeeld, wellicht u het belangrijkst ConnectionCount of WorkQueueDepth meer dan primaire distributie. Standaard is het gewicht van de metriek PrimaryCount hoog, zodat u beperken op Gemiddeld wilt, wanneer u uw andere metrische gegevens om te controleren of dat ze voorrang toevoegt.
@@ -232,7 +232,7 @@ Er zijn enkele dingen die we nog steeds nodig hebben om uit te leggen:
 ## <a name="metric-weights"></a>Gewicht van metrische gegevens
 Dezelfde metrische gegevens bijhouden over verschillende services is belangrijk. Globale weergave is wat de Cluster Resource Manager bijhouden van gebruik door in het cluster en ervoor te zorgen dat knooppunten niet via capaciteit lopen gebruik op alle knooppunten in balans is toegestaan. Services hebben echter verschillende weergaven over het belang van de dezelfde metrische gegevens. Ook in een cluster met veel metrische gegevens en veel services perfect met gelijke taakverdeling oplossingen bestaat mogelijk niet voor alle metrische gegevens. Hoe moet deze situaties verwerken met Cluster Resource Manager?
 
-Gewicht van metrische gegevens kunnen met Cluster Resource Manager om te bepalen hoe het cluster in balans brengen wanneer er geen perfecte antwoord. Gewicht van metrische gegevens kunnen ook met Cluster Resource Manager anders afwegen van specifieke services. Metrische gegevens kan hebben vier verschillende gewicht niveaus: nul, laag, gemiddeld en hoog. Een metrische waarde met een gewicht van nul bijdraagt niets wanneer u overweegt of dingen worden verdeeld, of niet. De belasting echter nog steeds dragen bij aan capaciteit management. Metrische gegevens met nul gewicht zijn nog steeds nuttig en worden vaak gebruikt als onderdeel van service-gedrag en de bewaking van toepassingsprestaties. [In dit artikel](service-fabric-diagnostics-event-generation-infra.md) vindt u meer informatie over het gebruik van metrische gegevens voor bewaking en diagnostische gegevens van uw services. 
+Gewicht van metrische gegevens kunnen met Cluster Resource Manager om te bepalen hoe het cluster in balans brengen wanneer er geen perfecte antwoord. Gewicht van metrische gegevens kunnen ook met Cluster Resource Manager anders afwegen van specifieke services. Metrische gegevens kunt laten vier verschillende gewicht niveaus: Nul, laag, gemiddeld en hoog. Een metrische waarde met een gewicht van nul bijdraagt niets wanneer u overweegt of dingen worden verdeeld, of niet. De belasting echter nog steeds dragen bij aan capaciteit management. Metrische gegevens met nul gewicht zijn nog steeds nuttig en worden vaak gebruikt als onderdeel van service-gedrag en de bewaking van toepassingsprestaties. [In dit artikel](service-fabric-diagnostics-event-generation-infra.md) vindt u meer informatie over het gebruik van metrische gegevens voor bewaking en diagnostische gegevens van uw services. 
 
 De werkelijke invloed van verschillende metrische gewichten in het cluster is dat de Cluster Resource Manager verschillende oplossingen genereert. Metrische waarden geven met Cluster Resource Manager dat bepaalde metrische gegevens belangrijker dan andere zijn. Wanneer er geen perfecte oplossing is met Cluster Resource Manager kunt geven de voorkeur oplossingen die de hogere gewogen metrische gegevens beter in balans brengen. Als een service als dat een bepaalde meetwaarde is niet belangrijk is, dat kan deze het gebruik van deze metrische gegevens van imbalanced vinden. Dit kan een andere service een gelijkmatige verdeling van sommige metrische gegevens die belangrijk is voor het ophalen.
 

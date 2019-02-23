@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/22/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 0a73119c7d079498f0e766fb92904c86ff5131c8
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 4fb2a398baa306cf9303284526bb43cd7f778441
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767219"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734622"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Vervangen van een fysieke schijf in Azure Stack
 
@@ -39,7 +39,7 @@ Wanneer u een schijf uitvalt, ontvangt u een waarschuwing die aangeeft dat de ve
 
 Als u de waarschuwing opent, wordt de beschrijving van de waarschuwing bevat het scale unit-knooppunt en de exacte fysieke sleuf locatie voor de schijf die u moet vervangen. Meer Azure Stack helpt u bij het identificeren van de niet-werkende schijf met behulp van LED indicator mogelijkheden.
 
- ## <a name="replace-the-disk"></a>De schijf vervangen
+## <a name="replace-the-disk"></a>De schijf vervangen
 
 Ga als volgt uw OEM-hardwareleverancier FRU instructies voor het werkelijke schijf is vervangen.
 
@@ -50,7 +50,7 @@ Als u wilt voorkomen dat het gebruik van een niet-ondersteunde schijf in een ge√
 
 Nadat u de schijf vervangt, Azure Stack automatisch de nieuwe schijf wordt gedetecteerd en wordt het reparatieproces virtuele schijf gestart.
  
- ## <a name="check-the-status-of-virtual-disk-repair"></a>Controleer de status van de virtuele schijf herstellen
+## <a name="check-the-status-of-virtual-disk-repair"></a>Controleer de status van de virtuele schijf herstellen
  
  Nadat u de schijf vervangt, kunt u de status van de virtuele schijf controleren en taakvoortgang herstellen met behulp van het eindpunt van de bevoegdheden. Volg deze stappen vanaf elke computer die een netwerkverbinding met het eindpunt van de bevoegdheden heeft.
 

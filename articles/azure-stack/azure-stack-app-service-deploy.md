@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/22/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 60767c3c61b0d386e4ac9b0a93d16ad161c59949
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 0467f131ab4300ba3217ed01f37ebb7f4b8dbe5e
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445931"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732769"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Een App Service-resourceprovider toevoegen aan Azure Stack
 
@@ -132,22 +132,7 @@ Volg deze stappen voor het implementeren van App Service-resourceprovider:
 
     ![App Service-installatieprogramma][10]
 
-11. Geef de SQL Server-details voor de server-exemplaar dat is gebruikt voor het hosten van de App Service resource provider-databases en selecteer vervolgens **volgende**. Het installatieprogramma evalueert de eigenschappen van de SQL-verbinding.
-
-    > [!NOTE]
-    > Het installatieprogramma wil test de verbinding met de SQL-Server voordat u doorgaat. Maar als u naar een bestaand virtueel netwerk implementeert, deze Connectiviteitstest mislukken. Krijgt u een waarschuwing en een prompt om door te gaan. Als de informatie over SQL Server juist is, blijven de implementatie.
-    >
-    > Het installatieprogramma wordt gecontroleerd dat de SQL-Server ingeschakeld op het niveau van de SQL Server database-containment is van Azure App Service op Azure Stack 1.3 en hoger.  Als dat niet het geval is, wordt u gevraagd met de volgende uitzondering:
-    > ```sql
-    >    Enable contained database authentication for SQL server by running below command on SQL server (Ctrl+C to copy)
-    >    ***********************************************************
-    >    sp_configure 'contained database authentication', 1;  
-    >    GO  
-    >    RECONFIGURE;  
-    >    GO
-    >    ***********************************************************
-    > ```
-    > Raadpleeg de [opmerkingen bij de release voor Azure App Service op Azure Stack 1.3](azure-stack-app-service-release-notes-update-three.md) voor meer informatie.
+11. Geef de SQL Server-details voor de server-exemplaar dat is gebruikt voor het hosten van de App Service resource provider-databases en selecteer vervolgens **volgende**. Het installatieprogramma evalueert de eigenschappen van de SQL-verbinding.<br><br>Het installatieprogramma van de App Service probeert te test de verbinding met de SQL-Server voordat u doorgaat. Als u naar een bestaand virtueel netwerk implementeert, kan deze Connectiviteitstest mislukken. Krijgt u een waarschuwing en een prompt om door te gaan. Als de informatie over SQL Server juist is, blijven de implementatie.
 
     ![App Service-installatieprogramma][11]
 

@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: 6787f347661db61806180edde5c091a865051748
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 28d1ed43ecdb1ff853e066567f331b8c302ce7aa
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103069"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730440"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure-beveiliging en naleving blauwdruk - HIPAA/HITRUST Health Data en AI
 
@@ -93,7 +93,7 @@ Ze hebben geen toegang tot de records.
 
 -   Bereik: ResourceGroup
 
- ### <a name="data-scientist"></a>Gegevenswetenschapper
+### <a name="data-scientist"></a>Gegevenswetenschapper
 
 
 De gegevenswetenschapper werkt de Azure Machine Learning Studio. Ze kunnen importeren, exporteren, en beheren van gegevens en rapporten uitvoeren. De gegevenswetenschapper heeft toegang tot de gegevens, maar heeft geen beheerdersrechten.

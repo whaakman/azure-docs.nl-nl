@@ -10,12 +10,13 @@ ms.subservice: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: c68d9c3d40ffa3d4a5a5ae635fbc0ea0a010239c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 3493f6d25461836d8f6e48ce4213b0f5b78b6372
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874733"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675106"
 ---
 # <a name="translator-speech-api"></a>Translator Speech-API
 
@@ -90,7 +91,7 @@ U ziet dat de totale bestandsgrootte (byte 4-7) en de grootte van de "gegevens" 
 Na het verzenden van de header WAV (RIFF), verzendt de client segmenten van de gegevens. De client wordt meestal stream segmenten van verschillende vaste grootte voor een vaste duur (bijvoorbeeld stream 100 MS van audio op een tijdstip).
 
 ### <a name="signal-the-end-of-the-utterance"></a>Het einde van de utterance
-De Translator Speech-API het transcript en de vertaling van de audio-stream geretourneerd als u bij het verzenden van de audio. De definitieve transcriptie, de laatste vertaling en de vertaalde audio wordt u alleen na het einde van de utterance worden geretourneerd. In sommige gevallen kunt u afdwingen dat het einde van de utterance. Stuur 2,5 seconden stilte om af te dwingen van het einde van de utterance. 
+De Translator Speech-API het transcript en de vertaling van de audio-stream geretourneerd als u bij het verzenden van de audio. De definitieve transcriptie, de laatste vertaling en de vertaalde audio wordt u alleen na het einde van de utterance worden geretourneerd. In sommige gevallen kunt u afdwingen dat het einde van de utterance. Stuur 2,5 seconden stilte om af te dwingen van het einde van de utterance.
 
 ### <a name="final-result"></a>Laatste resultaat
 Een definitieve spraak herkenningsresultaat wordt aan het einde van een utterance gegenereerd. Een resultaat wordt van de service naar de client met behulp van een WebSocket-bericht van het type tekst verzonden. De inhoud van het bericht is de JSON-serialisatie van een object met de volgende eigenschappen:
@@ -112,7 +113,7 @@ Het uiteindelijke resultaat van een voorbeeld is als volgt:
 {
   type: "final"
   id: "23",
-  recognition: "what was said", 
+  recognition: "what was said",
   translation: "translation of what was said",
   audioStreamPosition: 319680,
   audioSizeBytes: 35840,
@@ -143,7 +144,7 @@ Het uiteindelijke resultaat van een voorbeeld is als volgt:
 {
   type: "partial"
   id: "23.2",
-  recognition: "what was", 
+  recognition: "what was",
   translation: "translation of what was",
   audioStreamPosition: 319680,
   audioSizeBytes: 25840,
@@ -193,46 +194,3 @@ Wanneer een clienttoepassing is voltooid met het streamen van audio en het laats
 |401    |Niet gemachtigd. Zorg ervoor dat referenties zijn ingesteld, of ze geldig zijn en dat uw abonnement op Azure Data markt goede status met een saldo beschikbaar is.|||
 |500    |Er is een fout opgetreden. Als de fout zich blijft voordoen, het rapport met trace-client-id (X-ClientTraceId) of aanvraag-id (X-RequestId).|||
 |503    |De server is tijdelijk niet beschikbaar. Probeer de aanvraag. Als de fout zich blijft voordoen, het rapport met trace-client-id (X-ClientTraceId) of aanvraag-id (X-RequestId).|||
-
-    
-
-
-    
-
-
-
-
-
-    
-    
-
-
-
-
-    
-
-
-
-
-    
-
-
-
-
-    
-
-            
-
-
-
-
-        
-
-
-
-
-
-
-
-
-

@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 7e84e8e99000e9d8bd7a21d343588b1df777b56d
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 661cdddb4682d003b0c1149819a096a2a3756090
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994541"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728995"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# referentie voor ontwikkelaars
 
@@ -29,7 +29,7 @@ Azure Functions biedt ondersteuning voor C# en C#-script programmeertalen. Als u
 In dit artikel wordt ervan uitgegaan dat u de volgende artikelen al hebt gelezen:
 
 * [Azure Functions-handleiding voor ontwikkelaars](functions-reference.md)
-* [Visual Studio 2017-hulpprogramma's van Azure Functions](functions-develop-vs.md)
+* [Azure Functions Visual Studio 2017 Tools](functions-develop-vs.md)
 
 ## <a name="functions-class-library-project"></a>Functions-klassebibliotheekproject
 
@@ -50,7 +50,7 @@ Wanneer u het project bouwt, wordt in een mapstructuur die lijkt op het volgende
  | - host.json
 ```
 
-Deze map is wat wordt geïmplementeerd naar uw functie-app in Azure. De binding-extensies vereist in [versie 2.x](functions-versions.md) van de functies runtime zijn [toegevoegd aan het project als NuGet-pakketten](functions-triggers-bindings.md#c-class-library-with-visual-studio-2017).
+Deze map is wat wordt geïmplementeerd naar uw functie-app in Azure. De binding-extensies vereist in [versie 2.x](functions-versions.md) van de functies runtime zijn [toegevoegd aan het project als NuGet-pakketten](./functions-bindings-register.md#c-class-library-with-visual-studio-2017).
 
 > [!IMPORTANT]
 > De buildproces maakt een *function.json* -bestand voor elke functie. Dit *function.json* bestand is niet bedoeld voor rechtstreeks worden bewerkt. Bindingsconfiguratie wijzigen kan of de functie uitschakelen door dit bestand te bewerken. Zie voor informatie over het uitschakelen van een functie, [functies uitschakelen](disable-function.md#functions-2x---c-class-libraries).
@@ -83,7 +83,7 @@ Handtekening van de methode kan parameters dan de regio die wordt gebruikt in co
 * [Invoer- en uitvoerbindingen](functions-triggers-bindings.md) als zodanig gemarkeerd door met het inrichten van deze kenmerken.  
 * Een `ILogger` of `TraceWriter` ([versie 1.x-alleen](functions-versions.md#creating-1x-apps))-parameter voor [logboekregistratie](#logging).
 * Een `CancellationToken` parameter voor [correct afsluiten](#cancellation-tokens).
-* [Binding van expressies](functions-triggers-bindings.md#binding-expressions-and-patterns) parameters om op te halen de metagegevens van activeren.
+* [Binding van expressies](./functions-bindings-expressions-patterns.md) parameters om op te halen de metagegevens van activeren.
 
 De volgorde van de parameters in de functiehandtekening niet van belang. Bijvoorbeeld, kunt u trigger parameters plaatsen vóór of na de andere bindingen en kunt u de parameter logger plaatsen vóór of na een trigger of bindende parameters.
 
@@ -158,7 +158,7 @@ De *function.json* bestand wordt gemaakt via het NuGet-pakket [Microsoft\.NET\.S
 
 Hetzelfde pakket wordt gebruikt voor beide versie 1.x en 2.x van de Functions-runtime. Het doelframework is wat een 1.x-project van een project 2.x onderscheidt. Hier vindt u belangrijke onderdelen van *.csproj* bestanden, met verschillende frameworks en hetzelfde doel `Sdk` pakket:
 
-**Functies 1.x**
+**Functions 1.x**
 
 ```xml
 <PropertyGroup>
@@ -205,7 +205,7 @@ Elke binding heeft een eigen ondersteunde typen; bijvoorbeeld, een blob-trigger-
 
 ## <a name="binding-to-method-return-value"></a>Binding met de geretourneerde waarde methode
 
-U kunt de geretourneerde waarde van een methode voor een Uitvoerbinding gebruiken door het kenmerk toe te passen op de geretourneerde waarde van de methode. Zie voor voorbeelden van [Triggers en bindingen](functions-triggers-bindings.md#using-the-function-return-value). 
+U kunt de geretourneerde waarde van een methode voor een Uitvoerbinding gebruiken door het kenmerk toe te passen op de geretourneerde waarde van de methode. Zie voor voorbeelden van [Triggers en bindingen](./functions-bindings-return-value.md). 
 
 De geretourneerde waarde alleen gebruiken als een geslaagde uitvoering van een functie altijd in een retourwaarde resulteert doorgeven aan de Uitvoerbinding. Gebruik anders `ICollector` of `IAsyncCollector`, zoals wordt weergegeven in de volgende sectie.
 
@@ -250,7 +250,7 @@ public static class SimpleExample
 
 Vermijd het gebruik van `Console.Write` in Azure Functions. Zie voor meer informatie, [schrijven Logboeken in C# functies](functions-monitoring.md#write-logs-in-c-functions) in de **Monitor Azure Functions** artikel.
 
-## <a name="async"></a>Asynchrone
+## <a name="async"></a>Async
 
 Om te maken van een functie [asynchrone](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/), gebruikt u de `async` sleutelwoord en keer terug een `Task` object.
 

@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 00468ca62e55823b4706fc52d9793f676aebd368
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 9f0ccb85fa4b42ef3ca90c6d4ca2d80113b93a0c
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312851"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733696"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Toepassingen toegang geven tot Azure Stack-bronnen met het maken van service-principals
 
@@ -75,7 +75,7 @@ Wanneer u zich programmatisch aanmeldt, gebruikt u de ID voor uw toepassing en e
 
 2. Kopieer de **Toepassings-id** en sla deze op in uw toepassingscode. De toepassingen in de voorbeeldtoepassingen **client-id** met betrekking tot de **toepassings-ID**.
 
-     ![Toepassings-ID voor de toepassing](./media/azure-stack-create-service-principal/image12.png)
+     ![Toepassings-ID voor de toepassing](./media/azure-stack-create-service-principals/image12.png)
 3. Selecteer **Sleutels** om een verificatiesleutel te genereren.
 
 4. Geef een beschrijving op van de sleutel en geef de duur van de sleutel op. Selecteer **Opslaan** wanneer u klaar bent.
@@ -83,7 +83,7 @@ Wanneer u zich programmatisch aanmeldt, gebruikt u de ID voor uw toepassing en e
 >[!IMPORTANT]
 Nadat u de sleutel opgeslagen **waarde** wordt weergegeven. Noteer deze waarde omdat u de sleutel later niet ophalen. Bewaar de sleutelwaarde op een locatie waar de toepassing deze kan ophalen.
 
-![Waarschuwing: sleutelwaarde voor opgeslagen sleutel.](./media/azure-stack-create-service-principal/image15.png)
+![Waarschuwing: sleutelwaarde voor opgeslagen sleutel.](./media/azure-stack-create-service-principals/image15.png)
 
 De laatste stap is [toewijzen van uw toepassing een rol](azure-stack-create-service-principals.md).
 
@@ -110,7 +110,7 @@ Gebruik de volgende stappen uit als richtlijn voor een rol toewijzen aan een ser
 
 2. Selecteer het abonnement de toepassing toewijzen aan. In dit voorbeeld is het abonnement op Visual Studio Enterprise.
 
-     ![Visual Studio Enterprise-abonnement selecteren voor toewijzing](./media/azure-stack-create-service-principal/image16.png)
+     ![Visual Studio Enterprise-abonnement selecteren voor toewijzing](./media/azure-stack-create-service-principals/image16.png)
 
 3. Selecteer **Access Control (IAM)** voor het abonnement.
 

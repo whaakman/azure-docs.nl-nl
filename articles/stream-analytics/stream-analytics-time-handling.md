@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: 4accff7410d17e76a000b7cef957b75c65a16960
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 91193cc328c02f5ba4f5eb18e0bf853f9d91313a
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008389"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732259"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Inzicht in de verwerking van de tijd in Azure Stream Analytics
 
@@ -163,7 +163,7 @@ Azure Stream Analytics maakt gebruik van watermerk wordt uitgevoerd als de trigg
 
 Bij het gebruik van [statistische functies in vensters](stream-analytics-window-functions.md), de service levert alleen uitvoer aan het einde van de windows. In sommige gevallen kunnen gebruikers willen om te zien van gedeeltelijke statistische functies die zijn gegenereerd op basis van de windows. Gedeeltelijke statistische functies worden momenteel niet ondersteund in Azure Stream Analytics.
 
-In andere streamingoplossingen kunnen uitvoergebeurtenissen worden gematerialiseerd op verschillende tijdstippen van de trigger, afhankelijk van externe omstandigheden. Het is mogelijk in een aantal oplossingen die de uitvoergebeurtenissen voor een bepaald moment venster paar meerdere keren worden gegenereerd. Als de ingevoerde waarden verfijnd worden, worden de resultaten samenvoegen meer nauwkeurige. Gebeurtenissen kunnen worden speculated op eerste en de herziene na verloop van tijd. Wanneer een bepaalde apparaat offline is vanaf het netwerk is, kan er bijvoorbeeld een geschatte waarde worden gebruikt door een systeem. Later op komt hetzelfde apparaat online met het netwerk. Gegevens van de werkelijke gebeurtenis kan vervolgens worden opgenomen in de invoerstroom. Het resultaat dat tijdvenster worden verwerkt, wordt meer nauwkeurige uitvoer gegenereerd.
+In andere streamingoplossingen kunnen uitvoergebeurtenissen worden gematerialiseerd op verschillende tijdstippen van de trigger, afhankelijk van externe omstandigheden. Het is mogelijk in een aantal oplossingen die de uitvoergebeurtenissen voor een bepaalde periode meerdere keren kunnen worden gegenereerd. Als de ingevoerde waarden verfijnd worden, worden de resultaten samenvoegen meer nauwkeurige. Gebeurtenissen kunnen worden speculated op eerste en de herziene na verloop van tijd. Wanneer een bepaalde apparaat offline is vanaf het netwerk is, kan er bijvoorbeeld een geschatte waarde worden gebruikt door een systeem. Later op komt hetzelfde apparaat online met het netwerk. Gegevens van de werkelijke gebeurtenis kan vervolgens worden opgenomen in de invoerstroom. Het resultaat dat tijdvenster worden verwerkt, wordt meer nauwkeurige uitvoer gegenereerd.
 
 ## <a name="illustrated-example-of-watermarks"></a>Voorbeeld van watermerken
 

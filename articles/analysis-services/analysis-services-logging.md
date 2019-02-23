@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9f9a6511d63e57c6cbfa5ee2453f8038bb259047
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: b35707b857c66f0f1b91f2f1b5dd7a0ffa24dd9e
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428989"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733755"
 ---
 # <a name="setup-diagnostic-logging"></a>Registratie in diagnoselogboek instellen
 
@@ -21,6 +21,7 @@ Een belangrijk onderdeel van een Analysis Services-oplossing wordt bewaakt door 
 
 ![Diagnostische logboekregistratie naar opslag, Event Hubs of Azure Monitor-Logboeken](./media/analysis-services-logging/aas-logging-overview.png)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="whats-logged"></a>Wat aangemeld?
 
@@ -103,7 +104,7 @@ Om in te schakelen metrische en diagnostische gegevens logboekregistratie met be
 - Om in te schakelen opslag van diagnostische logboeken in een opslagaccount, gebruikt u deze opdracht:
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
    ```
 
    Het opslagaccount-ID is de resource-ID voor het opslagaccount waar u om de logboeken te verzenden.
@@ -111,7 +112,7 @@ Om in te schakelen metrische en diagnostische gegevens logboekregistratie met be
 - Als u wilt inschakelen voor streaming van diagnostische logboeken naar een event hub, gebruikt u deze opdracht:
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
    ```
 
    De regel-ID van Azure Service Bus is een tekenreeks zijn met deze indeling:
@@ -123,13 +124,13 @@ Om in te schakelen metrische en diagnostische gegevens logboekregistratie met be
 - Als u wilt inschakelen verzenden van diagnostische logboeken naar Log Analytics-werkruimte, moet u deze opdracht gebruiken:
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
    ```
 
 - U vindt de resource-ID van uw Log Analytics-werkruimte met behulp van de volgende opdracht uit:
 
    ```powershell
-   (Get-AzureRmOperationalInsightsWorkspace).ResourceId
+   (Get-AzOperationalInsightsWorkspace).ResourceId
    ```
 
 U kunt deze parameters voor het inschakelen van meerdere uitvoeropties combineren.
@@ -187,7 +188,7 @@ Er zijn honderden query's die u kunt gebruiken. Zie voor meer informatie over qu
 
 ## <a name="turn-on-logging-by-using-powershell"></a>Logboekregistratie inschakelen met behulp van PowerShell
 
-In deze korte zelfstudie maakt u een opslagaccount in hetzelfde abonnement en dezelfde resourcegroep als uw Analysis Services-server. Vervolgens gebruikt u Set-AzureRmDiagnosticSetting om in te schakelen Diagnostische logboekregistratie, het verzenden van uitvoer naar het nieuwe opslagaccount.
+In deze korte zelfstudie maakt u een opslagaccount in hetzelfde abonnement en dezelfde resourcegroep als uw Analysis Services-server. Vervolgens gebruikt u Set-AzDiagnosticSetting om in te schakelen Diagnostische logboekregistratie, het verzenden van uitvoer naar het nieuwe opslagaccount.
 
 ### <a name="prerequisites"></a>Vereisten
 Voor deze zelfstudie hebt u de volgende bronnen:
@@ -199,7 +200,7 @@ Voor deze zelfstudie hebt u de volgende bronnen:
 Start een Azure PowerShell-sessie en gebruik de volgende opdracht om u aan te melden bij uw Azure-account:  
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Voer in het pop-upvenster in de browser uw gebruikersnaam en wachtwoord voor uw Azure-account in. Azure PowerShell haalt alle abonnementen op die zijn gekoppeld aan dit account en gebruikt standaard het eerste abonnement.
@@ -207,13 +208,13 @@ Voer in het pop-upvenster in de browser uw gebruikersnaam en wachtwoord voor uw 
 Als u meerdere abonnementen hebt, moet u wellicht specifiek opgeven welk abonnement is gebruikt voor het maken van uw Azure Sleutelkluis. Typ het volgende als u de abonnementen voor uw account wilt zien:
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Klik, als u het abonnement dat is gekoppeld aan het Azure Analysis Services-account dat u zich aanmeldt, typt u:
 
 ```powershell
-Set-AzureRmContext -SubscriptionId <subscription ID>
+Set-AzContext -SubscriptionId <subscription ID>
 ```
 
 > [!NOTE]
@@ -228,7 +229,7 @@ U kunt een bestaand opslagaccount gebruiken voor uw Logboeken, indien deze zich 
 U kunt ook dezelfde resourcegroep gebruiken als het account dat met uw Analysis Services-server. Vervang de waarden voor `awsales_resgroup`, `awsaleslogs`, en `West Central US` door uw eigen waarden:
 
 ```powershell
-$sa = New-AzureRmStorageAccount -ResourceGroupName awsales_resgroup `
+$sa = New-AzStorageAccount -ResourceGroupName awsales_resgroup `
 -Name awsaleslogs -Type Standard_LRS -Location 'West Central US'
 ```
 
@@ -237,16 +238,16 @@ $sa = New-AzureRmStorageAccount -ResourceGroupName awsales_resgroup `
 Stel de naam van het aan een variabele met de naam **account**, waar ResourceName is de naam van het account.
 
 ```powershell
-$account = Get-AzureRmResource -ResourceGroupName awsales_resgroup `
+$account = Get-AzResource -ResourceGroupName awsales_resgroup `
 -ResourceName awsales -ResourceType "Microsoft.AnalysisServices/servers"
 ```
 
 ### <a name="enable-logging"></a>Logboekregistratie inschakelen
 
-Als logboekregistratie wilt inschakelen, gebruikt u de cmdlet Set-AzureRmDiagnosticSetting, samen met de variabelen voor de nieuwe storage-account, server-account en de categorie. Voer de volgende opdracht, instellen van de **-ingeschakeld** markering **$true**:
+Als logboekregistratie wilt inschakelen, gebruikt u de cmdlet Set-AzDiagnosticSetting samen met de variabelen voor de nieuwe storage-account, server-account en de categorie. Voer de volgende opdracht, instellen van de **-ingeschakeld** markering **$true**:
 
 ```powershell
-Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
+Set-AzDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
 ```
 
 De uitvoer zou er ongeveer uit moeten zien zoals in dit voorbeeld:
@@ -293,7 +294,7 @@ Deze uitvoer bevestigt dat logboekregistratie nu is ingeschakeld voor de server,
 U kunt ook bewaarbeleid instellen voor uw Logboeken, zodat oudere logboeken automatisch worden verwijderd. Bijvoorbeeld, stel retentiebeleid in met behulp **- RetentionEnabled** markering **$true**, en stel **- RetentionInDays** parameter **90**. Logboeken die ouder zijn dan 90 dagen worden automatisch verwijderd.
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
+Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
  -StorageAccountId $sa.Id -Enabled $true -Categories Engine`
   -RetentionEnabled $true -RetentionInDays 90
 ```
@@ -302,4 +303,4 @@ Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
 
 Meer informatie over [Diagnostische logboekregistratie van Azure-resource](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-Zie [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/Set-AzureRmDiagnosticSetting) in de PowerShell-help.
+Zie [Set AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.insights/Set-azDiagnosticSetting) in de PowerShell-help.

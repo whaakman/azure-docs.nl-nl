@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: priyar
-ms.openlocfilehash: 61bd1879a4b1bf8281ac03c8254fb3d48c07a139
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: f7620c29e7d00a06be6d14740f05cc7543e49837
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215857"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674562"
 ---
 # <a name="bing-text-to-speech-api"></a>Bing text to speech-API
 
@@ -40,7 +41,7 @@ Content-Length: 0
 
 De vereiste header-informatie voor token-toegang is als volgt.
 
-Name| Indeling | Beschrijving
+Name| Indeling | Description
 ----|----|----
 OCP-Apim-Subscription-Key | ASCII | Uw abonnementssleutel
 
@@ -121,7 +122,7 @@ Content-Length: 0
 
 ### <a name="ErrorResponse"></a>Foutberichten
 
-Fout | Beschrijving
+Fout | Description
 ----|----
 HTTP-/ 400 Ongeldige aanvraag | Er ontbreekt een vereiste parameter ontbreekt, is leeg of null zijn of de waarde die wordt doorgegeven aan een vereiste of optionele parameter is ongeldig. Eén reden voor het ophalen van het antwoord 'Ongeldige' is een tekenreekswaarde die langer is dan de toegestane lengte doorgegeven. Een korte beschrijving van de problematische parameter is opgenomen.
 HTTP/401-niet gemachtigd | De aanvraag is niet gemachtigd.

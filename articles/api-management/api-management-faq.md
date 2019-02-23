@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: e80ebcd6de7a793450a0503c99af151e96658ea9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 99b54a5fe5c28eb66a61fad61d23b94f0955f126
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876739"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728565"
 ---
 # <a name="azure-api-management-faqs"></a>Veelgestelde vragen over de Azure API Management
 De antwoorden op veelgestelde vragen, patronen en best practices voor Azure API Management.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="contact-us"></a>Contact opnemen
 * [Hoe kan ik van de Microsoft Azure API Management-team een vraag stellen?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
@@ -89,9 +91,9 @@ Hier ziet u hoe u een gebruiker kunt toevoegen aan de groep Administrators:
 
 Nu de pas toegevoegde Inzender kunt Azure PowerShell gebruiken [cmdlets](https://docs.microsoft.com/powershell/azure/overview). Dit is hoe u zich aanmelden als beheerder:
 
-1. Gebruik de `Connect-AzureRmAccount` cmdlet aan te melden.
-2. Stelt u de context voor het abonnement waarvoor u de service met behulp van `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`.
-3. Een URL met eenmalige aanmelding ophalen met behulp van `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
+1. Gebruik de `Connect-AzAccount` cmdlet aan te melden.
+2. Stelt u de context voor het abonnement waarvoor u de service met behulp van `Set-AzContext -SubscriptionID <subscriptionGUID>`.
+3. Een URL met eenmalige aanmelding ophalen met behulp van `Get-AzApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
 4. Gebruik de URL voor toegang tot de beheerportal.
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Waarom is het beleid dat ik niet beschikbaar in de beleidseditor wilt toevoegen?
@@ -132,11 +134,11 @@ Ja. Zie de [Azure API Management-Service](https://aka.ms/apimtemplate) QuickStar
 Ja. Dit kan worden gedaan via PowerShell of door rechtstreeks verzenden naar de API. Hiermee wordt de validatie van certificaatketen uitschakelen en kunt u het gebruik van zelf-ondertekend of privé-ondertekende certificaten tijdens de communicatie van API Management met de back-end-services.
 
 #### <a name="powershell-method"></a>PowerShell-methode ####
-Gebruik de [ `New-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (voor de nieuwe back-end) of [ `Set-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (voor bestaande back-end) PowerShell-cmdlets en stel de `-SkipCertificateChainValidation` parameter `True`. 
+Gebruik de [ `New-AzApiManagementBackend` ](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (voor de nieuwe back-end) of [ `Set-AzApiManagementBackend` ](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (voor bestaande back-end) PowerShell-cmdlets en stel de `-SkipCertificateChainValidation` parameter `True`. 
 
 ```powershell
-$context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
-New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
+$context = New-AApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
+New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```
 
 #### <a name="direct-api-update-method"></a>Directe methode voor API bijwerken ####

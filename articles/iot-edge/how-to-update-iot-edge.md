@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: dfad3199ba3a9cd2f3bca55be50760ddde676e70
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: b11f11aa3966bc57caa5b8dd0379f4d5c59c8375
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558189"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672896"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>De IoT Edge security-daemon en runtime bijwerken
 
@@ -28,7 +28,7 @@ Twee onderdelen van een IoT Edge-apparaat moeten worden bijgewerkt als u wilt ve
 >* U hebt uw apparaat niet bijgewerkt naar Windows build 17763. IoT Edge-versie 1.0.5 biedt geen ondersteuning voor Windows bouwt ouder zijn dan 17763.
 >* U uitvoeren Java- of Node.js-modules op uw Windows-apparaat. Versie 1.0.5 overslaan, zelfs als u uw Windows-apparaat hebt bijgewerkt naar de nieuwste build. 
 >
->Zie voor meer informatie over IoT Edge versie 1.0.5 [1.0.5 opmerkingen bij de release](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Zie voor meer informatie over hoe om te voorkomen dat uw ontwikkelhulpmiddelen bijwerken naar de nieuwste versie, [de IoT-ontwikkelaarsblog](https://aka.ms/dev-win-iot-edge-module).
+>Zie voor meer informatie over IoT Edge versie 1.0.5 [1.0.5 opmerkingen bij de release](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Zie voor meer informatie over hoe om te voorkomen dat uw ontwikkelhulpmiddelen bijwerken naar de nieuwste versie, [de IoT-ontwikkelaarsblog](https://devblogs.microsoft.com/iotdev/).
 
 
 De nieuwste versie van Azure IoT Edge, Zie [releases van Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases).

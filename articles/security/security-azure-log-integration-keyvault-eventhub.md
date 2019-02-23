@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 21a1cd6d0326c834a05681ffe98555ea52858e6e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 22d4a18ad1c6e80baa6e798be399ab2cd4836fbc
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106559"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733400"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Zelfstudie voor Azure-Logboekintegratie: Azure Key Vault-gebeurtenissen verwerken met behulp van Event Hubs
 
@@ -50,31 +50,28 @@ Zie voor meer informatie over de services die in deze zelfstudie wordt vermeld:
 
 ## <a name="initial-setup"></a>Eerste installatie
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Voordat u de stappen in dit artikel voltooien kunt, moet u het volgende:
 
-1. Een Azure-abonnement en een account op dat aan het abonnement met beheerdersrechten. Als u geen abonnement hebt, kunt u een [gratis account](https://azure.microsoft.com/free/).
+* Een Azure-abonnement en een account op dat aan het abonnement met beheerdersrechten. Als u geen abonnement hebt, kunt u een [gratis account](https://azure.microsoft.com/free/).
  
-1. Een systeem met toegang tot het internet die voldoet aan de vereisten voor het installeren van Azure-Logboekintegratie. Het systeem kan zich op een service in de cloud of on-premises gehost.
+* Een systeem met toegang tot het internet die voldoet aan de vereisten voor het installeren van Azure-Logboekintegratie. Het systeem kan zich op een service in de cloud of on-premises gehost.
 
-1. Azure-Logboekintegratie geïnstalleerd. Om deze te installeren:
+* Azure-Logboekintegratie geïnstalleerd. Om deze te installeren:
 
    a. Extern bureaublad gebruiken voor het verbinding maken met het systeem vermeld in stap 2.   
    b. Kopieer het installatieprogramma van de Azure-Logboekintegratie naar het systeem. c. Start het installatieprogramma en accepteer de licentievoorwaarden voor Microsoft-Software.
 
-1. Als u telemetrie-informatie wordt verstrekt, laat u het selectievakje ingeschakeld. Als u informatie over het gebruik in plaats daarvan niet naar Microsoft verzenden zou, schakelt u het selectievakje in.
+* Als u telemetrie-informatie wordt verstrekt, laat u het selectievakje ingeschakeld. Als u informatie over het gebruik in plaats daarvan niet naar Microsoft verzenden zou, schakelt u het selectievakje in.
 
    Zie voor meer informatie over Azure-Logboekintegratie en hoe u deze installeert [Azure-Logboekintegratie met Azure Diagnostics-logboeken en Windows Event Forwarding](security-azure-log-integration-get-started.md).
 
-1. De meest recente versie van PowerShell.
+* De meest recente versie van PowerShell.
 
    Als u Windows Server 2016 is geïnstalleerd hebt, hebt u ten minste PowerShell 5.0. Als u een andere versie van Windows Server, hebt u mogelijk een eerdere versie van PowerShell is geïnstalleerd. U kunt controleren welke versie door in te voeren ```get-host``` in een PowerShell-venster. Als u geen PowerShell 5.0 is geïnstalleerd, kunt u [downloaden](https://www.microsoft.com/download/details.aspx?id=50395).
 
-   Nadat u ten minste hebt PowerShell 5.0, kunt u doorgaan met de meest recente versie te installeren:
-
-   a. Voer in een PowerShell-venster de ```Install-Module Azure``` opdracht. Voer de installatiestappen uit.    
-   b. Voer de ```Install-Module AzureRM``` opdracht. Voer de installatiestappen uit.
-
-   Zie voor meer informatie, [Azure PowerShell installeren](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.0.0).
+   Nadat u ten minste hebt PowerShell 5.0, kunt u doorgaan met het installeren van de meest recente versie door de instructies in [Azure PowerShell installeren](/powershell/azure/install-az-ps).
 
 
 ## <a name="create-supporting-infrastructure-elements"></a>Ondersteunende Infrastructuurelementen maken
@@ -84,14 +81,13 @@ Voordat u de stappen in dit artikel voltooien kunt, moet u het volgende:
 
    ![Lijst met geladen modules](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
 
-1. Voer de `Connect-AzureRmAccount` opdracht. Voer in het aanmeldingsvenster de referentie-informatie voor het abonnement die u voor deze zelfstudie gebruiken wilt.
+1. Voer de `Connect-AzAccount` opdracht. Voer in het aanmeldingsvenster de referentie-informatie voor het abonnement die u voor deze zelfstudie gebruiken wilt.
 
    >[!NOTE]
    >Als dit de eerste keer is dat u bent aangemeld bij Azure vanaf deze machine, ziet u een bericht over het toestaan van Microsoft voor het verzamelen van gebruiksgegevens van PowerShell. U wordt aangeraden dat u deze gegevensverzameling niet inschakelen omdat dit wordt gebruikt voor het verbeteren van Azure PowerShell.
 
-1. U bent aangemeld na een geslaagde authenticatie en ziet u de informatie in de volgende schermafbeelding. Noteer de abonnements-ID en naam van abonnement, omdat u moet ze om latere stappen te voltooien.
+1. Na een geslaagde authenticatie, bent u aangemeld. Noteer de abonnements-ID en naam van abonnement, omdat u moet ze om latere stappen te voltooien.
 
-   ![PowerShell-venster](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
 1. Maak variabelen voor het opslaan van waarden die later worden gebruikt. Voer de volgende PowerShell-regels. Mogelijk moet u de waarden zodat deze overeenkomt met uw omgeving aanpassen.
     - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` (Naam van uw abonnement kan afwijken. U kunt zien dit als onderdeel van de uitvoer van de vorige opdracht.)
     - ```$location = 'West US'``` (Deze variabele wordt gebruikt om door te geven van de locatie waar de resources moeten worden gemaakt. U kunt deze variabele om te worden van een willekeurige locatie van uw keuze worden wijzigen.)
@@ -102,37 +98,37 @@ Voordat u de stappen in dit artikel voltooien kunt, moet u het volgende:
     - ``` $eventHubNameSpaceName = $name``` (Dit is de naam van de event hub-naamruimte.)
 1. Geef het abonnement dat u met werkt:
     
-    ```Select-AzureRmSubscription -SubscriptionName $subscriptionName```
+    ```Select-AzSubscription -SubscriptionName $subscriptionName```
 1. Een resourcegroep maken:
     
-    ```$rg = New-AzureRmResourceGroup -Name $rgname -Location $location```
+    ```$rg = New-AzResourceGroup -Name $rgname -Location $location```
     
    Als u `$rg` op dit moment ziet u uitvoer die vergelijkbaar is met deze schermopname:
 
    ![Uitvoer na het maken van een resourcegroep](./media/security-azure-log-integration-keyvault-eventhub/create-rg.png)
 1. Maak een opslagaccount dat wordt gebruikt om informatie over de status bij te houden:
     
-    ```$storage = New-AzureRmStorageAccount -ResourceGroupName $rgname -Name $storagename -Location $location -SkuName Standard_LRS```
+    ```$storage = New-AzStorageAccount -ResourceGroupName $rgname -Name $storagename -Location $location -SkuName Standard_LRS```
 1. De event hub-naamruimte maken. Dit is vereist voor het maken van een event hub.
     
-    ```$eventHubNameSpace = New-AzureRmEventHubNamespace -ResourceGroupName $rgname -NamespaceName $eventHubnamespaceName -Location $location```
+    ```$eventHubNameSpace = New-AzEventHubNamespace -ResourceGroupName $rgname -NamespaceName $eventHubnamespaceName -Location $location```
 1. De regel-ID die wordt gebruikt met de insights-provider niet ophalen:
     
     ```$sbruleid = $eventHubNameSpace.Id +'/authorizationrules/RootManageSharedAccessKey' ```
 1. Ophalen van alle mogelijke Azure-locaties en de namen toevoegen aan een variabele die kan worden gebruikt in een latere stap:
     
-    a. ```$locationObjects = Get-AzureRMLocation```    
+    a. ```$locationObjects = Get-AzLocation```    
     b. ```$locations = @('global') + $locationobjects.location```
     
-    Als u `$locations` op dit moment ziet u de locatienamen van de zonder de aanvullende informatie die wordt geretourneerd door Get-AzureRmLocation.
+    Als u `$locations` op dit moment ziet u de locatienamen van de zonder de aanvullende informatie die wordt geretourneerd door Get-AzLocation.
 1. Een Azure Resource Manager logboekprofiel maken: 
     
-    ```Add-AzureRmLogProfile -Name $name -ServiceBusRuleId $sbruleid -Locations $locations```
+    ```Add-AzLogProfile -Name $name -ServiceBusRuleId $sbruleid -Locations $locations```
     
     Zie voor meer informatie over het profiel van de Azure log [overzicht van de Azure-activiteitenlogboek](../azure-monitor/platform/activity-logs-overview.md).
 
 > [!NOTE]
-> Wanneer u probeert te maken van een logboekprofiel, kunt u een foutmelding krijgen. Vervolgens kunt u de documentatie voor Get-AzureRmLogProfile en Remove-AzureRmLogProfile bekijken. Als u Get-AzureRmLogProfile uitvoert, ziet u informatie over het logboekprofiel. U kunt de bestaande logboekprofiel verwijderen door te voeren de ```Remove-AzureRmLogProfile -name 'Log Profile Name' ``` opdracht.
+> Wanneer u probeert te maken van een logboekprofiel, kunt u een foutmelding krijgen. Vervolgens kunt u de documentatie voor Get-AzLogProfile en Remove-AzLogProfile bekijken. Als u Get-AzLogProfile uitvoert, ziet u informatie over het logboekprofiel. U kunt de bestaande logboekprofiel verwijderen door te voeren de ```Remove-AzLogProfile -name 'Log Profile Name' ``` opdracht.
 >
 >![Fout bij het Resource Manager-profiel](./media/security-azure-log-integration-keyvault-eventhub/rm-profile-error.png)
 
@@ -140,11 +136,11 @@ Voordat u de stappen in dit artikel voltooien kunt, moet u het volgende:
 
 1. De key vault maken:
 
-   ```$kv = New-AzureRmKeyVault -VaultName $name -ResourceGroupName $rgname -Location $location ```
+   ```$kv = New-AzKeyVault -VaultName $name -ResourceGroupName $rgname -Location $location ```
 
 1. Logboekregistratie voor de key vault configureren:
 
-   ```Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -ServiceBusRuleId $sbruleid -Enabled $true ```
+   ```Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -ServiceBusRuleId $sbruleid -Enabled $true ```
 
 ## <a name="generate-log-activity"></a>Genereren van een activiteit
 
@@ -152,16 +148,16 @@ Aanvragen moeten worden verzonden naar de Key Vault voor het genereren van een a
 
 1. De huidige opslagsleutels weergegeven:
     
-   ```Get-AzureRmStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
+   ```Get-AzStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
 1. Genereer een nieuwe **key2**:
     
-   ```New-AzureRmStorageAccountKey -Name $storagename -ResourceGroupName $rgname -KeyName key2```
+   ```New-AzStorageAccountKey -Name $storagename -ResourceGroupName $rgname -KeyName key2```
 1. De sleutels opnieuw weergegeven en u ziet dat **key2** bevat een andere waarde:
     
-   ```Get-AzureRmStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
+   ```Get-AzStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
 1. Instellen en lezen van een geheim voor het genereren van extra vermeldingen:
     
-   a. ```Set-AzureKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)``` b. ```(Get-AzureKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
+   a. ```Set-AzKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)``` b. ```(Get-AzKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
 
    ![Geheime geretourneerd](./media/security-azure-log-integration-keyvault-eventhub/keyvaultsecret.png)
 
@@ -170,14 +166,14 @@ Aanvragen moeten worden verzonden naar de Key Vault voor het genereren van een a
 
 Nu dat u hebt de vereiste elementen voor Key Vault logboekregistratie naar een event hub hebt geconfigureerd, moet u Azure-Logboekintegratie configureren:
 
-1. ```$storage = Get-AzureRmStorageAccount -ResourceGroupName $rgname -Name $storagename```
-1. ```$eventHubKey = Get-AzureRmEventHubNamespaceKey -ResourceGroupName $rgname -NamespaceName $eventHubNamespace.name -AuthorizationRuleName RootManageSharedAccessKey```
-1. ```$storagekeys = Get-AzureRmStorageAccountKey -ResourceGroupName $rgname -Name $storagename```
+1. ```$storage = Get-AzStorageAccount -ResourceGroupName $rgname -Name $storagename```
+1. ```$eventHubKey = Get-AzEventHubNamespaceKey -ResourceGroupName $rgname -NamespaceName $eventHubNamespace.name -AuthorizationRuleName RootManageSharedAccessKey```
+1. ```$storagekeys = Get-AzStorageAccountKey -ResourceGroupName $rgname -Name $storagename```
 1. ``` $storagekey = $storagekeys[0].Value```
 
 Voer de opdracht AzLog voor elke event hub:
 
-1. ```$eventhubs = Get-AzureRmEventHub -ResourceGroupName $rgname -NamespaceName $eventHubNamespaceName```
+1. ```$eventhubs = Get-AzEventHub -ResourceGroupName $rgname -NamespaceName $eventHubNamespaceName```
 1. ```$eventhubs.Name | %{Add-AzLogEventSource -Name $sub' - '$_ -StorageAccount $storage.StorageAccountName -StorageKey $storageKey -EventHubConnectionString $eventHubKey.PrimaryConnectionString -EventHubName $_}```
 
 Na een minuut van de laatste twee opdrachten uitvoert, ziet u de JSON-bestanden die worden gegenereerd. U bevestigen dat door de bewaking van de map **C:\users\AzLog\EventHubJson**.

@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 02/22/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
-ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 0be1814fd501824056bc80d4aeb561ff58735125
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.lastreviewed: 02/22/2019
+ms.openlocfilehash: 3b057e9c4a0fccb3f85ec237433e4020fd4a84da
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447443"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737481"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Voordat u aan de slag met App Service in Azure Stack
 
@@ -307,6 +307,16 @@ De SQL Server-exemplaar voor Azure App Service in Azure Stack moet toegankelijk 
 > Een aantal SQL IaaS-installatiekopieën voor virtuele machines zijn beschikbaar via de Marketplace-Management-functie. Zorg ervoor dat u altijd de nieuwste versie van de SQL IaaS-extensie downloaden voordat u een virtuele machine met behulp van een Marketplace-item implementeert. De SQL-installatiekopieën zijn hetzelfde als de SQL-VM's die beschikbaar in Azure zijn. Voor SQL-VM's gemaakt op basis van deze installatiekopieën, de IaaS-extensie en de bijbehorende portal verbeteringen bieden functies zoals automatische toepassing van patches en back-mogelijkheden.
 >
 Voor een van de SQL Server-rollen, kunt u een standaardexemplaar of een benoemd exemplaar. Als u een benoemd exemplaar gebruikt, moet u handmatig de SQL Server Browser-service starten en-poort 1434 openen.
+
+Het App Service-installatieprogramma wordt gecontroleerd of dat de SQL Server database containment ingeschakeld heeft. Als u database containment op de SQL-Server die als host de App Service-databases fungeert, voert u deze SQL-opdrachten:
+
+```sql
+sp_configure 'contained database authentication', 1;  
+GO  
+RECONFIGURE;  
+GO
+```
+
 
 >[!IMPORTANT]
 > Als u ervoor kiest om App Service in een bestaand Virtueelnetwerk, de SQL-Server moet worden geïmplementeerd in een apart Subnet van App Service en de bestandsserver te implementeren.
